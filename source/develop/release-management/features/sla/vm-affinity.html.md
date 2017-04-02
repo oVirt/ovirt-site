@@ -125,8 +125,7 @@ Filters out host according to affinity enforce mode (hard).
 
 ### REST API
 
-A new type was added - **AffinityRule** with two attributes of that type,
-one for virtual machines and another for hosts:
+A new type was added to the engine's api model - **AffinityRule** . It has two attributes: one for virtual machines and another for hosts.
 
 ```
 <vms_rule>
@@ -144,7 +143,7 @@ one for virtual machines and another for hosts:
   >**NOTE** : The existing positive and enforcing attributes (for vms) will be preserved, and marked as deprecated.
    They will have the same meaning that they had before.
 
-See other examples:
+Here are more examples:
 
 
 GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups

@@ -7,13 +7,11 @@ comments: true
 published: true
 ---
 
-Last month, the oVirt Project [shipped version 4.1](https://www.ovirt.org/release/4.1.0/) of its open source virtualization management system. With a new release comes an update to this howto for running oVirt together with Gluster storage using a trio of servers to provide for the system's virtualization and storage needs, in a configuration that allows you to take one of the three hosts down at a time without disrupting your running VMs.
-
-**Important Note:** I want to stress that while Red Hat has recently begun to sell and support a converged [virtualization and storage configuration](https://access.redhat.com/articles/2360321) on a limited basis, the converged oVirt/Gluster setup I describe here should be considered somewhat bleeding edge.
+Last month, the oVirt Project [shipped version 4.1](http://lists.ovirt.org/pipermail/announce/2017-February/000312.html) of its open source virtualization management system. With a new release comes an update to this howto for running oVirt together with Gluster storage using a trio of servers to provide for the system's virtualization and storage needs, in a configuration that allows you to take one of the three hosts down at a time without disrupting your running VMs.
 
 If you're looking instead for a simpler, single-machine option for trying out oVirt, your best bet is the <a href="http://www.ovirt.org/OVirt_Live">oVirt Live ISO</a>. This is a LiveCD image that you can burn onto a blank CD or copy onto a USB stick to boot from and run oVirt. This is probably the fastest way to get up and running, but once you're up, this is definitely a low-performance option, and not suitable for extended use or expansion.
 
-Read on to learn about my favored way of running oVirt.
+Read on to learn about my favorite way of running oVirt.
 
 READMORE
 
@@ -21,7 +19,7 @@ READMORE
 
 ### Prerequisites
 
-__Hardware:__ You’ll need three machines with plenty of RAM and processors with [hardware virtualization extensions](http://en.wikipedia.org/wiki/X86_virtualization#Hardware-assisted_virtualization). Physical machines are best, but you can test oVirt using [nested KVM](http://community.redhat.com/blog/2013/08/testing-ovirt-3-3-with-nested-kvm/) as well. I've written this howto using VMs running on my "real" oVirt+Gluster install.
+__Hardware:__ You’ll need three machines with 16GB or more of RAM and processors with [hardware virtualization extensions](http://en.wikipedia.org/wiki/X86_virtualization#Hardware-assisted_virtualization). Physical machines are best, but you can test oVirt using [nested KVM](http://community.redhat.com/blog/2013/08/testing-ovirt-3-3-with-nested-kvm/) as well. I've written this howto using VMs running on my "real" oVirt+Gluster install.
 
 __Software:__ For this howto, I'm using [oVirt Node 4.1.1](https://www.ovirt.org/node/), a streamlined operating system image based on CentOS 7, for my three hosts, and a CentOS-based appliance image for the Engine VM. oVirt does support other OS options. For more info see the project's <a href="http://www.ovirt.org/download/">download page</a>.
 
@@ -51,7 +49,7 @@ Next, open up a web browser and visit your first host at port 9090 to access the
 
 ![](uarwo41-cockpit-1.png)
 
-The dialog window that appears contains a series of steps through which you provide gdeploy with the information it needs to configure your three nodes for running ovirt with gluster storage, starting with the hosts you want to configure.
+oVirt Node ships with an Ansible-based Gluster deployment tool called [gdeploy](http://gdeploy.readthedocs.io/en/latest/). The dialog window that appears contains a series of steps through which you provide gdeploy with the information it needs to configure your three nodes for running ovirt with gluster storage, starting with the hosts you want to configure.
 
 ![](uarwo41-gdeploy-1.png)
 
@@ -156,7 +154,7 @@ The key thing to keep in mind regarding host maintainence and downtime is that t
 
 The oVirt engine pays attention to the state of its configured gluster volumes, and will warn you if certain actions will run afoul of quorum rules or if your volumes have pending healing operations. 
 
-You can bring a single machine down for maintenance by first putting the system into maintenance mode from the oVirt console, and updating, rebooting, shutting down, etc. as desired.
+You can bring a single machine down for maintenance by first putting the system into maintenance mode from the oVirt console by clicking on the host entry in the Hosts tab, and then, from either the tool bar below the tabs or from the right-click menu, choose Managegent, and then Maintenance, before updating, rebooting, shutting down, etc. as desired.
 
 Putting a host into maintenance mode will also put that host's hosted engine HA services into local maintenance mode, rendering that host ineligible to take over engine-hosting duties. 
 

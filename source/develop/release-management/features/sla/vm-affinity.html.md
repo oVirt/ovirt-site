@@ -125,7 +125,7 @@ Filters out host according to affinity enforce mode (hard).
 
 ### REST API
 
-A new type was added to the engine's api model - **AffinityRule** . It has two attributes: one for virtual machines and another for hosts.
+A new type was added to the engine's API model - **AffinityRule** . It has two attributes: one for virtual machines and another for hosts.
 
 ```
 <vms_rule>

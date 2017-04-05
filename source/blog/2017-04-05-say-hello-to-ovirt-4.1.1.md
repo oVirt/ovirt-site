@@ -43,6 +43,6 @@ READMORE
 
 * Cockpit-gdeploy related bug fixes to enhance the installation flow for the hyper-converged use case.
 
-This is an opportunity to say a big thanks to everyone that was involved in the work on 4.1.1. This version is a true testament to the power of collaboration in the oVirt community.
+This is a good opportunity to say a big thanks to everyone that was involved in the work on 4.1.1. This version is a true testament to the power of collaboration in the oVirt community.
 
 You'll find the full oVirt 4.1.1 release notes [here](https://www.ovirt.org/release/4.1.1/).

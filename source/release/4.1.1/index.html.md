@@ -8,7 +8,7 @@ authors: sandrobonazzola
 
 The oVirt Project is pleased to announce the availability of 4.1.1
 Release as
-of April 05, 2017.
+of March 22, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an
 awesome KVM management interface for multi-node virtualization.
@@ -84,7 +84,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 `excludepkgs=collectd*`.
 
 ## What's New in 4.1.1 Async release?
-On March 30th 2017 the oVirt team issued an async release including the following fixes:
+On April 6th 2017 the oVirt team issued an async release including the following fixes:
 
 #### oVirt Engine
  - [BZ 1429534](https://bugzilla.redhat.com/1429534) <b>[scale] - tasks rejection, causing to corrupted monitoring.</b><br>

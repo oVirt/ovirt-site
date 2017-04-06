@@ -37,7 +37,7 @@ Maximum memory is stored in column `vm_static.max_memory_size_mb`.
 Maximum memory is available in tag *VM-like entity*`/memory_policy/max`. E.g.
 
 ```xml
-GET ovirt-engine/api/clusters/{vmId}
+GET ovirt-engine/api/vms/{vmId}
 
 <vm id="...">
     ...

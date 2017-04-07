@@ -27,6 +27,10 @@ and the [about oVirt](about oVirt) page.
 [Installation guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/)
 is available for updated and detailed installation instructions.
 
+
+## Install / Upgrade from previous versions
+
+
 ### Fedora / CentOS / RHEL
 
 

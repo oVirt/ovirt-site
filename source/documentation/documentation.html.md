@@ -1,6 +1,7 @@
 ---
 title: User Guides
 category: documentation
+layout: toc
 authors: bproffitt, dneary, quaid, sgordon
 wiki_category: Documentation
 wiki_title: User Guides

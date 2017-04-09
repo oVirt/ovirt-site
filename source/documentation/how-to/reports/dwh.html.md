@@ -1,6 +1,7 @@
 ---
 title: oVirt DWH
 category: documentation
+layout: toc
 authors: quaid, sradco, yaniv dary
 wiki_category: Documentation
 wiki_title: Ovirt DWH

@@ -1,6 +1,7 @@
 ---
 title: Quick Start Guide
 category: documentation
+layout: toc
 authors: adahms, bproffitt, didi, fab, gianluca, gshereme, jbrooks, jhernand, jonar,
   jvdwege, knesenko, mgoldboi, nkesick, oschreib, rydekull, sandrobonazzola, sgordon,
   vered, wdennis

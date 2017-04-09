@@ -1,6 +1,7 @@
 ---
 title: About oVirt
 category: documentation
+layout: toc
 authors: bproffitt, dneary
 wiki_category: Documentation
 wiki_title: About oVirt

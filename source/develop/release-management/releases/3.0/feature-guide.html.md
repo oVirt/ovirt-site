@@ -1,6 +1,7 @@
 ---
 title: oVirt 3.0 Feature Guide
 category: documentation
+layout: toc
 authors: jbrooks
 wiki_category: collateral
 wiki_title: OVirt 3.0 Feature Guide

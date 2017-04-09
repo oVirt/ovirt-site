@@ -1,6 +1,7 @@
 ---
 title: Working with oVirt Gerrit
 category: documentation
+layout: toc
 authors: abonas, amuller, amureini, asaf, dcaroest, dneary, doron, dougsland, iheim,
   lpeer, mburns, mkovgan, msalem, ovedo, quaid, rmiddle, roy, sgordon, vered
 wiki_category: Documentation

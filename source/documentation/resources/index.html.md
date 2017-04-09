@@ -1,6 +1,7 @@
 ---
 title: Documents
 category: documentation
+layout: toc
 authors: mmirecki
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: oVirt 4.0.0 Release Notes
 category: documentation
+layout: toc
 authors: rafaelmartins
 ---
 

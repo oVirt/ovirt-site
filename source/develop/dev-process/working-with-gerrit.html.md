@@ -15,7 +15,8 @@ Gerrit is a web based code review system, facilitating online code reviews for p
 Gerrit makes reviews easier by showing changes in a side-by-side display, and allowing inline comments to be added by any reviewer.
 We use Gerrit in the oVirt project in order to review new commits, as it easily enables adding comments, suggestions, ask questions, and etc.
 The following sections are a step-by-step manual to set up a Gerrit environment in your development environment.
-oVirt Gerrit environment is in gerrit.ovirt.org
+
+To get started, go to [gerrit.ovirt.org.](http://gerrit.ovirt.org)
 
 ## Registering as a user
 
@@ -278,4 +279,3 @@ The patch life cycle process comprises:
        * [new branch]      HEAD -> refs/for/master/engine-register 
 
 *   Now go to the gerrit url for your change and note that the topic field is changed to your topic branch name.
-

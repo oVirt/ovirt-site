@@ -173,7 +173,7 @@ will be with the same QCOW compatibility version through a REST update command w
 
 ### Fetch QCOW compat for a disk through REST API
 
-Important: The disk's attribute `QcowCompat` will only be presented for QCOW volumes only as opposed to RAW disks.
+Important: The disk's attribute `QcowCompat` will only be presented for QCOW volumes as opposed to RAW disks.
 The QCOW compat can be fetched using the following REST APIs:
 
 ```xml
@@ -227,6 +227,14 @@ Here is an example of the reponse output:
 ```
 
 These operations will be disabled if the VM is running or if those disks are locked (for example copy, move, delete).
+
+#### General Information
+1. The "Default" Template's QCOW volume will have an arbitrary QCOW compat version of 0.10 compat version.
+2. Importing a VM/Template from an export domain will copy the QCOW volumes and their compatibility level will be determined by the destination storage domain's version.
+3. Registering a VM/Template from a storage domain will register the disk with the existing QCOW compat level registered on the imported storage domain. The engine will query the Host for that information.
+4. Live move or Live copy should set all the volumes of the new copied/moved volume with the compat level determined by the new storage domain. a QCOW disk on a V3 storage domain which will be copied to a V4 storage domain will be created with QCOW volumes of 1.1 compat level although the original QCOW volume had 0.10 compat level.
+5. Live snapshot will be created as a new volume with QCOW compat compatible to the storage domain's version. It could be that a Storage Domain V3 will be upgraded to V4 and an existing QCOW volume will be with 0.10 compatibility level, once a live snapshot will be performed the new volume will be with compatibility level of 1.1
+
 
 #### Troubleshooting
 

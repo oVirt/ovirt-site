@@ -51,7 +51,7 @@ On Kibana/Elasticsearch/OpenShift host edit /etc/origin/master/master-config.yam
 
 ```yaml
 oauthConfig:
-  assetPublicURL: https://openstack.example.com:8443/console/
+  assetPublicURL: https://openshift.example.com:8443/console/
   grantConfig:
     method: auto
   identityProviders:
@@ -87,8 +87,8 @@ claims:
         authorize: https://ovirt-engine.example.com/ovirt-engine/sso/oauth/authorize
         token: https://ovirt-engine.example.com/ovirt-engine/sso/oauth/token
   masterCA: ca-bundle.crt
-  masterPublicURL: https://openstack.example.com:8443
-  masterURL: https://openstack.example.com:8443
+  masterPublicURL: https://openshift.example.com:8443
+  masterURL: https://openshift.example.com:8443
   sessionConfig:
     sessionMaxAgeSeconds: 3600
     sessionName: ssn
@@ -115,7 +115,8 @@ service origin-node restart
 Make sure the hosts are reachable by their hostnames if required add host aliases in /etc/hosts
 
 ```config
-10.16.19.48 openstack.example.com
+10.16.19.48 openshift.example.com kibana.example.com mux.example.com
+
 10.10.116.110 ovirtengine.example.com
 ```
 

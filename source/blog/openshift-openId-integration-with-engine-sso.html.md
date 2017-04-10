@@ -55,7 +55,7 @@ oauthConfig:
   grantConfig:
     method: auto
   identityProviders:
-  - challenge: false
+  - challenge: true
     login: true
     mappingMethod: claim
     name: my_openid_connect

@@ -74,13 +74,13 @@ People using oVirt and all those who develop the software are welcome in [the \#
 
 If you don't already have a IRC client, you can install [one of the clients referenced here](http://www.irchelp.org/irchelp/new2irc.html), or join our channel in your web browser by using [mibbit](https://www.mibbit.com/).
 
-We're most active from about 07:00 UMT to 11:00 UMT (09:00 IST to 17:00 PST), but there are usually folks hanging out throughout the entire day. Also: be sure to [read our simple etiquette guidelines](Community_guidelines). (Quick summary: be nice!)
+We're most active from about 07:00 UMT to 11:00 UMT (09:00 IST to 17:00 PST), but there are usually folks hanging out throughout the entire day. Also: be sure to [read our simple etiquette guidelines](/community/about/community-guidelines/). (Quick summary: be nice!)
 
 ## Converse on Our Mailing Lists
 
 There are many [mailing lists](/community/about/mailing-lists/) related to all aspects of oVirt. Some are for people using the software, others are for developing oVirt, and there are even more for administration and governance purposes.
 
-Remember to be polite and [read our etiquette guide](Community_guidelines).
+Remember to be polite and [read our etiquette guide](/community/about/community-guidelines/).
 
 Join all of the following mailing lists that interest you.
 

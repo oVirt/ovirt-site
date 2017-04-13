@@ -230,10 +230,11 @@ These operations will be disabled if the VM is running or if those disks are loc
 
 #### General Information
 1. The "Default" Template's QCOW volume will have an arbitrary QCOW compat version of 0.10 compat version.
-2. Importing a VM/Template from an export domain will copy the QCOW volumes and their compatibility level will be determined by the destination storage domain's version.
-3. Registering a VM/Template from a storage domain will register the disk with the existing QCOW compat level registered on the imported storage domain. The engine will query the Host for that information.
-4. Live move or Live copy should set all the volumes of the new copied/moved volume with the compat level determined by the new storage domain. a QCOW disk on a V3 storage domain which will be copied to a V4 storage domain will be created with QCOW volumes of 1.1 compat level although the original QCOW volume had 0.10 compat level.
-5. Live snapshot will be created as a new volume with QCOW compat compatible to the storage domain's version. It could be that a Storage Domain V3 will be upgraded to V4 and an existing QCOW volume will be with 0.10 compatibility level, once a live snapshot will be performed the new volume will be with compatibility level of 1.1
+2. Imported VMs/Templates from an export might have disks which contain QCOW volumes. the engine should update their compatibility level once the copy will be done based on the destination storage domain's version.
+3. The compatibility level of QCOW volumes will be determined only from the storage domain, and will not be dependant on the OVF.
+4. Registering unregistered entities such as VM/Template/Disk from an imported storage domain, will register the entities' disks or the disks them selfs with their existing QCOW compat level. The engine will query the Host for the compatibility level each time an entity with a disk (or a floating disk) will be registered to the setup and update it in the DB.
+5. Live move or Live copy should set all the volumes of each new copied/moved volume with the compatibility level determined by the destination storage domain's version. A QCOW volume created on a V3 storage domain which will be copied to a V4 storage domain will be created as a QCOW volume with compatibility level of 1.1 although the original QCOW volume had compatibility level of 0.10.
+6. Live snapshot will be created as a new QCOW volume. Its compatibility level will be determined by the storage domain's version. It could be that a V3 Storage Domain will be upgraded to V4 and an existing QCOW volume will be with compatibility level of 0.10, once live snapshot will be performed, the new volume will be created with compatibility level of 1.1. That means that the active volume which the VM is writing to will be with the new compatibility level of 1.1, and the new created snapshot, which is acctually the old active volume, will keep its existing compatibility level of 0.10
 
 
 #### Troubleshooting

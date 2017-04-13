@@ -35,7 +35,7 @@ What do you need?
 
 Install Spice guest tools (qxl graphic driver and spice-vdagent):
 
-*   Download binary from <http://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-0.65.1.exe> and execute on Windows guest (reboot of guest is required).
+*   Download binary from <http://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-latest.exe> and execute on Windows guest (reboot of guest is required).
 
 OR
 

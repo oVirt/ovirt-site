@@ -167,3 +167,29 @@ The metadata has been added as volume groups "tags" in oVirt.  Use 
 
 **19) How may I remove an host in non responsive state from the manager if the host doesn't exist anymore?**
       You need to do "confirm host has been rebooted" since the host is not reachable and the engine can't connect to it and he doesn't know what's the status of the VMs that ran on it before rebooting. After that manual fence for host will start. You'll be able to remove the host once fencing finishes, it may take about five minutes.
+      
+**20) What is Node Next?**
+
+Node Next is the Node implementation from oVirt 4.0 . also known as NGN ( Next Generation Node )
+
+**21) What is the difference between oVirt Node and Node Next ?**
+
+1. Node (vintage Node) was the Node implementation up to oVirt 3.x .
+2. In Vintage Node a custom installer was used  - in NGN, anaconda (CentOS/Fedora) installer is used.
+3. In Vintage Node a text User-Interface was used for administration - In NGN, Cockpit is used.
+4. In Vintage Node the file-system is Read-Only while NGN provide a writable file-system.
+
+**22) Does Node Next work with oVirt 3.6 ?**
+
+Yes. Special configuration is not needed.
+
+**23) How can I install Node Next ?**
+
+See http://www.ovirt.org/node/#quickstart .
+
+**24) How can I update Node Next ?**
+
+Use ```yum update ```. 
+
+
+

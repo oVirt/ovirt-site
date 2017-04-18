@@ -21,7 +21,7 @@ READMORE
 
 __Hardware:__ You’ll need three machines with 16GB or more of RAM and processors with [hardware virtualization extensions](http://en.wikipedia.org/wiki/X86_virtualization#Hardware-assisted_virtualization). Physical machines are best, but you can test oVirt using [nested KVM](http://community.redhat.com/blog/2013/08/testing-ovirt-3-3-with-nested-kvm/) as well. I've written this howto using VMs running on my "real" oVirt+Gluster install.
 
-__Software:__ For this howto, I'm using [oVirt Node 4.1.1](https://www.ovirt.org/node/), a streamlined operating system image based on CentOS 7, for my three hosts, and a CentOS-based appliance image for the Engine VM. oVirt does support other OS options. For more info see the project's <a href="http://www.ovirt.org/download/">download page</a>.
+__Software:__ For this howto, I'm using [oVirt Node 4.1.1.1](https://www.ovirt.org/node/), a streamlined operating system image based on CentOS 7, for my three hosts, and a CentOS-based appliance image for the Engine VM. oVirt does support other OS options. For more info see the project's <a href="http://www.ovirt.org/download/">download page</a>.
 
 __Network:__ Your test machine’s host name must resolve properly, either through your network’s DNS, or through the `/etc/hosts` file on your virt host(s), on the VM that will host the oVirt engine, and on any clients from which you plan on administering oVirt. It's not strictly necessary, but it's a good idea to set aside a separate storage network for Gluster traffic and for VM migration. In my lab, I use a separate 10G nic on each of the hosts for my storage network.
 
@@ -29,7 +29,7 @@ __Storage:__ The hosted engine feature requires NFS, iSCSI, FibreChannel or Glus
 
 ### Installing oVirt with hosted engine
 
-I'm starting out with three test machines with 16 GB of RAM and 4 processor cores, running oVirt Node 4.1.1. I actually do the testing for this howto in VMs hosted on my "real" oVirt setup, but that "real" setup resembles what I describe below.
+I'm starting out with three test machines with 16 GB of RAM and 4 processor cores, running oVirt Node 4.1.1.1. I actually do the testing for this howto in VMs hosted on my "real" oVirt setup, but that "real" setup resembles what I describe below.
 
 I've identified a quartet of static IP address on my network to use for this test (three for my virt hosts, and one for the hosted engine). I've set up the DNS server in my lab to make these IPs resolve properly, but you can also edit the /etc/hosts files on your test machines for this purpose.
 
@@ -61,7 +61,7 @@ Click "Next" to hit step four, where we'll specify the brick locations for our v
 
 ![](uarwo41-gdeploy-4.png)
 
-In the final, "Review" step, I found it necessary to click "Edit" and the following operation after the `script1` step:
+In the final, "Review" step, I [found it necessary](https://bugzilla.redhat.com/show_bug.cgi?id=1438596) to click "Edit" and the following operation after the `script1` step:
 
 ```
 # Disable multipath
@@ -80,11 +80,11 @@ After making this edit, hit the "Save" button, and then hit "Deploy" to kick off
 
 Now, click the "Continue to Hosted Engine Deployment" button to begin configuring your hosted engine. After accepting the default "Yes" and clicking the "Next" button to begin the process, the install will offer to download the oVirt engine appliance image. Click "Next" to proceed.
 
-The installer will ask if you want to configure your host and cluster for Gluster. Again, click "Next" to proceed. In some of my tests, the installer failed at this point, with an error message of `Failed to execute stage 'Environment customization'`. When I encountered this, I clicked "Restart Setup", repeated the above steps, and was able to proceed normally. 
+The installer will ask if you want to configure your host and cluster for Gluster. Again, click "Next" to proceed. In [some of my tests](https://bugzilla.redhat.com/show_bug.cgi?id=1438604), the installer failed at this point, with an error message of `Failed to execute stage 'Environment customization'`. When I encountered this, I clicked "Restart Setup", repeated the above steps, and was able to proceed normally. 
 
 You'll need to specify the `glusterfs` storage type, and then supply the path to your Gluster volume, which should be something like `host1:engine`.
 
-Next, we need to specify which network interface to use for oVirt's management network, and whether the installer should configure our firewall. In some of my tests with oVirt Node, the management network setup step failed due to the presence of an ifcfg-eth0.bak file. When I encountered this issue, I removed the file from each of my hosts, restarted the process, and was able to proceed.
+Next, we need to specify which network interface to use for oVirt's management network, and whether the installer should configure our firewall. In some of my tests with oVirt Node, the management network setup step failed due to the presence of an ifcfg-eth0.bak file. When I encountered [this issue](https://bugzilla.redhat.com/show_bug.cgi?id=1441530), I removed the file from each of my hosts, restarted the process, and was able to proceed.
 
 Then, we'll answer a set of questions related to the virtual machine that will serve the oVirt engine application. First, we tell the installer to use the oVirt Engine Appliance image that gdeploy installed for us. Then, we configure cloud-init to customize the appliance on its initial boot, providing various VM configuration details covering networking, VM RAM and storage amounts, and authentication. Enter the details appropriate to your environment, and when the installer asks whether to automatically execute engine-setup on the engine appliance on first boot, answer yes. Here's what the configuration on my test instance looked like:
 
@@ -116,7 +116,7 @@ Head over to the Hosts tab, select host two, and in the toolbar below the tabs, 
 
 ![](uarwo41-deploy-hosted.png)
 
-Once all three hosts are back up, you should be able to bring down any one of the hosts at a time without losing access to the management engine or to your VM storage. 
+Once all three hosts are back up, you should be able to put into maintenance mode and then upgrade or restart any one of the hosts at a time without losing access to the management engine or to your VM storage. 
 
 ## Running your first VM
 

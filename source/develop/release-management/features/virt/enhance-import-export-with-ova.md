@@ -1,16 +1,3 @@
----
-title: Enhance import-export with OVA
-category: feature
-authors: arik
-wiki_category: Feature
-wiki_title: Features/Enhance import-export with OVA
-wiki_revision_count: 1
-wiki_last_updated: 2017-03-20
-feature_name: Enhance import-export with OVA
-feature_modules: engine, vdsm
-feature_status: planning
----
-
 # Backgroud
 Open Virtual Appliance (OVA) is a package that contains the different elements of a Virual Machine (VM). OVA is typically a tar archive file that includes the configuration of the VM in the form of the Open Virtualization Format (OVF) as well as virtual disks and other VM-related data.  
 

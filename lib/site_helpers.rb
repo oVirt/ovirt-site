@@ -15,12 +15,16 @@ class SiteHelpers < Middleman::Extension
     def pretty_date(sometime, length = 'long')
       return unless sometime
 
-      sometime = Time.parse(sometime) if sometime.class == String
+      begin
+        sometime = Time.parse(sometime) if sometime.class == String
 
-      format = length == 'short' ? '%a %e %b' : '%A %e %B'
-      format << ' %Y' unless sometime.year == Time.now.year
+        format = length == 'short' ? '%a %e %b' : '%A %e %B'
+        format << ' %Y' unless sometime.year == Time.now.year
 
-      sometime.to_time.strftime(format) rescue ''
+        sometime.to_time.strftime(format)
+      rescue
+        sometime
+      end
     end
 
     def word_unwrap(content)

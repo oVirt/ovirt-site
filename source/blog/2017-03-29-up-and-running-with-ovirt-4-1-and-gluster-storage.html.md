@@ -1,7 +1,7 @@
 ---
 title: Up and Running with oVirt 4.1 and Gluster Storage
 author: jbrooks
-date: 2017-03-29 08:00:00 UTC
+date: 2017-04-19 08:00:00 UTC
 tags: centos, gluster, ovirt, hyperconverged
 comments: true
 published: true

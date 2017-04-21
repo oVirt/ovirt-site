@@ -27,15 +27,12 @@ The following requirements are typical for small- to medium-sized installations.
 *   Minimum - Dual core server with 4 GB RAM, with 25 GB free disk space and 1-Gbps network interface.
 *   Recommended - Dual Sockets/Quad core server with 16 GB RAM, 50 GB free disk space on multiple disk spindles and 1-Gbps network interface.
     The breakdown of the server requirements are as below:
-    -   For the Fedora 19 operating system: minimum 1 GB RAM and 10 GB local disk space.
-    -   For the CentOS 6.5 operating system: minimum 1 GB RAM and 5 GB local disk space.
+    -   For the Fedora 24 operating system: minimum 1 GB RAM and 10 GB local disk space.
+    -   For the CentOS 7.3 operating system: minimum 1 GB RAM and 5 GB local disk space.
     -   For the oVirt Engine: minimum 3 GB RAM, 3 GB local disk space and 1-Gbps network controller bandwidth.
     -   If you wish to create an ISO domain on the Engine server, you need minimum 15 GB disk space.
 *   The oVirt Engine must be configured to receive updates from the oVirt project's software repository, as provided by the ovirt-release package matching your OS distribution:
-    -   [oVirt 3.3](http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm)
-    -   [oVirt 3.4](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm).
-    -   [oVirt 3.5](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm).
-    -   [oVirt 3.6](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm).
+    -   [oVirt 4.0](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
 *   A client for connecting to oVirt Engine.
 
 #### For each Host (oVirt Node, Fedora Host, CentOS Host)
@@ -59,10 +56,10 @@ The following requirements are typical for small- to medium-sized installations.
 
 Installation images for creating virtual machines, depending on which operating system you wish to use.
 
-*   Microsoft Windows XP, Vista, 7, 8, 2003, 2008 or 2012.
-*   Red Hat Enterprise Linux 5.x or 6.x.
-*   CentOS 6.x
-*   Fedora 16-20
+*   Microsoft Windows XP, Vista, 7, 8, 2003, 2008, or 2012.
+*   Red Hat Enterprise Linux 5.x-7.x.
+*   CentOS 6.x-7.x
+*   Fedora 16-25
 *   Ubuntu 12.04+
 *   openSUSE 12.x+
 
@@ -70,7 +67,7 @@ Installation images for creating virtual machines, depending on which operating 
 
 The oVirt platform consists of at least one oVirt Engine and one or more Nodes.
 
-*   oVirt Engine provides a graphical user interface to manage the physical and logical resources of the oVirt infrastructure. The Engine is installed on a Fedora 19, Red Hat Enterprise Linux 6 or CentOS 6 server, and accessed from a client running Firefox.
+*   oVirt Engine provides a graphical user interface to manage the physical and logical resources of the oVirt infrastructure. The Engine is installed on a Fedora 24, Red Hat Enterprise Linux 7.3 or CentOS 7.3 server, and accessed from a client running Firefox.
 
 <!-- -->
 

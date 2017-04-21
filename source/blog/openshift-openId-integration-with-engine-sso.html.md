@@ -9,18 +9,11 @@ published: true
 
 Integrating Kibana/Elasticsearch on top of OpenShift with oVirt Engine SSO
 
-Step by step instructions on how to integrate Kibana/Elasticsearch on top of OpenShift with oVirt Engine SSO
+oVirt Engine provides a powerful way to manage users and domains using the oVirt Engine aaa extensions. oVirt Engine supports many different LDAP server types for authentication using the `ovirt-engine-extension-aaa-ldap` extension and supports managing internal users using the `ovirt-engine-extension-aaa-jdbc` extension. Clients can use the powerful oVirt Engine user management in their applications by using the OAuth2 or OpenId Connect end points provided by oVirt Engine SSO to authenticate users in their applications. Below is step by step instructions on how to integrate Kibana/Elasticsearch on top of OpenShift with oVirt Engine SSO. The instructions should work for any client application that can be configured to use a OAuth2 or OpenID Connect server to authenticate its users.
 
-READMORE
+The goal is to integrate Kibana/Elasticsearch on top of OpenShift with oVirt Engine SSO, so existing engine users can access Kibana/Elasticsearch without reauthentication (we don't need to maintain authentication configuration separately for oVirt Engine and Kibana/Elasticsearch)
 
-## Background
-
-The goal is to integrate Kibana/Elasticsearch on top of OpenShift with oVirt Engine SSO, so existing engine users can access Kibana/Elasticsearch without reauthentication (we don't need to maintain authentication configuration separately for oVirt Engine and Kibana/Elasticsearch) 
-
-## Prerequisites
-
-* A fully working and configured oVirt engine instance
-* A fully working and configured instance of Kibana/Elasticsearch on top of OpenShift
+The integration requires a fully working and configured oVirt engine instance on oVirt Engine host and a fully working and configured instance of Kibana/Elasticsearch on top of OpenShift on the OpenShift host.
 
 ## Installing Kibana/Elasticsearch and OpenShift backend
 
@@ -100,14 +93,14 @@ claims:
 ## Restart oVirt Engine
 
 ```ssh
-service ovirt-engine restart
+systemctl restart ovirt-engine
 ```
 
 ## Restart origin-master and origin-node on OpenShift host
 
 ```ssh
-service origin-master restart
-service origin-node restart
+systemctl restart origin-master
+systemctl restart origin-node
 ```
 
 ## Configure hostnames

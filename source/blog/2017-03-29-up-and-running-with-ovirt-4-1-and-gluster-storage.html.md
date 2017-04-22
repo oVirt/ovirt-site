@@ -150,11 +150,11 @@ Then, also in the **bottom pane**, choose the "Clusters" tab, right-click the "D
 
 ## Maintenance, failover, and storage
 
-The key thing to keep in mind regarding host maintainence and downtime is that this converged three node system relies on having at least two of the nodes up at all times. If you bring down two machines at once, you'll run afoul of the Gluster quorum rules that guard us from split-brain states in our storage, the volumes served by your remaining host will go read-only, and the VMs stored on those volumes will pause and require a shutdown and restart in order to run again.
+The key thing to keep in mind regarding host maintenance and downtime is that this converged three node system relies on having at least two of the nodes up at all times. If you bring down two machines at once, you'll run afoul of the Gluster quorum rules that guard us from split-brain states in our storage, the volumes served by your remaining host will go read-only, and the VMs stored on those volumes will pause and require a shutdown and restart in order to run again.
 
 The oVirt engine pays attention to the state of its configured gluster volumes, and will warn you if certain actions will run afoul of quorum rules or if your volumes have pending healing operations. 
 
-You can bring a single machine down for maintenance by first putting the system into maintenance mode from the oVirt console by clicking on the host entry in the Hosts tab, and then, from either the tool bar below the tabs or from the right-click menu, choose Managegent, and then Maintenance, before updating, rebooting, shutting down, etc. as desired.
+You can bring a single machine down for maintenance by first putting the system into maintenance mode from the oVirt console by clicking on the host entry in the Hosts tab, and then, from either the tool bar below the tabs or from the right-click menu, choose Management, and then Maintenance, before updating, rebooting, shutting down, etc. as desired.
 
 Putting a host into maintenance mode will also put that host's hosted engine HA services into local maintenance mode, rendering that host ineligible to take over engine-hosting duties. 
 
@@ -164,4 +164,4 @@ If you want to bring down the engine service itself, you can put your whole trio
 
 If you run into trouble following this walkthrough, I’ll be happy to help you get up and running or get pointed in the right direction. On IRC, I’m jbrooks, ping me in the #ovirt room on OFTC or give me a shout on Twitter [@jasonbrooks](https://twitter.com/jasonbrooks).
 
-If you’re interested in getting involved with the oVirt Project, you can find all the mailing list, issue tracker, source repository, and wiki information you need <a href="http://www.ovirt.org/Community">here</a>.
+If you’re interested in getting involved with the oVirt Project, you can find all the mailing list, issue tracker, source repository, and wiki information you need <a href="http://www.ovirt.org/community">here</a>.

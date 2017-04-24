@@ -20,12 +20,12 @@ CentOS Linux 7.3 (or similar).
 
 To find out more about features which were added in previous oVirt releases,
 check out the
-[previous versions release notes](/develop/release-management/releases/).
+[previous versions release notes](/release/).
 For a general overview of oVirt, read
-[the Quick Start Guide](Quick_Start_Guide)
-and the [about oVirt](about oVirt) page.
+[the Quick Start Guide](/documentation/quickstart/quickstart-guide/)
+and the [about oVirt](/documentation/introduction/about-ovirt/) page.
 
-[Installation guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/)
+[Installation guide](/documentation/install-guide/Installation_Guide/)
 is available for updated and detailed installation instructions.
 
 

@@ -1,13 +1,13 @@
 ---
 title: oVirt OVN Provider
 category: feature
-authors: mmirecki
+authors: mmirecki,dholler
 wiki_category: Feature
 wiki_title: Features/oVirt OVN Provider
 wiki_revision_count: 1
-wiki_last_updated: 2016-09-01
+wiki_last_updated: 2017-04-25
 feature_name: oVirt OVN Provider
-feature_modules: engine,vdsm
+feature_modules: engine,vdsm,ovn-provider
 feature_status: In Development
 ---
 
@@ -275,6 +275,90 @@ This deletes the port from the OVN integration bridge. OVN controller
 modifies the local OpenFlows on the host and deletes the chassis id from the
 bindings. Other OVN-controllers notice the binding change, and update their
 local flows.
+
+## Authentication of the provider
+
+The identity of the provider can be authenticated by Transport Layer Security
+(TLS). For this the provider has to be configured to accept HTTP requests over
+TLS (HTTPS).
+This way the provider has to present it's identity to the communication
+partner, which is the oVirt engine or a cloud management software.
+
+The oVirt engine manages the provider's identity by storing the provider's
+certificate in the external providers trust store and check the provider's
+certificate during connecting to the provider.
+
+## Authentication and Authorization at the provider
+
+The oVirt OVN provider is able to authenticate users and authorize requests
+according a minimal subset of the [OpenStack API](https://developer.openstack.org/api-guide/quick-start/).
+The procedure is that the client [authenticates](#authentication) itself to get
+a token, which has to be used in the [subsequent requests](#ovirt-ovn-provider-1).
+
+The behavior of authentication and authorization is defined by the
+[plugin](#plugins) chosen in the provider's configuration.
+
+### Authentication
+
+Authentication is implemented by a single request of the OpenStack
+[Identity API v2.0](https://developer.openstack.org/api-ref/identity/v2/),
+commonly known as keystone API.
+
+The provider handles the following request for authentication:
+
+*   POST tokens - authenticates and generates a token from username and
+    password, using a subset of the parameters of the OpenStack
+    [specification](https://developer.openstack.org/api-ref/identity/v2/?expanded=authenticate-detail#authenticate).
+
+### Authorization
+
+The `X-Auth-Token` HTTP header in every request to the OpenStack Rest API is
+used to authorize the request. If the authorization is given, is up to the
+configured plugin of the provider.
+
+### Plugins
+
+There are various plugins available, which differentiate by their behavior.
+Supported are the plugins to authorize by username or group membership:
+
+*  AuthorizationByUserName - uses the oVirt engine's
+   [SSO](/develop/release-management/features/infra/uniformssosupport/) to
+   create a token from the given username and password. So the user has to be a
+   valid user of oVirt engine. The token in the requests to the OpenStack Rest
+   API is authorized, if it is associated to the username defined in the
+   provider's configuration. This plugin is the **default**, because after the
+   installation of oVirt only the default user "admin@internal", but no groups,
+   may be available.
+
+*  AuthorizationByGroup - uses the oVirt engine's SSO to
+   create a token from the given username and password. The token in the
+   requests to the OpenStack Rest API is authorized, if it is associated to
+   a user which is a member of the group defined in the provider's configuration.
+   In the configuration file in the section `[OVIRT]`, the option
+   `admin-group-atrribute-name` defines the name of the attribute in the
+   directory server holds the group name. The option
+   `admin-group-attribute-value` defines the name of the group, which grants
+   authorization to it's members. The default configuration is to authorize
+   members of the group `NetAdmin` in the default extension
+   `ovirt-engine-extension-aaa-jdbc`. If oVirt engine uses an external LDAP
+   provider, the two options has to be adopted in the ovn-provider's
+   configuration.
+
+Other plugins exists, but they are not supported:
+
+*  NoAuthPlugin - generates a static token, independently from the provided
+   username and password, and accepts every request to the OpenStack Rest API.
+   Even requests, which does not contain the `X-Auth-Token` HTTP header are
+   accepted.
+
+*  MagicTokenPlugin - generates a static token, independently from the provided
+   username and password. Request to the OpenStack Rest API must provide this
+   static token.
+
+*  AuthorizationByRole - uses the oVirt engine's SSO to
+   create a token from the given username and password. The token in the
+   requests to the OpenStack Rest API is authorized, if it is associated to
+   a user with the role defined in the provider's configuration.
 
 ## Packaging and installation
 

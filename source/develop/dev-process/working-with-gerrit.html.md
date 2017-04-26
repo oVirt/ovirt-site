@@ -15,19 +15,19 @@ Gerrit is a web-based code review system that uses the Git version control syste
 In the oVirt project we use Gerrit to review new commits. With Gerrit, it's easy to add comments and suggestions, ask questions, and more.
 In the following sections you will find a step-by-step directions for setting up Gerrit in your development environment.
 
-To get started, go to [gerrit.ovirt.org.](http://gerrit.ovirt.org)
+To get started, go to [gerrit.ovirt.org.](https://gerrit.ovirt.org)
 
 ## Registering as a User
 
 You can register as a user with any OpenID provider.
 Alternatively, sign in with:
 
-* Gerrit or Google OAuth 2.0
+* GitHub or Google OAuth 2.0
 * Your Launchpad or Yahoo IDs
 * Any fedora FAS account, using: &lt;username&gt;.id.fedoraproject.org
 
 
-Once you log in, choose a Gerrit username. The same username will be used for SSH configuration (Settings --> HTTP Password).
+Once you log in, choose a Gerrit username. This username will be used to generate an HTTP password (Settings --> HTTP Password).
 
 ## SSH Configuration
 
@@ -42,7 +42,7 @@ Ensure that your private RSA key is located at ~/.ssh and that the permissions o
 To allow SSH to access Gerrit, update the SSH public key via Gerrit settings:
 
 * In the top right corner, click your username, and select Settings > SSH public keys.
-* Copy and paste the contents of your public key file (typically id.rsa.pub) into the provided text box.
+* Copy and paste the contents of your public key file (typically ~/.ssh/id_rsa.pub) into the provided text box.
 
 ### Defining Gerrit in ~/.ssh/config
 
@@ -59,7 +59,7 @@ To allow SSH to access Gerrit, update the SSH public key via Gerrit settings:
 
 ### Verifying the SSH Configuration
 
-      ssh gerrit.ovirt.org
+      ssh @gerrit.ovirt.org
 
 If SSH is configured correctly, you will see the following message:
 
@@ -139,7 +139,7 @@ Alternatively, and assuming your remote repository is 'origin', enter:
       git push origin HEAD:refs/drafts/master
        
 
-### Pushing a Patch After It Is Published:
+### Pushing a Patch
 
       git push gerrit.ovirt.org:ovirt-engine HEAD:refs/for/master
        
@@ -170,8 +170,8 @@ The patch life cycle process comprises of the following steps:
 1.  ‎The patch is checked
     -   Create a draft patch for early reviews
     -   Verification (Verified+1)
-    -   Maintainer review approval (Code-Review+2)
-    -   Publishing [triggers CI]
+    -   Maintainer review approval (Code-Review+2).
+    -   Publishing. This triggers Continuous Integration (CI)
 
 2.  CI tests passed (Continuous-Integration+1)
 3.  Patch merged by maintainer

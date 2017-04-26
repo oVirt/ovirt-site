@@ -266,14 +266,15 @@ There are two types of QCOW_versions:
  qcow2_v3 (QCOW compat 1.1)
 
 ```xml
-PUT http://localhost:8080/ovirt-engine/api/storagedomains/123/disks/111 HTTP/1.1
+PUT http://localhost:8080/ovirt-engine/api/vms/2222/diskattachments/111 HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
 
-<disk>
-    <qcow_version>qcow2_v3</qcow_version>
-</disk>
-```
+<disk_attachment>
+    <disk>
+        <qcow_version>qcow2_v3</qcow_version>
+    </disk>
+</disk_attachment>```
 
 The upgrade volume operation amends all the QCOW volumes in the image,
 that also include old snapshots even if new active volume created upon them with compat level 1.1.

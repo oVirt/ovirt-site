@@ -211,7 +211,8 @@ require 'lib/monkeypatch_blog_date.rb'
 configure :development do
   puts "\nUpdating git submodules..."
   puts `git submodule init && git submodule sync`
-  puts `git submodule foreach "git pull -qf origin master"`
+  # "--remote" replaces "foreach git pull ...", and respects branch from .gitmodules
+  puts `git submodule update --recursive --remote`
   puts "\n"
   puts '== Administration is at http://0.0.0.0:4567/admin/'
 
@@ -228,7 +229,8 @@ end
 configure :build do
   puts "\nUpdating git submodules..."
   puts `git submodule init`
-  puts `git submodule foreach "git pull -qf origin master"`
+  # "--remote" replaces "foreach git pull ...", and respects branch from .gitmodules
+  puts `git submodule update --recursive --remote`
   puts "\n"
 
   ## Ignore administration UI

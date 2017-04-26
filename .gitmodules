@@ -1,3 +1,7 @@
 [submodule "data/events"]
 	path = data/events
 	url = https://github.com/OSAS/rh-events.git
+[submodule "source/documentation/rest-api"]
+	path = source/documentation/rest-api
+	url = https://github.com/oVirt/ovirt-engine-api-model.git
+	branch = gh-pages

@@ -118,6 +118,8 @@ GEM
       em-websocket (~> 0.5.1)
       middleman-core (>= 3.3)
       rack-livereload (~> 0.3.15)
+    middleman-piwik (0.2.0)
+      middleman-core (~> 3.2)
     middleman-sprockets (3.4.2)
       middleman-core (>= 3.3)
       sprockets (~> 2.12.1)
@@ -224,6 +226,7 @@ DEPENDENCIES
   middleman-deploy
   middleman-favicon-maker
   middleman-livereload
+  middleman-piwik
   middleman-syntax
   mini_portile
   nokogiri
@@ -242,4 +245,4 @@ DEPENDENCIES
   wikicloth
 
 BUNDLED WITH
-   1.13.2
+   1.13.6

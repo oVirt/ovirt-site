@@ -129,17 +129,7 @@ Or alternatively without need of authentication:
 
 ## Pushing a Patch for Review
 
-### Pushing or Updating a Patch as a Draft
-
-      git push gerrit.ovirt.org:ovirt-engine HEAD:refs/drafts/master
-       
-
-Alternatively, and assuming your remote repository is 'origin', enter:
-
-      git push origin HEAD:refs/drafts/master
-       
-
-### Pushing a Patch
+Enter:
 
       git push gerrit.ovirt.org:ovirt-engine HEAD:refs/for/master
        
@@ -168,9 +158,8 @@ To push or update a published patch:
 The patch life cycle process comprises of the following steps:
 
 1.  ‎The patch is checked
-    -   Create a draft patch for early reviews
-    -   Verification (Verified+1)
-    -   Maintainer review approval (Code-Review+2).
+    -   Verification (Verified+1): bug fix, new functionality etc. to be verified by a person   
+    -   Maintainer review and approval (Code-Review+2)
     -   Publishing. This triggers Continuous Integration (CI)
 
 2.  CI tests passed (Continuous-Integration+1)

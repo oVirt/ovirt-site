@@ -337,3 +337,9 @@ end
 activate :deploy do |deploy|
   deploy_config.each { |key, val| deploy[key] = val }
 end
+
+activate :piwik do |p|
+    p.id = 1
+    p.domain = 'stats.phx.ovirt.org'
+end
+

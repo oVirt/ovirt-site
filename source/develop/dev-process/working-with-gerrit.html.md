@@ -121,7 +121,7 @@ Or alternatively without need of authentication:
       autocmd Filetype gitcommit spell textwidth=72
        
 
-### Performing Rebase
+### Rebasing
 
       git fetch -v
       git rebase origin/master

@@ -49,7 +49,7 @@ _More information on [oVirt subprojects](/subprojects/)_
 - [Building oVirt Node](/develop/projects/node/building/)
 - [Building VDSM](/develop/developer-guide/vdsm/developers/)
 - [Contributing to the Node project](/develop/projects/node/contributing-to-the-node-project/)
-- [Submitting a patch with Gerrit](/develop/dev-process/working-with-gerrit/)
+- [Working with oVirt Gerrit](/develop/dev-process/working-with-gerrit/)
 - [The development process](/develop/dev-process/devprocess/)
 - [Release management](/develop/release-management/releases/)
 - [Getting in contact with the oVirt community](/community/about/contact/)

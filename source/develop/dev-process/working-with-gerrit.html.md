@@ -159,7 +159,7 @@ To push or update a published patch:
 The patch life cycle process comprises of the following steps:
 
 1.  ‎The patch is checked
-    -   Verification (Verified+1): bug fix, new functionality etc. to be verified by a person   
+    -   Verification (Verified+1): bug fixes or new functionality should be verified by a real person   
     -   Maintainer review and approval (Code-Review+2)
     -   Publishing. This triggers Continuous Integration (CI)
 

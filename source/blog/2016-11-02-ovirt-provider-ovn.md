@@ -51,6 +51,7 @@ After installing the driver and OVN, the OVN-controller must be configured. This
     vdsm-tool ovn-config <OVN central server IP> <local IP used for OVN tunneling>
 
 The second parameter (local IP used for OVN tunneling) can be the IP address of the ovirtmgmt interface on the host, and should be reachable by OVN hosts and central server.
+vdsm-tool will also configure ovn-controller with the PKI required to safely connect to the ovn central server.
 
 The OVN-controller can also be set up by using the OVN command-line interface directly. For more information about OVN-controller setup, please check the
 [OVS documentation](http://openvswitch.org/support/dist-docs/).
@@ -204,7 +205,44 @@ If used to set up ovirt-provider-ovn, engine-setup will perform the following ta
 * install ovs/ovn packages
 * install ovirt-provider-ovn package
 * add and configure a default External Network OVN provider. The engine provider will be configured to connect to provider on localhost. The provider will also be configured with the user and password specified during the setup process.
+* configure the OVN and ovirt-provider-ovn public key infrastructure.
 
+### Configuring PKI manually
+
+The PKI for the provider and driver are configured automatically by engine-setup and vdsm-tool.
+In case where the provider is not installed together with ovirt-engine, PKI will need to be created and configured manually.
+
+In such a case, key/certificate pair signed by a common authority will be needed for the provider, ovn north db, ovn south db, and each of the ovn controllers.
+
+Some of the possible ways to generate key/certificate pairs are using [OpenSSL](https://www.openssl.org/) or openvswitch [ovs-pki command](http://openvswitch.org/support/dist-docs/ovs-pki.8.txt).
+
+The ovn north db must be configured using the following commands:
+
+    ovn-nbctl set-ssl <private key file> <certificate file> <ca certificate file>
+    ovn-nbctl set-connection pssl:6641
+
+The ovn south db must be configured using the following commands:
+
+    ovn-sbctl set-ssl <private key file> <certificate file> <ca certificate file>
+    ovn-sbctl set-connection pssl:6642
+
+The provider must be configured by setting the follwing values in the configuration file (/etc/ovirt-provider-ovn/ovirt-provider-ovn.conf):
+
+    [SSL]
+    ssl_enabled=true # enables/disables https for the REST API
+    key-file=<private key file>
+    cert-file=<certificate file>
+    cacert-file=<ca certificate file>
+
+The PKI of the provider will be used to connect to the OVN north db, as well as for the https connection.
+The CA certificate must used for signing the certificate must be added to the external provider trust store on the engine:
+
+
+    keytool -import -alias <certificate alias> -keystore /var/lib/ovirt-engine/external_keystore -file <ca certificate file> -noprompt -storepass <store password, default: 'changeit'>
+
+The ovn-controller can be set up using the `setup_ovn_controller` script (/usr/libexec/ovirt-provider-ovn/setup_ovn_controller.sh):
+
+    setup_ovn_controller.sh <OVN central IP> <local tunneling IP> <private key file> <certificate file> <ca certificate file>
 
 ## Tested environments
 

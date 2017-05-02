@@ -52,6 +52,7 @@ After installing the driver and OVN, the OVN-controller must be configured. This
 
 The second parameter (local IP used for OVN tunneling) can be the IP address of the ovirtmgmt interface on the host, and should be reachable by OVN hosts and central server.
 vdsm-tool will also configure ovn-controller with the PKI required to safely connect to the ovn central server.
+To add support for Transport Layer Security (TLS) connectivity with the OVN-controller, vdsm-tool will use the VDSM private and public keys, and configures OVN-controller to enable PKI encryption between the host and the OVN south db on the OVN central server. This provides privacy and data-integrity in the management connections to the south database
 
 The OVN-controller can also be set up by using the OVN command-line interface directly. For more information about OVN-controller setup, please check the
 [OVS documentation](http://openvswitch.org/support/dist-docs/).
@@ -205,11 +206,14 @@ If used to set up ovirt-provider-ovn, engine-setup will perform the following ta
 * install ovs/ovn packages
 * install ovirt-provider-ovn package
 * add and configure a default External Network OVN provider. The engine provider will be configured to connect to provider on localhost. The provider will also be configured with the user and password specified during the setup process.
-* configure the OVN and ovirt-provider-ovn public key infrastructure.
+* generate the PKI (public key infrastructure) for OVN north db, OVN southdb and ovirt-provider-ovn (shared key for serving https and comunicating with OVN north db)
+* configure the OVN north and south databases to use SSL
+* configure the provider to use https
+* configure the provider to connect to OVN north DB using SSL
 
 ### Configuring PKI manually
 
-The PKI for the provider and driver are configured automatically by engine-setup and vdsm-tool.
+The PKI (public key infrastructure) for the provider and driver are configured automatically by engine-setup and vdsm-tool.
 In case where the provider is not installed together with ovirt-engine, PKI will need to be created and configured manually.
 
 In such a case, key/certificate pair signed by a common authority will be needed for the provider, ovn north db, ovn south db, and each of the ovn controllers.
@@ -237,8 +241,9 @@ The provider must be configured by setting the follwing values in the configurat
 The PKI of the provider will be used to connect to the OVN north db, as well as for the https connection.
 The CA certificate must used for signing the certificate must be added to the external provider trust store on the engine:
 
+    keytool -import -alias <certificate alias> -keystore <key store file> -file <ca certificate file> -noprompt -storepass <store password>
 
-    keytool -import -alias <certificate alias> -keystore /var/lib/ovirt-engine/external_keystore -file <ca certificate file> -noprompt -storepass <store password, default: 'changeit'>
+The key store file and the store password are defined in `/usr/share/ovirt-engine/services/ovirt-engine/ovirt-engine.conf`.
 
 The ovn-controller can be set up using the `setup_ovn_controller` script (/usr/libexec/ovirt-provider-ovn/setup_ovn_controller.sh):
 

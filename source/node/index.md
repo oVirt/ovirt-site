@@ -70,18 +70,13 @@ which we addressed with the re-designed oVirt Node 4.0.
 
 * **oVirt Node 3 Next** (Tech-Preview, downwards compatible within oVirt 3, **recommended**)
   * This is the oVirt Node Next image, with the newly designed oVirt Node, but using the stable oVirt 3 packages.
-  * [Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-3.6_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
-  * Jenkins job: <http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-3.6_build-artifacts-el7-x86_64/>
-
-* **oVirt Node 3 Vintage** (downwards compatible within oVirt 3, legacy)
-  * Installation and update ISO: <http://jenkins.ovirt.org/job/ovirt-node_ovirt-3.6_create-iso-el7_merged/>
+  * [Installation ISO](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-node-ng-installer/ovirt-node-ng-installer-ovirt-3.6-2016052403.iso)
 
 ## oVirt Node 4
 
 This is the oVirt Node 4 image including the latest oVirt 4 packages.
 
-* [Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.0_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
-* Jenkins job: <http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.0_build-artifacts-el7-x86_64/>
+* [Installation ISO](http://resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-node-ng-installer/ovirt-node-ng-installer-ovirt-4.0-2017011712.iso)
 
 ## oVirt Node 4.1
 

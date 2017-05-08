@@ -74,7 +74,7 @@ which we addressed with the re-designed oVirt Node 4.0.
 
 ## oVirt Node 4
 
-This is the oVirt Node 4 image including the latest oVirt 4 packages.
+This is the oVirt Node 4 image, including the latest oVirt 4 packages.
 
 * [Installation ISO](http://resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-node-ng-installer/ovirt-node-ng-installer-ovirt-4.0-2017011712.iso)
 
@@ -91,6 +91,3 @@ This is the oVirt Node image build based on oVirt packages from the master branc
 
 * [Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_master_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
 * Jenkins job: <http://jenkins.ovirt.org/job/ovirt-node-ng_master_build-artifacts-el7-x86_64/>
-
-
-

@@ -1,95 +1,68 @@
 ---
 title: virt-sysprep
-authors: shaharh
+authors: smelamud
 wiki_title: Features/virt-sysprep
-wiki_revision_count: 9
-wiki_last_updated: 2015-11-02
-feature_name: Virtual Sysprep
+wiki_revision_count: 19
+wiki_last_updated: 2017-04-04
+feature_name: Sealing a VM Template
 feature_modules: engine,vdsm
-feature_status: Design
+feature_status: Released
 ---
 
-# Virt-Sysprep
+# Sealing a VM Template
 
 ## Summary
 
-This feature will enable user to run [virt-sysprep](http://libguestfs.org/virt-sysprep.1.html) on Virtual Machine. virt-sysprep enable user to set and rested OS feature such as reset host name and network address and ssh keys as well as copy files, inject ssh keys to a given user, run scripts, run on next boot and more.
+'Sealing' is an operation that erases all machine-specific configurations from a filesystem: This includes SSH keys, UDEV rules, MAC addresses, system ID, hostname, etc. It is useful for when you want to create a template from a virtual machine. Subsequent virtual machines made from this template will avoid configuration inheritance.
 
-This feature will include
+[`virt-sysprep`](http://libguestfs.org/virt-sysprep.1.html) tool is used for sealing a VM template. Sealing operates directly on a VM's filesystem, and the list of images is passed to it in parameters. The objective is to add the ability to run `virt-sysprep` from oVirt on a specified set of disk images. The best timing for this action is when a VM template is created from a VM.
 
-*   Automatic reset network, ssh etc on cloning VM
-*   Automatic reset network, ssh etc on import VM
-*   Virt-Sysprep page that will have extend operations such as: injecting ssh keys, running scripts etc.
-
-Note that currently virt-sysprep support Linux only guest and only tested on major distributions.
+The exact list of operations performed by `virt-sysprep` can be found on the tool's [manual page](http://libguestfs.org/virt-sysprep.1.html). oVirt runs `virt-sysprep` with a set of default operations. Currently, `virt-sysprep` only supports Linux guests and has only been tested on major distributions.
 
 ## Owner
 
-*   Name: Shahar Havivi (Shaharh)
-*   Email: <shavivi@redhat.com>
+*   Name: Shmuel Melamud (smelamud)
+*   Email: <smelamud@redhat.com>
 
 ## Detailed Design
 
-### vdsm
+In UI, 'Seal template' checkbox will appear in 'New Template' dialog. If user checks this checkbox, the VM Template will be sealed just after creation.
 
-add a virt-sysprep module with general interface for running virt-sysprep utility.
+Disk images marked as SHARED cannot be modified. Therefore, you cannot run `virt-sysprep` after `AddVmTemplateCommand` is finished. Sealing must be performed directly after the VM template's disks have been created, but before the disks are marked as SHARED. Here is the correct sequence:
 
-*   api will get full drive path of the VM to manipulate
-*   api will accept named parameters as well as kwargs such as: virt-sysprep(firewall=False, resetNetwork=True, rootPassword=pass, \*\*kwargs)
-*   acquire a sanlock on the VM image
+1.   Create the template.
+2.   Create all template disks as regular (LEAF) disks.
+3.   Make the disks ILLEGAL.
+4.   Seal the template (run `virt-sysprep` on the disks).
+5.   Make the disks LEGAL and SHARED.
 
-### engine
+In the event of a mid-process failure, the whole process will fail and the template will be removed. If the disks are not removed after failure, they will be left ILLEGAL and unusable.
 
-All the engines operations are stateless and do not need database persistence.
+The `virt-sysprep` utility is executed on the VDSM side. The verb is `VM.seal`. The utility is executed asynchronously using host jobs mechanism. Storage jobs cannot be used for this, because `virt-sysprep` operates on all disks together, and not disk-by-disk. Therefore, another type of host jobs, named 'virt jobs', needs to be added. The engine will track the status of the job, using `VirtJobCallback`.
 
-*   Clone VM:
+## List of code changes
 
-Erase the following: (with checkboxes which are on by default)
+### UI
 
-\*# dhcp-client-state
+*   Add a 'Seal template' checkbox to the 'New Template' dialog.
 
-\*# net-hostname
+### REST
 
-\*# net-hwaddr
+*   Add a `seal` flag to the virtual machine template creation operation.
 
-\*# ssh-hostkeys
+### Backend
 
-\*# udev-persistent-net
+*   Create `VirtJobCallback`. Make `VirtJobCallback` and `StorageJobCallback` to be inherited from a common ancestor, `HostJobCallback`, that will contain the common functionality.
+*   Create `UpdateVolumeCommand`, to change volume flags, making it ILLEGAL, LEGAL and SHARED.
+*   Create `SealVmTemplateCommand` that invokes `VM.seal` verb on the VDSM side.
+*   Modify `AddVmTemplateCommand` so that it can perform all the steps mentioned above.
 
-*   bash-history
-*   logs
-*   yum key
+### VDSM
 
-<!-- -->
-
-*   Virt-Sysprep Tab:
-    1.  run a startup script
-    2.  set hostname
-    3.  set user password
-    4.  set root password
-    5.  remove user account
-    6.  inject ssh public key for user
-    7.  set timezone
-    8.  perform package update
-    9.  install specific package
-
-<!-- -->
-
-*   UI desing:
-
-TBD.
-
-## Notes
-
-*   All actions are related to multiple VMs.
-    1.  all of the action of virt-sysprep tab can be run on multiple VMs
-    2.  all the virt-sysprep tab options can be run on a VM-Pool. (ie on all of its VMs)
-    3.  all actions will be enabled for Templates as well
-*   Consider adding support for creating VM from template
-*   VM must be down in order to run virt-sysprep
-*   When adding/update package need to check that the storage domain have free space
+*   Add `SDM.update_volume` verb that changes volume attributes.
+*   Add `VM.seal` verb that runs `virt-sysprep` on the given list of disk images.
 
 ## Current status
 
-*   engine: Design
-*   vdsm: Design
+*   engine: Released
+*   vdsm: Released

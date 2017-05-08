@@ -87,7 +87,7 @@ should be ok.
 
 If you want to use other packages from EPEL, you should make sure to not
 include collectd. Either use `includepkgs` and add those you need, or use
-`excludepkgs=collectd*`.
+`exclude=collectd*`.
 
 
 ## What's New in 4.1.2?

@@ -58,9 +58,9 @@ You can clone this repository by running the following command:
 
       yum install `cat automation/check-patch.packages.el7`
 
-or if you are using Fedora
+or if you are using Fedora (use .fc24 for Fedora 24):
 
-      dnf install `cat automation/check-patch.packages.fc*`
+      dnf install `cat automation/check-patch.packages.fc25`
 
 On any platform, you should also install tox, required for running the
 tests. The best way to install it is using pip:

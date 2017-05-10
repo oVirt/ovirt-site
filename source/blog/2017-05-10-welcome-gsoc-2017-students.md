@@ -15,8 +15,6 @@ Joining us are:
 
 READMORE
 
-**Anastasiia Antsiferova**, who will be working on the oVirt log analyzer. Anastasiia will be developing a method for recognizing the contents of log files of different formats. Her mentor will be Milan Zamazal.
-
 **Tasdik Rahman**, who will be working on adding Ansible roles for oVirt-utilities, for easier testing and automated redeployment. His mentor will be Lucas Svaty.
 
 **Shubham Dubey**, who will be working on configuring backup storage for Ovirt. The idea is to replace the need for a dedicated storage domain for backup and disaster recovery*.  Shubham's mentor will be Maor Lipchuk.

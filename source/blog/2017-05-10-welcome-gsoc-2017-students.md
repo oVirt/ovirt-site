@@ -26,7 +26,7 @@ READMORE
 
 **Valentina Makarova** will be working on implementing oVirt integration tests using Lago - oVirt’s ad-hoc virtual testing environment framework. Her mentor will be Milan Zamazal.
 
-For more on the individual GSoC projects, visit the [oVirt GSoC 2017 projects page ](https://summerofcode.withgoogle.com/organizations/5668068689707008/#!).
+For more on the individual GSoC projects, visit the [oVirt GSoC 2017 projects page](https://summerofcode.withgoogle.com/organizations/5668068689707008/#!).
 
 And for more on the Outreachy internship program, visit  the [gnome.org website](https://wiki.gnome.org/Outreachy/2017/MayAugust#oVirt).
 

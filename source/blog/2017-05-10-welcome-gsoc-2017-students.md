@@ -6,7 +6,7 @@ date: 2017-05-10 10:30:00 CET
 comments: true
 published: true
 ---
-![](/images/wiki/ovirt-gsoc-logo.png) The oVirt project is glad to announce that three talented students will be joining the oVirt community for the 2017 Google Summer of Code (GSoC) program. GSoC is a global 3-month summer program focused on getting more student developers interested in open source software development.
+![](/images/ovirt-gsoc-logo.png) The oVirt project is glad to announce that three talented students will be joining the oVirt community for the 2017 Google Summer of Code (GSoC) program. GSoC is a global 3-month summer program focused on getting more student developers interested in open source software development.
 The three students will spend their summer break writing code, learning about open source development, and earning a stipend.
 
 READMORE

@@ -13,7 +13,7 @@ READMORE
 
 #### Joining us, are:
 
-**Tasdik Rahman** will be working on adding Ansible roles for oVirt-utilities, for easier testing and automated redeployment. His mentor will be Lucas Svaty.
+**Tasdik Rahman** will be working on adding Ansible roles for oVirt-utilities, for easier testing and automated redeployment. His mentor will be Lukas Svaty.
 
 **Shubham Dubey** will be working on configuring backup storage for Ovirt. The idea is to replace the need for a dedicated storage domain for backup and disaster recovery.  Shubham's mentor will be Maor Lipchuk.
 

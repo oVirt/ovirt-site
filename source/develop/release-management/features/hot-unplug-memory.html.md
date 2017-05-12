@@ -51,8 +51,6 @@ any memory in order to guarantee that hot plugged memory is movable.
 
 ## How to hot unplug memory from a VM
 
-**Not yet implemented.**
-
 The previously hot plugged memory appears in the form of memory devices in
 *Vm Devices* tab of the given VM.  You can remove any of the devices (assuming
 they have been hot plugged considering the constraints described above) and

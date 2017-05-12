@@ -8,8 +8,8 @@ authors: sandrobonazzola
 # oVirt 4.1.2 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.1.2
-First Release Candidate as
-of May 04, 2017.
+Second Release Candidate as
+of May 12, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an
 awesome KVM management interface for multi-node virtualization.
@@ -110,18 +110,18 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### oVirt Host Deploy
 
- - [BZ 1443508](https://bugzilla.redhat.com/1443508) <b>[RHVH3.6] Failed to add host to rhv-m 4.1 - Package collectd-disk cannot be found</b><br>ovirt-host-deploy now does not fail, but only emits a warning, if packages collectd/fluentd and their plugins are not available. This allows adding a 3.6 host to a 4.1 engine, even though the 3.6 repos do not have these packages.
+ - [BZ 1443508](https://bugzilla.redhat.com/1443508) <b>[RHVH3.6] Failed to add host to rhv-m 4.1 - Package collectd-disk cannot be found</b><br>ovirt-host-deploy now does not fail, but only emits a warning, if packages collectd/fluentd and their plugins are not available. This allows adding a 3.6 host to a 4.1 engine, even though the 3.6 repos do not have these packages.<br><br>Doc text for current state of the bug (see comments 18-24) follows. Above will be the doc text if we include the latter change.<br><br>ovirt-host-deploy now does not fail if packages collectd/fluentd and their plugins are not available. It will still emit an error saying "Failed to install Host" in the middle, but installation will eventually succeed. This allows adding a 3.6 host to a 4.1 engine, even though the 3.6 repos do not have these packages.
 
 ### No Doc Update
 
 #### oVirt Engine
 
- - [BZ 1438298](https://bugzilla.redhat.com/1438298) <b>[TEXT] - Clarify 'Experimental' Switch Type on Cluster Settings</b><br>
+ - [BZ 1448698](https://bugzilla.redhat.com/1448698) <b>[TEXT] - Clarify 'Experimental' Switch Type on Cluster Settings</b><br>
  - [BZ 1423468](https://bugzilla.redhat.com/1423468) <b>the quota value of datacenter - verify for sane values</b><br>
 
 #### VDSM
 
- - [BZ 1437375](https://bugzilla.redhat.com/1437375) <b>getAllVmIoTunePolicies exceptions in VDSM</b><br>
+ - [BZ 1448473](https://bugzilla.redhat.com/1448473) <b>getAllVmIoTunePolicies exceptions in VDSM</b><br>
 
 ### Rebase: Bug Fixes and Enhancementss
 
@@ -146,6 +146,8 @@ include collectd. Either use `includepkgs` and add those you need, or use
 #### oVirt Engine
 
  - [BZ 1434917](https://bugzilla.redhat.com/1434917) <b>Import of a VM with memory snapshot from storage domain fails</b><br>
+ - [BZ 1449084](https://bugzilla.redhat.com/1449084) <b>Can't connect to engine web ui with chrome 58 (due to missing subjectAltName)</b><br>
+ - [BZ 1415691](https://bugzilla.redhat.com/1415691) <b>New HSM infra - Disk remains locked when engine fails during engine task</b><br>
  - [BZ 1438418](https://bugzilla.redhat.com/1438418) <b>[REST] When setting network as management, the network becomes Non-operational</b><br>
  - [BZ 1390498](https://bugzilla.redhat.com/1390498) <b>[v4 REST-API] Read only Attribute is missing from /api/disks/{disk id}/ or from /api/vms/{vm id}/diskattachments/{diskattachments id}</b><br>
  - [BZ 1439509](https://bugzilla.redhat.com/1439509) <b>Missing description for host certification is expired</b><br>
@@ -176,6 +178,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1410440](https://bugzilla.redhat.com/1410440) <b>MAC addresses are in use after moving VM to another cluster and removing the vNIC doesn't clear it</b><br>
  - [BZ 1429810](https://bugzilla.redhat.com/1429810) <b>Fix the spurious leading space in the custom bond mode field</b><br>
  - [BZ 1422447](https://bugzilla.redhat.com/1422447) <b>[TEXT] Moving an existing NIC from an oVirt network to one on an external provider does  not require stopping a VM, unplug is fine too</b><br>
+ - [BZ 1444848](https://bugzilla.redhat.com/1444848) <b>Error while importing a VM from 4.0 data domain</b><br>
  - [BZ 1423657](https://bugzilla.redhat.com/1423657) <b>Add value to engine-config to set timeout after successful fence start</b><br>When power management start or restart action is executed, we switch host to REBOOT state and wait for number of seconds which are defined in 'ServerRebootTimeout' engine-config property. After that timeout we switch host to NON_RESPONSIVE state, so the host monitoring can handle the host.
  - [BZ 1441706](https://bugzilla.redhat.com/1441706) <b>[engine-backend] Block storage domain creation fails: CreateVG deviceList is passed with duplicated PV names</b><br>
  - [BZ 1432095](https://bugzilla.redhat.com/1432095) <b>The create_functions.sql is not executed on each engine-setup execution</b><br>
@@ -188,14 +191,12 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1439749](https://bugzilla.redhat.com/1439749) <b>API v3 of 4.1 engine doesn't have version 4.1 capabilities</b><br>
  - [BZ 1438691](https://bugzilla.redhat.com/1438691) <b>Wrong calculation of initial size of disk when copying template disk from file Raw/Sparse to block Cow</b><br>
  - [BZ 1438497](https://bugzilla.redhat.com/1438497) <b>[scale] - tasks rejection by thread pool util</b><br>
- - [BZ 1439692](https://bugzilla.redhat.com/1439692) <b>Unable to determine the correct call signature for deleteluns</b><br>
  - [BZ 1438252](https://bugzilla.redhat.com/1438252) <b>snapshots disks(not disk itself) are still with qcow2_v2 after cold move of Vm's disk+snapshots to V4 storage domain</b><br>
  - [BZ 1437383](https://bugzilla.redhat.com/1437383) <b>base volume format may not be preserved when moving disk between block/file domains</b><br>
  - [BZ 1390271](https://bugzilla.redhat.com/1390271) <b>in few of ui dialogs the fields position is pushed down or cut after replacing to the new list boxes</b><br>
  - [BZ 1409849](https://bugzilla.redhat.com/1409849) <b>UI: Storage domains not showing in search on a DC named with an underscore</b><br>
  - [BZ 1434019](https://bugzilla.redhat.com/1434019) <b>Fencing options link leads to retired page</b><br>
- - [BZ 1436160](https://bugzilla.redhat.com/1436160) <b>UI error about Discard After Delete comes too late</b><br>
- - [BZ 1434605](https://bugzilla.redhat.com/1434605) <b>SSO token used for the API expires when running only queries</b><br>
+ - [BZ 1436160](https://bugzilla.redhat.com/1436160) <b>UI error about Enable Discard (formally "Discard After Delete") comes too late</b><br>
  - [BZ 1427566](https://bugzilla.redhat.com/1427566) <b>Migration downtime not displayed</b><br>
  - [BZ 1434161](https://bugzilla.redhat.com/1434161) <b>Video devices of templates are not updated correctly</b><br>
  - [BZ 1433052](https://bugzilla.redhat.com/1433052) <b>unexpected qcow_version v2 on 2nd disk after snapshot on a VM created from template</b><br>
@@ -221,12 +222,14 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### VDSM
 
+ - [BZ 1446492](https://bugzilla.redhat.com/1446492) <b>Storage domain in 4.1 RHV will go offline if LVM metadata was restored manually</b><br>
  - [BZ 1437523](https://bugzilla.redhat.com/1437523) <b>migration failures - libvirtError - listen attribute must match address attribute of first listen element</b><br>
  - [BZ 1428415](https://bugzilla.redhat.com/1428415) <b>Improve logging to find out the cause of RPC pool being exhausted</b><br>
  - [BZ 1429420](https://bugzilla.redhat.com/1429420) <b>hostdev.list_by_caps() fails if 'drm' capability reported by libvirt</b><br>
  - [BZ 1430198](https://bugzilla.redhat.com/1430198) <b>can't enable tunneled migration</b><br>
  - [BZ 1419917](https://bugzilla.redhat.com/1419917) <b>VDSM fails to report capabilities if openvswitch stopped while Vdsm is running</b><br>
  - [BZ 1432876](https://bugzilla.redhat.com/1432876) <b>VM destroy call is not robust enough in cleanup flow</b><br>
+ - [BZ 1448606](https://bugzilla.redhat.com/1448606) <b>Creating template from VM with converted disk format fails only on iscsi SD - RAW to QCOW</b><br>
  - [BZ 1437341](https://bugzilla.redhat.com/1437341) <b>When MOM is missing, vdsm complains on MOM missing too frequently</b><br>
  - [BZ 1434927](https://bugzilla.redhat.com/1434927) <b>HSM - Cold Move - failed to move disk after cold merge of snapshot</b><br>
  - [BZ 1419240](https://bugzilla.redhat.com/1419240) <b>Creating a Clone vm from template with Format "QCOW2" and Target "block based storage" has a disk with same actual and virtual size.</b><br>
@@ -261,6 +264,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 #### oVirt Cockpit Plugin
 
  - [BZ 1433287](https://bugzilla.redhat.com/1433287) <b>Update generated gdeploy config file to restart glusterd post setting up systemd slice for glusterfs</b><br>
+ - [BZ 1431094](https://bugzilla.redhat.com/1431094) <b>change the text message when mount point and LV name is not specified.</b><br>
 
 #### oVirt Windows Guest Tools
 
@@ -273,13 +277,11 @@ include collectd. Either use `includepkgs` and add those you need, or use
 #### imgbased
 
  - [BZ 1431158](https://bugzilla.redhat.com/1431158) <b>There are warnings when running lvm commands</b><br>
- - [BZ 1419829](https://bugzilla.redhat.com/1419829) <b>avc denied errors (sshd_t) in audit.log after upgrade</b><br>
 
 ## Bug fixes
 
 ### oVirt Engine
 
- - [BZ 1446055](https://bugzilla.redhat.com/1446055) <b>[downstream clone - 4.1.2] HA VMs running in two hosts at a time after restoring backup of RHV-M</b><br>
  - [BZ 1438188](https://bugzilla.redhat.com/1438188) <b>Failed to create template from snapshot (At most one USB controller expected)</b><br>
  - [BZ 1440071](https://bugzilla.redhat.com/1440071) <b>Can't create gluster georeplication</b><br>
  - [BZ 1435088](https://bugzilla.redhat.com/1435088) <b>[Upgrade] Auto-Import of HostedEngine VM fails due to missing CPU Profile Permissions</b><br>
@@ -295,6 +297,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 ### VDSM
 
  - [BZ 1336840](https://bugzilla.redhat.com/1336840) <b>Prevent import of VMware machines with snapshot</b><br>
+ - [BZ 1428514](https://bugzilla.redhat.com/1428514) <b>RHEL guests cannot recognize attached CD after CD change</b><br>
 
 ### oVirt Log collector
 

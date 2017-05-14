@@ -1,6 +1,7 @@
 ---
 title: oVirt 3.0 release notes
 category: documentation
+layout: toc
 authors: danken, dneary, lpeer, mburns, michael pasternak, oschreib, sandrobonazzola,
   sgordon, yaniv dary
 wiki_category: Documentation

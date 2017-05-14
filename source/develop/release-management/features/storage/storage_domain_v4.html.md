@@ -3,7 +3,7 @@ title: Storage Domain V4
 category: feature
 authors: mlipchuk
 feature_name: Storage Domain V4
-feature_status: Delivered in oVirt 4.1
+feature_status: Released in oVirt 4.1
 feature_modules: engine/vdsm
 ---
 
@@ -23,10 +23,10 @@ format, V4. This new format includes:
 
 ## Current status
 
-* Delivered in oVirt 4.1
+* Released in oVirt 4.1
 
 ## Upgrade
 
 The upgrade will be handled as a [storage domain live
-upgrade](storagedomainliveupgrade), just like previous domain upgrades
+upgrade](../storagedomainliveupgrade), just like previous domain upgrades
 were handled.

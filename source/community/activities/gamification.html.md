@@ -18,12 +18,12 @@ In oVirt, Gamification refers to the initiative that aims to increase awareness 
 
 ### Leader
 
-*   Eyal Edri (Eedri) <eedri@redhat.com>
+*   Eyal Edri (eedri) <eedri@redhat.com>
+*   Vojtech Szocs (vszocs) <vszocs@redhat.com>
 
 ### Meetings
 
 *   meetings will take place publically on irc OFTC.net, channel - #ovirt_gamification.
-*   meetings summary and agdenda will be in <http://etherpad.ovirt.org/p/gamification>
 *   optional video/conf call will be avaiable via Blue jeans <https://bluejeans.com/6473766993>
 
 ## Projects

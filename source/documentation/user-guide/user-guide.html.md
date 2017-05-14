@@ -1,6 +1,7 @@
 ---
 title: oVirt User Guide
 category: documentation
+layout: toc
 authors: bproffitt
 wiki_title: OVirt User Guide
 wiki_revision_count: 2

@@ -143,9 +143,9 @@ Import from external environments using virt-v2v in terms of the general flow:
 
 You can import an OVA file from a live VMware data center host. Before proceeding, make sure that:
 
- A. The OVA file is stored in TAR format.
+* The OVA file is stored in TAR format.
 
- B. The source host has enough space to allow you to extract the OVA file to the host’s temporary directory.
+* The source host has enough space to allow you to extract the OVA file to the host’s temporary directory.
 
 The following procedure uses ‘rhel’ as an example:
   
@@ -157,7 +157,7 @@ The following procedure uses ‘rhel’ as an example:
 
 4. Click **Import** from the top menu to open the **Import Virtual Machine(s)** dialog box.
 
-5. In the **Source** drop-down menu, select  **VMware Virtual Appliance (OVA)**.
+5. In the **Source** drop-down menu, select **VMware Virtual Appliance** (OVA).
 
 6. In the **Host** box, select **HOST1** (The same host that you exported from VMware).
 

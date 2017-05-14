@@ -45,7 +45,7 @@ The oVirt Project is made great by the users who advocate and help in the develo
 
 <div class="parner-block">
 [![AlterWay](/images/logos/AlterWay.png)](http://www.alterway.fr)
-[AlterWay](//alterway.fr) offers hosting services to the oVirt project for free, including oVirt-managed Virtual Machines and a dedicated server for Jenkins, for use in the oVirt project infrastructure. They launched an oVirt-based public cloud offering called [H2O](http://h2o.alterway.fr) in October 2012. **[Case Study](/community/user-stories/alter-Way-case-study/ "Alter Way case study")**
+[AlterWay](//alterway.fr) offers hosting services to the oVirt project for free, including oVirt-managed Virtual Machines and a dedicated server for Jenkins, for use in the oVirt project infrastructure. They launched an oVirt-based public cloud offering called [H2O](http://h2o.alterway.fr) in October 2012. **[Case Study](/community/user-stories/alter-way-case-study/ "Alter Way case study")**
 </div>
 
 <div class="parner-block">

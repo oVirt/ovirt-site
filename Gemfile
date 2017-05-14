@@ -102,3 +102,5 @@ gem 'launchy'
 # for fetch-dashboard.rb script
 gem 'activesupport'
 
+gem 'middleman-piwik'
+

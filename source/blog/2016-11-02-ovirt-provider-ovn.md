@@ -119,6 +119,11 @@ Enable the service in order to make it start at boot, use:
 
     systemctl enable ovirt-provider-ovn
 
+Since OVS 2.7, OVN central must be configured to listen to requests on appropriate ports:
+
+    ovn-sbctl set-connection ptcp:6642
+    ovn-nbctl set-connection ptcp:6641
+
 
 The provider can then be added to oVirt as an external network provider. In order to add a new provider, go to the External Providers section in the oVirt UI and click the Add button.
 
@@ -172,6 +177,34 @@ Build the ovn rpms:
     rpmbuild -bb rhel/openvswitch-fedora.spec
 
 The built rpms will reside here: `~/rpmbuild/RPMS/x86_64/`
+
+## Provider setup using the engine-setup script
+
+The provider can be set up on the engine host using the engine-setup tool.
+The engine-setup tool is part of oVirt engine installation and is located in:
+
+    /bin/engine-setup
+
+During the setup process, engine-setup script will ask the user several questions related to OVN:
+
+* `Install ovirt-provider-ovn(Yes, No) [Yes]?:`
+  If 'Yes', engine-setup will install ovirt-provider-ovn.
+  If engine-setup is used to update a system, this will only be asked if ovirt-provider-ovn has not been installed previously.
+  If you reply 'No', you will not be asked again on the next run of engine-setup. If you do want to get asked again, run engine-setup with '--reconfigure-optional-components'.
+* `Use default credentials (admin@internal) for ovirt-provider-ovn(Yes, No) [Yes]?:`
+  If 'Yes', engine-setup will use the default engine user and password specified earlier in the setup process.
+  This option is only available during new installations.
+* `oVirt OVN provider user[admin]:`
+   If the default credentials are not chosen, the user name which to use to connect to the provider.
+* `oVirt OVN provider password[empty]:`
+   If the default credentials are not chosen, the password to use to connect to the provider.
+
+If used to set up ovirt-provider-ovn, engine-setup will perform the following tasks:
+
+* install ovs/ovn packages
+* install ovirt-provider-ovn package
+* add and configure a default External Network OVN provider. The engine provider will be configured to connect to provider on localhost. The provider will also be configured with the user and password specified during the setup process.
+
 
 ## Tested environments
 

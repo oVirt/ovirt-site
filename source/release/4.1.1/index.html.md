@@ -21,7 +21,7 @@ and visit the [About oVirt](/documentation/introduction/about-ovirt/) page.
 For detailed installation instructions, read the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
 To learn about features introduced before 4.1.1, see the [release notes for previous versions](/documentation/#previous-release-notes).
-
+[shop online](http://www.redhat.com/en/store "shop online")
 
 ## Install / Upgrade from previous versions
 

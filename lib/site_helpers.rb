@@ -39,7 +39,7 @@ class SiteHelpers < Middleman::Extension
       return unless content
 
       if content.match(/http/)
-        content.gsub!(/([^<])(http[^\s$]*)([^>])/, '\\1<\\2>\\3')
+        content.gsub!(/([^<])(http[^\s\)$]*)([^>])/, '\\1<\\2>\\3')
       end
 
       Tilt['markdown'].new(config[:markdown]) { content.strip }.render

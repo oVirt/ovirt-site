@@ -11,8 +11,7 @@ Python SDK version 4.1.4 introduced support for sending asynchronous requests an
 
 ## Asynchronous requests
 
-In order for SDK to to work in an asynchronous fashion, we introduce two new features to our SDK, multiple connections and HTTP pipelining.
-This provides significant value when user wishes to fetch the inventory of the oVirt system. The time to fetch the inventory may be significantly decresed.
+When using asynchronous requests, the client sends the request and define a method(usually called `callback`) which should be called after the response is received, but the client is not waiting for the response. In order for SDK to to work in an asynchronous fashion, we introduce two new features to our SDK, multiple connections and HTTP pipelining. This provides significant value when user wishes to fetch the inventory of the oVirt system. The time to fetch the inventory may be significantly decresed.
 Some comparison of the synchronous and asynchronous requests below.
 
 ### Multiple connections

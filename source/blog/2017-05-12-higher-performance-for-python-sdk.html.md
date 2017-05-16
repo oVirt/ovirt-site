@@ -1,5 +1,5 @@
 ---
-title: Be asynchronous with Python SDK
+title: Higher performance for oVirt Python SDK
 author: omachace
 date: 2017-05-12 08:00:00 UTC
 tags: ovirt, python, sdk, pipelining, async, api
@@ -7,23 +7,23 @@ comments: false
 published: false
 ---
 
-Python SDK version 4.1.4 introduced support for sending asynchronous requests and HTTP pipelining. In this blog post we will explain those terms and we will show you an example how to use the Python SDK in asynchronous manner.
+Python SDK version 4.1.4 introduced support for sending asynchronous requests and HTTP pipelining. In this blog post we will explain those terms and we will show you an example how to use the Python SDK in an asynchronous manner.
 
 ## Asynchronous requests
 
-In order to the SDK to to work in an asynchronous fashion, we introduced two new features to our SDK, multiple connections and HTTP pipelining.
-This can bring the value when user want to fetch the inventory of the oVirt system. The time to fetch the inventory may be significantly decresed.
-You can see some comparison of the synchronous and asynchronous requests below.
+In order for SDK to to work in an asynchronous fashion, we introduce two new features to our SDK, multiple connections and HTTP pipelining.
+This provides significant value when user wishes to fetch the inventory of the oVirt system. The time to fetch the inventory may be significantly decresed.
+Some comparison of the synchronous and asynchronous requests below.
 
 ### Multiple connections
 
-Previously the SDK used only one opened connection which sequentially send the requests according to user program and always waited for the server response for corresponding request.
-In new version of the SDK the user can specify the number of connections the SDK should create to the server, and the specific requests created by user program uses those connections in parallel.
+Previously the SDK used only a single open connection which sequentially sent the requests according to user program and always waited for the server response for corresponding request.
+In the new version of the SDK the user can specify the number of connections the SDK should create to the server, and the specific requests created by user program uses those connections in parallel.
 
 ### HTTP pipelining
 
 As you can see at the image below, the HTTP requests are executed sequentially by default. The next request in order can be executed, when the previous request is received.
-With HTTP pipelining client can send multiple requests without waiting for ther server response. Only idempotent HTTP methods can be pipelined.
+With HTTP pipelining a client can send multiple requests without waiting for ther server response. Only idempotent HTTP methods can be pipelined.
 
 ```
 With pipelining disabled            With pipelining enabled
@@ -49,8 +49,8 @@ CLIENT | /   | SERVER              CLIENT |   / /| SERVER
 
 ## SDK implementation
 
-To not break the backward compatibility of the SDK, we have introduced a new boolean parameter called ```wait```, to the methods of SDK services.
-The default values is ```True```, so it's working in synchronous fashion. If the user send the ```wait=False```, the SDK will send a request specified by user program and will return the ```Future``` object,
+In order not to break the backward compatibility of the SDK, we have introduced a new boolean parameter called ```wait```, to the methods of SDK services.
+The default values is ```True```, so it's working in synchronous fashion. If the user sends the ```wait=False```, the SDK will send a request specified by user program and will return the ```Future``` object,
 which is defined as follows:
 
 ```python
@@ -67,7 +67,7 @@ class Future(object):
         """
 ```
 
-So in order to wait for the response, user have to call the ```wait``` method, which will return the resulting object.
+The user will need to call the ```wait``` method in order to wait for the response. The ```wait``` method returns the resulting object.
 
 ## Example
 
@@ -103,25 +103,26 @@ for vm_name, vm_resources in futures.iteritems():
 connection.close()
 ```
 
-You can check another [example] in git repository of Python SDK.
+You can check another [example] in the git repository of the oVirt Python SDK, under the [examples] sub directory.
 
 ## Benchmark
 
-I did small benchmark on my small oVirt setup with about 100 Virtual machines and
+I performed small benchmark on my small oVirt setup with about 100 virtual machines and
 executed the example above, with following result:
 
 ```bash
 omachace ~ $ time python sync.py 
 
-real	0m4.746s
-user	0m4.109s
-sys	  0m0.447s
+real   0m4.746s
+user   0m4.109s
+sys    0m0.447s
 
 omachace ~ $ time python async.py 
 
-real	0m2.569s
-user	0m2.015s
-sys	  0m0.179s
+real   0m2.569s
+user   0m2.015s
+sys    0m0.179s
 ```
 
 [example]: https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/asynchronous_inventory.py
+[examples]: https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/

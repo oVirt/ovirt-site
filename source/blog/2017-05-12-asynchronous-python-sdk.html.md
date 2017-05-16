@@ -11,19 +11,19 @@ Python SDK version 4.1.4 introduced support for sending asynchronous requests an
 
 ## Asynchronous requests
 
-In order to the SDK to to work in an asynchronous fashion, we introduces two new features to our SDK, multiple connections and HTTP pipelining.
+In order to the SDK to to work in an asynchronous fashion, we introduced two new features to our SDK, multiple connections and HTTP pipelining.
 This can bring the value when user want to fetch the inventory of the oVirt system. The time to fetch the inventory may be significantly decresed.
 You can see some comparison of the synchronous and asynchronous requests below.
 
 ### Multiple connections
 
 Previously the SDK used only one opened connection which sequentially send the requests according to user program and always waited for the server response for corresponding request.
-In new version of the SDK the user can specify the number of connections the SDK should create to the server, and the specific requests created by user program use one of the connections.
+In new version of the SDK the user can specify the number of connections the SDK should create to the server, and the specific requests created by user program uses those connections in parallel.
 
 ### HTTP pipelining
 
 As you can see at the image below, the HTTP requests are executed sequentially by default. The next request in order can be executed, when the previous request is received.
-With HTTP Pipelining client can send multiple requests without waiting for ther server response. Only idempotent HTTP methods can be pipelined.
+With HTTP pipelining client can send multiple requests without waiting for ther server response. Only idempotent HTTP methods can be pipelined.
 
 ```
 With pipelining disabled            With pipelining enabled
@@ -67,7 +67,7 @@ class Future(object):
         """
 ```
 
-So in order to wait for the response user need to call the ```wait``` method, which will return the resultion object.
+So in order to wait for the response, user have to call the ```wait``` method, which will return the resulting object.
 
 ## Example
 

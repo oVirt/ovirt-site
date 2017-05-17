@@ -39,6 +39,7 @@ On < 4.1, upgrading to a newer < 4.1 version (e.g. 4.0.6 to 4.0.7) might revert
 this change, so you need to repeat it per each upgrade until 4.1.
 
 On the engine machine, run these commands:
+
 ```sh
 # Backup exiting conf
 cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf."$(date +"%Y%m%d%H%M%S")"
@@ -54,6 +55,7 @@ might be enough to skip this part. If your browser requires both the CA cert
 and the https cert to have SHA256 signatures, you have to complete it.
 
 On the engine machine, run these commands:
+
 ```sh
 # Backup CA cert
 cp -p /etc/pki/ovirt-engine/private/ca.pem /etc/pki/ovirt-engine/private/ca.pem."$(date +"%Y%m%d%H%M%S")"
@@ -142,8 +144,11 @@ the same serial number. Restarting the browser was enough to login again.
 ## Re-add hosts
 
 For all of your hosts, one host at a time, using the web admin ui:
+
 * Set it to Maintenance
+
 * Choose "Enroll Certificates"
+
 * Activate
 
 ## Verify

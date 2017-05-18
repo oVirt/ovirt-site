@@ -11,7 +11,7 @@ Python SDK version 4.1.4 introduced support for sending asynchronous requests an
 
 ## Asynchronous requests
 
-When using asynchronous requests, the client sends the request and define a method(usually called `callback`) which should be called after the response is received, but the client is not waiting for the response. In order for SDK to to work in an asynchronous fashion, we introduce two new features to our SDK, multiple connections and HTTP pipelining. This provides significant value when user wishes to fetch the inventory of the oVirt system. The time to fetch the inventory may be significantly decresed.
+When using asynchronous requests, the client sends the request and define a method (usually called `callback`) which should be called after the response is received, but the client is not waiting for the response. In order for SDK to work in an asynchronous fashion, we introduce two new features to our SDK, multiple connections and HTTP pipelining. This provides significant value when user wishes to fetch the inventory of the oVirt system. The time to fetch the inventory may be significantly decreased.
 Some comparison of the synchronous and asynchronous requests below.
 
 ### Multiple connections
@@ -49,7 +49,7 @@ CLIENT | /   | SERVER              CLIENT |   / /| SERVER
 ## SDK implementation
 
 In order not to break the backward compatibility of the SDK, we have introduced a new boolean parameter called ```wait```, to the methods of SDK services.
-The default values is ```True```, so it's working in synchronous fashion. If the user sends the ```wait=False```, the SDK will send a request specified by user program and will return the ```Future``` object,
+The default value is ```True```, so it's working in synchronous fashion. If the user sends the ```wait=False```, the SDK will send a request specified by user program and will return the ```Future``` object,
 which is defined as follows:
 
 ```python
@@ -69,6 +69,9 @@ class Future(object):
 The user will need to call the ```wait``` method in order to wait for the response. The ```wait``` method returns the resulting object.
 
 ## Example
+
+This example will fetch all the VMs in oVirt and also fetch relevant VM data like network interfaces, disks and permissions.
+The additional data of the VM are fetched asynchronously.
 
 ```python
 import ovirtsdk4 as sdk

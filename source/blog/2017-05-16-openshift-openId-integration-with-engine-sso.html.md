@@ -1,21 +1,23 @@
 ---
-title: Integrating Kibana/Elasticsearch on top of OpenShift with oVirt Engine SSO
+title: Integrating Kibana/Elasticsearch on Top of OpenShift with oVirt Engine SSO
 author: rnori
 tags: community, documentation, howto, OpenShift, oVirt, sso
-date: 2017-05-11 11:40:00 CET
+date: 2017-05-16 12:35:00 CET
 comments: true
 published: true
 ---
 
-oVirt Engine provides a powerful way to manage users and domains using the oVirt Engine AAA extensions. oVirt Engine supports many different LDAP server types for authentication using the `ovirt-engine-extension-aaa-ldap` extension and supports managing internal users using the `ovirt-engine-extension-aaa-jdbc` extension. Clients can use the powerful oVirt Engine user management in their applications by using the OAuth2 or OpenId Connect end points provided by oVirt Engine SSO to authenticate users in their applications. Below is step by step instructions on how to integrate Kibana/Elasticsearch on top of OpenShift with oVirt Engine SSO. The instructions should work for any client application that can be configured to use a OAuth2 or OpenID Connect server to authenticate its users.
+oVirt Engine provides a powerful way to manage users and domains using the oVirt Engine AAA extensions. oVirt Engine supports many different LDAP server types for authentication using the `ovirt-engine-extension-aaa-ldap` extension and supports managing internal users using the `ovirt-engine-extension-aaa-jdbc` extension. Clients can use the powerful oVirt Engine user management in their applications by using the OAuth2 or OpenId Connect end points provided by oVirt Engine SSO to authenticate users in their applications. 
 
-The goal is to integrate Kibana/Elasticsearch on top of OpenShift with oVirt Engine SSO, so existing engine users can access Kibana/Elasticsearch without reauthentication (we don't need to maintain authentication configuration separately for oVirt Engine and Kibana/Elasticsearch).
+Below is step-by-step instructions on how to integrate Kibana/Elasticsearch on top of OpenShift with oVirt Engine SSO. The instructions should work for any client application that can be configured to use a OAuth2 or OpenID Connect server to authenticate its users.
 
 READMORE
 
+The goal is to integrate Kibana/Elasticsearch on top of OpenShift with oVirt Engine SSO, so existing engine users can access Kibana/Elasticsearch without reauthentication (we don't need to maintain authentication configuration separately for oVirt Engine and Kibana/Elasticsearch).
+
 The integration requires a fully working and configured oVirt Engine instance on oVirt Engine host and a fully working and configured instance of Kibana/Elasticsearch on top of OpenShift on the OpenShift host.
 
-## Installing Kibana/Elasticsearch and OpenShift backend
+## Installing Kibana/Elasticsearch and OpenShift Backend
 
 Install Kibana/Elasticsearch/OpenShift on CentOS7 or RHEL 7.3 as described in https://github.com/ViaQ/Main/blob/master/README-mux.md
 
@@ -115,5 +117,3 @@ Make sure the hosts are reachable by their hostnames if required add host aliase
 ## Grant Permissions
 
 The user needs to be granted permissions manually in OpenShift, using the console UI or the command line, so that the user can view the data in Kibana. Accessing https://kibana.example.com should redirect to the engine login page. Enter credentials and login will redirect user back to Kibana.
-
-

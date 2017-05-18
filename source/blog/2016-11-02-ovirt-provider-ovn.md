@@ -203,8 +203,8 @@ During the setup process, engine-setup script will ask the user several question
 
 If used to set up ovirt-provider-ovn, engine-setup will perform the following tasks:
 
-* install ovs/ovn packages
-* install ovirt-provider-ovn package
+* install OVS and OVN packages on the engine
+* install ovirt-provider-ovn on the engine
 * add and configure a default External Network OVN provider. The engine provider will be configured to connect to provider on localhost. The provider will also be configured with the user and password specified during the setup process.
 * generate the PKI (public key infrastructure) for OVN north db, OVN southdb and ovirt-provider-ovn (shared key for serving https and comunicating with OVN north db)
 * configure the OVN north and south databases to use SSL

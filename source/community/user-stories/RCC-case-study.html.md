@@ -5,7 +5,7 @@ authors: jmarks
 wiki_category: Community
 wiki_title: Alter Way case study
 wiki_revision_count: 11
-wiki_last_updated: 2013-09-09
+wiki_last_updated: 2017-05-16
 ---
 
 <div class="row">
@@ -45,7 +45,7 @@ In the future, Manners plans to shift oVirt to production hardware with 32-core 
 <div class="well well-lg">
 ![](images/logos/FSUSig_Horizontal_Color.png)<br>
 
-**Company name:** Research Computing Center<br>
+**Company name:** Florida State University Research Computing Center<br>
 **Activity:** Scientific research<br>
 **Founded:** 1984<br>
 **Size:** 60 users, 20 academic departments

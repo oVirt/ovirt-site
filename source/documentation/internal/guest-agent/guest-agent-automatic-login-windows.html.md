@@ -19,7 +19,7 @@ The automatic login on Windows is based on two components:
 1. The ovirt-guest-agent which handle the user's credentials and workflow.
 2. A Window's component interaction with the Winlogon system.
    * for Windows XP -- the component is implemented as a [GINA](http://msdn.microsoft.com/en-us/library/aa375457(v=vs.85).aspx) DLL. 
-   * for WIn7 -- The Gina interface was changed on Windows Vista with the new [Credential Providers](http://msdn.microsoft.com/en-us/magazine/cc163489.aspx) model.
+   * for WIn7 -- The Gina interface was changed on Windows Vista with the new [Credential Providers](https://msdn.microsoft.com/en-us/library/windows/desktop/bb648647(v=vs.85).aspx) model.
 
 Both above component are included in the ovirt-guest-agent git repo
 

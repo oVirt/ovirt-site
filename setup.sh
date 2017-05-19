@@ -15,4 +15,5 @@ else
     echo "Could not verify system is RedHat or Debian."
     exit 1
 fi 
-  bundle install
+
+bundle install

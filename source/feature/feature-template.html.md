@@ -20,7 +20,7 @@ The actual name of your feature page should look something like: "Your feature n
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
+Summarize what this feature is and what it will do. Explain to the reader why this feature is necessary, and what problem it is trying to solve. This information is used for the overall feature summary page for each release.
 
 ### Owner
 
@@ -34,7 +34,13 @@ Include you email address that you can be reached should people want to contact 
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+Expand on the summary, if appropriate. Explain the goal; the more details you can provide the better. 
+
+### Prerequisites
+List any hardware or software prerequisites. Or any steps that need to be performed before the feature can be implemented.
+
+### Limitations
+List any limitations of the feature. 
 
 ### Benefit to oVirt
 
@@ -55,7 +61,7 @@ Describe user experience related issues. For example: We need a wizard for ....,
 
 #### Installation/Upgrade
 
-Describe how the feature will effect new installation or existing one.
+Describe how this feature will affect new installations or existing ones.
 
 #### User work-flows
 

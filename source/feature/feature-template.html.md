@@ -20,7 +20,7 @@ The actual name of your feature page should look something like: "Your feature n
 
 ### Summary
 
-Summarize what this feature is and what it will do. Explain to the reader why this feature is necessary, and what problem it is trying to solve. This information is used for the overall feature summary page for each release.
+Summarize what this feature is and what it will do. Explain to the reader what is the benefit to the end user, and what problem it is trying to solve. This information is used for the overall feature summary page for each release.
 
 ### Owner
 
@@ -37,7 +37,7 @@ Include you email address that you can be reached should people want to contact 
 Expand on the summary, if appropriate. Explain the goal; the more details you can provide the better. 
 
 ### Prerequisites
-List any hardware or software prerequisites. Or any steps that need to be performed before the feature can be implemented.
+List any hardware or software prerequisites or any steps that need to be performed before the feature can be implemented.
 
 ### Limitations
 List any limitations of the feature. 

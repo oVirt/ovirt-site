@@ -10,9 +10,7 @@ authors: vfeenstr
 
 ## The communication between oVirt guest agent and the oVirt engine
 
-<!-- TODO: image too large, needs fixing
-![](/images/wiki/Guest_Agent_Achitecture.png "Guest_Agent_Achitecture.png")
--->
+![](/images/wiki/Guest_Agent_Achitecture.png)
 
 The engine directs requests for the guest agent to VDSM.
 

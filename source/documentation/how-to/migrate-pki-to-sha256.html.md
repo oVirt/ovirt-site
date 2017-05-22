@@ -1,6 +1,7 @@
 ---
 title: Migrate PKI to SHA256 signatures Howto
 category: howto
+layout: toc
 ---
 
 # Migrate PKI to SHA256 signatures Howto
@@ -141,7 +142,7 @@ In my own case I unchecked "Permanently store this exception" when I first
 logged in, and after restarting httpd the browser showed an error about using
 the same serial number. Restarting the browser was enough to login again.
 
-## Re-add hosts
+## Enroll Certificates for hosts
 
 For all of your hosts, one host at a time, using the web admin ui:
 

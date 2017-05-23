@@ -4,8 +4,8 @@ category: integration
 authors: bproffitt, sandrobonazzola
 wiki_category: Integration
 wiki_title: OVirt Quality Assurance
-wiki_revision_count: 27
-wiki_last_updated: 2015-10-28
+wiki_revision_count: 28
+wiki_last_updated: 2017-05-23
 ---
 
 # oVirt Quality Assurance
@@ -50,8 +50,8 @@ You can also join oVirt users mailing list, where quality assurance-related topi
 ## Next releases
 
 
-* 4.1.1:
-  - Tracker: [oVirt 4.1.1 release](https://bugzilla.redhat.com/buglist.cgi?quicksearch=target_milestone%3Aovirt-4.1.1)
+* 4.1.2:
+  - Tracker: [oVirt 4.1.2 release](https://bugzilla.redhat.com/buglist.cgi?quicksearch=target_milestone%3Aovirt-4.1.1)
   - [oVirt 4.1.z Release Management](/develop/release-management/releases/4.1.z/release-management/)
 
 ## Notes:

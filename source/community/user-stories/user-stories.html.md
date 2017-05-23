@@ -15,9 +15,7 @@ We are collecting stories of oVirt users and how they are using the software. We
 
 <div class="case-studies">
 <div class="case-study">
-
 ### Florida State University RCC
-
 ![](/images/logos/FSUSig_Horizontal_Color.png)
 
 Florida State University’s Research and Computing Center (RCC) provides the university’s academic community with access to a virtual machine cluster. It is used for basic data services, collaborative applications, firewall installation, and other self-managed services.

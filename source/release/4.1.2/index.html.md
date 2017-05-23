@@ -8,51 +8,44 @@ authors: sandrobonazzola
 # oVirt 4.1.2 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.1.2
-Second Release Candidate as
-of May 12, 2017.
+Release as of May 23, 2017.
 
-oVirt is an open source alternative to VMware™ vSphere™, and provides an
+oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.3,
 CentOS Linux 7.3 (or similar).
 
+For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
+and visit the [About oVirt](/documentation/introduction/about-ovirt/) page.
 
-This is pre-release software.
-Please take a look at our [community page](/community/) to know how to
-ask questions and interact with developers and users.
-All issues or bugs should be reported via the
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
+For detailed installation instructions, read the [Installation Guide.](documentation/install-guide/Installation_Guide/)
+
+To learn about features introduced before 4.1.2, see the [release notes for previous versions.](documentation/#previous-release-notes)
 
 
-To find out more about features which were added in previous oVirt releases,
-check out the
-[previous versions release notes](/develop/release-management/releases/).
-For a general overview of oVirt, read
-[the Quick Start Guide](Quick_Start_Guide)
-and the [about oVirt](about oVirt) page.
+## Install / Upgrade from previous versions
 
-[Installation guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/)
-is available for updated and detailed installation instructions.
 
 ### Fedora / CentOS / RHEL
 
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm)
 
 
 and then follow our
 [Installation guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/)
+
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 
 
@@ -89,7 +82,6 @@ If you want to use other packages from EPEL, you should make sure to not
 include collectd. Either use `includepkgs` and add those you need, or use
 `exclude=collectd*`.
 
-
 ## What's New in 4.1.2?
 
 ### Enhancements
@@ -110,7 +102,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### oVirt Host Deploy
 
- - [BZ 1443508](https://bugzilla.redhat.com/1443508) <b>[RHVH3.6] Failed to add host to rhv-m 4.1 - Package collectd-disk cannot be found</b><br>ovirt-host-deploy now does not fail, but only emits a warning, if packages collectd/fluentd and their plugins are not available. This allows adding a 3.6 host to a 4.1 engine, even though the 3.6 repos do not have these packages.<br><br>Doc text for current state of the bug (see comments 18-24) follows. Above will be the doc text if we include the latter change.<br><br>ovirt-host-deploy now does not fail if packages collectd/fluentd and their plugins are not available. It will still emit an error saying "Failed to install Host" in the middle, but installation will eventually succeed. This allows adding a 3.6 host to a 4.1 engine, even though the 3.6 repos do not have these packages.
+ - [BZ 1443508](https://bugzilla.redhat.com/1443508) <b>[RHVH3.6] Failed to add host to rhv-m 4.1 - Package collectd-disk cannot be found</b><br>ovirt-host-deploy now does not fail, but only emits a warning, if packages collectd/fluentd and their plugins are not available. This allows adding a 3.6 host to a 4.1 engine, even though the 3.6 repos do not have these packages.
 
 ### No Doc Update
 
@@ -138,7 +130,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 #### oVirt Engine
 
  - [BZ 1367107](https://bugzilla.redhat.com/1367107) <b>[RFE] Override firewall rules by default when installing a new host or reinstalling existing host</b><br>Prior to 4.1.2 both API and webadmin behaved differently on firewall configuration for installing new host or reinstalling existing one:<br><br>1) webadmin - by default firewall configuration during host installation or reinstallation was enabled<br><br>2) API - by default firewall configuration during host installation or reinstallation was disabled and users had to specify override_iptables=true parameter in request for host to be successfully installed (or they had to perform manual firewall configuration on host prior adding it to engine)<br><br>This was very inconvenient for users as most of them didn't perform manual firewall configuration, so we have decided to change the default behaviour: from 4.1.2 both webadmin and API by default enable firewall configuration during host installation and reinstallation.<br><br>If users upgrading from previous have some scripts using API for adding hosts and their scripts depends on pre-4.1.2 behaviour to not configure firewall, they will have to update their scripts and add override_iptables=false option into their scripts.
- - [BZ 1433961](https://bugzilla.redhat.com/1433961) <b>Disable overcommit by default when creating new cluster</b><br>New clusters now have ballooning and KSM disabled by default and overcommit set to 100% (no overcommit) by default.<br><br>Reason:<br><br>Configuring overcommit without ballooning or KSM does not make any sense. It would affect scheduling (the engine would think it has more memory), but nothing would actually free the memory.
+ - [BZ 1433961](https://bugzilla.redhat.com/1433961) <b>Disable overcommit by default when creating new cluster</b><br>Previously, it was possible to configure memory overcommit without setting memory ballooning or KSM control. This configuration affected the scheduling, but the memory was not freed. This has now been fixed by disabling ballooning and KSM by default, and setting memory optimization to “None” (100%).
  - [BZ 1436161](https://bugzilla.redhat.com/1436161) <b>[RFE][scale]Increase LVs per VG alert limit</b><br>The recommendation on number of logical volumes per storage domain was increased from 300 to 1000, given that the alert issued when exceeding this number was changed to reflect that, the limit will only change if it was the original default which is 300, in case the user manually configured it the limit will not be overriden
 
 ### Unclassified
@@ -146,39 +138,37 @@ include collectd. Either use `includepkgs` and add those you need, or use
 #### oVirt Engine
 
  - [BZ 1434917](https://bugzilla.redhat.com/1434917) <b>Import of a VM with memory snapshot from storage domain fails</b><br>
- - [BZ 1449084](https://bugzilla.redhat.com/1449084) <b>Can't connect to engine web ui with chrome 58 (due to missing subjectAltName)</b><br>
  - [BZ 1415691](https://bugzilla.redhat.com/1415691) <b>New HSM infra - Disk remains locked when engine fails during engine task</b><br>
  - [BZ 1438418](https://bugzilla.redhat.com/1438418) <b>[REST] When setting network as management, the network becomes Non-operational</b><br>
  - [BZ 1390498](https://bugzilla.redhat.com/1390498) <b>[v4 REST-API] Read only Attribute is missing from /api/disks/{disk id}/ or from /api/vms/{vm id}/diskattachments/{diskattachments id}</b><br>
  - [BZ 1439509](https://bugzilla.redhat.com/1439509) <b>Missing description for host certification is expired</b><br>
  - [BZ 1436325](https://bugzilla.redhat.com/1436325) <b>Wrong emulated machine for a VM with custom compatibility version</b><br>
  - [BZ 1436966](https://bugzilla.redhat.com/1436966) <b>EJB Invocation failed on component MacPoolPerCluster for method public org.ovirt.engine.core.bll.network.macpool.ReadMacPool</b><br>
- - [BZ 1434326](https://bugzilla.redhat.com/1434326) <b>RestAPI connection fail after time change</b><br>
  - [BZ 1426027](https://bugzilla.redhat.com/1426027) <b>Always use engine FQDN even for internal communication between engine and SSO module</b><br>
  - [BZ 1425725](https://bugzilla.redhat.com/1425725) <b>Not able to update response</b><br>
  - [BZ 1427543](https://bugzilla.redhat.com/1427543) <b>A disk that is about to be deleted should be discarded first if it is attached to at least one vm with Pass Discard enabled</b><br>Up until now, a disk would have been discarded only if its block storage domain's Discard After Delete was enabled.<br><br>From now and on, a disk will be discarded also if it is attached to at least one virtual machine with Pass Discard enabled.<br>The logic behind this is that if the user wanted "live" discarding, he will probably want to discard the whole disk when it is removed even if its storage domain's Discard After Delete property is disabled.<br><br>For more information, please refer to the "Discard After Delete" feature page - http://www.ovirt.org/develop/release-management/features/storage/discard-after-delete/ .
  - [BZ 1436577](https://bugzilla.redhat.com/1436577) <b>Solve DC/Cluster upgrade of VMs with now-unsupported custom compatibility level</b><br>
  - [BZ 1430666](https://bugzilla.redhat.com/1430666) <b>Engine does not update the dwh heartbeat in the specified interval causing dwh error</b><br>
  - [BZ 1421764](https://bugzilla.redhat.com/1421764) <b>engine-vacuum needs proper log messages</b><br>
- - [BZ 1418156](https://bugzilla.redhat.com/1418156) <b>[ALL_LANGS] [Admin Portal]The text/UI alignment needs to adjusted on quota->add screen.</b><br>
  - [BZ 1431435](https://bugzilla.redhat.com/1431435) <b>RNG source cannot be changed to /dev/urandom if /dev/hwrng source is enabled.</b><br>
  - [BZ 1417839](https://bugzilla.redhat.com/1417839) <b>[ALL LANG] Administration portal - Empty credentials warning message not localized</b><br>
  - [BZ 1438962](https://bugzilla.redhat.com/1438962) <b>DB query cache auto-eviction could be longer then the query run time in a large environment</b><br>
  - [BZ 1413899](https://bugzilla.redhat.com/1413899) <b>tooltips in Extended view on VM show only one value</b><br>
- - [BZ 1435140](https://bugzilla.redhat.com/1435140) <b>[ALL LANG] Need to localize a warning message on the welcome page 'unauthorized_client: Authentication required.'</b><br>
  - [BZ 1422428](https://bugzilla.redhat.com/1422428) <b>[fr-FR] Admin portal->Quota: measurements units are mixed up (GB in English and Go in French all mixed up).</b><br>
  - [BZ 1430451](https://bugzilla.redhat.com/1430451) <b>Make max memory to follow memory only when VM is not UP</b><br>
  - [BZ 1421434](https://bugzilla.redhat.com/1421434) <b>[REST-API] <mac_pool href= is missing under /api/datacenters/</b><br>
  - [BZ 1425156](https://bugzilla.redhat.com/1425156) <b>unexpected UI behavior in the New External Subnet window</b><br>
- - [BZ 1422455](https://bugzilla.redhat.com/1422455) <b>[ALL LANG] [User portal] User menu->Options dialog box tool tip messages are not localized</b><br>
  - [BZ 1417101](https://bugzilla.redhat.com/1417101) <b>Arbiter flag is not present in the brick path for arbiter bricks when arbiter volume is created from UI.</b><br>
+ - [BZ 1420687](https://bugzilla.redhat.com/1420687) <b>Remove NFS & CIFS checkboxes and enable optimize-for-virt-store in the volume creation dialog</b><br>
  - [BZ 1411666](https://bugzilla.redhat.com/1411666) <b>[SR-IOV] - UI - Reflect 'No Filter' for passthrough vNIC profile that was created via rest api</b><br>
  - [BZ 1433977](https://bugzilla.redhat.com/1433977) <b>Cannot fetch fingerprint when Host SSH runs in different port than 22</b><br>
  - [BZ 1432904](https://bugzilla.redhat.com/1432904) <b>[es_ES] Need to change the language option string for es_ES in the language drop-down on welcome page.</b><br>
  - [BZ 1410440](https://bugzilla.redhat.com/1410440) <b>MAC addresses are in use after moving VM to another cluster and removing the vNIC doesn't clear it</b><br>
  - [BZ 1429810](https://bugzilla.redhat.com/1429810) <b>Fix the spurious leading space in the custom bond mode field</b><br>
  - [BZ 1422447](https://bugzilla.redhat.com/1422447) <b>[TEXT] Moving an existing NIC from an oVirt network to one on an external provider does  not require stopping a VM, unplug is fine too</b><br>
- - [BZ 1444848](https://bugzilla.redhat.com/1444848) <b>Error while importing a VM from 4.0 data domain</b><br>
+ - [BZ 1447050](https://bugzilla.redhat.com/1447050) <b>Snapshot remains in locked status after async delete using api (only when using async)</b><br>
+ - [BZ 1447023](https://bugzilla.redhat.com/1447023) <b>Unable to upload/download images using python sdk</b><br>
+ - [BZ 1448793](https://bugzilla.redhat.com/1448793) <b>[cinder] Failed to run VM with cinder disk</b><br>
  - [BZ 1423657](https://bugzilla.redhat.com/1423657) <b>Add value to engine-config to set timeout after successful fence start</b><br>When power management start or restart action is executed, we switch host to REBOOT state and wait for number of seconds which are defined in 'ServerRebootTimeout' engine-config property. After that timeout we switch host to NON_RESPONSIVE state, so the host monitoring can handle the host.
  - [BZ 1441706](https://bugzilla.redhat.com/1441706) <b>[engine-backend] Block storage domain creation fails: CreateVG deviceList is passed with duplicated PV names</b><br>
  - [BZ 1432095](https://bugzilla.redhat.com/1432095) <b>The create_functions.sql is not executed on each engine-setup execution</b><br>
@@ -222,7 +212,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### VDSM
 
- - [BZ 1446492](https://bugzilla.redhat.com/1446492) <b>Storage domain in 4.1 RHV will go offline if LVM metadata was restored manually</b><br>
+ - [BZ 1450634](https://bugzilla.redhat.com/1450634) <b>Storage domain in 4.1 RHV will go offline if LVM metadata was restored manually</b><br>
  - [BZ 1437523](https://bugzilla.redhat.com/1437523) <b>migration failures - libvirtError - listen attribute must match address attribute of first listen element</b><br>
  - [BZ 1428415](https://bugzilla.redhat.com/1428415) <b>Improve logging to find out the cause of RPC pool being exhausted</b><br>
  - [BZ 1429420](https://bugzilla.redhat.com/1429420) <b>hostdev.list_by_caps() fails if 'drm' capability reported by libvirt</b><br>
@@ -270,10 +260,6 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
  - [BZ 1418831](https://bugzilla.redhat.com/1418831) <b>Unsupported Windows Version Windows Server 2016</b><br>
 
-#### oVirt Host Deploy
-
- - [BZ 1443064](https://bugzilla.redhat.com/1443064) <b>vdsm.conf isn't being written due to vintage condition</b><br>
-
 #### imgbased
 
  - [BZ 1431158](https://bugzilla.redhat.com/1431158) <b>There are warnings when running lvm commands</b><br>
@@ -282,6 +268,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 ### oVirt Engine
 
+ - [BZ 1449084](https://bugzilla.redhat.com/1449084) <b>Can't connect to engine web ui with chrome 58 (due to missing subjectAltName)</b><br>
  - [BZ 1438188](https://bugzilla.redhat.com/1438188) <b>Failed to create template from snapshot (At most one USB controller expected)</b><br>
  - [BZ 1440071](https://bugzilla.redhat.com/1440071) <b>Can't create gluster georeplication</b><br>
  - [BZ 1435088](https://bugzilla.redhat.com/1435088) <b>[Upgrade] Auto-Import of HostedEngine VM fails due to missing CPU Profile Permissions</b><br>
@@ -290,6 +277,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1383156](https://bugzilla.redhat.com/1383156) <b>Enable HE deploy option in 3.6 cluster compatibility and add note in hosted engine tab that it will only work in host that are 4.0 and above.</b><br>
  - [BZ 1329119](https://bugzilla.redhat.com/1329119) <b>Engine fails to start if machine's memory is reduced by 75%</b><br>
  - [BZ 1291064](https://bugzilla.redhat.com/1291064) <b>Change vm memory and cpu number not update automatically VNUMA nodes memory and cpu number</b><br>
+ - [BZ 1444848](https://bugzilla.redhat.com/1444848) <b>Error while importing a VM from 4.0 data domain</b><br>
  - [BZ 1444982](https://bugzilla.redhat.com/1444982) <b>Host can be moved to maintenance while it there are jobs running on it</b><br>
  - [BZ 1424986](https://bugzilla.redhat.com/1424986) <b>Increase the default factor for the CPU weight modules to preserve balance behavior for the PowerSaving and EvenDistribution policy</b><br>
  - [BZ 1431412](https://bugzilla.redhat.com/1431412) <b>Reduce number of transactions in commands that use NetworkClusterHelper.setStatus</b><br>
@@ -320,4 +308,8 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
  - [BZ 1433925](https://bugzilla.redhat.com/1433925) <b>poolmetadatasize for the thinpool created on arbiter node should not be 16GB</b><br>
  - [BZ 1438596](https://bugzilla.redhat.com/1438596) <b>Include gdeploy multipath disable script</b><br>
+
+### oVirt Host Deploy
+
+ - [BZ 1443064](https://bugzilla.redhat.com/1443064) <b>vdsm.conf isn't being written due to vintage condition</b><br>
 

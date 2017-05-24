@@ -209,6 +209,9 @@ require 'lib/monkeypatch_blog_date.rb'
 ###
 #
 configure :development do
+  # workaround https://github.com/middleman-contrib/middleman-deploy/issues/51
+  next if ARGV.include? 'deploy'
+
   puts "\nUpdating git submodules..."
   puts `git submodule init && git submodule sync`
   puts `git submodule foreach "git pull -qf origin master"`

@@ -1,5 +1,5 @@
 ---
-title: What is oVirt
+title: What is oVirt?
 authors: laravot
 wiki_title: What is oVirt
 wiki_revision_count: 4

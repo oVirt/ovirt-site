@@ -15,15 +15,6 @@ feature_status: Yet to Impelement
 
 This feature is part of [Import Unregistered Entities](/develop/release-management/features/storage/importunregisteredentities/).
 
-## Summary
-
-Until now best solution for backup a storage domain and disaster recovery is using the export storage domain. In export storage domain user can create a
-dedicated storage domain which will use move VMs/Templates and their OVF files.
-The drawback of Export storage domain is using it is two stage process. Transferring a vm required first copying it into the export storage domain and then into other 
-storage domain to start using them. Since in background transfer from one domain to other take place using normal copy or dd util(in case of disks) this process take a extra time 
-to setting a complete transfer.
-
-
 ## Owner
 
 * Maor Lipchuk
@@ -32,5 +23,24 @@ to setting a complete transfer.
 ## Current status
 
 * Yet to Implement
+
+## Summary
+
+Until now best solution for backup a storage domain and disaster recovery is using the export storage domain. In export storage domain user can create a dedicated storage domain which will use move VMs/Templates and their OVF files.
+The drawback of Export storage domain is its two stage process. Transferring a vm required first copying it into the export storage domain and then into other storage domain to start using them. Since in background transfer from one domain to other take place using normal copy or dd utility(in case of disks) this process take a large time for a complete transfer. Hence for a better backup experince we decided to create a whole dedicated storage domain to be used only for backup which obviously will called as backup storage domain.
+
+## How idea get introduced
+
+After discussing with community on mailing list maor decided to put that idea on google summer of code idea list. Google summer of code is a sort of intern program organised by google to attract the contribution on open source projects between university students. Shubham Dubey get selected for working on this project for whole summer.
+
+## Benifit of Backup Storage domain
+
+* Much more dedicated storage domain for backup and disaster recovery purposes.
+* One step process-If you want a backup of vm/template then just transfer it to backup storage domain.
+* For huge amount of vms/templates and ovfs migration the time taken for copying through export will be high which will be minimized by using backup storage domain.
+* Large amount of extra space is used in export storage domain. It may be suitable for small datacenter but for large datacenter the storage required to store those ovfs and vms in export storage domain will became a headache.
+* Multiple storage domain can be used for backup purposes only.
+
+
 
 ## General Functionality

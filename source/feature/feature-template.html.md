@@ -14,48 +14,48 @@ feature_status: Released
 
 # Feature template
 
-The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
+The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages] (How to make pages#Page_naming).
 
 ## Your Feature Name
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
+Write briefly what this feature is. This information is used for the overall feature summary page for each release.
 
 ### Owner
 
-This should link to your GitHub profile so we know who you are
+Add a link to your GitHub profile.
 
 *   Name: My User (MyUser)
 
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
+Include your email address so that you can be reached should people want to contact you about helping with your feature or about other workflow matters.
 
 *   Email: <my@email>
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+Expand on the summary, if appropriate. A couple sentences is sufficient to explain the purpose, but the more details you can provide the better.
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+Explain the benefit to oVirt - If this is a major capability update, specify the changes made.  If this is a new feature, list the capabilities it adds and explain. Focus on the overall benefit to the project.  
 
 
 #### Entity Description
 
-New entities and changes in existing entities.
+List new entities and changes in existing entities.
 
 #### CRUD
 
-Describe the create/read/update/delete operations on the entities, and what each operation should do.
+Describe the create/read/update/delete operations on the entities, and what each operation deos.
 
 #### User Experience
 
-Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
+Describe any user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should be added here for clarification.
 
 #### Installation/Upgrade
 
-Describe how the feature will effect new installation or existing one.
+Describe how the feature will affect new installations or existing ones.
 
 #### User work-flows
 
@@ -63,28 +63,28 @@ Describe the high-level work-flows relevant to this feature.
 
 #### Event Reporting
 
-What events should be reported when using this feature.
+Refer to the possess of reporting events relating to this feature .
 
-### Dependencies / Related Features
-
+### Dependencies & Related Features
+answer the folloing:
 What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
 
-### Documentation / External references
+### Documentation & External references
 
 Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 
 ### Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
+Explain how this feature may be tested by a user or a quality engineer. List relevant use scenarios  and expected results.
 
 ### Contingency Plan
 
-Explain what will be done in case the feature won't be ready on time
+Explain what will be done in case the feature won't be ready on time.
 
 ### Release Notes
 
-      == Your feature heading ==
-      A descriptive text of your feature to be included in release notes
+      == Your feature heading ==
+      A descriptive text of your feature to be included in release notes
 
 
 
@@ -92,6 +92,4 @@ Explain what will be done in case the feature won't be ready on time
 ### Open Issues
 
 Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.
-
-
 

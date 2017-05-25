@@ -41,7 +41,7 @@ After discussing with community on mailing list maor decided to put that idea on
 * For huge amount of vms/templates and ovfs migration the time taken for copying through export will be high which will be minimized by using backup storage domain.
 * Large amount of extra space is used in export storage domain. It may be suitable for small datacenter but for large datacenter the storage required to store those ovfs and vms in export storage domain will become a headache.
 * Multiple storage domain can be used for backup purposes only.
-
+* Backup storage domain will support both File storage(NFS) as well as block storage(Fiber Channel and iSCSI) as compare to export storage domain which only has support for file storage.
 
 ## General Functionality
 

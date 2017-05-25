@@ -47,11 +47,33 @@ After discussing with community on mailing list maor decided to put that idea on
 
 * You can select any data storage domain as backup storage.
 * Once the storage domain is configured as backup the engine will block any running VMs or any changes that might be in the storage domain.
-* Attach/Detach of backup storage to datacenter can be possible.
+* A backup storage domain can be detached and attached to a data center as every data storage domain.
+* Backup storage domain will be able to support unregistered VMs/Templates/Disks.
+
+## Restrictions
+
+* A data storage domain can not be configured as backup while there are running VMs with disks reside on that storage domain.
+* User can not run VMs with disks reside on a storage domain configured as backup, since running VM changes the disk's data.
+* VMs with disks reside on a backup storage domain can not be previewed.
+* Live move of disks to the backup storage domain will be restricted.
+
+## Open Issues
+
+
+* VMs with disks reside on a backup storage domain should not be previewed, since currently oVirt do not support it through import storage domain.
+* Shared disk is not specified in the OVF and therefore we should not support VMs with shared disk on a backup storage domain.
+* VM pool will be eligible in a backup storage domain although import storage domain will not preserve its pool reference after import.
+* Should the backup indication needs to be configured in the storage domain meta data? If so should we add the backup indication as part of V4 storage domain meta data.
+
 
 ## Current progress
 
-* push has been made for adding backup flag for data storage domain. If the flag is set to true means that storage domain is used as backup storage.
+* DAL implementation:
+  status: open
+  gerrit link: https://gerrit.ovirt.org/#/c/77142/
+  DB table changed: storage_domain_static
+  Field name: backup
+  Type: True / False (Default would be false, not null)
 
 ## Future plans
 

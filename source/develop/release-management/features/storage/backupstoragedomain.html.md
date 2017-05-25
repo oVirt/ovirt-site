@@ -75,7 +75,10 @@ DAL implementation:
 
 ## Phases for Implementation
 
-* Phase 1 (under review): Add dal layer with new field - Add an explanation of the change (Mainly technical change like "introducing new field in table storage_domain_static")
+* Phase 1 (under review): Add dal layer with new field -
+  * introducing new field in table storage_domain_static
+  * Add field changes in fixtures.xml for dao tests
+  * Test class added for dao test
 * Phase 2: Add command validations for configuring backup storage domain - [see restrictions]
 * Phase 3: Add REST command to update storage domain as backup - Introduce the ability to update the storage domain as backup through REST.
 

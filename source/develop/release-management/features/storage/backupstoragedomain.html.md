@@ -26,7 +26,7 @@ This feature is part of [Import Unregistered Entities](/develop/release-manageme
 
 ## Summary
 
-Until now, best solution for backup a storage domain and disaster recovery is using the export storage domain. In export storage domain user can create a dedicated storage domain which will use move VMs/Templates and their OVF files.
+Until now, best solution for backup a storage domain and disaster recovery is using the export storage domain. In export storage domain user can create a storage domain which will use to export VMs/Templates and their OVF files.
 The drawback of Export storage domain is its two stage process. Transferring a vm required first copying it into the export storage domain and then into other storage domain to start using them. Since in background transfer from one domain to other take place using normal copy or dd utility(in case of disks) this process take a large time for a complete transfer. Hence, for a better backup experience we decided to create a whole dedicated storage domain to be used only for backup which obviously will call as backup storage domain.
 
 ## How idea get introduced

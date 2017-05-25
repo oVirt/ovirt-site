@@ -17,8 +17,8 @@ This feature is part of [Import Unregistered Entities](/develop/release-manageme
 
 ## Owner
 
-* Maor Lipchuk
-* Email <mlipchuk@redhat.com>
+* Maor Lipchuk <mlipchuk@redhat.com>
+* Shubham Dubey <sdubey504@gmail.com>
 
 ## Current status
 

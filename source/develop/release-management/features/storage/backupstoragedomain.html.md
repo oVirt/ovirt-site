@@ -46,7 +46,7 @@ After discussing with community on mailing list maor decided to put that idea on
 
 * You can select any data storage domain as backup storage.
 * Once the storage domain is configured as backup the engine will block any running VMs or any changes that might be in the storage domain.
-* Attach/Detach of backup storage to datacenter can be happen.
+* Attach/Detach of backup storage to datacenter can be possible.
 
 ## Current progress
 
@@ -55,4 +55,4 @@ After discussing with community on mailing list maor decided to put that idea on
 ## Future plans
 
 * We first will configure the storage domain to get ready to be a backup storage.
-* After completing configuration we will add rest support then after the gui support.
+* After completing configuration we will add rest support after that the gui support.

@@ -72,15 +72,18 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 ## Current progress
 
 DAL implementation:
-*  status: open
-*  gerrit link: https://gerrit.ovirt.org/#/c/77142/
-*  DB table changed: storage_domain_static
-*  Field name: backup
-*  Type: True / False (Default would be false, not null)
+
+  Changes | Values
+  ---------|----------
+  status | open
+  gerrit link | https://gerrit.ovirt.org/#/c/77142/
+  DB table changed | storage_domain_static
+  Field name | backup
+  Type | True / False (Default would be false, not null)
 
 ## Phases for Implementation
 
-- [x] *Phase 1 (under review): Add dal layer with new field -
+- [x] Phase 1 (under review): Add dal layer with new field -
   * introducing new field 'backup' in table storage_domain_static
   * Add field changes in fixtures.xml for dao tests
   * Test class added for dao test

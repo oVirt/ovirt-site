@@ -35,8 +35,7 @@ The drawback of Export storage domain is its two stage process. Transferring a V
 This feature is being developed as part of the Google Summer of Code (GSOC).
 Google Summer of Code is a global program focused on introducing students to open source software
 development. Students work on a 3 month programming project with an open source organization
-during their break from university.
-
+during their break from university.<br />
 The oVirt organization has chosen Shubham Dubey, a student from The LNM Institute of Information Technology from India, to work  on this project for the upcoming summer and Maor Lipchuk, a senior software developer in the oVirt storage team, to be the mentor.
 
 ## Backup Storage Domain - Functionality

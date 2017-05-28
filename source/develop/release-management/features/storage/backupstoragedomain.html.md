@@ -46,7 +46,7 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 * Backup storage domain will be able to support unregistered VMs/Templates/Disks.
 * The backup indication will only be configured using the DataBase and will not be configured in the storage domain metadata - The user will be able to configure a storage domain as backup once a data storage domain is being imported or added to oVirt.
 
-# Advantages
+#### Advantages
 
 * Much more dedicated storage domain for backup and disaster recovery purposes.
 * One step process-If you want a backup of VM/Template then just transfer it to backup storage domain.
@@ -55,14 +55,14 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 * Multiple storage domain can be used for backup purposes only.
 * Backup storage domain will support both File storage(NFS, Gluster) as well as block storage(Fiber Channel and iSCSI) as compare to export storage domain which only has support for file storage.
 
-# disadvantages
+#### disadvantages
 
 * A data storage domain can not be configured as backup while there are running VMs with disks reside on that storage domain.
 * User can not run VMs with disks reside on a storage domain configured as backup, since running VM might manipulate the disk's     data.
 * VMs with disks reside on a backup storage domain can not be previewed.
 * Live move of disks to the backup storage domain will be restricted.
 
-# Open Issues
+#### Open Issues
 
 * Preview will be restricted for VMs with disks reside on a backup storage. - We think it should be restricted since currently oVirt does not support import storage domain with previewed unregistered entities.
 * Shared disk will be restricted in the backup storage domain since those are not specified in the VM's OVF.
@@ -80,12 +80,12 @@ DAL implementation:
 
 ## Phases for Implementation
 
-* Phase 1 (under review): Add dal layer with new field -
+- [x] *Phase 1 (under review): Add dal layer with new field -
   * introducing new field 'backup' in table storage_domain_static
   * Add field changes in fixtures.xml for dao tests
   * Test class added for dao test
-* Phase 2: Add command validations for configuring backup storage domain - [see restrictions]
-* Phase 3: Add REST command to update storage domain as backup - Introduce the ability to update the storage domain as backup through REST.
+- [ ] Phase 2: Add command validations for configuring backup storage domain - [see restrictions]
+- [ ] Phase 3: Add REST command to update storage domain as backup - Introduce the ability to update the storage domain as backup through REST.
 
 ## Future plans
 

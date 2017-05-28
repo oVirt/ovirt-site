@@ -28,7 +28,7 @@ This feature will add another functionality layer to the oVirt Disaster Recovery
 
 Until now, one of the solutions to backup VMs and Templates in oVirt is to use an export storage domain.
 Export storage domain is a dedicated storage domain which is used to store and restore VMs and Templates.
-The drawback of Export storage domain is its two stage process. Transferring a vm required first copying it into the export storage domain and then into other storage domain to start using them. Since in background transfer from one domain to other take place using normal copy or dd utility(in case of disks) this process take a large time for a complete transfer. Hence, for a better backup experience we decided to create a whole dedicated storage domain to be used only for backup which obviously will call as backup storage domain.
+The drawback of Export storage domain is its two stage process. Transferring a VM required first copying it into the export storage domain and then into other storage domain to start using them. Since in background transfer from one domain to other take place using normal copy or dd utility(in case of disks) this process take a large time for a complete transfer. Hence, for a better backup experience we decided to create a whole dedicated storage domain to be used only for backup which obviously will call as backup storage domain.
 
 ## GSOC
 
@@ -36,7 +36,7 @@ This feature is being developed as part of the Google Summer of Code (GSOC)
 Google Summer of Code is a global program focused on introducing students to open source software
 development. Students work on a 3 month programming project with an open source organization
 during their break from university.
-The oVirt organization has chosen Shubham Dubey, a student from The LNM Institute of Information Technology from India, to work on this project for the upcoming summer and Maor Lipchuk, a senior software developer in the oVirt storage team, to be a mentor."
+The oVirt organization has chosen Shubham Dubey, a student from The LNM Institute of Information Technology from India, to work on this project for the upcoming summer and Maor Lipchuk, a senior software developer in the oVirt storage team, to be the mentor."
 
 ## Backup Storage Domain - Functionality
 
@@ -44,14 +44,14 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 * Once the storage domain is configured as backup the engine will block any running VMs or any changes that might be in the storage domain.
 * A backup storage domain can be detached and attached to a data center as every data storage domain.
 * Backup storage domain will be able to support unregistered VMs/Templates/Disks.
-* The backup indication will only be configured using the Data Base and will not be configured in the storage domain metadata - The user will be able to configure a storage domain as backup once a data storage domain is being imported or added to oVirt.
+* The backup indication will only be configured using the DataBase and will not be configured in the storage domain metadata - The user will be able to configure a storage domain as backup once a data storage domain is being imported or added to oVirt.
 
 #Advantages
 
 * Much more dedicated storage domain for backup and disaster recovery purposes.
-* One step process-If you want a backup of vm/template then just transfer it to backup storage domain.
-* For huge amount of vms/templates and ovfs migration the time taken for copying through export will be high which will be minimized by using backup storage domain.
-* Large amount of extra space is used in export storage domain. It may be suitable for small datacenter but for large datacenter the storage required to store those ovfs and vms in export storage domain will become a headache.
+* One step process-If you want a backup of VM/Template then just transfer it to backup storage domain.
+* For huge amount of vms/Templates and OVFs migration the time taken for copying through export will be high which will be minimized by using backup storage domain.
+* Large amount of extra space is used in export storage domain. It may be suitable for small datacenter but for large datacenter the storage required to store those OVFs and VMs in export storage domain will become a headache.
 * Multiple storage domain can be used for backup purposes only.
 * Backup storage domain will support both File storage(NFS, Gluster) as well as block storage(Fiber Channel and iSCSI) as compare to export storage domain which only has support for file storage.
 

@@ -1,5 +1,5 @@
 ---
-title: Welcome the 2017 Summer Internship Students
+title: A Warm Welcome to the Summer Internship Students
 author: jmarks
 tags: GSoc, oVirt, oVIrt log analyzer, Ansible roles, backup, restore, storage, Lago
 date: 2017-05-10 10:30:00 CET

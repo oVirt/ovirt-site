@@ -20,9 +20,9 @@ It's recommended to use vdsm-client at development stage, **always use oVirt Eng
 
 ## Connecting to HOST
 
-Connecting to a host is secured by default, pass --unsecure to connect in an insecure way (not recommended). Examples:
+Connecting to a host is secured by default, pass --insecure to connect in an insecure way (not recommended). Examples:
 
-`   # vdsm-client [-h] [-a ADDRESS] [-p PORT] [--unsecure] [--timeout TIMEOUT]
+`   # vdsm-client [-h] [-a ADDRESS] [-p PORT] [--insecure] [--timeout TIMEOUT]
                    [-f FILE] namespace method [name=value [name=value] ...]`
 
 **default**: If no arguments are passed, vdsm-client will connect to localhost.

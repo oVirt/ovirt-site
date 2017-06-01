@@ -16,11 +16,11 @@ syntax:
 
 XML changes will look like this:
 
+```
 <disk type='file' device='floppy'>
-          
-
-`    `<target dev='fda' />
+    <target dev='fda' />
 </disk>
+```
 
 Note: some linux distros need to load the floppy disk kernel module:
 

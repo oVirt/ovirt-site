@@ -63,7 +63,7 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 * Multiple storage domain can be used for backup purposes only.
 * Backup storage domain will support both File storage(NFS, Gluster) as well as block storage(Fiber Channel and iSCSI) as compare to export storage domain which only has support for file storage.
 
-#### disadvantages
+#### Restrictions
 
 * A data storage domain can not be configured as backup while there are running VMs with disks reside on that storage domain.
 * User can not run VMs with disks reside on a storage domain configured as backup, since running VM might manipulate the disk's     data.
@@ -222,7 +222,7 @@ Content-type: application/xml
     </storage>
 </storage_domain>
 ```
-	
+
 #### Import NFS Storage Domain
 
 Importing a Storage Domain requires a POST request, with the storage domain representation included, sent to the URL of the storage domain collection.

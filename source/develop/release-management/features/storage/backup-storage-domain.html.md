@@ -47,8 +47,7 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 * The backup indication will only be configured using the DataBase and will not be configured in the storage domain metadata - The user will be able to configure a storage domain as backup once a data storage domain is being imported or added to oVirt.
 <<<<<<< HEAD
 * There is no obligation regarding data center version in oVirt to a backup storage domain. A backup storage domain can be part of every Data Center version
-=======
->>>>>>> f6d9a136cafa08e0a977a18c44712aba31bdb77b
+
 
 #### Advantages
 
@@ -98,8 +97,7 @@ DAL implementation:
 
 * Add GUI support for backup storage domain - Once backend configuration get complete and REST changes get implemented we will make this ready for user to use it through gui.
 * Convert Export storage domain to backup domain - If community agree then we will remove the export storage domain and replace it with the backup storage domain.
- 
-<<<<<<< HEAD
+
 
 ## GUI Mockups
 
@@ -240,5 +238,3 @@ Content-type: application/xml
 ```
 
 The API creates an NFS data storage domain called data1 with an export path of 10.35.16.2:/export/images/rnd/maor/data9 and sets access to the storage domain through the hypervisor host.
-=======
->>>>>>> f6d9a136cafa08e0a977a18c44712aba31bdb77b

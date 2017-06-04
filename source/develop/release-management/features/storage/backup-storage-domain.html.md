@@ -51,7 +51,8 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 * A backup storage domain can be detached and attached to a data center as every data storage domain.
 * Backup storage domain will be able to support unregistered VMs/Templates/Disks.
 * The backup indication will only be configured using the DataBase and will not be configured in the storage domain metadata - The user will be able to configure a storage domain as backup once a data storage domain is being imported or added to oVirt.
-* There is no obligation regarding data center version in oVirt to a backup storage domain. A backup storage domain can be part of every Data Center version
+* There is no obligation regarding data center version in oVirt to a backup storage domain. A backup storage domain can be part of every Data Center version.
+* A user can run a VM based on a Template which one of its disks is part of a backup storage domain while all the VM's disks are not part of the backup storage domain.
 
 #### Advantages
 

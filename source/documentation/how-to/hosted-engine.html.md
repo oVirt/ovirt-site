@@ -24,7 +24,7 @@ Greg Padgett <gpadgett@redhat.com>, Martin Sivak <msivak@redhat.com>
 ## **Requirements**
 
 *   Two hypervisors (hosts)
-*   NFS-based shared storage (since 3.4.0) or [iSCSI storage](Feature/Self_Hosted_Engine_iSCSI_Support) (since 3.5.0 beta)
+*   NFS-based shared storage (since 3.4.0) or [iSCSI storage](/develop/release-management/features/engine/self-hosted-engine-iscsi-support/) (since 3.5.0 beta)
 *   Access to the oVirt repository
 
 ## **Fresh Install**
@@ -81,7 +81,7 @@ If, for any reason, the deployment process breaks before its end, you can try to
 
 ## **Migrate existing setup to a VM**
 
-Moving an existing setup into a VM is similar to a fresh install, but instead of running a fresh engine-setup inside the VM, we restore there a backup of the existing engine. For full details see [Migrate_to_Hosted_Engine](Migrate_to_Hosted_Engine)
+Moving an existing setup into a VM is similar to a fresh install, but instead of running a fresh engine-setup inside the VM, we restore there a backup of the existing engine. For full details see [Migrate to Hosted Engine](/develop/developer-guide/engine/migrate-to-hosted-engine/).
 
 ## **Installing additional nodes**
 
@@ -105,7 +105,7 @@ As with the first node, this will take you to the process completion.
 
 ## **Migrate hosts from el6 to el7**
 
-In 3.6, el6 is not supported anymore for hosted-engine hosts. Existing 3.5 el6 hosts should be first migrated to el7, then upgraded to 3.6. More details in [Hosted Engine host operating system upgrade Howto](hosted-engine-host-OS-upgrade).
+In 3.6, el6 is not supported anymore for hosted-engine hosts. Existing 3.5 el6 hosts should be first migrated to el7, then upgraded to 3.6. More details can be found under [Hosted Engine host operating system upgrade Howto](/documentation/how-to/hosted-engine-host-OS-upgrade/).
 
 ## **Migrate the engine VM from 3.6/el6 to 4.0/el7**
 
@@ -156,7 +156,7 @@ Assuming you have already deployed Hosted Engine on your hosts and running the H
 
 ## **Hosted Engine Backup and Restore**
 
-Please refer to [oVirt Hosted Engine Backup and Restore](oVirt Hosted Engine Backup and Restore) guide
+Please refer to the [oVirt Hosted Engine Backup and Restore](/documentation/how-to/hosted-engine/#hosted-engine-backup-and-restore) guide.
 
 ## **Lockspace corrupted recovery procedure**
 
@@ -218,7 +218,7 @@ To access the engine VM's console:
          # hosted-engine --add-console-password
          # remote-viewer vnc://localhost:5900
 
-See also [Hosted Engine Console](Hosted Engine Console).
+See also [Hosted Engine Console](/documentation/self-hosted/chap-Deploying_Self-Hosted_Engine/).
 
 To boot from different media, e.g. a rescue CD:
 
@@ -236,7 +236,7 @@ To boot from different media, e.g. a rescue CD:
 
 ## **More info**
 
-Additional information is available in the feature page [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine)
+Additional information is available on the [Self Hosted Engine](/develop/release-management/features/engine/self-hosted-engine/) feature page.
 
 ## **FAQ**
 
@@ -317,4 +317,3 @@ If your hosted engine install fails, you have to manually clean up before you ca
        echo "! error removing $d"
        exit 1
     done
-

@@ -133,6 +133,3 @@ That solution would be oVirt. Today, more than 3,000 students use this virtual d
 Read the full [Universidad de Sevilla case study](/community/user-stories/universidad-de-sevilla-case-study/)
 
 </div>
-<div class="case-study">
-
-</div>

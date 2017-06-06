@@ -66,7 +66,7 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 #### Restrictions
 
 * A data storage domain can not be configured as backup while there are running VMs with disks reside on that storage domain.
-* User can not run VMs with disks reside on a storage domain configured as backup, since running VM might manipulate the disk's     data.
+* User can not run VMs with disks reside on a storage domain configured as backup, since running VM might manipulate the disk's data.
 * VMs with disks reside on a backup storage domain can not be previewed.
 * Live move of disks to the backup storage domain will be restricted.
 

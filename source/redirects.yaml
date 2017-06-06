@@ -519,9 +519,6 @@
   Features/Node/GenericNodeRegistration: node/genericnoderegistration
   Features/Node/I18N: feature/i18n
   Features/Node ipv6 support: node/ipv6-support
-  Features/Node/KimchiPlugin: feature/kimchiplugin
-  Features/Node Kimchi Plugin: Features/Node/KimchiPlugin
-  Features/Node Kimchi Plugin: node/kimchi-plugin
   Features/Node.next: node/node.next
   Features/Node/NIC Bonding: feature/nic-bonding
   Features/Node/OpenVSwitchSupport: feature/openvswitchsupport

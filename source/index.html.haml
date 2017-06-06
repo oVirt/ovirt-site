@@ -88,8 +88,8 @@ hide_metadata: true
 
     .col-md-6
       -############################################################################
-      -# The latest case study is pulled from the case studies page automatically.
-      -# To edit the case study, please edit `case-studies.html.md` instead.
+      -# The case study is pulled from the case studies page automatically, taking the first one from `user-stories.html.md`.
+      -# To edit the case study, please edit `user-stories.html.md`.
       -############################################################################
 
       :ruby
@@ -100,7 +100,7 @@ hide_metadata: true
 
         last_case_study = Nokogiri::HTML(studies.render({layout: false}))
           .css('.case-study')
-          .last
+          .first
 
       :markdown
         ## Case Study

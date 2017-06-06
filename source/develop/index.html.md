@@ -4,8 +4,8 @@ category: developer
 authors: dneary, jbrooks, ykaplan, sandrobonazzola
 wiki_category: Developer
 wiki_title: Develop
-wiki_revision_count: 8
-wiki_last_updated: 2012-11-30
+wiki_revision_count: 9
+wiki_last_updated: 2017-06-01
 ---
 
 
@@ -57,7 +57,6 @@ _More information on [oVirt subprojects](/subprojects/)_
 - [oVirt architecture](/documentation/architecture/architecture/)
 - [Building a custom user portal](/develop/developer-guide/sample-user-portals/)
 - [Building oVirt engine DWH](/documentation/how-to/reports/dwh-development-environment/)
-- [Building oVirt engine Reports](OVirt Reports development environment)
 
 </section>
 
@@ -81,7 +80,6 @@ _More information on [oVirt subprojects](/subprojects/)_
  - Network
  - [Node](./projects/node/contributing-to-the-node-project)
  - Release Engineering
- - Reports
  - SLA
  - Storage
  - Spice

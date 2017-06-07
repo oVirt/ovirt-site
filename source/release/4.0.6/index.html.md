@@ -20,8 +20,8 @@ This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2
 
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](/develop/release-management/releases/).
-For a general overview of oVirt, read [the Quick Start Guide](Quick_Start_Guide)
-and the [about oVirt](about oVirt) page.
+For a general overview of oVirt, read [the Quick Start Guide](/documentation/quickstart/quickstart-guide/)
+and the [about oVirt](/documentation/introduction/about-ovirt/) page.
 
 An updated documentation has been provided by our downstream
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization?version=4.0/)
@@ -69,7 +69,7 @@ In order to install it on a clean system, you need to install
 
 
 and then follow our
-[Quick Start Guide](Quick Start Guide) or a more updated documentation
+[Quick Start Guide](/documentation/quickstart/quickstart-guide/) or a more updated documentation
 from our downstream
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/)
 
@@ -294,4 +294,3 @@ guide or the corresponding Red Hat Virtualization
 #### Team: Integration
 
  - [BZ 1386293](https://bugzilla.redhat.com/1386293) <b>Host stuck in installing state during ovirt-hosted-engine-setup run</b><br>
-

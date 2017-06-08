@@ -28,7 +28,7 @@ This should link to your GitHub profile so we know who you are.
 
 *   Name: My User (MyUser)
 
-Include your email address to enable people to contact you, to help with the feature, to get a status update, or to raise technical issues that need addressing.
+Include your email address to enable people to contact you: to help with the feature, to get a status update, or to raise technical issues that need addressing.
 
 *   Email: <my@email>
 
@@ -46,7 +46,7 @@ List the feature's limitations.
 
 ## Benefit to oVirt
 
-Explain the benefit to oVirt - if this is a major capability update, specify the changes made. If this is a new feature, list the capabilities it adds and explain. Focus on the overall benefit to the project.  
+Explain the benefit to oVirt. If this is a major capability update, specify the changes made. If this is a new feature, list the capabilities it adds and explain. Focus on the overall benefit to the project.  
 
 ## Entity Description
 
@@ -70,22 +70,22 @@ Describe the high-level work-flows relevant to this feature.
 
 ## Event Reporting
 
-Provide guidance about the process of reporting events relating to this feature.
+Provide guidance about the process of reporting events related to this feature.
 
 ## Dependencies and Related Features
 
 Answer the following questions:
-1. What other packages depend on this package? 
-2. Are there any issues beyond the developers' control on which the completion of this feature depends (e.g. the completion of another feature with a different owner)?
+1. What other packages depend on this feature? 
+2. Are there any issues beyond the developers' control on which the completion of this feature depends? (e.g. the completion of another feature with a different owner).
 3. Will other features be affected by the implementation of this feature?
 
 ## Documentation & External references
 
-Does this feature have upstream documentation or notes written by you? Add links to those resources, to enable interested developers to get involved. Add links to RFEs.
+Does this feature have upstream documentation, notes, or RFEs written by you? Add links to those resources, to enable interested developers to get involved. 
 
 ## Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use scenarios and expected results.
+Explain how this feature may be tested by a user or a quality engineer. List relevant usage scenarios and expected results.
 
 ## Contingency Plan
 

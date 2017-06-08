@@ -14,82 +14,89 @@ feature_status: Released
 
 # Feature template
 
-The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages] (How to make pages#Page_naming).
+## Your Feature's Name
 
-## Your Feature Name
+Give your feature a name. This name will also be the title of your feature page. It should be short and clear and not overly technical.
 
-### Summary
+## Summary
 
-Write briefly what this feature is. This information is used for the overall feature summary page for each release.
+Summarize what this feature is and what it will do. Explain the problem it aims to solve, and the benefits to the end user. This information is used for the overall feature summary page for each release.
 
-### Owner
+## Owner
 
-Add a link to your GitHub profile.
+This should link to your GitHub profile so we know who you are.
 
 *   Name: My User (MyUser)
 
-Include your email address so that you can be reached should people want to contact you about helping with your feature or about other workflow matters.
+Include your email address to enable people to contact you: to help with the feature, to get a status update, or to raise technical issues that need addressing.
 
 *   Email: <my@email>
 
-### Detailed Description
+## Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences is sufficient to explain the purpose, but the more details you can provide the better.
+Expand on the summary by clearly explaining the feature's purpose.
 
-### Benefit to oVirt
+## Prerequisites
 
-Explain the benefit to oVirt - If this is a major capability update, specify the changes made.  If this is a new feature, list the capabilities it adds and explain. Focus on the overall benefit to the project.  
+List any hardware or software prerequisites or any steps that need to be performed before the feature can be implemented.
 
+## Limitations
 
-#### Entity Description
+List the feature's limitations.
+
+## Benefit to oVirt
+
+Explain the benefit to oVirt. If this is a major capability update, specify the changes made. If this is a new feature, list the capabilities it adds and explain. Focus on the overall benefit to the project.  
+
+## Entity Description
 
 List new entities and changes in existing entities.
 
-#### CRUD
+## CRUD
 
-Describe the create/read/update/delete operations on the entities, and what each operation deos.
+Describe the create/read/update/delete operations on the entities, and what each operation should perform.
 
-#### User Experience
+## User Experience
 
-Describe any user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should be added here for clarification.
+Describe any user experience related issues. For example: "We need a wizard for ....", "the behavior is different in the UI because .....", etc. Add GUI mockups to make your explanation clearer.
 
-#### Installation/Upgrade
+## Installation/Upgrade
 
-Describe how the feature will affect new installations or existing ones.
+Describe how the feature will affect new or existing installations.
 
-#### User work-flows
+## User work-flows
 
 Describe the high-level work-flows relevant to this feature.
 
-#### Event Reporting
+## Event Reporting
 
-Refer to the possess of reporting events relating to this feature .
+Provide guidance about the process of reporting events related to this feature.
 
-### Dependencies & Related Features
-answer the folloing:
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+## Dependencies and Related Features
 
-### Documentation & External references
+Answer the following questions:
+1. What other packages depend on this feature? 
+2. Are there any issues beyond the developers' control on which the completion of this feature depends? (e.g. the completion of another feature with a different owner).
+3. Will other features be affected by the implementation of this feature?
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+## Documentation & External references
 
-### Testing
+Does this feature have upstream documentation, notes, or RFEs written by you? Add links to those resources, to enable interested developers to get involved. 
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use scenarios  and expected results.
+## Testing
 
-### Contingency Plan
+Explain how this feature may be tested by a user or a quality engineer. List relevant usage scenarios and expected results.
 
-Explain what will be done in case the feature won't be ready on time.
+## Contingency Plan
 
-### Release Notes
+Explain what will be done in the event that the feature is not ready in time.
+
+## Release Notes
 
       == Your feature heading ==
       A descriptive text of your feature to be included in release notes
 
 
-
-
-### Open Issues
-
-Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.
+[comment]: <> ## Open Issues
+[comment]: <>Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.
 

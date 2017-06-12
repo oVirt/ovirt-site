@@ -60,7 +60,7 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 
 #### Restrictions
 
-* A data storage domain can not be configured as backup while there are running VMs with disks reside on that storage domain.
+* A data storage domain can not be configured as backup while there are VMs that are not down, paused, hibernate etc with disks residing on that storage domain.
 * User can not run VMs with disks residing on a storage domain configured as backup, since running VM might manipulate the disk's data.
 * VMs with disks residing on a backup storage domain can not be previewed.
 * Live move of disks to the backup storage domain will be restricted.
@@ -74,7 +74,7 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 * Preview will be restricted for VMs with disks residing on a backup storage. - We think it should be restricted since currently oVirt does not support import storage domain with previewed unregistered entities.
 * Shared disk will be restricted in the backup storage domain since those are not specified in the VM's OVF.
 * VM pool will be eligible in a backup storage domain although, the user must keep in mind that import storage domain will not preserve its pool reference after import.
-* Should the backup indication needs to be configured in the storage domain meta data? If so should we add the backup indication as part of V4 storage domain meta data.
+* Should the backup indication need to be configured in the storage domain meta data? If so should we add the backup indication as part of V4 storage domain meta data.
 
 
 ## Current progress

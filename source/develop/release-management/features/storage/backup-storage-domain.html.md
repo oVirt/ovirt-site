@@ -64,6 +64,10 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 * User can not run VMs with disks reside on a storage domain configured as backup, since running VM might manipulate the disk's data.
 * VMs with disks residing on a backup storage domain can not be previewed.
 * Live move of disks to the backup storage domain will be restricted.
+* A backup domain cannot be elected as the master domain.
+* The Hosted Engine's domain can't be configured as a backup domain.
+* The backup domain cannot be the target of memory volumes.
+
 
 #### Open Issues
 
@@ -98,7 +102,7 @@ DAL implementation:
 
 ## Future plans
 
-* Add GUI support for backup storage domain - Once backend configuration get complete and REST changes get implemented we will make this ready for user to use it through gui.
+* Add GUI support for backup storage domain - Once backend configuration get complete and REST changes get implemented we will make this ready for user to use it through GUI.
 * Convert Export storage domain to backup domain - If community agree then we will remove the export storage domain and replace it with the backup storage domain.
 
 

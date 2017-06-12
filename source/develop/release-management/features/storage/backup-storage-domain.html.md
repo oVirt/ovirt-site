@@ -2,10 +2,6 @@
 title: BackupStorageDomain
 category: feature
 authors: mlipchuk, shubham0d
-wiki_category: Feature|BackupStorageDomain
-wiki_title: Features/BackupStorageDomain
-wiki_revision_count: 0
-wiki_last_updated: 2017-24-03
 feature_name: Backup Storage Domain
 feature_modules: engine/vdsm
 feature_status: Yet to Impelement
@@ -14,7 +10,7 @@ feature_status: Yet to Impelement
 
 # Backup Storage Domain
 
-This feature will add another functionality layer to the oVirt Disaster Recovery solution.
+This feature will add another functionality layer to the oVirt Disaster Recovery solution. It will allow any data storage domain to use as a backup domain and hence will remove the limitations of export storage domain. Adding functionality of backup storage domain deprecate the use of export storage domain and in future may replace it.
 
 
 ## Owner
@@ -30,14 +26,14 @@ This feature will add another functionality layer to the oVirt Disaster Recovery
 
 ## Summary
 
-Until now, one of the solutions to backup VMs and Templates in oVirt is to use an export storage domain.
+Until now, one of the solutions to backup VMs and Templates in oVirt was to use an export storage domain.
 Export storage domain is a dedicated storage domain which is used to store and restore VMs and Templates.
-The drawback of Export storage domain is its two stage process. Transferring a VM required first copying it into the export storage domain and then into other storage domain to start using them. Since in background transfer from one domain to other take place using normal copy or dd utility(in case of disks) this process take a large time for a complete transfer. Hence, for a better backup experience we decided to create a whole dedicated storage domain to be used only for backup which obviously will call as backup storage domain.
+The drawback of Export storage domain is its two stage process. Transferring a VM required first copying it into the export storage domain and then into other storage domain to start using them. Since in background transfer from one domain to other take place using normal copy or dd utility (in case of disks) this process take a large time for a complete transfer. Hence, for a better backup experience we decided to create a whole dedicated storage domain to be used only for backup which obviously will call as backup storage domain.
 
 
 ## GSOC
 
-This feature is being developed as part of the Google Summer of Code (GSOC).
+This feature is being developed as part of the Google Summer of Code [GSOC](https://developers.google.com/open-source/gsoc/).
 Google Summer of Code is a global program focused on introducing students to open source software
 development. Students work on a 3 month programming project with an open source organization
 during their break from university.<br />
@@ -47,9 +43,8 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 ## Backup Storage Domain - Functionality
 
 * You can select any data storage domain as backup storage.
-* Once the storage domain is configured as backup the engine will block any running VMs or any changes that might be in the storage domain.
+* Once the storage domain is configured as backup the engine will block any running VMs or any other action that may invalidate the backup which might be in the storage domain.
 * A backup storage domain can be detached and attached to a data center as every data storage domain.
-* Backup storage domain will be able to support unregistered VMs/Templates/Disks.
 * The backup indication will only be configured using the DataBase and will not be configured in the storage domain metadata - The user will be able to configure a storage domain as backup once a data storage domain is being imported or added to oVirt.
 * There is no obligation regarding data center version in oVirt to a backup storage domain. A backup storage domain can be part of every Data Center version.
 * A user can run a VM based on a Template which one of its disks is part of a backup storage domain while all the VM's disks are not part of the backup storage domain.
@@ -61,18 +56,18 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 * For huge amount of VMs/Templates and OVFs migration the time taken for copying through export will be high which will be minimized by using backup storage domain.
 * Large amount of extra space is used in export storage domain. It may be suitable for small datacenter but for large datacenter the storage required to store those OVFs and VMs in export storage domain will become a headache.
 * Multiple storage domain can be used for backup purposes only.
-* Backup storage domain will support both File storage(NFS, Gluster) as well as block storage(Fiber Channel and iSCSI) as compare to export storage domain which only has support for file storage.
+* Backup storage domain will support both File storage(NFS, Gluster) as well as block storage(Fiber Channel and iSCSI) as compared to export storage domain which only has support for file storage.
 
 #### Restrictions
 
 * A data storage domain can not be configured as backup while there are running VMs with disks reside on that storage domain.
 * User can not run VMs with disks reside on a storage domain configured as backup, since running VM might manipulate the disk's data.
-* VMs with disks reside on a backup storage domain can not be previewed.
+* VMs with disks residing on a backup storage domain can not be previewed.
 * Live move of disks to the backup storage domain will be restricted.
 
 #### Open Issues
 
-* Preview will be restricted for VMs with disks reside on a backup storage. - We think it should be restricted since currently oVirt does not support import storage domain with previewed unregistered entities.
+* Preview will be restricted for VMs with disks residing on a backup storage. - We think it should be restricted since currently oVirt does not support import storage domain with previewed unregistered entities.
 * Shared disk will be restricted in the backup storage domain since those are not specified in the VM's OVF.
 * VM pool will be eligible in a backup storage domain although, the user must keep in mind that import storage domain will not preserve its pool reference after import.
 * Should the backup indication needs to be configured in the storage domain meta data? If so should we add the backup indication as part of V4 storage domain meta data.

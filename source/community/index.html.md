@@ -29,7 +29,7 @@ We look forward to working with you!
 
 ## Develop the Code
 
-Are you a wiz with Java, Python, or Bash? We’d love to have you join us! For in-depth information on the projects and procedures, visit the [develop section](/develop/).
+Are you a wiz with Java, Python, or Bash? We’d love to have you join us! For in-depth information on the projects and procedures, visit the [Develop pages](/develop/).
 
 ## Translate, 翻译, תרגום
 
@@ -43,9 +43,13 @@ Read our featured [case studies](https://www.ovirt.org/community/user-stories/us
 
 Love design or UX? From concept through to implementation, help us to deliver a seamless experience for oVirt users. To join us, sign up to the [devel](http://lists.ovirt.org/mailman/listinfo/devel) mailing list.
 
+## Our Mailing Lists
+
+Want to get in touch? Find the [right mailing list](/community/about/mailing-lists/#users) for your inquiry.
+
 ## Meet Our Infrastructure Team
 
-The [Infrastructure](../develop/infra/infrastructure) team are volunteers and professionals managing the servers, building tools, and creating new applications to make oVIrt development a smoother process. We're located all over the globe and communicate primarily by the [\#ovirt channel on irc.OFTC.net](irc://irc.oftc.net/ovirt) and on the [ infra@ovirt.org mailing list](/community/about/mailing-lists/#infra).
+The [Infrastructure](../develop/infra/infrastructure) team are volunteers and professionals managing the servers, building tools, and creating new applications to make oVIrt development a smoother process. We're located all over the globe and communicate primarily by the **#ovirt** channel on **irc.OFTC.net** and on the [infra@ovirt.org](http://lists.ovirt.org/mailman/listinfo/infra) mailing list.
 
 
 

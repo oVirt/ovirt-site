@@ -148,7 +148,7 @@ For more information please see https://trello.com/c/ABUiJgWR/62-hugepages
 
 ### WebAdmin UI
 
-![](../../../../images/wiki/Screenshot from 2017-06-15 10-46-39.png)
+![](../../../../images/wiki/Screenshot_from_2017-06-15-10-46-39.png)
 
  *   A new "High Performance" type is added to the "Optimized for" pull down menu field displayed in VM/Template/Poll for new and edit dialogs.
 

@@ -27,68 +27,69 @@ Real-time monitoring will provide visibility into the user's complete infrastruc
 
 ## Description
 
-In 4.1, Collectd and Fluentd are already installed on the hosts and engine machines.
+In 4.1, collectd and fluentd are already installed on the hosts and engine machines.
 We have an Ansible script that configures them on all relevant hosts.
 
-We plan to continue adding additional logs and metrics as required, add pre-defined dashboards and aletring that will detect and notify the user in case something goes wrong in his environment, based on SLA events, thresholds etc.
+We plan to continue adding additional logs and metrics as required, add pre-defined dashboards and alerting that will detect and notify the user when something goes wrong in the environment, based on SLA events, thresholds, etc.
 
 ### oVirt Metrics Installation Instructions
 
-**oVirt Metrics Store setup -**
+**oVirt Metrics Store Setup -**
 
 **Note:** Currently it should be installed on a new machine, separate from the engine. 
-It can be installed on a dedicated vm. 
+It can be installed on a dedicated VM. 
 
-Please follow one of these options, adding SSO in optional:
+Please follow one of these options. Adding SSO is optional:
  
-  * [Metrics Store setup on Top of OpenShift with oVirt Engine SSO](https://www.ovirt.org/blog/2017/05/openshift-openId-integration-with-engine-sso/)
+  * [Metrics Store setup on top of OpenShift with oVirt Engine SSO](https://www.ovirt.org/blog/2017/05/openshift-openId-integration-with-engine-sso/)
 
   OR
 
-  * [Metrics Store setup on Top of OpenShift without oVirt Engine SSO](https://github.com/ViaQ/Main/blob/master/README-mux.md)
+  * [Metrics Store setup on top of OpenShift without oVirt Engine SSO](https://github.com/ViaQ/Main/blob/master/README-mux.md)
 
-[![oVirt Metrics Data Flow](/images/wiki/oVirtMetricsDataFlow.jpg)](images/wiki/oVirtMetricsDataFlow.jpg)
+[![oVirt Metrics data flow](/images/wiki/oVirtMetricsDataFlow.jpg)](images/wiki/oVirtMetricsDataFlow.jpg)
 
-Once you finished this step, you should have:
+Once you have finished this step, you should have:
 
   * Kibana - <https://kibana.{hostname}>
   * Openshit portal - <https://openshift.{hostname}>
 
 
-**oVirt Hypervisors and engine setup -**
+**oVirt Hypervisors and Engine Setup -**
 
-On upgrade from 4.1.0, oVirt machines already include Fluentd and Collectd packages.
-Now we need to deploy and configure Collectd and Fluentd to send the data to the central Metrics store:
+oVirt machines on versions 4.1.1 and above include Fluentd and Collectd packages.
+Now we need to deploy and configure Collectd and Fluentd to send the data to the central Metrics Store:
 
-1. Install / Upgrade and setup oVirt Engine 4.1 latest.
+1. Install / Upgrade and setup oVirt Engine 4.1, latest release.
 
-2. Install / Upgrade and activate one or more hosts, 4.1 latest.
+2. Install / Upgrade and activate one or more hosts, 4.1 latest release.
 
-3. Copy the CA certificate, created in step 1 on the metrics store machine, to the engine machine.
+3. Copy the CA certificate created earlier on [the metrics store machine](https://github.com/ViaQ/Main/blob/master/README-mux.md#getting-the-shared_key-and-ca-cert), to the engine machine.
 
-   Run on the metrics store machine:
+
+   On the metrics store machine, run:
 
         # scp /path/to/ca/certificate.cert root@<fqdn/of/engine/machine>:/etc/ovirt-engine-metrics
 
 4. Copy  /etc/ovirt-engine-metrics/config.yml.example  to config.yml.
 
-   Run on the oVirt engine machine:
+   On the oVirt engine machine, run:
 
         # cp /etc/ovirt-engine-metrics/config.yml.example /etc/ovirt-engine/config.yml
 
-5. Update on the engine machine the file /etc/ovirt-engine-metrics/config.yml with the following lines:
+5. Update the file /etc/ovirt-engine-metrics/config.yml located on the engine machine, with the following lines:
 
         # vi /etc/ovirt-engine-metrics/config.yml.example
 
-    Replace:
+    Replace the example values with your specific environment details:
      
-     "fluentd-server.example.com"  -  The fully qualified domain name of the metrics store machine
+     * "fluentd-server.example.com" - The fully qualified domain name of the metrics store machine
      
-     "my_shared_key" - The shared key configured in Fluentd on the metrics store machine and
+     * "my_shared_key" - The shared key configured in Fluentd on the metrics store machine
      
-     "/path/to/fluentd_ca_cert.pem" - The path to the fluentd ca certificate.
+     * "/path/to/fluentd_ca_cert.pem" - The path to the Fluentd CA certificate
 
-6. Run on the engine machine, as root:
+6. On the engine machine, run as root:
 
         # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_hosts_for_metrics.sh
 
@@ -96,6 +97,6 @@ It runs the Ansible script that configures Collectd and Fluentd on the oVirt eng
 
 It should finish without errors.
 
-When finished, you should be able to see statistics in the Kibana console, at the address you configured in step 1,  about your hosts, VMs, etc.
+When finished, you should be able to see statistics in the Kibana console, at the address you configured previously on the [metrics store machine](https://github.com/ViaQ/Main/blob/master/README-mux.md#running-kibana), about your hosts, VMs, etc.
 
 Kibana should be available at <https://kibana.{hostname}>

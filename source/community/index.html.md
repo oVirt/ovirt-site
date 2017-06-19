@@ -16,7 +16,7 @@ Before getting started, we recommend that you:
 
 - Sign up to the [users@ovirt.org](http://lists.ovirt.org/mailman/listinfo/users) mailing list and email us stating how you would like to contribute. Visit our [mailing lists](/community/about/mailing-lists/#users) page for other available oVirt mailing lists.
 - For fluent, real-time communication, [join us on IRC](/community/about/contact/#irc).
-- Finally, please read our [community etiquette guidelines](https://www.ovirt.org/community/about/community-guidelines/). (Quick summary: Be nice!) 
+- Finally, please read our [community etiquette guidelines](https://www.ovirt.org/community/about/community-guidelines/). (Quick summary: Be nice!)
 
 
 <section class="row">
@@ -64,7 +64,8 @@ oVirt is made up of a broad community of supporters, sponsors, and users. Find o
 
 Keep track of the latest happenings in the oVirt community, such as new releases, and post your thoughts and links on virtualization-related topics. Follow us on:
 
-[Twitter](https://twitter.com/ovirt) &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Google +](https://plus.google.com/u/0/communities/109346090491400112913)&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[YouTube](http://www.youtube.com/user/ovirtproject)
+[Twitter](https://twitter.com/ovirt)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[YouTube](http://www.youtube.com/user/ovirtproject)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Google+](https://plus.google.com/u/0/communities/109346090491400112913)
 
 ## Community Governance & Structure
 

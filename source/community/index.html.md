@@ -14,15 +14,10 @@ oVirt is a community-driven virtualization project, and people just like you are
 
 Before getting started, we recommend that you:
 
-* Sign up to the [users@ovirt.org](/community/about/mailing-lists/#users) mailing list. Then shoot us an introductory email saying how you would like to contribute.
+- Sign up to the [users@ovirt.org](http://lists.ovirt.org/mailman/listinfo/users) mailing list and email us stating how you would like to contribute. Visit our [mailing lists](/community/about/mailing-lists/#users) page for other available oVirt mailing lists.
+- For fluent, real-time communication, [join us on IRC](/community/about/contact/#irc).
+- Finally, please read our [community etiquette guidelines](https://www.ovirt.org/community/about/community-guidelines/). (Quick summary: Be nice!)
 
-* For fluent, real-time communication, [join us on IRC](/community/about/contact/#irc).
-
-* Finally, please read our [community etiquette guidelines](https://www.ovirt.org/community/about/community-guidelines/). (Quick summary: Be nice!)
-
-We look forward to working with you!
-
----
 
 <section class="row">
 <section class="col-md-6 pad-left-small pad-right">
@@ -42,10 +37,6 @@ Read our featured [case studies](https://www.ovirt.org/community/user-stories/us
 ## Design
 
 Love design or UX? From concept through to implementation, help us to deliver a seamless experience for oVirt users. To join us, sign up to the [devel](http://lists.ovirt.org/mailman/listinfo/devel) mailing list.
-
-## Our Mailing Lists
-
-Want to get in touch? Find the [right mailing list](/community/about/mailing-lists/#users) for your inquiry.
 
 ## Meet Our Infrastructure Team
 
@@ -73,10 +64,8 @@ oVirt is made up of a broad community of supporters, sponsors, and users. Find o
 
 Keep track of the latest happenings in the oVirt community, such as new releases, and post your thoughts and links on virtualization-related topics. Follow us on:
 
-- [Twitter](https://twitter.com/ovirt)
-- [Google +](https://plus.google.com/u/0/communities/109346090491400112913)
-- [Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)
-- [YouTube](http://www.youtube.com/user/ovirtproject)
+[Twitter](https://twitter.com/ovirt)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[YouTube](http://www.youtube.com/user/ovirtproject)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Google+](https://plus.google.com/u/0/communities/109346090491400112913)
 
 ## Community Governance & Structure
 

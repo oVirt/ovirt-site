@@ -88,6 +88,7 @@ Now we need to deploy and configure Collectd and Fluentd to send the data to the
      * "my_shared_key" - The shared key configured in Fluentd on the metrics store machine
      
      * "/path/to/fluentd_ca_cert.pem" - The path to the Fluentd CA certificate
+     * "ovirt_env_name" - The Environment name. Can be used to identify data collected in a single central store sent from more than one oVirt engine.
 
 6. On the engine machine, run as root:
 

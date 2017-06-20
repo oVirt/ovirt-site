@@ -57,14 +57,14 @@ Once you have finished this step, you should have:
 
 **oVirt Hypervisors and Engine Setup -**
 
-oVirt machines on versions 4.1.1 and above include Fluentd and Collectd packages.
-Now we need to deploy and configure Collectd and Fluentd to send the data to the central Metrics Store:
+oVirt machines on versions 4.1.1 and above include fluentd and collectd packages.
+Now we need to deploy and configure collectd and fluentd to send the data to the central Metrics Store:
 
-1. Install / Upgrade and setup oVirt Engine 4.1, latest release.
+1. Install / Upgrade and setup oVirt Engine 4.1.3 and above.
 
-2. Install / Upgrade and activate one or more hosts, 4.1 latest release.
+2. Install / Upgrade and activate one or more hosts, 4.1.3 and above.
 
-3. Copy the CA certificate created earlier on [the metrics store machine](https://github.com/ViaQ/Main/blob/master/README-mux.md#getting-the-shared_key-and-ca-cert), to the engine machine.
+3. Copy the CA certificate - created earlier on in this procedure [(see oVirt Metrics Store Setup)](https://github.com/ViaQ/Main/blob/master/README-mux.md#getting-the-shared_key-and-ca-cert) - to the engine machine.
 
 
    On the metrics store machine, run:
@@ -85,19 +85,20 @@ Now we need to deploy and configure Collectd and Fluentd to send the data to the
      
      * "fluentd-server.example.com" - The fully qualified domain name of the metrics store machine
      
-     * "my_shared_key" - The shared key configured in Fluentd on the metrics store machine
+     * "my_shared_key" - The shared key configured in fluentd on the metrics store machine
      
-     * "/path/to/fluentd_ca_cert.pem" - The path to the Fluentd CA certificate
-     * "ovirt_env_name" - The Environment name. Can be used to identify data collected in a single central store sent from more than one oVirt engine.
+     * "/path/to/fluentd_ca_cert.pem" - The path to the fluentd CA certificate
+     
+     * "ovirt_env_name" - The environment name. Can be used to identify data collected in a single central store sent from more than one oVirt engine.
 
 6. On the engine machine, run as root:
 
         # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_hosts_for_metrics.sh
 
-It runs the Ansible script that configures Collectd and Fluentd on the oVirt engine and hypervisors.
+It runs the Ansible script that configures collectd and fluentd on the oVirt engine and hypervisors.
 
 It should finish without errors.
 
-When finished, you should be able to see statistics in the Kibana console, at the address you configured previously on the [metrics store machine](https://github.com/ViaQ/Main/blob/master/README-mux.md#running-kibana), about your hosts, VMs, etc.
+Once finished, you can view host, VM and other statistics in the Kibana console, at the address configured earlier on in this procedure [(see oVirt Metrics Store Setup)](https://github.com/ViaQ/Main/blob/master/README-mux.md#running-kibana).
 
 Kibana should be available at <https://kibana.{hostname}>

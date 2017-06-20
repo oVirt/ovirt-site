@@ -39,39 +39,9 @@ This page highlights the users, solution providers, supporters, and downstream c
 [Wind River](//www.windriver.com/) offers a comprehensive device development portfolio, including its [Open Virtualization](//www.windriver.com/products/open-virtualization-profile/) product, a real-time virtualization solution using KVM and oVirt technology.
 </div>
 
-## oVirt Customer Stories
-
-The oVirt Project is made great by the users who advocate and help in the development of [oVirt](/Download "Download"), by using oVirt in a variety of production environments every day. When we find them, we are pleased to list them here.
-
-<div class="parner-block">
-[![AlterWay](/images/logos/AlterWay.png)](http://www.alterway.fr)
-[AlterWay](//alterway.fr) offers hosting services to the oVirt project for free, including oVirt-managed Virtual Machines and a dedicated server for Jenkins, for use in the oVirt project infrastructure. They launched an oVirt-based public cloud offering called [H2O](http://h2o.alterway.fr) in October 2012. **[Case Study](/community/user-stories/alter-way-case-study/ "Alter Way case study")**
-</div>
-
-<div class="parner-block">
-[![BrusselsAirportCompany](/images/logos/BrusselsAirport.svg)](http://www.brusselsairport.be)
-Faced with an opportunity to take the approximately 150 virtual machines housed on 30 Solaris machines and manage them with another virtual datacenter management tool, the [Brussels Airport Company](//www.brusselsairport.be) IT team went with oVirt running atop CentOS. **[Case Study](/community/user-stories/brussels-airport-case-study/ "Brussels Airport Case Study")**
-</div>
-
-<div class="parner-block">
-[![Judici](/images/logos/Judici.png)](http://www.judici.com)
-[Judici](//www.judici.com) offers the public litigant information, criminal and civil court information, case minutes, and calendar data for hearings, and is rolling out the capability to e-file cases online for 68 of Illinois' 102 county courts. And it's making this happen with completely open source software, including oVirt. **[Case Study](/community/user-stories/judici-case-study/ "Judici Case Study")**
-</div>
-
-<div class="parner-block">
-[![Nieuwland](/images/logos/Nwld.png)](http://nieuwland.nl/)
-Dutch software development company [Nieuwland Geo-Informatie](//nieuwland.nl/) creates mobile applications that need to tap into a lot of geographic information in a reliable and fast manner. To do this, they needed a virtualization solution that would have high availability at a reasonable cost. **[Case Study](/community/user-stories/nieuwland-case-study/ "Nieuwland case study")**
-</div>
-
-## oVirt Educational Stories
+## oVirt Partners in Education
 
 oVirt is popular with a lot of users, but one set of organizations that finds oVirt very useful for production is academic institutions. We have found users from universities and colleges from around the world who have implemented oVirt to manage their virtual workloads.
-
-<div class="parner-block">
-[![Keele University](/images/logos/Keele.svg)](http://www.keele.ac.uk/)
-[Keele University](//www.keele.ac.uk/), Stafforshire UK  
-Keele University has a small and dedicated IT staff handling all of the IT demands of the 10,000 students and 2,000 staff. To handle their virtualization needs, they have been using oVirt 3.2 since mid 2013. **[Case Study](/community/user-stories/keele-university-case-study/ "Keele University case study")**
-</div>
 
 <div class="parner-block">
 [![NUST](/images/logos/Nust.svg)](http://www.nust.edu.pk/Pages/Home.aspx)
@@ -84,6 +54,8 @@ The National University of Sciences and Technology aims to emerge as a comprehen
 [Silesian University in Opava](//www.slu.cz/slu/en), Opava, Czech Republic  
 The Silesian University in Opava, a member of European University Association, belongs among the top five universities created after 1989. Immediately after its inception, the university began to provide students comprehensive education in the fields of humanities and economics.
 </div>
+
+To learn more on oVirt partners in education, visit the [case studies](https://www.ovirt.org/community/user-stories/user-stories/) page.
 
 ## oVirt Professional Services / Integrators
 
@@ -105,11 +77,6 @@ Companies and public institutions all over the world have found oVirt a great so
 </div>
 
 <div class="parner-block">
-[![it-novum Logo](/images/logos/It-novum.png)](http://www.it-novum.com/)
-[it-novum](//www.it-novum.com/) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included. **[Case Study](/community/user-stories/it-novum-case-study/ "IT Novum case study")**
-</div>
-
-<div class="parner-block">
 [![Netbulae](/images/logos/Netbulae.png)](http://www.netbulae.eu/)
 The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automation, graphics and multimedia sectors, and use those skills and the oVirt platform to deliver virtual datacenter management services to their customer base.
 </div>
@@ -117,6 +84,9 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 <div class="parner-block">
 [![R01](/images/logos/R01.png)](http://r01.ru/)
 [Registrar R01](//r01.ru/) - registrar of domain names, belongs to a group of companies Hosting Community. The company became the first accredited registrar in the national domain RU and today offers a wide range of professional services, being one of the leaders in the number of registered domains .RU, .SU and .RF.
+
+For more on oVirt professional services and integrators, read the [IT Novum case study](https://www.ovirt.org/community/user-stories/it-novum-case-study/).
+
 </div>
 
 <div class="parner-block">
@@ -127,13 +97,10 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 ## oVirt Cloud Providers
 
 <div class="parner-block">
-[![AlterWay](/images/logos/AlterWay.png)](http://www.alterway.fr)
-[AlterWay](//alterway.fr) offers hosting services to the oVirt project for free, including oVirt-managed Virtual Machines and a dedicated server for Jenkins, for use in the oVirt project infrastructure. They launched an oVirt-based public cloud offering called [H2O](http://h2o.alterway.fr) in October 2012. **[Case Study](/community/user-stories/alter-way-case-study/ "Alter Way case study")**
-</div>
-
-<div class="parner-block">
 [![Cloud Times](/images/logos/Ct.png)](http://www.cloud-times.com/)
 [Cloud Times](//www.cloud-times.com/) is a startup invested by CBC and funded by Dr Edward Tian, known as the Father of Chinese Broadband. Cloud Times is devoted to being the leading solution provider of Cloud Client Equipment, Virtual Desktop Infrastructure, and “Cloud plus Client” Management Platform, and to help Chinese enterprises in the transition to “Cloud plus Client” architecture.
+
+For more on cloud providers that are using oVirt, read our [case study](https://www.ovirt.org/community/user-stories/alter-way-case-study/).
 </div>
 
 ## oVirt Supporters

@@ -57,6 +57,7 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 * Large amount of extra space is used in export storage domain. It may be suitable for small datacenter but for large datacenter the storage required to store those OVFs and VMs in export storage domain will become a headache.
 * Multiple storage domain can be used for backup purposes only.
 * Backup storage domain will support both File storage(NFS , Gluster) as well as block storage(Fiber Channel and iSCSI) as compared to export storage domain which only has support for file storage.
+* A backup storage domain can be truned into a regular data domain at any instant and vise versa.
 
 #### Restrictions
 

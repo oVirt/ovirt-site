@@ -92,6 +92,16 @@ If all normally-existing entities:
 names="engine apache websocket-proxy jboss imageio-proxy"
 ```
 
+If you [replaced the https cert](/documentation/admin-guide/appe-oVirt_and_SSL/#replacing-the-ovirt-engine-ssl-certificate)
+with a cert signed by a 3rd party, you should not include "apache" in above - e.g.
+use one of:
+
+```sh
+names="engine"
+# or
+names="engine websocket-proxy jboss imageio-proxy"
+```
+
 ### Enter Maintenance
 
 If this is a self-hosted-engine, move it to global maintenance.

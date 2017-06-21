@@ -13,15 +13,15 @@ page_classes: partner-logos
 
 # Users and Providers
 
-Our community is growing every day, as individual users and organizations alike discover oVirt and start integrating it into their IT strategies. How they use oVirt varies: implementing it in their datacenters and even using oVirt as the basis of their own solutions for their customers. For Red Hat, which opened the oVirt codebase, oVirt is used as the upstream for the commercial Red Hat Virtualization product. oVirt is also the upstream for Wind River's Open Virtualization product.
+Our community keeps growing as more individual users and organizations choose oVirt: Some are implementing it in their datacenters, while others are using oVirt as the basis for their own customer solutions. Red Hat, which opened the oVirt codebase, uses it as the upstream version of its commercial virtualization product, RHV. oVirt is also the upstream version for Wind River's open virtualization product.
 
-This page highlights the users, solution providers, supporters, and downstream commercial products of oVirt.
+Below you will find the list of oVirt users, solution providers, supporters and downstream commercial products.
 
-## oVirt-Based Products
+## oVirt-Based Service Providers
 
 <div class="parner-block">
 [![Nimbus Concept](/images/logos/Nimbus.png)](http://www.nimbusconcept.com/index-en.html)
-[Nimbus Concept](//www.nimbusconcept.com/index-en.html) has taken oVirt and other open source tools to deliver solutions to their customers, and now is offering something unique: OriginStack, an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package. **[Case Study](/community/user-stories/nimbus-concept-case-study/ "Nimbus Concept Case Study")**
+[Nimbus Concept](//www.nimbusconcept.com/index-en.html) has developed OriginStack, an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package. Read the **[case study.](/community/user-stories/nimbus-concept-case-study/ "Nimbus Concept Case Study")**
 </div>
 
 <div class="parner-block">
@@ -31,8 +31,8 @@ This page highlights the users, solution providers, supporters, and downstream c
 
 <div class="parner-block">
 [![UDS Enterprise](/images/logos/UDS.png)](https://www.udsenterprise.com)
-[UDS Enterprise](//www.udsenterprise.com) is a multiplatform connection broker supported and developed by [VirtualCable](//www.virtualcable.es). This software administers and manages virtual and remote desktops, applications and other Windows & Linux services. It is compatible, among others, with Citrix XenServer, Microsoft Hyper-V, Nutanix Acropolis, Red Hat KVM, oVirt KVM, VMware vSphere.... **[Case Study](/community/user-stories/universidad-de-sevilla-case-study/)**
-</div>
+[UDS Enterprise](//www.udsenterprise.com) is a multiplatform connection broker that administers and manages virtual and remote desktops, apps, and other Windows & Linux services. It is compatible with Red Hat and oVirt KVM. Read the **[case study.](/community/user-stories/universidad-de-sevilla-case-study/)**
+</div>  
 
 <div class="parner-block">
 [![Wind River](/images/logos/Wind_River.svg)](http://www.windriver.com/)
@@ -41,39 +41,48 @@ This page highlights the users, solution providers, supporters, and downstream c
 
 ## oVirt Partners in Education
 
-oVirt is popular with a lot of users, but one set of organizations that finds oVirt very useful for production is academic institutions. We have found users from universities and colleges from around the world who have implemented oVirt to manage their virtual workloads.
+Educational institutions around the world are choosing oVirt to manage their virtual workloads, finding it a scalable, feature-rich and cost-effective solution.
+
+<div class="parner-block">
+[![RCC](/images/logos/FSUSig_Horizontal_Color.png)](https://rcc.fsu.edu/) [Florida State University’s Research Computing Center](https://rcc.fsu.edu/) provides the FSU research community with high-performance computational resources to enable scientific research. Read the [**case study.**](https://www.ovirt.org/community/user-stories/RCC-case-study/)
+</div>
+
+<div class="parner-block">
+[![](/images/logos/Sevilla.png)](http://www.us.es/) The [University of Seville](http://www.us.es/eng) is one of the top-ranked universities in Spain. It has a student body of over 65,000 and hosts an extensive international student program. Read the [**case study.**](https://www.ovirt.org/community/user-stories/universidad-de-sevilla-case-study/)
+</div>
+
+<div class="parner-block">
+[![Keele](/images/logos/Keele.svg)](https://www.keele.ac.uk)
+[Keele University](/community/user-stories/keele-university-case-study/) in Staffordshire UK, is a public research university. It has a small, dedicated IT staff handling the IT demands of 10,000 students and 2,000 staff. Read the [**case study**.](https://www.ovirt.org/community/user-stories/keele-university-case-study/)
+</div>
 
 <div class="parner-block">
 [![NUST](/images/logos/Nust.svg)](http://www.nust.edu.pk/Pages/Home.aspx)
-[National University of Sciences & Technology](//www.nust.edu.pk/Pages/Home.aspx), Islamabad, Pakistan  
-The National University of Sciences and Technology aims to emerge as a comprehensive residential institution responsive to technological change, dedicated to excellence and committed to international educational and research needs of Pakistan.
+The [National University of Sciences & Technology (NUST)](//www.nust.edu.pk/Pages/Home.aspx) is a public research university in Islamabad, Pakistan. The university primarily focuses on Science, technology, engineering and mathematics.
 </div>
 
 <div class="parner-block">
-[![Silesian University in Opava](/images/logos/Silesian.svg)](http://www.slu.cz/slu/en)
-[Silesian University in Opava](//www.slu.cz/slu/en), Opava, Czech Republic  
-The Silesian University in Opava, a member of European University Association, belongs among the top five universities created after 1989. Immediately after its inception, the university began to provide students comprehensive education in the fields of humanities and economics.
+[![Silesian University](/images/logos/Silesian.svg)](http://www.slu.cz/slu/en)
+[Silesian University](//www.slu.cz/slu/en) in Opava, Czech Republic, has an enrollment of more than 9000 students in approximately 50 study programs. It is a member of the European University Association.
 </div>
 
-To learn more on oVirt partners in education, visit the [case studies](https://www.ovirt.org/community/user-stories/user-stories/) page.
-
-## oVirt Professional Services / Integrators
+## oVirt Professional Services & Integrators
 
 Companies and public institutions all over the world have found oVirt a great solution to manage internal and customer-facing servers. These organizations are using oVirt in production, as well as actively participating in the oVirt community.
 
 <div class="parner-block">
 [![ALBA Software](/images/logos/Alba.png)](http://www.albasoft.com/web/#/home)
-[ALBA Software](//www.albasoft.com/web/#/home) has provided consulting, integration, and Internet development services since 1999.
+[ALBA Software](//www.albasoft.com/web/#/home) has been providing consulting, integration, and Internet development services since 1999.
 </div>
 
 <div class="parner-block">
-[![Cornerstone Technical Solutions](/images/logos/Cornerstone.png)](http://cornerstonets.net/home/managed-services.html)
-[Cornerstone Technical Solutions](//cornerstonets.net/home/index.html) offers virtualization to consolidate datacenters, enabling clients the flexibility to combine CTS service offerings, which use oVirt, for their needs.
+[![Cornerstone Technical Solutions](/images/logos/Cornerstone.png)](https://cornerstonets.net/)
+[Cornerstone Technical Solutions](//cornerstonets.net/managed-services) offers virtualization to consolidate datacenters, enabling clients the flexibility to combine CTS service offerings, which use oVirt, for their needs.
 </div>
 
 <div class="parner-block">
-[![Internet Complete!, Inc.](/images/logos/Tl.png)](http://icnet.net/)
-[Internet Complete](//icnet.net/) is dedicated to providing Oklahoma customers with the leading technologies (including oVirt-managed hosting) they need for fast, reliable Internet solutions.
+[![Internet Complete!, Inc.](/images/logos/Tl.png)](http://icnet.net/)  
+[Internet Complete](//icnet.net/) is dedicated to providing customers in Oklahoma with leading technologies - such as oVirt-managed hosting - for fast and reliable Internet solutions.
 </div>
 
 <div class="parner-block">
@@ -83,10 +92,13 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 <div class="parner-block">
 [![R01](/images/logos/R01.png)](http://r01.ru/)
-[Registrar R01](//r01.ru/) - registrar of domain names, belongs to a group of companies Hosting Community. The company became the first accredited registrar in the national domain RU and today offers a wide range of professional services, being one of the leaders in the number of registered domains .RU, .SU and .RF.
+[Registrar R01](//r01.ru/), a registrar of domain names, belongs to a group of companies Hosting Community. The company became the first accredited registrar in the national domain RU and today offers a wide range of professional services, being one of the leaders in the number of registered domains .RU, .SU and .RF.
+</div>
 
-For more on oVirt professional services and integrators, read the [IT Novum case study](https://www.ovirt.org/community/user-stories/it-novum-case-study/).
-
+<div class="parner-block">
+![](/images/logos/It-novum.png)
+[it-novum](/community/user-stories/it-novum-case-study/) is a leading consultancy for business open source in the German-speaking market. it-novum focuses on the intergation of open source with closed source and the development of combined open source solutions and platforms.
+Read the [**case study.**](/community/user-stories/it-novum-case-study/)
 </div>
 
 <div class="parner-block">
@@ -98,10 +110,14 @@ For more on oVirt professional services and integrators, read the [IT Novum case
 
 <div class="parner-block">
 [![Cloud Times](/images/logos/Ct.png)](http://www.cloud-times.com/)
-[Cloud Times](//www.cloud-times.com/) is a startup invested by CBC and funded by Dr Edward Tian, known as the Father of Chinese Broadband. Cloud Times is devoted to being the leading solution provider of Cloud Client Equipment, Virtual Desktop Infrastructure, and “Cloud plus Client” Management Platform, and to help Chinese enterprises in the transition to “Cloud plus Client” architecture.
-
-For more on cloud providers that are using oVirt, read our [case study](https://www.ovirt.org/community/user-stories/alter-way-case-study/).
+[Cloud Times](//www.cloud-times.com/) is a solution provider of Cloud Client Equipment, Virtual Desktop Infrastructure, and the “Cloud plus Client” Management Platform, helping Chinese enterprises in the transition to “Cloud plus Client” architecture.
 </div>
+
+<div class="parner-block">
+![](/images/logos/AlterWay.png)
+[Alter Way](https://www.alterway.fr/) is a French hosting company that provides solutions for their customers' digital strategies, in a DevOps approach and using open source solutions, including oVirt. Read the Alter Way [**case study.**](/community/user-stories/alter-way-case-study/)
+</div>
+
 
 ## oVirt Supporters
 

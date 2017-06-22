@@ -8,8 +8,8 @@ authors: sandrobonazzola
 # oVirt 4.1.3 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.1.3
-Second Release Candidate as
-of June 16, 2017.
+Third Release Candidate as
+of June 22, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, and provides an
 awesome KVM management interface for multi-node virtualization.
@@ -109,7 +109,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
  - [BZ 1444992](https://bugzilla.redhat.com/1444992) <b>[RFE] Provide hook for vGPU</b><br>This feature adds a new VDSM hook called vdsm-hook-vfio-mdev that makes the host capable of working with mdev capable devices such as GPUs. The hook should be installed automatically.<br><br>There are few requirements for a VM to use mdev instance:<br><br>1) the host must have kernel that supports mediated devices, have the device and correct drivers,<br>2) predefined property 'mdev_type' must be set and correspond to one of the mdev types supported by the device and<br>3) the VM must be pinned to the host(s) with the device(s).<br><br>The supported mdev_type values can be determined by checking the host where the device is present (not visible in the engine) by querying vdsm (vdsm-client Host hostdevListByCaps) or running the following bash script:<br><br>for device in /sys/class/mdev_bus/*; do<br>  for mdev_type in $device/mdev_supported_types/*; do<br>    MDEV_TYPE=$(basename $mdev_type)<br>    DESCRIPTION=$(cat $mdev_type/description)<br>    echo "mdev_type: $MDEV_TYPE --- description: $DESCRIPTION";<br>  done;<br>done | sort | uniq
  - [BZ 1426905](https://bugzilla.redhat.com/1426905) <b>[Metrics Store] Install fluent-plugin-viaq_data_model plugin on engine machine</b><br>
- - [BZ 1431545](https://bugzilla.redhat.com/1431545) <b>[RFE] make the webadmin/userportal debuginfo packages required</b><br>Feature:<br><br>GWT symbol maps, used to de-obfuscate client-side (GWT UI) stack traces [1], are now part of the core UI packages [2] and therefore available right upon Engine installation.<br><br>[1] /var/log/ovirt-engine/ui.log<br>[2] webadmin-portal + userportal<br><br>The complementary "debuginfo" packages [3], which were used to provide those GWT symbol map files, are now removed.<br><br>[3] webadmin-portal-debuginfo + userportal-debuginfo<br><br>Before upgrading Engine, old "debuginfo" packages must be manually removed first. (Otherwise, Engine setup will fail.)<br><br>Reason:<br><br>1, have meaningful (de-obfuscated) client-side stack traces right from the start, without having to install any additional packages (saves us time when analyzing UI related issues)<br><br>2, reduce disk size by having GWT symbol maps zipped (for example, WebAdmin UI specific uncompressed symbol maps take ~1 G of disk space)<br><br>Result:<br><br>After Engine install/upgrade, GWT symbol maps use the following layout:<br><br>/usr/share/ovirt-engine/gwt-symbols/webadmin/symbolMaps.zip<br>/usr/share/ovirt-engine/gwt-symbols/userportal/symbolMaps.zip<br><br>Additional info:<br><br>The content of above mentioned zip files is streamed by Engine as necessary; the content isn't physically extracted to disk.
+ - [BZ 1431545](https://bugzilla.redhat.com/1431545) <b>[RFE] remove the webadmin/userportal debuginfo packages and have automatic deobfuscation</b><br>Feature:<br><br>GWT symbol maps, used to de-obfuscate client-side (GWT UI) stack traces [1], are now part of the core UI packages [2] and therefore available right upon Engine installation.<br><br>[1] /var/log/ovirt-engine/ui.log<br>[2] webadmin-portal + userportal<br><br>The complementary "debuginfo" packages [3], which were used to provide those GWT symbol map files, are now removed.<br><br>[3] webadmin-portal-debuginfo + userportal-debuginfo<br><br>Before upgrading Engine, old "debuginfo" packages must be manually removed first. (Otherwise, Engine setup will fail.)<br><br>Reason:<br><br>1, have meaningful (de-obfuscated) client-side stack traces right from the start, without having to install any additional packages (saves us time when analyzing UI related issues)<br><br>2, reduce disk size by having GWT symbol maps zipped (for example, WebAdmin UI specific uncompressed symbol maps take ~1 G of disk space)<br><br>Result:<br><br>After Engine install/upgrade, GWT symbol maps use the following layout:<br><br>/usr/share/ovirt-engine/gwt-symbols/webadmin/symbolMaps.zip<br>/usr/share/ovirt-engine/gwt-symbols/userportal/symbolMaps.zip<br><br>Additional info:<br><br>The content of above mentioned zip files is streamed by Engine as necessary; the content isn't physically extracted to disk.
  - [BZ 1421204](https://bugzilla.redhat.com/1421204) <b>Allow TLSv1.2 during protocol negotiation for external provider communication</b><br>Feature: <br><br>Prior RHV versions were able to negotiate encryption protocol up to TLSv1 for external provider communication. This change adds ability to negotiate encryption protocol up to TLSv1.2 (exact version used for communication depends on highest version available on external provider target).<br><br>Reason: <br><br>Result:
 
 #### VDSM
@@ -160,6 +160,16 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1435218](https://bugzilla.redhat.com/1435218) <b>[scale] - getAllVmIoTunePolicies hit the performance</b><br>
  - [BZ 1451226](https://bugzilla.redhat.com/1451226) <b>[downstream clone - 4.1.3] Add additional logging of LVM commands in VDSM</b><br>
 
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1460982](https://bugzilla.redhat.com/1460982) <b>[downstream clone - 4.1.3] [TEXT] Error message is confusing when hosted-engine Storage Domain can't be mounted</b><br>
+
+### Technology Preview
+
+#### oVirt Engine
+
+ - [BZ 1456568](https://bugzilla.redhat.com/1456568) <b>[downstream clone - 4.1.3] [RFE] enable VM portal in downstream (Tech Preview)</b><br>The VM Portal was previously introduced as a Technical Preview. A new "VM Portal" link is now available on the Red Hat Virtualization Welcome Page. The VM Portal conforms to the functionality that is available in the Basic tab of the current User Portal.
+
 ### Unclassified
 
 #### oVirt Engine Extension AAA LDAP
@@ -178,6 +188,9 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### oVirt Engine
 
+ - [BZ 1463597](https://bugzilla.redhat.com/1463597) <b>[downstream clone - 4.1.3] Issues with automating the configuration of VMs (cloud-init)</b><br>
+ - [BZ 1453163](https://bugzilla.redhat.com/1453163) <b>[ENGINE] Add the ability to create and remove lease while vm is up</b><br>It is now possible to remove or add a VM lease to a VM while the VM is running
+ - [BZ 1404607](https://bugzilla.redhat.com/1404607) <b>Force updateOVF does not update OVF store when Adding VM/Disk or removing disk (Only removing VM works)</b><br>
  - [BZ 1446640](https://bugzilla.redhat.com/1446640) <b>VM - Cannot run VM. Random Number Generator device is not supported in cluster</b><br>
  - [BZ 1432912](https://bugzilla.redhat.com/1432912) <b>[RFE] add search query for "next run configuration exists"</b><br>
  - [BZ 1450951](https://bugzilla.redhat.com/1450951) <b>checkboxes and reset button in Host - Kernel tab don't work properly</b><br>
@@ -195,13 +208,17 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1365237](https://bugzilla.redhat.com/1365237) <b>Upload image doesn't notice that the disk image was removed, it finalizes the upload and marks it as OK</b><br>
  - [BZ 1416550](https://bugzilla.redhat.com/1416550) <b>Dialog "Select fence proxy preference type to add" in power management will not close when hit cancel</b><br>
  - [BZ 1452984](https://bugzilla.redhat.com/1452984) <b>Engine may block reducing a valid device from block sd if the domain was restored manually</b><br>
+ - [BZ 1421417](https://bugzilla.redhat.com/1421417) <b>Disk remains in 'locked' state when blocking the connection from host to storage-domain during live storage migration</b><br>
  - [BZ 1460501](https://bugzilla.redhat.com/1460501) <b>Failed to extend block-based storage domain, ExtendSANStorageDomainCommand pass multiple PVs with the same name</b><br>
  - [BZ 1460953](https://bugzilla.redhat.com/1460953) <b>GET request for user's permissions gives NPE</b><br>
  - [BZ 1458107](https://bugzilla.redhat.com/1458107) <b>Can not change host cluster while approving the "pending approval" host on rhvm4.1</b><br>
  - [BZ 1454843](https://bugzilla.redhat.com/1454843) <b>[engine-backend] VM creation from template reported false negatively in engine.log</b><br>
  - [BZ 1456432](https://bugzilla.redhat.com/1456432) <b>New uploaded QCOW2v3 Glance images will fail to be downloaded from Glance</b><br>
+ - [BZ 1460512](https://bugzilla.redhat.com/1460512) <b>Useless log about removed luns is printed although no luns were removed</b><br>
+ - [BZ 1443641](https://bugzilla.redhat.com/1443641) <b>Unregistered external VMs should not be candidates for register once storage domain is being attached</b><br>
  - [BZ 1458568](https://bugzilla.redhat.com/1458568) <b>Can't create a file domain after navigating to the new block storage domain window when Discard After Delete is checked</b><br>
  - [BZ 1459484](https://bugzilla.redhat.com/1459484) <b>Lost Connection After Host Deploy when 4.1.3 Host Added to 4.1.2 Engine</b><br>
+ - [BZ 1444120](https://bugzilla.redhat.com/1444120) <b>After upgrade DC&cluster + Engine restart Reconstruct Master Domain for Data Center fails</b><br>
  - [BZ 1448882](https://bugzilla.redhat.com/1448882) <b>UI | there are alignment issues when creating a template from vm with more than 3 disks</b><br>
  - [BZ 1421771](https://bugzilla.redhat.com/1421771) <b>Affinity enforcement tries to balance HE VM</b><br>
  - [BZ 1429912](https://bugzilla.redhat.com/1429912) <b>Random number generator source of pool VM is disabled in webadmin although RNG source is actually enabled on the VM.</b><br>
@@ -251,7 +268,6 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### oVirt Hosted Engine Setup
 
- - [BZ 1460982](https://bugzilla.redhat.com/1460982) <b>[downstream clone - 4.1.3] [TEXT] Error message is confusing when hosted-engine Storage Domain can't be mounted</b><br>
  - [BZ 1459229](https://bugzilla.redhat.com/1459229) <b>Interface matching regular expression ignores interfaces with a '-' in the name</b><br>
 
 #### imgbased
@@ -269,13 +285,17 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### oVirt Engine Metrics
 
+ - [BZ 1458735](https://bugzilla.redhat.com/1458735) <b>Logs in engine.log that contain javastacktrace break log parsing</b><br>
+ - [BZ 1419858](https://bugzilla.redhat.com/1419858) <b>Provide ovirt_env_name and engine_fqdn to be used in the fluentd.conf on the hosts and engine machines</b><br>
  - [BZ 1459425](https://bugzilla.redhat.com/1459425) <b>engine.log timestamp must be in iso8601 or the record is not saved in the central metrics store</b><br>
  - [BZ 1459015](https://bugzilla.redhat.com/1459015) <b>When keep_time_key is missing in in_tail fluentd plugin the records are sent with no timestamp</b><br>
  - [BZ 1458682](https://bugzilla.redhat.com/1458682) <b>If config.yml is missing , the Ansible script finishes with no error message that indicates an issue</b><br>
  - [BZ 1434315](https://bugzilla.redhat.com/1434315) <b>[RFE] Update  engine and hosts fluentd configurations to use fluent-plugin-viaq_data_model</b><br>
+ - [BZ 1456238](https://bugzilla.redhat.com/1456238) <b>[RFE] Add ipv4 and ipv6 to metrics and logs records</b><br>
 
 #### oVirt Cockpit Plugin
 
+ - [BZ 1452121](https://bugzilla.redhat.com/1452121) <b>Update generated gdeploy config file to add 'qemu' user to 'gluster' group</b><br>
  - [BZ 1456155](https://bugzilla.redhat.com/1456155) <b>disable-multipath.sh script section should be moved before creation of bricks in the conf file.</b><br>
  - [BZ 1460614](https://bugzilla.redhat.com/1460614) <b>The page "Virtual Machines" has no response on Cockpit</b><br>
 
@@ -294,6 +314,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1452182](https://bugzilla.redhat.com/1452182) <b>engine-backup restores pki packaged files</b><br>
  - [BZ 1413845](https://bugzilla.redhat.com/1413845) <b>HE vm does not get migrated to another node when the nic associated with ovirtmgmt is down.</b><br>
  - [BZ 1444611](https://bugzilla.redhat.com/1444611) <b>Start VM failed with the exception, if the score module does not respond before the timeout</b><br>
+ - [BZ 1449289](https://bugzilla.redhat.com/1449289) <b>RESTAPI - Amend (update VM disk attachment disk qcow2_v3 field) to raw disk is allowed</b><br>
  - [BZ 1435579](https://bugzilla.redhat.com/1435579) <b>Failed to restart VM vm2-test-w2k12r2-1 on Host <UNKNOWN></b><br>
 
 ### VDSM

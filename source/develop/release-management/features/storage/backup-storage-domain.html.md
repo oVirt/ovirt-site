@@ -67,7 +67,8 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 * Live move of disks to the backup storage domain will be restricted.
 * A backup domain cannot be elected as the master domain.
 * The Hosted Engine's domain can't be configured as a backup domain.
-* The backup domain cannot be the target of memory volumes.
+* The backup domain cannot be the target of memory volumes since memory volume is only supported for running VMs and those are not allowed on backup storage domains.
+
 
 
 #### Open Issues

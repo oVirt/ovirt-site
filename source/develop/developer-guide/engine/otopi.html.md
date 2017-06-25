@@ -14,7 +14,7 @@ Need to add somewhere documentation about otopi and the tools using it. Not sure
 
 OTOPI's "home page": <http://gerrit.ovirt.org/gitweb?p=otopi.git;a=blob;f=README;hb=HEAD>
 
-A nice presentation about OTOPI and host-deploy-engine (the first tool to use otopi): <http://www.ovirt.org/File:Ovirt-host-deploy_3.2.pdf>
+A nice presentation about OTOPI and host-deploy-engine (the first tool to use otopi): <http://resources.ovirt.org/old-site-files/wiki/Ovirt-host-deploy_3.2.pdf>
 
 ### Environment
 

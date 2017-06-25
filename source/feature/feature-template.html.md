@@ -16,7 +16,7 @@ feature_status: Released
 
 ## Your Feature's Name
 
-Give your feature a name. This name will also be the title of your feature page. It should be short and clear and not overly technical.
+Give your feature a name. This name will also be the title of your feature page. It should be short and meaningful, and as much as possible, describe what the feature is about.
 
 ## Summary
 
@@ -75,13 +75,13 @@ Provide guidance about the process of reporting events related to this feature.
 ## Dependencies and Related Features
 
 Answer the following questions:
-1. What other packages depend on this feature? 
+1. What other packages depend on this feature?
 2. Are there any issues beyond the developers' control on which the completion of this feature depends? (e.g. the completion of another feature with a different owner).
 3. Will other features be affected by the implementation of this feature?
 
 ## Documentation & External references
 
-Does this feature have upstream documentation, notes, or RFEs written by you? Add links to those resources, to enable interested developers to get involved. 
+Does this feature have upstream documentation, notes, or RFEs written by you? Add links to those resources, to enable interested developers to get involved.
 
 ## Testing
 
@@ -99,4 +99,3 @@ Explain what will be done in the event that the feature is not ready in time.
 
 [comment]: <> ## Open Issues
 [comment]: <>Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.
-

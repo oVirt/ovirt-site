@@ -68,6 +68,10 @@ The new section provides the ability to add, edit and delete network filter para
 If many network interface parameters are associated with the network interface, the section could be scrolled.
 Unfortunately there is no generic way to deduce the network filter parameters accepted by a network filter, so this section can not decide which parameter names are allowed.
 
+## Current Implementation Status
+Currently network filter parameters can only be used via the [REST-API][10].
+oVirt System Tests provide an [example][11] of user work-flow steps 2. to 6. .
+
 ## Entity Description
 
 The top-level network filter is [associated to the vNIC profile][2]. For this reason it appears likely
@@ -225,6 +229,14 @@ The feature depends on [Network Filter for vNIC profiles][2], which is already a
 [Reserved variables of libvirt's network filters][9]
 
 [9]: https://libvirt.org/formatnwfilter.html#nwfelemsReservedVars
+
+[NicNetworkFilterParameters in oVirt Engine's REST-API][10]
+
+[10]: http://ovirt.github.io/ovirt-engine-api-model/4.2/#services/nic_network_filter_parameter
+
+[Example of using Network Filter Parameters via the REST-API][11]
+
+[11]: https://gerrit.ovirt.org/#/c/78045/13/basic-suite-master/test-scenarios/004_basic_sanity.py
 
 ## Testing
 

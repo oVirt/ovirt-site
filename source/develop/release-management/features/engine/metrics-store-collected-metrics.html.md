@@ -12,15 +12,15 @@ The data is then transformed, enriched and sent to the remote metrics store.
 
 * [cpu](https://collectd.org/wiki/index.php/Plugin:CPU)
 
-  CPU utilization: Time spent in the system, user, nice, idle, and related states.
+  CPU time spent in the system, user, nice, idle, wait, interrupt, softirq and steal.
       
 * [memory](https://collectd.org/wiki/index.php/Plugin:Memory)
 
-  Memory utilization: Memory occupied by running processes, page cache, buffer cache and free.
+  Collects information about the used, buffered, cached and free RAM memory
 
 * [load](https://collectd.org/wiki/index.php/Plugin:Load)
 
-  System load: The number of runnable tasks in the run-queue, average over the last 1, 5 and 15 minutes.
+  The number of runnable tasks in the run-queue, average over the last 1, 5 and 15 minutes.
 
 * [virt](https://collectd.org/wiki/index.php/Plugin:virt) - Relevant only for oVirt hypervisors
 
@@ -37,16 +37,15 @@ The data is then transformed, enriched and sent to the remote metrics store.
  
 * [swap](https://collectd.org/wiki/index.php/Plugin:Swap)
 
-  The amount of memory currently written onto hard disk or whatever is called 'swap' by the OS..
-
+  Records the free, cached and used memory used by the swap
+  
 * [df](https://collectd.org/wiki/index.php/Plugin:DF)
 
-  The file system usage information: The amount of space on a mounted partition that is used and available. 
-  It's named after and very similar to the df(1) UNIX command that's been around forever.
+  Collects information such as the free, reserved and used space of your files systems (including hard drive)
   
 * [interface](https://collectd.org/wiki/index.php/Plugin:Interface)
 
-  Interface traffic : Number of octets, packets and errors per second for each interface.
+  Collects network trafic download and upload. It record the number of octets, packets and errors for transmission and reception on all network interface.
 
 * [aggregation](https://collectd.org/wiki/index.php/Plugin:Aggregation)
 
@@ -55,7 +54,7 @@ The data is then transformed, enriched and sent to the remote metrics store.
 
 * [processes](https://collectd.org/wiki/index.php/Plugin:Processes)
   
-  Process counts: Number of running, sleeping, zombie, stopped ... processes.
+  Process counts: Track the number of running, blocked, sleeping, paging, stopped and zombies process.
 
 * [postgresql](https://collectd.org/wiki/index.php/Plugin:PostgreSQL) - Relevant only for oVirt engine
 

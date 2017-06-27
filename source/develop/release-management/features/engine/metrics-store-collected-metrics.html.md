@@ -37,7 +37,7 @@ The data is then transformed, enriched and sent to the remote metrics store.
  
 * [swap](https://collectd.org/wiki/index.php/Plugin:Swap)
 
-  Records the free, cached and used memory used by the swap
+  Records the free, cached and used memory used by the swap and swap in/out.
   
 * [df](https://collectd.org/wiki/index.php/Plugin:DF)
 

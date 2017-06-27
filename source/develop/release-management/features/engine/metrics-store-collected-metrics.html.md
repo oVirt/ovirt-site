@@ -37,11 +37,12 @@ The data is then transformed, enriched and sent to the remote metrics store.
  
 * [swap](https://collectd.org/wiki/index.php/Plugin:Swap)
 
-  The amount of memory currently written onto hard disk or whatever is called `swap' by the OS..
+  The amount of memory currently written onto hard disk or whatever is called 'swap' by the OS..
 
 * [df](https://collectd.org/wiki/index.php/Plugin:DF)
 
-  Mountpoint usage.
+  The file system usage information: The amount of space on a mounted partition that is used and available. 
+  It's named after and very similar to the df(1) UNIX command that's been around forever.
   
 * [interface](https://collectd.org/wiki/index.php/Plugin:Interface)
 

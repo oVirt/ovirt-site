@@ -78,8 +78,8 @@ claims:
         - custom_email_claim
         - email
       urls:
-        authorize: https://ovirt-engine.example.com/ovirt-engine/sso/oauth/authorize
-        token: https://ovirt-engine.example.com/ovirt-engine/sso/oauth/token
+        authorize: https://ovirt-engine.example.com/ovirt-engine/sso/openid/authorize
+        token: https://ovirt-engine.example.com/ovirt-engine/sso/openid/token
   masterCA: ca-bundle.crt
   masterPublicURL: https://openshift.example.com:8443
   masterURL: https://openshift.example.com:8443

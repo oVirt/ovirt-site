@@ -50,6 +50,10 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 [Registrar R01](//r01.ru/) was the first accredited registrar for the RU domain. Today, the company is a leading registrar of the .RU .SU and .RF domains and is a provider of a wide range of professional services.
 
 </div>
+<div class="case-study">
+[![UDS](/images/logos/UDS.png)](https://www.udsenterprise.com/en/)
+[UDS Enterprise](https://www.udsenterprise.com/en/) provides a solution for quick and easy deployment of unlimited remote desktop services - such as multiple hypervisors, authenicators, and connection protocols - ensuring resource optimization and cost saving.
+</div>
 
 ## Partners in Education
 

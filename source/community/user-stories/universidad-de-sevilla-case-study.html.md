@@ -30,7 +30,7 @@ When moving away from vSphere, a big part of the savings were achieved directly 
 
 It was very much a perfect fit, actually. The University of Sevilla already had Dell blade hardware and were continuing to incorporate additional blade servers to the infrastructure. This kept their initial hardware investment lower, and the extensibility kept costs down as well. Using  the Dell systems with CentOS operating systems enabled the University to choose the effective--and free--KVM hypervisor platform for creating and running the virtual machines that make up the VDI system.
 
-Beatriz Lafuente of [UDS Enterprise](https://www.udsenterprise.com/en/), explained that with KVM virtual machines in use, choosing oVirt became a no-brainer for UDS and the University. Storage was not an obstacle, either, since the University opted to go with iSCSI with NL-SAS drives, which are typically much cheaper than purchasing Fibre Channel arrays (though oVirt can talk to Fibre Channel as well).
+Beatriz Lafuente of [UDS Enterprise](https://www.udsenterprise.com/en/) explained that with KVM virtual machines in use, choosing oVirt became a no-brainer for UDS and the University. Storage was not an obstacle, either, since the University opted to go with iSCSI with NL-SAS drives, which are typically much cheaper than purchasing Fibre Channel arrays (though oVirt can talk to Fibre Channel as well).
 
 UDS Enterprise's role in the University's deployment is serving up the virtual desktops to end users. UDS Enterprise's connection broker controls, authenticates and authorizes users and serves them different virtual machines according to the type of user. It specifically communicates between the KVM hypervisor and the LDAP authentication system.
 

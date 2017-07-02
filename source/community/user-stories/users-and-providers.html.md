@@ -51,7 +51,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 </div>
 <div class="case-study">
-[![UDS](/images/logos/UDS.png)](https://www.udsenterprise.com/en/)
+![UDS](/images/logos/UDSvirtualcable.png)
 [UDS Enterprise](https://www.udsenterprise.com/en/) provides a solution for quick and easy deployment of unlimited remote desktop services - such as multiple hypervisors, authenicators, and connection protocols - ensuring resource optimization and cost saving.
 </div>
 

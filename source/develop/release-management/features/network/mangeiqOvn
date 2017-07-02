@@ -1,0 +1,62 @@
+---
+title: Integrating OVN to ManageIq
+category: feature
+authors: Alona Kaplan
+wiki_category: Feature
+wiki_title: Integrating OVN to ManageIq
+wiki_revision_count: 1
+wiki_last_updated: 2016-07-02
+feature_name: Integrating OVN to ManageIq
+feature_modules: manageiq_providers_ovirt- infra_manager, network_namager, manageiq-ui-classic- network related controllers
+feature_status: In Development
+---
+
+# Integrating OVN to ManageIq
+## Summary
+
+## Owner
+
+*   Name: [Alona Kaplan](https://github.com/AlonaKaplan)
+
+*   Email: <dholler@redhat.com>
+
+## Detailed Description
+
+## Prerequisites
+
+## Limitations
+
+## Benefit to oVirt
+## Benefit to ManageIq
+
+## Requirements
+
+## Open Questions
+
+## Approach
+
+## Entity Description
+
+## CRUD
+
+## User Experience
+
+### REST-API
+
+### Graphical User Interface
+
+## User work-flows
+
+## Dependencies
+
+## Documentation & External references
+
+## Testing
+
+## Contingency Plan
+
+## Follow-Up Features
+
+## Release Notes
+
+## Open Issues

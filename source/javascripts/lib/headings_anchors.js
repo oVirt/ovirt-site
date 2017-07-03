@@ -15,7 +15,7 @@ $(function () {
         anchorIcon  = '<i class="fa fa-link" aria-hidden="true"></i>';
 
     if (headerID) {
-      header.prepend($('<a />').addClass(anchorClass).attr({ 'href': '#' + headerID, 'aria-hidden': 'true' }).html(anchorIcon));
+      header.append($('<a />').addClass(anchorClass).attr({ 'href': '#' + headerID, 'aria-hidden': 'true' }).html(anchorIcon));
     }
 
     return this;

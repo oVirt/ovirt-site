@@ -4,8 +4,8 @@ category: developer
 authors: dneary, jbrooks, ykaplan, sandrobonazzola
 wiki_category: Developer
 wiki_title: Develop
-wiki_revision_count: 8
-wiki_last_updated: 2012-11-30
+wiki_revision_count: 9
+wiki_last_updated: 2017-06-01
 ---
 
 
@@ -55,14 +55,8 @@ _More information on [oVirt subprojects](/subprojects/)_
 - [Getting in contact with the oVirt community](/community/about/contact/)
 - [Becoming a maintainer](/develop/dev-process/becoming-a-maintainer/)
 - [oVirt architecture](/documentation/architecture/architecture/)
-- [Feature Roadmap oVirt 3.6](/develop/release-management/releases/3.6/release-management/)
-  (see also old roadmaps for
-  [oVirt 3.5](/develop/release-management/releases/3.5/release-management/),
-  [oVirt 3.4](/develop/release-management/releases/3.4/release-management/#features), and
-  [oVirt 3.3](/develop/release-management/releases/3.3/release-management/#features))
 - [Building a custom user portal](/develop/developer-guide/sample-user-portals/)
 - [Building oVirt engine DWH](/documentation/how-to/reports/dwh-development-environment/)
-- [Building oVirt engine Reports](OVirt Reports development environment)
 
 </section>
 
@@ -86,7 +80,6 @@ _More information on [oVirt subprojects](/subprojects/)_
  - Network
  - [Node](./projects/node/contributing-to-the-node-project)
  - Release Engineering
- - Reports
  - SLA
  - Storage
  - Spice

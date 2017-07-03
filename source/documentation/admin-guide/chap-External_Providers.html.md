@@ -1,3 +1,7 @@
+---
+title: External Providers
+---
+
 # Chapter 12: External Providers
 
 ## Introduction to External Providers in oVirt

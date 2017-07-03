@@ -1,3 +1,7 @@
+---
+title: Errata Management with Foreman
+---
+
 # Chapter 14: Errata Management with Foreman
 
 oVirt can be configured to view errata from Foreman in the oVirt Engine. This enables the administrator to receive updates about available errata, and their importance, for hosts, virtual machines, and the Engine once they have been associated with a Foreman provider. Administrators can then choose to apply the updates by running an update on the required host, virtual machine, or on the Engine.

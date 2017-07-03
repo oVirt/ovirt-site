@@ -1,3 +1,7 @@
+---
+title: Data Centers
+---
+
 # Chapter 4: Data Centers
 
 ## Introduction to Data Centers

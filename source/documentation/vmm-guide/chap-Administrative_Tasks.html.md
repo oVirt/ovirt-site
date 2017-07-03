@@ -1,3 +1,7 @@
+---
+title: Administrative Tasks
+---
+
 # Chapter 6: Administrative Tasks
 
 ## Shutting Down a Virtual Machine
@@ -205,7 +209,7 @@ When you create a virtual machine, you automatically inherit **UserVmEngine** pr
 
 The user's name and role display in the list of users permitted to access this virtual machine.
 
-**Note:** If a user is assigned permissions to only one virtual machine, single sign-on (SSO) can be configured for the virtual machine. With single sign-on enabled, when a user logs in to the User Portal, and then connects to a virtual machine through, for example, a SPICE console, users are automatically logged in to the virtual machine and do not need to type in the user name and password again. Single sign-on can be enabled or disabled on a per virtual machine basis. See [Configuring Single Sign-On for Virtual Machines](sect-Configuring_Single_Sign-On_for_Virtual_Machines) for more information on how to enable and disable single sign-on for virtual machines.
+**Note:** If a user is assigned permissions to only one virtual machine, single sign-on (SSO) can be configured for the virtual machine. With single sign-on enabled, when a user logs in to the User Portal, and then connects to a virtual machine through, for example, a SPICE console, users are automatically logged in to the virtual machine and do not need to type in the user name and password again. Single sign-on can be enabled or disabled on a per virtual machine basis. See [Configuring Single Sign-On for Virtual Machines](/documentation/vmm-guide/chap-Additional_Configuration/#configuring-single-sign-on-for-virtual-machines) for more information on how to enable and disable single sign-on for virtual machines.
 
 ### Removing Access to Virtual Machines from Users
 
@@ -631,7 +635,7 @@ oVirt uses V2V to convert VMware virtual machines to the correct format before t
 
     **Note:** If a virtual machine's network device uses the driver type e1000 or rtl8139, the virtual machine will use the same driver type after it has been imported to oVirt.
 
-    If required, you can change the driver type to VirtIO manually after the import. To change the driver type after a virtual machine has been imported, see [Editing network interfaces](Editing_network_interfaces1). If the network device uses driver types other than e1000 or rtl8139, the driver type is changed to VirtIO automatically during the import. The **Attach VirtIO-drivers** option allows the VirtIO drivers to be injected to the imported virtual machine files so that when the driver is changed to VirtIO, the device will be properly detected by the operating system.
+    If required, you can change the driver type to VirtIO manually after the import. To change the driver type after a virtual machine has been imported, see [Editing network interfaces](/documentation/vmm-guide/chap-Editing_Virtual_Machines/#editing-a-network-interface). If the network device uses driver types other than e1000 or rtl8139, the driver type is changed to VirtIO automatically during the import. The **Attach VirtIO-drivers** option allows the VirtIO drivers to be injected to the imported virtual machine files so that when the driver is changed to VirtIO, the device will be properly detected by the operating system.
 
     **The Import Virtual Machine(s) Window**
 

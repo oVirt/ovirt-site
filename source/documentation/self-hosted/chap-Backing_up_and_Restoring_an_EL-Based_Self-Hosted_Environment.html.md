@@ -1,3 +1,7 @@
+---
+title: Backing up and Restoring an EL-Based Self-Hosted Environment
+---
+
 # Chapter 6: Backing up and Restoring an EL-Based Self-Hosted Environment
 
 The nature of the self-hosted engine, and the relationship between the hosts and the hosted-engine virtual machine, means that backing up and restoring a self-hosted engine environment requires additional considerations to that of a standard oVirt environment. In particular, the hosted-engine hosts remain in the environment at the time of backup, which can result in a failure to synchronize the new host and hosted-engine virtual machine after the environment has been restored.

@@ -1,6 +1,7 @@
 ---
 title: oVirt 3.5.2 Release Notes
 category: documentation
+layout: toc
 authors: pkliczewski, sandrobonazzola
 wiki_category: Documentation
 wiki_title: OVirt 3.5.2 Release Notes
@@ -146,7 +147,7 @@ Following exception prevents host monitoring but affected host stays in status '
  - Can not restore backup file to rhevm with non-default lc_messages
  - Document All-Content header in RSDL and add it to SDKs
  - [AAA] Sorting by 'authorization provider' in 'users' tab don't sort
- - Unable to authenticate if user is using (http://indeed-id.com/index.html) solution for authentication.
+ - Unable to authenticate if user is using [INDEED ID](http://indeed-id.com/) solution for authentication.
  - [host-deploy] missing -t parameter to mktemp
  - Engine-setup should support cleaning of zombie commands before upgrade
 

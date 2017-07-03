@@ -1,6 +1,7 @@
 ---
 title: About oVirt
 category: documentation
+layout: toc
 authors: bproffitt, dneary
 wiki_category: Documentation
 wiki_title: About oVirt
@@ -16,7 +17,7 @@ oVirt is a virtualization management application. That means that you can use th
 
 If you are familiar with VMware products, it is conceptually similar to vSphere. oVirt serves as the bedrock for Red Hat's Enterprise Virtualization product, and is the "upstream" project where new features are developed in advance of their inclusion in that supported product offering.
 
-To get started with oVirt, follow our [ quick start guide](Download) and check out our [ getting started](Quick Start Guide) documentation.
+To get started with oVirt, follow our [quick start guide](/documentation/quickstart/quickstart-guide/). For detailed deployment options and system requirements, visit the [Download](/download/) page.
 
 # oVirt Features
 
@@ -40,4 +41,3 @@ To get started with oVirt, follow our [ quick start guide](Download) and check o
 3.  **Resources Tabs**: These tabs allow you to access the resources of oVirt. You should already have a Default Data Center, a Default Cluster, a Host waiting to be approved, and available Storage waiting to be attached to the data center.
 4.  **Results List**: When you select a tab, this list displays the available resources. You can perform a task on an individual item or multiple items by selecting the item(s) and then clicking the relevant action button. If an action is not possible, the button is disabled.
 5.  **Details Pane**: When you select a resource, this pane displays its details in several subtabs. These subtabs also contain action buttons which you can use to make changes to the selected resource.
-

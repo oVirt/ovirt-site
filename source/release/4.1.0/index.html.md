@@ -1,6 +1,7 @@
 ---
 title: oVirt 4.1.0 Release Notes
 category: documentation
+layout: toc
 authors: sandrobonazzola
 ---
 
@@ -85,7 +86,7 @@ should be ok.
 
 If you want to use other packages from EPEL, you should make sure to not
 include collectd. Either use `includepkgs` and add those you need, or use
-`excludepkgs=collectd*`.
+`exclude=collectd*`.
 ## What's New in 4.1.0 Async release?
 On February 3rd 2017 the ovirt team issued an async release of ovirt-engine package including a fix for:
 - [BZ 1417597](https://bugzilla.redhat.com/1417597) <b>Failed to update template</b><br>

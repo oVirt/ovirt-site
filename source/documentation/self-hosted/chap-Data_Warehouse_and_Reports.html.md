@@ -1,3 +1,7 @@
+---
+title: Data Warehouse and Reports
+---
+
 # Chapter 9: Data Warehouse and Reports
 
 ## Overview of Configuring Data Warehouse

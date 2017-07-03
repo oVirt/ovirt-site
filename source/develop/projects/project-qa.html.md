@@ -4,8 +4,8 @@ category: integration
 authors: bproffitt, sandrobonazzola
 wiki_category: Integration
 wiki_title: OVirt Quality Assurance
-wiki_revision_count: 27
-wiki_last_updated: 2015-10-28
+wiki_revision_count: 28
+wiki_last_updated: 2017-05-23
 ---
 
 # oVirt Quality Assurance
@@ -21,7 +21,7 @@ It's our goal to continually improve the quality of oVirt releases and updates.
 The Quality Assurance project is engaged in the following activities:
 
 *   Testing of software as it is released into nightly, updates-testing, or as it appears in a supported public release
-*   Developing and executing test plans and [Test Cases](/Category:TestCase) to test important functionality in a systematic way, usually with multiple cooperating testers
+*   Developing and executing test plans and [Test Cases](/develop/infra/testing/test-cases/) to test important functionality in a systematic way, usually with multiple cooperating testers
 *   Developing and running tools that use automation to find potential bugs ( <http://jenkins.ovirt.org/> )
 *   Running test days to coordinate focused testing on a specific feature or component
 *   Working with developers to maintain the release criteria, which are used to determine what bugs should be fixed before a release of oVirt is made
@@ -50,9 +50,9 @@ You can also join oVirt users mailing list, where quality assurance-related topi
 ## Next releases
 
 
-* 3.6.3:
-  - Tracker: [oVirt 3.6.3 release](https://bugzilla.redhat.com/buglist.cgi?quicksearch=target_milestone%3Aovirt-3.6.3)
-  - [oVirt 3.6.z Release Management](/develop/release-management/releases/3.6.z/release-management/)
+* 4.1.2:
+  - Tracker: [oVirt 4.1.2 release](https://bugzilla.redhat.com/buglist.cgi?quicksearch=target_milestone%3Aovirt-4.1.1)
+  - [oVirt 4.1.z Release Management](/develop/release-management/releases/4.1.z/release-management/)
 
 ## Notes:
 

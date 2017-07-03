@@ -1,11 +1,5 @@
 ---
-title: KimchiPlugin
-category: feature
 authors: rbarry
-wiki_category: Feature
-wiki_title: Features/Node/KimchiPlugin
-wiki_revision_count: 2
-wiki_last_updated: 2013-10-08
 ---
 
 # Kimchi Plugin
@@ -27,9 +21,7 @@ This feature allows the oVirt Node image to provide a web interface through [Kim
 
 ### Current status
 
-*   Development 0% complete
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated: ,
+*   Archived
 
 ### Detailed Description
 

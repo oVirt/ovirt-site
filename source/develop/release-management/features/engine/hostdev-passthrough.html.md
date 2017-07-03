@@ -29,7 +29,7 @@ This feature will add host device reporting and their passthrough to guests.
 
 ### Current Status
 
-*   Last updated date: Wed Feb 10 2016
+*   Last updated date: Wed June 14 2017
 
 ### Terminology
 
@@ -38,6 +38,7 @@ This feature will add host device reporting and their passthrough to guests.
 *   VF - Virtual Function - virtual function exposed by SR-IOV capable device
 *   IOMMU group - unit of isolation created by the kernel IOMMU driver. Each IOMMU group is isolated from other IOMMU groups with respect to DMA. For our purposes, IOMMU groups are a set of PCI devices which may span multiple PCI buses.
 *   VFIO[2] - Virtual Function I/O - virtualization device driver, replacement of the pci-stub driver
+*   mdev - mediated devices - devices that are capable of creating and assigning device instances to a VMs (similar to SR-IOV)
 
 ### Host Requirements
 
@@ -50,7 +51,41 @@ or
 *   SR-IOV: SR-IOV capable hardware in bus with enough bandwidth to accomodate VFs
 *   RHEL7 or newer (kernel >= 3.6)
 
-#### GPU Passthrough
+#### Virtual GPU Passthrough
+
+##### Host Side
+
+There are few more requirements, mostly on the device and the operating system:
+
+* the device itself must be mdev capable,
+* kernel must be compiled with mdev support (e.g. recent CentOS kernel),
+* correct mdev driver for the device must be installed.
+
+The mdev assignment is handled by vdsm hook vdsm-hook-vfio-mdev which should be automatically installed. To query available mdev types, we can use the following bash command:
+
+```bash
+for device in /sys/class/mdev_bus/*; do
+  for mdev_type in $device/mdev_supported_types/*; do
+    MDEV_TYPE=$(basename $mdev_type)
+    DESCRIPTION=$(cat $mdev_type/description)
+    echo "mdev_type: $MDEV_TYPE --- description: $DESCRIPTION";
+  done;
+done | sort | uniq
+```
+
+or parse the output of `vdsm-client Host hostdevListByCaps` and look for 'mdev' dictionary containing supported mdev types.
+
+Internally, the hook spawns new mdev instance and adds the mdev XML snippet to the domain XML. After VM is destroyed, it's mdev instance is removed. We create the device by writing a uuid string to `/sys/class/mdev_bus/$DEVICE/mdev_supported_types/$TYPE/create` and delete it by writing `1` to `/sys/class/mdev_bus/$DEVICE/$UUID/delete`. If successful, `/sys/class/mdev_bus/$DEVICE/$UUID` does not exist after VM is destroyed. The `$UUID` is generated as UUID v3 with namespace 8524b17c-f0ca-44a5-9ce4-66fe261e5986 and the name of the VM.
+
+##### Guest Side
+
+The only step required is following vendor documentation. That will, in most cases, consist of installing special guest version of the GPU driver.
+
+##### Engine Side
+
+Virtual GPU assignment does not use the 'Host Devices' subsystem within engine. To assign a device, we must set predefined property (found in VM -> Edit VM -> Custom Properties) called mdev_type to one of the supported types (see the bash snippet above). Do not assign the device itself via Host Devices tab as that will lead to inability of spawning mdev instances.
+
+#### Physical GPU Passthrough
 
 *These steps (host and guest sides) are required for both x86_64 and ppc64le (POWER 8) platforms.*
 

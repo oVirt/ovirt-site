@@ -1,3 +1,7 @@
+---
+title: Installing Linux Virtual Machines
+---
+
 # Chapter 2: Installing Linux Virtual Machines
 
 This chapter describes the steps required to install a Linux virtual machine:

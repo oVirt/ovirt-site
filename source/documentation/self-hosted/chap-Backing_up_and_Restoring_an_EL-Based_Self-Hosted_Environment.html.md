@@ -44,7 +44,7 @@ This procedure provides an example of the workflow for restoring the self-hosted
 
     Any standard RHEL-based hosts - hosts that are present in the environment but are not self-hosted engine hosts - that are operational will become active, and the virtual machines that were active at the time of backup will now be running on these hosts and available in the Engine.
 
-2. `Host 2` and `Host 3` are not recoverable in their current state. These hosts need to be removed from the environment, and then added again to the environment using the hosted-engine deployment script. For more information on these actions, see the Removing Non-Operational Hosts from a Restored Self-Hosted Engine Environment section below and [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment).
+2. `Host 2` and `Host 3` are not recoverable in their current state. These hosts need to be removed from the environment, and then added again to the environment using the hosted-engine deployment script. For more information on these actions, see the Removing Non-Operational Hosts from a Restored Self-Hosted Engine Environment section below and [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](../chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment).
 
     ![](/images/self-hosted/RHEV_SHE_bkup_03.png)
 
@@ -750,7 +750,7 @@ The following procedure outlines how to manually restore the configuration setti
 
     Any virtual machines that were running on that host at the time of the backup will now be removed from that host, and move from an **Unknown** state to a **Down** state. These virtual machines can now be run on `hosted_engine_1`. The host that was fenced can now be forcefully removed using the REST API.
 
-The environment has now been restored to a point where `hosted_engine_1` is active and is able to run virtual machines in the restored environment. The remaining hosted-engine hosts in **Non Operational** state can now be removed by following the steps in the Removing Non-Operational Hosts from a Restored Self-Hosted Engine Environment section below and then re-installed into the environment by following the steps in [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment).
+The environment has now been restored to a point where `hosted_engine_1` is active and is able to run virtual machines in the restored environment. The remaining hosted-engine hosts in **Non Operational** state can now be removed by following the steps in the Removing Non-Operational Hosts from a Restored Self-Hosted Engine Environment section below and then re-installed into the environment by following the steps in [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](../chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment).
 
 **Note:** If the Engine database is restored successfully, but the Engine virtual machine appears to be **Down** and cannot be migrated to another self-hosted engine host, you can enable a new Engine virtual machine and remove the dead Engine virtual machine from the environment.
 

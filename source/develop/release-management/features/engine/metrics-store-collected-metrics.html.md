@@ -45,16 +45,15 @@ The data is then transformed, enriched, and sent to the remote metrics store.
   
 [Interface](https://collectd.org/wiki/index.php/Plugin:Interface)
 
-  Collects network trafic download and upload. It record the number of octets, packets and errors for transmission and reception on all network interface.
+  Collects network traffic download and upload, including the number of octets, packets, and errors transmitted and received, for each network interface.
 
 [Aggregation](https://collectd.org/wiki/index.php/Plugin:Aggregation)
 
   Aggregates multiple values into a single value, using one or several consolidation functions, e.g. summation and average.
-  It is currently used for calculating the average CPU utilization across all cores of each host.
   
 [Processes](https://collectd.org/wiki/index.php/Plugin:Processes)
   
-  Process counts: Track the number of running, blocked, sleeping, paging, stopped and zombies processes.
+  Collects the number of processes, grouped by their state (incl. running, blocked, sleeping, paging, stopped and zombies).
 
 [PostgreSQL](https://collectd.org/wiki/index.php/Plugin:PostgreSQL) - Relevant only for oVirt engine.
 

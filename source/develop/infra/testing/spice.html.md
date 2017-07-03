@@ -55,6 +55,6 @@ Note: virtio-serial driver needs to be installed as well.
 
 Make sure that xorg-x11-drv-qxl and spice-vdagent packages are installed (qxl driver is in used and spice-vdagentd service running). Note that F15/F16 will be displayed in fallback mode.
 
-### Ubuntu 12.04 guest
+### Ubuntu 14.04/16.04 guest
 
 Make sure that xserver-xorg-video-qxl and spice-vdagent packages are installed (qxl driver is in used and spice-vdagentd service running).

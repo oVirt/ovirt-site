@@ -17,7 +17,7 @@ oVirt is a virtualization management application. That means that you can use th
 
 If you are familiar with VMware products, it is conceptually similar to vSphere. oVirt serves as the bedrock for Red Hat's Enterprise Virtualization product, and is the "upstream" project where new features are developed in advance of their inclusion in that supported product offering.
 
-To get started with oVirt, follow our [ quick start guide](Download) and check out our [ getting started](Quick Start Guide) documentation.
+To get started with oVirt, follow our [quick start guide](/documentation/quickstart/quickstart-guide/). For detailed deployment options and system requirements, visit the [Download](/download/) page.
 
 # oVirt Features
 
@@ -31,3 +31,4 @@ To get started with oVirt, follow our [ quick start guide](Download) and check o
 *   Self-service console for simple and advanced use cases
 *   Built on KVM hypervisor
 *   Open source, you are welcome to participate in the design and development of project
+

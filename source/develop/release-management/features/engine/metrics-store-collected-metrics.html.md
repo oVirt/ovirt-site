@@ -45,7 +45,7 @@ The data is then transformed, enriched, and sent to the remote metrics store.
   
 [Interface](https://collectd.org/wiki/index.php/Plugin:Interface)
 
-  Collects network traffic download and upload, including the number of octets, packets, and errors transmitted and received, for each network interface.
+  Collects network traffic download and upload data, including the number of octets, packets, and errors transmitted and received, for each network interface.
 
 [Aggregation](https://collectd.org/wiki/index.php/Plugin:Aggregation)
 

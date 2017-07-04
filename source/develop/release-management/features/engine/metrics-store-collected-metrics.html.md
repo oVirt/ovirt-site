@@ -1,5 +1,5 @@
 ## Statistics collection
-oVirt statistics are gathered from the oVirt engine and hypervisors by collectd, and transferred to fluentd.
+collectd gathers oVirt statistics from the oVirt engine and hypervisors, and transfers the data to fluentd.
 
 The data is then transformed, enriched, and sent to the remote metrics store.
 
@@ -20,9 +20,9 @@ The data is then transformed, enriched, and sent to the remote metrics store.
 
 [Load](https://collectd.org/wiki/index.php/Plugin:Load)
 
-  The number of runnable tasks in the run-queue, provided as a one, five, and fifteen minute average.
+  The average number of runnable tasks in the run-queue, for one, five, and fifteen minute average.
 
-[Virt](https://collectd.org/wiki/index.php/Plugin:virt) - Relevant only for oVirt hypervisors.
+[Virt](https://collectd.org/wiki/index.php/Plugin:virt) - Applies only to oVirt hypervisors.
 
   CPU, memory, disk, and network I/O statistics from virtual machines.
  
@@ -55,13 +55,13 @@ The data is then transformed, enriched, and sent to the remote metrics store.
   
   Collects the number of processes, grouped by their state (incl. running, blocked, sleeping, paging, stopped and zombies).
 
-[PostgreSQL](https://collectd.org/wiki/index.php/Plugin:PostgreSQL) - Relevant only for oVirt engine.
+[PostgreSQL](https://collectd.org/wiki/index.php/Plugin:PostgreSQL) - Applies only to oVirt engine.
 
   PostgreSQL database statistics: custom_deadlocks, table_states, disk_io, disk_usage.
 
 
 ## Logs collection
-oVirt logs are collected from the oVirt engine and hypervisors, by fluentd.
+fluentd collects oVirt logs from the oVirt engine and hypervisors.
 The data is then transformed, enriched and sent to the remote metrics store.
 
 Currently, the logs collected from the engine machine include:

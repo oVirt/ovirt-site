@@ -22,7 +22,7 @@ The data is then transformed, enriched, and sent to the remote metrics store.
 
   The average number of runnable tasks in the run-queue, for one, five, and fifteen minute average.
 
-[Virt](https://collectd.org/wiki/index.php/Plugin:virt) - Applies only to oVirt hypervisors.
+[Virt](https://collectd.org/wiki/index.php/Plugin:virt) (Applies only to oVirt hypervisors).
 
   CPU, memory, disk, and network I/O statistics from virtual machines.
  
@@ -55,7 +55,7 @@ The data is then transformed, enriched, and sent to the remote metrics store.
   
   Collects the number of processes, grouped by their state (incl. running, blocked, sleeping, paging, stopped and zombies).
 
-[PostgreSQL](https://collectd.org/wiki/index.php/Plugin:PostgreSQL) - Applies only to oVirt engine.
+[PostgreSQL](https://collectd.org/wiki/index.php/Plugin:PostgreSQL) (Applies only to oVirt engine).
 
   PostgreSQL database statistics: custom_deadlocks, table_states, disk_io, disk_usage.
 

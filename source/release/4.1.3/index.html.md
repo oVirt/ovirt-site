@@ -2,58 +2,52 @@
 title: oVirt 4.1.3 Release Notes
 category: documentation
 layout: toc
-authors: sandrobonazzola
 ---
 
 # oVirt 4.1.3 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.1.3
-Third Release Candidate as
-of June 22, 2017.
+Release as
+of July 06, 2017.
 
-oVirt is an open source alternative to VMware™ vSphere™, and provides an
+oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.3,
 CentOS Linux 7.3 (or similar).
 Packages for Fedora 24 are also available as a Tech Preview.
 
 
-This is pre-release software.
-Please take a look at our [community page](/community/) to know how to
-ask questions and interact with developers and users.
-All issues or bugs should be reported via the
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
+
+For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
+and visit the [About oVirt](/documentation/introduction/about-ovirt/) page.
+
+For detailed installation instructions, read the [Installation Guide](/documentation/install-guide/Installation_Guide/).
+
+To learn about features introduced before 4.1.3, see the [release notes for previous versions](/documentation/#previous-release-notes).
 
 
-To find out more about features which were added in previous oVirt releases,
-check out the
-[previous versions release notes](/develop/release-management/releases/).
-For a general overview of oVirt, read
-[the Quick Start Guide](Quick_Start_Guide)
-and the [about oVirt](about oVirt) page.
-
-[Installation guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/)
-is available for updated and detailed installation instructions.
+## Install / Upgrade from previous versions
 
 ### Fedora / CentOS / RHEL
 
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm)
 
 
 and then follow our
 [Installation guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/)
+
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 
 
@@ -97,30 +91,31 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### oVirt Engine
 
- - [BZ 1441632](https://bugzilla.redhat.com/1441632) <b>Hide "advanced" migration option a bit better</b><br>Migration of VM to different cluster can't be invoked from UI any more. Regular migration withing a cluster remained untouched.
+ - [BZ 1441632](https://bugzilla.redhat.com/1441632) <b>Hide "advanced" migration option a bit better</b><br>With this update, the migration of a virtual machine to a different cluster can no longer be invoked from the UI. Regular migration within a cluster remains unchanged.
 
 ### Enhancements
 
 #### oVirt Engine SDK 4 Python
 
- - [BZ 1436981](https://bugzilla.redhat.com/1436981) <b>[RFE] Add support for asynchronous requests and pipe-lining</b><br>Feature: <br>Add support for asynchronous requests and HTTP pipe-lining.<br><br>Reason: <br>higher performance of the Python SDK.<br><br>Result: <br>Python SDK now support asynchronous requests and HTTP pipe-lining. Users can now send a request asynchronously and wait for a response later in code, so it's possible to send multiple request using multiple connections or pipelined connections and wait for the response later, which improves performance when fetching multiple objects from API for example.
+ - [BZ 1436981](https://bugzilla.redhat.com/1436981) <b>[RFE] Add support for asynchronous requests and pipe-lining</b><br>The Python SDK now support asynchronous requests and HTTP pipe-lining. Users can now send requests asynchronously and wait for the response later in code. This makes it possible to send multiple request using multiple connections or pipelined connections, and wait for the response later, which improves performance when fetching multiple objects from the API.
 
 #### oVirt Engine
 
- - [BZ 1444992](https://bugzilla.redhat.com/1444992) <b>[RFE] Provide hook for vGPU</b><br>This feature adds a new VDSM hook called vdsm-hook-vfio-mdev that makes the host capable of working with mdev capable devices such as GPUs. The hook should be installed automatically.<br><br>There are few requirements for a VM to use mdev instance:<br><br>1) the host must have kernel that supports mediated devices, have the device and correct drivers,<br>2) predefined property 'mdev_type' must be set and correspond to one of the mdev types supported by the device and<br>3) the VM must be pinned to the host(s) with the device(s).<br><br>The supported mdev_type values can be determined by checking the host where the device is present (not visible in the engine) by querying vdsm (vdsm-client Host hostdevListByCaps) or running the following bash script:<br><br>for device in /sys/class/mdev_bus/*; do<br>  for mdev_type in $device/mdev_supported_types/*; do<br>    MDEV_TYPE=$(basename $mdev_type)<br>    DESCRIPTION=$(cat $mdev_type/description)<br>    echo "mdev_type: $MDEV_TYPE --- description: $DESCRIPTION";<br>  done;<br>done | sort | uniq
+ - [BZ 1444992](https://bugzilla.redhat.com/1444992) <b>[RFE] Provide hook for vGPU</b><br>This update adds a new VDSM hook called vdsm-hook-vfio-mdev that makes the host capable of working with mdev capable devices such as GPUs. The hook is automatically installed. The following prerequisites apply for a virtual machine to use a mdev instance: <br>1) The host must have a kernel that supports mediated device, have the device and the correct drivers. <br>2) The predefined property, 'mdev_type', must be set and correspond to one of the mdev types supported by the device. <br>3) The virtual machine must be pinned to the host(s) with the device(s). <br><br>The supported mdev_type values can be determined by checking the host on which the device is present (not visible in the engine) by querying vdsm (vdsm-client Host hostdevListByCaps) or running the following bash script:<br><br>for device in /sys/class/mdev_bus/*; do<br>  for mdev_type in $device/mdev_supported_types/*; do<br>    MDEV_TYPE=$(basename $mdev_type)<br>    DESCRIPTION=$(cat $mdev_type/description)<br>    echo "mdev_type: $MDEV_TYPE --- description: $DESCRIPTION";<br>  done;<br>done | sort | uniq
+ - [BZ 1432912](https://bugzilla.redhat.com/1432912) <b>[RFE] add search query for "next run configuration exists"</b><br>It is now possible to search for VMs that have pending configuration changes. The search query is "Vms: next_run_configuration_exists=True"
  - [BZ 1426905](https://bugzilla.redhat.com/1426905) <b>[Metrics Store] Install fluent-plugin-viaq_data_model plugin on engine machine</b><br>
- - [BZ 1431545](https://bugzilla.redhat.com/1431545) <b>[RFE] remove the webadmin/userportal debuginfo packages and have automatic deobfuscation</b><br>Feature:<br><br>GWT symbol maps, used to de-obfuscate client-side (GWT UI) stack traces [1], are now part of the core UI packages [2] and therefore available right upon Engine installation.<br><br>[1] /var/log/ovirt-engine/ui.log<br>[2] webadmin-portal + userportal<br><br>The complementary "debuginfo" packages [3], which were used to provide those GWT symbol map files, are now removed.<br><br>[3] webadmin-portal-debuginfo + userportal-debuginfo<br><br>Before upgrading Engine, old "debuginfo" packages must be manually removed first. (Otherwise, Engine setup will fail.)<br><br>Reason:<br><br>1, have meaningful (de-obfuscated) client-side stack traces right from the start, without having to install any additional packages (saves us time when analyzing UI related issues)<br><br>2, reduce disk size by having GWT symbol maps zipped (for example, WebAdmin UI specific uncompressed symbol maps take ~1 G of disk space)<br><br>Result:<br><br>After Engine install/upgrade, GWT symbol maps use the following layout:<br><br>/usr/share/ovirt-engine/gwt-symbols/webadmin/symbolMaps.zip<br>/usr/share/ovirt-engine/gwt-symbols/userportal/symbolMaps.zip<br><br>Additional info:<br><br>The content of above mentioned zip files is streamed by Engine as necessary; the content isn't physically extracted to disk.
- - [BZ 1421204](https://bugzilla.redhat.com/1421204) <b>Allow TLSv1.2 during protocol negotiation for external provider communication</b><br>Feature: <br><br>Prior RHV versions were able to negotiate encryption protocol up to TLSv1 for external provider communication. This change adds ability to negotiate encryption protocol up to TLSv1.2 (exact version used for communication depends on highest version available on external provider target).<br><br>Reason: <br><br>Result:
+ - [BZ 1431545](https://bugzilla.redhat.com/1431545) <b>[RFE] remove the webadmin/userportal debuginfo packages and have automatic deobfuscation</b><br>With this update, GWT symbol maps, used to clarify obfuscated client-side (GWT UI) stack traces (/var/log/ovirt-engine/ui.log), are now part of the core Red Hat Virtualization Manager UI packages. The packages are installed by default when the Red Hat Virtualization Manager is installed or upgraded.<br><br>This update means that the user now has meaningful client-side stack traces in /var/log/ovirt-engine/ui.log without having to install additional packages, which saves time when analyzing UI related issues. This update also reduces the symbol maps size by zipping them. The Administration Portal UI uncompressed GWT symbol maps previously took ~1 GB of disk space. The zipped version consumes only 50 MB. The content of the zipped GWT symbol map files is streamed by the Manager as required and the content is not physically extracted to disk. After the Manager install or upgrade, the GWT symbol maps files use the following location:<br><br>/usr/share/ovirt-engine/gwt-symbols/webadmin/symbolMaps.zip<br><br>NOTE: The webadmin-portal-debuginfo package, which previously provided the GWT symbol map files, must now be manually removed prior to engine upgrade, or the upgrade will fail. (This package is an optional install, so you only need to remove it if you've manually installed it.)
+ - [BZ 1421204](https://bugzilla.redhat.com/1421204) <b>Allow TLSv1.2 during protocol negotiation for external provider communication</b><br>Previous versions of Red Hat Virtualization were able to negotiate encryption protocol up to TLSv1 for external provider communication. This update adds the the ability to negotiate encryption protocol up to TLSv1.2.<br><br>Note: The exact version used for communication depends on highest version available on the external provider target.
 
 #### VDSM
 
- - [BZ 917062](https://bugzilla.redhat.com/917062) <b>[RFE] add abrt integration</b><br>Feature: <br>Integrate ABRT service to oVirt: oVirt now installs abrt as part of initializing hypervisors. Abrt is configured by vdsm and exposes crash reports about internal processes errors.<br><br>Reason: <br>We used to configured Hypervisors to save core-dumps files after VM qemu process crashes. ABRT allows to save meaningful information for debugging without keeping full core-dump reports which consume a lot of memory space.<br><br>Result: <br>ABRT service is now running on each Hypervisor and exposes crash report as part of vdsm sos output.
- - [BZ 1444992](https://bugzilla.redhat.com/1444992) <b>[RFE] Provide hook for vGPU</b><br>This feature adds a new VDSM hook called vdsm-hook-vfio-mdev that makes the host capable of working with mdev capable devices such as GPUs. The hook should be installed automatically.<br><br>There are few requirements for a VM to use mdev instance:<br><br>1) the host must have kernel that supports mediated devices, have the device and correct drivers,<br>2) predefined property 'mdev_type' must be set and correspond to one of the mdev types supported by the device and<br>3) the VM must be pinned to the host(s) with the device(s).<br><br>The supported mdev_type values can be determined by checking the host where the device is present (not visible in the engine) by querying vdsm (vdsm-client Host hostdevListByCaps) or running the following bash script:<br><br>for device in /sys/class/mdev_bus/*; do<br>  for mdev_type in $device/mdev_supported_types/*; do<br>    MDEV_TYPE=$(basename $mdev_type)<br>    DESCRIPTION=$(cat $mdev_type/description)<br>    echo "mdev_type: $MDEV_TYPE --- description: $DESCRIPTION";<br>  done;<br>done | sort | uniq
- - [BZ 1450646](https://bugzilla.redhat.com/1450646) <b>[downstream clone - 4.1.3] "libvirt chain" message is not displayed in the vdsm logs by default during a live merge</b><br>Feature: When removing a disk snapshot while a VM is running, information about the initial state of the volume chain is logged.<br><br>Reason: Having this information available in the logs makes it easier to debug failures.<br><br>Result: It is now easier to debug snapshot live deletion failures.
+ - [BZ 1022961](https://bugzilla.redhat.com/1022961) <b>Gluster: running a VM from a gluster domain should use gluster URI instead of a fuse mount</b><br>
+ - [BZ 1444992](https://bugzilla.redhat.com/1444992) <b>[RFE] Provide hook for vGPU</b><br>This update adds a new VDSM hook called vdsm-hook-vfio-mdev that makes the host capable of working with mdev capable devices such as GPUs. The hook is automatically installed. The following prerequisites apply for a virtual machine to use a mdev instance: <br>1) The host must have a kernel that supports mediated device, have the device and the correct drivers. <br>2) The predefined property, 'mdev_type', must be set and correspond to one of the mdev types supported by the device. <br>3) The virtual machine must be pinned to the host(s) with the device(s). <br><br>The supported mdev_type values can be determined by checking the host on which the device is present (not visible in the engine) by querying vdsm (vdsm-client Host hostdevListByCaps) or running the following bash script:<br><br>for device in /sys/class/mdev_bus/*; do<br>  for mdev_type in $device/mdev_supported_types/*; do<br>    MDEV_TYPE=$(basename $mdev_type)<br>    DESCRIPTION=$(cat $mdev_type/description)<br>    echo "mdev_type: $MDEV_TYPE --- description: $DESCRIPTION";<br>  done;<br>done | sort | uniq
+ - [BZ 1450646](https://bugzilla.redhat.com/1450646) <b>[downstream clone - 4.1.3] "libvirt chain" message is not displayed in the vdsm logs by default during a live merge</b><br>This update makes it easier to debug a disk snapshot's live deletion failures because the initial state of the volume chain is logged.
 
 #### oVirt Hosted Engine Setup
 
- - [BZ 1439281](https://bugzilla.redhat.com/1439281) <b>Upgrading procedures hardcodes  admin@internal</b><br>3.6/el6 -> 4.0/el7 upgrade procedure form hosted-engine-setup was always trying to connect to the engine API as admin@internal, making it more flexible.
+ - [BZ 1439281](https://bugzilla.redhat.com/1439281) <b>Upgrading procedures hardcodes  admin@internal</b><br>The self-hosted engine Manager virtual machine upgrade procedure from Red Hat Enterprise Virtualization 3.6 on Red Hat Enterprise Linux 6 to Red Hat Virtualization 4.0 on Red Hat Enterprise Linux 7 now always tries to connect to the Manager API as admin@internal, making it more flexible.
  - [BZ 1426898](https://bugzilla.redhat.com/1426898) <b>[Metrics Store] Include fluent-plugin-viaq_data_model in base node image</b><br>
  - [BZ 1426897](https://bugzilla.redhat.com/1426897) <b>[Metrics Store] add fluent-plugin-collectd-nest to ovirt-hosted-engine-setup dependencies</b><br>
 
@@ -130,12 +125,12 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### oVirt Log collector
 
- - [BZ 1455771](https://bugzilla.redhat.com/1455771) <b>[downstream clone - 4.1.3] [RFE] Log collector should collect time diff for all hosts</b><br>When collecting sos reports from hosts, chrony and systemd sos plugins are now enabled collecting information about time synchronization. In addition, a new option --time-only has been added to ovirt-log-collector allowing to gather only information about time differences from the hosts without gathering full sos reports, saving a considerable amount of time for the operation.
+ - [BZ 1455771](https://bugzilla.redhat.com/1455771) <b>[downstream clone - 4.1.3] [RFE] Log collector should collect time diff for all hosts</b><br>When collecting SOS reports from hosts, chrony and systemd SOS plugins can collect information about time synchronization. In addition, a new option --time-only has been added to ovirt-log-collector allowing information about time differences to be gathered from the hosts without gathering full SOS reports, saving a considerable amount of time for the operation.
 
 #### oVirt Engine Metrics
 
- - [BZ 1429861](https://bugzilla.redhat.com/1429861) <b>[RFE] Pass engine database credentials for postgresql collectd plugin</b><br>Not sure this bug needs doc text. We should have proper documentation for this feature, see bug 1451625.<br><br>For current bug:<br><br>ovirt-engine-metrics can now configure collectd to connect to the engine's postgresql database and get information from it.<br><br>This (making collectd connect to the db) didn't work and was disabled by bug 1436001. Current bug makes it work and enables it.
- - [BZ 1418659](https://bugzilla.redhat.com/1418659) <b>[RFE] Add fluentd configuration for parsing engine.log</b><br>Feature: <br>Added engine.log to the logs collection.<br>Records are now parsed and sent to the central metrics store.<br><br>Reason: <br>This allows the admin to analyse hes logs in a more simple and comfortable way.<br><br>Result:<br>engine.log records are available for analysis in Kibana.
+ - [BZ 1429861](https://bugzilla.redhat.com/1429861) <b>[RFE] Pass engine database credentials for postgresql collectd plugin</b><br>With this update, ovirt-engine-metrics can now configure collectd to connect to the Red Hat Virtualization Manager's postgresql database and get information from it. Previously, making collectd connect to the postgresql database did not work and was disabled by BZ#1436001.
+ - [BZ 1418659](https://bugzilla.redhat.com/1418659) <b>[RFE] Add fluentd configuration for parsing engine.log</b><br>With this update, engine.log has been added to the logs collection. The records are now parsed and sent to the central metrics store. This allows the administrator to analyse the logs in a more simple and comfortable way. This means that the engine.log records are available for analysis in Kibana.
  - [BZ 1434575](https://bugzilla.redhat.com/1434575) <b>[RFE] Update engine and hosts fluentd configurations to use rubygem-fluent-plugin-collectd-nest</b><br>
 
 #### oVirt Host Deploy
@@ -146,13 +141,15 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### imgbased
 
- - [BZ 1455441](https://bugzilla.redhat.com/1455441) <b>[downstream clone - 4.1.3] HostedEngine setup fails if RHV-H timezone < UTC set during installation</b><br>Cause: RHV-H generates vdsm certificates at the time of first boot.<br><br>Consequence: If the system clock is not set correctly at install time, chrony or ntpd may resynchronize the clock after the vdsm certificate is generated, leading to a certificate which is not valid yet if the appropriate timezone is behind UTC.<br><br>Workaround (if any): Set the system clock appropriately at install time. imgbased-configure-vdsm will now start after chronyd/ntpd and wait 2 seconds for the clock to sync, but this is not a guarantee.
+ - [BZ 1455441](https://bugzilla.redhat.com/1455441) <b>[downstream clone - 4.1.3] HostedEngine setup fails if RHV-H timezone < UTC set during installation</b><br>Previously, the self-hosted engine setup failed if the system clock was set to a time zone that was behind UTC during the installation. This is due to the fact that the Red Hat Virtualization Host generates VDSM certificates at the first boot and if the clock is incorrect, the chronyd or ntpd processes resynchronized the clock. This lead to an invalid certificate if the time zone was behind UTC.<br><br>Now, Red Hat Virtualization Host generates the certificates after the chronyd or ntpd processes, and waits two seconds for the clock to synchronize.<br><br>Note that if the Red Hat Virtualization Host is configured after the installation, or if the NTP server is too slow, the self-hosted engine setup may fail.
 
 ### No Doc Update
 
 #### oVirt Engine
 
  - [BZ 1432105](https://bugzilla.redhat.com/1432105) <b>Can't remove vm pool because of vm deadlock</b><br>
+ - [BZ 1450000](https://bugzilla.redhat.com/1450000) <b>Endless error message in events: Failed to create Template [..] or its disks from VM <UNKNOWN></b><br>
+ - [BZ 1452218](https://bugzilla.redhat.com/1452218) <b>"Creation of Template from VM <UNKNOWN> has been completed" when creating an instance type</b><br>
  - [BZ 1441431](https://bugzilla.redhat.com/1441431) <b>Use correct Cluster Level when displaying notice about adding additional HE Host.</b><br>
 
 #### VDSM
@@ -160,17 +157,17 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1435218](https://bugzilla.redhat.com/1435218) <b>[scale] - getAllVmIoTunePolicies hit the performance</b><br>
  - [BZ 1451226](https://bugzilla.redhat.com/1451226) <b>[downstream clone - 4.1.3] Add additional logging of LVM commands in VDSM</b><br>
 
-#### oVirt Hosted Engine Setup
-
- - [BZ 1460982](https://bugzilla.redhat.com/1460982) <b>[downstream clone - 4.1.3] [TEXT] Error message is confusing when hosted-engine Storage Domain can't be mounted</b><br>
-
 ### Technology Preview
 
 #### oVirt Engine
 
- - [BZ 1456568](https://bugzilla.redhat.com/1456568) <b>[downstream clone - 4.1.3] [RFE] enable VM portal in downstream (Tech Preview)</b><br>The VM Portal was previously introduced as a Technical Preview. A new "VM Portal" link is now available on the Red Hat Virtualization Welcome Page. The VM Portal conforms to the functionality that is available in the Basic tab of the current User Portal.
+ - [BZ 1456568](https://bugzilla.redhat.com/1456568) <b>[downstream clone - 4.1.3] [RFE] enable VM portal in downstream (Tech Preview)</b><br>This release introduces a new VM Portal as a Technology Preview. A "VM Portal" link is now available on the Red Hat Virtualization Welcome Page. The VM Portal provides the same functionality that is available in the Basic tab of the current User Portal (now deprecated).
 
 ### Unclassified
+
+#### oVirt Release Package
+
+ - [BZ 1446167](https://bugzilla.redhat.com/1446167) <b>[downstream clone - 4.1.3] [Test Only] Test Ansible playbook for registration</b><br>
 
 #### oVirt Engine Extension AAA LDAP
 
@@ -188,16 +185,12 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### oVirt Engine
 
- - [BZ 1463597](https://bugzilla.redhat.com/1463597) <b>[downstream clone - 4.1.3] Issues with automating the configuration of VMs (cloud-init)</b><br>
  - [BZ 1453163](https://bugzilla.redhat.com/1453163) <b>[ENGINE] Add the ability to create and remove lease while vm is up</b><br>It is now possible to remove or add a VM lease to a VM while the VM is running
  - [BZ 1404607](https://bugzilla.redhat.com/1404607) <b>Force updateOVF does not update OVF store when Adding VM/Disk or removing disk (Only removing VM works)</b><br>
  - [BZ 1446640](https://bugzilla.redhat.com/1446640) <b>VM - Cannot run VM. Random Number Generator device is not supported in cluster</b><br>
- - [BZ 1432912](https://bugzilla.redhat.com/1432912) <b>[RFE] add search query for "next run configuration exists"</b><br>
  - [BZ 1450951](https://bugzilla.redhat.com/1450951) <b>checkboxes and reset button in Host - Kernel tab don't work properly</b><br>
  - [BZ 1450674](https://bugzilla.redhat.com/1450674) <b>[downstream clone - 4.1.3] RHV-M is not verifying the storage domain free space before running live merge</b><br>
  - [BZ 1446878](https://bugzilla.redhat.com/1446878) <b>Attaching storage domain with lower compatibility version to 4.1 DC fails</b><br>
- - [BZ 1450000](https://bugzilla.redhat.com/1450000) <b>Endless error message in events: Failed to create Template [..] or its disks from VM <UNKNOWN></b><br>
- - [BZ 1452218](https://bugzilla.redhat.com/1452218) <b>"Creation of Template from VM <UNKNOWN> has been completed" when creating an instance type</b><br>
  - [BZ 1411075](https://bugzilla.redhat.com/1411075) <b>Host name is <UNKNOWN> when VM started in stateless</b><br>
  - [BZ 1431529](https://bugzilla.redhat.com/1431529) <b>Reinstall host remains in Non-operational state if gluster UUID is changed</b><br>
  - [BZ 1414787](https://bugzilla.redhat.com/1414787) <b>Hide tracebacks in engine.log by upgrading non responsive host</b><br>
@@ -213,7 +206,6 @@ include collectd. Either use `includepkgs` and add those you need, or use
  - [BZ 1460953](https://bugzilla.redhat.com/1460953) <b>GET request for user's permissions gives NPE</b><br>
  - [BZ 1458107](https://bugzilla.redhat.com/1458107) <b>Can not change host cluster while approving the "pending approval" host on rhvm4.1</b><br>
  - [BZ 1454843](https://bugzilla.redhat.com/1454843) <b>[engine-backend] VM creation from template reported false negatively in engine.log</b><br>
- - [BZ 1456432](https://bugzilla.redhat.com/1456432) <b>New uploaded QCOW2v3 Glance images will fail to be downloaded from Glance</b><br>
  - [BZ 1460512](https://bugzilla.redhat.com/1460512) <b>Useless log about removed luns is printed although no luns were removed</b><br>
  - [BZ 1443641](https://bugzilla.redhat.com/1443641) <b>Unregistered external VMs should not be candidates for register once storage domain is being attached</b><br>
  - [BZ 1458568](https://bugzilla.redhat.com/1458568) <b>Can't create a file domain after navigating to the new block storage domain window when Discard After Delete is checked</b><br>
@@ -268,7 +260,11 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### oVirt Hosted Engine Setup
 
- - [BZ 1459229](https://bugzilla.redhat.com/1459229) <b>Interface matching regular expression ignores interfaces with a '-' in the name</b><br>
+ - [BZ 1467733](https://bugzilla.redhat.com/1467733) <b>hosted-engine-setup fails installing with static networking configuration for the engine VM</b><br>
+
+#### oVirt Hosted Engine HA
+
+ - [BZ 1448699](https://bugzilla.redhat.com/1448699) <b>Migration of the HE VM via engine will drop destination host to the status 'EngineUnexpectedlyDown'.</b><br>
 
 #### imgbased
 
@@ -297,7 +293,6 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
  - [BZ 1452121](https://bugzilla.redhat.com/1452121) <b>Update generated gdeploy config file to add 'qemu' user to 'gluster' group</b><br>
  - [BZ 1456155](https://bugzilla.redhat.com/1456155) <b>disable-multipath.sh script section should be moved before creation of bricks in the conf file.</b><br>
- - [BZ 1460614](https://bugzilla.redhat.com/1460614) <b>The page "Virtual Machines" has no response on Cockpit</b><br>
 
 ## Bug fixes
 
@@ -307,13 +302,14 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 ### oVirt Engine
 
+ - [BZ 1463597](https://bugzilla.redhat.com/1463597) <b>[downstream clone - 4.1.3] Issues with automating the configuration of VMs (cloud-init)</b><br>
  - [BZ 1455667](https://bugzilla.redhat.com/1455667) <b>Increase SSHInactivityTimeoutSeconds​ for Upgrade host action</b><br>
  - [BZ 1443078](https://bugzilla.redhat.com/1443078) <b>USB legacy VM originating in 3.5 env fails to start -  Attempted double use of PCI slot 0000:00:01.0 (may need "multifunction='on'" for device on function 0)</b><br>
  - [BZ 1446055](https://bugzilla.redhat.com/1446055) <b>[downstream clone - 4.1.3] HA VMs running in two hosts at a time after restoring backup of RHV-M</b><br>
  - [BZ 1453010](https://bugzilla.redhat.com/1453010) <b>The template created from vm snapshot contains no vm disk</b><br>
  - [BZ 1452182](https://bugzilla.redhat.com/1452182) <b>engine-backup restores pki packaged files</b><br>
- - [BZ 1413845](https://bugzilla.redhat.com/1413845) <b>HE vm does not get migrated to another node when the nic associated with ovirtmgmt is down.</b><br>
  - [BZ 1444611](https://bugzilla.redhat.com/1444611) <b>Start VM failed with the exception, if the score module does not respond before the timeout</b><br>
+ - [BZ 1456432](https://bugzilla.redhat.com/1456432) <b>New uploaded QCOW2v3 Glance images will fail to be downloaded from Glance</b><br>
  - [BZ 1449289](https://bugzilla.redhat.com/1449289) <b>RESTAPI - Amend (update VM disk attachment disk qcow2_v3 field) to raw disk is allowed</b><br>
  - [BZ 1435579](https://bugzilla.redhat.com/1435579) <b>Failed to restart VM vm2-test-w2k12r2-1 on Host <UNKNOWN></b><br>
 
@@ -323,6 +319,7 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 ### oVirt Hosted Engine Setup
 
+ - [BZ 1464866](https://bugzilla.redhat.com/1464866) <b>[downstream clone - 4.1.3] hosted-engine --upgrade-appliance reports unsupported upgrade path</b><br>
  - [BZ 1458655](https://bugzilla.redhat.com/1458655) <b>[downstream clone - 4.1.3] ovirt-hosted-engine-setup installs an older HE appliance and then upgrade to latest HE image (currently RHV-4.1)</b><br>
  - [BZ 1458654](https://bugzilla.redhat.com/1458654) <b>[downstream clone - 4.1.3] ovirt-hosted-engine-setup has leftover mounts</b><br>
 

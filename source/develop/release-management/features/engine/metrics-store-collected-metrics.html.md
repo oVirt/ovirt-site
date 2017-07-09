@@ -1,3 +1,16 @@
+---
+title: Metrics Store - Collected Data
+category: feature
+authors: sradco
+wiki_category: Feature
+wiki_title: Metrics Store - Collected Data
+wiki_revision_count: 1
+wiki_last_updated: 2017-07-09
+feature_name:  Metrics Store - Collected Data
+feature_modules: engine
+feature_status: In Development
+---
+
 ## Statistics collection
 collectd gathers oVirt statistics from the oVirt engine and hypervisors, and transfers the data to fluentd.
 

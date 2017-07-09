@@ -6,18 +6,31 @@ authors: didib
 
 # PKI Renew
 
-Due to certificate incompatibility issue with rfc2459 and potential of certificate expiration since first release, the CA, Engine, Apache and Websocket proxy certificates may be renewed during upgrade.
+For a general overview of PKI in oVirt, see [Features/PKI](/develop/release-management/features/infra/pki/).
 
-If a renew is required, engine-setup will prompt, asking whether to renew. If the reply is 'No', it will not renew, and another later run will ask again.
+This page documents optional changes that can be done to PKI during upgrade.
 
-The renew process should introduce no downtime for the engine and hosts communications, however users' browsers (\*) may require acceptance of the new CA certificate. The new CA certificate which is located at /etc/pki/ovirt-engine/ca.pem should be distributed to all remote components that require PKI trust.
+## Expiry and RFC2459 compatibility
 
-The renew process does not renew certificates of hosts, used for internal communication between the engine and vdsm. These should be recreated by moving each host to maintenance and reinstalling it.
+Since 3.5.4, engine-setup checks for certificates (close/past) expiry and for
+compatibility with rfc2459, and if needed, prompts the user to renew the PKI.
 
-*   Google Chrome (version 45) silently fails just saying:
+If the reply is 'No', engine-setup does not renew. On a later run (e.g. next upgrade),
+it checks and prompts again.
 
-      This webpage is not available
-      ERR_FAILED
+See also: [3.5.4 Release Notes](/develop/release-management/releases/3.5.4/#pki)
 
-without further details. You have to manually remove the old CA cert before being able to connect again.
+## SubjectAltName
+
+Recent browsers (as of 2017) require the subjectAltName extension in https certificates.
+
+Since 4.1.2, engine-setup on clean setups creates certificates that contain
+this extension.
+
+See also: [BZ 1449084](https://bugzilla.redhat.com/1449084)
+
+Since 4.1.4, engine-setup checks subjectAltName existence on upgrades, and if missing,
+prompts, suggesting to renew the PKI. 
+
+See also: [BZ 1450293](https://bugzilla.redhat.com/1450293)
 

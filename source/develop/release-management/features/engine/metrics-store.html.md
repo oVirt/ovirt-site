@@ -52,7 +52,7 @@ Please follow one of these options. Adding SSO is optional:
 Once you have finished this step, you should have:
 
   * Kibana - <https://kibana.{hostname}>
-  * Openshit portal - <https://openshift.{hostname}>
+  * OpenShift portal - <https://openshift.{hostname}>
 
 
 **oVirt Hypervisors and Engine Setup -**

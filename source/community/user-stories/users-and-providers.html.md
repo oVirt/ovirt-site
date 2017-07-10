@@ -41,15 +41,16 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 </div>
 
 <div class="case-study">
+![](images/logos/Nimbus.png)
+[Nimbus Concept](http://www.nimbusconcept.com/index-en.html) develop, deploy and integrate custom solutions including cloud and critical infrastructure projects based on open source systems, using oVirt as the main virtualization layer.
+</div>
+
+<div class="case-study">
 [![Red Hat, Inc.](/images/logos/Red_Hat.svg)](http://www.redhat.com/en)
 [Red Hat](//www.redhat.com/en) is the corporate member of the oVirt community, responsible for opening oVirt's codebase. Besides providing support for oVirt's community, Red Hat uses oVirt as the codebase for its [Red Hat Virtualization](//www.redhat.com/en/technologies/virtualization/enterprise-virtualization) product.
 </div>
 
-<div class="case-study">
-[![R01](/images/logos/R01.png)](http://r01.ru/)
-[Registrar R01](//r01.ru/) was the first accredited registrar for the RU domain. Today, the company is a leading registrar of the .RU .SU and .RF domains and is a provider of a wide range of professional services.
 
-</div>
 <div class="case-study">
 ![UDS](/images/logos/UDSvirtualcable.png)
 [UDS Enterprise](https://www.udsenterprise.com/en/) provides a solution for quick and easy deployment of unlimited remote desktop services - such as multiple hypervisors, authenicators, and connection protocols - ensuring resource optimization and cost saving.

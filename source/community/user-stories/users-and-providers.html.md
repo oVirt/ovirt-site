@@ -53,7 +53,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 <div class="case-study">
 ![UDS](/images/logos/UDSvirtualcable.png)
-[UDS Enterprise](https://www.udsenterprise.com/en/) provides a solution for quick and easy deployment of unlimited remote desktop services - such as multiple hypervisors, authenicators, and connection protocols - ensuring resource optimization and cost saving.
+[UDS Enterprise](https://www.udsenterprise.com/en/) is a connection broker that deploys VDIs and Vapps, enabling hypervisors, authenticators and connection protocols to run simultaneously. With oVirt, it makes a 100% open source solution.
 </div>
 
 ## Partners in Education

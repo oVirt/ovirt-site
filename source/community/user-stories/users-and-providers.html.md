@@ -13,7 +13,7 @@ page_classes: partner-logos
 
 # oVirt Users and Providers
 
-Our community keeps growing as more individual users and organizations choose oVirt: Some are implementing it in their datacenters, while others are using oVirt as the basis for their own customer solutions. Red Hat, which opened the oVirt codebase, uses it as the upstream version of its commercial virtualization product, RHV.
+Our community keeps growing as more individual users and organizations choose oVirt. Some are implementing it in their datacenters, while others are using oVirt as the basis for their own customer solutions. Red Hat, which opened the oVirt codebase, uses it as the upstream version of its commercial virtualization product, RHV.
 
 ## Professional Services & Integrators
 
@@ -41,18 +41,19 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 </div>
 
 <div class="case-study">
+![](images/logos/Nimbus.png)
+[Nimbus Concept](http://www.nimbusconcept.com/index-en.html) develop, deploy and integrate custom solutions including cloud and critical infrastructure projects based on open source systems, using oVirt as the main virtualization layer.
+</div>
+
+<div class="case-study">
 [![Red Hat, Inc.](/images/logos/Red_Hat.svg)](http://www.redhat.com/en)
 [Red Hat](//www.redhat.com/en) is the corporate member of the oVirt community, responsible for opening oVirt's codebase. Besides providing support for oVirt's community, Red Hat uses oVirt as the codebase for its [Red Hat Virtualization](//www.redhat.com/en/technologies/virtualization/enterprise-virtualization) product.
 </div>
 
-<div class="case-study">
-[![R01](/images/logos/R01.png)](http://r01.ru/)
-[Registrar R01](//r01.ru/) was the first accredited registrar for the RU domain. Today, the company is a leading registrar of the .RU .SU and .RF domains and is a provider of a wide range of professional services.
 
-</div>
 <div class="case-study">
 ![UDS](/images/logos/UDSvirtualcable.png)
-[UDS Enterprise](https://www.udsenterprise.com/en/) provides a solution for quick and easy deployment of unlimited remote desktop services - such as multiple hypervisors, authenicators, and connection protocols - ensuring resource optimization and cost saving.
+[UDS Enterprise](https://www.udsenterprise.com/en/) is a connection broker that deploys VDIs and Vapps, enabling hypervisors, authenticators and connection protocols to run simultaneously. With oVirt, it makes a 100% open source solution.
 </div>
 
 ## Partners in Education

@@ -53,6 +53,102 @@ Once you have finished this step, you should have:
 
   * Kibana - <https://kibana.{hostname}>
   * OpenShift portal - <https://openshift.{hostname}>
+  
+  
+
+**Update mux pod resources**
+
+1. ssh into the logging machine and use the command line.  
+**Note:** You can probably do all of this with the OpenShift UI too - https://logging-machine:8443
+
+2. Run
+
+       # $ oc edit dc logging-mux
+
+Edit the section
+
+      spec:
+        template:
+          spec:
+            containers:
+      ...
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 2Gi
+
+   For cpu, units are in millicores.  500m means 0.5 cores.
+
+   If you want mux to use more, use 1000m or even 2000m.
+
+   For memory, 2Gi means 2 Gigabytes.  Increase as needed.
+
+   If you change and save the new config, that should automatically trigger a redeployment of all mux pods.
+   
+
+
+3. Run:
+
+       # oc get pods -l component=mux
+
+This should show that mux recently restarted.  If not, use
+
+       # oc rollout latest dc/logging-mux
+
+and
+
+       # oc rollout status -w dc/logging-mux
+
+to follow the deployment until the new one is rolled out
+
+
+Since ruby isn't multi-threaded, you can also scale up mux to run additional pods:
+
+      # oc scale --replicas=2 dc/logging-mux
+
+This will create 2 mux pods.  I would suggest that if mux is maxed out of cpu, and you have already increased the mux cpu above to 1000m, you should scale up an additional pod rather than increasing the mux cpu to over 1000m.
+
+
+
+**Update curatur pod for metrics index**
+
+This will define the curator pod to delete metrics indexes that are older then 7 days.
+
+1. Update the configmap Run:
+Run:
+       # oc edit configmap logging-curator
+
+Under 
+
+      config.yaml: |
+        .defaults:
+          delete:
+            days: 7
+          runhour: 0
+          runminute: 0
+
+Add this section:
+
+        ovirt-metrics-<ovirt_env_name>:
+          delete:
+            days: 7
+          runhour: 0
+          runminute: 0
+    
+**Note:**
+You should replace <ovirt_env_name>.
+
+"ovirt_env_name" - The environment name. Can be used to identify data collected in a single central store sent from more than one oVirt engine.
+     
+It must follow these guidlines - alphanum + "-" character, cannot begin with "-" or a number, and cannot end with a "-", up to 49 characters.
+
+Unfortunately, you cannot set a wildcard pattern to match like ovirt-metrics-*.
+
+2. Run:
+
+        # oc rollout latest dc/logging-curator
+        # oc rollout status -w dc/logging-curator
+
 
 
 **oVirt Hypervisors and Engine Setup -**
@@ -85,11 +181,11 @@ Now we need to deploy and configure collectd and fluentd to send the data to the
      
      * "fluentd-server.example.com" - The fully qualified domain name of the metrics store machine
      
-     * "my_shared_key" - The shared key configured in fluentd on the metrics store machine
+     * "my_shared_key" - The shared key configured in fluentd on the metrics store machine.
      
      * "/path/to/fluentd_ca_cert.pem" - The path to the fluentd CA certificate
      
-     * "ovirt_env_name" - The environment name. Can be used to identify data collected in a single central store sent from more than one oVirt engine.
+     * "ovirt_env_name" - The environment name. Can be used to identify data collected in a single central store sent from more than one oVirt engine. **Use the same name you configured earlier**.
 
 6. On the engine machine, run as root:
 

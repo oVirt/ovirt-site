@@ -1,9 +1,6 @@
 ---
 title: Connect to Guest Display
 authors: dougsland
-wiki_title: Connect to Guest Display
-wiki_revision_count: 3
-wiki_last_updated: 2011-12-04
 ---
 
 <!-- TODO: Content review -->

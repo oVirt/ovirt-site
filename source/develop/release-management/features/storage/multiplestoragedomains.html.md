@@ -2,10 +2,6 @@
 title: MultipleStorageDomains
 category: feature
 authors: derez, jumper45, sgordon
-wiki_category: Feature
-wiki_title: Features/MultipleStorageDomains
-wiki_revision_count: 6
-wiki_last_updated: 2014-07-13
 feature_name: Manage storage connections
 feature_modules: engine
 feature_status: Released

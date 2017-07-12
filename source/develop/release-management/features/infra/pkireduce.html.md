@@ -2,10 +2,6 @@
 title: PKIReduce
 category: feature
 authors: alonbl
-wiki_category: Feature
-wiki_title: Features/PKIReduce
-wiki_revision_count: 11
-wiki_last_updated: 2014-07-01
 ---
 
 # PKI Reduce

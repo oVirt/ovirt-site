@@ -2,10 +2,6 @@
 title: oVirtScheduler
 category: feature
 authors: danken, doron, gchaplik, lhornyak
-wiki_category: Feature
-wiki_title: Features/oVirtScheduler
-wiki_revision_count: 11
-wiki_last_updated: 2015-04-07
 ---
 
 # oVirt Scheduler

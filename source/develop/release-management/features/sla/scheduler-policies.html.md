@@ -2,10 +2,6 @@
 title: oVirt Scheduler Policies
 category: feature
 authors: tsaban
-wiki_category: Feature
-wiki_title: OVirt Scheduler Policies
-wiki_revision_count: 5
-wiki_last_updated: 2015-04-01
 ---
 
 # oVirt Scheduler Policies

@@ -1,9 +1,6 @@
 ---
 title: Image Manipulator
 authors: smizrahi
-wiki_title: Image Manipulator
-wiki_revision_count: 9
-wiki_last_updated: 2012-10-26
 ---
 
 <!-- TODO: Content review -->

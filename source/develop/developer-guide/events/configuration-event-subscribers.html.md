@@ -2,9 +2,6 @@
 title: configuration-event-subscribers
 category: event
 authors: moolit
-wiki_title: Features/configuration-event-subscribers
-wiki_revision_count: 30
-wiki_last_updated: 2014-10-18
 ---
 
 # configuration-event-subscribers

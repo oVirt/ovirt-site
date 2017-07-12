@@ -2,10 +2,6 @@
 title: Detailed Exit Reason
 category: feature
 authors: fromani
-wiki_category: Feature
-wiki_title: Features/Detailed Exit Reason
-wiki_revision_count: 13
-wiki_last_updated: 2014-02-20
 ---
 
 # Detailed Exit Reason

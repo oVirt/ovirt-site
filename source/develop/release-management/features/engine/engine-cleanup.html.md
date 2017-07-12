@@ -2,10 +2,6 @@
 title: engine-cleanup
 category: feature
 authors: herrold, simong
-wiki_category: Feature
-wiki_title: Features/engine-cleanup
-wiki_revision_count: 12
-wiki_last_updated: 2014-05-01
 feature_name: Engine
 feature_modules: "[nil]"
 feature_status: Partial

@@ -1,9 +1,6 @@
 ---
 title: Performance And Scalability
 authors: liran.zelkha
-wiki_title: Features/Performance And Scalability
-wiki_revision_count: 5
-wiki_last_updated: 2013-06-11
 ---
 
 # Performance And Scalability

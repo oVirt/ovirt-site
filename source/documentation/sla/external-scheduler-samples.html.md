@@ -2,10 +2,6 @@
 title: External Scheduler Samples
 category: sla
 authors: doron, nslomian
-wiki_category: SLA
-wiki_title: External Scheduler Samples
-wiki_revision_count: 5
-wiki_last_updated: 2013-10-24
 ---
 
 # External Scheduler Samples

@@ -3,10 +3,6 @@ title: oVirt 3.0 Feature Guide
 category: documentation
 layout: toc
 authors: jbrooks
-wiki_category: collateral
-wiki_title: OVirt 3.0 Feature Guide
-wiki_revision_count: 6
-wiki_last_updated: 2012-02-09
 ---
 
 # oVirt 3.0 Feature Guide

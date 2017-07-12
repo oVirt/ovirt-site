@@ -1,9 +1,6 @@
 ---
 title: oVirt engine tools
 authors: abonas, adahms, knesenko, lveyde, moti, roy, yair zaslavsky
-wiki_title: OVirt engine tools
-wiki_revision_count: 20
-wiki_last_updated: 2017-02-10
 ---
 
 # oVirt engine tools

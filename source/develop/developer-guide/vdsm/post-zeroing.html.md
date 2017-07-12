@@ -2,10 +2,6 @@
 title: Vdsm Post Zeroing
 category: vdsm
 authors: danken
-wiki_category: Vdsm
-wiki_title: Vdsm Post Zeroing
-wiki_revision_count: 1
-wiki_last_updated: 2011-10-29
 ---
 
 # Vdsm Post Zeroing

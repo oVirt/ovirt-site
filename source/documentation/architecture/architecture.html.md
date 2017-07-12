@@ -2,10 +2,6 @@
 title: Architecture
 category: architecture
 authors: abonas, alonbl, amuller, dneary, geoffoc, lhornyak, ovedo, sven, vszocs
-wiki_category: Architecture
-wiki_title: Architecture
-wiki_revision_count: 45
-wiki_last_updated: 2014-12-07
 ---
 
 ![](/images/wiki/Ovirt-1024x698.png "Ovirt-1024x698.png")

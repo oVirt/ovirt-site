@@ -2,10 +2,6 @@
 title: oVirt 3.3.z release management
 category: release
 authors: sandrobonazzola
-wiki_category: Releases
-wiki_title: OVirt 3.3.z release management
-wiki_revision_count: 11
-wiki_last_updated: 2014-03-03
 ---
 
 # oVirt 3.3.z release management

@@ -2,9 +2,6 @@
 title: Localization Howto
 category: howto
 authors: lhornyak
-wiki_title: Localization Howto
-wiki_revision_count: 2
-wiki_last_updated: 2013-04-30
 ---
 
 <!-- TODO: Content review -->

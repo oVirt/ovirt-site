@@ -2,10 +2,6 @@
 title: Self Hosted Engine Gluster Support
 category: feature
 authors: sandrobonazzola, sabose
-wiki_category: Feature|Self Hosted Engine Gluster Support
-wiki_title: Features/Self Hosted Engine Gluster Support
-wiki_revision_count: 17
-wiki_last_updated: 2015-10-06
 feature_name: Self Hosted Engine Gluster Support
 feature_modules: ovirt-hosted-engine-setup
 feature_status: ON_QA

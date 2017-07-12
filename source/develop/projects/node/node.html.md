@@ -2,10 +2,6 @@
 title: Node
 category: node
 authors: dougsland, fabiand, mburns, nkesick, pmyers, quaid, vered
-wiki_category: Project
-wiki_title: Category:Node
-wiki_revision_count: 46
-wiki_last_updated: 2015-12-22
 ---
 
 # Node

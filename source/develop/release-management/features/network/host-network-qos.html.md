@@ -2,10 +2,6 @@
 title: Host Network QoS
 category: feature
 authors: amuller, danken, gvallarelli, lvernia
-wiki_category: Feature
-wiki_title: Features/Host Network QoS
-wiki_revision_count: 76
-wiki_last_updated: 2014-09-04
 feature_name: Host Network QoS
 feature_modules: engine,vdsm, api
 feature_status: Implementation

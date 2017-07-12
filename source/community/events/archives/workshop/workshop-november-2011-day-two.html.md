@@ -2,10 +2,6 @@
 title: Workshop November 2011 - Day Two
 category: event/workshop
 authors: aglitke, apevec, bazulay, lpeer, quaid
-wiki_category: Workshop November 2011
-wiki_title: Workshop November 2011 - Day Two
-wiki_revision_count: 17
-wiki_last_updated: 2011-11-24
 ---
 
 # Workshop November 2011 - Day Two

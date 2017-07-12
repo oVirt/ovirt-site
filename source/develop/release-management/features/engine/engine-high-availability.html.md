@@ -1,9 +1,6 @@
 ---
 title: Engine High Availability
 authors: emesika, liran.zelkha, plysan
-wiki_title: Features/Engine High Availability
-wiki_revision_count: 8
-wiki_last_updated: 2014-05-08
 ---
 
 # Engine High Availability

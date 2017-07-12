@@ -2,10 +2,6 @@
 title: Cluster emulation modes
 category: feature
 authors: ofrenkel, roy, sandrobonazzola
-wiki_category: Feature
-wiki_title: Cluster emulation modes
-wiki_revision_count: 16
-wiki_last_updated: 2014-12-15
 ---
 
 # Cluster emulation mode

@@ -2,9 +2,6 @@
 title: REST API Using BASH Automation
 category: api
 authors: lspevak
-wiki_title: REST API Using BASH Automation
-wiki_revision_count: 6
-wiki_last_updated: 2013-04-30
 ---
 
 # REST API Using BASH Automation

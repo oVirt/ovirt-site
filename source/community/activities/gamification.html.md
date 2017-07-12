@@ -1,9 +1,6 @@
 ---
 title: Gamification
 authors: eedri, vszocs
-wiki_title: Gamification
-wiki_revision_count: 4
-wiki_last_updated: 2014-06-08
 ---
 
 # Gamification

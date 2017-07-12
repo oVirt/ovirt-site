@@ -1,9 +1,6 @@
 ---
 title: DevProcess
 authors: amureini, gina, granha, ovedo, roy, snmishra, ybronhei
-wiki_title: DevProcess
-wiki_revision_count: 13
-wiki_last_updated: 2015-05-20
 ---
 
 # Dev Process

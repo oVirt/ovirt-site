@@ -2,10 +2,6 @@
 title: noVNC console
 category: feature
 authors: adahms, alonbl, fkobzik, gianluca, nkesick, stirabos
-wiki_category: Feature
-wiki_title: Features/noVNC console
-wiki_revision_count: 38
-wiki_last_updated: 2015-01-08
 ---
 
 # noVNC console

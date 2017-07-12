@@ -2,10 +2,6 @@
 title: Node Troubleshooting
 category: node
 authors: dougsland, fabiand, mburns
-wiki_category: Node
-wiki_title: Node Troubleshooting
-wiki_revision_count: 31
-wiki_last_updated: 2014-05-23
 ---
 
 # Node Troubleshooting

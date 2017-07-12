@@ -2,10 +2,6 @@
 title: Guest Agent
 category: vdsm
 authors: danken, vered
-wiki_category: Vdsm
-wiki_title: Guest Agent
-wiki_revision_count: 2
-wiki_last_updated: 2014-12-16
 ---
 
 # Guest Agent

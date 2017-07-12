@@ -1,9 +1,6 @@
 ---
 title: scratchpad
 authors: dyasny, ykaul
-wiki_title: VDSM-Hooks/scratchpad
-wiki_revision_count: 2
-wiki_last_updated: 2016-06-07
 ---
 
 # scratchpad

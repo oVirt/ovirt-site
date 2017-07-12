@@ -2,10 +2,6 @@
 title: Making an oVirt release
 category: release-management
 authors: dneary, jbrooks
-wiki_category: Release management
-wiki_title: Making an oVirt release
-wiki_revision_count: 3
-wiki_last_updated: 2012-07-10
 ---
 
 # Making an oVirt release

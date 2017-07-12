@@ -1,9 +1,6 @@
 ---
 title: Requirements for Healthy Subprojects
 authors: bproffitt
-wiki_title: Requirements for Healthy Subprojects
-wiki_revision_count: 2
-wiki_last_updated: 2015-01-21
 ---
 
 # Requirements for Healthy Subprojects

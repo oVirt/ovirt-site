@@ -1,9 +1,6 @@
 ---
 title: Development environment
 authors: quaid
-wiki_title: Category:Development environment
-wiki_revision_count: 1
-wiki_last_updated: 2011-11-12
 ---
 
 # Development environment

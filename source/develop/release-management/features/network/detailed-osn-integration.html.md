@@ -2,10 +2,6 @@
 title: Detailed OSN Integration
 category: detailedfeature
 authors: danken, lvernia, mkolesni, moti, mpavlik
-wiki_category: DetailedFeature
-wiki_title: Features/Detailed OSN Integration
-wiki_revision_count: 72
-wiki_last_updated: 2014-03-24
 ---
 
 # Detailed OSN Integration

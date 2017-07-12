@@ -4,10 +4,6 @@ authors: abonas, amuller, amureini, apuimedo, arik, awels, dcaroest, dneary, dou
   ecohen, eedri, emesika, fkobzik, laravot, mgoldboi, mkolesni, mlipchuk, moolit,
   mpavlik, mperina, ofrenkel, ofri, pstehlik, rnori, sahina, sandrobonazzola, stirabos,
   vszocs, yair zaslavsky
-wiki_title: OVirt 3.3 TestDay
-wiki_revision_count: 91
-wiki_last_updated: 2014-04-04
-wiki_warnings: table-style
 ---
 
 # oVirt 3.3 TestDay

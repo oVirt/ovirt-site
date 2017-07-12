@@ -2,10 +2,6 @@
 title: How to clear the storage domain pool config of an exported nfs domain
 category: howto
 authors: alex.leonhardt, vered
-wiki_category: How_to
-wiki_title: How to clear the storage domain pool config of an exported nfs domain
-wiki_revision_count: 2
-wiki_last_updated: 2013-05-05
 ---
 
 <!-- TODO: Content review -->

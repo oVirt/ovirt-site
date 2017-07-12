@@ -1,9 +1,6 @@
 ---
 title: qos
 authors: dyasny
-wiki_title: VDSM-Hooks/qos
-wiki_revision_count: 2
-wiki_last_updated: 2012-09-14
 ---
 
 # qos

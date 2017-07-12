@@ -2,10 +2,6 @@
 title: AllInOne
 category: feature
 authors: acathrow, alourie, didi, dneary, jbrooks, netbulae, oschreib, sandrobonazzola
-wiki_category: Feature|All In One
-wiki_title: Feature/AllInOne
-wiki_revision_count: 26
-wiki_last_updated: 2015-11-18
 feature_name: All in One
 feature_modules: engine,node
 feature_status: Released

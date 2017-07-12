@@ -2,10 +2,6 @@
 title: NetworkPermissions
 category: feature
 authors: danken, lpeer, moti
-wiki_category: Feature
-wiki_title: Feature/NetworkPermissions
-wiki_revision_count: 77
-wiki_last_updated: 2013-04-18
 ---
 
 # Network Permissions

@@ -2,10 +2,6 @@
 title: HostConfiguration
 category: feature
 authors: ovedo, ybronhei
-wiki_category: Feature
-wiki_title: Features/HostConfiguration
-wiki_revision_count: 18
-wiki_last_updated: 2015-01-28
 ---
 
 # Host Configuration Management

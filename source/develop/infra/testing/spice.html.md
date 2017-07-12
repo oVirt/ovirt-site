@@ -1,9 +1,6 @@
 ---
 title: Spice
 authors: jaypers, mkrcmari, nkesick
-wiki_title: Testing/Spice
-wiki_revision_count: 8
-wiki_last_updated: 2013-12-06
 ---
 
 # Spice

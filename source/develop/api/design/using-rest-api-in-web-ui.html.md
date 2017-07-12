@@ -2,9 +2,6 @@
 title: Using REST API In Web UI
 category: api
 authors: ecohen, vszocs
-wiki_title: Features/Design/Using REST API In Web UI
-wiki_revision_count: 11
-wiki_last_updated: 2014-05-15
 ---
 
 <!-- TODO: Content review -->

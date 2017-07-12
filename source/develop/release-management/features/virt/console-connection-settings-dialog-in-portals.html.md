@@ -2,10 +2,6 @@
 title: Console connection settings dialog in portals
 category: feature
 authors: fkobzik, pstehlik
-wiki_category: Feature
-wiki_title: Features/Console connection settings dialog in portals
-wiki_revision_count: 12
-wiki_last_updated: 2013-07-23
 ---
 
 # Console settings dialog in Webadmin and User Portal

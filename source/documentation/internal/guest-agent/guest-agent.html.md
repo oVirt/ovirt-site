@@ -2,10 +2,6 @@
 title: oVirt guest agent
 category: ovirt-guest-agent
 authors: adahms, bazulay, bproffitt, geoffoc, rmiddle, vfeenstr
-wiki_category: Ovirt guest agent
-wiki_title: Category:Ovirt guest agent
-wiki_revision_count: 10
-wiki_last_updated: 2014-07-21
 ---
 
 <!-- TODO: Content review -->

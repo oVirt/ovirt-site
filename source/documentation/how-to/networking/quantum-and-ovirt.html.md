@@ -1,9 +1,6 @@
 ---
 title: Quantum and oVirt
 authors: garyk
-wiki_title: Quantum and oVirt
-wiki_revision_count: 17
-wiki_last_updated: 2012-06-06
 ---
 
 <!-- TODO: Content review -->

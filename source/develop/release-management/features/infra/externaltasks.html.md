@@ -2,10 +2,6 @@
 title: ExternalTasks
 category: feature
 authors: emesika, yair zaslavsky
-wiki_category: Feature
-wiki_title: Features/ExternalTasks
-wiki_revision_count: 21
-wiki_last_updated: 2013-05-26
 ---
 
 # External Tasks

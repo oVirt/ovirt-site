@@ -1,9 +1,6 @@
 ---
 title: fileinject
 authors: dyasny
-wiki_title: VDSM-Hooks/fileinject
-wiki_revision_count: 3
-wiki_last_updated: 2012-09-14
 ---
 
 # fileinject

@@ -2,10 +2,6 @@
 title: Linux
 category: ovirt-guest-agent
 authors: vfeenstr
-wiki_category: Ovirt_guest_agent
-wiki_title: OVirt Guest Agent/Single Sign On/Linux
-wiki_revision_count: 5
-wiki_last_updated: 2012-12-11
 ---
 
 <!-- TODO: Content review -->

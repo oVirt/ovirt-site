@@ -2,14 +2,9 @@
 title: DetailedFloatingDisk
 category: feature
 authors: derez, mlipchuk
-wiki_category: Feature
-wiki_title: Features/DetailedFloatingDisk
-wiki_revision_count: 35
-wiki_last_updated: 2014-07-13
 feature_name: Floating Disk
 feature_modules: engine
 feature_status: Released
-wiki_warnings: list-item?
 ---
 
 # Detailed Floating Disk

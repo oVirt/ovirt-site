@@ -2,10 +2,6 @@
 title: AAA FAQ
 category: feature
 authors: omachace, mperina
-wiki_category: Feature
-wiki_title: Features/AAA FAQ
-wiki_revision_count: 2
-wiki_last_updated: 2016-06-06
 feature_name: AAA Frequently asked questions
 feature_modules: ovirt-engine-extensions-aaa
 feature_status: Verified

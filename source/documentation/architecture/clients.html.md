@@ -2,10 +2,6 @@
 title: Clients
 category: architecture
 authors: amuller
-wiki_category: Architecture
-wiki_title: Clients
-wiki_revision_count: 1
-wiki_last_updated: 2013-02-12
 ---
 
 # Clients

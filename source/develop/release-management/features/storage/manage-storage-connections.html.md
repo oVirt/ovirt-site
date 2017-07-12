@@ -2,10 +2,6 @@
 title: Manage Storage Connections
 category: feature
 authors: abonas, derez, sgotliv, amureini
-wiki_category: Feature
-wiki_title: Features/Manage Storage Connections
-wiki_revision_count: 207
-wiki_last_updated: 2014-07-13
 feature_name: Manage storage connections
 feature_modules: engine
 feature_status: Released (oVirt 3.3)

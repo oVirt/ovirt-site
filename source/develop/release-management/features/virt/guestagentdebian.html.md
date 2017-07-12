@@ -2,10 +2,6 @@
 title: GuestAgentDebian
 category: feature
 authors: vfeenstr
-wiki_category: Feature
-wiki_title: Feature/GuestAgentDebian
-wiki_revision_count: 4
-wiki_last_updated: 2014-05-20
 feature_name: oVirt Guest Agent on Debian
 feature_modules: ovirt-guest-agent
 feature_status: Done

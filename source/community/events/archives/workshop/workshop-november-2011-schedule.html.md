@@ -2,10 +2,6 @@
 title: Workshop November 2011 - schedule
 category: event/workshop
 authors: quaid
-wiki_category: Workshop November 2011
-wiki_title: Workshop November 2011 - schedule
-wiki_revision_count: 5
-wiki_last_updated: 2011-10-31
 ---
 
 # Workshop November 2011 - schedule

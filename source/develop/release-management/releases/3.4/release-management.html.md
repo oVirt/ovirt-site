@@ -2,10 +2,6 @@
 title: oVirt 3.4 release management
 category: release
 authors: bproffitt, danken, sandrobonazzola
-wiki_category: Releases
-wiki_title: OVirt 3.4 release management
-wiki_revision_count: 27
-wiki_last_updated: 2014-03-27
 ---
 
 # oVirt 3.4 release management

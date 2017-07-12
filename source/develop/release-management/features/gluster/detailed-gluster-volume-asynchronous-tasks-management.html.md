@@ -2,10 +2,6 @@
 title: Detailed Gluster Volume Asynchronous Tasks Management
 category: detailedfeature
 authors: sahina
-wiki_category: DetailedFeature
-wiki_title: Features/Detailed Gluster Volume Asynchronous Tasks Management
-wiki_revision_count: 12
-wiki_last_updated: 2013-10-15
 ---
 
 # Detailed Gluster Volume Asynchronous Tasks Management

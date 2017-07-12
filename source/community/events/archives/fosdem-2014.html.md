@@ -2,10 +2,6 @@
 title: FOSDEM 2014
 category: events
 authors: dneary, doron
-wiki_category: Events
-wiki_title: FOSDEM 2014
-wiki_revision_count: 12
-wiki_last_updated: 2014-02-10
 ---
 
 # oVirt at FOSDEM 2014

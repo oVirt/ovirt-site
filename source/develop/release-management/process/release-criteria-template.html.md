@@ -2,10 +2,6 @@
 title: Release Criteria Template
 category: release-management
 authors: bproffitt
-wiki_category: Release management
-wiki_title: Release Criteria Template
-wiki_revision_count: 1
-wiki_last_updated: 2014-12-08
 ---
 
 # Release Criteria Template

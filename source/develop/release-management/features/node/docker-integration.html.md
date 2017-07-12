@@ -1,9 +1,6 @@
 ---
 title: Docker Integration
 authors: mbetak
-wiki_title: Features/Docker Integration
-wiki_revision_count: 4
-wiki_last_updated: 2014-09-25
 ---
 
 # Docker Integration (draft)

@@ -1,9 +1,6 @@
 ---
 title: vm-init-persistent
 authors: shaharh
-wiki_title: Features/vm-init-persistent
-wiki_revision_count: 6
-wiki_last_updated: 2014-02-12
 ---
 
 # vm-init-persistent

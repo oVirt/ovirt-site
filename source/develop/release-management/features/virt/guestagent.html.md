@@ -2,10 +2,6 @@
 title: GuestAgent
 category: debian
 authors: vfeenstr
-wiki_category: Debian
-wiki_title: Debian/GuestAgent
-wiki_revision_count: 3
-wiki_last_updated: 2012-11-30
 ---
 
 [Back to Debian MainPage](Debian)

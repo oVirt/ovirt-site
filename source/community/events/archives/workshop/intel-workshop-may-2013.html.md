@@ -2,10 +2,6 @@
 title: Intel Workshop May 2013
 category: event/workshop
 authors: danken, dneary, doron, theron, zhshzhou
-wiki_category: Events
-wiki_title: Intel Workshop May 2013
-wiki_revision_count: 77
-wiki_last_updated: 2013-07-07
 ---
 
 # Intel Workshop May 2013

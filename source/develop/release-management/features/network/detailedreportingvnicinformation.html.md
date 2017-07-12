@@ -2,10 +2,6 @@
 title: DetailedReportingVnicInformation
 category: template
 authors: moti
-wiki_category: Template
-wiki_title: Feature/DetailedReportingVnicInformation
-wiki_revision_count: 24
-wiki_last_updated: 2012-12-17
 ---
 
 # Detailed Reporting Vnic Information

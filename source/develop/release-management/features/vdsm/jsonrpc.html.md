@@ -2,10 +2,6 @@
 title: JsonRpc
 category: feature
 authors: adahms, apuimedo, pkliczewski, sandrobonazzola, smizrahi, ybronhei
-wiki_category: Feature|JsonRpc
-wiki_title: Features/Design/JsonRpc
-wiki_revision_count: 34
-wiki_last_updated: 2015-06-10
 feature_name: Introduce Messaged communication to VDSM using JSON-RPC on top of various
   transport protocols
 feature_modules: vdsm, engine

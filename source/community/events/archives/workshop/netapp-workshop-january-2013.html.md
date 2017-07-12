@@ -2,10 +2,6 @@
 title: NetApp Workshop January 2013
 category: event/workshop
 authors: dneary, garrett, jbrooks, lh, ovedo, quaid
-wiki_category: Events
-wiki_title: NetApp Workshop January 2013
-wiki_revision_count: 59
-wiki_last_updated: 2013-01-29
 ---
 
 # NetApp Workshop January 2013

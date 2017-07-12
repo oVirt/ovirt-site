@@ -2,10 +2,6 @@
 title: DetailedPMHealthCheck
 category: feature
 authors: emesika, gchaplik
-wiki_category: Feature
-wiki_title: Features/Design/DetailedPMHealthCheck
-wiki_revision_count: 25
-wiki_last_updated: 2014-05-04
 ---
 
 # Detailed PM Health Check

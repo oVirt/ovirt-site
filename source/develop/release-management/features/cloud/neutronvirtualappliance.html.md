@@ -2,14 +2,9 @@
 title: NeutronVirtualAppliance
 category: feature
 authors: danken, moti
-wiki_category: Feature
-wiki_title: Features/NeutronVirtualAppliance
-wiki_revision_count: 52
-wiki_last_updated: 2014-09-22
 feature_name: Neutron Virtual Appliance
 feature_modules: network
 feature_status: Completed
-wiki_warnings: list-item?
 ---
 
 # Neutron Virtual Appliance

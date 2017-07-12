@@ -2,10 +2,6 @@
 title: REST-Api
 category: api
 authors: jhernand, michael pasternak, moolit
-wiki_category: Api
-wiki_title: REST-Api
-wiki_revision_count: 6
-wiki_last_updated: 2014-09-05
 ---
 
 # REST-Api

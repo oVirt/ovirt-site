@@ -2,10 +2,6 @@
 title: Self Hosted Engine Maintenance Flows
 category: feature
 authors: gpadgett, mlipchuk, sandrobonazzola
-wiki_category: Feature|Self Hosted Engine Maintenance Flows
-wiki_title: Features/Self Hosted Engine Maintenance Flows
-wiki_revision_count: 4
-wiki_last_updated: 2014-12-12
 feature_name: Hosted Engine Maintenance Flow Unification
 feature_modules: virt
 feature_status: Released

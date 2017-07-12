@@ -2,10 +2,6 @@
 title: NetworkManager Support
 category: feature
 authors: fabiand, mburns
-wiki_category: Feature
-wiki_title: Features/NetworkManager Support
-wiki_revision_count: 5
-wiki_last_updated: 2012-05-29
 ---
 
 # NetworkManager Support

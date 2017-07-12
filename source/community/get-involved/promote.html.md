@@ -1,9 +1,6 @@
 ---
 title: Outreach
 authors: cctrieloff, djorm, iheim, justinclift, pmyers, sgordon
-wiki_title: Outreach
-wiki_revision_count: 10
-wiki_last_updated: 2011-12-05
 ---
 
 <!-- TODO: [Mikey] fix this page -->

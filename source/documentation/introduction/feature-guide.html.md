@@ -3,10 +3,6 @@ title: oVirt feature guide
 category: documentation
 layout: toc
 authors: dneary
-wiki_category: collateral
-wiki_title: OVirt feature guide
-wiki_revision_count: 1
-wiki_last_updated: 2013-09-06
 ---
 
 <!-- TODO: Content review -->

@@ -2,9 +2,6 @@
 title: How to install the spice guest agent
 category: howto
 authors: nkesick
-wiki_title: How to install the spice guest agent
-wiki_revision_count: 4
-wiki_last_updated: 2015-01-18
 ---
 
 # How to install the spice guest agent

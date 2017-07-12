@@ -2,9 +2,6 @@
 title: LC Japan Workshop Post-Mortem
 category: event/workshop
 authors: jbrooks, lh
-wiki_title: LC Japan Workshop Post-Mortem
-wiki_revision_count: 3
-wiki_last_updated: 2012-07-30
 ---
 
 # LC Japan Workshop Post-Mortem

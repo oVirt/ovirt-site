@@ -2,10 +2,6 @@
 title: Separate-Reports-Host
 category: feature
 authors: didi, sandrobonazzola, sradco
-wiki_category: Feature|Separate Reports Host
-wiki_title: Features/Separate-Reports-Host
-wiki_revision_count: 20
-wiki_last_updated: 2015-01-16
 feature_name: Separate Reports Host
 feature_modules: engine
 feature_status: QE

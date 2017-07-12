@@ -2,10 +2,6 @@
 title: Videos
 category: collateral
 authors: jbrooks
-wiki_category: collateral
-wiki_title: Videos
-wiki_revision_count: 1
-wiki_last_updated: 2012-07-30
 ---
 
 <!-- TODO: Content review -->

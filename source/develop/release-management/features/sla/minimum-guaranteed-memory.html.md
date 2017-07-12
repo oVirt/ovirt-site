@@ -2,10 +2,6 @@
 title: Minimum guaranteed memory
 category: sla
 authors: didi, lhornyak
-wiki_category: SLA
-wiki_title: Features/Minimum guaranteed memory
-wiki_revision_count: 4
-wiki_last_updated: 2014-02-23
 ---
 
 # Minimum guaranteed memory

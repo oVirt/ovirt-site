@@ -2,11 +2,6 @@
 title: DetailedQuota
 category: feature
 authors: amureini, jumper45, lpeer, mlipchuk, ovedo, sandrobonazzola
-wiki_category: Feature|Quota
-wiki_title: Features/DetailedQuota
-wiki_revision_count: 129
-wiki_last_updated: 2015-01-16
-wiki_warnings: list-item?
 ---
 
 # Detailed Quota

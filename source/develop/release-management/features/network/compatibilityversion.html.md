@@ -1,9 +1,6 @@
 ---
 title: compatibilityVersion
 authors: lpeer, mkolesni
-wiki_title: Features/compatibilityVersion
-wiki_revision_count: 6
-wiki_last_updated: 2012-08-19
 ---
 
 # compatibility Version

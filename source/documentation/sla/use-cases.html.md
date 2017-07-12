@@ -2,10 +2,6 @@
 title: use-cases
 category: sla
 authors: doron
-wiki_category: SLA
-wiki_title: Sla/use-cases
-wiki_revision_count: 1
-wiki_last_updated: 2012-12-04
 ---
 
 # use-cases

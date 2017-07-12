@@ -2,10 +2,6 @@
 title: Gluster Swift Management
 category: feature
 authors: kmayilsa, knarra, sahina, shtripat
-wiki_category: Feature
-wiki_title: Features/Gluster Swift Management
-wiki_revision_count: 23
-wiki_last_updated: 2013-07-24
 status: Deprecated
 ---
 

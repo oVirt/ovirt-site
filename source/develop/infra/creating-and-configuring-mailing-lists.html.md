@@ -2,10 +2,6 @@
 title: Creating and configuring mailing lists
 category: infra
 authors: djorm, quaid, wikisysop
-wiki_category: Infrastructure documentation
-wiki_title: Creating and configuring mailing lists
-wiki_revision_count: 15
-wiki_last_updated: 2013-06-25
 ---
 
 # Creating and configuring mailing lists

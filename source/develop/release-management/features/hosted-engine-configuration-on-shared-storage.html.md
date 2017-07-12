@@ -2,10 +2,6 @@
 title: Hosted Engine configuration on shared storage
 category: feature
 authors: sandrobonazzola, stirabos
-wiki_category: Feature|Hosted Engine configuration on shared storage
-wiki_title: Features/Hosted Engine configuration on shared storage
-wiki_revision_count: 4
-wiki_last_updated: 2015-10-05
 feature_name: Hosted Engine configuration on shared storage
 feature_modules: all
 feature_status: QA

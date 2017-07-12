@@ -2,11 +2,6 @@
 title: DetailedExternalTasks
 category: feature
 authors: emesika
-wiki_category: Feature
-wiki_title: Features/Design/DetailedExternalTasks
-wiki_revision_count: 35
-wiki_last_updated: 2014-10-23
-wiki_warnings: list-item?
 ---
 
 # Detailed External Tasks

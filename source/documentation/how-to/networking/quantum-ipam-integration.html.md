@@ -1,9 +1,6 @@
 ---
 title: Quantum IPAM Integration
 authors: danken, lpeer, mkolesni
-wiki_title: Quantum IPAM Integration
-wiki_revision_count: 36
-wiki_last_updated: 2012-11-29
 ---
 
 <!-- TODO: Content review -->

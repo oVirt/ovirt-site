@@ -2,10 +2,6 @@
 title: UCS Integration
 category: feature
 authors: apuimedo, danken, mburman
-wiki_category: Feature
-wiki_title: Features/UCS Integration
-wiki_revision_count: 10
-wiki_last_updated: 2015-05-20
 feature_name: Cisco UCS integration
 feature_modules: engine,network,vdsm
 feature_status: Partially Released

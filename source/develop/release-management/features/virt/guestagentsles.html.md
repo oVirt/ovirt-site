@@ -2,10 +2,6 @@
 title: GuestAgentSLES
 category: feature
 authors: vfeenstr
-wiki_category: Feature
-wiki_title: Feature/GuestAgentSLES
-wiki_revision_count: 4
-wiki_last_updated: 2014-04-15
 feature_name: oVirt Guest Agent on SLE(S)
 feature_modules: ovirt-guest-agent
 feature_status: Done

@@ -2,10 +2,6 @@
 title: Infra Bash style guide
 category: infra
 authors: dcaroest
-wiki_category: Infrastructure
-wiki_title: Infra Bash style guide
-wiki_revision_count: 22
-wiki_last_updated: 2015-07-16
 ---
 
 **NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>

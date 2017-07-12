@@ -2,10 +2,6 @@
 title: TUIredesign
 category: feature
 authors: fabiand
-wiki_category: Feature
-wiki_title: Features/TUIredesign
-wiki_revision_count: 3
-wiki_last_updated: 2012-10-25
 ---
 
 # TUI redesign

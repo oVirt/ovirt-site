@@ -2,10 +2,6 @@
 title: oVirtSchedulerAPI
 category: api
 authors: doron, gchaplik, lhornyak, nslomian
-wiki_category: Feature
-wiki_title: Features/oVirtSchedulerAPI
-wiki_revision_count: 57
-wiki_last_updated: 2014-06-30
 ---
 
 # oVirt Scheduler API

@@ -2,10 +2,6 @@
 title: Intial Run Vm tab
 category: feature
 authors: jbiddle, roy
-wiki_category: Feature
-wiki_title: Features/Intial Run Vm tab
-wiki_revision_count: 5
-wiki_last_updated: 2013-07-09
 ---
 
 # Intial Run Vm tab

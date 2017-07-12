@@ -2,9 +2,6 @@
 title: VDSM scalability sampling
 category: vdsm
 authors: fromani
-wiki_title: Features/VDSM scalability sampling
-wiki_revision_count: 3
-wiki_last_updated: 2014-09-08
 ---
 
 # Improve VDSM scalability: sampling

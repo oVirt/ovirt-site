@@ -2,10 +2,6 @@
 title: One certificate-key pair per NIC
 category: feature
 authors: djasa
-wiki_category: Feature
-wiki_title: Features/One certificate-key pair per NIC
-wiki_revision_count: 2
-wiki_last_updated: 2012-06-25
 ---
 
 # One certificate-key pair per NIC

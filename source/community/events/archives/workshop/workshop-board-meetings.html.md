@@ -2,9 +2,6 @@
 title: Workshop Board Meetings
 category: event/workshop
 authors: abaron, cctrieloff, chrisw, iheim, jon benedict, lh, lpeer, pmyers, sandrobonazzola
-wiki_title: Workshop Board Meetings
-wiki_revision_count: 27
-wiki_last_updated: 2017-06-23
 ---
 
 # Workshop Board Meetings

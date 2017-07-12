@@ -2,10 +2,6 @@
 title: LowerResolutionSupport
 category: feature
 authors: awels, ecohen
-wiki_category: Feature
-wiki_title: Features/Design/LowerResolutionSupport
-wiki_revision_count: 8
-wiki_last_updated: 2014-04-30
 feature_name: Low Resolution Support
 feature_modules: webadmin,userportal
 feature_status: Released

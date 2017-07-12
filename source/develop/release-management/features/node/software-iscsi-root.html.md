@@ -2,10 +2,6 @@
 title: Node software iscsi root
 category: node
 authors: jboggs
-wiki_category: Feature
-wiki_title: Features/Node software iscsi root
-wiki_revision_count: 1
-wiki_last_updated: 2013-04-12
 ---
 
 # Node software iscsi root

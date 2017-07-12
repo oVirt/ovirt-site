@@ -2,10 +2,6 @@
 title: NFSv4
 category: feature
 authors: derez, ecohen, ekohl, sandrobonazzola, smizrahi
-wiki_category: Feature|NFSv4
-wiki_title: Features/NFSv4
-wiki_revision_count: 5
-wiki_last_updated: 2014-12-15
 feature_name: NFSv4
 feature_modules: engine/vdsm
 feature_status: Released

@@ -2,10 +2,6 @@
 title: oVirt Image I/O
 category: feature
 authors: aaviram, gpadgett
-wiki_category: Feature
-wiki_title: Features/Image I/O
-wiki_revision_count: 9
-wiki_last_updated: 2016-09-08
 feature_name: Image I/O
 feature_modules: Engine, Storage, VDSM, ovirt-imageio
 feature_status: Partially implemented.

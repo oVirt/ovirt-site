@@ -2,10 +2,6 @@
 title: Bridgeless Networking
 category: feature
 authors: fabiand
-wiki_category: Feature
-wiki_title: Features/Node/Bridgeless Networking
-wiki_revision_count: 2
-wiki_last_updated: 2013-06-06
 ---
 
 # Bridgeless Node Networking

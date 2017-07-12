@@ -2,9 +2,6 @@
 title: Rethinking the Architecture breakout - oVirt workshop November 2011
 category: event/workshop
 authors: dannfrazier
-wiki_title: Rethinking the Architecture breakout - oVirt workshop November 2011
-wiki_revision_count: 1
-wiki_last_updated: 2011-11-05
 ---
 
 # Rethinking the Architecture breakout - oVirt workshop November 2011

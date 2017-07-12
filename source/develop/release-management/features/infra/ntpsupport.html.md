@@ -2,10 +2,6 @@
 title: NtpSupport
 category: feature
 authors: acathrow, bazulay, ekohl, rmiddle
-wiki_category: Feature
-wiki_title: Features/NtpSupport
-wiki_revision_count: 17
-wiki_last_updated: 2012-07-12
 ---
 
 # Ntp Support

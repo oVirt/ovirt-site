@@ -2,9 +2,6 @@
 title: DomainInfrastructure
 category: infra
 authors: ovedo, yair zaslavsky
-wiki_title: DomainInfrastructure
-wiki_revision_count: 8
-wiki_last_updated: 2012-12-02
 ---
 
 # Domain Infrastructure in the oVirt Engine

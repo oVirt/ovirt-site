@@ -2,10 +2,6 @@
 title: Even VM Count Distribution
 category: feature
 authors: doron, jmoskovc
-wiki_category: Feature
-wiki_title: Features/Even VM Count Distribution
-wiki_revision_count: 31
-wiki_last_updated: 2014-01-26
 ---
 
 # Even VM distribution based on VM count per host

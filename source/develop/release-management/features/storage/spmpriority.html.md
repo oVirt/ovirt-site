@@ -2,9 +2,6 @@
 title: SPM Priority
 category: feature
 authors: derez, msalem, ovedo
-wiki_title: Features/SPMPriority
-wiki_revision_count: 16
-wiki_last_updated: 2014-07-13
 feature_name: SPM Priority
 feature_modules: engine
 feature_status: Released in oVirt 3.1

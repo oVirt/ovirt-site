@@ -1,9 +1,6 @@
 ---
 title: Sonar with ovirt
 authors: lhornyak
-wiki_title: Sonar with ovirt
-wiki_revision_count: 5
-wiki_last_updated: 2012-07-03
 ---
 
 <!-- TODO: Content review -->

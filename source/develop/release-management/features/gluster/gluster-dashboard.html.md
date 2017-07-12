@@ -1,9 +1,6 @@
 ---
 title: Gluster Dashboard
 authors: rnahcimu
-wiki_title: Features/Gluster Dashboard
-wiki_revision_count: 17
-wiki_last_updated: 2014-10-17
 feature_name: Gluster Dashboard
 feature_modules: UI PLugin
 feature_status: In Progress

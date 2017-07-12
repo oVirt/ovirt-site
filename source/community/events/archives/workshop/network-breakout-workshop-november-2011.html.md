@@ -2,10 +2,6 @@
 title: Network breakout - oVirt workshop November 2011
 category: event/workshop
 authors: adrian15, quaid
-wiki_category: Workshop November 2011
-wiki_title: Network breakout - oVirt workshop November 2011
-wiki_revision_count: 3
-wiki_last_updated: 2013-01-03
 ---
 
 # Network breakout - oVirt workshop November 2011

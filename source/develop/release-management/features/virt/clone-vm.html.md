@@ -2,10 +2,6 @@
 title: Clone VM
 category: feature
 authors: tjelinek
-wiki_category: Feature
-wiki_title: Features/Clone VM
-wiki_revision_count: 8
-wiki_last_updated: 2015-10-08
 ---
 
 # Clone VM

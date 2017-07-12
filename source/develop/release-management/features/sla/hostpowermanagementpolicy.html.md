@@ -2,10 +2,6 @@
 title: HostPowerManagementPolicy
 category: feature
 authors: msivak
-wiki_category: Feature
-wiki_title: Features/HostPowerManagementPolicy
-wiki_revision_count: 5
-wiki_last_updated: 2013-12-19
 ---
 
 # Host Power Management Policy

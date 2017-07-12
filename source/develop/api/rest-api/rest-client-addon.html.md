@@ -1,9 +1,6 @@
 ---
 title: REST Client Addon
 authors: lpeer, moti
-wiki_title: REST Client Addon
-wiki_revision_count: 6
-wiki_last_updated: 2012-05-28
 ---
 
 # REST Client Addon

@@ -2,10 +2,6 @@
 title: Hosted Engine indicate hosted engine host in Web UI
 category: feature
 authors: pcbailey
-wiki_category: Feature|Hosted Engine indicate hosted engine host in Web UI
-wiki_title: Features/Hosted Engine indicate hosted engine host in Web UI
-wiki_revision_count: 0
-wiki_last_updated: 2016-04-19
 feature_name: 'Hosted Engine: indicate hosted engine host in Web UI'
 feature_modules: all
 feature_status: NEW

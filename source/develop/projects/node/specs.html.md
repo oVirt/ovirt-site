@@ -2,10 +2,6 @@
 title: Specs
 category: node
 authors: fabiand
-wiki_category: Node
-wiki_title: Node/Specs
-wiki_revision_count: 13
-wiki_last_updated: 2015-01-21
 ---
 
 # Specs

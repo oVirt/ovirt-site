@@ -2,10 +2,6 @@
 title: Java-sdk
 category: sdk
 authors: adahms, michael pasternak, moti
-wiki_category: SDK
-wiki_title: Java-sdk
-wiki_revision_count: 73
-wiki_last_updated: 2014-07-24
 ---
 
 # Java-sdk

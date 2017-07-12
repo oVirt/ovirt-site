@@ -1,9 +1,6 @@
 ---
 title: oVirtTestDay3.0
 authors: mgoldboi
-wiki_title: Testing/OvirtTestDay3.0
-wiki_revision_count: 2
-wiki_last_updated: 2013-01-28
 ---
 
 # oVirt Test Day 3.0

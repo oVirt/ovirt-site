@@ -2,12 +2,6 @@
 title: UIPlugins
 category: feature
 authors: sahina, vszocs
-wiki_category: Feature
-wiki_title: Features/UIPlugins
-wiki_revision_count: 55
-wiki_last_updated: 2015-05-13
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
 ---
 
 # UI Plugins

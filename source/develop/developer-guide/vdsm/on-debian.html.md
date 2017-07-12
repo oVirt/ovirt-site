@@ -2,9 +2,6 @@
 title: VDSM on Debian
 category: vdsm
 authors: stirabos
-wiki_title: VDSM on Debian
-wiki_revision_count: 16
-wiki_last_updated: 2015-06-26
 ---
 
 The aim is this page is tracking the progress to have oVirt managing a Debian based host for virtualizaion purposes. oVirt require to have an agent on each host, the agent is called VDSM so the first step is to have VDSM running on Debian.

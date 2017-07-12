@@ -1,9 +1,6 @@
 ---
 title: Press plan
 authors: dneary, jbrooks
-wiki_title: Press plan
-wiki_revision_count: 3
-wiki_last_updated: 2013-08-29
 ---
 
 # Press Contacts

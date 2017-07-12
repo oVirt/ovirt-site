@@ -1,9 +1,6 @@
 ---
 title: Sdk-changelog
 authors: michael pasternak
-wiki_title: Sdk-changelog
-wiki_revision_count: 5
-wiki_last_updated: 2012-11-21
 ---
 
 <!-- TODO: Content review -->

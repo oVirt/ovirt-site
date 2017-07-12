@@ -2,10 +2,6 @@
 title: Hosted-engine migration to 4.0
 category: feature
 authors: stirabos
-wiki_category: Hosted-engine migration to 4.0
-wiki_title: Hosted-engine migration to 4.0
-wiki_revision_count: 1
-wiki_last_updated: 2016-08-05
 feature_name: Hosted-engine migration to 4.0
 feature_modules: ovirt-hosted-engine-setup
 feature_status: On QA

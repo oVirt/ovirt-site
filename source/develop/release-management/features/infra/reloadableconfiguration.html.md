@@ -2,11 +2,6 @@
 title: ReloadableConfiguration
 category: template
 authors: lpeer, msalem
-wiki_category: Template
-wiki_title: Features/ReloadableConfiguration
-wiki_revision_count: 37
-wiki_last_updated: 2012-06-28
-wiki_warnings: list-item?
 ---
 
 # Reloadable Configuration

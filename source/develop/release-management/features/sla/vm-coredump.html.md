@@ -2,10 +2,6 @@
 title: vm coredump
 category: feature
 authors: doron, sfeng
-wiki_category: Feature
-wiki_title: Features/vm coredump
-wiki_revision_count: 2
-wiki_last_updated: 2013-02-21
 ---
 
 # vm coredump

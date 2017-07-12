@@ -1,9 +1,6 @@
 ---
 title: Engine database performance monitoring
 authors: lspevak
-wiki_title: Engine database performance monitoring
-wiki_revision_count: 2
-wiki_last_updated: 2013-02-18
 ---
 
 # Engine database performance monitoring

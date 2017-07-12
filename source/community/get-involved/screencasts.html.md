@@ -1,9 +1,6 @@
 ---
 title: Screencasts
 authors: derez, dneary, jbrooks, msalem
-wiki_title: Screencasts
-wiki_revision_count: 7
-wiki_last_updated: 2012-09-30
 ---
 
 <!-- TODO: Content review -->

@@ -2,10 +2,6 @@
 title: Vnic Profiles
 category: sla
 authors: moti, ofri, ovedo
-wiki_category: SLA
-wiki_title: Features/Vnic Profiles
-wiki_revision_count: 37
-wiki_last_updated: 2013-11-14
 ---
 
 # Vnic Profiles

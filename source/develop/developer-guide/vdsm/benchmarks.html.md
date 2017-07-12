@@ -2,9 +2,6 @@
 title: VDSM benchmarks
 category: vdsm
 authors: fromani
-wiki_title: VDSM benchmarks
-wiki_revision_count: 3
-wiki_last_updated: 2014-03-17
 ---
 
 # VDSM benchmarks

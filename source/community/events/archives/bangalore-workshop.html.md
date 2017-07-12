@@ -2,10 +2,6 @@
 title: Bangalore oVirt Workshop
 category: event/workshop
 authors: dneary, dpkshetty, jrankin, kmayilsa
-wiki_category: Workshops
-wiki_title: Bangalore oVirt Workshop
-wiki_revision_count: 10
-wiki_last_updated: 2012-11-21
 ---
 
 # Bangalore oVirt Workshop

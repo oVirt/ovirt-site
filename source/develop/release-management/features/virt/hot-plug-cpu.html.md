@@ -2,10 +2,6 @@
 title: Hot plug cpu
 category: feature
 authors: adahms, roy, sven
-wiki_category: Feature
-wiki_title: Hot plug cpu
-wiki_revision_count: 33
-wiki_last_updated: 2015-02-04
 ---
 
 # Hot plug cpu

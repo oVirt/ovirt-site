@@ -2,10 +2,6 @@
 title: Nagios Integration
 category: feature
 authors: kmayilsa, nthomas, rnahcimu, sahina
-wiki_category: Feature
-wiki_title: Features/Nagios Integration
-wiki_revision_count: 76
-wiki_last_updated: 2014-06-27
 ---
 
 # Nagios Integration

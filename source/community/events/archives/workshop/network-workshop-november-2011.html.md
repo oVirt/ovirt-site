@@ -2,10 +2,6 @@
 title: Network - oVirt workshop November 2011
 category: event/workshop
 authors: dannfrazier, quaid
-wiki_category: Workshop November 2011
-wiki_title: Network - oVirt workshop November 2011
-wiki_revision_count: 2
-wiki_last_updated: 2011-11-03
 ---
 
 # Network - oVirt workshop November 2011

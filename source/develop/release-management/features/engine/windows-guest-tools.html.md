@@ -2,14 +2,9 @@
 title: oVirt Windows Guest Tools
 category: feature
 authors: lveyde, mpavlik, sandrobonazzola
-wiki_category: Feature|oVirt Windows Guest Tools
-wiki_title: Features/oVirt Windows Guest Tools
-wiki_revision_count: 21
-wiki_last_updated: 2015-01-20
 feature_name: oVirt Windows Guest Tools ISO
 feature_modules: engine
 feature_status: Released
-wiki_warnings: list-item?
 ---
 
 # oVirt Windows Guest Tools ISO

@@ -2,10 +2,6 @@
 title: vdsm-client
 category: vdsm
 authors: igoihman
-wiki_category: Vdsm
-wiki_title: Vdsm Client
-wiki_revision_count: 1
-wiki_last_updated: 2017-02-01
 ---
 
 # VDSM Client

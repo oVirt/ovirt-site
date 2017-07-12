@@ -1,9 +1,6 @@
 ---
 title: Guest agent proposals
 authors: abaron, mdroth
-wiki_title: Guest agent proposals
-wiki_revision_count: 5
-wiki_last_updated: 2011-11-17
 ---
 
 <!-- TODO: Content review -->

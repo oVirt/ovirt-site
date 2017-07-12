@@ -2,10 +2,6 @@
 title: SPICERelatedFeatures
 category: feature
 authors: acathrow, danken, ecohen, ovedo
-wiki_category: Feature
-wiki_title: Features/SPICERelatedFeatures
-wiki_revision_count: 43
-wiki_last_updated: 2012-06-04
 ---
 
 # SPICE related features

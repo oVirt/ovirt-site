@@ -2,10 +2,6 @@
 title: Nimbus Concept Case Study
 category: community
 authors: bproffitt
-wiki_category: Community
-wiki_title: Nimbus Concept Case Study
-wiki_revision_count: 3
-wiki_last_updated: 2014-09-17
 ---
 
 <div class="row">

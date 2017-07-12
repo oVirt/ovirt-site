@@ -2,10 +2,6 @@
 title: Splash
 category: feature
 authors: ecohen
-wiki_category: Feature
-wiki_title: Features/BackupAwareness/UI/Splash
-wiki_revision_count: 6
-wiki_last_updated: 2015-06-03
 feature_name: Backup Awareness UI - Splash Screen
 feature_modules: engine
 feature_status: Planning

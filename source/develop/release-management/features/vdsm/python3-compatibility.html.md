@@ -2,10 +2,6 @@
 title: Vdsm python3 compatibility
 category: vdsm
 authors: apuimedo, danken, vfeenstr
-wiki_category: Feature
-wiki_title: Vdsm python3 compatibility
-wiki_revision_count: 10
-wiki_last_updated: 2014-03-13
 ---
 
 # Vdsm python3 compatibility

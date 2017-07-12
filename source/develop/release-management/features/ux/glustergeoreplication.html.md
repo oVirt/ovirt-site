@@ -2,10 +2,6 @@
 title: GlusterGeoReplication
 category: feature
 authors: kmayilsa, sahina, sandrobonazzola, shtripat
-wiki_category: Feature|Gluster Geo Replication
-wiki_title: Features/Design/GlusterGeoReplication
-wiki_revision_count: 16
-wiki_last_updated: 2015-10-14
 ---
 
 # Gluster Geo Replication

@@ -2,10 +2,6 @@
 title: RCC Case study
 category: community
 authors: jmarks
-wiki_category: Community
-wiki_title: Alter Way case study
-wiki_revision_count: 11
-wiki_last_updated: 2017-05-16
 ---
 
 <div class="row">

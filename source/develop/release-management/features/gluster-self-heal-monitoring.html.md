@@ -2,10 +2,6 @@
 title: Gluster Self-Heal Monitoring
 category: feature
 authors: rnachimu
-wiki_category: Feature
-wiki_title: Features/Gluster Self-Heal Monitoring
-wiki_revision_count: 2
-wiki_last_updated: 2016-06-14
 feature_name: Gluster Self-Heal Monitoring
 feature_modules: Gluster
 feature_status: WIP

@@ -2,10 +2,6 @@
 title: Sanlock Fencing
 category: feature
 authors: nsoffer, vered, ybronhei
-wiki_category: Feature
-wiki_title: Features/Sanlock Fencing
-wiki_revision_count: 22
-wiki_last_updated: 2014-02-26
 feature_name: Sanlock Fencing
 feature_modules: engine,vdsm
 feature_status: Design

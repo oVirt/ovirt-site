@@ -2,10 +2,6 @@
 title: ha-timeouts
 category: sla
 authors: abonas, doron
-wiki_category: SLA
-wiki_title: Sla/ha-timeouts
-wiki_revision_count: 5
-wiki_last_updated: 2013-10-02
 ---
 
 # ha-timeouts

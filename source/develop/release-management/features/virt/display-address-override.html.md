@@ -2,10 +2,6 @@
 title: Display Address Override
 category: feature
 authors: tjelinek
-wiki_category: Feature
-wiki_title: Features/Display Address Override
-wiki_revision_count: 7
-wiki_last_updated: 2013-01-24
 ---
 
 # Display Address Override

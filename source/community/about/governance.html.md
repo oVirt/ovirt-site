@@ -2,10 +2,6 @@
 title: Governance
 category: community
 authors: bproffitt, dneary, metao
-wiki_category: Community
-wiki_title: Governance
-wiki_revision_count: 10
-wiki_last_updated: 2015-01-21
 ---
 
 # Governance

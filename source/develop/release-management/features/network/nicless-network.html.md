@@ -2,10 +2,6 @@
 title: Nicless Network
 category: feature
 authors: danken
-wiki_category: Feature
-wiki_title: Features/Nicless Network
-wiki_revision_count: 8
-wiki_last_updated: 2014-05-01
 feature_name: Nic-less Network
 feature_modules: engine,api
 feature_status: Dormant

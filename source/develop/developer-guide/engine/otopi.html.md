@@ -1,9 +1,6 @@
 ---
 title: Otopi
 authors: didi
-wiki_title: Otopi
-wiki_revision_count: 1
-wiki_last_updated: 2013-09-01
 ---
 
 # Otopi

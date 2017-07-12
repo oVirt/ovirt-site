@@ -1,9 +1,6 @@
 ---
 title: sriov
 authors: dyasny, knesenko
-wiki_title: VDSM-Hooks/sriov
-wiki_revision_count: 3
-wiki_last_updated: 2014-01-14
 ---
 
 # sriov

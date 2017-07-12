@@ -2,10 +2,6 @@
 title: CPU thread handling
 category: feature
 authors: dneary, doron, gpadgett
-wiki_category: Feature
-wiki_title: Features/CPU thread handling
-wiki_revision_count: 25
-wiki_last_updated: 2012-12-21
 ---
 
 # CPU Thread Handling

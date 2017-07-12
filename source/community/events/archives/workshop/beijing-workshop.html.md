@@ -2,10 +2,6 @@
 title: Beijing oVirt Workshop
 category: event/workshop
 authors: dneary
-wiki_category: News
-wiki_title: News/Beijing oVirt Workshop
-wiki_revision_count: 1
-wiki_last_updated: 2012-11-28
 ---
 
 # Beijing oVirt Workshop

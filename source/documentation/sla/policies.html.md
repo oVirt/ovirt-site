@@ -2,10 +2,6 @@
 title: policies
 category: sla
 authors: doron, lhornyak
-wiki_category: SLA
-wiki_title: Sla/policies
-wiki_revision_count: 10
-wiki_last_updated: 2012-12-04
 ---
 
 # SLA: policies

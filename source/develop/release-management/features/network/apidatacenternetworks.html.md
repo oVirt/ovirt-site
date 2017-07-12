@@ -2,10 +2,6 @@
 title: ApiDataCenterNetworks
 category: api
 authors: rnori
-wiki_category: Feature
-wiki_title: Feature/ApiDataCenterNetworks
-wiki_revision_count: 1
-wiki_last_updated: 2014-01-20
 feature_name: Api Data Center Networks
 feature_modules: engine,api
 feature_status: ON_QA

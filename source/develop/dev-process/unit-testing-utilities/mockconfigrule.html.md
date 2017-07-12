@@ -2,10 +2,6 @@
 title: MockConfigRule
 category: unit-testing-utilities
 authors: amureini
-wiki_category: Unit Testing Utilities
-wiki_title: MockConfigRule
-wiki_revision_count: 2
-wiki_last_updated: 2012-05-16
 ---
 
 # Mock Config Rule

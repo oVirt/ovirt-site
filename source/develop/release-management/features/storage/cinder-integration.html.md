@@ -2,10 +2,6 @@
 title: Cinder Integration
 category: feature
 authors: derez, sandrobonazzola
-wiki_category: Feature|Cinder_Integration
-wiki_title: Features/Cinder Integration
-wiki_revision_count: 71
-wiki_last_updated: 2015-10-27
 feature_name: Cinder Integration
 feature_modules: engine/vdsm
 feature_status: Released in oVirt 3.6

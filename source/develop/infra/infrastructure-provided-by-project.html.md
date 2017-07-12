@@ -2,10 +2,6 @@
 title: Infrastructure provided by oVirt project
 category: infra
 authors: dneary, ekohl, kroberts, quaid
-wiki_category: Infrastructure
-wiki_title: Infrastructure provided by oVirt project
-wiki_revision_count: 5
-wiki_last_updated: 2012-12-11
 ---
 
 # Infrastructure provided by oVirt project

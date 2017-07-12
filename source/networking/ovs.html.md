@@ -2,10 +2,6 @@
 title: ovs
 category: networking
 authors: phoracek
-wiki_category: Networking
-wiki_title: VDSM-Hooks/ovs
-wiki_revision_count: 5
-wiki_last_updated: 2016-01-14
 ---
 
 # ovs

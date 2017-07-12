@@ -2,10 +2,6 @@
 title: Alter Way case study
 category: community
 authors: dneary
-wiki_category: Community
-wiki_title: Alter Way case study
-wiki_revision_count: 11
-wiki_last_updated: 2013-09-09
 ---
 
 <div class="row">

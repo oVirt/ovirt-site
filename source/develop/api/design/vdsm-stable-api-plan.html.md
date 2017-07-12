@@ -2,10 +2,6 @@
 title: VDSM Stable API Plan
 category: api
 authors: danken, iheim, smizrahi
-wiki_category: Vdsm
-wiki_title: VDSM Stable API Plan
-wiki_revision_count: 10
-wiki_last_updated: 2012-06-21
 ---
 
 <!-- TODO: Content review -->

@@ -1,9 +1,6 @@
 ---
 title: Networks
 authors: mkolesni
-wiki_title: Networks
-wiki_revision_count: 6
-wiki_last_updated: 2013-11-28
 ---
 
 <!-- TODO: Content review -->

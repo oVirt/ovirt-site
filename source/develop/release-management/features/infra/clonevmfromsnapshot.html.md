@@ -2,10 +2,6 @@
 title: CloneVmFromSnapshot
 category: feature
 authors: yair zaslavsky
-wiki_category: Feature
-wiki_title: Features/CloneVmFromSnapshot
-wiki_revision_count: 30
-wiki_last_updated: 2012-04-01
 ---
 
 # Clone VM from snapshot

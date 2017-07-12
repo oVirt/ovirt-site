@@ -2,10 +2,6 @@
 title: cpu-pinning
 category: sla
 authors: doron, ecohen, lhornyak
-wiki_category: SLA
-wiki_title: Features/Design/cpu-pinning
-wiki_revision_count: 10
-wiki_last_updated: 2012-10-30
 ---
 
 # cpu-pinning

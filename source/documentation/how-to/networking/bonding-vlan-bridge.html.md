@@ -1,9 +1,6 @@
 ---
 title: Bonding VLAN Bridge
 authors: danken, karli.sjoberg
-wiki_title: Bonding VLAN Bridge
-wiki_revision_count: 3
-wiki_last_updated: 2014-01-23
 ---
 
 # Bonding VLAN Bridge

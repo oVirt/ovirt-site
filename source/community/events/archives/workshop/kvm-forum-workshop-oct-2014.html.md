@@ -2,10 +2,6 @@
 title: KVM Forum Workshop Oct 2014
 category: event/workshop
 authors: bproffitt
-wiki_category: Events
-wiki_title: KVM Forum Workshop Oct 2014
-wiki_revision_count: 14
-wiki_last_updated: 2014-10-23
 ---
 
 # KVM Forum Workshop Oct 2014

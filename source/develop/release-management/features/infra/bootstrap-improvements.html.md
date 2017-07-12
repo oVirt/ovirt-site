@@ -2,10 +2,6 @@
 title: Bootstrap Improvements
 category: feature
 authors: alonbl
-wiki_category: Feature
-wiki_title: Features/Bootstrap Improvements
-wiki_revision_count: 6
-wiki_last_updated: 2014-07-01
 ---
 
 # Bootstrap Improvements

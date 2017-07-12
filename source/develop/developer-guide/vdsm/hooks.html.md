@@ -2,9 +2,6 @@
 title: VDSM-Hooks
 category: vdsm
 authors: dyasny, ovedo, sandrobonazzola
-wiki_title: VDSM-Hooks
-wiki_revision_count: 6
-wiki_last_updated: 2014-07-11
 ---
 
 # VDSM-Hooks

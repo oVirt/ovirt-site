@@ -1,9 +1,6 @@
 ---
 title: Bugzilla rework
 authors: ydary
-wiki_title: Bugzilla rework
-wiki_revision_count: 5
-wiki_last_updated: 2015-09-09
 ---
 
 # Bugzilla rework

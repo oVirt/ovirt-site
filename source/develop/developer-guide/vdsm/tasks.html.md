@@ -2,9 +2,6 @@
 title: Vdsm tasks
 category: vdsm
 authors: ybronhei
-wiki_title: Vdsm tasks
-wiki_revision_count: 3
-wiki_last_updated: 2013-03-04
 ---
 
 # Vdsm tasks

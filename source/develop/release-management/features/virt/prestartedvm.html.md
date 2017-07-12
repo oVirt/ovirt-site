@@ -2,11 +2,6 @@
 title: PrestartedVm
 category: template
 authors: msalem, ovedo, tdosek
-wiki_category: Template
-wiki_title: Features/PrestartedVm
-wiki_revision_count: 20
-wiki_last_updated: 2012-04-17
-wiki_warnings: list-item?
 ---
 
 # Prestarted Vm

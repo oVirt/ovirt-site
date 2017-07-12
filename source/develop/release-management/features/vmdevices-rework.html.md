@@ -1,9 +1,6 @@
 ---
 title: VmDevices rework
 authors: danken, mpolednik
-wiki_title: Feature/VmDevices rework
-wiki_revision_count: 22
-wiki_last_updated: 2015-05-04
 ---
 
 # VmDevices rework

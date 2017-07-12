@@ -2,11 +2,6 @@
 title: Quota
 category: sla
 authors: doron, gchaplik, jumper45, lpeer, mlipchuk, ovedo, sandrobonazzola
-wiki_category: SLA
-wiki_title: Features/Quota
-wiki_revision_count: 32
-wiki_last_updated: 2015-05-10
-wiki_warnings: list-item?
 ---
 
 # Quota

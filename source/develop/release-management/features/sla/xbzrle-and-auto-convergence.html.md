@@ -1,9 +1,6 @@
 ---
 title: XBZRLE and Auto-Convergence
 authors: mbetak
-wiki_title: Features/XBZRLE and Auto-Convergence
-wiki_revision_count: 1
-wiki_last_updated: 2014-10-20
 ---
 
 # XBZRLE and Auto-Convergence

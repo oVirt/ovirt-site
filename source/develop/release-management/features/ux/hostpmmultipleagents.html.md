@@ -2,10 +2,6 @@
 title: HostPMMultipleAgents
 category: feature
 authors: emesika
-wiki_category: Feature
-wiki_title: Features/HostPMMultipleAgents
-wiki_revision_count: 7
-wiki_last_updated: 2012-11-16
 ---
 
 # Host PM Multiple Agents

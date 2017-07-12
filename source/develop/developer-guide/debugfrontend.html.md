@@ -1,9 +1,6 @@
 ---
 title: DebugFrontend
 authors: abonas, fkobzik, gshereme, lhornyak, tjelinek, vszocs, ybronhei
-wiki_title: DebugFrontend
-wiki_revision_count: 23
-wiki_last_updated: 2014-09-16
 ---
 
 # Debugging Frontend Applications

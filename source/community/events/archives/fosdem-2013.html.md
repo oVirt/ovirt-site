@@ -2,10 +2,6 @@
 title: FOSDEM 2013
 category: events
 authors: dneary
-wiki_category: Events
-wiki_title: FOSDEM 2013
-wiki_revision_count: 1
-wiki_last_updated: 2013-05-03
 ---
 
 # oVirt at FOSDEM 2013

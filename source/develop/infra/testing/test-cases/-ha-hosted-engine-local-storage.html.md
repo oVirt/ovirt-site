@@ -2,10 +2,6 @@
 title: TestCase HA Hosted Engine Local Storage
 category: testcase
 authors: zordrak
-wiki_category: TestCase
-wiki_title: QA:TestCase HA Hosted Engine Local Storage
-wiki_revision_count: 1
-wiki_last_updated: 2014-09-19
 ---
 
 # TestCase HA Hosted Engine Local Storage

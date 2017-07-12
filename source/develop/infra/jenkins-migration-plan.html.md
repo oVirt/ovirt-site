@@ -2,10 +2,6 @@
 title: Jenkins-Migration-Plan
 category: infra
 authors: eedri, ekohl
-wiki_category: Infrastructure
-wiki_title: Jenkins-Migration-Plan
-wiki_revision_count: 10
-wiki_last_updated: 2013-05-06
 ---
 
 # Jenkins-Migration-Plan

@@ -1,11 +1,6 @@
 ---
 title: Users and Providers
 authors: blafuente, bproffitt
-wiki_title: Users and Providers
-wiki_revision_count: 18
-wiki_last_updated: 2015-11-12
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
 page_classes: partner-logos
 ---
 

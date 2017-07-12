@@ -2,10 +2,6 @@
 title: RemoteDB
 category: feature
 authors: alourie
-wiki_category: Feature
-wiki_title: Features/RemoteDB
-wiki_revision_count: 6
-wiki_last_updated: 2012-05-08
 ---
 
 # Remote DB

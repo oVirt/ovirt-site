@@ -1,9 +1,6 @@
 ---
 title: oVirt 3.1 to 3.2 upgrade
 authors: alourie
-wiki_title: OVirt 3.1 to 3.2 upgrade
-wiki_revision_count: 2
-wiki_last_updated: 2013-06-23
 ---
 
 # oVirt 3.1 to 3.2 upgrade

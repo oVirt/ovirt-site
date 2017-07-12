@@ -1,9 +1,6 @@
 ---
 title: virt-sysprep
 authors: smelamud
-wiki_title: Features/virt-sysprep
-wiki_revision_count: 19
-wiki_last_updated: 2017-04-04
 feature_name: Sealing a VM Template
 feature_modules: engine,vdsm
 feature_status: Released

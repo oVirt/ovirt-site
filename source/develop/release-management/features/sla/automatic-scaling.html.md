@@ -2,10 +2,6 @@
 title: Automatic scaling
 category: feature
 authors: didi, lhornyak
-wiki_category: Feature
-wiki_title: Features/Automatic scaling
-wiki_revision_count: 6
-wiki_last_updated: 2014-02-23
 ---
 
 The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).

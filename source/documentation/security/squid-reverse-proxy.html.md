@@ -1,9 +1,6 @@
 ---
 title: Squid Reverse Proxy
 authors: jhernand
-wiki_title: Squid Reverse Proxy
-wiki_revision_count: 2
-wiki_last_updated: 2014-09-15
 ---
 
 <!-- TODO: Content review -->

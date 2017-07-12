@@ -2,10 +2,6 @@
 title: Services Migration Plan
 category: infra
 authors: dcaroest, eedri
-wiki_category: Infrastructure
-wiki_title: Infra/Services Migration Plan
-wiki_revision_count: 24
-wiki_last_updated: 2014-11-20
 ---
 
 # Services Migration Plan

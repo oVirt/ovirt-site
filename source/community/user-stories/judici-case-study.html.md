@@ -2,10 +2,6 @@
 title: Judici Case Study
 category: community
 authors: bproffitt
-wiki_category: Community
-wiki_title: Judici Case Study
-wiki_revision_count: 2
-wiki_last_updated: 2014-06-19
 ---
 
 <div class="row">

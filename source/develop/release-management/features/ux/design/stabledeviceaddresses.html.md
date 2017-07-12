@@ -1,11 +1,6 @@
 ---
 title: StableDeviceAddresses
 authors: emesika, ilvovsky, shahar, ykaul
-wiki_title: Features/Design/StableDeviceAddresses
-wiki_revision_count: 62
-wiki_last_updated: 2012-03-14
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback, list-item?
 ---
 
 # Stable Device Addresses

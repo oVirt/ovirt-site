@@ -2,10 +2,6 @@
 title: Node Hosted Engine
 category: node
 authors: dougsland, fabiand, jboggs
-wiki_category: Feature
-wiki_title: Node Hosted Engine
-wiki_revision_count: 7
-wiki_last_updated: 2015-10-13
 feature_name: Node Hosted Engine
 feature_modules: node
 feature_status: Released

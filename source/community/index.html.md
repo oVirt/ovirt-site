@@ -1,9 +1,6 @@
 ---
 title: Community
 authors: bproffitt, dneary, knesenko, quaid, sandrobonazzola, theron
-wiki_title: Community
-wiki_revision_count: 25
-wiki_last_updated: 2015-03-02
 ---
 
 <!-- TODO: [Mikey] Fix this page after content structure is final -->

@@ -2,10 +2,6 @@
 title: Vdsm
 category: vdsm
 authors: abonas, danken, ekohl, quaid
-wiki_category: Project
-wiki_title: Category:Vdsm
-wiki_revision_count: 8
-wiki_last_updated: 2013-08-19
 ---
 
 # Vdsm

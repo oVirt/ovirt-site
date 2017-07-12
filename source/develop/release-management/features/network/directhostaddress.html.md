@@ -2,11 +2,6 @@
 title: DirectHostAddress
 category: feature
 authors: danken, moti, msalem
-wiki_category: Feature
-wiki_title: Features/DirectHostAddress
-wiki_revision_count: 12
-wiki_last_updated: 2013-03-07
-wiki_warnings: list-item?
 ---
 
 # Direct Host Address

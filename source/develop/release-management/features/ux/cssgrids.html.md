@@ -2,10 +2,6 @@
 title: CSSGrids
 category: feature
 authors: gshereme
-wiki_category: Feature
-wiki_title: Features/CSSGrids
-wiki_revision_count: 3
-wiki_last_updated: 2014-05-22
 feature_name: CSS Grids
 feature_modules: webadmin,userportal
 feature_status: Proposal

@@ -1,9 +1,6 @@
 ---
 title: oVirt 3.4 release notes bugs fixed
 authors: jbiddle
-wiki_title: Ovirt 3.4 release notes bugs fixed
-wiki_revision_count: 1
-wiki_last_updated: 2014-03-10
 ---
 
 # oVirt 3.4 release notes bugs fixed

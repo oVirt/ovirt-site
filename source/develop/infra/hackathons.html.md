@@ -2,10 +2,6 @@
 title: Hackathons
 category: infra
 authors: eedri
-wiki_category: Infrastructure
-wiki_title: Infra/Hackathons
-wiki_revision_count: 8
-wiki_last_updated: 2015-05-06
 ---
 
 # Hackathons

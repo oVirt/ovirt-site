@@ -2,9 +2,6 @@
 title: VDSM-Hooks Catalogue
 category: vdsm
 authors: dyasny
-wiki_title: VDSM-Hooks Catalogue
-wiki_revision_count: 2
-wiki_last_updated: 2012-09-06
 ---
 
 # VDSM-Hooks Catalogue

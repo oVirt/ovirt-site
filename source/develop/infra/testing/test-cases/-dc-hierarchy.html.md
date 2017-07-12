@@ -2,10 +2,6 @@
 title: TestCase DC hierarchy
 category: testcase
 authors: sandrobonazzola
-wiki_category: TestCase
-wiki_title: QA:TestCase DC hierarchy
-wiki_revision_count: 1
-wiki_last_updated: 2014-10-23
 ---
 
 # TestCase DC hierarchy

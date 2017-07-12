@@ -3,10 +3,6 @@ title: oVirt 3.5.3 Release Notes
 category: documentation
 layout: toc
 authors: alonbl, didi, sandrobonazzola
-wiki_category: Documentation
-wiki_title: OVirt 3.5.3 Release Notes
-wiki_revision_count: 23
-wiki_last_updated: 2015-09-02
 ---
 
 # oVirt 3.5.3 Release Notes

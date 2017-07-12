@@ -2,10 +2,6 @@
 title: host-mom-policy
 category: sla
 authors: aglitke
-wiki_category: SLA
-wiki_title: Sla/host-mom-policy
-wiki_revision_count: 3
-wiki_last_updated: 2012-09-06
 ---
 
 # host-mom-policy

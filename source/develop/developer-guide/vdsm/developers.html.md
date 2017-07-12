@@ -5,10 +5,6 @@ authors: abonas, adahms, amuller, amureini, apahim, apevec, danken, dougsland, e
   fromani, herrold, itzikb, lhornyak, mbetak, mlipchuk, moolit, moti, mpavlik, nsoffer,
   phoracek, quaid, sandrobonazzola, sgordon, smelamud, vered, vfeenstr, vitordelima,
   yanivbronhaim, ybronhei
-wiki_category: Vdsm
-wiki_title: Vdsm Developers
-wiki_revision_count: 176
-wiki_last_updated: 2015-08-26
 ---
 
 # Vdsm Developers

@@ -2,10 +2,6 @@
 title: Press about oVirt
 category: press
 authors: quaid
-wiki_category: Press
-wiki_title: Press about oVirt
-wiki_revision_count: 6
-wiki_last_updated: 2012-02-11
 ---
 
 # Press about oVirt

@@ -2,10 +2,6 @@
 title: How to commit oVirt DWH change
 category: howto
 authors: quaid, yaniv dary
-wiki_category: How to
-wiki_title: How to commit oVirt DWH change
-wiki_revision_count: 2
-wiki_last_updated: 2012-03-22
 ---
 
 <!-- TODO: Content review -->

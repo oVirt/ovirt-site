@@ -1,9 +1,6 @@
 ---
 title: Developers All In One
 authors: aglitke, amureini, smizrahi, ykaplan
-wiki_title: Developers All In One
-wiki_revision_count: 50
-wiki_last_updated: 2013-11-25
 ---
 
 # Developers All In One

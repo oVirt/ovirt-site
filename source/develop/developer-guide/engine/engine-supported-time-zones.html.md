@@ -1,9 +1,6 @@
 ---
 title: Engine supported Time Zones
 authors: mbetak
-wiki_title: Engine supported Time Zones
-wiki_revision_count: 2
-wiki_last_updated: 2014-03-26
 ---
 
 # Engine supported Time Zones

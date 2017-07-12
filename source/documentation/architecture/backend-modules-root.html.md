@@ -2,10 +2,6 @@
 title: Backend modules root
 category: architecture
 authors: amuller
-wiki_category: Architecture
-wiki_title: Backend modules root
-wiki_revision_count: 2
-wiki_last_updated: 2013-02-13
 ---
 
 # Backend modules root

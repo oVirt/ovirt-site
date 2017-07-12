@@ -1,9 +1,6 @@
 ---
 title: AddingGlusterSupportToOvirt
 authors: ekohl, ovedo
-wiki_title: AddingGlusterSupportToOvirt
-wiki_revision_count: 3
-wiki_last_updated: 2012-02-09
 ---
 
 <!-- TODO: Content review -->

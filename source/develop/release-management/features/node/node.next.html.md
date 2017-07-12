@@ -2,10 +2,6 @@
 title: Node.next
 category: node
 authors: fabiand
-wiki_category: Feature
-wiki_title: Features/Node.next
-wiki_revision_count: 1
-wiki_last_updated: 2015-02-09
 feature_name: Node.next
 feature_modules: engine,network,vdsm,node
 feature_status: New

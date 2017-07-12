@@ -2,10 +2,6 @@
 title: Registered attendees for November 2011 workshop
 category: event/workshop
 authors: quaid, sejeff
-wiki_category: Workshop November 2011
-wiki_title: Registered attendees for November 2011 workshop
-wiki_revision_count: 2
-wiki_last_updated: 2011-11-02
 ---
 
 # Registered attendees for November 2011 workshop

@@ -2,10 +2,6 @@
 title: oVirt 3.3 release announcement
 category: release
 authors: dneary, obasan
-wiki_category: Releases
-wiki_title: OVirt 3.3 release announcement
-wiki_revision_count: 11
-wiki_last_updated: 2013-09-17
 ---
 
 # oVirt 3.3 release announcement

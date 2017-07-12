@@ -2,10 +2,6 @@
 title: Phoenix Lab oVirt Hosts
 category: infra
 authors: dcaroest
-wiki_category: Infrastructure
-wiki_title: Infra/Phoenix Lab oVirt Hosts
-wiki_revision_count: 2
-wiki_last_updated: 2015-02-25
 ---
 
 # Phoenix Lab oVirt Hosts

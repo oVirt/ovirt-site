@@ -2,9 +2,6 @@
 title: External Providers API Examples
 category: api
 authors: jhernand
-wiki_title: External Providers API Examples
-wiki_revision_count: 1
-wiki_last_updated: 2015-01-28
 ---
 
 # External host providers

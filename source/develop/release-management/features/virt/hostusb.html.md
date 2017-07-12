@@ -1,9 +1,6 @@
 ---
 title: hostusb
 authors: dyasny, herrold
-wiki_title: VDSM-Hooks/hostusb
-wiki_revision_count: 3
-wiki_last_updated: 2014-05-13
 feature_name: Expose Host attached USB to a Node
 feature_modules: "[Node(s) of feature]"
 feature_status: Released

@@ -2,10 +2,6 @@
 title: NewLookAndFeelPatternFlyPhase1
 category: feature
 authors: gshereme
-wiki_category: Feature
-wiki_title: Features/NewLookAndFeelPatternFlyPhase1
-wiki_revision_count: 11
-wiki_last_updated: 2014-09-23
 feature_name: New Look and Feel based on PatternFly -- Phase 1
 feature_modules: webadmin,userportal
 feature_status: In Development

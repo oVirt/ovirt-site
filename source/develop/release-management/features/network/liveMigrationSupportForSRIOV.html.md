@@ -2,10 +2,6 @@
 title: LiveMigrationSupportForSRIOV
 category: feature
 authors: mmucha
-wiki_category: Feature
-wiki_title: Features/LiveMigrationSupportForSRIOV
-wiki_revision_count: 12
-wiki_last_updated: 2016-09-26
 feature_name: Live Migration Support For SRIOV
 feature_modules: Networking
 feature_status: Design

@@ -1,9 +1,6 @@
 ---
 title: engine-snmp
 authors: arthur.berezin, moolit, moti, pbenas
-wiki_title: Features/engine-snmp
-wiki_revision_count: 39
-wiki_last_updated: 2014-10-22
 ---
 
 # engine-snmp

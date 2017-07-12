@@ -2,10 +2,6 @@
 title: Contributing to the Node project
 category: node
 authors: fabiand, mburns, quaid, rbarry, sandrobonazzola
-wiki_category: Contributing
-wiki_title: Contributing to the Node project
-wiki_revision_count: 7
-wiki_last_updated: 2016-01-16
 ---
 # The oVirt Node team and project
 

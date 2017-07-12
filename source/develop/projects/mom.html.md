@@ -2,10 +2,6 @@
 title: MoM
 category: project
 authors: aglitke, doron, lhornyak
-wiki_category: Project
-wiki_title: MoM
-wiki_revision_count: 9
-wiki_last_updated: 2013-02-19
 ---
 
 # Mo M

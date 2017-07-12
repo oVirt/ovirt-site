@@ -1,9 +1,6 @@
 ---
 title: mom-balloon.policy
 authors: aglitke
-wiki_title: Sla/autoballooning-howto/mom-balloon.policy
-wiki_revision_count: 2
-wiki_last_updated: 2013-02-21
 ---
 
 # mom-balloon.policy

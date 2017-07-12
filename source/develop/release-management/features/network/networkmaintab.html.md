@@ -2,11 +2,6 @@
 title: NetworkMainTab
 category: feature
 authors: alkaplan, danken, lpeer, moti, msalem, ykaul
-wiki_category: Feature
-wiki_title: Feature/NetworkMainTab
-wiki_revision_count: 107
-wiki_last_updated: 2013-03-07
-wiki_warnings: list-item?
 ---
 
 # Network Main Tab

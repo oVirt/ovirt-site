@@ -2,10 +2,6 @@
 title: Node plugins
 category: node
 authors: apevec, iheim, jboggs, kmestery, mburns, pmyers
-wiki_category: Node
-wiki_title: Node plugins
-wiki_revision_count: 20
-wiki_last_updated: 2012-08-20
 ---
 
 # Node plugins

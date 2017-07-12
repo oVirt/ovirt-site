@@ -2,10 +2,6 @@
 title: Separate-DWH-Host
 category: feature
 authors: didi, sandrobonazzola, sradco
-wiki_category: Feature|Separate DWH Host
-wiki_title: Features/Separate-DWH-Host
-wiki_revision_count: 18
-wiki_last_updated: 2015-10-26
 feature_name: Separate DWH Host
 feature_modules: engine
 feature_status: Released

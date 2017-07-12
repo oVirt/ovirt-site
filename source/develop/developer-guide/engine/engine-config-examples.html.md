@@ -1,9 +1,6 @@
 ---
 title: Engine config examples
 authors: amuller, dougsland, omachace, tscofield
-wiki_title: Engine config examples
-wiki_revision_count: 14
-wiki_last_updated: 2015-11-16
 ---
 
 # Engine config examples

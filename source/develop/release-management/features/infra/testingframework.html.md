@@ -1,9 +1,6 @@
 ---
 title: TestingFramework
 authors: dkuznets, ybronhei
-wiki_title: Features/TestingFramework
-wiki_revision_count: 3
-wiki_last_updated: 2014-08-07
 ---
 
 # Testing Framework

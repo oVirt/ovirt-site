@@ -2,10 +2,6 @@
 title: Workshop November 2011 - Day Three
 category: event/workshop
 authors: quaid
-wiki_category: Workshop November 2011
-wiki_title: Workshop November 2011 - Day Three
-wiki_revision_count: 9
-wiki_last_updated: 2011-11-03
 ---
 
 # Workshop November 2011 - Day Three

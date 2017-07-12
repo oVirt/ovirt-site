@@ -1,9 +1,6 @@
 ---
 title: oVirt cluster level test
 authors: markwu
-wiki_title: Ovirt cluster level test
-wiki_revision_count: 2
-wiki_last_updated: 2013-03-25
 ---
 
 # oVirt cluster level test

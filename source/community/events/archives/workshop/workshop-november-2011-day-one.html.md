@@ -2,10 +2,6 @@
 title: Workshop November 2011 - Day One
 category: event/workshop
 authors: apevec, doron, iheim, quaid
-wiki_category: Workshop November 2011
-wiki_title: Workshop November 2011 - Day One
-wiki_revision_count: 11
-wiki_last_updated: 2011-11-28
 ---
 
 # Workshop November 2011 - Day One

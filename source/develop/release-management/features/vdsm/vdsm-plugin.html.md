@@ -2,10 +2,6 @@
 title: Node vdsm plugin
 category: node
 authors: mburns
-wiki_category: Feature
-wiki_title: Features/Node vdsm plugin
-wiki_revision_count: 5
-wiki_last_updated: 2013-05-23
 ---
 
 # Node vdsm plugin

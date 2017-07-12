@@ -2,10 +2,6 @@
 title: Hosted engine metadata
 category: sla
 authors: msivak
-wiki_category: SLA
-wiki_title: Hosted engine metadata
-wiki_revision_count: 1
-wiki_last_updated: 2015-03-31
 ---
 
 # Hosted engine metadata

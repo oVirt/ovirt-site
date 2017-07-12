@@ -2,10 +2,6 @@
 title: Normalized ovirtmgmt Initialization
 category: feature
 authors: danken, lpeer, moti, sandrobonazzola
-wiki_category: Feature
-wiki_title: Features/Normalized ovirtmgmt Initialization
-wiki_revision_count: 36
-wiki_last_updated: 2013-12-11
 ---
 
 # Normalized ovirtmgmt Initialization

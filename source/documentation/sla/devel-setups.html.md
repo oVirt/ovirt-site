@@ -2,10 +2,6 @@
 title: devel-setups
 category: sla
 authors: doron, lvroyce
-wiki_category: SLA
-wiki_title: Sla/devel-setups
-wiki_revision_count: 4
-wiki_last_updated: 2012-09-07
 ---
 
 # devel-setups

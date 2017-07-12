@@ -2,10 +2,6 @@
 title: Universal Image
 category: feature
 authors: mburns
-wiki_category: Feature
-wiki_title: Features/Universal Image
-wiki_revision_count: 5
-wiki_last_updated: 2013-05-22
 ---
 
 The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).

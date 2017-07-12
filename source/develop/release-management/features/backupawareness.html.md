@@ -2,10 +2,6 @@
 title: BackupAwareness
 category: feature
 authors: didi, doron, emesika, sandrobonazzola
-wiki_category: Feature|BackupAwareness
-wiki_title: Features/BackupAwareness
-wiki_revision_count: 41
-wiki_last_updated: 2015-10-05
 feature_name: Adding Backup Awareness to oVirt
 feature_modules: engine
 feature_status: Partially implemented

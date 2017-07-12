@@ -1,9 +1,6 @@
 ---
 title: SetupNetworks SyncNetworks
 authors: alkaplan, mkolesni
-wiki_title: SetupNetworks SyncNetworks
-wiki_revision_count: 13
-wiki_last_updated: 2012-09-02
 ---
 
 <!-- TODO: Content review -->

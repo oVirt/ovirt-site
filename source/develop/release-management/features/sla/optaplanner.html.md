@@ -2,10 +2,6 @@
 title: Optaplanner
 category: feature
 authors: adahms, msivak
-wiki_category: Feature
-wiki_title: Features/Optaplanner
-wiki_revision_count: 61
-wiki_last_updated: 2015-10-12
 ---
 
 # Optaplanner integration with scheduling

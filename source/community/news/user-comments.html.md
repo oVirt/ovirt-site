@@ -1,9 +1,6 @@
 ---
 title: User comments
 authors: dneary
-wiki_title: User comments
-wiki_revision_count: 9
-wiki_last_updated: 2014-01-23
 ---
 
 <!-- TODO: Content review -->

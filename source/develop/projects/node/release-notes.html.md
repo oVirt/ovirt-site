@@ -2,10 +2,6 @@
 title: Node Release Notes
 category: node
 authors: fabiand, mburns, nkesick
-wiki_category: Node
-wiki_title: Node Release Notes
-wiki_revision_count: 17
-wiki_last_updated: 2013-11-19
 ---
 
 # Node Release Notes

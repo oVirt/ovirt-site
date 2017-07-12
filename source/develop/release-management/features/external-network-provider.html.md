@@ -2,10 +2,6 @@
 title: External Network Providers
 category: feature
 authors: mmirecki
-wiki_category: Feature
-wiki_title: Features/External Network Providers
-wiki_revision_count: 1
-wiki_last_updated: 2016-01-25
 feature_name: External Network Providers
 feature_modules: engine,vdsm
 feature_status: In Development

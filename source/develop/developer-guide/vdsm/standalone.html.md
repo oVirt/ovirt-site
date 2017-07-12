@@ -2,10 +2,6 @@
 title: Vdsm Standalone
 category: vdsm
 authors: danken, dpkshetty
-wiki_category: Vdsm
-wiki_title: Vdsm Standalone
-wiki_revision_count: 2
-wiki_last_updated: 2012-03-14
 ---
 
 # Vdsm Standalone

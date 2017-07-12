@@ -2,10 +2,6 @@
 title: Design for multiple storage domains
 category: feature
 authors: derez, jumper45, mkublin
-wiki_category: Feature
-wiki_title: Design for multiple storage domains
-wiki_revision_count: 19
-wiki_last_updated: 2014-07-13
 feature_name: Manage storage connections
 feature_modules: engine
 feature_status: Released

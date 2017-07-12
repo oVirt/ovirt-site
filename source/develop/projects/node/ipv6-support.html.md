@@ -2,10 +2,6 @@
 title: Node ipv6 support
 category: node
 authors: jboggs
-wiki_category: Feature
-wiki_title: Features/Node ipv6 support
-wiki_revision_count: 1
-wiki_last_updated: 2013-04-15
 ---
 
 # Node ipv6 support

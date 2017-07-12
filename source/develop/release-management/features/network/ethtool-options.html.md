@@ -2,10 +2,6 @@
 title: Ethtool options
 category: feature
 authors: apuimedo, danken
-wiki_category: Feature
-wiki_title: Features/Ethtool options
-wiki_revision_count: 5
-wiki_last_updated: 2014-03-28
 feature_name: Device ethtool options
 feature_modules: engine,network,vdsm
 feature_status: To be Released

@@ -2,10 +2,6 @@
 title: Backend modules vdsbroker
 category: architecture
 authors: amuller
-wiki_category: Architecture
-wiki_title: Backend modules vdsbroker
-wiki_revision_count: 1
-wiki_last_updated: 2013-02-13
 ---
 
 # Backend modules vdsbroker

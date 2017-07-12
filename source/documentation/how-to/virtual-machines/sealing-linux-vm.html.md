@@ -1,9 +1,6 @@
 ---
 title: Sealing Linux VM
 authors: danken, herrold, lpeer, sven, kkoukiou
-wiki_title: Sealing Linux VM
-wiki_revision_count: 5
-wiki_last_updated: 2017-03-07
 ---
 
 # Sealing Linux VM

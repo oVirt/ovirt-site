@@ -2,10 +2,6 @@
 title: TestCase Hosted Engine Upgrade
 category: testcase
 authors: sandrobonazzola
-wiki_category: TestCase
-wiki_title: QA:TestCase Hosted Engine Upgrade
-wiki_revision_count: 2
-wiki_last_updated: 2015-01-16
 ---
 
 # TestCase Hosted Engine Upgrade

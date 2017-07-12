@@ -4,10 +4,6 @@ layout: toc
 category: howto
 authors: aburden, alukiano, bobdrad, didi, doron, jmoskovc, msivak, rstory, sandrobonazzola,
   stirabos
-wiki_category: SLA
-wiki_title: Hosted Engine Howto
-wiki_revision_count: 34
-wiki_last_updated: 2015-11-23
 ---
 
 # Hosted Engine Howto

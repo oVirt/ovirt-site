@@ -2,10 +2,6 @@
 title: DetailedHostNetworkingApi
 category: api
 authors: mmucha, moti, sandrobonazzola
-wiki_category: Networking
-wiki_title: Features/DetailedHostNetworkingApi
-wiki_revision_count: 14
-wiki_last_updated: 2015-10-14
 feature_name: Host Networking API
 feature_modules: Networking
 feature_status: Design

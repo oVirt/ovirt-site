@@ -4,9 +4,6 @@ authors: aglitke, alkaplan, alourie, amureini, anthony liguori, apuimedo, atal, 
   dcaroest, didi, dron, gianluca, hateya, jhenner, jlibosva, lhornyak, lvernia, mburns,
   mgoldboi, mkolesni, mkrcmari, moti, msalem, obasan, ofri, pradeep, pstehlik, rvaknin,
   sming, tdosek, tjelinek, wuzhy, ykaul, zvi
-wiki_title: Testing/OvirtTestDay
-wiki_revision_count: 113
-wiki_last_updated: 2013-07-24
 ---
 
 # oVirt Test Day

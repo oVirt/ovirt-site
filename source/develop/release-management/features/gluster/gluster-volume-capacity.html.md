@@ -2,10 +2,6 @@
 title: Gluster Volume Capacity
 category: feature
 authors: anmol babu, rnahcimu, sahina, shtripat
-wiki_category: Feature
-wiki_title: Features/Gluster Volume Capacity
-wiki_revision_count: 26
-wiki_last_updated: 2014-12-22
 feature_name: Gluster Volume Capacity
 feature_modules: api,engine,vdsm, gluster
 feature_status: Completed

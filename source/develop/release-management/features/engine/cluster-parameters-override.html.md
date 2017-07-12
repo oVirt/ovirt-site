@@ -2,10 +2,6 @@
 title: Cluster parameters override
 category: feature
 authors: eshachar, ofrenkel, sandrobonazzola
-wiki_category: Feature|Cluster parameters override
-wiki_title: Features/Cluster parameters override
-wiki_revision_count: 10
-wiki_last_updated: 2015-10-14
 feature_name: Cluster parameters override
 feature_modules: engine
 feature_status: On QA

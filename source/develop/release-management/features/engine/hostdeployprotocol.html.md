@@ -2,10 +2,6 @@
 title: HostDeployProtocol
 category: feature
 authors: alonbl
-wiki_category: Feature
-wiki_title: Features/HostDeployProtocol
-wiki_revision_count: 3
-wiki_last_updated: 2015-06-23
 ---
 
 # Host Deploy Protocol

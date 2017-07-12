@@ -2,10 +2,6 @@
 title: Testing Queries
 category: unit-testing-utilities
 authors: amureini
-wiki_category: Unit Testing Utilities
-wiki_title: Testing Queries
-wiki_revision_count: 1
-wiki_last_updated: 2012-06-10
 ---
 
 # Testing Queries

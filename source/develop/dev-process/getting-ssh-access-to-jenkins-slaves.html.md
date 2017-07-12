@@ -1,9 +1,6 @@
 ---
 title: Getting ssh access to jenkins slaves
 authors: eedri
-wiki_title: Getting ssh access to jenkins slaves
-wiki_revision_count: 1
-wiki_last_updated: 2014-04-06
 ---
 
 # Getting access to ssh jenkins slaves

@@ -3,10 +3,6 @@ title: oVirt 3.3.4 release notes
 category: documentation
 layout: toc
 authors: dougsland, sandrobonazzola
-wiki_category: Documentation
-wiki_title: OVirt 3.3.4 release notes
-wiki_revision_count: 11
-wiki_last_updated: 2014-03-04
 ---
 
 # oVirt 3.3.4 release notes

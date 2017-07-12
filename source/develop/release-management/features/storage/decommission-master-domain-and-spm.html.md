@@ -2,12 +2,6 @@
 title: Decommission Master Domain and SPM
 category: feature
 authors: aglitke, fsimonce, sandrobonazzola
-wiki_category: Feature|Decommission_Master_Domain_and_SPM
-wiki_title: Features/Decommission Master Domain and SPM
-wiki_revision_count: 21
-wiki_last_updated: 2015-10-05
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
 ---
 
 # Decommission Master Domain and SPM

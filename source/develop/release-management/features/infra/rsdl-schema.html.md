@@ -1,9 +1,6 @@
 ---
 title: RSDL schema
 authors: michael pasternak
-wiki_title: RSDL schema
-wiki_revision_count: 2
-wiki_last_updated: 2013-04-17
 ---
 
 # RSDL Schema

@@ -1,9 +1,6 @@
 ---
 title: Measurements
 authors: vfeenstr
-wiki_title: Feature/VDSM VM Query API/Measurements
-wiki_revision_count: 23
-wiki_last_updated: 2014-07-14
 ---
 
 # Measurements

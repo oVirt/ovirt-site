@@ -2,10 +2,6 @@
 title: OpenVSwitchSupport
 category: feature
 authors: rbarry
-wiki_category: Feature
-wiki_title: Features/Node/OpenVSwitchSupport
-wiki_revision_count: 2
-wiki_last_updated: 2013-10-08
 ---
 
 # Open V Switch Support

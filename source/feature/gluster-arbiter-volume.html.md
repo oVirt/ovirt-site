@@ -2,10 +2,6 @@
 title: Gluster Arbiter Volume
 category: feature
 authors: rnahcimu, sahina
-wiki_category: Feature|ArbiterVolume
-wiki_title: Features/Gluster Arbiter Volume
-wiki_revision_count: 13
-wiki_last_updated: 2016-01-25
 feature_name: Gluster Arbiter Volume
 feature_modules: all
 feature_status: Inception

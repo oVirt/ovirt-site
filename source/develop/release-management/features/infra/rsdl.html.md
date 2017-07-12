@@ -2,10 +2,6 @@
 title: RSDL
 category: api
 authors: michael pasternak
-wiki_category: Api
-wiki_title: RSDL
-wiki_revision_count: 13
-wiki_last_updated: 2013-09-23
 ---
 
 # RSDL

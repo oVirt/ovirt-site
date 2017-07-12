@@ -2,10 +2,6 @@
 title: oVirt guest agent automatic login RHEL6
 category: ovirt-guest-agent
 authors: bazulay
-wiki_category: Ovirt_guest_agent
-wiki_title: Ovirt guest agent automatic login RHEL6
-wiki_revision_count: 3
-wiki_last_updated: 2011-10-28
 ---
 
 <!-- TODO: Content review -->

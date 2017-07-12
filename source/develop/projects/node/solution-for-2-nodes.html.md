@@ -2,9 +2,6 @@
 title: solution for 2 nodes
 category: node
 authors: philipp reisner
-wiki_title: Features/DRBD/solution for 2 nodes
-wiki_revision_count: 2
-wiki_last_updated: 2013-09-11
 ---
 
 # solution for 2 nodes

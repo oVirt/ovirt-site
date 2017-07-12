@@ -2,10 +2,6 @@
 title: JMX Support
 category: engine
 authors: roy
-wiki_category: Engine
-wiki_title: JMX Support
-wiki_revision_count: 10
-wiki_last_updated: 2015-09-01
 ---
 
 # JMX Support

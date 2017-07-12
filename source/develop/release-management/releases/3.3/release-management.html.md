@@ -6,11 +6,6 @@ authors: abonas, amuller, amureini, arik, awels, danken, derez, dneary, doron, d
   mburns, mgoldboi, michael pasternak, mkolesni, moti, mperina, mskrivan, netbulae,
   ofrenkel, ofri, oschreib, prasanth, roy, sahina, sandrobonazzola, sgotliv, tjelinek,
   vered, vszocs, yair zaslavsky, ybronhei
-wiki_category: Releases
-wiki_title: OVirt 3.3 release-management
-wiki_revision_count: 220
-wiki_last_updated: 2013-08-27
-wiki_warnings: table-style
 ---
 
 # oVirt 3.3 release-management

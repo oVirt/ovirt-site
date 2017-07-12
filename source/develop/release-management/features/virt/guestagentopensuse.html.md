@@ -2,10 +2,6 @@
 title: GuestAgentOpenSUSE
 category: feature
 authors: vfeenstr
-wiki_category: Feature
-wiki_title: Feature/GuestAgentOpenSUSE
-wiki_revision_count: 6
-wiki_last_updated: 2014-05-05
 feature_name: oVirt Guest Agent on OpenSUSE
 feature_modules: ovirt-guest-agent
 feature_status: Done

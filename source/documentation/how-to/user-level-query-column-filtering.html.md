@@ -1,9 +1,6 @@
 ---
 title: User-level-query-column-filtering
 authors: emesika
-wiki_title: User-level-query-column-filtering
-wiki_revision_count: 3
-wiki_last_updated: 2012-06-18
 ---
 
 <!-- TODO: Content review -->

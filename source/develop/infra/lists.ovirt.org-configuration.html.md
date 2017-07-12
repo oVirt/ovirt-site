@@ -2,10 +2,6 @@
 title: Lists.ovirt.org-Configuration
 category: infra
 authors: quaid
-wiki_category: Infrastructure documentation
-wiki_title: Lists.ovirt.org-Configuration
-wiki_revision_count: 3
-wiki_last_updated: 2011-11-16
 ---
 
 # Lists.ovirt.org-Configuration

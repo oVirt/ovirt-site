@@ -2,10 +2,6 @@
 title: Www.ovirt.org-Configuration
 category: infra
 authors: dneary, quaid
-wiki_category: Infrastructure documentation
-wiki_title: Www.ovirt.org-Configuration
-wiki_revision_count: 10
-wiki_last_updated: 2014-04-23
 ---
 
 # Www.ovirt.org-Configuration

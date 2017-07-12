@@ -2,10 +2,6 @@
 title: Infrastructure team meetings
 category: infra
 authors: dcaroest, dneary, ekohl, herrold, knesenko, mburns, quaid, rmiddle
-wiki_category: Infrastructure
-wiki_title: Infrastructure team meetings
-wiki_revision_count: 114
-wiki_last_updated: 2014-05-12
 ---
 
 # Infrastructure team meetings

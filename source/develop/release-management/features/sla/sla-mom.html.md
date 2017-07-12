@@ -2,10 +2,6 @@
 title: SLA-mom
 category: feature
 authors: aglitke, doron
-wiki_category: Feature
-wiki_title: SLA-mom
-wiki_revision_count: 2
-wiki_last_updated: 2012-10-23
 ---
 
 # SLA-mom

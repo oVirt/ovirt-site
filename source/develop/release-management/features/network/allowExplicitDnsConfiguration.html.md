@@ -2,10 +2,6 @@
 title: AllowExplicitDnsConfiguration
 category: feature
 authors: mmucha
-wiki_category: Feature
-wiki_title: Features/AllowExplicitDnsConfiguration
-wiki_revision_count: 12
-wiki_last_updated: 2016-09-26
 feature_name: Allow Explicit Dns Configuration
 feature_modules: Networking
 feature_status: Design

@@ -2,10 +2,6 @@
 title: Releases
 category: release
 authors: knesenko, mburns, oschreib
-wiki_category: Releases
-wiki_title: Releases
-wiki_revision_count: 4
-wiki_last_updated: 2014-03-17
 ---
 
 # Releases

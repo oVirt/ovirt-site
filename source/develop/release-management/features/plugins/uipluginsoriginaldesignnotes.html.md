@@ -1,9 +1,6 @@
 ---
 title: UIPluginsOriginalDesignNotes
 authors: vszocs
-wiki_title: Features/UIPluginsOriginalDesignNotes
-wiki_revision_count: 1
-wiki_last_updated: 2012-06-26
 ---
 
 # UI Plugins Original Design Notes

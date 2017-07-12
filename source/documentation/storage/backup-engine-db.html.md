@@ -1,9 +1,6 @@
 ---
 title: Backup engine db
 authors: dougsland, herrold
-wiki_title: Backup engine db
-wiki_revision_count: 3
-wiki_last_updated: 2013-10-29
 ---
 
 <!-- TODO: Content review -->

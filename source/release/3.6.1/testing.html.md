@@ -2,10 +2,6 @@
 title: oVirt 3.6.1 Testing
 category: integration
 authors: sandrobonazzola
-wiki_category: Integration
-wiki_title: Testing/oVirt 3.6.1 Testing
-wiki_revision_count: 3
-wiki_last_updated: 2015-12-03
 ---
 
 # oVirt 3.6.1 Testing

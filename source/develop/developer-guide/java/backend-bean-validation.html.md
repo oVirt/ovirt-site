@@ -1,9 +1,6 @@
 ---
 title: Backend Bean Validation
 authors: roy
-wiki_title: Backend Bean Validation
-wiki_revision_count: 2
-wiki_last_updated: 2015-08-19
 ---
 
 # Backend Bean Validation How-to

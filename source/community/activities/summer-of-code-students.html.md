@@ -1,9 +1,6 @@
 ---
 title: Summer of Code Students
 authors: bproffitt
-wiki_title: Summer of Code Students
-wiki_revision_count: 6
-wiki_last_updated: 2014-03-05
 ---
 
 <!-- TODO: Content review -->

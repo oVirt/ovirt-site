@@ -1,9 +1,6 @@
 ---
 title: Change network interface for Gluster
 authors: dneary, jplorier, sahina, sven
-wiki_title: Change network interface for Gluster
-wiki_revision_count: 11
-wiki_last_updated: 2014-02-26
 ---
 
 # Change network interface for Gluster

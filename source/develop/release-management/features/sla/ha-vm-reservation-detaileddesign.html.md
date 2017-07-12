@@ -2,10 +2,6 @@
 title: HA VM reservation detailedDesign
 category: feature
 authors: doron, kianku
-wiki_category: Feature
-wiki_title: Features/HA VM reservation detailedDesign
-wiki_revision_count: 24
-wiki_last_updated: 2014-01-12
 ---
 
 # HA VM reservation detailedDesign

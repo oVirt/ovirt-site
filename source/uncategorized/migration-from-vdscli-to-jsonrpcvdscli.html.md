@@ -1,9 +1,6 @@
 ---
 title: Migration from vdscli to jsonrpcvdscli
 authors: pkliczewski
-wiki_title: Migration from vdscli to jsonrpcvdscli
-wiki_revision_count: 1
-wiki_last_updated: 2016-02-09
 ---
 
 # Migration from vdscli to jsonrpcvdscli

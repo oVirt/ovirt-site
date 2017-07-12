@@ -3,10 +3,6 @@ title: oVirt DWH development environment
 category: documentation
 layout: toc
 authors: sradco
-wiki_category: Documentation
-wiki_title: OVirt DWH development environment
-wiki_revision_count: 2
-wiki_last_updated: 2015-11-12
 ---
 
 <!-- TODO: Content review -->

@@ -1,9 +1,6 @@
 ---
 title: Engine Setup
 authors: didi
-wiki_title: Engine Setup
-wiki_revision_count: 3
-wiki_last_updated: 2015-02-17
 ---
 
 # Engine Setup

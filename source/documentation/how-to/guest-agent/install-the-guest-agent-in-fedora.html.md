@@ -2,9 +2,6 @@
 title: How to install the guest agent in Fedora
 category: howto
 authors: nkesick, vfeenstr
-wiki_title: How to install the guest agent in Fedora
-wiki_revision_count: 5
-wiki_last_updated: 2014-07-11
 ---
 
 # How to install the guest agent in Fedora

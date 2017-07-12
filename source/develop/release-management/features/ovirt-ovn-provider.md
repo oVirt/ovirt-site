@@ -2,10 +2,6 @@
 title: oVirt OVN Provider
 category: feature
 authors: mmirecki,dholler
-wiki_category: Feature
-wiki_title: Features/oVirt OVN Provider
-wiki_revision_count: 1
-wiki_last_updated: 2017-04-25
 feature_name: oVirt OVN Provider
 feature_modules: engine,vdsm,ovn-provider
 feature_status: In Development

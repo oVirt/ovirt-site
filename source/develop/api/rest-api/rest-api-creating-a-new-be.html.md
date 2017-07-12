@@ -2,9 +2,6 @@
 title: REST API Creating a new BE
 category: api
 authors: emesika
-wiki_title: REST API Creating a new BE
-wiki_revision_count: 10
-wiki_last_updated: 2013-07-24
 ---
 
 # REST API - Adding a new BE

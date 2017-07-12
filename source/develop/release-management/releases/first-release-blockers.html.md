@@ -1,9 +1,6 @@
 ---
 title: First Release Blockers
 authors: danken, lpeer, mburns, mkublin, ofrenkel, oschreib, ovedo
-wiki_title: Releases/First Release Blockers
-wiki_revision_count: 22
-wiki_last_updated: 2012-02-08
 ---
 
 <!-- TODO: Content review -->

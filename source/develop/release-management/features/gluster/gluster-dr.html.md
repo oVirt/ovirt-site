@@ -2,10 +2,6 @@
 title: Disaster Recovery for Gluster based storage domains
 category: feature
 authors: Sahina Bose
-wiki_category: Feature|DR for gluster storage domains
-wiki_title: Features/Gluster DR
-wiki_revision_count: 122
-wiki_last_updated: 2016-12-09
 feature_name: Disaster recovery for gluster storage domains
 feature_modules: engine,gluster,geo-replication,storage
 feature_status: Design

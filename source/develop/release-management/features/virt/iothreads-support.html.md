@@ -1,9 +1,6 @@
 ---
 title: IOThreads Support
 authors: tjelinek
-wiki_title: Features/IOThreads Support
-wiki_revision_count: 2
-wiki_last_updated: 2015-05-15
 feature_name: IOThreads Support
 feature_status: Released in oVirt 3.6
 ---

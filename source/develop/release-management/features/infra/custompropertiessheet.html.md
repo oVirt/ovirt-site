@@ -2,10 +2,6 @@
 title: CustomPropertiesSheet
 category: feature
 authors: ecohen, ekohl, gchaplik
-wiki_category: Feature
-wiki_title: Features/CustomPropertiesSheet
-wiki_revision_count: 8
-wiki_last_updated: 2012-06-12
 ---
 
 # Custom Properties Sheet

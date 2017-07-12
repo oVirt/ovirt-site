@@ -1,9 +1,6 @@
 ---
 title: oVirt 3.6.z Release Management
 authors: sandrobonazzola
-wiki_title: OVirt 3.6.z Release Management
-wiki_revision_count: 4
-wiki_last_updated: 2017-04-21
 ---
 
 # oVirt 3.6.z Release Management

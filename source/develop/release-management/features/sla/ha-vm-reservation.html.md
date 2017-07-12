@@ -2,10 +2,6 @@
 title: HA VM reservation
 category: feature
 authors: doron, kianku, sherold
-wiki_category: Feature
-wiki_title: Features/HA VM reservation
-wiki_revision_count: 34
-wiki_last_updated: 2014-01-12
 ---
 
 # HA VM reservation

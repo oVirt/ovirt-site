@@ -3,10 +3,6 @@ title: Installing VDSM from rpm
 category: vdsm
 authors: abonas, danken, dougsland, imansano, jniederm, jumper45, lvroyce, mburns,
   ranglust, sming, tdosek
-wiki_category: Vdsm
-wiki_title: Installing VDSM from rpm
-wiki_revision_count: 23
-wiki_last_updated: 2015-03-16
 ---
 
 # Installing VDSM from rpm

@@ -2,10 +2,6 @@
 title: Vdsm Disk Images
 category: vdsm
 authors: danken, dcaroest, vered
-wiki_category: Vdsm
-wiki_title: Vdsm Disk Images
-wiki_revision_count: 6
-wiki_last_updated: 2013-08-02
 ---
 
 # Vdsm Disk Images

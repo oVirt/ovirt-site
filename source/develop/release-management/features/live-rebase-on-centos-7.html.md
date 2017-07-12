@@ -2,10 +2,6 @@
 title: oVirt Live Rebase on CentOS 7
 category: feature
 authors: sandrobonazzola
-wiki_category: Feature|oVirt Live Rebase on CentOS 7
-wiki_title: Features/oVirt Live Rebase on CentOS 7
-wiki_revision_count: 2
-wiki_last_updated: 2015-10-06
 feature_name: oVirt Live Rebase on CentOS 7
 feature_modules: all
 feature_status: ON_QA

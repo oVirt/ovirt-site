@@ -2,10 +2,6 @@
 title: NetworkReloaded
 category: feature
 authors: amuller, apuimedo, danken
-wiki_category: Feature
-wiki_title: Feature/NetworkReloaded
-wiki_revision_count: 58
-wiki_last_updated: 2014-03-02
 ---
 
 # Network Reloaded

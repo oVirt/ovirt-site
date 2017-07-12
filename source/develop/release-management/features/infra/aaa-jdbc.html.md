@@ -2,10 +2,6 @@
 title: AAA JDBC
 category: feature
 authors: alonbl, moolit, mperina, rmohr
-wiki_category: Feature
-wiki_title: Features/AAA JDBC
-wiki_revision_count: 35
-wiki_last_updated: 2015-10-20
 feature_name: AAA_JDBC
 feature_modules: engine, extension
 feature_status: FINISHED

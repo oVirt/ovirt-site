@@ -2,10 +2,6 @@
 title: Get Route
 category: feature
 authors: lvernia, phoracek
-wiki_category: Feature
-wiki_title: Features/Get Route
-wiki_revision_count: 5
-wiki_last_updated: 2014-09-23
 feature_name: Get Route
 feature_modules: engine, api
 feature_status: Proposed

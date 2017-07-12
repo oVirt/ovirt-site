@@ -2,10 +2,6 @@
 title: Detailed Gluster Geo Rep
 category: template
 authors: sahina
-wiki_category: Template
-wiki_title: Features/Design/Detailed Gluster Geo Rep
-wiki_revision_count: 4
-wiki_last_updated: 2014-07-08
 ---
 
 # Detailed Gluster Geo Rep

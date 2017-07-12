@@ -2,10 +2,6 @@
 title: Bridgeless Networks
 category: feature
 authors: adrian15, danken, roy, ykaul
-wiki_category: Feature
-wiki_title: Features/Design/Network/Bridgeless Networks
-wiki_revision_count: 33
-wiki_last_updated: 2013-01-29
 feature_name: Bridgeless Networks
 feature_modules: engine
 feature_status: Released

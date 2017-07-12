@@ -2,11 +2,6 @@
 title: DetailedExternalEvents
 category: event
 authors: emesika, yair zaslavsky
-wiki_category: Feature
-wiki_title: Features/Design/DetailedExternalEvents
-wiki_revision_count: 86
-wiki_last_updated: 2012-12-16
-wiki_warnings: list-item?
 ---
 
 # Detailed External Events

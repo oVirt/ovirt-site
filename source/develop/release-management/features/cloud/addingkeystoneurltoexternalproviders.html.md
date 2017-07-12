@@ -2,10 +2,6 @@
 title: AddingKeystoneURLToExternalProviders
 category: feature
 authors: emesika, moti
-wiki_category: Feature
-wiki_title: Features/Design/AddingKeystoneURLToExternalProviders
-wiki_revision_count: 10
-wiki_last_updated: 2014-11-06
 ---
 
 # Adding Keystone URL to OpenStack External Providers

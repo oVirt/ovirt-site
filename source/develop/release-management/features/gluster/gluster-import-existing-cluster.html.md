@@ -2,10 +2,6 @@
 title: Gluster Import Existing Cluster
 category: feature
 authors: kmayilsa, sahina
-wiki_category: Feature
-wiki_title: Features/Gluster Import Existing Cluster
-wiki_revision_count: 19
-wiki_last_updated: 2014-01-15
 feature_name: Import cluster
 feature_modules: engine,gluster
 feature_status: Released

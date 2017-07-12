@@ -1,9 +1,6 @@
 ---
 title: engine NIC health check
 authors: mmucha
-wiki_title: Features/engine NIC health check
-wiki_revision_count: 20
-wiki_last_updated: 2014-10-18
 feature_name: Engine NIC health check
 feature_modules: engine,network
 feature_status: To be Released

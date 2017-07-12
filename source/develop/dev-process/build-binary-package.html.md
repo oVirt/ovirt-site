@@ -1,9 +1,6 @@
 ---
 title: Build Binary Package
 authors: alonbl, dneary, ranglust
-wiki_title: Build Binary Package
-wiki_revision_count: 7
-wiki_last_updated: 2014-07-01
 ---
 
 # Build Source Package

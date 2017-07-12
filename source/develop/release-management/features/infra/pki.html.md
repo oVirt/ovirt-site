@@ -2,10 +2,6 @@
 title: PKI
 category: feature
 authors: alonbl, sven
-wiki_category: Feature
-wiki_title: Features/PKI
-wiki_revision_count: 11
-wiki_last_updated: 2014-08-14
 ---
 
 # PKI

@@ -2,10 +2,6 @@
 title: RandomUtilsSeedingRule
 category: unit-testing-utilities
 authors: amureini
-wiki_category: Unit Testing Utilities
-wiki_title: RandomUtilsSeedingRule
-wiki_revision_count: 2
-wiki_last_updated: 2012-05-16
 ---
 
 # Random Utils Seeding Rule

@@ -2,10 +2,6 @@
 title: Reports Dashboard
 category: feature
 authors: alkaplan
-wiki_category: Feature
-wiki_title: Features/Design/Reports Dashboard
-wiki_revision_count: 5
-wiki_last_updated: 2012-11-01
 ---
 
 # Reports Dashboard

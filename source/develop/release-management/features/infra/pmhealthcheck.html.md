@@ -2,10 +2,6 @@
 title: PMHealthCheck
 category: feature
 authors: emesika, gchaplik
-wiki_category: Feature
-wiki_title: Features/PMHealthCheck
-wiki_revision_count: 7
-wiki_last_updated: 2014-05-04
 ---
 
 # PM Health Check

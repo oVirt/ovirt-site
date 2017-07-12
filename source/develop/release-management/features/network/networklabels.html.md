@@ -2,10 +2,6 @@
 title: NetworkLabels
 category: feature
 authors: alkaplan, danken, lvernia, moti, mpavlik
-wiki_category: Feature
-wiki_title: Features/NetworkLabels
-wiki_revision_count: 66
-wiki_last_updated: 2014-09-15
 feature_name: Network Labels
 feature_modules: Networking
 feature_status: Released

@@ -1,9 +1,6 @@
 ---
 title: Jumbo frames
 authors: drankevi, ecohen, roy
-wiki_title: Features/Design/Network/Jumbo frames
-wiki_revision_count: 12
-wiki_last_updated: 2012-04-16
 ---
 
 # Jumbo frames

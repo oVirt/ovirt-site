@@ -1,9 +1,6 @@
 ---
 title: Expose VM Devices
 authors: ofrenkel
-wiki_title: Features/Expose VM Devices
-wiki_revision_count: 4
-wiki_last_updated: 2015-05-07
 ---
 
 # Expose VM Devices

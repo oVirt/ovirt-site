@@ -2,10 +2,6 @@
 title: Guest Agent Login RHEL
 category: vdsm
 authors: danken
-wiki_category: Vdsm
-wiki_title: Guest Agent Login RHEL
-wiki_revision_count: 1
-wiki_last_updated: 2011-10-29
 ---
 
 # Guest Agent Login RHEL

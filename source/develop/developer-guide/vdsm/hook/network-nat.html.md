@@ -1,9 +1,6 @@
 ---
 title: network-nat
 authors: rstory
-wiki_title: VDSM-Hooks/network-nat
-wiki_revision_count: 1
-wiki_last_updated: 2014-11-19
 ---
 
 # network-nat

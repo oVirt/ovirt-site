@@ -2,10 +2,6 @@
 title: Hot Plug Memory
 category: feature
 authors: ofrenkel
-wiki_category: Feature
-wiki_title: Features/Hot Plug Memory
-wiki_revision_count: 2
-wiki_last_updated: 2015-10-13
 feature_name: Hot plug memory
 feature_modules: engine
 feature_status: Done

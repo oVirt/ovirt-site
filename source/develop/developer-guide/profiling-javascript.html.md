@@ -1,9 +1,6 @@
 ---
 title: Profiling JavaScript
 authors: gshereme
-wiki_title: Profiling JavaScript
-wiki_revision_count: 4
-wiki_last_updated: 2014-11-11
 ---
 
 # Profiling JavaScript

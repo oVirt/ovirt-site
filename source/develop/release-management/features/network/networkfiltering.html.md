@@ -2,10 +2,6 @@
 title: NetworkFiltering
 category: template
 authors: lpeer, moti
-wiki_category: Template
-wiki_title: Features/Design/Network/NetworkFiltering
-wiki_revision_count: 7
-wiki_last_updated: 2012-08-19
 ---
 
 # Networking Filtering

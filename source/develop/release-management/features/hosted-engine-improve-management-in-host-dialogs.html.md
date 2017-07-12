@@ -2,10 +2,6 @@
 title: Hosted Engine Improve Management in Host Dialogs
 category: feature
 authors: phbailey
-wiki_category: Feature|Hosted Engine Improve Management in Host Dialogs
-wiki_title: Features/Hosted Engine Improve Management in Host Dialogs
-wiki_revision_count: 0
-wiki_last_updated: 2016-12-06
 feature_name: 'Hosted Engine: Improve Management in Host Dialogs'
 feature_status: In Development
 ---

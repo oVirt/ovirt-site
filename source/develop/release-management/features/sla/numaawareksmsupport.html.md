@@ -2,10 +2,6 @@
 title: NumaAwareKsmSupport
 category: feature
 authors: maroshi
-wiki_category: Feature
-wiki_title: NumaAwareKsmSupport
-wiki_revision_count: 14
-wiki_last_updated: 2015-04-21
 feature_name: NUMA aware KSM support
 feature_modules: engine, vdsm, MoM, GUI, REST
 feature_status: Design

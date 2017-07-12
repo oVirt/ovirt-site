@@ -1,9 +1,6 @@
 ---
 title: Incubating an oVirt Subproject
 authors: bproffitt
-wiki_title: Incubating an oVirt Subproject
-wiki_revision_count: 3
-wiki_last_updated: 2015-01-21
 ---
 
 # Incubating an oVirt Subproject

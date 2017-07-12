@@ -1,9 +1,6 @@
 ---
 title: Local Jenkins For The People
 authors: lpeer, mkolesni, moti, msalem
-wiki_title: Local Jenkins For The People
-wiki_revision_count: 13
-wiki_last_updated: 2013-02-11
 ---
 
 # Local Jenkins (guide) for the people

@@ -1,9 +1,6 @@
 ---
 title: formatting
 authors: emesika
-wiki_title: OVirt-DB-Issues/formatting
-wiki_revision_count: 29
-wiki_last_updated: 2015-11-16
 ---
 
 <!-- TODO: Content review -->

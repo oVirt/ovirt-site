@@ -2,10 +2,6 @@
 title: oVirtAppliance
 category: feature
 authors: didi, doron, fabiand, mgoldboi, obasan
-wiki_category: Feature
-wiki_title: Feature/oVirtAppliance
-wiki_revision_count: 16
-wiki_last_updated: 2015-09-25
 feature_name: oVirt Appliance
 feature_modules: node
 feature_status: Done

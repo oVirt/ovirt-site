@@ -2,10 +2,6 @@
 title: Plugins
 category: feature
 authors: jboggs
-wiki_category: Feature
-wiki_title: Features/Plugins
-wiki_revision_count: 1
-wiki_last_updated: 2012-10-23
 ---
 
 # Plugin Support

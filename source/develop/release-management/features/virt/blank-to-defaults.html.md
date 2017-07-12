@@ -1,9 +1,6 @@
 ---
 title: Blank to Defaults
 authors: tjelinek
-wiki_title: Features/Blank to Defaults
-wiki_revision_count: 11
-wiki_last_updated: 2015-04-14
 feature_name: Blank to Defaults
 feature_status: Released in oVirt 3.6
 feature_modules: engine

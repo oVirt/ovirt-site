@@ -2,10 +2,6 @@
 title: Gdeploy Cockpit Integration
 category: feature
 authors: rnachimu
-wiki_category: Feature|Gdeploy-Cockpit integration
-wiki_title: Feature/GdeployCockpitIntegration
-wiki_revision_count: 0
-wiki_last_updated: 2016-09-19
 feature_name: Gdeploy Integration with Cockpit
 feature_modules: cockpit plugin for ovirt
 feature_status: WIP, 4.1 proposed feature

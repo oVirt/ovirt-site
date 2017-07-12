@@ -2,10 +2,6 @@
 title: Non plugin console invocation
 category: feature
 authors: fkobzik
-wiki_category: Feature
-wiki_title: Features/Non plugin console invocation
-wiki_revision_count: 7
-wiki_last_updated: 2013-07-12
 ---
 
 # Non plugin console invocation

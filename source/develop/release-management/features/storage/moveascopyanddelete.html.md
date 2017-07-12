@@ -5,10 +5,6 @@ feature_name: Move As Copy And Delete
 feature_modules: Engine
 feature_status: Released in oVirt 3.3
 authors: laravot
-wiki_category: Feature
-wiki_title: Features/MoveAsCopyAndDelete
-wiki_revision_count: 5
-wiki_last_updated: 2013-05-28
 ---
 
 # Move As Copy And Delete

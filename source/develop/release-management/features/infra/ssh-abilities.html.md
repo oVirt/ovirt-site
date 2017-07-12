@@ -2,10 +2,6 @@
 title: Ssh Abilities
 category: feature
 authors: ybronhei
-wiki_category: Feature
-wiki_title: Features/Ssh Abilities
-wiki_revision_count: 2
-wiki_last_updated: 2013-07-18
 ---
 
 # Ssh Abilities

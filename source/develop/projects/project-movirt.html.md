@@ -1,9 +1,6 @@
 ---
 title: moVirt
 authors: mbetak, tjelinek
-wiki_title: moVirt
-wiki_revision_count: 16
-wiki_last_updated: 2015-08-05
 ---
 
 # moVirt - Android Client for oVirt

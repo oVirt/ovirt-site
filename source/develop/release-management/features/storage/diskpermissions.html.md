@@ -2,10 +2,6 @@
 title: DiskPermissions
 category: feature
 authors: amureini, derez, lpeer, moti, ofrenkel, smelamud
-wiki_category: Feature
-wiki_title: Features/DiskPermissions
-wiki_revision_count: 41
-wiki_last_updated: 2015-10-21
 feature_name: Disk Permissions
 feature_modules: engine
 feature_status: Released

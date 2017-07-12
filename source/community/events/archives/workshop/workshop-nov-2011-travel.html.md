@@ -2,10 +2,6 @@
 title: Workshop Nov 2011 - travel
 category: event/workshop
 authors: doron, pmyers, quaid
-wiki_category: Workshop November 2011
-wiki_title: Workshop Nov 2011 - travel
-wiki_revision_count: 17
-wiki_last_updated: 2012-01-08
 ---
 
 # Workshop Nov 2011 - travel

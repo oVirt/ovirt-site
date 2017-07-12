@@ -2,10 +2,6 @@
 title: PortMirroring
 category: feature
 authors: moti, ovedo, shaharh
-wiki_category: Feature
-wiki_title: Features/PortMirroring
-wiki_revision_count: 16
-wiki_last_updated: 2012-11-19
 ---
 
 # Port Mirroring

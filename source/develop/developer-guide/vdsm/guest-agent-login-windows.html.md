@@ -2,10 +2,6 @@
 title: Guest Agent Login Windows
 category: vdsm
 authors: danken
-wiki_category: Vdsm
-wiki_title: Guest Agent Login Windows
-wiki_revision_count: 2
-wiki_last_updated: 2011-10-29
 ---
 
 # Guest Agent Login Windows

@@ -1,9 +1,6 @@
 ---
 title: oVirt faq
 authors: humble, sandrobonazzola
-wiki_title: Ovirt faq
-wiki_revision_count: 2
-wiki_last_updated: 2014-05-15
 ---
 
 <!-- TODO: Content review -->

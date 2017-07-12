@@ -2,10 +2,6 @@
 title: Video RAM
 category: draft-documentation
 authors: mzamazal
-wiki_category: Draft documentation
-wiki_title: Video RAM
-wiki_revision_count: 12
-wiki_last_updated: 2016-01-26
 ---
 
 # Video RAM

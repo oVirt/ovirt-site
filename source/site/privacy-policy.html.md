@@ -1,9 +1,6 @@
 ---
 title: Privacy policy
 authors: bproffitt
-wiki_title: oVirt Wiki:Privacy policy
-wiki_revision_count: 1
-wiki_last_updated: 2014-07-11
 ---
 
 # Privacy policy

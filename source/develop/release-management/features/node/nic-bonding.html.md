@@ -2,10 +2,6 @@
 title: NIC Bonding
 category: feature
 authors: fabiand
-wiki_category: Feature
-wiki_title: Features/Node/NIC Bonding
-wiki_revision_count: 7
-wiki_last_updated: 2013-09-09
 ---
 
 # NIC Bonding

@@ -1,10 +1,6 @@
 ---
 title: Configure libvirt testing matrix
 authors: moolit
-wiki_title: Configure libvirt testing matrix
-wiki_revision_count: 11
-wiki_last_updated: 2014-05-29
-wiki_warnings: references
 ---
 
 # Configure libvirt testing matrix

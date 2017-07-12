@@ -2,11 +2,6 @@
 title: DetailedHostPMProxyPreferences
 category: feature
 authors: emesika, yair zaslavsky
-wiki_category: Feature
-wiki_title: Features/Design/DetailedHostPMProxyPreferences
-wiki_revision_count: 81
-wiki_last_updated: 2014-04-08
-wiki_warnings: list-item?
 ---
 
 # Detailed Host PM Proxy Preferences

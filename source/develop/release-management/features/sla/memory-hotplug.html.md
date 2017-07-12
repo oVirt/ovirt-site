@@ -1,9 +1,6 @@
 ---
 title: Memory Hotplug
 authors: ofrenkel, vitordelima
-wiki_title: Features/Memory Hotplug
-wiki_revision_count: 6
-wiki_last_updated: 2015-05-13
 ---
 
 # Memory Hotplug

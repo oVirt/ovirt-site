@@ -1,9 +1,6 @@
 ---
 title: Console Client Resources
 authors: fkobzik
-wiki_title: Console Client Resources
-wiki_revision_count: 6
-wiki_last_updated: 2017-02-10
 ---
 
 # Console Clients Resources

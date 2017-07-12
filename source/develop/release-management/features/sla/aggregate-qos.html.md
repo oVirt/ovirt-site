@@ -2,10 +2,6 @@
 title: aggregate QoS
 category: feature
 authors: gchaplik
-wiki_category: Feature
-wiki_title: Features/aggregate QoS
-wiki_revision_count: 25
-wiki_last_updated: 2014-04-29
 ---
 
 # Aggregate QoS Objects

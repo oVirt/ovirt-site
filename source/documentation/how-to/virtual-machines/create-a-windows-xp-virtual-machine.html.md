@@ -2,9 +2,6 @@
 title: How to create a Windows XP Virtual Machine
 category: howto
 authors: nkesick
-wiki_title: How to create a Windows XP Virtual Machine
-wiki_revision_count: 11
-wiki_last_updated: 2013-12-15
 ---
 
 <!-- TODO: Content review -->

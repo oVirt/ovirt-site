@@ -2,10 +2,6 @@
 title: RSVP list response process
 category: workshops
 authors: quaid
-wiki_category: Workshops
-wiki_title: RSVP list response process
-wiki_revision_count: 4
-wiki_last_updated: 2012-03-08
 ---
 
 # RSVP list response process

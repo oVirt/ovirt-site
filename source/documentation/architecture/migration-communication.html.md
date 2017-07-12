@@ -2,10 +2,6 @@
 title: Communication of Engine with Vdsm during migrations
 category: architecture
 authors: mzamazal
-wiki_category: Architecture
-wiki_title: Communication of Engine with Vdsm during migrations
-wiki_revision_count: 1
-wiki_last_updated: 2017-01-30
 ---
 
 # Communication of Engine with Vdsm during migrations

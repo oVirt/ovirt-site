@@ -1,9 +1,6 @@
 ---
 title: Migrate to Hosted Engine
 authors: didi
-wiki_title: Migrate to Hosted Engine
-wiki_revision_count: 8
-wiki_last_updated: 2014-12-03
 ---
 
 # Migrate to Hosted Engine

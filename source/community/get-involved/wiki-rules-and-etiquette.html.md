@@ -2,10 +2,6 @@
 title: Wiki rules and etiquette
 category: help
 authors: daejohnson, quaid
-wiki_category: Help
-wiki_title: Help:Wiki rules and etiquette
-wiki_revision_count: 6
-wiki_last_updated: 2012-11-15
 ---
 
 <!-- TODO: [Mikey] Update this page for contributing to content on GitHub -->

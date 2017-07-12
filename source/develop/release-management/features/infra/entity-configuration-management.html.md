@@ -2,10 +2,6 @@
 title: Entity Configuration Management
 category: feature
 authors: shtripat
-wiki_category: Feature
-wiki_title: Features/Entity Configuration Management
-wiki_revision_count: 10
-wiki_last_updated: 2013-07-25
 ---
 
 # Entity Configuration Management

@@ -2,10 +2,6 @@
 title: VMPayload
 category: feature
 authors: ovedo, shahar, shaharh, vered
-wiki_category: Feature
-wiki_title: Features/VMPayload
-wiki_revision_count: 25
-wiki_last_updated: 2014-04-29
 ---
 
 # VM Payload

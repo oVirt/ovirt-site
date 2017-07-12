@@ -2,10 +2,6 @@
 title: Watchdog engine support
 category: feature
 authors: doron, lhornyak, mlipchuk
-wiki_category: Feature
-wiki_title: Features/Watchdog engine support
-wiki_revision_count: 48
-wiki_last_updated: 2014-06-16
 feature_name: Watchdog engine support
 feature_modules: SOA
 feature_status: Released

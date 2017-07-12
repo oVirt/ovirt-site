@@ -3,10 +3,6 @@ title: Live Merge
 category: feature
 authors: aglitke, gpadgett
 status: Released in oVirt 3.5.1
-wiki_category: Feature
-wiki_title: Features/Live Merge
-wiki_revision_count: 16
-wiki_last_updated: 2014-09-16
 feature_name: Live Merge
 feature_modules: engine,vdsm
 feature_status: Released in oVirt 3.5.1

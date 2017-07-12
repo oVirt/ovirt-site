@@ -2,10 +2,6 @@
 title: libvdsm
 category: vdsm
 authors: aglitke
-wiki_category: Feature
-wiki_title: Features/libvdsm
-wiki_revision_count: 2
-wiki_last_updated: 2012-10-25
 ---
 
 # libvdsm (preview)

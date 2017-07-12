@@ -2,10 +2,6 @@
 title: DetailedHotPlugNic
 category: feature
 authors: danken, ecohen, ilvovsky, moti, ovedo, roy
-wiki_category: Feature
-wiki_title: Features/Design/DetailedHotPlugNic
-wiki_revision_count: 19
-wiki_last_updated: 2013-03-07
 ---
 
 # Detailed Hot Plug Nic

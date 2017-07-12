@@ -2,10 +2,6 @@
 title: NodeAutomation
 category: node
 authors: fabiand
-wiki_category: Feature
-wiki_title: Features/NodeAutomation
-wiki_revision_count: 2
-wiki_last_updated: 2012-10-17
 ---
 
 # Node Automation

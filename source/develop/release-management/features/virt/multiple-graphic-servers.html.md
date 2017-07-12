@@ -2,10 +2,6 @@
 title: Multiple Graphic Servers
 category: feature
 authors: fkobzik, tjelinek
-wiki_category: Feature
-wiki_title: Features/Multiple Graphic Servers
-wiki_revision_count: 2
-wiki_last_updated: 2015-10-08
 ---
 
 # Multiple Graphic Servers

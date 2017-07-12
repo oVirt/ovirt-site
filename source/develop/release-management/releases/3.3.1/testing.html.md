@@ -1,11 +1,6 @@
 ---
 title: oVirt 3.3.1 testing
 authors: jbrooks, phurrelmann, sandrobonazzola, sven
-wiki_title: Testing/Ovirt 3.3.1 testing
-wiki_revision_count: 11
-wiki_last_updated: 2013-11-17
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
 ---
 
 # oVirt 3.3.1 testing

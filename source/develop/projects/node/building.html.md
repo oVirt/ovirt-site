@@ -2,10 +2,6 @@
 title: Node Building
 category: node
 authors: dcaroest, dougsland, fabiand, mburns, pmyers, quaid, rbarry
-wiki_category: Node
-wiki_title: Node Building
-wiki_revision_count: 36
-wiki_last_updated: 2015-01-28
 ---
 
 # Node Building

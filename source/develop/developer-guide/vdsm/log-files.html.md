@@ -2,10 +2,6 @@
 title: Vdsm Log Files
 category: vdsm
 authors: abaron, danken, fromani, quaid
-wiki_category: Vdsm
-wiki_title: Vdsm Log Files
-wiki_revision_count: 9
-wiki_last_updated: 2015-06-29
 ---
 
 # Vdsm Log Files

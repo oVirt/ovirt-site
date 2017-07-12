@@ -2,10 +2,6 @@
 title: Spice Proxy
 category: feature
 authors: tjelinek
-wiki_category: Feature
-wiki_title: Features/Spice Proxy
-wiki_revision_count: 12
-wiki_last_updated: 2014-01-30
 ---
 
 # SPICE Proxy

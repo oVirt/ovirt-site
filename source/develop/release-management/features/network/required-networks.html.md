@@ -2,10 +2,6 @@
 title: Required Networks
 category: feature
 authors: danken, roy
-wiki_category: Feature
-wiki_title: Features/Design/Network/Required Networks
-wiki_revision_count: 6
-wiki_last_updated: 2013-03-07
 ---
 
 # Required Networks

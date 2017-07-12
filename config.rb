@@ -161,11 +161,6 @@ ready do
   proxy '/blog/feed.xml', 'feed.xml', ignore: true
   proxy '/blog/tag/index.html', 'tag.html', ignore: true
 
-  sitemap.resources.reject { |p| p.data.wiki_title.nil? }.each do |p|
-    next unless p.data.wiki_title.match(/^category:/i)
-    page p.path, layout: 'category'
-  end
-
   # Auto-add index.html.md pages where they are lacking
   Dir.glob('source/**/').each do |path|
     next if Dir.glob("#{path}index.*").count > 0

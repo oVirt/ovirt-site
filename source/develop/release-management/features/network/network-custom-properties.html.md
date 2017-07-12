@@ -2,10 +2,6 @@
 title: Network Custom Properties
 category: feature
 authors: apuimedo, danken, lvernia, sandrobonazzola
-wiki_category: Feature
-wiki_title: Features/Network Custom Properties
-wiki_revision_count: 37
-wiki_last_updated: 2014-09-24
 feature_name: Network Custom Properties
 feature_modules: engine,network,vdsm
 feature_status: To be Released

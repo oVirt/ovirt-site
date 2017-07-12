@@ -2,9 +2,6 @@
 title: Troubleshooting NFS Storage Issues
 authors: adahms, didi, dougsland, dpkshetty, jbrooks, nkesick, rharper, sgordon, suppentopf,
   wdennis
-wiki_title: Troubleshooting NFS Storage Issues
-wiki_revision_count: 24
-wiki_last_updated: 2015-01-31
 ---
 
 # Troubleshooting NFS Storage Issues

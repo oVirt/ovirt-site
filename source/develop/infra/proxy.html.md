@@ -2,10 +2,6 @@
 title: Proxy
 category: infra
 authors: dcaroest
-wiki_category: Infrastructure
-wiki_title: CI/Proxy
-wiki_revision_count: 3
-wiki_last_updated: 2015-02-25
 ---
 
 # Proxy

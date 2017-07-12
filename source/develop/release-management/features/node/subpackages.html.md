@@ -2,10 +2,6 @@
 title: subpackages
 category: feature
 authors: dougsland
-wiki_category: Feature
-wiki_title: Features/Node/subpackages
-wiki_revision_count: 10
-wiki_last_updated: 2015-03-06
 feature_name: subpackages
 feature_modules: node
 feature_status: Merged/Done

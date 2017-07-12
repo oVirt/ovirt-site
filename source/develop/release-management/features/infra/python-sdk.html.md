@@ -2,10 +2,6 @@
 title: Python-sdk
 category: sdk
 authors: adahms, bproffitt, michael pasternak
-wiki_category: SDK
-wiki_title: Python-sdk
-wiki_revision_count: 36
-wiki_last_updated: 2015-03-25
 ---
 
 # Python-sdk

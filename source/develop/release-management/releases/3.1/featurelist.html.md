@@ -1,9 +1,6 @@
 ---
 title: FeatureList
 authors: abaron, ovedo, smizrahi
-wiki_title: Releases/31/FeatureList
-wiki_revision_count: 12
-wiki_last_updated: 2012-03-22
 ---
 
 # Feature List

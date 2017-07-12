@@ -2,9 +2,6 @@
 title: VDSM VM startup
 category: vdsm
 authors: fromani
-wiki_title: VDSM VM startup
-wiki_revision_count: 43
-wiki_last_updated: 2014-03-19
 ---
 
 # VDSM VM startup

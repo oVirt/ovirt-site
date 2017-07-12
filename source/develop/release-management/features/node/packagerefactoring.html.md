@@ -2,10 +2,6 @@
 title: PackageRefactoring
 category: feature
 authors: didi, mburns
-wiki_category: Feature
-wiki_title: Features/Node/PackageRefactoring
-wiki_revision_count: 3
-wiki_last_updated: 2014-02-23
 ---
 
 # Package Refactoring

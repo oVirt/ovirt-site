@@ -2,9 +2,6 @@
 title: How to create an Ubuntu Virtual Machine
 category: howto
 authors: nkesick
-wiki_title: How to create a Ubuntu Virtual Machine
-wiki_revision_count: 1
-wiki_last_updated: 2013-12-14
 ---
 
 <!-- TODO: Content review -->

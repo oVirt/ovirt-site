@@ -2,10 +2,6 @@
 title: DRBD
 category: feature
 authors: philipp reisner
-wiki_category: Feature
-wiki_title: Features/DRBD
-wiki_revision_count: 12
-wiki_last_updated: 2013-09-11
 ---
 
 # DRBD

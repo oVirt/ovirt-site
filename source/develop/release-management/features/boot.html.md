@@ -2,10 +2,6 @@
 title: Boot
 category: feature
 authors: fabiand
-wiki_category: Feature
-wiki_title: Features/Boot
-wiki_revision_count: 9
-wiki_last_updated: 2015-03-31
 feature_name: Boot oVirt.org
 feature_modules: appliance
 feature_status: WIP

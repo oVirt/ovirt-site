@@ -2,10 +2,6 @@
 title: WebSocketProxy on a separate host
 category: feature
 authors: sandrobonazzola, stirabos
-wiki_category: Feature|WebSocketProxy on a separate host
-wiki_title: Features/WebSocketProxy on a separate host
-wiki_revision_count: 29
-wiki_last_updated: 2015-01-16
 feature_name: WebSocketProxy on a separate host
 feature_modules: websocket-proxy
 feature_status: completed

@@ -1,9 +1,6 @@
 ---
 title: Backend Coding Standards
 authors: abonas, lhornyak
-wiki_title: Backend Coding Standards
-wiki_revision_count: 6
-wiki_last_updated: 2013-02-27
 ---
 
 <!-- TODO: Content review -->

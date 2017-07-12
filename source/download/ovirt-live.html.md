@@ -3,10 +3,6 @@ title: oVirt Live
 category: integration
 authors: apevec, bproffitt, dneary, jvandewege, mgoldboi, obasan, sandrobonazzola,
   stirabos
-wiki_category: Integration
-wiki_title: OVirt Live
-wiki_revision_count: 59
-wiki_last_updated: 2017-02-03
 ---
 
 # oVirt Live

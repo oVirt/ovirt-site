@@ -2,10 +2,6 @@
 title: TaskManagerDetailed
 category: feature
 authors: lpeer, moti, sandrobonazzola
-wiki_category: Feature|TaskManager
-wiki_title: Features/TaskManagerDetailed
-wiki_revision_count: 101
-wiki_last_updated: 2015-01-16
 ---
 
 ## Task Manager

@@ -1,9 +1,6 @@
 ---
 title: Update device hooks
 authors: gvallarelli
-wiki_title: Features/Update device hooks
-wiki_revision_count: 1
-wiki_last_updated: 2013-07-16
 ---
 
 # Update device hooks

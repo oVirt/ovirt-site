@@ -2,10 +2,6 @@
 title: Security
 category: security
 authors: djorm, quaid
-wiki_category: Security
-wiki_title: Security
-wiki_revision_count: 7
-wiki_last_updated: 2013-10-25
 ---
 
 <!-- TODO: Content review -->

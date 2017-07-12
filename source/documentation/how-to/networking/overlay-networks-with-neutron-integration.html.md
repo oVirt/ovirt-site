@@ -1,9 +1,6 @@
 ---
 title: Overlay Networks with Neutron Integration
 authors: amuller
-wiki_title: Overlay Networks with Neutron Integration
-wiki_revision_count: 25
-wiki_last_updated: 2013-12-23
 ---
 
 <!-- TODO: Content review -->

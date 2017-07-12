@@ -1,9 +1,6 @@
 ---
 title: Engine Command changes
 authors: ovedo, rnori, yair zaslavsky
-wiki_title: Wiki/Engine Command changes
-wiki_revision_count: 8
-wiki_last_updated: 2014-07-08
 ---
 
 # Engine commands infrastructure changes for 3.5

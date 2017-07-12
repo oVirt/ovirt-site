@@ -2,10 +2,6 @@
 title: oVirt kick-off workshop
 category: event/workshop
 authors: dneary
-wiki_category: News
-wiki_title: News/oVirt kick-off workshop
-wiki_revision_count: 5
-wiki_last_updated: 2012-11-28
 ---
 
 # oVirt Kick-off Workshop

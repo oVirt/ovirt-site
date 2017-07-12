@@ -2,10 +2,6 @@
 title: Node Testing
 category: node
 authors: fabiand, mburns
-wiki_category: Testing
-wiki_title: Node Testing
-wiki_revision_count: 20
-wiki_last_updated: 2013-03-20
 ---
 
 # Node Testing

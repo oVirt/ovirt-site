@@ -2,10 +2,6 @@
 title: Urwid TUI
 category: feature
 authors: fabiand
-wiki_category: Feature
-wiki_title: Features/Urwid TUI
-wiki_revision_count: 2
-wiki_last_updated: 2013-04-16
 ---
 
 # Urwid TUI

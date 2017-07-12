@@ -2,10 +2,6 @@
 title: VM Icons
 category: feature
 authors: jniederm
-wiki_category: Feature|VM Icon
-wiki_title: Features/VM Icons
-wiki_revision_count: 49
-wiki_last_updated: 2015-10-08
 feature_name: VM Icons
 feature_modules: engine
 feature_status: Done

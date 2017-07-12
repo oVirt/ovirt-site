@@ -5,10 +5,6 @@ authors: laravot
 feature_name: OVF On Any Domain
 feature_modules: engine
 feature_status: Released in oVirt 3.3
-wiki_category: Feature
-wiki_title: Feature/OvfOnAnyDomain
-wiki_revision_count: 6
-wiki_last_updated: 2014-08-12
 ---
 
 # OvfOnAnyDomains

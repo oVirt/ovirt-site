@@ -1,9 +1,6 @@
 ---
 title: Licensing
 authors: quaid
-wiki_title: Licensing
-wiki_revision_count: 6
-wiki_last_updated: 2013-01-17
 ---
 
 # Licensing

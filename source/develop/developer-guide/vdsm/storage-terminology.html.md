@@ -2,10 +2,6 @@
 title: Vdsm Storage Terminology
 category: vdsm
 authors: abonas, amureini, danken, quaid
-wiki_category: Vdsm
-wiki_title: Vdsm Storage Terminology
-wiki_revision_count: 6
-wiki_last_updated: 2012-11-25
 ---
 
 # Vdsm Storage Terminology

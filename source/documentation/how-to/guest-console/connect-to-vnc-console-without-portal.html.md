@@ -2,9 +2,6 @@
 title: How to Connect to VNC Console Without Portal
 category: howto
 authors: dyasny
-wiki_title: How to Connect to VNC Console Without Portal
-wiki_revision_count: 1
-wiki_last_updated: 2012-11-08
 ---
 
 <!-- TODO: Content review -->

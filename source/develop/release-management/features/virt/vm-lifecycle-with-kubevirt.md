@@ -2,10 +2,6 @@
 title: VM lifecycle in Kubevirt 
 category: feature
 authors: arik
-wiki_category: Feature
-wiki_title: Features/VM lifecycle in Kubevirt
-wiki_revision_count: 1
-wiki_last_updated: 2017-02-28
 feature_name: VM lifecycle in Kubevirt
 feature_modules: engine
 feature_status: 

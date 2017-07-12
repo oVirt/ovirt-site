@@ -1,9 +1,6 @@
 ---
 title: Kerberos Support in SDKs and CLI
 authors: jhernand
-wiki_title: Features/Kerberos Support in SDKs and CLI
-wiki_revision_count: 3
-wiki_last_updated: 2014-09-29
 ---
 
 # Kerberos support in the SDKs and the CLI

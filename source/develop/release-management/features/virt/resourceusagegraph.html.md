@@ -2,10 +2,6 @@
 title: ResourceUsageGraph
 category: feature
 authors: tjelinek
-wiki_category: Feature
-wiki_title: Features/ResourceUsageGraph
-wiki_revision_count: 8
-wiki_last_updated: 2015-10-15
 ---
 
 # Resource Usage Graph

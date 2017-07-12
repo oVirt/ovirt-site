@@ -2,10 +2,6 @@
 title: Migration Network
 category: feature
 authors: alkaplan, danken, ilvovsky, mpavlik
-wiki_category: Feature
-wiki_title: Features/Migration Network
-wiki_revision_count: 28
-wiki_last_updated: 2013-05-28
 ---
 
 # Migration Network

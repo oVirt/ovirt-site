@@ -2,10 +2,6 @@
 title: VDSM Potential Features
 category: vdsm
 authors: danken, smizrahi
-wiki_category: Vdsm
-wiki_title: VDSM Potential Features
-wiki_revision_count: 2
-wiki_last_updated: 2012-06-19
 ---
 
 # VDSM Potential Features

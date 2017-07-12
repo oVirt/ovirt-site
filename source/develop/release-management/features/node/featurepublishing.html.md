@@ -2,10 +2,6 @@
 title: FeaturePublishing
 category: feature
 authors: fabiand
-wiki_category: Feature
-wiki_title: Features/Node/FeaturePublishing
-wiki_revision_count: 1
-wiki_last_updated: 2013-09-17
 ---
 
 # Feature Publishing

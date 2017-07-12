@@ -2,10 +2,6 @@
 title: RESTSessionManagement
 category: feature
 authors: ovedo
-wiki_category: Feature
-wiki_title: Features/RESTSessionManagement
-wiki_revision_count: 17
-wiki_last_updated: 2012-12-11
 ---
 
 # REST API session management

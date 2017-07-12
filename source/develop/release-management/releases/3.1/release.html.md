@@ -2,10 +2,6 @@
 title: oVirt 3.1 release
 category: news
 authors: dneary
-wiki_category: News
-wiki_title: News/oVirt 3.1 release
-wiki_revision_count: 1
-wiki_last_updated: 2012-11-28
 ---
 
 # oVirt 3.1 Release

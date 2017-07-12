@@ -1,9 +1,6 @@
 ---
 title: Community activity
 authors: jbrooks
-wiki_title: Community activity
-wiki_revision_count: 1
-wiki_last_updated: 2012-09-28
 ---
 
 <!-- TODO: Content review -->

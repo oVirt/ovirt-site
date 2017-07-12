@@ -1,9 +1,6 @@
 ---
 title: DiskAlignment
 authors: fsimonce
-wiki_title: Features/DiskAlignment
-wiki_revision_count: 2
-wiki_last_updated: 2013-07-01
 feature_name: Disk Alignment
 feature_status: Released in oVirt 3.3
 ---

@@ -2,10 +2,6 @@
 title: Outage notice template
 category: infra
 authors: quaid
-wiki_category: Infrastructure SOP
-wiki_title: Outage notice template
-wiki_revision_count: 3
-wiki_last_updated: 2012-12-20
 ---
 
 # Outage notice template

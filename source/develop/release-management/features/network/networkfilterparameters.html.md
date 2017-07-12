@@ -2,10 +2,6 @@
 title: Network Filter Parameters
 category: feature
 authors: dholler
-wiki_category: Feature
-wiki_title: Network/NetworkFilterParameters
-wiki_revision_count: 0
-wiki_last_updated: 2016-11-08
 feature_name: Network Filter Parameters
 feature_modules: engine,vdsm
 feature_status: In Development

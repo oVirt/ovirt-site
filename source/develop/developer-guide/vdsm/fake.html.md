@@ -2,9 +2,6 @@
 title: VDSM Fake
 category: vdsm
 authors: lspevak, tjelinek
-wiki_title: VDSM Fake
-wiki_revision_count: 3
-wiki_last_updated: 2013-09-19
 ---
 
 # VDSM Fake

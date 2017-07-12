@@ -3,10 +3,6 @@ title: oVirt 3.2 release-management
 category: release
 authors: aglitke, alonbl, amureini, danken, dneary, doron, fabiand, jboggs, liran.zelkha,
   lpeer, mburns, mkolesni, tjelinek, vbellur
-wiki_category: Releases
-wiki_title: OVirt 3.2 release-management
-wiki_revision_count: 39
-wiki_last_updated: 2013-06-04
 ---
 
 # oVirt 3.2 release-management

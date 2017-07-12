@@ -2,10 +2,6 @@
 title: TaskManagerCancelTask
 category: template
 authors: mkublin
-wiki_category: Template
-wiki_title: Features/TaskManagerCancelTask
-wiki_revision_count: 3
-wiki_last_updated: 2012-12-03
 ---
 
 # Task Manager Cancel Task

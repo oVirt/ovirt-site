@@ -2,10 +2,6 @@
 title: How to Connect to SPICE Console Without Portal
 category: howto
 authors: amuller, apuimedo, djasa, jniederm
-wiki_category: Documentation
-wiki_title: How to Connect to SPICE Console Without Portal
-wiki_revision_count: 4
-wiki_last_updated: 2015-09-03
 ---
 
 # How to Connect to SPICE Console Without Portal

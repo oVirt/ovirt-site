@@ -1,9 +1,6 @@
 ---
 title: Copy Disks
 authors: tjelinek
-wiki_title: Features/Copy Disks
-wiki_revision_count: 1
-wiki_last_updated: 2015-05-15
 feature_name: Copy Disks
 feature_modules: engine
 feature_status: Released in oVirt 3.6

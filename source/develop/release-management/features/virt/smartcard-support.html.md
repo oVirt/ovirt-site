@@ -2,10 +2,6 @@
 title: Smartcard support
 category: feature
 authors: acathrow, tjelinek
-wiki_category: Feature
-wiki_title: Features/Smartcard support
-wiki_revision_count: 10
-wiki_last_updated: 2013-01-21
 ---
 
 # Smartcard Support

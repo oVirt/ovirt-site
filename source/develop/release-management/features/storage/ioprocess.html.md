@@ -5,9 +5,6 @@ authors: derez, ykaplan
 feature_name: ioprocess
 feature_status: Released in oVirt 3.5
 feature_modules: ioprocess, vdsm
-wiki_title: Features/ioprocess
-wiki_revision_count: 3
-wiki_last_updated: 2014-04-03
 ---
 
 # ioprocess

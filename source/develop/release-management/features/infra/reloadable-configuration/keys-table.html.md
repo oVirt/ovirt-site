@@ -1,9 +1,6 @@
 ---
 title: keys table
 authors: msalem
-wiki_title: Features/ReloadableConfiguration/keys table
-wiki_revision_count: 5
-wiki_last_updated: 2012-07-05
 ---
 
 # keys table

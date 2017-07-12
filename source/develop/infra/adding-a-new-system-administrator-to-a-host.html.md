@@ -2,10 +2,6 @@
 title: Adding a new system administrator to a host
 category: infra
 authors: quaid
-wiki_category: Infrastructure documentation
-wiki_title: Adding a new system administrator to a host
-wiki_revision_count: 11
-wiki_last_updated: 2013-02-19
 ---
 
 # Adding a new system administrator to a host

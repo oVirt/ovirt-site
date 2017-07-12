@@ -2,10 +2,6 @@
 title: Avoid IP Spoofing
 category: feature
 authors: danken
-wiki_category: Feature
-wiki_title: Features/Avoid IP Spoofing
-wiki_revision_count: 2
-wiki_last_updated: 2014-06-26
 feature_name: Avoid IP Spoofing
 feature_modules: engine,network,vdsm
 feature_status: Planning

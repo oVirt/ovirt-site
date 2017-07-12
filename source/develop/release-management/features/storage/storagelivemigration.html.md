@@ -4,9 +4,6 @@ authors: abaron, fsimonce, amureini, derez
 feature_name: Storage Live Migration
 feature_modules: engine, vdsm
 feature_status: Released in oVirt 3.1
-wiki_title: Features/Design/StorageLiveMigration
-wiki_revision_count: 22
-wiki_last_updated: 2012-04-16
 ---
 
 # Storage Live Migration

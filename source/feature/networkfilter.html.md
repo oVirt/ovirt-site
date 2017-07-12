@@ -2,10 +2,6 @@
 title: NetworkFilter
 category: feature
 authors: elevi
-wiki_category: Feature
-wiki_title: Features/NetworkFilter
-wiki_revision_count: 121
-wiki_last_updated: 2016-02-02
 feature_name: Network filter
 feature_modules: engine,network
 feature_status: new

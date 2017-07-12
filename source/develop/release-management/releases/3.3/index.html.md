@@ -4,10 +4,6 @@ category: documentation
 layout: toc
 authors: alonbl, dneary, doron, fsimonce, jbrooks, lvernia, mburns, michael pasternak,
   mkolesni, yair zaslavsky
-wiki_category: Documentation
-wiki_title: OVirt 3.3 release notes
-wiki_revision_count: 35
-wiki_last_updated: 2013-10-02
 ---
 
 # oVirt 3.3 release notes

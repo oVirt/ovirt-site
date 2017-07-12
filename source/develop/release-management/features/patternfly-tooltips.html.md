@@ -2,10 +2,6 @@
 title: PatternFly Tooltips
 category: feature
 authors: gshereme
-wiki_category: Feature
-wiki_title: Features/PatternFly Tooltips
-wiki_revision_count: 3
-wiki_last_updated: 2015-03-10
 feature_name: PatternFly tooltips
 feature_modules: webadmin,userportal
 feature_status: In Development

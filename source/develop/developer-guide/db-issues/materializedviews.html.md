@@ -1,9 +1,6 @@
 ---
 title: MaterializedViews
 authors: emesika
-wiki_title: OVirt-DB-Issues/MaterializedViews
-wiki_revision_count: 32
-wiki_last_updated: 2013-05-22
 ---
 
 # Materialized Views

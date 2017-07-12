@@ -2,10 +2,6 @@
 title: CommandCoordinator
 category: feature
 authors: moti, rnori
-wiki_category: Feature
-wiki_title: Features/Design/CommandCoordinator
-wiki_revision_count: 44
-wiki_last_updated: 2014-09-18
 feature_name: Introduce CommandCoordinator Framework and Ability To Persist Commands
   in Database
 feature_modules: engine

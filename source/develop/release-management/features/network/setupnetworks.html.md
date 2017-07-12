@@ -1,11 +1,6 @@
 ---
 title: SetupNetworks
 authors: drankevi, mkolesni, moti, roy, ykaul
-wiki_title: Features/Design/Network/SetupNetworks
-wiki_revision_count: 45
-wiki_last_updated: 2013-11-28
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
 ---
 
 # Setup Networks

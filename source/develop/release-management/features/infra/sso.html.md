@@ -2,10 +2,6 @@
 title: SSO
 category: feature
 authors: alonbl
-wiki_category: Feature
-wiki_title: Features/SSO
-wiki_revision_count: 30
-wiki_last_updated: 2014-07-01
 ---
 
 # SSO

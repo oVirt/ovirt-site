@@ -148,18 +148,6 @@ index: false
       # ...and also simpler keywords by splitting at other ASCII chars
       url_frags = page.url.split('/') + page.url.tr('_/-:', ' ').split(' ')
 
-      # MediaWiki name/URL titles
-      # (empty if wiki_title doesn't exist — only used for MW conversions)
-      mw_frags = if page.data['wiki_title']
-                   page.data['wiki_title']
-                     .downcase
-                     .tr('_/-:', ' ')
-                     .squeeze(' ')
-                     .split(' ')
-                 else
-                   []
-                 end
-
       nickname = page.data.author
       author = []
 
@@ -181,7 +169,7 @@ index: false
 
       # Clean up list of words and add URL fragments and author
       text = text.map(&:strip).sort.uniq
-        .reject {|w| w.match /[=]/} + url_frags + mw_frags - stopwords + author
+        .reject {|w| w.match /[=]/} + url_frags - stopwords + author
 
       # Add CJK words to the word list
       text += page_content.scan(/\p{Han}/).uniq

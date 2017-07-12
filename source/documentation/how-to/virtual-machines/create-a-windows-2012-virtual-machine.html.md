@@ -2,9 +2,6 @@
 title: How to Create a Windows 2012 Virtual Machine
 category: howto
 authors: nkesick
-wiki_title: How to create a Windows 2012 Virtual Machine
-wiki_revision_count: 4
-wiki_last_updated: 2014-01-01
 ---
 
 # How to Create a Windows 2012 Virtual Machine

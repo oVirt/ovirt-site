@@ -2,10 +2,6 @@
 title: HostNetworkingApi
 category: api
 authors: danken, mmucha, moti, sandrobonazzola
-wiki_category: Feature
-wiki_title: Features/HostNetworkingApi
-wiki_revision_count: 77
-wiki_last_updated: 2015-10-14
 feature_name: Host Networking API
 feature_modules: Networking
 feature_status: Design

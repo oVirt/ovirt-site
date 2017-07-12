@@ -2,10 +2,6 @@
 title: HotplugNic
 category: feature
 authors: danken, ekohl, ilvovsky, moti
-wiki_category: Feature
-wiki_title: Features/HotplugNic
-wiki_revision_count: 4
-wiki_last_updated: 2014-05-01
 feature_name: Hotplug/Hotunplug of Network Interface Cards
 feature_modules: vdsm,engine,api
 feature_status: Released

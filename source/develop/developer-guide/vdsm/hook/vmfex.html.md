@@ -1,11 +1,6 @@
 ---
 title: vmfex
 authors: apuimedo, dyasny
-wiki_title: VDSM-Hooks/vmfex
-wiki_revision_count: 6
-wiki_last_updated: 2014-05-05
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
 ---
 
 # vmfex

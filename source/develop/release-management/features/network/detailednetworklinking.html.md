@@ -2,11 +2,6 @@
 title: DetailedNetworkLinking
 category: template
 authors: alkaplan, apuimedo, danken, lpeer, moti
-wiki_category: Template
-wiki_title: Feature/DetailedNetworkLinking
-wiki_revision_count: 75
-wiki_last_updated: 2012-12-18
-wiki_warnings: list-item?
 ---
 
 # Detailed Network Linking

@@ -2,9 +2,6 @@
 title: Vdsm on el6
 category: vdsm
 authors: danken
-wiki_title: Vdsm on el6
-wiki_revision_count: 1
-wiki_last_updated: 2015-05-01
 ---
 
 # Vdsm on EL6

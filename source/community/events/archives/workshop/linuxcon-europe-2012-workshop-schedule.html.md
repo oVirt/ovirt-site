@@ -2,9 +2,6 @@
 title: LinuxCon Europe 2012 workshop schedule
 category: event/workshop
 authors: dneary, doron, vbellur
-wiki_title: LinuxCon Europe 2012 workshop schedule
-wiki_revision_count: 13
-wiki_last_updated: 2013-10-31
 ---
 
 # LinuxCon Europe 2012 workshop schedule

@@ -1,9 +1,6 @@
 ---
 title: General disclaimer
 authors: bproffitt
-wiki_title: oVirt Wiki:General disclaimer
-wiki_revision_count: 1
-wiki_last_updated: 2017-02-05
 ---
 
 # General disclaimer

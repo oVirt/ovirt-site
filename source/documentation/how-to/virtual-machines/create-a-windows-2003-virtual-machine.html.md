@@ -2,9 +2,6 @@
 title: How to create a Windows 2003 Virtual Machine
 category: howto
 authors: nkesick
-wiki_title: How to create a Windows 2003 Virtual Machine
-wiki_revision_count: 5
-wiki_last_updated: 2013-12-29
 ---
 
 <!-- TODO: Content review -->

@@ -2,11 +2,6 @@
 title: hostdev passthrough
 category: feature
 authors: mbetak, mpolednik
-wiki_category: Feature
-wiki_title: Features/hostdev passthrough
-wiki_revision_count: 85
-wiki_last_updated: 2015-10-13
-wiki_warnings: references
 ---
 
 # hostdev passthrough

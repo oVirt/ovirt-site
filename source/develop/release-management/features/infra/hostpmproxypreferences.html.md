@@ -2,10 +2,6 @@
 title: HostPMProxyPreferences
 category: feature
 authors: emesika, simong, yair zaslavsky
-wiki_category: Feature
-wiki_title: Features/HostPMProxyPreferences
-wiki_revision_count: 18
-wiki_last_updated: 2012-11-11
 ---
 
 # Host PM Proxy Preferences

@@ -1,9 +1,6 @@
 ---
 title: Summer of Code
 authors: bproffitt, danken, fsimonce, mlipchuk, nsoffer
-wiki_title: Summer of Code
-wiki_revision_count: 19
-wiki_last_updated: 2015-03-03
 ---
 
 <!-- TODO: Content review -->

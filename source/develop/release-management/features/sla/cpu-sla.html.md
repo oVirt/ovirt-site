@@ -2,10 +2,6 @@
 title: CPU SLA
 category: feature
 authors: adahms, kianku, roy
-wiki_category: Feature
-wiki_title: Features/CPU SLA
-wiki_revision_count: 35
-wiki_last_updated: 2015-04-14
 ---
 
 # CPU SLA

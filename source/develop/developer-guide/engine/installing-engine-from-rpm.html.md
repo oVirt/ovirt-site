@@ -2,9 +2,6 @@
 title: Installing ovirt-engine from rpm
 authors: aglitke, djorm, dougsland, mburns, moti, oschreib, ranglust, sandrobonazzola,
   sgordon
-wiki_title: Installing ovirt-engine from rpm
-wiki_revision_count: 34
-wiki_last_updated: 2014-09-26
 ---
 
 This Documents has come to describe the steps required in order to install & configure ovirt-engine Use this guide in order to install VDSM on the same host as ovirt-engine: [Installing_VDSM_from_rpm](/develop/developer-guide/vdsm/installing-vdsm-from-rpm/)

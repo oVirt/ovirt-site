@@ -2,10 +2,6 @@
 title: Quota-3.2
 category: sla
 authors: doron, ofri, ykaul
-wiki_category: SLA
-wiki_title: Features/Design/Quota-3.2
-wiki_revision_count: 18
-wiki_last_updated: 2012-12-24
 ---
 
 # Quota

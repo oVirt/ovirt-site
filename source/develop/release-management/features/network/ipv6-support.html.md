@@ -2,10 +2,6 @@
 title: IPv6 support
 category: feature
 authors: amuller, danken, osvoboda, psebek
-wiki_category: Feature
-wiki_title: Features/IPv6 support
-wiki_revision_count: 70
-wiki_last_updated: 2014-11-06
 ---
 
 # IPv6 support

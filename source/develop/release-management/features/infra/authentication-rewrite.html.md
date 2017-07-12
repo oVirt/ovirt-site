@@ -1,9 +1,6 @@
 ---
 title: Authentication-Rewrite
 authors: alonbl, amureini, wdennis, yair zaslavsky
-wiki_title: Features/Authentication-Rewrite
-wiki_revision_count: 16
-wiki_last_updated: 2014-12-07
 ---
 
 # Authentication & Directory rewrite

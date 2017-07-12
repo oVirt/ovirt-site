@@ -1,10 +1,6 @@
 ---
 title: Cloud-Init Integration
 authors: amedeos, danken, gpadgett, herrold, ofrenkel, sven, vfeenstr
-wiki_title: Features/Cloud-Init Integration
-wiki_revision_count: 18
-wiki_last_updated: 2014-12-22
-wiki_warnings: references
 ---
 
 # Cloud-Init Integration

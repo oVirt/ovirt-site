@@ -2,10 +2,6 @@
 title: Universidad de Sevilla Case Study
 category: community
 authors: bproffitt
-wiki_category: Community
-wiki_title: Universidad de Sevilla Case Study
-wiki_revision_count: 2
-wiki_last_updated: 2015-02-25
 ---
 
 <div class="row">

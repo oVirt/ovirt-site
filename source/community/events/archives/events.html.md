@@ -2,10 +2,6 @@
 title: Events
 category: event
 authors: ovedo, pkliczewski
-wiki_category: oVirt 3.6 Proposed Feature
-wiki_title: Features/Design/Events
-wiki_revision_count: 18
-wiki_last_updated: 2015-10-07
 feature_name: Event mechanism to send events from the host to the engine
 feature_modules: vdsm, engine
 feature_status: ON_QA

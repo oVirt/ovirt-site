@@ -2,10 +2,6 @@
 title: TestCase Hosted Engine iSCSI Multiple LUN Support
 category: testcase
 authors: sandrobonazzola
-wiki_category: TestCase
-wiki_title: QA:TestCase Hosted Engine iSCSI Multiple LUN Support
-wiki_revision_count: 3
-wiki_last_updated: 2014-09-17
 ---
 
 # TestCase Hosted Engine iSCSI Multiple LUN Support

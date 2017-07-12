@@ -2,10 +2,6 @@
 title: Vdsm-Node Integration
 category: node
 authors: danken, dougsland
-wiki_category: Vdsm
-wiki_title: Vdsm-Node Integration
-wiki_revision_count: 5
-wiki_last_updated: 2014-02-20
 ---
 
 # Vdsm-Node Integration

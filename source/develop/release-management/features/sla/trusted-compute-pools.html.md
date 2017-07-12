@@ -2,10 +2,6 @@
 title: Trusted compute pools
 category: feature
 authors: dave chen, gwei3, lhornyak
-wiki_category: Feature
-wiki_title: Trusted compute pools
-wiki_revision_count: 56
-wiki_last_updated: 2013-10-11
 ---
 
 # Trusted Compute Pools

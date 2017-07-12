@@ -2,10 +2,6 @@
 title: Nieuwland case study
 category: case-studies
 authors: bproffitt
-wiki_category: Case studies
-wiki_title: Nieuwland case study
-wiki_revision_count: 2
-wiki_last_updated: 2014-01-15
 ---
 
 # Nieuwland case study

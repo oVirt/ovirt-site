@@ -2,10 +2,6 @@
 title: oVirt Global Workshops
 category: event/workshop
 authors: bproffitt, dneary, jbrooks, kmestery, lh, quaid, theron
-wiki_category: Events
-wiki_title: OVirt Global Workshops
-wiki_revision_count: 44
-wiki_last_updated: 2017-01-29
 ---
 
 # oVirt Global Workshops

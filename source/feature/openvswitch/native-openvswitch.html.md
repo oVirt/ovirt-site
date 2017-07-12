@@ -2,10 +2,6 @@
 title: Native Open vSwitch
 category: feature
 authors: phoracek danken edwardh
-wiki_category: Feature
-wiki_title: Features/Open vSwitch
-wiki_revision_count: 1
-wiki_last_updated: 2016-02-24
 feature_name: Native Open vSwitch
 feature_modules: Networking
 feature_status: Spec

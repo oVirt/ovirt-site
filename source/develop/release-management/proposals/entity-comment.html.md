@@ -1,9 +1,6 @@
 ---
 title: Entity comment
 authors: nslomian
-wiki_title: Entity comment
-wiki_revision_count: 2
-wiki_last_updated: 2013-03-20
 ---
 
 # Entity comment

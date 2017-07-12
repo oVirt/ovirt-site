@@ -2,10 +2,6 @@
 title: Autorecovery
 category: feature
 authors: ekohl, lhornyak, ykaul
-wiki_category: Feature
-wiki_title: Features/Autorecovery
-wiki_revision_count: 16
-wiki_last_updated: 2012-07-20
 ---
 
 # Autorecovery

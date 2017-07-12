@@ -2,10 +2,6 @@
 title: Multiple Gateways
 category: feature
 authors: amuller, danken, lpeer
-wiki_category: Feature
-wiki_title: Features/Multiple Gateways
-wiki_revision_count: 27
-wiki_last_updated: 2013-11-06
 ---
 
 # Multiple Gateways

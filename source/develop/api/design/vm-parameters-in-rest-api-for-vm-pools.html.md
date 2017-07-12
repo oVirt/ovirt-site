@@ -2,10 +2,6 @@
 title: Vm Parameters in REST API for Vm Pools
 category: api
 authors: sandrobonazzola, smelamud
-wiki_category: Feature
-wiki_title: Features/Vm Parameters in REST API for Vm Pools
-wiki_revision_count: 5
-wiki_last_updated: 2015-10-21
 feature_name: Vm Parameters in REST API for Vm Pools
 feature_modules: rest-api
 feature_status: Implemented

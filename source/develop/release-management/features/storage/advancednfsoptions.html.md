@@ -2,10 +2,6 @@
 title: AdvancedNfsOptions
 category: feature
 authors: derez, ecohen, ekohl, lhornyak, smizrahi
-wiki_category: Feature
-wiki_title: Features/AdvancedNfsOptions
-wiki_revision_count: 10
-wiki_last_updated: 2014-07-13
 feature_name: Advanced Nfs Options
 feature_modules: engine
 feature_status: Released

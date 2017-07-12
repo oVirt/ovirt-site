@@ -2,10 +2,6 @@
 title: jasper in webadmin
 category: feature
 authors: alkaplan
-wiki_category: Feature
-wiki_title: Features/Design/jasper in webadmin
-wiki_revision_count: 17
-wiki_last_updated: 2012-05-14
 ---
 
 # jasper in webadmin

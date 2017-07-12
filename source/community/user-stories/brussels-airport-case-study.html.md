@@ -2,10 +2,6 @@
 title: Brussels Airport Case Study
 category: community
 authors: bproffitt, roy
-wiki_category: Community
-wiki_title: Brussels Airport Case Study
-wiki_revision_count: 3
-wiki_last_updated: 2014-06-17
 ---
 
 <div class="row">

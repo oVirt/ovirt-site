@@ -2,9 +2,6 @@
 title: Proposal VDSM - Engine Data Statistics Retrieval
 category: vdsm
 authors: danken, vfeenstr
-wiki_title: Proposal VDSM - Engine Data Statistics Retrieval
-wiki_revision_count: 9
-wiki_last_updated: 2013-07-08
 ---
 
 # Proposal VDSM - Engine Data Statistics Retrieval

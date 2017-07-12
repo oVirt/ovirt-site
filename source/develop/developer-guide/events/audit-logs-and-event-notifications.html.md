@@ -2,9 +2,6 @@
 title: Audit Logs and Event Notifications
 category: event
 authors: shireesh
-wiki_title: Development/Audit Logs and Event Notifications
-wiki_revision_count: 1
-wiki_last_updated: 2012-03-09
 ---
 
 # Audit Logs and Event Notifications

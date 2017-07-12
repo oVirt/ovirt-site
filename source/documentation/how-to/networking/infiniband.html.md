@@ -1,9 +1,6 @@
 ---
 title: Infiniband
 authors: suppentopf, sven
-wiki_title: Infiniband
-wiki_revision_count: 20
-wiki_last_updated: 2014-01-23
 ---
 
 # Infiniband

@@ -2,10 +2,6 @@
 title: UI
 category: feature
 authors: ecohen
-wiki_category: Feature
-wiki_title: Features/BackupAwareness/UI
-wiki_revision_count: 16
-wiki_last_updated: 2015-06-03
 feature_name: Backup Awareness UI
 feature_modules: engine
 feature_status: Planning

@@ -3,10 +3,6 @@ title: Feature template
 category: feature
 authors: acathrow, danken, dneary, lvernia, nsoffer, ovedo, quaid, sandrobonazzola,
   vered
-wiki_category: Feature
-wiki_title: Feature template
-wiki_revision_count: 20
-wiki_last_updated: 2014-12-12
 feature_name: Your feature name
 feature_modules: engine,network,vdsm
 feature_status: Released

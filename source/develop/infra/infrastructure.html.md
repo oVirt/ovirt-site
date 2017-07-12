@@ -3,9 +3,6 @@ title: Infrastructure
 category: infra
 authors: dcaroest, dneary, eedri, ekohl, eyale, herrold, knesenko, ngoldin, quaid,
   rmiddle
-wiki_title: Category:Infrastructure
-wiki_revision_count: 30
-wiki_last_updated: 2016-02-08
 ---
 
 # Infrastructure

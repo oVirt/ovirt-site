@@ -2,10 +2,6 @@
 title: Container support
 category: feature
 authors: fromani
-wiki_category: Feature
-wiki_title: Container support
-wiki_revision_count: 6
-wiki_last_updated: 2015-12-15
 feature_name: Container support
 feature_modules: vdsm, engine?
 feature_status: Planning

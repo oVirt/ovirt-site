@@ -2,10 +2,6 @@
 title: Network QoS - detailed design
 category: sla
 authors: lhornyak, ofri
-wiki_category: SLA
-wiki_title: Features/Design/Network QoS - detailed design
-wiki_revision_count: 68
-wiki_last_updated: 2013-06-10
 ---
 
 # Network QoS - detailed design

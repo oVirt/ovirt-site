@@ -2,10 +2,6 @@
 title: Build and test standards
 category: ci
 authors: dcaroest, mkovgan, nsoffer
-wiki_category: CI
-wiki_title: CI/Build and test standards
-wiki_revision_count: 11
-wiki_last_updated: 2015-07-16
 ---
 
 **NOTE**: for the latest version of this doc, see <http://ovirt-infra-docs.readthedocs.org/en/latest/>

@@ -2,10 +2,6 @@
 title: Disk Hooks
 category: feature
 authors: vered
-wiki_category: Feature
-wiki_title: Features/Disk Hooks
-wiki_revision_count: 4
-wiki_last_updated: 2014-07-03
 feature_name: Disk Hooks
 feature_modules: storage
 feature_status: Released

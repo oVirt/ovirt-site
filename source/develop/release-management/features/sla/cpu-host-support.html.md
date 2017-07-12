@@ -2,10 +2,6 @@
 title: Cpu-host Support
 category: feature
 authors: acathrow, lhornyak
-wiki_category: Feature
-wiki_title: Features/Cpu-host Support
-wiki_revision_count: 27
-wiki_last_updated: 2013-01-07
 ---
 
 # CPU-Host Support

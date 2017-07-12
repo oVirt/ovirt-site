@@ -2,10 +2,6 @@
 title: PendingResourceManager
 category: feature
 authors: msivak
-wiki_category: Feature
-wiki_title: Features/Sla/PendingResourceManager
-wiki_revision_count: 3
-wiki_last_updated: 2015-04-22
 feature_name: Pending Resource Manager
 feature_modules: engine
 feature_status: Draft

@@ -2,10 +2,6 @@
 title: DetailedLockMechanism
 category: feature
 authors: mkublin, sandrobonazzola, yair zaslavsky
-wiki_category: Feature|LockMechanism
-wiki_title: Features/DetailedLockMechanism
-wiki_revision_count: 29
-wiki_last_updated: 2015-01-16
 ---
 
 # Detailed Lock Mechanism

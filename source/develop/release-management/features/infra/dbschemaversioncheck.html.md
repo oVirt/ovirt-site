@@ -2,10 +2,6 @@
 title: DBSchemaVersionCheck
 category: feature
 authors: yair zaslavsky
-wiki_category: Feature
-wiki_title: Features/DBSchemaVersionCheck
-wiki_revision_count: 4
-wiki_last_updated: 2012-01-25
 ---
 
 # DB Schema version check

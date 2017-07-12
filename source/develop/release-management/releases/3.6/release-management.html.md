@@ -2,10 +2,6 @@
 title: oVirt 3.6 Release Management
 category: release
 authors: bproffitt, danken, sandrobonazzola
-wiki_category: Releases
-wiki_title: OVirt 3.6 Release Management
-wiki_revision_count: 87
-wiki_last_updated: 2015-10-20
 ---
 
 # oVirt 3.6 Release Management

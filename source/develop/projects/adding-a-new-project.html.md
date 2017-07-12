@@ -1,9 +1,6 @@
 ---
 title: Adding a new project
 authors: dneary, mburns
-wiki_title: Adding a new project
-wiki_revision_count: 2
-wiki_last_updated: 2013-07-01
 ---
 
 # Adding a Project

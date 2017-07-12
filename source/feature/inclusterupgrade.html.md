@@ -1,9 +1,6 @@
 ---
 title: InClusterUpgrade
 authors: rmohr
-wiki_title: Features/InClusterUpgrade
-wiki_revision_count: 47
-wiki_last_updated: 2016-04-21
 feature_name: In Cluster Upgrade
 feature_modules: engine
 feature_status: Completed. Since 3.6.6

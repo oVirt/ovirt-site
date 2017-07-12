@@ -2,10 +2,6 @@
 title: Instance Types
 category: feature
 authors: acathrow, ofrenkel, tjelinek
-wiki_category: Feature
-wiki_title: Features/Instance Types
-wiki_revision_count: 132
-wiki_last_updated: 2015-01-12
 ---
 
 # Instance Types

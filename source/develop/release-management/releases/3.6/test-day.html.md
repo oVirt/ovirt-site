@@ -1,9 +1,6 @@
 ---
 title: oVirt 3.6 Test Day
 authors: sandrobonazzola
-wiki_title: OVirt 3.6 Test Day
-wiki_revision_count: 12
-wiki_last_updated: 2015-08-10
 ---
 
 # oVirt 3.6 Test Day

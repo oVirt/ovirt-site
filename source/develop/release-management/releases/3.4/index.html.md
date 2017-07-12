@@ -3,10 +3,6 @@ title: oVirt 3.4 Release Notes
 category: documentation
 layout: toc
 authors: bproffitt, derez, knesenko, sandrobonazzola
-wiki_category: Documentation
-wiki_title: OVirt 3.4 Release Notes
-wiki_revision_count: 28
-wiki_last_updated: 2014-07-21
 ---
 
 The oVirt Project is pleased to announce the availability of its fifth formal release, oVirt 3.4.

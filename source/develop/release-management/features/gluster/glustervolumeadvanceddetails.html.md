@@ -2,10 +2,6 @@
 title: GlusterVolumeAdvancedDetails
 category: feature
 authors: kmayilsa
-wiki_category: Feature
-wiki_title: Features/GlusterVolumeAdvancedDetails
-wiki_revision_count: 5
-wiki_last_updated: 2012-09-27
 ---
 
 # Gluster Volume Advanced Details

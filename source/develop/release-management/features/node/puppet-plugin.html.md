@@ -2,10 +2,6 @@
 title: Node Puppet Plugin
 category: node
 authors: rbarry
-wiki_category: Feature
-wiki_title: Features/Node Puppet Plugin
-wiki_revision_count: 2
-wiki_last_updated: 2013-04-11
 ---
 
 # oVirt Node Puppet plugin

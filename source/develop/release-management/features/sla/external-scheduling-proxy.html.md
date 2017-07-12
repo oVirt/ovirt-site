@@ -2,10 +2,6 @@
 title: oVirt External Scheduling Proxy
 category: sla
 authors: doron, lhornyak
-wiki_category: SLA
-wiki_title: Features/oVirt External Scheduling Proxy
-wiki_revision_count: 22
-wiki_last_updated: 2013-10-07
 ---
 
 # External Scheduler Proxy

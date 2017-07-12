@@ -1,9 +1,6 @@
 ---
 title: Postgresql changing db pass
 authors: oernii
-wiki_title: Postgresql changing db pass
-wiki_revision_count: 2
-wiki_last_updated: 2013-03-14
 ---
 
 # Postgresql changing db pass

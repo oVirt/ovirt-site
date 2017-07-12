@@ -2,10 +2,6 @@
 title: Predictable vNIC Order
 category: feature
 authors: danken
-wiki_category: Feature
-wiki_title: Feature/Predictable vNIC Order
-wiki_revision_count: 10
-wiki_last_updated: 2014-05-01
 feature_name: Predictable vNIC Order
 feature_modules: engine
 feature_status: Released

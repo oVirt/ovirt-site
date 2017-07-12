@@ -2,10 +2,6 @@
 title: ubuntu
 category: debian
 authors: dneary, lhornyak, vfeenstr
-wiki_category: Debian
-wiki_title: Ovirt build on debian/ubuntu
-wiki_revision_count: 4
-wiki_last_updated: 2012-11-21
 ---
 
 # ubuntu

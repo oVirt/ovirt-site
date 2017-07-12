@@ -1,9 +1,6 @@
 ---
 title: Python-sdk-changelog
 authors: michael pasternak
-wiki_title: Python-sdk-changelog
-wiki_revision_count: 18
-wiki_last_updated: 2013-12-25
 ---
 
 <!-- TODO: Content review -->

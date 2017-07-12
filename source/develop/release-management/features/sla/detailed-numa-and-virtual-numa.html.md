@@ -1,9 +1,6 @@
 ---
 title: Detailed NUMA and Virtual NUMA
 authors: bruceshi, jasonliao
-wiki_title: Features/Detailed NUMA and Virtual NUMA
-wiki_revision_count: 56
-wiki_last_updated: 2014-05-06
 ---
 
 # NUMA and Virtual NUMA

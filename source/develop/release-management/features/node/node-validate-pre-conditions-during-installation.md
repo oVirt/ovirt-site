@@ -2,10 +2,6 @@
 title: Validate pre-conditions during installation
 category: feature
 authors: dougsland
-wiki_category: Feature|Validate pre-conditions during installation
-wiki_title: Feature/ValidateNodePreConditions
-wiki_revision_count: 0
-wiki_last_updated: 2016-11-7
 feature_name: Installation/Validate Node Pre Coditions for Installation
 feature_modules: node installation
 feature_status: WIP, 4.1 proposed feature

@@ -1,9 +1,6 @@
 ---
 title: cloud init
 authors: mrao
-wiki_title: UX/cloud init
-wiki_revision_count: 7
-wiki_last_updated: 2013-12-23
 ---
 
 # cloud init

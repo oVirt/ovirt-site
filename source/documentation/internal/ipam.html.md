@@ -1,9 +1,6 @@
 ---
 title: IPAM
 authors: mkolesni
-wiki_title: IPAM
-wiki_revision_count: 3
-wiki_last_updated: 2012-12-05
 ---
 
 <!-- TODO: Content review -->

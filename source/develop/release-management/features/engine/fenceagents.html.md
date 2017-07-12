@@ -1,9 +1,6 @@
 ---
 title: FenceAgents
 authors: oliel
-wiki_title: Features/FenceAgents
-wiki_revision_count: 4
-wiki_last_updated: 2015-01-28
 ---
 
 # Fence Agents

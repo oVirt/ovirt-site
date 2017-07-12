@@ -3,9 +3,6 @@ title: oVirt 3.4 Test Day
 authors: amureini, apuimedo, awels, bproffitt, danken, doron, ecohen, eedri, emesika,
   fabiand, fromani, gchaplik, jmoskovc, mperina, msivak, netbulae, rnori, sandrobonazzola,
   yair zaslavsky, ybronhei
-wiki_title: OVirt 3.4 Test Day
-wiki_revision_count: 77
-wiki_last_updated: 2014-03-27
 ---
 
 # oVirt 3.4 Test Day

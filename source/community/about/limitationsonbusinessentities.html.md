@@ -1,9 +1,6 @@
 ---
 title: LimitationsOnBusinessEntities
 authors: yair zaslavsky
-wiki_title: Main Page/LimitationsOnBusinessEntities
-wiki_revision_count: 3
-wiki_last_updated: 2012-03-28
 ---
 
 # LimitationsOnBusinessEntities

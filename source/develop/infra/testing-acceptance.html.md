@@ -1,9 +1,6 @@
 ---
 title: Testing-acceptance
 authors: doron, koen12
-wiki_title: Testing-acceptance
-wiki_revision_count: 2
-wiki_last_updated: 2014-04-08
 ---
 
 # Testing-acceptance

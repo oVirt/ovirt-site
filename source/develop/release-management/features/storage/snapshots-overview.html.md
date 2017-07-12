@@ -4,9 +4,6 @@ authors: derez
 feature_name: Snapshot Overview
 feature_modules: engine
 feature_status: Released in oVirt 3.5
-wiki_title: Features/Snapshots Overview
-wiki_revision_count: 8
-wiki_last_updated: 2014-05-12
 ---
 
 # Snapshots Overview

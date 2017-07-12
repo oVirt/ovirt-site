@@ -2,10 +2,6 @@
 title: Gluster Support
 category: feature
 authors: ekohl, rmiddle, sahina, sandrobonazzola, shireesh
-wiki_category: Feature|Gluster Support
-wiki_title: Features/Gluster Support
-wiki_revision_count: 9
-wiki_last_updated: 2014-12-22
 feature_name: Gluster management
 feature_modules: engine,gluster
 feature_status: Completed

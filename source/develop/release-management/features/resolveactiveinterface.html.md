@@ -2,10 +2,6 @@
 title: ResolveActiveInterface
 category: feature
 authors: elevi
-wiki_category: Feature
-wiki_title: Features/ResolveActiveInterface
-wiki_revision_count: 4
-wiki_last_updated: 2015-10-12
 feature_name: Resolve Active Interface
 feature_modules: engine,network
 feature_status: Development

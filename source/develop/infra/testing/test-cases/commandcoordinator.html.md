@@ -2,10 +2,6 @@
 title: TestCase CommandCoordinator
 category: testcase
 authors: rnori
-wiki_category: TestCase
-wiki_title: QA:TestCase CommandCoordinator
-wiki_revision_count: 1
-wiki_last_updated: 2014-09-18
 ---
 
 # TestCase CommandCoordinator

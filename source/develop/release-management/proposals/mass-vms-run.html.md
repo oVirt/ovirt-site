@@ -1,9 +1,6 @@
 ---
 title: Mass VMs Run
 authors: arik
-wiki_title: Mass VMs Run
-wiki_revision_count: 9
-wiki_last_updated: 2013-11-25
 ---
 
 # Mass VMs Run

@@ -1,9 +1,6 @@
 ---
 title: oVirt 3.1 release notes
 authors: abonas, amureini, danken, dneary, jbrooks, nkesick, roy, sgordon, val0x00ff
-wiki_title: OVirt 3.1 release notes
-wiki_revision_count: 70
-wiki_last_updated: 2013-10-17
 ---
 
 # oVirt 3.1 release notes

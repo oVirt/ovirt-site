@@ -2,11 +2,6 @@
 title: Otopi Infra Migration
 category: infra
 authors: alonbl, alourie, sandrobonazzola
-wiki_category: Feature
-wiki_title: Features/Otopi Infra Migration
-wiki_revision_count: 101
-wiki_last_updated: 2013-07-19
-wiki_warnings: references, table-style
 ---
 
 # Otopi Infra Migration

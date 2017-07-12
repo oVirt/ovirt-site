@@ -2,10 +2,6 @@
 title: VDSM on Ubuntu
 category: vdsm
 authors: danken, zhshzhou
-wiki_category: Vdsm
-wiki_title: VDSM on Ubuntu
-wiki_revision_count: 9
-wiki_last_updated: 2013-03-18
 ---
 
 # VDSM on Ubuntu

@@ -2,10 +2,6 @@
 title: Asia Workshop Mar 2015
 category: event/workshop
 authors: bproffitt
-wiki_category: Events
-wiki_title: Asia Workshop Mar 2015
-wiki_revision_count: 7
-wiki_last_updated: 2015-03-12
 ---
 
 __NOTOC__

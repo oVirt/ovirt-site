@@ -2,9 +2,6 @@
 title: VDSM VM Query API
 category: api
 authors: vfeenstr
-wiki_title: Feature/VDSM VM Query API
-wiki_revision_count: 5
-wiki_last_updated: 2014-07-14
 feature_name: VDSM VM Data Query API
 feature_modules: vdsm, engine-backend
 feature_status: Proposed

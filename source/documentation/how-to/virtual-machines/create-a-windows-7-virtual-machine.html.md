@@ -2,9 +2,6 @@
 title: How to create a Windows 7 Virtual Machine
 category: howto
 authors: jonar, nkesick
-wiki_title: How to create a Windows 7 Virtual Machine
-wiki_revision_count: 12
-wiki_last_updated: 2014-02-24
 ---
 
 # How to create a Windows 7 Virtual Machine

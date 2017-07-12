@@ -2,10 +2,6 @@
 title: Xen
 category: how-to
 authors: danken, sandrobonazzola
-wiki_category: How to
-wiki_title: Xen
-wiki_revision_count: 16
-wiki_last_updated: 2015-01-16
 ---
 
 <!-- TODO: Content review -->

@@ -2,9 +2,6 @@
 title: Meetings
 authors: abaron, bproffitt, danken, dneary, lpeer, mburns, quaid, rbergeron, rmiddle,
   sandrobonazzola, sgordon
-wiki_title: Meetings
-wiki_revision_count: 141
-wiki_last_updated: 2014-11-19
 ---
 
 <!-- TODO: Content review -->

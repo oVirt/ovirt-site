@@ -2,10 +2,6 @@
 title: Libvirt
 category: project
 authors: dougsland
-wiki_category: Project
-wiki_title: Libvirt
-wiki_revision_count: 1
-wiki_last_updated: 2012-04-22
 ---
 
 # Libvirt

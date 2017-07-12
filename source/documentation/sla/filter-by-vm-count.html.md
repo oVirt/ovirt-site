@@ -1,9 +1,6 @@
 ---
 title: Filter By VM Count
 authors: nslomian
-wiki_title: Filter By VM Count
-wiki_revision_count: 2
-wiki_last_updated: 2013-10-20
 ---
 
 # Filter By VM Count

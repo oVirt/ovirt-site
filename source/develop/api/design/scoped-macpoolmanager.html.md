@@ -2,10 +2,6 @@
 title: Scoped MacPoolManager
 category: api
 authors: mkolesni, mmucha, moti, mpavlik
-wiki_category: Api
-wiki_title: Features/Scoped MacPoolManager
-wiki_revision_count: 36
-wiki_last_updated: 2015-01-14
 ---
 
 <!-- TODO: Content review -->

@@ -3,10 +3,6 @@ title: oVirt DWH
 category: documentation
 layout: toc
 authors: quaid, sradco, yaniv dary
-wiki_category: Documentation
-wiki_title: Ovirt DWH
-wiki_revision_count: 5
-wiki_last_updated: 2015-01-14
 ---
 
 <!-- TODO: Content review -->

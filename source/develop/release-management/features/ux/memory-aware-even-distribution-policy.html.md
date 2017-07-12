@@ -2,10 +2,6 @@
 title: Memory-aware Even-distribution Policy
 category: sla
 authors: ofri
-wiki_category: SLA
-wiki_title: Features/Design/Memory-aware Even-distribution Policy
-wiki_revision_count: 4
-wiki_last_updated: 2013-02-19
 ---
 
 # Memory-aware Even-distribution Policy

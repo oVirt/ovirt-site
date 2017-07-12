@@ -2,10 +2,6 @@
 title: Integration
 category: integration
 authors: knesenko, mgoldboi, rafaelmartins, sandrobonazzola
-wiki_category: Integration
-wiki_title: Integration
-wiki_revision_count: 11
-wiki_last_updated: 2017-05-05
 ---
 
 # Integration

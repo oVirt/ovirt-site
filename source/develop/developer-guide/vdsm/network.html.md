@@ -2,10 +2,6 @@
 title: Vdsm Network
 category: vdsm
 authors: danken, rmiddle
-wiki_category: Vdsm
-wiki_title: Vdsm Network
-wiki_revision_count: 4
-wiki_last_updated: 2012-05-28
 ---
 
 # Vdsm Network

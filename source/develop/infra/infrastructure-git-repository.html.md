@@ -2,10 +2,6 @@
 title: Infrastructure git repository
 category: infra
 authors: quaid
-wiki_category: Infrastructure documentation
-wiki_title: Infrastructure git repository
-wiki_revision_count: 1
-wiki_last_updated: 2011-12-15
 ---
 
 # Infrastructure git repository

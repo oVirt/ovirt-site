@@ -2,10 +2,6 @@
 title: GlusterVolumeSnapshots
 category: feature
 authors: sandrobonazzola, shtripat
-wiki_category: Feature
-wiki_title: Features/Design/GlusterVolumeSnapshots
-wiki_revision_count: 111
-wiki_last_updated: 2015-10-14
 feature_name: Gluster Volume Snapshot
 feature_modules: engine
 feature_status: Inception

@@ -1,9 +1,6 @@
 ---
 title: Install nightly snapshot
 authors: sandrobonazzola
-wiki_title: Install nightly snapshot
-wiki_revision_count: 5
-wiki_last_updated: 2017-04-21
 ---
 
 # Install nightly snapshot

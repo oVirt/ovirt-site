@@ -2,9 +2,6 @@
 title: Backup API
 category: api
 authors: mlipchuk
-wiki_title: Features/Backup API
-wiki_revision_count: 8
-wiki_last_updated: 2013-09-16
 ---
 
 <!-- TODO: Content review -->

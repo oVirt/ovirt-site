@@ -2,10 +2,6 @@
 title: Serial Execution of Asynchronous Tasks
 category: feature
 authors: amureini
-wiki_category: feature
-wiki_title: Features/Serial Execution of Asynchronous Tasks Detailed Design
-wiki_revision_count: 11
-wiki_last_updated: 2012-08-29
 feature_name: Serial Execution of Asynchronous Tasks
 feature_modules: engine
 feature_status: Removed in 4.1

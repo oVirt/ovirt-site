@@ -1,9 +1,6 @@
 ---
 title: AsyncTaskManagerChanges 3.3Detailed
 authors: rnori
-wiki_title: Features/AsyncTaskManagerChanges 3.3Detailed
-wiki_revision_count: 2
-wiki_last_updated: 2013-05-29
 ---
 
 # AsyncTaskManagerChanges 3.3Detailed

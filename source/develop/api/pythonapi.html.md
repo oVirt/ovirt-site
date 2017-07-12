@@ -2,9 +2,6 @@
 title: PythonApi
 category: api
 authors: mgoldboi, mkollaro, moti, mpavlik, rvaknin
-wiki_title: Testing/PythonApi
-wiki_revision_count: 36
-wiki_last_updated: 2014-03-27
 ---
 
 # Python API

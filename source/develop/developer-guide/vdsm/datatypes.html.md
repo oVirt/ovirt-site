@@ -2,9 +2,6 @@
 title: Vdsm datatypes
 category: vdsm
 authors: aglitke
-wiki_title: Vdsm datatypes
-wiki_revision_count: 32
-wiki_last_updated: 2011-12-22
 ---
 
 # Vdsm datatypes

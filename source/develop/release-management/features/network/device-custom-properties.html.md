@@ -2,10 +2,6 @@
 title: Device Custom Properties
 category: feature
 authors: alkaplan, amuller, danken, mperina
-wiki_category: Feature
-wiki_title: Features/Device Custom Properties
-wiki_revision_count: 43
-wiki_last_updated: 2013-11-24
 ---
 
 # Device Custom Properties

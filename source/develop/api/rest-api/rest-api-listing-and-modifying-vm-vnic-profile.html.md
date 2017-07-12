@@ -2,10 +2,6 @@
 title: REST-Api listing and modifying VM vNic profile
 category: api
 authors: kianku
-wiki_category: Api
-wiki_title: REST-Api listing and modifying VM vNic profile
-wiki_revision_count: 7
-wiki_last_updated: 2014-03-16
 ---
 
 # REST-Api listing and modifying VM vNic profile

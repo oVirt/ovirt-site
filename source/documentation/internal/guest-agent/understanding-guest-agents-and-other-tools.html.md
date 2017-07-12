@@ -1,9 +1,6 @@
 ---
 title: Understanding Guest Agents and Other Tools
 authors: bobdrad, gianluca, nkesick, sven, vfeenstr
-wiki_title: Understanding Guest Agents and Other Tools
-wiki_revision_count: 41
-wiki_last_updated: 2015-01-18
 ---
 
 <!-- TODO: Content review -->

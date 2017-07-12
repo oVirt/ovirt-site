@@ -1,9 +1,6 @@
 ---
 title: Plugins
 authors: dyasny
-wiki_title: Plugins
-wiki_revision_count: 1
-wiki_last_updated: 2012-09-06
 ---
 
 <!-- TODO: Content review -->

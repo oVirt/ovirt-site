@@ -1,9 +1,6 @@
 ---
 title: Custom Fencing
 authors: emesika
-wiki_title: Custom Fencing
-wiki_revision_count: 11
-wiki_last_updated: 2015-03-18
 ---
 
 # Custom Fencing

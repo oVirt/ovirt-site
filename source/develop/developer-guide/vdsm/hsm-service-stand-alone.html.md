@@ -2,10 +2,6 @@
 title: HSM service stand alone
 category: vdsm
 authors: sming
-wiki_category: Vdsm
-wiki_title: HSM service stand alone
-wiki_revision_count: 11
-wiki_last_updated: 2012-11-20
 ---
 
 # HSM service stand alone

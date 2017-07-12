@@ -1,9 +1,6 @@
 ---
 title: Frontend build minimal
 authors: lhornyak
-wiki_title: Frontend build minimal
-wiki_revision_count: 1
-wiki_last_updated: 2012-02-01
 ---
 
 # Frontend build minimal

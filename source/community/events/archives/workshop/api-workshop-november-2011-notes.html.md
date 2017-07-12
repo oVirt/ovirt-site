@@ -2,10 +2,6 @@
 title: API - oVirt workshop November 2011 Notes
 category: event/workshop
 authors: dannfrazier, michael pasternak, quaid
-wiki_category: Workshop November 2011
-wiki_title: API - oVirt workshop November 2011 Notes
-wiki_revision_count: 4
-wiki_last_updated: 2012-01-15
 ---
 
 # API - oVirt workshop November 2011 Notes

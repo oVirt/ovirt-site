@@ -1,9 +1,6 @@
 ---
 title: Changing Engine Hostname
 authors: didi
-wiki_title: Changing Engine Hostname
-wiki_revision_count: 4
-wiki_last_updated: 2014-01-29
 ---
 
 # Changing Engine Hostname

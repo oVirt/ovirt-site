@@ -2,10 +2,6 @@
 title: Watchdog Device
 category: sla
 authors: doron, sfeng
-wiki_category: SLA
-wiki_title: Sla/Watchdog Device
-wiki_revision_count: 27
-wiki_last_updated: 2013-03-05
 ---
 
 # Watchdog Device

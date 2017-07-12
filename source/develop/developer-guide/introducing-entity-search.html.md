@@ -1,9 +1,6 @@
 ---
 title: Introducing Entity Search
 authors: lhornyak, mlipchuk, shireesh
-wiki_title: Development/Introducing Entity Search
-wiki_revision_count: 5
-wiki_last_updated: 2012-03-04
 ---
 
 <!-- TODO: Content review -->

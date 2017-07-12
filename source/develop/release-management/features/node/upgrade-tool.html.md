@@ -2,10 +2,6 @@
 title: Node upgrade tool
 category: node
 authors: jboggs
-wiki_category: Feature
-wiki_title: Features/Node upgrade tool
-wiki_revision_count: 1
-wiki_last_updated: 2013-04-12
 ---
 
 # Node upgrade tool

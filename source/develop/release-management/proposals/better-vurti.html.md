@@ -1,9 +1,6 @@
 ---
 title: Better vurti
 authors: roy
-wiki_title: Better vurti
-wiki_revision_count: 7
-wiki_last_updated: 2014-04-02
 ---
 
 <!-- TODO: Content review -->

@@ -2,11 +2,6 @@
 title: DetailedStableDeviceAddresses
 category: feature
 authors: doron, ekohl, emesika
-wiki_category: Feature
-wiki_title: Features/Design/DetailedStableDeviceAddresses
-wiki_revision_count: 52
-wiki_last_updated: 2012-03-14
-wiki_warnings: list-item?
 ---
 
 # Detailed Stable Device Addresses

@@ -2,10 +2,6 @@
 title: Windows
 category: ovirt-guest-agent
 authors: vfeenstr
-wiki_category: Ovirt_guest_agent
-wiki_title: OVirt Guest Agent/Single Sign On/Windows
-wiki_revision_count: 3
-wiki_last_updated: 2012-12-11
 ---
 
 <!-- TODO: Content review -->

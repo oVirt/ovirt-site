@@ -2,10 +2,6 @@
 title: Metrics Store - Collected Data
 category: feature
 authors: sradco
-wiki_category: Feature
-wiki_title: Metrics Store - Collected Data
-wiki_revision_count: 1
-wiki_last_updated: 2017-07-16
 feature_name: oVirt Metrics Store Collected Data
 feature_modules: engine
 feature_status: In Development

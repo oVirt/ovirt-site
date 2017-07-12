@@ -4,10 +4,6 @@ category: documentation
 layout: toc
 authors: adahms, aglitke, apuimedo, danken, didi, dougsland, eedri, fromani, lveyde,
   moti, mpavlik, pkliczewski, sandrobonazzola, sradco, stirabos, yair zaslavsky, ybronhei
-wiki_category: Documentation
-wiki_title: OVirt 3.5 Release Notes
-wiki_revision_count: 127
-wiki_last_updated: 2015-01-06
 ---
 
 The oVirt Project is pleased to announce the availability of its sixth formal release, oVirt 3.5.

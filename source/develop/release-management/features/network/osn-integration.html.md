@@ -2,10 +2,6 @@
 title: OSN Integration
 category: feature
 authors: danken, lvernia, mkolesni
-wiki_category: Feature
-wiki_title: Features/OSN Integration
-wiki_revision_count: 13
-wiki_last_updated: 2013-08-06
 ---
 
 # OSN Integration

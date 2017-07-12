@@ -2,10 +2,6 @@
 title: Workshop Mar 2012 - coordinator notes
 category: event/workshop
 authors: quaid
-wiki_category: Workshop Mar 2012
-wiki_title: Workshop Mar 2012 - coordinator notes
-wiki_revision_count: 5
-wiki_last_updated: 2012-03-05
 ---
 
 # Workshop Mar 2012 - coordinator notes

@@ -2,10 +2,6 @@
 title: Node Diagnostic Page
 category: node
 authors: rbarry
-wiki_category: Feature
-wiki_title: Features/Node Diagnostic Page
-wiki_revision_count: 1
-wiki_last_updated: 2013-04-11
 ---
 
 # oVirt Node Diagnostic Page

@@ -1,9 +1,6 @@
 ---
 title: Host Memory balance
 authors: nslomian
-wiki_title: Host Memory balance
-wiki_revision_count: 1
-wiki_last_updated: 2013-10-20
 ---
 
 # Host Memory balance

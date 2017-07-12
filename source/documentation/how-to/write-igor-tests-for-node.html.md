@@ -2,10 +2,6 @@
 title: How to write Igor tests for Node
 category: howto
 authors: fabiand
-wiki_category: Node
-wiki_title: How to write Igor tests for Node
-wiki_revision_count: 2
-wiki_last_updated: 2013-03-20
 ---
 
 <!-- TODO: Content review -->

@@ -2,9 +2,6 @@
 title: Node Stateless
 category: node
 authors: mburns, pmyers
-wiki_title: Node Stateless
-wiki_revision_count: 24
-wiki_last_updated: 2012-05-29
 ---
 
 # Node Stateless

@@ -2,10 +2,6 @@
 title: DetailedManagementNetworkAsARole
 category: detailedfeature
 authors: yevgenyz
-wiki_category: DetailedFeature
-wiki_title: Features/DetailedManagementNetworkAsARole
-wiki_revision_count: 8
-wiki_last_updated: 2014-09-15
 feature_name: Management network as a role - Detailed
 feature_modules: Networking
 feature_status: WIP

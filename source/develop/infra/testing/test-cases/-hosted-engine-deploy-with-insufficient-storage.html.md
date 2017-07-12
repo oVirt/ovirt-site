@@ -2,10 +2,6 @@
 title: TestCase Hosted Engine Deploy With Insufficient Storage
 category: testcase
 authors: sandrobonazzola
-wiki_category: TestCase
-wiki_title: QA:TestCase Hosted Engine Deploy With Insufficient Storage
-wiki_revision_count: 1
-wiki_last_updated: 2014-09-16
 ---
 
 # TestCase Hosted Engine Deploy With Insufficient Storage

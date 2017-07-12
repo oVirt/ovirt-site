@@ -2,9 +2,6 @@
 title: How to create a Windows 8 Virtual Machine
 category: howto
 authors: jvandewege, nkesick
-wiki_title: How to create a Windows 8 Virtual Machine
-wiki_revision_count: 5
-wiki_last_updated: 2013-12-16
 ---
 
 <!-- TODO: Content review -->

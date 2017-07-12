@@ -2,10 +2,6 @@
 title: blkio-support
 category: feature
 authors: gchaplik
-wiki_category: Feature
-wiki_title: Features/blkio-support
-wiki_revision_count: 9
-wiki_last_updated: 2014-05-11
 ---
 
 # blkio-support

@@ -2,10 +2,6 @@
 title: OS info
 category: feature
 authors: mlipchuk, roy, sandrobonazzola
-wiki_category: Feature
-wiki_title: OS info
-wiki_revision_count: 13
-wiki_last_updated: 2014-12-15
 feature_name: OS info
 feature_modules: oVirt
 feature_status: Released

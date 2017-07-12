@@ -2,10 +2,6 @@
 title: NetApp oVirt Workshop
 category: event/workshop
 authors: dneary
-wiki_category: News
-wiki_title: News/NetApp oVirt Workshop
-wiki_revision_count: 2
-wiki_last_updated: 2012-12-07
 ---
 
 # NetApp oVirt Workshop

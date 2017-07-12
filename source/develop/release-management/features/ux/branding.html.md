@@ -2,10 +2,6 @@
 title: Branding
 category: feature
 authors: awels
-wiki_category: Feature
-wiki_title: Features/Branding
-wiki_revision_count: 2
-wiki_last_updated: 2014-04-30
 feature_name: Branding
 feature_modules: Branding
 feature_status: Released

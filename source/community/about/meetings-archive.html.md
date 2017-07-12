@@ -1,9 +1,6 @@
 ---
 title: Meetings archive
 authors: mburns
-wiki_title: Meetings archive
-wiki_revision_count: 4
-wiki_last_updated: 2013-01-10
 ---
 
 <!-- TODO: Content review -->

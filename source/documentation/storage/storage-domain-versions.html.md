@@ -1,10 +1,6 @@
 ---
 title: Storage Domain Versions
 authors: fsimonce, smizrahi
-wiki_title: Storage Domain Versions
-wiki_revision_count: 11
-wiki_last_updated: 2012-05-08
-wiki_warnings: references
 ---
 
 <!-- TODO: Content review -->

@@ -1,9 +1,6 @@
 ---
 title: What is oVirt?
 authors: laravot
-wiki_title: What is oVirt
-wiki_revision_count: 4
-wiki_last_updated: 2012-12-20
 ---
 
 <!-- TODO: Content review -->

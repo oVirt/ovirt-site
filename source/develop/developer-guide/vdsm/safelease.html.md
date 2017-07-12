@@ -2,10 +2,6 @@
 title: Safelease
 category: vdsm
 authors: danken
-wiki_category: Vdsm
-wiki_title: Safelease
-wiki_revision_count: 1
-wiki_last_updated: 2011-10-29
 ---
 
 # Safelease

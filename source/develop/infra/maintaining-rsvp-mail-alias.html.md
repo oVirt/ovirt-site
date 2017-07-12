@@ -2,10 +2,6 @@
 title: Maintaining rsvp mail alias
 category: infra
 authors: quaid
-wiki_category: Infrastructure documentation
-wiki_title: Maintaining rsvp mail alias
-wiki_revision_count: 1
-wiki_last_updated: 2011-11-19
 ---
 
 # Maintaining rsvp mail alias

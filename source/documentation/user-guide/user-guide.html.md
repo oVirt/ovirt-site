@@ -3,9 +3,6 @@ title: oVirt User Guide
 category: documentation
 layout: toc
 authors: bproffitt
-wiki_title: OVirt User Guide
-wiki_revision_count: 2
-wiki_last_updated: 2014-10-03
 ---
 
 # oVirt User Guide

@@ -1,9 +1,6 @@
 ---
 title: Automatic Fencing
 authors: emesika, mperina, ofrenkel, tscofield, ybronhei
-wiki_title: Automatic Fencing
-wiki_revision_count: 14
-wiki_last_updated: 2015-05-25
 ---
 
 # Automatic Fencing

@@ -2,11 +2,6 @@
 title: DetailedHostPMMultipleAgents
 category: feature
 authors: emesika
-wiki_category: Feature
-wiki_title: Features/Design/DetailedHostPMMultipleAgents
-wiki_revision_count: 35
-wiki_last_updated: 2012-12-25
-wiki_warnings: list-item?
 ---
 
 # Detailed Host PM Multiple Agents

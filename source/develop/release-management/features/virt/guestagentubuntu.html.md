@@ -2,10 +2,6 @@
 title: GuestAgentUbuntu
 category: feature
 authors: vfeenstr
-wiki_category: Feature
-wiki_title: Feature/GuestAgentUbuntu
-wiki_revision_count: 12
-wiki_last_updated: 2014-08-05
 feature_name: oVirt Guest Agent on Ubuntu
 feature_modules: ovirt-guest-agent
 feature_status: Done

@@ -2,10 +2,6 @@
 title: CinderGlance Docker Integration
 category: feature
 authors: sandrobonazzola, stirabos, ykaul
-wiki_category: Feature|CinderGlance Docker Integration
-wiki_title: CinderGlance Docker Integration
-wiki_revision_count: 15
-wiki_last_updated: 2015-10-05
 feature_name: Cinder and Glance integration via Docker
 feature_modules: engine
 feature_status: On QA

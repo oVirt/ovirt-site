@@ -3,10 +3,6 @@ title: About oVirt
 category: documentation
 layout: toc
 authors: bproffitt, dneary
-wiki_category: Documentation
-wiki_title: About oVirt
-wiki_revision_count: 4
-wiki_last_updated: 2014-03-17
 ---
 
 <!-- TODO: Content review -->

@@ -2,14 +2,9 @@
 title: SharedRawDisk
 category: feature
 authors: abaron, derez, mlipchuk, sandrobonazzola
-wiki_category: Feature|SharedRawDisk
-wiki_title: Features/SharedRawDisk
-wiki_revision_count: 77
-wiki_last_updated: 2015-01-16
 feature_name: Shared Raw Disk
 feature_modules: engine
 feature_status: Released in oVirt 3.1
-wiki_warnings: list-item?
 ---
 
 # Shared Raw Disk

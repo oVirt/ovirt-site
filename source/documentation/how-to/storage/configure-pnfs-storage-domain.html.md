@@ -2,9 +2,6 @@
 title: How to configure pNFS storage domain
 category: howto
 authors: acanan
-wiki_title: How to configure pNFS storage domain
-wiki_revision_count: 5
-wiki_last_updated: 2013-12-29
 ---
 
 <!-- TODO: Content review -->

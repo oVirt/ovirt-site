@@ -1,9 +1,6 @@
 ---
 title: oVirt 3.2 release notes
 authors: cheryntan, shireesh, theron, vered
-wiki_title: OVirt 3.2 release notes
-wiki_revision_count: 11
-wiki_last_updated: 2013-03-14
 ---
 
 # oVirt 3.2 release notes

@@ -2,9 +2,6 @@
 title: VDSM libvirt performance scalability
 category: vdsm
 authors: fromani
-wiki_title: VDSM libvirt performance scalability
-wiki_revision_count: 22
-wiki_last_updated: 2014-09-08
 ---
 
 # VDSM libvirt performance scalability

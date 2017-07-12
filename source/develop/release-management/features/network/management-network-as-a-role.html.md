@@ -2,10 +2,6 @@
 title: Management Network As A Role
 category: feature
 authors: danken, moti, sandrobonazzola, yevgenyz
-wiki_category: Feature
-wiki_title: Features/Management Network As A Role
-wiki_revision_count: 41
-wiki_last_updated: 2015-10-06
 feature_name: Management network as a role
 feature_modules: Networking
 feature_status: design

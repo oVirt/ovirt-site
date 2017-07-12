@@ -2,10 +2,6 @@
 title: IT Novum case study
 category: case-studies
 authors: bproffitt, dneary
-wiki_category: Case studies
-wiki_title: IT Novum case study
-wiki_revision_count: 7
-wiki_last_updated: 2014-03-21
 ---
 
 # IT Novum case study

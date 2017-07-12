@@ -2,10 +2,6 @@
 title: SLA for storage io bandwidth
 category: sla
 authors: mei liu
-wiki_category: SLA
-wiki_title: Features/Design/SLA for storage io bandwidth
-wiki_revision_count: 61
-wiki_last_updated: 2013-06-28
 ---
 
 # SLA for storage io bandwidth

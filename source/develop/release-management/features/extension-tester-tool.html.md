@@ -2,10 +2,6 @@
 title: Extension tester tool
 category: feature
 authors: omachace
-wiki_category: Feature
-wiki_title: Features/Extension tester tool
-wiki_revision_count: 6
-wiki_last_updated: 2015-08-04
 ---
 
 # Extension tester tool

@@ -2,10 +2,6 @@
 title: FreeMemoryCalculation
 category: sla
 authors: doron
-wiki_category: SLA
-wiki_title: Sla/FreeMemoryCalculation
-wiki_revision_count: 4
-wiki_last_updated: 2013-09-29
 ---
 
 # SLA: Free memory calculations explained

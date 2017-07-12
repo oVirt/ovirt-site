@@ -2,11 +2,6 @@
 title: SANLock
 category: vdsm
 authors: danken, fsimonce, teigland
-wiki_category: Vdsm
-wiki_title: SANLock
-wiki_revision_count: 8
-wiki_last_updated: 2012-04-13
-wiki_warnings: references
 ---
 
 # SAN Lock

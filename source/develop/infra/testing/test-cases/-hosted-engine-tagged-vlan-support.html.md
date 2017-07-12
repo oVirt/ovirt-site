@@ -2,10 +2,6 @@
 title: TestCase Hosted Engine Tagged VLAN Support
 category: testcase
 authors: sandrobonazzola
-wiki_category: TestCase
-wiki_title: QA:TestCase Hosted Engine Tagged VLAN Support
-wiki_revision_count: 2
-wiki_last_updated: 2014-09-03
 ---
 
 # TestCase Hosted Engine Tagged VLAN Support

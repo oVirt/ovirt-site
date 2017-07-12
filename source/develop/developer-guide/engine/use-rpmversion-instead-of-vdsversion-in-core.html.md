@@ -1,9 +1,6 @@
 ---
 title: Use RpmVersion instead of VdsVersion in core
 authors: emesika
-wiki_title: Use RpmVersion instead of VdsVersion in core
-wiki_revision_count: 2
-wiki_last_updated: 2012-06-21
 ---
 
 # Use RpmVersion instead of VdsVersion in core

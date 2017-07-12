@@ -2,10 +2,6 @@
 title: Gerrit hooks
 category: infra
 authors: dcaroest, eedri
-wiki_category: Infrastructure documentation
-wiki_title: Gerrit hooks
-wiki_revision_count: 9
-wiki_last_updated: 2015-11-22
 ---
 
 # Gerrit hooks

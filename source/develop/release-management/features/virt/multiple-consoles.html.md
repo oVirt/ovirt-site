@@ -2,10 +2,6 @@
 title: Multiple Consoles
 category: feature
 authors: fkobzik, tjelinek
-wiki_category: Feature
-wiki_title: Features/Multiple Consoles
-wiki_revision_count: 28
-wiki_last_updated: 2015-10-08
 ---
 
 # Multiple Consoles

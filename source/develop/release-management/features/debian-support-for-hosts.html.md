@@ -2,10 +2,6 @@
 title: Debian support for hosts
 category: feature
 authors: sandrobonazzola
-wiki_category: Feature|Debian support for hosts
-wiki_title: Features/Debian support for hosts
-wiki_revision_count: 6
-wiki_last_updated: 2015-10-05
 feature_name: Debian support for hosts
 feature_modules: vdsm,ioprocess,mom,pthreading,cpopen
 feature_status: On QA

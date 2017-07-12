@@ -2,10 +2,6 @@
 title: vdsm flowID
 category: vdsm
 authors: dougsland
-wiki_category: Vdsm
-wiki_title: Features/vdsm flowID
-wiki_revision_count: 4
-wiki_last_updated: 2012-02-13
 ---
 
 # vdsm flowID

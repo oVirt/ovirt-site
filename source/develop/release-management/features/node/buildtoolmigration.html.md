@@ -2,10 +2,6 @@
 title: BuildtoolMigration
 category: feature
 authors: jboggs
-wiki_category: Feature
-wiki_title: Features/Node/BuildtoolMigration
-wiki_revision_count: 2
-wiki_last_updated: 2013-09-17
 ---
 
 # Buildtool Migration

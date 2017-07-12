@@ -1,10 +1,6 @@
 ---
 title: GlusterFS-Hyperconvergence
 authors: fsimonce,sabose
-wiki_title: Features/GlusterFS-Hyperconvergence
-wiki_revision_count: 1
-wiki_last_updated: 2015-01-21
-wiki_warnings: references
 feature_name: GlusterFS Hyperconvergence
 feature_modules: engine,gluster
 feature_status: In Progress

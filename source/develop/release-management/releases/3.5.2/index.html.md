@@ -3,10 +3,6 @@ title: oVirt 3.5.2 Release Notes
 category: documentation
 layout: toc
 authors: pkliczewski, sandrobonazzola
-wiki_category: Documentation
-wiki_title: OVirt 3.5.2 Release Notes
-wiki_revision_count: 19
-wiki_last_updated: 2015-05-06
 ---
 
 # oVirt 3.5.2 Release Notes

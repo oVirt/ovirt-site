@@ -2,10 +2,6 @@
 title: Vdsm Getting Started
 category: vdsm
 authors: danken, lhornyak, quaid, tscofield
-wiki_category: Vdsm
-wiki_title: Vdsm Getting Started
-wiki_revision_count: 4
-wiki_last_updated: 2013-12-13
 ---
 
 # Vdsm Getting Started

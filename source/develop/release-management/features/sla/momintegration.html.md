@@ -2,10 +2,6 @@
 title: MomIntegration
 category: feature
 authors: aglitke, ekohl, sven
-wiki_category: Feature
-wiki_title: Features/MomIntegration
-wiki_revision_count: 4
-wiki_last_updated: 2013-11-08
 ---
 
 # Mom Integration

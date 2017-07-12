@@ -2,10 +2,6 @@
 title: DbusBackend
 category: feature
 authors: rbarry
-wiki_category: Feature
-wiki_title: Features/Node/DbusBackend
-wiki_revision_count: 3
-wiki_last_updated: 2015-03-05
 feature_name: Dbus Backend
 feature_modules: node
 feature_status: In Progress

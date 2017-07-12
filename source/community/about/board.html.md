@@ -2,10 +2,6 @@
 title: oVirt Board
 category: community
 authors: dneary
-wiki_category: Community
-wiki_title: OVirt Board
-wiki_revision_count: 3
-wiki_last_updated: 2013-02-14
 ---
 
 # oVirt Board

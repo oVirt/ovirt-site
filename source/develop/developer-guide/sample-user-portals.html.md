@@ -2,10 +2,6 @@
 title: Sample user portals
 category: development
 authors: dneary, ovedo, shaharh
-wiki_category: Development
-wiki_title: Sample user portals
-wiki_revision_count: 9
-wiki_last_updated: 2013-02-07
 ---
 
 # Sample user portals

@@ -1,9 +1,6 @@
 ---
 title: faqemu
 authors: danken, dyasny
-wiki_title: VDSM-Hooks/faqemu
-wiki_revision_count: 3
-wiki_last_updated: 2014-06-17
 ---
 
 # faqemu

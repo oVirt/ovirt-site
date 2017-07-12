@@ -2,10 +2,6 @@
 title: DetailedCloneVmFromSnapshot
 category: template
 authors: yair zaslavsky
-wiki_category: Template
-wiki_title: Features/DetailedCloneVmFromSnapshot
-wiki_revision_count: 45
-wiki_last_updated: 2012-03-27
 ---
 
 # Detailed Clone Vm From Snapshot

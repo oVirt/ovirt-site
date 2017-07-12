@@ -2,10 +2,6 @@
 title: FullApplicationsList
 category: feature
 authors: ekohl, gal
-wiki_category: Feature
-wiki_title: Features/FullApplicationsList
-wiki_revision_count: 2
-wiki_last_updated: 2012-06-12
 ---
 
 # Full Applications List

@@ -2,10 +2,6 @@
 title: Develop
 category: developer
 authors: dneary, jbrooks, ykaplan, sandrobonazzola
-wiki_category: Developer
-wiki_title: Develop
-wiki_revision_count: 9
-wiki_last_updated: 2017-06-01
 ---
 
 

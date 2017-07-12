@@ -1,9 +1,6 @@
 ---
 title: oVirt 3.4.4 Testing
 authors: sandrobonazzola
-wiki_title: Testing/oVirt 3.4.4 Testing
-wiki_revision_count: 2
-wiki_last_updated: 2014-08-20
 ---
 
 # oVirt 3.4.4 Testing

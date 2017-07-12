@@ -2,10 +2,6 @@
 title: HostHardwareInfo
 category: feature
 authors: sandrobonazzola, ybronhei
-wiki_category: Feature|HostHardwareInfo
-wiki_title: Features/Design/HostHardwareInfo
-wiki_revision_count: 2
-wiki_last_updated: 2015-02-05
 ---
 
 # Host's Hardware Information

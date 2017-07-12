@@ -2,10 +2,6 @@
 title: CockpitOvirtPlugin
 category: feature
 authors: mlibra
-wiki_category: Feature|Cockpit-oVirt Plugin
-wiki_title: Feature/CockpitOvirtPlugin
-wiki_revision_count: 0
-wiki_last_updated: 2016-02-16
 feature_name: Cockpit-oVirt Plugin
 feature_modules: engine
 feature_status: WIP, 4.0 proposed feature

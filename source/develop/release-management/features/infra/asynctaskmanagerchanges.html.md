@@ -2,10 +2,6 @@
 title: AsyncTaskManagerChanges
 category: feature
 authors: ravi nori, yair zaslavsky
-wiki_category: Feature
-wiki_title: Wiki/AsyncTaskManagerChanges
-wiki_revision_count: 26
-wiki_last_updated: 2013-04-10
 ---
 
 # Async Tasks improvements

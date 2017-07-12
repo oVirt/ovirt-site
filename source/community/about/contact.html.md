@@ -2,10 +2,6 @@
 title: Communication
 category: community
 authors: dneary, quaid, rbergeron, sandrobonazzola
-wiki_category: Community
-wiki_title: Communication
-wiki_revision_count: 9
-wiki_last_updated: 2014-02-28
 ---
 
 # Communication

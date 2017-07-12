@@ -2,10 +2,6 @@
 title: Node breakout at oVirt workshop November 2011
 category: event/workshop
 authors: apevec, mburns
-wiki_category: Workshop November 2011
-wiki_title: Node breakout at oVirt workshop November 2011
-wiki_revision_count: 3
-wiki_last_updated: 2011-12-01
 ---
 
 # Node breakout at oVirt workshop November 2011

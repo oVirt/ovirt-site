@@ -1,9 +1,6 @@
 ---
 title: Edit Running VM
 authors: ofrenkel
-wiki_title: Features/Edit Running VM
-wiki_revision_count: 6
-wiki_last_updated: 2014-08-10
 ---
 
 # Edit Running Vm

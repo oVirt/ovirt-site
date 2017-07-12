@@ -2,11 +2,6 @@
 title: OVMF
 category: feature
 authors: mpolednik
-wiki_category: Feature|OVMF
-wiki_title: Features/OVMF
-wiki_revision_count: 10
-wiki_last_updated: 2015-10-12
-wiki_warnings: references
 ---
 
 # OVMF

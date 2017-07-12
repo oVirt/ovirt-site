@@ -2,9 +2,6 @@
 title: Node Autoinstall
 category: node
 authors: dougsland, mburns
-wiki_title: Node Autoinstall
-wiki_revision_count: 8
-wiki_last_updated: 2012-10-04
 ---
 
 # AutoInstall

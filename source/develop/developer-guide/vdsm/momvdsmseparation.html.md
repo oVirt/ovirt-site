@@ -2,10 +2,6 @@
 title: MomVdsmSeparation
 category: vdsm
 authors: fromani, msivak
-wiki_category: Feature
-wiki_title: Features/MomVdsmSeparation
-wiki_revision_count: 7
-wiki_last_updated: 2015-06-03
 feature_name: Starting MOM as a separate process instead of VDSM threa
 feature_modules: vdsm,mom
 feature_status: Draft

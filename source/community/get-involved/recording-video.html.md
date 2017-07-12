@@ -1,9 +1,6 @@
 ---
 title: Recording video
 authors: dneary
-wiki_title: Recording video
-wiki_revision_count: 2
-wiki_last_updated: 2012-07-17
 ---
 
 <!-- TODO: Content review -->

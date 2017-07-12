@@ -5,10 +5,6 @@ feature_modules: engine, vdsm
 feature_status: Released in oVirt 3.1
 category: feature
 authors: ekohl, smizrahi, vered
-wiki_category: Feature
-wiki_title: Features/StorageDomainLiveUpgrade
-wiki_revision_count: 3
-wiki_last_updated: 2013-02-19
 ---
 
 # Storage Domain Live Upgrade

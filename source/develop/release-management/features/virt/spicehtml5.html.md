@@ -2,10 +2,6 @@
 title: SpiceHTML5
 category: feature
 authors: fkobzik
-wiki_category: Feature
-wiki_title: Features/SpiceHTML5
-wiki_revision_count: 3
-wiki_last_updated: 2013-07-12
 ---
 
 # Spice HTML5

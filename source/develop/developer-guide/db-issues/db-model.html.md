@@ -1,9 +1,6 @@
 ---
 title: DB model
 authors: lspevak
-wiki_title: DB model
-wiki_revision_count: 1
-wiki_last_updated: 2013-02-21
 ---
 
 # DB model

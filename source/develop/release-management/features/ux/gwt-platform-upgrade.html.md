@@ -1,9 +1,6 @@
 ---
 title: GWT Platform Upgrade
 authors: awels, vszocs
-wiki_title: Features/GWT Platform Upgrade
-wiki_revision_count: 7
-wiki_last_updated: 2013-07-31
 ---
 
 # GWT Platform Upgrade

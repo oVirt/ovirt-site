@@ -2,10 +2,6 @@
 title: AsyncTaskManagerChanges 3.3
 category: feature
 authors: yair zaslavsky
-wiki_category: Feature
-wiki_title: Features/AsyncTaskManagerChanges 3.3
-wiki_revision_count: 20
-wiki_last_updated: 2013-07-06
 ---
 
 # Async Task manager changes for oVirt 3.3

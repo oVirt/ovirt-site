@@ -1,9 +1,6 @@
 ---
 title: Security advisories
 authors: djorm
-wiki_title: Security advisories
-wiki_revision_count: 5
-wiki_last_updated: 2014-05-12
 ---
 
 <!-- TODO: Content review -->

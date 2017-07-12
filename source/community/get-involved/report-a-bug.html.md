@@ -2,10 +2,6 @@
 title: Reporting a bug
 category: community
 authors: dneary
-wiki_category: Community
-wiki_title: Reporting a bug
-wiki_revision_count: 1
-wiki_last_updated: 2012-10-05
 ---
 
 <!-- TODO: Content review -->

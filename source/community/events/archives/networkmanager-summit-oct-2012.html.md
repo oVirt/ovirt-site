@@ -1,10 +1,6 @@
 ---
 title: NetworkManager Summit Oct 2012
 authors: apuimedo
-wiki_title: NetworkManager Summit Oct 2012
-wiki_revision_count: 7
-wiki_last_updated: 2012-09-19
-wiki_warnings: references
 ---
 
 # NetworkManager Summit Oct 2012

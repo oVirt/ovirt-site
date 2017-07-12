@@ -2,10 +2,6 @@
 title: How to license a project
 category: howto
 authors: cctrieloff, quaid
-wiki_category: How to
-wiki_title: How to license a project
-wiki_revision_count: 3
-wiki_last_updated: 2012-03-22
 ---
 
 # How to license a project

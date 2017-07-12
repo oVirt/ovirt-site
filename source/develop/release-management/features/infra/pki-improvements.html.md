@@ -2,10 +2,6 @@
 title: PKI Improvements
 category: feature
 authors: alonbl
-wiki_category: Feature
-wiki_title: Features/PKI Improvements
-wiki_revision_count: 3
-wiki_last_updated: 2014-07-01
 ---
 
 # PKI Improvemnets

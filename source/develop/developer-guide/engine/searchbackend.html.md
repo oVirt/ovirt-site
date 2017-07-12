@@ -1,9 +1,6 @@
 ---
 title: Searchbackend
 authors: lhornyak, ykaul
-wiki_title: Searchbackend
-wiki_revision_count: 4
-wiki_last_updated: 2012-12-11
 ---
 
 # Search backend

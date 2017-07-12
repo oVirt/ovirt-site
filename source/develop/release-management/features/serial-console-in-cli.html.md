@@ -2,10 +2,6 @@
 title: Serial Console in CLI
 category: cli
 authors: dyasny, oernii, rmiddle
-wiki_category: CLI
-wiki_title: Features/Serial Console in CLI
-wiki_revision_count: 4
-wiki_last_updated: 2013-03-27
 ---
 
 <!-- TODO: Content review -->

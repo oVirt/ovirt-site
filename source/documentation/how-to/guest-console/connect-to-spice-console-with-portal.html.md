@@ -2,9 +2,6 @@
 title: How to Connect to SPICE Console With Portal
 category: howto
 authors: alonbl, deadhorseconsulting, digisign, gianluca
-wiki_title: How to Connect to SPICE Console With Portal
-wiki_revision_count: 14
-wiki_last_updated: 2013-10-02
 ---
 
 <!-- TODO: Content review -->

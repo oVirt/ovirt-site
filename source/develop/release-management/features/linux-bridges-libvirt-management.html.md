@@ -1,9 +1,6 @@
 ---
 title: linux bridges libvirt management
 authors: alkaplan, danken, ibarkan
-wiki_title: Feature/linux bridges libvirt management
-wiki_revision_count: 11
-wiki_last_updated: 2015-11-08
 feature_name: Manage oVirt bridges with libvirt
 feature_modules: engine,vdsm, api
 feature_status: Design

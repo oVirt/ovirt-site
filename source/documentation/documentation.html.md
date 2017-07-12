@@ -3,10 +3,6 @@ title: User Guides
 category: documentation
 layout: toc
 authors: bproffitt, dneary, quaid, sgordon
-wiki_category: Documentation
-wiki_title: User Guides
-wiki_revision_count: 34
-wiki_last_updated: 2014-11-25
 ---
 
 <!-- TODO: [Mikey] Fix this page after content structure is final -->

@@ -2,10 +2,6 @@
 title: Phoenix Lab Overview
 category: infra
 authors: dcaroest
-wiki_category: Infrastructure
-wiki_title: Infra/Phoenix Lab Overview
-wiki_revision_count: 4
-wiki_last_updated: 2015-02-25
 ---
 
 # Phoenix Lab Overview

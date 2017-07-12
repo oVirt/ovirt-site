@@ -2,9 +2,6 @@
 title: Vdsm API Schema
 category: api
 authors: aglitke
-wiki_title: Vdsm API Schema
-wiki_revision_count: 4
-wiki_last_updated: 2012-07-15
 ---
 
 <!-- TODO: Content review -->

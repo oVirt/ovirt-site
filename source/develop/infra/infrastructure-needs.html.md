@@ -2,10 +2,6 @@
 title: Infrastructure needs
 category: infra
 authors: quaid
-wiki_category: Infrastructure
-wiki_title: Infrastructure needs
-wiki_revision_count: 2
-wiki_last_updated: 2012-09-25
 ---
 
 # Infrastructure needs

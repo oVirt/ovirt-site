@@ -2,9 +2,6 @@
 page_classes: case-studies
 title: Case studies
 authors: bproffitt, dneary
-wiki_title: Category:Case studies
-wiki_revision_count: 24
-wiki_last_updated: 2015-02-24
 ---
 
 # Case studies

@@ -2,10 +2,6 @@
 title: Node versions numbers
 category: node
 authors: mburns
-wiki_category: Node
-wiki_title: Node versions numbers
-wiki_revision_count: 2
-wiki_last_updated: 2012-01-12
 ---
 
 # Node Version Numbers

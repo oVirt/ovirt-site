@@ -2,10 +2,6 @@
 title: ReportingVnicInformation
 category: feature
 authors: danken, moti, msalem
-wiki_category: Feature
-wiki_title: Feature/ReportingVnicInformation
-wiki_revision_count: 40
-wiki_last_updated: 2014-02-03
 ---
 
 # Reporting Vnic Information

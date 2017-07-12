@@ -2,10 +2,6 @@
 title: Porting oVirt
 category: developer
 authors: alonbl, dneary, zhshzhou, sandrobonazzola
-wiki_category: Developer
-wiki_title: Porting oVirt
-wiki_revision_count: 10
-wiki_last_updated: 2016-12-02
 ---
 
 # GNU/Linux distributions and oVirt

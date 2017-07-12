@@ -5,11 +5,6 @@ layout: toc
 authors: adahms, bproffitt, didi, fab, gianluca, gshereme, jbrooks, jhernand, jonar,
   jvdwege, knesenko, mgoldboi, nkesick, oschreib, rydekull, sandrobonazzola, sgordon,
   vered, wdennis
-wiki_category: Documentation
-wiki_title: Quick Start Guide
-wiki_revision_count: 80
-wiki_last_updated: 2015-01-25
-wiki_warnings: list-item?
 ---
 
 # Quick Start Guide

@@ -2,10 +2,6 @@
 title: Gerrit server backup
 category: infra
 authors: quaid
-wiki_category: Infrastructure documentation
-wiki_title: Gerrit server backup
-wiki_revision_count: 7
-wiki_last_updated: 2011-12-08
 ---
 
 # Gerrit server backup

@@ -2,9 +2,6 @@
 title: Vdsm Coding Guidelines
 category: vdsm
 authors: adahms, danken, dougsland
-wiki_title: Vdsm Coding Guidelines
-wiki_revision_count: 6
-wiki_last_updated: 2014-07-31
 ---
 
 # VDSM Coding Guidelines

@@ -1,9 +1,6 @@
 ---
 title: Update
 authors: fabiand
-wiki_title: Node/4.0/Update
-wiki_revision_count: 8
-wiki_last_updated: 2016-01-13
 ---
 
 # Update

@@ -1,9 +1,6 @@
 ---
 title: KVM Forum 2013
 authors: dneary, doron, mskrivan, ovedo
-wiki_title: KVM Forum 2013
-wiki_revision_count: 20
-wiki_last_updated: 2013-12-19
 ---
 
 # KVM Forum 2013 / oVirt Developer Summit

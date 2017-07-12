@@ -1,9 +1,6 @@
 ---
 title: Microthreading
 authors: vitordelima
-wiki_title: Features/Microthreading
-wiki_revision_count: 1
-wiki_last_updated: 2014-11-03
 ---
 
 # Microthreading

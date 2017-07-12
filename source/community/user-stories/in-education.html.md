@@ -1,9 +1,6 @@
 ---
 title: oVirt in Education
 authors: bproffitt
-wiki_title: OVirt in Education
-wiki_revision_count: 1
-wiki_last_updated: 2014-03-20
 ---
 
 <!-- TODO: Content review -->

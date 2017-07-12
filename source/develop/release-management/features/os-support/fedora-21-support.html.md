@@ -2,10 +2,6 @@
 title: Fedora 21 Support
 category: feature
 authors: sandrobonazzola
-wiki_category: Feature
-wiki_title: Features/Fedora 21 Support
-wiki_revision_count: 14
-wiki_last_updated: 2015-01-28
 feature_name: Fedora 21 Support
 feature_modules: all
 feature_status: WONTFIX

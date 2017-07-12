@@ -1,9 +1,6 @@
 ---
 title: MultipleMonitors
 authors: shaharh
-wiki_title: Features/MultipleMonitors
-wiki_revision_count: 3
-wiki_last_updated: 2014-05-12
 ---
 
 # Multiple Monitor Via Single PCI

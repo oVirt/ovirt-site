@@ -2,10 +2,6 @@
 title: RunningCommandsOnEndActionFailure
 category: feature
 authors: yair zaslavsky
-wiki_category: Feature
-wiki_title: Main Page/features/RunningCommandsOnEndActionFailure
-wiki_revision_count: 6
-wiki_last_updated: 2012-02-28
 ---
 
 # Running commands on endAction failure

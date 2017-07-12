@@ -2,10 +2,6 @@
 title: HostBiosInfo
 category: feature
 authors: jrankin, ybronhei
-wiki_category: Feature
-wiki_title: Features/Design/HostBiosInfo
-wiki_revision_count: 29
-wiki_last_updated: 2012-12-24
 ---
 
 # Host's Bios Information

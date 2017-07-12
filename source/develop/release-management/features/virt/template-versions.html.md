@@ -1,9 +1,6 @@
 ---
 title: Template Versions
 authors: abonas, mlipchuk, ofrenkel
-wiki_title: Features/Template Versions
-wiki_revision_count: 35
-wiki_last_updated: 2015-03-16
 ---
 
 # Template Versions

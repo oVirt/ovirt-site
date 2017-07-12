@@ -2,10 +2,6 @@
 title: S3 suspend
 category: feature
 authors: fkobzik
-wiki_category: Feature
-wiki_title: Features/S4/S3 suspend
-wiki_revision_count: 2
-wiki_last_updated: 2012-11-01
 ---
 
 # S4/S3 suspend

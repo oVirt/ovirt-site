@@ -2,10 +2,6 @@
 title: memory-balloon
 category: sla
 authors: doron, ecohen, emesika
-wiki_category: SLA
-wiki_title: Features/Design/memory-balloon
-wiki_revision_count: 6
-wiki_last_updated: 2012-10-30
 ---
 
 # memory-balloon

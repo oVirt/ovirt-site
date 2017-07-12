@@ -2,10 +2,6 @@
 title: Hot Unplug Memory
 category: feature
 authors: mzamazal
-wiki_category: Feature
-wiki_title: Features/Hot Unplug Memory
-wiki_revision_count: 2
-wiki_last_updated: 2017-03-21
 ---
 
 # Hot unplug memory

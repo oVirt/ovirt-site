@@ -2,10 +2,6 @@
 title: Infrastructure Puppet details
 category: infra
 authors: quaid
-wiki_category: Infrastructure documentation
-wiki_title: Infrastructure Puppet details
-wiki_revision_count: 1
-wiki_last_updated: 2013-03-04
 ---
 
 # Infrastructure Puppet details

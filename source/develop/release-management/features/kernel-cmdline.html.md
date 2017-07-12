@@ -2,10 +2,6 @@
 title: kernel cmdline
 category: feature
 authors: mpolednik
-wiki_category: Feature|OVMF
-wiki_title: Features/kernel cmdline
-wiki_revision_count: 2
-wiki_last_updated: 2015-11-12
 ---
 
 # Kernel Cmdline

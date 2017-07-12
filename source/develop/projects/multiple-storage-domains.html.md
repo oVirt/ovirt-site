@@ -2,11 +2,6 @@
 title: Multiple storage domains
 category: project
 authors: jumper45
-wiki_category: Project
-wiki_title: Category:Multiple storage domains
-wiki_revision_count: 17
-wiki_last_updated: 2012-01-18
-wiki_warnings: list-item?
 ---
 
 # Multiple storage domains

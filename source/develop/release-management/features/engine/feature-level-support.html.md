@@ -1,9 +1,6 @@
 ---
 title: Feature-Level-Support
 authors: ovedo
-wiki_title: Features/Feature-Level-Support
-wiki_revision_count: 5
-wiki_last_updated: 2014-02-12
 ---
 
 # Feature Level Support

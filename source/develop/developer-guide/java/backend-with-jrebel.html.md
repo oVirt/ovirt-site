@@ -1,9 +1,6 @@
 ---
 title: Backend with jrebel
 authors: lhornyak
-wiki_title: Backend with jrebel
-wiki_revision_count: 3
-wiki_last_updated: 2012-02-06
 ---
 
 # Backend with jrebel

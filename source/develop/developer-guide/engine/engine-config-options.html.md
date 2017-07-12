@@ -1,9 +1,6 @@
 ---
 title: Engine config options
 authors: dougsland, omachace
-wiki_title: Engine config options
-wiki_revision_count: 2
-wiki_last_updated: 2015-11-16
 ---
 
 # Engine config options

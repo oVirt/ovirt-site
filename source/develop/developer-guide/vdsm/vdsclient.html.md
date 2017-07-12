@@ -2,10 +2,6 @@
 title: VdsClient
 category: vdsm
 authors: amuller, dougsland, ybronhei
-wiki_category: Vdsm
-wiki_title: VdsClient
-wiki_revision_count: 5
-wiki_last_updated: 2013-03-10
 ---
 
 # Vds Client

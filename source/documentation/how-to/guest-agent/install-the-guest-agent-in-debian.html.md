@@ -2,9 +2,6 @@
 title: How to install the guest agent in Debian
 category: howto
 authors: nkesick
-wiki_title: How to install the guest agent in Debian
-wiki_revision_count: 4
-wiki_last_updated: 2014-08-12
 ---
 
 # How to install the guest agent in Debian

@@ -2,10 +2,6 @@
 title: Becoming a maintainer
 category: developer
 authors: dneary
-wiki_category: Developer
-wiki_title: Becoming a maintainer
-wiki_revision_count: 1
-wiki_last_updated: 2012-10-05
 ---
 
 # Becoming a maintainer

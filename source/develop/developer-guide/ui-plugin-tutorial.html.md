@@ -2,10 +2,6 @@
 title: CrashCourse
 category: tutorial
 authors: vszocs
-wiki_category: Tutorial
-wiki_title: Tutorial/UIPlugins/CrashCourse
-wiki_revision_count: 16
-wiki_last_updated: 2014-03-07
 ---
 
 # Crash Course

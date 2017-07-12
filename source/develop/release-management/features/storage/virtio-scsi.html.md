@@ -1,9 +1,6 @@
 ---
 title: Virtio-SCSI
 authors: derez
-wiki_title: Features/Virtio-SCSI
-wiki_revision_count: 15
-wiki_last_updated: 2013-11-27
 feature_name: Virtio-SCSI
 feature_modules: engine, vdsm
 feature_status: Released in oVirt 3.3

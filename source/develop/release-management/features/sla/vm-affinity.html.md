@@ -2,10 +2,6 @@
 title: VM-Affinity
 category: feature
 authors: adahms, gchaplik
-wiki_category: Feature
-wiki_title: Features/VM-Affinity
-wiki_revision_count: 19
-wiki_last_updated: 2014-07-31
 ---
 
 # VM Affinity

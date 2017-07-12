@@ -2,10 +2,6 @@
 title: Node PXE
 category: node
 authors: fabiand, mburns, mpavlik, netbulae, odoucet, rbarry, vered
-wiki_category: Node
-wiki_title: Node PXE
-wiki_revision_count: 8
-wiki_last_updated: 2014-07-14
 ---
 
 # Node PXE

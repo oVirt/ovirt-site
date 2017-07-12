@@ -2,10 +2,6 @@
 title: Responding to wiki account requests
 category: infra
 authors: quaid
-wiki_category: Infrastructure SOP
-wiki_title: Responding to wiki account requests
-wiki_revision_count: 1
-wiki_last_updated: 2013-12-18
 ---
 
 # Responding to wiki account requests

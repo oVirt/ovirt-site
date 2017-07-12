@@ -1,9 +1,6 @@
 ---
 title: Network Management
 authors: lpeer, mkolesni
-wiki_title: Network Management
-wiki_revision_count: 20
-wiki_last_updated: 2012-11-07
 ---
 
 <!-- TODO: Content review -->

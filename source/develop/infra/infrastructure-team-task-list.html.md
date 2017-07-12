@@ -2,10 +2,6 @@
 title: Infrastructure team task list
 category: infra
 authors: dneary, quaid, rmiddle
-wiki_category: Infrastructure
-wiki_title: Infrastructure team task list
-wiki_revision_count: 13
-wiki_last_updated: 2013-12-13
 ---
 
 # Infrastructure team task list

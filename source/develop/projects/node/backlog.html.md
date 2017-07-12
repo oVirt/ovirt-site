@@ -2,10 +2,6 @@
 title: Node Backlog
 category: node
 authors: mburns, pmyers
-wiki_category: Node
-wiki_title: Node Backlog
-wiki_revision_count: 24
-wiki_last_updated: 2013-02-13
 ---
 
 # Node Backlog

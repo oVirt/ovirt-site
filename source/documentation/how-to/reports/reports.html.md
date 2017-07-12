@@ -3,10 +3,6 @@ title: oVirt Reports
 category: documentation
 layout: toc
 authors: aglitke, dougsland, sandrobonazzola, sradco, yaniv dary
-wiki_category: Documentation
-wiki_title: Ovirt Reports
-wiki_revision_count: 27
-wiki_last_updated: 2015-01-14
 ---
 
 <!-- TODO: Content review -->

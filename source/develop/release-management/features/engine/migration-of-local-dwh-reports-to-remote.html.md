@@ -2,10 +2,6 @@
 title: Migration of local DWH Reports to remote
 category: feature
 authors: sradco
-wiki_category: Feature|Separate DWH Host
-wiki_title: Features/Migration of local DWH Reports to remote
-wiki_revision_count: 1
-wiki_last_updated: 2015-01-04
 feature_name: Migrating local DWH and Reports to remote
 feature_modules: engine
 feature_status: Design

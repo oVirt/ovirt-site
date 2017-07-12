@@ -2,9 +2,6 @@
 title: Engine Node Integration
 category: node
 authors: doron, dougsland, fsimonce, roy
-wiki_title: Engine Node Integration
-wiki_revision_count: 42
-wiki_last_updated: 2012-02-21
 ---
 
 # Engine Node Integration

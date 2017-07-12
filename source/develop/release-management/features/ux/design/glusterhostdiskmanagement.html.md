@@ -1,9 +1,6 @@
 ---
 title: GlusterHostDiskManagement
 authors: rnahcimu
-wiki_title: Features/Design/GlusterHostDiskManagement
-wiki_revision_count: 34
-wiki_last_updated: 2014-12-22
 ---
 
 # Gluster Host Disk Management

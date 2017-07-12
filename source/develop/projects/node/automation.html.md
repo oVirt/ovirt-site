@@ -2,10 +2,6 @@
 title: Node Automation
 category: node
 authors: fabiand, mburns, misc, pmyers, quaid
-wiki_category: Testing
-wiki_title: Node Automation
-wiki_revision_count: 6
-wiki_last_updated: 2014-05-22
 ---
 
 # Node Automation

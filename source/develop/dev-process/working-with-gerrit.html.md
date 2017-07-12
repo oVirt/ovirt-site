@@ -4,10 +4,6 @@ category: documentation
 layout: toc
 authors: abonas, amuller, amureini, asaf, dcaroest, dneary, doron, dougsland, iheim,
   lpeer, mburns, mkovgan, msalem, ovedo, quaid, rmiddle, roy, sgordon, vered
-wiki_category: Documentation
-wiki_title: Working with oVirt Gerrit
-wiki_revision_count: 62
-wiki_last_updated: 2015-06-09
 ---
 
 # Working with oVirt Gerrit

@@ -2,10 +2,6 @@
 title: EntityHealthStatus
 category: feature
 authors: emesika, ovedo
-wiki_category: Feature
-wiki_title: Features/EntityHealthStatus
-wiki_revision_count: 40
-wiki_last_updated: 2015-10-07
 ---
 
 # Entity Health Status

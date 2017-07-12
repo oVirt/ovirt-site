@@ -2,10 +2,6 @@
 title: PosixFSConnection
 category: feature
 authors: abaron, derez, ecohen, ekohl, sandrobonazzola, smizrahi, yair zaslavsky
-wiki_category: Feature|PosixFSConnection
-wiki_title: Features/PosixFSConnection
-wiki_revision_count: 18
-wiki_last_updated: 2015-01-16
 feature_name: PosixFS Connection
 feature_modules: engine/vdsm
 feature_status: Released

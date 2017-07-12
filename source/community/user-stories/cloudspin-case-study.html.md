@@ -2,10 +2,6 @@
 title: CloudSpin Case Study
 category: community
 authors: bproffitt
-wiki_category: Community
-wiki_title: CloudSpin Case Study
-wiki_revision_count: 1
-wiki_last_updated: 2015-01-08
 ---
 
 <div class="row">

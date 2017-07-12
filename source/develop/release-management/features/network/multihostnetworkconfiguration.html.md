@@ -2,10 +2,6 @@
 title: MultiHostNetworkConfiguration
 category: feature
 authors: danken, didi, mkolesni, moti, mpavlik
-wiki_category: Feature
-wiki_title: Features/MultiHostNetworkConfiguration
-wiki_revision_count: 35
-wiki_last_updated: 2014-02-23
 ---
 
 ## Multi-Host Network Configuration

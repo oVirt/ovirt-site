@@ -79,7 +79,9 @@ Edit the section
 
    For cpu, units are in millicores.  500m means 0.5 cores.
 
-   If you want mux to use more, use 1000m or even 2000m.
+   If you want mux to use more cpu, you can update it up to 1000m.
+
+   In case mux is maxed out of cpu, and you have already increased the mux cpu to 1000m, you should scale up an additional pod.
 
    For memory, 2Gi means 2 Gigabytes.  Increase as needed.
 
@@ -106,11 +108,12 @@ Since ruby isn't multi-threaded, you can also scale up mux to run additional pod
 
       # oc scale --replicas=2 dc/logging-mux
 
-This will create 2 mux pods.  I would suggest that if mux is maxed out of cpu, and you have already increased the mux cpu above to 1000m, you should scale up an additional pod rather than increasing the mux cpu to over 1000m.
+This will create 2 mux pods.
 
 
 
-**Update curatur pod for metrics index**
+
+**Update curator pod for metrics index**
 
 This will define the curator pod to delete metrics indexes that are older then 7 days.
 

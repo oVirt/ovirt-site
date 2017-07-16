@@ -58,14 +58,17 @@ Once you have finished this step, you should have:
 
 **Update mux pod resources**
 
-1. ssh into the logging machine and use the command line.  
-**Note:** You can probably do all of this with the OpenShift UI too - https://logging-machine:8443
+*mux* is short for multiplex, because it acts like a multiplexor or manifold,
+taking in connections from many collectors, and distributing them to a data
+store. 
 
-2. Run
+1. Use SSH to connect to the logging machine and open the command line.
+
+2. Update the deployment configuration of mux pod by running the following command:
 
        # $ oc edit dc logging-mux
 
-Edit the section
+Edit the cpu and memory values as follows:
 
       spec:
         template:
@@ -77,31 +80,26 @@ Edit the section
                   cpu: 500m
                   memory: 2Gi
 
-   For cpu, units are in millicores.  500m means 0.5 cores.
-
-   If you want mux to use more cpu, you can update it up to 1000m.
-
-   In case mux is maxed out of cpu, and you have already increased the mux cpu to 1000m, you should scale up an additional pod.
-
-   For memory, 2Gi means 2 Gigabytes.  Increase as needed.
-
-   If you change and save the new config, that should automatically trigger a redeployment of all mux pods.
+**Note:**
+   - CPU usage is measured in millicores (m). 500m means 0.5 cores. To allocate more resources to *mux*, increase the CPU to 1000m.
+   In the event that mux has utilized all available CPU resources, and the CPU has already been increased to 1000m, scale up to an additional pod.
    
+   - Memory usage is measured in Gigabytes (Gi). 2Gi means 2 Gigabytes. Increase as needed.
 
+   
+3. Save the new configuration to automatically trigger a redeployment of all mux pods.
 
-3. Run:
+4. To view when mux pod was last redeployed, run:
 
        # oc get pods -l component=mux
 
-This should show that mux recently restarted.  If not, use
+If mux pos was not redeployed in the last two minutes, run:
 
        # oc rollout latest dc/logging-mux
 
-and
+To follow the deployment until the new mux pod is rolled out, run:
 
        # oc rollout status -w dc/logging-mux
-
-to follow the deployment until the new one is rolled out
 
 
 Since ruby isn't multi-threaded, you can also scale up mux to run additional pods:

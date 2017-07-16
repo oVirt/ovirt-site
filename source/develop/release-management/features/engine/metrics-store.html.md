@@ -39,13 +39,13 @@ We plan to continue adding additional logs and metrics as required, add pre-defi
 **Note:** Currently it should be installed on a new machine, separate from the engine. 
 It can be installed on a dedicated VM. 
 
-Please follow one of these options. Adding SSO is optional:
- 
+Please follow the installation instructions:
+
+  * [Metrics Store setup on top of OpenShift](https://github.com/ViaQ/Main/blob/master/README-mux.md)
+
+In oVirt 4.2 there will be an option to add SSO:
   * [Metrics Store setup on top of OpenShift with oVirt Engine SSO](https://www.ovirt.org/blog/2017/05/openshift-openId-integration-with-engine-sso/)
 
-  OR
-
-  * [Metrics Store setup on top of OpenShift without oVirt Engine SSO](https://github.com/ViaQ/Main/blob/master/README-mux.md)
 
 [![oVirt Metrics data flow](/images/wiki/oVirtMetricsDataFlow.jpg)](images/wiki/oVirtMetricsDataFlow.jpg)
 

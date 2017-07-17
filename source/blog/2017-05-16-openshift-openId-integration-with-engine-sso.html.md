@@ -41,7 +41,7 @@ Run the client registration tool ovirt-register-sso-client to register a new sso
 
 ## Setup oauthconfig on Kibana/Elasticsearch/OpenShift Host 
 
-On Kibana/Elasticsearch/OpenShift host edit /etc/origin/master/master-config.yaml to setup oauthconfig as below
+On Kibana/Elasticsearch/OpenShift host edit /etc/origin/master/master-config.yaml to setup oauthconfig as below. For oVirt Engine 4.1, see note below.
 
 ```yaml
 oauthConfig:
@@ -91,6 +91,15 @@ claims:
     accessTokenMaxAgeSeconds: 86400
     authorizeTokenMaxAgeSeconds: 500
 ```
+
+In oVirt engine 4.1 the authorize and token endpoints point to oauth endpoints.
+
+```
+      urls:
+        authorize: https://ovirt-engine.example.com/ovirt-engine/sso/openid/authorize
+        token: https://ovirt-engine.example.com/ovirt-engine/sso/openid/token
+```
+        
 ## Restart oVirt Engine
 
 ```ssh

@@ -96,8 +96,8 @@ In oVirt engine 4.1 the authorize and token endpoints point to oauth endpoints.
 
 ```
       urls:
-        authorize: https://ovirt-engine.example.com/ovirt-engine/sso/openid/authorize
-        token: https://ovirt-engine.example.com/ovirt-engine/sso/openid/token
+        authorize: https://ovirt-engine.example.com/ovirt-engine/sso/oauth/authorize
+        token: https://ovirt-engine.example.com/ovirt-engine/sso/oauth/token
 ```
         
 ## Restart oVirt Engine

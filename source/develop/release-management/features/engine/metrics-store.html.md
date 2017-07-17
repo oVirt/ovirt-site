@@ -2,7 +2,7 @@
 title: oVirt Metrics Store
 category: feature
 authors: sradco
-feature_name: Add support for modern metrics store, reporting and alerting
+feature_name: oVirt Metrics Store
 feature_modules: engine
 feature_status: In Development
 ---

@@ -1,0 +1,98 @@
+---
+title: oVirt Ansible Roles: An Introduction
+author: mgoldboim
+tags: Ansible
+date: 2017-07-19 15:00:00 CET
+comments: true
+published: true
+---
+
+Today I would like to share with you some of the integration work with Ansible 2.3 that was done in the latest oVirt 4.1 release.
+The Ansible integration work was quite extensive and included [Ansible modules](http://docs.ansible.com/ansible/list_of_cloud_modules.html#ovirt) that can be utilized for automating a wide range of 
+oVirt tasks, including tiered application deployment and virtualization infrastructure management.
+
+
+
+```yaml
+oauthConfig:
+  assetPublicURL: https://openshift.example.com:8443/console/
+  grantConfig:
+    method: auto
+  identityProviders:
+  - challenge: true
+    login: true
+    mappingMethod: claim
+    name: my_openid_connect
+    provider:
+      apiVersion: v1
+      kind: OpenIDIdentityProvider
+      clientID: <client id specified in previous step>
+      clientSecret: <client id generated in previous step>
+      extraScopes:
+      - ovirt-app-api
+      - ovirt-ext=auth:sequence-priority=~
+      extraAuthorizeParameters:
+        include_granted_scopes: "true"
+claims:
+        id:
+        - custom_id_claim
+        - sub
+        preferredUsername:
+        - preferred_username
+        - email
+        name:
+        - nickname
+        - given_name
+        - name
+        email:
+        - custom_email_claim
+        - email
+      urls:
+        authorize: https://ovirt-engine.example.com/ovirt-engine/sso/openid/authorize
+        token: https://ovirt-engine.example.com/ovirt-engine/sso/openid/token
+  masterCA: ca-bundle.crt
+  masterPublicURL: https://openshift.example.com:8443
+  masterURL: https://openshift.example.com:8443
+  sessionConfig:
+    sessionMaxAgeSeconds: 3600
+    sessionName: ssn
+    sessionSecretsFile: /etc/origin/master/session-secrets.yaml
+  tokenConfig:
+    accessTokenMaxAgeSeconds: 86400
+    authorizeTokenMaxAgeSeconds: 500
+```
+
+In oVirt engine 4.1 the authorize and token endpoints point to oauth endpoints.
+
+```
+      urls:
+        authorize: https://ovirt-engine.example.com/ovirt-engine/sso/oauth/authorize
+        token: https://ovirt-engine.example.com/ovirt-engine/sso/oauth/token
+```
+
+## Restart oVirt Engine
+
+```ssh
+systemctl restart ovirt-engine
+```
+
+## Restart origin-master and origin-node on OpenShift Host
+
+```ssh
+systemctl restart origin-master
+systemctl restart origin-node
+```
+
+## Configure hostnames
+
+Make sure the hosts are reachable by their hostnames if required add host aliases in /etc/hosts
+
+```config
+10.16.19.48 openshift.example.com kibana.example.com mux.example.com
+
+10.10.116.110 ovirtengine.example.com
+```
+
+## Grant Permissions
+
+The user needs to be granted permissions manually in OpenShift, using the console UI or the command line, so that the user can view the data in Kibana. Accessing https://kibana.example.com should redirect to the engine login page. Enter credentials and login will redirect user back to Kibana.

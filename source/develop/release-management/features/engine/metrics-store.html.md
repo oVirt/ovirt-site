@@ -19,7 +19,7 @@ Real-time monitoring will provide visibility into the user's complete infrastruc
 *   Name: Shirly Radco (sradco)
 *   Email: <sradco@redhat.com>
 
-## Current status
+## Current Status
 
 *   Target Release: 4.1
 *   Status: Released
@@ -32,10 +32,10 @@ We have an Ansible script that configures them on all relevant hosts.
 
 We plan to continue adding additional logs and metrics as required, add pre-defined dashboards and alerting that will detect and notify the user when something goes wrong in the environment, based on SLA events, thresholds, etc.
 
-## Installtion Guide
+## Installation Guide
 
-Follow the installation guild at - [Metrics Store - Installation Guide](http://www.ovirt.org/develop/release-management/features/engine/metrics-store-installation-guide/)
+Follow the installation guide at:  [Metrics Store - Installation Guide](http://www.ovirt.org/develop/release-management/features/engine/metrics-store-installation-guide/)
 
 ## Collected Data
 
-Follow the list of collected metrics and logs at - [Metrics Store - Collected Data](http://www.ovirt.org/develop/release-management/features/engine/metrics-store-collected-metrics/)
+Follow the list of collected metrics and logs at:  [Metrics Store - Collected Data](http://www.ovirt.org/develop/release-management/features/engine/metrics-store-collected-metrics/)

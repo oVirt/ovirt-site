@@ -6,7 +6,7 @@ wiki_category: Feature
 wiki_title: Metrics Store - Installation Guide
 wiki_revision_count: 1
 wiki_last_updated: 2017-07-16
-feature_name: oVirt Metrics Store
+feature_name: oVirt Metrics Store Installation
 feature_modules: engine
 feature_status: In Development
 ---

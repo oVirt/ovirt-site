@@ -17,6 +17,21 @@ feature_status: In Development
 **Note:** Currently, the oVirt Metrics Store should be installed on a new machine, separate from the engine.
 It can be installed on a dedicated VM.
 
+Before starting the installation please choose an environment name ("ovirt_env_name"). It will be used to identify data sent from more than one oVirt engine and collected in a single central store.
+
+   Use the following convention: Only include alphanumeric characters and hyphens ( "-" ). Name cannot begin with a hyphen or a number,
+   or end with a hyphen. Maximum of 49 characters. Wildcard patterns (e.g. ovirt-metrics*) cannot be used.
+
+During the installation in the step [Configuring mux](https://github.com/ViaQ/Main/blob/master/README-mux.md#configuring-mux) , use the following namespaces to create the indexes:
+
+MUX_NAMESPACES="ovirt-metrics-<ovirt_env_name>  ovirt-logs-<ovirt_env_name>"
+
+For example:
+If ovirt_env_name= test-engine then the `MUX_NAMESPACES` will be:
+MUX_NAMESPACES="ovirt-metrics-test-engine  ovirt-logs-test-engine"
+
+The indexes in elasticsearch will be created with "project." prefix.
+
 Please follow the installation instructions: [Metrics Store setup on top of OpenShift](https://github.com/ViaQ/Main/blob/master/README-mux.md)
 
 In oVirt 4.2 there will be an option to add SSO: [Metrics Store setup on top of OpenShift with oVirt Engine SSO](https://www.ovirt.org/blog/2017/05/openshift-openId-integration-with-engine-sso/)
@@ -111,11 +126,7 @@ This procedure will define the curator pod so that it deletes metrics indexes th
            runminute: 0
 
 
-5. The ovirt_env_name value represents the environment name. It is used to identify data sent from more than one oVirt engine and collected in a single central store.
-
-   Update the environment name using the following convention: Only include alphanumeric characters and hyphens ( "-" ). Name cannot begin with a hyphen or a number,
-   or end with a hyphen. Maximum of 49 characters. Wildcard patterns (e.g. ovirt-metrics*) cannot be used.
-
+5. Update "ovirt_env_name". **Use the same name you configured earlier**.
 6. Run
 
         # oc rollout latest dc/logging-curator
@@ -157,7 +168,7 @@ Now we need to deploy and configure collectd and fluentd to send the data to the
 
      * "/path/to/fluentd_ca_cert.pem" - The path to the fluentd CA certificate
 
-     * "ovirt_env_name" - The environment name. Can be used to identify data collected in a single central store sent from more than one oVirt engine. **Use the same name you configured earlier**.
+     * "ovirt_env_name" - **Use the same name you configured earlier**.
 
 6. On the engine machine, run as root:
 

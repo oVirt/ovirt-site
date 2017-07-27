@@ -37,7 +37,7 @@ _More information on [oVirt subprojects](/subprojects/)_
 
 <section class="col-md-4">
 
-## Developer documentation
+## Developer Documentation
 
 - [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/)
 - [Building oVirt engine](Building oVirt engine)
@@ -63,7 +63,7 @@ _More information on [oVirt subprojects](/subprojects/)_
 
 [![oVirt architecture](/images/wiki/Overall-arch.png)](images/wiki/Overall-arch.png)
 
-## oVirt teams
+## oVirt Teams
 
  - [Integration](./projects/project-integration/)
  - [Project Infrastructure](./infra/infrastructure)

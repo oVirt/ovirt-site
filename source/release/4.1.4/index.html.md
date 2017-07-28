@@ -2,14 +2,13 @@
 title: oVirt 4.1.4 Release Notes
 category: documentation
 layout: toc
-authors: sandrobonazzola
 ---
 
 # oVirt 4.1.4 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.1.4
-Second Release Candidate as
-of July 19, 2017.
+Release as
+of July 28, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -17,15 +16,6 @@ This release is available now for Red Hat Enterprise Linux 7.3,
 CentOS Linux 7.3 (or similar).
 Packages for Fedora 24 are also available as a Tech Preview.
 
-
-This is pre-release software.
-Please take a look at our [community page](/community/) to know how to
-ask questions and interact with developers and users.
-All issues or bugs should be reported via the
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -41,19 +31,23 @@ To learn about features introduced before 4.1.4, see the [release notes for prev
 ### Fedora / CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm)
 
 
 and then follow our
 [Installation guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/)
+
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 
 
@@ -97,37 +91,42 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### oVirt Release Package
 
- - [BZ 1461813](https://bugzilla.redhat.com/1461813) <b>[RFE] Provide hook for vGPU</b><br>Feature: Support vGPU for nVidia GPUs.<br><br>Reason: Since some nVidia cards can present on the PCIe bus multiple times and be broken into discrete segements in order to present GPUs to guests for VDI or compute, RHV-H should include vGPU support.<br><br>Result: vdsm-hook-vfio-mdev is included in RHV-H, and vGPU support for nVidia cards is enabled.
+ - [BZ 1461813](https://bugzilla.redhat.com/1461813) <b>[RFE] Provide hook for vGPU</b><br>RHV-H now supports vGPU for nVidia GPUs, by including vdsm-hook-vfio-mdev.
 
 #### oVirt Engine
 
- - [BZ 1438408](https://bugzilla.redhat.com/1438408) <b>[RFE] Cluster maintenance scheduling policy</b><br>Feature: <br><br>A new ClusterInMaintenance scheduling policy was added. When this policy is set for a cluster, no new VMs can be started <br>with the exception of highly available VMs. Highly available VMs are still properly restarted upon host failure and migration of any VM is still allowed as usual.<br><br>Users are currently not limited in any way when creating a new highly available VMs and starting them manually.<br><br>Reason: <br><br>There might be a need to limit the action in the cluster to perform maintenance tasks. Much like the RHEL admin can limit new logins to the system and still allow the current users to finish their work.<br><br>Result:<br><br>The new ClusterInMaintenance scheduling policy is available and works as described.
- - [BZ 1338799](https://bugzilla.redhat.com/1338799) <b>[RFE] Need UI element to view affinity labels in the VM and host dialog boxes</b><br>Feature: Read-only comboboxes have been added to the add/edit popups for VMs and hosts in the webadmin UI. The comboboxes show all available affinity labels in the system, and for entities that have had labels assigned, those labels will be shown as selected.<br><br>Reason: The ability to add/edit affinity labels for VMs and hosts via REST API has been added in ovirt-4.0. It is beneficial for users to have the ability to see what labels are selected for these entities via the webadmin UI.<br><br>Result: Users will be able to view selected affinity labels for existing VMs and hosts and all ava ilable labels for both new and existing VMs and hosts.
- - [BZ 1465862](https://bugzilla.redhat.com/1465862) <b>[downstream clone - 4.1.4] [RFE] Need UI element to view affinity labels in the VM and host dialog boxes</b><br>Feature: Read-only comboboxes have been added to the add/edit popups for VMs and hosts in the webadmin UI. The comboboxes show all available affinity labels in the system, and for entities that have had labels assigned, those labels will be shown as selected.<br><br>Reason: The ability to add/edit affinity labels for VMs and hosts via REST API has been added in ovirt-4.0. It is beneficial for users to have the ability to see what labels are selected for these entities via the webadmin UI.<br><br>Result: Users will be able to view selected affinity labels for existing VMs and hosts and all available labels for both new and existing VMs and hosts.
- - [BZ 1450293](https://bugzilla.redhat.com/1450293) <b>After upgrade still can't connect to engine web ui with chrome 58 (due to missing subjectAltName)</b><br>Feature: <br><br>engine-setup can now optionally add the subjectAltName extension to internal certificates. The question about renewal of PKI was changed to mention this.<br><br>Reason: <br><br>Recent browsers require the subjectAltName extension to be included in certificates used for https. engine-setup creates certificates that include it, on new setups, since 4.1.2, but didn't update existing setups during upgrade.<br><br>Result: <br><br>Users that want to have PKI updated to include subjectAltName can now reply 'Yes' when prompted, and then recent browsers should accept the updated certificate.
+ - [BZ 1438408](https://bugzilla.redhat.com/1438408) <b>[RFE] Cluster maintenance scheduling policy</b><br>The ClusterInMaintenance scheduling policy was added to limit activity in a cluster during maintenance tasks. When set, no new VMs may be started, except highly available VMs. Highly available VMs are still restarted properly upon host failure and any VM can be migrated. Users can create new highly available VMs and start them manually.
+ - [BZ 1465862](https://bugzilla.redhat.com/1465862) <b>[downstream clone - 4.1.4] [RFE] Need UI element to view affinity labels in the VM and host dialog boxes</b><br>Previously, users could  use the REST API to add/edit affinity labels for virtual machines and hosts, but they could not view this information in the Administration Portal.<br><br>In this release, affinity label information is now available in the Administration Portal. It can be seen in the Add/Edit windows for virtual machines and hosts. The window displays all available affinity labels in the system, and for entities with assigned labels, those labels are selected.
+ - [BZ 1450293](https://bugzilla.redhat.com/1450293) <b>After upgrade still can't connect to engine web ui with chrome 58 (due to missing subjectAltName)</b><br>Newer browsers require the subjectAltName extension in certificates for HTTPS. Previously (version 4.1.2 and later), engine-setup created certificates with subjectAltName for new setups, but did not update existing certificates during upgrade.<br><br>Now engine-setup can add subjectAltName to existing internal certificates, so that newer browsers will accept them.
  - [BZ 1319323](https://bugzilla.redhat.com/1319323) <b>[RFE] Do not check VLAN ID for duplicates (allow them on different networks, DCs... ?)</b><br>
 
 #### VDSM
 
- - [BZ 1461813](https://bugzilla.redhat.com/1461813) <b>[RFE] Provide hook for vGPU</b><br>Feature: Support vGPU for nVidia GPUs.<br><br>Reason: Since some nVidia cards can present on the PCIe bus multiple times and be broken into discrete segements in order to present GPUs to guests for VDI or compute, RHV-H should include vGPU support.<br><br>Result: vdsm-hook-vfio-mdev is included in RHV-H, and vGPU support for nVidia cards is enabled.
- - [BZ 917062](https://bugzilla.redhat.com/917062) <b>[RFE] add abrt integration</b><br>The ABRT service is now integrated with Red Hat Virtualization when initializing hypervisors. ABRT is configured by vdsm and exposes crash reports about internal processes errors.<br><br>ABRT enables Red Hat Virtualization to save meaningful debug information without keeping full core-dump reports which consume a lot of memory space.
+ - [BZ 1461813](https://bugzilla.redhat.com/1461813) <b>[RFE] Provide hook for vGPU</b><br>RHV-H now supports vGPU for nVidia GPUs, by including vdsm-hook-vfio-mdev.
+ - [BZ 917062](https://bugzilla.redhat.com/917062) <b>[RFE] add abrt integration</b><br>ABRT is now integrated with Red Hat Virtualization when initializing hypervisors. ABRT is configured by VDSM and saves meaningful debug information, instead of enormous core-dump reports.
  - [BZ 1461295](https://bugzilla.redhat.com/1461295) <b>[downstream clone - 4.1.4] [RFE] Provide a way to correlate each 'run and protect' thread to its task</b><br>
- - [BZ 1412552](https://bugzilla.redhat.com/1412552) <b>[RFE] Add TLSv1.2 support tor VDSM communication service</b><br>We changed python ssl library from m2crypto to native ssl and provided tlsv1.2 support.
 
 #### oVirt Engine Extension AAA JDBC
 
  - [BZ 1452668](https://bugzilla.redhat.com/1452668) <b>[downstream clone - 4.1.4] [RFE] possibility to enter encrypted passwords in --password option</b><br>Previously, administrators had to enter an unencrypted password when invoking 'ovirt-aaa-jdbc-tool user password-reset'. The password was then encrypted inside ovirt-aaa-jdbc-tool and stored in the database.<br><br>This update enables administrators to use the new --encrypted option to enter an already encrypted password when invoking 'ovirt-aaa-jdbc-tool user password-reset'.<br><br>However there are some caveats when providing encrypted passwords:<br><br>1. Entering an encrypted password means that password validity tests cannot be performed, so they are skipped and the password is accepted even if it does not comply with the password validation policy.<br><br>2. A password has to be encrypted using the same configured algorithm. To encrypt passwords, administrators can use the '/usr/share/ovirt-engine/bin/ovirt-engine-crypto-tool.sh' tool, which provides the 'pbe-encode' command to encrypt passwords using the default PBKDF2WithHmacSHA1 algorithm.
 
-#### oVirt Engine Metrics
+### No Doc Update
 
- - [BZ 1451490](https://bugzilla.redhat.com/1451490) <b>[RFE] Ansible should check if Fluentd and Collectd packages are installed and install if missing</b><br>Feature:<br>In this RFE we added to the metrics script the list of required collectd and fluentd packages and install them if missing.<br><br>Reason: <br>There are cases where the packages are available in the channel and required for the metrics setup script, but the are not installed. This causes the configuration to fail.<br><br>Result: <br>Now the missing packages are installed.
+#### oVirt Engine
+
+ - [BZ 1470802](https://bugzilla.redhat.com/1470802) <b>scheduling policy required properties have no defaults</b><br>
+
+### Release Note
+
+#### oVirt Engine
+
+ - [BZ 1469478](https://bugzilla.redhat.com/1469478) <b>hide InClusterUpgrade policy</b><br>The InClusterUpgrade scheduling policy was only useful for upgrading cluster nodes from RHEL6 to RHEL7. RHEL6 is not an supported OS for oVirt hosts anymore so the policy is not doing anything nowadays. We might re-enable it if an use case shows up in the future.
 
 ### Unclassified
 
 #### oVirt Engine
 
  - [BZ 1468968](https://bugzilla.redhat.com/1468968) <b>[downstream clone - 4.1.4] Default DC & Cluster has fixed UUIDs</b><br>
- - [BZ 1469478](https://bugzilla.redhat.com/1469478) <b>hide InClusterUpgrade policy</b><br>
  - [BZ 1457814](https://bugzilla.redhat.com/1457814) <b>Bug in engine.log FenceVdsVDSCommandParameters message</b><br>
  - [BZ 1463698](https://bugzilla.redhat.com/1463698) <b>[downstream clone - 4.1.4] Running the command logon on the VM via the REST failed</b><br>
  - [BZ 1460160](https://bugzilla.redhat.com/1460160) <b>The default cluster has "Legacy" migration policy in new deployments</b><br>
@@ -143,6 +142,8 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### VDSM
 
+ - [BZ 1474320](https://bugzilla.redhat.com/1474320) <b>When restarting VDSM while VM is running and after that powering off the VM, virsh report that VM state is running</b><br>
+ - [BZ 1441530](https://bugzilla.redhat.com/1441530) <b>setupNetworks fails after firewalld creates .bak files</b><br>
  - [BZ 1460687](https://bugzilla.redhat.com/1460687) <b>[RHEL 7.4] - When updating MTU to custom number and after that return to default MTU (1500) the network ifcfg file not updated</b><br>
  - [BZ 1460619](https://bugzilla.redhat.com/1460619) <b>vdsm insert gaps in the ifcfg file for every network update</b><br>
  - [BZ 1471663](https://bugzilla.redhat.com/1471663) <b>vdsm plugin - TypeError: add_copy_spec() takes exactly 2 arguments (3 given)</b><br>
@@ -174,8 +175,4 @@ include collectd. Either use `includepkgs` and add those you need, or use
 ### VDSM
 
  - [BZ 1461811](https://bugzilla.redhat.com/1461811) <b>RHEL7.4 | Trying to start a VM after restore RAM snapshot fails - 'virDomainRestoreFlags() failed'</b><br>
-
-### oVirt Hosted Engine Setup
-
- - [BZ 1467813](https://bugzilla.redhat.com/1467813) <b>[downstream clone - 4.1.4] Hosted Engine upgrade from 3.6 to 4.0 will fail if the NFS is exported with root_squash</b><br>
 

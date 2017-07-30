@@ -18,6 +18,7 @@ feature_status: In Development
 It can be installed on a dedicated VM.
 
 Before starting the installation please choose an environment name ("ovirt_env_name"). It will be used to identify data sent from more than one oVirt engine and collected in a single central store.
+The default name for ovirt_env_name is "engine".
 
    Use the following convention: Only include alphanumeric characters and hyphens ( "-" ). Name cannot begin with a hyphen or a number,
    or end with a hyphen. Maximum of 49 characters. Wildcard patterns (e.g. ovirt-metrics*) cannot be used.

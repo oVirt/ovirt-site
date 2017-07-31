@@ -52,7 +52,7 @@ mux (short for multiplex) acts like a multiplexor or manifold,
 taking in connections from many collectors, and distributing them to data
 stores.
 
-The following procedure describes how to update the mox pod resources:
+The following procedure describes how to update the mux pod resources:
 
 1. Use SSH to connect to the logging machine and open the command line.
 

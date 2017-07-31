@@ -326,4 +326,3 @@ include collectd. Either use `includepkgs` and add those you need, or use
 ### oVirt Scheduler Proxy
 
  - [BZ 1444611](https://bugzilla.redhat.com/1444611) <b>Start VM failed with the exception, if the score module does not respond before the timeout</b><br>
-

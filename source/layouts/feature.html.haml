@@ -1,8 +1,6 @@
 :ruby
   @feature_base = '/develop/release-management/features/'
 
-  statuses = []
-
   # Session object cach for feature info
   $feature_info_store ||= {}
 
@@ -26,26 +24,6 @@
       feature_page = sitemap.find_resource_by_destination_path(constructed_url)
 
       $feature_info_store[frag] = feature_page.data if feature_page
-    end
-  end
-
-  # Normalize the status (for classes, etc.)
-  def normalize_status status
-    case status
-    when /wip/i, /progress/i
-      'WIP'
-    when /QA/i
-      'QA'
-    when /development/i
-      'Development'
-    when /review/i
-      'Review'
-    when /release/i
-      'Released'
-    when '', nil
-      'Unknown'
-    else
-      status.strip.gsub(/ /, '-')
     end
   end
 
@@ -125,11 +103,6 @@
       %form#feature-search.hide
         .form-group
           %input.form-control#feature-search-input{autocomplete: 'off', placeholder: 'Filter features'}
-          .checkbox
-            %label
-              -# %input{type: 'checkbox'} Hello
-              - statuses.each do |stat|
-                %input{type: 'checkbox'} = stat
 
       - features_dir.each do |cat, feature_group|
         - pretty_cat = cat.empty? ? 'Unclassified' : cat.gsub('/', ' / ').titleize
@@ -141,22 +114,16 @@
 
             - if info
               - feature_title = info['feature_name'] || info['title']
-              - status_title = info['feature_status']
-              - status = normalize_status status_title
             - else
               - feature_title = clean_title feature
-              - status_title = 'Unclassified'
-              - status = normalize_status ''
 
             - next if feature_title.to_s.empty?
 
-            - statuses.push(status_title)
-
             - selected = "/#{@feature_base}/#{cat}/#{feature}/".squeeze('/') == "/#{current_page.url}/".squeeze('/')
-            - classes = "#{selected ? 'selected' : ''} status-#{status.downcase}"
+            - classes = "#{selected ? 'selected' : ''}"
 
             %li{class: classes}
-              %a{href: "#{@feature_base}/#{cat}/#{feature}".squeeze('/'), title: "Status: #{status}"}= clean_title feature_title
+              %a{href: "#{@feature_base}/#{cat}/#{feature}".squeeze('/')}= clean_title feature_title
               = info ? "" : "NO DATA"
 
     %section.feature-info.col-md-8
@@ -285,9 +252,6 @@
 
   $ ->
     $input.focus()
-
-    statuses = #{statuses.compact.map {|s| s.downcase}.uniq}
-    console.log statuses
 
     $form
       .removeClass 'hide'

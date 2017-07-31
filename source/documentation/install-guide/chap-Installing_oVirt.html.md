@@ -24,7 +24,7 @@ Before you can configure and use the oVirt Engine, you must install the <package
 
     **Note:** Reboot the machine if any kernel related packages have been updated.
 
-1. Run the following command to install the `ovirt-engine` package and dependencies.
+3. Run the following command to install the `ovirt-engine` package and dependencies.
 
         # yum install ovirt-engine
 

@@ -18,7 +18,7 @@ Before you can configure and use the oVirt Engine, you must install the <package
         # http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
         # http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
 
-2. To ensure all packages are up to date, run the following command on the machine where you are installing the oVirt Engine:
+2. To ensure all packages are up to date, run the following command on the machine where you are installing oVirt Engine:
 
         # yum update
 

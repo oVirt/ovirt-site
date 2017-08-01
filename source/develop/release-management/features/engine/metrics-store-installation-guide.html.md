@@ -140,16 +140,16 @@ This procedure will define the curator pod so that it deletes metrics indexes th
 oVirt machines on versions 4.1.1 and above include fluentd and collectd packages.
 Now we need to deploy and configure collectd and fluentd to send the data to the central Metrics Store:
 
-1. Install / Upgrade and setup oVirt Engine 4.1.3 and above.
+1. Install / Upgrade and setup oVirt Engine to the latest 4.1.z.
 
-2. Install / Upgrade and activate one or more hosts, 4.1.3 and above.
+2. Install / Upgrade and activate one or more hosts, latest 4.1.z.
 
 3. Copy the CA certificate - created earlier on in this procedure [(see oVirt Metrics Store Setup)](https://github.com/ViaQ/Main/blob/master/README-mux.md#getting-the-shared_key-and-ca-cert) - to the engine machine.
 
 
    On the metrics store machine, run:
 
-        # scp /path/to/ca/certificate.cert root@<fqdn/of/engine/machine>:/etc/ovirt-engine-metrics
+        # scp /path/to/ca/certificate.cert root@<fqdn-of-engine-machine>:/etc/ovirt-engine-metrics
 
 4. Copy  /etc/ovirt-engine-metrics/config.yml.example  to config.yml.
 
@@ -177,7 +177,7 @@ Now we need to deploy and configure collectd and fluentd to send the data to the
 
 It runs the Ansible script that configures collectd and fluentd on the oVirt engine and hypervisors.
 
-It should finish without errors.
+It should finish without errors, collectd and fluentd services should be running.
 
 Once finished, you can view host, VM and other statistics in the Kibana console, at the address configured earlier on in this procedure [(see oVirt Metrics Store Setup)](https://github.com/ViaQ/Main/blob/master/README-mux.md#running-kibana).
 

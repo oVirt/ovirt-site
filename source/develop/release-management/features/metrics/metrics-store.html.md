@@ -34,8 +34,8 @@ We plan to continue adding additional logs and metrics as required, add pre-defi
 
 ## Installation Guide
 
-Follow the installation guide at:  [Metrics Store - Installation Guide](http://www.ovirt.org/develop/release-management/features/engine/metrics-store-installation-guide/)
+Follow the installation guide at:  [Metrics Store - Installation Guide](http://www.ovirt.org/develop/release-management/features/metrics/metrics-store-installation/)
 
 ## Collected Data
 
-Follow the list of collected metrics and logs at:  [Metrics Store - Collected Data](http://www.ovirt.org/develop/release-management/features/engine/metrics-store-collected-metrics/)
+Follow the list of collected metrics and logs at:  [Metrics Store - Collected Data](http://www.ovirt.org/develop/release-management/features/metrics/metrics-store-collected-metrics/)

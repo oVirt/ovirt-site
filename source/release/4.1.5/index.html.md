@@ -96,11 +96,11 @@ include collectd. Either use `includepkgs` and add those you need, or use
 
 #### VDSM
 
- - [BZ 1022961](https://bugzilla.redhat.com/1022961) <b>Gluster: running a VM from a gluster domain should use gluster URI instead of a fuse mount</b><br>Feature: Added libgfapi support to the engine and vdsm<br><br>Reason: libgfapi provides VMs with faster access to the vm images, stored on a gluster volume, comparing with fuse interface.<br><br>Result: With 'LibgfApi' DC feature enabled or 'lubgfapi_supported' cluster level feature enabled, VMs will access their images, stored on gluster volumes, directly via libgfapi.
+ - [BZ 1022961](https://bugzilla.redhat.com/1022961) <b>Gluster: running a VM from a gluster domain should use gluster URI instead of a fuse mount</b><br>Feature: Added libgfapi support to the engine and vdsm<br><br>Reason: libgfapi provides VMs with faster access to the vm images, stored on a gluster volume, comparing with fuse interface.<br><br>Result: With 'LibgfApi' DC feature enabled or 'lubgfapi_supported' cluster level feature enabled, VMs will access their images, stored on gluster volumes, directly via libgfapi.
 
 #### oVirt Engine Metrics
 
- - [BZ 1462500](https://bugzilla.redhat.com/1462500) <b>Add a check that ovirt_env_name is a valid OpenShift namespace identifier</b><br>Feature: <br>This adds a few checks to the ovirt_env_name, to make sure it is a valid OpenShift namespace identifier.<br><br>Reason: <br>ovirt_env_name must be a valid OpenShift namespace identifier in order for the records to be kept to the elasticsearch that is running in OpenShift.<br><br>Result: <br>Will fail the metrics script if the name is not valid.
+ - [BZ 1462500](https://bugzilla.redhat.com/1462500) <b>Add a check that ovirt_env_name is a valid OpenShift namespace identifier</b><br>Feature: <br>This adds a few checks to the ovirt_env_name, to make sure it is a valid OpenShift namespace identifier.<br><br>Reason: <br>ovirt_env_name must be a valid OpenShift namespace identifier in order for the records to be kept to the elasticsearch that is running in OpenShift.<br><br>Result: <br>Will fail the metrics script if the name is not valid.
 
 ### Unclassified
 

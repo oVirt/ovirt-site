@@ -496,6 +496,71 @@ network provider on the host (unless implemented by the user).
 * get_caps(caps, properties)
 * get_stats(stats, properties)
 
+## Using OSP8 as an external provider
+This feature aims to integrate with any external network provider. We have tested it with OSP8's Neutron using packstack installation, with the following steps and workarounds.
+
+#### Install OSP8 with packstack on Controller, Compute and Networker(the host that will run the network services)
+Please NOTE: This is how we tested, installed and integrated with oVirt(3.6 and 4.0) step by step.
+Some of the configurations, answers in the answer file and workarounds, may be relevant only to our specific or to some other specific use cases.
+
+### Controller/Neutron VM
+* Create and run rhel 7.2 VM with 2Gb RAM and 40Gb hardisk
+* rpm -i http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
+* rhos-release 8
+* yum install openstack-packstack
+* packstack --gen-answer-file=$PACKSTACK_ANSWER_FILE
+* Example to our answer file can be found --> [answer_file](http://pastebin.test.redhat.com/360085)
+* In the answer file you can choose and enter the IPs for: Controller, Compute and Networker(the Network host, on which to install the network service such as Compute networking (nova network) or Open Stack Networking)
+* In our case, the VM is used as the neutron controller. The Server is used as both the Compute and the Network server
+* Edit the answer file with your relevant configurations. You can compare with the attached answer file for example
+* In the neutron VM(controller) we added a second vNIC(in rhev-m) with a VM network and configured in the VM's OS a static IP on this interface(the same subnet as on the compute) for tunneling
+* Enable Network Manager(NM)
+* Run openstack-packstack on the Controller. It will take care of the installation on both the compute and controller
+*  packstack --answer-file=$PACKSTACK_ANSWER_FILE (prepare the compute server before starting the packstack installation)
+
+###Compute Server
+* rpm -i http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
+* rhos-release 8
+* In our case we configured for tunneling the forth NIC on the server(Compute and networker) with static ip over a non-VM network via Setup networks in rhev-m. It means that the server should already run in rhev-m
+* Delete iptables rule on compute host - REJECT all -- anywhere anywhere PHYSDEV match ! --physdev-is-bridged reject-with icmp-host-prohibited - iptables -D FORWARD 1 (Work Around)
+* yum install vdsm-hook-openstacknet on the compute server
+
+###RHEV-M
+*  Add an external provider in rhev-m 
+
+####On the general left tab add the following
+* Type: Open Stack Networking 
+* Networking Plugin: Open vSwitch 
+* Provider URL: http://NEUTRON_SERVER_IP_ADDRESS:9696
+* User name: neutron 
+* Password: should be found by: grep 'admin_password' /etc/neutron/neutron.conf on the neutron server vm
+* Tenant name: services 
+Verify 'connectivity test' passes (by clicking the 'Test' button)
+
+####On the Agent Configuration left tab
+* Bridge Mappings: br-ext:enp1s0f1 (the bridge mappings you configured in the answer file) 
+* Broker Type: RabbitMQ 
+* Host: Neutron VM IP address(controller) 
+* Port: 5672 
+* Username: guest 
+* Password: guest 
+
+####Controller+RHEV-M
+* Create network/s with subnet/s in neutron VM(controller) and import to rhev-m 
+* . keystonerc_admin 
+* neutron net-create 'network_name' 
+* neutron subnet-create 'network_name' 10.0.0.0/24 --name 'subnet_name'  
+* neutron net-list  
+* neutron net-show 'network_id' 
+* Import to rhev-m via 'Networks' main tab or via 'External Providers' sub tab from the left tree
+
+* Run VM/s using this network/s on the compute server 
+*  Currently, a bug discovered when ovirt is creating and allocating a new port and binding fails, please see -
+[binding_failed](https://bugzilla.redhat.com/show_bug.cgi?id=1318543)
+* neutron port-list -c id -c name -c status -c device_owner -c binding:host_id  (check the status of the ports)
+* ip netns (neutron dhcp status on compute server)
+
+
 ## Dependencies / Related Features
 
 This feature is strongly related to the "Openstack Neutron provider" feature.

@@ -53,6 +53,7 @@ _More information on [oVirt subprojects](/subprojects/)_
 - [oVirt architecture](/documentation/architecture/architecture/)
 - [Building a custom user portal](/develop/developer-guide/sample-user-portals/)
 - [Building oVirt engine DWH](/documentation/how-to/reports/dwh-development-environment/)
+- [oVirt Features](/develop/release-management/features/)
 
 </section>
 

@@ -4,3 +4,4 @@ rvm:
 sudo: false
 cache: bundler
 script: bundle exec middleman build --verbose
+dist: precise

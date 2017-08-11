@@ -19,7 +19,7 @@ The 1st Hackathon is scheduled to be held on 11/05/15, see details below.
 you are welcome to choose any task you'd like to take on from [1] and write your name on it. If there are not more tasks, feel free to look in [2] and see if there is anything that you'd like to help with and add it to [1].
 
 [1] <https://docs.google.com/spreadsheets/d/1PGGqI5tT_pmF7HUdg63FlozuVoQOBQaO-VID_R2eZqE/edit?pli=1#gid=0>
-[2] <https://fedorahosted.org/ovirt/report/1>
+[2] <https://ovirt-jira.atlassian.net/projects/OVIRT/issues>
 
 ### Help
 

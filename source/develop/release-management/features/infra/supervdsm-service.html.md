@@ -116,4 +116,3 @@ As we can see from the above, proposal B will involve more complex logic when su
 
 1.  Clean vdsm priviledge usage
 2.  Clean and stable vdsm/supervdsm exception flow and races
-

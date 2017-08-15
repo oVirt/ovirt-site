@@ -30,11 +30,13 @@ vi /var/lib/pgsql/data/pg_hba.conf
 ```
 
 Ensure the database can be accessed remotely by enabling md5 client authentication. Edit the /var/lib/pgsql/data/pg_hba.conf file, and add the following line immediately underneath the line starting with local at the bottom of the file, replacing X.X.X.X with the IP address of the Engine:
+
 ```
  host    database_name    user_name    X.X.X.X/32   md5
 ```
 
 Edit `postgresql.conf` and add following lines:
+
 ```
 vi /var/lib/pgsql/data/postgresql.conf
 
@@ -223,7 +225,8 @@ You should be able to access oVirt's web portal at the address mentioned above.
 
 Notes: When you first start your machine, be sure to start the Docker container that has your database. 
 After this, restart the `ovirt-engine` service using the following command:
-`systemctl restart ovirt-engine`
-Do use the image pulled from registry.centos.org/centos/postgres:latest. The one provided by PostgreSQL is difficult 
-to configure since it seems intended to use as is. Your mileage on this may vary. 
+  `systemctl restart ovirt-engine`
+
+Do use the image pulled from registry.centos.org/centos/postgres:latest. 
+The one provided by PostgreSQL is difficult to configure since it seems intended to use as is. Your mileage on this may vary. 
 The 404 error that appears initially should disappear and you should get the web login page for oVirt, after a few seconds or so.

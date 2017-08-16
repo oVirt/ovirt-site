@@ -7,8 +7,8 @@ authors: sandrobonazzola
 
 See also all [oVirt Features](/develop/release-management/features/)
 
-* [Cloud-Init Integration](http://www.ovirt.org/develop/release-management/features/cloud/cloud-init-integration/)
-* [oVirt engine backup](http://www.ovirt.org/develop/release-management/features/engine/engine-backup/)
+* [Cloud-Init Integration](http://www.ovirt.org/develop/release-management/features/virt/cloud-init-integration/)
+* [oVirt engine backup](http://www.ovirt.org/develop/release-management/features/integration/engine-backup/)
 * [Self Hosted Engine](http://www.ovirt.org/develop/release-management/features/engine/self-hosted-engine/)
 * [Otopi Infra Migration](http://www.ovirt.org/develop/release-management/features/integration/otopi-infra-migration/)
 * [AsyncTaskManagerChanges 3.3](http://www.ovirt.org/develop/release-management/features/infra/asynctaskmanagerchanges-3.3/)

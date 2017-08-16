@@ -7,7 +7,7 @@ authors: sandrobonazzola
 
 See also all [oVirt Features](/develop/release-management/features/)
 
-* [VMDevices Rework](http://www.ovirt.org/develop/release-management/features/vmdevices-rework/)
+* [VMDevices Rework](http://www.ovirt.org/develop/release-management/features/virt/vmdevices-rework/)
 * [Advanced NFS Options](http://www.ovirt.org/develop/release-management/features/storage/advancednfsoptions/)
 * [Detailed Floating Disk](http://www.ovirt.org/develop/release-management/features/storage/detailedfloatingdisk/)
 * [Direct LUN](http://www.ovirt.org/develop/release-management/features/storage/direct-lun/)
@@ -17,7 +17,7 @@ See also all [oVirt Features](/develop/release-management/features/)
 * [Import VM or Template More Than Once](http://www.ovirt.org/develop/release-management/features/storage/importmorethanonce/)
 * [PosixFS Connection](http://www.ovirt.org/develop/release-management/features/storage/posixfsconnection/)
 * [Read Only Disk](http://www.ovirt.org/develop/release-management/features/storage/read-only-disk/)
-* [Serial Execution of Asynchronous Tasks Detailed Design](http://www.ovirt.org/develop/release-management/features/storage/serial-execution-of-asynchronous-tasks/)
+* [Serial Execution of Asynchronous Tasks Detailed Design](http://www.ovirt.org/develop/release-management/features/infra/serial-execution-of-asynchronous-tasks/)
 * [Shared Raw Disk](http://www.ovirt.org/develop/release-management/features/storage/sharedrawdisk/)
 * [SPM Priority](http://www.ovirt.org/develop/release-management/features/storage/spmpriority/)
 * [Storage Domain Live Upgrade](http://www.ovirt.org/develop/release-management/features/storage/storagedomainliveupgrade/)

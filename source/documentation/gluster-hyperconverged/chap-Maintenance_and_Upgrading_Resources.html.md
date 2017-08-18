@@ -2,7 +2,7 @@
 title: Maintenance and Upgrading Resources
 ---
 
-# Chapter 4: Maintenance and Upgrading Resources
+# Chapter: Maintenance and Upgrading Resources
 
 ## Maintaining the Self-Hosted Engine
 
@@ -30,5 +30,4 @@ NOTE: If geo-replication is setup on the gluster volumes, the geo-replication ne
     * Once all bricks are replaces, the host can be moved to maintenance and removed.
 
 
-**Prev:** [Chapter 3: Deploying Hyperconverged](../gluster-hyperconverged/chap-Deploying_Hyperconverged) <br>
-**Next:** [Chapter 5: Installing Additional Hosts to a Hyperconverged deployment](../gluster-hyperconverged/chap-Installing_Additional_Hosts_to_a_Hyperconverged)
+**Prev:** [Chapter: Troubleshooting](../gluster-hyperconverged/chap-Troubleshooting) <br>

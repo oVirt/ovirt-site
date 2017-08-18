@@ -2,9 +2,9 @@
 title: Troubleshooting
 ---
 
-# Chapter 3: Troubleshooting
+# Chapter: Troubleshooting
 
-## Troubleshooting issue with gluster storage
+## Troubleshooting issues with gluster storage
 
 * Check if the gluster volume is online and available by running `gluster volume status <volumename>`
 
@@ -62,8 +62,17 @@ If the state is other than `Peer in Cluster (Connected)` then there is an issue.
 
     * Check the Hosted engine score on three host. If NA or 0, check if ovirt-ha-agent and ovirt-ha-broker service is running.
     * Hosted-engine --vm-status - are the other hosts listed?
-    * Check if while deploying from engine, was hosted deploy was chosen
+    * Check if while deploying the additional hosts from engine, hosted-engine deploy was chosen
+
+* Hosted-engine tab not available while adding additional hosts
+
+    * After adding the first host to the engine, a master Storage Domain needs to be configured. This is needed to initialize the Data Center. Engine will then import the Hosted-Engine storage domain and the Hosted-Engine VM. Engine needs to be aware of the Hosted-Engine storage domain to deploy Hosted Engine on additional hosts.
+    * If the previous step was missed while installing additional hosts, an option is to
+        * Create a Master storage domain
+        * Move host to maintenance
+        * Reinstall the host choosing the "Hosted Engine deploy" option from the Hosted Engine tab.
 
 Refer [Troubleshooting Self-Hosted Engine](../self-hosted/chap-Deploying_Self-Hosted_Engine)
 
-**Next:** [Chapter 4: Maintenance and Upgrading Resources ](../gluster-hyperconverged/chap-Maintenance_and_Upgrading_Resources)
+**Prev:** [Chapter: Additional Steps ](../gluster-hyperconverged/chap-Additional_Steps) <br/>
+**Next:** [Chapter: Maintenance and Upgrading Resources ](../gluster-hyperconverged/chap-Maintenance_and_Upgrading_Resources)

@@ -10,7 +10,7 @@ Before you can configure and use the oVirt Engine, you must install the <package
 
 **Installing the oVirt Engine Packages**
 
-1. Before you can start installing the oVirt, add the official repository. Choose one based on your version requirement:
+1. Before you can start installing oVirt, add the official repository. Choose one based on your version requirement:
 
         
         # http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm

@@ -42,4 +42,4 @@ Using as command prompt running as administrator, run the following commands to 
     C:\Program Files\Guest Agents\oVirt Guest Agent> net start OVirtGuestService
     C:\Program Files\Guest Agents\oVirt Guest Agent> sc config "OVirtGuestService" start= auto
 
-Everything is then installed so you can delete the `%EXTRACTDIR%\ovirt-guest-agent`, you won´t be needing it anymore.
+Everything is then installed so you can delete the `%EXTRACTDIR%\ovirt-guest-agent`. You won't be needing it anymore.

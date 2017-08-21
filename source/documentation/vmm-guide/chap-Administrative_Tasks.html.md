@@ -675,13 +675,20 @@ Import virtual machines from Xen on Enterprise Linux 5 to your oVirt environment
 
             # sudo -u vdsm ssh-copy-id root@xenhost.example.com
 
-    c. Log in to the Xen host to add it to the V2V host's `known_hosts` file.
+       As a side-effect of this step the `known_hosts` file on the V2V host is updated with the host key of the Xen host.
+       This is also required for the import process to work.
+
+    c. To verify that everything is set-up properly you can try to ssh to the Xen host.
 
             # sudo -u vdsm ssh root@xenhost.example.com
 
     d. Exit the Xen host.
 
             # logout
+
+    e. Another verification step that you can perform to make sure everything is OK is to list the VMs on the Xen host.
+
+            # sudo -u vdsm virsh -c 'qemu+ssh://root@xenhost.example.com/system' list
 
 2. Log in to the Administration Portal. In the **Virtual Machines** tab, click **Import** to open the **Import Virtual Machine(s)** window.
 

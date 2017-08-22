@@ -2,7 +2,7 @@
 title: GlusterFS Storage Domain
 category: feature
 authors: derez, dpkshetty, drbao, moti, sahina, sandrobonazzola, shtripat, snmishra,
-  thildred
+  thildred, dchaplyg
 feature_name: GlusterFS Storage Domain
 feature_modules: engine/vdsm
 feature_status: Released
@@ -25,11 +25,11 @@ VMs created using this domain exploit the QEMU's gluster block backend aka QEMU-
     -   VDSM Component owner: Deepak C Shetty <deepakcs@linux.vnet.ibm.com>
     -   QA Owner:
 
-# Current Status - Feature NOT Complete !!!
+# Current Status - Feature Implemented
 
 *   **QEMU-GlusterFS integration** : Done. Available in upstream qemu.
 *   **libvirt enablement for Gluster** : Done. Available in upstream libvirt
-*   **GLUSTERFS_DOMAIN support in VDSM** : Not Done. See [Open Issues](/develop/release-management/features/storage/glusterfs-storage-domain/#open-issues) section
+*   **GLUSTERFS_DOMAIN support in VDSM** : Done. Available in upstream oVirt
 *   **oVirt Engine / UI support** : Done. Available in upstream oVirt
 
 # Detailed Description
@@ -172,6 +172,12 @@ This support helps complete the story/use-case from a virt. admin perspective !
 *   A screencast/demo on how to use GlusterFS storage domain in oVirt is available @
     -   <http://www.youtube.com/watch?v=0iIuHCz8L04&feature=youtu.be>
 
+## Making VMs access GlusterFS storage directly
+
+* Enable libgfapi support using `engine-config -s LibgfApiSupported=true`. Libgfapi support is disabled by default due to incompatibility with Live Storage Migration. VM can not be migrated to the GlusterFS storage domain. See [Open Issues](/develop/release-management/features/storage/glusterfs-storage-domain/#open-issues) section for details.
+* Create a VM and place it's disks on the GlusterFS storage domain
+* Just start the VM
+
 # Future Work
 
 *   Provide ability to set all the required options needed for using GlusterFS volume as a storage domain from oVirt GUI
@@ -179,9 +185,9 @@ This support helps complete the story/use-case from a virt. admin perspective !
 *   Support for GlusterFS volume backed by Block backend (Block Device translator)
 *   GlusterFS enablement for json-rpc VDSM API
 
-# Open Issues
+## Open issues
 
-*   [BUG-1022961: [BLOCKED](https://bugzilla.redhat.com/show_bug.cgi?id=1022961)[HC] - Running a VM from a gluster domain uses mount instead of gluster URI]
-*   [BUG-1175800: [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1175800)[HC] - GlusterFS domain-backed VMs do not use libgfapi, instead use FUSE mount]
+* [BUG-1306562: (https://bugzilla.redhat.com/1306562)[RFE] - Allow virDomainBlockCopy to use remote RBD volumes as the base backing image]
+* [BUG-1465810: (https://bugzilla.redhat.com/1465810) - Unable to make snapshot of the VM with disk on replica 3 gluster volume]
 
 [GlusterFS Storage Domain](/develop/release-management/features/) [GlusterFS Storage Domain](/develop/release-management/releases/3.2/feature/)

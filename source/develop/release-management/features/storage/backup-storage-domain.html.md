@@ -21,7 +21,7 @@ This feature will add another functionality layer to the oVirt Disaster Recovery
 
 ## Current status
 
-* Yet to Implement
+* Implemented
 
 
 ## Summary

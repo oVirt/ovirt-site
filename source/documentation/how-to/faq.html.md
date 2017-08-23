@@ -17,7 +17,7 @@ authors: humble, sandrobonazzola
 
 **2) How can I change "vdsm" logging format or level?**
 
-Edit  #/etc/vdsm/logger.conf 
+Edit  `/etc/vdsm/logger.conf` 
 
 **3) Which files are persisted by default with ovirt-node?**
 

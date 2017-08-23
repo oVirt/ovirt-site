@@ -98,14 +98,19 @@ DAL implementation:
   * introducing new field 'backup' in table storage_domain_static
   * Add field changes in fixtures.xml for dao tests
   * Test class added for dao test
-- [ ] Phase 2: Add command validations for configuring backup storage domain - [see restrictions]
-- [ ] Phase 3: Add REST command to update storage domain as backup - Introduce the ability to update the storage domain as backup through REST.
+- [x] Phase 2: Added command validations for configuring backup storage domain - [see restrictions]
+- [x] Phase 3: Added REST Api request and webadmin checkbox to update storage domain as backup
+  * Introduce the ability to update the storage domain as backup through REST and web based GUI.
+  * Implemented GUI checkbox below wipe after delete for backup flag in import domain dialog and add storage domain dialog.
+  * REST request for setting backup flag on storage domain by passing backup true or false.This flag can be used while creating a domain or importing a domain.
+
 
 
 ## Future plans
 
-* Add GUI support for backup storage domain - Once backend configuration get complete and REST changes get implemented we will make this ready for user to use it through GUI.
-* Convert Export storage domain to backup domain - If community agree then we will remove the export storage domain and replace it with the backup storage domain.
+
+* Adding a tool that can convert export storage domain into data domain.So that user that have export storage domain in their engine can convert them into data domain before we totally get rid of export storage domain.
+* Convert Export storage domain to backup domain - This backup feature can be a good replacement for export storage domain. So,if community agree then we will remove the export storage domain and replace it with the backup storage domain.
 
 
 ## GUI Mockups

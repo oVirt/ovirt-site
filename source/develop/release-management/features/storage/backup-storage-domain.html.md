@@ -69,28 +69,12 @@ The oVirt organization has chosen Shubham Dubey, a student from The LNM Institut
 * The Hosted Engine's domain can't be configured as a backup domain.
 * The backup domain cannot be the target of memory volumes since memory volume is only supported for running VMs and those are not allowed on backup storage domains.
 
-
-
 #### Open Issues
 
 * Preview will be restricted for VMs with disks residing on a backup storage. - We think it should be restricted since currently oVirt does not support import storage domain with previewed unregistered entities.
 * Shared disk will be restricted in the backup storage domain since those are not specified in the VM's OVF.
 * VM pool will be eligible in a backup storage domain although, the user must keep in mind that import storage domain will not preserve its pool reference after import.
 * Should the backup indication need to be configured in the storage domain meta data? If so should we add the backup indication as part of V4 storage domain meta data.
-
-
-## Current progress
-
-DAL implementation:
-
-  Changes | Values
-  ---------|----------
-  status | open
-  gerrit link | https://gerrit.ovirt.org/#/c/77142/
-  DB table changed | storage_domain_static
-  Field name | backup
-  Type | True / False (Default would be false, not null)
-
 
 ## Phases for Implementation
 
@@ -104,10 +88,7 @@ DAL implementation:
   * Implemented GUI checkbox below wipe after delete for backup flag in import domain dialog and add storage domain dialog.
   * REST request for setting backup flag on storage domain by passing backup true or false.This flag can be used while creating a domain or importing a domain.
 
-
-
 ## Future plans
-
 
 * Adding a tool that can convert export storage domain into data domain.So that user that have export storage domain in their engine can convert them into data domain before we totally get rid of export storage domain.
 * Convert Export storage domain to backup domain - This backup feature can be a good replacement for export storage domain. So,if community agree then we will remove the export storage domain and replace it with the backup storage domain.

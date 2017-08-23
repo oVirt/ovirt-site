@@ -65,7 +65,7 @@ NOTE: Blog posts contain additional metadata and naming conventions that Middlem
 
 To modify incorrect, obsolete, or outdated information, you can edit the topic yourself and submit a pull request. The pull request will be reviewed by contributors with commit rights, and if it is accepted it will be merged to the website.
 
-To edit content files, follow the steps in [Access the source files](### Access the source files) and edit the file.
+To edit content files, follow the steps in [Access the source files](#access-the-source-files) and edit the file.
 
 IMPORTANT: Some content was converted from legacy MediaWiki and contains a special header used for auto-redirects. If you edit a legacy file, do not modify or remove this header.
 

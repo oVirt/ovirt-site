@@ -21,8 +21,8 @@ The following organizations use oVirt for customer-facing or internal servers. M
 </div>
 
 <div class="case-study">
-[![Bobcares](/images/logos/bobcares-logo.png)](https://bobcares.com/)
-[Bobcares](//cornerstonets.net/managed-services) provides oVirt infrastructure management and 24/7 tech support for VM users. It includes 24/7 monitoring, 24/7 emergency support, on-demand oVirt administration, systems integration and more.
+[![Bobcares](/images/logos/bobcares-logo.png)](https://bobcares.com/technologies/ovirt-support/)
+[Bobcares](https://bobcares.com/technologies/ovirt-support/) provides oVirt infrastructure management and 24/7 tech support for VM users. It includes 24/7 monitoring, 24/7 emergency support, on-demand oVirt administration, systems integration and more.
 </div>
 
 <div class="case-study">

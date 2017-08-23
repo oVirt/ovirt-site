@@ -36,7 +36,7 @@ note that the host's interface's ip address, is reported by vdsm's VdsGetCapabil
  The main concept of the feature, is that in case of a "nested" network topology configuration , only the top Link-Layer component will own an ip address.
 for example:
 
-      == network layout == 
+      == network layout ==
     bond0        slaves=ens1, ens2
 
 in this case, only bond0 will own an ip address (if configured) as it the top Link-Layer component.
@@ -98,5 +98,3 @@ Explain what will be done in case the feature won't be ready on time
     -   The feature was abandoned as engine is not able to tell vdsm it's own ip address as same as vdsm is seeing it as the engine can be hiding behind NAT for example.
 
 <!-- -->
-
-

@@ -3,7 +3,7 @@ title: GlusterHostDiskManagement
 authors: rnahcimu
 ---
 
-# Gluster Host Disk Management
+# Gluster Host Disk Management: Design
 
 # Summary
 

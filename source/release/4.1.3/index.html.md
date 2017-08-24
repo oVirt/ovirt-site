@@ -54,12 +54,12 @@ to execute:
 ### oVirt Hosted Engine
 
 If you're going to install oVirt as Hosted Engine on a clean system please
-follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install)
+follow [Hosted_Engine_Howto#Fresh_Install](/documentation/how-to/hosted-engine/#fresh-install)
 guide or the corresponding section in
 [Self Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/)
 
 If you're upgrading an existing Hosted Engine setup, please follow
-[Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine)
+[Hosted_Engine_Howto#Upgrade_Hosted_Engine](/documentation/how-to/hosted-engine/#upgrade-hosted-engine)
 guide or the corresponding section within the
 [Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/)
 

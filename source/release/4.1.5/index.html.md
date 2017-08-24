@@ -4,7 +4,7 @@ category: documentation
 layout: toc
 ---
 
-# oVirt 4.1.5 Release Notes
+# oVirt 4.1.5 Release Notes 
 
 The oVirt Project is pleased to announce the availability of 4.1.5
 Release as

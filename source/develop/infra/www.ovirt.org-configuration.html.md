@@ -4,7 +4,7 @@ category: infra
 authors: dneary, quaid
 ---
 
-# Www.ovirt.org-Configuration
+# www.ovirt.org-Configuration
 
 This page explains how www.ovirt.org is generally configured.
 

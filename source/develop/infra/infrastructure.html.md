@@ -5,17 +5,17 @@ authors: dcaroest, dneary, eedri, ekohl, eyale, herrold, knesenko, ngoldin, quai
   rmiddle
 ---
 
-# Infrastructure
+# Infrastructure 基础设施
 
 Here is the Infrastructure Team and what we work on for the [oVirt project](/).
 
-## Mission Statement
+## Mission Statement 使命宣言
 
-The oVirt Infra Team is a volunteer effort to provide community infrastructure services by following the tenets of open source and accepted professional standards of system administrators.
+oVirt Infra团队是通过遵循开源的原则和公认的系统管理员的专业标准来提供社区基础设施服务的志愿者。
 
 ## Team
 
-The maintainers of the Infrastructure project are:
+基础设施项目的维护者是：
 
 *   **Infrastructure Lead:** David Caro (Dcaroest),Anton Marchukov (amarchuk)
 *   **Release Manager:** Sandro Bonazzola (Sbonazzo)
@@ -29,9 +29,10 @@ Read [Becoming an Infrastructure team member](/develop/infra/becoming-an-infrast
 
 Read [Infrastructure team assignments](/develop/infra/infrastructure-team-administrators/) for information about who has access to which parts of the oVirt infrastructure.
 
-### Apprentices and journeyfolk
+### Apprentices and journeyfolk 学徒和熟练工？
 
 In addition to the maintainers, there are newer Infrastructure team members who have not yet become maintainers. They are at the very beginning (apprentices) or nearing the end (journeyfolk):
+除了维护人员之外，还有更新的基础结构团队成员，他们还没有成为维护人员。他们在最开始(学徒)或接近尾声(熟练):
 
 *   Alexander Rydekull (Rydekull)
 *   Michael Scherer (Misc)
@@ -47,17 +48,17 @@ In addition to the maintainers, there are newer Infrastructure team members who 
 *   Shane Pike (spike)
 *   Somansh Arora (sarora)
 
-## Type of tasks
+## Type of tasks 任务类型
 
-As a devops team, our tasks varies and includes multiple possible ways of coding or maintaining the oVirt infra, some examples:
+As a devops team, our tasks varies and includes multiple possible ways of coding or maintaining the oVirt infra, some examples: 作为一个devops团队，我们的任务是多样的，包括各种可能的开发或者维护ovirt基础设施，举例：
 
-*   Writing puppet manifests
-*   Writing yaml code via jenkins job builder to add new jobs
-*   Installing a new service / server
-*   Helping users on the list, usually with gerrit or jenkins issues
-*   Helping to develop tools (we've got plenty!)
+*   Writing puppet manifests  编写puppet manifests
+*   Writing yaml code via jenkins job builder to add new jobs 编写yaml代码，通过jenkins任务构建系统来添加新的任务
+*   Installing a new service / server  安装一个新的服务、服务器
+*   Helping users on the list, usually with gerrit or jenkins issues 帮助列表中的用户，通常是使用gerrit【代码审核】和jenkins【持续集成】的问题
+*   Helping to develop tools (we've got plenty!)  帮助开发工具（我们有很多！）
 
-## How we work
+## How we work 我们如何工具
 
 This is a [community services infrastructure](http://fedorahosted.org/csi/) team. That means the project infrastructure is maintained to a [professional level](http://mmcgrath.fedorapeople.org/html-single/) by a group of system administrators who are contributing their time. (That time may be contributed as part of their job role, it might be part of a class or workshop, it might be purely voluntary, and so forth.)
 

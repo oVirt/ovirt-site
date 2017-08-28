@@ -21,19 +21,19 @@ or
 
 2. Use the Docker image of ManageIQ available at Docker Hub: https://hub.docker.com/r/manageiq/manageiq/
 
-Pull the Docker image as follows:
+   Pull the Docker image as follows:
 
   `$ sudo docker pull manageiq/manageiq:fine-3`
   
 At present, the tag is `fine:3` but that changes with time, so to be sure go to https://manageiq/download to see what the latest tag is.
 
-2. Run the container
+3. Run the container
 
   `$ sudo docker run --name ovirt-manageiq --privileged -d -p 8443:443 manageiq/manageiq:fine-3`
 
-Trying to access the container via `https://localhost:8443` will raise a "Secure Connection Failed" error. 
+Note: Trying to access the container via `https://localhost:8443` will raise a "Secure Connection Failed" error. 
 
-Waiting a few moments and trying again, will show you the "Insecure Connection" warning. Click on the "Advanced" button and 
+Waiting a few moments and trying again will show you the "Insecure Connection" warning. Click on the "Advanced" button and 
 add an exception for the site. Confirming the exception should bring you to the ManageIQ Login page. 
 
 Default login for ManageIQ:

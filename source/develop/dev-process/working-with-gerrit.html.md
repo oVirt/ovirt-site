@@ -92,6 +92,10 @@ Or alternatively without need of authentication:
 
       SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
       grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+ 
+Allow the hook to be executed:
+ 
+      chmod a+x .git/hooks/commit-msg
 
 **Note**: If you commit something before you do the above, you can add the Change-ID and signed-off-by lines by:
 

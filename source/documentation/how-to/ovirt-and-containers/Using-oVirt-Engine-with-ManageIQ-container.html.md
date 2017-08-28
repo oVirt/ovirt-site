@@ -8,13 +8,15 @@ Alternatively you may have both PostgreSQL and oVirt installed locally on your m
 to log into the oVirt Engine successfully. 
 
 ### Steps
+
 1. Make sure that the Docker service is running:
 
-$ sudo service docker start
+
+    `$ sudo service docker start`
 
 or
 
-$ sudo systemctl start docker.service
+    `$ sudo systemctl start docker.service`
 
 2. Use the Docker image of ManageIQ available at Docker Hub: https://hub.docker.com/r/manageiq/manageiq/
 Pull the Docker image as follows: 
@@ -25,15 +27,16 @@ At present, the tag is `fine:3` but that changes with time, so to be sure go to 
 
 2. Run the container
 
-sudo docker run --name ovirt-manageiq --privileged -d -p 8443:443 manageiq/manageiq:fine-3
 
-Trying to access the container via https://localhost:8443 will raise a "Secure Connection Failed" error. 
+    `$ sudo docker run --name ovirt-manageiq --privileged -d -p 8443:443 manageiq/manageiq:fine-3`
+
+Trying to access the container via `https://localhost:8443` will raise a "Secure Connection Failed" error. 
 Waiting a few moments and trying again, will show you the "Insecure Connection" warning. Click on the "Advanced" button and 
 add an exception for the site. Confirming the exception should bring you to the ManageIQ Login page. 
 
 Default login for ManageIQ: 
-user - admin
-password - smartvm
+user: `admin`
+password: `smartvm`
 
 4. Change Options
 
@@ -50,7 +53,7 @@ Click on 'Admininstrator' and then select 'Configuration' to change how the appl
 
 2. Adding oVirt Engine as a provider to ManageIQ:
 Compute -> Infrastructure -> Providers
-Click on "Configuration". Select 'Add a new infrastructure provider'.
+Click on 'Configuration'. Select 'Add a new infrastructure provider'.
 - Hostname of the both the provider and the C & U database should be the IP address of the 
   Docker container that has oVirt Engine's database.
 - API port for the provider should be that of oVirt Engine (443) and that of the C & U database should be 

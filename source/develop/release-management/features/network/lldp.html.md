@@ -360,7 +360,7 @@ data base.
 The LLDP information are read-only. They could be read by a request like
 
 ```
-GET https://ovirtexampleengine/ovirt-engine/api/hosts/123/nics/321/linklayerdiscoveryprotocolinformationelements
+GET https://ovirtexampleengine/ovirt-engine/api/hosts/123/nics/321/linklayerdiscoveryprotocolelements
 ```
 
 Depending on the HTTP `Accept` header used in this request, oVirt Engine will

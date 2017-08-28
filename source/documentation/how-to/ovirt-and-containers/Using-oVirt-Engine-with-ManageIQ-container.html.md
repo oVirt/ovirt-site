@@ -12,26 +12,20 @@ to log into the oVirt Engine successfully.
 ### Steps
 
 1. Make sure that the Docker service is running:
-
-
-    `$ sudo service docker start`
+  `$ sudo service docker start`
 
 or
-
-    `$ sudo systemctl start docker.service`
+  `$ sudo systemctl start docker.service`
 
 2. Use the Docker image of ManageIQ available at Docker Hub: https://hub.docker.com/r/manageiq/manageiq/
 
 Pull the Docker image as follows: 
-
-    `$ sudo docker pull manageiq/manageiq:fine-3`
+  `$ sudo docker pull manageiq/manageiq:fine-3`
   
 At present, the tag is `fine:3` but that changes with time, so to be sure go to https://manageiq/download to see what the latest tag is.
 
 2. Run the container
-
-
-    `$ sudo docker run --name ovirt-manageiq --privileged -d -p 8443:443 manageiq/manageiq:fine-3`
+  `$ sudo docker run --name ovirt-manageiq --privileged -d -p 8443:443 manageiq/manageiq:fine-3`
 
 Trying to access the container via `https://localhost:8443` will raise a "Secure Connection Failed" error. 
 

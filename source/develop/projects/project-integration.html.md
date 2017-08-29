@@ -6,9 +6,9 @@ authors: knesenko, mgoldboi, rafaelmartins, sandrobonazzola
 
 # Integration
 
-## Who's in Integration team?
+## 谁在集成团队？
 
-The members of the Integration team are
+集成团队的成员是
 
 *   Yedidyah Bar David (Didi)
 *   Doron Fediuck (Doron)
@@ -17,7 +17,7 @@ The members of the Integration team are
 *   Lev Veyde (Lveyde)
 *   Ido Rosenzwig
 
-Outstanding contributors
+杰出的贡献者
 
 *   Alon Bar-Lev (Alonbl)
 *   Antoni Segura Puimedon (APuimedo)
@@ -26,9 +26,9 @@ Outstanding contributors
 *   Douglas Landgraf
 *   Rafael Martins (RafaelMartins)
 
-## What does Integration team do?
+## 集成团队的工作是什么?
 
-Leads the following projects:
+引领如下这些项目:
 
 *   oVirt Engine Setup
 *   oVirt DWH Setup

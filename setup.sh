@@ -15,5 +15,6 @@ else
     echo "Could not verify system is RedHat or Debian."
     exit 1
 fi 
-
+gem sources --add http://gems.ruby-china.org/ --remove https://rubygems.org/
+bundle config mirror.https://rubygems.org http://gems.ruby-china.org
 bundle install

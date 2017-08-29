@@ -8,11 +8,8 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola
 <!-- TODO: [Mikey] Fix this page after content structure is final -->
 
 # Develop
-{:.hidden}
 
-<section class="row">
 
-<section class="col-md-4">
 
 ## Projects
 
@@ -30,12 +27,9 @@ ovirt-node
 dwh and reports
 : The reports and data warehouse components for ovirt-engine are optional, and are packaged and developed separately.
 
-_More information on [oVirt subprojects](/subprojects/)_
-
-</section>
+_More information on [oVirt subprojects](/subprojects/)
 
 
-<section class="col-md-4">
 
 ## Developer Documentation
 
@@ -55,10 +49,7 @@ _More information on [oVirt subprojects](/subprojects/)_
 - [Building oVirt engine DWH](/documentation/how-to/reports/dwh-development-environment/)
 - [oVirt Features](/develop/release-management/features/)
 
-</section>
 
-
-<section class="col-md-4">
 
 ## oVirt Architecture
 
@@ -82,5 +73,3 @@ _More information on [oVirt subprojects](/subprojects/)_
  - Spice
  - Virt
  - UX
-</section>
-</section>

@@ -207,4 +207,4 @@ authors: michael pasternak
 
          * Mon Jan 16 2012 Michael Pasternak `<mpastern@redhat.com>` - 1.1-1
          - add connectivity check and disconnect methods for #781820
-`     `[`https://bugzilla.redhat.com/show_bug.cgi?id=781820`](https://bugzilla.redhat.com/show_bug.cgi?id=781820)
+[`https://bugzilla.redhat.com/show_bug.cgi?id=781820`](https://bugzilla.redhat.com/show_bug.cgi?id=781820)

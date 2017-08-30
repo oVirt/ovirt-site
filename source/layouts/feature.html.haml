@@ -1,6 +1,8 @@
 :ruby
   @feature_base = '/develop/release-management/features/'
 
+  statuses = []
+
   # Session object cach for feature info
   $feature_info_store ||= {}
 
@@ -24,6 +26,26 @@
       feature_page = sitemap.find_resource_by_destination_path(constructed_url)
 
       $feature_info_store[frag] = feature_page.data if feature_page
+    end
+  end
+
+  # Normalize the status (for classes, etc.)
+  def normalize_status status
+    case status
+    when /wip/i, /progress/i
+      'WIP'
+    when /QA/i
+      'QA'
+    when /development/i
+      'Development'
+    when /review/i
+      'Review'
+    when /release/i
+      'Released'
+    when '', nil
+      'Unknown'
+    else
+      status.strip.gsub(/ /, '-')
     end
   end
 
@@ -95,36 +117,52 @@
 ~ wrap_layout :layout do
 
   %section.feature
-
+    %div.col-md-12
+      %div#toggleLeftArea
     %section.feature-sidebar.col-md-4
-
-      %h1 Features
 
       %form#feature-search.hide
         .form-group
           %input.form-control#feature-search-input{autocomplete: 'off', placeholder: 'Filter features'}
+          .checkbox
+            %label
+              -# %input{type: 'checkbox'} Hello
+              - statuses.each do |stat|
+                %input{type: 'checkbox'} = stat
 
       - features_dir.each do |cat, feature_group|
         - pretty_cat = cat.empty? ? 'Unclassified' : cat.gsub('/', ' / ').titleize
-        %h2= clean_title pretty_cat
+        - className = cat.gsub(/[^a-zA-Z]/, '_')
 
-        %ul.feature-list
-          - feature_group.each do |feature|
-            - info = feature_info "#{cat}/#{feature}"
+        %div.ovirtToggleObject
+          %h1.collapseExpandSection
+          %h1.ovirtToggleFeatureCategory{id: "ovirtToggleObject_"+className}= clean_title pretty_cat
 
-            - if info
-              - feature_title = info['feature_name'] || info['title']
-            - else
-              - feature_title = clean_title feature
+          %div.feature_list_in_category
 
-            - next if feature_title.to_s.empty?
+            %ul.feature-list
+              - feature_group.each do |feature|
+                - info = feature_info "#{cat}/#{feature}"
 
-            - selected = "/#{@feature_base}/#{cat}/#{feature}/".squeeze('/') == "/#{current_page.url}/".squeeze('/')
-            - classes = "#{selected ? 'selected' : ''}"
+                - if info
+                  - feature_title = info['feature_name'] || info['title']
+                  - status_title = info['feature_status']
+                  - status = normalize_status status_title
+                - else
+                  - feature_title = clean_title feature
+                  - status_title = 'Unclassified'
+                  - status = normalize_status ''
 
-            %li{class: classes}
-              %a{href: "#{@feature_base}/#{cat}/#{feature}".squeeze('/')}= clean_title feature_title
-              = info ? "" : "NO DATA"
+                - next if feature_title.to_s.empty?
+
+                - statuses.push(status_title)
+
+                - selected = "/#{@feature_base}/#{cat}/#{feature}/".squeeze('/') == "/#{current_page.url}/".squeeze('/')
+
+                %li
+                  %a{href: "#{@feature_base}/#{cat}/#{feature}".squeeze('/'), title: "Status: #{status}"}= clean_title feature_title
+                  = info ? "" : "NO DATA"
+
 
     %section.feature-info.col-md-8
 
@@ -223,7 +261,6 @@
   clearField = ->
     $input.val('')
 
-
   showAll = ->
     $featureItems.filter('.hide').removeClass('hide')
 
@@ -234,11 +271,19 @@
     $emptyList = $headers.filter (i, el) ->
       $(el).next('ul').find('li:visible').length == 0
 
+
     $emptyList.addClass('hide')
 
 
   updateList = ->
     searchStr = $input.val()
+
+    if ($input.val()=='')
+      handleSearchDeactivate()
+      console.log('handleSearchDeactivate')
+    else
+      handleSearchActive()
+      console.log('handleSearchActive')
 
     do showAll
 
@@ -252,6 +297,9 @@
 
   $ ->
     $input.focus()
+
+    statuses = #{statuses.compact.map {|s| s.downcase}.uniq}
+    console.log statuses
 
     $form
       .removeClass 'hide'

@@ -9,6 +9,8 @@ published: true
 
 The recent post, [An Introduction to Ansible Roles](./2017-07-19-ovirt-ansible-roles-an-introduction.html.md), discussed the new roles that were introduced in the oVirt 4.1.6 release. This follow-up post will explain how to set up and use Ansible roles, using either Ansible Galaxy or oVirt Ansible Roles RPM.
 
+READMORE
+
 ## Ansible Galaxy
 
 To make life easier, [Ansible Galaxy](https://galaxy.ansible.com/) stores multiple Ansible roles, including oVirt Ansible roles. To install the roles, perform the next steps:

@@ -8,14 +8,14 @@ authors: adahms, gchaplik
 
 ## Summary
 
-The oVirt scheduler capabilities introduced in version 3.3 have opened opportunities to enhance how virtual machine workloads are scheduled to run in a cluster. By using the filtering and weighing mechanisms introduced in the Scheduler, it is now possible to apply Affinity and Anti-Affinity rules to virtual machines to manually dictate scenarios in which virtual machines should run together on the same, or separately on different hypervisor hosts.
+The oVirt scheduler capabilities introduced in version 3.3 have opened opportunities to enhance how virtual machine workloads are scheduled to run in a cluster. By using the filtering and weighing mechanisms introduced in the Scheduler, it is now possible to apply Affinity and Anti-Affinity rules to virtual machines to manually dictate scenarios in which virtual machines should run together on the same hypervisor host, or separately on different hypervisor hosts.
 
 ### Owners
 
 *   Name: Scott Herold (sherold)
 *   Email: <sherold@redhat.com>
-*   Name: Gilad Chaplik (gchaplik)
-*   Email: <gchaplik@redhat.com>
+*   Name: Yanir Quinn (yquinn)
+*   Email: <yquinn@redhat.com>
 
 ### Current status
 
@@ -85,15 +85,15 @@ affinity_group_members: affinity_group_id (foreign key to affinity_groups + dele
 
 ### UI
 
-![Relations sub tab under clusters](/images/wiki/relation-cluster.png "Relations sub tab under clusters")
+![Relations sub tab under clusters](/images/wiki/Relation-cluster.png "Relations sub tab under clusters")
 
 An overview of all Affinity Groups in the cluster.
 
-![Relations sub tab under clusters](/images/wiki/relation-vm.png "Relations sub tab under clusters")
+![Relations sub tab under clusters](/images/wiki/Relation-vm.png "Relations sub tab under clusters")
 
 All Affinity Groups associated with a single virtual machine.
 
-![Add/Edit Relation Dialog](/images/wiki/relation-dialog.png "Add/Edit Relation Dialog")
+![Add/Edit Relation Dialog](/images/wiki/Relation-dialog.png "Add/Edit Relation Dialog")
 
 Dialog for adding or editing a single relation, specifying Name, polarity, enforcement mode, and members (virtual machines). The virtual machine drop-down menu should support typing (a suggestion combo box) for quick selection.
 
@@ -121,38 +121,79 @@ Filters out host according to affinity enforce mode (hard).
 
 ### REST API
 
-#### Clusters
+A new type was added to the engine's API model - **AffinityRule** . It has two attributes: one for virtual machines and another for hosts.
 
-/GET /api/clusters/{clsuter_id}/affinitygroups <affinity_groups>
+```
+<vms_rule>
+  <positive>true|false</positive>
+  <enforcing>true|false</enforcing>
+  <enabled>true|false</enabled>
+</vms_rule>
+<hosts_rule>
+  <positive>true|false</positive>
+  <enforcing>true|false</enforcing>
+  <enabled>true|false</enabled>
+</hosts_rule>
+```
 
-` `<affinity_group href="">
-`   `<name></name>
-`   `<description></description>
-`   `<cluster href=""></cluster>
-`   `<positive>`true`</positive>
-`   `<enforcing>`true`</enforcing>
-`   `<members>
-`     `<vm href=""/>
-`     `<vm href=""/>
-`   `</members>
-` `</affinity_group>
+  >**NOTE** : The existing positive and enforcing attributes (for vms) will be preserved, and marked as deprecated.
+   They will have the same meaning that they had before.
 
-</affinity_groups> /POST /api/clusters/{clsuter_id}/affinitygroups <affinity_group></affinity_group> /PUT /api/clusters/{clsuter_id}/affinitygroups/{affinity_group_id} <affinity_group></affinity_group> /DELETE /api/clusters/{clsuter_id}/affinitygroups/{affinity_group_id}
+Here are more examples:
 
-#### Virtual Machines
 
-[not final] GET .../vms
+GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups
 
-` `<vm>
-`   `<placement_policy>
-         ...
-`     `<affinity_groups>
-`       `<affinity_group href=""/>
-`       `<affinity_group href=""/>
-`     `</affinity_groups>
-         ...
-`   `</placement_policy>
-` `</vm>
+```xml
+<affinity_groups>
+  <affinity_group href="/ovirt-engine/api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e636-45a6-9492-aa4fad753e6f" id="31ef70c1-e636-45a6-9492-aa4fad753e6f">
+    <name>Test_aff_group</name>
+    <link href="/ovirt-engine/api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e636-45a6-9492-aa4fad753e6f/vms" rel="vms"/>
+    <cluster href="/ovirt-engine/api/clusters/00000002-0002-0002-0002-000000000222" id="00000002-0002-0002-0002-000000000222"/>
+    <positive>true</positive>
+    <enforcing>true</enforcing>
+    <vms_rule>
+      <positive>true</positive>
+      <enforcing>true</enforcing>
+      <enabled>true</enabled>
+    </vms_rule>
+  </affinity_group>
+</affinity_groups>
+```
 
-[not final]
+GET /api/clusters/00000002-0002-0002-0002-000000000222/affinitygroups/31ef70c1-e636-45a6-9492-aa4fad753e6f/vms
 
+```xml
+<vms>
+  <vm href="/ovirt-engine/api/vms/d4532fce-787b-4e45-ab35-018a1df55e35" id="d4532fce-787b-4e45-ab35-018a1df55e35"/>
+</vms>
+```
+
+POST /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups
+
+```xml
+<affinity_group>
+    <name>Affinity_Group_A</name>
+    <vms>
+        <vm id="adf661d2-747e-4e74-a6bc-25fa2a457c5e"/>
+        <vm id="1b0a1ceb-525c-4a12-afee-907c99fac106"/>
+    </vms>
+    <positive>true</positive>
+    <enforcing>true</enforcing>
+    <vms_rule>
+        <enabled>true</enabled>
+        <enforcing>true</enforcing>
+        <positive>true</positive>
+    </vms_rule>
+    <cluster id="00000002-0002-0002-0002-00000000017a"/>
+</affinity_group>
+```
+
+PUT /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e7237677-ff5c-47a4-877c-194d525d5f92
+
+DELETE /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e7237677-ff5c-47a4-877c-194d525d5f92
+
+
+
+[Affinity Rules Enforcement Manager](/develop/release-management/features/sla/affinity-rules-enforcement-manager/)
+[VM to host Affinity](/develop/release-management/features/sla/soft-host-to-vm-affinity-support/)

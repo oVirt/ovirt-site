@@ -174,39 +174,35 @@
         end
 
       - if pdata['feature_name']
-        .well
-          %h2 At a glance
-          %ul
+        %div
+          %div.feature_name
+            = pdata['feature_name']
 
-          - if pdata['feature_name']
-            %li
-              Feature:
-              = pdata['feature_name']
 
           - if pdata['feature_status']
-            %li
-              Status:
+            %div.feature_status
+              <span>Status: </span>
+              <span class="feature_status_value">
               = pdata['feature_status']
+              </span>
 
           - if pdata['feature_modules']
-            %li
-              Modules:
+            %div.feature_modules
+              <b>Modules:</b>
               = pdata['feature_modules'].split(/,\s?/).join(', ')
 
           - if pdata['authors']
-            %li
-              = "Authors:"
+            %div.feature_authors
+              <b>Authors:</b>
               = author_list.to_sentence
 
       - else
 
         .well
-
-          %h2 At a glance
-
           No feature info available. Please contact
           = author_list.to_sentence(two_words_connector: ' or ', last_word_connector: ', or ')
           to fix.
+
 
       = yield
 
@@ -264,7 +260,6 @@
   showAll = ->
     $featureItems.filter('.hide').removeClass('hide')
 
-
   updateHeaders = ->
     $('h2.hide', $featureSidebar).removeClass('hide')
 
@@ -280,10 +275,8 @@
 
     if ($input.val()=='')
       handleSearchDeactivate()
-      console.log('handleSearchDeactivate')
     else
       handleSearchActive()
-      console.log('handleSearchActive')
 
     do showAll
 
@@ -300,6 +293,10 @@
 
     statuses = #{statuses.compact.map {|s| s.downcase}.uniq}
     console.log statuses
+
+    if ($('.feature_name').length == 0)
+      $('.feature-info > h1').css("display","initial")
+ 
 
     $form
       .removeClass 'hide'

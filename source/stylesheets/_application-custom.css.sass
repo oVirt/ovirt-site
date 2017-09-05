@@ -1,12 +1,18 @@
 /**/
 .well
   padding-top: 0px
-  
+
 .feature-sidebar
   border-right: 1px solid #ddd
 
 .ovirtToggleObject
   padding-bottom: 10px
+
+#content h1, #content h2, #content h3, #content h4
+  color: #333333
+  font-family: sans-serif
+  font-weight: 200
+
 
 .ovirtToggleObject h1
   font-family: sans-serif
@@ -16,7 +22,6 @@
   display: inline
 
 .page h1
-  font-family: sans-serif
   font-weight: 100
 
 #toggleLeftArea
@@ -26,5 +31,30 @@
 #feature-search > .form-group > .checkbox
   display: none
 
-.feature-info > .well
+.feature_name
+  @extend h1
+  float: left
+  margin-top: 0px
+
+.feature_status
+  @extend h4
   float: right
+  background-color: #f5f5f5
+  padding: 10px
+  margin-top: 0px
+  font-weight: 100
+
+.feature_modules
+  clear: left
+
+.feature_authors
+
+.feature-info > h1
+  display: none
+
+.feature-info > #summary ~ p:first-of-type
+  background-color: #e2ffc0
+  padding: 10px
+
+.feature_status_value
+  font-weight: 400

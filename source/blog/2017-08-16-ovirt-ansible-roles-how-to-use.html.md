@@ -7,7 +7,7 @@ comments: true
 published: true
 ---
 
-The recent post, [An Introduction to Ansible Roles](./2017-07-19-ovirt-ansible-roles-an-introduction.html.md), discussed the new roles that were introduced in the oVirt 4.1.6 release. This follow-up post will explain how to set up and use Ansible roles, using either Ansible Galaxy or oVirt Ansible Roles RPM.
+The recent post, [An Introduction to Ansible Roles](https://ovirt.org/blog/2017/07/ovirt-ansible-roles-an-introduction/), discussed the new roles that were introduced in the oVirt 4.1.6 release. This follow-up post will explain how to set up and use Ansible roles, using either Ansible Galaxy or oVirt Ansible Roles RPM.
 
 READMORE
 

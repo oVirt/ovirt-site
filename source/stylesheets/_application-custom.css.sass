@@ -1,6 +1,20 @@
+$ovirt_color_green: #60b60f
+$promoFontSize: 20px
+$default_padding : 10px
+@mixin dropShadow()
+  -webkit-box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.75)
+  -moz-box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.75)
+  box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.75)
+
+@mixin textShaow()
+  text-shadow: 0 1px 2px rgba(0,0,0,.6)
+
 /* general */
+.promo_features ul
+  list-style-image: url('/images/promo/bullet_homepage.png')
+
+
 #content h1, #content h2, #content h3, #content h4
-  color: #333333
   font-family: sans-serif
   font-weight: 200
 
@@ -29,6 +43,122 @@ header.masthead .nav-pills a:hover
 header.masthead .nav-pills a
   color: #d0eec7
   opacity: 100
+
+/* homepage */
+.twitter-widget
+  background-color: beige
+  
+.textViewAllItems
+  font-size: x-large
+  font-family: sans-serif
+
+.intro
+  background-image: none
+  background-color: #ededed
+  background-size: 100%
+  padding: 2em 0
+  h2
+    display: block
+
+
+.release
+  background-color: #ddd
+  background-image: none
+  border: none
+  color: #666
+  a
+    color: #666
+
+.promo_whatisovirt
+  padding: 2em 0
+  font-size: $promoFontSize
+  line-height: 40px
+
+  h2
+    color: $ovirt_color_green
+
+.promo_features
+  padding: 2em 0
+  background-color: $ovirt_color_green
+  color: white
+  font-size: $promoFontSize
+  line-height: 40px
+
+.promo_casestudy
+  background-color: #ddd
+  padding: 2em 0
+  h1
+    color: #999
+
+  .useCaseHolder
+    width: 330px
+    height: 460px
+    background-color: white
+    margin: $default_padding
+    float: left
+    @include dropShadow()
+
+    p
+      margin: 10px
+
+    p:first-of-type
+      text-align: center
+      border-bottom: 1px solid grey
+
+    p:last-of-type
+      padding-left: 10px
+
+    img
+      float: none
+      max-width: none
+      max-height: none
+      height: 70px
+
+    h3
+      background-color: #666
+      color: white
+      padding: 10px
+      margin-top: 0px
+      font-size: x-large
+
+
+    .useCaseHeader
+      background-color: #666
+      padding: $default_padding
+      color: white
+      font-size: 25px
+      span
+        @include textShaow()
+
+    .useCaseImage
+      margin: $default_padding
+      padding-bottom: $default_padding
+      text-align: left
+      border-bottom: 1px solid grey
+
+    .useCaseSummary
+      padding: $default_padding
+      text-align: left
+
+
+  .carousel-inner>.item.active
+    display: -moz-box
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* features */

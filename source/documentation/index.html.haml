@@ -8,35 +8,6 @@ authors: dneary, metao, quaid
 
 %h1.hidden.firstHeading Documentation
 
-.row{style: "text-align: center"}
-  :ruby
-    videoWidth = 400
-    videoHeight = (videoWidth / 4 * 3).ceil
-
-    video = {
-      allowfullscreen: true,
-      frameborder: 0,
-      width: videoWidth,
-      height: videoHeight,
-      src: "//www.youtube.com/embed/VIDID?showsearch=0&modestbranding=1"
-    }
-
-    # Duplicate the videos with the starter object
-    video1 = video.dup
-    video2 = video.dup
-
-    # Customize each video object with the proper ID
-    video1[:src] = video[:src].sub('VIDID', 'Aq3ctFhBIhk')
-    video2[:src] = video[:src].sub('VIDID', 'C4gayV6dYK4')
-
-  .col-md-5.col-md-offset-1
-    %iframe{video1}
-    %p Installing oVirt on a single machine
-
-  .col-md-5
-    %iframe{video2}
-    %p Creating and migrating VMs
-
 .row
   .col-md-4
     :markdown

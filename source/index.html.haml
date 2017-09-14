@@ -55,7 +55,7 @@ hide_metadata: true
           :markdown
             oVirt is a complete virtualization mangement platform, licensed and developed as
             open source software.
-            oVirt builds on the powerful kernel­based Virtual Machine (KVM hypervisor, and on
+            oVirt builds on the powerful kernel ­based Virtual Machine (KVM hypervisor) and on
               RHEV­M management server released by Red Hat to the open source community.
       .col-md-4
         %div
@@ -113,7 +113,7 @@ hide_metadata: true
     .container
       .textViewAllItems
         :markdown
-          [View all case studies](/community/user-stories/user-stories/)
+          [See more...](/community/user-stories/user-stories/)
 
 .container
   .row
@@ -127,7 +127,7 @@ hide_metadata: true
         = partial :blog_posts, locals: {limit: 3}
 
         %div.textViewAllItems
-          = link_to 'See all blog posts', '/blog/'
+          = link_to 'See more...', '/blog/'
         %hr/
 
 .container
@@ -164,9 +164,9 @@ hide_metadata: true
         .twitter-timeline{twitter_options}
           %noscript The embedded Twitter timeline requires JavaScript.
 
-        .more-link.pull-right
+        .more-link.pull-left
           -# More link under the widget
-          %a.textViewAllItems{href: twitter_options[:href]} More tweets by @oVirt&hellip;
+          %a.textViewAllItems{href: twitter_options[:href]} See more...
 
     .col-md-6
       %div
@@ -182,6 +182,8 @@ hide_metadata: true
           * [Facebook](//www.facebook.com/groups/ovirt.openvirtualization/){:.icon-facebook}
           * [YouTube](//www.youtube.com/user/ovirtproject){:.icon-youtube}
 
+      %div.see_all_events
+        = link_to 'Check out our Upcoming events', '/events/'
 
 - content_for :tail do
   :coffee

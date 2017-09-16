@@ -69,7 +69,7 @@ Assignment operations on entities:
 
 ### GUI
 
-There will be no GUI at this phase.
+A [GUI](/develop/release-management/features/sla/affinity-labels-management-via-webadmin) for affinity labels management was made available as of version 4.1.
 
 ### Permissions
 
@@ -79,7 +79,7 @@ Currently only the system admin and users with Tag management permissions (the s
 
 A new scheduling policy unit LabelFilterPolicyUnit takes care of the label affinity relationship during scheduling and must be enabled for this feature to have any effect.
 
-Default cluster policies will have the unit enabled by default. 
+Default cluster policies will have the unit enabled by default.
 
 ### Installation/Upgrade
 
@@ -110,8 +110,3 @@ The feature is ready.
       make no difference.
 
 ## Open Issues
-
-
-
-
-

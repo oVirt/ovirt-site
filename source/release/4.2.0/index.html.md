@@ -21,9 +21,9 @@ Please take a look at our [community page](/community/) to know how to
 ask questions and interact with developers and users.
 All issues or bugs should be reported via the
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
+
+** This pre-release should not to be used in production, and it is not feature
+complete. **
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)

@@ -19,4 +19,4 @@ A replica 3 stores/replicates copy of the data on 3 bricks, where each of the 3 
 
 For hardware requirements, see "Hypervisor Requirements" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
-**Next:** [Chapter: Deploying oVirt and Gluster Hyperconverged](../gluster-hyperconverged/chap-Deploying_Hyperconverged)
+**Next:** [Chapter: Deploying oVirt and Gluster Hyperconverged](../chap-Deploying_Hyperconverged)

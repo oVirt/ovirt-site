@@ -16,20 +16,41 @@ This release is available now for Red Hat Enterprise Linux 7.4,
 CentOS Linux 7.4 (or similar).
 
 
-This is pre-release software.
-Please take a look at our [community page](/community/) to know how to
+This is pre-release software. Please take a look at our [community page](/community/) to know how to
 ask questions and interact with developers and users.
 All issues or bugs should be reported via the
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 
-** This pre-release should not to be used in production, and it is not feature
-complete. **
+** This pre-release version should not be used in production, and is not feature
+complete.**
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
 and visit the [About oVirt](/documentation/introduction/about-ovirt/) page.
 
 For detailed installation instructions, read the [Installation Guide](/documentation/install-guide/Installation_Guide/).
+
+## What's New in 4.2.0?
+
+- The **Administration Portal** has been redesigned from scratch using [Patternfly](http://www.patternfly.org), a widely adopted standard in web application design that promotes consistency and usability across IT applications, through UX patterns and widgets. The result is a cleaner, more intuitive and user-friendly user interface. The old horizontal menu has been replaced by a two-level vertical menu. The system tree is gone, and its functionality has been integrated into the vertical menus.
+
+- An all new **VM Portal** for non-admin users - designed with React-based UI and Patternfly principles - replaces the existing User Portal. Built with performance and ease of use in mind, the VM Portal keeps the Extended view of the User Portal, plus a streamlined functionality. 
+
+- A new **High Performance** virtual machine (VM) type has been added to the New VM dialog box in the Administration Portal. By selecting the ‘High Performance’ option in the ‘Optimized for’ field, administrators can effortlessly optimize a VM for high performance workloads.
+
+- **Open Virtual Network (OVN)** adds support for Open vSwitch virtual networking. oVirt VMs can now use logical overlay networks defined by OVN, allowing the user to manage and define multiple logical networks via one physical network. OVN is managed either via the oVirt Administration Portal, or REST.  For more information, see the OVN feature page. 
+
+- oVirt now supports **Nvidia vGPU**, a technology that enables users to shard a GRID capable physical GPU - such as Nvidia Tesla M60 - into number of smaller instances. Each instance can be assigned to a VM, for GPU-accelerated workloads.
+ 
+- The **ovirt-ansible-roles** package helps users with common administration tasks. All roles can be executed from the command line using Ansible, and some are executed directly from oVirt engine. You can learn [how to use oVirt Ansible roles](https://ovirt.org/blog/2017/08/ovirt-ansible-roles-how-to-use/) on the oVIrt blog.
+
+- **Virt-v2v** - the tool that converts VMs from a foreign hypervisor to run on KVM - now supports **Debian/Ubuntu** based VMs, in addition to the supported RPM and Windows-based VMs. It is available for VDSM hosts running on RHEL 7.4, and from oVirt hosts versions 4.0 and above.
+
+- oVirt 4.2.0 uses **PostgresSQL 9.5** as its database, for improved performance.
+
+- Support is now restored for **Gluster ISO domains**, without the need for NFS which was previously disabled by Gluster. 
+
+- **Affinity labels** create a positive affinity between the hosts and VMs to which they are applied. The new Affinity Labels sub tab for clusters, hosts, and VMs in the Administration Portal provides a table view of labels associated with the currently selected entity, as well as the option to add, edit, and delete them. Additionally, existing labels can be added and/or removed from VMs and hosts in their respective new/edit popup dialogs.
 
 To learn about features introduced before 4.2.0, see the [release notes for previous versions](/documentation/#previous-release-notes).
 
@@ -39,13 +60,9 @@ To learn about features introduced before 4.2.0, see the [release notes for prev
 ### Fedora / CentOS / RHEL
 
 
-
-
 ## ALPHA RELEASE
 
 In order to install this Alplha Release you will need to enable pre-release repository.
-
-
 
 
 In order to install it on a clean system, you need to install
@@ -62,12 +79,12 @@ and then follow our
 ### oVirt Hosted Engine
 
 If you're going to install oVirt as Hosted Engine on a clean system please
-follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install)
+follow [Hosted_Engine_Howto#Fresh_Install](/documentation/how-to/hosted-engine/#fresh-install)
 guide or the corresponding section in
 [Self Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/)
 
 If you're upgrading an existing Hosted Engine setup, please follow
-[Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine)
+[Hosted_Engine_Howto#Upgrade_Hosted_Engine](/documentation/how-to/hosted-engine/#upgrade-hosted-engine)
 guide or the corresponding section within the
 [Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/)
 
@@ -82,8 +99,6 @@ the CentOS SIG repos, for other packages.
 If you want to use other packages from EPEL, you should make sure to
 use `includepkgs` and add only those you need avoiding to override
 packages from other repos.
-
-## What's New in 4.2.0?
 
 ### Deprecated Functionality
 
@@ -289,7 +304,7 @@ packages from other repos.
 
  - [BZ 1445245](https://bugzilla.redhat.com/1445245) <b>ovirt-log-collector should use /etc/pki/ovirt-engine/apache-ca.pem instead of /etc/pki/ovirt-engine/ca.pem</b><br>
 
-### Unclassified
+### Other
 
 #### oVirt Host Dependencies
 

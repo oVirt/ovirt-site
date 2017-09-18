@@ -13,7 +13,7 @@ title: oVirt 4.1.z Release Management
 | **2017-08-24** | First Release candidate  |
 | **2017-08-31** | Second Release candidate |
 | **2017-09-07** | Third Release candidate  |
-| **2017-09-19** | General availability     |
+| **2017-09-18** | General availability     |
 
 ### Release criteria
 

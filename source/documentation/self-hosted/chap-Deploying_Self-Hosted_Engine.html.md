@@ -249,7 +249,7 @@ On oVirt Node, self-hosted engine deployment is performed through the Cockpit us
 
     b. Click the Installation ISO link for the correct oVirt version.
 
-  2. **Initiating Self-Hosted Engine Deployment**
+2. **Initiating Self-Hosted Engine Deployment**
 
     Log in to the Cockpit user interface at `https://HostIPorFQDN:9090` and navigate to **Virtualization** > **Hosted Engine**. Click **Start**.
 

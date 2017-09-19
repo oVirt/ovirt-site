@@ -7,8 +7,8 @@ authors: lveyde,sandrobonazzola
 
 # oVirt 4.1.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of 4.1.6
-Release as of September 18, 2017.
+The oVirt Project is pleased to announce the availability of the 4.1.6
+release as of September 18, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -37,7 +37,7 @@ In order to install it on a clean system, you need to install
 
 
 and then follow our
-[Installation guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/)
+[Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
 
 
 If you're upgrading from a previous release on Enterprise Linux 7 you just need
@@ -52,14 +52,14 @@ to execute:
 ### oVirt Hosted Engine
 
 If you're going to install oVirt as Hosted Engine on a clean system please
-follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install)
+follow [Hosted_Engine_Howto#Fresh_Install](/documentation/how-to/hosted-engine/#fresh-install)
 guide or the corresponding section in
-[Self Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/)
+[Self Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/).
 
 If you're upgrading an existing Hosted Engine setup, please follow
-[Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine)
+[Hosted_Engine_Howto#Upgrade_Hosted_Engine](/documentation/how-to/hosted-engine/#upgrade-hosted-engine)
 guide or the corresponding section within the
-[Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/)
+[Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/).
 
 ### EPEL
 

@@ -30,4 +30,4 @@ NOTE: If geo-replication is setup on the gluster volumes, the geo-replication ne
     * Once all bricks are replaces, the host can be moved to maintenance and removed.
 
 
-**Prev:** [Chapter: Troubleshooting](../gluster-hyperconverged/chap-Troubleshooting) <br>
+**Prev:** [Chapter: Troubleshooting](../chap-Troubleshooting) <br>

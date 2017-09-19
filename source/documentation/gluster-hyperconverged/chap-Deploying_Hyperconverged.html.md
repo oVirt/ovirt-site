@@ -42,7 +42,7 @@ Refer [oVirt Nodes](../install-guide/chap-oVirt_Nodes) for instructions on insta
 
 Steps for installing are detailed in this [blog post](/blog/2017/04/up-and-running-with-ovirt-4.1-and-gluster-storage/).
 
-**Prev:** [Chapter: Introduction](../gluster-hyperconverged/chap-Introduction) <br>
-**Next:** [Chapter: Additional Steps](../gluster-hyperconverged/chap-Additional_Steps)
+**Prev:** [Chapter: Introduction](../chap-Introduction) <br>
+**Next:** [Chapter: Additional Steps](../chap-Additional_Steps)
 
 

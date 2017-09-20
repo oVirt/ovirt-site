@@ -15,31 +15,14 @@ hide_metadata: true
 
   .container
 
-    .col-md-6
-      %h1.tagline
-        Open your
-        %span.phrase virtual datacenter
+    .div
+      %h1.tagline.text-center
+        Open Your Virtual Datacenter
 
-      = link_to 'Start using oVirt now &raquo;', '/download/', class: 'btn btn-action'
+      %h2.text-center oVirt is an open source, enterprise class, virtual datacenter platform,
 
-    .col-md-6
-      .intro-blurb.intro-net
-        :markdown
-          ## Manage your virtualized networks
-          ![](icon/net.svg)
-          oVirt manages virtual machines, storage and virtualized networks.
-
-      .intro-blurb.intro-web
-        :markdown
-          ## Easy to use web interface
-          ![](icon/web.svg)
-          oVirt is a virtualization platform with an easy-to-use web interface.
-
-      .intro-blurb.intro-kvm
-        :markdown
-          ## KVM based virtualization management
-          ![](icon/kvm.svg)
-          oVirt is powered by the Open Source you know - KVM on Linux.
+      %h2.text-center
+        built on the foundation of the Linux KVM hypervisor.
 
 
 - if defined? page_number && page_number < 2
@@ -57,15 +40,84 @@ hide_metadata: true
 
     :markdown
       {:.pull-left}
-      Current release: #{release_version} (#{release_date})
+      [Get started with oVirt #{release_version} (#{release_date})](/download/)
+
 
       {:.pull-right}
       [Read the release notes](/release/#{release_version}/)
-      [Get started with oVirt #{release_version}](/download/)
+
+%div.promo_whatisovirt
+  .container
+    .row
+      .col-md-8
+        %h2 What is oVirt?
+        %div
+          :markdown
+            oVirt is a complete virtualization mangement platform, licensed and developed as
+            open source software.
+            oVirt builds on the powerful kernel based virtual machine (KVM hypervisor) and on
+              RHEV-M management server released by Red Hat to the open source community.
+      .col-md-4
+        %div
+          %img(src="/images/promo/kvm_illustration.png")
+
+%div.promo_features
+  .container
+    .row
+      .col-md-8
+        %h2 What's included?
+        %div
+          :markdown
+            * Rich web-based user interfaces for both admin and non-admin users
+            * Live migration of virtual machines and disks between hosts and storage
+            * Integrated management of hosts, storage and network configuration
+            * High availability of virtual machines in the event of host failure
+
+      .col-md-4
+        %div
+          %img(src="/images/promo/graphic_packed_with_features.png")
+
+%div.promo_casestudy
+  .container
+    %h2 Case Studies
+    %div.carousel-inner.text-center
+    :ruby
+      studies = sitemap.resources.select do |p|
+        next unless p.data.page_classes
+        p.data.page_classes[/case-studies/]
+      end.first
+
+      first_case_study = Nokogiri::HTML(studies.render({layout: false}))
+        .css('.case-study')[0]
+
+      second_case_study = Nokogiri::HTML(studies.render({layout: false}))
+        .css('.case-study')[1]
+
+      third_case_study = Nokogiri::HTML(studies.render({layout: false}))
+          .css('.case-study')[2]
+
+    %div.item.active
+      %div.useCaseHolder
+        :markdown
+          #{first_case_study}
+
+      %div.useCaseHolder
+        :markdown
+          #{second_case_study}
+
+      %div.useCaseHolder
+        :markdown
+          #{third_case_study}
+
+  %div
+    .container
+      .textViewAllItems
+        :markdown
+          [See more...](/community/user-stories/user-stories/)
 
 .container
   .row
-    .col-md-8
+    .col-md-12
       %section.blog-posts
 
         %h2
@@ -74,80 +126,15 @@ hide_metadata: true
 
         = partial :blog_posts, locals: {limit: 3}
 
-        = link_to 'See all blog posts', '/blog/'
+        %div.textViewAllItems
+          = link_to 'See more...', '/blog/'
+        %hr/
 
-    .col-md-4
-      %h2 Upcoming events
-      = partial 'upcoming'
-      .more=link_to "View all current events&hellip;", "/events/"
-
-  .row
-
-    .col-md-6
-      -############################################################################
-      -# The case study is pulled from the case studies page automatically, taking the first one from `user-stories.html.md`.
-      -# To edit the case study, please edit `user-stories.html.md`.
-      -############################################################################
-
-      :ruby
-        studies = sitemap.resources.select do |p|
-          next unless p.data.page_classes
-          p.data.page_classes[/case-studies/]
-        end.first
-
-        last_case_study = Nokogiri::HTML(studies.render({layout: false}))
-          .css('.case-study')
-          .first
-
-      :markdown
-        ## Case Study
-
-        #{last_case_study}
-
-        {:.pull-right}
-        [View all case studies](/community/user-stories/user-stories/)
-
-
-    .col-md-6
-      :markdown
-
-        ## Packed with Features
-
-        {:.feature-list}
-        * Choice of stand-alone Hypervisor or install-on-top of your existing Linux installation
-        * High availability
-        * Live migration
-        * Load balancing
-        * Web-based management interface
-        * Self-hosted engine
-        * iSCSI, FC, NFS, and local storage
-        * Enhanced security: SELinux and Mandatory Access Control for VMs and hypervisor
-        * Scalability: up to 64 vCPU and 2TB vRAM per guest
-        * Memory overcommit support (Kernel Samepage Merging)
-        * Developer SDK for ovirt-engine, written in Python
-
-        {:.pull-right}
-        [View all features…](/develop/release-management/features/)
-
+.container
   .row
     .col-md-6
-      :markdown
-
-        ### Community is Key
-
-        Everyone is encouraged to [join the oVirt community](/community/), and help us bring our open source software to virtual datacenters worldwide.
-
-        Community can be found in many places in the global community. Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics on these social media channels:
-
-        {:.icon-list}
-        * [Twitter](//twitter.com/ovirt){:.icon-twitter}
-        * [Google+](//plus.google.com/u/0/communities/109346090491400112913){:.icon-google-plus}
-        * [Facebook](//www.facebook.com/groups/ovirt.openvirtualization/){:.icon-facebook}
-        * [YouTube](//www.youtube.com/user/ovirtproject){:.icon-youtube}
-
-    .col-md-6
+      %h2 @oVirt on Twitter
       .twitter-widget
-        %h2 @oVirt on Twitter
         :ruby
           twitter_options = {
             :href => 'https://twitter.com/ovirt',
@@ -177,10 +164,28 @@ hide_metadata: true
         .twitter-timeline{twitter_options}
           %noscript The embedded Twitter timeline requires JavaScript.
 
-        .more-link.pull-right
+        .more-link.pull-left
           -# More link under the widget
-          %a{href: twitter_options[:href]} More tweets by @oVirt&hellip;
+          %a.textViewAllItems{href: twitter_options[:href]} See more...
 
+    .col-md-6
+      %div
+        %h3 Community is Key
+        %img(src="/images/promo/join_ovirt.jpg")
+        :markdown
+          oVirt is a community-driven virtualization project, and people like you are making it happen! You don't have to be a programmer. 
+          The project will greatly benefit from inputs by documentation, bug reporting, UX, and design superheroes. 
+         
+          Stay in the loop about the latest features, upcoming events and other community-related developments by joining us on oVirt's social media channels:
+          
+          {:.icon-list}
+          * [Twitter](//twitter.com/ovirt){:.icon-twitter}
+          * [Google+](//plus.google.com/u/0/communities/109346090491400112913){:.icon-google-plus}
+          * [Facebook](//www.facebook.com/groups/ovirt.openvirtualization/){:.icon-facebook}
+          * [YouTube](//www.youtube.com/user/ovirtproject){:.icon-youtube}
+
+      %div.see_all_events
+        = link_to 'Check out our Upcoming events', '/events/'
 
 - content_for :tail do
   :coffee

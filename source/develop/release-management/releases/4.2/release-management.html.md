@@ -45,7 +45,7 @@ Translations are handled by Zanata. You can join the translators team and see cu
 
 1.  MUST: Beta Release Criteria are met
 2.  MUST: All test cases defined for each accepted feature must be verified and pass the test for the build to be released
-3.  MUST: All lower-level components must be available on supported distributions at required version [1]
+3.  MUST: All lower-level components must be available on supported distributions at required version
 4.  MUST: No known regressions from previous releases should be present
 5.  MUST: Each subproject must allow upgrade from a previous version, either providing documented manual or automated upgrade procedures
 6.  MUST: All features working on previous release must still work in the new release if not dropped as deprecated

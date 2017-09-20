@@ -11,7 +11,7 @@ tags: release, management
 
 | Date       | Milestone                |
 |------------|--------------------------|
-| 2017-09-18 | oVirt 4.2 Alpha          |
+| 2017-09-21 | oVirt 4.2 Alpha          |
 | 2017-xx-xx | oVirt 4.2 Beta           |
 | 2017-xx-xx | oVirt 4.2 RC1            |
 | 2017-xx-xx | oVirt 4.2 GA Release     |
@@ -20,12 +20,12 @@ tags: release, management
 
 Nightly builds are available from oVirt master snapshots repositories.
 
-Please refer to [Install nightly snapshot](http://www.ovirt.org/develop/dev-process/install-nightly-snapshot/) guide for enabling those repositories
+Please refer to [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/) guide for enabling those repositories
 
 ## Translation Status
 
 Translations are handled by Zanata. You can join the translators team and see current translation status here:
-<https://translate.zanata.org/zanata/iteration/view/ovirt/master/languages>
+<https://translate.zanata.org/iteration/view/ovirt/ovirt-4.2>
 
 ## Release Criteria
 
@@ -36,7 +36,7 @@ Translations are handled by Zanata. You can join the translators team and see cu
 
 ### Beta Release Criteria
 
-1.  MUST: Release Notes have feature-specific information: [oVirt 4.2 Release Notes](http://www.ovirt.org/release/4.2.0/)
+1.  MUST: Release Notes have feature-specific information: [oVirt 4.2 Release Notes](/release/4.2.0/)
 2.  MUST: Alpha Release Criteria are met
 3.  MUST: Supported localizations must be at least at 70% of completeness for being included in the release
 4.  MUST: All accepted features must be substantially complete and in a testable state and enabled by default -- if so specified by the change

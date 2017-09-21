@@ -86,7 +86,7 @@ If you're testing oVirt Live and you find issues please open a bug: <https://bug
 
 **Download**
 
-*   EL7.3 based: [Download oVirt Live 4.1.0](http://plain.resources.ovirt.org/pub/ovirt-4.1/iso/ovirt-live/ovirt-live-4.1.iso)
+*   EL7.3 based: [Download oVirt Live 4.1.0](http://plain.resources.ovirt.org/pub/ovirt-4.1/iso/ovirt-live/4.1.0/ovirt-live-4.1.iso)
 
 **ChangeLog**
 

@@ -1,21 +1,35 @@
 ---
-title: Multipath Events
+title: Multipath Alerts
 category: feature
 authors: Fred Rolland
-feature_name: Multipath Events
+feature_name: Multipath Alerts
 feature_modules: engine,vdsm
 feature_status: Design
 ---
 
-# Multipath Events
+# Multipath Alerts
 
 
 ## Overview
 
-This feature adds the ability to display events to the user in
-the engine UI when multipath device path changes its status.
-The supported events are when a path moves to down or up state.
-With these events, the user will be able to detect storage issues faster.
+This feature adds the ability to display alerts to the user in
+the engine UI when some multipath device have faulty paths, when
+some multipath devices are non-operational because all paths became faulty,
+and when all multipath devices on a host recover.
+
+The purpose of this feature is to help users troubleshoot storage issues
+before they become critical when a multipath device is lost, and to
+make it easier to troubleshoot cases when some LUNs are not available
+because all paths became faulty.
+
+Currently, the user has no indication in oVirt of faulty paths.
+As a result only when all paths are faulty and the access to the storage
+domain is not working, the user will get an indication:
+- If the all the hosts in the Data Center are reporting a problem in the 
+storage domain. the storage domain status that will become 'Inactive'.
+- If only one host reports a problem in the storage domain, the status
+of the host will become 'Non Operational'.
+
 
 
 ## Owner
@@ -29,65 +43,72 @@ With these events, the user will be able to detect storage issues faster.
 
 ### How it works
 
-When a host is connected to a DC (Storage Pool), Vdsm will register
-to udev multipath events. For each event, a message will be sent to Engine
-with the details of the event. Engine will create an audit log event. 
-Once the host is disconnected from the DC, Vdsm will unregister from
-the 'udev' events.
+Vdsm will register to udev multipath events during storage initialization.
+Vdsm will also build a map of all the faulty paths. 
+For each event, Vdsm will update the list, according to the event.
+The details of the faulty paths will be part of the statistics provided by
+'Host.getStats' verb.
+
+Engine polls the hosts for the statistics every 15 seconds.
+Engine creates an audit log event according to the information provided
+in the statistics. Only if there are changes in the faulty paths report,
+an event will be created.
 
 
 ### New vdsm API
 
-New multipath event type
+New property in 'HostStats': 'MultipathAlertsMap' which is a mapping of faulty paths
+indexed by the device mapper GUID.
 
 
-#### Multipath Event
+#### Multipath Alerts Map
 
-An event with information about the multipath device, path and status.
+The key of the map is the device mapper GUID.
+The value is a MultipathAlert that contains:
+- List of faulty paths.
+- Number of valid paths
 
-A mapping with these keys:
-- type: Path Failed/Path Reinstated (DM_ACTION)
-- device (GUID): unique GUID of this device (DM_NAME)
-- valid_paths - number of valid paths (DM_NR_VALID_PATHS)
-- seqnum - event sequence number, may be used to detect missed messages later (DM_SEQNUM)
+### Vdsm multipath event listener
 
+Introduce a new Vdsm internal service for listening to multipath events:
 
-### Vdsm multipath event monitoring
-
-Introduce a new Vdsm internal service for handling events:
-
-- Code interested in receiving mutlipath events will subscribe a callback to receive the event
+- Code interested in receiving multipath events will subscribe a callback to receive the event
 - When an event is received, all subscribers will receive the events (in another thread).
 - If nobody is registered for events, the events are dropped
-- The multipath event monitor will be started when connecting to the pool
-- The multipath event monitor will be stopped when disconnecting from the pool
+- The multipath event monitor will be started during storage initialization
 
 
-A Udev event monitor is introduced, listening to device-mapper udev events.
-The relevant events for this feature are PATH_FAILED and PATH_REINSTATED:
+The service will be implemented using 'pyudev', listening to these events:
+- action=change,DM_ACTION=PATH_FAILED
+- action=change,DM_ACTION=PATH_REINSTATED
+- action=remove (for multipath devices)
 
-Variable Name: DM_ACTION
-Uevent Action(s): KOBJ_CHANGE
-Type: string
-Description:
-Value: Device-mapper specific action that caused the uevent action.
-	PATH_FAILED - A path has failed.
-	PATH_REINSTATED - A path has been reinstated.
+We don't know yet how to detect multipath devices events efficiently for detecting removed devices.
 
-- The Vdsm will suscribe the monitor to events during startup.
-- The Vdsm will start the Udev event monitor when connecting to the storage pool.
-- The listener will send an event to the engine when its callback is called.
-- The Vdsm will unregister the listener to the Udev event monitor when 
-disconnecting to the storage pool.
+
 - The user can disable this feature in a specific host in Vdsm configuration file
 
 In the future, the monitor can be used for other code, for example maintaining LVM filter.
 
+### Vdsm multipath health monitor
+
+To report multipath health status to engine, we will add a multipath health monitor.
+
+- The monitor subscribes to multipath events during startup
+- The monitor builds a map of all the faulty paths during startup.
+- The monitor updates the data set of the faulty paths when its callback is called:
+    - PATH_FAILED - Add the faulty path to the map according to the device GUID
+    - PATH_REINSTATED - Remove the faulty path to the map according to the device GUID
+    - Multipath device removed  - remove the device from the map
+- Multipath health status is provided to engine via 'Host.getStats' verb.
+
+
 ### New engine API
 
 New audit logs are added:
-- Multipath device path up
-- Multipath device path down
+- Faulty multipath paths on host "HOST_NAME" on devices: "GUID", "GUID" ...
+- Devices without valid paths on host "HOST_NAME" : "GUID", "GUID" ...
+- No faulty multipath paths on host "HOST_NAME"
 
 ## Benefit to oVirt
 
@@ -97,6 +118,18 @@ New audit logs are added:
 ## User Experience
 
 New audit logs are added with information on the device path status.
+The logs are per host.
+Since the length of the information available in the audit log is limited,
+the full information of the failing paths will be available in the logs.
+The events are not generated on "real-time", but are based on polling of
+the statistics. Only if a change in the data received is detected, a new
+audit log will be created
+
+If a single LUN goes down on all the hosts, the user will get an alarm
+for each host in the DC.
+
+If a single path goes down on one of the hosts, the user will get an alarm
+only for this host.
 
 
 ## Installation/Upgrade
@@ -106,14 +139,15 @@ This feature does not affect engine or Vdsm installation or upgrades
 
 ## User work-flows
 
-- Once a user connects to an ISCSI server, 'Multipath device path up' event
-will be created.
+- Once a user connects to a new ISCSI server, no events will be created.
 
-- If there is an issue with the connection to the storage server, and the 
-multipath reports an issue with one or more device path,
-'Multipath device path down' will be created.
+- If there is an issue with the storage server, and the 
+multipath reports an issue with one or more device path, a "Faulty multipath paths on host" will be created
 
-- Once the issue is fixed, 'Multipath device path up' event will be created.
+- Once the issue is fixed, and all paths are up a "No faulty multipath paths on host "HOST_NAME"
+event will be created
+
+- If only part of the paths are fixed, a "Faulty multipath paths on host" will be created with the details of the devices.
 
 
 ## Dependencies / Related Features
@@ -135,32 +169,27 @@ NA
 
 ## Event Reporting
 
-- 'Multipath device path up'
-- 'Multipath device path down'
-
+- Faulty multipath paths on host "HOST_NAME" on devices: "GUID", "GUID" ... 
+- No faulty multipath paths on host "HOST_NAME"
+- Devices without valid paths on host "HOST_NAME" : "GUID", "GUID" ...
 
 ## Documentation / External references
 
 This feature is required for resolving
 [Bug 723931](https://bugzilla.redhat.com/723931)
 
-Pyudev - [Monitoring devices](http://pyudev.readthedocs.io/en/latest/guide.html#monitoring-devices)
+Pyudev - [pyudev documentation](http://pyudev.readthedocs.io/en/latest/guide.html#monitoring-devices)
 
-Uevent [example](https://www.kernel.org/doc/Documentation/device-mapper/dm-uevent.txt)
+Uevent [device mapper events kernel documentation](https://www.kernel.org/doc/Documentation/device-mapper/dm-uevent.txt)
 
 ## Testing
 
-- Connect to a new ISCSI storage server
-  - For each multipath device path a 'Multipath device path up' is triggered
-
-
 ### Negative flows
 
-- Block network to ISCSI storage server
-  - For each multipath device path a 'Multipath device path down' is triggered
-- Unblock access to iscsi server
-  - Wait until all paths go up. There should be 'Multipath device path up' for 
-    every path on this iscsi server
+- Block network to ISCSI storage server on a specific host
+  - 'Faulty multipath paths on host "HOST_NAME" on devices: "GUID", "GUID" ...' is triggered
+- Unblock access to ISCSI server on a specific host
+  - Wait until all paths go up. a 'No faulty multipath paths on host "HOST_NAME"' is triggered
 
 ## Release Notes
 
@@ -168,7 +197,5 @@ TBD
 
 ## Open Issues
 
-- Connecting to a new ISCSI storage server will trigger a lot of events,
-that are not useful to the user.
 - In a scale environment, issue on the storage server or network can trigger
-an event storm.
+a lot of events. (Note that the events are generated per hosts and not per path).

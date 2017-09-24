@@ -17,13 +17,13 @@ The oVirt Infra Team is a volunteer effort to provide community infrastructure s
 
 The maintainers of the Infrastructure project are:
 
-*   **Infrastructure Lead:** David Caro (Dcaroest),Anton Marchukov (amarchuk)
-*   **Release Manager:** Sandro Bonazzola (Sbonazzo)
-*   **CI Leads:** Eyal Edri (Eyal), David Caro (Dcaroest),Anton Marchukov (amarchuk)
-*   **Repositories/Build Lead:** Sandro Bonazzola (Sbonazzo), David Caro (Dcaroest)
-*   **Gerrit Admins:**Eyal Edri (eedri), David Caro (Dcaroest), Anton Marchukov (amarchuk)
-*   **Puppet and Foreman Lead:** Ewoud Kohl van Wijngaarden (Ekohl), David Caro (Dcaroest),Barak Korren (Bkorren)
-*   **Mail Servers** Karsten Wade (Quaid),Michael Scherer (Misc)
+*   **Infrastructure Lead:** Evgheni Dereveanchin (ederevea)
+*   **Release Manager:** Sandro Bonazzola (sbonazzo)
+*   **CI Leads:** Barak Korren (bkorren)
+*   **Repositories/Build Lead:** Sandro Bonazzola (sbonazzo) 
+*   **Gerrit Admins:** Evgheni Dereveanchin (ederevea)
+*   **Puppet and Foreman Lead:** Barak Korren (Bkorren), Evgheni Dereveanchin (ederevea)
+*   **Mail Servers** Duck (duck)
 
 Read [Becoming an Infrastructure team member](/develop/infra/becoming-an-infrastructure-team-member/) for details on joining this project.
 
@@ -31,21 +31,8 @@ Read [Infrastructure team assignments](/develop/infra/infrastructure-team-admini
 
 ### Apprentices and journeyfolk
 
-In addition to the maintainers, there are newer Infrastructure team members who have not yet become maintainers. They are at the very beginning (apprentices) or nearing the end (journeyfolk):
-
-*   Alexander Rydekull (Rydekull)
-*   Michael Scherer (Misc)
-*   Shlomi Ben David (Sbendavid)
-*   Paz Dangur (Pdangur)
-*   Max Kovgan (Mkovgan)
-*   Sagi Shnaidman (Sshnaidm)
-*   Vishnu Sreekumar (Vissree)
-*   Nadav Goldin (ngoldin)
-*   Daniel Belenky (dbelenky)
-*   Gal Ben Haim (gbenhaim)
-*   Gil Shinar (gshinar)
-*   Shane Pike (spike)
-*   Somansh Arora (sarora)
+If you wish to become part of the infra team and help maintain oVirt's infrastrucutre and do some cool DevOps tasks, feel free
+to introduce yourself on infra@ovirt.org and we'll do the rest! 
 
 ## Type of tasks
 
@@ -96,18 +83,8 @@ The main thing is, come [communicate with us](#Communication) if you have any qu
 
 ## Our Architecture
 
-An overview of our technical architecture is available [online](http://monitoring.ovirt.org). If you have a question or comment about our architecture please send an e-mail to **infra@ovirt.org** inbox or stop by the [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt).
-As part of an effort to map all oVirt infra resources, an online pad was created [2](http://etherpad.ovirt.org/p/service_list_ovirt).
-once the list will be ready and finalized, we'll update the wiki accordingly.
-
-### Architechture migration plan
-
-We're currently working on migrating all our infra into a new datacenter. check [Infra Migration Plan](/develop/infra/services-migration-plan/) for details.
-
-### oVirt Instances
-
-We have some oVirt instances installed and we use them for our infrastructure. For more information please click [here](/develop/infra/infrastructure-instances/)
+TBD
 
 ### Documentation
 
-We are in the process of moving all our documentaion to be inside our git repos, and published as HTML. You can find the published docs at: <http://ovirt-infra-docs.readthedocs.org/en/latest/>
+Most of what we do is documented in our own RTD page. You can find the published docs at: <http://ovirt-infra-docs.readthedocs.org/en/latest/>

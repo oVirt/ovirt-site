@@ -19,6 +19,17 @@ READMORE
 
 The **Administration Portal** has been redesigned from scratch using Patternfly, a widely adopted standard in web application design that promotes consistency and usability across IT applications, through UX patterns and widgets. The result is a cleaner, more intuitive and user-friendly user interface. The old horizontal menu has been replaced by a two-level vertical menu. The system tree is gone, and its functionality has been integrated into the vertical menus.
 
+![](/images/blog/2017-09-19/adminportal_compute_VM_New.png)
+
+
+![](/images/blog/2017-09-19/adminportal_compute_VMs.png)
+
+
+![](/images/blog/2017-09-19/adminportal_dashboard.png)
+
+
+![](/images/blog/2017-09-19/adminportal_storage.png)
+
 An all new **VM Portal** for non-admin users - designed with React-based UI and Patternfly principles - replaces the existing User Portal. Built with performance and ease of use in mind, the VM Portal keeps the Extended view of the User Portal, plus a streamlined functionality.
 
 A new **High Performance virtual machine** (VM) type has been added to the New VM dialog box in the Administration Portal. By selecting the ‘High Performance’ option in the ‘Optimized for’ field, administrators can effortlessly optimize a VM for high performance workloads.

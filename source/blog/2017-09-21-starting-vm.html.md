@@ -13,7 +13,7 @@ READMORE
 
 **Disclaimer:** I am an engineer working close to the host part of the oVirt, therefore my knowledge of the engine is limited.
 
-![ovirt web admin](images/ovirt-startvm/webadmin.png)
+![ovirt web admin](ovirt-startvm/webadmin.png)
 
 ## Architecture
 

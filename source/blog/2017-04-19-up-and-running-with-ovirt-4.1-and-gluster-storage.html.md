@@ -9,7 +9,7 @@ published: true
 
 Last month, the oVirt Project [shipped version 4.1](http://lists.ovirt.org/pipermail/announce/2017-February/000312.html) of its open source virtualization management system. With a new release comes an update to this howto for running oVirt together with Gluster storage using a trio of servers to provide for the system's virtualization and storage needs, in a configuration that allows you to take one of the three hosts down at a time without disrupting your running VMs.
 
-If you're looking instead for a simpler, single-machine option for trying out oVirt, your best bet is the <a href="http://www.ovirt.org/OVirt_Live">oVirt Live ISO</a>. This is a LiveCD image that you can burn onto a blank CD or copy onto a USB stick to boot from and run oVirt. This is probably the fastest way to get up and running, but once you're up, this is definitely a low-performance option, and not suitable for extended use or expansion.
+If you're looking instead for a simpler, single-machine option for trying out oVirt, your best bet is the [oVirt Live ISO](/download/ovirt-live) page. This is a LiveCD image that you can burn onto a blank CD or copy onto a USB stick to boot from and run oVirt. This is probably the fastest way to get up and running, but once you're up, this is definitely a low-performance option, and not suitable for extended use or expansion.
 
 Read on to learn about my favorite way of running oVirt.
 

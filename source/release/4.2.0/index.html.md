@@ -9,7 +9,7 @@ authors: sandrobonazzola,JohnMarksRH
 
 The oVirt Project is pleased to announce the availability of the 4.2.0
 First Alpha release
- as of September 27, 2017.
+ as of September 28, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.

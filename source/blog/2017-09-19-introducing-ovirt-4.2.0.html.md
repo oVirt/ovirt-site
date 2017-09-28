@@ -54,4 +54,4 @@ Support is now restored for **Gluster ISO domains**, without the need for NFS wh
 **Affinity Labels** create a strong/positive affinity between the hosts and VMs to which they are applied. The new Affinity Labels sub tab for clusters, hosts, and VMs in the Administration Portal provides a table view of labels associated with the currently selected entity, as well as the option to add, edit, and delete them. Additionally, existing labels can be added and/or removed from VMs and hosts in their respective new/edit popup dialogs.
 
 
-For the entire list of features, enhancements, bug fixes, and more, see the [4.2.0 release notes](https://www.ovirt.org/release/4.2.0/).
+For the entire list of features, enhancements, bug fixes, and more, see the [4.2.0 release notes](/release/4.2.0/).

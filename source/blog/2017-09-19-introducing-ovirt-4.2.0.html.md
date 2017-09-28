@@ -7,7 +7,7 @@ comments: true
 published: true
 ---
 
-On September 24, the oVirt project released version 4.2.0 Alpha, available for Red Hat Enterprise Linux 7.3, CentOS Linux 7.3, or similar.
+On September 28, the oVirt project released version 4.2.0 Alpha, available for Red Hat Enterprise Linux 7.4, CentOS Linux 7.4, or similar.
 
 **This pre-release version should not be used in production, and is not feature complete.**
 

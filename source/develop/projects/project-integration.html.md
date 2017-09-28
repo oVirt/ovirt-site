@@ -10,12 +10,12 @@ authors: knesenko, mgoldboi, rafaelmartins, sandrobonazzola
 
 The members of the Integration team are
 
-*   Yedidyah Bar David (Didi)
-*   Doron Fediuck (Doron)
+*   [Yedidyah Bar David (Didi)](https://github.com/didib)
+*   [Doron Fediuck (Doron)](https://github.com/doron-fediuck)
 *   [Sandro Bonazzola](https://github.com/sandrobonazzola)
-*   Simone Tiraboschi (Stirabos)
-*   Lev Veyde (Lveyde)
-*   Ido Rosenzwig
+*   [Simone Tiraboschi (Stirabos)](https://github.com/tiraboschi)
+*   [Lev Veyde (Lveyde)](https://github.com/lveyde)
+*   [Ido Rosenzwig](https://github.com/irosenzw)
 
 Outstanding contributors
 
@@ -32,7 +32,6 @@ Leads the following projects:
 
 *   oVirt Engine Setup
 *   oVirt DWH Setup
-*   oVirt Reports Setup
 *   oVirt Host Deploy
 *   oVirt Hosted Engine Setup
 *   oVirt Websoket Proxy Setup
@@ -48,6 +47,7 @@ Collaborates with other communities / projects:
 
 *   [Fedora](https://getfedora.org/)
 *   [CentOS](http://centos.org/)
+*   [CentOS OpsTools SIG](https://wiki.centos.org/SpecialInterestGroup/OpsTools)
 *   [SOS](https://github.com/sosreport)
 *   [Sanlock](https://pagure.io/sanlock)
 *   [VDSM](/develop/developer-guide/vdsm/vdsm/)

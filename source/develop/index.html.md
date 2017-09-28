@@ -40,7 +40,7 @@ _More information on [oVirt subprojects](/subprojects/)_
 ## Developer Documentation
 
 - [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/)
-- [Building oVirt engine](Building oVirt engine)
+- [Building oVirt engine](/develop/developer-guide/engine/engine-development-environment/)
 - [Testing ovirt-engine patches with Lago](/develop/infra/testing/lago/testing-engine-patches-with-lago/)
 - [Building oVirt Node](/develop/projects/node/building/)
 - [Building VDSM](/develop/developer-guide/vdsm/developers/)

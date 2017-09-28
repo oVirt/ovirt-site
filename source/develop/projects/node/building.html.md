@@ -146,7 +146,7 @@ Plugins are a way to extend oVirt Node ISOs. To add a plugin to an existing imag
 Now that you've got an oVirt Node ISO you can use
 
 *   [Deploy it with PXE](/develop/projects/node/pxe/) to get it onto real hardware or into a VM for testing purposes
-*   [Node plugins](/develop/release-management/features/node/plugins/) to add 3rd party plugins
+*   [Node plugins](/develop/release-management/features/plugins/plugins/) to add 3rd party plugins
 *   [Use igor](/develop/projects/node/automation/) to setup automated tests for oVirt Node in your environment
 *   [Contribute](/develop/projects/node/contributing-to-the-node-project/) to make Node even more solid
 

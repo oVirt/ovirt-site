@@ -91,7 +91,7 @@ Bug ID:
 
 ### Documentation / External references
 
-See also [Ovirt-engine-backup](/develop/release-management/features/engine/engine-backup/).
+See also [Ovirt-engine-backup](/develop/release-management/features/integration/engine-backup/).
 
 ### Testing
 

@@ -2,7 +2,7 @@
 title: Introducing oVirt 4.2.0 Alpha
 author: jmarks
 tags: oVirt, 4.2.0, release notes
-date: 2017-09-19 11:25:00 CET
+date: 2017-09-28 11:25:00 CET
 comments: true
 published: true
 ---

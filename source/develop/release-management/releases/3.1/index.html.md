@@ -71,7 +71,7 @@ The oVirt 3.1 release includes these notable changes.
 ### Network
 
 *   A new network setup API to support complex network provisioning tasks has been added to the backend, as a result the user interface for host network setup has also been redesigned ([Features/Design/Network/SetupNetworks](/develop/release-management/features/network/setupnetworks/)).
-*   It is now possible to adjust the MTU of a logical network, when it is not attached to a cluster ([Features/Design/Network/Jumbo_frames](/develop/release-management/features/ux/design/network/jumbo-frames/)).
+*   It is now possible to adjust the MTU of a logical network, when it is not attached to a cluster ([Features/Network/Jumbo_frames](/develop/release-management/features/network/jumbo-frames/)).
 *   It is now possible to create bridgeless logical networks, previously all logical network were represented using a bridge ([Features/Design/Network/Bridgeless_Networks](/develop/release-management/features/network/bridgeless-networks/)).
 *   Hot plugging and unplugging of virtual Network Interface Cards from virtual machines is now supported ([Features/HotplugNic](/develop/release-management/features/network/hotplugnic/)).
 *   ~~Support for port mirroring, allowing all network traffic to be mirrored to a specific virtual machine, has been added ([Features/PortMirroring](/develop/release-management/features/network/portmirroring/)).~~ (postponed to Ovirt-3.2)

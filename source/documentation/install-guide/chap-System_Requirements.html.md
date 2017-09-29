@@ -73,7 +73,7 @@ Browser support is divided into tiers:
 
 ### Client Requirements
 
-Virtual machine consoles can only be accessed using supported Remote Viewer (`virt-viewer`) clients on Enterprise Linux and Windows. To install `virt-viewer`, see [Installing Supported Components](/documentation/Virtual_Machine_Management_Guide/sect-Installing_Supporting_Components) in the *Virtual Machine Management Guide*. Installing `virt-viewer` requires Administrator privileges.
+Virtual machine consoles can only be accessed using supported Remote Viewer (`virt-viewer`) clients on Enterprise Linux and Windows. To install `virt-viewer`, see [Installing Supported Components](/documentation/vmm-guide/chap-Introduction/#installing-supporting-components) in the *Virtual Machine Management Guide*. Installing `virt-viewer` requires Administrator privileges.
 
 SPICE console access is only available on other operating systems, such as OS X, through the unsupported SPICE HTML5 browser client.
 

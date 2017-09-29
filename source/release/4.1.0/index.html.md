@@ -60,7 +60,7 @@ order to migrate to Fedora 24.
 If you're going to install oVirt as Hosted Engine on a clean system please
 follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install)
 guide or the corresponding Red Hat Virtualization
-[Self Hosted Engine Guide](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/self-hosted-engine-guide/)
+[Self Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/)
 
 If you're upgrading an existing Hosted Engine setup, please follow
 [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine)

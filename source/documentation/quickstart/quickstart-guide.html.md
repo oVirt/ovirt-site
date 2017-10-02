@@ -11,28 +11,28 @@ authors: adahms, bproffitt, didi, fab, gianluca, gshereme, jbrooks, jhernand, jo
 
 ## Introduction
 
-This document is a step-by-step guide for first-time users to install and configure a basic
+This document is a step-by-step guide for first-time users who wich to install and configure a basic
 oVirt environment and create virtual machines.
 
 ### Prerequisites
 
-Please check the [System System_Requirements](/documentation/install-guide/chap-System_Requirements/)
-before you start for both oVirt Engine and oVirt Node / Hosts.
+Before starting, please check the [System Requirements](/documentation/install-guide/chap-System_Requirements/)
+documentation for both oVirt engine and oVirt node / hosts.
 
 #### oVirt Engine
 
-*   The oVirt Engine host must be configured to receive updates from the oVirt project's software
+*   The oVirt engine host must be configured to receive updates from the oVirt project's software
     repository, as provided by the ovirt-release package matching your OS distribution:
     -   [oVirt 4.1](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm).
-*   A client for connecting to oVirt Engine.
+*   A client for connecting to the oVirt engine.
 
-#### For each Host
+#### Host Checklist
 
-*   Check that AMD-V or Intel VT enabled, AMD64 or Intel 64 extensions
+*   Check that AMD-V or Intel VT are enabled, with AMD64 or Intel 64 extensions
 *   The host must be configured to receive updates from the oVirt project's software
     repository, as provided by the ovirt-release package matching your OS distribution:
     -   [oVirt 4.1](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm).
-*   If you're running Red Hat Enterprise Linux also enable Extras channel which is
+*   If you're running Red Hat Enterprise Linux, also enable the Extras channel. It is
     enabled by default on CentOS Linux.
 
 #### Storage and Networking
@@ -43,33 +43,33 @@ before you start for both oVirt Engine and oVirt Node / Hosts.
 *   Static IP addresses for the oVirt Engine server and for each host server.
 *   DNS service that can resolve (forward and reverse) all the IP addresses.
 *   An existing DHCP server that can allocate network addresses for the virtual machines.
-*   If you need to use the storage from your hosts instead of using storage provided by SAN / NAS
-    consider moving to [oVirt-Gluster Hyperconvergence Guide](/documentation/gluster-hyperconverged/Gluster_Hyperconverged_Guide/)
+*   If you need to use the storage from your hosts instead of using storage provided by SAN / NAS,
+    consider moving to [oVirt-Gluster Hyperconvergence](/documentation/gluster-hyperconverged/Gluster_Hyperconverged_Guide/).
 
 #### Virtual Machines
 
 Installation images for creating virtual machines, depending on which operating system you wish to use.
-A list of supported guest distribution is available in our [Download](/download/#supported-guest-distributions) page
+A list of supported guest distributions is available on our [Download](/download/#supported-guest-distributions) page.
 
 ## Install oVirt
 
-The oVirt platform consists of at least one Node and an oVirt Engine which may
-be deployed in a Virtual Machine as Self Hosted Engine
-(See the [Self Hosted Engine guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/) for more infromation).
+The oVirt platform consists of at least one Node and an oVirt engine which may
+be deployed in a virtual machine as a self-hosted engine.
+(See the [Self-Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/) for more infromation).
 
-*   oVirt Engine provides a graphical user interface to manage the physical and
+*   oVirt engine provides a graphical user interface to manage the physical and
     logical resources of the oVirt infrastructure.
-    The Engine is installed on an Enterprise Linux 7 server, and accessed
-    from a client running Firefox.
+    The engine is installed on an Enterprise Linux 7 server, and accessed
+    from a client that is running Firefox.
 
 <!-- -->
 
-*   oVirt Engine runs virtual machines. A physical server running oVirt Node or Enterprise Linux 7
+*   oVirt engine runs virtual machines. A physical server running oVirt node or Enterprise Linux 7
     can be configured as a host for virtual machines on the oVirt platform.
 
 ### Install oVirt Engine
 
-oVirt Engine is the control center of the oVirt environment.
+oVirt engine is the control center of the oVirt environment.
 It allows you to define hosts, configure data centers, add storage, define networks,
 create virtual machines, manage user permissions and use templates from one central location.
 
@@ -102,36 +102,36 @@ create virtual machines, manage user permissions and use templates from one cent
 Important points to note:
 
 *   The default ports 80 and 443 must be available to access the manager on HTTP and HTTPS respectively.
-*   If you select to configure an NFS share it will be exported from the machine on which the manager is being installed.
+*   If you select to configure an NFS share, it will be exported from the machine on which the manager is being installed.
 *   The storage type that you select will be used to create a data center and cluster.
     You will then be able to attach storage to these from the Web Administration Portal.
 *   The default ACL for the ISO_DOMAIN NFS export is allowing access to the current machine only.
     You need to provide read/write access to any host that will need to attach to this domain.
 
-8. You are then presented with a summary of the configurations you have selected. Type yes to accept them.
+8. You are then presented with a summary of the configurations you have selected. Enter 'Yes' to accept them.
 
 9. The installation commences. Messages will be displayed during the process, indicating that the installation was successful.
 
 
-Your oVirt Engine is now up and running.
-You can log in to the oVirt Engine's web administration portal with the username
+Your oVirt engine is now up and running.
+You can log in to the oVirt engine's Web Administration portal with the username
 admin (the administrative user configured during installation) in the internal domain.
 Instructions to do so are provided at the end of this chapter.
 
 ### Install Hosts
 
 After you have installed the oVirt Engine, install the hosts to run your virtual machines.
-In oVirt, you can use either oVirt Node or Enterprise Linux 7 as hosts.
+In oVirt, you can use either oVirt node or Enterprise Linux 7 as hosts.
 
 #### Install oVirt Node
 
-Please refer to [Installing oVirt Node](/documentation/install-guide/chap-oVirt_Nodes/)
-guide within the [oVirt Installation Guide](/documentation/install-guide/Installation_Guide/)
+Please refer to the [Installing oVirt Node](/documentation/install-guide/chap-oVirt_Nodes/).
+guide within the [oVirt Installation Guide](/documentation/install-guide/Installation_Guide/).
 
 #### Install Enterprise Linux Host
 
-Please refer to [Installing Enterprise Linux Hosts](/documentation/install-guide/chap-Enterprise_Linux_Hosts/)
-guide within the [oVirt Installation Guide](/documentation/install-guide/Installation_Guide/)
+Please refer to the [Installing Enterprise Linux Hosts](/documentation/install-guide/chap-Enterprise_Linux_Hosts/)
+guide within the [oVirt Installation Guide](/documentation/install-guide/Installation_Guide/).
 
 
 ## Configure oVirt
@@ -139,23 +139,22 @@ guide within the [oVirt Installation Guide](/documentation/install-guide/Install
 Now that you have logged in to the administration portal, configure your oVirt
 environment by defining the data center, host cluster, networks and storage.
 Even though this guide makes use of the default resources configured during installation,
-if you are setting up a oVirt environment with completely new components,
+if you are setting up an oVirt environment with completely new components,
 you should perform the configuration procedure in the sequence given here.
 
 ### Configure Data Centers
 
 A data center is a logical entity that defines the set of physical and logical
 resources used in a managed virtual environment.
-Think of it as a container which houses clusters of hosts, virtual machines, storage and networks.
+Think of it as a container that houses clusters of hosts, virtual machines, storage and networks.
 
-By default, oVirt creates a data center at installation.
-Its type is configured from the installation script.
-To access it, navigate to the Tree pane, click Expand All, and select the Default data center.
-On the Data Centers tab, the Default data center displays.
+By default, oVirt creates a data center at installation. Its type is configured from the installation script.
+
+To view it, click the vertical menu and select **Compute** > **Data Centers**. Click on the default data center’s name to review or edit its settings. 
 
 ![Figure 2. Data Centers Tab](/images/wiki/Data-center-view.png "Figure 2. Data Centers Tab")
  
-The Default data center is used for this document, however if you wish to create
+The default data center is used for this document, however if you wish to create
 a new data center see the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 ### Configure Clusters
@@ -165,35 +164,32 @@ set of virtual machines. Hosts in a cluster share the same network infrastructur
 the same storage and the same type of CPU.
 They constitute a migration domain within which virtual machines can be moved from host to host.
 By default, oVirt creates a cluster at installation.
-To access it, navigate to the Tree pane, click Expand All and select the Default cluster.
-On the Clusters tab, the Default cluster displays.
+
+To access it, click the vertical menu and select **Compute** > ֻ**Clusters**. Click on the default cluster’s name to review or edit its settings. 
 
 ![Figure 3. Clusters Tab](/images/wiki/Cluster-view.png "Figure 3. Clusters Tab")
 
-For this document, the oVirt Node and Enterprise Linux hosts will be attached to the Default host cluster.
+For this document, the oVirt node and Enterprise Linux hosts will be attached to the default host cluster.
 If you wish to create new clusters, or live migrate virtual machines between hosts in a cluster,
 see the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 ### Configure Networks
 
-At installation, oVirt defines a Management network for the default data center.
+At installation, oVirt defines a צanagement network for the default data center.
 This network is used for communication between the manager and the host.
 New logical networks - for example for guest data, storage or display - can be
 added to enhance network speed and performance.
-All networks used by hosts and clusters must be added to data center they belong to.
+All networks used by hosts and clusters must be added to the data center they belong to.
 
-To access the Management network, click on the Clusters tab and select the default cluster.
-Click the Logical Networks tab in the Details pane.
-The ovirtmgmt network displays.
+The default management network is called ovirtmgmt. To access it, click the vertical menu and select **Network** > **Networks**, and then, under the name column, click on ovirtmgmt.  
 
 ![Figure 4. Logical Networks Tab](/images/wiki/Logical-network-view.png "Figure 4. Logical Networks Tab")
 
-The ovirtmgmt Management network is used for this document, however if you wish
-to create new logical networks see the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
+To create new logical networks, see the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 #### Attach oVirt Node or Enterprise Linux Host
 
-1. On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, click New.
+1. Click On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, click New.
 
 2. The New Host dialog displays.
 
@@ -263,7 +259,7 @@ Internet Small Computer System Interface (iSCSI) or Fibre Channel Protocol (FCP)
 Storage definition, type and function, are encapsulated in a logical entity called
 a Storage Domain. Multiple storage domains are supported.
 
-For this guide you will use two types of storage domains.
+For this guide you will use two types of storage domains:
 The first is an NFS share for ISO images of installation media.
 You have already created this ISO domain during the oVirt Engine installation.
 
@@ -300,7 +296,7 @@ A sample /etc/exports configuration might look like:
          /export/data           *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
          /export/import_export  *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
 
-Once you have setup the NFS exports, you can now add them in oVirt.
+Once you have set up the NFS exports, you can now add them in oVirt.
 
 **To add NFS storage:**
 

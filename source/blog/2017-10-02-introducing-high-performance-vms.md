@@ -1,5 +1,5 @@
 ---
-title: Introducing High Performance VMs
+title: Introducing High Performance Virtual Machines
 author: jmarks
 tags: 4.2.0, high performance VMs, oVirt
 date: 2017-10-02 11:00:00 CET
@@ -21,11 +21,10 @@ Some of the magic includes:
 - Disable all USB devices
 - Disable the Sound Card device
 
-For the full feature set, see the [High Performance VM feature page](/develop/release-management/features/virt/high-performance-vm/)
+For the full feature set, see the very detailed [High Performance VM feature page](/develop/release-management/features/virt/high-performance-vm/)
 
 #### Count me in! How do I set it up?
 Simple. Go to the **Administration Portal** and from the vertical menu select **Compute** > **Virtual machines**. Click the **New VM** tab to open up the New Virtual Machine dialog box. In the General tab next to the **Optimized for** field, click the drop down menu and select **High Performance**. Done!
 
 *New Virtual Machine dialog box with the High Performance VM type highlighted*
-
-![](/images/intro-admin/adminportal_compute_vms_new_highperformance.png]
+![](/images/intro-admin/adminportal_compute_vms_new_highperformance.png)

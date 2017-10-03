@@ -11,28 +11,30 @@ authors: adahms, bproffitt, didi, fab, gianluca, gshereme, jbrooks, jhernand, jo
 
 ## Introduction
 
-This document is a step-by-step guide for first-time users to install and configure a basic
+This step-by-step guide shows first-time users how to install and configure a basic
 oVirt environment and create virtual machines.
 
 ### Prerequisites
 
-Please check the [System System_Requirements](/documentation/install-guide/chap-System_Requirements/)
-before you start for both oVirt Engine and oVirt Node / Hosts.
+Before starting, please check the [System Requirements](/documentation/install-guide/chap-System_Requirements/)
+for both oVirt Engine and oVirt nodes and hosts .
 
 #### oVirt Engine
 
-*   The oVirt Engine host must be configured to receive updates from the oVirt project's software
+*   The host running ovirt-engine must be configured to receive updates from the oVirt project's software
     repository, as provided by the ovirt-release package matching your OS distribution:
     -   [oVirt 4.1](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm).
 *   A client for connecting to oVirt Engine.
 
 #### For each Host
 
-*   Check that AMD-V or Intel VT enabled, AMD64 or Intel 64 extensions
+*   All CPUs must have support for the Intel® 64 or AMD64 CPU extensions, and the 
+    AMD-V™ or Intel VT® hardware virtualization extensions should be enabled. Support
+    for the No eXecute flag (NX) is also required.
 *   The host must be configured to receive updates from the oVirt project's software
     repository, as provided by the ovirt-release package matching your OS distribution:
     -   [oVirt 4.1](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm).
-*   If you're running Red Hat Enterprise Linux also enable Extras channel which is
+*   If you are running Red Hat Enterprise Linux, make sure to enable the Extras channel. It is
     enabled by default on CentOS Linux.
 
 #### Storage and Networking
@@ -43,19 +45,19 @@ before you start for both oVirt Engine and oVirt Node / Hosts.
 *   Static IP addresses for the oVirt Engine server and for each host server.
 *   DNS service that can resolve (forward and reverse) all the IP addresses.
 *   An existing DHCP server that can allocate network addresses for the virtual machines.
-*   If you need to use the storage from your hosts instead of using storage provided by SAN / NAS
-    consider moving to [oVirt-Gluster Hyperconvergence Guide](/documentation/gluster-hyperconverged/Gluster_Hyperconverged_Guide/)
+*   If you need to use the storage from your hosts instead of using storage provided by SAN / NAS,
+    consider moving to [oVirt-Gluster Hyperconvergence](/documentation/gluster-hyperconverged/Gluster_Hyperconverged_Guide/).
 
 #### Virtual Machines
 
 Installation images for creating virtual machines, depending on which operating system you wish to use.
-A list of supported guest distribution is available in our [Download](/download/#supported-guest-distributions) page
+A list of supported guest distribution is available on our [Download](/download/#supported-guest-distributions) page.
 
 ## Install oVirt
 
-The oVirt platform consists of at least one Node and an oVirt Engine which may
-be deployed in a Virtual Machine as Self Hosted Engine
-(See the [Self Hosted Engine guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/) for more infromation).
+The oVirt platform consists of at least one node and an oVirt Engine which may
+be deployed in a virtual machine as Self-Hosted Engine
+(See the [Self-Hosted Engine guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/) for more infromation).
 
 *   oVirt Engine provides a graphical user interface to manage the physical and
     logical resources of the oVirt infrastructure.
@@ -64,7 +66,7 @@ be deployed in a Virtual Machine as Self Hosted Engine
 
 <!-- -->
 
-*   oVirt Engine runs virtual machines. A physical server running oVirt Node or Enterprise Linux 7
+*   oVirt Engine runs virtual machines. A physical server running an oVirt node or Enterprise Linux 7
     can be configured as a host for virtual machines on the oVirt platform.
 
 ### Install oVirt Engine
@@ -114,7 +116,7 @@ Important points to note:
 
 
 Your oVirt Engine is now up and running.
-You can log in to the oVirt Engine's web administration portal with the username
+You can log in to the oVirt Engine's Web Administration Portal with the username
 admin (the administrative user configured during installation) in the internal domain.
 Instructions to do so are provided at the end of this chapter.
 
@@ -136,7 +138,7 @@ guide within the [oVirt Installation Guide](/documentation/install-guide/Install
 
 ## Configure oVirt
 
-Now that you have logged in to the administration portal, configure your oVirt
+Now that you have logged in to the Administration Portal, configure your oVirt
 environment by defining the data center, host cluster, networks and storage.
 Even though this guide makes use of the default resources configured during installation,
 if you are setting up a oVirt environment with completely new components,
@@ -180,7 +182,7 @@ At installation, oVirt defines a Management network for the default data center.
 This network is used for communication between the manager and the host.
 New logical networks - for example for guest data, storage or display - can be
 added to enhance network speed and performance.
-All networks used by hosts and clusters must be added to data center they belong to.
+All networks used by hosts and clusters must be added to the data center they belong to.
 
 To access the Management network, click on the Clusters tab and select the default cluster.
 Click the Logical Networks tab in the Details pane.
@@ -384,7 +386,7 @@ Now, you need to attach an ISO domain to the data center and upload installation
 images so you can use them to create virtual machines.
 Proceed to [Attach an ISO domain](#Attach_an_ISO_domain)
 
-#### Attach an ISO domain
+#### Attach an ISO Domain
 
 You have defined your first storage domain to store virtual guest data, now it
 is time to configure your second storage domain, which will be used to store
@@ -404,7 +406,7 @@ To use this ISO domain, attach it to a data center.
 
 5. Select the ISO domain and click the Activate button. The status changes to Locked and then to Active.
 
-#### Uploading ISO images
+#### Uploading ISO Images
 
 Media images (CD-ROM or DVD-ROM in the form of ISO images) must be available
 in the ISO repository for the virtual machines to use.
@@ -578,7 +580,7 @@ Retain the default settings for the other options and click OK to start the virt
 
 5. Continue with the Windows 7 install as normal until you reach "Where do you want to install Windows?"
 
-##### Installing with a VirtIO interface
+##### Installing with a VirtIO Interface
 
 <div class="toccolours mw-collapsible mw-collapsed" style="width:800px">
 "Where do you want to install Windows?" does not show any disks. Click to expand this section.
@@ -613,7 +615,7 @@ You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD
 
 </div>
 </div>
-##### Installing with a IDE interface
+##### Installing with a IDE Interface
 
 "Where do you want to install Windows?" shows a disk to install to. Continue as normal.
 

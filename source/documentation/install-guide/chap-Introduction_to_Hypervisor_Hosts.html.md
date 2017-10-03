@@ -31,7 +31,6 @@ The following table outlines the supported host versions in each compatibility v
 | 7.3 |   | ✓ | ✓ |
 | 7.4 |   |   | ✓ |
 
-
 When you create a new data center, you can set the compatibility version. Select the compatibility version that suits all the hosts in the data center. Once set, version regression is not allowed. For a fresh oVirt installation, the latest compatibility version is set in the Default Data Center and Default Cluster; to use an older compatibility version, you must create additional data centers and clusters.
 
 **Prev:** [Chapter 4: oVirt Engine Related Tasks](../chap-oVirt_Engine_Related_Tasks) <br>

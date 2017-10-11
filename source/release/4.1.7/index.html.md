@@ -153,6 +153,10 @@ packages from other repos.
 
  - [BZ 1463917](https://bugzilla.redhat.com/1463917) <b>value of disk type is set as raid6 even if  raid5 is chosen from cockpit UI</b><br>
 
+#### oVirt Engine SDK 4 Java
+
+ - [BZ 1496954](https://bugzilla.redhat.com/1496954) <b>Can't add system permission</b><br>
+
 ### No Doc Update
 
 #### oVirt Engine

@@ -7,8 +7,8 @@ layout: toc
 # oVirt 4.1.7 Release Notes
 
 The oVirt Project is pleased to announce the availability of the 4.1.7
-Second Release Candidate
- as of September 28, 2017.
+Third Release Candidate
+ as of October 11, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -92,7 +92,11 @@ packages from other repos.
 
  - [BZ 1471658](https://bugzilla.redhat.com/1471658) <b>[HC] Hosted engine deployment should enable gfapi access for cluster</b><br>Feature: Enabling gfapi during HE installation<br><br>Reason: For the HC deployment, we want the gfapi access to be enabled for the "Default" cluster during HE deployment. <br><br>Result: You could use additional config file with:<br><br>OVEHOSTED_ENGINE/enableLibgfapi=bool:True<br><br>to enable libgfapi during HE setup
 
-### Bug Fix
+### Bug Fixes
+
+#### VDSM
+
+ - [BZ 1496677](https://bugzilla.redhat.com/1496677) <b>[downstream clone - 4.1.7] NPE when get LLDP info from host interface via REST</b><br>
 
 #### oVirt Hosted Engine Setup
 
@@ -102,25 +106,40 @@ packages from other repos.
 
  - [BZ 1493384](https://bugzilla.redhat.com/1493384) <b>[downstream clone - 4.1.7] Additional HE host deploy fails due to 'received downloaded data size is wrong'</b><br>
 
+#### imgbased
+
+ - [BZ 1493176](https://bugzilla.redhat.com/1493176) <b>RHVH stuck on startup after 'probing EDD... ok' step</b><br>
+
 ### Other
 
 #### VDSM
 
- - [BZ 1483328](https://bugzilla.redhat.com/1483328) <b>[downstream clone - 4.1.7] [sos plugin] lvm commands need syntax change</b><br>Cause: <br>Incorrect lvm config.<br><br>Consequence: <br>Incorrect lvm output.<br><br>Fix: <br>Provide correct lvm config.<br><br>Result: <br>The correct lvm output is generated. The name of generated files will be:<br><br>lvm_lvs_-v_-o_tags_--config_global_locking_type_0_use_lvmetad_0_devices_preferred_names_.dev.mapper._ignore_suspended_devices_1_write_cache_state_0_disable_after_error_count_3_filter_a_.dev.mapper.._r<br><br>lvm_pvs_-v_-o_all_--config_global_locking_type_0_use_lvmetad_0_devices_preferred_names_.dev.mapper._ignore_suspended_devices_1_write_cache_state_0_disable_after_error_count_3_filter_a_.dev.mapper.._r<br><br>lvm_vgs_-v_-o_tags_--config_global_locking_type_0_use_lvmetad_0_devices_preferred_names_.dev.mapper._ignore_suspended_devices_1_write_cache_state_0_disable_after_error_count_3_filter_a_.dev.mapper.._r
+ - [BZ 1483328](https://bugzilla.redhat.com/1483328) <b>[downstream clone - 4.1.7] [sos plugin] lvm commands need syntax change</b><br>Cause: <br>Incorrect lvm config.<br><br>Consequence: <br>Incorrect lvm output.<br><br>Fix: <br>Provide correct lvm config.<br><br>Result: <br>The correct lvm output is generated. The name of generated files will be:<br><br>lvm_lvs_-v_-o_tags_--config_global_locking_type_0_use_lvmetad_0_devices_preferred_names_.dev.mapper._ignore_suspended_devices_1_write_cache_state_0_disable_after_error_count_3_filter_a_.dev.mapper.._r<br><br>lvm_pvs_-v_-o_all_--config_global_locking_type_0_use_lvmetad_0_devices_preferred_names_.dev.mapper._ignore_suspended_devices_1_write_cache_state_0_disable_after_error_count_3_filter_a_.dev.mapper.._r<br><br>lvm_vgs_-v_-o_tags_--config_global_locking_type_0_use_lvmetad_0_devices_preferred_names_.dev.mapper._ignore_suspended_devices_1_write_cache_state_0_disable_after_error_count_3_filter_a_.dev.mapper.._r
  - [BZ 1488878](https://bugzilla.redhat.com/1488878) <b>vdsm-client help should show all available commands</b><br>
 
 #### oVirt Engine Metrics
 
  - [BZ 1468895](https://bugzilla.redhat.com/1468895) <b>Add a playbook that changes collectd and fluentd services state and enable/disable on the engine and hosts</b><br>
 
+#### oVirt Release Package
+
+ - [BZ 1485788](https://bugzilla.redhat.com/1485788) <b>Missing Networking page in Admin Console</b><br>
+
 #### oVirt Engine
 
  - [BZ 1492723](https://bugzilla.redhat.com/1492723) <b>MAC address can be used after vNIC unplug - NO duplication is allowed in the cluster</b><br>
+ - [BZ 1489463](https://bugzilla.redhat.com/1489463) <b>Leftover LUN in engine DB after restore with  --he-remove-storage-vm (seen on FC)</b><br>
  - [BZ 1485688](https://bugzilla.redhat.com/1485688) <b>[downstream clone - 4.1.7] [Pool] VMs are still created with duplicate MAC addresses after 4.0.7 upgrade</b><br>
  - [BZ 1490089](https://bugzilla.redhat.com/1490089) <b>[downstream clone - 4.1.7] 03_06_0620_create_fence_agents_table.sql:60: ERROR:  null value in column "agent_user" violates not-null constraint</b><br>
  - [BZ 1487981](https://bugzilla.redhat.com/1487981) <b>[downstream clone - 4.1.7] Host enters to power management restart loop</b><br>
  - [BZ 1477700](https://bugzilla.redhat.com/1477700) <b>Host enters to power management restart loop</b><br>
+ - [BZ 1489677](https://bugzilla.redhat.com/1489677) <b>[downstream clone - 4.1.7] If VM is down and 'run_on_vds' is still set, errors are reported in engine and server logs</b><br>
+ - [BZ 1497614](https://bugzilla.redhat.com/1497614) <b>RESTAPI- PUT request to update DC from 4.0->4.1 fails with REST response 'Cannot migrate MACs to another MAC pool, because that action would create duplicates in target MAC pool, which are not allowed. Problematic MACs are  00:1a:4a:16:25:b2'</b><br>
+ - [BZ 1496681](https://bugzilla.redhat.com/1496681) <b>[downstream clone - 4.1.7] User cannot use non Public vNIC Profiles</b><br>
  - [BZ 1464765](https://bugzilla.redhat.com/1464765) <b>Set iothreads via REST does not update virtio-scsi devices</b><br>
+ - [BZ 1496720](https://bugzilla.redhat.com/1496720) <b>[TEXT] - Fix minor error in ' Some MAC addresses had to be reallocated, but operation failed becaue of insufficient amount of free MACs.'</b><br>
+ - [BZ 1497518](https://bugzilla.redhat.com/1497518) <b>An exception is thrown when importing a VM with memory snapshots for the second time ('duplicate key value violates unique constraint "pk_images"')</b><br>
+ - [BZ 1497512](https://bugzilla.redhat.com/1497512) <b>Memory snapshots images of a VM imported as active=false instead of active=true</b><br>
  - [BZ 1487291](https://bugzilla.redhat.com/1487291) <b>Snapshots not displayed in date order in vm-snapshots window</b><br>
  - [BZ 1484825](https://bugzilla.redhat.com/1484825) <b>Auto generated snapshot remains LOCKED after concurrent LSM</b><br>
  - [BZ 1478296](https://bugzilla.redhat.com/1478296) <b>Health check on Host <UNKNOWN> indicates that future attempts to Stop this host using Power-Management are expected to fail.</b><br>
@@ -129,6 +148,10 @@ packages from other repos.
 #### oVirt Hosted Engine Setup
 
  - [BZ 1492791](https://bugzilla.redhat.com/1492791) <b>Engine VM has no external connectivity due to unconfigured default gateway if deployed with static IP</b><br>
+
+#### oVirt Cockpit Plugin
+
+ - [BZ 1463917](https://bugzilla.redhat.com/1463917) <b>value of disk type is set as raid6 even if  raid5 is chosen from cockpit UI</b><br>
 
 ### No Doc Update
 

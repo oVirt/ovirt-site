@@ -8,7 +8,7 @@ page_classes: partner-logos
 
 # oVirt Users and Providers
 
-Our community keeps growing as more individual users and organizations choose oVirt. Some are implementing it in their datacenters, while others are using oVirt as the basis for their own customer solutions. Red Hat, which opened the oVirt codebase, uses it as the upstream version of its commercial virtualization product, RHV.
+Our community keeps growing as more individual users and organizations choose oVirt. Some are implementing it in their datacenters, while others are using oVirt as the basis for their own customer solutions. Red Hat, which opened the oVirt codebase, uses it as the upstream version of its commercial virtualization product, Red Hat Virtualization.
 
 ## Professional Services & Integrators
 

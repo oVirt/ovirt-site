@@ -91,7 +91,7 @@ The *mock_runner.sh* script will use the default mock configs, located at */etc/
 Let's see a full session with *mock_runner.sh*, that will execute the scripts (check-patch, check-merged and build-artifacts) on each chroot. That will take some time the first time you run it, as it will generate the chroot base images for each distro.
 
     git clone git://gerrit.ovirt.org/jenkins
-    cd myporject
+    cd myproject
     ls automation
     ...
     shows the check-patch.sh, check-merged.sh and build-artifacts.sh

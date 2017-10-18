@@ -10,9 +10,25 @@ $default_padding : 10px
   text-shadow: 0 1px 2px rgba(0,0,0,.6)
 
 /* general */
+img.error-not-fixed, img.error-fixed
+  display: inline-block
+  position: relative
+  width: 128px
+  height: 128px
+  border: 15px solid #fff
+  border-radius: 1px
+  margin: 0px
+  background: #fff !important
+
 .promo_features ul
   list-style-image: url('/images/promo/bullet_homepage.png')
 
+.blogger_avatar
+  width: 50px
+  background-image: url('/blogger_avatars/default_avatar.png')
+  background-size: 50px
+  min-height: 50px
+  background-repeat: no-repeat
 
 #content h1, #content h2, #content h3, #content h4
   font-family: sans-serif
@@ -56,7 +72,7 @@ header.masthead .nav-pills a
   background-image: none
   background-color: #ededed
   background-size: 100%
-  padding: 2em 0
+  padding-top: 2em
   h2
     display: block
 
@@ -166,16 +182,12 @@ header.masthead .nav-pills a
   padding-top: 0px
 
 .feature-sidebar
+  display: none
   border-right: 1px solid #ddd
 
 .ovirtToggleObject
   padding-bottom: 10px
-
-#content h1, #content h2, #content h3, #content h4
-  color: #333333
-  font-family: sans-serif
-  font-weight: 200
-
+  cursor: pointer
 
 .ovirtToggleObject h1
   font-family: sans-serif
@@ -184,12 +196,10 @@ header.masthead .nav-pills a
   color: darkgreen
   display: inline
 
-.page h1
-  font-weight: 100
-
 #toggleLeftArea
   color: #61b60e
   font-variant: small-caps
+  cursor: pointer
 
 #feature-search > .form-group > .checkbox
   display: none

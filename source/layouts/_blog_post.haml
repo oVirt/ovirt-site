@@ -86,12 +86,15 @@
 
     %header.post-meta
       - if article.data.author
+        .blogger_avatar
+          %img(src="/blogger_avatars/#{author}.png")
+
+  
         %span.byline
           by
           %span.author.vcard
             = author_link article.data.author
-
-      &ndash;
+          &ndash;
 
       %time.published{datetime: article.date.iso8601}
         = pretty_date article.date

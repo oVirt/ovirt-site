@@ -15,15 +15,16 @@ hide_metadata: true
 
   .container
 
-    .div
-      %h1.tagline.text-center
-        Open Your Virtual Datacenter
 
-      %h2.text-center oVirt is an open source, enterprise class, virtual datacenter platform,
-
-      %h2.text-center
-        built on the foundation of the Linux KVM hypervisor.
-
+    %div{ :style => "background-image: url(/images/promo/4dot2alpha_banner.png); background-repeat: no-repeat; background-position: center; background-position-y: 0px; height: 220px;" }
+      %div
+        %div{:style => "display: table; margin: 0 auto; padding-left: 410px; font-size: 20px; padding-top: 90px; color:#666666; line-height: 1.8;" }
+          :markdown
+            * All new Administration Portal, designed using Patternfly
+            * High Performance virtual machine type, for effortless optimization
+            * Native Open vSwitch support, for virtual L2 and L3 overlays
+            * Supports Nvidia vGPU, for GPU-accelerated workloads
+            * and much more.
 
 - if defined? page_number && page_number < 2
 
@@ -173,11 +174,11 @@ hide_metadata: true
         %h3 Community is Key
         %img(src="/images/promo/join_ovirt.jpg")
         :markdown
-          oVirt is a community-driven virtualization project, and people like you are making it happen! You don't have to be a programmer. 
-          The project will greatly benefit from inputs by documentation, bug reporting, UX, and design superheroes. 
-         
+          oVirt is a community-driven virtualization project, and people like you are making it happen! You don't have to be a programmer.
+          The project will greatly benefit from inputs by documentation, bug reporting, UX, and design superheroes.
+
           Stay in the loop about the latest features, upcoming events and other community-related developments by joining us on oVirt's social media channels:
-          
+
           {:.icon-list}
           * [Twitter](//twitter.com/ovirt){:.icon-twitter}
           * [Google+](//plus.google.com/u/0/communities/109346090491400112913){:.icon-google-plus}

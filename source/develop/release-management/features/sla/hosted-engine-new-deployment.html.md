@@ -17,9 +17,9 @@ the different engine installations.
 
 ## The change 
 
-The new process will use the current engine code to create all entities needed for successfull hosted engine deployment.   
+The new process will use the current engine code to create all entities needed for successful hosted engine deployment.   
 A local bootstrap VM with the engine appliance will be created on the host. After running engine setup on that VM we will use the 
-engine api to add a host (same one we are running on), storage domain, storage disks and finally a VM that will later become the 
+engine API to add a host (same one we are running on), storage domain, storage disks and finally a VM that will later become the 
 hosted engine VM in the engine (thus eliminating the need for importing it).   
 Once all the entities are created we can shut down the bootstrap VM, copy its disk to the disk we created using the engine, create the hosted engine configuration files, start the agent and the broker, and the hosted engine VM will start.   
 
@@ -38,23 +38,23 @@ For now, the vars file needs to be populated manually. Later the user's answers 
 
 1. Host installation fails during the network setup stage  
    The reason for this is that the VDSM setup removes the routing table.   
-   Workaround: Rewrite the routing table after the host gets to the "non operational" state and then save the network configuration. 
-   using vdsm-client. This causes the host to go to the "up" state almost immediatly.   
+   Workaround: Rewrite the routing table after the host gets to the "non-operational" state and then save the network    configuration. 
+   using vdsm-client. This causes the host to go to the "up" state almost immediately.   
    Permanent solution: Handle this in host deploy code.   
 2. Adding Hosted Engine disk takes a long time   
    This might not be a problem if using a cow format and not raw. But this hasn't been tested yet.   
 3. When using an FQDN that resolves to a real IP the bootstrap VM tries to access the real IP and the installation fails 
    Workaround: Add a line to /etc/hosts on the host that maps the FQDN to the vm temporary IP.  
-               Add a line to /etc/hosts on the vm that maps the FQDN to localhost - not implemented.   
-   After a successfull installation those lines need to be removed.   
+               Add a line to /etc/hosts on the VM that maps the FQDN to localhost - not implemented.   
+   After a successfull installation, those lines need to be removed.   
 4. When hosted engine with an ISCSI domain the storage domain creation fails  
    This seems like a bug in Ansible ovirt_storage_domain module which doesn't support this feature: 
    https://www.ovirt.org/develop/release-management/features/storage/discard-after-delete/  
-   Workaround: use direct api command until the Ansible module is fixed - not implemented.   
+   Workaround: use direct API command until the Ansible module is fixed - not implemented.   
 5. Gluster and fibre channel storage  
    Not implemented   
 6. When creating the configuration archive the agent fails to read it  
-   Ansible's archive module creates a compressed tar archive. The agent expects a non compressed version.   
+   Ansible's archive module creates a compressed tar archive. The agent expects a non-compressed version.   
    Workaround: create the archive using the command module.    
 7. After installing VDSM libvirt commands need to be authenticated  
    Workaround: configure libvirt to listen to tls and preform the commands using: qemu+tls:///{IP}/system
@@ -69,7 +69,7 @@ For now, the vars file needs to be populated manually. Later the user's answers 
 4. Create cloud-init files that will run engine setup, and generate an ISO CD 
 5. Create the bootstrap VM, cloud-init will install the engine
 6. Add the FQDN and the bootstrap VM IP to /etc/hosts on the host
-7. Wait for the Enigne setup to complete
+7. Wait for the Engine setup to complete
 8. Add the FQDN to the localhost line in /etc/hosts on the vm 
 9. Add host 
 10. Wait for host to become non-operational

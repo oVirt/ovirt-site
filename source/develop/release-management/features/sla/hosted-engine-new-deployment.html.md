@@ -102,7 +102,7 @@ VM_MAC_ADDR: 00:16:3e:1e:15:d7 - mac address for the VM
 CLOUD_INIT_DOMAIN_NAME: mydomain - domain name for the VM  
 CLOUD_INIT_HOST_NAME: myvm - host name for the VM   
 HOST_NAME: sansa - host name for the Hosted Engine host, this will appear in the UI  
-HOST_ADDRESS: sansa.usersys.redhat.com - host address for the Hosted Engine host  
+HOST_ADDRESS: local.example.local1.com - host address for the Hosted Engine host  
 LOCAL_VM_DIR: /usr/localvm - the local directory on the host where the all the configuration files will be created   
 ADMIN_PASSWORD: 1234 - password for the engine   
 APPLIANCE_PASSWORD: qum5net - password for the Hosted Engine VM   
@@ -129,14 +129,14 @@ VERSION: 2.2.0-0.0.master.20170413122212 - the version for the version file in t
 GATEWAY: 10.35.1.254 - gateway 
 DOMAIN_TYPE: nfs3 - desired domain type 
 ISCSI_PORT: 3260 
-ISCSI_TARGET: iqn.2017-10.com.redhat.tlv:sla-leonard
+ISCSI_TARGET: iqn.2017-10.com.example
 LUN_ID: 36001405879c330daed74eae8ec28a237 - ansible module requires lun id   
 ISCSI_STORAGE: false - whether this is iscsi domain or not      
 ISCSI_USERNAME: username  
 ISCSI_PASSWORD: password  
-STORAGE: shablul.eng.lab.tlv.redhat.com:/exports/multipass/export/images/rnd/etokar/sansa/he/exports/multipass/export/images/rnd/etokar/sansa/he - path to the storage, in ISCSI case this is the IP of the portal     
-STORAGE_DOMAIN_ADDR: shablul.eng.lab.tlv.redhat.com - IP or host name of NFS storage     
-STORAGE_DOMAIN_PATH: /exports/multipass/export/images/rnd/etokar/sansa/he - path for NFS storage    
+STORAGE: local.example.com/ - path to the storage, in ISCSI case this is the IP of the portal     
+STORAGE_DOMAIN_ADDR: local.example.com - IP or host name of NFS storage     
+STORAGE_DOMAIN_PATH: /local/example/local1/example1/ - path for NFS storage    
 NFS_STORAGE: true - whether this is a NFS domain or not   
 
 ## Patch set

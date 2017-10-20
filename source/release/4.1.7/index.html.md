@@ -92,15 +92,31 @@ packages from other repos.
 
  - [BZ 1502931](https://bugzilla.redhat.com/1502931) <b>[RFE]  Allow passing extra ansible opts to oVirt Metrics shell script</b><br>
 
+#### oVirt Engine
+
+ - [BZ 1502510](https://bugzilla.redhat.com/1502510) <b>[downstream clone - 4.1.7] Rest API does not report network statistics host "data.current.tx, data.current.rx"</b><br>Feature: <br><br>The precision of the rx_rate, tx_rate, rx_drop and tx_drop of virtual and host network interfaces is increased.<br><br>Reason: <br><br>If traffic on the network interface is below the precision of the network interface statistics, it is not reflected in the statistics.<br><br>Result: <br><br>This enables to detect 100 times smaller traffic on network interface statistics.
+
 #### oVirt Hosted Engine Setup
 
  - [BZ 1471658](https://bugzilla.redhat.com/1471658) <b>[HC] Hosted engine deployment should enable gfapi access for cluster</b><br>Feature: Enabling gfapi during HE installation<br><br>Reason: For the HC deployment, we want the gfapi access to be enabled for the "Default" cluster during HE deployment. <br><br>Result: You could use additional config file with:<br><br>OVEHOSTED_ENGINE/enableLibgfapi=bool:True<br><br>to enable libgfapi during HE setup
+
+#### oVirt Hosted Engine HA
+
+ - [BZ 1502653](https://bugzilla.redhat.com/1502653) <b>[downstream clone - 4.1.7] HE host on EngineStarting -> EngineMaybeAway -> EngineDown cycle</b><br>Feature: Added caching of OVF storage location. <br><br>Reason: As OVF storage location raraely changes, we do not need to search for it on every monitoring loop iteration. Instead it can be saved and reused and expired only in case of error.<br><br>Result: Monitoring loop execution time decreased significantly
+
+### Rebase: Bug Fixeses and Enhancementss
+
+#### oVirt Host
+
+ - [BZ 1503124](https://bugzilla.redhat.com/1503124) <b>Provide ovirt-host package in 4.1</b><br>
 
 ### Bug Fixes
 
 #### VDSM
 
+ - [BZ 1503219](https://bugzilla.redhat.com/1503219) <b>[downstream clone - 4.1.7] Handle copy of compressed QCOWs image (like rhel guest images) from one to block storage domain.</b><br>
  - [BZ 1496677](https://bugzilla.redhat.com/1496677) <b>[downstream clone - 4.1.7] NPE when get LLDP info from host interface via REST</b><br>
+ - [BZ 1474213](https://bugzilla.redhat.com/1474213) <b>RHV-H defaults to localtime hardware clock</b><br>
 
 #### oVirt Engine
 
@@ -129,7 +145,11 @@ packages from other repos.
 
 #### VDSM
 
+ - [BZ 1342550](https://bugzilla.redhat.com/1342550) <b>while deleting vms created from a template, vdsm command fails with error VDSM command failed: Could not remove all image's volumes</b><br>
+ - [BZ 1502213](https://bugzilla.redhat.com/1502213) <b>[downstream clone - 4.1.7] [downstream clone - 4.2.0] while deleting vms created from a template, vdsm command fails with error VDSM command failed: Could not remove all image's volumes</b><br>
+ - [BZ 1464002](https://bugzilla.redhat.com/1464002) <b>Consume libvirt fixes fox RHEL7.4 [depends on bug 1461303; bug 1470127 - fixed for 7.4.z]</b><br>
  - [BZ 1483328](https://bugzilla.redhat.com/1483328) <b>[downstream clone - 4.1.7] [sos plugin] lvm commands need syntax change</b><br>Previously, incorrect LVM configuration resulted in incorrect LVM output. The LVM configuration has now been fixed so that the correct LVM output is generated. The names of the generated files are as follows:<br><br>lvm_lvs_-v_-o_tags_--config_global_locking_type_0_use_lvmetad_0_devices_preferred_names_.dev.mapper._ignore_suspended_devices_1_write_cache_state_0_disable_after_error_count_3_filter_a_.dev.mapper.._r<br><br>lvm_pvs_-v_-o_all_--config_global_locking_type_0_use_lvmetad_0_devices_preferred_names_.dev.mapper._ignore_suspended_devices_1_write_cache_state_0_disable_after_error_count_3_filter_a_.dev.mapper.._r<br><br>lvm_vgs_-v_-o_tags_--config_global_locking_type_0_use_lvmetad_0_devices_preferred_names_.dev.mapper._ignore_suspended_devices_1_write_cache_state_0_disable_after_error_count_3_filter_a_.dev.mapper.._r
+ - [BZ 1502206](https://bugzilla.redhat.com/1502206) <b>Vdsm fails to start when logger conf file is invalid</b><br>
  - [BZ 1497940](https://bugzilla.redhat.com/1497940) <b>[downstream clone - 4.1.7] Sanlock init failed with unhelpful error message "Sanlock exception"</b><br>
  - [BZ 1488878](https://bugzilla.redhat.com/1488878) <b>vdsm-client help should show all available commands</b><br>
 
@@ -145,14 +165,20 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1383301](https://bugzilla.redhat.com/1383301) <b>Snapshot remove Live-Merge failed, After vm shutdown, start again is not possible</b><br>
  - [BZ 1496399](https://bugzilla.redhat.com/1496399) <b>[downstream clone - 4.1.7] Shutdown of a vm during snapshot deletion renders the disk invalid</b><br>
+ - [BZ 1498478](https://bugzilla.redhat.com/1498478) <b>[Bug RHV 4.1.7] VM snapshots "clone" button doesn't work.</b><br>
  - [BZ 1490089](https://bugzilla.redhat.com/1490089) <b>[downstream clone - 4.1.7] 03_06_0620_create_fence_agents_table.sql:60: ERROR:  null value in column "agent_user" violates not-null constraint</b><br>
  - [BZ 1487981](https://bugzilla.redhat.com/1487981) <b>[downstream clone - 4.1.7] Host enters to power management restart loop</b><br>
  - [BZ 1477700](https://bugzilla.redhat.com/1477700) <b>Host enters to power management restart loop</b><br>
+ - [BZ 1418165](https://bugzilla.redhat.com/1418165) <b>[ja_JP] [Admin Portal] The tab name 'Scheduling policy' in Japanese appears slightly truncated in clusters->new window.</b><br>
  - [BZ 1489677](https://bugzilla.redhat.com/1489677) <b>[downstream clone - 4.1.7] If VM is down and 'run_on_vds' is still set, errors are reported in engine and server logs</b><br>
  - [BZ 1496681](https://bugzilla.redhat.com/1496681) <b>[downstream clone - 4.1.7] User cannot use non Public vNIC Profiles</b><br>
  - [BZ 1464765](https://bugzilla.redhat.com/1464765) <b>Set iothreads via REST does not update virtio-scsi devices</b><br>
  - [BZ 1496720](https://bugzilla.redhat.com/1496720) <b>[TEXT] - Fix minor error in ' Some MAC addresses had to be reallocated, but operation failed becaue of insufficient amount of free MACs.'</b><br>
+ - [BZ 1498580](https://bugzilla.redhat.com/1498580) <b>Snapshot preview failure leaves jobs running and image locked</b><br>
+ - [BZ 1417904](https://bugzilla.redhat.com/1417904) <b>[fr_FR, es_ES] [Admin Portal] Text overlap and UI distortion observed on data center->QoS->storage->new page.</b><br>
+ - [BZ 1488434](https://bugzilla.redhat.com/1488434) <b>RestAPI documentation doesn't mention the image parameter for the upgrade call</b><br>
  - [BZ 1497518](https://bugzilla.redhat.com/1497518) <b>An exception is thrown when importing a VM with memory snapshots for the second time ('duplicate key value violates unique constraint "pk_images"')</b><br>
  - [BZ 1497512](https://bugzilla.redhat.com/1497512) <b>Memory snapshots images of a VM imported as active=false instead of active=true</b><br>
  - [BZ 1487291](https://bugzilla.redhat.com/1487291) <b>Snapshots not displayed in date order in vm-snapshots window</b><br>
@@ -185,3 +211,8 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1471815](https://bugzilla.redhat.com/1471815) <b>SQL Exception while sorting columns of events subtab of Hosts main tab</b><br>
+
+#### oVirt Hosted Engine HA
+
+ - [BZ 1504150](https://bugzilla.redhat.com/1504150) <b>[downstream clone - 4.1.7] Engine-health monitor should expect new sanlock error message</b><br>
+

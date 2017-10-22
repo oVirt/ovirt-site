@@ -39,6 +39,7 @@ _More information on [oVirt subprojects](/subprojects/)_
 
 ## Developer Documentation
 
+- [Build and Test Standards](/develop/dev-process/build-and-test-standards/)
 - [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/)
 - [Building oVirt engine](/develop/developer-guide/engine/engine-development-environment/)
 - [Testing ovirt-engine patches with Lago](/develop/infra/testing/lago/testing-engine-patches-with-lago/)

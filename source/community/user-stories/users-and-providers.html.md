@@ -27,7 +27,7 @@ The following organizations use oVirt for customer-facing or internal servers. M
 
 <div class="case-study">
 [![Cornerstone Technical Solutions](/images/logos/Cornerstone.png)](https://cornerstonets.net/)
-[Cornerstone Technical Solutions](//cornerstonets.net/managed-services) delivers IT management services, including oVirt-based virtualization services for consolidating datacenters.
+[Cornerstone Technical Solutions](//cornerstonets.net/) delivers IT management services, including oVirt-based virtualization services for consolidating datacenters.
 </div>
 
 <div class="case-study">

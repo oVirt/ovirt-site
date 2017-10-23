@@ -19,6 +19,8 @@ READMORE
 
 ## About FOSDEM
 
+![](/images/blog/FOSDEM_logo.png)
+
 This Virtualization & IaaS devroom at FOSDEM is a collaborative effort, organized by dedicated folks from projects such as OpenStack, Xen Project,, oVirt, QEMU, and
 Foreman. Featured sessions will include topics such as open source hypervisors and virtual machine managers such as Xen Project, KVM,bhyve, and VirtualBox, and Infrastructure-as-a-Service projects such as Apache CloudStack, OpenStack, oVirt, QEMU, OpenNebula, and Ganeti.
 
@@ -50,6 +52,9 @@ If you have any questions about this devroom, please send your questions to our 
 See you all at FOSDEM!
 
 ## About DENCONF
+
+![](/images/blog/DEVCONF_logo.png)
+
 DEVCONF, the 10th annual, free community conference for developers, admins, and users of free and open source Linux, JBoss technologies, will take place in the beautiful Faculty of Information Technology, Brno University of Technology, Brno, January 26-28, 2018.
 [Learn more](https://devconf.cz/cz/2018/index.html)
 

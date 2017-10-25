@@ -67,5 +67,5 @@ VDSM name is currently only displayed on host side. "On host identifier" column 
 
 "Editable Name" checkbox is added in the network creation dialog. It should be displayed and be grayed out in the network edit dialog.
 
-Stage 3, Editable state modification:
+Stage 4, Editable state modification:
 The "Editable Name" checkbox should no longer be grayed out and should be operational.

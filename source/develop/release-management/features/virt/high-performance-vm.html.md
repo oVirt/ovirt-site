@@ -202,7 +202,7 @@ For more information please see https://trello.com/c/ABUiJgWR/62-hugepages
  - For creating a fully configured High Performance VM via REST API, the following set of API's should be called:
 1. Create a new VM based on pre-created High Performance Template and set 'host_passthrough' and host pinning since it is not part of the template.
 Alternatively, if the new VM is based on a 'Blank' Template then the user should set the following required/recommended high performance configuration as part of the API request:
-Enable host_passthrough, set cpu_pinning, disable soundcard, disable migration, disable balloon, enable serial console, enable huge pages, enable high availability, set io threads num to 1.
+Enable host_passthrough, set cpu_pinning, disable soundcard, disable migration, disable balloon, enable serial console, enable huge pages, enable high availability, set io threads number to 1.
 
      An Example for creating a VM based on a high perfomance template:
      
@@ -237,6 +237,7 @@ Enable host_passthrough, set cpu_pinning, disable soundcard, disable migration, 
 	 POST .../api/vms/\<vm-i\>d/numanodes
 
 4. Disable KSM for the VM's Cluster.
+
 
 The same goes for Templates and Pools.
     

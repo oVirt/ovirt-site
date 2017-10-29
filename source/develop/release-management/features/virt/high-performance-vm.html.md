@@ -1,4 +1,4 @@
-﻿---
+---
 title: High Performance VM 
 category: feature
 authors: SharonG
@@ -64,6 +64,7 @@ For Headless VM handling please see http://www.ovirt.org/develop/release-managem
 
 #### **Disable all USB devices**
 Displayed in console side-tab of the VM dialog.
+
 This is a new configuration setting added for oVirt 4.2.
 It will be supported only if Headless mode is enabled.
 
@@ -111,6 +112,7 @@ This option is automatically set using libvirt defaults ("Period duration"=1000 
 
 #### **Set the IO and Emulator threads pinning topology**
 This is a new configuration setting added for oVirt 4.2.
+
 This option will be automatically configured and calculated in engine side and the recommended calculated pinning topology will be sent to the host in libvirt xml.
 No UI settings are required for this option.
 
@@ -120,18 +122,19 @@ The automatic calculated pinning topology for IO and emulator threads will assum
   
  - The automatic IO thread pinning will be done by pinning to CPUs (of the pinned NUMA node) that are responsible for the IO in the host, or alternatively pinned to CPU#0 as this is typically the one.
  
- - The first two CPUs per NUMA node will be reserved for IO+emulator threads. The default value will be set to "0,1". Such configuration would imply that two CPUs, 0th and 1st in each NUMA node, will be used for IO + Emulator thread pinning for each High Performance VM.
+ - The first two CPUs per NUMA node will be reserved for IO+Emulator threads. The default value will be set to "0,1". Such configuration would imply that two CPUs, 0th and 1st in each NUMA node, will be used for IO + Emulator thread pinning for each High Performance VM.
 
 	If all VM's CPUs fit to one NUMA node of the host, then those first two CPUs are reserved for emulator + IO pinning and the rest will be used for vCPU pinning.
 
  - Additional logic is required to avoid wasting CPUs for large single High Performance VMs that span more then one NUMA node. For such VMs, the engine will find the most pinned NUMA node (i.e. the NUMA node that most vCPUs are pinned to), pins the IO and emulator to the first two CPUs of that NUMA node and leaves the next pinned NUMA node(s) to be used for vCPU pinning only.
 
- - In case both lists of CPUs pinned to vCPUs and CPUs pinned to IO+emulator threads are overlapping, a warning will be displayed in the log and the user will be asked to set it.
+ - In case the list of CPUs pinned to vCPUs and the list of CPUs pinned to IO+emulator threads are overlapping, a warning will be displayed in the log and the user will be asked to fix it.
 
  - Note that Pools are not supporting IO+Emulator threads pinning (since NUMA pinning is not supported for Pools, see "Enable virtual NUMA and set NUMA pinning topology" section for details).
 
 #### **Enable CPU cache layer 3**
 This is a new configuration setting added for oVirt 4.2.
+
 This configuration option in not displayed in UI and no settings are required for it.
 It is supported by libvirt since version 3.3.0 and therefore in case of running High Performance VM on a pinned host with libvirt installed version <  3.3.0, this option will be automatically disabled.
 
@@ -144,7 +147,7 @@ In case the CPU Pinning topology is not set upon VM saving, a recommendation/war
 
 Ideally the CPU pinning should be done automatically and not manually by the user, but in first phase we will not support it.  
 
-Note that since this configuration option can be set only for VMs and Pools and not for Templates, then the user should always set this field when creating a VM or a Pool even if it is based on a High Performance Template.
+Note that since this configuration option can be set for VMs and Pools and not for Templates, then the user should always set this field when creating a VM or a Pool, even if it is based on a High Performance Template.
 
 #### **Enable virtual NUMA and set NUMA pinning topology**
 Displayed in 'Host' side-tab of the VM dialog.
@@ -153,7 +156,7 @@ In case the virtual NUMA and the NUMA pinning topology are not set upon VM savin
 
 Ideally the NUMA pinning should be done automatically according to the exposed host's NUMA topology and not manually by the user, but in first phase we will not support it.
 
-Note that since this configuration option can be set only for VMs and not for Templates or Pools, then the user should always set this configuration when creating a VM while for Pools there is no such option and therefore Pools are not supporting NUMA pinning.
+Note that since this configuration option can be set only for VMs and not for Templates or Pools, then the user should always set this configuration when creating a VM. Since for Pools there is no such option then Pools are not supporting NUMA pinning.
 
 #### **disable kernel same page merging (KSM)**
 This is currently implemented in engine only for cluster level (new/edit cluster dialog->'Optimization side-tab). 
@@ -201,21 +204,27 @@ Alternatively, if the new VM is based on a 'Blank' Template then the user should
 Enable host_passthrough, set cpu_pinning, disable soundcard, disable migration, disable balloon, enable serial console, enable huge pages, enable high availability, set io threads num to 1.
 
      For Example if all is set in a high perfomance template:
+     
      POST .../api/vm
 
      \<vm\>
+     
      \<cluster\>\<name\>cluster_name\</name\>\</cluster\>
+     
      \<name\>vm_name\</name\>
+     
      \<template\>\<name\>hp_template\</name\>\</template\>
-     \<type\>HIGH_PERFORMANCE\</type\>
+     
+     \<type\>HIGH_PERFORMANCE\</type\>\
+     
      \<cpu\>
      \<mode\>host_passthrough\</mode\>
-     \<cpu_tune\>
-     \<vcpu_pins\>
-     \<vcpu_pin\>\<vcpu\>0\</vcpu\>\<cpu_set\>0\</cpu_set\>\</vcpu_pin \</vcpu_pins\>
-     \</cpu_tune\>
-     \</cpu\>
-     \</vm\>
+    
+     \<cpu_tune\>\<vcpu_pins\>\<vcpu_pin\>\<vcpu\>0\</vcpu\>\<cpu_set\>0\</cpu_set\>\</vcpu_pin \</vcpu_pins\>\</cpu_tune\>
+    
+    \</cpu\>
+    
+    \</vm\>
 
 2. For setting the VM as Headless and disable all USB devices, delete all graphic consoles by calling for each graphic console device:
 

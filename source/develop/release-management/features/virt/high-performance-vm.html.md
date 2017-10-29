@@ -99,7 +99,8 @@ This option can also be set manually by the user for the cluster of that VM (add
 Displayed in 'High Availability' side-tab of the VM dialog.
 
 Currently High availability is not supported when migration is disabled.
-High Performance VMs will be treated differently and will support High availability but only for the VM's pinned host(s). This will allow re-running of the VM on the same pinned host or the next pinned host in case there are more than one.
+
+High Performance VMs will be treated differently and will support High availability, but only for the VM's pinned host(s). This will allow re-running of the VM on the same pinned host or the next pinned host in case there are more than one.
  The High availability support will be expanded to all cluster hosts as part of the solution for supporting migration in oVirt 4.3.
 
 #### **Disable the Watchdog device**
@@ -156,7 +157,7 @@ In case the virtual NUMA and the NUMA pinning topology are not set upon VM savin
 
 Ideally the NUMA pinning should be done automatically according to the exposed host's NUMA topology and not manually by the user, but in first phase we will not support it.
 
-Note that since this configuration option can be set only for VMs and not for Templates or Pools, then the user should always set this configuration when creating a VM. Since for Pools there is no such option then Pools are not supporting NUMA pinning.
+Note that this configuration option can be set for VMs and not for Templates or Pools. Therefore, the user should always set NUMA configuration when creating a VM based on a Template, while for Pools NUMA pinning is not supported at all.
 
 #### **disable kernel same page merging (KSM)**
 This is currently implemented in engine only for cluster level (new/edit cluster dialog->'Optimization side-tab). 
@@ -203,7 +204,7 @@ For more information please see https://trello.com/c/ABUiJgWR/62-hugepages
 Alternatively, if the new VM is based on a 'Blank' Template then the user should set the following required/recommended high performance configuration as part of the API request:
 Enable host_passthrough, set cpu_pinning, disable soundcard, disable migration, disable balloon, enable serial console, enable huge pages, enable high availability, set io threads num to 1.
 
-     For Example if all is set in a high perfomance template:
+     An Example for creating a VM based on a high perfomance template:
      
      POST .../api/vm
 
@@ -218,6 +219,7 @@ Enable host_passthrough, set cpu_pinning, disable soundcard, disable migration, 
      \<type\>HIGH_PERFORMANCE\</type\>\
      
      \<cpu\>
+     
      \<mode\>host_passthrough\</mode\>
     
      \<cpu_tune\>\<vcpu_pins\>\<vcpu_pin\>\<vcpu\>0\</vcpu\>\<cpu_set\>0\</cpu_set\>\</vcpu_pin \</vcpu_pins\>\</cpu_tune\>
@@ -226,7 +228,7 @@ Enable host_passthrough, set cpu_pinning, disable soundcard, disable migration, 
     
     \</vm\>
 
-2. For setting the VM as Headless and disable all USB devices, delete all graphic consoles by calling for each graphic console device:
+2. For setting the VM as Headless and disable all USB devices, the user need to delete all graphic consoles by calling for each graphic console device:
 
 	  DELETE .../api/vms/\<vm-id\>/graphicsconsoles/\<console-id\>
 

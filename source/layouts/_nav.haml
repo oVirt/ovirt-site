@@ -16,7 +16,7 @@
 -#
 -# nav_class ||= "nav-pills"
 -# nav_class ||= "nav-stacked"
-- nav_class ||= "nav-stacked"
+- nav_class ||= "nav navbar-nav navbar-right"
 
 -# Unless specified, the link for any brand used is /
 -#
@@ -37,6 +37,23 @@
 -# Foo is a normal link.
 -# Bar is a dropdown title (with an optional link — it can be empty), as it has children
 -# Baz and Baz2 are children links to Bar.
+
+:plain
+  <nav id="mainNav" class="navbar-fixed-top affix-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu_id0980fddf">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="menu_id0980fddf">
+                <ul class="nav navbar-nav">
+                    <li class="hidden active">
+                        <a href="#page-top"></a>
+                    </li>
 
 :ruby
 
@@ -62,7 +79,7 @@
     text = link.split('/').last.humanize if (text.empty? || text == "-")
 
     # Make a class baed on the link's name
-    name_class = ".nav-link-#{text.downcase.parameterize}"
+    name_class = ""
 
     capture_haml do
       haml_tag "li" + active_class + name_class, role: "menuitem" do
@@ -75,32 +92,39 @@
 
 - if data.has_key?(source) && data[source]
 
-  %nav(role="navigation")
-    %ul.nav(class="#{nav_class}")
 
-      - data[source].each do |item|
 
-        - if item.is_a?(String)
+  - data[source].each do |item|
 
-          = nav_header item
+    - if item.is_a?(String)
+
+      = nav_header item
+
+    - else
+
+      - item.each do |text, link|
+
+        - if item.count == 1
+
+          - if link
+            = nav_link text, link
+
+          - else
+            = nav_header text
 
         - else
 
-          - item.each do |text, link|
+          = nav_link text, link do
 
-            - if item.count == 1
+            %ul.nav(role="menu")
+              - item.each do |text, link|
+                - unless text == text
+                  = nav_link text, link
 
-              - if link
-                = nav_link text, link
-
-              - else
-                = nav_header text
-
-            - else
-
-              = nav_link text, link do
-
-                %ul.nav(role="menu")
-                  - item.each do |text, link|
-                    - unless text == text
-                      = nav_link text, link
+:plain
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>

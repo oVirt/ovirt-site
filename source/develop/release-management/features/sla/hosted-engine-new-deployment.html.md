@@ -30,7 +30,7 @@ The current answer file will need to be converted to an Ansible vars file.
 The configuration files will be created using Ansible templates and then packaged and copied to the correct location. 
 
 To run the script install Ansible and run:   
-    ansible-playbook hosted-engine.yml   
+    ansible-playbook hosted_engine.yml   
 The script will install all the packages and will start the deployment.   
 For now, the vars file needs to be populated manually. Later the user's answers in the setup stage will be used to populate the values. 
 

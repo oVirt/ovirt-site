@@ -31,7 +31,6 @@ storage domain. the storage domain status that will become 'Inactive'.
 of the host will become 'Non Operational'.
 
 
-
 ## Owner
 
 - Name: [Fred Rolland](https://github.com/rollandf)
@@ -45,7 +44,7 @@ of the host will become 'Non Operational'.
 
 Vdsm will register to udev multipath events during storage initialization.
 Vdsm will also build a map of all the faulty paths. 
-For each event, Vdsm will update the list, according to the event.
+For each event, Vdsm will update the map, according to the event.
 The details of the faulty paths will be part of the statistics provided by
 'Host.getStats' verb.
 
@@ -57,8 +56,7 @@ an event will be created.
 
 ### New vdsm API
 
-New property in 'HostStats': 'MultipathAlertsMap' which is a mapping of faulty paths
-indexed by the device mapper GUID.
+Host.getStats will report now new 'multipath' key. The contents is a map of multipath alerts.
 
 
 #### Multipath Alerts Map
@@ -137,17 +135,17 @@ only for this host.
 This feature does not affect engine or Vdsm installation or upgrades
 
 
-## User work-flows
+## User workflows
 
 - Once a user connects to a new ISCSI server, no events will be created.
 
-- If there is an issue with the storage server, and the 
-multipath reports an issue with one or more device path, a "Faulty multipath paths on host" will be created
+- If there is an issue with the storage server, and multipath reports
+an issue with one or more device path, a "Faulty multipath paths on host" event will be created
 
 - Once the issue is fixed, and all paths are up a "No faulty multipath paths on host "HOST_NAME"
 event will be created
 
-- If only part of the paths are fixed, a "Faulty multipath paths on host" will be created with the details of the devices.
+- If only part of the paths are fixed, a "Faulty multipath paths on host" event will be created with the details of the devices.
 
 
 ## Dependencies / Related Features

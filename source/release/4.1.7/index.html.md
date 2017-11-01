@@ -7,8 +7,8 @@ layout: toc
 # oVirt 4.1.7 Release Notes
 
 The oVirt Project is pleased to announce the availability of the 4.1.7
-Fourth Release Candidate
- as of October 19, 2017.
+Fifth Release Candidate
+ as of November 01, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -94,7 +94,7 @@ packages from other repos.
 
 #### oVirt Engine
 
- - [BZ 1502510](https://bugzilla.redhat.com/1502510) <b>[downstream clone - 4.1.7] Rest API does not report network statistics host "data.current.tx, data.current.rx"</b><br>Feature: <br><br>The precision of the rx_rate, tx_rate, rx_drop and tx_drop of virtual and host network interfaces is increased.<br><br>Reason: <br><br>If traffic on the network interface is below the precision of the network interface statistics, it is not reflected in the statistics.<br><br>Result: <br><br>This enables to detect 100 times smaller traffic on network interface statistics.
+ - [BZ 1502510](https://bugzilla.redhat.com/1502510) <b>[downstream clone - 4.1.7] Rest API does not report network statistics host "data.current.tx, data.current.rx"</b><br>The precision of rx_rate, tx_rate, rx_drop, and tx_drop of virtual and host network interfaces have been increased. Network traffic 100 times smaller can now be detected on network interface statistics.<br><br>If traffic on the network interface is below the precision of the network interface statistics, it is not reflected in the statistics.
 
 #### oVirt Hosted Engine Setup
 
@@ -102,13 +102,13 @@ packages from other repos.
 
 #### oVirt Hosted Engine HA
 
- - [BZ 1502653](https://bugzilla.redhat.com/1502653) <b>[downstream clone - 4.1.7] HE host on EngineStarting -> EngineMaybeAway -> EngineDown cycle</b><br>Feature: Added caching of OVF storage location. <br><br>Reason: As OVF storage location raraely changes, we do not need to search for it on every monitoring loop iteration. Instead it can be saved and reused and expired only in case of error.<br><br>Result: Monitoring loop execution time decreased significantly
+ - [BZ 1502653](https://bugzilla.redhat.com/1502653) <b>[downstream clone - 4.1.7] HE host on EngineStarting -> EngineMaybeAway -> EngineDown cycle</b><br>This release adds caching of the OVF storage location. As the OVF storage location rarely changes, it does not need to be searched for on every monitoring loop iteration. Instead it can be saved and reused, and expired only in the case of an error. As a result, the monitoring loop execution time is decreased significantly.
 
 ### Rebase: Bug Fixeses and Enhancementss
 
 #### oVirt Host
 
- - [BZ 1503124](https://bugzilla.redhat.com/1503124) <b>Provide ovirt-host package in 4.1</b><br>
+ - [BZ 1503124](https://bugzilla.redhat.com/1503124) <b>Provide ovirt-host package in 4.1</b><br>A new package ovirt-host is introduced. It is required for a host to be added to a 4.2 engine.
 
 ### Bug Fixes
 
@@ -128,6 +128,7 @@ packages from other repos.
 #### oVirt Hosted Engine Setup
 
  - [BZ 1490202](https://bugzilla.redhat.com/1490202) <b>[downstream clone - 4.1.7] [iSCSI] ovirt-hosted-engine-setup fails if none of the discovered target is associated to the accessed portal</b><br>
+ - [BZ 1492791](https://bugzilla.redhat.com/1492791) <b>Engine VM has no external connectivity due to unconfigured default gateway if deployed with static IP</b><br>
 
 #### oVirt Hosted Engine HA
 
@@ -149,6 +150,8 @@ packages from other repos.
  - [BZ 1502213](https://bugzilla.redhat.com/1502213) <b>[downstream clone - 4.1.7] [downstream clone - 4.2.0] while deleting vms created from a template, vdsm command fails with error VDSM command failed: Could not remove all image's volumes</b><br>
  - [BZ 1464002](https://bugzilla.redhat.com/1464002) <b>Consume libvirt fixes fox RHEL7.4 [depends on bug 1461303; bug 1470127 - fixed for 7.4.z]</b><br>
  - [BZ 1483328](https://bugzilla.redhat.com/1483328) <b>[downstream clone - 4.1.7] [sos plugin] lvm commands need syntax change</b><br>Previously, incorrect LVM configuration resulted in incorrect LVM output. The LVM configuration has now been fixed so that the correct LVM output is generated. The names of the generated files are as follows:<br><br>lvm_lvs_-v_-o_tags_--config_global_locking_type_0_use_lvmetad_0_devices_preferred_names_.dev.mapper._ignore_suspended_devices_1_write_cache_state_0_disable_after_error_count_3_filter_a_.dev.mapper.._r<br><br>lvm_pvs_-v_-o_all_--config_global_locking_type_0_use_lvmetad_0_devices_preferred_names_.dev.mapper._ignore_suspended_devices_1_write_cache_state_0_disable_after_error_count_3_filter_a_.dev.mapper.._r<br><br>lvm_vgs_-v_-o_tags_--config_global_locking_type_0_use_lvmetad_0_devices_preferred_names_.dev.mapper._ignore_suspended_devices_1_write_cache_state_0_disable_after_error_count_3_filter_a_.dev.mapper.._r
+ - [BZ 1506157](https://bugzilla.redhat.com/1506157) <b>[downstream clone - 4.1.7] During a Live Merge, VDSM still saw a block job, even though libvirt's block job had completed.</b><br>
+ - [BZ 1506161](https://bugzilla.redhat.com/1506161) <b>[downstream clone - 4.1.7] Cleanup thread for live merge executed continously if a block job failed in libvirtd side</b><br>
  - [BZ 1502206](https://bugzilla.redhat.com/1502206) <b>Vdsm fails to start when logger conf file is invalid</b><br>
  - [BZ 1497940](https://bugzilla.redhat.com/1497940) <b>[downstream clone - 4.1.7] Sanlock init failed with unhelpful error message "Sanlock exception"</b><br>
  - [BZ 1488878](https://bugzilla.redhat.com/1488878) <b>vdsm-client help should show all available commands</b><br>
@@ -165,6 +168,8 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1505242](https://bugzilla.redhat.com/1505242) <b>Engine fails to start when AddVmComman (start VM) job exists</b><br>
+ - [BZ 1507316](https://bugzilla.redhat.com/1507316) <b>[downstream clone - 4.1.7] Engine and audit logs don't indicate if a commit or undo was issued during a snapshot preview</b><br>
  - [BZ 1383301](https://bugzilla.redhat.com/1383301) <b>Snapshot remove Live-Merge failed, After vm shutdown, start again is not possible</b><br>
  - [BZ 1496399](https://bugzilla.redhat.com/1496399) <b>[downstream clone - 4.1.7] Shutdown of a vm during snapshot deletion renders the disk invalid</b><br>
  - [BZ 1498478](https://bugzilla.redhat.com/1498478) <b>[Bug RHV 4.1.7] VM snapshots "clone" button doesn't work.</b><br>
@@ -176,6 +181,8 @@ packages from other repos.
  - [BZ 1496681](https://bugzilla.redhat.com/1496681) <b>[downstream clone - 4.1.7] User cannot use non Public vNIC Profiles</b><br>
  - [BZ 1464765](https://bugzilla.redhat.com/1464765) <b>Set iothreads via REST does not update virtio-scsi devices</b><br>
  - [BZ 1496720](https://bugzilla.redhat.com/1496720) <b>[TEXT] - Fix minor error in ' Some MAC addresses had to be reallocated, but operation failed becaue of insufficient amount of free MACs.'</b><br>
+ - [BZ 1507315](https://bugzilla.redhat.com/1507315) <b>[downstream clone - 4.1.7] Engine logs don't indicate the option chosen for a snapshot preview</b><br>
+ - [BZ 1497763](https://bugzilla.redhat.com/1497763) <b>cannot import vm from data domain -  ERROR: duplicate key value violates unique constraint "pk_images"</b><br>
  - [BZ 1498580](https://bugzilla.redhat.com/1498580) <b>Snapshot preview failure leaves jobs running and image locked</b><br>
  - [BZ 1417904](https://bugzilla.redhat.com/1417904) <b>[fr_FR, es_ES] [Admin Portal] Text overlap and UI distortion observed on data center->QoS->storage->new page.</b><br>
  - [BZ 1488434](https://bugzilla.redhat.com/1488434) <b>RestAPI documentation doesn't mention the image parameter for the upgrade call</b><br>
@@ -185,10 +192,6 @@ packages from other repos.
  - [BZ 1484825](https://bugzilla.redhat.com/1484825) <b>Auto generated snapshot remains LOCKED after concurrent LSM</b><br>
  - [BZ 1478296](https://bugzilla.redhat.com/1478296) <b>Health check on Host <UNKNOWN> indicates that future attempts to Stop this host using Power-Management are expected to fail.</b><br>
  - [BZ 1489795](https://bugzilla.redhat.com/1489795) <b>Importing a VM from 3.6 fails due to NPE @ org.ovirt.engine.core.bll.network.VmInterfaceManager.removeAll</b><br>
-
-#### oVirt Hosted Engine Setup
-
- - [BZ 1492791](https://bugzilla.redhat.com/1492791) <b>Engine VM has no external connectivity due to unconfigured default gateway if deployed with static IP</b><br>
 
 #### oVirt Cockpit Plugin
 
@@ -210,9 +213,9 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1503947](https://bugzilla.redhat.com/1503947) <b>Failed to import the guest from export domain to data domain with error "General command validation failure</b><br>
  - [BZ 1471815](https://bugzilla.redhat.com/1471815) <b>SQL Exception while sorting columns of events subtab of Hosts main tab</b><br>
 
 #### oVirt Hosted Engine HA
 
  - [BZ 1504150](https://bugzilla.redhat.com/1504150) <b>[downstream clone - 4.1.7] Engine-health monitor should expect new sanlock error message</b><br>
-

@@ -10,13 +10,10 @@ Before you can configure and use the oVirt Engine, you must install the <package
 
 **Installing the oVirt Engine Packages**
 
-1. Before you can start installing oVirt, add the official repository. Choose one based on your version requirement:
+1. Before you can start installing oVirt, add the official repository:
 
         
-        # http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
-        # http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
-        # http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
-        # http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
+        # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
 
 2. To ensure all packages are up to date, run the following command on the machine where you are installing the oVirt Engine:
 

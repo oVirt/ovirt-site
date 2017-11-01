@@ -23,7 +23,7 @@ The default name for ovirt_env_name is "engine".
    Use the following convention: Only include alphanumeric characters and hyphens ( "-" ). Name cannot begin with a hyphen or a number,
    or end with a hyphen. Maximum of 49 characters. Wildcard patterns (e.g. ovirt-metrics*) cannot be used.
 
-During the installation in the step [Configuring mux](https://github.com/ViaQ/Main/blob/master/README-mux.md#configuring-mux) , use the following namespaces to create the indexes:
+During the installation in the step [Configuring mux](https://github.com/ViaQ/Main/blob/master/README-install.md#configuring-mux) , use the following namespaces to create the indexes:
 
 MUX_NAMESPACES="ovirt-metrics-<ovirt_env_name>  ovirt-logs-<ovirt_env_name>"
 
@@ -33,7 +33,7 @@ MUX_NAMESPACES="ovirt-metrics-test-engine  ovirt-logs-test-engine"
 
 The indexes in elasticsearch will be created with "project." prefix.
 
-Please follow the installation instructions: [Metrics Store setup on top of OpenShift](https://github.com/ViaQ/Main/blob/master/README-mux.md)
+Please follow the installation instructions: [Metrics Store setup on top of OpenShift](https://github.com/ViaQ/Main/blob/master/README-install.md)
 
 In oVirt 4.2 there will be an option to add SSO: [Metrics Store setup on top of OpenShift with oVirt Engine SSO](https://www.ovirt.org/blog/2017/05/openshift-openId-integration-with-engine-sso/)
 
@@ -144,7 +144,7 @@ Now we need to deploy and configure collectd and fluentd to send the data to the
 
 2. Install / Upgrade and activate one or more hosts, 4.1.3 and above.
 
-3. Copy the CA certificate - created earlier on in this procedure [(see oVirt Metrics Store Setup)](https://github.com/ViaQ/Main/blob/master/README-mux.md#getting-the-shared_key-and-ca-cert) - to the engine machine.
+3. Copy the CA certificate - created earlier on in this procedure [(see oVirt Metrics Store Setup)](https://github.com/ViaQ/Main/blob/master/README-install.md#getting-the-shared_key-and-ca-cert) - to the engine machine.
 
 
    On the metrics store machine, run:
@@ -179,6 +179,6 @@ It runs the Ansible script that configures collectd and fluentd on the oVirt eng
 
 It should finish without errors.
 
-Once finished, you can view host, VM and other statistics in the Kibana console, at the address configured earlier on in this procedure [(see oVirt Metrics Store Setup)](https://github.com/ViaQ/Main/blob/master/README-mux.md#running-kibana).
+Once finished, you can view host, VM and other statistics in the Kibana console, at the address configured earlier on in this procedure [(see oVirt Metrics Store Setup)](https://github.com/ViaQ/Main/blob/master/README-install.md#running-kibana).
 
 Kibana should be available at <https://kibana.{hostname}>

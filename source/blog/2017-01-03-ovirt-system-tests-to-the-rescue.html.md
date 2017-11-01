@@ -45,13 +45,13 @@ I know you can't wait to hear about how to run OST on your patch, so I'll just j
     Now that you have your custom RPMs ready, your JUST a click away from running OST
     on them.<br>
     * Login to [Jenkins](http://jenkins.ovirt.org) (make sure you have 'dev role' permissions, if not open a ticket to infra)<br>
-    * Go to the [OST Manual job](http://jenkins.ovirt.org/job/ovirt_master_system-tests_manual/) for your relevant version (usually master).<br>
+    * Go to the [OST Manual job](http://jenkins.ovirt.org/job/ovirt-system-tests_manual/) for your relevant version (usually master).<br>
     * Click on 'build with parameters' menu ( on the left side )
     * Now add all the URLs you have with the custom RPMs ( one per line ),for e.g [vdsm-build](http://jenkins.ovirt.org/job/vdsm_master_build-artifacts-on-demand-el7-x86_64/9/)<br>
     * Click 'Build'<br>
     * Go get some coffee; Don't worry the job will send you an email once it is done ( on any status )
 
-This info can also be found on the [official OST documentation page](http://ovirt-system-tests.readthedocs.io/en/latest/docs/CI/developers_info.html).
+This info can also be found on the [official OST documentation page](http://ovirt-system-tests.readthedocs.io/en/latest/CI/developers_info/).
 
 For more info or questions, please send email to infra@ovirt.org or lago-devel@ovirt.org if it is a lago-related question.
 

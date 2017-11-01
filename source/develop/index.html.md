@@ -39,15 +39,16 @@ _More information on [oVirt subprojects](/subprojects/)_
 
 ## Developer Documentation
 
+- [Build and Test Standards](/develop/dev-process/build-and-test-standards/)
 - [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/)
-- [Building oVirt engine](Building oVirt engine)
+- [Building oVirt engine](/develop/developer-guide/engine/engine-development-environment/)
 - [Testing ovirt-engine patches with Lago](/develop/infra/testing/lago/testing-engine-patches-with-lago/)
 - [Building oVirt Node](/develop/projects/node/building/)
 - [Building VDSM](/develop/developer-guide/vdsm/developers/)
 - [Contributing to the Node project](/develop/projects/node/contributing-to-the-node-project/)
 - [Submitting a patch with Gerrit](/develop/dev-process/working-with-gerrit/)
 - [The development process](/develop/dev-process/devprocess/)
-- [Release management](/develop/release-management/releases/)
+- [Release management](/develop/release-management/process/release-process/)
 - [Getting in contact with the oVirt community](/community/about/contact/)
 - [Becoming a maintainer](/develop/dev-process/becoming-a-maintainer/)
 - [oVirt architecture](/documentation/architecture/architecture/)

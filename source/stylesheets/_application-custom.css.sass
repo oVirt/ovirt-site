@@ -34,31 +34,94 @@ img.error-not-fixed, img.error-fixed
   font-family: sans-serif
   font-weight: 200
 
+.content
+  padding-top: 0px
+
+.page
+  margin-top: 8ex
+  @media screen and (max-width: 768px)
+    margin-top: 0ex
+
 .page h1
   font-weight: 100
 
+#mainNav
+  margin-left: 110px
+  .nav
+    display: flex
+    @media screen and (max-width: 768px)
+      display: list-item
+
 #logo
-  padding-top: 6px
-  height: 2ex
+  height: 29px
+  margin: 0px
+  padding: 0px
+  margin-top: 12px
+
+
 
 /* nav */
+.collapsing
+  -webkit-transition: none
+  transition: none
+  display: none
+
 header.masthead
   background-color: #666
   border-bottom: none
   box-shadow: -4px 0px 9px #626060
+  height: 65px
+  font-size: 2.5ex
 
-header.masthead .nav-pills li.active a
+header.masthead .navbar-nav li a
+  padding: 21px
+  color: #d0eec7
+  opacity: 100
+  @media screen and (max-width: 768px)
+    font-size: 2ex
+    padding: 10px
+
+header.masthead .navbar-nav li.active a
   color: white
   opacity: 100
   background-color: #61b710
   box-shadow: none
 
-header.masthead .nav-pills a:hover
+header.masthead .navbar-nav li a:hover
   box-shadow: none
 
-header.masthead .nav-pills a
-  color: #d0eec7
-  opacity: 100
+header.masthead .navbar-nav
+  @media screen and (max-width: 768px)
+    background-color: #666
+
+header.masthead .navbar-header
+  @media screen and (max-width: 768px)
+    color: white
+
+#mainNav .container
+  float: left
+  @media screen and (max-width: 768px)
+    float: right
+    margin-right: 0px
+    margin-left: 0px
+    padding-left: 0px
+    padding-right: 0px
+
+header.masthead .navbar-collapse
+  box-shadow: none
+  @media screen and (max-width: 768px)
+    padding-top: 5px
+    margin: none
+    padding: none
+
+header.masthead .navbar-collapse.in
+  @media screen and (max-width: 768px)
+    overflow-y: inherit
+
+header.masthead .navbar-nav
+  @media screen and (max-width: 768px)
+    margin: 0px
+
 
 /* homepage */
 .twitter-widget
@@ -69,10 +132,13 @@ header.masthead .nav-pills a
   font-family: sans-serif
 
 .intro
+  padding: 0
+  margin: 0
+
   background-image: none
   background-color: #ededed
   background-size: 100%
-  padding-top: 2em
+
   h2
     display: block
 

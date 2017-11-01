@@ -115,3 +115,18 @@ Yes, it's possible with *apache mod_auth_cas* module. Full blog post is availabl
 
 Unfortunatelly it's not supported, yet. You can track [this](https://bugzilla.redhat.com/show_bug.cgi?id=829292) bugzilla for more information.
 
+## Is it possible to modify users search filter?
+Yes it's possible, with a little hack to your properties file.
+Please append the following lines to your profile configuration:
+
+```
+sequence.simple-query-principals.005.description = modify filter to search only by uid
+sequence.simple-query-principals.005.type = regex
+sequence.simple-query-principals.005.regex.value = ${seq:filter}
+sequence.simple-query-principals.005.regex.flags = a
+sequence.simple-query-principals.005.regex.pattern = \\(givenName=[^)]*\\)|\\(sn=[^)]*\\)|\\(displayName=[^)]*\\)
+sequence.simple-query-principals.005.regex.replacement.filter = 
+```
+
+This example will replace occurrences of givenName, sn, and displayName and its values with an empty string.
+Only uid will persist in the filter. You can modify it as you like, simply by changing the regex expression.

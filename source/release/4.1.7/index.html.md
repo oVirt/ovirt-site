@@ -7,8 +7,8 @@ layout: toc
 # oVirt 4.1.7 Release Notes
 
 The oVirt Project is pleased to announce the availability of the 4.1.7
-Fifth Release Candidate
- as of November 01, 2017.
+Sixth Release Candidate
+ as of November 02, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -168,6 +168,7 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1508327](https://bugzilla.redhat.com/1508327) <b>Engine failed to start after upgrade caused by invocation of logFreeMacs()</b><br>
  - [BZ 1505242](https://bugzilla.redhat.com/1505242) <b>Engine fails to start when AddVmComman (start VM) job exists</b><br>
  - [BZ 1507316](https://bugzilla.redhat.com/1507316) <b>[downstream clone - 4.1.7] Engine and audit logs don't indicate if a commit or undo was issued during a snapshot preview</b><br>
  - [BZ 1383301](https://bugzilla.redhat.com/1383301) <b>Snapshot remove Live-Merge failed, After vm shutdown, start again is not possible</b><br>

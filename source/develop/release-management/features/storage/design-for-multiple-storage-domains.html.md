@@ -1,8 +1,8 @@
 ---
-title: Design for multiple storage domains
+title: Multiple storage domains
 category: feature
 authors: derez, jumper45, mkublin
-feature_name: Manage storage connections
+feature_name: Multiple Storage Domains
 feature_modules: engine
 feature_status: Released
 ---

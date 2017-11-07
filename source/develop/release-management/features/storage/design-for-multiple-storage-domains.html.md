@@ -4,7 +4,7 @@ category: feature
 authors: derez, jumper45, mkublin
 feature_name: Multiple Storage Domains
 feature_modules: engine
-feature_status: Released
+feature_status: Released in oVirt 3.1
 ---
 
 # Design for multiple storage domains

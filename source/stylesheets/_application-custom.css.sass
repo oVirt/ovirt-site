@@ -42,7 +42,6 @@ img.error-not-fixed, img.error-fixed
   padding-top: 0px
 
 .page
-  margin-top: 8ex
   @media screen and (max-width: 768px)
     margin-top: 0ex
 
@@ -50,7 +49,7 @@ img.error-not-fixed, img.error-fixed
   font-weight: 100
 
 #mainNav
-  margin-left: 110px
+
   .nav
     @media screen and (max-width: 768px)
       display: list-item
@@ -64,7 +63,7 @@ img.error-not-fixed, img.error-fixed
 
 
 /* nav */
-.navForMobileHack 
+.navForMobileHack
   @media screen and (max-width: 768px)
     position: relative !important
 
@@ -123,8 +122,8 @@ header.masthead .navbar-collapse
   box-shadow: none
   @media screen and (max-width: 768px)
     padding-top: 5px
-    margin: none
-    padding: none
+    margin: 5px auto
+    padding: 0
 
 header.masthead .navbar-collapse.in
   @media screen and (max-width: 768px)
@@ -145,11 +144,19 @@ header.masthead .navbar-nav
 
 .intro
   padding: 0
-  margin: 0
-
+  margin-top: -27px
+  @media screen and (max-width: 768px)
+    margin-top: -5px
   background-image: none
   background-color: #ededed
   background-size: 100%
+  .container
+    div
+      div
+        div
+          div
+            @media screen and (max-width: 768px)
+              padding-left: 0px  !important
 
   h2
     display: block

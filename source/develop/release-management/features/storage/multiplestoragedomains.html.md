@@ -1,66 +1,129 @@
 ---
-title: MultipleStorageDomains
+title: Multiple storage domains
 category: feature
-authors: derez, jumper45, sgordon
-feature_name: Manage storage connections
+authors: derez, jumper45, mkublin
+feature_name: Multiple Storage Domains
 feature_modules: engine
-feature_status: Released
+feature_status: Released in oVirt 3.1
 ---
 
-# Multiple Storage Domains
+# Design for multiple storage domains
 
-## Summary
+### Multiple Storage Domains
 
-Allow a VM to spread its disks across several storage domains within the same Data Center.
+## User Stories
 
-## Owner
+*   **Add VM** - As a RHEV-M user, when I create a VM using the GUI/REST API, I want to be able to select different storage domains for each disk in the VM so that I can make efficient use of my storage. I know the feature works when I can create a VM with 3 disks each on different storage domains.
+*   **Import VM** - As a RHEV-M user, when I import a VM using the GUI/REST API, I want to be able to select different storage domains for each disk in the VM so that I can make efficient use of my storage. I know the feature works when I can import a VM with 3 disks each on different storage domains.
+*   **Add Disk to VM** - As a RHEV-M user, when I add a disk to a VM using the GUI/REST API, I can select which storage domain to associate with it so that I can make more efficient use of my storage. I know the feature works when I can add a disk to a VM and put it on a storage domain not already in use by the VM.
+*   **Import VM template** - As a RHEV-M user, when I import a VM template using the GUI/REST API, I want to be able to select different storage domains for each disk in the template so that I can make efficient use of my storage. I know the feature works when I can import a template with 3 disks each on different storage domains.
+*   **Move Disk** - As a RHEV-M user, I want to be able to use the GUI/REST API to move a disk from one storage domain to another so that I can make efficient use of my storage. I know the feature works when I can move a disk to an existing storage domain not already in use by the VM.
+*   **Create VM from template** - As a RHEV-M user, I want to be able to use the GUI/REST API to create a VM from a template and be able to specify on which storage domain each disk should be created. I know the feature works when I can create a VM from a template that has 3 disks and I can put each disk on a separate storage domain.
+*   **Create Template from VM** - As a RHEV-M user, I want to be able to use the GUI/REST API to create a template from a VM and be able to specify which storage domain should hold its disks. I know the feature works when I can create a template on a different storage domain than the one the VM resides on.
+*   **Clone Template** - As a RHEV-M user, I want to be able to use the GUI/REST API to clone a template and be able to specify which storage domain should hold its disks. I know the feature works when I can clone a template on a different storage domain than the one the source template resides on.
 
-*   Name: Jon Choate (Jumper45)
-*   Email: <jchoate@redhat.com>
+## Acceptance Tests
 
-## Current status
+Will be based on the "I know the feature works..." in the user stories.
 
-Design Stage and RFC
+### Additional functionality to verify
 
-## Detailed Description
+*   create snapshots
+*   delete disk
+*   delete VM
+*   start VM
+*   hibernate VM
 
-The requirement is to give the ability to create VM disks on more than one storage domain as long as the storage domains exist within the VM's Data Center. The basic work-flow is:
+## Overall design
 
-The user creates the first disk, chooses the storage domain he wants The user creates the second disk, and has the ability to choose the storage domain he wants Question: Should the default be the storage domain of the first disk? What if there are many disks, on different storage domains? The user should be able to choose quota in each disk creation Make template workflow:
+The main change that needs to happen is to have each image associated with its own storage domain.
 
-The user will be able to choose the storage domain for every disk in the VM, default to the storage domain the disk resides on The user should be able to choose a different quota for each disk, default to the original quota
+### GUI
 
-Use template workflow:
+#### General Changes
 
-When using the template to create a VM, every disk will be created on the storage domain it resides on in the template The user should be able to choose the quota for every disk
+##### Virtual Machines Tab
 
-Move VM
+*   The Virtual Disks tab need to have a Storage Domain column added
 
-This action will exist as before, moving all the disks in the VM to another SD
+##### Storage Tab
 
-Move disks - there will be an option to move single/multiple disks to other one/more storage domains:
+*   The Virtual Machines tab need to have some columns removed
+*   There needs to be a new tab for Virtual Disks so that users can view which disks are on which domains.
 
-The user will mark the disks Choose move A table of these disks, and a list of storage domains for each, will be opened, and the user will change the storage domain The user should be able to choose quota for each disk as well (as changing the storage domain might require a quota change)
+#### Workflow Changes
 
-Move template disks - there will be an option to move single/multiple disks of a template to other one/more storage domains Export VM workflow:
+*   Add a VM
+*   Import a VM
+*   Add Disk to VM
+*   Import VM Template
+*   Move Disk
+*   Create VM from Template
+*   Create template from VM
+*   Clone template
 
-The user will export a VM just as before When importing the VM we have two scenarios: The VM is not from template - he will be able to choose the destination of each virtual disk The VM is from template - the disks need to reside on the template disks domains (unless collapse is used)
+##### User Experience
 
-## Benefit to oVirt
+The following UI mockups contain guidelines for the different screens and wizards:
 
-VMs that contain several virtual disks might need to allocate these disks on different storage domains.
+![](/images/wiki/VM_from_template_single.png)
 
-For example, let's assume you have a production VM that hosts a database. The database has data files, log files and archive files. For performance reasons we wish to put each of the above on separate LUNs that exist on our storage infrastructure.
+![](/images/wiki/VM_from_template_multi.png)
 
-Another example, let's assume you have a VM with 3 disks, and you would like to move the disks to another storage domain. So, in order to do it (without special support from RHEV-M), you would need to create a disk on another SD, move the data, and switch between the disks.
+![](/images/wiki/import_vm_single.png)
 
-Today VMs are not allowed to have disks that belong to different storage domains. Once you create the first VM disk on one storage domain, all the other disks of that VM will be a part of the same storage domain.
+![](/images/wiki/import_vm_multi.png)
 
-## Dependencies / Related Features
+![](/images/wiki/import_template_single.png)
 
-Affected oVirt projects:
+![](/images/wiki/import_template_multi.png)
 
-*   Engine-core
-*   Webadmin
-*   REST API
+![](/images/wiki/disks_subtab.png)
+
+![](/images/wiki/new_move_disk_dialog.png)
+
+![](/images/wiki/storage_vms_subtab.png)
+
+![](/images/wiki/new_template.png)
+
+![](/images/wiki/templates_storage_subtab.png)
+
+![](/images/wiki/templates_vms_subtab.png)
+
+### REST Design (Modeling)
+
+This section describes the REST design for this feature.
+
+*   Add a VM
+*   Import a VM
+*   Add Disk to VM
+*   Import VM Template
+*   Move Disk
+*   Create VM from Template
+*   Create template from VM
+*   Clone template
+
+The changes will be done at java code, by processing passed parameters from client
+
+### Backend
+
+There should not be any changes to the database or the object model to support this feature. Many of the command classes will need their logic changes to handle processing each disk individually by their storage domain instead of handling them all at once.
+
+## VDSM
+
+Vdsm already supports this feature; it has no limitation on the location of disk images. Any storage domain for any VM disk will do.
+
+## Open Issues
+
+1.  Need to consider negative cases when some storage domains fail, etc.
+2.  Need to determine which flows will need additional transactionality due to multiple storage domains.
+3.  Need to figure out how hibernation will work
+
+## Known Issues / Risks
+
+Being developed in parallel with quotas. Can't anticipate changes needed to work with quotas.
+
+## Needed documentation
+
+The docs will need to be updated with new screenshots showing adding a disk to a VM and selecting the storage domain there.
 

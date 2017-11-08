@@ -132,4 +132,3 @@ autoinstall: Use systemd service
 
 
 Comments and discussion can be posted on mailinglist
-

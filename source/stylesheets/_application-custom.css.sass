@@ -10,6 +10,10 @@ $default_padding : 10px
   text-shadow: 0 1px 2px rgba(0,0,0,.6)
 
 /* general */
+div
+  @media screen and (max-width: 768px)
+    background-repeat: round no-repeat !important
+
 img.error-not-fixed, img.error-fixed
   display: inline-block
   position: relative
@@ -48,7 +52,6 @@ img.error-not-fixed, img.error-fixed
 #mainNav
   margin-left: 110px
   .nav
-    display: flex
     @media screen and (max-width: 768px)
       display: list-item
 
@@ -61,6 +64,10 @@ img.error-not-fixed, img.error-fixed
 
 
 /* nav */
+.navForMobileHack 
+  @media screen and (max-width: 768px)
+    position: relative !important
+
 .collapsing
   -webkit-transition: none
   transition: none
@@ -91,8 +98,10 @@ header.masthead .navbar-nav li a:hover
   box-shadow: none
 
 header.masthead .navbar-nav
+  display: flex
   @media screen and (max-width: 768px)
     background-color: #666
+
 
 header.masthead .navbar-header
   @media screen and (max-width: 768px)
@@ -100,12 +109,15 @@ header.masthead .navbar-header
 
 #mainNav .container
   float: left
+
   @media screen and (max-width: 768px)
     float: right
     margin-right: 0px
     margin-left: 0px
     padding-left: 0px
     padding-right: 0px
+    position: relative
+    z-index: 9999
 
 header.masthead .navbar-collapse
   box-shadow: none

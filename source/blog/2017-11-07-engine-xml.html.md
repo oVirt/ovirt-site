@@ -32,6 +32,6 @@ Also, if you are debugging issues with device monitoring, note that ovirt-engine
 
 The figure below shows the new flow for running a VM:
 
-![](/images/run_vm.png)
+![](/images/blog/run_vm.png)
 
 For an in-depth description of the new enhancement, read Arik Hadas’ [Addressing Abstraction Hell in oVirt](http://ahadas.github.io/engine-xml/).

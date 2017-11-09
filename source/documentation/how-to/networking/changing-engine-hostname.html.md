@@ -5,6 +5,22 @@ authors: didi
 
 # Changing Engine Hostname
 
+## Are you sure you need this?
+
+Since version 4.0.4, it is possible to add more names to access the engine web interface,
+see [BZ 1325746](https://bugzilla.redhat.com/1325746).
+
+Make sure the name or names you want resolve to an IP address of the engine machine, by adding
+relevant records to the DNS or to /etc/hosts, and then:
+
+         # echo 'SSO_ALTERNATE_ENGINE_FQDNS="alias1.example.com alias2.example.com"' \
+         > /etc/ovirt-engine/engine.conf.d/99-custom-sso-setup.conf
+         # systemctl restart ovirt-engine.service
+
+The list of alternate names has to be listed separated by spaces.
+
+It's possible to add also IP addresses of engine host, but using IP addresses instead of DNS names is not considered to be a good practise.
+
 ## Changing the hostname of an oVirt Manager/engine
 
 ### How to
@@ -16,7 +32,7 @@ authors: didi
 
          # /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename
 
-It's otopi-based. This means, among other things, that it looks similar to the new engine-setup/cleanup, and provides similar logging, options, etc.
+It's otopi-based. This means, among other things, that it looks similar engine-setup/cleanup, and provides similar logging, options, etc.
 
 Options specific to it:
 

@@ -2,13 +2,10 @@
 title: Link Layer Discovery Protocol (LLDP) Support
 category: feature
 authors: Dominik Holler
-wiki_category: Feature
-wiki_title: Link Layer Discovery Protocol (LLDP) Support
-wiki_revision_count: 1
-wiki_last_updated: 2016-06-27
+category: feature
 feature_name: Link Layer Discovery Protocol (LLDP) Support
 feature_modules: engine,network,vdsm,rest-api
-feature_status: In Development
+feature_status: Released
 ---
 
 # Link Layer Discovery Protocol (LLDP) Support
@@ -76,6 +73,8 @@ integration of oVirt in other software.
   * Management Address TLV (Type = 8)
   * Port VLAN Id ( Type = 127, Oui = 0x0080c2 (802.1), Subtype = 1)
   * VLAN name (Type = 127, Oui = 0x0080c2 (802.1), Subtype = 3)
+  * Link Aggregation TLV (Type = 127, Oui = 0x0080c2 (802.1), Subtype = 7)
+  * Maximum Frame Size TLV (Type = 127,  Oui = 0x00120F (802.3), Subtype = 4)
 
 * oVirt should keep track of the hosts and their neighbors which are active
   and report only those when queried.
@@ -493,6 +492,38 @@ The response in XML for the [SampleCaptures from Wireshark's wiki][5] will look 
       </property>
     </properties>
     <subtype>3</subtype>
+    <type>127</type>
+  </link_layer_discovery_protocol_element>
+  <link_layer_discovery_protocol_element>
+    <name>Link Aggregation</name>
+    <oui>32962</oui>
+    <properties>
+      <property>
+        <name>Aggregation capable</name>
+        <value>True</value>
+      </property>
+      <property>
+        <name>Currently aggregated</name>
+        <value>True</value>
+      </property>
+      <property>
+        <name>Aggregated Port ID</name>
+        <value>600</value>
+      </property>
+    </properties>
+    <subtype>7</subtype>
+    <type>127</type>
+  </link_layer_discovery_protocol_element>
+  <link_layer_discovery_protocol_element>
+    <name>MTU</name>
+    <oui>4623</oui>
+    <properties>
+      <property>
+        <name>mtu</name>
+        <value>9018</value>
+      </property>
+    </properties>
+    <subtype>4</subtype>
     <type>127</type>
   </link_layer_discovery_protocol_element>
 </link_layer_discovery_protocol_elements>

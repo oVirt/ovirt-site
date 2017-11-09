@@ -44,7 +44,6 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
       :markdown
         ### Supported OSes (Engine)
 
-        -   Fedora 24 (tech preview)
         -   CentOS Linux 7.4
         -   Red Hat Enterprise Linux 7.4
         -   Scientific Linux 7.4
@@ -76,16 +75,16 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
 
   **oVirt 4.1** is intended for production use and is available for the following platforms:
 
-  - Fedora 24
   - Red Hat Enterprise Linux 7.4 or later
   - CentOS Linux 7.4 or later
   - Scientific Linux 7.4 or later
 
-  Our recommended method of installing oVirt is to use the pre-built packages for Fedora or a supported Enterprise Linux 7 distribution,
+  Our recommended method of installing oVirt is to use the pre-built packages for a supported Enterprise Linux 7 distribution,
   such as CentOS Linux or Red Hat Enterprise Linux. This makes installing oVirt very easy.
 
   {:.alert.alert-warning.col-md-6}
-  **Important:** If you're upgrading from a previous version, please update ovirt-release40 and verify
+  **Important:** Please note you can not skip a version. If you are updating from e.g. 3.6, you first need to update to 4.0 and then to 4.1.
+  If you're upgrading from a previous version, please update ovirt-release40 and verify
   you have the correct repositories enabled by running the following commands before upgrading with the usual procedure.
   <br/>
   ```
@@ -98,10 +97,7 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
 
 :markdown
 
-  ### Fedora, Red Hat Enterprise Linux, CentOS {#Fedora_RHEL_Installation_Instructions}
-
-  {:.alert.alert-warning.col-md-6}
-  If you're using RHEL or CentOS, substitite "dnf" with its older counterpart, "yum".
+  ### Red Hat Enterprise Linux, CentOS Linux {#RHEL_Installation_Instructions}
 
 .clear-left
 
@@ -109,14 +105,14 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
 
   1.  Add the official oVirt repository.
 
-          sudo dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
+          sudo yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
 
       -   This will add repositories from ovirt.org to your host allowing you to get the latest oVirt rpms.
-      -   It will also enable any other needed repository including for example [virt-preview](http://fedoraproject.org/wiki/Virtualization_Preview_Repository) repository on your machine giving you access to the latest versions of things like libvirt and KVM.
+      -   It will also enable any other needed repository
 
   2.  Install oVirt Engine.
 
-          sudo dnf install -y ovirt-engine
+          sudo yum install -y ovirt-engine
 
   3.  Set up oVirt Engine.
 
@@ -134,7 +130,7 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
   oVirt Engine manages Hosts, and Hosts are where virtual machines run. Now that oVirt Engine is installed, you must install at least
   one Host to have a fully functional environment.
 
-  You can use either [oVirt Node](/node/), Fedora, or CentOS as Hosts.
+  You can use either [oVirt Node](/node/), Red Hat Enterprise Linux or CentOS Linux as Hosts.
 
 :markdown
   ## Supported Guest Distributions
@@ -147,7 +143,7 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
   |Red Hat Enterprise Linux 4|32-bit, 64-bit||Yes|
   |Red Hat Enterprise Linux 5|32-bit, 64-bit||Yes|
   |Red Hat Enterprise Linux 6|32-bit, 64-bit||Yes|
-  |Red Hat Enterprise Linux 7|32-bit, 64-bit||Yes|
+  |Red Hat Enterprise Linux 7|64-bit||Yes|
   |SUSE Linux Enterprise Server 10 [1]|32-bit, 64-bit||No|
   |SUSE Linux Enterprise Server 11 [2]|32-bit, 64-bit||No|
   |Ubuntu 12.04 (Precise Pangolin LTS)|32-bit, 64-bit||Yes|
@@ -157,11 +153,13 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
   |Windows XP Service Pack 3 and newer|32-bit||Yes|
   |Windows 7|32-bit, 64-bit||Yes|
   |Windows 8|32-bit, 64-bit||No|
+  |Windows 10|32-bit, 64-bit||No|
   |Windows Server 2003 Service Pack 2 and newer|32-bit, 64-bit||Yes|
   |Windows Server 2008|32-bit, 64-bit||Yes|
   |Windows Server 2008 R2|64-bit||Yes|
   |Windows Server 2012 R2|64-bit||No|
-
+  |Windows Server 2016|64-bit||No|
+  
   [1] select Other Linux for the guest type in the user interface<br/>
   [2] SPICE drivers (QXL) are not supplied by Red Hat. Distribution's vendor may provide SPICE drivers.
 
@@ -169,14 +167,20 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
   ## Version Releases of oVirt
 
   -   [ovirt-4.1](http://resources.ovirt.org/pub/ovirt-4.1/) **Recommended**
+  -   [ovirt-4.2 Beta](http://resources.ovirt.org/pub/ovirt-4.2-pre/) **Pre release**
+  
+  ### Older unsupported version releases of oVirt
+  
   -   [ovirt-4.0](http://resources.ovirt.org/pub/ovirt-4.0/)
   -   [ovirt-3.6](http://resources.ovirt.org/pub/ovirt-3.6/)
   -   [ovirt-3.5](http://resources.ovirt.org/pub/ovirt-3.5/)
   -   [ovirt-3.4](http://resources.ovirt.org/pub/ovirt-3.4/)
   -   [ovirt-3.3](http://resources.ovirt.org/pub/ovirt-3.3/)
+  
+  ### Nightly builds of oVirt
+  
+  -   [ovirt-4.2 Nightly](http://resources.ovirt.org/pub/ovirt-master-snapshot)
   -   [ovirt-4.1 Nightly](http://resources.ovirt.org/pub/ovirt-4.1-snapshot)
-  -   [ovirt-4.0 Nightly](http://resources.ovirt.org/pub/ovirt-4.0-snapshot)
-  -   [ovirt-3.6 Nightly](http://resources.ovirt.org/pub/ovirt-3.6-snapshot)
 
   ## Mirrors for oVirt Downloads
 
@@ -243,7 +247,7 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
 
   Importing keys Automatically
 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
 
   **Important:** yum will prompt sysadmin to acknowledge import of key, make sure key id is FE590CB7.
 

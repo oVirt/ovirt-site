@@ -2,7 +2,7 @@
 title: Engine XML Brings a Smoother Flow of Data Into oVirt
 author: jmarks, ahadas
 tags: oVirt, engine XML, Libvirt, VDSM
-date: 2017-11-07 09:00:00 CET
+date: 2017-11-09 09:00:00 CET
 comments: true
 published: true
 ---

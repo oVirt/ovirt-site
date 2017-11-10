@@ -500,7 +500,11 @@ The response in XML for the [SampleCaptures from Wireshark's wiki][5] will look 
 
 ### Graphical User Interface
 
-Graphical User Interface is a [follow-up feature](#follow-up-features)
+LLDP information can be found in **Hosts** > **Network Interfaces** > 
+**Setup Host Networks**. The interface tooltip will show the relevant 
+information.
+
+![UI LDDP tooltip](../../../../images/wiki/lldp_ui.png  "UI LLDP tooltip")
 
 ## Installation/Upgrade
 

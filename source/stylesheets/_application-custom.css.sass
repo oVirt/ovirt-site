@@ -10,6 +10,10 @@ $default_padding : 10px
   text-shadow: 0 1px 2px rgba(0,0,0,.6)
 
 /* general */
+div
+  @media screen and (max-width: 768px)
+    background-repeat: round no-repeat !important
+
 img.error-not-fixed, img.error-fixed
   display: inline-block
   position: relative
@@ -38,7 +42,6 @@ img.error-not-fixed, img.error-fixed
   padding-top: 0px
 
 .page
-  margin-top: 8ex
   @media screen and (max-width: 768px)
     margin-top: 0ex
 
@@ -46,9 +49,8 @@ img.error-not-fixed, img.error-fixed
   font-weight: 100
 
 #mainNav
-  margin-left: 110px
+
   .nav
-    display: flex
     @media screen and (max-width: 768px)
       display: list-item
 
@@ -61,6 +63,10 @@ img.error-not-fixed, img.error-fixed
 
 
 /* nav */
+.navForMobileHack
+  @media screen and (max-width: 768px)
+    position: relative !important
+
 .collapsing
   -webkit-transition: none
   transition: none
@@ -91,8 +97,10 @@ header.masthead .navbar-nav li a:hover
   box-shadow: none
 
 header.masthead .navbar-nav
+  display: flex
   @media screen and (max-width: 768px)
     background-color: #666
+
 
 header.masthead .navbar-header
   @media screen and (max-width: 768px)
@@ -100,19 +108,22 @@ header.masthead .navbar-header
 
 #mainNav .container
   float: left
+
   @media screen and (max-width: 768px)
     float: right
     margin-right: 0px
     margin-left: 0px
     padding-left: 0px
     padding-right: 0px
+    position: relative
+    z-index: 9999
 
 header.masthead .navbar-collapse
   box-shadow: none
   @media screen and (max-width: 768px)
     padding-top: 5px
-    margin: none
-    padding: none
+    margin: 5px auto
+    padding: 0
 
 header.masthead .navbar-collapse.in
   @media screen and (max-width: 768px)
@@ -133,11 +144,19 @@ header.masthead .navbar-nav
 
 .intro
   padding: 0
-  margin: 0
-
+  margin-top: -27px
+  @media screen and (max-width: 768px)
+    margin-top: -5px
   background-image: none
   background-color: #ededed
   background-size: 100%
+  .container
+    div
+      div
+        div
+          div
+            @media screen and (max-width: 768px)
+              padding-left: 0px  !important
 
   h2
     display: block

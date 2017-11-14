@@ -294,4 +294,4 @@ Then, on the console where we ran 'hosted-engine --deploy', on didi-box1:
       [ INFO  ] Stage: Pre-termination
       [ INFO  ] Stage: Termination
 
-That's it. If we now point a browser at <https://my-engine.home.local/ovirt-engine/> , we can login to the web admin interface, and in addition to our existing data, we'll find also a host called 'hosted_engine_1' and a VM called 'HostedEngine'.
+That's it. If we now point a browser at **https://my-engine.home.local/ovirt-engine/** , we can login to the web admin interface, and in addition to our existing data, we'll also find a host called 'hosted_engine_1' and a VM called 'HostedEngine'.

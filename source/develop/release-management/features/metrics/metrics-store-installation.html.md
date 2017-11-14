@@ -38,9 +38,11 @@ Please follow the installation instructions: [Metrics Store setup on top of Open
 In oVirt 4.2 there will be an option to add SSO: [Metrics Store setup on top of OpenShift with oVirt Engine SSO](https://www.ovirt.org/blog/2017/05/openshift-openId-integration-with-engine-sso/)
 
 
-[![oVirt Metrics data flow](/images/wiki/oVirtMetricsDataFlow.jpg)](images/wiki/oVirtMetricsDataFlow.jpg)
-
 Once you have finished this step you should have:
+
+[![oVirt Metrics data flow](/images/wiki/oVirtMetricsDataFlow.jpg)](/images/wiki/oVirtMetricsDataFlow.jpg)
+
+Once you have finished this step, you should have:
 
   * Kibana - <https://kibana.{hostname}>
   * OpenShift portal - <https://openshift.{hostname}>

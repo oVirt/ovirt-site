@@ -99,7 +99,7 @@ This procedure will define the curator pod so that it deletes metrics indexes th
 Now we need to deploy and configure collectd and fluentd to send the data to the central metrics store::
 
 1. This requires installing / upgrading and setting up oVirt Engine 4.1.8 and above.
-   Until version 4.1.8 is available, you can use the You can use the snapshots repository to get the latest ovirt-engine-metrics package.
+   Until version 4.1.8 is available, you can use the snapshots repository to get the latest ovirt-engine-metrics package.
    http://resources.ovirt.org/pub/ovirt-4.1-snapshot/rpm/
 
 2. This requires installing / upgrading and activating one or more hosts from version 4.1.8 or above.

@@ -8,8 +8,8 @@ authors: sandrobonazzola,JohnMarksRH
 # oVirt 4.2.0 Release Notes
 
 The oVirt Project is pleased to announce the availability of the 4.2.0
-First Beta release
- as of October 31, 2017.
+Second Beta release
+ as of November 15, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -108,6 +108,10 @@ packages from other repos.
 
  - [BZ 1438822](https://bugzilla.redhat.com/1438822) <b>The discard_enable flag should not be used anymore in oVirt 4.2</b><br>Since "Discard After Delete" can and should be configured per block storage domain, we now drop the support for configuring it per host (thus dropping the value discard_enable from vdsm configuration file).<br><br>For more information please visit the feature page - http://www.ovirt.org/develop/release-management/features/storage/discard-after-delete/ .
 
+#### oVirt Web UI
+
+ - [BZ 1507406](https://bugzilla.redhat.com/1507406) <b>Rebase ovirt-web-ui to 1.3.z</b><br>VM Portal has been updated to 1.3.1 version:<br>- Use of "AlwaysFilterResultsForWebUi" engine configuration parameter<br>- BnB (Brand new Branding) - aligned with ovirt-engine<br>- Smartcard Enabled option<br>- SSH public key<br>- Gust OS names as labels<br>- i18n improvements, first translations<br>- multiple fixes and minor UI enhancements
+
 #### oVirt Engine
 
  - [BZ 1490784](https://bugzilla.redhat.com/1490784) <b>blacklist RHEL <6.9 from machine types pseries-rhel7.4.0+</b><br>RHEL < 6.9 is not supported in clusters using machine type pseries-rhel7.4.0 or newer (4.1+). It is now blacklisted and such OS cannot be started due to no CPU architecture available<br>A new definition of guest OS for 6.9+ has been added and should be used for EL6 guests in 4.1+ clusters<br><br><br>Also note that cluster compatibility version 4.2 requires pseries-rhel7.5.0 machine type which is introduced by RHEL 7.5 hosts. Until those are available you need to keep using 4.1 cluster compatibility level.
@@ -119,14 +123,20 @@ packages from other repos.
 
 #### OTOPI
 
- - [BZ 1411100](https://bugzilla.redhat.com/1411100) <b>[RFE] Change timestamp format to include timezone for logs</b><br>From now on, all timestamp records for otopi-based tools logs - including engine-setup, host-deploy, hosted-engine --deploy - will contain a time zone to ease correlation between logs on the Manager and hosts. They will also now include the fraction of a second. Previously they contained a timestamp without a time zone and fraction of a second, for example:<br><br>2017-04-03 09:56:58 DEBUG otopi.context context.dumpEnvironment:760 ENVIRONMENT DUMP - BEGIN<br><br>From now on there will always be a comma and fraction of second after the seconds part, and a timezone identifier at the end of the timestamp part, for example:<br><br>2017-04-05 10:41:08,500+0300 DEBUG otopi.context context.dumpEnvironment:760 ENVIRONMENT DUMP - BEGIN
+ - [BZ 1411100](https://bugzilla.redhat.com/1411100) <b>[RFE] Change timestamp format to include timezone for logs</b><br>From now on, all timestamp records for otopi-based tools logs (including engine-setup, host-deploy, and hosted-engine --deploy) will contain a time zone to ease correlation between logs on the Manager and hosts. They will also now include the fraction of a second. Previously they contained a timestamp without a time zone and fraction of a second, for example:<br><br>2017-04-03 09:56:58 DEBUG otopi.context context.dumpEnvironment:760 ENVIRONMENT DUMP - BEGIN<br><br>From now on there will always be a comma and fraction of a second after the seconds part, and a timezone identifier at the end of the timestamp part, for example:<br><br>2017-04-05 10:41:08,500+0300 DEBUG otopi.context context.dumpEnvironment:760 ENVIRONMENT DUMP - BEGIN
+
+#### oVirt Engine SDK 4 Ruby
+
+ - [BZ 1317450](https://bugzilla.redhat.com/1317450) <b>[RFE] Have a policy for autoresume of VMs paused due to IO errors (stay paused, turn off, restart with defined time out time)</b><br>Feature: <br>Previously, if the VM has been paused due to IO Error, there was no way how to configure what should happen after the storage gets fixed. The only option was "auto resume", which resumed the VM. This feature adds two more options configurable per VM: "Kill" and "Leave Paused".<br><br>Reason: <br>There are ways how the "auto resume" together with HA VM using VM lease could lead to split brain. Other reason is that it can interfere with custom HA solutions.<br><br>Result: <br>Now the user can configure 3 resume policies for VMs:<br>- auto resume (the one which used to be the only one)<br>- leave paused<br>- kill
 
 #### VDSM
 
+ - [BZ 1317450](https://bugzilla.redhat.com/1317450) <b>[RFE] Have a policy for autoresume of VMs paused due to IO errors (stay paused, turn off, restart with defined time out time)</b><br>Feature: <br>Previously, if the VM has been paused due to IO Error, there was no way how to configure what should happen after the storage gets fixed. The only option was "auto resume", which resumed the VM. This feature adds two more options configurable per VM: "Kill" and "Leave Paused".<br><br>Reason: <br>There are ways how the "auto resume" together with HA VM using VM lease could lead to split brain. Other reason is that it can interfere with custom HA solutions.<br><br>Result: <br>Now the user can configure 3 resume policies for VMs:<br>- auto resume (the one which used to be the only one)<br>- leave paused<br>- kill
+ - [BZ 1376843](https://bugzilla.redhat.com/1376843) <b>[RFE] Implement a keep-alive with reconnect if needed logic for the python jsonrpc client</b><br>jsonrpc python client is now able to reconnect in case jsonrpc server has restarted.
  - [BZ 1205739](https://bugzilla.redhat.com/1205739) <b>[RFE][DR] - Allow recovering an imported domain without an UP DC</b><br>Cause: <br><br>Consequence: <br><br>Fix: <br><br>Result:
  - [BZ 1391859](https://bugzilla.redhat.com/1391859) <b>[RFE] When creating thick allocated disks on file-based storage, use '-o preallocation=falloc' instead of 'dd' with zeros.</b><br>New feature greatly reduces the time required to create thick allocated disks on file-based storage.
  - [BZ 1228543](https://bugzilla.redhat.com/1228543) <b>[RFE] hot-unplug memory</b><br>Previously, it was only possible to add memory to a running virtual machine (VM). To remove memory, the VM had to be shut down.<br>In this release, it is now possible to hot unplug memory from a running VM, provided that certain requirements are met and limitations are considered.
- - [BZ 1334982](https://bugzilla.redhat.com/1334982) <b>[RFE] Gracefully shutdown Virtual Machines on Host reboot/shutdown.</b><br>Feature: <br>Gracefully shutdown the running VMs on host shutdown.<br><br>Reason: <br>Without this feature the running VMs are killed by the systemd process. Killed VMs are not given any chance to finish proper shutdown, thus resulting in undefined states.<br>Undefined state results in undesirable scenarios, especially for VMs running databases, eg Oracle, SAP ...<br><br>Result: <br>The graceful shutdown takes care of running VMs by holding the systemd and telling VMs to shutdown properly. After VMs are shutdown, the systemd is allowed to take over control and continue shutdown.<br>The VDSM is shutdown after the graceful shutdown of VMs.<br>Before that VDSM passes information to the engine and waits for for (default, can be changed in vdsm.conf) 5s for the engine to ACK VMs shutdown.
+ - [BZ 1334982](https://bugzilla.redhat.com/1334982) <b>[RFE] Gracefully shutdown Virtual Machines on Host reboot/shutdown.</b><br>Previously, in cases of emergency,  users were required to shut down the hosts to preserve the data center. This caused running virtual machines to be killed by the systemd process without performing a graceful shutdown. As a result, the virtual machine's state became undefined which led to problematic scenarios for virtual machines running databases such as Oracle and SAP.<br>In this release, virtual machines can be gracefully shut down by delaying the systemd process. Only after the virtual machines are shut down, does the systemd process take control and continue the shut down. The VDSM is only shut down after the virtual machines have been gracefully shut down, after passing information to the Manager and waiting 5 seconds for the Manager to acknowledge the virtual machines have been shut down.
  - [BZ 1168327](https://bugzilla.redhat.com/1168327) <b>Live Merge: optimize internal volume size</b><br>After live merge, the base volume is reduced to its optimal size.
  - [BZ 1430799](https://bugzilla.redhat.com/1430799) <b>Create script to restore original network configuration of removed vdsm host</b><br>Feature:<br>Provide tools for simple removal of networks configured by oVirt on a host.<br><br>Reason: <br>One could add a host into Engine and one minute later decide to remove it. But the host would have ovirtmgmt bridge and various VDSM network hacks which are not clear how to remove.<br><br>Result:<br>vdsm-tool now provides commands for VDSM network cleanup, particularly `vdsm-tool clear-nets` and `vdsm-tool dummybr-remove`. One could remove networks configured by VDSM following the steps below. Note that vdsm service is not required to be running:<br><br>1. To prevent loss of connectivity it might be needed to exclude default route network from cleanup. Look for a network providing default route (ovirtmgmt by defalut):<br># vdsm-tool list-nets<br>...<br>ovirtmgmt (default route)<br>...<br><br>2. Remove all networks configured by VDSM except for the default network.<br># vdsm-tool clear-nets --exlude-net ovirtmgmt<br><br>3. Remove libvirt dummy bridge ;vdsmdummy;<br># vdsm-tool dummybr-remove<br><br>4. Host should be clean, you can remove vdsm now.
  - [BZ 1367806](https://bugzilla.redhat.com/1367806) <b>[RFE] - Add "blkdiscard" as a new method to zero volumes</b><br>A new VDSM parameter enables a host to remove a disk/snapshot on block storage, where "Wipe After Delete" is enabled, in much less time than the "dd" command, especially if the storage supports "Write same."
@@ -147,10 +157,12 @@ packages from other repos.
 
 #### oVirt Engine
 
- - [BZ 1459134](https://bugzilla.redhat.com/1459134) <b>[RFE] Rebase engine-setup on PostgreSQL >= 9.5</b><br>Feature: <br><br>The engine now requires PostgreSQL 9.5 or later.<br><br>engine-setup can help upgrade an existing database to Software Collections PostgreSQL 9.5, as well as use that version for new setups.<br><br>Reason: <br><br>Better performance and new features (to be partially used as described in other bugzilla bugs).<br><br>Result: <br><br>The engine in 4.2 is faster and more efficient.
+ - [BZ 1317450](https://bugzilla.redhat.com/1317450) <b>[RFE] Have a policy for autoresume of VMs paused due to IO errors (stay paused, turn off, restart with defined time out time)</b><br>Feature: <br>Previously, if the VM has been paused due to IO Error, there was no way how to configure what should happen after the storage gets fixed. The only option was "auto resume", which resumed the VM. This feature adds two more options configurable per VM: "Kill" and "Leave Paused".<br><br>Reason: <br>There are ways how the "auto resume" together with HA VM using VM lease could lead to split brain. Other reason is that it can interfere with custom HA solutions.<br><br>Result: <br>Now the user can configure 3 resume policies for VMs:<br>- auto resume (the one which used to be the only one)<br>- leave paused<br>- kill
+ - [BZ 1459134](https://bugzilla.redhat.com/1459134) <b>[RFE] Rebase engine-setup on PostgreSQL >= 9.5</b><br>With this release, the engine now requires PostgreSQL 9.5 or later, which provides new features and better performance. The engine-setup tool can help upgrade an existing database to Software Collections PostgreSQL 9.5, as well as use that version for new setups.
  - [BZ 1405805](https://bugzilla.redhat.com/1405805) <b>[RFE] - Streaming API should support upload of disk snapshots</b><br>Support uploading of disk snapshots using ovirt-imageio. Full details in feature page: https://ovirt.org/develop/release-management/features/storage/backup-restore-disk-snapshots/
- - [BZ 1490866](https://bugzilla.redhat.com/1490866) <b>[RFE] Deprecate iptables firewall type for hosts</b><br>Feature: <br><br>Using IPTables firewall on virtualization host is deprecated in RHV 4.2 and will be completely removed in RHV 4.3. Administrators should switch to FirewallD firewall which is introduced in RHV 4.2 (more info in BZ995362).<br><br>To make the need to switch to FirewallD more visible, we have a new job in RHV manager which will go all over existing clusters each 30 days and raise warning event to audit log. Another warning message has been added to engine-config help for all IPTables related settings.<br><br>Reason: <br><br>Result:
- - [BZ 1480433](https://bugzilla.redhat.com/1480433) <b>[RFE] Indicate host needs to be reinstalled to push new configurations.</b><br>There are several settings of a cluster or host which require reinstallation of a host if those settings are changed:<br><br> I. Host with changed settings needs to be reinstalled<br>   1. Turning on/off Kdump integration<br>   2. Changing command line parameters<br><br> II. All hosts in a cluster needs to be reinstalled<br>   1. Changing firewall type of a cluster<br><br>The requirement to reinstall was always mentioned in documentation and also WARNING event is raised.<br><br>Unfortunately it was not enough, so no we also show an exclamation mark icon for each host that needs to be reinstalled. If cursor is moved over exclamation mark icon, then note that host needs to be reinstalled is displayed.
+ - [BZ 1416141](https://bugzilla.redhat.com/1416141) <b>[RFE] Use JDK and EE builtins for scheduled tasks and threads</b><br>Use JBoss ManagedThreadFactory, ManagedExecutorService and ManagedScheduledExecutorService instead of Java EE ExecutorService and Quartz to schedule jobs.<br><br>There are two ManagedExecutorServices in engine commandCoordinator and hostUpdatesChecker. <br><br>The size of the commandCoordinator executor service is defined by config variable COMMAND_COORDINATOR_THREAD_POOL_SIZE. The default size if 10. To change the size create a new conf file 99-coco-thread-pool.conf in /etc/ovirt-engine/engine.conf.d/<br><br>The size of the hostUpdatesChecker executor service is defined by config variable HOST_CHECK_FOR_UPDATES_THREAD_POOL_SIZE. The default size if 5. To change the size create a new conf file 99-host-thread-pool.conf in /etc/ovirt-engine/engine.conf.d/<br> <br>Management clients, such as the WildFly CLI, can also be used to configure ManagedExecutorService instances commandCoordinator and hostUpdatesChecker with out having to restart engine. <br><br>The 'engine' executor service size is define by config variables ENGINE_THREAD_POOL_MIN_SIZE and ENGINE_THREAD_POOL_MAX_SIZE. The default value for ENGINE_THREAD_POOL_MIN_SIZE is 50 and default value for ENGINE_THREAD_POOL_MAX_SIZE is 500. To change the value permanentaly create a conf file 99-engine-thread-pool.conf in /etc/ovirt-engine/engine.conf.d/.<br><br>jconsole can be used to change the size of the 'engine' executor service with out having to restart engine.<br><br>'engineScheduled' ManagedScheduledExecutorService size is define by config variable ENGINE_SCHEDULED_THREAD_POOL_SIZE. The default value is 100. To change the value<br>permanentaly create a conf file 99-engine-scheduled-thread-pool.conf in /etc/ovirt-engine/engine.conf.d/<br><br>Management clients, such as the WildFly CLI, can also be used to configure ManagedScheduledExecutorService instance 'engineScheduled' with out having to restart engine. <br><br>Engine creates a log entry of the thread pool usage as define by the config variable THREAD_POOL_MONITORING_INTERVAL_IN_SECONDS. The default value is 600 seconds. So every 10 minutes a log entry is created for each pool showing the thread pool usage.<br><br>Thread pool 'engine' is using 7 threads out of 500, 1 threads waiting for tasks and 0 tasks in queue.<br>Thread pool 'engineScheduled' is using 0 threads out of 100 and 100 tasks are waiting in the queue.<br>Thread pool 'engineThreadMonitoring' is using 1 threads out of 1 and 0 tasks are waiting in the queue.
+ - [BZ 1492067](https://bugzilla.redhat.com/1492067) <b>[RFE] add mdev_type to host devices tab</b><br>Feature: <br>Add the "mdev_type" column to host devices list.<br><br>Reason: <br>If a user wanted to pass through an mdev to a VM, he needed to find the mdev_type of the device by SSH-ing to the hypervisor and run a VDSM command to get this information.<br><br>Now, this information is exposed in the UI.<br><br>Result: <br>Now the user can find the mdev_type in the same UI which is used to set it to the VM.
+ - [BZ 1490866](https://bugzilla.redhat.com/1490866) <b>[RFE] Deprecate iptables firewall type for hosts</b><br>Using an iptables firewall on virtualization hosts is deprecated in Red Hat Virtualization 4.2 and will be completely removed in Red Hat Virtualization 4.3. Administrators should switch to a firewalld firewall which is introduced in Red Hat Virtualization 4.2.<br><br>To make the switch to firewalld more visible, Red Hat Virtualization Manager will go all over existing clusters every 30 days and raise warning events to the audit log. Another warning message has been added to engine-config help for all iptables related settings.
  - [BZ 1457239](https://bugzilla.redhat.com/1457239) <b>[RFE] Provide "High Performance VM" Profile to ovirt</b><br>Previously, it was difficult to configure a virtual machine (VM) to run with high performance workloads via the Administration Portal as it involved understanding and configuring a large number of settings. In addition, several features that were essential for improving the VM's performance were not supported at all, for example, huge pages and IO thread pinning.<br><br>In this release, a new optimization type called High Performance is available when configuring VMs. It is capable of running a VM with the highest possible performance, with performance metrics as close to bare metal as possible. When the customer selects High Performance optimization, some of the the VMs settings are automatically configured while other settings are suggested for manual configuration.
  - [BZ 1185782](https://bugzilla.redhat.com/1185782) <b>REST-API is missing image total size attribute</b><br>
  - [BZ 1205739](https://bugzilla.redhat.com/1205739) <b>[RFE][DR] - Allow recovering an imported domain without an UP DC</b><br>Cause: <br><br>Consequence: <br><br>Fix: <br><br>Result:
@@ -159,17 +171,22 @@ packages from other repos.
  - [BZ 1096497](https://bugzilla.redhat.com/1096497) <b>[restapi] Display image size and type for glance images missing in RESTAPI</b><br>Feature: <br>before that feature, Glance images returned by RESTAPI didn't list their size and type (iso/disk).<br><br>Reason: <br>That information should be listed regarding to Glance images.<br><br>Result:<br>Glance images do list their type and size on REST API.
  - [BZ 1372163](https://bugzilla.redhat.com/1372163) <b>[RFE] Warn user about VMs that have pending snapshot removal retries</b><br>When live or cold merge fails, snapshot disks may be left in an illegal state. If VMs with illegal snapshot disks are shut down, they will not re-start. VMs with illegal snapshot disks are now marked with an exclamation mark and a warning message not to shut them down.
  - [BZ 1475459](https://bugzilla.redhat.com/1475459) <b>[RFE] Use Wildfly 11 for oVirt engine 4.2</b><br>
- - [BZ 1463633](https://bugzilla.redhat.com/1463633) <b>[RFE] Provide support for data aggregation when fetching entities</b><br>Feature: <br><br>API Link Following. This features enable oVirt API users to request that the contents of some of the entity's links be returned inline, inside the requested entity.<br><br>Reason: <br><br>Currently when there is the need to retrieve multiple related objects from the API the only alternative is to retrieve the first one, and then, send additional requests to retrieve the related objects. For example, if you need a virtual machine and also the disks and NICs you need first to send a request like this:<br><br>GET /ovirt-engine/api/vms/123<br><br>And then additional requests to get the disk attachments, the disks, and the NICs:<br><br>GET /ovirt-engine/api/vms/123/diskattachments GET /ovirt-engine/api/disks/456 GET /ovirt-engine/api/disks/789 GET /ovirt-engine/api/vms/123/nics<br><br>In an environment with high latency this multiplies the time required to retrieve the data. In addition it also means that multiple queries have to be sent to the database to retrieve the data.<br><br>In order to improve in these two areas the new follow parameter will be introduced. This parameter will be a list of links that the server should follow and populate. For example, the previous scenario will be solved sending this request:<br><br>GET /ovirt-engine/api/vms/123?follow=diskattachments.disks,nics<br><br>That will return the virtual machine with the disks and the NICs embedded in the same response, thus avoiding the multiple network round-trips.<br><br>The multiple database queries will be avoided only if the server is modified to retrieve that data with more efficient queries, otherwise the server will use the naive approach of calling itself to retrieve it, which won’t improve the number of queries.<br><br>Result: <br><br>This features saves the need from client-side scripts for following links and enables running designated queries for common scenarios (e.g: get vms+nics+disks)<br><br>Deep dive presentation: <br><br>  https://bluejeans.com/s/Xdsmj
+ - [BZ 1463633](https://bugzilla.redhat.com/1463633) <b>[RFE] Provide support for data aggregation when fetching entities</b><br>This update enables Red Hat Virtualization API users to request that contents of some of the entity's links be returned inline, inside the requested entity.<br><br>Previously, to retrieve multiple related objects from the API, the only alternative was to retrieve the first one, then send additional requests to retrieve the related objects. For example, if you needed a virtual machine and also the disks and NICs, you would need to first send a request like this:<br><br>  GET /ovirt-engine/api/vms/123<br><br>And then send additional requests to get the disk attachments, the disks, and the NICs:<br><br>  GET /ovirt-engine/api/vms/123/diskattachments GET /ovirt-engine/api/disks/456 GET /ovirt-engine/api/disks/789 GET /ovirt-engine/api/vms/123/nics<br><br>In environments with high latency, this increases the time required to retrieve the data. In addition, it also means that multiple queries have to be sent to the database to retrieve the data. To improve this, a new follow parameter has been introduced. This parameter is a list of links that the server should follow and populate. For example, the previous scenario will be solved sending this request:<br><br>GET /ovirt-engine/api/vms/123?follow=diskattachments.disks,nics<br><br>This will return the virtual machine with the disks and the NICs embedded in the same response, thus avoiding the multiple network round-trips. The multiple database queries will be avoided only if the server is modified to retrieve that data with the more efficient queries, otherwise the server will use the approach of calling itself to retrieve it, which won’t improve the number of queries.
  - [BZ 1416491](https://bugzilla.redhat.com/1416491) <b>[RFE] Add support for OpenID Connect in engine SSO</b><br>This update adds SSO support for OpenID Connect clients. The following new OpenID Connect discovery endpoint has been added so that clients can discover the authorization endpoints and OpenID Connect capabilities of the Manager:<br><br>https://<Manager>/ovirt-engine/sso/openid/.well-known/openid-configuration<br><br>The following endpoint is used for client authorization and for obtaining the authentication code:<br><br>https://<Manager>/ovirt-engine/sso/openid/authorize<br><br>The following endpoint is used by clients to obtain the authentication token from the authentication code:<br><br>https://<Manager>/ovirt-engine/sso/openid/token<br><br>The following endpoint can used by clients to get details of the logged in user:<br><br>https://<Manager>/ovirt-engine/sso/openid/userinfo<br><br>The following endpoint can used by clients to get the keys used by SSO to sign the id_token returned from token and tokeninfo endpoints:<br><br>https://<Manager>/ovirt-engine/sso/openid/jwks
  - [BZ 1456414](https://bugzilla.redhat.com/1456414) <b>New domain should default to true on Discard After Delete</b><br>Up until now, the default value of the Discard After Delete field (DAD) was false.<br>That means that the UI checkbox was unchecked by default and creating a block storage domain via the REST-API without stating the value of DAD would have set it to false.<br><br>From now and on, the default value of DAD is true.<br>That means that the UI checkbox is checked by default and creating a block storage domain via the REST-API without stating the value of DAD will set it to true.
  - [BZ 1228543](https://bugzilla.redhat.com/1228543) <b>[RFE] hot-unplug memory</b><br>Previously, it was only possible to add memory to a running virtual machine (VM). To remove memory, the VM had to be shut down.<br>In this release, it is now possible to hot unplug memory from a running VM, provided that certain requirements are met and limitations are considered.
+ - [BZ 1399609](https://bugzilla.redhat.com/1399609) <b>[RFE] optimization in choice of target host for migration</b><br>Feature: <br><br>The host selection dropdown in Migrate dialog now shows only hosts that can actually be used as destination for the selected VMs.<br><br>Reason: <br><br>Nicer user experience, the user does not have to think about affinity, hosted engine and other limitations. The logic pre-filters the list for him.
+ - [BZ 1330217](https://bugzilla.redhat.com/1330217) <b>[RFE] Enable configuring IPv6 in VM cloud-init</b><br>Cloud-Init supports IPv6 properties for initializing a virtual machine's network interfaces.
+ - [BZ 1420404](https://bugzilla.redhat.com/1420404) <b>[RFE] add ability to warm restart a VM so that VM starts on the same host when it is run by Run Once and rebooted</b><br>
  - [BZ 1168327](https://bugzilla.redhat.com/1168327) <b>Live Merge: optimize internal volume size</b><br>After live merge, the base volume is reduced to its optimal size.
+ - [BZ 1428498](https://bugzilla.redhat.com/1428498) <b>[RFE] Allow to search VMs by specific host they are pinned to.</b><br>Feature: <br>List all VMs pinned to a specific host, event if the VMs are offline.<br><br>Reason: <br>When a host with pinned VMs is moved to the maintenance mode, the VMs are shut down. There was no simple way for the user to know which VMs have to be started again, when the host is no longer in the maintenance mode.<br><br>Result: <br>The pinned VMs are listed in the Virtual Machines details tab of the Host entity.<br>There are buttons on top of the table, allowing the user to show only running VMs, pinned VMs or both.
  - [BZ 1497619](https://bugzilla.redhat.com/1497619) <b>[RFE] present per-interface LLDP data in SetupHostNetwork dialog</b><br>
  - [BZ 1442687](https://bugzilla.redhat.com/1442687) <b>Hide expected network exceptions during host installation</b><br>
  - [BZ 1462811](https://bugzilla.redhat.com/1462811) <b>[RFE] Execute Ansible role ovirt-host-deploy as a part of host installation/reinstallation to allow customization of this flow</b><br>The Ansible role ovirt-host-deploy[1] is now executed as part of the host installation/reinstallation flow. This role is included in ovirt-ansible-roles package and is installed on the Red Hat Virtualization Manager by default.<br><br>[1] /usr/share/doc/ansible/rols/ovirt-host-deploy/README.md
  - [BZ 1441501](https://bugzilla.redhat.com/1441501) <b>[RFE] Exposing configuration options within RESTAPI</b><br>Previously the Manager configuration options with user or admin access levels were only available to GWT clients. To obtain option values for non-GWT clients they are now exposed in the following REST API:<br><br>  GET https://<ENGINE_FQDN>:/ovirt-engine/api/options/<OPTION_NAME><br>  <br>Where <OPTION_NAME> is an existing configuration option name. The output of that call is a list of values. To obtain a value for only a specific client version, you need to specify the requested version as follows:<br><br>  GET https://<ENGINE_FQDN>:/ovirt-engine/api/options/<OPTION_NAME>?version=<VERSION><br>  <br>The Manager configuration options are not backward compatible and may differ for each Manager version, and therefore existing options may not be available. Options are exposed as read-only in the REST APIs, but some of them can be updated by using the engine-config command-line tool.
  - [BZ 1231859](https://bugzilla.redhat.com/1231859) <b>[RFE] notify user that KSM will not be enable till next time hypervisor enters maintenance mode</b><br>
  - [BZ 1366905](https://bugzilla.redhat.com/1366905) <b>[RFE] Allow multiple IP's / text fields for network filters, specifically clean-traffic</b><br>The engine already supports filtering the network communication of VMs. Now it is possible to configure the filter parameters using the REST-API. <br><br>See http://www.ovirt.org/develop/release-management/features/network/networkfilterparameters/#current-implementation-status for details.
+ - [BZ 1207992](https://bugzilla.redhat.com/1207992) <b>[RFE] Report IO errors to guests if the device is a CDROM</b><br>note the change is _not_ enough to get the desired behavior. See comment #30 for details
  - [BZ 1241410](https://bugzilla.redhat.com/1241410) <b>[RFE]- Add 'passthrough' column to the vNIC Profiles sub tab under Networks main tab</b><br>
  - [BZ 1169099](https://bugzilla.redhat.com/1169099) <b>[RFE] secrets should be marked so near their definition</b><br>
  - [BZ 1434306](https://bugzilla.redhat.com/1434306) <b>Can not remove Cinder provider even if the service is not available anymore.</b><br>Added 'Force Remove' button on Providers main view. Currently applicable only for volume providers (Cinder). Force removing a provider invokes the same operation as force remove of a storage domain. I.e. removing, from DB only, the provider along with all related entities (Storage Doamin, VMs, Templates, Disks).
@@ -183,10 +200,11 @@ packages from other repos.
  - [BZ 1324532](https://bugzilla.redhat.com/1324532) <b>[TEXT] - engine-upgrade-check should prompt user that while RPMs are updated the engine might not be updated if he didn't run engine setup</b><br>Feature: <br>Provide a note to the user that the system may not be up to date after running engine-upgrade-check, if the user hasn't run engine-setup following e.g. yum update.<br><br>Reason: <br>To ensure the user is aware that the system may not be fully up to date in certain cases, even when the engine-upgrade-check says that there is no upgrade available.<br><br>Result: <br>The warning message is now displayed.
  - [BZ 1200963](https://bugzilla.redhat.com/1200963) <b>[RFE] - Set non-mgmt network as Default Route</b><br>The engine now enables configuring a non-management network as the default network route, using the UI instead of custom properties.
  - [BZ 1202311](https://bugzilla.redhat.com/1202311) <b>[RFE] Present Rx/TX counter with coma separator between thousands</b><br>
- - [BZ 1488466](https://bugzilla.redhat.com/1488466) <b>[RFE] Improve taskcleaner & unlock_entity execution</b><br>Feature: <br><br>For both scripts options for user, database, port and server name was removed (-u, -d, -p, -s). Also there is no more need to export PGPASSWORD. <br>Now all values are taken from engine config files.<br><br>Reason: <br><br>Result:
+ - [BZ 1488466](https://bugzilla.redhat.com/1488466) <b>[RFE] Improve taskcleaner & unlock_entity execution</b><br>The taskcleaner and unlock_entity execution scripts have both had options for user, database, port and server names removed (-u, -d, -p, -s). Also there is no more need to export PGPASSWORD. All values are now obtained from the Manager configuration files.
  - [BZ 1404389](https://bugzilla.redhat.com/1404389) <b>[RFE] Need ability to refresh direct's LUN size if it was added without a HOST parameter (or if the underlying storage was extended)</b><br>The engine can update a direct LUN's missing or outdated information.
  - [BZ 1146558](https://bugzilla.redhat.com/1146558) <b>[RFE] Add the possibility to show iptables diff without interaction</b><br>
  - [BZ 1291177](https://bugzilla.redhat.com/1291177) <b>[RFE] Display disk content type in the GUI, and allow searching/filtering according to it</b><br>In the Administration Portal, on the "Disks" tab, disks can be filtered by content type.
+ - [BZ 1489332](https://bugzilla.redhat.com/1489332) <b>unlock_entity.sh does not report human readable output</b><br>Feature: <br><br>We have added command line parameter '-c', using which column names will be shown in the output, so administrators will know what entity is identified by showed UUID.<br><br>Reason: <br><br>Result:
  - [BZ 1491771](https://bugzilla.redhat.com/1491771) <b>[RFE] Enable storage domain creation on a non replicated gluster volumes</b><br>RHEV-M allows storage domain creation with a single Gluster brick.
  - [BZ 1489328](https://bugzilla.redhat.com/1489328) <b>unlock_entity.sh -q does not support type "all"</b><br>Administrators had to pass specific entity type ("vm", "disk" or "snapshot") using -q option for each unlock_entity.sh invocation, but there was no way how to process all entity types within single invocation.<br><br>We have introduced new value "all" which can be passed using -q option to process all entity types at once.
  - [BZ 1492706](https://bugzilla.redhat.com/1492706) <b>ovirt-engine-appliance misses python2-pyOpenSSL which is required for OVN setup</b><br>The engine now requires OVN.<br><br>Didn't check other OVN-related bugs, this can be mentioned in one of them instead of current.
@@ -202,36 +220,38 @@ packages from other repos.
 
 #### oVirt Engine Dashboard
 
- - [BZ 1420039](https://bugzilla.redhat.com/1420039) <b>[RFE] Create a Refresh button on Dashboard in Manager UI</b><br>
+ - [BZ 1420039](https://bugzilla.redhat.com/1420039) <b>[RFE] Create a Refresh button on Dashboard in Manager UI</b><br>Feature: Add a manual refresh button to the dashboard UI to update the display with currently available system summary information.
 
 #### ovirt-engine-dwh
 
- - [BZ 1459134](https://bugzilla.redhat.com/1459134) <b>[RFE] Rebase engine-setup on PostgreSQL >= 9.5</b><br>Feature: <br><br>The engine now requires PostgreSQL 9.5 or later.<br><br>engine-setup can help upgrade an existing database to Software Collections PostgreSQL 9.5, as well as use that version for new setups.<br><br>Reason: <br><br>Better performance and new features (to be partially used as described in other bugzilla bugs).<br><br>Result: <br><br>The engine in 4.2 is faster and more efficient.
+ - [BZ 1459134](https://bugzilla.redhat.com/1459134) <b>[RFE] Rebase engine-setup on PostgreSQL >= 9.5</b><br>With this release, the engine now requires PostgreSQL 9.5 or later, which provides new features and better performance. The engine-setup tool can help upgrade an existing database to Software Collections PostgreSQL 9.5, as well as use that version for new setups.
  - [BZ 1409766](https://bugzilla.redhat.com/1409766) <b>[RFE]  Provide a tool to execute vacuum full on DWH database</b><br>This release adds a maintenance tool to run vacuum actions on the DWH database or specific tables. <br><br>The tool optimizes table stats and compacts the tables, resulting in less disk space usage. This allows for more efficient maintenance, and the updated table stats allow for better query planning.<br><br>Also provided is an engine-setup dialog that offers to perform vacuum during upgrades. This can be automated by the answer file.
 
 #### oVirt Hosted Engine HA
 
  - [BZ 1498327](https://bugzilla.redhat.com/1498327) <b>HE host on EngineStarting -> EngineMaybeAway -> EngineDown cycle</b><br>Feature: Added caching of OVF storage location. <br><br>Reason: As OVF storage location raraely changes, we do not need to search for it on every monitoring loop iteration. Instead it can be saved and reused and expired only in case of error.<br><br>Result: Monitoring loop execution time decreased significantly
- - [BZ 1149579](https://bugzilla.redhat.com/1149579) <b>[RFE][hosted-engine-setup] [iSCSI support] allow selecting more than one iSCSI target</b><br>Connect all the portals of an iSCSI portal group to enable<br>iSCSI multipath.<br>To be as backward compatibile as possible and avoid<br>requiring changes in host-deploy, it saves the<br>multiple IP and port values as string composed<br>by multiple comma separated values with the<br>same key used by previous version.<br>It assumes that the login is the same for all<br>the portals.
+ - [BZ 1149579](https://bugzilla.redhat.com/1149579) <b>[RFE][hosted-engine-setup] [iSCSI support] allow selecting more than one iSCSI target</b><br>You can connect to more than one iSCSI target if you connect all the portals of an iSCSI portal group to enable multipathing before running the self-hosted engine deployment script. To be as backwards-compatible as possible and to avoid requiring changes in the deployment script, it saves the multiple IP and port values as a string composed of multiple comma-separated values with the same key used by the previous version. It assumes that the login is the same for all the portals.
 
 #### oVirt Engine Metrics
 
+ - [BZ 1508481](https://bugzilla.redhat.com/1508481) <b>[RFE] Add supervdsm to the collectd processes plugin</b><br>
+ - [BZ 1508484](https://bugzilla.redhat.com/1508484) <b>[RFE] Add ovirt-engine-dwhd to the collectd processes plugin</b><br>
  - [BZ 1471833](https://bugzilla.redhat.com/1471833) <b>[RFE]  Allow passing extra ansible opts to oVirt Metrics shell script</b><br>Feature: <br>Allow extra ansible opts that are optional when running ansible-playbook directly.<br><br>Reason: <br>This adds additional options when configuring oVirt metrics.<br> <br>Result: <br>Can now add ansible parameter when using configure_ovirt_machines_for_metrics.sh
  - [BZ 1446480](https://bugzilla.redhat.com/1446480) <b>[RFE]  add "Uptime" Column to oVirt Metrics Store</b><br>Feature: <br>This patch loads the uptime collectd plugin that reports the system uptime.<br><br>Reason: <br><br>Result:
 
 #### oVirt Hosted Engine Setup
 
- - [BZ 1149579](https://bugzilla.redhat.com/1149579) <b>[RFE][hosted-engine-setup] [iSCSI support] allow selecting more than one iSCSI target</b><br>Connect all the portals of an iSCSI portal group to enable<br>iSCSI multipath.<br>To be as backward compatibile as possible and avoid<br>requiring changes in host-deploy, it saves the<br>multiple IP and port values as string composed<br>by multiple comma separated values with the<br>same key used by previous version.<br>It assumes that the login is the same for all<br>the portals.
+ - [BZ 1149579](https://bugzilla.redhat.com/1149579) <b>[RFE][hosted-engine-setup] [iSCSI support] allow selecting more than one iSCSI target</b><br>You can connect to more than one iSCSI target if you connect all the portals of an iSCSI portal group to enable multipathing before running the self-hosted engine deployment script. To be as backwards-compatible as possible and to avoid requiring changes in the deployment script, it saves the multiple IP and port values as a string composed of multiple comma-separated values with the same key used by the previous version. It assumes that the login is the same for all the portals.
  - [BZ 1461251](https://bugzilla.redhat.com/1461251) <b>[bug] hosted-engine yum repo required, but rpm-based install optional</b><br>Feature: <br>Provide path to Appliance OVF<br><br>Reason: <br>This feature is supported according to RedHat customer portal, but dropped in the past for some reason<br><br>Result: <br>User can provide path to appliance OVA instead of installing appliance RPM
- - [BZ 1429537](https://bugzilla.redhat.com/1429537) <b>[RFE] Rebase on gluster-3.12</b><br>oVirt Hosted Engine now requires GlusterFS 3.10 instead of 3.8.
- - [BZ 1304650](https://bugzilla.redhat.com/1304650) <b>[RFE] - he-setup should wait for all services and the Engine VM to come up successful at the end of the setup</b><br>Feature: Wait for engine vm to power up at the end of Hosted Engine deployment  <br><br>Reason: when the deployment has finished, the user must be able to connect to the engine, and not wait for the vm to power up.
+ - [BZ 1429537](https://bugzilla.redhat.com/1429537) <b>[RFE] Rebase on gluster-3.12</b><br>Self-hosted engines now require GlusterFS 3.10 instead of 3.8.
+ - [BZ 1304650](https://bugzilla.redhat.com/1304650) <b>[RFE] - he-setup should wait for all services and the Engine VM to come up successful at the end of the setup</b><br>With this release, the self-hosted engine deployment script waits for the Manager VM to power up before reporting that the deployment is complete. Now when the deployment is finished, you can connect to the Manager right away instead of waiting for the VM to power up.
  - [BZ 1233127](https://bugzilla.redhat.com/1233127) <b>[RFE] Warn when bad bond modes are used for the bond which is used for the initial VM network</b><br>
 
 #### oVirt Log Collector
 
- - [BZ 870884](https://bugzilla.redhat.com/870884) <b>[RFE] [Hitachi 3.1 FEAT][TRACKER] Log Collector: Getting hardware information from RHEL host using IPMI</b><br>ovirt-log-collector has been changed adding ipmitool plugin to the list of the plugins executed by sosreport on the hosts. The collected data now includes hardware details provided by ipmitool.
- - [BZ 1020790](https://bugzilla.redhat.com/1020790) <b>[RFE] - add options to rhevm-log-collector to limit size of collected logs</b><br>Feature: ovirt-log-collector is now able to limit the maximum size of logs collected.<br><br>Reason: In cases where logs need to be collected, the size of the logs may be extremely large in environments with large numbers of hosts or a large number of exceptions. ovirt-log-collector can now arbitrarily limit the size of logs collected, defaulting to the last day only.<br><br>Result: ovirt-log-collector can now limit the size of logs collected, with the intended result of capturing relevant logs only.
- - [BZ 1404509](https://bugzilla.redhat.com/1404509) <b>[RFE] Log collector should collect time diff for all hosts</b><br>When collecting sos reports from hosts, chrony and systemd sos plugins are now enabled collecting information about time synchronization. In addition, a new option --time-only has been added to ovirt-log-collector allowing to gather only information about time differences from the hosts without gathering full sos reports, saving a considerable amount of time for the operation.
+ - [BZ 870884](https://bugzilla.redhat.com/870884) <b>[RFE] [Hitachi 3.1 FEAT][TRACKER] Log Collector: Getting hardware information from RHEL host using IPMI</b><br>The ovirt-log-collector tool has been changed to add the ipmitool plugin to the list of plugins executed by sosreport on the hosts. The collected data now includes hardware details provided by ipmitool.
+ - [BZ 1020790](https://bugzilla.redhat.com/1020790) <b>[RFE] - add options to rhevm-log-collector to limit size of collected logs</b><br>The ovirt-log-collector can now limit the maximum size of logs collected in order to capture relevant logs only. The size of the logs may be extremely large in environments with large numbers of hosts or a large number of exceptions, so ovirt-log-collector can now arbitrarily limit the size of logs collected, defaulting to the last day only.
+ - [BZ 1404509](https://bugzilla.redhat.com/1404509) <b>[RFE] Log collector should collect time diff for all hosts</b><br>When collecting SOS reports from hosts, chrony and systemd SOS plugins can now collect information about time synchronization. In addition, a new --time-only option has been added to ovirt-log-collector, allowing information about time differences to be gathered from the hosts without gathering full SOS reports, saving a considerable amount of time for the operation.
  - [BZ 1023455](https://bugzilla.redhat.com/1023455) <b>[CodeChange][RFE] log-collector should use the same code used by the engine for parsing configuration</b><br>
 
 #### oVirt Provider OVN
@@ -245,7 +265,7 @@ packages from other repos.
 
 #### oVirt Guest Agent
 
- - [BZ 1443143](https://bugzilla.redhat.com/1443143) <b>guest agent (Atomic): do not set tuned profile - leave whateve the Atomic guest has</b><br>
+ - [BZ 1443143](https://bugzilla.redhat.com/1443143) <b>Do not set tuned profile - leave whatever the guest has</b><br>
 
 ### Rebase: Enhancementss Only
 
@@ -285,8 +305,12 @@ packages from other repos.
  - [BZ 1494921](https://bugzilla.redhat.com/1494921) <b>NPE when get LLDP info from host interface via REST</b><br>
  - [BZ 1474566](https://bugzilla.redhat.com/1474566) <b>[sos plugin] lvm commands need syntax change</b><br>
  - [BZ 1486543](https://bugzilla.redhat.com/1486543) <b>Migration leads to VM running on 2 Hosts</b><br>
+ - [BZ 1260747](https://bugzilla.redhat.com/1260747) <b>Create the filesystem layout at install time in the places where needed</b><br>
+ - [BZ 980363](https://bugzilla.redhat.com/980363) <b>Incorrect speed is displayed for the interface of the host</b><br>
  - [BZ 1358717](https://bugzilla.redhat.com/1358717) <b>Export of vm with thin provision disk from NFS Data domain and Import to Block Data domain makes virtual and Actual size of disk same.</b><br>
  - [BZ 1326799](https://bugzilla.redhat.com/1326799) <b>[CodeChange] Remove workaround for selinux.restorecon for disabled selinux</b><br>
+ - [BZ 1506517](https://bugzilla.redhat.com/1506517) <b>Can't run VM with sysprep - could not create floppy file</b><br>
+ - [BZ 1502488](https://bugzilla.redhat.com/1502488) <b>Cold merge will fail if the base qcow2 image reports leaked cluster</b><br>
  - [BZ 1502352](https://bugzilla.redhat.com/1502352) <b>Cleanup thread for live merge executed continously if a block job failed in libvirtd side</b><br>
  - [BZ 1422670](https://bugzilla.redhat.com/1422670) <b>During a Live Merge, VDSM still saw a block job, even though libvirt's block job had completed.</b><br>
  - [BZ 1428851](https://bugzilla.redhat.com/1428851) <b>RDMA Glusterfs does not recognized as mounted</b><br>
@@ -308,6 +332,7 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1441322](https://bugzilla.redhat.com/1441322) <b>HA VMs running in two hosts at a time after restoring backup of RHV-M</b><br>
+ - [BZ 1388336](https://bugzilla.redhat.com/1388336) <b>VMware import, username with '.' not accepted</b><br>
  - [BZ 1464055](https://bugzilla.redhat.com/1464055) <b>bond has no speed set in active_migration_network_interfaces</b><br>
  - [BZ 1362557](https://bugzilla.redhat.com/1362557) <b>[RFE] Use the improved VM overhead calculation in VM scheduling</b><br>
  - [BZ 1435485](https://bugzilla.redhat.com/1435485) <b>[Pool] VMs are still created with duplicate MAC addresses after 4.0.7 upgrade</b><br>
@@ -315,7 +340,6 @@ packages from other repos.
  - [BZ 1445171](https://bugzilla.redhat.com/1445171) <b>MultiHost command is not sent when updating network with default route role</b><br>
  - [BZ 1445266](https://bugzilla.redhat.com/1445266) <b>Engine not sending defaultRoute property on setup networks command</b><br>
  - [BZ 1491132](https://bugzilla.redhat.com/1491132) <b>Engine assigning MAC addresses which are in use by VMs when creating new VM from template</b><br>
- - [BZ 1464043](https://bugzilla.redhat.com/1464043) <b>Cloud-init network configuraton doesn't work</b><br>
  - [BZ 1247950](https://bugzilla.redhat.com/1247950) <b>When creating a template from glance we should mark the bootable disk as bootable</b><br>
  - [BZ 1448831](https://bugzilla.redhat.com/1448831) <b>Issues with automating the configuration of VMs (cloud-init)</b><br>
  - [BZ 1451221](https://bugzilla.redhat.com/1451221) <b>engine-setup should set admin@internal in the registered provider</b><br>
@@ -327,6 +351,7 @@ packages from other repos.
  - [BZ 1447014](https://bugzilla.redhat.com/1447014) <b>Default route role should  fall back to management network</b><br>
  - [BZ 1413845](https://bugzilla.redhat.com/1413845) <b>Engine fails to start properly</b><br>
  - [BZ 1439970](https://bugzilla.redhat.com/1439970) <b>[v4 API] Specifying name and vm.disk_attachments returns error 500</b><br>
+ - [BZ 1310715](https://bugzilla.redhat.com/1310715) <b>[UI][setupNetworks dialog] - NIC and network panel tooltips are not updated immediately</b><br>
  - [BZ 1252906](https://bugzilla.redhat.com/1252906) <b>Search based on negated fields with null values doesn't work properly</b><br>
  - [BZ 1304792](https://bugzilla.redhat.com/1304792) <b>Disks table - some columns are not sortable</b><br>
  - [BZ 1302351](https://bugzilla.redhat.com/1302351) <b>[UI] - [Hosts] -> 'Network Interfaces' -> 'Setup Host Networks', 'Save Network Configuration' and 'Sync All Networks' buttons shouldn't be part of the scrolling in case of multiple interfaces on the host</b><br>
@@ -334,6 +359,7 @@ packages from other repos.
  - [BZ 1442037](https://bugzilla.redhat.com/1442037) <b>No validation on the disk's type when taking a partial snapshot</b><br>
  - [BZ 1237132](https://bugzilla.redhat.com/1237132) <b>[TEXT] New package listing of engine-setup when upgrading packages is not user friendly</b><br>
  - [BZ 1263785](https://bugzilla.redhat.com/1263785) <b>Remove constants duplication in ovirt-engine-dwh and ovirt-engine-setup</b><br>
+ - [BZ 1508033](https://bugzilla.redhat.com/1508033) <b>[UI] - URL fragment is ignored when redirected from a login</b><br>
  - [BZ 1304931](https://bugzilla.redhat.com/1304931) <b>Rename "OpenStack Volume" to "OpenStack Block Storage"</b><br>
  - [BZ 1106552](https://bugzilla.redhat.com/1106552) <b>Restore the image_templates_images constraint [blocked on enhancement bug 1106547 - move to PG 9.5]</b><br>
  - [BZ 1415751](https://bugzilla.redhat.com/1415751) <b>Webadmin SearchBox: "Vms:hosts" doesn't work</b><br>
@@ -349,6 +375,7 @@ packages from other repos.
 #### oVirt Engine Dashboard
 
  - [BZ 1421104](https://bugzilla.redhat.com/1421104) <b>[fr_FR, es_ES] [Admin Portal] Some numbers are displayed as 'NaN' on Dashboard tab.</b><br>
+ - [BZ 1508033](https://bugzilla.redhat.com/1508033) <b>[UI] - URL fragment is ignored when redirected from a login</b><br>
 
 #### ovirt-engine-dwh
 
@@ -372,6 +399,10 @@ packages from other repos.
  - [BZ 1286568](https://bugzilla.redhat.com/1286568) <b>HA Agent and Broker logs have incorrect permissions/ownership</b><br>
  - [BZ 1481680](https://bugzilla.redhat.com/1481680) <b>hosted-engine --upgrade-appliance fails with KeyError: 'stopped' if the metadata area contains references to 3.5 decommissioned hosts</b><br>
 
+#### oVirt ISO Uploader
+
+ - [BZ 1437799](https://bugzilla.redhat.com/1437799) <b>[RFE] - ovirt-iso-uploader should work with Gluster without NFS enabled</b><br>
+
 #### oVirt Log Collector
 
  - [BZ 1445245](https://bugzilla.redhat.com/1445245) <b>ovirt-log-collector should use /etc/pki/ovirt-engine/apache-ca.pem instead of /etc/pki/ovirt-engine/ca.pem</b><br>
@@ -385,6 +416,7 @@ packages from other repos.
 #### oVirt Engine SDK 4 Ruby
 
  - [BZ 1465328](https://bugzilla.redhat.com/1465328) <b>[RFE] Add a hierarchy of exceptions</b><br>
+ - [BZ 1505427](https://bugzilla.redhat.com/1505427) <b>Ruby-SDK build requires redhat-rpm-config which is not listed in requirements</b><br>
  - [BZ 1492614](https://bugzilla.redhat.com/1492614) <b>Missing documentation for destination storage in template creation</b><br>
  - [BZ 1497641](https://bugzilla.redhat.com/1497641) <b>Not able to set user's public key.</b><br>
  - [BZ 1378113](https://bugzilla.redhat.com/1378113) <b>sdk should raise an exception when unknown parameter is used</b><br>
@@ -393,8 +425,11 @@ packages from other repos.
 #### VDSM
 
  - [BZ 1438506](https://bugzilla.redhat.com/1438506) <b>[downstream clone - 4.2.0] while deleting vms created from a template, vdsm command fails with error VDSM command failed: Could not remove all image's volumes</b><br>
+ - [BZ 1422430](https://bugzilla.redhat.com/1422430) <b>[RFE] Support MACADDR when acquiring interfaces from ifcfg and NM.</b><br>
  - [BZ 1433380](https://bugzilla.redhat.com/1433380) <b>Execute fencing on hosts which RPC pool is exhausted</b><br>
  - [BZ 1408672](https://bugzilla.redhat.com/1408672) <b>Can't run VM with payload - permission denied trying to access payload</b><br>
+ - [BZ 1495905](https://bugzilla.redhat.com/1495905) <b>RHV-H reposts unknown bonding devices during the boot process.</b><br>
+ - [BZ 1510443](https://bugzilla.redhat.com/1510443) <b>journal spammed with WARN cannot red eth0 speed (when using virtio NICs on the *host*)</b><br>
  - [BZ 1487064](https://bugzilla.redhat.com/1487064) <b>ERROR (Thread-1) [utils.Callback] qemuGuestAgentCallback failed on VM shutdown</b><br>
  - [BZ 1471727](https://bugzilla.redhat.com/1471727) <b>vdsm syslog print format is not compatible to other services' format</b><br>
  - [BZ 1469077](https://bugzilla.redhat.com/1469077) <b>[RFE] Import from kvm source when guest's disk type is volume</b><br>Previously, it was not possible to import virtual machines containing disks that were of type 'volume'. In this release, it is now possible to import this type of virtual machine.
@@ -404,12 +439,14 @@ packages from other repos.
  - [BZ 1458901](https://bugzilla.redhat.com/1458901) <b>Error: vdsm.virt.sampling.VMBulkstatsMonitor object at 0x3155490> operation failed (KeyError: 'balloon.current')</b><br>
  - [BZ 1452185](https://bugzilla.redhat.com/1452185) <b>After host reboot host doesn't have gateway</b><br>
  - [BZ 1426566](https://bugzilla.redhat.com/1426566) <b>kvm_amd nested virtualization not detected</b><br>
- - [BZ 1412451](https://bugzilla.redhat.com/1412451) <b>[RFE]virt-v2v new feature "--vdsm-compat" should be  implemented  in VDSM .</b><br>with this new feature we are converting qcow images with the newer compat version '1.1'.<br>Note that the storage version needs to be 4 or more.
+ - [BZ 1412451](https://bugzilla.redhat.com/1412451) <b>[RFE]virt-v2v new feature "--vdsm-compat" should be  implemented  in VDSM .</b><br>In this release, virt-v2v can convert QCOW2 images with compatibility level 1.1. Note that the Storage Domain must be version 4.
  - [BZ 1405378](https://bugzilla.redhat.com/1405378) <b>remove RHEV branding from guest agent area - oVirt 4.2 Channel name deprecation</b><br>
  - [BZ 1425863](https://bugzilla.redhat.com/1425863) <b>[TEXT] null architecture type, replacing with x86_64, %s</b><br>
  - [BZ 1448913](https://bugzilla.redhat.com/1448913) <b>import kvm libvirt failure on buffer size mismatch (when working against an old libvirt)</b><br>
  - [BZ 1479872](https://bugzilla.redhat.com/1479872) <b>[vhost hook] vm failed to start if network name in custom property is invalid</b><br>
  - [BZ 1470696](https://bugzilla.redhat.com/1470696) <b>Bridge with two ports  kills getCaps - 'code=-32603, message=too many values to unpack'</b><br>
+ - [BZ 1497517](https://bugzilla.redhat.com/1497517) <b>host can't retrieve balloon info on vms</b><br>
+ - [BZ 1508560](https://bugzilla.redhat.com/1508560) <b>Delete snapshot after live migration fails at reduce stage - BlockStorageDomainManifest' object has no attribute '_extendlock'</b><br>
  - [BZ 1505150](https://bugzilla.redhat.com/1505150) <b>Live Merge: Reduce volume fails on nfs storage</b><br>
  - [BZ 1481246](https://bugzilla.redhat.com/1481246) <b>VM does not consume any hugepages on a host</b><br>
  - [BZ 1455138](https://bugzilla.redhat.com/1455138) <b>virt: migration: do not refer to RHBZ#919201 if migration is stalling</b><br>
@@ -428,11 +465,12 @@ packages from other repos.
 
 #### oVirt Cockpit Plugin
 
- - [BZ 1367457](https://bugzilla.redhat.com/1367457) <b>[RFE] Refactor the hosted-engine wizard UI to use alt2</b><br>
+ - [BZ 1509775](https://bugzilla.redhat.com/1509775) <b>HostedEngine page cannot reach and keep status "Loading Wizard".</b><br>
  - [BZ 1426474](https://bugzilla.redhat.com/1426474) <b>There is 1 vm running after installing cockpit-ovirt with Fedora24</b><br>
 
 #### oVirt Engine SDK 4 Python
 
+ - [BZ 1467969](https://bugzilla.redhat.com/1467969) <b>[RFE] Add a hierarchy of exceptions</b><br>
  - [BZ 1468460](https://bugzilla.redhat.com/1468460) <b>Support 'error' field in JSON SSO response</b><br>
 
 #### oVirt Engine
@@ -441,13 +479,16 @@ packages from other repos.
  - [BZ 1492673](https://bugzilla.redhat.com/1492673) <b>Adding iSCSI storage domain is impossible via the UI in the default dialog box "Targets -> LUNs"</b><br>
  - [BZ 1491598](https://bugzilla.redhat.com/1491598) <b>[UI] - 'Manage Networks' dialog is blank</b><br>
  - [BZ 1492386](https://bugzilla.redhat.com/1492386) <b>[UI] - Remove/Edit buttons are disabled for VM's vNICs</b><br>
+ - [BZ 1496382](https://bugzilla.redhat.com/1496382) <b>[RFE][REST API] Add support for VM devices under VM resource</b><br>
+ - [BZ 1506887](https://bugzilla.redhat.com/1506887) <b>host_nic_vfs_config is not populated if parent pci device of nic is shared with another device</b><br>
+ - [BZ 1503799](https://bugzilla.redhat.com/1503799) <b>Unable to create an iSCSI bond from webui</b><br>
  - [BZ 1500812](https://bugzilla.redhat.com/1500812) <b>Engine and audit logs don't indicate if a commit or undo was issued during a snapshot preview</b><br>
  - [BZ 1504558](https://bugzilla.redhat.com/1504558) <b>when removing network interface from VM it is still visible in VMs tab</b><br>
  - [BZ 1504265](https://bugzilla.redhat.com/1504265) <b>[UI] engine errata grid missing links to detail view</b><br>
  - [BZ 1380498](https://bugzilla.redhat.com/1380498) <b>[RFE] host upgrade should upgrade the whole host, not specific packages</b><br>Up until version 4.2 the upgrade process of the host upgraded just few packages on the host relevant for the virtualization. The packages was be specified by following variables: PackageNamesForCheckUpdate, UserPackageNamesForCheckUpdate and OvirtNodePackageNamesForCheckUpdate. <br><br>Since version 4.2 the upgrade process of the host will update all packages, not only relevant one. We also added an option to choose whether the host should be rebooted after the upgrade is done, where the default option is to do a reboot.<br><br>Users can't no longer choose relevant packages to check the upgrade, and so following config options don't exists anymore:<br> - PackageNamesForCheckUpdate<br> - UserPackageNamesForCheckUpdate<br> - OvirtNodePackageNamesForCheckUpdate
  - [BZ 1504005](https://bugzilla.redhat.com/1504005) <b>Cluster can be created with empty 'Default network provided', which is causing NPE during host deploy</b><br>
  - [BZ 1502707](https://bugzilla.redhat.com/1502707) <b>DEBUG level logging reveals a password is not masked</b><br>
- - [BZ 1492067](https://bugzilla.redhat.com/1492067) <b>[RFE] add mdev_type to host devices tab</b><br>
+ - [BZ 1495261](https://bugzilla.redhat.com/1495261) <b>[RFE] Define default network provider on cluster level</b><br>
  - [BZ 1467928](https://bugzilla.redhat.com/1467928) <b>Shutdown of a vm during snapshot deletion renders the disk invalid</b><br>Cause: <br>Live merge failed during Merge Status command, Destroy Image command or Destroy Image Check command.<br><br>Consequence: <br>If this is an active image live merge, the top volume is left as illegal at the end of the failed live merge.<br><br>Fix: <br>The reason of the failure in those commands is, usually, network timeout when executing Vdsm verbs. In that case, we keep trying executing the verbs until succeeding.<br><br>Result: <br>Live merge process will not fail if there is an issue calling Vdsm and the top volume will not be illegal.
  - [BZ 1483329](https://bugzilla.redhat.com/1483329) <b>[UI] Incorrect 'Network Interfaces' IP values are displayed on a VM</b><br>
  - [BZ 1481007](https://bugzilla.redhat.com/1481007) <b>vGPU: VMs with mdev_type hook failed to run after RHV upgrade, even if the hook removed.</b><br>
@@ -457,8 +498,15 @@ packages from other repos.
  - [BZ 1490383](https://bugzilla.redhat.com/1490383) <b>Auth plugin stopped working on Wildfly 11</b><br>
  - [BZ 1414207](https://bugzilla.redhat.com/1414207) <b>Too many ISO refreshing events</b><br>In order to maintain backwards compatibility in the REST-API which is used by virt-viewer the force refresh option is on by default unless the value of the configuration value ForceRefreshDomainFilesListByDefault is set to false.<br>So to solve this bug for the customer it's mandatory to change this configuration value accordingly
  - [BZ 1433380](https://bugzilla.redhat.com/1433380) <b>Execute fencing on hosts which RPC pool is exhausted</b><br>
- - [BZ 1419964](https://bugzilla.redhat.com/1419964) <b>When there are v6 IPs only, 'IP Address' column shows no IP address at all</b><br>
- - [BZ 1428498](https://bugzilla.redhat.com/1428498) <b>[RFE] Allow to search VMs by specific host they are pinned to.</b><br>
+ - [BZ 1496704](https://bugzilla.redhat.com/1496704) <b>Python-SDK doesn't seem to handle quota information on disks</b><br>
+ - [BZ 1508023](https://bugzilla.redhat.com/1508023) <b>NPE when adding fence agent through REST API using nonexistent host UUID</b><br>
+ - [BZ 1460701](https://bugzilla.redhat.com/1460701) <b>[RFE] Add support to search jobs by correlation_id</b><br>
+ - [BZ 1478688](https://bugzilla.redhat.com/1478688) <b>[UI] - Adjust setup networks dialog to display long names networks</b><br>
+ - [BZ 1472772](https://bugzilla.redhat.com/1472772) <b>[UI] - re-add context menus to grids</b><br>
+ - [BZ 1509375](https://bugzilla.redhat.com/1509375) <b>Update VM from REST fails if next run spanshot exists</b><br>
+ - [BZ 1508513](https://bugzilla.redhat.com/1508513) <b>Can't open setup networks dialog if there is an 'unmanaged' network on the host</b><br>
+ - [BZ 1505328](https://bugzilla.redhat.com/1505328) <b>[Rest] - Rest should report current rx/tx data in bps</b><br>
+ - [BZ 1435402](https://bugzilla.redhat.com/1435402) <b>[CodeChange][i18n] oVirt 4.2 translation cycle 1</b><br>
  - [BZ 1505674](https://bugzilla.redhat.com/1505674) <b>[UI] - NICs shown twice in the setup networks dialog</b><br>
  - [BZ 1485927](https://bugzilla.redhat.com/1485927) <b>Default vNIC profile not created if new network dialog is confirmed with keyboard Enter(works via Ok button click)</b><br>
  - [BZ 1497503](https://bugzilla.redhat.com/1497503) <b>[SR-IOV] [UI] - Networks are missing in the list when pressing the 'Specific Networks' radio button</b><br>
@@ -470,6 +518,7 @@ packages from other repos.
  - [BZ 1483400](https://bugzilla.redhat.com/1483400) <b>Highly populated export domain fails to attach.</b><br>
  - [BZ 1464746](https://bugzilla.redhat.com/1464746) <b>[New UI] - User is not authorized to perform action of create new 'QoS' entity</b><br>
  - [BZ 1482365](https://bugzilla.redhat.com/1482365) <b>User cannot use non Public vNIC Profiles</b><br>
+ - [BZ 1495441](https://bugzilla.redhat.com/1495441) <b>add vm with cloud init config: IPv6 boot protocol initialized with user input of IPv4 boot protocol</b><br>
  - [BZ 1491230](https://bugzilla.redhat.com/1491230) <b>add indication to snapshot in preview</b><br>
  - [BZ 1479796](https://bugzilla.redhat.com/1479796) <b>vmfex hook not working properly</b><br>
  - [BZ 1431434](https://bugzilla.redhat.com/1431434) <b>[UI] - Gray out 'Sync All Networks' button when all networks are synced on host</b><br>
@@ -491,6 +540,9 @@ packages from other repos.
  - [BZ 1405378](https://bugzilla.redhat.com/1405378) <b>remove RHEV branding from guest agent area - oVirt 4.2 Channel name deprecation</b><br>
  - [BZ 1412074](https://bugzilla.redhat.com/1412074) <b>[SR-IOV] - same pci addr is stored for two vNICs - libvirtError: XML error: Attempted double use of PCI slot 0000:00:08.0 (may need "multifunction='on'" for device on function 0)</b><br>
  - [BZ 1419853](https://bugzilla.redhat.com/1419853) <b>[BLOCKED] Image upload fails when one of the ovirt-imageio-daemons was not running</b><br>
+ - [BZ 1378045](https://bugzilla.redhat.com/1378045) <b>Importing VMs from VMware ova fails with error java.lang.reflect.UndeclaredThrowableException</b><br>
+ - [BZ 1472418](https://bugzilla.redhat.com/1472418) <b>[RFE] Allow user to get user ID in REST API</b><br>
+ - [BZ 1481706](https://bugzilla.redhat.com/1481706) <b>disable default route role for clusters lower than 4.1 version</b><br>
  - [BZ 1488005](https://bugzilla.redhat.com/1488005) <b>[UI] - VM's vNIC - Align the '+' and '-' buttons for the new Network Filter Parameters ability</b><br>
  - [BZ 1492546](https://bugzilla.redhat.com/1492546) <b>[UI] - UI exception after setting default route property via Cluster>Logical Networks flow</b><br>
  - [BZ 1487907](https://bugzilla.redhat.com/1487907) <b>[RFE][UI] - Display network filter parameters under VM's network interfaces sub tab</b><br>
@@ -505,7 +557,6 @@ packages from other repos.
  - [BZ 1434868](https://bugzilla.redhat.com/1434868) <b>Fence agents should be dropped from VDS view join</b><br>
  - [BZ 1477961](https://bugzilla.redhat.com/1477961) <b>[UI] - Failed to create bond from interfaces that has labeled networks attached</b><br>
  - [BZ 1390930](https://bugzilla.redhat.com/1390930) <b>[UI] - "Port Mirroring' property is editable although the 'passthrough' property is marked on edit vNIC profile dialog</b><br>
- - [BZ 1458668](https://bugzilla.redhat.com/1458668) <b>VM pool auto_storage_select flag doesn't return Validation error</b><br>
  - [BZ 1349382](https://bugzilla.redhat.com/1349382) <b>Configuring Ballooning device for VM pools from SDK does not work</b><br>
  - [BZ 1413364](https://bugzilla.redhat.com/1413364) <b>[UI] - 'Server with newer configuration for next run' tooltip is broken</b><br>
  - [BZ 1459003](https://bugzilla.redhat.com/1459003) <b>[UI] - Uncaught exception when trying to send an empty network name on edit network</b><br>
@@ -518,14 +569,40 @@ packages from other repos.
  - [BZ 1382411](https://bugzilla.redhat.com/1382411) <b>[TEXT] PKI AIA Validation points to a non existent web page</b><br>
  - [BZ 1447635](https://bugzilla.redhat.com/1447635) <b>[UX] window title "undefined" in removing subnet</b><br>
  - [BZ 1341024](https://bugzilla.redhat.com/1341024) <b>[Text] - The text '...the host's certification' is wrong when trying to change the management's network ip</b><br>
+ - [BZ 1492471](https://bugzilla.redhat.com/1492471) <b>not clear mutual exclusive messages in pop up window</b><br>
+ - [BZ 1477500](https://bugzilla.redhat.com/1477500) <b>DR (site to site) - Add cluster name to the VM's OVF</b><br>
+ - [BZ 1505436](https://bugzilla.redhat.com/1505436) <b>DR (site to site) - Support mapping for entity's attributes on register</b><br>
+ - [BZ 1505428](https://bugzilla.redhat.com/1505428) <b>Support users related to a VM as part of an entity's OVF</b><br>
+ - [BZ 1510957](https://bugzilla.redhat.com/1510957) <b>Avoid preparing and tearing down images during create snapshot while the VM isn't down</b><br>
+ - [BZ 1508844](https://bugzilla.redhat.com/1508844) <b>ExtendImageTicketVDSCommand might get stuck if host is restarted during image transfer</b><br>
+ - [BZ 1415740](https://bugzilla.redhat.com/1415740) <b>Soft fencing causes a "host is rebooting" message that might be misleading</b><br>
+ - [BZ 1352675](https://bugzilla.redhat.com/1352675) <b>Add Permissions dialog: 'My Groups' table has user-specific header/columns instead of group-specific</b><br>
+ - [BZ 1506284](https://bugzilla.redhat.com/1506284) <b>Downloading disk for a running vm fails with: response content type 'text/html;charset=UTF-8' isn't the expected XML</b><br>
+ - [BZ 1508403](https://bugzilla.redhat.com/1508403) <b>VM Portal logs out due to missing session refresh</b><br>
+ - [BZ 1509962](https://bugzilla.redhat.com/1509962) <b>OVF update doesn't occur when create VM without disk and storage domain enter to maintenance</b><br>
+ - [BZ 1509646](https://bugzilla.redhat.com/1509646) <b>[UI] - Mouse cursor icon is always 'wait' spinner</b><br>
+ - [BZ 1509633](https://bugzilla.redhat.com/1509633) <b>Dashboard: clicking on the links doesn't do anything (for example, on 'hosts')</b><br>
+ - [BZ 1508776](https://bugzilla.redhat.com/1508776) <b>UploadImageChunkSizeKB default value is too low, causing low ImageIO performance</b><br>The default value of UploadImageChunkSizeKB was increased to 100MB, in order to improve upload speed performance.
+ - [BZ 1477505](https://bugzilla.redhat.com/1477505) <b>DR (site to site) - External LUN disks which are attached to VM should be part of the VM's OVF</b><br>
+ - [BZ 1505452](https://bugzilla.redhat.com/1505452) <b>Start ovirt-engine and ovirt-engine-notifier services by default with MALLOC_ARENA_MAX=1</b><br>
+ - [BZ 1507847](https://bugzilla.redhat.com/1507847) <b>Can't run High Performance VMs as non headless with the VNC graphics protocol</b><br>
+ - [BZ 1508775](https://bugzilla.redhat.com/1508775) <b>Expose UploadImageChunkSizeKB in engine-config (used for ImageIO upload/download)</b><br>
+ - [BZ 1509629](https://bugzilla.redhat.com/1509629) <b>Cold merge failed to remove all volumes</b><br>
+ - [BZ 1508798](https://bugzilla.redhat.com/1508798) <b>The error message in case of failure in retrieving an image list doesn't well configured.</b><br>
+ - [BZ 1483287](https://bugzilla.redhat.com/1483287) <b>[UI] - Can't choose multiple VM's vNICs at once using 'ctrl' or 'shift' buttons</b><br>
+ - [BZ 1506611](https://bugzilla.redhat.com/1506611) <b>OVF update occur each time domain is deactivate even though there is nothing to update</b><br>
+ - [BZ 1482413](https://bugzilla.redhat.com/1482413) <b>[UI] - Don't allow the use of up and down keyboard buttons in the background when dialog is open</b><br>
  - [BZ 1507098](https://bugzilla.redhat.com/1507098) <b>There is no version 4.2 in capabilities when using REST API v3</b><br>
  - [BZ 1500996](https://bugzilla.redhat.com/1500996) <b>Engine logs don't indicate the option chosen for a snapshot preview</b><br>
  - [BZ 1489334](https://bugzilla.redhat.com/1489334) <b>unlock_entity.sh -q reports duplicate records.</b><br>
+ - [BZ 1489441](https://bugzilla.redhat.com/1489441) <b>Host: Add new PM proxy doesn't show name before reordering</b><br>
  - [BZ 1493158](https://bugzilla.redhat.com/1493158) <b>Host edit dialog does not show any labels</b><br>
+ - [BZ 1501455](https://bugzilla.redhat.com/1501455) <b>Failed to verify power management agent</b><br>
  - [BZ 1502741](https://bugzilla.redhat.com/1502741) <b>Cannot fence host through REST API: PM is enabled for Host but no Agent type selected</b><br>
  - [BZ 1480213](https://bugzilla.redhat.com/1480213) <b>SSH public key field not shown when adding a host</b><br>
  - [BZ 1481583](https://bugzilla.redhat.com/1481583) <b>engine-setup with ovn fails to import cert after engine-cleanup</b><br>
- - [BZ 1505436](https://bugzilla.redhat.com/1505436) <b>DR (site to site) - Support mapping for entity's attributes on register</b><br>
+ - [BZ 1428370](https://bugzilla.redhat.com/1428370) <b>The displayed cores are not sorted properly</b><br>
+ - [BZ 1492684](https://bugzilla.redhat.com/1492684) <b>In edit host tab, authentication field should not be editable</b><br>
  - [BZ 1492614](https://bugzilla.redhat.com/1492614) <b>Missing documentation for destination storage in template creation</b><br>
  - [BZ 1504608](https://bugzilla.redhat.com/1504608) <b>Image from glance shows size 1024 MB instead of 1 GB when size is exactly 1073741824 B</b><br>
  - [BZ 1502596](https://bugzilla.redhat.com/1502596) <b>error appears when changing hosts cluster, but cluster is changed</b><br>
@@ -536,6 +613,7 @@ packages from other repos.
  - [BZ 1490473](https://bugzilla.redhat.com/1490473) <b>URLs for classic user portal should redirect to VM Portal</b><br>
  - [BZ 1445320](https://bugzilla.redhat.com/1445320) <b>confirmation screen for host upgrade does not disappear when "ok" is clicked</b><br>
  - [BZ 1465795](https://bugzilla.redhat.com/1465795) <b>Top utilized Resources (Storage) - VMs should be sorted by actual use, not over-allocation percentage</b><br>
+ - [BZ 1499716](https://bugzilla.redhat.com/1499716) <b>Event properties show empty fields</b><br>
  - [BZ 1449515](https://bugzilla.redhat.com/1449515) <b>When deleting a vm from an export domain the delete dialog is shown with a vm name as "null" (after performing some operations)</b><br>
  - [BZ 1404753](https://bugzilla.redhat.com/1404753) <b>/api/model requires external access to https://fonts.googleapis.com</b><br>
  - [BZ 1496605](https://bugzilla.redhat.com/1496605) <b>Secure Cookies are not set in SSL/TLS sessions</b><br>
@@ -565,7 +643,6 @@ packages from other repos.
  - [BZ 1479301](https://bugzilla.redhat.com/1479301) <b>[RFE] Add elapsed times of operations to the engine.log</b><br>
  - [BZ 1475893](https://bugzilla.redhat.com/1475893) <b>DR (site to site) - Add the ability to support force remove of last master storage domain from data center</b><br>
  - [BZ 1466270](https://bugzilla.redhat.com/1466270) <b>Incorrect response format (not XML) for REST call on VM creation.</b><br>
- - [BZ 1483863](https://bugzilla.redhat.com/1483863) <b>[UI] - Separate lines are missing for all the columns headers in firefox browser</b><br>
  - [BZ 1487170](https://bugzilla.redhat.com/1487170) <b>by creating new bookmark Clear search doesn't work properly</b><br>
  - [BZ 1487193](https://bugzilla.redhat.com/1487193) <b>[UI] add right margin to action buttons in detail view</b><br>
  - [BZ 1479709](https://bugzilla.redhat.com/1479709) <b>templates quickswitch has the same name duplicated in the list</b><br>
@@ -618,7 +695,10 @@ packages from other repos.
 
 #### oVirt Engine Metrics
 
+ - [BZ 1508480](https://bugzilla.redhat.com/1508480) <b>[RFE] Add mom to the collectd processes plugin</b><br>
  - [BZ 1475795](https://bugzilla.redhat.com/1475795) <b>[RFE] Parameterize fluentd Verbosity logs Level</b><br>
+ - [BZ 1478695](https://bugzilla.redhat.com/1478695) <b>[RFE] Make collectd interval a parameter</b><br>
+ - [BZ 1458700](https://bugzilla.redhat.com/1458700) <b>[RFE] Add postgres to the collectd processes plugin configuration</b><br>
  - [BZ 1477083](https://bugzilla.redhat.com/1477083) <b>[RFE] Add cluster name as a field to the hosts and vm records</b><br>
  - [BZ 1469104](https://bugzilla.redhat.com/1469104) <b>Remove host statistics collected from vdsm except for storage</b><br>
  - [BZ 1469119](https://bugzilla.redhat.com/1469119) <b>Disable collectd virt plugin</b><br>
@@ -626,6 +706,7 @@ packages from other repos.
 
 #### oVirt Hosted Engine Setup
 
+ - [BZ 1418579](https://bugzilla.redhat.com/1418579) <b>Use selinux when building ovirt-appliance</b><br>
  - [BZ 1467700](https://bugzilla.redhat.com/1467700) <b>The engine tries to auto-import the first SD named hosted_storage but this could fail due to leftovers on the host</b><br>
  - [BZ 1458739](https://bugzilla.redhat.com/1458739) <b>no-manual-page-for-binary ovirt-hosted-engine-cleanup</b><br>
  - [BZ 1356425](https://bugzilla.redhat.com/1356425) <b>[TEXT] 'hosted-engine --vm-start' said it destroyed the VM</b><br>
@@ -652,6 +733,7 @@ packages from other repos.
 
 #### oVirt Engine Appliance
 
+ - [BZ 1418579](https://bugzilla.redhat.com/1418579) <b>Use selinux when building ovirt-appliance</b><br>
  - [BZ 1406493](https://bugzilla.redhat.com/1406493) <b>Use livemedia-creator instead of image-tools</b><br>
 
 #### oVirt Engine API Explorer
@@ -719,12 +801,16 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1479776](https://bugzilla.redhat.com/1479776) <b>After OVF generation HE VM can not start</b><br>
+ - [BZ 1507834](https://bugzilla.redhat.com/1507834) <b>Engine duplicate template's nics on import template from export domain flow</b><br>
+ - [BZ 1464044](https://bugzilla.redhat.com/1464044) <b>Missing task's substep names</b><br>
+ - [BZ 1463971](https://bugzilla.redhat.com/1463971) <b>[UI] - Cannot create new Host QoS entity via the DC flow</b><br>
  - [BZ 1498465](https://bugzilla.redhat.com/1498465) <b>CPU Layer 3 cache needs to be enabled for high performance VMs</b><br>
  - [BZ 1502965](https://bugzilla.redhat.com/1502965) <b>Can't re-install host - engine complaining  that 'The provider type should be 'OpenStack Networking'.</b><br>
  - [BZ 1497916](https://bugzilla.redhat.com/1497916) <b>Host deploy failed - Failed to execute Ansible host-deploy role - TASK [ovirt-provider-ovn-driver : Configure OVN for oVirt]</b><br>
  - [BZ 1484961](https://bugzilla.redhat.com/1484961) <b>engine-setup fails in the setup of supplementary components without engine rpms</b><br>
  - [BZ 1491637](https://bugzilla.redhat.com/1491637) <b>Getting a java.lang.StackOverflowError exception while starting ovirt-engine</b><br>
  - [BZ 1493083](https://bugzilla.redhat.com/1493083) <b>UX: iSCSI import storage domains has missing grid</b><br>
+ - [BZ 1464043](https://bugzilla.redhat.com/1464043) <b>Cloud-init network configuraton doesn't work</b><br>
  - [BZ 1435094](https://bugzilla.redhat.com/1435094) <b>[UI] - tooltips are missing on the new/edit vNIC profile dialog</b><br>
  - [BZ 1450460](https://bugzilla.redhat.com/1450460) <b>Unable to drag and drop vNuma to the Numa nodes when using Internet Explorer version 11</b><br>
  - [BZ 1480082](https://bugzilla.redhat.com/1480082) <b>[UI] - Port Mirroring indication is missing for the VM's vNIC info in the new UI</b><br>
@@ -741,10 +827,13 @@ packages from other repos.
  - [BZ 1438298](https://bugzilla.redhat.com/1438298) <b>[TEXT] - Clarify 'Experimental' Switch Type on Cluster Settings</b><br>
  - [BZ 1425910](https://bugzilla.redhat.com/1425910) <b>[RFE] JSON RPC broker should pass correlation id to VDSM</b><br>
  - [BZ 1438467](https://bugzilla.redhat.com/1438467) <b>engine-setup - choosing the ovn-ovirt-provider option as 'YES' cause the  url and provider type are switched in the database</b><br>
- - [BZ 1431228](https://bugzilla.redhat.com/1431228) <b>Long time for operations when updating hosts data in RHEVM</b><br>
+ - [BZ 1431228](https://bugzilla.redhat.com/1431228) <b>very slow update of host properties in RHEVM that has a cluster with 30 hosts and 40 networks</b><br>
  - [BZ 1394617](https://bugzilla.redhat.com/1394617) <b>ovirt-engine does not shut down cleanly</b><br>
  - [BZ 1400996](https://bugzilla.redhat.com/1400996) <b>Provide a mechanism to notify users that are using a deprecated version of the API</b><br>
- - [BZ 1356053](https://bugzilla.redhat.com/1356053) <b>[de_DE] The word "Deutsch" must be changed to "deutsche" in welcome page's hyperlink message</b><br>
+ - [BZ 1511510](https://bugzilla.redhat.com/1511510) <b>WebAdmin: static content (under /webadmin/theme/00-ovirt.brand/ovirt-js-dependencies/...) does not seem to be cached</b><br>
+ - [BZ 1510962](https://bugzilla.redhat.com/1510962) <b>Events are missing display all option</b><br>
+ - [BZ 1348139](https://bugzilla.redhat.com/1348139) <b>[ALL_LANGS except ko_KR, zh_CN] The UI alignment needs to be corrected on clusters->new->fencing policies page.</b><br>
+ - [BZ 1356053](https://bugzilla.redhat.com/1356053) <b>[de_DE] The word "Deutsch" should not appear in welcome page's 'docs missing' message</b><br>
  - [BZ 1451413](https://bugzilla.redhat.com/1451413) <b>Introduce limit on repeating end method on command callbacks</b><br>
  - [BZ 1487728](https://bugzilla.redhat.com/1487728) <b>If VM is down and 'run_on_vds' is still set, errors are reported in engine and server logs</b><br>
  - [BZ 1479808](https://bugzilla.redhat.com/1479808) <b>vNIC profile custom properties: network 'queues' are not applied on the VM</b><br>
@@ -757,13 +846,21 @@ packages from other repos.
  - [BZ 1411572](https://bugzilla.redhat.com/1411572) <b>Snapshot deletion fails with error reported as "Drive image file could not be found"</b><br>
  - [BZ 1422455](https://bugzilla.redhat.com/1422455) <b>[ALL LANG] [User portal] User menu->Options dialog box tool tip messages are not localized</b><br>
  - [BZ 1356949](https://bugzilla.redhat.com/1356949) <b>[ALL_LANG] Check for upgrades related event is not translated properly</b><br>
+ - [BZ 1512558](https://bugzilla.redhat.com/1512558) <b>"New VM" button naming inconsistent with the rest</b><br>
  - [BZ 1462632](https://bugzilla.redhat.com/1462632) <b>[RFE][UI] - Add 'MTU' column to the 'Networks' main tab</b><br>
  - [BZ 1450161](https://bugzilla.redhat.com/1450161) <b>Engine can't be build if pip package isort is installed</b><br>
  - [BZ 1448867](https://bugzilla.redhat.com/1448867) <b>engine-setup: Re-enable SSL  for OVN north db connections</b><br>
  - [BZ 1433923](https://bugzilla.redhat.com/1433923) <b>[ALL LANG] [Admin Portal] The UI layout needs to be adjusted on data centers -> logical networks -> new page.</b><br>
  - [BZ 1408870](https://bugzilla.redhat.com/1408870) <b>Flood of endless exceptions in engine.log when host is non responsive (unknown cause)</b><br>
+ - [BZ 1483863](https://bugzilla.redhat.com/1483863) <b>[UI] - Borders are missing for columns headers in Firefox 52 ESR</b><br>
+ - [BZ 1510461](https://bugzilla.redhat.com/1510461) <b>[UI] - use PatternFly alert box for login errors on welcome page</b><br>
+ - [BZ 1500424](https://bugzilla.redhat.com/1500424) <b>Breadcrumb in two lines in VM detail if capital letters are used for name</b><br>
+ - [BZ 1505937](https://bugzilla.redhat.com/1505937) <b>press ESC in search form in breadcrumb causes ui error</b><br>
+ - [BZ 1505710](https://bugzilla.redhat.com/1505710) <b>[UI] - Can't approve operation with 'enter' keyboard button in the setup networks dialog</b><br>
+ - [BZ 1502244](https://bugzilla.redhat.com/1502244) <b>[UI] - DC > 'QoS' - Keep DC's action buttons and all DC's sub tabs static when scrolling</b><br>
  - [BZ 1501410](https://bugzilla.redhat.com/1501410) <b>Providers kebab menu is empty</b><br>
  - [BZ 1498187](https://bugzilla.redhat.com/1498187) <b>support automatic io threads+emulator threads pinning for  High Performance VMs</b><br>
+ - [BZ 1496333](https://bugzilla.redhat.com/1496333) <b>[UI] - Edit/remove buttons are grayed out in the 'QoS' sub tab after creation and removal of a new QoS entity</b><br>
  - [BZ 1492740](https://bugzilla.redhat.com/1492740) <b>create snapshot disk dialog is empty</b><br>
  - [BZ 1492393](https://bugzilla.redhat.com/1492393) <b>request '/ovirt-engine/webadmin/theme/00-ovirt.brand/patternfly-functions-vertical-nav-custom-3.26.1.js produces 404</b><br>
  - [BZ 1491115](https://bugzilla.redhat.com/1491115) <b>Cast failure @ EventQueueMonitor: java.lang.Integer cannot be cast to java.lang.Long</b><br>
@@ -849,6 +946,7 @@ packages from other repos.
 
 #### oVirt Engine Dashboard
 
+ - [BZ 1510524](https://bugzilla.redhat.com/1510524) <b>dropdown menu for refresh interval in dashboard is not visible</b><br>
  - [BZ 1353102](https://bugzilla.redhat.com/1353102) <b>[RFE][CodeChange] Translations should be verified automatically</b><br>
 
 #### ovirt-engine-dwh

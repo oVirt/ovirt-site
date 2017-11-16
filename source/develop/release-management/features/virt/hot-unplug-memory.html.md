@@ -1,9 +1,9 @@
 ---
 title: Hot Unplug Memory
 category: feature
-authors: mzamazal
+authors: mzamazal,jniederm
 feature_name: Hot Unplug Memory
-feature_modules: engine
+feature_modules: engine,vdsm
 feature_status: Merged
 ---
 
@@ -50,8 +50,55 @@ any memory in order to guarantee that hot plugged memory is movable.
 
 ## How to hot unplug memory from a VM
 
+### WebAdmin
+
 The previously hot plugged memory appears in the form of memory devices in
 *Vm Devices* tab of the given VM.  You can remove any of the devices (assuming
 they have been hot plugged considering the constraints described above) and
 thus remove that amount of memory from the VM.  Once the memory device is
 successfully hot unplugged the device disappears from the device list.
+
+*Physical Memory Guaranteed* is decremented if necessary.
+
+If next run configuration exists and its memory values is the same as the memory
+size of the running VM before hot unplug, next run configuration is updated.
+
+![](/images/wiki/memory-hot-unplug-webadmin.png "Memory hot unplug button in 'VM Devices' tab in Administration Portal")
+
+### REST API
+
+Memory hot unplug can be performed by updating a VM with decremented value
+of `/vm/memory` tag. It may be required to decrement value of *Physical
+Memory Guaranteed* (`vm/memory_policy/guaranteed`) as well to keep it lesser than
+value of memory. Both properties are set in bytes that are later floored to MiB.
+
+Memory devices to hot unplug are picked so that sum of sizes of hot unplugged
+devices will be smaller or equal to requested memory size decrement.
+
+Values for next run configuration are not rounded.
+
+#### Example
+
+Let's suppose there is a running VM started with 1GiB memory that was given three 
+256MiB hot-plugs. This resulted in additional memory devices of following sizes:
+256MiB, 256MiB, 128MiB, 128MiB and the VM having 1792MiB memory available in total.
+
+Firing request requiring 1400MiB memory and 900MiB physical memory guaranteed will
+result in updating next run configuration with memory of 1400MiB and physical memory
+guaranteed of 900MiB. Currently running VM will be asked to release memory devices
+of sizes 256MiB and 128MiB. Thus the VM will end up with 1792MiB - (256MiB + 128MiB)
+= 1408MiB >= requested 1400MiB. Physical memory guaranteed will be hot set to value
+900MiB.
+
+```xml
+PUT api/vms/{vmId}
+
+<vm>
+    <memory>1468006400</memory> <!-- 1400 * 1024^2 -->
+    
+    <!-- and optionally -->
+    <memory_policy>
+        <guaranteed>943718400</guaranteed> <!-- 900 * 1024^2 -->
+    </memory_policy>
+</vm>
+```

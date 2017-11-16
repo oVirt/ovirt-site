@@ -17,9 +17,9 @@ READMORE
 
 Some of the magic includes:
 
-- Enable Headless Mode and enable Serial console
-- Disable all USB devices
-- Disable the Sound Card device
+- Enable Pass-Through Host CPU
+- Enable IO Threads, Num Of IO Threads = 1
+- Set the IO and Emulator threads pinning topology
 
 For the full feature set, see the very detailed [High Performance VM feature page](/develop/release-management/features/virt/high-performance-vm/)
 

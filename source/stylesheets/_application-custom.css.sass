@@ -1,4 +1,5 @@
 $ovirt_color_green: #60b60f
+$ovirt_light_grey: #f5f5f5
 $promoFontSize: 20px
 $default_padding : 10px
 @mixin dropShadow()
@@ -52,7 +53,6 @@ img.error-not-fixed, img.error-fixed
   font-weight: 100
 
 #mainNav
-
   .nav
     @media screen and (max-width: 768px)
       display: list-item
@@ -269,11 +269,8 @@ header.masthead .navbar-nav
 
 /* features */
 .well
-  padding-top: 0px
+  //padding-top: 0px
 
-.feature-sidebar
-  display: none
-  border-right: 1px solid #ddd
 
 .ovirtToggleObject
   padding-bottom: 10px
@@ -281,7 +278,7 @@ header.masthead .navbar-nav
 
 .ovirtToggleObject h1
   font-family: sans-serif
-  font-size: 25px
+  font-size: 20px
   font-weight: 100
   color: darkgreen
   display: inline
@@ -290,6 +287,16 @@ header.masthead .navbar-nav
   color: #61b60e
   font-variant: small-caps
   cursor: pointer
+  font-size: x-large
+  background-color: $ovirt_light_grey
+  padding-left: 12px
+  margin-bottom: 10px
+
+.feature-sidebar
+  display: none
+  >div
+    background-color: $ovirt_light_grey
+    padding-top: 10px
 
 #feature-search > .form-group > .checkbox
   display: none
@@ -314,6 +321,9 @@ header.masthead .navbar-nav
 
 .feature-info > h1
   display: none
+
+.feature
+
 
 .feature-info > #summary ~ p:first-of-type
   background-color: #e2ffc0

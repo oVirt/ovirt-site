@@ -116,52 +116,63 @@
 
 ~ wrap_layout :layout do
 
-  %section.feature
-    %div.col-md-12
-      %div#toggleLeftArea
+  %div.row
+    .col-md-4
+      %div
+        .section
+          %div#toggleLeftArea
+            %div
+    .col-md-8
+
+  %div.row
     %section.feature-sidebar.col-md-4
+      .col-md-12
+        %form#feature-search.hide
+          .form-group
+            %input.form-control#feature-search-input{autocomplete: 'off', placeholder: 'Filter features'}
+            .checkbox
+              %label
+                -# %input{type: 'checkbox'} Hello
+                - statuses.each do |stat|
+                  %input{type: 'checkbox'} = stat
 
-      %form#feature-search.hide
-        .form-group
-          %input.form-control#feature-search-input{autocomplete: 'off', placeholder: 'Filter features'}
-          .checkbox
-            %label
-              -# %input{type: 'checkbox'} Hello
-              - statuses.each do |stat|
-                %input{type: 'checkbox'} = stat
+        - features_dir.each do |cat, feature_group|
 
-      - features_dir.each do |cat, feature_group|
-        - pretty_cat = cat.empty? ? 'Unclassified' : cat.gsub('/', ' / ').titleize
-        - className = cat.gsub(/[^a-zA-Z]/, '_')
+          //Disabling Unclassified category
+          - if cat.empty? then
+            - next
 
-        %div.ovirtToggleObject
-          %h1.collapseExpandSection
-          %h1.ovirtToggleFeatureCategory{id: "ovirtToggleObject_"+className}= clean_title pretty_cat
+          - pretty_cat = cat.empty? ? 'Unclassified' : cat.gsub('/', ' / ').titleize
+          - className = cat.gsub(/[^a-zA-Z]/, '_')
 
-          %div.feature_list_in_category
+          %div.ovirtToggleObject
+            %h1.collapseExpandSection
+            %h1.ovirtToggleFeatureCategory{id: "ovirtToggleObject_"+className}= clean_title pretty_cat
 
-            %ul.feature-list
-              - feature_group.each do |feature|
-                - info = feature_info "#{cat}/#{feature}"
+            %div.feature_list_in_category
 
-                - if info
-                  - feature_title = info['feature_name'] || info['title']
-                  - status_title = info['feature_status']
-                  - status = normalize_status status_title
-                - else
-                  - feature_title = clean_title feature
-                  - status_title = 'Unclassified'
-                  - status = normalize_status ''
+              %ul.feature-list
+                - feature_group.each do |feature|
+                  - info = feature_info "#{cat}/#{feature}"
 
-                - next if feature_title.to_s.empty?
+                  - if info
+                    - feature_title = info['feature_name'] || info['title']
+                    - status_title = info['feature_status']
+                    - status = normalize_status status_title
+                  - else
+                    - feature_title = clean_title feature
+                    - status_title = 'Unclassified'
+                    - status = normalize_status ''
 
-                - statuses.push(status_title)
+                  - next if feature_title.to_s.empty?
 
-                - selected = "/#{@feature_base}/#{cat}/#{feature}/".squeeze('/') == "/#{current_page.url}/".squeeze('/')
+                  - statuses.push(status_title)
 
-                %li
-                  %a{href: "#{@feature_base}/#{cat}/#{feature}".squeeze('/'), title: "Status: #{status}"}= clean_title feature_title
-                  = info ? "" : "NO DATA"
+                  - selected = "/#{@feature_base}/#{cat}/#{feature}/".squeeze('/') == "/#{current_page.url}/".squeeze('/')
+
+                  %li
+                    %a{href: "#{@feature_base}/#{cat}/#{feature}".squeeze('/'), title: "Status: #{status}"}= clean_title feature_title
+                    = info ? "" : "NO DATA"
 
 
     %section.feature-info.col-md-8

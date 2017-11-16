@@ -14,17 +14,17 @@ This wiki provides the basic operational information needed to install, upgrade 
 
 ## **Contacts**
 
-Feature Owners:
+Feature owners:
 Sean Cohen <scohen@redhat.com>, Doron Fediuck <doron@redhat.com>
 Setup Component owners:
 Sandro Bonazzola <sbonazzo@redhat.com>, Yedidyah Bar David <didi@redhat.com>
-HA Component owners:
+HA component owners:
 Greg Padgett <gpadgett@redhat.com>, Martin Sivak <msivak@redhat.com>
 
 ## **Requirements**
 
 *   Two hypervisors (hosts)
-*   NFS-based shared storage (since 3.4.0) or [iSCSI storage](Feature/Self_Hosted_Engine_iSCSI_Support) (since 3.5.0 beta)
+*   NFS-based shared storage (since 3.4.0) or [iSCSI storage](/develop/release-management/features/sla/self-hosted-engine-iscsi-support/) (since 3.5.0 beta)
 *   Access to the oVirt repository
 
 ## **Fresh Install**
@@ -40,7 +40,7 @@ During the deployment you'll be asked for input on host name, storage path and o
                  ...
                  ...
                  Please install the OS on the VM.
-                 When the installation is completed reboot or shutdown the VM: the system will wait until then
+                 When the installation is completed, reboot or shutdown the VM. The system will wait until then.
                  Has the OS installation been completed successfully?
 
 After completing the OS installation on the VM, return to the host and continue. The installer on the host will sync with the VM and ask for the engine to be installed on the new VM:
@@ -48,40 +48,40 @@ After completing the OS installation on the VM, return to the host and continue.
         [ INFO  ] Creating VM
                  ...
                  ...
-                 Please install the engine in the VM, hit enter when finished.
+                 Please install the engine in the VM. Hit enter when finished.
 
 On the VM:
 
          # yum install ovirt-engine
          # engine-setup
 
-When the engine-setup has completed on the VM, return to the host and complete the configuration. Your hosted engine VM is up and running!
+When the engine-setup has completed on the VM, return to the host and complete the configuration. Your hosted engine VM is now up and running!
 
 **Notes:**
 
-*   Remember to setup the same hostname you specified as FQDN during deploy while you're setting up the engine on the VM.
+*   Remember to set up the same hostname you specified as FQDN during deploy while you're setting up the engine on the VM.
 *   Although hosted-engine and engine-setup use different wording for the admin password ("'admin@internal' user password" vs "Engine admin password"), they are asking for the same thing. If you enter different passwords, the hosted-engine setup will fail.
 *   If you want to install ovirt-engine-dwh and ovirt-engine-reports, or update the engine after the deployment is completed, remember that you need to set the system in global maintenance using
         # hosted-engine --set-maintenance --mode=global
 
     because the engine service must be stopped during setup / upgrade operations.
-*   It is recommended to [install the Hosted-Engine](/develop/release-management/features/heapplianceflow/) using the oVirt appliance, the deployment becomes easier and quicker.
+*   It is recommended to [install the Hosted-Engine](/develop/release-management/features/integration/heapplianceflow/) using the oVirt appliance, the deployment becomes easier and quicker.
 
 ### **Restarting from a partially deployed system**
 
 If, for any reason, the deployment process breaks before its end, you can try to continue from where it got interrupted without the need to restart from scratch.
 
-*   Closing up, hosted-engine --deploy always generates an answerfile. You could simply try restart the deployment process with that answerfile:
+*   Closing up, hosted-engine --deploy always generates an answer file. You could simply try restart the deployment process with that answer file:
 
       hosted-engine --deploy --config-append=/var/lib/ovirt-hosted-engine-setup/answers/answers-20150402165233.conf
 
-*   it should start the VM from CD-ROM using the same storage device for it, but if you have already installed the OS you could simply poweroff it and select: (1) Continue setup - VM installation is complete
-*   at that point it should boot the previously engine VM from the storage device and you are ready to conclude it
-*   if this doesn't work you have to cleanup the storage device and restart from scratch
+*   it should start the VM from CD-ROM using the same storage device for it, but if you have already installed the OS you could simply power it off and select: (1) Continue setup - VM installation is complete
+*   At that point it should boot the previously engine VM from the storage device and you are ready to conclude it
+*   if this doesn't work, you have to clean up the storage device and restart from scratch
 
 ## **Migrate existing setup to a VM**
 
-Moving an existing setup into a VM is similar to a fresh install, but instead of running a fresh engine-setup inside the VM, we restore there a backup of the existing engine. For full details see [Migrate_to_Hosted_Engine](Migrate_to_Hosted_Engine)
+Moving an existing setup into a VM is similar to a fresh install, but instead of running a fresh engine-setup inside the VM, we restore there a backup of the existing engine. For full details see [Migrate to Hosted Engine](/develop/developer-guide/engine/migrate-to-hosted-engine/).
 
 ## **Installing additional nodes**
 
@@ -90,7 +90,7 @@ Here is an example of a deployment on an additional host:
          # yum install ovirt-hosted-engine-setup
          # hosted-engine --deploy
 
-Once storage path is given, the installer will identify this is an additional host, and will change the flow accordingly:
+Once the storage path is given, the installer will identify that this is an additional host and will change the flow accordingly:
 
          The specified storage location already contains a data domain. Is this an additional host setup (Yes, No)[Yes]? yes
          [ INFO  ] Installing on additional host
@@ -100,17 +100,17 @@ As with the first node, this will take you to the process completion.
 
 **Notes**
 
-*   Remember to use the same storage path you used on first host.
+*   Remember to use the same storage path you used on the first host.
 *   There is a bug in 3.5 when adding a host to a cluster which was initially 3.4. A workaround is to manually edit the answer file on the existing hosts prior to adding a host. See [BZ 1308962](https://bugzilla.redhat.com/show_bug.cgi?id=1308962).
 
 ## **Migrate hosts from el6 to el7**
 
-In 3.6, el6 is not supported anymore for hosted-engine hosts. Existing 3.5 el6 hosts should be first migrated to el7, then upgraded to 3.6. More details in [Hosted Engine host operating system upgrade Howto](hosted-engine-host-OS-upgrade).
+In version 3.6, EL6 no longer supports hosted-engine hosts. Existing 3.5 EL6 hosts should first be migrated to EL7, and then upgraded to 3.6. More details can be found at [Hosted Engine host operating system upgrade Howto](/documentation/how-to/hosted-engine-host-OS-upgrade/).
 
-## **Migrate the engine VM from 3.6/el6 to 4.0/el7**
+## **Migrate the engine VM from 3.6/EL6 to 4.0/EL7**
 
-In 4.0, el6 is not supported anymore for the engine VM. Existing 3.6 el6 engine VM should be migrated to el7, more details in [Hosted-engine migration to 4.0](/develop/release-management/features/hosted-engine-migration-to-4-0/).
-If the engine VM is already based on el7, the user can also simply upgrade the engine there.
+In 4.0, EL6 is no longer supported for the engine VM. Existing 3.6 EL6 engine VMs should be migrated to EL7. more details can be found at [Hosted-engine migration to 4.0](/develop/release-management/features/hosted-engine-migration-to-4-0/).
+If the engine VM is already based on EL7, the user can simply upgrade the engine there.
 
 ## **Maintaining the setup**
 
@@ -118,7 +118,7 @@ The HA services have two maintenance types for different tasks.
 
 ### **Global maintenance**
 
-Main use is to allow the administrator to start/stop/modify the engine VM without any worry of interference from the HA agents.
+The main use is to allow the administrator to start/stop/modify the engine VM without any worry of interference from the HA agents.
 In order to maintain the engine VM, use:
 
          # hosted-engine --set-maintenance --mode=global
@@ -129,7 +129,7 @@ To resume HA functionality, use:
 
 ### **Local maintenance**
 
-Main use is to allow the administrator to maintain one or more hosts. Note that if you have only 2 nodes and one is in maintenance,
+The main use is to allow the administrator to maintain one or more hosts. Note that if you only have 2 nodes and one is in maintenance,
 there is only one host available to run the engine VM. The way to maintain a host is by using:
 
          # hosted-engine --set-maintenance --mode=local
@@ -140,27 +140,27 @@ To resume HA functionality, use:
 
 ## **Upgrade Hosted Engine**
 
-Assuming you have already deployed Hosted Engine on your hosts and running the Hosted Engine VM, having the same oVirt version both on hosts and Hosted Engine VM.
+The following procedure assumes that you have already deployed Hosted Engine on your hosts, and you are running the Hosted Engine VM with the same oVirt version both on hosts and Hosted Engine VM.
 
-1.  Set hosted engine maintenance mode to global (now ha agent stop monitoring engine-vm, you can see above how to activate it)
-2.  Access to engine-vm and upgrade oVirt to latest version using the same procedure used for non hosted engine setups.
-3.  Select one of the hosted-engine nodes (hypervisors) and put it into maintenance mode from the engine. Note that the host must be in maintenance to allow upgrade to run.
+1.  Set hosted engine maintenance mode to global (now HA agent stops monitoring engine-vm. You can see above how to activate it)
+2.  Access engine-vm and upgrade oVirt to the latest version using the same procedure used for non-hosted engine setups.
+3.  Select one of the hosted-engine nodes (hypervisors) and put it into maintenance mode from the engine. Note that the host must be in maintenance to allow the upgrade to run.
 4.  Upgrade that host with new packages (changes repository to latest version and run yum update -y) on this stage may appear vdsm-tool exception <https://bugzilla.redhat.com/show_bug.cgi?id=1088805>
 5.  Restart vdsmd (# service vdsmd restart)
 6.  Restart ha-agent and broker services (# systemctl restart ovirt-ha-broker && systemctl restart ovirt-ha-agent)
 7.  Exit the global maintenance mode: in a few minutes the engine VM should migrate to the fresh upgraded host cause it will get an higher score
-8.  When the migration has been completed re-enter into global maintenance mode
+8.  When the migration has been completed, re-enter into global maintenance mode
 9.  Repeat step 3-6 for all the other hosted-engine hosts
 10. Enter for example via UI to engine and change 'Default' cluster (where all your hosted hosts seats) compatibility version to current version (for example 3.6 and activate your hosts (to get features of the new version)
-11. Change hosted-engine maintenance to none, starting from 3.4 you can do it via UI(right click on engine vm, and 'Disable Global HA Maintenance Mode')
+11. Change hosted-engine maintenance to none. Starting from 3.4 you can do it via UI(right click on engine vm, and 'Disable Global HA Maintenance Mode')
 
 ## **Hosted Engine Backup and Restore**
 
-Please refer to [oVirt Hosted Engine Backup and Restore](oVirt Hosted Engine Backup and Restore) guide
+Please refer to the [oVirt Hosted Engine Backup and Restore](/documentation/how-to/hosted-engine/#hosted-engine-backup-and-restore) guide.
 
 ## **Lockspace corrupted recovery procedure**
 
-If you end up with corrupted sanlock lockspace due to power outage, hw failure or so, you can fix it using the following procedure:
+If you end up with corrupted sanlock lockspace due to power outage, HW failure or so, you can fix it using the following procedure:
 
 1.  Move HE to global maintenance
 2.  Stop all HE agents on all hosts (keep the local broker running)
@@ -218,12 +218,12 @@ To access the engine VM's console:
          # hosted-engine --add-console-password
          # remote-viewer vnc://localhost:5900
 
-See also [Hosted Engine Console](Hosted Engine Console).
+See also [Hosted Engine Console](/documentation/self-hosted/chap-Deploying_Self-Hosted_Engine/).
 
 To boot from different media, e.g. a rescue CD:
 
 1. Move to global maintenance, so that HA will not try to migrate/restart the VM.
-2. Power off the engine VM - from inside it, if possible, or using one of these:
+2. Power off the engine VM - from inside it if possible, or using one of these:
 
          # hosted-engine --vm-shutdown
          # hosted-engine --vm-poweroff
@@ -236,7 +236,7 @@ To boot from different media, e.g. a rescue CD:
 
 ## **More info**
 
-Additional information is available in the feature page [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine)
+Additional information is available on the [Self Hosted Engine](/develop/release-management/features/sla/self-hosted-engine/) feature page.
 
 ## **FAQ**
 
@@ -263,13 +263,13 @@ The measured times assume the network is fine and the VM either crashed or respo
 
 #### Failed to acquire lock
 
-When the hosted engine VM is down for some reason the agent(s) will try to start it again. There is no synchronization between agents while starting the VM, so it might happen that more than one agent will try to start the VM at the same time. This is intended behavior because only one host can actually acquire the lock and run the VM. The host which failed the acquire the log will print an error to the vdsm.log: 'Failed to acquire lock: error -243'. The agent will move to the EngineUnexpectedlyDown state, because it failed to start the VM, but it will sync in a while once the timeout expires (you can grep the agent.log for "Timeout" to get the specific time when it should sync).
+When the hosted engine VM is down for some reason, the agent(s) will try to start it again. There is no synchronization between agents while starting the VM, so it might happen that more than one agent will try to start the VM at the same time. This is intended behavior because only one host can actually acquire the lock and run the VM. The host which failed the acquire the log will print an error to the vdsm.log: 'Failed to acquire lock: error -243'. The agent will move to the EngineUnexpectedlyDown state, because it failed to start the VM, but it will sync in a while once the timeout expires (you can grep the agent.log for "Timeout" to get the specific time when it should sync).
 
-### Recoving from failed install
+### Recovering from a failed install
 
 If your hosted engine install fails, you have to manually clean up before you can reinstall. Exactly what needs to be done depends on how far the install got before failing. Here are the steps I've used, base on this [thread from the mailing list](http://lists.ovirt.org/pipermail/users/2014-May/024423.html):
 
-*   clean up hosted engine storage. This will vary depending on your storage setup. I logged into my NFS server and purged the directory used during the hoste-engine install.
+*   Clean up hosted engine storage. This will vary depending on your storage setup. I logged into my NFS server and purged the directory used during the hosted-engine install.
 
       # ls  /export/ovirt/hosted-engine
       __DIRECT_IO_TEST__  ce61789b-4291-47d6-a2a6-01263d6b4f5b
@@ -317,4 +317,3 @@ If your hosted engine install fails, you have to manually clean up before you ca
        echo "! error removing $d"
        exit 1
     done
-

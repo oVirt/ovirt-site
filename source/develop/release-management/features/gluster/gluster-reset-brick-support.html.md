@@ -47,7 +47,10 @@ Once User will click on "Reset Brick", One Confirmation window will pop up.
 
 A sketch of "Reset Brick" confirmation window:
 
-![](/images/gluster-hyperconverged/rest-brick.png)
+
+![](/images/wiki/ResetBrick.png)
+
+
 
 ### Audit
 

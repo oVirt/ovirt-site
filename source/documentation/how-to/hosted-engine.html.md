@@ -24,7 +24,7 @@ Greg Padgett <gpadgett@redhat.com>, Martin Sivak <msivak@redhat.com>
 ## **Requirements**
 
 *   Two hypervisors (hosts)
-*   NFS-based shared storage (since 3.4.0) or [iSCSI storage](Feature/Self_Hosted_Engine_iSCSI_Support) (since 3.5.0 beta)
+*   NFS-based shared storage (since 3.4.0) or [iSCSI storage](/develop/release-management/features/sla/self-hosted-engine-iscsi-support/) (since 3.5.0 beta)
 *   Access to the oVirt repository
 
 ## **Fresh Install**
@@ -65,23 +65,23 @@ When the engine-setup has completed on the VM, return to the host and complete t
         # hosted-engine --set-maintenance --mode=global
 
     because the engine service must be stopped during setup / upgrade operations.
-*   It is recommended to [install the Hosted-Engine](/develop/release-management/features/heapplianceflow/) using the oVirt appliance, the deployment becomes easier and quicker.
+*   It is recommended to [install the Hosted-Engine](/develop/release-management/features/integration/heapplianceflow/) using the oVirt appliance. The deployment becomes easier and quicker.
 
 ### **Restarting from a partially deployed system**
 
 If, for any reason, the deployment process breaks before its end, you can try to continue from where it got interrupted without the need to restart from scratch.
 
-*   Closing up, hosted-engine --deploy always generates an answerfile. You could simply try restart the deployment process with that answerfile:
+*   Closing up, hosted-engine --deploy always generates an answerfile. You could simply try restart the deployment process with that answer file:
 
       hosted-engine --deploy --config-append=/var/lib/ovirt-hosted-engine-setup/answers/answers-20150402165233.conf
 
-*   it should start the VM from CD-ROM using the same storage device for it, but if you have already installed the OS you could simply poweroff it and select: (1) Continue setup - VM installation is complete
-*   at that point it should boot the previously engine VM from the storage device and you are ready to conclude it
-*   if this doesn't work you have to cleanup the storage device and restart from scratch
+*   It should start the VM from CD-ROM using the same storage device for it, but if you have already installed the OS you could simply poweroff it and select: (1) Continue setup - VM installation is complete
+*   At that point it should boot the previously engine VM from the storage device and you are ready to conclude it
+*   If this doesn't work you have to cleanup the storage device and restart from scratch
 
 ## **Migrate existing setup to a VM**
 
-Moving an existing setup into a VM is similar to a fresh install, but instead of running a fresh engine-setup inside the VM, we restore there a backup of the existing engine. For full details see [Migrate_to_Hosted_Engine](Migrate_to_Hosted_Engine)
+Moving an existing setup into a VM is similar to a fresh install, but instead of running a fresh engine-setup inside the VM, we restore there a backup of the existing engine. For full details see [Migrate to Hosted Engine](/develop/developer-guide/engine/migrate-to-hosted-engine/).
 
 ## **Installing additional nodes**
 
@@ -103,13 +103,13 @@ As with the first node, this will take you to the process completion.
 *   Remember to use the same storage path you used on first host.
 *   There is a bug in 3.5 when adding a host to a cluster which was initially 3.4. A workaround is to manually edit the answer file on the existing hosts prior to adding a host. See [BZ 1308962](https://bugzilla.redhat.com/show_bug.cgi?id=1308962).
 
-## **Migrate hosts from el6 to el7**
+## **Migrate hosts from EL6 to EL7**
 
-In 3.6, el6 is not supported anymore for hosted-engine hosts. Existing 3.5 el6 hosts should be first migrated to el7, then upgraded to 3.6. More details in [Hosted Engine host operating system upgrade Howto](hosted-engine-host-OS-upgrade).
+In 3.6, EL6 is no longer supported for hosted-engine hosts. Existing 3.5 EL6 hosts should be first migrated to EL7, then upgraded to 3.6. More details in [Hosted Engine host operating system upgrade Howto](/documentation/how-to/hosted-engine-host-OS-upgrade/).
 
-## **Migrate the engine VM from 3.6/el6 to 4.0/el7**
+## **Migrate the engine VM from 3.6/EL6 to 4.0/EL7**
 
-In 4.0, el6 is not supported anymore for the engine VM. Existing 3.6 el6 engine VM should be migrated to el7, more details in [Hosted-engine migration to 4.0](/develop/release-management/features/hosted-engine-migration-to-4-0/).
+In 4.0, EL6 is no longer supported for the engine VM. Existing 3.6 EL6 engine VM should be migrated to EL7. More details can be found in [Hosted engine migration to 4.0](/develop/release-management/features/sla/hosted-engine-migration-to-4-0/).
 If the engine VM is already based on el7, the user can also simply upgrade the engine there.
 
 ## **Maintaining the setup**
@@ -156,7 +156,7 @@ Assuming you have already deployed Hosted Engine on your hosts and running the H
 
 ## **Hosted Engine Backup and Restore**
 
-Please refer to [oVirt Hosted Engine Backup and Restore](oVirt Hosted Engine Backup and Restore) guide
+Please refer to [oVirt Hosted Engine Backup and Restore](/documentation/self-hosted/chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment/) guide
 
 ## **Lockspace corrupted recovery procedure**
 
@@ -236,7 +236,7 @@ To boot from different media, e.g. a rescue CD:
 
 ## **More info**
 
-Additional information is available in the feature page [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine)
+Additional information is available on the feature page [Self Hosted Engine](/develop/release-management/features/sla/self-hosted-engine).
 
 ## **FAQ**
 
@@ -317,4 +317,3 @@ If your hosted engine install fails, you have to manually clean up before you ca
        echo "! error removing $d"
        exit 1
     done
-

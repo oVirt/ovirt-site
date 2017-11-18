@@ -1,10 +1,8 @@
 ---
 title: Reporting a bug
 category: community
-authors: dneary
+authors: dneary,sandrobonazzola
 ---
-
-<!-- TODO: Content review -->
 
 # Reporting a bug
 
@@ -23,9 +21,11 @@ Congratulations, you have a bugzilla account! You can now [create a new bug agai
 To report a bug against oVirt:
 
 1.  Click on [the "New" link](https://bugzilla.redhat.com/enter_bug.cgi) in Red Hat bugzilla, and choose ["oVirt"](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt) from the classification list.
-2.  Choose the appropriate component to report your bug - for a problem with the management application, choose "ovirt-engine-core". If you are unsure, hazard a guess, the component will be appropriately set after your report is evaluated by a developer later.
-3.  If you know which version of the project you are using, choose it from the "Version" box.
-4.  In the "Summary" field, enter a short description of the problem. For example, "Cannot connect to virtual machines using Console"
+2.  Choose the appropriate product to report your bug - for a problem with the management application, choose "ovirt-engine".
+3.  Choose the appropriate component. If you are unsure, hazard a guess, the component will be appropriately set after your report is evaluated by a developer later.
+4.  Choose the appropriate oVirt Team. If you are unsure, hazard a guess, the team will be appropriately set after your report is evaluated by a developer later.
+5.  If you know which version of the project you are using, choose it from the "Version" box.
+6.  In the "Summary" field, enter a short description of the problem. For example, "Cannot connect to virtual machines using Console"
 
 *   In the "Description" field, you may choose to follow the template provided, entering a more detailed description of your server configuration, and your expected and observed results.
 

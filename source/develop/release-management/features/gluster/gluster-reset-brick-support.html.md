@@ -1,5 +1,5 @@
 ---
-title: Gluster Reset Brick Support
+title: Support reset brick
 category: feature
 authors: godas
 feature_name: Gluster management
@@ -27,7 +27,7 @@ This feature provides support for reset-brick Gluster based storage clusters in 
 
 ## Detailed Description
 
-This feature will introduce the capability of reset existing brick from the oVirt UI. Administrator will be able to perform Gluster volume reset-brick operation.
+This feature will introduce the capability of reset existing brick from the oVirt UI. Administrator will be able to perform Gluster volume reset-brick operation.For example in case Server has gone bad and got reprovisioned, but it may got its brick and want to use same brick.
 
 ### Approach
 
@@ -42,6 +42,9 @@ New tabs will be displayed as sub-tabs when user selects a brick from the "Glust
 
 *   Actions on "Bricks" tab / sub-tab:
     -   Reset Brick
+    -   Input for reset-brick is host,volume and existing brick.
+
+    Note: Reset brick will only work with the existing brick, it will not recreate or replace any brick.
 
 Once User will click on "Reset Brick", One Confirmation window will pop up.
 

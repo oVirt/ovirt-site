@@ -1,65 +1,66 @@
 ---
-title: LLDP information in webadmin
+title: LLDP Information Now Available via the Administration Portal 
 author: amusil
 tags: webadmin, networking
 date: 2017-10-27 09:00:00 CET
 ---
 
-In oVirt 4.2 we have introduced support for LLDP protocol. 
-LLDP stands for Link Layer Discovery Protocol, which is used by network devices 
-for advertising identity and capabilities to neighbors on a LAN. 
-[More information about LLDP](https://learningnetwork.cisco.com/docs/DOC-26851).
+In oVirt 4.2 we have introduced support for the Link Layer Discovery Protocol (LLDP). 
+It is used by network devices for advertising the identity and capabilities to 
+neighbors on a LAN. The information gathered by the protocol can be used for better 
+network configuration.[Learn more about LLDP](https://learningnetwork.cisco.com/docs/DOC-26851).
 
 READMORE
 
-## Useful information
+## Why do you need LLDP?
 
-The information gathered by the protocol can be used for better network 
-configuration. UI shows most important informations e.g. System name, Port 
-description and VLAN IDs.
+When adding a host into oVirt cluster, the network administrator usually needs to attach
+various networks to it. However, a modern host can have multiple interfaces, each 
+with its non-descriptive name. 
 
-When adding a host into oVirt cluster, the administrator usually needs to attach
-various networks to it. However, a modern host can have multiple interfaces each 
-with its non-descriptive name e.g. image below. The administrator has to know 
-to which interface he should attach network named `m2` with VLAN_ID 162. 
-Should it be interface `np4s0`, `ens2f0` or even `ens2f1`? With 
-oVirt 4.2, the administrator can hover over `enp4s0` and see that this 
-interface is connected to peer switch `rack01-sw03-lab4`, and see that this 
-peer switch does not support VLAN 162 on this interface. By looking at every 
-interface, administrator can choose which interface is the right one for network
-`m2`.
+## Examples
+
+In the screenshot below, taken from the Administration Portal, a network administrator has to know
+to which interface to attach the network named `m2` with VLAN_ID 162. Should it be interface 
+`enp4s0`, `ens2f0` or even `ens2f1`? With oVirt 4.2, the administrator can hover over `enp4s0` 
+and see that this interface is connected to peer switch `rack01-sw03-lab4`, and learn that this 
+peer switch does not support VLAN 162 on this interface. By looking at every interface, the 
+administrator can choose which interface is the right option for network`m2`.
  
 ![screen](../images/blog/2017-10-27/regular.png)
 
 
-Similar situation is configuration of bond with mode 4 (LACP). It is very 
-important, to understand to which port of peer switch is each interface 
-connected to. When creating `bond0` in the images below, it is important to 
-pick interfaces that are connected to ports of the same peer switch, and that 
-these ports are in the same `port group`. It happens quite often, that 
-an administrator chooses wrong interfaces, and end up with badly configured bonds. 
-With LLDP information this can be easily avoided. The administrator can choose 
-interfaces based on their peer switch and port name. E.g. `enp4s0` is 
+A similar situation arises with the configuration of mode 4 bonding (LACP). Configurating LACP 
+usually starts with network administrator defining a port group on their switch. These ports are 
+are physically connected to interfaces in a hypervisor. But to which of the many interfaces that 
+this hypervisor may have? 
+
+For example, when creating`bond0` (See screenshot below), it is important to pick interfaces that 
+are connected to the same switch, and that these ports belong to the same `port group`. Often, an 
+oVirt administrator might choose the wrong interfaces, and end up with badly configured bonds. 
+
+With LLDP information, this can easily be avoided. The administrator can tell which is the peer of 
+each interface, and to which port group it is connected. For example, `enp4s0` is 
 connected to port `GigabitEthernet0/9` and `enp6s0` is connected to port
-`GigabitEthernet0/10` on the same peer switch with name `rack03-sw02-lab4`. 
+`GigabitEthernet0/10` on the same peer switch named `rack03-sw02-lab4`. 
 
 ![screen](../images/blog/2017-10-27/bond0_0.png)
 
 ![screen](../images/blog/2017-10-27/bond0_1.png)
 
 
-The last screenshot below show every information available to the administrator via
-UI. System name, Port description, Aggregation information,MTU , VLAN IDs and names.
+The final screenshot (below) shows the information available to the administrator via
+the Administration Portal. This includes System name, Port description, Aggregation information, MTU, VLAN IDs and names.
 
 ![screen](../images/blog/2017-10-27/every_info.png)
 
 
-## Where to find this information
+## Where to find the LLDP information?
 
-In the **Administration Portal**. From the vertical menu select **Compute** > 
-**Hosts** and click on **Link (Name)** of your desired host. Then select 
-**Network Interfaces** > **Setup Host Networks**. By hovering over interfaces, 
-the appropriate tooltip will show with its information. 
+Log in the **Administration Portal**. From the vertical menu select **Compute** > 
+**Hosts** and choose a host by clicking on its Name link. 
+Select **Network Interfaces** > **Setup Host Networks**. Hover over each interface to reveal a tooltip
+with the relevant information.
 
 ### Non-UI approach
 

@@ -44,11 +44,15 @@ There are several ways how to use this feature.
 
 - **Select physical network via custom values.** When creating a new external network, fill physical network name to `Physical Network`. If the physical network has VLAN tagging enabled, also check `Enable VLAN tagging` and copy physical network's tag there. Please note, that physical network name references to VDSM network name, which is not necessarily the same as oVirt network name (in case it has more than 15 characters or contains special characters).
 
+![add an external network connected to a physical network Engine dialog](/images/features/network/provider-physical-network_new-network-dialog-engine.png)
+
 - **Select physical network from data center networks.** When creating a new external network, in `Physical Network` section, select `Data Center Network` and pick desired oVirt network from drop down list. Engine then uses VDSM network name and VLAN ID from the selected network. This can also be done via REST API using `<external_provider_physical_network id="123"/>`, see [ovirt-engine-api-model documentation](http://ovirt.github.io/ovirt-engine-api-model/4.2/#types/network).
 
 - **Create external network implicitly with physical network.** To make this feature more exposed, we implicitly create a matching external OVN network for each new OVS network marked as `VM Network`. However, there is no connection between them afterwards, they behave as separate units.
 
 - **Attach external network via custom values in ManageIQ**. This option is similar to the first one. In ManageIQ a user can set network type `flat` and specify physical network name (VDSM network name), in case physical network is on VLAN, set type to `vlan` and specify VLAN ID as well.
+
+![add an external network connected to a physical network ManageIQ dialog](/images/features/network/provider-physical-network_new-network-dialog-miq.png)
 
 ### Attach VM to the external network
 

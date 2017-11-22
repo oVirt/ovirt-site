@@ -125,7 +125,11 @@ The table below describes the settings for the **General** tab in the **New Clus
      <li>Intel Nehalem Family</li>
      <li>Intel Westmere Family</li>
      <li>Intel SandyBridge Family</li>
-     <li>Intel Haswell</li>
+     <li>Intel Haswell-noTSX Family</li>
+     <li>Intel Haswell-Family</li>
+     <li>Intel Broadwell-noTSX Family</li>
+     <li>Intel Broadwell Family</li>
+     <li>Intel Skylake Family</li>
      <li>AMD Opteron G1</li>
      <li>AMD Opteron G2</li>
      <li>AMD Opteron G3</li>

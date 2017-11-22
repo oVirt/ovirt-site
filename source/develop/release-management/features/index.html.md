@@ -18,3 +18,4 @@ Click the links below for a list of features by release version:
 *   [oVirt 3.3 Features](/develop/release-management/releases/3.3/feature/)
 *   [oVirt 3.2 Features](/develop/release-management/releases/3.2/feature/)
 *   [oVirt 3.1 Features](/develop/release-management/releases/3.1/feature/)
+*   [oVirt 3.0 Features](/develop/release-management/releases/3.0/feature/)

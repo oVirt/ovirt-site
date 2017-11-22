@@ -8,7 +8,7 @@ date: 2017-11-22 09:00:00 CET
 In oVirt 4.2 we have introduced support for the Link Layer Discovery Protocol (LLDP).
 It is used by network devices for advertising the identity and capabilities to
 neighbors on a LAN. The information gathered by the protocol can be used for better
-network configuration.[Learn more about LLDP](https://learningnetwork.cisco.com/docs/DOC-26851).
+network configuration. [Learn more about LLDP](https://learningnetwork.cisco.com/docs/DOC-26851).
 
 READMORE
 

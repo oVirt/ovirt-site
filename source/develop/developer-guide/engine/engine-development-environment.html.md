@@ -125,16 +125,14 @@ Note: javassit used in some of the unit tests hits a regression introduced in ja
         RHEL:   service postgresql restart
         Gentoo: /etc/init.d/postgresql-* start
 
-5. You may consider set the postgresql service to start at boot.
+5. You may want to set the postgresql service to start at boot.
 
-      systemctl enable postgresql.service
+        systemctl enable postgresql.service
 
-6. Create database and user, usually using the following commands as **root**:
+6. Create database and user, using the following commands as **root**:
 
-      su - postgres -c "psql -d template1 -c \"create user engine password 'engine';\""
-      su - postgres -c "psql -d template1 -c \"create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';\""
-
-It basically logins into PostgreSQL database using privileged user, creates a user and creates a database owned by the user.
+        su - postgres -c "psql -d template1 -c \"create user engine password 'engine';\""
+        su - postgres -c "psql -d template1 -c \"create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';\""
 
 ### Source
 
@@ -305,16 +303,14 @@ Build with tests:
 
 #### GWT Debug
 
-      $ make install-dev PREFIX="$HOME/ovirt-engine"
-`$ make gwt-debug DEBUG_MODULE=`<module>
+        $ make install-dev PREFIX="$HOME/ovirt-engine"
+        # GWT classic dev mode:
+        $ make gwt-debug
+        # OR
+        # GWT super dev mode:
+        $ make gwt-debug DEV_BUILD_GWT_SUPER_DEV_MODE=1
 
-While <module> is webadmin or userportal-gwtp.
-
-Debug port is 8000, detailed instructions for GWT debugging are [here](/develop/developer-guide/debugfrontend/).
-
-GWT debug URLs, provided components running on same machine:
-
-:{| |- | WebAdmin || <http://127.0.0.1:8080/ovirt-engine/webadmin/WebAdmin.html?gwt.codesvr=127.0.0.1:9997> |- | UserPortal || <http://127.0.0.1:8080/ovirt-engine/userportal/UserPortal.html?gwt.codesvr=127.0.0.1:9997> |}
+See [Debugging Frontend Applications](/develop/developer-guide/debugfrontend/) and [GWT Debug Quick Refresh](/blog/2017/08/ovirt-webadmin-gwt-debug-quick-refresh/) for more information.
 
 ## Packaging
 

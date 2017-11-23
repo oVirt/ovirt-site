@@ -26,6 +26,11 @@ The following organizations use oVirt for customer-facing or internal servers. M
 </div>
 
 <div class="case-study">
+[![Computer Port IT Solutions](/images/logos/Computer_Port_IT_Solutions.png)](http://computerport.in)
+[Computer Port IT Solutions](http://computerport.in), based in India, is an IT management & consulting service provider, specializing in virtualization and private cloud solutions, using oVirt, hyper-converged infrastructure, and other technologies. 
+</div>
+
+<div class="case-study">
 [![Cornerstone Technical Solutions](/images/logos/Cornerstone.png)](https://cornerstonets.net/)
 [Cornerstone Technical Solutions](//cornerstonets.net/) delivers IT management services, including oVirt-based virtualization services for consolidating datacenters.
 </div>

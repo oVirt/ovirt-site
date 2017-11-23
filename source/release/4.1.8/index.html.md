@@ -7,8 +7,8 @@ layout: toc
 # oVirt 4.1.8 Release Notes
 
 The oVirt Project is pleased to announce the availability of the 4.1.8
-First Release Candidate
- as of November 16, 2017.
+Second Release Candidate
+ as of November 23, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -97,6 +97,8 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1501793](https://bugzilla.redhat.com/1501793) <b>[downstream clone - 4.1.8] [RFE] Indicate host needs to be reinstalled to push new configurations.</b><br>There are several settings of a cluster or host which require reinstallation of a host if those settings are changed:<br><br> I. Host with changed settings needs to be reinstalled<br>   1. Turning on/off Kdump integration<br>   2. Changing command line parameters<br><br> II. All hosts in a cluster needs to be reinstalled<br>   1. Changing firewall type of a cluster<br><br>The requirement to reinstall was always mentioned in documentation and also WARNING event is raised.<br><br>Unfortunately it was not enough, so no we also show an exclamation mark icon for each host that needs to be reinstalled. If cursor is moved over exclamation mark icon, then note that host needs to be reinstalled is displayed.
+ - [BZ 1484404](https://bugzilla.redhat.com/1484404) <b>fence_drac5 requires specifying custom SSH options to work properly</b><br>Feature: allow for key=key=value format (where the value of a fence option key is itself in a key=value format) in fence agent options <br><br>Reason: support some old drac5 devices that should add <br> ssh_options=-oCiphers=+3des-cbc<br>to the Options field to enable no-longer-enabled-insecure ciphers for SSH connection<br><br>Result: <br>You can use a format of key=key=value in the fence agent options field from UI and API
+ - [BZ 1514899](https://bugzilla.redhat.com/1514899) <b>[downstream clone - 4.1.8] [RFE] Persist column visibility and position in browser's local storage</b><br>Feature: Persistent column widths, visibility, and order.<br><br>Reason: The user wants to be able to persist the width, visibility, and order of the columns in the grids on the webadmin UI.<br><br>Result: The width, visibility, and order is now stored in the browsers local storage so that reloads of the webadmin will not reset to the default width, visibility, and order.
 
 #### oVirt Engine Metrics
 
@@ -114,12 +116,27 @@ packages from other repos.
 
  - [BZ 1506503](https://bugzilla.redhat.com/1506503) <b>[downstream clone - 4.1.8] Cold merge will fail if the base qcow2 image reports leaked cluster</b><br>
 
+#### oVirt Engine
+
+ - [BZ 1513684](https://bugzilla.redhat.com/1513684) <b>[downstream clone - 4.1.8] [API] Cannot clear vm initialization via api</b><br>
+
 ### Other
+
+#### VDSM
+
+ - [BZ 1509614](https://bugzilla.redhat.com/1509614) <b>[downstream clone - 4.1.8] "No such drive" error on live merge of one disk causes merge of other disk to fail on engine.</b><br>
 
 #### oVirt Engine
 
+ - [BZ 1504118](https://bugzilla.redhat.com/1504118) <b>[downstream clone - 4.1.8] Engine fails with java.lang.OutOfMemoryError making all hosts non responsive</b><br>
  - [BZ 1488839](https://bugzilla.redhat.com/1488839) <b>glusterd service is not stopped during RHV-H upgrade.</b><br>
  - [BZ 1509270](https://bugzilla.redhat.com/1509270) <b>[downstream clone - 4.1.8] host_nic_vfs_config is not populated if parent pci device of nic is shared with another device</b><br>
+ - [BZ 1481221](https://bugzilla.redhat.com/1481221) <b>[Webadmin] LUNs listings are being multiplied by the number of their paths in direct LUN creation prompt in case they have storage domain on them</b><br>
+ - [BZ 1466326](https://bugzilla.redhat.com/1466326) <b>cannot import storage storage domain when 'use manage gluster volume'  feature is used.</b><br>
+ - [BZ 1367700](https://bugzilla.redhat.com/1367700) <b>Display a warning if user tries to create multiple bricks on the same server during replace-brick.</b><br>
+ - [BZ 1505576](https://bugzilla.redhat.com/1505576) <b>Cannot specify proper CPU topology for 4-socket broadwell (24 cores per socket)</b><br>
+ - [BZ 1514901](https://bugzilla.redhat.com/1514901) <b>Avoid preparing and tearing down images during create snapshot while the VM isn't down</b><br>
+ - [BZ 1512989](https://bugzilla.redhat.com/1512989) <b>Add support to retrieve session by token</b><br>
  - [BZ 1511335](https://bugzilla.redhat.com/1511335) <b>[downstream clone - 4.1.8] Bookmarks are not sorted after upgrade</b><br>
  - [BZ 1506191](https://bugzilla.redhat.com/1506191) <b>Can not get fence status from REST API</b><br>
 
@@ -137,6 +154,14 @@ packages from other repos.
  - [BZ 1513620](https://bugzilla.redhat.com/1513620) <b>Evm.log contains passwords</b><br>
  - [BZ 1509910](https://bugzilla.redhat.com/1509910) <b>Don't send `Expect: 100-Continue` for PUT requests</b><br>
  - [BZ 1508944](https://bugzilla.redhat.com/1508944) <b>[RFE] Add support for connect timeout</b><br>
+
+#### VDSM JSON-RPC Java
+
+ - [BZ 1504118](https://bugzilla.redhat.com/1504118) <b>[downstream clone - 4.1.8] Engine fails with java.lang.OutOfMemoryError making all hosts non responsive</b><br>
+
+#### oVirt Engine SDK 4 Java
+
+ - [BZ 1512850](https://bugzilla.redhat.com/1512850) <b>Unable to boot VM from CD-ROM</b><br>
 
 ### No Doc Update
 

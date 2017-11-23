@@ -2,10 +2,6 @@
 title: Unrestricted Network Names
 category: feature
 authors: danken
-wiki_category: Feature
-wiki_title: Features/Unrestricted Network Names
-wiki_revision_count: 19
-wiki_last_updated: 2017-07-03
 feature_name: Unrestricted Network Names
 feature_modules: engine,api
 feature_status: Proposed

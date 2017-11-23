@@ -2,7 +2,6 @@
 title: Cluster Optimization Host Change Notification
 category: feature
 authors: phbailey
-wiki_category: SLA
 feature_name: Cluster Optimization Host Change Notification
 feature_modules: Webadmin
 feature_status: Development

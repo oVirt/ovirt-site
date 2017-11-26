@@ -7,8 +7,8 @@ layout: toc
 # oVirt 4.1.8 Release Notes
 
 The oVirt Project is pleased to announce the availability of the 4.1.8
-Second Release Candidate
- as of November 23, 2017.
+Third Release Candidate
+ as of November 26, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -94,11 +94,14 @@ packages from other repos.
 
  - [BZ 1504691](https://bugzilla.redhat.com/1504691) <b>[downstream clone - 4.1.8] [RFE] Create a Refresh button on Dashboard in Manager UI</b><br>Feature: Add a manual refresh button to the dashboard UI to update the display with currently available system summary information.
 
+#### oVirt Release Package
+
+ - [BZ 1516194](https://bugzilla.redhat.com/1516194) <b>[downstream clone - 4.1.8] [RFE] Provide IdM client software in RHVH</b><br>
+
 #### oVirt Engine
 
- - [BZ 1501793](https://bugzilla.redhat.com/1501793) <b>[downstream clone - 4.1.8] [RFE] Indicate host needs to be reinstalled to push new configurations.</b><br>There are several settings of a cluster or host which require reinstallation of a host if those settings are changed:<br><br> I. Host with changed settings needs to be reinstalled<br>   1. Turning on/off Kdump integration<br>   2. Changing command line parameters<br><br> II. All hosts in a cluster needs to be reinstalled<br>   1. Changing firewall type of a cluster<br><br>The requirement to reinstall was always mentioned in documentation and also WARNING event is raised.<br><br>Unfortunately it was not enough, so no we also show an exclamation mark icon for each host that needs to be reinstalled. If cursor is moved over exclamation mark icon, then note that host needs to be reinstalled is displayed.
+ - [BZ 1501793](https://bugzilla.redhat.com/1501793) <b>[downstream clone - 4.1.8] [RFE] Indicate host needs to be reinstalled to push new configurations.</b><br>There are several settings of a cluster or host which require reinstallation of a host if those settings are changed:<br><br> I. Host with changed settings needs to be reinstalled<br>   1. Turning on/off Kdump integration<br>   2. Changing command line parameters<br><br>The requirement to reinstall was always mentioned in documentation and also WARNING event is raised.<br><br>Unfortunately it was not enough, so no we also show an exclamation mark icon for each host that needs to be reinstalled. When exclamation mark icon is shown, you can find the details about it in Host detail view within Action Items section.
  - [BZ 1484404](https://bugzilla.redhat.com/1484404) <b>fence_drac5 requires specifying custom SSH options to work properly</b><br>Feature: allow for key=key=value format (where the value of a fence option key is itself in a key=value format) in fence agent options <br><br>Reason: support some old drac5 devices that should add <br> ssh_options=-oCiphers=+3des-cbc<br>to the Options field to enable no-longer-enabled-insecure ciphers for SSH connection<br><br>Result: <br>You can use a format of key=key=value in the fence agent options field from UI and API
- - [BZ 1514899](https://bugzilla.redhat.com/1514899) <b>[downstream clone - 4.1.8] [RFE] Persist column visibility and position in browser's local storage</b><br>Feature: Persistent column widths, visibility, and order.<br><br>Reason: The user wants to be able to persist the width, visibility, and order of the columns in the grids on the webadmin UI.<br><br>Result: The width, visibility, and order is now stored in the browsers local storage so that reloads of the webadmin will not reset to the default width, visibility, and order.
 
 #### oVirt Engine Metrics
 
@@ -108,7 +111,23 @@ packages from other repos.
 
 #### oVirt Engine Extension AAA-LDAP
 
- - [BZ 1489402](https://bugzilla.redhat.com/1489402) <b>Provide an example for kerberos authentication between aaa-ldap and LDAP server</b><br>Feature: <br><br>Following examples has been added:<br><br> * Using GSSAPI to authenticate against IPA<br> * Using GSSAPI with ticket cache to authenticate against IPA<br><br>More details about those examples can be found at README.md [1] which is also included inside the package<br><br>[1] https://github.com/oVirt/ovirt-engine-extension-aaa-ldap/blob/master/examples/README.md<br><br>Reason: <br><br>Result:
+ - [BZ 1489402](https://bugzilla.redhat.com/1489402) <b>Provide an example for kerberos authentication between aaa-ldap and LDAP server</b><br>Feature: <br><br>Following examples has been added:<br><br> * Using GSSAPI to authenticate against IPA<br> * Using GSSAPI with ticket cache to authenticate against IPA<br><br>More details about those examples can be found at README.md [1] which is also included inside the package<br><br>[1] https://github.com/oVirt/ovirt-engine-extension-aaa-ldap/blob/master/examples/README.md<br>
+
+#### oVirt Host Dependencies
+
+ - [BZ 1516194](https://bugzilla.redhat.com/1516194) <b>[downstream clone - 4.1.8] [RFE] Provide IdM client software in RHVH</b><br>
+
+### Rebase: Enhancementss Only
+
+#### oVirt Log collector
+
+ - [BZ 1512308](https://bugzilla.redhat.com/1512308) <b>[downstream clone - 4.1.8] [RFE] option to collect logs from one host per cluster</b><br>Rebase package(s) to version: 4.1.7<br><br>Highlights and notable enhancements: added option to collect logs from one host per cluster
+
+### Rebase: Bug Fixeses and Enhancementss
+
+#### oVirt Release Package
+
+ - [BZ 1506262](https://bugzilla.redhat.com/1506262) <b>Provide ovirt-host package in 4.1</b><br>
 
 ### Bug Fixes
 
@@ -163,8 +182,16 @@ packages from other repos.
 
  - [BZ 1512850](https://bugzilla.redhat.com/1512850) <b>Unable to boot VM from CD-ROM</b><br>
 
+#### oVirt Hosted Engine HA
+
+ - [BZ 1516203](https://bugzilla.redhat.com/1516203) <b>[downstream clone - 4.1.8] hosted engine agent is not able to refresh hosted engine status when iso domain is not available after network outage</b><br>
+
 ### No Doc Update
 
 #### oVirt Engine Dashboard
 
  - [BZ 1512574](https://bugzilla.redhat.com/1512574) <b>dropdown menu for refresh interval in dashboard is not visible</b><br>
+
+#### oVirt provider OVN
+
+ - [BZ 1491546](https://bugzilla.redhat.com/1491546) <b>vdsm-tool does not start required services before configuring the host</b><br>

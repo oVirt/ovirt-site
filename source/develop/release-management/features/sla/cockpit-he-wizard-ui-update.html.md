@@ -2,7 +2,6 @@
 title: Cockpit Hosted Engine Wizard UI Update
 category: feature
 authors: phbailey
-wiki_category: SLA
 feature_name: Cockpit Hosted Engine Wizard UI Update
 feature_modules: cockpit-ovirt
 feature_status: Development

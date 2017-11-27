@@ -9,7 +9,7 @@ authors: bproffitt, dneary
 
 # About oVirt
 
-oVirt is a virtualization management application. That means that you can use the oVirt management interface ([ the oVirt engine](Engine)) to manage hardware nodes, storage and network resources, and to deploy and monitor virtual machines running in your data center.
+oVirt is a virtualization management application. That means that you can use the oVirt management interface, [oVirt Engine](/documentation/quickstart/quickstart-guide/#install-ovirt-engine), to manage hardware nodes, storage and network resources, and to deploy and monitor virtual machines running in your data center.
 
 If you are familiar with VMware products, it is conceptually similar to vSphere. oVirt serves as the bedrock for Red Hat's Virtualization product, and is the "upstream" project where new features are developed in advance of their inclusion in that supported product offering.
 
@@ -27,4 +27,3 @@ To get started with oVirt, follow our [quick start guide](/documentation/quickst
 *   Self-service console for simple and advanced use cases
 *   Built on KVM hypervisor
 *   Open source, you are welcome to participate in the design and development of project
-

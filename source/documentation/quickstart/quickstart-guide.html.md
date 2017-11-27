@@ -572,7 +572,7 @@ You have now created your Windows 7 virtual machine. Before you can use your vir
 
 3. Click OK.
 
-![Figure 14. Run once menu](/images/wiki/Run_Once_Win7.jpg "Figure 14. Run once menu")
+![Figure 14. Run once menu](/images/wiki/Run_Once_Win7.png "Figure 14. Run once menu")
 
 Retain the default settings for the other options and click OK to start the virtual machine.
 
@@ -601,7 +601,7 @@ You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD
 5. Browse to the CD, Win7 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
 
 6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next
-![Drivers Available](/images/wiki/Install_Windows7_VirtIO_Drivers.jpg "fig:Drivers Available")
+![Drivers Available](/images/wiki/Install_Windows7_VirtIO_Drivers.png "fig:Drivers Available")
 
 7. The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
 
@@ -624,10 +624,10 @@ You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD
 ##### Drivers
 
 If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers.
-![Device Manager](/images/wiki/Device_Manager_Win7_Missing_Drivers_VirtIO.jpg "fig:Device Manager") 1. On the console, open the Device Manger
+![Device Manager](/images/wiki/Device_Manager_Win7_Missing_Drivers_VirtIO.png "fig:Device Manager") 1. On the console, open the Device Manger
 
 2. On the Navigation Tabs, click Change CD
-![Change CD](/images/wiki/Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+![Change CD](/images/wiki/Navigation_Tabs_Change_CD.png "fig:Change CD")
 
 3. From the drop down list select the virtio CD and click ok.
 ![VirtIO CD](/images/wiki/Change_CD_virtio.png "fig:VirtIO CD")

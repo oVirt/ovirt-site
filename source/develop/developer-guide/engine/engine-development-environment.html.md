@@ -48,7 +48,7 @@ The purpose of this page is primarily to align the community experience with the
 
 3. Install the Third-Party Packages
 
-        # yum install git java-devel maven openssl postgresql-server \
+        # yum install git java-devel maven openssl rh-postgresql95-postgresql \
             m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
             unzip pyflakes python-pep8 python-docker-py mailcap python-jinja2 \
             python-dateutil

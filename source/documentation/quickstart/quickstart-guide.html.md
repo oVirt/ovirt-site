@@ -28,7 +28,7 @@ for both oVirt Engine and oVirt nodes and hosts .
 
 #### For each Host
 
-*   All CPUs must have support for the Intel® 64 or AMD64 CPU extensions, and the 
+*   All CPUs must have support for the Intel® 64 or AMD64 CPU extensions, and the
     AMD-V™ or Intel VT® hardware virtualization extensions should be enabled. Support
     for the No eXecute flag (NX) is also required.
 *   The host must be configured to receive updates from the oVirt project's software
@@ -156,7 +156,7 @@ To access it, navigate to the Tree pane, click Expand All, and select the Defaul
 On the Data Centers tab, the Default data center displays.
 
 ![Figure 2. Data Centers Tab](/images/wiki/Data-center-view.png "Figure 2. Data Centers Tab")
- 
+
 The Default data center is used for this document, however if you wish to create
 a new data center see the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
@@ -271,7 +271,7 @@ You have already created this ISO domain during the oVirt Engine installation.
 
 The second storage domain will be used to hold virtual machine disk images.
 For this domain, you need at least one of the supported storage types.
-You have already set a default storage type during installation as described in [Install oVirt Engine](#Install_oVirt_Engine).
+You have already set a default storage type during installation as described in [Install oVirt Engine](/documentation/quickstart/quickstart-guide/#install-ovirt-engine).
 Ensure that you use the same type when creating your data domain.
 
 **Select your next step by checking the storage type you should use:**
@@ -280,11 +280,11 @@ Ensure that you use the same type when creating your data domain.
 2.  On the results list, the Storage Type column displays the type you should add.
 3.  Now that you have verified the storage type, create the storage domain - see one of:
 
-    * [ Create an NFS Data Domain](#Create_an_NFS_Data_Domain).
+    * [ Create an NFS Data Domain](/documentation/quickstart/quickstart-guide/#create-an-nfs-data-domain).
 
-    * [ Create an iSCSI Data Domain](#Create_an_iSCSI_Data_Domain).
+    * [ Create an iSCSI Data Domain](/documentation/quickstart/quickstart-guide/#create-an-iscsi-data-domain).
 
-    * [ Create an FCP Data Domain](#Create_an_FCP_Data_Domain).
+    * [ Create an FCP Data Domain](/documentation/quickstart/quickstart-guide/#create-an-fcp-data-domain).
 
 #### Create an NFS Data Domain
 
@@ -322,7 +322,7 @@ Use Host: Select any of the hosts from the drop down menu. Only hosts which belo
 
 3. Click OK. The new NFS data domain displays on the Storage tab. It will remain with a Locked status while it is being prepared for use. When ready, it is automatically attached to the data center.
 
-You have created an NFS storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to [Attach an ISO domain](#Attach_an_ISO_domain).
+You have created an NFS storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to [Attach an ISO domain](/documentation/quickstart/quickstart-guide/#attach-an-iso-domain).
 
 #### Create an iSCSI Data Domain
 
@@ -357,7 +357,7 @@ Enter the required information:
 
 7. Click OK. The new iSCSI data domain displays on the Storage tab. It will remain with a Locked status while it is being prepared for use. When ready, it is automatically attached to the data center.
 
-You have created an iSCSI storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to [Attach an ISO domain](#Attach_an_ISO_domain).
+You have created an iSCSI storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to [Attach an ISO domain](/documentation/quickstart/quickstart-guide/#attach-an-iso-domain).
 
 #### Create an FCP Data Domain
 
@@ -384,7 +384,7 @@ Configure the following options:
 You have created an FCP storage domain.
 Now, you need to attach an ISO domain to the data center and upload installation
 images so you can use them to create virtual machines.
-Proceed to [Attach an ISO domain](#Attach_an_ISO_domain)
+Proceed to [Attach an ISO domain](/documentation/quickstart/quickstart-guide/#attach-an-iso-domain)
 
 #### Attach an ISO Domain
 
@@ -529,7 +529,7 @@ See [how to install the guest agent in Fedora](/documentation/how-to/guest-agent
 1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
 ![Figure 10. The navigation tabs](/images/wiki/Navigation_Tabs.png "Figure 10. The navigation tabs")
- 
+
 2. The “New Virtual Machine” popup appears.
 
 ![Figure 11. Create new Windows virtual machine](/images/wiki/New_VM_Win7.png "Figure 11. Create new Windows virtual machine")
@@ -572,7 +572,7 @@ You have now created your Windows 7 virtual machine. Before you can use your vir
 
 3. Click OK.
 
-![Figure 14. Run once menu](/images/wiki/Run_Once_Win7.jpg "Figure 14. Run once menu")
+![Figure 14. Run once menu](/images/wiki/Run_Once_Win7.png "Figure 14. Run once menu")
 
 Retain the default settings for the other options and click OK to start the virtual machine.
 
@@ -587,7 +587,7 @@ Retain the default settings for the other options and click OK to start the virt
 
 <div class="mw-collapsible-content">
 ![No disks available](/images/wiki/Install_Windows7_VirtIO_Disk.png "fig:No disks available")
- 
+
 You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD
 ![Change CD](/images/wiki/Navigation_Tabs_Change_CD.png "fig:Change CD")
 
@@ -601,7 +601,7 @@ You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD
 5. Browse to the CD, Win7 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
 
 6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next
-![Drivers Available](/images/wiki/Install_Windows7_VirtIO_Drivers.jpg "fig:Drivers Available")
+![Drivers Available](/images/wiki/Install_Windows7_VirtIO_Drivers.png "fig:Drivers Available")
 
 7. The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
 
@@ -623,11 +623,11 @@ You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD
 
 ##### Drivers
 
-If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. 
-![Device Manager](/images/wiki/Device_Manager_Win7_Missing_Drivers_VirtIO.jpg "fig:Device Manager") 1. On the console, open the Device Manger
+If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers.
+![Device Manager](/images/wiki/Device_Manager_Win7_Missing_Drivers_VirtIO.png "fig:Device Manager") 1. On the console, open the Device Manger
 
 2. On the Navigation Tabs, click Change CD
-![Change CD](/images/wiki/Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+![Change CD](/images/wiki/Navigation_Tabs_Change_CD.png "fig:Change CD")
 
 3. From the drop down list select the virtio CD and click ok.
 ![VirtIO CD](/images/wiki/Change_CD_virtio.png "fig:VirtIO CD")
@@ -712,7 +712,7 @@ To make a Windows virtual machine template, use the virtual machine you created 
 
 Before a template for Windows virtual machines can be created, it has to be sealed with sysprep. This ensures that machine-specific settings are not propagated through the template.
 
-Note that the procedure below is applicable for creating Windows 7 and Windows 2008 R2 templates. If you wish to seal a Windows XP template, refer to the [oVirt Administration Guide](oVirt Administration Guide).
+Note that the procedure below is applicable for creating Windows 7 and Windows 2008 R2 templates. If you wish to seal a Windows XP template, refer to the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 **To seal a Windows virtual machine with sysprep**
 
@@ -756,7 +756,7 @@ You can now create new Windows machines using this template.
 
 #### Create a Windows Virtual Machine from a Template
 
-This section describes how to create a Windows 7 virtual machine using the template created in [ Create a Windows Template](#Create_a_Windows_Template).
+This section describes how to create a Windows 7 virtual machine using the template created in [ Create a Windows Template](/documentation/quickstart/quickstart-guide/#create-a-windows-template).
 
 **To create a Windows virtual machine from a template**
 
@@ -778,7 +778,7 @@ Now that you have created several running virtual machines, you can assign users
 
 #### Assign User Permissions
 
-oVirt has a sophisticated multi-level administration system, in which customized permissions for each system component can be assigned to different users as necessary. For instance, to access a virtual machine from the user portal, a user must have either UserRole or PowerUserRole permissions for the virtual machine. These permissions are added from the manager administration portal. For more information on the levels of user permissions refer to the [oVirt Administration Guide](oVirt Administration Guide).
+oVirt has a sophisticated multi-level administration system, in which customized permissions for each system component can be assigned to different users as necessary. For instance, to access a virtual machine from the user portal, a user must have either UserRole or PowerUserRole permissions for the virtual machine. These permissions are added from the manager administration portal. For more information on the levels of user permissions refer to the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 **To assign PowerUserRole permissions**
 
@@ -802,7 +802,7 @@ If you are using a Fedora client, install the SPICE plug-in before logging in to
 
 **To log in to the User Portal**
 
-1. Open your browser and navigate to <https://domain.example.com/UserPortal>. Substitute domain.example.com with the oVirt Engine server address.
+1. Open your browser and navigate to **<<https://domain.example.com/UserPortal>>**, substituting domain.example.com with the oVirt Engine server address.
 
 2. The login screen displays. Enter your User Name and Password, and click Login.
 
@@ -810,9 +810,8 @@ You have now logged into the user portal. As you have PowerUserRole permissions,
 
 ![Figure 19. The Extended User Portal](/images/wiki/Power-user-portal.png "Figure 19. The Extended User Portal")
 
-You can also toggle to the Basic User Portal, which is the default (and only) display for users with UserRole permissions. This portal allows users to access and use virtual machines, and is ideal for everyday users who do not need to make configuration changes to the system. For more information, see the [oVirt User Portal Guide](oVirt User Portal Guide).
+You can also toggle to the Basic User Portal, which is the default (and only) display for users with UserRole permissions. This portal allows users to access and use virtual machines, and is ideal for everyday users who do not need to make configuration changes to the system. For more information, see the [oVirt User Portal Guide](/documentation/user-guide/user-guide/#accessing-the-user-portal).
 
 ![Figure 20. The Basic User Portal](/images/wiki/Basic-user-portal.png "Figure 20. The Basic User Portal")
 
 You have now completed the Quick Start Guide, and successfully set up oVirt.
-

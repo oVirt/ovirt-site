@@ -19,7 +19,7 @@ The default name for ovirt_env_name is "engine".
    Use the following convention: Only include alphanumeric characters and hyphens ( "-" ). Name cannot begin with a hyphen or a number,
    or end with a hyphen. Maximum of 49 characters. Wildcard patterns (e.g. ovirt-metrics*) cannot be used.
 
-During the installation in the step [Customizing vars.yaml](https://github.com/ViaQ/Main/blob/master/README-install.md#customizing-varsyaml), use the following namespaces to create the indexes:
+During installation, in the step [Customizing vars.yaml](https://github.com/ViaQ/Main/blob/master/README-install.md#customizing-varsyaml), use the following namespaces to create the indexes:
 
 openshift_logging_mux_namespaces:
 - ovirt-metrics-<ovirt_env_name>

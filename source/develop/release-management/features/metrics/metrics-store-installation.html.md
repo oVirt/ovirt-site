@@ -21,16 +21,16 @@ The default name for ovirt_env_name is "engine".
 
 During installation, in the step [Customizing vars.yaml](https://github.com/ViaQ/Main/blob/master/README-install.md#customizing-varsyaml), use the following namespaces to create the indexes:
 
-openshift_logging_mux_namespaces:
-- ovirt-metrics-<ovirt_env_name>
-- ovirt-logs-<ovirt_env_name>
+    openshift_logging_mux_namespaces:
+    - ovirt-metrics-<ovirt_env_name>
+    - ovirt-logs-<ovirt_env_name>
 
 For example:
 If ovirt_env_name= test-engine then the `openshift_logging_mux_namespaces` will be:
 
-openshift_logging_mux_namespaces:
-- ovirt-metrics-test-engine
-- ovirt-logs-test-engine
+    openshift_logging_mux_namespaces:
+    - ovirt-metrics-test-engine
+    - ovirt-logs-test-engine
 
 The indexes in elasticsearch will be created with "project." prefix.
 

@@ -7,8 +7,8 @@ layout: toc
 # oVirt 4.1.8 Release Notes
 
 The oVirt Project is pleased to announce the availability of the 4.1.8
-Third Release Candidate
- as of November 26, 2017.
+Fourth Release Candidate
+ as of November 30, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -92,16 +92,16 @@ packages from other repos.
 
 #### oVirt Engine Dashboard
 
- - [BZ 1504691](https://bugzilla.redhat.com/1504691) <b>[downstream clone - 4.1.8] [RFE] Create a Refresh button on Dashboard in Manager UI</b><br>Feature: Add a manual refresh button to the dashboard UI to update the display with currently available system summary information.
+ - [BZ 1504691](https://bugzilla.redhat.com/1504691) <b>[downstream clone - 4.1.8] [RFE] Create a Refresh button on Dashboard in Manager UI</b><br>In this release, a refresh button has been added to the Dashboard tab in the Administration <br>Portal to enable users to view up-to-date system summary information.
 
 #### oVirt Release Package
 
- - [BZ 1516194](https://bugzilla.redhat.com/1516194) <b>[downstream clone - 4.1.8] [RFE] Provide IdM client software in RHVH</b><br>
+ - [BZ 1516194](https://bugzilla.redhat.com/1516194) <b>[downstream clone - 4.1.8] [RFE] Provide IdM client software in RHVH</b><br>ipa-client package is now installed on hosts and is included in oVirt Node / RHV-H<br>This allows to integrate cockpit certificate signing and SSO with Red Hat IdM and adding the host to IdM realm.
 
 #### oVirt Engine
 
  - [BZ 1501793](https://bugzilla.redhat.com/1501793) <b>[downstream clone - 4.1.8] [RFE] Indicate host needs to be reinstalled to push new configurations.</b><br>There are several settings of a cluster or host which require reinstallation of a host if those settings are changed:<br><br> I. Host with changed settings needs to be reinstalled<br>   1. Turning on/off Kdump integration<br>   2. Changing command line parameters<br><br>The requirement to reinstall was always mentioned in documentation and also WARNING event is raised.<br><br>Unfortunately it was not enough, so no we also show an exclamation mark icon for each host that needs to be reinstalled. When exclamation mark icon is shown, you can find the details about it in Host detail view within Action Items section.
- - [BZ 1484404](https://bugzilla.redhat.com/1484404) <b>fence_drac5 requires specifying custom SSH options to work properly</b><br>Feature: allow for key=key=value format (where the value of a fence option key is itself in a key=value format) in fence agent options <br><br>Reason: support some old drac5 devices that should add <br> ssh_options=-oCiphers=+3des-cbc<br>to the Options field to enable no-longer-enabled-insecure ciphers for SSH connection<br><br>Result: <br>You can use a format of key=key=value in the fence agent options field from UI and API
+ - [BZ 1505576](https://bugzilla.redhat.com/1505576) <b>Cannot specify proper CPU topology for 4-socket broadwell (24 cores per socket)</b><br>Feature: <br>Support more than 16 cores per socket<br><br>Reason: <br>Modern CPUs do support more, qemu does not have problem with that, this restriction just artificially constrained the user to create a virtual HW which matches the physical<br><br>Result: <br>254 cores per socket is now supported.
 
 #### oVirt Engine Metrics
 
@@ -111,11 +111,11 @@ packages from other repos.
 
 #### oVirt Engine Extension AAA-LDAP
 
- - [BZ 1489402](https://bugzilla.redhat.com/1489402) <b>Provide an example for kerberos authentication between aaa-ldap and LDAP server</b><br>Feature: <br><br>Following examples has been added:<br><br> * Using GSSAPI to authenticate against IPA<br> * Using GSSAPI with ticket cache to authenticate against IPA<br><br>More details about those examples can be found at README.md [1] which is also included inside the package<br><br>[1] https://github.com/oVirt/ovirt-engine-extension-aaa-ldap/blob/master/examples/README.md<br>
+ - [BZ 1489402](https://bugzilla.redhat.com/1489402) <b>Provide an example for kerberos authentication between aaa-ldap and LDAP server</b><br>Feature: <br><br>Following examples has been added:<br><br> * Using GSSAPI to authenticate against IPA<br> * Using GSSAPI with ticket cache to authenticate against IPA<br><br>More details about those examples can be found at README.md [1] which is also included inside the package<br><br>[1] https://github.com/oVirt/ovirt-engine-extension-aaa-ldap/blob/master/examples/README.md<br><br>
 
 #### oVirt Host Dependencies
 
- - [BZ 1516194](https://bugzilla.redhat.com/1516194) <b>[downstream clone - 4.1.8] [RFE] Provide IdM client software in RHVH</b><br>
+ - [BZ 1516194](https://bugzilla.redhat.com/1516194) <b>[downstream clone - 4.1.8] [RFE] Provide IdM client software in RHVH</b><br>ipa-client package is now installed on hosts and is included in oVirt Node / RHV-H<br>This allows to integrate cockpit certificate signing and SSO with Red Hat IdM and adding the host to IdM realm.
 
 ### Rebase: Enhancementss Only
 
@@ -143,6 +143,7 @@ packages from other repos.
 
 #### VDSM
 
+ - [BZ 1515124](https://bugzilla.redhat.com/1515124) <b>qemu coredumps are not generated properly</b><br>
  - [BZ 1509614](https://bugzilla.redhat.com/1509614) <b>[downstream clone - 4.1.8] "No such drive" error on live merge of one disk causes merge of other disk to fail on engine.</b><br>
 
 #### oVirt Engine
@@ -152,8 +153,6 @@ packages from other repos.
  - [BZ 1509270](https://bugzilla.redhat.com/1509270) <b>[downstream clone - 4.1.8] host_nic_vfs_config is not populated if parent pci device of nic is shared with another device</b><br>
  - [BZ 1481221](https://bugzilla.redhat.com/1481221) <b>[Webadmin] LUNs listings are being multiplied by the number of their paths in direct LUN creation prompt in case they have storage domain on them</b><br>
  - [BZ 1466326](https://bugzilla.redhat.com/1466326) <b>cannot import storage storage domain when 'use manage gluster volume'  feature is used.</b><br>
- - [BZ 1367700](https://bugzilla.redhat.com/1367700) <b>Display a warning if user tries to create multiple bricks on the same server during replace-brick.</b><br>
- - [BZ 1505576](https://bugzilla.redhat.com/1505576) <b>Cannot specify proper CPU topology for 4-socket broadwell (24 cores per socket)</b><br>
  - [BZ 1514901](https://bugzilla.redhat.com/1514901) <b>Avoid preparing and tearing down images during create snapshot while the VM isn't down</b><br>
  - [BZ 1512989](https://bugzilla.redhat.com/1512989) <b>Add support to retrieve session by token</b><br>
  - [BZ 1511335](https://bugzilla.redhat.com/1511335) <b>[downstream clone - 4.1.8] Bookmarks are not sorted after upgrade</b><br>
@@ -191,6 +190,10 @@ packages from other repos.
 #### oVirt Engine Dashboard
 
  - [BZ 1512574](https://bugzilla.redhat.com/1512574) <b>dropdown menu for refresh interval in dashboard is not visible</b><br>
+
+#### oVirt Engine
+
+ - [BZ 1518894](https://bugzilla.redhat.com/1518894) <b>Tables: when starting to change the width of a column, the column right edge jumps suddenly to the right from the mouse pointer position</b><br>
 
 #### oVirt provider OVN
 

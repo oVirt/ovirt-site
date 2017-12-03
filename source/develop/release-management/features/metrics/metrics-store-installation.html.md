@@ -19,13 +19,18 @@ The default name for ovirt_env_name is "engine".
    Use the following convention: Only include alphanumeric characters and hyphens ( "-" ). Name cannot begin with a hyphen or a number,
    or end with a hyphen. Maximum of 49 characters. Wildcard patterns (e.g. ovirt-metrics*) cannot be used.
 
-During the installation in the step [Configuring mux](https://github.com/ViaQ/Main/blob/master/README-install.md#configuring-mux) , use the following namespaces to create the indexes:
+During installation, in the step [Customizing vars.yaml](https://github.com/ViaQ/Main/blob/master/README-install.md#customizing-varsyaml), use the following namespaces to create the indexes:
 
-MUX_NAMESPACES="ovirt-metrics-<ovirt_env_name>  ovirt-logs-<ovirt_env_name>"
+    openshift_logging_mux_namespaces:
+    - ovirt-metrics-<ovirt_env_name>
+    - ovirt-logs-<ovirt_env_name>
 
 For example:
-If ovirt_env_name= test-engine then the `MUX_NAMESPACES` will be:
-MUX_NAMESPACES="ovirt-metrics-test-engine  ovirt-logs-test-engine"
+If ovirt_env_name= test-engine then the `openshift_logging_mux_namespaces` will be:
+
+    openshift_logging_mux_namespaces:
+    - ovirt-metrics-test-engine
+    - ovirt-logs-test-engine
 
 The indexes in elasticsearch will be created with "project." prefix.
 

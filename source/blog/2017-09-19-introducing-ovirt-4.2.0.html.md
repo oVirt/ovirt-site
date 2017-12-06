@@ -19,7 +19,7 @@ READMORE
 
 Here's an overview of the new main features:
 
-The **Administration Portal** has been redesigned from scratch using Patternfly, a widely adopted standard in web application design that promotes consistency and usability across IT applications, through UX patterns and widgets. The result is a cleaner, more intuitive and user-friendly user interface. The old horizontal menu has been replaced by a two-level vertical menu. The system tree is gone, and its functionality has been integrated into the vertical menus. Here are some screnshots:
+The **Administration Portal** has been redesigned from scratch using Patternfly, a widely adopted standard in web application design that promotes consistency and usability across IT applications, through UX patterns and widgets. The result is a cleaner, more intuitive and user-friendly user interface. The old horizontal menu has been replaced by a two-level vertical menu. The system tree is gone, and its functionality has been integrated into the vertical menus. Here are some screenshots:
 
 **Dashboard**
 ![](/images/blog/2017-09-19/adminportal_dashboard.png)

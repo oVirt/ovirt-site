@@ -53,6 +53,8 @@ For detailed installation instructions, read the [Installation Guide](/documenta
 
 - **Affinity labels** create a positive affinity between the hosts and VMs to which they are applied. The new Affinity Labels sub tab for clusters, hosts, and VMs in the Administration Portal provides a table view of labels associated with the currently selected entity, as well as the option to add, edit, and delete them. Additionally, existing labels can be added and/or removed from VMs and hosts in their respective new/edit popup dialogs.
 
+- oVirt Windows Guest Tools ISO image/rpm including latest guest agents and virtio-win drivers.
+
 To learn about features introduced before 4.2.0, see the [release notes for previous versions](/documentation/#previous-release-notes).
 
 

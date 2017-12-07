@@ -4,7 +4,7 @@ category: feature
 authors: Fred Rolland
 feature_name: Multipath Alerts
 feature_modules: engine,vdsm
-feature_status: Design
+feature_status:  Released in oVirt 4.2.0
 ---
 
 # Multipath Alerts
@@ -56,15 +56,28 @@ an event will be created.
 
 ### New vdsm API
 
-Host.getStats will report now new 'multipath' key. The contents is a map of multipath alerts.
+Host.getStats will report now new 'multipathHealth' key. The contents is a map of multipath alerts.
 
 
-#### Multipath Alerts Map
+#### Multipath Health Map
 
 The key of the map is the device mapper GUID.
 The value is a MultipathAlert that contains:
 - List of faulty paths.
 - Number of valid paths
+
+Here is an example of the map structure:
+
+```json
+"multipathHealth": {
+    "36001405976dc283c6bf497b940e69eed": {
+        "valid_paths": 0,
+        "failed_paths": [
+            "sdae"
+        ]
+    }
+}
+```
 
 ### Vdsm multipath event listener
 
@@ -129,6 +142,14 @@ for each host in the DC.
 If a single path goes down on one of the hosts, the user will get an alarm
 only for this host.
 
+## Logs
+
+Vdsm logs the changes in the status of the paths.
+
+```
+INFO  (mpathlistener) [storage.mpathhealth] Path u'sdae' reinstated for multipath device u'36001405976dc283c6bf497b940e69eed', all paths are valid (mpathhealth:124)
+WARN  (mpathlistener) [storage.mpathhealth] Path u'sdae' failed for multipath device u'36001405976dc283c6bf497b940e69eed', no valid paths left (mpathhealth:138)
+```
 
 ## Installation/Upgrade
 
@@ -188,6 +209,8 @@ Uevent [device mapper events kernel documentation](https://www.kernel.org/doc/Do
   - 'Faulty multipath paths on host "HOST_NAME" on devices: "GUID", "GUID" ...' is triggered
 - Unblock access to ISCSI server on a specific host
   - Wait until all paths go up. a 'No faulty multipath paths on host "HOST_NAME"' is triggered
+- Stop Vdsm, block network to ISCSI storage server on a specific host and start Vdsm
+  - 'Faulty multipath paths on host "HOST_NAME" on devices: "GUID", "GUID" ...' is triggered
 
 ## Release Notes
 

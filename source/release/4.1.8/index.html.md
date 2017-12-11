@@ -7,22 +7,13 @@ layout: toc
 # oVirt 4.1.8 Release Notes
 
 The oVirt Project is pleased to announce the availability of the 4.1.8
-Fourth Release Candidate
- as of November 30, 2017.
+release as of December 11, 2017.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.4,
 CentOS Linux 7.4 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -38,21 +29,25 @@ To learn about features introduced before 4.1.8, see the [release notes for prev
 ### Fedora / CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
+
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 
 
@@ -86,7 +81,7 @@ packages from other repos.
 
 #### VDSM
 
- - [BZ 1513886](https://bugzilla.redhat.com/1513886) <b>[downstream clone - 4.1.8] [RFE] Enable TLSv12 support by default</b><br>We have backported TLSv12 support into RHV 4.1.5 (BZ1412552), but it was turned off by default and enabling TLSv12 required manual configuration. With this fix TLSv12 support is enabled by default and no manual configuration is required.
+ - [BZ 1513886](https://bugzilla.redhat.com/1513886) <b>[downstream clone - 4.1.8] [RFE] Enable TLSv12 support by default</b><br>This update ensures that TLSv12 support is enabled by default and no manual configuration is required.
 
 ### Enhancements
 
@@ -96,11 +91,11 @@ packages from other repos.
 
 #### oVirt Release Package
 
- - [BZ 1516194](https://bugzilla.redhat.com/1516194) <b>[downstream clone - 4.1.8] [RFE] Provide IdM client software in RHVH</b><br>ipa-client package is now installed on hosts and is included in oVirt Node / RHV-H<br>This allows to integrate cockpit certificate signing and SSO with Red Hat IdM and adding the host to IdM realm.
+ - [BZ 1516194](https://bugzilla.redhat.com/1516194) <b>[downstream clone - 4.1.8] [RFE] Provide IdM client software in RHVH</b><br>The ipa-client package is now installed on hosts, and is included in the Red Hat Virtualization Host image. This enables Cockpit certificate signing and SSO with Red Hat IdM, and adding the host to an IdM realm.
 
 #### oVirt Engine
 
- - [BZ 1501793](https://bugzilla.redhat.com/1501793) <b>[downstream clone - 4.1.8] [RFE] Indicate host needs to be reinstalled to push new configurations.</b><br>There are several settings of a cluster or host which require reinstallation of a host if those settings are changed:<br><br> I. Host with changed settings needs to be reinstalled<br>   1. Turning on/off Kdump integration<br>   2. Changing command line parameters<br><br>The requirement to reinstall was always mentioned in documentation and also WARNING event is raised.<br><br>Unfortunately it was not enough, so no we also show an exclamation mark icon for each host that needs to be reinstalled. When exclamation mark icon is shown, you can find the details about it in Host detail view within Action Items section.
+ - [BZ 1501793](https://bugzilla.redhat.com/1501793) <b>[downstream clone - 4.1.8] [RFE] Indicate host needs to be reinstalled to push new configurations.</b><br>There are several cluster and host settings which require reinstallation of the host if changed. The requirement to reinstall was always mentioned in documentation and a WARNING event was raised. With this release, the Administration Portal now also shows an exclamation mark icon for each host that needs to be reinstalled. When an exclamation mark icon is shown, you can find the details about it in the Action Items section of the host's details view.
  - [BZ 1505576](https://bugzilla.redhat.com/1505576) <b>Cannot specify proper CPU topology for 4-socket broadwell (24 cores per socket)</b><br>Feature: <br>Support more than 16 cores per socket<br><br>Reason: <br>Modern CPUs do support more, qemu does not have problem with that, this restriction just artificially constrained the user to create a virtual HW which matches the physical<br><br>Result: <br>254 cores per socket is now supported.
 
 #### oVirt Engine Metrics
@@ -111,17 +106,17 @@ packages from other repos.
 
 #### oVirt Engine Extension AAA-LDAP
 
- - [BZ 1489402](https://bugzilla.redhat.com/1489402) <b>Provide an example for kerberos authentication between aaa-ldap and LDAP server</b><br>Feature: <br><br>Following examples has been added:<br><br> * Using GSSAPI to authenticate against IPA<br> * Using GSSAPI with ticket cache to authenticate against IPA<br><br>More details about those examples can be found at README.md [1] which is also included inside the package<br><br>[1] https://github.com/oVirt/ovirt-engine-extension-aaa-ldap/blob/master/examples/README.md<br><br>
+ - [BZ 1489402](https://bugzilla.redhat.com/1489402) <b>Provide an example for kerberos authentication between aaa-ldap and LDAP server</b><br>Feature: <br><br>Following examples has been added:<br><br> * Using GSSAPI to authenticate against IPA<br> * Using GSSAPI with ticket cache to authenticate against IPA<br><br>More details about those examples can be found at README.md [1] which is also included inside the package<br><br>[1] https://github.com/oVirt/ovirt-engine-extension-aaa-ldap/blob/master/examples/README.md<br><br>Reason: <br><br>Result:
 
 #### oVirt Host Dependencies
 
- - [BZ 1516194](https://bugzilla.redhat.com/1516194) <b>[downstream clone - 4.1.8] [RFE] Provide IdM client software in RHVH</b><br>ipa-client package is now installed on hosts and is included in oVirt Node / RHV-H<br>This allows to integrate cockpit certificate signing and SSO with Red Hat IdM and adding the host to IdM realm.
+ - [BZ 1516194](https://bugzilla.redhat.com/1516194) <b>[downstream clone - 4.1.8] [RFE] Provide IdM client software in RHVH</b><br>The ipa-client package is now installed on hosts, and is included in the Red Hat Virtualization Host image. This enables Cockpit certificate signing and SSO with Red Hat IdM, and adding the host to an IdM realm.
 
 ### Rebase: Enhancementss Only
 
 #### oVirt Log collector
 
- - [BZ 1512308](https://bugzilla.redhat.com/1512308) <b>[downstream clone - 4.1.8] [RFE] option to collect logs from one host per cluster</b><br>Rebase package(s) to version: 4.1.7<br><br>Highlights and notable enhancements: added option to collect logs from one host per cluster
+ - [BZ 1512308](https://bugzilla.redhat.com/1512308) <b>[downstream clone - 4.1.8] [RFE] option to collect logs from one host per cluster</b><br>This is a rebase of the package to version 4.1.7. A notable enhancement is an option has been added to collect logs from one host per cluster.
 
 ### Rebase: Bug Fixeses and Enhancementss
 
@@ -139,17 +134,23 @@ packages from other repos.
 
  - [BZ 1513684](https://bugzilla.redhat.com/1513684) <b>[downstream clone - 4.1.8] [API] Cannot clear vm initialization via api</b><br>
 
+#### imgbased
+
+ - [BZ 1501047](https://bugzilla.redhat.com/1501047) <b>Upgrading node brings back deleted network configuration files</b><br>
+
 ### Other
 
 #### VDSM
 
  - [BZ 1515124](https://bugzilla.redhat.com/1515124) <b>qemu coredumps are not generated properly</b><br>
+ - [BZ 1520953](https://bugzilla.redhat.com/1520953) <b>Require libvirt-daemon-kvm-3.2.0-14.el7_4.5 for CentOS</b><br>
+ - [BZ 1506157](https://bugzilla.redhat.com/1506157) <b>[BLOCKED][downstream clone - 4.1.8] During a Live Merge, VDSM still saw a block job, even though libvirt's block job had completed.</b><br>
  - [BZ 1509614](https://bugzilla.redhat.com/1509614) <b>[downstream clone - 4.1.8] "No such drive" error on live merge of one disk causes merge of other disk to fail on engine.</b><br>
 
 #### oVirt Engine
 
  - [BZ 1504118](https://bugzilla.redhat.com/1504118) <b>[downstream clone - 4.1.8] Engine fails with java.lang.OutOfMemoryError making all hosts non responsive</b><br>
- - [BZ 1488839](https://bugzilla.redhat.com/1488839) <b>glusterd service is not stopped during RHV-H upgrade.</b><br>
+ - [BZ 1488839](https://bugzilla.redhat.com/1488839) <b>glusterd service is not stopped during RHEL7 as hypervisor upgrade.</b><br>
  - [BZ 1509270](https://bugzilla.redhat.com/1509270) <b>[downstream clone - 4.1.8] host_nic_vfs_config is not populated if parent pci device of nic is shared with another device</b><br>
  - [BZ 1481221](https://bugzilla.redhat.com/1481221) <b>[Webadmin] LUNs listings are being multiplied by the number of their paths in direct LUN creation prompt in case they have storage domain on them</b><br>
  - [BZ 1466326](https://bugzilla.redhat.com/1466326) <b>cannot import storage storage domain when 'use manage gluster volume'  feature is used.</b><br>
@@ -185,6 +186,12 @@ packages from other repos.
 
  - [BZ 1516203](https://bugzilla.redhat.com/1516203) <b>[downstream clone - 4.1.8] hosted engine agent is not able to refresh hosted engine status when iso domain is not available after network outage</b><br>
 
+#### oVirt Cockpit Plugin
+
+ - [BZ 1501385](https://bugzilla.redhat.com/1501385) <b>Remove shard-block-size value from generated gdeploy conf file</b><br>
+ - [BZ 1469469](https://bugzilla.redhat.com/1469469) <b>Rename the usage of disable-multipath.sh script to blacklist_all_disks.sh</b><br>
+ - [BZ 1462082](https://bugzilla.redhat.com/1462082) <b>path for the gdeploy script files in the generated gdeploy conf has to be changed.</b><br>
+
 ### No Doc Update
 
 #### oVirt Engine Dashboard
@@ -198,3 +205,4 @@ packages from other repos.
 #### oVirt provider OVN
 
  - [BZ 1491546](https://bugzilla.redhat.com/1491546) <b>vdsm-tool does not start required services before configuring the host</b><br>
+

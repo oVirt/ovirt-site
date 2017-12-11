@@ -4,7 +4,7 @@ category: feature
 authors: dchaplyg
 feature_name: Stateless broker
 feature_modules: he
-feature_status: WIP
+feature_status: Done
 ---
 
 # Stateless Hosted Engine broker
@@ -29,8 +29,8 @@ Replacing custom made agent-broker RPC implementation with python's standard xml
 ## Current status
 
 *   Target Release: 4.2
-*   Status: work in progress
-*   Last updated: August 21, 2017
+*   Status: Done
+*   Last updated: December 11, 2017
 
 ## Detailed Description
 
@@ -51,5 +51,5 @@ Therefore, as most part of that functionality is not needed, we can get rid of m
 
 ## Benefit to oVirt
 
-Less code - less errors. Standard module is well tested and it is easier to suport code based on it. We will also move some havy stuff from agent to broker, making agent react faster.
+Less code - less errors. Standard module is well tested and it is easier to suport code based on it. We will also move some heavy stuff from agent to broker, making agent react faster.
 

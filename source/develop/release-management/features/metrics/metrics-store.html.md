@@ -21,9 +21,9 @@ Real-time monitoring will provide visibility into the user's complete infrastruc
 
 ## Current Status
 
-*   Target Release: 4.1
+*   Target Release: 4.2
 *   Status: Released
-*   Last updated: Mon 12 Jun 2017
+*   Last updated: Tue 12 Dec 2017
 
 ## Description
 

@@ -38,7 +38,7 @@ An all new **VM Portal** for non-admin users - designed with React-based UI and 
 
 A new **High Performance virtual machine** (VM) type has been added to the New VM dialog box in the Administration Portal. By selecting the ‘High Performance’ option in the ‘Optimized for’ field, administrators can effortlessly optimize a VM for high performance workloads.
 
-**Open Virtual Network** (OVN) adds support for Open vSwitch virtual networking. oVirt VMs can now use logical overlay networks defined by OVN, allowing the user to manage and define multiple logical networks via one physical network. OVN is managed either via the oVirt Administration Portal, or REST.  For more information, see the OVN feature page.
+oVirt now supports VM connectivity via **software defined networks** - implemented by **Open vSwitch virtual networking (OVN)**. OVN is automatically deployed to hypervisors, and made available for VM connectivity. Networks can be defined in the UI, over REST, or within the ManageIQ [Gaprindashvili](http://manageiq.org/blog/2017/11/Announcing-Gaprindashvili-Beta2/) release (now in beta).
 
 oVirt now supports **Nvidia vGPU**, a technology that enables users to shard a GRID capable physical GPU - such as Nvidia Tesla M60 - into a number of smaller instances. Each instance can be assigned to a VM, for GPU-accelerated workloads.
 

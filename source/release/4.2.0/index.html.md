@@ -33,29 +33,49 @@ For detailed installation instructions, read the [Installation Guide](/documenta
 
 ## What's New in 4.2.0?
 
-- The **Administration Portal** has been redesigned from scratch using [Patternfly](http://www.patternfly.org), a widely adopted standard in web application design that promotes consistency and usability across IT applications, through UX patterns and widgets. The result is a cleaner, more intuitive and user-friendly user interface. The old horizontal menu has been replaced by a two-level vertical menu. The system tree is gone, and its functionality has been integrated into the vertical menus.
+- The **Administration Portal** has been redesigned using [Patternfly](http://www.patternfly.org). The new user interface is more intuitive and user-friendly, and features improved performance.
 
-- An all new **VM Portal** for non-admin users - designed with React-based UI and Patternfly principles - replaces the existing User Portal. Built with performance and ease of use in mind, the VM Portal keeps the Extended view of the User Portal, plus streamlined functionality. 
+- A new **VM Portal** for non-admin users. Built with performance and ease of use in mind, the new VM portal delivers a more streamlined experience.
 
-- A new **High Performance** virtual machine (VM) type has been added to the New VM dialog box in the Administration Portal. By selecting the ‘High Performance’ option in the ‘Optimized for’ field, administrators can effortlessly optimize a VM for high performance workloads.
+- A **"High Performance"** VM type has been added to the existing "Server" and "Desktop" types. The new type enables administrators to easily optimize a VM for high performance workloads.
 
-- **Open Virtual Network (OVN)** adds support for Open vSwitch virtual networking. oVirt VMs can now use logical overlay networks defined by OVN, allowing the user to manage and define multiple logical networks via one physical network. OVN is managed either via the oVirt Administration Portal, or REST.  For more information, see the OVN feature page. 
+- The **oVirt Metrics Store** is a real-time monitoring solution providing complete infrastructure visibility, for data-based decision making and faster issue resolution.
 
-- oVirt now supports **Nvidia vGPU**, a technology that enables users to shard a GRID capable physical GPU - such as Nvidia Tesla M60 - into a number of smaller instances. Each instance can be assigned to a VM, for GPU-accelerated workloads.
- 
-- The **ovirt-ansible-roles** package helps users with common administration tasks. All roles can be executed from the command line using Ansible, and some are executed directly from oVirt engine. You can learn [how to use oVirt Ansible roles](https://ovirt.org/blog/2017/08/ovirt-ansible-roles-how-to-use/) on the oVirt blog.
+- oVirt now supports VM connectivity via **software defined networks** - implemented by **Open vSwitch virtual networking (OVN)**. OVN is automatically deployed to hypervisors, and made available for VM connectivity. Networks can be defined in the UI, over REST, or within the ManageIQ [Gaprindashvili](http://manageiq.org/blog/2017/11/Announcing-Gaprindashvili-Beta2/) release (now in beta).
 
-- **Virt-v2v** - the tool that converts VMs from a foreign hypervisor to run on KVM - now supports **Debian/Ubuntu** based VMs, in addition to the supported RPM and Windows-based VMs. It is available for VDSM hosts running on RHEL 7.4, and from oVirt hosts versions 4.0 and above.
+- Support for **Nvidia vGPU**, a technology that enables users to shard a GRID-capable physical GPU into several smaller instances, for GPU-accelerated workloads.
 
-- oVirt 4.2.0 uses **PostgresSQL 9.5** as its database, for improved performance.
+- The **ovirt-ansible-roles** package helps users with common administration tasks. All roles can be executed from the command line using Ansible, and some are executed directly from oVirt engine.
 
-- Support is now restored for **Gluster ISO domains**, without the need for NFS which was previously disabled by Gluster. 
+- **Virt-v2v** now supports Debian/Ubuntu and EL and Windows-based VMs. It is available for VDSM hosts running on EL 7.4, and for oVirt hosts versions 4.0 and above.
 
-- **Affinity labels** create a positive affinity between the hosts and VMs to which they are applied. The new Affinity Labels sub tab for clusters, hosts, and VMs in the Administration Portal provides a table view of labels associated with the currently selected entity, as well as the option to add, edit, and delete them. Additionally, existing labels can be added and/or removed from VMs and hosts in their respective new/edit popup dialogs.
+- oVirt will now use **PostgresSQL 9.5** as its database, for improved performance.
 
-- oVirt Windows Guest Tools ISO image/rpm including latest guest agents and virtio-win drivers.
+- Support is now restored for **Gluster ISO domains**, without the need for NFS, previously disabled by Gluster.
 
-To learn about features introduced before 4.2.0, see the [release notes for previous versions](/documentation/#previous-release-notes).
+- An **Affinity Labels** sub tab for clusters, hosts, and VMs in the Administration Portal provides a table view of labels associated with the currently selected entity, as well as add, edit, and delete options.
+
+- Support for **LLDP**, enabling oVirt hosts to gather information from their networking interfaces, for improved network configuration. The information can be displayed both in the UI and via an API.
+
+- oVirt now features **Gluster 3.12.**
+
+- oVirt's hyperconverged solution now enables a single **replica Gluster deployment.**
+
+- **Snapshots** can be uploaded and downloaded via the REST API (and the SDKs).
+
+- An improved **self-hosted-engine**. It will now connect to all IPs discovered, allowing both higher performance via multiple paths, as well as high availability if a target fails.
+
+- A new self-hosted **engine wizard UI**. Among other improvements it now enables users to review and edit their inputs before beginning the deployment process.
+
+- A new **driver for Win10**, for seamless remote access to VMs, and improved performance.
+
+- **Hosted Engine Node Zero deployment** (in tech preview). Now, the storage connection's details, plus the storage domain and datacenter will be injected into the engine as part of engine-setup. Implemented by an Ansible script, the new process will unify the different engine installations and reduce bugs.
+
+- The **ipa-client** package is now installed on hosts and included in the oVirt Node and in RHV-H. This identity management feature streamlines Cockpit usage, enabling a user to remain logged in while moving from one page to another.
+
+- Now administrators can use the Administration Portal to **remove a LUN** from a storage domain. Previously, this functionality was only available via an API.
+
+- In addition, oVirt 4.2.0 features **host scalability** improvements, for high density setups.
 
 
 ## Install / Upgrade from previous versions
@@ -1138,4 +1158,3 @@ packages from other repos.
 #### MOM
 
  - [BZ 1454633](https://bugzilla.redhat.com/1454633) <b>mom continuously crashing on getVmInfo (mom/HypervisorInterfaces/vdsmjsonrpcInterface.py)     data['pid'] = vm['pid'] KeyError: 'pid'</b><br>
-

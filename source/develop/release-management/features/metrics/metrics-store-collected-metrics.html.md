@@ -74,6 +74,10 @@ The data is then transformed, enriched, and sent to the remote metrics store.
 fluentd collects oVirt logs from the oVirt engine and hypervisors.
 The data is then transformed, enriched and sent to the remote metrics store.
 
-Currently, the logs collected from the engine machine include:
+Logs collected from the engine machine include:
 
 * engine.log
+
+Logs collected from the hypervisors machines include:
+
+* vdsm.log

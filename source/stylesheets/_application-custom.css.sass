@@ -43,12 +43,20 @@ $default_padding : 10px
     float: left
     font-size: small
     color: grey
+    @media screen and (max-width: 768px)
+      float: none
 
   .videoLang
     float: right
     font-size: small
     color: grey
+    @media screen and (max-width: 768px)
+      float: none
 
+.embedVideo
+  height: 140px
+  width: 100%
+  max-width: 300px
 
 .positionAbsolute
   position: relative
@@ -293,27 +301,9 @@ header.masthead .navbar-nav
   .carousel-inner>.item.active
     display: -moz-box
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* features */
 .well
   //padding-top: 0px
-
 
 .ovirtToggleObject
   padding-bottom: 10px
@@ -360,13 +350,8 @@ header.masthead .navbar-nav
 .feature_modules
   clear: left
 
-.feature_authors
-
 .feature-info > h1
   display: none
-
-.feature
-
 
 .feature-info > #summary ~ p:first-of-type
   background-color: #e2ffc0

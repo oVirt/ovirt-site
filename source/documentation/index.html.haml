@@ -121,7 +121,7 @@ datavideos:
           #{section.category}
           - section.videos.each do |video|
             %p.videoName #{video.name}
-            <iframe width="261" height="141" src="#{video.url}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            <iframe class="embedVideo" src="#{video.url}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
             %div
               %span.videoVer Version: #{video.ver}
               %span.videoLang #{video.lang}

@@ -15,7 +15,8 @@ tags: release, management
 | 2017-10-31 | oVirt 4.2 Beta           |
 | 2017-12-05 | oVirt 4.2 RC1            |
 | 2017-12-12 | oVirt 4.2 RC2            |
-| 2017-12-18 | oVirt 4.2 GA Release     |
+| 2017-12-18 | oVirt 4.2 RC3            |
+| 2017-12-20 | oVirt 4.2 GA Release     |
 
 ## Nightly Builds
 

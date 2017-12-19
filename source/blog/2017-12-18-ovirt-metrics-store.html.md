@@ -11,7 +11,7 @@ Using Elasticsearch - a search and analytics engine - and its native visualizati
 
 READMORE
 
-The solution includes self service dashboards, where users can create their own dashboard; reports; and log analysis for both the engine and VDSM logs.
+The solution includes self-service dashboards for creating your own dashboard, reports, and log analysis for both the engine and VDSM logs.
 
 **The Kibana dashboard**
 ![](/images/Kibana_dashboard.png)

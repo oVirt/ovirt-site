@@ -33,7 +33,7 @@ for both oVirt Engine and oVirt nodes and hosts .
     for the No eXecute flag (NX) is also required.
 *   The host must be configured to receive updates from the oVirt project's software
     repository, as provided by the ovirt-release package matching your OS distribution:
-    -   [oVirt 4.1](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm).
+    -   [oVirt 4.2](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm).
 *   If you are running Red Hat Enterprise Linux, make sure to enable the Extras channel. It is
     enabled by default on CentOS Linux.
 
@@ -88,7 +88,7 @@ create virtual machines, manage user permissions and use templates from one cent
 4. Subscribe the server to the oVirt project repository.
    For oVirt 4.1:
 
-  `   # yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm)
+  `   # yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm)
 
 5. You are now ready to install the oVirt Engine. Run the following command to download the oVirt Engine installation software and resolve all dependencies:
 
@@ -302,7 +302,7 @@ A sample /etc/exports configuration might look like:
          /export/data           *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
          /export/import_export  *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
 
-Once you have setup the NFS exports, you can now add them in oVirt.
+Once you have set up the NFS exports, you can now add them in oVirt.
 
 **To add NFS storage:**
 

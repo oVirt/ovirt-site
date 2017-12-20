@@ -33,47 +33,49 @@ For detailed installation instructions, read the [Installation Guide](/documenta
 
 ## What's New in 4.2.0?
 
-- The **Administration Portal** has been redesigned using [Patternfly](http://www.patternfly.org). The new user interface is more intuitive and user-friendly, and features improved performance.
+- The [Administration Portal](/blog/2017/09/introducing-ovirt-4.2.0/) has been redesigned using [Patternfly](http://www.patternfly.org). The new user interface is more intuitive and user-friendly, and features improved performance.
 
 - A new **VM Portal** for non-admin users. Built with performance and ease of use in mind, the new VM portal delivers a more streamlined experience.
 
-- A **"High Performance"** VM type has been added to the existing "Server" and "Desktop" types. The new type enables administrators to easily optimize a VM for high performance workloads.
+- A [High Performance VM type](/blog/2017/10/introducing-high-performance-vms/) has been added to the existing "Server" and "Desktop" types. The new type enables administrators to easily optimize a VM for high performance workloads.
 
 - The **oVirt Metrics Store** is a real-time monitoring solution providing complete infrastructure visibility, for data-based decision making and faster issue resolution.
 
-- oVirt now supports VM connectivity via **software defined networks** - implemented by **Open vSwitch virtual networking (OVN)**. OVN is automatically deployed to hypervisors, and made available for VM connectivity. Networks can be defined in the UI, over REST, or within the ManageIQ [Gaprindashvili](http://manageiq.org/blog/2017/11/Announcing-Gaprindashvili-Beta2/) release (now in beta).
+- oVirt now supports VM connectivity via **software defined networks** - implemented by **Open Virtual Network (OVN)**. OVN is automatically deployed to hypervisors, and made available for VM connectivity. Networks can be defined in the UI, over REST, or within the ManageIQ [Gaprindashvili](http://manageiq.org/blog/2017/12/Announcing-Gaprindashvili-RC/) release (now in RC).
 
-- Support for **Nvidia vGPU**, a technology that enables users to shard a GRID-capable physical GPU into several smaller instances, for GPU-accelerated workloads.
+- Support for [Nvidia vGPU](http://www.nvidia.com/object/grid-technology.html), a technology that enables users to shard a GRID-capable physical GPU into several smaller instances, for GPU-accelerated workloads.
 
-- The **ovirt-ansible-roles** package helps users with common administration tasks. All roles can be executed from the command line using Ansible, and some are executed directly from oVirt engine.
+- The [ovirt-ansible-roles](/blog/2017/07/ovirt-ansible-roles-an-introduction/) package helps users with [common administration tasks](/blog/2017/08/ovirt-ansible-roles-how-to-use/). All roles can be executed from the command line using Ansible, and some are executed directly from oVirt engine.
 
-- **Virt-v2v** now supports Debian/Ubuntu and EL and Windows-based VMs. It is available for VDSM hosts running on EL 7.4, and for oVirt hosts versions 4.0 and above.
+- oVirt will now use [PostgresSQL 9.5](https://www.postgresql.org/docs/9.5/static/release-9-5.html) as its database, for improved performance.
 
-- oVirt will now use **PostgresSQL 9.5** as its database, for improved performance.
+- Support for [LLDP](/blog/2017/11/webadmin-lldp/), enabling oVirt hosts to gather information from their networking interfaces, for improved network configuration. The information can be displayed both in the UI and via an API.
 
-- Support is now restored for **Gluster ISO domains**, without the need for NFS, previously disabled by Gluster.
+- **Snapshots** can be uploaded and downloaded via the REST API (and the SDKs).
 
-- An **Affinity Labels** sub tab for clusters, hosts, and VMs in the Administration Portal provides a table view of labels associated with the currently selected entity, as well as add, edit, and delete options.
+- A new **self-hosted engine wizard UI**. Among other improvements it now enables users to review and edit their inputs before beginning the deployment process.
 
-- Support for **LLDP**, enabling oVirt hosts to gather information from their networking interfaces, for improved network configuration. The information can be displayed both in the UI and via an API.
+- **Hosted Engine Ansible-based deployment** (in Beta),using “ovirt-hosted-engine-setup  --ansible”, is a new method to deploy a hosted engine. It reduces deployment issues, and will enable users to benefit from future features such as single storage for the hosted engine and other VMs, live storage migration, and improved hosted engine VM editing capabilities. We expect it to become the default provisioning flow for Hosted Engine and would be glad to get feedback on its functionality!
+
+- The **ipa-client package** is now installed on hosts and included in the oVirt Node. This identity management feature provides users with a seamless experience while moving between [Cockpit](http://cockpit-project.org/) and other products.
+
+- **Virt-v2v** now supports Debian/Ubuntu based VMs, in addition to EL and Windows-based VMs.
+
+- Restored support for **Gluster ISO domains**.
+
+- Improved **Affinity Label management tools** were incorporated into the cluster, host, and VM’s edit dialogs.
 
 - oVirt now features **Gluster 3.12.**
 
 - oVirt's hyperconverged solution now enables a single **replica Gluster deployment.**
 
-- **Snapshots** can be uploaded and downloaded via the REST API (and the SDKs).
-
-- An improved **self-hosted-engine**. It will now connect to all IPs discovered, allowing both higher performance via multiple paths, as well as high availability if a target fails.
-
-- A new self-hosted **engine wizard UI**. Among other improvements it now enables users to review and edit their inputs before beginning the deployment process.
+- Improved **self-hosted-engine iSCSI deployment**.
 
 - A new **driver for Win10**, for seamless remote access to VMs, and improved performance.
 
-- **Hosted Engine Node Zero deployment** (in tech preview). Now, the storage connection's details, plus the storage domain and datacenter will be injected into the engine as part of engine-setup. Implemented by an Ansible script, the new process will unify the different engine installations and reduce bugs.
+- Administrators can now use the Administration Portal to **remove a LUN** from the storage domain.
 
-- The **ipa-client** package is now installed on hosts and included in the oVirt Node and in RHV-H. This identity management feature streamlines Cockpit usage, enabling a user to remain logged in while moving from one page to another.
-
-- Now administrators can use the Administration Portal to **remove a LUN** from a storage domain. Previously, this functionality was only available via an API.
+- Instead of polling libvirt every 2 seconds to get the used disk for each thin disk, VDSM now uses **events**, for a noticeable increase in efficiency on a host with tens or hundreds of VMs.
 
 - In addition, oVirt 4.2.0 features **host scalability** improvements, for high density setups.
 

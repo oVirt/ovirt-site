@@ -11,28 +11,30 @@ authors: adahms, bproffitt, didi, fab, gianluca, gshereme, jbrooks, jhernand, jo
 
 ## Introduction
 
-This document is a step-by-step guide for first-time users who wich to install and configure a basic
+This step-by-step guide shows first-time users how to install and configure a basic
 oVirt environment and create virtual machines.
 
 ### Prerequisites
 
 Before starting, please check the [System Requirements](/documentation/install-guide/chap-System_Requirements/)
-documentation for both oVirt engine and oVirt node / hosts.
+for both oVirt Engine and oVirt nodes and hosts .
 
 #### oVirt Engine
 
-*   The oVirt engine host must be configured to receive updates from the oVirt project's software
+*   The host running ovirt-engine must be configured to receive updates from the oVirt project's software
     repository, as provided by the ovirt-release package matching your OS distribution:
     -   [oVirt 4.1](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm).
-*   A client for connecting to the oVirt engine.
+*   A client for connecting to oVirt Engine.
 
-#### Host Checklist
+#### For each Host
 
-*   Check that AMD-V or Intel VT are enabled, with AMD64 or Intel 64 extensions
+*   All CPUs must have support for the Intel® 64 or AMD64 CPU extensions, and the
+    AMD-V™ or Intel VT® hardware virtualization extensions should be enabled. Support
+    for the No eXecute flag (NX) is also required.
 *   The host must be configured to receive updates from the oVirt project's software
     repository, as provided by the ovirt-release package matching your OS distribution:
-    -   [oVirt 4.1](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm).
-*   If you're running Red Hat Enterprise Linux, also enable the Extras channel. It is
+    -   [oVirt 4.2](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm).
+*   If you are running Red Hat Enterprise Linux, make sure to enable the Extras channel. It is
     enabled by default on CentOS Linux.
 
 #### Storage and Networking
@@ -49,27 +51,27 @@ documentation for both oVirt engine and oVirt node / hosts.
 #### Virtual Machines
 
 Installation images for creating virtual machines, depending on which operating system you wish to use.
-A list of supported guest distributions is available on our [Download](/download/#supported-guest-distributions) page.
+A list of supported guest distribution is available on our [Download](/download/#supported-guest-distributions) page.
 
 ## Install oVirt
 
-The oVirt platform consists of at least one Node and an oVirt engine which may
-be deployed in a virtual machine as a self-hosted engine.
-(See the [Self-Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/) for more infromation).
+The oVirt platform consists of at least one node and an oVirt Engine which may
+be deployed in a virtual machine as Self-Hosted Engine
+(See the [Self-Hosted Engine guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/) for more infromation).
 
-*   oVirt engine provides a graphical user interface to manage the physical and
+*   oVirt Engine provides a graphical user interface to manage the physical and
     logical resources of the oVirt infrastructure.
-    The engine is installed on an Enterprise Linux 7 server, and accessed
-    from a client that is running Firefox.
+    The Engine is installed on an Enterprise Linux 7 server, and accessed
+    from a client running Firefox.
 
 <!-- -->
 
-*   oVirt engine runs virtual machines. A physical server running oVirt node or Enterprise Linux 7
+*   oVirt Engine runs virtual machines. A physical server running an oVirt node or Enterprise Linux 7
     can be configured as a host for virtual machines on the oVirt platform.
 
 ### Install oVirt Engine
 
-oVirt engine is the control center of the oVirt environment.
+oVirt Engine is the control center of the oVirt environment.
 It allows you to define hosts, configure data centers, add storage, define networks,
 create virtual machines, manage user permissions and use templates from one central location.
 
@@ -86,7 +88,7 @@ create virtual machines, manage user permissions and use templates from one cent
 4. Subscribe the server to the oVirt project repository.
    For oVirt 4.1:
 
-  `   # yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm)
+  `   # yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm)
 
 5. You are now ready to install the oVirt Engine. Run the following command to download the oVirt Engine installation software and resolve all dependencies:
 
@@ -102,59 +104,60 @@ create virtual machines, manage user permissions and use templates from one cent
 Important points to note:
 
 *   The default ports 80 and 443 must be available to access the manager on HTTP and HTTPS respectively.
-*   If you select to configure an NFS share, it will be exported from the machine on which the manager is being installed.
+*   If you select to configure an NFS share it will be exported from the machine on which the manager is being installed.
 *   The storage type that you select will be used to create a data center and cluster.
     You will then be able to attach storage to these from the Web Administration Portal.
 *   The default ACL for the ISO_DOMAIN NFS export is allowing access to the current machine only.
     You need to provide read/write access to any host that will need to attach to this domain.
 
-8. You are then presented with a summary of the configurations you have selected. Enter 'Yes' to accept them.
+8. You are then presented with a summary of the configurations you have selected. Type yes to accept them.
 
 9. The installation commences. Messages will be displayed during the process, indicating that the installation was successful.
 
 
-Your oVirt engine is now up and running.
-You can log in to the oVirt engine's Web Administration portal with the username
+Your oVirt Engine is now up and running.
+You can log in to the oVirt Engine's Web Administration Portal with the username
 admin (the administrative user configured during installation) in the internal domain.
 Instructions to do so are provided at the end of this chapter.
 
 ### Install Hosts
 
 After you have installed the oVirt Engine, install the hosts to run your virtual machines.
-In oVirt, you can use either oVirt node or Enterprise Linux 7 as hosts.
+In oVirt, you can use either oVirt Node or Enterprise Linux 7 as hosts.
 
 #### Install oVirt Node
 
-Please refer to the [Installing oVirt Node](/documentation/install-guide/chap-oVirt_Nodes/).
-guide within the [oVirt Installation Guide](/documentation/install-guide/Installation_Guide/).
+Please refer to [Installing oVirt Node](/documentation/install-guide/chap-oVirt_Nodes/)
+guide within the [oVirt Installation Guide](/documentation/install-guide/Installation_Guide/)
 
 #### Install Enterprise Linux Host
 
-Please refer to the [Installing Enterprise Linux Hosts](/documentation/install-guide/chap-Enterprise_Linux_Hosts/)
-guide within the [oVirt Installation Guide](/documentation/install-guide/Installation_Guide/).
+Please refer to [Installing Enterprise Linux Hosts](/documentation/install-guide/chap-Enterprise_Linux_Hosts/)
+guide within the [oVirt Installation Guide](/documentation/install-guide/Installation_Guide/)
 
 
 ## Configure oVirt
 
-Now that you have logged in to the administration portal, configure your oVirt
+Now that you have logged in to the Administration Portal, configure your oVirt
 environment by defining the data center, host cluster, networks and storage.
 Even though this guide makes use of the default resources configured during installation,
-if you are setting up an oVirt environment with completely new components,
+if you are setting up a oVirt environment with completely new components,
 you should perform the configuration procedure in the sequence given here.
 
 ### Configure Data Centers
 
 A data center is a logical entity that defines the set of physical and logical
 resources used in a managed virtual environment.
-Think of it as a container that houses clusters of hosts, virtual machines, storage and networks.
+Think of it as a container which houses clusters of hosts, virtual machines, storage and networks.
 
-By default, oVirt creates a data center at installation. Its type is configured from the installation script.
-
-To view it, click the vertical menu and select **Compute** > **Data Centers**. Click on the default data center’s name to review or edit its settings. 
+By default, oVirt creates a data center at installation.
+Its type is configured from the installation script.
+To access it, navigate to the Tree pane, click Expand All, and select the Default data center.
+On the Data Centers tab, the Default data center displays.
 
 ![Figure 2. Data Centers Tab](/images/wiki/Data-center-view.png "Figure 2. Data Centers Tab")
- 
-The default data center is used for this document, however if you wish to create
+
+The Default data center is used for this document, however if you wish to create
 a new data center see the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 ### Configure Clusters
@@ -164,32 +167,35 @@ set of virtual machines. Hosts in a cluster share the same network infrastructur
 the same storage and the same type of CPU.
 They constitute a migration domain within which virtual machines can be moved from host to host.
 By default, oVirt creates a cluster at installation.
-
-To access it, click the vertical menu and select **Compute** > ֻ**Clusters**. Click on the default cluster’s name to review or edit its settings. 
+To access it, navigate to the Tree pane, click Expand All and select the Default cluster.
+On the Clusters tab, the Default cluster displays.
 
 ![Figure 3. Clusters Tab](/images/wiki/Cluster-view.png "Figure 3. Clusters Tab")
 
-For this document, the oVirt node and Enterprise Linux hosts will be attached to the default host cluster.
+For this document, the oVirt Node and Enterprise Linux hosts will be attached to the Default host cluster.
 If you wish to create new clusters, or live migrate virtual machines between hosts in a cluster,
 see the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 ### Configure Networks
 
-At installation, oVirt defines a צanagement network for the default data center.
+At installation, oVirt defines a Management network for the default data center.
 This network is used for communication between the manager and the host.
 New logical networks - for example for guest data, storage or display - can be
 added to enhance network speed and performance.
 All networks used by hosts and clusters must be added to the data center they belong to.
 
-The default management network is called ovirtmgmt. To access it, click the vertical menu and select **Network** > **Networks**, and then, under the name column, click on ovirtmgmt.  
+To access the Management network, click on the Clusters tab and select the default cluster.
+Click the Logical Networks tab in the Details pane.
+The ovirtmgmt network displays.
 
 ![Figure 4. Logical Networks Tab](/images/wiki/Logical-network-view.png "Figure 4. Logical Networks Tab")
 
-To create new logical networks, see the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
+The ovirtmgmt Management network is used for this document, however if you wish
+to create new logical networks see the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 #### Attach oVirt Node or Enterprise Linux Host
 
-1. Click On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, click New.
+1. On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, click New.
 
 2. The New Host dialog displays.
 
@@ -259,13 +265,13 @@ Internet Small Computer System Interface (iSCSI) or Fibre Channel Protocol (FCP)
 Storage definition, type and function, are encapsulated in a logical entity called
 a Storage Domain. Multiple storage domains are supported.
 
-For this guide you will use two types of storage domains:
+For this guide you will use two types of storage domains.
 The first is an NFS share for ISO images of installation media.
 You have already created this ISO domain during the oVirt Engine installation.
 
 The second storage domain will be used to hold virtual machine disk images.
 For this domain, you need at least one of the supported storage types.
-You have already set a default storage type during installation as described in [Install oVirt Engine](#Install_oVirt_Engine).
+You have already set a default storage type during installation as described in [Install oVirt Engine](/documentation/quickstart/quickstart-guide/#install-ovirt-engine).
 Ensure that you use the same type when creating your data domain.
 
 **Select your next step by checking the storage type you should use:**
@@ -274,11 +280,11 @@ Ensure that you use the same type when creating your data domain.
 2.  On the results list, the Storage Type column displays the type you should add.
 3.  Now that you have verified the storage type, create the storage domain - see one of:
 
-    * [ Create an NFS Data Domain](#Create_an_NFS_Data_Domain).
+    * [ Create an NFS Data Domain](/documentation/quickstart/quickstart-guide/#create-an-nfs-data-domain).
 
-    * [ Create an iSCSI Data Domain](#Create_an_iSCSI_Data_Domain).
+    * [ Create an iSCSI Data Domain](/documentation/quickstart/quickstart-guide/#create-an-iscsi-data-domain).
 
-    * [ Create an FCP Data Domain](#Create_an_FCP_Data_Domain).
+    * [ Create an FCP Data Domain](/documentation/quickstart/quickstart-guide/#create-an-fcp-data-domain).
 
 #### Create an NFS Data Domain
 
@@ -316,7 +322,7 @@ Use Host: Select any of the hosts from the drop down menu. Only hosts which belo
 
 3. Click OK. The new NFS data domain displays on the Storage tab. It will remain with a Locked status while it is being prepared for use. When ready, it is automatically attached to the data center.
 
-You have created an NFS storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to [Attach an ISO domain](#Attach_an_ISO_domain).
+You have created an NFS storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to [Attach an ISO domain](/documentation/quickstart/quickstart-guide/#attach-an-iso-domain).
 
 #### Create an iSCSI Data Domain
 
@@ -351,7 +357,7 @@ Enter the required information:
 
 7. Click OK. The new iSCSI data domain displays on the Storage tab. It will remain with a Locked status while it is being prepared for use. When ready, it is automatically attached to the data center.
 
-You have created an iSCSI storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to [Attach an ISO domain](#Attach_an_ISO_domain).
+You have created an iSCSI storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to [Attach an ISO domain](/documentation/quickstart/quickstart-guide/#attach-an-iso-domain).
 
 #### Create an FCP Data Domain
 
@@ -378,9 +384,9 @@ Configure the following options:
 You have created an FCP storage domain.
 Now, you need to attach an ISO domain to the data center and upload installation
 images so you can use them to create virtual machines.
-Proceed to [Attach an ISO domain](#Attach_an_ISO_domain)
+Proceed to [Attach an ISO domain](/documentation/quickstart/quickstart-guide/#attach-an-iso-domain)
 
-#### Attach an ISO domain
+#### Attach an ISO Domain
 
 You have defined your first storage domain to store virtual guest data, now it
 is time to configure your second storage domain, which will be used to store
@@ -400,7 +406,7 @@ To use this ISO domain, attach it to a data center.
 
 5. Select the ISO domain and click the Activate button. The status changes to Locked and then to Active.
 
-#### Uploading ISO images
+#### Uploading ISO Images
 
 Media images (CD-ROM or DVD-ROM in the form of ISO images) must be available
 in the ISO repository for the virtual machines to use.
@@ -523,7 +529,7 @@ See [how to install the guest agent in Fedora](/documentation/how-to/guest-agent
 1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
 ![Figure 10. The navigation tabs](/images/wiki/Navigation_Tabs.png "Figure 10. The navigation tabs")
- 
+
 2. The “New Virtual Machine” popup appears.
 
 ![Figure 11. Create new Windows virtual machine](/images/wiki/New_VM_Win7.png "Figure 11. Create new Windows virtual machine")
@@ -566,7 +572,7 @@ You have now created your Windows 7 virtual machine. Before you can use your vir
 
 3. Click OK.
 
-![Figure 14. Run once menu](/images/wiki/Run_Once_Win7.jpg "Figure 14. Run once menu")
+![Figure 14. Run once menu](/images/wiki/Run_Once_Win7.png "Figure 14. Run once menu")
 
 Retain the default settings for the other options and click OK to start the virtual machine.
 
@@ -574,14 +580,14 @@ Retain the default settings for the other options and click OK to start the virt
 
 5. Continue with the Windows 7 install as normal until you reach "Where do you want to install Windows?"
 
-##### Installing with a VirtIO interface
+##### Installing with a VirtIO Interface
 
 <div class="toccolours mw-collapsible mw-collapsed" style="width:800px">
 "Where do you want to install Windows?" does not show any disks. Click to expand this section.
 
 <div class="mw-collapsible-content">
 ![No disks available](/images/wiki/Install_Windows7_VirtIO_Disk.png "fig:No disks available")
- 
+
 You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD
 ![Change CD](/images/wiki/Navigation_Tabs_Change_CD.png "fig:Change CD")
 
@@ -595,7 +601,7 @@ You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD
 5. Browse to the CD, Win7 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
 
 6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next
-![Drivers Available](/images/wiki/Install_Windows7_VirtIO_Drivers.jpg "fig:Drivers Available")
+![Drivers Available](/images/wiki/Install_Windows7_VirtIO_Drivers.png "fig:Drivers Available")
 
 7. The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
 
@@ -609,7 +615,7 @@ You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD
 
 </div>
 </div>
-##### Installing with a IDE interface
+##### Installing with a IDE Interface
 
 "Where do you want to install Windows?" shows a disk to install to. Continue as normal.
 
@@ -617,11 +623,11 @@ You need to load the VirtIO driver. 1. On the Navigation Tabs, click Change CD
 
 ##### Drivers
 
-If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. 
-![Device Manager](/images/wiki/Device_Manager_Win7_Missing_Drivers_VirtIO.jpg "fig:Device Manager") 1. On the console, open the Device Manger
+If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers.
+![Device Manager](/images/wiki/Device_Manager_Win7_Missing_Drivers_VirtIO.png "fig:Device Manager") 1. On the console, open the Device Manger
 
 2. On the Navigation Tabs, click Change CD
-![Change CD](/images/wiki/Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+![Change CD](/images/wiki/Navigation_Tabs_Change_CD.png "fig:Change CD")
 
 3. From the drop down list select the virtio CD and click ok.
 ![VirtIO CD](/images/wiki/Change_CD_virtio.png "fig:VirtIO CD")
@@ -706,7 +712,7 @@ To make a Windows virtual machine template, use the virtual machine you created 
 
 Before a template for Windows virtual machines can be created, it has to be sealed with sysprep. This ensures that machine-specific settings are not propagated through the template.
 
-Note that the procedure below is applicable for creating Windows 7 and Windows 2008 R2 templates. If you wish to seal a Windows XP template, refer to the [oVirt Administration Guide](oVirt Administration Guide).
+Note that the procedure below is applicable for creating Windows 7 and Windows 2008 R2 templates. If you wish to seal a Windows XP template, refer to the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 **To seal a Windows virtual machine with sysprep**
 
@@ -750,7 +756,7 @@ You can now create new Windows machines using this template.
 
 #### Create a Windows Virtual Machine from a Template
 
-This section describes how to create a Windows 7 virtual machine using the template created in [ Create a Windows Template](#Create_a_Windows_Template).
+This section describes how to create a Windows 7 virtual machine using the template created in [ Create a Windows Template](/documentation/quickstart/quickstart-guide/#create-a-windows-template).
 
 **To create a Windows virtual machine from a template**
 
@@ -772,7 +778,7 @@ Now that you have created several running virtual machines, you can assign users
 
 #### Assign User Permissions
 
-oVirt has a sophisticated multi-level administration system, in which customized permissions for each system component can be assigned to different users as necessary. For instance, to access a virtual machine from the user portal, a user must have either UserRole or PowerUserRole permissions for the virtual machine. These permissions are added from the manager administration portal. For more information on the levels of user permissions refer to the [oVirt Administration Guide](oVirt Administration Guide).
+oVirt has a sophisticated multi-level administration system, in which customized permissions for each system component can be assigned to different users as necessary. For instance, to access a virtual machine from the user portal, a user must have either UserRole or PowerUserRole permissions for the virtual machine. These permissions are added from the manager administration portal. For more information on the levels of user permissions refer to the [oVirt Administration Guide](/documentation/admin-guide/administration-guide/).
 
 **To assign PowerUserRole permissions**
 
@@ -796,7 +802,7 @@ If you are using a Fedora client, install the SPICE plug-in before logging in to
 
 **To log in to the User Portal**
 
-1. Open your browser and navigate to <https://domain.example.com/UserPortal>. Substitute domain.example.com with the oVirt Engine server address.
+1. Open your browser and navigate to **<<https://domain.example.com/UserPortal>>**, substituting domain.example.com with the oVirt Engine server address.
 
 2. The login screen displays. Enter your User Name and Password, and click Login.
 
@@ -804,9 +810,8 @@ You have now logged into the user portal. As you have PowerUserRole permissions,
 
 ![Figure 19. The Extended User Portal](/images/wiki/Power-user-portal.png "Figure 19. The Extended User Portal")
 
-You can also toggle to the Basic User Portal, which is the default (and only) display for users with UserRole permissions. This portal allows users to access and use virtual machines, and is ideal for everyday users who do not need to make configuration changes to the system. For more information, see the [oVirt User Portal Guide](oVirt User Portal Guide).
+You can also toggle to the Basic User Portal, which is the default (and only) display for users with UserRole permissions. This portal allows users to access and use virtual machines, and is ideal for everyday users who do not need to make configuration changes to the system. For more information, see the [oVirt User Portal Guide](/documentation/user-guide/user-guide/#accessing-the-user-portal).
 
 ![Figure 20. The Basic User Portal](/images/wiki/Basic-user-portal.png "Figure 20. The Basic User Portal")
 
 You have now completed the Quick Start Guide, and successfully set up oVirt.
-

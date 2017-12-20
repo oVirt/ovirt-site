@@ -78,6 +78,11 @@ If, for any reason, the deployment process breaks before its end, you can try to
 *   It should start the VM from CD-ROM using the same storage device for it, but if you have already installed the OS you could simply poweroff it and select: (1) Continue setup - VM installation is complete
 *   At that point it should boot the previously engine VM from the storage device and you are ready to conclude it
 *   If this doesn't work you have to cleanup the storage device and restart from scratch
+* To cleanup a failed existing hosted engine VM:
+
+      Run 'vdsClient -s 0 list' to get the id
+      Run 'vdsClient -s 0 destroy <id>' to remove the failed HE vm. 
+  This will allow you to re-run the hosted engine setup again.
 
 ## **Migrate existing setup to a VM**
 

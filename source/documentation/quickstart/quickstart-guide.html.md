@@ -23,7 +23,7 @@ for both oVirt Engine and oVirt nodes and hosts .
 
 *   The host running ovirt-engine must be configured to receive updates from the oVirt project's software
     repository, as provided by the ovirt-release package matching your OS distribution:
-    -   [oVirt 4.1](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm).
+    -   [oVirt 4.2](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm).
 *   A client for connecting to oVirt Engine.
 
 #### For each Host
@@ -86,7 +86,7 @@ create virtual machines, manage user permissions and use templates from one cent
 3. Reboot your server for the updates to be applied.
 
 4. Subscribe the server to the oVirt project repository.
-   For oVirt 4.1:
+   For oVirt 4.2:
 
   `   # yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm)
 

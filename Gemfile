@@ -73,9 +73,6 @@ gem "less"
 # asciidoctor
 gem "asciidoctor"
 
-# mediawiki
-gem "wikicloth"
-
 gem "coderay"
 gem "stringex"
 

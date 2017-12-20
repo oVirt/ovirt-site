@@ -6,14 +6,14 @@ title: Installing oVirt
 
 ## Installing the oVirt Engine Packages
 
-Before you can configure and use the oVirt Engine, you must install the <package>rhevm</package> package and dependencies.
+Before you can configure and use the oVirt Engine, you must install the <package>ovirt-engine</package> package and dependencies.
 
 **Installing the oVirt Engine Packages**
 
 1. Before you can start installing oVirt, add the official repository:
 
         
-        # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
+        # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 
 2. To ensure all packages are up to date, run the following command on the machine where you are installing the oVirt Engine:
 

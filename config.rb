@@ -2,6 +2,11 @@
 # Site settings
 ###
 
+# Workaround for https://github.com/middleman/middleman/issues/2087
+# until MM is updated to handle HAML 5
+# we would need to make some changes on our side too (do we still need the :ugly option which is deprecated?)
+Haml::TempleEngine.disable_option_validator!
+
 # Look in data/site.yml for general site configuration
 
 Time.zone = data.site.timezone || 'UTC'

@@ -26,7 +26,7 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
 
 
 .requirements.well
-  %h2 System Requirements
+  %h2 oVirt Engine System Requirements
 
   .row-fluid
     .col-md-6
@@ -73,7 +73,7 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
 :markdown
   ## Install oVirt using package manager
 
-  **oVirt 4.1** is intended for production use and is available for the following platforms:
+  **oVirt 4.2** is intended for production use and is available for the following platforms:
 
   - Red Hat Enterprise Linux 7.4 or later
   - CentOS Linux 7.4 or later
@@ -83,15 +83,15 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
   such as CentOS Linux or Red Hat Enterprise Linux. This makes installing oVirt very easy.
 
   {:.alert.alert-warning.col-md-6}
-  **Important:** Please note you can not skip a version. If you are updating from e.g. 3.6, you first need to update to 4.0 and then to 4.1.
-  If you're upgrading from a previous version, please update ovirt-release40 and verify
+  **Important:** Please note you can not skip a version. If you are updating from e.g. 3.6, you first need to update to 4.0, then to 4.1 and finally to 4.2.
+  If you're upgrading from a previous version, please update ovirt-release41 and verify
   you have the correct repositories enabled by running the following commands before upgrading with the usual procedure.
   <br/>
   ```
-  # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
+  # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
   ```
   <br/><br/>
-  You should also read the [Release Notes for oVirt 4.1.8.](/release/4.1.8/)
+  You should also read the [Release Notes for oVirt 4.2.0.](/release/4.2.0/)
 
 .clear-left
 
@@ -105,7 +105,7 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
 
   1.  Add the official oVirt repository.
 
-          sudo yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
+          sudo yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 
       -   This will add repositories from ovirt.org to your host allowing you to get the latest oVirt rpms.
       -   It will also enable any other needed repository
@@ -153,7 +153,7 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
   |Windows XP Service Pack 3 and newer|32-bit||Yes|
   |Windows 7|32-bit, 64-bit||Yes|
   |Windows 8|32-bit, 64-bit||No|
-  |Windows 10|32-bit, 64-bit||No|
+  |Windows 10[3]|32-bit, 64-bit||Yes|
   |Windows Server 2003 Service Pack 2 and newer|32-bit, 64-bit||Yes|
   |Windows Server 2008|32-bit, 64-bit||Yes|
   |Windows Server 2008 R2|64-bit||Yes|
@@ -162,15 +162,16 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
   
   [1] select Other Linux for the guest type in the user interface<br/>
   [2] SPICE drivers (QXL) are not supplied by Red Hat. Distribution's vendor may provide SPICE drivers.
+  [3] 64-bit only. SPICE upstream drivers are available also at https://www.spice-space.org/download/windows/qxl-wddm-dod/qxl-wddm-dod-0.18/
 
 :markdown
   ## Version Releases of oVirt
 
-  -   [ovirt-4.1](http://resources.ovirt.org/pub/ovirt-4.1/) **Recommended**
-  -   [ovirt-4.2 Beta](http://resources.ovirt.org/pub/ovirt-4.2-pre/) **Pre release**
+  -   [ovirt-4.2](http://resources.ovirt.org/pub/ovirt-4.2/) **Recommended**
   
   ### Older unsupported version releases of oVirt
   
+  -   [ovirt-4.1](http://resources.ovirt.org/pub/ovirt-4.1/)
   -   [ovirt-4.0](http://resources.ovirt.org/pub/ovirt-4.0/)
   -   [ovirt-3.6](http://resources.ovirt.org/pub/ovirt-3.6/)
   -   [ovirt-3.5](http://resources.ovirt.org/pub/ovirt-3.5/)
@@ -187,14 +188,17 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
   ### Europe
 
   - [NLUUG](http://ftp.nluug.nl/os/Linux/virtual/ovirt/) (
+  [oVirt 4.2](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.2/)
   [oVirt 4.1](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.1/)
   [oVirt 4.0](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.0/)
   [oVirt 4.2 Development Nightly](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-master-snapshot/))
   - [Plus.line AG](http://www.plusline.net/en/) (
+  [oVirt 4.2](http://ftp.plusline.net/ovirt/ovirt-4.2/)
   [oVirt 4.1](http://ftp.plusline.net/ovirt/ovirt-4.1/)
   [oVirt 4.0](http://ftp.plusline.net/ovirt/ovirt-4.0/)
   [oVirt 4.2 Development Nightly](http://ftp.plusline.net/ovirt/ovirt-master-snapshot/))
   - [SNT - University of Twente](http://ftp.snt.utwente.nl/pub/software/ovirt/) (
+  [oVirt 4.2](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.2/)
   [oVirt 4.1](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.1/)
   [oVirt 4.0](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.0/)
   [oVirt 4.2 Development Nightly](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-master-snapshot/))
@@ -202,15 +206,18 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
   ### North America
 
   - [Duke University](http://archive.linux.duke.edu/ovirt/) (
+  [oVirt 4.2](http://archive.linux.duke.edu/ovirt/pub/ovirt-4.2/)
   [oVirt 4.1](http://archive.linux.duke.edu/ovirt/pub/ovirt-4.1/)
   [oVirt 4.0](http://archive.linux.duke.edu/ovirt/pub/ovirt-4.0/)
   [oVirt 4.2 Development Nightly](http://archive.linux.duke.edu/ovirt/pub/ovirt-master-snapshot/))
   - [Georgia Institute of Technology](http://www.gtlib.gatech.edu/pub/oVirt) (
+  [oVirt 4.2](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.2/)
   [oVirt 4.1](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.1/)
   [oVirt 4.0](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.0/)
   [oVirt 4.2 Development Nightly](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-master-snapshot/)
   [FTP Site](ftp://ftp.gtlib.gatech.edu/pub/oVirt))
   - [ibiblio](http://mirrors.ibiblio.org/ovirt/) (
+  [oVirt 4.2](http://mirrors.ibiblio.org/ovirt/pub/ovirt-4.2/)
   [oVirt 4.1](http://mirrors.ibiblio.org/ovirt/pub/ovirt-4.1/)
   [oVirt 4.0](http://mirrors.ibiblio.org/ovirt/pub/ovirt-4.0/)
   [oVirt 4.2 Development Nightly](http://mirrors.ibiblio.org/ovirt/pub/ovirt-master-snapshot/))
@@ -218,6 +225,7 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
   ### Asia
 
   - [Hamakor](http://mirror.isoc.org.il/pub/ovirt/) (
+  [ovirt 4.2](http://mirror.isoc.org.il/pub/ovirt/ovirt-4.2/)
   [ovirt 4.1](http://mirror.isoc.org.il/pub/ovirt/ovirt-4.1/)
   [ovirt 4.0](http://mirror.isoc.org.il/pub/ovirt/ovirt-4.0/)
   [oVirt 4.2 Development Nightly](http://mirror.isoc.org.il/pub/ovirt/ovirt-master-snapshot/))

@@ -11,6 +11,53 @@ $default_padding : 10px
   text-shadow: 0 1px 2px rgba(0,0,0,.6)
 
 /* general */
+.listNotAsUL
+  img
+    vertical-align: text-bottom
+
+  h3
+    color: $ovirt_color_green
+  ul
+    list-style: none
+    padding-left: 0
+    li
+      line-height: 2
+      a
+        color: #333
+
+.backgroundForVideos
+  @extend .listNotAsUL
+
+  background-color: $ovirt_light_grey
+  li
+    line-height: 1.4
+  .videoCategory
+    font-weight: bolder
+    font-size: x-large
+
+  .videoName
+    font-size: smaller
+    margin-bottom: 3px
+
+  .videoVer
+    float: left
+    font-size: small
+    color: grey
+    @media screen and (max-width: 768px)
+      float: none
+
+  .videoLang
+    float: right
+    font-size: small
+    color: grey
+    @media screen and (max-width: 768px)
+      float: none
+
+.embedVideo
+  height: 140px
+  width: 100%
+  max-width: 300px
+
 .positionAbsolute
   position: relative
 
@@ -64,6 +111,10 @@ img.error-not-fixed, img.error-fixed
   margin-top: 12px
 
 
+/* blog */
+.post-header
+  h2
+    font-size: 40px
 
 /* nav */
 .navForMobileHack
@@ -137,7 +188,6 @@ header.masthead .navbar-collapse.in
 header.masthead .navbar-nav
   @media screen and (max-width: 768px)
     margin: 0px
-
 
 /* homepage */
 .twitter-widget
@@ -227,7 +277,6 @@ header.masthead .navbar-nav
       margin-top: 0px
       font-size: x-large
 
-
     .useCaseHeader
       background-color: #666
       padding: $default_padding
@@ -246,31 +295,10 @@ header.masthead .navbar-nav
       padding: $default_padding
       text-align: left
 
-
   .carousel-inner>.item.active
     display: -moz-box
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* features */
-.well
-  //padding-top: 0px
-
 
 .ovirtToggleObject
   padding-bottom: 10px
@@ -317,13 +345,8 @@ header.masthead .navbar-nav
 .feature_modules
   clear: left
 
-.feature_authors
-
 .feature-info > h1
   display: none
-
-.feature
-
 
 .feature-info > #summary ~ p:first-of-type
   background-color: #e2ffc0

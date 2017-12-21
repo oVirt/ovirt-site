@@ -12,6 +12,7 @@
   summarize ||= summarize
   tags = article.data.tags
   tags = tags.parse_csv.map{|s| s.strip} if tags.class == String
+  dates = article.data.date
 
   def author_data item
     data.authors[item] if defined? data.authors[item]
@@ -89,7 +90,7 @@
         .blogger_avatar
           %img(src="/blogger_avatars/#{author}.png")
 
-  
+
         %span.byline
           by
           %span.author.vcard

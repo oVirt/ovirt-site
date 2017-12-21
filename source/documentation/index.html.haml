@@ -9,25 +9,21 @@ authors: dneary, metao, quaid
 %h1.hidden.firstHeading Documentation
 
 .row
-  .col-md-4
+  .col-md-5.listNotAsUL
     :markdown
-      ## Primary Documentation
-      - #### [Quick Start Guide](quickstart/quickstart-guide)
-      - #### [oVirt Installation Guide](install-guide/Installation_Guide)
-      - #### [oVirt Upgrade Guide](upgrade-guide/upgrade-guide)
-      - #### [oVirt Administration Guide](admin-guide/administration-guide/)
-      - #### [oVirt Virtual Machine Management Guide](vmm-guide/Virtual_Machine_Management_Guide)
-      - #### [oVirt Introduction to the Administration Portal](intro-admin/Introduction_to_the_Administration_Portal)
-      - #### [oVirt Introduction to the User Portal](intro-user/Introduction_to_the_User_Portal)
-      - #### [oVirt Self-Hosted Engine Guide](self-hosted/Self-Hosted_Engine_Guide)
-      - #### [oVirt Data Warehouse Guide](data-warehouse/Data_Warehouse_Guide)
-      - #### [oVirt Gluster Hyperconvergence Guide](gluster-hyperconverged/Gluster_Hyperconverged_Guide)
+      ### ![](./../images/icon_basic_documentation.png) Primary Documentation
+      - [Quick Start Guide](quickstart/quickstart-guide)
+      - [oVirt Installation Guide](install-guide/Installation_Guide)
+      - [oVirt Upgrade Guide](upgrade-guide/upgrade-guide)
+      - [oVirt Administration Guide](admin-guide/administration-guide/)
+      - [oVirt Virtual Machine Management Guide](vmm-guide/Virtual_Machine_Management_Guide)
+      - [oVirt Introduction to the Administration Portal](intro-admin/Introduction_to_the_Administration_Portal)
+      - [oVirt Introduction to the User Portal](intro-user/Introduction_to_the_User_Portal)
+      - [oVirt Self-Hosted Engine Guide](self-hosted/Self-Hosted_Engine_Guide)
+      - [oVirt Data Warehouse Guide](data-warehouse/Data_Warehouse_Guide)
+      - [oVirt Gluster Hyperconvergence Guide](gluster-hyperconverged/Gluster_Hyperconverged_Guide)
 
-
-  .col-md-4
-    :markdown
-      ### Additional Documentation
-
+      ### ![](./../images/icon_advanced_documentation.png) Additional Documentation
       - [Introduction](./introduction)
       - [Administration](./admin-guide)
       - [Architecture](./architecture)
@@ -38,60 +34,38 @@ authors: dneary, metao, quaid
       - [Storage](./storage)
       - [Drafts](./draft)
       - [Resources](./resources)
+      - ***
+      - ####[Looking for developer Documentation?](./../develop)
 
 
 
-  .col-md-4
+  .col-md-4.listNotAsUL
     :markdown
-      ### Release Notes
+      ### ![](./../images/icon_release_note.png) Release Notes
 
       #### Latest Release Notes
       - [oVirt 4.2.0](/release/4.2.0/)
 
-
       #### Previous Release Notes
       - [oVirt 4.1.8](/release/4.1.8/)
-      - [oVirt 4.1.7](/release/4.1.7/)
-      - [oVirt 4.1.6](/release/4.1.6/)
-      - [oVirt 4.1.5](/release/4.1.5/)
-      - [oVirt 4.1.4](/release/4.1.4/)
-      - [oVirt 4.1.3](/release/4.1.3/)
-      - [oVirt 4.1.2](/release/4.1.2/)
-      - [oVirt 4.1.1](/release/4.1.1/)
-      - [oVirt 4.0.6](/release/4.0.6/)
-      - [oVirt 3.6.7](/release/3.6.7)
-      - [oVirt 3.5.6](/develop/release-management/releases/3.5.6)
-      - [oVirt 3.4.4](/develop/release-management/releases/3.4.4)
-      - [oVirt 3.3.5](/develop/release-management/releases/3.3.5)
-      - [oVirt 3.2](/develop/release-management/releases/3.2)
-      - [oVirt 3.1](/develop/release-management/releases/3.1)
-      - [oVirt 3.0](/develop/release-management/releases/3.0)
+      - [All Releases](/release/)
 
-.row
-  .col-md-4
+      ### ![](./../images/icon_need_help.png) Need Help?
+      - [oVirt User List is your friend](<mailto:users@ovirt.org>)
 
+
+  .col-md-3.backgroundForVideos
     :markdown
-      ### Community Documentation
-
-      oVirt community processes and resources
-
-      - [Guidelines for community activity](/community/about/community-guidelines)
-      - [Communicating via mailing lists and IRC](/community/about/contact/)
-      - [Reporting a bug](/community/get-involved/report-a-bug)
-      - [Community activiy](/community/about/community-activity/)
-      - [Outreach](/community/get-involved/promote)
-      - [oVirt Global Workshops](/community/events/archives/workshop/global-workshops/)
-
-
-  .col-md-4
-
-    :markdown
-      ### Getting Involved
-
-      Do you want to help us improve the documentation for oVirt?
-
-      - Sign up for a [GitHub](https://github.com) account, and log in
-      - Help fix some of the [issues](http://github.com/ovirt/ovirt-site/issues) we've identified
-      - Help out with some [website gardening](https://github.com/oVirt/ovirt-site)
-
-      Your time and effort is appreciated!
+      ### ![](./../images/icon_videos.png) Useful Videos
+    %hr
+    %h4
+      - data.datavideo.datavideos.each do |section|
+        %p.videoCategory
+          #{section.category}
+          - section.videos.each do |video|
+            %p.videoName #{video.name}
+            <iframe class="embedVideo" src="#{video.url}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            %div
+              %span.videoVer Version: #{video.ver}
+              %span.videoLang #{video.lang}
+            %hr

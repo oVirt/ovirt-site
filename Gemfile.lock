@@ -46,7 +46,6 @@ GEM
     erubis (2.7.0)
     eventmachine (1.2.5)
     execjs (2.7.0)
-    expression_parser (0.9.0)
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.12.2)
@@ -68,7 +67,6 @@ GEM
     hitimes (1.2.6)
     hooks (0.4.1)
       uber (~> 0.0.14)
-    htmlentities (4.3.4)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     icalendar (1.5.4)
@@ -197,23 +195,12 @@ GEM
     tilt (1.4.1)
     timers (4.0.4)
       hitimes
-    twitter-text (1.14.7)
-      unf (~> 0.1.0)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
     uber (0.0.15)
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.7.4)
-    wikicloth (0.8.3)
-      builder
-      expression_parser
-      htmlentities
-      nokogiri
-      twitter-text
 
 PLATFORMS
   ruby
@@ -253,4 +240,3 @@ DEPENDENCIES
   stringex
   therubyracer
   wdm (~> 0.1.0)
-  wikicloth

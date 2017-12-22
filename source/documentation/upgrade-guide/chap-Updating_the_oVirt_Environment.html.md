@@ -8,6 +8,8 @@ This guide covers updating your oVirt environment between minor releases, and up
 
 **Upgrading the oVirt Engine involves the following key steps:**
 
+* Add the new release repositories
+
 * Update the system
 
 * Run `engine-setup`

@@ -43,6 +43,7 @@ Leads the following projects:
 *   [oVirt Windows Guest Tools](/develop/release-management/features/engine/windows-guest-tools/)
 *   [oVirt Quality Assurance](/develop/projects/project-qa/)
 *   [OTOPI](/develop/developer-guide/engine/otopi/)
+
 Collaborates with other communities / projects:
 
 *   [Fedora](https://getfedora.org/)

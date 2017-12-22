@@ -108,12 +108,14 @@ All CPUs must have support for the Intel® 64 or AMD64 CPU extensions, and the A
 
 | AMD | Intel | IBM |
 |-
-| AMD Opteron G1 | Intel Conroe      | IBM POWER8 |
-| AMD Opteron G2 | Intel Penryn      | |
-| AMD Opteron G3 | Intel Nehalem     | |
-| AMD Opteron G4 | Intel Westmere    | |
-| AMD Opteron G5 | Intel Sandybridge | |
-|                | Intel Haswell     | |
+| AMD Opteron G1 | Intel Conroe        | IBM POWER8 |
+| AMD Opteron G2 | Intel Penryn        | |
+| AMD Opteron G3 | Intel Nehalem       | |
+| AMD Opteron G4 | Intel Westmere      | |
+| AMD Opteron G5 | Intel Sandybridge   | |
+|                | Intel Haswell       | |
+|                | Intel Haswell-noTSX | |
+|                | Skylake             | |
 
 **Checking if a Processor Supports the Required Flags**
 

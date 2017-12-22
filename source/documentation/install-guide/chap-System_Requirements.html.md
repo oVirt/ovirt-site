@@ -10,7 +10,7 @@ title: System Requirements
 
 The minimum and recommended hardware requirements outlined here are based on a typical small to medium sized installation. The exact requirements vary between deployments based on sizing and load.
 
-The oVirt Engine runs on Enterprise Linux operating systems like CentOS and Enterprise Linux.
+The oVirt Engine runs on Enterprise Linux operating systems like [CentOS Linux](https://www.centos.org/), [Scientific Linux](https://www.scientificlinux.org/), and [Red Hat Enterprise Linux](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux).
 
 **oVirt Engine Hardware Requirements**
 

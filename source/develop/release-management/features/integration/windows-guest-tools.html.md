@@ -46,7 +46,7 @@ Compatibility matrix:
 | Win 10  |  ✓ |  ✓ | ✓ | ✓ | ✓ |
 | 2K16    |  ✓ |  ✓ | ✓ | ✓ |   |
 
-QXL support is also declared on [Download](/download) page and should be kept in sync with above matrix. 
+QXL support is also declared on [Download](/download) page and should be kept in sync with above matrix.
 
 The installer is based on the Spice installer's source code (http://cgit.freedesktop.org/~teuf/spice-nsis/) ,
 and was slightly modifed for this project's needs.
@@ -55,26 +55,21 @@ and was slightly modifed for this project's needs.
 
 The current list of the software to be included in the ISO:
 
-:\*VirtIO-Win drivers:
+* VirtIO-Win drivers:
+  * VirtIO-Serial
+  * VirtIO-Balloon
+  * VirtIO-Net
+  * VirtIO-Block
+  * VirtIO-SCSI From:
 
-        * VirtIO-Serial
+* Spice drivers and agent
 
-        * VirtIO-Balloon
+  **Important Note!** It seems that Spice installer (current is [spice-guest-tools-0.132.exe](https://www.spice-space.org/download/binaries/spice-guest-tools/spice-guest-tools-0.132/spice-guest-tools-0.132.exe) ) installs not just Spice related components (QXL and Agent), but all VirtIO-Win drivers as well.
 
-        * VirtIO-Net
+* Spice QXL for 32 and 64 bit Windows
+* Qemu Guest Agent
+* oVirt Guest Agent (Currently it is cross-compiled using Wine)
 
-        * VirtIO-Block
-
-        * VirtIO-SCSI From: 
-
-    * Spice drivers and agent
-    **Important Note!** It seems that Spice installer (current is [spice-guest-tools-0.132.exe](https://www.spice-space.org/download/binaries/spice-guest-tools/spice-guest-tools-0.132/spice-guest-tools-0.132.exe) ) installs not just Spice related components (QXL and Agent), but all VirtIO-Win drivers as well.
-
-
-    *Spice QXL for 32 and 64 bit Windows
-    * Qemu Guest Agent
-    * oVirt Guest Agent (Currently it is cross-compiled using Wine)
-      
 ## Benefit to oVirt
 
 The ISO image will become a central repository for all the software that Windows based VMs require
@@ -82,6 +77,7 @@ in order to function in most optimal way under oVirt / KVM.
 
 ## Dependencies / Related Features
 
+The oVirt Guest Tools relies on the following dependencies:
 * Spice Agents for 32 and 64 bit Windows: <https://www.spice-space.org/download/windows/vdagent/vdagent-win-0.9.0/>
 * VirtIO-Win drivers: <http://secondary.fedoraproject.org/pub/alt/virtio-win/latest/>
 * Spice drivers and agent From: <http://www.spice-space.org/download/binaries/spice-guest-tools/>
@@ -94,12 +90,14 @@ in order to function in most optimal way under oVirt / KVM.
 
 ## Installation
 
- * Install oVirt Release RPM enabling oVirt repositories if you have not done so yet:
- `yum install <http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm>`
+* Install oVirt Release RPM enabling oVirt repositories if you have not done so yet:
 
- * Install oVirt Guest Tools package
- `yum install ovirt-guest-tools-iso`
+    `yum install <http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm>`
 
- * Optional: The above will install the ISO in `/usr/share/ovirt-guest-tools-iso/`. Copy it to wherever you need it...
+* Install oVirt Guest Tools package
 
- * The ISO images are also available for download at <http://resources.ovirt.org/pub/ovirt-4.2/iso/oVirt-toolsSetup/>
+    `yum install ovirt-guest-tools-iso`
+
+* Optional: The above will install the ISO in `/usr/share/ovirt-guest-tools-iso/`. Copy it to wherever you need it...
+
+* The ISO images are also available for download at <http://resources.ovirt.org/pub/ovirt-4.2/iso/oVirt-toolsSetup/>

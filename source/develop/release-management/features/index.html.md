@@ -1,7 +1,6 @@
 ---
 title: Feature
 authors: jumper45, sandrobonazzola
-layout: feature
 ---
 
 # Features by Release

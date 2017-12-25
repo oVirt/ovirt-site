@@ -24,7 +24,11 @@ General fields for metrics records:
 
  collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 ---------------|------------------------|--------------------------|-------------------------|------------------|
-| nfs_procedure | NFS activities - null / getattr / lookup / access / readlink / read / write / create / mkdir / symlink / mknod / rename / readdir / remove / link / fsstat / fsinfo / readdirplus / pathconf / rmdir / commit / compound / reserved / access / close / delegpurge / delegreturn / getattr / getfh / lock / lockt / locku / lookupp / open_downgrade / putfh / putpubfh / putrootfh / renew / restorefh / savefh / secinfo / setattr / setclientid / setcltid_confirm / verify / open / openattr / open_confirm / exchange_id / create_session / destroy_session / bind_conn_to_session / nverify / release_lockowner / backchannel_ctl / free_stateid / get_dir_delegation / getdeviceinfo / getdevicelist / layoutcommit / layoutget / layoutreturn / secinfo_no_name / sequence / set_ssv / test_stateid / want_delegation / destroy_clientid / reclaim_complete | fs_name + server or client (Example: v3client) | collectd.nfs.nfs_procedure | derive |
+| nfs_procedure | [NFS activities](#NFS-activities) | fs_name + server or client (Example: v3client) | collectd.nfs.nfs_procedure | derive |
+
+## <a name="NFS-activities">NFS activities</a>
+
+null / getattr / lookup / access / readlink / read / write / create / mkdir / symlink / mknod / rename / readdir / remove / link / fsstat / fsinfo / readdirplus / pathconf / rmdir / commit / compound / reserved / access / close / delegpurge / delegreturn / getattr / getfh / lock / lockt / locku / lookupp / open_downgrade / putfh / putpubfh / putrootfh / renew / restorefh / savefh / secinfo / setattr / setclientid / setcltid_confirm / verify / open / openattr / open_confirm / exchange_id / create_session / destroy_session / bind_conn_to_session / nverify / release_lockowner / backchannel_ctl / free_stateid / get_dir_delegation / getdeviceinfo / getdevicelist / layoutcommit / layoutget / layoutreturn / secinfo_no_name / sequence / set_ssv / test_stateid / want_delegation / destroy_clientid / reclaim_complete
 
 ## Processes Plugin
 

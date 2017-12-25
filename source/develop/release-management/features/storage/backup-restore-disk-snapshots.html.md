@@ -2,7 +2,7 @@
 title: Backup-Restore Disk-Snapshots
 category: feature
 authors: derez
-feature_modules: vdsm, engine
+feature_modules: engine, rest-api
 feature_status: planning
 feature_name: Backup-Restore Disk-Snapshots
 ---
@@ -23,7 +23,7 @@ oVirt REST-API/SDKs can be used in a similar manner.
 
 ### Download a VM OVF
 
-[Full Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_vm_ovf.py/)
+[Full Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_vm_ovf.py)
 
 In order to fetch a VM configuration data, 'all_content' flag should be specified.
 Then, it can be written into a new file - that's the OVF. 
@@ -41,7 +41,14 @@ with open(ovf_filename, "wb") as ovf_file:
 
 ### Download Disks
 
-[Full Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_disk_snapshots.py/)
+[Full Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_disk_snapshots.py)
+
+The following example demonstrates the procedure of downloading the non-active disk-snapshots
+of a specified disk. Hence, in order to include the active layer as well, either create
+a new snapshot for the disk in advance, or download the active disk-snapshot using the[Download Disk Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_disk.py)
+
+
+In order to download the active
 
 * For each disk, iterate over its disk-snapshots and execute image transfer.
 
@@ -86,7 +93,7 @@ with open(ovf_filename, "wb") as ovf_file:
 
 ## Restore
 
-[Full Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk_snapshots.py/)
+[Full Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk_snapshots.py)
 
 ### Compose disk-snapshots chain
 
@@ -268,7 +275,6 @@ For each disk-snapshot in the chain, start an upload transfer.
 
 * [Upload Disk Snapshots](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk_snapshots.py)
 
+* [Download Disk](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_disk.py)
 
-
-
-
+* [Upload Disk](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk.py)

@@ -39,3 +39,7 @@ Follow the installation guide at:  [Metrics Store - Installation Guide](http://w
 ## Collected Data
 
 Follow the list of collected metrics and logs at:  [Metrics Store - Collected Data](http://www.ovirt.org/develop/release-management/features/metrics/metrics-store-collected-metrics/)
+
+## Metrics Schema
+
+Follow the metrics schema, when creating your reports, at: [Metrics Store - Schema](http://www.ovirt.org/develop/release-management/features/metrics/metrics-store-schema/)

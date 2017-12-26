@@ -62,13 +62,13 @@ Browser support is divided into tiers:
 
 **Browser Requirements**
 
-| Support Tier | Operating System Family | Browser | Portal Access |
+| Support Tier | Operating System Family | Browser |
 |-
-| Tier 1 | Enterprise Linux | Mozilla Firefox Extended Support Release (ESR) version | Administration Portal and User Portal |
-| Tier 2 | Windows | Internet Explorer 10 or later | Administration Portal and User Portal |
-|        | Any | Most recent version of Google Chrome or Mozilla Firefox | Administration Portal and User Portal |
-| Tier 3 | Any | Earlier versions of Google Chrome or Mozilla Firefox | Administration Portal and User Portal |
-|        | Any | Other browsers | Administration Portal and User Portal |
+| Tier 1 | Enterprise Linux | Mozilla Firefox Extended Support Release (ESR) version |
+| Tier 2 | Windows | Internet Explorer 10 or later |
+|        | Any | Most recent version of Google Chrome or Mozilla Firefox |
+| Tier 3 | Any | Earlier versions of Google Chrome or Mozilla Firefox |
+|        | Any | Other browsers |
 
 
 ### Client Requirements

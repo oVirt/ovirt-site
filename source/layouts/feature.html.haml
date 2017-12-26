@@ -207,7 +207,7 @@
               <b>Authors:</b>
               = author_list.to_sentence
 
-      - else
+      - elsif not current_page.path.include?(config[:index_file])
 
         .well
           No feature info available. Please contact

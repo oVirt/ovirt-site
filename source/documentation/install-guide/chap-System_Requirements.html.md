@@ -49,27 +49,15 @@ The oVirt Engine runs on Enterprise Linux operating systems like CentOS and Ente
 </table>
 
 ### Browser Requirements
+oVirt follows the [Red Hat Customer Portal Browser Support Policy](https://access.redhat.com/help/browsers/).
+We recommend to use one of the recent versions of the following "evergreen" browsers:
+-   Mozilla Firefox
+-   Google Chrome
+-   Apple Safari
+-   Microsoft Internet Explorer 11
+-   Microsoft Edge
 
-The following browser versions and operating systems can be used to access the Administration Portal and the User Portal.
-
-Browser support is divided into tiers:
-
-* Tier 1: Browser and operating system combinations that are fully tested.
-
-* Tier 2: Browser and operating system combinations that are partially tested, and are likely to work.
-
-* Tier 3: Browser and operating system combinations that are not tested, but may work.
-
-**Browser Requirements**
-
-| Support Tier | Operating System Family | Browser | Portal Access |
-|-
-| Tier 1 | Enterprise Linux | Mozilla Firefox Extended Support Release (ESR) version | Administration Portal and User Portal |
-| Tier 2 | Windows | Internet Explorer 10 or later | Administration Portal and User Portal |
-|        | Any | Most recent version of Google Chrome or Mozilla Firefox | Administration Portal and User Portal |
-| Tier 3 | Any | Earlier versions of Google Chrome or Mozilla Firefox | Administration Portal and User Portal |
-|        | Any | Other browsers | Administration Portal and User Portal |
-
+These are known as "evergreen" browsers because they automatically update themselves to the most recent available version.
 
 ### Client Requirements
 

@@ -22,9 +22,9 @@ General fields for metrics records:
  - collectd.plugin: nfs
  - ovirt.entity: host
 
- collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
----------------|------------------------|--------------------------|-------------------------|------------------|
-| nfs_procedure | NFS activities | fs_name + server or client (Example: v3client) | collectd.nfs.nfs_procedure | derive |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.nfs.nfs_procedure | nfs_procedure | NFS activities | fs_name + server or client (Example: v3client) | derive |
 
 **NFS activities**
 
@@ -35,179 +35,179 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
  - collectd.plugin: processes
  - ovirt.entity: host
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| ps_state | running/ zombies/ stopped/ paging/ blocked/ sleeping |   | collectd.processes.ps_state | gauge |
-| ps_disk_ops |   | process name | collectd.processes.ps_disk_ops.read | derive |
-| ps_disk_ops |   | process name | collectd.processes.ps_disk_ops.write | derive |
-| ps_vm |   | process name | collectd.processes.ps_vm | gauge |
-| ps_rss |   | process name | collectd.processes.ps_rss | gauge |
-| ps_data |   | process name | collectd.processes.ps_data | gauge |
-| ps_code |   | process name | collectd.processes.ps_code | gauge |
-| ps_stacksize |   | process name | collectd.processes.ps_stacksize | gauge |
-| ps_cputime |   | process name | collectd.processes.ps_cputime.syst | derive |
-| ps_cputime |   | process name | collectd.processes.ps_cputime.user | derive |
-| ps_count |   | process name | collectd.processes.ps_count.processes | gauge |
-| ps_count |   | process name | collectd.processes.ps_count.threads | gauge |
-| ps_pagefaults |   | process name | collectd.processes.ps_pagefaults.majfltadd | derive |
-| ps_pagefaults |   | process name | collectd.processes.ps_pagefaults.minflt | derive |
-| ps_disk_octets |   | process name | collectd.processes.ps_disk_octets.write | derive |
-| ps_disk_octets |   | process name | collectd.processes.ps_disk_octets.read | derive |
-| fork_rate |   |  | collectd.processes.fork_rate | derive |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.processes.ps_state | ps_state | running/ zombies/ stopped/ paging/ blocked/ sleeping |   | gauge |
+| collectd.processes.ps_disk_ops.read | ps_disk_ops |   | process name | derive |
+| collectd.processes.ps_disk_ops.write | ps_disk_ops |   | process name | derive |
+| collectd.processes.ps_vm | ps_vm |   | process name | gauge |
+| collectd.processes.ps_rss | ps_rss |   | process name | gauge |
+| collectd.processes.ps_data | ps_data |   | process name | gauge |
+| collectd.processes.ps_code | ps_code |   | process name | gauge |
+| collectd.processes.ps_stacksize | ps_stacksize |   | process name | gauge |
+| collectd.processes.ps_cputime.syst | ps_cputime |   | process name | derive |
+| collectd.processes.ps_cputime.user | ps_cputime |   | process name | derive |
+| collectd.processes.ps_count.processes | ps_count |   | process name | gauge |
+| collectd.processes.ps_count.threads | ps_count |   | process name | gauge |
+| collectd.processes.ps_pagefaults.majfltadd | ps_pagefaults |   | process name | derive |
+| collectd.processes.ps_pagefaults.minflt | ps_pagefaults |   | process name | derive |
+| collectd.processes.ps_disk_octets.write | ps_disk_octets |   | process name | derive |
+| collectd.processes.ps_disk_octets.read | ps_disk_octets |   | process name | derive |
+| collectd.processes.fork_rate | fork_rate |   |  | derive |
 
 ## Disk Plugin
 
  - collectd.plugin: disk
  - ovirt.entity: host
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| disk_ops |   | disk name | collectd.disk.disk_ops.read | derive |
-| disk_ops |   | disk name | collectd.disk.disk_ops.write | derive |
-| disk_merged |   | disk name | collectd.disk.disk_merged.read | derive |
-| disk_merged |   | disk name | collectd.disk.disk_merged.write | derive |
-| disk_time |   | disk name | collectd.disk.disk_time.read | derive |
-| disk_time |   | disk name | collectd.disk.disk_time.write | derive |
-| pending_operations |   | disk name | collectd.disk.pending_operations | gauge |
-| disk_io_time |   | disk name | collectd.disk.disk_io_time.io_time | derive |
-| disk_io_time |   | disk name | collectd.disk.disk_io_time.weighted_io_time | derive |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.disk.disk_ops.read | disk_ops |   | disk name | derive |
+| collectd.disk.disk_ops.write | disk_ops |   | disk name | derive |
+| collectd.disk.disk_merged.read | disk_merged |   | disk name | derive |
+| collectd.disk.disk_merged.write | disk_merged |   | disk name | derive |
+| collectd.disk.disk_time.read | disk_time |   | disk name | derive |
+| collectd.disk.disk_time.write | disk_time |   | disk name | derive |
+| collectd.disk.pending_operations | pending_operations |   | disk name | gauge |
+| collectd.disk.disk_io_time.io_time | disk_io_time |   | disk name | derive |
+| collectd.disk.disk_io_time.weighted_io_time | disk_io_time |   | disk name | derive |
 
 ## Interface Plugin
 
  - collectd.plugin: interface
  - ovirt.entity: host
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| if_octets |   | Network Name | collectd.interface.if_octets.rx | derive |
-| if_octets |   | Network Name | collectd.interface.if_octets.tx | derive |
-| if_packets |   | Network Name | collectd.interface.if_packets.rx | derive |
-| if_packets |   | Network Name | collectd.interface.if_packets.tx | derive |
-| if_errors |   | Network Name | collectd.interface.if_errors.rx | derive |
-| if_errors |   | Network Name | collectd.interface.if_errors.tx | derive |
-| if_dropped |   | Network Name | collectd.interface.if_dropped.rx | derive |
-| if_dropped |   | Network Name | collectd.interface.if_dropped.tx | derive |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.interface.if_octets.rx | if_octets |   | Network Name | derive |
+| collectd.interface.if_octets.tx | if_octets |   | Network Name | derive |
+| collectd.interface.if_packets.rx | if_packets |   | Network Name | derive |
+| collectd.interface.if_packets.tx | if_packets |   | Network Name | derive |
+| collectd.interface.if_errors.rx | if_errors |   | Network Name | derive |
+| collectd.interface.if_errors.tx | if_errors |   | Network Name | derive |
+| collectd.interface.if_dropped.rx | if_dropped |   | Network Name | derive |
+| collectd.interface.if_dropped.tx | if_dropped |   | Network Name | derive |
 
 ## CPU Plugin
 
  - collectd.plugin: cpu
  - ovirt.entity: host
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| percent | interrupt / user / wait / nice / softirq / system / idle / steal | cpu number | collectd.cpu.percent | gauge |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.cpu.percent | percent | interrupt / user / wait / nice / softirq / system / idle / steal | cpu number | gauge |
 
 ## DF Plugin
 
  - collectd.plugin: df
  - ovirt.entity: host
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| df_complex | free / used / reserved | A mounted partition | collectd.df.df_complex | gauge |
-| percent_bytes | free / used / reserved | A mounted partition | collectd.df.percent_bytes | gauge |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.df.df_complex | df_complex | free / used / reserved | A mounted partition | gauge |
+| collectd.df.percent_bytes | percent_bytes | free / used / reserved | A mounted partition | gauge |
 
 ## Entropy Plugin
 
  - collectd.plugin: entropy
  - ovirt.entity: host
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| entropy |   | - | collectd.entropy.entropy | gauge |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.entropy.entropy | entropy |   |   | gauge |
 
 ## Memory Plugin
 
  - collectd.plugin: memory
  - ovirt.entity: host
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| memory | used / cached / free / slab_unrecl / slab_recl / buffered  |   | collectd.memory.memory | gauge |
-| percent | used / cached / free / slab_unrecl / slab_recl / buffered  |   | collectd.memory.percent | gauge |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.memory.memory | memory | used / cached / free / slab_unrecl / slab_recl / buffered  |   | gauge |
+| collectd.memory.percent | percent | used / cached / free / slab_unrecl / slab_recl / buffered  |   | gauge |
 
 ## Swap Plugin
 
  - collectd.plugin: swap
  - ovirt.entity: host
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| swap | used / free /  cached |   | collectd.swap.swap | gauge |
-| swap_io | in / out |   | collectd.swap.swap_io | derive |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.swap.swap | swap | used / free /  cached |   | gauge |
+| collectd.swap.swap_io | swap_io | in / out |   | derive |
 
 ## Load Plugin
 
  - collectd.plugin: load
  - ovirt.entity: host
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| load |   | - | collectd.load.load.longterm | gauge |
-| load |   | - | collectd.load.load.midterm | gauge |
-| load |   | - | collectd.load.load.shortterm | gauge |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.load.load.longterm | load |   |   | gauge |
+| collectd.load.load.midterm | load |   |   | gauge |
+| collectd.load.load.shortterm | load |   |   | gauge |
 
 ## Postgresql Plugin
 
  - collectd.plugin: postgresql
  - ovirt.entity: engine
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| pg_numbackends |   | db name | collectd.postgresql.pg_numbackends | gauge |
-| pg_n_tup_g | dead / live | db name | collectd.postgresql.pg_n_tup_g | gauge |
-| pg_n_tup_c | ins / upd / del / hot_upd | db name | collectd.postgresql.pg_n_tup_c | derive |
-| pg_xact | num_deadlocks | db name | collectd.postgresql.pg_xact | derive |
-| pg_db_size |   | db name | collectd.postgresql.pg_db_size | gauge |
-| pg_blks | heap_read / heap_hit / idx_hit / toast_read / toast_hit / tidx_read / idx_read | db name | collectd.postgresql.pg_blks | derive |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.postgresql.pg_numbackends | pg_numbackends |   | db name | gauge |
+| collectd.postgresql.pg_n_tup_g | pg_n_tup_g | dead / live | db name | gauge |
+| collectd.postgresql.pg_n_tup_c | pg_n_tup_c | ins / upd / del / hot_upd | db name | derive |
+| collectd.postgresql.pg_xact | pg_xact | num_deadlocks | db name | derive |
+| collectd.postgresql.pg_db_size | pg_db_size |   | db name | gauge |
+| collectd.postgresql.pg_blks | pg_blks | heap_read / heap_hit / idx_hit / toast_read / toast_hit / tidx_read / idx_read | db name | derive |
 
 ## Aggregation Plugin
 
  - collectd.plugin: aggregation
  - ovirt.entity: host
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| "percent" | interrupt / user / wait / nice / softirq / system / idle / steal | cpu-average / cpu-sum | collectd.aggregation.percent | gauge |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.aggregation.percent | "percent" | interrupt / user / wait / nice / softirq / system / idle / steal | cpu-average / cpu-sum | gauge |
 
 ## Statsd Plugin (VDSM host stats)
 
  - collectd.plugin: statsd
  - ovirt.entity: host
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| host_storage | storage uuid |   | collectd.statsd.host_storage | gauge |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.statsd.host_storage | host_storage | storage uuid |   | gauge |
 
 ## Statsd Plugin (VDSM vm stats)
 
  - collectd.plugin: statsd
  - ovirt.entity: vm
 
-| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
-|---------------|------------------------|--------------------------|-------------------------|------------------|
-| vm_balloon_cur |   | vm name | collectd.statsd.vm_balloon_cur | gauge |
-| vm_balloon_max |   | vm name | collectd.statsd.vm_balloon_max | gauge |
-| vm_balloon_min |   | vm name | collectd.statsd.vm_balloon_min | gauge |
-| vm_balloon_target |   | vm name | collectd.statsd.vm_balloon_target | gauge |
-| vm_cpu_sys |   | vm name | collectd.statsd.vm_cpu_sys | gauge |
-| vm_cpu_usage |   | vm name | collectd.statsd.vm_cpu_usage | gauge |
-| vm_cpu_user |   | vm name | collectd.statsd.vm_cpu_user | gauge |
-| vm_disk_apparent_size | disk name | vm name | collectd.statsd.vm_disk_apparent_size | gauge |
-| vm_disk_flush_latency | disk name | vm name | collectd.statsd.vm_disk_flush_latency | gauge |
-| vm_disk_read_bytes | disk name | vm name | collectd.statsd.vm_disk_read_bytes | gauge |
-| vm_disk_read_latency | disk name | vm name | collectd.statsd.vm_disk_read_latency | gauge |
-| vm_disk_read_ops | disk name | vm name | collectd.statsd.vm_disk_read_ops | gauge |
-| vm_disk_read_rate | disk name | vm name | collectd.statsd.vm_disk_read_rate | gauge |
-| vm_disk_true_size | disk name | vm name | collectd.statsd.vm_disk_true_size | gauge |
-| vm_disk_write_bytes | disk name | vm name | collectd.statsd.vm_disk_write_bytes | gauge |
-| vm_disk_write_latency | disk name | vm name | collectd.statsd.vm_disk_write_latency | gauge |
-| vm_disk_write_ops | disk name | vm name | collectd.statsd.vm_disk_write_ops | gauge |
-| vm_disk_write_rate | disk name | vm name | collectd.statsd.vm_disk_write_rate | gauge |
-| vm_nic_rx_bytes | network name | vm name | collectd.statsd.vm_nic_rx_bytes | gauge |
-| vm_nic_rx_dropped | network name | vm name | collectd.statsd.vm_nic_rx_dropped | gauge |
-| vm_nic_rx_errors | network name | vm name | collectd.statsd.vm_nic_rx_errors | gauge |
-| vm_nic_speed | network name | vm name | collectd.statsd.vm_nic_speed | gauge |
-| vm_nic_tx_bytes | network name | vm name | collectd.statsd.vm_nic_tx_bytes | gauge |
-| vm_nic_tx_dropped | network name | vm name | collectd.statsd.vm_nic_tx_dropped | gauge |
-| vm_nic_tx_errors | network name | vm name | collectd.statsd.vm_nic_tx_errors | gauge |
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.statsd.vm_balloon_cur | vm_balloon_cur |   | vm name | gauge |
+| collectd.statsd.vm_balloon_max | vm_balloon_max |   | vm name | gauge |
+| collectd.statsd.vm_balloon_min | vm_balloon_min |   | vm name | gauge |
+| collectd.statsd.vm_balloon_target | vm_balloon_target |   | vm name | gauge |
+| collectd.statsd.vm_cpu_sys | vm_cpu_sys |   | vm name | gauge |
+| collectd.statsd.vm_cpu_usage | vm_cpu_usage |   | vm name | gauge |
+| collectd.statsd.vm_cpu_user | vm_cpu_user |   | vm name | gauge |
+| collectd.statsd.vm_disk_apparent_size | vm_disk_apparent_size | disk name | vm name | gauge |
+| collectd.statsd.vm_disk_flush_latency | vm_disk_flush_latency | disk name | vm name | gauge |
+| collectd.statsd.vm_disk_read_bytes | vm_disk_read_bytes | disk name | vm name | gauge |
+| collectd.statsd.vm_disk_read_latency | vm_disk_read_latency | disk name | vm name | gauge |
+| collectd.statsd.vm_disk_read_ops | vm_disk_read_ops | disk name | vm name | gauge |
+| collectd.statsd.vm_disk_read_rate | vm_disk_read_rate | disk name | vm name | gauge |
+| collectd.statsd.vm_disk_true_size | vm_disk_true_size | disk name | vm name | gauge |
+| collectd.statsd.vm_disk_write_bytes | vm_disk_write_bytes | disk name | vm name | gauge |
+| collectd.statsd.vm_disk_write_latency | vm_disk_write_latency | disk name | vm name | gauge |
+| collectd.statsd.vm_disk_write_ops | vm_disk_write_ops | disk name | vm name | gauge |
+| collectd.statsd.vm_disk_write_rate | vm_disk_write_rate | disk name | vm name | gauge |
+| collectd.statsd.vm_nic_rx_bytes | vm_nic_rx_bytes | network name | vm name | gauge |
+| collectd.statsd.vm_nic_rx_dropped | vm_nic_rx_dropped | network name | vm name | gauge |
+| collectd.statsd.vm_nic_rx_errors | vm_nic_rx_errors | network name | vm name | gauge |
+| collectd.statsd.vm_nic_speed | vm_nic_speed | network name | vm name | gauge |
+| collectd.statsd.vm_nic_tx_bytes | vm_nic_tx_bytes | network name | vm name | gauge |
+| collectd.statsd.vm_nic_tx_dropped | vm_nic_tx_dropped | network name | vm name | gauge |
+| collectd.statsd.vm_nic_tx_errors | vm_nic_tx_errors | network name | vm name | gauge |

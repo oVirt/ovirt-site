@@ -22,8 +22,8 @@ General fields for metrics records:
  - collectd.plugin: nfs
  - ovirt.entity: host
 
- collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
----------------|------------------------|--------------------------|-------------------------|------------------|
+| collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
+|---------------|------------------------|--------------------------|-------------------------|------------------|
 | nfs_procedure | NFS activities | fs_name + server or client (Example: v3client) | collectd.nfs.nfs_procedure | derive |
 
 **NFS activities**

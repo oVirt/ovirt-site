@@ -21,8 +21,8 @@ General fields for metrics records:
 
  - collectd.plugin: nfs
  - ovirt.entity: host
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|
@@ -36,8 +36,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: processes
  - ovirt.entity: host
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|
@@ -63,8 +63,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: disk
  - ovirt.entity: host
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|
@@ -82,8 +82,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: interface
  - ovirt.entity: host
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|
@@ -100,8 +100,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: cpu
  - ovirt.entity: host
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|
@@ -111,8 +111,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: df
  - ovirt.entity: host
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|
@@ -123,8 +123,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: entropy
  - ovirt.entity: host
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|
@@ -134,8 +134,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: memory
  - ovirt.entity: host
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|
@@ -146,8 +146,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: swap
  - ovirt.entity: host
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|
@@ -158,8 +158,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: load
  - ovirt.entity: host
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|
@@ -171,8 +171,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: aggregation
  - ovirt.entity: host
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|
@@ -182,8 +182,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: statsd
  - ovirt.entity: host
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|
@@ -193,8 +193,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: statsd
  - ovirt.entity: vm
- - ovirt.engine_fqdn.raw: <FQDN of the engine>
- - ovirt.cluster_name.raw: <Cluster name>
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | collectd.type | collectd.type_instance | collectd.plugin_instance | Metric value field name | collectd.dstypes |
 |---------------|------------------------|--------------------------|-------------------------|------------------|

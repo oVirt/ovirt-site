@@ -22,17 +22,13 @@ Feature progress is tracked on [ovn-localnet Trello](https://trello.com/b/lxIBEn
 
 ### Benefit to oVirt
 
-Existing OVS VM networking could be replaced with OVN. That would also allow us to drop a part of VM live migration hook.
-
-Physical network access will be required once NAT and routing are introduced to the OVN provider.
+This feature replaces OVS bridges networking in oVirt, later it will be extended with advanced OVN features. Physical network access will be required once NAT and routing are introduced to the OVN provider.
 
 ## Usage
 
 ### Set cluster network switch type to OVS
 
 This feature requires cluster switch type set to OVS. You can enable OVS networking using the following steps.
-
-1) **Enable OVS hook for live migration on all vdsm hosts.** Add `migration_ovs_hook_enabled = true` to `[vars]` section in `/etc/vdsm/vdsm.conf`. Restart vdsm with `systemctl restart vdsmd supervdsmd`.
 
 1) **Set Cluster switch type to OVS.** Open `Edit` on selected cluster and set `Switch Type` to `OVS (experimental)`.
 

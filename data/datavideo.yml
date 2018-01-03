@@ -23,6 +23,12 @@ datavideos:
       url: https://www.youtube.com/embed/rg15nxznfwQ
       lang: Russian
       ver: 3
+  - category: Metrics
+    videos:
+    - name: Metrics Store Overview
+      url: https://www.youtube.com/embed/AIfb3TjvEb8
+      lang: Eng
+      ver: 4.2
   - category: Networking
     videos:
     - name: Setup Networks

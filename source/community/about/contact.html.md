@@ -6,7 +6,7 @@ authors: dneary, quaid, rbergeron, sandrobonazzola
 
 # Communication
 
-There are a number of ways to communicate with the oVirt Community. [ Mailing lists](#Mailing_lists), [ IRC](#IRC), our [bug tracker](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt) and [our patch review system](http://gerrit.ovirt.org).
+There are a number of ways to communicate with the oVirt Community. [ Mailing lists](/community/about/mailing-lists/), [ IRC](#IRC), our [bug tracker](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt) and [our patch review system](http://gerrit.ovirt.org).
 
 ## IRC
 

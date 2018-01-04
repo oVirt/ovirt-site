@@ -7,14 +7,14 @@
   pages = sitemap.resources.select do |p|
     dirs.include?(p.source_file)
   end
-    
+
 ~ wrap_layout :layout do
   = yield
 
   - fallback_title = current_page.url.split('/').last.parameterize.titleize
 
-  %h1= "#{pages.count} pages under #{current_page.data.title || fallback_title}"
-  
+  %h1= "#{current_page.data.title || fallback_title}"
+
   %ul
     - pages.sort_by { |p| ( p.data[:title] || p.url.split('/').last.parameterize.titleize).downcase }.each do |p|
       - next if p.url == current_page.url

@@ -21,6 +21,8 @@ General fields for metrics records:
 
  - collectd.plugin: nfs
  - ovirt.entity: host
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -34,6 +36,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: processes
  - ovirt.entity: host
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -59,6 +63,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: disk
  - ovirt.entity: host
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -76,6 +82,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: interface
  - ovirt.entity: host
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -92,6 +100,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: cpu
  - ovirt.entity: host
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -101,6 +111,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: df
  - ovirt.entity: host
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -111,6 +123,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: entropy
  - ovirt.entity: host
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -120,6 +134,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: memory
  - ovirt.entity: host
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -130,6 +146,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: swap
  - ovirt.entity: host
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -140,6 +158,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: load
  - ovirt.entity: host
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -147,24 +167,12 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 | collectd.load.load.midterm | load |   |   | gauge |
 | collectd.load.load.shortterm | load |   |   | gauge |
 
-## Postgresql Plugin
-
- - collectd.plugin: postgresql
- - ovirt.entity: engine
-
-| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
-|-------------------------|---------------|------------------------|--------------------------|------------------|
-| collectd.postgresql.pg_numbackends | pg_numbackends |   | db name | gauge |
-| collectd.postgresql.pg_n_tup_g | pg_n_tup_g | dead / live | db name | gauge |
-| collectd.postgresql.pg_n_tup_c | pg_n_tup_c | ins / upd / del / hot_upd | db name | derive |
-| collectd.postgresql.pg_xact | pg_xact | num_deadlocks | db name | derive |
-| collectd.postgresql.pg_db_size | pg_db_size |   | db name | gauge |
-| collectd.postgresql.pg_blks | pg_blks | heap_read / heap_hit / idx_hit / toast_read / toast_hit / tidx_read / idx_read | db name | derive |
-
 ## Aggregation Plugin
 
  - collectd.plugin: aggregation
  - ovirt.entity: host
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -174,6 +182,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: statsd
  - ovirt.entity: host
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -183,6 +193,8 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 
  - collectd.plugin: statsd
  - ovirt.entity: vm
+ - ovirt.engine_fqdn.raw: _FQDN of the engine_
+ - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
@@ -211,3 +223,17 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 | collectd.statsd.vm_nic_tx_bytes | vm_nic_tx_bytes | network name | vm name | gauge |
 | collectd.statsd.vm_nic_tx_dropped | vm_nic_tx_dropped | network name | vm name | gauge |
 | collectd.statsd.vm_nic_tx_errors | vm_nic_tx_errors | network name | vm name | gauge |
+
+## Postgresql Plugin
+
+ - collectd.plugin: postgresql
+ - ovirt.entity: engine
+
+| Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
+|-------------------------|---------------|------------------------|--------------------------|------------------|
+| collectd.postgresql.pg_numbackends | pg_numbackends |   | db name | gauge |
+| collectd.postgresql.pg_n_tup_g | pg_n_tup_g | dead / live | db name | gauge |
+| collectd.postgresql.pg_n_tup_c | pg_n_tup_c | ins / upd / del / hot_upd | db name | derive |
+| collectd.postgresql.pg_xact | pg_xact | num_deadlocks | db name | derive |
+| collectd.postgresql.pg_db_size | pg_db_size |   | db name | gauge |
+| collectd.postgresql.pg_blks | pg_blks | heap_read / heap_hit / idx_hit / toast_read / toast_hit / tidx_read / idx_read | db name | derive |

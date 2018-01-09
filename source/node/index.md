@@ -87,7 +87,7 @@ This is the oVirt Node 4.1 image including the latest oVirt 4.1 packages.
 
 ## oVirt Node 4.2
 
-This is the oVirt Node 4.2 image including the latest oVirt 4.1 packages.
+This is the oVirt Node 4.2 image including the latest oVirt 4.2 packages.
 
 * [Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.2_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
 * Jenkins job: <http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.2_build-artifacts-el7-x86_64/>

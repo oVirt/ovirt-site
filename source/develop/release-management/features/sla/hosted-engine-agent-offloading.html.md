@@ -3,7 +3,7 @@ title: Hosted Engine Agent Offloading
 category: feature
 authors: dchaplyg
 feature_name: 'Hosted Engine: Move all the hardwork from agent to the broker'
-feature_status: In Development
+feature_status: Done
 ---
 
 # Hosted Engine: Move all the hard work from the agent to the broker
@@ -19,6 +19,12 @@ The goal of this feature is to make the agent lightweight again by moving all no
 *   Name: [Denis Chaplygin](https://github.com/akashihi)
 *   Email: <dchaplyg@redhat.com>
 
+## Current status
+
+*   Target Release: 4.2
+*   Status: Done
+*   Last updated: December 11, 2017
+
 ## Detailed Description
 
 The specific goals associated with this feature are as follows:
@@ -33,8 +39,9 @@ The specific goals associated with this feature are as follows:
 *   The agent should only post state to the broker, and the broker must publish it on storage, if possible.
 
     The broker will keep the current status in memory and reply to the agent, hosted-engine-setup, and VDSM using that in-memory state. The agent will call broker's RPC to update that state. Upon an in-memory state update, a separate disk-writing thread will be notified.. That separate disk-writing thread will be started during the broker start-up sequence and its only purpose is to write the state to the storage and block in case of storage failures, while letting other broker code run. I plan to use deque with a size of one to pass the current state to the disk-writing thread and use Conditions to synchronize threads.
-*   OVF extraction should be moved from the agent to the broker.
-	At the moment, OVF are extracted on every short monitoring loop run by calling `_initialize_storage_images`, which calls `refresh_vm_conf`, which actually updates `vm.conf` from the OVF. I plan to move the refresh_vm_conf function to the submonitor and specify the vm.conf update period as a submonitor parameter, so the agent will be able to control it. The submonitor will update the `vm.conf` periodically and report the time elapsed since the last update, which can then be used in score calculations in the future.
+*   ~~OVF extraction should be moved from the agent to the broker.
+	At the moment, OVF are extracted on every short monitoring loop run by calling `_initialize_storage_images`, which calls `refresh_vm_conf`, which actually updates `vm.conf` from the OVF. I plan to move the refresh_vm_conf function to the submonitor and specify the vm.conf update period as a submonitor parameter, so the agent will be able to control it. The submonitor will update the `vm.conf` periodically and report the time elapsed since the last update, which can then be used in score calculations in the future.~~
+    OVF extraction alongside with other shared configs extraction and caching will be implemented as additional feature. (See [Documentation/External references](develop/release-management/features/sla/hosted-engine-agent-offloading/#documentation))
 
 ## Benefit to oVirt
 
@@ -50,4 +57,5 @@ The specific goals associated with this feature are as follows:
 
 *   Bugzilla ticket: [BZ#1399766](https://bugzilla.redhat.com/1399766)
 *   Bugzilla ticket: [BZ#1337914](https://bugzilla.redhat.com/1337914)
+*   [Hosted engine shared configuration extraction and caching](develop/release-management/features/sla/hosted-engine-ovf-extraction)
 

@@ -1,12 +1,12 @@
 ---
-title: Build oVirt Report Using Grafana
+title: Build oVirt Reports Using Grafana
 author: sradco,
 tags: oVirt, oVirt 4.2, open source virtualization, report, dwh
 date: 2018-01-16 09:00:00 CET
 ---
 
 [Grafana](https://grafana.com/), The open platform for beautiful analytics and monitoring,
-adds support for [PostgreSQL](http://docs.grafana.org/features/datasources/postgres/).
+recently added support for [PostgreSQL](http://docs.grafana.org/features/datasources/postgres/).
 
 It in now possible to connect Grafana to [oVirt DWH](https://www.ovirt.org/documentation/how-to/reports/dwh/),
 in order to visualize and monitor the oVirt environment.
@@ -16,9 +16,9 @@ in order to visualize and monitor the oVirt environment.
 
 READMORE
 
-If you wish to create dashboards to monitor Ovirt environment, you will need to [install Grafana](http://docs.grafana.org/installation/rpm/).
+If you wish to create dashboards to monitor oVirt environment, you will need to [install Grafana](http://docs.grafana.org/installation/rpm/).
 
-Grafana automatically create and admin [user](http://docs.grafana.org/installation/configuration/#admin-user) and [password](http://docs.grafana.org/installation/configuration/#admin-password).
+Grafana automatically creates and admin [user](http://docs.grafana.org/installation/configuration/#admin-user) and [password](http://docs.grafana.org/installation/configuration/#admin-password).
 
 You will need to add a [PostgreSQL data source](http://docs.grafana.org/features/datasources/graphite/#adding-the-data-source) that connects to the DWH database.
 

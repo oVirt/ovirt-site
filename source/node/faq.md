@@ -29,12 +29,13 @@ After installation a user can use yum update to update Node.
 In future (oVirt 4.0) Node Next can also be updated through Engine
 
 In order to upgrade to the next major Node Next release (or to an unstable version) which is available in a different repository, run the following script with the relevant ovirt repository you would like to upgrade to:
-- ovirt-4.1 (4.1 GA channel)
-- ovirt-4.1-pre (4.1 RC channel)
-- ovirt-4.1-snapshot (4.1 Nightly channel)
-- ovirt-4.2 (4.2 GA channel)
-- ovirt-4.2-pre (4.2 RC channel)
-- ovirt-4.2-snapshot (4.2 Nightly channel)
+- *ovirt-4.1* (4.1 GA channel)
+- *ovirt-4.1-pre* (4.1 RC channel)
+- *ovirt-4.1-snapshot* (4.1 Nightly channel)
+- *ovirt-4.2* (4.2 GA channel)
+- *ovirt-4.2-pre* (4.2 RC channel)
+- *ovirt-4.2-snapshot* (4.2 Nightly channel)
+
 ```bash
 #!/bin/bash -e
 

@@ -28,6 +28,31 @@ After installation a user can use yum update to update Node.
 
 In future (oVirt 4.0) Node Next can also be updated through Engine
 
+In order to upgrade to the next major Node Next release (or to an unstable version) which is available in a different repository, run the following script with the relevant ovirt repository you would like to upgrade to:
+- ovirt-4.1 (4.1 GA channel)
+- ovirt-4.1-pre (4.1 RC channel)
+- ovirt-4.1-snapshot (4.1 Nightly channel)
+- ovirt-4.2 (4.2 GA channel)
+- ovirt-4.2-pre (4.2 RC channel)
+- ovirt-4.2-snapshot (4.2 Nightly channel)
+```bash
+#!/bin/bash -e
+
+[[ $# -ne 1 ]] && echo "Usage $0 <new-ovirt-repo>" && exit 1
+
+newrepo=$1
+
+repoid=$(yum repolist "ovirt-4.*" | grep -Po "ovirt-4.[0-9](?=/)")
+repofile=$(yum repoinfo $repoid | grep -Po "(?<=Repo-filename: ).*")
+tmpfile=$(mktemp -t $newrepo.repo.XXXXX)
+
+echo "Using $repofile to create $tmpfile"
+
+sed "s/$repoid/$newrepo/" $repofile > $tmpfile
+
+yum --disablerepo="*" --enablerepo="$newrepo" -c $tmpfile update
+```
+
 **6) Can I install Node NG from a flash disk ?**
 
 Yes, first install the livecd-tools package and use livecd-iso-to-disk to transfer the ISO content to the disk.

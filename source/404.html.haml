@@ -3,20 +3,33 @@ title: Page not found
 index: false
 ---
 
-%h1
-  Not found
-  %span :(
-%p Sorry, but the page you were trying to view does not exist.
-%p It looks like this was the result of either:
-%ul
-  %li a mistyped address
-  %li an out-of-date link
+:plain
+  <div id="err">
+    <div class="bg-mountain"></div>
+    <div class="numErr"></div>
+    <div class="ice"></div>
+    <div class="wave"></div>
+    <div class="bg-sea"><div class="aphro"></div></div>
+    <div class="penguin"></div>
+    <div class="dfltNotFoundErrMsg">
+      <h2>
+        Not found :(
+      </h2>
+      <p>Sorry, but the page you were trying to view does not exist.</p>
+    </div>
+  </div>
 
-= partial "search"
+.searchSuggest
+  %p It looks like this was the result of either:
+  %ul
+    %li a mistyped address
+    %li an out-of-date link
 
-- content_for :tail do
-  :javascript
-    jQuery(function($){
-      var missing_words = document.location.pathname.replace(/[\/\+:\s\-_]+/g, ' ').trim()
-      $('#search-input').val(missing_words).trigger('keypress')
-    });
+  = partial "search"
+
+  - content_for :tail do
+    :javascript
+      jQuery(function($){
+        var missing_words = document.location.pathname.replace(/[\/\+:\s\-_]+/g, ' ').trim()
+        $('#search-input').val(missing_words).trigger('keypress')
+      });

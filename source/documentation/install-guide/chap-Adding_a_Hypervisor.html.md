@@ -8,13 +8,13 @@ Adding a host to your oVirt environment can take some time, as the following ste
 
 **Adding a Host to the oVirt Engine**
 
-1. From the Administration Portal, click the **Hosts** resource tab.
+1. From the Administration Portal, click **Compute** and then **Hosts**.
 
 2. Click **New**.
 
-3. Use the drop-down list to select the **Data Center** and **Host Cluster** for the new host.
+3. Use the drop-down list to select the **Host Cluster** for the new host.
 
-4. Enter the **Name** and the **Address** of the new host. The standard SSH port, port 22, is auto-filled in the **SSH Port** field.
+4. Enter the **Name** and the **Hostname** of the new host. The standard SSH port, port 22, is auto-filled in the **SSH Port** field.
 
 5. Select an authentication method to use for the Engine to access the host.
 

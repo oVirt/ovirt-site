@@ -34,9 +34,7 @@ You can use the `engine-cleanup` command to remove specific components or all co
         During execution engine service will be stopped (OK, Cancel) [OK]:
         ovirt-engine is about to be removed, data will be lost (OK, Cancel) [Cancel]:OK
 
-4. Remove the oVirt packages:
-
-        # yum remove ovirt* vdsm-bootstrap
+4. Remove the oVirt packages
 
 **Prev:** [Chapter 3: Installing oVirt](../chap-Installing_oVirt)<br>
 **Next:** [Chapter 5: Introduction to Hypervisor Hosts](../chap-Introduction_to_Hypervisor_Hosts)

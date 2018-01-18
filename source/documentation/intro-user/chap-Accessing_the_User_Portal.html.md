@@ -93,7 +93,7 @@ The first time you access the User Portal, you must install the certificate used
 
 1. Navigate to the following URL:
 
-        https://[your manager's address]/ca.crt
+        https://[your manager's FQDN]/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA
 
 2. Click the **Open** button in the **File Download - Security Warning** window to open the **Certificate** window.
 

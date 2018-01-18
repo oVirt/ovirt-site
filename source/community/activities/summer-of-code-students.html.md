@@ -11,8 +11,6 @@ Thank you for your interest in participating in Google Summer of Code with oVirt
 
 Google Summer of Code (GSoC) promotes open source software development by sponsoring students to work on open source projects. If you are a student interested in developing open source software, this program is for you! Don't worry if you have not developed open source software before. We are generally looking for students who are willing to learn, have good coding skills and, most importantly, have a keen interest in open source software development.
 
-Students who successfully complete GSoC will receive US$5500 for their work.
-
 ## How to Apply
 
 To participate in GSoC as a student, you must be an individual enrolled in an accredited post-secondary institution. No group applications are allowed. Please check [eligibility section](https://developers.google.com/open-source/gsoc/faq#what_are_the_eligibility_requirements_for_participation) of the GSoC FAQ for more details.
@@ -23,7 +21,7 @@ Please be sure you are familiar with answers to GSoC's [frequently asked questio
 
 ## Decide on a GSoC Project
 
-You can start by reviewing the GSoC project ideas on [oVirt's ideas list](/community/activities/summer-of-code/#ovirt-ideas-for-google-summer-of-code-2017) or by looking for a listed mentor and talking to the mentor about what would be a suitable GSoC project. The ideas list is not exclusive, and you can find the main developers of any project on IRC at #ovirt on OFTC, introduce yourself, and ask about what would be a suitable GSoC project or present your idea there. Base any ideas you propose on the research about the needs of a particular project in oVirt and make sure there is a mentor interested in guiding you in implementing this idea before basing your application on it.
+You can start by reviewing the GSoC project ideas on [oVirt's ideas list](/community/activities/summer-of-code/#ovirt-ideas-for-google-summer-of-code-2018) or by looking for a listed mentor and talking to the mentor about what would be a suitable GSoC project. The ideas list is not exclusive, and you can find the main developers of any project on IRC at #ovirt on OFTC, introduce yourself, and ask about what would be a suitable GSoC project or present your idea there. Base any ideas you propose on the research about the needs of a particular project in oVirt and make sure there is a mentor interested in guiding you in implementing this idea before basing your application on it.
 
 The following things can help you select a project and prepare your idea:
 
@@ -38,7 +36,7 @@ A general oVirt IRC channels you can hang out on is #ovirt. Please do us favor a
 
 ## Fill Out the Application
 
-Once the students applications period has opened on March 20, 2017 you have to submit your application on Google's Summer of Code website. Your application must be written in English. It should contain a detailed description of your project proposal. The application form will look as following:
+Once the students applications period has opened on March 12, 2018 you have to submit your application on Google's Summer of Code website. Your application must be written in English. It should contain a detailed description of your project proposal. The application form will look as following:
 
 1.  Please connect with a possible mentor for the project you are proposing early in the application process.
 2.  Please answer all of the application questions.

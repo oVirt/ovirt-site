@@ -38,6 +38,7 @@ Go to the `+ Add Panel`, and pick `Graph`.
 
 Query example for the - Five Most Utilized Hosts by Memory / CPU:
 
+```
     SELECT DISTINCT
         min(time) AS time,
         MEM_Usage,
@@ -174,7 +175,7 @@ Query example for the - Five Most Utilized Hosts by Memory / CPU:
     ) AS a
     GROUP BY a.host_name, a.mem_usage
     ORDER BY time
-
+```
 
 The query uses the [Templateing](http://docs.grafana.org/reference/templating/) feature, to enable input controls.
 

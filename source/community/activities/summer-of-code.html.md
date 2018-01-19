@@ -44,15 +44,28 @@ When students approach you about the idea you listed:
 
 ## oVirt Ideas for Google Summer of Code 2018
 
-### **Idea:** The title of the idea
+### **Idea:** webadmin localization (reduce GWT permutations)
 
-**Description:** A description of the idea. Can be longer.
+**Description:** Runtime localization (changing of languages) for oVirt webadmin
 
-**Expected results:** A measurable outcome
+**Expected results:** The oVirt webadmin uses the standard GWT tools for localization. GWT uses the concept of "permutations." Since we support 3 browsers and
+8 languages, this causes webadmin's GWT compile to run 3 x 8 permutations, which means 24 (very time consuming) compiles. This is very painful for both developers and oVirt's CI systems.
 
-**Knowledge Prerequisite:** Programming language/framework/whatever knowlage
+We would like to instead do localization at runtime, reducing the number of GWT permutations to 3.
 
-**Mentor:** [name](mailto:address)
+**Knowledge Prerequisite:** Java
+
+**Mentor:** [Greg Sheremeta](mailto:gshereme@redhat.com)
+
+### **Idea:** port ovirt-web-ui to KubeVirt
+
+**Description:** ovirt-web-ui is a modern, lightweight UI for oVirt. We would like it to work with KubeVirt (a virtual machine management add-on for Kubernetes) as well.
+
+**Expected results:** ovirt-web-ui (already Dockerized) should be adapted to run in Kubernetes. ovirt-web-ui's API should be enhanced or replaced so it works with KubeVirt to start, stop, and console-to virtual machines.
+
+**Knowledge Prerequisite:** JavaScript (react, webpack, etc.), Go (?), Kubernetes
+
+**Mentor:** [Greg Sheremeta](mailto:gshereme@redhat.com)
 
 
 

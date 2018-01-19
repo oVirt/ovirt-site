@@ -136,6 +136,8 @@ packages from other repos.
 
  - [BZ 1523614](https://bugzilla.redhat.com/1523614) <b>Copy image to a block storage destination does not work after disk extension in a snapshot in DC pre-4.0</b><br>Cause: <br>qemu-img convert with compat=0.10 and a backing file writes <br>the space after the backing file as zeroes which may cause the output disk be larger than the LV created for it<br><br>Consequence: <br>Moving a disk that has snapshot created prior to its extension will fail in storage domains with a version older than V4 (i.e., domains in DC 4.0 or older)<br><br>Fix: <br>The move operation of a disk with snapshots created prior to its extension will be blocked with an error message stating the deletion of the disk's snapshot is required before attempting to move it, instead of attempting to execute the copying and waiting for it to fail.<br><br>Result:
 
+ - Right after we finished to compose the second release candidate we discovered a regression in a disaster recovery flow causing wrong MAC address to be assigned to re-imported VMs. 
+
 ### Bug Fixes
 
 #### oVirt Engine Metrics

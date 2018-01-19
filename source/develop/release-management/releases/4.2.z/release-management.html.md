@@ -10,8 +10,9 @@ title: oVirt 4.2.z Release Management
 
 | Date           | Milestone                |
 |----------------|--------------------------|
-| **xxxx-xx-xx** | First Release candidate  |
-| **2018-01-xx** | General availability     |
+| **2018-01-12** | First Release candidate  |
+| **2018-01-18** | Second Release candidate |
+| **2018-01-30** | General availability     |
 
 ### Release criteria
 

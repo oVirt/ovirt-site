@@ -18,12 +18,14 @@ READMORE
 
 If you wish to create dashboards to monitor oVirt environment, you will need to [install Grafana](http://docs.grafana.org/installation/rpm/).
 
-Grafana automatically creates and admin [user](http://docs.grafana.org/installation/configuration/#admin-user) and [password](http://docs.grafana.org/installation/configuration/#admin-password).
+Grafana automatically creates an admin [user](http://docs.grafana.org/installation/configuration/#admin-user) and [password](http://docs.grafana.org/installation/configuration/#admin-password).
 
 You will need to add a [PostgreSQL data source](http://docs.grafana.org/features/datasources/graphite/#adding-the-data-source) that connects to the DWH database.
 
 For example:
 ![](/images/grafana_data_source_example.png)
+
+You may want to add a read only user to connect the history database - [Allowing read only access to the history database](https://www.ovirt.org/documentation/data-warehouse/Allowing_Read_Only_Access_to_the_History_Database/)
 
 Now you can start creating your dashboard widgets.
 

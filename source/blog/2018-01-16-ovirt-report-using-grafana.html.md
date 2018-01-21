@@ -177,7 +177,7 @@ GROUP BY a.host_name, a.mem_usage
 ORDER BY time
 ```
 
-The query uses the [Templateing](http://docs.grafana.org/reference/templating/) feature, to enable input controls.
+The query uses the [Templating](http://docs.grafana.org/reference/templating/) feature, to enable input controls.
 
 You will need to add the following templates:
 

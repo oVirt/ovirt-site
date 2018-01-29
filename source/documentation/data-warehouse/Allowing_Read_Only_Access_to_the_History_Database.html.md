@@ -2,6 +2,13 @@
 
 To allow access to the history database without allowing edits, you must create a read-only PostgreSQL user that can log in to and read from the `ovirt_engine_history` database. This procedure must be executed on the system on which the history database is installed.
 
+**Note:** In oVirt 4.2 we ship postgres 9.5 through the Software Collection.
+ In order to run psql you will need to run:
+
+    su - postgres 
+    scl enable rh-postgresql95 -- psql engine
+    
+
 **Allowing Read-Only Access to the History Database**
 
 1. Create the user to be granted read-only access to the history database:

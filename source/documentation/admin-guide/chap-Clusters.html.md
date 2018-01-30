@@ -44,7 +44,7 @@ A data center can contain multiple clusters, and a cluster can contain multiple 
 
 7. Select the **Compatibility Version** of the cluster from the drop-down list.
 
-8. Select either the **Enable Virt Service** or **Enable Gluster Service** radio button to define whether the cluster will be populated with virtual machine hosts or with Gluster-enabled nodes. Note that you cannot add oVirt Host (RHVH) to a Gluster-enabled cluster.
+8. Select either the **Enable Virt Service** or **Enable Gluster Service** radio button to define whether the cluster will be populated with virtual machine hosts or with Gluster-enabled nodes.
 
 9. Optionally select the **Enable to set VM maintenance reason** check box to enable an optional reason field when a virtual machine is shut down from the Manager, allowing the administrator to provide an explanation for the maintenance.
 

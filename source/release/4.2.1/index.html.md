@@ -7,8 +7,8 @@ layout: toc
 # oVirt 4.2.1 Release Notes
 
 The oVirt Project is pleased to announce the availability of the 4.2.1
-Third Release Candidate
- as of January 25, 2018.
+Fourth Release Candidate
+ as of January 30, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -101,7 +101,6 @@ packages from other repos.
 
 #### oVirt Engine Metrics
 
- - [BZ 1514927](https://bugzilla.redhat.com/1514927) <b>[RFE] Add ovirt metrics to the ovirt-ansible host deploy playbook</b><br>Feature: <br>Deploy oVirt Metrics Store on host deploy, the server side was configured.<br><br>Reason: <br>If the server side was configured, we want every new host to automatically be configured to send metrics.<br><br>Result: <br>When installing a new host, it will be configured to colloect metrics and logs and send them to the remote metrics store.
  - [BZ 1523068](https://bugzilla.redhat.com/1523068) <b>[RFE] Add fluentd file output plugin support for quick and easy debugging</b><br>Feature:<br>Add fluentd file output plugin support for quick and easy debugging <br><br>Reason: <br>Sometimes we want to debug the metrics without setting a remote metrics store.<br><br>Result: <br>Added a "file" output plugin support to the ovirt-engine-metrics setup.<br>Metrics will be sent to a local file.
 
 #### oVirt Host Dependencies
@@ -116,7 +115,6 @@ packages from other repos.
 
  - [BZ 1510578](https://bugzilla.redhat.com/1510578) <b>[RFE][hc][dalton] - Set up cgroup for gluster processes in HC mode from the engine</b><br>Feature: Restrict the CPU resources consumed by gluster processes <br><br>Reason: When running in hyperconverged mode, gluster processes should co-exist with virt processes and not consume all available resources<br><br>Result: Hyperconverged mode works as expected
  - [BZ 1511823](https://bugzilla.redhat.com/1511823) <b>[RFE] Automatically synchronize networks of cluster with default network provider</b><br>Feature:<br>Add a new boolean property to external network providers is added.<br>If true, the networks of this provider are automatically and cyclically synchronized to oVirt in the background. This means that all new networks of this provider are imported, and all discarded networks are removed from all clusters that have this external provider as the default provider.<br><br>The automatically initiated import triggers the following steps:<br><br> - The networks of the external provider will be imported to every data center in the data centers of the clusters that have that external provider as the default provider.<br><br> - A vNIC profile will be created for each involved data center and network.<br><br> - The networks will be assigned to each cluster that has that external provider as the default provider.<br><br>All users are allowed to use the new vNIC Profile.<br><br>Reason:<br> - Support the user to use only external networks for VMs, which are still available<br>   on the external provider.<br> - Make new networks of the external network provider available more comfortable.<br><br>Result:<br>After the user has enabled the new boolean property, e.g. during creating the external provider, the networks of the external provider are available to be used for VMs without manually importing them.
- - [BZ 1514927](https://bugzilla.redhat.com/1514927) <b>[RFE] Add ovirt metrics to the ovirt-ansible host deploy playbook</b><br>Feature: <br>Deploy oVirt Metrics Store on host deploy, the server side was configured.<br><br>Reason: <br>If the server side was configured, we want every new host to automatically be configured to send metrics.<br><br>Result: <br>When installing a new host, it will be configured to colloect metrics and logs and send them to the remote metrics store.
  - [BZ 1530730](https://bugzilla.redhat.com/1530730) <b>[downstream clone - 4.2.1] [RFE] Allow uploading ISO images to data domains and using them in VMs</b><br>It is now possible to upload an ISO file to a data domain and attach it to a VM as a CDROM device.<br>In order to do so the user has to upload an ISO file via the UI (which will recognize the ISO by it's header and will upload it as ISO) or via the APIs in which case the request should define the disk container "content_type" property as "iso" before the upload.<br>Once the ISO exists on an active storage domain in the data center it will be possible to attach it to a VM as a CDROM device either through the "Edit VM" dialog or through the APIs (see example in comment #27
  - [BZ 1330217](https://bugzilla.redhat.com/1330217) <b>[RFE] Enable configuring IPv6 in VM cloud-init</b><br>Cloud-Init supports IPv6 properties for initializing a virtual machine's network interfaces.
  - [BZ 1517832](https://bugzilla.redhat.com/1517832) <b>[RFE] make VM names in host details clickable</b><br>Feature: Clicking on the VM name in the VM detail view of the hosts, will take you directly to the VM detail view. This allows you to see more details of that VM and make changes easier.<br><br>Reason: Navigating between hosts and their associated VMs was difficult. This change allows the user to quickly switch selected entities.<br><br>Result: The names of the VMs in the VM grid of the host detail view now contains a link to the VM detail view.
@@ -134,10 +132,6 @@ packages from other repos.
 
  - [BZ 1049604](https://bugzilla.redhat.com/1049604) <b>[RFE] Allow uploading a pre-existing VM image (OVA) into the environment</b><br>Feature: <br>Enable uploading an OVA into an oVirt data center.<br><br>Reason: <br>Simplify the process of importing a virtual machine that was created out of the data center.<br><br>Result: <br>It is now possible to import an OVA that is accessible to at least of the hosts in the data center into a virtual machine in oVirt.
 
-#### oVirt Cockpit Plugin
-
- - [BZ 1525853](https://bugzilla.redhat.com/1525853) <b>[RFE] call ansible directly without requiring otopi based code for deploying hosted engine on first host</b><br>
-
 ### Known Issue
 
 #### oVirt Engine
@@ -145,10 +139,6 @@ packages from other repos.
  - [BZ 1523614](https://bugzilla.redhat.com/1523614) <b>Copy image to a block storage destination does not work after disk extension in a snapshot in DC pre-4.0</b><br>Cause: <br>qemu-img convert with compat=0.10 and a backing file writes <br>the space after the backing file as zeroes which may cause the output disk be larger than the LV created for it<br><br>Consequence: <br>Moving a disk that has snapshot created prior to its extension will fail in storage domains with a version older than V4 (i.e., domains in DC 4.0 or older)<br><br>Fix: <br>The move operation of a disk with snapshots created prior to its extension will be blocked with an error message stating the deletion of the disk's snapshot is required before attempting to move it, instead of attempting to execute the copying and waiting for it to fail.<br><br>Result:
 
 ### Bug Fixes
-
-#### oVirt Engine Metrics
-
- - [BZ 1511549](https://bugzilla.redhat.com/1511549) <b>ovirt-engine and ovirt-engine-dwh postgres processes do not support non default db names</b><br>
 
 #### oVirt Hosted Engine Setup
 
@@ -182,6 +172,7 @@ packages from other repos.
 #### imgbased
 
  - [BZ 1493176](https://bugzilla.redhat.com/1493176) <b>RHVH stuck on startup after 'probing EDD... ok' step</b><br>
+ - [BZ 1535791](https://bugzilla.redhat.com/1535791) <b>Upgrading node brings back previous hosted-engine configuration</b><br>
  - [BZ 1533871](https://bugzilla.redhat.com/1533871) <b>the /boot partition grows after each update until it's at 100% causing boot loop.</b><br>
 
 ### Other
@@ -238,8 +229,8 @@ packages from other repos.
  - [BZ 1518509](https://bugzilla.redhat.com/1518509) <b>Numa aware ksm state in file /sys/kernel/mm/ksm/merge_across_nodes  always remains  1</b><br>
  - [BZ 1523297](https://bugzilla.redhat.com/1523297) <b>Engine fails to create OVN subnet</b><br>
  - [BZ 1484199](https://bugzilla.redhat.com/1484199) <b>Device.map can't be updated to vda if import rhel7.4 guest from kvm source at rhv4.1</b><br>
- - [BZ 1522799](https://bugzilla.redhat.com/1522799) <b>[DR] - On template\vm registration, vnic_profile_mappings should be under registration_configuration</b><br>
- - [BZ 1530723](https://bugzilla.redhat.com/1530723) <b>[RFE] Add posibility to specify verbose mode of ansible-playbook execution by engine configuration value</b><br>User can specify the ansible-playbook command verbose level, which is used by engine.<br>To change the value permanentaly create a configuration file 99-ansible-playbook-verbose-level.conf in /etc/ovirt-engine/engine.conf.d/ with following content:<br>ANSIBLE_PLAYBOOK_VERBOSE_LEVEL=4
+ - [BZ 1522799](https://bugzilla.redhat.com/1522799) <b>[RFE] - DR: On template\vm registration, vnic_profile_mappings should be under registration_configuration</b><br>
+ - [BZ 1530723](https://bugzilla.redhat.com/1530723) <b>[RFE] Add posibility to specify verbose mode of ansible-playbook execution by engine configuration value</b><br>User can specify the ansible-playbook command verbose level, which is used by engine.<br>To change the value permanentaly create a configuration file 99-ansible-playbook-verbose-level.conf in /etc/ovirt-engine/engine.conf.d/ with following content:<br>ANSIBLE_PLAYBOOK_VERBOSE_LEVEL=4
  - [BZ 1534227](https://bugzilla.redhat.com/1534227) <b>Confusing logging when cold-moving a disk - the term CreateSnapshot is referenced</b><br>
  - [BZ 1532040](https://bugzilla.redhat.com/1532040) <b>Webadmin: Available LUNs are grayed out in block domain creation prompt</b><br>
  - [BZ 1528297](https://bugzilla.redhat.com/1528297) <b>Reinstalling host on 'ovirt-provider-ovn' cluster doesn't deploy OVN</b><br>
@@ -259,6 +250,7 @@ packages from other repos.
  - [BZ 1520123](https://bugzilla.redhat.com/1520123) <b>[UI] - UI exception on add vNIC to template flow</b><br>
  - [BZ 1512794](https://bugzilla.redhat.com/1512794) <b>[UI] - Add tooltip to the disabled default route role for clusters <=4.1</b><br>
  - [BZ 1522784](https://bugzilla.redhat.com/1522784) <b>[UI] - Network role icons are overlapping the network's name in case of long name or vlan tagged</b><br>
+ - [BZ 1538998](https://bugzilla.redhat.com/1538998) <b>Ansible playbooks of host deployed getting stuck</b><br>
  - [BZ 1536966](https://bugzilla.redhat.com/1536966) <b>Can't import template from data domain</b><br>
  - [BZ 1535904](https://bugzilla.redhat.com/1535904) <b>engine-setup creates bad 10-setup-database.conf if it has to provision engine_TIMESTAMP</b><br>
  - [BZ 1534626](https://bugzilla.redhat.com/1534626) <b>Webadmin-removing a boot iso CD while VM is booting is allowed</b><br>
@@ -266,7 +258,7 @@ packages from other repos.
  - [BZ 1534207](https://bugzilla.redhat.com/1534207) <b>The engine needs newer ovirt-engine-metrics</b><br>
  - [BZ 1534231](https://bugzilla.redhat.com/1534231) <b>'stateless snapshot' disk snapshot is removable</b><br>
  - [BZ 1531137](https://bugzilla.redhat.com/1531137) <b>Webadmin -right vertical scroller in "attach virtual disks" window hides the "shared" disk column</b><br>
- - [BZ 1530603](https://bugzilla.redhat.com/1530603) <b>snapshots.list following delete sometimes fails (v3 API)</b><br>
+ - [BZ 1530603](https://bugzilla.redhat.com/1530603) <b>snapshots.list following delete sometimes fails (using the API)</b><br>
  - [BZ 1532844](https://bugzilla.redhat.com/1532844) <b>Webadmin: Available LUNs are grayed out in new direct LUN prompt</b><br>
  - [BZ 1478001](https://bugzilla.redhat.com/1478001) <b>Cannot edit new cluster memory optimization in Guide Me dialog</b><br>
  - [BZ 1532873](https://bugzilla.redhat.com/1532873) <b>Meaningless validation message for live storage migration attempt for disk attached to VM in restoring state</b><br>
@@ -314,7 +306,6 @@ packages from other repos.
 #### VDSM
 
  - [BZ 1509675](https://bugzilla.redhat.com/1509675) <b>Live merge with continuous I/O to the VM failed to deactivate logical volume (depends on platform bug 1516717)</b><br>
- - [BZ 1533778](https://bugzilla.redhat.com/1533778) <b>Hotplug VM vNIC with port mirroring failed</b><br>
  - [BZ 1530839](https://bugzilla.redhat.com/1530839) <b>Deployment fails configuring ovirtmgmt interface if a VLAN exists on the management interface</b><br>
  - [BZ 1530230](https://bugzilla.redhat.com/1530230) <b>[OVS] - Supervdsm log is spammed with: ovirtmgmt is not a Linux bridge errors</b><br>
  - [BZ 1526815](https://bugzilla.redhat.com/1526815) <b>Backup restore API: Transient volume is not created on compatibility version-4.2  after backup VM start with snapshot disk from source VM attached</b><br>
@@ -326,7 +317,6 @@ packages from other repos.
  - [BZ 1518587](https://bugzilla.redhat.com/1518587) <b>Supervdsm log - ERROR - 'Failed source route addition:' on every dhclient lease renew</b><br>
  - [BZ 1478890](https://bugzilla.redhat.com/1478890) <b>Static ip remain on the bond interface when removing non-vm network from it in case it has another vlan network attached</b><br>
  - [BZ 1534950](https://bugzilla.redhat.com/1534950) <b>[Backup restore API] Start VM, with attached snapshot disk on block based storage, fails on libvirtError</b><br>
- - [BZ 1533155](https://bugzilla.redhat.com/1533155) <b>RHEL7.5 - Live snapshot creation fails during getQemuImageInfo</b><br>
  - [BZ 1532483](https://bugzilla.redhat.com/1532483) <b>Improve osinfo kdump_status() logging level.</b><br>
  - [BZ 1523292](https://bugzilla.redhat.com/1523292) <b>sos plugin is generating Exception during plugin-setup</b><br>
  - [BZ 1528816](https://bugzilla.redhat.com/1528816) <b>vdsm-tool remove-config does not revert changes</b><br>
@@ -350,7 +340,7 @@ packages from other repos.
 
  - [BZ 1525912](https://bugzilla.redhat.com/1525912) <b>allow to create cluster without specifying cpu type</b><br>
  - [BZ 1511369](https://bugzilla.redhat.com/1511369) <b>REST: add external network provider by name</b><br>
- - [BZ 1522799](https://bugzilla.redhat.com/1522799) <b>[DR] - On template\vm registration, vnic_profile_mappings should be under registration_configuration</b><br>
+ - [BZ 1522799](https://bugzilla.redhat.com/1522799) <b>[RFE] - DR: On template\vm registration, vnic_profile_mappings should be under registration_configuration</b><br>
  - [BZ 1511420](https://bugzilla.redhat.com/1511420) <b>[RFE] API for running VM with an ISO from the DATA domain</b><br>
 
 #### oVirt Host Deploy
@@ -360,13 +350,14 @@ packages from other repos.
 #### imgbased
 
  - [BZ 1528468](https://bugzilla.redhat.com/1528468) <b>oVirt NGN kickstart-based install fails during imgbased layout initialization after installing an rpm package in %post</b><br>
- - [BZ 1535791](https://bugzilla.redhat.com/1535791) <b>Upgrading node brings back previous hosted-engine configuration</b><br>
+ - [BZ 1538925](https://bugzilla.redhat.com/1538925) <b>Failed to upgrade to rhvh-4.1-0.20180125.0</b><br>
  - [BZ 1519784](https://bugzilla.redhat.com/1519784) <b>oVirt Node upgrade fails if SELINUX is disabled</b><br>
 
 #### oVirt Cockpit Plugin
 
  - [BZ 1415179](https://bugzilla.redhat.com/1415179) <b>[RFE] provide a way for the user to setup-cache</b><br>
  - [BZ 1523573](https://bugzilla.redhat.com/1523573) <b>[RFE] Change 'Standard' term in cockpit deployment to 'Hosted Engine Only Deployment'</b><br>
+ - [BZ 1538930](https://bugzilla.redhat.com/1538930) <b>The vintage (based-otopi) deployment didn't use deprecated python flow while deploying HE via cockpit.</b><br>
  - [BZ 1519743](https://bugzilla.redhat.com/1519743) <b>In cockpit installation of self hosted engine inputs invisible on high resolution screens</b><br>
  - [BZ 1535793](https://bugzilla.redhat.com/1535793) <b>Cockpit is missing the options for user configure about HE-VM engine</b><br>
  - [BZ 1529223](https://bugzilla.redhat.com/1529223) <b>Hide the iscsi portal password while deploying SHE with iscsi via cockpit.</b><br>
@@ -389,8 +380,8 @@ packages from other repos.
  - [BZ 1517108](https://bugzilla.redhat.com/1517108) <b>[ALL_LANG except zh_CN, ko_KR] Table headers getting truncated on compute->virtual machines-> disks -> new -> direct LUN page.</b><br>
  - [BZ 1418197](https://bugzilla.redhat.com/1418197) <b>[fr_FR] [Admin Portal] The UI alignment needs to be corrected on cluster->new->optimization page.</b><br>
  - [BZ 1497665](https://bugzilla.redhat.com/1497665) <b>NPE in ovirt-engine/docs/manual</b><br>
+ - [BZ 1483844](https://bugzilla.redhat.com/1483844) <b>[UI] - Adjust the font size and icons size on the new UI design for the 'Network Interfaces' sub tab</b><br>
  - [BZ 1469538](https://bugzilla.redhat.com/1469538) <b>Network changes to HE VM OVF take longer than other changes</b><br>
- - [BZ 1518074](https://bugzilla.redhat.com/1518074) <b>Choosing multiple LUNs instead of exactly one when creating a new direct LUN disk for a new VM via Targets > LUNs table</b><br>
  - [BZ 1532018](https://bugzilla.redhat.com/1532018) <b>engine requires tenant name for External Network Provider in RHV 4.2.1</b><br>
  - [BZ 1530526](https://bugzilla.redhat.com/1530526) <b>configure ovirt-provider-ovn dialog appear in PACKAGES section instead of PRODUCT OPTIONS section</b><br>
  - [BZ 1494519](https://bugzilla.redhat.com/1494519) <b>Dashboard in left menu stays highlighted when using any link from it</b><br>

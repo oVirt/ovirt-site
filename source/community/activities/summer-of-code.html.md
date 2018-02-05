@@ -43,27 +43,6 @@ When students approach you about the idea you listed:
 *   Don't hesitate to reach out to the oVirt GSoC admins if you need help redirecting students.
 
 ## oVirt Ideas for Google Summer of Code 2018
-<<<<<<< 0478b5a29dbb0b9207627af4ad0aaa6610f32266
-=======
-
-### **Idea** KubeVirt/qemu-guest-agent
-
-**Description** The qemu-guest-agent is a useful tool to to communicate directly 
-with the guest operating system and KubeVirt project will benefit from
-it the same as ovirt does. This project aims to implement support
-for qemu-guest-agent in KubeVirt.
-
-**Expected results** The Kubevirt is able to communicate with the qemu-guest-agent: 
-send commands to it and read its messages.
-
-**Knowledge Prerequirements** Basic knowledge of Kubernetes, Golang
-
-**Suitable for** first time contributors willing to learn new things
-
-**Mentor** [Petr Kotas](mailto:pkotas@redhat.com)
-
-## oVirt Ideas for Google Summer of Code 2017
->>>>>>> Add new gsoc 2018 proposal
 
 ### **Idea:** webadmin localization (reduce GWT permutations)
 
@@ -88,7 +67,21 @@ We would like to instead do localization at runtime, reducing the number of GWT 
 
 **Mentor:** [Greg Sheremeta](mailto:gshereme@redhat.com)
 
+### **Idea** KubeVirt/qemu-guest-agent
 
+**Description** The qemu-guest-agent is a useful tool to to communicate directly
+with the guest operating system and KubeVirt project will benefit from
+it the same as ovirt does. This project aims to implement support
+for qemu-guest-agent in KubeVirt.
+
+**Expected results** The Kubevirt is able to communicate with the qemu-guest-agent:
+send commands to it and read its messages.
+
+**Knowledge Prerequirements** Basic knowledge of Kubernetes, Golang
+
+**Suitable for** first time contributors willing to learn new things
+
+**Mentor** [Petr Kotas](mailto:pkotas@redhat.com)
 
 ## oVirt GSoC Admins
 

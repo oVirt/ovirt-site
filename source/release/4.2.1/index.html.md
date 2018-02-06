@@ -7,8 +7,8 @@ layout: toc
 # oVirt 4.2.1 Release Notes
 
 The oVirt Project is pleased to announce the availability of the 4.2.1
-Fourth Release Candidate
- as of January 30, 2018.
+Sixth Release Candidate
+ as of February 06, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -144,12 +144,17 @@ packages from other repos.
 
  - [BZ 1536941](https://bugzilla.redhat.com/1536941) <b>HE-VM cloudinit root password saved in the setup log file as clear text.</b><br>
 
+#### oVirt Release Package
+
+ - [BZ 1516123](https://bugzilla.redhat.com/1516123) <b>tuned-adm timeout while adding the host in manager and the deployment will fail/take time to complete</b><br>
+
 #### oVirt Engine
 
  - [BZ 1525353](https://bugzilla.redhat.com/1525353) <b>vNIC mapping is broken on import from data domain - vNICs mapped as 'Empty' in the destination cluster</b><br>
  - [BZ 1528906](https://bugzilla.redhat.com/1528906) <b>Engine requires to set a gateway in order to sync a network</b><br>
  - [BZ 1517492](https://bugzilla.redhat.com/1517492) <b>Create VM with new created quota fails.</b><br>
  - [BZ 1529255](https://bugzilla.redhat.com/1529255) <b>Can't import VMware OVA folder with EngineException: Failed to query OVA info</b><br>
+ - [BZ 1519811](https://bugzilla.redhat.com/1519811) <b>On upgrade from RHEV-3.6 to RHV-4, max_memory_size_mb seems hardly set to 1TB</b><br>
  - [BZ 1529262](https://bugzilla.redhat.com/1529262) <b>OVN provider password added by engine-setup must be encrypted</b><br>
  - [BZ 1492838](https://bugzilla.redhat.com/1492838) <b>Engine database upgrade: take care of zero 'vm_snapshot_id' fields</b><br>
  - [BZ 1529965](https://bugzilla.redhat.com/1529965) <b>OVA import: querying OVA file from import dialog failed with NullPointerException</b><br>
@@ -165,7 +170,7 @@ packages from other repos.
  - [BZ 1527416](https://bugzilla.redhat.com/1527416) <b>Wrong state returned in VM getStats when actual state changes in the middle</b><br>
  - [BZ 1518676](https://bugzilla.redhat.com/1518676) <b>Entire vdsm process hang during when formatting xlease volume on NFS storage domain</b><br>
  - [BZ 1526133](https://bugzilla.redhat.com/1526133) <b>[SR-IOV] hot-plug of vNIC on running VM fails with VDSErrorException</b><br>
- - [BZ 1523152](https://bugzilla.redhat.com/1523152) <b>[downstream clone - 4.2.1] Guest LVs created on raw volumes are auto activated on the hypervisor with FC storage (lvm filter?)</b><br>
+ - [BZ 1449968](https://bugzilla.redhat.com/1449968) <b>Guest LVs created on raw volumes are auto activated on the hypervisor with FC storage (lvm filter?)</b><br>
  - [BZ 1532133](https://bugzilla.redhat.com/1532133) <b>Preallocated volume convert to sparse volume after live storage migration to file based storage domain</b><br>
  - [BZ 1530072](https://bugzilla.redhat.com/1530072) <b>Vdsm can get into D state when checking disk type on non-responsive NFS server</b><br>
 
@@ -199,6 +204,7 @@ packages from other repos.
 
  - [BZ 1527394](https://bugzilla.redhat.com/1527394) <b>[HE] - SHE ha-host's score is unstable and hosted-engine.conf is not equal on both ha-hosts.</b><br>
  - [BZ 1353713](https://bugzilla.redhat.com/1353713) <b>[RFE] - Hosted Engine: iSCSI Setup Should use different User/Password For Discovery and Portal</b><br>
+ - [BZ 1540850](https://bugzilla.redhat.com/1540850) <b>ansible flow needs better logging</b><br>
  - [BZ 1537630](https://bugzilla.redhat.com/1537630) <b>Hosted engine VM cannot be edited using the UI, because it has priority 0</b><br>
  - [BZ 1537153](https://bugzilla.redhat.com/1537153) <b>iSCSI deployment of node zero fails with "'ansible.errors.AnsibleUndefinedVariable'>\nexception: 'int object' has no attribute 'split'"}".</b><br>
  - [BZ 1532213](https://bugzilla.redhat.com/1532213) <b>[HE] in deploy of Hosted Engine with ansible we should remove the otopi question "generate on-fly a cloud-init ISO image..." since its not supported.</b><br>
@@ -212,29 +218,28 @@ packages from other repos.
 
 #### oVirt Release Package
 
- - [BZ 1516123](https://bugzilla.redhat.com/1516123) <b>tuned-adm timeout while adding the host in manager and the deployment will fail/take time to complete</b><br>
  - [BZ 1526850](https://bugzilla.redhat.com/1526850) <b>brand is missing on cockpit login screen.</b><br>
 
 #### oVirt Engine
 
+ - [BZ 1541233](https://bugzilla.redhat.com/1541233) <b>bad "before" or "after" parameters in _misc_configure_ovn_pki</b><br>
+ - [BZ 1539656](https://bugzilla.redhat.com/1539656) <b>Deploying a node in HC cluster fails due to cgroups role</b><br>
  - [BZ 1528292](https://bugzilla.redhat.com/1528292) <b>Recursion in HostDeviceManager and other services prevents engine to startup successfully</b><br>
  - [BZ 1531995](https://bugzilla.redhat.com/1531995) <b>[UI] Unable to set a vNIC profile on network interface window</b><br>
  - [BZ 1532013](https://bugzilla.redhat.com/1532013) <b>New/Edit network - Labels drop down list is gone</b><br>
  - [BZ 1532046](https://bugzilla.redhat.com/1532046) <b>ovn localnet: attachment of ovn network to data center network is not saved</b><br>
  - [BZ 1526815](https://bugzilla.redhat.com/1526815) <b>Backup restore API: Transient volume is not created on compatibility version-4.2  after backup VM start with snapshot disk from source VM attached</b><br>
- - [BZ 1519811](https://bugzilla.redhat.com/1519811) <b>On upgrade from RHEV-3.6 to RHV-4, max_memory_size_mb seems hardly set to 1TB</b><br>
  - [BZ 1525374](https://bugzilla.redhat.com/1525374) <b>EngineException: Failed to GetLldpVDS, error = The method does not exist / is not available when running a 3.6 host in rhv 4.2 engine</b><br>
  - [BZ 1526260](https://bugzilla.redhat.com/1526260) <b>Previewing snapshot for VM A actually snapshots disks of VM B, both get broken.</b><br>
  - [BZ 1493914](https://bugzilla.redhat.com/1493914) <b>ISCSI targets results in duplicate connections with incorrect node.tpgt values.</b><br>
  - [BZ 1518509](https://bugzilla.redhat.com/1518509) <b>Numa aware ksm state in file /sys/kernel/mm/ksm/merge_across_nodes  always remains  1</b><br>
- - [BZ 1523297](https://bugzilla.redhat.com/1523297) <b>Engine fails to create OVN subnet</b><br>
+ - [BZ 1529119](https://bugzilla.redhat.com/1529119) <b>Upgrade from RHV 4.1 to 4.2 with OVN provider name: ovirt-provider-ovn fails</b><br>
  - [BZ 1484199](https://bugzilla.redhat.com/1484199) <b>Device.map can't be updated to vda if import rhel7.4 guest from kvm source at rhv4.1</b><br>
  - [BZ 1522799](https://bugzilla.redhat.com/1522799) <b>[RFE] - DR: On template\vm registration, vnic_profile_mappings should be under registration_configuration</b><br>
- - [BZ 1530723](https://bugzilla.redhat.com/1530723) <b>[RFE] Add posibility to specify verbose mode of ansible-playbook execution by engine configuration value</b><br>User can specify the ansible-playbook command verbose level, which is used by engine.<br>To change the value permanentaly create a configuration file 99-ansible-playbook-verbose-level.conf in /etc/ovirt-engine/engine.conf.d/ with following content:<br>ANSIBLE_PLAYBOOK_VERBOSE_LEVEL=4
+ - [BZ 1530723](https://bugzilla.redhat.com/1530723) <b>[RFE] Add posibility to specify verbose mode of ansible-playbook execution by engine configuration value</b><br>User can specify the ansible-playbook command verbose level, which is used by engine.<br>To change the value permanentaly create a configuration file 99-ansible-playbook-verbose-level.conf in /etc/ovirt-engine/engine.conf.d/ with following content:<br>ANSIBLE_PLAYBOOK_VERBOSE_LEVEL=4
  - [BZ 1534227](https://bugzilla.redhat.com/1534227) <b>Confusing logging when cold-moving a disk - the term CreateSnapshot is referenced</b><br>
  - [BZ 1532040](https://bugzilla.redhat.com/1532040) <b>Webadmin: Available LUNs are grayed out in block domain creation prompt</b><br>
  - [BZ 1528297](https://bugzilla.redhat.com/1528297) <b>Reinstalling host on 'ovirt-provider-ovn' cluster doesn't deploy OVN</b><br>
- - [BZ 1517245](https://bugzilla.redhat.com/1517245) <b>[ALL_LANG] Truncated column names appear on volumes -> bricks -> advanced details -> memory pools page</b><br>
  - [BZ 1525912](https://bugzilla.redhat.com/1525912) <b>allow to create cluster without specifying cpu type</b><br>
  - [BZ 1510384](https://bugzilla.redhat.com/1510384) <b>iSCSI Storage domain's size after executing 'reduceluns' via REST API or 'Remove LUNs' via UI doesn't seem to be updated</b><br>
  - [BZ 1528724](https://bugzilla.redhat.com/1528724) <b>Import ova playbooks assume that ovf comes first in OVA</b><br>
@@ -345,16 +350,18 @@ packages from other repos.
 
 #### oVirt Host Deploy
 
+ - [BZ 1539040](https://bugzilla.redhat.com/1539040) <b>host-deploy stops libvirt-guests triggering a shutdown of all the running VMs (including HE one)</b><br>
  - [BZ 1533390](https://bugzilla.redhat.com/1533390) <b>Start glustereventsd while deploying host</b><br>
 
 #### imgbased
 
  - [BZ 1528468](https://bugzilla.redhat.com/1528468) <b>oVirt NGN kickstart-based install fails during imgbased layout initialization after installing an rpm package in %post</b><br>
- - [BZ 1538925](https://bugzilla.redhat.com/1538925) <b>Failed to upgrade to rhvh-4.1-0.20180125.0</b><br>
  - [BZ 1519784](https://bugzilla.redhat.com/1519784) <b>oVirt Node upgrade fails if SELINUX is disabled</b><br>
 
 #### oVirt Cockpit Plugin
 
+ - [BZ 1541029](https://bugzilla.redhat.com/1541029) <b>[cockpit][vintage otopi][iscsi] iSCSI discovery systematically fails</b><br>
+ - [BZ 1539497](https://bugzilla.redhat.com/1539497) <b>Generating answer file with the incorrect domainType ('nfs' instead of 'nfs3') while deploying HE via cockpit based vintage deployment</b><br>
  - [BZ 1415179](https://bugzilla.redhat.com/1415179) <b>[RFE] provide a way for the user to setup-cache</b><br>
  - [BZ 1523573](https://bugzilla.redhat.com/1523573) <b>[RFE] Change 'Standard' term in cockpit deployment to 'Hosted Engine Only Deployment'</b><br>
  - [BZ 1538930](https://bugzilla.redhat.com/1538930) <b>The vintage (based-otopi) deployment didn't use deprecated python flow while deploying HE via cockpit.</b><br>
@@ -377,6 +384,7 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1523297](https://bugzilla.redhat.com/1523297) <b>Engine fails to create OVN subnet</b><br>
  - [BZ 1517108](https://bugzilla.redhat.com/1517108) <b>[ALL_LANG except zh_CN, ko_KR] Table headers getting truncated on compute->virtual machines-> disks -> new -> direct LUN page.</b><br>
  - [BZ 1418197](https://bugzilla.redhat.com/1418197) <b>[fr_FR] [Admin Portal] The UI alignment needs to be corrected on cluster->new->optimization page.</b><br>
  - [BZ 1497665](https://bugzilla.redhat.com/1497665) <b>NPE in ovirt-engine/docs/manual</b><br>
@@ -389,3 +397,7 @@ packages from other repos.
 #### oVirt Provider OVN
 
  - [BZ 1528166](https://bugzilla.redhat.com/1528166) <b>Log source IP and port on requests to the authorization module</b><br>
+
+#### imgbased
+
+ - [BZ 1538925](https://bugzilla.redhat.com/1538925) <b>Failed to upgrade to rhvh-4.1-0.20180125.0</b><br>

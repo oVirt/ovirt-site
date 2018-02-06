@@ -85,7 +85,7 @@ Connecting to a host is secured by default, pass --insecure to connect in an ins
 
 For invoking methods with many or complex parameters, you can read the parameters from a JSON format file:
 
-`   # vdsm-client Lease info -f lease.json`
+`   # vdsm-client -f lease.json Lease info`
 
 where lease.json file content is:
 
@@ -104,7 +104,7 @@ It is also possible to read parameters from standard input, creating complex par
 
 
 ```
-   # cat <<EOF | vdsm-client Lease info -f -
+   # cat <<EOF | vdsm-client -f - Lease info
      {
          "lease": {
 	     "sd_id": "75ab40e3-06b1-4a54-a825-2df7a40b93b2",

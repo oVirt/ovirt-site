@@ -12,33 +12,6 @@ Installing the Guest Agent in a Ubuntu virtual machine is fairly simple and will
 
 ## Using apt-get via terminal to install the oVirt Guest Tools
 
-### For Ubuntu 12.04
-
-1. From a terminal session, type the following
-
-<!-- -->
-
-    # sudo nano -w /etc/apt/sources.list.d/ovirt-guest-agent.list
-
-2. Paste in the following source.
-
-<!-- -->
-
-    deb http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/12.04/xUbuntu_12.04/ /
-
-3. Press CTRL + O (enter) to save and CTRL + X to exit
-
-4. Then, continuing in the terminal session, type the following:
-
-<!-- -->
-
-    # wget http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/12.04/xUbuntu_12.04/Release.key
-    # sudo apt-key add - < Release.key  
-    # sudo apt-get update
-    # sudo apt-get install ovirt-guest-agent
-
-The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-guest-agent** and any required dependencies.
-
 ### For Ubuntu 13.10
 
 1. From a terminal session, type the following
@@ -123,6 +96,58 @@ The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-g
 ## Starting the service
 
 The install will automatically start ovirt-guest-agent and set it to automatically start on boot.
+
+## Building from source
+
+Packages for Ubuntu 12.04 do no longer exist, so you will have to build from source:
+
+1. Install dependencies
+
+<!-- -->
+
+    # sudo apt-get update
+    # sudo apt-get install -y pkg-config pep8 libtool usermode python-ethtool git autoconf make
+
+2. Clone Git repository
+
+<!-- -->
+
+    # cd /tmp
+    # git clone https://github.com/oVirt/ovirt-guest-agent.git
+
+4. Select a version to build
+
+<!-- -->
+
+    # cd ovirt-guest-agent
+    # git checkout 1.0.14
+
+3. Configure, build and install
+
+<!-- -->
+
+    # ./autogen.sh
+    # ./configure --prefix=/usr --without-sso
+    # make
+    # sudo make install
+    # sudo chmod +x /usr/share/ovirt-guest-agent/ovirt-guest-agent.py
+
+4. Create an Upstart script to start the service when booting
+
+<!-- -->
+
+    # sudo sh -c 'echo "description \"oVirt Guest Agent\"
+    start on local-filesystems
+    stop on runlevel [!2345]
+    respawn
+    exec /usr/share/ovirt-guest-agent/ovirt-guest-agent.py
+    " > /etc/init/ovirt-guest-agent.conf'
+
+5. Reboot or start the service manually
+
+<!-- -->
+
+    # sudo service ovirt-guest-agent start
 
 ## Troubleshooting
 

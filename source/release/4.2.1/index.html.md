@@ -139,7 +139,7 @@ packages from other repos.
 
 #### oVirt Hosted Engine Setup
 
- - [BZ 1543988](https://bugzilla.redhat.com/1543988) <b>hosted-engine --get-shared-config rewrites all the hosted-engine configuration files loosing spm id</b><br>Cause: <br>Cause:<br>'hosted-engine --get-shared-config' and 'hosted-engine --set-shared-config' always rewrite all the HE configuration files with the copy on the shared storage.<br>/etc/ovirt-hosted-engine/hosted-engine.conf contains host_id field with the SPM ID to be used on the host while the shared copy on the shared storage that contains only host_id=1<br><br>Consequence:<br>This can cause an SPM collision in the future.<br>
+ - [BZ 1543988](https://bugzilla.redhat.com/1543988) <b>hosted-engine --get-shared-config rewrites all the hosted-engine configuration files loosing spm id</b><br>Cause: <br>'hosted-engine --get-shared-config' and 'hosted-engine --set-shared-config' always rewrite all the HE configuration files with the copy on the shared storage.<br>/etc/ovirt-hosted-engine/hosted-engine.conf contains host_id field with the SPM ID to be used on the host while the shared copy on the shared storage that contains only host_id=1<br><br>Consequence:<br>This can cause an SPM collision in the future.<br>
 <br>Workaround:<br>Manually restore host_id in /etc/ovirt-hosted-engine/hosted-engine.conf after 'hosted-engine --get-shared-config' or 'hosted-engine --set-shared-config'<br><br>
 
 ### Bug Fixes

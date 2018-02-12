@@ -137,6 +137,11 @@ packages from other repos.
 
  - [BZ 1523614](https://bugzilla.redhat.com/1523614) <b>Copy image to a block storage destination does not work after disk extension in a snapshot in DC pre-4.0</b><br>Cause: <br>qemu-img convert with compat=0.10 and a backing file writes <br>the space after the backing file as zeroes which may cause the output disk be larger than the LV created for it<br><br>Consequence: <br>Moving a disk that has snapshot created prior to its extension will fail in storage domains with a version older than V4 (i.e., domains in DC 4.0 or older)<br><br>Fix: <br>The move operation of a disk with snapshots created prior to its extension will be blocked with an error message stating the deletion of the disk's snapshot is required before attempting to move it, instead of attempting to execute the copying and waiting for it to fail.<br><br>Result:
 
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1543988](https://bugzilla.redhat.com/1543988) <b>hosted-engine --get-shared-config rewrites all the hosted-engine configuration files loosing spm id</b><br>Cause: <br>Cause:<br>'hosted-engine --get-shared-config' and 'hosted-engine --set-shared-config' always rewrite all the HE configuration files with the copy on the shared storage.<br>/etc/ovirt-hosted-engine/hosted-engine.conf contains host_id field with the SPM ID to be used on the host while the shared copy on the shared storage that contains only host_id=1<br><br>Consequence:<br>This can cause an SPM collision in the future.<br>
+<br>Workaround:<br>Manually restore host_id in /etc/ovirt-hosted-engine/hosted-engine.conf after 'hosted-engine --get-shared-config' or 'hosted-engine --set-shared-config'<br><br>
+
 ### Bug Fixes
 
 #### oVirt Hosted Engine Setup

@@ -7,22 +7,13 @@ layout: toc
 # oVirt 4.2.1 Release Notes
 
 The oVirt Project is pleased to announce the availability of the 4.2.1
-Sixth Release Candidate
- as of February 06, 2018.
+release as of February 12, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.4,
 CentOS Linux 7.4 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -38,21 +29,25 @@ To learn about features introduced before 4.2.1, see the [release notes for prev
 ### CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
+
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 
 
@@ -106,6 +101,10 @@ packages from other repos.
 #### oVirt Host Dependencies
 
  - [BZ 1425032](https://bugzilla.redhat.com/1425032) <b>[RFE] Include katello agent in RHV-H NG</b><br>Feature: Katello Agent is now installed on RHV hosts during deployment and is included in RHV-H image<br><br>Reason: to better integrate with Satellite. Katello Agent provides the list of the installed rpms.<br><br>Result: katello-agent is installed and working on RHV / RHV-H Hosts
+
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1353713](https://bugzilla.redhat.com/1353713) <b>[RFE] - Hosted Engine: iSCSI Setup Should use different User/Password For Discovery and Portal</b><br>hosted-engine-setup was assuming that the user set the same CHAP username and password for iSCSI discovery and iSCSI login.<br>Let the user pass different username and password couples for iSCSI discover and iSCSI login at setup time.
 
 #### OTOPI
 
@@ -174,6 +173,10 @@ packages from other repos.
  - [BZ 1532133](https://bugzilla.redhat.com/1532133) <b>Preallocated volume convert to sparse volume after live storage migration to file based storage domain</b><br>
  - [BZ 1530072](https://bugzilla.redhat.com/1530072) <b>Vdsm can get into D state when checking disk type on non-responsive NFS server</b><br>
 
+#### oVirt Host Deploy
+
+ - [BZ 1539040](https://bugzilla.redhat.com/1539040) <b>host-deploy stops libvirt-guests triggering a shutdown of all the running VMs (including HE one)</b><br>
+
 #### imgbased
 
  - [BZ 1493176](https://bugzilla.redhat.com/1493176) <b>RHVH stuck on startup after 'probing EDD... ok' step</b><br>
@@ -203,7 +206,6 @@ packages from other repos.
 #### oVirt Hosted Engine Setup
 
  - [BZ 1527394](https://bugzilla.redhat.com/1527394) <b>[HE] - SHE ha-host's score is unstable and hosted-engine.conf is not equal on both ha-hosts.</b><br>
- - [BZ 1353713](https://bugzilla.redhat.com/1353713) <b>[RFE] - Hosted Engine: iSCSI Setup Should use different User/Password For Discovery and Portal</b><br>
  - [BZ 1540850](https://bugzilla.redhat.com/1540850) <b>ansible flow needs better logging</b><br>
  - [BZ 1537630](https://bugzilla.redhat.com/1537630) <b>Hosted engine VM cannot be edited using the UI, because it has priority 0</b><br>
  - [BZ 1537153](https://bugzilla.redhat.com/1537153) <b>iSCSI deployment of node zero fails with "'ansible.errors.AnsibleUndefinedVariable'>\nexception: 'int object' has no attribute 'split'"}".</b><br>
@@ -223,6 +225,7 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1541233](https://bugzilla.redhat.com/1541233) <b>bad "before" or "after" parameters in _misc_configure_ovn_pki</b><br>
+ - [BZ 1535393](https://bugzilla.redhat.com/1535393) <b>[PPC] Failed to run VM, unsupported configuration: setting ACPI S3 not supported.</b><br>
  - [BZ 1539656](https://bugzilla.redhat.com/1539656) <b>Deploying a node in HC cluster fails due to cgroups role</b><br>
  - [BZ 1528292](https://bugzilla.redhat.com/1528292) <b>Recursion in HostDeviceManager and other services prevents engine to startup successfully</b><br>
  - [BZ 1531995](https://bugzilla.redhat.com/1531995) <b>[UI] Unable to set a vNIC profile on network interface window</b><br>
@@ -244,7 +247,6 @@ packages from other repos.
  - [BZ 1510384](https://bugzilla.redhat.com/1510384) <b>iSCSI Storage domain's size after executing 'reduceluns' via REST API or 'Remove LUNs' via UI doesn't seem to be updated</b><br>
  - [BZ 1528724](https://bugzilla.redhat.com/1528724) <b>Import ova playbooks assume that ovf comes first in OVA</b><br>
  - [BZ 1527318](https://bugzilla.redhat.com/1527318) <b>The engine fails to deploy hosted-engine host: Exception: java.lang.IllegalArgumentException: No enum constant org.ovirt.engine.core.common.businessentities.network.VmInterfaceType.virtio</b><br>
- - [BZ 1528721](https://bugzilla.redhat.com/1528721) <b>/var/log/ovirt-engine/ova not created during clean install</b><br>
  - [BZ 1511369](https://bugzilla.redhat.com/1511369) <b>REST: add external network provider by name</b><br>
  - [BZ 1486761](https://bugzilla.redhat.com/1486761) <b>[UI] cloud-init: improve networking text</b><br>
  - [BZ 1495535](https://bugzilla.redhat.com/1495535) <b>Add validation to disallow hotplug memory if vm uses huge pages</b><br>
@@ -350,7 +352,6 @@ packages from other repos.
 
 #### oVirt Host Deploy
 
- - [BZ 1539040](https://bugzilla.redhat.com/1539040) <b>host-deploy stops libvirt-guests triggering a shutdown of all the running VMs (including HE one)</b><br>
  - [BZ 1533390](https://bugzilla.redhat.com/1533390) <b>Start glustereventsd while deploying host</b><br>
 
 #### imgbased
@@ -381,6 +382,7 @@ packages from other repos.
 
  - [BZ 1529131](https://bugzilla.redhat.com/1529131) <b>iscsi target password visible when having authentication error on deployment</b><br>
  - [BZ 1529490](https://bugzilla.redhat.com/1529490) <b>hosted-engine failed to deploy because of permission error for the cloud-init iso file</b><br>
+ - [BZ 1530209](https://bugzilla.redhat.com/1530209) <b>[RFE] when choosing ISCSI - display lun's number to help the user identify the luns</b><br>
 
 #### oVirt Engine
 

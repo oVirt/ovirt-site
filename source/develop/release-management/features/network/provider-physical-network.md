@@ -28,13 +28,13 @@ This feature replaces OVS bridges networking in oVirt, later it will be extended
 
 ### Create a cluster with Network Type set to OVS
 
-This feature requires Cluster enabled with Open vSwitch networking. Create a new Cluster with `Switch Type` set to `OVS (experimental)`.
+This feature requires Cluster enabled with Open vSwitch networking. Create a new Cluster with `Switch Type` set to `OVS (experimental)`. Please note, that used Hosts must not have any pre-existing oVirt networks (e.g. ovirtmgmt bridge).
 
 ### Create an external network on top of a physical network
 
 There are several ways to use this feature.
 
-- **Select physical network from data center networks.** When creating a new external network, select `Data Center Network` in `Physical Network` section and pick the desired oVirt network from the drop down list. Engine then uses the VDSM network name and VLAN ID from the selected network. This can also be done via REST API using `<external_provider_physical_network id="123"/>`, see [ovirt-engine-api-model documentation](http://ovirt.github.io/ovirt-engine-api-model/4.2/#types/network).
+- **Select physical network from data center networks.** When creating a new external network, select `Data Center Network` in `Physical Network` section and pick the desired oVirt network from the drop down list. Note, that this network must be attached on all hosts in the cluster. Engine then uses the VDSM network name and VLAN ID from the selected network. This can also be done via REST API using `<external_provider_physical_network id="123"/>`, see [ovirt-engine-api-model documentation](http://ovirt.github.io/ovirt-engine-api-model/4.2/#types/network).
 
 - **Create external network implicitly with physical network.** To make this feature more exposed, we implicitly create a matching external OVN network for each new OVS based oVirt network marked as `VM Network`. However, there is no connection between them afterwards, they behave as separate units.
 
@@ -42,7 +42,7 @@ There are several ways to use this feature.
 
 ![add an external network connected to a physical network ManageIQ dialog](/images/features/network/provider-physical-network_new-network-dialog-miq.png)
 
-- **Select physical network via a custom physical network name and optional VLAN.** This option is mostly for backward compatibility and for external providers that are not integrated with oVirt Data Center Networks as described in the first option. When creating a new external network, set `Physical Network` to physical network name, it will be passed to provider as `provider:physical_network`. If the physical network has VLAN tagging enabled, check `Enable VLAN tagging` and set the physical network's tag there, it will be passed to provider as `provider:segmentation_id`. When VLAN is specified, `provider:network_type` is set to `vlan`, `flat` otherwise. In case a network name is longer than 15 characters or contains special characters, this option would not work with the OVN implementation. Using the first option is advised.
+- **Select physical network via a custom physical network name and optional VLAN.** This option is mostly for backward compatibility and for external providers that are not integrated with oVirt Data Center Networks as described in the first option. When creating a new external network, set `Physical Network` to physical network name, it will be passed to provider as `provider:physical_network`. If the physical network has VLAN tagging enabled, check `Enable VLAN tagging` and set the physical network's tag there, it will be passed to provider as `provider:segmentation_id`. When VLAN is specified, `provider:network_type` is set to `vlan`, `flat` otherwise. In case a network name is longer than 15 characters or contains special characters, this option will not work with the OVN implementation, and using the first option is advised.
 
 ![add an external network connected to a physical network Engine dialog](/images/features/network/provider-physical-network_new-network-dialog-engine.png)
 

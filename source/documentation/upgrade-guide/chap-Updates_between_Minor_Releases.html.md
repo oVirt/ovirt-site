@@ -8,6 +8,8 @@ title: Updates Between Minor Releases
 
 Updates to the oVirt Engine are released via the oVirt Project.
 
+Note: If you are using a [Self-Hosted Engine](/self-hosted/Self-Hosted_Engine_Guide/) this does not apply.
+
 **Updating oVirt Engine**
 
 1. On the oVirt Engine machine, check if updated packages are available:
@@ -57,6 +59,54 @@ Updates to the oVirt Engine are released via the oVirt Project.
         # engine-setup
 
 **Important:** The update process may take some time; allow time for the update process to complete and do not stop the process once initiated.
+
+## Updating the oVirt Self-Hosted Engine and Underlying Virtualization Host(s)
+
+The process for upgrading a [Self-Hosted Engine](/self-hosted/Self-Hosted_Engine_Guide/) is slightly different as the engine is running as a VM.
+
+The following assumes that you have already deployed the Hosted Engine on your hosts and the Hosted Engine VM is running the same oVirt version as the host(s).
+
+1.  Virtualization Host: Enable global maintenance mode from one of the hosts
+```
+host ~ # hosted-engine --set-maintenance --mode=global
+```
+
+2.  Virtualization Host: Update packages (you may need to changes repository to latest version or install the latest versions metapackage e.g. ovirt-release42-4.2.1)
+```
+host ~ # yum update
+```
+
+3.  Virtualization Host: Restart vdsmd
+```
+host ~ # systemctl restart vdsmd
+```
+
+4.  Virtualization Host: Restart ha-agent and broker services
+```
+host ~ # systemctl restart ovirt-ha-broker && systemctl restart ovirt-ha-agent
+```
+
+5.  Hosted-Engine-VM: Update packages
+```
+hosted-engine ~ # yum update
+```
+
+6.  Hosted-Engine-VM: Run engine-setup and follow the prompts
+```
+hosted-engine ~ # engine-setup
+```
+
+7.  Host: Exit the global maintenance mode, after a few minutes the engine VM should migrate to the fresh upgraded host cause it will get an higher score.
+```
+host ~ #  hosted-engine --set-maintenance --mode=none
+```
+
+8. Host: When the engine VM migration has been completed re-enter global maintenance mode
+9. Repeat step 3-6 for all the other hosted-engine hosts
+10. Via the web UI update the cluster compatibility version to current version (for example from 4.1 to 4.2) and activate your hosts
+11. Exit global maintenance mode
+
+Note: You can enter and exit maintenance mode it via the web UI (right click on engine vm, and 'Enable/Disable Global HA Maintenance Mode')
 
 ## Updating Virtualization Hosts
 

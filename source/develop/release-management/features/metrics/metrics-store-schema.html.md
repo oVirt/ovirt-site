@@ -199,18 +199,18 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
 | collectd.virt.memory | memory | rss / total /actual_balloon / available / unused / usable / last_update / major_fault / minor_fault / swap_in / swap_out | vm name | gauge |
-| collectd.virt.disk_octets | disk_octets.read | disk name | vm name | gauge |
-| collectd.virt.disk_octets | disk_octets.write | disk name | vm name | gauge |
-| collectd.virt.disk_ops | disk_ops.read | disk name | vm name | gauge |
-| collectd.virt.disk_ops | disk_ops.write | disk name | vm name | gauge |
-| collectd.virt.if_dropped | if_dropped.rx | network name | vm name | derive |
-| collectd.virt.if_dropped | if_dropped.tx | network name | vm name | derive |
-| collectd.virt.if_errors | if_errors.rx | network name | vm name | derive |
-| collectd.virt.if_errors | if_errors.tx | network name | vm name | derive |
-| collectd.virt.if_octets | if_octets.rx | network name | vm name | derive |
-| collectd.virt.if_octets | if_octets.tx | network name | vm name | derive |
-| collectd.virt.if_packets | if_packets.rx | network name | vm name | derive |
-| collectd.virt.if_packets | if_packets.tx | network name | vm name | derive |
+| collectd.virt.disk_octets.read | disk_octets.read | disk name | vm name | gauge |
+| collectd.virt.disk_octets.write | disk_octets.write | disk name | vm name | gauge |
+| collectd.virt.disk_ops.read | disk_ops.read | disk name | vm name | gauge |
+| collectd.virt.disk_ops.write | disk_ops.write | disk name | vm name | gauge |
+| collectd.virt.if_dropped.rx | if_dropped.rx | network name | vm name | derive |
+| collectd.virt.if_dropped.tx | if_dropped.tx | network name | vm name | derive |
+| collectd.virt.if_errors.rx | if_errors.rx | network name | vm name | derive |
+| collectd.virt.if_errors.tx | if_errors.tx | network name | vm name | derive |
+| collectd.virt.if_octets.rx | if_octets.rx | network name | vm name | derive |
+| collectd.virt.if_octets.tx | if_octets.tx | network name | vm name | derive |
+| collectd.virt.if_packets.rx | if_packets.rx | network name | vm name | derive |
+| collectd.virt.if_packets.tx | if_packets.tx | network name | vm name | derive |
 | collectd.virt.virt_cpu_total | virt_cpu_total | cpu number | vm name | derive |
 | collectd.virt.virt_vcpu | virt_vcpu | cpu number | vm name | derive |
 | collectd.virt.percent | percent | virt_cpu_total | vm name | gauge |

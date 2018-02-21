@@ -14,4 +14,6 @@ title: oVirt-Gluster Hyperconvergence  Guide
 
 ## Chapter 5: [Maintenance and Upgrading Resources](../chap-Maintenance_and_Upgrading_Resources)
 
+## Chapter 6: [Single Node oVirt and Gluster hyperconverged](../chap-Single_node_hyperconverged)
+
 

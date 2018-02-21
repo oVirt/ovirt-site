@@ -28,8 +28,6 @@ Meanings of `<video>` element attributes in domain XML:
 
 ## QXL QEMU driver
 
-**Warning:** The following applies only to oVirt 3.6, things may completely change in 4.0.
-
 **Please note** that all the information about video RAM sizes below should be taken with grain of salt. Nobody knows the perfect ultimate answer to that topic, there are different guest OS drivers and as stated above, things may completely change in oVirt 4. Users should be able to override the computed default settings if they use uncommon arrangements or the computed values don't work well for them. This can be done using before_vm_start VDSM hook.
 
 You can look for implementation details in qxl.c in QEMU sources. But don't rely on anything, things may change, so it's a good idea to get confirmation from QEMU and/or libvirt developers about everything.

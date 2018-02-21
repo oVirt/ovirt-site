@@ -1,6 +1,5 @@
 ---
 title: Video RAM
-category: draft-documentation
 authors: mzamazal
 ---
 

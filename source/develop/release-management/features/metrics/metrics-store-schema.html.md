@@ -189,40 +189,37 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 |-------------------------|---------------|------------------------|--------------------------|------------------|
 | collectd.statsd.host_storage | host_storage | storage uuid |   | gauge |
 
-## Statsd Plugin (VDSM vm stats)
+## Virt Plugin
 
- - collectd.plugin: statsd
+ - collectd.plugin: virt
  - ovirt.entity: vm
  - ovirt.engine_fqdn.raw: _FQDN of the engine_
  - ovirt.cluster_name.raw: _Cluster name_
 
 | Metric value field name | collectd.type | collectd.type_instance | collectd.plugin_instance | collectd.dstypes |
 |-------------------------|---------------|------------------------|--------------------------|------------------|
-| collectd.statsd.vm_balloon_cur | vm_balloon_cur |   | vm name | gauge |
-| collectd.statsd.vm_balloon_max | vm_balloon_max |   | vm name | gauge |
-| collectd.statsd.vm_balloon_min | vm_balloon_min |   | vm name | gauge |
-| collectd.statsd.vm_balloon_target | vm_balloon_target |   | vm name | gauge |
-| collectd.statsd.vm_cpu_sys | vm_cpu_sys |   | vm name | gauge |
-| collectd.statsd.vm_cpu_usage | vm_cpu_usage |   | vm name | gauge |
-| collectd.statsd.vm_cpu_user | vm_cpu_user |   | vm name | gauge |
-| collectd.statsd.vm_disk_apparent_size | vm_disk_apparent_size | disk name | vm name | gauge |
-| collectd.statsd.vm_disk_flush_latency | vm_disk_flush_latency | disk name | vm name | gauge |
-| collectd.statsd.vm_disk_read_bytes | vm_disk_read_bytes | disk name | vm name | gauge |
-| collectd.statsd.vm_disk_read_latency | vm_disk_read_latency | disk name | vm name | gauge |
-| collectd.statsd.vm_disk_read_ops | vm_disk_read_ops | disk name | vm name | gauge |
-| collectd.statsd.vm_disk_read_rate | vm_disk_read_rate | disk name | vm name | gauge |
-| collectd.statsd.vm_disk_true_size | vm_disk_true_size | disk name | vm name | gauge |
-| collectd.statsd.vm_disk_write_bytes | vm_disk_write_bytes | disk name | vm name | gauge |
-| collectd.statsd.vm_disk_write_latency | vm_disk_write_latency | disk name | vm name | gauge |
-| collectd.statsd.vm_disk_write_ops | vm_disk_write_ops | disk name | vm name | gauge |
-| collectd.statsd.vm_disk_write_rate | vm_disk_write_rate | disk name | vm name | gauge |
-| collectd.statsd.vm_nic_rx_bytes | vm_nic_rx_bytes | network name | vm name | gauge |
-| collectd.statsd.vm_nic_rx_dropped | vm_nic_rx_dropped | network name | vm name | gauge |
-| collectd.statsd.vm_nic_rx_errors | vm_nic_rx_errors | network name | vm name | gauge |
-| collectd.statsd.vm_nic_speed | vm_nic_speed | network name | vm name | gauge |
-| collectd.statsd.vm_nic_tx_bytes | vm_nic_tx_bytes | network name | vm name | gauge |
-| collectd.statsd.vm_nic_tx_dropped | vm_nic_tx_dropped | network name | vm name | gauge |
-| collectd.statsd.vm_nic_tx_errors | vm_nic_tx_errors | network name | vm name | gauge |
+| collectd.virt.memory | memory | rss / total /actual_balloon / available / unused / usable / last_update / major_fault / minor_fault / swap_in / swap_out | vm name | gauge |
+| collectd.virt.disk_octets | disk_octets.read | disk name | vm name | gauge |
+| collectd.virt.disk_octets | disk_octets.write | disk name | vm name | gauge |
+| collectd.virt.disk_ops | disk_ops.read | disk name | vm name | gauge |
+| collectd.virt.disk_ops | disk_ops.write | disk name | vm name | gauge |
+| collectd.virt.if_dropped | if_dropped.rx | network name | vm name | derive |
+| collectd.virt.if_dropped | if_dropped.tx | network name | vm name | derive |
+| collectd.virt.if_errors | if_errors.rx | network name | vm name | derive |
+| collectd.virt.if_errors | if_errors.tx | network name | vm name | derive |
+| collectd.virt.if_octets | if_octets.rx | network name | vm name | derive |
+| collectd.virt.if_octets | if_octets.tx | network name | vm name | derive |
+| collectd.virt.if_packets | if_packets.rx | network name | vm name | derive |
+| collectd.virt.if_packets | if_packets.tx | network name | vm name | derive |
+| collectd.virt.virt_cpu_total | virt_cpu_total | cpu number | vm name | derive |
+| collectd.virt.virt_vcpu | virt_vcpu | cpu number | vm name | derive |
+| collectd.virt.percent | percent | virt_cpu_total | vm name | gauge |
+| collectd.virt.ps_cputime.user | ps_cputime.user |  | vm name | derive |
+| collectd.virt.ps_cputime.syst | ps_cputime.syst |  | vm name | derive |
+| collectd.virt.total_requests | total_requests | flush-DISK | vm name | derive |
+| collectd.virt.total_time_in_ms | total_time_in_ms | flush-DISK | vm name | derive |
+| collectd.virt.virt_vcpu | virt_vcpu | cpu number | vm name | derive |
+
 
 ## Postgresql Plugin
 

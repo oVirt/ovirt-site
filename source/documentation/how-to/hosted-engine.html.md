@@ -73,15 +73,17 @@ To deploy the self-hosted engine using the Cockpit user interface, follow these 
         
 3. Open 9090 port:
 
-        # firewall-cmd --add-port=9090/tcp --permanent
+        # firewall-cmd --add-service=cockpit --permanent
         # firewall-cmd --reload
         
 4. Log in to the UI at https://HostIPorFQDN:9090
+   
+   By default, you should get a warning/popup from your browser about a self-signed certificate, unknown issuer, or something like that. Accept it, or see for [more details](http://cockpit-project.org/guide/149/https.html)
 5. Navigate to *Virtualization* > *Hosted Engine*
 6. Select *Hosted Engine Only Deployment*
 7. Select a deployment method from the scrolldown menu:
    1. OTOPI-Based deployment - stable
-   2. Ansible-Based deployment - preview
+   2. Ansible-Based deployment - preview (see [Feature page](https://www.ovirt.org/develop/release-management/features/sla/hosted-engine-new-deployment/) )
 8. Press the *start* button
 
 **Notes:**

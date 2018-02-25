@@ -27,7 +27,7 @@ Greg Padgett <gpadgett@redhat.com>, Martin Sivak <msivak@redhat.com>
 *   NFS-based shared storage (since 3.4.0) or [iSCSI storage](/develop/release-management/features/sla/self-hosted-engine-iscsi-support/) (since 3.5.0 beta)
 *   Access to the oVirt repository
 
-## **Fresh Install**
+## **Fresh Install (via CLI)**
 
 Assuming you're using ovirt RPMs, you should start with install and deploy:
 
@@ -56,6 +56,35 @@ On the VM:
          # engine-setup
 
 When the engine-setup has completed on the VM, return to the host and complete the configuration. Your hosted engine VM is up and running!
+
+## **Fresh Install (via Web UI)**
+
+Self-Hosted Engine can be deployed also via a web UI inroduced by cockpit.
+To deploy the self-hosted engine using the Cockpit user interface, follow these steps:
+
+1. Install the cockpit-ovirt-dashboard package:
+
+        # yum install cockpit-ovirt-dashboard
+       
+2. Start and enable cockpit:
+
+        # systemctl enable cockpit
+        # systemctl start cockpit
+        
+3. Open 9090 port:
+
+        # firewall-cmd --add-service=cockpit --permanent
+        # firewall-cmd --reload
+        
+4. Log in to the UI at https://HostIPorFQDN:9090
+   
+   By default, you should get a warning/popup from your browser about a self-signed certificate, unknown issuer, or something like that. Accept it, or see for [more details](http://cockpit-project.org/guide/149/https.html)
+5. Navigate to *Virtualization* > *Hosted Engine*
+6. Select *Hosted Engine Only Deployment*
+7. Select a deployment method from the scrolldown menu:
+   1. OTOPI-Based deployment - stable
+   2. Ansible-Based deployment - preview (see [Feature page](https://www.ovirt.org/develop/release-management/features/sla/hosted-engine-new-deployment/) )
+8. Press the *start* button
 
 **Notes:**
 

@@ -13,36 +13,40 @@ title: Deploying oVirt and Gluster Single node Hyperconverged
 * You must have a fully qualified domain name prepared for your Engine and the host. Forward and reverse lookup records must both be set in the DNS. **The Engine should use the same subnet as the management network.**
 
 * You must have configured passwordless ssh between the host to itself. gdeploy uses Ansible playbooks and the ability to remotely execute commands is a pre-requisite.
+Follow below steps to configure this.
+```
+# ssh-keygen 
+# ssh-copy-id root@<host-address>
+```
 
 ## Deploying on Enterprise Linux Hosts
 
 ### Installing the Required Packages
 
-**Installing the packages on the first host**
+**Installing the packages on the host**
 
 1. Subscribe to ovirt repos from http://resources.ovirt.org/pub/yum-repo/
    For instance, to subscribe to oVirt 4.2 repo,
 
         # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 
-2. Install gdeploy and cockpit-ovirt that will provide a UI for the installation of Hosted Engine. gdeploy is a wrapper tool around Ansible that helps to setup gluster volumes. vdsm-gluster is used to manage gluster from oVirt, and pulls in all the required gluster dependencies.
+2. Install gdeploy and cockpit-ovirt that will provide a UI for the installation of Hosted Engine. gdeploy is a wrapper tool around Ansible that helps to setup gluster volumes. vdsm-gluster is used to manage gluster from oVirt, and pulls in all the required gluster dependencies. Install the oVirt Engine Virtual Appliance package for the Engine virtual machine installation.
      
-        # yum install gdeploy cockpit-ovirt-dashboard vdsm-gluster
+        # yum install gdeploy cockpit-ovirt-dashboard vdsm-gluster ovirt-engine-appliance
 
-3. Install the oVirt Engine Virtual Appliance package for the Engine virtual machine installation:
-
-        # yum install ovirt-engine-appliance
 
 ## Deploying on oVirt Node based Hosts
 
 **oVirt Node contains all the required packages to set up the hyperconverged environment.**
-Refer [oVirt Nodes](../install-guide/chap-oVirt_Nodes) for instructions on installing oVirt Node on your hosts. You can proceed to setting up the hyperconverged environment if you have 3 oVirt Node based hosts.
+Refer [oVirt Nodes](../install-guide/chap-oVirt_Nodes) for instructions on installing oVirt Node on the host. You can proceed to setting up the hyperconverged environment if you have an oVirt Node based host.
 
 ### Setting up the hyperconverged environment
 
 #### Installing and setting up gluster volume
 
-Gluster volumes needs to be created first prior to the Hosted Engine installation flow. The volume that's created is used to host the Hosted Engine VM. Use the below gdeploy configuration file as a template to create volumes and configure the host.
+Gluster volumes need to be created first prior to the Hosted Engine installation flow. One of the volumes that's created is used to host the Hosted Engine VM. Use the below gdeploy configuration file as a template to create volumes and configure the host.
+Since the Cockpit UI only supports the 3 node deployment, we have to manually run a gdeploy config file to handle this currently.
+
 ```
 [hosts]
 @HOSTNAME@

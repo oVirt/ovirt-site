@@ -7,5 +7,6 @@ authors: mmirecki
 
 # Networking presentations
 
-* <a href="http://redhat.slides.com/mmirecki/ovirt-networking-overview?token=nOj9jFg3#/">oVirt networking overview slides</a>
-* <a href="http://redhat.slides.com/mmirecki/ovirt-provider-ovn?token=HCINfSe6">oVirt provider for OVN deepdive slides</a>
+* [oVirt networking overview slides](http://redhat.slides.com/mmirecki/ovirt-networking-overview?token=nOj9jFg3#/)
+* [oVirt provider for OVN deepdive slides](http://redhat.slides.com/mmirecki/ovirt-provider-ovn?token=HCINfSe6)
+

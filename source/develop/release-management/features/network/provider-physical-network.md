@@ -1,7 +1,7 @@
 ---
 title: Provider Physical Network
 category: feature
-authors: phoracek,amusil
+authors: phoracek,amusil,dholler
 feature_name: Provider Physical Network
 feature_modules: engine,vdsm,ovn-provider
 feature_status: In Development
@@ -79,6 +79,20 @@ Engine also covers the validation:
 - Physical network must be on the same Data Center as the external network.
 - The custom values (physical network and VLAN ID) must not be specified a when provider physical network is set.
 
+### Import of a provider physical network
+When importing a network with physical network access from an external network
+provider into Engine, Engine must map this physical network to the corresponding
+logical network in Engine.
+If no corresponding logical network is found, the physical network is ignored
+during import and synchronization.
+The [external network provider][1] describes the physical network with three
+attributes `provider:physical_network`, `provider:network_type` and
+`provider:segmentation_id`.  
+The corresponding logical network is detected by matching the three attributes:
+* `provider:physical_network` to [VDSM name][2] of the network
+* `provider:network_type` to the type of the network
+* `provider:segmentation_id` to the VLAN ID of the network
+
 ### Engine UI
 
 Even without this feature, it is already possible to set the physical network name and VLAN ID for an external network from `New Network` dialog. Physical network has a separate field, and the VLAN is obtained from the shared `Network Attributes` section. However, this way requires the user to know the VDSM name of the network and manually copy the VLAN ID of the network
@@ -109,3 +123,13 @@ Testing of this feature should cover:
 - VM connectivity to physical network, with both VLAN tagged and untagged networks.
 - Live migration of VMs attached to external networks.
 - In case OVS cluster was configured on 4.1 and only then upgraded to 4.2 (without any `setupNetworks` calls after the upgrade was done), previous tests should also pass.
+
+## External references
+
+[Provider Extended Attributes of Networks in OpenStack Networking API v2.0][1]
+
+[1]: https://developer.openstack.org/api-ref/network/v2/#provider-extended-attributes
+
+[Unrestricted Network Names][2]
+
+[2]: https://www.ovirt.org/develop/release-management/features/network/unrestricted-network-names/

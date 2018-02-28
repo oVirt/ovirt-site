@@ -42,7 +42,11 @@ When students approach you about the idea you listed:
 *   If you are redirecting students from your idea, please add [No longer taking applicants] to its title in the list below.
 *   Don't hesitate to reach out to the oVirt GSoC admins if you need help redirecting students.
 
-## oVirt Ideas for Google Summer of Code 2018
+## Google Summer of Code 2018
+
+oVirt is not participating in Google Summer of Code 2018.
+
+## Previous Ideas
 
 ### **Idea:** webadmin localization (reduce GWT permutations)
 

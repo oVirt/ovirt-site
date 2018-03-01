@@ -55,6 +55,9 @@ Additional functionality has been added to the engine:
 	  found on the vNic in the OVF
 * If none of the above succeeds, the permissive mode applies a 'no profile' 
   target to the vNic and continues with the request.
+* Applying 'no profile' means that once the import terminates the vNic will 
+  be created without any profile or network assigned to it. Any profile\network 
+  may later be assigned to the vNic via the web-admin GUI or any other means.  
 * User input for vNic mappings joins all the other inputs of the import under
   the 'registration_configuration' entry in the request body. 
 
@@ -71,7 +74,7 @@ Additional functionality has been added to the engine:
   empty strings in the target profile name + profile network.
 * If no target or empty target entry is specified in the request, the matching 
   algorithm will start at the step of trying to match and apply the source OVF
-  vNic profile.
+  vNic profile.  
 * If no mapping at all is specified for a vNic, the matching algorithm will 
   start at the step of trying to match and apply the source OVF vNic profile.
 

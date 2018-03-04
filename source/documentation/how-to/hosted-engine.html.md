@@ -71,7 +71,7 @@ To deploy the self-hosted engine using the Cockpit user interface, follow these 
         # systemctl enable cockpit
         # systemctl start cockpit
         
-3. Open 9090 port:
+3. Allow access to Cockpit in the firewall:
 
         # firewall-cmd --add-service=cockpit --permanent
         # firewall-cmd --reload

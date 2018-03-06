@@ -4,6 +4,8 @@ category: cli
 authors: j.bittner, jfenal, mgoldboi, michael pasternak, tsaban, val0x00ff
 ---
 
+> **`ovirt-shell` is Deprecated**: It uses the v3 REST API, and lacks many features available in the 4.x API. Consider using Ansible as a replacement for automation purposes.
+
 # CLI
 
 oVirt CLI is a dynamic, runtime interface discovering command line interface for the oVirt engine

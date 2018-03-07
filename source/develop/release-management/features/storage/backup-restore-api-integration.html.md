@@ -51,8 +51,8 @@ Full VM backup can be implemented for example by using the following oVirt capab
 1.  Take a snapshot of the virtual machine to be backed up - (existing oVirt REST API operation)
 2.  Back up the virtual machine configuration at the time of the snapshot (the disk configuration can be backed up as well if needed) - (added capability to oVirt as part of the Backup API)
 3.  Attach the disk snapshots that were created in (1) to the virtual appliance for data backup - (added capability to oVirt as part of the Backup API)
-4.  <data can be backed up>
-5.  Detach the disk snapshots that were attached in (4) from the virtual appliance - (added capability to oVirt as part of the Backup API)
+4.  Data can be backed up
+5.  Detach the disk snapshots that were attached in (3) from the virtual appliance - (added capability to oVirt as part of the Backup API)
 
 #### Example for VM Backup
 

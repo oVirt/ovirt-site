@@ -13,6 +13,9 @@ feature_status: In Development
 **Note:** Currently, the oVirt Metrics Store should be installed on a new machine, separate from the engine.
 It can be installed on a dedicated VM.
 
+
+
+
 ### Update config.yml file
 
 1. Copy  /etc/ovirt-engine-metrics/config.yml.example  to config.yml.
@@ -42,17 +45,27 @@ It can be installed on a dedicated VM.
 - `fluentd_elasticsearch_host:` (required - no default value)
 
   Address or hostname (FQDN) of the Elasticsearch server host.
+  
+### Configure SSH Key-Based Authentication between engine and metrics store machine
 
-- `viaq_metrics_store:` (required - Default: `true`)
+To copy the engine public key to your metrics store machine.Run:
 
-  Use ViaQ Logging metrics store
+    # mytemp=$(mktemp -d)
 
-- `openshift_deployment_type:` (required - no default value)
+    # cp /etc/pki/ovirt-engine/keys/engine_id_rsa $mytemp
 
-  Reguired if `viaq_metrics_store` is `true`.
-  This repository supports OpenShift Origin and OpenShift Container Platform.
-  If you want to install ViaQ Logging you should choose the deployment type.
-  Available options: origin, openshift-enterprise.
+    # ssh-keygen -y -f $mytemp/engine_id_rsa > $mytemp/engine_id_rsa.pub
+
+    # ssh-copy-id -i $mytemp/engine_id_rsa.pub root@fluentd_elasticsearch_host
+
+It should ask for root password (on first attempt), supply it.
+After that, Run:
+
+    # rm -rf $mytemp
+
+To test that you are able to log into the metrics store machine from the engine. Run:
+
+    # ssh -i /etc/pki/ovirt-engine/keys/engine_id_rsa root@fluentd_elasticsearch_host
 
 ### Run ovirt-metrics-store-installation playbook
 
@@ -66,6 +79,8 @@ to the metrics store machine.
 
 Please follow the installation instructions: [Metrics Store setup on top of OpenShift](https://github.com/ViaQ/Main/blob/master/README-install.md)
 
+**Note:** When running ansible to configure OpenShift, use the ansible-inventy file based on your Openshift version and flavor.
+
 In oVirt 4.2 there will be an option to add SSO: [Metrics Store setup on top of OpenShift with oVirt Engine SSO](https://www.ovirt.org/blog/2017/05/openshift-openId-integration-with-engine-sso/)
 
 
@@ -76,22 +91,6 @@ Once you have finished this step, you should have:
   * Kibana - <https://kibana.{hostname}>
   * OpenShift portal - <https://openshift.{hostname}>
 
-
-
-### Add an externalIP to the Elasticsearch Service.
-
-1. Run:
-
-       # oc edit svc logging-es
-
-2. Add the `externalIPs:` section and the host IP address below it:
-
-       spec:
-         clusterIP: example_cluster_ip
-         externalIPs:
-         - <host_ip>
-
-Update the `<host_ip>` to reflect the host IP address.
 
 ## oVirt Hypervisors and Engine Setup ##
 

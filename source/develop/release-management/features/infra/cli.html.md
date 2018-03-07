@@ -4,7 +4,8 @@ category: cli
 authors: j.bittner, jfenal, mgoldboi, michael pasternak, tsaban, val0x00ff
 ---
 
-> **`ovirt-shell` is Deprecated**: It uses the v3 REST API, and lacks many features available in the 4.x API. Consider using Ansible as a replacement for automation purposes.
+> **`ovirt-shell` is Deprecated**: It uses the v3 REST API, and lacks all features available since oVirt 4.0. 
+Consider using Ansible as a replacement for automation purposes.
 
 # CLI
 

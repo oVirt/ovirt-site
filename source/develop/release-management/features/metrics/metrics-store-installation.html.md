@@ -48,7 +48,7 @@ It can be installed on a dedicated VM.
   
 ### Configure SSH Key-Based Authentication between engine and metrics store machine
 
-To copy the engine public key to your metrics store machine.Run:
+To copy the engine public key to your metrics store machine, run:
 
     # mytemp=$(mktemp -d)
 
@@ -59,11 +59,11 @@ To copy the engine public key to your metrics store machine.Run:
     # ssh-copy-id -i $mytemp/engine_id_rsa.pub root@fluentd_elasticsearch_host
 
 It should ask for root password (on first attempt), supply it.
-After that, Run:
+After that, run:
 
     # rm -rf $mytemp
 
-To test that you are able to log into the metrics store machine from the engine. Run:
+To test that you are able to log into the metrics store machine from the engine, run:
 
     # ssh -i /etc/pki/ovirt-engine/keys/engine_id_rsa root@fluentd_elasticsearch_host
 
@@ -79,7 +79,7 @@ to the metrics store machine.
 
 Please follow the installation instructions: [Metrics Store setup on top of OpenShift](https://github.com/ViaQ/Main/blob/master/README-install.md)
 
-**Note:** When running ansible to configure OpenShift, use the ansible-inventy file based on your Openshift version and flavor.
+**Note:** When running ansible to configure OpenShift, use the ansible-inventy file based on your OpenShift version and flavor.
 
 In oVirt 4.2 there will be an option to add SSO: [Metrics Store setup on top of OpenShift with oVirt Engine SSO](https://www.ovirt.org/blog/2017/05/openshift-openId-integration-with-engine-sso/)
 

@@ -77,7 +77,7 @@ to the metrics store machine.
 
 ### Metrics Store Installation 
 
-Please follow the installation instructions: [Metrics Store setup on top of OpenShift](https://github.com/ViaQ/Main/blob/master/README-install.md)
+Please follow the installation instructions: [Metrics Store setup on top of OpenShift](http://www.ovirt.org/develop/release-management/features/metrics/setting-up-viaq-logging/)
 
 **Note:** When running ansible to configure OpenShift, use the ansible-inventy file based on your OpenShift version and flavor.
 

@@ -75,7 +75,7 @@ Connecting to a host is secured by default, pass --insecure to connect in an ins
 
 2. Setting vnc password to VM
 
-`   # vdsm-client VM setTicket vmID=<vmid> password=<password> ttl=0 existingConnAction=keep`
+`   # vdsm-client VM setTicket vmID=<vmid> password=<password> ttl=0 existingConnAction=keep params={val:key}`
 
 3. Now try to use vnc client
 

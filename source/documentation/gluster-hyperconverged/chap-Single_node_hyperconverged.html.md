@@ -60,63 +60,83 @@ Since the Cockpit UI only supports the 3 node deployment, we have to manually ru
 [stripesize]
 @STRIPE_SIZE@ #256 in case of jbod
 
+[script1]
+action=execute
+ignore_script_errors=no
+file=/usr/share/gdeploy/scripts/grafton-sanity-check.sh -d @DEVICE@
+
+#[vdo] # Note: Uncomment if dedupe & compression needs to be enabled on device. Needs kmod-vdo module
+#action=create
+#names=@VDO_DEVICE_Name@
+#devices=@DEVICE@
+#logicalsize=@logical_size@T # Note:logicalsize is 10x physical space on disk
+##slabsize=32G               # Note: used only when the physical size is few TBs
+#blockmapcachesize=128M
+#readcache=enabled
+#readcachesize=20M
+#emulate512=enabled
+#writepolicy=auto
+
 [pv]
 action=create
-devices=@DEVICE@
+devices=@DEVICE@ # Change to @VDO_DEVICE_name@ if using vdo
 
 [vg1]
 action=create
-vgname=RHGS_vg1
-pvname=@DEVICE@
+vgname=gluster_vg1
+pvname=@DEVICE@ # Change to @VDO_DEVICE_name@ if using vdo
 
 [lv1]
 action=create
-vgname=RHGS_vg1
+vgname=gluster_vg1
 lvname=engine_lv
 lvtype=thick
 size=100GB 
-mount=/rhgs/brick1
+mount=/gluster_bricks/engine
 
 [lv2]
 action=create
-vgname=RHGS_vg1
+vgname=gluster_vg1
 poolname=lvthinpool
 lvtype=thinpool
-poolmetadatasize=15GB
-chunksize=1024k
-size=@SIZE@ #For example: 18000GB, depending on device capacity
+poolmetadatasize=16GB
+size=@SIZE@ #For example: 18000GB, depending on device capacity. Units to be specified.
 
 [lv3]
 action=create
 lvname=lv_vmdisks
 poolname=lvthinpool
-vgname=RHGS_vg1
+vgname=gluster_vg1
 lvtype=thinlv
-mount=/rhgs/brick2
-virtualsize=@SIZE@
+mount=/gluster_bricks/vmstore
+virtualsize=@SIZE@ # Units to be specified, for instance 5000GB
 
 [lv4]
 action=create
 lvname=lv_datadisks
 poolname=lvthinpool
-vgname=RHGS_vg1
+vgname=gluster_vg1
 lvtype=thinlv
-mount=/rhgs/brick3
-virtualsize=@SIZE@
-
-#[vg2]
-#action=extend
-#vgname=RHGS_vg1
-#pvname=@SSD_DEVICE@
+mount=/gluster_bricks/data
+virtualsize=@SIZE@ # Units to be specified, for instance 5000GB
 
 #[lv5]
 #action=setup-cache
 #ssd=@SSD_DEVICE@
-#vgname=RHGS_vg1
+#vgname=gluster_vg1
 #poolname=lvthinpool
 #cache_lv=lvcache
 #cache_lvsize=5GB # Provide device size
 ## cachemode=writeback
+
+[shell2]
+action=execute
+command=vdsm-tool configure --force
+
+[script3]
+action=execute
+file=/usr/share/gdeploy/scripts/blacklist_all_disks.sh
+ignore_script_errors=no
 
 [selinux]
 yes
@@ -135,13 +155,17 @@ services=glusterfs
 action=execute
 file=/usr/share/gdeploy/scripts/disable-gluster-hooks.sh
 
+[shell3]
+action=execute
+command=usermod -a -G gluster qemu
+
 [volume]
 action=create
 volname=engine
 transport=tcp
 key=storage.owner-uid,storage.owner-gid,features.shard,performance.low-prio-threads,performance.strict-o-direct,network.remote-dio,network.ping-timeout,user.cifs,nfs.disable,performance.quick-read,performance.read-ahead,performance.io-cache,cluster.eager-lock
 value=36,36,on,32,on,off,30,off,on,off,off,off,enable
-brick_dirs=/rhgs/brick1/engine
+brick_dirs=/gluster_bricks/engine/engine
 ignore_volume_errors=no
 
 [volume2]
@@ -150,7 +174,7 @@ volname=vmstore
 transport=tcp
 key=storage.owner-uid,storage.owner-gid,features.shard,performance.low-prio-threads,performance.strict-o-direct,network.remote-dio,network.ping-timeout,user.cifs,nfs.disable,performance.quick-read,performance.read-ahead,performance.io-cache,cluster.eager-lock
 value=36,36,on,32,on,off,30,off,on,off,off,off,enable
-brick_dirs=/rhgs/brick2/vmstore
+brick_dirs=/gluster_bricks/vmstore/vmstore
 ignore_volume_errors=no
 
 [volume3]
@@ -159,7 +183,7 @@ volname=data
 transport=tcp
 key=storage.owner-uid,storage.owner-gid,features.shard,performance.low-prio-threads,performance.strict-o-direct,network.remote-dio,network.ping-timeout,user.cifs,nfs.disable,performance.quick-read,performance.read-ahead,performance.io-cache,cluster.eager-lock
 value=36,36,on,32,on,off,30,off,on,off,off,off,enable
-brick_dirs=/rhgs/brick3/data
+brick_dirs=/gluster_bricks/data/data
 ignore_volume_errors=no
 ```
 

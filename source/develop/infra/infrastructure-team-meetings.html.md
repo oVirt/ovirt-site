@@ -11,7 +11,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   *When:* Monday @ 15:00 UTC (may change during DST changes) - always at 10:00am US Eastern.
     -   To see in your timezone date -d 'MONDAY 1000 EST'
 *   *Where:* On IRC: #ovirt on irc.oftc.net
-    -   The Trac issue tracker used bu the infrastructure team is [here](https://fedorahosted.org/ovirt/report), rather than in the general Red Hat bugzilla.
+    -   The JIRA issue tracker used bu the infrastructure team is [here](https://ovirt-jira.atlassian.net/projects/OVIRT/issues), rather than in the general Red Hat bugzilla.
     -   The status of the Jenkins Continuous integration server is [here](http://jenkins.ovirt.org).
 
 ## Upcoming meetings

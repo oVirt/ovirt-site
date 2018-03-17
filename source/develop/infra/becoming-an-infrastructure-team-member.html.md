@@ -13,14 +13,14 @@ This page describes the process for becoming a member of the Infrastructure team
 The Infrastructure team primarily uses three resources to get stuff done:
 
 *   [The infra mailing list](http://lists.ovirt.org/mailman/listinfo/infra) for asynchronous communication
-*   [oVirt infra trac](https://fedorahosted.org/ovirt/report/1) for issue tracking
+*   [oVirt infra jira](https://ovirt-jira.atlassian.net/projects/OVIRT/issues) for issue tracking
 *   [The weekly infra team meeting](/develop/infra/infrastructure-team-meetings/) on IRC for synchronous discussion and review of action items
 
 In general, the team hangs out on the general #ovirt IRC channel on OFTC (irc.oftc.net).
 
 To start getting involved in the Infrastructure team, introduce yourself on the mailing list. Your self-introduction should include your name, relevant experience, and why you are interested in helping with oVirt infrastructure. Also, start attending the team meetings, if possible.
 
-In step 1, you should [ get familiar with the team goals](:Category:Infrastructure) and [its members](/develop/infra/infrastructure-team-administrators/), the skills we have, the infrastructure we use (such as [git](/develop/infra/infrastructure-git-repository/) and [puppet](/develop/infra/infrastructure-puppet-details/)) and [the things we have on our agenda to accomplish](http://fedorahosted.org/ovirt/report/1). You can read our team [documentation](:Category:Infrastructure documentation) and [standard procedures](:Category:Infrastructure SOP).
+In step 1, you should [ get familiar with the team goals](:Category:Infrastructure) and [its members](/develop/infra/infrastructure-team-administrators/), the skills we have, the infrastructure we use (such as [git](/develop/infra/infrastructure-git-repository/) and [puppet](/develop/infra/infrastructure-puppet-details/)) and [the things we have on our agenda to accomplish](https://ovirt-jira.atlassian.net/projects/OVIRT/issues). You can read our team [documentation](:Category:Infrastructure documentation) and [standard procedures](:Category:Infrastructure SOP).
 
 Perhaps you have the time and skills to make suggestions as to how something might be accomplished, or research possible solutions to a problem and make a proposal, to allow other team members to put a solution in place quickly? Perhaps you've noticed something which can be improved, and you would like to add an issue to our Trac instance to help ensure it gets done.
 

@@ -1,19 +1,21 @@
 ---
-title: UIPlugins
+title: UIPlugins 4.3+
 category: feature
-authors: sahina, vszocs
+authors: sahina, vszocs, awels
 ---
 
 # UI Plugins
 
 ## Summary
 
-This feature provides an infrastructure and API for implementing and deploying custom user interface plugins for oVirt web administration application.
+This feature provides an infrastructure and API for implementing and deploying custom user interface plugins for oVirt web administration application version 4.3+.
 
 ## Owner
 
 *   Name: Vojtech Szocs (Vszocs)
 *   Email: <<vszocs@redhat.com>></<vszocs@redhat.com>>
+*   Name: Alexander Wels (awels)
+*   Email: <<awels@redhat.com>></<awels@redhat.com>>
 
 ## Overview
 
@@ -51,8 +53,8 @@ For each plugin, WebAdmin creates hidden HTML `iframe` element used to load [plu
 
 Plugin resource files are expected to reside in `$ENGINE_USR/ui-plugins/` directory, with `resourcePath` value defined by the corresponding attribute in [plugin descriptor](#Plugin_descriptor). For example:
 
-*   Client requests URL `/ovirt-engine/webadmin/plugin//path/to/file`
-*   Engine serves content of `$ENGINE_USR/ui-plugins//path/to/file`
+*   Client requests URL `/ovirt-engine/webadmin/plugin/path/to/file`
+*   Engine serves content of `$ENGINE_USR/ui-plugins/path/to/file`
 
 ## Plugin descriptor
 
@@ -228,31 +230,10 @@ When requesting content from remote servers, UI plugins should ensure that reque
 
 For example, to load remote script using protocol of enclosing web page: ``
 
-### Working with REST API session
+### Working with SSO tokens
 
-***In oVirt 4.0 the `RestApiSessionAcquired` event will be replaced with API to create authenticated requests for Engine services like the REST API.***
+Upon successful login, WebAdmin acquires an SSO token that can be used to obtain new HTTP sessions, for instance with the REST api. Plugins are responsible for maintaining their own HTTP sessions created using the SSO token. To prevent closing the HTTP session after processing given request, UI plugins should always include `Prefer: persistent-auth` header in all requests.
 
-Upon successful login, WebAdmin acquires oVirt Engine REST API session for use by all UI plugins. Refer to [REST API integration](#REST_API_integration) for details.
-
-To prevent closing the REST API session after processing given request, UI plugins should always include `Prefer: persistent-auth` header in all requests to REST API service.
-
-The REST API session acquired by WebAdmin is marked as [CSRF](http://en.wikipedia.org/wiki/Cross-site_request_forgery) protected, which means all requests associated with this session must include a CSRF token (in addition to `JSESSIONID` cookie that is automatically sent by the browser). Otherwise, REST API will reject the request, which may trigger unexpected follow-up behavior such as "Authentication Required" browser popup.
-
-The CSRF token is represented as `JSESSIONID` header with value obtained from `RestApiSessionAcquired` event handler function.
-
-Following code snippet illustrates above mentioned practices using `XMLHttpRequest` object:
-
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() { /* process response when done */ };
-    xhr.open('GET', 'http://example-host/ovirt-engine/api', true);
-    xhr.withCredentials = true; // for cross-site requests, ensure that auth information and cookies are included
-    xhr.setRequestHeader('Accept', 'application/json'); // control response format
-    xhr.setRequestHeader('Filter', 'false'); // control whether to filter results based on (WebAdmin) user's permissions
-    xhr.setRequestHeader('Prefer', 'persistent-auth'); // prevent closing REST API session after processing request
-    xhr.setRequestHeader('JSESSIONID', sessionId); // include CSRF token
-    xhr.send(null);
-
-*** Since 4.0 the follow can be used to obtain an SSO token that can then be used by the plugin to obtain a REST api HTTP session.
 To Acquire a new HTTP session from for instance the REST api, the plugin should add the `Authorization: Bearer TOKEN` header to the request. Where token is the SSO token obtained from the ssoToken UI plugin function.
 
 Following code snippet illustrates above mentioned practices using `XMLHttpRequest` object:
@@ -388,9 +369,9 @@ Returns [UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier) of cu
 
     var userId = api.loginUserId();
 
-### Main and sub tabs
+### Main Views and detail tabs
 
-#### addMainTab
+#### addPrimaryMenuPlace
 
 Argument(s)
 
@@ -399,25 +380,79 @@ Argument(s)
     string contentUrl
     object options
 
-Adds new main tab with content provided from given URL. All arguments are required except for `options`. The `label` is the text displayed on tab header. The `historyToken` serves as unique identifier of the tab, with its value reflected in tab header URL. Recommended `historyToken` format is `letters-with-dashes`. The `contentUrl` is passed to `src` attribute of the `iframe` element which renders tab content. The `options` can be undefined, null or object containing additional tab options:
+Adds new primary menu place with content provided from given URL. All arguments are required except for `options`. The `label` is the text displayed in the primary menu. The `historyToken` serves as unique identifier of the place, with its value reflected in browser URL. Recommended `historyToken` format is `letters-with-dashes`. The `contentUrl` is passed to `src` attribute of the `iframe` element which renders the place content. Primary menu places cannot have secondary menu items, only primary menu containers can. The `options` can be undefined, null or object containing additional tab options:
 
-*   `alignRight` - controls horizontal tab header alignment, default value is `false`
+*   `priority` - controls tab's relative priority within the tab panel, default value is `Number.MAX_VALUE`
+*   `defaultPlace` - controls if the application should display this place by default when the user logs in, and no target place is defined in the browser URL.
+*   `icon` - The icon to use in the primary menu. This can either be a font-awesome or patternfly icon.
+
+<!-- -->
+
+    api.addPrimaryMenuPlace('Custom Menu Item', 'custom-place-one',
+        'plugin/ExamplePlugin/one.html'
+    );
+    api.addPrimaryMenuPlace('Custom Menu Item', 'custom-place-two',
+        'plugin/ExamplePlugin/two.html',
+        {
+            priority: -1, // negative priority will be the top menu item.
+            defaultPlace: true, // Go to this location if no place is defined in URL.
+            icon: 'fa-trophy' // font-awesome trophy icon.
+        }
+    );
+
+#### addPrimaryMenuContainer
+    
+Argument(s)
+
+    String label
+    String primaryMenuId
+    Object options
+
+Adds new primary menu container that allows for secondary menu places. All arguments are required except for `options`. The `label` is the text displayed in the primary menu. The `primaryMenuId` is a plugin provided identifier that allows plugins to pass that identifier to `addSecondaryMenuPlace`, so the infra structure knows which primary container to add the secondary menu place to. The `options` can be undefined, null or object containing additional tab options:
+
+*   `priority` - controls tab's relative priority within the tab panel, default value is `Number.MAX_VALUE`
+*   `icon` - The icon to use in the primary menu. This can either be a font-awesome or patternfly icon.
+
+<!-- -->
+
+    api.addPrimaryMenuContainer('Custom Menu Container', 'containerIdentifier');
+
+    api.addPrimaryMenuContainer('Custom Menu Container', 'containerIdentifier',
+        'plugin/ExamplePlugin/two.html',
+        {
+            priority: -1, // negative priority will be the top menu item.
+            icon: 'fa-trophy' // font-awesome trophy icon.
+        }
+    );
+
+#### addSecondaryMenuPlace
+
+Argument(s)
+
+    String primaryMenuId
+    String label
+    String historyToken
+    String contentUrl
+    Object options
+
+Adds new secondary menu place with content provided from given URL. All arguments are required except for `options`. The primaryMenuId corresponds to the primary menu container you want the secondary menu to appear in. The `label` is the text displayed in the primary menu. The `historyToken` serves as unique identifier of the place, with its value reflected in browser URL. Recommended `historyToken` format is `letters-with-dashes`. The `contentUrl` is passed to `src` attribute of the `iframe` element which renders the place content. The `options` can be undefined, null or object containing additional tab options:
+
 *   `priority` - controls tab's relative priority within the tab panel, default value is `Number.MAX_VALUE`
 
 <!-- -->
 
-    api.addMainTab('Custom Tab One', 'custom-tab-one',
-        'plugin/ExamplePlugin/one.html'
+    api.addSecondaryMenuPlace('Secondary Menu Item', 'custom-place',
+        'plugin/ExamplePlugin/secondary.html'
     );
-    api.addMainTab('Custom Tab Two', 'custom-tab-two',
-        'plugin/ExamplePlugin/two.html',
+    api.addSecondaryMenuPlace('Secondary Menu Item', 'custom-place',
+        'plugin/ExamplePlugin/secondary.html'
         {
-            alignRight: true,
-            priority: -1
+            priority: -1, // negative priority will be the top menu item.
         }
     );
+    
 
-#### addSubTab
+#### addDetailPlace
 
 Argument(s)
 
@@ -427,89 +462,87 @@ Argument(s)
     string contentUrl
     object options
 
-Adds new sub tab with content provided from given URL. All arguments are required except for `options`. Semantics of `label`, `historyToken`, `contentUrl` and `options` are identical to ones declared by `addMainTab` function. The `entityTypeName` identifies existing main tab to which the newly added sub tab should be associated (only standard main tabs are supported). Refer to [entity types](#Entity_type_reference) for details on supported entity names.
+Adds a new detail place with content provided from given URL. All arguments are required except for `options`. Semantics of `label`, `historyToken`, and `contentUrl` are identical to ones declared by `addPrimaryMenuPlace` function. `options` only supports priority. The `entityTypeName` identifies which entity type this detail place is associated withm. Refer to [entity types](#Entity_type_reference) for details on supported entity names. The label specifies the label of the detail tab that is associated with the place of the `historyToken`. The `options` can be undefined, null or object containing additional tab options:
 
-    api.addSubTab('Host', 'Custom Host Tab One', 'custom-host-tab-one',
+*   `priority` - controls tab's relative priority within the tab panel, default value is `Number.MAX_VALUE`
+
+<!-- -->
+
+    api.addDetailPlace('Host', 'Custom Host Tab One', 'custom-host-tab-one',
         'plugin/ExamplePlugin/host-one.html'
     );
-    api.addSubTab('Host', 'Custom Host Tab Two, 'custom-host-tab-two',
+    api.addDetailPlace('Host', 'Custom Host Tab Two, 'custom-host-tab-two',
         'plugin/ExamplePlugin/host-two.html',
         {
-            alignRight: true,
-            priority: -1
+            priority: 3 // Third tab in the detail view.
         }
     );
 
-#### setTabContentUrl
+#### setPlaceContentUrl
 
 Argument(s)
 
     string historyToken
     string contentUrl
 
-Updates the content URL of given (main or sub) tab. Semantics of `historyToken` and `contentUrl` are identical to ones declared by `addMainTab` function. The `setTabContentUrl` function works only for tabs added via plugin API.
+Updates the content URL of a given place. Semantics of `historyToken` and `contentUrl` are identical to ones declared by `addPrimaryMenuPlace` or `addDetailPlace` function. The `setPlaceContentUrl` function works only for places added via plugin API.
 
-    api.setTabContentUrl('custom-tab',
-        'plugin/ExamplePlugin/tab-content.html');
+    api.setPlaceContentUrl('custom-place', 'plugin/ExamplePlugin/place-content.html');
 
-#### setTabAccessible
+#### setPlaceAccessible
+
+Arguments(s)
+
+      string historyToken
+      boolean placeAccessible
+
+Controls the accessibility of a given place. Semantics of `historyToken` is identical to ones declared by `addPrimaryMenuPlace` or `addDetailPlace` function. If `placeAccessible` is `false`, corresponding menu item or tab header will be hidden in WebAdmin UI and attempts to reveal the given tab manually by manipulating URL will be denied. The `setPlaceAccessible` function works only for places added via plugin API.
+
+    api.setPlaceAccessible('custom-place', false);
+
+#### addMenuPlaceActionButton
 
 Argument(s)
 
-    string historyToken
-    boolean tabAccessible
+      string entityTypeName
+      string label
+      object actionButtonInterface
 
-Controls the accessibility of given (main or sub) tab. Semantics of `historyToken` is identical to one declared by `addMainTab` function. If `tabAccessible` is `false`, corresponding tab header will be hidden in WebAdmin UI and attempts to reveal the given tab manually by manipulating URL will be denied. The `setTabAccessible` function works only for tabs added via plugin API.
+Adds new button to the action panel and context menu for the given main view associated with the entityTypeName. Semantics of `entityTypeName` is identical to one declared by `addDetailPlace` function. The `label` is the text displayed on button. The `actionButtonInterface` is an [interface object](#JavaScript_interface_object) that overrides button behavior via following properties:
 
-    api.setTabAccessible('custom-tab', false);
-
-#### addMainTabActionButton
-
-Argument(s)
-
-    string entityTypeName
-    string label
-    object actionButtonInterface
-
-Adds new button to the action panel and/or context menu for the given main tab. Semantics of `entityTypeName` is identical to one declared by `addSubTab` function. The `label` is the text displayed on button. The `actionButtonInterface` is an [interface object](#JavaScript_interface_object) that overrides button behavior via following properties:
-
-*   `onClick` - function called when user clicks the button, arguments are items currently selected in given main tab, no-op by default
-*   `isEnabled` - function called to determine whether the button should be enabled (clickable), arguments are items currently selected in given main tab, returns `true` by default
-*   `isAccessible` - function called to determine whether the button should be accessible (visible), arguments are items currently selected in given main tab, returns `true` by default
-*   `location` - controls button location in action panel and main tab's context menu, supported values:
-    -   `OnlyFromContext` - button available only from context menu
-    -   `OnlyFromToolBar` - button available only from action panel
-    -   `ContextAndToolBar` - button available from both action panel and context menu (default value)
+*   `onClick` - function called when user clicks the button, arguments are items currently selected in given main view, no-op by default
+*   `isEnabled` - function called to determine whether the button should be enabled (clickable), arguments are items currently selected in given main view, returns `true` by default
+*   `isAccessible` - function called to determine whether the button should be accessible (visible), arguments are items currently selected in given main view, returns `true` by default
 
 <!-- -->
 
-    api.addMainTabActionButton('Host', 'Custom Button', {
+    api.addMenuPlaceActionButton('Host', 'Custom Button', {
         onClick: function() {
             var selectedHost = arguments[0];
             var isSpecial = selectedHost.name.indexOf('special') != -1;
-            api.setTabAccessible('custom-tab', isSpecial);
+            api.setPlaceAccessible('custom-tab', isSpecial);
         },
         isEnabled: function() {
             return arguments.length == 1;
         }
     });
 
-#### addSubTabActionButton
+#### addDetailPlaceActionButton
 
 Argument(s)
 
-    string mainTabEntityTypeName
-    string subTabEntityTypeName
+    string mainEntityTypeName
+    string detailEntityTypeName
     string label
     object actionButtonInterface
 
-Adds new button to the action panel and/or context menu for the given sub tab. Semantics of `label` and `actionButtonInterface` are identical to ones declared by `addMainTabActionButton` function. The `mainTabEntityTypeName` and `subTabEntityTypeName` together identify existing sub tab to which the newly added button should be associated (only standard sub tabs are supported). Refer to [entity types](#Entity_type_reference) for details on supported entity names.
+Adds new button to the action panel and context menu for the given detail tab. Semantics of `label` and `actionButtonInterface` are identical to ones declared by `addMenuPlaceActionButton` function. The `mainEntityTypeName` and `detailEntityTypeName` together identify existing detail tab to which the newly added button should be associated. Refer to [entity types](#Entity_type_reference) for details on supported entity names.
 
-    api.addSubTabActionButton('Host', 'Event', 'Custom Button', {
+    api.addDetailPlaceActionButton('Host', 'Event', 'Custom Button', {
         onClick: function() {
             var selectedHostEvent = arguments[0];
             var isSpecial = selectedHostEvent.message.indexOf('special') != -1;
-            api.setTabAccessible('custom-tab', isSpecial);
+            api.setPlaceAccessible('custom-tab', isSpecial);
         },
         isEnabled: function() {
             return arguments.length == 1;
@@ -538,7 +571,6 @@ Shows new dialog with content provided from given URL. All arguments are require
 *   `buttons` - array defining buttons to display in dialog's footer area, empty by default, each element is an [interface object](#JavaScript_interface_object) that overrides button behavior via following properties:
     -   `label` - controls text displayed on button, default value is empty string
     -   `onClick` - function called when user clicks the button, no arguments, no-op by default
-*   `resizeEnabled` - controls whether the dialog can be resized with mouse, default value is `false`
 *   `closeIconVisible` - controls whether the close icon (located in right-hand part of dialog header) is visible, default value is `true`
 *   `closeOnEscKey` - controls whether the dialog can be closed by pressing Escape key, default value is `true`
 
@@ -560,7 +592,6 @@ Shows new dialog with content provided from given URL. All arguments are require
                     }
                 }
             ],
-            resizeEnabled: true,
             closeIconVisible: false,
             closeOnEscKey: false
         }
@@ -578,9 +609,11 @@ Updates the content URL of given dialog. Semantics of `dialogToken` and `content
     api.setDialogContentUrl('custom-dialog',
         'plugin/ExamplePlugin/dialog-content.html');
 
-      closeDialog
+#### closeDialog
 
-      string dialogToken
+Argument(s)
+
+    string dialogToken
 
 Closes the given dialog. Semantics of `dialogToken` is identical to one declared by `showDialog` function. Once closed, the dialog is destroyed.
 
@@ -606,11 +639,10 @@ Argument(s)
 
     string searchString
 
-Applies the given search string. The `searchString` is the text to apply into WebAdmin's search panel.
+Applies the given search string to the currently active main view place. The `searchString` is the text to apply into the currently active place search panel.
 
-    api.setSearchString('Hosts: name = abc');
+    api.setSearchString('name = abc');
 
-    
 #### ssoToken
 
 Returns an SSO token which can be used to authenticate the current user against the engine. This is useful to obtain an authenticated HTTP session for the REST api for instance.
@@ -631,11 +663,13 @@ Returns the locale that has been selected by the user when they logged in. The l
 
 ## API option reference
 
-### Cross-window messaging
+### Supported plugin API options 
 
-Argument(s)
+#### Cross-window messaging
 
-    string` or `string[] allowedMessageOrigins
+Acceptable value(s)
+
+    string or string[] allowedMessageOrigins
 
 Default value
 
@@ -645,7 +679,7 @@ Defines [origins](http://en.wikipedia.org/wiki/Same_origin_policy#Origin_determi
 
 ------------------------------------------------------------------------
 
-**Limitation:** plugins currently have to customize `allowedMessageOrigins` value to accept messages that originate from content served through UI plugin infrastructure, i.e. plugin resource files requested as `/ovirt-engine/webadmin/plugin//path/to/file`. Since Engine origin is generally considered safe, `allowedMessageOrigins` default value should be changed to Engine origin, see [RFE ticket](https://bugzilla.redhat.com/972226).
+**Limitation:** plugins currently have to customize `allowedMessageOrigins` value to accept messages that originate from content served through UI plugin infrastructure, i.e. plugin resource files requested as `/ovirt-engine/webadmin/plugin/path/to/file`. Since Engine origin is generally considered safe, `allowedMessageOrigins` default value should be changed to Engine origin, see [RFE ticket](https://bugzilla.redhat.com/972226).
 
 ## Entity type reference
 

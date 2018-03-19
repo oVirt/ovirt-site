@@ -38,5 +38,7 @@ Additional self-hosted engine hosts are added in the same way as a regular host,
 
 8. Click **OK**.
 
+_Note: To add the ability to deploy the Self-Hosted Engine on an existing host, you must select **Installation** and choose **Reinstall** on the host and repeat the above steps._
+
 **Prev:** [Chapter 6: Backing up and Restoring an EL-Based Self-Hosted Environment](../chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment) <br>
 **Next:** [Chapter 8: Migrating Databases](../chap-Migrating_Databases)

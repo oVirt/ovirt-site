@@ -103,9 +103,6 @@ configured to use persistence.
 Installing ViaQ Packages
 ------------------------
 
-These instructions and config files are for an all-in-one, single machine, run
-ansible on the same machine you are installing ViaQ on.
-
 The setup below is for a an all-in-one machine, running
 Ansible in *local* mode to install ViaQ on the same machine as Ansible is
 running on.  It also configures the `AllowAllPasswordIdentityProvider` with

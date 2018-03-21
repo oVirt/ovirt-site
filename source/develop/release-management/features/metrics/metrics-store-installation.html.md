@@ -13,7 +13,7 @@ feature_status: In Development
 **Note:** Currently, the oVirt Metrics Store should be installed on a new machine, separate from the engine.
 It can be installed on a dedicated VM.
 
-###Metrics Store Machine Prerequisites
+### Metrics Store Machine Prerequisites
 
 For an oVirt environment with 50 hosts: 
 - 4 CPU cores, 16GB RAM memory .

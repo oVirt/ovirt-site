@@ -13,8 +13,21 @@ feature_status: In Development
 **Note:** Currently, the oVirt Metrics Store should be installed on a new machine, separate from the engine.
 It can be installed on a dedicated VM.
 
+###Metrics Store Machine Prerequisites
 
+For an oVirt environment with 50 hosts: 
+- 4 CPU cores, 16GB RAM memory .
+- We recommends using SSD disks.
+- RHEL 7.3 or later.
+- Preallocated 500GB partition - It will be used for persistent storage. Use a partition other than root (/) to avoid filling up the partition, for example, /var.
+- Add the Metrics Store Machine FQDN to your enterprise hostname resolution system, for example, DNS.
+Add the following aliases:
 
+    - es.FQDN for Elasticsearch
+    - kibana.FQDN for Kibana
+
+    where FQDN is the hostname and domain of the OpenShift Aggregated Logging machine.
+- Also please make sure to follow the [OpenShift`masters` prerequisites](  https://docs.openshift.org/latest/install_config/install/prerequisites.html#hardware)
 
 ### Update config.yml file
 

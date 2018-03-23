@@ -123,7 +123,7 @@ it onto the node. When this is done, the volume is ready and the container can s
 the mount set into the `/data` directory as set by `mountPath`.
 
 ## Want to give it a try? Want to get updated about this?
-This work as for today (Feb 20th 1028) is in progress and all of it can be found at the [ovirt-flexdriver project page][project-page]
+This work as for today (Feb 20th 2018) is in progress and all of it can be found at the [ovirt-flexdriver project page][project-page]
 To *deploy* _**ovirt-flexdriver**_ and _**ovirt-provisioner**_ I created a container with _Ansible_ playbook that takes an inventory
 that has the k8s nodes and k8s master specified, along with the ovirt-engine connection details. The playbook will copy and
 configure both component and get you up and running with just few keystrokes. Find more on deployment in the README.md of [project][project-page]

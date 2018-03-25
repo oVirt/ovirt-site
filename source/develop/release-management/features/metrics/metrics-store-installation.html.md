@@ -27,7 +27,7 @@ Add the following aliases:
     - kibana.FQDN for Kibana
 
     where FQDN is the hostname and domain of the OpenShift Aggregated Logging machine.
-- Also please make sure to follow the [OpenShift`masters` prerequisites](  https://docs.openshift.org/latest/install_config/install/prerequisites.html#hardware)
+- Also please make sure to follow the [OpenShift `masters` prerequisites](https://docs.openshift.org/latest/install_config/install/prerequisites.html#hardware)
 
 ### Update config.yml file
 

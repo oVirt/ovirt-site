@@ -95,7 +95,7 @@ configured to use persistence.
 - make this directory writable by the group `chmod -R g+w /var/lib/elasticsearch`
 - add the following selinux policy:
 
-      # semanage fcontext -a -t svirt_sandbox_file_t "/var/lib/elasticsearch(/.*)?"
+      # semanage fcontext -a -t container_file_t "/var/lib/elasticsearch(/.*)?"
         
       # restorecon -R -v /var/lib/elasticsearch
 

@@ -8,13 +8,28 @@ feature_status: In Development
 ---
 # oVirt Metrics - Installation Guide
 
+[![oVirt Metrics data flow](/images/wiki/oVirtMetricsDataFlow.jpg)](/images/wiki/oVirtMetricsDataFlow.jpg)
+
 ## oVirt Metrics Store Setup
 
 **Note:** Currently, the oVirt Metrics Store should be installed on a new machine, separate from the engine.
 It can be installed on a dedicated VM.
 
+### Metrics Store Machine Prerequisites
 
+For an oVirt environment with 50 hosts: 
+- 4 CPU cores, 16GB RAM memory .
+- We recommends using SSD disks.
+- CentOS 7.3 or later.
+- Preallocated 500GB partition - It will be used for persistent storage. Use a partition other than root (/) to avoid filling up the partition, for example, /var.
+- Add the Metrics Store Machine FQDN to your enterprise hostname resolution system, for example, DNS.
+Add the following aliases:
 
+    - es.FQDN for Elasticsearch
+    - kibana.FQDN for Kibana
+
+    where FQDN is the hostname and domain of the OpenShift Aggregated Logging machine.
+- Also please make sure to follow the [OpenShift `masters` prerequisites](https://docs.openshift.org/latest/install_config/install/prerequisites.html#hardware)
 
 ### Update config.yml file
 
@@ -56,7 +71,7 @@ To copy the engine public key to your metrics store machine, run:
 
     # ssh-keygen -y -f $mytemp/engine_id_rsa > $mytemp/engine_id_rsa.pub
 
-    # ssh-copy-id -i $mytemp/engine_id_rsa.pub root@fluentd_elasticsearch_host
+    # ssh-copy-id -i $mytemp/engine_id_rsa.pub root@{fluentd_elasticsearch_host}
 
 It should ask for root password (on first attempt), supply it.
 After that, run:
@@ -65,7 +80,7 @@ After that, run:
 
 To test that you are able to log into the metrics store machine from the engine, run:
 
-    # ssh -i /etc/pki/ovirt-engine/keys/engine_id_rsa root@fluentd_elasticsearch_host
+    # ssh -i /etc/pki/ovirt-engine/keys/engine_id_rsa root@{fluentd_elasticsearch_host}
 
 ### Run ovirt-metrics-store-installation playbook
 
@@ -77,32 +92,25 @@ to the metrics store machine.
 
 ### Metrics Store Installation 
 
-Please follow the installation instructions: [Metrics Store setup on top of OpenShift](http://www.ovirt.org/develop/release-management/features/metrics/setting-up-viaq-logging/)
-
 **Note:** When running ansible to configure OpenShift, use the ansible-inventy file based on your OpenShift version and flavor.
 
-In oVirt 4.2 there will be an option to add SSO: [Metrics Store setup on top of OpenShift with oVirt Engine SSO](https://www.ovirt.org/blog/2017/05/openshift-openId-integration-with-engine-sso/)
+To install OpenShift Logging on your machine (Elasticsearch, Kibana, Fluentd, Curator), Please follow the installation instructions: [Metrics Store setup on top of OpenShift](https://www.ovirt.org/develop/release-management/features/metrics/setting-up-viaq-logging.md)
 
-
-[![oVirt Metrics data flow](/images/wiki/oVirtMetricsDataFlow.jpg)](/images/wiki/oVirtMetricsDataFlow.jpg)
+Optional in oVirt 4.2, add SSO: [Metrics Store setup on top of OpenShift with oVirt Engine SSO](https://www.ovirt.org/blog/2017/05/openshift-openId-integration-with-engine-sso/)
 
 Once you have finished this step, you should have:
 
-  * Kibana - <https://kibana.{hostname}>
-  * OpenShift portal - <https://openshift.{hostname}>
+  * Kibana - <https://kibana.{fluentd_elasticsearch_host}>
+  * OpenShift portal - <https://{fluentd_elasticsearch_host}:8443>
 
 
 ## oVirt Hypervisors and Engine Setup ##
 
-Now we need to deploy and configure collectd and fluentd to send the data to the central metrics store::
+Deploy and configure collectd and fluentd to send the data to the central metrics store::
 
-1. This requires installing / upgrading and setting up oVirt Engine 4.1.8 and above.
-   Until version 4.1.8 is available, you can use the snapshots repository to get the latest ovirt-engine-metrics package.
-   http://resources.ovirt.org/pub/ovirt-4.1-snapshot/rpm/
+1. This requires installing / upgrading and setting up oVirt Engine latest 4.2.z.
 
-2. This requires installing / upgrading and activating one or more hosts from version 4.1.8 or above.
-   Until version 4.1.8 is available, You can use the snapshots repository to get the latest ovirt-engine-metrics package.
-   http://resources.ovirt.org/pub/ovirt-4.1-snapshot/rpm/
+2. This requires installing / upgrading and activating one or more hosts from version 4.2.z.
 
 3. On the engine machine, run as root:
 
@@ -115,4 +123,23 @@ It should finish without errors, collectd and fluentd services should be running
 Once finished, you can view host, VM and other statistics, in the Kibana console,
 at the address configured earlier on in this procedure [(see oVirt Metrics Store Setup)](https://github.com/ViaQ/Main/blob/master/README-install.md#running-kibana).
 
-Kibana should be available at <https://kibana.{hostname}>
+
+## Example Dashboards
+
+Kibana should be available at <https://kibana.{fluentd_elasticsearch_host}>
+
+Dashboard examples include `System Dashboard`, `Hosts Dashboard`, `VMs Dashboard`, `Processes Dashboard`.
+
+If you wish to import dashboards example, you will need to import visualization and dashboards manually from the Kibana UI.
+
+1. Copy the /etc/ovirt-engine-metrics/dashboards-examples directory to your local machine.
+
+2. Go to the Kibana UI, to the `setting` -> `objects`.
+
+3. Import the `Searches`.
+
+4. Import the `Visualizations`.
+
+5. Import the `Dashboards`.
+
+You are done! Go to the `Dashboard` tab in the Kibana UI and choose a dashboard.

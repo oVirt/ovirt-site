@@ -88,11 +88,18 @@ configured to use persistence.
   partition, you are strongly recommended to use a partition other than root
   `/` to avoid filling up the root partition.
 - Find a partition that can easily accomodate many GB of storage.
-- Create the directory e.g. `mkdir -p /var/lib/elasticsearch`
+- Create the directory
+  
+      # mkdir -p /var/lib/elasticsearch
+  
 - Change the group ownership to the value of your
   `openshift_logging_elasticsearch_storage_group` parameter (default `65534`)
-  e.g. `chgrp 65534 /var/lib/elasticsearch`
-- make this directory writable by the group `chmod -R g+w /var/lib/elasticsearch`
+  
+      # chgrp 65534 /var/lib/elasticsearch`
+- make this directory writable by the group
+      
+      # chmod -R 0770 /var/lib/elasticsearch
+      
 - add the following selinux policy:
 
       # semanage fcontext -a -t container_file_t "/var/lib/elasticsearch(/.*)?"

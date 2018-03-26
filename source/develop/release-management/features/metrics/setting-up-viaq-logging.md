@@ -96,6 +96,7 @@ configured to use persistence.
   `openshift_logging_elasticsearch_storage_group` parameter (default `65534`)
   
       # chgrp 65534 /var/lib/elasticsearch`
+      
 - make this directory writable by the group
       
       # chmod -R 0770 /var/lib/elasticsearch

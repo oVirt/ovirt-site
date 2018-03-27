@@ -1,0 +1,38 @@
+[centos-openshift-origin]
+name=CentOS OpenShift Origin
+baseurl=http://mirror.centos.org/centos/7/paas/x86_64/openshift-origin/
+enabled=1
+gpgcheck=1
+gpgkey=https://tdawson.fedorapeople.org/centos/RPM-GPG-KEY-CentOS-SIG-PaaS
+
+[centos-openshift-common-candidate]
+name=CentOS OpenShift Common Candidate
+baseurl=https://cbs.centos.org/repos/paas7-openshift-common-candidate/x86_64/os/
+enabled=0
+gpgcheck=0
+
+[centos-openshift-origin14-candidate]
+name=CentOS OpenShift Origin14 Candidate
+baseurl=http://cbs.centos.org/repos/paas7-openshift-origin14-candidate/x86_64/os/
+enabled=1
+gpgcheck=0
+gpgkey=https://tdawson.fedorapeople.org/centos/RPM-GPG-KEY-CentOS-SIG-PaaS
+
+[centos-openshift-origin15-candidate]
+name=CentOS OpenShift Origin15 Candidate
+baseurl=http://cbs.centos.org/repos/paas7-openshift-origin15-candidate/x86_64/os/
+enabled=1
+gpgcheck=0
+gpgkey=https://tdawson.fedorapeople.org/centos/RPM-GPG-KEY-CentOS-SIG-PaaS
+
+[centos-openshift-origin36-candidate]
+name=CentOS OpenShift Origin36 Candidate
+baseurl=http://cbs.centos.org/repos/paas7-openshift-origin36-candidate/x86_64/os
+enabled=1
+gpgcheck=0
+
+[centos-openshift-origin37-candidate]
+name=CentOS OpenShift Origin36 Candidate
+baseurl=http://cbs.centos.org/repos/paas7-openshift-origin37-candidate/x86_64/os
+enabled=1
+gpgcheck=0

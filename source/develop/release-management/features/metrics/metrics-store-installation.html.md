@@ -90,7 +90,9 @@ to the metrics store machine.
         # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_hosts_for_metrics.sh \
         --playbook=ovirt-metrics-store-installation.yml
 
-### Metrics Store Installation
+### Metrics Store Installation 
+
+**Note:** When running ansible to configure OpenShift, use the ansible-inventy file based on your OpenShift version and flavor.
 
 To install OpenShift Logging on your machine (Elasticsearch, Kibana, Fluentd, Curator), Please follow the installation instructions: [Metrics Store setup on top of OpenShift](https://www.ovirt.org/develop/release-management/features/metrics/setting-up-viaq-logging.md)
 

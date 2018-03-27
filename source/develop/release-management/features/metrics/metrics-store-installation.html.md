@@ -87,7 +87,7 @@ To test that you are able to log into the metrics store machine from the engine,
 This playbook generates the inventory and vars.yml files required for the metrics store installation and copies them
 to the metrics store machine.
 
-        # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_hosts_for_metrics.sh \
+        # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh \
         --playbook=ovirt-metrics-store-installation.yml
 
 ### Metrics Store Installation 
@@ -114,7 +114,7 @@ Deploy and configure collectd and fluentd to send the data to the central metric
 
 3. On the engine machine, run as root:
 
-        # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_hosts_for_metrics.sh
+        # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh
 
 It runs the Ansible script that configures collectd and fluentd on the oVirt engine and hypervisors.
 

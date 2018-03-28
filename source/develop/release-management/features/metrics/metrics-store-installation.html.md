@@ -94,7 +94,7 @@ to the metrics store machine.
 
 **Note:** When running ansible to configure OpenShift, use the ansible-inventy file based on your OpenShift version and flavor.
 
-To install OpenShift Logging on your machine (Elasticsearch, Kibana, Fluentd, Curator), Please follow the installation instructions: [Metrics Store setup on top of OpenShift](https://www.ovirt.org/develop/release-management/features/metrics/setting-up-viaq-logging.md)
+To install OpenShift Logging on your machine (Elasticsearch, Kibana, Fluentd, Curator), Please follow the installation instructions: [Metrics Store setup on top of OpenShift](https://github.com/oVirt/ovirt-site/blob/master/source/develop/release-management/features/metrics/setting-up-viaq-logging.md)
 
 Optional in oVirt 4.2, add SSO: [Metrics Store setup on top of OpenShift with oVirt Engine SSO](https://www.ovirt.org/blog/2017/05/openshift-openId-integration-with-engine-sso/)
 

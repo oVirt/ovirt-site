@@ -6,22 +6,13 @@ layout: toc
 
 # oVirt 4.2.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.2.2
-Fifth Release Candidate as of March 21, 2018.
+The oVirt Project is pleased to announce the availability of the 4.2.2 release as of March 28, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.4,
 CentOS Linux 7.4 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -37,21 +28,25 @@ To learn about features introduced before 4.2.2, see the [release notes for prev
 ### CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
+
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 
 
@@ -252,6 +247,8 @@ packages from other repos.
  - [BZ 1522737](https://bugzilla.redhat.com/1522737) <b>Warn admin during hosted engine deploy not to use all the space from hosted SD and leave something for OVFs</b><br>
  - [BZ 1541412](https://bugzilla.redhat.com/1541412) <b>Ansible deployment should clean up files in /var once finished</b><br>
  - [BZ 1540463](https://bugzilla.redhat.com/1540463) <b>New IPv4 validator handles interfaces with no gateway incorrectly</b><br>
+ - [BZ 1558568](https://bugzilla.redhat.com/1558568) <b>Typo during deployment, should be bootstrap instead of boostrap.</b><br>
+ - [BZ 1555385](https://bugzilla.redhat.com/1555385) <b>iSCSI target and LUN selection is broken</b><br>
  - [BZ 1558546](https://bugzilla.redhat.com/1558546) <b>Cockpit deploy of hosted engine fails at the end when DHCP is used</b><br>
  - [BZ 1558036](https://bugzilla.redhat.com/1558036) <b>cockpit wizard skips many lines from the ansible callback output</b><br>
  - [BZ 1548891](https://bugzilla.redhat.com/1548891) <b>After HE restore DC is down due to bumped spm_id of non HE-host (current SPM)</b><br>
@@ -306,7 +303,6 @@ packages from other repos.
  - [BZ 1557777](https://bugzilla.redhat.com/1557777) <b>USB passthrough device cannot be removed</b><br>
  - [BZ 1556668](https://bugzilla.redhat.com/1556668) <b>ovirt engine add host failed, host status is NonOperational</b><br>
  - [BZ 1358295](https://bugzilla.redhat.com/1358295) <b>[i18n][ALL_LANG] wrong translation of error message canceling operation</b><br>
- - [BZ 1553218](https://bugzilla.redhat.com/1553218) <b>Start VM with inactive attached disk fails with NPE</b><br>
  - [BZ 1530583](https://bugzilla.redhat.com/1530583) <b>[OVS] - Disable/gray out the option to change the switch type on existing cluster</b><br>
  - [BZ 1554116](https://bugzilla.redhat.com/1554116) <b>"Ignore OVF update failure" checkbox when disabling a non-data domain</b><br>
  - [BZ 1503172](https://bugzilla.redhat.com/1503172) <b>NullPointerException when trying to restore a snapshot with disks parameters on REST API</b><br>
@@ -444,7 +440,11 @@ packages from other repos.
 
 #### oVirt Engine Metrics
 
+ - [BZ 1475681](https://bugzilla.redhat.com/1475681) <b>[RFE][Tracker] Add initial Kibana dashboard</b><br>
+ - [BZ 1559042](https://bugzilla.redhat.com/1559042) <b>Remove disk and memory check flags from the OpenShift ansible-inventory files</b><br>
  - [BZ 1506176](https://bugzilla.redhat.com/1506176) <b>manage_services tag needs better documentation in help</b><br>
+ - [BZ 1560240](https://bugzilla.redhat.com/1560240) <b>OpenShift Logging should use the partition supplied by the user for elasticsearch persistent storage</b><br>
+ - [BZ 1560922](https://bugzilla.redhat.com/1560922) <b>metrics store not being configured while scope are used</b><br>
  - [BZ 1549163](https://bugzilla.redhat.com/1549163) <b>oVirt.metrics role prevents execution of all following parts of oVirt.host-deploy role</b><br>
  - [BZ 1547711](https://bugzilla.redhat.com/1547711) <b>Metrics is being configured even if validations failed</b><br>
 
@@ -477,9 +477,12 @@ packages from other repos.
  - [BZ 1538613](https://bugzilla.redhat.com/1538613) <b>Gdeploy conf file missing firewalld configuration and other setting when lvmcache chose</b><br>
  - [BZ 1550989](https://bugzilla.redhat.com/1550989) <b>gdeploy should stop execution when enableing lvmcache fails</b><br>
  - [BZ 1540926](https://bugzilla.redhat.com/1540926) <b>cockpit wizard fails to parse the output of the json callback</b><br>
- - [BZ 1558826](https://bugzilla.redhat.com/1558826) <b>Finish wizard page have the confusing buttons</b><br>
+ - [BZ 1555385](https://bugzilla.redhat.com/1555385) <b>iSCSI target and LUN selection is broken</b><br>
+ - [BZ 1558826](https://bugzilla.redhat.com/1558826) <b>Finish wizard page have the confusing buttons while deploying HE failed</b><br>
  - [BZ 1558559](https://bugzilla.redhat.com/1558559) <b>On successfully deployment it still shows deploy button</b><br>
  - [BZ 1558036](https://bugzilla.redhat.com/1558036) <b>cockpit wizard skips many lines from the ansible callback output</b><br>
+ - [BZ 1558331](https://bugzilla.redhat.com/1558331) <b>Slabsize unit not recognised as GB in gdeployConfig.conf file generated during deployment</b><br>
+ - [BZ 1555333](https://bugzilla.redhat.com/1555333) <b>Can't press 'start' button when have low screen resolution</b><br>
  - [BZ 1555365](https://bugzilla.redhat.com/1555365) <b>Hosted-Engine failed to deploy with NFS via cockpit</b><br>
  - [BZ 1538940](https://bugzilla.redhat.com/1538940) <b>"execute" button during configuration while deploying HE  via cockpit based ansible deployment is confusing.</b><br>
  - [BZ 1547513](https://bugzilla.redhat.com/1547513) <b>[Cockpit ]  Logical size of the devices should be computed for all values gives in physical device</b><br>
@@ -513,15 +516,14 @@ packages from other repos.
 
 #### oVirt Hosted Engine HA
 
+ - [BZ 1547479](https://bugzilla.redhat.com/1547479) <b>Make sure hosted engine disks have exclusive access flags even when libvirt XML is used via OVF</b><br>
  - [BZ 1545105](https://bugzilla.redhat.com/1545105) <b>OVF parsing fails if the HE VM is in an affinity group</b><br>
- - [BZ 1504606](https://bugzilla.redhat.com/1504606) <b>Use the Domain XML to create the HE VM</b><br>
 
 #### oVirt Hosted Engine Setup
 
  - [BZ 1557480](https://bugzilla.redhat.com/1557480) <b>The deployment fails on [Create configuration templates] task</b><br>
  - [BZ 1547595](https://bugzilla.redhat.com/1547595) <b>Avoid logging at error level for ansible tasks with ignore_errors.</b><br>
  - [BZ 1546764](https://bugzilla.redhat.com/1546764) <b>Typo in "[ INFO  ] TASK [Set FDQN] ", it should be "[ INFO  ] TASK [Set FQDN]" instead.</b><br>
- - [BZ 1504606](https://bugzilla.redhat.com/1504606) <b>Use the Domain XML to create the HE VM</b><br>
  - [BZ 1546652](https://bugzilla.redhat.com/1546652) <b>HE setup: Ansible: detect the interface used on an existing management bridge and propose just that one</b><br>
  - [BZ 1540150](https://bugzilla.redhat.com/1540150) <b>Disable IPv6 on network configuration at the engine on the ansible deployment flow</b><br>
 
@@ -531,6 +533,7 @@ packages from other repos.
  - [BZ 1525904](https://bugzilla.redhat.com/1525904) <b>Include engine-psql.sh in ovirt-engine-dbscripts package as redhat-support-plugin-rhev package has been obsoleted and rhevm-doc is not a nice place to include that script</b><br>
  - [BZ 1514853](https://bugzilla.redhat.com/1514853) <b>Vm run fails due to NPE when host statistics are missing.</b><br>
  - [BZ 1341177](https://bugzilla.redhat.com/1341177) <b>[RFE] Log "Cannot migrate VM" and "Cannot run VM" failures to "Events" tab (audit_log)</b><br>
+ - [BZ 1553218](https://bugzilla.redhat.com/1553218) <b>Start VM with inactive attached disk fails with NPE</b><br>
  - [BZ 1534544](https://bugzilla.redhat.com/1534544) <b>engine log 404 Error message for lang.css when viewing documentation</b><br>
  - [BZ 1511926](https://bugzilla.redhat.com/1511926) <b>in small window action dropdown menu is not visible when it is on new line</b><br>
  - [BZ 1543833](https://bugzilla.redhat.com/1543833) <b>XML error: Multiple 'scsi' controllers with index '0'</b><br>

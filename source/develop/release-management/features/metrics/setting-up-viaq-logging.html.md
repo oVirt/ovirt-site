@@ -96,26 +96,43 @@ configured to use persistence.
 - First, since Elasticsearch can use many GB of disk space, and may fill up the
   partition, you are strongly recommended to use a partition other than root
   `/` to avoid filling up the root partition.
-- Find a partition that can easily accomodate many GB of storage.
+- Find a partition that can easily accomodate many GB of storage. By default we recommend /var.
 - Create the directory
   
-      # mkdir -p /var/lib/elasticsearch
+      # mkdir -p /<elasticsearch_storage_partition>/lib/elasticsearch
+      
+   If `elasticsearch_storage_partition` is /var, Run:
+      
+       # mkdir -p /var/lib/elasticsearch
   
 - Change the group ownership to the value of your
   `openshift_logging_elasticsearch_storage_group` parameter (default `65534`)
   
-      # chgrp 65534 /var/lib/elasticsearch`
+      # chgrp 65534 /<elasticsearch_storage_partition>/lib/elasticsearch`
+   
+   If `elasticsearch_storage_partition` is /var, Run:
+   
+       # chgrp 65534 /var/lib/elasticsearch`
       
 - make this directory writable by the group
       
+      # chmod -R 0770 /<elasticsearch_storage_partition>/lib/elasticsearch
+
+   If `elasticsearch_storage_partition` is /var, Run:
+   
       # chmod -R 0770 /var/lib/elasticsearch
       
 - add the following selinux policy:
 
+      # semanage fcontext -a -t container_file_t "/<elasticsearch_storage_partition>/lib/elasticsearch(/.*)?"
+        
+      # restorecon -R -v /<elasticsearch_storage_partition>/lib/elasticsearch
+
+   If `elasticsearch_storage_partition` is /var, Run:
+
       # semanage fcontext -a -t container_file_t "/var/lib/elasticsearch(/.*)?"
         
       # restorecon -R -v /var/lib/elasticsearch
-
 
 Installing ViaQ Packages
 ------------------------

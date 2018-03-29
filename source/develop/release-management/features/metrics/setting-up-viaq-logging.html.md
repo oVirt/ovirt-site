@@ -101,7 +101,7 @@ configured to use persistence.
   
       # mkdir -p /<elasticsearch_storage_partition>/lib/elasticsearch
       
-   If `elasticsearch_storage_partition` is /var, Run:
+   If `elasticsearch_storage_partition` is /var, run:
       
        # mkdir -p /var/lib/elasticsearch
   
@@ -110,7 +110,7 @@ configured to use persistence.
   
       # chgrp 65534 /<elasticsearch_storage_partition>/lib/elasticsearch`
    
-   If `elasticsearch_storage_partition` is /var, Run:
+   If `elasticsearch_storage_partition` is /var, run:
    
        # chgrp 65534 /var/lib/elasticsearch`
       
@@ -118,7 +118,7 @@ configured to use persistence.
       
       # chmod -R 0770 /<elasticsearch_storage_partition>/lib/elasticsearch
 
-   If `elasticsearch_storage_partition` is /var, Run:
+   If `elasticsearch_storage_partition` is /var, run:
    
       # chmod -R 0770 /var/lib/elasticsearch
       
@@ -128,7 +128,7 @@ configured to use persistence.
         
       # restorecon -R -v /<elasticsearch_storage_partition>/lib/elasticsearch
 
-   If `elasticsearch_storage_partition` is /var, Run:
+   If `elasticsearch_storage_partition` is /var, run:
 
       # semanage fcontext -a -t container_file_t "/var/lib/elasticsearch(/.*)?"
         

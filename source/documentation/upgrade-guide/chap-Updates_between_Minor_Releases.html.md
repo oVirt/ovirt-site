@@ -48,7 +48,7 @@ Updates to the oVirt Engine are released via the oVirt Project.
 
 3. Update the `ovirt-engine-setup` package:
 
-        # yum update ovirt-engine-setup
+        # yum update ovirt\*setup\*
 
 4. Update the oVirt Engine. By running `engine-setup`, the script will prompt you with some configuration questions like updating the firewall rules, updating PKI certificates, and backing up the Data Warehouse database. The script will then go through the process of stopping the `ovirt-engine` service, downloading and installing the updated packages, backing up and updating the database, performing post-installation configuration, and starting the `ovirt-engine` service.
 

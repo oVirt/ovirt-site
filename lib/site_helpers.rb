@@ -38,10 +38,6 @@ class SiteHelpers < Middleman::Extension
     def markdown_to_html(content)
       return unless content
 
-      if content.match(/https?:\/\//)
-        content.gsub!(/([^<])(https?:\/\/[^\s\)$]*)([^>])/, '\\1<\\2>\\3')
-      end
-
       Tilt['markdown'].new(config[:markdown]) { content.strip }.render
     end
 

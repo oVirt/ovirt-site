@@ -174,28 +174,35 @@ Running Ansible
 The public hostname should typically be a DNS entry for the
 public IP address.
 
-1. Run ansible:
+1. Run ansible using the `prerequisites.yml` playbook to ensure the machine is
+   configured correctly:
 
-       # cd /usr/share/ansible/openshift-ansible
+       cd /usr/share/ansible/openshift-ansible
        # (or wherever you cloned the git repo if using git)
-       ANSIBLE_LOG_PATH=/tmp/ansible.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-origin-37-aio playbooks/byo/config.yml
+       ANSIBLE_LOG_PATH=/tmp/ansible-prereq.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-origin-39-aio playbooks/prerequisites.yml
 
+2. Run ansible using the `deploy_cluster.yml` playbook to install OpenShift and
+   the logging components:
 
-2. Check `/tmp/ansible.log` if there are any errors during the run.  If this
+       cd /usr/share/ansible/openshift-ansible
+       # (or wherever you cloned the git repo if using git)
+       ANSIBLE_LOG_PATH=/tmp/ansible.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-origin-39-aio playbooks/deploy_cluster.yml
+
+3. Check `/tmp/ansible.log` if there are any errors during the run.  If this
 hangs, just kill it and run it again - Ansible is (mostly) idempotent.  Same
 applies if there are any errors during the run - fix the machine and/or the
 `vars.yaml` and run it again.
 
-Note : If the installation hangs, kill it and run it again.
 
 Enabling Elasticsearch to Mount the Directory
 ---------------------------------------------
 The installation of Elasticsearch will fail because there is currently no way to grant
 the Elasticsearch service account permission to mount that directory.
 After installation is complete, do the following steps to enable Elasticsearch to mount the directory:
-       
+
+
         # oc project logging
-        # oadm policy add-scc-to-user hostmount-anyuid \
+        # oc adm policy add-scc-to-user hostmount-anyuid \
           system:serviceaccount:logging:aggregated-logging-elasticsearch
 
         # oc rollout cancel $( oc get -n logging dc -l component=es -o name )
@@ -318,7 +325,7 @@ To create an admin user:
     # oc create user admin
     # oc create identity allow_all:admin
     # oc create useridentitymapping allow_all:admin admin
-    # oadm policy add-cluster-role-to-user cluster-admin admin
+    # oc adm policy add-cluster-role-to-user cluster-admin admin
 
 This will create the user account.  The password is set at the
 first login.  To set the password now:
@@ -333,7 +340,7 @@ projects, follow the steps above, except do not assign the `cluster-admin`
 role, use the following instead:
 
     # oc project $namespace
-    # oadm policy add-role-to-user view $username
+    # oc adm policy add-role-to-user view $username
 
 Where `$username` is the name of the user you created instead of `admin`,
 and `$namespace` is the name of the project or namespace you wish to allow
@@ -346,7 +353,7 @@ named `loguser` that can view logs in `ovirt-metrics-engine`:
     # oc create identity allow_all:loguser
     # oc create useridentitymapping allow_all:loguser loguser
     # oc project ovirt-metrics-engine
-    # oadm policy add-role-to-user view loguser
+    # oc adm policy add-role-to-user view loguser
 
 and to assign the password immediately instead of waiting for the user
 to login:

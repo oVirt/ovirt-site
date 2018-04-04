@@ -178,7 +178,7 @@ public IP address.
 
        # cd /usr/share/ansible/openshift-ansible
        # (or wherever you cloned the git repo if using git)
-       ANSIBLE_LOG_PATH=/tmp/ansible.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-origin-37-aio playbooks/byo/config.yml
+       ANSIBLE_LOG_PATH=/tmp/ansible.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-origin-39-aio playbooks/byo/config.yml
 
 
 2. Check `/tmp/ansible.log` if there are any errors during the run.  If this

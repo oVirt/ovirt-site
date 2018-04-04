@@ -195,7 +195,7 @@ the Elasticsearch service account permission to mount that directory.
 After installation is complete, do the following steps to enable Elasticsearch to mount the directory:
        
         # oc project logging
-        # oadm policy add-scc-to-user hostmount-anyuid \
+        # oc adm policy add-scc-to-user hostmount-anyuid \
           system:serviceaccount:logging:aggregated-logging-elasticsearch
 
         # oc rollout cancel $( oc get -n logging dc -l component=es -o name )
@@ -318,7 +318,7 @@ To create an admin user:
     # oc create user admin
     # oc create identity allow_all:admin
     # oc create useridentitymapping allow_all:admin admin
-    # oadm policy add-cluster-role-to-user cluster-admin admin
+    # oc adm policy add-cluster-role-to-user cluster-admin admin
 
 This will create the user account.  The password is set at the
 first login.  To set the password now:
@@ -333,7 +333,7 @@ projects, follow the steps above, except do not assign the `cluster-admin`
 role, use the following instead:
 
     # oc project $namespace
-    # oadm policy add-role-to-user view $username
+    # oc adm policy add-role-to-user view $username
 
 Where `$username` is the name of the user you created instead of `admin`,
 and `$namespace` is the name of the project or namespace you wish to allow
@@ -346,7 +346,7 @@ named `loguser` that can view logs in `ovirt-metrics-engine`:
     # oc create identity allow_all:loguser
     # oc create useridentitymapping allow_all:loguser loguser
     # oc project ovirt-metrics-engine
-    # oadm policy add-role-to-user view loguser
+    # oc adm policy add-role-to-user view loguser
 
 and to assign the password immediately instead of waiting for the user
 to login:

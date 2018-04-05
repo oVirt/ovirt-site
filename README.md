@@ -43,6 +43,10 @@ You can access the source content in one of the following ways:
 - From the deployed website, scroll down to the bottom of the topic page and click "Edit this page on GitHub". You can then edit the file directly in the GitHub editor.
 - From this source repo, click the Edit icon (hover text "Edit this file") at the top-right corner of the topic header. You can then edit the file directly in the GitHub editor.
 
+### Add new author
+Minimalistic profiles of the author's are stored in `data/authors.yml`. Add yourself to this list,
+if you want to use a nickname or an avatar.
+
 ### Add new content
 
 All content in the website is written in Markdown. For information on formatting Markdown, see [Markdown Basics](https://help.github.com/articles/markdown-basics/).

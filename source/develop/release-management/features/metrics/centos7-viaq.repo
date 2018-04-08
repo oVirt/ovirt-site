@@ -32,7 +32,19 @@ enabled=1
 gpgcheck=0
 
 [centos-openshift-origin37-candidate]
-name=CentOS OpenShift Origin36 Candidate
+name=CentOS OpenShift Origin37 Candidate
 baseurl=http://cbs.centos.org/repos/paas7-openshift-origin37-candidate/x86_64/os
+enabled=1
+gpgcheck=0
+
+[centos-openshift-origin38-candidate]
+name=CentOS OpenShift Origin38 Candidate
+baseurl=http://cbs.centos.org/repos/paas7-openshift-origin38-candidate/x86_64/os
+enabled=1
+gpgcheck=0
+
+[centos-openshift-origin39-candidate]
+name=CentOS OpenShift Origin39 Candidate
+baseurl=http://cbs.centos.org/repos/paas7-openshift-origin39-candidate/x86_64/os
 enabled=1
 gpgcheck=0

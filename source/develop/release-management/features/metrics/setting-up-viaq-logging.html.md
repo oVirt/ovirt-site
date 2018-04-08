@@ -181,14 +181,21 @@ public IP address.
        # (or wherever you cloned the git repo if using git)
        ANSIBLE_LOG_PATH=/tmp/ansible-prereq.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-origin-39-aio playbooks/prerequisites.yml
 
-2. Run ansible using the `deploy_cluster.yml` playbook to install OpenShift and
+2. Run ansible using the `openshift-node/network_manager.yml` playbook to
+   ensure networking and NetworkManager are configured correctly:
+
+       cd /usr/share/ansible/openshift-ansible
+       # (or wherever you cloned the git repo if using git)
+       ANSIBLE_LOG_PATH=/tmp/ansible-network.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-origin-39-aio playbooks/openshift-node/network_manager.yml
+
+3. Run ansible using the `deploy_cluster.yml` playbook to install OpenShift and
    the logging components:
 
        cd /usr/share/ansible/openshift-ansible
        # (or wherever you cloned the git repo if using git)
        ANSIBLE_LOG_PATH=/tmp/ansible.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-origin-39-aio playbooks/deploy_cluster.yml
 
-3. Check `/tmp/ansible.log` if there are any errors during the run.  If this
+4. Check `/tmp/ansible.log` if there are any errors during the run.  If this
 hangs, just kill it and run it again - Ansible is (mostly) idempotent.  Same
 applies if there are any errors during the run - fix the machine and/or the
 `vars.yaml` and run it again.

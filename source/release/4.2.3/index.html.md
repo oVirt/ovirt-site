@@ -6,7 +6,7 @@ layout: toc
 
 # oVirt 4.2.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.2.3 First Release Candidate as of April 11, 2018.
+The oVirt Project is pleased to announce the availability of the 4.2.3 First Release Candidate as of April 12, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -99,9 +99,14 @@ packages from other repos.
 
 #### VDSM
 
+ - [BZ 1551350](https://bugzilla.redhat.com/1551350) <b>[RFE] Add support for querying information from QEMU Guest Agent</b><br>It is now possible to obtain infomation like hostname, OS info, time zone and active users on VMs where ovirt-guest-agent is not installed and only QEMU Guest Agent is present.
  - [BZ 1518541](https://bugzilla.redhat.com/1518541) <b>[RFE] Monitor capacity of vdo-enabled brick devices and gluster volumes</b><br>Feature: Added monitoring of thin storage devices (thin provisioned, compressed or deduplicated)<br><br>Reason: With thin devices number of available 'free bytes' on storage domain may not be relevant. Storage domain may report that you have a lot of space, while actually you are quite limited. Because of that we need to monitor actually available space and report it.<br><br>Result: Now we report guaranteed free space (meaning, that you will be able to write at least as much data and may be more) for gluster bricks, bluster volumes and for gluster based storage domains.
  - [BZ 1334982](https://bugzilla.redhat.com/1334982) <b>[RFE] Gracefully shutdown Virtual Machines on Host reboot/shutdown.</b><br>Previously, in cases of emergency,  users were required to shut down the hosts to preserve the data center. This caused running virtual machines to be killed by the systemd process without performing a graceful shutdown. As a result, the virtual machine's state became undefined which led to problematic scenarios for virtual machines running databases such as Oracle and SAP.<br>In this release, virtual machines can be gracefully shut down by delaying the systemd process. Only after the virtual machines are shut down, does the systemd process take control and continue the shut down. The VDSM is only shut down after the virtual machines have been gracefully shut down, after passing information to the Manager and waiting 5 seconds for the Manager to acknowledge the virtual machines have been shut down.
  - [BZ 1447300](https://bugzilla.redhat.com/1447300) <b>enable libguestfs tools on ppc64le</b><br>Sparsify and sysprep can now be run on POWER hosts.
+
+#### cockpit-ovirt
+
+ - [BZ 1547464](https://bugzilla.redhat.com/1547464) <b>[RFE]Tick mark on one check box  in brick configuration should check mark  all the bricks under that device.</b><br>
 
 ### Bug Fixes
 
@@ -159,6 +164,12 @@ packages from other repos.
 
  - [BZ 1563681](https://bugzilla.redhat.com/1563681) <b>Add OpenShift 3.9 ansible inventory file and copy in to metrics store machine</b><br>
  - [BZ 1561927](https://bugzilla.redhat.com/1561927) <b>engine.log - timezone handling broken for utc</b><br>
+
+#### cockpit-ovirt
+
+ - [BZ 1560351](https://bugzilla.redhat.com/1560351) <b>After changing the iSCSI portal address and fetching, old results are shown</b><br>
+ - [BZ 1558084](https://bugzilla.redhat.com/1558084) <b>The iSCSI storage wizard page has weird UI logic</b><br>
+ - [BZ 1555368](https://bugzilla.redhat.com/1555368) <b>Network prefix length value is pre-filled but not effective if the user doesn't retype it.</b><br>
 
 ### No Doc Update
 

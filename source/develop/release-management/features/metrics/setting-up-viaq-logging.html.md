@@ -146,10 +146,7 @@ create users.  See below for more information about users.
 Ansible is used to install ViaQ and OCP or Origin using OpenShift Ansible.
 The following packages are required:
 
-    # yum install openshift-ansible \
-      openshift-ansible-callback-plugins openshift-ansible-filter-plugins \
-      openshift-ansible-lookup-plugins openshift-ansible-playbooks \
-      openshift-ansible-roles
+    # yum install openshift-ansible openshift-ansible-playbooks openshift-ansible-roles
 
 
 ### Customizing vars.yaml

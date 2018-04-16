@@ -63,9 +63,7 @@ ovirt-orb-[oVirt Orb version].tar.xz: OK
 
 ### Extracting the archive
 
-<code>
-xz --decompress --stdout ovirt-orb-[oVirt Orb version].tar.xz | tar -xv
-</code>
+    xz --decompress --stdout ovirt-orb-[oVirt Orb version].tar.xz | tar -xv
 
 ## Running the environment
 

@@ -8,13 +8,13 @@ layout: toc
 
 oVirt Orb is a project that allows anyone to easily take an oVirt for a ride, test and play with it.
 All without the need to manually install all the components.
-It's based on the Lago framework, and runs the whole environment on a single machine by creating a number of VMs, using a concept of nested virtualization.
+It's based on the Lago framework and runs the whole environment on a single machine by creating a number of VMs, using a concept of nested virtualization.
 
 ## Requirements
 
 - Operating System
 
-Currently Orb can run on either supported Fedora versions or Centos 7.
+Currently, Orb can run on either supported Fedora versions or Centos 7.
 
 - CPU
 
@@ -30,7 +30,7 @@ Orb requires that your system will have at least 8GB of RAM.
 
 ## Installing requirements
 
-In order to run the oVirt Orb you will need first to install Lago and some more dependencies.
+In order to run the oVirt Orb, you will need first to install Lago and some more dependencies.
 
 ### Installing Lago
 Lago is the framework that provides the basis for running all the required machines for our environment.
@@ -55,11 +55,11 @@ You will need to download both the ovirt-orb-*.tar.xz and ovirt-orb-*.tar.xz.md5
 
 Verify the download file with md5sum:
 
-md5sum -c ovirt-orb-[oVirt Orb version].tar.xz.md5
+    md5sum -c ovirt-orb-[oVirt Orb version].tar.xz.md5
 
 You should see the following message on screen:
 
-ovirt-orb-[oVirt Orb version].tar.xz: OK
+    ovirt-orb-[oVirt Orb version].tar.xz: OK
 
 ### Extracting the archive
 
@@ -67,15 +67,15 @@ ovirt-orb-[oVirt Orb version].tar.xz: OK
 
 ## Running the environment
 
-Please note: All commands must be ran from the inside of the directory created by the extraction of the oVirt Orb arhive!
+Please note: All commands must be run from the inside of the directory created by the extraction of the oVirt Orb archive!
 
 ### Bootstrapping the environment
 
-lago init
+    lago init
 
 ### Starting the environment
 
-lago ovirt start
+    lago ovirt start
 
 On the screen you should see oVirt engine's IP, username, and password.
 
@@ -83,11 +83,10 @@ You can enter to the web UI by entering the engine's IP in your browser.
 
 ### Stopping the environment
 
-lago ovirt stop
+    lago ovirt stop
 
 ### Destroying the environment
 
 If you want to recreate Orb, run the following and bootstrap Orb again.
 
-lago destroy
-
+    lago destroy

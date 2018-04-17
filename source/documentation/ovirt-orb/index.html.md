@@ -55,11 +55,11 @@ You will need to download both the ovirt-orb-*.tar.xz and ovirt-orb-*.tar.xz.md5
 
 Verify the download file with md5sum:
 
-md5sum -c ovirt-orb-[oVirt Orb version].tar.xz.md5
+    md5sum -c ovirt-orb-[oVirt Orb version].tar.xz.md5
 
 You should see the following message on screen:
 
-ovirt-orb-[oVirt Orb version].tar.xz: OK
+    ovirt-orb-[oVirt Orb version].tar.xz: OK
 
 ### Extracting the archive
 
@@ -71,11 +71,11 @@ Please note: All commands must be ran from the inside of the directory created b
 
 ### Bootstrapping the environment
 
-lago init
+    lago init
 
 ### Starting the environment
 
-lago ovirt start
+    lago ovirt start
 
 On the screen you should see oVirt engine's IP, username, and password.
 
@@ -83,11 +83,11 @@ You can enter to the web UI by entering the engine's IP in your browser.
 
 ### Stopping the environment
 
-lago ovirt stop
+    lago ovirt stop
 
 ### Destroying the environment
 
 If you want to recreate Orb, run the following and bootstrap Orb again.
 
-lago destroy
+    lago destroy
 

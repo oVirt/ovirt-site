@@ -162,6 +162,8 @@ packages from other repos.
  - [BZ 1541777](https://bugzilla.redhat.com/1541777) <b>PowerSaving policy does not balance VM's from host with over-utilized memory</b><br>
  - [BZ 1563426](https://bugzilla.redhat.com/1563426) <b>Unable to setup host local storage - Uncaught exception occurred -  Details: (TypeError) : Cannot read property 'b' of null</b><br>
  - [BZ 1565814](https://bugzilla.redhat.com/1565814) <b>HostMonitoring should release lock only once</b><br>
+ - [BZ 1561447](https://bugzilla.redhat.com/1561447) <b>VM with a lease manage to remove while the VM lease storage domain is not active</b><br>VM with a lease on a non-active storage domain will fail to remove.<br><br>The VM will remove when the VM lease storage domain is active as similar to disks behavior.<br><br>A workaround is to remove the VM lease in "Edit VM" and then try to remove again, same as we can detach disks from VM even if the storage is down
+ - [BZ 1561006](https://bugzilla.redhat.com/1561006) <b>VM activation should fail on engine validation when the VM lease domain is not active</b><br>
  - [BZ 1565109](https://bugzilla.redhat.com/1565109) <b>Provide ansible script for changing OVN Provider tunneling network</b><br>
  - [BZ 1554875](https://bugzilla.redhat.com/1554875) <b>When importing a VM with a lease using the UI, the property that indicates whether the VM has a lease ignored</b><br>
  - [BZ 1563579](https://bugzilla.redhat.com/1563579) <b>transfer image - increase default value of UploadImageXhrTimeoutInSeconds</b><br>
@@ -222,6 +224,10 @@ packages from other repos.
 #### oVirt Engine Dashboard
 
  - [BZ 1555050](https://bugzilla.redhat.com/1555050) <b>Slow Dashboard re-paint on Chrome</b><br>
+
+#### vdsm-jsonrpc-java
+
+ - [BZ 1565814](https://bugzilla.redhat.com/1565814) <b>HostMonitoring should release lock only once</b><br>
 
 ### No Doc Update
 

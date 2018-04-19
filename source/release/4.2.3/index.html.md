@@ -216,7 +216,9 @@ packages from other repos.
 
 #### cockpit-ovirt
 
+ - [BZ 1565528](https://bugzilla.redhat.com/1565528) <b>[branding] "Ovirt" (upstream) is included in rhvh Hosted-engine cockpit UI</b><br>
  - [BZ 1559793](https://bugzilla.redhat.com/1559793) <b>Deploy HE failed with static IP and empty DNS value on the [Generate static network configuration for the engine VM] task</b><br>
+ - [BZ 1568869](https://bugzilla.redhat.com/1568869) <b>HE: the user cannot enter a static IP address for the engine VM: Uncaught ReferenceError: getCidrErrorMsg is not defined</b><br>
  - [BZ 1560351](https://bugzilla.redhat.com/1560351) <b>After changing the iSCSI portal address and fetching, old results are shown</b><br>
  - [BZ 1558084](https://bugzilla.redhat.com/1558084) <b>The iSCSI storage wizard page has weird UI logic</b><br>
  - [BZ 1555368](https://bugzilla.redhat.com/1555368) <b>Network prefix length value is pre-filled but not effective if the user doesn't retype it.</b><br>
@@ -225,7 +227,7 @@ packages from other repos.
 
  - [BZ 1555050](https://bugzilla.redhat.com/1555050) <b>Slow Dashboard re-paint on Chrome</b><br>
 
-#### vdsm-jsonrpc-java
+#### VDSM JSON-RPC Java
 
  - [BZ 1565814](https://bugzilla.redhat.com/1565814) <b>HostMonitoring should release lock only once</b><br>
 

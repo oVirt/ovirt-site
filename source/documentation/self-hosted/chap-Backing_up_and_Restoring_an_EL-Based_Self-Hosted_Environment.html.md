@@ -137,7 +137,7 @@ You can restore a self-hosted engine on hardware that was used in the backed-up 
     On the newly installed Red Hat Enterprise Linux host, run the `hosted-engine` deployment script. To escape the script at any time, use the **CTRL** + **D** keyboard combination to abort deployment. If running the `hosted-engine` deployment script over a network, it is recommended to use the `screen` window manager to avoid losing the session in case of network or terminal disruption. Install the `screen` package first if not installed.
 
         # screen
-        # hosted-engine --deploy
+        # hosted-engine --deploy --noansible
 
 3. **Preparing for Initialization**
 

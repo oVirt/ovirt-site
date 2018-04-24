@@ -140,12 +140,16 @@ If you wish to import dashboards example, you will need to import visualization 
 
 4. Press the orange button, `Refresh field list`.
 
-5. In the Kibana UI, go to the `setting` tab -> `objects`.
+5. Do steps 3 and 4 for the `project.ovirt-logs-<ovirt-env-name>.<uuid>` index.
 
-6. Import the `Searches`.
+6. In the Kibana UI, go to the `setting` tab -> `objects`.
 
-7. Import the `Visualizations`.
+7. Import the `Searches`.
 
-8. Import the `Dashboards`.
+8. Import the `Visualizations`.
+
+9. Import the `Dashboards`.
 
 You are done! Go to the `Dashboard` tab in the Kibana UI and choose a dashboard.
+
+**Note:** If you get an error while loading the `Visualizations`, check your hosts and make sure Collectd and Fluentd services are running with no errors. After that try loading the `Visualizations` again.

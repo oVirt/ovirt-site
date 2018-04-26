@@ -134,12 +134,22 @@ If you wish to import dashboards example, you will need to import visualization 
 
 1. Copy the /etc/ovirt-engine-metrics/dashboards-examples directory to your local machine.
 
-2. Go to the Kibana UI, to the `setting` -> `objects`.
+2. Go to the Kibana UI, to the `setting` tab -> `indices`.
 
-3. Import the `Searches`.
+3. Select the `project.ovirt-metrics-<ovirt-env-name>.<uuid>` index.
 
-4. Import the `Visualizations`.
+4. Press the orange button, `Refresh field list`.
 
-5. Import the `Dashboards`.
+5. Do steps 3 and 4 for the `project.ovirt-logs-<ovirt-env-name>.<uuid>` index.
+
+6. In the Kibana UI, go to the `setting` tab -> `objects`.
+
+7. Import the `Searches`.
+
+8. Import the `Visualizations`.
+
+9. Import the `Dashboards`.
 
 You are done! Go to the `Dashboard` tab in the Kibana UI and choose a dashboard.
+
+**Note:** If you get an error while loading the `Visualizations`, check your hosts and make sure Collectd and Fluentd services are running with no errors. After that try loading the `Visualizations` again.

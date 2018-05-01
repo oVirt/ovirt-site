@@ -152,4 +152,12 @@ If you wish to import dashboards example, you will need to import visualization 
 
 You are done! Go to the `Dashboard` tab in the Kibana UI and choose a dashboard.
 
+Currently there are 3 example dashboards:
+
+  * [System Dashboard](https://kibana.{fluentd_elasticsearch_host}/app/kibana#/dashboard/System-Dashboard)
+
+  * [Hosts Dashboard](https://kibana.{fluentd_elasticsearch_host}/app/kibana#/dashboard/Hosts-Dashboard)
+  
+  * [VMs Dashboard](https://kibana.{fluentd_elasticsearch_host}/app/kibana#/dashboard/VMs-Dashboard)
+
 **Note:** If you get an error while loading the `Visualizations`, check your hosts and make sure Collectd and Fluentd services are running with no errors. After that try loading the `Visualizations` again.

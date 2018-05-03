@@ -6,7 +6,7 @@ layout: toc
 
 # oVirt 4.2.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.2.3 Third Release Candidate as of April 26, 2018.
+The oVirt Project is pleased to announce the availability of the 4.2.3 Fourth Release Candidate as of May 03, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -93,11 +93,12 @@ packages from other repos.
 
 #### oVirt Engine
 
- - [BZ 1550135](https://bugzilla.redhat.com/1550135) <b>Failed logging attempts are not audited / logged</b><br>Failed login attempts will have a audit log event associated with it showing the details of the error and the user name who failed to login.
+ - [BZ 1550135](https://bugzilla.redhat.com/1550135) <b>Failed logging attempts are not audited / logged</b><br>Failed login attempts now appear in the audit log, with details and the user name that failed to log in.
  - [BZ 1540955](https://bugzilla.redhat.com/1540955) <b>The Affinity Positive/Negative Value is not updated in the UI window</b><br>The host to VM affinity can now be explicitly disabled, as described in Bug 1493149.<br><br>This change adds 4 new columns to the affinity group table in the UI:<br>- 'vm polarity' - Shows if the VM affinity is positive, negative or disabled<br>- 'vm enforcing' - Shows if the VM affinity is enforcing or not<br>- 'host polarity' - Shows if the VM to host affinity is positive, negative or disabled<br>- 'host enforcing' - Shows if the VM to host affinity is enforcing or not
  - [BZ 1518541](https://bugzilla.redhat.com/1518541) <b>[RFE] Monitor capacity of vdo-enabled brick devices and gluster volumes</b><br>Feature: Added monitoring of thin storage devices (thin provisioned, compressed or deduplicated)<br><br>Reason: With thin devices number of available 'free bytes' on storage domain may not be relevant. Storage domain may report that you have a lot of space, while actually you are quite limited. Because of that we need to monitor actually available space and report it.<br><br>Result: Now we report guaranteed free space (meaning, that you will be able to write at least as much data and may be more) for gluster bricks, bluster volumes and for gluster based storage domains.
- - [BZ 1555268](https://bugzilla.redhat.com/1555268) <b>[RFE] Kernel address space layout randomization [KASLR] suppor</b><br>Recent RHEL kernels have the kernel address space layout randomization enabled by default. That prevents troubleshooting and analysis of guest's memory dumps. A new feature "vmcoreinfo" is now enabled for all Linux guests. It allows a compatible kernel to export the debugging information so the memory image can be analyzed later on.
+ - [BZ 1555268](https://bugzilla.redhat.com/1555268) <b>[RFE] Kernel address space layout randomization [KASLR] support</b><br>Recent RHEL kernels have the kernel address space layout randomization enabled by default. That prevents troubleshooting and analysis of guest's memory dumps. A new feature "vmcoreinfo" is now enabled for all Linux guests. It allows a compatible kernel to export the debugging information so the memory image can be analyzed later on.
  - [BZ 1554111](https://bugzilla.redhat.com/1554111) <b>[RFE] - Report MTU on iface</b><br>Please extend the LLDP note in https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2-beta/html-single/administration_guide/#Editing_host_network_interfaces<br>to refer to the new bit of data. It is recommended to check that the MTU of the logical network is less or equal to that supported by peer switches.
+ - [BZ 1552026](https://bugzilla.redhat.com/1552026) <b>The api does not return the OS architecture</b><br>Operation Systems Information returned by REST API now contains the OS architecture.
  - [BZ 1566366](https://bugzilla.redhat.com/1566366) <b>[downstream clone - 4.2.4] [RFE] [RHV] Add support to query illegal images in unlock_entity.sh</b><br>
  - [BZ 1540973](https://bugzilla.redhat.com/1540973) <b>hosts rule in affinity group is always enabled in rest response API (even if disabled in UI )</b><br>Feature: <br>The host to VM affinity can now be explicitly disabled. Previously it was always enabled, but it had no effect if no hosts were assigned to the affinity group.<br><br>Reason: <br>Having the affinity always enabled could be confusing when using the REST API.
  - [BZ 1565099](https://bugzilla.redhat.com/1565099) <b>Bump required Ansible version to 2.5</b><br>Feature: <br><br>Ansible 2.5 is now required for engine and all Ansible roles distributed with oVirt engine<br><br>Reason: <br><br>Result:
@@ -106,9 +107,13 @@ packages from other repos.
 
  - [BZ 1551350](https://bugzilla.redhat.com/1551350) <b>[RFE] Add support for querying information from QEMU Guest Agent</b><br>It is now possible to obtain infomation like hostname, OS info, time zone and active users on VMs where ovirt-guest-agent is not installed and only QEMU Guest Agent is present.
  - [BZ 1518541](https://bugzilla.redhat.com/1518541) <b>[RFE] Monitor capacity of vdo-enabled brick devices and gluster volumes</b><br>Feature: Added monitoring of thin storage devices (thin provisioned, compressed or deduplicated)<br><br>Reason: With thin devices number of available 'free bytes' on storage domain may not be relevant. Storage domain may report that you have a lot of space, while actually you are quite limited. Because of that we need to monitor actually available space and report it.<br><br>Result: Now we report guaranteed free space (meaning, that you will be able to write at least as much data and may be more) for gluster bricks, bluster volumes and for gluster based storage domains.
- - [BZ 1334982](https://bugzilla.redhat.com/1334982) <b>[RFE] Gracefully shutdown Virtual Machines on Host reboot/shutdown.</b><br>Previously, in cases of emergency,  users were required to shut down the hosts to preserve the data center. This caused running virtual machines to be killed by the systemd process without performing a graceful shutdown. As a result, the virtual machine's state became undefined which led to problematic scenarios for virtual machines running databases such as Oracle and SAP.<br>In this release, virtual machines can be gracefully shut down by delaying the systemd process. Only after the virtual machines are shut down, does the systemd process take control and continue the shut down. The VDSM is only shut down after the virtual machines have been gracefully shut down, after passing information to the Manager and waiting 5 seconds for the Manager to acknowledge the virtual machines have been shut down.
+ - [BZ 1334982](https://bugzilla.redhat.com/1334982) <b>[RFE] Gracefully shutdown Virtual Machines on Host reboot/shutdown.</b><br>Previously, in an emergency, users were required to shut down the hosts to preserve the data center. This caused running virtual machines to be killed by the systemd process without performing a graceful shutdown. As a result, the virtual machines' state became undefined, which led to problematic scenarios for virtual machines running databases such as Oracle and SAP.<br><br>In this release, virtual machines can be gracefully shut down by delaying the systemd process. After the virtual machines are shut down, the systemd process takes control and continues the shutdown. The VDSM is only shut down after the virtual machines have been gracefully shut down, after passing information to the Manager and waiting 5 seconds for the Manager to acknowledge the virtual machines have been shut down.
  - [BZ 1447300](https://bugzilla.redhat.com/1447300) <b>enable libguestfs tools on ppc64le</b><br>Sparsify and sysprep can now be run on POWER hosts.
  - [BZ 1550106](https://bugzilla.redhat.com/1550106) <b>[RFE] IOProcess thread of storage domain should be correlated to the domain id/name</b><br>Feature: <br>Log IOProcessClient's name<br><br>Reason: <br>Before this patch, IOProcessesClient name used a counter (e.g. "ioprocess-0") and it was impossible to correlate ioprocess to the storage domain.<br><br>Result:<br>This patch changes the client name in IOProcessClient to one of the following (as described in the patch):<br>- "Global"<br>- "domain-uuid"<br>- "/[GlusterSD/]server:_path"
+
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1538934](https://bugzilla.redhat.com/1538934) <b>[RFE] hosted-engine --vm-status should provide a way to detect and warn about failed deployments</b><br>hosted-engine --vm-status should warn the user about past failed or still in progress deployment attempts.
 
 #### oVirt Engine Metrics
 
@@ -134,11 +139,22 @@ packages from other repos.
 
  - [BZ 1551521](https://bugzilla.redhat.com/1551521) <b>KeyError exception in the VDSM when accessing stats['cpuUsage']</b><br>
 
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1571113](https://bugzilla.redhat.com/1571113) <b>Didn't use the temporary password to login to HE-VM by "hosted-engine --add-console-password"</b><br>
+
+#### imgbased
+
+ - [BZ 1561258](https://bugzilla.redhat.com/1561258) <b>grub2-mkconfig on node produce incorrect grub2.cfg if a local VG is present</b><br>
+
 ### Other
 
 #### oVirt Engine
 
+ - [BZ 1571039](https://bugzilla.redhat.com/1571039) <b>[DR] - Registering of a VM containing snapshots with memory from an imported domain fails with an NPE</b><br>
  - [BZ 1567858](https://bugzilla.redhat.com/1567858) <b>[Regression] -  Cannot start VM with <Empty> vNIC</b><br>
+ - [BZ 1530186](https://bugzilla.redhat.com/1530186) <b>Create new Gluster Snapshots Web UI doesn't work</b><br>
+ - [BZ 1570388](https://bugzilla.redhat.com/1570388) <b>Add host failed if cluster has a required network</b><br>
  - [BZ 1565681](https://bugzilla.redhat.com/1565681) <b>Engine doesn't track transfers in progress correctly</b><br>
  - [BZ 1568413](https://bugzilla.redhat.com/1568413) <b>admin account constantly gets locked after password changed</b><br>
  - [BZ 1569420](https://bugzilla.redhat.com/1569420) <b>Failed to execute Ansible host-deploy role</b><br>
@@ -160,12 +176,12 @@ packages from other repos.
  - [BZ 1566341](https://bugzilla.redhat.com/1566341) <b>[downstream clone 4.2.4] CloudInit: DNS search parameter is passed incorrectly</b><br>
  - [BZ 1542070](https://bugzilla.redhat.com/1542070) <b>[es_ES] [pt_BR] [Admin Portal] Radio button label 'User Roles' appears misaligned in Spanish google-chrome</b><br>
  - [BZ 1558525](https://bugzilla.redhat.com/1558525) <b>show proper error when authorization to api fails</b><br>
+ - [BZ 1566059](https://bugzilla.redhat.com/1566059) <b>Scoped link local IPv6 addresses break VM listing (happens when ovirt-guest-agent is not installed but qemu-guest-agent is)</b><br>
+ - [BZ 1571300](https://bugzilla.redhat.com/1571300) <b>VdsNotRespondingTreatment releases VDS_FENCE lock twice</b><br>
  - [BZ 1563278](https://bugzilla.redhat.com/1563278) <b>transfer image - client inactivity timeout is too short and can't be configured from api</b><br>
- - [BZ 1552026](https://bugzilla.redhat.com/1552026) <b>The api does not return the OS architecture</b><br>
  - [BZ 1489968](https://bugzilla.redhat.com/1489968) <b>[RFE] [RHV] Add support to query illegal images in unlock_entity.sh</b><br>
  - [BZ 1551517](https://bugzilla.redhat.com/1551517) <b>after renaming engine, logout takes very long time and error with engine's old fqdn appears in log</b><br>
  - [BZ 1566457](https://bugzilla.redhat.com/1566457) <b>Hot plug CPU is broken on 3.6 clusters after oVirt is upgraded  to 4.2</b><br>
- - [BZ 1541777](https://bugzilla.redhat.com/1541777) <b>PowerSaving policy does not balance VM's from host with over-utilized memory</b><br>
  - [BZ 1563426](https://bugzilla.redhat.com/1563426) <b>Unable to setup host local storage - Uncaught exception occurred -  Details: (TypeError) : Cannot read property 'b' of null</b><br>
  - [BZ 1565814](https://bugzilla.redhat.com/1565814) <b>HostMonitoring should release lock only once</b><br>
  - [BZ 1561447](https://bugzilla.redhat.com/1561447) <b>VM with a lease manage to remove while the VM lease storage domain is not active</b><br>VM with a lease on a non-active storage domain will fail to remove.<br><br>The VM will remove when the VM lease storage domain is active as similar to disks behavior.<br><br>A workaround is to remove the VM lease in "Edit VM" and then try to remove again, same as we can detach disks from VM even if the storage is down
@@ -175,6 +191,7 @@ packages from other repos.
  - [BZ 1563579](https://bugzilla.redhat.com/1563579) <b>transfer image - increase default value of UploadImageXhrTimeoutInSeconds</b><br>
  - [BZ 1562013](https://bugzilla.redhat.com/1562013) <b>Use custom system SSH configuration for engine internal Ansible executions</b><br>
  - [BZ 1558034](https://bugzilla.redhat.com/1558034) <b>Creating a partial child snapshot in a VM with an existing snapshot containing a cinder snapshot breaks the snapshot</b><br>
+ - [BZ 1551934](https://bugzilla.redhat.com/1551934) <b>No source storage domain identified when trying to move a VM's disk from the problematic storage</b><br>
  - [BZ 1563632](https://bugzilla.redhat.com/1563632) <b>can't switch user when accessing the engine with an active kerberos ticket</b><br>
  - [BZ 1556971](https://bugzilla.redhat.com/1556971) <b>Host stays in "connecting" state for longer time than necessary</b><br>
  - [BZ 1548496](https://bugzilla.redhat.com/1548496) <b>Wrong error message when creating disks in API</b><br>
@@ -184,6 +201,7 @@ packages from other repos.
 
 #### VDSM
 
+ - [BZ 1563165](https://bugzilla.redhat.com/1563165) <b>[SR-IOV] - vdsm no longer persisting and restoring the number on VFs after reboot</b><br>
  - [BZ 1567858](https://bugzilla.redhat.com/1567858) <b>[Regression] -  Cannot start VM with <Empty> vNIC</b><br>
  - [BZ 1568268](https://bugzilla.redhat.com/1568268) <b>Executing ovs commands using ovs-vsctl causes a deadlock sporadically</b><br>
  - [BZ 1567617](https://bugzilla.redhat.com/1567617) <b>Failure to resume VM,  Error:  Wake up from hibernation failed:'type'.</b><br>
@@ -204,17 +222,21 @@ packages from other repos.
 
  - [BZ 1529509](https://bugzilla.redhat.com/1529509) <b>Trying to upgrade a host via the API fails with fault - 'no upgrades available'</b><br>
 
+#### oVirt image transfer daemon and proxy
+
+ - [BZ 1571994](https://bugzilla.redhat.com/1571994) <b>ovirt-image-daemon fails to start due to permissions on ovirt-image-daemon log file causing host deployment to fail</b><br>
+
 #### oVirt Hosted Engine HA
 
  - [BZ 1567615](https://bugzilla.redhat.com/1567615) <b>Hosted engine - engine restarted during hosted engine VM migration -ovirt_hosted_engine_ha.agent.hosted_engine.HostedEngine::(_stop_engine_vm) Engine VM stopped on localhost</b><br>
 
 #### oVirt Hosted Engine Setup
 
+ - [BZ 1571467](https://bugzilla.redhat.com/1571467) <b>HE deployment fails if fiber channel is used</b><br>
  - [BZ 1566162](https://bugzilla.redhat.com/1566162) <b>Cockpit plugin should never use browser's locale</b><br>
  - [BZ 1560610](https://bugzilla.redhat.com/1560610) <b>Storage Domain's size not being updated during deployment.</b><br>
  - [BZ 1466132](https://bugzilla.redhat.com/1466132) <b>[HC] when running hyperconverged deploy, the 2nd and 3rd host should be auto added</b><br>
  - [BZ 1565730](https://bugzilla.redhat.com/1565730) <b>State field may be missing from virsh output</b><br>
- - [BZ 1538934](https://bugzilla.redhat.com/1538934) <b>[RFE] hosted-engine --vm-status should provide a way to detect and warn about failed deployments</b><br>
  - [BZ 1567772](https://bugzilla.redhat.com/1567772) <b>Enable Spice + VNC graphical console on the target VM</b><br>
  - [BZ 1565060](https://bugzilla.redhat.com/1565060) <b>Fix a deprecation warning from ansible on Hosted-Engine deployment</b><br>
 
@@ -226,6 +248,8 @@ packages from other repos.
 
 #### cockpit-ovirt
 
+ - [BZ 1574202](https://bugzilla.redhat.com/1574202) <b>"Next" button of HE wizard is disabled if gdeploy is not installed</b><br>
+ - [BZ 1571117](https://bugzilla.redhat.com/1571117) <b>HE-VM appliance and admin password saved in the setup log file as clear text executing from cockpit</b><br>
  - [BZ 1565528](https://bugzilla.redhat.com/1565528) <b>[branding] "Ovirt" (upstream) is included in rhvh Hosted-engine cockpit UI</b><br>
  - [BZ 1569116](https://bugzilla.redhat.com/1569116) <b>Hyperconverged wizard is not disabled when gdeploy is not present</b><br>
  - [BZ 1568725](https://bugzilla.redhat.com/1568725) <b>Enable VDO option Only if gdeploy version is greater than or equals to gdeploy-2.0.2-25</b><br>
@@ -252,10 +276,10 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1572445](https://bugzilla.redhat.com/1572445) <b>context-sensitive help URL path regression, 404</b><br>
  - [BZ 1552194](https://bugzilla.redhat.com/1552194) <b>Update name of RHEV-toolsSetup* ISO to attach in search algorithm</b><br>
  - [BZ 1565036](https://bugzilla.redhat.com/1565036) <b>PPC: CreateVDSCommand fails with NullPointerException for VM with sPAPR VSCSI disk attached</b><br>
  - [BZ 1563121](https://bugzilla.redhat.com/1563121) <b>No exception's handling on SerialChildCommandsExecutionCallback</b><br>
- - [BZ 1535175](https://bugzilla.redhat.com/1535175) <b>positive and negative affinity-groups for splitting hosts into two groups could force a migration loop of assigned VMs</b><br>
  - [BZ 1553305](https://bugzilla.redhat.com/1553305) <b>[PPC] - Starting VM for the 2nd time failed after snapshots created- XML error: target 'sdc' duplicated for disk sources - libvirt.py", line 3676, in defineXML</b><br>
 
 #### VDSM

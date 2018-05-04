@@ -6,21 +6,13 @@ layout: toc
 
 # oVirt 4.2.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.2.3 Fourth Release Candidate as of May 03, 2018.
+The oVirt Project is pleased to announce the availability of the 4.2.3 release as of May 04, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.4,
 CentOS Linux 7.4 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -36,21 +28,25 @@ To learn about features introduced before 4.2.3, see the [release notes for prev
 ### CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
+
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 
 
@@ -176,6 +172,7 @@ packages from other repos.
  - [BZ 1566341](https://bugzilla.redhat.com/1566341) <b>[downstream clone 4.2.4] CloudInit: DNS search parameter is passed incorrectly</b><br>
  - [BZ 1542070](https://bugzilla.redhat.com/1542070) <b>[es_ES] [pt_BR] [Admin Portal] Radio button label 'User Roles' appears misaligned in Spanish google-chrome</b><br>
  - [BZ 1558525](https://bugzilla.redhat.com/1558525) <b>show proper error when authorization to api fails</b><br>
+ - [BZ 1574605](https://bugzilla.redhat.com/1574605) <b>javascript error while accessing Storage -> Volumes on a local storage datacenter with no volumes created yet</b><br>
  - [BZ 1566059](https://bugzilla.redhat.com/1566059) <b>Scoped link local IPv6 addresses break VM listing (happens when ovirt-guest-agent is not installed but qemu-guest-agent is)</b><br>
  - [BZ 1571300](https://bugzilla.redhat.com/1571300) <b>VdsNotRespondingTreatment releases VDS_FENCE lock twice</b><br>
  - [BZ 1563278](https://bugzilla.redhat.com/1563278) <b>transfer image - client inactivity timeout is too short and can't be configured from api</b><br>
@@ -285,3 +282,4 @@ packages from other repos.
 #### VDSM
 
  - [BZ 1548110](https://bugzilla.redhat.com/1548110) <b>VDO rpm should be pulled in as rpm dependency</b><br>
+

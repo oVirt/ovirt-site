@@ -4,6 +4,27 @@ title: oVirt 4.2.z Release Management
 
 # oVirt 4.2.z Release Management
 
+
+
+
+# oVirt 4.2.4
+
+## Timeline
+
+| Date           | Milestone                |
+|----------------|--------------------------|
+| **2018-05-xx** | First Release candidate  |
+| **2018-06-xx** | General availability     |
+
+### Release criteria
+
+*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management/) Release Criteria
+*   Release notes must be filled: [oVirt 4.2.4 Release Notes](/release/4.2.4/)
+*   Blocking bugs must be fixed: [oVirt 4.2.4 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.2.4&v1=blocker)
+
+
+
+
 # oVirt 4.2.3
 
 ## Timeline
@@ -13,7 +34,8 @@ title: oVirt 4.2.z Release Management
 | **2018-04-12** | First Release candidate  |
 | **2018-04-18** | Second Release candidate |
 | **2018-04-26** | Third Release candidate  |
-| **2018-05-xx** | General availability     |
+| **2018-05-03** | Fourth Release candidate |
+| **2018-05-04** | General availability     |
 
 ### Release criteria
 

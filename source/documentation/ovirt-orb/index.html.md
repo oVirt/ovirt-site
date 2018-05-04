@@ -12,21 +12,21 @@ It's based on the Lago framework and runs the whole environment on a single mach
 
 ## Requirements
 
-- Operating System
+- Operating System:
 
-Currently, Orb can run on either supported Fedora versions or Centos 7.
+  Currently, Orb can run on either supported Fedora versions or Centos 7.
 
-- CPU
+- CPU:
 
-Orb is currently supported on Intel's CPUs. The CPU model should be Sandy Bridge or newer.
+  Orb is currently supported on Intel's CPUs. The CPU model should be Sandy Bridge or newer.
 
-- Disk Space
+- Disk Space:
 
-Orb requires that you have at least 7GB of free space wherever you are running it.
+  Orb requires that you have at least 7GB of free space wherever you are running it.
 
-- Memory
+- Memory:
 
-Orb requires that your system will have at least 8GB of RAM.
+  Orb requires that your system will have at least 8GB of RAM.
 
 ## Installing requirements
 

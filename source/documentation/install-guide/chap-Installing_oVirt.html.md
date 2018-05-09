@@ -6,6 +6,16 @@ title: Installing oVirt
 
 ## Installing the oVirt Engine Packages
 
+As a prerequisite, ensure that you have required repositories for your distribution.
+
+On CentOS the Base, Optional and Extras repositories are already enabled by default and must be enabled.
+
+On Red Hat Enterprise Linux you'll need a valid subscription and the following repositories enabled:
+
+  - rhel-7-server-rpms 
+  - rhel-7-server-optional-rpms
+  - rhel-7-server-extras-rpms
+
 Before you can configure and use the oVirt Engine, you must install the <package>ovirt-engine</package> package and dependencies.
 
 **Installing the oVirt Engine Packages**

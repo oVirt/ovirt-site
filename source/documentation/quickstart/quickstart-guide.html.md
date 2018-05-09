@@ -34,8 +34,12 @@ for both oVirt Engine and oVirt nodes and hosts .
 *   The host must be configured to receive updates from the oVirt project's software
     repository, as provided by the ovirt-release package matching your OS distribution:
     -   [oVirt 4.2](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm).
-*   If you are running Red Hat Enterprise Linux, make sure to enable the Extras channel. It is
-    enabled by default on CentOS Linux.
+*   Ensure that you have required repositories for your distribution.
+    On CentOS the Base, Optional and Extras repositories are already enabled by default and must be enabled.  
+    On Red Hat Enterprise Linux you'll need a valid subscription and the following repositories enabled:
+    - rhel-7-server-rpms 
+    - rhel-7-server-optional-rpms
+    - rhel-7-server-extras-rpms
 
 #### Storage and Networking
 
@@ -77,7 +81,11 @@ create virtual machines, manage user permissions and use templates from one cent
 
 1. Install the operating system on a server.
    When prompted for the software packages to install, select the minimal install option.
-   See the  [Red Hat Enterprise Linux 7 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/index) for more details.
+   See the  [Red Hat Enterprise Linux 7 Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/index) for more details. Once installation completes,
+   enable the following repositories:
+    - rhel-7-server-rpms 
+    - rhel-7-server-optional-rpms
+    - rhel-7-server-extras-rpms
 
 2. After you have installed your server, update all the packages on it. Run:
 

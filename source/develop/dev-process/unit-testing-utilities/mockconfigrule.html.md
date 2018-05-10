@@ -10,6 +10,10 @@ authors: amureini
 class. This removes the need of PowerMocking `Config`, and considerably
 speeds up the test.
 
+>**Note**:<br/>
+> `MockConfigRule` supports JUnit 4 and JUnit 5 Legacy Engine. For JUnit
+> Jupiter, use [MockConfigExtension](../mockconfigextension) instead.
+
 ## Creating the Rule
 
 Like with any Rule, the only thing you need to do in order to
@@ -44,11 +48,6 @@ public void testSomethingRegardingLDAP() {
    // rest of the test the relies on the LDAPSecurityAuthentication configuraion.
 }
 ```
-
->**Note:**<br/>
->`MockConfigRule` will return the value of a `ConfigVules`'
->`@DefaultValueAttribute` annotation for any value that isn't mocked
->explicitly.
 
 ## Mocking The Same Config Values for the Entire Test Suite
 

@@ -8,14 +8,20 @@ authors: amureini
 
 `RandomUtilsSeedingRule` is JUnit `@Rule` that allows better control of `RandomUtils`' random see in unit test environments.
 
+>**Note**:<br/>
+> `RandomUtilsSeedingRule` supports JUnit 4 and JUnit 5 Legacy Engine. For JUnit
+> Jupiter, use [RandomUtilsSeedingExtension](../mockconfigextension) instead.
+
 ## Creating the Rule
 
 Like with any `@Rule`, the only thing you need to do in order to incorporate it in your test class is to declare a public member annotated with `@Rule`:
 
-    @Rule
-    public RandomUtilsSeedingRule rusr = new RandomUtilsSeedingRule();
+```java
+@Rule
+public RandomUtilsSeedingRule rusr = new RandomUtilsSeedingRule();
+```
 
-## Loggin the Random Seed
+## Logging the Random Seed
 
 Now that you have the `RandomUtilsSeedingRule` defined, your test will automagically log the random seed it uses, e.g.:
 

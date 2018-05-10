@@ -10,6 +10,10 @@ authors: amureini
 class. This removes the need of PowerMocking `Config`, and considerably
 speeds up the test.
 
+>**Note**:<br/>
+> `MockConfigRule` supports JUnit 4 and JUnit 5 Legacy Engine. For JUnit
+> Jupiter, use [MockConfigExtension](../mockconfigextension) instead.
+
 ## Creating the Rule
 
 Like with any Rule, the only thing you need to do in order to

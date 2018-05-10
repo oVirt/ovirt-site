@@ -45,11 +45,6 @@ public void testSomethingRegardingLDAP() {
 }
 ```
 
->**Note:**<br/>
->`MockConfigRule` will return the value of a `ConfigVules`'
->`@DefaultValueAttribute` annotation for any value that isn't mocked
->explicitly.
-
 ## Mocking The Same Config Values for the Entire Test Suite
 
 The above approach is comfortable when each test requires a different

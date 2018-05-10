@@ -8,6 +8,14 @@ title: Enterprise Linux Hosts
 
 An Enterprise Linux host (such as CentOS or RHEL), also known as an EL-based hypervisor is based on a standard basic installation of an Enterprise Linux operating system on a physical server.
 
+Ensure that you have required repositories for your distribution.
+On CentOS the Base, Optional and Extras repositories are already enabled by default and must be enabled.
+On Red Hat Enterprise Linux you'll need a valid subscription and the following repositories enabled:
+
+  - rhel-7-server-rpms 
+  - rhel-7-server-optional-rpms
+  - rhel-7-server-extras-rpms
+
 To prepare the server to be included as a oVirt host just subscribe it to the oVirt project repository.
    For oVirt 4.2:
 

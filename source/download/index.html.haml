@@ -45,7 +45,7 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
         ### Supported OSes (Engine)
 
         -   CentOS Linux 7.4
-        -   Red Hat Enterprise Linux 7.4
+        -   Red Hat Enterprise Linux 7.5
         -   Scientific Linux 7.4
 
 
@@ -75,7 +75,7 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
 
   **oVirt 4.2** is intended for production use and is available for the following platforms:
 
-  - Red Hat Enterprise Linux 7.4 or later
+  - Red Hat Enterprise Linux 7.5 or later
   - CentOS Linux 7.4 or later
   - Scientific Linux 7.4 or later
 
@@ -103,24 +103,34 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
 
 :markdown
 
-  1.  Add the official oVirt repository.
+  1.  Ensure that you have required repositories for your distribution.
+  
+      On CentOS the Base, Optional and Extras repositories are already enabled by default and must be enabled.
+
+      On Red Hat Enterprise Linux you'll need a valid subscription and the following repositories enabled:
+      
+      - rhel-7-server-rpms
+      - rhel-7-server-optional-rpms
+      - rhel-7-server-extras-rpms
+
+  2.  Add the official oVirt repository.
 
           sudo yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 
       -   This will add repositories from ovirt.org to your host allowing you to get the latest oVirt rpms.
       -   It will also enable any other needed repository
 
-  2.  Install oVirt Engine.
+  3.  Install oVirt Engine.
 
           sudo yum install -y ovirt-engine
 
-  3.  Set up oVirt Engine.
+  4.  Set up oVirt Engine.
 
           sudo engine-setup
 
-  4.  Follow the on screen prompts to configure and install the engine
-  5.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
-  6.  Congratulations! oVirt Engine is now installed!
+  5.  Follow the on screen prompts to configure and install the engine
+  6.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
+  7.  Congratulations! oVirt Engine is now installed!
 
   {:.alert.alert-warning}
   Experienced users can also compile from source, using the guides for the [oVirt Engine](/develop/developer-guide/engine/engine-development-environment/) and [oVirt Node](/develop/projects/node/building/).

@@ -90,3 +90,14 @@ So, in this example, GENERATED_BY_VERSION is a "constant", that has a value `'OV
 
     3. Yet others we do not want to enable/handle twice, and also can't (or don't want to, or simply didn't think about this) check internally. For these, we use vars of style (1.2.) above. An example is ApacheEnv.CONFIGURED, set in [ovirt-engine-setup/ovirt-engine-common/apache/misc.py](https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=packaging/setup/plugins/ovirt-engine-setup/ovirt-engine-common/apache/misc.py;h=c43680e8a50839389ee75b77e8c131ba19ae85ae;hb=HEAD), used by [ovirt-engine-setup/ovirt-engine-common/apache/ssl.py](https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=packaging/setup/plugins/ovirt-engine-setup/ovirt-engine-common/apache/ssl.py;h=de37bc2482ef107254f09f80ea5114d75da8a639;hb=HEAD).
 
+### Secret Knobs
+
+Some env vars are like "Secret buttons", that were not designed to be used easily, thus not asked about nor can be controlled with command line options or similar. This is usually because when adding them, we either considered them risky to change, yet wanted to have the option, or we simply expected almost no-one to need to change them, and didn't want to bother users with even more questions.
+
+These are usually not tested routinely, and officially are unsupported and should not be set. They are usually documented in the relevant bugzilla bug for which they were added, or at least in the message of the git commit that added them. And of course, this is Open Source, you can always read the code and see what they do!
+
+Some examples:
+
+- Vars to control the size of database dumps taken by engine-setup to allow rollback (not to be confused with engine-backup) and the speed of backup/restore. These were added for [bug #1188132](https://bugzilla.redhat.com/show_bug.cgi?id=1188132), some details are in the commit message (https://gerrit.ovirt.org/39190).
+
+- A variable to allow ignoring checks of PostgreSQL configuration options, might be useful if using a remote database and you have your own opinion about how some of them should be set. Added for [bug #1573091](https://bugzilla.redhat.com/show_bug.cgi?id=1573091), see [comment 6](https://bugzilla.redhat.com/show_bug.cgi?id=1573091#c6) there for details.

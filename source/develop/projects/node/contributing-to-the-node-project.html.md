@@ -10,7 +10,6 @@ authors: fabiand, mburns, quaid, rbarry, sandrobonazzola
 The members of the oVirt Node team are
 
 *   [Douglas Schilling Landgraf](https://github.com/dougsland)
-*   Ido Rosenzwig
 *   Ryan Barry
 *   [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   Yuval Turgeman
@@ -20,6 +19,7 @@ Outstanding contributors
 *   Alan Pevec
 *   Fabian Deutsch
 *   Haiyang Dong
+*   Ido Rosenzwig
 *   Joey Boggs
 *   Mike Burns
 *   Perry Myers
@@ -42,6 +42,8 @@ Collaborates with other communities / projects:
 *   [Libvirt](http://libvirt.org/)
 *   [oVirt Continuous Integration / Infra](/develop/infra/infrastructure/)
 *   [Gluster](http://www.gluster.org/)
+
+## How may I help?
 
 *   Fixing one of the [open bugs](https://bugzilla.redhat.com/buglist.cgi?quicksearch=product%3Aovirt%20cf_ovirt_team%3Anode%20status%3Anew) we have (see below section on how to contribute code)
 *   Testing one of the [bugs we fixed](https://bugzilla.redhat.com/buglist.cgi?quicksearch=product%3Aovirt%20cf_ovirt_team%3Anode%20status%3Amodifed%2Con_qa)

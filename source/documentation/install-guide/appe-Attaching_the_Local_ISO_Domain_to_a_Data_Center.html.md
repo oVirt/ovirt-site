@@ -10,11 +10,13 @@ Only one ISO domain can be attached to a data center.
 
 **Attaching the Local ISO Domain to a Data Center**
 
-1. In the Administration Portal, click the **Data Centers** resource tab and select the appropriate data center.
+1. In the Administration Portal, click **Compute &rarr; Data Centers** and select the appropriate data center.
 
-2. Select the **Storage** tab in the details pane to list the storage domains already attached to the data center.
+2. Click the data center's name to go to the details view.
 
-3. Click **Attach ISO** to open the **Attach ISO Library** window.
+3. Click the **Storage** tab to list the storage domains already attached to the data center.
+
+4. Click **Attach ISO** to open the **Attach ISO Library** window.
 
 4. Click the radio button for the local ISO domain.
 

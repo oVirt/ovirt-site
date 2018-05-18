@@ -51,7 +51,7 @@ Good at technical communication? oVirt needs concise, reader-friendly, up-to-dat
 
 ## Find and File Bugs
 
-Help us to shake bugs out of oVirt, creating a better user experience for all. You can easily report oVirt bugs on [Red Hat bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt). If you don't have a Bugzilla account yet, [find out how to get one](/community/get-involved/report-a-bug/).
+Help us to shake bugs out of oVirt, creating a better user experience for all. You can easily report oVirt bugs on [Red Hat bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt). If you don't have a Bugzilla account yet, [find out how to get one](/community/get-involved/report-a-bug/). Need to report a scurity issue? Please follow the [security reporting procedure](/documentation/security/security/).
 
 ## Meet Our Users and Supporters
 

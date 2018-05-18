@@ -6,9 +6,15 @@ layout: toc
 
 # oVirt Orb
 
-oVirt Orb is a project that allows anyone to easily take an oVirt for a ride, test and play with it.
-All without the need to manually install all the components.
-It's based on the Lago framework and runs the whole environment on a single machine by creating a number of VMs, using a concept of nested virtualization.
+`oVirt Orb` lets you try out oVirt on your own laptop. You can
+test it and play with it, all without the need to manually
+install all the components or use multiple hosts or a storage
+server. `oVirt Orb` is based on the Lago framework and runs the
+whole oVirt environment on a single machine by creating a
+number of VMs. VMs that play as hypervisors can run nested VMs.
+
+`ovirt Orb` ships pre-baked VM images and a `LagoInitFile` that
+tells Lago how to use them.
 
 ## Requirements
 
@@ -30,63 +36,59 @@ It's based on the Lago framework and runs the whole environment on a single mach
 
 ## Installing requirements
 
-In order to run the oVirt Orb, you will need first to install Lago and some more dependencies.
+In order to run the `oVirt Orb`, you will need first to install Lago and some more dependencies:
+- [Lago project](http://lago.readthedocs.io/en/latest/Installation.html).
 
-### Installing Lago
-Lago is the framework that provides the basis for running all the required machines for our environment.
-We'll later feed it with the configuration and pre-built images of the machines, but first we need to install it.
-[Lago project installation documentation](http://lago.readthedocs.io/en/latest/Installation.html)
+  Lago is the framework that provides the basis for running all the required machines for our environment.
+  We'll later feed it with the configuration and pre-built images of the machines, but first we need to install it.
+- [oVirt Lago plugin](http://lago-ost-plugin.readthedocs.io/en/latest/Installation.html).
 
-### Installing oVirt Lago plugin
-This plugin makes the Lago aware of oVirt specifics.
-[oVirt Lago plugin installation documentation](http://lago-ost-plugin.readthedocs.io/en/latest/Installation.html)
+  This Lago plugin makes Lago aware of oVirt specifics.
+- [oVirt Python SDK](https://pypi.python.org/pypi/ovirt-engine-sdk-python/4.2.4).
 
-### Installing oVirt Python SDK
-The oVirt Python SDK allows code written in Python to easily work with oVirt Engine.
-[oVirt Python SDK installation documentation](https://pypi.python.org/pypi/ovirt-engine-sdk-python/4.2.4).
+  The oVirt Python SDK allows code written in Python to easily work with oVirt Engine.
+  This SDK is used extensively by oVirt Lago plugin
 
 ## Getting oVirt Orb
+- Download `oVirt Orb`:
 
-### Downloading oVirt Orb
-The current oVirt Orb images based on oVirt 4.2.2 can be downloaded from [here](http://resources.ovirt.org/pub/ovirt-4.2/ovirt-orb/).
-You will need to download both the ovirt-orb-*.tar.xz and ovirt-orb-*.tar.xz.md5
+  At the time of writing this document, latest `oVirt Orb` images are based on oVirt 4.2.2 and can be downloaded from [here](http://resources.ovirt.org/pub/ovirt-4.2/ovirt-orb/).
+  You will need to download both the ovirt-orb-*.tar.xz and ovirt-orb-*.tar.xz.md5
+- Verify that archive is not broken or tampered with:
 
-### Verifying that archive is not broken
-
-Verify the download file with md5sum:
-
-    md5sum -c ovirt-orb-[oVirt Orb version].tar.xz.md5
-
-You should see the following message on screen:
-
+    $ md5sum -c ovirt-orb-[oVirt Orb version].tar.xz.md5
     ovirt-orb-[oVirt Orb version].tar.xz: OK
 
-### Extracting the archive
+- Extract the archive:
 
-    xz --decompress --stdout ovirt-orb-[oVirt Orb version].tar.xz | tar -xv
+    $ cd orb-dir
+    $ tar xf ovirt-orb-[oVirt Orb version].tar.xz
 
 ## Running the environment
 
 Please note: All commands must be run from the inside of the directory created by the extraction of the oVirt Orb archive!
 
-### Bootstrapping the environment
+    $ lago init          # bootstrap lago
+    $ lago ovirt start   # start virtual hosts and Engine
 
-    lago init
+After a few seconds, you should see oVirt engine's IP, username, and password:
 
-### Starting the environment
+    The environment is ready to be used.
+    You can access the web UI with the following link and credentials:
+    https://192.168.202.4
+    Username: admin
+    Password: 123
 
-    lago ovirt start
+You can enter oVirt Engine's web UI by browsing to the supplied
+URL. You may need to add an exception for your browser to trust
+the self-signed certificate created by Lago.
 
-On the screen you should see oVirt engine's IP, username, and password.
-
-You can enter to the web UI by entering the engine's IP in your browser.
+As of version 4.2.2, the environment starts up three VMs; one
+for Engine and storage, and two others for virtual hypervisors,
+interconnected via several virtual networks. The precise make
+of the environment may change in the future.
 
 ### Stopping the environment
 
-    lago ovirt stop
-
-### Destroying the environment
-
-If you want to recreate Orb, run the following and bootstrap Orb again.
-
-    lago destroy
+    lago ovirt stop    # stop ovirt and the virtual hosts that run it
+    lago destroy       # remove the environment created by lago

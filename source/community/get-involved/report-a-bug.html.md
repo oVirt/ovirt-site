@@ -8,6 +8,8 @@ authors: dneary,sandrobonazzola
 
 For reporting bugs, the oVirt project uses the Bugzilla bugtracker and testing tool.
 
+For reporting security issues please follow the [security reporting procedure](/documentation/security/security/).
+
 ## How to create a Bugzilla account
 
 If you don’t have a Redhat Bugzilla account, you can easily create one by following these steps:

@@ -13,7 +13,7 @@ server. `oVirt Orb` is based on the Lago framework and runs the
 whole oVirt environment on a single machine by creating a
 number of VMs. VMs that play as hypervisors can run nested VMs.
 
-`ovirt Orb` ships pre-baked VM images and a `LagoInitFile` that
+`oVirt Orb` ships pre-baked VM images and a `LagoInitFile` that
 tells Lago how to use them.
 
 ## Requirements
@@ -53,16 +53,16 @@ In order to run the `oVirt Orb`, you will need first to install Lago and some mo
 - Download `oVirt Orb`:
 
   At the time of writing this document, latest `oVirt Orb` images are based on oVirt 4.2.2 and can be downloaded from [here](http://resources.ovirt.org/pub/ovirt-4.2/ovirt-orb/).
-  You will need to download both the ovirt-orb-*.tar.xz and ovirt-orb-*.tar.xz.md5
+  You will need to download both the `ovirt-orb-*.tar.xz` and `ovirt-orb-*.tar.xz.md5`
 - Verify that archive is not broken or tampered with:
 
-    $ md5sum -c ovirt-orb-[oVirt Orb version].tar.xz.md5
-    ovirt-orb-[oVirt Orb version].tar.xz: OK
+      $ md5sum -c ovirt-orb-[oVirt Orb version].tar.xz.md5
+      ovirt-orb-[oVirt Orb version].tar.xz: OK
 
 - Extract the archive:
 
-    $ cd orb-dir
-    $ tar xf ovirt-orb-[oVirt Orb version].tar.xz
+      $ cd orb-dir
+      $ tar xf ovirt-orb-[oVirt Orb version].tar.xz
 
 ## Running the environment
 

@@ -83,6 +83,12 @@ You can enter oVirt Engine's web UI by browsing to the supplied
 URL. You may need to add an exception for your browser to trust
 the self-signed certificate created by Lago.
 
+You can use Lago to save a snapshot of your environment and to revert to it later
+
+    $ lago snapshort nice_state
+    ... some possibly-destructive modifcation to your environment
+    $ lago revert nice_state
+
 As of version 4.2.2, the environment starts up three VMs; one
 for Engine and storage, and two others for virtual hypervisors,
 interconnected via several virtual networks. The precise make

@@ -14,7 +14,8 @@ whole oVirt environment on a single machine by creating a
 number of VMs. VMs that play as hypervisors can run nested VMs.
 
 `oVirt Orb` ships pre-baked VM images and a `LagoInitFile` that
-tells Lago how to use them.
+tells Lago how to use them. The images are built by the
+`build-artifacts` job of the [ovirt-demo-tool](https://gerrit.ovirt.org/#/q/project:ovirt-demo-tool).
 
 ## Requirements
 

@@ -9,6 +9,8 @@ authors: djorm
 
 This page lists all security vulnerabilities fixed in oVirt. Each vulnerability is assigned a security impact rating on a four-point scale (low, moderate, important and critical). The versions that are affected by each vulnerability are also listed.
 
+Before being published, security matters are discussed on a dedicated mailing list, restricted to trusted participants. If you were invited to join, then you can subscribe [on this page](https://lists.ovirt.org/admin/lists/security-private.ovirt.org/).
+
 ## [Moderate] CVE-2014-0153 ovirt-engine-api: session ID stored in HTML5 local storage
 
 ### Description

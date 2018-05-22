@@ -14,7 +14,7 @@ Welcome to the email list for attendees of the 21 March 2012 oVirt workshop in B
 
 Check the list archives for any messages sent before you joined this list:
 
-<http://lists.ovirt.org/pipermail/workshop-mar2012/>
+<https://lists.ovirt.org/pipermail/workshop-mar2012/>
 
 ## Reply bits when sending back to attendee and rsvp@ list
 

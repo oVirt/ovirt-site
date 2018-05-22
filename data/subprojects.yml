@@ -6,12 +6,12 @@ api:
   - ecohen
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -36,12 +36,12 @@ cli:
   - iheim
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -80,12 +80,12 @@ engine core:
   - arik
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -138,12 +138,12 @@ dwh:
   - Livnat Peer
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -166,10 +166,10 @@ oVirt Engine packaging & installer:
   - sandrobonazzola
 
   lists:
-  - users: http://lists.ovirt.org/mailman/listinfo/users
-  - users-archive: http://lists.ovirt.org/pipermail/users
-  - devel: http://lists.ovirt.org/mailman/listinfo/devel
-  - devel-archive: http://lists.ovirt.org/pipermail/devel/
+  - users: https://lists.ovirt.org/archives/list/users@ovirt.org/
+  - users-archive: https://lists.ovirt.org/pipermail/users
+  - devel: https://lists.ovirt.org/archives/list/devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/devel/
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-engine
@@ -192,10 +192,10 @@ oVirt Live:
   - didi
 
   lists:
-  - users: http://lists.ovirt.org/mailman/listinfo/users
-  - users-archive: http://lists.ovirt.org/pipermail/users
-  - devel: http://lists.ovirt.org/mailman/listinfo/devel
-  - devel-archive: http://lists.ovirt.org/pipermail/devel
+  - users: https://lists.ovirt.org/archives/list/users@ovirt.org/
+  - users-archive: https://lists.ovirt.org/pipermail/users
+  - devel: https://lists.ovirt.org/archives/list/devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/devel
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-live
@@ -218,10 +218,10 @@ node:
   - Fabian Deutsch
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/node-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/node-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/node-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/node-patches
+  - devel: https://lists.ovirt.org/archives/list/node-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/node-devel
+  - patches: https://lists.ovirt.org/archives/list/node-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/node-patches
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/buglist.cgi?component=ovirt-node&product=oVirt&classification=Community
@@ -246,12 +246,12 @@ reports:
   - ecohen
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -276,12 +276,12 @@ sdk:
   - iheim
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -310,12 +310,12 @@ config, notification:
   - oschreib
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -340,10 +340,10 @@ oVirt ISO Uploader:
   - sandrobonazzola
 
   lists:
-  - users: http://lists.ovirt.org/mailman/listinfo/users
-  - users-archive: http://lists.ovirt.org/pipermail/users
-  - devel: http://lists.ovirt.org/mailman/listinfo/devel
-  - devel-archive: http://lists.ovirt.org/pipermail/devel
+  - users: https://lists.ovirt.org/archives/list/users@ovirt.org/
+  - users-archive: https://lists.ovirt.org/pipermail/users
+  - devel: https://lists.ovirt.org/archives/list/devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/devel
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-iso-uploader
@@ -367,10 +367,10 @@ oVirt Image Uploader:
   - sandrobonazzola
 
   lists:
-  - users: http://lists.ovirt.org/mailman/listinfo/users
-  - users-archive: http://lists.ovirt.org/pipermail/users
-  - devel: http://lists.ovirt.org/mailman/listinfo/devel
-  - devel-archive: http://lists.ovirt.org/pipermail/devel
+  - users: https://lists.ovirt.org/archives/list/users@ovirt.org/
+  - users-archive: https://lists.ovirt.org/pipermail/users
+  - devel: https://lists.ovirt.org/archives/list/devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/devel
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-image-uploader
@@ -392,10 +392,10 @@ oVirt Log Collector:
   - sandrobonazzola
 
   lists:
-  - users: http://lists.ovirt.org/mailman/listinfo/users
-  - users-archive: http://lists.ovirt.org/pipermail/users
-  - devel: http://lists.ovirt.org/mailman/listinfo/devel
-  - devel-archive: http://lists.ovirt.org/pipermail/devel
+  - users: https://lists.ovirt.org/archives/list/users@ovirt.org/
+  - users-archive: https://lists.ovirt.org/pipermail/users
+  - devel: https://lists.ovirt.org/archives/list/devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/devel
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-log-collector
@@ -416,10 +416,10 @@ oVirt Setup Library:
   - sandrobonazzola
 
   lists:
-  - users: http://lists.ovirt.org/mailman/listinfo/users
-  - users-archive: http://lists.ovirt.org/pipermail/users
-  - devel: http://lists.ovirt.org/mailman/listinfo/devel
-  - devel-archive: http://lists.ovirt.org/pipermail/devel
+  - users: https://lists.ovirt.org/archives/list/users@ovirt.org/
+  - users-archive: https://lists.ovirt.org/pipermail/users
+  - devel: https://lists.ovirt.org/archives/list/devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/devel
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-setup-lib
@@ -445,12 +445,12 @@ userportal:
   - tjelinek
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -477,10 +477,10 @@ vdsm:
   - ilvovsky
 
   lists:
-  - devel: http://lists.fedorahosted.org/mailman/listinfo/vdsm-devel
-  - devel-archive: http://lists.fedorahosted.org/pipermail/vdsm-devel
-  - patches: http://lists.fedorahosted.org/mailman/listinfo/vdsm-devel
-  - patches-archive: http://lists.fedorahosted.org/pipermail/vdsm-devel
+  - devel: https://lists.fedorahosted.org/mailman/listinfo/vdsm-devel
+  - devel-archive: https://lists.fedorahosted.org/pipermail/vdsm-devel
+  - patches: https://lists.fedorahosted.org/mailman/listinfo/vdsm-devel
+  - patches-archive: https://lists.fedorahosted.org/pipermail/vdsm-devel
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?alias=&assigned_to=&attachurl=&blocked=&bug_file_loc=http%3A%2F%2F&bug_severity=unspecified&bug_status=NEW&cf_build_id=&cf_clone_of=&cf_cust_facing=---&cf_devel_whiteboard=&cf_environment=&cf_internal_whiteboard=&cf_issuetracker=&cf_qa_whiteboard=&cf_story_points=---&cf_type=---&comment=Description%20of%20problem%3A%0D%0A%0D%0A%0D%0AVersion-Release%20number%20of%20selected%20component%20%28if%20applicable%29%3A%0D%0A%0D%0A%0D%0AHow%20reproducible%3A%0D%0A%0D%0A%0D%0ASteps%20to%20Reproduce%3A%0D%0A1.%0D%0A2.%0D%0A3.%0D%0A%20%20%0D%0AActual%20results%3A%0D%0A%0D%0A%0D%0AExpected%20results%3A%0D%0A%0D%0A%0D%0AAdditional%20info%3A&component=vdsm&contenttypeentry=&contenttypemethod=autodetect&contenttypeselection=text%2Fplain&data=&deadline=&defined_cf_partner=&dependson=&description=&estimated_time=&external_bug_id=&external_id=0&flag_type-155=X&flag_type-16=X&form_name=enter_bug&keywords=&maketemplate=Remember%20values%20as%20bookmarkable%20template&op_sys=Unspecified&priority=unspecified&product=oVirt&qa_contact=&rep_platform=Unspecified&short_desc=&status_whiteboard=&target_milestone=---&target_release=---&version=unspecified
@@ -515,12 +515,12 @@ webadmin:
   - Greg Sheremeta
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -543,12 +543,12 @@ sample-portals:
   - ovedo
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - n/a
@@ -570,12 +570,12 @@ ovirt-scheduler-proxy:
   - doron
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -599,12 +599,12 @@ ovirt-hosted-engine-ha:
   - doron
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -627,10 +627,10 @@ ovirt-hosted-engine-setup:
   - stirabos
 
   lists:
-  - users: http://lists.ovirt.org/mailman/listinfo/users
-  - users-archive: http://lists.ovirt.org/pipermail/users
-  - devel: http://lists.ovirt.org/mailman/listinfo/devel
-  - devel-archive: http://lists.ovirt.org/pipermail/devel
+  - users: https://lists.ovirt.org/archives/list/users@ovirt.org/
+  - users-archive: https://lists.ovirt.org/pipermail/users
+  - devel: https://lists.ovirt.org/archives/list/devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/devel
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt-hosted-engine-setup
@@ -651,12 +651,12 @@ mom:
   - Adam Litke
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/engine-devel
-  - patches: http://lists.ovirt.org/mailman/listinfo/engine-patches
-  - patches-archive: http://lists.ovirt.org/pipermail/engine-patches
-  - commits: http://lists.ovirt.org/mailman/listinfo/engine-commits
-  - commits-archive: http://lists.ovirt.org/pipermail/engine-commits
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/engine-devel
+  - patches: https://lists.ovirt.org/archives/list/engine-patches@ovirt.org/
+  - patches-archive: https://lists.ovirt.org/pipermail/engine-patches
+  - commits: https://lists.ovirt.org/archives/list/engine-commits@ovirt.org/
+  - commits-archive: https://lists.ovirt.org/pipermail/engine-commits
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -678,7 +678,7 @@ VDSM Fake:
   - tjelinek
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -699,8 +699,8 @@ Kimchi:
   - rbarry
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/kimchi-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/kimchi-devel
+  - devel: https://lists.ovirt.org/archives/list/kimchi-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/kimchi-devel
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -721,8 +721,8 @@ moVirt:
   - Filip Krepinsky
 
   lists:
-  - movirt: http://lists.ovirt.org/mailman/listinfo/movirt
-  - movirt-archive: http://lists.ovirt.org/pipermail/movirt/
+  - movirt: https://lists.ovirt.org/archives/list/movirt@ovirt.org/
+  - movirt-archive: https://lists.ovirt.org/pipermail/movirt/
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -742,7 +742,7 @@ Vagrant Providers:
   - Marcus Young
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/engine-devel
+  - devel: https://lists.ovirt.org/archives/list/engine-devel@ovirt.org/
 
   resources:
   - bugzilla: https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt
@@ -762,8 +762,8 @@ Nomad:
   - Ken Spokas
 
   lists:
-  - devel: http://lists.ovirt.org/mailman/listinfo/nomad-devel
-  - devel-archive: http://lists.ovirt.org/pipermail/nomad-devel
+  - devel: https://lists.ovirt.org/archives/list/nomad-devel@ovirt.org/
+  - devel-archive: https://lists.ovirt.org/pipermail/nomad-devel
 
   resources:
   - proposal: http://www.ovirt.org/wiki/Project_Proposal_-_Nomad

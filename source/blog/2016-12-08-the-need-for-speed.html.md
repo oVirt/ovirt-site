@@ -18,7 +18,7 @@ From the oVirt infra team's point of view, the CI standards have removed the nee
 
 The CI standards implementation we have has one shortcoming, it is not particularity fast.
 
-We started seriously looking at this after one of the VDSM maintainers [reported](http://lists.ovirt.org/pipermail/devel/2016-December/014386.html) that the `check_patch` jobs for his project are running for far too long a time. In the end it turned out that a major reason for the delay was in the way the [tests themselves worked](https://gerrit.ovirt.org/#/c/67799/), but still, we looked at `mock_runner.sh` and managed to speed it up quite a bit.
+We started seriously looking at this after one of the VDSM maintainers [reported](https://lists.ovirt.org/pipermail/devel/2016-December/014386.html) that the `check_patch` jobs for his project are running for far too long a time. In the end it turned out that a major reason for the delay was in the way the [tests themselves worked](https://gerrit.ovirt.org/#/c/67799/), but still, we looked at `mock_runner.sh` and managed to speed it up quite a bit.
 
 ## What Did We Change?
 

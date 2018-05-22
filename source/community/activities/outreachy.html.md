@@ -41,7 +41,7 @@ Please find the mentors and projects listed below. In case you are interested in
 
 **Contact Info:** mail: mzamazal@redhat.com, irc: mzamazal in #ovirt channel in irc.oftc.net
 
-I'm sorry, I no longer accept new candidates.  You can still apply to the other oVirt projects or you can contact [oVirt development mailing list](http://lists.ovirt.org/mailman/listinfo/devel).
+I'm sorry, I no longer accept new candidates.  You can still apply to the other oVirt projects or you can contact [oVirt development mailing list](https://lists.ovirt.org/archives/list/devel).@ovirt.org/
 
 **Ideas You would like to mentor for oVirt:**
 

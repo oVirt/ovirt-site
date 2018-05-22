@@ -12,7 +12,7 @@ This page describes the process for becoming a member of the Infrastructure team
 
 The Infrastructure team primarily uses three resources to get stuff done:
 
-*   [The infra mailing list](http://lists.ovirt.org/mailman/listinfo/infra) for asynchronous communication
+*   [The infra mailing list](https://lists.ovirt.org/archives/list/infra)@ovirt.org/ for asynchronous communication
 *   [oVirt infra trac](https://fedorahosted.org/ovirt/report/1) for issue tracking
 *   [The weekly infra team meeting](/develop/infra/infrastructure-team-meetings/) on IRC for synchronous discussion and review of action items
 

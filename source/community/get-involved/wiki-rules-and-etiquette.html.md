@@ -10,7 +10,7 @@ authors: daejohnson, quaid
 
 This page sets out general guidelines for the oVirt project wiki.
 
-There are a few simple points you should follow as you make changes to the wiki. Below are some examples. In general, be courteous and use common sense. Defying these guidelines and causing problems are a good way to get your edit privileges revoked. If you have questions, you can ask on #ovirt on [OFTC](http://oftc.net/) or [arch@ovirt.org](http://lists.ovirt.org/mailman/listinfo/arch).
+There are a few simple points you should follow as you make changes to the wiki. Below are some examples. In general, be courteous and use common sense. Defying these guidelines and causing problems are a good way to get your edit privileges revoked. If you have questions, you can ask on #ovirt on [OFTC](http://oftc.net/) or [arch@ovirt.org](https://lists.ovirt.org/archives/list/arch).@ovirt.org/
 
 ## Introduce yourself
 

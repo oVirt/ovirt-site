@@ -8,13 +8,13 @@ authors: dneary, ekohl, kroberts, quaid
 
 This is all the infrastructure of participation provided by the oVirt project for its contributors.
 
-For infrastructure requests, we maintain the [Infrastructure needs](/develop/infra/infrastructure-needs/) page. For discussion, ask on infra@ovirt.org (http://lists.ovirt.org/mailman/listinfo/infra .)
+For infrastructure requests, we maintain the [Infrastructure needs](/develop/infra/infrastructure-needs/) page. For discussion, ask on infra@ovirt.org (https://lists.ovirt.org/archives/list/infra@ovirt.org/ .)
 
 ## Mailing lists
 
-The project runs Mailman at <http://lists.ovirt.org> hosted on linode1.ovirt.org
+The project runs Mailman at <https://lists.ovirt.org/> hosted by [OSCI](https://www.osci.io/) in the Community Cage.
 
-All available lists are found at <http://lists.ovirt.org/mailman/listinfo> .
+All available lists are found at <https://lists.ovirt.org/archives> .
 
 ## Content website / wiki
 

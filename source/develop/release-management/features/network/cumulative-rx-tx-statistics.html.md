@@ -70,7 +70,7 @@ New data entries should be added to the host and VM NIC statistical queries: "da
 *   RFE for vdsm to report total byte count: <https://bugzilla.redhat.com/show_bug.cgi?id=1066570>.
 *   RFE for engine to report it via the GUI and REST: <https://bugzilla.redhat.com/show_bug.cgi?id=1063343>
 *   RFE requesting better accounting information in general: <https://bugzilla.redhat.com/show_bug.cgi?id=1172153>
-*   Workaround using existing reported rates: <http://lists.ovirt.org/pipermail/users/2014-November/029048.html>
+*   Workaround using existing reported rates: <https://lists.ovirt.org/pipermail/users/2014-November/029048.html>
 *   Various other requests on the users@ovirt.org mailing list.
 
 ## Testing

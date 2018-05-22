@@ -150,7 +150,7 @@ Cover all methods for installing a host in oVirt Engine
 
 ## Documentation / External references
 
-*   mailing-list discussion about this feature: <http://lists.ovirt.org/pipermail/arch/2012-December/001101.html>
+*   mailing-list discussion about this feature: <https://lists.ovirt.org/pipermail/arch/2012-December/001101.html>
 
 
 

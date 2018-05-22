@@ -115,6 +115,6 @@ Affected oVirt projects:
 
 ## Documentation / External references
 
-*   <http://lists.ovirt.org/pipermail/engine-devel/2012-January/000423.html>
+*   <https://lists.ovirt.org/pipermail/engine-devel/2012-January/000423.html>
 
 

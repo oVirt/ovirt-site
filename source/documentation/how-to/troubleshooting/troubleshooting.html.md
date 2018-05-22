@@ -141,4 +141,4 @@ The output will probably be like this:
 
 The important thing there is the value 0. You can try to change it to 1, via LDAP or modifying directly the file /etc/dirsrv/slapd-YOUR-REALM/dse.ldif. Do this with the directory server stopped, and remember how to revert it in case things fail.
 
-From: <http://lists.ovirt.org/pipermail/users/2013-November/017853.html>
+From: <https://lists.ovirt.org/pipermail/users/2013-November/017853.html>

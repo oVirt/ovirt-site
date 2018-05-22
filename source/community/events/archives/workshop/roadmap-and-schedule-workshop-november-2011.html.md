@@ -30,7 +30,7 @@ Combination of feature and date driven - need a date to make sure we have someth
 
 Carl to start pounding the drum on arch@ in about two weeks.
 
-*   <http://lists.ovirt.org/mailman/listinfo/arch>
+*   <https://lists.ovirt.org/archives/list/arch>@ovirt.org/
 
 ## Release Goal
 

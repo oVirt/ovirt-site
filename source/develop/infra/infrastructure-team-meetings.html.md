@@ -550,7 +550,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-01-07
 
-*[Minutes](http://lists.ovirt.org/pipermail/infra/2013-January/001800.html)*
+*[Minutes](https://lists.ovirt.org/pipermail/infra/2013-January/001800.html)*
 
 *   New hosting design
     -   Review & discuss & improve upon draft: <http://etherpad.ovirt.org/p/new_hosting_design_Jan_2013>
@@ -812,7 +812,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2012-07-31
 
-*[Minutes](http://lists.ovirt.org/pipermail/infra/2012-July/000745.html)*
+*[Minutes](https://lists.ovirt.org/pipermail/infra/2012-July/000745.html)*
 
 **Agenda**
 

@@ -96,7 +96,7 @@ No changes will be done to the REST API, but the implementation will allow speci
 
 <!-- -->
 
-*   NAT-based host-only network requested by DHC <http://lists.ovirt.org/pipermail/users/2012-April/001751.html>
+*   NAT-based host-only network requested by DHC <https://lists.ovirt.org/pipermail/users/2012-April/001751.html>
 
 
 

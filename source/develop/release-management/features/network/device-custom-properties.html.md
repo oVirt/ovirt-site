@@ -143,7 +143,7 @@ As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not
 
 ## Documentation / External references
 
-*   Benoit ML asking for per-vNIC custom properties: <http://lists.ovirt.org/pipermail/users/2012-November/010857.html>
+*   Benoit ML asking for per-vNIC custom properties: <https://lists.ovirt.org/pipermail/users/2012-November/010857.html>
 *   [Features/Quantum_Integration](/develop/release-management/features/network/osn-integration/)
 *   Almost any interesting hook for [hotplug disk](https://bugzilla.redhat.com/show_bug.cgi?id=908656) is going to require per-disk triggering proprty
 

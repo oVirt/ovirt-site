@@ -60,7 +60,7 @@ none
 
 <https://bugzilla.redhat.com/show_bug.cgi?id=1064543>
 
-<http://lists.ovirt.org/pipermail/users/2013-October/017088.html>
+<https://lists.ovirt.org/pipermail/users/2013-October/017088.html>
 
 ## Implementation notes
 
@@ -85,6 +85,6 @@ Testing involves
 
 The new design was proposed on the oVirt mailing list in October, 2013.
 
-<http://lists.ovirt.org/pipermail/users/2013-October/017088.html>
+<https://lists.ovirt.org/pipermail/users/2013-October/017088.html>
 
 

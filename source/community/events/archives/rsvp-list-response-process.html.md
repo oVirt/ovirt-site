@@ -20,7 +20,7 @@ Follow this process when responding to RSVP emails for oVirt events. This keeps 
     -   "You will be added to the workshop announcement/coordination email list."
     -   Consider the language barriers when writing responses
 
-4.  After sending out one or all of the responses you have, [add the attendees](http://lists.ovirt.org/mailman/admin/workshop-mar2012/members/add) to the workshop specific mailing list.
+4.  After sending out one or all of the responses you have, [add the attendees](https://lists.ovirt.org/mailman/admin/workshop-mar2012/members/add) to the workshop specific mailing list.
     -   Be sure to use the [custom welcome text](/community/events/archives/workshop/workshop-mar-2012-coordinator-notes/#generic-text-sent-when-mass-subscribing-to-workshop-list) written for the event.
 
 Materials for event coordinators for each workshop can be found in [:Category:Event coordinator documentation](:Category:Event coordinator documentation).

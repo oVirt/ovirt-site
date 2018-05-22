@@ -6,7 +6,7 @@ authors: jbrooks, lh
 
 # LC Japan Workshop Post-Mortem
 
-The purpose of this page is to document feedback from the team on the oVirt Workshop at LinuxCon Japan 2012. This summary distilled from [this thread](http://lists.ovirt.org/pipermail/arch/2012-June/000617.html) on the oVirt architecture mailing list.
+The purpose of this page is to document feedback from the team on the oVirt Workshop at LinuxCon Japan 2012. This summary distilled from [this thread](https://lists.ovirt.org/pipermail/arch/2012-June/000617.html) on the oVirt architecture mailing list.
 
 For full details on oVirt workshops, see [OVirt Global Workshops](/community/events/archives/workshop/global-workshops/).
 

@@ -7,7 +7,7 @@ comments: true
 published: true
 ---
 
-In November, version 3.6 of oVirt, the open source virtualization management system, [hit FTP mirrors](http://lists.ovirt.org/pipermail/announce/2015-November/000205.html) featuring a whole slate of [fixes and enhancements](/develop/release-management/releases/3.6/), including support for storing oVirt's self hosted management engine on a [Gluster volume](/develop/release-management/features/engine/self-hosted-engine-gluster-support/).
+In November, version 3.6 of oVirt, the open source virtualization management system, [hit FTP mirrors](https://lists.ovirt.org/pipermail/announce/2015-November/000205.html) featuring a whole slate of [fixes and enhancements](/develop/release-management/releases/3.6/), including support for storing oVirt's self hosted management engine on a [Gluster volume](/develop/release-management/features/engine/self-hosted-engine-gluster-support/).
 
 This expanded Gluster support, along with the new ["arbiter volume"](https://gluster.readthedocs.org/en/latest/Administrator%20Guide/arbiter-volumes-and-quorum/) feature added in [Gluster 3.7](http://blog.gluster.org/2015/05/glusterfs-3-7-0-has-been-released-introducing-many-new-features-and-improvements/), has allowed me to simplify (somewhat) the converged oVirt+Gluster installation [that's powered](http://community.redhat.com/blog/2014/11/up-and-running-with-ovirt-3-5-part-two/) my [test lab](http://community.redhat.com/blog/2014/05/ovirt-3-4-glusterized/) for the [past few years](http://community.redhat.com/blog/2013/09/ovirt-3-3-glusterized/).
 

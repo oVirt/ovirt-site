@@ -140,8 +140,8 @@ For upgrading now you just need to execute:
 
 Please refer to the following threads on users mailing list:
 
-*   [Upgrade path from Fedora 20 oVirt 3.5 to Fedora 22 oVirt 3.6 - Suggested procedure](http://lists.ovirt.org/pipermail/users/2015-November/035791.html)
-*   [Upgrade path from Fedora 20 oVirt 3.5 to Fedora 22 oVirt 3.6 - User experience](http://lists.ovirt.org/pipermail/users/2015-November/035882.html)
+*   [Upgrade path from Fedora 20 oVirt 3.5 to Fedora 22 oVirt 3.6 - Suggested procedure](https://lists.ovirt.org/pipermail/users/2015-November/035791.html)
+*   [Upgrade path from Fedora 20 oVirt 3.5 to Fedora 22 oVirt 3.6 - User experience](https://lists.ovirt.org/pipermail/users/2015-November/035882.html)
 
 ## Debian Jessie
 

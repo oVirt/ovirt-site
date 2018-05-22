@@ -76,7 +76,7 @@ People who come to work on this project are *not* already experts, but they migh
 
 The main thing is, come [communicate with us](#Communication) if you have any questions, are interested in learning more, or what to participate in supporting oVirt infrastructure.
 
-*   [Mailing list infra@ovirt.org](http://lists.ovirt.org/mailman/listinfo/infra)
+*   [Mailing list infra@ovirt.org](https://lists.ovirt.org/archives/list/infra)@ovirt.org/
 *   [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt)
 
 ### Meetings
@@ -85,7 +85,7 @@ The main thing is, come [communicate with us](#Communication) if you have any qu
 
 ### Decision process
 
-* The Infra team generally follows the principle that if it didn't get discussed on the [mailing list](http://lists.ovirt.org/mailman/listinfo/infra), it didn't really happen.
+* The Infra team generally follows the principle that if it didn't get discussed on the [mailing list](https://lists.ovirt.org/archives/list/infra),@ovirt.org/ it didn't really happen.
 * This means all important or broad-reaching decisions are discussed and decided on the mailing list.
 * The team uses the same [collaborative decision process](https://blogs.apache.org/comdev/entry/how_apache_projects_use_consensus) that other oVirt teams use, with some lightweight elements added to move along minor votes.
   * +1 is a vote in favor of a proposition 

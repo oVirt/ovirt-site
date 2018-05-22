@@ -5,7 +5,7 @@ authors: emesika, liran.zelkha, plysan
 
 # Engine High Availability
 
-This page was created as a result of a [http://lists.ovirt.org/pipermail/engine-devel/2013-August/005436.html discussion](http://lists.ovirt.org/pipermail/engine-devel/2013-August/005436.html discussion) that started at @engine_devel. As we are considering an active/active architecture for Engine, we'll use this page to document required features and code changes that will be required.
+This page was created as a result of a [https://lists.ovirt.org/pipermail/engine-devel/2013-August/005436.html discussion](https://lists.ovirt.org/pipermail/engine-devel/2013-August/005436.html discussion) that started at @engine_devel. As we are considering an active/active architecture for Engine, we'll use this page to document required features and code changes that will be required.
 
 ## Architecture
 

@@ -32,6 +32,7 @@ Greg Padgett <gpadgett@redhat.com>, Martin Sivak <msivak@redhat.com>
 Assuming you're using ovirt RPMs, you should start with install and deploy:
 
          # yum install ovirt-hosted-engine-setup
+         # yum install ovirt-engine-appliance
          # hosted-engine --deploy
 
 During the deployment you'll be asked for input on host name, storage path and other relevant information. The installer will configure the system and run an empty VM. Access the VM and install an OS:
@@ -114,23 +115,9 @@ Moving an existing setup into a VM is similar to a fresh install, but instead of
 
 ## **Installing additional nodes**
 
-Here is an example of a deployment on an additional host:
+This should be performed via the UI by adding a new Host with Hosted Engine installed to the desired cluster.
 
-         # yum install ovirt-hosted-engine-setup
-         # hosted-engine --deploy
-
-Once storage path is given, the installer will identify this is an additional host, and will change the flow accordingly:
-
-         The specified storage location already contains a data domain. Is this an additional host setup (Yes, No)[Yes]? yes
-         [ INFO  ] Installing on additional host
-                 Please specify the Host ID [Must be integer, default: 2]:
-
-As with the first node, this will take you to the process completion.
-
-**Notes**
-
-*   Remember to use the same storage path you used on first host.
-*   There is a bug in 3.5 when adding a host to a cluster which was initially 3.4. A workaround is to manually edit the answer file on the existing hosts prior to adding a host. See [BZ 1308962](https://bugzilla.redhat.com/show_bug.cgi?id=1308962).
+![Figure 1. Add New Host](/images/wiki/Add-Host-view.png "Figure 1. Add New Host")
 
 ## **Migrate hosts from EL6 to EL7**
 

@@ -190,6 +190,7 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1579268](https://bugzilla.redhat.com/1579268) <b>Upgrade of PostgreSQL during RHV 4.1 to 4.2 upgrade fails with locale mismatch</b><br>This update enables engine-setup to upgrade PostgreSQL 9.2 to 9.5, even when the locale of the 9.2 database is different from the system locale.<br><br>Doc team: Copied above from bug 1528371. Please note that bug 1528371 was accidentally not fully fixed for 4.2 - the correct fix was added only for the next version, to be 4.3 eventually. You might want to mention this, not sure how, if at all.
  - [BZ 1571039](https://bugzilla.redhat.com/1571039) <b>[DR] - Registering of a VM containing snapshots with memory from an imported domain fails with an NPE</b><br>
  - [BZ 1567858](https://bugzilla.redhat.com/1567858) <b>[Regression] -  Cannot start VM with <Empty> vNIC</b><br>
  - [BZ 1530186](https://bugzilla.redhat.com/1530186) <b>Create new Gluster Snapshots Web UI doesn't work</b><br>
@@ -215,6 +216,7 @@ packages from other repos.
  - [BZ 1566341](https://bugzilla.redhat.com/1566341) <b>[downstream clone 4.2.4] CloudInit: DNS search parameter is passed incorrectly</b><br>
  - [BZ 1542070](https://bugzilla.redhat.com/1542070) <b>[es_ES] [pt_BR] [Admin Portal] Radio button label 'User Roles' appears misaligned in Spanish google-chrome</b><br>
  - [BZ 1558525](https://bugzilla.redhat.com/1558525) <b>show proper error when authorization to api fails</b><br>
+ - [BZ 1576352](https://bugzilla.redhat.com/1576352) <b>rhvm-4.2 reports "no updates found" although there is available updates</b><br>
  - [BZ 1574605](https://bugzilla.redhat.com/1574605) <b>javascript error while accessing Storage -> Volumes on a local storage datacenter with no volumes created yet</b><br>
  - [BZ 1566059](https://bugzilla.redhat.com/1566059) <b>Scoped link local IPv6 addresses break VM listing (happens when ovirt-guest-agent is not installed but qemu-guest-agent is)</b><br>
  - [BZ 1571300](https://bugzilla.redhat.com/1571300) <b>VdsNotRespondingTreatment releases VDS_FENCE lock twice</b><br>
@@ -317,4 +319,3 @@ packages from other repos.
 #### VDSM
 
  - [BZ 1548110](https://bugzilla.redhat.com/1548110) <b>VDO rpm should be pulled in as rpm dependency</b><br>
-

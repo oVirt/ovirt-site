@@ -35,7 +35,7 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 ## Processes Plugin
 
  - collectd.plugin: processes
- - ovirt.entity: host
+ - ovirt.entity: engine
  - ovirt.engine_fqdn.raw: _FQDN of the engine_
  - ovirt.cluster_name.raw: _Cluster name_
 

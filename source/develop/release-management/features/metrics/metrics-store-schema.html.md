@@ -35,7 +35,7 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 ## Processes Plugin
 
  - collectd.plugin: processes
- - ovirt.entity: engine
+ - ovirt.entity: engine or host
  - ovirt.engine_fqdn.raw: _FQDN of the engine_
  - ovirt.cluster_name.raw: _Cluster name_
 
@@ -62,7 +62,7 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 ## Disk Plugin
 
  - collectd.plugin: disk
- - ovirt.entity: host
+ - ovirt.entity: engine or host
  - ovirt.engine_fqdn.raw: _FQDN of the engine_
  - ovirt.cluster_name.raw: _Cluster name_
 
@@ -81,7 +81,7 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 ## Interface Plugin
 
  - collectd.plugin: interface
- - ovirt.entity: host
+ - ovirt.entity: engine or host
  - ovirt.engine_fqdn.raw: _FQDN of the engine_
  - ovirt.cluster_name.raw: _Cluster name_
 
@@ -99,7 +99,7 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 ## CPU Plugin
 
  - collectd.plugin: cpu
- - ovirt.entity: host
+ - ovirt.entity: engine or host
  - ovirt.engine_fqdn.raw: _FQDN of the engine_
  - ovirt.cluster_name.raw: _Cluster name_
 
@@ -122,7 +122,7 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 ## Entropy Plugin
 
  - collectd.plugin: entropy
- - ovirt.entity: host
+ - ovirt.entity: engine or host
  - ovirt.engine_fqdn.raw: _FQDN of the engine_
  - ovirt.cluster_name.raw: _Cluster name_
 
@@ -133,7 +133,7 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 ## Memory Plugin
 
  - collectd.plugin: memory
- - ovirt.entity: host
+ - ovirt.entity: engine or host
  - ovirt.engine_fqdn.raw: _FQDN of the engine_
  - ovirt.cluster_name.raw: _Cluster name_
 
@@ -145,7 +145,7 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 ## Swap Plugin
 
  - collectd.plugin: swap
- - ovirt.entity: host
+ - ovirt.entity: engine or host
  - ovirt.engine_fqdn.raw: _FQDN of the engine_
  - ovirt.cluster_name.raw: _Cluster name_
 
@@ -157,7 +157,7 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 ## Load Plugin
 
  - collectd.plugin: load
- - ovirt.entity: host
+ - ovirt.entity: engine or host
  - ovirt.engine_fqdn.raw: _FQDN of the engine_
  - ovirt.cluster_name.raw: _Cluster name_
 
@@ -170,7 +170,7 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 ## Aggregation Plugin
 
  - collectd.plugin: aggregation
- - ovirt.entity: host
+ - ovirt.entity: engine or host
  - ovirt.engine_fqdn.raw: _FQDN of the engine_
  - ovirt.cluster_name.raw: _Cluster name_
 

@@ -27,8 +27,6 @@ gem "middleman-blog"
 #gem "middleman-blog-drafts"
 #gem "middleman-blog-authors"
 
-gem 'middleman-deploy'
-
 # Thumbnailer
 #gem "middleman-thumbnailer", github: "nhemsley/middleman-thumbnailer"
 

@@ -207,9 +207,6 @@ require 'lib/monkeypatch_blog_date.rb'
 ###
 #
 configure :development do
-  # workaround https://github.com/middleman-contrib/middleman-deploy/issues/51
-  next if ARGV.include? 'deploy'
-
   puts "\nUpdating git submodules..."
   puts `git submodule init && git submodule sync`
   puts `git submodule foreach "git pull -qf origin master"`
@@ -283,60 +280,6 @@ configure :build do
       ]
     }
   end
-end
-
-###
-# Deployment
-##
-
-if data.site.openshift
-  os_token, os_host = data.site.openshift.match(/([0-9a-f]+)@([^\/]+)/).captures
-
-  deploy_config = {
-    method: :rsync,
-    user: os_token,
-    host: os_host,
-    path: "/var/lib/openshift/#{os_token}/app-root/repo",
-    clean: true, # remove orphaned files on remote host
-    build_before: false # default false
-  }
-
-elsif data.site.rsync
-  rsync = URI.parse(data.site.rsync)
-
-  deploy_config = {
-    method: :rsync,
-    user: rsync.user || ENV[:USER],
-    host: rsync.host,
-    path: rsync.path,
-    port: rsync.port || 22,
-    clean: true, # remove orphaned files on remote host
-    build_before: true # default false
-  }
-
-else
-  # For OpenShift,
-  #
-  # 1) use the barebones httpd cartridge from:
-  #    http://cartreflect-claytondev.rhcloud.com/reflect?github=stefanozanella/openshift-cartridge-httpd
-  #    (Add as URL at the bottom of the create from cartridge page)
-  #
-  # 2) Copy your new site's git repo URL and use it for 'production':
-  #    git remote add production OPENSHIFT_GIT_REMOTE_HERE
-  #
-  # 3) Now, you can easily deploy to your new OpenShift site!
-  #    bundle exec middleman deploy
-
-  deploy_config = {
-    method: :git,
-    remote: 'production',
-    branch: 'master',
-    build_before: true # default false
-  }
-end
-
-activate :deploy do |deploy|
-  deploy_config.each { |key, val| deploy[key] = val }
 end
 
 activate :piwik do |p|

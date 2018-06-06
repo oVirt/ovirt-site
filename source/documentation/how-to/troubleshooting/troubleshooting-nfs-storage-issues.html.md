@@ -46,7 +46,7 @@ The easiest way to definitively test that an NFS export is ready for use by oVir
 
 #### ISO Domain
 
-## TODO: Update to a current version
+##### TODO: Update to a current version
 
 The **engine-setup** command can optionally create an ISO domain and export it.
 
@@ -76,8 +76,20 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
 ### Setting NFS Server
 
 #### Debian Squeeze
+##### TODO: Update to current Debian
 
-## TODO: Update to current version
+     #> groupadd kvm -g 36
+     #> useradd vdsm -u 36 -g kvm
+
+     # mkdir /storage
+ 
+     #> chmod 0755 /storage
+     #> chown 36:36 /storage/
+     #> cat /etc/exports
+     /storage    *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
+
+     #>/etc/init.d/nfs-kernel-server restart 
+
 
 #### Fedora 26 or higher
 
@@ -129,7 +141,7 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
 
 ## Workarounds for known issues
 
-## TODO: update for the newer supported releases
+#### TODO: update for the newer supported releases
 
 ### NFS Lockups
 
@@ -156,7 +168,7 @@ To activate these settings for the running server reload them with
        # sysctl -p 
 
 ### NFS Storage Domain Failure on Fedora 17
-
+#### TODO: Check if still relevant
 In the past, nodes running Fedora 17 kernels newer than 3.4 have trouble with NFS storage domains.
 This issue has been fixed in: vdsm-4.10.0-10.fc17
 Download: <http://koji.fedoraproject.org/koji/buildinfo?buildID=358280>

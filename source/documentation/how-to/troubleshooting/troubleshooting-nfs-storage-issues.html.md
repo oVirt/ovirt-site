@@ -77,7 +77,9 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
 
 #### Debian Squeeze
 
-#### Fedora 16 or higher
+## TODO: Update to current version
+
+#### Fedora 26 or higher
 
       #> groupadd kvm -g 36
       #> useradd vdsm -u 36 -g kvm

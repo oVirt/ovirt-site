@@ -6,7 +6,7 @@ layout: toc
 
 # oVirt 4.2.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.2.4 Second Release Candidate as of May 31, 2018.
+The oVirt Project is pleased to announce the availability of the 4.2.4 Third Release Candidate as of June 07, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -89,6 +89,13 @@ packages from other repos.
 
 ## What's New in 4.2.4?
 
+### Release Note
+
+#### oVirt Engine
+
+ - [BZ 1577593](https://bugzilla.redhat.com/1577593) <b>Disable TLS versions < 1.2 for hosts with cluster level >= 4.1</b><br>This change disables TLSv1 and TLSv11 for communication between engine and hosts for clusters with cluster level >= 4.1.<br><br>Following steps need to be performed to apply the change:<br><br>1. Newly added hosts<br>    - The change is applied automatically when host is added to engine to clusters with cluster level >= 4.1<br>    - When adding new host to cluster with cluster level 3.6 or 4.0 the change is not applied and the host supports TLSv1, TLSv11 and TLSv12 protocols<br><br>2. Existing hosts<br>    - to apply the change to existing host in cluster level 4.1 or 4.2 please follow steps described in [How to apply change] section<br><br>3. Moving hosts between clusters<br>    - when host is moved to 4.1 or 4.2 cluster the change is not applied automatically. To apply please follow steps described in [How to apply change] section<br><br><br>How to apply change<br>To disable older TLS versions for a host in cluster with cluster levels >= 4.1 following steps need to be applied:<br><br>1. Move host to Maintenance using option Maintenance in Management menu inside Hosts view<br>2. Reinstall the host using option Reinstall in Installation menu inside Hosts view<br>3. Activate the host after successful reinstallation using Activate option in Management menu inside Hosts view
+ - [BZ 1582527](https://bugzilla.redhat.com/1582527) <b>Enable only strong ciphers from engine to VDSM communication for hosts in cluster level >= 4.2</b><br>This change enables only string ciphers for communication between engine and hosts for clusters with cluster level >= 4.2.<br><br>Following steps need to performed to apply the change:<br><br>1. Newly added hosts<br>    - The change is applied automatically when host is added to engine to clusters with cluster level >= 4.2<br>    - When adding new host to cluster with cluster level 3.6, 4.0 or 4.1 the change is not applied and hosts support all ciphers enabled by underlying libraries<br><br>2. Existing hosts<br>    - to apply the change to existing hosts in cluster level 4.2 please follow steps described in [How to apply change] section<br><br>3. Moving hosts between clusters<br>    - when host is moved to 4.2 cluster the change is not applied automatically. To apply please follow steps described in [How to apply change] section<br><br><br>How to apply change<br>To enable only strong ciphers for a host in cluster with cluster levels >= 4.2 following steps need to be applied:<br><br>1. Move host to Maintenance using option Maintenance in Management menu inside Hosts view<br>2. Reinstall the host using option Reinstall in Installation menu inside Hosts view<br>3. Activate the host after successful reinstallation using Activate option in Management menu inside Hosts view
+
 ### Enhancements
 
 #### oVirt Engine
@@ -97,13 +104,19 @@ packages from other repos.
  - [BZ 1549030](https://bugzilla.redhat.com/1549030) <b>Update neutron binding after VM migration with info from caps</b><br>When a port is created/updated, it's "binding:host_id" attribute should be updated with the id of the provider driver id (for example OVN chassis id) reported during get_caps. <br>The port for which the binding has been reported, requires the binding to be set on every consecutive host it moves to. This could be a problem when migrating from a 4.2.2 level host to an earlier one. <br>Hosts before that do not report the host_id. When no provider driver id is reported, the "binding:host_id" is not set, and the value from the previous host will be kept. To fix this, the older hosts need to be updated with a newer version of the provider driver.
  - [BZ 1539765](https://bugzilla.redhat.com/1539765) <b>Auto-Sync - network rename on provider does not trigger rename in engine</b><br>Feature:  External network rename on provider is reflected in engine<br><br>Reason: The name of an external network in engine should be consistent with the name of the same network on the provider.<br><br>Result: Renaming an external network on the provider is reflected in engine.
  - [BZ 1098612](https://bugzilla.redhat.com/1098612) <b>[RFE] filter for "Allocation Policy" in Disks search</b><br>
- - [BZ 1242822](https://bugzilla.redhat.com/1242822) <b>[RFE] filter for "Allocation Policy" in Disks search</b><br>
+ - [BZ 1251468](https://bugzilla.redhat.com/1251468) <b>[RFE] Additional warning when removing required networks</b><br>
  - [BZ 1579302](https://bugzilla.redhat.com/1579302) <b>support more granularity in cluster cpu types</b><br>Feature: <br>Support distinguishing cpus also by features they support, not just by model.<br><br>Reason: <br>If a new CPU feature is important, it is important to be able to distinguish if the CPU with some model also supports this feature and than require this feature also for VMs.<br><br>Result: <br>Now, it is possible to distinguish CPUs also by features and require them for the VMs.
  - [BZ 1577901](https://bugzilla.redhat.com/1577901) <b>[RFE] add content type column to disk table</b><br>
 
 #### oVirt Host Dependencies
 
  - [BZ 1579210](https://bugzilla.redhat.com/1579210) <b>[downstream clone - 4.2.4] add cockpit-machines-ovirt to RHVH hosts</b><br>Added [cockpit-machines-ovirt plugin](https://cockpit-project.org/guide/latest/feature-ovirtvirtualmachines) on hosts and in oVirt Node / RHV-H
+
+### Rebase: Bug Fixeses and Enhancementss
+
+#### oVirt Engine
+
+ - [BZ 1585157](https://bugzilla.redhat.com/1585157) <b>[downstream clone - 4.2.4] [UI] - VM's network interface name and icon too large and wrap</b><br>
 
 ### Bug Fixes
 
@@ -123,34 +136,44 @@ packages from other repos.
 
  - [BZ 1572508](https://bugzilla.redhat.com/1572508) <b>fluentd unable to connect keeps retrying every 3 minutes</b><br>
 
+#### ovirt-engine-dwh
+
+ - [BZ 1576937](https://bugzilla.redhat.com/1576937) <b>Value too long for type character varying(50) for host_interface_configuration and vm_interface_configuration</b><br>
+
+#### oVirt Hosted Engine HA
+
+ - [BZ 1583712](https://bugzilla.redhat.com/1583712) <b>hosted-engine metadata are not correctly read and write on hosts set into maintenance mode from the engine</b><br>
+ - [BZ 1557793](https://bugzilla.redhat.com/1557793) <b>ovirt-hosted-engine-cleanup takes too much time</b><br>
+
 #### oVirt Hosted Engine Setup
 
+ - [BZ 1576310](https://bugzilla.redhat.com/1576310) <b>[OVN] - [HE] - ovn tunnel is not created if central hostname resolved as 127.0.0.1 in hosts file</b><br>
+ - [BZ 1557793](https://bugzilla.redhat.com/1557793) <b>ovirt-hosted-engine-cleanup takes too much time</b><br>
  - [BZ 1557775](https://bugzilla.redhat.com/1557775) <b>[RFE] During deployment, verification is missing for wrong NFS path.</b><br>
 
 ### Other
 
 #### oVirt Engine
 
- - [BZ 1574346](https://bugzilla.redhat.com/1574346) <b>Move disk failed but delete was called on source sd, losing all the data</b><br>
+ - [BZ 1585455](https://bugzilla.redhat.com/1585455) <b>[downstream clone - 4.2.4] Move disk failed but delete was called on source sd, losing all the data</b><br>
  - [BZ 1515877](https://bugzilla.redhat.com/1515877) <b>Unable to define QoS for the 10Gbit interface</b><br>
  - [BZ 1582822](https://bugzilla.redhat.com/1582822) <b>[UI] - Interface name is gone in the Network Interfaces sub tab</b><br>
- - [BZ 1582824](https://bugzilla.redhat.com/1582824) <b>[UI] - VM's network interface name and icon too large and wrap</b><br>
  - [BZ 1574508](https://bugzilla.redhat.com/1574508) <b>Space used icon in RHV-M not showing the actual space</b><br>
- - [BZ 1481022](https://bugzilla.redhat.com/1481022) <b>When blocking connection between host and NFS storage, a running VM doesn't switch to paused mode</b><br>
  - [BZ 1578763](https://bugzilla.redhat.com/1578763) <b>[downstream clone - 4.2.4] Unreachable ISO/Export SD prevents hosts from activating</b><br>
- - [BZ 1558709](https://bugzilla.redhat.com/1558709) <b>VM remains migrating forever with no Host (actually doesn't exist) after StopVmCommand fails to DestroyVDS</b><br>
+ - [BZ 1584885](https://bugzilla.redhat.com/1584885) <b>VM remains migrating forever with no Host (actually doesn't exist) after StopVmCommand fails to DestroyVDS</b><br>
  - [BZ 1583579](https://bugzilla.redhat.com/1583579) <b>[downstream clone - 4.2.4] Very slow UI if Host has many (~64) elements (VFs or dummies or networks)</b><br>
  - [BZ 1573216](https://bugzilla.redhat.com/1573216) <b>non-VM network appears in the new vNIC profile drop down</b><br>
  - [BZ 1573462](https://bugzilla.redhat.com/1573462) <b>wrong SinglePciQxl initialization during import from OVF</b><br>
  - [BZ 1561865](https://bugzilla.redhat.com/1561865) <b>[Code Change] - Validate duplicate MACs on unset 'Allow Duplicates' and  transaction rollback fix</b><br>
- - [BZ 1565673](https://bugzilla.redhat.com/1565673) <b>ovirt-engine loses track of a cancelled disk</b><br>
+ - [BZ 1585013](https://bugzilla.redhat.com/1585013) <b>[downstream clone - 4.2.4] ovirt-engine loses track of a cancelled disk</b><br>
  - [BZ 1571849](https://bugzilla.redhat.com/1571849) <b>USB controllers not written to snapshots</b><br>
  - [BZ 1583491](https://bugzilla.redhat.com/1583491) <b>[UI] - Align the (mbps)/(bytes) in network's statistics</b><br>
  - [BZ 1550099](https://bugzilla.redhat.com/1550099) <b>[RFE] - [SR-IOV] Network Interfaces sub tab - Add button 'Show VFs/Hide Vfs'</b><br>
- - [BZ 1497355](https://bugzilla.redhat.com/1497355) <b>Live Storage Migration continued on after snapshot creation hung and timed out</b><br>
+ - [BZ 1585039](https://bugzilla.redhat.com/1585039) <b>[downstream clone - 4.2.4] Live Storage Migration continued on after snapshot creation hung and timed out</b><br>
  - [BZ 1574480](https://bugzilla.redhat.com/1574480) <b>vGPU: Webadmin should reject VM snapshot creation when using mdev_type hook.</b><br>
  - [BZ 1578276](https://bugzilla.redhat.com/1578276) <b>[engine-setup] PostgreSQL conf verification text is broken</b><br>
  - [BZ 1558614](https://bugzilla.redhat.com/1558614) <b>OVA import does not set CPU topology correctly.</b><br>
+ - [BZ 1545270](https://bugzilla.redhat.com/1545270) <b>[RFE] virtio nics are reported as '1gbit' nics, and should be '10gbit'</b><br>
  - [BZ 1568305](https://bugzilla.redhat.com/1568305) <b>empty vNIC profiles tab in edit Network dialog</b><br>
  - [BZ 1530027](https://bugzilla.redhat.com/1530027) <b>[RFE] - On OVS switch type with OVN, when defining a VM host network, auto-define an external localnet network based on it.</b><br>
  - [BZ 1539589](https://bugzilla.redhat.com/1539589) <b>ovn localnet - On OVS cluster don't allow to attach VM networks to VM</b><br>
@@ -170,11 +193,10 @@ packages from other repos.
  - [BZ 1506473](https://bugzilla.redhat.com/1506473) <b>[disk content type] the default filtering is 'All' and the button of 'All' should also be selected after reloading RHV</b><br>
  - [BZ 1506468](https://bugzilla.redhat.com/1506468) <b>[disk content type] The disk default content type is 'All' and the button should be set to 'All' as well</b><br>
  - [BZ 1572071](https://bugzilla.redhat.com/1572071) <b>API SDK doesn't provide search method in external providers</b><br>
- - [BZ 1579008](https://bugzilla.redhat.com/1579008) <b>ovirt-engine fails to start when having a large number of stateless snapshots</b><br>
+ - [BZ 1585456](https://bugzilla.redhat.com/1585456) <b>[downstream clone - 4.2.4] ovirt-engine fails to start when having a large number of stateless snapshots</b><br>
  - [BZ 1582826](https://bugzilla.redhat.com/1582826) <b>[UI] -  When opening the setup networks dialogue it is taking few seconds to load the host interfaces</b><br>
  - [BZ 1572148](https://bugzilla.redhat.com/1572148) <b>Fencing takes too long when first agent is unreachable</b><br>
- - [BZ 1561052](https://bugzilla.redhat.com/1561052) <b>The Active VM snapshots table entry does not exist for a specific VM</b><br>
- - [BZ 1574862](https://bugzilla.redhat.com/1574862) <b>Vague message on failure in upgrade of compatibility level on cluster</b><br>
+ - [BZ 1584993](https://bugzilla.redhat.com/1584993) <b>[downstream clone - 4.2.4] The Active VM snapshots table entry does not exist for a specific VM</b><br>
  - [BZ 1581158](https://bugzilla.redhat.com/1581158) <b>Live Storage Migration releases lock twice</b><br>
  - [BZ 1560553](https://bugzilla.redhat.com/1560553) <b>OVA export: Not all VM parameters are set on imported VM from OVA.</b><br>
  - [BZ 1575596](https://bugzilla.redhat.com/1575596) <b>/vm/affinitylabels should return the same as /affinitylabels</b><br>
@@ -187,11 +209,10 @@ packages from other repos.
  - [BZ 1573091](https://bugzilla.redhat.com/1573091) <b>Do no force DB patch version and settings in setup for remote databases.</b><br>engine-setup now allows using a remote PostgreSQL database with a different Z version - e.g. 9.5.9 client (the engine machine) can use a 9.5.8 remote database server.<br><br>engine-setup also allows forcing it to ignore all PostgreSQL sanity/configuration checks.<br><br>Doc team: See also comment 6 for latter. I'd rather not include the details in the doc text.<br><br>For oVirt I added text to [1].<br><br>For RHV we might want a KB article.<br><br>[1] https://ovirt.org/develop/developer-guide/engine/engine-setup/
  - [BZ 1557770](https://bugzilla.redhat.com/1557770) <b>Webadmin-imageIO - 'Cancel' option should be removed from download disk</b><br>
  - [BZ 1573865](https://bugzilla.redhat.com/1573865) <b>[WebAdmin] Move disk dialog displays orange container for warning message even when it is empty</b><br>
- - [BZ 1576862](https://bugzilla.redhat.com/1576862) <b>Uploaded image: Virtual Size of qcow2 image is not reflected at guest OS level</b><br>
+ - [BZ 1585454](https://bugzilla.redhat.com/1585454) <b>[downstream clone - 4.2.4] Uploaded image: Virtual Size of qcow2 image is not reflected at guest OS level</b><br>
  - [BZ 1573913](https://bugzilla.redhat.com/1573913) <b>upload image dialog - test connection button should be displayed for any DC</b><br>
  - [BZ 1571154](https://bugzilla.redhat.com/1571154) <b>vdsm reports to engine  the local host network address IPv4 and IPv6 during the VM launch</b><br>
  - [BZ 1571323](https://bugzilla.redhat.com/1571323) <b>Create template fail sometimes</b><br>
- - [BZ 1570988](https://bugzilla.redhat.com/1570988) <b>Don't try to remove functions in public schema installed by PostgreSQL extensions</b><br>
  - [BZ 1566393](https://bugzilla.redhat.com/1566393) <b>When registering a VM that has disks on detached SD, error appears in engine.log, showing null as the SD name</b><br>
  - [BZ 1572067](https://bugzilla.redhat.com/1572067) <b>can't search in external providers</b><br>
 
@@ -200,7 +221,7 @@ packages from other repos.
  - [BZ 1583045](https://bugzilla.redhat.com/1583045) <b>Failed to add a second host after a successful deployment due to a name clash on vdsm python module</b><br>
  - [BZ 1584523](https://bugzilla.redhat.com/1584523) <b>[downstream clone - 4.2.4] [HE] Failed to deploy RHV-H on Hosted engine</b><br>
  - [BZ 1570349](https://bugzilla.redhat.com/1570349) <b>After upgrade from 4.1 to 4.2.3 vm disk is inactive and vm nic is un-plugged</b><br>
- - [BZ 1581709](https://bugzilla.redhat.com/1581709) <b>VDSM does not properly clean-up vGPU devices if VM start fails</b><br>
+ - [BZ 1583228](https://bugzilla.redhat.com/1583228) <b>[downstream clone - 4.2.4] After updating to current RHV-H, vdsmd consistently fails to start on startup.</b><br>
  - [BZ 1568696](https://bugzilla.redhat.com/1568696) <b>Failed to convert app: [[Ljava.lang.Object;] warning appear in engine.log</b><br>
  - [BZ 1567603](https://bugzilla.redhat.com/1567603) <b>[CodeChange] Cleanup create snapshot code after requiring qemu > 2.10</b><br>
  - [BZ 1579909](https://bugzilla.redhat.com/1579909) <b>Cannot start VM with QoS IOPS after host&engine upgrade from 4.1 to 4.2</b><br>Vdsm uses the domain metadata section to store extra data which is required to configure a VM but not properly represented on the standard libvirt domain.<br>This always happens when a VM starts.<br>Vdsm tried to store the drive IO tune settings in the metadata, which was redundant because the IO tune has already a proper representation.<br>Furthermore the implementation of the store operation of the IO tune settings had an implementation bug, which made it not possible to succesfully start the VM.<br>This bug appears only if IO tune settings are enabled.
@@ -217,15 +238,10 @@ packages from other repos.
 
 #### oVirt Hosted Engine HA
 
- - [BZ 1583712](https://bugzilla.redhat.com/1583712) <b>hosted-engine metadata are not correctly read and write on hosts set into maintenance mode from the engine</b><br>
- - [BZ 1579103](https://bugzilla.redhat.com/1579103) <b>RHV-H 4.2.3: hosted-engine agent fails to start after upgrade due to Permission denied: '/var/log/ovirt-hosted-engine-ha/broker.log' '/var/log/ovirt-hosted-engine-ha/agent.log'</b><br>
- - [BZ 1557793](https://bugzilla.redhat.com/1557793) <b>ovirt-hosted-engine-cleanup takes too much time</b><br>
+ - [BZ 1585028](https://bugzilla.redhat.com/1585028) <b>[downstream clone - 4.2.4] RHV-H 4.2.3: hosted-engine agent fails to start after upgrade due to Permission denied: '/var/log/ovirt-hosted-engine-ha/broker.log' '/var/log/ovirt-hosted-engine-ha/agent.log'</b><br>
 
 #### oVirt Hosted Engine Setup
 
- - [BZ 1576310](https://bugzilla.redhat.com/1576310) <b>[OVN] - [HE] - ovn tunnel is not created if central hostname resolved as 127.0.0.1 in hosts file</b><br>
- - [BZ 1557793](https://bugzilla.redhat.com/1557793) <b>ovirt-hosted-engine-cleanup takes too much time</b><br>
- - [BZ 1574881](https://bugzilla.redhat.com/1574881) <b>During HE deployment auto add 2nd and 3rd Hosts is failing</b><br>
  - [BZ 1578418](https://bugzilla.redhat.com/1578418) <b>Checks on bond mode are not effective</b><br>
  - [BZ 1578404](https://bugzilla.redhat.com/1578404) <b>Fetch engine logs from the engine VM</b><br>
  - [BZ 1573074](https://bugzilla.redhat.com/1573074) <b>The deployment fails on create_storage_domain stage when using generated answers</b><br>
@@ -252,7 +268,6 @@ packages from other repos.
 
 #### VDSM JSON-RPC Java
 
- - [BZ 1552098](https://bugzilla.redhat.com/1552098) <b>Rephrase: "command GetStatsAsyncVDS failed: Heartbeat exceeded" error message</b><br>
  - [BZ 1571768](https://bugzilla.redhat.com/1571768) <b>Connections shouldn't be closed after the connection to the host was recovered</b><br>
 
 #### oVirt Engine
@@ -272,4 +287,5 @@ packages from other repos.
 
 #### oVirt Hosted Engine Setup
 
+ - [BZ 1574881](https://bugzilla.redhat.com/1574881) <b>During HE deployment auto add 2nd and 3rd Hosts is failing</b><br>
  - [BZ 1572542](https://bugzilla.redhat.com/1572542) <b>argument vlan_tag is of type <type 'str'> and we were unable to convert to int: invalid literal for int() with base 10: '8000\\\\n1'\"}"</b><br>

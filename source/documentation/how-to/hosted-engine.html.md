@@ -65,19 +65,19 @@ To deploy the self-hosted engine using the Cockpit user interface, follow these 
 1. Install the cockpit-ovirt-dashboard package:
 
         # yum install cockpit-ovirt-dashboard
-       
+
 2. Start and enable cockpit:
 
         # systemctl enable cockpit.socket
         # systemctl start cockpit.socket
-        
+
 3. Allow access to Cockpit in the firewall:
 
         # firewall-cmd --add-service=cockpit --permanent
         # firewall-cmd --reload
-        
+
 4. Log in to the UI at https://HostIPorFQDN:9090
-   
+
    By default, you should get a warning/popup from your browser about a self-signed certificate, unknown issuer, or something like that. Accept it, or see for [more details](http://cockpit-project.org/guide/149/https.html)
 5. Navigate to *Virtualization* > *Hosted Engine*
 6. Select *Hosted Engine Only Deployment*
@@ -346,3 +346,81 @@ If your hosted engine install fails, you have to manually clean up before you ca
        echo "! error removing $d"
        exit 1
     done
+
+### Purging Ovirt and supporting packages to allow Clean Reinstall
+The following is an example ansible script snippet that should clean the system so that no cruft remains to interfere wiht a new install.
+
+<!-- -->
+
+    - name: Clean Old Install
+      #This attempts to remove all old cruft from previous install attempts
+      #The reason we include the ovirt packages is so that they can be reinstall
+      #At potentially newer versions along with dependency packages
+      block:
+        - name: Detect existing cleanup script
+          shell: which ovirt-hosted-engine-cleanup | cat
+          register: ohes_cleanup
+        - name: Debug ohes_cleanup.stdout
+          debug:
+            var: ohes_cleanup.stdout
+        - name: Run Ovirt's Hosted Engine Cleanup Script
+          shell: ovirt-hosted-engine-cleanup -q
+          when: ohes_cleanup.stdout != ""
+        - name: Clean old packages
+          package:
+            name: "{{item}}"
+            state: absent
+          with_items:
+            - "*vdsm*"
+            - "*ovirt*"
+            - "*libvirt*"
+            - "*cockpit*"
+        - name: Remove old configs etc
+          shell: "rm -rf /etc/{{item}}"
+          args:
+            warn: False
+          with_items:
+            - "/etc/*ovirt*"
+            - "/etc/*vdsm*"
+            - "/etc/libvirt/qemu/HostedEngine*"
+            - "/etc/*libvirt*"
+            - "/etc/guacamole"
+            - "/etc/pki/vdsm"
+            - "/etc/pki/libvirt"
+            - "/etc/pki/CA"
+            - "/etc/pki/keystore"
+            - "/etc/ovirt-hosted-engine"
+            - "/var/lib/libvirt/"
+            - "/var/lib/vdsm/"
+            - "/var/lib/ovirt-hosted-engine-*"
+            - "/var/log/ovirt-hosted-engine-setup/"
+            - "/var/cache/libvirt/"
+            - "/etc/libvirt/nwfilter/vdsm-no-mac-spoofing.xml"
+            - "/var/cache/tomcat/temp/*"
+            - "/var/cache/tomcat/work/Catalina/localhost/*"
+            - "/usr/share/tomcat/webapps/guacamole"
+            - "/usr/share/tomcat/webapps/guacamole.war"
+            - "/etc/guacamole/extensions/guacamole*"
+        - name: Clean old repo files
+          #This allows you to switch repos from snapshots to release etc.
+          shell: "rm -rf /etc/yum.repos.d/{{item}}"
+          args:
+            warn: False
+          with_items:
+            - "ovirt*"
+            - "virt*"
+        - name: clean interface configs
+          shell: "rm -rf /etc/sysconfig/network-scripts/ifcfg-ovirtmgmt"
+          args:
+            warn: False
+        - name: clean network stuff
+          shell: "{{item}}"
+          args:
+            warn: False
+          with_items:
+            - "brctl delbr ovirtmgmt | cat"
+            - "ip link del ovirtmgmt | cat"
+            - "ip link del dummy0 | cat"
+            - "ip link del virbr0 | cat"
+            - "ip link del virbr0-nic | cat"
+            - 'ip link del \;vdsmdummy\; | cat'

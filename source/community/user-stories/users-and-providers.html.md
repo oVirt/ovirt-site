@@ -27,7 +27,7 @@ The following organizations use oVirt for customer-facing or internal servers. M
 
 <div class="case-study">
 [![Computer Port IT Solutions](/images/logos/Computer_Port_IT_Solutions.png)](http://computerport.in)
-[Computer Port IT Solutions](http://computerport.in), based in India, is an IT management & consulting service provider, specializing in virtualization and private cloud solutions, using oVirt, hyper-converged infrastructure, and other technologies. 
+[Computer Port IT Solutions](http://computerport.in), based in India, is an IT management & consulting service provider, specializing in virtualization and private cloud solutions, using oVirt, hyper-converged infrastructure, and other technologies.
 </div>
 
 <div class="case-study">
@@ -94,11 +94,6 @@ The [National University of Sciences & Technology (NUST)](//www.nust.edu.pk/Page
 The following organizations are very helpful to the oVirt community by providing tools and services that are helpful to the development of oVirt.
 
 <div class="case-studies">
-<div class="case-study">
-[![WhiteSource](/images/logos/WhiteSource.png)](http://www.whitesourcesoftware.com/features/)
-oVirt developers use [whitesource](http://www.whitesourcesoftware.com/features/) to continuously monitor oVirt components for security and license issues and to obtain alerts on problematic components.
-</div>
-
 <div class="case-study">
 [![Jprofiler](/images/logos/Jprofiler.png)](http://www.ej-technologies.com/products/jprofiler/overview.html)
 [jprofiler](http://www.ej-technologies.com/products/jprofiler/overview.html) from [ej-technologies GmBH](http://www.ej-technologies.com/) assists oVirt developers in finding performance bottlenecks, pin down memory leaks and understand threading issues.

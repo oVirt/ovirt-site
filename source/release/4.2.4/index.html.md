@@ -6,7 +6,7 @@ layout: toc
 
 # oVirt 4.2.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.2.4 Fourth Release Candidate as of June 14, 2018.
+The oVirt Project is pleased to announce the availability of the 4.2.4 Fifth Release Candidate as of June 19, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -100,9 +100,11 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1568893](https://bugzilla.redhat.com/1568893) <b>Alert when guaranteed capacity reaches a threshold value</b><br>Feature: Notification on running our of physical space.<br><br>Reason: With VDO and Thin pool support, users may see more space, that it is available physically. This is totally fine and with VDO it is an expected behavior. At the same time, we can't predict, how much data user will be able to actually write. Because of that, to keep user informed, we would like to notify him, when he is running out of physical space and, at the same time, show him how much confirmed space he have.<br><br>Result: When actually used space of the thin device goes above configured threshold, event will be issued.
+ - [BZ 1572158](https://bugzilla.redhat.com/1572158) <b>[RFE] add disk sizes in Disk general tab</b><br>
  - [BZ 1549030](https://bugzilla.redhat.com/1549030) <b>Update neutron binding after VM migration with info from caps</b><br>When a port is created/updated, it's "binding:host_id" attribute should be updated with the id of the provider driver id (for example OVN chassis id) reported during get_caps. <br>The port for which the binding has been reported, requires the binding to be set on every consecutive host it moves to. This could be a problem when migrating from a 4.2.2 level host to an earlier one. <br>Hosts before that do not report the host_id. When no provider driver id is reported, the "binding:host_id" is not set, and the value from the previous host will be kept. To fix this, the older hosts need to be updated with a newer version of the provider driver.
  - [BZ 1539765](https://bugzilla.redhat.com/1539765) <b>Auto-Sync - network rename on provider does not trigger rename in engine</b><br>Feature:  External network rename on provider is reflected in engine<br><br>Reason: The name of an external network in engine should be consistent with the name of the same network on the provider.<br><br>Result: Renaming an external network on the provider is reflected in engine.
- - [BZ 1098612](https://bugzilla.redhat.com/1098612) <b>[RFE] filter for "Allocation Policy" in Disks search</b><br>
+ - [BZ 1098612](https://bugzilla.redhat.com/1098612) <b>[donstream clone 4.2.4] [RFE] filter for "Allocation Policy" in Disks search</b><br>
  - [BZ 1242822](https://bugzilla.redhat.com/1242822) <b>[RFE] filter for "Allocation Policy" in Disks search</b><br>
  - [BZ 1251468](https://bugzilla.redhat.com/1251468) <b>[RFE] Additional warning when removing required networks</b><br>
  - [BZ 1587884](https://bugzilla.redhat.com/1587884) <b>[downstream clone - 4.2.4] [RFE] Include storage domain UUID in Storage Domain 'General' tab</b><br>
@@ -161,6 +163,7 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1585990](https://bugzilla.redhat.com/1585990) <b>Empty cluster from upgraded 4.1 engine does not have Cluster CPU Type set</b><br>
  - [BZ 1585950](https://bugzilla.redhat.com/1585950) <b>[downstream clone - 4.2.4] Live Merge failed on engine with "still in volume chain", but merge on host was successful</b><br>
  - [BZ 1585455](https://bugzilla.redhat.com/1585455) <b>[downstream clone - 4.2.4] Move disk failed but delete was called on source sd, losing all the data</b><br>
  - [BZ 1576377](https://bugzilla.redhat.com/1576377) <b>engine-setup rewrites SSL*File options</b><br>engine-setup now checks if apache httpd's ssl.conf file needs updates also on upgrades, prompts accordingly, and applies the updates as needed. Now, only parameters that actually require a change are changed - specifically, manual user changes to SSL certificates are not overridden.<br><br>doc team: Please see bug 1558500 and comment 0 of current.<br><br>Copied doc text from that bug and added a statement. Feel free to rewrite however you find best.<br><br>Also, "parameters that actually require a change" are currently only a single one, "SSLProtocol". So if you want to be more specific than we tried to be in the past (and in the code), it's enough to:<br><br>engine-setup now only updates SSLProtocol in apache httpd's ssl.conf file, if needed, and not other parameters.
@@ -203,7 +206,8 @@ packages from other repos.
  - [BZ 1570919](https://bugzilla.redhat.com/1570919) <b>[CodeChange][i18n] oVirt 4.2.4 translation pull</b><br>
  - [BZ 1541917](https://bugzilla.redhat.com/1541917) <b>[ja_JP] Text alignment correction needed on compute -> hosts -> new -> network provider window</b><br>
  - [BZ 1551994](https://bugzilla.redhat.com/1551994) <b>[All_LANG except zh,ko] Text truncation observed on networks -> networks -> import page.</b><br>
- - [BZ 1587885](https://bugzilla.redhat.com/1587885) <b>[downstream clone - 4.2.4] [RFE] Need a way to track how many logical volumes consumed in a storage domain and alert when it gets full</b><br>The storage domain's general subtab in the Webadmin now shows the number of images on the storage domain under the rubric "Images", this corresponds to the number of LVs on a block domain
+ - [BZ 1586023](https://bugzilla.redhat.com/1586023) <b>Guarenteed space differing under storage domains in the RHV-M</b><br>
+ - [BZ 1587885](https://bugzilla.redhat.com/1587885) <b>[downstream clone - 4.2.4] [RFE] Need a way to track how many logical volumes consumed in a storage domain and alert when it gets full</b><br>The storage domain's General sub-tab in the Administration Portal now shows the number of images on the storage domain under the rubric "Images", this corresponds to the number of LVs on a block domain.
  - [BZ 1582160](https://bugzilla.redhat.com/1582160) <b>Unable to obtain a template list of a storage domain</b><br>
  - [BZ 1583562](https://bugzilla.redhat.com/1583562) <b>Failed to active host after upgrade (host was in PreparingForMaintenance before upgrade)</b><br>
  - [BZ 1583664](https://bugzilla.redhat.com/1583664) <b>After update "provider_binding_host_id" table doesn't exist, hosts are stuck in Activating state</b><br>
@@ -214,6 +218,7 @@ packages from other repos.
  - [BZ 1585456](https://bugzilla.redhat.com/1585456) <b>[downstream clone - 4.2.4] ovirt-engine fails to start when having a large number of stateless snapshots</b><br>
  - [BZ 1582826](https://bugzilla.redhat.com/1582826) <b>[UI] -  When opening the setup networks dialogue it is taking few seconds to load the host interfaces</b><br>
  - [BZ 1572148](https://bugzilla.redhat.com/1572148) <b>Fencing takes too long when first agent is unreachable</b><br>
+ - [BZ 1584993](https://bugzilla.redhat.com/1584993) <b>[downstream clone - 4.2.4] The Active VM snapshots table entry does not exist for a specific VM</b><br>
  - [BZ 1574862](https://bugzilla.redhat.com/1574862) <b>Vague message on failure in upgrade of compatibility level on cluster</b><br>
  - [BZ 1581158](https://bugzilla.redhat.com/1581158) <b>Live Storage Migration releases lock twice</b><br>
  - [BZ 1560553](https://bugzilla.redhat.com/1560553) <b>VMs imported from OVAs miss properties compared to ones imported from an export domain</b><br>
@@ -239,7 +244,8 @@ packages from other repos.
  - [BZ 1583045](https://bugzilla.redhat.com/1583045) <b>Failed to add a second host after a successful deployment due to a name clash on vdsm python module</b><br>
  - [BZ 1584523](https://bugzilla.redhat.com/1584523) <b>[downstream clone - 4.2.4] [HE] Failed to deploy RHV-H on Hosted engine</b><br>
  - [BZ 1570349](https://bugzilla.redhat.com/1570349) <b>After upgrade from 4.1 to 4.2.3 vm disk is inactive and vm nic is un-plugged</b><br>
- - [BZ 1502083](https://bugzilla.redhat.com/1502083) <b>Live storage migration completes but leaves volume un-opened.</b><br>
+ - [BZ 1591667](https://bugzilla.redhat.com/1591667) <b>[downstream clone - 4.2.4] Live storage migration completes but leaves volume un-opened.</b><br>
+ - [BZ 1583228](https://bugzilla.redhat.com/1583228) <b>[downstream clone - 4.2.4] After updating to current RHV-H, vdsmd consistently fails to start on startup.</b><br>
  - [BZ 1585030](https://bugzilla.redhat.com/1585030) <b>[downstream clone - 4.2.4] RAW-Preallocated disk is converted to RAW-sparse while cloning a VM in file based storage domain</b><br>
  - [BZ 1517638](https://bugzilla.redhat.com/1517638) <b>Networks often reported as out of sync when switching the network's bootproto - non-mgmt network</b><br>
  - [BZ 1568696](https://bugzilla.redhat.com/1568696) <b>Failed to convert app: [[Ljava.lang.Object;] warning appear in engine.log</b><br>
@@ -291,9 +297,11 @@ packages from other repos.
 #### imgbased
 
  - [BZ 1589544](https://bugzilla.redhat.com/1589544) <b>[HE] host-deploy fails to start vdsmd on node/rhel-h</b><br>
+ - [BZ 1583228](https://bugzilla.redhat.com/1583228) <b>[downstream clone - 4.2.4] After updating to current RHV-H, vdsmd consistently fails to start on startup.</b><br>
 
 #### oVirt image transfer daemon and proxy
 
+ - [BZ 1578412](https://bugzilla.redhat.com/1578412) <b>[BLOCKED] ovirt-imageio TLS hardening (TLS version and cipher suite)</b><br>
  - [BZ 1527050](https://bugzilla.redhat.com/1527050) <b>[v2v] - ImageIO - Performance - upload disk is slow on a pure 10G environment</b><br>
 
 ### No Doc Update

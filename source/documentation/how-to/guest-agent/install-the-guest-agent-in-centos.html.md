@@ -1,7 +1,7 @@
 ---
 title: How to install the guest agent in CentOS
 category: howto
-authors: nkesick, vfeenstr, hjmallon
+authors: nkesick, vfeenstr, hjmallon, samueljon
 ---
 
 # How to install the guest agent in CentOS
@@ -14,7 +14,7 @@ Installing the Guest Agent in a CentOS virtual machine is fairly simple and will
 
 From a terminal session, type the following (for oVirt 4.2)
 
-    sudo yum install centos-release-ovirt42
+    sudo yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
     sudo yum install ovirt-guest-agent-common
 
 ## Starting the service

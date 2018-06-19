@@ -348,13 +348,13 @@ If your hosted engine install fails, you have to manually clean up before you ca
     done
 
 ### Purging Ovirt and supporting packages to allow Clean Reinstall
-The following is an example ansible script snippet that should clean the system so that no cruft remains to interfere wiht a new install.
+The following is an example ansible script snippet that should clean the system so that no cruft remains to interfere wiht a new install.  You SHOULD NOT be running this on the machine which is the target.  Run this from a separate machine.
 
 <!-- -->
 
     - name: Clean Old Install
       #This attempts to remove all old cruft from previous install attempts
-      #The reason we include the ovirt packages is so that they can be reinstall
+      #The reason we include the ovirt packages is so that they can be reinstalled
       #At potentially newer versions along with dependency packages
       block:
         - name: Detect existing cleanup script
@@ -396,11 +396,6 @@ The following is an example ansible script snippet that should clean the system 
             - "/var/log/ovirt-hosted-engine-setup/"
             - "/var/cache/libvirt/"
             - "/etc/libvirt/nwfilter/vdsm-no-mac-spoofing.xml"
-            - "/var/cache/tomcat/temp/*"
-            - "/var/cache/tomcat/work/Catalina/localhost/*"
-            - "/usr/share/tomcat/webapps/guacamole"
-            - "/usr/share/tomcat/webapps/guacamole.war"
-            - "/etc/guacamole/extensions/guacamole*"
         - name: Clean old repo files
           #This allows you to switch repos from snapshots to release etc.
           shell: "rm -rf /etc/yum.repos.d/{{item}}"

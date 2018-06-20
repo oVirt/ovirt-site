@@ -6,7 +6,7 @@ layout: toc
 
 # oVirt 4.2.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.2.4 Fifth Release Candidate as of June 19, 2018.
+The oVirt Project is pleased to announce the availability of the 4.2.4 Fifth Release Candidate as of June 20, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -100,7 +100,6 @@ packages from other repos.
 
 #### oVirt Engine
 
- - [BZ 1568893](https://bugzilla.redhat.com/1568893) <b>Alert when guaranteed capacity reaches a threshold value</b><br>Feature: Notification on running our of physical space.<br><br>Reason: With VDO and Thin pool support, users may see more space, that it is available physically. This is totally fine and with VDO it is an expected behavior. At the same time, we can't predict, how much data user will be able to actually write. Because of that, to keep user informed, we would like to notify him, when he is running out of physical space and, at the same time, show him how much confirmed space he have.<br><br>Result: When actually used space of the thin device goes above configured threshold, event will be issued.
  - [BZ 1572158](https://bugzilla.redhat.com/1572158) <b>[RFE] add disk sizes in Disk general tab</b><br>
  - [BZ 1549030](https://bugzilla.redhat.com/1549030) <b>Update neutron binding after VM migration with info from caps</b><br>When a port is created/updated, it's "binding:host_id" attribute should be updated with the id of the provider driver id (for example OVN chassis id) reported during get_caps. <br>The port for which the binding has been reported, requires the binding to be set on every consecutive host it moves to. This could be a problem when migrating from a 4.2.2 level host to an earlier one. <br>Hosts before that do not report the host_id. When no provider driver id is reported, the "binding:host_id" is not set, and the value from the previous host will be kept. To fix this, the older hosts need to be updated with a newer version of the provider driver.
  - [BZ 1539765](https://bugzilla.redhat.com/1539765) <b>Auto-Sync - network rename on provider does not trigger rename in engine</b><br>Feature:  External network rename on provider is reflected in engine<br><br>Reason: The name of an external network in engine should be consistent with the name of the same network on the provider.<br><br>Result: Renaming an external network on the provider is reflected in engine.
@@ -113,7 +112,7 @@ packages from other repos.
 
 #### oVirt Host Dependencies
 
- - [BZ 1579210](https://bugzilla.redhat.com/1579210) <b>[downstream clone - 4.2.4] add cockpit-machines-ovirt to RHVH hosts</b><br>Added [cockpit-machines-ovirt plugin](https://cockpit-project.org/guide/latest/feature-ovirtvirtualmachines) on hosts and in oVirt Node / RHV-H
+ - [BZ 1579210](https://bugzilla.redhat.com/1579210) <b>[downstream clone - 4.2.4] add cockpit-machines-ovirt to RHVH hosts</b><br>The cockpit-machines-ovirt plugin (https://cockpit-project.org/guide/latest/feature-ovirtvirtualmachines) has been added to Red Hat Enterprise Linux hosts and Red Hat Virtualization Hosts.
 
 ### Rebase: Bug Fixeses and Enhancementss
 
@@ -218,7 +217,6 @@ packages from other repos.
  - [BZ 1585456](https://bugzilla.redhat.com/1585456) <b>[downstream clone - 4.2.4] ovirt-engine fails to start when having a large number of stateless snapshots</b><br>
  - [BZ 1582826](https://bugzilla.redhat.com/1582826) <b>[UI] -  When opening the setup networks dialogue it is taking few seconds to load the host interfaces</b><br>
  - [BZ 1572148](https://bugzilla.redhat.com/1572148) <b>Fencing takes too long when first agent is unreachable</b><br>
- - [BZ 1584993](https://bugzilla.redhat.com/1584993) <b>[downstream clone - 4.2.4] The Active VM snapshots table entry does not exist for a specific VM</b><br>
  - [BZ 1574862](https://bugzilla.redhat.com/1574862) <b>Vague message on failure in upgrade of compatibility level on cluster</b><br>
  - [BZ 1581158](https://bugzilla.redhat.com/1581158) <b>Live Storage Migration releases lock twice</b><br>
  - [BZ 1560553](https://bugzilla.redhat.com/1560553) <b>VMs imported from OVAs miss properties compared to ones imported from an export domain</b><br>
@@ -245,9 +243,8 @@ packages from other repos.
  - [BZ 1584523](https://bugzilla.redhat.com/1584523) <b>[downstream clone - 4.2.4] [HE] Failed to deploy RHV-H on Hosted engine</b><br>
  - [BZ 1570349](https://bugzilla.redhat.com/1570349) <b>After upgrade from 4.1 to 4.2.3 vm disk is inactive and vm nic is un-plugged</b><br>
  - [BZ 1591667](https://bugzilla.redhat.com/1591667) <b>[downstream clone - 4.2.4] Live storage migration completes but leaves volume un-opened.</b><br>
- - [BZ 1583228](https://bugzilla.redhat.com/1583228) <b>[downstream clone - 4.2.4] After updating to current RHV-H, vdsmd consistently fails to start on startup.</b><br>
+ - [BZ 1534197](https://bugzilla.redhat.com/1534197) <b>After updating to current RHV-H, vdsmd consistently fails to start on startup.</b><br>
  - [BZ 1585030](https://bugzilla.redhat.com/1585030) <b>[downstream clone - 4.2.4] RAW-Preallocated disk is converted to RAW-sparse while cloning a VM in file based storage domain</b><br>
- - [BZ 1517638](https://bugzilla.redhat.com/1517638) <b>Networks often reported as out of sync when switching the network's bootproto - non-mgmt network</b><br>
  - [BZ 1568696](https://bugzilla.redhat.com/1568696) <b>Failed to convert app: [[Ljava.lang.Object;] warning appear in engine.log</b><br>
  - [BZ 1567603](https://bugzilla.redhat.com/1567603) <b>[CodeChange] Cleanup create snapshot code after requiring qemu > 2.10</b><br>
  - [BZ 1579909](https://bugzilla.redhat.com/1579909) <b>Cannot start VM with QoS IOPS after host&engine upgrade from 4.1 to 4.2</b><br>Vdsm uses the domain metadata section to store extra data which is required to configure a VM but not properly represented on the standard libvirt domain.<br>This always happens when a VM starts.<br>Vdsm tried to store the drive IO tune settings in the metadata, which was redundant because the IO tune has already a proper representation.<br>Furthermore the implementation of the store operation of the IO tune settings had an implementation bug, which made it not possible to succesfully start the VM.<br>This bug appears only if IO tune settings are enabled.
@@ -263,6 +260,10 @@ packages from other repos.
 
  - [BZ 1586011](https://bugzilla.redhat.com/1586011) <b>ovirt-engine-provisiondb should not try to connect to databases</b><br>
  - [BZ 1573145](https://bugzilla.redhat.com/1573145) <b>Update hosts and vms receive_rate_percent and transmit_rate_percent network statistics precision</b><br>Cause: <br>The precision of the rx_rate, tx_rate of virtual and host network interfaces has been increased on the engine db.<br><br>Consequence: <br>This requires updating the dwh precision for better reporting.<br><br>Fix:<br>Update hosts and vms receive_rate_percent and transmit_rate_percent network statistics precision<br><br>Result: <br>Hosts and vms receive_rate_percent and transmit_rate_percent network statistics precision was increased on DWH.
+
+#### oVirt Hosted Engine HA
+
+ - [BZ 1585028](https://bugzilla.redhat.com/1585028) <b>[downstream clone - 4.2.4] RHV-H 4.2.3: hosted-engine agent fails to start after upgrade due to Permission denied: '/var/log/ovirt-hosted-engine-ha/broker.log' '/var/log/ovirt-hosted-engine-ha/agent.log'</b><br>
 
 #### oVirt Hosted Engine Setup
 
@@ -296,13 +297,13 @@ packages from other repos.
 
 #### imgbased
 
+ - [BZ 1585028](https://bugzilla.redhat.com/1585028) <b>[downstream clone - 4.2.4] RHV-H 4.2.3: hosted-engine agent fails to start after upgrade due to Permission denied: '/var/log/ovirt-hosted-engine-ha/broker.log' '/var/log/ovirt-hosted-engine-ha/agent.log'</b><br>
  - [BZ 1589544](https://bugzilla.redhat.com/1589544) <b>[HE] host-deploy fails to start vdsmd on node/rhel-h</b><br>
- - [BZ 1583228](https://bugzilla.redhat.com/1583228) <b>[downstream clone - 4.2.4] After updating to current RHV-H, vdsmd consistently fails to start on startup.</b><br>
+ - [BZ 1534197](https://bugzilla.redhat.com/1534197) <b>After updating to current RHV-H, vdsmd consistently fails to start on startup.</b><br>
 
 #### oVirt image transfer daemon and proxy
 
  - [BZ 1578412](https://bugzilla.redhat.com/1578412) <b>[BLOCKED] ovirt-imageio TLS hardening (TLS version and cipher suite)</b><br>
- - [BZ 1527050](https://bugzilla.redhat.com/1527050) <b>[v2v] - ImageIO - Performance - upload disk is slow on a pure 10G environment</b><br>
 
 ### No Doc Update
 

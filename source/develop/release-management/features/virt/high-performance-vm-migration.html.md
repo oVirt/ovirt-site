@@ -1,4 +1,4 @@
-﻿---
+---
 title: Live migration for High Performance VMs
 category: feature
 authors: SharonG
@@ -31,7 +31,7 @@ First phase solution:
 
  -  When the user will chose to migrate the HP VM, he will need to manually activate the migration and then via the “Migrate virtual machine(s)” popup dialog to choose the destination host to migrate to, or let the engine to auto select it for him.
  
-![](../../../../images/wiki/Screenshot-2018-06-20-15-05-32.png)
+    ![](../../../../images/wiki/Screenshot-2018-06-20-15-05-32.png)
 
  - The list of destination hosts to choose from in the “Migrate virtual machine(s)” dialog will be partially filtered by the scheduler policies to fit the HP VM required settings, so that it will include only hosts the have the configuration required for running this specific HP VM.
 

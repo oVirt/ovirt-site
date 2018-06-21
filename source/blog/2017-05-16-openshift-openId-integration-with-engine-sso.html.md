@@ -19,7 +19,7 @@ The integration requires a fully working and configured oVirt Engine instance on
 
 ## Installing Kibana/Elasticsearch and OpenShift Backend
 
-Install Kibana/Elasticsearch/OpenShift on CentOS7 or RHEL 7.3 as described in https://github.com/ViaQ/Main/blob/master/README-mux.md
+Install Kibana/Elasticsearch/OpenShift on CentOS7 or RHEL 7.3 as described in https://www.ovirt.org/develop/release-management/features/metrics/setting-up-viaq-logging/
 
 ## Installing oVirt Engine
 

@@ -25,7 +25,7 @@ This feature provides the ability to enable the live migration for those HP VMs 
  
  - A HP Template or Pool will be created in the same way as a VM and the migration option will be auto enabled for those also. In case the user wants to create a HP migratable VM, he can also choose a Template or a Pool which are configured as HP type and "inherit" this property for that specific VM.
 
-First phase solution:
+   First phase solution:
 
  -  Only manual live migration will be supported and therefore the migration mode options that will be allowed are: “allow manual migration only” (default), “do not allow migration”.
 
@@ -39,7 +39,7 @@ First phase solution:
 
  - In case the user will manually choose an inappropriate host or in case the automatically host selection will choose inappropriate one, the migration will fail.
 
-Second phase solution:
+   Second phase solution:
       
  - Automatic live migration and fully automatic destination host selection will be supported for HP VMs as well as for all other VM types (Server, Desktop) with pinning settings.
  

@@ -33,6 +33,10 @@ title: Deploying oVirt and Gluster Hyperconverged
 
         # yum install ovirt-engine-appliance
 
+4. Install the Gluster Plugin for VDSM.
+
+        # yum install vdsm-gluster     
+        
 ## Deploying on oVirt Node based Hosts
 
 **oVirt Node contains all the required packages to set up the hyperconverged environment.**

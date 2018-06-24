@@ -57,6 +57,15 @@ You may want to add a read only user to connect the history database :
 
        # rm grant.sql
 
+9. Ensure the database can be accessed remotely by enabling md5 client authentication. Edit the /var/opt/rh/rh-postgresql95/lib/pgsql/data/pg_hba.conf file, and add the following line immediately underneath the line starting with local at the bottom of the file, replacing user_name with the new user you created:
+
+       host    database_name    user_name    0.0.0.0/0   md5
+10. Allow TCP/IP connections to the database. Edit the /var/opt/rh/rh-postgresql95/lib/pgsql/data/postgresql.conf file and add the following line:
+
+        listen_addresses='*'
+11. Restart the postgresql service:
+
+        # systemctl restart rh-postgresql95-postgresql
 
 
 Now you can start creating your dashboard widgets.
@@ -67,7 +76,7 @@ Go to `Dashboards` -> `+ New`.
 
 **Graph panel example:**
 
-First create the variable required for building the different widgets:
+First create the variables required for building the different widgets:
 
 The query uses the [Variables](http://docs.grafana.org/reference/templating/) feature, to enable input controls.
 
@@ -86,8 +95,8 @@ You will need to add the following templates:
 | is_deleted      |             | Query |`Choose your data source from the list` | SELECT DISTINCT  CASE WHEN enum_key = 0  THEN 'AND delete_date IS NULL'  ELSE ''  END FROM enum_translator WHERE value = '$show_deleted' AND enum_type = 'REPORTS_SHOW_DELETED' | | | |
 
 
-**Note:** The queries are based on the DWH views that are supported also when upgrading to the next oVirt release.
-In order to use the latest views you can update the DWH v4_2 prefixes to the prefix of your setup version.
+**Note:** All the queries are based on the DWH views that are supported also when upgrading to the next oVirt release.
+In order to use the latest views you please update the DWH v4_2 prefixes to the prefix of your setup version.
 
 To add a `Graph` type panel, on the left side you have the [Row controls menu](http://docs.grafana.org/guides/getting_started/#dashboards-panels-rows-the-building-blocks-of-grafana).
 Go to the `+ Add Panel`, and pick `Graph`.

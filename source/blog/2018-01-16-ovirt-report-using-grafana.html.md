@@ -67,9 +67,6 @@ Go to `Dashboards` -> `+ New`.
 
 **Graph panel example:**
 
-To add a `Graph` type panel, on the left side you have the [Row controls menu](http://docs.grafana.org/guides/getting_started/#dashboards-panels-rows-the-building-blocks-of-grafana).
-Go to the `+ Add Panel`, and pick `Graph`.
-
 First create the variable required for building the different widgets:
 
 The query uses the [Variables](http://docs.grafana.org/reference/templating/) feature, to enable input controls.
@@ -91,6 +88,9 @@ You will need to add the following templates:
 
 **Note:** The queries are based on the DWH views that are supported also when upgrading to the next oVirt release.
 In order to use the latest views you can update the DWH v4_2 prefixes to the prefix of your setup version.
+
+To add a `Graph` type panel, on the left side you have the [Row controls menu](http://docs.grafana.org/guides/getting_started/#dashboards-panels-rows-the-building-blocks-of-grafana).
+Go to the `+ Add Panel`, and pick `Graph`.
 
 Query example for the - Five Most Utilized Hosts by Memory / CPU:
 

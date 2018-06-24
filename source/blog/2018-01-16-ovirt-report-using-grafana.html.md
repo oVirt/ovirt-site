@@ -18,7 +18,7 @@ READMORE
 
 If you wish to create dashboards to monitor oVirt environment, you will need to [install Grafana](http://docs.grafana.org/installation/rpm/). Please follow the rest of the installation instructions to [start the Grafana server](http://docs.grafana.org/installation/rpm/#start-the-server-via-systemd) and [enable it](http://docs.grafana.org/installation/rpm/#enable-the-systemd-service-to-start-at-boot).
 
-**Note:** Please do not install Grafana on the engine db.
+**Note:** Please do not install Grafana on the engine machine.
 
 Grafana automatically creates an admin [user](http://docs.grafana.org/installation/configuration/#admin-user) and [password](http://docs.grafana.org/installation/configuration/#admin-password).
 

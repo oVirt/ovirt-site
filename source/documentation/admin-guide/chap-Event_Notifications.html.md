@@ -150,8 +150,8 @@ Default SNMP configuration values exist on the Engine in the events notification
 
     Send all events with the severity `ERROR` or `ALERT` to the default SNMP profile:
 
-        FILTER="include:*ERROR(snmp:) ${FILTER}"
-        FILTER="include:*ALERT(snmp:) ${FILTER}"
+        FILTER="include:*:ERROR(snmp:) ${FILTER}"
+        FILTER="include:*:ALERT(snmp:) ${FILTER}"
 
     Send events for `VDC_START` to the specified email address:
 

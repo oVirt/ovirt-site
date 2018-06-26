@@ -6,21 +6,13 @@ layout: toc
 
 # oVirt 4.2.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.2.4 Fifth Release Candidate as of June 20, 2018.
+The oVirt Project is pleased to announce the availability of the 4.2.4 Release as of June 26, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.5,
 CentOS Linux 7.5 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -36,21 +28,25 @@ To learn about features introduced before 4.2.4, see the [release notes for prev
 ### CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
+
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 
 
@@ -100,15 +96,19 @@ packages from other repos.
 
 #### oVirt Engine
 
- - [BZ 1572158](https://bugzilla.redhat.com/1572158) <b>[RFE] add disk sizes in Disk general tab</b><br>
  - [BZ 1549030](https://bugzilla.redhat.com/1549030) <b>Update neutron binding after VM migration with info from caps</b><br>When a port is created/updated, it's "binding:host_id" attribute should be updated with the id of the provider driver id (for example OVN chassis id) reported during get_caps. <br>The port for which the binding has been reported, requires the binding to be set on every consecutive host it moves to. This could be a problem when migrating from a 4.2.2 level host to an earlier one. <br>Hosts before that do not report the host_id. When no provider driver id is reported, the "binding:host_id" is not set, and the value from the previous host will be kept. To fix this, the older hosts need to be updated with a newer version of the provider driver.
  - [BZ 1539765](https://bugzilla.redhat.com/1539765) <b>Auto-Sync - network rename on provider does not trigger rename in engine</b><br>Feature:  External network rename on provider is reflected in engine<br><br>Reason: The name of an external network in engine should be consistent with the name of the same network on the provider.<br><br>Result: Renaming an external network on the provider is reflected in engine.
  - [BZ 1098612](https://bugzilla.redhat.com/1098612) <b>[donstream clone 4.2.4] [RFE] filter for "Allocation Policy" in Disks search</b><br>
  - [BZ 1242822](https://bugzilla.redhat.com/1242822) <b>[RFE] filter for "Allocation Policy" in Disks search</b><br>
  - [BZ 1251468](https://bugzilla.redhat.com/1251468) <b>[RFE] Additional warning when removing required networks</b><br>
+ - [BZ 1593653](https://bugzilla.redhat.com/1593653) <b>[downstream clone - 4.2.4] [RFE] virtio nics are reported as '1gbit' nics, and should be '10gbit'</b><br>
  - [BZ 1587884](https://bugzilla.redhat.com/1587884) <b>[downstream clone - 4.2.4] [RFE] Include storage domain UUID in Storage Domain 'General' tab</b><br>
  - [BZ 1579302](https://bugzilla.redhat.com/1579302) <b>support more granularity in cluster cpu types</b><br>Feature: <br>Support distinguishing cpus also by features they support, not just by model.<br><br>Reason: <br>If a new CPU feature is important, it is important to be able to distinguish if the CPU with some model also supports this feature and than require this feature also for VMs.<br><br>Result: <br>Now, it is possible to distinguish CPUs also by features and require them for the VMs. CPU types take additional flags in addition to their libvirt name. Like e.g. SandyBridge, you can specify custom CPU as “SandyBridge,+xyz” or “SandyBridge,-xyz” to add or remove arbitrary individual CPU flags in addition to what the named model contains.
  - [BZ 1577901](https://bugzilla.redhat.com/1577901) <b>[RFE] add content type column to disk table</b><br>
+
+#### oVirt Engine Appliance
+
+ - [BZ 1582507](https://bugzilla.redhat.com/1582507) <b>[downstream clone - 4.2.4] [RFE] Add  ovirt-engine-extension-aaa-ldap-setup and  ovirt-engine-extension-aaa-ldap to RHV-M Image</b><br>
 
 #### oVirt Host Dependencies
 
@@ -132,6 +132,7 @@ packages from other repos.
 
 #### VDSM
 
+ - [BZ 1584523](https://bugzilla.redhat.com/1584523) <b>[downstream clone - 4.2.4] [HE] Failed to deploy RHV-H on Hosted engine</b><br>
  - [BZ 1576442](https://bugzilla.redhat.com/1576442) <b>KeyError: 'sizeTotal' in gluster volume status monitoring</b><br>
  - [BZ 1576675](https://bugzilla.redhat.com/1576675) <b>RHV import fails if VM has an unreachable floppy defined</b><br>
 
@@ -188,9 +189,7 @@ packages from other repos.
  - [BZ 1574480](https://bugzilla.redhat.com/1574480) <b>vGPU: Webadmin should reject VM snapshot creation when using mdev_type hook.</b><br>
  - [BZ 1578276](https://bugzilla.redhat.com/1578276) <b>[engine-setup] PostgreSQL conf verification text is broken</b><br>
  - [BZ 1558614](https://bugzilla.redhat.com/1558614) <b>OVA import does not set CPU topology correctly.</b><br>
- - [BZ 1545270](https://bugzilla.redhat.com/1545270) <b>[RFE] virtio nics are reported as '1gbit' nics, and should be '10gbit'</b><br>
  - [BZ 1568305](https://bugzilla.redhat.com/1568305) <b>empty vNIC profiles tab in edit Network dialog</b><br>
- - [BZ 1530027](https://bugzilla.redhat.com/1530027) <b>[RFE] - On OVS switch type with OVN, when defining a VM host network, auto-define an external localnet network based on it.</b><br>
  - [BZ 1539589](https://bugzilla.redhat.com/1539589) <b>ovn localnet - On OVS cluster don't allow to attach VM networks to VM</b><br>
  - [BZ 1551910](https://bugzilla.redhat.com/1551910) <b>[ja_JP] Text truncation observed on compute -> hosts -> network interfaces -> setup host networks page.</b><br>
  - [BZ 1543062](https://bugzilla.redhat.com/1543062) <b>Auto-sync - additional OVN cluster on DC does not consume OVN network as expected</b><br>
@@ -240,7 +239,6 @@ packages from other repos.
 #### VDSM
 
  - [BZ 1583045](https://bugzilla.redhat.com/1583045) <b>Failed to add a second host after a successful deployment due to a name clash on vdsm python module</b><br>
- - [BZ 1584523](https://bugzilla.redhat.com/1584523) <b>[downstream clone - 4.2.4] [HE] Failed to deploy RHV-H on Hosted engine</b><br>
  - [BZ 1570349](https://bugzilla.redhat.com/1570349) <b>After upgrade from 4.1 to 4.2.3 vm disk is inactive and vm nic is un-plugged</b><br>
  - [BZ 1591667](https://bugzilla.redhat.com/1591667) <b>[downstream clone - 4.2.4] Live storage migration completes but leaves volume un-opened.</b><br>
  - [BZ 1534197](https://bugzilla.redhat.com/1534197) <b>After updating to current RHV-H, vdsmd consistently fails to start on startup.</b><br>
@@ -268,6 +266,7 @@ packages from other repos.
 #### oVirt Hosted Engine Setup
 
  - [BZ 1578418](https://bugzilla.redhat.com/1578418) <b>Checks on bond mode are not effective</b><br>
+ - [BZ 1594024](https://bugzilla.redhat.com/1594024) <b>[HE] Failed to deploy hosted engine over NFS on updated rhel7.5 with ansible 2.6</b><br>
  - [BZ 1578404](https://bugzilla.redhat.com/1578404) <b>Fetch engine logs from the engine VM</b><br>
  - [BZ 1573074](https://bugzilla.redhat.com/1573074) <b>The deployment fails on create_storage_domain stage when using generated answers</b><br>
  - [BZ 1576451](https://bugzilla.redhat.com/1576451) <b>ovirt-hosted-engine-cleanup must undefine the HostedEngine VM</b><br>
@@ -301,9 +300,9 @@ packages from other repos.
  - [BZ 1589544](https://bugzilla.redhat.com/1589544) <b>[HE] host-deploy fails to start vdsmd on node/rhel-h</b><br>
  - [BZ 1534197](https://bugzilla.redhat.com/1534197) <b>After updating to current RHV-H, vdsmd consistently fails to start on startup.</b><br>
 
-#### oVirt image transfer daemon and proxy
+#### oVirt Node
 
- - [BZ 1578412](https://bugzilla.redhat.com/1578412) <b>[BLOCKED] ovirt-imageio TLS hardening (TLS version and cipher suite)</b><br>
+ - [BZ 1534197](https://bugzilla.redhat.com/1534197) <b>After updating to current RHV-H, vdsmd consistently fails to start on startup.</b><br>
 
 ### No Doc Update
 
@@ -328,5 +327,5 @@ packages from other repos.
 
 #### oVirt Hosted Engine Setup
 
- - [BZ 1574881](https://bugzilla.redhat.com/1574881) <b>During HE deployment auto add 2nd and 3rd Hosts is failing</b><br>
  - [BZ 1572542](https://bugzilla.redhat.com/1572542) <b>argument vlan_tag is of type <type 'str'> and we were unable to convert to int: invalid literal for int() with base 10: '8000\\\\n1'\"}"</b><br>
+

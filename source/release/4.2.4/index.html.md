@@ -106,6 +106,10 @@ packages from other repos.
  - [BZ 1579302](https://bugzilla.redhat.com/1579302) <b>support more granularity in cluster cpu types</b><br>Feature: <br>Support distinguishing cpus also by features they support, not just by model.<br><br>Reason: <br>If a new CPU feature is important, it is important to be able to distinguish if the CPU with some model also supports this feature and than require this feature also for VMs.<br><br>Result: <br>Now, it is possible to distinguish CPUs also by features and require them for the VMs. CPU types take additional flags in addition to their libvirt name. Like e.g. SandyBridge, you can specify custom CPU as “SandyBridge,+xyz” or “SandyBridge,-xyz” to add or remove arbitrary individual CPU flags in addition to what the named model contains.
  - [BZ 1577901](https://bugzilla.redhat.com/1577901) <b>[RFE] add content type column to disk table</b><br>
 
+#### oVirt Engine Appliance
+
+ - [BZ 1582507](https://bugzilla.redhat.com/1582507) <b>[downstream clone - 4.2.4] [RFE] Add  ovirt-engine-extension-aaa-ldap-setup and  ovirt-engine-extension-aaa-ldap to RHV-M Image</b><br>
+
 #### oVirt Host Dependencies
 
  - [BZ 1579210](https://bugzilla.redhat.com/1579210) <b>[downstream clone - 4.2.4] add cockpit-machines-ovirt to RHVH hosts</b><br>The cockpit-machines-ovirt plugin (https://cockpit-project.org/guide/latest/feature-ovirtvirtualmachines) has been added to Red Hat Enterprise Linux hosts and Red Hat Virtualization Hosts.
@@ -294,6 +298,10 @@ packages from other repos.
 
  - [BZ 1585028](https://bugzilla.redhat.com/1585028) <b>[downstream clone - 4.2.4] RHV-H 4.2.3: hosted-engine agent fails to start after upgrade due to Permission denied: '/var/log/ovirt-hosted-engine-ha/broker.log' '/var/log/ovirt-hosted-engine-ha/agent.log'</b><br>
  - [BZ 1589544](https://bugzilla.redhat.com/1589544) <b>[HE] host-deploy fails to start vdsmd on node/rhel-h</b><br>
+ - [BZ 1534197](https://bugzilla.redhat.com/1534197) <b>After updating to current RHV-H, vdsmd consistently fails to start on startup.</b><br>
+
+#### oVirt Node
+
  - [BZ 1534197](https://bugzilla.redhat.com/1534197) <b>After updating to current RHV-H, vdsmd consistently fails to start on startup.</b><br>
 
 ### No Doc Update

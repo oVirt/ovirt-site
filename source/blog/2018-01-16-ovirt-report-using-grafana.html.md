@@ -2,7 +2,7 @@
 title: Build oVirt Reports Using Grafana
 author: sradco,
 tags: oVirt, oVirt 4.2, open source virtualization, report, dwh
-date: 2018-01-16 09:00:00 CET
+date: 2018-06-24 09:00:00 CET
 ---
 
 [Grafana](https://grafana.com/), The open platform for beautiful analytics and monitoring,
@@ -16,7 +16,9 @@ in order to visualize and monitor the oVirt environment.
 
 READMORE
 
-If you wish to create dashboards to monitor oVirt environment, you will need to [install Grafana](http://docs.grafana.org/installation/rpm/).
+If you wish to create dashboards to monitor oVirt environment, you will need to [install Grafana](http://docs.grafana.org/installation/rpm/). Please follow the rest of the installation instructions to [start the Grafana server](http://docs.grafana.org/installation/rpm/#start-the-server-via-systemd) and [enable it](http://docs.grafana.org/installation/rpm/#enable-the-systemd-service-to-start-at-boot).
+
+**Note:** Please do not install Grafana on the engine machine.
 
 Grafana automatically creates an admin [user](http://docs.grafana.org/installation/configuration/#admin-user) and [password](http://docs.grafana.org/installation/configuration/#admin-password).
 
@@ -25,7 +27,46 @@ You will need to add a [PostgreSQL data source](http://docs.grafana.org/features
 For example:
 ![](/images/grafana_data_source_example.png)
 
-You may want to add a read only user to connect the history database - [Allowing read only access to the history database](https://www.ovirt.org/documentation/data-warehouse/Allowing_Read_Only_Access_to_the_History_Database/)
+You may want to add a read only user to connect the history database :
+
+**Note:** In oVirt 4.2 we ship postgres 9.5 through the Software Collection. 
+1. In order to run psql you will need to run:
+     
+       # su - postgres 
+       # scl enable rh-postgresql95 -- psql ovirt_engine_history
+**Allowing Read-Only Access to the History Database**
+2. Create the user to be granted read-only access to the history database:
+
+       # CREATE ROLE [user name] WITH LOGIN ENCRYPTED PASSWORD '[password]';
+3. Grant the newly created user permission to connect to the history database:
+
+       # GRANT CONNECT ON DATABASE ovirt_engine_history TO [user name];
+4. Grant the newly created user usage of the public schema:
+
+       # GRANT USAGE ON SCHEMA public TO [user name];
+5. Exit the database
+   
+       # \q
+6. Generate the rest of the permissions that will be granted to the newly created user and save them to a file:
+
+       # scl enable rh-postgresql95 -- psql -U postgres -c "SELECT 'GRANT SELECT ON ' || relname || ' TO [user name];' FROM pg_class JOIN pg_namespace ON pg_namespace.oid = pg_class.relnamespace WHERE nspname = 'public' AND relkind IN ('r', 'v');" --pset=tuples_only=on  ovirt_engine_history > grant.sql
+7. Use the file you created in the previous step to grant permissions to the newly created user:
+
+       # scl enable rh-postgresql95 -- psql -U postgres -f grant.sql ovirt_engine_history
+8. Remove the file you used to grant permissions to the newly created user:
+
+       # rm grant.sql
+
+9. Ensure the database can be accessed remotely by enabling md5 client authentication. Edit the /var/opt/rh/rh-postgresql95/lib/pgsql/data/pg_hba.conf file, and add the following line immediately underneath the line starting with local at the bottom of the file, replacing user_name with the new user you created:
+
+       host    database_name    user_name    0.0.0.0/0   md5
+10. Allow TCP/IP connections to the database. Edit the /var/opt/rh/rh-postgresql95/lib/pgsql/data/postgresql.conf file and add the following line:
+
+        listen_addresses='*'
+11. Restart the postgresql service:
+
+        # systemctl restart rh-postgresql95-postgresql
+
 
 Now you can start creating your dashboard widgets.
 
@@ -34,6 +75,28 @@ Go to `Dashboards` -> `+ New`.
 
 
 **Graph panel example:**
+
+First create the variables required for building the different widgets:
+
+The query uses the [Variables](http://docs.grafana.org/reference/templating/) feature, to enable input controls.
+
+You will need to add the following templates:
+
+| Variable Name   | Label | Type | Data source | Query | Hide | Multi-value | Include All option |
+|-----------------|-------|------|-------------|-------|------|-------------|--------------------|
+| userlocale      | Language    | Query |`Choose your data source from the list` | SELECT DISTINCT language_code from enum_translator | | | |
+| datacenter_name | Data Center | Query |`Choose your data source from the list` | SELECT DISTINCT datacenter_name FROM v4_2_configuration_history_datacenters | | | |
+| datacenter_id   |             | Query |`Choose your data source from the list` | SELECT DISTINCT datacenter_id FROM v4_2_configuration_history_datacenters WHERE datacenter_name='$datacenter_name' | Variable | | |
+| cluster_name    | Cluster     | Query |`Choose your data source from the list` | SELECT cluster_name FROM v4_2_configuration_history_clusters WHERE datacenter_id = '$datacenter_id' | | Yes | Yes |
+| cluster_id      |             | Query |`Choose your data source from the list` | SELECT cluster_id FROM v4_2_configuration_history_clusters WHERE datacenter_id = '$datacenter_id' | Variable | Yes | Yes |
+| hostname        | Host        | Query |`Choose your data source from the list` | SELECT host_name FROM v4_2_configuration_history_hosts WHERE cluster_id IN ('$cluster_id') | | | |
+| host_id         |             | Query |`Choose your data source from the list` | SELECT host_id FROM v4_2_configuration_history_hosts WHERE host_name = '$hostname' | Variable | | |
+| show_deleted    | Show deleted entities? | Query |`Choose your data source from the list` | SELECT DISTINCT coalesce( enum_translator_localized.value_localized, enum_translator_default.value ) as display FROM enum_translator as enum_translator_default LEFT OUTER JOIN ( SELECT enum_type, enum_key, value as value_localized FROM enum_translator WHERE language_code = '$userlocale' ) as enum_translator_localized ON ( enum_translator_localized.enum_type = enum_translator_default.enum_type AND enum_translator_localized.enum_key = enum_translator_default.enum_key ) WHERE language_code = 'en_US' AND enum_translator_default.enum_type = 'REPORTS_SHOW_DELETED'  | | | |
+| is_deleted      |             | Query |`Choose your data source from the list` | SELECT DISTINCT  CASE WHEN enum_key = 0  THEN 'AND delete_date IS NULL'  ELSE ''  END FROM enum_translator WHERE value = '$show_deleted' AND enum_type = 'REPORTS_SHOW_DELETED' | | | |
+
+
+**Note:** All the queries are based on the DWH views that are supported also when upgrading to the next oVirt release.
+In order to use the latest views you please update the DWH v4_2 prefixes to the prefix of your setup version.
 
 To add a `Graph` type panel, on the left side you have the [Row controls menu](http://docs.grafana.org/guides/getting_started/#dashboards-panels-rows-the-building-blocks-of-grafana).
 Go to the `+ Add Panel`, and pick `Graph`.
@@ -123,10 +186,10 @@ FROM (
                     FROM v4_2_configuration_history_clusters
                     WHERE
                         v4_2_configuration_history_clusters.datacenter_id =
-                        $datacenter_id
+                        '$datacenter_id'
                 )
                 -- Here we filter by the clusters chosen by the user
-                AND b.cluster_id IN ($cluster_id)
+                AND b.cluster_id IN ('$cluster_id')
                 AND a. history_datetime >= $__timeFrom()
                 AND a.history_datetime < $__timeTo()
                 -- Here we get the latest hosts configuration

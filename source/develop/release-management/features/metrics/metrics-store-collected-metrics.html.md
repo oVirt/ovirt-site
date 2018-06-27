@@ -4,7 +4,7 @@ category: feature
 authors: sradco
 feature_name: oVirt Metrics Store Collected Data
 feature_modules: engine
-feature_status: In Development
+feature_status: In Production
 ---
 # Metrics Store - Collected Data
 

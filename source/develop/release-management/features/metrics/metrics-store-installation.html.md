@@ -4,7 +4,7 @@ category: feature
 authors: sradco
 feature_name: oVirt Metrics Store Installation
 feature_modules: engine
-feature_status: In Development
+feature_status: In Production
 ---
 # oVirt Metrics - Installation Guide
 
@@ -20,7 +20,7 @@ It can be installed on a dedicated VM.
 For an oVirt environment with 50 hosts: 
 - 4 CPU cores, 16GB RAM memory .
 - We recommends using SSD disks.
-- CentOS 7.3 or later.
+- CentOS 7.4 or later.
 - Preallocated 500GB partition - It will be used for persistent storage. Use a partition other than root (/) to avoid filling up the partition, for example, /var.
 - Add the Metrics Store Machine FQDN to your enterprise hostname resolution system, for example, DNS.
 Add the following aliases:

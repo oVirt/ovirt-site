@@ -70,17 +70,17 @@ You may want to add a read only user to connect the history database :
 
 Now you can start creating your dashboard widgets.
 
+**Creating a Dashboard**
+
 Go to `Dashboards` -> `+ New`.
 
 
-
-**Graph panel example:**
-
 First create the variables required for building the different widgets:
 
-The query uses the [Variables](http://docs.grafana.org/reference/templating/) feature, to enable input controls.
+The graph example below uses the [Variables](http://docs.grafana.org/reference/templating/) feature, to enable drop down input controls that allows taggling between differen datacenters / cluster / hosts etc.
 
-You will need to add the following templates:
+
+You will need to [add the following variables](https://www.ovirt.org/blog/2018/06/ovirt-report-using-grafana/):
 
 | Variable Name   | Label | Type | Data source | Query | Hide | Multi-value | Include All option |
 |-----------------|-------|------|-------------|-------|------|-------------|--------------------|
@@ -91,12 +91,12 @@ You will need to add the following templates:
 | cluster_id      |             | Query |`Choose your data source from the list` | SELECT cluster_id FROM v4_2_configuration_history_clusters WHERE datacenter_id = '$datacenter_id' | Variable | Yes | Yes |
 | hostname        | Host        | Query |`Choose your data source from the list` | SELECT host_name FROM v4_2_configuration_history_hosts WHERE cluster_id IN ('$cluster_id') | | | |
 | host_id         |             | Query |`Choose your data source from the list` | SELECT host_id FROM v4_2_configuration_history_hosts WHERE host_name = '$hostname' | Variable | | |
-| show_deleted    | Show deleted entities? | Query |`Choose your data source from the list` | SELECT DISTINCT coalesce( enum_translator_localized.value_localized, enum_translator_default.value ) as display FROM enum_translator as enum_translator_default LEFT OUTER JOIN ( SELECT enum_type, enum_key, value as value_localized FROM enum_translator WHERE language_code = '$userlocale' ) as enum_translator_localized ON ( enum_translator_localized.enum_type = enum_translator_default.enum_type AND enum_translator_localized.enum_key = enum_translator_default.enum_key ) WHERE language_code = 'en_US' AND enum_translator_default.enum_type = 'REPORTS_SHOW_DELETED'  | | | |
-| is_deleted      |             | Query |`Choose your data source from the list` | SELECT DISTINCT  CASE WHEN enum_key = 0  THEN 'AND delete_date IS NULL'  ELSE ''  END FROM enum_translator WHERE value = '$show_deleted' AND enum_type = 'REPORTS_SHOW_DELETED' | | | |
 
 
 **Note:** All the queries are based on the DWH views that are supported also when upgrading to the next oVirt release.
 In order to use the latest views you please update the DWH v4_2 prefixes to the prefix of your setup version.
+
+**Graph panel example:**
 
 To add a `Graph` type panel, on the left side you have the [Row controls menu](http://docs.grafana.org/guides/getting_started/#dashboards-panels-rows-the-building-blocks-of-grafana).
 Go to the `+ Add Panel`, and pick `Graph`.
@@ -156,8 +156,6 @@ FROM (
                 0
             )
         ) AS MEM_Usage
-    -- If "Period" equals to "Daily" then "table_name"
-    -- parameter equals to "hourly" else "daily"
     FROM v4_2_statistics_hosts_resources_usage_hourly AS stats_hosts
         INNER JOIN v4_2_configuration_history_hosts
             ON (
@@ -198,9 +196,6 @@ FROM (
                     FROM v4_2_configuration_history_hosts g
                     GROUP BY g.host_id
                 )
-                -- The "is_deleted" parameter chosen by the user determines
-                -- whether to include deleted entities or not
-                --$is_deleted
             GROUP BY a.host_id
             ORDER BY
                 -- Hosts will be ordered according to the summery of
@@ -242,18 +237,4 @@ GROUP BY a.host_name, a.mem_usage
 ORDER BY time
 ```
 
-The query uses the [Templating](http://docs.grafana.org/reference/templating/) feature, to enable input controls.
-
-You will need to add the following templates:
-
-| Variable Name   | Label | Type | Data source | Query | Hide | Multi-value | Include All option |
-|-----------------|-------|------|-------------|-------|------|-------------|--------------------|
-| userlocale      | Language    | Query |`Choose your data source from the list` | SELECT DISTINCT language_code from enum_translator | | | |
-| datacenter_name | Data Center | Query |`Choose your data source from the list` | SELECT DISTINCT datacenter_name FROM v4_2_configuration_history_datacenters | | | |
-| datacenter_id   |             | Query |`Choose your data source from the list` | SELECT DISTINCT datacenter_id FROM v4_2_configuration_history_datacenters WHERE datacenter_name=$datacenter_name | Variable | | |
-| cluster_name    | Cluster     | Query |`Choose your data source from the list` | SELECT cluster_name FROM v4_2_configuration_history_clusters WHERE datacenter_id = $datacenter_id | | Yes | Yes |
-| cluster_id      |             | Query |`Choose your data source from the list` | SELECT cluster_id FROM v4_2_configuration_history_clusters WHERE datacenter_id = $datacenter_id | Variable | Yes | Yes |
-| hostname        | Host        | Query |`Choose your data source from the list` | SELECT host_name FROM v4_2_configuration_history_hosts WHERE cluster_id IN ($cluster_id) | | | |
-| host_id         |             | Query |`Choose your data source from the list` | SELECT host_id FROM v4_2_configuration_history_hosts WHERE host_name = $hostname | Variable | | |
-| show_deleted    | Show deleted entities? | Query |`Choose your data source from the list` | SELECT DISTINCT coalesce( enum_translator_localized.value_localized, enum_translator_default.value ) as display FROM enum_translator as enum_translator_default LEFT OUTER JOIN ( SELECT enum_type, enum_key, value as value_localized FROM enum_translator WHERE language_code = $userlocale ) as enum_translator_localized ON ( enum_translator_localized.enum_type = enum_translator_default.enum_type AND enum_translator_localized.enum_key = enum_translator_default.enum_key ) WHERE language_code = 'en_US' AND enum_translator_default.enum_type = 'REPORTS_SHOW_DELETED'  | | | |
-| is_deleted      |             | Query |`Choose your data source from the list` | SELECT DISTINCT  CASE WHEN enum_key = 0  THEN 'AND delete_date IS NULL'  ELSE ''  END FROM enum_translator WHERE value = $show_deleted AND enum_type = 'REPORTS_SHOW_DELETED' | | | |
+**Note:** In this example we dont use the `Host` variable, so you can not filter the results by it.

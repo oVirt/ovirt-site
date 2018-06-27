@@ -77,7 +77,7 @@ Go to `Dashboards` -> `+ New`.
 
 First create the variables required for building the different widgets:
 
-The graph example below uses the [Variables](http://docs.grafana.org/reference/templating/) feature, to enable drop down input controls that allows taggling between differen datacenters / cluster / hosts etc.
+The graph example below uses the [Variables](http://docs.grafana.org/reference/templating/)feature, to enable drop down input controls that allows taggling between different datacenters / clusters / hosts etc.
 
 
 You will need to [add the following variables](https://www.ovirt.org/blog/2018/06/ovirt-report-using-grafana/):

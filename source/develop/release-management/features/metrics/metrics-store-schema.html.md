@@ -4,7 +4,7 @@ category: feature
 authors: sradco
 feature_name: oVirt Metrics Store Schema
 feature_modules: engine
-feature_status: In Development
+feature_status: In Production
 ---
 
 # oVirt Metrics - Schema
@@ -153,6 +153,7 @@ null / getattr / lookup / access / readlink / read / write / create / mkdir / sy
 |-------------------------|---------------|------------------------|--------------------------|------------------|
 | collectd.swap.swap | swap | used / free /  cached |   | gauge |
 | collectd.swap.swap_io | swap_io | in / out |   | derive |
+| collectd.swap.percent | percent | used / free /  cached |   | gauge |
 
 ## Load Plugin
 

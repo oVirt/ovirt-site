@@ -33,29 +33,29 @@ You may want to add a read only user to connect the history database :
 1. In order to run psql you will need to run:
      
        # su - postgres 
-       # scl enable rh-postgresql95 -- psql ovirt_engine_history
+       $ scl enable rh-postgresql95 -- psql ovirt_engine_history
 **Allowing Read-Only Access to the History Database**
 2. Create the user to be granted read-only access to the history database:
 
-       # CREATE ROLE [user name] WITH LOGIN ENCRYPTED PASSWORD '[password]';
+       ovirt_engine_history=# CREATE ROLE [user name] WITH LOGIN ENCRYPTED PASSWORD '[password]';
 3. Grant the newly created user permission to connect to the history database:
 
-       # GRANT CONNECT ON DATABASE ovirt_engine_history TO [user name];
+       ovirt_engine_history=# GRANT CONNECT ON DATABASE ovirt_engine_history TO [user name];
 4. Grant the newly created user usage of the public schema:
 
-       # GRANT USAGE ON SCHEMA public TO [user name];
+       ovirt_engine_history=# GRANT USAGE ON SCHEMA public TO [user name];
 5. Exit the database
    
-       # \q
+       ovirt_engine_history=# \q
 6. Generate the rest of the permissions that will be granted to the newly created user and save them to a file:
 
-       # scl enable rh-postgresql95 -- psql -U postgres -c "SELECT 'GRANT SELECT ON ' || relname || ' TO [user name];' FROM pg_class JOIN pg_namespace ON pg_namespace.oid = pg_class.relnamespace WHERE nspname = 'public' AND relkind IN ('r', 'v');" --pset=tuples_only=on  ovirt_engine_history > grant.sql
+       $ scl enable rh-postgresql95 -- psql -U postgres -c "SELECT 'GRANT SELECT ON ' || relname || ' TO [user name];' FROM pg_class JOIN pg_namespace ON pg_namespace.oid = pg_class.relnamespace WHERE nspname = 'public' AND relkind IN ('r', 'v');" --pset=tuples_only=on  ovirt_engine_history > grant.sql
 7. Use the file you created in the previous step to grant permissions to the newly created user:
 
-       # scl enable rh-postgresql95 -- psql -U postgres -f grant.sql ovirt_engine_history
+       $ scl enable rh-postgresql95 -- psql -U postgres -f grant.sql ovirt_engine_history
 8. Remove the file you used to grant permissions to the newly created user:
 
-       # rm grant.sql
+       $ rm grant.sql
 
 9. Ensure the database can be accessed remotely by enabling md5 client authentication. Edit the /var/opt/rh/rh-postgresql95/lib/pgsql/data/pg_hba.conf file, and add the following line immediately underneath the line starting with local at the bottom of the file, replacing user_name with the new user you created:
 

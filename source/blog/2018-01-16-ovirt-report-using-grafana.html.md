@@ -16,16 +16,8 @@ in order to visualize and monitor the oVirt environment.
 
 READMORE
 
-If you wish to create dashboards to monitor oVirt environment, you will need to [install Grafana](http://docs.grafana.org/installation/rpm/). Please follow the rest of the installation instructions to [start the Grafana server](http://docs.grafana.org/installation/rpm/#start-the-server-via-systemd) and [enable it](http://docs.grafana.org/installation/rpm/#enable-the-systemd-service-to-start-at-boot).
 
-**Note:** Please do not install Grafana on the engine machine.
-
-Grafana automatically creates an admin [user](http://docs.grafana.org/installation/configuration/#admin-user) and [password](http://docs.grafana.org/installation/configuration/#admin-password).
-
-You will need to add a [PostgreSQL data source](http://docs.grafana.org/features/datasources/graphite/#adding-the-data-source) that connects to the DWH database.
-
-For example:
-![](/images/grafana_data_source_example.png)
+**Adding a Read-Only User to the History Database**
 
 You may want to add a read only user to connect the history database :
 
@@ -34,7 +26,6 @@ You may want to add a read only user to connect the history database :
      
        # su - postgres 
        $ scl enable rh-postgresql95 -- psql ovirt_engine_history
-**Allowing Read-Only Access to the History Database**
 2. Create the user to be granted read-only access to the history database:
 
        ovirt_engine_history=# CREATE ROLE [user name] WITH LOGIN ENCRYPTED PASSWORD '[password]';
@@ -67,6 +58,21 @@ You may want to add a read only user to connect the history database :
 
         # systemctl restart rh-postgresql95-postgresql
 
+
+**Install Grafana**
+
+If you wish to create dashboards to monitor oVirt environment, you will need to [install Grafana](http://docs.grafana.org/installation/rpm/). Please follow the rest of the installation instructions to [start the Grafana server](http://docs.grafana.org/installation/rpm/#start-the-server-via-systemd) and [enable it](http://docs.grafana.org/installation/rpm/#enable-the-systemd-service-to-start-at-boot).
+
+**Note:** Please do not install Grafana on the engine machine.
+
+Grafana automatically creates an admin [user](http://docs.grafana.org/installation/configuration/#admin-user) and [password](http://docs.grafana.org/installation/configuration/#admin-password).
+
+**Adding the  History Database data source**
+
+You will need to add a [PostgreSQL data source](http://docs.grafana.org/features/datasources/graphite/#adding-the-data-source) that connects to the DWH database.
+
+For example:
+![](/images/grafana_data_source_example.png)
 
 Now you can start creating your dashboard widgets.
 

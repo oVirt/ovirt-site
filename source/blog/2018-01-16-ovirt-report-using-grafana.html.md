@@ -16,16 +16,8 @@ in order to visualize and monitor the oVirt environment.
 
 READMORE
 
-If you wish to create dashboards to monitor oVirt environment, you will need to [install Grafana](http://docs.grafana.org/installation/rpm/). Please follow the rest of the installation instructions to [start the Grafana server](http://docs.grafana.org/installation/rpm/#start-the-server-via-systemd) and [enable it](http://docs.grafana.org/installation/rpm/#enable-the-systemd-service-to-start-at-boot).
 
-**Note:** Please do not install Grafana on the engine machine.
-
-Grafana automatically creates an admin [user](http://docs.grafana.org/installation/configuration/#admin-user) and [password](http://docs.grafana.org/installation/configuration/#admin-password).
-
-You will need to add a [PostgreSQL data source](http://docs.grafana.org/features/datasources/graphite/#adding-the-data-source) that connects to the DWH database.
-
-For example:
-![](/images/grafana_data_source_example.png)
+**Adding a Read-Only User to the History Database**
 
 You may want to add a read only user to connect the history database :
 
@@ -33,29 +25,28 @@ You may want to add a read only user to connect the history database :
 1. In order to run psql you will need to run:
      
        # su - postgres 
-       # scl enable rh-postgresql95 -- psql ovirt_engine_history
-**Allowing Read-Only Access to the History Database**
+       $ scl enable rh-postgresql95 -- psql ovirt_engine_history
 2. Create the user to be granted read-only access to the history database:
 
-       # CREATE ROLE [user name] WITH LOGIN ENCRYPTED PASSWORD '[password]';
+       ovirt_engine_history=# CREATE ROLE [user name] WITH LOGIN ENCRYPTED PASSWORD '[password]';
 3. Grant the newly created user permission to connect to the history database:
 
-       # GRANT CONNECT ON DATABASE ovirt_engine_history TO [user name];
+       ovirt_engine_history=# GRANT CONNECT ON DATABASE ovirt_engine_history TO [user name];
 4. Grant the newly created user usage of the public schema:
 
-       # GRANT USAGE ON SCHEMA public TO [user name];
+       ovirt_engine_history=# GRANT USAGE ON SCHEMA public TO [user name];
 5. Exit the database
    
-       # \q
+       ovirt_engine_history=# \q
 6. Generate the rest of the permissions that will be granted to the newly created user and save them to a file:
 
-       # scl enable rh-postgresql95 -- psql -U postgres -c "SELECT 'GRANT SELECT ON ' || relname || ' TO [user name];' FROM pg_class JOIN pg_namespace ON pg_namespace.oid = pg_class.relnamespace WHERE nspname = 'public' AND relkind IN ('r', 'v');" --pset=tuples_only=on  ovirt_engine_history > grant.sql
+       $ scl enable rh-postgresql95 -- psql -U postgres -c "SELECT 'GRANT SELECT ON ' || relname || ' TO [user name];' FROM pg_class JOIN pg_namespace ON pg_namespace.oid = pg_class.relnamespace WHERE nspname = 'public' AND relkind IN ('r', 'v');" --pset=tuples_only=on  ovirt_engine_history > grant.sql
 7. Use the file you created in the previous step to grant permissions to the newly created user:
 
-       # scl enable rh-postgresql95 -- psql -U postgres -f grant.sql ovirt_engine_history
+       $ scl enable rh-postgresql95 -- psql -U postgres -f grant.sql ovirt_engine_history
 8. Remove the file you used to grant permissions to the newly created user:
 
-       # rm grant.sql
+       $ rm grant.sql
 
 9. Ensure the database can be accessed remotely by enabling md5 client authentication. Edit the /var/opt/rh/rh-postgresql95/lib/pgsql/data/pg_hba.conf file, and add the following line immediately underneath the line starting with local at the bottom of the file, replacing user_name with the new user you created:
 
@@ -68,19 +59,34 @@ You may want to add a read only user to connect the history database :
         # systemctl restart rh-postgresql95-postgresql
 
 
+**Install Grafana**
+
+If you wish to create dashboards to monitor oVirt environment, you will need to [install Grafana](http://docs.grafana.org/installation/rpm/). Please follow the rest of the installation instructions to [start the Grafana server](http://docs.grafana.org/installation/rpm/#start-the-server-via-systemd) and [enable it](http://docs.grafana.org/installation/rpm/#enable-the-systemd-service-to-start-at-boot).
+
+**Note:** Please do not install Grafana on the engine machine.
+
+Grafana automatically creates an admin [user](http://docs.grafana.org/installation/configuration/#admin-user) and [password](http://docs.grafana.org/installation/configuration/#admin-password).
+
+**Adding the  History Database data source**
+
+You will need to add a [PostgreSQL data source](http://docs.grafana.org/features/datasources/graphite/#adding-the-data-source) that connects to the DWH database.
+
+For example:
+![](/images/grafana_data_source_example.png)
+
 Now you can start creating your dashboard widgets.
+
+**Creating a Dashboard**
 
 Go to `Dashboards` -> `+ New`.
 
 
-
-**Graph panel example:**
-
 First create the variables required for building the different widgets:
 
-The query uses the [Variables](http://docs.grafana.org/reference/templating/) feature, to enable input controls.
+The graph example below uses the [Variables](http://docs.grafana.org/reference/templating/)feature, to enable drop down input controls that allows taggling between different datacenters / clusters / hosts etc.
 
-You will need to add the following templates:
+
+You will need to [add the following variables](https://www.ovirt.org/blog/2018/06/ovirt-report-using-grafana/):
 
 | Variable Name   | Label | Type | Data source | Query | Hide | Multi-value | Include All option |
 |-----------------|-------|------|-------------|-------|------|-------------|--------------------|
@@ -91,12 +97,12 @@ You will need to add the following templates:
 | cluster_id      |             | Query |`Choose your data source from the list` | SELECT cluster_id FROM v4_2_configuration_history_clusters WHERE datacenter_id = '$datacenter_id' | Variable | Yes | Yes |
 | hostname        | Host        | Query |`Choose your data source from the list` | SELECT host_name FROM v4_2_configuration_history_hosts WHERE cluster_id IN ('$cluster_id') | | | |
 | host_id         |             | Query |`Choose your data source from the list` | SELECT host_id FROM v4_2_configuration_history_hosts WHERE host_name = '$hostname' | Variable | | |
-| show_deleted    | Show deleted entities? | Query |`Choose your data source from the list` | SELECT DISTINCT coalesce( enum_translator_localized.value_localized, enum_translator_default.value ) as display FROM enum_translator as enum_translator_default LEFT OUTER JOIN ( SELECT enum_type, enum_key, value as value_localized FROM enum_translator WHERE language_code = '$userlocale' ) as enum_translator_localized ON ( enum_translator_localized.enum_type = enum_translator_default.enum_type AND enum_translator_localized.enum_key = enum_translator_default.enum_key ) WHERE language_code = 'en_US' AND enum_translator_default.enum_type = 'REPORTS_SHOW_DELETED'  | | | |
-| is_deleted      |             | Query |`Choose your data source from the list` | SELECT DISTINCT  CASE WHEN enum_key = 0  THEN 'AND delete_date IS NULL'  ELSE ''  END FROM enum_translator WHERE value = '$show_deleted' AND enum_type = 'REPORTS_SHOW_DELETED' | | | |
 
 
 **Note:** All the queries are based on the DWH views that are supported also when upgrading to the next oVirt release.
 In order to use the latest views you please update the DWH v4_2 prefixes to the prefix of your setup version.
+
+**Graph panel example:**
 
 To add a `Graph` type panel, on the left side you have the [Row controls menu](http://docs.grafana.org/guides/getting_started/#dashboards-panels-rows-the-building-blocks-of-grafana).
 Go to the `+ Add Panel`, and pick `Graph`.
@@ -156,8 +162,6 @@ FROM (
                 0
             )
         ) AS MEM_Usage
-    -- If "Period" equals to "Daily" then "table_name"
-    -- parameter equals to "hourly" else "daily"
     FROM v4_2_statistics_hosts_resources_usage_hourly AS stats_hosts
         INNER JOIN v4_2_configuration_history_hosts
             ON (
@@ -198,9 +202,6 @@ FROM (
                     FROM v4_2_configuration_history_hosts g
                     GROUP BY g.host_id
                 )
-                -- The "is_deleted" parameter chosen by the user determines
-                -- whether to include deleted entities or not
-                --$is_deleted
             GROUP BY a.host_id
             ORDER BY
                 -- Hosts will be ordered according to the summery of
@@ -242,18 +243,4 @@ GROUP BY a.host_name, a.mem_usage
 ORDER BY time
 ```
 
-The query uses the [Templating](http://docs.grafana.org/reference/templating/) feature, to enable input controls.
-
-You will need to add the following templates:
-
-| Variable Name   | Label | Type | Data source | Query | Hide | Multi-value | Include All option |
-|-----------------|-------|------|-------------|-------|------|-------------|--------------------|
-| userlocale      | Language    | Query |`Choose your data source from the list` | SELECT DISTINCT language_code from enum_translator | | | |
-| datacenter_name | Data Center | Query |`Choose your data source from the list` | SELECT DISTINCT datacenter_name FROM v4_2_configuration_history_datacenters | | | |
-| datacenter_id   |             | Query |`Choose your data source from the list` | SELECT DISTINCT datacenter_id FROM v4_2_configuration_history_datacenters WHERE datacenter_name=$datacenter_name | Variable | | |
-| cluster_name    | Cluster     | Query |`Choose your data source from the list` | SELECT cluster_name FROM v4_2_configuration_history_clusters WHERE datacenter_id = $datacenter_id | | Yes | Yes |
-| cluster_id      |             | Query |`Choose your data source from the list` | SELECT cluster_id FROM v4_2_configuration_history_clusters WHERE datacenter_id = $datacenter_id | Variable | Yes | Yes |
-| hostname        | Host        | Query |`Choose your data source from the list` | SELECT host_name FROM v4_2_configuration_history_hosts WHERE cluster_id IN ($cluster_id) | | | |
-| host_id         |             | Query |`Choose your data source from the list` | SELECT host_id FROM v4_2_configuration_history_hosts WHERE host_name = $hostname | Variable | | |
-| show_deleted    | Show deleted entities? | Query |`Choose your data source from the list` | SELECT DISTINCT coalesce( enum_translator_localized.value_localized, enum_translator_default.value ) as display FROM enum_translator as enum_translator_default LEFT OUTER JOIN ( SELECT enum_type, enum_key, value as value_localized FROM enum_translator WHERE language_code = $userlocale ) as enum_translator_localized ON ( enum_translator_localized.enum_type = enum_translator_default.enum_type AND enum_translator_localized.enum_key = enum_translator_default.enum_key ) WHERE language_code = 'en_US' AND enum_translator_default.enum_type = 'REPORTS_SHOW_DELETED'  | | | |
-| is_deleted      |             | Query |`Choose your data source from the list` | SELECT DISTINCT  CASE WHEN enum_key = 0  THEN 'AND delete_date IS NULL'  ELSE ''  END FROM enum_translator WHERE value = $show_deleted AND enum_type = 'REPORTS_SHOW_DELETED' | | | |
+**Note:** In this example we dont use the `Host` variable, so you can not filter the results by it.

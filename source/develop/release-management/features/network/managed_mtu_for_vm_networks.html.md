@@ -120,12 +120,14 @@ Beside the possibility to specify the machine type individually for each VM,
 a default machine type for clusters of a certain level is configured.
 In cluster level 4.3 machine type rhel7.4.0 or later will be configured by
 default.
-If all hosts in all of your clusters of cluster level 4.2 supports the
-rhel7.4.0 machine type, the default machine type can be configured to rhel7.4.0
-using the following command to use the MTU feature already in oVirt 4.2:
+Users can opt-in for this feature by configuring a default machine type of
+rhel7.4.0 for for new clusters of cluster level 4.2 or clusters which will be
+upgraded to cluster level 4.2:
 ~~~~
 engine-config --set "ClusterEmulatedMachines=pc-i440fx-rhel7.4.0,pc-i440fx-2.9,pseries-rhel7.5.0,s390-ccw-virtio-2.6" --cver=4.2
 ~~~~
+They can also opt-in per VM, by selecting rhel7.4.0 machine type of an
+individual VM or template.
 
 If an oVirt VM with rhel7.4.0 machine type is connected to ovirtmgmt with a MTU of
 1234 and an OVN network with a MTU of 1100 is running, the configuration on the
@@ -175,8 +177,8 @@ version of [OpenStack Java SDK][11] used by oVirt-engine.
 
 ## Limitations
 
-* MTU is applied during the start of the VM, but not during an update of the
-  network.
+* MTU is applied during the start of the VM or when hot plugging the network
+  interface, but not during an update of the network.
 
 * Setting the MTU by DHCP requires that the relevant interface is configured
   via DHCP by the guest.
@@ -190,6 +192,13 @@ version of [OpenStack Java SDK][11] used by oVirt-engine.
   This is given for RHEL 7.4 or later and VirtIO-Win version 1.9.1-0 (netkvm
   build 139) or later, which is already given for the already released
   oVirt-toolsSetup 4.2-1.
+
+* MTU cannot applied to pass-through vNICs.
+
+* Currently the attributes link state, device type of the vNIC, port mirroring,
+  custom properties, QoS, and the network of the vNIC profile cannot be updated
+  for plugged vNICs. As a workaround, unplug the vNIC, change the attribute,
+  and replug the vNIC.
 
 ## Benefit to oVirt
 
@@ -206,7 +215,7 @@ might be below the users expectation.
 The MTU property has to be enabled for creating external networks in webadmin,
 the related AddNetworkOnProviderCommand, and during import and synchronization.
 Similar to network name, the MTU of an external network cannot be updated by
-engine.
+webadmin, but will be updated during synchronization
 
 ### Default Value for MTU
 If no MTU is defined for a network, [DHCP](#set-the-mtu-by-dhcp) falls back on
@@ -241,7 +250,12 @@ value for all networks to an individual value or might be disabled. The [current
 documentation][13] already mention that offering the MTU might be disabled in
 future version.
 
-### Example Flows to use Jumbo Frames in a VM
+### Example Flows to propagate the MTU to a VM
+
+The first three flows present how to use jumbo frames for VMs, while the
+[AutoSync flow](#autosync-flow) is relevant for MTUs reduced by tunneling, too.
+
+#### Linux-bridge Flow
 
 This is an example flow to use Jumbo Frames in a cluster with linux-bridge
 switch type, while the Ethernet frames of the logical network are transported
@@ -250,9 +264,11 @@ encapsulated in a VLAN or as plain Ethernet frames:
    e.g. 8000 bytes.
 2. Assign this network, to a host NIC. Ensure that the switch port connected
    to this NIC is configured to accept big frames and the VLAN, e.g. by using
-   [LLDP](https://ovirt.org/develop/release-management/features/network/lldp/).
+   [LLDP][17].
 3. Use the vNIC profile of this new logical network in a vNIC of the desired VM.
 3. [If requirements are fulfilled, libvirt tries to propagate the MTU into the VM,](#set-the-mtu-by-libvirt), else the MTU has to be configured manually inside the guest.
+
+#### OVN Physical Network Flow
 
 This is an example flow to use Jumbo Frames in a cluster with OVS
 switch type, while the Ethernet frames of the logical network are transported
@@ -261,15 +277,17 @@ encapsulated in a VLAN or as plain Ethernet frames:
    e.g. 8000 bytes.
 2. Assign this network, to a host NIC. Ensure that the switch port connected
    to this NIC is configured to accept big frames and the VLAN, e.g. by using
-   [LLDP](https://ovirt.org/develop/release-management/features/network/lldp/).
+   [LLDP][17].
 3. Create a new logical VM network with the desired MTU, e.g. 8000 bytes.
    This new logical network has to be created on the external provider and
-   reference the first network as it's physical network according the
+   reference the first network as its physical network according the
    screenshot. If the DHCP server of the physical network should be used, no
    subnet should be defined.
    ![Create new logical VM network](../../../../images/features/network/managed-mtu-for-vm-networks_new-network-dialog.png)
 4. Use the vNIC profile of this new logical network in a vNIC of the desired VM.
 5. [If requirements are fulfilled, libvirt tries to propagate the MTU into the VM.](#set-the-mtu-by-libvirt), else the MTU has to be configured manually inside the guest.
+
+#### Tunneled OVN Flow
 
 This is an example flow which results in the Ethernet frames of the logical
 network are encapsulated in tunnels by OVN.
@@ -278,8 +296,7 @@ network are encapsulated in tunnels by OVN.
    default configuration of ovirt-provider-ovn the tunneling overhead is 58 bytes.
 2. Assign this network, to a host NIC of every host in the cluster. Ensure that
    the switch port connected to this NICs is configured to accept big frames, 
-   e.g. by using
-   [LLDP](https://ovirt.org/develop/release-management/features/network/lldp/).
+   e.g. by using [LLDP][17].
 3. Configure OVN to use this new network to create the tunnels:
 ~~~~
 ansible-playbook -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars " cluster_name=<cluster name> ovn_central=<ovn central ip> ovn_tunneling_interface=<vdsm network name of the new logical host network>" /usr/share/ovirt-engine/playbooks/ovirt-provider-ovn-driver.yml
@@ -291,6 +308,43 @@ ansible-playbook -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansib
 5. Use the vNIC profile of this new logical network in a vNIC of the desired VM.
 6. [If requirements are fulfilled, libvirt tries to propagate the MTU into the VM,](#set-the-mtu-by-libvirt). If a subnet is defined for the network, the [MTU is offered via DHCP to the VM](#set-the-mtu-by-dhcp).
 
+#### AutoSync Flow
+
+This a flow where the MTU is set by the external provider.
+1. Create a new external logical network with [default MTU](#default-value-for-mtu)
+   on a provider.
+2. If the provider supports the [MTU extension][16], it will expose the MTU
+   that is guaranteed to pass through the data path of the segments in the
+   network.
+   During the [automatic synchronization][18] the MTU in the provider's network
+   representation is applied to the external network on oVirt Engine.
+3. Use the vNIC profile of this logical network in a vNIC of the desired VM.
+4. [If requirements are fulfilled, libvirt tries to propagate the MTU into the VM,](#set-the-mtu-by-libvirt).
+
+#### AutoDefine Flow
+
+This is an example flow about the MTU is deduced from a host network.
+1. In webadmin, create a new logical network in a data center with a cluster
+   with OVS switch type and a default network provider. You may specify a
+   non-default MTU during creating the network.
+2. A new external network is [created automatically][19] with the original
+   network as its physical network. This external network is created with the
+   same MTU as its physical network. If the physical network was created
+   with default MTU, e.g. 1500, the MTU of the external network will be 1500,
+   too. Please note that this is not the default value for tunneled networks,
+   which is usually 1442 for GENEVE tunneled networks or 1450 for VXLAN tunneled
+   networks.
+3. Use the vNIC profile of this new external network in a vNIC of the desired VM.
+4. [If requirements are fulfilled, libvirt tries to propagate the MTU into the VM,](#set-the-mtu-by-libvirt).
+
+#### Update MTU Flow
+
+The MTU is applied during the start of the VM or hot plugging the network
+interface, but not during an update of the network.
+Therefore, the vNICs of running VMs have to be hot unplugged and hot re-plugged to apply the MTU update.
+1. In webadmin, modify the MTU of an already available network.
+2. Unplug and plug every vNIC which should apply the updated MTU.
+3. [If requirements are fulfilled, libvirt tries to propagate the MTU into the VM,](#set-the-mtu-by-libvirt).
 
 ## Documentation & External references
 
@@ -357,6 +411,18 @@ ansible-playbook -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansib
 [MTU extensions in OpenStack Networking API v2.0][16]
 
 [16]: https://developer.openstack.org/api-ref/network/v2/index.html#mtu-extensions
+
+[LLDP][17]
+
+[17]: https://ovirt.org/develop/release-management/features/network/lldp/
+
+[AutoSync][18]
+
+[18]: http://ovirt.github.io/ovirt-engine-api-model/4.2/#types/open_stack_network_provider/attributes/auto_sync
+
+[Autodefine External Network][19]
+
+[19]: https://ovirt.org/develop/release-management/features/network/autodefine-external-network/
 
 ## Testing
 All test have to be checked using a VM with machine type rhel7.4.0 or later and

@@ -18,9 +18,9 @@ In principle, the user **vdsm**, with uid **36** and gid **36**, must have read 
 
         # chown 36:36 directory_name
 
-2. Add the **anonuid=36**, **anongid=36** and **all_squash** options on the export in **/etc/exports**.
+2. Add the **rw** options on the export in **/etc/exports**.
 
-        # /exports/directory_name       *(rw,anonuid=36,anongid=36,all_squash)
+        # /exports/directory_name       *(rw)
 
 3. Set the permissions of the export directory, replacing *directory_name* with the name of the directory:
 
@@ -28,8 +28,7 @@ In principle, the user **vdsm**, with uid **36** and gid **36**, must have read 
 
 4. The NFS server must actually be running.
 
-a. Ensure that the **nfs** and **rpcbind** services are running on the NFS server, Fedora 16 users should instead look for the **netfs** service.
-
+a. Ensure that the **nfs** and **rpcbind** services are running on the NFS server,
 b. Ensure that **showmount -e *<nfs_server_ip>*** shows the expected export(s).
 
 #### SELinux
@@ -46,6 +45,8 @@ The easiest way to definitively test that an NFS export is ready for use by oVir
 *   If the mount succeeds, then try to create a file in it via the **touch** command, i.e. **touch /tmpmnt/tempfile**
 
 #### ISO Domain
+
+##### TODO: Update to a current version
 
 The **engine-setup** command can optionally create an ISO domain and export it.
 
@@ -75,21 +76,22 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
 ### Setting NFS Server
 
 #### Debian Squeeze
+##### TODO: Update to current Debian
 
-      #> groupadd kvm -g 36
-      #> useradd vdsm -u 36 -g kvm
+     #> groupadd kvm -g 36
+     #> useradd vdsm -u 36 -g kvm
 
-      # mkdir /storage
+     # mkdir /storage
+ 
+     #> chmod 0755 /storage
+     #> chown 36:36 /storage/
+     #> cat /etc/exports
+     /storage    *(rw)
 
-      # chmod 0755 /storage
-      # chown 36:36 /storage/
+     #>/etc/init.d/nfs-kernel-server restart 
 
-      # cat /etc/exports
-      /storage    *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
 
-      # /etc/init.d/nfs-kernel-server restart 
-
-#### Fedora 16 or higher
+#### Fedora 26 or higher
 
       #> groupadd kvm -g 36
       #> useradd vdsm -u 36 -g kvm
@@ -102,17 +104,23 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
       # yum -y install nfs-utils
 
       # cat /etc/exports
-      /storage    *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
+      /storage    *(rw)
 
       # systemctl start rpcbind.service
       # systemctl start nfs-server.service
+      
+      # Relevant only for NFS v3
       # systemctl start nfs-lock.service 
+      
 
       # systemctl enable rpcbind.service
       # systemctl enable nfs-server.service
+       
+
+      # Relevant only for NFS v3
       # systemctl enable nfs-lock.service
 
-#### RHEL6 based distro
+#### RHEL7 based distro
 
       #> groupadd kvm -g 36
       #> useradd vdsm -u 36 -g kvm
@@ -123,11 +131,17 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
       # chown 36:36 /storage/
 
       # cat /etc/exports
-      /storage    *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
+      /storage    *(rw)
 
-      # /etc/init.d/nfs restart 
+      # systemctl enable rpcbind
+      # systemctl enable nfs-server
+      # systemctl start rpcbind 
+      # systemctl start nfs-server
+
 
 ## Workarounds for known issues
+
+#### TODO: update for the newer supported releases
 
 ### NFS Lockups
 
@@ -152,47 +166,3 @@ In this case it is a good idea to set the tcp window parameters on the NFS serve
 To activate these settings for the running server reload them with
 
        # sysctl -p 
-
-### NFS Storage Domain Failure on Fedora 17
-
-In the past, nodes running Fedora 17 kernels newer than 3.4 have trouble with NFS storage domains.
-This issue has been fixed in: vdsm-4.10.0-10.fc17
-Download: <http://koji.fedoraproject.org/koji/buildinfo?buildID=358280>
-More info: <https://bugzilla.redhat.com/show_bug.cgi?id=845660#c29>
- In case, you still use vdsm < 4.10.0-10, the workaround is to use the 3.4 kernel in F17.
-You can use grub2's SAVEDEFAULT option to keep the endpoint booted on 3.4.
-
-*   Confirm you have a 3.4 kernel
-
-       # rpm -qa | grep kernel-3.4
-      kernel-3.4.0-1.fc17.x86_64 
-
-*   Update default grub config to ensure 'saved default' works
-
-      $EDITOR /etc/default/grub
-       
-
-*   Ensure you have the following two lines
-
-      GRUB_SAVEDEFAULT=true
-      GRUB_DEFAULT=saved
-       
-
-*   Generate new grub config
-
-      # grub2-mkconfig -o /boot/grub2/grub.cfg
-       
-
-*   Reboot your system
-
-      # reboot
-       
-
-*   Interrupt boot sequence and select the 3.4 kernel under the 'Advanced' menu.
-*   Login and confirm you're running 3.4
-
-      # uname -a
-      Linux ichigo-dom228 3.4.0-1.fc17.x86_64 #1 SMP Sun Jun 3 06:35:17 UTC 2012 x86_64 x86_64 x86_64 GNU/Linux
-       
-
-*   Reboot once more and let it boot back up by itself and confirm it selected the 3.4 kernel

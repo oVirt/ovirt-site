@@ -20,19 +20,25 @@ title: Deploying oVirt and Gluster Hyperconverged
 
 **Installing the packages on the first host**
 
-1. Subscribe to ovirt repos from http://resources.ovirt.org/pub/yum-repo/
-   For instance, to subscribe to oVirt 4.1 repo,
+1. On all 3 hosts, subscribe to ovirt repos from https://resources.ovirt.org/pub/yum-repo/
+   For instance, to subscribe to oVirt 4.1 repo.
 
-        # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
+        # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
 
-2. Install gdeploy and cockpit-ovirt that will provide a UI for the installation. gdeploy is a wrapper tool around Ansible that helps to setup gluster volumes.
-      
-        # yum install gdeploy cockpit-ovirt-dashboard
+2. On all 3 hosts, install the following packages:
+      - cockpit-ovirt-dashboard (provides a UI for the installation)
+      - vdsm-gluster (plugin to manage gluster services)
 
-3. Install the oVirt Engine Virtual Appliance package for the Engine virtual machine installation:
+       # yum install cockpit-ovirt-dashboard vdsm-gluster 
 
-        # yum install ovirt-engine-appliance
+3. On the first host, install the following packages:
+      - ovirt-engine-appliance (for the Engine virtual machine installation)
+      - gdeploy (a wrapper tool around Ansible that helps to setup gluster volumes)
+ 
+       # yum install ovirt-engine-appliance gdeploy
 
+
+        
 ## Deploying on oVirt Node based Hosts
 
 **oVirt Node contains all the required packages to set up the hyperconverged environment.**

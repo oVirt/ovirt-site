@@ -4,7 +4,7 @@ title: Additional steps on a Hyperconverged setup
 
 # Chapter: Additional Steps on the Hyperconverged Setup
 
-The [blog](/blog/2017/04/up-and-running-with-ovirt-4.1-and-gluster-storage/) covers the steps involved once the Hosted Engine deployment succeeds.
+The [blog](/blog/2018/02/up-and-running-with-ovirt-4-2-and-gluster-storage/) covers the steps involved once the Hosted Engine deployment succeeds.
 
 To outline, next steps would be:
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: High Performance VM 
 category: feature
 authors: SharonG
@@ -110,8 +110,9 @@ Displayed in 'Random Generator' side-tab of the VM dialog.
 
 This option is automatically set using libvirt defaults ("Period duration"=1000 milliseconds) and can be changed by the user before saving.
 
-#### **Enable Multi Queues per Virtual Interface **
+#### **Enable Multi Queues per Virtual Interface**
 This is a new configuration setting added for oVirt 4.2.
+
 Displayed in 'Resource Allocation' side-tab of the VM dialog.
 
 #### **Set the IO and Emulator threads pinning topology**

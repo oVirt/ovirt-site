@@ -1,4 +1,4 @@
----
+﻿---
 title: High Performance VM 
 category: feature
 authors: SharonG
@@ -66,7 +66,6 @@ For Headless VM handling please see http://www.ovirt.org/develop/release-managem
 Displayed in console side-tab of the VM dialog.
 
 This is a new configuration setting added for oVirt 4.2.
-It will be supported only if Headless mode is enabled.
 
 #### **Disable the Sound Card device**
 Displayed in console side-tab of the VM dialog
@@ -111,6 +110,10 @@ Displayed in 'Random Generator' side-tab of the VM dialog.
 
 This option is automatically set using libvirt defaults ("Period duration"=1000 milliseconds) and can be changed by the user before saving.
 
+#### **Enable Multi Queues per Virtual Interface **
+This is a new configuration setting added for oVirt 4.2.
+Displayed in 'Resource Allocation' side-tab of the VM dialog.
+
 #### **Set the IO and Emulator threads pinning topology**
 This is a new configuration setting added for oVirt 4.2.
 
@@ -132,12 +135,6 @@ The automatic calculated pinning topology for IO and emulator threads will assum
  - In case the list of CPUs pinned to vCPUs and the list of CPUs pinned to IO+emulator threads are overlapping, a warning will be displayed in the log and the user will be asked to fix it.
 
  - Note that Pools are not supporting IO+Emulator threads pinning (since NUMA pinning is not supported for Pools, see "Enable virtual NUMA and set NUMA pinning topology" section for details).
-
-#### **Enable CPU cache layer 3**
-This is a new configuration setting added for oVirt 4.2.
-
-This configuration option in not displayed in UI and no settings are required for it.
-It is supported by libvirt since version 3.3.0 and therefore in case of running High Performance VM on a pinned host with libvirt installed version <  3.3.0, this option will be automatically disabled.
 
 ### List of manual configuration settings/warnings for High Performance VM
 

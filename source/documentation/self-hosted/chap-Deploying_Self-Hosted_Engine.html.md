@@ -10,11 +10,15 @@ title: Deploying Self-Hosted Engine
 
 **Installing the Self-Hosted Engine**
 
-1. Install the self-hosted engine packages:
+1. Add the official oVirt repository
+
+        # sudo yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+
+2. Install the self-hosted engine packages:
 
         # yum install ovirt-hosted-engine-setup
 
-2. Install the oVirt Engine Virtual Appliance package for the Engine virtual machine installation:
+3. Install the oVirt Engine Virtual Appliance package for the Engine virtual machine installation:
 
         # yum install ovirt-engine-appliance
 

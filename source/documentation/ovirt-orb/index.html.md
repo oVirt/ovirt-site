@@ -53,7 +53,7 @@ In order to run the `oVirt Orb`, you will need first to install Lago and some mo
 ## Getting oVirt Orb
 - Download `oVirt Orb`:
 
-  At the time of writing this document, latest `oVirt Orb` images are based on oVirt 4.2.2 and can be downloaded from [here](http://resources.ovirt.org/pub/ovirt-4.2/ovirt-orb/).
+  Current latest `oVirt Orb` images are based on oVirt 4.2.4 and can be downloaded from [here](http://resources.ovirt.org/pub/ovirt-4.2/ovirt-orb/).
   You will need to download both the `ovirt-orb-*.tar.xz` and `ovirt-orb-*.tar.xz.md5`
 - Verify that archive is not broken or tampered with:
 

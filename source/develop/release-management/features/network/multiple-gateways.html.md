@@ -30,7 +30,12 @@ Previously users solved the issue with source routing manually, this feature sim
 
 ## Why do we need multiple gateways?
 
-Now, oVirt assumes that the host's default gateway is the gateway defined on the ovirtmgmt network. With that in mind: Multiple oVirt users use this network topology:
+The need for a gateway per network has emerged from the need to support other host networks (not VM networks) beside the management one.
+
+As an example, migration and storage networks can be defined, each passing dedicated traffic (one for storage communication and another for VM migration traffic), they may need to pass through different gateways.  So the management network can be accessed using gateway A, storage using B and migration using C. A will usually be set on a host level as the host default gateway, and the others will be set for the individual networks.  Otherwise, there would be no way for your storage to use a different router (than the management one) in the network.
+
+
+oVirt assumes that the host's default gateway is the gateway defined on the ovirtmgmt network. With that in mind: Multiple oVirt users use this network topology:
 
 ![](/images/wiki/Multiple_Gateways_Topology.png)
 

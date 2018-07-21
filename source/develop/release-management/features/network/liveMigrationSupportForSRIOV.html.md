@@ -87,41 +87,27 @@ reattached to that bond. In the context of this feature, we would supply
 the el7 hooking mechanism to make it happen seamlessly in the future, while
 currently migration is possible using the following procedure via NetworkManager:
 
-* Create the bond (with ens3 being the passthrough interface in this example):
+&#8226; Edit the virtIo vNIC profile (eth0) with 'No Filter' filter<br>
+&#8226; Run VM with 2 nics. virtIo and sr-iov<br>
+&#8226; Remove the NM_CONTROLLED=no line from the ifcfg-eth0 file that generated via dracut installation<br>
+&#8226; Reload eth0:<br>
 
-        ~]$ nmcli con add type bond con-name bond0 ifname bond0 mode active-backup primary ens3
-        Connection 'bond0' (9301ff97-abbc-4432-aad1-246d7faea7fb) successfully added.
+    nmcli con reload eth0
+&#8226; Add the VF's connection:
 
-* Add the interfaces to the bond:
+    nmcli connection add type ethernet con-name ens3 ifname ens3
+&#8226; Create the bond:
 
-        ~]$ nmcli con add type bond-slave ifname eth0 master bond0
-        Connection 'bond-slave-eth0' (50c59350-1531-45f4-ba04-33431c16e386) successfully added.
-        ~]$ nmcli con add type bond-slave ifname ens3 master bond0
-        Connection 'bond-slave-ens3' (70c5f150-2643-82f3-fa61-48444d28b182) successfully added.
+    nmcli connection add type bond con-name bond0 ifname bond0 mode active-backup primary ens3
+&#8226; Modify the boot protocols of the bond and the future slaves:
 
-* Bring up the interfaces:
+    nmcli connection modify id bond0 ipv4.method auto ipv6.method ignore
+    nmcli connection modify id ens3 ipv4.method disabled ipv6.method ignore
+    nmcli connection modify id eth0 ipv4.method disabled ipv6.method ignore
+&#8226; Add the slaves to the bond:
 
-        ~]$ nmcli con up eth0
-        (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/14)
-        ~]$ nmcli con up ens3
-        (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/15)
+    nmcli connection modify id ens3 connection.slave-type bond connection.master bond0 connection.autoconnect yes
+    nmcli connection modify id eth0 connection.slave-type bond connection.master bond0 connection.autoconnect yes
+&#8226; Bring up the bond:
 
-* Finally, bring up the bond:
-
-        ~]$ nmcli con up bond0
-        (D-Bus active path: /org/freedesktop/NetworkManager/ActiveConnection/16)
-
-The active slave should be the primary slave as configured:
-
-    ~$] cat /sys/class/net/bond0/bonding/active_slave
-    ens3
-
-Hot unplugging the primary slave should activate the backup slave:
-
-    ~$] cat /sys/class/net/bond0/bonding/active_slave
-    eth0
-
-Hot plugging the primary slave back should return it to active state:
-
-    ~$] cat /sys/class/net/bond0/bonding/active_slave
-    ens3
+    nmcli connection down id ens3; nmcli con up id ens3; nmcli con down id eth0; nmcli con up id eth0; nmcli con up bond0

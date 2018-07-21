@@ -173,7 +173,7 @@ will be with the same QCOW compatibility version through a REST update command w
 
 ### Fetch QCOW compat for a disk through REST API
 
-Important: The disk's attribute `QcowCompat` will only be presented for QCOW volumes only as opposed to RAW disks.
+Important: The disk's attribute `QcowCompat` will only be presented for QCOW volumes as opposed to RAW disks.
 The QCOW compat can be fetched using the following REST APIs:
 
 ```xml
@@ -228,6 +228,16 @@ Here is an example of the reponse output:
 
 These operations will be disabled if the VM is running or if those disks are locked (for example copy, move, delete).
 
+#### General Information
+1. The "Default" Template's QCOW volume will have an arbitrary QCOW compat version of 0.10 compat version.
+2. Imported VMs/Templates from an export might have disks which contain QCOW volumes. the engine should update their compatibility level once the copy will be done based on the destination storage domain's version.
+3. The compatibility level of QCOW volumes will be determined only from the storage domain, and will not be dependant on the OVF.
+The compatibility level will not be part of the snapshot's OVF since this information might be misleading and not synced with the volume's qcow compat version.
+4. Registering unregistered entities such as VM/Template/Disk from an imported storage domain, will register the entities' disks or the disks them selfs with their existing QCOW compat level. The engine will query the Host for the compatibility level each time an entity with a disk (or a floating disk) will be registered to the setup and update it in the DB.
+5. Live move or Live copy should set all the volumes of each new copied/moved volume with the compatibility level determined by the destination storage domain's version. A QCOW volume created on a V3 storage domain which will be copied to a V4 storage domain will be created as a QCOW volume with compatibility level of 1.1 although the original QCOW volume had compatibility level of 0.10.
+6. Live snapshot will be created as a new QCOW volume. Its compatibility level will be determined by the storage domain's version. It could be that a V3 Storage Domain will be upgraded to V4 and an existing QCOW volume will be with compatibility level of 0.10, once live snapshot will be performed, the new volume will be created with compatibility level of 1.1. That means that the active volume which the VM is writing to will be with the new compatibility level of 1.1, and the new created snapshot, which is acctually the old active volume, will keep its existing compatibility level of 0.10
+
+
 #### Troubleshooting
 
 If an exception will occur or a volume will not seem to be updated here are few operations that might help diagnose the operation more intensly:
@@ -257,14 +267,15 @@ There are two types of QCOW_versions:
  qcow2_v3 (QCOW compat 1.1)
 
 ```xml
-PUT http://localhost:8080/ovirt-engine/api/storagedomains/123/disks/111 HTTP/1.1
+PUT http://localhost:8080/ovirt-engine/api/vms/2222/diskattachments/111 HTTP/1.1
 Accept: application/xml
 Content-type: application/xml
 
-<disk>
-    <qcow_version>qcow2_v3</qcow_version>
-</disk>
-```
+<disk_attachment>
+    <disk>
+        <qcow_version>qcow2_v3</qcow_version>
+    </disk>
+</disk_attachment>```
 
 The upgrade volume operation amends all the QCOW volumes in the image,
 that also include old snapshots even if new active volume created upon them with compat level 1.1.

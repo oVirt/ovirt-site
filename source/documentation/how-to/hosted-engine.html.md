@@ -66,19 +66,19 @@ To deploy the self-hosted engine using the Cockpit user interface, follow these 
 1. Install the cockpit-ovirt-dashboard package:
 
         # yum install cockpit-ovirt-dashboard
-       
+
 2. Start and enable cockpit:
 
         # systemctl enable cockpit.socket
         # systemctl start cockpit.socket
-        
+
 3. Allow access to Cockpit in the firewall:
 
         # firewall-cmd --add-service=cockpit --permanent
         # firewall-cmd --reload
-        
+
 4. Log in to the UI at https://HostIPorFQDN:9090
-   
+
    By default, you should get a warning/popup from your browser about a self-signed certificate, unknown issuer, or something like that. Accept it, or see for [more details](http://cockpit-project.org/guide/149/https.html)
 5. Navigate to *Virtualization* > *Hosted Engine*
 6. Select *Hosted Engine Only Deployment*
@@ -281,7 +281,7 @@ The measured times assume the network is fine and the VM either crashed or respo
 
 When the hosted engine VM is down for some reason the agent(s) will try to start it again. There is no synchronization between agents while starting the VM, so it might happen that more than one agent will try to start the VM at the same time. This is intended behavior because only one host can actually acquire the lock and run the VM. The host which failed the acquire the log will print an error to the vdsm.log: 'Failed to acquire lock: error -243'. The agent will move to the EngineUnexpectedlyDown state, because it failed to start the VM, but it will sync in a while once the timeout expires (you can grep the agent.log for "Timeout" to get the specific time when it should sync).
 
-### Recoving from failed install
+### Recovering from failed install
 
 If your hosted engine install fails, you have to manually clean up before you can reinstall. Exactly what needs to be done depends on how far the install got before failing. Here are the steps I've used, base on this [thread from the mailing list](https://lists.ovirt.org/pipermail/users/2014-May/024423.html):
 
@@ -333,3 +333,76 @@ If your hosted engine install fails, you have to manually clean up before you ca
        echo "! error removing $d"
        exit 1
     done
+
+### Purging Ovirt and supporting packages to allow Clean Reinstall
+The following is an example ansible script snippet that should clean the system so that no cruft remains to interfere wiht a new install.  You SHOULD NOT be running this on the machine which is the target.  Run this from a separate machine.
+
+<!-- -->
+
+    - name: Clean Old Install
+      #This attempts to remove all old cruft from previous install attempts
+      #The reason we include the ovirt packages is so that they can be reinstalled
+      #At potentially newer versions along with dependency packages
+      block:
+        - name: Detect existing cleanup script
+          shell: which ovirt-hosted-engine-cleanup | cat
+          register: ohes_cleanup
+        - name: Debug ohes_cleanup.stdout
+          debug:
+            var: ohes_cleanup.stdout
+        - name: Run Ovirt's Hosted Engine Cleanup Script
+          shell: ovirt-hosted-engine-cleanup -q
+          when: ohes_cleanup.stdout != ""
+        - name: Clean old packages
+          package:
+            name: "{{item}}"
+            state: absent
+          with_items:
+            - "*vdsm*"
+            - "*ovirt*"
+            - "*libvirt*"
+            - "*cockpit*"
+        - name: Remove old configs etc
+          shell: "rm -rf /etc/{{item}}"
+          args:
+            warn: False
+          with_items:
+            - "/etc/*ovirt*"
+            - "/etc/*vdsm*"
+            - "/etc/libvirt/qemu/HostedEngine*"
+            - "/etc/*libvirt*"
+            - "/etc/guacamole"
+            - "/etc/pki/vdsm"
+            - "/etc/pki/libvirt"
+            - "/etc/pki/CA"
+            - "/etc/pki/keystore"
+            - "/etc/ovirt-hosted-engine"
+            - "/var/lib/libvirt/"
+            - "/var/lib/vdsm/"
+            - "/var/lib/ovirt-hosted-engine-*"
+            - "/var/log/ovirt-hosted-engine-setup/"
+            - "/var/cache/libvirt/"
+            - "/etc/libvirt/nwfilter/vdsm-no-mac-spoofing.xml"
+        - name: Clean old repo files
+          #This allows you to switch repos from snapshots to release etc.
+          shell: "rm -rf /etc/yum.repos.d/{{item}}"
+          args:
+            warn: False
+          with_items:
+            - "ovirt*"
+            - "virt*"
+        - name: clean interface configs
+          shell: "rm -rf /etc/sysconfig/network-scripts/ifcfg-ovirtmgmt"
+          args:
+            warn: False
+        - name: clean network stuff
+          shell: "{{item}}"
+          args:
+            warn: False
+          with_items:
+            - "brctl delbr ovirtmgmt | cat"
+            - "ip link del ovirtmgmt | cat"
+            - "ip link del dummy0 | cat"
+            - "ip link del virbr0 | cat"
+            - "ip link del virbr0-nic | cat"
+            - 'ip link del \;vdsmdummy\; | cat'

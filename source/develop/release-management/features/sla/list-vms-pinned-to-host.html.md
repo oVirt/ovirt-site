@@ -4,7 +4,7 @@ category: feature
 authors: akrejcir
 feature_name: List VMs pinned to a host
 feature_modules: engine
-feature_status: design
+feature_status: Done
 ---
 
 # List VMs pinned to a host
@@ -17,7 +17,6 @@ It can be useful to list all VMs that are pinned to a chosen host.
 ## Changes in this feature
 - Add new query to the engine, to retrieve all VMs pinned to a Host.
 - Add a DB call to get all VMs pinned to a host.
-- Expose a way to get all VMs pinned to a host through REST API.
 - Show the pinned VMs in the webadmin in `Host` details page.
 
 ### New query
@@ -25,28 +24,25 @@ A new query `GetVmsPinnedToHostQuery` is added to get all VMs pinned to a host.
 It uses a simple SQL function.
 
 
-### REST API
-Possibilities to expose the new query through the REST API:
-
-- Extend the `search` parameter of the `vms` REST endpoint to get VMs pinned to a host. For exaxmple:
-
-  ```
-  /ovirt-engine/api/vms?search='pinned-to={host-id}'
-  ```
-
-- Add a REST endpoint that returns all VMs pinned to a host. For example:
-
-  ```
-  /ovirt-engine/api/hosts/{host-id}/pinned-vms
-  ```
-
 ### Webadmin
-There will be two tables in the `Virtual Machines` sub-tab in the host details page.
-One for running VMs and the other for pinned VMs:
+The table in the `Virtual Machines` detail tab of the `Host` entity shows
+running VMs and pinned VMs. A radio button on top of it can be used to
+show only one of the groups.
 
-![](/images/wiki/VMs_pinned_to_host.png)
+![](/images/wiki/VMs_on_host_all.png)
+
+
+![](/images/wiki/VMs_on_host_running.png)
+
+
+![](/images/wiki/VMs_on_host_pinned.png)
+
+
+### REST API
+In REST API, the pinning information is part of the VM object.
+One API call can be made to get all VMs in a cluster and then
+those not pinned to a specific host can be filtered out.
 
 
 ## References
-- RFE in bugzilla: [Bug 1428498](https://bugzilla.redhat.com/show_bug.cgi?id=1428498)
-- Gerrit patch with the query to get VMs pinned to a host: [oVirt gerrit 80870](https://gerrit.ovirt.org/#/c/80870/)
+- RFE in Bugzilla: [Bug 1428498](https://bugzilla.redhat.com/show_bug.cgi?id=1428498)

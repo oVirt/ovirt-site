@@ -1,13 +1,17 @@
 ---
 title: oVirt Image I/O
 category: feature
-authors: aaviram, gpadgett
+authors: aaviram, gpadgett, nsoffer, derez
 feature_name: Image I/O
 feature_modules: Engine, Storage, VDSM, ovirt-imageio
-feature_status: Partially implemented.
+feature_status: Released
 ---
 
 # oVirt Image I/O
+
+## Documentation
+
+http://ovirt.github.io/ovirt-imageio/
 
 ## Summary
 
@@ -20,6 +24,7 @@ Before introducing this feature, placing images on oVirt's domains involved usin
 *   Name: Greg Padgett <gpadgett@redhat.com>
 *   Name: Amit Aviram <aaviram@redhat.com>
 *   Name: Nir Soffer <nsoffer@redhat.com>
+*   Name: Daniel Erez <derez@redhat.com>
 
 ## Detailed Description
 
@@ -185,7 +190,7 @@ For a detailed information and examples regarding the usage of the Image I/O RES
 
 *   Uploading large files via the UI requires HTML5 APIs (File, Blob, FileReader, ...) that were not supported in IE until IE10.
 
-## Documentation / External references
+## External references
 
 *   <https://bugzilla.redhat.com/1091377>
 *   <https://bugzilla.redhat.com/1122970>

@@ -48,10 +48,10 @@ The purpose of this page is primarily to align the community experience with the
 
 3. Install the Third-Party Packages
 
-        # yum install git java-devel maven openssl postgresql-server \
+        # yum install git java-devel maven openssl postgresql-server postgresql-contrib \
             m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
             unzip pyflakes python-pep8 python-docker-py mailcap python-jinja2 \
-            python-dateutil
+            python-dateutil gdeploy 
 
 3. Application Servers
 
@@ -133,6 +133,7 @@ Note: javassit used in some of the unit tests hits a regression introduced in ja
 
         su - postgres -c "psql -d template1 -c \"create user engine password 'engine';\""
         su - postgres -c "psql -d template1 -c \"create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';\""
+        su - postgres -c "psql -d template1 -c \"CREATE EXTENSION "uuid-ossp";\""
 
 ### Source
 

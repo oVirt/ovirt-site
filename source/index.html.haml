@@ -114,20 +114,6 @@ hide_metadata: true
         :markdown
           [See more...](/community/user-stories/user-stories/)
 
-.container
-  .row
-    .col-md-12
-      %section.blog-posts
-
-        %h2
-          = data.site.name
-          Blog
-
-        = partial :blog_posts, locals: {limit: 3}
-
-        %div.textViewAllItems
-          = link_to 'See more...', '/blog/'
-        %hr/
 
 .container
   .row
@@ -139,7 +125,7 @@ hide_metadata: true
             :href => 'https://twitter.com/ovirt',
             'data-chrome' => 'noheader nofooter noborders noscrollbar transparent',
             'data-dnt' => true,
-            'data-tweet-limit' => 3,
+            'data-tweet-limit' => 6,
             'data-link-color' => '#61b60e',
             'data-show-replies' => false,
             'data-widget-id' => '615488920038420480'
@@ -168,23 +154,18 @@ hide_metadata: true
           %a.textViewAllItems{href: twitter_options[:href]} See more...
 
     .col-md-6
-      %div
-        %h3 Community is Key
-        %img(src="/images/promo/join_ovirt.jpg")
-        :markdown
-          oVirt is a community-driven virtualization project, and people like you are making it happen! You don't have to be a programmer.
-          The project will greatly benefit from inputs by documentation, bug reporting, UX, and design superheroes.
+      %section.blog-posts
 
-          Stay in the loop about the latest features, upcoming events and other community-related developments by joining us on oVirt's social media channels:
+        %h2
+          = data.site.name
+          Blog
 
-          {:.icon-list}
-          * [Twitter](//twitter.com/ovirt){:.icon-twitter}
-          * [Google+](//plus.google.com/u/0/communities/109346090491400112913){:.icon-google-plus}
-          * [Facebook](//www.facebook.com/groups/ovirt.openvirtualization/){:.icon-facebook}
-          * [YouTube](//www.youtube.com/user/ovirtproject){:.icon-youtube}
+        = partial :blog_posts, locals: {limit: 2}
 
-      %div.see_all_events
-        = link_to 'Check out our Upcoming events', '/events/'
+        %div.textViewAllItems
+          = link_to 'See more...', '/blog/'
+        %hr/
+
 
 - content_for :tail do
   :coffee

@@ -15,27 +15,5 @@
 
 %header#branding.masthead.hidden-print(role="banner")
   %section.hgroup
-    %h1
-      ~ link_to "/" do
-
-        - if logo
-
-          - if logo.match /.svg$/ and graphic_exists logo
-
-            - fallback = logo.gsub /.svg$/, '.png'
-            ~ make_logo 'svg'
-
-          - else
-
-            ~ make_logo
-
-        - else
-
-          ~ data.site.name
-
-    - if data.site.subhead
-      %h2#site-title
-        = data.site.subhead
-
   #access
     = partial :nav, locals: { source: "navigation", nav_class: "nav-pills" }

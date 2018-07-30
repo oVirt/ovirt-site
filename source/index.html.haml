@@ -11,65 +11,50 @@ hide_metadata: true
   %link(href="/blog/feed.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
 
 
-%section.intro
-  .container{:style => "width: 970px; max-width: 100%;" }
-    %div{:style => "text-center: center;" }
-      %div{ :style => "background-image: url(/images/promo/4dot2_banner.png); background-repeat: no-repeat; background-position-y: -20px;" }
-        %div{:style => "text-center: center;" }
-          %div{:style => "display: table; margin: 0 auto; padding-left: 200px; font-size: 20px; padding-top: 195px; color:#666666; line-height: 1.8; text-align: left;" }
-            :markdown
-              * All new Administration Portal, for a more intuitive user experience
-              * High performance VM type, approaching bare-metal performance
-              * Support for OVN, enabling users to define overlays within oVirt
-              * Support for Nvidia vGPU, for GPU-accelerated workloads
-              * and [much more](/blog/2017/12/ovirt-4.2.0-now-ga/)
+%section.intro(style="font-family: 'Open Sans', sans-serif !important; color: #666; text-align: center; min-height: 50vh; display: flex; align-items: center;")
+  .container
+    .row
+      .col-xs-12
+        %h1(style="font-family: 'Open Sans', sans-serif; font-weight: 900") POWERFUL OPEN SOURCE VIRTUALIZATION
+      .col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
+        %p(style="font-size: 1.5em") oVirt is a free open-source virtualization solution for your entire enterprise
+      .col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
+        %a.btn.btn-primary(href="/download") Download 4.2.5
+        %a.btn.btn-primary(href="/release/4.2.5/") Release Notes
+
 
 - if defined? page_number && page_number < 2
 
   -# First-page only stuff here
   -# (If a blog is included below, then it may paginate)
 
-.release
-  .container
-    :ruby
-      # Rely on either a releases.yml or scan the release directory
-      # (Hard-coding release version & date is temporary)
-      release_version = '4.2.5'
-      release_date = '2018-07-30'.to_date
-
-    :markdown
-      {:.pull-left}
-      [Get started with oVirt #{release_version} (#{release_date})](/download/)
-
-
-      {:.pull-right}
-      [Read the release notes](/release/#{release_version}/)
-
 %div.promo_whatisovirt
   .container
     .row
       .col-md-8
-        %h2 What is oVirt?
-        %div
+        %h2(style="font-family: 'Open Sans', sans-serif") COMMUNITY POWERED
+        %div(style="font-family: 'Open Sans', sans-serif")
           :markdown
-            oVirt is a complete virtualization management platform, licensed and developed as
-            open source software.
-            oVirt builds on the powerful kernel based virtual machine (KVM hypervisor) and on
-              the RHEV-M management server, released by Red Hat to the open source community.
+            oVirt is an open-source distributed virtualization solution, designed to manage your entire enterprise infrastructure.
+            oVirt uses the trusted KVM hypervisor and is built upon several other community projects, including libvirt, Gluster, PatternFly, and Ansible.
       .col-md-4
         %div
-          %img(src="/images/promo/kvm_illustration.png")
+          %img(src="/images/logos/kvm.png" style="max-width: 80%")
+          %img(src="/images/logos/libvirt.png" style="max-width: 80%")
+          %img(src="/images/logos/gluster.jpg" style="max-width: 90%")
+          %img(src="/images/logos/patternfly.png" style="max-width: 90%")
+          %img(src="/images/logos/ansible.png" style="max-width: 90%")
 
 %div.promo_features
   .container
     .row
       .col-md-8
-        %h2 What's included?
-        %div
+        %h2(style="font-family: 'Open Sans', sans-serif") What's included?
+        %div(style="font-family: 'Open Sans', sans-serif")
           :markdown
             * Rich web-based user interfaces for both admin and non-admin users
-            * Live migration of virtual machines and disks between hosts and storage
             * Integrated management of hosts, storage, and network configuration
+            * Live migration of virtual machines and disks between hosts and storage
             * High availability of virtual machines in the event of host failure
 
       .col-md-4
@@ -78,7 +63,7 @@ hide_metadata: true
 
 %div.promo_casestudy
   .container
-    %h2 Case Studies
+    %h2(style="font-family: 'Open Sans', sans-serif") Case Studies
     %div.carousel-inner.text-center
     :ruby
       studies = sitemap.resources.select do |p|
@@ -110,7 +95,7 @@ hide_metadata: true
 
   %div
     .container
-      .textViewAllItems
+      .textViewAllItems(style="font-family: 'Open Sans', sans-serif")
         :markdown
           [See more...](/community/user-stories/user-stories/)
 
@@ -118,8 +103,8 @@ hide_metadata: true
 .container
   .row
     .col-md-6
-      %h2 @oVirt on Twitter
-      .twitter-widget
+      %h2(style="font-family: 'Open Sans', sans-serif") @oVirt on Twitter
+      .twitter-widget(style="font-family: 'Open Sans', sans-serif")
         :ruby
           twitter_options = {
             :href => 'https://twitter.com/ovirt',
@@ -151,12 +136,12 @@ hide_metadata: true
 
         .more-link.pull-left
           -# More link under the widget
-          %a.textViewAllItems{href: twitter_options[:href]} See more...
+          %a.textViewAllItems(style="font-family: 'Open Sans', sans-serif"){href: twitter_options[:href]} See more...
 
     .col-md-6
       %section.blog-posts
 
-        %h2
+        %h2(style="font-family: 'Open Sans', sans-serif")
           = data.site.name
           Blog
 

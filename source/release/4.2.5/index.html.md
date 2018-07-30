@@ -6,21 +6,13 @@ layout: toc
 
 # oVirt 4.2.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.2.5 Third Release Candidate as of July 24, 2018.
+The oVirt Project is pleased to announce the availability of the 4.2.5 release as of July 30, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.5,
 CentOS Linux 7.5 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -36,21 +28,25 @@ To learn about features introduced before 4.2.5, see the [release notes for prev
 ### CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
+
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 
 
@@ -93,14 +89,14 @@ packages from other repos.
 
 #### oVirt Engine
 
- - [BZ 1605076](https://bugzilla.redhat.com/1605076) <b>[downstream clone - 4.2.5] Config values inconsistency between RHV versions</b><br>We have found out inconsistencies in our internal configuration options:<br><br>HotPlugCpuSupported<br>HotUnplugCpuSupported<br>HotPlugMemorySupported<br>HotUnplugMemorySupported<br>IsMigrationSupported<br>IsMemorySnapshotSupported<br>IsSuspendSupported<br>ClusterRequiredRngSourcesDefault<br><br>So if RHV 4.1/4.2 customers, who upgraded from RHV 4.0, have issues around above features, they need to upgrade to RHV 4.2.5+.
+ - [BZ 1605076](https://bugzilla.redhat.com/1605076) <b>[downstream clone - 4.2.5] Config values inconsistency between RHV versions</b><br>There were inconsistencies in the following internal configuration options:<br><br>* HotPlugCpuSupported<br>* HotUnplugCpuSupported<br>* HotPlugMemorySupported<br>* HotUnplugMemorySupported<br>* IsMigrationSupported<br>* IsMemorySnapshotSupported<br>* IsSuspendSupported<br>* ClusterRequiredRngSourcesDefault<br><br>If you are having issues with these features, upgrade to Red Hat Virtualization 4.2.5+ to resolve the problem.
 
 ### Enhancements
 
 #### oVirt Engine
 
  - [BZ 1568893](https://bugzilla.redhat.com/1568893) <b>Alert when guaranteed capacity reaches a threshold value</b><br>Feature: Notification on running our of physical space.<br><br>Reason: With VDO and Thin pool support, users may see more space, that it is available physically. This is totally fine and with VDO it is an expected behavior. At the same time, we can't predict, how much data user will be able to actually write. Because of that, to keep user informed, we would like to notify him, when he is running out of physical space and, at the same time, show him how much confirmed space he have.<br><br>Result: When actually used space of the thin device goes above configured threshold, event will be issued.
- - [BZ 1590202](https://bugzilla.redhat.com/1590202) <b>[RFE] Disable Event notification popup in admin portal</b><br>
+ - [BZ 1608362](https://bugzilla.redhat.com/1608362) <b>[downstream clone - 4.2.5] [RFE] Disable Event notification popup in admin portal</b><br>This update adds a feature to control pop up notifications. Once 3 or more notifications are showing, "Dismiss" and "Do not disturb" buttons will appear that allow the user to silence notifications.
  - [BZ 1572158](https://bugzilla.redhat.com/1572158) <b>[RFE] add disk sizes in Disk general tab</b><br>
  - [BZ 1574771](https://bugzilla.redhat.com/1574771) <b>[RFE] Provide a friendly interface (UI + REST) for virtio multiqueue network interfaces</b><br>Feature: Multi Queue<br><br>Reason: Better performance.<br><br>Result: This feature is adding new property to the VM, 'Multi Queues Enabled'.<br>'Multi Queues' will be enabled by default.<br><br>Each vnic of a VM with 'Multi Queue' enabled will get min(num_of_vCpus, 4) queues.<br><br>Note: Queues configured via the vnic profile's custom properties will override the 'Mutli Queues'.
  - [BZ 1591730](https://bugzilla.redhat.com/1591730) <b>[RFE] allow a ui-plugin to set an icon on its left nav</b><br>This feature allows ui plugins to set an icon on their main menu navigation item.
@@ -123,6 +119,10 @@ packages from other repos.
 
  - [BZ 1511234](https://bugzilla.redhat.com/1511234) <b>[RFE] Hook for booting from Passthrough Devices</b><br>The new boot_hostdev hook allows virtual machines to boot from passed through host devices such as NIC VF's, PCI-E SAS/RAID Cards, SCSI devices for example without requiring a normal bootable disk from a Red Hat Virtualization storage domain or direct LUN.
 
+#### oVirt Provider OVN
+
+ - [BZ 1593676](https://bugzilla.redhat.com/1593676) <b>[RFE] Provide static routes support for routers</b><br>This feature adds static routes support to ovirt-provider-ovn, as specified in<br>https://developer.openstack.org/api-ref/network/v2/#routers-routers<br><br>The appropriate REST request for this is as follows:<br>{<br>"router": {<br>  "routes": [<br>   {<br>      "destination": "179.24.1.0/24",<br>       "nexthop": "172.24.3.99"<br>   },<br>  ...
+
 #### oVirt Engine Dashboard
 
  - [BZ 1591730](https://bugzilla.redhat.com/1591730) <b>[RFE] allow a ui-plugin to set an icon on its left nav</b><br>This feature allows ui plugins to set an icon on their main menu navigation item.
@@ -131,7 +131,7 @@ packages from other repos.
 
 #### oVirt Engine
 
- - [BZ 1596234](https://bugzilla.redhat.com/1596234) <b>[downstream clone - 4.2.5] Virtual machine lost its cdrom device</b><br>previously an ejected CDROM from VM could cause a problem when VM's Cluster level was updated from e.g. 4.1 to 4.2. Such CDROM device was lost and VM couldn't really use CDs anymore.<br>Now that has been fixed and CDROM devices should remain intact during upgrades regardless if they are in use or ejected.
+ - [BZ 1596234](https://bugzilla.redhat.com/1596234) <b>[downstream clone - 4.2.5] Virtual machine lost its cdrom device</b><br>Previously, when a virtual machine's cluster level was updated (for example, from 4.1 to 4.2), ejected CD-ROM devices could be lost, and the virtual machine was sometimes unable to use CDs anymore. This has now been fixed so that CD-ROM devices remain intact during upgrades regardless of whether they are in use or ejected.
 
 #### VDSM
 
@@ -142,7 +142,6 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1607149](https://bugzilla.redhat.com/1607149) <b>[downstream clone - 4.2.5] OVN network synchronization not working after replacing the RHV-M tls certificate with a commercial one</b><br>
- - [BZ 1590943](https://bugzilla.redhat.com/1590943) <b>hosted-engine VM created with node zero misses the console device</b><br>
  - [BZ 1596523](https://bugzilla.redhat.com/1596523) <b>Guaranteed free space implementation differs between replica and arbiter volumes</b><br>
  - [BZ 1584325](https://bugzilla.redhat.com/1584325) <b>Search bar is case sensitive</b><br>
  - [BZ 1605198](https://bugzilla.redhat.com/1605198) <b>[downstream clone - 4.2.5] Hit Xorg Segmentation fault while installing rhel7.4 release guest in RHV 4.2 with QXL</b><br>
@@ -154,7 +153,6 @@ packages from other repos.
 
 #### oVirt Hosted Engine Setup
 
- - [BZ 1590943](https://bugzilla.redhat.com/1590943) <b>hosted-engine VM created with node zero misses the console device</b><br>
  - [BZ 1588720](https://bugzilla.redhat.com/1588720) <b>A system wide proxy with no exception for the engine FQDN will cause a "Failed connect to <ManagerFQDN>:443; No route to host"</b><br>
 
 #### cockpit-ovirt
@@ -167,6 +165,10 @@ packages from other repos.
 
  - [BZ 1597289](https://bugzilla.redhat.com/1597289) <b>ovirt-epel repository is enabled in oVirt node</b><br>
 
+#### oVirt image transfer daemon and proxy
+
+ - [BZ 1591534](https://bugzilla.redhat.com/1591534) <b>[RFE] [v2v] imageio performance  - support keep alive connections</b><br>
+
 #### oVirt Engine
 
  - [BZ 1602804](https://bugzilla.redhat.com/1602804) <b>NPE in Add/RemoveFenceAgentCommand</b><br>
@@ -177,14 +179,13 @@ packages from other repos.
  - [BZ 1583516](https://bugzilla.redhat.com/1583516) <b>[AutoDefine] - The external sync of the AutoSyncCommand attaching all external_networks to all clusters type</b><br>
  - [BZ 1550120](https://bugzilla.redhat.com/1550120) <b>Upgrade ovirt-engine-wildfly to 13.0.0 Final</b><br>
  - [BZ 1586019](https://bugzilla.redhat.com/1586019) <b>[SR-IOV] - VF leakage when shutting down a VM from powering UP state</b><br>
- - [BZ 1360839](https://bugzilla.redhat.com/1360839) <b>[RFE] Engine should support networks that have ipv6autoconf and DHCPv6 in parallel.</b><br>
  - [BZ 1535001](https://bugzilla.redhat.com/1535001) <b>ovn localnet: read custom bridge/vlan from external provider to populate UI (and possibly REST too)</b><br>
  - [BZ 1447637](https://bugzilla.redhat.com/1447637) <b>[RFE] engine should report openvswitch package versions on each host</b><br>
  - [BZ 1526799](https://bugzilla.redhat.com/1526799) <b>[UI] - Add/Edit VM's vNIC dropdown: add external provider indication if relevant</b><br>
  - [BZ 1595857](https://bugzilla.redhat.com/1595857) <b>Add input validation for FenceProxyDefaultPreferences in engine-config</b><br>
  - [BZ 1586126](https://bugzilla.redhat.com/1586126) <b>After upgrade to RHV 4.2.3, hosts can no longer be set into maintenance mode.</b><br>
  - [BZ 1601227](https://bugzilla.redhat.com/1601227) <b>image upload - command failure on resume</b><br>
- - [BZ 1598594](https://bugzilla.redhat.com/1598594) <b>Live merge fails on the RHV-M Engine with "Invalid UUID string: payload" followed by exception.</b><br>
+ - [BZ 1608348](https://bugzilla.redhat.com/1608348) <b>[downstream clone - 4.2.5] Live merge fails on the RHV-M Engine with "Invalid UUID string: payload" followed by exception.</b><br>
  - [BZ 1599054](https://bugzilla.redhat.com/1599054) <b>Fix APIv3 deprecated/removed message</b><br>
  - [BZ 1563122](https://bugzilla.redhat.com/1563122) <b>Useless error message: 'Engine server is not responding' (NOT on hosted-engine, regular engine)</b><br>
  - [BZ 1585641](https://bugzilla.redhat.com/1585641) <b>REST API doesn't return display -> type element for VM in VMpool with All-content header</b><br>
@@ -234,15 +235,12 @@ packages from other repos.
 
  - [BZ 1605172](https://bugzilla.redhat.com/1605172) <b>[downstream clone - 4.2.5] VM was destroyed on destination after successful migration due to missing the 'device' key on the lease device</b><br>
  - [BZ 1607860](https://bugzilla.redhat.com/1607860) <b>[downstream clone - 4.2.5] vdsm-tool upgrade-networks fails with KeyError: 'defaultRoute'</b><br>
+ - [BZ 1481022](https://bugzilla.redhat.com/1481022) <b>When blocking connection between host and NFS storage, a running VM doesn't switch to paused mode</b><br>
  - [BZ 1570562](https://bugzilla.redhat.com/1570562) <b>vdsm is dead after upgrade to vdsm-4.20.26-1.el7ev.x86_64</b><br>
  - [BZ 1597113](https://bugzilla.redhat.com/1597113) <b>Run VM fails on 'Bad volume specification' when NFS data storage domain path specified using ipv6 address</b><br>
  - [BZ 1565040](https://bugzilla.redhat.com/1565040) <b>Engine stuck on CopyData despite task completion in vdsm</b><br>
  - [BZ 1553985](https://bugzilla.redhat.com/1553985) <b>In offline disk migration task stuck in lock state when migrating from one iSCSI storage domain to another.</b><br>
  - [BZ 1574631](https://bugzilla.redhat.com/1574631) <b>Problem to create snapshot</b><br>
-
-#### oVirt Provider OVN
-
- - [BZ 1593676](https://bugzilla.redhat.com/1593676) <b>[RFE] Provide static routes support for routers</b><br>
 
 #### oVirt Ansible ManageIQ role
 

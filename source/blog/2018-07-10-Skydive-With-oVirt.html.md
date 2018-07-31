@@ -57,14 +57,17 @@ skydive_extra_config={'agent.topology.probes': ['ovsdb', 'neutron'], 'agent.topo
 * agent FQDN will be the hostname of the hosts running in oVirt
 
 3. cd to git/skydive/contrib/ansible
-4. Run ansible-playbook -i <inventory file> playbook.yml.sample
+4. Run ansible-playbook -i inventory.file playbook.yml.sample
 5. Connect to skydive UI http://<IP/FQDN>:8082
 6. If the UI cannot be accessed flush the iptables 
   
 
 ## Examples
-![](../images/blog/2018-07-30/skydive_capture.png)
-
+In this screenshot we can see the neutron metadata of vnet1, which has an openstack icon next to it.
+The neutron metadata contains the vnet IPv4 and IPv6, Network's ID, Network's name, port ID, Tenant ID
 ![](../images/blog/2018-07-30/skydive_neutron_metadata.png)
+
+In this screenshot we can see 2 capture points(red points) between vnet0 and vnet1 and see traffic of 1Gb between the VMs
+![](../images/blog/2018-07-30/skydive_capture.png)
 
 

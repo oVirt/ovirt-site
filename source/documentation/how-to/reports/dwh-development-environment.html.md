@@ -2,7 +2,7 @@
 title: oVirt DWH development environment
 category: documentation
 layout: toc
-authors: sradco
+authors: sradco, sdickers
 ---
 
 <!-- TODO: Content review -->
@@ -11,7 +11,7 @@ authors: sradco
 
 ## Prerequisites
 
-<b>Please notice:</b> We assume you have set up a development environment according to the steps available at [OVirt_Engine_Development_Environment](/OVirt_Engine_Development_Environment) or within source tree at [README.developer](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD) , before you start.
+<b>Please note:</b> It is assumed a standard oVirt engine development environment has already been setup.  Follow steps available at [oVirt Engine Development Environment](/develop/developer-guide/engine/engine-development-environment/) or within the ovirt-engine source tree at [README.adoc](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.adoc;hb=HEAD) before you start with DWH.
 
 ### Database
 
@@ -19,6 +19,12 @@ Create user and history database
 
       su - postgres -c "psql -d template1 -c "create user ovirt_engine_dwh password 'ovirt_engine_dwh';""
       su - postgres -c "psql -d template1 -c "create database ovirt_engine_history owner ovirt_engine_dwh template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';""
+
+### Java libraries
+
+DWH build and run require a few 3rd party java libraries to be installed on your system:
+
+      yum install dom4j apache-commons-collections postgresql-jdbc
 
 ### Source
 
@@ -29,7 +35,7 @@ Checkout source:
 
 ## Usage
 
-<font color=red><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</font>
+<span style="color: red;"><b>WARNING:</b> DO NOT RUN ENVIRONMENT UNDER ROOT ACCOUNT</span>
 
 Once prerequisites are in place, you are ready to build and use ovirt-engine-dwh.
 
@@ -49,7 +55,7 @@ The services will not exit as long as engine is up, to stop press <Ctrl>C.
 
 ## How to write DWH patches
 
-Please refer to [How_to_write_patches_for_dwh](/How_to_write_patches_for_dwh) for further information.
+Please refer to [How_to_write_patches_for_dwh](../write-patches-for-dwh/) for further information.
 
 ## Packaging
 
@@ -61,5 +67,5 @@ Create source tarball by executing:
 
       $ make dist
 
-Follow the standard [oVirt guidelines for building RPM package](/Build_Binary_Package)
+Follow the standard [guidelines for building RPM package](/develop/dev-process/build-binary-package)
 

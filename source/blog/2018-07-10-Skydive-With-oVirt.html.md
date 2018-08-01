@@ -5,13 +5,6 @@ tags: oVirt, oVirt 4.2, open source virtualization,network
 date: 2018-07-10 09:01:00 UTC
 ---
 
-## Benefit to oVirt users
-oVirt users may now analyze and see thier network topology via the Skydive UI. 
-Skydive allows the users to see the result of their configuration done via oVirt.
-They may capture traffic from VM1 to VM2 for example or monitor the traffic between two VMs or hosts. 
-Also they may generate some traffic between 2 running VMs on different hosts for example.
-Users may create alerts in Skydive UI to notify that some traffic disconnected or down.
-
 [Skydive network](http://skydive.network/) is an open source real-time network topology and protocols analyzer providing a comprehensive way of understanding what is happening in your network infrastructure.
 The common use cases will be, troubleshooting, monitoring, SDN integration and much more.
 It has features such as:
@@ -19,8 +12,14 @@ It has features such as:
 * Flow capture - Distributed probe, L2-L4 classifier, GRE, VXLAN, GENEVE, MPLS/GRE, MPLS/UDP tunnelling support
 * Extendable - Support for external SDN Controllers or container based infrastructure, OpenStack. Supports extensions through API
 
+## Benefit to oVirt users
+Skydive allows oVirt administrators to see the network configuration and topology of their oVirt cluster.
+Administrators can capture traffic from VM1 to VM2 or monitor the traffic between VMs or hosts. 
+Skydive can generate traffic between 2 running VMs on different hosts and then analyze.
+Administrators can create alerts in Skydive UI to notify when traffic is disconnected or down.
+
 ## Installation steps
-1. git clone https://github.com/skydive-project/skydive.git
+1. 'git clone https://github.com/skydive-project/skydive.git'
 2. Create inventory file
 
 ```ini  
@@ -53,13 +52,13 @@ skydive_extra_config={'agent.topology.probes': ['ovsdb', 'neutron'], 'agent.topo
 ```
 * skydive_os_auth_url - This is the FQDN(hostname or IP) address of ovirt-provider-ovn
 * skydive_os_service_username - oVirt username used to authenticate the ovirt-provider-ovn, e.g. admin@internal
-* analyzer FQDN will be the hostname of your analyzer
-* agent FQDN will be the hostname of the hosts running in oVirt
+* analyzer_FQDN will be the hostname of your analyzer
+* agent_FQDN will be the hostname of the hosts running in oVirt
 
-3. cd to git/skydive/contrib/ansible
-4. Run ansible-playbook -i inventory.file playbook.yml.sample
-5. Connect to skydive UI http://<IP/FQDN>:8082
-6. If the UI cannot be accessed flush the iptables 
+3. 'cd git/skydive/contrib/ansible'
+4. 'ansible-playbook -i inventory.file playbook.yml.sample'
+5. Open port 8082 on the analyzer host - In the future this port will be opened by default after deploy
+6. Connect to skydive UI http://<analyzer_FQDN>:8082
   
 
 ## Examples

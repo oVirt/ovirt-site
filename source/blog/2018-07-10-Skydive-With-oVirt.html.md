@@ -60,7 +60,7 @@ skydive_extra_config={'agent.topology.probes': ['ovsdb', 'neutron'], 'agent.topo
 3. `cd git/skydive/contrib/ansible`
 4. `ansible-playbook -i inventory.file playbook.yml.sample`
 5. Open port 8082 on the analyzer host - In the future this port will be opened by default after deploy
-6. Connect to skydive UI http://<analyzer_FQDN>:8082
+6. Connect to skydive UI http://analyzer_FQDN:8082
   
 
 ## Examples

@@ -19,7 +19,7 @@ Skydive can generate traffic between 2 running VMs on different hosts and then a
 Administrators can create alerts in Skydive UI to notify when traffic is disconnected or down.
 
 ## Installation steps
-1. 'git clone https://github.com/skydive-project/skydive.git'
+1. `git clone https://github.com/skydive-project/skydive.git`
 2. Create inventory file
 
 ```ini  
@@ -55,8 +55,8 @@ skydive_extra_config={'agent.topology.probes': ['ovsdb', 'neutron'], 'agent.topo
 * analyzer_FQDN will be the hostname of your analyzer
 * agent_FQDN will be the hostname of the hosts running in oVirt
 
-3. 'cd git/skydive/contrib/ansible'
-4. 'ansible-playbook -i inventory.file playbook.yml.sample'
+3. `cd git/skydive/contrib/ansible`
+4. `ansible-playbook -i inventory.file playbook.yml.sample`
 5. Open port 8082 on the analyzer host - In the future this port will be opened by default after deploy
 6. Connect to skydive UI http://<analyzer_FQDN>:8082
   

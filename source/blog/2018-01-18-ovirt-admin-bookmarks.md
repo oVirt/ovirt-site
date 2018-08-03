@@ -2,7 +2,7 @@
 title: oVirt 4.2.2 web admin UI browser bookmarks
 author: awels,
 tags: oVirt
-date: 2018-01-19 12:00:00 CET
+date: 2018-01-18 12:00:00 CET
 ---
 
 oVirt web admin UI now allows the user to bookmark all entities and searches using their browser.
@@ -20,7 +20,7 @@ As a complementary functionality you can pass arguments to places that will exec
 * SEARCH, is for main views only, this allows you to pre populate the search string used in the search bar.
 * NAME, most entities are uniquely named and you can use their name in a detail view to go directly to that named entity.
 * DATACENTER, quota and networks are not uniquely named, but are unique combined with their associated data center, to link directly to either you need to specify NAME and DATACENTER.
-* NETWORK, VNIC profiles are not uniquely named, but need both DATACENTER and NETWORK to be specified to directly link to it. 
+* NETWORK, VNIC profiles are not uniquely named, but need both DATACENTER and NETWORK to be specified to directly link to it.
 
 If the user isn't already logged in, they will be redirected to oVirt SSO login page and then back to the desired place in the application. This allows external applications to directly link to entities in web admin UI.
 

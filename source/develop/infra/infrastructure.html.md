@@ -100,7 +100,7 @@ An overview of our technical architecture is available [online](http://monitorin
 As part of an effort to map all oVirt infra resources, an online pad was created [2](http://etherpad.ovirt.org/p/service_list_ovirt).
 once the list will be ready and finalized, we'll update the wiki accordingly.
 
-### Architechture migration plan
+### Architecture migration plan
 
 We're currently working on migrating all our infra into a new datacenter. check [Infra Migration Plan](/develop/infra/services-migration-plan/) for details.
 
@@ -110,4 +110,4 @@ We have some oVirt instances installed and we use them for our infrastructure. F
 
 ### Documentation
 
-We are in the process of moving all our documentaion to be inside our git repos, and published as HTML. You can find the published docs at: <http://ovirt-infra-docs.readthedocs.org/en/latest/>
+We are in the process of moving all our documentation to be inside our git repos, and published as HTML. You can find the published docs at: <http://ovirt-infra-docs.readthedocs.org/en/latest/>

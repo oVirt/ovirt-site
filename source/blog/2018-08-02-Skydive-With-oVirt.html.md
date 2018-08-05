@@ -1,5 +1,5 @@
 ---
-title: Skydive With oVirt 
+title: Skydive With oVirt
 author: mburman
 tags: oVirt, oVirt 4.2, open source virtualization,network
 date: 2018-08-02 09:01:00 UTC
@@ -14,7 +14,7 @@ It has features such as:
 
 ## Benefit to oVirt users
 Skydive allows oVirt administrators to see the network configuration and topology of their oVirt cluster.
-Administrators can capture traffic from VM1 to VM2 or monitor the traffic between VMs or hosts. 
+Administrators can capture traffic from VM1 to VM2 or monitor the traffic between VMs or hosts.
 Skydive can generate traffic between 2 running VMs on different hosts and then analyze.
 Administrators can create alerts in Skydive UI to notify when traffic is disconnected or down.
 
@@ -24,44 +24,44 @@ READMORE
 1. `git clone https://github.com/skydive-project/skydive.git`
 2. Create inventory file
 
-```ini  
-[skydive:children]
-analyzers
-agents
+    ```ini
+    [skydive:children]
+    analyzers
+    agents
 
-[skydive:vars]
-skydive_listen_ip=0.0.0.0
-skydive_fabric_default_interface=ovirtmgmt
+    [skydive:vars]
+    skydive_listen_ip=0.0.0.0
+    skydive_fabric_default_interface=ovirtmgmt
 
-skydive_os_auth_url=https://<ovn_provider_FQDN>:35357/v2.0
-skydive_os_service_username=<ovn_provider_username>
-skydive_os_service_password=<ovn_provider_password>
-skydive_os_service_tenant_name=service
-skydive_os_service_domain_name=Default
-skydive_os_service_region_name=RegionOne
+    skydive_os_auth_url=https://<ovn_provider_FQDN>:35357/v2.0
+    skydive_os_service_username=<ovn_provider_username>
+    skydive_os_service_password=<ovn_provider_password>
+    skydive_os_service_tenant_name=service
+    skydive_os_service_domain_name=Default
+    skydive_os_service_region_name=RegionOne
 
-[analyzers]
-<analyzer_FQDN> ansible_ssh_user=root ansible_ssh_pass=<ssh_password>
+    [analyzers]
+    <analyzer_FQDN> ansible_ssh_user=root ansible_ssh_pass=<ssh_password>
 
-[agents]
-<agent_FQDN> ansible_ssh_user=root ansible_ssh_pass=<ssh_password>
-<agent_FQDN> ansible_ssh_user=root ansible_ssh_pass=<ssh_password>
-<agent_FQDN> ansible_ssh_user=root ansible_ssh_pass=<ssh_password>
-<agent_FQDN> ansible_ssh_user=root ansible_ssh_pass=<ssh_password>
+    [agents]
+    <agent_FQDN> ansible_ssh_user=root ansible_ssh_pass=<ssh_password>
+    <agent_FQDN> ansible_ssh_user=root ansible_ssh_pass=<ssh_password>
+    <agent_FQDN> ansible_ssh_user=root ansible_ssh_pass=<ssh_password>
+    <agent_FQDN> ansible_ssh_user=root ansible_ssh_pass=<ssh_password>
 
-[agents:vars]
-skydive_extra_config={'agent.topology.probes': ['ovsdb', 'neutron'], 'agent.topology.neutron.ssl_insecure': true}
-```
-* skydive_os_auth_url - This is the FQDN(hostname or IP) address of ovirt-provider-ovn
-* skydive_os_service_username - oVirt username used to authenticate the ovirt-provider-ovn, e.g. admin@internal
-* analyzer_FQDN will be the hostname of your analyzer
-* agent_FQDN will be the hostname of the hosts running in oVirt
+    [agents:vars]
+    skydive_extra_config={'agent.topology.probes': ['ovsdb', 'neutron'], 'agent.topology.neutron.ssl_insecure': true}
+    ```
+    * skydive_os_auth_url - This is the FQDN(hostname or IP) address of ovirt-provider-ovn
+    * skydive_os_service_username - oVirt username used to authenticate the ovirt-provider-ovn, e.g. admin@internal
+    * analyzer_FQDN will be the hostname of your analyzer
+    * agent_FQDN will be the hostname of the hosts running in oVirt
 
 3. `cd git/skydive/contrib/ansible`
 4. `ansible-playbook -i inventory.file playbook.yml.sample`
 5. Open port 8082 on the analyzer host - In the future this port will be opened by default after deploy
 6. Connect to skydive UI http://analyzer_FQDN:8082
-  
+
 
 ## Examples
 In this screenshot we can see the neutron metadata of vnet1, which has an openstack icon next to it.

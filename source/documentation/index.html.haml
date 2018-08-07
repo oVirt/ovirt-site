@@ -5,13 +5,17 @@ layout: toc
 authors: dneary, metao, quaid, sandrobonazzola
 ---
 
+:css
+  .row, h1, h2, h3, h4, li {
+    font-family: 'Open Sans', sans-serif !important;
+  }
 
 %h1.hidden.firstHeading Documentation
 
 .row
-  .col-md-5.listNotAsUL
+  .col-md-6.listNotAsUL
     :markdown
-      ### ![](./../images/icon_basic_documentation.png) Primary Documentation
+      ### Documentation
       - [Quick Start Guide](quickstart/quickstart-guide)
       - [oVirt Installation Guide](install-guide/Installation_Guide)
       - [oVirt Upgrade Guide](upgrade-guide/upgrade-guide)
@@ -22,25 +26,9 @@ authors: dneary, metao, quaid, sandrobonazzola
       - [oVirt Data Warehouse Guide](data-warehouse/Data_Warehouse_Guide)
       - [oVirt Gluster Hyperconvergence Guide](gluster-hyperconverged/Gluster_Hyperconverged_Guide)
       - [oVirt Orb](ovirt-orb/)
-
-      ### ![](./../images/icon_advanced_documentation.png) Additional Documentation
-      - [Introduction](./introduction)
-      - [Administration](./admin-guide)
-      - [Architecture](./architecture)
-      - [How to guides](./how-to)
-      - [Internal](./internal)
-      - [Security](./security)
-      - [SLA](./sla)
-      - [Storage](./storage)
-      - [Resources](./resources)
-      - ***
-      - ####[Looking for developer Documentation?](./../develop)
-
-
-
-  .col-md-4.listNotAsUL
+  .col-md-6.listNotAsUL
     :markdown
-      ### ![](./../images/icon_release_note.png) Release Notes
+      ### Release Notes
 
       #### Latest Release Notes
       - [oVirt 4.2.5](/release/4.2.5/)
@@ -49,22 +37,17 @@ authors: dneary, metao, quaid, sandrobonazzola
       - [oVirt 4.2.4](/release/4.2.4/)
       - [All Releases](/release/)
 
-      ### ![](./../images/icon_need_help.png) Need Help?
-      - [oVirt User List is your friend](<mailto:users@ovirt.org>)
-
-
-  .col-md-3.backgroundForVideos
+.row
+  .col-md-6.listNotAsUL
     :markdown
-      ### ![](./../images/icon_videos.png) Useful Videos
-    %hr
-    %h4
-      - data.datavideo.datavideos.each do |section|
-        %p.videoCategory
-          #{section.category}
-          - section.videos.each do |video|
-            %p.videoName #{video.name}
-            <iframe class="embedVideo" src="#{video.url}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-            %div
-              %span.videoVer Version: #{video.ver}
-              %span.videoLang #{video.lang}
-            %hr
+      ### Additional Documentation
+
+      #### Note: may be outdated
+
+      - [Architecture](./architecture)
+      - [How to guides](./how-to)
+      - [Internal](./internal)
+      - [Security](./security)
+      - [SLA](./sla)
+      - [Storage](./storage)
+      - [Resources](./resources)

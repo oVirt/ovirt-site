@@ -1,17 +1,17 @@
 ---
 title: Localization Howto
 category: howto
-authors: lhornyak
+authors: lhornyak,sbonazzo
 ---
-
-<!-- TODO: Content review -->
 
 # Localization Mini-Howto
 
-This is a short howto on localizing the ovirt engine user interface. Intended primary audience: translators:
+This is a short howto on localizing the ovirt engine user interface.
+The intended primary audience for this howto is translators:
 
-1.  create a [Fedora Authentication System](https://admin.fedoraproject.org/accounts/) (FAS) user
-2.  Go to [Zanata](https://translate.zanata.org/) and login using your FAS account - Optionally you can login with your Google, Yahoo, or any other OpenID account and merge accounts, so that you do not need the FAS account anymore
-3.  Request to join your language group, this usually takes a few hours or up to a day
-4.  Send an email to [User:Ecohen](Einav Cohen) (ecohen at red hat dot com) and ask her to add your language to the ovirt project
-5.  As soon as you joined your language-group and oVirt has that language added, you can start translating on the [Zanata web interface](https://translate.zanata.org/zanata/project/view/ovirt).
+1. Create an account on [Zanata](https://translate.zanata.org/)
+2. Login on [Zanata](https://translate.zanata.org)
+3. Request to join your language group, this usually takes a few hours or up to a day
+4. See the list of languages being translated within Zanata [oVirt project](https://translate.zanata.org/project/view/ovirt)
+5. If the language you want to translate is not yet included in the project please ask for it to be added sending an email to devel@ovirt.org
+6. As soon as you joined your language-group and oVirt has that language added, you can start translating on the Zanata web interface for [oVirt project](https://translate.zanata.org/project/view/ovirt).

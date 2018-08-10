@@ -140,6 +140,7 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1607149](https://bugzilla.redhat.com/1607149) <b>[downstream clone - 4.2.5] OVN network synchronization not working after replacing the RHV-M tls certificate with a commercial one</b><br>
+ - [BZ 1590943](https://bugzilla.redhat.com/1590943) <b>hosted-engine VM created with node zero misses the console device</b><br>
  - [BZ 1596523](https://bugzilla.redhat.com/1596523) <b>Guaranteed free space implementation differs between replica and arbiter volumes</b><br>
  - [BZ 1584325](https://bugzilla.redhat.com/1584325) <b>Search bar is case sensitive</b><br>
  - [BZ 1605198](https://bugzilla.redhat.com/1605198) <b>[downstream clone - 4.2.5] Hit Xorg Segmentation fault while installing rhel7.4 release guest in RHV 4.2 with QXL</b><br>
@@ -151,6 +152,7 @@ packages from other repos.
 
 #### oVirt Hosted Engine Setup
 
+ - [BZ 1590943](https://bugzilla.redhat.com/1590943) <b>hosted-engine VM created with node zero misses the console device</b><br>
  - [BZ 1588720](https://bugzilla.redhat.com/1588720) <b>A system wide proxy with no exception for the engine FQDN will cause a "Failed connect to <ManagerFQDN>:443; No route to host"</b><br>
 
 #### cockpit-ovirt
@@ -173,11 +175,13 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1613249](https://bugzilla.redhat.com/1613249) <b>[downstream clone - 4.2.5] Foreign key constraint violation on upgrade to 4.2.5</b><br>
  - [BZ 1602804](https://bugzilla.redhat.com/1602804) <b>NPE in Add/RemoveFenceAgentCommand</b><br>
  - [BZ 1600819](https://bugzilla.redhat.com/1600819) <b>Gluster volume cannot be created with arbiter brick</b><br>
  - [BZ 1578842](https://bugzilla.redhat.com/1578842) <b>out-of-sync error message should tell what exactly is out of sync</b><br>
  - [BZ 1576729](https://bugzilla.redhat.com/1576729) <b>XML based hot-(un)plug of disks and nics</b><br>
  - [BZ 1572250](https://bugzilla.redhat.com/1572250) <b>Disk total size is reported as 0 in disk collection if the disk does not have any snapshots</b><br>
+ - [BZ 1613168](https://bugzilla.redhat.com/1613168) <b>[downstream clone - 4.2.5-1] On rollback of failed upgrade from 4.2.1+, engine-setup outputs errors about the uuid-ossp extension</b><br>
  - [BZ 1583516](https://bugzilla.redhat.com/1583516) <b>[AutoDefine] - The external sync of the AutoSyncCommand attaching all external_networks to all clusters type</b><br>
  - [BZ 1550120](https://bugzilla.redhat.com/1550120) <b>Upgrade ovirt-engine-wildfly to 13.0.0 Final</b><br>
  - [BZ 1586019](https://bugzilla.redhat.com/1586019) <b>[SR-IOV] - VF leakage when shutting down a VM from powering UP state</b><br>
@@ -282,4 +286,3 @@ packages from other repos.
 
  - [BZ 1549033](https://bugzilla.redhat.com/1549033) <b>[requires ovs-2.9.0-45] allow modifying host binding of port (for live migration)</b><br>
  - [BZ 1588455](https://bugzilla.redhat.com/1588455) <b>RHV Hosts are continuosly logging error :- database connection failed (No such file or directory)</b><br>
-

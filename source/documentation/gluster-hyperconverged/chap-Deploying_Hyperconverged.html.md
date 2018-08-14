@@ -21,9 +21,9 @@ title: Deploying oVirt and Gluster Hyperconverged
 **Installing the packages on the first host**
 
 1. On all 3 hosts, subscribe to ovirt repos from https://resources.ovirt.org/pub/yum-repo/
-   For instance, to subscribe to oVirt 4.1 repo.
+   For instance, to subscribe to oVirt 4.2 repo.
 
-        # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
+        # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 
 2. On all 3 hosts, install the following packages:
       - cockpit-ovirt-dashboard (provides a UI for the installation)
@@ -46,7 +46,7 @@ Refer [oVirt Nodes](install-guide/chap-oVirt_Nodes) for instructions on installi
 
 ### Setting up the hyperconverged environment
 
-Steps for installing are detailed in this [blog post](/blog/2018/02/up-and-running-with-ovirt-4-2-and-gluster-storage/).
+Steps for installing are detailed in this [blog post](/blog/2017/04/up-and-running-with-ovirt-4.1-and-gluster-storage/).
 
 **Prev:** [Chapter: Introduction](chap-Introduction) <br>
 **Next:** [Chapter: Additional Steps](chap-Additional_Steps)

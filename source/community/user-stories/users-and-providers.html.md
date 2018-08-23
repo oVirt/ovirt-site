@@ -61,6 +61,12 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 [UDS Enterprise](https://www.udsenterprise.com/en/) is a connection broker that deploys VDIs and Vapps, enabling hypervisors, authenticators and connection protocols to run simultaneously. With oVirt, it makes a 100% open source solution.
 </div>
 
+
+<div class="case-study">
+[![Hyper Expert, LLC](/images/logos/hyperexpert-logo.svg)](https://hyperexpert.com)
+[Hyper Expert](https://hyperexpert.com) is a robust organization that provides the best possible ways to make use of technology by utilizing oVirt as the primary layer of Virtualization to provide Cloud and On-premises Platform Solutions and IT Management Services. 
+</div>
+
 ## Partners in Education
 
 These institutions have chosen oVirt to manage their virtual workloads. See also the [Keele University](https://www.ovirt.org/community/user-stories/keele-university-case-study/), [Florida State University](https://www.ovirt.org/community/user-stories/RCC-case-study/), and [University of Seville](https://www.ovirt.org/community/user-stories/universidad-de-sevilla-case-study/) case studies.

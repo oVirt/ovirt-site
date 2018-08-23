@@ -1,5 +1,5 @@
 ---
-title: Networking API security group support
+title: Networking API security groups support
 category: feature
 authors: mdbarroso
 feature_name: security-group-support
@@ -8,16 +8,16 @@ feature_status: In Development
 ---
 
 
-# Networking API security group support
+# Networking API security groups support
 
 
 ## Summary
 
-This feature aims to implement OpenStack Networking API [security group](https://developer.openstack.org/api-ref/network/v2/index.html#security-groups-security-groups)
-support to external networks.
+This feature aims to implement the OpenStack Networking API [security group](https://developer.openstack.org/api-ref/network/v2/index.html#security-groups-security-groups)
+in the ovirt-provider-ovn.
 
 By doing so, we allow fine-grained access control to - and from - the oVirt
-VMs attached to those external networks.
+VMs attached to external networks.
 
 The networking API v2 defines security groups as a white list of rules.
 That means, that by default, neither incoming nor outgoing traffic is
@@ -46,20 +46,20 @@ networking API entity
 ### Benefit to oVirt
 
 Currently, the only security mechanisms present for oVirt VMs attached to
-external networks are  quite crude L2 and L3 protection - MAC
-spoofing, and IP spoofing - implemented directly by Open vSwitch. It is worth 
+external networks are quite crude L2 and L3 protections - MAC
+spoofing, and IP spoofing - implemented directly by Open vSwitch. It is worth
 mentioning that IP spoofing protection is only applied when a subnet is defined
 on top of the Networking API network.
 
 Security groups, which are a traffic white list, complement provided security
-by specifying which traffic is allowed to *and* from the resources - e.g. VMs -
-using high level abstraction L3 and L4 semantics.
+by specifying which traffic is allowed to *and* from the resources - e.g. ports
+- using high level abstraction L3 and L4 semantics.
 
 Furthermore, security groups allow these rules to be applied in fine
 grained fashion - e.g. the user can specify which rules apply to which
-VMs.
+ports.
 
-Below, you can find some examples of what is the feature's ambition:
+Below, you can find some examples of goals for this feature:
 * **only** allow incoming traffic to a specific VM from a specific
 CIDR
 * **only** allow incoming access to a range of destination ports in a
@@ -81,22 +81,18 @@ northbound database.
 default, all VM incoming IP *and* outgoing traffic is dropped. This behavior
 is better specified in the [requirements](#requirements) section.
 
-* The security group feature should be configurable, and activated by
-default - this means an option for using oVirt's external networks
-without security group support should be possible.
-
-* If the external network has a subnet defined, DHCP traffic is allowed to
-/ from the VM.
-
 ### Requirements
 
 * For ingress traffic (to an instance)
   + Only traffic matched with security group rules are allowed.
-  + When there is no rule defined, all traffic are dropped.
+  + When there are no rules defined, all ingress traffic is dropped.
 * For egress traffic (from an instance)
   + Only traffic matched with security group rules are allowed.
-  + When there is no rule defined, all egress traffic are dropped.
-  + When a new security group is created, rules to allow all egress traffic are automatically added.
+  + When there are no rules defined, all egress traffic is dropped.
+  + When a new security group is created, rules allowing all egress traffic are
+automatically added.
+* The DHCP traffic traffic for OVN subnets will have to be explicitly allowed,
+otherwise, it will be automatically dropped, as a consequence to the above requirements.
 
 ### Security groups description
 
@@ -116,41 +112,31 @@ added to allow *incoming* and *outgoing* traffic.
 
 The API of security group rules can be found [here](https://developer.openstack.org/api-ref/network/v2/#security-group-rules-security-group-rules).
 
-### Activating the feature
-
-Activating the feature means one thing: have the ***deny-all*** security group
-provisioned. 
-
-To do so, two alternatives are possible, and both will result in the group 
-being provisioned:
-
-1. Add a configuration flag to the ovirt-provider-ovn configuration file. When 
-the ovirt-provider-ovn service is started, if this property is configured, then
-the **deny-all** security group will be provisioned - if not alredy.
-
-2. In the engine-setup, present a new question to the oVirt administrator, 
-asking if he wants the security group feature activated. An affirmative reply
-will provision the **deny-all** security group.
-
 ### User perspective
 
 The user is meant to provision security group(s) and rule(s) through ansible,
-or directly using a REST client.
+or using a REST client.
 
 This greatly reduces the oVirt-engine impact, since there's no need to 
 implement the REST client side of the API, nor implement these changes in the
 GUI.
 
-Throughout the remainder of the document, ansible will be assumed as the client, given its descriptive yaml syntax. The [os_security_group](https://docs.ansible.com/ansible/2.5/modules/os_security_group_module.html) and [os_security_group_rules](https://docs.ansible.com/ansible/2.5/modules/os_security_group_rule_module.html) will be leveraged for this.
+Throughout the remainder of the document, ansible will be assumed as the client, given its descriptive yaml syntax. The [os_security_group](https://docs.ansible.com/ansible/2.5/modules/os_security_group_module.html)
+and [os_security_group_rules](https://docs.ansible.com/ansible/2.5/modules/os_security_group_rule_module.html)
+will be leveraged for this.
 
 ### Mandatory group creation
 
 There are 2 types of required security groups:
 
-1. the **deny-all** security group, which - depending the configuration is created
-at service startup, or during its initial configuration
+1. the **deny-all** security group, provisioned when the first port with the
+**port-security** flag activated is created. This port will be the container for
+the rules that drop all IP traffic.
 
-2. the **allow-dhcp** security group. Creating a subnet on top of an external network will trigger the provision of an **allow-dhcp** security group **for that particular network**.
+
+2. the **allow-dhcp** security group. Creating a subnet on top of an external
+network will provision an **allow-dhcp** security group **for that particular
+network**.
 
 The ansible representation of these groups is:
 ~~~~~
@@ -168,7 +154,7 @@ The ansible representation of these groups is:
 ~~~~~
 
 ***NOTE:*** the **deny-all** security group can be provisioned through ansible,
-during the engine-setup stage. the **allow-dhcp** groups will be created as 
+during the engine-setup stage. the **allow-dhcp** groups will be created as
 part of the subnet creation workflow.
 
 ### Initial rule creation
@@ -177,8 +163,8 @@ Since the Openstack Networking API is a white list, the **deny-all** related
 rules cannot be triggered from the API itself.
 
 To avoid the need to create the rules beforehand, these ACLs will be
-created - if the feature is activated - the first time a port not bound
-to any group is added.
+provisioned when a port having the *port-security* attribute set is first
+created.
 
 The DHCP related rules will be provisioned after the respective group is
 created, and as part os the [create subnet](#creating-a-subnet-on-top-of-a-network)
@@ -277,10 +263,7 @@ The ***direction*** attribute in the ACL has a very important impact in
 the openflow pipeline - in which stage of the pipeline processing will
 the rule be evaluated.
 
-As can be seen below, the OpenFlow pipeline consists of two
-different stages: *ingress* and *egress*.
-
-![of-pipeline](../../../../images/features/network/security-groups/openflow-flow.png)
+The OpenFlow pipeline consists of two different stages: *ingress* and *egress*.
 
 ACLs having a 'from-lport' direction will be evaluated in the
 **ingress** stage, while ACLs having a 'to-lport' direction will be
@@ -301,7 +284,7 @@ be controlled through ACLs.
 
 ## Relevant events
 
-The relevant for the security group feature are listed and explained
+The relevant events for the security group feature are listed and explained
 below.
 
 ### Add security group
@@ -367,25 +350,34 @@ The following sequence diagram depicts the flow described above.
 
 ### Attach a VM to an external network.
 
-When a VM is attached to an external network, an ovn logical switch port is
-created. This port concept is already implemented in the ovirt-provider-ovn 
-project, *but* does not allow it to be bound to security groups. That support
-will need to be implemented.
+Please refer to the sequence diagram below to better understand this
+flow.
 
-Whenever a port is created, the ovirt-provider-ovn will have to update the 
-**deny-all** port group data, adding the new port to its list of ports.
+When a VM is attached to an external network, an ovn logical switch port
+is created. This port concept is already implemented in the
+ovirt-provider-ovn project, *but* does not allow it to be bound to
+security groups. That support will need to be implemented.
 
-If the port is attached to a network featuring a subnet, the corresponding
-**allow-dhcp** port group port list will also be updated with the new port.
+Whenever a port is created, *if* it has the **port-security** flag
+activated, the ovirt-provider-ovn will have to update the **deny-all**
+port group data, adding the new port to its list of ports. *If* that
+port group does not exist, it will have to be created, and the
+corresponding ACLs added to it. This **port-security** attribute is
+currently not supported in the ovirt-provider-ovn, and thus, will also
+have to be added to the API.
 
-It will also need to update the list of ports for each of the port groups
-representing the security groups bound to the added ports.
+*If* the port is attached to a network featuring a subnet, the
+corresponding **allow-dhcp** port group port list will also be updated
+with the new port.
+
+It will also need to update the list of ports for each of the port
+groups representing the security groups bound to the added ports.
 
 ![add-port](../../../../images/features/network/security-groups/add_ports.png)
 
-## Provider start-up security groups
+## OVN ACLs implementing the deny-all *and* allow-dhcp security groups
 
-### drop-all-ip
+### drop-all-ip ACL
 
 To achieve the intended deny-all behavior, a port group will be created
 when the ovirt-provider-ovn starts.
@@ -402,15 +394,11 @@ It will feature two ACLs, with the following data:
   * direction: to-lport
   * match: outport == @<port_group> && ip
 
-Depending on the chosen [security group feature activation](#activating-the-feature) mechanism,
-the all newly created ports will be added to this group *or* only the
-ports featuring port-security activated.
-
 ### allow-dhcp
 
 To allow a VM to get an IP address from the subnet on top the network
-to which its port is attached, and assuming all traffic is being blocked
-, there is a need to white-list the DHCP traffic.
+to which its port is attached, and assuming that port has port-security
+active, it is required to white-list the DHCP traffic.
 
 This will only be done *if* the VM's port is attached to a network
 **having** a defined subnet.
@@ -421,12 +409,12 @@ data:
     * priority: ALLOW_PRIORITY
     * action: allow
     * direction: from-lport
-    * match: inport == @<port_group> && ip4 && ip4.dst == {255.255.255.255, <subnet_cidr>} && udp && udp.src == 68 && udp.dst == 67
+    * match: inport == @allow-dhcp<subnet_uuid> && ip4 && ip4.dst == {255.255.255.255, <subnet_cidr>} && udp && udp.src == 68 && udp.dst == 67
 + egress rule
     * priority: ALLOW_PRIORITY
     * action: allow
     * direction: to-lport
-    * match: outport == @<port_group> && ip4 && ip4.src == <subnet_cidr> && udp && udp.src == 67 && udp.dst == 68
+    * match: outport == @allow-dhcp<subnet_uuid> && ip4 && ip4.src == <subnet_cidr> && udp && udp.src == 67 && udp.dst == 68
 
 ***Note:*** the '@' sign is a port group tag understood by OVN
 
@@ -440,6 +428,12 @@ Not implemented:
 
 Not sure:
 * [Allowed address pairs](https://developer.openstack.org/api-ref/network/v2/#allowed-address-pairs) networking API extension.
+
+## Feature dependencies
+
++ Open vSwitch 2.10 - port group table
++ python-ovsdbapp 0.12.1 - port group support, with a nice API, without
+openstack dependencies
 
 ## Testing
 

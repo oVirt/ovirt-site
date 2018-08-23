@@ -136,21 +136,25 @@ If you wish to import dashboards example, you will need to import visualization 
 
 2. Go to the Kibana UI, to the `setting` tab -> `indices`.
 
-3. Select the `project.ovirt-metrics-<ovirt-env-name>.<uuid>` index.
+3. In the Kibana UI, go to the `setting` tab -> `objects`.
 
-4. Press the orange button, `Refresh field list`.
+4. Import the `Searches`.
 
-5. Do steps 3 and 4 for the `project.ovirt-logs-<ovirt-env-name>.<uuid>` index.
+5. Import the `Visualizations`.
 
-6. In the Kibana UI, go to the `setting` tab -> `objects`.
+**Note:** If you get an error while loading the `Visualizations`, check your hosts and make sure Collectd and Fluentd services are running with no errors. After that try loading the `Visualizations` again.
 
-7. Import the `Searches`.
+6. Import the `Dashboards`.
 
-8. Import the `Visualizations`.
+7. Select the `project.ovirt-metrics-<ovirt-env-name>.<uuid>` index.
 
-9. Import the `Dashboards`.
+8. Press the orange button, `Refresh field list`.
+
+9. Do steps 7 and 8 for the `project.ovirt-logs-<ovirt-env-name>.<uuid>` index.
+
 
 You are done! Go to the `Dashboard` tab in the Kibana UI and choose a dashboard.
+
 
 Currently there are 3 example dashboards:
 
@@ -160,4 +164,10 @@ Currently there are 3 example dashboards:
   
   * VMs Dashboard - https://kibana.{fluentd_elasticsearch_host}/app/kibana#/dashboard/VMs-Dashboard
 
-**Note:** If you get an error while loading the `Visualizations`, check your hosts and make sure Collectd and Fluentd services are running with no errors. After that try loading the `Visualizations` again.
+### Viewing Saved Dashboards
+
+Once you have created and saved a dashboard, or imported the sample dashboards, you can display them in the Dashboard tab:
+
+1. Click the Dashboard tab.
+2. Click the Load Saved Dashboard button to display a list of saved dashboards.
+3. Click a saved dashboard to load and view it.

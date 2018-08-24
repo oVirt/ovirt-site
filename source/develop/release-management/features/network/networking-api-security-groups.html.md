@@ -418,6 +418,20 @@ data:
 
 ***Note:*** the '@' sign is a port group tag understood by OVN
 
+## ovirt-provider-ovn API update
+
+The following updates are required to the current API, listed by entities:
+
+* network
+  + add the **port_security_enabled** boolean attribute
+* port
+  + implement the **port_security_enabled** boolean attribute
+  + implement the **security_groups** array attribute
+* security groups
+  + implement this entity, as described [here](#encoding-the-security-group-information)
+* security group rules
+    + implement this entity, as described [here](#encoding-the-security-group-rule-information)
+
 ## Networking API extensions implemented / not implemented
 
 Implemented:

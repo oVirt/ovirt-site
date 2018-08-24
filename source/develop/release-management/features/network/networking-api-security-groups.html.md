@@ -19,7 +19,7 @@ in the ovirt-provider-ovn.
 By doing so, we allow fine-grained access control to - and from - the oVirt
 VMs attached to external networks.
 
-The networking API v2 defines security groups as a white list of rules.
+The Networking API v2 defines security groups as a white list of rules.
 That means, that by default, neither incoming nor outgoing traffic is
 allowed (from the VMs perspective).
 
@@ -52,8 +52,7 @@ mentioning that IP spoofing protection is only applied when a subnet is defined
 on top of the Networking API network.
 
 Security groups, which are a traffic white list, complement provided security
-by specifying which traffic is allowed to *and* from the resources - e.g. ports
-- using high level abstraction L3 and L4 semantics.
+by specifying which traffic is allowed to *and* from the resources - e.g. ports - using high level abstraction L3 and L4 semantics.
 
 Furthermore, security groups allow these rules to be applied in fine
 grained fashion - e.g. the user can specify which rules apply to which
@@ -66,10 +65,7 @@ CIDR
 set of VMs
 * **only** allow outgoing traffic to a specific port on a set of VMs
 
-Having said that, and highlighting that L2 protection is **outside of
-scope** of security groups, it could be further enhanced by implementing the
-[Allowed address pairs](https://developer.openstack.org/api-ref/network/v2/#allowed-address-pairs)
-Networking API extension.
+L2 protection is **not in scope** of the Networking API security groups.
 
 ## Objectives
 
@@ -131,12 +127,13 @@ There are 2 types of required security groups:
 
 1. the **deny-all** security group, provisioned when the first port with the
 **port-security** flag activated is created. This port will be the container for
-the rules that drop all IP traffic.
+the rules that drop all IP traffic. More information can be found in
+[Activating the feature](#activating-the-feature).
 
 
 2. the **allow-dhcp** security group. Creating a subnet on top of an external
 network will provision an **allow-dhcp** security group **for that particular
-network**.
+network**. Refer to the [creating a subnet](#creating-a-subnet-on-top-of-a-network) section for more information.
 
 The ansible representation of these groups is:
 ~~~~~
@@ -163,17 +160,37 @@ Since the Openstack Networking API is a white list, the **deny-all** related
 rules cannot be triggered from the API itself.
 
 To avoid the need to create the rules beforehand, these ACLs will be
-provisioned when a port having the *port-security* attribute set is first
+provisioned when the first port having the *port-security* attribute enabled is
 created.
 
 The DHCP related rules will be provisioned after the respective group is
 created, and as part os the [create subnet](#creating-a-subnet-on-top-of-a-network)
 workflow.
 
+## Missing pieces
+
+As mentioned above, in the [User perspective](#user-perspective) section, the envisioned way of provisioning both security groups and rules is through ansible.
+
+This exposes a gap in the current ovirt-provider-ovn feature set - it does
+allow for bulk creation of entities. Since ansible accepts as input *list* of
+groups and *lists* of rules, this feature gap requires addressing.
+
+### Missing transaction support
+
+The trickiest part of the bulk entity creation / update is implementing the transaction support ovirt-provider-ovn is missing.
+
+To comply with the Networking API specification, entities provisioned in [bulk](https://developer.openstack.org/api-ref/network/v2/#bulk-create)
+*must* be added in a transaction, and when that's not possible, the transaction
+behavior should be mimicked - e.g. if one of the entities fails when being added / updated, all the others must also be removed.
+
+Complying with these requirements will be hard, and implementing this requires
+a study of its own.
+
 ## Mapping networking API to OVN model objects
 
 The security group data will be model as a [port group](https://github.com/openvswitch/ovs/blob/master/ovn/ovn-nb.xml#L926).
-This ovn-nb table is only available on Open vSwitch 2.10, released August 20th 2018.
+This ovn-nb table is only available on Open vSwitch 2.10, released upstream
+August 20th 2018.
 
 This new table maps a list of ACLs to a list of ports, thus eliminating
 the need to replicate the same ACL over and over, having the port in the
@@ -251,6 +268,24 @@ through the priority concept; throughout the code two different
 priorities will be used: a lesser priority for **all** ACLs having a
 deny *action* and an higher priority for **all** ACLs having *allow* or
 *allow-related* actions.
+
+## Activating the feature
+
+The feature will be always active, and it is a matter of identifying the
+ports that will be subject to the security group filters.
+
+As previously mentioned, the **port-security** attribute will be used to
+know if a port will be added to the **deny-all** port group, having all
+IP traffic dropped as a consequence.
+
+That attribute can be set when a port is created, and its value will be
+inherited from the corresponding *network* entity when not defined at port
+level. Afterwards, it can be updated through the API - at port *or* network
+levels.
+
+The default behavior for the network's **port-security** attribute would be
+defined by the configuration ***port-security-enabled***, in a new section,
+called **NETWORK**.
 
 ## OVN ACL table & openflow pipeline relationship
 
@@ -436,12 +471,10 @@ The following updates are required to the current API, listed by entities:
 
 Implemented:
 * [Resource timestamps](https://developer.openstack.org/api-ref/network/v2/#id367)
+* [Port security](https://developer.openstack.org/api-ref/network/v2/#id35)
 
 Not implemented:
 * [Tag](https://developer.openstack.org/api-ref/network/v2/#id381)
-
-Not sure:
-* [Allowed address pairs](https://developer.openstack.org/api-ref/network/v2/#allowed-address-pairs) networking API extension.
 
 ## Feature dependencies
 

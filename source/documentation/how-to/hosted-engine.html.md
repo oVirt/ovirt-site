@@ -271,53 +271,7 @@ When the hosted engine VM is down for some reason the agent(s) will try to start
 
 ### Recoving from failed install
 
-If your hosted engine install fails, you have to manually clean up before you can reinstall. Exactly what needs to be done depends on how far the install got before failing. Here are the steps I've used, base on this [thread from the mailing list](https://lists.ovirt.org/pipermail/users/2014-May/024423.html):
+If your hosted engine install fails, you have to manually clean up before you can reinstall. This is documented [here](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.1/html/self-hosted_engine_guide/cleaning_up_a_failed_self-hosted_engine_deployment), but the short version is:
 
-*   clean up hosted engine storage. This will vary depending on your storage setup. I logged into my NFS server and purged the directory used during the hoste-engine install.
-
-      # ls  /export/ovirt/hosted-engine
-      __DIRECT_IO_TEST__  ce61789b-4291-47d6-a2a6-01263d6b4f5b
-      # rm -fR /export/ovirt/hosted-engine/*
-
-*   clean up host files
-
-<!-- -->
-
-    #!/bin/bash
-
-    echo "stopping services"
-    service vdsmd stop 2>/dev/null
-    service supervdsmd stop 2>/dev/null
-    initctl stop libvirtd 2>/dev/null
-
-    echo "removing packages"
-    yum remove \*ovirt\* \*vdsm\* \*libvirt\*
-
-    rm -fR /etc/*ovirt* /etc/*vdsm* /etc/*libvirt* /etc/pki/vdsm
-
-    FILES=" /etc/init/libvirtd.conf"
-    FILES+=" /etc/libvirt/nwfilter/vdsm-no-mac-spoofing.xml"
-    FILES+=" /etc/ovirt-hosted-engine/answers.conf"
-    FILES+=" etc/vdsm/vdsm.conf"
-    FILES+=" etc/pki/vdsm/*/*.pem"
-    FILES+=" etc/pki/CA/cacert.pem"
-    FILES+=" etc/pki/libvirt/*.pem"
-    FILES+=" etc/pki/libvirt/private/*.pem"
-    for f in $FILES
-    do
-       [ ! -e $f ] && echo "? $f already missing" && continue
-       echo "- removing $f"
-       rm -f $f && continue
-       echo "! error removing $f"
-       exit 1
-    done
-
-    DIRS="/etc/ovirt-hosted-engine /var/lib/libvirt/ /var/lib/vdsm/ /var/lib/ovirt-hosted-engine-* /var/log/ovirt-hosted-engine-setup/ /var/cache/libvirt/"
-    for d in $DIRS
-    do
-       [ ! -d $f ] && echo "? $d already missing" && continue
-       echo "- removing $d"
-       rm -fR $d && continue
-       echo "! error removing $d"
-       exit 1
-    done
+   /usr/sbin/ovirt-hosted-engine-cleanup
+ 

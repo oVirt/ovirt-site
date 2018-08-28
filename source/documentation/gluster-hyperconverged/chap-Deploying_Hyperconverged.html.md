@@ -48,7 +48,71 @@ Refer [oVirt Nodes](install-guide/chap-oVirt_Nodes) for instructions on installi
 
 Steps for installing are detailed in this [blog post](/blog/2017/04/up-and-running-with-ovirt-4.1-and-gluster-storage/).
 
-**Prev:** [Chapter: Introduction](chap-Introduction) <br>
-**Next:** [Chapter: Additional Steps](chap-Additional_Steps)
+More details on the deployment wizard are explained below
+
+#### Host selection
+
+To ensure that GlusterFS related network traffic is segregated on the backend/storage network, the gluster bricks need to be defined using these interface. In this tab, provide the FQDN/IP addresses associated with the backend/storage network so that the bricks are correctly defined during the deployment process.
+
+Cockpit wizard uses ansible to perform the gluster deployment on the hosts. It is required to have key-based authentication setup for `root` user between the host running the wizard and the 3 addresses providedfor gluster hosts
+
+        On the first host in the list, (from which deployment is run)
+
+        # ssh-keygen
+        # ssh-copy-id root@gluster-host1-address
+        # ssh-copy-id root@gluster-host2-address
+        # ssh-copy-id root@gluster-host3-address
+
+![Hosts sub-tab](/images/gluster-hyperconverged/3-Hosts.png)
+
+The deployment process also add the 3 hosts to the oVirt engine at the end of the deployment process. To ensure that the hosts are added using the frontend/management network, provide the FQDN to be used for the hosts in the tab below: 
+
+*FQDN of host1 is input during the Hosted Engine deployment process, hence not asked here*
+
+
+![Hosts sub-tab](/images/gluster-hyperconverged/4-FQDN.png)
+
+
+#### Package selection
+
+This is an optional step - to install additional packages required on all hosts. If using oVirt-Node based installation, all required packages are already available.
+
+![Packages sub-tab](/images/gluster-hyperconverged/5-Packages.png)
+#### Volume tab
+
+This step in the wizard defines the gluster volumes that need to be created. These gluster volumes will later in the wizard, be used to create storage domains in oVirt.
+The first volume in the list is used to host the Hosted Engine virtual disk.
+As a guidance, we ask to create 2 additional gluster volumes 
+- vmstore : Hosting the OS disks of the virtual machines
+- data : Hosting the data disks of the virtual machines
+
+*The volumes are separated as above to ease backup, assuming only data volume will need to be backed up*
+
+All 3 gluster volumes will be created as `Data` storage domains.
+
+A gluster volume can be created as an `Arbiter` type volume, to save on storage capacity. In this case, the 3rd host will not need the same capacity as the first two hosts. Refer [Arbiter volume](https://docs.gluster.org/en/v3/Administrator%20Guide/arbiter-volumes-and-quorum/)
+
+![Volume sub-tab](/images/gluster-hyperconverged/6-Volumes.png)
+#### Brick setup tab
+
+The Bricks tab configures the devices to use for the gluster volumes defined in the previous step.
+
+If the devices used for bricks are configured as RAID devices, provide the information in the `RAID information` section. These parameters are used to create the optimal alignment values for the LVM and filesystem layers created on the device.
+
+Brick configuration allows for per-host definition of bricks. This is useful in case the device names are not uniform across the hosts.
+
+- LV Name : name used for the logical LV created on brick. This is read-only and based on the gluster volumes defined in previous step
+- Device Name: name of device to be used to create the brick. Either the same device or different devices can be used for different gluster volumes. For instance, engine can use device `sdb` while vmstore and data can use device `sdc`
+- Size (GB): Size of the LV in Gigabytes
+- Thinp: Checkbox indicating if the LV should be thinly provisioned or not. ***Thin provisioned LVs are not supported with dedupe & compression on device***
+- Mount point: Path where the brick is mounted. Determined from the brick directory provided in previous step
+- Enable Dedupe & Compression: Checkbox indicating if de-duplication and compression should be turned on for the device. Dedupe and compression is provided at the device layer using the vdo module available since el7.5. Read more at [dm-vdo](https://github.com/dm-vdo/kvdo). ***vdo layer will introduce a performance overhead, so it is advised to enable this if you're using SSD devices***
+
+- Configure LV Cache: Use this option to provide an SSD based lvmcache layer if your brick LVs are on spinning devices.
+
+![Brick setup sub-tab](/images/gluster-hyperconverged/7-Bricks.png)
+
+**Prev:** [Chapter: Introduction](../chap-Introduction) <br>
+**Next:** [Chapter: Additional Steps](../chap-Additional_Steps)
 
 

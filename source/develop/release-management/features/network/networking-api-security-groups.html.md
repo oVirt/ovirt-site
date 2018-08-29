@@ -1,5 +1,5 @@
 ---
-title: Networking API security groups support
+title: Ovirt-provider-ovn security groups
 category: feature
 authors: mdbarroso
 feature_name: security-group-support
@@ -8,7 +8,7 @@ feature_status: In Development
 ---
 
 
-# Networking API security groups support
+# Ovirt-provider-ovn security groups
 
 
 ## Summary
@@ -108,7 +108,7 @@ added to allow *incoming* and *outgoing* traffic.
 
 The API of security group rules can be found [here](https://developer.openstack.org/api-ref/network/v2/#security-group-rules-security-group-rules).
 
-### User perspective
+### User interface
 
 The user is meant to provision security group(s) and rule(s) through ansible,
 or using a REST client.
@@ -169,11 +169,13 @@ workflow.
 
 ## Missing pieces
 
+### Bulk provisioning
+
 As mentioned above, in the [User perspective](#user-perspective) section, the envisioned way of provisioning both security groups and rules is through ansible.
 
 This exposes a gap in the current ovirt-provider-ovn feature set - it does
-allow for bulk creation of entities. Since ansible accepts as input *list* of
-groups and *lists* of rules, this feature gap requires addressing.
+**not** allow for bulk creation of entities. Since ansible accepts as input
+*list* of groups and *lists* of rules, this feature gap requires addressing.
 
 ### Missing transaction support
 
@@ -185,6 +187,14 @@ behavior should be mimicked - e.g. if one of the entities fails when being added
 
 Complying with these requirements will be hard, and implementing this requires
 a study of its own.
+
+### Ansible port module missing port_security_enabled attribute
+
+The [ansible module](https://docs.ansible.com/ansible/2.5/modules/os_port_module.html) currently does not support updating the *port_security_enabled* attribute for a port.
+
+To provide the user an integrated experience, ansible should allow for that attribute to be updated.
+
+TODO - create ansible bug, refer it here
 
 ## Mapping networking API to OVN model objects
 
@@ -278,14 +288,74 @@ As previously mentioned, the **port-security** attribute will be used to
 know if a port will be added to the **deny-all** port group, having all
 IP traffic dropped as a consequence.
 
-That attribute can be set when a port is created, and its value will be
-inherited from the corresponding *network* entity when not defined at port
+The **port-security** attribute is set at port creation time, and its value will
+be inherited from the corresponding *network* entity when not defined at port
 level. Afterwards, it can be updated through the API - at port *or* network
 levels.
 
 The default behavior for the network's **port-security** attribute would be
-defined by the configuration ***port-security-enabled***, in a new section,
-called **NETWORK**.
+defined in the configuration file, through the ***port-security-enabled***,
+property, located in a new section, called **NETWORK**. This value will be set
+during *engine-setup* - refer to [this section](#engine-setup) - and the
+default choice will be 'yes', which will result in all traffic being dropped to
+*and* from the VMs.
+
+Existent ports can later be updated, disabling the **port-security** attribute, which would remove the ACLs that drop all IP traffic to and from the VM.
+
+As defined in the [network port security attribute definition](https://developer.openstack.org/api-ref/network/v2/#port-security), updating the **port-security** attribute on a network object **does not** cascade the value to ports attached to that network - meaning that effect would only apply to ports created *after* that update.
+
+## User workflow
+
+Since the feature is active by default, the intended workflow - from the oVirt
+engine user's perspective - is:
+
+* create an external network through the provider - its default *port_security_enabled* value is true.
+* create VMs attached to this external network - they will inherit the
+*port_security_attribute* from the network, which will result in all IP traffic
+to *and* from that VM being dropped.
+* the intended traffic will have to be white-listed. Assuming the user is interested in allowing ssh traffic *and* all egress IP traffic, the following ansible playbook should be used:
+
+~~~~~~
+
+- os_security_group:
+    cloud: ovirt
+    state: present
+    name: my-app-default
+    description: allow ssh & all egress traffic
+
+- os_security_group_rule:
+    cloud: ovirt
+    state: present
+    direction: ingress
+    protocol: tcp
+    port_range_min: 22
+    port_range_max: 22
+
+- os_security_group_rule:
+    cloud: ovirt
+    state: present
+    direction: egress
+    ethertype: IPv4
+~~~~~~
+
+### Installation/Upgrade
+
+The install time required updates are described in the section [above](#engine-setup).
+
+On upgrades with with existing VMs - having attachments to external networks -
+the ports will **not** be updated, and it will be up to the administrator to
+manually activate port security in the existent ports.
+
+Updating the network's port-security-enabled attribute **will not** cascade to
+the existent ports, as defined [in the Networking API](https://developer.openstack.org/api-ref/network/v2/#port-security).
+
+### Engine-Setup
+
+A new ovirt-provider-ovn related question will be added, asking the user if
+port-security is enabled at network level. The default answer will be 'yes'.
+
+This will lead to all the created ports having port-security active, leading to
+all IP traffic being dropped.
 
 ## OVN ACL table & openflow pipeline relationship
 

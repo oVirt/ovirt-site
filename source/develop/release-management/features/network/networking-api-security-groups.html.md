@@ -1,5 +1,5 @@
 ---
-title: Ovirt-provider-ovn security groups
+title: ovirt-provider-ovn security groups
 category: feature
 authors: mdbarroso
 feature_name: security-group-support
@@ -309,23 +309,28 @@ As defined in the [network port security attribute definition](https://developer
 Since the feature is active by default, the intended workflow - from the oVirt
 engine user's perspective - is:
 
-* create an external network through the provider - its default *port_security_enabled* value is true.
+* create an external network on the ovirt-provider-ovn - its default
+*port_security_enabled* value is true - which can be overriden during engine-setup.
 * create VMs attached to this external network - they will inherit the
 *port_security_attribute* from the network, which will result in all IP traffic
 to *and* from that VM being dropped.
-* the intended traffic will have to be white-listed. Assuming the user is interested in allowing ssh traffic *and* all egress IP traffic, the following ansible playbook should be used:
+* the intended traffic will have to be white-listed. Assuming the user is
+interested in allowing ssh traffic *and* all egress IP traffic, the following
+ansible playbook should be used:
 
 ~~~~~~
 
 - os_security_group:
     cloud: ovirt
     state: present
-    name: my-app-default
+    name: my_app_default
     description: allow ssh & all egress traffic
+    register: my_app_default_security_group
 
 - os_security_group_rule:
     cloud: ovirt
     state: present
+    security_group: "{{ my_app_default_security_group.id }}"
     direction: ingress
     protocol: tcp
     port_range_min: 22
@@ -334,15 +339,31 @@ to *and* from that VM being dropped.
 - os_security_group_rule:
     cloud: ovirt
     state: present
+    security_group: "{{ my_app_default_security_group.id }}"
     direction: egress
     ethertype: IPv4
+~~~~~~
+
+* finally, the user is required to update the ports, indicating which security
+groups apply to it. The following playbook shows how a single port, referenced
+by name, is updated:
+
+~~~~~~
+
+- os_port:
+    cloud: ovirt
+    state: present
+    name: <port_name>
+    security_groups:
+        - "{{ my_app_default_security_group.id }}"
+
 ~~~~~~
 
 ### Installation/Upgrade
 
 The install time required updates are described in the section [above](#engine-setup).
 
-On upgrades with with existing VMs - having attachments to external networks -
+On upgrades with existing VMs - having attachments to external networks -
 the ports will **not** be updated, and it will be up to the administrator to
 manually activate port security in the existent ports.
 

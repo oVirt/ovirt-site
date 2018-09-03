@@ -98,7 +98,6 @@ packages from other repos.
 
 #### VDSM
 
- - [BZ 1622700](https://bugzilla.redhat.com/1622700) <b>[downstream clone - 4.2.6] [RFE][Dalton] - Blacklist all local disk in multipath on RHEL / RHEV Host (RHEL 7.5)</b><br>Feature:<br>Blacklist local devices in multipath. <br><br>Reason: <br>multipath repeatedly logs irrelevant errors for local devices.<br><br>Result: <br>Local devices are blacklisted, and no irrelevant errors are logged anymore.
  - [BZ 1590967](https://bugzilla.redhat.com/1590967) <b>[RFE] Display space savings when a VDO volume is used.</b><br>Feature: Reporting VDO space savings on the Storage domains, gluster volumes and bricks<br><br>Reason: Good to know it.<br><br>Result: Storage Domain view, Volume view and Brick view now include a 'VDO savings' field with savings percent.
 
 #### oVirt Setup Lib
@@ -194,7 +193,6 @@ packages from other repos.
  - [BZ 1540936](https://bugzilla.redhat.com/1540936) <b>cockpit accepts (and propose by default) localhost as the host address and this fails for sure since the engine VM will try to deploy itself as the host</b><br>
  - [BZ 1600883](https://bugzilla.redhat.com/1600883) <b>Remove Packages tab from gluster deployment  in cockpit ovirt</b><br>
  - [BZ 1597255](https://bugzilla.redhat.com/1597255) <b>The mount point of the additional volume created during gluster deployment is not correct .</b><br>
- - [BZ 1608660](https://bugzilla.redhat.com/1608660) <b>Support single node deployment from cockpit</b><br>
 
 #### VDSM JSON-RPC Java
 

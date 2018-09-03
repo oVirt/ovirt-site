@@ -80,10 +80,12 @@ is better specified in the [requirements](#requirements) section.
 ### Requirements
 
 * For ingress traffic (to an instance)
-  + Only traffic matched with security group rules are allowed.
+  + Only traffic matched with security group rules is allowed.
   + When there are no rules defined, all ingress traffic is dropped.
 * For egress traffic (from an instance)
-  + When there are no rules defined, all egress traffic is allowed.
+  + Only traffic matched with security group rules is allowed.
+  + When there are no rules defined, all egress traffic is dropped.
+  + Rules allowing all egress IP traffic are automatically added to all groups.
 * The DHCP traffic traffic for OVN subnets will have to be explicitly allowed,
 otherwise, it will be automatically dropped, as a consequence to the above requirements.
 
@@ -163,8 +165,10 @@ engine user's perspective - is:
 *port_security_attribute* from the network, which will result in dropping all
 IP traffic to that VM.
 * the intended traffic will have to be white-listed. Assuming the user is
-interested in allowing ssh traffic, the following
-ansible playbook should be used:
+interested in allowing ssh traffic, the following ansible playbook should be
+used, which creates one security group - for which a security group rule
+allowing all **egress** traffic is automatically created -, plus one security
+group rule allowing **ingress** tcp traffic meant for port 22:
 
 ~~~~~~
 
@@ -505,6 +509,10 @@ It will feature two ACLs, with the following data:
   * direction: to-lport
   * match: outport == @<port_group> && ip
 
+**NOTE:** these rules will be filtered out by the API, because they are simply
+not featured in the Networking API. This means that a user listing all security
+group rules **will not** see the rules corresponding to the ACLs defined above.
+
 ### allow-dhcp
 
 To allow a VM to get an IP address from the subnet on top the network
@@ -568,21 +576,24 @@ ncat should be used to check the ports on the VM are reachable.
 
 There are 3 main tests:
 
-+ test the default security group
-  * regression testing: assure the old behavior is kept with the feature deactivate
++ test the default security group - deny all behavior
+  * regression testing: assure the old behavior is kept when the feature is deactivated
   * incoming traffic is blocked when the feature is activated
-  * outgoing traffic from a VM is blocked  when a feature is activated
-  * check that a VM attached to a network without a subnet cannot be assigned a DHCP address
-  * add a subnet to that network; check that a DHCP address is now assigned to the VM
-+ test another group's behavior
-  * create a new test group
-  * assign that group to a port
-  * check that no ingress traffic is allowed
-  * check that egress traffic *is* allowed
++ test a user created security group - open ingress tcp port 22
+  * create a new security group
+  * create a new security group rule, similar to the one described in
+  [the user workflow](#user-workflow) section
+  * assign that group to a port, as described in the
+  [the user workflow](#user-workflow) section
+  * check that the only ingress traffic allowed is to port 22, protocol tcp.
 + test rule's behavior
-  * add a rule allowing traffic only from a specific CIDR, to a specific port. Check that accessing that port from the source CIDR is possible, but, doing so from another one is not.
-  * TODO - this will involve more than 1 network *and* a router. get that done.
+  * provision 3 different networks, and create one VM in each of those networks - e.g. Vm1 in net1, Vm2 in net2, Vm3 in net3.
+  * each of the networks must have a subnet; define appropriate CIDRs in each subnet - e.g. sub1, sub2, sub3.
+  The CIDRs should be 192.168.14.0/24, 192.168.15.0/24, and 192.168.16.0/24, respectively.
+  * provision a router, adding the 3 networks to it.
+  * add a rule allowing ICMP traffic only from the 192.168.14.0/24 CIDR, and add
+  it to the port belonging to Vm3. Vm3 will be the 'destination' VM, whereas
+  VMs 1 and 2 will be the ICMP ping sources. Check that Vm1 is able to ping the
+  destination VM, while Vm2 is not - because its source IP address does not
+  belong to the allowed CIDR specified in the rule.
 
-## References
-
-TODO

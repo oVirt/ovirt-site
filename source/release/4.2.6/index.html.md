@@ -6,21 +6,13 @@ layout: toc
 
 # oVirt 4.2.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.2.6 Third Release Candidate as of August 28, 2018.
+The oVirt Project is pleased to announce the availability of the 4.2.6 release as of September 03, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.5,
 CentOS Linux 7.5 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -36,21 +28,25 @@ To learn about features introduced before 4.2.6, see the [release notes for prev
 ### CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
+
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 
 
@@ -94,21 +90,24 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1457250](https://bugzilla.redhat.com/1457250) <b>[RFE] Provide Live Migration for VMs based on "High Performance VM" Profile - manual migrations</b><br>Feature: <br>This feature provides the ability to enable the live migration for those HP VMs (and in general to all VM types with pinning settings).<br><br>Reason: <br>n oVirt 4.2 we added a new “High Performance” VM profile type. This required configuration settings includes pinning the VM to a host based on the host specific configuration. Due to that pinning settings, the migration option for the HP VM type was automatically forced to be disabled.<br><br>Result: <br>in oVirt 4.2.x we will provide the ability to manual migrate the HP VM. This is the first phase solution as mentioned in the feature page.<br>In next oVirt release 4.2 we will provide a full automatic solution.<br><br>This solution for 4.2.x includes:<br>1. Only manual migration can be done for HP VMs via the UI. In addition the user will have to choose the destination host to migrate to.<br>2. Manual migration is also supported for Server/Desktop VM types with pinned configuration, but only via REST api.<br><br>For more details on this first phase/manual solution, please refer to the feature page: https://www.ovirt.org/develop/release-management/features/virt/high-performance-vm-migration/
- - [BZ 1558847](https://bugzilla.redhat.com/1558847) <b>[RFE] Sync all networks across all hosts in cluster</b><br>Feature: Enable all-network sync at the cluster level<br><br>Reason: When changing a data-center network, multiple hosts can end up out of sync.<br><br>Result: User can sync all networks belonging to all hosts of a cluster<br><br>Suggestd addition to RHEV Admin guide (under 'Editing Host Network Interfaces and Assigning Logical Networks to Hosts' or 'Editing a Logical Network'):<br><br>Note:<br><br>Modifying the properties of a network interface card on the host will cause these properties to be out of sync with the engine's corresponding logical network properties.<br>This fact will be acknowledged by a symbol on the relevant interface in the Network Interfaces list of the host. If the symbol does not show use Refresh Capabilities. When<br>engine is aware that the network is out of sync, a 'Sync All Networks' button will become enabled in two location in the webadmin:<br>- Network Interfaces list of the host<br>- Logical Networks list of the cluster<br>Pressing the button at the host level will trigger a sync of all the properties of all network interface cards of the host to engine's corresponding logical networks.<br>Pressing the button at the cluster level will trigger a sync of all the properties of all network interface cards of all the hosts of the cluster to engine's corresponding logical networks.<br>Once the sync operation terminates (or a short while thereafter) the button will become disabled again.
- - [BZ 1565541](https://bugzilla.redhat.com/1565541) <b>packaging: Ansible playbook to set ovn cluster tunnel should accept long network names</b><br>This fature adds support for long network names<br>when modifying the tunneling network for ovn<br>controllers. <br><br>The usage of the script: <br><br>'ansible-playbook --key-file <pubkey> -i <inventory> --extra-vars " cluster_name=<cluster name> ovn_central=<ovn central ip> ovirt_network=<ovirt network name> ovn_tunneling_interface=<vdsm_network_name>"' <br><br>Paramters:<br>  cluster_name - name of cluster on which to do the change<br>  ovirt_network - the ovirt network name (can be long name)<br>  ovn_tunneling_interface - specifies the vdsm network name (same as bridge name on vdsm)<br><br>Either 'ovirt_network' or 'ovn_tunneling_interface'<br>can be defined. The playbook will fail if both are<br>defined.<br><br>The 'inventory' paramter is the vm inventory for ovirt.<br>The following script can be used to retrieve this:<br>  /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory<br><br>The user has to provider a key to long into the hosts.<br>The default key used by ovirt-engine is usually located in:<br>  /etc/pki/ovirt-engine/keys/engine_id_rsa<br><br><br><br>Example of usage:<br><br>using ovirt_network parameter for ovirt network "Long Network Name with ascii char ☺":<br><br>ansible-playbook --key-file /etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars " cluster_name=test-cluster ovn_central=192.168.200.2 ovirt_network=\"Long\ Network\ Name\ with\ \ascii\ char\ \☺\"" ovirt-provider-ovn-driver.yml<br><br>using ovn_tunneling_interface parameter for vdsm network "on703ea21ddbc34":<br><br>ansible-playbook --key-file /etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars " cluster_name=test-cluster ovn_central=192.168.200.2 ovn_tunneling_interface=on703ea21ddbc34" ovirt-provider-ovn-driver.yml
+ - [BZ 1590967](https://bugzilla.redhat.com/1590967) <b>[RFE] Display space savings when a VDO volume is used.</b><br>Feature: Reporting VDO space savings on the Storage domains, gluster volumes and bricks<br><br>Reason: Good to know it.<br><br>Result: Storage Domain view, Volume view and Brick view now include a 'VDO savings' field with savings percent.
+ - [BZ 1393372](https://bugzilla.redhat.com/1393372) <b>iscsi: request and parse ipv6 targets from vdsm (in clusterLevel>=4.1) - engine side</b><br>Feature: <br>Discover and login to ipv6 addresses while creating a new iSCSI storage domain.<br><br>Reason: <br>In case of trying to discover an ipv6 address, there's an error message. Therefore only discovery for ipv4 is being supported today.<br><br>Result:<br>The user can successfully discover ipv6 addresses.<br>This is enabled by default on clusterLevel >=4.3, but may be enabled manually on clusterLevel=4.2 if all of your hosts are >= 4.2.6 with<br><br> engine-config -s ipv6IscsiSupported=true --cver=4.2
+ - [BZ 1558847](https://bugzilla.redhat.com/1558847) <b>[RFE] Sync all networks across all hosts in cluster</b><br>Previously, if a host's networks network definitions became unsynchronized with the definitions on the Manager, there was no way to synchronize all unsynchronized hosts on the cluster level.<br>In this release, a new Sync All Networks button has been added to the Cluster screen in the Administration Portal that enables users to synchronize all unsynchronized hosts with the definitions defined on the Manager.
+ - [BZ 1565541](https://bugzilla.redhat.com/1565541) <b>packaging: Ansible playbook to set ovn cluster tunnel should accept long network names</b><br>Previously, it was not possible to define long network names when modifying the tunnelling network for OVN controllers.<br><br>In this release, a script has been provided to enable long network names to be used for tunnelling network definitions.
  - [BZ 1596151](https://bugzilla.redhat.com/1596151) <b>enable migration for cpu pinned VMs</b><br>Remove the config parameter called "CpuPinMigrationEnabled" (appears on DB in vdc_options table) in downstream and upstream installations. <br>This change was done to support High Performance VM live migration (BZ 1457250)
 
 #### VDSM
 
  - [BZ 1622700](https://bugzilla.redhat.com/1622700) <b>[downstream clone - 4.2.6] [RFE][Dalton] - Blacklist all local disk in multipath on RHEL / RHEV Host (RHEL 7.5)</b><br>Feature:<br>Blacklist local devices in multipath. <br><br>Reason: <br>multipath repeatedly logs irrelevant errors for local devices.<br><br>Result: <br>Local devices are blacklisted, and no irrelevant errors are logged anymore.
+ - [BZ 1590967](https://bugzilla.redhat.com/1590967) <b>[RFE] Display space savings when a VDO volume is used.</b><br>Feature: Reporting VDO space savings on the Storage domains, gluster volumes and bricks<br><br>Reason: Good to know it.<br><br>Result: Storage Domain view, Volume view and Brick view now include a 'VDO savings' field with savings percent.
 
 #### oVirt Setup Lib
 
- - [BZ 1295041](https://bugzilla.redhat.com/1295041) <b>[RFE] add IPv6 support to ovirt-setup-lib</b><br>Feature: add IPv6 support to engine-setup<br><br>Reason: <br><br>Result:
+ - [BZ 1295041](https://bugzilla.redhat.com/1295041) <b>[RFE] add IPv6 support to ovirt-setup-lib</b><br>Previously, the engine-setup tool did not support host names that only resolved to an IPv6 address.<br>In this release, the engine-setup tool supports host names that only resolve to an IPv6 address.
 
 #### oVirt Hosted Engine Setup
 
- - [BZ 1608467](https://bugzilla.redhat.com/1608467) <b>[TEXT] - the deployment will fail late if firewalld is disabled or masked on the host</b><br>The deployment is going to fail if firewalld is masked on the host, checking this earlier.
+ - [BZ 1608467](https://bugzilla.redhat.com/1608467) <b>[TEXT] - the deployment will fail late if firewalld is disabled or masked on the host</b><br>Self-hosted engine deployment fails if firewalld is masked on the host. This is now checked earlier in the deployment script.
 
 #### oVirt Engine Metrics
 
@@ -118,7 +117,7 @@ packages from other repos.
 
 #### oVirt Engine
 
- - [BZ 1619474](https://bugzilla.redhat.com/1619474) <b>Pending change IO thread disable is not applied on shutdown</b><br>
+ - [BZ 1623447](https://bugzilla.redhat.com/1623447) <b>[downstream clone - 4.2.6] Pending change IO thread disable is not applied on shutdown</b><br>
  - [BZ 1622994](https://bugzilla.redhat.com/1622994) <b>[downstream clone - 4.2.6] IO-Threads is enabled inadvertently by editing unrelated configuration</b><br>
  - [BZ 1609147](https://bugzilla.redhat.com/1609147) <b>[REST API] all VMs in VM Pool are returned to a pool user regardless of actual VM ownership</b><br>
  - [BZ 1581709](https://bugzilla.redhat.com/1581709) <b>Move the vfio-mdev vGPU hook to a VDSM code base</b><br>
@@ -152,6 +151,7 @@ packages from other repos.
  - [BZ 1613282](https://bugzilla.redhat.com/1613282) <b>Failed to hot-Unplug disk from VM with Code 46 (Timeout detaching)</b><br>
  - [BZ 1610758](https://bugzilla.redhat.com/1610758) <b>When specifying folder of OVAs in import dialog, the task hangs forever</b><br>
  - [BZ 1601469](https://bugzilla.redhat.com/1601469) <b>[OVN] - Create external network's vNIC profile without network filter</b><br>
+ - [BZ 1613104](https://bugzilla.redhat.com/1613104) <b>The engine is generating domain XML for HE VM also if the cluster compatibility level doesn't allow it</b><br>
  - [BZ 1595140](https://bugzilla.redhat.com/1595140) <b>Exceptions seen with refreshing geo-rep session on the gluster volume</b><br>
  - [BZ 1610248](https://bugzilla.redhat.com/1610248) <b>Create new Georep session popup does not open</b><br>
  - [BZ 1590109](https://bugzilla.redhat.com/1590109) <b>refresh caps events are not sent on network dhcp attachment or update</b><br>
@@ -163,7 +163,6 @@ packages from other repos.
  - [BZ 1619730](https://bugzilla.redhat.com/1619730) <b>increase execution rate of ExtendImageTicket</b><br>
  - [BZ 1608291](https://bugzilla.redhat.com/1608291) <b>[RFE] Should be able to change the Port number of NoVnc</b><br>
  - [BZ 1620178](https://bugzilla.redhat.com/1620178) <b>Auto enable multiple network queues for high Performance VMS</b><br>
- - [BZ 1613104](https://bugzilla.redhat.com/1613104) <b>The engine is generating domain XML for HE VM also if the cluster compatibility level doesn't allow it</b><br>
  - [BZ 1613341](https://bugzilla.redhat.com/1613341) <b>API doesn't return stored ssh public key for non admin user properly</b><br>
  - [BZ 1552098](https://bugzilla.redhat.com/1552098) <b>Rephrase: "command GetStatsAsyncVDS failed: Heartbeat exceeded" error message</b><br>
  - [BZ 1570988](https://bugzilla.redhat.com/1570988) <b>Don't try to remove functions, views or tables in public schema installed by PostgreSQL extensions</b><br>
@@ -222,9 +221,14 @@ packages from other repos.
 
  - [BZ 1598781](https://bugzilla.redhat.com/1598781) <b>Upgrading RHV-H is bringing back libvirt network file which causes issues in starting of VM</b><br>
 
+#### oVirt Engine database query tool
+
+ - [BZ 1609667](https://bugzilla.redhat.com/1609667) <b>rhv-log-collector-analyzer does not provide any content in html report</b><br>
+
 ### No Doc Update
 
 #### oVirt Engine
 
  - [BZ 1608961](https://bugzilla.redhat.com/1608961) <b>tear down ovirt-provider-ovn when an host is removed from ovirt-engine</b><br>
  - [BZ 1566112](https://bugzilla.redhat.com/1566112) <b>Exception when trying to run multiple VMs (VMs failed to run)</b><br>
+

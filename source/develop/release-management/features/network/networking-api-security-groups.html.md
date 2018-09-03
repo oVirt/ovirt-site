@@ -28,7 +28,7 @@ in the OVN model.
 
 ### Owner
 
-* Feature Owner: [Miguel Duarte Barroso](https://github.com/maiqueb) (mbarroso on IRC)
+* Feature Owner: [Miguel Duarte Barroso](https://github.com/maiqueb) (mbarroso in #ovirt)
 * Email: <mdbarroso@redhat.com>
 
 ### Terminology
@@ -47,9 +47,7 @@ networking API entity
 
 Currently, the only security mechanisms present for oVirt VMs attached to
 external networks are quite crude L2 and L3 protections - MAC
-spoofing, and IP spoofing - implemented directly by Open vSwitch. It is worth
-mentioning that IP spoofing protection is only applied when a subnet is defined
-on top of the Networking API network.
+spoofing, and IP spoofing - implemented directly by Open vSwitch.
 
 Security groups, which are a traffic white list, complement provided security
 by specifying which traffic is allowed to *and* from the resources - e.g. ports - using high level abstraction L3 and L4 semantics.
@@ -58,7 +56,7 @@ Furthermore, security groups allow these rules to be applied in fine
 grained fashion - e.g. the user can specify which rules apply to which
 ports.
 
-Below, you can find some examples of goals for this feature:
+Below, you can find some use cases of this feature:
 * **only** allow incoming traffic to a specific VM from a specific
 CIDR
 * **only** allow incoming access to a range of destination ports in a
@@ -86,13 +84,13 @@ is better specified in the [requirements](#requirements) section.
   + Only traffic matched with security group rules is allowed.
   + When there are no rules defined, all egress traffic is dropped.
   + Rules allowing all egress IP traffic are automatically added to all groups.
-* The DHCP traffic traffic for OVN subnets will have to be explicitly allowed,
+* The DHCP traffic for OVN subnets will have to be explicitly allowed,
 otherwise, it will be automatically dropped, as a consequence to the above requirements.
 
 ### Security groups description
 
-Security groups, in the general sense, are nothing more than containers
-for [security group rules](https://developer.openstack.org/api-ref/network/v2/#security-group-rules-security-group-rules). 
+Security groups, in the general sense, are meant to group together a list of
+[security group rules](https://developer.openstack.org/api-ref/network/v2/#security-group-rules-security-group-rules). 
 They are applied to logical ports, and thus are used to associate a set of 
 rules to a port.
 
@@ -101,7 +99,7 @@ default, and the user adds rules that allow traffic. As long as *one*
 rule is matched, the traffic is allowed.
 
 Security group rules can match on L3 and L4 parameters, specifically on
-the protocol (L3), the IP protocol (L4), and destination ports. The remote IP
+the L3 protocol, the L4 protocol, and destination ports. The remote IP
 address is also a subject for the match conditions, and rules can be
 added to allow *incoming* and *outgoing* traffic.
 

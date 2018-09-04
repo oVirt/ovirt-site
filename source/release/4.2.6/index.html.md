@@ -83,6 +83,13 @@ If you want to use other packages from EPEL, you should make sure to
 use `includepkgs` and add only those you need avoiding to override
 packages from other repos.
 
+## Known Issues
+- With oVirt Node 4.2.6 IP over infiniband is not working anymore after an upgrade, due to kernel
+  3.10.0-862.11.6.el7.x86_64.
+  You can find some detail here: https://bugs.centos.org/view.php?id=15193.
+  An async release will be issued as soon as a new kernel will be available.
+
+
 ## What's New in 4.2.6?
 
 ### Enhancements

@@ -77,10 +77,10 @@ is better specified in the [requirements](#requirements) section.
 
 ### Requirements
 
-* For ingress traffic (to an instance)
+* For ingress traffic (to a guest / VM)
   + Only traffic matched with security group rules is allowed.
   + When there are no rules defined, all ingress traffic is dropped.
-* For egress traffic (from an instance)
+* For egress traffic (from a guest / VM)
   + Only traffic matched with security group rules is allowed.
   + When there are no rules defined, all egress traffic is dropped.
   + Rules allowing all egress IP traffic are automatically added to all groups.
@@ -94,9 +94,9 @@ Security groups, in the general sense, are meant to group together a list of
 They are applied to logical ports, and thus are used to associate a set of 
 rules to a port.
 
-They are are indeed a white list - e.g. everything is *denied* by
-default, and the user adds rules that allow traffic. As long as *one*
-rule is matched, the traffic is allowed.
+They are indeed a white list - meaning that everything is *denied* when the
+list is empty - to which the user adds rules allowing specific traffic. As
+long as *one* rule is matched, that particular traffic is allowed.
 
 Security group rules can match on L3 and L4 parameters, specifically on
 the L3 protocol, the L4 protocol, and destination ports. The remote IP
@@ -111,12 +111,14 @@ created, and the user does not specify this attribute, it is created set
 to 'True', meaning that security group filters will be applied to it.
 
 This causes all incomming traffic to the port to be dropped, until the user
-white-lists the intended traffic for that port.
+white-lists the intended traffic for that port. Outgoing traffic would also
+be dropped, but rules allowing all egress IP traffic are automatically added
+to all security groups, to fulfill the security groups API requirements.
 
 ### User interface
 
 The user is meant to provision security group(s) and rule(s) through ansible,
-or using a REST client.
+or using a REST client, targeting the ovirt-provider-ovn.
 
 This greatly reduces the oVirt-engine impact, since there's no need to 
 implement the REST client side of the API, nor implement these changes in the
@@ -147,7 +149,7 @@ during *engine-setup* - refer to [this section](#engine-setup) - and the
 default choice will be 'yes', which will result in all traffic being dropped to
 the VMs.
 
-Existent ports can later be updated, disabling the **port-security** attribute,
+Existing ports can later be updated, disabling the **port-security** attribute,
 which would remove the ACLs that drop all IP traffic to the VM.
 
 As defined in the [network port security attribute definition](https://developer.openstack.org/api-ref/network/v2/#port-security), updating the **port-security** attribute on a network object **does not** cascade the value to ports attached to that network - meaning that effect would only apply to ports created *after* that update. Check the [upgrade](#installation/upgrade) section for the consequences of this requirement on ovirt-provider-ovn upgrades.
@@ -163,9 +165,9 @@ engine user's perspective - is:
 *port_security_attribute* from the network, which will result in dropping all
 IP traffic to that VM.
 * the intended traffic will have to be white-listed. Assuming the user is
-interested in allowing ssh traffic, the following ansible playbook should be
+interested in allowing ssh traffic, the following ansible tasks should be
 used, which creates one security group - for which a security group rule
-allowing all **egress** traffic is automatically created -, plus one security
+allowing all **egress** traffic is automatically created - plus one security
 group rule allowing **ingress** tcp traffic meant for port 22:
 
 ~~~~~~
@@ -189,7 +191,7 @@ group rule allowing **ingress** tcp traffic meant for port 22:
 ~~~~~~
 
 * finally, the user is required to update the ports, indicating which security
-groups apply to it. The following playbook shows how a single port, referenced
+groups apply to it. The following ansible task shows how a single port, referenced
 by name, is updated:
 
 ~~~~~~
@@ -205,7 +207,7 @@ by name, is updated:
 
 ### Installation/Upgrade
 
-The install time required updates are described in the section [above](#engine-setup).
+The install time required updates are described in the section [below](#engine-setup).
 
 On upgrades with existing VMs - having attachments to external networks -
 the ports will **not** be updated, and it will be up to the administrator to
@@ -222,16 +224,17 @@ port-security is enabled at network level. The default answer will be 'yes'.
 This will lead to all the created ports having port-security active, leading to
 all IP traffic being dropped.
 
-## Design feature descrition
+## Design feature description
 
 ### Mandatory security group creation
 
 There are 2 types of required security groups, that are created automatically
-by the ovirt-provider-ovn, when required. They are:
+by the ovirt-provider-ovn, when certain events occur. They are:
 
 1. the **deny-all** security group, provisioned when the first port with the
-**port-security** flag activated is created. This port will be the container for
-the rules that drop all IP traffic. More information can be found in
+**port-security** flag activated is created, thus avoiding the need to create
+it beforehand, or during deployment. This group will contain the rules that
+drop all IP traffic. More information can be found in
 [Activating the feature](#activating-the-feature).
 
 
@@ -268,7 +271,7 @@ provisioned when the first port having the *port-security* attribute enabled is
 created.
 
 The DHCP related rules will be provisioned after the respective group is
-created, and as part os the [create subnet](#creating-a-subnet-on-top-of-a-network)
+created, and as part of the [create subnet](#creating-a-subnet-on-top-of-a-network)
 workflow.
 
 ## Missing pieces
@@ -284,7 +287,7 @@ A bug has been created to track this feature request. Its state can be followed
 
 ## Mapping networking API to OVN model objects
 
-The security group data will be model as a [port group](https://github.com/openvswitch/ovs/blob/master/ovn/ovn-nb.xml#L926).
+The security group data will be modeled as a [port group](https://github.com/openvswitch/ovs/blob/master/ovn/ovn-nb.xml#L926).
 This ovn-nb table is only available on Open vSwitch 2.10, released upstream
 August 20th 2018.
 
@@ -350,7 +353,7 @@ Mapping is a two way game: it is needed to translate *from* a networking
 API security group rule *to* an OVN ACL, ***and*** from an OVN ACL to a
 networking API security group rule.
 
-To achieve the latter, the information that is not **directly** encoded
+To achieve the latter, the information that is **not** directly encoded
 in the ACL - e.g. protocol, ethertype, ports (both min & max), security
 group id, remote ip prefix, and description - will be duplicated in the
 ACL external IDs.
@@ -439,9 +442,9 @@ The security group rules also feature the resource timestamps extension,
 but the revision number will always be *one*, since we do not allow a
 rule to be updated.
 
-A sequence diagram where a user adds - through ansible - a security
-group rule meant to white list ssh traffic is added to the security
-group 'allow-ssh' is shown below.
+A sequence diagram where a user adds - through ansible - a security group rule
+meant to white list ssh traffic to the security group 'allow-ssh' is shown
+below.
 
 ![add-rule](../../../../images/features/network/security-groups/create_security_group_rule_ansible.png)
 
@@ -450,14 +453,15 @@ group 'allow-ssh' is shown below.
 Creating a Networking API subnet leads to the creation of its
 corresponding DHCP options object in the OVN north database.
 
-If the feature is activated - e.g. the **deny-all** port group is
-present in the OVN northbound database - the DHCP related traffic will
-be dropped by Open vSwitch. To prevent that, thus assuring that the VMs
-can get an IP address through DHCP, a security group meant to hold the
+For ports with the **port_security_enabled** setting enabled, the DHCP related
+traffic will be dropped by Open vSwitch. To prevent that, thus assuring that
+the VMs can get an IP address through DHCP, a security group meant to hold the
 rules white listing DHCP traffic is created, and ACLs allowing that
-traffic added to it.
+traffic are added to it.
 
-The following sequence diagram depicts the flow described above.
+The following sequence diagram depicts the flow described above. In it, **cms**
+refers the a *cloud management system* - e.g. oVirt. It is an OVN term,
+referenced in its [architecture](http://www.openvswitch.org//support/dist-docs/ovn-architecture.7.html).
 
 ![add-subnet](../../../../images/features/network/security-groups/create_subnet.png)
 
@@ -483,8 +487,8 @@ have to be added to the API.
 corresponding **allow-dhcp** port group port list will also be updated
 with the new port.
 
-It will also need to update the list of ports for each of the port
-groups representing the security groups bound to the added ports.
+The list of ports for each of the port groups representing the security groups
+bound to the added ports will also have to be updated.
 
 ![add-port](../../../../images/features/network/security-groups/add_ports.png)
 
@@ -513,7 +517,7 @@ group rules **will not** see the rules corresponding to the ACLs defined above.
 
 ### allow-dhcp
 
-To allow a VM to get an IP address from the subnet on top the network
+To allow a VM to get an IP address from the subnet on top of the network
 to which its port is attached, and assuming that port has port-security
 active, it is required to white-list the DHCP traffic.
 
@@ -537,36 +541,32 @@ data:
 
 ## ovirt-provider-ovn API update
 
-The following updates are required to the current API, listed by entities:
+The following updates to the entities of the current API are required:
 
 * network
-  + add the **port_security_enabled** boolean attribute
+  + add the **port_security_enabled** attribute
 * port
-  + implement the **port_security_enabled** boolean attribute
-  + implement the **security_groups** array attribute
+  + implement the **port_security_enabled** attribute
+  + implement the **security_groups** attribute
 * security groups
   + implement this entity, as described [here](#encoding-the-security-group-information)
 * security group rules
     + implement this entity, as described [here](#encoding-the-security-group-rule-information)
 
-## Networking API extensions implemented / not implemented
+## Networking API extensions implemented
 
 Implemented:
 * [Resource timestamps](https://developer.openstack.org/api-ref/network/v2/#id367)
 * [Port security](https://developer.openstack.org/api-ref/network/v2/#id35)
 
-Not implemented:
-* [Tag](https://developer.openstack.org/api-ref/network/v2/#id381)
-
 ## Feature dependencies
 
 + Open vSwitch 2.10 - port group table
-+ python-ovsdbapp 0.12.1 - port group support, with a nice API, without
-openstack dependencies
++ python-ovsdbapp 0.12.1 - port group support, without openstack dependencies
 
 ## Testing
 
-The recommended tools to check this feature are ansible and ncat.
+The recommended tools to check this feature are ansible and [ncat](http://man7.org/linux/man-pages/man1/ncat.1.html).
 
 Ansible should be used to provision the security groups and the respective rules.
 

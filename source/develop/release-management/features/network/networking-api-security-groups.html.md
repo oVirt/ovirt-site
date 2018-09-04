@@ -128,6 +128,9 @@ Throughout the remainder of the document, ansible will be assumed as the client,
 and [os_security_group_rules](https://docs.ansible.com/ansible/2.5/modules/os_security_group_rule_module.html)
 will be leveraged for this.
 
+Despite the above, [ManageIQ](http://manageiq.org/) can be used as GUI to
+provision security groups and rules.
+
 ## Activating the feature
 
 The feature will be always active, and it is a matter of identifying the

@@ -209,9 +209,17 @@ by name, is updated:
 
 The install time required updates are described in the section [below](#engine-setup).
 
+After the upgrade, the newly created network's **port_security_enabled**
+attribute will default to what's set in the configuration file, which, unless
+changed by the user, is *True*.
+
 On upgrades with existing VMs - having attachments to external networks -
 the ports will **not** be updated, and it will be up to the administrator to
 manually activate port security in the existent ports.
+
+An existing external network's **port_security_enabled** attribute will default
+to *False*, meaning that security groups will **not** be applied to newly
+created VMs attached to existing networks.
 
 Updating the network's port-security-enabled attribute **will not** cascade to
 the existent ports, as defined [in the Networking API](https://developer.openstack.org/api-ref/network/v2/#port-security).
@@ -594,4 +602,16 @@ There are 3 main tests:
   VMs 1 and 2 will be the ICMP ping sources. Check that Vm1 is able to ping the
   destination VM, while Vm2 is not - because its source IP address does not
   belong to the allowed CIDR specified in the rule.
+
+## Documentation & External references
+
+[OpenStack Networking API specification](https://developer.openstack.org/api-ref/network/v2/)
+
+[oVirt OVN integration](https://ovirt.org/develop/release-management/features/network/external-network-provider/)
+
+[oVirt Provider OVN](https://www.ovirt.org/develop/release-management/features/network/ovirt-ovn-provider/)
+
+[Track feature status in Trello](https://trello.com/b/2WpFZANY/security-groups)
+
+[RFE Provide support for adding security groups and rules using ovirt-provider-ovn](https://bugzilla.redhat.com/1539829)
 

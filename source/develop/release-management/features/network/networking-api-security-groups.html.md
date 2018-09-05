@@ -615,7 +615,5 @@ There are 3 main tests:
 
 [oVirt Provider OVN](https://www.ovirt.org/develop/release-management/features/network/ovirt-ovn-provider/)
 
-[Track feature status in Trello](https://trello.com/b/2WpFZANY/security-groups)
-
 [RFE Provide support for adding security groups and rules using ovirt-provider-ovn](https://bugzilla.redhat.com/1539829)
 

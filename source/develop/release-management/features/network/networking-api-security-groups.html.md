@@ -19,9 +19,10 @@ in the ovirt-provider-ovn.
 By doing so, we allow fine-grained access control to - and from - the oVirt
 VMs attached to external networks.
 
-The Networking API v2 defines security groups as a white list of rules.
-That means, that by default, neither incoming nor outgoing traffic is
-allowed (from the VMs perspective).
+The Networking API v2 defines security groups as a white list of rules - the
+user specifies in it **which traffic is allowed**.
+That means, that when the rule list is empty, neither incoming nor outgoing
+traffic is allowed (from the VMs perspective).
 
 A security group is applied to a logical port - a *logical switch port*
 in the OVN model.

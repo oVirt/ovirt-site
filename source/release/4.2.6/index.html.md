@@ -8,6 +8,8 @@ layout: toc
 
 The oVirt Project is pleased to announce the availability of the 4.2.6 release as of September 03, 2018.
 
+Release has been updated on September 13, 2018.
+
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.5,
@@ -101,11 +103,8 @@ packages from other repos.
  - [BZ 1393372](https://bugzilla.redhat.com/1393372) <b>iscsi: request and parse ipv6 targets from vdsm (in clusterLevel>=4.1) - engine side</b><br>Feature: <br>Discover and login to ipv6 addresses while creating a new iSCSI storage domain.<br><br>Reason: <br>In case of trying to discover an ipv6 address, there's an error message. Therefore only discovery for ipv4 is being supported today.<br><br>Result:<br>The user can successfully discover ipv6 addresses.<br>This is enabled by default on clusterLevel >=4.3, but may be enabled manually on clusterLevel=4.2 if all of your hosts are >= 4.2.6 with<br><br> engine-config -s ipv6IscsiSupported=true --cver=4.2
  - [BZ 1558847](https://bugzilla.redhat.com/1558847) <b>[RFE] Sync all networks across all hosts in cluster</b><br>Previously, if a host's networks network definitions became unsynchronized with the definitions on the Manager, there was no way to synchronize all unsynchronized hosts on the cluster level.<br>In this release, a new Sync All Networks button has been added to the Cluster screen in the Administration Portal that enables users to synchronize all unsynchronized hosts with the definitions defined on the Manager.
  - [BZ 1565541](https://bugzilla.redhat.com/1565541) <b>packaging: Ansible playbook to set ovn cluster tunnel should accept long network names</b><br>Previously, it was not possible to define long network names when modifying the tunnelling network for OVN controllers.<br><br>In this release, a script has been provided to enable long network names to be used for tunnelling network definitions.
+ - [BZ 1625171](https://bugzilla.redhat.com/1625171) <b>[downstream clone - 4.2.6] [RFE] Should be able to change the Port number of NoVnc</b><br>
  - [BZ 1596151](https://bugzilla.redhat.com/1596151) <b>enable migration for cpu pinned VMs</b><br>Remove the config parameter called "CpuPinMigrationEnabled" (appears on DB in vdc_options table) in downstream and upstream installations. <br>This change was done to support High Performance VM live migration (BZ 1457250)
-
-#### VDSM
-
- - [BZ 1590967](https://bugzilla.redhat.com/1590967) <b>[RFE] Display space savings when a VDO volume is used.</b><br>Feature: Reporting VDO space savings on the Storage domains, gluster volumes and bricks<br><br>Reason: Good to know it.<br><br>Result: Storage Domain view, Volume view and Brick view now include a 'VDO savings' field with savings percent.
 
 #### oVirt Setup Lib
 
@@ -117,7 +116,7 @@ packages from other repos.
 
 #### oVirt Engine Metrics
 
- - [BZ 1607127](https://bugzilla.redhat.com/1607127) <b>[RFE] Update ansible-inventory file to use latest instead of version</b><br>Feature: <br>Add symlink that uses latest instead of the specific version for the ansible-inventory files.<br><br>Reason: <br>So that documentation is always up to date and user does not need to specify the version to install.<br><br>Result: <br>Add symlink that uses latest instead of the specific version for the ansible-inventory files.<br><br>Also, the version to install is a parameter openshift_version that is set to 310 but can also be updated to 39.<br><br>Also, for upstream we set openshift_distribution to origin and in downstream ocp. This allows installing only the relevant ansible-inventory file to the metrics store machine.
+ - [BZ 1607127](https://bugzilla.redhat.com/1607127) <b>[RFE] Update ansible-inventory file to use latest instead of version</b><br>The current release always uses the latest Ansible inventory file, so that a particular Openshift version no longer needs to be specified and the documentation is always up to date.
 
 ### Bug Fixes
 
@@ -128,7 +127,6 @@ packages from other repos.
  - [BZ 1609147](https://bugzilla.redhat.com/1609147) <b>[REST API] all VMs in VM Pool are returned to a pool user regardless of actual VM ownership</b><br>
  - [BZ 1581709](https://bugzilla.redhat.com/1581709) <b>Move the vfio-mdev vGPU hook to a VDSM code base</b><br>
  - [BZ 1608828](https://bugzilla.redhat.com/1608828) <b>[downstream clone - 4.2.6] Unable to perform upgrade from 4.1 to 4.2 due to selinux related errors.</b><br>
- - [BZ 1589045](https://bugzilla.redhat.com/1589045) <b>[RHHI] Brick profile feature in RHV-M doesn't seems to be working</b><br>
  - [BZ 1613875](https://bugzilla.redhat.com/1613875) <b>[downstream clone - 4.2.6] Indicate that RHV-H hosts have to be rebooted always after upgrade</b><br>
 
 #### VDSM
@@ -167,7 +165,6 @@ packages from other repos.
  - [BZ 1589790](https://bugzilla.redhat.com/1589790) <b>[UI] - Remove subnet sub tab from edit external network flow</b><br>
  - [BZ 1603878](https://bugzilla.redhat.com/1603878) <b>[UI] Cannot copy-paste Network Interface MAC address</b><br>
  - [BZ 1619730](https://bugzilla.redhat.com/1619730) <b>increase execution rate of ExtendImageTicket</b><br>
- - [BZ 1608291](https://bugzilla.redhat.com/1608291) <b>[RFE] Should be able to change the Port number of NoVnc</b><br>
  - [BZ 1620178](https://bugzilla.redhat.com/1620178) <b>Auto enable multiple network queues for high Performance VMS</b><br>
  - [BZ 1613341](https://bugzilla.redhat.com/1613341) <b>API doesn't return stored ssh public key for non admin user properly</b><br>
  - [BZ 1552098](https://bugzilla.redhat.com/1552098) <b>Rephrase: "command GetStatsAsyncVDS failed: Heartbeat exceeded" error message</b><br>
@@ -175,7 +172,7 @@ packages from other repos.
  - [BZ 1608392](https://bugzilla.redhat.com/1608392) <b>Status code from the API for unsupported reduce volume actions (for disk that resides on file based domain for example) is 400 (bad request) instead 409 (conflict)</b><br>
  - [BZ 1573184](https://bugzilla.redhat.com/1573184) <b>StreamingAPI - Transfer disk Lock is freed before transfer is complete - after Finalizing phase but before Finished Success</b><br>
  - [BZ 1608716](https://bugzilla.redhat.com/1608716) <b>upload image - rounded up size value for the created disk</b><br>
- - [BZ 1609011](https://bugzilla.redhat.com/1609011) <b>Creating transient disk during backup operation is failing with error "No such file or directory"</b><br>
+ - [BZ 1625150](https://bugzilla.redhat.com/1625150) <b>[downstream clone - 4.2.6] Creating transient disk during backup operation is failing with error "No such file or directory"</b><br>
  - [BZ 1579303](https://bugzilla.redhat.com/1579303) <b>External VMs prevent placing host in maintenance mode</b><br>
  - [BZ 1600325](https://bugzilla.redhat.com/1600325) <b>Link to change password is broken</b><br>
  - [BZ 1591271](https://bugzilla.redhat.com/1591271) <b>Get Internal Server Error while trying to get graphic console, while VM suspending</b><br>
@@ -198,7 +195,6 @@ packages from other repos.
 
  - [BZ 1614426](https://bugzilla.redhat.com/1614426) <b>Gluster deployment wizard throws Null Pointer Exception after finished deployment</b><br>
  - [BZ 1540936](https://bugzilla.redhat.com/1540936) <b>cockpit accepts (and propose by default) localhost as the host address and this fails for sure since the engine VM will try to deploy itself as the host</b><br>
- - [BZ 1600883](https://bugzilla.redhat.com/1600883) <b>Remove Packages tab from gluster deployment  in cockpit ovirt</b><br>
  - [BZ 1597255](https://bugzilla.redhat.com/1597255) <b>The mount point of the additional volume created during gluster deployment is not correct .</b><br>
 
 #### VDSM JSON-RPC Java

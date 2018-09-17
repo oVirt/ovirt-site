@@ -9,6 +9,7 @@ layout: feature
 Click the links below for a list of features by release version:
 
 
+*   [oVirt 4.3 Features](/develop/release-management/releases/4.3/feature/)
 *   [oVirt 4.2 Features](/develop/release-management/releases/4.2/feature/)
 *   [oVirt 4.1 Features](/develop/release-management/releases/4.1/feature/)
 *   [oVirt 4.0 Features](/develop/release-management/releases/4.0/feature/)

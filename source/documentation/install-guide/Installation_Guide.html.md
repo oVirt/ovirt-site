@@ -16,15 +16,15 @@ title: oVirt Installation Guide
 
 ### Chapter 4: [oVirt Engine Related Tasks](../chap-oVirt_Engine_Related_Tasks)
 
-## Part III: Installing Hypervisor Hosts
+## Part III: Installing Hosts
 
-### Chapter 5: [Introduction to Hypervisor Hosts](../chap-Introduction_to_Hypervisor_Hosts)
+### Chapter 5: [Introduction to Hosts](../chap-Introduction_to_Hosts)
 
 ### Chapter 6: [oVirt Nodes](../chap-oVirt_Nodes)
 
 ### Chapter 7: [Enterprise Linux Hosts](../chap-Enterprise_Linux_Hosts)
 
-### Chapter 8: [Adding a Hypervisor](../chap-Adding_a_Hypervisor)
+### Chapter 8: [Adding a Host to the oVirt Engine](../chap-Adding_a_Host_to_the_oVirt_Engine)
 
 ## Part IV: Attaching Storage
 
@@ -38,10 +38,12 @@ title: oVirt Installation Guide
 
 ### Appendix C: [Enabling Gluster Processes on Gluster Storage Nodes](../appe-Enabling_Gluster_Processes_on_Gluster_Storage_Nodes)
 
-### Appendix D: [Preparing a Remote PostgreSQL Database for Use with the oVirt Engine](../appe-Preparing_a_Remote_PostgreSQL_Database_for_Use_with_the_oVirt_Engine)
+### Appendix D: [Preparing a Remote PostgreSQL Database](../appe-Preparing_a_Remote_PostgreSQL_Database)
 
-### Appendix E: [Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](../appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine)
+### Appendix E: [Preparing a Local Manually-Configured PostgreSQL Database](../appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database)
 
-### Appendix F: [Installing the Websocket Proxy on a Different Host](../appe-Installing_the_Websocket_Proxy_on_a_different_host)
+### Appendix F: [Installing a Websocket Proxy on a Separate Machine](../appe-Installing_the_Websocket_Proxy_on_a_dSeparate_Machine)
 
-### Appendix G: [Configuring a Hypervisor Host for PCI Passthrough](../appe-Configuring_a_Hypervisor_Host_for_PCI_Passthrough)
+### Appendix G: [Configuring a Host for PCI Passthrough](../appe-Configuring_a_Host_for_PCI_Passthrough)
+
+### Appendix H: [Preparing a Host for vGPU Installation](../appe-Preparing_a_Host_for_vGPU_Installation)

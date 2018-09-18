@@ -22,7 +22,7 @@ This section describes how to install and configure the websocket proxy on a sep
 
     **Note:** If the `rhevm` package has also been installed, choose `No` when asked to configure the engine on this host.
 
-3. Press **Enter* to allow `engine-setup` to configure a websocket proxy server on the machine.
+3. Press **Enter** to allow `engine-setup` to configure a websocket proxy server on the machine.
 
         Configure WebSocket Proxy on this machine? (Yes, No) [Yes]:
 
@@ -48,11 +48,11 @@ This section describes how to install and configure the websocket proxy on a sep
         2 - Perform each action manually, use files to copy content around
         (1, 2) [1]:
 
-    1. Press **Enter** to accept the default SSH port number, or enter the port number of the Engine machine.
+    i. Press **Enter** to accept the default SSH port number, or enter the port number of the Engine machine.
 
             ssh port on remote engine server [22]:           
 
-    2. Enter the root password to log in to the Engine machine and press **Enter**.
+    ii. Enter the root password to log in to the Engine machine and press **Enter**.
 
             root password on remote engine server engine_host.example.com:        
 
@@ -87,5 +87,7 @@ This section describes how to install and configure the websocket proxy on a sep
         # engine-config -s WebSocketProxy=host.example.com:6100
         # systemctl restart ovirt-engine.service
 
-**Prev:** [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database for Use with the oVirt Engine](../appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database_for_Use_with_the_oVirt_Engine) <br>
-**Next:** [Appendix G: Configuring a Hypervisor Host for PCI Passthrough](../appe-Configuring_a_Hypervisor_Host_for_PCI_Passthrough)
+**Prev:** [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database](../appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database) <br>
+**Next:** [Appendix G: Configuring a Host for PCI Passthrough](../appe-Configuring_a_Host_for_PCI_Passthrough)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/appe-installing_the_websocket_proxy_on_a_different_host)

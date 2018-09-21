@@ -34,13 +34,7 @@ The oVirt Engine ensures that the SPM is always available. The Manager moves the
 
 The SPM role uses some of a host's available resources. The SPM priority setting of a host alters the likelihood of the host being assigned the SPM role: a host with high SPM priority will be assigned the SPM role before a host with low SPM priority. Critical virtual machines on hosts with low SPM priority will not have to contend with SPM operations for host resources.
 
-You can change a host's SPM priority by editing the host.
-
-## Using the Events Tab to Identify Problem Objects in Data Centers
-
-The **Events** tab for a data center displays all events associated with that data center; events include audits, warnings, and errors. The information displayed in the results list will enable you to identify problem objects in your oVirt environment.
-
-The **Events** results list has two views: Basic and Advanced. Basic view displays the event icon, the time of the event, and the description of the events. Advanced view displays these also and includes, where applicable, the event ID; the associated user, host, virtual machine, template, data center, storage, and cluster; the Gluster volume, and the correlation ID.
+You can change a host’s SPM priority in the **SPM** tab in the **Edit Host** window.
 
 ## Data Center Tasks
 
@@ -48,29 +42,23 @@ The **Events** results list has two views: Basic and Advanced. Basic view displa
 
 This procedure creates a data center in your virtualization environment. The data center requires a functioning cluster, host, and storage domain to operate.
 
-**Note:** The storage **Type** can be edited until the first storage domain is added to the data center. Once a storage domain has been added, the storage **Type** cannot be changed.
+    **Note:** Once the **Compatibility Version** is set, it cannot be lowered at a later time; version regression is not allowed.
 
-Once the **Compatibility Version** is set, it cannot be lowered at a later time; version regression is not allowed.
+    The option to specify a MAC pool range for a data center has been disabled, and is now done at the cluster level.
 
 **Creating a New Data Center**
 
-1. Select the **Data Centers** resource tab to list all data centers in the results list.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Click **New** to open the **New Data Center** window.
+2. Click **New**.
 
 3. Enter the **Name** and **Description** of the data center.
 
 4. Select the storage **Type**, **Compatibility Version**, and **Quota Mode** of the data center from the drop-down menus.
 
-5. Optionally, change the MAC address pool for the data center. The default MAC address pool is preselected by default. For more information on creating MAC address pools see [MAC Address Pools](sect-MAC_Address_Pools).
+5. Click **OK** to create the data center and open the **Data Center - Guide Me** window.
 
-    1. Click the **MAC Address Pool** tab.
-
-    2. Select the required MAC address pool from the **MAC Address Pool** drop-down list.
-
-6. Click **OK** to create the data center and open the **New Data Center - Guide Me** window.
-
-7. The **Guide Me** window lists the entities that need to be configured for the data center. Configure these entities or postpone configuration by clicking the **Configure Later** button; configuration can be resumed by selecting the data center and clicking the **Guide Me** button.
+6. The **Guide Me** window lists the entities that need to be configured for the data center. Configure these entities or postpone configuration by clicking the **Configure Later** button; configuration can be resumed by selecting the data center and clicking **More Actions** &rarr; **Guide Me**.
 
 The new data center is added to the virtualization environment. It will remain **Uninitialized** until a cluster, host, and storage domain are configured for it; use **Guide Me** to configure these entities.
 
@@ -110,11 +98,7 @@ The table below describes the settings of a data center as displayed in the **Ne
   <tr>
    <td><b>Compatibility Version</b></td>
    <td>
-    <p>The version of oVirt. Choose one of the following:</p>
-    <ul>
-     <li><b>3.6</b></li>
-     <li><b>4.0</b></li>
-    </ul>
+    <p>The version of oVirt.</p>
     <p>After upgrading the oVirt Engine, the hosts, clusters and data centers may still be in the earlier version. Ensure that you have upgraded all the hosts, then the clusters, before you upgrade the Compatibility Level of the data center.</p>
    </td>
   </tr>
@@ -130,8 +114,8 @@ The table below describes the settings of a data center as displayed in the **Ne
    </td>
   </tr>
   <tr>
-   <td><b>MAC Address Pool</b></td>
-   <td>The MAC address pool of the data center. If no other MAC address pool is assigned the default MAC address pool is used. For more information on MAC address pools see <a href="sect-MAC_Address_Pools">MAC Address Pools</a></td>
+   <td><b>Comment</b></td>
+   <td>Optionally add a plain text comment about the data center.</a></td>
   </tr>
  </tbody>
 </table>
@@ -144,17 +128,17 @@ You can import any backup or exported virtual machines or templates into your ne
 
 **Re-Initializing a Data Center**
 
-1. Click the **Data Centers** resource tab and select the data center to re-initialize.
+1. Click **Compute** &rarr; **Data Centers** and select the data center to re-initialize.
 
 2. Ensure that any storage domains attached to the data center are in maintenance mode.
 
-3. Right-click the data center and select **Re-Initialize Data Center** from the drop-down menu to open the **Data Center Re-Initialize** window.
+3. Click **More Actions** &rarr; **Re-Initialize Data Center**.
 
 4. The **Data Center Re-Initialize** window lists all available (detached; in maintenance mode) storage domains. Click the radio button for the storage domain you are adding to the data center.
 
 5. Select the **Approve operation** check box.
 
-6. Click **OK** to close the window and re-initialize the data center.
+6. Click **OK**.
 
 The storage domain is attached to the data center as the master data domain and activated. You can now import any backup or exported virtual machines or templates into your new master data domain.
 
@@ -166,9 +150,9 @@ An active host is required to remove a data center. Removing a data center will 
 
 1. Ensure the storage domains attached to the data center is in maintenance mode.
 
-2. Click the **Data Centers** resource tab and select the data center to remove.
+2. Click **Compute** &rarr; **Data Centers** and select the data center to remove.
 
-3. Click **Remove** to open the **Remove Data Center(s)** confirmation window.
+3. Click **Remove**.
 
 4. Click **OK**.
 
@@ -182,9 +166,9 @@ It may be necessary to **Destroy** a corrupted storage domain before you can **F
 
 **Force Removing a Data Center**
 
-1. Click the **Data Centers** resource tab and select the data center to remove.
+1. Click **Compute** &rarr; **Data Centers** and select the data center to remove.
 
-2. Click **Force Remove** to open the **Force Remove Data Center** confirmation window.
+2. Click **More Actions** &rarr; **Force Remove**.
 
 3. Select the **Approve operation** check box.
 
@@ -192,15 +176,35 @@ It may be necessary to **Destroy** a corrupted storage domain before you can **F
 
 The data center and attached storage domain are permanently removed from the oVirt environment.
 
+### Changing the Data Center Storage Type
+
+You can change the storage type of the data center after it has been initialized. This is useful for data domains that are used to move virtual machines or templates around.
+
+**Limitations**
+
+* **Shared to Local** - For a data center that does not contain more than one host and more than one cluster, since a local data center does not support it.
+
+* **Local to Shared** - For a data center that does not contain a local storage domain.
+
+**Changing the Data Center Storage Type**
+
+1. Click **Compute** &rarr; **Data Centers** and select the data center to change.
+
+2. Click **Edit**.
+
+3. Change the **Storage Type** to the desired value.
+
+4. Click **OK**.
+
 ### Changing the Data Center Compatibility Version
 
 oVirt data centers have a compatibility version. The compatibility version indicates the version of oVirt that the data center is intended to be compatible with. All clusters in the data center must support the desired compatibility level.
 
-**Note:** To change the data center compatibility version, you must have first updated all the clusters in your data center to a level that supports your desired compatibility level.
+**Important:** To change the data center compatibility version, you must have first updated all the clusters in your data center to a level that supports your desired compatibility level.
 
-**Changing the Data Center Compatibility Version**
+**Procedure**
 
-1. From the Administration Portal, click the **Data Centers** tab.
+1. From the Administration Portal, click **Compute** &rarr; **Data Centers**.
 
 2. Select the data center to change from the list displayed.
 
@@ -224,15 +228,17 @@ Data domains that are **Unattached** can be attached to a data center. Shared st
 
 **Attaching an Existing Data Domain to a Data Center**
 
-1. Click the **Data Centers** resource tab and select the appropriate data center.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Select the **Storage** tab in the details pane to list the storage domains already attached to the data center.
+2. Click a data center’s name to open the details view.
 
-3. Click **Attach Data** to open the **Attach Storage** window.
+3. Click the **Storage** tab to list the storage domains already attached to the data center.
 
-4. Select the check box for the data domain to attach to the data center. You can select multiple check boxes to attach multiple data domains.
+4. Click **Attach Data**.
 
-5. Click **OK**.
+5. Select the check box for the data domain to attach to the data center. You can select multiple check boxes to attach multiple data domains.
+
+6. Click **OK**.
 
 The data domain is attached to the data center and is automatically activated.
 
@@ -244,35 +250,39 @@ Only one ISO domain can be attached to a data center.
 
 **Attaching an Existing ISO Domain to a Data Center**
 
-1. Click the **Data Centers** resource tab and select the appropriate data center.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Select the **Storage** tab in the details pane to list the storage domains already attached to the data center.
+2. Click a data center’s name to open the details view.
 
-3. Click **Attach ISO** to open the **Attach ISO Library** window.
+3. Click the **Storage** tab to list the storage domains already attached to the data center.
 
-4. Click the radio button for the appropriate ISO domain.
+4. Click **Attach ISO**.
 
-5. Click **OK**.
+5. Click the radio button for the appropriate ISO domain.
+
+6. Click **OK**.
 
 The ISO domain is attached to the data center and is automatically activated.
 
 ### Attaching an Existing Export Domain to a Data Center
 
-**Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See [Importing Existing Storage Domains](sect-Importing_Existing_Storage_Domains) for information on importing storage domains.
+    **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See [Importing Existing Storage Domains](sect-Importing_Existing_Storage_Domains) for information on importing storage domains.
 
 An export domain that is **Unattached** can be attached to a data center. Only one export domain can be attached to a data center.
 
 **Attaching an Existing Export Domain to a Data Center**
 
-1. Click the **Data Centers** resource tab and select the appropriate data center.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Select the **Storage** tab in the details pane to list the storage domains already attached to the data center.
+2. Click a data center’s name to open the details view.
 
-3. Click **Attach Export** to open the **Attach Export Domain** window.
+3. Click the **Storage** tab to list the storage domains already attached to the data center.
 
-4. Click the radio button for the appropriate Export domain.
+4. Click **Attach Export**.
 
-5. Click **OK**.
+5. Click the radio button for the appropriate export domain.
+
+6. Click **OK**.
 
 The export domain is attached to the data center and is automatically activated.
 
@@ -286,90 +296,23 @@ Data, such as virtual machines and templates, remains attached to the storage do
 
 **Detaching a Storage Domain from a Data Center**
 
-1. Click the **Data Centers** resource tab and select the appropriate data center.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Select the **Storage** tab in the details pane to list the storage domains attached to the data center.
+2. Click a data center’s name to open the details view.
 
-3. Select the storage domain to detach. If the storage domain is `Active`, click **Maintenance** to open the **Maintenance Storage Domain(s)** confirmation window.
+3. Click the **Storage** tab to list the storage domains already attached to the data center.
 
-4. Click **OK** to initiate maintenance mode.
+4. Select the storage domain to detach. If the storage domain is `Active`, click **Maintenance**.
 
-5. Click **Detach** to open the **Detach Storage** confirmation window.
+5. Click **OK** to initiate maintenance mode.
+
+5. Click **Detach**.
 
 6. Click **OK**.
 
 You have detached the storage domain from the data center. It can take up to several minutes for the storage domain to disappear from the details pane.
 
-## Data Centers and Permissions
-
-### Managing System Permissions for a Data Center
-
-As the **SuperUser**, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a **DataCenterAdmin** role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a **ClusterAdmin** has administrator privileges only for the assigned cluster.
-
-A data center administrator is a system administration role for a specific data center only. This is useful in virtualization environments with multiple data centers where each data center requires an administrator. The **DataCenterAdmin** role is a hierarchical model; a user assigned the data center administrator role for a data center can manage all objects in the data center with the exception of storage for that data center. Use the **Configure** button in the header bar to assign a data center administrator for all data centers in the environment.
-
-The data center administrator role permits the following actions:
-
-* Create and remove clusters associated with the data center.
-
-* Add and remove hosts, virtual machines, and pools associated with the data center.
-
-* Edit user permissions for virtual machines associated with the data center.
-
-**Note:** You can only assign roles and permissions to existing users.
-
-You can change the system administrator of a data center by removing the existing system administrator and adding the new system administrator.
-
-### Data Center Administrator Roles Explained
-
-**Data Center Permission Roles**
-
-The table below describes the administrator roles and privileges applicable to data center administration.
-
-**oVirt System Administrator Roles**
-
-| Role | Privileges | Notes |
-|-
-| DataCenterAdmin | Data Center Administrator | Can use, create, delete, manage all physical and virtual resources within a specific data center except for storage, including clusters, hosts, templates and virtual machines. |
-| NetworkAdmin | Network Administrator | Can configure and manage the network of a particular data center. A network administrator of a data center inherits network permissions for virtual machines within the data center as well. |
-
-### Assigning an Administrator or User Role to a Resource
-
-Assign administrator or user roles to resources to allow users to access or manage that resource.
-
-**Assigning a Role to a Resource**
-
-1. Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.
-
-2. Click the **Permissions** tab in the details pane to list the assigned users, the user's role, and the inherited permissions for the selected resource.
-
-3. Click **Add**.
-
-4. Enter the name or user name of an existing user into the **Search** text box and click **Go**. Select a user from the resulting list of possible matches.
-
-5. Select a role from the **Role to Assign:** drop-down list.
-
-6. Click **OK**.
-
-You have assigned a role to a user; the user now has the inherited permissions of that role enabled for that resource.
-
-### Removing an Administrator or User Role from a Resource
-
-Remove an administrator or user role from a resource; the user loses the inherited permissions associated with the role for that resource.
-
-**Removing a Role from a Resource**
-
-1. Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.
-
-2. Click the **Permissions** tab in the details pane to list the assigned users, the user's role, and the inherited permissions for the selected resource.
-
-3. Select the user to remove from the resource.
-
-4. Click **Remove**. The **Remove Permission** window opens to confirm permissions removal.
-
-5. Click **OK**.
-
-You have removed the user's role, and the associated permissions, from the resource.
-
 **Prev:** [Chapter 3: Quality of Service](../chap-Quality_of_Service)<br>
 **Next:** [Chapter 5: Clusters](../chap-Clusters)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-data_centers)

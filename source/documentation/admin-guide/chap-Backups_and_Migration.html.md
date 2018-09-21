@@ -2,7 +2,7 @@
 title: Backups and Migration
 ---
 
-# Chapter 13: Backups and Migration
+# Chapter 12: Backups and Migration
 
 ## Backing Up and Restoring the oVirt Engine
 
@@ -15,6 +15,7 @@ Use the `engine-backup` tool to take regular backups of the oVirt Engine. The to
 The `engine-backup` command works in one of two basic modes:
 
     # engine-backup --mode=backup
+
     # engine-backup --mode=restore
 
 These two modes are further extended by a set of parameters that allow you to specify the scope of the backup and different credentials for the engine database. Run `engine-backup --help` for a full list of parameters and their function.
@@ -33,7 +34,7 @@ These two modes are further extended by a set of parameters that allow you to sp
 `--scope`
 : Specifies the scope of the backup or restore operation. There are four options: `all`, which backs up or restores all databases and configuration data; `files`, which backs up or restores only files on the system; `db`, which backs up or restores only the Engine database; and `dwhdb`, which backs up or restores only the Data Warehouse database. The default scope is `all`.
 
-    The `--scope` parameter can be specified multiple times in the same `engine-backup` command.
+  The `--scope` parameter can be specified multiple times in the same `engine-backup` command.
 
 **Engine Database Options**
 
@@ -62,7 +63,7 @@ The oVirt Engine can be backed up using the `engine-backup` command while the En
 
 * `dwhdb`: A backup of only the Data Warehouse database
 
-**Important:** To restore a database to a fresh installation of oVirt Engine, a database backup alone is not sufficient; the Engine also requires access to the configuration files. Any backup that specifies a scope other than the default, `all`, must be accompanied by the `files` scope, or a filesystem backup.
+    **Important:** To restore a database to a fresh installation of oVirt Engine, a database backup alone is not sufficient; the Engine also requires access to the configuration files. Any backup that specifies a scope other than the default, `all`, must be accompanied by the `files` scope, or a filesystem backup.
 
 **Example Usage of the engine-backup Command**
 
@@ -133,7 +134,7 @@ The oVirt Engine has been restored to the version preserved in the backup. To ch
 
 The `engine-backup` command can restore a backup to a machine on which the oVirt Engine has already been installed and set up. This is useful when you have taken a backup up of an installation, performed changes on that installation, and then want to restore the installation from the backup.
 
-**Important:** When restoring a backup to overwrite an existing installation, you must run the `engine-cleanup` command to clean up the existing installation before using the `engine-backup` command. Because the `engine-cleanup` command only cleans the engine database, and does not drop the database or delete the user that owns that database, you do not need to create a new database or specify the database credentials because the user and database already exist.
+    **Important:** When restoring a backup to overwrite an existing installation, you must run the `engine-cleanup` command to clean up the existing installation before using the `engine-backup` command. Because the `engine-cleanup` command only cleans the engine database, and does not drop the database or delete the user that owns that database, you do not need to create a new database or specify the database credentials because the user and database already exist.
 
 **Restoring a Backup to Overwrite an Existing Installation**
 
@@ -170,7 +171,7 @@ The `engine-backup` command can restore a backup to a machine on which the oVirt
 
 The `engine-backup` command can restore a backup to a machine on which the oVirt Engine has already been installed and set up, but the credentials of the database in the backup are different to those of the database on the machine on which the backup is to be restored. This is useful when you have taken a backup of an installation and want to restore the installation from the backup to a different system.
 
-**Important:** When restoring a backup to overwrite an existing installation, you must run the `engine-cleanup` command to clean up the existing installation before using the `engine-backup` command. Because the `engine-cleanup` command only cleans the engine database, and does not drop the database or delete the user that owns that database, you do not need to create a new database or specify the database credentials because the user and database already exist. However, if the credentials for the owner of the engine database are not known, you must change them before you can restore the backup.
+    **Important:** When restoring a backup to overwrite an existing installation, you must run the `engine-cleanup` command to clean up the existing installation before using the `engine-backup` command. Because the `engine-cleanup` command only cleans the engine database, and does not drop the database or delete the user that owns that database, you do not need to create a new database or specify the database credentials because the user and database already exist. However, if the credentials for the owner of the engine database are not known, you must change them before you can restore the backup.
 
 **Restoring a Backup with Different Credentials**
 
@@ -226,7 +227,7 @@ The `engine-backup` command can restore a backup to a machine on which the oVirt
 
 ### Migrating the Engine Database to a Remote Server Database
 
-You can migrate the `engine` database to a remote database server after the oVirt Engine has been initially configured. Use `engine-backup` to create a database backup and restore it on the new database server. This procedure assumes that the new database server has Red Hat Enterprise Linux 7 installed and the appropriate subscriptions configured. See "Subscribing to the Required Entitlements" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
+You can migrate the `engine` database to a remote database server after the oVirt Engine has been initially configured. Use `engine-backup` to create a database backup and restore it on the new database server. This procedure assumes that the new database server has Enterprise Linux 7 installed and the appropriate subscriptions configured. See "Subscribing to the Required Entitlements" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
 **Migrating the Database**
 
@@ -377,5 +378,7 @@ Restore a virtual machine that has been backed up using the backup and restore A
 
 You have restored a virtual machine using a backup that was created using the backup and restore API.
 
-**Prev:** [Chapter 12: External Providers](../chap-External_Providers)<br>
-**Next:** [Chapter 14: Errata Management with Foreman](../chap-Errata_Management_with_Foreman)
+**Prev:** [Chapter 11: External Providers](../chap-External_Providers)<br>
+**Next:** [Chapter 13: Errata Management with Foreman](../chap-Errata_Management_with_Foreman)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-backups_and_migration)

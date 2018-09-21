@@ -26,7 +26,7 @@ The oVirt environment requires an administrator to keep it running. As an admini
 
 ### Chapter 1: [Global Configuration](../chap-Global_Configuration)
 
-### Chapter 2: [System Dashboard](../chap-System_Dashboard)
+### Chapter 2: [Dashboard](../chap-System_Dashboard)
 
 ## Part II: Administering the Resources
 
@@ -42,19 +42,19 @@ The oVirt environment requires an administrator to keep it running. As an admini
 
 ### Chapter 8: [Storage](../chap-Storage)
 
-### Chapter 9: [Working with Gluster Storage](../chap-Working_with_Gluster_Storage)
+### Chapter 9:  [Pools](../chap-Pools)
 
-### Chapter 10: [Pools](../chap-Pools)
+### Chapter 10: [Virtual Disks](../chap-Virtual_Machine_Disks)
 
-### Chapter 11: [Virtual Machine Disks](../chap-Virtual_Machine_Disks)
-
-### Chapter 12: [External Providers](../chap-External_Providers)
+### Chapter 11: [External Providers](../chap-External_Providers)
 
 ## Part III: Administering the Environment
 
-### Chapter 13: [Backups and Migration](../chap-Backups_and_Migration)
+### Chapter 12: [Backups and Migration](../chap-Backups_and_Migration)
 
-### Chapter 14: [Errata Management with Foreman](../chap-Errata_Management_with_Foreman)
+### Chapter 13: [Errata Management with Foreman](../chap-Errata_Management_with_Foreman)
+
+### Chapter 14: [Automating Configuration Tasks Using Ansible](../chap-Automating_Configuration_Tasks_Using_Ansible)
 
 ### Chapter 15: [Users and Roles](../chap-Users_and_Roles)
 
@@ -80,8 +80,8 @@ The oVirt environment requires an administrator to keep it running. As an admini
 
 ### Appendix D: [oVirt and SSL](../appe-oVirt_and_SSL)
 
-### Appendix E: [Using Search Bookmarks and Tags](../appe-Using_Search_Bookmarks_and_Tags)
+### Appendix E: [Branding](../appe-Branding)
 
-### Appendix F: [Branding](../appe-Branding)
+### Appendix F: [System Accounts](../appe-System_Accounts)
 
-### Appendix G: [System Accounts](../appe-System_Accounts)
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/part-administering_and_maintaining_the_red_hat_virtualization_environment)2

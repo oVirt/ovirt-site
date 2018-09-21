@@ -36,9 +36,9 @@ title: Custom Network Properties
 
 You can configure ethtool properties for host network interface cards from the Administration Portal. The **ethtool_opts** key is not available by default and needs to be added to the Manager using the engine configuration tool. You also need to install the required VDSM hook package on the hosts.
 
-**Adding the ethtool_opts Key to the Manager**
+**Adding the ethtool_opts Key to the Engine**
 
-1. On the Manager, run the following command to add the key:
+1. On the Engine, run the following command to add the key:
 
         # engine-config -s UserDefinedNetworkCustomProperties=ethtool_opts=.* --cver=4.0
 
@@ -54,17 +54,17 @@ The **ethtool_opts** key is now available in the Administration Portal. See [Edi
 
 ## How to Set Up oVirt Engine to Use FCoE
 
-You can configure Fibre Channel over Ethernet (FCoE) properties for host network interface cards from the Administration Portal. The **fcoe** key is not available by default and needs to be added to the Manager using the engine configuration tool. You can check whether **fcoe** has already been enabled by running the following command:
+You can configure Fibre Channel over Ethernet (FCoE) properties for host network interface cards from the Administration Portal. The **fcoe** key is not available by default and needs to be added to the Engine using the engine configuration tool. You can check whether **fcoe** has already been enabled by running the following command:
 
     # engine-config -g UserDefinedNetworkCustomProperties
 
 You also need to install the required VDSM hook package on the hosts. Depending on the FCoE card on the hosts, special configuration may also be needed.
 
-**Adding the fcoe Key to the Manager**
+**Adding the fcoe Key to the Engine**
 
-1. On the Manager, run the following command to add the key:
+1. On the Engine, run the following command to add the key:
 
-        # engine-config -s UserDefinedNetworkCustomProperties='fcoe=^((enable|dcb|auto_vlan)=(yes|no),?)*$'
+        # engine-config -s UserDefinedNetworkCustomProperties='fcoe=^((enable|dcb|auto_vlan)=(yes|no),?)\*$'
 
 2. Restart the `ovirt-engine` service:
 
@@ -78,3 +78,5 @@ The **fcoe** key is now available in the Administration Portal. See [Editing hos
 
 **Prev:** [Appendix A: VDSM and Hooks](../appe-VDSM_and_Hooks)<br>
 **Next:** [Appendix C: oVirt User Interface Plugins](../appe-oVirt_User_Interface_Plugins)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/appe-custom_network_properties)

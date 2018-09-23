@@ -106,7 +106,7 @@ Packages for Ubuntu 12.04 do no longer exist, so you will have to build from sou
 <!-- -->
 
     # sudo apt-get update
-    # sudo apt-get install -y pkg-config pep8 libtool usermode python-ethtool git autoconf make
+    # sudo apt-get install -y pkg-config pep8 libtool usermode python-ethtool git autoconf make python
 
 2. Clone Git repository
 
@@ -143,11 +143,56 @@ Packages for Ubuntu 12.04 do no longer exist, so you will have to build from sou
     exec /usr/share/ovirt-guest-agent/ovirt-guest-agent.py
     " > /etc/init/ovirt-guest-agent.conf'
 
+
+4a. For newer systems with systemd
+
+Create the systemd service file:
+`vi /lib/systemd/system/ovirt-guest-agent.service`
+
+Add the following to the ovirt-guest-agent.service file:
+
+~~~
+# /usr/lib/systemd/system/ovirt-guest-agent.service
+[Unit]
+Description=oVirt Guest Agent
+Wants=qemu-guest-agent.service
+After=qemu-guest-agent.service
+
+[Service]
+Type=simple
+PIDFile=/run/ovirt-guest-agent.pid
+EnvironmentFile=-/etc/sysconfig/ovirt-guest-agent
+User=ovirtagent
+PermissionsStartOnly=true
+ExecStartPre=/sbin/modprobe virtio_console
+ExecStartPre=/bin/touch /run/ovirt-guest-agent.pid
+ExecStartPre=/bin/chown ovirtagent:ovirtagent /run/ovirt-guest-agent.pid
+ExecStart=/usr/bin/python /usr/share/ovirt-guest-agent/ovirt-guest-agent.py
+
+[Install]
+WantedBy=multi-user.target
+
+~~~
+
+Reload systemd daemon
+`systemctl daemon-reload`
+
+4b. Add the ovirtagent user and allow it permission to log files and ovirt virtio-ports
+~~~
+useradd ovirtagent
+chown ovirtagent /dev/virtio-ports/ovirt-guest-agent.0
+chown chown -R ovirtagent /var/log/ovirt-guest-agent/
+~~~
+
 5. Reboot or start the service manually
 
 <!-- -->
 
     # sudo service ovirt-guest-agent start
+
+5a. For systemd service
+
+`sudo systemctl start ovirt-guest-agent.service`
 
 ## Troubleshooting
 

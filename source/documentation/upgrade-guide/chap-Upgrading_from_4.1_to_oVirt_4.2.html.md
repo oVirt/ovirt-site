@@ -1,36 +1,20 @@
 ---
-title: Updates Between Minor Releases
+title: Upgrading from 4.1 to oVirt 4.2
 ---
 
-# Chapter 9: Updates Between Minor Releases
+# Upgrading from 4.1 to oVirt 4.2
 
-To upgrade from your current version of 4.2 to the latest version, for example, from 4.2.3 to 4.2.4, update the Engine and then update the hosts.
+## Planning an Upgrade from 4.1 to 4.2
 
-## Analyzing the Environment
+Upgrading your environment from 4.1 to 4.2 includes the following steps:
 
-The oVirt Project recommends running the Log Collection Analysis tool prior to performing updates and for troubleshooting. The tool analyses your environment and displays any known issues that may prevent you from performing an update and suggests how to resolve the issue.
+1. Update the 4.1 Manager to the latest version of 4.1
 
-The tool gathers detailed information about your system and presents it as an HTML file.
+2. Upgrade the Manager from 4.1 to 4.2
 
-    **Note:** The Log Collection Analysis tool is available from oVirt 4.2.5.
+3. Upgrade the hosts
 
-**Procedure**
-
-1. Install the Log Collection Analysis tool on the Engine:
-
-        # yum install rhv-log-collector-analyzer
-
-2. Run the tool:
-
-        # rhv-log-collector-analyzer --live
-
-   A detailed report is displayed.
-
-   By default, the report is saved to a file called **analyzer_report.html**.
-
-   To save the file to a specific location, use the -`-html` flag and specify the location:
-
-        # rhv-log-collector-analyzer --live --html=/directory/filename.html
+4. Perform [post-upgrade tasks](../chap-Post-Upgrade_Tasks/)
 
 ## Update the oVirt Engine
 
@@ -64,6 +48,38 @@ Updates to the oVirt Engine are released through the oVirt repositories.
 
     **Important:** If the update upgraded any kernel packages, reboot the system to complete the changes.
 
+## Upgrading the Engine from 4.1 to 4.2
+
+**Prerequisites**
+
+This procedure assumes that the system on which the Manager is installed is attached to the subscriptions for receiving oVirt 4.1 packages.
+
+    **Important:** If the upgrade fails, the `engine-setup` command will attempt to roll your oVirt Engine installation back to its previous state. For this reason, the repositories required by oVirt 4.0 must not be removed until after the upgrade is complete. If the upgrade fails, detailed instructions display that explain how to restore your installation.
+
+**Procedure**
+
+1. Update the setup packages:
+
+        # yum update ovirt\*setup\*
+
+2. Run the following command and follow the prompts to upgrade the oVirt Engine:
+
+        # engine-setup
+
+3. Remove or disable the oVirt Engine 4.1 repositories to ensure the system does not use any oVirt Engine 4.1 packages:
+
+        # subscription-manager repos --disable=rhel-7-server-rhv-4.1-rpms
+        # subscription-manager repos --disable=rhel-7-server-rhv-4.1-manager-rpms
+        # subscription-manager repos --disable=rhel-7-server-rhv-4-tools-rpms
+
+4. Update the base operating system:
+
+        # yum update
+
+          **Important:** If any kernel packages were updated, reboot the system to complete the update.
+
+You can now update the hosts.
+
 ## Update the Hosts
 
 Use the host upgrade manager to update individual hosts directly from the oVirt Engine.
@@ -91,7 +107,15 @@ If the command fails, the host is oVirt Node 3.6. If the command succeeds, the h
 
 **Procedure**
 
-1. Ensure the correct repositories are enabled. You can check which repositories are currently enabled by running yum repolist.
+1. If your Enterprise Linux hosts are set to version 7.3, you must reset them to the general EL 7 version before updating.
+
+        # subscription-manager release --set=7Server
+
+2. Disable your current repositories:
+
+        # subscription-manager repos --disable=*
+
+3. Ensure the correct repositories are enabled. You can check which repositories are currently enabled by running yum repolist.
 
   * For oVirt Nodes:
 
@@ -103,15 +127,15 @@ If the command fails, the host is oVirt Node 3.6. If the command succeeds, the h
         # subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms
         # subscription-manager repos --enable=rhel-7-server-ansible-2-rpms
 
-2. Click **Compute** &rarr; **Hosts** and select the host to be updated.
+4. Click **Compute** &rarr; **Hosts** and select the host to be updated.
 
-3. Click **Installation** &rarr; **Check** for Upgrade.
+5. Click **Installation** &rarr; **Check** for Upgrade.
 
-4. Click **OK** to begin the upgrade check.
+6. Click **OK** to begin the upgrade check.
 
-5. Click **Installation** &rarr; **Upgrade**.
+7. Click **Installation** &rarr; **Upgrade**.
 
-6. Click **OK** to update the host. The details of the host are updated in Compute → Hosts and the status will transition through these stages:
+8. Click **OK** to update the host. The details of the host are updated in Compute → Hosts and the status will transition through these stages:
 
   * **Maintenance**
 
@@ -125,9 +149,7 @@ If the command fails, the host is oVirt Node 3.6. If the command succeeds, the h
 
 Repeat this procedure for each host in the oVirt environment.
 
-The oVirt Project recommends updating the hosts from the Engine; however, you can also update the hosts using `yum update`. See [Appendix C: Manually Updating Hosts](../appe-Manually_Updating_Hosts) for more information.
+**Prev:** [Chapter 3: Upgrading from 4.0 to oVirt 4.2](../chap-Upgrading_from_4.0_to_oVirt_4.2)<br>
+**Next:** [Chapter 5: Upgrading a Remote Database Environment from 3.6 to oVirt 4.2](../chap-Upgrading_a_Remote_Database_Environment_from_3.6_to_oVirt_4.2)
 
-**Prev:** [Chapter 8: Post-Upgrade Tasks](../chap-Post-Upgrade_Tasks/)<br>
-**Next:** [Appendix A: Updating an Offline oVirt Engine](../appe-Updating_an_Offline_oVirt_Engine/)
-
-[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/upgrade_guide/chap-updates_between_minor_releases)
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/upgrade_guide/chap-upgrading_to_red_hat_virtualization_4.2)

@@ -19,3 +19,5 @@ title: oVirt Virtual Machine Management Guide
 ## Chapter 7: [Templates](../chap-Templates)
 
 ## Appendix A: [Reference Settings in Administration Portal and User Portal Windows](../appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows)
+
+## Appendix B: [virt-sysprep Operations](../appe-virt-sysprep_Operations)

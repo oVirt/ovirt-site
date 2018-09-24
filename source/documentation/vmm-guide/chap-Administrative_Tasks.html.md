@@ -8,11 +8,9 @@ title: Administrative Tasks
 
 **Shutting Down a Virtual Machine**
 
-1. Click the **Virtual Machines** tab and select a running virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines** and select a running virtual machine.
 
-2. Click the shut down (![](/images/vmm-guide/5035.png)) button.
-
-    Alternatively, right-click the virtual machine and select **Shutdown**.
+2. Click **Shutdown**.
 
 3. Optionally in the Administration Portal, enter a **Reason** for shutting down the virtual machine in the **Shut down Virtual Machine(s)** confirmation window. This allows you to provide an explanation for the shutdown, which will appear in the logs and when the virtual machine is powered on again.
 
@@ -24,15 +22,13 @@ The virtual machine shuts down gracefully and the **Status** of the virtual mach
 
 ## Suspending a Virtual Machine
 
-Suspending a virtual machine is equal to placing that virtual machine into *Hibernate* mode.
+Suspending a virtual machine is equal to placing that virtual machine into **Hibernate** mode.
 
 **Suspending a Virtual Machine**
 
-1. Click the **Virtual Machines** tab and select a running virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines** and select a running virtual machine.
 
-2. Click the Suspend (![](/images/vmm-guide/5036.png)) button.
-
-    Alternatively, right-click the virtual machine and select **Suspend**.
+2. Click **Suspend**.
 
 The **Status** of the virtual machine changes to `Suspended`.
 
@@ -40,11 +36,9 @@ The **Status** of the virtual machine changes to `Suspended`.
 
 **Rebooting a Virtual Machine**
 
-1. Click the **Virtual Machines** tab and select a running virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines** and select a running virtual machine.
 
-2. Click the Reboot (![](/images/vmm-guide/5037.png)) button.
-
-    Alternatively, right-click the virtual machine and select **Reboot**.
+2. Click **Reboot**.
 
 3. Click **OK** in the **Reboot Virtual Machine(s)** confirmation window.
 
@@ -52,11 +46,11 @@ The **Status** of the virtual machine changes to `Reboot In Progress` before ret
 
 ## Removing a Virtual Machine
 
-**Important:** The **Remove** button is disabled while virtual machines are running; you must shut down a virtual machine before you can remove it.
+    **Important:** The **Remove** button is disabled while virtual machines are running; you must shut down a virtual machine before you can remove it.
 
 **Removing Virtual Machines**
 
-1. Click the **Virtual Machines** tab and select the virtual machine to remove.
+1. Click **Compute** &rarr; **Virtual Machines** and select the virtual machine to remove.
 
 2. Click **Remove**.
 
@@ -68,13 +62,13 @@ The **Status** of the virtual machine changes to `Reboot In Progress` before ret
 
 You can clone virtual machines without having to create a template or a snapshot first.
 
-**Important:** The **Clone VM** button is disabled while virtual machines are running; you must shut down a virtual machine before you can clone it.
+  **Important:** The **Clone VM** button is disabled while virtual machines are running; you must shut down a virtual machine before you can clone it.
 
 **Cloning Virtual Machines**
 
-1. Click the **Virtual Machines** tab and select the virtual machine to clone.
+1. Click **Compute** &rarr; **Virtual Machines** and select the virtual machine to clone.
 
-2. Click **Clone VM**.
+2. Click **More Actions** &rarr; **Clone VM**.
 
 3. Enter a **Clone Name** for the new virtual machine.
 
@@ -118,21 +112,21 @@ The guest tools comprise software that allows oVirt Engine to communicate with t
 
         engine-iso-uploader --iso-domain=[ISODomain] upload /usr/share/ovirt-guest-tools-iso/ovirt-tools-setup.iso
 
-    **Note:** The `ovirt-tools-setup.iso` file is a symbolic link to the most recently updated ISO file. The link is automatically changed to point to the newest ISO file every time you update the `ovirt-guest-tools-iso` package.
-
-3. In the Administration or User Portal, if the virtual machine is running, use the **Change CD** button to attach the latest `ovirt-tools-setup.iso` file to each of your virtual machines. If the virtual machine is powered off, click the *Run Once** button and attach the ISO as a CD.
+3. In the Administration or VM Portal, if the virtual machine is running, use the **Change CD** button to attach the latest `ovirt-tools-setup.iso` file to each of your virtual machines. If the virtual machine is powered off, click the *Run Once** button and attach the ISO as a CD.
 
 4. Select the CD Drive containing the updated ISO and execute the `ovirt-ToolsSetup.exe` file.
 
-## Viewing Spacewalk Errata for a Virtual Machine
+## Viewing Foreman Errata for a Virtual Machine
 
-Errata for each virtual machine can be viewed after the oVirt virtual machine has been configured to receive errata information from the Spacewalk server.
+Errata for each virtual machine can be viewed after the oVirt virtual machine has been configured to receive errata information from the Foreman server.
 
-**Viewing Spacewalk Errata**
+**Viewing Foreman Errata**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. Click **Errata** tab in the details pane.
+2. Click the virtual machine’s name to go to the details view.
+
+2. Click **Errata**.
 
 ## Virtual Machines and Permissions
 
@@ -148,7 +142,7 @@ The template administrator role permits the following actions:
 
 * Import and export templates.
 
-**Note:** You can only assign roles and permissions to existing users.
+    **Note:** You can only assign roles and permissions to existing users.
 
 ### Virtual Machines Administrator Roles Explained
 
@@ -164,24 +158,24 @@ The table below describes the administrator roles and privileges applicable to v
 
 ### Virtual Machine User Roles Explained
 
-The table below describes the user roles and privileges applicable to virtual machine users. These roles allow access to the User Portal for managing and accessing virtual machines, but they do not confer any permissions for the Administration Portal.
+The table below describes the user roles and privileges applicable to virtual machine users. These roles allow access to the VM Portal for managing and accessing virtual machines, but they do not confer any permissions for the Administration Portal.
 
 **oVirt System User Roles**
 
 | Role | Privileges | Notes |
 |-
-| UserRole | Can access and use virtual machines and pools. | Can log in to the User Portal and use virtual machines and pools. |
+| UserRole | Can access and use virtual machines and pools. | Can log in to the VM Portal and use virtual machines and pools. |
 | PowerUserRole | Can create and manage virtual machines and templates. | Apply this role to a user for the whole environment with the **Configure** window, or for specific data centers or clusters. For example, if a PowerUserRole is applied on a data center level, the PowerUser can create virtual machines and templates in the data center. Having a **PowerUserRole** is equivalent to having the **VmCreator**, **DiskCreator**, and **TemplateCreator** roles. |
-| UserVmEngine | System administrator of a virtual machine. | Can manage virtual machines and create and use snapshots. A user who creates a virtual machine in the User Portal is automatically assigned the UserVmEngine role on the machine. |
+| UserVmEngine | System administrator of a virtual machine. | Can manage virtual machines and create and use snapshots. A user who creates a virtual machine in the VM Portal is automatically assigned the UserVmEngine role on the machine. |
 | UserTemplateBasedVm | Limited privileges to only use Templates. | Level of privilege to create a virtual machine by means of a template. |
-| VmCreator | Can create virtual machines in the User Portal. | This role is not applied to a specific virtual machine; apply this role to a user for the whole environment with the **Configure** window. When applying this role to a cluster, you must also apply the **DiskCreator** role on an entire data center, or on specific storage domains. |
+| VmCreator | Can create virtual machines in the VM Portal. | This role is not applied to a specific virtual machine; apply this role to a user for the whole environment with the **Configure** window. When applying this role to a cluster, you must also apply the **DiskCreator** role on an entire data center, or on specific storage domains. |
 | VnicProfileUser | Logical network and network interface user for virtual machines. | If the **Allow all users to use this Network** option was selected when a logical network is created, **VnicProfileUser** permissions are assigned to all users for the logical network. Users can then attach or detach virtual machine network interfaces to or from the logical network. |
 
 ### Assigning Virtual Machines to Users
 
 If you are creating virtual machines for users other than yourself, you have to assign roles to the users before they can use the virtual machines. Note that permissions can only be assigned to existing users. See "Users and Roles" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for details on creating user accounts.
 
-The User Portal supports three default roles: User, PowerUser and UserVmEngine. However, customized roles can be configured via the Administration Portal. The default roles are described below.
+The VM Portal supports three default roles: User, PowerUser and UserVmEngine. However, customized roles can be configured via the Administration Portal. The default roles are described below.
 
 * A **User** can connect to and use virtual machines. This role is suitable for desktop end users performing day-to-day tasks.
 
@@ -193,31 +187,35 @@ When you create a virtual machine, you automatically inherit **UserVmEngine** pr
 
 **Assigning Permissions to Users**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. Click the **Permissions** tab on the details pane.
+2. Click the virtual machine’s name to go to the details view.
 
-3. Click **Add**.
+3. Click the **Permissions** tab.
 
-4. Enter a name, or user name, or part thereof in the **Search** text box, and click **Go**. A list of possible matches display in the results list.
+4. Click **Add**.
 
-5. Select the check box of the user to be assigned the permissions.
+5. Enter a name, or user name, or part thereof in the **Search** text box, and click **Go**. A list of possible matches display in the results list.
 
-6. Select **UserRole** from the **Role to Assign** drop-down list.
+6. Select the check box of the user to be assigned the permissions.
 
-7. Click **OK**.
+5. Select **UserRole** from the **Role to Assign** drop-down list.
+
+8. Click **OK**.
 
 The user's name and role display in the list of users permitted to access this virtual machine.
 
-**Note:** If a user is assigned permissions to only one virtual machine, single sign-on (SSO) can be configured for the virtual machine. With single sign-on enabled, when a user logs in to the User Portal, and then connects to a virtual machine through, for example, a SPICE console, users are automatically logged in to the virtual machine and do not need to type in the user name and password again. Single sign-on can be enabled or disabled on a per virtual machine basis. See [Configuring Single Sign-On for Virtual Machines](/documentation/vmm-guide/chap-Additional_Configuration/#configuring-single-sign-on-for-virtual-machines) for more information on how to enable and disable single sign-on for virtual machines.
+    **Note:** If a user is assigned permissions to only one virtual machine, single sign-on (SSO) can be configured for the virtual machine. With single sign-on enabled, when a user logs in to the VM Portal, and then connects to a virtual machine through, for example, a SPICE console, users are automatically logged in to the virtual machine and do not need to type in the user name and password again. Single sign-on can be enabled or disabled on a per virtual machine basis. See [Configuring Single Sign-On for Virtual Machines](/documentation/vmm-guide/chap-Additional_Configuration/#configuring-single-sign-on-for-virtual-machines) for more information on how to enable and disable single sign-on for virtual machines.
 
 ### Removing Access to Virtual Machines from Users
 
 **Removing Access to Virtual Machines from Users**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. Click the **Permissions** tab on the details pane.
+2. Click the virtual machine’s name to go to the details view.
+
+3. Click **Permissions**.
 
 3. Click **Remove**. A warning message displays, asking you to confirm removal of the selected permissions.
 
@@ -229,29 +227,25 @@ The user's name and role display in the list of users permitted to access this v
 
 A snapshot is a view of a virtual machine's operating system and applications on any or all available disks at a given point in time. Take a snapshot of a virtual machine before you make a change to it that may have unintended consequences. You can use a snapshot to return a virtual machine to a previous state.
 
-**Important:** Before taking a live snapshot of a virtual machine using OpenStack Volume (Cinder) disks, you must freeze and thaw the guest filesystem manually. This cannot be done with the Engine, and must be executed using the REST API.
-
 **Creating a Snapshot of a Virtual Machine**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. Click the **Snapshots** tab in the details pane and click **Create**.
+2. Click the virtual machine’s name to go to the details view.
 
-    **Create snapshot**
+3. Click the **Snapshots** tab and click **Create**.
 
-    ![](/images/vmm-guide/5030.png)
+4. Enter a description for the snapshot.
 
-3. Enter a description for the snapshot.
+5. Select **Disks to include** using the check boxes.
 
-4. Select **Disks to include** using the check boxes.
+    **Note:** If no disks are selected, a partial snapshot of the virtual machine, without a disk, is created. You can preview this snapshot to view the configuration of the virtual machine. Note that committing a partial snapshot will result in a virtual machine without a disk.
 
-5. Use the **Save Memory** check box to denote whether to include the virtual machine's memory in the snapshot.
+6. Use the **Save Memory** check box to denote whether to include the virtual machine's memory in the snapshot.
 
-6. Click **OK**.
+7. Click **OK**.
 
-**Note:** If you are taking a snapshot of a virtual machine with an OpenStack Volume (Cinder) disk, you must thaw the guest filesystem when the snapshot is complete using the REST API.
-
-The virtual machine's operating system and applications on the selected disk(s) are stored in a snapshot that can be previewed or restored. The snapshot is created with a status of `Locked`, which changes to `Ok`. When you click on the snapshot, its details are shown on the **General**, **Disks**, **Network Interfaces**, and **Installed Applications** tabs in the right side-pane of the details pane.
+The virtual machine's operating system and applications on the selected disk(s) are stored in a snapshot that can be previewed or restored. The snapshot is created with a status of `Locked`, which changes to `Ok`. When you click on the snapshot, its details are shown on the **General**, **Disks**, **Network Interfaces**, and **Installed Applications** drop-down views in the **Snapshots** tab.
 
 ### Using a Snapshot to Restore a Virtual Machine
 
@@ -259,31 +253,25 @@ A snapshot can be used to restore a virtual machine to its previous state.
 
 **Using Snapshots to Restore Virtual Machines**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. Click the **Snapshots** tab in the details pane to list the available snapshots.
+2. Click the virtual machine’s name to go to the details view.
 
-3. Select a snapshot to restore in the left side-pane. The snapshot details display in the right side-pane.
+3. Click the **Snapshots** tab to list the available snapshots.
 
-4. Click the drop-down menu beside **Preview** to open the **Custom Preview Snapshot** window.
+4. Select a snapshot to restore in the left side-pane. The snapshot details display in the right side-pane.
 
-    **Custom Preview Snapshot**
+5. Click the **Preview** drop-down menu button and select **Custom**.
 
-    ![](/images/vmm-guide/5031.png)
+6. Use the check boxes to select the **VM Configuration**, **Memory**, and disk(s) you want to restore, then click **OK**. This allows you to create and restore from a customized snapshot using the configuration and disk(s) from multiple snapshots.
 
-5. Use the check boxes to select the **VM Configuration**, **Memory**, and disk(s) you want to restore, then click **OK**. This allows you to create and restore from a customized snapshot using the configuration and disk(s) from multiple snapshots.
+  The status of the snapshot changes to `Preview Mode`. The status of the virtual machine briefly changes to `Image Locked` before returning to `Down`.
 
-    **The Custom Preview Snapshot Window**
+7. Start the virtual machine; it runs using the disk image of the snapshot.
 
-    ![](/images/vmm-guide/5032.png)
+8. Click **Commit** to permanently restore the virtual machine to the condition of the snapshot. Any subsequent snapshots are erased.
 
-    The status of the snapshot changes to `Preview Mode`. The status of the virtual machine briefly changes to `Image Locked` before returning to `Down`.
-
-6. Start the virtual machine; it runs using the disk image of the snapshot.
-
-7. Click **Commit** to permanently restore the virtual machine to the condition of the snapshot. Any subsequent snapshots are erased.
-
-8. Alternatively, click the **Undo** button to deactivate the snapshot and return the virtual machine to its previous state.
+   Alternatively, click the **Undo** button to deactivate the snapshot and return the virtual machine to its previous state.
 
 ### Creating a Virtual Machine from a Snapshot
 
@@ -291,75 +279,73 @@ You have created a snapshot from a virtual machine. Now you can use that snapsho
 
 **Creating a virtual machine from a snapshot**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. Click the **Snapshots** tab in the details pane to list the available snapshots.
+2. Click the virtual machine’s name to go to the details view.
 
-3. Select a snapshot in the list displayed and click **Clone**.
+3. Click the **Snapshots** tab to list the available snapshots.
 
-4. Enter the **Name** and **Description** for the virtual machine.
+4. Select a snapshot in the list displayed and click **Clone**.
 
-    **Clone a Virtual Machine from a Snapshot**
+5. Enter the **Name** and **Description** for the virtual machine.
 
-    ![](/images/vmm-guide/6581.png)
-
-5. Click **OK**.
+6. Click **OK**.
 
 After a short time, the cloned virtual machine appears in the **Virtual Machines** tab in the navigation pane with a status of `Image Locked`. The virtual machine will remain in this state until oVirt completes the creation of the virtual machine. A virtual machine with a preallocated 20 GB hard drive takes about fifteen minutes to create. Sparsely-allocated virtual disks take less time to create than do preallocated virtual disks.
 
-When the virtual machine is ready to use, its status changes from `Image Locked` to `Down` in the **Virtual Machines** tab in the navigation pane.
+When the virtual machine is ready to use, its status changes from `Image Locked` to `Down` in **Compute** &rarr; **Virtual Machines**.
 
 ### Deleting a Snapshot
 
 You can delete a virtual machine snapshot and permanently remove it from your oVirt environment. This operation is supported on a running virtual machine and does not require the virtual machine to be in a down state.
 
-**Important:** When you delete a snapshot from an image chain, one of three things happens:
+    **Important:** When you delete a snapshot from an image chain, there must be enough free space in the storage domain to temporarily accommodate both the original volume and the newly merged volume. Otherwise, snapshot deletion will fail and you will need to export and re-import the volume to remove snapshots. This is due to the data from the two volumes being merged in the resized volume and the resized volume growing to accommodate the total size of the two merged images.
 
-* If the snapshot being deleted is contained in a RAW (preallocated) base image, a new volume is created that is the same size as the base image.
+    * If the snapshot being deleted is contained in a base image, the volume subsequent to the volume containing the snapshot being deleted is extended to include the base volume.
 
-* If the snapshot being deleted is contained in a QCOW2 (thin provisioned) base image, the volume subsequent to the volume containing the snapshot being deleted is extended to the cumulative size of the successor volume and the base volume.
-
-* If the snapshot being deleted is contained in a QCOW2 (thin provisioned), non-base image hosted on internal storage, the successor volume is extended to the cumulative size of the successor volume and the volume containing the snapshot being deleted.
-
-The data from the two volumes is merged in the new or resized volume. The new or resized volume grows to accommodate the total size of the two merged images; the new volume size will be, at most, the sum of the two merged images. To delete a snapshot, you must have enough free space in the storage domain to temporarily accommodate both the original volume and the newly merged volume. Otherwise, snapshot deletion will fail and you will need to export and re-import the volume to remove snapshots.
+    * If the snapshot being deleted is contained in a QCOW2 (thin provisioned), non-base image hosted on internal storage, the successor volume is extended to include the volume containing the snapshot being deleted.
 
 **Deleting a Snapshot**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. Click the **Snapshots** tab in the details pane to list the snapshots for that virtual machine.
+2. Click the virtual machine’s name to go to the details view.
 
-    **Snapshot List**
+3. Click the **Snapshots** tab to list the snapshots for that virtual machine.
 
-    ![](/images/vmm-guide/5602.png)
+4. Select the snapshot to delete.
 
-3. Select the snapshot to delete.
+5. Click **Delete**.
 
-4. Click **Delete**.
-
-5. Click **OK**.
+6. Click **OK**.
 
 ## Host Devices
 
 ### Adding a Host Device to a Virtual Machine
 
-Virtual machines can be directly attached to the host devices for improved performance if a compatible host has been configured for direct device assignment.
+Virtual machines can be directly attached to the host devices for improved performance if a compatible host has been configured for direct device assignment. Host devices are devices that are physically plugged into the host, including SCSI (for example tapes, disks, changers), PCI (for example NICs, GPUs, and HBAs), and USB (for example mice, cameras, and disks).
 
 **Adding Host Devices to a Virtual Machine**
 
-1. Select a virtual machine and click the **Host Devices** tab in the details pane to list the host devices already attached to this virtual machine. A virtual machine can only have devices attached from the same host. If a virtual machine has attached devices from one host, and you attach a device from another host, the attached devices from the previous host will be automatically removed.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-    Attaching host devices to a virtual machine requires the virtual machine to be in a `Down` state. If the virtual machine is running, the changes will not take effect until after the virtual machine has been shut down.
+2. Click the virtual machine’s name to go to the details view.
 
-2. Click **Add device** to open the **Add Host Devices** window.
+3. Click the **Host Devices** tab to list the host devices already attached to this virtual machine.
 
-3. Use the **Pinned Host** dropdown menu to select a host.
+   A virtual machine can only have devices attached from the same host. If a virtual machine has attached devices from one host, and you attach a device from another host, the attached devices from the previous host will be automatically removed.
 
-4. Use the **Capability** dropdown menu to list the `pci`, `scsi`, or `usb_device` host devices.
+   Attaching host devices to a virtual machine requires the virtual machine to be in a `Down` state. If the virtual machine is running, the changes will not take effect until after the virtual machine has been shut down.
 
-5. Select the check boxes of the devices to attach to the virtual machine from the **Available Host Devices** pane and click the directional arrow button to transfer these devices to the **Host Devices to be attached** pane, creating a list of the devices to attach to the virtual machine.
+4. Click **Add device** to open the **Add Host Devices** window.
 
-6. When you have transferred all desired host devices to the **Host Devices to be attached** pane, click **OK** to attach these devices to the virtual machine and close the window.
+5. Use the **Pinned Host** drop-down menu to select a host.
+
+6. Use the **Capability** drop-down menu to list the `pci`, `scsi`, or `usb_device` host devices.
+
+7. Select the check boxes of the devices to attach to the virtual machine from the **Available Host Devices** pane and click the directional arrow button to transfer these devices to the **Host Devices to be attached** pane, creating a list of the devices to attach to the virtual machine.
+
+8. When you have transferred all desired host devices to the **Host Devices to be attached** pane, click **OK** to attach these devices to the virtual machine and close the window.
 
 These host devices will be attached to the virtual machine when the virtual machine is next powered on.
 
@@ -371,11 +357,15 @@ If you are removing all host devices directly attached to the virtual machine in
 
 **Removing a Host Device from a Virtual Machine**
 
-1. Select the virtual machine and click the **Host Devices** tab in the details pane to list the host devices attached to the virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. Select the host device to detach from the virtual machine, or hold **Ctrl** to select multiple devices, and click **Remove device** to open the **Remove Host Device(s)** window.
+2. Click the virtual machine’s name to go to the details view.
 
-3. Click **OK** to confirm and detach these devices from the virtual machine.
+3. Click the **Host Devices** tab to list the host devices attached to the virtual machine.
+
+4. Select the host device to detach from the virtual machine, or hold `Ctrl` to select multiple devices, and click **Remove device** to open the **Remove Host Device(s)** window.
+
+5. Click **OK** to confirm and detach these devices from the virtual machine.
 
 ### Pinning a Virtual Machine to Another Host
 
@@ -385,7 +375,7 @@ If the virtual machine has any host devices attached to it, pinning it to anothe
 
 **Pinning a Virtual Machine to a Host**
 
-1. Select a virtual machine and click the **Host Devices** tab in the details pane.
+1. Click a virtual machine name and click the **Host Devices** tab.
 
 2. Click **Pin to another host** to open the **Pin VM to Host** window.
 
@@ -395,17 +385,21 @@ If the virtual machine has any host devices attached to it, pinning it to anothe
 
 ## Affinity Groups
 
-Virtual machine affinity allows you to define sets of rules that specify whether certain virtual machines run together on the same host or run separately on different hosts. This allows you to create advanced workload scenarios for addressing challenges such as strict licensing requirements and workloads demanding high availability.
+Virtual machine affinity allows you to define sets of rules that specify whether certain virtual machines run together on the same host or on hosts in a group, or run separately on different hosts. This allows you to create advanced workload scenarios for addressing challenges such as strict licensing requirements and workloads demanding high availability, and failover and failback for disaster recovery.
 
-Virtual machine affinity is applied to virtual machines by adding virtual machines to one or more affinity groups. An affinity group is a group of two or more virtual machines for which a set of identical parameters and conditions apply. These parameters include positive (run together) affinity that ensures the virtual machines in an affinity group run on the same host, and negative (run independently) affinity that ensures the virtual machines in an affinity group run on different hosts.
+Virtual machine affinity is applied to virtual machines by adding virtual machines to one or more affinity groups. An affinity group is a group of two or more virtual machines for which a set of identical parameters and conditions apply. These parameters include positive (run together) affinity that ensures the virtual machines in an affinity group run on the same host or hosts in a group, and negative (run independently) affinity that ensures the virtual machines in an affinity group run on different hosts.
 
-A further set of conditions can then be applied to these parameters. For example, you can apply hard enforcement, which is a condition that ensures the virtual machines in the affinity group run on the same host or different hosts regardless of external conditions, or soft enforcement, which is a condition that indicates a preference for virtual machines in an affinity group to run on the same host or different hosts when possible.
+    **Important:** In order for affinity groups to take effect, a scheduling policy must be applied to the clusters in which the affinity groups are applied. This scheduling policy must have the ``VmAffinityGroups`` and `VmToHostsAffinityGroups` filter or weight modules enabled for affinity groups. For affinity labels, the scheduling policy must have the `Label` filter module enabled.
+
+A further set of conditions can then be applied to these parameters in the associated scheduling policy.
+
+* Hard enforcement - ensures that virtual machines in the affinity group run on a specified host or hosts in a group regardless of external conditions. The filter modules in the scheduling policy implement hard enforcement.
+
+* Soft enforcement - indicates a preference for virtual machines in an affinity group to run on the specified host or hosts in a group when possible. The the weights modules in the scheduling policy implement soft enforcement.
 
 The combination of an affinity group, its parameters, and its conditions is known as an affinity policy. Affinity policies are applied to running virtual machines immediately, without having to restart.
 
-**Note:** Affinity groups are applied to virtual machines on the cluster level. When a virtual machine is moved from one cluster to another, that virtual machine is removed from all affinity groups in the source cluster.
-
-**Important:** Affinity groups will only take effect when the `VmAffinityGroups` filter module or weights module is enabled in the scheduling policy applied to clusters in which affinity groups are defined. The `VmAffinityGroups` filter module is used to implement hard enforcement, and the `VmAffinityGroups` weights module is used to implement soft enforcement.
+    **Note:** Affinity groups are applied to virtual machines on the cluster level. When a virtual machine is moved from one cluster to another, that virtual machine is removed from all affinity groups in the source cluster.
 
 ### Creating an Affinity Group
 
@@ -413,111 +407,143 @@ You can create new affinity groups in the Administration Portal.
 
 **Creating Affinity Groups**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. Click the **Affinity Groups** tab in the details pane.
+2. Click the virtual machine’s name to go to the details view.
 
-3. Click **New**.
+3. Click the **Affinity Groups** tab.
 
-4. Enter a **Name** and **Description** for the affinity group.
+4. Click **New**.
 
-5. Select the **Positive** check box to apply positive affinity, or ensure this check box is cleared to apply negative affinity.
+5. Enter a **Name** and **Description** for the affinity group.
 
-6. Select the **Enforcing** check box to apply hard enforcement, or ensure this check box is cleared to apply soft enforcement.
+6. From the **VM Affinity Rule** drop-down, select **Positive** to apply positive affinity or **Negative** to apply negative affinity. Select **Disable** to disable the affinity rule.
 
-7. Use the drop-down list to select the virtual machines to be added to the affinity group. Use the **+** and **-** buttons to add or remove additional virtual machines.
+7. Select the **Enforcing** check box to apply hard enforcement, or ensure this check box is cleared to apply soft enforcement.
 
-8. Click **OK**.
+8. Use the drop-down list to select the virtual machines to be added to the affinity group. Use the **+** and **-** buttons to add or remove additional virtual machines.
+
+9. Click **OK**.
 
 ### Editing an Affinity Group
 
 **Editing Affinity Groups**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. Click the **Affinity Groups** tab in the details pane.
+2. Click the virtual machine’s name to go to the details view.
 
-3. Click **Edit**.
+3. Click the **Affinity Groups** tab.
 
-4. Change the **Positive** and **Enforcing** check boxes to the preferred values and use the **+** and **-** buttons to add or remove virtual machines to or from the affinity group.
+4. Click **Edit**.
 
-5. Click **OK**.
+5. Change the **VM Affinity Rule** drop-down and **Enforcing** check box to the preferred values and use the **+** and **-** buttons to add or remove virtual machines to or from the affinity group.
+
+6. Click **OK**.
 
 ### Removing an Affinity Group
 
 **Removing Affinity Groups**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. Click the **Affinity Groups** tab in the details pane.
+2. Click the virtual machine’s name to go to the details view.
 
-3. Click **Remove**.
+3. Click the **Affinity Groups** tab.
 
-4. Click **OK**.
+4. Click **Remove**.
+
+5. Click **OK**.
 
 The affinity policy that applied to the virtual machines that were members of that affinity group no longer applies.
 
+## Affinity Labels
+
+You can create and modify affinity labels in the Administration Portal.
+
+Affinity labels are used to set hard (Enforced) positive affinity between virtual machines and hosts. See the Affinity Groups section for more information about affinity hardness and polarity.
+
+Labels function identically to a hard positive affinity group, but simplify configuration in certain use cases. For example, if you have virtual machines that require specific host hardware, you can use affinity labels to ensure that those virtual machines run on the required hosts. If you use software that is license-limited to a certain number of physical machines, you can use affinity labels to ensure that virtual machines running that software are limited to the required physical hosts.
+
+    **Warning:** Affinity labels are a subset of affinity groups and can conflict with them. If there is a conflict, the virtual machine will not start.
+
+### Creating an Affinity Label
+
+You can create affinity labels from the details view of a virtual machine, host, or cluster. This procedure uses the cluster details view.
+
+**Creating an Affinity Label**
+
+1. Click **Compute** &rarr; **Clusters** and select the appropriate cluster.
+
+2. Click the cluster’s name to go to the details view.
+
+3. Click the **Affinity Labels** tab.
+
+4. Click **New**.
+
+5. Enter a **Name** for the affinity label.
+
+6. Use the drop-down lists to select the virtual machines and hosts to be associated with the label. Use the **+** button to add additional virtual machines and hosts.
+
+7. Click **OK**.
+
+### Editing an Affinity Label
+
+You can edit affinity labels from the details view of a virtual machine, host, or cluster. This procedure uses the cluster details view.
+
+**Editing an Affinity Label**
+
+1. Click **Compute** &rarr; **Clusters** and select the appropriate cluster.
+
+2. Click the cluster’s name to go to the details view.
+
+3. Click the **Affinity Labels** tab.
+
+4. Select the label you want to edit.
+
+5. Click **Edit**.
+
+6. Use the **+** and **-** buttons to add or remove virtual machines and hosts to or from the affinity label.
+
+7. Click OK.
+
+### Removing an Affinity Label
+
+You can remove affinity labels only from the details view of a cluster.
+
+**Removing an Affinity Label**
+
+1. Click **Compute** &rarr; **Clusters** and select the appropriate cluster.
+
+2. Click the cluster’s name to go to the details view.
+
+3. Click the **Affinity Labels** tab.
+
+4. Select the label you want to remove.
+
+5. Click **Edit**.
+
+6. Use the **-** buttons to remove all virtual machines and hosts from the label.
+
+7. Click **OK**.
+
+8. Click **Delete**.
+
+9. Click **OK**.
+
 ## Exporting and Importing Virtual Machines and Templates
 
-**Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the "Importing Existing Storage Domains" section in the [Administration Guide](/documentation/admin-guide/administration-guide/) for information on importing storage domains.
+    **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the "Importing Existing Storage Domains" section in the [Administration Guide](/documentation/admin-guide/administration-guide/) for information on importing storage domains.
 
-Virtual machines and templates stored in Open Virtual Machine Format (OVF) can be exported from and imported to data centers in the same or different oVirt environment.
+Virtual machines and templates can be exported from and imported to data centers in the same or different oVirt environment. You can export or import virtual machines by using an export domain, or by using a oVirt host. Templates can only be imported or exported using an export domain.
 
-To export or import virtual machines and templates, an active export domain must be attached to the data center containing the virtual machine or template to be exported or imported. An export domain acts as a temporary storage area containing two directories for each exported virtual machine or template. One directory contains the OVF files for the virtual machine or template. The other directory holds the disk image or images for the virtual machine or template.
+When you export or import a virtual machine or template, properties including basic details such as the name and description, resource allocation, and high availability settings of that virtual machine or template are preserved.
 
-There are three stages to exporting and importing virtual machines and templates:
-
-1. Export the virtual machine or template to an export domain.
-
-2. Detach the export domain from one data center, and attach it to another. You can attach it to a different data center in the same oVirt environment, or attach it to a data center in a separate oVirt environment that is managed by another installation of the oVirt Engine.
-
-    **Note:** An export domain can only be active in one data center at a given time. This means that the export domain must be attached to either the source data center or the destination data center.
-
-3. Import the virtual machine or template into the data center to which the export domain is attached.
-
-When you export or import a virtual machine or template, properties including basic details such as the name and description, resource allocation, and high availability settings of that virtual machine or template are preserved. Specific user roles and permissions, however, are not preserved during the export process. If certain user roles and permissions are required to access the virtual machine or template, they will need to be set again after the virtual machine or template is imported.
+The permissions and user roles of virtual machines and templates are included in the OVF files, so that when a storage domain is detached from one data center and attached to another, the virtual machines and templates can be imported with their original permissions and user roles. In order for permissions to be registered successfully, the users and roles related to the permissions of the virtual machines or templates must exist in the data center before the registration process.
 
 You can also use the V2V feature to import virtual machines from other virtualization providers, such as Xen or VMware, or import Windows virtual machines. V2V converts virtual machines so that they can be hosted by oVirt.
 
 **Important:** Virtual machines must be shut down before being exported or imported.
-
-### Graphical Overview for Exporting and Importing Virtual Machines and Templates
-
-This procedure provides a graphical overview of the steps required to export a virtual machine or template from one data center and import that virtual machine or template into another data center.
-
-**Exporting and Importing Virtual Machines and Templates**
-
-1. Attach the export domain to the source data center.
-
-    **Attach Export Domain**
-
-    ![](/images/vmm-guide/315.png)
-
-2. Export the virtual machine or template to the export domain.
-
-    **Export the Virtual Resource**
-
-    ![](/images/vmm-guide/317.png)
-
-3. Detach the export domain from the source data center.
-
-    **Detach Export Domain**
-
-    ![](/images/vmm-guide/316.png)
-
-4. Attach the export domain to the destination data center.
-
-    **Attach the Export Domain**
-
-    ![](/images/vmm-guide/314.png)
-
-5. Import the virtual machine or template into the destination data center.
-
-    **Import the virtual resource**
-
-    ![](/images/vmm-guide/318.png)
-
-* [Exporting individual virtual machines to the export domain](Exporting_individual_virtual_machines_to_the_export_domain)
 
 ### Exporting a Virtual Machine to the Export Domain
 
@@ -527,9 +553,9 @@ Export a virtual machine to the export domain so that it can be imported into a 
 
 **Exporting a Virtual Machine to the Export Domain**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines** and select a virtual machine.
 
-2. Click **Export**.
+2. Click **More Actions** &rarr; **Export to Export Domain**.
 
 3. Optionally select the following check boxes:
 
@@ -537,7 +563,7 @@ Export a virtual machine to the export domain so that it can be imported into a 
 
     * **Collapse Snapshots**: creates a single export volume per disk. This option removes snapshot restore points and includes the template in a template-based virtual machine, and removes any dependencies a virtual machine has on a template. For a virtual machine that is dependent on a template, either select this option, export the template with the virtual machine, or make sure the template exists in the destination data center.
 
-        **Note:** When you create a virtual machine from a template, two storage allocation options are available under **New Virtual Machine** > **Resource Allocation** > **Storage Allocation**.
+        **Note:** When you create a virtual machine from a template by clicking **Compute** &rarr; **Templates** and clicking **New VM**, you will see two storage allocation options in the **Storage Allocation** section in the **Resource Allocation** tab:
 
         * If **Clone** was selected, the virtual machine is not dependent on the template. The template does not have to exist in the destination data center.
 
@@ -547,49 +573,43 @@ Export a virtual machine to the export domain so that it can be imported into a 
 
 4. Click **OK**.
 
-The export of the virtual machine begins. The virtual machine displays in the **Virtual Machines** results list with an `Image Locked` status while it is exported. Depending on the size of your virtual machine hard disk images, and your storage hardware, this can take up to an hour. Use the **Events** tab to view the progress. When complete, the virtual machine has been exported to the export domain and displays on the **VM Import** tab of the export domain's details pane.
+The export of the virtual machine begins. The virtual machine displays in **Compute** &rarr; **Virtual Machines** with an `Image Locked` status while it is exported. Depending on the size of your virtual machine hard disk images, and your storage hardware, this can take up to an hour. Use the **Events** tab to view the progress. When complete, the virtual machine has been exported to the export domain and displays on the **VM Import** tab of the export domain's details pane.
 
-### Importing a Virtual Machine into the Destination Data Center
+### Importing a Virtual Machine from the Export Domain
 
 You have a virtual machine on an export domain. Before the virtual machine can be imported to a new data center, the export domain must be attached to the destination data center.
 
 **Importing a Virtual Machine into the Destination Data Center**
 
-1. Click the **Storage** tab, and select the export domain in the results list. The export domain must have a status of `Active`.
+1. Click **Storage** &rarr; **Domains**, and select the export domain. The export domain must have a status of `Active`.
 
-2. Select the **VM Import** tab in the details pane to list the available virtual machines to import.
+2. Click the export domain’s name to go to the details view.
 
-3. Select one or more virtual machines to import and click **Import**.
+3. Click the **VM Import** tab to list the available virtual machines to import.
 
-    **Import Virtual Machine**
+4. Select one or more virtual machines to import and click **Import**.
 
-    ![](/images/vmm-guide/6582.png)
+5. Select the **Target Cluster**.
 
-4. Select the **Default Storage Domain** and **Cluster**.
+6. Select the **Collapse Snapshots** check box to remove snapshot restore points and include templates in template-based virtual machines.
 
-5. Select the **Collapse Snapshots** check box to remove snapshot restore points and include templates in template-based virtual machines.
+7. Click the virtual machine to be imported and click on the **Disks** sub-tab. From this tab, you can use the **Allocation Policy** and **Storage Domain** drop-down lists to select whether the disk used by the virtual machine will be thinly provisioned or preallocated, and can also select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine.
 
-6. Click the virtual machine to be imported and click on the **Disks** sub-tab. From this tab, you can use the **Allocation Policy** and **Storage Domain** drop-down lists to select whether the disk used by the virtual machine will be thinly provisioned or preallocated, and can also select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine.
+8. Click **OK** to import the virtual machines.
 
-7. Click **OK** to import the virtual machines.
+   The **Import Virtual Machine Conflict** window opens if the virtual machine exists in the virtualized environment.
 
-8. The **Import Virtual Machine Conflict** window opens if the virtual machine exists in the virtualized environment.
-
-    **Import Virtual Machine Conflict Window**
-
-    ![](/images/vmm-guide/6583.png)
-
-9. Choose one of the following radio buttons:
+   Choose one of the following radio buttons:
 
     * **Don't import**
 
     * **Import as cloned** and enter a unique name for the virtual machine in the **New Name** field.
 
-10. Optionally select the **Apply to all** check box to import all duplicated virtual machines with the same suffix, and then enter a suffix in the **Suffix to add to the cloned VMs** field.
+9. Optionally select the **Apply to all** check box to import all duplicated virtual machines with the same suffix, and then enter a suffix in the **Suffix to add to the cloned VMs** field.
 
-11. Click **OK**.
+10. Click **OK**.
 
-**Important:** During a single import operation, you can only import virtual machines that share the same architecture. If any of the virtual machines to be imported have a different architecture to that of the other virtual machines to be imported, a warning will display and you will be prompted to change your selection so that only virtual machines with the same architecture will be imported.
+    **Important:** During a single import operation, you can only import virtual machines that share the same architecture. If any of the virtual machines to be imported have a different architecture to that of the other virtual machines to be imported, a warning will display and you will be prompted to change your selection so that only virtual machines with the same architecture will be imported.
 
 ### Importing a Virtual Machine from a VMware Provider
 
@@ -597,41 +617,45 @@ Import virtual machines from a VMware vCenter provider to your oVirt environment
 
 oVirt uses V2V to convert VMware virtual machines to the correct format before they are imported. You must install the `virt-v2v` package on a least one Enterprise Linux 7 host before proceeding. This package is available in the base `rhel-7-server-rpms` repository.
 
-**Warning:** The virtual machine must be shut down before being imported. Starting the virtual machine through VMware during the import process can result in data corruption.
+The `virt-v2v` package must be installed on at least one host (referred to in this procedure as the proxy host). The `virt-v2v` package is available by default on oVirt Node and is installed on Enterprise Linux hosts as a dependency of VDSM when added to the oVirt environment. Red Hat Enterprise Linux hosts must be Enterprise Linux 7.2 or later.
+
+    **Note:** The `virt-v2v` package is not available on the ppc64le architecture and these hosts cannot be used as proxy hosts.
+
+    **Warning:** The virtual machine must be shut down before being imported. Starting the virtual machine through VMware during the import process can result in data corruption.
+
+    **Important:** An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning will display and you will be prompted to change your selection to include only virtual machines with the same architecture.
+
+    **Note:** If the import fails, refer to the relevant log file in **/var/log/vdsm/import/** and to **/var/log/vdsm/vdsm.log** on the proxy host for details.
 
 **Importing a Virtual Machine from VMware**
 
-1. In the **Virtual Machines** tab, click **Import** to open the **Import Virtual Machine(s)** window.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-    **The Import Virtual Machine(s) Window**
+2. Click **More Actions** &rarr; **Import** to open the **Import Virtual Machine(s)** window.
 
-    ![](/images/vmm-guide/7324.png)
+3. Select **VMware** from the **Source** list.
 
-2. Select **VMware** from the **Source** list.
+4. If you have configured a VMware provider as an external provider, select it from the **External Provider** list. Verify that the provider credentials are correct. If you did not specify a destination data center or proxy host when configuring the external provider, select those options now.
 
-3. If you have configured a VMware provider as an external provider, select it from the **External Provider** list. Verify that the provider credentials are correct. If you did not specify a destination data center or proxy host when configuring the external provider, select those options now.
+5. If you have not configured a VMware provider, or want to import from a new VMware provider, provide the following details:
 
-4. If you have not configured a VMware provider, or want to import from a new VMware provider, provide the following details:
+    i. Select from the list the **Data Center** in which the virtual machine will be available.
 
-    a. Select from the list the **Data Center** in which the virtual machine will be available.
+    ii. Enter the IP address or fully qualified domain name of the VMware vCenter instance in the **vCenter** field.
 
-    b. Enter the IP address or fully qualified domain name of the VMware vCenter instance in the **vCenter** field.
+    iii. Enter the IP address or fully qualified domain name of the host from which the virtual machines will be imported in the **ESXi** field.
 
-    c. Enter the IP address or fully qualified domain name of the host from which the virtual machines will be imported in the **ESXi** field.
+    iv. Enter the name of the data center and the cluster in which the specified ESXi host resides in the **Data Center** field.
 
-    d. Enter the name of the data center and the cluster in which the specified ESXi host resides in the **Data Center** field.
+    v. If you have exchanged the SSL certificate between the ESXi host and the Engine, leave **Verify server's SSL certificate** checked to verify the ESXi host's certificate. If not, uncheck the option.
 
-    e. If you have exchanged the SSL certificate between the ESXi host and the Engine, leave **Verify server's SSL certificate** checked to verify the ESXi host's certificate. If not, uncheck the option.
+    vi. Enter the **Username** and **Password** for the VMware vCenter instance. The user must have access to the VMware data center and ESXi host on which the virtual machines reside.
 
-    f. Enter the **Username** and **Password** for the VMware vCenter instance. The user must have access to the VMware data center and ESXi host on which the virtual machines reside.
+    vii. Select a host in the chosen data center with `virt-v2v` installed to serve as the **Proxy Host** during virtual machine import operations. This host must also be able to connect to the network of the VMware vCenter external provider.
 
-    g. Select a host in the chosen data center with `virt-v2v` installed to serve as the **Proxy Host** during virtual machine import operations. This host must also be able to connect to the network of the VMware vCenter external provider.
+6. Click **Load** to generate a list of the virtual machines on the VMware provider.
 
-5. Click **Load** to generate a list of the virtual machines on the VMware provider.
-
-6. Select one or more virtual machines from the **Virtual Machines on Source** list, and use the arrows to move them to the **Virtual Machines to Import** list. Click **Next**.
-
-    **Important:** An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning will display and you will be prompted to change your selection to include only virtual machines with the same architecture.
+7. Select one or more virtual machines from the **Virtual Machines on Source** list, and use the arrows to move them to the **Virtual Machines to Import** list. Click **Next**.
 
     **Note:** If a virtual machine's network device uses the driver type e1000 or rtl8139, the virtual machine will use the same driver type after it has been imported to oVirt.
 
@@ -641,102 +665,349 @@ oVirt uses V2V to convert VMware virtual machines to the correct format before t
 
     ![](/images/vmm-guide/7325.png)
 
-7. Select the **Cluster** in which the virtual machines will reside.
+8. Select the **Cluster** in which the virtual machines will reside.
 
-8. Select a **CPU Profile** for the virtual machines.
+9. Select a **CPU Profile** for the virtual machines.
 
-9. Select the **Collapse Snapshots** check box to remove snapshot restore points and include templates in template-based virtual machines.
+10. Select the **Collapse Snapshots** check box to remove snapshot restore points and include templates in template-based virtual machines.
 
-10. Select the **Clone** check box to change the virtual machine name and MAC addresses, and clone all disks, removing all snapshots. If a virtual machine appears with a warning symbol beside its name or has a tick in the **VM in System** column, you must clone the virtual machine and change its name.
+11. Select the **Clone** check box to change the virtual machine name and MAC addresses, and clone all disks, removing all snapshots. If a virtual machine appears with a warning symbol beside its name or has a tick in the **VM in System** column, you must clone the virtual machine and change its name.
 
-11. Click on each virtual machine to be imported and click on the **Disks** sub-tab. Use the **Allocation Policy** and **Storage Domain** lists to select whether the disk used by the virtual machine will be thinly provisioned or preallocated, and select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine.
+12. Click on each virtual machine to be imported and click on the **Disks** sub-tab. Use the **Allocation Policy** and **Storage Domain** lists to select whether the disk used by the virtual machine will be thinly provisioned or preallocated, and select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine.
 
-    **Note:** The target storage domain must be a filed-based domain. Due to current limitations, specifying a block-based domain causes the V2V operation to fail.
+13. If you selected the **Clone** check box, change the name of the virtual machine in the **General** sub-tab.
 
-12. If you selected the **Clone** check box, change the name of the virtual machine in the **General** sub-tab.
+14. Click **OK** to import the virtual machines.
 
-13. Click **OK** to import the virtual machines.
+The CPU type of the virtual machine must be the same as the CPU type of the cluster into which it is being imported. To view the cluster’s **CPU Type** in the Administration Portal:
+
+1. Click **Compute** &rarr; **Clusters**.
+
+2. Select a cluster.
+
+3. Click **Edit**.
+
+4. Click the **General** tab.
+
+If the CPU type of the virtual machine is different, configure the imported virtual machine’s CPU type:
+
+1. Click **Compute** &rarr; **Virtual Machines**.
+
+2. Select the virtual machine.
+
+3. Click **Edit**.
+
+4. Click the **System** tab.
+
+5. Click the **Advanced Parameters** arrow.
+
+6. Specify the **Custom CPU Type** and click **OK**.
+
+### Exporting a Virtual Machine to a Host
+
+You can export a virtual machine to a specific path or mounted NFS shared storage on a host in the oVirt data center. The export will produce an Open Virtual Appliance (OVA) package.
+
+**Warning:** The virtual machine must be shut down before being exported.
+
+**Exporting a Virtual Machine to a Host**
+
+1. Click **Compute** &rarr; **Virtual Machines** and select a virtual machine.
+
+2. Click **More Actions** &rarr; **Export to OVA**.
+
+3. Select the host from the **Host** drop-down list.
+
+4. Enter the absolute path to the export directory in the **Directory** field.
+
+5. Optionally change the default name of the file in the **Name** field.
+
+6. Click **OK**.
+
+The status of the export can be viewed in the **Events** tab.
+
+## Importing a Virtual Machine from a Host
+
+Import an Open Virtual Appliance (OVA) file into your oVirt environment. You can import the file from any oVirt host in the data center.
+
+    **Important:** Currently, only oVirt and VMware OVAs can be imported. KVM and Xen are not supported.
+
+    The import process uses virt-v2v. Only virtual machines running operating systems compatible with virt-v2v can be successfully imported.
+
+**Importing an OVA File**
+
+1. Copy the OVA file to a host in your cluster, in a file system location such as **var/tmp**.
+
+  **Note:** The location can be a local directory or a remote nfs mount, as long as it has sufficient space and is accessible to the qemu user (UID 36).
+
+2. Ensure that the OVA file has permissions allowing read/write access to the **qemu** user (UID 36) and the **kvm** group (GID 36):
+
+        # chown 36:36 path_to_OVA_file/file.OVA
+
+3. Click **Compute** &rarr; **Virtual Machines**.
+
+4. Click **More Actions** &rarr; **Import** to open the **Import Virtual Machine(s)** window.
+
+  i. Select **Virtual Appliance (OVA)** from the **Source** list.
+
+  ii. Select a host from the **Host** list.
+
+  iii. In the **Path** field, specify the absolute path of the OVA file.
+
+  iv. Click **Load** to list the virtual machine to be imported.
+
+  v. Select the virtual machine from the **Virtual Machines on Source** list, and use the arrows to move it to the **Virtual Machines to Import** list.
+
+5. Click **Next**.
+
+  i. Select the **Storage Domain** for the virtual machine.
+
+  ii. Select the **Target Cluster** where the virtual machines will reside.
+
+  iii. Select the **CPU Profile** for the virtual machines.
+
+  iv. Select the **Allocation Policy** for the virtual machines.
+
+  v. Optionally, select the **Attach VirtIO-Drivers** check box and select the appropriate image on the list to add VirtIO drivers.
+
+  vi. Select the **Allocation Policy** for the virtual machines.
+
+  vii. Select the virtual machine, and on the **General** tab select the **Operating System**.
+
+  vii. On the **Network Interfaces** tab, select the **Network Name** and **Profile** Name.
+
+  ix. Click the **Disks** tab to view the **Alias**, **Virtual Size**, and **Actual Size** of the virtual machine.
+
+6. Click **OK** to import the virtual machines.
 
 ### Importing a Virtual Machine from a Xen Host
 
-Import virtual machines from Xen on Enterprise Linux 5 to your oVirt environment. oVirt uses V2V to convert Xen virtual machines to the correct format before they are imported. You must install the `virt-v2v` package on at least one Enterprise Linux 7 host in the destination data center before proceeding (this host is referred to in the following procedure as the V2V host). The `virt-v2v` package is available in the base `rhel-7-server-rpms` repository.
+Import virtual machines from Xen on Enterprise Linux 5 to your oVirt environment. oVirt uses V2V to import QCOW2 or raw virtual machine disk formats.
 
-**Warning:** The virtual machine must be shut down before being imported. Starting the virtual machine through Xen during the import process can result in data corruption.
+The `virt-v2v` package must be installed on at least one host (referred to in this procedure as the proxy host). The `virt-v2v` package is available by default on oVirt Node and is installed on Enterprise Linux hosts as a dependency of VDSM when added to the oVirt environment. Enterprise Linux hosts must be Enterprise Linux 7.2 or later.
 
-**Importing a Virtual Machine from Xen**
+    **Warning:** If you are importing a Windows virtual machine from a Xen host and you are using VirtIO devices, install the VirtIO drivers before importing the virtual machine. If the drivers are not installed, the virtual machine may not boot after import.
 
-1. Enable passwordless SSH between the V2V host and the Xen host:
+    The VirtIO drivers can be installed from the **virtio-win.iso** or the **rhev-tools-setup.iso**.
 
-    a. Log in to the V2V host and generate SSH keys for the `vdsm` user.
+    If you are not using VirtIO drivers, review the configuration of the virtual machine before first boot to ensure that VirtIO devices are not being used.
 
-            # sudo -u vdsm ssh-keygen
-
-    b. Copy the `vdsm` user's public key to the Xen host.
-
-            # sudo -u vdsm ssh-copy-id root@xenhost.example.com
-
-       As a side-effect of this step the `known_hosts` file on the V2V host is updated with the host key of the Xen host.
-       This is also required for the import process to work.
-
-    c. To verify that everything is set-up properly you can try to ssh to the Xen host.
-
-            # sudo -u vdsm ssh root@xenhost.example.com
-
-    d. Exit the Xen host.
-
-            # logout
-
-    e. Another verification step that you can perform to make sure everything is OK is to list the VMs on the Xen host.
-
-            # sudo -u vdsm virsh -c 'qemu+ssh://root@xenhost.example.com/system' list
-
-2. Log in to the Administration Portal. In the **Virtual Machines** tab, click **Import** to open the **Import Virtual Machine(s)** window.
-
-    **The Import Virtual Machine(s) Window**
-
-    ![](/images/vmm-guide/ImportXenVM.png)
-
-3. Select the **Data Center** that contains the V2V host.
-
-4. Select **XEN (via RHEL)** from the **Source** drop-down list.
-
-5. Enter the **URI** of the Xen host. The required format is pre-filled; you must replace `<hostname>` with the host name of the Xen host.  
-
-6. Select the V2V host from the **Proxy Host** drop-down list.
-
-7. Click **Load** to generate a list of the virtual machines on the Xen hypervisor.
-
-8. Select one or more virtual machines from the **Virtual Machines on Source** list, and use the arrows to move them to the **Virtual Machines to Import** list.
-
-    **Note:** Due to current limitations, Xen virtual machines with block devices do not appear in the **Virtual Machines on Source** list, and cannot be imported to oVirt.
-
-9. Click **Next**.
+    **Note:** The `virt-v2v` package is not available on the ppc64le architecture and these hosts cannot be used as proxy hosts.
 
     **Important:** An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning will display and you will be prompted to change your selection to include only virtual machines with the same architecture.
 
-    **The Import Virtual Machine(s) Window**
+    **Note:** If the import fails, refer to the relevant log file in **/var/log/vdsm/import/** and to **/var/log/vdsm/vdsm.log** on the proxy host for details.
 
-    ![](/images/vmm-guide/7325.png)
+**Importing a Virtual Machine from Xen**
 
-10. Select the **Cluster** in which the virtual machines will reside.
+1. Shut down the virtual machine. Starting the virtual machine through Xen during the import process can result in data corruption.
 
-11. Select a **CPU Profile** for the virtual machines.
+2. Enable public key authentication between the proxy host and the Xen host:
 
-12. Select the **Collapse Snapshots** check box to remove snapshot restore points and include templates in template-based virtual machines.
+    i. Log in to the proxy host and generate SSH keys for the **vdsm** user.
 
-13. Select the **Clone** check box to change the virtual machine name and MAC addresses, and clone all disks, removing all snapshots. If a virtual machine appears with a warning symbol beside its name or has a tick in the **VM in System** column, you must clone the virtual machine and change its name.
+            # sudo -u vdsm ssh-keygen
 
-14. Click on each virtual machine to be imported and click on the **Disks** sub-tab. Use the **Allocation Policy** and **Storage Domain** lists to select whether the disk used by the virtual machine will be thinly provisioned or preallocated, and select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine.
+    ii. Copy the **vdsm** user's public key to the Xen host.
 
-    **Note:** The target storage domain must be a filed-based domain. Due to current limitations, specifying a block-based domain causes the V2V operation to fail.
+            # sudo -u vdsm ssh-copy-id root@xenhost.example.com
 
-15. If you selected the **Clone** check box, change the name of the virtual machine in the **General** sub-tab.
+    iii. Log in to the Xen host to verify that the login works correctly.
 
-16. Click **OK** to import the virtual machines.
+            # sudo -u vdsm ssh root@xenhost.example.com
+
+3. Log in to the Administration Portal.
+
+4. Click **Compute** &rarr; **Virtual Machines**.
+
+5. Click **More Actions** &rarr; **Import** to open the **Import Virtual Machine(s)** window.
+
+6. Select the **Data Center** that contains the proxy host.
+
+7. Select **XEN (via RHEL)** from the **Source** drop-down list.
+
+8. Optionally, select a Xen provider **External Provider** from the drop-down list. The URI will be pre-filled with the correct URI.
+
+9. Enter the **URI** of the Xen host. The required format is pre-filled; you must replace `<hostname>` with the host name of the Xen host.  
+
+10. Select the proxy host from the **Proxy Host** drop-down list.
+
+11. Click **Load** to list the virtual machines on the Xen host that can be imported.
+
+12. Select one or more virtual machines from the **Virtual Machines on Source** list, and use the arrows to move them to the **Virtual Machines to Import** list.
+
+    **Note:** Due to current limitations, Xen virtual machines with block devices do not appear in the **Virtual Machines on Source** list, and cannot be imported to oVirt.
+
+13. Click **Next**.
+
+14. Select the **Cluster** in which the virtual machines will reside.
+
+15. Select a **CPU Profile** for the virtual machines.
+
+16. Use the **Allocation Policy** and **Storage Domain** lists to select whether the disk used by the virtual machine will be thinly provisioned or preallocated, and select the storage domain on which the disk will be stored.
+
+    **Note**: The target storage domain must be a file-based domain. Due to current limitations, specifying a block-based domain causes the V2V operation to fail.
+
+17. If a virtual machine appears with a warning symbol beside its name, or has a tick in the **VM in System** column, select the **Clone** check box to clone the virtual machine.
+
+**Note:** Cloning a virtual machine changes its name and MAC addresses and clones all of its disks, removing all snapshots.
+
+18. Click **OK** to import the virtual machines.
+
+The CPU type of the virtual machine must be the same as the CPU type of the cluster into which it is being imported. To view the cluster’s **CPU Type** in the Administration Portal:
+
+1. Click **Compute** &rarr; **Clusters**.
+
+2. Select a cluster.
+
+3. Click **Edit**.
+
+4. Click the **General** tab.
+
+If the CPU type of the virtual machine is different, configure the imported virtual machine’s CPU type:
+
+1. Click **Compute** &rarr; **Virtual Machines**.
+
+2. Select the virtual machine.
+
+3. Click **Edit**.
+
+4. Click the **System** tab.
+
+5. Click the **Advanced Parameters** arrow.
+
+6. Specify the **Custom CPU Type** and click **OK**.
+
+**Importing a Block-Based Virtual Machine from a Xen Host**
+
+1. Enable public key authentication between the proxy host and the Xen host:
+
+  i. Log in to the proxy host and generate SSH keys for the **vdsm** user.
+
+          # sudo -u vdsm ssh-keygen
+
+  ii. Copy the **vdsm** user’s public key to the Xen host.
+
+          # sudo -u vdsm ssh-copy-id root@xenhost.example.com
+
+  iii. Log in to the Xen host to verify that the login works correctly.
+
+          # sudo -u vdsm ssh root@xenhost.example.com
+
+2. Attach an export domain.
+
+3. On the proxy host, copy the virtual machine from the Xen host:
+
+        # virt-v2v-copy-to-local -ic xen+ssh://root@xenhost.example.com vmname
+
+4. Convert the virtual machine to libvirt XML and move the file to your export domain:
+
+        # virt-v2v -i libvirtxml vmname.xml -o rhev -of raw -os storage.example.com:/exportdomain
+
+5. In the Administration Portal, click **Storage** &rarr; **Domains**, click the export domain’s name, and click the **VM Import** tab in the details view to verify that the virtual machine is in your export domain.
+
+6. Import the virtual machine into the destination data domain. See the “Importing a Virtual Machine from the Export Domain” section above.
+
+### Importing a Virtual Machine from a KVM Host
+
+Import virtual machines from KVM to your oVirt environment. oVirt converts KVM virtual machines to the correct format before they are imported. You must enable public key authentication between the KVM host and at least one host in the destination data center (this host is referred to in the following procedure as the proxy host).
+
+    **Warning:** The virtual machine must be shut down before being imported. Starting the virtual machine through VMware during the import process can result in data corruption.
+
+    **Important:** An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning will display and you will be prompted to change your selection to include only virtual machines with the same architecture.
+
+    **Note:** If the import fails, refer to the relevant log file in **/var/log/vdsm/import/** and to **/var/log/vdsm/vdsm.log** on the proxy host for details.
+
+**Importing a Virtual Machine from KVM**
+
+1. Enable public key authentication between the proxy host and the KVM host:
+
+  i. Log in to the proxy host and generate SSH keys for the **vdsm** user.
+
+          # sudo -u vdsm ssh-keygen
+
+  ii. Copy the **vdsm** user’s public key to the KVM host. The proxy host’s **known_hosts** file will also be updated to include the host key of the KVM host.
+
+          # sudo -u vdsm ssh-copy-id root@kvmhost.example.com
+
+  iii. Log in to the KVM host to verify that the login works correctly.
+
+          # sudo -u vdsm ssh root@kvmhost.example.com
+
+2. Log in to the Administration Portal.
+
+3. Click **Compute** &rarr; **Virtual Machines**.
+
+4. Click **More Actions** &rarr; **Import** to open the **Import Virtual Machine(s)** window.
+
+5. Select the **Data Center** that contains the proxy host.
+
+6. Select **KVM (via Libvirt)** from the **Source** drop-down list.
+
+7. Optionally, select a KVM provider **External Provider** from the drop-down list. The URI will be pre-filled with the correct URI.
+
+8. Enter the **URI** of the KVM host in the following format:
+
+        qemu+ssh://root@kvmhost.example.com/system
+
+9. Keep the **Requires Authentication** check box selected.
+
+10. Enter `root` in the **Username** field.
+
+11. Enter the **Password** of the KVM host’s root user.
+
+12. Select the **Proxy Host** from the drop-down list.
+
+13. Click **Load** to list the virtual machines on the KVM host that can be imported.
+
+14. Select one or more virtual machines from the **Virtual Machines on Source** list, and use the arrows to move them to the **Virtual Machines to Import** list.
+
+15. Click **Next**.
+
+16. Select the **Cluster** in which the virtual machines will reside.
+
+17. Select a **CPU Profile** for the virtual machines.
+
+18. Optionally, select the **Collapse Snapshots** check box to remove snapshot restore points and include templates in template-based virtual machines.
+
+19. Optionally, select the **Clone** check box to change the virtual machine name and MAC addresses, and clone all disks, removing all snapshots. If a virtual machine appears with a warning symbol beside its name or has a tick in the **VM in System** column, you must clone the virtual machine and change its name.
+
+20. Click on each virtual machine to be imported and click on the **Disks** sub-tab. Use the **Allocation Policy** and **Storage Domain** lists to select whether the disk used by the virtual machine will be thin provisioned or preallocated, and select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine.
+
+    **Note:** The target storage domain must be a file-based domain. Due to current limitations, specifying a block-based domain causes the operation to fail.
+
+21. If you selected the **Clone** check box, change the name of the virtual machine in the **General** tab.
+
+22. Click **OK** to import the virtual machines.
+
+The CPU type of the virtual machine must be the same as the CPU type of the cluster into which it is being imported. To view the cluster’s **CPU Type** in the Administration Portal:
+
+1. Click **Compute** &rarr; **Clusters**.
+
+2. Select a cluster.
+
+3. Click **Edit**.
+
+4. Click the **General** tab.
+
+If the CPU type of the virtual machine is different, configure the imported virtual machine’s CPU type:
+
+1. Click **Compute** &rarr; **Virtual Machines**.
+
+2. Select the virtual machine.
+
+3. Click **Edit**.
+
+4. Click the **System** tab.
+
+5. Click the **Advanced Parameters** arrow.
+
+6. Specify the **Custom CPU Type** and click **OK**.
 
 ## Migrating Virtual Machines Between Hosts
 
-Live migration provides the ability to move a running virtual machine between physical hosts with no interruption to service. The virtual machine remains powered on and user applications continue to run while the virtual machine is relocated to a new physical host. In the background, the virtual machine's RAM is copied from the source host to the destination host. Storage and network connectivity are not altered.
+Live migration provides the ability to move a running virtual machine between physical hosts with no interruption to service. The virtual machine remains powered on and user applications continue to run while the virtual machine is relocated to a new physical host. In the background, the virtual machine’s RAM is copied from the source host to the destination host. Storage and network connectivity are not altered.
+
+**Note:** A virtual machine that is using a vGPU cannot be migrated to a different host.
 
 ### Live Migration Prerequisites
 
@@ -760,11 +1031,35 @@ At a minimum, for successful live migration of virtual machines to be possible:n
 
 * The migrating virtual machine must not have the `cache!=none` custom property set.
 
-In addition, for best performance, the storage and management networks should be split to avoid network saturation. Virtual machine migration involves transferring large amounts of data between hosts.
-
 Live migration is performed using the management network. Each live migration event is limited to a maximum transfer speed of 30 MBps, and the number of concurrent migrations supported is also limited by default. Despite these measures, concurrent migrations have the potential to saturate the management network. It is recommended that separate logical networks are created for storage, display, and virtual machine data to minimize the risk of network saturation.
 
-# Optimizing Live Migration
+**Configuring Virtual Machines with SR-IOV-Enabled vNICs to Reduce Network Outage during Migration**
+
+Virtual machines with vNICs that are directly connected to a virtual function (VF) of an SR-IOV-enabled host NIC can be further configured to reduce network outage during live migration:
+
+* Ensure that the destination host has an available VF.
+
+* Set the **Passthrough** and **Migratable** options in the passthrough vNIC’s profile.
+
+* Enable hotplugging for the virtual machine’s network interface.
+
+* Ensure that the virtual machine has a backup VirtIO vNIC, in addition to the passthrough vNIC, to maintain the virtual machine’s network connection during migration.
+
+* Set the VirtIO vNIC’s `No Network Filter` option before configuring the bond.
+
+* Add both vNICs as slaves under an `active-backup` bond on the virtual machine, with the passthrough vNIC as the primary interface.
+
+  The bond and vNIC profiles can have one of the following configurations:
+
+  * **Recommended:** The bond is not configured with `fail_over_mac=active` and the VF vNIC is the primary slave.
+
+  * Disable the VirtIO vNIC profile’s MAC-spoofing filter to ensure that traffic passing through the VirtIO vNIC is not dropped because it uses the VF vNIC MAC address.
+
+  * The bond is configured with `fail_over_mac=active`.
+
+    This failover policy ensures that the MAC address of the bond is always the MAC address of the active slave. During failover, the virtual machine’s MAC address changes, with a slight disruption in traffic.
+
+### Optimizing Live Migration
 
 Live virtual machine migration can be a resource-intensive operation. The following two options can be set globally for every virtual machine in the environment, at the cluster level, or at the individual virtual machine level to optimize live migration.
 
@@ -778,41 +1073,65 @@ Both options are disabled globally by default.
 
 1. Configure the optimization settings at the global level:
 
-    a. Enable auto-convergence at the global level:
+    i. Enable auto-convergence at the global level:
 
             # engine-config -s DefaultAutoConvergence=True
 
-    b. Enable migration compression at the global level:
+    ii. Enable migration compression at the global level:
 
             # engine-config -s DefaultMigrationCompression=True
 
-    c. Restart the `ovirt-engine` service to apply the changes:
+    iii. Restart the `ovirt-engine` service to apply the changes:
 
             # systemctl restart ovirt-engine.service
 
 2. Configure the optimization settings at the cluster level:
 
-    a. Select a cluster.
+    i. Click **Compute** &rarr; **Clusters** and select a cluster.
 
-    b. Click **Edit**.
+    ii. Click **Edit**.
 
-    c. Click the **Scheduling Policy** tab.
+    iii. Click the **Migration Policy** tab.
 
-    d. From the **Auto Converge migrations** list, select **Inherit from global setting**, **Auto Converge**, or **Don't Auto Converge**.
+    iv. From the **Auto Converge migrations** list, select **Inherit from global setting**, **Auto Converge**, or **Don't Auto Converge**.
 
-    e. From the **Enable migration compression** list, select **Inherit from global setting**, **Compress**, or **Don't Compress**.
+    v. From the **Enable migration compression** list, select **Inherit from global setting**, **Compress**, or **Don't Compress**.
+
+    vi. Click **OK**.
 
 3. Configure the optimization settings at the virtual machine level:
 
-    a. Select a virtual machine.
+    i. Click **Compute** &rarr; **Virtual Machines** and select a virtual machine.
 
-    b. Click **Edit**.
+    ii. Click **Edit**.
 
-    c. Click the **Host** tab.
+    iii. Click the **Host** tab.
 
-    d. From the **Auto Converge migrations** list, select **Inherit from cluster setting**, **Auto Converge**, or **Don't Auto Converge**.
+    iv. From the **Auto Converge migrations** list, select **Inherit from cluster setting**, **Auto Converge**, or **Don't Auto Converge**.
 
-    e. From the **Enable migration compression** list, select **Inherit from cluster setting**, **Compress**, or **Don't Compress**.
+    v. From the **Enable migration compression** list, select **Inherit from cluster setting**, **Compress**, or **Don't Compress**.
+
+    vi. Click **OK**.
+
+### Guest Agent Hooks
+
+Hooks are scripts that trigger activity within a virtual machine when key events occur:
+
+* Before migration
+
+* After migration
+
+* Before hibernation
+
+* After hibernation
+
+The hooks configuration base directory is **/etc/ovirt-guest-agent/hooks.d** on Linux systems and **C:\Program Files\Redhat\RHEV\Drivers\Agent** on Windows systems.
+
+Each event has a corresponding subdirectory: `before_migration` and `after_migration`. All files or symbolic links in that directory will be executed.
+
+The executing user on Linux systems is `ovirtagent`. If the script needs `root` permissions, the elevation must be executed by the creator of the hook script.
+
+The executing user on Windows systems is the `System Service` user.    
 
 ### Automatic Virtual Machine Migration
 
@@ -828,17 +1147,13 @@ The ability to disable automatic migration and require a virtual machine to run 
 
 **Preventing Automatic Migration of Virtual Machine**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines** and select a virtual machine.
 
 2. Click **Edit**.
 
-    **The Edit Virtual Machine Window**
-
-    ![](/images/vmm-guide/7321.png)
-
 3. Click the **Host** tab.
 
-4. Use the **Start Running On** radio buttons to designate the virtual machine to run on **Any Host in Cluster** or a **Specific** host. If applicable, select a specific host or group of hosts from the list.
+4. Use the **Start Running On** adio buttons to specify whether the virtual machine should run on any host in the cluster, or a specific host or group of hosts.
 
     **Warning:** Explicitly assigning a virtual machine to one specific host and disabling migration is mutually exclusive with oVirt high availability. Virtual machines that are assigned to one specific host can only be made highly available using third-party high availability products. This restriction does not apply to virtual machines that are assigned to multiple specific hosts.
 
@@ -852,15 +1167,15 @@ The ability to disable automatic migration and require a virtual machine to run 
 
 ### Manually Migrating Virtual Machines
 
-A running virtual machine can be live migrated to any host within its designated host cluster. Live migration of virtual machines does not cause any service interruption. Migrating virtual machines to a different host is especially useful if the load on a particular host is too high. For live migration prerequisites, see the Live migration prerequisites section.
+A running virtual machine can be live migrated to any host within its designated host cluster. Live migration of virtual machines does not cause any service interruption. Migrating virtual machines to a different host is especially useful if the load on a particular host is too high. For live migration prerequisites, see the "Live migration prerequisites" section.
 
-**Note:** When you place a host into maintenance mode, the virtual machines running on that host are automatically migrated to other hosts in the same cluster. You do not need to manually migrate these virtual machines.
+    **Note:** When you place a host into maintenance mode, the virtual machines running on that host are automatically migrated to other hosts in the same cluster. You do not need to manually migrate these virtual machines.
 
-**Note:** Live migrating virtual machines between different clusters is generally not recommended.
+    **Note:** Live migrating virtual machines between different clusters is generally not recommended.
 
 **Manually Migrating Virtual Machines**
 
-1. Click the **Virtual Machines** tab and select a running virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines** and select a running virtual machine.
 
 2. Click **Migrate**.
 
@@ -880,7 +1195,7 @@ You can influence the ordering of the migration queue by setting the priority of
 
 **Setting Migration Priority**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1.  Click **Compute** &rarr; **Virtual Machines** and select a virtual machine.
 
 2. Click **Edit**.
 
@@ -896,9 +1211,9 @@ A virtual machine migration is taking longer than you expected. You'd like to be
 
 **Canceling Ongoing Virtual Machine Migrations**
 
-1. Select the migrating virtual machine. It is displayed in the **Virtual Machines** resource tab with a status of **Migrating from**.
+1. Select the migrating virtual machine. It is displayed in **Compute** &rarr; **Virtual Machines** with a status of **Migrating from**.
 
-2. Click **Cancel Migration**.
+2. Click **More Actions** &rarr; **Cancel Migration**.
 
 The virtual machine status returns from **Migrating from** to **Up**.
 
@@ -914,7 +1229,7 @@ Highly Available `Virtual_Machine_Name` failed. It will be restarted automatical
 
 **Notification in the Engine engine.log**
 
-This log can be found on the oVirt Engine at `/var/log/ovirt-engine/engine.log`:
+This log can be found on the oVirt Engine at **/var/log/ovirt-engine/engine.log**:
 
 Failed to start Highly Available VM. Attempting to restart. VM Name: `Virtual_Machine_Name`, VM Id:`Virtual_Machine_ID_Number`
 
@@ -922,25 +1237,29 @@ Failed to start Highly Available VM. Attempting to restart. VM Name: `Virtual_Ma
 
 ### What is High Availability?
 
-High availability means that a virtual machine will be automatically restarted if its process is interrupted. This happens if the virtual machine is terminated by methods other than powering off from within the guest or sending the shutdown command from the Engine. When these events occur, the highly available virtual machine is automatically restarted, either on its original host or another host in the cluster.
+High availability is recommended for virtual machines running critical workloads. A highly available virtual machine is automatically restarted, either on its original host or another host in the cluster, if its process is interrupted, such as in the following scenarios:
 
-High availability is possible because the oVirt Engine constantly monitors the hosts and storage, and automatically detects hardware failure. If host failure is detected, any virtual machine configured to be highly available is automatically restarted on another host in the cluster.
+* A host becomes non-operational due to hardware failure.
+
+* A host is put into maintenance mode for scheduled downtime.
+
+* A host becomes unavailable because it has lost communication with an external storage resource.
+
+A highly available virtual machine is not restarted if it is shut down cleanly, such as in the following scenarios:
+
+* The virtual machine is shut down from within the guest.
+
+* The virtual machine is shut down from the Manager.
+
+* The host is shut down by an administrator without being put in maintenance mode first.
+
+With storage domains V4 or later, virtual machines have the additional capability to acquire a lease on a special volume on the storage, enabling a virtual machine to start on another host even if the original host loses power. The functionality also prevents the virtual machine from being started on two different hosts, which may lead to corruption of the virtual machine disks.
 
 With high availability, interruption to service is minimal because virtual machines are restarted within seconds with no user intervention required. High availability keeps your resources balanced by restarting guests on a host with low current resource utilization, or based on any workload balancing or power saving policies that you configure. This ensures that there is sufficient capacity to restart virtual machines at all times.
 
-### Why Use High Availability?
+**High Availability and Storage I/O Errors**
 
-High availability is recommended for virtual machines running critical workloads.
-
-High availability can ensure that virtual machines are restarted in the following scenarios:
-
-* When a host becomes non-operational due to hardware failure.
-
-* When a host is put into maintenance mode for scheduled downtime.
-
-* When a host becomes unavailable because it has lost communication with an external storage resource.
-
-A high availability virtual machine is automatically restarted, either on its original host or another host in the cluster.
+If a storage I/O error occurs, the virtual machine is paused. You can define how the host handles highly available virtual machines after the connection with the storage domain is reestablished; they can either be resumed, ungracefully shut down, or remain paused.
 
 ### High Availability Considerations
 
@@ -966,21 +1285,23 @@ High availability must be configured individually for each virtual machine.
 
 **Configuring a Highly Available Virtual Machine**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines** and select a virtual machine.
 
 2. Click **Edit**.
 
 3. Click the **High Availability** tab.
 
-    **The High Availability Tab**
-
-    ![](/images/vmm-guide/7322.png)
-
 4. Select the **Highly Available** check box to enable high availability for the virtual machine.
 
-5. Select **Low**, **Medium**, or **High** from the **Priority** drop-down list. When migration is triggered, a queue is created in which the high priority virtual machines are migrated first. If a cluster is running low on resources, only the high priority virtual machines are migrated.
+5. Select the storage domain to hold the virtual machine lease, or select **No VM Lease** to disable the functionality, from the **Target Storage Domain for VM Lease** drop-down list. See the “What is High Availability?” section above for more information about virtual machine leases.
 
-6. Click **OK**.
+    **Important:** This functionality is only available on storage domains that are V4 or later.
+
+6. Select **AUTO_RESUME**, **LEAVE_PAUSED**, or **KILL** from the **Resume Behavior** drop-down list. If you defined a virtual machine lease, **KILL** is the only option available.
+
+7. Select **Low**, **Medium**, or **High** from the **Priority** drop-down list. When migration is triggered, a queue is created in which the high priority virtual machines are migrated first. If a cluster is running low on resources, only the high priority virtual machines are migrated.
+
+8. Click **OK**.
 
 ## Other Virtual Machine Tasks
 
@@ -990,15 +1311,11 @@ Enable SAP monitoring on a virtual machine through the Administration Portal.
 
 **Enabling SAP Monitoring on Virtual Machines**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines** and select a virtual machine.
 
 2. Click **Edit**.
 
 3. Click the **Custom Properties** tab.
-
-    **Enable SAP**
-
-    ![](/images/vmm-guide/4672.png)
 
 4. Select `sap_agent` from the drop-down list. Ensure the secondary drop-down menu is set to **True**.
 
@@ -1012,11 +1329,11 @@ SPICE is a remote display protocol designed for virtual environments, which enab
 
 Using SPICE on a Linux machine significantly improves the movement of the mouse cursor on the console of the virtual machine. To use SPICE, the X Window system requires additional QXL drivers. The QXL drivers are provided with Enterprise Linux 5.4 and newer. Older versions are not supported. Installing SPICE on a virtual machine running Enterprise Linux significantly improves the performance of the graphical user interface.
 
-**Note:** Typically, this is most useful for virtual machines where the user requires the use of the graphical user interface. System administrators who are creating virtual servers may prefer not to configure SPICE if their use of the graphical user interface is minimal.
+    **Note:** Typically, this is most useful for virtual machines where the user requires the use of the graphical user interface. System administrators who are creating virtual servers may prefer not to configure SPICE if their use of the graphical user interface is minimal.
 
 #### Installing and Configuring QXL Drivers
 
-  You must manually install QXL drivers on virtual machines running Enterprise Linux 5.4 or higher. This is unnecessary for virtual machines running Enterprise Linux 6 or Enterprise Linux 7 as the QXL drivers are installed by default.
+You must manually install QXL drivers on virtual machines running Enterprise Linux 5.4 or higher. This is unnecessary for virtual machines running Enterprise Linux 6 or Enterprise Linux 7 as the QXL drivers are installed by default.
 
 **Installing QXL Drivers**
 
@@ -1067,7 +1384,7 @@ Edit the `/etc/X11/xorg.conf` file to enable SPICE for your virtual machine's ta
 
         # /sbin/lsusb -v | grep 'QEMU USB Tablet'
 
-    If there is no output from the command, do not continue configuring the tablet.
+   If there is no output from the command, do not continue configuring the tablet.
 
 2. Back up `/etc/X11/xorg.conf`:
 
@@ -1115,21 +1432,21 @@ Virtual machines can have several problems caused by inaccurate clocks and count
 
 These problems exist on other virtualization platforms and timing should always be tested.
 
-**Important:** The Network Time Protocol (NTP) daemon should be running on the host and the virtual machines. Enable the `ntpd` service and add it to the default startup sequence:
+    **Important:** The Network Time Protocol (NTP) daemon should be running on the host and the virtual machines. Enable the `ntpd` service and add it to the default startup sequence:
 
-* For Enterprise Linux 6
+    * For Enterprise Linux 6
 
-        # service ntpd start
-        # chkconfig ntpd on
+            # service ntpd start
+            # chkconfig ntpd on
 
-* For Enterprise Linux 7
+    * For Enterprise Linux 7
 
-        # systemctl start ntpd.service
-        # systemctl enable ntpd.service
+            # systemctl start ntpd.service
+            # systemctl enable ntpd.service
 
-Using the `ntpd` service should minimize the affects of clock skew in all cases.
+    Using the `ntpd` service should minimize the affects of clock skew in all cases.
 
-The NTP servers you are trying to use must be operational and accessible to your hosts and virtual machines.
+    The NTP servers you are trying to use must be operational and accessible to your hosts and virtual machines.
 
 **Determining if your CPU has the constant Time Stamp Counter**
 
@@ -1143,7 +1460,7 @@ If any output is given your CPU has the `constant_tsc` bit. If no output is give
 
 Systems without constant time stamp counters require additional configuration. Power management features interfere with accurate time keeping and must be disabled for virtual machines to accurately keep time with KVM.
 
-**Important:** These instructions are for AMD revision F CPUs only.
+    **Important:** These instructions are for AMD revision F CPUs only.
 
 If the CPU lacks the `constant_tsc` bit, disable all power management features ([BZ#513138](https://bugzilla.redhat.com/show_bug.cgi?id=513138)). Each system has several timers it uses to keep time. The TSC is not stable on the host, which is sometimes caused by `cpufreq` changes, deep C state, or migration to a host with a faster TSC. Deep C sleep states can stop the TSC. To prevent the kernel using deep C states append "`processor.max_cstate=1`" to the kernel boot options in the `grub.conf` file on the host:
 
@@ -1157,7 +1474,7 @@ Disable `cpufreq` (only necessary on hosts without the `constant_tsc`) by editin
 
 You can use the `engine-config` tool to configure alerts when your hosts drift out of sync.
 
-There are 2 relevant parameters for time drift on hosts: `EnableHostTimeDrift` and `HostTimeDriftInSec`. `EnableHostTimeDrift`, with a default value of false, can be enabled to receive alert notifications of host time drift. The `HostTimeDriftInSec` parameter is used to set the maximum allowable drift before alerts start being sent.
+There are two relevant parameters for time drift on hosts: `EnableHostTimeDrift` and `HostTimeDriftInSec`. `EnableHostTimeDrift`, with a default value of false, can be enabled to receive alert notifications of host time drift. The `HostTimeDriftInSec` parameter is used to set the maximum allowable drift before alerts start being sent.
 
 Alerts are sent once per hour per host.
 
@@ -1165,7 +1482,7 @@ Alerts are sent once per hour per host.
 
 For certain Enterprise Linux virtual machines, additional kernel parameters are required. These parameters can be set by appending them to the end of the /kernel line in the /boot/grub/grub.conf file of the virtual machine.
 
-**Note:** The process of configuring kernel parameters can be automated using the `ktune` package
+    **Note:** The process of configuring kernel parameters can be automated using the `ktune` package
 
 The `ktune` package provides an interactive Bourne shell script, `fix_clock_drift.sh`. When run as the superuser, this script inspects various system parameters to determine if the virtual machine on which it is run is susceptible to clock drift under load. If so, it then creates a new `grub.conf.kvm` file in the `/boot/grub/` directory. This file contains a kernel boot line with additional kernel parameters that allow the kernel to account for and prevent significant clock drift on the KVM virtual machine. After running `fix_clock_drift.sh` as the superuser, and once the script has created the `grub.conf.kvm` file, then the virtual machine's current `grub.conf` file should be backed up manually by the system administrator, the new `grub.conf.kvm` file should be manually inspected to ensure that it is identical to `grub.conf` with the exception of the additional boot line parameters, the `grub.conf.kvm` file should finally be renamed `grub.conf`, and the virtual machine should be rebooted.
 
@@ -1187,3 +1504,5 @@ The table below lists versions of Enterprise Linux and the parameters required f
 
 **Prev:** [Chapter 5: Editing Virtual Machines](../chap-Editing_Virtual_Machines) <br>
 **Next:** [Chapter 7: Templates](../chap-Templates)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/chap-administrative_tasks)

@@ -1,8 +1,8 @@
 ---
-title: Virtual Machine Disks
+title: Virtual Disks
 ---
 
-# Chapter 11: Virtual Machine Disks
+# Chapter 10: Virtual Disks
 
 ## Understanding Virtual Machine Storage
 
@@ -34,9 +34,13 @@ oVirt features **Preallocated** (thick provisioned) and **Sparse** (thin provisi
 
     For example, a 20 GB thin provisioned logical volume would take up 0 GB of storage space when first created. When the operating system is installed it may take up the size of the installed file, and would continue to grow as data is added up to a maximum of 20 GB size.
 
-The size of a disk is listed in the **Disks** sub-tab for each virtual machine and template. The **Virtual Size** of a disk is the total amount of disk space that the virtual machine can use; it is the number that you enter in the **Size(GB)** field when a disk is created or edited. The **Actual Size** of a disk is the amount of disk space that has been allocated to the virtual machine so far. Preallocated disks show the same value for both fields. Sparse disks may show a different value in the **Actual Size** field from the value in the **Virtual Size** field, depending on how much of the disk space has been allocated.
+You can view a virtual disk’s **ID** in **Storage** &rarr; **Disks**. The **ID** is used to identify a virtual disk because its device name (for example, **/dev/vda0**) can change, causing disk corruption. You can also view a virtual disk’s ID in **/dev/disk/by-id**.
 
-**Note:** When creating a Cinder virtual disk, the format and type of the disk are handled internally by Cinder and are not managed by oVirt.
+You can view the **Virtual Size** of a disk in **Storage** &rarr; **Disks** and in the **Disks** tab of the details view for storage domains, virtual machines, and templates. The **Virtual Size** is the total amount of disk space that the virtual machine can use. It is the number that you enter in the **Size(GB)** field when you create or edit a virtual disk.
+
+You can view the **Actual Size** of a disk in the **Disks** tab of the details view for storage domains and templates. This is the amount of disk space that has been allocated to the virtual machine so far. Preallocated disks show the same value for **Virtual Size** and **Actual Size**. Sparse disks may show different values, depending on how much disk space has been allocated.
+
+    **Note:** When creating a Cinder virtual disk, the format and type of the disk are handled internally by Cinder and are not managed by oVirt.
 
 The possible combinations of storage types and formats are described in the following table.
 
@@ -59,21 +63,23 @@ The `wipe_after_delete` flag only works on block storage. On file storage, for e
 
 Enabling `wipe_after_delete` for virtual disks is more secure, and is recommended if the virtual disk has contained any sensitive data. This is a more intensive operation and users may experience degradation in performance and prolonged delete times.
 
-**Note:** The wipe after delete functionality is not the same as secure delete, and cannot guarantee that the data is removed from the storage, just that new disks created on same storage will not expose data from old disks.
+    **Note:** The wipe after delete functionality is not the same as secure delete, and cannot guarantee that the data is removed from the storage, just that new disks created on same storage will not expose data from old disks.
 
 The `wipe_after_delete` flag default can be changed to `true` during the setup process (see "Configuring the oVirt Engine" in the [Installation Guide](/documentation/install-guide/Installation_Guide/)), or by using the engine configuration tool on the oVirt Engine. Restart the engine for the setting change to take effect.
 
+    **Note:** Changing the `wipe_after_delete` flag’s default setting will not affect the **Wipe After Delete** property of disks that already exist.
+
 **Setting SANWipeAfterDelete to Default to True Using the Engine Configuration Tool**
 
-1. Run the engine configuration tool with the `--set` action:
+1. Run the `engine-config` tool with the `--set` action:
 
         # engine-config --set SANWipeAfterDelete=true
 
-2. Restart the engine for the change to take effect:
+2. Restart the `ovirt-engine` for the change to take effect:
 
         # systemctl restart ovirt-engine.service
 
-The `/var/log/vdsm/vdsm.log` file located on the host can be checked to confirm that a virtual disk was successfully wiped and deleted.
+The **/var/log/vdsm/vdsm.log** file located on the host can be checked to confirm that a virtual disk was successfully wiped and deleted.
 
 For a successful wipe, the log file will contain the entry, `storage_domain_id/volume_id was zeroed and will be deleted`. For example:
 
@@ -101,35 +107,49 @@ Some applications require administrators to share data with read-only rights. Yo
 
 You cannot change the read-only status of a disk while the virtual machine is running.
 
-**Important:** Mounting a journaled file system requires read-write access. Using the **Read Only** option is not appropriate for virtual machine disks that contain such file systems (e.g. `EXT3`, `EXT4`, or `XFS`).
+    **Important:** Mounting a journaled file system requires read-write access. Using the **Read Only** option is not appropriate for virtual machine disks that contain such file systems (e.g. `EXT3`, `EXT4`, or `XFS`).
 
 ## Virtual Disk Tasks
 
 ### Creating Floating Virtual Disks
 
-You can create a virtual disk that does not belong to any virtual machines. You can then attach this disk to a single virtual machine, or to multiple virtual machines if the disk is shareable.
-
 **Image** disk creation is managed entirely by the Engine. **Direct LUN** disks require externally prepared targets that already exist. **Cinder** disks require access to an instance of OpenStack Volume that has been added to the oVirt environment using the **External Providers** window; see [Adding an OpenStack Volume Cinder Instance for Storage Management](Adding_an_OpenStack_Volume_Cinder_Instance_for_Storage_Management) for more information.
+
+You can create a virtual disk that is attached to a specific virtual machine. Additional options are available when creating an attached virtual disk, as specified in the “Explanation of Settings in the New Virtual Disk Window” section below.
+
+**Creating a Virtual Disk Attached to a Virtual Machine**
+
+1. Click **Compute** &rarr; **Virtual Machines**.
+
+2. Click the virtual machine’s name to open the details view.
+
+3. Click the **Disks** tab.
+
+4. Click **New**.
+
+5. Click the appropriate button to specify whether the virtual disk will be an **Image**, **Direct LUN**, or **Cinder** disk.
+
+6. Select the options required for your virtual disk. The options change based on the disk type selected. See the “Explanation of Settings in the New Virtual Disk Window” below for more details on each option for each disk type.
+
+7. Click OK.
+
+You can also create a floating virtual disk that does not belong to any virtual machines. You can attach this disk to a single virtual machine, or to multiple virtual machines if the disk is shareable. Some options are not available when creating a virtual disk, as specified in the “Explanation of Settings in the New Virtual Disk Window” section.
 
 **Creating Floating Virtual Disks**
 
-1. Select the **Disks** resource tab.
+1. Click **Storage** &rarr; **Disks**.
 
 2. Click **New**.
 
-    **Add Virtual Disk Window**
+3. Click the appropriate button to specify whether the virtual disk will be an **Image**, **Direct LUN**, or **Cinder** disk.
 
-    ![](/images/admin-guide/7285.png)
-
-3. Use the radio buttons to specify whether the virtual disk will be an **Image**, **Direct LUN**, or **Cinder** disk.
-
-4. Select the options required for your virtual disk. The options change based on the disk type selected. See [Add Virtual Disk dialogue entries](Add_Virtual_Disk_dialogue_entries) for more details on each option for each disk type.
+4. Select the options required for your virtual disk. The options change based on the disk type selected. See the “Explanation of Settings in the New Virtual Disk Window” section for more details on each option for each disk type.
 
 5. Click **OK**.
 
 ### Explanation of Settings in the New Virtual Disk Window
 
-**New Virtual Disk Settings: Image**
+**New Virtual Disk and Edit Virtual Disk Settings: Image**
 
 <table>
  <thead>
@@ -153,11 +173,18 @@ You can create a virtual disk that does not belong to any virtual machines. You 
   </tr>
   <tr>
    <td><b>Interface</b></td>
-   <td>The virtual interface the disk presents to virtual machines. <b>VirtIO</b> is faster, but requires drivers. Red Hat Enterprise Linux 5 and higher include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <b>IDE</b> devices do not require special drivers.</td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>The virtual interface the disk presents to virtual machines. <b>VirtIO</b> is faster, but requires drivers. Enterprise Linux 5 and higher include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <b>IDE</b> devices do not require special drivers.</p>
+   <p>The interface type can be updated after stopping all virtual machines that the disk is attached to.</p>
+   </td>
   </tr>
   <tr>
    <td><b>Data Center</b></td>
-   <td>The data center in which the virtual disk will be available.</td>
+   <td>
+   <p>This field only appears when creating a floating disk.</p>
+   <p>The data center in which the virtual disk will be available.</p>
+   </td>
   </tr>
   <tr>
    <td><b>Storage Domain</b></td>
@@ -178,23 +205,59 @@ You can create a virtual disk that does not belong to any virtual machines. You 
    <td>The disk profile assigned to the virtual disk. Disk profiles define the maximum amount of throughput and the maximum level of input and output operations for a virtual disk in a storage domain. Disk profiles are defined on the storage domain level based on storage quality of service entries created for data centers.</td>
   </tr>
   <tr>
+   <td><b>Activate Disk(s)</b></td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>Activate the virtual disk immediately after creation.</p>
+   </td>
+  </tr>
+  <tr>
    <td><b>Wipe After Delete</b></td>
    <td>Allows you to enable enhanced security for deletion of sensitive material when the virtual disk is deleted.</td>
   </tr>
   <tr>
    <td><b>Bootable</b></td>
-   <td>Allows you to enable the bootable flag on the virtual disk.</td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>Allows you to enable the bootable flag on the virtual disk.</p>
+   </td>
   </tr>
   <tr>
    <td><b>Shareable</b></td>
    <td>Allows you to attach the virtual disk to more than one virtual machine at a time.</td>
   </tr>
- </tbody>
+  <tr>
+   <td><b>Read-Only</b></td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another.</p>
+   </td>
+  </tr>
+  <tr>
+   <td><b>Enable Discard</b></td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>Allows you to shrink a thin provisioned disk while the virtual machine is up. For block storage, the underlying storage device must support discard calls, and the option cannot be used with <b>Wipe After Delete</b> unless the underlying storage supports the `discard_zeroes_data` property. For file storage, the underlying file system and the block device must support discard calls. If all requirements are met, SCSI UNMAP commands issued from guest virtual machines is passed on by QEMU to the underlying storage to free up the unused space.</p>
+   </td>
+  </tr>
+  </tbody>
 </table>
 
 The **Direct LUN** settings can be displayed in either **Targets > LUNs** or **LUNs > Targets**. **Targets > LUNs** sorts available LUNs according to the host on which they are discovered, whereas **LUNs > Targets** displays a single list of LUNs.
 
-**New Virtual Disk Settings: Direct LUN**
+Fill in the fields in the **Discover Targets** section and click **Discover** to discover the target server. You can then click the **Login All** button to list the available LUNs on the target server and, using the radio buttons next to each LUN, select the LUN to add.
+
+Using LUNs directly as virtual machine hard disk images removes a layer of abstraction between your virtual machines and their data.
+
+The following considerations must be made when using a direct LUN as a virtual machine hard disk image:
+
+* Live storage migration of direct LUN hard disk images is not supported.
+
+* Direct LUN disks are not included in virtual machine exports.
+
+* Direct LUN disks are not included in virtual machine snapshots.
+
+**New Virtual Disk and Edit Virtual Disk Settings: Direct**
 
 <table>
  <thead>
@@ -212,16 +275,23 @@ The **Direct LUN** settings can be displayed in either **Targets > LUNs** or **L
    <td><b>Description</b></td>
    <td>
     <p>A description of the virtual disk. This field is recommended but not mandatory. By default the last 4 characters of the LUN ID is inserted into the field.</p>
-    <p>The default behavior can be configured by setting the <tt>PopulateDirectLUNDiskDescriptionWithLUNId</tt> configuration key to the appropriate value using the <tt>engine-config</tt> command.  The configuration key can be set to <tt>-1</tt> for the full LUN ID to be used, or <tt>0</tt> for this feature to be ignored. A positive integer populates the description with the corresponding number of characters of the LUN ID. See <a href="Syntax_for_rhevm_config_Command">Syntax for rhevm config Command</a> for more information.</p>
+    <p>The default behavior can be configured by setting the <tt>PopulateDirectLUNDiskDescriptionWithLUNId</tt> configuration key to the appropriate value using the <tt>engine-config</tt> command.  The configuration key can be set to <tt>-1</tt> for the full LUN ID to be used, or <tt>0</tt> for this feature to be ignored. A positive integer populates the description with the corresponding number of characters of the LUN ID.</p>
    </td>
   </tr>
   <tr>
    <td><b>Interface</b></td>
-   <td>The virtual interface the disk presents to virtual machines. <b>VirtIO</b> is faster, but requires drivers. Red Hat Enterprise Linux 5 and higher include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <b>IDE</b> devices do not require special drivers.</td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>The virtual interface the disk presents to virtual machines. <b>VirtIO</b> is faster, but requires drivers. Enterprise Linux 5 and higher include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <b>IDE</b> devices do not require special drivers.</p>
+   <p>The interface type can be updated after stopping all virtual machines that the disk is attached to.</p>
+  </td>
   </tr>
   <tr>
    <td><b>Data Center</b></td>
-   <td>The data center in which the virtual disk will be available.</td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>The data center in which the virtual disk will be available.</p>
+   </td>
   </tr>
   <tr>
    <td><b>Use Host</b></td>
@@ -243,6 +313,13 @@ The **Direct LUN** settings can be displayed in either **Targets > LUNs** or **L
    </td>
   </tr>
   <tr>
+   <td><b>Activate Disk(s)</b></td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>Activate the virtual disk immediately after creation.</p>
+   </td>
+  </tr>
+  <tr>
    <td><b>Bootable</b></td>
    <td>Allows you to enable the bootable flag on the virtual disk.</td>
   </tr>
@@ -251,31 +328,46 @@ The **Direct LUN** settings can be displayed in either **Targets > LUNs** or **L
    <td>Allows you to attach the virtual disk to more than one virtual machine at a time.</td>
   </tr>
   <tr>
+   <td><b>Read-Only</b></td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another.</p>
+   </td>
+  </tr>
+  <tr>
+   <td><b>Enable Discard</b></td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>Allows you to shrink a thin provisioned disk while the virtual machine is up. For block storage, the underlying storage device must support discard calls, and the option cannot be used with <b>Wipe After Delete</b> unless the underlying storage supports the `discard_zeroes_data` property. For file storage, the underlying file system and the block device must support discard calls. If all requirements are met, SCSI UNMAP commands issued from guest virtual machines is passed on by QEMU to the underlying storage to free up the unused space.</p>
+   </td>
+  </tr>
+  <tr>
    <td><b>Enable SCSI Pass-Through</b></td>
-   <td>Available when the <b>Interface</b> is set to <b>VirtIO-SCSI</b>. Selecting this check box enables passthrough of a physical SCSI device to the virtual disk. A VirtIO-SCSI interface with SCSI passthrough enabled automatically includes SCSI discard support. When this check box is not selected, the virtual disk uses an emulated SCSI device.</td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>Available when the <b>Interface</b> is set to <b>VirtIO-SCSI</b>. Selecting this check box enables passthrough of a physical SCSI device to the virtual disk. A VirtIO-SCSI interface with SCSI passthrough enabled automatically includes SCSI discard support. When this check box is not selected, the virtual disk uses an emulated SCSI device.</p>
+   </td>
   </tr>
   <tr>
    <td><b>Allow Privileged SCSI I/O</b></td>
-   <td>Available when the <b>Enable SCSI Pass-Through</b> check box is selected. Selecting this check box enables unfiltered SCSI Generic I/O (SG_IO) access, allowing privileged SG_IO commands on the disk. This is required for persistent reservations.</td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>Available when the <b>Enable SCSI Pass-Through</b> check box is selected. Selecting this check box enables unfiltered SCSI Generic I/O (SG_IO) access, allowing privileged SG_IO commands on the disk. This is required for persistent reservations.</p>
+   </td>
+  </tr>
+  <tr>
+   <td><b>Using SCSI Reservation</b></td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>Available when the <b>Enable SCSI Pass-Through</b> and <b>Allow Privileged SCSI I/O</b> check boxes are selected. Selecting this check box disables migration for any virtual machine using this disk, to prevent virtual machines that are using SCSI reservation from losing access to the disk.</p>
+   </td>
   </tr>
  </tbody>
 </table>
 
-Fill in the fields in the **Discover Targets** section and click **Discover** to discover the target server. You can then click the **Login All** button to list the available LUNs on the target server and, using the radio buttons next to each LUN, select the LUN to add.
-
-Using LUNs directly as virtual machine hard disk images removes a layer of abstraction between your virtual machines and their data.
-
-The following considerations must be made when using a direct LUN as a virtual machine hard disk image:
-
-* Live storage migration of direct LUN hard disk images is not supported.
-
-* Direct LUN disks are not included in virtual machine exports.
-
-* Direct LUN disks are not included in virtual machine snapshots.
-
 The **Cinder** settings form will be disabled if there are no available OpenStack Volume storage domains on which you have permissions to create a disk in the relevant Data Center. **Cinder** disks require access to an instance of OpenStack Volume that has been added to the oVirt environment using the **External Providers** window; see [Adding an OpenStack Volume Cinder Instance for Storage Management](Adding_an_OpenStack_Volume_Cinder_Instance_for_Storage_Management) for more information.
 
-**New Virtual Disk Settings: Cinder**
+**New Virtual Disk and Edit Virtual Disk Settings: Cinder**
 
 <table>
  <thead>
@@ -299,19 +391,32 @@ The **Cinder** settings form will be disabled if there are no available OpenStac
   </tr>
   <tr>
    <td><b>Interface</b></td>
-   <td>The virtual interface the disk presents to virtual machines. <b>VirtIO</b> is faster, but requires drivers. Red Hat Enterprise Linux 5 and higher include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <b>IDE</b> devices do not require special drivers.</td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>The virtual interface the disk presents to virtual machines. <b>VirtIO</b> is faster, but requires drivers. Enterprise Linux 5 and higher include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <b>IDE</b> devices do not require special drivers.</p>
+   <p>The interface type can be updated after stopping all virtual machines that the disk is attached to.</p>
+  </td>
   </tr>
   <tr>
    <td><b>Data Center</b></td>
-   <td>The data center in which the virtual disk will be available.</td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>The data center in which the virtual disk will be available.</p>
+   </td>
   </tr>
-  <tr>
    <td><b>Storage Domain</b></td>
    <td>The storage domain in which the virtual disk will be stored. The drop-down list shows all storage domains available in the given data center, and also shows the total space and currently available space in the storage domain.</td>
   </tr>
   <tr>
    <td><b>Volume Type</b></td>
    <td>The volume type of the virtual disk. The drop-down list shows all available volume types. The volume type will be managed and configured on OpenStack Cinder.</td>
+  </tr>
+  <tr>
+   <td><b>Activate Disk(s)</b></td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>Activate the virtual disk immediately after creation.</p>
+   </td>
   </tr>
   <tr>
    <td><b>Bootable</b></td>
@@ -321,8 +426,17 @@ The **Cinder** settings form will be disabled if there are no available OpenStac
    <td><b>Shareable</b></td>
    <td>Allows you to attach the virtual disk to more than one virtual machine at a time.</td>
   </tr>
+  <tr>
+   <td><b>Read-Only</b></td>
+   <td>
+   <p>This field only appears when creating an attached disk.</p>
+   <p>Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another.</p>
+   </td>
+  </tr>
  </tbody>
 </table>
+
+    **Important:** Mounting a journaled file system requires read-write access. Using the **Read-Only** option is not appropriate for virtual disks that contain such file systems (e.g., **EXT3**, **EXT4**, or **XFS**).
 
 ### Overview of Live Storage Migration
 
@@ -352,99 +466,139 @@ Consider the following when moving a disk:
 
 **Moving a Virtual Disk**
 
-1. Select the **Disks** tab.
+1. Click **Storage** &rarr; **Disks** and select one or more virtual disks to move.
 
-2. Select one or more virtual disks to move.
+2. Click **Move**.
 
-3. Click **Move** to open the **Move Disk(s)** window.
+3. From the **Target** list, select the storage domain to which the virtual disk(s) will be moved.
 
-4. From the **Target** list, select the storage domain to which the virtual disk(s) will be moved.
+4. From the **Disk Profile** list, select a profile for the disk(s), if applicable.
 
-5. From the **Disk Profile** list, select a profile for the disk(s), if applicable.
+5. Click **OK**.
 
-6. Click **OK**.
+The virtual disks are moved to the target storage domain. During the move procedure, the **Status** column displays `Locked` and a progress bar indicating the progress of the move operation.
 
-The virtual disks are moved to the target storage domain, and have a status of `Locked` while being moved.
+### Changing the Disk Interface Type
+
+Users can change a disk’s interface type after the disk has been created. This enables you to attach an existing disk to a virtual machine that requires a different interface type. For example, a disk using the `VirtIO` interface can be attached to a virtual machine requiring the `VirtIO-SCSI` or `IDE` interface. This provides flexibility to migrate disks for the purpose of backup and restore, or disaster recovery. The disk interface for shareable disks can also be updated per virtual machine. This means that each virtual machine that uses the shared disk can use a different interface type.
+
+To update a disk interface type, all virtual machines using the disk must first be stopped.
+
+**Changing a Disk Interface Type**
+
+1. Click **Compute** &rarr; **Virtual Machines** and stop the appropriate virtual machine(s).
+
+2. Click the virtual machine’s name to open the details view.
+
+3. Click the **Disks** tab and select the disk.
+
+4. Click **Edit**.
+
+5. From the **Interface** list, select the new interface type and click **OK**.
+
+You can attach a disk to a different virtual machine that requires a different interface type.
+
+**Attaching a Disk to a Different Virtual Machine using a Different Interface Type**
+
+1. Click **Compute** &rarr; **Virtual Machines** and stop the appropriate virtual machine(s).
+
+2. Click the virtual machine’s name to open the details view.
+
+3. Click the **Disks** tab and select the disk.
+
+4. Click **Remove**, then click **OK**.
+
+5. Go back to **Virtual Machines** and click the name of the new virtual machine that the disk will be attached to.
+
+6. Click the **Disks** tab, then click **Attach**.
+
+7. Select the disk in the **Attach Virtual Disks** window and select the appropriate interface from the **Interface** drop-down.
+
+8. Click **OK**.
 
 ### Copying a Virtual Disk
-
-**Summary**
 
 You can copy a virtual disk from one storage domain to another. The copied disk can be attached to virtual machines.
 
 **Copying a Virtual Disk**
 
-1. Select the **Disks** tab.
+1. Click **Storage** &rarr; **Disks** and select the virtual disk(s).
 
-2. Select the virtual disks to copy.
+2. Click **Copy**.
 
-3. Click the **Copy** button to open the **Copy Disk(s)** window.
+3. Optionally, enter an alias in the **Alias** field.
 
-4. Optionally, enter an alias in the **Alias** text field.
+4. From the **Target** list, select the storage domain to which the virtual disk(s) will be copied.
 
-5. Use the **Target** drop-down menus to select the storage domain to which the virtual disk will be copied.
+5. From the **Disk Profile** list, select a profile for the disk(s), if applicable.
 
 6. Click **OK**.
 
-**Result**
-
-The virtual disks are copied to the target storage domain, and have a status of `Locked` while being copied.
+The virtual disks have a status of `Locked` while being copied.
 
 ### Uploading a Disk Image to a Storage Domain
 
-QEMU-compatible virtual machine disk images can be uploaded from your local machine to a oVirt storage domain and attached to virtual machines.
+You can upload virtual disk images and ISO images to your data storage domain in the Administration Portal or with the REST API.
 
-Virtual machine disk image types must be either QCOW2 or Raw. Disks created from a QCOW2 disk image cannot be shareable, and the QCOW2 disk image file must not have a backing file.
+QEMU-compatible virtual disks can be attached to virtual machines. Virtual disk types must be either QCOW2 or raw. Disks created from a QCOW2 virtual disk cannot be shareable, and the QCOW2 virtual disk file must not have a backing file.
+
+ISO images can be attached to virtual machines as CDROMs or used to boot virtual machines.
 
 **Prerequisites:**
 
-* You must configure the Image I/O Proxy when running `engine-setup`. See "Configuring the oVirt Engine" in the [Installation Guide](/documentation/install-guide/Installation_Guide/) for more information.
+The upload function uses HTML 5 APIs, which requires your environment to have the following:
 
-* You must import the required certificate authority into the web browser used to access the Administration Portal.
+* Image I/O Proxy (ovirt-imageio-proxy), configured with engine-setup. See Configuring the oVirt Engine in the [Installation Guide](/documentation/install-guide/Installation_Guide/) for details.
 
-* Internet Explorer 10, Firefox 35, or Chrome 13 or greater is required to perform this upload procedure. Previous browser versions do not support the required HTML5 APIs.
+* Certificate authority, imported into the web browser used to access the Administration Portal.
 
-**Note:** To import the certificate authority, browse to https://*engine_address*/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA and select all the trust settings.
+  To import the certificate authority, browse to https://engine_address/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA and enable all the trust settings. Refer to the instructions to install the certificate authority in Firefox, Internet Explorer, or Google Chrome.
 
-**Uploading a Disk Image to a Storage Domain**
+* Browser that supports HTML 5, such as Firefox 35, Internet Explorer 10, Chrome 13, or later.
 
-1. Open the Upload Image screen.
+**Uploading an Image to a Data Storage Domain**
 
-    * From the **Disks** tab, select **Start** from the **Upload** drop-down.
+1. Click **Storage** &rarr; **Disks**.
 
-    * Alternatively, from the **Storage** tab select the storage domain, then select the **Disks** sub-tab, and select **Start** from the **Upload** drop-down.
+2. Select **Start** from the **Upload** menu.
 
-    **The Upload Image Screen**
+3. Click **Choose File** and select the image to upload.
 
-    ![](/images/admin-guide/UploadImage.png)
-
-2. In the **Upload Image** screen, click **Browse** and select the image on the local disk.
-
-3. Set **Image Type** to **QCOW2** or **Raw**.
-
-4. Fill in the **Disk Option** fields. See [Add Virtual Disk dialogue entries](Add_Virtual_Disk_dialogue_entries) for a description of the relevant fields.
+4. Fill in the **Disk Options** fields. See the “Explanation of Settings in the New Virtual Disk Window” section for descriptions of the relevant fields.
 
 5. Click **OK**.
 
-A progress bar will indicate the status of the upload. You can also pause, cancel, or resume uploads from the **Upload** drop-down.
+A progress bar indicates the status of the upload. You can pause, cancel, or resume uploads from the **Upload** menu.
+
+**Increasing the Upload Timeout Value**
+
+1. If the upload times out and you see the message, **Reason: timeout due to transfer inactivity, increase the timeout value**:
+
+        # engine-config -s TransferImageClientInactivityTimeoutInSeconds=6000
+
+2. Restart the `ovirt-engine` service:
+
+        # systemctl restart ovirt-engine
 
 ### Importing a Disk Image from an Imported Storage Domain
 
 Import floating virtual disks from an imported storage domain using the **Disk Import** tab of the details pane.
 
-**Note:** Only QEMU-compatible disks can be imported into the Engine.
+    **Note:** Only QEMU-compatible disks can be imported into the Engine.
 
 **Importing a Disk Image**
 
-1. Select a storage domain that has been imported into the data center.
+1. Click **Storage** &rarr; **Domains**.
 
-2. In the details pane, click **Disk Import**.
+2. Click the name of an imported storage domain to open the details view.
 
-3. Select one or more disk images and click **Import** to open the **Import Disk(s)** window.
+3. Click the **Disk Import** tab.
 
-4. Select the appropriate **Disk Profile** for each disk.
+4. Select one or more disks and click **Import**.
 
-5. Click **OK** to import the selected disks.
+5. Select the appropriate **Disk Profile** for each disk.
+
+6. Click **OK**.
 
 ### Importing an Unregistered Disk Image from an Imported Storage Domain
 
@@ -454,132 +608,89 @@ Import floating virtual disks from a storage domain using the **Disk Import** ta
 
 **Importing a Disk Image**
 
-1. Select a storage domain that has been imported into the data center.
+1. Click **Storage** &rarr; **Domains**.
 
-2. Right-click the storage domain and select **Scan Disks** so that the Engine can identify unregistered disks.
+2. Click the name of an imported storage domain to open the details view.
 
-3. In the details pane, click **Disk Import**.
+3. Click **More Actions** &rarr; **Scan Disks** so that the Engine can identify unregistered disks.
 
-4. Select one or more disk images and click **Import** to open the **Import Disk(s)** window.
+4. Click the **Disk Import** tab.
 
-5. Select the appropriate **Disk Profile** for each disk.
+5. Select one or more disks and click **Import**.
 
-6. Click **OK** to import the selected disks.
+6. Select the appropriate **Disk Profile** for each disk.
+
+7. Click **OK**.
 
 ### Importing a Virtual Disk Image from an OpenStack Image Service
 
-**Summary**
-
 Virtual disk images managed by an OpenStack Image Service can be imported into the oVirt Engine if that OpenStack Image Service has been added to the Engine as an external provider.
 
-1. Click the **Storage** resource tab and select the OpenStack Image Service domain from the results list.
+1. Click **Storage** &rarr; **Domains**.
 
-2. Select the image to import in the **Images** tab of the details pane.
+2. Click the OpenStack Image Service domain’s name to open the details view.
 
-3. Click **Import** to open the **Import Image(s)** window.
+3. Click the **Images** tab and select an image.
 
-4. From the **Data Center** drop-down menu, select the data center into which the virtual disk image will be imported.
+4. Click **Import**.
 
-5. From the **Domain Name** drop-down menu, select the storage domain in which the virtual disk image will be stored.
+5. Select the **Data Center** into which the image will be imported.
 
-6. Optionally, select a quota from the **Quota** drop-down menu to apply a quota to the virtual disk image.
+6. From the **Domain Name** drop-down list, select the storage domain in which the virtual disk image will be stored.
 
-7. Click **OK** to import the image.
+7. Optionally, select a quota from the **Quota** drop-down list.
 
-**Result**
+8. Click **OK**.
 
-The image is imported as a floating disk and is displayed in the results list of the **Disks** resource tab. It can now be attached to a virtual machine.
+The disk can now be attached to a virtual machine.
 
 ### Exporting a Virtual Machine Disk to an OpenStack Image Service
 
-**Summary**
-
 Virtual machine disks can be exported to an OpenStack Image Service that has been added to the Engine as an external provider.
 
-1. Click the **Disks** resource tab.
+    **Important:** Virtual disks can only be exported if they do not have multiple volumes, are not thin provisioned, and do not have any snapshots.
 
-2. Select the disks to export.
+1. Click **Storage** &rarr; **Disks** and select the disks to export.
 
-3. Click the **Export** button to open the **Export Image(s)** window.
+2. Click **More Actions** &rarr; **Export**.
 
-4. From the **Domain Name** drop-down list, select the OpenStack Image Service to which the disks will be exported.
+3. From the **Domain Name** drop-down list, select the OpenStack Image Service to which the disks will be exported.
 
-5. From the **Quota** drop-down list, select a quota for the disks if a quota is to be applied.
-
-6. Click **OK**.
-
-**Result**
-
-The virtual machine disks are exported to the specified OpenStack Image Service where they are managed as virtual machine disk images.
-
-**Important:** Virtual machine disks can only be exported if they do not have multiple volumes, are not thinly provisioned, and do not have any snapshots.
-
-## Virtual Disks and Permissions
-
-### Managing System Permissions for a Virtual Disk
-
-As the **SuperUser**, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a **DataCenterAdmin** role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a **ClusterAdmin** has administrator privileges only for the assigned cluster.
-
-oVirt Engine provides two default virtual disk user roles, but no default virtual disk administrator roles. One of these user roles, the **DiskCreator** role, enables the administration of virtual disks from the User Portal. This role can be applied to specific virtual machines, to a data center, to a specific storage domain, or to the whole virtualized environment; this is useful to allow different users to manage different virtual resources.
-
-The virtual disk creator role permits the following actions:
-
-* Create, edit, and remove virtual disks associated with a virtual machine or other resources.
-
-* Edit user permissions for virtual disks.
-
-**Note:** You can only assign roles and permissions to existing users.
-
-### Virtual Disk User Roles Explained
-
-**Virtual Disk User Permission Roles**
-
-The table below describes the user roles and privileges applicable to using and administrating virtual machine disks in the User Portal.
-
-**oVirt System Administrator Roles**
-
-| Role | Privileges | Notes |
-|-
-| DiskOperator | Virtual disk user. | Can use, view and edit virtual disks. Inherits permissions to use the virtual machine to which the virtual disk is attached. |
-| DiskCreator | Can create, edit, manage and remove virtual machine disks within assigned clusters or data centers. | This role is not applied to a specific virtual disk; apply this role to a user for the whole environment with the **Configure** window. Alternatively apply this role for specific data centers, clusters, or storage domains. |
-
-### Assigning an Administrator or User Role to a Resource
-
-Assign administrator or user roles to resources to allow users to access or manage that resource.
-
-**Assigning a Role to a Resource**
-
-1. Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.
-
-2. Click the **Permissions** tab in the details pane to list the assigned users, the user's role, and the inherited permissions for the selected resource.
-
-3. Click **Add**.
-
-4. Enter the name or user name of an existing user into the **Search** text box and click **Go**. Select a user from the resulting list of possible matches.
-
-5. Select a role from the **Role to Assign:** drop-down list.
-
-6. Click **OK**.
-
-You have assigned a role to a user; the user now has the inherited permissions of that role enabled for that resource.
-
-### Removing an Administrator or User Role from a Resource
-
-Remove an administrator or user role from a resource; the user loses the inherited permissions associated with the role for that resource.
-
-**Removing a Role from a Resource**
-
-1. Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.
-
-2. Click the **Permissions** tab in the details pane to list the assigned users, the user's role, and the inherited permissions for the selected resource.
-
-3. Select the user to remove from the resource.
-
-4. Click **Remove**. The **Remove Permission** window opens to confirm permissions removal.
+4. From the **Quota** drop-down list, select a quota for the disks if a quota is to be applied.
 
 5. Click **OK**.
 
-You have removed the user's role, and the associated permissions, from the resource.
+### Reclaiming Virtual Disk Space
 
-**Prev:** [Chapter 10: Pools](../chap-Pools)<br>
-**Next:** [Chapter 12: External Providers](../chap-External_Providers)
+Virtual disks that use thin provisioning do not automatically shrink after deleting files from them. For example, if the actual disk size is 100GB and you delete 50GB of files, the allocated disk size remains at 100GB, and the remaining 50GB is not returned to the host, and therefore cannot be used by other virtual machines. This unused disk space can be reclaimed by the host by performing a sparsify operation on the virtual machine’s disks. This transfers the free space from the disk image to the host. You can sparsify multiple virtual disks in parallel.
+
+The oVirt Project recommends performing this operation before cloning a virtual machine, creating a template based on a virtual machine, or cleaning up a storage domain’s disk space.
+
+**Limitations**
+
+* NFS storage domains must use NFS version 4.2 or higher.
+
+* You cannot sparsify a disk that uses a direct LUN or Cinder.
+
+* You cannot sparsify a disk that uses a preallocated allocation policy. If you are creating a virtual machine from a template, you must select **Thin** from the **Storage Allocation** field, or if selecting **Clone**, ensure that the template is based on a virtual machine that has thin provisioning.
+
+* You can only sparsify active snapshots.
+
+**Sparsifying a Disk**
+
+1. Click **Compute** &rarr; **Virtual Machines** and shut down the required virtual machine.
+
+2. Click the virtual machine’s name to open the details view.
+
+3. Click the **Disks** tab. Ensure that the disk’s status is `OK`.
+
+4. Click **More Actions** → **Sparsify**.
+
+5. Click **OK**.
+
+A `Started to sparsify` event appears in the **Events** tab during the sparsify operation and the disk’s status displays as `Locked`. When the operation is complete, a `Sparsified successfully` event appears in the **Events** tab and the disk’s status displays as `OK`. The unused disk space has been returned to the host and is available for use by other virtual machines.
+
+**Prev:** [Chapter 9: Pools](../chap-Pools)<br>
+**Next:** [Chapter 11: External Providers](../chap-External_Providers)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-virtual_machine_disks)

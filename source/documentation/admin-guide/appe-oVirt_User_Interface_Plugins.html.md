@@ -16,11 +16,11 @@ To facilitate the plug-in-to-Administration-Portal communication that drives the
 
 The basic life cycle of a User Interface Plug-in divides into three stages:
 
-1. Plug-in discovery.
+* Plug-in discovery
 
-2. Plug-in loading.
+* Plug-in loading
 
-3. Plug-in bootstrapping.
+* Plug-in bootstrapping
 
 ### oVirt User Interface Plug-in Discovery
 
@@ -28,11 +28,11 @@ Creating plug-in descriptors is the first step in the plug-in discovery process.
 
 As part of handling administration portal HTML page requests (`HTTP GET`), User Interface plug-in infrastructure attempts to discover and load plug-in descriptors from your local file system. For each plug-in descriptor, the infrastructure also attempts to load corresponding plug-in user configurations used to override default plug-in-specific configurations (if any exist) and tweak plug-in runtime behavior. Plug-in user configuration is optional. After loading descriptors and corresponding user configuration files, oVirt Engine aggregates User Interface plug-in data and embeds it into the administration portal HTML page for runtime evaluation.
 
-By default, plug-in descriptors reside in `$ENGINE_USR/ui-plug-ins`, with a default mapping of `ENGINE_USR=/usr/share/ovirt-engine` as defined by oVirt Engine local configuration. Plug-in descriptors are expected to comply with JSON format specifications, but plug-in descriptors allow Java/C++ style comments (of both `/*` and `//` varieties) in addition to the JSON format specifications.
+By default, plug-in descriptors reside in **$ENGINE_USR/ui-plug-ins**, with a default mapping of **ENGINE_USR=/usr/share/ovirt-engine** as defined by oVirt Engine local configuration. Plug-in descriptors are expected to comply with JSON format specifications, but plug-in descriptors allow Java/C++ style comments (of both `/*` and `//` varieties) in addition to the JSON format specifications.
 
-By default, plug-in user configuration files reside in `$ENGINE_ETC/ui-plug-ins`, with a default mapping of `ENGINE_ETC=/etc/ovirt-engine` as defined by oVirt Engine local configuration. Plug-in user configuration files are expected to comply with same content format rules as plug-in descriptors.
+By default, plug-in user configuration files reside in **$ENGINE_ETC/ui-plug-ins**, with a default mapping of **ENGINE_ETC=/etc/ovirt-engine** as defined by oVirt Engine local configuration. Plug-in user configuration files are expected to comply with same content format rules as plug-in descriptors.
 
-**Note:** Plug-in user configuration files generally follow the `<descriptorFileName>-config.json` naming convention.
+    **Note:** Plug-in user configuration files generally follow the **<descriptorFileName>-config.json** naming convention.
 
 ### oVirt User Interface Plug-in Loading
 
@@ -77,25 +77,23 @@ The following code snippet illustrates the above mentioned steps in practice:
     // Notify UI plug-in infrastructure to proceed with plug-in initialization.
     api.ready();
 
-<!-- end ## section -->
-
 ## User Interface Plugin-related Files and Their Locations
 
 **UI Plugin-related Files and their Locations**
 
 | File | Location | Remarks |
 |-
-| Plug-in descriptor files (meta-data) | `/usr/share/ovirt-engine/ui-plugins/my-plugin.json` | |
-| Plug-in user configuration files | `/etc/ovirt-engine/ui-plugins/my-plugin-config.json` | |
-| Plug-in resource files | `/usr/share/ovirt-enging/ui-plugins/<resourcePath>/PluginHostPage.html` | `<resourcePath>` is defined by the corresponding attribute in the plug-in descriptor. |
+| Plug-in descriptor files (meta-data) | <b>/usr/share/ovirt-engine/ui-plugins/my-plugin.json</b> | |
+| Plug-in user configuration files | <b>/etc/ovirt-engine/ui-plugins/my-plugin-config.json</b> | |
+| Plug-in resource files | <b>/usr/share/ovirt-enging/ui-plugins/<resourcePath>/PluginHostPage.html</b> | <b><resourcePath></b> is defined by the corresponding attribute in the plug-in descriptor. |
 
 ## Example User Interface Plug-in Deployment
 
-Follow these instructions to create a user interface plug-in that runs a `Hello World!` program when you sign in to the oVirt Engine administration portal.
+Follow these instructions to create a user interface plug-in that runs a **Hello World!** program when you sign in to the oVirt Engine administration portal.
 
 **Deploying a `Hello World!` Plug-in**
 
-1. Create a plug-in descriptor by creating the following file in the Engine at `/usr/share/ovirt-engine/ui-plugins/helloWorld.json`:
+1. Create a plug-in descriptor by creating the following file in the Engine at **/usr/share/ovirt-engine/ui-plugins/helloWorld.json**:
 
         {
             "name": "HelloWorld",
@@ -103,7 +101,7 @@ Follow these instructions to create a user interface plug-in that runs a `Hello 
             "resourcePath": "hello-files"
         }
 
-2. Create the plug-in host page by creating the following file in the Engine at `/usr/share/ovirt-engine/ui-plugins/hello-files/start.html`:
+2. Create the plug-in host page by creating the following file in the Engine at **/usr/share/ovirt-engine/ui-plugins/hello-files/start.html**:
 
         <!DOCTYPE html><html><head>
         <script>
@@ -123,3 +121,5 @@ If you have successfully implemented the `Hello World!` plug-in, you will see th
 
 **Prev:** [Appendix B: Custom Network Properties](../appe-Custom_Network_Properties)<br>
 **Next:** [Appendix D: oVirt and SSL](../appe-oVirt_and_SSL)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/appe-red_hat_enterprise_virtualization_user_interface_plugins)

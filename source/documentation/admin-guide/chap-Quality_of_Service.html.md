@@ -12,43 +12,35 @@ Storage quality of service defines the maximum level of throughput and the maxim
 
 ### Creating a Storage Quality of Service Entry
 
-Create a storage quality of service entry.
-
 **Creating a Storage Quality of Service Entry**
 
-1. Click the **Data Centers** resource tab and select a data center.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Click **QoS** in the details pane.
+2. Click a data center’s name to open the details view.
 
-3. Click **Storage**.
+3. Click the **QoS** tab.
 
-4. Click **New**.
+4. Under **Storage**, click **New**.
 
-5. Enter a name for the quality of service entry in the **QoS Name** field.
+5. Enter a **QoS Name** and a **Description** for the quality of service entry.
 
-6. Enter a description for the quality of service entry in the **Description** field.
+6. Specify the **Throughput** quality of service by clicking one of the radio buttons:
 
-7. Specify the throughput quality of service:
+  * **None**
 
-    1. Select the **Throughput** check box.
+  * **Total** - Enter the maximum permitted total throughput in the **MB/s** field.
 
-    2. Enter the maximum permitted total throughput in the **Total** field.
+  * **Read/Write** - Enter the maximum permitted throughput for read operations in the left **MB/s** field, and the maximum permitted throughput for write operations in the right **MB/s** field.
 
-    3. Enter the maximum permitted throughput for read operations in the **Read** field.
+7. Specify the input and output (**IOps**) quality of service by clicking one of the radio buttons:
 
-    4. Enter the maximum permitted throughput for write operations in the **Write** field.
+  * **None**
 
-8. Specify the input and output quality of service:
+  * **Total** - Enter the maximum permitted number of input and output operations per second in the **IOps** field.
 
-    1. Select the **IOps** check box.
+  * **Read/Write** - Enter the maximum permitted number of input operations per second in the left **IOps** field, and the maximum permitted number of output operations per second in the right **IOps** field.
 
-    2. Enter the maximum permitted number of input and output operations per second in the **Total** field.
-
-    3. Enter the maximum permitted number of input operations per second in the **Read** field.
-
-    4. Enter the maximum permitted number of output operations per second in the **Write** field.
-
-9. Click **OK**.
+8. Click **OK**.
 
 You have created a storage quality of service entry, and can create disk profiles based on that entry in data storage domains that belong to the data center.
 
@@ -58,19 +50,17 @@ Remove an existing storage quality of service entry.
 
 **Removing a Storage Quality of Service Entry**
 
-1. Click the **Data Centers** resource tab and select a data center.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Click **QoS** in the details pane.
+2. Click a data center’s name to open the details view.
 
-3. Click **Storage**.
+3. Click the **QoS** tab.
 
-4. Select the storage quality of service entry to remove.
+4. Under **Storage**, select a storage quality of service entry and click **Remove**.
 
-5. Click **Remove**.
+5. Click **OK**.
 
-6. Click **OK** when prompted.
-
-You have removed the storage quality of service entry, and that entry is no longer available. If any disk profiles were based on that entry, the storage quality of service entry for those profiles is automatically set to `[unlimited]`.
+If any disk profiles were based on that entry, the storage quality of service entry for those profiles is automatically set to `[unlimited]`.
 
 ## Virtual Machine Network Quality of Service
 
@@ -82,15 +72,15 @@ Create a virtual machine network quality of service entry to regulate network tr
 
 **Creating a Virtual Machine Network Quality of Service Entry**
 
-1. Click the **Data Centers** resource tab and select a data center.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Click the **QoS** tab in the details pane.
+2. Click a data center’s name to open the details view.
 
-3. Click **VM Network**.
+3. Click the **QoS** tab.
 
-4. Click **New**.
+4. Under **VM Network**, click **New**.
 
-5. Enter a name for the virtual machine network quality of service entry in the **Name** field.
+5. Enter a **Name** for the virtual machine network quality of service entry.
 
 6. Enter the limits for the **Inbound** and **Outbound** network traffic.
 
@@ -145,25 +135,26 @@ Virtual machine network quality of service settings allow you to configure bandw
  </tbody>
 </table>
 
+To change the maximum value allowed by the **Average**, **Peak**, or **Burst** fields, use the `engine-config` command to change the value of the `MaxAverageNetworkQoSValue`, `MaxPeakNetworkQoSValue`, or `MaxBurstNetworkQoSValue` configuration keys. You must restart the **ovirt-engine** service for any changes to take effect. For example:
+
+      # engine-config -s MaxAverageNetworkQoSValue=2048
+      # systemctl restart ovirt-engine
+
 ### Removing a Virtual Machine Network Quality of Service Entry
 
 Remove an existing virtual machine network quality of service entry.
 
 **Removing a Virtual Machine Network Quality of Service Entry**
 
-1. Click the **Data Centers** resource tab and select a data center.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Click the **QoS** tab in the details pane.
+2. Click a data center’s name to open the details view.
 
-3. Click **VM Network**.
+3. Click the **QoS** tab.
 
-4. Select the virtual machine network quality of service entry to remove.
+4. Under **VM Network**, select a virtual machine network quality of service entry and click **Remove**.
 
-5. Click **Remove**.
-
-6. Click **OK** when prompted.
-
-You have removed the virtual machine network quality of service entry, and that entry is no longer available.
+5. Click **OK**.
 
 ## Host Network Quality of Service
 
@@ -175,21 +166,19 @@ Create a host network quality of service entry.
 
 **Creating a Host Network Quality of Service Entry**
 
-1. Click the **Data Centers** resource tab and select a data center.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Click **QoS** in the details pane.
+2. Click a data center’s name to open the details view.
 
-3. Click **Host Network**.
+3. Click the **QoS** tab.
 
-4. Click **New**.
+4. Under **Host Network**, click **New**.
 
-5. Enter a name for the quality of service entry in the **QoS Name** field.
+5. Enter a **Qos Name** and a description for the quality of service entry.
 
-6. Enter a description for the quality of service entry in the **Description** field.
+6. Enter the desired values for **Weighted Share**, **Rate Limit [Mbps]**, and **Committed Rate [Mbps]**.
 
-7. Enter the desired values for **Weighted Share**, **Rate Limit [Mbps]**, and **Committed Rate [Mbps]**.
-
-8. Click **OK**.
+7. Click **OK**.
 
 ### Settings in the New Host Network Quality of Service and Edit Host Network Quality of Service Windows Explained
 
@@ -237,17 +226,15 @@ Remove an existing network quality of service entry.
 
 **Removing a Host Network Quality of Service Entry**
 
-1. Click the **Data Centers** resource tab and select a data center.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Click the **QoS** tab in the details pane.
+2. Click a data center’s name to open the details view.
 
-3. Click **Host Network**.
+3. Click the **QoS** tab.
 
-4. Select the network quality of service entry to remove.
+4. Under **Host Network**, select a host network quality of service entry and click **Remove**.
 
-5. Click **Remove**.
-
-6. Click **OK** when prompted.
+5. Click **OK** when prompted.
 
 ## CPU Quality of Service
 
@@ -259,21 +246,19 @@ Create a CPU quality of service entry.
 
 **Creating a CPU Quality of Service Entry**
 
-1. Click the **Data Centers** resource tab and select a data center.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Click **QoS** in the details pane.
+2. Click a data center’s name to open the details view.
 
-3. Click **CPU**.
+3. Click the **QoS** tab.
 
-4. Click **New**.
+4. Under **CPU**, click **New**.
 
-5. Enter a name for the quality of service entry in the **QoS Name** field.
+5. Enter a **QoS Name** and a **Description** for the quality of service entry.
 
-6. Enter a description for the quality of service entry in the **Description** field.
+6. Enter the maximum processing capability the quality of service entry permits in the **Limit (%)** field, in percentage. Do not include the `%` symbol.
 
-7. Enter the maximum processing capability the quality of service entry permits in the **Limit** field, in percentage. Do not include the `%` symbol.
-
-8. Click **OK**.
+7. Click **OK**.
 
 You have created a CPU quality of service entry, and can create CPU profiles based on that entry in clusters that belong to the data center.
 
@@ -283,19 +268,19 @@ Remove an existing CPU quality of service entry.
 
 **Removing a CPU Quality of Service Entry**
 
-1. Click the **Data Centers** resource tab and select a data center.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Click **QoS** in the details pane.
+2. Click a data center’s name to open the details view.
 
-3. Click **CPU**.
+3. Click the **QoS** tab.
 
-4. Select the CPU quality of service entry to remove.
+4. Under **CPU**, select the CPU quality of service entry and click **Remove**.
 
-5. Click **Remove**.
-
-6. Click **OK** when prompted.
+5. Click **OK**.
 
 You have removed the CPU quality of service entry, and that entry is no longer available. If any CPU profiles were based on that entry, the CPU quality of service entry for those profiles is automatically set to `[unlimited]`.
 
-**Prev:** [Chapter 2: System Dashboard](../chap-System_Dashboard)<br>
+**Prev:** [Chapter 2: Dashboard](../chap-System_Dashboard)<br>
 **Next:** [Chapter 4: Data Centers](../chap-Data_Centers)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-quality_of_service)

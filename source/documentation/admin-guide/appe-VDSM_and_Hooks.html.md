@@ -10,11 +10,11 @@ The VDSM service is used by the Red Hat Virtualization Manager to manage Red Hat
 
 ## VDSM Hooks
 
-VDSM is extensible via hooks. Hooks are scripts executed on the host when key events occur. When a supported event occurs VDSM runs any executable hook scripts in `/usr/libexec/vdsm/hooks/nn_event-name/` on the host in alphanumeric order. By convention each hook script is assigned a two digit number, included at the front of the file name, to ensure that the order in which the scripts will be run in is clear. You are able to create hook scripts in any programming language, Python will however be used for the examples contained in this chapter.
+VDSM is extensible via hooks. Hooks are scripts executed on the host when key events occur. When a supported event occurs VDSM runs any executable hook scripts in **/usr/libexec/vdsm/hooks/nn_event-name/** on the host in alphanumeric order. By convention each hook script is assigned a two digit number, included at the front of the file name, to ensure that the order in which the scripts will be run in is clear. You are able to create hook scripts in any programming language, Python will however be used for the examples contained in this chapter.
 
 Note that all scripts defined on the host for the event are executed. If you require that a given hook is only executed for a subset of the virtual machines which run on the host then you must ensure that the hook script itself handles this requirement by evaluating the **Custom Properties** associated with the virtual machine.
 
-**Warning:** VDSM hooks can interfere with the operation of Red Hat Virtualization. A bug in a VDSM hook has the potential to cause virtual machine crashes and loss of data. VDSM hooks should be implemented with caution and tested rigorously. The Hooks API is new and subject to significant change in the future.
+    **Warning:** VDSM hooks can interfere with the operation of Red Hat Virtualization. A bug in a VDSM hook has the potential to cause virtual machine crashes and loss of data. VDSM hooks should be implemented with caution and tested rigorously. The Hooks API is new and subject to significant change in the future.
 
 ## Extending VDSM with Hooks
 
@@ -65,16 +65,16 @@ This chapter describes how to extend VDSM with event-driven hooks. Extending VDS
 | after_device_migrate_destination | After device migration, run on the destination host to which the migration is occurring. |
 | before_device_migrate_source | Before device migration, run on the source host from which the migration is occurring. |
 | after_device_migrate_source | After device migration, run on the source host from which the migration is occurring. |
+| after_network_setup | After setting up the network when starting a host machine. |
+| before_network_setup | Before setting up the network when starting a host machine. |
 
 ## The VDSM Hook Environment
 
-Most hook scripts are run as the `vdsm` user and inherit the environment of the VDSM process. The exceptions are hook scripts triggered by the `before_vdsm_start` and `after_vdsm_stop` events. Hook scripts triggered by these events run as the `root` user and do not inherit the environment of the VDSM process.
+Most hook scripts are run as the **vdsm** user and inherit the environment of the VDSM process. The exceptions are hook scripts triggered by the **before_vdsm_start** and **after_vdsm_stop** events. Hook scripts triggered by these events run as the **root** user and do not inherit the environment of the VDSM process.
 
 ## The VDSM Hook Domain XML Object
 
-When hook scripts are started, the `_hook_domxml` variable is appended to the environment. This variable contains the path of the libvirt domain XML representation of the relevant virtual machine. Several hooks are an exception to this rule, as outlined below.
-
-* The `_hook_domxml` variable of the following hooks contains the XML representation of the NIC and not the virtual machine.
+When hook scripts are started, the `_hook_domxml` variable is appended to the environment. This variable contains the path of the libvirt domain XML representation of the relevant virtual machine. Several hooks are an exception to this rule, as outlined below. The `_hook_domxml` variable of the following hooks contains the XML representation of the NIC and not the virtual machine.
 
 * `*_nic_hotplug_*`
 
@@ -86,13 +86,13 @@ When hook scripts are started, the `_hook_domxml` variable is appended to the en
 
 * `*_device_migrate_*`
 
-**Important:** The `before_migration_destination` and `before_dehibernation` hooks currently receive the XML of the domain from the source host. The XML of the domain at the destination will have various differences.
+    **Important:** The **before_migration_destination** and **before_dehibernation** hooks currently receive the XML of the domain from the source host. The XML of the domain at the destination will have various differences.
 
 The libvirt domain XML format is used by VDSM to define virtual machines. Details on the libvirt domain XML format can be found at [http://libvirt.org/formatdomain.html](http://libvirt.org/formatdomain.html). The UUID of the virtual machine may be deduced from the domain XML, but it is also available as the environment variable `vmId`.
 
 ## Defining Custom Properties
 
-The custom properties that are accepted by the Red Hat Virtualization Manager - and in turn passed to custom hooks - are defined using the `engine-config` command. Run this command as the `root` user on the host where Red Hat Virtualization Manager is installed.
+The custom properties that are accepted by the Red Hat Virtualization Manager - and in turn passed to custom hooks - are defined using the `engine-config` command. Run this command as the **root** user on the host where oVirt Engine is installed.
 
 The `UserDefinedVMProperties` and `CustomDeviceProperties` configuration keys are used to store the names of the custom properties supported. Regular expressions defining the valid values for each named custom property are also contained in these configuration keys.
 
@@ -157,7 +157,7 @@ Once the configuration key has been updated, the `ovirt-engine` service must be 
 
 ## Setting Virtual Machine Custom Properties
 
-Once custom properties are defined in the Red Hat Virtualization Manager, you can begin setting them on virtual machines. Custom properties are set on the **Custom Properties** tab of the **New Virtual Machine** and **Edit Virtual Machine** windows in the Administration Portal.
+Once custom properties are defined in the oVirt Engine, you can begin setting them on virtual machines. Custom properties are set on the **Custom Properties** tab of the **New Virtual Machine** and **Edit Virtual Machine** windows in the Administration Portal.
 
 You can also set custom properties from the **Run Virtual Machine(s)** dialog box. Custom properties set from the **Run Virtual Machine(s)** dialog box will only apply to the virtual machine until it is next shutdown.
 
@@ -199,25 +199,25 @@ The modified object can then be saved back to libvirt XML using the hooking modu
 
 ## VDSM Hook Execution
 
-`before_vm_start` scripts can edit the domain XML in order to change VDSM's definition of a virtual machine before it reaches libvirt. Caution must be exercised in doing so. Hook scripts have the potential to disrupt the operation of VDSM, and buggy scripts can result in outages to the Red Hat Virtualization environment. In particular, ensure you never change the UUID of the domain, and do not attempt to remove a device from the domain without sufficient background knowledge.
+**before_vm_start** scripts can edit the domain XML in order to change VDSM's definition of a virtual machine before it reaches libvirt. Caution must be exercised in doing so. Hook scripts have the potential to disrupt the operation of VDSM, and buggy scripts can result in outages to the Red Hat Virtualization environment. In particular, ensure you never change the UUID of the domain, and do not attempt to remove a device from the domain without sufficient background knowledge.
 
-Both `before_vdsm_start` and `after_vdsm_stop` hook scripts are run as the `root` user. Other hook scripts that require `root` access to the system must be written to use the `sudo` command for privilege escalation. To support this the `/etc/sudoers` must be updated to allow the `vdsm` user to use `sudo` without reentering a password. This is required as hook scripts are executed non-interactively.
+Both **before_vdsm_start** and **after_vdsm_stop** hook scripts are run as the **root** user. Other hook scripts that require **root** access to the system must be written to use the `sudo` command for privilege escalation. To support this the **/etc/sudoers** must be updated to allow the **vdsm** user to use `sudo` without reentering a password. This is required as hook scripts are executed non-interactively.
 
 **Configuring `sudo` for VDSM Hooks**
 
-In this example the `sudo` command will be configured to allow the `vdsm` user to run the `/bin/chown` command as `root`.
+In this example the `sudo` command will be configured to allow the **vdsm** user to run the `/bin/chown` command as **root**.
 
-1. Log into the virtualization host as `root`.
+1. Log into the virtualization host as **root**.
 
-2. Open the `/etc/sudoers` file in a text editor.
+2. Open the **/etc/sudoers** file in a text editor.
 
 3. Add this line to the file:
 
         vdsm ALL=(ALL) NOPASSWD: /bin/chown
 
-    This specifies that the `vdsm` user has the ability to run the `/bin/chown` command as the `root` user. The `NOPASSWD` parameter indicates that the user will not be prompted to enter their password when calling `sudo`.
+    This specifies that the **vdsm** user has the ability to run the `/bin/chown` command as the **root** user. The `NOPASSWD` parameter indicates that the user will not be prompted to enter their password when calling `sudo`.
 
-Once this configuration change has been made VDSM hooks are able to use the `sudo` command to run `/bin/chown` as `root`. This Python code uses `sudo` to execute `/bin/chown` as `root` on the file `/my_file`.
+Once this configuration change has been made VDSM hooks are able to use the `sudo` command to run `/bin/chown` as **root**. This Python code uses `sudo` to execute `/bin/chown` as **root** on the file **/my_file**.
 
     retcode = subprocess.call( ["/usr/bin/sudo", "/bin/chown", "root", "/my_file"] )
 
@@ -238,7 +238,7 @@ Hook scripts must return one of the return codes shown in [hook-return-codes](ho
 
 ## VDSM Hook Examples
 
-The example hook scripts provided in this section are strictly not supported by Red Hat. You must ensure that any and all hook scripts that you install to your system, regardless of source, are thoroughly tested for your environment.
+The example hook scripts provided in this section are strictly not supported by the oVirt Project. You must ensure that any and all hook scripts that you install to your system, regardless of source, are thoroughly tested for your environment.
 
 **NUMA Node Tuning**
 
@@ -248,7 +248,7 @@ This hook script allows for tuning the allocation of memory on a NUMA host based
 
 **Configuration String:**
 
-    numaset=^(interleave|strict|preferred):[\^]?\d+(-\d+)?(,[\^]?\d+(-\d+)?)*$
+    numaset=^(interleave|strict|preferred):[\^]?\d+(-\d+)?(,[\^]?\d+(-\d+)?)\*$
 
 The regular expression used allows the `numaset` custom property for a given virtual machine to specify both the allocation mode (`interleave`, `strict`, `preferred`) and the node to use. The two values are separated by a colon (`:`). The regular expression allows specification of the `nodeset` as:
 
@@ -259,7 +259,7 @@ The regular expression used allows the `numaset` custom property for a given vir
 
 **Script:**
 
-`/usr/libexec/vdsm/hooks/before_vm_start/50_numa`
+**/usr/libexec/vdsm/hooks/before_vm_start/50_numa**
 
     #!/usr/bin/python
 
@@ -316,3 +316,5 @@ The regular expression used allows the `numaset` custom property for a given vir
 
 **Prev:** [Chapter 20: Proxies](../chap-Proxies)<br>
 **Next:** [Appendix B: Custom Network Properties](../appe-Custom_Network_Properties)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/appe-vdsm_and_hooks)

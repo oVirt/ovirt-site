@@ -6,13 +6,11 @@ title: Logical Networks
 
 ## Logical Network Tasks
 
-### Using the Networks Tab
+### Performing Networking Tasks
 
-The **Networks** resource tab provides a central location for users to perform logical network-related operations and search for logical networks based on each network's property or association with other resources.
+**Network** &rarr; **Networks** provides a central location for users to perform logical network-related operations and search for logical networks based on each network’s property or association with other resources.The **New**, **Edit** and **Remove** buttons allow you to create, change the properties of, and delete logical networks within data centers.
 
-All logical networks in the oVirt environment display in the results list of the **Networks** tab. The **New**, **Edit** and **Remove** buttons allow you to create, change the properties of, and delete logical networks within data centers.
-
-Click on each network name and use the **Clusters**, **Hosts**, **Virtual Machines**, **Templates**, and **Permissions** tabs in the details pane to perform functions including:
+Click on each network name and use the tabs in the details view to perform functions including:
 
 * Attaching or detaching the networks to clusters and hosts
 
@@ -22,15 +20,17 @@ Click on each network name and use the **Clusters**, **Hosts**, **Virtual Machin
 
 These functions are also accessible through each individual resource tab.
 
-**Warning:** Do not change networking in a data center or a cluster if any hosts are running as this risks making the host unreachable.
+    **Warning:** Do not change networking in a data center or a cluster if any hosts are running as this risks making the host unreachable.
 
-**Important:** If you plan to use oVirt nodes to provide any services, remember that the services will stop if the oVirt environment stops operating.
+    **Important:** If you plan to use oVirt nodes to provide any services, remember that the services will stop if the oVirt environment stops operating.
 
-This applies to all services, but you should be especially aware of the hazards of running the following on oVirt:
+    This applies to all services, but you should be especially aware of the hazards of running the following on oVirt:
 
-* Directory Services
-* DNS
-* Storage
+      * Directory Services
+
+      * DNS
+
+      * Storage
 
 ### Creating a New Logical Network in a Data Center or Cluster
 
@@ -38,77 +38,113 @@ Create a logical network and define its use in a data center, or in clusters in 
 
 **Creating a New Logical Network in a Data Center or Cluster**
 
-1. Click the **Data Centers** or **Clusters** resource tabs, and select a data center or cluster in the results list.
+1. Click **Compute** &rarr; **Data Centers** or **Compute** &rarr; **Clusters**.
 
-2. Click the **Logical Networks** tab of the details pane to list the existing logical networks.
+2. Click the data center or cluster name to open the details view.
 
-    * From the **Data Centers** details pane, click **New** to open the **New Logical Network** window.
+3. Click the **Logical Networks** tab.
 
-    * From the **Clusters** details pane, click **Add Network** to open the **New Logical Network** window.
+4. Open the **New Logical Network** window:
 
-3. Enter a **Name**, **Description**, and **Comment** for the logical network.
+    * From the **Data Centers** details pane, click **New**.
 
-4. Optionally select the **Create on external provider** check box. Select the **External Provider** from the drop-down list and provide the IP address of the **Physical Network**. The **External Provider** drop-down list will not list any external providers in read-only mode.
+    * From the **Clusters** details pane, click **Add Network**.
 
-    If **Create on external provider** is selected, the **Network Label**, **VM Network**, and **MTU** options are disabled.
-
-5. Enter a new label or select an existing label for the logical network in the **Network Label** text field.
+5. Enter a **Name**, **Description**, and **Comment** for the logical network.
 
 6. Optionally enable **Enable VLAN tagging**.
 
 7. Optionally disable **VM Network**.
 
-8. Set the **MTU** value to **Default (1500)** or **Custom**.
+8. Optionally select the **Create on external provider** check box. This disables the **Network Label**, **VM Network**, and **MTU** options.
 
-9. From the **Cluster** tab, select the clusters to which the network will be assigned. You can also specify whether the logical network will be a required network.
+9. Select the **External Provider**. The **External Provider** list does not include external providers that are in read-only mode.
 
-10. If **Create on external provider** is selected, the **Subnet** tab will be visible. From the **Subnet** tab, select the **Create subnet** and enter a **Name**, **CIDR**, and **Gateway** address, and select an **IP Version** for the subnet that the logical network will provide. You can also add DNS servers as required.
+You can create an internal, isolated network, by selecting **ovirt-provider-ovn** on the **External Provider** list and leaving **Connect to physical network** unselected.
 
-11. From the **vNIC Profiles** tab, add vNIC profiles to the logical network as required.
+10. Enter a new label or select an existing label for the logical network in the **Network Label** text field.
 
-12. Click **OK**.
+11. Set the **MTU** value to **Default (1500)** or **Custom**.
 
-You have defined a logical network as a resource required by a cluster or clusters in the data center. If you entered a label for the logical network, it will be automatically added to all host network interfaces with that label.
+12. From the **Cluster** tab, select the clusters to which the network will be assigned. You can also specify whether the logical network will be a required network.
 
-**Note:** When creating a new logical network or making changes to an existing logical network that is used as a display network, any running virtual machines that use that network must be rebooted before the network becomes available or the changes are applied.
+13. If **Create on external provider** is selected, the **Subnet** tab will be visible. From the **Subnet** tab, select the **Create subnet** and enter a **Name**, **CIDR**, and **Gateway** address, and select an **IP Version** for the subnet that the logical network will provide. You can also add DNS servers as required.
+
+14. From the **vNIC Profiles** tab, add vNIC profiles to the logical network as required.
+
+15. Click **OK**.
+
+If you entered a label for the logical network, it is automatically added to all host network interfaces with that label.
+
+    **Note:** When creating a new logical network or making changes to an existing logical network that is used as a display network, any running virtual machines that use that network must be rebooted before the network becomes available or the changes are applied.
 
 ### Editing a Logical Network
 
 Edit the settings of a logical network.
 
+    **Important:** A logical network cannot be edited or moved to another interface if it is not synchronized with the network configuration on the host. See [Editing host network interfaces](Editing_host_network_interfaces) on how to synchronize your networks.
+
 **Editing a Logical Network**
 
-**Important:** A logical network cannot be edited or moved to another interface if it is not synchronized with the network configuration on the host. See [Editing host network interfaces](Editing_host_network_interfaces) on how to synchronize your networks.
+1. Click **Compute** &rarr; **Data Centers**.
 
-1. Click the **Data Centers** resource tab, and select the data center of the logical network in the results list.
+2. Click the data center’s name to open the details view.
 
-2. Click the **Logical Networks** tab in the details pane to list the logical networks in the data center.
+3. Click the **Logical Networks** tab and select a logical network.
 
-3. Select a logical network and click **Edit** to open the **Edit Logical Network** window.
+4. Click **Edit**.
 
-4. Edit the necessary settings.
+5. Edit the necessary settings.
 
-5. Click **OK** to save the changes.
+    **Note:** You can edit the name of a new or existing network, with the exception of the default network, without having to stop the virtual machines.
 
-**Note:** Multi-host network configuration automatically applies updated network settings to all of the hosts within the data center to which the network is assigned. Changes can only be applied when virtual machines using the network are down. You cannot rename a logical network that is already configured on a host. You cannot disable the **VM Network** option while virtual machines or templates using that network are running.
+6. Click **OK**.
+
+    **Note:** Multi-host network configuration automatically applies updated network settings to all of the hosts within the data center to which the network is assigned. Changes can only be applied when virtual machines using the network are down. You cannot rename a logical network that is already configured on a host. You cannot disable the **VM Network** option while virtual machines or templates using that network are running.
 
 ### Removing a Logical Network
 
-You can remove a logical network from the **Networks** resource tab or the **Data Centers** resource tab. The following procedure shows you how to remove logical networks associated to a data center. For a working oVirt environment, you must have at least one logical network used as the `ovirtmgmt` management network.
+You can remove a logical network from **Network** &rarr; **Networks** or **Compute** &rarr; **Data Centers**.  The following procedure shows you how to remove logical networks associated to a data center. For a working oVirt environment, you must have at least one logical network used as the `ovirtmgmt` management network.
 
 **Removing Logical Networks**
 
-1. Click the **Data Centers** resource tab, and select the data center of the logical network in the results list.
+1. Click **Compute** &rarr; **Data Centers**.
 
-2. Click the **Logical Networks** tab in the details pane to list the logical networks in the data center.
+2. Click the data center’s name to open the details view.
 
-3. Select a logical network and click **Remove** to open the **Remove Logical Network(s)** window.
+3. Click the **Logical Networks** tab to list the logical networks in the data center.
 
-4. Optionally, select the **Remove external network(s) from the provider(s) as well** check box to remove the logical network both from the Manager and from the external provider if the network is provided by an external provider. The check box is grayed out if the external provider is in read-only mode.
+4. Select a logical network and click **Remove**.
 
-5. Click **OK**.
+5. Optionally, select the **Remove external network(s) from the provider(s) as well** check box to remove the logical network both from the Manager and from the external provider if the network is provided by an external provider. The check box is grayed out if the external provider is in read-only mode.
 
-The logical network is removed from the Manager and is no longer available.
+6. Click **OK**.
+
+The logical network is removed from the Engine and is no longer available.
+
+### Configuring a Non-Management Logical Network as the Default Route
+
+The default route used by hosts in a cluster is through the management network (ovirtmgmt). The following procedure provides instructions to configure a non-management logical network as the default route.
+
+**Prerequisite:**
+
+* If you are using the default_route custom property, you need to clear the custom property from all attached hosts and then follow this procedure.
+
+**Configuring the Default Route Role**
+
+1. Click **Network** &rarr; **Networks**.
+
+2. Click the name of the non-management logical network to configure as the default route to access its details.
+
+3. Click the **Clusters** tab.
+
+4. Click **Manage Network** to open the **Manage Network** window.
+
+5. Select the **Default Route** checkbox for the appropriate cluster(s).
+
+6. Click **OK**.
+
+When networks are attached to a host, the default route of the host will be set on the network of your choice. It is recommended to configure the default route role before any host is added to your cluster. If your cluster already contains hosts, they may become out-of-sync until you sync your change to them.
 
 ### Viewing or Editing the Gateway for a Logical Network
 
@@ -121,19 +157,19 @@ oVirt handles multiple gateways automatically whenever an interface goes up or d
 
 **Viewing or Editing the Gateway for a Logical Network**
 
-1. Click the **Hosts** resource tab, and select the desired host.
+1. Click **Compute** &rarr; **Hosts**.
 
-2. Click the **Network Interfaces** tab in the details pane to list the network interfaces attached to the host and their configurations.
+2. Click the host’s name to open the details view.
 
-3. Click the **Setup Host Networks** button to open the **Setup Host Networks** window.
+3. Click the **Network Interfaces** tab to list the network interfaces attached to the host and their configurations.
 
-4. Hover your cursor over an assigned logical network and click the pencil icon to open the **Edit Management Network** window.
+4. Click the **Setup Host Networks**.
+
+5. Hover your cursor over an assigned logical network and click the pencil icon to open the **Edit Management Network** window.
 
 The **Edit Management Network** window displays the network name, the boot protocol, and the IP, subnet mask, and gateway addresses. The address information can be manually edited by selecting a **Static** boot protocol.
 
-### Explanation of Settings and Controls in the New Logical Network and Edit Logical Network Windows
-
-#### Logical Network General Settings Explained
+### Logical Network General Settings Explained
 
 The table below describes the settings for the **General** tab of the **New Logical Network** and **Edit Logical Network** window.
 
@@ -185,7 +221,7 @@ The table below describes the settings for the **General** tab of the **New Logi
  </tbody>
 </table>
 
-#### Logical Network Cluster Settings Explained
+### Logical Network Cluster Settings Explained
 
 The table below describes the settings for the **Cluster** tab of the **New Logical Network** window.
 
@@ -211,7 +247,7 @@ The table below describes the settings for the **Cluster** tab of the **New Logi
  </tbody>
 </table>
 
-#### Logical Network vNIC Profiles Settings Explained
+### Logical Network vNIC Profiles Settings Explained
 
 The table below describes the settings for the **vNIC Profiles** tab of the **New Logical Network** window.
 
@@ -242,21 +278,17 @@ Specify the traffic type for the logical network to optimize the network traffic
 
 **Specifying Traffic Types for Logical Networks**
 
-1. Click the **Clusters** resource tab, and select a cluster from the results list.
+1. Click **Compute** &rarr; **Clusters**.
 
-2. Select the **Logical Networks** tab in the details pane to list the logical networks assigned to the cluster.
+2. Click the cluster’s name to open the details view.
 
-3. Click **Manage Networks** to open the **Manage Networks** window.
+3. Select the **Logical Networks** tab.
 
-    **Manage Networks**
+4. Click **Manage Networks**.
 
-    ![The Manage Networks window](/images/admin-guide/4122.png)
+5. Select appropriate check boxes and radio buttons.
 
-4. Select appropriate check boxes.
-
-5. Click **OK** to save the changes and close the window.
-
-You have optimized the network traffic flow by assigning a specific type of traffic to be carried on a specific logical network.
+6. Click **OK**.
 
 **Note:** Logical networks offered by external providers must be used as virtual machine networks; they cannot be assigned special cluster roles such as display or migration.
 
@@ -268,11 +300,11 @@ The table below describes the settings for the **Manage Networks** window.
 
 | Field | Description/Action |
 |-
-| **Assign** | Assigns the logical network to all hosts in the cluster. |
-| **Required** | A Network marked "required" must remain operational in order for the hosts associated with it to function properly. If a required network ceases to function, any hosts associated with it become non-operational. |
-| **VM Network** | A logical network marked "VM Network" carries network traffic relevant to the virtual machine network. |
-| **Display Network** | A logical network marked "Display Network" carries network traffic relevant to SPICE and to the virtual network controller. |
-| **Migration Network** | A logical network marked "Migration Network" carries virtual machine and storage migration traffic. |
+| <b>Assign</b> | Assigns the logical network to all hosts in the cluster. |
+| <b>Required</b> | A Network marked "required" must remain operational in order for the hosts associated with it to function properly. If a required network ceases to function, any hosts associated with it become non-operational. |
+| <b>VM Network</b> | A logical network marked "VM Network" carries network traffic relevant to the virtual machine network. |
+| <b>Display Network</b> | A logical network marked "Display Network" carries network traffic relevant to SPICE and to the virtual network controller. |
+| <b>Migration Network</b> | A logical network marked "Migration Network" carries virtual machine and storage migration traffic. If an outage occurs on this network, the management network (<b>ovirtmgmt</b> by default) will be used instead. |
 
 ### Editing the Virtual Function Configuration on a NIC
 
@@ -286,19 +318,25 @@ A vNIC must have the passthrough property enabled in order to be directly attach
 
 **Editing the Virtual Function Configuration on a NIC**
 
-1. Select an SR-IOV-capable host and click the **Network Interfaces** tab in the details pane.
+1. Click **Compute** &rarr; **Hosts**.
 
-2. Click **Setup Host Networks** to open the **Setup Host Networks** window.
+2. Click the name of an SR-IOV-capable host to open the details view.
 
-3. Select an SR-IOV-capable NIC, marked with a ![](/images/admin-guide/SR-IOV-icon.png), and click the pencil icon to open the **Edit Virtual Functions (SR-IOV) configuration of *NIC*** window.
+3. Click the **Network Interfaces** tab.
 
-4. To edit the number of virtual functions, click the **Number of VFs setting** drop-down button and edit the **Number of VFs** text field.
+4. Click **Setup Host Networks**.
+
+5. Select an SR-IOV-capable NIC, marked with a ![](/images/admin-guide/SR-IOV-icon.png), and click the pencil icon.
+
+6. To edit the number of virtual functions, click the **Number of VFs setting** drop-down button and edit the **Number of VFs** text field.
 
     **Important:** Changing the number of VFs will delete all previous VFs on the network interface before creating new VFs. This includes any VFs that have virtual machines directly attached.
 
-5. The **All Networks** check box is selected by default, allowing all networks to access the virtual functions. To specify the virtual networks allowed to access the virtual functions, select the **Specific networks** radio button to list all networks. You can then either select the check box for desired networks, or you can use the **Labels** text field to automatically select networks based on one or more network labels.
+7. The **All Networks** check box is selected by default, allowing all networks to access the virtual functions. To specify the virtual networks allowed to access the virtual functions, select the **Specific networks** radio button to list all networks. You can then either select the check box for desired networks, or you can use the **Labels** text field to automatically select networks based on one or more network labels.
 
-6. Click **OK** to close the window. Note that the configuration changes will not take effect until you click the **OK** button in the **Setup Host Networks** window.
+8. Click **OK**.
+
+9. In the **Setup Host Networks** window, click **OK**.
 
 ## Virtual Network Interface Cards
 
@@ -310,35 +348,35 @@ A Virtual Network Interface Card (vNIC) profile is a collection of settings that
 
 Create or edit a Virtual Network Interface Controller (vNIC) profile to regulate network bandwidth for users and groups.
 
-**Note:** If you are enabling or disabling port mirroring, all virtual machines using the associated profile must be in a down state before editing.
+    **Note:** If you are enabling or disabling port mirroring, all virtual machines using the associated profile must be in a down state before editing.
 
 **Creating or editing a vNIC Profile**
 
-1. Click the **Networks** resource tab, and select a logical network in the results list.
+1. Click **Network** &rarr; **Networks**.
 
-2. Select the **vNIC Profiles** tab in the details pane. If you selected the logical network in tree mode, you can select the **vNIC Profiles** tab in the results list.
+2. Click the logical network’s name to open the details view.
 
-3. Click **New** or **Edit** to open the **VM Interface Profile** window.
+3. Click the **vNIC Profiles** tab.
 
-    **The VM Interface Profile window**
+4. Click **New** or **Edit**.
 
-    ![The VM Interface Profile window](/images/admin-guide/vNIC_Interface_Profile.png)
+5. Enter the **Name** and **Description** of the profile.
 
-4. Enter the **Name** and **Description** of the profile.
+6. Select the relevant Quality of Service policy from the **QoS** list.
 
-5. Select the relevant Quality of Service policy from the **QoS** list.
+7. Select a **Network Filter** from the drop-down list to manage the traffic of network packets to and from virtual machines.
 
-6. Select the **Passthrough** check box to enable passthrough of the vNIC and allow direct device assignment of a virtual function. Enabling the passthrough property will disable QoS and port mirroring as these are not compatible. For more information on passthrough, see [Marking vNIC as Passthrough](Marking_vNIC_as_Passthrough).
+8. Select the **Passthrough** check box to enable passthrough of the vNIC and allow direct device assignment of a virtual function. Enabling the passthrough property will disable QoS and port mirroring as these are not compatible. For more information on passthrough, see [Marking vNIC as Passthrough](Marking_vNIC_as_Passthrough).
 
-7. Use the **Port Mirroring** and **Allow all users to use this Profile** check boxes to toggle these options.
+9. If **Passthrough** is selected, optionally deselect the **Migratable** check box to disable migration for vNICs using this profile.
 
-8. Select a custom property from the custom properties list, which displays **Please select a key...** by default. Use the **+** and **-** buttons to add or remove custom properties.
+10. Use the **Port Mirroring** and **Allow all users to use this Profile** check boxes to toggle these options.
 
-9. Click **OK**.
+11. Select a custom property from the custom properties list, which displays **Please select a key...** by default. Use the **+** and **-** buttons to add or remove custom properties.
 
-You have created a vNIC profile. Apply this profile to users and groups to regulate their network bandwidth. Note that if you edited a vNIC profile, you must either restart the virtual machine or hot unplug and then hot plug the vNIC.
+12. Click **OK**.
 
-**Note:** The guest operating system must support vNIC hot plug and hot unplug.
+Apply this profile to users and groups to regulate their network bandwidth. Note that if you edited a vNIC profile, you must either restart the virtual machine or hot unplug and then hot plug the vNIC.
 
 ### Explanation of Settings in the VM Interface Profile Window
 
@@ -369,11 +407,20 @@ You have created a vNIC profile. Apply this profile to users and groups to regul
    <td>A drop-down menu of the available Network Quality of Service policies to apply to the vNIC profile. QoS policies regulate inbound and outbound network traffic of the vNIC.</td>
   </tr>
   <tr>
+  <tr>
+   <td><b>Network Filter</b></td>
+   <td>A drop-down list of the available network filters to apply to the vNIC profile. Network filters improve network security by filtering the type of packets that can be sent to and from virtual machines. The default filter is <tt>vdsm-no-mac-spoofing</tt>, which is a combination of <tt>no-mac-spoofing</tt> and <tt>no-arp-mac-spoofing</tt>.</td>
+  </tr>
+  <tr>
    <td><b>Passthrough</b></td>
    <td>
     <p>A check box to toggle the passthrough property. Passthrough allows a vNIC to connect directly to a virtual function of a host NIC. The passthrough property cannot be edited if the vNIC profile is attached to a virtual machine.</p>
     <p>Both QoS and port mirroring are disabled in the vNIC profile if passthrough is enabled.</p>
    </td>
+  </tr>
+  <tr>
+   <td><b>Migratable</b></td>
+   <td>A check box to toggle whether or not vNICs using this profile can be migrated. Migration is enabled by default on regular vNIC profiles; the check box is selected and cannot be changed. When the <b>Passthrough</b> check box is selected, <b>Migratable</b> becomes available and can be deselected, if required, to disable migration of passthrough vNICs.</td>
   </tr>
   <tr>
    <td><b>Port Mirroring</b></td>
@@ -398,17 +445,23 @@ The passthrough property cannot be enabled if the vNIC profile is already attach
 
 **Enabling Passthrough**
 
-1. Select a logical network from the **Networks** results list and click the **vNIC Profiles** tab in the details pane to list all vNIC profiles for that logical network.
+1. Click **Network** &rarr; **Networks**.
 
-2. Click **New** to open the **VM Interface Profile** window.
+2. Click the logical network’s name to open the details view.
 
-3. Enter the **Name** and **Description** of the profile.
+3. Click the **vNIC Profiles** tab to list all vNIC profiles for that logical network.
 
-4. Select the **Passthrough** check box. This will disable **QoS** and **Port Mirroring**.
+4. Click **New**.
 
-5. If necessary, select a custom property from the custom properties list, which displays **Please select a key...** by default. Use the **+** and **-** buttons to add or remove custom properties.
+5. Enter the **Name** and **Description** of the profile.
 
-6. Click **OK** to save the profile and close the window.
+6. Select the **Passthrough** check box.
+
+7. Optionally deselect the **Migratable** check box to disable migration for vNICs using this profile.
+
+8. If necessary, select a custom property from the custom properties list, which displays **Please select a key...** by default. Use the **+** and **-** buttons to add or remove custom properties.
+
+9. Click **OK**.
 
 The vNIC profile is now passthrough-capable. To use this profile to directly attach a virtual machine to a NIC or PCI VF, attach the logical network to the NIC and create a new vNIC on the desired virtual machine that uses the passthrough vNIC profile. For more information on these procedures respectively, see "Editing host network interfaces" and "Adding a New Network Interface" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/).
 
@@ -418,37 +471,41 @@ Remove a vNIC profile to delete it from your virtualized environment.
 
 **Removing a vNIC Profile**
 
-1. Click the **Networks** resource tab, and select a logical network in the results list.
+1. Click **Network** &rarr; **Networks**.
 
-2. Select the **Profiles** tab in the details pane to display available vNIC profiles. If you selected the logical network in tree mode, you can select the **VNIC Profiles** tab in the results list.
+2. Click the logical network’s name to open the details view.
 
-3. Select one or more profiles and click **Remove** to open the **Remove VM Interface Profile(s)** window.
+3. Click the **vNIC Profiles** tab to display available vNIC profiles.
 
-4. Click **OK** to remove the profile and close the window.
+4. Select one or more profiles and click **Remove**.
+
+5. Click **OK**.
 
 ### Assigning Security Groups to vNIC Profiles
 
-**Note:** This feature is only available for users who are integrating with OpenStack Neutron. Security groups cannot be created with oVirt Engine. You must create security groups within OpenStack.
+    **Note:** This feature is only available for users who are integrating with OpenStack Neutron. Security groups cannot be created with oVirt Engine. You must create security groups within OpenStack.
 
 You can assign security groups to the vNIC profile of networks that have been imported from an OpenStack Networking instance and that use the Open vSwitch plug-in. A security group is a collection of strictly enforced rules that allow you to filter inbound and outbound traffic over a network interface. The following procedure outlines how to attach a security group to a vNIC profile.
 
-**Note:** A security group is identified using the ID of that security group as registered in the OpenStack Networking instance. You can find the IDs of security groups for a given tenant by running the following command on the system on which OpenStack Networking is installed:
+    **Note:** A security group is identified using the ID of that security group as registered in the OpenStack Networking instance. You can find the IDs of security groups for a given tenant by running the following command on the system on which OpenStack Networking is installed:
 
-    # neutron security-group-list
+        # neutron security-group-list
 
 **Assigning Security Groups to vNIC Profiles**
 
-1. Click the **Networks** tab and select a logical network from the results list.
+1. Click **Network** &rarr; **Networks**.
 
-2. Click the **vNIC Profiles** tab in the details pane.
+2. Click the logical network’s name to open the details view.
 
-3. Click **New**, or select an existing vNIC profile and click **Edit**, to open the **VM Interface Profile** window.
+3. Click the **vNIC Profiles** tab.
 
-4. From the custom properties drop-down list, select **SecurityGroups**. Leaving the custom property drop-down blank applies the default security settings, which permit all outbound traffic and intercommunication but deny all inbound traffic from outside of the default security group. Note that removing the **SecurityGroups** property later will not affect the applied security group.
+4. Click **New**, or select an existing vNIC profile and click **Edit**.
 
-5. In the text field, enter the ID of the security group to attach to the vNIC profile.
+5. From the custom properties drop-down list, select **SecurityGroups**. Leaving the custom property drop-down blank applies the default security settings, which permit all outbound traffic and intercommunication but deny all inbound traffic from outside of the default security group. Note that removing the **SecurityGroups** property later will not affect the applied security group.
 
-6. Click **OK**.
+6. In the text field, enter the ID of the security group to attach to the vNIC profile.
+
+7. Click **OK**.
 
 You have attached a security group to the vNIC profile. All traffic through the logical network to which that profile is attached will be filtered in accordance with the rules defined for that security group.
 
@@ -458,13 +515,15 @@ Configure user permissions to assign users to certain vNIC profiles. Assign the 
 
 **User Permissions for vNIC Profiles**
 
-1. Click the **Networks** tab and select a logical network from the results list.
+1. Click **Network** &rarr; **vNIC Profile**.
 
-2. Select the **vNIC Profiles** resource tab to display the vNIC profiles.
+2. Click the vNIC profile’s name to open the details view.
 
-3. Select the **Permissions** tab in the details pane to show the current user permissions for the profile.
+3. Click the **Permissions** tab to show the current user permissions for the profile.
 
-4. Use the **Add** button to open the **Add Permission to User** window, and the **Remove** button to open the **Remove Permission** window, to affect user permissions for the vNIC profile.
+4. Click **Add** or **Remove** to change user permissions for the vNIC profile.
+
+5. In the **Add Permissions to User** window, click **My Groups** to display your user groups. You can use this option to grant permissions to other users in your groups.
 
 You have configured user permissions for a vNIC profile.
 
@@ -498,17 +557,19 @@ The vNIC profile to configure can belong to a new or existing logical network. S
 
 **Configuring a vNIC Profile for UCS Integration**
 
-1. Click the **Networks** resource tab, and select a logical network in the results list.
+1. Click **Network** &rarr; **Networks**.
 
-2. Select the **vNIC Profiles** tab in the details pane. If you selected the logical network in tree mode, you can select the **vNIC Profiles** tab in the results list.
+2. Click the logical network’s name to open the details view.
 
-3. Click **New** or **Edit** to open the **VM Interface Profile** window.
+3. Select the **vNIC Profiles** tab.
 
-4. Enter the **Name** and **Description** of the profile.
+4. Click **New** or select a vNIC profile and click **Edit**.
 
-5. Select the `vmfex` custom property from the custom properties list and enter the UCS port profile name.
+5. Enter the **Name** and **Description** of the profile.
 
-6. Click **OK**.
+6. Select the `vmfex` custom property from the custom properties list and enter the UCS port profile name.
+
+7. Click **OK**.
 
 ## External Provider Networks
 
@@ -518,13 +579,9 @@ To use networks from an external network provider (OpenStack Networking or any t
 
 **Importing a Network From an External Provider**
 
-1. Click the **Networks** tab.
+1. Click **Network** &rarr; **Networks**.
 
-2. Click the **Import** button to open the **Import Networks** window.
-
-    **The Import Networks Window**
-
-    ![The Import Networks Window](/images/admin-guide/4995.png)
+2. Click **Import**.
 
 3. From the **Network Provider** drop-down list, select an external provider. The networks offered by that provider are automatically discovered and listed in the **Provider Networks** list.
 
@@ -536,7 +593,7 @@ To use networks from an external network provider (OpenStack Networking or any t
 
 7. Optionally, clear the **Allow All** check box for a network in the **Networks to Import** list to prevent that network from being available to all users.
 
-8. Click the **Import** button.
+8. Click **Import**.
 
 The selected networks are imported into the target data center and can be attached to virtual machines. See "Adding a New Network Interface" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/) for more information.
 
@@ -556,33 +613,25 @@ The following limitations apply to using logical networks imported from an exter
 
 * Networks offered by external providers are non-required. As such, scheduling for clusters in which such logical networks have been imported will not take those logical networks into account during host selection. Moreover, it is the responsibility of the user to ensure the availability of the logical network on hosts in clusters in which such logical networks have been imported.
 
-**Important:** Logical networks imported from external providers are only compatible with Enterprise Linux hosts and cannot be assigned to virtual machines running on RHVH.
-
 ### Configuring Subnets on External Provider Logical Networks
-
-#### Configuring Subnets on External Provider Logical Networks
 
 A logical network provided by an external provider can only assign IP addresses to virtual machines if one or more subnets have been defined on that logical network. If no subnets are defined, virtual machines will not be assigned IP addresses. If there is one subnet, virtual machines will be assigned an IP address from that subnet, and if there are multiple subnets, virtual machines will be assigned an IP address from any of the available subnets. The DHCP service provided by the external network provider on which the logical network is hosted is responsible for assigning these IP addresses.
 
 While the oVirt Engine automatically discovers predefined subnets on imported logical networks, you can also add or remove subnets to or from logical networks from within the Manager.
 
-#### Adding Subnets to External Provider Logical Networks
+### Adding Subnets to External Provider Logical Networks
 
 Create a subnet on a logical network provided by an external provider.
 
 **Adding Subnets to External Provider Logical Networks**
 
-1. Click the **Networks** tab.
+1. Click **Network** &rarr; **Networks**.
 
-2. Click the logical network provided by an external provider to which the subnet will be added.
+2. Click the logical network’s name to open the details view.
 
-3. Click the **Subnets** tab in the details pane.
+3. Click the **Subnets** tab.
 
-4. Click the **New** button to open the **New External Subnet** window.
-
-    **The New External Subnet Window**
-
-    ![The New External Subnet Window](/images/admin-guide/5007.png)
+4. Click **New**.
 
 5. Enter a **Name** and **CIDR** for the new subnet.
 
@@ -590,102 +639,33 @@ Create a subnet on a logical network provided by an external provider.
 
 7. Click **OK**.
 
-#### Removing Subnets from External Provider Logical Networks
+### Removing Subnets from External Provider Logical Networks
 
 Remove a subnet from a logical network provided by an external provider.
 
 **Removing Subnets from External Provider Logical Networks**
 
-1. Click the **Networks** tab.
+1. Click **Network** &rarr; **Networks**.
 
-2. Click the logical network provided by an external provider from which the subnet will be removed.
+2. Click the logical network’s name to open the details view.
 
-3. Click the **Subnets** tab in the details pane.
+3. Click the **Subnets** tab.
 
-4. Click the subnet to remove.
+4. Select a subnet and click **Remove**.
 
-5. Click the **Remove** button and click **OK** when prompted.
-
-## Logical Networks and Permissions
-
-### Managing System Permissions for a Network
-
-As the **SuperUser**, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a **DataCenterAdmin** role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a **ClusterAdmin** has administrator privileges only for the assigned cluster.
-
-A network administrator is a system administration role that can be applied for a specific network, or for all networks on a data center, cluster, host, virtual machine, or template. A network user can perform limited administration roles, such as viewing and attaching networks on a specific virtual machine or template. You can use the **Configure** button in the header bar to assign a network administrator for all networks in the environment.
-
-The network administrator role permits the following actions:
-
-* Create, edit and remove networks.
-
-* Edit the configuration of the network, including configuring port mirroring.
-
-* Attach and detach networks from resources including clusters and virtual machines.
-
-The user who creates a network is automatically assigned **NetworkAdmin** permissions on the created network. You can also change the administrator of a network by removing the existing administrator and adding the new administrator.
-
-### Network Administrator and User Roles Explained
-
-**Network Permission Roles**
-
-The table below describes the administrator and user roles and privileges applicable to network administration.
-
-**oVirt Network Administrator and User Roles**
-
-| Role | Privileges | Notes |
-|-
-| NetworkAdmin | Network Administrator for data center, cluster, host, virtual machine, or template. The user who creates a network is automatically assigned **NetworkAdmin** permissions on the created network. | Can configure and manage the network of a particular data center, cluster, host, virtual machine, or template. A network administrator of a data center or cluster inherits network permissions for virtual pools within the cluster. To configure port mirroring on a virtual machine network, apply the **NetworkAdmin** role on the network and the **UserVmManager** role on the virtual machine. |
-| VnicProfileUser | Logical network and network interface user for virtual machine and template. | Can attach or detach network interfaces from specific logical networks. |
-
-### Assigning an Administrator or User Role to a Resource
-
-Assign administrator or user roles to resources to allow users to access or manage that resource.
-
-**Assigning a Role to a Resource**
-
-1. Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.
-
-2. Click the **Permissions** tab in the details pane to list the assigned users, the user's role, and the inherited permissions for the selected resource.
-
-3. Click **Add**.
-
-4. Enter the name or user name of an existing user into the **Search** text box and click **Go**. Select a user from the resulting list of possible matches.
-
-5. Select a role from the **Role to Assign:** drop-down list.
-
-6. Click **OK**.
-
-You have assigned a role to a user; the user now has the inherited permissions of that role enabled for that resource.
-
-### Removing an Administrator or User Role from a Resource
-
-Remove an administrator or user role from a resource; the user loses the inherited permissions associated with the role for that resource.
-
-**Removing a Role from a Resource**
-
-1. Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.
-
-2. Click the **Permissions** tab in the details pane to list the assigned users, the user's role, and the inherited permissions for the selected resource.
-
-3. Select the user to remove from the resource.
-
-4. Click **Remove**. The **Remove Permission** window opens to confirm permissions removal.
-
-5. Click **OK**.
-
-You have removed the user's role, and the associated permissions, from the resource.
+5. Click **OK**
 
 ## Hosts and Networking
 
 ### Refreshing Host Capabilities
 
-When a network interface card is added to a host, the capabilities of the host must be refreshed to display that network interface card in the Manager.
+When a network interface card is added to a host, the capabilities of the host must be refreshed to display that network interface card in the Engine.
 
 **To Refresh Host Capabilities**
 
-1. Use the resource tabs, tree mode, or the search function to find and select a host in the results list.
+1. Click **Compute** &rarr; **Hosts** and select a host.
 
-2. Click the **Refresh Capabilities** button.
+2. Click **Management** &rarr; **Refresh Capabilities** button.
 
 The list of network interface cards in the **Network Interfaces** tab of the details pane for the selected host is updated. Any new network interface cards can now be used in the Manager.
 
@@ -693,37 +673,53 @@ The list of network interface cards in the **Network Interfaces** tab of the det
 
 You can change the settings of physical host network interfaces, move the management network from one physical host network interface to another, and assign logical networks to physical host network interfaces. Bridge and ethtool custom properties are also supported.
 
-**Important:** You cannot assign logical networks offered by external providers to physical host network interfaces; such networks are dynamically assigned to hosts as they are required by virtual machines.
+    **Warning:** The only way to change the IP address of a host in Red Hat Virtualization is to remove the host and then to add it again.
+
+    **Important:** You cannot assign logical networks offered by external providers to physical host network interfaces; such networks are dynamically assigned to hosts as they are required by virtual machines.
+
+    **Note:** If the switch has been configured to provide Link Layer Discovery Protocol (LLDP) information, you can hover your cursor over a physical network interface to view the switch port’s current configuration. This can help to prevent incorrect configuration. Red Hat recommends checking the following information prior to assigning logical networks:
+
+    * **Port Description (TLV type 4)** and **System Name (TLV type 5)** help to detect to which ports and on which switch the host’s interfaces are patched.
+
+    * **Port VLAN ID** shows the native VLAN ID configured on the switch port for untagged ethernet frames. All VLANs configured on the switch port are shown as **VLAN Name** and **VLAN ID** combinations.
 
 **Editing Host Network Interfaces and Assigning Logical Networks to Hosts**
 
-1. Click the **Hosts** resource tab, and select the desired host.
+1. Click **Compute** &rarr; **Hosts**.
 
-2. Click the **Network Interfaces** tab in the details pane.
+2. Click the host’s name to open the details view.
 
-3. Click the **Setup Host Networks** button to open the **Setup Host Networks** window.
+3. Click the **Network Interfaces** tab.
 
-4. Attach a logical network to a physical host network interface by selecting and dragging the logical network into the **Assigned Logical Networks** area next to the physical host network interface.
+4. Click **Setup Host Networks**.
 
-    Alternatively, right-click the logical network and select a network interface from the drop-down menu.
+5. Optionally, hover your cursor over host network interface to view configuration information provided by the switch.
 
-5. Configure the logical network:
+6. Attach a logical network to a physical host network interface by selecting and dragging the logical network into the **Assigned Logical Networks** area next to the physical host network interface.
 
-    1. Hover your cursor over an assigned logical network and click the pencil icon to open the **Edit Management Network** window.
+  Alternatively, right-click the logical network and select a network interface from the drop-down menu.
 
-    2. Select a **Boot Protocol** from **None**, **DHCP**, or **Static**. If you selected **Static**, enter the **IP**, **Netmask / Routing Prefix**, and the **Gateway**.
+7. Configure the logical network:
+
+    i. Hover your cursor over an assigned logical network and click the pencil icon to open the **Edit Management Network** window.
+
+    ii. From the **IPv4** tab, select a **Boot Protocol** from **None**, **DHCP**, or **Static**. If you selected **Static**, enter the **IP**, **Netmask / Routing Prefix**, and the **Gateway**.
 
         **Note:** Each logical network can have a separate gateway defined from the management network gateway. This ensures traffic that arrives on the logical network will be forwarded using the logical network's gateway instead of the default gateway used by the management network.
 
-    3. To override the default host network quality of service, select **Override QoS** and enter the desired values in the following fields:
+        **Note:** The **IPv6** tab should not be used as it is currently not supported.
+
+    iii. Use the **QoS** tab to override the default host network quality of service. Select **Override QoS** and enter the desired values in the following fields:
 
         * **Weighted Share**: Signifies how much of the logical link's capacity a specific network should be allocated, relative to the other networks attached to the same logical link. The exact share depends on the sum of shares of all networks on that link. By default this is a number in the range 1-100.
+
         * **Rate Limit [Mbps]**: The maximum bandwidth to be used by a network.
+
         * **Committed Rate [Mbps]**: The minimum bandwidth required by a network. The Committed Rate requested is not guaranteed and will vary depending on the network infrastructure and the Committed Rate requested by other networks on the same logical link.
 
         For more information on configuring host network quality of service see [Host Network Quality of Service](sect-Host_Network_Quality_of_Service)
 
-    4. To configure a network bridge, click the **Custom Properties** tab and select **bridge_opts** from the drop-down list. Enter a valid key and value with the following syntax: `key=value`. Separate multiple entries with a whitespace character. The following keys are valid, with the values provided as examples. For more information on these parameters, see [Explanation of bridge opts Parameters](Explanation_of_bridge_opts_Parameters).
+    iv. To configure a network bridge, click the **Custom Properties** tab and select **bridge_opts** from the drop-down list. Enter a valid key and value with the following syntax: `key=value`. Separate multiple entries with a whitespace character. The following keys are valid, with the values provided as examples. For more information on these parameters, see [Explanation of bridge opts Parameters](Explanation_of_bridge_opts_Parameters).
 
             forward_delay=1500
             gc_timer=3765
@@ -747,99 +743,233 @@ You can change the settings of physical host network interfaces, move the manage
             multicast_startup_query_count=2
             multicast_startup_query_interval=3125
 
-    5. To configure ethtool properties, click the **Custom Properties** tab and select **ethtool_opts** from the drop-down list. Enter a valid key and value with the following syntax: `key=value`. Separate multiple entries with a whitespace character. The **ethtool_opts** option is not available by default; you need to add it using the engine configuration tool. See [How to Set Up oVirt Engine to Use Ethtool](How_to_Set_Up_oVirt_Engine_to_Use_Ethtool) for more information. See the manual page for more information on ethtool properties.
+    v. To configure ethtool properties, click the **Custom Properties** tab and select **ethtool_opts** from the drop-down list. Enter a valid value using the format of the command-line arguments of ethtool. For example:
 
-    6. To configure Fibre Channel over Ethernet (FCoE), click the **Custom Properties** tab and select **fcoe** from the drop-down list. Enter a valid key and value with the following syntax: `key=value`. At least `enable=yes` is required. You can also add `dcb=[yes|no]` and `auto_vlan=[yes|no]`. Separate multiple entries with a whitespace character. The **fcoe** option is not available by default; you need to add it using the engine configuration tool. See [How to Set Up RHVM to Use FCoE](How_to_Set_Up_RHVM_to_Use_FCoE) for more information.
+            --coalesce em1 rx-usecs 14 sample-interval 3 --offload em2 rx on lro on tso off --change em1 speed 1000 duplex half
+
+    This field can accept wildcards. For example, to apply the same option to all of this network’s interfaces, use:
+
+            --coalesce * rx-usecs 14 sample-interval 3
+
+    The **ethtool_opts** option is not available by default; you need to add it using the engine configuration tool. See the “How to Set Up oVirt Engine to Use Ethtool” in Appendix B for more information. For more information on ethtool properties, see the manual page by typing `man ethtool` in the command line.        
+
+    vi. To configure Fibre Channel over Ethernet (FCoE), click the **Custom Properties** tab and select **fcoe** from the drop-down list. Enter a valid key and value with the following syntax: `key=value`. At least `enable=yes` is required. You can also add `dcb=[yes|no]` and `auto_vlan=[yes|no]`. Separate multiple entries with a whitespace character. The **fcoe** option is not available by default; you need to add it using the engine configuration tool. See [How to Set Up RHVM to Use FCoE](How_to_Set_Up_RHVM_to_Use_FCoE) for more information.
 
         **Note:** A separate, dedicated logical network is recommended for use with FCoE.
 
-    7. If your logical network definition is not synchronized with the network configuration on the host, select the **Sync network** check box. A logical network cannot be edited or moved to another interface until it is synchronized.
+    vii. To change the default network used by the host from the management network (ovirtmgmt) to a non-management network, configure the non-management network’s default route.
 
-        **Note:** Networks are not considered synchronized if they have one of the following conditions:
+    viii. If your logical network definition is not synchronized with the network configuration on the host, select the **Sync network** check box.
 
-        * The **VM Network** is different from the physical host network.
+8. Select the **Verify connectivity between Host and Engine** check box to check network connectivity; this action will only work if the host is in maintenance mode.
 
-        * The VLAN identifier is different from the physical host network.
+9. Select the **Save network configuration** check box to make the changes persistent when the environment is rebooted.
 
-        * A **Custom** **MTU** is set on the logical network, and is different from the physical host network.
+10. Click **OK**.
 
-6. Select the **Verify connectivity between Host and Engine** check box to check network connectivity; this action will only work if the host is in maintenance mode.
+    **Note:** If not all network interface cards for the host are displayed, click **Management** &rarr; **Refresh Capabilities** button to update the list of network interface cards available for that host.
 
-7. Select the **Save network configuration** check box to make the changes persistent when the environment is rebooted.
+### Synchronizing Host Networks
 
-8. Click **OK**.
+The Manager defines a network interface as out-of-sync when the definition of the interface on the host differs from the definitions stored by the Manager. Out-of-sync networks appear with an Out-of-sync icon ![](/images/admin-guide/out-of-sync.png) out of sync in the host’s **Network Interfaces** tab and with this icon ![](/images/admin-guide/out-of-sync-setup.png) out of sync setup in the **Setup Host Networks** window.
 
-**Note:** If not all network interface cards for the host are displayed, click the **Refresh Capabilities** button to update the list of network interface cards available for that host.
+When a host’s network is out of sync, the only activities that you can perform on the unsynchronized network in the **Setup Host Networks** window are detaching the logical network from the network interface or synchronizing the network.
+
+**Understanding How a Host Becomes out-of-sync**
+
+A host will become out of sync if:
+
+* You make configuration changes on the host rather than using the **Edit Logical Networks** window, for example:
+
+  * Changing the VLAN identifier on the physical host.
+
+  * Changing the **Custom MTU** on the physical host.
+
+* You move a host to a different data center with the same network name, but with different values/parameters.
+
+* You change a network’s **VM Network** property by manually removing the bridge from the host.
+
+* You update definitions using the **Edit Logical Networks** window, without selecting the **Save network configuration** check box when saving your changes. After rebooting the host, it may become unsynchronized.
+
+**Preventing Hosts from Becoming Unsynchronized**
+
+Following these best practices will prevent your host from becoming unsynchronized:
+
+* Ensure that the **Save network configuration** check box is selected when saving your changes in the **Edit Logical Networks** window (it is selected by default).
+
+* Use the Administration Portal to make changes rather than making changes locally on the host.
+
+* Edit VLAN settings according to the instructions in the “Editing a Host’s VLAN Settings” section.
+
+**Synchronizing Hosts**
+
+Synchronizing a host’s network interface definitions involves using the definitions from the Manager and applying them to the host. If these are not the definitions that you require, after synchronizing your hosts update their definitions from the Administration Portal. You can synchronize a host’s networks on three levels:
+
+* Per logical network
+
+* Per host
+
+* Per cluster
+
+**Synchronizing Host Networks on the Logical Network Level**
+
+1. Click **Compute** &rarr; **Hosts**.
+
+2. Click the host’s name to open the details view.
+
+3. Click the **Network Interfaces** tab.
+
+4. Click **Setup Host Networks**.
+
+5. Hover your cursor over the unsynchronized network and click the pencil icon to open the **Edit Network** window.
+
+6. Select the **Sync network** check box.
+
+7. Click **OK**.
+
+8. Select the **Save network configuration** check box in the **Setup Host Networks** window to make the changes persistent when the environment is rebooted.
+
+9. Click **OK**.
+
+**Synchronizing a Host’s Networks on the Host level**
+
+* Click the **Sync All Networks** button in the host’s **Network Interfaces** tab to synchronize all of the host’s unsynchronized network interfaces.
+
+**Synchronizing a Host’s Networks on the Cluster level**
+
+* Click the **Sync All Networks** button in the cluster’s **Logical Networks** tab to synchronize all unsynchronized logical network definitions for the entire cluster.
+
+    **Note:** You can also synchronize a host’s networks via the REST API
+
+### Editing a Host’s VLAN Settings
+
+To change the VLAN settings of a host, the host must be removed from the Manager, reconfigured, and re-added to the engine.
+
+To keep networking synchronized, do the following:
+
+1. Put the host in maintenance mode.
+
+2. Manually remove the management network from the host. This will make the host reachable over the new VLAN.
+
+3. Add the host to the cluster. Virtual machines that are not connected directly to the management network can be migrated between hosts safely.
+
+The following warning message appears when the VLAN ID of the management network is changed:
+
+        Changing certain properties (e.g. VLAN, MTU) of the management network could lead to loss of connectivity to hosts in the data center, if its underlying network infrastructure isn't configured to accommodate the changes. Are you sure you want to proceed?
+
+Proceeding causes all of the hosts in the data center to lose connectivity to the Manager and causes the migration of hosts to the new management network to fail. The management network will be reported as "out-of-sync".
 
 ### Adding Multiple VLANs to a Single Network Interface Using Logical Networks
 
 Multiple VLANs can be added to a single network interface to separate traffic on the one host.
 
-**Important:** You must have created more than one logical network, all with the **Enable VLAN tagging** check box selected in the **New Logical Network** or **Edit Logical Network** windows.
+    **Important:** You must have created more than one logical network, all with the **Enable VLAN tagging** check box selected in the **New Logical Network** or **Edit Logical Network** windows.
 
 **Adding Multiple VLANs to a Network Interface using Logical Networks**
 
-1. Click the **Hosts** resource tab, and select in the results list a host associated with the cluster to which your VLAN-tagged logical networks are assigned.
+1. Click **Compute** → **Hosts**.
 
-2. Click the **Network Interfaces** tab in the details pane to list the physical network interfaces attached to the data center.
+2. Click the host’s name to open the details view.
 
-3. Click **Setup Host Networks** to open the **Setup Host Networks** window.
+3. Click the **Network Interfaces** tab.
 
-4. Drag your VLAN-tagged logical networks into the **Assigned Logical Networks** area next to the physical network interface. The physical network interface can have multiple logical networks assigned due to the VLAN tagging.
+4. Click **Setup Host Networks**.
 
-5. Edit the logical networks by hovering your cursor over an assigned logical network and clicking the pencil icon to open the **Edit Network** window.
+5. Drag your VLAN-tagged logical networks into the **Assigned Logical Networks** area next to the physical network interface. The physical network interface can have multiple logical networks assigned due to the VLAN tagging.
 
-    If your logical network definition is not synchronized with the network configuration on the host, select the **Sync network** check box.
+6. Edit the logical networks:
 
-    Select a **Boot Protocol** from:
+  i. Hover your cursor over an assigned logical network and click the pencil icon.
 
-    * **None**,
+  ii. If your logical network definition is not synchronized with the network configuration on the host, select the **Sync network** check box.
 
-    * **DHCP**, or
+  iii. Select a **Boot Protocol**:
 
-    * **Static**,
+    * **None**
 
-        Provide the **IP** and **Subnet Mask**.
+    * **DHCP**
 
-    Click **OK**.
+    * **Static**
 
-6. Select the **Verify connectivity between Host and Engine** check box to run a network check; this will only work if the host is in maintenance mode.
+    iv. Provide the **IP** and **Subnet Mask**.
 
-7. Select the **Save network configuration** check box
+    v. Click **OK**.
 
-8. Click **OK**.
+7. Select the **Verify connectivity between Host and Engine** check box to run a network check; this will only work if the host is in maintenance mode.
+
+8. Select the **Save network configuration** check box.
+
+9. Click **OK**.
 
 Add the logical network to each host in the cluster by editing a NIC on each host in the cluster. After this is done, the network will become operational.
 
 You have added multiple VLAN-tagged logical networks to a single interface. This process can be repeated multiple times, selecting and editing the same network interface each time on each host to add logical networks with different VLAN tags to a single network interface.
 
+### Assigning Additional IPv4 Addresses to a Host Network
+
+A host network, such as the **ovirtmgmt** management network, is created with only one IP address when initially set up. This means that if a NIC’s configuration file (for example, **/etc/sysconfig/network-scripts/ifcfg-eth01**) is configured with multiple IP addresses, only the first listed IP address will be assigned to the host network. Additional IP addresses may be required if connecting to storage, or to a server on a separate private subnet using the same NIC.
+
+The `vdsm-hook-extra-ipv4-addrs` hook allows you to configure additional IPv4 addresses for host networks. For more information about hooks, see Appendix A, VDSM and Hooks.
+
+In the following procedure, the host-specific tasks must be performed on each host for which you want to configure additional IP addresses.
+
+**Assigning Additional IPv4 Addresses to a Host Network**
+
+1. On the host that you want to configure additional IPv4 addresses for, install the VDSM hook package. The package is available by default on oVirt Nodes but needs to be installed on Enterprise Linux hosts.
+
+      # yum install vdsm-hook-extra-ipv4-addrs
+
+2. On the Engine, run the following command to add the key:
+
+      # engine-config -s 'UserDefinedNetworkCustomProperties=ipv4_addrs=.\*'
+
+3. Restart the ovirt-engine service:
+
+      # systemctl restart ovirt-engine.service
+
+4. In the Administration Portal, click **Compute** &rarr; **Hosts**.
+
+5. Click the host’s name to open the details view.
+
+6. Click the **Network Interfaces** tab and click **Setup Host Networks**.
+
+7. Edit the host network interface by hovering the cursor over the assigned logical network and clicking the pencil icon.
+
+8. Select **ipv4_addr** from the **Custom Properties** drop-down list and add the additional IP address and prefix (for example 5.5.5.5/24). Multiple IP addresses must be comma-separated.
+
+9. Click **OK**.
+
+10. Select the **Save network configuration** check box.
+
+11. Click **OK**.
+
+The additional IP addresses will not be displayed in the Engine, but you can run the command `ip addr show` on the host to confirm that they have been added.
+
 ### Adding Network Labels to Host Network Interfaces
 
 Using network labels allows you to greatly simplify the administrative workload associated with assigning logical networks to host network interfaces.
 
-**Note:** Setting a label on a role network (for instance, a migration network or a display network) causes a mass deployment of that network on all hosts. Such mass additions of networks are achieved through the use of DHCP. This method of mass deployment was chosen over a method of typing in static addresses, because of the unscalable nature of the task of typing in many static IP addresses.
+    **Note:** Setting a label on a role network (for instance, a migration network or a display network) causes a mass deployment of that network on all hosts. Such mass additions of networks are achieved through the use of DHCP. This method of mass deployment was chosen over a method of typing in static addresses, because of the unscalable nature of the task of typing in many static IP addresses.
 
 **Adding Network Labels to Host Network Interfaces**
 
-1. Click the **Hosts** resource tab, and select in the results list a host associated with the cluster to which your VLAN-tagged logical networks are assigned.
+1. Click **Compute** &rarr; **Hosts**.
 
-2. Click the **Network Interfaces** tab in the details pane to list the physical network interfaces attached to the data center.
+2. Click the host’s name to open the details view.
 
-3. Click **Setup Host Networks** to open the **Setup Host Networks** window.
+3. Click the **Network Interfaces** tab.
 
-4. Click **Labels**, and right-click **[New Label]**. Select a physical network interface to label.
+4. Click **Setup Host Networks**.
 
-    ![](/images/admin-guide/7334.png)
+5. Click **Labels**, and right-click **[New Label]**. Select a physical network interface to label.
 
-5. Enter a name for the network label in the **Label** text field.
+6. Enter a name for the network label in the **Label** text field.
 
-6. Click **OK**.
+7. Click **OK**.
 
 You have added a network label to a host network interface. Any newly created logical networks with the same label will be automatically assigned to all host network interfaces with that label. Also, removing a label from a logical network will automatically remove that logical network from all host network interfaces with that label.
 
-### Bonds
-
-#### Bonding Logic in oVirt
+### Bonding Logic in oVirt
 
 The oVirt Engine Administration Portal allows you to create bond devices using a graphical interface. There are several distinct bond creation scenarios, each with its own logic.
 
@@ -883,74 +1013,78 @@ Two factors that affect bonding logic are:
  </tbody>
 </table>
 
-#### Bonds
+### Bonding Modes
 
-A *bond* is an aggregation of multiple network interface cards into a single software-defined device. Because bonded network interfaces combine the transmission capability of the network interface cards included in the bond to act as a single network interface, they can provide greater transmission speed than that of a single network interface card. Also, because all network interface cards in the bond must fail for the bond itself to fail, bonding provides increased fault tolerance. However, one limitation is that the network interface cards that form a bonded network interface must be of the same make and model to ensure that all network interface cards in the bond support the same options and modes.
+A bond is an aggregation of multiple network interface cards into a single software-defined device. Because bonded network interfaces combine the transmission capability of the network interface cards included in the bond to act as a single network interface, they can provide greater transmission speed than that of a single network interface card. Also, because all network interface cards in the bond must fail for the bond itself to fail, bonding provides increased fault tolerance. However, one limitation is that the network interface cards that form a bonded network interface must be of the same make and model to ensure that all network interface cards in the bond support the same options and modes.
 
 The packet dispersal algorithm for a bond is determined by the bonding mode used.
 
-**Important:** Modes 1, 2, 3, and 4 support both virtual machine (bridged) and non-virtual machine (bridgeless) network types. Modes 0, 5 and 6 support non-virtual machine (bridgeless) networks only.
-
-#### Bonding Modes
+    **Important:** Modes 1, 2, 3, and 4 support both virtual machine (bridged) and non-virtual machine (bridgeless) network types. Modes 0, 5 and 6 support non-virtual machine (bridgeless) networks only.
 
 oVirt uses Mode 4 by default, but supports the following common bonding modes:
 
-Mode 0 (round-robin policy)
+**Mode 0 (round-robin policy)**
 : Transmits packets through network interface cards in sequential order. Packets are transmitted in a loop that begins with the first available network interface card in the bond and end with the last available network interface card in the bond. All subsequent loops then start with the first available network interface card. Mode 0 offers fault tolerance and balances the load across all network interface cards in the bond. However, Mode 0 cannot be used in conjunction with bridges, and is therefore not compatible with virtual machine logical networks.
 
-Mode 1 (active-backup policy)
+**Mode 1 (active-backup policy)**
 : Sets all network interface cards to a backup state while one network interface card remains active. In the event of failure in the active network interface card, one of the backup network interface cards replaces that network interface card as the only active network interface card in the bond. The MAC address of the bond in Mode 1 is visible on only one port to prevent any confusion that might otherwise be caused if the MAC address of the bond changed to reflect that of the active network interface card. Mode 1 provides fault tolerance and is supported in oVirt.
 
-Mode 2 (XOR policy)
+**Mode 2 (XOR policy)**
 : Selects the network interface card through which to transmit packets based on the result of an XOR operation on the source and destination MAC addresses modulo network interface card slave count. This calculation ensures that the same network interface card is selected for each destination MAC address used. Mode 2 provides fault tolerance and load balancing and is supported in oVirt.
 
-Mode 3 (broadcast policy)
+**Mode 3 (broadcast policy)**
 : Transmits all packets to all network interface cards. Mode 3 provides fault tolerance and is supported in oVirt.
 
-Mode 4 (IEEE 802.3ad policy)
+**Mode 4 (IEEE 802.3ad policy)**
 : Creates aggregation groups in which the interfaces share the same speed and duplex settings. Mode 4 uses all network interface cards in the active aggregation group in accordance with the IEEE 802.3ad specification and is supported in oVirt.
 
-Mode 5 (adaptive transmit load balancing policy)
+**Mode 5 (adaptive transmit load balancing policy)**
 : Ensures the distribution of outgoing traffic accounts for the load on each network interface card in the bond and that the current network interface card receives all incoming traffic. If the network interface card assigned to receive traffic fails, another network interface card is assigned to the role of receiving incoming traffic. Mode 5 cannot be used in conjunction with bridges, therefore it is not compatible with virtual machine logical networks.
 
-Mode 6 (adaptive load balancing policy)
+**Mode 6 (adaptive load balancing policy)**
 : Combines Mode 5 (adaptive transmit load balancing policy) with receive load balancing for IPv4 traffic without any special switch requirements. ARP negotiation is used for balancing the receive load. Mode 6 cannot be used in conjunction with bridges, therefore it is not compatible with virtual machine logical networks.
 
-#### Creating a Bond Device Using the Administration Portal
+### Creating a Bond Device Using the Administration Portal
 
 You can bond compatible network devices together. This type of configuration can increase available bandwidth and reliability. You can bond multiple network interfaces, pre-existing bond devices, and combinations of the two. A bond can carry both VLAN tagged and non-VLAN traffic.
 
 **Creating a Bond Device using the Administration Portal**
 
-1. Click the **Hosts** resource tab, and select the host in the results list.
+1. Click **Compute** &rarr; **Hosts**.
 
-2. Click the **Network Interfaces** tab in the details pane to list the physical network interfaces attached to the host.
+2. Click the host’s name to open the details view.
 
-3. Click **Setup Host Networks** to open the **Setup Host Networks** window.
+3. Click the **Network Interfaces** tab to list the physical network interfaces attached to the host.
 
-4. Select and drag one of the devices over the top of another device and drop it to open the **Create New Bond** window. Alternatively, right-click the device and select another device from the drop-down menu.
+4. Click **Setup Host Networks**.
 
-    If the devices are incompatible, the bond operation fails and suggests how to correct the compatibility issue.
+5. Optionally, hover your cursor over host network interface to view configuration information provided by the switch.
 
-5. Select the **Bond Name** and **Bonding Mode** from the drop-down menus.
+6. Select and drag one of the devices over the top of another device and drop it to open the **Create New Bond** window. Alternatively, right-click the device and select another device from the drop-down menu.
 
-    Bonding modes 1, 2, 4, and 5 can be selected. Any other mode can be configured using the **Custom** option.
+   If the devices are incompatible, the bond operation fails and suggests how to correct the compatibility issue.
 
-6. Click **OK** to create the bond and close the **Create New Bond** window.
+7. Select the **Bond Name** and **Bonding Mode** from the drop-down menus.
 
-7. Assign a logical network to the newly created bond device.
+   Bonding modes 1, 2, 4, and 5 can be selected. Any other mode can be configured using the **Custom** option.
 
-8. Optionally choose to **Verify connectivity between Host and Engine** and **Save network configuration**.
+8. Click **OK** to create the bond and close the **Create New Bond** window.
 
-9. Click **OK** accept the changes and close the **Setup Host Networks** window.
+9. Assign a logical network to the newly created bond device.
+
+10. Optionally choose to **Verify connectivity between Host and Engine** and **Save network configuration**.
+
+11. Click **OK**.
 
 Your network devices are linked into a bond device and can be edited as a single interface. The bond device is listed in the **Network Interfaces** tab of the details pane for the selected host.
 
 Bonding must be enabled for the ports of the switch used by the host. The process by which bonding is enabled is slightly different for each switch; consult the manual provided by your switch vendor for detailed information on how to enable bonding.
 
-#### Example Uses of Custom Bonding Options with Host Interfaces
+    **Note:** For a bond in Mode 4, all slaves must be configured properly on the switch. If none of them is configured properly on the switch, the `ad_partner_mac` is reported as 00:00:00:00:00:00. The Manager will display a warning in the form of an exclamation mark icon on the bond in the **Network Interfaces** tab. No warning is provided if any of the slaves are up and running.
 
-You can create customized bond devices by selecting **Custom** from the **Bonding Mode** of the **Create New Bond** window. The following examples should be adapted for your needs. For a comprehensive list of bonding options and their descriptions, see the [*Linux Ethernet Bonding Driver HOWTO*](https://www.kernel.org/doc/Documentation/networking/bonding.txt) on Kernel.org.
+### Example Uses of Custom Bonding Options with Host Interfaces
+
+You can create customized bond devices by selecting **Custom** from the **Bonding Mode** of the **Create New Bond** window. The following examples should be adapted for your needs. For a comprehensive list of bonding options and their descriptions, see the [Linux Ethernet Bonding Driver HOWTO](https://www.kernel.org/doc/Documentation/networking/bonding.txt) on Kernel.org.
 
 **xmit_hash_policy**
 
@@ -988,33 +1122,7 @@ Use the following procedure to change the fully qualified domain name of hosts.
 
 5. Re-register the host with the Manager. See [Adding a Host](Adding_a_Host) for more information.
 
-### Changing the IP Address of a Host
-
-1. Place the host into maintenance mode so the virtual machines are live migrated to another host. See [Moving a host to maintenance mode](Moving_a_host_to_maintenance_mode1) for more information. Alternatively, manually shut down or migrate all the virtual machines to another host. See "Manually Migrating Virtual Machines" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/) for more information.
-
-2. Click **Remove**, and click **OK** to remove the host from the Administration Portal.
-
-2. Log in to your host as the `admin` user.
-
-3. Press **F2**, select **OK**, and press **Enter** to enter the rescue shell.
-
-4. Modify the IP address by editing the `/etc/sysconfig/network-scripts/ifcfg-ovirtmgmt` file. For example:
-
-        # vi /etc/sysconfig/network-scripts/ifcfg-ovirtmgmt
-        ...
-        BOOTPROTO=none
-        IPADDR=10.x.x.x
-        PREFIX=24
-        ...
-
-5. Restart the network service and verify that the IP address has been updated.
-
-        # systemctl restart network.service
-        # ip addr show ovirtmgmt
-
-6. Type `exit` to exit the rescue shell and return to the text user interface.
-
-7. Re-register the host with the Manager. See [Adding a Host](Adding_a_Host) for more information.
-
 **Prev:** [Chapter 5: Clusters](../chap-Clusters)<br>
 **Next:** [Chapter 7: Hosts](../chap-Hosts)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-logical_networks)

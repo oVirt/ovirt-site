@@ -2,7 +2,7 @@
 title: Pools
 ---
 
-# Chapter 10: Pools
+# Chapter 9: Pools
 
 ## Introduction to Virtual Machine Pools
 
@@ -12,55 +12,191 @@ Users access a virtual machine pool by taking a virtual machine from the pool. W
 
 Virtual machines in a virtual machine pool are stateless, meaning that data is not persistent across reboots. However, if a user configures console options for a virtual machine taken from a virtual machine pool, those options will be set as the default for that user for that virtual machine pool.
 
+    **Note:** Virtual machines taken from a pool are not stateless when accessed from the Administration Portal. This is because administrators need to be able to write changes to the disk if necessary.
+
 In principle, virtual machines in a pool are started when taken by a user, and shut down when the user is finished. However, virtual machine pools can also contain pre-started virtual machines. Pre-started virtual machines are kept in an up state, and remain idle until they are taken by a user. This allows users to start using such virtual machines immediately, but these virtual machines will consume system resources even while not in use due to being idle.
 
-**Note:** Virtual machines taken from a pool are not stateless when accessed from the Administration Portal. This is because administrators need to be able to write changes to the disk if necessary.
-
-## Virtual Machine Pool Tasks
-
-### Creating a Virtual Machine Pool
+## Creating a Virtual Machine Pool
 
 You can create a virtual machine pool that contains multiple virtual machines that have been created based on a common template.
 
+**<tt>Sysprep</tt> File Configuration Options for Windows Virtual Machines**
+
+Several `sysprep` file configuration options are available, depending on your requirements.
+
+If your pool does not need to join a domain, you can use the default `sysprep` file, located in `/usr/share/ovirt-engine/conf/sysprep/`.
+
+If your pool needs to join a domain, you can create a custom `sysprep` for each Windows operating system:
+
+1. Copy the relevant sections for each operating system from `/usr/share/ovirt-engine/conf/osinfo-defaults.properties` to a new file and save as `99-defaults.properties`.
+
+2. In `99-defaults.properties`, specify the Windows product activation key and the path of your new custom `sysprep` file:
+
+        os.operating_system.productKey.value=Windows_product_activation_key
+        ...
+        os.operating_system.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep.operating_system
+
+3. Create a new `sysprep` file, specifying the domain, domain password, and domain administrator:
+
+            <Credentials>
+              <Domain>AD_Domain</Domain>
+              <Password>Domain_Password</Password>
+              <Username>Domain_Administrator</Username>
+           </Credentials>
+
+If you need to configure different sysprep settings for different pools of Windows virtual machines, you can create a custom sysprep file in the Administration Portal (see "Creating a Virtual Machine Pool" below).
+
 **Creating a Virtual Machine Pool**
 
-1. Click the **Pools** tab.
+1. Click **Compute** &rarr; **Pools**.
 
-2. Click the **New** button to open the **New Pool** window.
+2. Click **New**.
 
-3. Use the drop down-list to select the **Cluster** or use the selected default.
+3. Select a **Cluster** from the drop-down list.
 
-4. Use the **Template** drop-down menu to select the required template and version or use the selected default. A template provides standard settings for all the virtual machines in the pool.
+4. Select a **Template** and version from the drop-down menu. A template provides standard settings for all the virtual machines in the pool.
 
-5. Use the **Operating System** drop-down list to select an **Operating System** or use the default provided by the template.
+5. Select an **Operating System** from the drop-down list.
 
-6. Use the **Optimized for** drop-down list to optimize virtual machines for either **Desktop** use or **Server** use.
+6. Use the **Optimized for** drop-down list to optimize virtual machines for **Desktop** or **Server**.
 
-7. Enter a **Name** and **Description**, any **Comments**, and the **Number of VMs** for the pool.
+    **Note:** **High Performance** optimization is not recommended for pools because a high performance virtual machine is pinned to a single host and concrete resources. A pool containing multiple virtual machines with such a configuration would not run well.
 
-8. Enter the number of virtual machines to be prestarted in the **Prestarted VMs** field.
+7. Enter a **Name** and, optionally, a **Description** and **Comment**.
 
-9. Select the **Maximum number of VMs per user** that a single user is allowed to run in a session. The minimum is one.
+   The **Name** of the pool is applied to each virtual machine in the pool, with a numeric suffix. You can customize the numbering of the virtual machines with `?` as a placeholder.
 
-10. Select the **Delete Protection** check box to enable delete protection.
+   **Pool Name and Virtual Machine Numbering Examples**
 
-11. Optionally, click the **Show Advanced Options** button and perform the following steps:
+   * Pool: `MyPool`
 
-    1. Click the **Type** tab and select a **Pool Type**:
+     Virtual machines: `MyPool-1`, `MyPool-2`, …​ `MyPool-10`
+
+   * Pool: `MyPool-???`
+
+     Virtual machines: `MyPool-001`, `MyPool-002`, …​ `MyPool-010`
+
+8. Enter the **Number of VMs** for the pool.
+
+9. Enter the number of virtual machines to be prestarted in the **Prestarted VMs** field.
+
+10. Select the **Maximum number of VMs per user** that a single user is allowed to run in a session. The minimum is **1**.
+
+11. Select the **Delete Protection** check box to enable delete protection.
+
+12. If you are creating a pool of non-Windows virtual machines or if you are using the default `sysprep`, skip this step. If you are creating a custom `sysprep` file for a pool of Windows virtual machines:
+
+    i. Click the **Show Advanced Options** button.
+
+    ii. Click the **Initial Run** tab and select the **Use Cloud-Init/Sysprep** check box.
+
+    iii. Click the **Authentication** arrow and enter the **User Name** and **Password** or select **Use already configured password**.
+
+    **Note:** This `User Name` is the name of the local administrator. You can change its value from its default value (`user`) here in the **Authentication** section or in a custom `sysprep` file.
+
+    iv. Click the **Custom Script** arrow and paste the contents of the default `sysprep` file, located in `/usr/share/ovirt-engine/conf/sysprep/`, into the text box.
+
+    v. You can modify the following values of the `sysprep` file:
+
+      * `Key`. If you do not want to use the pre-defined Windows activation product key, replace `<![CDATA[$ProductKey$]]>` with a valid product key:
+
+            <ProductKey>
+                <Key><![CDATA[$ProductKey$]]></Key>
+            </ProductKey>
+
+        **Windows Product Key Example**
+
+            <ProductKey>
+                <Key>0000-000-000-000</Key>
+            </ProductKey>
+
+      * `Domain` that the Windows virtual machines will join, the domain’s `Password`, and the domain administrator’s `Username`:
+
+            <Credentials>
+                <Domain>AD_Domain</Domain>
+                <Password>Domain_Password</Password>
+                <Username>Domain_Administrator</Username>
+           </Credentials>
+
+        **Domain Credentials Example**
+
+            <Credentials>
+                <Domain>addomain.local</Domain>
+                <Password>12345678</Password>
+                <Username>Sarah_Smith</Username>
+            </Credentials>
+
+                **Note:** The `Domain`, `Password`, and `Username` are required to join the domain. The `Key` is for activation. You do not necessarily need both.
+
+                The domain and credentials cannot be modified in the **Initial Run** tab.
+
+      * `FullName` of the local administrator:          
+
+        <UserData>
+        ...
+            <FullName>Local_Administrator</FullName>
+        ...
+        </UserData>
+
+      * `DisplayName` and `Name` of the local administrator:
+
+        <LocalAccounts>
+            <LocalAccount wcm:action="add">
+                <Password>
+                    <Value><![CDATA[$AdminPassword$]]></Value>
+                    <PlainText>true</PlainText>
+                </Password>
+                <DisplayName>Local_Administrator</DisplayName>
+                <Group>administrators</Group>
+                <Name>Local_Administrator</Name>
+            </LocalAccount>
+        </LocalAccounts>
+
+The remaining variables in the `sysprep` file can be filled in on the **Initial Run** tab.
+
+13. Optionally, set a **Pool Type**:
+
+    i. Click the **Type** tab and select a **Pool Type**:
 
         * **Manual** - The administrator is responsible for explicitly returning the virtual machine to the pool. The virtual machine reverts to the original base image after the administrator returns it to the pool.
 
         * **Automatic** - When the virtual machine is shut down, it automatically reverts to its base image and is returned to the virtual machine pool.
 
-    2. Select the **Console** tab. At the bottom of the tab window, select the **Override SPICE Proxy** check box to enable the **Overridden SPICE proxy address** text field. Specify the address of a SPICE proxy to override the global SPICE proxy.
+    ii. Select the **Stateful Pool** check box to ensure that virtual machines are started in a stateful mode. This ensures that changes made by a previous user will persist on a virtual machine.
 
-12. Click **OK**.
+    iii. Click **OK**.
+
+14. Optionally, override the SPICE proxy:
+
+    i. In the **Console** tab, select the **Override SPICE Proxy** check box
+
+    ii. In the **Overridden SPICE proxy address** text field, specify the address of a SPICE proxy to override the global SPICE proxy.
+
+    iii. Click **OK**.
+
+15. For a pool of Windows virtual machines, click **Compute** &rarr; **Virtual Machines**, select each virtual machine from the pool, and click **Run** &rarr; **Run Once**.
+
+    **Note:** If the virtual machine does not start and `Info [windeploy.exe] Found no unattend file` appears in `%WINDIR%\panther\UnattendGC\setupact.log`, add the **UnattendFile** key to the registry of the Windows virtual machine that was used to create the template for the pool:
+
+    i. Check that the Windows virtual machine has an attached floppy device with the `unattend` file, for example, `A:\Unattend.xml`.
+
+    ii. Click **Start**, click **Run**, type `regedit` in the **Open** text box, and click **OK**.
+
+    iii. In the left pane, go to **HKEY_LOCAL_MACHINE** &rarr; **SYSTEM** &rarr; **Setup**.
+
+    iv. Right-click the right pane and select **New** &rarr; **String Value**.
+
+    v. Enter **UnattendFile** as the key name.
+
+    vi. Double-click the new key and enter the `unattend` file name and path, for example, `A:\Unattend.xml`, as the key’s value.
+
+    vii. Save the registry, seal the Windows virtual machine, and create a new template.
 
 You have created and configured a virtual machine pool with the specified number of identical virtual machines. You can view these virtual machines in the **Virtual Machines** resource tab, or in the details pane of the **Pools** resource tab; a virtual machine in a pool is distinguished from independent virtual machines by its icon.
 
-### Explanation of Settings and Controls in the New Pool and Edit Pool Windows
+## Explanation of Settings and Controls in the New Pool and Edit Pool Windows
 
-#### New Pool and Edit Pool General Settings Explained
+### New Pool and Edit Pool General Settings Explained
 
 The following table details the information required on the **General** tab of the **New Pool** and **Edit Pool** windows that are specific to virtual machine pools. All other settings are identical to those in the **New Virtual Machine** window.
 
@@ -76,7 +212,7 @@ The following table details the information required on the **General** tab of t
 | **Maximum number of VMs per user** | Allows you to specify the maximum number of virtual machines a single user can take from the virtual machine pool at any one time. The value of this field must be between `1` and `32,767`. |
 | **Delete Protection** | Allows you to prevent the virtual machines in the pool from being deleted. |
 
-#### New and Edit Pool Type Settings Explained
+### New Pool and Edit Pool Type Settings Explained
 
 The following table details the information required on the **Type** tab of the **New Pool** and **Edit Pool** windows.
 
@@ -99,6 +235,9 @@ The following table details the information required on the **Type** tab of the 
      <li><b>Manual</b>: After a user finishes using a virtual machine taken from a virtual machine pool, that virtual machine is only returned to the virtual machine pool when an administrator manually returns the virtual machine.</li>
     </ul>
    </td>
+   <tr>
+    <td><b>Stateful Pool</b></td>
+    <td>Specify whether the state of virtual machines in the pool is preserved when a virtual machine is passed to a different user. This means that changes made by a previous user will persist on the virtual machine.</td>
   </tr>
  </tbody>
 </table>
@@ -240,25 +379,51 @@ The following table details the options available on the **Host** tab of the **N
  </tbody>
 </table>
 
-### Editing a Virtual Machine Pool
+### New Pool and Edit Pool Resource Allocation Settings Explained
 
-#### Editing a Virtual Machine Pool
+The following table details the information required on the **Resource Allocation** tab of the **New Pool** and **Edit Pool** windows that are specific to virtual machine pools. All other settings are identical to those in the **New Virtual Machine** window.
+
+**Resource Allocation settings**
+
+<table>
+ <thead>
+  <tr>
+   <td>Field Name</td>
+   <td>Sub-element</td>
+   <td>Description</td>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td><b>Disk Allocation</b></td>
+   <td><b>Auto select target</b></td>
+   <td>Select this check box to automatically select the storage domain that has the most free space. The <b>Target</b> and <b>Profile</b> fields are disabled.</td>
+  </tr>
+  <tr>
+   <td> </td>
+   <td><b>Format</b></td>
+   <td>This field is read-only and always displays <b>QCOW2</b> unless the storage domain type is OpenStack Volume (Cinder), in which case the format is <b>Raw</b>.</td>
+  </tr>
+ </tbody>
+</table>
+
+## Editing a Virtual Machine Pool
 
 After a virtual machine pool has been created, its properties can be edited. The properties available when editing a virtual machine pool are identical to those available when creating a new virtual machine pool except that the **Number of VMs** property is replaced by **Increase number of VMs in pool by**.
 
-**Note:** When editing a virtual machine pool, the changes introduced affect only new virtual machines. Virtual machines that existed already at the time of the introduced changes remain unaffected.
+    **Note:** When editing a virtual machine pool, the changes introduced affect only new virtual machines. Virtual machines that existed already at the time of the introduced changes remain unaffected.
 
 **Editing a Virtual Machine Pool**
 
-1. Click the **Pools** resource tab, and select a virtual machine pool from the results list.
+1. Click **Compute** &rarr; **Pools** and select a virtual machine pool.
 
-2. Click **Edit** to open the **Edit Pool** window.
+2. Click **Edit**.
 
 3. Edit the properties of the virtual machine pool.
 
-4. Click **Ok**.
+4. Click **OK**.
 
-#### Prestarting Virtual Machines in a Pool
+## Prestarting Virtual Machines in a Pool
 
 The virtual machines in a virtual machine pool are powered down by default. When a user requests a virtual machine from a pool, a machine is powered up and assigned to the user. In contrast, a prestarted virtual machine is already running and waiting to be assigned to a user, decreasing the amount of time a user has to wait before being able to access a machine. When a prestarted virtual machine is shut down it is returned to the pool and restored to its original state. The maximum number of prestarted virtual machines is the number of virtual machines in the pool.
 
@@ -266,138 +431,65 @@ Prestarted virtual machines are suitable for environments in which users require
 
 **Prestarting Virtual Machines in a Pool**
 
-1. Use the **Pools** resource tab, tree mode, or the search function to find and select the virtual machine pool in the results list.
+1. Click **Compute** &rarr; **Pools** and select a virtual machine pool.
 
-2. Click **Edit** to open the **Edit Pool** window.
+2. Click **Edit**.
 
 3. Enter the number of virtual machines to be prestarted in the **Prestarted VMs** field.
 
-4. Select the **Pool** tab. Ensure **Pool Type** is set to **Automatic**.
+4. Click the **Type** tab. Ensure **Pool Type** is set to **Automatic**.
 
 5. Click **OK**.
 
-You have set a number of prestarted virtual machines in a pool. The prestarted machines are running and available for use.
-
-#### Adding Virtual Machines to a Virtual Machine Pool
+## Adding Virtual Machines to a Virtual Machine Pool
 
 If you require more virtual machines than originally provisioned in a virtual machine pool, add more machines to the pool.
 
 **Adding Virtual Machines to a Virtual Machine Pool**
 
-1. Use the **Pools** resource tab, tree mode, or the search function to find and select the virtual machine pool in the results list.
+1. Click **Compute** &rarr; **Pools** and select a virtual machine pool.
 
-2. Click **Edit** to open the **Edit Pool** window.
+2. Click **Edit**.
 
 3. Enter the number of additional virtual machines to add in the **Increase number of VMs in pool by** field.
 
 4. Click **OK**.
 
-You have added more virtual machines to the virtual machine pool.
-
-#### Detaching Virtual Machines from a Virtual Machine Pool
+## Detaching Virtual Machines from a Virtual Machine Pool
 
 You can detach virtual machines from a virtual machine pool. Detaching a virtual machine removes it from the pool to become an independent virtual machine.
 
 **Detaching Virtual Machines from a Virtual Machine Pool**
 
-1. Use the **Pools** resource tab, tree mode, or the search function to find and select the virtual machine pool in the results list.
+1. Click **Compute** &rarr; **Pools**.
 
-2. Ensure the virtual machine has a status of `Down` because you cannot detach a running virtual machine.
+2. Click the pool’s name to open the details view.
 
-    Click the **Virtual Machines** tab in the details pane to list the virtual machines in the pool.
+3. Click the **Virtual Machines** tab to list the virtual machines in the pool.
 
-3. Select one or more virtual machines and click **Detach** to open the **Detach Virtual Machine(s)** confirmation window.
+4. Ensure the virtual machine has a status of `Down`; you cannot detach a running virtual machine.
 
-4. Click **OK** to detach the virtual machine from the pool.
+5. Select one or more virtual machines and click **Detach**.
 
-**Note:** The virtual machine still exists in the environment and can be viewed and accessed from the **Virtual Machines** resource tab. Note that the icon changes to denote that the detached virtual machine is an independent virtual machine.
+6. Click **OK**.
 
-You have detached a virtual machine from the virtual machine pool.
+    **Note:** The virtual machine still exists in the environment and can be viewed and accessed from **Compute** &rarr; **Virtual Machines** resource tab. Note that the icon changes to denote that the detached virtual machine is an independent virtual machine.
 
-### Removing a Virtual Machine Pool
+## Removing a Virtual Machine Pool
 
 You can remove a virtual machine pool from a data center. You must first either delete or detach all of the virtual machines in the pool. Detaching virtual machines from the pool will preserve them as independent virtual machines.
 
 **Removing a Virtual Machine Pool**
 
-1. Use the **Pools** resource tab, tree mode, or the search function to find and select the virtual machine pool in the results list.
+1. Click **Compute** &rarr; **Pools** and select the virtual machine pool.
 
-2. Click **Remove** to open the **Remove Pool(s)** confirmation window.
+2. Click **Remove**.
 
-3. Click **OK** to remove the pool.
-
-You have removed the pool from the data center.
-
-## Pools and Permissions
-
-### Managing System Permissions for a Virtual Machine Pool
-
-As the **SuperUser**, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a **DataCenterAdmin** role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a **ClusterAdmin** has administrator privileges only for the assigned cluster.
-
-A virtual machine pool administrator is a system administration role for virtual machine pools in a data center. This role can be applied to specific virtual machine pools, to a data center, or to the whole virtualized environment; this is useful to allow different users to manage certain virtual machine pool resources.
-
-The virtual machine pool administrator role permits the following actions:
-
-* Create, edit, and remove pools.
-
-* Add and detach virtual machines from the pool.
-
-**Note:** You can only assign roles and permissions to existing users.
-
-### Virtual Machine Pool Administrator Roles Explained
-
-**Pool Permission Roles**
-
-The table below describes the administrator roles and privileges applicable to pool administration.
-
-**oVirt System Administrator Roles**
-
-| Role | Privileges | Notes |
-|-
-| VmPoolAdmin | System Administrator role of a virtual pool. | Can create, delete, and configure a virtual pool, assign and remove virtual pool users, and perform basic operations on a virtual machine. |
-| ClusterAdmin | Cluster Administrator | Can use, create, delete, manage all virtual machine pools in a specific cluster. |
-
-### Assigning an Administrator or User Role to a Resource
-
-Assign administrator or user roles to resources to allow users to access or manage that resource.
-
-**Assigning a Role to a Resource**
-
-1. Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.
-
-2. Click the **Permissions** tab in the details pane to list the assigned users, the user's role, and the inherited permissions for the selected resource.
-
-3. Click **Add**.
-
-4. Enter the name or user name of an existing user into the **Search** text box and click **Go**. Select a user from the resulting list of possible matches.
-
-5. Select a role from the **Role to Assign:** drop-down list.
-
-6. Click **OK**.
-
-You have assigned a role to a user; the user now has the inherited permissions of that role enabled for that resource.
-
-### Removing an Administrator or User Role from a Resource
-
-Remove an administrator or user role from a resource; the user loses the inherited permissions associated with the role for that resource.
-
-**Removing a Role from a Resource**
-
-1. Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.
-
-2. Click the **Permissions** tab in the details pane to list the assigned users, the user's role, and the inherited permissions for the selected resource.
-
-3. Select the user to remove from the resource.
-
-4. Click **Remove**. The **Remove Permission** window opens to confirm permissions removal.
-
-5. Click **OK**.
-
-You have removed the user's role, and the associated permissions, from the resource.
+3. Click **OK**.
 
 ## Trusted Compute Pools
 
-Trusted compute pools are secure clusters based on Intel Trusted Execution Technology (Intel TXT). Trusted clusters only allow hosts that are verified by Intel's OpenAttestation, which measures the integrity of the host's hardware and software against a White List database. Trusted hosts and the virtual machines running on them can be assigned tasks that require higher security. For more information on Intel TXT, trusted systems, and attestation, see [https://software.intel.com/en-us/articles/intel-trusted-execution-technology-intel-txt-enabling-guide](https://software.intel.com/en-us/articles/intel-trusted-execution-technology-intel-txt-enabling-guide).](https://software.intel.com/en-us/articles/intel-trusted-execution-technology-intel-txt-enabling-guide](https://software.intel.com/en-us/articles/intel-trusted-execution-technology-intel-txt-enabling-guide).)
+Trusted compute pools are secure clusters based on Intel Trusted Execution Technology (Intel TXT). Trusted clusters only allow hosts that are verified by Intel's OpenAttestation, which measures the integrity of the host's hardware and software against a White List database. Trusted hosts and the virtual machines running on them can be assigned tasks that require higher security. For more information on Intel TXT, trusted systems, and attestation, see [https://software.intel.com/en-us/articles/intel-trusted-execution-technology-intel-txt-enabling-guide](https://software.intel.com/en-us/articles/intel-trusted-execution-technology-intel-txt-enabling-guide).]
 
 Creating a trusted compute pool involves the following steps:
 
@@ -407,7 +499,7 @@ Creating a trusted compute pool involves the following steps:
 
 * Adding trusted hosts to the trusted cluster. Hosts must be running the OpenAttestation agent to be verified as trusted by the OpenAttestation sever.
 
-For information on installing an OpenAttestation server, installing the OpenAttestation agent on hosts, and creating a White List database, see [https://github.com/OpenAttestation/OpenAttestation/wiki](https://github.com/OpenAttestation/OpenAttestation/wiki).](https://github.com/OpenAttestation/OpenAttestation/wiki](https://github.com/OpenAttestation/OpenAttestation/wiki).)
+For information on installing an OpenAttestation server, installing the OpenAttestation agent on hosts, and creating a White List database, see [https://github.com/OpenAttestation/OpenAttestation/wiki](https://github.com/OpenAttestation/OpenAttestation/wiki).]
 
 ### Connecting an OpenAttestation Server to the Engine
 
@@ -472,15 +564,15 @@ Trusted clusters communicate with an OpenAttestation server to assess the securi
 
 **Creating a Trusted Cluster**
 
-1. Select the **Clusters** tab.
+1. Click **Compute** &rarr; **Clusters**.
 
 2. Click **New**.
 
 3. Enter a **Name** for the cluster.
 
-4. Select the **Enable Virt Service** radio button.
+4. Select the **Enable Virt Service** check box.
 
-5. In the **Scheduling Policy** tab, select the **Enable Trusted Service** check box.
+5. Click the **Scheduling Policy** tab and select the **Enable Trusted Service** check box.
 
 6. Click **OK**.
 
@@ -496,7 +588,7 @@ Enterprise Linux hosts can be added to trusted clusters and measured against a W
 
 **Adding a Trusted Host**
 
-1. Select the **Hosts** tab.
+1. Click **Compute** &rarr; **Hosts**.
 
 2. Click **New**.
 
@@ -504,7 +596,7 @@ Enterprise Linux hosts can be added to trusted clusters and measured against a W
 
 4. Enter a **Name** for the host.
 
-5. Enter the **Address** of the host.
+5. Enter the **Hostname** of the host.
 
 6. Enter the host's root **Password**.
 
@@ -512,5 +604,7 @@ Enterprise Linux hosts can be added to trusted clusters and measured against a W
 
 After the host is added to the trusted cluster, it is assessed by the OpenAttestation server. If a host is not trusted by the OpenAttestation server, it will move to a `Non Operational` state and should be removed from the trusted cluster.
 
-**Prev:** [Chapter 9: Working with Gluster Storage](../chap-Working_with_Gluster_Storage)<br>
-**Next:** [Chapter 11: Virtual Machine Disks](../chap-Virtual_Machine_Disks)
+**Prev:** [Chapter 8: Storage](../chap-Storage)<br>
+**Next:** [Chapter 10: Virtual Disks](../chap-Virtual_Machine_Disks)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-pools)

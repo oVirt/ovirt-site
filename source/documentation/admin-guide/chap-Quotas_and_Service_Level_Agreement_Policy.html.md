@@ -39,15 +39,15 @@ When a user creates a new disk, the requested disk size is added to the aggregat
 
 Quota allows for resource sharing of the same hardware. It supports hard and soft thresholds. Administrators can use a quota to set thresholds on resources. These thresholds appear, from the user's point of view, as 100% usage of that resource. To prevent failures when the customer unexpectedly exceeds this threshold, the interface supports a "grace" amount by which the threshold can be briefly exceeded. Exceeding the threshold results in a warning sent to the customer.
 
-**Important:** Quota imposes limitations upon the running of virtual machines. Ignoring these limitations is likely to result in a situation in which you cannot use your virtual machines and virtual disks.
+    **Important:** Quota imposes limitations upon the running of virtual machines. Ignoring these limitations is likely to result in a situation in which you cannot use your virtual machines and virtual disks.
 
-When quota is running in enforced mode, virtual machines and disks that do not have quotas assigned cannot be used.
+    When quota is running in enforced mode, virtual machines and disks that do not have quotas assigned cannot be used.
 
-To power on a virtual machine, a quota must be assigned to that virtual machine.
+    To power on a virtual machine, a quota must be assigned to that virtual machine.
 
-To create a snapshot of a virtual machine, the disk associated with the virtual machine must have a quota assigned.
+    To create a snapshot of a virtual machine, the disk associated with the virtual machine must have a quota assigned.
 
-When creating a template from a virtual machine, you are prompted to select the quota that you want the template to consume. This allows you to set the template (and all future machines created from the template) to consume a different quota than the virtual machine and disk from which the template is generated.
+    When creating a template from a virtual machine, you are prompted to select the quota that you want the template to consume. This allows you to set the template (and all future machines created from the template) to consume a different quota than the virtual machine and disk from which the template is generated.
 
 ## Shared Quota and Individually Defined Quota
 
@@ -77,19 +77,15 @@ Use **Audit** mode to test your quota to make sure it works as you expect it to.
 
 **Enabling and Changing Quota in a Data Center**
 
-1. Click the **Data Centers** tab in the Navigation Pane.
+1. Click **Compute** &rarr; **Data Centers** and select a data center.
 
-2. From the list of data centers displayed in the Navigation Pane, choose the data center whose quota policy you plan to edit.
+2. Click **Edit**.
 
-3. Click **Edit** in the top left of the Navigation Pane.
+3. In the **Quota Mode** drop-down list, change the quota mode to **Enforced**.
 
-    An **Edit Data Center** window opens.
+4. Click **OK**.
 
-4. In the **Quota Mode** drop-down, change the quota mode to **Enforced**.
-
-5. Click **OK**.
-
-You have now enabled a quota mode at the Data Center level. If you set the quota mode to **Audit** during testing, then you must change it to **Enforced** in order for the quota settings to take effect.
+If you set the quota mode to **Audit** during testing, then you must change it to **Enforced** in order for the quota settings to take effect.
 
 ## Creating a New Quota Policy
 
@@ -97,47 +93,41 @@ You have enabled quota mode, either in Audit or Enforcing mode. You want to defi
 
 **Creating a New Quota Policy**
 
-1. In tree mode, select the data center. The **Quota** tab appears in the Navigation Pane.
+1. Click **Administration** &rarr; **Quota**.
 
-2. Click the **Quota** tab in the Navigation Pane.
+2. Click **Add**.
 
-3. Click **Add** in the Navigation Pane. The **New Quota** window opens.
+3. Fill in the **Name** and **Description** fields.
 
-4. Fill in the **Name** field with a meaningful name.
+4. Select a **Data Center**.
 
-    Fill in the **Description** field with a meaningful name.
+5. In the **Memory & CPU** section, use the green slider to set **Cluster Threshold**.
 
-5. In the **Memory & CPU** section of the **New Quota** window, use the green slider to set **Cluster Threshold**.
+6. In the **Memory & CPU** section, use the blue slider to set **Cluster Grace**.
 
-6. In the **Memory & CPU** section of the **New Quota** window, use the blue slider to set **Cluster Grace**.
-
-7. Select the **All Clusters** or the **Specific Clusters** radio button. If you select **Specific Clusters**, select the check box of the clusters that you want to add a quota policy to.
+7. Click the **All Clusters** or the **Specific Clusters** radio button. If you select **Specific Clusters**, select the check box of the clusters that you want to add a quota policy to.
 
 8. Click **Edit** to open the **Edit Quota** window.
 
-9. Under the **Memory** field, select either the **Unlimited** radio button (to allow limitless use of Memory resources in the cluster), or select the **limit to** radio button to set the amount of memory set by this quota. If you select the **limit to** radio button, input a memory quota in megabytes (MB) in the **MB** field.
+    i. Under the **Memory** field, select either the **Unlimited** radio button (to allow limitless use of Memory resources in the cluster), or select the **limit to** radio button to set the amount of memory set by this quota. If you select the **limit to** radio button, input a memory quota in megabytes (MB) in the **MB** field.
 
-10. Under the **CPU** field, select either the **Unlimited** radio button or the **limit to** radio button to set the amount of CPU set by this quota. If you select the **limit to** radio button, input a number of vCPUs in the **vCpus** field.
+    ii. Under the **CPU** field, select either the **Unlimited** radio button or the **limit to** radio button to set the amount of CPU set by this quota. If you select the **limit to** radio button, input a number of vCPUs in the **vCpus** field.
 
-11. Click **OK** in the **Edit Quota** window.
+    iii. Click **OK** in the **Edit Quota** window.
 
-12. In the **Storage** section of the **New Quota** window, use the green slider to set **Storage Threshold**.
+9. In the **Storage** section, use the green slider to set **Storage Threshold**.
 
-13. In the **Storage** section of the **New Quota** window, use the blue slider to set **Storage Grace**.
+10. In the **Storage** section, use the blue slider to set **Storage Grace**.
 
-14. Select the **All Storage Domains** or the **Specific Storage Domains** radio button. If you select **Specific Storage Domains**, select the check box of the storage domains that you want to add a quota policy to.
+11. Click the **All Storage Domains** or the **Specific Storage Domains** radio button. If you select **Specific Storage Domains**, select the check box of the storage domains that you want to add a quota policy to.
 
-15. Click **Edit** to open the **Edit Quota** window.
+12. Click **Edit** to open the **Edit Quota** window.
 
-16. Under the **Storage Quota** field, select either the **Unlimited** radio button (to allow limitless use of Storage) or the **limit to** radio button to set the amount of storage to which quota will limit users. If you select the **limit to** radio button, input a storage quota size in gigabytes (GB) in the **GB** field.
+    i. Under the **Storage Quota** field, select either the **Unlimited** radio button (to allow limitless use of Storage) or the **limit to** radio button to set the amount of storage to which quota will limit users. If you select the **limit to** radio button, input a storage quota size in gigabytes (GB) in the **GB** field.
 
-17. Click **OK** in the **Edit Quota** window. You are returned to the **New Quota** window.
+    ii. Click **OK** in the **Edit Quota** window.
 
-18. Click **OK** in the **New Quota** window.
-
-**Result**
-
-You have created a new quota policy.
+13. Click **OK** in the **New Quota** window.
 
 ## Explanation of Quota Threshold Settings
 
@@ -154,151 +144,99 @@ If a quota is set to 100 GB with 20% Grace, then consumers are blocked from usin
 
 ## Assigning a Quota to an Object
 
-**Summary**
-
-This procedure explains how to associate a virtual machine with a quota.
-
 **Assigning a Quota to a Virtual Machine**
 
-1. In the navigation pane, select the Virtual Machine to which you plan to add a quota.
+1. Click **Compute** &rarr; **Virtual Machines** and select a virtual machine.
 
-2. Click **Edit**. The **Edit Virtual Machine** window appears.
+2. Click **Edit**.
 
-3. Select the quota you want the virtual machine to consume. Use the **Quota** drop-down to do this.
+3. Select the quota you want the virtual machine to consume from the **Quota** drop-down list.
 
 4. Click **OK**.
 
-**Result**
-
-You have designated a quota for the virtual machine you selected.
-
-**Summary**
-
-This procedure explains how to associate a virtual machine disk with a quota.
-
 **Assigning a Quota to a Virtual Disk**
 
-1. In the navigation pane, select the Virtual Machine whose disk(s) you plan to add a quota.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. In the details pane, select the disk you plan to associate with a quota.
+2. Click a virtual machine’s name to open the details view.
 
-3. Click **Edit**. The **Edit Virtual Disk** window appears.
+3. Click the **Disks** tab and select the disk you plan to associate with a quota.
 
-4. Select the quota you want the virtual disk to consume.
+4. Click **Edit**.
 
-5. Click **OK**.
+5. Select the quota you want the virtual disk to consume from the **Quota** drop-down list.
 
-**Result**
+6. Click **OK**.
 
-You have designated a quota for the virtual disk you selected.
-
-**Important:** Quota must be selected for all objects associated with a virtual machine, in order for that virtual machine to work. If you fail to select a quota for the objects associated with a virtual machine, the virtual machine will not work. The error that the Engine throws in this situation is generic, which makes it difficult to know if the error was thrown because you did not associate a quota with all of the objects associated with the virtual machine. It is not possible to take snapshots of virtual machines that do not have an assigned quota. It is not possible to create templates of virtual machines whose virtual disks do not have assigned quotas.
+    **Important:** Quota must be selected for all objects associated with a virtual machine, in order for that virtual machine to work. If you fail to select a quota for the objects associated with a virtual machine, the virtual machine will not work. The error that the Engine throws in this situation is generic, which makes it difficult to know if the error was thrown because you did not associate a quota with all of the objects associated with the virtual machine. It is not possible to take snapshots of virtual machines that do not have an assigned quota. It is not possible to create templates of virtual machines whose virtual disks do not have assigned quotas.
 
 ## Using Quota to Limit Resources by User
-
-**Summary**
 
 This procedure describes how to use quotas to limit the resources a user has access to.
 
 **Assigning a User to a Quota**
 
-1. In the tree, click the Data Center with the quota you want to associate with a User.
+1. Click **Administration** &rarr; **Quota**.
 
-2. Click the **Quota** tab in the navigation pane.
+2. Click the name of the target quota to open the details view.
 
-3. Select the target quota in the list in the navigation pane.
+3. Click the **Consumers** tab.
 
-4. Click the **Consumers** tab in the details pane.
+4. Click **Add**.
 
-5. Click **Add** at the top of the details pane.
+5. In the **Search** field, type the name of the user you want to associate with the quota.
 
-6. In the **Search** field, type the name of the user you want to associate with the quota.
+6. Click **GO**.
 
-7. Click **GO**.
+7. Select the check box next to the user’s name.
 
-8. Select the check box at the left side of the row containing the name of the target user.
+8. Click **OK**.
 
-9. Click **OK** in the bottom right of the **Assign Users and Groups to Quota** window.
-
-**Result**
-
-After a short time, the user will appear in the **Consumers** tab of the details pane.
+After a short time, the user will appear in the **Consumers** tab in the details view.
 
 ## Editing Quotas
-
-**Summary**
 
 This procedure describes how to change existing quotas.
 
 **Editing Quotas**
 
-1. On the tree pane, click on the data center whose quota you want to edit.
+1. Click **Administration** &rarr; **Quota** and select a quota.
 
-2. Click on the **Quota** tab in the Navigation Pane.
+2. Click **Edit**.
 
-3. Click the name of the quota you want to edit.
+3. Edit the fields as required.
 
-4. Click **Edit** in the Navigation pane.
-
-5. An **Edit Quota** window opens. If required, enter a meaningful name in the **Name** field.
-
-6. If required, you can enter a meaningful description in the **Description** field.
-
-7. Select either the **All Clusters** radio button or the **Specific Clusters** radio button. Move the **Cluster Threshold** and **Cluster Grace** sliders to the desired positions on the **Memory & CPU** slider.
-
-8. Select either the **All Storage Domains** radio button or the **Specific Storage Domains** radio button. Move the **Storage Threshold** and **Storage Grace** sliders to the desired positions on the **Storage** slider.
-
-9. Click **OK** in the **Edit Quota** window to confirm the new quota settings.
-
-**Result**
-
-You have changed an existing quota.
+4. Click **OK**.
 
 ## Removing Quotas
-
-**Summary**
 
 This procedure describes how to remove quotas.
 
 **Removing Quotas**
 
-1. On the tree pane, click on the data center whose quota you want to edit.
+1. Click **Administration** &rarr; **Quota** and select a quota.
 
-2. Click on the **Quota** tab in the Navigation Pane.
+2. Click **Remove**.
 
-3. Click the name of the quota you want to remove.
-
-4. Click **Remove** at the top of the Navigation pane, under the row of tabs.
-
-5. Click **OK** in the **Remove Quota(s)** window to confirm the removal of this quota.
-
-**Result**
-
-You have removed a quota.
+3. Click **OK**.
 
 ## Service Level Agreement Policy Enforcement
-
-**Summary**
 
 This procedure describes how to set service level agreement CPU features.
 
 **Setting a Service Level Agreement CPU Policy**
 
-1. Select **New VM** in the Navigation Pane.
+1. Click **Compute** &rarr; **Virtual Machines**
 
-2. Select **Show Advanced Options**.
+2. Click **New**, or select a virtual machine and click **Edit**.
 
-3. Select the **Resource Allocation** tab.
-
-    **Service Level Agreement Policy Enforcement - CPU Allocation Menu**
-
-    ![Description](/images/admin-guide/6591.png)
+3. Click the **Resource Allocation** tab.
 
 4. Specify **CPU Shares**. Possible options are **Low**, **Medium**, **High**, **Custom**, and **Disabled**. Virtual machines set to **High** receive twice as many shares as **Medium**, and virtual machines set to **Medium** receive twice as many shares as virtual machines set to **Low**. **Disabled** instructs VDSM to use an older algorithm for determining share dispensation; usually the number of shares dispensed under these conditions is 1020.
 
-**Result**
-
-You have set a service level agreement CPU policy. The CPU consumption of users is now governed by the policy you have set.
+The CPU consumption of users is now governed by the policy you have set.
 
 **Prev:** [Chapter 15: Users and Roles](../chap-Users_and_Roles)<br>
 **Next:** [Chapter 17: Event Notifications](../chap-Event_Notifications)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-quotas_and_service_level_agreement_policy)

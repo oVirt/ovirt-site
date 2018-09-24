@@ -12,7 +12,7 @@ KVM can concurrently host multiple virtual machines running either Windows or Li
 
 oVirt supports two methods of installing hosts. You can use the oVirt Node installation media, or install hypervisor packages on a standard Enterprise Linux installation.
 
-**Note:** You can identify the host type of an individual host in the oVirt Engine by selecting the host, clicking **Software** under the **General** tab in the details pane, and checking the **OS Description**.
+    **Note:** You can identify the host type of an individual host in the oVirt Engine by selecting the host’s name to open the details view, and checking the **OS Description** under **Software**.
 
 Hosts use `tuned` profiles, which provide virtualization optimizations.
 
@@ -36,13 +36,11 @@ Administrators can receive the latest security advisories from the oVirt watch l
 
 [http://www.redhat.com/mailman/listinfo/rhev-watch-list/](http://www.redhat.com/mailman/listinfo/rhev-watch-list/)
 
-**Warning:** Configuring networking through NetworkManager (including `nmcli`, `nmtui`, and the Cockpit user interface) is currently not supported. If additional network configuration is required before adding a host to the Engine, you must manually write `ifcfg` files.
-
 ## oVirt Node
 
 oVirt Node is installed using a special build of Enterprise Linux with only the packages required to host virtual machines. It uses an Anaconda installation interface based on the one used by Enterprise Linux hosts, and can be updated through the oVirt Engine or via `yum`. However, installing additional packages is not currently supported; any additional packages that are installed must be reinstalled each time oVirt Node is updated.
 
-oVirt Node features a Cockpit user interface for monitoring the host's resources and performing administrative tasks. Direct access to oVirt Node via SSH or console is not supported, so the Cockpit user interface provides a graphical user interface for tasks that are performed before the host is added to the oVirt Engine, such as deploying a self-hosted engine, and can also be used to run terminal commands via the **Tools** > **Terminal** sub-tab.
+oVirt Node features a Cockpit user interface for monitoring the host's resources and performing administrative tasks. Direct access to oVirt Node via SSH or console is not supported, so the Cockpit user interface provides a graphical user interface for tasks that are performed before the host is added to the oVirt Engine, such as deploying a self-hosted engine, and can also be used to run terminal commands via the **Terminal** sub-tab.
 
 Access the Cockpit user interface at https://*HostFQDNorIP*:9090 in your web browser. Cockpit for oVirt Node includes a custom **Virtualization** dashboard that displays the host's health status, SSH Host Key, self-hosted engine status, virtual machines, and virtual machine statistics.
 
@@ -56,9 +54,11 @@ You can use a Enterprise Linux 7 installation on capable hardware as a host. oVi
 
 Adding a host can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, creation of bridge, and a reboot of the host. Use the details pane to monitor the process as the host and management system establish a connection.
 
+Optionally, you can install a Cockpit user interface for monitoring the host’s resources and performing administrative tasks. The Cockpit user interface provides a graphical user interface for tasks that are performed before the host is added to the oVirt Engine, such as configuring networking and deploying a self-hosted engine, and can also be used to run terminal commands via the **Terminal** sub-tab.
+
 **Important:** Third-party watchdogs should not be installed on Enterprise Linux hosts, as they can interfere with the watchdog daemon provided by VDSM.
 
-# Foreman Host Provider Hosts
+## Foreman Host Provider Hosts
 
 Hosts provided by a Foreman host provider can also be used as virtualization hosts by the oVirt Engine. After a Foreman host provider has been added to the Engine as an external provider, any hosts that it provides can be added to and used in oVirt in the same way as oVirt Nodes and Enterprise Linux hosts.
 
@@ -70,25 +70,25 @@ Adding a host to your oVirt environment can take some time, as the following ste
 
 **Adding a Host to the oVirt Engine**
 
-1. From the Administration Portal, click the **Hosts** resource tab.
+1. Click **Compute** &rarr; **Hosts**.
 
 2. Click **New**.
 
 3. Use the drop-down list to select the **Data Center** and **Host Cluster** for the new host.
 
-4. Enter the **Name** and the **Address** of the new host. The standard SSH port, port 22, is auto-filled in the **SSH Port** field.
+4. Enter the **Name** and the **Hostname** of the new host. The standard SSH port, port 22, is auto-filled in the **SSH Port** field.
 
 5. Select an authentication method to use for the Engine to access the host.
 
     * Enter the root user's password to use password authentication.
 
-    * Alternatively, copy the key displayed in the **SSH PublicKey** field to `/root/.ssh/authorized_keys` on the host to use public key authentication.
+    * Alternatively, copy the key displayed in the **SSH PublicKey** field to **/root/.ssh/authorized_keys** on the host to use public key authentication.
 
 6. Click the **Advanced Parameters** button to expand the advanced host settings.
 
-    1. Optionally disable automatic firewall configuration.
+    i. Optionally disable automatic firewall configuration.
 
-    2. Optionally add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
+    ii. Optionally add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
 
 7. Optionally configure **Power Management**, **SPM**, **Console**, **Network Provider**, and **Kernel**. See [Explanation of Settings and Controls in the New Host and Edit Host Windows](sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows) for more information. **Hosted Engine** is used when deploying or undeploying a host for a self-hosted engine deployment.
 
@@ -102,13 +102,13 @@ The process for adding a Foreman host provider host is almost identical to that 
 
 **Adding a Foreman Host Provider Host**
 
-1. Click the **Hosts** resource tab to list the hosts in the results list.
+1. Click **Compute** &rarr; **Hosts**.
 
-2. Click **New** to open the **New Host** window.
+2. Click **New**.
 
-3. Use the drop-down menu to select the **Host Cluster** for the new host.
+3. Use the drop-down list to select the **Host Cluster** for the new host.
 
-4. Select the **Foreman** check box to display the options for adding a Foreman host provider host and select the provider from which the host is to be added.
+4. Select the **Foreman/Satellite** check box to display the options for adding a Foreman host provider host and select the provider from which the host is to be added.
 
 5. Select either **Discovered Hosts** or **Provisioned Hosts**.
 
@@ -124,15 +124,13 @@ The process for adding a Foreman host provider host is almost identical to that 
 
     * Enter the root user's password to use password authentication.
 
-    * Copy the key displayed in the **SSH PublicKey** field to `/root/.ssh/authorized_hosts` on the host to use public key authentication (Provisioned Hosts only).
+    * Copy the key displayed in the **SSH PublicKey** field to **/root/.ssh/authorized_hosts** on the host to use public key authentication (Provisioned Hosts only).
 
 8. You have now completed the mandatory steps to add a Enterprise Linux host. Click the **Advanced Parameters** drop-down button to show the advanced host settings.
 
-    1. Optionally disable automatic firewall configuration.
+    i. Optionally disable automatic firewall configuration.
 
-    2. Optionally disable the use of JSON protocol.
-
-    3. Optionally add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
+    ii. Optionally add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
 
 9. You can configure the **Power Management**, **SPM**, **Console**, and **Network Provider** using the applicable tabs now; however, as these are not fundamental to adding a Enterprise Linux host, they are not covered in this procedure.
 
@@ -142,9 +140,9 @@ The new host displays in the list of hosts with a status of `Installing`, and yo
 
 ### Configuring Foreman Errata Management for a Host
 
-oVirt can be configured to view errata from Foreman. This enables the host administrator to receive updates about available errata, and their importance, in the same dashboard used to manage host configuration. .
+oVirt can be configured to view errata from Foreman. This enables the host administrator to receive updates about available errata, and their importance, in the same dashboard used to manage host configuration.
 
-oVirt 4.0 supports errata management with Foreman 6.1.
+oVirt 4.2 supports errata management with Foreman 6.1.
 
 **Important:** Hosts are identified in the Foreman server by their FQDN. Hosts added using an IP address will not be able to report errata. This ensures that an external content host ID does not need to be maintained in oVirt.
 
@@ -158,21 +156,19 @@ The Foreman account used to manage the host must have Administrator permissions 
 
     **Note:** The host must be registered to the Foreman server and have the katello-agent package installed.
 
-    1. In the **Hosts** tab, select the host in the results list.
+    i. Click **Compute** &rarr; **Hosts**.
 
-    2. Click **Edit** to open the **Edit Host** window.
+    ii. Click **Edit**.
 
-    3. Check the **Use Foreman/Foreman** checkbox.
+    iii. Select the **Use Foreman/Foreman** check box.
 
-    4. Select the required Foreman server from the drop-down list.
+    iv. Select the required Foreman server from the drop-down list.
 
-    5. Click **OK**.
+    v. Click **OK**.
 
 The host is now configured to show the available errata, and their importance, in the same dashboard used to manage host configuration.
 
-### Explanation of Settings and Controls in the New Host and Edit Host Windows
-
-#### Host General Settings Explained
+### Host General Settings Explained
 
 These settings apply when editing the details of a host or adding new Enterprise Linux hosts and Foreman host provider hosts.
 
@@ -189,15 +185,11 @@ The **General** settings table contains the information required on the **Genera
  </thead>
  <tbody>
   <tr>
-   <td><b>Data Center</b></td>
-   <td>The data center to which the host belongs. oVirt Node cannot be added to Gluster-enabled clusters.</td>
-  </tr>
-  <tr>
    <td><b>Host Cluster</b></td>
    <td>The cluster to which the host belongs.</td>
   </tr>
   <tr>
-   <td><b>Use Foreman</b></td>
+   <td><b>Use Foreman/Satellite</b></td>
    <td>
     <p>Select or clear this check box to view or hide options for adding hosts provided by Foreman host providers. The following options are also available:</p>
     <p><b>Discovered Hosts</b></p>
@@ -244,7 +236,7 @@ The **General** settings table contains the information required on the **Genera
  </tbody>
 </table>
 
-#### Host Power Management Settings Explained
+### Host Power Management Settings Explained
 
 The **Power Management** settings table contains the information required on the **Power Management** tab of the **New Host** or **Edit Host** windows. You can configure power management if the host has a supported power management card.
 
@@ -293,7 +285,7 @@ The **Power Management** settings table contains the information required on the
  </tbody>
 </table>
 
-The following table contains the information required in the <b>Edit fence agent</b> window.
+The following table contains the information required in the **Edit fence agent** window.
 
 **Edit fence agent Settings**
 
@@ -365,7 +357,7 @@ The following table contains the information required in the <b>Edit fence agent
  </tbody>
 </table>
 
-#### SPM Priority Settings Explained
+### SPM Priority Settings Explained
 
 The **SPM** settings table details the information required on the **SPM** tab of the **New Host** or **Edit Host** window.
 
@@ -373,9 +365,9 @@ The **SPM** settings table details the information required on the **SPM** tab o
 
 | Field Name | Description |
 |-
-| SPM Priority** | Defines the likelihood that the host will be given the role of Storage Pool Manager (SPM). The options are **Low**, **Normal**, and **High** priority. Low priority means that there is a reduced likelihood of the host being assigned the role of SPM, and High priority means there is an increased likelihood. The default setting is Normal. |
+| **SPM Priority** | Defines the likelihood that the host will be given the role of Storage Pool Manager (SPM). The options are **Low**, **Normal**, and **High** priority. Low priority means that there is a reduced likelihood of the host being assigned the role of SPM, and High priority means there is an increased likelihood. The default setting is Normal. |
 
-#### Host Console Settings Explained
+### Host Console Settings Explained
 
 The **Console** settings table details the information required on the **Console** tab of the **New Host** or **Edit Host** window.
 
@@ -386,17 +378,17 @@ The **Console** settings table details the information required on the **Console
 | **Override display address** | Select this check box to override the display addresses of the host. This feature is useful in a case where the hosts are defined by internal IP and are behind a NAT firewall. When a user connects to a virtual machine from outside of the internal network, instead of returning the private address of the host on which the virtual machine is running, the machine returns a public IP or FQDN (which is resolved in the external network to the public IP). |
 | **Display address** | The display address specified here will be used for all virtual machines running on this host. The address must be in the format of a fully qualified domain name or IP. |
 
-#### Network Provider Settings Explained
+### Network Provider Settings Explained
 
 The **Network Provider** settings table details the information required on the **Network Provider** tab of the **New Host** or **Edit Host** window.
 
-****Network Provider** settings**
+**Network Provider settings**
 
 | Field Name | Description |
 |-
 | **External Network Provider** | If you have added an external network provider and want the host's network to be provisioned by the external network provider, select one from the list. |
 
-#### Kernel Settings Explained
+### Kernel Settings Explained
 
 The **Kernel** settings table details the information required on the **Kernel** tab of the **New Host** or **Edit Host** window. Common kernel boot parameter options are listed as check boxes so you can easily select them. For more complex changes, use the free text entry field next to **Kernel command line** to add in any additional parameters required.</para>
 
@@ -412,9 +404,9 @@ The **Kernel** settings table details the information required on the **Kernel**
 | **PCI Reallocation** | If your SR-IOV NIC is unable to allocate virtual functions because of memory issues, consider enabling this option. The host hardware and firmware must also support PCI reallocation. This option is only intended to be used as a workaround when using uncertified hardware for evaluation purposes. |
 | **Kernel command line** | This field allows you to append more kernel parameters to the default parameters. |
 
-**Note:** If the kernel boot parameters are grayed out, click the **reset** button and the options will be available.
+    **Note:** If the kernel boot parameters are grayed out, click the **reset** button and the options will be available.
 
-#### Hosted Engine Settings Explained
+### Hosted Engine Settings Explained
 
 The **Hosted Engine** settings table details the information required on the **Hosted Engine** tab of the **New Host** or **Edit Host** window.
 
@@ -446,49 +438,57 @@ The **Hosted Engine** settings table details the information required on the **H
 
 Configure your host power management device settings to perform host life-cycle operations (stop, start, restart) from the Administration Portal.
 
-It is necessary to configure host power management in order to utilize host high availability and virtual machine high availability.
-
-**Important:** Ensure that your host is in `maintenance mode` before configuring power management settings. Otherwise, all running virtual machines on that host will be stopped ungracefully upon restarting the host, which can cause disruptions in production environments. A warning dialog will appear if you have not correctly set your host to `maintenance mode.`
+You must configure host power management in order to utilize host high availability and virtual machine high availability.
 
 **Configuring Power Management Settings**
 
-1. In the **Hosts** tab, select the host in the results list.
+1. Click **Compute** &rarr; **Hosts** and select a host.
 
-2. Click **Edit** to open the **Edit Host** window.
+2. Click **Management** &rarr; **Maintenance**, and click **OK** to confirm.
 
-3. Click the **Power Management** tab to display the Power Management settings.
+3. When the host is in maintenance mode, click **Edit**.
 
-4. Select the **Enable Power Management** check box to enable the fields.
+4. Click the **Power Management** tab.
 
-5. Select the **Kdump integration** check box to prevent the host from fencing while performing a kernel crash dump.
+5. Select the **Enable Power Management** check box to enable the fields.
+
+6. Select the **Kdump integration** check box to prevent the host from fencing while performing a kernel crash dump.
 
     **Important:** When you enable **Kdump integration** on an existing host, the host must be reinstalled for kdump to be configured. See [Reinstalling Virtualization Hosts](Reinstalling_Virtualization_Hosts).
 
-6. Optionally, select the **Disable policy control of power management** check box if you do not want your host's power management to be controlled by the **Scheduling Policy** of the host's **cluster**.
+7. Optionally, select the **Disable policy control of power management** check box if you do not want your host's power management to be controlled by the **Scheduling Policy** of the host's **cluster**.
 
-7. Click the plus (**+**) button to add a new power management device. The **Edit fence agent** window opens.
+8. Click the plus (**+**) button to add a new power management device. The **Edit fence agent** window opens.
 
-8. Enter the **Address**, **User Name**, and **Password** of the power management device into the appropriate fields.
+9. Enter the **User Name** and **Password** of the power management device into the appropriate fields.
 
-9. Select the power management device **Type** from the drop-down list.
+10. Select the power management device **Type** from the drop-down list.
 
-10. Enter the **SSH Port** number used by the power management device to communicate with the host.
+11. Enter the IP address in the **Address** field.
 
-11. Enter the **Slot** number used to identify the blade of the power management device.
+12. Enter the **SSH Port** number used by the power management device to communicate with the host.
 
-12. Enter the **Options** for the power management device. Use a comma-separated list of `'key=value'` entries.
+13. Enter the **Slot** number used to identify the blade of the power management device.
 
-13. Select the **Secure** check box to enable the power management device to connect securely to the host.
+14. Enter the **Options** for the power management device. Use a comma-separated list of `'key=value'` entries.
 
-14. Click **Test** to ensure the settings are correct. *Test Succeeded, Host Status is: on* will display upon successful verification.
+  * If both IPv4 and IPv6 IP addresses can be used (default), leave the **Options** field blank.
 
-15. Click **OK** to close the **Edit fence agent** window.
+  * If only IPv4 IP addresses can be used, enter `inet4_only=1`.
 
-16. In the **Power Management** tab, optionally expand the **Advanced Parameters** and use the up and down buttons to specify the order in which the Engine will search the host's **cluster** and **dc** (datacenter) for a fencing proxy.
+  * If only IPv6 IP addresses can be used, enter `inet6_only=1`.
 
-17. Click **OK**.
+15. Select the **Secure** check box to enable the power management device to connect securely to the host.
 
-The **Power Management** drop-down menu is now enabled in the Administration Portal.
+16. Click **Test** to ensure the settings are correct. **Test Succeeded, Host Status is: on** will display upon successful verification.
+
+17. Click **OK** to close the **Edit fence agent** window.
+
+18. In the **Power Management** tab, optionally expand the **Advanced Parameters** and use the up and down buttons to specify the order in which the Engine will search the host's **cluster** and **dc** (datacenter) for a fencing proxy.
+
+19. Click **OK**.
+
+The **Management** &rarr; **Power Management** drop-down menu is now enabled in the Administration Portal.
 
 ### Configuring Host Storage Pool Manager Settings
 
@@ -498,15 +498,15 @@ The Storage Pool Manager (SPM) priority setting of a host alters the likelihood 
 
 **Configuring SPM settings**
 
-1. Click the **Hosts** resource tab, and select a host from the results list.
+1. Click **Compute** &rarr; **Hosts**.
 
-2. Click **Edit** to open the **Edit Host** window.
+2. Click **Edit**.
 
-3. Click the **SPM** tab to display the **SPM Priority** settings.
+3. Click the **SPM** tab.
 
 4. Use the radio buttons to select the appropriate SPM priority for the host.
 
-5. Click **OK** to save the settings and close the window.
+5. Click **OK**.
 
 You have configured the SPM priority of the host.
 
@@ -516,21 +516,31 @@ Many common maintenance tasks, including network configuration and deployment of
 
 When a host is placed into maintenance mode the oVirt Engine attempts to migrate all running virtual machines to alternative hosts. The standard prerequisites for live migration apply, in particular there must be at least one active host in the cluster with capacity to run the migrated virtual machines.
 
+    **Note:** Virtual machines that are pinned to the host and cannot be migrated are shut down. You can check which virtual machines are pinned to the host by clicking Pinned to Host in the **Virtual Machines** tab of the host’s details view.
+
 **Placing a Host into Maintenance Mode**
 
-1. Click the **Hosts** resource tab, and select the desired host.
+1. Click **Compute** &rarr; **Hosts** and select the desired host.
 
-2. Click **Maintenance** to open the **Maintenance Host(s)** confirmation window.
+2. Click **Management** &rarr; **Maintenance** to open the **Maintenance Host(s)** confirmation window.
 
-3. Optionally, enter a **Reason** for moving the host into maintenance mode in the **Maintenance Host(s)** confirmation window. This allows you to provide an explanation for the maintenance, which will appear in the logs and when the host is activated again.
+3. Optionally, enter a **Reason** for moving the host into maintenance mode, which will appear in the logs and when the host is activated again.
 
     **Note:** The host maintenance **Reason** field will only appear if it has been enabled in the cluster settings. See [Cluster properties](Cluster_properties) for more information.
 
-4. Click **OK** to initiate maintenance mode.
+4. Optionally, select the required options for hosts that support Gluster.
+
+   Select the **Ignore Gluster Quorum** and **Self-Heal Validations** option to avoid the default checks. By default, the Manager checks that the Gluster quorum is not lost when the host is moved to maintenance mode. The Manager also checks that there is no self-heal activity that will be affected by moving the host to maintenance mode. If the Gluster quorum will be lost or if there is self-heal activity that will be affected, the Manager prevents the host from being placed into maintenance mode. Only use this option if there is no other way to place the host in maintenance mode.
+
+   Select the **Stop Gluster Service** option to stop all Gluster services while moving the host to maintenance mode.
+
+    **Note:** These fields will only appear in the host maintenance window when the selected host supports Gluster.
+
+5. Click **OK** to initiate maintenance mode.
 
 All running virtual machines are migrated to alternative hosts. If the host is the Storage Pool Manager (SPM), the SPM role is migrated to another host. The **Status** field of the host changes to `Preparing for Maintenance`, and finally `Maintenance` when the operation completes successfully. VDSM does not stop while the host is in maintenance mode.
 
-**Note:** If migration fails on any virtual machine, click **Activate** on the host to stop the operation placing it into maintenance mode, then click **Cancel Migration** on the virtual machine to stop the migration.
+**Note:** If migration fails on any virtual machine, click **Management** &rarr; **Activate** on the host to stop the operation placing it into maintenance mode, then click **Cancel Migration** on the virtual machine to stop the migration.
 
 ### Activating a Host from Maintenance Mode
 
@@ -538,11 +548,38 @@ A host that has been placed into maintenance mode, or recently added to the envi
 
 **Activating a Host from Maintenance Mode**
 
-1. Click the **Hosts** resources tab and select the host.
+1. Click **Compute** &rarr; **Hosts** and select the host.
 
-2. Click **Activate**.
+2. Click **Management** &rarr; **Activate**.
 
 The host status changes to `Unassigned`, and finally `Up` when the operation is complete. Virtual machines can now run on the host. Virtual machines that were migrated off the host when it was placed into maintenance mode are not automatically migrated back to the host when it is activated, but can be migrated manually. If the host was the Storage Pool Manager (SPM) before being placed into maintenance mode, the SPM role does not return automatically when the host is activated.
+
+### Configuring Host Firewall Rules
+
+You can configure the host firewall rules so that they are persistent, using Ansible. The cluster must be configured to use `firewalld`, not `iptables`.
+
+**Configuring Firewall Rules for Hosts**
+
+1. On the Engine machine, edit **ovirt-host-deploy-post-tasks.yml.example** to add a custom firewall port:
+
+    # vi /etc/ovirt-engine/ansible/ovirt-host-deploy-post-tasks.yml.example
+    ---
+    #
+    # Any additional tasks required to be executing during host deploy process can
+    # be added below
+    #
+    - name: Enable additional port on firewalld
+    firewalld:
+      port: "12345/tcp"
+      permanent: yes
+      immediate: yes
+      state: enabled
+
+2. Save the file to another location as **ovirt-host-deploy-post-tasks.yml**.
+
+New or reinstalled hosts are configured with the updated firewall rules.
+
+Existing hosts must be reinstalled by clicking **Installation** &rarr; **Reinstall** and selecting Automatically configure host firewall.
 
 ### Removing a Host
 
@@ -550,11 +587,11 @@ Remove a host from your virtualized environment.
 
 **Removing a host**
 
-1. In the Administration Portal, click the **Hosts** resource tab and select the host in the results list.
+1. Click **Compute** &rarr; **Hosts** and select the host.
 
-2. Place the host into maintenance mode.
+2. Click **Management** &rarr; **Maintenance**.
 
-3. Click **Remove** to open the **Remove Host(s)** confirmation window.
+3. When the host is in maintenance mode, click **Remove** to open the **Remove Host(s)** confirmation window.
 
 4. Select the **Force Remove** check box if the host is part of a Gluster Storage cluster and has volume bricks on it, or if the host is non-responsive.
 
@@ -572,21 +609,21 @@ Reinstall oVirt Nodes and Enterprise Linux hosts from the Administration Portal.
 
 The cluster to which the host belongs must have sufficient memory reserve in order for its hosts to perform maintenance. Moving a host with live virtual machines to maintenance in a cluster that lacks sufficient memory causes the virtual machine migration operation to hang and then fail. You can reduce the memory usage of this operation by shutting down some or all virtual machines before moving the host to maintenance.
 
-**Important:** Ensure that the cluster contains more than one host before performing a reinstall. Do not attempt to reinstall all the hosts at the same time, as one host must remain available to perform Storage Pool Manager (SPM) tasks.
+    **Important:** Ensure that the cluster contains more than one host before performing a reinstall. Do not attempt to reinstall all the hosts at the same time, as one host must remain available to perform Storage Pool Manager (SPM) tasks.
 
 **Reinstalling oVirt Node or Enterprise Linux hosts**
 
-1. Use the **Hosts** resource tab, tree mode, or the search function to find and select the host in the results list.
+1. Click **Compute** &rarr; **Hosts** and select the host.
 
-2. Click **Maintenance**. If migration is enabled at cluster level, any virtual machines running on the host are migrated to other hosts. If the host is the SPM, this function is moved to another host. The status of the host changes as it enters maintenance mode.
+2. Click **Management** &rarr; **Maintenance**. If migration is enabled at cluster level, any virtual machines running on the host are migrated to other hosts. If the host is the SPM, this function is moved to another host. The status of the host changes as it enters maintenance mode.
 
-3. Click **Reinstall** to open the **Install Host** window.
+3. Click **Installation** &rarr; **Reinstall** to open the **Install Host** window.
 
 4. Click **OK** to reinstall the host.
 
 Once successfully reinstalled, the host displays a status of **Up**. Any virtual machines that were migrated off the host, are at this point able to be migrated back to it.
 
-**Important:** After an oVirt Node is successfully registered to the oVirt Engine and then reinstalled, it may erroneously appear in the Administration Portal with the status of **Install Failed**. Click **Activate**, and the Host will change to an **Up** status and be ready for use.
+**Important:** After an oVirt Node is successfully registered to the oVirt Engine and then reinstalled, it may erroneously appear in the Administration Portal with the status of **Install Failed**. Click **Management** &rarr; **Activate**, and the Host will change to an **Up** status and be ready for use.
 
 ### Customizing Hosts with Tags
 
@@ -594,17 +631,13 @@ You can use tags to store information about your hosts. You can then search for 
 
 **Customizing hosts with tags**
 
-1. Use the **Hosts** resource tab, tree mode, or the search function to find and select the host in the results list.
+1. Click **Compute** &rarr; **Hosts** and select the host.
 
-2. Click **Assign Tags** to open the **Assign Tags** window.
+2. Click **More Actions** &rarr; **Assign Tags**.
 
-    **Assign Tags Window**
+3. Select the check boxes of applicable tags.
 
-    ![](/images/admin-guide/1119.png)
-
-3. The **Assign Tags** window lists all available tags. Select the check boxes of applicable tags.
-
-4. Click **OK** to assign the tags and close the window.
+4. Click **OK**.
 
 You have added extra, searchable information about your host as tags.
 
@@ -614,11 +647,11 @@ Errata for each host can be viewed after the host has been configured to receive
 
 **Viewing Host Errata**
 
-1. Click the **Hosts** resource tab, and select a host from the results list.
+1. Click **Compute** &rarr; **Hosts**.
 
-2. Click the **General** tab in the details pane.
+2. Click the host’s name to open the details view.
 
-3. Click the **Errata** sub-tab in the **General** tab.
+3. Click the **Errata** tab.
 
 ### Viewing the Health Status of a Host
 
@@ -634,11 +667,12 @@ Hosts have an external health status in addition to their regular **Status**. Th
 
 * **Failure**: ![](/images/admin-guide/Failure.png)
 
-To view further details about the host's health status, select the host and click the **Events** sub-tab.
+To view further details about the host's health status, select the host and click the **Events** tab.
 
 The host's health status can also be viewed using the REST API. A `GET` request on a host will include the `external_status` element, which contains the health status.
 
 You can set a host's health status in the REST API via the `events` collection.
+
 ### Viewing Host Devices
 
 You can view the host devices for each host in the details pane. If the host has been configured for direct device assignment, these devices can be directly attached to virtual machines for improved performance.
@@ -649,63 +683,67 @@ For more information on attaching host devices to virtual machines, see "Host De
 
 **Viewing Host Devices**
 
-1. Use the **Hosts** resource tab, tree mode, or the search function to find and select a host from the results list.
+1. Click **Compute** &rarr; **Hosts**.
 
-2. Click the **Host Devices** tab in the details pane.
+2. Click the host’s name to open the details view.
 
-The details pane lists the details of the host devices, including whether the device is attached to a virtual machine, and currently in use by that virtual machine.
+3. Click the **Host Devices** tab.
+
+This tab lists the details of the host devices, including whether the device is attached to a virtual machine, and currently in use by that virtual machine.
 
 ### Preparing Host and Guest Systems for GPU Passthrough
 
-The Graphics Processing Unit (GPU) device from a host can be directly assigned to a virtual machine. Before this can be achieved, both the host and the virtual machine require amendments to their `grub` configuration files. You can edit the host `grub` configuration file using the **Kernel command line** free text entry field in the Administration Portal. Both the host machine and the virtual machine require reboot for the changes to take effect.
+The Graphics Processing Unit (GPU) device from a host can be directly assigned to a virtual machine. Before this can be achieved, both the host and the virtual machine require amendments to their **grub** configuration files. You can edit the host **grub** configuration file using the **Kernel command line** free text entry field in the Administration Portal. Both the host machine and the virtual machine require reboot for the changes to take effect.
 
 This procedure is relevant for hosts with either x86_64 or ppc64le architecture.
 
 For more information on the hardware requirements for direct device assignment, see "PCI Device Requirements" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
-**Important:** If the host is attached to the Engine already, ensure you place the host into maintenance mode before applying any changes.
+    **Important:** If the host is attached to the Engine already, ensure you place the host into maintenance mode before applying any changes.
 
 **Preparing a Host for GPU Passthrough**
 
-1. From the Administration Portal, select a host.
+1. From the Administration Portal, click **Compute** &rarr; **Hosts**.
 
-2. Click the **General** tab in the details pane, and click **Hardware**. Locate the GPU device `vendor ID:product ID`. In this example, the IDs are `10de:13ba` and `10de:0fbc`.
+2. Click the host’s name to open the details view.
 
-3. Right-click the host and select **Edit**. Click the **Kernel** tab.
+3. Click the **General** tab, and click **Hardware**. Locate the GPU device `vendor ID:product ID`. In this example, the IDs are `10de:13ba` and `10de:0fbc`.
 
-4. In the **Kernel command line** free text entry field, enter the IDs located in the previous steps.
+4. Right-click the host and select **Edit**. Click the **Kernel** tab.
+
+5. In the **Kernel command line** free text entry field, enter the IDs located in the previous steps.
 
         pci-stub.ids=10de:13ba,10de:0fbc
 
-5. Blacklist the corresponding drivers on the host. For example, to blacklist nVidia's nouveau driver, next to `pci-stub.ids=xxxx:xxxx`, enter **rdblacklist=nouveau**.
+6. Blacklist the corresponding drivers on the host. For example, to blacklist nVidia's nouveau driver, next to `pci-stub.ids=xxxx:xxxx`, enter **rdblacklist=nouveau**.
 
         pci-stub.ids=10de:13ba,10de:0fbc rdblacklist=nouveau
 
-6. Click **OK** to save the changes.
+7. Click **OK**.
 
-7. Click **Reinstall** to commit the changes to the host.
+8. Click **Installation** &rarr; **Reinstall** to commit the changes to the host.
 
-8. Reboot the host after the reinstallation is complete.
+9. Reboot the host after the reinstallation is complete.
 
-**Note:** To confirm the device is bound to the `pci-stub` driver, run the `lspci` command:
+    **Note:** To confirm the device is bound to the `pci-stub` driver, run the `lspci` command:
 
-    # lspci -nnk
-    ...
-    01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GM107GL [Quadro K2200] [10de:13ba] (rev a2)
-            Subsystem: NVIDIA Corporation Device [10de:1097]
-            Kernel driver in use: pci-stub
-    01:00.1 Audio device [0403]: NVIDIA Corporation Device [10de:0fbc] (rev a1)
-            Subsystem: NVIDIA Corporation Device [10de:1097]
-            Kernel driver in use: pci-stub
-    ...
+        # lspci -nnk
+        ...
+        01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GM107GL [Quadro K2200] [10de:13ba] (rev a2)
+                Subsystem: NVIDIA Corporation Device [10de:1097]
+                Kernel driver in use: pci-stub
+        01:00.1 Audio device [0403]: NVIDIA Corporation Device [10de:0fbc] (rev a1)
+                Subsystem: NVIDIA Corporation Device [10de:1097]
+                Kernel driver in use: pci-stub
+        ...
 
 Proceed to the next procedure to configure GPU passthrough on the guest system side.
 
 **Preparing a Guest Virtual Machine for GPU Passthrough**
 
-* For Linux
+**For Linux**
 
-    1. Only proprietary GPU drivers are supported. Black list the corresponding open source driver in the `grub` configuration file. For example:
+    1. Only proprietary GPU drivers are supported. Black list the corresponding open source driver in the **grub** configuration file. For example:
 
             $ vi /etc/default/grub
             ...
@@ -717,7 +755,7 @@ Proceed to the next procedure to configure GPU passthrough on the guest system s
             # lspci | grep VGA
             00:09.0 VGA compatible controller: NVIDIA Corporation GK106GL [Quadro K4000] (rev a1)
 
-    3. Edit the `/etc/X11/xorg.conf` file and append the following content:
+    3. Edit the **/etc/X11/xorg.conf** file and append the following content:
 
             Section "Device"
             Identifier "Device0"
@@ -728,7 +766,7 @@ Proceed to the next procedure to configure GPU passthrough on the guest system s
 
     4. Restart the virtual machine.
 
-* For Windows
+**For Windows**
 
     1. Download and install the corresponding drivers for the device. For example, for Nvidia drivers, go to [NVIDIA Driver Downloads](http://www.nvidia.com/Download/index.aspx?lang=en-us).
 
@@ -738,29 +776,17 @@ The host GPU can now be directly assigned to the prepared virtual machine. For m
 
 ### Accessing Cockpit from the Administration Portal
 
-The Cockpit UI plug-in is an optional feature that can be installed in oVirt environments. The plug-in provides access to the Cockpit user interface, used for monitoring and administering host resources, through the Administration Portal. When a host with Cockpit installed is selected, the **Cockpit** sub-tab shows the Cockpit user interface directly in the details pane in the Administration Portal. Alternatively, the **Cockpit** button in the main **Hosts** menu opens the Cockpit user interface in a new browser tab.
-
-The Cockpit user interface is available by default on oVirt Node. It is currently not supported on Enterprise Linux hosts.
+Cockpit is available by default on oVirt Nodes and Enterprise Linux hosts. You can access the Cockpit user interface by typing the address into a browser, or through the Administration Portal.
 
 **Accessing Cockpit from the Administration Portal**
 
-1. Install the Cockpit UI plug-in on the Engine machine:
+1. In the Administration Portal, click **Compute** &rarr; **Hosts** and select a host.
 
-        # yum install cockpit-ovirt-uiplugin
-
-2. Restart the `ovirt-engine` service:
+2. Click **Host Console**.
 
         # systemctl restart ovirt-engine.service
 
-3. In the Administration Portal, click the **Hosts** tab and select a host.
-
-4. Open the Cockpit user interface in a new tab, or view it directly through the Administration Portal:
-
-    * Right-click the host and select **Cockpit** to open the Cockpit user interface in a new browser tab.
-
-    * Click the **Cockpit** sub-tab to view the Cockpit user interface in the details pane of the **Hosts** tab.
-
-        **Note:** If Cockpit is not available on the selected host, the Cockpit sub-tab shows basic troubleshooting steps.
+The Cockpit login page opens in a new browser window.
 
 ## Host Resilience
 
@@ -768,15 +794,17 @@ The Cockpit user interface is available by default on oVirt Node. It is currentl
 
 The oVirt Engine uses fencing to keep the hosts in a cluster responsive. A **Non Responsive** host is different from a **Non Operational** host. **Non Operational** hosts can be communicated with by the Engine, but have an incorrect configuration, for example a missing logical network. **Non Responsive** hosts cannot be communicated with by the Engine.
 
-If a host with a power management device loses communication with the Engine, it can be fenced (rebooted) from the Administration Portal. All the virtual machines running on that host are stopped, and highly available virtual machines are started on a different host.
+Fencing allows a cluster to react to unexpected host failures as well as enforce power saving, load balancing, and virtual machine availability policies. You should configure the fencing parameters for your host's power management device and test their correctness from time to time. In a fencing operation, a non-responsive host is rebooted, and if the host does not return to an active status within a prescribed time, it remains non-responsive pending manual intervention and troubleshooting.
 
-All power management operations are done using a proxy host, as opposed to directly by the oVirt Engine. At least two hosts are required for power management operations.
+    **Note:** To automatically check the fencing parameters, you can configure the `PMHealthCheckEnabled` (false by default) and `PMHealthCheckIntervalInSec` (3600 sec by default) engine-config options.
 
-Fencing allows a cluster to react to unexpected host failures as well as enforce power saving, load balancing, and virtual machine availability policies. You should configure the fencing parameters for your host's power management device and test their correctness from time to time.
+    When set to true, `PMHealthCheckEnabled` will check all host agents at the interval specified by `PMHealthCheckIntervalInSec`, and raise warnings if it detects issues.
 
-Hosts can be fenced automatically using the power management parameters, or manually by right-clicking on a host and using the options on the menu. In a fencing operation, an unresponsive host is rebooted, and if the host does not return to an active status within a prescribed time, it remains unresponsive pending manual intervention and troubleshooting.
+Power management operations can be performed by oVirt Engine after it reboots, by a proxy host, or manually in the Administration Portal. All the virtual machines running on the non-responsive host are stopped, and highly available virtual machines are started on a different host. At least two hosts are required for power management operations.
 
-If the host is required to run virtual machines that are highly available, power management must be enabled and configured.
+After the Engine starts up, it automatically attempts to fence non-responsive hosts that have power management enabled after the quiet time (5 minutes by default) has elapsed. The quiet time can be configured by updating the `DisableFenceAtStartupInSec` engine-config option.
+
+    **Important:** If a host runs virtual machines that are highly available, power management must be enabled and configured.
 
 ### Power Management by Proxy in oVirt
 
@@ -798,15 +826,11 @@ All power management operations are done using a proxy host, as opposed to direc
 
 **Setting fencing parameters on a host**
 
-1. Use the **Hosts** resource tab, tree mode, or the search function to find and select the host in the results list.
+1. Click **Compute** &rarr; **Hosts** and select the host.
 
-2. Click **Edit** to open the **Edit Host** window.
+2. Click **Edit**.
 
 3. Click the **Power Management** tab.
-
-    **Power Management Settings**
-
-    ![](/images/admin-guide/7299.png)
 
 4. Select the **Enable Power Management** check box to enable the fields.
 
@@ -817,10 +841,6 @@ All power management operations are done using a proxy host, as opposed to direc
 6. Optionally, select the **Disable policy control of power management** check box if you do not want your host's power management to be controlled by the **Scheduling Policy** of the host's cluster.
 
 7. Click the plus (**+**) button to add a new power management device. The **Edit fence agent** window opens.
-
-    **Edit fence agent**
-
-    ![](/images/admin-guide/7300.png)
 
 8. Enter the **Address**, **User Name**, and **Password** of the power management device.
 
@@ -834,7 +854,7 @@ All power management operations are done using a proxy host, as opposed to direc
 
 13. Select the **Secure** check box to enable the power management device to connect securely to the host.
 
-14. Click the **Test** button to ensure the settings are correct. *Test Succeeded, Host Status is: on* will display upon successful verification.
+14. Click the **Test** button to ensure the settings are correct. **Test Succeeded, Host Status is: on** will display upon successful verification.
 
     **Warning:** Power management parameters (userid, password, options, etc) are tested by oVirt Engine only during setup and manually after that. If you choose to ignore alerts about incorrect parameters, or if the parameters are changed on the power management hardware without the corresponding change in oVirt Engine, fencing is likely to fail when most needed.
 
@@ -850,7 +870,7 @@ You are returned to the list of hosts. Note that the exclamation mark next to th
 
 **kdump**
 
-Select a host to view the status of the kdump service in the**General** tab of the details pane:
+Select a host to view the status of the kdump service in the **General** tab of the details pane:
 
 * **Enabled**: kdump is configured properly and the kdump service is running.
 
@@ -882,7 +902,7 @@ Edit the configuration of the fence_kdump listener. This is only necessary in ca
 
 **Manually Configuring the fence_kdump Listener**
 
-1. Create a new file (for example, `my-fence-kdump.conf`) in `/etc/ovirt-engine/ovirt-fence-kdump-listener.conf.d/`
+1. Create a new file (for example, **my-fence-kdump.conf**) in **/etc/ovirt-engine/ovirt-fence-kdump-listener.conf.d/**
 
 2. Enter your customization with the syntax `OPTION=value` and save the file.
 
@@ -957,18 +977,13 @@ Soft-fencing over SSH works as follows. Fencing must be configured and enabled o
 
 ### Using Host Power Management Functions
 
-**Summary**
-
 When power management has been configured for a host, you can access a number of options from the Administration Portal interface. While each power management device has its own customizable options, they all support the basic options to start, stop, and restart a host.
 
 **Using Host Power Management Functions**
 
+1. Click **Compute** &rarr; **Hosts** and select the host.
 
-1. Use the **Hosts** resource tab, tree mode, or the search function to find and select the host in the results list.
-
-2. Click the **Power Management** drop-down menu.
-
-3. Select one of the following options:
+2. Click **Management** &rarr; **Power Management** and select one of the following options:
 
     * **Restart**: This option stops the host and waits until the host's status changes to `Down`. When the agent has verified that the host is down, the highly available virtual machines are restarted on another host in the cluster. The agent then restarts this host. When the host is ready for use its status displays as `Up`.
 
@@ -976,13 +991,11 @@ When power management has been configured for a host, you can access a number of
 
     * **Stop**: This option powers off the host. Before using this option, ensure that the virtual machines running on the host have been migrated to other hosts in the cluster. Otherwise the virtual machines will crash and only the highly available virtual machines will be restarted on another host. When the host has been stopped its status displays as `Non-Operational`.
 
-    **Important:** When two fencing agents are defined on a host, they can be used concurrently or sequentially. For concurrent agents, both agents have to respond to the Stop command for the host to be stopped; and when one agent responds to the Start command, the host will go up. For sequential agents, to start or stop a host, the primary agent is used first; if it fails, the secondary agent is used.
+      **Note:** If Power Management is not enabled, you can restart or stop the host by selecting it, clicking the **Management** drop-down menu, and selecting **SSH Management Restart** or **Stop**.
 
-4. Selecting one of the above options opens a confirmation window. Click **OK** to confirm and proceed.
+      **Important:** When two fencing agents are defined on a host, they can be used concurrently or sequentially. For concurrent agents, both agents have to respond to the Stop command for the host to be stopped; and when one agent responds to the Start command, the host will go up. For sequential agents, to start or stop a host, the primary agent is used first; if it fails, the secondary agent is used.
 
-**Result**
-
-The selected action is performed.
+4. Click **OK**.
 
 ### Manually Fencing or Isolating a Non Responsive Host
 
@@ -990,89 +1003,23 @@ The selected action is performed.
 
 If a host unpredictably goes into a non-responsive state, for example, due to a hardware failure; it can significantly affect the performance of the environment. If you do not have a power management device, or it is incorrectly configured, you can reboot the host manually.
 
-**Warning:** Do not use the **Confirm host has been rebooted** option unless you have manually rebooted the host. Using this option while the host is still running can lead to a virtual machine image corruption.
+    **Warning:** Do not use the **Confirm host has been rebooted** option unless you have manually rebooted the host. Using this option while the host is still running can lead to a virtual machine image corruption.
 
 **Manually fencing or isolating a non-responsive host**
 
-1. On the **Hosts** tab, select the host. The status must display as `non-responsive`.
+1. In the Administration Portal, click **Compute** &rarr; **Hosts** and confirm the host’s status is `Non Responsive`.
 
 2. Manually reboot the host. This could mean physically entering the lab and rebooting the host.
 
-3. On the Administration Portal, right-click the host entry and select the **Confirm Host has been rebooted** button.
+3. In the Administration Portal, right-click the host entry and clicking **More Actions** &rarr; **Confirm Host has been rebooted**.
 
-4. A message displays prompting you to ensure that the host has been shut down or rebooted. Select the **Approve Operation** check box and click **OK**.
+4. Select the **Approve Operation** check box and click **OK**.
 
-**Result**
+5. If your hosts take an unusually long time to boot, you can set `ServerRebootTimeout` to specify how many seconds to wait before determining that the host is `Non Responsive`:
 
-You have manually rebooted your host, allowing highly available virtual machines to be started on active hosts. You confirmed your manual fencing action in the Administrator Portal, and the host is back online.
-
-## Hosts and Permissions
-
-### Managing System Permissions for a Host
-
-As the **SuperUser**, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a **DataCenterAdmin** role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a **ClusterAdmin** has administrator privileges only for the assigned cluster.
-
-A host administrator is a system administration role for a specific host only. This is useful in clusters with multiple hosts, where each host requires a system administrator. You can use the **Configure** button in the header bar to assign a host administrator for all hosts in the environment.
-
-The host administrator role permits the following actions:
-
-* Edit the configuration of the host.
-
-* Set up the logical networks.
-
-* Remove the host.
-
-You can also change the system administrator of a host by removing the existing system administrator and adding the new system administrator.
-
-### Host Administrator Roles Explained
-
-**Host Permission Roles**
-
-The table below describes the administrator roles and privileges applicable to host administration.
-
-**oVirt System Administrator Roles**
-
-| Role | Privileges | Notes |
-|-
-| HostAdmin | Host Administrator | Can configure, manage, and remove a specific host. Can also perform network-related operations on a specific host. |
-
-### Assigning an Administrator or User Role to a Resource
-
-Assign administrator or user roles to resources to allow users to access or manage that resource.
-
-**Assigning a Role to a Resource**
-
-1. Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.
-
-2. Click the **Permissions** tab in the details pane to list the assigned users, the user's role, and the inherited permissions for the selected resource.
-
-3. Click **Add**.
-
-4. Enter the name or user name of an existing user into the **Search** text box and click **Go**. Select a user from the resulting list of possible matches.
-
-5. Select a role from the **Role to Assign:** drop-down list.
-
-6. Click **OK**.
-
-You have assigned a role to a user; the user now has the inherited permissions of that role enabled for that resource.
-
-### Removing an Administrator or User Role from a Resource
-
-Remove an administrator or user role from a resource; the user loses the inherited permissions associated with the role for that resource.
-
-**Removing a Role from a Resource**
-
-1. Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.
-
-2. Click the **Permissions** tab in the details pane to list the assigned users, the user's role, and the inherited permissions for the selected resource.
-
-3. Select the user to remove from the resource.
-
-4. Click **Remove**. The **Remove Permission** window opens to confirm permissions removal.
-
-5. Click **OK**.
-
-You have removed the user's role, and the associated permissions, from the resource.
+    # engine-config --set ServerRebootTimeout=integer
 
 **Prev:** [Chapter 6: Logical Networks](../chap-Logical_Networks)<br>
 **Next:** [Chapter 8: Storage](../chap-Storage)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-hosts)

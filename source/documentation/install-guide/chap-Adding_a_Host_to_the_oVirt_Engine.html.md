@@ -1,18 +1,18 @@
 ---
-title: Adding a Hypervisor
+title: Adding a Host to the oVirt Engine
 ---
 
-# Chapter 8: Adding a Hypervisor
+# Chapter 8: Adding a Host to the oVirt Engine
 
 Adding a host to your oVirt environment can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, creation of bridge, and a reboot of the host. Use the details pane to monitor the process as the host and the Engine establish a connection.
 
 **Adding a Host to the oVirt Engine**
 
-1. From the Administration Portal, click **Compute** and then **Hosts**.
+1. From the Administration Portal, click **Compute** &rarr; **Hosts**.
 
 2. Click **New**.
 
-3. Use the drop-down list to select the **Host Cluster** for the new host.
+3. Use the drop-down list to select the **Data Center** and **Host Cluster** for the new host.
 
 4. Enter the **Name** and the **Hostname** of the new host. The standard SSH port, port 22, is auto-filled in the **SSH Port** field.
 
@@ -20,15 +20,13 @@ Adding a host to your oVirt environment can take some time, as the following ste
 
     * Enter the root user's password to use password authentication.
 
-    * Alternatively, copy the key displayed in the **SSH PublicKey** field to `/root/.ssh/authorized_keys` on the host to use public key authentication.
+    * Alternatively, copy the key displayed in the **SSH PublicKey** field to **/root/.ssh/authorized_keys** on the host to use public key authentication.
 
 6. Click the **Advanced Parameters** button to expand the advanced host settings.
 
-    a. Optionally disable automatic firewall configuration.
+    * Optionally disable automatic firewall configuration.
 
-    b. Optionally disable use of JSON protocol.
-
-    c. Optionally add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
+    * Optionally add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
 
 7. Optionally configure power management, where the host has a supported power management card. For information on power management configuration, see "Host Power Management Settings Explained" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
 
@@ -38,3 +36,5 @@ The new host displays in the list of hosts with a status of `Installing`, and yo
 
 **Prev:** [Chapter 7: Enterprise Linux Hosts](../chap-Enterprise_Linux_Hosts) <br>
 **Next:** [Chapter 9: Configuring Storage](../chap-Configuring_Storage)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/adding_a_hypervisor)

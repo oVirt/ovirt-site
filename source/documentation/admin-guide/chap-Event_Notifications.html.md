@@ -10,17 +10,13 @@ The oVirt Engine can notify designated users via email when specific events occu
 
 **Configuring Event Notifications**
 
-1. Ensure you have set up the mail transfer agent with the appropriate variables.
+1. Ensure that you have access to an email server that can accept automated messages from oVirt Node and deliver them to a distribution list.
 
-2. Use the **Users** resource tab, tree mode, or the search function to find and select the user to which event notifications will be sent.
+2. Click **Administration** &rarr; **Users** and select a user.
 
-3. Click the **Event Notifier** tab in the details pane to list the events for which the user will be notified. This list is blank if you have not configured any event notifications for that user.
+3. Click the user’s **User Name** to go to the details page.
 
-4. Click **Manage Events** to open the **Add Event Notification** window.
-
-    **The Add Events Notification Window**
-
-    ![](/images/admin-guide/5607.png)
+4. In the **Event Notifier** tab, click **Manage Events**.
 
 5. Use the **Expand All** button or the subject-specific expansion buttons to view the events.
 
@@ -28,45 +24,87 @@ The oVirt Engine can notify designated users via email when specific events occu
 
 7. Enter an email address in the **Mail Recipient** field.
 
-8. Click **OK** to save changes and close the window.
+    **Note:** The email address can be a text message email address (for example, 1234567890@carrierdomainname.com) or an email group address that includes email addresses and text message email addresses.   
 
-9. Add and start the `ovirt-engine-notifier` service on the oVirt Engine. This activates the changes you have made:
+8. Click **OK**.
+
+9. On the Engine machine, copy `ovirt-engine-notifier.conf` to a new file called `90-email-notify.conf`:
+
+        # cp /usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf /etc/ovirt-engine/notifier/notifier.conf.d/90-email-notify.conf
+
+10. Edit `90-email-notify.conf`, deleting everything except the `EMAIL Notifications` section.
+
+11. Enter the correct email variables, as in the example below. This file overrides the values in the original `ovirt-engine-notifier.conf` file.
+
+        ---------------------
+        # EMAIL Notifications #
+        ---------------------
+
+        # The SMTP mail server address. Required.
+        MAIL_SERVER=myemailserver.example.com
+
+        # The SMTP port (usually 25 for plain SMTP, 465 for SMTP with SSL, 587 for SMTP with TLS)
+        MAIL_PORT=25
+
+        # Required if SSL or TLS enabled to authenticate the user. Used also to specify 'from' user address if mail server
+        # supports, when MAIL_FROM is not set. Address is in RFC822 format
+        MAIL_USER=
+
+        # Required to authenticate the user if mail server requires authentication or if SSL or TLS is enabled
+        SENSITIVE_KEYS="${SENSITIVE_KEYS},MAIL_PASSWORD"
+        MAIL_PASSWORD=
+
+        # Indicates type of encryption (none, ssl or tls) should be used to communicate with mail server.
+        MAIL_SMTP_ENCRYPTION=none
+
+        # If set to true, sends a message in HTML format.
+        HTML_MESSAGE_FORMAT=false
+
+        # Specifies 'from' address on sent mail in RFC822 format, if supported by mail server.
+        MAIL_FROM=rhevm2017@example.com
+
+        # Specifies 'reply-to' address on sent mail in RFC822 format.
+        MAIL_REPLY_TO=
+
+        # Interval to send smtp messages per # of IDLE_INTERVAL
+        MAIL_SEND_INTERVAL=1
+
+        # Amount of times to attempt sending an email before failing.
+        MAIL_RETRIES=4
+
+**Note:** See `/etc/ovirt-engine/notifier/notifier.conf.d/README` for more options.
+
+12. Enable and restart the ovirt-engine-notifier service to activate the changes you have made:
 
         # systemctl daemon-reload
         # systemctl enable ovirt-engine-notifier.service
         # systemctl restart ovirt-engine-notifier.service
 
-**Result**
-
 The specified user now receives emails based on events in the oVirt environment. The selected events display on the **Event Notifier** tab for that user.
 
-# Canceling Event Notifications in the Administration Portal
-
-**Summary**
+## Canceling Event Notifications in the Administration Portal
 
 A user has configured some unnecessary email notifications and wants them canceled.
 
 **Canceling Event Notifications**
 
-1. In the **Users** tab, select the user or the user group.
+1. Click **Administration** &rarr; **Users**.
 
-2. Select the **Event Notifier** tab in the details pane to list events for which the user receives email notifications.
+2. Click the user’s **User Name** to open the details view.
 
-3. Click **Manage Events** to open the **Add Event Notification** window.
+3. Click the **Event Notifier** tab to list events for which the user receives email notifications.
 
-4. Use the **Expand All** button, or the subject-specific expansion buttons, to view the events.
+4. Click **Manage Events**.
 
-5. Clear the appropriate check boxes to remove notification for that event.
+5. Use the **Expand All** button, or the subject-specific expansion buttons, to view the events.
 
-6. Click **OK** to save changes and close the window.
+6. Clear the appropriate check boxes to remove notification for that event.
 
-**Result**
-
-You have canceled unnecessary event notifications for the user.
+7. Click **OK** to save changes and close the window.
 
 ## Parameters for Event Notifications in ovirt-engine-notifier.conf
 
-The event notifier configuration file can be found in `/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf`.
+The event notifier configuration file can be found in **/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf**.
 
 **ovirt-engine-notifier.conf variables**
 
@@ -124,7 +162,7 @@ This procedure assumes that you have configured one or more external SNMP manage
 
 * The trap object identifier for alerts. The oVirt Engine provides a default OID of 1.3.6.1.4.1.2312.13.1.1. All trap types are sent, appended with event information, to the SNMP manager when this OID is defined. Note that changing the default trap prevents generated traps from complying with the Engine's management information base.
 
-**Note:** The oVirt Engine provides management information bases at `/usr/share/doc/ovirt-engine/mibs/OVIRT-MIB.txt` and `/usr/share/doc/ovirt-engine/mibs/REDHAT-MIB.txt`. Load the MIBs in your SNMP manager before proceeding.
+    **Note:** The oVirt Engine provides management information bases at `/usr/share/doc/ovirt-engine/mibs/OVIRT-MIB.txt` and `/usr/share/doc/ovirt-engine/mibs/REDHAT-MIB.txt`. Load the MIBs in your SNMP manager before proceeding.
 
 Default SNMP configuration values exist on the Engine in the events notification daemon configuration file `/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf`. The values outlined in the following procedure are based on the default or example values provided in that file. It is recommended that you define an override file, rather than edit the `ovirt-engine-notifier.conf ` file, to persist your configuration options across system changes, like upgrades.
 
@@ -146,23 +184,23 @@ Default SNMP configuration values exist on the Engine in the events notification
 
     Send all events to the default SNMP profile:
 
-        FILTER="include:*(snmp:) ${FILTER}"
+        FILTER="include:\*(snmp:) ${FILTER}"
 
     Send all events with the severity `ERROR` or `ALERT` to the default SNMP profile:
 
-        FILTER="include:*:ERROR(snmp:) ${FILTER}"
-        FILTER="include:*:ALERT(snmp:) ${FILTER}"
+        FILTER="include:\*:ERROR(snmp:) ${FILTER}"
+        FILTER="include:\*:ALERT(snmp:) ${FILTER}"
 
     Send events for `VDC_START` to the specified email address:
 
         FILTER="include:VDC_START(snmp:mail@example.com) ${FILTER}"
 
     Send events for everything but `VDC_START` to the default SNMP profile:
-        FILTER="exclude:VDC_START include:*(snmp:) ${FILTER}"
+        FILTER="exclude:VDC_START include:\*(snmp:) ${FILTER}"
 
     This the default filter defined in `ovirt-engine-notifier.conf`; if you do not disable this filter or apply overriding filters, no notifications will be sent:
 
-        FILTER="exclude:*"
+        FILTER="exclude:\*"
 
     `VDC_START` is an example of the audit log messages available. A full list of audit log messages can be found in `/usr/share/doc/ovirt-engine/AuditLogMessages.properties`. Alternatively, filter results within your SNMP manager.
 
@@ -179,3 +217,5 @@ Check your SNMP manager to ensure that traps are being received.
 
 **Prev:** [Chapter 16: Quotas and Service Level Agreement Policy](../chap-Quotas_and_Service_Level_Agreement_Policy)<br>
 **Next:** [Chapter 18: Utilities](../chap-Utilities)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-event_notifications)

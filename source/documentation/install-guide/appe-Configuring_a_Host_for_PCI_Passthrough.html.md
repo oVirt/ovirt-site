@@ -4,7 +4,7 @@ title: Configuring a Host for PCI Passthrough
 
 # Appendix G: Configuring a Host for PCI Passthrough
 
-Enabling PCI passthrough allows a virtual machine to use a host device as if the device were directly attached to the virtual machine. To enable the PCI passthrough function, you need to enable virtualization extensions and the IOMMU function. The following procedure requires you to reboot the host. If the host is attached to the Manager already, ensure you place the host into maintenance mode before running the following procedure.
+Enabling PCI passthrough allows a virtual machine to use a host device as if the device were directly attached to the virtual machine. To enable the PCI passthrough function, you need to enable virtualization extensions and the IOMMU function. The following procedure requires you to reboot the host. If the host is attached to the Engine already, ensure you place the host into maintenance mode before running the following procedure.
 
 **Prerequisites:**
 
@@ -55,4 +55,7 @@ Enabling PCI passthrough allows a virtual machine to use a host device as if the
 
         # reboot
 
-**Prev:** [Appendix F: Installing the Websocket Proxy on a Different Host](../appe-Installing_the_Websocket_Proxy_on_a_different_host)
+**Prev:** [Appendix F: Installing the Websocket Proxy on a Separate Machine](../appe-Installing_the_Websocket_Proxy_on_a_Separate_Machine)
+**Next:** [Appendix H: Preparing a Host for vGPU Installation](../appe-Preparing_a_Host_for_vGPU_Installation)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/appe-configuring_a_hypervisor_host_for_pci_passthrough)

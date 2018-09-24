@@ -4,31 +4,29 @@ title: oVirt Nodes
 
 # Chapter 6: oVirt Nodes
 
-oVirt 4.0 introduces an upgraded version of the oVirt Node. While the previous oVirt Node was a closed system with a basic text user interface for installation and configuration, oVirt Node can now be updated via `yum` and uses an Anaconda installation interface based on the one used by Enterprise Linux hosts.
-
 # Installing oVirt Node
 
 oVirt Node is a minimal operating system based on CentOS that is designed to provide a simple method for setting up a physical machine to act as a hypervisor in a oVirt environment. The minimal operating system contains only the packages required for the machine to act as a hypervisor, and features a Cockpit user interface for monitoring the host and performing administrative tasks. See [http://cockpit-project.org/running.html](http://cockpit-project.org/running.html) for the minimum browser requirements.
 
-Before you proceed, make sure the machine on which you are installing oVirt Node meets the hardware requirements listed in **Part III: Hypervisor Requirements**.
+Before you proceed, make sure the machine on which you are installing oVirt Node meets the hardware requirements listed in [Chapter 2: System Requirements](../chap-System_Requirements).
 
 Installing oVirt Node on a physical machine involves three key steps:
 
-1. Download the oVirt Node disk image from the oVirt web site.
+* Download the oVirt Node disk image from the oVirt web site.
 
-2. Write the oVirt Node disk image to a USB, CD, or DVD.
+* Write the oVirt Node disk image to a USB, CD, or DVD.
 
-3. Install the oVirt Node minimal operating system.
+* Install the oVirt Node minimal operating system.
 
 **Installing oVirt Node**
 
 1. Download the oVirt Node disk image from the oVirt site:
 
-    a. Visit to the [oVirt Node page](/node/).
+    i. Visit to the [oVirt Node page](/node/).
 
-    b. Choose the ISO image for oVirt Node 4.0 and click **Installation ISO**.
+    ii. Choose the ISO image for oVirt Node 4.0 and click **Installation ISO**.
 
-    c. Create a bootable media device.
+    iii. Create a bootable media device.
 
 2. Start the machine on which to install oVirt Node using the prepared installation media.
 
@@ -54,35 +52,52 @@ Installing oVirt Node on a physical machine involves three key steps:
 
 11. Set a root password and, optionally, create an additional user while oVirt Node installs.
 
-    **Warning:** Red Hat strongly recommends not creating untrusted users on oVirt Node, as this can lead to exploitation of local security vulnerabilities.
+    **Warning:** The oVirt Project strongly recommends not creating untrusted users on oVirt Node, as this can lead to exploitation of local security vulnerabilities.
 
 12. Click **Reboot** to complete the installation.
 
     **Note:** When oVirt Node restarts, `imgbase-motd.service` performs a health check on the host and displays the result when you log in on the command line. The message `imgbase status: OK` or `imgbase status: DEGRADED` indicates the health status. Run `imgbase check` to get more information. The service is enabled by default.
 
-13. Once the installation is complete, log in to the Cockpit user interface at https://*HostFQDNorIP*:9090 to subscribe the host to the Content Delivery Network. Click **Tools** > **Subscriptions** > **Register System** and enter your Customer Portal username and password. The system automatically subscribes to the **oVirt Node** entitlement.
-
 You can now add the host to your oVirt environment. See [Chapter 8: Adding a Hypervisor](../chap-Adding_a_Hypervisor).
-
-**Warning:** Configuring networking through NetworkManager (including `nmcli`, `nmtui`, and the Cockpit user interface) is currently not supported. If additional network configuration is required before adding a host to the Manager, you must manually write `ifcfg` files.
 
 ## Advanced Installation
 
 ### Custom Partitioning
 
-Custom partitioning on oVirt Node is not recommended. Red Hat strongly recommends using the **Automatically configure partitioning** option in the **Installation Destination** window.
+Custom partitioning on oVirt Node is not recommended. The oVirt Project strongly recommends using the **Automatically configure partitioning** option in the **Installation Destination** window.
 
 If your installation requires custom partitioning, note that the following restrictions apply:
 
-* You must select the **LVM Thin Provisioning** option in the **Manual Partitioning** window.
+* Ensure the default **LVM Thin Provisioning** option is selected in the **Manual Partitioning** window.
 
-* The root (`/`) directory must be on a thinly provisioned logical volume.
+* The following directories are required and must be on thin provisioned logical volumes:
 
-* The root (`/`) directory must be at least 6 GB.
+  * root (/)
 
-* The `/var` directory must be on a separate volume or disk.
+  * /home
+
+  * /tmp
+
+  * /var
+
+  * /var/log
+
+  * /var/log/audit
+
+    **Important:** Do not create a separate partition for /usr. Doing so will cause the installation to fail.
+
+    /usr must be on a logical volume that is able to change versions along with oVirt Node, and therefore should be left on root (/).
+
+For information about the required storage sizes for each partition, see [Chapter 2: System Requirements](../chap-System_Requirements).
+
+* The /boot directory should be defined as a standard partition.
+
+* The /var directory must be on a separate volume or disk.
 
 * Only XFS or Ext4 file systems are supported.
 
-**Prev:** [Chapter 5: Introduction to Hypervisor Hosts](../chap-Introduction_to_Hypervisor_Hosts) <br>
+
+**Prev:** [Chapter 5: Introduction to Hosts](../chap-Introduction_to_Hosts) <br>
 **Next:** [Chapter 7: Enterprise Linux Hosts](../chap-Enterprise_Linux_Hosts)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/advanced_rhvh_install)

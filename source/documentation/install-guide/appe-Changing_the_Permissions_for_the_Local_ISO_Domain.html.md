@@ -26,3 +26,5 @@ Note that if you manually edit the `/etc/exports` file after running `engine-set
 
 **Prev:** [Chapter 9: Configuring Storage](../chap-Configuring_Storage) <br>
 **Next:** [Appendix B: Attaching the Local ISO Domain to a Data Center](../appe-Attaching_the_Local_ISO_Domain_to_a_Data_Center)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/appe-changing_the_permissions_for_the_local_iso_domain)

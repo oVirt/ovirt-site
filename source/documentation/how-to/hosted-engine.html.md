@@ -156,19 +156,7 @@ To resume HA functionality, use:
 
 ## **Upgrade Hosted Engine**
 
-Assuming you have already deployed Hosted Engine on your hosts and running the Hosted Engine VM, having the same oVirt version both on hosts and Hosted Engine VM.
-
-1.  Set hosted engine maintenance mode to global (now ha agent stop monitoring engine-vm, you can see above how to activate it)
-2.  Access to engine-vm and upgrade oVirt to latest version using the same procedure used for non hosted engine setups.
-3.  Select one of the hosted-engine nodes (hypervisors) and put it into maintenance mode from the engine. Note that the host must be in maintenance to allow upgrade to run.
-4.  Upgrade that host with new packages (changes repository to latest version and run yum update -y) on this stage may appear vdsm-tool exception <https://bugzilla.redhat.com/show_bug.cgi?id=1088805>
-5.  Restart vdsmd (# service vdsmd restart)
-6.  Restart ha-agent and broker services (# systemctl restart ovirt-ha-broker && systemctl restart ovirt-ha-agent)
-7.  Exit the global maintenance mode: in a few minutes the engine VM should migrate to the fresh upgraded host cause it will get an higher score
-8.  When the migration has been completed re-enter into global maintenance mode
-9.  Repeat step 3-6 for all the other hosted-engine hosts
-10. Enter for example via UI to engine and change 'Default' cluster (where all your hosted hosts seats) compatibility version to current version (for example 3.6 and activate your hosts (to get features of the new version)
-11. Change hosted-engine maintenance to none, starting from 3.4 you can do it via UI(right click on engine vm, and 'Disable Global HA Maintenance Mode')
+Please refer to [oVirt Upgrade Guide](/upgrade-guide/upgrade-guide/)
 
 ## **Hosted Engine Backup and Restore**
 

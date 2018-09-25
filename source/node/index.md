@@ -95,5 +95,8 @@ This is the oVirt Node 4.2 image including the latest oVirt 4.2 packages.
 
 This is the oVirt Node image build based on oVirt packages from the master branches.
 
-* [Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_master_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
-* Jenkins job: <http://jenkins.ovirt.org/job/ovirt-node-ng_master_build-artifacts-el7-x86_64/>
+* [Installation ISO (based on el7)](http://jenkins.ovirt.org/job/ovirt-node-ng-image_master_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
+* [Installation ISO (based on fc28)](http://jenkins.ovirt.org/job/ovirt-node-ng-image_master_build-artifacts-fc28-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
+
+* Jenkins job (el7): <http://jenkins.ovirt.org/job/ovirt-node-ng-image_master_build-artifacts-el7-x86_64/>
+* Jenkins job (fc28): <http://jenkins.ovirt.org/job/ovirt-node-ng-image_master_build-artifacts-fc28-x86_64>

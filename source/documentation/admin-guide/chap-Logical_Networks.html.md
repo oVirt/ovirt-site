@@ -151,6 +151,7 @@ When networks are attached to a host, the default route of the host will be set 
 Users can define the gateway, along with the IP address and subnet mask, for a logical network. This is necessary when multiple networks exist on a host and traffic should be routed through the specified network, rather than the default gateway.
 
 If multiple networks exist on a host and the gateways are not defined, return traffic will be routed through the default gateway, which may not reach the intended destination. This would result in users being unable to ping the host.
+[Multiple Gateways](/develop/release-management/features/network/multiple-gateways/).
 
 oVirt handles multiple gateways automatically whenever an interface goes up or down.
 

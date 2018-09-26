@@ -85,8 +85,6 @@ is better specified in the [requirements](#requirements) section.
   + Only traffic matched with security group rules is allowed.
   + When there are no rules defined, all egress traffic is dropped.
   + Rules allowing all egress IP traffic are automatically added to all groups.
-* The DHCP traffic for OVN subnets will have to be explicitly allowed,
-otherwise, it will be automatically dropped, as a consequence to the above requirements.
 
 ### Security groups description
 
@@ -249,29 +247,14 @@ it beforehand, or during deployment. This group will contain the rules that
 drop all IP traffic. More information can be found in
 [Activating the feature](#activating-the-feature).
 
-
-2. the **allow-dhcp** security group. Creating a subnet on top of an external
-network will provision an **allow-dhcp** security group **for that particular
-network**. Refer to the [creating a subnet](#creating-a-subnet-on-top-of-a-network) section for more information.
-
-The ansible representation of these groups is:
+The ansible representation of this group is:
 ~~~~~
 - os_security_group:
     cloud: ovirt
     state: present
     name: deny-all
     description: security group to drop all IP traffic
-
-- os_security_group:
-    cloud: ovirt
-    state: present
-    name: allow-dhcp-<subnet_uuid>
-    description: security group to allow dhcp-traffic
 ~~~~~
-
-***NOTE:*** the **deny-all** security group can be provisioned through ansible,
-during the engine-setup stage. the **allow-dhcp** groups will be created as
-part of the subnet creation workflow.
 
 ### Initial rule creation
 
@@ -281,10 +264,6 @@ rules cannot be triggered from the API itself.
 To avoid the need to create the rules beforehand, these ACLs will be
 provisioned when the first port having the *port-security* attribute enabled is
 created.
-
-The DHCP related rules will be provisioned after the respective group is
-created, and as part of the [create subnet](#creating-a-subnet-on-top-of-a-network)
-workflow.
 
 ## Missing pieces
 
@@ -460,23 +439,6 @@ below.
 
 ![add-rule](../../../../images/features/network/security-groups/create_security_group_rule_ansible.png)
 
-### Creating a subnet on top of a network
-
-Creating a Networking API subnet leads to the creation of its
-corresponding DHCP options object in the OVN north database.
-
-For ports with the **port_security_enabled** setting enabled, the DHCP related
-traffic will be dropped by Open vSwitch. To prevent that, thus assuring that
-the VMs can get an IP address through DHCP, a security group meant to hold the
-rules white listing DHCP traffic is created, and ACLs allowing that
-traffic are added to it.
-
-The following sequence diagram depicts the flow described above. In it, **cms**
-refers the a *cloud management system* - e.g. oVirt. It is an OVN term,
-referenced in its [architecture](http://www.openvswitch.org//support/dist-docs/ovn-architecture.7.html).
-
-![add-subnet](../../../../images/features/network/security-groups/create_subnet.png)
-
 ### Attach a VM to an external network.
 
 Please refer to the sequence diagram below to better understand this
@@ -495,16 +457,12 @@ corresponding ACLs added to it. This **port-security** attribute is
 currently not supported in the ovirt-provider-ovn, and thus, will also
 have to be added to the API.
 
-*If* the port is attached to a network featuring a subnet, the
-corresponding **allow-dhcp** port group port list will also be updated
-with the new port.
-
 The list of ports for each of the port groups representing the security groups
 bound to the added ports will also have to be updated.
 
 ![add-port](../../../../images/features/network/security-groups/add_ports.png)
 
-## OVN ACLs implementing the deny-all *and* allow-dhcp security groups
+## OVN ACLs implementing the deny-all security group
 
 ### drop-all-ip ACL
 
@@ -526,30 +484,6 @@ It will feature two ACLs, with the following data:
 **NOTE:** these rules will be filtered out by the API, because they are simply
 not featured in the Networking API. This means that a user listing all security
 group rules **will not** see the rules corresponding to the ACLs defined above.
-
-### allow-dhcp
-
-To allow a VM to get an IP address from the subnet on top of the network
-to which its port is attached, and assuming that port has port-security
-active, it is required to white-list the DHCP traffic.
-
-This will only be done *if* the VM's port is attached to a network
-**having** a defined subnet.
-
-It will feature two ACLs (one per each direction), with the following
-data:
-+ ingress rule
-    * priority: ALLOW_PRIORITY
-    * action: allow
-    * direction: from-lport
-    * match: inport == @allow-dhcp<subnet_uuid> && ip4 && ip4.dst == {255.255.255.255, <subnet_cidr>} && udp && udp.src == 68 && udp.dst == 67
-+ egress rule
-    * priority: ALLOW_PRIORITY
-    * action: allow
-    * direction: to-lport
-    * match: outport == @allow-dhcp<subnet_uuid> && ip4 && ip4.src == <subnet_cidr> && udp && udp.src == 67 && udp.dst == 68
-
-***Note:*** the '@' sign is a port group tag understood by OVN
 
 ## ovirt-provider-ovn API update
 

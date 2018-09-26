@@ -30,65 +30,45 @@ Create a new virtual machine and configure the required settings.
 
 **Creating Linux Virtual Machines**
 
-1. Click the **Virtual Machines** tab.
+1. Click **Compute** &raar; **Virtual Machines**.
 
-2. Click the **New VM** button to open the **New Virtual Machine** window.
+2. Click **New** button to open the **New Virtual Machine** window.
 
-    **The New Virtual Machine Window**
+3. Select an **Operating System** from the drop-down list.
 
-    ![](/images/vmm-guide/7316.png)
+4. Enter a **Name** for the virtual machine.
 
-2. Select a Linux variant from the **Operating System** drop-down list.
-
-3. Enter a **Name** for the virtual machine.
-
-4. Add storage to the virtual machine. **Attach** or **Create** a virtual disk under **Instance Images**.
+5. Add storage to the virtual machine. **Attach** or **Create** a virtual disk under **Instance Images**.
 
     * Click **Attach** and select an existing virtual disk.
 
     * Click **Create** and enter a **Size(GB)** and **Alias** for a new virtual disk. You can accept the default settings for all other fields, or change them if required. See [Add Virtual Disk dialogue entries](Add_Virtual_Disk_dialogue_entries) for more details on the fields for all disk types.
 
-5. Connect the virtual machine to the network. Add a network interface by selecting a vNIC profile from the **nic1** drop-down list at the bottom of the **General** tab.
+6. Connect the virtual machine to the network. Add a network interface by selecting a vNIC profile from the **nic1** drop-down list at the bottom of the **General** tab.
 
-6. Specify the virtual machine's **Memory Size** on the **System** tab.
+7. Specify the virtual machine's **Memory Size** on the **System** tab.
 
-7. Choose the **First Device** that the virtual machine will boot from on the **Boot Options** tab.
+8. Choose the **First Device** that the virtual machine will boot from on the **Boot Options** tab.
 
-8. You can accept the default settings for all other fields, or change them if required. For more details on all fields in the **New Virtual Machine** window, see [Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows](sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows).
+9. You can accept the default settings for all other fields, or change them if required. For more details on all fields in the **New Virtual Machine** window, see [Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows](sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows).
 
-9. Click **OK**.
+10. Click **OK**.
 
 The new virtual machine is created and displays in the list of virtual machines with a status of `Down`.
 
 ## Starting the Virtual Machine
 
-### Powering on a Virtual Machine
+### Starting a Virtual Machine
 
 **Starting Virtual Machines**
 
-1. Click the **Virtual Machines** tab and select a virtual machine with a status of `Down`.
+1. Click **Compute** &raar; **Virtual Machines** and select a virtual machine with a status of `Down`.
 
-2. Click the run (![](/images/vmm-guide/5033.png)) button.
-
-    Alternatively, right-click the virtual machine and select **Run**.
+2. Click **Run**.
 
 The **Status** of the virtual machine changes to `Up`, and the operating system installation begins. Open a console to the virtual machine if one does not open automatically.
 
-### Logging In To a Virtual Machine Using SPICE
-
-Use Remote Viewer to connect to a virtual machine.
-
-**Connecting to Virtual Machines**
-
-1. Install Remote Viewer if it is not already installed.
-
-2. Click the **Virtual Machines** tab and select a virtual machine.
-
-3. Click the console button or right-click the virtual machine and select **Console**.
-
-    * If the connection protocol is set to SPICE, a console window will automatically open for the virtual machine.
-
-    * If the connection protocol is set to VNC, a `console.vv` file will be downloaded. Click on the file and a console window will automatically open for the virtual machine.
+    **Note:** A virtual machine will not start on a host that the CPU is overloaded on. By default, a host’s CPU is considered overloaded if it has a load of more than 80% for 5 minutes but these values can be changed using scheduling policies.
 
 ### Opening a Console to a Virtual Machine
 
@@ -98,13 +78,108 @@ Use Remote Viewer to connect to a virtual machine.
 
 1. Install Remote Viewer if it is not already installed. See [Installing Console Components](sect-Installing_Console_Components).
 
-2. Click the **Virtual Machines** tab and select a virtual machine.
+2. Click **Compute** &raar; **Virtual Machines** and select a virtual machine.
 
-3. Click the console button or right-click the virtual machine and select **Console**.
+3. Click **Console**. A **console.vv** file will be downloaded.
 
-    * If the connection protocol is set to SPICE, a console window will automatically open for the virtual machine.
+4. Click on the file and a console window will automatically open for the virtual machine.
 
-    * If the connection protocol is set to VNC, a `console.vv` file will be downloaded. Click on the file and a console window will automatically open for the virtual machine.
+    **Note:** You can configure the system to automatically connect to a virtual machine. See the “Automatically Connecting to a Virtual Machine” below.
+
+### Opening a Serial Console to a Virtual Machine
+
+You can access a virtual machine’s serial console from the command line instead of opening a console from the Administration Portal or the VM Portal. The serial console is emulated through VirtIO channels, using SSH and key pairs. The Engine acts as a proxy for the connection, provides information about virtual machine placement, and stores the authentication keys. You can add public keys for each user from either the Administration Portal or the VM Portal. You can access serial consoles for only those virtual machines for which you have appropriate permissions.
+
+    **Important:** To access the serial console of a virtual machine, the user must have **UserVmManager**, **SuperUser**, or **UserInstanceManager** permission on that virtual machine. These permissions must be explicitly defined for each user. It is not enough to assign these permissions to **Everyone**.
+
+The serial console is accessed through TCP port 2222 on the Engine. This port is opened during engine-setup on new installations. To change the port, see **ovirt-vmconsole/README**.
+
+The serial console relies on the `ovirt-vmconsole` package and the `ovirt-vmconsole-proxy` on the Engine, and the `ovirt-vmconsole` package and the `ovirt-vmconsole-host` package on the virtualization hosts. These packages are installed by default on new installations. To install the packages on existing installations, reinstall the host.
+
+**Enabling a Virtual Machine’s Serial Console**
+
+1. On the virtual machine whose serial console you are accessing, add the following lines to /etc/default/grub:
+
+        GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8"
+        GRUB_TERMINAL="console serial"
+        GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
+
+    **Note:** `GRUB_CMDLINE_LINUX_DEFAULT` applies this configuration only to the default menu entry. Use `GRUB_CMDLINE_LINUX` to apply the configuration to all the menu entries.
+
+    If these lines already exist in **/etc/default/grub**, update them. Do not duplicate them.
+
+2. Rebuild **/boot/grub2/grub.cfg**:
+
+  * BIOS-based machines:
+
+          # grub2-mkconfig -o /boot/grub2/grub.cfg
+
+  * UEFI-based machines:
+
+          # grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+
+3. On the client machine from which you are accessing the virtual machine serial console, generate an SSH key pair. The Engine supports standard SSH key types, for example, an RSA key:
+
+        # ssh-keygen -t rsa -b 2048 -C "user@domain" -f .ssh/serialconsolekey
+
+   This command generates a public key and a private key.
+
+4. In the Administration Portal or the VM Portal, click the name of the signed-in user on the header bar and click **Options** to open the **Edit Options** window.
+
+5. In the **User’s Public Key** text field, paste the public key of the client machine that will be used to access the serial console.
+
+6. Click **Compute** → **Virtual Machines** and select a virtual machine.
+
+7. Click **Edit**.
+
+8. In the **Console** tab of the **Edit Virtual Machine** window, select the **Enable VirtIO serial console** check box.
+
+**Connecting to a Virtual Machine’s Serial Console**
+
+On the client machine, connect to the virtual machine’s serial console:
+
+  * If a single virtual machine is available, this command connects the user to that virtual machine:
+
+          # ssh -t -p 2222 ovirt-vmconsole@Manager_FQDN -i .ssh/serialconsolekey
+          Red Hat Enterprise Linux Server release 6.7 (Santiago)
+          Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
+          USER login:
+
+  * If more than one virtual machine is available, this command lists the available virtual machines and their IDs:
+
+          # ssh -t -p 2222 ovirt-vmconsole@Manager_FQDN -i .ssh/serialconsolekey list
+          1. vm1 [vmid1]
+          2. vm2 [vmid2]
+          3. vm3 [vmid3]
+          \> 2
+          Red Hat Enterprise Linux Server release 6.7 (Santiago)
+          Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
+          USER login:
+
+    Enter the number of the machine to which you want to connect, and press `Enter`.
+
+  * Alternatively, connect directly to a virtual machine using its unique identifier or its name:
+
+          # ssh -t -p 2222 ovirt-vmconsole@Manager_FQDN connect --vm-id vmid1
+          # ssh -t -p 2222 ovirt-vmconsole@Manager_FQDN connect --vm-name vm1
+
+**Disconnecting from a Virtual Machine’s Serial Console**
+
+Press any key followed by `~` . to close a serial console session.
+
+If the serial console session is disconnected abnormally, a TCP timeout occurs. You will be unable to reconnect to the virtual machine’s serial console until the timeout period expires.
+
+### Automatically Connecting to a Virtual Machine
+
+Once you have logged in, you can automatically connect to a single running virtual machine. This can be configured in the VM Portal.
+
+**Automatically Connecting to a Virtual Machine**
+
+1. In the Virtual Machines page, click the name of the virtual machine to go to the details view.
+
+2. Click the pencil icon beside **Console** and set **Connect automatically to ON**.
+
+The next time you log into the VM Portal, if you have only one running virtual machine, you will automatically connect to that machine.
 
 ## Installing Guest Agents and Drivers
 
@@ -193,11 +268,11 @@ The oVirt guest agents and drivers provide additional information and functional
  </tbody>
 </table>
 
-## Installing the Guest Agents and Drivers on Enterprise Linux
+### Installing the Guest Agents and Drivers on Enterprise Linux
 
 The ovirt guest agents and drivers are installed on Enterprise Linux virtual machines using the `ovirt-engine-guest-agent` package provided by the ovirt Agent repository.
 
-# Installing the Guest Agents and Drivers on Enterprise Linux
+**Installing the Guest Agents and Drivers on Enterprise Linux**
 
 1. Log in to the Enterprise Linux virtual machine.
 
@@ -219,7 +294,7 @@ The ovirt guest agents and drivers are installed on Enterprise Linux virtual mac
             # systemctl start ovirt-guest-agent.service
             # systemctl enable ovirt-guest-agent.service
 
-5. Start and enable the `qemu-ga` service:
+5. Start and enable the **qemu-ga** service:
 
     * For Enterprise Linux 6
 
@@ -231,7 +306,9 @@ The ovirt guest agents and drivers are installed on Enterprise Linux virtual mac
             # systemctl start qemu-guest-agent.service
             # systemctl enable qemu-guest-agent.service
 
-The guest agent now passes usage information to the ovirt Manager. The ovirt agent runs as a service called `ovirt-guest-agent` that you can configure via the `ovirt-guest-agent.conf` configuration file in the `/etc/` directory.
+The guest agent now passes usage information to the ovirt Engine. The ovirt agent runs as a service called **ovirt-guest-agent** that you can configure via the **ovirt-guest-agent.conf** configuration file in the **/etc/** directory.
 
 **Prev:** [Chapter 1: Introduction](../chap-Introduction)<br>
 **Next:** [Chapter 3: Installing Windows Virtual Machines](../chap-Installing_Windows_Virtual_Machines)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/chap-installing_linux_virtual_machines)

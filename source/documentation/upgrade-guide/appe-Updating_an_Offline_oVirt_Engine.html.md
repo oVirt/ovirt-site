@@ -12,8 +12,11 @@ If your oVirt Engine is hosted on a system that receives packages via FTP from a
 
         # reposync -l --newest-only /var/ftp/pub/rhevrepo
 
-    This command may download a large number of packages, and take a long time to complete.
+   This command may download a large number of packages, and take a long time to complete.
 
-2. Ensure that the repository is available on the Engine system, and then update or upgrade the Engine system. See [Chapter 3: Upgrading to oVirt 4.0](../chap-Upgrading_to_oVirt_4.0) for information on updating the Engine between minor versions. See [Chapter 1: Updating the oVirt Environment](../chap-Updating_the_oVirt_Environment) for information on upgrading between major versions.
+2. Ensure that the repository is available on the Engine system, and then update or upgrade the Engine system. See [Chapter 9: Updates Between Minor Releases](../chap-Updates_between_Minor_Releases/) for information on updating the Engine between minor versions.
 
-**Prev:** [Chapter 4: Post-Upgrade Tasks](../chap-Post-Upgrade_Tasks)
+**Prev:** [Chapter 9: Updates Between Minor Releases](../chap-Updates_between_Minor_Releases/)<br>
+**Next:** [Appendix B: Upgrading to oVirt Engine 4.2 with ovirt-fast-forward-upgrade](../appe-Upgrading_to_oVirt_Engine_4.2_with_ovirt-fast-forward-upgrade.html.md)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/upgrade_guide/appe-updating_an_offline_red_hat_enterprise_virtualization_manager)

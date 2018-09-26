@@ -12,7 +12,7 @@ This chapter describes the steps required to install a Windows virtual machine:
 
 3. Add a network interface to connect the virtual machine to the network.
 
-4. Attach the `virtio-win.vfd` diskette to the virtual machine so that VirtIO-optimized device drivers can be installed during the operating system installation.
+4. Attach the **virtio-win.vfd** diskette to the virtual machine so that VirtIO-optimized device drivers can be installed during the operating system installation.
 
 5. Install an operating system on the virtual machine. See your operating system's documentation for instructions.
 
@@ -24,19 +24,19 @@ When all of these steps are complete, the new virtual machine is functional and 
 
 Create a new virtual machine and configure the required settings.
 
-**Creating Windows Virtual Machines**
+**Procedure**
 
-1. Click the **Virtual Machines** tab.
+1. You can change the default virtual machine name length with the `engine-config` tool. Run the following command on the Engine machine:
 
-2. Click the **New VM** button to open the **New Virtual Machine** window.
+        # engine-config --set MaxVmNameLength=integer
 
-    **The New Virtual Machine Window**
+2. Click **Compute** &rarr; **Virtual Machines**.
 
-    ![](/images/vmm-guide/7316.png)
+3. Click **New** to open the **New Virtual Machine** window.
 
-3. Select a Windows variant from the **Operating System** drop-down list.
+4. Select an **Operating System** from the drop-down list.
 
-4. Enter a **Name** for the virtual machine.
+5. Enter a **Name** for the virtual machine.
 
 5. Add storage to the virtual machine. **Attach** or **Create** a virtual disk under **Instance Images**.
 
@@ -44,15 +44,15 @@ Create a new virtual machine and configure the required settings.
 
     * Click **Create** and enter a **Size(GB)** and **Alias** for a new virtual disk. You can accept the default settings for all other fields, or change them if required.
 
-6. Connect the virtual machine to the network. Add a network interface by selecting a vNIC profile from the **nic1** drop-down list at the bottom of the **General** tab.
+7. Connect the virtual machine to the network. Add a network interface by selecting a vNIC profile from the **nic1** drop-down list at the bottom of the **General** tab.
 
-7. Specify the virtual machine's **Memory Size** on the **System** tab.
+8. Specify the virtual machine's **Memory Size** on the **System** tab.
 
-8. Choose the **First Device** that the virtual machine will boot from on the **Boot Options** tab.
+9. Choose the **First Device** that the virtual machine will boot from on the **Boot Options** tab.
 
-9. You can accept the default settings for all other fields, or change them if required.
+10. You can accept the default settings for all other fields, or change them if required.
 
-10. Click **OK**.
+11. Click **OK**.
 
 The new virtual machine is created and displays in the list of virtual machines with a status of `Down`. Before you can use this virtual machine, you must install an operating system and VirtIO-optimized disk and network drivers.
 
@@ -64,17 +64,17 @@ Install VirtIO-optimized disk and network device drivers during your Windows ins
 
 Use the **Run Once** option to attach the diskette in a one-off boot different from the **Boot Options** defined in the **New Virtual Machine** window. This procedure presumes that you added a `VirtIO` network interface and a disk that uses the `VirtIO` interface to your virtual machine.
 
-**Note:** The `virtio-win.vfd` diskette is placed automatically on ISO storage domains that are hosted on the Engine server. An administrator must manually upload it to other ISO storage domains using the `engine-iso-uploader` tool.
+    **Note:** The **virtio-win.vfd** diskette is placed automatically on ISO storage domains that are hosted on the Engine server. You can upload it manually to a data storage domain.
 
 **Installing VirtIO Drivers during Windows Installation**
 
-1. Click the **Virtual Machines** tab and select a virtual machine.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
-2. Click **Run Once**.
+2. Click **Run** &rarr; **Run Once**.
 
 3. Expand the **Boot Options** menu.
 
-4. Select the **Attach Floppy** check box, and select `virtio-win.vfd` from the drop-down list.
+4. Select the **Attach Floppy** check box, and select **virtio-win.vfd** from the drop-down list.
 
 5. Select the **Attach CD** check box, and select the required Windows ISO from the drop-down list.
 
@@ -96,13 +96,15 @@ Use Remote Viewer to connect to a virtual machine.
 
 1. Install Remote Viewer if it is not already installed.
 
-2. Click the **Virtual Machines** tab and select a virtual machine.
+2. Click **Compute** &rarr; **Virtual Machines** and select a virtual machine.
 
-3. Click the console button or right-click the virtual machine and select **Console**.
+3. Click **Console**.
 
     * If the connection protocol is set to SPICE, a console window will automatically open for the virtual machine.
 
-    * If the connection protocol is set to VNC, a `console.vv` file will be downloaded. Click on the file and a console window will automatically open for the virtual machine.
+    * If the connection protocol is set to VNC, a **console.vv** file will be downloaded. Click on the file and a console window will automatically open for the virtual machine.
+
+    **Note:**  You can configure the system to automatically connect to a virtual machine. See the “Automatically Connecting to a Virtual Machine” section in Chapter 2.
 
 ## Installing Guest Agents and Drivers
 
@@ -183,11 +185,6 @@ The oVirt guest agents and drivers provide additional information and functional
    <td>An agent that enables users to automatically log in to their virtual machines based on the credentials used to access the oVirt Engine.</td>
    <td>Desktop.</td>
   </tr>
-  <tr>
-   <td><tt>ovirt-usb</tt></td>
-   <td>A component that contains drivers and services for Legacy USB support (version 3.0 and earlier) on guests. It is needed for accessing a USB device that is plugged into the client machine. <tt>oVirt-USB Client</tt> is needed on the client side.</td>
-   <td>Desktop.</td>
-  </tr>
  </tbody>
 </table>
 
@@ -195,13 +192,13 @@ The oVirt guest agents and drivers provide additional information and functional
 
 The oVirt guest agents and drivers are installed on Windows virtual machines using the `oVirt-tools-setup.iso` ISO file, which is provided by the `oVirt-guest-tools-iso` package installed as a dependency to the oVirt Engine. This ISO file is located in `/usr/share/oVirt-guest-tools-iso/oVirt-tools-setup.iso` on the system on which the oVirt Engine is installed.
 
-**Note:** The `oVirt-tools-setup.iso` ISO file is automatically copied to the default ISO storage domain, if any, when you run `engine-setup`, or must be manually uploaded to an ISO storage domain.
+  **Note:** The `oVirt-tools-setup.iso` ISO file is automatically copied to the default ISO storage domain, if any, when you run `engine-setup`, or must be manually uploaded to an ISO storage domain.
 
-**Note:** Updated versions of the `oVirt-tools-setup.iso` ISO file must be manually attached to running Windows virtual machines to install updated versions of the tools and drivers. If the APT service is enabled on virtual machines, the updated ISO files will be automatically attached.
+  **Note:** Updated versions of the `oVirt-tools-setup.iso` ISO file must be manually attached to running Windows virtual machines to install updated versions of the tools and drivers. If the APT service is enabled on virtual machines, the updated ISO files will be automatically attached.
 
-**Note:** If you install the guest agents and drivers from the command line or as part of a deployment tool such as Windows Deployment Services, you can append the options `ISSILENTMODE` and `ISNOREBOOT` to `oVirt-toolsSetup.exe` to silently install the guest agents and drivers and prevent the machine on which they have been installed from rebooting immediately after installation. The machine can then be rebooted later once the deployment process is complete.
+  **Note:** If you install the guest agents and drivers from the command line or as part of a deployment tool such as Windows Deployment Services, you can append the options `ISSILENTMODE` and `ISNOREBOOT` to `oVirt-toolsSetup.exe` to silently install the guest agents and drivers and prevent the machine on which they have been installed from rebooting immediately after installation. The machine can then be rebooted later once the deployment process is complete.
 
-    D:\oVirt-toolsSetup.exe ISSILENTMODE ISNOREBOOT
+      D:\oVirt-toolsSetup.exe ISSILENTMODE ISNOREBOOT
 
 **Installing the Guest Agents and Drivers on Windows**
 
@@ -209,21 +206,17 @@ The oVirt guest agents and drivers are installed on Windows virtual machines usi
 
 2. Select the CD Drive containing the `oVirt-tools-setup.iso` file.
 
-3. Double-click *oVirt-toolsSetup*.
+3. Double-click `oVirt-toolsSetup`.
 
 4. Click **Next** at the welcome screen.
 
 5. Follow the prompts on the **oVirt-Tools InstallShield Wizard** window. Ensure all check boxes in the list of components are selected.
 
-    **Selecting All Components of oVirt Tools for Installation**
-
-    ![](/images/vmm-guide/5604.png)
-
 6. Once installation is complete, select `Yes, I want to restart my computer now` and click **Finish** to apply the changes.
 
-The guest agents and drivers now pass usage information to the oVirt Engine and allow you to access USB devices, single sign-on into virtual machines and other functionality. The oVirt guest agent runs as a service called oVirt Agent that you can configure using the `oVirt-agent` configuration file located in `C:\Program Files\Redhat\oVirt\Drivers\Agent`.
+The guest agents and drivers now pass usage information to the oVirt Engine and allow you to access USB devices, single sign-on into virtual machines and other functionality. The oVirt guest agent runs as a service called **oVirt Agent** that you can configure using the **oVirt-agent** configuration file located in **C:\Program Files\Redhat\oVirt\Drivers\Agent**.
 
-## Automating Guest Additions on Windows Guests with oVirt Application Provisioning Tool(APT)
+## Automating Guest Additions on Windows Guests with oVirt Application Provisioning Tool (APT)
 
 oVirt Application Provisioning Tool (APT) is a Windows service that can be installed on Windows virtual machines and templates. When the APT service is installed and running on a virtual machine, attached ISO files are automatically scanned. When the service recognizes a valid oVirt guest tools ISO, and no other guest tools are installed, the APT service installs the guest tools. If guest tools are already installed, and the ISO image contains newer versions of the tools, the service performs an automatic upgrade. This procedure assumes you have attached the `oVirt-tools-setup.iso` ISO file to the virtual machine.
 
@@ -241,7 +234,9 @@ oVirt Application Provisioning Tool (APT) is a Windows service that can be insta
 
 Once the APT service has successfully installed or upgraded the guest tools on a virtual machine, the virtual machine is automatically rebooted; this happens without confirmation from the user logged in to the machine. The APT Service will also perform these operations when a virtual machine created from a template that has the APT Service already installed is booted for the first time.
 
-**Note:** The *oVirt-apt* service can be stopped immediately after install by clearing the `Start oVirt-apt Service` check box. You can stop, start, or restart the service at any time using the **Services** window.
+    **Note:** The *oVirt-apt* service can be stopped immediately after install by clearing the `Start oVirt-apt Service` check box. You can stop, start, or restart the service at any time using the **Services** window.
 
 **Prev:** [Chapter 2: Installing Linux Virtual Machines](../chap-Installing_Linux_Virtual_Machines) <br>
 **Next:** [Chapter 4: Additional Configuration](../chap-Additional_Configuration)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/chap-installing_windows_virtual_machines)

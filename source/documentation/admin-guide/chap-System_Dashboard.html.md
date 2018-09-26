@@ -37,11 +37,11 @@ The title shows the number of a type of resource and their status is displayed b
  </thead>
  <tbody>
   <tr>
-   <td><img src="images/Dashboard_No_Items.png" /></td>
+   <td><img src="/images/admin-guide/Dashboard_No_Items.png" /></td>
    <td>None of that resource added to oVirt. </td>
   </tr>
   <tr>
-   <td><img src="images/Dashboard_Warning.png" /></td>
+   <td><img src="/images/admin-guide/Dashboard_Warning.png" /></td>
    <td>
     <p>Shows the number of a resource with a warning status. Clicking on the icon navigates to the appropriate tab with the search limited to that resource with a warning status. The search is limited differently for each resource:</p>
     <ul>
@@ -54,11 +54,11 @@ The title shows the number of a type of resource and their status is displayed b
    </td>
   </tr>
   <tr>
-   <td><img src="images/Dashboard_Up.png" /></td>
+   <td><img src="/images/admin-guide/Dashboard_Up.png" /></td>
    <td>Shows the number of a resource with an up status. Clicking on the icon navigates to the appropriate tab with the search limited to resources that are up. </td>
   </tr>
   <tr>
-   <td><img src="images/Dashboard_Down.png" /></td>
+   <td><img src="/images/admin-guide/Dashboard_Down.png" /></td>
    <td>
     <p>Shows the number of a resource with a down status. Clicking on the icon navigates to the appropriate tab with the search limited to resources with a down status. The search is limited differently for each resource:</p>
     <ul>
@@ -70,11 +70,11 @@ The title shows the number of a type of resource and their status is displayed b
    </td>
   </tr>
   <tr>
-   <td><img src="images/Dashboard_Alert.png" /></td>
+   <td><img src="/images/admin-guide/Dashboard_Alert.png" /></td>
    <td>Shows the number of events with an alert status. Clicking on the icon navigates to the <b>Events</b> tab with the search limited to events with the severity of alert. </td>
   </tr>
   <tr>
-   <td><img src="images/Dashboard_Error.png" /></td>
+   <td><img src="/images/admin-guide/Dashboard_Error.png" /></td>
    <td>Shows the number of events with an error status. Clicking on the icon navigates to the <b>Events</b> tab with the search limited to events with the severity of error.</td>
   </tr>
  </tbody>

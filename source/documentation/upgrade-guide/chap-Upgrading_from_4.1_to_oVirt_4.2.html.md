@@ -32,8 +32,6 @@ Updates to the oVirt Engine are released through the oVirt repositories.
 
     # yum update ovirt\*setup\*
 
-    # yum update rhevm-setup
-
 3. Update the oVirt Engine. The `engine-setup` script prompts you with some configuration questions, then stops the **ovirt-engine** service, downloads and installs the updated packages, backs up and updates the database, performs post-installation configuration, and starts the **ovirt-engine** service.
 
         # engine-setup
@@ -68,9 +66,7 @@ This procedure assumes that the system on which the Manager is installed is atta
 
 3. Remove or disable the oVirt Engine 4.1 repositories to ensure the system does not use any oVirt Engine 4.1 packages:
 
-        # subscription-manager repos --disable=rhel-7-server-rhv-4.1-rpms
-        # subscription-manager repos --disable=rhel-7-server-rhv-4.1-manager-rpms
-        # subscription-manager repos --disable=rhel-7-server-rhv-4-tools-rpms
+        # yum remove ovirt-release41
 
 4. Update the base operating system:
 
@@ -117,15 +113,16 @@ If the command fails, the host is oVirt Node 3.6. If the command succeeds, the h
 
 3. Ensure the correct repositories are enabled. You can check which repositories are currently enabled by running yum repolist.
 
-  * For oVirt Nodes:
+  * For oVirt Nodes and CentOS:
 
-        # subscription-manager repos --enable=rhel-7-server-oVirt Node-4-rpms
+        # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 
   * For Enterprise Linux hosts:
 
         # subscription-manager repos --enable=rhel-7-server-rpms
-        # subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms
-        # subscription-manager repos --enable=rhel-7-server-ansible-2-rpms
+        # subscription-manager repos --enable=rhel-7-server-optional-rpms
+        # subscription-manager repos --enable=rhel-7-server-extras-rpms
+        # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 
 4. Click **Compute** &rarr; **Hosts** and select the host to be updated.
 
@@ -145,7 +142,7 @@ If the command fails, the host is oVirt Node 3.6. If the command succeeds, the h
 
    After the update, the host is rebooted. Once successfully updated, the host displays a status of `Up`. If any virtual machines were migrated off the host, they are now migrated back.
 
-    **Note:** If the update fails, the host’s status changes to Install Failed. From Install Failed you can click **Installation** &rarr; **Upgrade** again.
+   **Note:** If the update fails, the host’s status changes to Install Failed. From Install Failed you can click **Installation** &rarr; **Upgrade** again.
 
 Repeat this procedure for each host in the oVirt environment.
 

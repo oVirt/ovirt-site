@@ -17,19 +17,19 @@ You must be able to log into the machine using an SSH keypair. The following ins
 
 3. Create an SSH public key for this user account using the `ssh-keygen` command.
 
-      # ssh-keygen
+       # ssh-keygen
 
 4. Add the SSH public key to the user account *$HOME/.ssh/authorized_keys*:
 
-      # cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
+       # cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
 
 5. Add the SSH hostkey for localhost to your SSH known_hosts:
 
-      # ssh-keyscan -H localhost >> $HOME/.ssh/known_hosts
+       # ssh-keyscan -H localhost >> $HOME/.ssh/known_hosts
 
 6. Add the SSH hostkey for public_hostname to your SSH known_hosts:
 
-      # ssh-keyscan -H public_hostname >> $HOME/.ssh/known_hosts
+       # ssh-keyscan -H public_hostname >> $HOME/.ssh/known_hosts
 
 7. If you _not_ using the root user, enable passwordless sudo by adding `$USER ALL=(ALL) NOPASSWD: ALL` to */etc/sudoers*.
 
@@ -88,21 +88,21 @@ Install the OpenShift Container Platform package:
 
 Elasticsearch requires persistent storage for the database. By default, Elasticsearch uses ephemeral storage, and therefore you need to manually configure persistent storage.
 
-    **Important:** Before proceeding, ensure you have set up the storage according to the instructions in [Introduction](../Introduction).
+   **Important:** Before proceeding, ensure you have set up the storage according to the instructions in [Introduction](../Introduction).
 
 **Configuring Persistent Storage for Elasticsearch**
 
 1. Create the `/lib/elasticsearch` directory that will be used for persistent storage using the `/var` mounted storage partition you created in [Introduction](../Introduction):
 
-      # mkdir -p /var/lib/elasticsearch
+       # mkdir -p /var/lib/elasticsearch
 
 2. Change the group ownership of the directory to 65534:
 
-      # chgrp 65534 /var/lib/elasticsearch
+       # chgrp 65534 /var/lib/elasticsearch
 
 3. Make this directory writable by the group:
 
-      # chmod -R 0770 /var/lib/elasticsearch
+       # chmod -R 0770 /var/lib/elasticsearch
 
 4. Run the following commands:
 
@@ -117,11 +117,11 @@ Prior to running Ansible, verify that the value for hostname and IP address that
 
 1. To check the host’s FQDN:
 
-      # ansible -m setup localhost -a 'filter=ansible_fqdn'
+       # ansible -m setup localhost -a 'filter=ansible_fqdn'
 
 2. To check the host's IP address:
 
-      # ansible -m setup localhost -a 'filter=ansible_default_ipv4'
+       # ansible -m setup localhost -a 'filter=ansible_default_ipv4'
 
 3. Run Ansible using the `prerequisites.yml` playbook to ensure the machine is configured correctly:
 
@@ -167,23 +167,23 @@ The following procedures verify that all pods and services are running, and that
 
 1. Log into the project:
 
-      # oc project logging
+       # oc project logging
 
 2. To confirm that Elasticsearch, Curator, and Kibana pods are running, run:
 
-      # oc get pods
+       # oc get pods
 
 3. Check that the **STATUS** is `Running`.
 
 4. To confirm that the Elasticsearch and Kibana services are running, run:
 
-      # oc get svc
+       # oc get svc
 
 5. Ensure  that the **EXTERNAL-IP**  and  **PORT(S)** fields are correct.
 
 6. To confirm that there are routes for Elasticsearch and Kibana, run:
 
-      #  oc get routes
+       #  oc get routes
 
 7. Ensure that the value of **HOST/PORT** is correct.
 
@@ -197,7 +197,7 @@ On the Engine machine, run the following:
 
         # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh
 
-    **Note:** Deploying additional hosts after running this script does *not* require running the script again; the Manager configures the hosts automatically.
+   **Note:** Deploying additional hosts after running this script does *not* require running the script again; the Manager configures the hosts automatically.
 
 **Prev:** [Chapter 2: Setting Up the oVirt Engine and Hosts](../Setting_Up_the_oVirt_Engine_and_Hosts)<br>
 **Next:** [Chapter 4: Verifying the Installation](../Verifying_the_Installation)

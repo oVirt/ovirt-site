@@ -12,11 +12,11 @@ Install a 4.2 environment as described in the _Installation Guide_ or _Self-Host
 
 1. On the Engine machine, copy **/etc/ovirt-engine-metrics/config.yml.example** to **config.yml**:
 
-      # cp /etc/ovirt-engine-metrics/config.yml.example /etc/ovirt-engine-metrics/config.yml
+       # cp /etc/ovirt-engine-metrics/config.yml.example /etc/ovirt-engine-metrics/config.yml
 
 2. Update the values of **/etc/ovirt-engine-metrics/config.yml** to match the details of your specific environment:
 
-      # vi /etc/ovirt-engine-metrics/config.yml
+       # vi /etc/ovirt-engine-metrics/config.yml
 
    **Important:** All parameters are mandatory.
 
@@ -59,16 +59,16 @@ Install a 4.2 environment as described in the _Installation Guide_ or _Self-Host
 
    It should ask for root password (on first attempt), supply it. After that, run:
 
-      # rm -rf $mytemp
+       # rm -rf $mytemp
 
    To test that you are able to log into the metrics store machine from the engine, run:
 
-      # ssh -i /etc/pki/ovirt-engine/keys/engine_id_rsa root@fluentd_elasticsearch_host
+       # ssh -i /etc/pki/ovirt-engine/keys/engine_id_rsa root@fluentd_elasticsearch_host
 
 4. As the root user, run the Ansible script that generates the Ansible inventory and vars.yaml files and copies them to the Metrics Store machine (by default to / (root)):
 
-   # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh \
-   --playbook=ovirt-metrics-store-installation.yml
+       # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh \
+         --playbook=ovirt-metrics-store-installation.yml
 
 **Prev:** [Chapter 1: Introduction](../Introduction)<br>
 **Next:** [Chapter 3: Setting Up OpenShift Aggregated Logging](../Setting_Up_OpenShift_Aggregated_Logging)

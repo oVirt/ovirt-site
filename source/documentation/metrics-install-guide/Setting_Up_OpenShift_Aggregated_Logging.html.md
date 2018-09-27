@@ -197,7 +197,7 @@ On the Engine machine, run the following:
 
         # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh
 
-    **Note:** Deploying additional hosts after running this script does *not* require running the script again; the Manager configures the hosts automatically.
+   **Note:** Deploying additional hosts after running this script does *not* require running the script again; the Manager configures the hosts automatically.
 
 **Prev:** [Chapter 2: Setting Up the oVirt Engine and Hosts](../Setting_Up_the_oVirt_Engine_and_Hosts)<br>
 **Next:** [Chapter 4: Verifying the Installation](../Verifying_the_Installation)

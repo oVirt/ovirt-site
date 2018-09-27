@@ -12,16 +12,14 @@ For the Engine virtual machine installation, an oVirt Engine Virtual Appliance i
 
 | System Type | Supported Versions |
 |-
-| Enterprise Linux host | 7.2 |
-| oVirt Node   | 7.2 |
-| HostedEngine-VM (Engine)     | 7   |
+| Enterprise Linux host | 7.5 |
+| oVirt Node   | 7.5 |
+| HostedEngine-VM (Engine)     | 7.5 |
 
 For hardware requirements, see "Hypervisor Requirements" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
-**Important:** It is important to synchronize the system clocks of the hosts, Engine, and other servers in the environment to avoid potential timing or authentication issues. To do this, configure the Network Time Protocol (NTP) on each system to synchronize with the same NTP server.
-
-The following diagram illustrates the self-hosted engine deployment workflow:
-
-![](/images/self-hosted/RHEV-M_Virtual_Appliance_Installation.png)
+    **Important:** It is important to synchronize the system clocks of the hosts, Engine, and other servers in the environment to avoid potential timing or authentication issues. To do this, configure the Network Time Protocol (NTP) on each system to synchronize with the same NTP server.
 
 **Next:** [Chapter 2: Deploying Self-Hosted Engine](../chap-Deploying_Self-Hosted_Engine)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/self-hosted_engine_guide/chap-introduction)

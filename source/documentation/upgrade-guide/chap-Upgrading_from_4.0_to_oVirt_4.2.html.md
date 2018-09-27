@@ -34,8 +34,6 @@ Updates to the oVirt Engine are released through the oVirt repositories.
 
     # yum update ovirt\*setup\*
 
-    # yum update rhevm-setup
-
 3. Update the oVirt Engine. The `engine-setup` script prompts you with some configuration questions, then stops the **ovirt-engine** service, downloads and installs the updated packages, backs up and updates the database, performs post-installation configuration, and starts the **ovirt-engine** service.
 
         # engine-setup
@@ -74,7 +72,7 @@ This procedure assumes that the system on which the Engine is installed is subsc
 
 3. Remove or disable the oVirt Engine 4.0 repository to ensure the system does not use any oVirt Engine 4.0 packages:
 
-        # subscription-manager repos --disable=rhel-7-server-rhv-4.0-rpms
+        # yum remove ovirt-release40
 
 4. Update the base operating system:
         # yum update
@@ -103,9 +101,7 @@ This procedure assumes that the system on which the Manager is installed is atta
 
 3. Remove or disable the oVirt Engine 4.1 repositories to ensure the system does not use any oVirt Engine 4.1 packages:
 
-        # subscription-manager repos --disable=rhel-7-server-rhv-4.1-rpms
-        # subscription-manager repos --disable=rhel-7-server-rhv-4.1-manager-rpms
-        # subscription-manager repos --disable=rhel-7-server-rhv-4-tools-rpms
+        # yum remove ovirt-release41
 
 4. Update the base operating system:
 
@@ -152,15 +148,16 @@ If the command fails, the host is oVirt Node 3.6. If the command succeeds, the h
 
 3. Ensure the correct repositories are enabled. You can check which repositories are currently enabled by running yum repolist.
 
-  * For oVirt Nodes:
+  * For oVirt Nodes and CentOS:
 
-        # subscription-manager repos --enable=rhel-7-server-oVirt Node-4-rpms
+        # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 
-  * For Enterprise Linux hosts:
+  * For Red Hat Enterprise Linux hosts:
 
         # subscription-manager repos --enable=rhel-7-server-rpms
-        # subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms
-        # subscription-manager repos --enable=rhel-7-server-ansible-2-rpms
+        # subscription-manager repos --enable=rhel-7-server-optional-rpms
+        # subscription-manager repos --enable=rhel-7-server-extras-rpms
+        # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 
 4. Click **Compute** &rarr; **Hosts** and select the host to be updated.
 

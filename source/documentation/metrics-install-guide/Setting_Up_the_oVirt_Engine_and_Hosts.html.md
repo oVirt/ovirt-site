@@ -12,11 +12,11 @@ Install a 4.2 environment as described in the _Installation Guide_ or _Self-Host
 
 1. On the Engine machine, copy **/etc/ovirt-engine-metrics/config.yml.example** to **config.yml**:
 
-      # cp /etc/ovirt-engine-metrics/config.yml.example /etc/ovirt-engine-metrics/config.yml
+       # cp /etc/ovirt-engine-metrics/config.yml.example /etc/ovirt-engine-metrics/config.yml
 
 2. Update the values of **/etc/ovirt-engine-metrics/config.yml** to match the details of your specific environment:
 
-      # vi /etc/ovirt-engine-metrics/config.yml
+       # vi /etc/ovirt-engine-metrics/config.yml
 
    **Important:** All parameters are mandatory.
 

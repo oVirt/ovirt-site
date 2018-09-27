@@ -24,6 +24,10 @@ The migration involves the following key actions:
 
     **Note:** If you intend to use an existing host, place the host in maintenance and remove it from the existing environment. See "Removing a Host" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for more information.
 
+* Prepare storage for your self-hosted engine environment. The self-hosted engine requires a shared storage domain dedicated to the Engine virtual machine. This domain is created during deployment, and must be at least 68 GB.
+
+    **Important:** If you are using iSCSI storage, do not use the same iSCSI target for the shared storage domain and data storage domain.
+
 * Obtain the oVirt Engine Virtual Appliance by installing the `ovirt-engine-appliance` package. The oVirt Engine Virtual Appliance is always based on the latest supported Engine version. Ensure the Engine version in your current environment is updated to the latest supported Y-stream version as the Engine version needs to be the same for the migration.
 
 * To use the oVirt Engine Virtual Appliance for the Engine installation, ensure one directory is at least 60 GB. The `hosted-engine` script first checks if `/var/tmp` has enough space to extract the appliance files. If not, you can specify a different directory or mount external storage. The VDSM user and KVM group must have read, write, and execute permissions on the directory.
@@ -38,19 +42,21 @@ The migration involves the following key actions:
 
 1. **Initiating a Self-Hosted Engine Deployment**
 
-    If you are updating from version 3.5 or earlier, you must run the command `hosted-engine --deploy --config-append=/etc/ovirt-hosted-engine/answers.conf`. The file `answers.conf` must contain the parameter `OVEHOSTED_NETWORK/bridgeName=str:rhevm`. Upgrading from version 3.5 to version 3.6 or later causes the default management network to be non-operational unless this parameter is set.
+    **Note:** If your original installation was version 3.5 or earlier, and the name of the management network is **rhevm**, you must modify the answer file before running `hosted-engine --deploy --noansible`.
 
-    Run the `hosted-engine` script. To escape the script at any time, use the **CTRL** + **D** keyboard combination to abort deployment. It is recommended to use the `screen` window manager to run the script to avoid losing the session in case of network or terminal disruption. If not already installed, install the `screen` package, which is available in the standard Red Hat Enterprise Linux repository.
+  Run the `hosted-engine` script. To escape the script at any time, use the **CTRL** + **D** keyboard combination to abort deployment. It is recommended to use the `screen` window manager to run the script to avoid losing the session in case of network or terminal disruption. If not already installed, install the `screen` package, which is available in the standard Red Hat Enterprise Linux repository.
 
         # yum install screen
+
         # screen
+
         # hosted-engine --deploy
 
     **Note:** In the event of session timeout or connection disruption, run `screen -d -r` to recover the `hosted-engine` deployment session.
 
 2. **Configuring Storage**
 
-    Select the type of storage to use.
+   Select the type of storage to use.
 
         During customization use CTRL-D to abort.
         Please specify the storage you would like to use (glusterfs, iscsi, fc, nfs3, nfs4)[nfs3]:
@@ -60,6 +66,8 @@ The migration involves the following key actions:
             Please specify the full shared storage connection path to use (example: host:/path): storage.example.com:/hosted_engine/nfs
 
     * For iSCSI, specify the iSCSI portal IP address, port, user name and password, and select a target name from the auto-detected list. You can only select one iSCSI target during the deployment.
+
+        **Note:** If you wish to specify more than one iSCSI target, you must enable multipathing before deploying the self-hosted engine. There is also a Multipath Helper tool that generates a script to install and configure multipath with different options.
 
             Please specify the iSCSI portal IP address:           
             Please specify the iSCSI portal port [3260]:           
@@ -102,7 +110,7 @@ The migration involves the following key actions:
 
 3. **Configuring the Network**
 
-    The script detects possible network interface controllers (NICs) to use as a management bridge for the environment. It then checks your firewall configuration and offers to modify it for console (SPICE or VNC) access HostedEngine-VM. Provide a pingable gateway IP address, to be used by the `ovirt-ha-agent` to help determine a host's suitability for running HostedEngine-VM.
+   The script detects possible network interface controllers (NICs) to use as a management bridge for the environment. It then checks your firewall configuration and offers to modify it for console (SPICE or VNC) access HostedEngine-VM. Provide a pingable gateway IP address, to be used by the `ovirt-ha-agent` to help determine a host's suitability for running HostedEngine-VM.
 
         Please indicate a nic to set rhvm bridge on: (eth1, eth0) [eth1]:
         iptables was detected on your computer, do you wish setup to configure it? (Yes, No)[Yes]:
@@ -295,6 +303,7 @@ The migration involves the following key actions:
     Configure the restored Engine virtual machine. This process identifies the existing configuration settings and database content. Confirm the settings. Upon completion, the setup provides an SSH fingerprint and an internal Certificate Authority hash.
 
         # engine-setup
+
         [ INFO  ] Stage: Initializing
         [ INFO  ] Stage: Environment setup
         Configuration files: ['/etc/ovirt-engine-setup.conf.d/10-packaging.conf', '/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf']
@@ -397,7 +406,9 @@ The migration involves the following key actions:
         [ INFO  ] Stage: Termination
         [ INFO  ] Hosted Engine successfully set up
 
-Your oVirt engine has been migrated to a self-hosted engine setup. The Engine is now operating on a virtual machine on Host-HE1, called HostedEngine-VM in the environment. As HostedEngine-VM is highly available, it is migrated to other hosts in the environment when applicable.
+Your oVirt Engine has been migrated to a self-hosted engine setup. The Engine is now operating on a virtual machine on Host-HE1, called HostedEngine-VM in the environment. As HostedEngine-VM is highly available, it is migrated to other hosts in the environment when applicable.
 
 **Prev:** [Chapter 3: Troubleshooting](../chap-Troubleshooting) <br>
-**Next:** [Chapter 5: Maintenance and Upgrading Resources](../chap-Maintenance_and_Upgrading_Resources)
+**Next:** [Chapter 5: Administering the Self-Hosted Engine](../chap-Maintenance_and_Upgrading_Resources)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/self-hosted_engine_guide/chap-migrating_from_bare_metal_to_a_rhel-based_self-hosted_environment)

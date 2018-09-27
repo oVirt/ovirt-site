@@ -20,17 +20,15 @@ Click on each network name and use the tabs in the details view to perform funct
 
 These functions are also accessible through each individual resource tab.
 
-    **Warning:** Do not change networking in a data center or a cluster if any hosts are running as this risks making the host unreachable.
+   **Warning:** Do not change networking in a data center or a cluster if any hosts are running as this risks making the host unreachable.
 
-    **Important:** If you plan to use oVirt nodes to provide any services, remember that the services will stop if the oVirt environment stops operating.
+   **Important:** If you plan to use oVirt nodes to provide any services, remember that the services will stop if the oVirt environment stops operating.
 
-    This applies to all services, but you should be especially aware of the hazards of running the following on oVirt:
+   This applies to all services, but you should be especially aware of the hazards of running the following on oVirt:
 
-      * Directory Services
-
-      * DNS
-
-      * Storage
+   * Directory Services
+   * DNS
+   * Storage
 
 ### Creating a New Logical Network in a Data Center or Cluster
 
@@ -76,13 +74,13 @@ You can create an internal, isolated network, by selecting **ovirt-provider-ovn*
 
 If you entered a label for the logical network, it is automatically added to all host network interfaces with that label.
 
-    **Note:** When creating a new logical network or making changes to an existing logical network that is used as a display network, any running virtual machines that use that network must be rebooted before the network becomes available or the changes are applied.
+   **Note:** When creating a new logical network or making changes to an existing logical network that is used as a display network, any running virtual machines that use that network must be rebooted before the network becomes available or the changes are applied.
 
 ### Editing a Logical Network
 
 Edit the settings of a logical network.
 
-    **Important:** A logical network cannot be edited or moved to another interface if it is not synchronized with the network configuration on the host. See [Editing host network interfaces](Editing_host_network_interfaces) on how to synchronize your networks.
+   **Important:** A logical network cannot be edited or moved to another interface if it is not synchronized with the network configuration on the host. See [Editing host network interfaces](Editing_host_network_interfaces) on how to synchronize your networks.
 
 **Editing a Logical Network**
 
@@ -298,13 +296,38 @@ The table below describes the settings for the **Manage Networks** window.
 
 **Manage Networks Settings**
 
-| Field | Description/Action |
-|-
-| <b>Assign</b> | Assigns the logical network to all hosts in the cluster. |
-| <b>Required</b> | A Network marked "required" must remain operational in order for the hosts associated with it to function properly. If a required network ceases to function, any hosts associated with it become non-operational. |
-| <b>VM Network</b> | A logical network marked "VM Network" carries network traffic relevant to the virtual machine network. |
-| <b>Display Network</b> | A logical network marked "Display Network" carries network traffic relevant to SPICE and to the virtual network controller. |
-| <b>Migration Network</b> | A logical network marked "Migration Network" carries virtual machine and storage migration traffic. If an outage occurs on this network, the management network (<b>ovirtmgmt</b> by default) will be used instead. |
+<table>
+ <thead>
+  <tr>
+   <td>Field</td>
+   <td>Description/Action</td>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td><b>Assign</b></td>
+   <td>Assigns the logical network to all hosts in the cluster</td>
+  </tr>
+  <tr>
+   <td><b>Required</b></td>
+   <td>A Network marked "required" must remain operational in order for the hosts associated with it to function properly.
+   If a required network ceases to function, any hosts associated with it become non-operational.</td>
+  </tr>
+  <tr>
+   <td><b>VM Network</b></td>
+   <td>A logical network marked "VM Network" carries network traffic relevant to the virtual machine network.</td>
+  </tr>
+  <tr>
+   <td><b>Display Network</b></td>
+   <td>A logical network marked "Display Network" carries network traffic relevant to SPICE and to the virtual network controller.</td>
+  </tr>
+  <tr>
+   <td><b>Migration Network</b></td>
+   <td>A logical network marked "Migration Network" carries virtual machine and storage migration traffic.
+   If an outage occurs on this network, the management network (<b>ovirtmgmt</b> by default) will be used instead.</td>
+  </tr>
+ </tbody>
+</table>
 
 ### Editing the Virtual Function Configuration on a NIC
 
@@ -348,7 +371,7 @@ A Virtual Network Interface Card (vNIC) profile is a collection of settings that
 
 Create or edit a Virtual Network Interface Controller (vNIC) profile to regulate network bandwidth for users and groups.
 
-    **Note:** If you are enabling or disabling port mirroring, all virtual machines using the associated profile must be in a down state before editing.
+   **Note:** If you are enabling or disabling port mirroring, all virtual machines using the associated profile must be in a down state before editing.
 
 **Creating or editing a vNIC Profile**
 
@@ -380,6 +403,7 @@ Apply this profile to users and groups to regulate their network bandwidth. Note
 
 ### Explanation of Settings in the VM Interface Profile Window
 
+
 **VM Interface Profile Window**
 
 <table>
@@ -406,7 +430,6 @@ Apply this profile to users and groups to regulate their network bandwidth. Note
    <td><b>QoS</b></td>
    <td>A drop-down menu of the available Network Quality of Service policies to apply to the vNIC profile. QoS policies regulate inbound and outbound network traffic of the vNIC.</td>
   </tr>
-  <tr>
   <tr>
    <td><b>Network Filter</b></td>
    <td>A drop-down list of the available network filters to apply to the vNIC profile. Network filters improve network security by filtering the type of packets that can be sent to and from virtual machines. The default filter is <tt>vdsm-no-mac-spoofing</tt>, which is a combination of <tt>no-mac-spoofing</tt> and <tt>no-arp-mac-spoofing</tt>.</td>
@@ -436,6 +459,9 @@ Apply this profile to users and groups to regulate their network bandwidth. Note
   </tr>
  </tbody>
 </table>
+
+.
+
 
 ### Enabling Passthrough on a vNIC Profile
 
@@ -483,11 +509,11 @@ Remove a vNIC profile to delete it from your virtualized environment.
 
 ### Assigning Security Groups to vNIC Profiles
 
-    **Note:** This feature is only available for users who are integrating with OpenStack Neutron. Security groups cannot be created with oVirt Engine. You must create security groups within OpenStack.
+   **Note:** This feature is only available for users who are integrating with OpenStack Neutron. Security groups cannot be created with oVirt Engine. You must create security groups within OpenStack.
 
 You can assign security groups to the vNIC profile of networks that have been imported from an OpenStack Networking instance and that use the Open vSwitch plug-in. A security group is a collection of strictly enforced rules that allow you to filter inbound and outbound traffic over a network interface. The following procedure outlines how to attach a security group to a vNIC profile.
 
-    **Note:** A security group is identified using the ID of that security group as registered in the OpenStack Networking instance. You can find the IDs of security groups for a given tenant by running the following command on the system on which OpenStack Networking is installed:
+   **Note:** A security group is identified using the ID of that security group as registered in the OpenStack Networking instance. You can find the IDs of security groups for a given tenant by running the following command on the system on which OpenStack Networking is installed:
 
         # neutron security-group-list
 
@@ -547,7 +573,7 @@ The procedure to configure the vNIC profile for UCS integration involves first c
 
 2. Verify that the `vmfex` custom device property was added.
 
-        # engine-config -g CustomDeviceProperties   
+        # engine-config -g CustomDeviceProperties
 
 3. Restart the engine.
 
@@ -673,15 +699,15 @@ The list of network interface cards in the **Network Interfaces** tab of the det
 
 You can change the settings of physical host network interfaces, move the management network from one physical host network interface to another, and assign logical networks to physical host network interfaces. Bridge and ethtool custom properties are also supported.
 
-    **Warning:** The only way to change the IP address of a host in Red Hat Virtualization is to remove the host and then to add it again.
+   **Warning:** The only way to change the IP address of a host in Red Hat Virtualization is to remove the host and then to add it again.
 
-    **Important:** You cannot assign logical networks offered by external providers to physical host network interfaces; such networks are dynamically assigned to hosts as they are required by virtual machines.
+   **Important:** You cannot assign logical networks offered by external providers to physical host network interfaces; such networks are dynamically assigned to hosts as they are required by virtual machines.
 
-    **Note:** If the switch has been configured to provide Link Layer Discovery Protocol (LLDP) information, you can hover your cursor over a physical network interface to view the switch port’s current configuration. This can help to prevent incorrect configuration. Red Hat recommends checking the following information prior to assigning logical networks:
+   **Note:** If the switch has been configured to provide Link Layer Discovery Protocol (LLDP) information, you can hover your cursor over a physical network interface to view the switch port’s current configuration. This can help to prevent incorrect configuration. Red Hat recommends checking the following information prior to assigning logical networks:
 
-    * **Port Description (TLV type 4)** and **System Name (TLV type 5)** help to detect to which ports and on which switch the host’s interfaces are patched.
+   * **Port Description (TLV type 4)** and **System Name (TLV type 5)** help to detect to which ports and on which switch the host’s interfaces are patched.
 
-    * **Port VLAN ID** shows the native VLAN ID configured on the switch port for untagged ethernet frames. All VLANs configured on the switch port are shown as **VLAN Name** and **VLAN ID** combinations.
+   * **Port VLAN ID** shows the native VLAN ID configured on the switch port for untagged ethernet frames. All VLANs configured on the switch port are shown as **VLAN Name** and **VLAN ID** combinations.
 
 **Editing Host Network Interfaces and Assigning Logical Networks to Hosts**
 
@@ -705,17 +731,17 @@ You can change the settings of physical host network interfaces, move the manage
 
     ii. From the **IPv4** tab, select a **Boot Protocol** from **None**, **DHCP**, or **Static**. If you selected **Static**, enter the **IP**, **Netmask / Routing Prefix**, and the **Gateway**.
 
-        **Note:** Each logical network can have a separate gateway defined from the management network gateway. This ensures traffic that arrives on the logical network will be forwarded using the logical network's gateway instead of the default gateway used by the management network.
+      **Note:** Each logical network can have a separate gateway defined from the management network gateway. This ensures traffic that arrives on the logical network will be forwarded using the logical network's gateway instead of the default gateway used by the management network.
 
-        **Note:** The **IPv6** tab should not be used as it is currently not supported.
+      **Note:** The **IPv6** tab should not be used as it is currently not supported.
 
     iii. Use the **QoS** tab to override the default host network quality of service. Select **Override QoS** and enter the desired values in the following fields:
 
-        * **Weighted Share**: Signifies how much of the logical link's capacity a specific network should be allocated, relative to the other networks attached to the same logical link. The exact share depends on the sum of shares of all networks on that link. By default this is a number in the range 1-100.
+      * **Weighted Share**: Signifies how much of the logical link's capacity a specific network should be allocated, relative to the other networks attached to the same logical link. The exact share depends on the sum of shares of all networks on that link. By default this is a number in the range 1-100.
 
-        * **Rate Limit [Mbps]**: The maximum bandwidth to be used by a network.
+      * **Rate Limit [Mbps]**: The maximum bandwidth to be used by a network.
 
-        * **Committed Rate [Mbps]**: The minimum bandwidth required by a network. The Committed Rate requested is not guaranteed and will vary depending on the network infrastructure and the Committed Rate requested by other networks on the same logical link.
+      * **Committed Rate [Mbps]**: The minimum bandwidth required by a network. The Committed Rate requested is not guaranteed and will vary depending on the network infrastructure and the Committed Rate requested by other networks on the same logical link.
 
         For more information on configuring host network quality of service see [Host Network Quality of Service](sect-Host_Network_Quality_of_Service)
 
@@ -751,11 +777,11 @@ You can change the settings of physical host network interfaces, move the manage
 
             --coalesce * rx-usecs 14 sample-interval 3
 
-    The **ethtool_opts** option is not available by default; you need to add it using the engine configuration tool. See the “How to Set Up oVirt Engine to Use Ethtool” in Appendix B for more information. For more information on ethtool properties, see the manual page by typing `man ethtool` in the command line.        
+    The **ethtool_opts** option is not available by default; you need to add it using the engine configuration tool. See the “How to Set Up oVirt Engine to Use Ethtool” in Appendix B for more information. For more information on ethtool properties, see the manual page by typing `man ethtool` in the command line.
 
     vi. To configure Fibre Channel over Ethernet (FCoE), click the **Custom Properties** tab and select **fcoe** from the drop-down list. Enter a valid key and value with the following syntax: `key=value`. At least `enable=yes` is required. You can also add `dcb=[yes|no]` and `auto_vlan=[yes|no]`. Separate multiple entries with a whitespace character. The **fcoe** option is not available by default; you need to add it using the engine configuration tool. See [How to Set Up RHVM to Use FCoE](How_to_Set_Up_RHVM_to_Use_FCoE) for more information.
 
-        **Note:** A separate, dedicated logical network is recommended for use with FCoE.
+      **Note:** A separate, dedicated logical network is recommended for use with FCoE.
 
     vii. To change the default network used by the host from the management network (ovirtmgmt) to a non-management network, configure the non-management network’s default route.
 
@@ -806,9 +832,7 @@ Following these best practices will prevent your host from becoming unsynchroniz
 Synchronizing a host’s network interface definitions involves using the definitions from the Manager and applying them to the host. If these are not the definitions that you require, after synchronizing your hosts update their definitions from the Administration Portal. You can synchronize a host’s networks on three levels:
 
 * Per logical network
-
 * Per host
-
 * Per cluster
 
 **Synchronizing Host Networks on the Logical Network Level**
@@ -863,7 +887,7 @@ Proceeding causes all of the hosts in the data center to lose connectivity to th
 
 Multiple VLANs can be added to a single network interface to separate traffic on the one host.
 
-    **Important:** You must have created more than one logical network, all with the **Enable VLAN tagging** check box selected in the **New Logical Network** or **Edit Logical Network** windows.
+   **Important:** You must have created more than one logical network, all with the **Enable VLAN tagging** check box selected in the **New Logical Network** or **Edit Logical Network** windows.
 
 **Adding Multiple VLANs to a Network Interface using Logical Networks**
 
@@ -885,15 +909,15 @@ Multiple VLANs can be added to a single network interface to separate traffic on
 
   iii. Select a **Boot Protocol**:
 
-    * **None**
+   * **None**
 
-    * **DHCP**
+   * **DHCP**
 
-    * **Static**
+   * **Static**
 
-    iv. Provide the **IP** and **Subnet Mask**.
+  iv. Provide the **IP** and **Subnet Mask**.
 
-    v. Click **OK**.
+  v. Click **OK**.
 
 7. Select the **Verify connectivity between Host and Engine** check box to run a network check; this will only work if the host is in maintenance mode.
 
@@ -917,15 +941,15 @@ In the following procedure, the host-specific tasks must be performed on each ho
 
 1. On the host that you want to configure additional IPv4 addresses for, install the VDSM hook package. The package is available by default on oVirt Nodes but needs to be installed on Enterprise Linux hosts.
 
-      # yum install vdsm-hook-extra-ipv4-addrs
+       # yum install vdsm-hook-extra-ipv4-addrs
 
 2. On the Engine, run the following command to add the key:
 
-      # engine-config -s 'UserDefinedNetworkCustomProperties=ipv4_addrs=.\*'
+       # engine-config -s 'UserDefinedNetworkCustomProperties=ipv4_addrs=.\*'
 
 3. Restart the ovirt-engine service:
 
-      # systemctl restart ovirt-engine.service
+       # systemctl restart ovirt-engine.service
 
 4. In the Administration Portal, click **Compute** &rarr; **Hosts**.
 
@@ -949,7 +973,7 @@ The additional IP addresses will not be displayed in the Engine, but you can run
 
 Using network labels allows you to greatly simplify the administrative workload associated with assigning logical networks to host network interfaces.
 
-    **Note:** Setting a label on a role network (for instance, a migration network or a display network) causes a mass deployment of that network on all hosts. Such mass additions of networks are achieved through the use of DHCP. This method of mass deployment was chosen over a method of typing in static addresses, because of the unscalable nature of the task of typing in many static IP addresses.
+   **Note:** Setting a label on a role network (for instance, a migration network or a display network) causes a mass deployment of that network on all hosts. Such mass additions of networks are achieved through the use of DHCP. This method of mass deployment was chosen over a method of typing in static addresses, because of the unscalable nature of the task of typing in many static IP addresses.
 
 **Adding Network Labels to Host Network Interfaces**
 
@@ -1019,7 +1043,7 @@ A bond is an aggregation of multiple network interface cards into a single softw
 
 The packet dispersal algorithm for a bond is determined by the bonding mode used.
 
-    **Important:** Modes 1, 2, 3, and 4 support both virtual machine (bridged) and non-virtual machine (bridgeless) network types. Modes 0, 5 and 6 support non-virtual machine (bridgeless) networks only.
+   **Important:** Modes 1, 2, 3, and 4 support both virtual machine (bridged) and non-virtual machine (bridgeless) network types. Modes 0, 5 and 6 support non-virtual machine (bridgeless) networks only.
 
 oVirt uses Mode 4 by default, but supports the following common bonding modes:
 
@@ -1080,7 +1104,7 @@ Your network devices are linked into a bond device and can be edited as a single
 
 Bonding must be enabled for the ports of the switch used by the host. The process by which bonding is enabled is slightly different for each switch; consult the manual provided by your switch vendor for detailed information on how to enable bonding.
 
-    **Note:** For a bond in Mode 4, all slaves must be configured properly on the switch. If none of them is configured properly on the switch, the `ad_partner_mac` is reported as 00:00:00:00:00:00. The Manager will display a warning in the form of an exclamation mark icon on the bond in the **Network Interfaces** tab. No warning is provided if any of the slaves are up and running.
+   **Note:** For a bond in Mode 4, all slaves must be configured properly on the switch. If none of them is configured properly on the switch, the `ad_partner_mac` is reported as 00:00:00:00:00:00. The Manager will display a warning in the form of an exclamation mark icon on the bond in the **Network Interfaces** tab. No warning is provided if any of the slaves are up and running.
 
 ### Example Uses of Custom Bonding Options with Host Interfaces
 

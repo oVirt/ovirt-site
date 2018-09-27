@@ -38,8 +38,6 @@ Updates to the oVirt Engine are released through the oVirt repositories.
 
     # yum update ovirt\*setup\*
 
-    # yum update rhevm-setup
-
 3. Update the oVirt Engine. The `engine-setup` script prompts you with some configuration questions, then stops the **ovirt-engine** service, downloads and installs the updated packages, backs up and updates the database, performs post-installation configuration, and starts the **ovirt-engine** service.
 
         # engine-setup
@@ -149,7 +147,7 @@ This procedure assumes that the system on which the Engine is installed is subsc
 
 3. Remove or disable the oVirt Engine 4.0 repository to ensure the system does not use any oVirt Engine 4.0 packages:
 
-        # subscription-manager repos --disable=rhel-7-server-rhv-4.0-rpms
+        # yum remove ovirt-release40
 
 4. Update the base operating system:
         # yum update
@@ -178,9 +176,7 @@ This procedure assumes that the system on which the Manager is installed is atta
 
 3. Remove or disable the oVirt Engine 4.1 repositories to ensure the system does not use any oVirt Engine 4.1 packages:
 
-        # subscription-manager repos --disable=rhel-7-server-rhv-4.1-rpms
-        # subscription-manager repos --disable=rhel-7-server-rhv-4.1-manager-rpms
-        # subscription-manager repos --disable=rhel-7-server-rhv-4-tools-rpms
+        # yum remove ovirt-release40
 
 4. Update the base operating system:
 
@@ -229,13 +225,14 @@ If the command fails, the host is oVirt Node 3.6. If the command succeeds, the h
 
   * For oVirt Nodes:
 
-        # subscription-manager repos --enable=rhel-7-server-oVirt Node-4-rpms
+        # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 
   * For Enterprise Linux hosts:
 
         # subscription-manager repos --enable=rhel-7-server-rpms
-        # subscription-manager repos --enable=rhel-7-server-rhv-4-mgmt-agent-rpms
-        # subscription-manager repos --enable=rhel-7-server-ansible-2-rpms
+        # subscription-manager repos --enable=rhel-7-server-optional-rpms
+        # subscription-manager repos --enable=rhel-7-server-extras-rpms
+        # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 
 4. Click **Compute** &rarr; **Hosts** and select the host to be updated.
 
@@ -261,7 +258,7 @@ Repeat this procedure for each host in the oVirt environment.
 
 ## Upgrading from 3.6 to oVirt Node While Preserving Local storage
 
-Environments with local storage cannot migrate virtual machines to a host in another cluster (for example when upgrading to version 4.2) because the local storage is not shared with other storage domains. To upgrade oVirt Node 3.6 hosts that have a local storage domain, reinstall the host while preserving the local storage, create a new local storage domain in the 4.2 environment, and import the previous local storage into the new domain. Follow the procedure in Upgrading to oVirt Node While Preserving Local Storage in the Upgrade Guide for oVirt 4.0, but install a RHVH 4.2 host instead of a 4.0 host.
+Environments with local storage cannot migrate virtual machines to a host in another cluster (for example when upgrading to version 4.2) because the local storage is not shared with other storage domains. To upgrade oVirt Node 3.6 hosts that have a local storage domain, reinstall the host while preserving the local storage, create a new local storage domain in the 4.2 environment, and import the previous local storage into the new domain. Follow the procedure in Upgrading to oVirt Node While Preserving Local Storage in the Upgrade Guide for oVirt 4.0, but install a oVirt Node 4.2 host instead of a 4.0 host.
 
     **Important:** An exclamation mark icon appears next to the name of the virtual machine if a MAC address conflict is detected when importing the virtual machines into the 4.2 storage domain. Move the cursor over the icon to view a tooltip displaying the type of error that occurred.
 

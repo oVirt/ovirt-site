@@ -8,7 +8,7 @@ You can deploy a self-hosted engine from the command line, or through the Cockpi
 
 Self-hosted engine installation uses the oVirt Engine Appliance to create the Engine virtual machine. The appliance is installed during the deployment process; however, you can install it on the host before starting the deployment if required:
 
-        # yum install rhvm-appliance
+        # yum install ovirt-engine-appliance
 
 If you plan to use bonded interfaces for high availability or VLANs to separate different types of traffic (for example, for storage or management connections), you should configure them before deployment.
 

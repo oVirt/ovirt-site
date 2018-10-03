@@ -10,6 +10,8 @@ The oVirt Project is pleased to announce the availability of the 4.2.6 release a
 
 Release has been updated on September 13, 2018.
 
+Release has been updated on October 4th, 2018 with a new oVirt Node consuming CentOS 7.5 updates.
+
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.5,

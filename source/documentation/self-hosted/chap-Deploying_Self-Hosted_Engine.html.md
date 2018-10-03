@@ -8,7 +8,7 @@ You can deploy a self-hosted engine from the command line, or through the Cockpi
 
 Self-hosted engine installation uses the oVirt Engine Appliance to create the Engine virtual machine. The appliance is installed during the deployment process; however, you can install it on the host before starting the deployment if required:
 
-        # yum install rhvm-appliance
+        # yum install ovirt-engine-appliance
 
 If you plan to use bonded interfaces for high availability or VLANs to separate different types of traffic (for example, for storage or management connections), you should configure them before deployment.
 
@@ -48,15 +48,15 @@ Cockpit is enabled by default on oVirt Nodes. If you are using a Enterprise Linu
 
   iii. Choose either **DHCP** or **Static** from the **Network Configuration** drop-down list.
 
-    * If you choose **DHCP**, you must have a DHCP reservation for the Engine virtual machine so that its host name resolves to the address received from DHCP. Specify its MAC address in the **MAC Address** field.
+   If you choose **DHCP**, you must have a DHCP reservation for the Engine virtual machine so that its host name resolves to the address received from DHCP. Specify its MAC address in the **MAC Address** field.
 
-    * If you choose **Static**, enter the following details:
+   If you choose **Static**, enter the following details:
 
-      * **VM IP Address** - The IP address must belong to the same subnet as the host. For example, if the host is in 10.1.1.0/24, the Engine virtual machine’s IP must be in the same subnet range (10.1.1.1-254/24).
+   * VM IP Address - The IP address must belong to the same subnet as the host. For example, if the host is in 10.1.1.0/24, the Engine virtual machine’s IP must be in the same subnet range (10.1.1.1-254/24).
 
-      * **Gateway Address**
+   * Gateway Address
 
-      * **DNS Servers**
+   * DNS Servers
 
   iv. Select the **Bridge Interface** from the drop-down list.
 
@@ -118,7 +118,7 @@ iii. Enter the **Recipient E-Mail Addresses**.
 
     ii. Click **Retrieve Target** List and select a target. You can only select one iSCSI target during the deployment, but multipathing is supported to connect all portals of the same portal group.
 
-        **Note:** To specify more than one iSCSI target, you must enable multipathing before deploying the self-hosted engine. There is also a Multipath Helper tool that generates a script to install and configure multipath with different options.
+       **Note:** To specify more than one iSCSI target, you must enable multipathing before deploying the self-hosted engine. There is also a Multipath Helper tool that generates a script to install and configure multipath with different options.
 
     iii. Enter the **Disk Size (GiB)**.
 
@@ -156,7 +156,7 @@ The self-hosted engine’s status is displayed in Cockpit’s **Virtualization**
 
 You can deploy a self-hosted engine from the command line using `hosted-engine --deploy` to collect the details of your environment.
 
-    **Note:** If necessary, you can still use the non-Ansible script from previous versions of oVirt by running `hosted-engine --deploy --noansible`.
+**Note:** If necessary, you can still use the non-Ansible script from previous versions of oVirt by running `hosted-engine --deploy --noansible`.
 
 **Prerequisites**
 
@@ -170,9 +170,9 @@ You can deploy a self-hosted engine from the command line using `hosted-engine -
 
     **Warning:** The oVirt Project strongly recommends that you have additional active data storage domains available in the same data center as the self-hosted engine storage domain.
 
-      If you deploy the self-hosted engine in a data center with only one active data storage domain, and if that data storage domain is corrupted, you will be unable to add new data storage domains or to remove the corrupted data storage domain. You will have to redeploy the self-hosted engine.
+     If you deploy the self-hosted engine in a data center with only one active data storage domain, and if that data storage domain is corrupted, you will be unable to add new data storage domains or to remove the corrupted data storage domain. You will have to redeploy the self-hosted engine.
 
-        **Important:** If you are using iSCSI storage, do not use the same iSCSI target for the self-hosted engine storage domain and any additional storage domains.
+    **Important:** If you are using iSCSI storage, do not use the same iSCSI target for the self-hosted engine storage domain and any additional storage domains.
 
 **Procedure**
 
@@ -207,7 +207,7 @@ You can deploy a self-hosted engine from the command line using `hosted-engine -
 
         If you want to deploy with a custom engine appliance image,
         please specify the path to the OVA archive you would like to use
-        (leave it empty to skip, the setup will use rhvm-appliance rpm installing it if missing):
+        (leave it empty to skip, the setup will use ovirt-engine-appliance rpm installing it if missing):
 
 7. Specify the FQDN for the Engine virtual machine:
 

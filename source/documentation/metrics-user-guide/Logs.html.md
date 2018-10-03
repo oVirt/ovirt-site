@@ -1,11 +1,14 @@
-# Analyzing Logs
+---
+title: Analyzing Logs
+---
 
-Use the **Discover** page to interactively explore the data collected from Red Hat Virtualization. Each set of results that is collected is referred to as a *document*. Documents are collected from the following log files:
+# Chapter 3: Analyzing Logs
 
-* **engine.log** contains all Red Hat Virtualization Manager UI crashes, Active Directory lookups, database issues, and other events.
+Use the **Discover** page to interactively explore the data collected from oVirt. Each set of results that is collected is referred to as a *document*. Documents are collected from the following log files:
+
+* **engine.log** contains all Ovirt Engine UI crashes, Active Directory lookups, database issues, and other events.
 
 * **vdsm.log** is the log file for VDSM, the Manager's agent on the virtualization host(s), and contains host-related events.
-
 
 ## Graphic User Interface Elements
 
@@ -13,46 +16,44 @@ The distribution of documents over time is displayed in a histogram at the top o
 
 **Histogram**
 
-![](images/histogram.png)
+![](/images/metrics-user-guide/histogram.png)
 
 The bottom of the page displays the documents in a table, sorted according to time.
 
 **Documents Table**
 
-![](images/doctable.png)
-
+![](/images/metrics-user-guide/doctable.png)
 
 ## Using the Discover Page
 
 From the **Discover** page you can:
 
-* [Set the time filter](#setting-the-time-filter)
-* [Submit search queries](#searching-your-data)
-* [Filter the search results](#filtering-by-field)
-* [View the results in the Visualization page](#visualizing-log-data)
-* [Customize the Documents table](#customizing-the-documents-table)
+* Set the time filter
 
+* Submit search queries
 
-## Setting the Time Filter
+* Filter the search results
 
+* View the results in the Visualization page
 
-#FIXME below
+* Customize the Documents table
+
+### Setting the Time Filter
 
 By default, data from the last 15 minutes is displayed. There are several ways to change the time filter:
 
-* Click the time filter ![](images/timefilter.png) and either select a predefined time filter or define a time range from the **Relative** or **Absolute** menus.
+* Click the time filter ![](/images/metrics-user-guide/timefilter.png) and either select a predefined time filter or define a time range from the **Relative** or **Absolute** menus.
+
 * Define a filter directly from the histogram by clicking a bar or click and drag over several bars.
-For more information, see [Setting the Time Filter](https://www.elastic.co/guide/en/kibana/4.5/discover.html#set-time-filter) in the Kibana documentation. 
+For more information, see [Setting the Time Filter](https://www.elastic.co/guide/en/kibana/4.5/discover.html#set-time-filter) in the Kibana documentation.
 
-
-## Searching Your Data
+### Searching Your Data
 
 Use the search field at the top of the page to filter the results according to a specific value. For example, to display results containing the word "login", type `&#42;login&#42;` in the search field. For more information about searches, see [Searching Your Data](https://www.elastic.co/guide/en/kibana/4.5/discover.html#search) in the Kibana documentation.
 
+### Filtering By Field
 
-## Filtering By Field
-
-Filtering log data by field enables you to focus on the specific error that interests you. 
+Filtering log data by field enables you to focus on the specific error that interests you.
 
 **To filter the log data by field:**
 
@@ -86,14 +87,13 @@ Filtering log data by field enables you to focus on the specific error that inte
    |pipeline_metadata.collector.version |N/A|
    |service |The log file from which the document was extracted. |
 
-3. To add a positive filter, click the **Positive Filter** button ![](images/PositiveFilter.png). This filters out results that do not contain that value in the field.
+2. To add a positive filter, click the **Positive Filter** button ![](/images/metrics-user-guide/PositiveFilter.png). This filters out results that do not contain that value in the field.
 
-4. To add a negative filter, click the **Negative Filter** button ![](images/NegativeFilter.png). This excludes results that contain that value in the field. 
+3. To add a negative filter, click the **Negative Filter** button ![](/images/metrics-user-guide/NegativeFilter.png). This excludes results that contain that value in the field.
 
    For more information about working with filters, see [Working with Filters](https://www.elastic.co/guide/en/kibana/4.5/discover.html#discover-filters) in the Kibana documentation.
 
-
-## Visualizing Log Data
+### Visualizing Log Data
 
 You can visualize and aggregate log data in the **Visualization** page by selecting a specific field from within the **Discover** page.
 
@@ -103,12 +103,11 @@ You can visualize and aggregate log data in the **Visualization** page by select
 
 2. Click the **Visualize** button that appears beneath the top five values.
 
-   You are transferred to the **Visualize** page where you can view the filtered value in a graphical format. 
+   You are transferred to the **Visualize** page where you can view the filtered value in a graphical format.
 
+### Customizing the Documents Table
 
-## Customizing the Documents Table
-
-You can customize the way that the data is displayed in the Documents table by adding fields to the table as columns and changing the display order. 
+You can customize the way that the data is displayed in the Documents table by adding fields to the table as columns and changing the display order.
 
 **To add fields to the table as columns:**
 
@@ -116,5 +115,9 @@ You can customize the way that the data is displayed in the Documents table by a
 
 2. Click **add**. The field is added to the table.
 
-3. Optionally click the **Sort by** arrow ![](images/arrow.png) that appears next to the column title to sort the results by that column.
+3. Optionally click the **Sort by** arrow ![](/images/metrics-user-guide/arrow.png) that appears next to the column title to sort the results by that column.
 
+**Prev:** [Chapter 2: Analyzing Metrics](../analyzing-metrics)<br>
+**Next:** [Chapter 4: Troubleshooting](../Troubleshooting)
+
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/metrics_store_user_guide/chap-logs)

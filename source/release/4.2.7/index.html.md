@@ -138,6 +138,7 @@ packages from other repos.
  - [BZ 1619256](https://bugzilla.redhat.com/1619256) <b>Set performance options on gluster volume</b><br>
  - [BZ 1600883](https://bugzilla.redhat.com/1600883) <b>Remove Packages tab from gluster deployment  in cockpit ovirt</b><br>
  - [BZ 1574926](https://bugzilla.redhat.com/1574926) <b>Reusing the existing gluster configuration needs validation</b><br>
+ - [BZ 1619395](https://bugzilla.redhat.com/1619395) <b>Adjusting Create Volume and Exapnd Cluster for Single Node</b><br>
  - [BZ 1590867](https://bugzilla.redhat.com/1590867) <b>Host names field should be flexible to hold longer host names in brick tab</b><br>
  - [BZ 1608660](https://bugzilla.redhat.com/1608660) <b>Support single node deployment from cockpit</b><br>
  - [BZ 1603162](https://bugzilla.redhat.com/1603162) <b>[day2] Editing the hosts in generated gdeploy config file, doesn't reflect on all the config files</b><br>
@@ -171,6 +172,7 @@ packages from other repos.
  - [BZ 1622321](https://bugzilla.redhat.com/1622321) <b>Receiving Getlldpvds error when editing host networks</b><br>
  - [BZ 1612124](https://bugzilla.redhat.com/1612124) <b>Engine raises 'insufficient permissions' error when normal user try to access /ovirt-engine/api</b><br>
  - [BZ 1619303](https://bugzilla.redhat.com/1619303) <b>Importing OVA does not honor disk size allocationUnits defined in ovf file</b><br>
+ - [BZ 1609319](https://bugzilla.redhat.com/1609319) <b>failed to update cluster compatibility to version 4.2</b><br>
  - [BZ 1575586](https://bugzilla.redhat.com/1575586) <b>Active snapshot disks appears when creating VM template from snapshot instead of the snapshot disks</b><br>
  - [BZ 1623818](https://bugzilla.redhat.com/1623818) <b>[4.2.z Clone] An exception is thrown when creating a template from snapshot with less disks then the active VM</b><br>
  - [BZ 1598996](https://bugzilla.redhat.com/1598996) <b>deleteVolume task is not cleared after a failed LSM due to power off VM during snapshot creation</b><br>
@@ -181,8 +183,8 @@ packages from other repos.
  - [BZ 1614430](https://bugzilla.redhat.com/1614430) <b>vdsm-gluster stuck on operations forcing vdsm to stop working</b><br>
  - [BZ 1613339](https://bugzilla.redhat.com/1613339) <b>Stop/Start VDO service during host Maintenance/Activate</b><br>
  - [BZ 1621211](https://bugzilla.redhat.com/1621211) <b>[downstream clone - 4.2.7] qemu-img: slow disk move/clone/import</b><br>
- - [BZ 1633586](https://bugzilla.redhat.com/1633586) <b>hooks/before_device_create/50_openstacknet fails</b><br>
  - [BZ 1594194](https://bugzilla.redhat.com/1594194) <b>Make vdsm-client schema cache part of the package</b><br>
+ - [BZ 1633586](https://bugzilla.redhat.com/1633586) <b>hooks/before_device_create/50_openstacknet fails</b><br>
  - [BZ 1627734](https://bugzilla.redhat.com/1627734) <b>Don't attempt unnecessary cleanups in vhostmd hook</b><br>
  - [BZ 1625098](https://bugzilla.redhat.com/1625098) <b>Wrong network threshold limit warnings on vdsm version 4.20.35-1.el7</b><br>
  - [BZ 1615414](https://bugzilla.redhat.com/1615414) <b>Unable to change CD for drivers installation while installing a system from CD</b><br>
@@ -225,10 +227,6 @@ packages from other repos.
 
  - [BZ 1548082](https://bugzilla.redhat.com/1548082) <b>[RFE] Role should find pool ids by self</b><br>
 
-#### oVirt Provider OVN
-
- - [BZ 1507543](https://bugzilla.redhat.com/1507543) <b>ovn-controller: ovs|01240|stream_ssl|ERR|ssl:${ipv6_addr}: connect: Address family not supported by protocol</b><br>
-
 #### ovirt-engine-extension-aaa-ldap
 
  - [BZ 1635198](https://bugzilla.redhat.com/1635198) <b>[downstream clone - 4.2.7] ovirt-engine-extension-aaa-ldap-setup generates incorrect config for LDAP setup using multiple servers with round robin request distribution</b><br>
@@ -236,6 +234,14 @@ packages from other repos.
 #### oVirt Log Collector
 
  - [BZ 1616370](https://bugzilla.redhat.com/1616370) <b>(EL7.6) STDERR: a non-existing plugin (general) was specified in the command line</b><br>
+
+#### oVirt Engine WildFly
+
+ - [BZ 1631876](https://bugzilla.redhat.com/1631876) <b>Fix dependency between engine, wildfly and wildfly overlay to make upgrades in CI easier</b><br>
+
+#### oVirt Engine WildFly Overlay
+
+ - [BZ 1631876](https://bugzilla.redhat.com/1631876) <b>Fix dependency between engine, wildfly and wildfly overlay to make upgrades in CI easier</b><br>
 
 ### No Doc Update
 

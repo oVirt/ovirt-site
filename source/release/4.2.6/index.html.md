@@ -77,7 +77,7 @@ guide or the corresponding section within the
 
 ### EPEL
 
-TL;DR Don't enable all of EPEL on oVirt machines.
+Don't enable all of EPEL on oVirt machines.
 
 The ovirt-release package enables the EPEL repositories and includes several
 specific packages that are required from there. It also enables and uses

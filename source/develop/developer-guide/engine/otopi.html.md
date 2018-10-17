@@ -7,8 +7,6 @@ authors: didi
 
 ## OTOPI
 
-Need to add somewhere documentation about otopi and the tools using it. Not sure this is the right place - possible other places are tool-specific page and/or manpages.
-
 OTOPI's "home page": <http://gerrit.ovirt.org/gitweb?p=otopi.git;a=blob;f=README;hb=HEAD>
 
 A nice presentation about OTOPI and host-deploy-engine (the first tool to use otopi): <http://resources.ovirt.org/old-site-files/wiki/Ovirt-host-deploy_3.2.pdf>
@@ -98,4 +96,22 @@ If otopi decided to give up and rollback, it will change the env key 'BASE/error
 ```
 
 Often, right before that, a stack trace is logged, showing the exact location in the code that failed. Such s trace starts with `Traceback`, but not every occurrence of `Traceback` is a problem - some places in the code try something, get an exception, handle it, including logging the traceback, but do not fail. So a reliable way to find the correct place that failed is seraching for `BASE/error=bool:'True'`.
+
+### Users
+
+otopi most probably has no humans using it directly. Although technically you can run 'otopi' and see it do a bit of stuff, and even more than a bit if you pass some env vars, otopi should be considered a kind of "library". Other tools use it, usually by supplying extra plugins implementing the actual functionality they are meant to provide and a wrapper that is calling otopi with the needed plugins.
+
+Following is a list of projects/tools that are using otopi or are related to it:
+
+* ovirt-host-deploy
+
+* Inside ovirt-engine: engine-setup, engine-cleanup, ovirt-engine-rename, ovirt-engine-provisiondb, ovirt-engine-health
+
+* Inside ovirt-dwh: plugins for engine-setup/cleanup/etc.
+
+* rhvm-setup-plugins: plugins for engine-setup/cleanup/etc. (in RHV, not part of oVirt)
+
+* ovirt-hosted-engine-setup
+
+* Inside ovirt-engine-extension-aaa-ldap: ovirt-engine-extension-aaa-ldap-setup
 

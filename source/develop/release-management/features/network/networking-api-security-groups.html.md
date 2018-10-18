@@ -291,41 +291,17 @@ group of ports. More information can be found [here](https://docs.openstack.org/
 
 The security group information will be encoded in the port group object.
 
-The security group has the following attributes:
+The description of the security group parameters is located at the [networking api](https://developer.openstack.org/api-ref/network/v2/index.html#security-groups-security-groups).
 
-| name                 | type   | description |
-|----------------------|--------|-------------|
-| tenant_id       | string | The ID of the tenant.                                                      |
-| project_id      | string | The ID of the project.                                                     |
-| description (*) | string | A human-readable description for the resource. Default is an empty string. |
-| name            | string | Human-readable name of the resource.                                       |
-
-(*) - optional attributes
-
-All of the aforementioned attributes will be stored in the external_ids
-of the corresponding port group.
+All the security group attributes will be stored in the corresponding port
+group external ids.
 
 ### Encoding the security group rule information
 
 The security group information will be encoded in the ACL object, to
 which it naturally corresponds in the OVN-world.
 
-A security group rule has the following attributes:
-
-| name                 | type   | description |
-|----------------------|--------|-------------|
-| remote_group_id (**) | string | The remote group UUID to associate with this security group rule. You can specify either the  remote_group_id or remote_ip_prefix attribute in the request body. |
-| direction            | string | Ingress or egress, which is the direction in which the security group rule is applied.                                                                           |
-| protocol (*)         | string | Check https://developer.openstack.org/api-ref/network/v2/#create-security-group-rule                                                                             |
-| ethertype (*)        | string | Check https://developer.openstack.org/api-ref/network/v2/#create-security-group-rule                                                                             |
-| port_range_max (*)   | int    | The maximum port number in the range that is matched by the security group rule.                                                                                 |
-| port_range_min (*)   | int    | The minimum port number in the range that is matched by the security group rule.                                                                                 |
-| security_group_id    | string | The security group ID to associate with this security group rule.                                                                                                |
-| remote_ip_prefix (*) | string | The remote IP prefix that is matched by this security group rule.                                                                                                |
-| description (*)      | string | A human-readable description for the resource. Default is an empty string.                                                                                       |
-
-(*) - optional attributes
-(**) - optional attributes that ***will not*** be implemented.
+The description of the security group rules is located at the [networking api](https://developer.openstack.org/api-ref/network/v2/index.html#security-group-rules-security-group-rules).
 
 ### OVN ACL table
 
@@ -388,6 +364,66 @@ changed through an ACL - since it would have a lower priority.
 
 Access to logical switch ports with router or localnet type **cannot**
 be controlled through ACLs.
+
+## The remote_group_id parameter mapping
+
+The **remote_group_id** security group rule parameter provides the user a
+way to allow ingress/egress traffic for all the VMs attached to ports having
+that security group. It enables the user to leverage semantics like a rule
+allowing all ssh ingress traffic for members of the *ops* security group.
+
+Furthermore, the default Openstack behavior is to create rules allowing ingress
+for all members of the security group at group creation time - including the
+default group. This implies that this parameter is key to fully mimicking how
+openstack behaves.
+
+### How to encode the remote_group_id parameter
+
+The OVN **address set** tables will be used to encode the remote group id
+information.
+
+The OVN address sets are - as per [OVN documentation](http://www.openvswitch.org/support/dist-docs/ovn-nb.5.html) - a 'a named set of addresses'.
+
+Each address set can only feature **one** type of addresses - eth, ipv4, ipv6 -
+and will be used in the ACL match column. Examples of address sets being used in the match conditions can be seen below.
+
+```
+IPv4 match using address sets
+match="ip4 && ip4.src == $set1"
+
+IPv6 match using address sets
+match="ip6 && ip6.src == $set2"
+```
+
+The address sets referenced above would look like:
+```
+ovn-nbctl create Address_Set name=set1 addresses='10.0.0.1 10.0.0.2 10.0.0.3'
+ovn-nbctl create Address_Set name=set2 addresses='2001:db8:0:0:0:0:2:1 2001:db8:0:0:0:0:3:1 2001:db8:0:0:0:0:14:1'
+```
+
+A reference to the associated port group will be stored on the address set's
+external ids.
+
+### Remote group ID relevant events
+
+The relevant events for the remote_group_id parameter - and the actions that take place on each event - are summarized below:
+
+- create security group
+  + create address sets for the security group - one for ipv4, another for ipv6
+  + create 2 ACLs allowing ingress IP traffic from that group
+- delete security group
+  + the associated address sets are deleted
+- add port
+  + add the port's IP address to each of the security groups
+- update port
+  + update the port's IP in each of the security groups
+    * remove from old groups, add to new groups
+  + if ip changes, update the IP in all of the current groups
+- remove port
+  + remove the port's IP address from all security groups attached to it
+
+These event will not be integrated in the following section, for simplicity
+reasons.
 
 ## Relevant events
 

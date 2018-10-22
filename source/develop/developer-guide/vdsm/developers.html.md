@@ -118,6 +118,15 @@ Running all the tests is too slow during development. It is recommended
 to run the relevant module tests while making changes, and run the
 entire test suite before submitting a patch.
 
+Legacy tests use `nose`, newer tests use `pytest`.
+Following sub-sections provide a quick reference how to run either `nose` or `pytest` based tests.
+Please see `tests/README` for more details about the VDSM tests and how to run them.
+
+#### Running specific nose tests
+
+Please note that `run_test*` scripts are legacy and can be removed in the future.
+Preffered way how to run tests is using `tox`.
+
 To run specific tests:
 
     cd tests
@@ -130,6 +139,19 @@ To enable slow and stress tests:
 To run using different python executable:
 
     PYTHON_EXE=python3 ./run_tests_local.sh foo_test.py bar_test.py
+
+#### Running specific pytest tests
+
+To run specific module with `tox`:
+
+    tox -e storage-py27,storage-py36
+
+To run specific test direcly via `pytest`:
+
+    cd tests
+    export PYTHONPATH=../lib/
+    pytest storage/blocksd_test.py
+
 
 ## Building a VDSM RPM
 

@@ -1,6 +1,10 @@
-# Mapping File Attributes
+---
+title: Mapping File Attributes
+---
 
-The following table describes the attributes in the mapping file that is used to fail over and fail back between the two sites in an active-passive disaster recovery solution. 
+# Appendix A: Mapping File Attributes
+
+The following table describes the attributes in the mapping file that is used to fail over and fail back between the two sites in an active-passive disaster recovery solution.
 
 **Mapping File Attributes**
 
@@ -11,13 +15,13 @@ The following table describes the attributes in the mapping file that is used to
 <tr>
 <td>Site details</td>
 <td>
-<p>These attributes map the Manager details in the primary and secondary site. For example:</p>
-<pre>dr_sites_primary_url: https://manager1.example.redhat.com/ovirt-engine/api
+<p>These attributes map the Engine details in the primary and secondary site. For example:</p>
+<pre>dr_sites_primary_url: https://Engine1.example.redhat.com/ovirt-engine/api
 dr_sites_primary_username: admin@internal
 dr_sites_primary_ca_file: /etc/pki/ovirt-engine/ca.pem
 
 # Please fill in the following properties for the secondary site:
-dr_sites_secondary_url: https://manager2.example.redhat.com/ovirt-engine/api
+dr_sites_secondary_url: https://Engine2.example.redhat.com/ovirt-engine/api
 dr_sites_secondary_username: admin@internal
 dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem
 </pre>
@@ -100,8 +104,8 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem
 <tr>
 <td>Role details</td>
 <td>
-<p>The Role attributes provide mapping for specific roles. For example, if a virtual machine is registered with a user with a `VmCreator` role, it is possible on failover for the Manager to register a permission for that virtual machine with the same user but with a different role. For example:</p>
-<pre>dr_role_mappings:	
+<p>The Role attributes provide mapping for specific roles. For example, if a virtual machine is registered with a user with a `VmCreator` role, it is possible on failover for the Engine to register a permission for that virtual machine with the same user but with a different role. For example:</p>
+<pre>dr_role_mappings:
 - primary_name: VmCreator
   Secondary_name: NewVmCreator
 </pre>
@@ -158,3 +162,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem
 </tbody>
 </table>
 
+**Prev:** [Chapter 3: Active-Passive Disaster Recovery](../active_passive_overview)<br>
+**Next:** [Appendix B: Testing the Active-Passive Configuration](../testing_active_passive)
+
+[Adapted from oVirt 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/disaster_recovery_guide/mapping_file_attributes)

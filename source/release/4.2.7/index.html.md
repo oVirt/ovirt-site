@@ -6,7 +6,7 @@ layout: toc
 
 # oVirt 4.2.7 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.2.7 Fourth Release Candidate as of October 24, 2018.
+The oVirt Project is pleased to announce the availability of the 4.2.7 Fifth Release Candidate as of October 26, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -103,7 +103,7 @@ packages from other repos.
 
 #### imgbased
 
- - [BZ 1613931](https://bugzilla.redhat.com/1613931) <b>[RFE] Add the ability to recover from failed upgrades</b><br>Feature: <br>The recover verb was added to imgbase<br><br>Reason: <br>imgbase creates LVs while upgrading ovirt-node-ng, if for any reason imgbase fails, and those LVs remain on the system, rerunning the upgrade fails on "existing LVs".<br><br>Result: <br>`imgbase --experimental recover` will try to find stale LVs that remained on the system due to a failed upgrade, and remove the.  imgbase will prompt the user before removing LVs, unless used with --force.
+ - [BZ 1613931](https://bugzilla.redhat.com/1613931) <b>[RFE] Add the ability to recover from failed upgrades</b><br>This release adds the recover verb to imgbase. While upgrading ovirt-node-ng, imgbase creates LVs. If for any reason imgbase fails, and those LVs remain on the system, rerunning the upgrade fails on "existing LVs".<br>Now, `imgbase --experimental recover` finds and removes stale LVs that remained on the system due to a failed upgrade. imgbase will prompt the user before removing LVs, unless used with --force.
 
 #### oVirt Engine
 
@@ -126,6 +126,11 @@ packages from other repos.
  - [BZ 1637534](https://bugzilla.redhat.com/1637534) <b>[downstream clone - 4.2.7] Include linux qemu-guest-agent on RHV Guest Tools iso for v2v offline conversion</b><br>Qemu Guest Agent packages for several Linux distributions have been added to ease offline installation of the guest agent
 
 ### Bug Fixes
+
+#### imgbased
+
+ - [BZ 1641543](https://bugzilla.redhat.com/1641543) <b>Upgrade again to newer build failed from the older build after the first upgrade</b><br>
+ - [BZ 1632585](https://bugzilla.redhat.com/1632585) <b>lvremove command will fail if it asks for confirmation while removing old RHV-H layers</b><br>
 
 #### oVirt Engine
 
@@ -167,7 +172,6 @@ packages from other repos.
 #### imgbased
 
  - [BZ 1614971](https://bugzilla.redhat.com/1614971) <b>Upgrading RHV-H from 4.0.X to 4.2 is failing during migrate_var</b><br>
- - [BZ 1632585](https://bugzilla.redhat.com/1632585) <b>lvremove command will fail if it asks for confirmation while removing old RHV-H layers</b><br>
 
 #### oVirt Engine
 
@@ -194,6 +198,7 @@ packages from other repos.
  - [BZ 1607175](https://bugzilla.redhat.com/1607175) <b>Bond stats in gui are incorrect, showing only stats of one slave member</b><br>
  - [BZ 1511409](https://bugzilla.redhat.com/1511409) <b>[Rest] + [UI] - Report data.current.tx/rx and data.current.tx/rx.bps for bond interfaces and not only for slaves</b><br>
  - [BZ 1614345](https://bugzilla.redhat.com/1614345) <b>configure ovn-central to listening on ipv6, too.</b><br>
+ - [BZ 1642083](https://bugzilla.redhat.com/1642083) <b>GlusterFS only - BackupAPI: Failure to start VM with snapshot disk attached: libvirtError: unsupported configuration: native I/O needs either no disk cache or directsync cache mode, QEMU will fallback to aio=threads</b><br>
  - [BZ 1629641](https://bugzilla.redhat.com/1629641) <b>PSQLException ERROR: integer out of range - Storage Domains view</b><br>
  - [BZ 1639263](https://bugzilla.redhat.com/1639263) <b>[downstream clone - 4.2.7] VM fails to start if maxMemory >= 2048 GB</b><br>
  - [BZ 1637078](https://bugzilla.redhat.com/1637078) <b>[downstream clone - 4.2.7] Snapshot deletion fails with "MaxNumOfVmSockets has no value for version"</b><br>
@@ -220,7 +225,6 @@ packages from other repos.
 
  - [BZ 1639136](https://bugzilla.redhat.com/1639136) <b>Revert fix for bug 1614430 as it breaks heal monitoring</b><br>
  - [BZ 1635687](https://bugzilla.redhat.com/1635687) <b>[downstream clone - 4.2.7] Guest agent info is not reported with latest vdsm</b><br>
- - [BZ 1633586](https://bugzilla.redhat.com/1633586) <b>hooks/before_device_create/50_openstacknet fails</b><br>
  - [BZ 1613339](https://bugzilla.redhat.com/1613339) <b>Stop/Start VDO service during host Maintenance/Activate</b><br>
  - [BZ 1621211](https://bugzilla.redhat.com/1621211) <b>[downstream clone - 4.2.7] qemu-img: slow disk move/clone/import</b><br>
  - [BZ 1637410](https://bugzilla.redhat.com/1637410) <b>KVM VM import failed when source or destination NFS version is lower than NFSv4.2 (no fallback from sparse streams to non-sparse)</b><br>
@@ -230,10 +234,6 @@ packages from other repos.
  - [BZ 1625098](https://bugzilla.redhat.com/1625098) <b>Wrong network threshold limit warnings on vdsm version 4.20.35-1.el7</b><br>
  - [BZ 1615414](https://bugzilla.redhat.com/1615414) <b>Unable to change CD for drivers installation while installing a system from CD</b><br>
 
-#### oVirt Release Package
-
- - [BZ 1613231](https://bugzilla.redhat.com/1613231) <b>goferd errors in /var/log/messages of Red Hat Virtualization Host</b><br>
-
 #### oVirt Hosted Engine HA
 
  - [BZ 1619365](https://bugzilla.redhat.com/1619365) <b>VM HostedEngine is unexpectedly down with qemu error on source host after migration is completed</b><br>
@@ -241,6 +241,7 @@ packages from other repos.
 
 #### oVirt Hosted Engine Setup
 
+ - [BZ 1642440](https://bugzilla.redhat.com/1642440) <b>HE restore code must base upon vds_unique_id table instead of hw_uuid</b><br>
  - [BZ 1469908](https://bugzilla.redhat.com/1469908) <b>[RFE] - Support managed/automated restore</b><br>
  - [BZ 1622240](https://bugzilla.redhat.com/1622240) <b>"Unknown CPU model Broadwell-IBRS-SSBD"</b><br>
  - [BZ 1630090](https://bugzilla.redhat.com/1630090) <b>hosted-engine --vm-start-paused is broken with xmlBase64</b><br>
@@ -303,3 +304,7 @@ packages from other repos.
 
  - [BZ 1628883](https://bugzilla.redhat.com/1628883) <b>[BREW BUILD ENABLER] Rebase vdsm-jsonrpc-java for version 4.2.7</b><br>
  - [BZ 1618462](https://bugzilla.redhat.com/1618462) <b>UpdateVmCommand raises: "Exception: org.springframework.dao.DataIntegrityViolationException: CallableStatementCallback" after updating VM memory</b><br>
+
+#### oVirt Release Package
+
+ - [BZ 1613231](https://bugzilla.redhat.com/1613231) <b>goferd errors in /var/log/messages of Red Hat Virtualization Host</b><br>

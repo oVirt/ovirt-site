@@ -509,12 +509,12 @@ It will feature two ACLs, with the following data:
 + ingress rule
   * priority: DROP_PRIORITY
   * action: drop
-  * direction: from-lport
+  * direction: to-lport
   * match: inport == @<port_group> && ip
 + egress rule
   * priority: DROP_PRIORITY
   * action: drop
-  * direction: to-lport
+  * direction: from-lport
   * match: outport == @<port_group> && ip
 
 **NOTE:** these rules will be filtered out by the API, because they are simply

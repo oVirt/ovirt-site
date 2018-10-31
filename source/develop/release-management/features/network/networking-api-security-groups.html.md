@@ -4,7 +4,7 @@ category: feature
 authors: mdbarroso
 feature_name: security-group-support
 feature_modules: engine,ovirt-provider-ovn
-feature_status: In Development
+feature_status: On QA
 ---
 
 
@@ -110,9 +110,16 @@ created, and the user does not specify this attribute, it is created set
 to 'True', meaning that security group filters will be applied to it.
 
 This causes all incomming traffic to the port to be dropped, until the user
-white-lists the intended traffic for that port. Outgoing traffic would also
-be dropped, but rules allowing all egress IP traffic are automatically added
-to all security groups, to fulfill the security groups API requirements.
+white-lists the intended traffic for that port.
+
+To mimic openstack's behavior, oVirt provides the *Default* security group.
+When the user creates a port having port security activated, but doesn't
+feature security groups, the *Default* security group is automatically assigned
+to the port. This group allows all egress IP traffic from the VMs, as well as
+all ingress traffic from instances also belonging to the *Default* security
+group. This way, connectivity between the user VMs is assured for the default
+setting.
+Check the [default security group](#default-security-group) ACL description for more information.
 
 ### User interface
 
@@ -498,9 +505,9 @@ bound to the added ports will also have to be updated.
 
 ![add-port](../../../../images/features/network/security-groups/add_ports.png)
 
-## OVN ACLs implementing the deny-all security group
+## OVN ACLs on pre-set security groups
 
-### drop-all-ip ACL
+### drop-all-ip implementing the deny-all security group
 
 To achieve the intended deny-all behavior, a port group will be created
 when the ovirt-provider-ovn starts.
@@ -520,6 +527,43 @@ It will feature two ACLs, with the following data:
 **NOTE:** these rules will be filtered out by the API, because they are simply
 not featured in the Networking API. This means that a user listing all security
 group rules **will not** see the rules corresponding to the ACLs defined above.
+
+### Default security group
+
+This group enables connectivity between all the VMs whose ports have this
+group set.
+
+To do so, it features 2 ingress rules - allowing traffic from all the VMs whose
+ports belong to the *Default* security group - and 2 egress rules - allowing
+ip traffic to leave the VM.
+
+To implement the ingress rules, the [remote_group_id](#how-to-encode-the-remote_group_id-parameter) parameter is used.
+
+Two rules are created for each direction: one for IPv4, another for IPv6.
+
+It features four ACLs, with the following data:
++ ingress rules
+  * rule #1 - IPv4
+    - priority: ALLOW_PRIORITY
+    - action: ALLOW
+    - direction: to-lport
+    - match: inport == @Default && ip4 && ip4.src == $pg_ip4_Default
+  * rule #1 - IPv6
+    - priority: ALLOW_PRIORITY
+    - action: ALLOW
+    - direction: to-lport
+    - match: inport == @Default && ip6 && ip6.src == $pg_ip6_Default
++ egress rules
+  * rule #1 - IPv4
+    - priority: ALLOW_PRIORITY
+    - action: ALLOW
+    - direction: from-lport
+    - match: outport == @Default && ip4
+  * rule #1 - IPv6
+    - priority: ALLOW_PRIORITY
+    - action: ALLOW
+    - direction: from-lport
+    - match: outport == @Default && ip6
 
 ## ovirt-provider-ovn API update
 

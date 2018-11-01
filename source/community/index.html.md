@@ -11,7 +11,7 @@ oVirt is a community-driven virtualization project, and people just like you are
 
 Before getting started, we recommend that you:
 
-- Sign up to the [users@ovirt.org](https://lists.ovirt.org/archives/list/users)@ovirt.org/ mailing list and email us stating how you would like to contribute. Visit our [mailing lists](/community/about/mailing-lists/#users) page for other available oVirt mailing lists.
+- Sign up to the [Users](https://lists.ovirt.org/archives/list/users@ovirt.org):@ovirt.org/ mailing list and email us stating how you would like to contribute. Visit our [mailing lists](/community/about/mailing-lists/#users) page for other available oVirt mailing lists.
 - For fluent, real-time communication, [join us on IRC](/community/about/contact/#irc).
 - Finally, please read our [community etiquette guidelines](https://www.ovirt.org/community/about/community-guidelines/). (Quick summary: Be nice!)
 
@@ -25,7 +25,7 @@ Are you a wiz with Java, Python, or Bash? We’d love to have you join us! For i
 
 ## Translate, 翻译, תרגום
 
-Want to help make oVirt's user interface and documentation available in multiple languages for users around the globe? Examples include Italian, Portuguese, Chinese, Japanese, Korean,  and more. To help out, sign up to the [devel](https://lists.ovirt.org/archives/list/devel)@ovirt.org/ mailing list.
+Want to help make oVirt's user interface and documentation available in multiple languages for users around the globe? Examples include Italian, Portuguese, Chinese, Japanese, Korean,  and more. To help out, sign up to the [Devel](https://lists.ovirt.org/archives/list/devel@ovirt.org):@ovirt.org/ mailing list.
 
 ## Case Studies
 
@@ -33,11 +33,11 @@ Read our featured [case studies](https://www.ovirt.org/community/user-stories/us
 
 ## Design
 
-Love design or UX? From concept through to implementation, help us to deliver a seamless experience for oVirt users. To join us, sign up to the [devel](https://lists.ovirt.org/archives/list/devel)@ovirt.org/ mailing list.
+Love design or UX? From concept through to implementation, help us to deliver a seamless experience for oVirt users. To join us, sign up to the [Devel](https://lists.ovirt.org/archives/list/devel@ovirt.org):@ovirt.org/ mailing list.
 
 ## Meet Our Infrastructure Team
 
-The [Infrastructure](../develop/infra/infrastructure) team are volunteers and professionals managing the servers, building tools, and creating new applications to make oVIrt development a smoother process. We're located all over the globe and communicate primarily by the **#ovirt** channel on **irc.OFTC.net** and on the [infra@ovirt.org](https://lists.ovirt.org/archives/list/infra)@ovirt.org/ mailing list.
+The [Infrastructure](../develop/infra/infrastructure) team are volunteers and professionals managing the servers, building tools, and creating new applications to make oVIrt development a smoother process. We're located all over the globe and communicate primarily by the **#ovirt** channel on **irc.OFTC.net** and on the [Infra](https://lists.ovirt.org/archives/list/infra@ovirt.org):@ovirt.org/ mailing list.
 
 
 

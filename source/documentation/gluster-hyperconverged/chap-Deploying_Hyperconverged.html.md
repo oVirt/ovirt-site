@@ -46,7 +46,7 @@ Refer [oVirt Nodes](../install-guide/chap-oVirt_Nodes) for instructions on insta
 
 ### Setting up the hyperconverged environment
 
-Steps for installing are detailed in this [blog post](/blog/2017/04/up-and-running-with-ovirt-4.1-and-gluster-storage/).
+Steps for installing are detailed in this [blog post](/blog/2018/02/up-and-running-with-ovirt-4-2-and-gluster-storage/).
 
 **Prev:** [Chapter: Introduction](../chap-Introduction) <br>
 **Next:** [Chapter: Additional Steps](../chap-Additional_Steps)

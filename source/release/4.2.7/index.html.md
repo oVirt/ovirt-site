@@ -6,21 +6,13 @@ layout: toc
 
 # oVirt 4.2.7 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.2.7 Fifth Release Candidate as of October 26, 2018.
+The oVirt Project is pleased to announce the availability of the 4.2.7 release as of November 02, 2018.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.5,
 CentOS Linux 7.5 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -36,21 +28,25 @@ To learn about features introduced before 4.2.7, see the [release notes for prev
 ### CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
+
+
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 
 
@@ -77,7 +73,7 @@ guide or the corresponding section within the
 
 ### EPEL
 
-TL;DR Don't enable all of EPEL on oVirt machines.
+Don't enable all of EPEL on oVirt machines.
 
 The ovirt-release package enables the EPEL repositories and includes several
 specific packages that are required from there. It also enables and uses
@@ -108,22 +104,22 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1590967](https://bugzilla.redhat.com/1590967) <b>[RFE] Display space savings when a VDO volume is used.</b><br>The current release has a 'VDO Savings' field that displays the savings percentage for the Gluster Storage Domain, Volume, and Brick views.
- - [BZ 1623259](https://bugzilla.redhat.com/1623259) <b>Mark clusters with deprecated CPU type</b><br>Feature: <br><br>For Compatibility Version 4.3 we wish to deprecate support for certain CPU Types and for Compatibility Versions 4.2 and 4.3 we wish to provide a warning within the Cluster Screen so that the user can be notified that CPU Types that are currently being used will no longer be supported in the next release.  <br><br>Reason: <br><br>The Warning is to notify users that the CPU Types targeted for deprecation will not be supported in the following release so that the user has the opportunity to change the CPU Type used by the Cluster to a more recent CPU Type before the actual deprecation occurs.<br><br>Result: <br><br>The current change does deprecate the CPU Types targeted for Compatibility Version 4.3 and displays a warning as per the warning for upgrading cluster compatibility levels via the additional column tool tips for Clusters set to Compatibility Versions 4.2 and 4.3.
+ - [BZ 1623259](https://bugzilla.redhat.com/1623259) <b>Mark clusters with deprecated CPU type</b><br>In the current release, for compatibility versions 4.2 and 4.3, a warning in the Cluster screen indicates that the CPU types currently used are not supported in 4.3. The warning enables the user to change the cluster CPU type to a supported CPU type.
  - [BZ 1563181](https://bugzilla.redhat.com/1563181) <b>do not require Engine-brick connection when importing a gluster cluster</b><br>
- - [BZ 1610979](https://bugzilla.redhat.com/1610979) <b>[downstream clone - 4.2.7] [RHEL-7.6] Limit east-west traffic of VMs with network filter</b><br>The new filter is called "clean-traffic-gateway" and can be chosen in vnic profiles. Then for every vm nic, with this vnic, the "GATEWAY_MAC" network filter parameter should be specified for the filter to work properly. Also for DHCP to be properly working, every vm nic using vnic with this filter, should specify another "GATEWAY_MAC" with value "ff:ff:ff:ff:ff:ff". Because DHCP is using broadcast MAC address in its requests.
+ - [BZ 1610979](https://bugzilla.redhat.com/1610979) <b>[downstream clone - 4.2.7] [RHEL-7.6] Limit east-west traffic of VMs with network filter</b><br>In the current release, a filter for VNIC profiles, `clean-traffic-gateway`, supports private VLAN connections.
 
 #### VDSM
 
- - [BZ 1628477](https://bugzilla.redhat.com/1628477) <b>[downstream clone - 4.2.7] After importing KVM VM the actual size is bigger than the virtual size</b><br>Feature: <br><br>Added KVM Sparseness support to KVM to oVirt Virtual Machine Importing so that when Thin Provisioning is enabled, the Disk Size of the original KVM Image will be preserved after importing to oVirt.   <br><br>Reason: <br><br>Unless the user specifically specifies pre-allocation, the Disk Size of the Virtual Machine should be no larger than required during initial allocation of Disk Space when the VM is running. Previously when choosing Thin Provisioning for KVM to oVirt Importing, the Disk Size of the VM within the Storage Domain of oVirt was inflated to the Volume Size or Larger when the original KVM VM was much smaller.  <br><br>Result: <br><br>Now when Importing Virtual Machines from KVM to oVirt with Thin Provisioning selected, the original Disk Size of the VM is preserved.
- - [BZ 1620573](https://bugzilla.redhat.com/1620573) <b>[downstream clone - 4.2.7] [RFE] Time sync in VM after resuming from PAUSE state</b><br>Feature: <br><br>Added optional Guest Time Synchronization to the snapshot functionality via the time_sync_snapshot_enable option and other un-pausing scenarios via the time_sync_cont_enable option for synchronizing and correcting the time on the VM after long pauses. The defaults for the option are turned off for backward compatibility.<br><br>Reason: <br><br>This becomes especially critical when there are heavy loads on the VM to ensure time stamps for example are accurate.<br><br>Result: <br><br>When the options are enabled, the VDSM shall attempt to synchronize the time either during pauses that occur via during snapshots and/or during other un-pausing functionality.
+ - [BZ 1628477](https://bugzilla.redhat.com/1628477) <b>[downstream clone - 4.2.7] After importing KVM VM the actual size is bigger than the virtual size</b><br>When a VM is running, the disk size of the virtual machine should be no larger than was required during the initial allocation of disk space, unless you specify pre-allocation. Previously, when you set thin provisioning for importing a KVM-based VM into a Red Hat Virtualizaton environment, the disk size of the VM within the Red Hat Virtualization storage domain was inflated to the volume size or larger, even when the original KVM-based VM was much smaller.<br>KVM Sparseness is now supported so that when you import a virtual machine with thin provisioning enabled into a Red Hat Virtualization environment, the disk size of the original virtual machine image is preserved.
+ - [BZ 1620573](https://bugzilla.redhat.com/1620573) <b>[downstream clone - 4.2.7] [RFE] Time sync in VM after resuming from PAUSE state</b><br>A heavy load on a VM can result in inaccurate snapshot time stamps and other timing-related issues. <br>Guest Time Synchronization enables synchronizing and correcting the time on a VM after long pauses, such as pauses that occur during snapshots. When this feature is turned on, the VDSM attempts to synchronize the time on a VM after a pause.<br>To turn on Guest Time Synchronization for snapshots, use the time_sync_snapshot_enable option. To turn on Guest Time Synchronization for other scenarios, use the time_sync_cont_enable option.<br>By default, this feature is disabled, for backwards compatibility.
 
 #### oVirt Log Collector
 
- - [BZ 1620271](https://bugzilla.redhat.com/1620271) <b>enable rhv_analyzer plugin for sos >= 3.6</b><br>ovirt-log-collector now includes the RHV Log Collector Analyzer report. This analysis is generated by rhv-log-collector-analyzer tool which analyze the RHV environment and detect anomaly in the system.
+ - [BZ 1620271](https://bugzilla.redhat.com/1620271) <b>enable rhv_analyzer plugin for sos >= 3.6</b><br>The ovirt-log-collector now includes the RHV Log Collector Analyzer report. This analysis is generated by the rhv-log-collector-analyzer tool, which analyzes the RHV environment and detects anomalies in the system.
 
 #### oVirt Windows Guest Tools
 
- - [BZ 1637534](https://bugzilla.redhat.com/1637534) <b>[downstream clone - 4.2.7] Include linux qemu-guest-agent on RHV Guest Tools iso for v2v offline conversion</b><br>Qemu Guest Agent packages for several Linux distributions have been added to ease offline installation of the guest agent
+ - [BZ 1637534](https://bugzilla.redhat.com/1637534) <b>[downstream clone - 4.2.7] Include linux qemu-guest-agent on RHV Guest Tools iso for v2v offline conversion</b><br>QEMU Guest Agent packages for several Linux distributions have been added to ease offline installation of the guest agent.
 
 ### Bug Fixes
 
@@ -134,15 +130,13 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1639263](https://bugzilla.redhat.com/1639263) <b>[downstream clone - 4.2.7] VM fails to start if maxMemory >= 2048 GB</b><br>
  - [BZ 1623379](https://bugzilla.redhat.com/1623379) <b>'Clone' VM from snapshot via the UI is broken</b><br>
+ - [BZ 1637066](https://bugzilla.redhat.com/1637066) <b>[downstream clone - 4.2.7] Live Snapshot creation on a "not responding" VM will fail during "GetQemuImageInfoVDS"</b><br>
 
 #### VDSM
 
  - [BZ 1627289](https://bugzilla.redhat.com/1627289) <b>[downstream clone - 4.2.7] startUnderlyingVm fails with exception resulting in split-brain</b><br>
-
-#### oVirt Hosted Engine Setup
-
- - [BZ 1568841](https://bugzilla.redhat.com/1568841) <b>Cant restore hosted-engine backup at deployment</b><br>
 
 ### Other
 
@@ -176,7 +170,7 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1639269](https://bugzilla.redhat.com/1639269) <b>[downstream clone - 4.2.7] [DR] - HA VM with lease will not work, if SPM is down and power management is not available.</b><br>
- - [BZ 1635189](https://bugzilla.redhat.com/1635189) <b>[downstream clone - 4.2.7] Engine marks the snapshot status as OK before the actual snapshot operation</b><br>
+ - [BZ 1635189](https://bugzilla.redhat.com/1635189) <b>[downstream clone - 4.2.7] Engine marks the snapshot status as OK before the actual snapshot operation</b><br>In the current release, the snapshot's status is locked until snapshot creation is complete.
  - [BZ 1619278](https://bugzilla.redhat.com/1619278) <b>Alert when guaranteed capacity reaches a threshold value for gluster volumes</b><br>
  - [BZ 1630744](https://bugzilla.redhat.com/1630744) <b>Allow configuring aio=native for gluster storage domains</b><br>
  - [BZ 1624349](https://bugzilla.redhat.com/1624349) <b>Reduce the frequency of polling gluster from 5 secs to 15s</b><br>
@@ -200,13 +194,12 @@ packages from other repos.
  - [BZ 1614345](https://bugzilla.redhat.com/1614345) <b>configure ovn-central to listening on ipv6, too.</b><br>
  - [BZ 1642083](https://bugzilla.redhat.com/1642083) <b>GlusterFS only - BackupAPI: Failure to start VM with snapshot disk attached: libvirtError: unsupported configuration: native I/O needs either no disk cache or directsync cache mode, QEMU will fallback to aio=threads</b><br>
  - [BZ 1629641](https://bugzilla.redhat.com/1629641) <b>PSQLException ERROR: integer out of range - Storage Domains view</b><br>
- - [BZ 1639263](https://bugzilla.redhat.com/1639263) <b>[downstream clone - 4.2.7] VM fails to start if maxMemory >= 2048 GB</b><br>
+ - [BZ 1639244](https://bugzilla.redhat.com/1639244) <b>[downstream clone - 4.2.7] Extending VM disk fails with message "disk was successfully updated to 0 GB"</b><br>
  - [BZ 1637078](https://bugzilla.redhat.com/1637078) <b>[downstream clone - 4.2.7] Snapshot deletion fails with "MaxNumOfVmSockets has no value for version"</b><br>
  - [BZ 1636724](https://bugzilla.redhat.com/1636724) <b>Status code from the API for unsupported reduce volume actions (for reduce a size of a floating disk when the dc version is under 4.2) is 400 (bad request) instead 409 (conflict)</b><br>
  - [BZ 1637488](https://bugzilla.redhat.com/1637488) <b>[UI] - 'Not Logged In' in the welcome page is broken</b><br>
  - [BZ 1618433](https://bugzilla.redhat.com/1618433) <b>REST API reports wrong address and path for NFS storage domain on IPv6</b><br>
  - [BZ 1627032](https://bugzilla.redhat.com/1627032) <b>Upload disk fail trying to write 0 bytes after the end of the LV</b><br>
- - [BZ 1637066](https://bugzilla.redhat.com/1637066) <b>[downstream clone - 4.2.7] Live Snapshot creation on a "not responding" VM will fail during "GetQemuImageInfoVDS"</b><br>
  - [BZ 1633232](https://bugzilla.redhat.com/1633232) <b>can't add new storage domain with empty comment</b><br>
  - [BZ 1625283](https://bugzilla.redhat.com/1625283) <b>transfer_id should be included in image ticket</b><br>
  - [BZ 1635229](https://bugzilla.redhat.com/1635229) <b>[downstream clone - 4.2.7] Entries for snapshot creations in the command_entities table in the database prevented access to the Admin Portal</b><br>
@@ -242,7 +235,6 @@ packages from other repos.
 #### oVirt Hosted Engine Setup
 
  - [BZ 1642440](https://bugzilla.redhat.com/1642440) <b>HE restore code must base upon vds_unique_id table instead of hw_uuid</b><br>
- - [BZ 1469908](https://bugzilla.redhat.com/1469908) <b>[RFE] - Support managed/automated restore</b><br>
  - [BZ 1622240](https://bugzilla.redhat.com/1622240) <b>"Unknown CPU model Broadwell-IBRS-SSBD"</b><br>
  - [BZ 1630090](https://bugzilla.redhat.com/1630090) <b>hosted-engine --vm-start-paused is broken with xmlBase64</b><br>
  - [BZ 1624529](https://bugzilla.redhat.com/1624529) <b>hosted-engine-setup doesn't restore hostname entry of RHV manager under "/etc/hosts" at the end of the setup if the engine VM is configured with DHCP</b><br>
@@ -308,3 +300,4 @@ packages from other repos.
 #### oVirt Release Package
 
  - [BZ 1613231](https://bugzilla.redhat.com/1613231) <b>goferd errors in /var/log/messages of Red Hat Virtualization Host</b><br>
+

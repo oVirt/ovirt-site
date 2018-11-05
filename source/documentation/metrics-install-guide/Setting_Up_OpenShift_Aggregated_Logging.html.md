@@ -77,11 +77,19 @@ For example:
 
 The installer for OpenShift Container Platform is provided by the `atomic-openshift-utils` package.
 
+In order to install it on CentOS you'll need to enable a few repositories:
+
+        # yum install centos-release-openshift-origin310
+        # yum install centos-release-ovirt42
+
+Note that centos-release-ovirt42 is needed only for getting an updated ansible runtime.
+
+
 Install the OpenShift Container Platform package:
 
         # yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct
         # yum -y update
-        # yum -y install atomic-openshift-utils
+        # yum -y install openshift-ansible
         # yum -y install docker
 
 ## Configuring Persistent Storage for Elasticsearch

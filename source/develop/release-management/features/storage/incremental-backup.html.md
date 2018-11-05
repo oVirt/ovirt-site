@@ -53,7 +53,7 @@ to storage.
 
 When adding a disk, the user should enable incremental backup for every
 disk. If incremental backup is enabled for a disk, a backup application
-can included the disk during incremental backups.
+can include the disk during incremental backups.
 
 Since incremental backup requires qcow2 format, disks enabled for
 incremental backup will use qcow2 format instead of raw format. See
@@ -65,7 +65,7 @@ they were backed in the past.
 ### Enabling existing VM for incremental backup
 
 Since raw disks are not supported, a user needs to create a snapshot
-including the disks to enabled incremental backup for the disks.  This
+including the disks to enabled incremental backup for the disks. This
 creates a qcow2 layer on top of the raw disk, that can be used to
 perform incremental backups from this point.
 
@@ -73,8 +73,9 @@ perform incremental backups from this point.
 
 If the base layer of a disk is using raw format, deleting the last
 snapshot, merging the top qcow2 layer into the base layer will convert
-the disk to raw, and disable incremental backup. The user can create a
-new snapshot including this disk to enable back incremental backup.
+the disk to raw, and disable incremental backup (should probably display
+a warning first). The user can create a new snapshot including this
+disk to re-enable back incremental backup.
 
 ### Disk format
 
@@ -105,8 +106,8 @@ lun         -                   disabled        raw
 
 1. Backup application starts backup using oVirt API, specifying a VM id,
    optional previous backup id, and list of disks to backup.
-   If previous backup uuid isn't specified, all data in the disks at the
-   point of the backup will be included in the backup.
+   If previous backup uuid isn't specified, all data in the specified disks,
+   at the point of the backup, will be included in the backup.
 
 1. System prepares VM for backup. The VM may be running during the
    backup.
@@ -125,16 +126,16 @@ lun         -                   disabled        raw
    list is not available, backup application can fall back to copying
    the entire disk.
 
-1. Backup application finalize image transfers.
+1. Backup application finalizes image transfers.
 
-1. Backup application finalize backup using oVirt API.
+1. Backup application finalizes backup using oVirt API.
 
 ### Incremental restore flow
 
-1. User select restore point based on available backups using the
+1. User selects restore point based on available backups using the
    backup application (not part of oVirt).
 
-1. Backup application create a new disk or a snapshot with existing disk
+1. Backup application creates a new disk or a snapshot with existing disk
    to hold the restored data.
 
 1. Backup application starts an upload image transfer for every disk,
@@ -314,20 +315,59 @@ all data.
 ### Engine database changes
 
 XXX Add disk attachment incremental setting.
-XXX Add checkpoints table
 
 - New ```vm_backups``` table
-  - fields: id, vm_id, incremental, creation_date, status
+  - fields: id, vm_id, checkpoint_id, creation_date, status
   - status: initializing, ready, transferring, finallizing
 - ```images``` table
-  new field: ```backup_id``` (foreign key ```bakcups:id```)
+  new field: ```backup_id``` (foreign key ```vm_backups:id```)
   new field: ```backup_url``` (nbd url used in image transfer ticket)
+  new field: ```checkpoint_id``` (foreign key ```image_checkpoints:id```)
+- New ```image_checkpoints``` table
+  - fileds: id, parent, creation_date
+
 
 ### REST
 
+#### Enabling backup for VM disk
+
+Specify 'backup' flag on 'disk_attachment' entity.
+
+Request:
+```
+POST /vms/vm-uuid/diskattachments
+```
+
+Response:
+```
+<disk_attachment>
+    ...
+    <backup>incremental|full|none</backup>
+    ...
+</disk_attachment>
+```
+
 #### Finding disks enabled for incremental backup
 
-XXX Write me
+For each VM, get 'diskattachments' list and filter according to
+'backup' property.
+
+Request:
+```
+GET /vms/vm-uuid/diskattachments
+```
+
+Response:
+```
+<disk_attachments>
+    <disk_attachment>
+        ...
+        <backup>false|true</backup>
+        ...
+    </disk_attachment>
+    ...
+</disk_attachments>
+```
 
 #### Starting backup
 
@@ -423,9 +463,15 @@ socket:
 }
 ```
 
-### Examples
+### UI
 
-XXX Write me
+- Add 'Enable Incremental Backup' checkbox on New/Edit/Attach Disk dialogs (in VM context).
+
+- Add 'Backup' checkbox column to Disks table.
+
+- Removing last snapshot should be disabled if 'Enable Backup'
+  is checked (as the base could be raw) I.e. backup must be disabled
+  in order to remove the last snapshot.
 
 ### Open Issues
 

@@ -42,7 +42,7 @@ Ansible is used to install OpenShift Aggregated Logging using OpenShift Ansible 
 
 **Manager Machine Prerequisites**
 
-Ensure that the time stamp in the **/var/log/ovirt-engine/engine.log** file contains a UTC offset suffix, rather than a letter such as Z or A. For example: 2018-03-27 13:35:06,720+01
+Ensure that the time stamp in the **/var/log/ovirt-engine/engine.log** file contains a UTC offset suffix, rather than a letter such as Z. For example: 2018-03-27 13:35:06,720+01
 
 **Next:** [Chapter 2: Setting Up the oVirt Engine and Hosts](../Setting_Up_the_oVirt_Engine_and_Hosts)
 

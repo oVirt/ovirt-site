@@ -10,13 +10,13 @@ Install a 4.2 environment as described in the _Installation Guide_ or _Self-Host
 
 ## Copying OpenShift Ansible Files
 
-1. On the Engine machine, copy **/etc/ovirt-engine-metrics/config.yml.example** to **config.yml**:
+1. On the Engine machine, copy **/etc/ovirt-engine-metrics/config.yml.example** to **config.yml.d/** directory:
 
-       # cp /etc/ovirt-engine-metrics/config.yml.example /etc/ovirt-engine-metrics/config.yml
+       # cp /etc/ovirt-engine-metrics/config.yml.example /etc/ovirt-engine-metrics/config.yml.d/config.yml
 
-2. Update the values of **/etc/ovirt-engine-metrics/config.yml** to match the details of your specific environment:
+2. Update the values of **/etc/ovirt-engine-metrics/config.yml.d/config.yml** to match the details of your specific environment:
 
-       # vi /etc/ovirt-engine-metrics/config.yml
+       # vi /etc/ovirt-engine-metrics/config.yml.d/config.yml
 
    **Important:** All parameters are mandatory.
 

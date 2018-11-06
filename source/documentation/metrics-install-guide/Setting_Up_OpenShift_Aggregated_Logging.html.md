@@ -75,14 +75,11 @@ For example:
 
 ## Installing OpenShift Aggregated Logging Packages
 
-The installer for OpenShift Container Platform is provided by the `atomic-openshift-utils` package.
+Please follow OpenShift [Installing base packages](https://docs.okd.io/latest/install/host_preparation.html#installing-base-packages).
 
-Install the OpenShift Container Platform package:
+Install centos-release-ovirt42 to get an updated ansible runtime
 
-        # yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion kexec-tools sos psacct
-        # yum -y update
-        # yum -y install atomic-openshift-utils
-        # yum -y install docker
+        # yum install centos-release-ovirt42
 
 ## Configuring Persistent Storage for Elasticsearch
 
@@ -126,17 +123,20 @@ Prior to running Ansible, verify that the value for hostname and IP address that
 3. Run Ansible using the `prerequisites.yml` playbook to ensure the machine is configured correctly:
 
        # cd /usr/share/ansible/openshift-ansible
-       # ANSIBLE_LOG_PATH=/tmp/ansible-prereq.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-ocp-39-aio playbooks/prerequisites.yml
+       ## (or wherever you cloned the git repo if using git)
+       # ANSIBLE_LOG_PATH=/tmp/ansible-prereq.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-ocp-latest-aio playbooks/prerequisites.yml
 
 4. Run Ansible using the `openshift-node/network_manager.yml` playbook to ensure that the networking and the NetworkManager are configured correctly:
 
        # cd /usr/share/ansible/openshift-ansible
-       # ANSIBLE_LOG_PATH=/tmp/ansible-network.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-ocp-39-aio playbooks/openshift-node/network_manager.yml
+       ## (or wherever you cloned the git repo if using git)
+       # ANSIBLE_LOG_PATH=/tmp/ansible-network.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-ocp-latest-aio playbooks/openshift-node/network_manager.yml
 
 5. Run Ansible using the `deploy_cluster.yml` playbook to install both OpenShift and the OpenShift Logging components:
 
        # cd /usr/share/ansible/openshift-ansible
-       # ANSIBLE_LOG_PATH=/tmp/ansible.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-ocp-39-aio playbooks/deploy_cluster.yml
+       ## (or wherever you cloned the git repo if using git)
+       # ANSIBLE_LOG_PATH=/tmp/ansible.log ansible-playbook -vvv -e @/root/vars.yaml -i /root/ansible-inventory-ocp-latest-aio playbooks/deploy_cluster.yml
 
 6. Check `/tmp/ansible.log` to ensure that no errors occurred.
    If there are errors, fix the machine's definitions and/or `vars.yaml` and run Ansible again.

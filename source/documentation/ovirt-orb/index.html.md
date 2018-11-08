@@ -45,7 +45,7 @@ In order to run the `oVirt Orb`, you will need first to install Lago and some mo
 - [oVirt Lago plugin](http://lago-ost-plugin.readthedocs.io/en/latest/Installation.html).
 
   This Lago plugin makes Lago aware of oVirt specifics.
-- [oVirt Python SDK](https://pypi.python.org/pypi/ovirt-engine-sdk-python/4.2.4).
+- [oVirt Python SDK](https://pypi.python.org/pypi/ovirt-engine-sdk-python).
 
   The oVirt Python SDK allows code written in Python to easily work with oVirt Engine.
   This SDK is used extensively by oVirt Lago plugin
@@ -53,7 +53,7 @@ In order to run the `oVirt Orb`, you will need first to install Lago and some mo
 ## Getting oVirt Orb
 - Download `oVirt Orb`:
 
-  Current latest `oVirt Orb` images are based on oVirt 4.2.4 and can be downloaded from [here](http://resources.ovirt.org/pub/ovirt-4.2/ovirt-orb/).
+  Current latest `oVirt Orb` images are based on latest oVirt 4.2 release and can be downloaded from [here](http://resources.ovirt.org/pub/ovirt-4.2/ovirt-orb/).
   You will need to download both the `ovirt-orb-*.tar.xz` and `ovirt-orb-*.tar.xz.md5`
 - Verify that archive is not broken or tampered with:
 

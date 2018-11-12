@@ -11,8 +11,7 @@ tags: release, management
 
 | Date       | Milestone                |
 |------------|--------------------------|
-| 2018-xx-xx | oVirt 4.3 Alpha          |
-| 201x-xx-xx | oVirt 4.3 Beta           |
+| 2018-11-26 | oVirt 4.3 Beta           |
 | 201x-xx-xx | oVirt 4.3 RC1            |
 | 201x-xx-xx | oVirt 4.3 GA Release     |
 

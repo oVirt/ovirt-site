@@ -40,6 +40,7 @@ Translations are handled by Zanata. You can join the translators team and see cu
 3.  MUST: Supported localizations must be at least at 70% of completeness for being included in the release
 4.  MUST: All accepted features must be substantially complete and in a testable state and enabled by default -- if so specified by the change
 5.  MUST: Wildfly 14 GA should be available for the beta consumption
+6.  MUST: CentOS 7.6 should be available for the beta consumption
 
 ### Candidate Release Criteria
 

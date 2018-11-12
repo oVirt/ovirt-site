@@ -1,7 +1,7 @@
 ---
 title: Native Open vSwitch
 category: feature
-authors: phoracek danken edwardh
+authors: phoracek danken edwardh amusil
 feature_name: Native Open vSwitch
 feature_modules: Networking
 feature_status: Spec
@@ -25,6 +25,8 @@ OVS is to be fully integrated (natively) into oVirt through VDSM, becoming the d
 ## Overview
 The introduction of OVS as an additional network switching solution raises the need to generalize and abstract the requirements from the system networking services and define a spec which considers both options (OVS & native Linux networking).
 The OVS model of arranging networking entities is different from the native Linux networking, but is closer to industry networking modeling.
+A VM can not be simply connected to an OvS bridge. In order to connect a VM to an OvS bridge, a user must first define an OvS VM network. 
+This automatically creates an OVN network, which is built on top of an OvS integration bridge. The VM is then attached to the OVN network via the OvS integration bridge (see [Autodefine External Network](https://ovirt.org/develop/release-management/features/network/autodefine-external-network/)).
 
 ### Network Entities
 In the following table, networking entities are listed with their implementation options.
@@ -46,6 +48,18 @@ In the following table, networking entities are listed with their implementation
 ### OVS networking model 
 ![OVS networking model](/feature/openvswitch/ovs_networking_model.svg)
 
+## Limitations
+
+Currently there are some limitations compared to Linux bridge [RFE OvS support](https://bugzilla.redhat.com/show_bug.cgi?id=1195208):
+
+- [Multiple gateways](https://bugzilla.redhat.com/show_bug.cgi?id=1383035) - Source routing is not implemented for the OVS switch type. This means that only management network can have a gateway.
+- [Port mirroring](https://bugzilla.redhat.com/show_bug.cgi?id=1362492) -  Should be done via OVN.
+- [Host QoS](https://bugzilla.redhat.com/show_bug.cgi?id=1380271) - OvS supports different parameters for configuring QoS, which are incompatible with the ones used for a Linux bridge.
+- [Setting bridge options](https://bugzilla.redhat.com/show_bug.cgi?id=1380273)
+- [iSCSI Bond](https://bugzilla.redhat.com/show_bug.cgi?id=1441245)
+- LLDP support
+- Setting DNS
+- Upgrade from Linux bridge to OvS and vice versa
 
 ## Specifications
 
@@ -104,31 +118,34 @@ Minimal changes in current API verbs are required:
 - oVirt currently differentiates between VM (bridged) networks and non-VM networks due to historical performance benefit of non-bridged networks for non-VM payloads (such as storage and migration). This differentiation is moot with OVS, but in order to keep Engine oblivious to the change, VDSM should lie to it, and report bridged=False for networks that requested it. Dropping the differentiation from Engine should happen in a later stage.
 
 ### Upgrade from native to OVS networking
-Transition between switch types must be supported for the host as a whole. Nevertheless, if the user has defined his own networking configuration which is not controlled by VDSM, it should coexist with VDSM controlled networks.
 
-Mixing between native and OVS controlled networks is not initially supported, therefore, when a network is marked with a different type from the existing, a validation check should make sure that all other networks are marked for the same network type.
+Upgrade from native to OvS is currently not supported and vice versa. An upgrade will cause networks to be out-of-sync due to differences between native and OvS (see [Limitations](#limitations)). Only newly added hosts can be configured with OvS networking. Mixing native and OvS networks in a cluster is not supported. Plase note that the change is blocked only in UI but is still possible via REST api. 
 
-The following sequence describes the transition steps @Engine:
+~~Transition between switch types must be supported for the host as a whole. Nevertheless, if the user has defined his own networking configuration which is not controlled by VDSM, it should coexist with VDSM controlled networks.~~
 
-- Vdsm on hosts is upgraded to an OVS-supporting version (4.0). No change takes place to preexisting network configuration, which would still be bridge-based.
-- When all active hosts in the cluster have been upgraded, the user should upgrade the cluster to version 4.0 where OVS is supported.
-- The default switch type for the cluster should be set by the user to OVS (for new hosts).
-  - Newly-created 4.0 clusters should have OVS as the default switch.
-- Update individual hosts to transition to OVS: 
-  - The host networking can be changed when no VM/s are connected to it. With this option oVirt must support VM migration between different switch types.
-  - We can further improve the user experience by a second approach:
-The host networking can be changed in-place without the need to migrate the VM/s. With this option, migration between hosts that have different networking types is not needed (but can coexist).
-Negligible service interruption to the VM networking is expected.
+~~Mixing between native and OVS controlled networks is not initially supported, therefore, when a network is marked with a different type from the existing, a validation check should make sure that all other networks are marked for the same network type.~~
 
-The following sequence describes the transition steps @Host:
-- Receive a setupNetworks call.
-- Detect that a network has been marked with a type that is different from the current.
-- Validate that all existing networks exist in the command and that all are marked with the same type.
-  - We would like to perform an atomic upgrade, and not to worry about codependent networks with differing switch types. 
-- Tear down the pre-existing networks and bondings..
-- Create networks.
+~~The following sequence describes the transition steps @Engine:~~
 
-Note: Engine user may decide to take the reverse transition, from OVS to legacy, as well.
+- ~~Vdsm on hosts is upgraded to an OVS-supporting version (4.0). No change takes place to preexisting network configuration, which would still be bridge-based.~~
+- ~~When all active hosts in the cluster have been upgraded, the user should upgrade the cluster to version 4.0 where OVS is supported.~~
+- ~~The default switch type for the cluster should be set by the user to OVS (for new hosts).~~
+  - ~~Newly-created 4.0 clusters should have OVS as the default switch.~~
+- ~~Update individual hosts to transition to OVS:~~
+  - ~~The host networking can be changed when no VM/s are connected to it. With this option oVirt must support VM migration between different switch types.~~
+  - ~~We can further improve the user experience by a second approach:~~
+~~The host networking can be changed in-place without the need to migrate the VM/s. With this option, migration between hosts that have different networking types is not needed (but can coexist).~~
+~~Negligible service interruption to the VM networking is expected.~~
+
+~~The following sequence describes the transition steps @Host:~~
+- ~~Receive a setupNetworks call.~~
+- ~~Detect that a network has been marked with a type that is different from the current.~~
+- ~~Validate that all existing networks exist in the command and that all are marked with the same type.~~
+  - ~~We would like to perform an atomic upgrade, and not to worry about codependent networks with differing switch types.~~
+- ~~Tear down the pre-existing networks and bondings..~~
+- ~~Create networks.~~
+
+~~Note: Engine user may decide to take the reverse transition, from OVS to legacy, as well.~~
 
 ### VM Migration
 VM migrations may occur between two hosts that have different types of networking. (See upgrade options above)

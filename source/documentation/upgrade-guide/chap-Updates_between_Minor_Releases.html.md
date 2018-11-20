@@ -130,4 +130,4 @@ The oVirt Project recommends updating the hosts from the Engine; however, you ca
 **Prev:** [Chapter 8: Post-Upgrade Tasks](../chap-Post-Upgrade_Tasks/)<br>
 **Next:** [Appendix A: Updating an Offline oVirt Engine](../appe-Updating_an_Offline_oVirt_Engine/)
 
-[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/upgrade_guide/chap-updates_between_minor_releases)
+[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/upgrade_guide/updates_between_minor_releases)

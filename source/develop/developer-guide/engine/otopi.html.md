@@ -109,6 +109,8 @@ Following is a list of projects/tools that are using otopi or are related to it:
 
 * Inside ovirt-dwh: plugins for engine-setup/cleanup/etc.
 
+* Inside ovirt-imageio: plugins for engine-setup/cleanup/etc.
+
 * rhvm-setup-plugins: plugins for engine-setup/cleanup/etc. (in RHV, not part of oVirt)
 
 * ovirt-hosted-engine-setup

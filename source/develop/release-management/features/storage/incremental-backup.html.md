@@ -319,7 +319,7 @@ all data.
 Add backup column to disk_attachments table. Use to mark an image for
 incremental backup.
 
-- disk_attachments
+- disk_vm_element
   - backup: (incremental|null)
 
 Add vm_backups table. This table keep the information about running

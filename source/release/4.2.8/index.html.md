@@ -93,7 +93,15 @@ packages from other repos.
  - [BZ 1598447](https://bugzilla.redhat.com/1598447) <b>Provide a tool to find changed config values</b><br>Feature: <br><br>In previous versions there was no easy way how administrators could found out, which changes they have made to options exposed via engine-config tool, which could cause them issues after performing y-stream upgrades (for example 4.1 -> 4.2).<br><br>Reason: <br><br>Result: <br><br>We have added option -d/--diff to engine-config tool which will display administrators all differences between their current option values and default value provided by engine.<br>The differences are displayed using following format:<br><br> $ engine-config --diff<br> Name: vdsConnectionTimeout<br> Version: general<br> Current: 40<br> Default: 20
  - [BZ 1592990](https://bugzilla.redhat.com/1592990) <b>Cannot set number of IO threads via the UI</b><br>Feature: <br>The number of IO threads can be set in the web UI in the new/edit VM dialog.<br><br>Reason: <br>Some users may need to set the number of IO threads and using web UI can be easier than REST API.
 
+#### oVirt Engine Metrics
+
+ - [BZ 1645515](https://bugzilla.redhat.com/1645515) <b>[RFE] Add ansible-inventory file required for OCP/Origin 3.11 to metrics store machine</b><br>
+
 ### Other
+
+#### oVirt Engine Metrics
+
+ - [BZ 1620595](https://bugzilla.redhat.com/1620595) <b>Update README files to use etc/ovirt-engine-metrics/config.yml.d/ to update variables</b><br>
 
 #### oVirt Provider OVN
 

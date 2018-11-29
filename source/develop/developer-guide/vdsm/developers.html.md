@@ -180,7 +180,7 @@ Finally start the vdsmd service:
 
       # service vdsmd start
 
-**Note: if you want to connect this host to ovirt-engine, see [OVirt_-_connecting_development_vdsm_to_ovirt_engine](OVirt_-_connecting_development_vdsm_to_ovirt_engine).**
+**Note: if you want to connect this host to ovirt-engine, see [connecting_development_vdsm_to_ovirt_engine](/develop/developer-guide/vdsm/connecting-development-vdsm-to-engine/).**
 
 ## Code Style
 

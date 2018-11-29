@@ -106,6 +106,19 @@ You can use any tool that is capable of sending HTTP requests, like `curl`, `wge
     --user "${user}:${password}" \
     "${url}/vms"
 
+*NOTE:* That if you have a environment that's utilizing SSO and the domain name includes a space, you'll likely find this form of the above command easier to deal with:
+
+    url="https://ovirt.example.com/ovirt-engine/api"
+    user="admin"
+    password="******"
+    dom-"My Directory"
+    
+    curl \
+    --insecure \
+    --header "Accept: application/xml" \
+    --user "${user}@${dom}:${password}" \
+    "${url}/vms"
+
 #### How can I run a custom script using cloud-init?
 
 The custom script has to be included in the `initialization` section of the request, outside of the `cloud-init` tag:

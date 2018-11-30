@@ -24,8 +24,7 @@ For more information, see
 
 *   sanlock(8)
 *   wdmd(8)
-*   <https://fedorahosted.org/sanlock/>
-*   <https://fedorahosted.org/sanlock/wiki/wdmd>
+*   <https://pagure.io/sanlock/blob/master/f/README.mk>
 
 ## VDSM And SANLock
 

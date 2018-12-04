@@ -489,7 +489,27 @@ POST /vms/vm-uuid/backups/backup-uuid/cancel
 
 #### Creating image transfer for incremental restore
 
-XXX Write me
+To restore raw data backed up using the incremental backup API to qcow2
+disk, you need to specify the "format" key in the transfer:
+
+```
+POST /imagetransfers
+
+<image_transfer>
+    <disk id="123"/>
+    <direction>upload</direction>
+    <format>raw</format>
+</image_transfer>
+```
+
+When uploading into a snapshot, replace ```<disk id="123"/>``` with
+```<snapshot id="456"/>```.
+
+When the transfer format is "raw" and underlying disk format is "qcow2"
+uploaded data will be converted on the fly to qcow2 format when writing
+to storage.
+
+Uploading "qcow2" data to "raw" disk is not supported.
 
 ### Incremental backup ticket example
 

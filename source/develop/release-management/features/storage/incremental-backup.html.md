@@ -168,7 +168,7 @@ disk contents.
 
 #### Enabling backup for VM disk
 
-Specify 'backup' flag on 'disk_attachment' entity.
+Specify 'backup' flag on ```disk``` entity.
 
 Request:
 ```
@@ -186,7 +186,7 @@ Response:
 
 #### Finding disks enabled for incremental backup
 
-For each VM, get 'diskattachments' list and filter according to
+For each VM, get ```disks``` list and filter according to
 'backup' property.
 
 Request:

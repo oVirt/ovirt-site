@@ -301,6 +301,53 @@ to storage.
 
 Uploading "qcow2" data to "raw" disk is not supported.
 
+
+### imageio backup API
+
+#### Map request
+
+Get map of zeros and data ranges on storage.
+
+Query options:
+- dirty=y - return only ranges modified since backup checkpoint id
+
+Returns list of JSON objects with these keys:
+- data: true for allocated ranges, false for zero or unallocated ranges
+- start: offset of range in bytes
+- length: number of bytes
+
+##### Example - getting data and zero ranges
+
+Request:
+```
+GET /images/ticket-uuid/map
+```
+
+Response:
+```
+[
+    {"data": true, "start": 0, "length": 1048576},
+    {"data": false, "start": 1048576, "length": 8192},
+    {"data": true, "start": 1056768, "length": 1048576},
+]
+```
+
+##### Example - getting only dirty data and zero ranges
+
+Request:
+```
+GET /images/ticket-uuid/map?dirty=y
+```
+
+Response:
+```
+[
+    {"data": true, "start": 0, "length": 1048576},
+    {"data": false, "start": 1048576, "length": 8192},
+]
+```
+
+
 ## Future Work
 
 - Support for full backup for raw disks. Libvirt supports full backup of
@@ -509,6 +556,50 @@ for libvirt.
 - user finalize or cancel backup
 - remove row from vm_backups
 - remove rows from disk_backup_map
+
+
+### Vdsm backup API
+
+#### VM.start_backup
+
+Start backup using libvirt API
+
+#### VM.stop_backkup
+
+End backup using libvirt API
+
+#### VM.backup_info
+
+Return backup info from libvirt.
+
+
+### Vdsm checkpoints API
+
+#### VM.redefine_checkpoints
+
+Set libvirt checkpoints from engine database, without changing bitmaps
+on storage.
+
+Called before starting a backup, or once after starting a VM.
+
+Libvirt will fail to redefine checkpoints if unknown bitmap exists on
+storage, or a bitmap is missing on storage.
+
+#### VM.delete_checkpoints
+
+Delete checkpoints in libvirt and storage using libvirt API.
+
+
+### Vdsm NBD API
+
+#### NBD.start_server
+
+Start NBD server using qemu-nbd for single volume, and return
+```tranfer_url``` for this volume chain.
+
+#### NBD.stop_server
+
+Stop NBD server started using start_nbd_server API.
 
 
 ### Incremental backup ticket example

@@ -164,6 +164,143 @@ To recover from invalid bitmaps, the invalid bitmap and all previous
 bitmaps must be deleted. The next backup will have to include the entire
 disk contents.
 
+### Backup REST API
+
+#### Enabling backup for VM disk
+
+Specify 'backup' flag on 'disk_attachment' entity.
+
+Request:
+```
+POST /vms/vm-uuid/disks
+```
+
+Response:
+```
+<disk>
+    ...
+    <backup>incremental|full|none</backup>
+    ...
+</disk>
+```
+
+#### Finding disks enabled for incremental backup
+
+For each VM, get 'diskattachments' list and filter according to
+'backup' property.
+
+Request:
+```
+GET /vms/vm-uuid/disks
+```
+
+Response:
+```
+<disks>
+    <disk>
+        ...
+        <backup>incremental|null</backup>
+        ...
+    </disks>
+    ...
+</disks>
+```
+
+#### Starting backup
+
+Start incremental backup since backup id "previous-backup-uuid".
+
+Request:
+```
+POST /vms/vm-uuid/backups
+
+<backup>
+    <incremental>previous-backup-uuid</incremental>
+    <disks>
+        <disk id="disk-uuid" />
+        ...
+    </disks>
+</backup>
+```
+
+Response:
+```
+<backup id="backup-uuid">
+    <incremental>previous-backup-uuid</incremental>
+    <disks>
+        <disk id="disk-uuid" />
+        ...
+        ...
+    </disks>
+    <status>initiailizing</status>
+    <creation_date>...
+</backup>
+```
+
+#### Getting backup info
+
+When backup status is "ready", you can start downloading the disks.
+
+Request:
+```
+GET /vms/vm-uuid/backups/backup-uuid
+```
+
+Response:
+```
+<backup id="backup-uuid">
+    <incremental>previous-backup-uuid</incremental>
+    <disks>
+        <disk id="disk-uuid">
+            <image_id>image-uuid</image_id>
+        </disk>
+        ...
+    </disks>
+    <status>ready</status>
+    <creation_date>...
+</backup>
+```
+
+#### Finalizing backup
+
+```
+POST /vms/vm-uuid/backups/backup-uuid/finalize
+
+<action></action>
+```
+
+#### Canceling backup
+
+```
+POST /vms/vm-uuid/backups/backup-uuid/cancel
+
+<action></action>
+```
+
+#### Creating image transfer for incremental restore
+
+To restore raw data backed up using the incremental backup API to qcow2
+disk, you need to specify the "format" key in the transfer:
+
+```
+POST /imagetransfers
+
+<image_transfer>
+    <disk id="123"/>
+    <direction>upload</direction>
+    <format>raw</format>
+</image_transfer>
+```
+
+When uploading into a snapshot, replace ```<disk id="123"/>``` with
+```<snapshot id="456"/>```.
+
+When the transfer format is "raw" and underlying disk format is "qcow2"
+uploaded data will be converted on the fly to qcow2 format when writing
+to storage.
+
+Uploading "qcow2" data to "raw" disk is not supported.
+
 ## Future Work
 
 - Support for full backup for raw disks. Libvirt supports full backup of
@@ -373,143 +510,6 @@ for libvirt.
 - remove row from vm_backups
 - remove rows from disk_backup_map
 
-
-### REST
-
-#### Enabling backup for VM disk
-
-Specify 'backup' flag on 'disk_attachment' entity.
-
-Request:
-```
-POST /vms/vm-uuid/disks
-```
-
-Response:
-```
-<disk>
-    ...
-    <backup>incremental|full|none</backup>
-    ...
-</disk>
-```
-
-#### Finding disks enabled for incremental backup
-
-For each VM, get 'diskattachments' list and filter according to
-'backup' property.
-
-Request:
-```
-GET /vms/vm-uuid/disks
-```
-
-Response:
-```
-<disks>
-    <disk>
-        ...
-        <backup>incremental|null</backup>
-        ...
-    </disks>
-    ...
-</disks>
-```
-
-#### Starting backup
-
-Start incremental backup since backup id "previous-backup-uuid".
-
-Request:
-```
-POST /vms/vm-uuid/backups
-
-<backup>
-    <incremental>previous-backup-uuid</incremental>
-    <disks>
-        <disk id="disk-uuid" />
-        ...
-    </disks>
-</backup>
-```
-
-Response:
-```
-<backup id="backup-uuid">
-    <incremental>previous-backup-uuid</incremental>
-    <disks>
-        <disk id="disk-uuid" />
-        ...
-        ...
-    </disks>
-    <status>initiailizing</status>
-    <creation_date>...
-</backup>
-```
-
-#### Getting backup info
-
-When backup status is "ready", you can start downloading the disks.
-
-Request:
-```
-GET /vms/vm-uuid/backups/backup-uuid
-```
-
-Response:
-```
-<backup id="backup-uuid">
-    <incremental>previous-backup-uuid</incremental>
-    <disks>
-        <disk id="disk-uuid">
-            <image_id>image-uuid</image_id>
-        </disk>
-        ...
-    </disks>
-    <status>ready</status>
-    <creation_date>...
-</backup>
-```
-
-#### Finalizing backup
-
-```
-POST /vms/vm-uuid/backups/backup-uuid/finalize
-
-<action></action>
-```
-
-#### Canceling backup
-
-```
-POST /vms/vm-uuid/backups/backup-uuid/cancel
-
-<action></action>
-```
-
-#### Creating image transfer for incremental restore
-
-To restore raw data backed up using the incremental backup API to qcow2
-disk, you need to specify the "format" key in the transfer:
-
-```
-POST /imagetransfers
-
-<image_transfer>
-    <disk id="123"/>
-    <direction>upload</direction>
-    <format>raw</format>
-</image_transfer>
-```
-
-When uploading into a snapshot, replace ```<disk id="123"/>``` with
-```<snapshot id="456"/>```.
-
-When the transfer format is "raw" and underlying disk format is "qcow2"
-uploaded data will be converted on the fly to qcow2 format when writing
-to storage.
-
-Uploading "qcow2" data to "raw" disk is not supported.
 
 ### Incremental backup ticket example
 

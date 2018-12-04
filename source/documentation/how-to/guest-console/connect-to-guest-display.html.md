@@ -9,15 +9,26 @@ authors: dougsland
 
 ## Spice
 
+### Yum Repositories
 First install spice-xpi extension for Firefox
 
         # yum install spice-xpi
-        <restart your firefox>
+        <restart firefox>
         Go to Virtual Machine Tab, right click on VM and select Console
 
-*   Already tested with:
+*   Tested:
     -   Firefox 3.6.24 - spice-xpi-2.4-4.el6.x86_64 - RHEL6
     -   -   -   fell free to contribute here \*\*\*\*
+    
+### Debian Repositories
+First install browser-plugin-xpi
+
+        # apt install browser-plugin-xpi
+        <restart firefox>
+        Go to Virtual Machine Tab, right click on VM and select Console
+
+*   Tested:
+    -   Firefox Quantum 63.03 (64-bit) | browser-plugin-spice_2.8.90-5_amd64.deb | LXQt 0.13.0
 
 ## VNC
 

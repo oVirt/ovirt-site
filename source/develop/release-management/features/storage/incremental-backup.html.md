@@ -316,10 +316,10 @@ all data.
 
 ### Engine database changes
 
-Add backup column to disk_attachments table. Use to mark an image for
+Add backup column to base_disks table. Use to mark an image for
 incremental backup.
 
-- disk_vm_element
+- base_disks
   - backup: (incremental|null)
 
 Add vm_backups table. This table keep the information about running
@@ -382,16 +382,16 @@ Specify 'backup' flag on 'disk_attachment' entity.
 
 Request:
 ```
-POST /vms/vm-uuid/diskattachments
+POST /vms/vm-uuid/disks
 ```
 
 Response:
 ```
-<disk_attachment>
+<disk>
     ...
     <backup>incremental|full|none</backup>
     ...
-</disk_attachment>
+</disk>
 ```
 
 #### Finding disks enabled for incremental backup
@@ -401,19 +401,19 @@ For each VM, get 'diskattachments' list and filter according to
 
 Request:
 ```
-GET /vms/vm-uuid/diskattachments
+GET /vms/vm-uuid/disks
 ```
 
 Response:
 ```
-<disk_attachments>
-    <disk_attachment>
+<disks>
+    <disk>
         ...
         <backup>incremental|null</backup>
         ...
-    </disk_attachment>
+    </disks>
     ...
-</disk_attachments>
+</disks>
 ```
 
 #### Starting backup

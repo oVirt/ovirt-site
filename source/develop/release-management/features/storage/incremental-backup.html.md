@@ -504,23 +504,25 @@ Add backup column to base_disks table. Use to mark an image for
 incremental backup.
 
 - base_disks
-  - backup: (incremental|null)
+  - backup: (incremental/null)
 
 Add vm_backups table. This table keep the information about running
 backups tasks. Use during backup to track and montior backup.
 
 - vm_backups
   - id: UUID
-  - status: "initializing" | "starting" | "ready" | "transferring" | "finalizing"
+  - checkpoint_id: "initializing"/"starting"/"ready"/"transferring"/"finalizing"
   - incremental_id: UUID | null
     - if specified, perform incremental including all checkpoints since
       that checkpoint.
+  - vm_id: UUID
+  - creation_date: TIMESTAMP
 
-Add disk_backup_map table. This table keeps the backup url for every
+Add vm_backup_disk_map table. This table keeps the backup url for every
 disk. This url will be used instead of the image path on the host when
 creating an image transfer for a disk.
 
-- disk_backup_map
+- vm_backup_disk_map
   - backup_id: UUID
   - disk_id: UUID
   - backup_url: "nbd:unix:/tmp/<id>.sock:exportname=<sdb>" | "nbd://localhost:<12345>/<sdb>"
@@ -533,13 +535,13 @@ the checkpoints list, since this info is not stored in the qcow2 images.
   - id: UUID
   - parent: UUID
   - vm_id: UUID
-  - creation_date: date
+  - creation_date: TIMESTAMP
 
-Add disk_checkpoint_map table. This table keeps the disks included in
+Add vm_checkpoint_disk_map table. This table keeps the disks included in
 every checkpoint. Used when starting a backup to create checkpoint xml
 for libvirt.
 
-- disk_checkpoint_map
+- vm_checkpoint_disk_map
   - disk_id: UUID
   - checkpoint_id: UUID
 
@@ -621,9 +623,9 @@ socket:
 
 ### UI
 
-- Add 'Enable Incremental Backup' checkbox on New/Edit/Attach Disk dialogs (in VM context).
+- Add 'Enable Incremental Backup' checkbox on New/Edit Disk dialogs.
 
-- Removing last snapshot should be disabled if 'Enable Backup'
+- Removing last snapshot should be disabled if 'Enable Incremental Backup'
   is checked and the base image is raw. Backup must be disabled in order
   to remove the last snapshot.
 

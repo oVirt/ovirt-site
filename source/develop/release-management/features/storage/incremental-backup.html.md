@@ -164,6 +164,190 @@ To recover from invalid bitmaps, the invalid bitmap and all previous
 bitmaps must be deleted. The next backup will have to include the entire
 disk contents.
 
+### Backup REST API
+
+#### Enabling backup for VM disk
+
+Specify 'backup' flag on ```disk``` entity.
+
+Request:
+```
+POST /vms/vm-uuid/disks
+```
+
+Response:
+```
+<disk>
+    ...
+    <backup>incremental|full|none</backup>
+    ...
+</disk>
+```
+
+#### Finding disks enabled for incremental backup
+
+For each VM, get ```disks``` list and filter according to
+'backup' property.
+
+Request:
+```
+GET /vms/vm-uuid/disks
+```
+
+Response:
+```
+<disks>
+    <disk>
+        ...
+        <backup>incremental|null</backup>
+        ...
+    </disks>
+    ...
+</disks>
+```
+
+#### Starting backup
+
+Start incremental backup since backup id "previous-backup-uuid".
+
+Request:
+```
+POST /vms/vm-uuid/backups
+
+<backup>
+    <incremental>previous-backup-uuid</incremental>
+    <disks>
+        <disk id="disk-uuid" />
+        ...
+    </disks>
+</backup>
+```
+
+Response:
+```
+<backup id="backup-uuid">
+    <incremental>previous-backup-uuid</incremental>
+    <disks>
+        <disk id="disk-uuid" />
+        ...
+        ...
+    </disks>
+    <status>initiailizing</status>
+    <creation_date>...
+</backup>
+```
+
+#### Getting backup info
+
+When backup status is "ready", you can start downloading the disks.
+
+Request:
+```
+GET /vms/vm-uuid/backups/backup-uuid
+```
+
+Response:
+```
+<backup id="backup-uuid">
+    <incremental>previous-backup-uuid</incremental>
+    <disks>
+        <disk id="disk-uuid">
+            <image_id>image-uuid</image_id>
+        </disk>
+        ...
+    </disks>
+    <status>ready</status>
+    <creation_date>...
+</backup>
+```
+
+#### Finalizing backup
+
+```
+POST /vms/vm-uuid/backups/backup-uuid/finalize
+
+<action></action>
+```
+
+#### Canceling backup
+
+```
+POST /vms/vm-uuid/backups/backup-uuid/cancel
+
+<action></action>
+```
+
+#### Creating image transfer for incremental restore
+
+To restore raw data backed up using the incremental backup API to qcow2
+disk, you need to specify the "format" key in the transfer:
+
+```
+POST /imagetransfers
+
+<image_transfer>
+    <disk id="123"/>
+    <direction>upload</direction>
+    <format>raw</format>
+</image_transfer>
+```
+
+When uploading into a snapshot, replace ```<disk id="123"/>``` with
+```<snapshot id="456"/>```.
+
+When the transfer format is "raw" and underlying disk format is "qcow2"
+uploaded data will be converted on the fly to qcow2 format when writing
+to storage.
+
+Uploading "qcow2" data to "raw" disk is not supported.
+
+
+### imageio backup API
+
+#### Map request
+
+Get map of zeros and data ranges on storage.
+
+Query options:
+- dirty=y - return only ranges modified since backup checkpoint id
+
+Returns list of JSON objects with these keys:
+- data: true for allocated ranges, false for zero or unallocated ranges
+- start: offset of range in bytes
+- length: number of bytes
+
+##### Example - getting data and zero ranges
+
+Request:
+```
+GET /images/ticket-uuid/map
+```
+
+Response:
+```
+[
+    {"data": true, "start": 0, "length": 1048576},
+    {"data": false, "start": 1048576, "length": 8192},
+    {"data": true, "start": 1056768, "length": 1048576},
+]
+```
+
+##### Example - getting only dirty data and zero ranges
+
+Request:
+```
+GET /images/ticket-uuid/map?dirty=y
+```
+
+Response:
+```
+[
+    {"data": true, "start": 0, "length": 1048576},
+    {"data": false, "start": 1048576, "length": 8192},
+]
+```
+
+
 ## Future Work
 
 - Support for full backup for raw disks. Libvirt supports full backup of
@@ -316,27 +500,29 @@ all data.
 
 ### Engine database changes
 
-Add backup column to disk_attachments table. Use to mark an image for
+Add backup column to base_disks table. Use to mark an image for
 incremental backup.
 
-- disk_vm_element
-  - backup: (incremental|null)
+- base_disks
+  - backup: (incremental/null)
 
 Add vm_backups table. This table keep the information about running
 backups tasks. Use during backup to track and montior backup.
 
 - vm_backups
   - id: UUID
-  - status: "initializing" | "starting" | "ready" | "transferring" | "finalizing"
+  - checkpoint_id: "initializing"/"starting"/"ready"/"transferring"/"finalizing"
   - incremental_id: UUID | null
     - if specified, perform incremental including all checkpoints since
       that checkpoint.
+  - vm_id: UUID
+  - creation_date: TIMESTAMP
 
-Add disk_backup_map table. This table keeps the backup url for every
+Add vm_backup_disk_map table. This table keeps the backup url for every
 disk. This url will be used instead of the image path on the host when
 creating an image transfer for a disk.
 
-- disk_backup_map
+- vm_backup_disk_map
   - backup_id: UUID
   - disk_id: UUID
   - backup_url: "nbd:unix:/tmp/<id>.sock:exportname=<sdb>" | "nbd://localhost:<12345>/<sdb>"
@@ -349,13 +535,13 @@ the checkpoints list, since this info is not stored in the qcow2 images.
   - id: UUID
   - parent: UUID
   - vm_id: UUID
-  - creation_date: date
+  - creation_date: TIMESTAMP
 
-Add disk_checkpoint_map table. This table keeps the disks included in
+Add vm_checkpoint_disk_map table. This table keeps the disks included in
 every checkpoint. Used when starting a backup to create checkpoint xml
 for libvirt.
 
-- disk_checkpoint_map
+- vm_checkpoint_disk_map
   - disk_id: UUID
   - checkpoint_id: UUID
 
@@ -374,122 +560,49 @@ for libvirt.
 - remove rows from disk_backup_map
 
 
-### REST
+### Vdsm backup API
 
-#### Enabling backup for VM disk
+#### VM.start_backup
 
-Specify 'backup' flag on 'disk_attachment' entity.
+Start backup using libvirt API
 
-Request:
-```
-POST /vms/vm-uuid/diskattachments
-```
+#### VM.stop_backkup
 
-Response:
-```
-<disk_attachment>
-    ...
-    <backup>incremental|full|none</backup>
-    ...
-</disk_attachment>
-```
+End backup using libvirt API
 
-#### Finding disks enabled for incremental backup
+#### VM.backup_info
 
-For each VM, get 'diskattachments' list and filter according to
-'backup' property.
+Return backup info from libvirt.
 
-Request:
-```
-GET /vms/vm-uuid/diskattachments
-```
 
-Response:
-```
-<disk_attachments>
-    <disk_attachment>
-        ...
-        <backup>incremental|null</backup>
-        ...
-    </disk_attachment>
-    ...
-</disk_attachments>
-```
+### Vdsm checkpoints API
 
-#### Starting backup
+#### VM.redefine_checkpoints
 
-Start incremental backup since backup id "previous-backup-uuid".
+Set libvirt checkpoints from engine database, without changing bitmaps
+on storage.
 
-Request:
-```
-POST /vms/vm-uuid/backups
+Called before starting a backup, or once after starting a VM.
 
-<backup>
-    <incremental>previous-backup-uuid</incremental>
-    <disks>
-        <disk id="disk-uuid" />
-        ...
-    </disks>
-</backup>
-```
+Libvirt will fail to redefine checkpoints if unknown bitmap exists on
+storage, or a bitmap is missing on storage.
 
-Response:
-```
-<backup id="backup-uuid">
-    <incremental>previous-backup-uuid</incremental>
-    <disks>
-        <disk id="disk-uuid" />
-        ...
-        ...
-    </disks>
-    <status>initiailizing</status>
-    <creation_date>...
-</backup>
-```
+#### VM.delete_checkpoints
 
-#### Getting backup info
+Delete checkpoints in libvirt and storage using libvirt API.
 
-When backup status is "ready", you can start downloading the disks.
 
-Request:
-```
-GET /vms/vm-uuid/backups/backup-uuid
-```
+### Vdsm NBD API
 
-Response:
-```
-<backup id="backup-uuid">
-    <incremental>previous-backup-uuid</incremental>
-    <disks>
-        <disk id="disk-uuid">
-            <image_id>image-uuid</image_id>
-        </disk>
-        ...
-    </disks>
-    <status>ready</status>
-    <creation_date>...
-</backup>
-```
+#### NBD.start_server
 
-#### Finalizing backup
+Start NBD server using qemu-nbd for single volume, and return
+```tranfer_url``` for this volume chain.
 
-```
-POST /vms/vm-uuid/backups/backup-uuid/finalize
+#### NBD.stop_server
 
-<action></action>
-```
+Stop NBD server started using start_nbd_server API.
 
-#### Canceling backup
-
-```
-POST /vms/vm-uuid/backups/backup-uuid/cancel
-
-<action></action>
-```
-
-#### Creating image transfer for incremental restore
-
-XXX Write me
 
 ### Incremental backup ticket example
 
@@ -510,9 +623,9 @@ socket:
 
 ### UI
 
-- Add 'Enable Incremental Backup' checkbox on New/Edit/Attach Disk dialogs (in VM context).
+- Add 'Enable Incremental Backup' checkbox on New/Edit Disk dialogs.
 
-- Removing last snapshot should be disabled if 'Enable Backup'
+- Removing last snapshot should be disabled if 'Enable Incremental Backup'
   is checked and the base image is raw. Backup must be disabled in order
   to remove the last snapshot.
 

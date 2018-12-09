@@ -162,7 +162,7 @@ If you wish to remove a self-hosted engine host from your environment, you will 
 
 3. Click **Installation** &rarr; **Reinstall**.
 
-4. Click the **Hosted Engine** tab and select **DEPLOY** from the drop-down list. This action stops the `ovirt-ha-agent` and `ovirt-ha-broker` services and removes the self-hosted engine configuration file.
+4. Click the **Hosted Engine** tab and select **UNDEPLOY** from the drop-down list. This action stops the `ovirt-ha-agent` and `ovirt-ha-broker` services and removes the self-hosted engine configuration file.
 
 5. Click **OK**.
 

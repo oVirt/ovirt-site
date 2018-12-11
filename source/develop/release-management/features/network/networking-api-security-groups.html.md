@@ -4,7 +4,7 @@ category: feature
 authors: mdbarroso
 feature_name: security-group-support
 feature_modules: engine,ovirt-provider-ovn
-feature_status: On QA
+feature_status: Released
 ---
 
 
@@ -153,10 +153,8 @@ levels.
 
 The default behavior for the network's **port-security** attribute would be
 defined in the configuration file, through the ***port-security-enabled***,
-property, located in a new section, called **NETWORK**. This value will be set
-during *engine-setup* - refer to [this section](#engine-setup) - and the
-default choice will be 'yes', which will result in all traffic being dropped to
-the VMs.
+property, located in a new section, called **NETWORK**. As stated in the
+[provider configuration README](https://github.com/oVirt/ovirt-provider-ovn#section-network), the default value for that attribute is **true**.
 
 Existing ports can later be updated, disabling the **port-security** attribute,
 which would remove the ACLs that drop all IP traffic to the VM.
@@ -169,7 +167,7 @@ Since the feature is active by default, the intended workflow - from the oVirt
 engine user's perspective - is:
 
 * create an external network on the ovirt-provider-ovn - its default
-*port_security_enabled* value is true - which can be overriden during engine-setup.
+*port_security_enabled* value is true.
 * create VMs attached to this external network - they will inherit the
 *port_security_attribute* from the network, which will result in dropping all
 IP traffic to that VM.
@@ -232,14 +230,6 @@ created VMs attached to existing networks.
 
 Updating the network's port-security-enabled attribute **will not** cascade to
 the existent ports, as defined [in the Networking API](https://developer.openstack.org/api-ref/network/v2/#port-security).
-
-### Engine-Setup
-
-A new ovirt-provider-ovn related question will be added, asking the user if
-port-security is enabled at network level. The default answer will be 'yes'.
-
-This will lead to all the created ports having port-security active, leading to
-all IP traffic being dropped.
 
 ## Design feature description
 

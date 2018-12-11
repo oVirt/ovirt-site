@@ -11,7 +11,7 @@ feature_status: Inception
 
 # Summary
 
-Arbiter volumes are replica 3 volumes where the 3rd brick of the replica is automatically configured as an arbiter node. What this means is that the 3rd brick will store only the file name and metadata, but does not contain any data. This configuration is helpful in avoiding split-brains while providing the same level of consistency as a normal replica 3 volume. This features allows Gluster Storage Administrator to create and manager Arbiter Volumes from oVirt.
+Arbiter volumes are replica 3 volumes where the 3rd brick of the replica is automatically configured as an arbiter node. What this means is that the 3rd brick will store only the file name and metadata, but does not contain any data. This configuration is helpful in avoiding split-brains while providing the same level of consistency as a normal replica 3 volume. This features allows Gluster Storage Administrator to create and manage Arbiter Volumes from oVirt.
 
 To read more about Gluster arbiter volume feature, see <https://gluster.readthedocs.org/en/release-3.7.0/Features/afr-arbiter-volumes/>
 

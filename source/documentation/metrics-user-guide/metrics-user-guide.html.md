@@ -6,7 +6,7 @@ title: Metrics Store User Guide
 
 ## Chapter 1: [Introduction](../Introduction)
 
-## Chapter 2: [Analyzing Metrics](../analyzing-metrics)
+## Chapter 2: [Analyzing Metrics](../analyzing_metrics)
 
 ## Chapter 3: [Analyzing Logs](../Logs)
 

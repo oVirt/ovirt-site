@@ -16,6 +16,6 @@ Kibana enables you to view and preempt critical problems, track system usage and
 
 2. Log in by entering your username and password.
 
-**Next:** [Chapter 2: Analyzing Metrics](../analyzing-metrics)
+**Next:** [Chapter 2: Analyzing Metrics](../analyzing_metrics)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/metrics_store_user_guide/introduction)

@@ -28,5 +28,3 @@ Another useful command is createrepo which scans directory and prepare rpm repos
 `baseurl=`[`file:///location/of/repository`](file:///location/of/repository)
       enabled=1
       gpgcheck=0
-
-Author: --Alon Bar-Lev (Alonbl) ([talk](User talk:Alonbl)) 02:22, 1 July 2014 (GMT)

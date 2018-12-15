@@ -34,5 +34,3 @@ Once you have a failed test due to a specific random input, you would probably w
 You can make sure the injection worked properly by examining the log. If, for example, you set `test.random.seed=123`, your output should look like this:
 
     11:11:53,159 INFO  [RandomUtilsSeedingRule] Running test with random seed: 123
-
-[Category:Unit Testing Utilities](/develop/dev-process/unit-testing-utilities/)

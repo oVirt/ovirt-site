@@ -43,5 +43,3 @@ Extenting this class will provide you with several utility methods to use in you
 ### Built-in Tests
 
 1.  `testQueryIsAUserQuery()` - tests your query was indeed marked as a user query. Note this test is run from the base class, and does not need to be called explicitly.
-
-[Category:Unit Testing Utilities](/develop/dev-process/unit-testing-utilities/)

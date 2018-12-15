@@ -58,7 +58,7 @@ Installing oVirt Node on a physical machine involves three key steps:
 
     **Note:** When oVirt Node restarts, `imgbase-motd.service` performs a health check on the host and displays the result when you log in on the command line. The message `imgbase status: OK` or `imgbase status: DEGRADED` indicates the health status. Run `imgbase check` to get more information. The service is enabled by default.
 
-You can now add the host to your oVirt environment. See [Chapter 8: Adding a Hypervisor](../chap-Adding_a_Hypervisor).
+You can now add the host to your oVirt environment. See [Chapter 8: Adding a Host to the oVirt Engine](../chap-Adding_a_Host_to_the_oVirt_Engine).
 
 ## Advanced Installation
 

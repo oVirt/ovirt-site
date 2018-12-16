@@ -14,7 +14,7 @@ that was used for previous JUnit versions.
 
 Like with any extension, the only thing you need to do in order to
 incorporate it in your test class is to add an `@ExtendWith`
-annotation. 
+annotation.
 
 ```java
 @ExtendWith(MockConfigExtension.class)
@@ -27,7 +27,7 @@ public class MyTest {
 For the basic usecase, where all the tests in the class use the same
 mocked configuration, just create a method with the signature
 `public static Stream<MockConfigDescriptor<?>> mockConfiguration()`.
-E.g.: 
+E.g.:
 
 ```java
 public static Stream<MockConfigDescriptor<?>> mockConfiguration() {
@@ -50,7 +50,7 @@ with the `@MockedConfig` annotation to specify that it should use the
 aforementioned method. E.g.:
 
 ```java
-public static Stream<MockConfigDescriptor<?>> mockSpecialConfiguration() {     
+public static Stream<MockConfigDescriptor<?>> mockSpecialConfiguration() {
     return Stream.of(MockConfigDescriptor.of(ConfigValues.UserSessionTimeOutInterval, 60));
 }
 
@@ -60,5 +60,3 @@ public void specialTest() {
     // Code
 }
 ```
-
-[Category:Unit Testing Utilities](/develop/dev-process/unit-testing-utilities/)

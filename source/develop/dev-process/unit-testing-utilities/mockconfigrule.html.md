@@ -67,5 +67,3 @@ public static final MockConfigRule mcr = new MockConfigRule(
     mockConfig(ConfigValues.DBEngine, "postgres")
 );
 ```
-
-[Category:Unit Testing Utilities](/develop/dev-process/unit-testing-utilities/)

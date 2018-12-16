@@ -55,7 +55,7 @@ The services will not exit as long as engine is up, to stop press <Ctrl>C.
 
 ## How to write DWH patches
 
-Please refer to [How_to_write_patches_for_dwh](../write-patches-for-dwh/) for further information.
+Please refer to [How to write patches for DWH](write-patches-for-dwh) for further information.
 
 ## Packaging
 

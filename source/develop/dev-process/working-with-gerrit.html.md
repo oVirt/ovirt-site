@@ -30,7 +30,7 @@ Once you log in, choose a Gerrit username. This username will be used to generat
 
 ### Setting up SSH Keys
 
-If you don’t have a set of SSH keys, open the terminal on your local machine and enter the following:  
+If you don’t have a set of SSH keys, open the terminal on your local machine and enter the following:
 
 ssh-keygen -t rsa
 
@@ -92,9 +92,9 @@ Or alternatively without need of authentication:
 
       SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
       grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
- 
+
 Allow the hook to be executed:
- 
+
       chmod a+x .git/hooks/commit-msg
 
 **Note**: If you commit something before you do the above, you can add the Change-ID and signed-off-by lines by:
@@ -142,6 +142,8 @@ Alternatively, assuming your remote repository is 'origin', enter:
 
 ### Pushing or Updating a Draft Using the Git Review Plugin
 
+The git-review plugin is optional.
+
 To push or update a draft, enter:
 
       git review -D -r origin master
@@ -159,7 +161,7 @@ To push or update a published patch:
 The patch life cycle process comprises of the following steps:
 
 1.  ‎The patch is checked
-    -   Verification (Verified+1): bug fixes or new functionality should be verified by a real person   
+    -   Verification (Verified+1): bug fixes or new functionality should be verified by a real person
     -   Maintainer review and approval (Code-Review+2)
     -   Publishing. This triggers Continuous Integration (CI)
 

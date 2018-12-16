@@ -10,22 +10,59 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
 
 ## Developer Documentation
 
+### Note: may be outdated
+
+#### Design Documentation
+- [Feature Pages / Design Documentation](/develop/release-management/features/)
+
+#### Developer Process
+
 - [Build and Test Standards](/develop/dev-process/build-and-test-standards/)
-- [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/)
-- [Building oVirt engine](/develop/developer-guide/engine/engine-development-environment/)
-- [Testing ovirt-engine patches with Lago](/develop/infra/testing/lago/testing-engine-patches-with-lago/)
-- [Building oVirt Node](/develop/projects/node/building/)
-- [Building VDSM](/develop/developer-guide/vdsm/developers/)
-- [Contributing to the Node project](/develop/projects/node/contributing-to-the-node-project/)
 - [Submitting a patch with Gerrit](/develop/dev-process/working-with-gerrit/)
 - [The development process](/develop/dev-process/devprocess/)
 - [Release management](/develop/release-management/process/release-process/)
 - [Getting in contact with the oVirt community](/community/about/contact/)
 - [Becoming a maintainer](/develop/dev-process/becoming-a-maintainer/)
-- [oVirt architecture](/documentation/architecture/architecture/)
-- [Building a custom user portal](/develop/developer-guide/sample-user-portals/)
-- [Building oVirt engine DWH](/documentation/how-to/reports/dwh-development-environment/)
-- [oVirt Features](/develop/release-management/features/)
+- [Localization](/develop/localization/)
+
+#### Development Help
+
+- [Building oVirt engine](/develop/developer-guide/engine/engine-development-environment/)
+- [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/)
+- [Testing ovirt-engine patches with Lago](/develop/infra/testing/lago/testing-engine-patches-with-lago/)
+- [Building VDSM](/develop/developer-guide/vdsm/developers/)
+- [FAQ](/develop/faq)
+- [HA VMs](/develop/ha-vms)
+- [Migrate PKI to SHA256 signatures](/develop/migrate-pki-to-sha256)
+- [Networking](/develop/networking/)
+
+#### Containerization
+
+- [Using oVirt Engine with a PostgreSQL container](/develop/Using-oVirt-Engine-with-a-PostgreSQL-container)
+- [Using oVirt Engine with a ManageIQ container](/develop/Using-oVirt-Engine-with-ManageIQ-container)
+
+#### Data Warehouse
+
+- [DWH Development Environment](/develop/dwh-development-environment)
+- [How to write patches for DWH](/develop/reports/)
+
+#### Storage
+
+- [Troubleshooting NFS](/develop/troubleshooting-nfs-storage-issues)
+
+#### Unit testing
+- [Injector Extension](/develop/dev-process/unit-testing-utilities/injectorextension)
+- [Mock Config Extension](/develop/dev-process/unit-testing-utilities/mockconfigextension)
+- [Mock Config Rule](/develop/dev-process/unit-testing-utilities/mockconfigrule)
+- [Random Utils Seeding Extension](/develop/dev-process/unit-testing-utilities/randomutilsseedingextension)
+- [Random Utils Seeding Rule](/develop/dev-process/unit-testing-utilities/randomutilsseedingrule)
+- [Testing Commands](/develop/dev-process/unit-testing-utilities/testing-commands)
+- [Testing Queries](/develop/dev-process/unit-testing-utilities/testing-queries)
+
+#### Other
+
+- [User level query column filtering](/develop/user-level-query-column-filtering)
+- [Xen](/develop/xen)
 
 </section>
 

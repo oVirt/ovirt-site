@@ -69,17 +69,6 @@ feature_status: WIP
 
 ```
 
-#### Required metadata
-Some pages requires certain metadata to be present
-
-##### Feature pages
-Pages in subtree `source/develop/release-management/features`.
-
-* title
-* feature_name
-* feature_modules
-* feature_status
-
 ## Add a new blog post
 
 If you have an idea for a blog post, we'd love to help you publish it. Follow the steps to access
@@ -97,27 +86,48 @@ To modify incorrect, obsolete, or outdated information, you can edit the topic y
 pull request. The pull request will be reviewed by contributors with commit rights, and if it is
 accepted it will be merged to the website.
 
-To edit content files, follow the steps in [Access the source files](### Access the source files) and
+To edit content files, follow the steps in [Access the source files](#access-the-source-files) and
 edit the file.
-
-IMPORTANT: Some content was converted from legacy MediaWiki and contains a special header
-used for auto-redirects. If you edit a legacy file, do not modify or remove this header.
 
 ## Test your changes locally
 
 If you edit any file type other than MD, for example HAML, YAML, or CSS, deploy the site locally
 and test your changes.
 
-We plan to add pre-merge staging accessible from GitHub, but until this happens please
-follow this step and add a confirmation in the pull request description that the local
-test ran successfully.
+For simple changes, you can try the Middleman hot reload server, but note that it doesn't understand .htaccess
+and mod_redirect rules that we use on the production apache server.
+
+**Note: the latest version of Ruby crashes when trying to start the server. Use Ruby 2.1 with the help of rvm.**
 
 Run:
 ```
+rvm use 2.1
 ./setup.sh && ./run-server.sh
 ```
+
+or
+
+```
+sudo ./docker-setup.sh
+sudo ./docker-run.sh
+```
+
 If the site builds successfully, you will see this message:
-The Middleman is standing watch at http://0.0.0.0:4567
+The Middleman is standing watch at http://\[address\]:4567
+
+For complex changes, test with a local apache. Make sure apache is configured to allow `.htaccess` files by replacing
+`AllowOverride None` with `AllowOverride None` in `httpd.conf`.
+
+Run:
+```
+rvm use 2.1
+# clean the build dir if it exists
+rm -rf build
+bundle exec middleman build --verbose
+# copy all built content into the apache root
+sudo rsync -av build/ /var/www/html/
+```
+
 
 ## Submit your changes
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Live migration for High Performance VMs
 category: feature
 authors: SharonG

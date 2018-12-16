@@ -241,21 +241,6 @@
             end
           end
 
-          related = related_all
-            .each_with_object(Hash.new(0)) { |str, count| count[str] += 1 }
-            .sort_by { |_, count| count }.reverse # Sort by incidences
-            .reject { |_, count| count < 2 } # Require at least 2 modules
-            .map {|str, count| str} # Bake down to a simple array
-
-        - if related.count > 0
-          .related-features
-            %h2 Related features
-
-            %ul
-              - related.each do |fragment|
-                %li
-                  %a{href: feature_url(fragment)}= clean_title feature_info(fragment).title
-
 :coffee
   $featureSidebar = $('.feature-sidebar')
   $form = $('#feature-search')

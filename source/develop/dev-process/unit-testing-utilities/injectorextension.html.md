@@ -6,7 +6,7 @@ authors: amureini
 
 # Injector Extension
 
-`InjectorExtension` is JUnit Jupiter extension that allows binding 
+`InjectorExtension` is JUnit Jupiter extension that allows binding
 mock objects to the `Injector`.
 It's the JUnit Jupiter counterpart of the old InjectorRule.
 
@@ -25,5 +25,3 @@ public class MyTest{
     @InjectedMock
     public OsRepository osRepository;
 ```
-
-[Category:Unit Testing Utilities](/develop/dev-process/unit-testing-utilities/)

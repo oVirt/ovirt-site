@@ -27,9 +27,3 @@ RowMappers should have a single instance e.g.
       }
 
 So you do not have to instantiate the rowmapper all the time.
-
-# To be cleared
-
-## Logger
-
-Seems like there is no clear agreement on how the loggers should be declared. What is known is that it should be the 'compat' logger.

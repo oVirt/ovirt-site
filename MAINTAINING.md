@@ -14,27 +14,29 @@ All contributions must follow the [general contribution guidelines](https://gith
 ### General technical content, release management
 
 * Doron Fediuck
-* Yaniv Kaul
 * Sandro Bonazzola
-
-### Specific oVirt components
-
-* Allon Mureinik (storage)
-* Marcin Mirecki (networking)
-* Eyal Edri (infra)
+* Greg Sheremeta
+* Nir Soffer
 
 ### Site infra and Middleman
 
-* Garrett LeSage
-* Jason Brooks
-* Michael Scherer
 * Marc Dequenes (Duck)
+* Greg Sheremeta
 
 ### Non-technical content, community, blog posts, legal
 
-* Mikey Ariel
 * Brian Proffit
-* Joe Brockmeier
+
+## Previous maintainers
+
+* Yaniv Kaul
+* Allon Mureinik (storage)
+* Marcin Mirecki (networking)
+* Eyal Edri (infra)
+* Garrett LeSage
+* Jason Brooks
+* Michael Scherer
+
 
 ## Triaging issues and PRs
 

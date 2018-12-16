@@ -1,8 +1,8 @@
 # oVirt.org Project Website
 
-Welcome to the oVirt community website! This site is the home for information about the project, the community, and everything you need to get started with oVirt. 
+Welcome to the oVirt community website! This site is the home for information about the project, the community, and everything you need to get started with oVirt.
 
-This is the source repository for the website, and the home of all documentation, community content, and release management content. 
+This is the source repository for the website, and the home of all documentation, community content, and release management content.
 
 ## How this repository is organized
 
@@ -30,7 +30,11 @@ NOTE: This website is a fork of the [Middleman-Springboard](https://github.com/O
 
 ## How to contribute
 
-All content on this website is community-driven, and we welcome contributions! 
+All content on this website is community-driven, and we welcome contributions!
+
+[Notes about Contributors](CONTRIBUTING.md)
+
+[Developing and running the site locally](MAINTAINING.md)
 
 Please make sure to work in topic branches and use the pull request process to propose changes. Every change you make to the content will undergo peer-review before it's accepted and merged into the master branch.
 
@@ -75,11 +79,11 @@ IMPORTANT: Some content was converted from legacy MediaWiki and contains a speci
 
 ### Submit your changes
 
-when you finish creating or editing content, commit your changes to a **new branch** and submit a pull request for review. The commit message should include a detailed description of the changes and as much context as possible. 
+when you finish creating or editing content, commit your changes to a **new branch** and submit a pull request for review. The commit message should include a detailed description of the changes and as much context as possible.
 
-NOTE: Make sure to submit a pull request even if you have commit rights to the repo, to ensure consistent review and collaboration practices. 
+NOTE: Make sure to submit a pull request even if you have commit rights to the repo, to ensure consistent review and collaboration practices.
 
-After your pull request is merged, the website auto-deploys and you can see the published changes within 10-15 minutes. 
+After your pull request is merged, the website auto-deploys and you can see the published changes within 10-15 minutes.
 
 ### Report problems or make suggestions
 

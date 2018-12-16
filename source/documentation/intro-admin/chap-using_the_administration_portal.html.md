@@ -109,6 +109,6 @@ When setting up resources such as data centers and clusters, a number of tasks m
 
 ![](/images/intro-admin/GuideMe.png)
 
-**Next:** [Chapter 2: Searches](../chap-searches)
+**Next:** [Chapter 2: Searches](chap-searches)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/introduction_to_the_administration_portal/chap-using_the_administration_portal)

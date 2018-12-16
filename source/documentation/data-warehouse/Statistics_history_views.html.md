@@ -567,7 +567,7 @@ You can enable debug mode to record log sampling, hourly, and daily job times in
  </tbody>
 </table>
 
-**Prev:** [Allowing Read Only Access to the History Database](../Allowing_Read_Only_Access_to_the_History_Database) <br>
-**Next:** [Configuration History Views](../Configuration_history_views)
+**Prev:** [Allowing Read Only Access to the History Database](Allowing_Read_Only_Access_to_the_History_Database) <br>
+**Next:** [Configuration History Views](Configuration_history_views)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/data_warehouse_guide/sect-statistics_history_views)

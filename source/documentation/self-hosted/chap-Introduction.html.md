@@ -20,6 +20,6 @@ For hardware requirements, see "Hypervisor Requirements" in the [Installation Gu
 
     **Important:** It is important to synchronize the system clocks of the hosts, Engine, and other servers in the environment to avoid potential timing or authentication issues. To do this, configure the Network Time Protocol (NTP) on each system to synchronize with the same NTP server.
 
-**Next:** [Chapter 2: Deploying Self-Hosted Engine](../chap-Deploying_Self-Hosted_Engine)
+**Next:** [Chapter 2: Deploying Self-Hosted Engine](chap-Deploying_Self-Hosted_Engine)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/self-hosted_engine_guide/chap-introduction)

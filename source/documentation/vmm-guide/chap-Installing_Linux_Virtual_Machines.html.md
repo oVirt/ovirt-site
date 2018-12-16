@@ -308,7 +308,7 @@ The ovirt guest agents and drivers are installed on Enterprise Linux virtual mac
 
 The guest agent now passes usage information to the ovirt Engine. The ovirt agent runs as a service called **ovirt-guest-agent** that you can configure via the **ovirt-guest-agent.conf** configuration file in the **/etc/** directory.
 
-**Prev:** [Chapter 1: Introduction](../chap-Introduction)<br>
-**Next:** [Chapter 3: Installing Windows Virtual Machines](../chap-Installing_Windows_Virtual_Machines)
+**Prev:** [Chapter 1: Introduction](chap-Introduction)<br>
+**Next:** [Chapter 3: Installing Windows Virtual Machines](chap-Installing_Windows_Virtual_Machines)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/chap-installing_linux_virtual_machines)

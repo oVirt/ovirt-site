@@ -41,7 +41,7 @@ These two modes are further extended by a set of parameters that allow you to sp
 The following options are only available when using the `engine-backup` command in `restore` mode. The option syntax below applies to restoring the Engine database. The same options exist for restoring the Data Warehouse database. See `engine-backup --help` for the Data Warehouse option syntax.
 
 `--provision-db`
-: Creates a PostgreSQL database for the Engine database backup to be restored to. This is a required parameter when restoring a backup on a remote host or fresh installation that does not have a PostgreSQL database already configured.  
+: Creates a PostgreSQL database for the Engine database backup to be restored to. This is a required parameter when restoring a backup on a remote host or fresh installation that does not have a PostgreSQL database already configured.
 
 `--change-db-credentials`
 : Allows you to specify alternate credentials for restoring the Engine database using credentials other than those stored in the backup itself. See `engine-backup --help` for the additional parameters required by this parameter.
@@ -378,7 +378,7 @@ Restore a virtual machine that has been backed up using the backup and restore A
 
 You have restored a virtual machine using a backup that was created using the backup and restore API.
 
-**Prev:** [Chapter 11: External Providers](../chap-External_Providers)<br>
-**Next:** [Chapter 13: Errata Management with Foreman](../chap-Errata_Management_with_Foreman)
+**Prev:** [Chapter 11: External Providers](chap-External_Providers)<br>
+**Next:** [Chapter 13: Errata Management with Foreman](chap-Errata_Management_with_Foreman)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-backups_and_migration)

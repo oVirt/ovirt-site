@@ -48,7 +48,7 @@ When a bookmark is no longer needed, remove it.
 
 3. Click **OK**.
 
-**Prev:** [Chapter 2: Searches](../chap-searches)<br>
-**Next:** [Chapter 4: Tags](../chap-tags)
+**Prev:** [Chapter 2: Searches](chap-searches)<br>
+**Next:** [Chapter 4: Tags](chap-tags)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/introduction_to_the_administration_portal/chap-bookmarks)

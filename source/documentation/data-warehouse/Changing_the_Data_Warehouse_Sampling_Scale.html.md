@@ -50,7 +50,7 @@ You can change the sampling scale later by running `engine-setup` again with the
 
 You can also adjust individual data retention settings if necessary, as documented in "Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf" section.
 
-**Prev:** [Migrating Data Warehouse Service to a Separate Machine](../Migrating_Data_Warehouse_to_a_Separate_Machine)<br>
-**Next:** [Chapter 2: About the History Database](../chap-About_History_Database_Reports_and_Dashboards)
+**Prev:** [Migrating Data Warehouse Service to a Separate Machine](Migrating_Data_Warehouse_to_a_Separate_Machine)<br>
+**Next:** [Chapter 2: About the History Database](chap-About_History_Database_Reports_and_Dashboards)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/data_warehouse_guide/changing_the_data_warehouse_sampling_scale)

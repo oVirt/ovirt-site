@@ -24,8 +24,8 @@ If Kibana is not displaying metric or log information as expected, you can use `
 
         # journalctl -u fluentd
 
-    **Note:** To learn about the other journalctl options refer to the man page.  
+    **Note:** To learn about the other journalctl options refer to the man page.
 
-**Prev:** [Chapter 3: Analyzing Logs](../Logs)
+**Prev:** [Chapter 3: Analyzing Logs](Logs)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/metrics_store_user_guide/chap-troubleshooting)

@@ -8,7 +8,7 @@ title: oVirt Nodes
 
 oVirt Node is a minimal operating system based on CentOS that is designed to provide a simple method for setting up a physical machine to act as a hypervisor in a oVirt environment. The minimal operating system contains only the packages required for the machine to act as a hypervisor, and features a Cockpit user interface for monitoring the host and performing administrative tasks. See [http://cockpit-project.org/running.html](http://cockpit-project.org/running.html) for the minimum browser requirements.
 
-Before you proceed, make sure the machine on which you are installing oVirt Node meets the hardware requirements listed in [Chapter 2: System Requirements](../chap-System_Requirements).
+Before you proceed, make sure the machine on which you are installing oVirt Node meets the hardware requirements listed in [Chapter 2: System Requirements](chap-System_Requirements).
 
 Installing oVirt Node on a physical machine involves three key steps:
 
@@ -58,7 +58,7 @@ Installing oVirt Node on a physical machine involves three key steps:
 
     **Note:** When oVirt Node restarts, `imgbase-motd.service` performs a health check on the host and displays the result when you log in on the command line. The message `imgbase status: OK` or `imgbase status: DEGRADED` indicates the health status. Run `imgbase check` to get more information. The service is enabled by default.
 
-You can now add the host to your oVirt environment. See [Chapter 8: Adding a Host to the oVirt Engine](../chap-Adding_a_Host_to_the_oVirt_Engine).
+You can now add the host to your oVirt environment. See [Chapter 8: Adding a Host to the oVirt Engine](chap-Adding_a_Host_to_the_oVirt_Engine).
 
 ## Advanced Installation
 
@@ -88,7 +88,7 @@ If your installation requires custom partitioning, note that the following restr
 
     /usr must be on a logical volume that is able to change versions along with oVirt Node, and therefore should be left on root (/).
 
-For information about the required storage sizes for each partition, see [Chapter 2: System Requirements](../chap-System_Requirements).
+For information about the required storage sizes for each partition, see [Chapter 2: System Requirements](chap-System_Requirements).
 
 * The /boot directory should be defined as a standard partition.
 
@@ -97,7 +97,7 @@ For information about the required storage sizes for each partition, see [Chapte
 * Only XFS or Ext4 file systems are supported.
 
 
-**Prev:** [Chapter 5: Introduction to Hosts](../chap-Introduction_to_Hosts) <br>
-**Next:** [Chapter 7: Enterprise Linux Hosts](../chap-Enterprise_Linux_Hosts)
+**Prev:** [Chapter 5: Introduction to Hosts](chap-Introduction_to_Hosts) <br>
+**Next:** [Chapter 7: Enterprise Linux Hosts](chap-Enterprise_Linux_Hosts)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/advanced_rhvh_install)

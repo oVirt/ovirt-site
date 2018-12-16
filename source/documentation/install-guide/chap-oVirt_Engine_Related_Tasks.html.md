@@ -39,7 +39,7 @@ You can use the `engine-cleanup` command to remove specific components or all co
         # yum remove rhvm* vdsm-bootstrap
 
 
-**Prev:** [Chapter 3: Installing oVirt](../chap-Installing_oVirt)<br>
-**Next:** [Chapter 5: Introduction to Hosts](../chap-Introduction_to_Hosts)
+**Prev:** [Chapter 3: Installing oVirt](chap-Installing_oVirt)<br>
+**Next:** [Chapter 5: Introduction to Hosts](chap-Introduction_to_Hosts)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/chap-red_hat_virtualization_manager_related_tasks)

@@ -53,7 +53,7 @@ The following table details the options available on the **General** tab of the 
   <tr>
    <td><b>VM ID</b></td>
    <td>The virtual machine ID. The virtual machine's creator can set a custom ID for that virtual machine. If no ID is specified during creation a UUID will be automatically assigned. For both custom and automatically-generated IDs, changes are not possible after virtual machine creation.</td>
-  </tr>    
+  </tr>
   <tr>
    <td><b>Description</b></td>
    <td>A meaningful description of the new virtual machine.</td>
@@ -1377,7 +1377,7 @@ The following table details the settings for the **New Template** window.
 							</p>
 							 </td></tr></tbody></table>
 
-**Prev:** [Chapter 7: Templates](../chap-Templates)
+**Prev:** [Chapter 7: Templates](chap-Templates)
 **Next:** [Appendix B: virt-sysprep Operations]((../appe-virt-sysprep_Operations)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/appe-reference_settings_in_administration_portal_and_user_portal_windows)

@@ -20,7 +20,7 @@ Brick host3:/rhgs/engine/brick1             49152     0          Y       34750
 Self-heal Daemon on localhost               N/A       N/A        Y       32231
 Self-heal Daemon on host2                   N/A       N/A        Y       22766
 Self-heal Daemon on host3                   N/A       N/A        Y       24766
- 
+
 Task Status of Volume engine
 ------------------------------------------------------------------------------
 There are no active volume tasks
@@ -46,8 +46,8 @@ The volume is read-only or offline if only 1 brick is online or no bricks are li
   State: Peer in Cluster (Connected)
 ```
 
-If the state is other than `Peer in Cluster (Connected)` then there is an issue. 
- 
+If the state is other than `Peer in Cluster (Connected)` then there is an issue.
+
    * You can check that the `glusterd` service is running on all the nodes. If not, try restarting the service using `systemctl restart glusterd`
 
    * Check that the ports required by Gluster are open for communication between the nodes of the cluster
@@ -72,7 +72,7 @@ If the state is other than `Peer in Cluster (Connected)` then there is an issue.
         * Move host to maintenance
         * Reinstall the host choosing the "Hosted Engine deploy" option from the Hosted Engine tab.
 
-Refer [Troubleshooting Self-Hosted Engine](../self-hosted/chap-Deploying_Self-Hosted_Engine)
+Refer [Troubleshooting Self-Hosted Engine](self-hosted/chap-Deploying_Self-Hosted_Engine)
 
-**Prev:** [Chapter: Additional Steps ](../chap-Additional_Steps) <br/>
-**Next:** [Chapter: Maintenance and Upgrading Resources ](../chap-Maintenance_and_Upgrading_Resources)
+**Prev:** [Chapter: Additional Steps ](chap-Additional_Steps) <br/>
+**Next:** [Chapter: Maintenance and Upgrading Resources ](chap-Maintenance_and_Upgrading_Resources)

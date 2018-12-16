@@ -48,6 +48,6 @@ Only operations marked with `*` are performed during the template sealing proces
         utmp * Remove the utmp file
         yum-uuid * Remove the yum UUID
 
-**Prev:** [Appendix A: Reference Settings in Administration Portal and User Portal Windows](../appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows)
+**Prev:** [Appendix A: Reference Settings in Administration Portal and User Portal Windows](appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/appe-virt_sysprep_operations)

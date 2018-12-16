@@ -88,7 +88,7 @@ Specific system user accounts and system user groups are required by oVirt so th
         # chmod 0755 /exports/export
         # chmod 0755 /exports/iso
 
-For more information on the required system users and groups see "[Appendix F, System Accounts](../appe-System_Accounts)".
+For more information on the required system users and groups see "[Appendix F, System Accounts](appe-System_Accounts)".
 
 ### Attaching NFS Storage
 
@@ -304,7 +304,7 @@ If you have configured multiple storage connection paths to the same target, fol
 
 ### Configuring iSCSI Multipathing
 
-The **iSCSI Multipathing** enables you to create and manage groups of logical networks and iSCSI storage connections. To prevent host downtime due to network path failure, configure multiple network paths between hosts and iSCSI storage. Once configured, the Engine connects each host in the data center to each bonded target via NICs/VLANs related to logical networks of the same iSCSI Bond. You can also specify which networks to use for storage traffic, instead of allowing hosts to route traffic through a default network. This option is only available in the Administration Portal after at least one iSCSI storage domain has been attached to a data center.  
+The **iSCSI Multipathing** enables you to create and manage groups of logical networks and iSCSI storage connections. To prevent host downtime due to network path failure, configure multiple network paths between hosts and iSCSI storage. Once configured, the Engine connects each host in the data center to each bonded target via NICs/VLANs related to logical networks of the same iSCSI Bond. You can also specify which networks to use for storage traffic, instead of allowing hosts to route traffic through a default network. This option is only available in the Administration Portal after at least one iSCSI storage domain has been attached to a data center.
 
 **Prerequisites**
 
@@ -636,7 +636,7 @@ Import a template from a data storage domain you have imported into your oVirt e
 
     iv. Click **OK**.
 
-8. Click **OK**.    
+8. Click **OK**.
 
 ## Storage Tasks
 
@@ -822,7 +822,7 @@ Attach a storage domain to a data center.
 
 6. Click **OK**.
 
-The storage domain is attached to the data center and is automatically activated.    
+The storage domain is attached to the data center and is automatically activated.
 
 ### Removing a Storage Domain
 
@@ -942,7 +942,7 @@ When the **Discard After Delete** check box is selected, a `blkdiscard` command 
 
 **Discard After Delete** can be enabled both when creating a block storage domain or when editing a block storage domain. See the “Adding Block Storage” and “Editing Storage Domains”. sections in this chapter.
 
-**Prev:** [Chapter 7: Hosts](../chap-Hosts)<br>
-**Next:** [Chapter 9: Pools](../chap-Pools)
+**Prev:** [Chapter 7: Hosts](chap-Hosts)<br>
+**Next:** [Chapter 9: Pools](chap-Pools)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-storage)

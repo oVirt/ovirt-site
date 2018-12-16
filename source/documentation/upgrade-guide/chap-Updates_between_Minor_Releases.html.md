@@ -125,9 +125,9 @@ If the command fails, the host is oVirt Node 3.6. If the command succeeds, the h
 
 Repeat this procedure for each host in the oVirt environment.
 
-The oVirt Project recommends updating the hosts from the Engine; however, you can also update the hosts using `yum update`. See [Appendix C: Manually Updating Hosts](../appe-Manually_Updating_Hosts) for more information.
+The oVirt Project recommends updating the hosts from the Engine; however, you can also update the hosts using `yum update`. See [Appendix C: Manually Updating Hosts](appe-Manually_Updating_Hosts) for more information.
 
-**Prev:** [Chapter 8: Post-Upgrade Tasks](../chap-Post-Upgrade_Tasks/)<br>
-**Next:** [Appendix A: Updating an Offline oVirt Engine](../appe-Updating_an_Offline_oVirt_Engine/)
+**Prev:** [Chapter 8: Post-Upgrade Tasks](chap-Post-Upgrade_Tasks/)<br>
+**Next:** [Appendix A: Updating an Offline oVirt Engine](appe-Updating_an_Offline_oVirt_Engine/)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/upgrade_guide/updates_between_minor_releases)

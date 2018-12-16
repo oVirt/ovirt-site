@@ -15,6 +15,6 @@ To outline, next steps would be:
 * Create ISO domain - you can use a new gluster volume to set this up.
 * [Optional] Configure disaster recovery
 
-**Prev:** [Chapter: Deploying oVirt and Gluster hyperconverged](../chap-Deploying_Hyperconverged) <br/>
-**Next:** [Chapter: Troubleshooting](../chap-Troubleshooting)
+**Prev:** [Chapter: Deploying oVirt and Gluster hyperconverged](chap-Deploying_Hyperconverged) <br/>
+**Next:** [Chapter: Troubleshooting](chap-Troubleshooting)
 

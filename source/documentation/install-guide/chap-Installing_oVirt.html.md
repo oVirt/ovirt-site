@@ -32,9 +32,9 @@ After you have installed the `ovirt-engine` package and dependencies, you must c
 
 By default, `engine-setup` creates and configures the Engine database locally on the Engine machine. Alternatively, you can configure the Engine to use a remote database or a manually-configured local database; however, you must set up that database before running `engine-setup`.
 
-To set up a remote database see [Preparing a Remote PostgreSQL Database](../appe-Preparing_a_Remote_PostgreSQL_Database). To set up a manually-configured local database, see [Preparing a Local Manually-Configured PostgreSQL Database](../appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database).
+To set up a remote database see [Preparing a Remote PostgreSQL Database](appe-Preparing_a_Remote_PostgreSQL_Database). To set up a manually-configured local database, see [Preparing a Local Manually-Configured PostgreSQL Database](appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database).
 
-By default, `engine-setup` will configure a websocket proxy on the Engine. However, for security and performance reasons, the user can choose to configure it on a separate host. See [Installing the Websocket Proxy on a different host](../appe-Installing_the_Websocket_Proxy_on_a_different_host) for instructions.
+By default, `engine-setup` will configure a websocket proxy on the Engine. However, for security and performance reasons, the user can choose to configure it on a separate host. See [Installing the Websocket Proxy on a different host](appe-Installing_the_Websocket_Proxy_on_a_different_host) for instructions.
 
 **Important:** The `engine-setup` command guides you through several distinct configuration stages, each comprising several steps that require user input. Suggested configuration defaults are provided in square brackets; if the suggested value is acceptable for a given step, press **Enter** to accept that value.
 
@@ -58,7 +58,7 @@ You can run `engine-setup --accept-defaults` to automatically accept all questio
 
         Configure WebSocket Proxy on this machine? (Yes, No) [Yes]:
 
-    To configure the websocket proxy on a separate machine, select `No` and refer to [Installing the Websocket Proxy on a Separate Machine](../appe-Installing_the_Websocket_Proxy_on_a_Separate_Machine) for configuration instructions.
+    To configure the websocket proxy on a separate machine, select `No` and refer to [Installing the Websocket Proxy on a Separate Machine](appe-Installing_the_Websocket_Proxy_on_a_Separate_Machine) for configuration instructions.
 
 5. Choose whether to configure Data Warehouse on the Engine machine.
 
@@ -202,7 +202,7 @@ You can run `engine-setup --accept-defaults` to automatically accept all questio
 
 21. If you intend to link your oVirt environment with a directory server, configure the date and time to synchronize with the system clock used by the directory server to avoid unexpected account expiry issues.
 
-22. Install the certificate authority according to the instructions provided by your browser. You can get the certificate authority’s certificate by navigating to`http://your-manager-fqdn/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA`, replacing your-manager-fqdn with the fully qualified domain name (FQDN) that you provided during the installation.    
+22. Install the certificate authority according to the instructions provided by your browser. You can get the certificate authority’s certificate by navigating to`http://your-manager-fqdn/ovirt-engine/services/pki-resource?resource=ca-certificate&format=X509-PEM-CA`, replacing your-manager-fqdn with the fully qualified domain name (FQDN) that you provided during the installation.
 
 Proceed to the next section to connect to the Administration Portal as the `admin@internal` user. Then, proceed with setting up hosts, and attaching storage.
 
@@ -233,7 +233,7 @@ To log out of the oVirt Administration Portal, click your user name in the heade
 
 The next chapter contains additional Engine-related tasks that are optional. If the tasks are not applicable to your environment, proceed to **Part III: Installing Hosts**.
 
-**Prev:** [Chapter 2: System Requirements](../chap-System_Requirements) <br>
-**Next:** [Chapter 4: oVirt Engine Related Tasks](../chap-oVirt_Engine_Related_Tasks)
+**Prev:** [Chapter 2: System Requirements](chap-System_Requirements) <br>
+**Next:** [Chapter 4: oVirt Engine Related Tasks](chap-oVirt_Engine_Related_Tasks)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/chap-red_hat_virtualization_manager)

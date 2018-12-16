@@ -619,7 +619,7 @@ There are several parameters to further refine the engine-vacuum command.
 
     # engine-vacuum -f -v -t vm_dynamic -t vds_dynamic
 
-**Prev:** [Chapter 17: Event Notifications](../chap-Event_Notifications)<br>
-**Next:** [Chapter 19: Log Files](../chap-Log_Files)
+**Prev:** [Chapter 17: Event Notifications](chap-Event_Notifications)<br>
+**Next:** [Chapter 19: Log Files](chap-Log_Files)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-utilities)

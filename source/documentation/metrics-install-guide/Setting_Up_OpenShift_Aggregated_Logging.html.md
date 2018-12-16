@@ -85,11 +85,11 @@ Install centos-release-ovirt42 to get an updated ansible runtime
 
 Elasticsearch requires persistent storage for the database. By default, Elasticsearch uses ephemeral storage, and therefore you need to manually configure persistent storage.
 
-   **Important:** Before proceeding, ensure you have set up the storage according to the instructions in [Introduction](../Introduction).
+   **Important:** Before proceeding, ensure you have set up the storage according to the instructions in [Introduction](Introduction).
 
 **Configuring Persistent Storage for Elasticsearch**
 
-1. Create the `/lib/elasticsearch` directory that will be used for persistent storage using the `/var` mounted storage partition you created in [Introduction](../Introduction):
+1. Create the `/lib/elasticsearch` directory that will be used for persistent storage using the `/var` mounted storage partition you created in [Introduction](Introduction):
 
        # mkdir -p /var/lib/elasticsearch
 
@@ -199,7 +199,7 @@ On the Engine machine, run the following:
 
    **Note:** Deploying additional hosts after running this script does *not* require running the script again; the Manager configures the hosts automatically.
 
-**Prev:** [Chapter 2: Setting Up the oVirt Engine and Hosts](../Setting_Up_the_oVirt_Engine_and_Hosts)<br>
-**Next:** [Chapter 4: Verifying the Installation](../Verifying_the_Installation)
+**Prev:** [Chapter 2: Setting Up the oVirt Engine and Hosts](Setting_Up_the_oVirt_Engine_and_Hosts)<br>
+**Next:** [Chapter 4: Verifying the Installation](Verifying_the_Installation)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/metrics_store_installation_guide/chap-setting_up_openshift_aggregated_logging)

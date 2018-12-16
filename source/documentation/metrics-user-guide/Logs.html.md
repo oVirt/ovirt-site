@@ -72,7 +72,7 @@ Filtering log data by field enables you to focus on the specific error that inte
    |ovirt.correlationid |For the engine.log only. This ID is used to correlate the multiple parts of a single task performed by the Manager.|
    |ovirt.thread |The name of a Java thread inside which the log record was produced.|
    |tag |Predefined sets of metadata that can be used to filter the data.|
-   |@timestamp |The [time](../Troubleshooting#information-is-missing-from-kibana) that the record was issued.|
+   |@timestamp |The [time](Troubleshooting#information-is-missing-from-kibana) that the record was issued.|
    |_score |N/A|
    |_type |N/A|
    |ipaddr4 | The machine's IP address.|
@@ -117,7 +117,7 @@ You can customize the way that the data is displayed in the Documents table by a
 
 3. Optionally click the **Sort by** arrow ![](/images/metrics-user-guide/arrow.png) that appears next to the column title to sort the results by that column.
 
-**Prev:** [Chapter 2: Analyzing Metrics](../analyzing_metrics)<br>
-**Next:** [Chapter 4: Troubleshooting](../Troubleshooting)
+**Prev:** [Chapter 2: Analyzing Metrics](analyzing_metrics)<br>
+**Next:** [Chapter 4: Troubleshooting](Troubleshooting)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/metrics_store_user_guide/chap-logs)

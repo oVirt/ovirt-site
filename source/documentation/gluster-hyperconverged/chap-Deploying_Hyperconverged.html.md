@@ -6,7 +6,7 @@ title: Deploying oVirt and Gluster Hyperconverged
 
 ## Pre-requisites
 
-* You must have 3 Enterprise Linux 7 hosts or oVirt Node hosts. Refer [Enterprise Linux Hosts](../install-guide/chap-Enterprise_Linux_Hosts) or [oVirt Nodes](../install-guide/chap-oVirt_Nodes)
+* You must have 3 Enterprise Linux 7 hosts or oVirt Node hosts. Refer [Enterprise Linux Hosts](install-guide/chap-Enterprise_Linux_Hosts) or [oVirt Nodes](install-guide/chap-oVirt_Nodes)
 
 * You must have at least 2 interfaces on each of the hosts, so that the frontend and backend traffic can be separated out. Having only one network will cause the engine monitoring, client traffic, gluster I/O traffic to all run together and interfere each other. To segregate the backend network, the gluster cluster is formed using the backend network addresses, and the nodes are added to the engine using the frontend network address.
 
@@ -29,26 +29,26 @@ title: Deploying oVirt and Gluster Hyperconverged
       - cockpit-ovirt-dashboard (provides a UI for the installation)
       - vdsm-gluster (plugin to manage gluster services)
 
-       # yum install cockpit-ovirt-dashboard vdsm-gluster 
+       # yum install cockpit-ovirt-dashboard vdsm-gluster
 
 3. On the first host, install the following packages:
       - ovirt-engine-appliance (for the Engine virtual machine installation)
       - gdeploy (a wrapper tool around Ansible that helps to setup gluster volumes)
- 
+
        # yum install ovirt-engine-appliance gdeploy
 
 
-        
+
 ## Deploying on oVirt Node based Hosts
 
 **oVirt Node contains all the required packages to set up the hyperconverged environment.**
-Refer [oVirt Nodes](../install-guide/chap-oVirt_Nodes) for instructions on installing oVirt Node on your hosts. You can proceed to setting up the hyperconverged environment if you have 3 oVirt Node based hosts.
+Refer [oVirt Nodes](install-guide/chap-oVirt_Nodes) for instructions on installing oVirt Node on your hosts. You can proceed to setting up the hyperconverged environment if you have 3 oVirt Node based hosts.
 
 ### Setting up the hyperconverged environment
 
 Steps for installing are detailed in this [blog post](/blog/2018/02/up-and-running-with-ovirt-4-2-and-gluster-storage/).
 
-**Prev:** [Chapter: Introduction](../chap-Introduction) <br>
-**Next:** [Chapter: Additional Steps](../chap-Additional_Steps)
+**Prev:** [Chapter: Introduction](chap-Introduction) <br>
+**Next:** [Chapter: Additional Steps](chap-Additional_Steps)
 
 

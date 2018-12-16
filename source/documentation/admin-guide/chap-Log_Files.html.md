@@ -143,7 +143,7 @@ This procedure should be used on your centralized log server. You could use a se
 
 Your centralized log server is now configured to receive and store the `messages` and `secure` logs from your virtualization hosts.
 
-**Prev:** [Chapter 18: Utilities](../chap-Utilities)<br>
-**Next:** [Chapter 20: Proxies](../chap-Proxies)
+**Prev:** [Chapter 18: Utilities](chap-Utilities)<br>
+**Next:** [Chapter 20: Proxies](chap-Proxies)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-log_files)

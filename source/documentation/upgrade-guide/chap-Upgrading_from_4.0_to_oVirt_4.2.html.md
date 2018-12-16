@@ -16,7 +16,7 @@ You cannot upgrade the Manager directly from 4.0 to 4.2. You must upgrade your e
 
 4. Upgrade the hosts
 
-5. Perform [post-upgrade tasks](../chap-Post-Upgrade_Tasks/)
+5. Perform [post-upgrade tasks](chap-Post-Upgrade_Tasks/)
 
 ## Update the oVirt Engine
 
@@ -52,7 +52,7 @@ Updates to the oVirt Engine are released through the oVirt repositories.
 
 You must upgrade the Manager to 4.1 before upgrading it to 4.2.
 
-The following procedure outlines the process for upgrading oVirt Engine 4.0 to oVirt Engine 4.1 in a standard deployment. See "Upgrading a Self-Hosted Engine Environment" in the [Self-Hosted Engine Guide](../../self-hosted/Self-Hosted_Engine_Guide/) for more information about upgrading the Engine in a Self-hosted Engine deployment.
+The following procedure outlines the process for upgrading oVirt Engine 4.0 to oVirt Engine 4.1 in a standard deployment. See "Upgrading a Self-Hosted Engine Environment" in the [Self-Hosted Engine Guide](../self-hosted/Self-Hosted_Engine_Guide/) for more information about upgrading the Engine in a Self-hosted Engine deployment.
 
 This procedure assumes that the system on which the Engine is installed is subscribed to the entitlements for receiving oVirt 4.0 packages.
 
@@ -182,7 +182,7 @@ If the command fails, the host is oVirt Node 3.6. If the command succeeds, the h
 
 Repeat this procedure for each host in the oVirt environment.
 
-**Prev:** [Chapter 2: Upgrading from 3.6 to oVirt 4.2](../chap-Upgrading_from_3.6_to_oVirt_4.2)<br>
-**Next:** [Chapter 4: Upgrading from 4.1 to oVirt 4.2](../chap-Upgrading_from_4.1_to_oVirt_4.2)
+**Prev:** [Chapter 2: Upgrading from 3.6 to oVirt 4.2](chap-Upgrading_from_3.6_to_oVirt_4.2)<br>
+**Next:** [Chapter 4: Upgrading from 4.1 to oVirt 4.2](chap-Upgrading_from_4.1_to_oVirt_4.2)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/upgrade_guide/chap-upgrading_from_4.0_to_red_hat_virtualization_4.2)

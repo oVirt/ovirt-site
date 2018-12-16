@@ -130,7 +130,7 @@ If you need to configure different sysprep settings for different pools of Windo
 
                 The domain and credentials cannot be modified in the **Initial Run** tab.
 
-      * `FullName` of the local administrator:          
+      * `FullName` of the local administrator:
 
         <UserData>
         ...
@@ -604,7 +604,7 @@ Enterprise Linux hosts can be added to trusted clusters and measured against a W
 
 After the host is added to the trusted cluster, it is assessed by the OpenAttestation server. If a host is not trusted by the OpenAttestation server, it will move to a `Non Operational` state and should be removed from the trusted cluster.
 
-**Prev:** [Chapter 8: Storage](../chap-Storage)<br>
-**Next:** [Chapter 10: Virtual Disks](../chap-Virtual_Machine_Disks)
+**Prev:** [Chapter 8: Storage](chap-Storage)<br>
+**Next:** [Chapter 10: Virtual Disks](chap-Virtual_Machine_Disks)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-pools)

@@ -119,7 +119,7 @@ If you have successfully implemented the `Hello World!` plug-in, you will see th
 
 ![](/images/admin-guide/1475.png)
 
-**Prev:** [Appendix B: Custom Network Properties](../appe-Custom_Network_Properties)<br>
-**Next:** [Appendix D: oVirt and SSL](../appe-oVirt_and_SSL)
+**Prev:** [Appendix B: Custom Network Properties](appe-Custom_Network_Properties)<br>
+**Next:** [Appendix D: oVirt and SSL](appe-oVirt_and_SSL)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/appe-red_hat_enterprise_virtualization_user_interface_plugins)

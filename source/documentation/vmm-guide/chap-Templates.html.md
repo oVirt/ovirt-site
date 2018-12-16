@@ -598,7 +598,7 @@ Cloned virtual machines are similar to virtual machines based on templates. Howe
 
 The virtual machine is created and displayed in the **Virtual Machines** tab. You can now assign users to it, and can begin using it when the clone operation is complete.
 
-**Prev:** [Chapter 6: Administrative Tasks](../chap-Administrative_Tasks)<br>
-**Next:** [Appendix A: Reference Settings in Administration Portal and VM Portal Windows](../appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows)
+**Prev:** [Chapter 6: Administrative Tasks](chap-Administrative_Tasks)<br>
+**Next:** [Appendix A: Reference Settings in Administration Portal and VM Portal Windows](appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/chap-templates)

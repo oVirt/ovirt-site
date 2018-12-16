@@ -39,7 +39,7 @@ You can now install vGPUs on the virtual machines running on this host.
 
         # vdsm-client Host hostdevListByCaps
 
-    Available vGPU instances appear in the **mdev** key **available_instances**.    
+    Available vGPU instances appear in the **mdev** key **available_instances**.
 
 2. Install the required virtual machine operating system.
 
@@ -60,6 +60,6 @@ You can now install vGPUs on the virtual machines running on this host.
 
 **Important:** You cannot migrate a virtual machine using a vGPU to a different host. When upgrading the virtual machine, verify the operating system and GPU vendor support in the vendor’s documentation.
 
-**Prev:** [Appendix G: Configuring a Host for PCI Passthrough](../appe-Configuring_a_Host_for_PCI_Passthrough)
+**Prev:** [Appendix G: Configuring a Host for PCI Passthrough](appe-Configuring_a_Host_for_PCI_Passthrough)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/preparing_a_host_for_vgpu_installation)

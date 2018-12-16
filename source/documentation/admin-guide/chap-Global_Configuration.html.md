@@ -695,6 +695,6 @@ You can remove created MAC address pools, but the default MAC address pool canno
 
 5. Click **OK**.
 
-**Next:** [Chapter 2: Dashboard](../chap-System_Dashboard)
+**Next:** [Chapter 2: Dashboard](chap-System_Dashboard)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-global_configuration)

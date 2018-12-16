@@ -112,7 +112,7 @@ The standalone Engine is only highly available when managed externally. For exam
 
 The active-active failover can be manually performed by placing the main site's hosts into maintenance mode.
 
-**Prev:** [Chapter 1: Disaster Recovery Solutions](../disaster_recovery_solutions)<br>
-**Next:** [Chapter 3: Active-Passive Disaster Recovery](../active_passive_overview)
+**Prev:** [Chapter 1: Disaster Recovery Solutions](disaster_recovery_solutions)<br>
+**Next:** [Chapter 3: Active-Passive Disaster Recovery](active_passive_overview)
 
 [Adapted from oVirt 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/disaster_recovery_guide/active_active)

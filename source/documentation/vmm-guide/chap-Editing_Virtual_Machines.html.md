@@ -535,7 +535,7 @@ The oVirt Project does not provide PKCS #11 support to Windows clients. Librarie
 
         modutil -dbdir %PROGRAMDATA%\pki\nssdb -add "module name" -libfile C:\Path\to\module.dll
 
-**Prev:** [Chapter 4: Additional Configuration](../chap-Additional_Configuration) <br>
-**Next:** [Chapter 6: Administrative Tasks](../chap-Administrative_Tasks)
+**Prev:** [Chapter 4: Additional Configuration](chap-Additional_Configuration) <br>
+**Next:** [Chapter 6: Administrative Tasks](chap-Administrative_Tasks)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/chap-editing_virtual_machines)

@@ -14,7 +14,7 @@ Upgrading your environment from 4.1 to 4.2 includes the following steps:
 
 3. Upgrade the hosts
 
-4. Perform [post-upgrade tasks](../chap-Post-Upgrade_Tasks/)
+4. Perform [post-upgrade tasks](chap-Post-Upgrade_Tasks/)
 
 ## Update the oVirt Engine
 
@@ -146,7 +146,7 @@ If the command fails, the host is oVirt Node 3.6. If the command succeeds, the h
 
 Repeat this procedure for each host in the oVirt environment.
 
-**Prev:** [Chapter 3: Upgrading from 4.0 to oVirt 4.2](../chap-Upgrading_from_4.0_to_oVirt_4.2)<br>
-**Next:** [Chapter 5: Upgrading a Remote Database Environment from 3.6 to oVirt 4.2](../chap-Upgrading_a_Remote_Database_Environment_from_3.6_to_oVirt_4.2)
+**Prev:** [Chapter 3: Upgrading from 4.0 to oVirt 4.2](chap-Upgrading_from_4.0_to_oVirt_4.2)<br>
+**Next:** [Chapter 5: Upgrading a Remote Database Environment from 3.6 to oVirt 4.2](chap-Upgrading_a_Remote_Database_Environment_from_3.6_to_oVirt_4.2)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/upgrade_guide/chap-upgrading_to_red_hat_virtualization_4.2)

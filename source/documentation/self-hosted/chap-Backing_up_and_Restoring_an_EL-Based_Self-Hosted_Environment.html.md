@@ -44,7 +44,7 @@ This procedure provides an example of the workflow for restoring the self-hosted
 
     Any standard RHEL-based hosts - hosts that are present in the environment but are not self-hosted engine hosts - that are operational will become active, and the virtual machines that were active at the time of backup will now be running on these hosts and available in the Engine.
 
-2. `Host 2` and `Host 3` are not recoverable in their current state. These hosts need to be removed from the environment, and then added again to the environment using the hosted-engine deployment script. For more information on these actions, see the Removing Non-Operational Hosts from a Restored Self-Hosted Engine Environment section below and [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](../chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment).
+2. `Host 2` and `Host 3` are not recoverable in their current state. These hosts need to be removed from the environment, and then added again to the environment using the hosted-engine deployment script. For more information on these actions, see the Removing Non-Operational Hosts from a Restored Self-Hosted Engine Environment section below and [Chapter 7: Installing Additional Hosts to a Self-Hosted Environment](chap-Installing_Additional_Hosts_to_a_Self-Hosted_Environment).
 
     ![](/images/self-hosted/RHEV_SHE_bkup_03.png)
 
@@ -165,9 +165,9 @@ You can restore a self-hosted engine on hardware that was used in the backed-up 
 
         **Note:** If you wish to specify more than one iSCSI target, you must enable multipathing before deploying the self-hosted engine. There is also a Multipath Helper tool that generates a script to install and configure multipath with different options.
 
-            Please specify the iSCSI portal IP address:           
-            Please specify the iSCSI portal port [3260]:           
-            Please specify the iSCSI portal user:           
+            Please specify the iSCSI portal IP address:
+            Please specify the iSCSI portal port [3260]:
+            Please specify the iSCSI portal user:
             Please specify the iSCSI portal password:
             Please specify the target name (auto-detected values) [default]:
 
@@ -217,7 +217,7 @@ You can restore a self-hosted engine on hardware that was used in the backed-up 
     The script creates a virtual machine to be configured as the new Engine virtual machine. Specify the boot device and, if applicable, the path name of the installation media, the image alias, the CPU type, the number of virtual CPUs, and the disk size. Specify a MAC address for the Engine virtual machine, or accept a randomly generated one. The MAC address can be used to update your DHCP server prior to installing the operating system on the Engine virtual machine. Specify memory size and console connection type for the creation of Engine virtual machine.
 
         Please specify the device to boot the VM from (cdrom, disk, pxe) [cdrom]:
-        Please specify an alias for the Hosted Engine image [hosted_engine]:  
+        Please specify an alias for the Hosted Engine image [hosted_engine]:
         The following CPU types are supported by this host:
                   - model_Penryn: Intel Penryn Family
                   - model_Conroe: Intel Conroe Family
@@ -811,7 +811,7 @@ Once a host has been fenced in the Administration Portal, it can be forcefully r
 
 The host can now be re-installed to the self-hosted engine environment.
 
-**Prev:** [Chapter 6: Upgrading the Self-Hosted Engine](../chap-upgrading_the_self-hosted_engine)<br>
-**Next:** [Chapter 8: Migrating the Self-Hosted Engine Database to a Remote Server Database](../chap-Migrating_Databases)
+**Prev:** [Chapter 6: Upgrading the Self-Hosted Engine](chap-upgrading_the_self-hosted_engine)<br>
+**Next:** [Chapter 8: Migrating the Self-Hosted Engine Database to a Remote Server Database](chap-Migrating_Databases)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/self-hosted_engine_guide/chap-backing_up_and_restoring_a_rhel-based_self-hosted_environment)

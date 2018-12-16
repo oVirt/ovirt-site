@@ -128,7 +128,7 @@ If a self-hosted engine deployment was interrupted, subsequent deployments will 
 
 3. Redeploy the self-hosted engine.
 
-**Prev:** [Chapter 2: Deploying Self-Hosted Engine](../chap-Deploying_Self-Hosted_Engine) <br>
-**Next:** [Chapter 4: Migrating from Bare Metal to an EL-Based Self-Hosted Environment](../chap-Migrating_from_Bare_Metal_to_an_EL-Based_Self-Hosted_Environment)
+**Prev:** [Chapter 2: Deploying Self-Hosted Engine](chap-Deploying_Self-Hosted_Engine) <br>
+**Next:** [Chapter 4: Migrating from Bare Metal to an EL-Based Self-Hosted Environment](chap-Migrating_from_Bare_Metal_to_an_EL-Based_Self-Hosted_Environment)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/self-hosted_engine_guide/troubleshooting)

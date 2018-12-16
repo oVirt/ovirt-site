@@ -59,7 +59,7 @@ To allow access to the history database without allowing edits, you must create 
 
 The read-only user’s `SELECT` statements against tables and views in the `ovirt_engine_history` database succeed, while modifications fail.
 
-**Prev:** [Tracking Tag History](../Tracking_tag_history) <br>
-**Next:** [Statistics History Views](../Statistics_history_views)
+**Prev:** [Tracking Tag History](Tracking_tag_history) <br>
+**Next:** [Statistics History Views](Statistics_history_views)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/data_warehouse_guide/allowing_read_only_access_to_the_history_database)

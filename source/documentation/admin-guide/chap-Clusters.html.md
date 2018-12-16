@@ -687,7 +687,7 @@ You have updated the compatibility version of the cluster. Once you have updated
 
     **Important:** An error message may warn that some virtual machines and templates are incorrectly configured. To fix this error, edit each virtual machine manually. The **Edit Virtual Machine** window provides additional validations and warnings that show what to correct. Sometimes the issue is automatically corrected and the virtual machine’s configuration just needs to be saved again. After editing each virtual machine, you will be able to change the cluster compatibility version.
 
-**Prev:** [Chapter 4: Data Centers](../chap-Data_Centers)<br>
-**Next:** [Chapter 6: Logical Networks](../chap-Logical_Networks)
+**Prev:** [Chapter 4: Data Centers](chap-Data_Centers)<br>
+**Next:** [Chapter 6: Logical Networks](chap-Logical_Networks)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-clusters)

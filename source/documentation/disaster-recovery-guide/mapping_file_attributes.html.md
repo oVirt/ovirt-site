@@ -162,7 +162,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem
 </tbody>
 </table>
 
-**Prev:** [Chapter 3: Active-Passive Disaster Recovery](../active_passive_overview)<br>
-**Next:** [Appendix B: Testing the Active-Passive Configuration](../testing_active_passive)
+**Prev:** [Chapter 3: Active-Passive Disaster Recovery](active_passive_overview)<br>
+**Next:** [Appendix B: Testing the Active-Passive Configuration](testing_active_passive)
 
 [Adapted from oVirt 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/disaster_recovery_guide/mapping_file_attributes)

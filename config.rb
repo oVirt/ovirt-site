@@ -86,9 +86,6 @@ with_layout :post do
   page '/blog/*'
 end
 
-# Make pretty URLs
-activate :directory_indexes
-
 ###
 # Compass
 ###

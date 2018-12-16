@@ -74,7 +74,7 @@ SPICE support is divided into tiers:
 
 * Tier 1: Operating systems on which remote-viewer has been fully tested.
 
-* Tier 2: Operating systems on which remote-viewer is partially tested and is likely to work.  
+* Tier 2: Operating systems on which remote-viewer is partially tested and is likely to work.
 
 **Client Operating System SPICE Support**
 
@@ -482,7 +482,7 @@ To disable automatic firewall configuration when adding a new host, clear the **
     <p>Enterprise Linux host(s)</p>
    </td>
    <td>Required, when Open Virtual Network (OVN) is used as a network provider, to allow OVN to create tunnels between hosts.</td>
-  </tr>  
+  </tr>
  </tbody>
 </table>
 
@@ -516,11 +516,11 @@ Similarly, if you plan to access a local or remote Data Warehouse database from 
     <p>Data Warehouse (`ovirt-engine-history`) database server</p>
    </td>
    <td>Default port for PostgreSQL database connections.</td>
-  </tr>  
+  </tr>
  </tbody>
-</table>  
+</table>
 
-**Prev:** [Chapter 1: Introduction to oVirt](../chap-Introduction_to_oVirt)<br>
-**Next:** [Chapter 3: Installing oVirt](../chap-Installing_oVirt)
+**Prev:** [Chapter 1: Introduction to oVirt](chap-Introduction_to_oVirt)<br>
+**Next:** [Chapter 3: Installing oVirt](chap-Installing_oVirt)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/rhv_requirements)

@@ -998,7 +998,7 @@ Creating additional local domains other than the default **internal** domain is 
 
 Additionally created local domains will not get upgraded autonmatically during standard Red Hat Virtualization upgrades and need to be upgraded manually for each future release. For more information on creating additional local domains and how to upgrade the domains, see the README file at **/usr/share/doc/ovirt-engine-extension-aaa-jdbc-version/README.admin**.
 
-**Prev:** [Chapter 14: Automating Configuration Tasks Using Ansible](../chap-Automating_Configuration_Tasks_Using_Ansible)<br>
-**Next:** [Chapter 16: Quotas and Service Level Agreement Policy](../chap-Quotas_and_Service_Level_Agreement_Policy)
+**Prev:** [Chapter 14: Automating Configuration Tasks Using Ansible](chap-Automating_Configuration_Tasks_Using_Ansible)<br>
+**Next:** [Chapter 16: Quotas and Service Level Agreement Policy](chap-Quotas_and_Service_Level_Agreement_Policy)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-users_and_roles)

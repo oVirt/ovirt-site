@@ -168,7 +168,7 @@ If you wish to remove a self-hosted engine host from your environment, you will 
 
 6. Optionally, click **Remove** to open the **Remove Host(s)** confirmation window and click **OK**.
 
-**Prev:** [Chapter 4: Migrating from Bare Metal to an EL-Based Self-Hosted Environment](../chap-Migrating_from_Bare_Metal_to_an_EL-Based_Self-Hosted_Environment) <br>
-**Next:** [Chapter 6: Upgrading the Self-Hosted Engine](../chap-upgrading_the_self-hosted_engine)
+**Prev:** [Chapter 4: Migrating from Bare Metal to an EL-Based Self-Hosted Environment](chap-Migrating_from_Bare_Metal_to_an_EL-Based_Self-Hosted_Environment) <br>
+**Next:** [Chapter 6: Upgrading the Self-Hosted Engine](chap-upgrading_the_self-hosted_engine)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/self-hosted_engine_guide/chap-administering_the_self-hosted_engine)

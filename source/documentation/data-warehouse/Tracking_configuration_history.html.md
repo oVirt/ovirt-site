@@ -24,7 +24,7 @@ The configuration tables in the `ovirt_engine_history` database differ from the 
 
 * A `delete_date` field to indicate the date the entity was removed from the system.
 
-**Prev:** [History Database Overview](../History_Database_Overview)<br>
-**Next:** [Recording Statistical History](../Recording_statistical_history)
+**Prev:** [History Database Overview](History_Database_Overview)<br>
+**Next:** [Recording Statistical History](Recording_statistical_history)
 
  [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/data_warehouse_guide/tracking_configuration_history)

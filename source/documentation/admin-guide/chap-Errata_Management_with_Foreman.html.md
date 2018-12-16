@@ -32,7 +32,7 @@ To associate a Engine, host, and virtual machine with a Foreman provider first t
 
 For more information on viewing available errata for hosts see [Viewing Host Errata](Viewing_Host_Errata) and for virtual machines see "Viewing Red Hat Satellite Errata for a Virtual Machine" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/).
 
-**Prev:** [Chapter 12: Backups and Migration](../chap-Backups_and_Migration)<br>
-**Next:** [Chapter 14: Automating Configuration Tasks Using Ansible](../chap-Automating_Configuration_Tasks_Using_Ansible)
+**Prev:** [Chapter 12: Backups and Migration](chap-Backups_and_Migration)<br>
+**Next:** [Chapter 14: Automating Configuration Tasks Using Ansible](chap-Automating_Configuration_Tasks_Using_Ansible)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-errata_management_with_satellite)

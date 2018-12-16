@@ -8,7 +8,7 @@ title: Configuring Storage
 
 A storage domain is a collection of images that have a common storage interface. A storage domain contains complete images of templates and virtual machines (including snapshots), ISO files, and metadata about themselves. A storage domain can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems).
 
-There are Installing_the_Websocket_Proxy_on_a_dSeparate_Machine types of storage domain:
+There are Installing_the_Websocket_Proxy_on_a_Separate_Machine types of storage domain:
 
 * **Data Domain:** A data domain holds the virtual hard disks and OVF files of all the virtual machines and templates in a data center, and cannot be shared across data centers. Data domains of multiple types (iSCSI, NFS, FC, POSIX, and Gluster) can be added to the same data center, provided they are all shared, rather than local, domains.
 
@@ -73,7 +73,7 @@ The following procedure shows you how to attach existing FCP storage to your oVi
 
 The new FCP data domain displays in **Storage** &rarr; **Domains**. It will remain with a `Locked` status while it is being prepared for use. When ready, it is automatically attached to the data center.
 
-**Prev:** [Chapter 8: Adding a Host to the oVirt Engine](../chap-Adding_a_Host_to_the_oVirt_Engine) <br>
-**Next:** [Appendix A: Changing the Permissions for the Local ISO Domain](../appe-Changing_the_Permissions_for_the_Local_ISO_Domain)
+**Prev:** [Chapter 8: Adding a Host to the oVirt Engine](chap-Adding_a_Host_to_the_oVirt_Engine) <br>
+**Next:** [Appendix A: Changing the Permissions for the Local ISO Domain](appe-Changing_the_Permissions_for_the_Local_ISO_Domain)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/chap-configuring_storage)

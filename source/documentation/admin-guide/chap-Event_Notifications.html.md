@@ -24,7 +24,7 @@ The oVirt Engine can notify designated users via email when specific events occu
 
 7. Enter an email address in the **Mail Recipient** field.
 
-    **Note:** The email address can be a text message email address (for example, 1234567890@carrierdomainname.com) or an email group address that includes email addresses and text message email addresses.   
+    **Note:** The email address can be a text message email address (for example, 1234567890@carrierdomainname.com) or an email group address that includes email addresses and text message email addresses.
 
 8. Click **OK**.
 
@@ -215,7 +215,7 @@ Check your SNMP manager to ensure that traps are being received.
 
 **Note:** `SNMP_MANAGERS`, `MAIL_SERVER`, or both must be properly defined in `/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf ` or in an override file in order for the notifier service to run.
 
-**Prev:** [Chapter 16: Quotas and Service Level Agreement Policy](../chap-Quotas_and_Service_Level_Agreement_Policy)<br>
-**Next:** [Chapter 18: Utilities](../chap-Utilities)
+**Prev:** [Chapter 16: Quotas and Service Level Agreement Policy](chap-Quotas_and_Service_Level_Agreement_Policy)<br>
+**Next:** [Chapter 18: Utilities](chap-Utilities)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-event_notifications)

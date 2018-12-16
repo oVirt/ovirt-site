@@ -314,7 +314,7 @@ The regular expression used allows the `numaset` custom property for a given vir
             sys.stderr.write('numa: [unexpected error]: %s\n' % traceback.format_exc())
             sys.exit(2)
 
-**Prev:** [Chapter 20: Proxies](../chap-Proxies)<br>
-**Next:** [Appendix B: Custom Network Properties](../appe-Custom_Network_Properties)
+**Prev:** [Chapter 20: Proxies](chap-Proxies)<br>
+**Next:** [Appendix B: Custom Network Properties](appe-Custom_Network_Properties)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/appe-vdsm_and_hooks)

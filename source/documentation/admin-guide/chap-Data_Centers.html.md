@@ -312,7 +312,7 @@ Data, such as virtual machines and templates, remains attached to the storage do
 
 You have detached the storage domain from the data center. It can take up to several minutes for the storage domain to disappear from the details pane.
 
-**Prev:** [Chapter 3: Quality of Service](../chap-Quality_of_Service)<br>
-**Next:** [Chapter 5: Clusters](../chap-Clusters)
+**Prev:** [Chapter 3: Quality of Service](chap-Quality_of_Service)<br>
+**Next:** [Chapter 5: Clusters](chap-Clusters)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-data_centers)

@@ -1146,7 +1146,7 @@ Use the following procedure to change the fully qualified domain name of hosts.
 
 5. Re-register the host with the Manager. See [Adding a Host](Adding_a_Host) for more information.
 
-**Prev:** [Chapter 5: Clusters](../chap-Clusters)<br>
-**Next:** [Chapter 7: Hosts](../chap-Hosts)
+**Prev:** [Chapter 5: Clusters](chap-Clusters)<br>
+**Next:** [Chapter 7: Hosts](chap-Hosts)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-logical_networks)

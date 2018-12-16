@@ -2057,7 +2057,7 @@ The following table describes all search options you can use to search for event
 
 This example returns a list of events, where the event occurred on the virtual machine named `testdesktop` while it was running on the host `gonzo.example.com`.
 
-**Prev:** [Chapter 1: Using the Administration Portal](../chap-using_the_administration_portal)<br>
-**Next:** [Chapter 3: Bookmarks](../chap-bookmarks)
+**Prev:** [Chapter 1: Using the Administration Portal](chap-using_the_administration_portal)<br>
+**Next:** [Chapter 3: Bookmarks](chap-bookmarks)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/introduction_to_the_administration_portal/chap-searches)

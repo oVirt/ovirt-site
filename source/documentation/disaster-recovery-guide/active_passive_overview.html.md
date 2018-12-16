@@ -42,7 +42,7 @@ You will need to manually fail back to the primary site (Site A) when it is runn
 
 You must ensure that the same general connectivity exists in the primary and secondary sites.
 
-If you have multiple networks or multiple data centers then you must use an empty network mapping in the mapping file to ensure that all entities register on the target during failover. See [Appendix A: Mapping File Attributes](../mapping_file_attributes) for more information.
+If you have multiple networks or multiple data centers then you must use an empty network mapping in the mapping file to ensure that all entities register on the target during failover. See [Appendix A: Mapping File Attributes](mapping_file_attributes) for more information.
 
 ### Storage Considerations
 
@@ -98,7 +98,7 @@ You can also create an optional playbook to clean the primary site before failin
 
 Create the playbooks and associated files in `/usr/share/ansible/roles/oVirt.disaster-recovery/` on the Ansible machine that is managing the failover and failback. If you have multiple Ansible machines that can manage it, ensure that you copy the files to all of them.
 
-You can test the configuration using one or more of the testing procedures in [Testing the Active-Passive Configuration](../testing_active_passive).
+You can test the configuration using one or more of the testing procedures in [Testing the Active-Passive Configuration](testing_active_passive).
 
 ### Using the `ovirt-dr` Script for Ansible Tasks
 
@@ -158,7 +158,7 @@ In this example the Ansible playbook is named `dr-rhv-setup.yml`, and is execute
 
         # ansible-playbook dr-rhv-setup.yml --tags "generate_mapping"
 
-3. Configure the mapping file (`disaster_recovery_vars.yml` in this case) with the backup site’s configuration. See [Appendix A: Mapping File Attributes](../mapping_file_attributes) for more information about the mapping file’s attributes.
+3. Configure the mapping file (`disaster_recovery_vars.yml` in this case) with the backup site’s configuration. See [Appendix A: Mapping File Attributes](mapping_file_attributes) for more information about the mapping file’s attributes.
 
 If you have multiple Ansible machines that can perform the failover and failback, then copy the mapping file to all relevant machines.
 
@@ -269,7 +269,7 @@ After you fail over, you must clean the environment in the primary site before f
 
 * Ensure the secondary site's storage domains are in read/write mode and the primary site's storage domains are in read only mode.
 
-* Synchronize the replication from the secondary site's storage domains to the primary site's storage domains.  
+* Synchronize the replication from the secondary site's storage domains to the primary site's storage domains.
 
 * Clean the primary site of all storage domains to be imported. This can be done manually in the Engine, or by creating and running an Ansible playbook.
 
@@ -308,7 +308,7 @@ This example uses the `dr-rhv-failback.yml` playbook created earlier.
 
 2. Enable replication from the primary storage domains to the secondary storage domains.
 
-**Prev:** [Chapter 2: Active-Active Disaster Recovery](../active_active_overview)<br>
-**Next:** [Appendix A: Mapping File Attributes](../mapping_file_attributes)
+**Prev:** [Chapter 2: Active-Active Disaster Recovery](active_active_overview)<br>
+**Next:** [Appendix A: Mapping File Attributes](mapping_file_attributes)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/disaster_recovery_guide/active_passive)

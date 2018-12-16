@@ -495,11 +495,11 @@ If these packages are not available from the repositories already enabled on the
 
 11. Click **OK**.
 
-12. Create a new cluster that uses OVN as its default network provider. See “Creating a New Cluster” in [Chapter 5: Clusters](../chap-Clusters) and select the OVN network provider from the **Default Network Provider** drop-down list.
+12. Create a new cluster that uses OVN as its default network provider. See “Creating a New Cluster” in [Chapter 5: Clusters](chap-Clusters) and select the OVN network provider from the **Default Network Provider** drop-down list.
 
-13. Add hosts to the cluster. Hosts added to this cluster are automatically configured to communicate with OVN. To add new hosts, see “Adding a Host to the oVirt Engine” in [Chapter 7: Hosts](../chap-Hosts).
+13. Add hosts to the cluster. Hosts added to this cluster are automatically configured to communicate with OVN. To add new hosts, see “Adding a Host to the oVirt Engine” in [Chapter 7: Hosts](chap-Hosts).
 
-14. Import or add OVN networks to the new cluster. To import networks, see Section 6.3.1, “Importing Networks From External Providers”. To create new networks using OVN, see “Creating a New Logical Network in a Data Center or Cluster” in [Chapter 6: Logical Networks](../chap-Logical_Networks)], and select the **Create on external provider** check box. `ovirt-provider-ovn` is selected by default.
+14. Import or add OVN networks to the new cluster. To import networks, see Section 6.3.1, “Importing Networks From External Providers”. To create new networks using OVN, see “Creating a New Logical Network in a Data Center or Cluster” in [Chapter 6: Logical Networks](chap-Logical_Networks)], and select the **Create on external provider** check box. `ovirt-provider-ovn` is selected by default.
 
    To configure your hosts to use an existing, non-default network, see the “Configuring Hosts for an OVN Tunnel Network” section.
 
@@ -696,7 +696,7 @@ The **General** tab in the **Add Provider** window allows you to register the co
      <li><b>Data Center</b>: Specify the data center into which KVM virtual machines will be imported, or select <b>Any Data Center</b> to instead specify the destination data center during individual import operations (using the <b>Import</b> function in the <b>Virtual Machines</b> tab).</li>
      <li><b>URI</b>: The URI of the KVM host.</li>
      <li><b>Proxy Host</b>: Select a host in the chosen data center with <tt>virt-v2v</tt> installed to serve as the host during virtual machine import operations. This host must also be able to connect to the network of the KVM external provider. If you selected <b>Any Data Center</b>, you cannot choose the host here, but instead can specify a host during individual import operations (using the <b>Import</b> function in the <b>Virtual Machines</b> tab).</li>
-    </ul>  
+    </ul>
     <p><b>External Network Provider</b></p>
     <ul>
      <li><b>Provider URL</b>: The URL or fully qualified domain name of the machine on which the external network provider is hosted. You must add the port number for the external network provider to the end of the URL or fully qualified domain name. By default, this port number is 9696.</li>
@@ -752,7 +752,7 @@ The **Agent Configuration** tab in the **Add Provider** window allows users to r
 
 3. Click **OK**.
 
-**Prev:** [Chapter 10: Virtual Disks](../chap-Virtual_Machine_Disks)<br>
-**Next:** [Chapter 12: Backups and Migration](../chap-Backups_and_Migration)
+**Prev:** [Chapter 10: Virtual Disks](chap-Virtual_Machine_Disks)<br>
+**Next:** [Chapter 12: Backups and Migration](chap-Backups_and_Migration)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-external_providers)

@@ -16,7 +16,7 @@ Installing the `ovirt-engine-dwh` package creates a second database called `ovir
 
 The `ovirt_engine_history` database schema changes over time. The database includes a set of database views to provide a supported, versioned API with a consistent structure. A view is a virtual table composed of the result set of a database query. The database stores the definition of a view as a `SELECT` statement. The result of the `SELECT` statement populates the virtual table that the view returns. A user references the view name in `PL/PGSQL` statements the same way a table is referenced.
 
-**Prev:** [Chapter 2: About the History Database](../chap-About_History_Database_Reports_and_Dashboards)
-**Next:** [Tracking Configuration History](../Tracking_configuration_history)
+**Prev:** [Chapter 2: About the History Database](chap-About_History_Database_Reports_and_Dashboards)
+**Next:** [Tracking Configuration History](Tracking_configuration_history)
 
  [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/data_warehouse_guide/chap-about_history_database)

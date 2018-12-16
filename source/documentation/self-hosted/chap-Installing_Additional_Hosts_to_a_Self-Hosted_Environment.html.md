@@ -10,7 +10,7 @@ Additional self-hosted engine hosts are added in the same way as a regular host,
 
 * For a oVirt Node-based self-hosted engine environment, you must have prepared a freshly installed oVirt Node system on a physical host. See "oVirt Nodes" in the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
-* If you are reusing a self-hosted engine host, remove its existing self-hosted engine configuration. See the Removing a Host from a Self-Hosted Engine Environment section in [Chapter 5: Maintenance and Upgrading Resources](../chap-Maintenance_and_Upgrading_Resources).
+* If you are reusing a self-hosted engine host, remove its existing self-hosted engine configuration. See the Removing a Host from a Self-Hosted Engine Environment section in [Chapter 5: Maintenance and Upgrading Resources](chap-Maintenance_and_Upgrading_Resources).
 
 **Adding an Additional Self-Hosted Engine Host**
 
@@ -40,5 +40,5 @@ Additional self-hosted engine hosts are added in the same way as a regular host,
 
 _Note: To add the ability to deploy the Self-Hosted Engine on an existing host, you must select **Installation** and choose **Reinstall** on the host and repeat the above steps._
 
-**Prev:** [Chapter 6: Backing up and Restoring an EL-Based Self-Hosted Environment](../chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment) <br>
-**Next:** [Chapter 8: Migrating Databases](../chap-Migrating_Databases)
+**Prev:** [Chapter 6: Backing up and Restoring an EL-Based Self-Hosted Environment](chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment) <br>
+**Next:** [Chapter 8: Migrating Databases](chap-Migrating_Databases)

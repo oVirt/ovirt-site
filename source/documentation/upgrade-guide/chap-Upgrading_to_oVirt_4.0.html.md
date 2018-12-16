@@ -24,7 +24,7 @@ oVirt Engine 4.0 is only supported on Red Hat Enterprise Linux 7. A clean instal
 
 **Important:** All data centers and clusters in the environment must have the cluster compatibility level set to version 3.6 before attempting the procedure.
 
-After the Engine has been upgraded, you can upgrade the hosts. See [Chapter 2: Updates between Minor Releases](../chap-Updates_between_Minor_Releases). Then the cluster compatibility level can be updated to 4.0. See [Chapter 4: Post-Upgrade Tasks](../chap-Post-Upgrade_Tasks).
+After the Engine has been upgraded, you can upgrade the hosts. See [Chapter 2: Updates between Minor Releases](chap-Updates_between_Minor_Releases). Then the cluster compatibility level can be updated to 4.0. See [Chapter 4: Post-Upgrade Tasks](chap-Post-Upgrade_Tasks).
 
 **Note:** Connected hosts and virtual machines can continue to work while the Engine is being upgraded.
 
@@ -84,5 +84,5 @@ To upgrade a Red Hat Enterprise Linux-based self-hosted environment, see "Upgrad
 
 To upgrade an oVirt Hypervisor-based self-hosted environment to an oVirt Node-based self-hosted environment, see "Upgrading an oVirt Node-Based Self-Hosted Engine Environment" in the [Self-Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/).
 
-**Prev:** [Chapter 2: Updates Between Minor Releases](../chap-Updates_between_Minor_Releases) <br>
-**Next:** [Chapter 4: Post-Upgrade Tasks](../chap-Post-Upgrade_Tasks)
+**Prev:** [Chapter 2: Updates Between Minor Releases](chap-Updates_between_Minor_Releases) <br>
+**Next:** [Chapter 4: Post-Upgrade Tasks](chap-Post-Upgrade_Tasks)

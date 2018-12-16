@@ -280,7 +280,7 @@ Remove an existing CPU quality of service entry.
 
 You have removed the CPU quality of service entry, and that entry is no longer available. If any CPU profiles were based on that entry, the CPU quality of service entry for those profiles is automatically set to `[unlimited]`.
 
-**Prev:** [Chapter 2: Dashboard](../chap-System_Dashboard)<br>
-**Next:** [Chapter 4: Data Centers](../chap-Data_Centers)
+**Prev:** [Chapter 2: Dashboard](chap-System_Dashboard)<br>
+**Next:** [Chapter 4: Data Centers](chap-Data_Centers)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-quality_of_service)

@@ -8,7 +8,7 @@ Enabling PCI passthrough allows a virtual machine to use a host device as if the
 
 **Prerequisites:**
 
-* Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See [Chapter 2: System Requirements](../chap-System_Requirements) for more information.
+* Ensure that the host hardware meets the requirements for PCI device passthrough and assignment. See [Chapter 2: System Requirements](chap-System_Requirements) for more information.
 
 **Configuring a Host for PCI Passthrough**
 
@@ -55,7 +55,7 @@ Enabling PCI passthrough allows a virtual machine to use a host device as if the
 
         # reboot
 
-**Prev:** [Appendix F: Installing the Websocket Proxy on a Separate Machine](../appe-Installing_the_Websocket_Proxy_on_a_Separate_Machine)
-**Next:** [Appendix H: Preparing a Host for vGPU Installation](../appe-Preparing_a_Host_for_vGPU_Installation)
+**Prev:** [Appendix F: Installing the Websocket Proxy on a Separate Machine](appe-Installing_the_Websocket_Proxy_on_a_Separate_Machine)
+**Next:** [Appendix H: Preparing a Host for vGPU Installation](appe-Preparing_a_Host_for_vGPU_Installation)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/appe-configuring_a_hypervisor_host_for_pci_passthrough)

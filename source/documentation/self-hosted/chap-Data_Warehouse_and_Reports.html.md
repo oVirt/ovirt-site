@@ -28,4 +28,4 @@ To force `engine-setup` to present both options again, run `engine-setup --recon
 
 **Note:** To configure only the currently installed Data Warehouse packages, and prevent setup from applying package updates found in enabled repositories, add the `--offline` option .
 
-**Prev:** [Chapter 8: Migrating Databases](../chap-Migrating_Databases)
+**Prev:** [Chapter 8: Migrating Databases](chap-Migrating_Databases)

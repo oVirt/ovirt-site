@@ -156,6 +156,6 @@ You can perform common virtual machine tasks, change log-in options, and view me
 
    The virtual machines pane displays the icon, operating system, name, state, and management icons of each virtual machine and pooled virtual machine.
 
-**Next:** [Chapter 2: Managing Virtual Machines](../Viewing_virtual_machines)
+**Next:** [Chapter 2: Managing Virtual Machines](Viewing_virtual_machines)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/introduction_to_the_vm_portal/chap-accessing_the_vm_portal)

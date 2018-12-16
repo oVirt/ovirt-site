@@ -76,6 +76,6 @@ Enter a search query using `tag` as the property and the desired value or set of
 
 The objects tagged with the specified criteria are listed in the results list.
 
-**Prev:** [Chapter 3: Bookmarks](../chap-bookmarks)<br>
+**Prev:** [Chapter 3: Bookmarks](chap-bookmarks)<br>
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/introduction_to_the_administration_portal/chap-tags)

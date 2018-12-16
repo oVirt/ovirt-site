@@ -236,7 +236,7 @@ This procedure describes how to set service level agreement CPU features.
 
 The CPU consumption of users is now governed by the policy you have set.
 
-**Prev:** [Chapter 15: Users and Roles](../chap-Users_and_Roles)<br>
-**Next:** [Chapter 17: Event Notifications](../chap-Event_Notifications)
+**Prev:** [Chapter 15: Users and Roles](chap-Users_and_Roles)<br>
+**Next:** [Chapter 17: Event Notifications](chap-Event_Notifications)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-quotas_and_service_level_agreement_policy)

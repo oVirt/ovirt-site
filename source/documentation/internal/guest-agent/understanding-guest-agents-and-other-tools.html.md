@@ -19,7 +19,7 @@ There are three tools which together can provide the best experience when using 
 
 ### oVirt Guest Agent
 
-The oVirt Guest Agent provides information, notifications, and actions between the oVirt web interface and the guest. A more detailed description can be found at [Guest Agent](../guest-agent). The agent provides the Machine Name, Operating System, IP Addresses, Installed Applications, Network and RAM usage and others details to the web interface. The agent also provides Single Sign On so a authenticated user to the web interface does not need to authenticate again when connected to a VM.
+The oVirt Guest Agent provides information, notifications, and actions between the oVirt web interface and the guest. A more detailed description can be found at [Guest Agent](guest-agent). The agent provides the Machine Name, Operating System, IP Addresses, Installed Applications, Network and RAM usage and others details to the web interface. The agent also provides Single Sign On so a authenticated user to the web interface does not need to authenticate again when connected to a VM.
 
 ### Spice Agent
 

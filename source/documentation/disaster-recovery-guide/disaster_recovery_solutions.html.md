@@ -14,6 +14,6 @@ This solution is implemented using a stretch cluster configuration. This means t
 
 Also referred to as site-to-site failover, this disaster recovery solution is implemented by configuring two separate oVirt environments: the active primary environment, and the passive secondary (backup) environment. Failover and failback between sites must be manually executed, and is managed by Ansible. See "Active-Passive Overview" in Chapter 3 for more information.
 
-**Next:** [Chapter 2: Active-Active Disaster Recovery](../active_active_overview)
+**Next:** [Chapter 2: Active-Active Disaster Recovery](active_active_overview)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/disaster_recovery_guide/disaster_recovery_solutions)

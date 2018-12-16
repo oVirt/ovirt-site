@@ -6,7 +6,7 @@ title: Preparing a Remote PostgreSQL Database
 
 By default, the Engine's configuration script, `engine-setup`, creates and configures the engine_host database locally on the Engine machine.
 
-To set up the Manager database with custom values on the Manager machine, see [Appendix E, Preparing a Local Manually-Configured PostgreSQL Database](../appe-Local_Manually-Configured_PostgreSQL_Database). You should set up a Engin database before you configure the Engine. You must supply the database credentials during `engine-setup`.
+To set up the Manager database with custom values on the Manager machine, see [Appendix E, Preparing a Local Manually-Configured PostgreSQL Database](appe-Local_Manually-Configured_PostgreSQL_Database). You should set up a Engin database before you configure the Engine. You must supply the database credentials during `engine-setup`.
 
 The Data Warehouse’s configuration script offers the choice of creating a local or remote database. However, situations may arise where you might want to configure a remote database for Data Warehouse manually.
 
@@ -83,7 +83,7 @@ The locale settings in the `postgresql.conf` file must be set to `en_US.UTF8`.
 
 Optionally, set up SSL to secure database connections using the instructions at [http://www.postgresql.org/docs/9.5/static/ssl-tcp.html#SSL-FILE-USAGE](http://www.postgresql.org/docs/9.5/static/ssl-tcp.html#SSL-FILE-USAGE.).
 
-**Prev:** [Appendix C: Enabling Gluster Processes on Gluster Storage Nodes](../appe-Enabling_Gluster_Processes_on_Gluster_Storage_Nodes) <br>
-**Next:** [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database](../appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database)
+**Prev:** [Appendix C: Enabling Gluster Processes on Gluster Storage Nodes](appe-Enabling_Gluster_Processes_on_Gluster_Storage_Nodes) <br>
+**Next:** [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database](appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/appe-preparing_a_remote_postgresql_database)

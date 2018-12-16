@@ -20,7 +20,7 @@ The migration involves the following key actions:
 
 **Prerequisites**
 
-* Prepare a new host with the `ovirt-hosted-engine-setup` package installed. See [Chapter 2: Deploying Self-Hosted Engine](../chap-Deploying_Self-Hosted_Engine) for more information on subscriptions and package installation. The host must be a supported version of the current oVirt environment.
+* Prepare a new host with the `ovirt-hosted-engine-setup` package installed. See [Chapter 2: Deploying Self-Hosted Engine](chap-Deploying_Self-Hosted_Engine) for more information on subscriptions and package installation. The host must be a supported version of the current oVirt environment.
 
     **Note:** If you intend to use an existing host, place the host in maintenance and remove it from the existing environment. See "Removing a Host" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for more information.
 
@@ -69,9 +69,9 @@ The migration involves the following key actions:
 
         **Note:** If you wish to specify more than one iSCSI target, you must enable multipathing before deploying the self-hosted engine. There is also a Multipath Helper tool that generates a script to install and configure multipath with different options.
 
-            Please specify the iSCSI portal IP address:           
-            Please specify the iSCSI portal port [3260]:           
-            Please specify the iSCSI portal user:           
+            Please specify the iSCSI portal IP address:
+            Please specify the iSCSI portal port [3260]:
+            Please specify the iSCSI portal user:
             Please specify the iSCSI portal password:
             Please specify the target name (auto-detected values) [default]:
 
@@ -248,7 +248,7 @@ The migration involves the following key actions:
     SSH password authentication is not enabled by default on the oVirt Engine Virtual Appliance. Connect to HostedEngine-VM via VNC and enable SSH password authentication so that you can access the virtual machine via SSH later to restore the BareMetal-Engine backup file and configure the new Engine. Verify that the `sshd` service is running. Edit `/etc/ssh/sshd_config` and change the following two options to `yes`:
 
         [...]
-        PermitRootLogin yes       
+        PermitRootLogin yes
         [...]
         PasswordAuthentication yes
 
@@ -408,7 +408,7 @@ The migration involves the following key actions:
 
 Your oVirt Engine has been migrated to a self-hosted engine setup. The Engine is now operating on a virtual machine on Host-HE1, called HostedEngine-VM in the environment. As HostedEngine-VM is highly available, it is migrated to other hosts in the environment when applicable.
 
-**Prev:** [Chapter 3: Troubleshooting](../chap-Troubleshooting) <br>
-**Next:** [Chapter 5: Administering the Self-Hosted Engine](../chap-Maintenance_and_Upgrading_Resources)
+**Prev:** [Chapter 3: Troubleshooting](chap-Troubleshooting) <br>
+**Next:** [Chapter 5: Administering the Self-Hosted Engine](chap-Maintenance_and_Upgrading_Resources)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/self-hosted_engine_guide/chap-migrating_from_bare_metal_to_a_rhel-based_self-hosted_environment)

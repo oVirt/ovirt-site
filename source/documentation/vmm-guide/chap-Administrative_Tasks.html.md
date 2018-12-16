@@ -827,7 +827,7 @@ The `virt-v2v` package must be installed on at least one host (referred to in th
 
 8. Optionally, select a Xen provider **External Provider** from the drop-down list. The URI will be pre-filled with the correct URI.
 
-9. Enter the **URI** of the Xen host. The required format is pre-filled; you must replace `<hostname>` with the host name of the Xen host.  
+9. Enter the **URI** of the Xen host. The required format is pre-filled; you must replace `<hostname>` with the host name of the Xen host.
 
 10. Select the proxy host from the **Proxy Host** drop-down list.
 
@@ -1131,7 +1131,7 @@ Each event has a corresponding subdirectory: `before_migration` and `after_migra
 
 The executing user on Linux systems is `ovirtagent`. If the script needs `root` permissions, the elevation must be executed by the creator of the hook script.
 
-The executing user on Windows systems is the `System Service` user.    
+The executing user on Windows systems is the `System Service` user.
 
 ### Automatic Virtual Machine Migration
 
@@ -1502,7 +1502,7 @@ The table below lists versions of Enterprise Linux and the parameters required f
 | 3.9 x86 | Additional parameters are not required |
 
 
-**Prev:** [Chapter 5: Editing Virtual Machines](../chap-Editing_Virtual_Machines) <br>
-**Next:** [Chapter 7: Templates](../chap-Templates)
+**Prev:** [Chapter 5: Editing Virtual Machines](chap-Editing_Virtual_Machines) <br>
+**Next:** [Chapter 7: Templates](chap-Templates)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/chap-administrative_tasks)

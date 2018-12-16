@@ -208,7 +208,7 @@ The questions shown in this step only appear if you are migrating the `ovirt_eng
 
 The Data Warehouse service is now hosted on a separate machine from that on which the Engine is hosted.
 
-**Prev:** [Installing and Configuring Data Warehouse on a Separate Machine](../Data_Warehouse_and_Reports_Configuration_Notes)<br>
-**Next:** [Changing the Data Warehouse Sampling Scale](../Changing_the_Data_Warehouse_Sampling_Scale)
+**Prev:** [Installing and Configuring Data Warehouse on a Separate Machine](Data_Warehouse_and_Reports_Configuration_Notes)<br>
+**Next:** [Changing the Data Warehouse Sampling Scale](Changing_the_Data_Warehouse_Sampling_Scale)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/data_warehouse_guide/sect-migrating_data_warehouse_to_a_separate_machine)

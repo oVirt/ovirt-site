@@ -210,7 +210,7 @@ Upgrading from a oVirt 3.6 self-hosted engine environment with oVirt Node 3.6 ho
 
 5. Upgrade the Engine from 4.1 to 4.2 and then upgrade the final remaining oVirt Node 4.0 host to 4.2 using the instructions in Upgrading a Self-Hosted Engine Environment.
 
-**Prev:** [Chapter 5: Migrating from Bare Metal to an EL-Based Self-Hosted Environment](../chap-Migrating_from_Bare_Metal_to_an_EL-Based_Self-Hosted_Environment) <br>
-**Next:** [Chapter 7: Backing up and Restoring an EL-Based Self-Hosted Environment](../chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment)
+**Prev:** [Chapter 5: Migrating from Bare Metal to an EL-Based Self-Hosted Environment](chap-Migrating_from_Bare_Metal_to_an_EL-Based_Self-Hosted_Environment) <br>
+**Next:** [Chapter 7: Backing up and Restoring an EL-Based Self-Hosted Environment](chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/self-hosted_engine_guide/chap-upgrading_the_self-hosted_engine)

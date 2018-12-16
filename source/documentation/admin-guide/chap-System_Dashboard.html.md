@@ -120,7 +120,7 @@ The heatmap of the memory utilization for a specific cluster that shows the aver
 
 ## Storage Utilization
 
-The **Storage Utilization** shows the storage utilization in a heatmap.  
+The **Storage Utilization** shows the storage utilization in a heatmap.
 
 **Storage Utilization**
 
@@ -128,7 +128,7 @@ The **Storage Utilization** shows the storage utilization in a heatmap.
 
 The heatmap shows the average utilization of the storage for the last 24 hours. The formula used to calculate the storage usage by the cluster is the total utilization of the storage in the cluster. This is calculated by using the average storage utilization for each host over the last 24 hours to find the total average usage of the storage by the cluster. Hovering over the heatmap displays the storage domain name. Clicking on the heatmap navigates to **Storage** &rarr; **Domains** with the storage domains sorted by utilization.
 
-**Prev:** [Chapter 1: Global Configuration](../chap-Global_Configuration)<br>
-**Next:** [Chapter 3: Quality of Service](../chap-Quality_of_Service)
+**Prev:** [Chapter 1: Global Configuration](chap-Global_Configuration)<br>
+**Next:** [Chapter 3: Quality of Service](chap-Quality_of_Service)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-system_dashboard)

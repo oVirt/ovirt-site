@@ -348,9 +348,9 @@ When the deployment completes successfully, one data center, cluster, host, stor
 
 The Engine virtual machine, the host running it, and the self-hosted engine storage domain are flagged with a gold crown in the Administration Portal.
 
-See [Chapter 3: Troubleshooting](../chap-Troubleshooting) for more information.
+See [Chapter 3: Troubleshooting](chap-Troubleshooting) for more information.
 
-**Prev:** [Chapter 1: Introduction](../chap-Introduction) <br>
-**Next:** [Chapter 3: Troubleshooting a Self-Hosted Engine Deployment](../chap-Troubleshooting)
+**Prev:** [Chapter 1: Introduction](chap-Introduction) <br>
+**Next:** [Chapter 3: Troubleshooting a Self-Hosted Engine Deployment](chap-Troubleshooting)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/self-hosted_engine_guide/chap-deploying_self-hosted_engine)

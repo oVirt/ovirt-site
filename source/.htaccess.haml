@@ -335,18 +335,14 @@ directory_index: false
   # comment it out and use `Options +SymLinksOfOwnerMatch`, but be aware of the
   # performance impact: http://goo.gl/Mluzd
 
-  <IfModule mod_rewrite.c>
-    Options +FollowSymlinks
-  # Options +SymLinksIfOwnerMatch
-    RewriteEngine On
-  # RewriteBase /
-  </IfModule>
+  Options +FollowSymlinks
+  RewriteEngine On
 
-
-  # add trailing slash to dirs if missing
-  # RewriteCond %{REQUEST_FILENAME} !-f
-  # RewriteCond %{REQUEST_URI} !(.*)/$
-  # RewriteRule ^(.*)$ http://ovirt.org/$1/ [R=301,L]
+  # add .html
+  RewriteCond %{REQUEST_URI} !^/$
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*?)(/*)$ /$1.html [R=301,L]
 
 
   # ----------------------------------------------------------------------

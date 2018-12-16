@@ -108,6 +108,6 @@ For more information about failing over the environment, cleaning the environmen
 
 5. Verify that all relevant storage domains, virtual machines, and templates are registered and running successfully.
 
-**Prev:** [Appendix A: Mapping File Attributes](../mapping_file_attributes)
+**Prev:** [Appendix A: Mapping File Attributes](mapping_file_attributes)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/disaster_recovery_guide/testing_active_passive)

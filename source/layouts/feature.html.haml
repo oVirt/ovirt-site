@@ -1,307 +1,38 @@
-:ruby
-  @feature_base = '/develop/release-management/features/'
-
-  statuses = []
-
-  # Session object cach for feature info
-  $feature_info_store ||= {}
-
-  # Return a feature fragment URL from a full URL
-  def feature_frag(full_url, feature_base = @feature_base)
-    full_url.gsub(/^#{feature_base}/, '')
-  end
-
-  # Get the full URL for the feature fragment
-  def feature_url(frag, with_index = false)
-    index = with_index ? 'index.html' : ''
-    "#{@feature_base}/#{frag}/#{index}".squeeze('/')
-  end
-
-  # Look up page data by fragment
-  def feature_info(frag)
-    if $feature_info_store[frag]
-      $feature_info_store[frag]
-    else
-      constructed_url = feature_url frag, :with_index
-      feature_page = sitemap.find_resource_by_destination_path(constructed_url)
-
-      $feature_info_store[frag] = feature_page.data if feature_page
-    end
-  end
-
-  # Normalize the status (for classes, etc.)
-  def normalize_status status
-    case status
-    when /wip/i, /progress/i
-      'WIP'
-    when /QA/i
-      'QA'
-    when /development/i
-      'Development'
-    when /review/i
-      'Review'
-    when /release/i
-      'Released'
-    when '', nil
-      'Unknown'
-    else
-      status.strip.gsub(/ /, '-')
-    end
-  end
-
-  # Change a string from "SomethingLikeThis" to "Something Like This"
-  def destudlify str
-    return str if str.to_s.match(/(\s|NFS)/)
-
-    str.to_s
-      .gsub(/([a-z])([A-Z0-9])/, '\1 \2')
-      .gsub(/([A-Z])([A-Z])([a-z])/, '\1 \2\3')
-  end
-
-  def clean_title title
-    title = if title.to_s.match(/ /)
-              title.to_s
-            else
-              if title.to_s.match(/-/)
-                title.gsub(/-/, ' ')
-              else
-                destudlify title
-              end
-            end
-
-    title
-      .gsub(/API/i, 'API')
-      .gsub(/CPU/i, 'CPU')
-      .gsub(/ DB /i, ' DB ')
-      .gsub(/DBus/i, 'D-Bus')
-      .gsub(/GlusterFS/i, 'GlusterFS')
-      .gsub(/ IP /i, ' IP ')
-      .gsub(/JSON/i, ' JSON')
-      .gsub(/ LUN/i, ' LUN')
-      .gsub(/ NIC$/i, ' NIC')
-      .gsub(/NTP/i, 'NTP')
-      .gsub(/oVirt/i, 'oVirt')
-      .gsub(/RPC/i, 'RPC')
-      .gsub(/^SLA$/i, 'SLA')
-      .gsub(/SSH/i, 'SSH')
-      .gsub(/UX/i, 'UX')
-      .gsub(/VDSM/i, 'VDSM')
-      .gsub(/VLAN/i, 'VLAN')
-      .gsub(/VM/i, 'VM')
-  end
-
-  # Find and cache feature pages in a session object
-  $feature_pages ||= sitemap.resources.select do |page|
-    next unless page.url
-    page.url.match /^#{@feature_base}/
-  end
-
-  $feature_modules ||= $feature_pages.group_by { |p| p.data['feature_modules'] }
-
-  features = $feature_pages.map do |p|
-    feature_frag p.url
-  end.reject { |url| url.empty? }.sort
-
-  features_dir = {}
-
-  features.each do |feature|
-    feature.chomp('/')
-    parts = feature.split('/')
-    last = parts.pop
-    key = parts.join('/')
-
-    features_dir[key] ||= []
-    features_dir[key].push last
-  end
-
-~ wrap_layout :layout do
-
-  %div.row
-    .col-md-4
-      %div
-        .section
-          %div#toggleLeftArea
-            %div
-    .col-md-8
-
-  %div.row
-    %section.feature-sidebar.col-md-4
-      .col-md-12
-        %form#feature-search.hide
-          .form-group
-            %input.form-control#feature-search-input{autocomplete: 'off', placeholder: 'Filter features'}
-            .checkbox
-              %label
-                -# %input{type: 'checkbox'} Hello
-                - statuses.each do |stat|
-                  %input{type: 'checkbox'} = stat
-
-        - features_dir.each do |cat, feature_group|
-
-          //Disabling Unclassified category
-          - if cat.empty? then
-            - next
-
-          - pretty_cat = cat.empty? ? 'Unclassified' : cat.gsub('/', ' / ').titleize
-          - className = cat.gsub(/[^a-zA-Z]/, '_')
-
-          %div.ovirtToggleObject
-            %h1.collapseExpandSection
-            %h1.ovirtToggleFeatureCategory{id: "ovirtToggleObject_"+className}= clean_title pretty_cat
-
-            %div.feature_list_in_category
-
-              %ul.feature-list
-                - feature_group.each do |feature|
-                  - info = feature_info "#{cat}/#{feature}"
-
-                  - if info
-                    - feature_title = info['feature_name'] || info['title']
-                    - status_title = info['feature_status']
-                    - status = normalize_status status_title
-                  - else
-                    - feature_title = clean_title feature
-                    - status_title = 'Unclassified'
-                    - status = normalize_status ''
-
-                  - next if feature_title.to_s.empty?
-
-                  - statuses.push(status_title)
-
-                  - selected = "/#{@feature_base}/#{cat}/#{feature}/".squeeze('/') == "/#{current_page.url}/".squeeze('/')
-
-                  %li
-                    %a{href: "#{@feature_base}/#{cat}/#{feature}".squeeze('/'), title: "Status: #{status}"}= clean_title feature_title
-                    = info ? "" : "NO DATA"
-
-
-    %section.feature-info.col-md-8
-
-      :ruby
-        pdata = current_page.data
-
-        author_list = pdata['authors'].split(/,\s?/).map do |nick|
-          "<span class='author-name' title='#{nick}'>#{author_name(nick.strip)}</span>"
-        end
-
-      - if pdata['feature_name']
-        %div
-          %div.feature_name
-            = pdata['feature_name']
-
-
-          - if pdata['feature_status']
-            %div.feature_status
-              <span>Status: </span>
-              <span class="feature_status_value">
-              = pdata['feature_status']
-              </span>
-
-          - if pdata['feature_modules']
-            %div.feature_modules
-              <b>Modules:</b>
-              = pdata['feature_modules'].split(/,\s?/).join(', ')
-
-          - if pdata['authors']
-            %div.feature_authors
-              <b>Authors:</b>
-              = author_list.to_sentence
-
-      - elsif not current_page.path.include?(config[:index_file])
-
-        .well
-          No feature info available. Please contact
-          = author_list.to_sentence(two_words_connector: ' or ', last_word_connector: ', or ')
-          to fix.
-
-
-      = yield
-
-
-      - if pdata['feature_modules']
-
-        :ruby
-          related_all = []
-
-          modules = pdata['feature_modules'].split(/[\/,]\s?/)
-
-          modules.each do |mod|
-            matches = $feature_modules.select do |key, val|
-              key.to_s.match /#{mod}[\/,\s]?$?/i
-            end
-
-            next unless matches
-
-            matches.each do |key, val|
-              val.each do |p|
-                frag = feature_frag(p.url)
-                current = feature_frag(current_page.url)
-                related_all.push frag unless frag == current
-              end
-            end
-          end
-
-:coffee
-  $featureSidebar = $('.feature-sidebar')
-  $form = $('#feature-search')
-  $input = $('#feature-search-input')
-  $featureLists = $('.feature-list')
-  $featureItems = $('li', $featureLists)
-  $headers = $('.feature-sidebar h2')
-
-
-  clearField = ->
-    $input.val('')
-
-  showAll = ->
-    $featureItems.filter('.hide').removeClass('hide')
-
-  updateHeaders = ->
-    $('h2.hide', $featureSidebar).removeClass('hide')
-
-    $emptyList = $headers.filter (i, el) ->
-      $(el).next('ul').find('li:visible').length == 0
-
-
-    $emptyList.addClass('hide')
-
-
-  updateList = ->
-    searchStr = $input.val()
-
-    if ($input.val()=='')
-      handleSearchDeactivate()
-    else
-      handleSearchActive()
-
-    do showAll
-
-    $hide = $featureItems.not (i, el) ->
-      $(el).text().toLowerCase().match(searchStr.toLowerCase())
-
-    $hide.addClass('hide')
-
-    do updateHeaders
-
-
-  $ ->
-    $input.focus()
-
-    statuses = #{statuses.compact.map {|s| s.downcase}.uniq}
-    console.log statuses
-
-    if ($('.feature_name').length == 0)
-      $('.feature-info > h1').css("display","initial")
-
-
-    $form
-      .removeClass 'hide'
-      .on 'submit', (e)-> do e.preventDefault
-      .on 'keyup', (e)->
-        switch e.key
-          when 'Escape'
-            do clearField
-            do showAll
-            do updateHeaders
-          else
-            do updateList
+~ wrap_layout :basic do
+
+  - unless current_page.data.hide_header || request['params']['contentonly']
+    = partial "header"
+
+  %section#page-wrap.page-wrap
+
+    %section#page.page
+
+      - if data.site.breadcrumbs
+        = partial :breadcrumbs
+
+      %section#content.content{class: current_page.data.no_container ? '' : 'container' }
+
+
+        %div.alert.alert-warning
+          Feature pages are design documents that developers have created while collaborating on oVirt.
+          %br
+          %br
+          Most of them are
+          %strong
+            outdated
+          , but provide historical design context.
+          %br
+          %br
+          They are
+          %strong
+            not
+          user documentation and should not be treated as such.
+          %br
+          %br
+          %a(href="/documentation/")Documentation is available here.
+
+        -# Render actual page content
+        = yield
+
+  - unless data.page.hide_footer || request['params']['contentonly']
+    = partial "footer"

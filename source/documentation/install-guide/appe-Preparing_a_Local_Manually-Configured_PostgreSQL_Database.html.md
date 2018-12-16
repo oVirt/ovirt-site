@@ -6,7 +6,7 @@ title: Preparing a Local Manually-Configured PostgreSQL Database
 
 You have the option of configuring a local PostgreSQL database on the Engine machine to use as the Engine database. By default, the oVrt Engine’s configuration script, `engine-setup`, creates and configures the Engine database locally on the Engine machine.
 
-To configure the Engine database on a machine that is separate from the machine where the Engine is installed, see [Appendix D: Preparing a Remote PostgreSQL Database](../appe-Preparing_a_Remote_PostgreSQL_Database).
+To configure the Engine database on a machine that is separate from the machine where the Engine is installed, see [Appendix D: Preparing a Remote PostgreSQL Database](appe-Preparing_a_Remote_PostgreSQL_Database).
 
 Use this procedure to set up the Engine database with custom values. Set up this database before you configure the Engine; you must supply the database credentials during `engine-setup`. To set up the database, you must first install the `ovirt-engine` package on the Engine machine; the `postgresql-server` package is installed as a dependency.
 
@@ -73,7 +73,7 @@ The locale settings in the `postgresql.conf` file must be set to `en_US.UTF8`.
 
 Optionally, set up SSL to secure database connections using the instructions at [http://www.postgresql.org/docs/9.5/static/ssl-tcp.html#SSL-FILE-USAGE](http://www.postgresql.org/docs/9.5/static/ssl-tcp.html#SSL-FILE-USAGE.).
 
-**Prev:** [Appendix D: Preparing a Remote PostgreSQL Database](../appe-Preparing_a_Remote_PostgreSQL_Database) <br>
-**Next:** [Appendix F: Installing the Websocket Proxy on a Separate Machine](../appe-Installing_the_Websocket_Proxy_on_a_Separate_Machine)
+**Prev:** [Appendix D: Preparing a Remote PostgreSQL Database](appe-Preparing_a_Remote_PostgreSQL_Database) <br>
+**Next:** [Appendix F: Installing the Websocket Proxy on a Separate Machine](appe-Installing_the_Websocket_Proxy_on_a_Separate_Machine)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/appe-preparing_a_local_manually-configured_postgresql_database)

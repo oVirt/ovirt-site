@@ -20,7 +20,7 @@ You cannot upgrade the Engine directly from 3.6 to 4.2. You must upgrade your en
 
     **Note:** If you are upgrading hosts that use local storage, see the “Upgrading from 3.6 to oVirt Node While Preserving Local Storage” section below.
 
-6. Perform [post-upgrade tasks](../chap-Post-Upgrade_Tasks/)
+6. Perform [post-upgrade tasks](chap-Post-Upgrade_Tasks/)
 
 ## Update the oVirt Engine
 
@@ -62,7 +62,7 @@ oVirt Engine 4.0 is only supported on Enterprise Linux 7. A clean installation o
 
     **Important:** Directory servers configured using the domain management tool are not supported after oVirt 3.6. If your directory servers are configured using the domain management tool, migrate to the new extension-based provider before backing up the environment.
 
-After the Engine has been upgraded, you can upgrade the hosts. See [Chapter 9: Updates between Minor Releases](../chap-Updates_between_Minor_Releases). Then the cluster compatibility level can be updated to 4.0. See [Chapter 8: Post-Upgrade Tasks](../chap-Post-Upgrade_Tasks).
+After the Engine has been upgraded, you can upgrade the hosts. See [Chapter 9: Updates between Minor Releases](chap-Updates_between_Minor_Releases). Then the cluster compatibility level can be updated to 4.0. See [Chapter 8: Post-Upgrade Tasks](chap-Post-Upgrade_Tasks).
 
     **Note:** Connected hosts and virtual machines can continue to work while the Engine is being upgraded.
 
@@ -127,7 +127,7 @@ You may now update the hosts, then change the cluster and data center compatibil
 
 You must upgrade the Manager to 4.1 before upgrading it to 4.2.
 
-The following procedure outlines the process for upgrading oVirt Engine 4.0 to oVirt Engine 4.1 in a standard deployment. See "Upgrading a Self-Hosted Engine Environment" in the [Self-Hosted Engine Guide](../../self-hosted/Self-Hosted_Engine_Guide/) for more information about upgrading the Engine in a Self-hosted Engine deployment.
+The following procedure outlines the process for upgrading oVirt Engine 4.0 to oVirt Engine 4.1 in a standard deployment. See "Upgrading a Self-Hosted Engine Environment" in the [Self-Hosted Engine Guide](../self-hosted/Self-Hosted_Engine_Guide/) for more information about upgrading the Engine in a Self-hosted Engine deployment.
 
 This procedure assumes that the system on which the Engine is installed is subscribed to the entitlements for receiving oVirt 4.0 packages.
 
@@ -265,6 +265,6 @@ Environments with local storage cannot migrate virtual machines to a host in ano
     Select the **Reassign Bad MACs** check box to reassign new MAC addresses to all problematic virtual machines. See Importing Virtual Machines from Imported Data Storage Domains in the Administration Guide for more information.
 
 **Prev:** [Chapter 1: Updating the oVirt Environment](http://www.ovirt.org/documentation/upgrade-guide/chap-Updating_the_oVirt_Environment)<br>
-**Next:** [Chapter 3: Upgrading from 4.0 to oVirt 4.2](../chap-Upgrading_from_4.0_to_oVirt_4.2)
+**Next:** [Chapter 3: Upgrading from 4.0 to oVirt 4.2](chap-Upgrading_from_4.0_to_oVirt_4.2)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/upgrade_guide/chap-updating_the_red_hat_enterprise_virtualization_environment)

@@ -40,6 +40,6 @@ You can migrate the engine database of a self-hosted engine to a remote database
 
         # hosted-engine --set-maintenance --mode=none
 
-**Prev:** [Chapter 7: Backing up and Restoring an EL-Based Self-Hosted Environment](../chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment)
+**Prev:** [Chapter 7: Backing up and Restoring an EL-Based Self-Hosted Environment](chap-Backing_up_and_Restoring_an_EL-Based_Self-Hosted_Environment)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/self-hosted_engine_guide/chap-migrating_databases)

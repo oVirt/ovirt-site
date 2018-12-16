@@ -136,7 +136,7 @@ Install and configure Data Warehouse on a separate machine from that on which th
 
 16. Optionally, set up SSL to secure database connections using the instructions at link: http://www.postgresql.org/docs/9.5/static/ssl-tcp.html#SSL-FILE-USAGE.
 
-**Prev:** [Overview of Configuring Data Warehouse](../Data_Collection_Setup_and_Reports_Installation_Overview)<br>
-**Next:** [Migrating Data Warehouse to a Separate Machine](../Migrating_Data_Warehouse_to_a_Separate_Machine)
+**Prev:** [Overview of Configuring Data Warehouse](Data_Collection_Setup_and_Reports_Installation_Overview)<br>
+**Next:** [Migrating Data Warehouse to a Separate Machine](Migrating_Data_Warehouse_to_a_Separate_Machine)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/data_warehouse_guide/installing_and_configuring_data_warehouse_on_a_separate_machine)

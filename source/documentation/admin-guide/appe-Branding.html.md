@@ -112,7 +112,7 @@ The Page Not Found page is a page that is displayed when you open a link to a pa
 
 The classes for the Page Not Found page are located in **welcome_style.css**.
 
-**Prev:** [Appendix D: oVirt and SSL](../appe-oVirt_and_SSL)<br>
-**Next:** [Appendix F: System Accounts](../appe-System_Accounts)
+**Prev:** [Appendix D: oVirt and SSL](appe-oVirt_and_SSL)<br>
+**Next:** [Appendix F: System Accounts](appe-System_Accounts)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/appe-branding)

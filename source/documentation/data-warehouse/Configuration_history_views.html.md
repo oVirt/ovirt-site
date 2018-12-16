@@ -988,6 +988,6 @@ The following table shows the configuration history parameters of the users in t
 | delete_date | timestamp with time zone | The date this entity was deleted from the system. |
 
 
-**Prev:** [Statistics History Views](../Statistics_history_views)
+**Prev:** [Statistics History Views](Statistics_history_views)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/data_warehouse_guide/sect-configuration_history_views)

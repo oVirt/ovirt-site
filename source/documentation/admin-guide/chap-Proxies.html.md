@@ -219,7 +219,7 @@ The `engine-cleanup` command can be used to remove the websocket proxy from the 
 
 5. Install and configure the proxy on the separate machine. See "Installing a Websocket Proxy on a Separate Machine" in the [Installation Guide](/documentation/install-guide/Installation_Guide/) for instructions.
 
-**Prev:** [Chapter 19: Log Files](../chap-Log_Files)<br>
-**Next:** [Appendix A: VDSM and Hooks](../appe-VDSM_and_Hooks)
+**Prev:** [Chapter 19: Log Files](chap-Log_Files)<br>
+**Next:** [Appendix A: VDSM and Hooks](appe-VDSM_and_Hooks)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-proxies)

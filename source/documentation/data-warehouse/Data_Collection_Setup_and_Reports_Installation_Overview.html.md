@@ -32,6 +32,6 @@ To calculate an estimate of the space and resources the `ovirt_engine_history` d
 
     To configure only the currently installed Data Warehouse packages, and prevent setup from applying package updates found in enabled repositories, add the `--offline` option.
 
-**Next:** [Installing and Configuring Data Warehouse on a Separate Machine](../Data_Warehouse_and_Reports_Configuration_Notes)
+**Next:** [Installing and Configuring Data Warehouse on a Separate Machine](Data_Warehouse_and_Reports_Configuration_Notes)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/data_warehouse_guide/chap-installing_and_configuring_data_warehouse#Overview_of_Configuring_Data_Warehouse)

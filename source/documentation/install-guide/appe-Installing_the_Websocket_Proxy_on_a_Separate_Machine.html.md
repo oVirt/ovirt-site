@@ -50,11 +50,11 @@ This section describes how to install and configure the websocket proxy on a sep
 
     i. Press **Enter** to accept the default SSH port number, or enter the port number of the Engine machine.
 
-            ssh port on remote engine server [22]:           
+            ssh port on remote engine server [22]:
 
     ii. Enter the root password to log in to the Engine machine and press **Enter**.
 
-            root password on remote engine server engine_host.example.com:        
+            root password on remote engine server engine_host.example.com:
 
 8. Select whether to review iptables rules if they differ from the current settings.
 
@@ -87,7 +87,7 @@ This section describes how to install and configure the websocket proxy on a sep
         # engine-config -s WebSocketProxy=host.example.com:6100
         # systemctl restart ovirt-engine.service
 
-**Prev:** [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database](../appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database) <br>
-**Next:** [Appendix G: Configuring a Host for PCI Passthrough](../appe-Configuring_a_Host_for_PCI_Passthrough)
+**Prev:** [Appendix E: Preparing a Local Manually-Configured PostgreSQL Database](appe-Preparing_a_Local_Manually-Configured_PostgreSQL_Database) <br>
+**Next:** [Appendix G: Configuring a Host for PCI Passthrough](appe-Configuring_a_Host_for_PCI_Passthrough)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/appe-installing_the_websocket_proxy_on_a_different_host)

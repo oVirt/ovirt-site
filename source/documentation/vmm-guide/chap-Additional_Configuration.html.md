@@ -953,7 +953,7 @@ Pinning topology:
 
 Pools do not support IO and emulator threads pinning.
 
-    **Warning:** If a host CPU is pinned to both a vCPU and IO/emulator threads, a warning will appear in the log and you will be asked to consider changing the CPU pinning topology to avoid this situation.                    
+    **Warning:** If a host CPU is pinned to both a vCPU and IO/emulator threads, a warning will appear in the log and you will be asked to consider changing the CPU pinning topology to avoid this situation.
 
 ####  High Performance Icons
 
@@ -1243,7 +1243,7 @@ You can now install vGPUs on the virtual machines running on this host.
 
     **Important:** You cannot migrate a virtual machine using a vGPU to a different host. When upgrading the virtual machine, verify the operating system and GPU vendor support in the vendor’s documentation.
 
-**Prev:** [Chapter 3: Installing Windows Virtual Machines](../chap-Installing_Windows_Virtual_Machines) <br>
-**Next:** [Chapter 5: Editing Virtual Machines](../chap-Editing_Virtual_Machines)
+**Prev:** [Chapter 3: Installing Windows Virtual Machines](chap-Installing_Windows_Virtual_Machines) <br>
+**Next:** [Chapter 5: Editing Virtual Machines](chap-Editing_Virtual_Machines)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/chap-additional_configuration)

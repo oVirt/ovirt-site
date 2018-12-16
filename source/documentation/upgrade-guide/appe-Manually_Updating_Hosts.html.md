@@ -36,6 +36,6 @@ You can use the `yum` command to update your hosts. Update your systems regularl
 
 Repeat this process for each host in the Red Hat Virtualization environment.
 
-**Prev:** [Appendix C: Manually Updating Hosts](../appe-Manually_Updating_Hosts)
+**Prev:** [Appendix C: Manually Updating Hosts](appe-Manually_Updating_Hosts)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/upgrade_guide/manually_updating_hosts_upgrade)

@@ -70,7 +70,7 @@ Install a 4.2 environment as described in the _Installation Guide_ or _Self-Host
        # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh \
          --playbook=ovirt-metrics-store-installation.yml
 
-**Prev:** [Chapter 1: Introduction](../Introduction)<br>
-**Next:** [Chapter 3: Setting Up OpenShift Aggregated Logging](../Setting_Up_OpenShift_Aggregated_Logging)
+**Prev:** [Chapter 1: Introduction](Introduction)<br>
+**Next:** [Chapter 3: Setting Up OpenShift Aggregated Logging](Setting_Up_OpenShift_Aggregated_Logging)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/metrics_store_installation_guide/chap-setting_up_rhv_manager_and_hosts)

@@ -19,7 +19,7 @@ oVirt supports two types of hosts: oVirt Node and Enterprise Linux host. Dependi
 
 When you create a new data center, you can set the compatibility version. Select the compatibility version that suits all the hosts in the data center. Once set, version regression is not allowed. For a fresh oVirt installation, the latest compatibility version is set in the default data center and default cluster; to use an earlier compatibility version, you must create additional data centers and clusters.
 
-**Prev:** [Chapter 4: oVirt Engine Related Tasks](../chap-oVirt_Engine_Related_Tasks) <br>
-**Next:** [Chapter 6: oVirt Nodes](../chap-oVirt_Nodes)
+**Prev:** [Chapter 4: oVirt Engine Related Tasks](chap-oVirt_Engine_Related_Tasks) <br>
+**Next:** [Chapter 6: oVirt Nodes](chap-oVirt_Nodes)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/chap-introduction_to_hypervisor_hosts)

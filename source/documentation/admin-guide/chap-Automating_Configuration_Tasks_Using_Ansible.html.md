@@ -125,7 +125,7 @@ The following procedure guides you through creating and running a playbook that 
 
 You have successfully used the `ovirt-datacenters` Ansible role to create a data center named `mydatacenter`.
 
-**Prev:** [Chapter 13: Backups and Migration](../chap-Backups_and_Migration)<br>
-**Next:** [Chapter 15: Users and Roles](../chap-Users_and_Roles)
+**Prev:** [Chapter 13: Backups and Migration](chap-Backups_and_Migration)<br>
+**Next:** [Chapter 15: Users and Roles](chap-Users_and_Roles)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-automating_rhv_configuration_using_ansible)

@@ -307,6 +307,6 @@ Remote Viewer is installed and can be accessed via `Remote Viewer` in the **Virt
 
 5. Click **Yes** if prompted by User Account Control.
 
-**Next:** [Chapter 2: Installing Linux Virtual Machines](../chap-Installing_Linux_Virtual_Machines)
+**Next:** [Chapter 2: Installing Linux Virtual Machines](chap-Installing_Linux_Virtual_Machines)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/chap-introduction)

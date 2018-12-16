@@ -204,9 +204,9 @@ If you installed an Open Virtual Network (OVN) provider in oVirt 4.1, you must m
 
 3. Click the **Networking Plugin** text field and select **oVirt Network Provider for OVN** from the drop-down list.
 
-4. Click **OK**.  
+4. Click **OK**.
 
-**Prev:** [Chapter 7: Upgrading a Remote Database Environment from 4.1 to oVirt 4.2](../chap-Upgrading_a_Remote_Database_Environment_from_4.1_to_oVirt_4.2)<br>
-**Next:** [Chapter 9: Updates Between Minor Releases](../chap-Updates_between_Minor_Releases/)
+**Prev:** [Chapter 7: Upgrading a Remote Database Environment from 4.1 to oVirt 4.2](chap-Upgrading_a_Remote_Database_Environment_from_4.1_to_oVirt_4.2)<br>
+**Next:** [Chapter 9: Updates Between Minor Releases](chap-Updates_between_Minor_Releases/)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/upgrade_guide/chap-post-upgrade_tasks)

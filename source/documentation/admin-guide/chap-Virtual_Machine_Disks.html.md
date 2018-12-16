@@ -690,7 +690,7 @@ The oVirt Project recommends performing this operation before cloning a virtual 
 
 A `Started to sparsify` event appears in the **Events** tab during the sparsify operation and the disk’s status displays as `Locked`. When the operation is complete, a `Sparsified successfully` event appears in the **Events** tab and the disk’s status displays as `OK`. The unused disk space has been returned to the host and is available for use by other virtual machines.
 
-**Prev:** [Chapter 9: Pools](../chap-Pools)<br>
-**Next:** [Chapter 11: External Providers](../chap-External_Providers)
+**Prev:** [Chapter 9: Pools](chap-Pools)<br>
+**Next:** [Chapter 11: External Providers](chap-External_Providers)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-virtual_machine_disks)

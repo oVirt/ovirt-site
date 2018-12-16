@@ -1019,7 +1019,7 @@ If a host unpredictably goes into a non-responsive state, for example, due to a 
 
     # engine-config --set ServerRebootTimeout=integer
 
-**Prev:** [Chapter 6: Logical Networks](../chap-Logical_Networks)<br>
-**Next:** [Chapter 8: Storage](../chap-Storage)
+**Prev:** [Chapter 6: Logical Networks](chap-Logical_Networks)<br>
+**Next:** [Chapter 8: Storage](chap-Storage)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/chap-hosts)

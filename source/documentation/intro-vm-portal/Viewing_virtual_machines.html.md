@@ -154,6 +154,6 @@ To restore the default icon, click the circular arrow.
 
       * **Smartcard enabled**: Allows you to pass the smartcard from your client machine to the virtual machine.
 
-**Prev:** [Chapter 1: Accessing the VM Portal](../What_is_the_VM_Portal)
+**Prev:** [Chapter 1: Accessing the VM Portal](What_is_the_VM_Portal)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/introduction_to_the_vm_portal/chap-managing_virtual_machines)

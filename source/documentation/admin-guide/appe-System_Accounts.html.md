@@ -70,6 +70,6 @@ A number of system user groups are created on the virtualization host when the *
 
     If UID `36` or GID `36` is already used by another account on the system a conflict will arise during installation of the `vdsm` and `qemu-kvm-rhev` packages.
 
-**Prev:** [Appendix E: Branding](../appe-Branding)
+**Prev:** [Appendix E: Branding](appe-Branding)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/administration_guide/appe-system_accounts)

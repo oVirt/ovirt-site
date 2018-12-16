@@ -34,7 +34,7 @@ Adding a host to your oVirt environment can take some time, as the following ste
 
 The new host displays in the list of hosts with a status of `Installing`, and you can view the progress of the installation in the details pane. After a brief delay the host status changes to **Up**
 
-**Prev:** [Chapter 7: Enterprise Linux Hosts](../chap-Enterprise_Linux_Hosts) <br>
-**Next:** [Chapter 9: Configuring Storage](../chap-Configuring_Storage)
+**Prev:** [Chapter 7: Enterprise Linux Hosts](chap-Enterprise_Linux_Hosts) <br>
+**Next:** [Chapter 9: Configuring Storage](chap-Configuring_Storage)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/adding_a_hypervisor)

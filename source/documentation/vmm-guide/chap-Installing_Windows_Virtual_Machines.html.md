@@ -236,7 +236,7 @@ Once the APT service has successfully installed or upgraded the guest tools on a
 
     **Note:** The *oVirt-apt* service can be stopped immediately after install by clearing the `Start oVirt-apt Service` check box. You can stop, start, or restart the service at any time using the **Services** window.
 
-**Prev:** [Chapter 2: Installing Linux Virtual Machines](../chap-Installing_Linux_Virtual_Machines) <br>
-**Next:** [Chapter 4: Additional Configuration](../chap-Additional_Configuration)
+**Prev:** [Chapter 2: Installing Linux Virtual Machines](chap-Installing_Linux_Virtual_Machines) <br>
+**Next:** [Chapter 4: Additional Configuration](chap-Additional_Configuration)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/chap-installing_windows_virtual_machines)

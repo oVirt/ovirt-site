@@ -1,0 +1,35 @@
+~ wrap_layout :basic do
+
+  - unless current_page.data.hide_header || request['params']['contentonly']
+    = partial "header"
+
+  %section#page-wrap.page-wrap
+
+    %section#page.page
+
+      - if data.site.breadcrumbs
+        = partial :breadcrumbs
+
+      %section#content.content{class: current_page.data.no_container ? '' : 'container' }
+
+
+        %div.alert.alert-warning
+          This developer documentation is
+          %strong
+            outdated
+          , but provides historical context.
+          %br
+          %br
+          It is
+          %strong
+            not
+          user documentation and should not be treated as such.
+          %br
+          %br
+          %a(href="/documentation/")Documentation is available here.
+
+        -# Render actual page content
+        = yield
+
+  - unless data.page.hide_footer || request['params']['contentonly']
+    = partial "footer"

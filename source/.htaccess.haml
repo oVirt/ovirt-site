@@ -338,6 +338,27 @@ directory_index: false
   Options +FollowSymlinks
   RewriteEngine On
 
+  # regular redirects for old content
+
+  # old quick start -> installation guide
+  RewriteCond %{REQUEST_URI} /documentation/quickstart.*
+  RewriteRule ^(.*)$ /documentation/install-guide/Installation_Guide.html [R=301,L]
+
+  # hosted engine how-to -> self-hosted engine guide
+  RewriteCond %{REQUEST_URI} /documentation/how-to/hosted-engine.*
+  RewriteRule ^(.*)$ /documentation/self-hosted/Self-Hosted_Engine_Guide.html [R=301,L]
+
+  # how-to -> develop
+  RewriteCond %{REQUEST_URI} /documentation/how-to.*
+  RewriteRule ^(.*)$ /develop/ [R=301,L]
+
+  # ovirt-live -> ovirt orb
+  RewriteCond %{REQUEST_URI} /download/ovirt-live.*
+  RewriteRule ^(.*)$ /documentation/ovirt-orb/ [R=301,L]
+
+
+  ##
+
   # add .html
   RewriteCond %{REQUEST_URI} !^/$
   RewriteCond %{REQUEST_FILENAME} !-f

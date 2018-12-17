@@ -14,6 +14,7 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
 
 #### Design Documentation
 - [Feature Pages / Design Documentation](/develop/release-management/features/)
+- [Architecture (outdated)](./architecture)
 
 #### Developer Process
 
@@ -35,6 +36,11 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
 - [HA VMs](/develop/ha-vms)
 - [Migrate PKI to SHA256 signatures](/develop/migrate-pki-to-sha256)
 - [Networking](/develop/networking/)
+- [Internal](/develop/internal/)
+- [Resources](/develop/resources/)
+- [Security](/develop/security/)
+- [SLA](/develop/sla/)
+- [Storage](/develop/storage/)
 
 #### Containerization
 

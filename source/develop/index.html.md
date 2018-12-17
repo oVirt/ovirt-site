@@ -10,7 +10,15 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
 
 ## Developer Documentation
 
-### Note: may be outdated
+<div class="alert alert-warning">
+  Much of this developer documentation is <strong>outdated</strong>, but provides historical context.
+  <br/>
+  <br/>
+  It is <strong>not</strong> user documentation and should not be treated as such.
+  <br/>
+  <br/>
+  <a href="/documentation/">Documentation is available here.</a>
+</div>
 
 #### Design Documentation
 - [Feature Pages / Design Documentation](/develop/release-management/features/)

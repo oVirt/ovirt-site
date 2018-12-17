@@ -125,6 +125,19 @@ with_layout :feature do
   page "/develop/release-management/features/*"
 end
 
+with_layout :developer_outdated do
+  page "/develop/api/*"
+  page "/develop/architecture/*"
+  page "/develop/infra/*"
+  page "/develop/internal/*"
+  page "/develop/networking/*"
+  page "/develop/resources/*"
+  page "/develop/sdk/*"
+  page "/develop/security/*"
+  page "/develop/sla/*"
+  page "/develop/storage/*"
+end
+
 # Don't make these URLs have pretty URLs
 page '/404.html', directory_index: false
 page '/.htacces.html', directory_index: false

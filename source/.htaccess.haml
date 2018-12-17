@@ -356,6 +356,10 @@ directory_index: false
   RewriteCond %{REQUEST_URI} /download/ovirt-live.*
   RewriteRule ^(.*)$ /documentation/ovirt-orb/ [R=301,L]
 
+  # /blog/ -> blog.html
+  RewriteCond %{REQUEST_URI} /blog/$
+  RewriteRule ^(.*)$ /blog.html [R=301,L]
+
 
   ##
 

@@ -13,9 +13,8 @@ tags: release, management
 |------------|--------------------------|
 | 2018-11-26 | oVirt 4.3 Alpha 1        |
 | 2018-12-06 | oVirt 4.3 Alpha 2        |
-| 2018-12-xx | oVirt 4.3 Beta           |
-| 2019-01-xx | oVirt 4.3 RC1            |
-| 2019-xx-xx | oVirt 4.3 GA Release     |
+| 2019-01-14 | oVirt 4.3 RC1            |
+| 2019-01-29 | oVirt 4.3 GA Release     |
 
 ## Nightly Builds
 

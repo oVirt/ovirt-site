@@ -27,9 +27,10 @@ The following table details the options available on the **General** tab of the 
   <tr>
    <td><b>Template</b></td>
    <td>
-   <p>The template on which the virtual machine is based. This field is set to `Blank` by default, which allows you to create a virtual machine on which an operating system has not yet been installed. Templates are displayed as **Name | Sub-version name (Sub-version number)**. Each new version is displayed with a number in brackets that indicates the relative order of the version, with a higher number indicating a more recent version.</b>
+   <p>The template on which the virtual machine is based. This field is set to `Blank` by default, which allows you to create a virtual machine on which an operating system has not yet been installed. Templates are displayed as **Name | Sub-version name (Sub-version number)**. Each new version is displayed with a number in brackets that indicates the relative order of the version, with a higher number indicating a more recent version.</p>
    <p>The version name is displayed as `base version` if it is the root template of the template version chain.</p>
    <p>When the virtual machine is stateless, there is an option to select the `latest` version of the template. This option means that anytime a new version of this template is created, the virtual machine is automatically recreated on restart based on the latest template.</p>
+   </td>
   </tr>
   <tr>
    <td><b>Operating System</b></td>
@@ -112,7 +113,7 @@ The following table details the options available on the **System** tab of the *
   </tr>
   <tr>
    <td><b>Maximum Memory</b></td>
-   <td>The maximum amount of memory that can be assigned to the virtual machine. Maximum guest memory is also constrained by the selected guest architecture and the cluster compatibility level.
+   <td>The maximum amount of memory that can be assigned to the virtual machine. Maximum guest memory is also constrained by the selected guest architecture and the cluster compatibility level.</td>
   </tr>
   <tr>
    <td><b>Total Virtual CPUs</b></td>
@@ -288,9 +289,9 @@ The following table details the options available on the **Console** tab of the 
  <tr>
   <td><b>Headless Mode</b></td>
   <td>
-  <p>Select this check box if you do not a require a graphical console for the virtual machine.<p>
+  <p>Select this check box if you do not a require a graphical console for the virtual machine.</p>
   <p>When selected, all other fields in the Graphical Console section are disabled. In the VM Portal, the Console icon in the virtual machine’s details view is also disabled.</p>
-  <p>**Important:** See “Configuring Headless Virtual Machines” in Chapter 4 for more details and prerequisites for using headless mode.</p>
+  <p><b>Important:</b> See “Configuring Headless Virtual Machines” in Chapter 4 for more details and prerequisites for using headless mode.</p>
   </td>
  </tr>
  <tr>
@@ -506,16 +507,15 @@ The following table details the options available on the **High Availability** t
     <p>**Note:** If you define a lease, the only Resume Behavior available is KILL.</p>
    </td>
   </tr>
-  </tr>
   <tr>
    <td><b>Resume Behavior</b></td>
    <td>
-    <p>Defines the desired behavior of a virtual machine that is paused due to storage I/O errors, once a connection with the storage is reestablished. You can define the desired resume behavior even if the virtual machine is not highly available.<p>
+    <p>Defines the desired behavior of a virtual machine that is paused due to storage I/O errors, once a connection with the storage is reestablished. You can define the desired resume behavior even if the virtual machine is not highly available.</p>
     <p>The following options are available:</p>
     <ul>
     <li>**AUTO_RESUME** - The virtual machine is automatically resumed, without requiring user intervention. This is recommended for virtual machines that are not highly available and that do not require user intervention after being in the paused state.</li>
     <li>**LEAVE_PAUSED** - The virtual machine remains in pause mode until it is manually resumed or restarted.</li>
-    <li>**KILL** - The virtual machine is automatically resumed if the I/O error is remedied within 80 seconds. However, if more than 80 seconds pass, the virtual machine is ungracefully shut down. This is recommended for highly available virtual machines, to allow the Manager to restart them on another host that is not experiencing the storage I/O error.<br>
+    <li>**KILL** - The virtual machine is automatically resumed if the I/O error is remedied within 80 seconds. However, if more than 80 seconds pass, the virtual machine is ungracefully shut down. This is recommended for highly available virtual machines, to allow the Manager to restart them on another host that is not experiencing the storage I/O error.<br/>
     **KILL** is the only option available when using virtual machine leases.</li>
     </ul>
    </td>
@@ -969,20 +969,96 @@ These settings apply when you are adding or editing a virtual machine network in
 
 **Network Interface Settings**
 
-| Field Name | Description |
-|-
-| **Name** | The name of the network interface. This text field has a 21-character limit and must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores. |
-| **Profile** | The vNIC profile and logical network that the network interface is placed on. By default, all network interfaces are put on the **ovirtmgmt** management network.  |
-| **Type** | The virtual interface the network interface presents to virtual machines. <ul><li>**rtl8139** and **e1000** device drivers are included in most operating systems.</li><lt>**VirtIO** is faster but requires VirtIO drivers. Enterprise Linux 5 and later include VirtIO drivers. Windows does not include VirtIO drivers, but they can be installed from the guest tools ISO or virtual floppy disk.</li><li>**PCI Passthrough** enables the vNIC to be directly connected to a virtual function (VF) of an SR-IOV-enabled NIC. The vNIC will then bypass the software network virtualization and connect directly to the VF for direct device assignment. The selected vNIC profile must also have **Passthrough** enabled.</li></ul> |
-| **Custom MAC address** | Choose this option to set a custom MAC address. The oVirt Engine automatically generates a MAC address that is unique to the environment to identify the network interface. Having two devices with the same MAC address online in the same network causes networking conflicts. |
-| **Link State** | Whether or not the network interface is connected to the logical network.<ul><li>**Up**: The network interface is located on its slot.</li><ul><li>When the **Card Status** is **Plugged**, it means the network interface is connected to a network cable, and is active.</li><li>When the **Card Status** is **Unplugged**, the network interface will automatically be connected to the network and become active once plugged.</li></ul><li>**Down:** The network interface is located on its slot, but it is not connected to any network. Virtual machines will not be able to run in this state.</li></ul> |
-| **Card Status** | Whether or not the network interface is defined on the virtual machine.<ul><li><tt>Plugged</tt>: The network interface has been defined on the virtual machine.</li><ul><li>If its **Link State** is <tt>Up</tt>, it means the network interface is connected to a network cable, and is active.</li><li>If its **Link State** is <tt>Down</tt>, the network interface is not connected to a network cable.<li></ul><li><tt>Unplugged</tt>: The network interface is only defined on the Manager, and is not associated with a virtual machine.<li><ul><li>If its **Link State** is <tt>Up</tt>, when the network interface is plugged it will automatically be connected to a network and become active.</li><li>If its **Link State** is <tt>Down</tt>, the network interface is not connected to any network until it is defined on a virtual machine.</li></ul></ul> |
+<table>
+<thead>
+  <tr>
+    <th>Field Name</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><b>Name</b></td>
+    <td>The name of the network interface. This text field has a 21-character limit and must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores.</td>
+  </tr>
+  <tr>
+    <td><b>Profile</b></td>
+    <td>The vNIC profile and logical network that the network interface is placed on. By default, all network interfaces are put on the <b>ovirtmgmt</b> management network.</td>
+  </tr>
+  <tr>
+    <td><b>Type</b></td>
+    <td>
+      <p>The virtual interface the network interface presents to virtual machines.</p>
+      <ul>
+        <li><b>rtl8139</b> and <b>e1000</b> device drivers are included in most operating systems.</li>
+        <li><b>VirtIO</b> is faster but requires VirtIO drivers. Enterprise Linux 5 and later include VirtIO drivers. Windows does not include VirtIO drivers, but they can be installed from the guest tools ISO or virtual floppy disk.</li>
+        <li><b>PCI Passthrough</b> enables the vNIC to be directly connected to a virtual function (VF) of an SR-IOV-enabled NIC. The vNIC will then bypass the software network virtualization and connect directly to the VF for direct device assignment. The selected vNIC profile must also have <b>Passthrough</b> enabled.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><b>Custom MAC address</b></td>
+    <td>Choose this option to set a custom MAC address. The oVirt Engine automatically generates a MAC address that is unique to the environment to identify the network interface. Having two devices with the same MAC address online in the same network causes networking conflicts.</td>
+  </tr>
+  <tr>
+    <td><b>Link State</b></td>
+    <td>
+      <p>Whether or not the network interface is connected to the logical network.</p>
+      <ul>
+        <li>
+          <p><b>Up</b>: The network interface is located on its slot.</p>
+          <ul>
+            <li>When the <b>Card Status</b> is <b>Plugged</b>, it means the network interface is connected to a network cable, and is active.</li>
+            <li>When the <b>Card Status</b> is <b>Unplugged</b>, the network interface will automatically be connected to the network and become active once plugged.</li>
+          </ul>
+        </li>
+        <li><b>Down:</b> The network interface is located on its slot, but it is not connected to any network. Virtual machines will not be able to run in this state.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><b>Card Status</b></td>
+    <td>
+      <p>Whether or not the network interface is defined on the virtual machine.</p>
+      <ul>
+        <li>
+          <p><tt>Plugged</tt>: The network interface has been defined on the virtual machine.</p>
+          <ul>
+            <li>If its <b>Link State</b> is <tt>Up</tt>, it means the network interface is connected to a network cable, and is active.</li>
+            <li>If its <b>Link State</b> is <tt>Down</tt>, the network interface is not connected to a network cable.</li>
+          </ul>
+        </li>
+        <li>
+          <p><tt>Unplugged</tt>: The network interface is only defined on the Manager, and is not associated with a virtual machine.</p>
+          <ul>
+            <li>If its <b>Link State</b> is <tt>Up</tt>, when the network interface is plugged it will automatically be connected to a network and become active.</li>
+            <li>If its <b>Link State</b> is <tt>Down</tt>, the network interface is not connected to any network until it is defined on a virtual machine.</li>
+          </ul>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</tbody>
+</table>
+
 
 ## Explanation of Settings in the New Virtual Disk and Edit Virtual Disk windows
 
 **New Virtual Disk and Edit Virtual Disk Settings: Image**
 
-<table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"><!--Empty--></col><col style="width: 50%; " class="col_2"><!--Empty--></col></colgroup><thead><tr><th align="left" valign="top" id="idm140207921963760" scope="col">Field Name</th><th align="left" valign="top" id="idm140207921962672" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
+<table class="lt-4-cols lt-7-rows">
+<colgroup>
+<col style="width: 50%; " class="col_1"/>
+<col style="width: 50%; " class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+  <th align="left" valign="top" id="idm140207921963760" scope="col">Field Name</th>
+  <th align="left" valign="top" id="idm140207921962672" scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td align="left" valign="top" headers="idm140207921963760"> <p>
 								<span class="strong strong"><strong>Size(GB)</strong></span>
 							</p>
 							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
@@ -1080,7 +1156,11 @@ The **Direct LUN** settings can be displayed in either **Targets > LUNs** or **L
 
 **New Virtual Disk and Edit Virtual Disk Settings: Direct LUN**
 
-<table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"><!--Empty--></col><col style="width: 50%; " class="col_2"><!--Empty--></col></colgroup><thead><tr><th align="left" valign="top" id="idm140207921878880" scope="col">Field Name</th><th align="left" valign="top" id="idm140207921877792" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
+<table class="lt-4-cols lt-7-rows">
+<colgroup><col style="width: 50%; " class="col_1"/>
+<col style="width: 50%; " class="col_2"/>
+</colgroup>
+<thead><tr><th align="left" valign="top" id="idm140207921878880" scope="col">Field Name</th><th align="left" valign="top" id="idm140207921877792" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
 								<span class="strong strong"><strong>Alias</strong></span>
 							</p>
 							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
@@ -1212,7 +1292,12 @@ The **Cinder** settings form will be disabled if there are no available OpenStac
 
 **New Virtual Disk and Edit Virtual Disk Settings: Cinder**
 
-<table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"><!--Empty--></col><col style="width: 50%; " class="col_2"><!--Empty--></col></colgroup><thead><tr><th align="left" valign="top" id="idm140207921767728" scope="col">Field Name</th><th align="left" valign="top" id="idm140207921766640" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
+<table class="lt-4-cols lt-7-rows">
+<colgroup>
+<col style="width: 50%; " class="col_1"/>
+<col style="width: 50%; " class="col_2"/>
+</colgroup>
+<thead><tr><th align="left" valign="top" id="idm140207921767728" scope="col">Field Name</th><th align="left" valign="top" id="idm140207921766640" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
 								<span class="strong strong"><strong>Size(GB)</strong></span>
 							</p>
 							 </td><td align="left" valign="top" headers="idm140207921766640"> <p>
@@ -1283,7 +1368,7 @@ The **Cinder** settings form will be disabled if there are no available OpenStac
 							</p>
 							 </td></tr></tbody></table>
 
-    **Important:** Mounting a journaled file system requires read-write access. Using the **Read Only** option is not appropriate for virtual disks that contain such file systems (e.g. **EXT3**, **EXT4**, or **XFS**).
+**Important:** Mounting a journaled file system requires read-write access. Using the **Read Only** option is not appropriate for virtual disks that contain such file systems (e.g. **EXT3**, **EXT4**, or **XFS**).
 
 
 ## Explanation of Settings in the New Template Windows
@@ -1292,7 +1377,12 @@ The following table details the settings for the **New Template** window.
 
 **New Template Settings**
 
-<table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 50%; " class="col_1"><!--Empty--></col><col style="width: 50%; " class="col_2"><!--Empty--></col></colgroup><tbody><tr><td align="left" valign="top"> <p>
+<table class="lt-4-cols lt-7-rows">
+<colgroup>
+<col style="width: 50%; " class="col_1"/>
+<col style="width: 50%; " class="col_2"/>
+</colgroup>
+<tbody><tr><td align="left" valign="top"> <p>
 								Field
 							</p>
 							 </td><td align="left" valign="top"> <p>

@@ -1047,234 +1047,171 @@ These settings apply when you are adding or editing a virtual machine network in
 **New Virtual Disk and Edit Virtual Disk Settings: Image**
 
 <table class="lt-4-cols lt-7-rows">
-<colgroup>
-<col style="width: 50%; " class="col_1"/>
-<col style="width: 50%; " class="col_2"/>
-</colgroup>
 <thead>
 <tr>
-  <th align="left" valign="top" id="idm140207921963760" scope="col">Field Name</th>
-  <th align="left" valign="top" id="idm140207921962672" scope="col">Description</th>
+  <th scope="col">Field Name</th>
+  <th scope="col">Description</th>
 </tr>
 </thead>
 <tbody>
-<tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Size(GB)</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								The size of the new virtual disk in GB.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Alias</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								The name of the virtual disk, limited to 40 characters.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Description</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								A description of the virtual disk. This field is recommended but not mandatory.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Interface</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								The virtual interface the disk presents to virtual machines. <span class="strong strong"><strong>VirtIO</strong></span> is faster, but requires drivers. Red Hat Enterprise Linux 5 and later include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <span class="strong strong"><strong>IDE</strong></span> devices do not require special drivers.
-							</p>
-							 <p>
-								The interface type can be updated after stopping all virtual machines that the disk is attached to.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Data Center</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								The data center in which the virtual disk will be available.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Storage Domain</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								The storage domain in which the virtual disk will be stored. The drop-down list shows all storage domains available in the given data center, and also shows the total space and currently available space in the storage domain.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Allocation Policy</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								The provisioning policy for the new virtual disk.
-							</p>
-							 <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-										<span class="strong strong"><strong>Preallocated</strong></span> allocates the entire size of the disk on the storage domain at the time the virtual disk is created. The virtual size and the actual size of a preallocated disk are the same. Preallocated virtual disks take more time to create than thin provisioned virtual disks, but have better read and write performance. Preallocated virtual disks are recommended for servers and other I/O intensive virtual machines. If a virtual machine is able to write more than 1 GB every four seconds, use preallocated disks where possible.
-									</li><li class="listitem">
-										<span class="strong strong"><strong>Thin Provision</strong></span> allocates 1 GB at the time the virtual disk is created and sets a maximum limit on the size to which the disk can grow. The virtual size of the disk is the maximum limit; the actual size of the disk is the space that has been allocated so far. Thin provisioned disks are faster to create than preallocated disks and allow for storage over-commitment. Thin provisioned virtual disks are recommended for desktops.
-									</li></ul></div>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Disk Profile</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								The disk profile assigned to the virtual disk. Disk profiles define the maximum amount of throughput and the maximum level of input and output operations for a virtual disk in a storage domain. Disk profiles are defined on the storage domain level based on storage quality of service entries created for data centers.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Activate Disk(s)</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								Activate the virtual disk immediately after creation. This option is not available when creating a floating disk.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Wipe After Delete</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								Allows you to enable enhanced security for deletion of sensitive material when the virtual disk is deleted.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Bootable</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								Allows you to enable the bootable flag on the virtual disk.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Shareable</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								Allows you to attach the virtual disk to more than one virtual machine at a time.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Read Only</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another. This option is not available when creating a floating disk.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921963760"> <p>
-								<span class="strong strong"><strong>Enable Discard</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921962672"> <p>
-								Allows you to shrink a thin provisioned disk while the virtual machine is up. For block storage, the underlying storage device must support discard calls, and the option cannot be used with <span class="strong strong"><strong>Wipe After Delete</strong></span> unless the underlying storage supports the discard_zeroes_data property. For file storage, the underlying file system and the block device must support discard calls. If all requirements are met, SCSI UNMAP commands issued from guest virtual machines is passed on by QEMU to the underlying storage to free up the unused space.
-							</p>
-							 </td></tr></tbody></table>
+<tr>
+  <td><b>Size(GB)</b></td>
+  <td>The size of the new virtual disk in GB.</td>
+</tr>
+<tr>
+  <td><b>Alias</b></td>
+  <td>The name of the virtual disk, limited to 40 characters.</td>
+</tr>
+<tr>
+  <td><b>Description</b></td>
+  <td>A description of the virtual disk. This field is recommended but not mandatory.</td>
+</tr>
+<tr>
+  <td><b>Interface</b></td>
+  <td>
+    <p>The virtual interface the disk presents to virtual machines. <b>VirtIO</b> is faster, but requires drivers. Red Hat Enterprise Linux 5 and later include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <b>IDE</b> devices do not require special drivers.</p>
+    <p>The interface type can be updated after stopping all virtual machines that the disk is attached to.</p>
+  </td>
+</tr>
+<tr>
+  <td><b>Data Center</b></td>
+  <td>The data center in which the virtual disk will be available.</td>
+</tr>
+<tr>
+  <td><b>Storage Domain</b></td>
+  <td>The storage domain in which the virtual disk will be stored. The drop-down list shows all storage domains available in the given data center, and also shows the total space and currently available space in the storage domain.</td>
+</tr>
+<tr>
+  <td><b>Allocation Policy</b></td>
+  <td>
+    <p>The provisioning policy for the new virtual disk.</p>
+    <ul>
+      <li><b>Preallocated</b> allocates the entire size of the disk on the storage domain at the time the virtual disk is created. The virtual size and the actual size of a preallocated disk are the same. Preallocated virtual disks take more time to create than thin provisioned virtual disks, but have better read and write performance. Preallocated virtual disks are recommended for servers and other I/O intensive virtual machines. If a virtual machine is able to write more than 1 GB every four seconds, use preallocated disks where possible.</li>
+      <li><b>Thin Provision</b> allocates 1 GB at the time the virtual disk is created and sets a maximum limit on the size to which the disk can grow. The virtual size of the disk is the maximum limit; the actual size of the disk is the space that has been allocated so far. Thin provisioned disks are faster to create than preallocated disks and allow for storage over-commitment. Thin provisioned virtual disks are recommended for desktops.</li>
+    </ul>
+  </td>
+</tr>
+<tr>
+  <td><b>Disk Profile</b></td>
+  <td>The disk profile assigned to the virtual disk. Disk profiles define the maximum amount of throughput and the maximum level of input and output operations for a virtual disk in a storage domain. Disk profiles are defined on the storage domain level based on storage quality of service entries created for data centers.</td>
+</tr>
+<tr>
+  <td><b>Activate Disk(s)</b></td>
+  <td>Activate the virtual disk immediately after creation. This option is not available when creating a floating disk.</td>
+</tr>
+<tr>
+  <td><b>Wipe After Delete</b></td>
+  <td>Allows you to enable enhanced security for deletion of sensitive material when the virtual disk is deleted.</td>
+</tr>
+<tr>
+  <td><b>Bootable</b></td>
+  <td>Allows you to enable the bootable flag on the virtual disk.</td>
+</tr>
+<tr>
+  <td><b>Shareable</b></td>
+  <td>Allows you to attach the virtual disk to more than one virtual machine at a time.</td>
+</tr>
+<tr>
+  <td><b>Read Only</b></td>
+  <td>Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another. This option is not available when creating a floating disk.</td>
+</tr>
+<tr>
+  <td><b>Enable Discard</b></td>
+  <td>Allows you to shrink a thin provisioned disk while the virtual machine is up. For block storage, the underlying storage device must support discard calls, and the option cannot be used with <b>Wipe After Delete</b> unless the underlying storage supports the discard_zeroes_data property. For file storage, the underlying file system and the block device must support discard calls. If all requirements are met, SCSI UNMAP commands issued from guest virtual machines is passed on by QEMU to the underlying storage to free up the unused space.</td>
+</tr>
+</tbody>
+</table>
 
 The **Direct LUN** settings can be displayed in either **Targets > LUNs** or **LUNs > Targets**. **Targets > LUNs** sorts available LUNs according to the host on which they are discovered, whereas **LUNs > Targets** displays a single list of LUNs.
 
 **New Virtual Disk and Edit Virtual Disk Settings: Direct LUN**
 
 <table class="lt-4-cols lt-7-rows">
-<colgroup><col style="width: 50%; " class="col_1"/>
-<col style="width: 50%; " class="col_2"/>
-</colgroup>
-<thead><tr><th align="left" valign="top" id="idm140207921878880" scope="col">Field Name</th><th align="left" valign="top" id="idm140207921877792" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Alias</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								The name of the virtual disk, limited to 40 characters.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Description</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								A description of the virtual disk. This field is recommended but not mandatory. By default the last 4 characters of the LUN ID is inserted into the field.
-							</p>
-							 <p>
-								The default behavior can be configured by setting the <code class="literal">PopulateDirectLUNDiskDescriptionWithLUNId</code> configuration key to the appropriate value using the <code class="literal">engine-config</code> command. The configuration key can be set to <code class="literal">-1</code> for the full LUN ID to be used, or <code class="literal">0</code> for this feature to be ignored. A positive integer populates the description with the corresponding number of characters of the LUN ID.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Interface</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								The virtual interface the disk presents to virtual machines. <span class="strong strong"><strong>VirtIO</strong></span> is faster, but requires drivers. Red Hat Enterprise Linux 5 and later include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <span class="strong strong"><strong>IDE</strong></span> devices do not require special drivers.
-							</p>
-							 <p>
-								The interface type can be updated after stopping all virtual machines that the disk is attached to.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Data Center</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								The data center in which the virtual disk will be available.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Use Host</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								The host on which the LUN will be mounted. You can select any host in the data center.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Storage Type</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								The type of external LUN to add. You can select from either <span class="strong strong"><strong>iSCSI</strong></span> or <span class="strong strong"><strong>Fibre Channel</strong></span>.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Discover Targets</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								This section can be expanded when you are using iSCSI external LUNs and <span class="strong strong"><strong>Targets &gt; LUNs</strong></span> is selected.
-							</p>
-							 <p>
-								<span class="strong strong"><strong>Address</strong></span> - The host name or IP address of the target server.
-							</p>
-							 <p>
-								<span class="strong strong"><strong>Port</strong></span> - The port by which to attempt a connection to the target server. The default port is 3260.
-							</p>
-							 <p>
-								<span class="strong strong"><strong>User Authentication</strong></span> - The iSCSI server requires User Authentication. The <span class="strong strong"><strong>User Authentication</strong></span> field is visible when you are using iSCSI external LUNs.
-							</p>
-							 <p>
-								<span class="strong strong"><strong>CHAP user name</strong></span> - The user name of a user with permission to log in to LUNs. This field is accessible when the <span class="strong strong"><strong>User Authentication</strong></span> check box is selected.
-							</p>
-							 <p>
-								<span class="strong strong"><strong>CHAP password</strong></span> - The password of a user with permission to log in to LUNs. This field is accessible when the <span class="strong strong"><strong>User Authentication</strong></span> check box is selected.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Activate Disk(s)</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								Activate the virtual disk immediately after creation. This option is not available when creating a floating disk.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Bootable</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								Allows you to enable the bootable flag on the virtual disk.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Shareable</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								Allows you to attach the virtual disk to more than one virtual machine at a time.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Read Only</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another. This option is not available when creating a floating disk.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Enable Discard</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								Allows you to shrink a thin provisioned disk while the virtual machine is up. With this option enabled, SCSI UNMAP commands issued from guest virtual machines is passed on by QEMU to the underlying storage to free up the unused space.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Enable SCSI Pass-Through</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								Available when the <span class="strong strong"><strong>Interface</strong></span> is set to <span class="strong strong"><strong>VirtIO-SCSI</strong></span>. Selecting this check box enables passthrough of a physical SCSI device to the virtual disk. A VirtIO-SCSI interface with SCSI passthrough enabled automatically includes SCSI discard support. <span class="strong strong"><strong>Read Only</strong></span> is not supported when this check box is selected.
-							</p>
-							 <p>
-								When this check box is not selected, the virtual disk uses an emulated SCSI device. <span class="strong strong"><strong>Read Only</strong></span> is supported on emulated VirtIO-SCSI disks.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Allow Privileged SCSI I/O</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								Available when the <span class="strong strong"><strong>Enable SCSI Pass-Through</strong></span> check box is selected. Selecting this check box enables unfiltered SCSI Generic I/O (SG_IO) access, allowing privileged SG_IO commands on the disk. This is required for persistent reservations.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921878880"> <p>
-								<span class="strong strong"><strong>Using SCSI Reservation</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921877792"> <p>
-								Available when the <span class="strong strong"><strong>Enable SCSI Pass-Through</strong></span> and <span class="strong strong"><strong>Allow Privileged SCSI I/O</strong></span> check boxes are selected. Selecting this check box disables migration for any virtual machine using this disk, to prevent virtual machines that are using SCSI reservation from losing access to the disk.
-							</p>
-							 </td></tr></tbody></table>
+<thead>
+<tr>
+  <th scope="col">Field Name</th>
+  <th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><b>Alias</b></td>
+  <td>The name of the virtual disk, limited to 40 characters.</td>
+</tr>
+<tr>
+  <td><b>Description</b></td>
+  <td>
+    <p>A description of the virtual disk. This field is recommended but not mandatory. By default the last 4 characters of the LUN ID is inserted into the field.</p>
+    <p>The default behavior can be configured by setting the <code class="literal">PopulateDirectLUNDiskDescriptionWithLUNId</code> configuration key to the appropriate value using the <code class="literal">engine-config</code> command. The configuration key can be set to <code class="literal">-1</code> for the full LUN ID to be used, or <code class="literal">0</code> for this feature to be ignored. A positive integer populates the description with the corresponding number of characters of the LUN ID.</p>
+  </td>
+</tr>
+<tr>
+  <td><b>Interface</b></td>
+  <td>
+    <p>The virtual interface the disk presents to virtual machines. <b>VirtIO</b> is faster, but requires drivers. Red Hat Enterprise Linux 5 and later include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <b>IDE</b> devices do not require special drivers.</p>
+    <p>The interface type can be updated after stopping all virtual machines that the disk is attached to.</p>
+  </td>
+</tr>
+<tr>
+  <td><b>Data Center</b></td>
+  <td>The data center in which the virtual disk will be available.</td>
+</tr>
+<tr>
+  <td><b>Use Host</b></td>
+  <td>The host on which the LUN will be mounted. You can select any host in the data center.</td>
+</tr>
+<tr>
+  <td><b>Storage Type</b></td>
+  <td>The type of external LUN to add. You can select from either <b>iSCSI</b> or <b>Fibre Channel</b>.</td>
+</tr>
+<tr>
+  <td><b>Discover Targets</b></td>
+  <td>
+    <p>This section can be expanded when you are using iSCSI external LUNs and <b>Targets &gt; LUNs</b> is selected.</p>
+    <p><b>Address</b> - The host name or IP address of the target server.</p>
+    <p><b>Port</b> - The port by which to attempt a connection to the target server. The default port is 3260.</p>
+    <p><b>User Authentication</b> - The iSCSI server requires User Authentication. The <b>User Authentication</b> field is visible when you are using iSCSI external LUNs.</p>
+    <p><b>CHAP user name</b> - The user name of a user with permission to log in to LUNs. This field is accessible when the <b>User Authentication</b> check box is selected.</p>
+    <p><b>CHAP password</b> - The password of a user with permission to log in to LUNs. This field is accessible when the <b>User Authentication</b> check box is selected.</p>
+  </td>
+</tr>
+<tr>
+  <td><b>Activate Disk(s)</b></td>
+  <td>Activate the virtual disk immediately after creation. This option is not available when creating a floating disk.</td>
+</tr>
+<tr>
+  <td><b>Bootable</b></td>
+  <td>Allows you to enable the bootable flag on the virtual disk.</td>
+</tr>
+<tr>
+  <td><b>Shareable</b></td>
+  <td>Allows you to attach the virtual disk to more than one virtual machine at a time.</td>
+</tr>
+<tr>
+  <td><b>Read Only</b></td>
+  <td>Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another. This option is not available when creating a floating disk.</td>
+</tr>
+<tr>
+  <td><b>Enable Discard</b></td>
+  <td>Allows you to shrink a thin provisioned disk while the virtual machine is up. With this option enabled, SCSI UNMAP commands issued from guest virtual machines is passed on by QEMU to the underlying storage to free up the unused space.</td>
+</tr>
+<tr>
+  <td><b>Enable SCSI Pass-Through</b></td>
+  <td>
+    <p>Available when the <b>Interface</b> is set to <b>VirtIO-SCSI</b>. Selecting this check box enables passthrough of a physical SCSI device to the virtual disk. A VirtIO-SCSI interface with SCSI passthrough enabled automatically includes SCSI discard support. <b>Read Only</b> is not supported when this check box is selected.</p>
+    <p>When this check box is not selected, the virtual disk uses an emulated SCSI device. <b>Read Only</b> is supported on emulated VirtIO-SCSI disks.</p>
+  </td>
+</tr>
+<tr>
+  <td><b>Allow Privileged SCSI I/O</b></td>
+  <td>Available when the <b>Enable SCSI Pass-Through</b> check box is selected. Selecting this check box enables unfiltered SCSI Generic I/O (SG_IO) access, allowing privileged SG_IO commands on the disk. This is required for persistent reservations.</td>
+</tr>
+<tr>
+  <td><b>Using SCSI Reservation</b></td>
+  <td>Available when the <b>Enable SCSI Pass-Through</b> and <b>Allow Privileged SCSI I/O</b> check boxes are selected. Selecting this check box disables migration for any virtual machine using this disk, to prevent virtual machines that are using SCSI reservation from losing access to the disk.</td>
+</tr>
+</tbody>
+</table>
 
 Fill in the fields in the **Discover Targets** section and click **Discover** to discover the target server. You can then click the **Login All** button to list the available LUNs on the target server and, using the radio buttons next to each LUN, select the LUN to add.
 
@@ -1293,80 +1230,62 @@ The **Cinder** settings form will be disabled if there are no available OpenStac
 **New Virtual Disk and Edit Virtual Disk Settings: Cinder**
 
 <table class="lt-4-cols lt-7-rows">
-<colgroup>
-<col style="width: 50%; " class="col_1"/>
-<col style="width: 50%; " class="col_2"/>
-</colgroup>
-<thead><tr><th align="left" valign="top" id="idm140207921767728" scope="col">Field Name</th><th align="left" valign="top" id="idm140207921766640" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
-								<span class="strong strong"><strong>Size(GB)</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921766640"> <p>
-								The size of the new virtual disk in GB.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
-								<span class="strong strong"><strong>Alias</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921766640"> <p>
-								The name of the virtual disk, limited to 40 characters.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
-								<span class="strong strong"><strong>Description</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921766640"> <p>
-								A description of the virtual disk. This field is recommended but not mandatory.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
-								<span class="strong strong"><strong>Interface</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921766640"> <p>
-								The virtual interface the disk presents to virtual machines. <span class="strong strong"><strong>VirtIO</strong></span> is faster, but requires drivers. Red Hat Enterprise Linux 5 and later include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <span class="strong strong"><strong>IDE</strong></span> devices do not require special drivers.
-							</p>
-							 <p>
-								The interface type can be updated after stopping all virtual machines that the disk is attached to.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
-								<span class="strong strong"><strong>Data Center</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921766640"> <p>
-								The data center in which the virtual disk will be available.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
-								<span class="strong strong"><strong>Storage Domain</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921766640"> <p>
-								The storage domain in which the virtual disk will be stored. The drop-down list shows all storage domains available in the given data center, and also shows the total space and currently available space in the storage domain.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
-								<span class="strong strong"><strong>Volume Type</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921766640"> <p>
-								The volume type of the virtual disk. The drop-down list shows all available volume types. The volume type will be managed and configured on OpenStack Cinder.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
-								<span class="strong strong"><strong>Activate Disk(s)</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921766640"> <p>
-								Activate the virtual disk immediately after creation. This option is not available when creating a floating disk.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
-								<span class="strong strong"><strong>Bootable</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921766640"> <p>
-								Allows you to enable the bootable flag on the virtual disk.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
-								<span class="strong strong"><strong>Shareable</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921766640"> <p>
-								Allows you to attach the virtual disk to more than one virtual machine at a time.
-							</p>
-							 </td></tr><tr><td align="left" valign="top" headers="idm140207921767728"> <p>
-								<span class="strong strong"><strong>Read Only</strong></span>
-							</p>
-							 </td><td align="left" valign="top" headers="idm140207921766640"> <p>
-								Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another. This option is not available when creating a floating disk.
-							</p>
-							 </td></tr></tbody></table>
+<thead>
+<tr>
+  <th scope="col">Field Name</th>
+  <th scope="col">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><b>Size(GB)</b></td>
+  <td>The size of the new virtual disk in GB.</td>
+</tr>
+<tr>
+  <td><b>Alias</b></td>
+  <td>The name of the virtual disk, limited to 40 characters.</td>
+</tr>
+<tr>
+  <td><b>Description</b></td>
+  <td>A description of the virtual disk. This field is recommended but not mandatory.</td>
+</tr>
+<tr>
+  <td><b>Interface</b></td>
+  <td>
+    <p>The virtual interface the disk presents to virtual machines. <b>VirtIO</b> is faster, but requires drivers. Red Hat Enterprise Linux 5 and later include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. <b>IDE</b> devices do not require special drivers.</p>
+    <p>The interface type can be updated after stopping all virtual machines that the disk is attached to.</p>
+  </td>
+</tr>
+<tr>
+  <td><b>Data Center</b></td>
+  <td>The data center in which the virtual disk will be available.</td>
+</tr>
+<tr>
+  <td><b>Storage Domain</b></td>
+  <td>The storage domain in which the virtual disk will be stored. The drop-down list shows all storage domains available in the given data center, and also shows the total space and currently available space in the storage domain.</td>
+</tr>
+<tr>
+  <td><b>Volume Type</b></td>
+  <td>The volume type of the virtual disk. The drop-down list shows all available volume types. The volume type will be managed and configured on OpenStack Cinder.</td>
+</tr>
+<tr>
+  <td><b>Activate Disk(s)</b></td>
+  <td>Activate the virtual disk immediately after creation. This option is not available when creating a floating disk.</td>
+</tr>
+<tr>
+  <td><b>Bootable</b></td>
+  <td>Allows you to enable the bootable flag on the virtual disk.</td>
+</tr>
+<tr>
+  <td><b>Shareable</b></td>
+  <td>Allows you to attach the virtual disk to more than one virtual machine at a time.</td>
+</tr>
+<tr>
+  <td><b>Read Only</b></td>
+  <td>Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another. This option is not available when creating a floating disk.</td>
+</tr>
+</tbody>
+</table>
 
 **Important:** Mounting a journaled file system requires read-write access. Using the **Read Only** option is not appropriate for virtual disks that contain such file systems (e.g. **EXT3**, **EXT4**, or **XFS**).
 
@@ -1378,96 +1297,69 @@ The following table details the settings for the **New Template** window.
 **New Template Settings**
 
 <table class="lt-4-cols lt-7-rows">
-<colgroup>
-<col style="width: 50%; " class="col_1"/>
-<col style="width: 50%; " class="col_2"/>
-</colgroup>
-<tbody><tr><td align="left" valign="top"> <p>
-								Field
-							</p>
-							 </td><td align="left" valign="top"> <p>
-								Description/Action
-							</p>
-							 </td></tr><tr><td align="left" valign="top"> <p>
-								<span class="strong strong"><strong>Name</strong></span>
-							</p>
-							 </td><td align="left" valign="top"> <p>
-								The name of the template. This is the name by which the template is listed in the <span class="strong strong"><strong>Templates</strong></span> tab in the Administration Portal and is accessed via the REST API. This text field has a 40-character limit and must be a unique name within the data center with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores. The name can be reused in different data centers in the environment.
-							</p>
-							 </td></tr><tr><td align="left" valign="top"> <p>
-								<span class="strong strong"><strong>Description</strong></span>
-							</p>
-							 </td><td align="left" valign="top"> <p>
-								A description of the template. This field is recommended but not mandatory.
-							</p>
-							 </td></tr><tr><td align="left" valign="top"> <p>
-								<span class="strong strong"><strong>Comment</strong></span>
-							</p>
-							 </td><td align="left" valign="top"> <p>
-								A field for adding plain text, human-readable comments regarding the template.
-							</p>
-							 </td></tr><tr><td align="left" valign="top"> <p>
-								<span class="strong strong"><strong>Cluster</strong></span>
-							</p>
-							 </td><td align="left" valign="top"> <p>
-								The cluster with which the template is associated. This is the same as the original virtual machines by default. You can select any cluster in the data center.
-							</p>
-							 </td></tr><tr><td align="left" valign="top"> <p>
-								<span class="strong strong"><strong>CPU Profile</strong></span>
-							</p>
-							 </td><td align="left" valign="top"> <p>
-								The CPU profile assigned to the template. CPU profiles define the maximum amount of processing capability a virtual machine can access on the host on which it runs, expressed as a percent of the total processing capability available to that host. CPU profiles are defined on the cluster level based on quality of service entries created for data centers.
-							</p>
-							 </td></tr><tr><td align="left" valign="top"> <p>
-								<span class="strong strong"><strong>Create as a Template Sub-Version</strong></span>
-							</p>
-							 </td><td align="left" valign="top"> <p>
-								Specifies whether the template is created as a new version of an existing template. Select this check box to access the settings for configuring this option.
-							</p>
-							 <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-										<span class="strong strong"><strong>Root Template</strong></span>: The template under which the sub-template is added.
-									</li><li class="listitem">
-										<span class="strong strong"><strong>Sub-Version Name</strong></span>: The name of the template. This is the name by which the template is accessed when creating a new virtual machine based on the template. If the virtual machine is stateless, the list of sub-versions will contain a <span class="strong strong"><strong>latest</strong></span> option rather than the name of the latest sub-version. This option automatically applies the latest template sub-version to the virtual machine upon reboot. Sub-versions are particularly useful when working with pools of stateless virtual machines.
-									</li></ul></div>
-							 </td></tr><tr><td align="left" valign="top"> <p>
-								<span class="strong strong"><strong>Disks Allocation</strong></span>
-							</p>
-							 </td><td align="left" valign="top"> <p>
-								<span class="strong strong"><strong>Alias</strong></span> - An alias for the virtual disk used by the template. By default, the alias is set to the same value as that of the source virtual machine.
-							</p>
-							 <p>
-								<span class="strong strong"><strong>Virtual Size</strong></span> - The total amount of disk space that a virtual machine based on the template can use. This value cannot be edited, and is provided for reference only. This value corresponds with the size, in GB, that was specified when the disk was created or edited.
-							</p>
-							 <p>
-								<span class="strong strong"><strong>Format</strong></span> - The format of the virtual disk used by the template. The available options are QCOW2 and Raw. By default, the format is set to Raw.
-							</p>
-							 <p>
-								<span class="strong strong"><strong>Target</strong></span> - The storage domain on which the virtual disk used by the template is stored. By default, the storage domain is set to the same value as that of the source virtual machine. You can select any storage domain in the cluster.
-							</p>
-							 <p>
-								<span class="strong strong"><strong>Disk Profile</strong></span> - The disk profile to assign to the virtual disk used by the template. Disk profiles are created based on storage profiles defined in the data centers.
-							</p>
-							 </td></tr><tr><td align="left" valign="top"> <p>
-								<span class="strong strong"><strong>Allow all users to access this Template</strong></span>
-							</p>
-							 </td><td align="left" valign="top"> <p>
-								Specifies whether a template is public or private. A public template can be accessed by all users, whereas a private template can only be accessed by users with the <span class="strong strong"><strong>TemplateAdmin</strong></span> or <span class="strong strong"><strong>SuperUser</strong></span> roles.
-							</p>
-							 </td></tr><tr><td align="left" valign="top"> <p>
-								<span class="strong strong"><strong>Copy VM permissions</strong></span>
-							</p>
-							 </td><td align="left" valign="top"> <p>
-								Copies explicit permissions that have been set on the source virtual machine to the template.
-							</p>
-							 </td></tr><tr><td align="left" valign="top"> <p>
-								<span class="strong strong"><strong>Seal Template</strong></span> (Linux only)
-							</p>
-							 </td><td align="left" valign="top"> <p>
-								Specifies whether a template is sealed. 'Sealing' is an operation that erases all machine-specific configurations from a filesystem, including SSH keys, UDEV rules, MAC addresses, system ID, and hostname. This setting prevents a virtual machine based on this template from inheriting the configuration of the source virtual machine.
-							</p>
-							 </td></tr></tbody></table>
+<thead>
+<tr>
+  <th>Field</th>
+  <th>Description/Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><b>Name</b></td>
+  <td>The name of the template. This is the name by which the template is listed in the <b>Templates</b> tab in the Administration Portal and is accessed via the REST API. This text field has a 40-character limit and must be a unique name within the data center with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores. The name can be reused in different data centers in the environment.</td>
+</tr>
+<tr>
+  <td><b>Description</b></td>
+  <td>A description of the template. This field is recommended but not mandatory.</td>
+</tr>
+<tr>
+  <td><b>Comment</b></td>
+  <td>A field for adding plain text, human-readable comments regarding the template.</td>
+</tr>
+<tr>
+  <td><b>Cluster</b></td>
+  <td>The cluster with which the template is associated. This is the same as the original virtual machines by default. You can select any cluster in the data center.</td>
+</tr>
+<tr>
+  <td><b>CPU Profile</b></td>
+  <td>The CPU profile assigned to the template. CPU profiles define the maximum amount of processing capability a virtual machine can access on the host on which it runs, expressed as a percent of the total processing capability available to that host. CPU profiles are defined on the cluster level based on quality of service entries created for data centers.</td>
+</tr>
+<tr>
+  <td><b>Create as a Template Sub-Version</b></td>
+  <td>
+    <p>Specifies whether the template is created as a new version of an existing template. Select this check box to access the settings for configuring this option.</p>
+    <ul>
+      <li><b>Root Template</b>: The template under which the sub-template is added.</li>
+      <li><b>Sub-Version Name</b>: The name of the template. This is the name by which the template is accessed when creating a new virtual machine based on the template. If the virtual machine is stateless, the list of sub-versions will contain a <b>latest</b> option rather than the name of the latest sub-version. This option automatically applies the latest template sub-version to the virtual machine upon reboot. Sub-versions are particularly useful when working with pools of stateless virtual machines.</li>
+    </ul>
+  </td>
+</tr>
+<tr>
+  <td><b>Disks Allocation</b></td>
+  <td>
+    <p><b>Alias</b> - An alias for the virtual disk used by the template. By default, the alias is set to the same value as that of the source virtual machine.</p>
+    <p><b>Virtual Size</b> - The total amount of disk space that a virtual machine based on the template can use. This value cannot be edited, and is provided for reference only. This value corresponds with the size, in GB, that was specified when the disk was created or edited.</p>
+    <p><b>Format</b> - The format of the virtual disk used by the template. The available options are QCOW2 and Raw. By default, the format is set to Raw.</p>
+    <p><b>Target</b> - The storage domain on which the virtual disk used by the template is stored. By default, the storage domain is set to the same value as that of the source virtual machine. You can select any storage domain in the cluster.</p>
+    <p><b>Disk Profile</b> - The disk profile to assign to the virtual disk used by the template. Disk profiles are created based on storage profiles defined in the data centers.</p>
+  </td>
+</tr>
+<tr>
+  <td><b>Allow all users to access this Template</b></td>
+  <td>Specifies whether a template is public or private. A public template can be accessed by all users, whereas a private template can only be accessed by users with the <b>TemplateAdmin</b> or <b>SuperUser</b> roles.</td>
+</tr>
+<tr>
+  <td><b>Copy VM permissions</b></td>
+  <td>Copies explicit permissions that have been set on the source virtual machine to the template.</td>
+</tr>
+<tr>
+  <td><b>Seal Template</b> (Linux only)</td>
+  <td>Specifies whether a template is sealed. 'Sealing' is an operation that erases all machine-specific configurations from a filesystem, including SSH keys, UDEV rules, MAC addresses, system ID, and hostname. This setting prevents a virtual machine based on this template from inheriting the configuration of the source virtual machine.</td>
+</tr>
+</tbody>
+</table>
 
 **Prev:** [Chapter 7: Templates](chap-Templates)
-**Next:** [Appendix B: virt-sysprep Operations]((../appe-virt-sysprep_Operations)
+**Next:** [Appendix B: virt-sysprep Operations](../appe-virt-sysprep_Operations)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/appe-reference_settings_in_administration_portal_and_user_portal_windows)

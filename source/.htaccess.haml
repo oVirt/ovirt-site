@@ -352,6 +352,10 @@ directory_index: false
   RewriteCond %{REQUEST_URI} /documentation/how-to.*
   RewriteRule ^(.*)$ /develop/ [R=301,L]
 
+  # node/ -> download/node.html
+  RewriteCond %{REQUEST_URI} ^/node/$
+  RewriteRule ^(.*)$ /download/node.html [R=301,L]
+
   # ovirt-live -> ovirt orb
   RewriteCond %{REQUEST_URI} /download/ovirt-live.*
   RewriteRule ^(.*)$ /documentation/ovirt-orb/ [R=301,L]

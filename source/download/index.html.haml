@@ -133,14 +133,18 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron
   7.  Congratulations! oVirt Engine is now installed!
 
   {:.alert.alert-warning}
-  Experienced users can also compile from source, using the guides for the [oVirt Engine](/develop/developer-guide/engine/engine-development-environment/) and [oVirt Node](/develop/projects/node/building/).
+  Experienced users can also compile from source, using the guides found under the [Developers](/develop) section.
+
 :markdown
+
   ## Install Hosts
 
-  oVirt Engine manages Hosts, and Hosts are where virtual machines run. Now that oVirt Engine is installed, you must install at least
-  one Host to have a fully functional environment.
-
-  You can use either [oVirt Node](/node/), Red Hat Enterprise Linux or CentOS Linux as Hosts.
+  oVirt supports two types of [hosts](/documentation/install-guide/chap-Introduction_to_Hosts.html):
+  [oVirt Node](/documentation/install-guide/chap-oVirt_Nodes.html) and
+  [Enterprise Linux (such as CentOS or RHEL)](/documentation/install-guide/chap-Enterprise_Linux_Hosts.html) hosts. Depending on your environment
+  requirements, you may want to use one type only or both in your oVirt environment. It is recommended that you install
+  and attach at least two hosts to the oVirt environment. Where you attach only one host you will be unable to access
+  features such as migration and high availability.
 
 :markdown
   ## Supported Guest Distributions

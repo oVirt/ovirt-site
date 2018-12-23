@@ -49,6 +49,7 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
 - [Security](/develop/security/)
 - [SLA](/develop/sla/)
 - [Storage](/develop/storage/)
+- [Permission system](/develop/developer-guide/action-permissions-overview.html)
 
 #### Containerization
 
@@ -77,7 +78,7 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
 
 - [User level query column filtering](/develop/user-level-query-column-filtering)
 - [Xen](/develop/xen)
-
+- [Migration from vdscli to jsonrpcvdscli](/develop/migration-from-vdscli-to-jsonrpcvdscli.html)
 </section>
 
 </section>

@@ -26,8 +26,9 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron, gshereme
 
 # Download oVirt
 
-oVirt has two components to install -- the oVirt engine and its hosts. Alternatively, you can install an engine and a host
-together with the engine as a VM on the host -- this configuration is known as Self-Hosted Engine.
+oVirt has two components to install -- 1. the oVirt engine, and 2. one or more nodes (hosts) for VMs to run on. Alternatively,
+you can install an engine and a host together with the engine as a VM on the host -- this configuration is known as
+Self-Hosted Engine.
 
 See the [oVirt Installation Guide](/documentation/install-guide/Installation_Guide/) for full installation instructions.
 
@@ -122,16 +123,10 @@ will be unable to access features such as migration and high availability.
 #### Download oVirt Node
 
 oVirt Node is a minimal operating system based on CentOS that is designed to provide a simple method for setting up a
-physical machine to act as a hypervisor in an oVirt environment. The minimal operating system contains only the packages
-required for the machine to act as a hypervisor, and features a Cockpit user interface for monitoring the host and
-performing administrative tasks. See [http://cockpit-project.org/running.html](http://cockpit-project.org/running.html)
-for the minimum browser requirements.
+physical machine to act as a hypervisor in an oVirt environment.
 
 See [Chapter 6: oVirt Nodes](/documentation/install-guide/chap-oVirt_Nodes.html) in the [Installation Guide](/documentation/install-guide/)
 for installation instructions.
-
-Also see [Chapter 5: Introduction to Hosts](/documentation/install-guide/chap-Introduction_to_Hosts.html) and
-[Chapter 7: Enterprise Linux Hosts](/documentation/install-guide/chap-Enterprise_Linux_Hosts.html)
 
 Installing oVirt Node on a physical machine involves three key steps:
 

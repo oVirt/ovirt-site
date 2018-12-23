@@ -22,12 +22,15 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron, gshereme
   text-align: center;
   vertical-align: middle;
 }
+.instructions li {
+    margin-top: 20px;
+}
 </style>
 
 # Download oVirt
 
-oVirt has two components to install -- 1. the oVirt engine, and 2. one or more nodes (hosts) for VMs to run on. Alternatively,
-you can install an engine and a host together with the engine as a VM on the host -- this configuration is known as
+oVirt has two components to install -- 1. the oVirt Engine, and 2. one or more Nodes or Hosts for VMs to run on. Alternatively,
+you can install an Engine and a Host together with the Engine as a VM on the Host -- this configuration is known as
 Self-Hosted Engine.
 
 See the [oVirt Installation Guide](/documentation/install-guide/Installation_Guide/) for full installation instructions.
@@ -58,7 +61,7 @@ or
 
 ## Download oVirt Engine
 
-oVirt engine 4.2.7 is intended for production use and is available for the following platforms:
+oVirt Engine 4.2.7 is intended for production use and is available for the following platforms:
 
 - Red Hat Enterprise Linux 7.5 or later
 - CentOS Linux 7.5 or later
@@ -66,17 +69,23 @@ oVirt engine 4.2.7 is intended for production use and is available for the follo
 
 See the [Release Notes for oVirt 4.2.7](/release/4.2.7/) and the [Installation Guide](/documentation/install-guide/Installation_Guide.html).
 
-Our recommended method of installing oVirt engine is to use the software packages for a supported Enterprise Linux 7 distribution,
+Our recommended method of installing oVirt Engine is to use the software packages for a supported Enterprise Linux 7 distribution,
 such as CentOS Linux or Red Hat Enterprise Linux.
 
 {:.alert.alert-warning}
-**Important:** Please note you can not skip a version when upgrading oVirt engine. If you are updating from e.g. 3.6,
-you first need to update to 4.0, then to 4.1 and finally to 4.2.
-If you're upgrading from a previous version, please update ovirt-release42 and verify
-you have the correct repositories enabled by running the following commands before upgrading.
+Experienced users can also compile from source, using the guides found under the [Developers](/develop) section. This is not recommended
+unless you are a developer or need to customize the source code.
+
+{:.alert.alert-warning}
+**Important:** You cannot skip a version when updating oVirt Engine. For example, if you are updating from
+3.6 to 4.2, you first need to update to 4.0, then to 4.1, and finally to 4.2.
+If you're updating from a previous version, be sure to have the latest release repository installed
+by running <br/>
+`sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`.
 
 #### Red Hat Enterprise Linux, CentOS Linux {#RHEL_Installation_Instructions}
 
+{:.instructions}
 1.  Ensure that you have required repositories for your distribution.
 
     On CentOS the Base, Optional and Extras repositories are already enabled by default and must be enabled.
@@ -102,16 +111,15 @@ you have the correct repositories enabled by running the following commands befo
 
         sudo engine-setup
 
-5.  Follow the on screen prompts to configure and install the engine
-6.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
-7.  Congratulations! oVirt Engine is now installed!
+5.  Follow the on screen prompts to configure and install the Engine.
 
-{:.alert.alert-warning}
-Experienced users can also compile from source, using the guides found under the [Developers](/develop) section.
+6.  Once the installation completes, oVirt's web-based management interface will start and the URL will print
+    to the screen. See [Browsers and Mobile Clients](/download/browsers_and_mobile.html) for supported browsers and
+    mobile client information.
 
 ## Download oVirt Node or Setup Hosts
 
-oVirt supports two types of [hosts](/documentation/install-guide/chap-Introduction_to_Hosts.html):
+oVirt supports two types of [Hosts](/documentation/install-guide/chap-Introduction_to_Hosts.html):
 
 * [oVirt Node](/download/node.html) and
 * [Enterprise Linux (such as CentOS or RHEL)](/documentation/install-guide/chap-Enterprise_Linux_Hosts.html)
@@ -122,58 +130,124 @@ will be unable to access features such as migration and high availability.
 
 #### Download oVirt Node
 
-oVirt Node is a minimal operating system based on CentOS that is designed to provide a simple method for setting up a
+[oVirt Node](/download/node.html) is a minimal operating system based on CentOS that is designed to provide a simple method for setting up a
 physical machine to act as a hypervisor in an oVirt environment.
 
 See [Chapter 6: oVirt Nodes](/documentation/install-guide/chap-oVirt_Nodes.html) in the [Installation Guide](/documentation/install-guide/)
-for installation instructions.
+for full installation instructions.
 
-Installing oVirt Node on a physical machine involves three key steps:
+Installing [oVirt Node](/download/node.html) on a physical machine and adding it to the Engine involves four steps:
 
- * Download the oVirt Node Installation ISO below (probably [oVirt Node 4.2 - Stable Release - Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.2_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html))
+ * Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.2 - Stable Release - Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.2_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html))
 
  * Write the oVirt Node Installation ISO disk image to a USB, CD, or DVD.
 
  * Boot your physical machine from that media and install the oVirt Node minimal operating system.
 
+ * Follow the instructions in [Adding a Host to the oVirt Engine](/documentation/install-guide/chap-Adding_a_Host_to_the_oVirt_Engine.html)
+   to add your Node to the Engine.
+
 #### Setup a Host
 
-An Enterprise Linux host (such as CentOS or RHEL), also known as an EL-based hypervisor, is based on a standard basic
-installation of an Enterprise Linux operating system on a physical server.
+Instead of or in addition to oVirt Node, you can use a standard Enterprise Linux installation as a Host.
+An Enterprise Linux Host (such as CentOS or RHEL), also known as an EL-based hypervisor or EL-based Host, is a standard
+basic installation of an Enterprise Linux operating system on a physical server upon which the hypervisor
+packages are installed.
 
-See [Chapter 7: Enterprise Linux Hosts](/documentation/install-guide/chap-Enterprise_Linux_Hosts.html) for installation
+See [Chapter 7: Enterprise Linux Hosts](/documentation/install-guide/chap-Enterprise_Linux_Hosts.html) for full installation
 instructions.
 
-## Supported Guest Distributions
+Installing and adding an EL Host involves four steps:
 
-Once oVirt Engine is installed and you have added a Host, you can proceed to install any number of supported operating systems as guest virtual machines.
+ * make sure the Host meets the [Hypervisor Requirements](/documentation/install-guide/chap-System_Requirements.html#hypervisor-requirements)
 
-|Operating System|Architecture|SPICE support|
+ * update the Host operating system via `yum update -y` and reboot
+
+ * Add the official oVirt repository
+
+   `sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`
+
+ * Follow the instructions in [Adding a Host to the oVirt Engine](/documentation/install-guide/chap-Adding_a_Host_to_the_oVirt_Engine.html)
+   to add your Host to the Engine. This will automatically install the hypervisor packages on the Host.
+
+## Storage
+
+oVirt uses a centralized storage system for Virtual Machine disk images, ISO files, and snapshots. Before you can install a Virtual Machine,
+storage must be attached.
+
+Storage can be implemented using:
+
+ * Network File System (NFS)
+
+ * GlusterFS exports
+
+ * iSCSI (Internet Small Computer System Interface)
+
+ * Local storage attached directly to the virtualization hosts
+
+ * Fibre Channel Protocol (FCP)
+
+ * Parallel NFS (pNFS)
+
+ * Other POSIX compliant file systems
+
+See [Configuring Storage](/documentation/install-guide/chap-Configuring_Storage.html) and
+[Storage Administration](/documentation/admin-guide/chap-Storage.html) for guidance on configuring storage for your
+environment.
+
+## Install Virtual Machines
+
+Once oVirt Engine is installed and you have added Hosts and [configured storage](/documentation/install-guide/chap-Configuring_Storage.html),
+you can now install Virtual Machines!
+
+See the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide.html) for complete
+instructions.
+
+For best Virtual Machine performance and accurate dashboard statistics, install the
+[oVirt Guest Agent and Drivers for Linux](/documentation/vmm-guide/chap-Installing_Linux_Virtual_Machines.html#installing-the-guest-agents-and-drivers-on-enterprise-linux)
+\[for [Windows](/documentation/vmm-guide/chap-Installing_Windows_Virtual_Machines.html#installing-the-guest-agents-and-drivers-on-windows)\]
+in each Virtual Machine.
+
+The following virtual machine guest operating systems are supported:
+
+|Operating System|Architecture|SPICE support [1]|
 |:---------------|:-----------|:------------|
-|Red Hat Enterprise Linux 3|32-bit, 64-bit|Yes|
-|Red Hat Enterprise Linux 4|32-bit, 64-bit|Yes|
-|Red Hat Enterprise Linux 5|32-bit, 64-bit|Yes|
-|Red Hat Enterprise Linux 6|32-bit, 64-bit|Yes|
-|Red Hat Enterprise Linux 7|64-bit|Yes|
-|SUSE Linux Enterprise Server 10 [1]|32-bit, 64-bit|No|
-|SUSE Linux Enterprise Server 11 [2]|32-bit, 64-bit|No|
-|Ubuntu 12.04 (Precise Pangolin LTS)|32-bit, 64-bit|Yes|
-|Ubuntu 12.10 (Quantal Quetzal)|32-bit, 64-bit|Yes|
-|Ubuntu 13.04 (Raring Ringtail)|32-bit, 64-bit|Yes|
-|Ubuntu 13.10 (Saucy Salamander)|32-bit, 64-bit|Yes|
+|Red Hat Enterprise Linux 3 - 6|32-bit, 64-bit|Yes|
+|Red Hat Enterprise Linux 7+|64-bit|Yes|
+|SUSE Linux Enterprise Server 10+ [2]|32-bit, 64-bit|No|
+|Ubuntu 12.04 (Precise Pangolin LTS)+ [3]|32-bit, 64-bit|Yes|
 |Windows XP Service Pack 3 and newer|32-bit|Yes|
 |Windows 7|32-bit, 64-bit|Yes|
 |Windows 8|32-bit, 64-bit|No|
-|Windows 10[3]|32-bit, 64-bit|Yes|
+|Windows 10|64-bit|Yes|
 |Windows Server 2003 Service Pack 2 and newer|32-bit, 64-bit|Yes|
 |Windows Server 2008|32-bit, 64-bit|Yes|
 |Windows Server 2008 R2|64-bit|Yes|
 |Windows Server 2012 R2|64-bit|No|
 |Windows Server 2016|64-bit|No|
 
-[1] select Other Linux for the guest type in the user interface<br/>
-[2] SPICE drivers (QXL) are not supplied by Red Hat. Distribution's vendor may provide SPICE drivers.<br/>
-[3] 64-bit only. SPICE upstream drivers are also [available](https://www.spice-space.org/download/windows/qxl-wddm-dod/qxl-wddm-dod-0.18/)
+[1] SPICE drivers (QXL) are not supplied by Red Hat. Distribution's vendor may provide SPICE drivers.<br/>
+[2] select Other Linux for the guest type in the user interface<br/>
+[3] not tested recently (?)<br/>
+
+## Consoles
+
+A console is a graphical window that allows you to view the start up screen, shut down screen, and desktop of a
+Virtual Machine, and to interact with that Virtual Machine in a similar way to a physical machine. In oVirt,
+the default application for opening a console to a virtual machine is Remote Viewer, which must be installed on
+the client machine (for example, the end user or administrator's laptop). For Windows virtual machines, Remote
+Desktop Protocol is also available.
+
+See [Installing Console Components](/documentation/vmm-guide/chap-Introduction.html#installing-console-components)
+for installation instructions.
+
+#### Browser based
+
+There is also a browser-based console available. In the Console Options dialog for the Virtual Machine, select `noVNC`.
+See [VNC Console Options](/documentation/vmm-guide/chap-Additional_Configuration.html#vnc-console-options) and
+and [Browser Support and Mobile Clients](/download/browsers_and_mobile.html) for more information.
+
+<hr/>
 
 ## RPM Repositories for oVirt
 

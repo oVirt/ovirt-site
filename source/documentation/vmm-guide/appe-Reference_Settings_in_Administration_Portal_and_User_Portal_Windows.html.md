@@ -1360,6 +1360,6 @@ The following table details the settings for the **New Template** window.
 </table>
 
 **Prev:** [Chapter 7: Templates](chap-Templates)
-**Next:** [Appendix B: virt-sysprep Operations](../appe-virt-sysprep_Operations)
+**Next:** [Appendix B: virt-sysprep Operations](appe-virt-sysprep_Operations)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/appe-reference_settings_in_administration_portal_and_user_portal_windows)

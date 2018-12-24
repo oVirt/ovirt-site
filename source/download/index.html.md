@@ -4,17 +4,6 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron, gshereme
 ---
 
 <style>
-.deployment {
-  width: 55%;
-  float: left;
-}
-.requirements {
-  width: 42%;
-  float: right;
-}
-.clear-left {
-  clear: left;
-}
 .button-container {
   min-height: 40px;
   padding: 10px;
@@ -41,7 +30,7 @@ oVirt can be downloaded and installed two primary ways: Self-Hosted Engine or se
 
 For production installations, we recommend installing oVirt using the Self-Hosted Engine configuration. In this configuration,
 oVirt Engine and a Host are installed together with the Engine running as a Virtual Machine on that Host. This configuration is
-more resilent because the Engine Virtual Machine will be highly available. See the
+more resilent because the Engine Virtual Machine will be highly available (once a second Host is added). See the
 [Self-Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide.html) for full installation instructions
 for this configuration.
 
@@ -85,7 +74,7 @@ and
 
 For production installations, we recommend installing oVirt using the Self-Hosted Engine configuration. In this configuration,
 oVirt Engine and a Host are installed together with the Engine running as a Virtual Machine on that Host. This configuration is
-more resilent because the Engine Virtual Machine will be highly available. See the
+more resilent because the Engine Virtual Machine will be highly available (once a second Host is added). See the
 [Self-Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide.html) for full installation instructions
 for this configuration.
 

@@ -79,16 +79,14 @@ more resilent because the Engine Virtual Machine will be highly available (once 
 for this configuration.
 
 oVirt Self-Hosted Engine is installed using a graphical installer in Cockpit.
-Cockpit is enabled by default on [oVirt Nodes](/download/node.html) (see below). If you are using a Enterprise Linux host,
+Cockpit is enabled by default on [oVirt Nodes](/download/node.html) (see below). If you are using a Enterprise Linux Host,
 see [Installing Cockpit on Enterprise Linux Hosts](/documentation/install-guide/chap-Enterprise_Linux_Hosts.html#installing-cockpit-on-enterprise-linux-hosts)
 in the [Installation Guide](/documentation/install-guide/Installation_Guide.html).
 
 #### Red Hat Enterprise Linux, CentOS Linux {#RHEL_Installation_Instructions}
 
 {:.instructions}
-1.  Ensure that you have required repositories for your distribution.
-
-    On CentOS the Base, Optional and Extras repositories are already enabled by default and must be enabled.
+1.  Enable the Base, Optional, and Extra repositories (they are enabled by default on CentOS).
 
     On Red Hat Enterprise Linux you'll need a valid subscription and the following repositories enabled:
 
@@ -100,15 +98,18 @@ in the [Installation Guide](/documentation/install-guide/Installation_Guide.html
 
         sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
 
-    -   This will add repositories from ovirt.org to your host allowing you to get the latest oVirt rpms.
-    -   It will also enable any other needed repository
+3.  Enable Cockpit.
 
-3.  Enable Cockpit if it is not already enabled, and install cockpit-ovirt-dashboard.
+        # enable cockpit if necessary:
+        sudo systemctl enable --now cockpit.socket
+
+        # open the firewall if necessary:
+        sudo firewall-cmd --add-service=cockpit
+        sudo firewall-cmd --add-service=cockpit --permanent
+
+4.  Install cockpit-ovirt-dashboard.
 
         sudo yum install cockpit-ovirt-dashboard
-
-    See
-    [Installing Cockpit on Enterprise Linux Hosts](/documentation/install-guide/chap-Enterprise_Linux_Hosts.html#installing-cockpit-on-enterprise-linux-hosts).
 
 #### Install oVirt Self-Hosted Engine
 
@@ -146,9 +147,7 @@ by running <br/>
 #### Red Hat Enterprise Linux, CentOS Linux {#RHEL_Installation_Instructions}
 
 {:.instructions}
-1.  Ensure that you have required repositories for your distribution.
-
-    On CentOS the Base, Optional and Extras repositories are already enabled by default and must be enabled.
+1.  Enable the Base, Optional, and Extra repositories (they are enabled by default on CentOS).
 
     On Red Hat Enterprise Linux you'll need a valid subscription and the following repositories enabled:
 
@@ -159,9 +158,6 @@ by running <br/>
 2.  Add the official oVirt repository.
 
         sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
-
-    -   This will add repositories from ovirt.org to your host allowing you to get the latest oVirt rpms.
-    -   It will also enable any other needed repository
 
 3.  Install oVirt Engine.
 
@@ -191,7 +187,7 @@ oVirt supports two types of [Hosts](/documentation/install-guide/chap-Introducti
 * [Enterprise Linux (such as CentOS or RHEL)](/documentation/install-guide/chap-Enterprise_Linux_Hosts.html)
 
 Depending on your environment requirements, you may want to use one type only or both in your oVirt environment. It is
-recommended that you install and attach at least two hosts to the oVirt environment. If you attach only one host, you
+recommended that you install and attach at least two Hosts to the oVirt environment. If you attach only one Host, you
 will be unable to access features such as migration and high availability.
 
 #### Download oVirt Node
@@ -249,7 +245,7 @@ Storage can be implemented using:
 
  * iSCSI (Internet Small Computer System Interface)
 
- * Local storage attached directly to the virtualization hosts
+ * Local storage attached directly to the virtualization Hosts
 
  * Fibre Channel Protocol (FCP)
 

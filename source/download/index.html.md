@@ -29,21 +29,30 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron, gshereme
 
 # Download oVirt
 
-oVirt has two components to install -- 1. the oVirt Engine, and 2. one or more Nodes or Hosts for VMs to run on. Alternatively,
-you can install an Engine and a Host together with the Engine as a VM on the Host -- this configuration is known as
-Self-Hosted Engine.
+oVirt 4.2.7 is intended for production use and is available for the following platforms:
 
-See the [oVirt Installation Guide](/documentation/install-guide/Installation_Guide/) for full installation instructions.
+- Red Hat Enterprise Linux 7.5 or later
+- CentOS Linux 7.5 or later
+- Scientific Linux 7.5 or later
+
+See the [Release Notes for oVirt 4.2.7](/release/4.2.7/) and the [Installation Guide](/documentation/install-guide/Installation_Guide.html).
+
+oVirt can be downloaded and installed two primary ways: Self-Hosted Engine or separate Engine and Hosts.
+
+For production installations, we recommend installing oVirt using the Self-Hosted Engine configuration. In this configuration,
+oVirt Engine and a Host are installed together with the Engine running as a Virtual Machine on that Host. This configuration is
+more resilent because the Engine Virtual Machine will be highly available. See the
+[Self-Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide.html) for full installation instructions
+for this configuration.
+
+If you prefer to run oVirt Engine standalone on physical hardware, you can install oVirt Engine and Nodes / Hosts separately.
+See the [oVirt Installation Guide](/documentation/install-guide/Installation_Guide.html) for full installation instructions
+for this configuration.
 
 <div class="row">
 <div class="col-sm-3">
 <div class="button-container">
-<a href="#download-ovirt-engine" class="btn btn-primary">Download oVirt Engine</a>
-</div>
-</div>
-<div class="col-sm-3">
-<div class="button-container">
-<a href="#download-ovirt-node-or-setup-hosts" class="btn btn-primary">Download oVirt Node or Setup Hosts</a>
+<a href="#download-and-install-ovirt-self-hosted-engine" class="btn btn-primary">Install oVirt Self-Hosted Engine</a>
 </div>
 </div>
 <div class="col-sm-2">
@@ -51,23 +60,85 @@ See the [oVirt Installation Guide](/documentation/install-guide/Installation_Gui
 or
 </div>
 </div>
-<div class="col-sm-3">
+<div class="col-sm-6">
+<div class="col-sm-5">
 <div class="button-container">
-<a href="/documentation/self-hosted/Self-Hosted_Engine_Guide.html" class="btn btn-primary">Install oVirt Self-Hosted Engine</a>
+<a href="#download-ovirt-engine" class="btn btn-primary">Download oVirt Engine</a>
+</div>
+</div>
+<div class="col-sm-2">
+<div class="button-container">
+and
+</div>
+</div>
+<div class="col-sm-4">
+<div class="button-container">
+<a href="#download-ovirt-node-or-setup-hosts" class="btn btn-primary">Download oVirt Node or Setup Hosts</a>
 </div>
 </div>
 </div>
+</div>
+
 <div class="row"></div>
+
+## Download and Install oVirt Self-Hosted Engine
+
+For production installations, we recommend installing oVirt using the Self-Hosted Engine configuration. In this configuration,
+oVirt Engine and a Host are installed together with the Engine running as a Virtual Machine on that Host. This configuration is
+more resilent because the Engine Virtual Machine will be highly available. See the
+[Self-Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide.html) for full installation instructions
+for this configuration.
+
+oVirt Self-Hosted Engine is installed using a graphical installer in Cockpit.
+Cockpit is enabled by default on [oVirt Nodes](/download/node.html) (see below). If you are using a Enterprise Linux host,
+see [Installing Cockpit on Enterprise Linux Hosts](/documentation/install-guide/chap-Enterprise_Linux_Hosts.html#installing-cockpit-on-enterprise-linux-hosts)
+in the [Installation Guide](/documentation/install-guide/Installation_Guide.html).
+
+#### Red Hat Enterprise Linux, CentOS Linux {#RHEL_Installation_Instructions}
+
+{:.instructions}
+1.  Ensure that you have required repositories for your distribution.
+
+    On CentOS the Base, Optional and Extras repositories are already enabled by default and must be enabled.
+
+    On Red Hat Enterprise Linux you'll need a valid subscription and the following repositories enabled:
+
+    - rhel-7-server-rpms
+    - rhel-7-server-optional-rpms
+    - rhel-7-server-extras-rpms
+
+2.  Add the official oVirt repository.
+
+        sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+
+    -   This will add repositories from ovirt.org to your host allowing you to get the latest oVirt rpms.
+    -   It will also enable any other needed repository
+
+3.  Enable Cockpit if it is not already enabled, and install cockpit-ovirt-dashboard.
+
+        sudo yum install cockpit-ovirt-dashboard
+
+    See
+    [Installing Cockpit on Enterprise Linux Hosts](/documentation/install-guide/chap-Enterprise_Linux_Hosts.html#installing-cockpit-on-enterprise-linux-hosts).
+
+#### Install oVirt Self-Hosted Engine
+
+{:.instructions}
+1.  Log in to Cockpit at https://\[Host IP or FQDN\]:9090 and click Virtualization → Hosted Engine.
+
+2.  Click Start under the Hosted Engine option.
+
+3.  Complete the setup wizard. As part of the setup, you will enter the Hosted Engine's name.
+
+4.  Once the installation completes, oVirt's web UI management interface will start. Browse to
+    https://\[Hosted Engine's name\]/ to begin using oVirt!
+
+    See [Browsers and Mobile Clients](/download/browsers_and_mobile.html) for supported browsers and
+    mobile client information.
 
 ## Download oVirt Engine
 
-oVirt Engine 4.2.7 is intended for production use and is available for the following platforms:
-
-- Red Hat Enterprise Linux 7.5 or later
-- CentOS Linux 7.5 or later
-- Scientific Linux 7.5 or later
-
-See the [Release Notes for oVirt 4.2.7](/release/4.2.7/) and the [Installation Guide](/documentation/install-guide/Installation_Guide.html).
+If you prefer not to use oVirt Self-Hosted Engine, you can install oVirt Engine and Nodes / Hosts separately.
 
 Our recommended method of installing oVirt Engine is to use the software packages for a supported Enterprise Linux 7 distribution,
 such as CentOS Linux or Red Hat Enterprise Linux.
@@ -113,11 +184,17 @@ by running <br/>
 
 5.  Follow the on screen prompts to configure and install the Engine.
 
-6.  Once the installation completes, oVirt's web-based management interface will start and the URL will print
-    to the screen. See [Browsers and Mobile Clients](/download/browsers_and_mobile.html) for supported browsers and
+6.  Once the installation completes, oVirt's web UI management interface will start and the URL will be printed
+    to the screen. Browse to this URL to begin using oVirt!
+
+    See [Browsers and Mobile Clients](/download/browsers_and_mobile.html) for supported browsers and
     mobile client information.
 
 ## Download oVirt Node or Setup Hosts
+
+If you installed standalone oVirt Engine, you'll now need to install at least one Node or Host. If you installed
+oVirt Self-Hosted Engine, you already have one Host, but you may want another for access to enterprise features
+like migration and high availability.
 
 oVirt supports two types of [Hosts](/documentation/install-guide/chap-Introduction_to_Hosts.html):
 

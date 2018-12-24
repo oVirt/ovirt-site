@@ -101,7 +101,7 @@ If you receive the status `The hosted engine configuration has not been retrieve
 
 * `hosted-engine --check-liveliness`: This command checks the liveliness page of the ovirt-engine service. You can also check by connecting to https://engine-fqdn/ovirt-engine/services/health/ in a web browser.
 
-* `hosted-engine --connect-storage`: This command instructs VDSM to prepare all storage connections needed for the host and and the Engine virtual machine. This is normally run in the back-end during the self-hosted engine deployment. Ensure that the global maintenance mode is enabled if you need to run this command to troubleshoot storage issues.
+* `hosted-engine --connect-storage`: This command instructs VDSM to prepare all storage connections needed for the host and the Engine virtual machine. This is normally run in the back-end during the self-hosted engine deployment. Ensure that the global maintenance mode is enabled if you need to run this command to troubleshoot storage issues.
 
 ## Cleaning Up a Failed Self-Hosted Engine Deployment
 

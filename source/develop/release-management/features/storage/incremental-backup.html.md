@@ -168,18 +168,24 @@ disk contents.
 
 #### Enabling backup for VM disk
 
-Specify 'backup' flag on ```disk``` entity.
+Specify 'backup' property on ```disk``` entity: 'incremental'/'none' (TBD: 'full')
 
 Request:
 ```
 POST /vms/vm-uuid/disks
+
+<disk>
+    ...
+    <backup>incremental|none</backup>
+    ...
+</disk>
 ```
 
 Response:
 ```
 <disk>
     ...
-    <backup>incremental|full|none</backup>
+    <backup>incremental|none</backup>
     ...
 </disk>
 ```
@@ -199,23 +205,23 @@ Response:
 <disks>
     <disk>
         ...
-        <backup>incremental|null</backup>
+        <backup>incremental|none</backup>
         ...
-    </disks>
+    </disk>
     ...
 </disks>
 ```
 
-#### Starting backup
+#### Starting full backup
 
-Start incremental backup since backup id "previous-backup-uuid".
+Start full backup. The response includes 'to_checkpoint_id' which
+is created on the disks. It can be used in the next incremental backup.
 
 Request:
 ```
 POST /vms/vm-uuid/backups
 
 <backup>
-    <incremental>previous-backup-uuid</incremental>
     <disks>
         <disk id="disk-uuid" />
         ...
@@ -226,20 +232,54 @@ POST /vms/vm-uuid/backups
 Response:
 ```
 <backup id="backup-uuid">
-    <incremental>previous-backup-uuid</incremental>
+    <to_checkpoint_id>new-checkpoind-uuid</to_checkpoint_id>
     <disks>
         <disk id="disk-uuid" />
         ...
         ...
     </disks>
-    <status>initiailizing</status>
-    <creation_date>...
+    <phase>initiailizing</phase>
+    <creation_date>
+</backup>
+```
+
+#### Starting incremental backup
+
+Start incremental backup since checkpoint id "previous-checkpoint-uuid".
+The response include 'to_checkpoint_id' which should be used as the
+'from_checkpoint_id' in the next incremental backup.
+
+Request:
+```
+POST /vms/vm-uuid/backups
+
+<backup>
+    <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
+    <disks>
+        <disk id="disk-uuid" />
+        ...
+    </disks>
+</backup>
+```
+
+Response:
+```
+<backup id="backup-uuid">
+    <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
+    <to_checkpoint_id>new-checkpoind-uuid</to_checkpoint_id>
+    <disks>
+        <disk id="disk-uuid" />
+        ...
+        ...
+    </disks>
+    <phase>initiailizing</phase>
+    <creation_date>
 </backup>
 ```
 
 #### Getting backup info
 
-When backup status is "ready", you can start downloading the disks.
+When backup phase is "ready", you can start downloading the disks.
 
 Request:
 ```
@@ -248,31 +288,24 @@ GET /vms/vm-uuid/backups/backup-uuid
 
 Response:
 ```
-<backup id="backup-uuid">
-    <incremental>previous-backup-uuid</incremental>
+<vm_backup id="backup-uuid">
+    <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
+    <to_checkpoint_id>new-checkpoind-uuid</to_checkpoint_id>
     <disks>
         <disk id="disk-uuid">
             <image_id>image-uuid</image_id>
         </disk>
         ...
     </disks>
-    <status>ready</status>
+    <phase>ready</phase>
     <creation_date>...
-</backup>
+</vm_backup>
 ```
 
 #### Finalizing backup
 
 ```
 POST /vms/vm-uuid/backups/backup-uuid/finalize
-
-<action></action>
-```
-
-#### Canceling backup
-
-```
-POST /vms/vm-uuid/backups/backup-uuid/cancel
 
 <action></action>
 ```
@@ -399,11 +432,7 @@ The system will create qemu-nbd process for writing to  every disk:
 ### Preparing a VM for incremental backup
 
 1. user starts backup using oVirt API. engine creates a backup in the
-   database with "initializing" status.
-
-1. engine creates a scratch disk using qcow2 format for every disk in
-   the backup. The disk must have enough space to hold the current data
-   in the top layer of an image.
+   database with "initializing" phase.
 
 1. If the VM is not running, engine prepares a stripped down version of
    the VM, with only the backup disks attached, and create the VM on
@@ -440,7 +469,7 @@ The system will create qemu-nbd process for writing to  every disk:
    at this point will be tracked by the new active bitmap, and will not
    be included in the incremental backup.
 
-1. engine changes the backup status to "ready". Once the user detects
+1. engine changes the backup phase to "ready". Once the user detects
    the change, the user can start transferring data.
 
 ### Finalizing backup
@@ -449,16 +478,13 @@ When backup succeeds, backup application copied all incremental data
 successfully.
 
 1. user ask to finalize the backup using oVirt API. engine change
-   backup status to "finalizing".
+   backup phase to "finalizing".
 
 1. engine end the backup using vdsm backup API, which will use libvirt
    backup API to end the backup.
 
 1. libvirt uses qemu API to delete the temporary bitmaps and end the
    backup job.
-
-1. engine tears down and deletes the scratch disks created fro the backup
-   using vdsm storage APIs.
 
 1. If running the special "backup" stripped down VM, tear down disks the
    VM disks using the existing storage APIs, and destroy the VM on the
@@ -476,6 +502,13 @@ The backup API should allow specifying some range of checkpoint to
 delete. Probably specifying a checkpoint that should be kept, deleting
 all older snapshots.
 
+### Scratch disk
+
+For now we'll use a scratch disk on the host (created by libvirt).
+As a future work, we'll consider to create a scratch disk using qcow2 format
+for every disk in the backup. The disk must have enough space to hold the 
+current data in the top layer of an image.
+
 #### Use case 1 - running 2 backup solutions in the same time
 
 User is switching from backup solution A to B. During the transition,
@@ -489,32 +522,25 @@ User is configuring both hourly and daily backup. If both jobs delete
 the checkpoints after backup they may prevent the next job from
 completing the next backup.
 
-### Cancelling backup
-
-When backup fail or aborted, backup application didn't complete to copy
-all data.
-
-1. Delete scratch disks created for this backup.
-2. If the VM is not running, tear down the disks included in the backup.
-
-
 ### Engine database changes
 
 Add backup column to base_disks table. Use to mark an image for
 incremental backup.
 
 - base_disks
-  - backup: (incremental/null)
+  - backup: (incremental/none)
 
 Add vm_backups table. This table keep the information about running
 backups tasks. Use during backup to track and montior backup.
 
 - vm_backups
-  - id: UUID
-  - checkpoint_id: "initializing"/"starting"/"ready"/"transferring"/"finalizing"
-  - incremental_id: UUID | null
+  - backup_id: UUID
+  - phase: "initializing"/"starting"/"ready"/"finalizing"
+  - from_checkpoint_id: UUID/null
     - if specified, perform incremental including all checkpoints since
       that checkpoint.
+  - to_checkpoint_id: UUID/null
+    - the newly created checkpoint.
   - vm_id: UUID
   - creation_date: TIMESTAMP
 
@@ -532,7 +558,7 @@ backup tasks. This info is used before backup to update libvirt about
 the checkpoints list, since this info is not stored in the qcow2 images.
 
 - vm_checkpoints
-  - id: UUID
+  - checkpoint_id: UUID
   - parent: UUID
   - vm_id: UUID
   - creation_date: TIMESTAMP
@@ -701,7 +727,7 @@ socket:
 - API - backup application can use
   [oVirt engine REST API](https://github.com/oVirt/ovirt-engine-api-model)
   or [oVirt engine SDK](https://github.com/oVirt/ovirt-engine-sdk)
-  to start and stop backup operation and get backup status.
+  to start and stop backup operation and get backup phase.
 
 - ovirt-engine - the backup process is orchastracted and monitored by
   [ovirt-engine](https://github.com/oVirt/ovirt-engine).

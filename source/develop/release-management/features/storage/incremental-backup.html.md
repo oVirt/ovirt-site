@@ -720,9 +720,13 @@ socket:
   https://www.jamescoyle.net/how-to/1810-qcow2-disk-images-and-performance
 
 - Tune qcow2 images if needed
-  https://www.slideshare.net/mobile/igalia/improving-the-performance-of-the-qcow2-format-kvm-forum-2017
+  https://www.slideshare.net/mobile/igalia/improving-the-performance-of-the-qcow2-format-kvm-forum(2017
 
 ## Links
+
+- Overview of libvirt incremental backup API
+  - [Part 1 (full pull mode)](https://www.spinics.net/linux/fedora/libvir/msg174457.html)
+  - [Part 2 (incremental/differential pull mode)](https://www.spinics.net/linux/fedora/libvir/msg174528.html)
 
 - API - backup application can use
   [oVirt engine REST API](https://github.com/oVirt/ovirt-engine-api-model)
@@ -746,10 +750,6 @@ socket:
   [Patches for incremental backup](https://www.redhat.com/archives/libvir-list/2018-October/msg01254.html)
   are in review in libvirt mailing list. The patches are also available
   in [Eric Blake's repository](https://repo.or.cz/libvirt/ericb.git).
-
-- Overview of libvirt incremental backup API
-  - Part 1 (full pull mode): https://www.spinics.net/linux/fedora/libvir/msg174457.html
-  - Part 2 (incremental/differential pull mode): https://www.spinics.net/linux/fedora/libvir/msg174790.html
 
 - See also Eric's talk from KVM Forum 2018:
   [Facilitating Incremental Backup](https://events.linuxfoundation.org/wp-content/uploads/2017/12/Eric-Blake_2018-libvirt-incremental-backup.pdf)

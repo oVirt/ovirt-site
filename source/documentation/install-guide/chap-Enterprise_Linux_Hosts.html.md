@@ -23,7 +23,7 @@ You can install a Cockpit user interface for monitoring the host’s resources a
 
 **Installing Cockpit on Enterprise Linux Hosts**
 
-1. By default, when adding a host to the oVirt Engine, the Engine configures the required firewall ports. See Chapter 8: Adding a Host to the oVirt Engine](chap-Adding_a_Host_to_the_oVirt_Engine) for details. However, if you disable Automatically configure host firewall when adding the host, manually configure the firewall according to the “Host Firewall Requirements” in [Chapter 2: System Requirements](chap-System_Requirements).
+1. By default, when adding a host to the oVirt Engine, the Engine configures the required firewall ports. See [Chapter 8: Adding a Host to the oVirt Engine](chap-Adding_a_Host_to_the_oVirt_Engine) for details. However, if you disable Automatically configure host firewall when adding the host, manually configure the firewall according to the “Host Firewall Requirements” in [Chapter 2: System Requirements](chap-System_Requirements).
 
 2. Install the dashboard packages:
 

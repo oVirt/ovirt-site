@@ -117,12 +117,6 @@ NAME                      DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE  
 ovirt-flexvolume-driver   1         1         1         1            1           <none>          59m
 ```
 
-
-If the router is not scheduled, label the node as follows:
-```console
-[root@master0 ~]# oc label node master0.example.com  "node-router=true"
-```
-
 ### Default Storage Class
 To run all the dynamic storage provisioning through ovirt's provisioner, 
 we need to set oVirt's storage class to the default.  

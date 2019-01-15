@@ -45,10 +45,10 @@ If you can't install `podman` docker will be fine as well, just edit the install
 
 ### Get the install.sh and customize
 ```console
-[bastion ~]# curl -O "https://raw.githubusercontent.com/oVirt/ovirt-openshift-extensions/master/automation/ci/{install.sh,customization.yaml}"
+[bastion ~]# curl -O "https://raw.githubusercontent.com/oVirt/ovirt-openshift-extensions/master/automation/ci/{install.sh,vars.yaml}"
 ```
 
-Edit the `customization.yaml`:
+Edit the `vars.yaml`:
 
 - Put the engine details in engine_url
   ```yaml

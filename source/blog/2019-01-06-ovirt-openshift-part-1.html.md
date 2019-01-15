@@ -5,32 +5,24 @@ tags: oVirt, oVirt 4.2, open source virtualization,kubernetes, openshift, extern
 date: 2019-01-06 09:01:00 UTC
 ---
 
-<img src="/images/blog/2019-01-06/boxhead.png" width="400px"/>
-
-
-
 This is a series of posts to demonstrate how to  install  OKD 3.11 on oVirt and what you can do with it.
-
 **Part I**   -  How to intall OKD 3.11 on oVirt
 
-
+<img align="left" src="/images/blog/2019-01-06/boxhead.png" width="400px" style="margin-right: 25px;border-radius: 4px">
 
 # How to intall OKD 3.11 on ovirt (4.2 and up)
-
 Installing OKD or Kubernetes on oVirt has many advantages, and it's also gotten a lot easier these days. Admins and users who want to take container platform management for a spin, on oVirt, will be encouraged by this.  
 Few of the advantages are:
 - Virtualizing the control plane for Kubernetes - provide HA/backup/affinity capabilities to the controllers and allowing hardware maintenance cycles
 - Providing persistent volume for containers via the IAAS, without the need for additional storage array dedicated to Kubernetes
 - Allowing a quick method to build up/tear down Kubernetes clusters, providing hard tenency model via VMs between clusters.
 
-The installation uses [openshift-ansible](https://github.com/openshift/openshift-ansible) and, specifically the `openshift_ovirt` ansible-role. The integration between OpenShift and oVirt is tighter, and provides storage integration. If you need persistent volumes for your containers you can get that directly from oVirt using **ovirt-volume-provisioner** and **ovirt-flexvolume-driver**.
-
+The installation uses [openshift-ansible](https://github.com/openshift/openshift-ansible) and, specifically the `openshift_ovirt` ansible-role. The integration between OpenShift and oVirt is tighter, and provides storage integration. If you need persistent volumes for your containers you can get that directly from oVirt using **ovirt-volume-provisioner** and **ovirt-flexvolume-driver**.  
 For the sake of simplicity, this example will cover an all-in-one OpenShift cluster, on a single VM.  
 On top of that, in the 2nd post, we will run a classic web stack, a Java application with a simple REST-API endpoint + Postgres. Postgres will get a persistent volume from oVirt using its flexvolume driver.
 
 
-
-<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@soroushgolpoor?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Soroush golpoor"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Soroush golpoor</span></a>
+<span style="font: italic 10px robot, monospace; top: 220px">Picture by [Soroush golpoor on Unsplash](https://unsplash.com/@soroushgolpoor?utm_medium=referral&utm_campaign=photographer-credit&utm_content=creditBadge)</span>
 
 
 
@@ -53,10 +45,10 @@ If you can't install `podman` docker will be fine as well, just edit the install
 
 ### Get the install.sh and customize
 ```console
-[bastion ~]# curl -O "https://raw.githubusercontent.com/oVirt/ovirt-openshift-extensions/master/automation/ci/{install.sh,customization.yaml}"
+[bastion ~]# curl -O "https://raw.githubusercontent.com/oVirt/ovirt-openshift-extensions/master/automation/ci/{install.sh,vars.yaml}"
 ```
 
-Edit the `customization.yaml`:
+Edit the `vars.yaml`:
 
 - Put the engine details in engine_url
   ```yaml

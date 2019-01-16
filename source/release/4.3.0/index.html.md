@@ -7,7 +7,7 @@ authors: sandrobonazzola
 
 # oVirt 4.3.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.0 First Release Candidate as of January 10, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.0 Seconod Release Candidate as of January 10, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -93,13 +93,19 @@ packages from other repos.
 
 #### VDSM
 
+ - [BZ 1514004](https://bugzilla.redhat.com/1514004) <b>[downstream clone - 4.3.0] [RFE] Drop TLSv1 and TLSv1.1 encryption protocols support</b><br>TLSv1 and TLSv1.1 protocols are no longer secure, so they are forcefully disabled in VDSM configuration and cannot no longer be enabled within configuration.<br><br>Only TLSv1.2 and higher version of protocols are enabled, exact versions depends on underlying openssl version.
  - [BZ 1655115](https://bugzilla.redhat.com/1655115) <b>Drop 3.6 and 4.0 datacenter/cluster level</b><br>Support for cluster levels 3.6/4.0 and RHV Managers 3.6/4.0 has been removed from VDSM, which means that VDSM from RHV 4.3 can no longer be used in RHV 3.6/4.0. To use that new VDSM version customers need to upgrade RHV Manager to 4.1 or newer version
 
 #### oVirt Engine
 
+ - [BZ 1627756](https://bugzilla.redhat.com/1627756) <b>On engine side replace fluentd dependencies with rsyslog</b><br>The fluentd based metrics support has been replaced with rsyslog based metrics. On engine hosts upgraded from 4.2 you will still have fluentd installed. You may want to remove those packages after finishing the upgrade to 4.3
  - [BZ 1550634](https://bugzilla.redhat.com/1550634) <b>Drop 3.6 and 4.0 datacenter/cluster level</b><br>Support for cluster levels 3.6/4.0 has been removed from RHV Manager, so customers need to upgrade their data centers to 4.1 or newer versions before upgrading to RHV Manager 4.3
  - [BZ 1599321](https://bugzilla.redhat.com/1599321) <b>Config values inconsistency between RHV versions</b><br>There are inconsistencies in the following internal configuration options:<br>- HotPlugCpuSupported<br>- HotUnplugCpuSupported<br>- HotPlugMemorySupported<br>- HotUnplugMemorySupported<br>- IsMigrationSupported<br>- IsMemorySnapshotSupported<br>- IsSuspendSupported<br>- ClusterRequiredRngSourcesDefault<br>Systems that have upgraded from RHV 4.0 to RHV 4.1/4.2 and are experiencing problems with these features should upgrade to RHV 4.2.5 or later.
  - [BZ 1651220](https://bugzilla.redhat.com/1651220) <b>Require Ansible 2.7.2+</b><br>Ansible 2.7.2 or higher is required to run oVirt Ansible roles
+
+#### oVirt Host Dependencies
+
+ - [BZ 1627753](https://bugzilla.redhat.com/1627753) <b>On hosts replace fluentd dependencies with rsyslog</b><br>The fluentd based metrics support has been replaced with rsyslog based metrics. On hosts upgraded from 4.2 you will still have fluentd installed. You may want to remove those packages after finishing the upgrade to 4.3
 
 #### oVirt Release Package
 
@@ -109,19 +115,21 @@ packages from other repos.
 
 #### VDSM
 
- - [BZ 1644693](https://bugzilla.redhat.com/1644693) <b>High Host CPU load for Windows 10 Guests (Update 1803)  when idle</b><br>
+ - [BZ 1644693](https://bugzilla.redhat.com/1644693) <b>High Host CPU load for Windows 10 Guests (Update 1803)  when idle</b><br>Feature: Added enlightenment support in order to reduce CPU load by enabling the hyper-visor synic and stimer states.  <br><br>Reason: To improve performance when running Windows as a guest OS.<br><br>Result: Anticipated results are that CPU load will be reduced to 0-5% on Linux Virtual Machines.
  - [BZ 1641125](https://bugzilla.redhat.com/1641125) <b>[RFE] add a configuration policy for vGPU placement</b><br>It is now possible to set in host configuration preferred vGPU placement on physical cards. Separated placement prefers putting each vGPU on a separate physical card, consolidated placement prefers putting more vGPUs on available physical cards.
  - [BZ 1598391](https://bugzilla.redhat.com/1598391) <b>[RFE] - Certify OSP 14 with OVN as an external network provider on RHV 4.3</b><br>Neutron from OSP 14 configured to use OVN can be used as an external network provider on RHV 4.3 with the limitation described in bug 1655906 .
  - [BZ 1587892](https://bugzilla.redhat.com/1587892) <b>After importing KVM VM the actual size is bigger than the virtual size</b><br>Feature: <br><br>Added KVM Sparseness support to KVM to oVirt Virtual Machine Importing so that when Thin Provisioning is enabled, the Disk Size of the original KVM Image will be preserved after importing to oVirt.   <br><br>Reason: <br><br>Unless the user specifically specifies pre-allocation, the Disk Size of the Virtual Machine should be no larger than required during initial allocation of Disk Space when the VM is running. Previously when choosing Thin Provisioning for KVM to oVirt Importing, the Disk Size of the VM within the Storage Domain of oVirt was inflated to the Volume Size or Larger when the original KVM VM was much smaller.  <br><br>Result: <br><br>Now when Importing Virtual Machines from KVM to oVirt with Thin Provisioning selected, the original Disk Size of the VM is preserved.
  - [BZ 1510856](https://bugzilla.redhat.com/1510856) <b>[RFE] Time sync in VM after resuming from PAUSE state</b><br>Feature: <br><br>Added optional Guest Time Synchronization to the snapshot functionality via the time_sync_snapshot_enable option and other un-pausing scenarios via the time_sync_cont_enable option for synchronizing and correcting the time on the VM after long pauses. The defaults for the option are turned off for backward compatibility.<br><br>Reason: <br><br>This becomes especially critical when there are heavy loads on the VM to ensure time stamps for example are accurate.<br><br>Result: <br><br>When the options are enabled, the VDSM shall attempt to synchronize the time either during pauses that occur via during snapshots and/or during other un-pausing functionality.
+ - [BZ 1451297](https://bugzilla.redhat.com/1451297) <b>[RFE] Drop TLSv1 and TLSv1.1 encryption protocols support</b><br>TLSv1 and TLSv1.1 protocols are no longer secure, so they are forcefully disabled in VDSM configuration and cannot no longer be enabled within configuration.<br><br>Only TLSv1.2 and higher version of protocols are enabled, exact versions depends on underlying openssl version.
  - [BZ 1625612](https://bugzilla.redhat.com/1625612) <b>[RHV] failed to convert VMware ESX VM with snapshot</b><br>Feature: Removes the code within the VDSM blocking the importing of VMWare VMs with snap shots in order to take advantage of virt-v2v support for importing these types of VMs that was added to the virt-v2v-1.36.10-6.el7.x86_64.rpm package.<br><br>Reason: We would like to expose this feature for use by oVirt users.<br><br>Result: oVirt now supports the importing of VMware VMs that include snap shots.
 
 #### oVirt Engine
 
- - [BZ 1644693](https://bugzilla.redhat.com/1644693) <b>High Host CPU load for Windows 10 Guests (Update 1803)  when idle</b><br>
+ - [BZ 1644693](https://bugzilla.redhat.com/1644693) <b>High Host CPU load for Windows 10 Guests (Update 1803)  when idle</b><br>Feature: Added enlightenment support in order to reduce CPU load by enabling the hyper-visor synic and stimer states.  <br><br>Reason: To improve performance when running Windows as a guest OS.<br><br>Result: Anticipated results are that CPU load will be reduced to 0-5% on Linux Virtual Machines.
+ - [BZ 1661921](https://bugzilla.redhat.com/1661921) <b>ovirt-provider-ovn TLS hardening (Default use of TLSv1.2 and HIGH ciphers only)</b><br>Feature: <br> - internal OVN db connections are encrypted by TLS 1.2 with 'HIGH' chiphers in<br>   new RHV 4.3 installations by default<br> - Ciphers used on ovirt-provider's OpenStack REST API are configurable<br><br>Reason: <br> - bug 1459441 enables RHV to configure the encryption of OVN internal connections<br> - default OpenSSL config in RHEL 7 allows usage of insecure ciphers<br><br>Result: <br> - in RHV 4.3 default config internal OVN connections and<br>   ovirt-provider's OpenStack REST API uses TLS 1.2 and HIGH ciphers.
  - [BZ 1571371](https://bugzilla.redhat.com/1571371) <b>[RFE] Allow pinning a VM (specifically high-performance) with vNUMA to more than one host</b><br>Feature: A VM with NUMA pinning enabled can now be configured to run on a set of assigned/pinned hosts (one or more).<br><br>Reason: Up till now there was a limitation that only one host (and not more than one) can be assigned to a VM, in case of NUMA nodes pinning is enabled.<br><br>Result: A VM with NUMA pinning enabled can now be configured to run on a set of assigned/pinned hosts, one or more (by selecting the "Start running on: Specific Host" in "Host" side-tab). <br>Each one of this hosts should have the same pinning settings so that VM can run on each and this is verified by the engine.<br>This change is crucial for supporting High Availability for those VMs.
  - [BZ 1641125](https://bugzilla.redhat.com/1641125) <b>[RFE] add a configuration policy for vGPU placement</b><br>It is now possible to set in host configuration preferred vGPU placement on physical cards. Separated placement prefers putting each vGPU on a separate physical card, consolidated placement prefers putting more vGPUs on available physical cards.
- - [BZ 1539829](https://bugzilla.redhat.com/1539829) <b>[RFE] Provide support for adding security groups and rules using ovirt-provider-ovn</b><br>
+ - [BZ 1539829](https://bugzilla.redhat.com/1539829) <b>[RFE] Provide support for adding security groups and rules using ovirt-provider-ovn</b><br>This feature provides security group support, as described by the OpenStack Networking API.
  - [BZ 1619210](https://bugzilla.redhat.com/1619210) <b>[RFE] Provide Live Migration for VMs based on "High Performance VM" Profile - automatic migrations</b><br>Feature: <br>This feature provides the ability to enable live migration for HP VMs (and in general to all VM types with pinning settings).<br><br>Reason: <br>n oVirt 4.2 we added a new “High Performance” VM profile type. This required configuration settings includes pinning the VM to a host based on the host specific configuration. Due to that pinning settings, the migration option for the HP VM type was automatically forced to be disabled.<br><br>Result: <br>in oVirt 4.3 we will provide the ability for live migration of HP VMs (and all other VMs with pinned configuration like NUMA pinning, CPU pinning and CPU pass-through enabled). <br><br>For more details, please refer to the feature page: <br>https://ovirt.org/develop/release-management/features/virt/high-performance-vm-migration.html
  - [BZ 1648190](https://bugzilla.redhat.com/1648190) <b>[RHEL76] libvirt is unable to start after upgrade due to malformed UTCTIME values in cacert.pem, because properly renewed CA certificate was not passed to hosts by executing "Enroll certificate" or "Reinstall"</b><br>Internal CAs generated in the past (<= 3.5) can contain UTCTIME values without timezone indication and this is not acceptable anymore with up to date openssl and gnutls libraries.<br>engine-setup was already checking it proposing a remediation but the user can postpone it, making it more evident since now postponing can cause serious issues.
  - [BZ 1111783](https://bugzilla.redhat.com/1111783) <b>[RFE][TestOnly] Provide SCSI reservation support for virtio-scsi via rhev-guest-tools for win-8 and win-2012 guests using Direct-Lun as disks</b><br>With this release Windows clustering is supported for iSCSI based direct attached LUNs.
@@ -143,10 +151,13 @@ packages from other repos.
  - [BZ 1131178](https://bugzilla.redhat.com/1131178) <b>[RFE] Include storage domain UUID in Storage Domain 'General' tab</b><br>
  - [BZ 1570077](https://bugzilla.redhat.com/1570077) <b>[RFE] Add UI plugin API function to allow tab/place resource cleanup</b><br>Feature: After adding custom primary/secondary menu item or details tab via UI plugin API, it's now possible to attach "unload" handler to perform any UI-plugin-specific cleanup once the user navigates away from the given primary/secondary menu item or details tab.<br><br>Reason: Allow UI plugins to attach "unload" handler for each plugin-contributed WebAdmin UI application place, i.e. custom primary/secondary menu item or details tab.<br><br>Result: After adding the custom application place via addPrimaryMenuPlace/addSecondaryMenuPlace/addDetailPlace API functions, you can attach "unload" handler for that place by calling api.setPlaceUnloadHandler(place, handler) function.
  - [BZ 1561539](https://bugzilla.redhat.com/1561539) <b>[RFE] Allow adding a new host or reinstalling existing one and switching it to Maintenance without activation</b><br>Feature: <br><br>Allow adding, approving or reinstalling a host without automatically activating it afterwards.<br><br>Reason: <br><br>Sometimes there is performance overhead when activating a host after its addition / re-install / approval, especially when the connection to the storage-domain is problematic. Due to this it's necessary to enable users to add / re-install /approve a host without the host being automatically activated afterwards.<br><br>Result: <br><br>The API will support activate=false matrix<br>parameter in the URL of the request, relevant for add host, install host, approve host operations. <br><br>The WebAdmin will provide "Activate Host After Install" checkbox in add and install host dialogues, and propagate the value of the checkbox to the Engine. <br><br>The default behavior remains activating the host.
+ - [BZ 1580346](https://bugzilla.redhat.com/1580346) <b>Cluster properties 'Enable to set host/VM...' should be set by default (and hidden?)</b><br>
  - [BZ 1454389](https://bugzilla.redhat.com/1454389) <b>[RFE] add search query for cluster compatibility level override</b><br>Feature: <br>Added a search query to list all VMs with specific cluster compatibility override.<br><br>Result: <br>The new queries are:<br>- Vms: custom_compatibility_version = X.Y<br>- Vms: custom_compatibility_version != X.Y<br><br>The first lists all VMs with cluster compatibility override to version X.Y and the second lists VMs with different cluster compatibility override version or without any cluster compatibility override set.
  - [BZ 1408584](https://bugzilla.redhat.com/1408584) <b>[RFE] Host cpu type is not found anywhere in REST API</b><br>Feature: Added the CPU Type to the REST API's Host details. <br><br>Reason: The REST API should be consistent with the UI which does display the CPU Type.<br><br>Result: The REST API now returns the CPU Type with the rest of the Host data.
+ - [BZ 1561413](https://bugzilla.redhat.com/1561413) <b>[RFE] Remove option should be grayed out for delete protected VMs</b><br>Feature: Since delete-protected VMs cannot be modified, including removal, destructive operations are now disabled.<br><br>Reason: Previously, this button was enabled, but did not perform any operations, leading to an inconsistent user experience.<br><br>Result: "Remove" is now disabled if a VM is delete protected
  - [BZ 1630243](https://bugzilla.redhat.com/1630243) <b>[RFE] Show live migration progress bar also in virtual machine tab in host page</b><br>During VM live migration, the migration progress bar is shown also in the host page on the virtual machine tab.
  - [BZ 1651255](https://bugzilla.redhat.com/1651255) <b>Cannot set number of IO threads via the UI</b><br>Feature: <br>The number of IO threads can be set in the web UI in the new/edit VM dialog.<br><br>Reason: <br>Some users may need to set the number of IO threads and using web UI can be easier than REST API.
+ - [BZ 1602968](https://bugzilla.redhat.com/1602968) <b>[RFE] Add "power off VM" to the right-click popup menu in the GUI</b><br>Feature: "Power Off VM" was missing from the context menu in the RHV-M administrator portal<br><br>Reason: This was present in previous versions, but removed as part of the new user interface.<br><br>Result: "Power Off VM" is present when a running VM is right-clicked
  - [BZ 1560132](https://bugzilla.redhat.com/1560132) <b>[RFE] Add finer grained monitoring thresholds for memory consumption on Hypervisors to RHV</b><br>In the Administration Portal, it is possible to set a threshold for cluster level monitoring as a percentage or an absolute value, for example, 95% or 2048 MB. When usage exceeds 95% or free memory falls below 2048 MB, a "high memory usage" or "low memory available" event is logged. This reduces log clutter for clusters with large (1.5 TB) amounts of memory.
 
 #### oVirt Host Dependencies
@@ -158,6 +169,14 @@ packages from other repos.
  - [BZ 1372134](https://bugzilla.redhat.com/1372134) <b>[RFE] hosted-engine deployment should support IPv6</b><br>Support pure IPv6 deployments
  - [BZ 1529063](https://bugzilla.redhat.com/1529063) <b>[RFE] Allow to deploy HE with an Ansible role.</b><br>Allow the user to deploy HE with a pure ansible role.<br>The user should be able to deploy also on a remote host.
  - [BZ 1209881](https://bugzilla.redhat.com/1209881) <b>[RFE] remove iptables from hosted-engine.spec file to be able to deploy hosted-engine without firewall services installed</b><br>Feature: Remove iptables dependency <br><br>Reason: to be able to deploy hosted-engine without firewall services installed
+
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1614818](https://bugzilla.redhat.com/1614818) <b>[RFE] Upgrade to Software Collections PostgreSQL 10</b><br>Documentation changes are being tracked in BZ1641460
+
+#### oVirt Engine Metrics
+
+ - [BZ 1629437](https://bugzilla.redhat.com/1629437) <b>Update ovirt-engine-metrics playbooks to use the linux-system-roles logging roles</b><br>
 
 #### oVirt Release Package
 
@@ -188,6 +207,10 @@ packages from other repos.
 #### VDSM
 
  - [BZ 1601873](https://bugzilla.redhat.com/1601873) <b>Remove dependency on gluster-gnfs to support Gluster 4.1</b><br>gluster-gnfs is no longer available with Gluster 4.1. Users that require nfs access for gluster volumes are advised to use nfs-ganesha. Please refer https://gluster.readthedocs.io/en/latest/Administrator%20Guide/NFS-Ganesha%20GlusterFS%20Integration/
+
+#### oVirt Engine
+
+ - [BZ 1656007](https://bugzilla.redhat.com/1656007) <b>remove Cirrus graphics support</b><br>For guest graphics device, "cirrus" graphics card has been replaced by "vga" and deprecated since 4.0 and is no longer supported in 4.3 cluster levels.
 
 ### Deprecated Functionality
 
@@ -238,6 +261,8 @@ packages from other repos.
  - [BZ 1210717](https://bugzilla.redhat.com/1210717) <b>[RFE] - Show a warning when commiting a previewed snapshot.</b><br>
  - [BZ 1115607](https://bugzilla.redhat.com/1115607) <b>Edit Domain dialogue box fails to resize for over 13 lines on the vertical</b><br>
  - [BZ 1662321](https://bugzilla.redhat.com/1662321) <b>Clone VM from 'Active VM' snapshot shouldn't be allowed via REST API</b><br>
+ - [BZ 1656092](https://bugzilla.redhat.com/1656092) <b>Importing OVA via Rest API failed</b><br>
+ - [BZ 1583968](https://bugzilla.redhat.com/1583968) <b>Hosted Engine VM is selected for balancing even though the BalanceVM command is not enabled for HE</b><br>
  - [BZ 1644636](https://bugzilla.redhat.com/1644636) <b>Engine failed to retrieve images list from ISO domain.</b><br>
  - [BZ 1635405](https://bugzilla.redhat.com/1635405) <b>Move Disk dialog keeps spinning - API method works</b><br>
  - [BZ 1638124](https://bugzilla.redhat.com/1638124) <b>VM fails to start if maxMemory >= 2048 GB</b><br>
@@ -257,6 +282,10 @@ packages from other repos.
  - [BZ 1643663](https://bugzilla.redhat.com/1643663) <b>Hosted-Engine VM failed to start mixing ovirt-hosted-engine-setup from 4.1 with ovirt-hosted-engine-ha from 4.2</b><br>
  - [BZ 1636469](https://bugzilla.redhat.com/1636469) <b>Removing a non-HE Host recommends user to undeploy HostedEngine on it first</b><br>
 
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1662878](https://bugzilla.redhat.com/1662878) <b>HE deployment fails - Failed executing ansible-playbook in get_network_interfaces</b><br>
+
 #### imgbased
 
  - [BZ 1655003](https://bugzilla.redhat.com/1655003) <b>Failed to start OpenSSH server daemon</b><br>
@@ -273,6 +302,7 @@ packages from other repos.
 
 #### VDSM
 
+ - [BZ 1655276](https://bugzilla.redhat.com/1655276) <b>[SR-IOV] VFs are not released on hotunplug due to a premature libvirt event</b><br>
  - [BZ 1634765](https://bugzilla.redhat.com/1634765) <b>Guest agent info is not reported with latest vdsm</b><br>
  - [BZ 1645620](https://bugzilla.redhat.com/1645620) <b>vdsm-client has missing dependecy to PyYAML</b><br>
  - [BZ 1631624](https://bugzilla.redhat.com/1631624) <b>Exception on unsetPortMirroring makes vmDestroy fail.</b><br>
@@ -318,7 +348,6 @@ packages from other repos.
  - [BZ 1578357](https://bugzilla.redhat.com/1578357) <b>[SCALE] Listing users in Users tab overloads the postgresql DB (CPU)</b><br>
  - [BZ 1637593](https://bugzilla.redhat.com/1637593) <b>[RFE] cluster upgrade dialog</b><br>
  - [BZ 1655375](https://bugzilla.redhat.com/1655375) <b>After upgrade to 4.2, admin portal host interface view does not load</b><br>
- - [BZ 1643512](https://bugzilla.redhat.com/1643512) <b>No exclamation icon when bond with an LACP is misconfigured</b><br>
  - [BZ 1647018](https://bugzilla.redhat.com/1647018) <b>disk_attachment href contains "null" instead of "diskattachments" in REST API requests</b><br>
  - [BZ 1637846](https://bugzilla.redhat.com/1637846) <b>RemoveVmCommand doesn't log the user</b><br>
  - [BZ 1638540](https://bugzilla.redhat.com/1638540) <b>LSM encountered WELD-000049 exception and never issued live merge</b><br>
@@ -334,6 +363,7 @@ packages from other repos.
  - [BZ 1548205](https://bugzilla.redhat.com/1548205) <b>Very slow UI if Host has many (~64) elements (VFs or dummies or networks)</b><br>
  - [BZ 1565673](https://bugzilla.redhat.com/1565673) <b>ovirt-engine loses track of a cancelled disk</b><br>
  - [BZ 1499056](https://bugzilla.redhat.com/1499056) <b>Unreachable ISO/Export SD prevents hosts from activating</b><br>
+ - [BZ 1653230](https://bugzilla.redhat.com/1653230) <b>Starting the HA VMs with lease is failing when using ovirt-ansible-disaster-recovery role</b><br>
  - [BZ 1624069](https://bugzilla.redhat.com/1624069) <b>[RFE] Custom RHV Bond Naming</b><br>
  - [BZ 1535009](https://bugzilla.redhat.com/1535009) <b>[UI] - Provide indication in the ui what is the vdsm name of the logical name</b><br>
  - [BZ 1511379](https://bugzilla.redhat.com/1511379) <b>[RFE] Improve error messages for importing VMs from storage domains.</b><br>
@@ -363,6 +393,7 @@ packages from other repos.
  - [BZ 1511522](https://bugzilla.redhat.com/1511522) <b>ImportVmFromConfiguration fails with NullPointerException after domain import between 4.1 and 4.2 env</b><br>
  - [BZ 1517245](https://bugzilla.redhat.com/1517245) <b>[ALL_LANG] Truncated column names appear on volumes -> bricks -> advanced details -> memory pools page</b><br>
  - [BZ 1369407](https://bugzilla.redhat.com/1369407) <b>NPE while trying to remove user</b><br>
+ - [BZ 1656901](https://bugzilla.redhat.com/1656901) <b>Webadmin - select storage domain Disks tab window - Virtual size column can not be sorted</b><br>
  - [BZ 1537611](https://bugzilla.redhat.com/1537611) <b>Missing required check box highlighted in black when other missing fiels are highlighted in red</b><br>
  - [BZ 1636967](https://bugzilla.redhat.com/1636967) <b>Host-Upgrade dialog should be same</b><br>
  - [BZ 1503031](https://bugzilla.redhat.com/1503031) <b>Response body of file based storage domain creation due to dirty path does not have an indication of which domain resides on that path</b><br>
@@ -392,11 +423,12 @@ packages from other repos.
  - [BZ 1558539](https://bugzilla.redhat.com/1558539) <b>activating a tag takes too long, shows tall empty VM grid</b><br>
  - [BZ 1537411](https://bugzilla.redhat.com/1537411) <b>SEVERE: Warning: You're using an untyped slot!</b><br>
  - [BZ 1537095](https://bugzilla.redhat.com/1537095) <b>[DNS] multi-host SetupNetworks command is not sent when a DNS entry is removed from network</b><br>
- - [BZ 1659121](https://bugzilla.redhat.com/1659121) <b>Running a disks search returns incorrect disks when Filter: true</b><br>
+ - [BZ 1659026](https://bugzilla.redhat.com/1659026) <b>Drop requirement on sonatype-oss-parent</b><br>
+ - [BZ 1656881](https://bugzilla.redhat.com/1656881) <b>Security scanner detects "Unvalidated Redirects and Forwards (spider-param-unchecked-redirect)" vulnerability in RHVM 4.2</b><br>
+ - [BZ 1650574](https://bugzilla.redhat.com/1650574) <b>default graphics console SPICE+VNC for new VMs</b><br>
  - [BZ 1660062](https://bugzilla.redhat.com/1660062) <b>Rest-API: Link to disk-attachments under storage-domain contains 'null'</b><br>
  - [BZ 1641048](https://bugzilla.redhat.com/1641048) <b>Engine raises 'insufficient permissions' error when normal user try to access /datacenters?follow=storage_domains</b><br>
  - [BZ 1633777](https://bugzilla.redhat.com/1633777) <b>VM cloned from template remains locked, subsequent clones fail</b><br>
- - [BZ 1656881](https://bugzilla.redhat.com/1656881) <b>Security scanner detects "Unvalidated Redirects and Forwards (spider-param-unchecked-redirect)" vulnerability in RHVM 4.2</b><br>
  - [BZ 1660378](https://bugzilla.redhat.com/1660378) <b>[RFE] Use sha256 for uninstall information in engine-setup, engine-cleanup etc.</b><br>
  - [BZ 1647226](https://bugzilla.redhat.com/1647226) <b>Bad SQL Grammar error</b><br>
  - [BZ 1641703](https://bugzilla.redhat.com/1641703) <b>Importing VM template fails with ERROR: insert or update on table "vm_static" violates foreign key constraint "fk_vm_static_lease_sd_i d_storage_domain_static_id"</b><br>
@@ -405,16 +437,13 @@ packages from other repos.
  - [BZ 1646956](https://bugzilla.redhat.com/1646956) <b>Empty string on ovirtmgmt's label instead of null as should be</b><br>
  - [BZ 1481197](https://bugzilla.redhat.com/1481197) <b>Fencing default parameters for PPC PM requires administrator access</b><br>
  - [BZ 1647728](https://bugzilla.redhat.com/1647728) <b>[RFE] - Provide a tool for easier colletion of the engine thread dumps</b><br>
- - [BZ 1656007](https://bugzilla.redhat.com/1656007) <b>remove Cirrus graphics support</b><br>
  - [BZ 1647912](https://bugzilla.redhat.com/1647912) <b>Using 'setupnetworks' restapi call to update an existing network attachment does not work</b><br>
  - [BZ 1595067](https://bugzilla.redhat.com/1595067) <b>[RFE] Improve Backup Storage Domain usability</b><br>
- - [BZ 1639604](https://bugzilla.redhat.com/1639604) <b>engine fails to imports external VMs</b><br>
+ - [BZ 1639604](https://bugzilla.redhat.com/1639604) <b>engine fails to imports external VMs</b><br>Cause: A change in internal data structures related to virtual machines caused improperly initialized objects to contain empty lists.<br><br>Consequence: External VMs, specially vintage deployments of Hosted Engine, sometimes failed to import, with looping log messages about attempted imports.<br><br>Fix: Disk attachments from imported libvirt XML are now appropriately initialized.<br><br>Result: External VMs can be imported
  - [BZ 1624857](https://bugzilla.redhat.com/1624857) <b>[RFE] Snapshot memory and metadata disks names are not distinguishable</b><br>
  - [BZ 1570040](https://bugzilla.redhat.com/1570040) <b>[RFE] RH Single Sign-On or OpenID Connect integration with Administration/User Portal</b><br>
  - [BZ 1643813](https://bugzilla.redhat.com/1643813) <b>Managing tags fails with ConcurrentModificationException</b><br>
  - [BZ 1645383](https://bugzilla.redhat.com/1645383) <b>GetAllVmStatsVDSCommand sent host to Not-Responding status after upgrade</b><br>
- - [BZ 1583968](https://bugzilla.redhat.com/1583968) <b>Hosted Engine VM is selected for balancing even though the BalanceVM command is not enabled for HE</b><br>
- - [BZ 1561413](https://bugzilla.redhat.com/1561413) <b>[RFE] Remove option should be grayed out for delete protected VMs</b><br>
  - [BZ 1562602](https://bugzilla.redhat.com/1562602) <b>VM with special characters failed to start</b><br>
  - [BZ 1643921](https://bugzilla.redhat.com/1643921) <b>Incorrect behavior of IOThreads text box in edit VM dialog</b><br>
  - [BZ 1618984](https://bugzilla.redhat.com/1618984) <b>Host deploy from fc28 engine on fc28 host fails, ssh connection terminated</b><br>
@@ -437,7 +466,6 @@ packages from other repos.
  - [BZ 1633310](https://bugzilla.redhat.com/1633310) <b>Entries for snapshot creations in the command_entities table in the database prevented access to the Admin Portal</b><br>
  - [BZ 1609718](https://bugzilla.redhat.com/1609718) <b>allow search for memory guaranteed</b><br>
  - [BZ 1631249](https://bugzilla.redhat.com/1631249) <b>Make sure RHV Manager will use OpenJDK 8 even when newer versions are available</b><br>
- - [BZ 1602968](https://bugzilla.redhat.com/1602968) <b>[RFE] Add "power off VM" to the right-click popup menu in the GUI</b><br>
  - [BZ 1591828](https://bugzilla.redhat.com/1591828) <b>Stop bundling nimbus-jose-jwt 4.13.1, rebase on latest 5.12.</b><br>
  - [BZ 1615287](https://bugzilla.redhat.com/1615287) <b>Allow to create VM template with preallocated file-based disk via the UI</b><br>
  - [BZ 1512901](https://bugzilla.redhat.com/1512901) <b>[CodeChange] Refactor DeactivateStorageDomainWithOvfUpdateCommand to use CoCo framework and steps</b><br>
@@ -500,8 +528,9 @@ packages from other repos.
 
 #### oVirt Hosted Engine Setup
 
+ - [BZ 1665467](https://bugzilla.redhat.com/1665467) <b>Support host_name != host_address</b><br>
+ - [BZ 1662582](https://bugzilla.redhat.com/1662582) <b>Missing colon in the user dialog at the hosted-engine setup via CLI</b><br>
  - [BZ 1643934](https://bugzilla.redhat.com/1643934) <b>Emit a warning before running vdsm-tool restore-nets</b><br>
- - [BZ 1662878](https://bugzilla.redhat.com/1662878) <b>HE deployment fails - Failed executing ansible-playbook in get_network_interfaces</b><br>
 
 #### oVirt Log Collector
 
@@ -512,6 +541,10 @@ packages from other repos.
 #### oVirt Engine UI Extensions
 
  - [BZ 1637593](https://bugzilla.redhat.com/1637593) <b>[RFE] cluster upgrade dialog</b><br>
+
+#### imgbased
+
+ - [BZ 1501236](https://bugzilla.redhat.com/1501236) <b>Grub2-prode failed to find the disk on LVM</b><br>
 
 #### oVirt Engine Data Warehouse
 
@@ -561,7 +594,7 @@ packages from other repos.
 
 #### Contributors
 
-107 people contributed to this release:
+108 people contributed to this release:
 
 	Ahmad Khiet
 	Ala Hino
@@ -666,6 +699,7 @@ packages from other repos.
 	Yuval Turgeman
 	bond95
 	emesika
+	fdupont-redhat
 	godas
 	gzaidman
 	parthdhanjal

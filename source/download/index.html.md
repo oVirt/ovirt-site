@@ -18,13 +18,13 @@ authors: bproffitt, dneary, knesenko, mburns, sandrobonazzola, theron, gshereme
 
 # Download oVirt
 
-oVirt 4.2.7 is intended for production use and is available for the following platforms:
+oVirt 4.2.8 is intended for production use and is available for the following platforms:
 
-- Red Hat Enterprise Linux 7.5 or later
-- CentOS Linux 7.5 or later
-- Scientific Linux 7.5 or later
+- Red Hat Enterprise Linux 7.6 or later
+- CentOS Linux 7.6 or later
+- Scientific Linux 7.6 or later
 
-See the [Release Notes for oVirt 4.2.7](/release/4.2.7/) and the [Installation Guide](/documentation/install-guide/Installation_Guide.html).
+See the [Release Notes for oVirt 4.2.8](/release/4.2.8/) and the [Installation Guide](/documentation/install-guide/Installation_Guide.html).
 
 oVirt can be downloaded and installed two primary ways: Self-Hosted Engine or separate Engine and Hosts.
 

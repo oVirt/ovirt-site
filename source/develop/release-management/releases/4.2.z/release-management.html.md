@@ -6,6 +6,8 @@ title: oVirt 4.2.z Release Management
 
 # oVirt 4.2.8
 
+**Important:** This will be the last update for 4.2 series. Please update to 4.3 which is the next supported version.
+
 ## Timeline
 
 | Date           | Milestone                |

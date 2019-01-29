@@ -8,6 +8,8 @@ layout: toc
 
 The oVirt Project is pleased to announce the availability of the 4.2.8 release as of January 22, 2019.
 
+Release has been updated on January 29, 2019.
+
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.6,
@@ -96,18 +98,18 @@ packages from other repos.
 
 #### VDSM
 
- - [BZ 1648624](https://bugzilla.redhat.com/1648624) <b>[downstream clone - 4.2.8] [RFE] - Certify ODL via Neutron API with external OSP 13 provider on RHV 4.2.z</b><br>This release supports neutron from Red Hat OpenStack Platform 13 configured to use OpenDaylight as an external network provider on RHV 4.2.z with the same port status limitation described in BZ#1630861.
- - [BZ 1630861](https://bugzilla.redhat.com/1630861) <b>[downstream clone - 4.2.8] [RFE] - Certify OVN from OSP 13 via Neutron API with external OSP provider on RHV 4.2.z</b><br>Neutron from Red Hat OpenStack Platform 13 configured to use Open Virtual Network can be used as an external network provider on Red Hat Virtualization 4.2.8 with one limitation.<br><br>If a VM with a vNIC on an external network provided by Red Hat OpenStack Platform 13 neutron with OVN Modular Layer 2 plugin migrates to another host, the port status displays as ‘down’ despite the port working properly.
+ - [BZ 1648624](https://bugzilla.redhat.com/1648624) <b>[downstream clone - 4.2.8] [RFE] - Certify ODL via Neutron API with external OSP 13 provider on RHV 4.2.z</b><br>This release supports Neutron from Red Hat OpenStack Platform 13 configured to use OpenDaylight as an external network provider on RHV 4.2.z with the same port status limitation described in BZ#1630861.
+ - [BZ 1630861](https://bugzilla.redhat.com/1630861) <b>[downstream clone - 4.2.8] [RFE] - Certify OVN from OSP 13 via Neutron API with external OSP provider on RHV 4.2.z</b><br>Neutron from Red Hat OpenStack Platform 13 configured to use Open Virtual Network can be used as an external network provider on Red Hat Virtualization 4.2.8 with one limitation.<br><br>If a VM with a vNIC on an external network provided by Red Hat OpenStack Platform 13 Neutron with OVN Modular Layer 2 plugin migrates to another host, the port status displays as ‘down’ despite the port working properly.
 
 #### oVirt Engine
 
  - [BZ 1649267](https://bugzilla.redhat.com/1649267) <b>[downstream clone - 4.2.8] [RHEL76] libvirt is unable to start after upgrade due to malformed UTCTIME values in cacert.pem, because properly renewed CA certificate was not passed to hosts by executing "Enroll certificate" or "Reinstall"</b><br>Internal CAs generated in the past (<= 3.5) can contain UTCTIME values without timezone indication and this is not acceptable anymore with up to date openssl and gnutls libraries.<br>engine-setup was already checking it proposing a remediation but the user can postpone it, making it more evident since now postponing can cause serious issues.
  - [BZ 1639460](https://bugzilla.redhat.com/1639460) <b>[RFE] inter-mac-pool or intra-mac-pool overlapping ranges: warn if found</b><br>This release supports a new WARN message in the Red Hat Virtualization Manager log on startup if overlapping ranges are found within a MAC pool or between MAC pools. Each warning details the outcome as applicable.
  - [BZ 1663632](https://bugzilla.redhat.com/1663632) <b>[downstream clone - 4.2.8] [RFE] allow to create vm from blank template when datacenter is enforcing quota</b><br>
- - [BZ 1477599](https://bugzilla.redhat.com/1477599) <b>[RFE] [UI+REST][Hosts>Network Interfaces] - Add indication that setup network operation is currently running on the host and not finished yet</b><br>Feature: As long as setup networks has not completed on a host, an indication of 'updating' is displayed in the webadmin. see comment #5<br><br>Reason: <br><br>Result:
+ - [BZ 1477599](https://bugzilla.redhat.com/1477599) <b>[RFE] [UI+REST][Hosts>Network Interfaces] - Add indication that setup network operation is currently running on the host and not finished yet</b><br>The Administration Portal now provides an "Updating" indicator while network setup takes place on a host, until the setup completes.
  - [BZ 1598447](https://bugzilla.redhat.com/1598447) <b>Provide a tool to find changed config values</b><br>Feature: <br><br>In previous versions there was no easy way how administrators could found out, which changes they have made to options exposed via engine-config tool, which could cause them issues after performing y-stream upgrades (for example 4.1 -> 4.2).<br><br>Reason: <br><br>Result: <br><br>We have added option -d/--diff to engine-config tool which will display administrators all differences between their current option values and default value provided by engine.<br>The differences are displayed using following format:<br><br> $ engine-config --diff<br> Name: vdsConnectionTimeout<br> Version: general<br> Current: 40<br> Default: 20
  - [BZ 1592990](https://bugzilla.redhat.com/1592990) <b>Cannot set number of IO threads via the UI</b><br>Feature: <br>The number of IO threads can be set in the web UI in the new/edit VM dialog.<br><br>Reason: <br>Some users may need to set the number of IO threads and using web UI can be easier than REST API.
- - [BZ 1651649](https://bugzilla.redhat.com/1651649) <b>[downstream clone - 4.2.8] Cannot set number of IO threads via the UI</b><br>This release allows the number of I/O threads to be set in the web user interface VM dialog. This enhancement complements the existing REST API to set the number of I/O threads, allowing users the option to use either the REST API or the web user interface to set the number of I/O threads.
+ - [BZ 1651649](https://bugzilla.redhat.com/1651649) <b>[downstream clone - 4.2.8] Cannot set number of IO threads via the UI</b><br>This release allows the number of I/O threads to be set in the Administration Portal VM dialog. This enhancement complements the existing REST API to set the number of I/O threads, allowing users the option to use either the REST API or the Administration Portal to set the number of I/O threads.
 
 #### oVirt Engine Metrics
 
@@ -190,6 +192,10 @@ packages from other repos.
  - [BZ 1637818](https://bugzilla.redhat.com/1637818) <b>[downstream clone - 4.2.8] engine-vacuum fails with 'vacuumdb: command not found'</b><br>
  - [BZ 1635196](https://bugzilla.redhat.com/1635196) <b>[downstream clone - 4.2.8] Pool does not appear for user in group until refresh</b><br>
  - [BZ 1639742](https://bugzilla.redhat.com/1639742) <b>After importing KVM VM, removing the VM and re-importing, the re-importing fails</b><br>
+
+#### oVirt Engine Metrics
+
+ - [BZ 1631808](https://bugzilla.redhat.com/1631808) <b>Ensure ovirt-engine-metrics in RHV 4.2 doesn't have compatibility issues if fluentd doesn't exist on host</b><br>
 
 #### oVirt Ansible cluster upgrade role
 

@@ -7,7 +7,7 @@ authors: sandrobonazzola
 
 # oVirt 4.3.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.0 Third Release Candidate as of January 24, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.0 Fourth Release Candidate as of January 29, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -105,9 +105,9 @@ This will be fixed by next CentOS Batch update expected to be released soon.
 #### oVirt Engine
 
  - [BZ 1627756](https://bugzilla.redhat.com/1627756) <b>On engine side replace fluentd dependencies with rsyslog</b><br>The current release replaces Fluentd with Rsyslog for collecting oVirt logs and collectd metrics. Systems running Red Hat Virtualization Manager and upgraded from 4.2 will still have Fluentd installed but it will be disabled and stopped.<br>After upgrading to 4.3, you can remove the Fluentd packages.
- - [BZ 1550634](https://bugzilla.redhat.com/1550634) <b>Drop 3.6 and 4.0 datacenter/cluster level</b><br>Support for cluster levels 3.6/4.0 has been removed from RHV Manager, so customers need to upgrade their data centers to 4.1 or newer versions before upgrading to RHV Manager 4.3
+ - [BZ 1550634](https://bugzilla.redhat.com/1550634) <b>Drop 3.6 and 4.0 datacenter/cluster level</b><br>This release removes the Red Hat Virtualization Manager support for clusters levels 3.6 and 4.0. Customers must upgrade their data centers to Red Hat Virtualization Manager 4.1 or later before upgrading to Red Hat Virtualization Manager 4.3.
  - [BZ 1599321](https://bugzilla.redhat.com/1599321) <b>Config values inconsistency between RHV versions</b><br>There are inconsistencies in the following internal configuration options:<br>- HotPlugCpuSupported<br>- HotUnplugCpuSupported<br>- HotPlugMemorySupported<br>- HotUnplugMemorySupported<br>- IsMigrationSupported<br>- IsMemorySnapshotSupported<br>- IsSuspendSupported<br>- ClusterRequiredRngSourcesDefault<br>Systems that have upgraded from RHV 4.0 to RHV 4.1/4.2 and are experiencing problems with these features should upgrade to RHV 4.2.5 or later.
- - [BZ 1651220](https://bugzilla.redhat.com/1651220) <b>Require Ansible 2.7.2+</b><br>This release adds a requirement for Ansible version 2.7.2, the lowest version required to run oVirt Ansible roles.
+ - [BZ 1651220](https://bugzilla.redhat.com/1651220) <b>Require Ansible 2.7+</b><br>This release adds a requirement for Ansible version 2.7, the lowest version required to run oVirt Ansible roles.
 
 #### oVirt Host Dependencies
 
@@ -135,6 +135,7 @@ This will be fixed by next CentOS Batch update expected to be released soon.
  - [BZ 1661921](https://bugzilla.redhat.com/1661921) <b>ovirt-provider-ovn TLS hardening (Default use of TLSv1.2 and HIGH ciphers only)</b><br>Feature: <br> - internal OVN db connections are encrypted by TLS 1.2 with 'HIGH' chiphers in<br>   new RHV 4.3 installations by default<br> - Ciphers used on ovirt-provider's OpenStack REST API are configurable<br><br>Reason: <br> - bug 1459441 enables RHV to configure the encryption of OVN internal connections<br> - default OpenSSL config in RHEL 7 allows usage of insecure ciphers<br><br>Result: <br> - in RHV 4.3 default config internal OVN connections and<br>   ovirt-provider's OpenStack REST API uses TLS 1.2 and HIGH ciphers.
  - [BZ 1571371](https://bugzilla.redhat.com/1571371) <b>[RFE] Allow pinning a VM (specifically high-performance) with vNUMA to more than one host</b><br>Feature: A VM with NUMA pinning enabled can now be configured to run on a set of assigned/pinned hosts (one or more).<br><br>Reason: Up till now there was a limitation that only one host (and not more than one) can be assigned to a VM, in case of NUMA nodes pinning is enabled.<br><br>Result: A VM with NUMA pinning enabled can now be configured to run on a set of assigned/pinned hosts, one or more (by selecting the "Start running on: Specific Host" in "Host" side-tab). <br>Each one of this hosts should have the same pinning settings so that VM can run on each and this is verified by the engine.<br>This change is crucial for supporting High Availability for those VMs.
  - [BZ 1641125](https://bugzilla.redhat.com/1641125) <b>[RFE] add a configuration policy for vGPU placement</b><br>It is now possible to set in host configuration preferred vGPU placement on physical cards. Separated placement prefers putting each vGPU on a separate physical card, consolidated placement prefers putting more vGPUs on available physical cards.
+ - [BZ 1539829](https://bugzilla.redhat.com/1539829) <b>[RFE] Provide support for adding security groups and rules using ovirt-provider-ovn</b><br>This feature provides security group support, as described by the OpenStack Networking API.
  - [BZ 1619210](https://bugzilla.redhat.com/1619210) <b>[RFE] Provide Live Migration for VMs based on "High Performance VM" Profile - automatic migrations</b><br>Feature: <br>This feature provides the ability to enable live migration for HP VMs (and in general to all VM types with pinning settings).<br><br>Reason: <br>n oVirt 4.2 we added a new “High Performance” VM profile type. This required configuration settings includes pinning the VM to a host based on the host specific configuration. Due to that pinning settings, the migration option for the HP VM type was automatically forced to be disabled.<br><br>Result: <br>in oVirt 4.3 we will provide the ability for live migration of HP VMs (and all other VMs with pinned configuration like NUMA pinning, CPU pinning and CPU pass-through enabled). <br><br>For more details, please refer to the feature page: <br>https://ovirt.org/develop/release-management/features/virt/high-performance-vm-migration.html
  - [BZ 1648190](https://bugzilla.redhat.com/1648190) <b>[RHEL76] libvirt is unable to start after upgrade due to malformed UTCTIME values in cacert.pem, because properly renewed CA certificate was not passed to hosts by executing "Enroll certificate" or "Reinstall"</b><br>Internal CAs generated in the past (<= 3.5) can contain UTCTIME values without timezone indication and this is not acceptable anymore with up to date openssl and gnutls libraries.<br>engine-setup was already checking it proposing a remediation but the user can postpone it, making it more evident since now postponing can cause serious issues.
  - [BZ 1111783](https://bugzilla.redhat.com/1111783) <b>[RFE][TestOnly] Provide SCSI reservation support for virtio-scsi via rhev-guest-tools for win-8 and win-2012 guests using Direct-Lun as disks</b><br>With this release Windows clustering is supported for iSCSI based direct attached LUNs.
@@ -170,6 +171,10 @@ This will be fixed by next CentOS Batch update expected to be released soon.
 
  - [BZ 1598318](https://bugzilla.redhat.com/1598318) <b>Require SCAP in ovirt-host</b><br>The openscap, openscap-utils and scap-security-guide packages have been added to oVirt Node in order to help hardening the oVirt Node deployments.
 
+#### OTOPI
+
+ - [BZ 1316950](https://bugzilla.redhat.com/1316950) <b>[RFE][CodeChange] - OTOPI should use python3 interpreter on Fedora</b><br>Feature: <br>OTOPI should use python3 interpreter on Fedora<br>Reason: <br><br>Result:
+
 #### oVirt Hosted Engine Setup
 
  - [BZ 1372134](https://bugzilla.redhat.com/1372134) <b>[RFE] hosted-engine deployment should support IPv6</b><br>Support pure IPv6 deployments
@@ -191,7 +196,7 @@ This will be fixed by next CentOS Batch update expected to be released soon.
 #### oVirt Windows Guest Tools
 
  - [BZ 1620569](https://bugzilla.redhat.com/1620569) <b>Include linux qemu-guest-agent on RHV Guest Tools iso for v2v offline conversion</b><br>Qemu Guest Agent packages for several Linux distributions have been added to ease offline installation of the guest agent
- - [BZ 1578775](https://bugzilla.redhat.com/1578775) <b>[RFE] Add qemufwcfg driver in windows guest tools</b><br>
+ - [BZ 1578775](https://bugzilla.redhat.com/1578775) <b>[RFE] Add qemufwcfg driver in windows guest tools</b><br>The virtio qemufwcfg driver has been added to oVirt Windows Guest Tools for Windows 10 and Windows Server 2016.<br>The driver doesn't provide any functionality but prevents Windows Device Manager to display the device as unrecognized.
  - [BZ 1578782](https://bugzilla.redhat.com/1578782) <b>[RFE] Add smbus driver in windows guest tools</b><br>Feature: virtio-smbus driver installer has been added to RHV Windows Guest Tools<br><br>Reason: When a guest running Windows 2008 with Q35 bios an unknown device is listed in Device Manager being the smbus device unrecognized<br><br>Result: smbus device is now recognized.
 
 #### oVirt Engine Appliance
@@ -243,6 +248,7 @@ This will be fixed by next CentOS Batch update expected to be released soon.
 
 #### oVirt Engine
 
+ - [BZ 1663949](https://bugzilla.redhat.com/1663949) <b>Can't check for update on host after upgrade of engine</b><br>
  - [BZ 1626907](https://bugzilla.redhat.com/1626907) <b>Live Snapshot creation on a "not responding" VM will fail during "GetQemuImageInfoVDS"</b><br>
  - [BZ 1619474](https://bugzilla.redhat.com/1619474) <b>Pending change IO thread disable is not applied on shutdown</b><br>
  - [BZ 1660441](https://bugzilla.redhat.com/1660441) <b>rename breaks apache cert</b><br>
@@ -337,6 +343,10 @@ This will be fixed by next CentOS Batch update expected to be released soon.
 
  - [BZ 1667795](https://bugzilla.redhat.com/1667795) <b>Error message "Validation for this host's FQDN failed" deploys in vm settings of Hosted engine Wizard</b><br>
 
+#### oVirt Provider OVN
+
+ - [BZ 1434435](https://bugzilla.redhat.com/1434435) <b>[RFE] support IPv6 for address type in subnets</b><br>This feature provides IPv6 address type support for OpenStack Networking API subnets.<br><br>IPv6 support was implemented using OVN's native DHCPv6, and cannot be configured from router advertisements.
+
 #### oVirt Setup Lib
 
  - [BZ 1624599](https://bugzilla.redhat.com/1624599) <b>websocket-proxy package setup fails because of missing netaddr package</b><br>
@@ -355,6 +365,7 @@ This will be fixed by next CentOS Batch update expected to be released soon.
  - [BZ 1579008](https://bugzilla.redhat.com/1579008) <b>ovirt-engine fails to start when having a large number of stateless snapshots</b><br>
  - [BZ 1574346](https://bugzilla.redhat.com/1574346) <b>Move disk failed but delete was called on source sd, losing all the data</b><br>
  - [BZ 1578357](https://bugzilla.redhat.com/1578357) <b>[SCALE] Listing users in Users tab overloads the postgresql DB (CPU)</b><br>
+ - [BZ 1647018](https://bugzilla.redhat.com/1647018) <b>disk_attachment href contains "null" instead of "diskattachments" in REST API requests</b><br>
  - [BZ 1637593](https://bugzilla.redhat.com/1637593) <b>[RFE] cluster upgrade dialog</b><br>
  - [BZ 1647226](https://bugzilla.redhat.com/1647226) <b>Bad SQL Grammar error</b><br>
  - [BZ 1655375](https://bugzilla.redhat.com/1655375) <b>After upgrade to 4.2, admin portal host interface view does not load</b><br>
@@ -409,6 +420,7 @@ This will be fixed by next CentOS Batch update expected to be released soon.
  - [BZ 1550987](https://bugzilla.redhat.com/1550987) <b>link for cluster's networkfilters returns 404</b><br>
  - [BZ 1566060](https://bugzilla.redhat.com/1566060) <b>[UI] - VM > Start Running On host > Specific host field is disabled if pressing next to the 'Any Host In Cluster radio button</b><br>
  - [BZ 1520455](https://bugzilla.redhat.com/1520455) <b>The VM name resets to original value when switching tab in 'import virtual machine' dialog</b><br>
+ - [BZ 1358295](https://bugzilla.redhat.com/1358295) <b>[i18n][ALL_LANG] wrong translation of error message canceling operation</b><br>
  - [BZ 1511522](https://bugzilla.redhat.com/1511522) <b>ImportVmFromConfiguration fails with NullPointerException after domain import between 4.1 and 4.2 env</b><br>
  - [BZ 1517245](https://bugzilla.redhat.com/1517245) <b>[ALL_LANG] Truncated column names appear on volumes -> bricks -> advanced details -> memory pools page</b><br>
  - [BZ 1369407](https://bugzilla.redhat.com/1369407) <b>NPE while trying to remove user</b><br>
@@ -511,6 +523,7 @@ This will be fixed by next CentOS Batch update expected to be released soon.
  - [BZ 1573421](https://bugzilla.redhat.com/1573421) <b>An exception is thrown when creating a template from snapshot with less disks then the active VM</b><br>
  - [BZ 1471138](https://bugzilla.redhat.com/1471138) <b>Create template from a VM with preallocated file-based disk convert the disk to thin-provisioned allocation policy</b><br>
  - [BZ 1561052](https://bugzilla.redhat.com/1561052) <b>The Active VM snapshots table entry does not exist for a specific VM</b><br>
+ - [BZ 1563114](https://bugzilla.redhat.com/1563114) <b>VM snapshots subtab doesn't show if a snapshot contains memory</b><br>
  - [BZ 1545153](https://bugzilla.redhat.com/1545153) <b>No Storage Domain error while restoring a snapshot</b><br>
  - [BZ 1544229](https://bugzilla.redhat.com/1544229) <b>Exception in UI when editing a VM (without changing anything) @ org.ovirt.engine.ui.common.widget.uicommon.storage.DisksAllocationView_DriverImpl.getEventMap(DisksAllocationView_DriverImpl.java:20)</b><br>
  - [BZ 1452361](https://bugzilla.redhat.com/1452361) <b>VM import is possible to clusters where permissions to create VMs are not granted</b><br>

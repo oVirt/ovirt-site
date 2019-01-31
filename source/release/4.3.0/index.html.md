@@ -7,7 +7,7 @@ authors: sandrobonazzola
 
 # oVirt 4.3.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.0 Fourth Release Candidate as of January 29, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.0 Fifth Release Candidate as of January 31, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -159,7 +159,6 @@ This will be fixed by next CentOS Batch update expected to be released soon.
  - [BZ 1602968](https://bugzilla.redhat.com/1602968) <b>[RFE] Add "power off VM" to the right-click popup menu in the GUI</b><br>Feature: "Power Off VM" was missing from the context menu in the RHV-M administrator portal<br><br>Reason: This was present in previous versions, but removed as part of the new user interface.<br><br>Result: "Power Off VM" is present when a running VM is right-clicked
  - [BZ 1131178](https://bugzilla.redhat.com/1131178) <b>[RFE] Include storage domain UUID in Storage Domain 'General' tab</b><br>
  - [BZ 1570077](https://bugzilla.redhat.com/1570077) <b>[RFE] Add UI plugin API function to allow tab/place resource cleanup</b><br>Feature: After adding custom primary/secondary menu item or details tab via UI plugin API, it's now possible to attach "unload" handler to perform any UI-plugin-specific cleanup once the user navigates away from the given primary/secondary menu item or details tab.<br><br>Reason: Allow UI plugins to attach "unload" handler for each plugin-contributed WebAdmin UI application place, i.e. custom primary/secondary menu item or details tab.<br><br>Result: After adding the custom application place via addPrimaryMenuPlace/addSecondaryMenuPlace/addDetailPlace API functions, you can attach "unload" handler for that place by calling api.setPlaceUnloadHandler(place, handler) function.
- - [BZ 1561539](https://bugzilla.redhat.com/1561539) <b>[RFE] Allow adding a new host or reinstalling existing one and switching it to Maintenance without activation</b><br>Feature: <br><br>Allow adding, approving or reinstalling a host without automatically activating it afterwards.<br><br>Reason: <br><br>Sometimes there is performance overhead when activating a host after its addition / re-install / approval, especially when the connection to the storage-domain is problematic. Due to this it's necessary to enable users to add / re-install /approve a host without the host being automatically activated afterwards.<br><br>Result: <br><br>The API will support activate=false matrix<br>parameter in the URL of the request, relevant for add host, install host, approve host operations. <br><br>The WebAdmin will provide "Activate Host After Install" checkbox in add and install host dialogues, and propagate the value of the checkbox to the Engine. <br><br>The default behavior remains activating the host.
  - [BZ 1580346](https://bugzilla.redhat.com/1580346) <b>Cluster properties 'Enable to set host/VM...' should be set by default (and hidden?)</b><br>
  - [BZ 1454389](https://bugzilla.redhat.com/1454389) <b>[RFE] add search query for cluster compatibility level override</b><br>Feature: <br>Added a search query to list all VMs with specific cluster compatibility override.<br><br>Result: <br>The new queries are:<br>- Vms: custom_compatibility_version = X.Y<br>- Vms: custom_compatibility_version != X.Y<br><br>The first lists all VMs with cluster compatibility override to version X.Y and the second lists VMs with different cluster compatibility override version or without any cluster compatibility override set.
  - [BZ 1408584](https://bugzilla.redhat.com/1408584) <b>[RFE] Host cpu type is not found anywhere in REST API</b><br>Feature: Added the CPU Type to the REST API's Host details. <br><br>Reason: The REST API should be consistent with the UI which does display the CPU Type.<br><br>Result: The REST API now returns the CPU Type with the rest of the Host data.
@@ -386,6 +385,7 @@ This will be fixed by next CentOS Batch update expected to be released soon.
  - [BZ 1548205](https://bugzilla.redhat.com/1548205) <b>Very slow UI if Host has many (~64) elements (VFs or dummies or networks)</b><br>
  - [BZ 1565673](https://bugzilla.redhat.com/1565673) <b>ovirt-engine loses track of a cancelled disk</b><br>
  - [BZ 1499056](https://bugzilla.redhat.com/1499056) <b>Unreachable ISO/Export SD prevents hosts from activating</b><br>
+ - [BZ 1670146](https://bugzilla.redhat.com/1670146) <b>[CodeChange][i18n] oVirt 4.3 translation cycle 1, part 2</b><br>
  - [BZ 1653230](https://bugzilla.redhat.com/1653230) <b>Starting the HA VMs with lease is failing when using ovirt-ansible-disaster-recovery role</b><br>
  - [BZ 1650551](https://bugzilla.redhat.com/1650551) <b>Log out of VM portal only works at the second try</b><br>
  - [BZ 1624069](https://bugzilla.redhat.com/1624069) <b>[RFE] Custom RHV Bond Naming</b><br>
@@ -474,6 +474,7 @@ This will be fixed by next CentOS Batch update expected to be released soon.
  - [BZ 1624857](https://bugzilla.redhat.com/1624857) <b>[RFE] Snapshot memory and metadata disks names are not distinguishable</b><br>
  - [BZ 1643813](https://bugzilla.redhat.com/1643813) <b>Managing tags fails with ConcurrentModificationException</b><br>
  - [BZ 1645383](https://bugzilla.redhat.com/1645383) <b>GetAllVmStatsVDSCommand sent host to Not-Responding status after upgrade</b><br>
+ - [BZ 1506547](https://bugzilla.redhat.com/1506547) <b>Provisioning discovered host from oVirt via Foreman doesn't work</b><br>
  - [BZ 1562602](https://bugzilla.redhat.com/1562602) <b>VM with special characters failed to start</b><br>
  - [BZ 1643921](https://bugzilla.redhat.com/1643921) <b>Incorrect behavior of IOThreads text box in edit VM dialog</b><br>
  - [BZ 1618984](https://bugzilla.redhat.com/1618984) <b>Host deploy from fc28 engine on fc28 host fails, ssh connection terminated</b><br>
@@ -630,7 +631,7 @@ This will be fixed by next CentOS Batch update expected to be released soon.
 
 #### Contributors
 
-112 people contributed to this release:
+113 people contributed to this release:
 
 	Ahmad Khiet
 	Ala Hino
@@ -640,6 +641,7 @@ This will be fixed by next CentOS Batch update expected to be released soon.
 	Alona Kaplan
 	Andrej Krejčír
 	Anton Marchukov
+	Arano-kai
 	Ariel O. Barria
 	Arik Hadas
 	Asaf Rachmani

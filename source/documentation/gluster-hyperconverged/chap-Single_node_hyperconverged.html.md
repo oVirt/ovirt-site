@@ -26,9 +26,9 @@ Follow below steps to configure this.
 **Installing the packages on the host**
 
 1. Subscribe to ovirt repos from http://resources.ovirt.org/pub/yum-repo/
-   For instance, to subscribe to oVirt 4.2 repo,
+   For instance, to subscribe to oVirt 4.3 repo,
 
-        # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+        # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
 
 2. Install gdeploy and cockpit-ovirt that will provide a UI for the installation of Hosted Engine. gdeploy is a wrapper tool around Ansible that helps to setup gluster volumes. vdsm-gluster is used to manage gluster from oVirt, and pulls in all the required gluster dependencies. Install the oVirt Engine Virtual Appliance package for the Engine virtual machine installation.
 

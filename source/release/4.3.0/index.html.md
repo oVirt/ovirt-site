@@ -7,21 +7,13 @@ authors: sandrobonazzola
 
 # oVirt 4.3.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.0 Fifth Release Candidate as of January 31, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.0 release as of February 04, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.6,
 CentOS Linux 7.6 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -37,23 +29,25 @@ To learn about features introduced before 4.3.0, see the [release notes for prev
 ### CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
 
 
+If you're upgrading from a previous release on Enterprise Linux 7 you just need
+to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
 
 ### Fedora Tech Preview
 
@@ -86,12 +80,6 @@ the CentOS SIG repos, for other packages.
 If you want to use other packages from EPEL, you should make sure to
 use `includepkgs` and add only those you need avoiding to override
 packages from other repos.
-
-### Known Issues
-
-Due to hyperv changes if you're running Windows VMs you'll need to select "Other OS" in your
-VM configuration operating system section in order to be able to run the VM.
-This will be fixed by next CentOS Batch update expected to be released soon.
 
 ## What's New in 4.3.0?
 
@@ -342,10 +330,6 @@ This will be fixed by next CentOS Batch update expected to be released soon.
 
  - [BZ 1667795](https://bugzilla.redhat.com/1667795) <b>Error message "Validation for this host's FQDN failed" deploys in vm settings of Hosted engine Wizard</b><br>
 
-#### oVirt Provider OVN
-
- - [BZ 1434435](https://bugzilla.redhat.com/1434435) <b>[RFE] support IPv6 for address type in subnets</b><br>This feature provides IPv6 address type support for OpenStack Networking API subnets.<br><br>IPv6 support was implemented using OVN's native DHCPv6, and cannot be configured from router advertisements.
-
 #### oVirt Setup Lib
 
  - [BZ 1624599](https://bugzilla.redhat.com/1624599) <b>websocket-proxy package setup fails because of missing netaddr package</b><br>
@@ -386,12 +370,12 @@ This will be fixed by next CentOS Batch update expected to be released soon.
  - [BZ 1565673](https://bugzilla.redhat.com/1565673) <b>ovirt-engine loses track of a cancelled disk</b><br>
  - [BZ 1499056](https://bugzilla.redhat.com/1499056) <b>Unreachable ISO/Export SD prevents hosts from activating</b><br>
  - [BZ 1670146](https://bugzilla.redhat.com/1670146) <b>[CodeChange][i18n] oVirt 4.3 translation cycle 1, part 2</b><br>
+ - [BZ 1667295](https://bugzilla.redhat.com/1667295) <b>[CodeChange][i18n] oVirt 4.3 translation cycle 1</b><br>
  - [BZ 1653230](https://bugzilla.redhat.com/1653230) <b>Starting the HA VMs with lease is failing when using ovirt-ansible-disaster-recovery role</b><br>
  - [BZ 1650551](https://bugzilla.redhat.com/1650551) <b>Log out of VM portal only works at the second try</b><br>
  - [BZ 1624069](https://bugzilla.redhat.com/1624069) <b>[RFE] Custom RHV Bond Naming</b><br>
  - [BZ 1535009](https://bugzilla.redhat.com/1535009) <b>[UI] - Provide indication in the ui what is the vdsm name of the logical name</b><br>
  - [BZ 1595067](https://bugzilla.redhat.com/1595067) <b>[RFE] Improve Backup Storage Domain usability</b><br>
- - [BZ 1511379](https://bugzilla.redhat.com/1511379) <b>[RFE] Improve error messages for importing VMs from storage domains.</b><br>
  - [BZ 1435636](https://bugzilla.redhat.com/1435636) <b>[RFE] [engine-backend] Running tasks should be listed upon storage domain deactivation</b><br>
  - [BZ 1619154](https://bugzilla.redhat.com/1619154) <b>[RFE] allow to create vm from blank template when datacenter is enforcing quota</b><br>
  - [BZ 1628484](https://bugzilla.redhat.com/1628484) <b>When moving host to maintenance, migrate also manually migrateable VMs</b><br>
@@ -457,7 +441,7 @@ This will be fixed by next CentOS Batch update expected to be released soon.
  - [BZ 1537095](https://bugzilla.redhat.com/1537095) <b>[DNS] multi-host SetupNetworks command is not sent when a DNS entry is removed from network</b><br>
  - [BZ 1570040](https://bugzilla.redhat.com/1570040) <b>[RFE] RH Single Sign-On or OpenID Connect integration with Administration/User Portal</b><br>
  - [BZ 1665922](https://bugzilla.redhat.com/1665922) <b>[CinderLib] - RESTAPI- Detaching managed storage fails with Internal Server Error - ERROR [io.undertow.request] (default task-62) UT005023: Exception handling request spi.UnhandledException: java.lang.NullPointerException</b><br>
- - [BZ 1527882](https://bugzilla.redhat.com/1527882) <b>[RFE] Q35: Use 16 PCI Express Root Ports as a system-wide configuration in RHV-M</b><br>
+ - [BZ 1664748](https://bugzilla.redhat.com/1664748) <b>[CinderLib] - remove and format managed storage via webadmin fails -  Failed to FormatStorageDomainVDS, error = Storage domain does not exist</b><br>
  - [BZ 1659026](https://bugzilla.redhat.com/1659026) <b>Drop requirement on sonatype-oss-parent</b><br>
  - [BZ 1656881](https://bugzilla.redhat.com/1656881) <b>Security scanner detects "Unvalidated Redirects and Forwards (spider-param-unchecked-redirect)" vulnerability in RHVM 4.2</b><br>
  - [BZ 1650574](https://bugzilla.redhat.com/1650574) <b>default graphics console SPICE+VNC for new VMs</b><br>
@@ -631,7 +615,7 @@ This will be fixed by next CentOS Batch update expected to be released soon.
 
 #### Contributors
 
-113 people contributed to this release:
+112 people contributed to this release:
 
 	Ahmad Khiet
 	Ala Hino

@@ -1,6 +1,6 @@
 ---
 title: Download
-authors: gshereme
+authors: gshereme, sandrobonazzola
 ---
 
 <style>
@@ -19,7 +19,7 @@ preferred because the Engine Virtual Machine will be highly available (once a se
 However, if you prefer to run oVirt Engine standalone on physical hardware or another virtualization provider, you can install oVirt Engine
 and Nodes / Hosts separately.
 
-oVirt 4.2.8 is intended for production use and is available for the following platforms:
+oVirt 4.3.0 is intended for production use and is available for the following platforms:
 
 - Red Hat Enterprise Linux 7.6 or later
 - CentOS Linux 7.6 or later
@@ -38,11 +38,11 @@ unless you are a developer or need to customize the source code.
 
 {:.alert.alert-warning}
 **Important:** You cannot skip a version when updating oVirt Engine. For example, if you are updating from
-3.6 to 4.2, you first need to update to 4.0, then to 4.1, and finally to 4.2. (Host upgrades can use the
+3.6 to 4.3, you first need to update to 4.0, then to 4.1, 4.2 and finally to 4.3. (Host upgrades can use the
 [oVirt Fast Forward Upgrade tool](https://github.com/oVirt/ovirt-fast-forward-upgrade).)
 If you are updating from a previous version, be sure to have the latest release repository installed
 by running <br/>
-`sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`.
+`sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm`.
 
 #### Red Hat Enterprise Linux, CentOS Linux
 
@@ -56,7 +56,7 @@ by running <br/>
 
 2.  Add the official oVirt repository.
 
-        sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+        sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
 
 3.  Install oVirt Engine.
 
@@ -92,7 +92,7 @@ Depending on your environment requirements, you may want to use only oVirt Nodes
 physical machine to act as a hypervisor in an oVirt environment.
 
 {:.instructions}
-1.  Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.2 - Stable Release - Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.2_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html))
+1.  Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.3 - Stable Release - Installation ISO](https://resources.ovirt.org/pub/ovirt-4.3/iso/ovirt-node-ng-installer/))
 
 2.  Write the oVirt Node Installation ISO disk image to a USB, CD, or DVD.
 
@@ -114,7 +114,7 @@ packages are installed.
 
 2.  Add the official oVirt repository:
 
-        sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+        sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
 
 See [Chapter 7: Enterprise Linux Hosts](/documentation/install-guide/chap-Enterprise_Linux_Hosts.html) for full installation
 instructions.
@@ -199,6 +199,6 @@ and [Browser Support and Mobile Clients](/download/browsers_and_mobile.html) for
 
 ## RPM Repositories and GPG keys
 
-[RPM repository for oVirt 4.2 - Latest stable release](https://resources.ovirt.org/pub/ovirt-4.2/)
+[RPM repository for oVirt 4.3 - Latest stable release](https://resources.ovirt.org/pub/ovirt-4.3/)
 
 See [RPMs and GPG](/download/rpms_and_gpg.html) for older releases, nightlies, mirrors, and GPG keys.

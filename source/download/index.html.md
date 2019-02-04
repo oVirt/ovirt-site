@@ -1,6 +1,6 @@
 ---
 title: Download
-authors: gshereme
+authors: gshereme,sandrobonazzola
 ---
 
 <style>
@@ -23,14 +23,14 @@ authors: gshereme
 
 <img class="screenshot" src="download_1.png">
 
-oVirt 4.2.8 is intended for production use and is available for the following platforms:
+oVirt 4.3.0 is intended for production use and is available for the following platforms:
 
 - Red Hat Enterprise Linux 7.6 or later
 - CentOS Linux 7.6 or later
 - Scientific Linux 7.6 or later
 - oVirt Node (based on CentOS)
 
-See the [Release Notes for oVirt 4.2.8](/release/4.2.8/).
+See the [Release Notes for oVirt 4.3.0](/release/4.3.0/).
 
 ## Install oVirt with Cockpit
 
@@ -52,7 +52,7 @@ Depending on your environment requirements, you may want to use only oVirt Nodes
 #### Download oVirt Node
 
 {:.instructions}
-1.  Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.2 - Stable Release - Installation ISO](http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.2_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html))
+1.  Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.3 - Stable Release - Installation ISO](https://resources.ovirt.org/pub/ovirt-4.3/iso/ovirt-node-ng-installer/))
 
 2.  Write the oVirt Node Installation ISO disk image to a USB, CD, or DVD.
 
@@ -70,7 +70,7 @@ Instead of or in addition to oVirt Node, you can use a standard Enterprise Linux
 
 2.  Add the official oVirt repository:
 
-        sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+        sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
 
 ## Install oVirt using the Cockpit wizard
 
@@ -167,6 +167,6 @@ and [Browser Support and Mobile Clients](/download/browsers_and_mobile.html) for
 
 ## RPM Repositories and GPG keys
 
-[RPM repository for oVirt 4.2 - Latest stable release](https://resources.ovirt.org/pub/ovirt-4.2/)
+[RPM repository for oVirt 4.3 - Latest stable release](https://resources.ovirt.org/pub/ovirt-4.3/)
 
 See [RPMs and GPG](/download/rpms_and_gpg.html) for older releases, nightlies, mirrors, and GPG keys.

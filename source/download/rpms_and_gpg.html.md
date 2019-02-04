@@ -2,10 +2,11 @@
 
 ## RPM Repositories for oVirt
 
--   **[ovirt-4.2 - Latest stable release](https://resources.ovirt.org/pub/ovirt-4.2/)**
+-   **[ovirt-4.3 - Latest stable release](https://resources.ovirt.org/pub/ovirt-4.3/)**
 
 ### Older unsupported version releases of oVirt
 
+-   [ovirt-4.2](https://resources.ovirt.org/pub/ovirt-4.2/)
 -   [ovirt-4.1](https://resources.ovirt.org/pub/ovirt-4.1/)
 -   [ovirt-4.0](https://resources.ovirt.org/pub/ovirt-4.0/)
 -   [ovirt-3.6](https://resources.ovirt.org/pub/ovirt-3.6/)
@@ -15,55 +16,62 @@
 
 ### Nightly builds of oVirt
 
--   [ovirt-4.3 Nightly](https://resources.ovirt.org/pub/ovirt-master-snapshot)
--   [ovirt-4.2 Nightly](https://resources.ovirt.org/pub/ovirt-4.2-snapshot)
+-   [ovirt-4.4 Nightly](https://resources.ovirt.org/pub/ovirt-master-snapshot)
+-   [ovirt-4.3 Nightly](https://resources.ovirt.org/pub/ovirt-4.3-snapshot)
 
 ## Mirrors for oVirt Downloads
 
 ### Europe
 
 - [NLUUG](https://ftp.nluug.nl/os/Linux/virtual/ovirt/) (
+[oVirt 4.3](https://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.3/)
 [oVirt 4.2](https://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.2/)
 [oVirt 4.1](https://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.1/)
 [oVirt 4.0](https://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-4.0/)
-[oVirt 4.2 Development Nightly](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-master-snapshot/))
+[oVirt 4.4 Development Nightly](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-master-snapshot/))
 - [Plus.line AG](http://www.plusline.net/en/) (
+[oVirt 4.3](http://ftp.plusline.net/ovirt/ovirt-4.3/)
 [oVirt 4.2](http://ftp.plusline.net/ovirt/ovirt-4.2/)
 [oVirt 4.1](http://ftp.plusline.net/ovirt/ovirt-4.1/)
 [oVirt 4.0](http://ftp.plusline.net/ovirt/ovirt-4.0/)
-[oVirt 4.2 Development Nightly](http://ftp.plusline.net/ovirt/ovirt-master-snapshot/))
+[oVirt 4.4 Development Nightly](http://ftp.plusline.net/ovirt/ovirt-master-snapshot/))
 - [SNT - University of Twente](http://ftp.snt.utwente.nl/pub/software/ovirt/) (
+[oVirt 4.3](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.3/)
 [oVirt 4.2](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.2/)
 [oVirt 4.1](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.1/)
 [oVirt 4.0](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-4.0/)
-[oVirt 4.2 Development Nightly](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-master-snapshot/))
+[oVirt 4.4 Development Nightly](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-master-snapshot/))
 
 ### North America
 
 - [Duke University](http://archive.linux.duke.edu/ovirt/) (
+[oVirt 4.3](http://archive.linux.duke.edu/ovirt/pub/ovirt-4.3/)
 [oVirt 4.2](http://archive.linux.duke.edu/ovirt/pub/ovirt-4.2/)
 [oVirt 4.1](http://archive.linux.duke.edu/ovirt/pub/ovirt-4.1/)
 [oVirt 4.0](http://archive.linux.duke.edu/ovirt/pub/ovirt-4.0/)
-[oVirt 4.2 Development Nightly](http://archive.linux.duke.edu/ovirt/pub/ovirt-master-snapshot/))
+[oVirt 4.4 Development Nightly](http://archive.linux.duke.edu/ovirt/pub/ovirt-master-snapshot/))
 - [Georgia Institute of Technology](http://www.gtlib.gatech.edu/pub/oVirt) (
+[oVirt 4.3](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.3/)
 [oVirt 4.2](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.2/)
 [oVirt 4.1](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.1/)
 [oVirt 4.0](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-4.0/)
-[oVirt 4.2 Development Nightly](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-master-snapshot/)
+[oVirt 4.4 Development Nightly](http://www.gtlib.gatech.edu/pub/oVirt/pub/ovirt-master-snapshot/)
 [FTP Site](ftp://ftp.gtlib.gatech.edu/pub/oVirt))
 - [ibiblio](http://mirrors.ibiblio.org/ovirt/) (
+[oVirt 4.3](http://mirrors.ibiblio.org/ovirt/pub/ovirt-4.3/)
 [oVirt 4.2](http://mirrors.ibiblio.org/ovirt/pub/ovirt-4.2/)
 [oVirt 4.1](http://mirrors.ibiblio.org/ovirt/pub/ovirt-4.1/)
 [oVirt 4.0](http://mirrors.ibiblio.org/ovirt/pub/ovirt-4.0/)
-[oVirt 4.2 Development Nightly](http://mirrors.ibiblio.org/ovirt/pub/ovirt-master-snapshot/))
+[oVirt 4.4 Development Nightly](http://mirrors.ibiblio.org/ovirt/pub/ovirt-master-snapshot/))
 
 ### Asia
 
 - [Hamakor](http://mirror.isoc.org.il/pub/ovirt/) (
+[ovirt 4.3](http://mirror.isoc.org.il/pub/ovirt/ovirt-4.3/)
 [ovirt 4.2](http://mirror.isoc.org.il/pub/ovirt/ovirt-4.2/)
 [ovirt 4.1](http://mirror.isoc.org.il/pub/ovirt/ovirt-4.1/)
 [ovirt 4.0](http://mirror.isoc.org.il/pub/ovirt/ovirt-4.0/)
-[oVirt 4.2 Development Nightly](http://mirror.isoc.org.il/pub/ovirt/ovirt-master-snapshot/))
+[oVirt 4.4 Development Nightly](http://mirror.isoc.org.il/pub/ovirt/ovirt-master-snapshot/))
 
 ## GPG Keys used by oVirt
 
@@ -90,7 +98,7 @@ To get the public key:
 
 Importing keys Automatically
 
-    yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
+    yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
 
 **Important:** yum will prompt sysadmin to acknowledge import of key, make sure key id is FE590CB7.
 

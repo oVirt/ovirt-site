@@ -42,12 +42,17 @@ and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
 
 
-If you're upgrading from a previous release on Enterprise Linux 7 you just need
-to execute:
+If you're upgrading from oVirt Engine 4.2 you just need to execute:
 
       # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
       # yum update "ovirt-*-setup*"
       # engine-setup
+
+If you're upgrading from oVirt Node NG 4.2 you just need to execute:
+
+      # yum install https://resources.ovirt.org/pub/ovirt-4.3/rpm/el7/noarch/ovirt-node-ng-image-update-4.3.0-1.el7.noarch.rpm
+      # reboot
+
 
 ### Fedora Tech Preview
 

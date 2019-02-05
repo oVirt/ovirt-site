@@ -119,9 +119,18 @@ img.error-not-fixed, img.error-fixed
 /* nav */
 .navForMobileHack
   left: 102px
-  @media screen and (max-width: 768px)
+  @media screen and (max-width: 767px)
     left: 0
     position: relative !important
+    font-size: 20px
+
+.navbar-collapse li, .navbar-collapse a, .navbar-collapse ul
+  @media screen and (max-width: 767px)
+    font-size: 10px
+
+.navbar-collapse
+  @media screen and (max-width: 767px)
+    position: absolute
 
 .collapsing
   -webkit-transition: none

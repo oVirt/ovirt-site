@@ -16,7 +16,7 @@ There are Installing_the_Websocket_Proxy_on_a_Separate_Machine types of storage 
 
 * **ISO Domain:** ISO domains store ISO files (or logical CDs) used to install and boot operating systems and applications for the virtual machines, and can be shared across different data centers. An ISO domain removes the data center's need for physical media. ISO domains can only be NFS-based. Only one ISO domain can be added to a data center.
 
-    **Important:** ISO domains have been deprecated, ISO images should be uploaded directly on Data Domains from the web admin console.
+    **Important:** ISO domains have been deprecated. ISO images should be uploaded directly to data domains from the Administration Portal.
 
     **Important:** If your host is booting from SAN storage and loses connectivity to the storage, the storage file systems become read-only and remain in this state after connectivity is restored.
 

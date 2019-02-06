@@ -2,7 +2,7 @@
 title: oVirt 4.3.0 Release Notes
 category: documentation
 layout: toc
-authors: sandrobonazzola
+authors: sandrobonazzola, gregsheremeta
 ---
 
 # oVirt 4.3.0 Release Notes
@@ -85,6 +85,10 @@ the CentOS SIG repos, for other packages.
 If you want to use other packages from EPEL, you should make sure to
 use `includepkgs` and add only those you need avoiding to override
 packages from other repos.
+
+## Known Issues
+- [Bug 1672587 - VNC encryption is true on host after upgrade causing "Unsupported security types: 19"](https://bugzilla.redhat.com/show_bug.cgi?id=1672587) causes VNC console to be broken. As a workaround, disable the vnc_tls flag on the Host and restart libvirt, or use SPICE. See the BZ for details.
+- [Bug 1662047 – [UI] 2 dashboard icons after upgrade](https://bugzilla.redhat.com/show_bug.cgi?id=1662047) causes 2 dashboard icons after upgrade. An async fix has already been published. New standalone and hosted engine upgrades will catch the fix. If you have already upgraded to 4.3.0 and see the issue, run `yum update` and `engine-setup` on your Engine.
 
 ## What's New in 4.3.0?
 

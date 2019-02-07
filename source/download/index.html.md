@@ -29,6 +29,7 @@ oVirt 4.3.0 is intended for production use and is available for the following pl
 - CentOS Linux 7.6 or later
 - Scientific Linux 7.6 or later
 - oVirt Node (based on CentOS)
+- Fedora 28 (Tech preview)
 
 See the [Release Notes for oVirt 4.3.0](/release/4.3.0/).
 

@@ -5,6 +5,10 @@ authors: emesika
 
 # Helper Utilities
 
+The directory ```/usr/share/ovirt-engine/setup/dbutils``` or on
+developer setup ```$PREFIX/share/ovirt-engine/setup/dbutils``` contains
+useful scripts to help with various database issues.
+
 ## fkvalidator
 
 **fkvalidaor.sh** is a script that must be run on a customer database before an upgrade

@@ -6,16 +6,18 @@ date: 2019-01-06 09:01:00 UTC
 ---
 
 This is a series of posts to demonstrate how to  install  OKD 3.11 on oVirt and what you can do with it.
-**Part I**   -  How to intall OKD 3.11 on oVirt
+**Part I**   -  How to install OKD 3.11 on oVirt
+
+READMORE
 
 <img align="left" src="/images/blog/2019-01-06/boxhead.png" width="400px" style="margin-right: 25px;border-radius: 4px">
 
-# How to intall OKD 3.11 on ovirt (4.2 and up)
+# How to install OKD 3.11 on oVirt (4.2 and up)
 Installing OKD or Kubernetes on oVirt has many advantages, and it's also gotten a lot easier these days. Admins and users who want to take container platform management for a spin, on oVirt, will be encouraged by this.  
 Few of the advantages are:
 - Virtualizing the control plane for Kubernetes - provide HA/backup/affinity capabilities to the controllers and allowing hardware maintenance cycles
 - Providing persistent volume for containers via the IAAS, without the need for additional storage array dedicated to Kubernetes
-- Allowing a quick method to build up/tear down Kubernetes clusters, providing hard tenency model via VMs between clusters.
+- Allowing a quick method to build up/tear down Kubernetes clusters, providing hard tenancy model via VMs between clusters.
 
 The installation uses [openshift-ansible](https://github.com/openshift/openshift-ansible) and, specifically the `openshift_ovirt` ansible-role. The integration between OpenShift and oVirt is tighter, and provides storage integration. If you need persistent volumes for your containers you can get that directly from oVirt using **ovirt-volume-provisioner** and **ovirt-flexvolume-driver**.  
 For the sake of simplicity, this example will cover an all-in-one OpenShift cluster, on a single VM.  
@@ -30,7 +32,7 @@ On top of that, in the 2nd post, we will run a classic web stack, a Java applica
 
 ## Single shell file installation
 
-Dropping to shell - this [install.sh](https://github.com/oVirt/ovirt-openshift-extensions/blob/master/automation/ci/install.sh) is a wrapper for installing  the ovirt-openshift-installer container, it uses ansible-playbook and has two main playbooks: install_okd.yaml and install_extensions.yaml. The latter is mainly for installing ovirt storage plugins.
+Dropping to shell - this [install.sh](https://github.com/oVirt/ovirt-openshift-extensions/blob/master/automation/ci/install.sh) is a wrapper for installing  the ovirt-openshift-installer container, it uses ansible-playbook and has two main playbooks: install_okd.yaml and install_extensions.yaml. The latter is mainly for installing oVirt storage plugins.
 
 The install.sh script has one dependency, it needs to have 'podman' installed on the host, while all the rest runs inside a container.
 
@@ -110,7 +112,7 @@ ovirt-flexvolume-driver   1         1         1         1            1          
 ```
 
 ### Default Storage Class
-To run all the dynamic storage provisioning through ovirt's provisioner, 
+To run all the dynamic storage provisioning through oVirt's provisioner, 
 we need to set oVirt's storage class to the default.  
 Notice that a storage class defines which oVirt storage domain will  
 be used to provision the disks. Also it will set the disk type (thin/thick) provision to be the default, thin.

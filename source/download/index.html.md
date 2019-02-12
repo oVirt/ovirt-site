@@ -4,6 +4,9 @@ authors: gshereme,sandrobonazzola
 ---
 
 <style>
+h1, h2, h3, h4, h5, h6, li, a, p {
+    font-family: 'Open Sans', sans-serif !important;
+}
 .instructions li {
     margin-top: 20px;
 }

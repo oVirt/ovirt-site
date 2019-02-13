@@ -71,6 +71,7 @@ parameters:
   iopsPerGB: "10"
   ovirtStorageDomain: "prod-ssd-domain"
   fsType: ext4
+  ovirtDiskFormat: "cow"
 ```
 
 When you create a storage claim, ovirt-provisioner will create an oVirt disk for you on the

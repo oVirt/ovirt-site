@@ -170,7 +170,7 @@ This section explains how to install and configure a Squid proxy to the User Por
 14. Replace the existing Squid configuration file with the following:
 
         https_port 443 key=/etc/squid/proxy.key cert=/etc/squid/proxy.cer ssl-bump defaultsite=engine.example.com
-        cache_peer engine.example.com parent 443 0 no-query originserver ssl sslcafile=/etc/squid/ca.pem name=engine
+        cache_peer engine.example.com parent 443 0 no-query originserver ssl sslcafile=/etc/squid/ca.pem name=engine login=PASSTHRU
         cache_peer_access engine allow all
         ssl_bump allow all
         http_access allow all

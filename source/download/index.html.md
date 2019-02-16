@@ -82,9 +82,9 @@ Instead of or in addition to oVirt Node, you can use a standard Enterprise Linux
 1.  Enable the Base, Optional, and Extra repositories (Red Hat Enterprise Linux only):
 
         # RHEL only -- they are enabled by default on CentOS and oVirt Node
-        subscription-manager repos --enable="rhel-7-server-rpms"
-        subscription-manager repos --enable="rhel-7-server-optional-rpms"
-        subscription-manager repos --enable="rhel-7-server-extras-rpms"
+        sudo subscription-manager repos --enable="rhel-7-server-rpms"
+        sudo subscription-manager repos --enable="rhel-7-server-optional-rpms"
+        sudo subscription-manager repos --enable="rhel-7-server-extras-rpms"
 
 2.  Install Cockpit and the cockpit-ovirt-dashboard plugin:
 

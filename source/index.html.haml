@@ -3,54 +3,63 @@ title: ''
 page_classes: front-page
 pageable: false
 no_container: true
-authors: bproffitt, dneary, doron, knesenko, mburns, quaid, sandrobonazzola, theron, garrett, lveyde
+authors: bproffitt, dneary, doron, knesenko, mburns, quaid, sandrobonazzola, theron, garrett, lveyde, gregsheremeta
 hide_metadata: true
 ---
 
-- content_for :head do
-  %link(href="/blog/feed.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
-
+:markdown
+  <style>
+  h1, h2, h3, h4, h5, h6, li, a, p, div, #footer {
+    font-family: 'Open Sans', sans-serif !important;
+  }
+  h1#banner {
+    font-weight: 900;
+  }
+  p#sub-banner {
+    font-size: 1.5em;
+  }
+  img#kvm, img#libvirt {
+    max-width: 80%;
+  }
+  img#gluster, img#patternfly, img#ansible {
+    max-width: 90%;
+  }
+  </style>
 
 %section.intro(style="font-family: 'Open Sans', sans-serif !important; color: #666; text-align: center; min-height: 50vh; display: flex; align-items: center;")
   .container
     .row
       .col-xs-12
-        %h1(style="font-family: 'Open Sans', sans-serif; font-weight: 900") POWERFUL OPEN SOURCE VIRTUALIZATION
+        %h1#banner POWERFUL OPEN SOURCE VIRTUALIZATION
       .col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
-        %p(style="font-size: 1.5em") oVirt is a free open-source virtualization solution for your entire enterprise
+        %p#sub-banner oVirt is a free open-source virtualization solution for your entire enterprise
       .col-xs-10.col-xs-offset-1.col-sm-8.col-sm-offset-2.col-md-6.col-md-offset-3
         %a.btn.btn-primary(href="/download") Download 4.3.0
         %a.btn.btn-primary(href="/release/4.3.0/") Release Notes
-
-
-- if defined? page_number && page_number < 2
-
-  -# First-page only stuff here
-  -# (If a blog is included below, then it may paginate)
 
 %div.promo_whatisovirt
   .container
     .row
       .col-md-8
-        %h2(style="font-family: 'Open Sans', sans-serif") COMMUNITY POWERED
-        %div(style="font-family: 'Open Sans', sans-serif")
+        %h2 COMMUNITY POWERED
+        %div
           :markdown
             oVirt is an open-source distributed virtualization solution, designed to manage your entire enterprise infrastructure.
             oVirt uses the trusted KVM hypervisor and is built upon several other community projects, including libvirt, Gluster, PatternFly, and Ansible.
       .col-md-4
         %div
-          %img(src="/images/logos/kvm.png" style="max-width: 80%")
-          %img(src="/images/logos/libvirt.png" style="max-width: 80%")
-          %img(src="/images/logos/gluster.jpg" style="max-width: 90%")
-          %img(src="/images/logos/patternfly.png" style="max-width: 90%")
-          %img(src="/images/logos/ansible.png" style="max-width: 90%")
+          %img#kvm(src="/images/logos/kvm.png")
+          %img#libvirt(src="/images/logos/libvirt.png")
+          %img#gluster(src="/images/logos/gluster.jpg")
+          %img#patternfly(src="/images/logos/patternfly.png")
+          %img#ansible(src="/images/logos/ansible.png")
 
 %div.promo_features
   .container
     .row
       .col-md-8
-        %h2(style="font-family: 'Open Sans', sans-serif") What's included?
-        %div(style="font-family: 'Open Sans', sans-serif")
+        %h2 What's included?
+        %div
           :markdown
             * Rich web-based user interfaces for both admin and non-admin users
             * Integrated management of hosts, storage, and network configuration
@@ -63,7 +72,7 @@ hide_metadata: true
 
 %div.promo_casestudy
   .container
-    %h2(style="font-family: 'Open Sans', sans-serif") Case Studies
+    %h2 Case Studies
     %div.carousel-inner.text-center
     :ruby
       studies = sitemap.resources.select do |p|
@@ -95,66 +104,6 @@ hide_metadata: true
 
   %div
     .container
-      .textViewAllItems(style="font-family: 'Open Sans', sans-serif")
+      .textViewAllItems
         :markdown
           [See more...](/community/user-stories/user-stories/)
-
-
-.container
-  .row
-    .col-md-6
-      %h2(style="font-family: 'Open Sans', sans-serif") @oVirt on Twitter
-      .twitter-widget(style="font-family: 'Open Sans', sans-serif")
-        :ruby
-          twitter_options = {
-            :href => 'https://twitter.com/ovirt',
-            'data-chrome' => 'noheader nofooter noborders noscrollbar transparent',
-            'data-dnt' => true,
-            'data-tweet-limit' => 6,
-            'data-link-color' => '#61b60e',
-            'data-show-replies' => false,
-            'data-widget-id' => '615488920038420480'
-          }
-
-        :javascript
-          // Load the Twitter widget JS in a <script> at the top of the doc
-          !function (doc, tag, id) {
-            var scriptTag,
-                firstScriptTag = doc.getElementsByTagName(tag) [0];
-
-            if (!doc.getElementById(id)) {
-              scriptTag = doc.createElement(tag);
-              scriptTag.id = id;
-              scriptTag.src = '//platform.twitter.com/widgets.js';
-              firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
-            }
-          }(document, 'script', 'twitter-wjs');
-
-        -# Hook for the Twitter widget
-        .twitter-timeline{twitter_options}
-          %noscript The embedded Twitter timeline requires JavaScript.
-
-        .more-link.pull-left
-          -# More link under the widget
-          %a.textViewAllItems(style="font-family: 'Open Sans', sans-serif"){href: twitter_options[:href]} See more...
-
-    .col-md-6
-      %section.blog-posts
-
-        %h2(style="font-family: 'Open Sans', sans-serif")
-          = data.site.name
-          Blog
-
-        = partial :blog_posts, locals: {limit: 2}
-
-        %div.textViewAllItems
-          = link_to 'See more...', '/blog/'
-        %hr/
-
-
-- content_for :tail do
-  :coffee
-    $ ->
-      # Change the location to what's in the link if the span is clicked
-      $('span.btn').on 'click', (e)->
-        window.location = $('a', @).attr('href') if @ == e.target

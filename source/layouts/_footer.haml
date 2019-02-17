@@ -17,14 +17,21 @@
   = data.site.copyright || "&copy; #{year_string} #{data.site.owner || data.site.name}"
   
   - source_file = current_page.source_file.sub(root, '')
+
   - labels = if source_file.include?("documentation")
     - "documentation"
   - else
     - "content"
-  - icon = '<i class="icon fa fa-github"></i>'
+
+  - issue_template = if source_file.include?("documentation")
+    - ".github/ISSUE_TEMPLATE/issue_template_documentation.md"
+  - else
+    - ""
+
+  - icon = '<i class="icon fa fa-pencil"></i>'
 
   .edit-this-page
-    - issue_url = "https://github.com/#{data.site.github}/issues/new?labels=#{labels}&title=Issue:%20#{source_file}"
+    - issue_url = "https://github.com/#{data.site.github}/issues/new?labels=#{labels}&title=Issue:%20#{source_file}&template=#{issue_template}"
     = link_to "#{icon}Report an issue on GitHub", issue_url, {target: '_blank'}
   .edit-this-page
     - edit_url = "https://github.com/#{data.site.github}/edit/master#{source_file}"

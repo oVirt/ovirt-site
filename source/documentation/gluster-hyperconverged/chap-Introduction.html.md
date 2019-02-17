@@ -12,7 +12,9 @@ oVirt has been integrated with GlusterFS, an open source scale-out distributed f
 
 ![Overview](/images/gluster-hyperconverged/hc-arch.png)
 
-There's a minimum 3 node requirement to run a hyperconverged solution. This is to ensure high availability of the shared storage. With a 2 node deployment, gluster cannot identify quorum loss and this could lead to data inconsistencies.
+**oVirt Hyperconverged solution can be run with either 1 (since oVirt 4.2) or 3 nodes.**
+ 
+There's a minimum 3 node requirement to run a hyperconverged solution with HA for virtual machines. This is to ensure availability of the shared storage. With a 2 node deployment, GlusterFS cannot identify quorum loss and this could lead to data inconsistencies.
 
 Either a replica 3 or a replica 3 with arbiter can be used as the gluster volume type for the deployment.
 A replica 3 stores/replicates copy of the data on 3 bricks, where each of the 3 node has a brick. With replica 3 arbiter, copy of the data is stored on 2 of the bricks and metadata is stored on the third brick ensuring consistency of data in case of split-brain. Lesser storage space is required in case of the arbiter volume, but this volume type is not as highly available as the replica 3 type.

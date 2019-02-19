@@ -140,7 +140,7 @@ To increase the amount of NFS storage, you can either create a new storage domai
 
 A local storage domain can be set up on a host. When you set up a host to use local storage, the host automatically gets added to a new data center and cluster that no other hosts can be added to. Multiple host clusters require that all hosts have access to all storage domains, which is not possible with local storage. Virtual machines created in a single host cluster cannot be migrated, fenced or scheduled. For more information on the required system users and groups see [Appendix F: System Accounts](appe-System_Accounts).
 
-**Important:** On oVirt Node, the path used for local storage must be within the /var directory; create the storage directory in the following procedure within `/var`.
+**Important:** On oVirt Node, the path used for local storage must be within the /var directory; create the storage directory in the following procedure within `/var`. If the storage is within /, your images will likely disappear after upgrades to oVirt Node.
 
 **Preparing Local Storage for Enterprise Linux Hosts**
 
@@ -157,12 +157,12 @@ Your local storage is ready to be added to the oVirt environment.
 
 **Preparing Local Storage for oVirt Nodes**
 
-The oVirt Project recommends creating the local storage on a logical volume as follows:
+The oVirt Project recommends creating the local storage on a logical volume as follows (INSIDE /var):
 
-        # mkdir /data
+        # mkdir /var/local/data
         # lvcreate -L $SIZE rhvh -n data
         # mkfs.ext4 /dev/mapper/rhvh-data
-        # echo "/dev/mapper/rhvh-data /data ext4 defaults,discard 1 2" >> /etc/fstab
+        # echo "/dev/mapper/rhvh-data /var/local/data ext4 defaults,discard 1 2" >> /etc/fstab
 
 Your local storage is ready to be added to the oVirt environment.
 

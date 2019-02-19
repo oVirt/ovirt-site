@@ -154,7 +154,7 @@ The table below describes the administrator roles and privileges applicable to v
 |-
 | DataCenterAdmin | Data Center Administrator | Possesses administrative permissions for all objects underneath a specific data center except for storage. |
 | ClusterAdmin | Cluster Administrator | Possesses administrative permissions for all objects underneath a specific cluster. |
-| NetworkAdmin | Network Administrator | Possesses administrative permissions for all operations on a specific logical network. Can configure and manage networks attached to virtual machines. To configure port mirroring on a virtual machine network, apply the **NetworkAdmin** role on the network and the **UserVmEngine** role on the virtual machine. |
+| NetworkAdmin | Network Administrator | Possesses administrative permissions for all operations on a specific logical network. Can configure and manage networks attached to virtual machines. To configure port mirroring on a virtual machine network, apply the **NetworkAdmin** role on the network and the **UserVmManager** role on the virtual machine. |
 
 ### Virtual Machine User Roles Explained
 
@@ -166,7 +166,7 @@ The table below describes the user roles and privileges applicable to virtual ma
 |-
 | UserRole | Can access and use virtual machines and pools. | Can log in to the VM Portal and use virtual machines and pools. |
 | PowerUserRole | Can create and manage virtual machines and templates. | Apply this role to a user for the whole environment with the **Configure** window, or for specific data centers or clusters. For example, if a PowerUserRole is applied on a data center level, the PowerUser can create virtual machines and templates in the data center. Having a **PowerUserRole** is equivalent to having the **VmCreator**, **DiskCreator**, and **TemplateCreator** roles. |
-| UserVmEngine | System administrator of a virtual machine. | Can manage virtual machines and create and use snapshots. A user who creates a virtual machine in the VM Portal is automatically assigned the UserVmEngine role on the machine. |
+| UserVmManager | System administrator of a virtual machine. | Can manage virtual machines and create and use snapshots. A user who creates a virtual machine in the VM Portal is automatically assigned the UserVmManager role on the machine. |
 | UserTemplateBasedVm | Limited privileges to only use Templates. | Level of privilege to create a virtual machine by means of a template. |
 | VmCreator | Can create virtual machines in the VM Portal. | This role is not applied to a specific virtual machine; apply this role to a user for the whole environment with the **Configure** window. When applying this role to a cluster, you must also apply the **DiskCreator** role on an entire data center, or on specific storage domains. |
 | VnicProfileUser | Logical network and network interface user for virtual machines. | If the **Allow all users to use this Network** option was selected when a logical network is created, **VnicProfileUser** permissions are assigned to all users for the logical network. Users can then attach or detach virtual machine network interfaces to or from the logical network. |
@@ -175,15 +175,15 @@ The table below describes the user roles and privileges applicable to virtual ma
 
 If you are creating virtual machines for users other than yourself, you have to assign roles to the users before they can use the virtual machines. Note that permissions can only be assigned to existing users. See "Users and Roles" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for details on creating user accounts.
 
-The VM Portal supports three default roles: User, PowerUser and UserVmEngine. However, customized roles can be configured via the Administration Portal. The default roles are described below.
+The VM Portal supports three default roles: User, PowerUser and UserVmManager. However, customized roles can be configured via the Administration Portal. The default roles are described below.
 
 * A **User** can connect to and use virtual machines. This role is suitable for desktop end users performing day-to-day tasks.
 
 * A **PowerUser** can create virtual machines and view virtual resources. This role is suitable if you are an administrator or manager who needs to provide virtual resources for your employees.
 
-* A **UserVmEngine** can edit and remove virtual machines, assign user permissions, use snapshots and use templates. It is suitable if you need to make configuration changes to your virtual environment.
+* A **UserVmManager** can edit and remove virtual machines, assign user permissions, use snapshots and use templates. It is suitable if you need to make configuration changes to your virtual environment.
 
-When you create a virtual machine, you automatically inherit **UserVmEngine** privileges. This enables you to make changes to the virtual machine and assign permissions to the users you manage, or users who are in your Identity Management (IdM) or RHDS group. See the [Administration Guide](/documentation/admin-guide/administration-guide/) for more information.
+When you create a virtual machine, you automatically inherit **UserVmManager** privileges. This enables you to make changes to the virtual machine and assign permissions to the users you manage, or users who are in your Identity Management (IdM) or RHDS group. See the [Administration Guide](/documentation/admin-guide/administration-guide/) for more information.
 
 **Assigning Permissions to Users**
 

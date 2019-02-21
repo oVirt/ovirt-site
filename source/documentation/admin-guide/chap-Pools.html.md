@@ -42,7 +42,7 @@ If your pool needs to join a domain, you can create a custom `sysprep` for each 
               <Domain>AD_Domain</Domain>
               <Password>Domain_Password</Password>
               <Username>Domain_Administrator</Username>
-           </Credentials>
+            </Credentials>
 
 If you need to configure different sysprep settings for different pools of Windows virtual machines, you can create a custom sysprep file in the Administration Portal (see "Creating a Virtual Machine Pool" below).
 
@@ -116,7 +116,7 @@ If you need to configure different sysprep settings for different pools of Windo
                 <Domain>AD_Domain</Domain>
                 <Password>Domain_Password</Password>
                 <Username>Domain_Administrator</Username>
-           </Credentials>
+            </Credentials>
 
         **Domain Credentials Example**
 
@@ -126,31 +126,31 @@ If you need to configure different sysprep settings for different pools of Windo
                 <Username>Sarah_Smith</Username>
             </Credentials>
 
-                **Note:** The `Domain`, `Password`, and `Username` are required to join the domain. The `Key` is for activation. You do not necessarily need both.
+        **Note:** The `Domain`, `Password`, and `Username` are required to join the domain. The `Key` is for activation. You do not necessarily need both.
 
-                The domain and credentials cannot be modified in the **Initial Run** tab.
-
+        The domain and credentials cannot be modified in the **Initial Run** tab.
+        
       * `FullName` of the local administrator:
 
-        <UserData>
-        ...
-            <FullName>Local_Administrator</FullName>
-        ...
-        </UserData>
+            <UserData>
+                ...
+                <FullName>Local_Administrator</FullName>
+                ...
+            </UserData>
 
       * `DisplayName` and `Name` of the local administrator:
 
-        <LocalAccounts>
-            <LocalAccount wcm:action="add">
-                <Password>
-                    <Value><![CDATA[$AdminPassword$]]></Value>
-                    <PlainText>true</PlainText>
-                </Password>
-                <DisplayName>Local_Administrator</DisplayName>
-                <Group>administrators</Group>
-                <Name>Local_Administrator</Name>
-            </LocalAccount>
-        </LocalAccounts>
+            <LocalAccounts>
+                <LocalAccount wcm:action="add">
+                    <Password>
+                        <Value><![CDATA[$AdminPassword$]]></Value>
+                        <PlainText>true</PlainText>
+                    </Password>
+                    <DisplayName>Local_Administrator</DisplayName>
+                    <Group>administrators</Group>
+                    <Name>Local_Administrator</Name>
+                </LocalAccount>
+            </LocalAccounts>
 
 The remaining variables in the `sysprep` file can be filled in on the **Initial Run** tab.
 
@@ -158,9 +158,9 @@ The remaining variables in the `sysprep` file can be filled in on the **Initial 
 
     i. Click the **Type** tab and select a **Pool Type**:
 
-        * **Manual** - The administrator is responsible for explicitly returning the virtual machine to the pool. The virtual machine reverts to the original base image after the administrator returns it to the pool.
+    * **Manual** - The administrator is responsible for explicitly returning the virtual machine to the pool. The virtual machine reverts to the original base image after the administrator returns it to the pool.
 
-        * **Automatic** - When the virtual machine is shut down, it automatically reverts to its base image and is returned to the virtual machine pool.
+    * **Automatic** - When the virtual machine is shut down, it automatically reverts to its base image and is returned to the virtual machine pool.
 
     ii. Select the **Stateful Pool** check box to ensure that virtual machines are started in a stateful mode. This ensures that changes made by a previous user will persist on a virtual machine.
 
@@ -218,29 +218,11 @@ The following table details the information required on the **Type** tab of the 
 
 **Type settings**
 
-<table>
- <thead>
-  <tr>
-   <td>Field Name</td>
-   <td>Description</td>
-  </tr>
- </thead>
- <tbody>
-  <tr>
-   <td><b>Pool Type</b></td>
-   <td>
-    <p>This drop-down menu allows you to specify the type of the virtual machine pool. The following options are available:</p>
-    <ul>
-     <li><b>Automatic</b>: After a user finishes using a virtual machine taken from a virtual machine pool, that virtual machine is automatically returned to the virtual machine pool.</li>
-     <li><b>Manual</b>: After a user finishes using a virtual machine taken from a virtual machine pool, that virtual machine is only returned to the virtual machine pool when an administrator manually returns the virtual machine.</li>
-    </ul>
-   </td>
-   <tr>
-    <td><b>Stateful Pool</b></td>
-    <td>Specify whether the state of virtual machines in the pool is preserved when a virtual machine is passed to a different user. This means that changes made by a previous user will persist on the virtual machine.</td>
-  </tr>
- </tbody>
-</table>
+|Field Name|Description|
+|--- |--- |
+|Pool Type|This drop-down menu allows you to specify the type of the virtual machine pool. The following options are available: <br/>**Automatic:** After a user finishes using a virtual machine taken from a virtual machine pool, that virtual machine is automatically returned to the virtual machine pool.<br/>**Manual:** After a user finishes using a virtual machine taken from a virtual machine pool, that virtual machine is only returned to the virtual machine pool when an administrator manually returns the virtual machine.|
+|Stateful Pool|Specify whether the state of virtual machines in the pool is preserved when a virtual machine is passed to a different user. This means that changes made by a previous user will persist on the virtual machine.|
+
 
 #### New Pool and Edit Pool Console Settings Explained
 
@@ -411,7 +393,7 @@ The following table details the information required on the **Resource Allocatio
 
 After a virtual machine pool has been created, its properties can be edited. The properties available when editing a virtual machine pool are identical to those available when creating a new virtual machine pool except that the **Number of VMs** property is replaced by **Increase number of VMs in pool by**.
 
-    **Note:** When editing a virtual machine pool, the changes introduced affect only new virtual machines. Virtual machines that existed already at the time of the introduced changes remain unaffected.
+**Note:** When editing a virtual machine pool, the changes introduced affect only new virtual machines. Virtual machines that existed already at the time of the introduced changes remain unaffected.
 
 **Editing a Virtual Machine Pool**
 

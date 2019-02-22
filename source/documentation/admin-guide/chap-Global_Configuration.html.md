@@ -398,13 +398,13 @@ The oVirt Engine provides five default scheduling policies: **Evenly_Distributed
 
 **Evenly Distributed Scheduling Policy**
 
-    ![Evenly Distributed Scheduling Policy](/images/admin-guide/EvenlyDistributed.png)
+![Evenly Distributed Scheduling Policy](/images/admin-guide/EvenlyDistributed.png)
 
 The **Evenly_Distributed** scheduling policy distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined **CpuOverCommitDurationMinutes**, **HighUtilization**, or **MaxFreeMemoryForOverUtilized**.
 
 The **VM_Evenly_Distributed** scheduling policy virtual machines evenly between hosts based on a count of the virtual machines. The cluster is considered unbalanced if any host is running more virtual machines than the **HighVmCount** and there is at least one host with a virtual machine count that falls outside of the **MigrationThreshold**.
 
-    ![Power Saving Scheduling Policy](/images/admin-guide/PowerSaving.png)
+![Power Saving Scheduling Policy](/images/admin-guide/PowerSaving.png)
 
 The **Power_Saving** scheduling policy distributes the memory and CPU processing load across a subset of available hosts to reduce power consumption on underutilized hosts. Hosts with a CPU load below the low utilization value for longer than the defined time interval will migrate all virtual machines to other hosts so that it can be powered down. Additional virtual machines attached to a host will not start if that host has reached the defined high utilization value.
 
@@ -603,7 +603,7 @@ MAC address pools define the range(s) of MAC addresses allocated for each cluste
 
 The same MAC address pool can be shared by multiple clusters, but each cluster has a single MAC address pool assigned. A default MAC address pool is created by oVirt and is used if another MAC address pool is not assigned. For more information about assigning MAC address pools to clusters see “Creating a New Cluster” section in Chapter 5.
 
-    **Note:** If more than one oVirt cluster shares a network, do not rely solely on the default MAC address pool because the virtual machines of each cluster will try to use the same range of MAC addresses, leading to conflicts. To avoid MAC address conflicts, check the MAC address pool ranges to ensure that each cluster is assigned a unique MAC address range.
+**Note:** If more than one oVirt cluster shares a network, do not rely solely on the default MAC address pool because the virtual machines of each cluster will try to use the same range of MAC addresses, leading to conflicts. To avoid MAC address conflicts, check the MAC address pool ranges to ensure that each cluster is assigned a unique MAC address range.
 
 The MAC address pool assigns the next available MAC address following the last address that was returned to the pool. If there are no further addresses left in the range, the search starts again from the beginning of the range. If there are multiple MAC address ranges with available MAC addresses defined in a single MAC address pool, the ranges take turns in serving incoming requests in the same way available MAC addresses are selected.
 

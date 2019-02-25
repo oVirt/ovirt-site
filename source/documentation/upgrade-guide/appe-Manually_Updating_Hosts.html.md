@@ -26,7 +26,7 @@ You can use the `yum` command to update your hosts. Update your systems regularl
 
 3. Click **Management** → **Maintenance**.
 
-4. Update the host (does not apply for clean installation):
+4. Update the host:
 
        # yum update ovirt-node-ng-image-update
 

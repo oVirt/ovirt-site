@@ -100,7 +100,11 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1467332](https://bugzilla.redhat.com/1467332) <b>[RFE][Default Route] [IPv6] - Allow and enable default route network with only ipv6 boot protocol</b><br>Feature: Support default route role on ipv6 only networks, but only for ipv6 static interface configuration.<br><br>Reason: oVirt engine should support ipv6 only networks for its existing capabilities<br><br>Result: <br>- it is now possible to set the default route role on an ipv6 only network provided it has an ipv6 gateway.<br>- for engine to correctly report the sync status of the interfaces, all interfaces should be configured with ipv6 static configuration only and an ipv6 gateway should be configured only on the network bearing the default route role. <br>- ipv6 dynamic configuration is currently not supported.<br>- the ipv6 gateway on the default route role network is applied as the default route for the v6 routing table on the host.<br>- it is now possible to set an ipv6 gateway on non-management networks (was previously possible only on the management network).<br>- if more that one ipv6 gateway is set on the interfaces of a host, engine will be in an undefined state: there will be more than one default route entry in the v6 routing table on the host which will cause the host to report that there are no v6 gateways at all meaning that the interfaces will appear as out of sync in engine.
  - [BZ 1671074](https://bugzilla.redhat.com/1671074) <b>[RFE] Disable anonymous ciphers for engine <-> VDSM communication</b><br>In RHVM 4.2 we have started to set "ssl_ciphers=HIGH" on VDSM for hosts in 4.2+ clusters to eliminate weak ciphers availability on VDSM side. This setting is applied during addition of a new host or during Reinstall of the host.<br><br>Unfortunately this change still made available the anonymous ciphers, so we would like to eliminate them in RHVM 4.3 by setting "ssl_ciphers=HIGH:!aNULL" using the same Add host/Reinstall host flows as in RHVM 4.2.<br><br>Additionally in RHVM 4.3 we have exposed engine-config option VdsmSSLCiphers, which contains above value for ssl_ciphers as default and allows adminitsrators to limit available ciphers even further.
+ - [BZ 1637015](https://bugzilla.redhat.com/1637015) <b>[RFE] add option to disable toast notifications per user</b><br>With this release, users can now silence toast notifications.<br>When a toast notification appears, the user can now:<br><br>Dismiss All<br>or<br>Do Not Disturb<br>  for 10 minutes<br>  for 1 hour<br>  for 1 day<br>  until Next Log In
+ - [BZ 1669047](https://bugzilla.redhat.com/1669047) <b>Support creating a cinderlib data-base in the engine-setup process</b><br>In order to create and use Managed block storage domain, new database should be created for cinderlib to use.<br><br>As similar to the engine database creation, this new database can be created using the engine setup process.
+ - [BZ 1673303](https://bugzilla.redhat.com/1673303) <b>Prevent setting ipv6 gw on a non default-route-role network</b><br>Feature: Manage the ipv6 default route of a host via restricting the ipv6 default gateways on the host interfaces.<br><br>Reason: Only a single ipv6 gateway should be allowed on all interfaces of a host and it should be on the network assigned the default route role of the network. Allowing to set multiple gateways causes multiple default route entries on the host routing tables which in turn might cause <br>- loss of connectivity with the host on some subnets <br>- host reporting no gateways at all on its interfaces<br>- engine reporting networks as being out of sync<br><br>Result: <br>1. When the default route role is moved away from a network, its ipv6 gateway is automatically removed from the interface.<br>2. After moving the default route role to a new network the user should set a static ipv6 gateway on this network.<br>3. If the host and engine are not on the same subnet, engine will loose connectivity with the host on moving the default route role between networks. This is due to result (1). The user should take precautions to avoid this situation.
  - [BZ 1561539](https://bugzilla.redhat.com/1561539) <b>[RFE] Allow adding a new host or reinstalling existing one and switching it to Maintenance without activation</b><br>Feature: <br><br>Allow adding, approving or reinstalling a host without automatically activating it afterwards.<br><br>Reason: <br><br>Sometimes there is performance overhead when activating a host after its addition / re-install / approval, especially when the connection to the storage-domain is problematic. Due to this it's necessary to enable users to add / re-install /approve a host without the host being automatically activated afterwards.<br><br>Result: <br><br>The API will support activate=false matrix<br>parameter in the URL of the request, relevant for add host, install host, approve host operations. <br><br>The WebAdmin will provide "Activate Host After Install" checkbox in add and install host dialogues, and propagate the value of the checkbox to the Engine. <br><br>The default behavior remains activating the host.
 
 ### Bug Fixes
@@ -117,6 +121,10 @@ packages from other repos.
 
 ### Other
 
+#### oVirt image transfer daemon and proxy
+
+ - [BZ 1670312](https://bugzilla.redhat.com/1670312) <b>ovirt-imageio-daemon fails to start after reboot</b><br>
+
 #### oVirt Release Package
 
  - [BZ 1672954](https://bugzilla.redhat.com/1672954) <b>Include gluster-ansible role from copr repo for CentOS and Fedora</b><br>
@@ -128,12 +136,16 @@ packages from other repos.
 
 #### oVirt Cockpit Plugin
 
+ - [BZ 1679412](https://bugzilla.redhat.com/1679412) <b>Gateway address unreachable error displays on VM settings during hosted engine deployment.</b><br>
  - [BZ 1669928](https://bugzilla.redhat.com/1669928) <b>Hosted engine Wizard loading failed with static IPv6 network environment.</b><br>
  - [BZ 1655514](https://bugzilla.redhat.com/1655514) <b>Shift from gdeploy to ansible roles</b><br>
  - [BZ 1669108](https://bugzilla.redhat.com/1669108) <b>Gdeploy config file in RHEL based RHHI deployment is not generated as per requirement.</b><br>
  - [BZ 1673038](https://bugzilla.redhat.com/1673038) <b>Hosted-engine installation wizard does not open due to network issue</b><br>
+ - [BZ 1679876](https://bugzilla.redhat.com/1679876) <b>Validate the availability of gluster-ansible-roles before deployment</b><br>
  - [BZ 1670492](https://bugzilla.redhat.com/1670492) <b>The hosted-engine wizard always forces he_host_ip to the value of ansible_default_ipv4 and this could fail the deployment if the two interfaces uses different vlans</b><br>
  - [BZ 1676426](https://bugzilla.redhat.com/1676426) <b>Text bugs in Cockpit HE Window</b><br>
+ - [BZ 1679540](https://bugzilla.redhat.com/1679540) <b>HC Deployment fails at FQDN validation check</b><br>
+ - [BZ 1679687](https://bugzilla.redhat.com/1679687) <b>Hyperconverged deployment on a single host fails instantly on cockpit</b><br>
 
 #### oVirt Hosted Engine Setup
 
@@ -146,6 +158,10 @@ packages from other repos.
 #### VDSM
 
  - [BZ 1669466](https://bugzilla.redhat.com/1669466) <b>Can we have the option for 3 dns servers instead of the current two?</b><br>
+ - [BZ 1676695](https://bugzilla.redhat.com/1676695) <b>"MOM not available, KSM stats will be missing" message on random hosts, after updating to ovirt-4.3.0</b><br>
+ - [BZ 1658866](https://bugzilla.redhat.com/1658866) <b>[scale] adding storage domain creates significant load</b><br>
+ - [BZ 1668727](https://bugzilla.redhat.com/1668727) <b>Cinderlib- implement ManagedVolume.volume_info</b><br>
+ - [BZ 1610917](https://bugzilla.redhat.com/1610917) <b>External VMs automatically deleted when powered down</b><br>Vdsm takes ownership of all the VMs running on a given host. This includes any VM defined outside the System, for example by the user using command line tools.<br>Vdsm also undefines the VM when they are shut down - e.g. it removes their configuration from libvirt running on the host. <br>This is now done only for VMs created within the system. In other words, Vdsm now manages (stops, migrate...) externally defined VMs, but leaves them defined on shut down.
  - [BZ 1667978](https://bugzilla.redhat.com/1667978) <b>applicability of parameter migration_max_bandwidth is not obvious</b><br>
 
 #### oVirt Host Dependencies
@@ -161,16 +177,15 @@ packages from other repos.
  - [BZ 1658249](https://bugzilla.redhat.com/1658249) <b>Importing a VM from OVA that has been imported already fails and its disk status becomes illegal</b><br>
  - [BZ 1672251](https://bugzilla.redhat.com/1672251) <b>rename fails on KeyError  'changed'</b><br>
  - [BZ 1607118](https://bugzilla.redhat.com/1607118) <b>[IPv6] - Engine does not report out-of-sync on ipv6-enabled network</b><br>
- - [BZ 1467332](https://bugzilla.redhat.com/1467332) <b>[RFE][Default Route] [IPv6] - Allow and enable default route network with only ipv6 boot protocol</b><br>
  - [BZ 1609947](https://bugzilla.redhat.com/1609947) <b>Event notifications: distant position of Do Not Disturb dropdown</b><br>
  - [BZ 1613402](https://bugzilla.redhat.com/1613402) <b>Usage of sed -i in the dbscripts creates temporary files inside the directory</b><br>
  - [BZ 1669466](https://bugzilla.redhat.com/1669466) <b>Can we have the option for 3 dns servers instead of the current two?</b><br>
+ - [BZ 1509178](https://bugzilla.redhat.com/1509178) <b>Wrapped provider URL in General tab of external provider</b><br>
  - [BZ 1676581](https://bugzilla.redhat.com/1676581) <b>[RFE] Make it possible to enable javax.net.debug in ovirt-engine-extensions-tool</b><br>
  - [BZ 1660902](https://bugzilla.redhat.com/1660902) <b>REST/SDK create VM snapshot with the same image id as an existing image id in that VM ->  Engine Error Image IDs ${ImageId} appear</b><br>
  - [BZ 1478854](https://bugzilla.redhat.com/1478854) <b>Edit Host/Kernel dialog should not accept blank char as value for Kernel command line</b><br>
+ - [BZ 1674214](https://bugzilla.redhat.com/1674214) <b>Kernel command line does not allow spaces</b><br>
  - [BZ 1649285](https://bugzilla.redhat.com/1649285) <b>[RFE] Re-enroll host certificates during host upgrade</b><br>During host upgrade we do re-enroll host certificates in case the certificate is invalid.
- - [BZ 1673303](https://bugzilla.redhat.com/1673303) <b>Prevent setting ipv6 gw on a non default-route-role network</b><br>
- - [BZ 1589512](https://bugzilla.redhat.com/1589512) <b>[RFE] display all errors at once when  upgrading cluster compatibility level</b><br>
  - [BZ 1667842](https://bugzilla.redhat.com/1667842) <b>Automatic Migration for Affinity Labels not working</b><br>
  - [BZ 1673319](https://bugzilla.redhat.com/1673319) <b>[CinderLib] failed updating managed block storage - in 'SetStorageDomainDescriptionVDS'</b><br>
  - [BZ 1429482](https://bugzilla.redhat.com/1429482) <b>Difference between VV file content and data received as a response for REST api call to get VV file content.</b><br>
@@ -180,11 +195,18 @@ packages from other repos.
 
 #### imgbased
 
+ - [BZ 1652519](https://bugzilla.redhat.com/1652519) <b>host does not meet the cluster's minimum CPU level. Missing CPU features : spec_ctrl</b><br>
  - [BZ 1652795](https://bugzilla.redhat.com/1652795) <b>RHVH 4.3: There are warnings when running lvm commands</b><br>
+
+### No Doc Update
+
+#### oVirt Engine
+
+ - [BZ 1676704](https://bugzilla.redhat.com/1676704) <b>Cannot disable VNC Encryption in cluster</b><br>
 
 #### Contributors
 
-47 people contributed to this release:
+48 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -216,6 +238,7 @@ packages from other repos.
 	Nir Soffer
 	Ondra Machacek
 	Ori_Liel
+	Petr Balogh
 	Ravi Nori
 	Sandro Bonazzola
 	Scott Dickerson

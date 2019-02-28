@@ -7,21 +7,13 @@ authors: sandrobonazzola
 
 # oVirt 4.3.1 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.1 First Release Candidate as of February 20, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.1 Release as of February 28, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.6,
 CentOS Linux 7.6 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -37,23 +29,33 @@ To learn about features introduced before 4.3.1, see the [release notes for prev
 ### CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
 
 
+If you are upgrading from older versions please upgrade to 4.2.8 before upgrading to 4.3.1
+
+If you're upgrading from oVirt Engine 4.2.8 you just need to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
+
+If you're upgrading from oVirt Node NG 4.2 you just need to execute:
+
+      # yum install https://resources.ovirt.org/pub/ovirt-4.3/rpm/el7/noarch/ovirt-node-ng-image-update-4.3.1-1.el7.noarch.rpm
+      # reboot
+
+If you're upgrading from oVirt Node NG 4.3 please use oVirt Engine Administration portal for handling the upgrade.
 
 ### Fedora Tech Preview
 
@@ -89,6 +91,7 @@ packages from other repos.
 
 ## Known Issues
 - oVirt Node and oVirt Engine Appliance are not available for Fedora 28 due to a bug in Lorax which has not yet been fixed in Fedora 28 (https://github.com/weldr/lorax/pull/612).
+- [Bug 1666795 - VMs migrated to 4.3 are missing the appropriate virt XML for dynamic ownership, and are reset to root:root, preventing them from starting](https://bugzilla.redhat.com/show_bug.cgi?id=1666795) - Also affects 4.3.0, easy workaround is to chown vdsm:kvm the disks whigh got reowned to root:root.
 
 ## What's New in 4.3.1?
 
@@ -101,7 +104,7 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1467332](https://bugzilla.redhat.com/1467332) <b>[RFE][Default Route] [IPv6] - Allow and enable default route network with only ipv6 boot protocol</b><br>Feature: Support default route role on ipv6 only networks, but only for ipv6 static interface configuration.<br><br>Reason: oVirt engine should support ipv6 only networks for its existing capabilities<br><br>Result: <br>- it is now possible to set the default route role on an ipv6 only network provided it has an ipv6 gateway.<br>- for engine to correctly report the sync status of the interfaces, all interfaces should be configured with ipv6 static configuration only and an ipv6 gateway should be configured only on the network bearing the default route role. <br>- ipv6 dynamic configuration is currently not supported.<br>- the ipv6 gateway on the default route role network is applied as the default route for the v6 routing table on the host.<br>- it is now possible to set an ipv6 gateway on non-management networks (was previously possible only on the management network).<br>- if more that one ipv6 gateway is set on the interfaces of a host, engine will be in an undefined state: there will be more than one default route entry in the v6 routing table on the host which will cause the host to report that there are no v6 gateways at all meaning that the interfaces will appear as out of sync in engine.
- - [BZ 1671074](https://bugzilla.redhat.com/1671074) <b>[RFE] Disable anonymous ciphers for engine <-> VDSM communication</b><br>In RHVM 4.2 we have started to set "ssl_ciphers=HIGH" on VDSM for hosts in 4.2+ clusters to eliminate weak ciphers availability on VDSM side. This setting is applied during addition of a new host or during Reinstall of the host.<br><br>Unfortunately this change still made available the anonymous ciphers, so we would like to eliminate them in RHVM 4.3 by setting "ssl_ciphers=HIGH:!aNULL" using the same Add host/Reinstall host flows as in RHVM 4.2.<br><br>Additionally in RHVM 4.3 we have exposed engine-config option VdsmSSLCiphers, which contains above value for ssl_ciphers as default and allows adminitsrators to limit available ciphers even further.
+ - [BZ 1671074](https://bugzilla.redhat.com/1671074) <b>[RFE] Disable anonymous ciphers for engine <-> VDSM communication</b><br>In this release, the available SSL ciphers used in communication between the Red Hat Virtualization Manager and VDSM have been limited, and now exclude weak or anonymous ciphers.
  - [BZ 1637015](https://bugzilla.redhat.com/1637015) <b>[RFE] add option to disable toast notifications per user</b><br>With this release, users can now silence toast notifications.<br>When a toast notification appears, the user can now:<br><br>Dismiss All<br>or<br>Do Not Disturb<br>  for 10 minutes<br>  for 1 hour<br>  for 1 day<br>  until Next Log In
  - [BZ 1669047](https://bugzilla.redhat.com/1669047) <b>Support creating a cinderlib data-base in the engine-setup process</b><br>In order to create and use Managed block storage domain, new database should be created for cinderlib to use.<br><br>As similar to the engine database creation, this new database can be created using the engine setup process.
  - [BZ 1673303](https://bugzilla.redhat.com/1673303) <b>Prevent setting ipv6 gw on a non default-route-role network</b><br>Feature: Manage the ipv6 default route of a host via restricting the ipv6 default gateways on the host interfaces.<br><br>Reason: Only a single ipv6 gateway should be allowed on all interfaces of a host and it should be on the network assigned the default route role of the network. Allowing to set multiple gateways causes multiple default route entries on the host routing tables which in turn might cause <br>- loss of connectivity with the host on some subnets <br>- host reporting no gateways at all on its interfaces<br>- engine reporting networks as being out of sync<br><br>Result: <br>1. When the default route role is moved away from a network, its ipv6 gateway is automatically removed from the interface.<br>2. After moving the default route role to a new network the user should set a static ipv6 gateway on this network.<br>3. If the host and engine are not on the same subnet, engine will loose connectivity with the host on moving the default route role between networks. This is due to result (1). The user should take precautions to avoid this situation.
@@ -123,6 +126,7 @@ packages from other repos.
 
 #### oVirt image transfer daemon and proxy
 
+ - [BZ 1519194](https://bugzilla.redhat.com/1519194) <b>ovirt-engine-rename should change ImageProxyAddress if hosted on same host as engine</b><br>
  - [BZ 1670312](https://bugzilla.redhat.com/1670312) <b>ovirt-imageio-daemon fails to start after reboot</b><br>
 
 #### oVirt Release Package
@@ -157,7 +161,7 @@ packages from other repos.
 
 #### VDSM
 
- - [BZ 1669466](https://bugzilla.redhat.com/1669466) <b>Can we have the option for 3 dns servers instead of the current two?</b><br>
+ - [BZ 1669466](https://bugzilla.redhat.com/1669466) <b>Allow setting 3 dns name servers instead of the current two</b><br>
  - [BZ 1676695](https://bugzilla.redhat.com/1676695) <b>"MOM not available, KSM stats will be missing" message on random hosts, after updating to ovirt-4.3.0</b><br>
  - [BZ 1658866](https://bugzilla.redhat.com/1658866) <b>[scale] adding storage domain creates significant load</b><br>
  - [BZ 1668727](https://bugzilla.redhat.com/1668727) <b>Cinderlib- implement ManagedVolume.volume_info</b><br>
@@ -179,7 +183,7 @@ packages from other repos.
  - [BZ 1607118](https://bugzilla.redhat.com/1607118) <b>[IPv6] - Engine does not report out-of-sync on ipv6-enabled network</b><br>
  - [BZ 1609947](https://bugzilla.redhat.com/1609947) <b>Event notifications: distant position of Do Not Disturb dropdown</b><br>
  - [BZ 1613402](https://bugzilla.redhat.com/1613402) <b>Usage of sed -i in the dbscripts creates temporary files inside the directory</b><br>
- - [BZ 1669466](https://bugzilla.redhat.com/1669466) <b>Can we have the option for 3 dns servers instead of the current two?</b><br>
+ - [BZ 1669466](https://bugzilla.redhat.com/1669466) <b>Allow setting 3 dns name servers instead of the current two</b><br>
  - [BZ 1509178](https://bugzilla.redhat.com/1509178) <b>Wrapped provider URL in General tab of external provider</b><br>
  - [BZ 1676581](https://bugzilla.redhat.com/1676581) <b>[RFE] Make it possible to enable javax.net.debug in ovirt-engine-extensions-tool</b><br>
  - [BZ 1660902](https://bugzilla.redhat.com/1660902) <b>REST/SDK create VM snapshot with the same image id as an existing image id in that VM ->  Engine Error Image IDs ${ImageId} appear</b><br>

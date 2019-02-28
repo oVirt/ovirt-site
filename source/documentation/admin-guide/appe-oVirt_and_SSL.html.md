@@ -89,14 +89,18 @@ The internal CA stores the internally generated key and certificate in a **P12**
 
    Make the following changes and save the file:
 
-        SSL_CERTIFICATE=/etc/pki/ovirt-engine/apache.cer
+        SSL_CERTIFICATE=/etc/pki/ovirt-engine/certs/apache.cer
         SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass
 
 10. Restart the `ovirt-provider-ovn` service:
 
         # systemctl restart ovirt-provider-ovn.service
+        
+11. Restart the `ovirt-websocket-proxy` service:
 
-11. Restart the ovirt-engine service:
+        # systemctl restart ovirt-websocket-proxy
+      
+12. Restart the ovirt-engine service:
 
         # systemctl restart ovirt-engine.service
 

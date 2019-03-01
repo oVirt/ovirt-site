@@ -28,9 +28,9 @@ github: oVirt/ovirt-site
 
 # Optional footer links
 footer_links:
-  "Privacy policy": /site/privacy-policy/
-  About: /documentation/introduction/about-ovirt/
-  Disclaimers: /site/general-disclaimer/
+  "Privacy policy": /site/privacy-policy.html
+  About: /community/about.html
+  Disclaimers: /site/general-disclaimer.html
   #Offsite example: http://example.com/
 
 # Enable breadcrumbs for deep pages (depth: 2 or more)

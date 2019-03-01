@@ -364,6 +364,12 @@ directory_index: false
   RewriteCond %{REQUEST_URI} /blog/$
   RewriteRule ^(.*)$ /blog.html [R=301,L]
 
+  # /documentation/introduction/about-ovirt/ -> /community/about.html
+  RewriteCond %{REQUEST_URI} /documentation/introduction/about-ovirt/$
+  RewriteRule ^(.*)$ /community/about.html [R=301,L]
+
+
+
 
   ##
 

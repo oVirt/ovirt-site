@@ -13,7 +13,7 @@ oVirt is an open source alternative to VMware vSphere, and provides an awesome K
 
 To find out more about features that were added in previous oVirt releases, check out the [oVirt 3.3.2 release notes](/develop/release-management/releases/3.3.2/), [oVirt 3.3.1 release notes](/develop/release-management/releases/3.3.1/), [oVirt 3.3 release notes](/develop/release-management/releases/3.3/), [oVirt 3.2 release notes](/develop/release-management/releases/3.2/), and [oVirt 3.1 release notes](/develop/release-management/releases/3.1/).
 
-For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide/) and the [about oVirt](/documentation/introduction/about-ovirt/) page.
+For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide/) and the [about oVirt](/community/about.html) page.
 
 ## Install / Upgrade from previous versions
 

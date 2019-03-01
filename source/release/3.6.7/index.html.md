@@ -15,7 +15,7 @@ This release supports Hypervisor Hosts running Red Hat Enterprise Linux 7.2, Cen
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](/develop/release-management/releases/).
 For a general overview of oVirt, read [the Quick Start Guide](/documentation/quickstart/quickstart-guide/)
-and the [about oVirt](/documentation/introduction/about-ovirt/) page.
+and the [about oVirt](/community/about.html) page.
 
 ## Install / Upgrade from previous versions
 

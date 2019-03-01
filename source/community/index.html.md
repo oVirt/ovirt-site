@@ -1,77 +1,56 @@
 ---
 title: Community
-authors: bproffitt, dneary, knesenko, quaid, sandrobonazzola, theron
+authors: bproffitt, dneary, knesenko, quaid, sandrobonazzola, theron, gregsheremeta
 ---
 
-<!-- TODO: [Mikey] Fix this page after content structure is final -->
+<style>
+h1, h2, h3, h4, h5, h6, li, a, p, div, #footer {
+  font-family: 'Open Sans', sans-serif !important;
+}
+</style>
 
-# Get Involved!
+# Community
 
-oVirt is a community-driven virtualization project, and people just like you are making it happen! You don’t have to be a programmer. The project will greatly benefit from inputs by documentation, bug reporting, UX and design specialists.
+oVirt is a community project, and we welcome contributions from everyone! If you'd like to write code, report bugs, contribute designs, or enhance the documentation, we would love your help!
 
-Before getting started, we recommend that you:
+There are a few ways to engage with the oVirt Community:
 
-- Sign up to the [Users](https://lists.ovirt.org/archives/list/users@ovirt.org):@ovirt.org/ mailing list and email us stating how you would like to contribute. Visit our [mailing lists](/community/about/mailing-lists/#users) page for other available oVirt mailing lists.
-- For fluent, real-time communication, [join us on IRC](/community/about/contact/#irc).
-- Finally, please read our [community etiquette guidelines](https://www.ovirt.org/community/about/community-guidelines/). (Quick summary: Be nice!)
+* [Forums / Mailing lists](https://lists.ovirt.org/archives/)
+* [oVirt Facebook group](https://www.facebook.com/groups/ovirt.openvirtualization/)
+* [Twitter](https://twitter.com/ovirt)
+* IRC -- `#ovirt` on `irc.oftc.net`
 
+Before getting started, please read our [community etiquette guidelines](/community/about/community-guidelines.html).
 
-<section class="row">
-<section class="col-md-6 pad-left-small pad-right">
+## Developers
 
-## Develop the Code
+If you'd like to contribute code to oVirt, visit the [Developer section](/develop/) of the site for guidelines. All of our projects use git. Most are hosted at [https://gerrit.ovirt.org/](https://gerrit.ovirt.org/), and the rest are hosted at [https://github.com/oVirt](https://github.com/oVirt/).
 
-Are you a wiz with Java, Python, or Bash? We’d love to have you join us! For in-depth information on the projects and procedures, visit the [Develop pages](/develop/).
+## Translate
 
-## Translate, 翻译, תרגום
+oVirt's user interface and documentation are available in multiple languages for users around the globe. Examples include Italian, Portuguese, Chinese, Japanese, Korean, and more. To contribute translations, sign up for [Zanata](https://translate.zanata.org) and access our [project](https://translate.zanata.org/project/view/ovirt).
 
-Want to help make oVirt's user interface and documentation available in multiple languages for users around the globe? Examples include Italian, Portuguese, Chinese, Japanese, Korean,  and more. To help out, sign up to the [Devel](https://lists.ovirt.org/archives/list/devel@ovirt.org):@ovirt.org/ mailing list.
+## Documentation
 
-## Case Studies
+oVirt needs concise, user-friendly, up-to-date installation and usage documentation. To contribute, visit the [documentation repository](https://github.com/oVirt/ovirt-site/tree/master/source/documentation) and the [documentation issues tracker](https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation). You can also report any documentation issues you find by clicking "Report an issue with this page" at the bottom of the documentation.
 
-Read our featured [case studies](https://www.ovirt.org/community/user-stories/user-stories/) and find out how a wide variety of organizations around the world are successfully deploying and benefiting from oVirt.
+## Report Bugs and New Feature Requests (RFEs)
 
-## Design
+Reporting bugs is one of the most valuable ways you can contribute! Ideas for new features are also very welcome. Report bugs and RFEs using the following issue trackers:
 
-Love design or UX? From concept through to implementation, help us to deliver a seamless experience for oVirt users. To join us, sign up to the [Devel](https://lists.ovirt.org/archives/list/devel@ovirt.org):@ovirt.org/ mailing list.
+* [Bugzilla - bugs and RFEs in oVirt Engine and oVirt Node](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt)
+* [VM Portal GitHub - bugs and RFEs in VM Portal](https://github.com/oVirt/ovirt-web-ui/issues)
+* [oVirt Documentation GitHub - Documentation issues](https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation)
+* Security issues follow a [special reporting procedure](/develop/security/security.html).
 
-## Meet Our Infrastructure Team
+## Supporters, Sponsors, and Providers
 
-The [Infrastructure](../develop/infra/infrastructure) team are volunteers and professionals managing the servers, building tools, and creating new applications to make oVIrt development a smoother process. We're located all over the globe and communicate primarily by the **#ovirt** channel on **irc.OFTC.net** and on the [Infra](https://lists.ovirt.org/archives/list/infra@ovirt.org):@ovirt.org/ mailing list.
+oVirt has a broad community of [supporters, sponsors, and providers](/community/user-stories/users-and-providers.html).
 
+## Social Media
 
+Follow us on:
 
-</section>
-
-<section class="col-md-6 pad-left pad-right-small">
-
-## Write Documentation
-
-Good at technical communication? oVirt needs concise, reader-friendly, up-to-date installation and usage documentation. To help out, log in to our [source repository](https://github.com/oVirt/ovirt-site).
-
-## Find and File Bugs
-
-Help us to shake bugs out of oVirt, creating a better user experience for all. You can easily report oVirt bugs on [Red Hat bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt). If you don't have a Bugzilla account yet, [find out how to get one](/community/get-involved/report-a-bug/). Need to report a security issue? Please follow the [security reporting procedure](/documentation/security/security/).
-
-## Meet Our Users and Supporters
-
-oVirt is made up of a broad community of supporters, sponsors, and users. Find out more about [our valued community](/community/user-stories/users-and-providers/).
-
-## Get Social with oVirt
-
-Keep track of the latest happenings in the oVirt community, such as new releases, and post your thoughts and links on virtualization-related topics. Follow us on:
-
-[Twitter](https://twitter.com/ovirt)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[YouTube](http://www.youtube.com/user/ovirtproject)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Google+](https://plus.google.com/u/0/communities/109346090491400112913)
-
-## Community Governance & Structure
-
-oVirt is an [open source project](http://www.opensource.org) that is [openly governed](/community/about/governance/). Learn [how projects can be added](/develop/projects/incubating-an-subproject/), and [who is on the board](/community/about/board/).
-
-
-
-
-
-
-</section>
-</section>
+* [Twitter](https://twitter.com/ovirt)
+* [Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)
+* [YouTube](http://www.youtube.com/user/ovirtproject)

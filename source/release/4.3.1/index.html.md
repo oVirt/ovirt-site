@@ -5,89 +5,29 @@ layout: toc
 authors: sandrobonazzola
 ---
 
+<style>
+h1, h2, h3, h4, h5, h6, li, a, p {
+    font-family: 'Open Sans', sans-serif !important;
+}
+</style>
+
 # oVirt 4.3.1 Release Notes
 
 The oVirt Project is pleased to announce the availability of the 4.3.1 Release as of February 28, 2019.
 
-oVirt is an open source alternative to VMware™ vSphere™, providing an
-awesome KVM management interface for multi-node virtualization.
-This release is available now for Red Hat Enterprise Linux 7.6,
-CentOS Linux 7.6 (or similar).
+oVirt is a free open-source distributed virtualization solution, designed to manage your entire enterprise infrastructure. oVirt uses the trusted KVM hypervisor and is built upon several other community projects, including libvirt, Gluster, PatternFly, and Ansible. This release is available now for Red Hat Enterprise Linux 7.6, CentOS Linux 7.6 (or similar), and Fedora 28 (tech preview).
 
-
-
-For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
-and visit the [About oVirt](/community/about.html) page.
-
-For detailed installation instructions, read the [Installation Guide](/documentation/install-guide/Installation_Guide/).
+If you'd like to try oVirt as quickly as possible, follow the instructions on the [Download](/download/) page. For complete installation, administration, and usage instructions, see the [oVirt Documentation](/documentation/). For a general overview of oVirt, read the [About oVirt](/community/about.html) page.
 
 To learn about features introduced before 4.3.1, see the [release notes for previous versions](/documentation/#previous-release-notes).
 
-
-## Install / Upgrade from previous versions
-
-### CentOS / RHEL
-
-
-
-
-
-In order to install it on a clean system, you need to install
-
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm)
-
-
-and then follow our
-[Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
-
-
-If you are upgrading from older versions please upgrade to 4.2.8 before upgrading to 4.3.1
-
-If you're upgrading from oVirt Engine 4.2.8 you just need to execute:
-
-      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
-      # yum update "ovirt-*-setup*"
-      # engine-setup
-
-If you're upgrading from oVirt Node NG 4.2 you just need to execute:
-
-      # yum install https://resources.ovirt.org/pub/ovirt-4.3/rpm/el7/noarch/ovirt-node-ng-image-update-4.3.1-1.el7.noarch.rpm
-      # reboot
-
-If you're upgrading from oVirt Node NG 4.3 please use oVirt Engine Administration portal for handling the upgrade.
-
-### Fedora Tech Preview
+## Fedora Tech Preview
 
 With oVirt 4.3 we are reintroducing Fedora 28 as platform for running oVirt in tech preview.
 More recent builds for Fedora are built for the master branch, so users that want to test them,
 can use the [nightly snapshot](/develop/dev-process/install-nightly-snapshot/).
 For some of the work to be done to completely restore support for Fedora, see
 also tracker [bug 1460625](https://bugzilla.redhat.com/showdependencytree.cgi?id=1460625&hide_resolved=0).
-
-### oVirt Hosted Engine
-
-If you're going to install oVirt as a Hosted Engine on a clean system please
-follow [Hosted_Engine_Howto#Fresh_Install](/documentation/how-to/hosted-engine/#fresh-install)
-guide or the corresponding section in
-[Self Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/).
-
-If you're upgrading an existing Hosted Engine setup, please follow
-[Hosted_Engine_Howto#Upgrade_Hosted_Engine](/documentation/how-to/hosted-engine/#upgrade-hosted-engine)
-guide or the corresponding section within the
-[Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/).
-
-### EPEL
-
-Don't enable all of EPEL on oVirt machines.
-
-The ovirt-release package enables the EPEL repositories and includes several
-specific packages that are required from there. It also enables and uses
-the CentOS SIG repos, for other packages.
-
-If you want to use other packages from EPEL, you should make sure to
-use `includepkgs` and add only those you need avoiding to override
-packages from other repos.
 
 ## Known Issues
 - oVirt Node and oVirt Engine Appliance are not available for Fedora 28 due to a bug in Lorax which has not yet been fixed in Fedora 28 (https://github.com/weldr/lorax/pull/612).

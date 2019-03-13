@@ -7,7 +7,7 @@ authors: sandrobonazzola
 
 # oVirt 4.3.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.2 First Release Candidate as of March 05, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.2 Second Release Candidate as of March 13, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -98,46 +98,65 @@ packages from other repos.
 
 #### oVirt Engine WildFly
 
- - [BZ 1671635](https://bugzilla.redhat.com/1671635) <b>Bump requirements to WildFly 15</b><br>oVirt 4.3.1 is now using WildFly 15.0.1
+ - [BZ 1671635](https://bugzilla.redhat.com/1671635) <b>Bump requirements to WildFly 15</b><br>oVirt now requires WildFly version 15.0.1 or later.
 
 #### oVirt Engine
 
- - [BZ 1671635](https://bugzilla.redhat.com/1671635) <b>Bump requirements to WildFly 15</b><br>oVirt 4.3.1 is now using WildFly 15.0.1
- - [BZ 1403674](https://bugzilla.redhat.com/1403674) <b>[IPv6] - allow and enable display network with only ipv6 boot protocol</b><br>Setting a display network and opening a console to a VM is now possible over an IPv6 only network
+ - [BZ 1671635](https://bugzilla.redhat.com/1671635) <b>Bump requirements to WildFly 15</b><br>oVirt now requires WildFly version 15.0.1 or later.
 
 ### Enhancements
 
 #### oVirt Engine Extension AAA-JDBC
 
- - [BZ 1619391](https://bugzilla.redhat.com/1619391) <b>ovirt-aaa-jdbc-tool detailed logging for users</b><br>Each invocation of ovirt-aaa-jdbc-tool is no logged to syslog with following information:<br><br>1. User who invoked the tool<br>2. All parameters passed to ovirt-aaa-jdbc-tool (passwords are filtered)<br>3. Result of the invocation (success or failure)
+ - [BZ 1619391](https://bugzilla.redhat.com/1619391) <b>ovirt-aaa-jdbc-tool detailed logging for users</b><br>This releases ensures the invocation of the ovirt-aaa-jdbc-tool logs the following three events to the syslog server: the user invoking ovirt-aaa-jdbc-tool; the parameters passed to ovirt-aaa-jdbc-tool, with the exception to filter passwords; and whether the invocation of the ovirt-aaa-jdbc-tool was successful.
 
 #### oVirt Engine
 
- - [BZ 1656794](https://bugzilla.redhat.com/1656794) <b>Disable the ability to remove permissions to Everyone</b><br>Feature: 'remove' button is disabled on the Everyone permissions page<br><br>Reason: avoid mistakes which might lead to unrecoverable corrupted engine permissions<br><br>Result: 'remove' button is disabled on Everyone permissions page (the ability to add permissions stays the same)
+ - [BZ 1656794](https://bugzilla.redhat.com/1656794) <b>Disable the ability to remove permissions to Everyone</b><br>This release disables the "Remove" button on the Everyone permissions page to prevent misconfiguring Red Hat Virtualization Manager permissions.
+
+### Removed functionality
+
+#### oVirt Engine
+
+ - [BZ 1661823](https://bugzilla.redhat.com/1661823) <b>Snapshot creation for a VM with disks on iSCSI domain fails with NullPointerException in case an NFS domain in the DC becomes unreachable</b><br>
 
 ### Bug Fixes
 
+#### oVirt Release Package
+
+ - [BZ 1685203](https://bugzilla.redhat.com/1685203) <b>Missing dependency gluster-ansible</b><br>
+
 #### oVirt Engine
 
+ - [BZ 1291789](https://bugzilla.redhat.com/1291789) <b>ovirt-engine-rename tool uses hard-coded ca.crt</b><br>
+ - [BZ 1314959](https://bugzilla.redhat.com/1314959) <b>Keep thin provisioning when migrating from thin provisioned glusterfs to iSCSI</b><br>
  - [BZ 1666958](https://bugzilla.redhat.com/1666958) <b>[SR-IOV] - Validate the update of SR-IOV vNIC profile with another SR-IOV vNIC profile while the VM's nic is plugged</b><br>
+ - [BZ 1552533](https://bugzilla.redhat.com/1552533) <b>change MaxBlockDiskSize to a more clear value as MaxBlockDiskSizeInGigaBytes or MaxBlockDiskSizeInGigiBytes</b><br>
  - [BZ 1654442](https://bugzilla.redhat.com/1654442) <b>"GET_ALL_VNIC_PROFILES failed query execution failed due to insufficient permissions." messages when user logs into VM Portal</b><br>
- - [BZ 1655911](https://bugzilla.redhat.com/1655911) <b>guest pinned to hostA is show as up on both host after migration to hostB</b><br>
+
+#### oVirt image transfer daemon and proxy
+
+ - [BZ 1650177](https://bugzilla.redhat.com/1650177) <b>During engine-setup (as past of engine update), ImageProxyAddress doesn't get updated with the engine FQDN</b><br>
 
 ### Other
-
-#### oVirt Guest Agent
-
- - [BZ 1656346](https://bugzilla.redhat.com/1656346) <b>Get wrong "os-version" for win2019 guest via RHEV Agent</b><br>
 
 #### VDSM
 
  - [BZ 1666795](https://bugzilla.redhat.com/1666795) <b>VMs migrated to 4.3 are missing the appropriate virt XML for dynamic ownership, and are reset to root:root, preventing them from starting</b><br>
+ - [BZ 1684267](https://bugzilla.redhat.com/1684267) <b>Vdsm return GeneralError and log a traceback when a lease does not exit</b><br>
  - [BZ 1678373](https://bugzilla.redhat.com/1678373) <b>Vdsm creates unaligned memory metadata volumes</b><br>
 
 #### oVirt Cockpit Plugin
 
+ - [BZ 1629543](https://bugzilla.redhat.com/1629543) <b>The LV size should be equal to the logical size on VDO enabled volumes</b><br>
  - [BZ 1683366](https://bugzilla.redhat.com/1683366) <b>Hosted Engine setup fails on storage selection - Retrieval of iSCSI targets failed.</b><br>
+ - [BZ 1641534](https://bugzilla.redhat.com/1641534) <b>Single-node deploy UI shows replica type but creates dist</b><br>
+ - [BZ 1680551](https://bugzilla.redhat.com/1680551) <b>Successful gluster deployment message is displayed when an ansible syntax error is encountered.</b><br>
  - [BZ 1683200](https://bugzilla.redhat.com/1683200) <b>SELinux labels are missing on the gluster bricks created using gluster-ansible-roles</b><br>
+
+#### oVirt Engine Extension AAA-JDBC
+
+ - [BZ 1685968](https://bugzilla.redhat.com/1685968) <b>ovirt-aaa-jdbc-tool return code 0 on failure</b><br>
 
 #### ovirt-engine-extension-aaa-ldap
 
@@ -151,30 +170,52 @@ packages from other repos.
 
 #### oVirt Ansible hosted-engine setup role
 
+ - [BZ 1594597](https://bugzilla.redhat.com/1594597) <b>hosted-engine deploy fails when root password starts with #</b><br>
  - [BZ 1678693](https://bugzilla.redhat.com/1678693) <b>[RFE] Share ssh sessions in ansible role</b><br>
-
-#### oVirt Release Package
-
- - [BZ 1685203](https://bugzilla.redhat.com/1685203) <b>Missing dependency gluster-ansible</b><br>
 
 #### oVirt Engine
 
+ - [BZ 1666795](https://bugzilla.redhat.com/1666795) <b>VMs migrated to 4.3 are missing the appropriate virt XML for dynamic ownership, and are reset to root:root, preventing them from starting</b><br>
+ - [BZ 1679399](https://bugzilla.redhat.com/1679399) <b>RHV upgrade from 4.2 to 4.3 fails in RHHI-V environment</b><br>
  - [BZ 1670715](https://bugzilla.redhat.com/1670715) <b>[UI] - IPv6 subnet - Validate input and create IPv6 subnet</b><br>
+ - [BZ 1676405](https://bugzilla.redhat.com/1676405) <b>Use ansible modules rather than gdeploy modules in brick creation flow from RHV-M</b><br>
  - [BZ 1679158](https://bugzilla.redhat.com/1679158) <b>[REST] Fix Link To Network Under Cluster</b><br>
  - [BZ 1678113](https://bugzilla.redhat.com/1678113) <b>'postgresql-setup initdb' is obsolete</b><br>
  - [BZ 1659099](https://bugzilla.redhat.com/1659099) <b>[UI] Can't see the whole IPv6 address</b><br>
- - [BZ 1657977](https://bugzilla.redhat.com/1657977) <b>[UI] multiQueuesLabel and multiQueuesInfo is shown in Instance Types 'New/Edit' option</b><br>
+ - [BZ 1684113](https://bugzilla.redhat.com/1684113) <b>Failed to start VM with LibVirtError "Failed to acquire lock: No space left on device" (code=1)</b><br>
+ - [BZ 1589665](https://bugzilla.redhat.com/1589665) <b>WebAdmin: Upload image dialog - not informative enough when image is too small</b><br>
+ - [BZ 1368457](https://bugzilla.redhat.com/1368457) <b>Adding a new host to the gluster cluster, should not show up virt node related tabs</b><br>
+ - [BZ 1657977](https://bugzilla.redhat.com/1657977) <b>[UI] Gray out multiQueues check box in Instance Types 'New/Edit' option - make it clear that enabled by default</b><br>
  - [BZ 1677426](https://bugzilla.redhat.com/1677426) <b>[vNIC Profiles main tab] -  Port mirroring, passthrough and migratable properties are grayed out if the first network in the DC(alphabetic) is an external network</b><br>
+ - [BZ 1684586](https://bugzilla.redhat.com/1684586) <b>[work around] engine-setup fails upgrading due constraint violations</b><br>
+ - [BZ 1616442](https://bugzilla.redhat.com/1616442) <b>[UI] Disks representation in snapshots tab should be in rows</b><br>
+ - [BZ 1673442](https://bugzilla.redhat.com/1673442) <b>Storage domain discard_after_delete default value it true, should be false</b><br>
+ - [BZ 1530984](https://bugzilla.redhat.com/1530984) <b>No error event(UI)/auditlog(engine.log) is given after template import fails due to faulty glance server</b><br>
+ - [BZ 1653752](https://bugzilla.redhat.com/1653752) <b>Scheduler computes incorrect CPU load of the host where the scheduled VM is running</b><br>
+ - [BZ 1659806](https://bugzilla.redhat.com/1659806) <b>Moving storage domain to maintenance during disk upload/download is allowed</b><br>
+ - [BZ 1672065](https://bugzilla.redhat.com/1672065) <b>[cinderlib] - Add managed SD on HP3PAR fails with : [CinderlibExecutor]cinderlib output: /usr/lib/python2.7/site-packages/paramiko/kex_ecdh_nist.py:39: CryptographyDeprecationWarning: encode_point has been deprecated</b><br>
+ - [BZ 1636331](https://bugzilla.redhat.com/1636331) <b>Return error when attempting to update disk from /api/disks/{disk_id}</b><br>
  - [BZ 1683955](https://bugzilla.redhat.com/1683955) <b>[UI] - "Host has no default route." exclamation icon consistently shown for all hosts under general sub tab</b><br>
  - [BZ 1669830](https://bugzilla.redhat.com/1669830) <b>[cinderlib] create known_hosts file for drivers which require it</b><br>
+ - [BZ 1673035](https://bugzilla.redhat.com/1673035) <b>[cinderlib] Support snapshot operations</b><br>
+ - [BZ 1679242](https://bugzilla.redhat.com/1679242) <b>engine-setup should not refer to cinderlib feature page</b><br>
  - [BZ 1683523](https://bugzilla.redhat.com/1683523) <b>ipv6 gateway removal from old default route role network - move message from alerts tab to main events tab</b><br>
  - [BZ 1680577](https://bugzilla.redhat.com/1680577) <b>engine-setup on a separate dwh machine fails due to missing cinderlib constants</b><br>
  - [BZ 1671564](https://bugzilla.redhat.com/1671564) <b>After upgrade to 4.2.8, Console Client Resources page doesn't look as expected</b><br>
  - [BZ 1676443](https://bugzilla.redhat.com/1676443) <b>add more informative error when session limit exceeded for the user</b><br>
  - [BZ 1654603](https://bugzilla.redhat.com/1654603) <b>[UI] SRIOV unmanaged networks cause setup networks window to not populate</b><br>
+ - [BZ 1673028](https://bugzilla.redhat.com/1673028) <b>[cinderlib] Support live vm migration</b><br>
  - [BZ 1400351](https://bugzilla.redhat.com/1400351) <b>GetAllVmStatsVDS returns java.lang.InterruptedException when connection to router is lost</b><br>
 
+#### oVirt image transfer daemon and proxy
+
+ - [BZ 1576500](https://bugzilla.redhat.com/1576500) <b>StreamingAPI - Transfer disk paused by system as adding a new ticket failed due proxy error  PUT /tickets/: [500] _strptime_time</b><br>
+
 ### No Doc Update
+
+#### oVirt Cockpit Plugin
+
+ - [BZ 1679873](https://bugzilla.redhat.com/1679873) <b>The linked documents on hosted engine page in cockpit UI are still 4.2 version</b><br>
 
 #### oVirt Hosted Engine Setup
 
@@ -182,41 +223,63 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1642872](https://bugzilla.redhat.com/1642872) <b>a role with just VM/Basic Operations/* can delete VM's disk</b><br>
+ - [BZ 1672860](https://bugzilla.redhat.com/1672860) <b>Whenever a new user clicks on the admin or user portal link to login before being granted system permission, a new entry with their name appears in the user list, one for each click</b><br>
  - [BZ 1589512](https://bugzilla.redhat.com/1589512) <b>[RFE] display all errors at once when  upgrading cluster compatibility level</b><br>
 
 #### Contributors
 
-32 people contributed to this release:
+52 people contributed to this release:
 
+	Ahmad Khiet
 	Ales Musil
 	Andrej Krejcir
+	Asaf Rachmani
 	Benny Zlotnik
 	Bohdan Iakymets
+	Christophe Aubry
 	Dana Elfassy
+	Daniel Erez
 	Denis Chaplygin
 	Dominik Holler
 	Eitan Raviv
 	Eyal Shenitzky
 	Fedor Gavrilov
+	Gal Zaidman
+	Greg Sheremeta
 	Ido Rosenzwig
+	Kaustav Majumder
+	Leif Madsen
 	Marcin Sobczyk
+	Martin Nečas
 	Martin Perina
+	Matt Williams
 	Michal Skrivanek
 	Milan Zamazal
+	Nir Levy
 	Nir Soffer
 	Ondra Machacek
 	Ori_Liel
+	Pavel Bar
+	Petr Balogh
 	Ravi Nori
 	Roman Hodain
 	Roy Golan
+	Ryan Barry
 	Sahina Bose
 	Sandro Bonazzola
+	Shani Leviim
 	Sharon Gratch
 	Shmuel Melamud
 	Simone Tiraboschi
+	Steven Rosenberg
+	Tomasz Baranski
 	Tomasz Barański
 	Tomáš Golembiovský
 	Vojtech Juranek
 	Yedidyah Bar David
 	emesika
+	fdupont-redhat
 	godas
+	kobihk
+	parthdhanjal

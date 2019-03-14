@@ -49,9 +49,6 @@ If the base layer of a disk uses RAW format, deleting the last snapshot and merg
 
 The following table shows how enabling incremental backup affects disk format:
 
-| foo | bar |
-| --- | --- |
-| baz | bim |
 | Storage | Provisioning | Incremental | Format |
 | --- | --- | --- | --- |
 | block | thin | enabled | qcow2 |

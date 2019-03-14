@@ -1,10 +1,10 @@
 ---
 title: Incremental Backup
 category: feature
-authors: nsoffer, derez
+authors: nsoffer, derez, sgoodman
 feature_name: Incremental Backup
 feature_modules: imageio,engine,vdsm
-feature_status: Design
+feature_status: Implementation
 ---
 
 # Incremental Backup

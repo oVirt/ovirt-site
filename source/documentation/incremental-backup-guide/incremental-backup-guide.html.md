@@ -31,55 +31,38 @@ Backups are simpler, faster and more robust, and integration with backup applica
 * Incremental restore does not support restoring snapshots as they existed at the time of the backup. This limit is common in backup solutions for other systems.
 
 
-### Creating VM
+## Creating a Virtual Machine With Incremental Backup Enabled
 
-When adding a disk, the user should enable incremental backup for every
-disk. If incremental backup is enabled for a disk, a backup application
-can include the disk during incremental backups.
+For a backup application to be able to include a disk during incremental backups, you must enable incremental backup for that disk. When adding a disk, you should enable incremental backup for every disk. You can back up disks that are not enabled for incremental backup in the same way you did previously.
 
-Since incremental backup requires qcow2 format, disks enabled for
-incremental backup will use qcow2 format instead of raw format. See
-[Disk Format](#disk-format) for more info.
+Because incremental backup requires disks to be formatted in QCOW2, use QCOW2 format instead of RAW format. For more information, see [Disk Format](#disk-format).
 
-Disks not marked for incremental backup can be backed in the same way
-they were backed in the past.
+## Enabling Incremental Backup on an Existing Virtual Machine
 
-### Enabling existing VM for incremental backup
+Because incremental backup is not supported for disks in RAW format, a QCOW2 format layer must exist on top of any RAW format disks in order to use incremental backup. Creating a snapshot generates a QCOW2 layer, so creating a snapshot enables incremental backup on all disks that are included in the snapshot, from the point at which the snapshot is created.
 
-Since raw disks are not supported, a user needs to create a snapshot
-including the disks to enabled incremental backup for the disks. This
-creates a qcow2 layer on top of the raw disk, that can be used to
-perform incremental backups from this point.
+**WARNING**
+If the base layer of a disk uses RAW format, deleting the last snapshot and merging the top QCOW2 layer into the base layer converts the disk to RAW format, thereby disabling incremental backup. To re-enable incremental backup, you can create a new snapshot, including this disk.
 
-### Deleting snapshots on existing VMs
+## Disk Format
 
-If the base layer of a disk is using raw format, deleting the last
-snapshot, merging the top qcow2 layer into the base layer will convert
-the disk to raw, and disable incremental backup (should probably display
-a warning first). The user can create a new snapshot including this
-disk to re-enable back incremental backup.
+The following table shows how enabling incremental backup affects disk format:
 
-### Disk format
-
-Here is a table showing how enabling incremental backup affects disk
-format.
-
-```
-storage     provisioning        incremental     format
-====================================================================
-block       thin                enabled         qcow2
-block       preallocated        enabled         qcow2 (preallocated)
-file        thin                enabled         qcow2
-file        preallocated        enabled         qcow2 (preallocated)
---------------------------------------------------------------------
-block       thin                disabled        qcow2
-block       preallocated        disabled        raw (preallocated)
-file        thin                disabled        raw (sparse)
-file        preallocated        disabled        raw (preallocated)
---------------------------------------------------------------------
-network     -                   disabled        raw
-lun         -                   disabled        raw
-```
+| foo | bar |
+| --- | --- |
+| baz | bim |
+| Storage | Provisioning | Incremental | Format |
+| --- | --- | --- | --- |
+| block | thin | enabled | qcow2 |
+| block | preallocated | enabled | qcow2 (preallocated) |
+| file | thin | enabled | qcow2 |
+| file | preallocated | enabled | qcow2 (preallocated) |
+| block | thin | disabled | qcow2 |
+| block | preallocated | disabled | raw (preallocated) |
+| file | thin | disabled | raw (sparse) |
+| file | preallocated | disabled | raw (preallocated) |
+| network | Not applicable | disabled | raw |
+| lun | Not applicable | disabled | raw |
 
 ### Incremental backup flow
 

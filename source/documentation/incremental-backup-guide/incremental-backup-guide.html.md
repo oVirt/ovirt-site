@@ -9,42 +9,28 @@ feature_status: Implementation
 
 # Incremental Backup
 
+Previously, to back up a virtual machine’s disk, you needed to:
 
-## Summary
+1. Create a temporary snapshot.
+1. Copy the snapshot file in its current format, either RAW guest data or QCOW2 file data.
+1. Delete the temporary snapshot.
 
-This feature simplifies, speeds up, and improve robustness by backing up
-only changed blocks, and avoiding temporary snapshots. Integration with
-backup applications is improved by supporting backup and restore of raw
-guest data regardless of the underlying disk format.
+It was possible to do a limited version of an incremental backup by creating one snapshot every time a backup ran, copying the snapshot disk, and deleting the previous snapshot. But the copied data was in QCOW2 format, so restoring it required merging QCOW2 files before uploading to storage.
 
-## Owner
+Now, using the Incremental Backup API, you can:
 
-- Nir Soffer (<nsoffer@redhat.com>)
-- Daniel Erez (<derez@redhat.com>)
+* Perform full or incremental backups for disks using QCOW2 format without any temporary snapshots
+* Backup raw guest data instead copying QCOW2 data for QCOW2 disks
+* Restore raw guest data to disk onto raw or QCOW2 disks
 
+Backups are simpler, faster and more robust, and integration with backup applications is improved, with new support for backing up and restoring raw guest data, regardless of the underlying disk format.
 
-## High level Design
+## Limitations
 
-### What was available before this feature?
+* Only disks in QCOW2 format can be backed up incrementally, not RAW format disks. The backup process saves the backed up data in RAW format.
+* Only backed up data in RAW format can be restored.
+* Incremental restore does not support restoring snapshots as they existed at the time of the backup. This limit is common in backup solutions for other systems.
 
-Before this feature, backing up a disk required creating a temporary
-snapshot copying the snapshot file as is (either raw guest data or qcow2
-file data), and deleting the temporary snapshot.
-
-It was possible to do a limited version of incremental backup, by
-creating one snapshot on every backup, copying the snapshot disk,
-and deleting the previous snapshot. But the copied data was in qcow2
-format, so restoring it require merging qcow2 files before uploading
-to storage.
-
-### Capabilities added with this feature
-
-- Perform full or incremental backup for disks using qcow2 format
-  without temporary snapshots.
-
-- Backup raw guest data instead copying qcow2 data for qcow2 disks.
-
-- Restore raw guest data into disk into raw or qcow2 disks.
 
 ### Creating VM
 

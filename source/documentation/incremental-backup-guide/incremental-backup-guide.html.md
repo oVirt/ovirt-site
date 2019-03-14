@@ -65,55 +65,29 @@ The following table shows how enabling incremental backup affects disk format:
 | network | Not applicable | disabled | raw |
 | lun | Not applicable | disabled | raw |
 
-### Incremental backup flow
+## The Incremental Backup Flow
 
-1. Backup application finds VM disks that should be included in the
-   backup using oVirt API. Currently only disks marked for incremental
-   backup (using qcow2 format) can be included.
+1. The backup application uses the REST API to find virtual machine disks that should be included in the backup. Only disks that are enabled for incremental backup, using QCOW2 format, are included.
+1. The backup application starts a backup using the [VmBackup API]: http://ovirt.github.io/ovirt-engine-api-model/4.3/#services/vm_backup "VmBackup API", specifying a virtual machine ID, an optional previous backup ID, and a list of disks to back up. If you don't specify a previous backup ID, all data in the specified disks is included in the backup, based on the state of each disk when the backup begins.
+1. The engine prepares the virtual machine for backup. The virtual machine can continue running during the backup.
+1. The backup application polls the engine for the backup status, until the engine reports that the backup is ready to begin.
+1. When the backup is ready to begin, the backup application creates an image transfer for every disk included in the backup. For more information, see the [ImageTransfer API]: http://ovirt.github.io/ovirt-engine-api-model/4.3/#services/image_transfer "ImageTransfer API".
+1. The backup application gets a list of changed blocks from ovirt-imageio for every image transfer. If a change list is not available, the backup application gets an error.
+1. The backup application downloads changed blocks in RAW format from ovirt-imageio and stores them in the backup media. If a list of changed blocks is not available, the backup application can fall back to copying the entire disk.
+1. The backup application finalizes all image transfers.
+1. The backup application finalizes the backup using the REST API.
 
-1. Backup application starts backup using oVirt API, specifying a VM id,
-   optional previous backup id, and list of disks to backup.
-   If previous backup uuid isn't specified, all data in the specified disks,
-   at the point of the backup, will be included in the backup.
+## The Incremental Restore Flow
 
-1. System prepares VM for backup. The VM may be running during the
-   backup.
+1. The user selects a restore point based on available backups using the backup application.
+1. The backup application creates a new disk or a snapshot with an existing disk to hold the restored data.
+1. The backup application starts an upload image transfer for every disk, specifying `format=raw`. This enables format conversion when uploading RAW data to a QCOW2 disk.
+1. The backup application transfers the data included in this restore point to imageio using the API.
+1. The backup application finalizes the image transfers.
 
-1. Backup application waits until backup is ready using oVirt SDK.
+## Handling an Unclean Shutdown or Storage Outage During Shutdown
 
-1. When backup is ready backup application creates image transfer for
-   every disk included in the backup.
-
-1. Backup application obtains changed blocks list from ovirt-imageio for
-   every image transfer. If change list is not available, the backup
-   application will get an error.
-
-1. Backup application downloads changed blocks in raw format from
-   ovirt-imageio and store them in the backup media. If changed blocks
-   list is not available, backup application can fall back to copying
-   the entire disk.
-
-1. Backup application finalizes image transfers.
-
-1. Backup application finalizes backup using oVirt API.
-
-### Incremental restore flow
-
-1. User selects restore point based on available backups using the
-   backup application (not part of oVirt).
-
-1. Backup application creates a new disk or a snapshot with existing disk
-   to hold the restored data.
-
-1. Backup application starts an upload image transfer for every disk,
-   specifying format=raw. This enable format conversion when uploading
-   raw data to qcow2 disk.
-
-1. Backup application transfer the data included in this restore point
-   to imageio using HTTP API.
-
-1. Backup application finalize the image transfers.
-
+If a virtual machine shuts down abnormally, bitmaps on the disk might be left in an invalid state. Creating an incremental backup using such bitmaps leads to corrupt virtual machine data after a restore. To recover from an invalid bitmap, you need to delete the invalid bitmap and all previous bitmaps, and the next backup needs to include the entire disk contents.
 ### Restoring snapshots
 
 Incremental restore will not support restoring snapshots as existed at

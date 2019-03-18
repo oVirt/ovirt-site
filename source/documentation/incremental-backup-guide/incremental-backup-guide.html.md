@@ -61,7 +61,7 @@ The following table shows how enabling incremental backup affects disk format:
 | network | Not applicable | disabled | raw |
 | lun | Not applicable | disabled | raw |
 
-## The Incremental Backup Flow
+## The Incremental Backup FlowLimitations
 
 1. The backup application uses the REST API to find virtual machine disks that should be included in the backup. Only disks that are enabled for incremental backup, using QCOW2 format, are included.
 1. The backup application starts a backup using the [VmBackup API]: http://ovirt.github.io/ovirt-engine-api-model/4.3/#services/vm_backup "VmBackup API", specifying a virtual machine ID, an optional previous backup ID, and a list of disks to back up. If you don't specify a previous backup ID, all data in the specified disks is included in the backup, based on the state of each disk when the backup begins.
@@ -90,22 +90,17 @@ Incremental restore will not support restoring snapshots as existed at
 the time of the backup. This limit is common in backup solutions for
 other systems.
 
-### Handling unclean shutdown or storage outage during shutdown
+### Handling an Unclean Shutdown or Storage Outage During Shutdown
 
-If a VM is shut down abnormally, bitmaps on the disk may be left in
-invalid state. Creating incremental backup using such bitmaps will
-lead to corrupt guest data after restore.
-
+If a virtual machine is shut down abnormally, bitmaps on the disk might be left in an invalid state. Creating an incremental backup using such bitmaps leads to corrupt virtual machine data after a restore.
 To detect bitmap in invalid state we can use the in-use bit in the
 bitmap, but this info is not exposed to the management layer.
 
-To recover from invalid bitmaps, the invalid bitmap and all previous
-bitmaps must be deleted. The next backup will have to include the entire
-disk contents.
+To recover from an invalid bitmap, you need to delete the invalid bitmap and all previous bitmaps, and the next backup needs to include the entire disk contents.
 
-### Backup REST API
+## Backup REST API
 
-#### Enabling backup for VM disk
+### Enabling backup for VM disk
 
 Specify 'backup' property on ```disk``` entity: 'incremental'/'none' (TBD: 'full')
 

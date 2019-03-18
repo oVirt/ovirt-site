@@ -61,7 +61,7 @@ The following table shows how enabling incremental backup affects disk format:
 | network | Not applicable | disabled | raw |
 | lun | Not applicable | disabled | raw |
 
-## The Incremental Backup FlowLimitations
+## The Incremental Backup Flow
 
 1. The backup application uses the REST API to find virtual machine disks that should be included in the backup. Only disks that are enabled for incremental backup, using QCOW2 format, are included.
 1. The backup application starts a backup using the [VmBackup API]: http://ovirt.github.io/ovirt-engine-api-model/4.3/#services/vm_backup "VmBackup API", specifying a virtual machine ID, an optional previous backup ID, and a list of disks to back up. If you don't specify a previous backup ID, all data in the specified disks is included in the backup, based on the state of each disk when the backup begins.
@@ -84,6 +84,7 @@ The following table shows how enabling incremental backup affects disk format:
 ## Handling an Unclean Shutdown or Storage Outage During Shutdown
 
 If a virtual machine shuts down abnormally, bitmaps on the disk might be left in an invalid state. Creating an incremental backup using such bitmaps leads to corrupt virtual machine data after a restore. To recover from an invalid bitmap, you need to delete the invalid bitmap and all previous bitmaps, and the next backup needs to include the entire disk contents.
+
 ### Restoring snapshots
 
 Incremental restore will not support restoring snapshots as existed at
@@ -100,29 +101,41 @@ To recover from an invalid bitmap, you need to delete the invalid bitmap and all
 
 ## Backup REST API
 
-### Enabling backup for VM disk
+### enable POST
+Enabling incremental backup for a virtual machine’s disk.
 
-Specify 'backup' property on ```disk``` entity: 'incremental'/'none' (TBD: 'full')
+For example, to enable incremental backup for a disk with id `456` on virtual machine with id `123`, send a request like this:
 
-Request:
-```
-POST /vms/vm-uuid/disks
+````
+POST /vms/123/disks
+````
 
-<disk>
+With a request body like this:
+
+````
+<disk id=”456”>
     ...
-    <backup>incremental|none</backup>
-    ...
-</disk>
-```
-
-Response:
-```
-<disk>
-    ...
-    <backup>incremental|none</backup>
+    <backup>incremental</backup>
     ...
 </disk>
-```
+````
+
+The response is:
+
+````
+<disk id=”456”>
+    ...
+    <backup>incremental</backup>
+    ...
+</disk>
+````
+.Parameters Summary
+
+| Name	| Type	| Direction |	Summary |
+:---- |  :---- |  :---- |  :---- |
+`backup`| ? | out | Required. Possible values: `incremental`, `none` |
+
+
 
 #### Finding disks enabled for incremental backup
 

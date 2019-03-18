@@ -103,9 +103,9 @@ To recover from an invalid bitmap, you need to delete the invalid bitmap and all
 ## Backup REST API
 
 ### enable POST
-Enabling incremental backup for a virtual machine’s disk.
+_Enable incremental backup for a virtual machine’s disk._
 
-For example, to enable incremental backup for a disk with id `456` on virtual machine with id `123`, send a request like this:
+For example, to enable incremental backup for a disk with id `456` on a virtual machine with id `123`, send a request like this:
 
 ````
 POST /vms/123/disks
@@ -130,7 +130,7 @@ The response is:
     ...
 </disk>
 ````
-.Parameters Summary
+*Parameters Summary*
 
 | Name	| Type	| Direction |	Summary |
 :---- |  :---- |  :---- |  :---- |
@@ -140,164 +140,191 @@ The response is:
 
 #### Finding disks enabled for incremental backup
 
-For each VM, get ```disks``` list and filter according to
-'backup' property.
+## list GET
+_For the specified virtual machine, list the disks that are enabled for incremental backup, filtered according to the `backup` property._
 
-Request:
-```
-GET /vms/vm-uuid/disks
-```
+For example, for a virtual machine with the id `123`, this request:
 
-Response:
-```
+````
+GET /vms/123/disks
+````
+
+Gets this response:
+
+````
 <disks>
-    <disk>
+  <disk id="456">
         ...
-        <backup>incremental|none</backup>
+        <backup>incremental</backup>
         ...
-    </disk>
-    ...
+  </disk>
+  ...
 </disks>
-```
+````
 
-#### Starting full backup
+*Parameters summary:*
 
-Start full backup. The response includes 'to_checkpoint_id' which
-is created on the disks. It can be used in the next incremental backup.
+| Name	| Type	| Direction |	Summary |
+:---- |  :---- |  :---- |  :---- |
+`backup`| ? | out | Required. Possible values: `incremental`, `none` |
 
-Request:
-```
-POST /vms/vm-uuid/backups
+### Start a full backup POST
+_For the specified virtual machine, start a full backup of the specified disk. The response includes a backup id and <to_checkpoint_id>, which is created on the disks. You can use this id as the start point in the subsequent incremental backup._
 
+For example, to start a full backup of a disk with id 456 on a virtual machine with id 123, send a request like this:
+
+````
+POST /vms/123/backups
+````
+
+With a request body like this:
+
+````
 <backup>
     <disks>
-        <disk id="disk-uuid" />
+        <disk id="456" />
         ...
     </disks>
 </backup>
-```
+````
 
-Response:
-```
-<backup id="backup-uuid">
-    <to_checkpoint_id>new-checkpoind-uuid</to_checkpoint_id>
+The response includes backup 789 with <to_checkpoint_id> 999:
+
+````
+<backup id="789">
+    <to_checkpoint_id>999</to_checkpoint_id>
     <disks>
-        <disk id="disk-uuid" />
+        <disk id="456" />
         ...
         ...
     </disks>
-    <phase>initiailizing</phase>
+    <phase>initializing</phase>
     <creation_date>
 </backup>
-```
+````
 
-#### Starting incremental backup
+*Parameters summary:*
+| Name	| Type	| Direction |	Summary |
+:---- |  :---- |  :---- |  :---- |
+`disk`| ? | out | Required. Specify the UUID of a disk. |
 
-Start incremental backup since checkpoint id "previous-checkpoint-uuid".
-The response include 'to_checkpoint_id' which should be used as the
-'from_checkpoint_id' in the next incremental backup.
 
-Request:
-```
-POST /vms/vm-uuid/backups
+### Start an incremental backup POST
+_Start an incremental backup at the checkpoint defined by the property `<from_checkpoint_id>`, which is the previous checkpoint id. The response includes the object `<to_checkpoint_id>`` with a new checkpoint id, which you should use for `<from_checkpoint_id>` in the next incremental backup._
 
+For example, to start an incremental backup of disk `222` on virtual machine `111`, send a request like this:
+
+````
+POST /vms/111/backups
+````
+
+With a request body like this:
+
+````
 <backup>
-    <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
+    <from_checkpoint_id>333</from_checkpoint_id>
     <disks>
-        <disk id="disk-uuid" />
+        <disk id="222" />
         ...
     </disks>
 </backup>
-```
+````
 
-Response:
-```
-<backup id="backup-uuid">
-    <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
-    <to_checkpoint_id>new-checkpoind-uuid</to_checkpoint_id>
+The response includes backup `789` with `<from_checkpoint_id>` `999` and  `<to_checkpoint_id>` `666`:
+
+````
+<backup id="777">
+    <from_checkpoint_id>999</from_checkpoint_id>
+    <to_checkpoint_id>666</to_checkpoint_id>
     <disks>
-        <disk id="disk-uuid" />
+        <disk id="222" />
         ...
         ...
     </disks>
-    <phase>initiailizing</phase>
+    <phase>initializing</phase>
     <creation_date>
 </backup>
-```
+````
 
-#### Getting backup info
+### Get backup info GET
 
-When backup phase is "ready", you can start downloading the disks.
+*Gets information about a backup.*
 
-Request:
-```
-GET /vms/vm-uuid/backups/backup-uuid
-```
+Gets the following information about a specific backup:
 
-Response:
-```
-<vm_backup id="backup-uuid">
-    <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
-    <to_checkpoint_id>new-checkpoind-uuid</to_checkpoint_id>
+* the id of each disk that was backed up
+* the ids of the start and end checkpoints of the backup
+* the id of the disk image of the backup, for each disk included in the backup
+* the phase of the backup
+* the date the backup was created
+
+When the value of `<phase>` is `ready`, you can start downloading the disks to back up the virtual machine storage.
+
+For example, to get info about a backup with id `456` of a virtual machine with id `123`, send a request like this:
+
+````
+GET /vms/456/backups/123
+````
+
+The response includes the backup with id `456`, with `<from_checkpoint_id>` `999` and  `<to_checkpoint_id>` `666`. The disk included in the backup has id `444`, and the id of the disk image is `555`.
+
+````
+<vm_backup id="456">
+    <from_checkpoint_id>999</from_checkpoint_id>
+    <to_checkpoint_id>666</to_checkpoint_id>
     <disks>
-        <disk id="disk-uuid">
-            <image_id>image-uuid</image_id>
+        <disk id="444">
+            <image_id>555</image_id>
         </disk>
         ...
     </disks>
     <phase>ready</phase>
     <creation_date>...
 </vm_backup>
-```
+````
 
-#### Finalizing backup
+### finalize POST
+To finalize a backup, use the finalize method of the image_transfer service. For more information, see [ImageTransfer]: http://ovirt.github.io/ovirt-engine-api-model/4.3/#services/image_transfer "finalize API".
 
-```
-POST /vms/vm-uuid/backups/backup-uuid/finalize
 
-<action></action>
-```
+### Creating an image transfer object for incremental restore POST
+Before restoring raw data backed up using the incremental backup API to a QCOW2-formatted disk, you need to first create an *imagetransfer* object. To restore an incremental backup, specify the `<format>` key in the transfer. For information on creating an *imagetransfer* object, see the [`add` method for `ImageTransfers`]:http://ovirt.github.io/ovirt-engine-api-model/4.3/#services/image_transfers/methods/add "add method" in the REST API Guide.
 
-#### Creating image transfer for incremental restore
+For example, to initiate restoring an incremental backup send a request like this:
 
-To restore raw data backed up using the incremental backup API to qcow2
-disk, you need to specify the "format" key in the transfer:
-
-```
+````
 POST /imagetransfers
+````
+With a request body like this:
 
+````
 <image_transfer>
     <disk id="123"/>
     <direction>upload</direction>
     <format>raw</format>
 </image_transfer>
-```
+````
+When uploading into a snapshot, replace `<disk id="123"/>` with `<snapshot id="456"/>`.
 
-When uploading into a snapshot, replace ```<disk id="123"/>``` with
-```<snapshot id="456"/>```.
-
-When the transfer format is "raw" and underlying disk format is "qcow2"
-uploaded data will be converted on the fly to qcow2 format when writing
-to storage.
-
-Uploading "qcow2" data to "raw" disk is not supported.
+When the transfer format is RAW and the underlying disk format is QCOW2, uploaded data is converted on the fly to QCOW2 format when writing to storage.
+Uploading data from a QCOW2 disk to a RAW disk is not supported.
 
 
-### imageio backup API
+## imageio backup API
 
-#### Map request
+### Map request
 
-Get map of zeros and data ranges on storage.
+Get a map of zeros and data ranges on storage.
 
 Query options:
-- dirty=y - return only ranges modified since backup checkpoint id
+- `dirty=y` - return only ranges modified since backup checkpoint id
 
 Returns list of JSON objects with these keys:
-- data: true for allocated ranges, false for zero or unallocated ranges
-- start: offset of range in bytes
-- length: number of bytes
+- `data`: true for allocated ranges, false for zero or unallocated ranges
+- `start`: offset of range in bytes
+- `length`: number of bytes
 
-##### Example - getting data and zero ranges
+### Example - getting data and zero ranges
 
 Request:
 ```
@@ -313,7 +340,7 @@ Response:
 ]
 ```
 
-##### Example - getting only dirty data and zero ranges
+#### Example - getting only dirty data and zero ranges
 
 Request:
 ```

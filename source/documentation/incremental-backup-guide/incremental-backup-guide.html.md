@@ -206,8 +206,9 @@ The response includes backup 789 with <to_checkpoint_id> 999:
 *Parameters summary:*
 | Name	| Type	| Direction |	Summary |
 :---- |  :---- |  :---- |  :---- |
+`backup`| ? | in |  The UUID of a backup. |
 `disk`| ? | out | Required. Specify the UUID of a disk. |
-
+`to_checkpoint_id`| ? | in | The UUID of the address at the end of the backup. |
 
 ### Start an incremental backup POST
 _Start an incremental backup at the checkpoint defined by the property `<from_checkpoint_id>`, which is the previous checkpoint id. The response includes the object `<to_checkpoint_id>`` with a new checkpoint id, which you should use for `<from_checkpoint_id>` in the next incremental backup._
@@ -246,6 +247,13 @@ The response includes backup `789` with `<from_checkpoint_id>` `999` and  `<to_c
 </backup>
 ````
 
+*Parameters summary:*
+| Name	| Type	| Direction |	Summary |
+:---- |  :---- |  :---- |  :---- |
+`backup`| ? | in |  The UUID of a backup. |
+`disk`| ? | out | Required. Specify the UUID of a disk. |
+`to_checkpoint_id`| ? | in | The UUID of the address at the end of the backup. |
+
 ### Get backup info GET
 
 *Gets information about a backup.*
@@ -282,6 +290,17 @@ The response includes the backup with id `456`, with `<from_checkpoint_id>` `999
     <creation_date>...
 </vm_backup>
 ````
+*Parameters summary:*
+| Name	| Type	| Direction |	Summary |
+:---- |  :---- |  :---- |  :---- |
+|`backup`| ? | in |  The ID of a backup. |
+|`from_checkpoint_id`| ? | in |  the ID of each disk that was backed up. |
+|`to_checkpoint_id`| ? | in |  the IDs of the start and end checkpoints of the backup. |
+|`disk`| ? | in |  The ID of the disk image of the backup, for each disk included in the backup. |
+|`phase`| ? | in |  The phase of the backup. Possible values are ???|
+|`creation_date`| ? | in |  The date the backup was created. |
+
+
 
 ### finalize POST
 To finalize a backup, use the finalize method of the image_transfer service. For more information, see [ImageTransfer]: http://ovirt.github.io/ovirt-engine-api-model/4.3/#services/image_transfer "finalize API".
@@ -309,6 +328,12 @@ When uploading into a snapshot, replace `<disk id="123"/>` with `<snapshot id="4
 When the transfer format is RAW and the underlying disk format is QCOW2, uploaded data is converted on the fly to QCOW2 format when writing to storage.
 Uploading data from a QCOW2 disk to a RAW disk is not supported.
 
+*Parameters summary:*
+| Name	| Type	| Direction |	Summary |
+:---- |  :---- |  :---- |  :---- |
+|`disk`| ? | in |  The ID of the disk image of the backup, for each disk included in the backup. |
+|`direction`| ? | in |  The phase of the backup. To restore an incremental backup, this must be `upload`. |
+|`format`| ? | in |  The format of the backup. For incremental backup, this must be `raw`. |
 
 ## imageio backup API
 

@@ -130,7 +130,7 @@ The response is:
     ...
 </disk>
 ````
-*Parameters Summary*
+*Parameters summary*
 
 | Name	| Type	| Direction |	Summary |
 :---- |  :---- |  :---- |  :---- |

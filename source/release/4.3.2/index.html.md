@@ -7,21 +7,13 @@ authors: sandrobonazzola
 
 # oVirt 4.3.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.2 Second Release Candidate as of March 13, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.2 release as of March 19, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.6,
 CentOS Linux 7.6 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -37,21 +29,35 @@ To learn about features introduced before 4.3.2, see the [release notes for prev
 ### CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
+
+
+
+If you are upgrading from older versions please upgrade to 4.2.8 before upgrading to 4.3.2
+
+If you're upgrading from oVirt Engine 4.2.8 you just need to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
+
+If you're upgrading from oVirt Node NG 4.2 you just need to execute:
+
+      # yum install https://resources.ovirt.org/pub/ovirt-4.3/rpm/el7/noarch/ovirt-node-ng-image-update-4.3.2-1.el7.noarch.rpm
+      # reboot
+
+If you're upgrading from oVirt Node NG 4.3 please use oVirt Engine Administration portal for handling the upgrade.
+
 
 
 
@@ -131,6 +137,7 @@ packages from other repos.
  - [BZ 1291789](https://bugzilla.redhat.com/1291789) <b>ovirt-engine-rename tool uses hard-coded ca.crt</b><br>
  - [BZ 1314959](https://bugzilla.redhat.com/1314959) <b>Keep thin provisioning when migrating from thin provisioned glusterfs to iSCSI</b><br>
  - [BZ 1666958](https://bugzilla.redhat.com/1666958) <b>[SR-IOV] - Validate the update of SR-IOV vNIC profile with another SR-IOV vNIC profile while the VM's nic is plugged</b><br>
+ - [BZ 1687301](https://bugzilla.redhat.com/1687301) <b>For verifying ovirt-imageio-proxy cert, engine uses internal truststore instead of https one</b><br>
  - [BZ 1552533](https://bugzilla.redhat.com/1552533) <b>change MaxBlockDiskSize to a more clear value as MaxBlockDiskSizeInGigaBytes or MaxBlockDiskSizeInGigiBytes</b><br>
  - [BZ 1654442](https://bugzilla.redhat.com/1654442) <b>"GET_ALL_VNIC_PROFILES failed query execution failed due to insufficient permissions." messages when user logs into VM Portal</b><br>
 
@@ -178,13 +185,16 @@ packages from other repos.
  - [BZ 1666795](https://bugzilla.redhat.com/1666795) <b>VMs migrated to 4.3 are missing the appropriate virt XML for dynamic ownership, and are reset to root:root, preventing them from starting</b><br>
  - [BZ 1679399](https://bugzilla.redhat.com/1679399) <b>RHV upgrade from 4.2 to 4.3 fails in RHHI-V environment</b><br>
  - [BZ 1670715](https://bugzilla.redhat.com/1670715) <b>[UI] - IPv6 subnet - Validate input and create IPv6 subnet</b><br>
+ - [BZ 1645229](https://bugzilla.redhat.com/1645229) <b>Export as ova fails in oVirt-engine</b><br>
  - [BZ 1676405](https://bugzilla.redhat.com/1676405) <b>Use ansible modules rather than gdeploy modules in brick creation flow from RHV-M</b><br>
  - [BZ 1679158](https://bugzilla.redhat.com/1679158) <b>[REST] Fix Link To Network Under Cluster</b><br>
  - [BZ 1678113](https://bugzilla.redhat.com/1678113) <b>'postgresql-setup initdb' is obsolete</b><br>
  - [BZ 1659099](https://bugzilla.redhat.com/1659099) <b>[UI] Can't see the whole IPv6 address</b><br>
  - [BZ 1684113](https://bugzilla.redhat.com/1684113) <b>Failed to start VM with LibVirtError "Failed to acquire lock: No space left on device" (code=1)</b><br>
  - [BZ 1589665](https://bugzilla.redhat.com/1589665) <b>WebAdmin: Upload image dialog - not informative enough when image is too small</b><br>
+ - [BZ 1656752](https://bugzilla.redhat.com/1656752) <b>we do not run pyflakes on fedora</b><br>
  - [BZ 1368457](https://bugzilla.redhat.com/1368457) <b>Adding a new host to the gluster cluster, should not show up virt node related tabs</b><br>
+ - [BZ 1403161](https://bugzilla.redhat.com/1403161) <b>Missing <certificate> node in ovirt-engine/api/vms/$vmid</b><br>
  - [BZ 1657977](https://bugzilla.redhat.com/1657977) <b>[UI] Gray out multiQueues check box in Instance Types 'New/Edit' option - make it clear that enabled by default</b><br>
  - [BZ 1677426](https://bugzilla.redhat.com/1677426) <b>[vNIC Profiles main tab] -  Port mirroring, passthrough and migratable properties are grayed out if the first network in the DC(alphabetic) is an external network</b><br>
  - [BZ 1684586](https://bugzilla.redhat.com/1684586) <b>[work around] engine-setup fails upgrading due constraint violations</b><br>
@@ -192,6 +202,7 @@ packages from other repos.
  - [BZ 1673442](https://bugzilla.redhat.com/1673442) <b>Storage domain discard_after_delete default value it true, should be false</b><br>
  - [BZ 1530984](https://bugzilla.redhat.com/1530984) <b>No error event(UI)/auditlog(engine.log) is given after template import fails due to faulty glance server</b><br>
  - [BZ 1653752](https://bugzilla.redhat.com/1653752) <b>Scheduler computes incorrect CPU load of the host where the scheduled VM is running</b><br>
+ - [BZ 1678200](https://bugzilla.redhat.com/1678200) <b>Q35: Cloned VM with Q35 chipset, failed to run (PCI controller model is null instead of pcie-root).</b><br>
  - [BZ 1659806](https://bugzilla.redhat.com/1659806) <b>Moving storage domain to maintenance during disk upload/download is allowed</b><br>
  - [BZ 1672065](https://bugzilla.redhat.com/1672065) <b>[cinderlib] - Add managed SD on HP3PAR fails with : [CinderlibExecutor]cinderlib output: /usr/lib/python2.7/site-packages/paramiko/kex_ecdh_nist.py:39: CryptographyDeprecationWarning: encode_point has been deprecated</b><br>
  - [BZ 1636331](https://bugzilla.redhat.com/1636331) <b>Return error when attempting to update disk from /api/disks/{disk_id}</b><br>
@@ -229,7 +240,7 @@ packages from other repos.
 
 #### Contributors
 
-52 people contributed to this release:
+53 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -278,6 +289,7 @@ packages from other repos.
 	Tomáš Golembiovský
 	Vojtech Juranek
 	Yedidyah Bar David
+	Yuval Turgeman
 	emesika
 	fdupont-redhat
 	godas

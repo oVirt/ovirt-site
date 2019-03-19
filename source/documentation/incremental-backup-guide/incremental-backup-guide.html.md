@@ -130,18 +130,17 @@ The response is:
     ...
 </disk>
 ````
-*Parameters summary*
+**Parameters summary**
 
 | Name	| Type	| Direction |	Summary |
 :---- |  :---- |  :---- |  :---- |
 `backup`| ? | out | Required. Possible values: `incremental`, `none` |
 
 
+### list GET
+_Find disks enabled for incremental backup_
 
-#### Finding disks enabled for incremental backup
-
-## list GET
-_For the specified virtual machine, list the disks that are enabled for incremental backup, filtered according to the `backup` property._
+For the specified virtual machine, list the disks that are enabled for incremental backup, filtered according to the `backup` property.
 
 For example, for a virtual machine with the id `123`, this request:
 
@@ -162,7 +161,7 @@ Gets this response:
 </disks>
 ````
 
-*Parameters summary:*
+**Parameters summary**
 
 | Name	| Type	| Direction |	Summary |
 :---- |  :---- |  :---- |  :---- |
@@ -203,7 +202,7 @@ The response includes backup 789 with <to_checkpoint_id> 999:
 </backup>
 ````
 
-*Parameters summary:*
+**Parameters summary**
 | Name	| Type	| Direction |	Summary |
 :---- |  :---- |  :---- |  :---- |
 `backup`| ? | in |  The UUID of a backup. |
@@ -247,7 +246,7 @@ The response includes backup `789` with `<from_checkpoint_id>` `999` and  `<to_c
 </backup>
 ````
 
-*Parameters summary:*
+**Parameters summary**
 | Name	| Type	| Direction |	Summary |
 :---- |  :---- |  :---- |  :---- |
 `backup`| ? | in |  The UUID of a backup. |
@@ -290,7 +289,8 @@ The response includes the backup with id `456`, with `<from_checkpoint_id>` `999
     <creation_date>...
 </vm_backup>
 ````
-*Parameters summary:*
+**Parameters summary**
+
 | Name	| Type	| Direction |	Summary |
 :---- |  :---- |  :---- |  :---- |
 |`backup`| ? | in |  The ID of a backup. |
@@ -328,7 +328,7 @@ When uploading into a snapshot, replace `<disk id="123"/>` with `<snapshot id="4
 When the transfer format is RAW and the underlying disk format is QCOW2, uploaded data is converted on the fly to QCOW2 format when writing to storage.
 Uploading data from a QCOW2 disk to a RAW disk is not supported.
 
-*Parameters summary:*
+**Parameters summary**
 | Name	| Type	| Direction |	Summary |
 :---- |  :---- |  :---- |  :---- |
 |`disk`| ? | in |  The ID of the disk image of the backup, for each disk included in the backup. |

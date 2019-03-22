@@ -35,7 +35,7 @@ You can use the `yum` command to update your hosts. Update your systems regularl
 
     **Note:**  Check the imgbased logs to see if any additional package updates have failed for an oVirt Node. If some packages were not successfully reinstalled after the update, check that the packages are listed in **/var/imgbased/persisted-rpms**. Add any missing packages then run `rpm -Uvh /var/imgbased/persisted-rpms/*`.
 
-Repeat this process for each host in the Red Hat Virtualization environment.
+Repeat this process for each host in the oVirt environment.
 
 **Prev:** [Appendix C: Manually Updating Hosts](appe-Manually_Updating_Hosts)
 

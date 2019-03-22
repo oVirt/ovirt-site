@@ -38,13 +38,15 @@ Administrators can receive the latest security advisories from the oVirt watch l
 
 ## oVirt Node
 
-oVirt Node is installed using a special build of Enterprise Linux with only the packages required to host virtual machines. It uses an Anaconda installation interface based on the one used by Enterprise Linux hosts, and can be updated through the oVirt Engine or via `yum`. However, installing additional packages is not currently supported; any additional packages that are installed must be reinstalled each time oVirt Node is updated.
+oVirt Node is installed using a special build of Enterprise Linux with only the packages required to host virtual machines. It uses an `Anaconda` installation interface based on the one used by Enterprise Linux hosts, and can be updated through the oVirt Engine or via `yum`. Using the `yum` command is the only way to install additional packages and have them persist after an upgrade.
 
-oVirt Node features a Cockpit user interface for monitoring the host's resources and performing administrative tasks. Direct access to oVirt Node via SSH or console is not supported, so the Cockpit user interface provides a graphical user interface for tasks that are performed before the host is added to the oVirt Engine, such as deploying a self-hosted engine, and can also be used to run terminal commands via the **Terminal** sub-tab.
+oVirt Node features a Cockpit user interface for monitoring the host's resources and performing administrative tasks. Direct access to oVirt Node via SSH or console is not supported, so the Cockpit user interface provides a graphical user interface for tasks that are performed before the host is added to the oVirt Engine, such as configuring networking and deploying a self-hosted engine, and can also be used to run terminal commands via the **Terminal** sub-tab.
 
 Access the Cockpit user interface at https://*HostFQDNorIP*:9090 in your web browser. Cockpit for oVirt Node includes a custom **Virtualization** dashboard that displays the host's health status, SSH Host Key, self-hosted engine status, virtual machines, and virtual machine statistics.
 
-**Note:** Custom boot kernel arguments can be added to oVirt Node using the `grubby` tool. The `grubby` tool makes persistent changes to the `grub.cfg` file. Navigate to the **Tools** > **Terminal** sub-tab in the host's Cockpit user interface to use `grubby` commands.
+oVirt Node uses the Automatic Bug Reporting Tool (ABRT) to collect meaningful debug information about application crashes. For more information, see the link:https://wiki.centos.org/TipsAndTricks/ABRT.
+
+**Note:** Custom boot kernel arguments can be added to oVirt Node using the `grubby` tool. The `grubby` tool makes persistent changes to the `grub.cfg` file. Navigate to the **Terminal** sub-tab in the host's Cockpit user interface to use `grubby` commands.
 
 **Warning:** The oVirt Project strongly recommends not creating untrusted users on oVirt Node, as this can lead to exploitation of local security vulnerabilities.
 

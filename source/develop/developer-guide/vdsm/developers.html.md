@@ -76,9 +76,9 @@ clean.
 
 VDSM uses autoconf and automake as its build system.
 
-To configure the build environment:
+To configure a development build environment:
 
-      ./autogen.sh --system
+      ./autogen.sh --system --enable-timestamp
 
 To see available options:
 
@@ -169,7 +169,17 @@ VDSM automatically builds using the latest tagged version. If you want to explic
 
 ## Basic installation
 
-When building from source, you should enable the ovirt-beta repository, to satisfy dependencies that are not available yet in the release repository. Install the desired Rpms from ~/rpmbuild/RPMS/noarch.
+The easiest way is to start with vdsm from ovirt-release repos. If you
+added a host to engine, your host already installed. If you want to
+install vdsm on a new host not added to engine, install vdsm and
+vdsm-client:
+
+    dnf install vdsm vdsm-client
+
+To install packages built using "make rpm" use dnf upgrade:
+
+    cd ~/rpmbuild/RPMS
+    dnf upgrade */*.rpm
 
 Before starting vdsmd service for the first time vdsm requires some configuration procedures for external services that being used by vdsmd. To ease this process vdsm provides a utility (vdsm-tool). To perform full reconfiguration of external services perform:
 

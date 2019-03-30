@@ -96,11 +96,10 @@ The internal CA stores the internally generated key and certificate in a **P12**
         
         # vi /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf
 
-   Make the following changes and save the file:
+    Make the following changes and save the file:
 
         # Key file for SSL connections
         ssl_key_file = /etc/pki/ovirt-engine/keys/apache.key.nopass
-        
         # Certificate file for SSL connections
         ssl_cert_file = /etc/pki/ovirt-engine/certs/apache.cer
 

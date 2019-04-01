@@ -68,7 +68,9 @@ The user configures a new Storage Domain with all the needed parameters for the 
 
 In case that some of the driver parameters contains sensitive information like passwords, the user can specify them as `driver_sensitive_options`. These parameters will be stored encrypted in the DB ans masked in the UI.
 
-Here is an example of the REST API usage:
+Here are examples of the REST API usage:
+
+HP 3PAR:
 
 ```XML
 <storage_domain>
@@ -106,6 +108,49 @@ Here is an example of the REST API usage:
    </host>
 </storage_domain>
 ```
+
+Ceph:
+
+```XML
+<storage_domain>
+    <name>ceph-cinder</name>
+    <type>managed_block_storage</type>
+    <storage>
+    	<type>managed_block_storage</type>
+    	<driver_options>
+    		<property>
+          <name>rbd_ceph_conf</name>
+          <value>/etc/ceph/ceph.conf</value>
+    		</property>
+    		 <property>
+          <name>rbd_pool</name>
+          <value>volumes</value>
+    		</property>
+    		<property>
+          <name>rbd_user</name>
+          <value>admin</value>
+    		</property>
+    		<property>
+          <name>use_multipath_for_image_xfer</name>
+          <value>true</value>
+    		</property>
+    		<property>
+          <name>volume_driver</name>
+          <value>cinder.volume.drivers.rbd.RBDDriver</value>
+    		</property>
+    		<property>
+          <name>rbd_keyring_conf</name>
+          <value>/etc/ceph/ceph.client.admin.keyring</value>
+    		</property>
+    	</driver_options>
+    </storage>
+    <host>
+    	<name>hosto</name>
+    </host>
+</storage_domain>
+
+```
+
 
 #### Create Disk
 

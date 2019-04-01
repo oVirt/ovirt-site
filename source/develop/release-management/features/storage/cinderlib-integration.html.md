@@ -113,40 +113,40 @@ Ceph:
 
 ```XML
 <storage_domain>
-    <name>ceph-cinder</name>
-    <type>managed_block_storage</type>
-    <storage>
-    	<type>managed_block_storage</type>
-    	<driver_options>
-    		<property>
-          <name>rbd_ceph_conf</name>
-          <value>/etc/ceph/ceph.conf</value>
-    		</property>
-    		 <property>
-          <name>rbd_pool</name>
-          <value>volumes</value>
-    		</property>
-    		<property>
-          <name>rbd_user</name>
-          <value>admin</value>
-    		</property>
-    		<property>
-          <name>use_multipath_for_image_xfer</name>
-          <value>true</value>
-    		</property>
-    		<property>
-          <name>volume_driver</name>
-          <value>cinder.volume.drivers.rbd.RBDDriver</value>
-    		</property>
-    		<property>
-          <name>rbd_keyring_conf</name>
-          <value>/etc/ceph/ceph.client.admin.keyring</value>
-    		</property>
-    	</driver_options>
-    </storage>
-    <host>
-    	<name>hosto</name>
-    </host>
+   <name>ceph-cinder</name>
+   <type>managed_block_storage</type>
+   <storage>
+      <type>managed_block_storage</type>
+      <driver_options>
+         <property>
+            <name>rbd_ceph_conf</name>
+            <value>/etc/ceph/ceph.conf</value>
+         </property>
+         <property>
+            <name>rbd_pool</name>
+            <value>volumes</value>
+         </property>
+         <property>
+            <name>rbd_user</name>
+            <value>admin</value>
+         </property>
+         <property>
+            <name>use_multipath_for_image_xfer</name>
+            <value>true</value>
+         </property>
+         <property>
+            <name>volume_driver</name>
+            <value>cinder.volume.drivers.rbd.RBDDriver</value>
+         </property>
+         <property>
+            <name>rbd_keyring_conf</name>
+            <value>/etc/ceph/ceph.client.admin.keyring</value>
+         </property>
+      </driver_options>
+   </storage>
+   <host>
+      <name>vdsm-01</name>
+   </host>
 </storage_domain>
 
 ```

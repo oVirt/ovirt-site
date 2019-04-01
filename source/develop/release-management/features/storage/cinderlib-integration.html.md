@@ -267,6 +267,50 @@ Cinderlib will be packaged in RPM.
 The Cinder drivers and Cinderlib needs to be installed in the Engine.
 OS-Brick needs to installed on the hosts
 
+#### Manual Install
+
+Since that some of the required libraries are currently not part of oVirt installation, the following steps are required:
+
+On Engine:
+
+```
+$ yum install -y centos-release-openstack-pike
+$ yum-config-manager --enable openstack-pike
+$ yum install -y openstack-cinder python-pip
+$ pip install cinderlib
+```
+
+On all the hosts: (Vdsm needs to be restarted after installing the packages)
+
+```
+$ yum install -y centos-release-openstack-pike
+$ yum-config-manager --enable openstack-pike
+$ yum install -y python2-os-brick
+```
+
+
+For Ceph backend, the following package is needed in the Engine and in all the hosts:
+
+```
+$ yum install -y ceph-common
+```
+
+Also for Ceph backend, a keyring file and ceph.conf file is needed in the Engine.
+
+#### Enable Managed Block Domain in Engine
+
+Managed Block Domain is not enabled by default in the Engine. In order to enable it, run the following command and restart the Engine:
+
+```
+$ engine-config -s ManagedBlockDomainSupported=true
+
+Please select a version:
+
+    1. 4.3
+    2. 4.1
+    3. 4.2
+# Select 1
+```
 
 ### Open Issues / Limitations
 
@@ -284,5 +328,6 @@ OS-Brick needs to installed on the hosts
 
 
 ### Documentation / External references
-[1] [Cinder Library](https://github.com/Akrog/cinderlib)
+[1] [Cinder Library](https://github.com/openstack/cinderlib)
+
 [2] [Additional Drivers required package](https://github.com/openstack/cinder/blob/master/driver-requirements.txt)

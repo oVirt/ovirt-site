@@ -7,7 +7,7 @@ authors: sandrobonazzola
 
 # oVirt 4.3.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.3 First Release Candidate as of March 28, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.3 Second Release Candidate as of April 04, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -102,15 +102,23 @@ packages from other repos.
 
 ### Enhancements
 
+#### VDSM
+
+ - [BZ 1631587](https://bugzilla.redhat.com/1631587) <b>[RFE] Improve vdsm client to add correlation_id</b><br>Feature: Add possibility to pass correlation id to 'vdsm-client'<br><br>Reason: Make tracking multiple API calls done by 'vdsm-client' easy - correlation id is included in 'vdsm.log'<br><br>Result: You can use '--flow-id' argument with 'vdsm-client' tool to pass correlation id
+
 #### oVirt Engine
 
- - [BZ 1595536](https://bugzilla.redhat.com/1595536) <b>[RFE] Support VMs with VNC console on a FIPS enabled hypervisor</b><br>When a host is running in FIPS mode, VNC must use SASL authorization instead of regular passwords because of the weak algorithm inherent to the VNC protocol.<br><br>In order to facilitate that process, an Ansible role 'ovirt-host-setup-vnc-sasl' is provided. It must be run manually on all FIPS hosts. The role does the following:<br><br>* creates a (empty) SASL password database<br>* prepares SASL config file for qemu<br>* changes libvirt config file for qemu
- - [BZ 1664490](https://bugzilla.redhat.com/1664490) <b>VM's time and TZ changes to GMT Standard Time after moving VM to another cluster.</b><br>Feature: Previously changing the Cluster of a VM updated the VM Time Zone to its default depending upon the OS Type.<br><br>Reason: In order to make the UI more user friendly it was decided to change this functionality by preserving the VM's Time Zone so that the user can change the Cluster of the VM without also updating the Time Zone manually.<br><br>Result: Changing the Cluster of a VM during editing will now preserve the VM's Time Zone setting.
+ - [BZ 1664490](https://bugzilla.redhat.com/1664490) <b>VM's time and TZ changes to GMT Standard Time after moving VM to another cluster.</b><br>This release enhancement preserves a virtual machine's time zone setting of a virtual machine when moving the virtual machine from one cluster to a different cluster.
+
+#### oVirt Host Dependencies
+
+ - [BZ 1693279](https://bugzilla.redhat.com/1693279) <b>Require v2v-conversion-host-wrapper on ovirt-host</b><br>v2v-conversion-host-wrapper is now installed by default on hypervisor hosts
 
 ### Bug Fixes
 
 #### oVirt Engine
 
+ - [BZ 1686537](https://bugzilla.redhat.com/1686537) <b>Migration of VM with 'Pass-Through host CPU' results with VM's Pause state and exception on the following attempt to run.</b><br>
  - [BZ 1312909](https://bugzilla.redhat.com/1312909) <b>Live disk migration fails noting "Failed to VmReplicateDiskFinishVDS"</b><br>
 
 ### Other
@@ -131,8 +139,7 @@ packages from other repos.
 #### VDSM
 
  - [BZ 1676893](https://bugzilla.redhat.com/1676893) <b>[RFE] Recognize Windows Server 2019 when using qemu-ga</b><br>Windows 2019 guests running only QEMU Guest Agent were incorrectly reported as Windows 2016. Such guests are now correctly identified in UI.
- - [BZ 1403183](https://bugzilla.redhat.com/1403183) <b>Cloned VMs created from template with "Raw" format are having "Thin Provision" Allocation Policy</b><br>
- - [BZ 1631587](https://bugzilla.redhat.com/1631587) <b>[RFE] Improve vdsm client to add correlation_id</b><br>
+ - [BZ 1403183](https://bugzilla.redhat.com/1403183) <b>Cloned VMs created from template with "Raw" format are having "Thin Provision" Allocation Policy</b><br>This release ensures that virtual machines with file-based storage created from a template where the Resource Allocation > Storage Allocation > Clone > Format setting is set to Raw results in virtual machines having an Allocation Policy set to "Preallocated."
  - [BZ 1687832](https://bugzilla.redhat.com/1687832) <b>Memory ballooning VM Stats remain unchanged upon host's memory allocation for when guest OS is RHEL8.</b><br>Memory statistic for guests running only QEMU Guest Agent were not properly reported which caused ballooning to fail and memory consumption was not available in UI. This is now fixed
  - [BZ 1665689](https://bugzilla.redhat.com/1665689) <b>sos plugin is running lvm commands without locking, risking VG metadata corruption</b><br>
  - [BZ 1683967](https://bugzilla.redhat.com/1683967) <b>Attaching network with dhcpv4 ends up as out-of-sync becasue of a IPv6 property</b><br>
@@ -143,13 +150,16 @@ packages from other repos.
 
  - [BZ 1686259](https://bugzilla.redhat.com/1686259) <b>Creation of multiple bricks,one of them being arbiter, on the same disk without dedupe & compression, results in failure</b><br>
  - [BZ 1690756](https://bugzilla.redhat.com/1690756) <b>Insufficient space when creating thick LVs on top of VDO volume in certain way</b><br>
+ - [BZ 1622550](https://bugzilla.redhat.com/1622550) <b>cockpit-wizard doesn't show a proper error message when no available valid interfaces are present on the host</b><br>
  - [BZ 1577039](https://bugzilla.redhat.com/1577039) <b>The DNS server plus button is still clicked when it displays disabled from cockpit using Chrome</b><br>
+ - [BZ 1693257](https://bugzilla.redhat.com/1693257) <b>Setup wizard: Deployment can be started even if values are missing or incorrect</b><br>
  - [BZ 1683318](https://bugzilla.redhat.com/1683318) <b>Incorrect value set for poolmetadatasize</b><br>
  - [BZ 1690160](https://bugzilla.redhat.com/1690160) <b>Hosted-engine-setup fails deploying over an NFS share with a visible IPv6 address</b><br>
 
 #### oVirt Hosted Engine Setup
 
  - [BZ 1392051](https://bugzilla.redhat.com/1392051) <b>[RFE] STIG compliance for RHV-M appliance.</b><br>
+ - [BZ 1686445](https://bugzilla.redhat.com/1686445) <b>hosted-engine deploy (restore-from-file) fails if certificates are not up to date in backup file.</b><br>
  - [BZ 1692460](https://bugzilla.redhat.com/1692460) <b>Let the user specify the host address also deploying from CLI</b><br>
  - [BZ 1690160](https://bugzilla.redhat.com/1690160) <b>Hosted-engine-setup fails deploying over an NFS share with a visible IPv6 address</b><br>
 
@@ -158,22 +168,26 @@ packages from other repos.
  - [BZ 1660595](https://bugzilla.redhat.com/1660595) <b>Hosted Engine Deploy fails with SSO authentication errors</b><br>
  - [BZ 1691173](https://bugzilla.redhat.com/1691173) <b>During HE deploy, rhvm-appliance installs even if ova file is presented</b><br>
  - [BZ 1392051](https://bugzilla.redhat.com/1392051) <b>[RFE] STIG compliance for RHV-M appliance.</b><br>
+ - [BZ 1694034](https://bugzilla.redhat.com/1694034) <b>Hosted engine deploy failed with RHVH STIG security profile</b><br>
 
 #### oVirt Engine
 
  - [BZ 1690159](https://bugzilla.redhat.com/1690159) <b>NPE in LibvirtVmXmlBuilder</b><br>
+ - [BZ 1672859](https://bugzilla.redhat.com/1672859) <b>Cannot correctly upgrade an hosted engine env from 4.2 to 4.3 if the specific CPU type disappeared in 4.3</b><br>
  - [BZ 1668720](https://bugzilla.redhat.com/1668720) <b>[RHV][REST api] Cluster href had changed in RHV-4.3 - It fails for some RHV-4.3 environments the CFME refresh.</b><br>This release ensures the process to provision of a virtual machine from a template completes correctly.
  - [BZ 1663626](https://bugzilla.redhat.com/1663626) <b>[RFE] block simultaneously running cluster upgrades</b><br>
  - [BZ 1644159](https://bugzilla.redhat.com/1644159) <b>Set Preallocated disk to default option in HC environments</b><br>
  - [BZ 1690268](https://bugzilla.redhat.com/1690268) <b>[UI] Uncaught exception occurred on Edit host</b><br>
- - [BZ 1403183](https://bugzilla.redhat.com/1403183) <b>Cloned VMs created from template with "Raw" format are having "Thin Provision" Allocation Policy</b><br>
+ - [BZ 1403183](https://bugzilla.redhat.com/1403183) <b>Cloned VMs created from template with "Raw" format are having "Thin Provision" Allocation Policy</b><br>This release ensures that virtual machines with file-based storage created from a template where the Resource Allocation > Storage Allocation > Clone > Format setting is set to Raw results in virtual machines having an Allocation Policy set to "Preallocated."
  - [BZ 1679109](https://bugzilla.redhat.com/1679109) <b>Inappropriate user warnings reported when trying to add more bricks to the existing gluster volume</b><br>
- - [BZ 1676822](https://bugzilla.redhat.com/1676822) <b>cannot change Empty network profile of a running VM</b><br>
- - [BZ 1635337](https://bugzilla.redhat.com/1635337) <b>[Downstream Clone] Cannot assign VM from VmPool: oVirt claims it's already attached but it's not</b><br>
- - [BZ 1600788](https://bugzilla.redhat.com/1600788) <b>Engine allows deleting HE volumes.</b><br>
+ - [BZ 1676822](https://bugzilla.redhat.com/1676822) <b>Cannot change Empty network profile of a running VM(default MTU)</b><br>
+ - [BZ 1600788](https://bugzilla.redhat.com/1600788) <b>Engine allows deleting HE volumes.</b><br>This release provides a check to evaluate self-hosted engine volumes prior to deleting the self-hosted engine volumes.
+ - [BZ 1586126](https://bugzilla.redhat.com/1586126) <b>After upgrade to RHV  hosts can no longer be set into maintenance mode.</b><br>
+ - [BZ 1692332](https://bugzilla.redhat.com/1692332) <b>virt-v2v: Import from VMware and Xen failed with NPE.</b><br>
+ - [BZ 1694740](https://bugzilla.redhat.com/1694740) <b>Hosted Engine disks content types are showing unlocalized in the disks tab</b><br>
+ - [BZ 1693191](https://bugzilla.redhat.com/1693191) <b>Snapshot creation might fail due to a transaction timeout if takes too long to process the reply from vdsm</b><br>
  - [BZ 1555116](https://bugzilla.redhat.com/1555116) <b>Merge retry validation fails with NPE after previous commit/destroyImage timeout</b><br>
  - [BZ 1552540](https://bugzilla.redhat.com/1552540) <b>Webadmin- misleading error appears trying to extend a disk with MaxBlockDiskSize (8192G) with a value of 1 or more</b><br>
- - [BZ 1692332](https://bugzilla.redhat.com/1692332) <b>virt-v2v: Import from VMware and Xen failed with NPE.</b><br>
  - [BZ 1687645](https://bugzilla.redhat.com/1687645) <b>[RFE] on cluster upgrade, warn the user if the cluster scheduling policy is 'cluster_maintenance'</b><br>
  - [BZ 1692134](https://bugzilla.redhat.com/1692134) <b>[Webadmin] - New virtual disk - Enable incremental backup checkbox is possible although it is not supported</b><br>
  - [BZ 1690833](https://bugzilla.redhat.com/1690833) <b>host is not upgraded when already in maintenance mode</b><br>
@@ -182,12 +196,19 @@ packages from other repos.
  - [BZ 1685818](https://bugzilla.redhat.com/1685818) <b>IPv6 gateway removal from old default route role network alert is shown also for only IPv4 bootproto network</b><br>
  - [BZ 1685110](https://bugzilla.redhat.com/1685110) <b>Error inserting event into audit_log when VM template name is bigger than 40 characters</b><br>
 
-#### oVirt Host Dependencies
+#### oVirt Ansible cluster upgrade role
 
- - [BZ 1693279](https://bugzilla.redhat.com/1693279) <b>Require v2v-conversion-host-wrapper on ovirt-host</b><br>
+ - [BZ 1689949](https://bugzilla.redhat.com/1689949) <b>instead of "Hosts [] will be updated in cluster xy" should be "Hosts [] are marked to be updated in cluster xy"</b><br>
+
+#### imgbased
+
+ - [BZ 1693710](https://bugzilla.redhat.com/1693710) <b>katello.facts gets invalid hostname while updating RHV hypervisor</b><br>
+ - [BZ 1674265](https://bugzilla.redhat.com/1674265) <b>Can't use AMD EPYC IBPD SSBD on 4.3 upgrade without clearing libvirt cache</b><br>
 
 #### oVirt Engine Metrics
 
+ - [BZ 1693560](https://bugzilla.redhat.com/1693560) <b>Initial validations fail on Set fluentd_base_packages_available fact</b><br>
+ - [BZ 1693569](https://bugzilla.redhat.com/1693569) <b>Missing variable when trying to install the metrics store machine</b><br>
  - [BZ 1693296](https://bugzilla.redhat.com/1693296) <b>Unable to Add new Hosts to the Engine</b><br>
  - [BZ 1677246](https://bugzilla.redhat.com/1677246) <b>ovirt-host-deploy-ansible fails on isolated (offline) nodes</b><br>
  - [BZ 1692702](https://bugzilla.redhat.com/1692702) <b>In d/s if user did not set qcow_url then the Centos image instead of RHEL guest image</b><br>
@@ -211,7 +232,7 @@ packages from other repos.
 
 #### Contributors
 
-52 people contributed to this release:
+63 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -223,6 +244,7 @@ packages from other repos.
 	Dana Elfassy
 	Daniel Erez
 	David Luong
+	Denis Chaplygin
 	Douglas Schilling Landgraf
 	Edward Haas
 	Eitan Raviv
@@ -231,14 +253,19 @@ packages from other repos.
 	Fabien Dupont
 	Greg Sheremeta
 	Ido Rosenzwig
+	Joey
+	Juan Hernandez
 	Kaustav Majumder
+	Ken Schmidt
 	Kobi Hakimi
+	Lars Seipel
 	MLotton
 	Marcin Sobczyk
 	Marek Aufart
 	Marek Libra
 	Martin Perina
 	Michal Skrivanek
+	Michele Zuccala
 	Milan Zamazal
 	Nir Soffer
 	Ondra Machacek
@@ -249,6 +276,7 @@ packages from other repos.
 	Sandro Bonazzola
 	Scott Dickerson
 	Scott J Dickerson
+	Sharon Gratch
 	Shirly Radco
 	Shmuel Melamud
 	Simone Tiraboschi
@@ -262,6 +290,10 @@ packages from other repos.
 	Yedidyah Bar David
 	Yuval Turgeman
 	bond95
+	fdupont-redhat
 	godas
 	imjoey
+	irosenzw
+	iterjpnic
+	jenkins CI
 	parthdhanjal

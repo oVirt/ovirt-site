@@ -100,15 +100,10 @@ All CPUs must have support for the Intel® 64 or AMD64 CPU extensions, and the A
 The following CPU models are supported:
 
 * AMD
-  * Opteron G1
-  * Opteron G2
-  * Opteron G3
   * Opteron G4
   * Opteron G5
 
 * Intel
-  * Conroe
-  * Penryn
   * Nehalem
   * Westmere
   * Sandybridge
@@ -129,15 +124,15 @@ You must enable virtualization in the BIOS. Power off and reboot the host after 
 
 2. Press **Tab** to edit the kernel parameters for the selected option.
 
-3. Ensure there is a **Space** after the last kernel parameter listed, and append the `rescue` parameter.
+3. Ensure there is a space after the last kernel parameter listed, and append the parameter **rescue**.
 
-4. **Enter** to boot into rescue mode.
+4. Press **Enter** to boot into rescue mode.
 
 5. At the prompt, determine that your processor has the required extensions and that they are enabled by running this command:
 
         # grep -E 'svm|vmx' /proc/cpuinfo | grep nx
 
-If any output is shown, then the processor is hardware virtualization capable. If no output is shown, then it is still possible that your processor supports hardware virtualization. In some circumstances manufacturers disable the virtualization extensions in the BIOS. If you believe this to be the case, consult the system's BIOS and the motherboard manual provided by the manufacturer.
+If any output is shown, then the processor is hardware virtualization capable. If no output is shown, your processor may still support hardware virtualization; in some circumstances manufacturers disable the virtualization extensions in the BIOS. If you believe this to be the case, consult the system's BIOS and the motherboard manual provided by the manufacturer.
 
 ### Memory Requirements
 
@@ -523,4 +518,4 @@ Similarly, if you plan to access a local or remote Data Warehouse database from 
 **Prev:** [Chapter 1: Introduction to oVirt](chap-Introduction_to_oVirt)<br>
 **Next:** [Chapter 3: Installing oVirt](chap-Installing_oVirt)
 
-[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/installation_guide/rhv_requirements)
+[Adapted from RHV 4.3 beta documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3-beta/html/installation_guide/rhv_requirements)

@@ -32,17 +32,21 @@ You can use the **Dashboard** tab to create your own dashboards. Alternatively, 
 
 3. Click the **Indices** tab.
 
-4. Select **project.ovirt-metrics-&lt;ovirt-env-name>.&lt;uuid>** in the **Index Patterns** pane and click the **Refresh field list** ![](/images/metrics-user-guide/refresh.png) button.
+4. Select the **Index Patterns** that start with `project.*` in the **Index Patterns** pane and click the **Refresh field list** ![](/images/metrics-user-guide/refresh.png) button.
 
-5. Select the **project.ovirt-logs-&lt;ovirt-env-name>.&lt;uuid>** index and click **Refresh field list**.
+5. Do step #4 for each relevant index pattern.
 
 6. Click the **Objects** tab.
 
 7. Click **Import** and import **Searches** from your local copy of `/etc/ovirt-engine-metrics/dashboards-examples`.
 
+**NOTE** Admin user will be notofied to choose the relevant **Index Patterns** for the imported searches. Choose `project.*`.
+
 8. Click **Import** and import **Visualizations**.
 
-   **Note:** If you see an error message while importing the visualizations, check your hosts to ensure that Collectd and Fluentd are running without errors.
+**NOTE** Admin user will be notofied to choose the relevant **Index Patterns** for the imported searches. Choose `project.*`.
+
+**If you see an error message while importing the visualizations, check your hosts to ensure that Collectd and Fluentd are running without errors.**
 
 9. Click **Import** and import **Dashboards**.
 

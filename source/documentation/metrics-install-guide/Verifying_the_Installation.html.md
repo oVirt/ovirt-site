@@ -2,24 +2,24 @@
 title: Verifying the Installation
 ---
 
-# Verifying the Installation
+# 4. Verifying the Metrics Store installation
 
-Access the Kibana console to view the logs and statistics about clusters, hosts, virtual machines, and the Manager.
+Verify the Metrics Store installation using the Kibana console. You can view the collected logs and create data visualizations.
 
-**Verifying the Installation**
+## Procedure
 
-1. Access Kibana at https://kibana.*<FQDN>*.
+1. Log in to the Kibana console using the URL `(https://kibana.example.com)` that you recorded in [Section 2.2, “Deploying OpenShift and Metrics Store services”]().
 
-2. In the **Discover** tab, check that you can view the **project.ovirt-logs-_ovirt_env_name_-uuid&#42;** index, where *ovirt_env_name* is the name you defined in [Configuring Collectd and Fluentd](Configuring_Collectd_and_Fluentd).
-   See the [Discover](https://www.elastic.co/guide/en/kibana/4.5/discover.html) section in the *Kibana documentation* for more information about working with logs.
+Optionally, you can access the OpenShift Container Platform portal at `https://example.com:8443`.
 
-3. Use the **Visualization** tab to build visualization for the  **project.ovirt-metrics-_ovirt_env_name_-uuid&#42;**
-and the **project.ovirt-logs-_ovirt_env_name_-uuid&#42;** indexes.
+2. In the **Discover** tab, check that you can view the `project.*` or `project.ovirt-logs-ovirt_env_name-uuid` index.
 
-See the Metrics User Guide for the available parameters. See the [Visualize](https://www.elastic.co/guide/en/kibana/4.5/visualize.html) section of the *Kibana documentation* for more information about visualizing logs and metrics.
+See the [Discover](https://www.elastic.co/guide/en/kibana/5.6/discover.html) section in the Kibana User Guide for information about working with logs.
 
-    **Note:** You can access the OpenShift portal at https://*FQDN*:8443.
+3. In the **Visualization** tab, you can create data visualizations for the `project.*` for admin user or using the `project.ovirt-metrics-ovirt_env_name-uuid` and the `project.ovirt-logs-ovirt_env_name-uuid` indexes for non-admin user .
 
-**Prev:** [Chapter 3: Setting Up OpenShift Aggregated Logging](Setting_Up_OpenShift_Aggregated_Logging)
+The [Metrics Store User Guide](https://www.ovirt.org/documentation/metrics-user-guide/metrics-user-guide) describes the available parameters. See the Visualize section of the Kibana User Guide for information about visualizing logs and metrics.
 
-[Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/metrics_store_installation_guide/verifying_the_installation)
+**Prev:** [Chapter 3: Deploying Collectd and Rsyslog](Deploying_Collectd_and_Rsyslog)
+
+[Adapted from RHV 4.3 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html-single/metrics_store_installation_guide/index#Verifying_the_metrics_store_installation)

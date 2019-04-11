@@ -368,8 +368,9 @@ directory_index: false
   RewriteCond %{REQUEST_URI} /documentation/introduction/about-ovirt/$
   RewriteRule ^(.*)$ /community/about.html [R=301,L]
 
-
-
+  # /develop/release-management/features/metrics -> /documentation/metrics-install-guide/
+  RewriteCond %{REQUEST_URI} /develop/release-management/features/metrics/*
+  RewriteRule ^(.*)$ /documentation/metrics-install-guide/ [R=301,L]
 
   ##
 

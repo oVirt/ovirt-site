@@ -7,7 +7,7 @@ authors: sandrobonazzola
 
 # oVirt 4.3.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.3 Third Release Candidate as of April 09, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.3 Fourth Release Candidate as of April 12, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -104,15 +104,15 @@ packages from other repos.
 
 #### VDSM
 
- - [BZ 1631587](https://bugzilla.redhat.com/1631587) <b>[RFE] Improve vdsm client to add correlation_id</b><br>Feature: Add possibility to pass correlation id to 'vdsm-client'<br><br>Reason: Make tracking multiple API calls done by 'vdsm-client' easy - correlation id is included in 'vdsm.log'<br><br>Result: You can use '--flow-id' argument with 'vdsm-client' tool to pass correlation id
+ - [BZ 1631587](https://bugzilla.redhat.com/1631587) <b>[RFE] Improve vdsm client to add correlation_id</b><br>In this release, the correlation id can be passed to the vdsm-client by using the '--flow-id' argument with the vdsm-client tool.
 
 #### oVirt Hosted Engine Setup
 
- - [BZ 1392051](https://bugzilla.redhat.com/1392051) <b>[RFE] STIG compliance for RHV-M appliance.</b><br>Feature: <br>Support OpenSCAP security profiles during hosted engine deployment<br><br>Reason: <br>Deploying a more secure hosted engine VM<br><br>Result: <br>A default OpenSCAP security profile is applied during deployment of hosted engine
+ - [BZ 1392051](https://bugzilla.redhat.com/1392051) <b>[RFE] STIG compliance for RHV-M appliance.</b><br>In this release, support has been added for OpenSCAP security profiles that are now applied by default during self-hosted engine deployment.
 
 #### oVirt Ansible hosted-engine setup role
 
- - [BZ 1392051](https://bugzilla.redhat.com/1392051) <b>[RFE] STIG compliance for RHV-M appliance.</b><br>Feature: <br>Support OpenSCAP security profiles during hosted engine deployment<br><br>Reason: <br>Deploying a more secure hosted engine VM<br><br>Result: <br>A default OpenSCAP security profile is applied during deployment of hosted engine
+ - [BZ 1392051](https://bugzilla.redhat.com/1392051) <b>[RFE] STIG compliance for RHV-M appliance.</b><br>In this release, support has been added for OpenSCAP security profiles that are now applied by default during self-hosted engine deployment.
 
 #### oVirt Engine
 
@@ -207,7 +207,6 @@ packages from other repos.
  - [BZ 1687645](https://bugzilla.redhat.com/1687645) <b>[RFE] on cluster upgrade, warn the user if the cluster scheduling policy is 'cluster_maintenance'</b><br>
  - [BZ 1692134](https://bugzilla.redhat.com/1692134) <b>[Webadmin] - New virtual disk - Enable incremental backup checkbox is possible although it is not supported</b><br>
  - [BZ 1690833](https://bugzilla.redhat.com/1690833) <b>host is not upgraded when already in maintenance mode</b><br>
- - [BZ 1654889](https://bugzilla.redhat.com/1654889) <b>[RFE] Support console VNC for mediated devices</b><br>
  - [BZ 1571285](https://bugzilla.redhat.com/1571285) <b>RAW-Preallocated file-based disk convert to raw-sparse after cold migrating it to another storage domain</b><br>
  - [BZ 1685818](https://bugzilla.redhat.com/1685818) <b>IPv6 gateway removal from old default route role network alert is shown also for only IPv4 bootproto network</b><br>
  - [BZ 1685110](https://bugzilla.redhat.com/1685110) <b>Error inserting event into audit_log when VM template name is bigger than 40 characters</b><br>
@@ -224,7 +223,6 @@ packages from other repos.
 #### oVirt Engine Metrics
 
  - [BZ 1693560](https://bugzilla.redhat.com/1693560) <b>Initial validations fail on Set fluentd_base_packages_available fact</b><br>
- - [BZ 1683157](https://bugzilla.redhat.com/1683157) <b>Logging not disabled for sensitive tasks</b><br>
  - [BZ 1693569](https://bugzilla.redhat.com/1693569) <b>Missing variable when trying to install the metrics store machine</b><br>
  - [BZ 1693296](https://bugzilla.redhat.com/1693296) <b>Unable to Add new Hosts to the Engine</b><br>
  - [BZ 1677246](https://bugzilla.redhat.com/1677246) <b>ovirt-host-deploy-ansible fails on isolated (offline) nodes</b><br>
@@ -245,12 +243,11 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1684140](https://bugzilla.redhat.com/1684140) <b>Import OVA failed to parse the OVF - Error loading ovf, message Content is not allowed in prolog</b><br>
- - [BZ 1697232](https://bugzilla.redhat.com/1697232) <b>Extend length of value columns in vdc_options table</b><br>
  - [BZ 1684554](https://bugzilla.redhat.com/1684554) <b>Host activation task gets stuck after many retries</b><br>
 
 #### Contributors
 
-64 people contributed to this release:
+65 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -272,6 +269,7 @@ packages from other repos.
 	Fred Rolland
 	Greg Sheremeta
 	Ido Rosenzwig
+	Jiri Macku
 	Joey
 	Juan Hernandez
 	Kaustav Majumder

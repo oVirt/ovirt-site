@@ -7,21 +7,13 @@ authors: sandrobonazzola
 
 # oVirt 4.3.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.3 Fourth Release Candidate as of April 12, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.3 release as of April 16, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.6,
 CentOS Linux 7.6 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -37,21 +29,35 @@ To learn about features introduced before 4.3.3, see the [release notes for prev
 ### CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
+
+
+
+If you are upgrading from older versions please upgrade to 4.2.8 before upgrading to 4.3.3
+
+If you're upgrading from oVirt Engine 4.2.8 you just need to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
+
+If you're upgrading from oVirt Node NG 4.2 you just need to execute:
+
+      # yum install https://resources.ovirt.org/pub/ovirt-4.3/rpm/el7/noarch/ovirt-node-ng-image-update-4.3.3-1.el7.noarch.rpm
+      # reboot
+
+If you're upgrading from oVirt Node NG 4.3 please use oVirt Engine Administration portal for handling the upgrade.
+
 
 
 
@@ -104,15 +110,7 @@ packages from other repos.
 
 #### VDSM
 
- - [BZ 1631587](https://bugzilla.redhat.com/1631587) <b>[RFE] Improve vdsm client to add correlation_id</b><br>In this release, the correlation id can be passed to the vdsm-client by using the '--flow-id' argument with the vdsm-client tool.
-
-#### oVirt Hosted Engine Setup
-
- - [BZ 1392051](https://bugzilla.redhat.com/1392051) <b>[RFE] STIG compliance for RHV-M appliance.</b><br>In this release, support has been added for OpenSCAP security profiles that are now applied by default during self-hosted engine deployment.
-
-#### oVirt Ansible hosted-engine setup role
-
- - [BZ 1392051](https://bugzilla.redhat.com/1392051) <b>[RFE] STIG compliance for RHV-M appliance.</b><br>In this release, support has been added for OpenSCAP security profiles that are now applied by default during self-hosted engine deployment.
+ - [BZ 1631587](https://bugzilla.redhat.com/1631587) <b>[RFE] Improve vdsm client to add correlation_id</b><br>In this release, the Correlation-Id can be passed to the vdsm-client by using the '--flow-id' argument with the vdsm-client tool.
 
 #### oVirt Engine
 
@@ -198,6 +196,7 @@ packages from other repos.
  - [BZ 1679109](https://bugzilla.redhat.com/1679109) <b>Inappropriate user warnings reported when trying to add more bricks to the existing gluster volume</b><br>
  - [BZ 1676822](https://bugzilla.redhat.com/1676822) <b>Cannot change Empty network profile of a running VM(default MTU)</b><br>
  - [BZ 1600788](https://bugzilla.redhat.com/1600788) <b>Engine allows deleting HE volumes.</b><br>This release provides a check to evaluate self-hosted engine volumes prior to deleting the self-hosted engine volumes.
+ - [BZ 1698948](https://bugzilla.redhat.com/1698948) <b>Error during UI action displays a dialog that the request to the server failed with error code 500</b><br>
  - [BZ 1586126](https://bugzilla.redhat.com/1586126) <b>After upgrade to RHV  hosts can no longer be set into maintenance mode.</b><br>This release ensures that hosts can be set to maintenance mode after upgrading Red Hat Virtualization from 4.1 to 4.2.3.
  - [BZ 1692332](https://bugzilla.redhat.com/1692332) <b>virt-v2v: Import from VMware and Xen failed with NPE.</b><br>
  - [BZ 1694740](https://bugzilla.redhat.com/1694740) <b>Hosted Engine disks content types are showing unlocalized in the disks tab</b><br>
@@ -243,6 +242,7 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1684140](https://bugzilla.redhat.com/1684140) <b>Import OVA failed to parse the OVF - Error loading ovf, message Content is not allowed in prolog</b><br>
+ - [BZ 1697232](https://bugzilla.redhat.com/1697232) <b>Extend length of value columns in vdc_options table</b><br>
  - [BZ 1684554](https://bugzilla.redhat.com/1684554) <b>Host activation task gets stuck after many retries</b><br>
 
 #### Contributors

@@ -286,8 +286,31 @@ The response includes the backup with id `456`, with `<from_checkpoint_id>` `999
 To finalize a backup, use the finalize method of the image_transfer service. For more information, see [ImageTransfer]: http://ovirt.github.io/ovirt-engine-api-model/4.3/#services/image_transfer "finalize API".
 
 
+### Creating an image transfer object for incremental backup POST
+When the backup is ready to begin, an *imagetransfer* object should be created.
+To correlate the transfer with the backup, `<backup>` property should be specified with the relevant  backup id.
+The transfer `<format>` property should be `raw` (this indicates that NBD is used as the ImageTransfer backend).
+For information on creating an *imagetransfer* object, see the [`add` method for `ImageTransfers`]:http://ovirt.github.io/ovirt-engine-api-model/4.3/#services/image_transfers/methods/add "add method" in the REST API Guide.
+
+For example, to initiate transfer for an incremental backup send a request like this:
+
+````
+POST /imagetransfers
+````
+With a request body like this:
+
+````
+<image_transfer>
+    <disk id="123"/>
+    <backup id="456"/>
+    <direction>download</direction>
+    <format>raw</format>
+</image_transfer>
+````
+
+
 ### Creating an image transfer object for incremental restore POST
-Before restoring raw data backed up using the incremental backup API to a QCOW2-formatted disk, you need to first create an *imagetransfer* object. To restore an incremental backup, specify the `<format>` key in the transfer. For information on creating an *imagetransfer* object, see the [`add` method for `ImageTransfers`]:http://ovirt.github.io/ovirt-engine-api-model/4.3/#services/image_transfers/methods/add "add method" in the REST API Guide.
+In order to restore raw data backed up using the incremental backup API to a QCOW2-formatted disk, an *imagetransfer* object should be created. To restore an incremental backup, specify the `<format>` key in the transfer. For information on creating an *imagetransfer* object, see the [`add` method for `ImageTransfers`]:http://ovirt.github.io/ovirt-engine-api-model/4.3/#services/image_transfers/methods/add "add method" in the REST API Guide.
 
 For example, to initiate restoring an incremental backup send a request like this:
 

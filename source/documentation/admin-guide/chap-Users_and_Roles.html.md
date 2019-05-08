@@ -511,6 +511,8 @@ This procedure involves the following components:
 
 * Configure the extension files.
 
+* Note: The files `/etc/httpd/http.keytab` and `/etc/httpd/conf.d/ovirt-sso.conf` do not exist by default, and are created by this procedure. As such, they are examples, and other names can be used just as well. However, for users following this procedure, engine-backup was patched (since [4.3.4](https://bugzilla.redhat.com/show_bug.cgi?id=1693816)) to include these files in backups, and restore them on restore. If you use other names, it is up to you to make sure you backup and restore them as needed.
+
 **Configuring Kerberos for the Apache Service**
 
 1. On the KDC server, use the `kadmin` utility to create a service principal for the Apache service on the oVirt Engine. The service principal is a reference ID to the KDC for the Apache service.

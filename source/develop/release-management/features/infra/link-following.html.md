@@ -2,10 +2,6 @@
 title: API Link Following
 category: feature
 authors: oliel
-wiki_category: Feature
-wiki_title: API Link Following
-wiki_revision_count: 0
-wiki_last_updated: 2017-7-7
 feature_name: Link Following
 feature_modules: api (engine)
 feature_status: Released

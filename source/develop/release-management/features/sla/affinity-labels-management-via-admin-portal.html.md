@@ -2,7 +2,6 @@
 title: Affinity Labels Management via the Administration Portal
 category: feature
 authors: phbailey
-wiki_category: SLA
 feature_name: Affinity Labels Management via the Administration Portal
 feature_modules: Administration Portal
 feature_status: Complete

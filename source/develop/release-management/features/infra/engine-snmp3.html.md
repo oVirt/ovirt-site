@@ -82,8 +82,14 @@ Configuration for sending SNMPv3 AuthPriv traps as user 'ovirtengine'  with snmp
       
       # version 3 add a user NoAuthnoPriv who can send noAuthNoPriv 
       authUser log,execute,net NoAuthNoPriv noauth
-      # Log incomming traps to /var/log/snmptrapd.log
+      # Log incoming traps to /var/log/snmptrapd.log
       logOption f /var/log/snmptrapd.log
+
+With latest net-snmp-5.7.3-38.fc28.x86_64 logOption is moved to a library specific directive from an application-level one.
+Edit /etc/snmp/snmptrapd.conf to add the library specific directive in front of logOption. 
+
+      # Log incoming traps to /var/log/snmptrapd.log
+      [snmp] logOption f /var/log/snmptrapd.log
 
 
 #### Create the users

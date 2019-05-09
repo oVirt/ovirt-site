@@ -308,20 +308,20 @@ The ovirt guest agents and drivers are installed on Enterprise Linux virtual mac
 
 The guest agent now passes usage information to the ovirt Engine. The ovirt agent runs as a service called **ovirt-guest-agent** that you can configure via the **ovirt-guest-agent.conf** configuration file in the **/etc/** directory.
 
-### Installing the Guest Agent on an Atomic Host 
+### Installing the Guest Agent on an Atomic Host
 
 The ovirt guest agent should be installed as a [system container on Atomic hosts](https://github.com/projectatomic/atomic-system-containers/blob/master/USAGE.md)
 
 **Installing the Guest Agent on an Atomic Host**
 
    The commands for a Centos7 Atomic host are essentially:
-   
+
          # atomic pull --storage=ostree ovirtguestagent/centos7-atomic
          # atomic install --system --system-package=no --name=ovirt-guest-agent ovirtguestagent/centos7-atomic
          # systemctl status ovirt-guest-agent
          # systemctl start ovirt-guest-agent
 
-   Note: there is [official documentation and separate image registry](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html/managing_containers/running_system_containers#using_the_ovirt_guest_agent_system_container_image_for_red_hat_virtualization) for those with a RHEV subscription.
+   Note: there is [official documentation and separate image registry](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html/managing_containers/running_system_containers#using_the_ovirt_guest_agent_system_container_image_for_red_hat_virtualization) for those with a RHV subscription.
 
 
 **Prev:** [Chapter 1: Introduction](chap-Introduction)<br>

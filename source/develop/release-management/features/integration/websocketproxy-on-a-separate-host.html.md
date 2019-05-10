@@ -62,7 +62,7 @@ Under this assumptions it can works this way:
 
     5.  engine-setup also asks engine fqdn in order to automatically download the engine cert
 
-At the end WebSocket Proxy runs on a different host, in order to connect to it from your browser trusting the engine cert it's not enough (cause we now have two host) so the user has to download the CA cert end explicitly trust it in his browser. The CA cert can be downloaded from <http://><enginehost>/ca.crt
+At the end WebSocket Proxy runs on a different host, in order to connect to it from your browser trusting the engine cert it's not enough (cause we now have two host) so the user has to download the CA cert end explicitly trust it in his browser. The CA cert can be downloaded from http://\<enginehost>/ca.crt
 
 # Example setup
 
@@ -356,7 +356,7 @@ That's it...
       [ INFO  ] Stage: Termination
       [ INFO  ] Execution of setup completed successfully
 
-WebSocket Proxy now runs on a different host, in order to connect to it from your browser trusting the engine cert it's not enough (cause we have two host) so the user has to download the CA cert end explicitly trust it in his browser. The CA cert can be downloaded from <http://><enginehost>/ca.crt
+WebSocket Proxy now runs on a different host, in order to connect to it from your browser trusting the engine cert it's not enough (cause we have two host) so the user has to download the CA cert end explicitly trust it in his browser. The CA cert can be downloaded from http://\<enginehost>/ca.crt
 
 ## Benefit to oVirt
 

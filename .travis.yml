@@ -1,7 +1,13 @@
 language: ruby
 rvm:
-- "2.0"
+  - "2.0"
 sudo: false
 cache: bundler
-script: bundle exec middleman build --verbose
+script:
+  - |
+    if grep -rEi "^wiki_[^ ]+: " source/; then
+      echo '/!\ Wiki headers are obsolete (see previous log entries)'
+      exit 2
+    fi
+  - bundle exec middleman build --verbose
 dist: precise

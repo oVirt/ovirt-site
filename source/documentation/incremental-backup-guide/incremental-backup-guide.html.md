@@ -104,30 +104,33 @@ To recover from an invalid bitmap, you need to delete the invalid bitmap and all
 ### enable POST
 _Enable incremental backup for a virtual machine’s disk._
 
-For example, to enable incremental backup for a disk with id `456` on a virtual machine with id `123`, send a request like this:
+For example, to enable incremental backup for a new disk on a virtual machine with id `123`, send a request like this:
 
 ````
-POST /vms/123/disks
+POST /vms/123/diskattachments
 ````
 
 With a request body like this:
 
 ````
-<disk id=”456”>
+<disk_attachment>
     ...
-    <backup>incremental</backup>
-    ...
-</disk>
+    <disk>
+        ...
+        <backup>incremental|none</backup>
+        ...
+    </disk>
+</disk_attachment>
 ````
 
 The response is:
 
 ````
-<disk id=”456”>
+<disk_attachment>
     ...
-    <backup>incremental</backup>
+    <disk href="/ovirt-engine/api/disks/456" id="456"/>
     ...
-</disk>
+</disk_attachment>
 ````
 *Parameters Summary*
 
@@ -145,20 +148,20 @@ _For the specified virtual machine, list the disks that are enabled for incremen
 For example, for a virtual machine with the id `123`, this request:
 
 ````
-GET /vms/123/disks
+GET /vms/123/diskattachments
 ````
 
 Gets this response:
 
 ````
-<disks>
-  <disk id="456">
+<disk_attachments>
+  <disk_attachment>
         ...
-        <backup>incremental</backup>
+        <disk href="/ovirt-engine/api/disks/456" id="456"/>
         ...
-  </disk>
+  </disk_attachment>
   ...
-</disks>
+</disk_attachments>
 ````
 
 *Parameters summary:*

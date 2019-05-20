@@ -43,6 +43,10 @@ Reporting bugs is one of the most valuable ways you can contribute! Ideas for ne
 * [oVirt Documentation GitHub - Documentation issues](https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation)
 * Security issues follow a [special reporting procedure](/develop/security/security.html).
 
+## Participate in the oVirt infrastructure
+
+Our project infrastructure can always benefit from extra people, hardware and network bandwidth. First of all, consider [becoming a public mirror](/develop/infra/repository-mirrors.html) of oVirt repositories. You can also [become an infra team member](develop/infra/becoming-an-infrastructure-team-member.html) or [donate hardware](develop/infra/donate-hardware.html) to the project to improve our capacity and redundancy.
+
 ## Supporters, Sponsors, and Providers
 
 oVirt has a broad community of [supporters, sponsors, and providers](/community/user-stories/users-and-providers.html).

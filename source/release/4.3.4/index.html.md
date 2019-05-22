@@ -7,7 +7,7 @@ authors: sandrobonazzola
 
 # oVirt 4.3.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.4 First Release Candidate as of May 16, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.4 Second Release Candidate as of May 22, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -119,6 +119,10 @@ packages from other repos.
 
  - [BZ 1695567](https://bugzilla.redhat.com/1695567) <b>[downstream clone - 4.3.4] [RFE] Support VMs with VNC console on a FIPS enabled hypervisor</b><br>When a host is running in FIPS mode, VNC must use SASL authorization instead of regular passwords because of the weak algorithm inherent to the VNC protocol.<br><br>In order to facilitate that process, an Ansible role 'ovirt-host-setup-vnc-sasl' is provided. It must be run manually on all FIPS hosts. The role does the following:<br><br>* creates a (empty) SASL password database<br>* prepares SASL config file for qemu<br>* changes libvirt config file for qemu
 
+#### OTOPI
+
+ - [BZ 1694423](https://bugzilla.redhat.com/1694423) <b>[RFE] disable dnf by default on EL7</b><br>OTOPI's DNF packager is now disabled on EL7 by default, even if dnf is installed. To enforce otopi to try it, add to the relevant tool's (e.g. engine-setup) answer file:<br><br>PACKAGER/dnfpackagerEnabled=bool:True
+
 ### Bug Fixes
 
 #### oVirt Provider OVN
@@ -129,14 +133,19 @@ packages from other repos.
 
  - [BZ 1697706](https://bugzilla.redhat.com/1697706) <b>Null pointer exception observed while setting up remote data sync on the storage domain leads</b><br>
  - [BZ 1697682](https://bugzilla.redhat.com/1697682) <b>'Error processing event data' errors seen in engine.log</b><br>
+ - [BZ 1710740](https://bugzilla.redhat.com/1710740) <b>[downstream clone - 4.3.5] Do not change DC level if there are VMs running/paused with older CL.</b><br>
 
 #### VDSM
 
- - [BZ 1688159](https://bugzilla.redhat.com/1688159) <b>Migration aborted, probably due to stalling</b><br>
+ - [BZ 1711792](https://bugzilla.redhat.com/1711792) <b>[downstream clone - 4.3.4] Migration aborted, probably due to stalling</b><br>
 
 #### oVirt Hosted Engine Setup
 
  - [BZ 1627958](https://bugzilla.redhat.com/1627958) <b>engine-retry-score-penalty could be better used</b><br>
+
+#### oVirt Host Dependencies
+
+ - [BZ 1710918](https://bugzilla.redhat.com/1710918) <b>Require updated microcode_ctl on hosts</b><br>
 
 ### Other
 
@@ -147,22 +156,32 @@ packages from other repos.
 
 #### oVirt Cockpit Plugin
 
+ - [BZ 1710314](https://bugzilla.redhat.com/1710314) <b>Disable /var/log available size check from cockpit</b><br>
  - [BZ 1678390](https://bugzilla.redhat.com/1678390) <b>[RFE] Remove 'validate' buttons on HE wizard for validate FQDNs</b><br>
+ - [BZ 1710245](https://bugzilla.redhat.com/1710245) <b>Hosted-Engine deployment via Cockpit uses 4vCPU w/ 16348 GB instead of 16384</b><br>
  - [BZ 1709015](https://bugzilla.redhat.com/1709015) <b>HE deployment fail with 'Not enough memory' when given the engine vm the maximum memory</b><br>
  - [BZ 1695610](https://bugzilla.redhat.com/1695610) <b>Prompt for applying default OpenSCAP profile is not present in hosted engine setup via cockpit</b><br>
  - [BZ 1697532](https://bugzilla.redhat.com/1697532) <b>[RFE] Add IDs to components in the HE wizard for testing purposes</b><br>
 
 #### oVirt Engine
 
+ - [BZ 1712253](https://bugzilla.redhat.com/1712253) <b>Add MDS CPU types</b><br>
  - [BZ 1698407](https://bugzilla.redhat.com/1698407) <b>console.vv file - set host FQDN in host field</b><br>
+ - [BZ 1703112](https://bugzilla.redhat.com/1703112) <b>PCI address of NICs are not stored in the database after a hotplug of passthrough NIC resulting in change of network device name in VM after a reboot</b><br>
+ - [BZ 1704782](https://bugzilla.redhat.com/1704782) <b>[webadmin] -ovirt 4.3.3 doesn't allow creation of VM with "Thin Provision"-ed disk (always preallocated)</b><br>
+ - [BZ 1711800](https://bugzilla.redhat.com/1711800) <b>Missing 'id' attributes in storage section.</b><br>
  - [BZ 1666913](https://bugzilla.redhat.com/1666913) <b>[UI] warn users about different "Vdsm Name" when creating network with a fancy char or long name</b><br>
  - [BZ 1683161](https://bugzilla.redhat.com/1683161) <b>No proper events or error message notified, when the host upgrade fails</b><br>
  - [BZ 1698169](https://bugzilla.redhat.com/1698169) <b>[CodeChange][i18n] oVirt 4.3 translation update</b><br>
  - [BZ 1452031](https://bugzilla.redhat.com/1452031) <b>[engine-backend] Shared disk that is marked as bootable for one VM cause the disks of the other VM it is attached to be blocked from being bootable</b><br>
  - [BZ 1635337](https://bugzilla.redhat.com/1635337) <b>[Downstream Clone] Cannot assign VM from VmPool: oVirt claims it's already attached but it's not</b><br>This release ensures that virtual machines within a virtual machine pool can be attached to a user.
+ - [BZ 1654889](https://bugzilla.redhat.com/1654889) <b>[RFE] Support console VNC for mediated devices</b><br>
+ - [BZ 1613461](https://bugzilla.redhat.com/1613461) <b>CreateSnapshotFromTemplateCommand (VM creation as thin) fails with internal engine error</b><br>
+ - [BZ 1698334](https://bugzilla.redhat.com/1698334) <b>Migration configuration doesn't work for HE VM - values are locked.</b><br>
  - [BZ 1709303](https://bugzilla.redhat.com/1709303) <b>[downstream clone - 4.3.4] Failure in creating snapshots during "Live Storage Migration" can result in a nonexistent snapshot</b><br>
  - [BZ 1690328](https://bugzilla.redhat.com/1690328) <b>"Check for upgrade" not showing the update for redhat-virtualization-host-image</b><br>
  - [BZ 1662915](https://bugzilla.redhat.com/1662915) <b>Copy a shareable thin provisioned disk is allowed, leaving a new COW shareable disk. Hence, start VM with such a disk attached fails on vdsm</b><br>
+ - [BZ 1697301](https://bugzilla.redhat.com/1697301) <b>cluster upgrade fails on timeout after 30 minutes</b><br>
  - [BZ 1689942](https://bugzilla.redhat.com/1689942) <b>Event Host upgrade was completed successfully should be when host come up after reboot, not in the same time as event Host was restared</b><br>
  - [BZ 1702597](https://bugzilla.redhat.com/1702597) <b>[downstream clone - 4.3.4] When a live storage migration fails, the auto generated snapshot does not get removed</b><br>
  - [BZ 1664045](https://bugzilla.redhat.com/1664045) <b>A failure to deactivate SPM due to uncleared tasks is not reported via any API</b><br>
@@ -171,11 +190,17 @@ packages from other repos.
 
 #### VDSM
 
+ - [BZ 1712250](https://bugzilla.redhat.com/1712250) <b>MDS mitigation dependencies bump up</b><br>
  - [BZ 1707932](https://bugzilla.redhat.com/1707932) <b>[downstream clone - 4.3.4] Moving disk results in wrong SIZE/CAP key in the volume metadata</b><br>
+
+#### oVirt Ansible hosted-engine setup role
+
+ - [BZ 1705249](https://bugzilla.redhat.com/1705249) <b>The "datacenter name" input should be validated early</b><br>
 
 #### oVirt Hosted Engine Setup
 
  - [BZ 1694666](https://bugzilla.redhat.com/1694666) <b>[TEXT] Description of RHVM Appliance should be in sync with docs.</b><br>
+ - [BZ 1704323](https://bugzilla.redhat.com/1704323) <b>HE deployment fail with 'Not enough memory' when given the engine vm the maximum memory</b><br>
 
 #### oVirt Engine Metrics
 
@@ -194,7 +219,16 @@ packages from other repos.
 
  - [BZ 1689175](https://bugzilla.redhat.com/1689175) <b>NullPointerException in case of wrong parameters in api calls via java sdk</b><br>
 
+#### oVirt Engine UI Extensions
+
+ - [BZ 1698163](https://bugzilla.redhat.com/1698163) <b>[CodeChange][i18n] oVirt 4.3 translation update</b><br>
+ - [BZ 1697301](https://bugzilla.redhat.com/1697301) <b>cluster upgrade fails on timeout after 30 minutes</b><br>
+
 ### No Doc Update
+
+#### oVirt Cockpit Plugin
+
+ - [BZ 1697795](https://bugzilla.redhat.com/1697795) <b>Hosted engine installation guide document opens failed as 404 error.</b><br>
 
 #### oVirt Engine
 
@@ -202,11 +236,12 @@ packages from other repos.
 
 #### Contributors
 
-38 people contributed to this release:
+46 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
 	Andrej Krejcir
+	Asaf Rachmani
 	Benny Zlotnik
 	Bohdan Iakymets
 	Dana Elfassy
@@ -218,19 +253,25 @@ packages from other repos.
 	Gal Zaidman
 	Greg Sheremeta
 	Ido Rosenzwig
+	Joey
+	Kaustav Majumder
 	Martin Nečas
 	Martin Perina
+	Michal Skrivanek
 	Miguel Duarte Barroso
 	Milan Zamazal
+	Moti Asayag
 	Nir Soffer
 	Ondra Machacek
 	Ori_Liel
 	Pavel Bar
 	Piotr Kliczewski
 	Ravi Nori
+	Roman Hodain
 	Sahina Bose
 	Sandro Bonazzola
 	Scott J Dickerson
+	Shani Leviim
 	Sharon Gratch
 	Shirly Radco
 	Simone Tiraboschi
@@ -241,4 +282,5 @@ packages from other repos.
 	Yedidyah Bar David
 	Yuval Turgeman
 	godas
+	imjoey
 	parthdhanjal

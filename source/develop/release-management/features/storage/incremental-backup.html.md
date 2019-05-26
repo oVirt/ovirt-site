@@ -172,22 +172,28 @@ Specify 'backup' property on ```disk``` entity: 'incremental'/'none' (TBD: 'full
 
 Request:
 ```
-POST /vms/vm-uuid/disks
+POST /vms/vm-uuid/diskattachments
 
-<disk>
+<disk_attachment>
     ...
-    <backup>incremental|none</backup>
-    ...
-</disk>
+    <disk>
+        ...
+        <backup>incremental|none</backup>
+        ...
+    </disk>
+</disk_attachment>
 ```
 
 Response:
 ```
-<disk>
-    ...
-    <backup>incremental|none</backup>
-    ...
-</disk>
+<disk_attachments>
+  <disk_attachment>
+        ...
+        <disk href="/ovirt-engine/api/disks/456" id="456"/>
+        ...
+  </disk_attachment>
+  ...
+</disk_attachments>
 ```
 
 #### Finding disks enabled for incremental backup
@@ -197,7 +203,7 @@ For each VM, get ```disks``` list and filter according to
 
 Request:
 ```
-GET /vms/vm-uuid/disks
+GET /vms/vm-uuid/diskattachments
 ```
 
 Response:

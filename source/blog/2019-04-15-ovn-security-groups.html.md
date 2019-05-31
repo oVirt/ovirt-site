@@ -20,6 +20,7 @@ list is empty, neither incoming nor outgoing traffic is allowed (from the VMs
 perspective).
 
 A demo recording of the security group feature can be found below.
+
 [![here](http://img.youtube.com/vi/RCdV6W_tFWw/0.jpg)](http://www.youtube.com/watch?v=RCdV6W_tFWw).
 
 ## Provided tools

@@ -94,7 +94,7 @@ The internal CA stores the internally generated key and certificate in a **P12**
 
 10. Edit the **/etc/ovirt-imageio-proxy/ovirt-imageio-proxy.conf** file:
         
-        # vi /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf
+        # vi /etc/ovirt-imageio-proxy/ovirt-imageio-proxy.conf
 
     Make the following changes and save the file:
 

@@ -7,7 +7,7 @@ authors: sandrobonazzola
 
 # oVirt 4.3.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.4 Third Release Candidate as of May 30, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.4 Fourth Release Candidate as of June 06, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -136,7 +136,7 @@ packages from other repos.
 
 #### oVirt Engine
 
- - [BZ 1703112](https://bugzilla.redhat.com/1703112) <b>PCI address of NICs are not stored in the database after a hotplug of passthrough NIC resulting in change of network device name in VM after a reboot</b><br>
+ - [BZ 1717434](https://bugzilla.redhat.com/1717434) <b>[downstream clone - 4.3.4] PCI address of NICs are not stored in the database after a hotplug of passthrough NIC resulting in change of network device name in VM after a reboot</b><br>
  - [BZ 1697706](https://bugzilla.redhat.com/1697706) <b>Null pointer exception observed while setting up remote data sync on the storage domain leads</b><br>
  - [BZ 1697682](https://bugzilla.redhat.com/1697682) <b>'Error processing event data' errors seen in engine.log</b><br>
  - [BZ 1710740](https://bugzilla.redhat.com/1710740) <b>[downstream clone - 4.3.5] Do not change DC level if there are VMs running/paused with older CL.</b><br>
@@ -193,6 +193,7 @@ packages from other repos.
  - [BZ 1689942](https://bugzilla.redhat.com/1689942) <b>Event Host upgrade was completed successfully should be when host come up after reboot, not in the same time as event Host was restared</b><br>
  - [BZ 1702597](https://bugzilla.redhat.com/1702597) <b>[downstream clone - 4.3.4] When a live storage migration fails, the auto generated snapshot does not get removed</b><br>
  - [BZ 1664045](https://bugzilla.redhat.com/1664045) <b>A failure to deactivate SPM due to uncleared tasks is not reported via any API</b><br>
+ - [BZ 1696621](https://bugzilla.redhat.com/1696621) <b>NPE when migrating a VM with missing CPU load</b><br>
  - [BZ 1683281](https://bugzilla.redhat.com/1683281) <b>Hosts cert reenrolment in upgrade should be executed sooner than certs are expired</b><br>
 
 #### VDSM
@@ -207,7 +208,6 @@ packages from other repos.
 #### oVirt Hosted Engine Setup
 
  - [BZ 1694666](https://bugzilla.redhat.com/1694666) <b>[TEXT] Description of RHVM Appliance should be in sync with docs.</b><br>
- - [BZ 1712667](https://bugzilla.redhat.com/1712667) <b>[downstream clone - 4.3.4] hosted-engine deploy (restore-from-file) fails if any non-management logical network is marked as required in backup file.</b><br>
  - [BZ 1704323](https://bugzilla.redhat.com/1704323) <b>HE deployment fail with 'Not enough memory' when given the engine vm the maximum memory</b><br>
  - [BZ 1705249](https://bugzilla.redhat.com/1705249) <b>The "datacenter name" input should be validated early</b><br>
 

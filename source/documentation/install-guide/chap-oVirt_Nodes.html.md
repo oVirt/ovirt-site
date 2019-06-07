@@ -20,11 +20,11 @@ Installing oVirt Node on a physical machine involves three key steps:
 
 **Installing oVirt Node**
 
-1. Download the oVirt Node 4.2 - Stable Release - Installation ISO disk image from the oVirt site:
+1. Download the oVirt Node 4.3 - Stable Release - Installation ISO disk image from the oVirt site:
 
     i. Visit to the [oVirt Node Download page](/download/node.html).
 
-    ii. Click [oVirt Node 4.2 - Stable Release - Installation ISO (based on el7)](http://jenkins.ovirt.org/job/ovirt-node-ng_ovirt-4.2_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
+    ii. Click [oVirt Node 4.3 - Stable Release - Installation ISO (4.3.2 based on el7)](https://resources.ovirt.org/pub/ovirt-4.3/iso/ovirt-node-ng-installer/4.3.2-20190319/el7/ovirt-node-ng-installer-4.3.2-2019031908.el7.iso)
 
     iii. Write the oVirt Node Installation ISO disk image to a USB, CD, or DVD.
 

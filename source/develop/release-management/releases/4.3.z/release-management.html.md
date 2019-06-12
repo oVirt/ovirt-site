@@ -4,6 +4,23 @@ title: oVirt 4.3.z Release Management
 
 # oVirt 4.3.z Release Management
 
+# oVirt 4.3.5
+
+
+## Timeline
+
+| Date           | Milestone                |
+|----------------|--------------------------|
+| **2019-06-13** | First Release candidate  |
+| **2019-??-??** | General availability     |
+
+### Release criteria
+
+*   See [oVirt 4.3 release-management](/develop/release-management/releases/4.3/release-management/) Release Criteria
+*   Release notes must be filled: [oVirt 4.3.5 Release Notes](/release/4.3.5/)
+*   Blocking bugs must be fixed: [oVirt 4.3.5 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.3.5&v1=blocker)
+
+
 # oVirt 4.3.4
 
 

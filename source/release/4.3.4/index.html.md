@@ -61,14 +61,6 @@ If you're upgrading from oVirt Node NG 4.3 please use oVirt Engine Administratio
 
 
 
-### Fedora Tech Preview
-
-With oVirt 4.3 we are reintroducing Fedora 28 as platform for running oVirt in tech preview.
-More recent builds for Fedora are built for the master branch, so users that want to test them,
-can use the [nightly snapshot](/develop/dev-process/install-nightly-snapshot/).
-For some of the work to be done to completely restore support for Fedora, see
-also tracker [bug 1460625](https://bugzilla.redhat.com/showdependencytree.cgi?id=1460625&hide_resolved=0).
-
 ### oVirt Hosted Engine
 
 If you're going to install oVirt as a Hosted Engine on a clean system please
@@ -93,18 +85,20 @@ If you want to use other packages from EPEL, you should make sure to
 use `includepkgs` and add only those you need avoiding to override
 packages from other repos.
 
-## Known Issues
-- oVirt Node and oVirt Engine Appliance are not available for Fedora 28 due to a bug in Lorax which has not yet been fixed in Fedora 28 (https://github.com/weldr/lorax/pull/612).
-
 
 
 ## What's New in 4.3.4?
+
+
+Release has been updated on June 14th providing ovirt-ansible-vm-infra 1.1.6
+fixing metrics deployment with Ansible 2.8.
+
 
 ### Enhancements
 
 #### VDSM JSON-RPC Java
 
- - [BZ 1689702](https://bugzilla.redhat.com/1689702) <b>GC overhead limit exceeded due to org.ovirt.vdsm.jsonrpc.client.events.SubscriptionHolder</b><br>A new config variable 'EventPurgeTimeoutInHours' has been added with a default value of 3. This determines the number of hours an event can stay on the queue before being cleaned up. The variable can be modified using engine-config.
+ - [BZ 1689702](https://bugzilla.redhat.com/1689702) <b>GC overhead limit exceeded due to org.ovirt.vdsm.jsonrpc.client.events.SubscriptionHolder</b><br>A new configuration variable 'EventPurgeTimeoutInHours' has been added to set the number of hours an event can stay in the queue before being cleaned up. The variable can be modified using engine-config. The initial default value is 3 hours.
 
 #### oVirt Provider OVN
 
@@ -118,13 +112,13 @@ packages from other repos.
 
  - [BZ 1712253](https://bugzilla.redhat.com/1712253) <b>Add MDS CPU types</b><br>added MDS versions of the CPUs added MDS variants to 4.1,4.2,4.3 CPU types to mitigate https://access.redhat.com/security/vulnerabilities/mds
  - [BZ 1403677](https://bugzilla.redhat.com/1403677) <b>[IPv6] - allow and enable gluster network with only ipv6 boot protocol</b><br>Feature: Allow and enable a Gluster network with IPv6 boot protocol only<br><br>Reason: Enable users to work with a Gluster network on a pure IPv6 network<br><br>Result: Users can connect to a Gluster storage over IPv6 without need for IPv4.
- - [BZ 1689702](https://bugzilla.redhat.com/1689702) <b>GC overhead limit exceeded due to org.ovirt.vdsm.jsonrpc.client.events.SubscriptionHolder</b><br>A new config variable 'EventPurgeTimeoutInHours' has been added with a default value of 3. This determines the number of hours an event can stay on the queue before being cleaned up. The variable can be modified using engine-config.
- - [BZ 1341161](https://bugzilla.redhat.com/1341161) <b>[RFE] Add "Other Linux (kernel 4.x)" to OS types</b><br>Feature: Added a new generic OS Type for Rhel 7 x86 derivatives called "Other Linux (kernel 4.x)" <br><br>Reason: We needed a generic Other Linux x86 flavor in order to avoid clustering the OS Type drop down with a large number of specific Linux x86 OS Types.  <br><br>Result: Users can now choose the new generic type for Other Linux x86 OS versions.
+ - [BZ 1689702](https://bugzilla.redhat.com/1689702) <b>GC overhead limit exceeded due to org.ovirt.vdsm.jsonrpc.client.events.SubscriptionHolder</b><br>A new configuration variable 'EventPurgeTimeoutInHours' has been added to set the number of hours an event can stay in the queue before being cleaned up. The variable can be modified using engine-config. The initial default value is 3 hours.
+ - [BZ 1341161](https://bugzilla.redhat.com/1341161) <b>[RFE] Add "Other Linux (kernel 4.x)" to OS types</b><br>A new generic Linux x86 operating system selection named ‘Other Linux (kernel 4.x)’ has been added to the drop down list of operating systems available when creating a new virtual machine in Red Hat Virtualization.
  - [BZ 1655503](https://bugzilla.redhat.com/1655503) <b>[RFE]Add "windows 2019 x64" support</b><br>This release adds support for virtual machines to use Windows 2019 x64 in the Administration Portal.
 
 #### VDSM
 
- - [BZ 1695567](https://bugzilla.redhat.com/1695567) <b>[downstream clone - 4.3.4] [RFE] Support VMs with VNC console on a FIPS enabled hypervisor</b><br>When a host is running in FIPS mode, VNC must use SASL authorization instead of regular passwords because of the weak algorithm inherent to the VNC protocol.<br><br>In order to facilitate that process, an Ansible role 'ovirt-host-setup-vnc-sasl' is provided. It must be run manually on all FIPS hosts. The role does the following:<br><br>* creates a (empty) SASL password database<br>* prepares SASL config file for qemu<br>* changes libvirt config file for qemu
+ - [BZ 1695567](https://bugzilla.redhat.com/1695567) <b>[downstream clone - 4.3.4] [RFE] Support VMs with VNC console on a FIPS enabled hypervisor</b><br>When a host is running in FIPS mode, VNC must use SASL authorization instead of regular passwords because of the weak algorithm inherent in the VNC protocol.<br><br>In order to facilitate that process, the Ansible role 'ovirt-host-setup-vnc-sasl' is provided. It must be run manually on all FIPS hosts. The role does the following:<br>* Creates an (empty) SASL password database<br>* Prepares an SASL configuration file for qemu<br>* Changes the libvirt configuration file for qemu
 
 #### OTOPI
 
@@ -223,7 +217,7 @@ packages from other repos.
  - [BZ 1704721](https://bugzilla.redhat.com/1704721) <b>OpenShift installation fails on Centos due to missing network manager</b><br>
  - [BZ 1679227](https://bugzilla.redhat.com/1679227) <b>Creation of bastion sometimes fails because of missing FQDN</b><br>
  - [BZ 1696795](https://bugzilla.redhat.com/1696795) <b>TODO comment in the main.yml file</b><br>
- - [BZ 1683157](https://bugzilla.redhat.com/1683157) <b>Logging not disabled for sensitive tasks</b><br>This release ensures that Red Hat Virtualization Manager disables logging for sensitive tasks that use passwords.
+ - [BZ 1683157](https://bugzilla.redhat.com/1683157) <b>Logging not disabled for sensitive tasks</b><br>
 
 #### oVirt Ansible ManageIQ role
 
@@ -251,7 +245,7 @@ packages from other repos.
 
 #### Contributors
 
-52 people contributed to this release:
+53 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -305,3 +299,4 @@ packages from other repos.
 	godas
 	imjoey
 	parthdhanjal
+	solacelost

@@ -7,7 +7,7 @@ authors: sandrobonazzola
 
 # oVirt 4.3.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.5 First Release Candidate as of June 13, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.5 Second Release Candidate as of June 19, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
@@ -80,13 +80,20 @@ use `includepkgs` and add only those you need avoiding to override
 packages from other repos.
 
 
-
 ## What's New in 4.3.5?
+
+### Release Note
+
+#### oVirt Release Package
+
+ - [BZ 1718162](https://bugzilla.redhat.com/1718162) <b>Switch to glusterfs 6 repositories</b><br>oVirt Release package is now providing repository configuration for Glusterfs 6.<br>You can find more information about how to upgrade gluster to version 6 at https://docs.gluster.org/en/latest/Upgrade-Guide/upgrade_to_6/
 
 ### Enhancements
 
 #### oVirt Engine
 
+ - [BZ 1683965](https://bugzilla.redhat.com/1683965) <b>[RFE] Option to create a VM with VNC console and without any USB device</b><br>
+ - [BZ 1719735](https://bugzilla.redhat.com/1719735) <b>[downstream clone - 4.3.5] [RFE] Add by default a storage lease to HA VMs</b><br>Feature: When HA is selected for a New VM we now set the Lease Storage Domain to a bootable Storage Domain automatically if the user did not already choose one.<br><br>Reason: To protect new HA VMs with leases when it has a bootable Storage Domain.<br><br>Result: Now a bootable Storage Domain is set as the lease Storage Domain for new HA VMs.
  - [BZ 1717336](https://bugzilla.redhat.com/1717336) <b>[downstream clone - 4.3.5] [RFE] OVF_STORE last update not exposed in the UI</b><br>
  - [BZ 1712353](https://bugzilla.redhat.com/1712353) <b>[downstream clone - 4.3.5] [RFE] Allow Maintenance of Host with Enforcing VM Affinity Rules (hard affinity)</b><br>
 
@@ -112,6 +119,8 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1638674](https://bugzilla.redhat.com/1638674) <b>[Dalton] Optimize for virt store fails with distribute volume type</b><br>
+ - [BZ 1697682](https://bugzilla.redhat.com/1697682) <b>'Error processing event data' errors seen in engine.log</b><br>
  - [BZ 1630824](https://bugzilla.redhat.com/1630824) <b>engine-backup should backup ovirt-provider-ovn</b><br>
  - [BZ 1716951](https://bugzilla.redhat.com/1716951) <b>[downstream clone - 4.3.5] Highly Available (HA) VMs with a VM lease failed to start after a 4.1 to 4.2 upgrade.</b><br>
  - [BZ 1699684](https://bugzilla.redhat.com/1699684) <b>vm_init wiped on cluster level upgrade</b><br>
@@ -128,6 +137,14 @@ packages from other repos.
 
 #### oVirt Engine
 
+ - [BZ 1715877](https://bugzilla.redhat.com/1715877) <b>[downstream clone - 4.3.5] engine-setup should check for snapshots in unsupported CL</b><br>Now, on upgrade, engine-setup prompts about virtual machines that have snapshots that are incompatible with the version we are going to upgrade to. It's safe to let it proceed, but it's not safe to try using these snapshots after the upgrade, e.g. to preview them.
+ - [BZ 1494531](https://bugzilla.redhat.com/1494531) <b>removing datacenter keep nfs mounted</b><br>
+ - [BZ 1648623](https://bugzilla.redhat.com/1648623) <b>[UI] Warn that bond names >10 may explode with vlan</b><br>
+ - [BZ 1716932](https://bugzilla.redhat.com/1716932) <b>NPE Failed to build cloud-init data when initialization object not provided</b><br>
+ - [BZ 1717538](https://bugzilla.redhat.com/1717538) <b>[CodeChange][i18n] oVirt 4.3 webadmin - revert pt-BR translations</b><br>
+ - [BZ 1651874](https://bugzilla.redhat.com/1651874) <b>Live merge failed with NPE on endAction of DestroyImage</b><br>
+ - [BZ 1713371](https://bugzilla.redhat.com/1713371) <b>Attempting to endAction 'RemoveVm' throws ConcurrentModificationException.</b><br>
+ - [BZ 1537464](https://bugzilla.redhat.com/1537464) <b>[UI] Unexpected exception: 'b is null' appears in Events window, when using "Host -> Management -> Configure Local Storage" window</b><br>
  - [BZ 1683363](https://bugzilla.redhat.com/1683363) <b>[UI] Long network names cause VM network interface new/edit window to deform</b><br>
  - [BZ 1700413](https://bugzilla.redhat.com/1700413) <b>Rename *Routing Prefix* to *Routing Prefix Length*</b><br>
  - [BZ 1718177](https://bugzilla.redhat.com/1718177) <b>Token based Userinfo API is giving Internal Server Error.</b><br>
@@ -142,8 +159,9 @@ packages from other repos.
 
 #### VDSM
 
+ - [BZ 1690020](https://bugzilla.redhat.com/1690020) <b>Incorrect I/O when reading and writing OVF disks</b><br>
+ - [BZ 1715026](https://bugzilla.redhat.com/1715026) <b>[downstream clone - 4.3.5] After live merge, top volume still has INTERNAL volume type due to unable to read lvm metadata properly</b><br>
  - [BZ 1719125](https://bugzilla.redhat.com/1719125) <b>[downstream clone - 4.3.5] lshw can take more than 15 seconds to execute depending on the system</b><br>
- - [BZ 1714509](https://bugzilla.redhat.com/1714509) <b>Conflicting files for vdsm and sos</b><br>
  - [BZ 1703132](https://bugzilla.redhat.com/1703132) <b>Prevent ABRT on RHVH nodes "phoning home" (contacting redhat.com) either in all cases or only by explicit approval, never do so by default.</b><br>
 
 #### oVirt Hosted Engine Setup
@@ -156,12 +174,14 @@ packages from other repos.
 
 #### Contributors
 
-24 people contributed to this release:
+31 people contributed to this release:
 
+	Ahmad Khiet
 	Ales Musil
 	Andrej Krejcir
 	Benny Zlotnik
 	Dan Kenigsberg
+	Dana Elfassy
 	Daniel Erez
 	Dominik Holler
 	Eyal Shenitzky
@@ -176,9 +196,14 @@ packages from other repos.
 	Nir Soffer
 	Ondra Machacek
 	Piotr Kliczewski
+	Sahina Bose
 	Sandro Bonazzola
+	Scott J Dickerson
+	Shani Leviim
 	Simone Tiraboschi
 	Steven Rosenberg
 	Tal Nisan
+	Tomasz Baranski
+	Tomáš Golembiovský
 	Vojtech Juranek
 	Yedidyah Bar David

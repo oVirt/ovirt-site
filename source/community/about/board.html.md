@@ -45,7 +45,6 @@ OVirt Board Members
 *   Carl Trieloff – Mentor
 *   Christopher Wright – Red Hat, Strategic member
 *   Itamar Heim – Project, engine-core
-*   Jun Nakajima – Intel, Strategic member
 *   Jon Benedict – NetApp, Strategic member
 *   Livnat Peer – Project, engine-core
 *   Michael Enescu – Cisco, Strategic member

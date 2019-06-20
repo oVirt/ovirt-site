@@ -12,6 +12,7 @@ title: oVirt 4.3.z Release Management
 | Date           | Milestone                |
 |----------------|--------------------------|
 | **2019-06-13** | First Release candidate  |
+| **2019-06-19** | Second Release candidate |
 | **2019-??-??** | General availability     |
 
 ### Release criteria

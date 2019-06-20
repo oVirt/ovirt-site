@@ -86,11 +86,11 @@ use `includepkgs` and add only those you need avoiding to override
 packages from other repos.
 
 
-
 ## What's New in 4.3.4?
 
 
-Release has been updated on June 14th providing ovirt-ansible-vm-infra 1.1.6
+Release has been updated on June 19th providing ovirt-ansible-vm-infra-1.1.18,
+ovirt-ansible-image-template-1.1.11 and ovirt-engine-metrics-1.3.2
 fixing metrics deployment with Ansible 2.8.
 
 
@@ -245,7 +245,7 @@ fixing metrics deployment with Ansible 2.8.
 
 #### Contributors
 
-53 people contributed to this release:
+54 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -298,5 +298,6 @@ fixing metrics deployment with Ansible 2.8.
 	Yuval Turgeman
 	godas
 	imjoey
+	jenkins CI
 	parthdhanjal
 	solacelost

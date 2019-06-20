@@ -42,8 +42,6 @@ The board at board@oVirt.org
 
 OVirt Board Members
 
-*   Alexander Graf – SUSE, Strategic member
-*   Ayal Baron – Project, vdsm
 *   Carl Trieloff – Mentor
 *   Christopher Wright – Red Hat, Strategic member
 *   Itamar Heim – Project, engine-core

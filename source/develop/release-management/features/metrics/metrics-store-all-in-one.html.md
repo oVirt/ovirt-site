@@ -2,10 +2,15 @@
 title: oVirt Metrics Store - All In One Installation
 category: feature
 authors: sradco
-feature_name: All In One Installation
-feature_modules: engine
-feature_status: Design
 ---
+<div class="alert alert-warning">
+  <strong>Please follow the links for the updated documentation:</strong>
+  <br/>
+  * <a href="/documentation/metrics-install-guide/metrics_store_installation_guide.html">Metrics Installation Guide</a>
+  <br/>
+  * <a href="/documentation/metrics-user-guide/metrics-user-guide.html">Metrics User Guide</a>
+</div>
+
 # oVirt Metrics Store - All In One Installation
 
 ## Summary

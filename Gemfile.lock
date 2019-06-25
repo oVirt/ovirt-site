@@ -95,10 +95,6 @@ GEM
       middleman-sprockets (>= 3.1.2)
       sass (>= 3.4.0, < 4.0)
       uglifier (~> 2.5)
-    middleman-blog (3.5.3)
-      addressable (~> 2.3.5)
-      middleman-core (~> 3.2)
-      tzinfo (>= 0.3.0)
     middleman-core (3.3.12)
       activesupport (~> 4.1.0)
       bundler (~> 1.1)
@@ -133,9 +129,6 @@ GEM
     minitest (5.10.3)
     multi_json (1.12.2)
     multipart-post (2.0.0)
-    net-sftp (2.1.2)
-      net-ssh (>= 2.6.5)
-    net-ssh (4.2.0)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     oj (3.3.9)
@@ -146,7 +139,6 @@ GEM
       tilt (~> 1.4.1)
     padrino-support (0.12.8.1)
       activesupport (>= 3.1)
-    ptools (1.3.5)
     rack (1.6.8)
     rack-livereload (0.3.16)
       rack
@@ -216,7 +208,6 @@ DEPENDENCIES
   launchy
   less
   middleman (~> 3.3.10)
-  middleman-blog
   middleman-favicon-maker
   middleman-livereload
   middleman-piwik
@@ -235,3 +226,6 @@ DEPENDENCIES
   stringex
   therubyracer
   wdm (~> 0.1.0)
+
+BUNDLED WITH
+   1.17.3

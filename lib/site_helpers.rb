@@ -147,6 +147,11 @@ class SiteHelpers < Middleman::Extension
         end
       end
     end
+
+    def author_name(nick)
+      data.authors[nick] ? data.authors[nick].name || nick : nick
+    end
+
   end
 end
 

@@ -25,8 +25,5 @@ You can create a new file two ways:
 
 - From the GitHub repo, navigate to the relevant directory and click the New File button at the top-right corner of the pane.
 
-## Add a new blog post
-If you would like to create an oVirt Blog post, use an existing blog post as a template and simply create a new file using one of the above methods. Your post will be reviewed for content and grammar before it is submitted.
-
 ## Still need help?
 If you have any other questions, simply [submit an issue here](https://github.com/oVirt/ovirt-site/issues/new) and provide as much detail as possible.

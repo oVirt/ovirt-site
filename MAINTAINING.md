@@ -23,7 +23,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on building and testing 
 * Marc Dequenes (Duck)
 * Greg Sheremeta [gshereme@redhat.com](mailto:gshereme@redhat.com)
 
-### Non-technical content, community, blog posts, legal
+### Non-technical content, community, legal
 * Brian Proffit
 
 ## Previous maintainers
@@ -36,7 +36,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on building and testing 
 * Michael Scherer
 
 ## Triaging and reviewing issues and PRs
-* Greg Sheremeta and Sandro Bonazzola triage issues and PRs. Greg Sheremeta reviews all blog posts and documentation edits for content and grammar.
+* Greg Sheremeta and Sandro Bonazzola triage issues and PRs. Greg Sheremeta reviews all documentation edits for content and grammar.
 
 ## Reviewing and merging pull requests
 Follow these best practices for all PRs, including yours. Do not merge your own PRs unless it is a quick and very safe fix, and make sure to test the change before and after you process the PR.

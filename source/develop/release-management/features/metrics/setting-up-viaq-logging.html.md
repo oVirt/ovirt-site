@@ -2,10 +2,14 @@
 title: oVirt Metrics Store - Setting Up ViaQ Logging
 category: feature
 authors: sradco
-feature_name: oVirt Metrics Store - Setting Up ViaQ Loggin
-feature_modules: engine
-feature_status: In Development
 ---
+<div class="alert alert-warning">
+  <strong>Please follow the links for the updated documentation:</strong>
+  <br/>
+  * <a href="/documentation/metrics-install-guide/metrics_store_installation_guide.html">Metrics Installation Guide</a>
+  <br/>
+  * <a href="/documentation/metrics-user-guide/metrics-user-guide.html">Metrics User Guide</a>
+</div>
 
 Setting Up oVirt metrics store
 =======================

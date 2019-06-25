@@ -12,10 +12,10 @@ A comprehensive guide to installing and configuring Metrics Store for oVirt. Met
 
 The Metrics Store installation involves the following key steps:
 
-1. [Creating the Metrics Store virtual machines]
-2. [Deploying OpenShift and Metrics Store services on the virtual machines]
-3. [Deploying Collectd and Rsyslog on the hosts]
-4. [Verifying the Metrics Store installation]
+1. [Creating the Metrics Store virtual machines](/documentation/metrics-install-guide/Installing_Metrics_Store.html#creating-the-metrics-store-virtual-machines)
+2. [Deploying OpenShift and Metrics Store services on the virtual machines](/documentation/metrics-install-guide/Installing_Metrics_Store.html#deploying-openshift-and-metrics-store-services)
+3. [Deploying Collectd and Rsyslog on the hosts](/documentation/metrics-install-guide/Deploying_Collectd_and_Rsyslog.html)
+4. [Verifying the Metrics Store installation](/documentation/metrics-install-guide/Verifying_the_Installation.html)
 
 ## Metrics Store architecture and workflow
 

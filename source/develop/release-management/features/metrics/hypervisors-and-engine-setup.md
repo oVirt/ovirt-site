@@ -2,10 +2,14 @@
 title: oVirt Metrics Store - Hypervisors and Engine Setup
 category: feature
 authors: sradco
-feature_name: oVirt Metrics Store - Hypervisors and Engine Setup
-feature_modules: engine
-feature_status: In Production
 ---
+<div class="alert alert-warning">
+  <strong>Please follow the links for the updated documentation:</strong>
+  <br/>
+  * <a href="/documentation/metrics-install-guide/metrics_store_installation_guide.html">Metrics Installation Guide</a>
+  <br/>
+  * <a href="/documentation/metrics-user-guide/metrics-user-guide.html">Metrics User Guide</a>
+</div>
 
 ## oVirt Hypervisors and Engine Setup
 

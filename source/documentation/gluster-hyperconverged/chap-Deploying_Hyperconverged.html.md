@@ -42,7 +42,7 @@ title: Deploying oVirt and Gluster Hyperconverged
 ## Deploying on oVirt Node based Hosts
 
 **oVirt Node contains all the required packages to set up the hyperconverged environment.**
-Refer [oVirt Nodes](install-guide/chap-oVirt_Nodes) for instructions on installing oVirt Node on your hosts. You can proceed to setting up the hyperconverged environment if you have 3 oVirt Node based hosts.
+Refer [oVirt Nodes](/documentation/install-guide/chap-oVirt_Nodes) for instructions on installing oVirt Node on your hosts. You can proceed to setting up the hyperconverged environment if you have 3 oVirt Node based hosts.
 
 ### Setting up the hyperconverged environment
 

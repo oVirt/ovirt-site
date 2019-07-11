@@ -44,12 +44,12 @@ To configure single sign-on for Enterprise Linux virtual machines using GNOME an
 
 3. Download and install the guest agent packages:
 
-        # yum install ovirt-engine-guest-agent-common
+        # yum install ovirt-guest-agent-common
 
 4. Install the single sign-on packages:
 
-        # yum install ovirt-engine-guest-agent-pam-module
-        # yum install ovirt-engine-guest-agent-gdm-plugin
+        # yum install ovirt-guest-agent-pam-module
+        # yum install ovirt-guest-agent-gdm-plugin
 
 5. Install the IPA packages:
 

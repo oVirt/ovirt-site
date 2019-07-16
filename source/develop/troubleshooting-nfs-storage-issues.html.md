@@ -166,3 +166,13 @@ In this case it is a good idea to set the tcp window parameters on the NFS serve
 To activate these settings for the running server reload them with
 
        # sysctl -p 
+
+### Permissions issues
+
+On RHEL 7, starting the `nfs-server` service changes back the ownership of the directory from `vdsm:kvm` to `root:root`. 
+Rerun the `chown` command **after** starting the service:
+
+```
+# systemctl start nfs-server
+# chown -R vdsm:kvm /storage
+```

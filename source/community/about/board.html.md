@@ -1,7 +1,7 @@
 ---
 title: oVirt Board
 category: community
-authors: dneary
+authors: dneary, sandrobonazzola
 ---
 
 # oVirt Board
@@ -42,13 +42,10 @@ The board at board@oVirt.org
 
 OVirt Board Members
 
-*   Carl Trieloff – Mentor
-*   Christopher Wright – Red Hat, Strategic member
+*   Doron Fediuck  – Red Hat, Strategic member
 *   Itamar Heim – Project, engine-core
-*   Jon Benedict – NetApp, Strategic member
-*   Livnat Peer – Project, engine-core
+*   Martin Tessun - Mentor
 *   Michael Enescu – Cisco, Strategic member
-*   Perry Myers – Project, node
 *   Ryan Harper – IBM, Strategic member
 *   Scott Moser – Canonical, Strategic member
 

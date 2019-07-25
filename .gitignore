@@ -9,8 +9,9 @@
 /vendor
 
 # Ignore the build directory
-/build
+/_site
 data/dashboard/projects
+source/.jekyll-metadata
 
 # Ignore Sass' cache
 /.sass-cache

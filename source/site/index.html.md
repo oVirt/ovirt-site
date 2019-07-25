@@ -1,6 +1,0 @@
----
-index: false
----
-
-# Site tools
-

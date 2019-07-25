@@ -1,0 +1,72 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing these this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: oVirt
+description: > # this means to ignore newlines until "baseurl:"
+  oVirt is a free open-source virtualization solution for your
+  entire enterprise
+lang: en
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://www.ovirt.org" # the base hostname & protocol for your site
+
+# historical (Middlemam time)
+source: source
+
+# Build settings
+strict_front_matter: true
+markdown: kramdown
+highlighter: rouge
+
+liquid:
+  error_mode: strict
+  strict_filters: true
+  strict_variables: false
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  parse_block_html: true
+  parse_span_html: true
+
+# YAML defaults for pages
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "page"
+
+excerpt_separator: READMORE
+
+# Don't compile these files/dirs into the website
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - bin
+  # used for local installation of gems
+  - vendor
+  - README.md
+  - README_ORGANIZATION.md
+  - MAINTAINING.md
+  - LICENSE.md
+  - CONTRIBUTING.md
+  - CODEOWNERS
+
+sass:
+  sass_dir: stylesheets
+  add_charset: true
+  style: :compressed
+

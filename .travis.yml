@@ -1,6 +1,7 @@
+dist: bionic
 language: ruby
 rvm:
-  - "2.0"
+  - "2.5"
 sudo: false
 cache: bundler
 script:
@@ -9,5 +10,5 @@ script:
       echo '/!\ Wiki headers are obsolete (see previous log entries)'
       exit 2
     fi
-  - bundle exec middleman build --verbose
-dist: precise
+  - bundle exec jekyll build
+

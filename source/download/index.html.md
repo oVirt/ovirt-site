@@ -26,14 +26,14 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 <img class="screenshot" src="download_1.png">
 
-oVirt 4.3.4 is intended for production use and is available for the following platforms:
+oVirt 4.3.5 is intended for production use and is available for the following platforms:
 
-- Red Hat Enterprise Linux 7.6 or later
-- CentOS Linux 7.6 or later
-- Scientific Linux 7.6 or later
+- Red Hat Enterprise Linux 7.6 or later but < 8
+- CentOS Linux 7.6 or later but < 8
+- Scientific Linux 7.6 or later but < 8
 - oVirt Node (based on CentOS)
 
-See the [Release Notes for oVirt 4.3.4](/release/4.3.4/).
+See the [Release Notes for oVirt 4.3.5](/release/4.3.5/).
 
 ## Install oVirt with Cockpit
 

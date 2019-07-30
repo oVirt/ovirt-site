@@ -7,7 +7,6 @@
 * This README, Travis config files, misc Gem files, and other Middleman scripts
 
 ### Source directory
-* admin/ - Website config files
 * community/ - Community-focused content, such as activities, user stories, governance, and licensing
 * develop/ - Developer-focused content, such as release management, feature pages, sub-projects, and a developer guide
 * **documentation/** - **End user Documentation**

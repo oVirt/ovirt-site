@@ -7,21 +7,13 @@ authors: sandrobonazzola
 
 # oVirt 4.3.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.5 Fifth Release Candidate as of July 11, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.5 release as of July 30, 2019.
 
 oVirt is an open source alternative to VMware™ vSphere™, providing an
 awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.6,
 CentOS Linux 7.6 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
@@ -37,21 +29,34 @@ To learn about features introduced before 4.3.5, see the [release notes for prev
 ### CentOS / RHEL
 
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
 
 
 
 In order to install it on a clean system, you need to install
 
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm)
 
 
 and then follow our
 [Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
+
+
+
+If you are upgrading from older versions please upgrade to 4.2.8 before upgrading to 4.3.5
+
+If you're upgrading from oVirt Engine 4.2.8 you just need to execute:
+
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+      # yum update "ovirt-*-setup*"
+      # engine-setup
+
+If you're upgrading from oVirt Node NG 4.2 you just need to execute:
+
+      # yum install https://resources.ovirt.org/pub/ovirt-4.3/rpm/el7/noarch/ovirt-node-ng-image-update-4.3.5-1.el7.noarch.rpm
+      # reboot
+
+If you're upgrading from oVirt Node NG 4.3 please use oVirt Engine Administration portal for handling the upgrade.
 
 
 
@@ -134,7 +139,7 @@ packages from other repos.
 #### oVirt Engine
 
  - [BZ 1725660](https://bugzilla.redhat.com/1725660) <b>[downstream clone - 4.3.5] Cannot retrieve Host NIC VF configuration via REST API</b><br>
- - [BZ 1709201](https://bugzilla.redhat.com/1709201) <b>Change md5 checksum used in GlusterHooks calls</b><br>
+ - [BZ 1701736](https://bugzilla.redhat.com/1701736) <b>files within a qemu vm  on glusterfs are randomly overwritten by Zero Bytes</b><br>
  - [BZ 1693571](https://bugzilla.redhat.com/1693571) <b>[v2v] VMware UEFI VM is imported as i440fx/seabios instead of q35/ovmf</b><br>
  - [BZ 1674352](https://bugzilla.redhat.com/1674352) <b>[RFE] Block changing the Initial Run configuration in a VM-Pool</b><br>
  - [BZ 1638674](https://bugzilla.redhat.com/1638674) <b>[Dalton] Optimize for virt store fails with distribute volume type</b><br>
@@ -148,11 +153,11 @@ packages from other repos.
 #### VDSM
 
  - [BZ 1725390](https://bugzilla.redhat.com/1725390) <b>ovirt-engine 4.3.5-2 fails to add disk/update OVF/deactivate SD on a storage domain which resides on a 4.1 compatibility level cluster: InvalidParameterException: Invalid parameter: 'DiskType=2</b><br>
- - [BZ 1709201](https://bugzilla.redhat.com/1709201) <b>Change md5 checksum used in GlusterHooks calls</b><br>
  - [BZ 1723873](https://bugzilla.redhat.com/1723873) <b>[downstream clone - 4.3.5] ovirt-engine-4.1.11.2 fails to add disks with vdsm-4.30 hosts and 4.1 compatibility level: InvalidParameterException: Invalid parameter: 'DiskType=2'</b><br>
 
 #### oVirt Cockpit Plugin
 
+ - [BZ 1727196](https://bugzilla.redhat.com/1727196) <b>Host fail to move to local maintenance from cockpit hosted engine</b><br>
  - [BZ 1703678](https://bugzilla.redhat.com/1703678) <b>Passwords saved in clear-text variable files during HE deployment via cockpit-ovirt</b><br>
 
 #### oVirt Hosted Engine Setup
@@ -164,6 +169,15 @@ packages from other repos.
 #### oVirt Ansible hosted-engine setup role
 
  - [BZ 1725033](https://bugzilla.redhat.com/1725033) <b>Hosted engine re-deploys failed since libvirt network subnet is already in used.</b><br>
+
+#### oVirt ISO Uploader
+
+ - [BZ 1722933](https://bugzilla.redhat.com/1722933) <b>ovirt-iso-uploader not parsing ssh login credentials correctly.</b><br>
+
+#### oVirt Host Dependencies
+
+ - [BZ 1722173](https://bugzilla.redhat.com/1722173) <b>missing iperf3 on RHV-H</b><br>
+ - [BZ 1725954](https://bugzilla.redhat.com/1725954) <b>libvirt-admin package not available in RHVH</b><br>
 
 ### Other
 
@@ -179,18 +193,13 @@ packages from other repos.
  - [BZ 1688982](https://bugzilla.redhat.com/1688982) <b>[IPv6] REST API incorrectly reports the address of an NFS storage domain if it contains an IPv6 address</b><br>
  - [BZ 1725620](https://bugzilla.redhat.com/1725620) <b>upload image fails for small qcow images on file domains</b><br>
  - [BZ 1535324](https://bugzilla.redhat.com/1535324) <b>[UI] - Networks - Align the whole text in the External section to the left</b><br>
- - [BZ 1701736](https://bugzilla.redhat.com/1701736) <b>files within a qemu vm  on glusterfs are randomly overwritten by Zero Bytes</b><br>
- - [BZ 1590866](https://bugzilla.redhat.com/1590866) <b>SDK allows to create template in one DC with disk in another DC</b><br>
- - [BZ 1673035](https://bugzilla.redhat.com/1673035) <b>[cinderlib] Support snapshot operations</b><br>
  - [BZ 1683566](https://bugzilla.redhat.com/1683566) <b>[CinderLib] Webadmin- managed block disks of VM template are not aligned in Templates-> Disks table</b><br>
- - [BZ 1728210](https://bugzilla.redhat.com/1728210) <b>[downstream clone - 4.3.5] VM is going to pause state with "storage I/O  error".</b><br>
  - [BZ 1723582](https://bugzilla.redhat.com/1723582) <b>[downstream clone - 4.3.5] RHV could not detect Guest Agent when create snapshot for the running guest which installed qemu-guest-agent</b><br>
  - [BZ 1722026](https://bugzilla.redhat.com/1722026) <b>no tablet device for SPICE+VNC defined</b><br>
  - [BZ 1590218](https://bugzilla.redhat.com/1590218) <b>Deletion of snapshot ends with failure</b><br>
  - [BZ 1719737](https://bugzilla.redhat.com/1719737) <b>[downstream clone - 4.3.5] Cannot disable SCSI passthrough using API</b><br>
  - [BZ 1719332](https://bugzilla.redhat.com/1719332) <b>Change default gluster mount point to /gluster_bricks</b><br>
  - [BZ 1722235](https://bugzilla.redhat.com/1722235) <b>[downstream clone - 4.3.5] VM not started on the expected host since external weight policy units are ignored.</b><br>
- - [BZ 1721073](https://bugzilla.redhat.com/1721073) <b>Run metrics ansible role only if the ovirt-engine-metrics rpm installed</b><br>
  - [BZ 1616327](https://bugzilla.redhat.com/1616327) <b>UI plugin contributed buttons in main view aren't reflected into detail view</b><br>
  - [BZ 1533362](https://bugzilla.redhat.com/1533362) <b>StreamingAPI - successful cancel Upload/Download disk via UI  should not finish as an ERROR in Engine.log/UI event log as this was requested by user & completed successfully</b><br>
  - [BZ 1697496](https://bugzilla.redhat.com/1697496) <b>"attach_volume error=Managed Volume is already attached." when migrating VM with Managed Block Storage (Ceph RBD)</b><br>
@@ -215,39 +224,18 @@ packages from other repos.
 
  - [BZ 1679478](https://bugzilla.redhat.com/1679478) <b>Use heal info summary to monitor heal</b><br>
  - [BZ 1695037](https://bugzilla.redhat.com/1695037) <b>[SR-IOV] Support 'i40e' driver</b><br>
+ - [BZ 1714509](https://bugzilla.redhat.com/1714509) <b>Conflicting files for vdsm and sos</b><br>
  - [BZ 1690020](https://bugzilla.redhat.com/1690020) <b>Incorrect I/O when reading and writing OVF disks</b><br>
  - [BZ 1719125](https://bugzilla.redhat.com/1719125) <b>[downstream clone - 4.3.5] lshw can take more than 15 seconds to execute depending on the system</b><br>
  - [BZ 1703132](https://bugzilla.redhat.com/1703132) <b>Prevent ABRT on RHVH nodes "phoning home" (contacting redhat.com) either in all cases or only by explicit approval, never do so by default.</b><br>
-
-#### oVirt Cockpit Plugin
-
- - [BZ 1727196](https://bugzilla.redhat.com/1727196) <b>Host fail to move to local maintenance from cockpit hosted engine</b><br>
- - [BZ 1721094](https://bugzilla.redhat.com/1721094) <b>Cockpit-ovirt has vulnerabilities in some of its dependencies</b><br>
 
 #### oVirt Hosted Engine Setup
 
  - [BZ 1715080](https://bugzilla.redhat.com/1715080) <b>Wrong port ":-1" being reported several times, while running "hosted-engine --add-console-password"</b><br>
 
-#### oVirt Ansible hosted-engine setup role
-
- - [BZ 1698643](https://bugzilla.redhat.com/1698643) <b>can't deploy hosted-engine when eth0 and the default libvirt network try to use the same subnet</b><br>
-
 #### oVirt Log Collector
 
  - [BZ 1705019](https://bugzilla.redhat.com/1705019) <b>Avoid error when collecting logs on data-centers with no hosts active</b><br>
-
-#### oVirt ISO Uploader
-
- - [BZ 1722933](https://bugzilla.redhat.com/1722933) <b>ovirt-iso-uploader not parsing ssh login credentials correctly.</b><br>
-
-#### OTOPI
-
- - [BZ 1723933](https://bugzilla.redhat.com/1723933) <b>systemd services plugin does not support socket units</b><br>
-
-#### oVirt Engine Metrics
-
- - [BZ 1727064](https://bugzilla.redhat.com/1727064) <b>Deployment from Bastion Machine fails with Ansible 2.8 on upstream</b><br>
- - [BZ 1698888](https://bugzilla.redhat.com/1698888) <b>Update task "Get bastion ssh public key" to use ansible module other then command</b><br>
 
 #### oVirt Engine Data Warehouse
 
@@ -257,37 +245,39 @@ packages from other repos.
 
  - [BZ 1717530](https://bugzilla.redhat.com/1717530) <b>[CodeChange][i18n] oVirt 4.3 ui-extensions - revert pt-BR translations</b><br>
 
-#### oVirt Host Dependencies
-
- - [BZ 1722173](https://bugzilla.redhat.com/1722173) <b>missing iperf3 on RHV-H</b><br>
- - [BZ 1725954](https://bugzilla.redhat.com/1725954) <b>libvirt-admin package not available in RHVH</b><br>
-
-#### imgbased
-
- - [BZ 1726534](https://bugzilla.redhat.com/1726534) <b>dhclient fails to load libdns-export.so.1102 after upgrade if the user installed library is not persisted on the new layer</b><br>
- - [BZ 1727859](https://bugzilla.redhat.com/1727859) <b>Failed to boot after upgrading a host with a custom kernel</b><br>
- - [BZ 1720310](https://bugzilla.redhat.com/1720310) <b>RHV-H post-installation scripts failing, due to existing tags</b><br>
- - [BZ 1724102](https://bugzilla.redhat.com/1724102) <b>Upgrading the RHV-H will fail if the SELinux is disabled in the server</b><br>
-
 #### oVirt Engine Appliance
 
  - [BZ 1724076](https://bugzilla.redhat.com/1724076) <b>Failing to build appliance on imagefactory requiring python3 on EL7</b><br>
  - [BZ 1718399](https://bugzilla.redhat.com/1718399) <b>Add yum-utils to ovirt-engine-appliance to unlock disconnected deployments</b><br>
 
-#### oVirt Node NG Image
-
- - [BZ 1687920](https://bugzilla.redhat.com/1687920) <b>RHVH fails to reinstall if required size is exceeding the available disk space due to anaconda bug</b><br>
-
 ### No Doc Update
 
 #### oVirt Engine
 
+ - [BZ 1728210](https://bugzilla.redhat.com/1728210) <b>[downstream clone - 4.3.5] VM is going to pause state with "storage I/O  error".</b><br>
  - [BZ 1723794](https://bugzilla.redhat.com/1723794) <b>[downstream clone - 4.3.5] Live Merge hung in the volume deletion phase,  leaving snapshot in a LOCKED state</b><br>
  - [BZ 1716932](https://bugzilla.redhat.com/1716932) <b>NPE Failed to build cloud-init data when initialization object not provided</b><br>
 
+#### oVirt Cockpit Plugin
+
+ - [BZ 1729449](https://bugzilla.redhat.com/1729449) <b>Retrieval of fibre channel LUNs failed during hosted engine deploy with FC storage.</b><br>
+ - [BZ 1709402](https://bugzilla.redhat.com/1709402) <b>[RFE] Refactor ISCSI methods to use PlaybookUtils class</b><br>
+ - [BZ 1721094](https://bugzilla.redhat.com/1721094) <b>Cockpit-ovirt has vulnerabilities in some of its dependencies</b><br>
+
+#### imgbased
+
+ - [BZ 1729023](https://bugzilla.redhat.com/1729023) <b>The error message is inappropriate when run `imgbase layout --init` on current layout</b><br>
+ - [BZ 1726534](https://bugzilla.redhat.com/1726534) <b>dhclient fails to load libdns-export.so.1102 after upgrade if the user installed library is not persisted on the new layer</b><br>
+ - [BZ 1727859](https://bugzilla.redhat.com/1727859) <b>Failed to boot after upgrading a host with a custom kernel</b><br>
+ - [BZ 1720310](https://bugzilla.redhat.com/1720310) <b>RHV-H post-installation scripts failing, due to existing tags</b><br>
+
+#### oVirt Node NG Image
+
+ - [BZ 1687920](https://bugzilla.redhat.com/1687920) <b>RHVH fails to reinstall if required size is exceeding the available disk space due to anaconda bug</b><br>
+
 #### Contributors
 
-51 people contributed to this release:
+53 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -308,6 +298,7 @@ packages from other repos.
 	Gobinda Das
 	Greg Sheremeta
 	Ido Rosenzwig
+	Joey
 	Kaustav Majumder
 	Lucia Jelinkova
 	Marcin Sobczyk
@@ -337,6 +328,7 @@ packages from other repos.
 	Yedidyah Bar David
 	Yuval Turgeman
 	bond95
+	imjoey
 	michalskrivanek
 	parthdhanjal
 	solacelost

@@ -60,6 +60,7 @@ If you're upgrading from oVirt Node NG 4.3 please use oVirt Engine Administratio
 
 
 
+
 ### oVirt Hosted Engine
 
 If you're going to install oVirt as a Hosted Engine on a clean system please
@@ -86,6 +87,8 @@ packages from other repos.
 
 
 ## What's New in 4.3.5?
+
+Release has been updated on July 31th providing additional fixes.
 
 ### Release Note
 
@@ -200,6 +203,7 @@ packages from other repos.
  - [BZ 1719737](https://bugzilla.redhat.com/1719737) <b>[downstream clone - 4.3.5] Cannot disable SCSI passthrough using API</b><br>
  - [BZ 1719332](https://bugzilla.redhat.com/1719332) <b>Change default gluster mount point to /gluster_bricks</b><br>
  - [BZ 1722235](https://bugzilla.redhat.com/1722235) <b>[downstream clone - 4.3.5] VM not started on the expected host since external weight policy units are ignored.</b><br>
+ - [BZ 1721073](https://bugzilla.redhat.com/1721073) <b>Run metrics ansible role only if the ovirt-engine-metrics rpm installed</b><br>
  - [BZ 1616327](https://bugzilla.redhat.com/1616327) <b>UI plugin contributed buttons in main view aren't reflected into detail view</b><br>
  - [BZ 1533362](https://bugzilla.redhat.com/1533362) <b>StreamingAPI - successful cancel Upload/Download disk via UI  should not finish as an ERROR in Engine.log/UI event log as this was requested by user & completed successfully</b><br>
  - [BZ 1697496](https://bugzilla.redhat.com/1697496) <b>"attach_volume error=Managed Volume is already attached." when migrating VM with Managed Block Storage (Ceph RBD)</b><br>
@@ -237,8 +241,15 @@ packages from other repos.
 
  - [BZ 1705019](https://bugzilla.redhat.com/1705019) <b>Avoid error when collecting logs on data-centers with no hosts active</b><br>
 
+#### oVirt Engine Metrics
+
+ - [BZ 1731871](https://bugzilla.redhat.com/1731871) <b>Unable to install  metrics VM  on rhev - failed to connect to  master VM</b><br>
+ - [BZ 1727064](https://bugzilla.redhat.com/1727064) <b>Deployment from Bastion Machine fails with Ansible 2.8 on upstream</b><br>
+ - [BZ 1698888](https://bugzilla.redhat.com/1698888) <b>Update task "Get bastion ssh public key" to use ansible module other then command</b><br>
+
 #### oVirt Engine Data Warehouse
 
+ - [BZ 1730384](https://bugzilla.redhat.com/1730384) <b>Connection closed  with an exception</b><br>
  - [BZ 1673808](https://bugzilla.redhat.com/1673808) <b>ovirt-dwh prevents autovacuum from data garbage collection.</b><br>
 
 #### oVirt Engine UI Extensions
@@ -263,6 +274,10 @@ packages from other repos.
  - [BZ 1729449](https://bugzilla.redhat.com/1729449) <b>Retrieval of fibre channel LUNs failed during hosted engine deploy with FC storage.</b><br>
  - [BZ 1709402](https://bugzilla.redhat.com/1709402) <b>[RFE] Refactor ISCSI methods to use PlaybookUtils class</b><br>
  - [BZ 1721094](https://bugzilla.redhat.com/1721094) <b>Cockpit-ovirt has vulnerabilities in some of its dependencies</b><br>
+
+#### oVirt Engine Metrics
+
+ - [BZ 1683157](https://bugzilla.redhat.com/1683157) <b>CVE-2019-10194 ovirt-engine-metrics: disclosure of sensitive passwords in log files and ansible playbooks [rhev-m-4.3.z]</b><br>
 
 #### imgbased
 

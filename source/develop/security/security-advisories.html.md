@@ -11,6 +11,16 @@ This page lists all security vulnerabilities fixed in oVirt. Each vulnerability 
 
 Before being published, security matters are discussed on a dedicated mailing list, restricted to trusted participants. If you were invited to join, then you can subscribe [on this page](https://lists.ovirt.org/admin/lists/security-private.ovirt.org/).
 
+## [Moderate] CVE-2019-10194 ovirt-engine-metrics: disclosure of sensitive passwords in log files and ansible playbooks
+
+### Description
+Sensitive passwords used in the deployment and configuration of oVirt Metrics were found to be insufficiently protected. Passwords could be disclosed in log files (if playbooks are run with -v), or in playbooks stored on Metrics or Bastion hosts.
+
+### Affected versions
+
+oVirt 4.3.4 is confirmed to be affected. Older releases of oVirt may also be affected.
+
+
 ## [Moderate] CVE-2014-0153 ovirt-engine-api: session ID stored in HTML5 local storage
 
 ### Description

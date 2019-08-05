@@ -90,6 +90,8 @@ packages from other repos.
 
 Release has been updated on July 31th providing additional fixes.
 
+Release has been updated on August 5th providing additional fixes.
+
 ### Release Note
 
 #### oVirt Engine
@@ -105,11 +107,12 @@ Release has been updated on July 31th providing additional fixes.
 #### oVirt Engine
 
  - [BZ 1723580](https://bugzilla.redhat.com/1723580) <b>[downstream clone - 4.3.5] [RFE] Support console VNC for mediated devices</b><br>
- - [BZ 1711795](https://bugzilla.redhat.com/1711795) <b>[downstream clone - 4.3.5] [RFE][UI] Provide information about the VM next run</b><br>Feature: <br>A list of the names of changed fields between current and next run of the virtual machine is now displayed in the tooltip of the vm type icon on the VM list page. <br>Reason: <br>Until now, it was not possible to see which fields have been changed. <br>Result:<br>User can see the names of changed fields.
+ - [BZ 1711795](https://bugzilla.redhat.com/1711795) <b>[downstream clone - 4.3.5] [RFE][UI] Provide information about the VM next run</b><br>In this release, the tooltip for the VM Type icon on the VM list page now diaplays a list of the names of changed fields between the current and next run of the Virtual Machine.
  - [BZ 1704647](https://bugzilla.redhat.com/1704647) <b>Cannot import OVA as template (Failed to query OVA info)</b><br>Feature: When attempting to import OVA files as a Template when only one or more VM OVA files exists and no Template OVA files exist, the Import gave an error message that the Import failed to load the OVA file from the directory. It was not clear that the failure was due to failing to find a compatible OVA file in the directory. The wording of the message was therefore modified so that it was clearer to the user.<br><br>Reason: Users felt the message was confusing.<br><br>Result: The message now reports that the process failed to find or load the OVA file which covers both scenarios.
  - [BZ 1683965](https://bugzilla.redhat.com/1683965) <b>[RFE] Option to create a VM with VNC console and without any USB device</b><br>
- - [BZ 1719735](https://bugzilla.redhat.com/1719735) <b>[downstream clone - 4.3.5] [RFE] Add by default a storage lease to HA VMs</b><br>Feature: When HA is selected for a New VM we now set the Lease Storage Domain to a bootable Storage Domain automatically if the user did not already choose one.<br><br>Reason: To protect new HA VMs with leases when it has a bootable Storage Domain.<br><br>Result: Now a bootable Storage Domain is set as the lease Storage Domain for new HA VMs.
+ - [BZ 1719735](https://bugzilla.redhat.com/1719735) <b>[downstream clone - 4.3.5] [RFE] Add by default a storage lease to HA VMs</b><br>In this release, a bootable Storage Domain is set as the default lease Storage Domain when HA is selected for a new Virtual Machine.
  - [BZ 1712353](https://bugzilla.redhat.com/1712353) <b>[downstream clone - 4.3.5] [RFE] Allow Maintenance of Host with Enforcing VM Affinity Rules (hard affinity)</b><br>
+ - [BZ 1688264](https://bugzilla.redhat.com/1688264) <b>[RFE] console.vv: add minimal version for rhel8 virt-viewer</b><br>In this release, the minimum supported version number for the virt-viewer for Red Hat Enterprise Linux 8 has been added to the list of supported versions in the console.vv file that is displayed when a Virtual Machine console is triggered.
 
 #### VDSM
 
@@ -131,11 +134,11 @@ Release has been updated on July 31th providing additional fixes.
 
  - [BZ 1712353](https://bugzilla.redhat.com/1712353) <b>[downstream clone - 4.3.5] [RFE] Allow Maintenance of Host with Enforcing VM Affinity Rules (hard affinity)</b><br>
 
-### Rebase: Bug Fixeses and Enhancementss
+### Rebase: Bug Fixeses Only
 
 #### oVirt Engine
 
- - [BZ 1710696](https://bugzilla.redhat.com/1710696) <b>[downstream clone - 4.3.5] [RESTAPI] Adding ISO disables serial console</b><br>
+ - [BZ 1710696](https://bugzilla.redhat.com/1710696) <b>[downstream clone - 4.3.5] [RESTAPI] Adding ISO disables serial console</b><br>In this release, when updating a Virtual Machine using a REST API, not specifying the console value now means that the console state should not be changed. As a result, the console keeps its previous state.
 
 ### Bug Fixes
 
@@ -197,7 +200,6 @@ Release has been updated on July 31th providing additional fixes.
  - [BZ 1725620](https://bugzilla.redhat.com/1725620) <b>upload image fails for small qcow images on file domains</b><br>
  - [BZ 1535324](https://bugzilla.redhat.com/1535324) <b>[UI] - Networks - Align the whole text in the External section to the left</b><br>
  - [BZ 1683566](https://bugzilla.redhat.com/1683566) <b>[CinderLib] Webadmin- managed block disks of VM template are not aligned in Templates-> Disks table</b><br>
- - [BZ 1723582](https://bugzilla.redhat.com/1723582) <b>[downstream clone - 4.3.5] RHV could not detect Guest Agent when create snapshot for the running guest which installed qemu-guest-agent</b><br>
  - [BZ 1722026](https://bugzilla.redhat.com/1722026) <b>no tablet device for SPICE+VNC defined</b><br>
  - [BZ 1590218](https://bugzilla.redhat.com/1590218) <b>Deletion of snapshot ends with failure</b><br>
  - [BZ 1719737](https://bugzilla.redhat.com/1719737) <b>[downstream clone - 4.3.5] Cannot disable SCSI passthrough using API</b><br>
@@ -207,7 +209,7 @@ Release has been updated on July 31th providing additional fixes.
  - [BZ 1616327](https://bugzilla.redhat.com/1616327) <b>UI plugin contributed buttons in main view aren't reflected into detail view</b><br>
  - [BZ 1533362](https://bugzilla.redhat.com/1533362) <b>StreamingAPI - successful cancel Upload/Download disk via UI  should not finish as an ERROR in Engine.log/UI event log as this was requested by user & completed successfully</b><br>
  - [BZ 1697496](https://bugzilla.redhat.com/1697496) <b>"attach_volume error=Managed Volume is already attached." when migrating VM with Managed Block Storage (Ceph RBD)</b><br>
- - [BZ 1715877](https://bugzilla.redhat.com/1715877) <b>[downstream clone - 4.3.5] engine-setup should check for snapshots in unsupported CL</b><br>Now, on upgrade, engine-setup prompts about virtual machines that have snapshots that are incompatible with the version we are going to upgrade to. It's safe to let it proceed, but it's not safe to try using these snapshots after the upgrade, e.g. to preview them.
+ - [BZ 1715877](https://bugzilla.redhat.com/1715877) <b>[downstream clone - 4.3.5] engine-setup should check for snapshots in unsupported CL</b><br>In this release, when performing an upgrade, engine-setup prompts the user about Virtual Machines that have snapshots that are incompatible with the version you are trying to upgrade to. It's safe to let it proceed, but it's not safe to use or to preview these snapshots following the upgrade.
  - [BZ 1494531](https://bugzilla.redhat.com/1494531) <b>removing datacenter keep nfs mounted</b><br>
  - [BZ 1648623](https://bugzilla.redhat.com/1648623) <b>[UI] Warn that bond names >10 may explode with vlan</b><br>
  - [BZ 1717538](https://bugzilla.redhat.com/1717538) <b>[CodeChange][i18n] oVirt 4.3 webadmin - revert pt-BR translations</b><br>
@@ -220,7 +222,6 @@ Release has been updated on July 31th providing additional fixes.
  - [BZ 1664338](https://bugzilla.redhat.com/1664338) <b>Live storage migration fails during diskReplicateStart with VolumeDoesNotExist for the new snapshot created on the target domain</b><br>
  - [BZ 1696621](https://bugzilla.redhat.com/1696621) <b>NPE when migrating a VM with missing CPU load</b><br>
  - [BZ 1714587](https://bugzilla.redhat.com/1714587) <b>Able to delete VM snapshot even though rhv console shows image is locked</b><br>
- - [BZ 1688264](https://bugzilla.redhat.com/1688264) <b>[RFE] console.vv: add minimal version for rhel8 virt-viewer</b><br>
  - [BZ 1702230](https://bugzilla.redhat.com/1702230) <b>Converge content type filters in main disk tab</b><br>
  - [BZ 1710818](https://bugzilla.redhat.com/1710818) <b>Connection to host is stucked and host stays NonResponsive until engine restart</b><br>
 
@@ -266,6 +267,7 @@ Release has been updated on July 31th providing additional fixes.
 #### oVirt Engine
 
  - [BZ 1728210](https://bugzilla.redhat.com/1728210) <b>[downstream clone - 4.3.5] VM is going to pause state with "storage I/O  error".</b><br>
+ - [BZ 1723582](https://bugzilla.redhat.com/1723582) <b>[downstream clone - 4.3.5] RHV could not detect Guest Agent when create snapshot for the running guest which installed qemu-guest-agent</b><br>
  - [BZ 1723794](https://bugzilla.redhat.com/1723794) <b>[downstream clone - 4.3.5] Live Merge hung in the volume deletion phase,  leaving snapshot in a LOCKED state</b><br>
  - [BZ 1716932](https://bugzilla.redhat.com/1716932) <b>NPE Failed to build cloud-init data when initialization object not provided</b><br>
 

@@ -20,6 +20,9 @@ description: > # this means to ignore newlines until "baseurl:"
 lang: en
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.ovirt.org" # the base hostname & protocol for your site
+twitter:
+  username: ovirt
+logo: /images/logo.svg
 
 # historical (Middlemam time)
 source: source
@@ -47,7 +50,62 @@ defaults:
     scope:
       path: ""
     values:
-      layout: "page"
+      layout: "default"
+  -
+    scope:
+      path: 'develop/release-management/features'
+    values:
+      layout: "feature"
+  -
+    scope:
+      path: 'develop/api'
+    values:
+      layout: "developer_outdated"
+  -
+    scope:
+      path: 'develop/architecture'
+    values:
+      layout: "developer_outdated"
+  -
+    scope:
+      path: 'develop/infra'
+    values:
+      layout: "developer_outdated"
+  -
+    scope:
+      path: 'develop/internal'
+    values:
+      layout: "developer_outdated"
+  -
+    scope:
+      path: 'develop/networking'
+    values:
+      layout: "developer_outdated"
+  -
+    scope:
+      path: 'develop/resources'
+    values:
+      layout: "developer_outdated"
+  -
+    scope:
+      path: 'develop/sdk'
+    values:
+      layout: "developer_outdated"
+  -
+    scope:
+      path: 'develop/security'
+    values:
+      layout: "developer_outdated"
+  -
+    scope:
+      path: 'develop/sla'
+    values:
+      layout: "developer_outdated"
+  -
+    scope:
+      path: 'develop/storage'
+    values:
+      layout: "developer_outdated"
 
 excerpt_separator: READMORE
 

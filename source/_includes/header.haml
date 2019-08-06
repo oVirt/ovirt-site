@@ -1,19 +1,8 @@
-:ruby
-  logo = data.site.logo
-
-  def graphic_exists file
-    sitemap.find_resource_by_path("images/#{file}")
-  end
-
-  def make_logo trySVG = false, file = data.site.logo
-    if graphic_exists file
-      isSVG = file[/.svg$/] ? 'is-svg' : 'not-svg'
-      image_tag file, id: "logo", class: "logo #{trySVG ? isSVG : ''}", alt: data.site.name
-    end
-  end
-
 
 %header#branding.masthead.hidden-print(role="banner")
   %section.hgroup
   #access
-    = partial :nav, locals: { source: "navigation", nav_class: "nav-pills" }
+    {% haml nav.haml %}
+
+{% include nav-breadcrumbs.html %}
+

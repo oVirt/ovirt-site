@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body class="{{ page.page_classes }}">
+
+    {%- haml header.haml -%}
+
+    <main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <section id="content" class="content{% unless page.no_container %} container{% endunless %}">
+          {{ content }}
+        </section>
+      </section>
+    </main>
+
+    {%- haml footer.haml -%}
+
+  </body>
+
+</html>

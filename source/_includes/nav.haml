@@ -52,14 +52,14 @@
   end
 
 
-  def nav_link text, link, &block
+  def nav_link text, link, active, &block
     return if text.empty? && link.empty?
 
     # If there's no link, call nav_header instead
     return nav_header(text) if link.nil?
 
     # Set the active class, if applicable
-    active_class = normalize_url(link) == normalize_url(current_page.url) ? '.active' : ''
+    active_class = active ? '.active' : ''
 
     # If the title wasn't specified in YAML, use the filename
     text = link.split('/').last.humanize if (text.empty? || text == "-")
@@ -75,12 +75,22 @@
     end
   end
 
+  if site.data.has_key?(source) && site.data[source]
+    active_link = '/'
+    site.data[source].each do |item|
+      next if item.is_a?(String)
+      item.each do |text, link|
+        if page.url.start_with?(link) and link.size > active_link.size
+          active_link = link
+        end
+      end
+    end
+  end
 
-- if data.has_key?(source) && data[source]
 
+- if site.data.has_key?(source) && site.data[source]
 
-
-  - data[source].each do |item|
+  - site.data[source].each do |item|
 
     - if item.is_a?(String)
 
@@ -93,19 +103,19 @@
         - if item.count == 1
 
           - if link
-            = nav_link text, link
+            = nav_link text, link, active_link == link
 
           - else
             = nav_header text
 
         - else
 
-          = nav_link text, link do
+          = nav_link text, link, active_link == link do
 
             %ul.nav(role="menu")
               - item.each do |text, link|
                 - unless text == text
-                  = nav_link text, link
+                  = nav_link text, link, active_link == link
 
 :plain
                 </ul>
@@ -114,3 +124,4 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+

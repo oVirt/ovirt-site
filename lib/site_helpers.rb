@@ -21,7 +21,7 @@ class SiteHelpers < Middleman::Extension
     def discover_title(page = current_page)
       return page.data.title unless page.data.title.nil?
 
-      page.render(layout: false).match(/<h[1-2][^>]*>(.*?)<\/h[1-2]>/m) do |m|
+      page.render(layout: null).match(/<h[1-2][^>]*>(.*?)<\/h[1-2]>/m) do |m|
         m ? html_to_plaintext(m[1].strip) : page.url.split(/\//).last.titleize
       end
     end

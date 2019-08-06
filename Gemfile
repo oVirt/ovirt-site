@@ -25,6 +25,7 @@ group :jekyll_plugins do
   # until our PR is accepted, see https://github.com/samvincent/jekyll-haml/pull/35
   gem 'jekyll-haml', :git => 'https://github.com/OSAS/jekyll-haml.git', :branch => 'haml_jekyll_context'
   gem "listen"
+  gem "bootstrap-sass"
 end
 
 # for events

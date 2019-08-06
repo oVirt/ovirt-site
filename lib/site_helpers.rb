@@ -7,11 +7,6 @@ class SiteHelpers < Middleman::Extension
   helpers do
     require 'open-uri/cached'
 
-    def normalize_url(dirty_URL)
-      r = url_for Middleman::Util.normalize_path(dirty_URL)
-      r.sub(/\/$/, '')
-    end
-
     def pretty_date(sometime, length = 'long')
       return unless sometime
 

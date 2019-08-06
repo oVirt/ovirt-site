@@ -2,28 +2,27 @@
 
   %hr.visible-print
 
-  - if data.site.footer_links
+  - if site.data.site.footer_links
     %ul.footer-nav-list
-      - data.site.footer_links.each do |name, url|
-        %li= link_to name.strip, url.strip, target: "_blank"
+      - site.data.site.footer_links.each do |name, url|
+        %li
+          %a{ :href => url.strip, :title => name.strip, :target => "_blank" }= name.strip
 
-  =# data.site.founding_year
-  - founding = data.site.founding_year
+  =# site.data.site.founding_year
+  - founding = site.data.site.founding_year
   - year_string = if founding && founding.to_i < Time.now.year
     - founding.to_s + '&ndash;' + Time.now.year.to_s
   - else
     - Time.now.year.to_s
 
-  = data.site.copyright || "&copy; #{year_string} #{data.site.owner || data.site.name}"
-  
-  - source_file = current_page.source_file.sub(root, '')
+  = site.data.site.copyright || "&copy; #{year_string} #{site.data.site.owner || site.data.site.name}"
 
-  - labels = if source_file.include?("documentation")
+  - labels = if page.path.include?("documentation")
     - "documentation"
   - else
     - "content"
 
-  - issue_template = if source_file.include?("documentation")
+  - issue_template = if page.path.include?("documentation")
     - "issue_template_documentation.md"
   - else
     - ""
@@ -31,10 +30,10 @@
   - icon = '<i class="icon fa fa-github"></i>'
 
   .edit-this-page
-    - issue_url = "https://github.com/#{data.site.github}/issues/new?labels=#{labels}&title=Issue:%20#{source_file}&template=#{issue_template}"
-    = link_to "#{icon}Report an issue with this page", issue_url, {target: '_blank'}
+    - issue_url = "https://github.com/#{site.data.site.github}/issues/new?labels=#{labels}&title=Issue:%20#{page.url}&template=#{issue_template}"
+    %a{ :href => issue_url, :title => "Report an issue", :target => "_blank" }= "#{icon}Report an issue with this page"
   .edit-this-page
-    - edit_url = "https://github.com/#{data.site.github}/edit/master#{source_file}"
-    = link_to "#{icon}Edit this page", edit_url, {target: '_blank'}
+    - edit_url = "https://github.com/#{site.data.site.github}/edit/master/#{[site['source'], page.path].join('/')}"
+    %a{ :href => edit_url, :title => "Edit this page", :target => "_blank" }= "#{icon}Edit this page"
 
   = insert_piwik_tracker

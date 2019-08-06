@@ -1,12 +1,12 @@
 .entry-content.row
 
   .page-blurb.col-sm-7
-    %h1= "#{defined?(year) ? year : "Upcoming"} events"
+    %h1= "{{ page.year | default: 'Upcoming' }} Events"
 
     :markdown
       Attend one of these upcoming events!
 
-      [Subscribe to all #{data.site.name} events](#{defined?(year) ? '../': ''}all.ics) in your calendar.
+      [Subscribe to all #{site.data.site.name} events]({% if page.year %}../{% endif %}all.ics) in your calendar.
 
       Know of an an event not listed here? &hellip;or are details currently not optimal? Please [contribute event information](https://github.com/OSAS/rh-events/wiki/Adding-and-modifying-events)!
 
@@ -15,14 +15,16 @@
 
 
 :ruby
-  relevant_events = if defined? year
-    current_events data.events, Date.parse("#{year}-01-01"), Date.parse("#{year}-12-31")
+  require_relative '../../lib/confcal'
+
+  relevant_events = if page.year
+    current_events site.data.events, Date.parse("#{page.year}-01-01"), Date.parse("#{page.year}-12-31")
   else
-    current_events
+    current_events site.data.events
   end
 
-  if data.site.events_filter
-    relevant_events = confs_match(data.site.events_filter, relevant_events)
+  if site.data.site.events_filter
+    relevant_events = confs_match(site.data.site.events_filter, relevant_events)
   end
 
   # Ensure relevant_events is always sorted by year

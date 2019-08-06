@@ -75,32 +75,18 @@ hide_metadata: true
     %h2 Case Studies
     %div.carousel-inner.text-center
     :ruby
-      studies = sitemap.resources.select do |p|
+      studies = Jekyll.sites.first.pages.select do |p|
         next unless p.data.page_classes
         p.data.page_classes[/case-studies/]
       end.first
-
-      first_case_study = Nokogiri::HTML(studies.render({layout: false}))
-        .css('.case-study')[0]
-
-      second_case_study = Nokogiri::HTML(studies.render({layout: false}))
-        .css('.case-study')[1]
-
-      third_case_study = Nokogiri::HTML(studies.render({layout: false}))
-          .css('.case-study')[2]
+      case_studies = Nokogiri::HTML(studies.content).css('.case-study')
 
     %div.item.active
-      %div.useCaseHolder
-        :markdown
-          #{first_case_study}
-
-      %div.useCaseHolder
-        :markdown
-          #{second_case_study}
-
-      %div.useCaseHolder
-        :markdown
-          #{third_case_study}
+      - (0..2).each do |i|
+        %div.useCaseHolder
+          %div.case-study
+            :markdown
+              #{case_studies[i].content}
 
   %div
     .container

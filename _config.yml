@@ -128,3 +128,8 @@ sass:
   add_charset: true
   style: :compressed
 
+breadcrumbs:
+  root:
+    hide: True
+    image: false
+

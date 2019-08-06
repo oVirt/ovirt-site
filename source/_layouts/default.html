@@ -9,6 +9,7 @@
 
     <main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
+        {% include nav-breadcrumbs.html %}
         <section id="content" class="content{% unless page.no_container %} container{% endunless %}">
           {{ content }}
         </section>

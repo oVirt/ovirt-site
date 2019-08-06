@@ -1,0 +1,29 @@
+<!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+{% if breadcrumbs.size > 2 %}
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      {% for crumb in breadcrumbs %}
+        {% if forloop.first and site.breadcrumbs.root.image %}
+          <li class="breadcrumb-item breadcrumb-item-icon" property="itemListElement" typeof="ListItem">
+            <a property="item" typeof="WebPage" href="{{ crumb.url | relative_url }}">
+              <span class="icon" property="name">{% include nav-breadcrumb-icon.svg %}</span>
+              <meta property="position" content="{{ crumb.position }}" />
+            </a>
+          </li>
+          {% continue %}
+        {% endif %}
+        {% if forloop.last %}
+          {% continue %}
+        {% endif %}
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="{{ crumb.url | relative_url }}">
+              <span property="name">{{ crumb.title }}</span>
+              <meta property="position" content="{{ crumb.position }}" />
+           </a>
+        </li>
+      {% endfor %}
+
+   </ol>
+{% endif %}
+</nav>

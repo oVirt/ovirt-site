@@ -61,38 +61,11 @@ header.masthead
   .hgroup
     float: left
 
-  nav
-    float: right
-    margin: 0 auto
-
-  .nav-pills
-
-    a
-      line-height: $logo-height
-      transition: all 0.3s
-      border-radius: 0
-      padding: $vertical-pad calc(0.5ex + 1.5vw)
-      display: inline-block
-      margin: 0
-      font-size: $header-font-size
-      color: white
-      opacity: 0.7
-
-    a:hover
-      opacity: 0.9
-      background-color: rgba(black, 0.05)
-      box-shadow: 0 4px 0 0 rgba(black, 0.125)
-
-    a:focus, li.active a
-      box-shadow: 0 $border-height 0 0 rgba(black, 0.25)
-      background-color: rgba(black, 0.1)
-      opacity: 1
-
-
 /* nav */
 
 #mainNav .container
   float: left
+  margin: 0 auto
 
   @media screen and (max-width: 768px)
     float: right
@@ -477,7 +450,7 @@ div.case-studies
 .page h1
   font-weight: 100
 
-.page > ul.breadcrumb
+ol.breadcrumb
   padding: 2ex 3ex
 
   @media screen and (min-width: 768px)

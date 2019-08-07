@@ -58,3 +58,12 @@ Follow us on:
 * [Twitter](https://twitter.com/ovirt)
 * [Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)
 * [YouTube](http://www.youtube.com/user/ovirtproject)
+
+## Community projects related to oVirt
+
+oVirt community shares scripts, tools, add-ons and plugins that didn't reach enough interest or stability
+to get included into the oVirt project.
+You can find some of them listed here:
+
+ * [oVirt storage balancer](https://github.com/nkovacne/ovirt-storage-balancer)
+ * [oVirt Simple Backup](https://github.com/zipurman/oVIRT_Simple_Backup)

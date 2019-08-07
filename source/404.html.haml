@@ -25,9 +25,3 @@ index: false
     %li a mistyped address
     %li an out-of-date link
 
-  - content_for :tail do
-    :javascript
-      jQuery(function($){
-        var missing_words = document.location.pathname.replace(/[\/\+:\s\-_]+/g, ' ').trim()
-        $('#search-input').val(missing_words).trigger('keypress')
-      });

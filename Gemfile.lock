@@ -194,7 +194,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport
   asciidoctor
   bootstrap-sass
   builder (~> 3.0)

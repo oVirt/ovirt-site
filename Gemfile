@@ -89,8 +89,5 @@ gem 'rails-assets-chartjs', '~> 2.1'
 gem 'slop', '~> 4'
 gem 'launchy'
 
-# for fetch-dashboard.rb script
-gem 'activesupport'
-
 gem 'middleman-piwik'
 

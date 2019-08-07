@@ -86,8 +86,5 @@ gem 'rails-assets-fullcalendar'
 gem 'icalendar', '~> 1.5'
 gem 'rails-assets-chartjs', '~> 2.1'
 
-gem 'slop', '~> 4'
-gem 'launchy'
-
 gem 'middleman-piwik'
 

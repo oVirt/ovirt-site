@@ -14,7 +14,7 @@ From ignition documentation:
 > Ignition is a new provisioning utility designed specifically for CoreOS Container Linux. At the most basic level,
 > it is a tool for manipulating disks during early boot. This includes partitioning disks, formatting partitions,
 > writing files (regular files, systemd units, networkd units, etc.), and configuring users. On first boot, Ignition
-> reads its configuration from a source-of-truth (remote URL, network metadata service, hypervisor bridge, etc.) and
+> reads its configuration from a source-of-truth (remote [URL, network metadata service, hypervisor bridge, etc.) and
 > applies the configuration.
 
 
@@ -60,22 +60,100 @@ No change to entities, the VmInit internal object is reused.
 
 ## CRUD
 
-Here is a python snippet to ignite a VM and place a file on `/foo/bar` with some content:
+To start working with ignition first import the Fedora CoreOS image as a template from the ovirt 
+glance provider, call the template 'fcos'.
+
+Now create a VM from that template using this python snippet. 
+It will ignite the VM and change the password of user `core` to `changeme`:
+
 ```python
+
+mport time
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+connection = sdk.Connection(
+    url='https://ovirt-engine-fqdn/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    insecure=True,
+    debug=True
+)
+
+system_service = connection.system_service()
+sds_service = system_service.storage_domains_service()
+templates_service = connection.system_service().templates_service()
+sd = sds_service.list(search='name=ovirt-image-repository')[0]
+sd_service = sds_service.storage_domain_service(sd.id)
+images_service = sd_service.images_service()
+
+if len(templates_service.list(search='name=fcos')) == 0:
+    images = images_service.list()
+    image = next(
+        (i for i in images if i.name == 'Fedora CoreOS 30.337 for x86_64'),
+        None
+    )
+    
+    # Import the fcos image as template named 'fcos' to domain 'mydata;
+    image_service = images_service.image_service(image.id)
+
+    image_service.import_(
+        import_as_template=True,
+        template=types.Template(
+            name='fcos'
+        ),
+        cluster=types.Cluster(
+            name='Default'
+        ),
+        storage_domain=types.StorageDomain(
+            name='iscsi_new'
+        )
+    )
+
+    ok = False
+    while not ok:
+        time.sleep(5)
+        templates = templates_service.list(search='name=fcos')
+        for t in templates:
+            if t.status == types.TemplateStatus.OK:
+              ok = True
+              break
+
+vms_service = connection.system_service().vms_service()
+vm = vms_service.add(
+    types.Vm(
+        name='fcosvm',
+        template=types.Template(
+            name='fcos',
+        ),
+        cluster=types.Cluster(
+            name='Default'
+        ),
+    ),
+)
+
 vm_service = vms_service.vm_service(vm.id)
+while True:
+    time.sleep(5)
+    vm = vm_service.get()
+    if vm.status == types.VmStatus.DOWN:
+        break
+
+# ignition file to boot coreos with user core and password changeme
 ignition='''
 {
-  "ignition": { "version": "2.2.0" },
-  "storage": {
-    "files": [{
-      "filesystem": "root",
-      "path": "/foo/bar",
-      "mode": 420,
-      "contents": { "source": "data:,example%20file%0A" }
-    }]
+  "ignition": { "version": "3.0.0" },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "passwordHash": "$y$j9T$skCa2x5kFis7p58gYjz3C1$ykelHfCckRToZKAVYK7GDdLOCi3pcF2WMioI.vmYkj5"
+      }
+    ]
   }
 }
 '''
+
 vm_service.start(
     use_cloud_init=True,
     vm=types.Vm(
@@ -84,9 +162,13 @@ vm_service.start(
         )
     )
 )
-
-
 ```
+
+## How to create and validate ignition configurations?
+
+See the Fedora CoreOS config transpiler https://github.com/coreos/fcct
+
+To validate a config use [Ignition config validator]()
 
 ## User work-flows
 
@@ -102,7 +184,7 @@ There are no special ovirt-engine events for this activity.
 
 [CoreOS ignition docs](https://coreos.com/ignition/docs/latest/)
 [Ignition example configs](https://coreos.com/ignition/docs/latest/examples.html)
-[Ignition config online validator](https://coreos.com/validate/)
+[Ignition config validator](https://github.com/coreos/container-linux-userdata-validator)
 
 ## Testing
 

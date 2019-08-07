@@ -36,6 +36,8 @@ GEM
     eventmachine (1.2.7)
     execjs (2.7.0)
     ffi (1.11.1)
+    font-awesome-sass (5.9.0)
+      sassc (>= 1.11)
     forwardable-extended (2.6.0)
     gemoji (3.0.1)
     haml (5.1.2)
@@ -65,6 +67,9 @@ GEM
     jekyll-coffeescript (1.2.2)
       coffee-script (~> 2.2)
       coffee-script-source (~> 1.12)
+    jekyll-font-awesome-sass (0.1.1)
+      font-awesome-sass (>= 4)
+      jekyll (>= 2.5, < 4.0)
     jekyll-paginate (1.1.0)
     jekyll-redirect-from (0.15.0)
       jekyll (>= 3.3, < 5.0)
@@ -122,6 +127,7 @@ DEPENDENCIES
   icalendar (~> 1.5)
   jekyll (~> 3)
   jekyll-coffeescript
+  jekyll-font-awesome-sass
   jekyll-haml!
   jekyll-paginate
   jekyll-redirect-from

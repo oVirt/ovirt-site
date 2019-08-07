@@ -1,6 +1,6 @@
 :ruby
-  base = "#{root}/source/fonts"
   baseurl = "/fonts"
+  basepath = File.join(Jekyll.sites.first.source, "fonts")
   css = ""
 
   def process_format font_file
@@ -48,7 +48,7 @@
   - css += "/** #{type.titleize} font definition **/\n"
   - font_family = ''
 
-  - Dir.glob("#{base}/#{type}/*").each do |font|
+  - Dir.glob(File.join(basepath, type, "*")).each do |font|
     - font_file = font.split(/\//).last
 
     - font_family = font_file.split(/-/).first.titleize

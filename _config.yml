@@ -127,6 +127,9 @@ sass:
   add_charset: true
   style: :compressed
 
+font-awesome:
+  assets: true
+
 breadcrumbs:
   root:
     hide: True

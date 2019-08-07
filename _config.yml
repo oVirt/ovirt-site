@@ -124,7 +124,6 @@ exclude:
   - CODEOWNERS
 
 sass:
-  sass_dir: stylesheets
   add_charset: true
   style: :compressed
 

@@ -23,8 +23,6 @@
     %meta(name="author" content="#{meta_author}")
     %meta(content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport")
 
-    = yield_content :head
-
     -# App Icons
     %link(rel="shortcut icon" href="/images/favicon.ico")
     %link(rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png")
@@ -45,6 +43,4 @@
     = yield
 
     = javascript_include_tag 'application'
-
-    = yield_content :tail
 

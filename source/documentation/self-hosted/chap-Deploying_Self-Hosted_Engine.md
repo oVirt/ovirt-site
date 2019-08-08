@@ -308,19 +308,9 @@ You can deploy a self-hosted engine from the command line using `hosted-engine -
 
       **Important:** Only replica 3 Gluster storage is supported. Ensure you have the following configuration:
 
-        * In the /etc/glusterfs/glusterd.vol file on all three Gluster servers, set rpc-auth-allow-insecure to on.
 
-            option rpc-auth-allow-insecure on
+        * Configure the volume as follows as per [Gluster Volume Options for Virtual Machine Image Store](documentation/admin-guide/chap-Working_with_Gluster_Storage#Options set on Gluster Storage Volumes to Store Virtual Machine Images)
 
-        * Configure the volume as follows:
-
-            gluster volume set _volume_ cluster.quorum-type auto
-            gluster volume set _volume_ network.ping-timeout 10
-            gluster volume set _volume_ auth.allow \*
-            gluster volume set _volume_ group virt
-            gluster volume set _volume_ storage.owner-uid 36
-            gluster volume set _volume_ storage.owner-gid 36
-            gluster volume set _volume_ server.allow-insecure on
 
           Please specify the full shared storage connection path to use (example: host:/path): storage.example.com:/hosted_engine/gluster_volume
           If needed, specify additional mount options for the connection to the hosted-engine storage domain []:

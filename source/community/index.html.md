@@ -67,3 +67,5 @@ You can find some of them listed here:
 
  * [oVirt storage balancer](https://github.com/nkovacne/ovirt-storage-balancer)
  * [oVirt Simple Backup](https://github.com/zipurman/oVIRT_Simple_Backup)
+ * [oVirt Desktop Client](https://github.com/nkovacne/ovirt-desktop-client)
+ * [oVirt filesystem in userspace](https://github.com/yuvalturg/ovirtfs)

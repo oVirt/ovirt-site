@@ -79,18 +79,8 @@ The migration involves the following key actions:
 
         **Important:** Only replica 3 Gluster storage is supported. Ensure the following configuration has been made:
 
-        * In the `/etc/glusterfs/glusterd.vol` file on all three Gluster servers, set `rpc-auth-allow-insecure` to `on`.
 
-                option rpc-auth-allow-insecure on
-
-        * Configure the volume as follows:
-
-                gluster volume set <volname> group virt
-                gluster volume set <volname> storage.owner-uid 36
-                gluster volume set <volname> storage.owner-gid 36
-                gluster volume set <volname> performance.strict-o-direct on
-                gluster volume set <volname> network.remote-dio off
-                gluster volume set <volname> network.ping-timeout 30
+        * Configure the volume as follows as per [Gluster Volume Options for Virtual Machine Image Store](documentation/admin-guide/chap-Working_with_Gluster_Storage#Options set on Gluster Storage Volumes to Store Virtual Machine Images)
 
 
         <!-- comment ends bullet list so next line is parsed as pre -->

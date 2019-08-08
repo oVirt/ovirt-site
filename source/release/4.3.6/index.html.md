@@ -36,14 +36,13 @@ To learn about features introduced before 4.3.6, see the [release notes for prev
 
 Since CentOS 7.7 is not available yet, you can get missing sanlock dependency with this repo file:
 
- cat /etc/yum.repos.d/ov4.3-fix.repo
- [ovirt-4.3-fix]
- name=oVirt 4.3 Pre-Release Fix CentOS 7.7
- baseurl=https://buildlogs.centos.org/centos/7/virt/x86_64/ovirt-4.3/
- enabled=1
- gpgcheck=1
- gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-4.3
- exclude=python2-sanlock
+	cat /etc/yum.repos.d/ov4.3-fix.repo
+	[ovirt-4.3-fix]
+	name=oVirt 4.3 Pre-Release Fix CentOS 7.7
+	baseurl=https://buildlogs.centos.org/centos/7/virt/x86_64/ovirt-4.3/
+	enabled=1
+	gpgcheck=0
+	exclude=python2-sanlock
 
 Thanks to Maton Brett for sharing it on users mailing list
 

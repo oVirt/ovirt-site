@@ -75,9 +75,9 @@ Like any other gluster storage domain, the hosted engine storage domain on glust
     gluster volume set <volname> group virt
     gluster volume set <volname> storage.owner-uid 36 
     gluster volume set <volname> storage.owner-gid 36
-    gluster volume set <volname> performance.low-prio-threads 32
-    gluster volume set <volname> cluster.data-self-heal-algorithm full
-    gluster volume set <volname> network.ping-timeout   30
+    gluster volume set <volname> performance.strict-o-direct on
+    gluster volume set <volname> network.remote-dio off
+    gluster volume set <volname> network.ping-timeout 30
 ```   
 It is recommended to turn on [sharding](http://blog.gluster.org/2015/12/introducing-shard-translator/) for the gluster volume
 

@@ -300,11 +300,22 @@ Volumes can be optimized to store virtual machines during creation by selecting 
 
 **Important:** If a volume is replicated across three or more nodes, ensure the volume is optimized for virtual storage to avoid data inconsistencies across the nodes.
 
-An alternate method is to access one of the Gluster Storage nodes and set the volume group to `virt`. This sets the `cluster.quorum-type` parameter to `auto`, and the `cluster.server-quorum-type` parameter to `server`.
+An alternate method is to access one of the Gluster Storage nodes and set the volume group to `virt` andthe options provided below. This sets the `cluster.quorum-type` parameter to `auto`, and the `cluster.server-quorum-type` parameter to `server` and other options (like enabling shard) to ensure the volume is optimized to store virtual image files.
 
     # gluster volume set VOLUME_NAME group virt
+    # gluster volume set VOLUME_NAME performance.strict-o-direct on
+    # gluster volume set VOLUME_NAME network.remote-dio disable
+    # gluster volume set VOLUME_NAME storage.owner-uid 36
+    # gluster volume set VOLUME_NAME storage.owner-gid 36
+    # gluster volume set VOLUME_NAME network.ping-timeout 30
 
-Verify the status of the volume by listing the volume information:
+Below options ensure that o-direct writes are honoured on volume
+
+    # gluster volume set VOLUME_NAME performance.strict-o-direct on
+    # gluster volume set VOLUME_NAME network.remote-dio off
+
+
+Verify the status of the volume by listing the volume information. This will display the options set on the volume and the state:
 
     # gluster volume info VOLUME_NAME
 

@@ -85,13 +85,13 @@ The migration involves the following key actions:
 
         * Configure the volume as follows:
 
-                gluster volume set volume cluster.quorum-type auto
-                gluster volume set volume network.ping-timeout 10
-                gluster volume set volume auth.allow \*
-                gluster volume set volume group virt
-                gluster volume set volume storage.owner-uid 36
-                gluster volume set volume storage.owner-gid 36
-                gluster volume set volume server.allow-insecure on
+                gluster volume set <volname> group virt
+                gluster volume set <volname> storage.owner-uid 36
+                gluster volume set <volname> storage.owner-gid 36
+                gluster volume set <volname> performance.strict-o-direct on
+                gluster volume set <volname> network.remote-dio off
+                gluster volume set <volname> network.ping-timeout 30
+
 
         <!-- comment ends bullet list so next line is parsed as pre -->
 

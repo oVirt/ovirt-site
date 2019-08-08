@@ -1,17 +1,48 @@
-@import 'compass'
+$ovirt_color_green: #60b60f
+$ovirt_light_grey: #f5f5f5
+$promoFontSize: 20px
+$default_padding : 10px
+
+
+@mixin dropShadow()
+  -webkit-box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.75)
+  -moz-box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.75)
+  box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.75)
+
+@mixin textShaow()
+  text-shadow: 0 1px 2px rgba(0,0,0,.6)
+
+
+
+div
+  @media screen and (max-width: 768px)
+    background-repeat: round no-repeat !important
+
+img.error-not-fixed, img.error-fixed
+  display: inline-block
+  position: relative
+  width: 128px
+  height: 128px
+  border: 15px solid #fff
+  border-radius: 1px
+  margin: 0px
+  background: #fff !important
+
 
 header.masthead
   $header-font-size: 2.5ex
-  $logo-mult: 0.125
-  $logo-height: $header-font-size * (1 + $logo-mult)
+  $logo-height: 29px
   $vertical-pad: 2rem
   $border-height: 4px
 
   width: 100%
+  height: 65px
   margin: 0 auto
   padding: 0 $header-font-size
-  border-bottom: $border-height solid #4e9a06
-  background: #61b60e
+  border-bottom: none
+  background-color: #666
+  box-shadow: -4px 0px 9px #626060
+  font-size: 2.5ex
 
   section, div
     vertical-align: middle
@@ -23,8 +54,9 @@ header.masthead
 
   @at-root #logo
     height: $logo-height
-    margin: $vertical-pad/2 0
-    padding: 0 0.5ex
+    margin: 0px
+    padding: 0px
+    margin-top: 12px
 
   .hgroup
     float: left
@@ -55,6 +87,83 @@ header.masthead
       box-shadow: 0 $border-height 0 0 rgba(black, 0.25)
       background-color: rgba(black, 0.1)
       opacity: 1
+
+
+/* nav */
+
+#mainNav .container
+  float: left
+
+  @media screen and (max-width: 768px)
+    float: right
+    margin-right: 0px
+    margin-left: 0px
+    padding-left: 0px
+    padding-right: 0px
+    position: relative
+    z-index: 9999
+
+  .nav
+    @media screen and (max-width: 768px)
+      display: list-item
+
+header.masthead .navbar-nav
+  display: flex
+  @media screen and (max-width: 768px)
+    background-color: #666
+    margin: 0px
+
+header.masthead .navbar-header
+  @media screen and (max-width: 768px)
+    color: white
+
+header.masthead .navbar-nav li a
+  padding: 21px
+  color: #d0eec7
+  opacity: 100
+  @media screen and (max-width: 768px)
+    font-size: 2ex
+    padding: 10px
+
+header.masthead .navbar-nav li.active a
+  color: white
+  opacity: 100
+  background-color: #61b710
+  box-shadow: none
+
+header.masthead .navbar-nav li a:hover
+  box-shadow: none
+
+header.masthead .navbar-collapse
+  box-shadow: none
+  @media screen and (max-width: 768px)
+    padding-top: 5px
+    margin: 5px auto
+    padding: 0
+
+header.masthead .navbar-collapse.in
+  @media screen and (max-width: 768px)
+    overflow-y: inherit
+
+.navForMobileHack
+  left: 102px
+  @media screen and (max-width: 767px)
+    left: 0
+    position: relative !important
+    font-size: 20px
+
+.navbar-collapse li, .navbar-collapse a, .navbar-collapse ul
+  @media screen and (max-width: 767px)
+    font-size: 10px
+
+.navbar-collapse
+  @media screen and (max-width: 767px)
+    position: absolute
+
+.collapsing
+  -webkit-transition: none
+  transition: none
+  display: none
 
 
 #footer
@@ -107,21 +216,29 @@ header.masthead
   .page
     margin-top: 12ex
 
+#content h1, #content h2, #content h3, #content h4
+  font-family: sans-serif
+  font-weight: 200
+
 .content
-  padding-top: 4ex
+  padding-top: 0px
 
   img
     max-width: 100%
     height: auto
 
 .intro
-  background-color: #f2faea
-  @include background-image(linear-gradient(#f2faea 10%, #fff 120%))
-  padding: 4em 0
+  padding: 0
   margin: -4em 0 0
+  margin-top: -27px
+  @media screen and (max-width: 768px)
+    margin-top: -5px
+  background-image: none
+  background-color: #ededed
+  background-size: 100%
 
   h2
-    display: none
+    display: block
 
   .intro-blurb
     clear: both
@@ -132,6 +249,14 @@ header.masthead
     p
       max-width: 50ex
       padding: 2ex
+
+  .container
+    div
+      div
+        div
+          div
+            @media screen and (max-width: 768px)
+              padding-left: 0px  !important
 
   @media screen and (min-width: 768px)
     .intro-blurb
@@ -292,15 +417,17 @@ div.case-studies
   white-space: nowrap
 
 .release
-  background: #fffac1
-  @include background-image(linear-gradient(to right, #fff -15%, #fffac1 10%, #fffac1 90%, #fff 115%))
-  border: 1px solid #fff68b
-  border-width: 1px 0
+  background-color: #ddd
+  background-image: none
+  border: none
+  color: #666
   padding: 2ex
   margin: 0 0 4rem
   font-size: 130%
   line-height: 2rem
-  color: mix(#fffac1, black, 70)
+
+  a
+    color: #666
 
   p
     margin: 0
@@ -346,8 +473,110 @@ div.case-studies
     height: 90px
     margin: 4ex 6ex
 
+.page
+  @media screen and (max-width: 768px)
+    margin-top: 0ex
+
+.page h1
+  font-weight: 100
+
 .page > ul.breadcrumb
   padding: 2ex 3ex
 
   @media screen and (min-width: 768px)
     margin-top: -3ex
+
+.listNotAsUL
+  img
+    vertical-align: text-bottom
+
+  h3
+    color: $ovirt_color_green
+  ul
+    list-style: none
+    padding-left: 0
+    li
+      line-height: 2
+      a
+        color: #333
+
+.textViewAllItems
+  font-size: x-large
+  font-family: sans-serif
+
+.promo_whatisovirt
+  padding: 2em 0
+  font-size: $promoFontSize
+  line-height: 40px
+
+  h2
+    color: $ovirt_color_green
+
+.promo_features
+  padding: 2em 0
+  background-color: $ovirt_color_green
+  color: white
+  font-size: $promoFontSize
+  line-height: 40px
+
+.promo_features ul
+  list-style-image: url('/images/promo/bullet_homepage.png')
+
+.promo_casestudy
+  background-color: #ddd
+  padding: 2em 0
+  h1
+    color: #999
+
+  .useCaseHolder
+    width: 330px
+    height: 490px
+    background-color: white
+    margin: $default_padding
+    float: left
+    @include dropShadow()
+
+    p
+      margin: 10px
+
+    p:first-of-type
+      text-align: center
+      border-bottom: 1px solid grey
+
+    p:last-of-type
+      padding-left: 10px
+
+    img
+      float: none
+      max-width: none
+      max-height: none
+      height: 70px
+
+    h3
+      background-color: #666
+      color: white
+      padding: 10px
+      margin-top: 0px
+      font-size: x-large
+
+    .useCaseHeader
+      background-color: #666
+      padding: $default_padding
+      color: white
+      font-size: 25px
+      span
+        @include textShaow()
+
+    .useCaseImage
+      margin: $default_padding
+      padding-bottom: $default_padding
+      text-align: left
+      border-bottom: 1px solid grey
+
+    .useCaseSummary
+      padding: $default_padding
+      text-align: left
+
+  .carousel-inner>.item.active
+    display: -moz-box
+

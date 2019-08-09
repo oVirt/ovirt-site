@@ -368,6 +368,7 @@ curl -X PUT \
 To configure the native dhcpv6 service of OVNs subnet, the user should
 provision the following networking API entities, represented in yaml:
 
+{%- raw %}
 ~~~~~
 - name: create a network
   os_network:
@@ -397,12 +398,14 @@ provision the following networking API entities, represented in yaml:
     interfaces:
       - "{{ ipv6_subnet.id }}"
 ~~~~~
+{% endraw -%}
 
 ### Configuring stateless DHCPv6 on the subnet
 
 To configure stateless dhcpv6 on the subnet, the user should provision
 the following yaml based ansible playbook snippet:
 
+{%- raw %}
 ~~~~~
 - name: create a network
   os_network:
@@ -431,6 +434,7 @@ the following yaml based ansible playbook snippet:
     interfaces:
       - "{{ dhcpv6_subnet.id }}"
 ~~~~~
+{% endraw -%}
 
 ## UI considerations
 

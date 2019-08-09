@@ -60,7 +60,7 @@ Wiki pages are generally referred to and linked to from various other locations.
 
 ## Deleting Pages
 
-Wiki pages that are no longer needed can be tagged for deletion by adding {{Delete|Reason}} to the beginning of the page, this gives Wiki Administrators the ability to ensure that important or archivable content is not lost.
+Wiki pages that are no longer needed can be tagged for deletion by adding {% raw %}{{Delete|Reason}}{% endraw %} to the beginning of the page, this gives Wiki Administrators the ability to ensure that important or archivable content is not lost.
 
 ## Sign your attachments
 

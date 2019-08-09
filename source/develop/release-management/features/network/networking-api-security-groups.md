@@ -177,6 +177,7 @@ used, which creates one security group - for which a security group rule
 allowing all **egress** traffic is automatically created - plus one security
 group rule allowing **ingress** tcp traffic meant for port 22:
 
+{%- raw %}
 ~~~~~~
 
 - os_security_group:
@@ -196,11 +197,13 @@ group rule allowing **ingress** tcp traffic meant for port 22:
     port_range_max: 22
 
 ~~~~~~
+{% endraw -%}
 
 * finally, the user is required to update the ports, indicating which security
 groups apply to it. The following ansible task shows how a single port, referenced
 by name, is updated:
 
+{%- raw %}
 ~~~~~~
 
 - os_port:
@@ -211,6 +214,7 @@ by name, is updated:
         - "{{ my_app_default_security_group.id }}"
 
 ~~~~~~
+{% endraw -%}
 
 ### Installation/Upgrade
 

@@ -96,6 +96,8 @@ token, which should be later used in all other oVirt modules, so all modules don
 module returns an Ansible fact called _ovirt_auth_. Every module can use this fact as auth parameter, to perform authentication
 
 ### Example
+
+{%- raw %}
 ```yaml
 # Obtain SSO token with using username/password credentials
 no_log: true
@@ -110,6 +112,7 @@ ovirt_auth:
   state: absent
   ovirt_auth: "{{ ovirt_auth }}"
 ```
+{% endraw -%}
 
 ## ovirt_vms
 [ovirt_vms](http://docs.ansible.com/ansible/ovirt_vms_module.html)
@@ -747,7 +750,10 @@ password: MySuperPasswordOfAdminAtInternal
 Next it will ask your for a vault password and then it creates _ovirt_password.yml_ file, with your vault.
 
 ### Playbook creation
+
 Create a playbook, with tasks you want to execute:
+
+{%- raw %}
 ```yaml
 cat >> playbooks/setup_demo.yml << EOF
 ---
@@ -885,6 +891,7 @@ cat >> playbooks/setup_demo.yml << EOF
             ovirt_auth: "{{ ovirt_auth }}"
 EOF
 ```
+{% endraw -%}
 
 ### Playbook execution
 To execute the playbook run following command:

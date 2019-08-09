@@ -78,6 +78,7 @@ The following procedure guides you through creating and running a playbook that 
 
 4. Create your playbook. To simplify this you can copy and modify an example in **/usr/share/doc/ovirt-ansible-roles/examples**.
 
+    {%- raw %}
     # cat rhv_infra.yml
     ---
     - name: RHV infrastructure
@@ -118,6 +119,7 @@ The following procedure guides you through creating and running a playbook that 
             ovirt_auth: "{{ ovirt_auth }}"
           tags:
             - always
+    {% endraw -%}
 
 5. Run the playbook.
 

@@ -61,7 +61,7 @@ The following picture explains UAG (Unified Affinity Group) algorithm
 
  **\1**
 
-1.  UAG = {{vm} for each vm}
+1.  UAG = {% raw %}{{vm} for each vm}{% endraw %}
 2.  For each (+) affinity group(Sorted by group id):
     1.  unify VMs from the group in UAG(Sorted by vm id).
     2.  For each (-) affinity group(Sorted by group id):

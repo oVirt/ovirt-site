@@ -5,10 +5,7 @@
 $(function () {
   'use strict';
 
-  /* selector */
-  var postHeader = ':header';
-
-  $(postHeader).filter('[id]').each(function () {
+  $('main').filter('[id]').each(function () {
     var header      = $(this),
         headerID    = header.attr('id'),
         anchorClass = 'header-link',

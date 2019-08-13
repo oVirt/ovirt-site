@@ -26,6 +26,6 @@ This guide covers updating your oVirt environment between minor releases, and up
 
 ## Appendix A: [Updating an Offline oVirt Engine](appe-Updating_an_Offline_oVirt_Engine/)
 
-## Appendix B: [Upgrading to oVirt Engine 4.2 with ovirt-fast-forward-upgrade](appe-Upgrading_to_oVirt_Engine_4.2_with_ovirt-fast-forward-upgrade.html.md)
+## Appendix B: [Upgrading to oVirt Engine 4.2 with ovirt-fast-forward-upgrade](appe-Upgrading_to_oVirt_Engine_4.2_with_ovirt-fast-forward-upgrade/)
 
 ## Appendix C: [Manually Updating Hosts](appe-Manually_Updating_Hosts)

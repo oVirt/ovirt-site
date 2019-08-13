@@ -92,7 +92,7 @@ class SiteHelpers < Middleman::Extension
     # Pull in a Markdown document's ToC or generate one based on H2s
     def doc_toc(source_filename, someclass = '')
       current_dir = current_page.source_file.sub(/[^\/]*$/, '')
-      tasks_md = File.read "#{current_dir}/#{source_filename}.html.md"
+      tasks_md = File.read "#{current_dir}/#{source_filename}.md"
       doc = Nokogiri::HTML(markdown_to_html(tasks_md))
       toc = doc.css('#markdown-toc').attr(:id, '')
 

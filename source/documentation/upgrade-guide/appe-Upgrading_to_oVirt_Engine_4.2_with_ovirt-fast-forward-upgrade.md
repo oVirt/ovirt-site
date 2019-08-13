@@ -34,7 +34,7 @@ If you have oVirt 4.0 or later installed, you can upgrade the Engine to the late
 
 3. If there are errors, check the log: `/var/log/ovirt-engine/ovirt-fast-forward-upgrade.log`.
 
-**Prev:** [Appendix B: Upgrading to oVirt Engine 4.2 with ovirt-fast-forward-upgrade](appe-Upgrading_to_oVirt_Engine_4.2_with_ovirt-fast-forward-upgrade.html.md)<br>
+**Prev:** [Appendix B: Upgrading to oVirt Engine 4.2 with ovirt-fast-forward-upgrade](appe-Upgrading_to_oVirt_Engine_4.2_with_ovirt-fast-forward-upgrade/)<br>
 **Next:** [Appendix C: Manually Updating Hosts](appe-Manually_Updating_Hosts)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/upgrade_guide/upgrading_with_ovirt-fast-forward-upgrade)

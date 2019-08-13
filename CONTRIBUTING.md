@@ -30,7 +30,7 @@ see [Markdown Basics](https://help.github.com/articles/markdown-basics/).
 You can create a new topic file in one of the following ways:
 
 - From your local Git repo folder, navigate to the relevant directory, create a new text file and
-save it with the following naming convention: `<name>.html.md`
+save it with the following naming convention: `<name>.md`
 
 - From the GitHub repository, navigate to the relevant directory and click the New File button at the
 top-right corner of the pane.

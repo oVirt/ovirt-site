@@ -5,8 +5,8 @@
     <% Dir.foreach(Dir.pwd + '/source/' +  current_page.url ) do |section| %>
       <% if File.directory?(Dir.pwd + '/source/' + current_page.url + section) && !section.match('^\.') %>
         <ul><h3><%= section.titleize %></h3>
-          <% Dir.glob(Dir.pwd + '/source/' + current_page.url + section + '/*.html.md') do |featurePage| %>
-            <li> <a href="<%= current_page.url + section + '/' + File.basename(featurePage).sub('.md', '') %>" ><%= File.basename(featurePage).sub('.html.md', '').titleize %></a> </li>
+          <% Dir.glob(Dir.pwd + '/source/' + current_page.url + section + '/*.md') do |featurePage| %>
+            <li> <a href="<%= current_page.url + section + '/' + File.basename(featurePage).sub('.md', '') %>" ><%= File.basename(featurePage).sub('.md', '').titleize %></a> </li>
 	  <% end %>
 	</ul>
       <% end %>

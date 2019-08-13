@@ -121,7 +121,7 @@ ready do
     proxy "/events/#{year}.html", "events/index.html", locals: {year: year}
   end
 
-  # Auto-add index.html.md pages where they are lacking
+  # Auto-add index pages where they are lacking
   Dir.glob('source/**/').each do |path|
     next if Dir.glob("#{path}index.*").count > 0
     next if /source\/(images|stylesheets|javascripts|fonts)/.match path

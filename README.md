@@ -21,7 +21,7 @@ All content in the website is written in Markdown. For information on formatting
 
 You can create a new file two ways:
 
-- From your local Git repo folder, navigate to the relevant directory, create a new text file and save it with the following naming convention: `<name>.html.md`
+- From your local Git repo folder, navigate to the relevant directory, create a new text file and save it with the following naming convention: `<name>.md`
 
 - From the GitHub repo, navigate to the relevant directory and click the New File button at the top-right corner of the pane.
 

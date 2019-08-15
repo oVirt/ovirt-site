@@ -37,10 +37,4 @@
     - edit_url = "https://github.com/#{data.site.github}/edit/master#{source_file}"
     = link_to "#{icon}Edit this page", edit_url, {target: '_blank'}
 
-  .last-modified
-    - modified_time = `git log --pretty=format:%ai #{current_page.source_file}`.split(/\n/).first rescue nil
-
-    - if modified_time
-      Page last modified
-      = Time.parse(modified_time).utc.strftime('%a %-d %b %Y %H:%M %Z')
   = insert_piwik_tracker

@@ -1,60 +1,18 @@
 ---
-
 name: oVirt
-#subhead: Static site construction kit
 domain: ovirt.org
-
-# Be sure to set up and install Juvia before enabling!
-#has_comments: true
-
-# Optional logo. If commented out, it will not be used.
-logo: logo.svg
-
-# optional, set to true if your site uses SSL by default
-#ssl: true
-
-# Owner is used for the automatic copyright string.
-# If no owner is specified, then copyright will default to site name.)
-#owner: Your Name or Company
-
 # The year your site was established (for the copyright)
 founding_year: 2013 # Defaults to current year if commented
-
-# Manual copyright string, to override the automatic one
-#copyright: "&copy; 2013 YOUR_NAME_HERE"
-
 
 # Location where this repo exists on github
 github: oVirt/ovirt-site
 
-
-# Optional footer links
 footer_links:
   "Privacy policy": /privacy-policy.html
   About: /community/about.html
   Disclaimers: /general-disclaimer.html
   #Offsite example: http://example.com/
 
-# Enable breadcrumbs for deep pages (depth: 2 or more)
-breadcrumbs: true
-
 # Regular expression filter for events
 events_filter: oVirt
-
-
-## If unspecified, timezone defaults to UTC
-## For more TZs, see the top of:
-## https://github.com/rails/rails/blob/master/activesupport/lib/active_support/values/time_zone.rb
-#timezone: Berlin
-#timezone: America/New_York
-#timezone: Eastern Time (US & Canada)
-
-
-# Global meta tags on each page <>
-# To have page-specific tags added, please add a YAML list to "tags:"
-# in that page's frontmatter block (the part at the top between ---)
-keywords:
-  - Middleman
-  - Springboard
-  - Static site
 

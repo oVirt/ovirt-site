@@ -19,7 +19,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for instructions on building and testing 
 * Nir Soffer
 * Doron Fediuck
 
-### Site infra and Middleman
+### Site infra and Jekyll
 * Marc Dequenes (Duck)
 * Greg Sheremeta [gshereme@redhat.com](mailto:gshereme@redhat.com)
 

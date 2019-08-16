@@ -38,9 +38,11 @@ top-right corner of the pane.
 If you want to use an existing file as a template, click the Edit icon for this README and review
 the headings, lists, and inline formatting used in this file.
 
+Please note `{{ }}` curly braces are reserved for [templating](#Dynamic_pages), but you can escape in between `{% raw %}` and `{% endraw %}`.
+
 ### Page metadata
 Additional metadata can be provided to each page by inserting block of following format at the beginning of the
-document:
+document (called frontmatter):
 
 ```markdown
 
@@ -62,18 +64,35 @@ authors: gshereme,sandrobonazzola
 
 ```
 
+### Page layout
+
+The content you write is wrapped with a header and footer to display the logo, navbar and so on. This is what you get with the default `application` layout but we have some variant for specific cases and it is posible to define more in `source/_layouts`.
+
+Pages are associated with a layout depending on their path in the Jekyll configuration file (`_config.yml`) but it is possible to override for a specific page using a `layout` entry in the frontmatter. Some special pages might not need any layout and in this case specifying `layout: null` will render the content of the page only without any wrapping.
+
+### Dynamic pages
+
+Pages are transformed depending on their format (markdown…), then a templating langage, [Liquid](https://shopify.github.io/liquid/), is used to allow some programming (variables, conditionals, loop…). Special variables like `site` and `page` are available to access frontmatter and site data.
+
+If this is not sufficient then you may use HAML Ruby blocks. The Liquid special variables are available in HAML includes but *not* pages. They can be used identically as in Liquid. To make an include you need to create your HAML content in `source/_includes/<include>.haml` and reference if in your page using: `{% haml <include>.haml %}` (with <include> a name of your choice).
+
+Please note ERB is not supported, use HAML with Ruby block instead
+
+If access to Jekyll internals are needed (please avoid if possible), then the Jekyll `site` object can be found using `Jekyll.sites.first`; this is the raw Ruby object, not a Liquid wrapper, so you have access to all methods to control (or break if not careful) the whole site. Beware some methods like `html_pages` are Liquid extensions and are not accessible directly with this method.
+
+In any case you can access the list of all pages using `site.pages`, filter them, loop over them, access their properties and content, so you should never need to access the filesystem directly; the filesystem path is anyway not always a good representation of the final URL. This is also better for security and build performance.
+
 ## Test your changes locally
 If you edit any file type other than MD, for example HAML, YAML, or CSS, deploy the site locally
 and test your changes.
 
-For simple changes, you can try the Middleman hot reload server, but note that it doesn't understand .htaccess
+For simple changes, you can try the Jekyll hot reload server, but note that it doesn't understand .htaccess
 and mod_redirect rules that we use on the production apache server.
 
-**Note: the latest version of Ruby crashes when trying to start the server. Use Ruby 2.1 with the help of rvm.**
 
 Run:
 ```
-rvm use 2.1
+rvm use 2.5
 ./setup.sh && ./run-server.sh
 ```
 
@@ -85,19 +104,20 @@ sudo ./docker-run.sh
 ```
 
 If the site builds successfully, you will see this message:
-The Middleman is standing watch at http://\[address\]:4567
+The Jekyll web server is standing watch at http://\[address\]:4000
+(the exact URL is given on the terminal when Jekyll is ready)
 
 For complex changes, test with a local apache. Make sure apache is configured to allow `.htaccess` files by replacing
 `AllowOverride None` with `AllowOverride None` in `httpd.conf`.
 
 Run:
 ```
-rvm use 2.1
+rvm use 2.5
 # clean the build dir if it exists
-rm -rf build
-bundle exec middleman build --verbose
+rm -rf _site
+bundle exec jekyll b
 # copy all built content into the apache root
-sudo rsync -av build/ /var/www/html/
+sudo rsync -av _site/ /var/www/html/
 ```
 
 ## Submit your changes

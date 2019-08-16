@@ -8,14 +8,13 @@
         %li
           %a{ :href => url.strip, :title => name.strip, :target => "_blank" }= name.strip
 
-  =# site.data.site.founding_year
   - founding = site.data.site.founding_year
   - year_string = if founding && founding.to_i < Time.now.year
     - founding.to_s + '&ndash;' + Time.now.year.to_s
   - else
     - Time.now.year.to_s
 
-  = site.data.site.copyright || "&copy; #{year_string} #{site.data.site.owner || site.data.site.name}"
+  = "&copy; #{year_string} {{ site['title'] }}"
 
   - labels = if page.path.include?("documentation")
     - "documentation"

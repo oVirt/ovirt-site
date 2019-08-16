@@ -1,7 +1,7 @@
 ---
 title: oVirt 4.1.9 Release Notes
 category: documentation
-layout: toc
+toc: true
 ---
 
 # oVirt 4.1.9 Release Notes

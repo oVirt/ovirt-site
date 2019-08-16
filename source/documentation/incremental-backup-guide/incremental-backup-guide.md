@@ -1,7 +1,7 @@
 ---
 title: Incremental Backup
 category: documentation
-layout: toc
+toc: true
 ---
 
 # Incremental Backup

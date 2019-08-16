@@ -1,7 +1,7 @@
 ---
 title: oVirt 3.3 release notes
 category: documentation
-layout: toc
+toc: true
 authors: alonbl, dneary, doron, fsimonce, jbrooks, lvernia, mburns, michael pasternak,
   mkolesni, yair zaslavsky
 ---

@@ -139,3 +139,8 @@ breadcrumbs:
     hide: True
     image: false
 
+jekyll_analytics:
+  Piwik:
+    url: stats.phx.ovirt.org
+    siteId: '1'
+

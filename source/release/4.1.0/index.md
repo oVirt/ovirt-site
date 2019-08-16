@@ -1,7 +1,7 @@
 ---
 title: oVirt 4.1.0 Release Notes
 category: documentation
-layout: toc
+toc: true
 authors: sandrobonazzola
 ---
 

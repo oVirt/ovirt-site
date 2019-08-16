@@ -1,7 +1,7 @@
 ---
 title: oVirt 3.0 Feature Guide
 category: documentation
-layout: toc
+toc: true
 authors: jbrooks
 ---
 

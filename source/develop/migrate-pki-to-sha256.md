@@ -1,7 +1,7 @@
 ---
 title: Migrate PKI to SHA256 signatures Howto
 category: howto
-layout: toc
+toc: true
 ---
 
 # Migrate PKI to SHA256 signatures Howto

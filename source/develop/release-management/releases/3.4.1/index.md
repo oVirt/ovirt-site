@@ -1,7 +1,7 @@
 ---
 title: oVirt 3.4.1 release notes
 category: documentation
-layout: toc
+toc: true
 authors: dougsland, sandrobonazzola, sven
 ---
 

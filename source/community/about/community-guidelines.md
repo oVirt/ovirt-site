@@ -1,7 +1,7 @@
 ---
 title: Community guidelines
 category: documentation
-layout: toc
+toc: true
 authors: dneary, gina, quaid
 ---
 

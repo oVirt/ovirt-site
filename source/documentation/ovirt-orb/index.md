@@ -1,7 +1,7 @@
 ---
 title: oVirt Orb
 category: documentation
-layout: toc
+toc: true
 ---
 
 # oVirt Orb

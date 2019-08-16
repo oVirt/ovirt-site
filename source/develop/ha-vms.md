@@ -2,7 +2,7 @@
 title: Highly Available VMs
 authors: mzamazal
 category: howto
-layout: toc
+toc: true
 ---
 
 # Highly Available VMs

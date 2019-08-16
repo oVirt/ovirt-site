@@ -1,7 +1,7 @@
 ---
 title: oVirt 3.5.1 Release Notes
 category: documentation
-layout: toc
+toc: true
 authors: alonbl, bproffitt, didi, sandrobonazzola, stirabos
 ---
 

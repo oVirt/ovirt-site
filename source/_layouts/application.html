@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+{% if page.toc and page.name contains ".md" %}
+{{ page.content | ovirt_toc | markdownify }}
+{% else %}
+{{ content }}
+{% endif %}
+

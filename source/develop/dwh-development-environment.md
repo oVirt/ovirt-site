@@ -1,7 +1,7 @@
 ---
 title: oVirt DWH development environment
 category: documentation
-layout: toc
+toc: true
 authors: sradco, sdickers
 ---
 

@@ -28,6 +28,7 @@ group :jekyll_plugins do
   gem "bootstrap-sass"
   gem "jekyll-font-awesome-sass"
   gem "jekyll-favicon"
+  gem 'jekyll-analytics'
 end
 
 # for events

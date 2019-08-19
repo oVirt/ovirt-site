@@ -1,0 +1,31 @@
+:ruby
+  def page_title(p)
+    p['title'] || p.url.split('/').last.titleize
+  end
+
+  # fetch pages for listing
+  cur_level = page.url.count('/')
+  tree = {}
+  page_list = site.pages.each do |p|
+      next unless p.html?
+      next if p.url =~ /\/$/
+
+      p_level = p.url.count('/')
+      next unless p.url.start_with?(page.url) and p_level == cur_level+1
+
+      section = p.url.split('/')[-2]
+      tree[section] ||= []
+      tree[section] << p
+    end
+
+%h1= page_title(page)
+
+%section.col-md-12
+  - tree.keys.sort.each do |section|
+    %h3= section.titleize
+    %ul
+      - tree[section].sort_by{|p| page_title(p).downcase }.each do |p|
+        - title = page_title(p)
+        %li
+          %a{:href => p.url, :title => title}= title
+

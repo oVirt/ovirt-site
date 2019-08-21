@@ -59,10 +59,6 @@ gem "bootstrap-sass"
 #####
 # Formats
 
-# less (css)
-gem "therubyracer"
-gem "less"
-
 # asciidoctor
 gem "asciidoctor"
 

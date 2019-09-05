@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.6 Fourth Release Candidate as of August 29, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.6 Fifth Release Candidate as of September 05, 2019.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -111,20 +111,12 @@ Thanks to Maton Brett for sharing it on users mailing list
 
 ### Other
 
-#### oVirt Provider OVN
-
- - [BZ 1744235](https://bugzilla.redhat.com/1744235) <b>Security group rules for remote prefix/group do not enable traffic</b><br>
- - [BZ 1691933](https://bugzilla.redhat.com/1691933) <b>/etc/sudoers.d/50_vdsm_hook_ovirt_provider_ovn_hook is missing the commands of ovirt_provider_ovn_vhostuser_hook</b><br>
- - [BZ 1725013](https://bugzilla.redhat.com/1725013) <b>vdsm-tool fails deploying fedora 29 host from el7 engine</b><br>
- - [BZ 1723800](https://bugzilla.redhat.com/1723800) <b>[OVN] Updating a router's 'admin_state_up' returns OK but does not change the property</b><br>
-
 #### VDSM
 
+ - [BZ 1748395](https://bugzilla.redhat.com/1748395) <b>[downstream clone - 4.3.6] Can't import guest from export domain to data domain on rhv4.3 due to error "Invalid parameter: 'DiskType=1'"</b><br>
  - [BZ 1744572](https://bugzilla.redhat.com/1744572) <b>[downstream clone - 4.3.6] VDSM command Get Host Statistics failed: Internal JSON-RPC error: {'reason': '[Errno 19] vnet<x> is not present in the system'}</b><br>
  - [BZ 1740774](https://bugzilla.redhat.com/1740774) <b>Pad memory volumes to 4096 bytes to support 4K storage</b><br>
- - [BZ 1719789](https://bugzilla.redhat.com/1719789) <b>dynamic_ownership enabled breaks file ownership after virtual machine migration and shutdown for disk images on Gluster SD when libgfapi is enabled</b><br>
- - [BZ 1673277](https://bugzilla.redhat.com/1673277) <b>"Volume Option cluster.granular-entry-heal=enable could not be set" when using "Optimize for Virt store"</b><br>
- - [BZ 1688052](https://bugzilla.redhat.com/1688052) <b>Typo and exception due to non-iterable object on gluster fencing testing</b><br>
+ - [BZ 1746718](https://bugzilla.redhat.com/1746718) <b>[downstream clone - 4.3.6] Typo and exception due to non-iterable object on gluster fencing testing</b><br>
  - [BZ 1592916](https://bugzilla.redhat.com/1592916) <b>[blocked on platform bug 1690511] Support device block size of 4096 bytes for file based storage domains</b><br>
  - [BZ 1726834](https://bugzilla.redhat.com/1726834) <b>ioprocess readfile(direct=True) does not use direct I/O</b><br>
  - [BZ 1691760](https://bugzilla.redhat.com/1691760) <b>[SR-IOV] not able to enable VF on broadcom network card</b><br>
@@ -145,8 +137,8 @@ Thanks to Maton Brett for sharing it on users mailing list
 
 #### oVirt Engine
 
+ - [BZ 1715435](https://bugzilla.redhat.com/1715435) <b>Failed to run check-update of host</b><br>
  - [BZ 1741893](https://bugzilla.redhat.com/1741893) <b>uploading raw image to cow disk fails on verify volume</b><br>
- - [BZ 1743246](https://bugzilla.redhat.com/1743246) <b>[downstream clone - 4.3.6] Move/Copy disk are blocked if there is less space in source SD than the size of the disk</b><br>
  - [BZ 1731245](https://bugzilla.redhat.com/1731245) <b>Wrong disk size of managed block device disk shown when virtual machine: Bytes instead of gigabytes</b><br>
  - [BZ 1741155](https://bugzilla.redhat.com/1741155) <b>[downstream clone - 4.3.6] a new size of the direct LUN not updated in Admin Portal</b><br>
  - [BZ 1739134](https://bugzilla.redhat.com/1739134) <b>Error creating local storage domain: Internal Engine Error.</b><br>
@@ -156,7 +148,6 @@ Thanks to Maton Brett for sharing it on users mailing list
  - [BZ 1619011](https://bugzilla.redhat.com/1619011) <b>"sync all cluster networks" - do not attempt to sync hosts which are already in sync</b><br>
  - [BZ 1734429](https://bugzilla.redhat.com/1734429) <b>Support device block size of 4096 bytes for file based storage domains</b><br>
  - [BZ 1720487](https://bugzilla.redhat.com/1720487) <b>[REST] Unable to set 'Unlimited' QOS for vNIC profile using RESTAPI</b><br>
- - [BZ 1744507](https://bugzilla.redhat.com/1744507) <b>[downstream clone - 4.3.6] Snapshot creation was successful, but snapshot remains locked</b><br>
  - [BZ 1686717](https://bugzilla.redhat.com/1686717) <b>UI Dialog for moving disks between Storagedomains is less useful</b><br>
  - [BZ 1720908](https://bugzilla.redhat.com/1720908) <b>Remove host fails when host is in maintenance as it's lock due to DisconnectHostFromStoragePoolServersCommand - host in maintenance should not be locked</b><br>
  - [BZ 1679867](https://bugzilla.redhat.com/1679867) <b>UI exception seen in RHV-M (models.vms.UnitVmModel.$validate)</b><br>
@@ -177,6 +168,11 @@ Thanks to Maton Brett for sharing it on users mailing list
 
 #### oVirt Cockpit Plugin
 
+ - [BZ 1746728](https://bugzilla.redhat.com/1746728) <b>Day 2 [Expand Volume]: Logical size is incorrect while providing the LV size</b><br>
+ - [BZ 1746452](https://bugzilla.redhat.com/1746452) <b>lvcache should be the same as input from user</b><br>
+ - [BZ 1745565](https://bugzilla.redhat.com/1745565) <b>Remove the default arbiter check for vmstore volume</b><br>
+ - [BZ 1745503](https://bugzilla.redhat.com/1745503) <b>VDO with LVM thinpool needs correct entry in inventory file in cockpit based deployment.</b><br>
+ - [BZ 1745501](https://bugzilla.redhat.com/1745501) <b>Deployment wizard has overlapped buttons, for the scenario of reusing existing configuration</b><br>
  - [BZ 1739881](https://bugzilla.redhat.com/1739881) <b>Rename lifecycle methods to support React 17.x</b><br>
  - [BZ 1715959](https://bugzilla.redhat.com/1715959) <b>Single node RHHI-V deployment, results in the host added twice to the cluster, one with backend and other with frontend FQDN</b><br>
  - [BZ 1712714](https://bugzilla.redhat.com/1712714) <b>Provide option for user to attach LVM Cache to specific thinpool</b><br>
@@ -194,21 +190,31 @@ Thanks to Maton Brett for sharing it on users mailing list
 
 #### oVirt Engine UI Extensions
 
+ - [BZ 1747962](https://bugzilla.redhat.com/1747962) <b>[UI] - Migration button is stuck and can't be closed</b><br>
  - [BZ 1738308](https://bugzilla.redhat.com/1738308) <b>Use Maintenance Policy check in cluster upgrade does not work</b><br>
 
 #### oVirt Host Deploy
 
+ - [BZ 1747787](https://bugzilla.redhat.com/1747787) <b>Failed to deploy hosted engine with Failed to execute stage 'Misc configuration': expected string or buffer</b><br>
  - [BZ 1737926](https://bugzilla.redhat.com/1737926) <b>[downstream clone - 4.3.6] Setting FIPS parameter from the engine will make the host unable to reboot if /boot resides on a separate partition (as in RHV-H case)</b><br>
 
 ### No Doc Update
 
+#### VDSM
+
+ - [BZ 1719789](https://bugzilla.redhat.com/1719789) <b>dynamic_ownership enabled breaks file ownership after virtual machine migration and shutdown for disk images on Gluster SD when libgfapi is enabled</b><br>
+
 #### oVirt Engine
 
+ - [BZ 1718694](https://bugzilla.redhat.com/1718694) <b>Fix message about removing iptables support in 4.3</b><br>
+ - [BZ 1746730](https://bugzilla.redhat.com/1746730) <b>[downstream clone - 4.3.6] Engine deletes the leaf volume when SnapshotVDSCommand timed out without checking if the  volume is still used by the VM</b><br>
+ - [BZ 1737612](https://bugzilla.redhat.com/1737612) <b>[CodeChange][i18n] oVirt 4.3 webadmin - translation update</b><br>
  - [BZ 1733089](https://bugzilla.redhat.com/1733089) <b>engine-setup role fails if ovn password is not supplied in vault</b><br>
+ - [BZ 1743246](https://bugzilla.redhat.com/1743246) <b>[downstream clone - 4.3.6] Move/Copy disk are blocked if there is less space in source SD than the size of the disk</b><br>
  - [BZ 1726758](https://bugzilla.redhat.com/1726758) <b>[Cinderlib] - Error connecting to ceph cluster when starting VM with Ceph MBD disk</b><br>
  - [BZ 1613702](https://bugzilla.redhat.com/1613702) <b>[RFE][UI] - Add out-of-sync icon indication for the cluster entity</b><br>
+ - [BZ 1744507](https://bugzilla.redhat.com/1744507) <b>[downstream clone - 4.3.6] Snapshot creation was successful, but snapshot remains locked</b><br>
  - [BZ 1734360](https://bugzilla.redhat.com/1734360) <b>When vdsm spice CA file checking may fail if spice ca directory don't exists</b><br>
- - [BZ 1712437](https://bugzilla.redhat.com/1712437) <b>[downstream clone - 4.3.6] [scale] RHV-M runs out of memory due to to much data reported by the guest agent</b><br>
  - [BZ 1715478](https://bugzilla.redhat.com/1715478) <b>Trying to move disk using REST-API during LSM, at RemoveSnapshot phase, leaves the disk in a status where it can't be moved again</b><br>
 
 #### ovirt-engine-extension-aaa-ldap
@@ -226,18 +232,17 @@ Thanks to Maton Brett for sharing it on users mailing list
 
 	Ahmad Khiet
 	Ales Musil
-	Andrej Cernek
 	Andrej Krejcir
 	Bell Levin
 	Benny Zlotnik
 	Bohdan Iakymets
 	Charles Thao
-	Dafna Ron
 	Daniel Erez
 	Denis Chaplygin
 	Divan Santana
 	Dominik Holler
 	Eitan Raviv
+	Eyal Edri
 	Eyal Shenitzky
 	Fedor Gavrilov
 	Gal Zaidman
@@ -248,10 +253,11 @@ Thanks to Maton Brett for sharing it on users mailing list
 	Joey
 	Kaustav Majumder
 	Lev Veyde
+	Marcin Sobczyk
+	Martin Necas
 	Martin Nečas
 	Martin Perina
 	Michal Skrivanek
-	Miguel Duarte Barroso
 	Milan Zamazal
 	Nir Soffer
 	Ondra Machacek
@@ -268,6 +274,7 @@ Thanks to Maton Brett for sharing it on users mailing list
 	Tomasz Baranski
 	Tomáš Golembiovský
 	Vojtech Juranek
+	Vojtech Szocs
 	Yedidyah Bar David
 	Yotam Fromm
 	Yuval Turgeman
@@ -277,6 +284,5 @@ Thanks to Maton Brett for sharing it on users mailing list
 	jenkins CI
 	jirimacku
 	michalskrivanek
-	mmirecki
 	parthdhanjal
 	thaorell

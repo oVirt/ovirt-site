@@ -10,7 +10,7 @@ When you create a template based on a virtual machine, a read-only copy of the v
 
 Virtual machines created based on a template use the same NIC type and driver as the original virtual machine, but are assigned separate, unique MAC addresses.
 
-You can create a virtual machine directly from **Compute** &rarr; **Templates**, as well as from **Compute** &rarr; **Virtual Machines**. In **Compute** &rarr; **Templates**, select the required template and click New VM. For more information on selecting the settings and controls for the new virtual machine see [Virtual Machine General settings explained](Virtual_Machine_General_settings_explained).
+You can create a virtual machine directly from **Compute** &rarr; **Templates**, as well as from **Compute** &rarr; **Virtual Machines**. In **Compute** &rarr; **Templates**, select the required template and click New VM. For more information on selecting the settings and controls for the new virtual machine see [Reference Settings in Administration Portal and User Portal Windows]((appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows).
 
 ## Sealing Virtual Machines in Preparation for Deployment as Templates
 

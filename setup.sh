@@ -16,4 +16,4 @@ else
     exit 1
 fi 
 
-bundle install
+bundle install --path vendor/bundle

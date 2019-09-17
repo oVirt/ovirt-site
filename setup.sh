@@ -16,6 +16,4 @@ else
     exit 1
 fi 
 
-mkdir -p vendor/bundle
-
 bundle install --path vendor/bundle

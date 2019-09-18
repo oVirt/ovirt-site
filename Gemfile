@@ -29,6 +29,7 @@ group :jekyll_plugins do
   gem "jekyll-font-awesome-sass"
   gem "jekyll-favicon"
   gem 'jekyll-analytics'
+  gem 'jekyll-asciidoc'
 end
 
 # for events

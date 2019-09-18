@@ -44,6 +44,13 @@ kramdown:
   parse_block_html: true
   parse_span_html: true
 
+asciidoctor:
+  base_dir: :docdir
+  # to be able to resolve includes in parent directories
+  safe: unsafe
+  attributes:
+    chunk_section_depth: 1
+
 # YAML defaults for pages
 defaults:
   -

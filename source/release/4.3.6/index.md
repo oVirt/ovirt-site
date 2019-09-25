@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.6 Fifth Release Candidate as of September 05, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.6 Sixth Release Candidate as of September 25, 2019.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -51,19 +51,7 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm)
 
-## Known issues
 
-Since CentOS 7.7 is not available yet, you can get missing sanlock dependency with this repo file:
-
-	cat /etc/yum.repos.d/ov4.3-fix.repo
-	[ovirt-4.3-fix]
-	name=oVirt 4.3 Pre-Release Fix CentOS 7.7
-	baseurl=https://buildlogs.centos.org/centos/7/virt/x86_64/ovirt-4.3/
-	enabled=1
-	gpgcheck=0
-	exclude=python2-sanlock
-
-Thanks to Maton Brett for sharing it on users mailing list
 
 ## What's New in 4.3.6?
 
@@ -88,12 +76,20 @@ Thanks to Maton Brett for sharing it on users mailing list
 
  - [BZ 1744027](https://bugzilla.redhat.com/1744027) <b>[downstream clone - 4.3.6] [RFE] Warn if SELinux is disabled when upgrading RHV-H</b><br>
 
+#### IOProcess
+
+ - [BZ 1753901](https://bugzilla.redhat.com/1753901) <b>ioprocess - Implement block size detection compatible with Gluster storage</b><br>Feature:<br>Provide API to probe block size of underlying filesystem.<br><br>Reason: <br>The API is needed by vdsm to support 4k storage on gluster.<br><br>Result:<br>Vdsm uses this now to support 4k gluster storage.
+
 ### Bug Fixes
 
 #### VDSM
 
+ - [BZ 1748395](https://bugzilla.redhat.com/1748395) <b>[downstream clone - 4.3.6] Can't import guest from export domain to data domain on rhv4.3 due to error "Invalid parameter: 'DiskType=1'"</b><br>
+ - [BZ 1744572](https://bugzilla.redhat.com/1744572) <b>[downstream clone - 4.3.6] VDSM command Get Host Statistics failed: Internal JSON-RPC error: {'reason': '[Errno 19] vnet<x> is not present in the system'}</b><br>
+ - [BZ 1746718](https://bugzilla.redhat.com/1746718) <b>[downstream clone - 4.3.6] Typo and exception due to non-iterable object on gluster fencing testing</b><br>
  - [BZ 1660451](https://bugzilla.redhat.com/1660451) <b>Executor queue can get full if vm.destroy takes some time to complete</b><br>
  - [BZ 1740498](https://bugzilla.redhat.com/1740498) <b>[downstream clone - 4.3.6] Remove nwfilter configuration from the vdsmd service start</b><br>
+ - [BZ 1691760](https://bugzilla.redhat.com/1691760) <b>[SR-IOV] cannot enable VF on broadcom network card</b><br>
 
 #### oVirt image transfer daemon and proxy
 
@@ -113,17 +109,13 @@ Thanks to Maton Brett for sharing it on users mailing list
 
 #### VDSM
 
- - [BZ 1748395](https://bugzilla.redhat.com/1748395) <b>[downstream clone - 4.3.6] Can't import guest from export domain to data domain on rhv4.3 due to error "Invalid parameter: 'DiskType=1'"</b><br>
- - [BZ 1744572](https://bugzilla.redhat.com/1744572) <b>[downstream clone - 4.3.6] VDSM command Get Host Statistics failed: Internal JSON-RPC error: {'reason': '[Errno 19] vnet<x> is not present in the system'}</b><br>
+ - [BZ 1753898](https://bugzilla.redhat.com/1753898) <b>Make block size detection compatible with Gluster storage</b><br>
+ - [BZ 1753116](https://bugzilla.redhat.com/1753116) <b>require updated kernel for CVE-2019-14835</b><br>
  - [BZ 1740774](https://bugzilla.redhat.com/1740774) <b>Pad memory volumes to 4096 bytes to support 4K storage</b><br>
- - [BZ 1746718](https://bugzilla.redhat.com/1746718) <b>[downstream clone - 4.3.6] Typo and exception due to non-iterable object on gluster fencing testing</b><br>
- - [BZ 1592916](https://bugzilla.redhat.com/1592916) <b>[blocked on platform bug 1690511] Support device block size of 4096 bytes for file based storage domains</b><br>
  - [BZ 1726834](https://bugzilla.redhat.com/1726834) <b>ioprocess readfile(direct=True) does not use direct I/O</b><br>
- - [BZ 1691760](https://bugzilla.redhat.com/1691760) <b>[SR-IOV] not able to enable VF on broadcom network card</b><br>
 
 #### oVirt Hosted Engine HA
 
- - [BZ 1739147](https://bugzilla.redhat.com/1739147) <b>[RFE] Support 4k storage - ovirt-hosted-engine-ha</b><br>
  - [BZ 1704500](https://bugzilla.redhat.com/1704500) <b>auditd logs full of sudo events from vdsm</b><br>
 
 #### oVirt Hosted Engine Setup
@@ -137,6 +129,11 @@ Thanks to Maton Brett for sharing it on users mailing list
 
 #### oVirt Engine
 
+ - [BZ 1753168](https://bugzilla.redhat.com/1753168) <b>[downstream clone - 4.3.6] teardownImage attempts to deactivate in-use LV's rendering the VM disk image/volumes in locked state.</b><br>
+ - [BZ 1680499](https://bugzilla.redhat.com/1680499) <b>[RFE] Allowing use of labels in affinity groups</b><br>
+ - [BZ 1751142](https://bugzilla.redhat.com/1751142) <b>[downstream clone - 4.3.6] host activation causes RHHI nodes to lose the quorum</b><br>
+ - [BZ 1748387](https://bugzilla.redhat.com/1748387) <b>[downstream clone - 4.3.7] NPE in DestroyImage endAction during live merge leaving a task in DB for hours causing operations depending on host clean tasks to fail as Deactivate host/StopSPM/deactivate SD</b><br>
+ - [BZ 1745491](https://bugzilla.redhat.com/1745491) <b>[downstream clone - 4.3.6] Unable to start guests in our Power9 cluster without running in headless mode.</b><br>
  - [BZ 1715435](https://bugzilla.redhat.com/1715435) <b>Failed to run check-update of host</b><br>
  - [BZ 1741893](https://bugzilla.redhat.com/1741893) <b>uploading raw image to cow disk fails on verify volume</b><br>
  - [BZ 1731245](https://bugzilla.redhat.com/1731245) <b>Wrong disk size of managed block device disk shown when virtual machine: Bytes instead of gigabytes</b><br>
@@ -156,7 +153,7 @@ Thanks to Maton Brett for sharing it on users mailing list
 
 #### oVirt Engine Appliance
 
- - [BZ 1737555](https://bugzilla.redhat.com/1737555) <b>pam_pkcs11 error trying to login to the graphical console of the hosted-engine VM</b><br>
+ - [BZ 1737555](https://bugzilla.redhat.com/1737555) <b>pam_pkcs11 error trying to login to the graphical console of the hosted-engine VM</b><br>When trying to log in to a Self-Hosted Engine virtual machine using a VNC or SPICE console, an error regarding smart card authorization is displayed.<br>With this release, the log in process completes without errors.
 
 #### oVirt Engine Data Warehouse
 
@@ -190,8 +187,7 @@ Thanks to Maton Brett for sharing it on users mailing list
 
 #### oVirt Engine UI Extensions
 
- - [BZ 1747962](https://bugzilla.redhat.com/1747962) <b>[UI] - Migration button is stuck and can't be closed</b><br>
- - [BZ 1738308](https://bugzilla.redhat.com/1738308) <b>Use Maintenance Policy check in cluster upgrade does not work</b><br>
+ - [BZ 1751144](https://bugzilla.redhat.com/1751144) <b>[UI] cluster upgrade dialog big margin</b><br>
 
 #### oVirt Host Deploy
 
@@ -223,12 +219,11 @@ Thanks to Maton Brett for sharing it on users mailing list
 
 #### oVirt Engine UI Extensions
 
- - [BZ 1734085](https://bugzilla.redhat.com/1734085) <b>[CodeChange][i18n] oVirt 4.3 ui-extensions - translation update</b><br>
- - [BZ 1517931](https://bugzilla.redhat.com/1517931) <b>[RFE][CodeChange]  Use Jest instead of Karma/Mocha/Sinon for enhanced testing maintainability</b><br>
+ - [BZ 1750669](https://bugzilla.redhat.com/1750669) <b>Cluster upgrade dialogue closes unexpectedly with Minified React error #130</b><br>
 
 #### Contributors
 
-56 people contributed to this release:
+58 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -253,6 +248,8 @@ Thanks to Maton Brett for sharing it on users mailing list
 	Joey
 	Kaustav Majumder
 	Lev Veyde
+	Liran Rotenberg
+	Lucia Jelinkova
 	Marcin Sobczyk
 	Martin Necas
 	Martin Nečas
@@ -261,6 +258,7 @@ Thanks to Maton Brett for sharing it on users mailing list
 	Milan Zamazal
 	Nir Soffer
 	Ondra Machacek
+	Ori_Liel
 	Pavel Bar
 	Sahina Bose
 	Sandro Bonazzola
@@ -274,7 +272,6 @@ Thanks to Maton Brett for sharing it on users mailing list
 	Tomasz Baranski
 	Tomáš Golembiovský
 	Vojtech Juranek
-	Vojtech Szocs
 	Yedidyah Bar David
 	Yotam Fromm
 	Yuval Turgeman

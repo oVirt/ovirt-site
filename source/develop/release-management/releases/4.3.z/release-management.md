@@ -17,7 +17,7 @@ title: oVirt 4.3.z Release Management
 | **2019-08-29** | Fourth Release candidate |
 | **2019-09-05** | Fifth Release candidate  |
 | **2019-09-25** | Sixth Release candidate  |
-| **2019-09-xx** | General availability     |
+| **2019-09-26** | General availability     |
 
 ### Release criteria
 

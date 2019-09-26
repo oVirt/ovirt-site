@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.6 Sixth Release Candidate as of September 25, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.6 release as of September 26, 2019.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -23,14 +23,6 @@ projects, including libvirt, Gluster, PatternFly, and Ansible.
 This release is available now for Red Hat Enterprise Linux 7.7 and
 CentOS Linux 7.7 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
@@ -44,12 +36,6 @@ page.
 
 To learn about features introduced before 4.3.6, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm)
 
 
 
@@ -109,7 +95,6 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### VDSM
 
- - [BZ 1753898](https://bugzilla.redhat.com/1753898) <b>Make block size detection compatible with Gluster storage</b><br>
  - [BZ 1753116](https://bugzilla.redhat.com/1753116) <b>require updated kernel for CVE-2019-14835</b><br>
  - [BZ 1740774](https://bugzilla.redhat.com/1740774) <b>Pad memory volumes to 4096 bytes to support 4K storage</b><br>
  - [BZ 1726834](https://bugzilla.redhat.com/1726834) <b>ioprocess readfile(direct=True) does not use direct I/O</b><br>
@@ -198,6 +183,7 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### VDSM
 
+ - [BZ 1755271](https://bugzilla.redhat.com/1755271) <b>[downstream clone - 4.3.6] Make block size detection compatible with Gluster storage</b><br>
  - [BZ 1719789](https://bugzilla.redhat.com/1719789) <b>dynamic_ownership enabled breaks file ownership after virtual machine migration and shutdown for disk images on Gluster SD when libgfapi is enabled</b><br>
 
 #### oVirt Engine

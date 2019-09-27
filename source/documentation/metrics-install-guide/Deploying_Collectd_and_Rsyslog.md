@@ -24,8 +24,12 @@ Deploy collectd and rsyslog on the Red Hat Virtualization hosts to collect logs 
 # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh
 ```
 **NOTE** Fluentd has beed replaced by Rsyslog for hosts version 4.3 and above, due to better performance.
+For Upgrading Metrics from 4.2 follow this  [guide](Upgrading_Metrics_Store.html).
+
 
 **Prev:** [Chapter 2: Installing Metrics Store](Installing_Metrics_Store)<br>
 **Next:** [Chapter 4: Verifying the Installation](Verifying_the_Installation)
 
 [Adapted from RHV 4.3 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html-single/metrics_store_installation_guide/index#Verifying_the_metrics_store_installation)
+
+

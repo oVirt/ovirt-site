@@ -1,3 +1,6 @@
+---
+title: oVirt Node
+---
 # oVirt Node
 
 ## Installing oVirt Node

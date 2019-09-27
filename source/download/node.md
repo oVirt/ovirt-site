@@ -29,7 +29,7 @@ Installing oVirt Node on a physical machine involves three key steps:
 
 This is the oVirt Node 4.3 image including the latest oVirt 4.3 packages. This is the latest stable release.
 
-* [Installation ISO (4.3.5 based on el7)](https://resources.ovirt.org/pub/ovirt-4.3/iso/ovirt-node-ng-installer/4.3.5-2019073010/el7/ovirt-node-ng-installer-4.3.5-2019073010.el7.iso)
+* [Installation ISO (4.3.6 based on el7)](https://resources.ovirt.org/pub/ovirt-4.3/iso/ovirt-node-ng-installer/4.3.6-2019092614/el7/ovirt-node-ng-installer-4.3.6-2019092614.el7.iso)
 
 ## oVirt Node Master - Latest master, experimental
 
@@ -64,5 +64,4 @@ This is the oVirt Node 4 image, including the latest oVirt 4 packages.
 * **oVirt Node 3 Next** (Tech-Preview, downwards compatible within oVirt 3, **recommended**)
   * This is the oVirt Node Next image, with the newly designed oVirt Node, but using the stable oVirt 3 packages.
   * [Installation ISO](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-node-ng-installer/ovirt-node-ng-installer-ovirt-3.6-2016052403.iso)
-
 

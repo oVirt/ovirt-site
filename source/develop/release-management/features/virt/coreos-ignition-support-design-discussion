@@ -1,0 +1,69 @@
+---
+title: CoreOS Ignition Support Design Review
+category: feature
+authors: srosenbe
+feature_name: CoreOS Ignition Support Design Review
+feature_modules: engine
+feature_status: Tech Preview 4.3
+---
+
+## Overview
+Design Proposals based upon CoreOS Ignition Support Documentation: 
+
+https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/coreos-ignition-support.md
+
+The purpose of this document is to define which features shall be supported by CoreOS Ignition for RHCOS and FCOS within oVirt as per the current Cloud-Init implementation. As per the document referenced, certain features may not be included at least within the initial release and therefore an agreement on what may be added initially and what can be implemented in later releases is required as per the "Limitations" and "Future work" sections therein.
+
+
+## Initial Run for Cloud-Init 
+
+Cloud-Init supports the following top level functions:
+
+- VM Hostname
+- Configure Time Zone
+- Authentication
+- Networks
+- Custom Script
+
+From the coreos-ignition-support document:
+> Network configuration which are currently cloud-init specific protocol will not work with ignition. Ignition simply
+> manipulate the disk therefor the desired network state will be achieved through laying configuration files.
+
+Therefore, we may need to consider the impact of removing the Network configuration for Ignition or discuss other options.
+
+
+Authentication Section:
+
+- User Name
+- Use already configured password
+- Password
+- Verified Password
+- SSH Authorized Keys
+- Regenerate SSH Keys
+
+From the coreos-ignition-support document:
+> authentication/ssh-authorized-keys: that would be simply a copy to an ignition config snippet
+
+Current support for SSH Authorized Keys may be postponed for future development due to Ignition limitations or to discuss other options.
+
+Network Section:
+
+- Network Protocol
+- DNS Servers
+- DNS Search Domains
+- In-guest Network Interface Name
+- List Boot Protocols:
+  - IPv4 Boot Protocol: None/DHCP/Static
+  - IPv6 Boot Portocol: None/DHCP/Static
+  
+Defining the Network interface via "layering configuration files" can be defined for future development.
+
+Custom Script Section: 
+
+- Allows the user to enter a script that shall be run on the Virtual Machine when it starts. Format is in Custom YAML sections which may address the SSH Authentication and Networking requirements. Future implementation may allow for automatically sending custom scripts for various configurations. EXamples can be found here:
+
+https://coreos.com/ignition/docs/latest/examples.html
+
+Note: Just as SysPrep sends the configuration within files by creating the Unattend.xml file, we may consider a similiar solution for Ignition for future consideration.
+
+

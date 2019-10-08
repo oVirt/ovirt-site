@@ -41,6 +41,8 @@ To learn about features introduced before 4.3.6, see the
 
 ## What's New in 4.3.6?
 
+Release has been updated on [October 8th providing additional fixes](https://lists.ovirt.org/archives/list/announce@ovirt.org/thread/L7HQ3OU3PUEOJZKKZPLDOCUNMZD6UW5C/).
+
 ### Release Note
 
 #### oVirt Engine WildFly
@@ -53,10 +55,14 @@ To learn about features introduced before 4.3.6, see the
 
 ### Enhancements
 
+#### VDSM
+
+ - [BZ 1753116](https://bugzilla.redhat.com/1753116) <b>require updated kernel for CVE-2019-14835</b><br>vdsm now requires a host kernel with fix for CVE-2019-14835
+
 #### oVirt Engine
 
  - [BZ 1741152](https://bugzilla.redhat.com/1741152) <b>[downstream clone - 4.3.6] [RFE] - Creating an NFS storage domain the engine should let the user specify exact NFS version v4.0 and not just v4</b><br>
- - [BZ 1680498](https://bugzilla.redhat.com/1680498) <b>[RFE] Implement priorities for soft affinity groups</b><br>Feature: <br>Added priorities to nonenforcing affinity groups. If not all affinity groups can be satisfied, the groups with lower priority are broken first.<br><br>Reason: <br>Some affinities can be more important than others. Previously, it was not possible to specify it.<br><br>Result: <br>When a VM is started or migrated, a host is chosen, such that the broken affinity groups have the lowest priority.<br><br>A new text field has been added to the affinity group dialog, to set to priority. It can contain any real number, not just integers. Priority can also be set using a new parameter in the REST API.
+ - [BZ 1680498](https://bugzilla.redhat.com/1680498) <b>[RFE] Implement priorities for soft affinity groups</b><br>A new text field has been added to the affinity group dialog to set priority. It can contain any real number, not just integers. Priority can also be set using a new parameter in the REST API.<br>When a Virtual Machine is started or migrated, a host is selected, with the broken affinity groups having the lowest priority.<br>If not all affinity groups can be satisfied, the groups with lower priority are broken first.
 
 #### imgbased
 
@@ -64,7 +70,7 @@ To learn about features introduced before 4.3.6, see the
 
 #### IOProcess
 
- - [BZ 1753901](https://bugzilla.redhat.com/1753901) <b>ioprocess - Implement block size detection compatible with Gluster storage</b><br>Feature:<br>Provide API to probe block size of underlying filesystem.<br><br>Reason: <br>The API is needed by vdsm to support 4k storage on gluster.<br><br>Result:<br>Vdsm uses this now to support 4k gluster storage.
+ - [BZ 1753901](https://bugzilla.redhat.com/1753901) <b>ioprocess - Implement block size detection compatible with Gluster storage</b><br>The current release provides an API to probe the block size of the underlying filesystem. The vdsm package needs this  API to support 4k storage on gluster.
 
 ### Bug Fixes
 
@@ -83,6 +89,8 @@ To learn about features introduced before 4.3.6, see the
 
 #### oVirt Engine
 
+ - [BZ 1753168](https://bugzilla.redhat.com/1753168) <b>[downstream clone - 4.3.6] teardownImage attempts to deactivate in-use LV's rendering the VM disk image/volumes in locked state.</b><br>
+ - [BZ 1751142](https://bugzilla.redhat.com/1751142) <b>[downstream clone - 4.3.6] host activation causes RHHI nodes to lose the quorum</b><br>
  - [BZ 1709201](https://bugzilla.redhat.com/1709201) <b>Change md5 checksum used in GlusterHooks calls</b><br>
  - [BZ 1734671](https://bugzilla.redhat.com/1734671) <b>[scale] updatevmdynamic broken if too many users logged in - psql ERROR: value too long for type character varying(255)</b><br>
  - [BZ 1733438](https://bugzilla.redhat.com/1733438) <b>[downstream clone - 4.3.6] engine-setup fails to upgrade to 4.3 with Unicode characters in CA subject</b><br>
@@ -95,7 +103,6 @@ To learn about features introduced before 4.3.6, see the
 
 #### VDSM
 
- - [BZ 1753116](https://bugzilla.redhat.com/1753116) <b>require updated kernel for CVE-2019-14835</b><br>
  - [BZ 1740774](https://bugzilla.redhat.com/1740774) <b>Pad memory volumes to 4096 bytes to support 4K storage</b><br>
  - [BZ 1726834](https://bugzilla.redhat.com/1726834) <b>ioprocess readfile(direct=True) does not use direct I/O</b><br>
 
@@ -114,9 +121,10 @@ To learn about features introduced before 4.3.6, see the
 
 #### oVirt Engine
 
- - [BZ 1753168](https://bugzilla.redhat.com/1753168) <b>[downstream clone - 4.3.6] teardownImage attempts to deactivate in-use LV's rendering the VM disk image/volumes in locked state.</b><br>
+ - [BZ 1758052](https://bugzilla.redhat.com/1758052) <b>Create VM rollback fails with NPE leaving VM locked - Exception in invoking callback of command AddVmFromTemplate- Exception: javax.ejb.EJBTransactionRolledbackException</b><br>
+ - [BZ 1757782](https://bugzilla.redhat.com/1757782) <b>Deleting a Single snapshot disk live merge 'REDUCE_IMAGE' step fails with NPE and snapshot disk remains in illegal state</b><br>
+ - [BZ 1755869](https://bugzilla.redhat.com/1755869) <b>[downstream clone - 4.3.6] RHV 4.3 throws an exception when trying to access VMs which have snapshots from unsupported compatibility levels</b><br>
  - [BZ 1680499](https://bugzilla.redhat.com/1680499) <b>[RFE] Allowing use of labels in affinity groups</b><br>
- - [BZ 1751142](https://bugzilla.redhat.com/1751142) <b>[downstream clone - 4.3.6] host activation causes RHHI nodes to lose the quorum</b><br>
  - [BZ 1748387](https://bugzilla.redhat.com/1748387) <b>[downstream clone - 4.3.7] NPE in DestroyImage endAction during live merge leaving a task in DB for hours causing operations depending on host clean tasks to fail as Deactivate host/StopSPM/deactivate SD</b><br>
  - [BZ 1745491](https://bugzilla.redhat.com/1745491) <b>[downstream clone - 4.3.6] Unable to start guests in our Power9 cluster without running in headless mode.</b><br>
  - [BZ 1715435](https://bugzilla.redhat.com/1715435) <b>Failed to run check-update of host</b><br>

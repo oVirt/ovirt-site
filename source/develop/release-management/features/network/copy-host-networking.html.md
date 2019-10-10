@@ -143,6 +143,7 @@ static IP configuration which should be set as none:
     -  Interface with single network
     -  Bond with two interfaces with single non-VLAN and VLAN network attached
     -  Interface with multiple VLANs
+    -  Interface with a label
     -  Network with DHCP configuration IPv4 and IPv6
     -  Network with static IP configuration IPv4 and IPv6 
     -  Network with stateless IPv6 configuration

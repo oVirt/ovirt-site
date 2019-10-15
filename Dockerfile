@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:7
 MAINTAINER Garrett LeSage <garrett@redhat.com>
 
 # User & group IDs — should match local user

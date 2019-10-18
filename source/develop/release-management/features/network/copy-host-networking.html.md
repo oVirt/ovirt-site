@@ -60,7 +60,30 @@ the new network configuration.
   
 #### Copy a network configuration using the REST API
 
-1. In the REST API, specify the "source host" whose configuration you want to copy.
+Send POST method 
+
+`api/hosts/{destinaton_host_id}/copyhostnetworks` 
+
+with body:
+
+##### XML
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<action>
+    <source_host id="{source_host_id}" />
+</action>
+```
+
+##### JSON
+
+```
+{
+    "source_host" : {
+      "id" : "{source_host_id}"
+    }
+}
+```
 
 ### Limitations
 

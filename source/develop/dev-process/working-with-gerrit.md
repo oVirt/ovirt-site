@@ -56,7 +56,7 @@ To allow SSH to access Gerrit, update the SSH public key via Gerrit settings:
 
 ### Verifying the SSH Configuration
 
-      ssh @gerrit.ovirt.org
+      ssh gerrit.ovirt.org
 
 If SSH is configured correctly, you will see the following message:
 

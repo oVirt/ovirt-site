@@ -2,6 +2,17 @@
 title: oVirt 4.3.z Release Management
 ---
 
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+
+
 # oVirt 4.3.z Release Management
 
 # oVirt 4.3.7

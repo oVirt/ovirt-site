@@ -308,8 +308,8 @@ Once **Optimize for Virt Store** is selected on a gluster volumes below options 
   * Options from group **virt**. Volume Options that are tuned for a use-case are packaged in a file so that it can be applied as a single group. This sets the `cluster.quorum-type` parameter to `auto`, and the `cluster.server-quorum-type` parameter to `server` and other options (like enabling shard) to ensure the volume is optimized to store virtual image files. For complete list of options set in a particular release of gluster, see [group-virt](https://github.com/gluster/glusterfs/blob/master/extras/group-virt.example)
   * performance.strict-o-direct on *Ensure that write-behind honours O_DIRECT flags.When this option is enabled and a file descriptor is opened using the O_DIRECT flag, write-back caching is disabled for writes that affect that file descriptor.*
   * network.remote-dio off *filters _ O_DIRECT flags in open/create calls before sending those requests to server. Set to off to ensure all o-direct I/O is passed to brick*
-  * storage.owner-uid 36 *Sets the UID for the bricks of the volume to qemu userid*
-  * storage.owner-gid 36 *Sets the GID for the bricks of the volume to qemu*
+  * storage.owner-uid 36 *Sets the UID for the bricks of the volume to vdsm userid*
+  * storage.owner-gid 36 *Sets the GID for the bricks of the volume to kvm group id*
   * network.ping-timeout 30 *time duration for which the client waits to check if the server is responsive*
 
 An alternate method is to access one of the Gluster Storage nodes and set the volume group to `virt` and the options provided below via CLI.

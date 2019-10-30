@@ -47,15 +47,12 @@ This method takes a single parameter, the host ID from which to copy the configu
 2. Identify a "destination host" to which you are copying the configuration.
 3. On the destination host, verify that the number of physical connections is equal to, or greater than, those on the
 source host.
-4. On the destination host, verify that the interface names match those of the source host.
 
-* If the destination host has more interfaces than the source host, ignore the surplus interfaces.
-* If the interface names do not match, update the names, reboot the host, and verify that the names match before
-continuing.
+    * If the destination host has more interfaces than the source host, ignore the surplus interfaces.
 
-5. On the destination host, click the `Copy Host Networking` button.
-6. In the popup window that appears, select the source host from which to copy the configuration.
-7. Click the `Copy` button. When the destination host finishes copying the network configuration, it reboots with
+4. On the destination host, click the `Copy Host Networking` button.
+5. In the popup window that appears, select the source host from which to copy the configuration.
+6. Click the `Copy` button. When the destination host finishes copying the network configuration, it reboots with
 the new network configuration.
   
 #### Copy a network configuration using the REST API
@@ -93,13 +90,12 @@ with body:
 This sets the boot protocol in the resulting network to `none`.
 
 * Copying a configuration to a host with the same interface names but different physical network connections will
-produce a bad configuration. Only copy configurations to hosts that have the same interface names and physical 
-network connections. 
+produce a bad configuration.
 
 * The destination host has to have an equal or greater number of interfaces as the original host. Otherwise,
 the feature cannot determine what to do and the operation will fail.
 
-* The `ovirtmgmt` network stays on the original interface which is excluded from the operation. 
+* The cluster's management network stays on the original interface which is excluded from the operation. 
 
 
 ### Implementation
@@ -114,8 +110,8 @@ Given the parameters, the method validates that the following items are correct:
 * Both hosts are in the same cluster.
 * The destination host has an equal or higher number of interfaces than the source host.
 
-(NOTE: These interface names and physical connections to the datacenter must be identical. Otherwise, this sorting
-process produces a bad network configuration on the destination host.)
+(NOTE: These interface names and physical connections to the datacenter are recommended to be identical. Otherwise, 
+this sorting process might produce a bad network configuration on the destination host.)
 
 The method prepares a set of network attachment definitions for the DestinationHost by doing the following:
 

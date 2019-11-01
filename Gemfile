@@ -32,6 +32,9 @@ group :jekyll_plugins do
   gem 'jekyll-asciidoc'
 end
 
+# for syntax highlighting
+gem 'coderay', '~> 1.1', '>= 1.1.2'
+
 # for events
 gem 'icalendar', '~> 1.5'
 gem 'chronic'

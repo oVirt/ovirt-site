@@ -44,12 +44,22 @@ kramdown:
   parse_block_html: true
   parse_span_html: true
 
+plugins:
+  - jekyll-asciidoc
+
+asciidoc: {}
 asciidoctor:
   base_dir: :docdir
   # to be able to resolve includes in parent directories
   safe: unsafe
   attributes:
     chunk_section_depth: 1
+    site-baseurl: /
+    page-liquid: ''
+    source-highlighter: coderay
+    coderay-css: style
+    icons: font
+    experimental: ''
 
 # YAML defaults for pages
 defaults:

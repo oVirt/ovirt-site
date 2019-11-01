@@ -44,10 +44,6 @@ kramdown:
   parse_block_html: true
   parse_span_html: true
 
-plugins:
-  - jekyll-asciidoc
-
-asciidoc: {}
 asciidoctor:
   base_dir: :docdir
   # to be able to resolve includes in parent directories

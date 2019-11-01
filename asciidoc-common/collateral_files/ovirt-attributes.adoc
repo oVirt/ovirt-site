@@ -1,0 +1,60 @@
+// Warning: Changing these attribute definitions is very likely to
+// break links throughout our doc set.
+// Carefully analyze, test, and peer review all changes to this file!
+:vernum_rhv: 4.3
+:vernum_rhv_legacy: 4.2
+:vernum_satellite: 6.5
+:vernum_rhel: 8.0
+:vernum_rhel_legacy: 7.6
+:vernum_gluster: 3.3
+:vernum_cloudforms: 4.6
+:vernum_rhhi: 1.0
+:vernum_rhop: 10
+:vernum_rh_ceph_storage: 3
+:doctype: book
+:toc: left
+:toclevels: 3
+:numbered!:
+:experimental:
+:numbered:
+// This first set of URL attributes are the 'atomic URL attributes' that we'll
+// reuse in the 'composite URL attributes'.
+// Where possible, use the composite URL attributes instead of the atomic ones.
+:URL_customer-portal: https://access.redhat.com/
+:URL_docs: documentation/
+:URL_lang-locale: en-us/
+:URL_product_rhv: red_hat_virtualization/
+:URL_vernum_rhv: {vernum_rhv}/
+:URL_product_gluster: red_hat_gluster_storage/
+:URL_product_rhel: red_hat_enterprise_linux/
+:URL_vernum_rhel_legacy: 7/
+:URL_vernum_rhel_latest: 8/
+// This attribute is not valid because the structure of the last (right-most)
+// element in the URL changes depending on whether this element is `html` or
+// `html-single`. Using either value breaks the URL that contain the other
+// value.
+//:URL_doc_format: html-single/
+// Here are the composite URL attributes.
+// Where possible, use these instead of the atomic URL attributes.
+:URL_virt_product_docs: https://ovirt.org/documentation/
+:URL_rhel_docs_legacy: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhel}{URL_vernum_rhel_legacy}
+:URL_rhel_docs_latest: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhel}{URL_vernum_rhel_latest}
+:URL_gluster_docs: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_gluster}{URL_vernum_gluster}
+// For example:
+// Managing searches saved as link:{URL_virt_product_docs}html-single/introduction_to_the_administration_portal/index#chap-Bookmarks[public bookmarks].
+//
+// Example URL that this resolves to
+// https://ovirt.org/documentation/introduction_to_the_administration_portal/index#chap-Bookmarks
+:org-fullname: oVirt
+:virt-product-fullname: oVirt
+:virt-product-shortname: oVirt
+:engine-name: Engine
+:hypervisor-fullname: oVirt Node
+:hypervisor-shortname: Node
+:enterprise-linux: Enterprise Linux
+:enterprise-linux-host-fullname: Enterprise Linux host
+:enterprise-linux-host-shortname: Enterprise Linux host
+:gluster-storage-fullname: Gluster Storage
+// This ovirt-doc attribute triggers some ifdef and ifeval statements that
+// express or suppress organization-specific content.
+:ovirt-doc:

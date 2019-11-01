@@ -25,6 +25,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
     chronic (0.10.2)
+    coderay (1.1.2)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -134,6 +135,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   chronic
+  coderay (~> 1.1, >= 1.1.2)
   hash_dot (~> 2.4.2)
   icalendar (~> 1.5)
   jekyll (~> 3)

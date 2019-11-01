@@ -1,0 +1,13 @@
+=== Connecting to virtual machines
+
+*Connecting to a virtual machine*
+
+. In the virtual machines pane, click the *Run* button in a virtual machine's card to start that virtual machine.
+
+. Click the *Console* button to connect to the virtual machine.
+
+. You will be asked to download a *.vv* file.
+
+. Open the file with *remote-viewer*. A console window displays.
++
+You can now use the virtual machine in the same way you would use a physical desktop.

@@ -316,7 +316,7 @@ An alternate method is to access one of the Gluster Storage nodes and set the vo
 
     # gluster volume set VOLUME_NAME group virt
     # gluster volume set VOLUME_NAME performance.strict-o-direct on
-    # gluster volume set VOLUME_NAME network.remote-dio disable
+    # gluster volume set VOLUME_NAME network.remote-dio off
     # gluster volume set VOLUME_NAME storage.owner-uid 36
     # gluster volume set VOLUME_NAME storage.owner-gid 36
     # gluster volume set VOLUME_NAME network.ping-timeout 30

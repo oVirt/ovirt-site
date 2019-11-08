@@ -29,5 +29,5 @@ You will be invited to subscribe to this list if you are subscribed to security 
 
 ## Security advisories
 
-The [security advisories](/documentation/security/security-advisories/) page lists all security vulnerabilities fixed in oVirt.
+The [security advisories](security-advisories/) page lists all security vulnerabilities fixed in oVirt.
 

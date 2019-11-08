@@ -1,3 +1,7 @@
+---
+title: Browser Support and Mobile Clients
+---
+
 # Browser Support and Mobile Clients
 
 ## Recommended browsers

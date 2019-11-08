@@ -35,9 +35,9 @@ This is the oVirt Node 4.3 image including the latest oVirt 4.3 packages. This i
 
 This is the oVirt Node image build based on oVirt packages from the master branches.
 
-* [oVirt Node master experimental ISO (based on el7)](http://jenkins.ovirt.org/job/ovirt-node-ng-image_master_build-artifacts-el7-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
+* [oVirt Node master experimental ISO (based on el8)](http://jenkins.ovirt.org/job/ovirt-node-ng-image_master_build-artifacts-el8-x86_64/lastSuccessfulBuild/artifact/exported-artifacts/latest-installation-iso.html)
 
-* Jenkins job (el7): <http://jenkins.ovirt.org/job/ovirt-node-ng-image_master_build-artifacts-el7-x86_64/>
+* Jenkins job (el8): <http://jenkins.ovirt.org/job/ovirt-node-ng-image_master_build-artifacts-el8-x86_64/>
 
 # Old releases
 

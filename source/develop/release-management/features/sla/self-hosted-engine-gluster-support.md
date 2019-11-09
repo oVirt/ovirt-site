@@ -69,22 +69,7 @@ Like any other gluster storage domain, the hosted engine storage domain on glust
 
 `vdsClient -s 0 glusterVolumesList volumeName='<volname>' remoteServer='<server-name>'`
 
-*   The volume must be configured as following:
-
-```
-    gluster volume set <volname> group virt
-    gluster volume set <volname> storage.owner-uid 36 
-    gluster volume set <volname> storage.owner-gid 36
-    gluster volume set <volname> performance.low-prio-threads 32
-    gluster volume set <volname> cluster.data-self-heal-algorithm full
-    gluster volume set <volname> network.ping-timeout   30
-```   
-It is recommended to turn on [sharding](http://blog.gluster.org/2015/12/introducing-shard-translator/) for the gluster volume
-
-```
-    gluster volume set `<volume>` features.shard on
-    gluster volume set `<volume>` features.shard-block-size 512MB
-```
+*   The volume must be configured as per [Gluster Volume Options for Virtual Machine Image Store](documentation/admin-guide/chap-Working_with_Gluster_Storage#Options set on Gluster Storage Volumes to Store Virtual Machine Images)
 
 *  Gluster volume has been started 
 *  Gluster ports opened on all the gluster hosts

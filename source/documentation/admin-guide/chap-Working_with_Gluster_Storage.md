@@ -300,13 +300,30 @@ Volumes can be optimized to store virtual machines during creation by selecting 
 
 **Important:** If a volume is replicated across three or more nodes, ensure the volume is optimized for virtual storage to avoid data inconsistencies across the nodes.
 
-An alternate method is to access one of the Gluster Storage nodes and set the volume group to `virt`. This sets the `cluster.quorum-type` parameter to `auto`, and the `cluster.server-quorum-type` parameter to `server`.
+
+### Options set on Gluster Storage Volumes to Store Virtual Machine Images
+
+Once **Optimize for Virt Store** is selected on a gluster volumes below options are set on the volume
+
+  * Options from group **virt**. Volume Options that are tuned for a use-case are packaged in a file so that it can be applied as a single group. This sets the `cluster.quorum-type` parameter to `auto`, and the `cluster.server-quorum-type` parameter to `server` and other options (like enabling shard) to ensure the volume is optimized to store virtual image files. For complete list of options set in a particular release of gluster, see [group-virt](https://github.com/gluster/glusterfs/blob/master/extras/group-virt.example)
+  * performance.strict-o-direct on *Ensure that write-behind honours O_DIRECT flags.When this option is enabled and a file descriptor is opened using the O_DIRECT flag, write-back caching is disabled for writes that affect that file descriptor.*
+  * network.remote-dio off *filters _ O_DIRECT flags in open/create calls before sending those requests to server. Set to off to ensure all o-direct I/O is passed to brick*
+  * storage.owner-uid 36 *Sets the UID for the bricks of the volume to vdsm userid*
+  * storage.owner-gid 36 *Sets the GID for the bricks of the volume to kvm group id*
+  * network.ping-timeout 30 *time duration for which the client waits to check if the server is responsive*
+
+An alternate method is to access one of the Gluster Storage nodes and set the volume group to `virt` and the options provided below via CLI.
 
     # gluster volume set VOLUME_NAME group virt
+    # gluster volume set VOLUME_NAME performance.strict-o-direct on
+    # gluster volume set VOLUME_NAME network.remote-dio off
+    # gluster volume set VOLUME_NAME storage.owner-uid 36
+    # gluster volume set VOLUME_NAME storage.owner-gid 36
+    # gluster volume set VOLUME_NAME network.ping-timeout 30
 
-Verify the status of the volume by listing the volume information:
+Verify the status of the volume by listing the volume information. This will display the options set on the volume and the state:
 
-    # gluster volume info VOLUME_NAME
+    # gluster volume info VOLUME_NAME all
 
 ### Starting Volumes
 

@@ -50,9 +50,9 @@ PUT /ovirt-engine/api/disks/123
 
 Each disk type has different characteristics that can be edited:
 
-* For Image disks: ```size, alias, description, wipe_after_delete, shareable, backup``` and ```disk_profile```.
+* For Image disks: ```provisioned_size, alias, description, wipe_after_delete, shareable, backup``` and ```disk_profile```.
 * For LUN disks: ```alias, description``` and ```shareable```.
-* For Cinder and Managed Block disks: ```size, alias``` and ```description```.
+* For Cinder and Managed Block disks: ```provisioned_size, alias``` and ```description```.
 * For VM attached disks, the ```qcow_version``` can also be edited.
 
 For example, editing an image disk:

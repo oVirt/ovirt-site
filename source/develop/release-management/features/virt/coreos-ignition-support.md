@@ -200,7 +200,7 @@ For a negative test, make sure that cloud-init keep working for Centos or any ot
 - This feature doesn't support all the `VM.initialization` properties, and we would certainly want to include some of
   them, without letting the admin specifying an ignition config:
   - authentication/ssh-authorized-keys: that would be simply a copy to an ignition config snippet
-  - hostname: this is already available in master, but a user still needs to define an igntion config in custom_script -
+  - hostname: this is already available in master, but a user still needs to define an ignition config in custom_script -
     https://gerrit.ovirt.org/#/c/100397/
 - Network configuration which are currently cloud-init specific protocol will not work with ignition. Ignition simply
   manipulate the disk therefor the desired network state will be achieved through laying configuration files.

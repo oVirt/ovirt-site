@@ -594,6 +594,23 @@ You have no tags in your repo. If you want to push your repo from another machin
 
 We have a partial code walk through of the [virt subsystem](/develop/developer-guide/vdsm/vm-startup/) (virtual machine life cycle, creation, migration) (more to come...)
 
+## Debugging 
+
+You can debug VDSM using the standard Python debugger [pdb] (https://docs.python.org/3/library/pdb.html)
+Add `import pdb; pdb.set_trace()` at the point where you want a breakpoint. Make sure you have both vdsmd and supervdsmd
+services stopped. Now you have to run vdsm and supervdsm interactively. 
+First run supervdsm as in one console
+
+       /usr/bin/python3 /usr/share/vdsm/supervdsmd --sockfile /var/run/vdsm/svdsm.sock
+       
+Make sure you need to run vdsm as user vdsm and `vdsm:x:36:36::/home/vdsm:/bin/bash` is set in your `/etc/passwd` and `/etc/passwd-`. Login as root and issue the following command in another console
+       
+       $ sudo su vdsm - 
+
+       /usr/bin/python3 /usr/share/vdsm/vdsmd
+
+Now at some point when vdsm stops at breakpoint you can use the pdb commands to navigate and debug.      
+
 ## Performance and scalability
 
 To analyse the performance and the scalability of the VDSM, you first need to [set up the tools](/develop/developer-guide/vdsm/profiling-vdsm/). Then you may want to [run common scenarios](/develop/developer-guide/vdsm/benchmarks/), or write your own using a [template](/develop/developer-guide/vdsm/benchmarks/), to make sure the results are easily shareable.

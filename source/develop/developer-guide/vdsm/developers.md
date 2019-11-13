@@ -601,13 +601,13 @@ Add `import pdb; pdb.set_trace()` at the point where you want a breakpoint. Make
 services stopped. Now you have to run vdsm and supervdsm interactively. 
 First run supervdsm as in one console
 
-       /usr/bin/python3 /usr/share/vdsm/supervdsmd --sockfile /var/run/vdsm/svdsm.sock
+        $ /usr/bin/python3 /usr/share/vdsm/supervdsmd --sockfile /var/run/vdsm/svdsm.sock
        
 Make sure you need to run vdsm as user vdsm and `vdsm:x:36:36::/home/vdsm:/bin/bash` is set in your `/etc/passwd` and `/etc/passwd-`. Login as root and issue the following command in another console
        
        $ sudo su vdsm - 
 
-       /usr/bin/python3 /usr/share/vdsm/vdsmd
+       $ /usr/bin/python3 /usr/share/vdsm/vdsmd
 
 Now at some point when vdsm stops at breakpoint you can use the pdb commands to navigate and debug.      
 

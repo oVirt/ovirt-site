@@ -143,6 +143,7 @@ Release has been updated on [October 8th providing additional fixes](https://lis
  - [BZ 1679867](https://bugzilla.redhat.com/1679867) <b>UI exception seen in RHV-M (models.vms.UnitVmModel.$validate)</b><br>
  - [BZ 1533160](https://bugzilla.redhat.com/1533160) <b>Webadmin-manage domain window - it's possible to insert a number bigger than storage domain size</b><br>
  - [BZ 1744510](https://bugzilla.redhat.com/1744510) <b>[downstream clone - 4.3.6] Disk migration progress bar not clearly visible and unusable.</b><br>
+ - [BZ 1749202](https://bugzilla.redhat.com/1749202) <b> - [downstream clone - 4.3.7] "Field 'foo' can not be updated when status is 'Up'" in engine.log when listing 'NEXT_RUN' configuration snapshot VMs</b><br>
 
 #### oVirt Engine Appliance
 

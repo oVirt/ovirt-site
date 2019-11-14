@@ -316,8 +316,8 @@ The ovirt guest agent should be installed as a [system container on Atomic hosts
 
    The commands for a Centos7 Atomic host are essentially:
 
-         # atomic pull --storage=ostree gscrivano/ovirt-guest-agent-centos
-         # atomic install --system --system-package=no --name=ovirt-guest-agent gscrivano/ovirt-guest-agent-centos
+         # atomic pull --storage=ostree quay.io/nyoxi/ovirt-guest-agent
+         # atomic install --system --system-package=no --name=ovirt-guest-agent quay.io/nyoxi/ovirt-guest-agent
          # systemctl status ovirt-guest-agent
          # systemctl start ovirt-guest-agent
 

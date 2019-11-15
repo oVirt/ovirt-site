@@ -46,7 +46,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 </div>
 
 <div class="case-study">
-![](images/logos/Nimbus.png)
+![](/images/logos/Nimbus.png)
 [Nimbus Concept](http://www.nimbusconcept.com/index-en.html) develop, deploy and integrate custom solutions including cloud and critical infrastructure projects based on open source systems, using oVirt as the main virtualization layer.
 </div>
 

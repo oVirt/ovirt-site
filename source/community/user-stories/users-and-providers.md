@@ -112,7 +112,4 @@ The following companies are represented on [the oVirt Board](https://www.ovirt.o
 [![Canonical](/images/logos/Canonical.svg)](http://canonical.com/)
 [![Cisco](/images/logos/Cisco.svg)](http://cisco.com/)
 [![IBM](/images/logos/IBM.svg)](http://ibm.com/)
-[![Intel](/images/logos/Intel.svg)](http://intel.com/)
-[![NetApp](/images/logos/Netapp.svg)](http://netapp.com/)
 [![Red Hat](/images/logos/Red_Hat.svg)](http://redhat.com/)
-[![Suse](/images/logos/SUSE.svg)](http://suse.com/)

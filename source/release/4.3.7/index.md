@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.7 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.7 Third Release Candidate as of November 13, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.7 Fourth Release Candidate as of November 19, 2019.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -89,7 +89,6 @@ In order to install this Release Candidate you will need to enable pre-release r
 
  - [BZ 1768174](https://bugzilla.redhat.com/1768174) <b>Engine may stop monitoring hosts</b><br>
  - [BZ 1768776](https://bugzilla.redhat.com/1768776) <b>Support OKD on oVirt IPI deployment</b><br>
- - [BZ 1767335](https://bugzilla.redhat.com/1767335) <b>[downstream clone - 4.3.7] Removing of Affinity Label in Edit VM window  throws java.lang.UnsupportedOperationException</b><br>
  - [BZ 1765161](https://bugzilla.redhat.com/1765161) <b>[downstream clone - 4.3.7] upgrade of host fails on timeout after 30 minutes</b><br>Default maximum timeout for an ansible-playbook executed from engine has been raised from 30 to 120 minutes. This timeout is defined using configuration option ANSIBLE_PLAYBOOK_EXEC_DEFAULT_TIMEOUT within /usr/share/ovirt-engine/services/ovirt-engine/ovirt-engine.conf. If administrators need to change that timeout they can create /etc/ovirt-engine/engine.conf.d/99-ansible-timeout.conf file with below content:<br><br>  ANSIBLE_PLAYBOOK_EXEC_DEFAULT_TIMEOUT=NNN<br><br>where NNN is number of minutes the timeout should be.
 
 #### oVirt Provider OVN
@@ -121,6 +120,7 @@ In order to install this Release Candidate you will need to enable pre-release r
 #### oVirt Engine
 
  - [BZ 1768168](https://bugzilla.redhat.com/1768168) <b>[downstream clone - 4.3.7] VM fails to be re-started with error: Failed to acquire lock: No space left on device</b><br>
+ - [BZ 1767335](https://bugzilla.redhat.com/1767335) <b>[downstream clone - 4.3.7] Removing of Affinity Label in Edit VM window  throws java.lang.UnsupportedOperationException</b><br>
 
 #### oVirt Engine Metrics
 

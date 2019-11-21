@@ -6,7 +6,9 @@ title: oVirt Nodes
 
 # Installing oVirt Node
 
-oVirt Node is a minimal operating system based on CentOS that is designed to provide a simple method for setting up a physical machine to act as a hypervisor in a oVirt environment. The minimal operating system contains only the packages required for the machine to act as a hypervisor, and features a Cockpit user interface for monitoring the host and performing administrative tasks. See [http://cockpit-project.org/running.html](http://cockpit-project.org/running.html) for the minimum browser requirements.
+oVirt Node is a minimal operating system based on CentOS that is designed to provide a simple method for setting up a physical machine to act as a hypervisor in a oVirt environment.
+The minimal operating system contains only the packages required for the machine to act as a hypervisor, and features a Cockpit user interface for monitoring the host and performing administrative tasks.
+See [http://cockpit-project.org/running.html](http://cockpit-project.org/running.html) for the minimum browser requirements.
 
 Before you proceed, make sure the machine on which you are installing oVirt Node meets the hardware requirements listed in [Chapter 2: System Requirements](chap-System_Requirements).
 
@@ -24,7 +26,7 @@ Installing oVirt Node on a physical machine involves three key steps:
 
     i. Visit to the [oVirt Node Download page](/download/node.html).
 
-    ii. Click [oVirt Node 4.3 - Stable Release - Installation ISO (4.3.6 based on el7)](https://resources.ovirt.org/pub/ovirt-4.3/iso/ovirt-node-ng-installer/4.3.6-2019092614/el7/ovirt-node-ng-installer-4.3.6-2019092614.el7.iso)
+    ii. Download [oVirt Node 4.3 - Stable Release - Installation ISO](https://www.ovirt.org/download/node.html#ovirt-node-43---stable-release)
 
     iii. Write the oVirt Node Installation ISO disk image to a USB, CD, or DVD.
 

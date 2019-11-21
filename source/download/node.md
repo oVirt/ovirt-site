@@ -19,7 +19,7 @@ Also see [Chapter 5: Introduction to Hosts](/documentation/install-guide/chap-In
 
 Installing oVirt Node on a physical machine involves three key steps:
 
- * Download the oVirt Node Installation ISO below (probably [oVirt Node 4.3 - Stable Release - Installation ISO](https://www.ovirt.org/download/node.html#ovirt-node-43---stable-release))
+ * Download the oVirt Node Installation ISO below ([oVirt Node 4.3 - Stable Release - Installation ISO](https://www.ovirt.org/download/node.html#ovirt-node-43---stable-release))
 
  * Write the oVirt Node Installation ISO disk image to a USB, CD, or DVD, preferably using `dd`.
 
@@ -29,7 +29,7 @@ Installing oVirt Node on a physical machine involves three key steps:
 
 This is the oVirt Node 4.3 image including the latest oVirt 4.3 packages. This is the latest stable release.
 
-* [Installation ISO (4.3.6 based on el7)](https://resources.ovirt.org/pub/ovirt-4.3/iso/ovirt-node-ng-installer/4.3.6-2019092614/el7/ovirt-node-ng-installer-4.3.6-2019092614.el7.iso)
+* [Installation ISO (4.3.7 based on el7)](https://resources.ovirt.org/pub/ovirt-4.3/iso/ovirt-node-ng-installer/4.3.7-2019112110/el7/ovirt-node-ng-installer-4.3.7-2019112110.el7.iso)
 
 ## oVirt Node Master - Latest master, experimental
 
@@ -52,16 +52,4 @@ This is the oVirt Node 4.2 image including the latest oVirt 4.2 packages.
 This is the oVirt Node 4.1 image including the latest oVirt 4.1 packages.
 
 * [Installation ISO](https://resources.ovirt.org/pub/ovirt-4.1/iso/ovirt-node-ng-installer-ovirt/4.1-2018012411/ovirt-node-ng-installer-ovirt-4.1-2018012411.iso)
-
-## oVirt Node 4
-
-This is the oVirt Node 4 image, including the latest oVirt 4 packages.
-
-* [Installation ISO](http://resources.ovirt.org/pub/ovirt-4.0/iso/ovirt-node-ng-installer/ovirt-node-ng-installer-ovirt-4.0-2017011712.iso)
-
-## oVirt Node 3
-
-* **oVirt Node 3 Next** (Tech-Preview, downwards compatible within oVirt 3, **recommended**)
-  * This is the oVirt Node Next image, with the newly designed oVirt Node, but using the stable oVirt 3 packages.
-  * [Installation ISO](http://resources.ovirt.org/pub/ovirt-3.6/iso/ovirt-node-ng-installer/ovirt-node-ng-installer-ovirt-3.6-2016052403.iso)
 

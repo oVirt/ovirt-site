@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.7 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.7 Fourth Release Candidate as of November 19, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.7 release as of November 21, 2019.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -23,14 +23,6 @@ projects, including libvirt, Gluster, PatternFly, and Ansible.
 This release is available now for Red Hat Enterprise Linux 7.7 and
 CentOS Linux 7.7 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
@@ -44,12 +36,6 @@ page.
 
 To learn about features introduced before 4.3.7, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm)
 
 
 
@@ -88,7 +74,6 @@ In order to install this Release Candidate you will need to enable pre-release r
 #### oVirt Engine
 
  - [BZ 1768174](https://bugzilla.redhat.com/1768174) <b>Engine may stop monitoring hosts</b><br>
- - [BZ 1768776](https://bugzilla.redhat.com/1768776) <b>Support OKD on oVirt IPI deployment</b><br>
  - [BZ 1765161](https://bugzilla.redhat.com/1765161) <b>[downstream clone - 4.3.7] upgrade of host fails on timeout after 30 minutes</b><br>Default maximum timeout for an ansible-playbook executed from engine has been raised from 30 to 120 minutes. This timeout is defined using configuration option ANSIBLE_PLAYBOOK_EXEC_DEFAULT_TIMEOUT within /usr/share/ovirt-engine/services/ovirt-engine/ovirt-engine.conf. If administrators need to change that timeout they can create /etc/ovirt-engine/engine.conf.d/99-ansible-timeout.conf file with below content:<br><br>  ANSIBLE_PLAYBOOK_EXEC_DEFAULT_TIMEOUT=NNN<br><br>where NNN is number of minutes the timeout should be.
 
 #### oVirt Provider OVN

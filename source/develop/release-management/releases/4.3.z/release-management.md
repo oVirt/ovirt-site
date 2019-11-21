@@ -25,7 +25,7 @@ th, td {
 | **2019-10-31** | Second Release candidate |
 | **2019-11-13** | Third Release candidate  |
 | **2019-11-19** | Fourth Release candidate |
-| **2019-xx-xx** | General availability     |
+| **2019-11-21** | General availability     |
 
 ### Release criteria
 

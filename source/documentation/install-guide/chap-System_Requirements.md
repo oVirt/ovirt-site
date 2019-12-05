@@ -102,6 +102,7 @@ The following CPU models are supported:
 * AMD
   * Opteron G4
   * Opteron G5
+  * EPYC
 
 * Intel
   * Nehalem
@@ -114,7 +115,12 @@ The following CPU models are supported:
   * Skylake (client)
   * Skylake (server)
 
-* IBM POWER8
+* IBM 
+  * POWER8
+  * POWER9
+  * z114,z196
+  * zBC12,zEC12
+  * z13s, z13
 
 **Checking if a Processor Supports the Required Flags**
 

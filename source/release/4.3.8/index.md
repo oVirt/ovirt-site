@@ -76,3 +76,20 @@ In order to install this Release Candidate you will need to enable pre-release r
 #### oVirt Cockpit Plugin
 
  - [BZ 1723728](https://bugzilla.redhat.com/1723728) <b>Remove the VDO option to emulate 512</b><br>
+
+#### Contributors
+
+12 people contributed to this release:
+
+	Fabien Dupont
+	Gal Zaidman
+	Gobinda Das
+	Martin Kletzander
+	Miguel Duarte Barroso
+	Milan Zamazal
+	Nenad Peric
+	Pino Toscano
+	Sandro Bonazzola
+	Shirly Radco
+	Tomáš Golembiovský
+	Yedidyah Bar David

@@ -1,8 +1,8 @@
 ---
 title: oVirt 4.3.8 Release Notes
 category: documentation
+toc: true
 authors: lveyde
-layout: toc
 ---
 
 <style>

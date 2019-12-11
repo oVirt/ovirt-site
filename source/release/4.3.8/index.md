@@ -1,8 +1,8 @@
 ---
 title: oVirt 4.3.8 Release Notes
 category: documentation
+authors: lveyde
 layout: toc
-authors: Lev Veyde
 ---
 
 <style>
@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.8 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.8 First Release Candidate as of December 05, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.8 Second Release Candidate as of December 11, 2019.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -59,37 +59,84 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### oVirt Engine Metrics
 
- - [BZ 1727546](https://bugzilla.redhat.com/1727546) <b>[RFE] Add cleanup option to oVirt metrics playbook</b><br>Feature: <br>Add cleanup option to oVirt metrics playbook<br><br>Reason: <br>User that desided to remove the metrics store requires disabling Collectd, Fluentd (if in 4.2) and setting Rsyslog to default settings or they will get errors for these services on all hosts and engine, once they delete the Metrics store VM.<br><br>Result: <br>It is now possible to run playbook for handling the services:<br>./configure_ovirt_machines_for_metrics.sh --playbook=cleanup-ovirt-metrics.yml -vvv
+ - [BZ 1727546](https://bugzilla.redhat.com/1727546) **[RFE] Add cleanup option to oVirt metrics playbook**
+
+   Feature: 
+
+Add cleanup option to oVirt metrics playbook
+
+
+
+Reason: 
+
+User that desided to remove the metrics store requires disabling Collectd, Fluentd (if in 4.2) and setting Rsyslog to default settings or they will get errors for these services on all hosts and engine, once they delete the Metrics store VM.
+
+
+
+Result: 
+
+It is now possible to run playbook for handling the services:
+
+./configure_ovirt_machines_for_metrics.sh --playbook=cleanup-ovirt-metrics.yml -vvv
+
 
 ### Bug Fixes
 
 #### oVirt Engine Data Warehouse
 
- - [BZ 1761494](https://bugzilla.redhat.com/1761494) <b>dwh-vacuum fails with 'vacuumdb: command not found'</b><br>
+ - [BZ 1761494](https://bugzilla.redhat.com/1761494) **dwh-vacuum fails with 'vacuumdb: command not found'**
+
+
+#### oVirt Engine
+
+ - [BZ 1773704](https://bugzilla.redhat.com/1773704) **engine-cleanup is removing all files listed in "uninstall.conf" irrespective of the options provided**
+
 
 ### Other
 
 #### oVirt Provider OVN
 
- - [BZ 1764946](https://bugzilla.redhat.com/1764946) <b>ovirt-provider-ovn accepts anonymous TLS cipher suites (security)</b><br>
+ - [BZ 1764946](https://bugzilla.redhat.com/1764946) **ovirt-provider-ovn accepts anonymous TLS cipher suites (security)**
+
+   
+
 
 #### oVirt Cockpit Plugin
 
- - [BZ 1723728](https://bugzilla.redhat.com/1723728) <b>Remove the VDO option to emulate 512</b><br>
+ - [BZ 1723728](https://bugzilla.redhat.com/1723728) **Remove the VDO option to emulate 512**
+
+   
+
+
+#### oVirt Engine
+
+ - [BZ 1781380](https://bugzilla.redhat.com/1781380) **Rest API for creating affinity group with labels is resulted with the group created with missing labels [RHV clone - 4.3.8]**
+
+   
+
+ - [BZ 1779664](https://bugzilla.redhat.com/1779664) **MERGE_STATUS fails with 'Invalid UUID string: mapper' when Direct LUN that already exists is hot-plugged [RHV clone - 4.3.8]**
+
+   
+
 
 #### Contributors
 
-12 people contributed to this release:
+17 people contributed to this release:
 
+	Andrej Krejcir
 	Fabien Dupont
 	Gal Zaidman
 	Gobinda Das
+	Lev Veyde
 	Martin Kletzander
 	Miguel Duarte Barroso
 	Milan Zamazal
 	Nenad Peric
 	Pino Toscano
 	Sandro Bonazzola
+	Shani Leviim
 	Shirly Radco
+	Simone Tiraboschi
+	Tal Nisan
 	Tomáš Golembiovský
 	Yedidyah Bar David

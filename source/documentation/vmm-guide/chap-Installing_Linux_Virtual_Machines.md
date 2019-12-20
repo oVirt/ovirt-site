@@ -42,7 +42,7 @@ Create a new virtual machine and configure the required settings.
 
     * Click **Attach** and select an existing virtual disk.
 
-    * Click **Create** and enter a **Size(GB)** and **Alias** for a new virtual disk. You can accept the default settings for all other fields, or change them if required. See [Add Virtual Disk dialogue entries](Add_Virtual_Disk_dialogue_entries) for more details on the fields for all disk types.
+    * Click **Create** and enter a **Size(GB)** and **Alias** for a new virtual disk. You can accept the default settings for all other fields, or change them if required. See [Explanation of Settings in the New Virtual Disk and Edit Virtual Disk windows](appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows#explanation-of-settings-in-the-new-virtual-disk-and-edit-virtual-disk-windows) for more details on the fields for all disk types.
 
 6. Connect the virtual machine to the network. Add a network interface by selecting a vNIC profile from the **nic1** drop-down list at the bottom of the **General** tab.
 
@@ -50,7 +50,7 @@ Create a new virtual machine and configure the required settings.
 
 8. Choose the **First Device** that the virtual machine will boot from on the **Boot Options** tab.
 
-9. You can accept the default settings for all other fields, or change them if required. For more details on all fields in the **New Virtual Machine** window, see [Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows](sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows).
+9. You can accept the default settings for all other fields, or change them if required. For more details on all fields in the **New Virtual Machine** window, see [Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows](appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows#explanation-of-settings-in-the-new-virtual-machine-and-edit-virtual-machine-windows).
 
 10. Click **OK**.
 
@@ -68,7 +68,8 @@ The new virtual machine is created and displays in the list of virtual machines 
 
 The **Status** of the virtual machine changes to `Up`, and the operating system installation begins. Open a console to the virtual machine if one does not open automatically.
 
-    **Note:** A virtual machine will not start on a host that the CPU is overloaded on. By default, a host’s CPU is considered overloaded if it has a load of more than 80% for 5 minutes but these values can be changed using scheduling policies.
+**Note:** A virtual machine will not start on a host that the CPU is overloaded on. By default, a host’s CPU is considered overloaded if it has a load of more than 80% for 5 minutes but these values can be changed using scheduling policies.
+{: .alert .alert-info}
 
 ### Opening a Console to a Virtual Machine
 
@@ -84,13 +85,15 @@ Use Remote Viewer to connect to a virtual machine.
 
 4. Click on the file and a console window will automatically open for the virtual machine.
 
-    **Note:** You can configure the system to automatically connect to a virtual machine. See the “Automatically Connecting to a Virtual Machine” below.
+   **Note:** You can configure the system to automatically connect to a virtual machine. See the “Automatically Connecting to a Virtual Machine” below.
+   {: .alert .alert-info}
 
 ### Opening a Serial Console to a Virtual Machine
 
 You can access a virtual machine’s serial console from the command line instead of opening a console from the Administration Portal or the VM Portal. The serial console is emulated through VirtIO channels, using SSH and key pairs. The Engine acts as a proxy for the connection, provides information about virtual machine placement, and stores the authentication keys. You can add public keys for each user from either the Administration Portal or the VM Portal. You can access serial consoles for only those virtual machines for which you have appropriate permissions.
 
-    **Important:** To access the serial console of a virtual machine, the user must have **UserVmManager**, **SuperUser**, or **UserInstanceManager** permission on that virtual machine. These permissions must be explicitly defined for each user. It is not enough to assign these permissions to **Everyone**.
+**Important:** To access the serial console of a virtual machine, the user must have **UserVmManager**, **SuperUser**, or **UserInstanceManager** permission on that virtual machine. These permissions must be explicitly defined for each user. It is not enough to assign these permissions to **Everyone**.
+{: .alert .alert-info}
 
 The serial console is accessed through TCP port 2222 on the Engine. This port is opened during engine-setup on new installations. To change the port, see **ovirt-vmconsole/README**.
 
@@ -105,6 +108,7 @@ The serial console relies on the `ovirt-vmconsole` package and the `ovirt-vmcons
         GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
 
     **Note:** `GRUB_CMDLINE_LINUX_DEFAULT` applies this configuration only to the default menu entry. Use `GRUB_CMDLINE_LINUX` to apply the configuration to all the menu entries.
+    {: .alert .alert-info}
 
     If these lines already exist in **/etc/default/grub**, update them. Do not duplicate them.
 

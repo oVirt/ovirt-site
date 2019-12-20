@@ -39,7 +39,7 @@ In the future, Manners plans to shift oVirt to production hardware with 32-core 
 </div>
 <div class="col-md-4 pad-sides">
 <div class="well well-lg">
-![](images/logos/FSUSig_Horizontal_Color.png)<br>
+![](/images/logos/FSUSig_Horizontal_Color.png)<br>
 
 **Company name:** Florida State University Research Computing Center<br>
 **Activity:** Scientific research<br>

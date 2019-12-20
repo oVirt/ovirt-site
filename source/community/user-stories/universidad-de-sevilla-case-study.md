@@ -14,7 +14,7 @@ In a time of huge transition, academic institutions will do their best to try to
 
 But universities have their own course content to deliver, which needs to be done with a common platform of operating system and software applications. So, to deliver content anytime, any where, and on any device, academic institutions are increasingly turning to virtualization to help solve this problem.
 
-The [University of Seville](http://www.us.es/eng) in Spain - with an enrollment of over 60,000 students - definitely feels the pressure of providing effective transportable computing environments for its students. To accomplish this, they initially looked at a VMware-based solution--specifically Virtual Desktop Infrastructure, which is the centralized hosting of desktop environments within virtual machines. This is a concept first developed by Sun with Sun Ray and perfected by VMware, and there is little doubt their software is good at it.
+The [University of Seville](https://www.us.es/) in Spain - with an enrollment of over 60,000 students - definitely feels the pressure of providing effective transportable computing environments for its students. To accomplish this, they initially looked at a VMware-based solution--specifically Virtual Desktop Infrastructure, which is the centralized hosting of desktop environments within virtual machines. This is a concept first developed by Sun with Sun Ray and perfected by VMware, and there is little doubt their software is good at it.
 
 But, according to Miguel Rueda, Technical Manager of Universidad de Sevilla, the costs for a vSphere solution "were really high," which led IT decision makers at the University to turn to UDS Enterprise for a more cost-effective solution.
 

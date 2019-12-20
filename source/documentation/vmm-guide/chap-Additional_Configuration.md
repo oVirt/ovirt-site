@@ -16,9 +16,10 @@ There are only a limited number of scenarios in which you would change these val
 
 * Configuring the sysprep path for a Windows virtual machine (for example, `os.windows_10x64.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep.w10x64`)
 
-    **Important:** Do not edit the actual **00-defaults.properties** file. Changes will be overwritten if you upgrade or restore the Engine.
+  **Important:** Do not edit the actual **00-defaults.properties** file. Changes will be overwritten if you upgrade or restore the Engine.
+  {: .alert .alert-info}
 
-    Do not change values that come directly from the operating system or the Engine, such as maximum memory size.
+Do not change values that come directly from the operating system or the Engine, such as maximum memory size.
 
 To change the operating system configurations, create an override file in **/etc/ovirt-engine/osinfo.conf.d/**. The file name must begin with a value greater than `00`, so that the file appears after **/etc/ovirt-engine/osinfo.conf.d/00-defaults.properties**, and ends with the extension, **.properties**.
 
@@ -28,13 +29,17 @@ For example, **10-productkeys.properties** overrides the default file, **00-defa
 
 Configuring single sign-on, also known as password delegation, allows you to automatically log in to a virtual machine using the credentials you use to log in to the VM Portal. Single sign-on can be used on both Enterprise Linux and Windows virtual machines.
 
-    **Important:** If single sign-on to the VM Portal is enabled, single sign-on to virtual machines will not be possible. With single sign-on to the VM Portal enabled, the VM Portal does not need to accept a password, thus the password cannot be delegated to sign in to virtual machines.
+**Important:** If single sign-on to the VM Portal is enabled, single sign-on to virtual machines will not be possible. With single sign-on to the VM Portal enabled, the VM Portal does not need to accept a password, thus the password cannot be delegated to sign in to virtual machines.
+{: .alert .alert-info}
+
 
 ### Configuring Single Sign-On for Enterprise Linux Virtual Machines Using IPA (IdM)
 
 To configure single sign-on for Enterprise Linux virtual machines using GNOME and KDE graphical desktop environments and IPA (IdM) servers, you must install the `ovirt-engine-guest-agent` package on the virtual machine and install the packages associated with your window manager.
 
-    **Important:** The following procedure assumes that you have a working IPA configuration and that the IPA domain is already joined to the Engine. You must also ensure that the clocks on the Engine, the virtual machine and the system on which IPA (IdM) is hosted are synchronized using NTP.
+**Important:** The following procedure assumes that you have a working IPA configuration and that the IPA domain is already joined to the Engine. You must also ensure that the clocks on the Engine, the virtual machine and the system on which IPA (IdM) is hosted are synchronized using NTP.
+{: .alert .alert-info}
+
 
 **Configuring Single Sign-On for Enterprise Linux Virtual Machines**
 
@@ -60,6 +65,7 @@ To configure single sign-on for Enterprise Linux virtual machines using GNOME an
         # ipa-client-install --permit --mkhomedir
 
     **Note:** In environments that use DNS obfuscation, this command should be:
+	{: .alert .alert-info}
 
         # ipa-client-install --domain=FQDN --server==FQDN
 
@@ -68,6 +74,7 @@ To configure single sign-on for Enterprise Linux virtual machines using GNOME an
         # authconfig --enablenis --update
 
     **Note:** Enterprise Linux 7.2 has a new version of the System Security Services Daemon (SSSD), which introduces configuration that is incompatible with the oVirt Engine guest agent single sign-on implementation. The command will ensure that single sign-on works.
+	{: .alert .alert-info}
 
 8. Fetch the details of an IPA user:
 
@@ -95,7 +102,8 @@ Log in to the VM Portal using the user name and password of a user configured to
 
 To configure single sign-on for Enterprise Linux virtual machines using GNOME and KDE graphical desktop environments and Active Directory, you must install the `ovirt-engine-guest-agent` package on the virtual machine, install the packages associated with your window manager and join the virtual machine to the domain.
 
-    **Important:** The following procedure assumes that you have a working Active Directory configuration and that the Active Directory domain is already joined to the Engine. You must also ensure that the clocks on the Engine, the virtual machine and the system on which Active Directory is hosted are synchronized using NTP.
+**Important:** The following procedure assumes that you have a working Active Directory configuration and that the Active Directory domain is already joined to the Engine. You must also ensure that the clocks on the Engine, the virtual machine and the system on which Active Directory is hosted are synchronized using NTP.
+{: .alert .alert-info}
 
 **Configuring Single Sign-On for Enterprise Linux Virtual Machines**
 
@@ -218,7 +226,8 @@ A virtual machine connected with the SPICE protocol can be configured to connect
 
 The USB device will only be redirected if the virtual machine is active and in focus. USB redirection can be manually enabled each time a device is plugged in or set to automatically redirect to active virtual machines in the SPICE client menu.
 
-    **Important:** Note the distinction between the client machine and guest machine. The client is the hardware from which you access a guest. The guest is the virtual desktop or virtual server which is accessed through the VM Portal or Administration Portal.
+   **Important:** Note the distinction between the client machine and guest machine. The client is the hardware from which you access a guest. The guest is the virtual desktop or virtual server which is accessed through the VM Portal or Administration Portal.
+   {: .alert .alert-info}
 
 ### Using USB Devices on Virtual Machines
 
@@ -253,6 +262,7 @@ USB redirection **Enabled** mode allows KVM/SPICE USB redirection for Linux and 
     * Windows 2008
 
     **Note:** If you have a 64-bit architecture PC, you must use the 64-bit version of Internet Explorer to install the 64-bit version of the USB driver. The USB redirection will not work if you install the 32-bit version on a 64-bit architecture. As long as you initially install the correct USB type, you then can access USB redirection from both 32 and 64-bit browsers.
+	{: .alert .alert-info}
 
 ### Using USB Devices on a Windows Client
 
@@ -284,7 +294,8 @@ The `usbdk` driver must be installed on the Windows client for the USB device to
 
 The `usbredir` package enables USB redirection from Enterprise Linux clients to virtual machines. `usbredir` is a dependency of the `virt-viewer` package, and is automatically installed together with that package.
 
-    **Note:** USB redirection is only supported when you open the virtual machine from the VM Portal.
+   **Note:** USB redirection is only supported when you open the virtual machine from the VM Portal.
+   {: .alert .alert-info}
 
 **Using USB devices on a Enterprise Linux client**
 
@@ -323,6 +334,7 @@ A maximum of four displays can be configured for a single Enterprise Linux virtu
 4. Click the name of a display to enable or disable that display.
 
     **Note:** By default, **Display 1** is the only display that is enabled on starting a SPICE session with a virtual machine. If no other displays are enabled, disabling this display will close the session.
+	{: .alert .alert-info}
 
 # Configuring Multiple Displays for Windows Virtual Machines
 
@@ -337,6 +349,7 @@ A maximum of four displays can be configured for a single Windows virtual machin
 4. Select the number of displays from the **Monitors** drop-down list.
 
     **Note:** This setting controls the maximum number of displays that can be enabled for the virtual machine. While the virtual machine is running, additional displays can be enabled up to this number.
+	{: .alert .alert-info}
 
 5. Click **OK**.
 
@@ -349,6 +362,7 @@ A maximum of four displays can be configured for a single Windows virtual machin
 9. Click the name of a display to enable or disable that display.
 
     **Note:** By default, **Display 1** is the only display that is enabled on starting a SPICE session with a virtual machine. If no other displays are enabled, disabling this display will close the session.
+	{: .alert .alert-info}
 
 ## Configuring Console Options
 
@@ -368,7 +382,8 @@ Virtual Network Computing (VNC) can be used to open consoles to both Linux virtu
 
 Remote Desktop Protocol (RDP) can only be used to open consoles to Windows virtual machines, and is only available when you access a virtual machines from a Windows machine on which Remote Desktop has been installed. Before you can connect to a Windows virtual machine using RDP, you must set up remote sharing on the virtual machine and configure the firewall to allow remote desktop connections.
 
-    **Note:** SPICE is not currently supported on virtual machines running Windows 8. If a Windows 8 virtual machine is configured to use the SPICE protocol, it will detect the absence of the required SPICE drivers and automatically fall back to using RDP.
+   **Note:** SPICE is not currently supported on virtual machines running Windows 8. If a Windows 8 virtual machine is configured to use the SPICE protocol, it will detect the absence of the required SPICE drivers and automatically fall back to using RDP.
+   {: .alert .alert-info}
 
 #### Configuring SPICE Console Options
 
@@ -381,6 +396,7 @@ You can configure several options for opening graphical consoles for virtual mac
 2. Click **Console** &rarr; **Console Options.
 
     **Note:** You can configure the connection protocols and video type in the **Console** tab of the **Edit Virtual Machine** window in the Administration Portal. Additional options specific to each of the connection protocols, such as the keyboard layout when using the VNC connection protocol, can be configured.
+	{: .alert .alert-info}
 
 #### SPICE Console Options
 
@@ -499,6 +515,7 @@ When you specify the **Native client** console invocation option, you will conne
 You can access the hotkeys for a virtual machine in both full screen mode and windowed mode. If you are using full screen mode, you can display the menu containing the button for hotkeys by moving the mouse pointer to the middle of the top of the screen. If you are using windowed mode, you can access the hotkeys via the **Send key** menu on the virtual machine window title bar.
 
 **Note:** If `vdagent` is not running on the client machine, the mouse can become captured in a virtual machine window if it is used inside a virtual machine and the virtual machine is not in full screen. To unlock the mouse, press **Shift** + **F12**.
+{: .alert .alert-info}
 
 #### Manually Associating console.vv Files with Remote Viewer
 
@@ -584,7 +601,8 @@ To activate a watchdog card attached to a virtual machine, you must install the 
 
 Confirm that a watchdog card has been attached to a virtual machine and that the `watchdog` service is active.
 
-    **Warning:** This procedure is provided for testing the functionality of watchdogs only and must not be run on production machines.
+   **Warning:** This procedure is provided for testing the functionality of watchdogs only and must not be run on production machines.
+   {: .alert .alert-warning}
 
 **Confirming Watchdog Functionality**
 
@@ -610,7 +628,8 @@ The watchdog timer can no longer be reset, so the watchdog counter reaches zero 
 
 The following is a list of options for configuring the `watchdog` service available in the **/etc/watchdog.conf** file. To configure an option, you must uncomment that option and restart the `watchdog` service after saving the changes.
 
-    **Note:** For a more detailed explanation of options for configuring the `watchdog` service and using the `watchdog` command, see the `watchdog` man page.
+**Note:** For a more detailed explanation of options for configuring the `watchdog` service and using the `watchdog` command, see the `watchdog` man page.
+{: .alert .alert-info}
 
 **watchdog.conf variables**
 
@@ -665,6 +684,7 @@ Configuring virtual NUMA requires a NUMA-enabled host. To confirm whether NUMA i
 10. Click **OK**.
 
     **Note:** If you do not pin the virtual NUMA node to a host NUMA node, the system defaults to the NUMA node that contains the host device’s memory-mapped I/O (MMIO), provided that there are one or more host devices and all of those devices are from a single NUMA node.
+	{: .alert .alert-info}
 
 ## Configuring Foreman Errata Management for a Virtual Machine
 
@@ -679,10 +699,12 @@ The following prerequisites apply:
 * The virtual machine must have the rhevm-guest-agent package installed. This package allows the virtual machine to report its host name to the oVirt Engine. This allows the Foreman server to identify the virtual machine as a content host and report the applicable errata. For more information on installing the ovirt-guest-agent package see the Installing the Guest Agents and Drivers on Enterprise Linux section above for Enterprise Linux virtual machines and the Installing the Guest Agents and Drivers on Windows section for Windows virtual machines.
 
 **Important:** Virtual machines are identified in the Foreman server by their FQDN. This ensures that an external content host ID does not need to be maintained in oVirt.
+{: .alert .alert-info}
 
 **Configuring Foreman Errata Management**
 
-    **Note:** The virtual machine must be registered to the Foreman server as a content host and have the katello-agent package installed.
+**Note:** The virtual machine must be registered to the Foreman server as a content host and have the katello-agent package installed.
+{: .alert .alert-info}
 
 1. Click **Compute** &rarr; **Virtual Machines** and select a virtual machine.
 
@@ -711,6 +733,7 @@ If you are creating a new headless virtual machine, you can use the **Run Once**
         # splashimage=(hd0,0)/grub/splash.xpm.gz serial --unit=0 --speed=9600 --parity=no --stop=1 terminal --timeout=2 serial
 
     **Note:** Restart the virtual machine if it is running when selecting the **Headless Mode** option.
+	{: .alert .alert-info}
 
 **Configuring a Headless Virtual Machine**
 
@@ -781,6 +804,7 @@ To create a high performance virtual machine, template, or pool:
    You can view the optimization type in the General tab of the details view of the virtual machine, pool, or template.
 
     **Note:** Certain configurations can override the high performance settings. For example, if you select an instance type for a virtual machine before selecting **High Performance** from the **Optimized for** drop-down menu and performing the manual configuration, the instance type configuration will not affect the high performance configuration. If, however, you select the instance type after the high performance configurations, you should verify the final configuration in the different tabs to ensure that the high performance configurations have not been overridden by the instance type.
+	{: .alert .alert-info}
 
     The last-saved configuration usually takes priority.
 
@@ -953,7 +977,8 @@ Pinning topology:
 
 Pools do not support IO and emulator threads pinning.
 
-    **Warning:** If a host CPU is pinned to both a vCPU and IO/emulator threads, a warning will appear in the log and you will be asked to consider changing the CPU pinning topology to avoid this situation.
+**Warning:** If a host CPU is pinned to both a vCPU and IO/emulator threads, a warning will appear in the log and you will be asked to consider changing the CPU pinning topology to avoid this situation.
+{: .alert .alert-warning}
 
 ####  High Performance Icons
 
@@ -962,42 +987,42 @@ The following icons indicate the states of a high performance virtual machine in
 **High Performance Icons**
 
 <table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 17%; " class="col_1"><!--Empty--></col><col style="width: 83%; " class="col_2"><!--Empty--></col></colgroup><thead><tr><th align="left" valign="top" id="idm140207901153328" scope="col">Icon</th><th align="left" valign="top" id="idm140207901152240" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm140207901153328"> <p>
-										<span class="inlinemediaobject"><img src="../images/9273520988fa69c82e193ec06761c06d/hp_vm.png" alt="hp vm"/></span>
+										<span class="inlinemediaobject"><img src="/images/vmm-guide/hp_vm.png" alt="hp vm"/></span>
 
 									</p>
 									 </td><td align="left" valign="top" headers="idm140207901152240"> <p>
 										High performance virtual machine
 									</p>
 									 </td></tr><tr><td align="left" valign="top" headers="idm140207901153328"> <p>
-										<span class="inlinemediaobject"><img src="../images/hp_vm_next_run.png" alt="hp vm next run"/></span>
+										<span class="inlinemediaobject"><img src="/images/vmm-guide/hp_vm_next_run.png" alt="hp vm next run"/></span>
 
 									</p>
 									 </td><td align="left" valign="top" headers="idm140207901152240"> <p>
 										High performance virtual machine with Next Run configuration
 									</p>
 									 </td></tr><tr><td align="left" valign="top" headers="idm140207901153328"> <p>
-										<span class="inlinemediaobject"><img src="../images/stateless_hp_vm.png" alt="stateless hp vm"/></span>
+										<span class="inlinemediaobject"><img src="/images/vmm-guide/stateless_hp_vm.png" alt="stateless hp vm"/></span>
 
 									</p>
 									 </td><td align="left" valign="top" headers="idm140207901152240"> <p>
 										Stateless, high performance virtual machine
 									</p>
 									 </td></tr><tr><td align="left" valign="top" headers="idm140207901153328"> <p>
-										<span class="inlinemediaobject"><img src="../images/stateless_hp_vm_next_run.png" alt="stateless hp vm next run"/></span>
+										<span class="inlinemediaobject"><img src="/images/vmm-guide/stateless_hp_vm_next_run.png" alt="stateless hp vm next run"/></span>
 
 									</p>
 									 </td><td align="left" valign="top" headers="idm140207901152240"> <p>
 										Stateless, high performance virtual machine with Next Run configuration
 									</p>
 									 </td></tr><tr><td align="left" valign="top" headers="idm140207901153328"> <p>
-										<span class="inlinemediaobject"><img src="../images/vm_hp_pool.png" alt="vm hp pool"/></span>
+										<span class="inlinemediaobject"><img src="/images/vmm-guide/vm_hp_pool.png" alt="vm hp pool"/></span>
 
 									</p>
 									 </td><td align="left" valign="top" headers="idm140207901152240"> <p>
 										Virtual machine in a high performance pool
 									</p>
 									 </td></tr><tr><td align="left" valign="top" headers="idm140207901153328"> <p>
-										<span class="inlinemediaobject"><img src="../images/vm_hp_pool_next_run.png" alt="vm hp pool next run"/></span>
+										<span class="inlinemediaobject"><img src="/images/vmm-guide/vm_hp_pool_next_run.png" alt="vm hp pool next run"/></span>
 
 									</p>
 									 </td><td align="left" valign="top" headers="idm140207901152240"> <p>
@@ -1108,12 +1133,10 @@ To pin vCPUs to a specific host’s physical CPU:
   * A virtual machine’s number of threads per core must not be greater than the host’s number of threads per core.
 
     **Important:** CPU pinning has the following requirements:
-
-      * If the host is NUMA-enabled, the host’s NUMA settings (memory and CPUs) must be considered because the virtual machine has to fit the host’s NUMA configuration.
-
-      * The IO and emulator threads pinning topology must be considered.
-
-      * CPU pinning can only be set for virtual machines and pools, but not for templates. Therefore, you must set CPU pinning manually whenever you create a high performance virtual machine or pool, even if they are based on a high performance template.
+    * If the host is NUMA-enabled, the host’s NUMA settings (memory and CPUs) must be considered because the virtual machine has to fit the host’s NUMA configuration.
+    * The IO and emulator threads pinning topology must be considered.
+    * CPU pinning can only be set for virtual machines and pools, but not for templates. Therefore, you must set CPU pinning manually whenever you create a high performance virtual machine or pool, even if they are based on a high performance template.
+    {: .alert .alert-info}
 
 #### Setting the NUMA Nodes and Pinning Topology
 
@@ -1125,20 +1148,14 @@ To set the NUMA nodes and pinning topology, you need a NUMA-enabled pinned host 
 
 3. In the **NUMA Topology** window, click and drag virtual NUMA nodes from the box on the right to the host’s physical NUMA nodes on the left as required.
 
-    **Important:**
-    The number of declared virtual NUMA nodes and the NUMA pinning policy must take into account:
-
-    * The host’s NUMA settings (memory and CPUs)
-
-    * The NUMA node in which the host devices are declared
-
-    * The CPU pinning topology
-
-    * The IO and emulator threads pinning topology
-
-    * Huge page sizes
-
-    * NUMA pinning can only be set for virtual machines, but not for pools or templates. You must set NUMA pinning manually when you create a high performance virtual machine based on a template.
+     **Important:** The number of declared virtual NUMA nodes and the NUMA pinning policy must take into account:
+     * The host’s NUMA settings (memory and CPUs)
+     * The NUMA node in which the host devices are declared
+     * The CPU pinning topology
+     * The IO and emulator threads pinning topology
+     * Huge page sizes
+     * NUMA pinning can only be set for virtual machines, but not for pools or templates. You must set NUMA pinning manually when you create a high performance virtual machine based on a template.
+     {: .alert .alert-info}
 
 #### Configuring Huge Pages
 
@@ -1159,14 +1176,12 @@ To configure huge pages:
   * The virtual machine’s memory size must fit into the selected size of the pinned host’s free huge pages.
 
   * The NUMA node size must be a multiple of the huge page’s selected size.
-
-    **Important:** The following limitations apply:
-
-    * Memory hotplug/unplug is disabled
-
-    * Migration is disabled
-
-    * The host’s memory resource is limited
+    
+      **Important:** The following limitations apply:
+      * Memory hotplug/unplug is disabled
+      * Migration is disabled
+      * The host’s memory resource is limited
+      {: .alert .alert-info}
 
 #### Disabling KSM
 
@@ -1242,6 +1257,7 @@ You can now install vGPUs on the virtual machines running on this host.
 7. Verify that the vGPU is recognized by checking the virtual machine operating system’s device manager.
 
     **Important:** You cannot migrate a virtual machine using a vGPU to a different host. When upgrading the virtual machine, verify the operating system and GPU vendor support in the vendor’s documentation.
+	{: .alert .alert-info}
 
 **Prev:** [Chapter 3: Installing Windows Virtual Machines](chap-Installing_Windows_Virtual_Machines) <br>
 **Next:** [Chapter 5: Editing Virtual Machines](chap-Editing_Virtual_Machines)

@@ -40,9 +40,12 @@ You must attach a data domain to a data center before you can attach domains of 
 
 * **Export Domain:** Export domains are temporary storage repositories that are used to copy and move images between data centers and oVirt environments. Export domains can be used to backup virtual machines. An export domain can be moved between data centers, however, it can only be active in one data center at a time. Export domains can only be NFS-based. Only one export domain can be added to a data center.
 
-    **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See [Importing Existing Storage Domains](sect-Importing_Existing_Storage_Domains) for information on importing storage domains.
+    **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See [Importing Existing Storage Domains](#importing-existing-storage-domains) for information on importing storage domains.
+    {: .alert .alert-info}
+
 
     **Important:** Only commence configuring and attaching storage for your oVirt environment once you have determined the storage needs of your data center(s).
+    {: .alert .alert-info}
 
 ## Understanding Storage Domains
 
@@ -62,7 +65,9 @@ Virtual machines that share the same storage domain can be migrated between host
 
 Set up NFS shares that will serve as storage domains on an Enterprise Linux server.
 
-    **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disks, and templates can then be uploaded from the imported storage domain to the attached data center. See [Importing Existing Storage Domains](sect-Importing_Existing_Storage_Domains) for information on importing storage domains.
+   **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disks, and templates can then be uploaded from the imported storage domain to the attached data center. See [Importing Existing Storage Domains](#importing-existing-storage-domains) for information on importing storage domains.
+   {: .alert .alert-info}
+
 
 Specific system user accounts and system user groups are required by oVirt so the Engine can store data in the storage domains represented by the exported directories.
 
@@ -120,7 +125,7 @@ The new NFS data domain is displayed in the **Storage** tab with a status of `Lo
 
 ### Increasing NFS Storage
 
-To increase the amount of NFS storage, you can either create a new storage domain and add it to an existing data center, or increase the available free space on the NFS server. For the former option, see [Attaching NFS Storage](Attaching_NFS_Storage1). The following procedure explains how to increase the available free space on the existing NFS server.
+To increase the amount of NFS storage, you can either create a new storage domain and add it to an existing data center, or increase the available free space on the NFS server. For the former option, see [Attaching NFS Storage](#attaching-nfs-storage). The following procedure explains how to increase the available free space on the existing NFS server.
 
 **Increasing an Existing NFS Storage Domain**
 
@@ -140,7 +145,9 @@ To increase the amount of NFS storage, you can either create a new storage domai
 
 A local storage domain can be set up on a host. When you set up a host to use local storage, the host automatically gets added to a new data center and cluster that no other hosts can be added to. Multiple host clusters require that all hosts have access to all storage domains, which is not possible with local storage. Virtual machines created in a single host cluster cannot be migrated, fenced or scheduled. For more information on the required system users and groups see [Appendix F: System Accounts](appe-System_Accounts).
 
-**Important:** On oVirt Node, the path used for local storage must be within the /var directory; create the storage directory in the following procedure within `/var`.
+
+   **Important:** On oVirt Node, the path used for local storage must be within the /var directory; create the storage directory in the following procedure within `/var`.
+   {: .alert .alert-info}
 
 **Preparing Local Storage for Enterprise Linux Hosts**
 
@@ -196,7 +203,9 @@ POSIX file system support allows you to mount file systems using the same mount 
 
 Any POSIX compliant file system used as a storage domain in oVirt must be a clustered file system, such as Global File System 2 (GFS2), and must support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with oVirt.
 
-    **Important:** Do **not** mount NFS storage by creating a POSIX compliant file system Storage Domain. Always create an NFS Storage Domain instead.
+   **Important:** Do **not** mount NFS storage by creating a POSIX compliant file system Storage Domain. Always create an NFS Storage Domain instead.
+   {: .alert .alert-info}
+
 
 **Attaching POSIX Compliant File System Storage**
 
@@ -234,9 +243,13 @@ Any POSIX compliant file system used as a storage domain in oVirt must be a clus
 
 ## Adding Block Storage
 
-    **Important:** If you are using block storage and you intend to deploy virtual machines on raw devices or direct LUNs and to manage them with the Logical Volume Manager, you must create a filter to hide the guest logical volumes. This will prevent guest logical volumes from being activated when the host is booted, a situation that could lead to stale logical volumes and cause data corruption.
+**Important:** If you are using block storage and you intend to deploy virtual machines on raw devices or direct LUNs and to manage them with the Logical Volume Manager, you must create a filter to hide the guest logical volumes.
+This will prevent guest logical volumes from being activated when the host is booted, a situation that could lead to stale logical volumes and cause data corruption.
+{: .alert .alert-info}
 
-    **Note:** oVirt currently does not support storage with a block size of 4K. You must configure block storage in legacy (512b block) mode.
+
+**Note:** oVirt currently does not support storage with a block size of 4K. You must configure block storage in legacy (512b block) mode.
+{: .alert .alert-info}
 
 ### Adding iSCSI Storage
 
@@ -256,15 +269,18 @@ oVirt supports iSCSI storage by creating a storage domain from a volume group ma
 
 6. Select an active host in the **Use Host** field. If this is not the first data domain in a data center, you must select the data center's SPM host.
 
-    **Important:** All communication to the storage domain is through the selected host and not directly from the oVirt Engine. At least one active host must exist in the system and be attached to the chosen data center. All hosts must have access to the storage device before the storage domain can be configured.
+   **Important:** All communication to the storage domain is through the selected host and not directly from the oVirt Engine. At least one active host must exist in the system and be attached to the chosen data center. All hosts must have access to the storage device before the storage domain can be configured.
+   {: .alert .alert-info}
+
 
 7. The oVirt Engine can map either iSCSI targets to LUNs, or LUNs to iSCSI targets. The **New Domain** window automatically displays known targets with unused LUNs when iSCSI is selected as the storage type. If the target that you are adding storage from is not listed then you can use target discovery to find it, otherwise proceed to the next step.
 
     i. Click **Discover Targets** to enable target discovery options. When targets have been discovered and logged in to, the **New Domain** window automatically displays targets with LUNs unused by the environment.
 
-        **Note:** LUNs used externally to the environment are also displayed.
+    **Note:** LUNs used externally to the environment are also displayed.
+    {: .alert .alert-info}
 
-        You can use the **Discover Targets** options to add LUNs on many targets, or multiple paths to the same LUNs.
+    You can use the **Discover Targets** options to add LUNs on many targets, or multiple paths to the same LUNs.
 
     ii. Enter the fully qualified domain name or IP address of the iSCSI host in the **Address** field.
 
@@ -272,15 +288,17 @@ oVirt supports iSCSI storage by creating a storage domain from a volume group ma
 
     iv. If the Challenge Handshake Authentication Protocol (CHAP) is being used to secure the storage, select the **User Authentication** check box. Enter the **CHAP user name** and **CHAP password**.
 
-        **Note:** It is now possible to use the REST API to define specific credentials to each iSCSI target per host.
+    **Note:** It is now possible to use the REST API to define specific credentials to each iSCSI target per host.
+    {: .alert .alert-info}
 
     v. Click **Discover**.
 
     vi. Select the target to use from the discovery results and click the **Login** button.
 
-        Alternatively, click **Login All** to log in to all of the discovered targets.
+    Alternatively, click **Login All** to log in to all of the discovered targets.
 
-        **Important:** If more than one path access is required, ensure to discover and log in to the target through all the required paths. Modifying a storage domain to add additional paths is currently not supported.
+    **Important:** If more than one path access is required, ensure to discover and log in to the target through all the required paths. Modifying a storage domain to add additional paths is currently not supported.
+    {: .alert .alert-info}
 
 8. Click the **+** button next to the desired target. This will expand the entry and display all unused LUNs attached to the target.
 
@@ -327,6 +345,7 @@ The **iSCSI Multipathing** enables you to create and manage groups of logical ne
 6. Select the networks to be used for the bond from the **Logical Networks** list. The networks must be **Non-Required** networks.
 
     **Note:** To change a network's **Required** designation, from the Administration Portal, select a network, click the **Cluster** tab, and click the **Manage Networks** button.
+    {: .alert .alert-info}
 
 7. Select the storage domain to be accessed via the chosen networks from the **Storage Targets** list. Ensure to select all paths to the same target.
 
@@ -358,7 +377,8 @@ The following procedure shows you how to attach existing FCP storage to your oVi
 
 6. Select an active host in the **Use Host** field. If this is not the first data domain in a data center, you must select the data center's SPM host.
 
-    **Important:** All communication to the storage domain is through the selected host and not directly from the oVirt Engine. At least one active host must exist in the system and be attached to the chosen data center. All hosts must have access to the storage device before the storage domain can be configured.
+   **Important:** All communication to the storage domain is through the selected host and not directly from the oVirt Engine. At least one active host must exist in the system and be attached to the chosen data center. All hosts must have access to the storage device before the storage domain can be configured.
+   {: .alert .alert-info}
 
 7. The **New Domain** window automatically displays known targets with unused LUNs when **Data / Fibre Channel** is selected as the storage type. Select the **LUN ID** check box to select all of the available LUNs.
 
@@ -380,7 +400,7 @@ The new FCP data domain displays on the **Storage** tab. It will remain with a `
 
 There are multiple ways to increase iSCSI or FCP storage size:
 
-* Create a new storage domain with new LUNs and add it to an existing datacenter. See [Adding iSCSI Storage](Adding_iSCSI_Storage1).
+* Create a new storage domain with new LUNs and add it to an existing datacenter. See [Adding iSCSI Storage](#adding-iscsi-storage).
 
 * Create new LUNs and add them to an existing storage domain.
 
@@ -439,7 +459,8 @@ Before the LUN can be reused, the old partitioning table must be cleared.
 
 **Clearing the Partition Table from a LUN**
 
-    **Important:** You must run this procedure on the correct LUN so that you do not inadvertently destroy data.
+**Important:** You must run this procedure on the correct LUN so that you do not inadvertently destroy data.
+{: .alert .alert-info}
 
 Run the `dd` command with the ID of the LUN that you want to reuse, the maximum number of bytes to read and write at a time, and the number of input blocks to copy:
 
@@ -456,7 +477,8 @@ The following is an overview of importing each storage domain type:
 **Data**
 : Importing an existing data storage domain allows you to access all of the virtual machines and templates that the data storage domain contains. After you import the storage domain, you must manually import virtual machines, floating disk images, and templates into the destination data center. The process for importing the virtual machines and templates that a data storage domain contains is similar to that for an export storage domain. However, because data storage domains contain all the virtual machines and templates in a given data center, importing data storage domains is recommended for data recovery or large-scale migration of virtual machines between data centers or environments.
 
-    **Important:** You can import existing data storage domains that were attached to data centers with a compatibility level of 3.5 or higher.
+**Important:** You can import existing data storage domains that were attached to data centers with a compatibility level of 3.5 or higher.
+{: .alert .alert-info}
 
 **ISO**
 : Importing an existing ISO storage domain allows you to access all of the ISO files and virtual diskettes that the ISO storage domain contains. No additional action is required after importing the storage domain to access these resources; you can attach them to virtual machines as required.
@@ -465,6 +487,7 @@ The following is an overview of importing each storage domain type:
 :  Importing an existing export storage domain allows you to access all of the virtual machine images and templates that the export storage domain contains. Because export domains are designed for exporting and importing virtual machine images and templates, importing export storage domains is recommended method of migrating small numbers of virtual machines and templates inside an environment or between environments. For information on exporting and importing virtual machines and templates to and from export storage domains, see "Exporting and Importing Virtual Machines and Templates" in the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide/).
 
     **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center.
+    {: .alert .alert-info}
 
 ### Importing Storage Domains
 
@@ -484,11 +507,13 @@ Import a storage domain that was previously attached to a data center in the sam
 
 6. Select a host from the **Use host** drop-down list.
 
-    **Important:** All communication to the storage domain is through the selected host and not directly from the oVirt Engine. At least one active host must exist in the system and be attached to the chosen data center. All hosts must have access to the storage device before the storage domain can be configured.
+   **Important:** All communication to the storage domain is through the selected host and not directly from the oVirt Engine. At least one active host must exist in the system and be attached to the chosen data center. All hosts must have access to the storage device before the storage domain can be configured.
+   {: .alert .alert-info}
 
 7. Enter the details of the storage domain.
 
-    **Note:** The fields for specifying the details of the storage domain change in accordance with the value you select in the **Domain Function** and **Storage Type** lists. These options are the same as those available for adding a new storage domain. For more information on these options, see [Storage properties](Storage_properties).
+    **Note:** The fields for specifying the details of the storage domain change depending on the values you select in the Domain Function and Storage Type lists. These fields are the same as those available for adding a new storage domain.
+    {: .alert .alert-info}
 
 8. Select the **Activate Domain in Data Center** check box to activate the storage domain after attaching it to the selected data center.
 
@@ -562,7 +587,8 @@ Migrate a storage domain from one oVirt environment to another to allow the dest
 
 18. Enter the details of the storage domain.
 
-    **Note:** The fields for specifying the details of the storage domain change in accordance with the value you select in the **Storage Type** drop-down list. These options are the same as those available for adding a new storage domain. For more information on these options, see [Storage properties](Storage_properties).
+    **Note:** The fields for specifying the details of the storage domain change depending on the value you select in the Storage Type drop-down list. These fields are the same as those available for adding a new storage domain.
+    {: .alert .alert-info}
 
 19. Select the **Activate Domain in Data Center** check box to automatically activate the storage domain when it is attached.
 
@@ -603,6 +629,7 @@ Import a virtual machine from a data storage domain you have imported into your 
    Select the **Reassign Bad MACs** check box to reassign new MAC addresses to all problematic virtual machines. Alternatively, you can select the **Reassign** check box per virtual machine.
 
       **Note:** If there are no available addresses to assign, the import operation will fail. However, in the case of MAC addresses that are outside the cluster’s MAC address pool range, it is possible to import the virtual machine without reassigning a new MAC address.
+      {: .alert .alert-info}
 
 9. Click **OK**.
 
@@ -701,12 +728,14 @@ A storage domain must be in maintenance mode before it can be detached and remov
 5. Click **Maintenance**.
 
     **Note:** The `Ignore OVF update failure` check box allows the storage domain to go into maintenance mode even if the OVF update fails.
+    {: .alert .alert-info}
 
 6. Click **OK**.
 
 The storage domain is deactivated and has an `Inactive` status in the results list. You can now edit, detach, remove, or reactivate the inactive storage domains from the data center.
 
     **Note:** You can also activate, detach and place domains into maintenance mode using the Storage tab on the details pane of the data center it is associated with.
+    {: .alert .alert-info}
 
 ### Editing Storage Domains
 
@@ -717,6 +746,7 @@ You can edit storage domain parameters through the Administration Portal. Depend
 * **Inactive**: When the storage domain is in maintenance mode or unattached, thus in an inactive state, you can edit all fields except **Name**, **Data Center**, **Domain Function**, **Storage Type**, and **Format**. The storage domain must be inactive to edit storage connections, mount options, and other advanced parameters. This is only supported for NFS, POSIX, and Local storage types.
 
     **Note:** iSCSI storage connections cannot be edited via the Administration Portal, but can be edited via the REST API.
+    {: .alert .alert-info}
 
 **Editing an Active Storage Domain**
 
@@ -778,9 +808,8 @@ If you have been making changes to a data center's storage, you have to put stor
 
 4. Click **Activate**.
 
-    **Important:** If you attempt to activate the ISO domain before activating the data domain, an error message displays and the domain is not activated.
-
-jj
+   **Important:** If you attempt to activate the ISO domain before activating the data domain, an error message displays and the domain is not activated.
+   {: .alert .alert-info}
 
 ### Detaching a Storage Domain from a Data Center
 

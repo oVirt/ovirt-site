@@ -14,6 +14,10 @@ These template presentations are provided to build new slides for oVirt presenta
 *   2015 template (with thanks to Eidan Hildesheim): [oVirt_2015_Template.odp](http://resources.ovirt.org/old-site-files/wiki/OVirt_2015_Template.odp)
 *   2014 template: [oVirt_2014_Template.odp](http://resources.ovirt.org/old-site-files/wiki/OVirt_2014_Template.odp)
 
+## Deep Dives
+
+*   Hosted Engine 4.3 Deep Dive (Simone Tiraboschi): [Hosted-Engine-4.3-deep-dive.pdf](/images/Hosted-Engine-4.3-deep-dive.pdf)
+
 ## oVirt 3.6.0 meetups / release parties
 
 *   Italian community release party [OVirt-3.6-release-meetup.odp](http://resources.ovirt.org/old-site-files/wiki/OVirt-3.6-release-meetup.odp) (ODP)

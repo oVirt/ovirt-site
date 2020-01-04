@@ -12,7 +12,7 @@ Before you can configure and use the oVirt Engine, you must install the `ovirt-e
 
 1. Before you can start installing oVirt, add the official repository:
 
-        # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+        # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
 
 2. To ensure all packages are up to date, run the following command on the machine where you are installing the oVirt Engine:
 

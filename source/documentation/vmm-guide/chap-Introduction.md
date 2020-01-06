@@ -47,79 +47,79 @@ The operating systems that can be virtualized as guest operating systems in oVir
 <tr>
 <td>Red Hat Enterprise Linux 3</td>
 <td>32 bit, 64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png"></center></td>
-<td><center><img src="../images/greencheck.png"></center></td>
-<td><center><img src="../images/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
 <td></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux 4</td>
 <td>32 bit, 64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png"></center></td>
-<td><center><img src="../images/greencheck.png"></center></td>
-<td><center><img src="../images/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
 <td></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux 5</td>
 <td>32 bit, 64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png"></center></td>
-<td><center><img src="../images/greencheck.png"></center></td>
-<td><center><img src="../images/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
 <td></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux 6</td>
 <td>32 bit, 64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png"></center></td>
-<td><center><img src="../images/greencheck.png"></center></td>
-<td><center><img src="../images/greencheck.png"></center></td>
-<td><center><img src="../images/greencheck.png">4</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">4</center></td>
 </tr>
 <tr>
 <td>Red Hat Enterprise Linux 7</td>
 <td>64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png"></center></td>
-<td><center><img src="../images/greencheck.png"></center></td>
-<td><center><img src="../images/greencheck.png"></center></td>
-<td><center><img src="../images/greencheck.png">4</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png"></center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">4</center></td>
 </tr>
 <tr>
 <td>Microsoft Windows Server 2008</td>
 <td>32 bit, 64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">5</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">5</center></td>
 </tr>
 <tr>
 <td>Microsoft Windows Server 2008 R2</td>
 <td>64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">5</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">5</center></td>
 </tr>
 <tr>
 <td>Microsoft Windows Server 2012</td>
 <td>64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
 <td></td>
 </tr>
 <tr>
 <td>Microsoft Windows Server 2012 R2</td>
 <td>64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
 <td></td>
 </tr>
 <tr>
 <td>Microsoft Windows Server 2016</td>
 <td>64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
 <td></td>
 <td></td>
 <td><center>6</center></td>
@@ -127,57 +127,57 @@ The operating systems that can be virtualized as guest operating systems in oVir
 <tr>
 <td>Microsoft Windows 7</td>
 <td>32 bit, 64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">4</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">4</center></td>
 </tr>
 <tr>
 <td>Microsoft Windows 8</td>
 <td>32 bit, 64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
 <td></td>
 </tr>
 <tr>
 <td>Microsoft Windows 8.1</td>
 <td>32 bit, 64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
 <td></td>
 </tr>
 <tr>
 <td>Microsoft Windows 10</td>
 <td>32 bit, 64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
-<td><center><img src="../images/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">1</center></td>
 <td></td>
 </tr>
 <tr>
 <td>SUSE Linux Enterprise Server 10</td>
 <td>32 bit, 64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png">2</center></td>
-<td><center><img src="../images/greencheck.png">2</center></td>
-<td><center><img src="../images/greencheck.png">2</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">2</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">2</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">2</center></td>
 <td></td>
 </tr>
 <tr>
 <td>SUSE Linux Enterprise Server 11</td>
 <td>32 bit, 64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png">2</center></td>
-<td><center><img src="../images/greencheck.png">2</center></td>
-<td><center><img src="../images/greencheck.png">2</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">2</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">2</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">2</center></td>
 <td><center>3</center></td>
 </tr>
 <tr>
 <td>SUSE Linux Enterprise Server 12</td>
 <td>32 bit, 64 bit (x86)</td>
-<td><center><img src="../images/greencheck.png">2</center></td>
-<td><center><img src="../images/greencheck.png">2</center></td>
-<td><center><img src="../images/greencheck.png">2</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">2</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">2</center></td>
+<td><center><img src="/images/vmm-guide/greencheck.png">2</center></td>
 <td><center>3</center></td>
 </tr>
 </table>

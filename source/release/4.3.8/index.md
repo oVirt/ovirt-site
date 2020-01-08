@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.8 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.8 Second Release Candidate as of December 11, 2019.
+The oVirt Project is pleased to announce the availability of the 4.3.8 Third Release Candidate as of January 08, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -82,6 +82,11 @@ It is now possible to run playbook for handling the services:
 
 ### Bug Fixes
 
+#### VDSM
+
+ - [BZ 1780290](https://bugzilla.redhat.com/1780290) **Host goes non-operational post upgrading that host from RHHI-V 1.6 to RHHI-V 1.7**
+
+
 #### oVirt Engine Data Warehouse
 
  - [BZ 1761494](https://bugzilla.redhat.com/1761494) **dwh-vacuum fails with 'vacuumdb: command not found'**
@@ -89,10 +94,39 @@ It is now possible to run playbook for handling the services:
 
 #### oVirt Engine
 
+ - [BZ 1779664](https://bugzilla.redhat.com/1779664) **MERGE_STATUS fails with 'Invalid UUID string: mapper' when Direct LUN that already exists is hot-plugged [RHV clone - 4.3.8]**
+
  - [BZ 1773704](https://bugzilla.redhat.com/1773704) **engine-cleanup is removing all files listed in "uninstall.conf" irrespective of the options provided**
 
 
+#### IOProcess
+
+ - [BZ 1780290](https://bugzilla.redhat.com/1780290) **Host goes non-operational post upgrading that host from RHHI-V 1.6 to RHHI-V 1.7**
+
+
 ### Other
+
+#### VDSM
+
+ - [BZ 1748022](https://bugzilla.redhat.com/1748022) **Enable gluster 4k support**
+
+   
+
+
+#### imgbased
+
+ - [BZ 1780331](https://bugzilla.redhat.com/1780331) **Firewalld service not enabled/running after RHV-H upgrade**
+
+   
+
+ - [BZ 1765250](https://bugzilla.redhat.com/1765250) **After upgrade RHVH did not boot into latest layer by default on UEFI machine.**
+
+   
+
+ - [BZ 1779661](https://bugzilla.redhat.com/1779661) **grubenv file is broken in the UEFI RHV-H hosts**
+
+   
+
 
 #### oVirt Provider OVN
 
@@ -108,22 +142,30 @@ It is now possible to run playbook for handling the services:
    
 
 
+#### oVirt image transfer daemon and proxy
+
+ - [BZ 1786950](https://bugzilla.redhat.com/1786950) **Block size detection is unsafe with multiple connections**
+
+   
+
+
+### No Doc Update
+
 #### oVirt Engine
 
  - [BZ 1781380](https://bugzilla.redhat.com/1781380) **Rest API for creating affinity group with labels is resulted with the group created with missing labels [RHV clone - 4.3.8]**
 
    
 
- - [BZ 1779664](https://bugzilla.redhat.com/1779664) **MERGE_STATUS fails with 'Invalid UUID string: mapper' when Direct LUN that already exists is hot-plugged [RHV clone - 4.3.8]**
-
-   
-
 
 #### Contributors
 
-17 people contributed to this release:
+22 people contributed to this release:
 
 	Andrej Krejcir
+	Daniel Erez
+	Dominik Holler
+	Eyal Shenitzky
 	Fabien Dupont
 	Gal Zaidman
 	Gobinda Das
@@ -132,6 +174,7 @@ It is now possible to run playbook for handling the services:
 	Miguel Duarte Barroso
 	Milan Zamazal
 	Nenad Peric
+	Nir Soffer
 	Pino Toscano
 	Sandro Bonazzola
 	Shani Leviim
@@ -140,3 +183,4 @@ It is now possible to run playbook for handling the services:
 	Tal Nisan
 	Tomáš Golembiovský
 	Yedidyah Bar David
+	Yuval Turgeman

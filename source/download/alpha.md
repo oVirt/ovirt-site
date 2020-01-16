@@ -35,9 +35,9 @@ Engine:
 - Scientific Linux 7.7 or later but < 8
 
 Hosts:
-- Red Hat Enterprise Linux 8.0 or later
-- CentOS Linux 8.0 or later
-- oVirt Node (based on CentOS Linux 8.0)
+- Red Hat Enterprise Linux 8.1 or later
+- CentOS Linux 8.1 or later
+- oVirt Node (based on CentOS Linux 8.1)
 
 See the [Release Notes for oVirt 4.4.0](/release/4.4.0/).
 

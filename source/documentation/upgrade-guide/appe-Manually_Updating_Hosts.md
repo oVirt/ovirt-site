@@ -33,7 +33,7 @@ You can use the `yum` command to update your hosts. Update your systems regularl
    
    If you are updating from 4.2 you need to provide the URL to latest 4.3 release. For example:
    
-       # yum update https://resources.ovirt.org/pub/ovirt-4.3/rpm/el7/noarch/ovirt-node-ng-image-update-4.3.7-1.el7.noarch.rpm 
+       # yum update https://resources.ovirt.org/pub/ovirt-4.3/rpm/el7/noarch/ovirt-node-ng-image-update-4.3.8-1.el7.noarch.rpm 
 
 5. Reboot the host to ensure all updates are correctly applied.
 

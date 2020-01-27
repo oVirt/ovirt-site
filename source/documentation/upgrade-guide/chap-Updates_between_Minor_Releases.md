@@ -4,7 +4,7 @@ title: Updates Between Minor Releases
 
 # Chapter 9: Updates Between Minor Releases
 
-To upgrade from your current version of 4.3 to the latest version, for example, from 4.3.6 to 4.3.7, update the Engine and then update the hosts.
+To upgrade from your current version of 4.3 to the latest version, for example, from 4.3.7 to 4.3.8, update the Engine and then update the hosts.
 
 ## Update the oVirt Engine
 

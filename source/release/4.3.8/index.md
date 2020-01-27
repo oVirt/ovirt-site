@@ -2,7 +2,7 @@
 title: oVirt 4.3.8 Release Notes
 category: documentation
 toc: true
-authors: lveyde
+authors: lveyde,sandrobonazzola
 ---
 
 <style>
@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.8 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.8 Third Release Candidate as of January 08, 2020.
+The oVirt Project is pleased to announce the availability of the 4.3.8 release as of January 27, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -23,14 +23,6 @@ projects, including libvirt, Gluster, PatternFly, and Ansible.
 This release is available now for Red Hat Enterprise Linux 7.7 and
 CentOS Linux 7.7 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
@@ -45,12 +37,6 @@ page.
 To learn about features introduced before 4.3.8, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
 
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm)
-
 
 
 ## What's New in 4.3.8?
@@ -58,6 +44,34 @@ In order to install this Release Candidate you will need to enable pre-release r
 ### Enhancements
 
 #### oVirt Engine Metrics
+
+ - [BZ 1782412](https://bugzilla.redhat.com/1782412) **[RFE] RHV+Metrics Store - Support a Flat DNS environment without subdomains**
+
+   Feature: 
+
+RHV+Metrics Store - Support a Flat DNS environment without subdomains
+
+
+
+Reason:
+
+For some users, security policy mandates that they maintain a "flat" DNS environment \-- no submains.
+
+
+
+Result: 
+
+This fix adds an option to add a suffix to master0 VM.
+
+
+
+Example:
+
+If user sets 'openshift_ovirt_machine_suffix' to 'prod' and
+
+'public_hosted_zone' is 'example.com',
+
+Then the metrics store vm will be called 'master-prod0.example.com'.
 
  - [BZ 1727546](https://bugzilla.redhat.com/1727546) **[RFE] Add cleanup option to oVirt metrics playbook**
 
@@ -135,6 +149,17 @@ It is now possible to run playbook for handling the services:
    
 
 
+#### oVirt Engine Metrics
+
+ - [BZ 1711873](https://bugzilla.redhat.com/1711873) **RFE for offline installation  of RHV Metrics Store**
+
+   
+
+ - [BZ 1780234](https://bugzilla.redhat.com/1780234) **Metric Store reports all hosts in Default cluster regardless of cluster assignment.**
+
+   
+
+
 #### oVirt Cockpit Plugin
 
  - [BZ 1723728](https://bugzilla.redhat.com/1723728) **Remove the VDO option to emulate 512**
@@ -160,7 +185,7 @@ It is now possible to run playbook for handling the services:
 
 #### Contributors
 
-22 people contributed to this release:
+23 people contributed to this release:
 
 	Andrej Krejcir
 	Daniel Erez
@@ -175,6 +200,7 @@ It is now possible to run playbook for handling the services:
 	Milan Zamazal
 	Nenad Peric
 	Nir Soffer
+	Ondra Machacek
 	Pino Toscano
 	Sandro Bonazzola
 	Shani Leviim

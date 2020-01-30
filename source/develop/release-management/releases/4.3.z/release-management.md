@@ -15,6 +15,41 @@ th, td {
 
 # oVirt 4.3.z Release Management
 
+# oVirt 4.3.9
+
+## Timeline
+
+| Date           | Milestone                |
+|----------------|--------------------------|
+| **2020-01-30** | First Release candidate  |
+| **2020-xx-xx** | General availability     |
+
+### Release criteria
+
+*   See [oVirt 4.3 release-management](/develop/release-management/releases/4.3/release-management/) Release Criteria
+*   Release notes must be filled: [oVirt 4.3.9 Release Notes](/release/4.3.9/)
+*   Blocking bugs must be fixed: [oVirt 4.3.9 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.3.9&v1=blocker)
+
+
+
+# oVirt 4.3.8
+
+## Timeline
+
+| Date           | Milestone                |
+|----------------|--------------------------|
+| **2019-12-06** | First Release candidate  |
+| **2019-12-11** | Second Release candidate |
+| **2020-01-08** | Third Release candidate  |
+| **2020-01-27** | General availability     |
+
+### Release criteria
+
+*   See [oVirt 4.3 release-management](/develop/release-management/releases/4.3/release-management/) Release Criteria
+*   Release notes must be filled: [oVirt 4.3.8 Release Notes](/release/4.3.8/)
+*   Blocking bugs must be fixed: [oVirt 4.3.8 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.3.8&v1=blocker)
+
+
 # oVirt 4.3.7
 
 ## Timeline

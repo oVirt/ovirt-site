@@ -1,0 +1,16 @@
+[id='Migrating_Data_Warehouse_to_a_Separate_Machine_{context}']
+= Migrating Data Warehouse to a Separate Machine
+
+:context: migrate_DWH
+
+This section describes how to migrate the Data Warehouse database and service from the {virt-product-fullname} {engine-name} to a separate machine. Hosting the Data Warehouse service on a separate machine reduces the load on each individual machine, and allows each service to avoid potential conflicts caused by sharing CPU and memory resources with other processes.
+
+You can migrate the Data Warehouse service and connect it with the existing Data Warehouse database (`ovirt_engine_history`), or you can migrate the Data Warehouse database to the separate machine before migrating the Data Warehouse service. If the Data Warehouse database is hosted on the {engine-name}, migrating the database in addition to the Data Warehouse service further reduces the competition for resources on the {engine-name} machine. You can migrate the database to the same machine onto which you will migrate the Data Warehouse service, or to a machine that is separate from both the {engine-name} machine and the new Data Warehouse service machine.
+
+include::proc-Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine.adoc[leveloffset=+1]
+//adding context back
+:context: migrate_DWH
+
+include::proc-Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine.adoc[leveloffset=+1]
+
+:context!: migrate_DWH

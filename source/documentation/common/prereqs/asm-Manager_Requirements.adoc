@@ -1,0 +1,14 @@
+[id='RHV-manager-requirements']
+= {virt-product-fullname} {engine-name} Requirements
+
+// Included in:
+// PPG
+// Install
+
+include::ref-Manager_Hardware_Requirements.adoc[leveloffset=+1]
+
+include::ref-Manager_Browser_Requirements.adoc[leveloffset=+1]
+
+include::ref-Manager_Client_Requirements.adoc[leveloffset=+1]
+
+include::ref-Manager_Operating_System_Requirements.adoc[leveloffset=+1]

@@ -1,0 +1,90 @@
+[id='Configuring_an_Offline_Repository_for_Red_Hat_Virtualization_Manager_Installation_{context}']
+= Configuring a Local Repository for Offline {virt-product-fullname} {engine-name} Installation
+
+:context: offline_install
+
+To install {virt-product-fullname} {engine-name} on a system that does not have a direct connection to the Content Delivery Network, download the required packages on a system that has Internet access, then create a repository that can be shared with the offline {engine-name} machine. The system hosting the repository must be connected to the same network as the client systems where the packages are to be installed.
+
+.Prerequisites
+
+* A {enterprise-linux} 7 Server installed on a system that has access to the Content Delivery Network. This system downloads all the required packages, and distributes them to your offline system(s).
+
+* A large amount of free disk space available. This procedure downloads a large number of packages, and requires up to 50GB of free disk space.
+
+Enable the {virt-product-fullname} {engine-name} repositories on the online system:
+
+[discrete]
+include::proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
+
+[discrete]
+== Configuring the Offline Repository
+
+. Servers that are not connected to the Internet can access software repositories on other systems using File Transfer Protocol (FTP). To create the FTP repository, install and configure `vsftpd`:
+.. Install the `vsftpd` package:
++
+[options="nowrap" subs="normal"]
+----
+# yum install vsftpd
+----
++
+.. Start the *vsftpd* service, and ensure the service starts on boot:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl start vsftpd.service
+# systemctl enable vsftpd.service
+----
+
+.. Create a sub-directory inside the */var/ftp/pub/* directory. This is where the downloaded packages will be made available:
++
+[options="nowrap" subs="normal"]
+----
+# mkdir /var/ftp/pub/rhvrepo
+----
++
+. Download packages from all configured software repositories to the `rhvrepo` directory. This includes repositories for all Content Delivery Network subscription pools attached to the system, and any locally configured repositories:
++
+[options="nowrap" subs="normal"]
+----
+# reposync -l -p /var/ftp/pub/rhvrepo
+----
+This command downloads a large number of packages, and takes a long time to complete. The `-l` option enables yum plug-in support.
+. Install the `createrepo` package:
++
+[options="nowrap" subs="normal"]
+----
+# yum install createrepo
+----
++
+. Create repository metadata for each of the sub-directories where packages were downloaded under `/var/ftp/pub/rhvrepo`:
++
+[options="nowrap" subs="normal"]
+----
+# for DIR in $(find /var/ftp/pub/rhvrepo -maxdepth 1 -mindepth 1 -type d); do createrepo $DIR; done
+----
++
+. Create a repository file, and copy it to the */etc/yum.repos.d/* directory on the offline machine on which you will install the {engine-name}.
++
+The configuration file can be created manually or with a script. Run the script below on the system hosting the repository, replacing _ADDRESS_ in the `baseurl` with the IP address or FQDN of the system hosting the repository:
++
+[source,bash, options="nowrap"]
+----
+#!/bin/sh
+
+REPOFILE="/etc/yum.repos.d/rhev.repo"
+echo -e " " > $REPOFILE
+
+for DIR in $(find /var/ftp/pub/rhvrepo -maxdepth 1 -mindepth 1 -type d);
+do
+    echo -e "[$(basename $DIR)]"	>> $REPOFILE
+    echo -e "name=$(basename $DIR)" >> $REPOFILE
+    echo -e "baseurl=ftp://_ADDRESS_/pub/rhvrepo/`basename $DIR`" >> $REPOFILE
+    echo -e "enabled=1" >> $REPOFILE
+    echo -e "gpgcheck=0" >> $REPOFILE
+    echo -e "\n" >> $REPOFILE
+done
+----
+
+Return to xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[]. Packages are installed from the local repository, instead of from the Content Delivery Network.
+
+:context!: offline_install

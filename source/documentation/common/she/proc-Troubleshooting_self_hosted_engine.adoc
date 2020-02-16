@@ -1,0 +1,145 @@
+[id='Troubleshooting_the_Manager_Virtual_Machine_{context}']
+= Troubleshooting the {engine-name} Virtual Machine
+
+Check the status of the {engine-name} virtual machine by running `hosted-engine --vm-status`.
+
+[NOTE]
+====
+Any changes made to the {engine-name} virtual machine will take about 20 seconds before they are reflected in the status command output.
+====
+
+Depending on the `Engine status` in the output, see the following suggestions to find or fix the issue.
+
+[discrete]
+== Engine status: "health": "good", "vm": "up"  "detail": "up"
+
+. If the {engine-name} virtual machine is up and running as normal, you will see the following output:
++
+----
+--== Host 1 status ==--
+
+Status up-to-date              : True
+Hostname                       : hypervisor.example.com
+Host ID                        : 1
+Engine status                  : {"health": "good", "vm": "up", "detail": "up"}
+Score                          : 3400
+stopped                        : False
+Local maintenance              : False
+crc32                          : 99e57eba
+Host timestamp                 : 248542
+----
+
+. If the output is normal but you cannot connect to the {engine-name}, check the network connection.
+
+[discrete]
+== Engine status: "reason": "failed liveliness check", "health": "bad", "vm": "up", "detail": "up"
+
+. If the `health` is `bad` and the `vm` is `up`, the HA services will try to restart the {engine-name} virtual machine to get the {engine-name} back. If it does not succeed within a few minutes, enable the global maintenance mode from the command line so that the hosts are no longer managed by the HA services.
++
+----
+# hosted-engine --set-maintenance --mode=global
+----
+
+. Connect to the console. When prompted, enter the operating system's root password. For more console options, see link:https://access.redhat.com/solutions/2221461[].
++
+----
+# hosted-engine --console
+----
+
+. Ensure that the {engine-name} virtual machine's operating system is running by logging in.
+
+. Check the status of the `ovirt-engine` service:
++
+----
+# systemctl status -l ovirt-engine
+# journalctl -u ovirt-engine
+----
+
+. Check the following logs: */var/log/messages*, */var/log/ovirt-engine/engine.log,* and */var/log/ovirt-engine/server.log*.
+
+. After fixing the issue, reboot the {engine-name} virtual machine manually from one of the self-hosted engine nodes:
++
+----
+# hosted-engine --vm-shutdown
+# hosted-engine --vm-start
+----
++
+[NOTE]
+====
+When the self-hosted engine nodes are in global maintenance mode, the {engine-name} virtual machine must be rebooted manually. If you try to reboot the {engine-name} virtual machine by sending a `reboot` command from the command line, the {engine-name} virtual machine will remain powered off. This is by design.
+====
+
+. On the {engine-name} virtual machine, verify that the `ovirt-engine` service is up and running:
++
+----
+ # systemctl status ovirt-engine.service
+----
+. After ensuring the {engine-name} virtual machine is up and running, close the console session and disable the maintenance mode to enable the HA services again:
++
+----
+# hosted-engine --set-maintenance --mode=none
+----
+
+[discrete]
+== Engine status: "vm": "down", "health": "bad", "detail": "unknown", "reason": "vm not running on this host"
+
+. If you have more than one host in your environment, ensure that another host is not currently trying to restart the {engine-name} virtual machine.
+. Ensure that you are not in global maintenance mode.
+. Check the *ovirt-ha-agent* logs in */var/log/ovirt-hosted-engine-ha/agent.log*.
+. Try to reboot the {engine-name} virtual machine manually from one of the self-hosted engine nodes:
++
+----
+# hosted-engine --vm-shutdown
+# hosted-engine --vm-start
+----
+
+[discrete]
+== Engine status: "vm": "unknown", "health": "unknown", "detail": "unknown", "reason": "failed to getVmStats"
+
+This status means that `ovirt-ha-agent` failed to get the virtual machine's details from VDSM.
+
+. Check the VDSM logs in */var/log/vdsm/vdsm.log*.
+
+. Check the *ovirt-ha-agent* logs in */var/log/ovirt-hosted-engine-ha/agent.log*.
+
+[discrete]
+== Engine status: The self-hosted engine's configuration has not been retrieved from shared storage
+
+If you receive the status `The hosted engine configuration has not been retrieved from shared storage. Please ensure that ovirt-ha-agent is running and the storage server is reachable` there is an issue with the `ovirt-ha-agent` service, or with the storage, or both.
+
+. Check the status of `ovirt-ha-agent` on the host:
++
+----
+# systemctl status -l ovirt-ha-agent
+# journalctl -u ovirt-ha-agent
+----
+
+. If the `ovirt-ha-agent` is down, restart it:
++
+----
+# systemctl start ovirt-ha-agent
+----
+
+. Check the `ovirt-ha-agent` logs in */var/log/ovirt-hosted-engine-ha/agent.log*.
+
+. Check that you can ping the shared storage.
+
+. Check whether the shared storage is mounted.
+
+[discrete]
+== Additional Troubleshooting Commands
+
+ifdef::rhv-doc[]
+[IMPORTANT]
+====
+Contact the Red Hat Support Team if you feel you need to run any of these commands to troubleshoot your self-hosted engine environment.
+====
+endif::[]
+
+* `hosted-engine --reinitialize-lockspace`: This command is used when the sanlock lockspace is broken. Ensure that the global maintenance mode is enabled and that the {engine-name} virtual machine is stopped before reinitializing the sanlock lockspaces.
+
+* `hosted-engine --clean-metadata`: Remove the metadata for a host's agent from the global status database. This makes all other hosts forget about this host. Ensure that the target host is down and that the global maintenance mode is enabled.
+
+* `hosted-engine --check-liveliness`: This command checks the liveliness page of the ovirt-engine service. You can also check by connecting to `https://_engine-fqdn_/ovirt-engine/services/health/` in a web browser.
+
+* `hosted-engine --connect-storage`: This command instructs VDSM to prepare all storage connections needed for the host and and the {engine-name} virtual machine. This is normally run in the back-end during the self-hosted engine deployment. Ensure that the global maintenance mode is enabled if you need to run this command to troubleshoot storage issues.

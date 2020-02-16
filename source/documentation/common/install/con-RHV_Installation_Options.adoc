@@ -1,0 +1,36 @@
+[id='RHV_Installation_Options_{context}']
+= {virt-product-fullname} Installation Options
+
+[[SHE_install_options]]
+== Self-hosted engine (recommended)
+
+You can install {virt-product-fullname} as a self-hosted engine using either the link:{URL_rhel_docs_legacy}html-single/getting_started_with_cockpit/[Cockpit web interface] or the command line. Cockpit is the recommended method.
+
+Because the {engine-name} installation is automated, the {engine-name} database (`engine`) and Data Warehouse service and database (`ovirt-engine-history`) can only be installed locally. If you want to host any databases or services on remote machines, you must migrate them after the installation is complete. Instructions for this are included in both of the following guides.
+
+* To install a self-hosted engine using Cockpit (recommended), see link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/[_Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface_].
+
+* To install a self-hosted engine using the command line, see link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_command_line/[_Installing {virt-product-fullname} as a self-hosted engine using the command line_].
+
+[[SM_install_options]]
+== Standalone {engine-name} (manual)
+
+You can only install a standalone {engine-name} using the command line.
+
+During installation, you can specify whether to install the {engine-name} database (`engine`) and Data Warehouse service and database (`ovirt-engine-history`) locally or remotely. You do not have to choose the same option for both; one database can be hosted on a remote machine, while the other is hosted on the {engine-name} machine.
+
+Local databases can be manually configured, or automatically configured by the installation script. A remote {engine-name} database must be manually configured. A remote Data Warehouse database can be configured automatically only if the Data Warehouse service is installed on the same machine (if not, the database must be configured manually).
+
+* To install a standalone {engine-name} with local databases, see link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_local_databases/[_Installing {virt-product-fullname} as a standalone {engine-name} with local databases_]. This guide assumes that all databases and services will be installed on the same machine as the {engine-name}.
+
+* To install a standalone {engine-name} with remote databases, see link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_remote_databases/[_Installing {virt-product-fullname} as a standalone {engine-name} with remote databases_]. This guide assumes that all databases and services will be installed on one additional machine separate from the {engine-name}.
+
+.Mixing local and remote databases
+
+Installing one database on the {engine-name} machine and the other database remotely, and the various combinations thereof, is not specifically documented. For example:
+
+* The {engine-name} and {engine-name} database are installed on the _Manager machine_, and the Data Warehouse service and database are installed on _Server 1_. In this case, you must configure the {engine-name} locally, then install Data Warehouse separately.
+* The {engine-name} and the Data Warehouse service are installed on the _Manager machine_, and the {engine-name} database and Data Warehouse database are installed on _Server 1_. In this case, you must manually configure the {engine-name} and Data Warehouse databases, then configure the {engine-name} and the Data Warehouse service.
+* The {engine-name}, {engine-name} database, and Data Warehouse database are installed on the _Manager machine_, and the Data Warehouse service is installed on _Server 1_. In this case, you must manually configure the Data Warehouse database, then configure the {engine-name}, then install the Data Warehouse service.
+* The {engine-name} and the Data Warehouse service are installed on the _Manager machine_, the {engine-name} database is installed on _Server 1_, and the Data Warehouse database is installed on _Server 2_. In this case, you must manually configure the {engine-name} and Data Warehouse databases, then configure the {engine-name} and the Data Warehouse service.
+* The {engine-name} is installed on the _Manager machine_, the {engine-name} database is installed on _Server 1_, and the Data Warehouse service and database are installed on _Server 2_. In this case, you must manually configure the {engine-name} database, then configure the {engine-name}, then install Data Warehouse.

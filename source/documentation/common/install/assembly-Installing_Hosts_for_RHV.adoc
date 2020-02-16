@@ -1,0 +1,60 @@
+[id='Installing_Hosts_for_RHV_{context}']
+= Installing Hosts for {virt-product-fullname}
+
+{virt-product-fullname} supports two types of hosts: xref:Red_Hat_Virtualization_Hosts_{context}[{hypervisor-fullname}s ({hypervisor-shortname})] and xref:Red_Hat_Enterprise_Linux_hosts_{context}[{enterprise-linux-host-fullname}s]. Depending on your environment, you may want to use one type only, or both. At least two hosts are required for features such as migration and high availability.
+
+See xref:Recommended_practices_for_configuring_host_networks_{context}[] for networking information.
+
+[IMPORTANT]
+====
+SELinux is in enforcing mode upon installation. To verify, run `getenforce`. SELinux must be in enforcing mode on all hosts and Managers for your {virt-product-fullname} environment to be supported.
+====
+
+.Host Types
+[options="header"]
+|====
+|Host Type |Other Names |Description
+|*{hypervisor-fullname}* |{hypervisor-shortname}, thin host |This is a minimal operating system based on {enterprise-linux}. It is distributed as an ISO file from the Customer Portal and contains only the packages required for the machine to act as a host.
+|*{enterprise-linux-host-fullname}* |{enterprise-linux-host-shortname}, thick host |{enterprise-linux} systems with the appropriate subscriptions attached can be used as hosts.
+|====
+
+.Host Compatibility
+
+When you create a new data center, you can set the compatibility version. Select the compatibility version that suits all the hosts in the data center. Once set, version regression is not allowed. For a fresh {virt-product-fullname} installation, the latest compatibility version is set in the default data center and default cluster; to use an earlier compatibility version, you must create additional data centers and clusters. For more information about compatibility versions see _{virt-product-fullname} {engine-name} Compatibility_ in the link:https://access.redhat.com/support/policy/updates/rhev[{virt-product-fullname} Life Cycle].
+
+[id='Red_Hat_Virtualization_Hosts_{context}']
+== {hypervisor-fullname}s
+
+include::proc-Installing_Red_Hat_Virtualization_Hosts.adoc[leveloffset=+2]
+
+ifdef::rhv-doc[]
+include::proc-Enabling_the_Red_Hat_Virtualization_Host_Repository.adoc[leveloffset=+2]
+endif::[]
+
+[id='Advanced_RHVH_Install_{context}']
+=== Advanced Installation
+
+include::ref-Custom_Partitioning_RHVH.adoc[leveloffset=+3]
+
+include::proc-Automating_RHVH_Deployment.adoc[leveloffset=+3]
+
+
+[id='Red_Hat_Enterprise_Linux_hosts_{context}']
+== {enterprise-linux-host-fullname}s
+
+include::proc-Installing_Red_Hat_Enterprise_Linux_Hosts.adoc[leveloffset=+2]
+
+ifdef::rhv-doc[]
+include::proc-Enabling_the_Red_Hat_Enterprise_Linux_Host_Repositories.adoc[leveloffset=+2]
+endif::[]
+
+include::proc-Installing_Cockpit_on_RHEL_Hosts.adoc[leveloffset=+2]
+//end sect
+
+include::con-Recommended_practices_for_configuring_host_networks.adoc[leveloffset=+1]
+
+ifdef::SHE_cockpit_deploy,SHE_cli_deploy[]
+include::proc-Adding_self-hosted_engine_nodes_to_the_Manager.adoc[leveloffset=+1]
+endif::SHE_cockpit_deploy,SHE_cli_deploy[]
+
+include::proc-Adding_standard_hosts_to_the_Manager.adoc[leveloffset=+1]

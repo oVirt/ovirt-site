@@ -1,0 +1,4 @@
+[IMPORTANT]
+====
+When creating a management bridge that uses a static IPv6 address, disable network manager control in its interface configuration (ifcfg) file before adding a host. See link:https://access.redhat.com/solutions/3981311[] for more information.
+====

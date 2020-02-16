@@ -1,0 +1,18 @@
+[id='Reinstalling_an_Existing_Host_as_a_Self-Hosted_Engine_Node_{context}']
+= Reinstalling an Existing Host as a Self-Hosted Engine Node
+
+// Included in:
+// Administering the Self-Hosted Engine
+// Migrating from Bare Metal to a Self-hosted Environment
+
+You can convert an existing, standard host in a self-hosted engine environment to a self-hosted engine node capable of hosting the {engine-name} virtual machine.
+
+.Procedure
+
+. Click menu:Compute[Hosts] and select the host.
+. Click menu:Management[Maintenance] and click btn:[OK].
+. Click menu:Installation[Reinstall].
+. Click the *Hosted Engine* tab and select *DEPLOY* from the drop-down list.
+. Click btn:[OK].
+
+The host is reinstalled with self-hosted engine configuration, and is flagged with a crown icon in the Administration Portal.

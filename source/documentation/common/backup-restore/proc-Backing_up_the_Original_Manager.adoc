@@ -1,0 +1,65 @@
+[id='Backing_up_the_Original_Manager_{context}']
+= Backing up the Original {engine-name}
+
+// Included in:
+// Migrating from Bare Metal to a Self-hosted Environment
+// Backing up and Restoring a Self-hosted Environment
+
+Back up the original {engine-name} using the `engine-backup` command, and copy the backup file to a separate location so that it can be accessed at any point during the process.
+
+For more information about `engine-backup --mode=backup` options, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Backing Up and Restoring the {virt-product-fullname} {engine-name}] in the _Administration Guide_.
+
+.Procedure
+
+//Not needed for migration
+ifdef::SHE_backup_restore[]
+. Log in to one of the self-hosted engine nodes and move the environment to global maintenance mode:
++
+----
+# hosted-engine --set-maintenance --mode=global
+----
+endif::SHE_backup_restore[]
+
+. Log in to the original {engine-name} and stop the `ovirt-engine` service:
++
+----
+# systemctl stop ovirt-engine
+# systemctl disable ovirt-engine
+----
++
+[NOTE]
+====
+Though stopping the original {engine-name} from running is not obligatory, it is recommended as it ensures no changes are made to the environment after the backup is created. Additionally, it prevents the original {engine-name} and the new {engine-name} from simultaneously managing existing resources.
+====
+
+. Run the `engine-backup` command, specifying the name of the backup file to create, and the name of the log file to create to store the backup log:
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --mode=backup --file=__file_name__ --log=__log_file_name__
+----
+
+. Copy the files to an external server. In the following example, `storage.example.com` is the fully qualified domain name of a network storage server that will store the backup until it is needed, and `/backup/` is any designated folder or path.
++
+[options="nowrap" subs="normal"]
+----
+# scp -p __file_name__ __log_file_name__ storage.example.com:/backup/
+----
++
+. If you do not require the {engine-name} machine for other purposes, unregister it from Red Hat Subscription Manager:
+// review above
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager unregister
+----
++
+//Not needed for migration
+ifdef::SHE_backup_restore[]
+. Log in to one of the self-hosted engine nodes and shut down the original {engine-name} virtual machine:
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --vm-shutdown
+----
+endif::SHE_backup_restore[]

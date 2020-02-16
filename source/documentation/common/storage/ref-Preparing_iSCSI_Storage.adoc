@@ -1,0 +1,33 @@
+[id='Preparing_iSCSI_Storage_{context}']
+= Preparing iSCSI Storage
+
+{virt-product-fullname} supports iSCSI storage, which is a storage domain created from a volume group made up of LUNs. Volume groups and LUNs cannot be attached to more than one storage domain at a time.
+
+For information on setting up and configuring iSCSI storage, see link:{URL_rhel_docs_legacy}html-single/storage_administration_guide/#online-storage-management[Online Storage Management] in the _{enterprise-linux} 7 Storage Administration Guide_.
+
+[IMPORTANT]
+====
+If you are using block storage and you intend to deploy virtual machines on raw devices or direct LUNs and to manage them with the Logical Volume Manager, you must create a filter to hide the guest logical volumes. This will prevent guest logical volumes from being activated when the host is booted, a situation that could lead to stale logical volumes and cause data corruption. See link:https://access.redhat.com/solutions/2662261[] for details.
+====
+
+[IMPORTANT]
+====
+{virt-product-fullname} currently does not support storage with a block size of 4K. You must configure block storage in legacy (512b block) mode.
+====
+
+[IMPORTANT]
+====
+If your host is booting from SAN storage and loses connectivity to the storage, the storage file systems become read-only and remain in this state after connectivity is restored.
+
+To prevent this situation, {org-fullname} recommends adding a drop-in multipath configuration file on the root file system of the SAN for the boot LUN to ensure that it is queued when there is a connection:
+
+[options="nowrap" subs="normal"]
+----
+# cat /etc/multipath/conf.d/host.conf
+multipaths {
+    multipath {
+        wwid _boot_LUN_wwid_
+        no_path_retry queue
+    }
+----
+====

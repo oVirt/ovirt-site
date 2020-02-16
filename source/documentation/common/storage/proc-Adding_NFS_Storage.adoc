@@ -1,0 +1,22 @@
+[id='Adding_NFS_Storage_{context}']
+= Adding NFS Storage
+
+This procedure shows you how to attach existing NFS storage to your {virt-product-fullname} environment as a data domain.
+
+If you require an ISO or export domain, use this procedure, but select *ISO* or *Export* from the *Domain Function* list.
+
+.Procedure
+
+. In the Administration Portal, click menu:Storage[Domains].
+. Click *New Domain*.
+. Enter a *Name* for the storage domain.
+. Accept the default values for the *Data Center*, *Domain Function*, *Storage Type*, *Format*, and *Host* lists.
+. Enter the *Export Path* to be used for the storage domain. The export path should be in the format of _123.123.0.10:/data_ (for IPv4), _[2001:0:0:0:0:0:0:5db1]:/data_ (for IPv6), or _domain.example.com:/data_.
+. Optionally, you can configure the advanced parameters:
+.. Click *Advanced Parameters*.
+.. Enter a percentage value into the *Warning Low Space Indicator* field. If the free space available on the storage domain is below this percentage, warning messages are displayed to the user and logged.
+.. Enter a GB value into the *Critical Space Action Blocker* field. If the free space available on the storage domain is below this value, error messages are displayed to the user and logged, and any new action that consumes space, even temporarily, will be blocked.
+.. Select the *Wipe After Delete* check box to enable the wipe after delete option. This option can be edited after the domain is created, but doing so will not change the wipe after delete property of disks that already exist.
+. Click *OK*.
+
+The new NFS data domain has a status of `Locked` until the disk is prepared. The data domain is then automatically attached to the data center.

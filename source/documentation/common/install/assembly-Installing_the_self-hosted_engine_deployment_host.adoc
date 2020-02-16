@@ -1,0 +1,29 @@
+[id='Installing_the_self-hosted_engine_deployment_host_{context}']
+= Installing the Self-hosted Engine Deployment Host
+
+:context: SHE_deployment_host
+
+A self-hosted engine can be deployed from a xref:Installing_Red_Hat_Virtualization_Hosts_SHE_deployment_host[{hypervisor-fullname}] or a xref:Installing_Red_Hat_Enterprise_Linux_Hosts_SHE_deployment_host[{enterprise-linux-host-fullname}].
+
+[IMPORTANT]
+====
+If you plan to use bonded interfaces for high availability or VLANs to separate different types of traffic (for example, for storage or management connections), you should configure them on the host before beginning the self-hosted engine deployment. See link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html-single/planning_and_prerequisites_guide/#networking-recommendations[Networking Recommendations] in the _Planning and Prerequisites Guide_.
+====
+
+include::proc-Installing_Red_Hat_Virtualization_Hosts.adoc[leveloffset=+1]
+
+ifdef::rhv-doc[]
+include::proc-Enabling_the_Red_Hat_Virtualization_Host_Repository.adoc[leveloffset=+2]
+endif::[]
+
+include::proc-Installing_Red_Hat_Enterprise_Linux_Hosts.adoc[leveloffset=+1]
+
+ifdef::rhv-doc[]
+include::proc-Enabling_the_Red_Hat_Enterprise_Linux_Host_Repositories.adoc[leveloffset=+2]
+endif::[]
+
+ifdef::SHE_cockpit_deploy[]
+include::proc-Installing_Cockpit_on_RHEL_Hosts.adoc[leveloffset=+2]
+endif::SHE_cockpit_deploy[]
+
+:context!: SHE_deployment_host

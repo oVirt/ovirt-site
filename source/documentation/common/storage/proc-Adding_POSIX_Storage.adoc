@@ -1,0 +1,24 @@
+[id='Adding_POSIX_Storage_{context}']
+= Adding POSIX-compliant File System Storage
+
+This procedure shows you how to attach existing POSIX-compliant file system storage to your {virt-product-fullname} environment as a data domain.
+
+.Procedure
+
+. Click menu:Storage[Domains].
+. Click *New Domain*.
+. Enter the *Name* for the storage domain.
+. Select the *Data Center* to be associated with the storage domain. The data center selected must be of type *POSIX (POSIX compliant FS)*. Alternatively, select `(none)`.
+. Select `Data` from the *Domain Function* drop-down list, and `POSIX compliant FS` from the *Storage Type* drop-down list.
++
+If applicable, select the *Format* from the drop-down menu.
+. Select a host from the *Host* drop-down list.
+. Enter the *Path* to the POSIX file system, as you would normally provide it to the `mount` command.
+. Enter the *VFS Type*, as you would normally provide it to the `mount` command using the `-t` argument. See `man mount` for a list of valid VFS types.
+. Enter additional *Mount Options*, as you would normally provide them to the `mount` command using the `-o` argument. The mount options should be provided in a comma-separated list. See `man mount` for a list of valid mount options.
+. Optionally, you can configure the advanced parameters.
+.. Click *Advanced Parameters*.
+.. Enter a percentage value in the *Warning Low Space Indicator* field. If the free space available on the storage domain is below this percentage, warning messages are displayed to the user and logged.
+.. Enter a GB value in the *Critical Space Action Blocker* field. If the free space available on the storage domain is below this value, error messages are displayed to the user and logged, and any new action that consumes space, even temporarily, will be blocked.
+.. Select the *Wipe After Delete* check box to enable the wipe after delete option. This option can be edited after the domain is created, but doing so will not change the wipe after delete property of disks that already exist.
+. Click *OK*.

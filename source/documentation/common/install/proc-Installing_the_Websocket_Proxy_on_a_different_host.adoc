@@ -1,0 +1,141 @@
+[id='Installing_the_Websocket_Proxy_on_a_different_host_{context}']
+= Installing a Websocket Proxy on a Separate Machine
+ifdef::rhv-doc[]
+[IMPORTANT]
+====
+The websocket proxy and noVNC are Technology Preview features only. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
+====
+endif::[]
+
+The websocket proxy allows users to connect to virtual machines through a noVNC console. The noVNC client uses websockets to pass VNC data. However, the VNC server in QEMU does not provide websocket support, so a websocket proxy must be placed between the client and the VNC server. The proxy can run on any machine that has access to the network, including the the {engine-name} machine.
+
+For security and performance reasons, users may want to configure the websocket proxy on a separate machine.
+
+.Procedure
+
+. Install the websocket proxy:
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-engine-websocket-proxy
+----
++
+. Run the `engine-setup` command to configure the websocket proxy.
++
+[options="nowrap" subs="normal"]
+----
+# engine-setup
+----
++
+ifdef::rhv-doc[]
+[NOTE]
+====
+If the `rhvm` package has also been installed, choose `No` when asked to configure the {engine-name} (`Engine`) on this host.
+====
+endif::[]
+ifdef::ovirt-doc[]
+[NOTE]
+====
+If the `ovirt-engine` package has also been installed, choose `No` when asked to configure the {engine-name} on this host.
+====
+endif::[]
++
+. Press `Enter` to allow `engine-setup` to configure a websocket proxy server on the machine.
++
+[options="nowrap" subs="normal"]
+----
+Configure WebSocket Proxy on this machine? (Yes, No) [Yes]:
+----
++
+. Press `Enter` to accept the automatically detected host name, or enter an alternative host name and press `Enter`. Note that the automatically detected host name may be incorrect if you are using virtual hosts:
++
+[options="nowrap" subs="normal"]
+----
+Host fully qualified DNS name of this server [_host.example.com_]:
+----
++
+. Press `Enter` to allow `engine-setup` to configure the firewall and open the ports required for external communication. If you do not allow `engine-setup` to modify your firewall configuration, then you must manually open the required ports.
++
+[options="nowrap" subs="normal"]
+----
+Setup can automatically configure the firewall on this system.
+Note: automatic configuration of the firewall may overwrite current settings.
+Do you want Setup to configure the firewall? (Yes, No) [Yes]:
+----
++
+. Enter the FQDN of the {engine-name} machine and press `Enter`.
++
+[options="nowrap" subs="normal"]
+----
+Host fully qualified DNS name of the engine server []: _manager.example.com_
+----
++
+. Press `Enter` to allow `engine-setup` to perform actions on the {engine-name} machine, or press `2` to manually perform the actions.
++
+[options="nowrap" subs="normal"]
+----
+Setup will need to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
+Please choose one of the following:
+1 - Access remote engine server using ssh as root
+2 - Perform each action manually, use files to copy content around
+(1, 2) [1]:
+----
++
+..  Press `Enter` to accept the default SSH port number, or enter the port number of the {engine-name} machine.
++
+[options="nowrap" subs="normal"]
+----
+ssh port on remote engine server [22]:
+
+----
++
+.. Enter the root password to log in to the {engine-name} machine and press `Enter`.
++
+[options="nowrap" subs="normal"]
+----
+root password on remote engine server _engine_host.example.com_:
+
+----
+
+. Select whether to review iptables rules if they differ from the current settings.
++
+[options="nowrap" subs="normal"]
+----
+Generated iptables rules are different from current ones.
+Do you want to review them? (Yes, No) [No]:
+----
++
+. Press `Enter` to confirm the configuration settings.
++
+[options="nowrap" subs="normal"]
+----
+--== CONFIGURATION PREVIEW ==--
+
+Firewall manager                        : iptables
+Update Firewall                         : True
+Host FQDN                               : host.example.com
+Configure WebSocket Proxy               : True
+Engine Host FQDN                        : engine_host.example.com
+
+Please confirm installation settings (OK, Cancel) [OK]:
+----
+Instructions are provided to configure the {engine-name} machine to use the configured websocket proxy.
++
+[options="nowrap" subs="normal"]
+----
+Manual actions are required on the engine host
+in order to enroll certs for this host and configure the engine about it.
+
+Please execute this command on the engine host:
+   engine-config -s WebSocketProxy=host.example.com:6100
+and than restart the engine service to make it effective
+----
++
+. Log in to the {engine-name} machine and execute the provided instructions.
++
+[options="nowrap" subs="normal"]
+----
+# engine-config -s WebSocketProxy=host.example.com:6100
+# systemctl restart ovirt-engine.service
+
+----

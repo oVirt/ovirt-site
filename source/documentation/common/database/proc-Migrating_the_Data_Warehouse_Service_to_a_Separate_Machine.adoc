@@ -1,0 +1,197 @@
+[id='Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine_{context}']
+= Migrating the Data Warehouse Service to a Separate Machine
+
+You can migrate the Data Warehouse service installed and configured on the {virt-product-fullname} {engine-name} to a separate machine. Hosting the Data Warehouse service on a separate machine helps to reduce the load on the {engine-name} machine. Notice that this procedure migrates the Data Warehouse service only. To migrate the Data Warehouse database (`ovirt_engine_history`) prior to migrating the Data Warehouse service, see xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_{context}[].
+
+.Prerequisites
+
+* You must have installed and configured the {engine-name} and Data Warehouse on the same machine.
+
+* To set up the new Data Warehouse machine, you must have the following:
+
+** The password from the {engine-name}'s */etc/ovirt-engine/engine.conf.d/10-setup-database.conf* file.
+
+** Allowed access from the Data Warehouse machine to the {engine-name} database machine's TCP port 5432.
+
+** The username and password for the Data Warehouse database from the {engine-name}'s */etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf* file. If you migrated the `ovirt_engine_history` database using xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_{context}[], the backup includes these credentials, which you defined during the database setup on that machine.
+
+Installing this scenario requires four steps:
+
+1. xref:setting_up_machine[Setting up the New Data Warehouse Machine]
+
+2. xref:stopping_dwh_service[Stopping the Data Warehouse service on the {engine-name} machine]
+
+3. xref:configuring_new_machine[Configuring the new Data Warehouse machine]
+
+4. xref:disabling_dwh_package[Disabling the Data Warehouse package on the {engine-name} machine]
+
+[[setting_up_machine]]
+== Setting up the New Data Warehouse Machine
+
+Enable the {virt-product-fullname} repositories and install the Data Warehouse setup package on a {enterprise-linux} 7 machine:
+
+ifdef::rhv-doc[]
+include::../install/snip-RHVM_repo_steps.adoc[]
+endif::[]
+
+. Ensure that all packages currently installed are up to date:
++
+[options="nowrap" subs="normal"]
+----
+# yum update
+----
++
+. Install the `ovirt-engine-dwh-setup` package:
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-engine-dwh-setup
+----
+
+[[stopping_dwh_service]]
+== Stopping the Data Warehouse Service on the {engine-name} Machine
+
+. Stop the Data Warehouse service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl stop ovirt-engine-dwhd.service
+----
++
+. If the database is hosted on a remote machine, you must manually grant access by editing the postgres.conf file. Edit the _/var/opt/rh/rh-postgresql10/lib/pgsql/data/postgresql.conf_ file and modify the listen_addresses line so that it matches the following:
++
+[options="nowrap" subs="normal"]
+----
+listen_addresses = '*'
+----
+If the line does not exist or has been commented out, add it manually.
++
+If the database is hosted on the {engine-name} machine and was configured during a clean setup of the {virt-product-fullname} {engine-name}, access is granted by default.
++
+See xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_{context}[] for more information on how to configure and migrate the Data Warehouse database.
+. Restart the postgresql service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart rh-postgresql10-postgresql
+----
+
+[[configuring_new_machine]]
+== Configuring the New Data Warehouse Machine
+
+The order of the questions shown in this step may differ depending on your environment.
+
+. If you are migrating both the `ovirt_engine_history` database and the Data Warehouse service to the *same* machine, run the following, otherwise proceed to the next step.
++
+[options="nowrap" subs="normal"]
+----
+# sed -i '/^ENGINE_DB_/d' \
+        /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf
+
+# sed -i \
+     -e 's;^\(OVESETUP_ENGINE_CORE/enable=bool\):True;\1:False;' \
+     -e '/^OVESETUP_CONFIG\/fqdn/d' \
+     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf
+----
++
+
+. Run the `engine-setup` command to begin configuration of Data Warehouse on the machine:
++
+[options="nowrap" subs="normal"]
+----
+# engine-setup
+----
++
+. Press `Enter` to configure Data Warehouse:
++
+[options="nowrap" subs="normal"]
+----
+Configure Data Warehouse on this host (Yes, No) [Yes]:
+
+----
++
+. Press *Enter* to accept the automatically detected host name, or enter an alternative host name and press *Enter*:
++
+[options="nowrap" subs="normal"]
+----
+Host fully qualified DNS name of this server [_autodetected host name_]:
+----
++
+. Press `Enter` to automatically configure the firewall, or type `No` and press `Enter` to maintain existing settings:
++
+[options="nowrap" subs="normal"]
+
+----
+Setup can automatically configure the firewall on this system.
+Note: automatic configuration of the firewall may overwrite current settings.
+Do you want Setup to configure the firewall? (Yes, No) [Yes]:
+----
+If you choose to automatically configure the firewall, and no firewall managers are active, you are prompted to select your chosen firewall manager from a list of supported options. Type the name of the firewall manager and press `Enter`. This applies even in cases where only one option is listed.
+
+. Enter the fully qualified domain name and password for the {engine-name}. Press *Enter* to accept the default values in each other field:
++
+[options="nowrap" subs="normal"]
+----
+Host fully qualified DNS name of the engine server []: _engine-fqdn_
+Setup needs to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
+Please choose one of the following:
+1 - Access remote engine server using ssh as root
+2 - Perform each action manually, use files to copy content around
+(1, 2) [1]:
+ssh port on remote engine server [22]:
+root password on remote engine server _engine-fqdn_: _password_
+----
+
+. Enter the FQDN and password for the {engine-name} database machine. Press `Enter` to accept the default values in each other field:
++
+[options="nowrap" subs="normal"]
+----
+Engine database host []: _manager-db-fqdn_
+Engine database port [5432]:
+Engine database secured connection (Yes, No) [No]:
+Engine database name [engine]:
+Engine database user [engine]:
+Engine database password: _password_
+----
+
+. Confirm your installation settings:
++
+[options="nowrap" subs="normal"]
+----
+Please confirm installation settings (OK, Cancel) [OK]:
+----
+
+The Data Warehouse service is now configured on the remote machine. Proceed to disable the Data Warehouse service on the {engine-name} machine.
+
+ifdef::DWH[]
+[NOTE]
+====
+If you want to change the Data Warehouse sampling scale to the recommended scale on a remote server, see
+xref:Changing_the_Data_Warehouse_Sampling_Scale[].
+====
+endif::DWH[]
+
+[[disabling_dwh_package]]
+== Disabling the Data Warehouse Service on the {engine-name} Machine
+
+. On the {engine-name} machine, restart the {engine-name}:
++
+[options="nowrap" subs="normal"]
+----
+# service ovirt-engine restart
+----
+. Disable the Data Warehouse service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl disable ovirt-engine-dwhd.service
+----
+
+. Remove the Data Warehouse files:
++
+[options="nowrap" subs="normal"]
+----
+# rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/* .conf /var/lib/ovirt-engine-dwh/backups/*
+----
+
+The Data Warehouse service is now hosted on a separate machine from the {engine-name}.

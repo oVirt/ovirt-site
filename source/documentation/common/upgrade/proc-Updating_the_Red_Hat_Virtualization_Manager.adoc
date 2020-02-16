@@ -1,0 +1,97 @@
+[id="Updating_the_Red_Hat_Virtualization_Manager_{context}"]
+= Updating the {virt-product-fullname} {engine-name}
+
+// Included in:
+// Upgrade Guide
+// Administration Guide
+// Migrating from a standalone {engine-name} to a self-hosted engine
+
+
+
+
+ifdef::upgrade[]
+[WARNING]
+====
+Be sure to enable the correct repositories as detailed in *Prerequisites*. Otherwise, the upgrade might fail.
+====
+endif::upgrade[]
+
+Updates to the {virt-product-fullname} {engine-name} are released through the Content Delivery Network.
+
+.Procedure
+
+ifdef::SHE_upgrade,SHE_minor_updates[. Log in to the {engine-name} virtual machine.]
+ifdef::local_database_upgrade,remote_database_upgrade,minor_updates[. Log in to the {engine-name} machine.]
+
+. Check if updated packages are available:
++
+----
+# engine-upgrade-check
+----
+
+. Update the setup packages:
++
+[options="nowrap" subs="normal"]
+----
+# yum update ovirt\\*setup\* rh\*vm-setup-plugins
+----
+
+. Update the {virt-product-fullname} {engine-name} with the `engine-setup` script. The `engine-setup` script prompts you with some configuration questions, then stops the `ovirt-engine` service, downloads and installs the updated packages, backs up and updates the database, performs post-installation configuration, and starts the `ovirt-engine` service.
++
+----
+# engine-setup
+----
++
+When the script completes successfully, the following message appears:
++
+----
+Execution of setup completed successfully
+----
++
+[NOTE]
+====
+The `engine-setup` script is also used during the {virt-product-fullname} {engine-name} installation process, and it stores the configuration values supplied. During an update, the stored values are displayed when previewing the configuration, and might not be up to date if `engine-config` was used to update configuration after installation. For example, if `engine-config` was used to update `SANWipeAfterDelete` to `true` after installation, `engine-setup` will output "Default SAN wipe after delete: False" in the configuration preview. However, the updated values will not be overwritten by `engine-setup`.
+====
++
+[IMPORTANT]
+====
+The update process might take some time. Do not stop the process before it completes.
+====
+
+. Update the base operating system and any optional packages installed on the {engine-name}:
++
+----
+# yum update
+----
++
+[IMPORTANT]
+====
+ifdef::SHE_minor_updates[]
+If any kernel packages were updated:
+
+. Disable global maintenance mode
+. Reboot the machine to complete the update.
+endif::[]
+
+ifndef::SHE_minor_updates[If any kernel packages were updated, reboot the machine to complete the update.]
+====
+
+ifdef::appendices[]
+[NOTE]
+====
+If the update from RHV 4.2.7 to RHV 4.2.8 fails with a message indicating a dependency error with an `eap7-jboss-server-migration-wildfly` package:
+
+. Check if all the required repositories are enabled.
+. Update the `eap7-jboss-server-migration-wildfly` packages installed on the Manager:
++
+----
+# yum update eap7-jboss-server-migration-wildfly*
+----
+. Run `engine-setup` again.
+====
+endif::[]
+
+ifdef::SHE_minor_updates[]
+.Related Information
+xref:Disabling_Global_Maintenance_Mode_SHE_minor_updates[Disabling Global Maintenance Mode]
+endif::[]

@@ -1,0 +1,39 @@
+[id='Reinstalling_Hosts_{context}']
+= Reinstalling Hosts
+
+// Included in:
+// Admin: chap-Hosts
+// SHE:
+// assembly-Backing_up_and_Restoring_a_Self-Hosted_Engine
+// assembly-Recovering_a_Self-Hosted_Engine
+
+Reinstall {hypervisor-fullname}s ({hypervisor-shortname}) and {enterprise-linux-host-fullname}s from the Administration Portal. The procedure includes stopping and restarting the host.
+
+.Prerequisites
+
+* If migration is enabled at cluster level, virtual machines are automatically migrated to another host in the cluster; as a result, it is recommended that host reinstalls are performed at a time when the host's usage is relatively low.
+
+* Ensure that the cluster has sufficient memory reserve in order for its hosts to perform maintenance. If a cluster lacks sufficient memory, the virtual machine migration operation will hang and then fail. You can reduce the memory usage of this operation by shutting down some or all virtual machines before moving the host to maintenance.
+
+* Ensure that the cluster contains more than one host before performing a reinstall. Do not attempt to reinstall all the hosts at the same time, as one host must remain available to perform Storage Pool Manager (SPM) tasks.
+
+.Procedure
+
+. Click menu:Compute[Hosts] and select the host.
+
+. Click menu:Management[Maintenance].
+
+. Click menu:Installation[Reinstall] to open the *Install Host* window.
+
+ifdef::SHE_backup_restore,SHE_restore_only[]
+. Click the *Hosted Engine* tab and select *DEPLOY* from the drop-down list.
+endif::SHE_backup_restore,SHE_restore_only[]
+
+. Click *OK* to reinstall the host.
+
+Once successfully reinstalled, the host displays a status of *Up*. Any virtual machines that were migrated off the host can now be migrated back to it.
+
+[IMPORTANT]
+====
+After a {hypervisor-fullname} is successfully registered to the {virt-product-fullname} {engine-name} and then reinstalled, it may erroneously appear in the Administration Portal with the status of *Install Failed*. Click menu:Management[Activate], and the host will change to an *Up* status and be ready for use.
+====

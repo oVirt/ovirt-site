@@ -1,0 +1,6 @@
+[id='Adding_Red_Hat_Gluster_Storage_{context}']
+= Adding {gluster-storage-fullname}
+
+To use {gluster-storage-fullname} with {virt-product-fullname}, see link:https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.4/html/configuring_red_hat_virtualization_with_red_hat_gluster_storage/[_Configuring {virt-product-fullname} with {gluster-storage-fullname}_].
+
+For the {gluster-storage-fullname} versions that are supported with {virt-product-fullname}, see link:https://access.redhat.com/articles/2356261[].

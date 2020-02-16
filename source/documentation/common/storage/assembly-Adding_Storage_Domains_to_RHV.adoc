@@ -1,0 +1,52 @@
+[id='Adding_Storage_Domains_to_RHV_{context}']
+= Adding Storage for {virt-product-fullname}
+
+Add storage as data domains in the new environment. A {virt-product-fullname} environment must have at least one data domain, but adding more is recommended.
+
+Add the storage you prepared earlier:
+
+* xref:Adding_NFS_Storage_{context}[NFS]
+
+* xref:Adding_iSCSI_Storage_{context}[iSCSI]
+
+* xref:Adding_FCP_Storage_{context}[Fibre Channel (FCP)]
+
+ifdef::SM_localDB_deploy,SM_remoteDB_deploy[]
+//Not supported for SHE (doesn't appear as an option in the deployment)
+* xref:Adding_POSIX_Storage_{context}[POSIX-compliant file system]
+
+* xref:Adding_Local_Storage_{context}[Local storage]
+endif::SM_localDB_deploy,SM_remoteDB_deploy[]
+
+* xref:Adding_Red_Hat_Gluster_Storage_{context}[{gluster-storage-fullname}]
+
+ifdef::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE,SHE_backup_restore,SHE_restore_only[]
+[IMPORTANT]
+====
+If you are using iSCSI storage, new data domains must not use the same iSCSI target as the self-hosted engine storage domain.
+====
+endif::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE,SHE_backup_restore,SHE_restore_only[]
+
+ifdef::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE[]
+// Not needed for standalone {engine-name} (irrelevant) or SHE backup/restore (SHE storage is already set up)
+[WARNING]
+====
+Creating additional data domains in the same data center as the self-hosted engine storage domain is highly recommended. If you deploy the self-hosted engine in a data center with only one active data storage domain, and that storage domain is corrupted, you will not be able to add new storage domains or remove the corrupted storage domain; you will have to redeploy the self-hosted engine.
+====
+endif::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE[]
+
+
+include::proc-Adding_NFS_Storage.adoc[leveloffset=+1]
+
+include::proc-Adding_iSCSI_Storage.adoc[leveloffset=+1]
+
+include::proc-Adding_FCP_Storage.adoc[leveloffset=+1]
+
+ifdef::SM_localDB_deploy,SM_remoteDB_deploy[]
+//Not supported for SHE (doesn't appear as an option in the deployment)
+include::proc-Adding_POSIX_Storage.adoc[leveloffset=+1]
+
+include::proc-Adding_Local_Storage.adoc[leveloffset=+1]
+endif::SM_localDB_deploy,SM_remoteDB_deploy[]
+
+include::ref-Adding_Red_Hat_Gluster_Storage.adoc[leveloffset=+1]

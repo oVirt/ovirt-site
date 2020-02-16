@@ -1,0 +1,210 @@
+[id='Automating_RHVH_Deployment_{context}']
+= Automating {hypervisor-fullname} Deployment
+
+You can install {hypervisor-fullname} ({hypervisor-shortname}) without a physical media device by booting from a PXE server over the network with a Kickstart file that contains the answers to the installation questions.
+
+General instructions for installing from a PXE server with a Kickstart file are available in the link:{URL_rhel_docs_legacy}html/installation_guide/chap-kickstart-installations[_{enterprise-linux} Installation Guide_], as {hypervisor-shortname} is installed in much the same way as {enterprise-linux}. {hypervisor-shortname}-specific instructions, with examples for deploying {hypervisor-shortname} with Red Hat Satellite, are described below.
+
+The automated {hypervisor-shortname} deployment has 3 stages:
+
+* xref:Preparing_the_Installation_Environment[]
+* xref:Configuring_the_PXE_Server_and_the_Boot_Loader[]
+* xref:Creating_and_Running_a_Kickstart_File[]
+
+[[Preparing_the_Installation_Environment]]
+== Preparing the Installation Environment
+
+ifdef::rhv-doc[]
+. Log in to the link:https://access.redhat.com[Customer Portal].
+. Click *Downloads* in the menu bar.
+. Click *{virt-product-fullname}*. Scroll up and click *Download Latest* to access the product
+download page.
+. Go to *Hypervisor Image for RHV 4.3* and and click *Download Now*.
+endif::[]
+ifdef::ovirt-doc[]
+. Visit the link:https://ovirt.org/download/node.html[oVirt Node Download] page.
+. Download link:https://www.ovirt.org/download/node.html#ovirt-node-43---stable-release[oVirt Node 4.3 - Stable Release - Installation ISO].
+endif::[]
+. Make the {hypervisor-shortname} ISO image available over the network. See https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-making-media-additional-sources.html#sect-making-media-sources-network[Installation Source on a Network] in the _{enterprise-linux} Installation Guide_.
+. Extract the *squashfs.img* hypervisor image file from the {hypervisor-shortname} ISO:
++
+[options="nowrap" subs="normal"]
+----
+# mount -o loop _/path/to/{hypervisor-shortname}-ISO_ /mnt/rhvh
+# cp /mnt/rhvh/Packages/redhat-virtualization-host-image-update* /tmp
+# cd /tmp
+# rpm2cpio redhat-virtualization-host-image-update* | cpio -idmv
+----
++
+[NOTE]
+====
+This *squashfs.img* file, located in the `/tmp/usr/share/redhat-virtualization-host/image/` directory, is called *redhat-virtualization-host-__version_number___version.squashfs.img*. It contains the hypervisor image for installation on the physical machine. It should not be confused with the */LiveOS/squashfs.img* file, which is used by the Anaconda `inst.stage2` option.
+====
+
+[[Configuring_the_PXE_Server_and_the_Boot_Loader]]
+== Configuring the PXE Server and the Boot Loader
+
+. Configure the PXE server. See link:{URL_rhel_docs_legacy}html/Installation_Guide/chap-installation-server-setup.html[Preparing for a Network Installation] in the _{enterprise-linux} Installation Guide_.
+
+. Copy the {hypervisor-shortname} boot images to the `/tftpboot` directory:
++
+[options="nowrap" subs="normal"]
+----
+# cp mnt/rhvh/images/pxeboot/{vmlinuz,initrd.img} /var/lib/tftpboot/pxelinux/
+----
+
+. Create a `rhvh` label specifying the {hypervisor-shortname} boot images in the boot loader configuration:
++
+[options="nowrap" subs="normal"]
+----
+LABEL rhvh
+MENU LABEL Install {hypervisor-fullname}
+KERNEL /var/lib/tftpboot/pxelinux/vmlinuz
+APPEND initrd=/var/lib/tftpboot/pxelinux/initrd.img inst.stage2=_URL/to/{hypervisor-shortname}-ISO_
+----
++
+.{hypervisor-shortname} Boot Loader Configuration Example for Red Hat Satellite
++
+If you are using information from Red Hat Satellite to provision the host, you must create a global or host group level parameter called `rhvh_image` and populate it with the directory URL where the ISO is mounted or extracted:
+// review above - should we present Foreman as instead of RH Satellite?
++
+[options="nowrap" subs="normal"]
+----
+<%#
+kind: PXELinux
+name: {hypervisor-shortname} PXELinux
+%>
+# Created for booting new hosts
+#
+
+DEFAULT rhvh
+
+LABEL rhvh
+KERNEL <%= @kernel %>
+APPEND initrd=<%= @initrd %> inst.ks=<%= foreman_url("provision") %> inst.stage2=<%= @host.params["rhvh_image"] %> intel_iommu=on console=tty0 console=ttyS1,115200n8 ssh_pwauth=1 local_boot_trigger=<%= foreman_url("built") %>
+IPAPPEND 2
+----
+
+. Make the content of the {hypervisor-shortname} ISO locally available and export it to the network, for example, using an HTTPD server:
++
+[options="nowrap" subs="normal"]
+----
+# cp -a /mnt/rhvh/ /var/www/html/rhvh-install
+# curl _URL/to/{hypervisor-shortname}-ISO_/rhvh-install
+----
+
+[[Creating_and_Running_a_Kickstart_File]]
+== Creating and Running a Kickstart File
+
+. Create a Kickstart file and make it available over the network. See link:{URL_rhel_docs_legacy}html/Installation_Guide/chap-kickstart-installations.html[Kickstart Installations] in the _{enterprise-linux} Installation Guide_.
+
+. Ensure that the Kickstart file meets the following RHV-specific requirements:
+
+* The `%packages` section is not required for {hypervisor-shortname}. Instead, use the `liveimg` option and specify the *redhat-virtualization-host-__version_number___version.squashfs.img* file from the {hypervisor-shortname} ISO image:
++
+[options="nowrap" subs="normal"]
+----
+liveimg --url=_example.com_/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-__version_number___version.squashfs.img
+----
+
+* Autopartitioning is highly recommended:
+[options="nowrap" subs="normal"]
++
+----
+autopart --type=thinp
+----
++
+[NOTE]
+====
+Thin provisioning must be used with autopartitioning.
+
+The `--no-home` option does not work in {hypervisor-shortname} because `/home` is a required directory.
+====
++
+If your installation requires manual partitioning, see xref:Custom_Partitioning_{context}[] for a list of limitations that apply to partitions and an example of manual partitioning in a Kickstart file.
+
+* A `%post` section that calls the `nodectl init` command is required:
+[options="nowrap" subs="normal"]
++
+----
+%post
+nodectl init
+%end
+----
++
+.Kickstart Example for Deploying {hypervisor-shortname} on Its Own
++
+This Kickstart example shows you how to deploy {hypervisor-shortname}. You can include additional commands and options as required.
++
+[options="nowrap" subs="normal"]
+----
+liveimg --url=http://_FQDN_/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-__version_number___version.squashfs.img
+clearpart --all
+autopart --type=thinp
+rootpw --plaintext ovirt
+timezone --utc America/Phoenix
+zerombr
+text
+
+reboot
+
+%post --erroronfail
+nodectl init
+%end
+----
++
+.Kickstart Example for Deploying {hypervisor-shortname} with Registration and Network Configuration from Satellite
++
+This Kickstart example uses information from Red Hat Satellite to configure the host network and register the host to the Satellite server. You must create a global or host group level parameter called `rhvh_image` and populate it with the directory URL to the *squashfs.img* file. `ntp_server1` is also a global or host group level variable.
++
+[options="nowrap" subs="normal"]
+----
+<%#
+kind: provision
+name: {hypervisor-shortname} Kickstart default
+oses:
+- {hypervisor-shortname}
+%>
+install
+liveimg --url=<%= @host.params['rhvh_image'] %>squashfs.img
+
+network --bootproto static --ip=<%= @host.ip %> --netmask=<%= @host.subnet.mask %> --gateway=<%= @host.subnet.gateway %> --nameserver=<%= @host.subnet.dns_primary %> --hostname <%= @host.name %>
+
+zerombr
+clearpart --all
+autopart --type=thinp
+
+rootpw --iscrypted <%= root_pass %>
+
+# installation answers
+lang en_US.UTF-8
+timezone <%= @host.params['time-zone'] || 'UTC' %>
+keyboard us
+firewall --service=ssh
+services --enabled=sshd
+
+text
+reboot
+
+%post --log=/root/ks.post.log --erroronfail
+nodectl init
+<%= snippet 'subscription_manager_registration' %>
+<%= snippet 'kickstart_networking_setup' %>
+/usr/sbin/ntpdate -sub <%= @host.params['ntp_server1'] || '0.fedora.pool.ntp.org' %>
+/usr/sbin/hwclock --systohc
+
+/usr/bin/curl <%= foreman_url('built') %>
+
+sync
+systemctl reboot
+%end
+----
+
+. Add the Kickstart file location to the boot loader configuration file on the PXE server:
+[options="nowrap" subs="normal"]
++
+----
+APPEND initrd=/var/tftpboot/pxelinux/initrd.img inst.stage2=_URL/to/{hypervisor-shortname}-ISO_ inst.ks=_URL/to/{hypervisor-shortname}-ks_.cfg
+----
+
+. Install {hypervisor-shortname} following the instructions in link:{URL_rhel_docs_legacy}html/Installation_Guide/chap-booting-installer-x86.html#sect-booting-from-pxe-x86[Booting from the Network Using PXE] in the _{enterprise-linux} Installation Guide_.

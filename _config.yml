@@ -135,6 +135,8 @@ exclude:
   - LICENSE.md
   - CONTRIBUTING.md
   - CODEOWNERS
+  # used for shared asciidoc content
+  - documentation/common/**/*.adoc
 
 sass:
   add_charset: true

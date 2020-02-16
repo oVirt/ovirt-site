@@ -1,0 +1,61 @@
+[id='Enabling_the_Red_Hat_Virtualization_Manager_Repositories_{context}']
+= Enabling the {virt-product-fullname} {engine-name} Repositories
+
+Register the system with Red Hat Subscription Manager, attach the `{virt-product-fullname} {engine-name}` subscription, and enable {engine-name} repositories.
+// review above
+
+.Procedure
+
+. Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager register
+----
++
+[NOTE]
+====
+If you are using an IPv6 network, use an IPv6 transition mechanism to access the Content Delivery Network and subscription manager.
+====
+
+. Find the `{virt-product-fullname} {engine-name}` subscription pool and record the pool ID:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager list --available
+----
+
+. Use the pool ID to attach the subscription to the system:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager attach --pool=_pool_id_
+----
++
+[NOTE]
+====
+To view currently attached subscriptions:
+[options="nowrap" subs="normal"]
+----
+# subscription-manager list --consumed
+----
+To list all enabled repositories:
+[options="nowrap" subs="normal"]
+----
+# yum repolist
+----
+====
+
+. Configure the repositories:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos \
+    --disable='*' \
+    --enable=rhel-7-server-rpms \
+    --enable=rhel-7-server-supplementary-rpms \
+    --enable=rhel-7-server-rhv-4.3-manager-rpms \
+    --enable=rhel-7-server-rhv-4-manager-tools-rpms \
+    --enable=rhel-7-server-ansible-2-rpms \
+    --enable=jb-eap-7.2-for-rhel-7-server-rpms
+----

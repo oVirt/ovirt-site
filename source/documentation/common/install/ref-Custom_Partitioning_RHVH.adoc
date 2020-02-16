@@ -1,0 +1,70 @@
+[id='Custom_Partitioning_{context}']
+= Custom Partitioning
+
+Custom partitioning on {hypervisor-fullname} ({hypervisor-shortname}) is not recommended. {org-fullname} strongly recommends using the *Automatically configure partitioning* option in the *Installation Destination* window.
+
+If your installation requires custom partitioning, select the `I will configure partitioning` option during the installation, and note that the following restrictions apply:
+
+
+* Ensure the default *LVM Thin Provisioning* option is selected in the *Manual Partitioning* window.
+
+* The following directories are required and must be on thin provisioned logical volumes:
+
+** root (`/`)
+
+** `/home`
+
+** `/tmp`
+
+** `/var`
+
+** `/var/crash`
+
+** `/var/log`
+
+** `/var/log/audit`
++
+[IMPORTANT]
+====
+Do not create a separate partition for `/usr`. Doing so will cause the installation to fail.
+
+`/usr` must be on a logical volume that is able to change versions along with {hypervisor-shortname}, and therefore should be left on root (`/`).
+====
++
+For information about the required storage sizes for each partition, see xref:Storage_Requirements_{context}[].
+
+* The `/boot` directory should be defined as a standard partition.
+
+* The `/var` directory must be on a separate volume or disk.
+
+* Only XFS or Ext4 file systems are supported.
+
+
+*Configuring Manual Partitioning in a Kickstart File*
+====
+The following example demonstrates how to configure manual partitioning in a Kickstart file.
+
+[options="nowrap" subs="normal"]
+----
+clearpart --all
+part /boot --fstype xfs --size=1000 --ondisk=sda
+part pv.01 --size=42000 --grow
+volgroup HostVG pv.01 --reserved-percent=20
+logvol swap --vgname=HostVG --name=swap --fstype=swap --recommended
+logvol none --vgname=HostVG --name=HostPool --thinpool --size=40000 --grow
+logvol / --vgname=HostVG --name=root --thin --fstype=ext4 --poolname=HostPool --fsoptions="defaults,discard" --size=6000 --grow
+logvol /var --vgname=HostVG --name=var --thin --fstype=ext4 --poolname=HostPool
+--fsoptions="defaults,discard" --size=15000
+logvol /var/crash --vgname=HostVG --name=var_crash --thin --fstype=ext4 --poolname=HostPool --fsoptions="defaults,discard" --size=10000
+logvol /var/log --vgname=HostVG --name=var_log --thin --fstype=ext4 --poolname=HostPool --fsoptions="defaults,discard" --size=8000
+logvol /var/log/audit --vgname=HostVG --name=var_audit --thin --fstype=ext4 --poolname=HostPool --fsoptions="defaults,discard" --size=2000
+logvol /home --vgname=HostVG --name=home --thin --fstype=ext4 --poolname=HostPool --fsoptions="defaults,discard" --size=1000
+logvol /tmp --vgname=HostVG --name=tmp --thin --fstype=ext4 --poolname=HostPool --fsoptions="defaults,discard" --size=1000
+----
+
+====
+
+[NOTE]
+====
+If you use `logvol --thinpool --grow`, you must also include `volgroup --reserved-space` or `volgroup --reserved-percent` to reserve space in the volume group for the thin pool to grow.
+====

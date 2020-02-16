@@ -1,0 +1,37 @@
+[id='Creating_a_virtual_machine_{context}']
+= Creating a Virtual Machine
+
+// Included in:
+// VMM:
+// * Installing Linux Virtual Machines
+// * Installing Windows Virtual Machines
+
+Create a new virtual machine and configure the required settings.
+
+.Procedure
+
+ifdef::windows_vm[]
+. You can change the default virtual machine name length with the `engine-config` tool. Run the following command on the {engine-name} machine:
++
+[options="nowrap" subs="normal"]
+----
+# engine-config --set MaxVmNameLength=_integer_
+----
++
+endif::windows_vm[]
+. Click menu:Compute[Virtual Machines].
+. Click btn:[New] to open the *New Virtual Machine* window.
+. Select an *Operating System* from the drop-down list.
+. Enter a *Name* for the virtual machine.
+. Add storage to the virtual machine. *Attach* or *Create* a virtual disk under *Instance Images*.
+* Click *Attach* and select an existing virtual disk.
+* Click *Create* and enter a *Size(GB)* and *Alias* for a new virtual disk. You can accept the default settings for all other fields, or change them if required. See xref:Add_Virtual_Disk_dialogue_entries[] for more details on the fields for all disk types.
+. Connect the virtual machine to the network. Add a network interface by selecting a vNIC profile from the *nic1* drop-down list at the bottom of the *General* tab.
+. Specify the virtual machine's *Memory Size* on the *System* tab.
+. Choose the *First Device* that the virtual machine will boot from on the *Boot Options* tab.
+. You can accept the default settings for all other fields, or change them if required. For more details on all fields in the *New Virtual Machine* window, see xref:sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows[].
+. Click btn:[OK].
+
+The new virtual machine is created and displays in the list of virtual machines with a status of `Down`. 
+ifdef::windows_vm[Before you can use this virtual machine, you must install an operating system and VirtIO-optimized disk and network drivers.]
+ifdef::linux_vm[Before you can use this virtual machine, you must install an operating system and register with the Content Delivery Network.]

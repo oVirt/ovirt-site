@@ -1,0 +1,18 @@
+[id='networking-requirements']
+= Networking Requirements
+
+// Included in:
+// PPG
+// Install
+
+== General Requirements
+
+{virt-product-fullname} requires IPv6 to remain enabled on the computer or virtual machine where you are running the {engine-name} (also called "the {engine-name} machine"). link:https://access.redhat.com/solutions/8709[Do not disable IPv6] on the {engine-name} machine, even if your systems do not use it.
+
+include::ref-DNS_Requirements.adoc[leveloffset=+1]
+
+include::ref-Manager_Firewall_Requirements.adoc[leveloffset=+1]
+
+include::ref-Host_Firewall_Requirements.adoc[leveloffset=+1]
+
+include::ref-Database_Server_Firewall_Requirements.adoc[leveloffset=+1]

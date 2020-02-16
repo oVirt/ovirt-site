@@ -1,0 +1,150 @@
+[id='Restoring_the_Backup_on_a_New_Self-hosted_Engine_{context}']
+= Restoring the Backup on a New Self-Hosted Engine
+
+// Included in:
+// Migrating from a Standalone {engine-name} to a Self-hosted Engine
+// Administration Guide, Backing up and Restoring a Self-hosted Engine
+// Recovering a Self-Hosted Engine from an Existing Backup
+
+Run the `hosted-engine` script on a new host, and use the `--restore-from-file=__path/to/file_name__` option to restore the {engine-name} backup during the deployment.
+
+[IMPORTANT]
+====
+If you are using iSCSI storage, and your iSCSI target filters connections according to the initiator's ACL, the deployment may fail with a `STORAGE_DOMAIN_UNREACHABLE` error. To prevent this, you must update your iSCSI configuration before beginning the self-hosted engine deployment:
+
+* If you are redeploying on an existing host, you must update the host's iSCSI initiator settings in `/etc/iscsi/initiatorname.iscsi`. The initiator IQN must be the same as was previously mapped on the iSCSI target, or updated to a new IQN, if applicable.
+* If you are deploying on a fresh host, you must update the iSCSI target configuration to accept connections from that host.
+
+Note that the IQN can be updated on the host side (iSCSI initiator), or on the storage side (iSCSI target).
+====
+
+.Procedure
+
+. Copy the backup file to the new host. In the following example, `host.example.com` is the FQDN for the host, and `/backup/` is any designated folder or path.
++
+[options="nowrap" subs="normal"]
+----
+# scp -p __file_name__ host.example.com:/backup/
+----
+
+. Log in to the new host. If you are deploying on {hypervisor-fullname}, the self-hosted engine deployment tool is available by default. If you are deploying on {enterprise-linux}, you must install the package:
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-hosted-engine-setup
+----
+
+. {org-fullname} recommends using the `screen` window manager to run the script to avoid losing the session in case of network or terminal disruption. Install and run `screen`:
++
+[options="nowrap" subs="normal"]
+----
+# yum install screen
+# screen
+----
++
+In the event of session timeout or connection disruption, run `screen -d -r` to recover the deployment session.
+
+. Run the `hosted-engine` script, specifying the path to the backup file:
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --deploy --restore-from-file=backup/__file_name__
+----
++
+To escape the script at any time, use kbd:[CTRL+D] to abort deployment.
+
+. Select *Yes* to begin the deployment.
+
+. Configure the network. The script detects possible NICs to use as a management bridge for the environment.
+
+. If you want to use a custom appliance for the virtual machine installation, enter the path to the OVA archive. Otherwise, leave this field empty to use the {engine-appliance-name}.
+
+. Specify the FQDN for the {engine-name} virtual machine.
+
+. Enter the root password for the {engine-name}.
+
+. Enter an SSH public key that will allow you to log in to the {engine-name} as the root user, and specify whether to enable SSH access for the root user.
+
+. Enter the virtual machine's CPU and memory configuration.
+ifdef::migrating_to_SHE[]
++
+[NOTE]
+====
+The virtual machine must have the same amount of RAM as the physical machine from which the {engine-name} is being migrated. If you must migrate to a virtual machine that has less RAM than the physical machine from which the {engine-name} is migrated, see link:https://access.redhat.com/articles/2705841[].
+====
+endif::migrating_to_SHE[]
+
+. Enter a MAC address for the {engine-name} virtual machine, or accept a randomly generated one. If you want to provide the {engine-name} virtual machine with an IP address via DHCP, ensure that you have a valid DHCP reservation for this MAC address. The deployment script will not configure the DHCP server for you.
+
+. Enter the virtual machine's networking details. If you specify *Static*, enter the IP address of the {engine-name}.
++
+[IMPORTANT]
+====
+The static IP address must belong to the same subnet as the host. For example, if the host is in 10.1.1.0/24, the {engine-name} virtual machine's IP must be in the same subnet range (10.1.1.1-254/24).
+====
+
+. Specify whether to add entries for the {engine-name} virtual machine and the base host to the virtual machine's `/etc/hosts` file. You must ensure that the host names are resolvable.
+
+. Provide the name and TCP port number of the SMTP server, the email address used to send email notifications, and a comma-separated list of email addresses to receive these notifications:
+
+. Enter a password for the `admin@internal` user to access the Administration Portal.
++
+The script creates the virtual machine. This can take some time if the {engine-appliance-name} needs to be installed.
+
+. Select the type of storage to use:
+
+* For NFS, enter the version, full address and path to the storage, and any mount options.
+ifdef::SHE_backup_restore,SHE_restore_only[]
++
+[WARNING]
+====
+Do not use the old self-hosted engine storage domain's mount point for the new storage domain, as you risk losing virtual machine data.
+====
+endif::SHE_backup_restore,SHE_restore_only[]
+
+* For iSCSI, enter the portal details and select a target and LUN from the auto-detected lists. You can only select one iSCSI target during the deployment, but multipathing is supported to connect all portals of the same portal group.
++
+[NOTE]
+====
+To specify more than one iSCSI target, you must enable multipathing before deploying the self-hosted engine. See link:{URL_rhel_docs_legacy}html-single/dm_multipath/[_{enterprise-linux} DM Multipath_] for details. There is also a link:https://access.redhat.com/labs/multipathhelper/#/[Multipath Helper] tool that generates a script to install and configure multipath with different options.
+====
+
+* For Gluster storage, enter the full address and path to the storage, and any mount options.
+ifdef::SHE_backup_restore,SHE_restore_only[]
++
+[WARNING]
+====
+Do not use the old self-hosted engine storage domain's mount point for the new storage domain, as you risk losing virtual machine data.
+====
+endif::SHE_backup_restore,SHE_restore_only[]
++
+[IMPORTANT]
+====
+Only replica 3 Gluster storage is supported. Ensure you have the following configuration:
+
+* In the */etc/glusterfs/glusterd.vol* file on all three Gluster servers, set `rpc-auth-allow-insecure` to `on`.
++
+----
+option rpc-auth-allow-insecure on
+----
+
+* Configure the volume as follows:
++
+----
+gluster volume set _volume_ cluster.quorum-type auto
+gluster volume set _volume_ network.ping-timeout 10
+gluster volume set _volume_ auth.allow \*
+gluster volume set _volume_ group virt
+gluster volume set _volume_ storage.owner-uid 36
+gluster volume set _volume_ storage.owner-gid 36
+gluster volume set _volume_ server.allow-insecure on
+----
+====
+
+* For Fibre Channel, select a LUN from the auto-detected list. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Reusing LUNs] in the _Administration Guide_.
+
+. Enter the {engine-name} disk size.
++
+The script continues until the deployment is complete.
+
+. The deployment process changes the {engine-name}'s SSH keys. To allow client machines to access the new {engine-name} without SSH errors, remove the original {engine-name}'s entry from the `.ssh/known_hosts` file on any client machines that accessed the original {engine-name}.

@@ -1,0 +1,37 @@
+[id='dns-requirements_{context}']
+= Firewall Requirements for DNS, NTP, IPMI Fencing, and Metrics Store
+
+// Included in:
+// PPG
+// Install
+
+The firewall requirements for all of the following topics are special cases that require individual consideration.
+
+.DNS and NTP
+
+{virt-product-fullname} does not create a DNS or NTP server, so the firewall does not need to have open ports for incoming traffic.
+
+By default, {enterprise-linux} allows outbound traffic to DNS and NTP on any destination address. If you disable outgoing traffic, define exceptions for requests that are sent to DNS and NTP servers.
+
+[IMPORTANT]
+====
+* The {virt-product-fullname} {engine-name} and all hosts ({hypervisor-fullname} and {enterprise-linux-host-fullname}) must have a fully qualified domain name and full, perfectly-aligned forward and reverse name resolution.
+* Running a DNS service as a virtual machine in the {virt-product-fullname} environment is not supported. All DNS services the {virt-product-fullname} environment uses must be hosted outside of the environment.
+* {org-fullname} strongly recommends using DNS instead of the `/etc/hosts` file for name resolution. Using a hosts file typically requires more work and has a greater chance for errors.
+====
+
+.IPMI and Other Fencing Mechanisms (optional)
+
+For IPMI (Intelligent Platform Management Interface) and other fencing mechanisms, the firewall does not need to have open ports for incoming traffic.
+
+By default, {enterprise-linux} allows outbound IPMI traffic to ports on any destination address. If you disable outgoing traffic, make exceptions for requests being sent to your IPMI or fencing servers.
+
+Each {hypervisor-fullname} and {enterprise-linux-host-fullname} in the cluster must be able to connect to the fencing devices of all other hosts in the cluster. If the cluster hosts are experiencing an error (network error, storage error...) and cannot function as hosts, they must be able to connect to other hosts in the data center.
+
+The specific port number depends on the type of the fence agent you are using and how it is configured.
+
+The firewall requirement tables in the following sections do not represent this option.
+
+.Metrics Store, Kibana, and ElasticSearch
+
+For Metrics Store, Kibana, and ElasticSearch, see link:{URL_virt_product_docs}metrics-install-guide/metrics_store_installation_guide.html#Network_configuration_for_metrics_store_virtual_machines[Network Configuration for Metrics Store virtual machines].

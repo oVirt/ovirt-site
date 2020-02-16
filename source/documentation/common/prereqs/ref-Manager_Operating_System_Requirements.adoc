@@ -1,0 +1,12 @@
+[id='operating-system-requirements_{context}']
+= Operating System Requirements
+
+// Included in:
+// PPG
+// Install
+
+The {virt-product-fullname} {engine-name} must be installed on a base installation of {enterprise-linux} 7 that has been updated to the latest minor release.
+
+Do not install any additional packages after the base installation, as they may cause dependency issues when attempting to install the packages required by the {engine-name}.
+
+Do not enable additional repositories other than those required for the {engine-name} installation.

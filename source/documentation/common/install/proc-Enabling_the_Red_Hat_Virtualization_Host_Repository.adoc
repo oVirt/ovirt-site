@@ -1,0 +1,35 @@
+[id='Enabling_the_RHVH_repository_{context}']
+= Enabling the {hypervisor-fullname} Repository
+
+Register the system to receive updates. {hypervisor-fullname} only requires one repository. This section provides instructions for registering {hypervisor-shortname} with the xref:RHVH_CDN_register_{context}[Content Delivery Network], or with xref:RHVH_Sat6_register_{context}[Red Hat Satellite 6].
+
+[id='RHVH_CDN_register_{context}']
+.Registering {hypervisor-shortname} with the Content Delivery Network
+
+. Log in to the Cockpit web interface at `https://_HostFQDNorIP_:9090`.
+. Navigate to *Subscriptions*, click *Register System*, and enter your Customer Portal user name and password. The *{hypervisor-fullname}* subscription is automatically attached to the system.
+. Click *Terminal*.
+. Enable the `{hypervisor-fullname} 7` repository to allow later updates to the {hypervisor-fullname}:
+[options="nowrap" subs="normal"]
++
+----
+# subscription-manager repos --enable=rhel-7-server-rhvh-4-rpms
+----
+
+[id='RHVH_Sat6_register_{context}']
+.Registering {hypervisor-shortname} with Red Hat Satellite 6
+
+. Log in to the Cockpit web interface at `https://_HostFQDNorIP_:9090`.
+. Click *Terminal*.
+. Register {hypervisor-shortname} with Red Hat Satellite 6:
++
+[options="nowrap" subs="quotes"]
+----
+  # rpm -Uvh http://satellite.example.com/pub/katello-ca-consumer-latest.noarch.rpm
+  # subscription-manager register --org="_org_id_"
+  # subscription-manager list --available
+  # subscription-manager attach --pool=_pool_id_
+  # subscription-manager repos \
+    --disable='*' \
+    --enable=rhel-7-server-rhvh-4-rpms
+----

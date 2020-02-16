@@ -1,0 +1,8 @@
+[id='Troubleshooting_SHE_{context}']
+= Troubleshooting a Self-hosted Engine Deployment
+
+To confirm whether the self-hosted engine has already been deployed, run `hosted-engine --check-deployed`. An error will only be displayed if the self-hosted engine has not been deployed.
+
+include::proc-Troubleshooting_self_hosted_engine.adoc[leveloffset=+1]
+
+include::proc-Cleaning_Up_a_Failed_Self-hosted_Engine_Deployment.adoc[leveloffset=+1]

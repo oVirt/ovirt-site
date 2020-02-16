@@ -1,0 +1,35 @@
+[id='Preparing_FCP_Storage_{context}']
+= Preparing FCP Storage
+
+{virt-product-fullname} supports SAN storage by creating a storage domain from a volume group made of pre-existing LUNs. Neither volume groups nor LUNs can be attached to more than one storage domain at a time.
+
+{virt-product-fullname} system administrators need a working knowledge of Storage Area Networks (SAN) concepts. SAN usually uses Fibre Channel Protocol (FCP) for traffic between hosts and shared external storage. For this reason, SAN may occasionally be referred to as FCP storage.
+
+For information on setting up and configuring FCP or multipathing on {enterprise-linux}, see the link:{URL_rhel_docs_legacy}html/Storage_Administration_Guide/index.html[_Storage Administration Guide_] and link:{URL_rhel_docs_legacy}html/DM_Multipath/index.html[_DM Multipath Guide_].
+
+[IMPORTANT]
+====
+If you are using block storage and you intend to deploy virtual machines on raw devices or direct LUNs and to manage them with the Logical Volume Manager, you must create a filter to hide the guest logical volumes. This will prevent guest logical volumes from being activated when the host is booted, a situation that could lead to stale logical volumes and cause data corruption. See link:https://access.redhat.com/solutions/2662261[] for details.
+====
+
+[IMPORTANT]
+====
+{virt-product-fullname} currently does not support storage with a block size of 4K. You must configure block storage in legacy (512b block) mode.
+====
+
+[IMPORTANT]
+====
+If your host is booting from SAN storage and loses connectivity to the storage, the storage file systems become read-only and remain in this state after connectivity is restored.
+
+To prevent this situation, {org-fullname} recommends adding a drop-in multipath configuration file on the root file system of the SAN for the boot LUN to ensure that it is queued when there is a connection:
+
+[options="nowrap" subs="normal"]
+----
+# cat /etc/multipath/conf.d/host.conf
+multipaths {
+    multipath {
+        wwid _boot_LUN_wwid_
+        no_path_retry queue
+    }
+----
+====

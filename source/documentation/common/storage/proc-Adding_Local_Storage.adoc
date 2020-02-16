@@ -1,0 +1,17 @@
+[id='Adding_Local_Storage_{context}']
+= Adding Local Storage
+
+Adding local storage to a host places the host in a new data center and cluster. The local storage configuration window combines the creation of a data center, a cluster, and storage into a single process.
+
+
+.Procedure
+
+. Click menu:Compute[Hosts] and select the host.
+. Click menu:Management[Maintenance] and click *OK*.
+. Click menu:Management[Configure Local Storage].
+. Click the *Edit* buttons next to the *Data Center*, *Cluster*, and *Storage* fields to configure and name the local storage domain.
+. Set the path to your local storage in the text entry field.
+. If applicable, click the *Optimization* tab to configure the memory optimization policy for the new local storage cluster.
+. Click *OK*.
+
+Your host comes online in a data center of its own.

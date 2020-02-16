@@ -1,0 +1,65 @@
+[id='Preparing_Storage_for_RHV_{context}']
+= Preparing Storage for {virt-product-fullname}
+
+Prepare storage to be used for storage domains in the new environment. A {virt-product-fullname} environment must have at least one data storage domain, but adding more is recommended.
+
+A data domain holds the virtual hard disks and OVF files of all the virtual machines and templates in a data center, and cannot be shared across data centers while active (but can be migrated between data centers). Data domains of multiple storage types can be added to the same data center, provided they are all shared, rather than local, domains.
+
+ifdef::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE,SHE_backup_restore,SHE_restore_only[Self-hosted engines must have an additional data domain dedicated to the {engine-name} virtual machine. This domain is created during the self-hosted engine deployment, and must be at least 74&nbsp;GiB. You must prepare the storage for this domain before beginning the deployment.]
+
+You can use one of the following storage types:
+
+* xref:Preparing_NFS_Storage_{context}[NFS]
+
+* xref:Preparing_iSCSI_Storage_{context}[iSCSI]
+
+* xref:Preparing_FCP_Storage_{context}[Fibre Channel (FCP)]
+
+ifdef::SM_localDB_deploy,SM_remoteDB_deploy[]
+//Not supported for SHE (doesn't appear as an option in the deployment)
+* xref:Preparing_POSIX_Storage_{context}[POSIX-compliant file system]
+
+* xref:Preparing_Local_Storage_{context}[Local storage]
+endif::SM_localDB_deploy,SM_remoteDB_deploy[]
+
+* xref:Preparing_Red_Hat_Gluster_Storage_{context}[{gluster-storage-fullname}]
+
+ifdef::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE,SHE_backup_restore,SHE_restore_only[]
+[IMPORTANT]
+====
+If you are using iSCSI storage, the self-hosted engine storage domain must use its own iSCSI target. Any additional storage domains must use a different iSCSI target.
+====
+endif::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE,SHE_backup_restore,SHE_restore_only[]
+
+ifdef::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE[]
+// Not needed for standalone {engine-name} (irrelevant) or SHE backup/restore (SHE storage is already set up)
+[WARNING]
+====
+Creating additional data storage domains in the same data center as the self-hosted engine storage domain is highly recommended. If you deploy the self-hosted engine in a data center with only one active data storage domain, and that storage domain is corrupted, you will not be able to add new storage domains or remove the corrupted storage domain; you will have to redeploy the self-hosted engine.
+====
+endif::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE[]
+
+ifdef::SHE_backup_restore,SHE_restore_only[]
+[WARNING]
+====
+If you are using NFS or Gluster storage, do not use the old self-hosted engine storage domain's mount point to deploy the new storage domain, as you risk losing virtual machine data.
+====
+endif::SHE_backup_restore,SHE_restore_only[]
+
+
+include::proc-Preparing_NFS_Storage.adoc[leveloffset=+1]
+
+include::ref-Preparing_iSCSI_Storage.adoc[leveloffset=+1]
+
+include::ref-Preparing_FCP_Storage.adoc[leveloffset=+1]
+
+ifdef::SM_localDB_deploy,SM_remoteDB_deploy[]
+//Not supported for SHE (doesn't appear as an option in the deployment)
+include::ref-Preparing_POSIX_Storage.adoc[leveloffset=+1]
+
+include::proc-Preparing_Local_Storage.adoc[leveloffset=+1]
+endif::SM_localDB_deploy,SM_remoteDB_deploy[]
+
+include::ref-Preparing_Red_Hat_Gluster_Storage.adoc[leveloffset=+1]
+
+include::proc-Customizing_Multipath_Configurations_for_SAN_Vendors.adoc[leveloffset=+1]

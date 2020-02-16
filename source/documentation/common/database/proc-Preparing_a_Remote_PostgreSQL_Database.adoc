@@ -1,0 +1,147 @@
+[id='Preparing_a_Remote_PostgreSQL_Database_{context}']
+= Preparing a Remote PostgreSQL Database
+
+:context: remote_database_install
+
+Manually configure a database on a machine that is separate from the {engine-name} machine.
+
+[NOTE]
+====
+The `engine-setup` and `engine-backup --mode=restore` commands only support system error messages in the `en_US.UTF8` locale, even if the system locale is different.
+
+The locale settings in the `postgresql.conf` file must be set to `en_US.UTF8`.
+====
+
+[IMPORTANT]
+====
+The database name must contain only numbers, underscores, and lowercase letters.
+====
+
+[discrete]
+include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
+
+[discrete]
+== Initializing the PostgreSQL Database
+
+. Install the PostgreSQL server package:
++
+[options="nowrap" subs="normal"]
+----
+# yum install rh-postgresql10 rh-postgresql10-postgresql-contrib
+----
+
+. Initialize the PostgreSQL database, start the `postgresql` service, and ensure that this service starts on boot:
++
+[options="nowrap" ]
+----
+# scl enable rh-postgresql10 -- postgresql-setup --initdb
+# systemctl enable rh-postgresql10-postgresql
+# systemctl start rh-postgresql10-postgresql
+----
+
+. Connect to the `psql` command line interface as the `postgres` user:
++
+[options="nowrap" ]
+----
+su - postgres -c 'scl enable rh-postgresql10 -- psql'
+----
+
+. Create a default user. The {engine-name}'s default user is `engine` and Data Warehouse's default user is `ovirt_engine_history`:
++
+[options="nowrap" subs="normal"]
+----
+postgres=# create role _user_name_ with login encrypted password '_password_';
+----
+
+. Create a database. The {engine-name}'s default database name is `engine` and Data Warehouse's default database name is `ovirt_engine_history`:
++
+[options="nowrap" subs="normal"]
+----
+postgres=# create database _database_name_ owner _user_name_ template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
+
+----
+
+. Connect to the new database:
++
+[options="nowrap" subs="normal"]
+----
+postgres=# \c _database_name_
+----
+
+. Add the `uuid-ossp` extension:
++
+[options="nowrap" subs="normal"]
+----
+_database_name_=# CREATE EXTENSION "uuid-ossp";
+----
+
+. Add the `plpgsql` language if it does not exist:
++
+[options="nowrap" subs="normal"]
+----
+_database_name_=# CREATE LANGUAGE plpgsql;
+----
+
+. Quit the `psql` interface:
++
+[options="nowrap" subs="normal"]
+----
+_database_name_=# \q
+----
+
+. Ensure the database can be accessed remotely by enabling md5 client authentication. Edit the `/var/opt/rh/rh-postgresql10/lib/pgsql/data/pg_hba.conf` file, and add the following line immediately underneath the line starting with `local` at the bottom of the file, replacing `X.X.X.X` with the IP address of the {engine-name} or the Data Warehouse machine, and `0-32` or `0-128` with the CIDR mask length:
++
+[options="nowrap" subs="normal"]
+----
+host    _database_name_    _user_name_    _X.X.X.X/0-32_    md5
+host    _database_name_    _user_name_    _X.X.X.X::/0-128_   md5
+----
++
+For example:
++
+[options="nowrap" subs="normal"]
+----
+# IPv4, 32-bit address:
+host    engine    engine    192.168.12.10/32    md5
+
+# IPv6, 128-bit address:
+host    engine    engine    fe80::7a31:c1ff:0000:0000/96   md5
+----
+
+. Allow TCP/IP connections to the database. Edit the `/var/opt/rh/rh-postgresql10/lib/pgsql/data/postgresql.conf` file and add the following line:
++
+[options="nowrap" subs="normal"]
+----
+listen_addresses='*'
+----
+This example configures the `postgresql` service to listen for connections on all interfaces. You can specify an interface by giving its IP address.
+
+. Update the PostgreSQL server's configuration. In the `/var/opt/rh/rh-postgresql10/lib/pgsql/data/postgresql.conf` file, add the following lines to the bottom of the file:
++
+[options="nowrap" subs="normal"]
+----
+autovacuum_vacuum_scale_factor=0.01
+autovacuum_analyze_scale_factor=0.075
+autovacuum_max_workers=6
+maintenance_work_mem=65536
+max_connections=150
+work_mem=8192
+----
+
+. Open the default port used for PostgreSQL database connections, and save the updated firewall rules:
++
+[options="nowrap" subs="normal"]
+----
+# firewall-cmd --zone=public --add-service=postgresql
+# firewall-cmd --permanent --zone=public --add-service=postgresql
+----
+
+. Restart the `postgresql` service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart rh-postgresql10-postgresql
+----
+. Optionally, set up SSL to secure database connections using the instructions at link:https://www.postgresql.org/docs/10/ssl-tcp.html#SSL-FILE-USAGE[].
+
+:context!: remote_database_install

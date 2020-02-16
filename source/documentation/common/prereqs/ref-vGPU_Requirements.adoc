@@ -1,0 +1,23 @@
+[id='vGPU_Requirements_{context}']
+= vGPU Requirements
+
+// Included in:
+// PPG
+// Install:
+// * asm-Host_Requirements
+// * appe-Preparing_a_Host_for_vGPU_Installation
+// VMM
+
+A host must meet the following requirements in order for virtual machines on that host to use a vGPU:
+
+* vGPU-compatible GPU
+
+* GPU-enabled host kernel
+
+* Installed GPU with correct drivers
+
+* Predefined *mdev_type* set to correspond with one of the mdev types supported by the device
+
+* vGPU-capable drivers installed on each host in the cluster
+
+* vGPU-supported virtual machine operating system with vGPU drivers installed

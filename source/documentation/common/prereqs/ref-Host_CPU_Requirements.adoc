@@ -1,0 +1,28 @@
+[id='CPU_Requirements_{context}']
+= CPU Requirements
+
+// Included in:
+// PPG
+// Install
+
+All CPUs must have support for the Intel® 64 or AMD64 CPU extensions, and the AMD-V™ or Intel VT® hardware virtualization extensions enabled. Support for the No eXecute flag (NX) is also required.
+
+The following CPU models are supported:
+
+* AMD
+** Opteron G4
+** Opteron G5
+** EPYC
+* Intel
+** Nehalem
+** Westmere
+** Sandybridge
+** Haswell
+** Haswell-noTSX
+** Broadwell
+** Broadwell-noTSX
+** Skylake (client)
+** Skylake (server)
+* IBM POWER8
+
+include::proc-Checking_Processor_Flag_Support.adoc[leveloffset=+1]

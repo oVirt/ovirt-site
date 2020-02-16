@@ -1,0 +1,42 @@
+[id='Red_Hat_Virtualization_Guest_Agents_and_Drivers_{context}']
+= {virt-product-fullname} Guest Agents, Tools, and Drivers
+
+// Included in:
+// Installing Linux Virtual Machines
+// Installing Windows Virtual Machines
+
+The {virt-product-fullname} guest agents, tools, and drivers provide additional functionality for virtual machines, such as gracefully shutting down or rebooting virtual machines from the VM Portal and Administration Portal. The tools and agents also provide information for virtual machines, including:
+
+* Resource usage
+* IP addresses
+* Installed applications
+
+The guest agents, tools and drivers are distributed as an ISO file that you can attach to virtual machines. This ISO file is packaged as an RPM file that you can install and upgrade from the {engine-name} machine.
+
+You need to install the guest agents and drivers on a virtual machine to enable this functionality for that machine.
+
+.{virt-product-fullname} Guest Drivers
+[options="header"]
+|====
+|Driver |Description |Works on
+|`virtio-net` |Paravirtualized network driver provides enhanced performance over emulated devices like rtl. |Server and Desktop.
+|`virtio-block` |Paravirtualized HDD driver offers increased I/O performance over emulated devices like IDE by optimizing the coordination and communication between the virtual machine and the hypervisor. The driver complements the software implementation of the virtio-device used by the host to play the role of a hardware device. |Server and Desktop.
+|`virtio-scsi` |Paravirtualized iSCSI HDD driver offers similar functionality to the virtio-block device, with some additional enhancements. In particular, this driver supports adding hundreds of devices, and names devices using the standard SCSI device naming scheme. |Server and Desktop.
+|`virtio-serial` |Virtio-serial provides support for multiple serial ports. The improved performance is used for fast communication between the virtual machine and the host that avoids network complications. This fast communication is required for the guest agents and for other features such as clipboard copy-paste between the virtual machine and the host and logging. |Server and Desktop.
+|`virtio-balloon` |Virtio-balloon is used to control the amount of memory a virtual machine actually accesses. It offers improved memory overcommitment. |Server and Desktop.
+|`qxl` |A paravirtualized display driver reduces CPU usage on the host and provides better performance through reduced network bandwidth on most workloads. |Server and Desktop.
+|====
+
+
+
+.{virt-product-fullname} Guest Agents and Tools
+[options="header"]
+|====
+|Guest agent/tool |Description |Works on
+|`ovirt-guest-agent-common` |Enables the {virt-product-fullname} {engine-name} to receive internal virtual machine events and information such as IP address and installed applications. Also enables the {engine-name} to execute specific commands on a virtual machine, such as shut down or reboot.
+
+On virtual machines running {enterprise-linux} 6 or 7, `ovirt-guest-agent-common` installs `tuned` on your virtual machine and configures it to use an optimized, virtual machine profile. Use `qemu-guest-agent` on {enterprise-linux} 8 virtual machines  |Server and Desktop.
+|`qemu-guest-agent` |Used instead of `ovirt-guest-agent-common` on {enterprise-linux} 8 virtual machines. It is installed and enabled by default. |Server and Desktop.
+|`spice-agent` |The SPICE agent supports multiple monitors and is responsible for client-mouse-mode support to provide a better user experience and improved responsiveness than the QEMU emulation. Cursor capture is not needed in client-mouse-mode. The SPICE agent reduces bandwidth usage when used over a wide area network by reducing the display level, including color depth, disabling wallpaper, font smoothing, and animation. The SPICE agent enables clipboard support allowing cut and paste operations for both text and images between client and virtual machine, and automatic guest display setting according to client-side settings. On Windows-based virtual machines, the SPICE agent consists of vdservice and vdagent. |Server and Desktop.
+|`rhev-sso` |An agent that enables users to automatically log in to their virtual machines based on the credentials used to access the {virt-product-fullname} {engine-name}. |Desktop.
+|====

@@ -1,0 +1,27 @@
+[id='Connecting_to_the_Administration_Portal_{context}']
+= Connecting to the Administration Portal
+
+Access the Administration Portal using a web browser.
+
+
+. In a web browser, navigate to `https://_manager-fqdn_/ovirt-engine`, replacing _manager-fqdn_ with the FQDN that you provided during installation.
++
+[NOTE]
+====
+You can access the Administration Portal using alternate host names or IP addresses. To do so, you need to add a configuration file under */etc/ovirt-engine/engine.conf.d/*. For example:
+
+[options="nowrap" subs="normal"]
+----
+# vi /etc/ovirt-engine/engine.conf.d/99-custom-sso-setup.conf
+SSO_ALTERNATE_ENGINE_FQDNS="_alias1.example.com alias2.example.com_"
+----
+The list of alternate host names needs to be separated by spaces. You can also add the IP address of the {engine-name} to the list, but using IP addresses instead of DNS-resolvable host names is not recommended.
+====
++
+. Click *Administration Portal*. An SSO login page displays. SSO login enables you to log in to the Administration and VM Portal at the same time.
+. Enter your *User Name* and *Password*. If you are logging in for the first time, use the user name *admin* along with the password that you specified during installation.
+. Select the *Domain* to authenticate against. If you are logging in using the internal *admin* user name, select the *internal* domain.
+. Click *Log In*.
+. You can view the Administration Portal in multiple languages. The default selection is chosen based on the locale settings of your web browser. If you want to view the Administration Portal in a language other than the default, select your preferred language from the drop-down list on the welcome page.
+
+To log out of the {virt-product-fullname} Administration Portal, click your user name in the header bar and click *Sign Out*. You are logged out of all portals and the {engine-name} welcome screen displays.

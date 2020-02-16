@@ -1,0 +1,51 @@
+[id='Preparing_Local_Storage_{context}']
+= Preparing Local Storage
+
+A local storage domain can be set up on a host. When you set up a host to use local storage, the host is automatically added to a new data center and cluster that no other hosts can be added to. Multiple-host clusters require that all hosts have access to all storage domains, which is not possible with local storage. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.
+
+[IMPORTANT]
+====
+On {hypervisor-fullname} ({hypervisor-shortname}), local storage should always be defined on a file system that is separate from `/` (root).
+{org-fullname} recommends using a separate logical volume or disk, to prevent possible loss of data during upgrades.
+====
+
+.Preparing Local Storage for {enterprise-linux-host-fullname}s
+
+. On the host, create the directory to be used for the local storage:
++
+[options="nowrap" subs="normal"]
+----
+# mkdir -p /data/images
+----
++
+. Ensure that the directory has permissions allowing read/write access to the *vdsm* user (UID 36) and *kvm* group (GID 36):
++
+[options="nowrap" subs="normal"]
+----
+# chown 36:36 /data /data/images
+# chmod 0755 /data /data/images
+----
+
+.Preparing Local Storage for {hypervisor-fullname}s
+
+{org-fullname} recommends creating the local storage on a logical volume as follows:
+
+. Create a local storage directory:
++
+[options="nowrap" subs="normal"]
+----
+# mkdir /data
+# lvcreate -L $SIZE rhvh -n data
+# mkfs.ext4 /dev/mapper/rhvh-data
+# echo "/dev/mapper/rhvh-data /data ext4 defaults,discard 1 2" >> /etc/fstab
+# mount /data
+----
++
+. Mount the new local storage, and then modify the permissions and ownership:
++
+[options="nowrap" subs="normal"]
+----
+# mount -a
+# chown 36:36 /data /rhvh-data
+# chmod 0755 /data /rhvh-data
+----

@@ -2,7 +2,7 @@
 title: oVirt 4.3.9 Release Notes
 category: documentation
 toc: true
-authors: sandrobonazzola
+authors: sandrobonazzola, lveyde
 ---
 
 <style>
@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.9 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.9 First Release Candidate as of January 30, 2020.
+The oVirt Project is pleased to announce the availability of the 4.3.9 Second Release Candidate as of February 20, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -62,11 +62,16 @@ In order to install this Release Candidate you will need to enable pre-release r
  - [BZ 1792874](https://bugzilla.redhat.com/1792874) **Hide partial engine-cleanup option [RHV clone - 4.3.9]**
 
 
+#### VDSM
+
+ - [BZ 1795726](https://bugzilla.redhat.com/1795726) **after_migration is not sent to the guest after migration [RHV clone - 4.3.9]**
+
+
 ### Other
 
 #### oVirt Engine
 
- - [BZ 1782185](https://bugzilla.redhat.com/1782185) **Accessing Storage > Volumes  does not work**
+ - [BZ 1797496](https://bugzilla.redhat.com/1797496) **Add RHCOS os to osinfo - for compatability API between 4.3 to 4.4**
 
    
 
@@ -86,15 +91,29 @@ In order to install this Release Candidate you will need to enable pre-release r
 
    
 
+ - [BZ 1782185](https://bugzilla.redhat.com/1782185) **Accessing Storage > Volumes  does not work**
+
+   
+
 
 #### Contributors
 
-7 people contributed to this release:
+17 people contributed to this release:
 
 	Andrej Krejcir
+	Artur Socha
 	Asaf Rachmani
+	Eli Mesika
+	Gal Zaidman
 	Lev Veyde
+	Liran Rotenberg
+	Marcin Sobczyk
+	Martin Perina
+	Milan Zamazal
+	Nir Soffer
+	Ravi Nori
 	Sandro Bonazzola
 	Shani Leviim
 	Sharon Gratch
+	Vojtech Juranek
 	Yedidyah Bar David

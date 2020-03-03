@@ -48,6 +48,23 @@ up-to-date RHEL/CentOS 7 guest system, ovirt-guest-agent of version
 ovirt-guest-agent version must be installed in the guest prior to hot plugging
 any memory in order to guarantee that hot plugged memory is movable.
 
+There is no ovirt-guest-agent on RHEL/CentOS 8.  For such guests,
+there are two options to make the hot plugged memory movable:
+
+- Add `movable_node` option to the guest kernel command line and
+  reboot the VM.
+
+- Override the memory hot plug udev rule from
+  `/lib/udev/rules.d/40-redhat.rules` by copying
+  `# Memory hotadd request` section from it to a new rule file
+  `/etc/udev/rules.d/39-redhat.rules` and changing
+  `ENV{.state}="online"` line to `ENV{.state}="online_movable"` there.
+  Then reload udev rules.  Note that the original rule may change
+  on system updates, you should check it for contingent changes after
+  system upgrades.
+
+You can apply either of the two options.
+
 ## How to hot unplug memory from a VM
 
 ### WebAdmin

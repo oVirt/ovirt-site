@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.9 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.9 Second Release Candidate as of February 20, 2020.
+The oVirt Project is pleased to announce the availability of the 4.3.9 Third Release Candidate as of March 05, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -55,6 +55,29 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 ## What's New in 4.3.9?
 
+### Enhancements
+
+#### oVirt Engine
+
+ - [BZ 1797496](https://bugzilla.redhat.com/1797496) **Add RHCOS os to osinfo - for compatability API between 4.3 to 4.4**
+
+   Feature: 
+
+Support Red Hat CoreOS
+
+
+
+Reason: 
+
+Red Hat CoreOS is a new operation system that used mostly for containers solution. This bug only introduce the new operation system as part of back compatibility for 4.3 clusters.
+
+
+
+Result: 
+
+It is possible to select Red Hat CoreOS operation system for a VM.
+
+
 ### Bug Fixes
 
 #### oVirt Engine
@@ -71,7 +94,11 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### oVirt Engine
 
- - [BZ 1797496](https://bugzilla.redhat.com/1797496) **Add RHCOS os to osinfo - for compatability API between 4.3 to 4.4**
+ - [BZ 1809470](https://bugzilla.redhat.com/1809470) **[HE] ovirt-provider-ovn is non-functional on 4.3.9 Hosted-Engine [RHV clone - 4.3.9]**
+
+   
+
+ - [BZ 1808038](https://bugzilla.redhat.com/1808038) **Unable to change Graphical Console of HE VM. [RHV clone - 4.3.9]**
 
    
 
@@ -98,11 +125,12 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### Contributors
 
-17 people contributed to this release:
+18 people contributed to this release:
 
 	Andrej Krejcir
 	Artur Socha
 	Asaf Rachmani
+	Dominik Holler
 	Eli Mesika
 	Gal Zaidman
 	Lev Veyde

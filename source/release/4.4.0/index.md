@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.0 Fifth Alpha release as of February 13, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.0 Seventh Alpha release as of March 06, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -81,21 +81,7 @@ is only a natural step forward.
 
  - [BZ 1546838](https://bugzilla.redhat.com/1546838) **[RFE] Refuse to deploy on localhost.localdomain**
 
-   Feature:
-
-Warn the user when using 'localhost' as FQDN.
-
-
-
-Reason: 
-
-Using 'localhost' as FQDN is not recommended.
-
-
-
-Result:
-
-User will be notified when using 'localhost' as FQDN and can choose to keep or change it
+   The current release displays a new warning when you use 'localhost' as an FQDN: "[WARNING] Using the name 'localhost' is not recommended, and may cause problems later on."
 
 
 #### oVirt Host Dependencies
@@ -155,16 +141,6 @@ Result: VDSM's 'ssl_protocol', 'ssl_excludes' and 'ssl_ciphers' config options h
 
  update-crypto-policies --set LEGACY
 
- - [BZ 1595536](https://bugzilla.redhat.com/1595536) **[RFE] Support VMs with VNC console on a FIPS enabled hypervisor**
-
-   When a host is running in FIPS mode, VNC must use SASL authorization instead of regular passwords because of a weak algorithm inherent to the VNC protocol. The current release facilitates using SASL by providing an Ansible role, ovirt-host-setup-vnc-sasl, you can run manually on FIPS-enabled hosts. This role does the following:
-
-* Creates an empty SASL password database.
-
-* Prepares the SASL config file for qemu.
-
-* Changes the libvirt config file for qemu.
-
 
 #### oVirt Engine
 
@@ -218,15 +194,7 @@ RHCOS uses ignition to initialize the VM. With this RFE, when selecting RHCOS in
 
  - [BZ 1547937](https://bugzilla.redhat.com/1547937) **[RFE] Live Storage Migration progress bar.**
 
-   Feature: 
-
-A progress bar indicating the current status of disk synchronization stage of Live Storage Migration was added
-
-Reason: 
-
-
-
-Result:
+   This release adds a progress bar for the disk synchronization stage of Live Storage Migration.
 
  - [BZ 1593800](https://bugzilla.redhat.com/1593800) **[RFE] forbid new mac pools with overlapping ranges**
 
@@ -246,7 +214,21 @@ Now, if ca.pem is not present but other PKI files are, engine-setup prompts you 
 
  - [BZ 1572155](https://bugzilla.redhat.com/1572155) **[RFE] provide VM status and uptime in VM general tab**
 
-   The VM detail, general information tab now contains also VM's status and uptime.
+   The current release adds the VM's current state and uptime to the Compute > Virtual Machine: General tab.
+
+ - [BZ 1325468](https://bugzilla.redhat.com/1325468) **[RFE] Autostart of VMs that are down (with Engine assistance - Engine has to be up)**
+
+   1. After a high-availability virtual machine (HA VM) crashes, the Manager tries to restart it indefinitely. At first, with a short delay between restarts. After a specified amount of failed retries, the delay is longer. The current release adds three new configuration options:
+
+- RetryToRunAutoStartVmShortIntervalInSeconds - Is the short delay. (Default: 30 seconds)
+
+- RetryToRunAutoStartVmLongIntervalInSeconds - Is the long delay. (Default: 30 minutes)
+
+- NumOfTriesToRunFailedAutoStartVmInShortIntervals - Is the number of failed restarts with short delays. (Default: 10 retries)
+
+
+
+2. The Manager starts crashed HA VMs in order of priority, delaying lower-priority VMs until higher-priority VMs are 'Up.' The current release adds a new configuration option, 'MaxTimeAutoStartBlockedOnPriority,' which sets the maximum time the Manager waits before starting a lower-priority VM. (Default: 10 minutes)
 
  - [BZ 1080097](https://bugzilla.redhat.com/1080097) **[RFE] Allow editing disks details in the Disks tab**
 
@@ -274,23 +256,15 @@ Once the popup shows up, the user will be able to edit a floating disk's paramet
 
  - [BZ 854932](https://bugzilla.redhat.com/854932) **RESTAPI: missing update impl at /api/disks/xxx**
 
-   Feature: 
+   The REST API in the current release adds the following updatable disk properties for floating disks:
 
-Allows updating disk parameters using the REST-API.
+- For Image disks: provisioned_size, alias, description, wipe_after_delete, shareable, backup, and disk_profile.
 
+- For LUN disks: alias, description and shareable.
 
+- For Cinder and Managed Block disks: provisioned_size, alias, and description. 
 
-Reason:
-
-Currently, the only parameter that can be updated is the qcow version.
-
-
-
-Result:
-
-Now it is possible to edit other parameters (as name, description, shareability, etc), by sending:
-
-PUT /api/disks/xxx
+See http://ovirt.github.io/ovirt-engine-api-model/4.4/#services/disk/methods/update
 
  - [BZ 1574443](https://bugzilla.redhat.com/1574443) **[RFE] Allow host to be forcefully flipped to maintenance using power management restart**
 
@@ -336,27 +310,11 @@ Result:
 
  - [BZ 1740644](https://bugzilla.redhat.com/1740644) **[nmstate] Add config option for Host deployment with nmstate**
 
-   The new configuration option VdsmUseNmstate enables that every host with cluster compatibility level >= 4.4 will be deployed with nmstate.
+   The current release adds a configuration option, VdsmUseNmstate, which you can use to enable nmstate on every new host with cluster compatibility level >= 4.4.
 
  - [BZ 1427717](https://bugzilla.redhat.com/1427717) **[RFE] Create and/or select affinity group upon VM creation.**
 
-   Feature: 
-
-Select affinity groups when creating or editing a VM or a host.
-
-
-
-Reason: 
-
-Previously to add a VM to an affinity group, the user had to navigate to clusters -> cluster details -> affinity groups and edit a group.
-
-When creating many VMs, this process was slow.
-
-
-
-Result: 
-
-In the VM and host dialogs, it is now possible to add the entity to an affinity group on the same tab where the VM is added to affinity labels.
+   The current release adds the ability for you to select affinity groups while creating or editing a virtual machine (VM) or host. Previously, you could only add a VM or host by editing an affinity group.
 
  - [BZ 1482465](https://bugzilla.redhat.com/1482465) **[RFE] Add sorting for Cluster's columns**
 
@@ -382,35 +340,15 @@ Reason: To protect new HA VMs with leases when it has a bootable Storage Domain.
 
 Result: Now a bootable Storage Domain is set as the lease Storage Domain for new HA VMs.
 
- - [BZ 1647440](https://bugzilla.redhat.com/1647440) **[RFE][UI] Provide information about the VM next run**
-
-   Feature: 
-
-A list of changed fields between current and next run of virtual machine is now displayed in the tooltip of vm type icon on the VM list page. 
-
-Reason: 
-
-Until now, it was not possible to see which fields have been changed. 
-
-Result:
-
  - [BZ 1651406](https://bugzilla.redhat.com/1651406) **[RFE] Allow Maintenance of Host with Enforcing VM Affinity Rules (hard affinity)**
 
-   There are multiple changes in this RFE:
+   The current release enables you to migrate a group of virtual machines (VMs) that are in positive enforcing affinity with each other.
 
+- You can use the new check-box in the Migrate VM dialog to migrate this type of affinity group.
 
+- You can use the following REST API to migrate this type of affinity group: http://ovirt.github.io/ovirt-engine-api-model/4.4/#services/vm/methods/migrate/parameters/migrate_vms_in_affinity_closure.
 
-- A VM can be migrated together with all other VMs that are in positive enforcing affinity with it.
-
-- There is a new check-box in the Migrate VM dialog to migrate all these VMs together.
-
-- Migration of the whole group can be triggered through REST API: 
-
-  http://ovirt.github.io/ovirt-engine-api-model/4.4/#services/vm/methods/migrate/parameters/migrate_vms_in_affinity_closure
-
-
-
-- Group migration is also used when putting a host to maintenance.
+- Putting a host into maintenance also migrates this type of affinity group.
 
  - [BZ 1475774](https://bugzilla.redhat.com/1475774) **RHV-M requesting four GetDeviceListVDSCommand when editing storage domain**
 
@@ -442,15 +380,79 @@ A large number of LUNs may slow down the operation.
 
 AAA_JAAS_ENABLE_DEBUG=true
 
- - [BZ 1595536](https://bugzilla.redhat.com/1595536) **[RFE] Support VMs with VNC console on a FIPS enabled hypervisor**
 
-   When a host is running in FIPS mode, VNC must use SASL authorization instead of regular passwords because of a weak algorithm inherent to the VNC protocol. The current release facilitates using SASL by providing an Ansible role, ovirt-host-setup-vnc-sasl, you can run manually on FIPS-enabled hosts. This role does the following:
+#### ovirt-engine-extension-aaa-ldap
 
-* Creates an empty SASL password database.
+ - [BZ 1734724](https://bugzilla.redhat.com/1734724) **[RFE] Update aaa-ldap to use OpenJDK 11 - both build and runtime**
 
-* Prepares the SASL config file for qemu.
+   We should update below RHV Administration Guide for 4.4 chapters:
 
-* Changes the libvirt config file for qemu.
+
+
+16.3.3. Configuring an External LDAP Provider (Manual Method)
+
+https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/administration_guide/sect-configuring_an_external_ldap_provider#Configuring_an_External_LDAP_Provider_ManualMethod
+
+
+
+16.4. Configuring LDAP and Kerberos for Single Sign-on
+
+https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/administration_guide/configuring_ldap_and_kerberos_for_single_sign-on
+
+
+
+and replace below strings:
+
+
+
+1. From "org.ovirt.engine-extensions.aaa" to "org.ovirt.engine.extension.aaa"
+
+
+
+2. From "org.ovirt.engineextensions.aaa" to "org.ovirt.engine.extension.aaa"
+
+
+
+
+
+Those replacement are only breaking changes contained in version 1.4.0 compared to 1.3.0, but for upgrades from 4.3 those changes will be performed automatically as a part of engine-setup. So we just need to fix documentation mentioning manual setup of new LDAP integration.
+
+
+#### ovirt-engine-extension-aaa-misc
+
+ - [BZ 1734725](https://bugzilla.redhat.com/1734725) **[RFE] Update aaa-misc to use OpenJDK 11 - both build and runtime**
+
+   We should update below RHV Administration Guide for 4.4 chapters:
+
+
+
+16.3.3. Configuring an External LDAP Provider (Manual Method)
+
+https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/administration_guide/sect-configuring_an_external_ldap_provider#Configuring_an_External_LDAP_Provider_ManualMethod
+
+
+
+16.4. Configuring LDAP and Kerberos for Single Sign-on
+
+https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/administration_guide/configuring_ldap_and_kerberos_for_single_sign-on
+
+
+
+and replace below strings:
+
+
+
+1. From "org.ovirt.engine-extensions.aaa" to "org.ovirt.engine.extension.aaa"
+
+
+
+2. From "org.ovirt.engineextensions.aaa" to "org.ovirt.engine.extension.aaa"
+
+
+
+
+
+Those replacement are only breaking changes contained in version 1.4.0 compared to 1.3.0, but for upgrades from 4.3 those changes will be performed automatically as a part of engine-setup. So we just need to fix documentation mentioning manual setup of new LDAP integration.
 
 
 ### Rebase: Bug Fixeses and Enhancementss
@@ -502,17 +504,13 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
 
 #### oVirt Engine
 
+ - [BZ 1753889](https://bugzilla.redhat.com/1753889) **[v3 REST API] Remove v3 API support**
+
+   oVirt Engine RESTAPIv3 has been removed from the projects, users need to adapt their custom scripts to use RESTAPIv4
+
  - [BZ 1795684](https://bugzilla.redhat.com/1795684) **[RFE] Drop support for hystrix monitoring integration**
 
    Hystrix monitoring integration has been removed from ovirt-engine due to limited adoption and hard maintainability
-
- - [BZ 1732437](https://bugzilla.redhat.com/1732437) **Remove direct kernel/initrd booting from oVirt Engine**
-
-   The linux boot parameters, including direct kernel, initrd and custom kernel parameters are removed within this bug from the WEB-UI. It is deprecated from ansible and REST-API to support older versions.
-
- - [BZ 1475320](https://bugzilla.redhat.com/1475320) **[RFE] remove the option for multiple qxl devices for RHEL guests**
-
-   
 
  - [BZ 1638675](https://bugzilla.redhat.com/1638675) **Drop OpenStack Neutron deployment**
 
@@ -523,11 +521,15 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
 
  - [BZ 1753894](https://bugzilla.redhat.com/1753894) **Retire ovirt-engine-sdk-java-3***
 
-   oVirt Engine SDK 3 Java bindings are not shipped anymore with oVirt 4.4 release.
+   The oVirt Engine SDK 3 Java bindings are not shipped anymore with oVirt 4.4 release.
 
  - [BZ 1753899](https://bugzilla.redhat.com/1753899) **Retire ovirt-engine-cli**
 
    
+
+ - [BZ 1753896](https://bugzilla.redhat.com/1753896) **Retire ovirt-engine-sdk-python-3***
+
+   oVirt Python SDKv3 has been removed from the project, users needs to upgrade their scripts to use Python SDKv4
 
 
 ### Bug Fixes
@@ -576,10 +578,10 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
 
  - [BZ 1685034](https://bugzilla.redhat.com/1685034) **"after_get_caps" ovirt-provider-ovn-driver hook query floods /var/log/messages when ovs-vswitchd is disabled**
 
- - [BZ 1688159](https://bugzilla.redhat.com/1688159) **Migration aborted, probably due to stalling**
-
 
 #### oVirt Engine
+
+ - [BZ 1707225](https://bugzilla.redhat.com/1707225) **[cinderlib] Cinderlib DB is missing a backup and restore option**
 
  - [BZ 1437559](https://bugzilla.redhat.com/1437559) **[RFE] Explicitly assign all CPUs to NUMA  nodes**
 
@@ -588,8 +590,6 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
  - [BZ 1731590](https://bugzilla.redhat.com/1731590) **Cannot preview snapshot, it fails and VM remains locked.**
 
  - [BZ 1781095](https://bugzilla.redhat.com/1781095) **Hide partial engine-cleanup option**
-
- - [BZ 1720795](https://bugzilla.redhat.com/1720795) **New guest tools are available mark in case of guest tool located on Data Domain**
 
  - [BZ 1750212](https://bugzilla.redhat.com/1750212) **MERGE_STATUS fails with 'Invalid UUID string: mapper' when Direct LUN that already exists is hot-plugged**
 
@@ -609,13 +609,7 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
 
  - [BZ 1745384](https://bugzilla.redhat.com/1745384) **[IPv6 Static] Engine should allow updating network's static ipv6gateway**
 
- - [BZ 1703428](https://bugzilla.redhat.com/1703428) **VMs migrated from KVM to RHV show warning 'The latest guest agent needs to be installed and running on the guest'**
-
  - [BZ 1547038](https://bugzilla.redhat.com/1547038) **Upgrade from 4.3 to 4.4 will fail if there are versioned templates in database**
-
- - [BZ 1733227](https://bugzilla.redhat.com/1733227) **When Importing a VM from an external source, the Next button fails to continue to the next screen**
-
- - [BZ 1729811](https://bugzilla.redhat.com/1729811) **[scale] updatevmdynamic broken if too many users logged in - psql ERROR: value too long for type character varying(255)**
 
  - [BZ 1729511](https://bugzilla.redhat.com/1729511) **engine-setup fails to upgrade to 4.3 with Unicode characters in CA subject**
 
@@ -623,15 +617,11 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
 
  - [BZ 1715393](https://bugzilla.redhat.com/1715393) **[Q35] Disabling and re-enabling SPICE USB creates a  USB2.0 controller instead of xhci**
 
- - [BZ 1659574](https://bugzilla.redhat.com/1659574) **Highly Available (HA) VMs with a VM lease failed to start after a 4.1 to 4.2 upgrade.**
-
- - [BZ 1643520](https://bugzilla.redhat.com/1643520) **RESTAPI Not able to remove the QoS from a disk profile**
+ - [BZ 1659574](https://bugzilla.redhat.com/1659574) **Highly Available (HA) VMs with a VM lease failed to start after a 4.1 to 4.3 upgrade.**
 
  - [BZ 1664479](https://bugzilla.redhat.com/1664479) **Third VM fails to get migrated when host is placed into maintenance mode**
 
  - [BZ 1703112](https://bugzilla.redhat.com/1703112) **PCI address of NICs are not stored in the database after a hotplug of passthrough NIC resulting in change of network device name in VM after a reboot**
-
- - [BZ 1659161](https://bugzilla.redhat.com/1659161) **Unable to edit pool that is delete protected**
 
  - [BZ 1658101](https://bugzilla.redhat.com/1658101) **[RESTAPI] Adding ISO disables serial console**
 
@@ -676,6 +666,14 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
 
 
 #### oVirt Cockpit Plugin
+
+ - [BZ 1762800](https://bugzilla.redhat.com/1762800) **Consolidate host and additional hosts tab**
+
+   
+
+ - [BZ 1789277](https://bugzilla.redhat.com/1789277) **Unable to deploy gluster using the hyperconverged wizard**
+
+   
 
  - [BZ 1715430](https://bugzilla.redhat.com/1715430) **Storage Domains should be created irrespective of automatic host addition**
 
@@ -760,10 +758,6 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
 
 #### MOM
 
- - [BZ 1763794](https://bugzilla.redhat.com/1763794) **[EL8] mom traceback while initializing**
-
-   
-
  - [BZ 1626003](https://bugzilla.redhat.com/1626003) **Port mom to Python3**
 
    
@@ -790,6 +784,14 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
 
 #### VDSM
 
+ - [BZ 1793867](https://bugzilla.redhat.com/1793867) **Remove Stochastic Fairness Queueing for network QoS**
+
+   
+
+ - [BZ 1785061](https://bugzilla.redhat.com/1785061) **vdsmd 4.4.0 throws an exception in asyncore.py while updating OVF data**
+
+   
+
  - [BZ 1765018](https://bugzilla.redhat.com/1765018) **[rhel8.1] VM fail to start if having vNIC profile with port mirroring enabled**
 
    
@@ -814,6 +816,10 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
 
    
 
+ - [BZ 1673277](https://bugzilla.redhat.com/1673277) **"Volume Option cluster.granular-entry-heal=enable could not be set" when using "Optimize for Virt store"**
+
+   
+
  - [BZ 1720747](https://bugzilla.redhat.com/1720747) **Host in "Not Responding" and "Connecting" state until engine restarted**
 
    
@@ -823,10 +829,6 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
    
 
  - [BZ 1755829](https://bugzilla.redhat.com/1755829) **One of the 'HSM.moveImage' exception handlers refers to non-existing members on the exception instance**
-
-   
-
- - [BZ 1748270](https://bugzilla.redhat.com/1748270) **Take TSC scaling into account when migrating HP VMs**
 
    
 
@@ -847,10 +849,6 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
    
 
  - [BZ 1720977](https://bugzilla.redhat.com/1720977) **[logging] limit getStats**
-
-   
-
- - [BZ 1712325](https://bugzilla.redhat.com/1712325) **[RFE] Auto-detect FIPS mode on host**
 
    
 
@@ -878,10 +876,6 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
 
    
 
- - [BZ 1712255](https://bugzilla.redhat.com/1712255) **Drop 4.1 datacenter/cluster level**
-
-   
-
  - [BZ 1700623](https://bugzilla.redhat.com/1700623) **Moving disk results in wrong SIZE/CAP key in the volume metadata**
 
    
@@ -892,6 +886,30 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
 
 
 #### oVirt Engine
+
+ - [BZ 1806276](https://bugzilla.redhat.com/1806276) **[HE] ovirt-provider-ovn is non-functional on 4.3.9 Hosted-Engine**
+
+   
+
+ - [BZ 1809640](https://bugzilla.redhat.com/1809640) **Engine should not explode if host reports duplicated nameservers**
+
+   
+
+ - [BZ 1751215](https://bugzilla.redhat.com/1751215) **Unable to change Graphical Console of HE VM.**
+
+   
+
+ - [BZ 1680522](https://bugzilla.redhat.com/1680522) **[ja_JP] Overlapping string on storage -> volumes ->snapshot -> new page.**
+
+   
+
+ - [BZ 1805142](https://bugzilla.redhat.com/1805142) **Updating an OpenStack port creates invalid json**
+
+   
+
+ - [BZ 1777215](https://bugzilla.redhat.com/1777215) **Add deprecation message to "Export to Export Domain" dialog**
+
+   
 
  - [BZ 1691562](https://bugzilla.redhat.com/1691562) **Cluster level changes are not increasing VMs generation numbers and so a new OVF_STORE content is not copied to the shared storage**
 
@@ -906,6 +924,10 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
    
 
  - [BZ 1779580](https://bugzilla.redhat.com/1779580) **drop rhvm-doc package**
+
+   
+
+ - [BZ 1679880](https://bugzilla.redhat.com/1679880) **[fr_FR] Misalignment on Storage > Volumes >Geo-replication > New window.**
 
    
 
@@ -991,27 +1013,11 @@ Result:
 
    
 
- - [BZ 1743690](https://bugzilla.redhat.com/1743690) **Commit and Undo buttons active when no snapshot selected**
-
-   
-
- - [BZ 1712255](https://bugzilla.redhat.com/1712255) **Drop 4.1 datacenter/cluster level**
-
-   
-
  - [BZ 1701236](https://bugzilla.redhat.com/1701236) **Hot plug disk resides on backup storage domain while VM is running is permitted**
 
    
 
- - [BZ 1712325](https://bugzilla.redhat.com/1712325) **[RFE] Auto-detect FIPS mode on host**
-
-   
-
  - [BZ 1696245](https://bugzilla.redhat.com/1696245) **[RFE] Allow full customization while cloning a VM**
-
-   
-
- - [BZ 1748270](https://bugzilla.redhat.com/1748270) **Take TSC scaling into account when migrating HP VMs**
 
    
 
@@ -1039,7 +1045,7 @@ where NNN is number of minutes the timeout should be.
 
    
 
- - [BZ 1716590](https://bugzilla.redhat.com/1716590) **[RFE][UX] Make Cluster-wide "Custom serial number policy" value visible at VM level**
+ - [BZ 1680502](https://bugzilla.redhat.com/1680502) **The cancel button is not working on storage > volumes > geo-replication > new screen.**
 
    
 
@@ -1056,10 +1062,6 @@ where NNN is number of minutes the timeout should be.
    
 
  - [BZ 1722519](https://bugzilla.redhat.com/1722519) **Guest tools ISO in data domain not automatically attached to Windows VMs**
-
-   
-
- - [BZ 1737234](https://bugzilla.redhat.com/1737234) **Attach a non-existent ISO to vm by the API return 201 and marks the Attach CD checkbox as ON**
 
    
 
@@ -1123,10 +1125,6 @@ where NNN is number of minutes the timeout should be.
 
    
 
- - [BZ 1729424](https://bugzilla.redhat.com/1729424) **improve handling of unmanaged/missing video devices**
-
-   
-
  - [BZ 1690026](https://bugzilla.redhat.com/1690026) **[RFE] - Creating an NFS storage domain the engine should let the user specify exact NFS version v4.0 and not just v4**
 
    
@@ -1136,10 +1134,6 @@ where NNN is number of minutes the timeout should be.
    
 
  - [BZ 1651939](https://bugzilla.redhat.com/1651939) **a new size of the direct LUN not updated in Admin Portal**
-
-   
-
- - [BZ 1650505](https://bugzilla.redhat.com/1650505) **Increase of ClusterCompatibilityVersion to Cluster with virtual machines with outstanding configuration changes, those changes will be reverted**
 
    
 
@@ -1215,13 +1209,6 @@ where NNN is number of minutes the timeout should be.
    
 
 
-#### oVirt ISO Uploader
-
- - [BZ 1760826](https://bugzilla.redhat.com/1760826) **[TEXT] Default log file path in help is never correct**
-
-   
-
-
 #### oVirt Engine Metrics
 
  - [BZ 1773313](https://bugzilla.redhat.com/1773313) **RHV Metric store installation fails with error: "You need to install \"jmespath\" prior to running json_query filter"**
@@ -1277,7 +1264,18 @@ where NNN is number of minutes the timeout should be.
 
 ### No Doc Update
 
+#### oVirt Cockpit Plugin
+
+ - [BZ 1752113](https://bugzilla.redhat.com/1752113) **Hosted-Engine will not deploy if SSH access is not enabled for the root user.**
+
+   
+
+
 #### oVirt Hosted Engine Setup
+
+ - [BZ 1752113](https://bugzilla.redhat.com/1752113) **Hosted-Engine will not deploy if SSH access is not enabled for the root user.**
+
+   
 
  - [BZ 1717991](https://bugzilla.redhat.com/1717991) **ovirt-hosted-engine-setup requires pyliblzma which is available only for python2**
 
@@ -1291,14 +1289,11 @@ where NNN is number of minutes the timeout should be.
    
 
 
-#### MOM
+#### oVirt Hosted Engine HA
 
- - [BZ 1733546](https://bugzilla.redhat.com/1733546) **MOM passes floating point values for 'sleep_millisecs' when calling VDSM's 'Host.setKsmTune' API verb**
+ - [BZ 1794089](https://bugzilla.redhat.com/1794089) **Ha-broker fails to recognize when HE VM's storage is already locked - QEMU error message has changed**
 
    
-
-
-#### oVirt Hosted Engine HA
 
  - [BZ 1786458](https://bugzilla.redhat.com/1786458) **Python3: broker fails to update engine health status**
 
@@ -1306,6 +1301,14 @@ where NNN is number of minutes the timeout should be.
 
 
 #### VDSM
+
+ - [BZ 1797477](https://bugzilla.redhat.com/1797477) **Power Management configuration fails with JSON-RPC error**
+
+   
+
+ - [BZ 1692685](https://bugzilla.redhat.com/1692685) **Bad/missing home directory for user vdsm causes a failure**
+
+   
 
  - [BZ 1786451](https://bugzilla.redhat.com/1786451) **hosted-engine --add-console-password fails with: expected string or bytes-like object**
 
@@ -1327,12 +1330,40 @@ where NNN is number of minutes the timeout should be.
 
    
 
+ - [BZ 1663661](https://bugzilla.redhat.com/1663661) **vdsm uses obsolete python module 'imp'**
+
+   
+
  - [BZ 1753898](https://bugzilla.redhat.com/1753898) **Make block size detection compatible with Gluster storage**
 
    
 
 
 #### oVirt Engine
+
+ - [BZ 1788090](https://bugzilla.redhat.com/1788090) **Failed to reinstall a host on upgraded 4.4: Task Copy vdsm and QEMU CSRs failed to execute**
+
+   
+
+ - [BZ 1779588](https://bugzilla.redhat.com/1779588) **[RHVH-4.4.0] Unable to detect upgrade package, when upgrading RHVH from RHVM UI**
+
+   
+
+ - [BZ 1795184](https://bugzilla.redhat.com/1795184) **Check for upgrade on RHEL 8 host always reports no updates**
+
+   
+
+ - [BZ 1791749](https://bugzilla.redhat.com/1791749) **The engine allows adding a new host using IP as hostname while the host already exists and appears with FQDN**
+
+   
+
+ - [BZ 1801129](https://bugzilla.redhat.com/1801129) **separate dwh setup: No such file or directory: '/usr/share/ovirt-engine/selinux'**
+
+   
+
+ - [BZ 1725003](https://bugzilla.redhat.com/1725003) **[RFE] fail adding permissions when no user/group selected**
+
+   
 
  - [BZ 1786118](https://bugzilla.redhat.com/1786118) **[4.4.0-17] failed to add secondary hosts(HA) with error "Unable to stop service vdsmd: Job for vdsmd.service canceled"**
 
@@ -1343,6 +1374,10 @@ where NNN is number of minutes the timeout should be.
    
 
  - [BZ 1780022](https://bugzilla.redhat.com/1780022) **An internal retry to run VM is ignoring ignition payload, RHCOS goes into emergency**
+
+   
+
+ - [BZ 1787195](https://bugzilla.redhat.com/1787195) **[4.4.0-13] 1 out of 3 hosts non-responsive after ansible install finished - ovn-controller[20628]: ovs|00040|stream_ssl|ERR|Private key does not match certificate public key: error:140A80BE:SSL routines:SSL_CTX_check_private_key:no private key assigned**
 
    
 
@@ -1382,10 +1417,6 @@ where NNN is number of minutes the timeout should be.
 
    
 
- - [BZ 1762281](https://bugzilla.redhat.com/1762281) **Import of OVA created from template fails with java.lang.NullPointerException**
-
-   
-
  - [BZ 1734729](https://bugzilla.redhat.com/1734729) **[RFE] Update vdsm-jsonrpc-java to use OpenJDK 11 - both build and runtime**
 
    
@@ -1414,15 +1445,7 @@ where NNN is number of minutes the timeout should be.
 
    
 
- - [BZ 912723](https://bugzilla.redhat.com/912723) **[RFE] Need to improve the retry mechanism of highly available VMs**
-
-   
-
- - [BZ 1744557](https://bugzilla.redhat.com/1744557) **RHV 4.3 throws an exception when trying to access VMs which have snapshots from unsupported compatibility levels**
-
-   
-
- - [BZ 1718852](https://bugzilla.redhat.com/1718852) **[RFE} Track devices with user aliases instead of properties**
+ - [BZ 1724632](https://bugzilla.redhat.com/1724632) **When setting high custom compatibility version with ovirt_vm, java exception is returned**
 
    
 
@@ -1490,10 +1513,6 @@ where NNN is number of minutes the timeout should be.
 
    
 
- - [BZ 1700725](https://bugzilla.redhat.com/1700725) **[scale] RHV-M runs out of memory due to to much data reported by the guest agent**
-
-   
-
  - [BZ 1690475](https://bugzilla.redhat.com/1690475) **When a live storage migration fails, the auto generated snapshot does not get removed**
 
    
@@ -1515,6 +1534,10 @@ where NNN is number of minutes the timeout should be.
 
 
 #### oVirt Engine Extension AAA-JDBC
+
+ - [BZ 1734720](https://bugzilla.redhat.com/1734720) **[RFE] Update aaa-jdbc to use OpenJDK 11 - both build and runtime**
+
+   
 
  - [BZ 1714633](https://bugzilla.redhat.com/1714633) **Using more than one asterisk in the search string is not working when searching for users.**
 
@@ -1544,7 +1567,7 @@ where NNN is number of minutes the timeout should be.
 
 #### Contributors
 
-106 people contributed to this release:
+113 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -1556,6 +1579,7 @@ where NNN is number of minutes the timeout should be.
 	Artur Socha
 	Asaf Rachmani
 	Barak Korren
+	Bartosz Rybacki
 	Bell Levin
 	Benny Zlotnik
 	Bernhard M. Wiedemann
@@ -1568,6 +1592,7 @@ where NNN is number of minutes the timeout should be.
 	Denis Chaplygin
 	Dominik Holler
 	Douglas Schilling Landgraf
+	Dusan Fodor
 	Edward Haas
 	Eitan Raviv
 	Evgeny Slutsky
@@ -1584,6 +1609,7 @@ where NNN is number of minutes the timeout should be.
 	Greg Sheremeta
 	Ido Rosenzwig
 	Irit Goihman
+	Joey
 	Juan Hernandez
 	Kaustav Majumder
 	Klaas Demter
@@ -1618,6 +1644,7 @@ where NNN is number of minutes the timeout should be.
 	Radoslaw Szwajkowski
 	Ravi Nori
 	Ritesh
+	Ritesh Chikatwar
 	Roman Hodain
 	Roy Golan
 	Ryan Barry
@@ -1644,11 +1671,15 @@ where NNN is number of minutes the timeout should be.
 	Yotam Fromm
 	Yuval Turgeman
 	bond95
+	dependabot[bot]
 	emesika
 	godas
 	gzaidman
+	imjoey
 	kobihk
+	mathianasj
 	mnecas
 	parthdhanjal
 	thaorell
 	yodem
+	

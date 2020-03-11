@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.9 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.9 Third Release Candidate as of March 05, 2020.
+The oVirt Project is pleased to announce the availability of the 4.3.9 Fourth Release Candidate as of March 11, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -82,6 +82,8 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 
 #### oVirt Engine
 
+ - [BZ 1808038](https://bugzilla.redhat.com/1808038) **Unable to change Graphical Console of HE VM. [RHV clone - 4.3.9]**
+
  - [BZ 1792874](https://bugzilla.redhat.com/1792874) **Hide partial engine-cleanup option [RHV clone - 4.3.9]**
 
 
@@ -98,14 +100,17 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 
    
 
- - [BZ 1808038](https://bugzilla.redhat.com/1808038) **Unable to change Graphical Console of HE VM. [RHV clone - 4.3.9]**
-
-   
-
 
 #### oVirt Host Deploy
 
  - [BZ 1613291](https://bugzilla.redhat.com/1613291) **[text] log says ovirt-ha-agent is starting after HE undeploy but it's actually being disabled and stopped**
+
+   
+
+
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1798834](https://bugzilla.redhat.com/1798834) **Hosted engine redeploy failed at "Add IPv4 outbound route rules" ansible task.**
 
    
 
@@ -125,13 +130,14 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 
 #### Contributors
 
-18 people contributed to this release:
+20 people contributed to this release:
 
 	Andrej Krejcir
 	Artur Socha
 	Asaf Rachmani
 	Dominik Holler
 	Eli Mesika
+	Evgeny Slutsky
 	Gal Zaidman
 	Lev Veyde
 	Liran Rotenberg
@@ -143,5 +149,6 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 	Sandro Bonazzola
 	Shani Leviim
 	Sharon Gratch
+	Simone Tiraboschi
 	Vojtech Juranek
 	Yedidyah Bar David

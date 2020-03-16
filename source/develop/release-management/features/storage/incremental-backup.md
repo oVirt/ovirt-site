@@ -1,7 +1,7 @@
 ---
 title: Incremental Backup
 category: feature
-authors: nsoffer, derez
+authors: nsoffer, derez, eshenitz
 feature_name: Incremental Backup
 feature_modules: imageio,engine,vdsm
 feature_status: Design
@@ -40,8 +40,8 @@ to storage.
 
 ### Capabilities added with this feature
 
-- Perform full or incremental backup for disks using qcow2 format
-  without temporary snapshots.
+- Perform full backup for raw or qcow2 disks or incremental backup for disks 
+  using qcow2 format without temporary snapshots.
 
 - Backup raw guest data instead copying qcow2 data for qcow2 disks.
 
@@ -49,23 +49,24 @@ to storage.
 
 ### Creating VM
 
-When adding a disk, the user should enable incremental backup for every
-disk. If incremental backup is enabled for a disk, a backup application
-can include the disk during incremental backups.
+When adding a disk, the user should mark 'enable incremental backup' for every
+disk that should be included in an incremental backup. If incremental backup is 
+enabled for a disk, a backup application can include the disk during incremental
+backups.
 
 Since incremental backup requires qcow2 format, disks enabled for
 incremental backup will use qcow2 format instead of raw format. See
 [Disk Format](#disk-format) for more info.
 
-Disks not marked for incremental backup can be backed in the same way
-they were backed in the past.
+Disks not marked for incremental backup can be backed using full backup or in the 
+same way they were backed in the past.
 
 ### Enabling existing VM for incremental backup
 
-Since raw disks are not supported, a user needs to create a snapshot
-including the disks to enabled incremental backup for the disks. This
-creates a qcow2 layer on top of the raw disk, that can be used to
-perform incremental backups from this point.
+Since raw disks are not supported for incremental backup, a user needs
+to create a snapshot including the disks to enabled incremental backup
+for the disks. This creates a qcow2 layer on top of the raw disk, that
+can be used to perform incremental backups from this point.
 
 ### Deleting snapshots on existing VMs
 
@@ -78,7 +79,7 @@ disk to re-enable back incremental backup.
 ### Disk format
 
 Here is a table showing how enabling incremental backup affects disk
-format.
+format when creatin a new disk.
 
 ```
 storage     provisioning        incremental     format
@@ -101,7 +102,7 @@ lun         -                   disabled        raw
 
 1. Backup application finds VM disks that should be included in the
    backup using oVirt API. Currently only disks marked for incremental
-   backup (using qcow2 format) can be included.
+   backup (using qcow2 format) can be included in an incremental backup.
 
 1. Backup application starts backup using oVirt API, specifying a VM id,
    optional previous backup id, and list of disks to backup.
@@ -390,9 +391,6 @@ Response:
 
 ## Future Work
 
-- Support for full backup for raw disks. Libvirt supports full backup of
-  raw disks without creating a new checkpoint.
-
 - API for listing and deleting checkpoints.
 
 ## Detailed design
@@ -512,9 +510,9 @@ all older snapshots.
 ### Scratch disk
 
 For now we'll use a scratch disk on the host (created by libvirt).
-As a future work, we'll consider to create a scratch disk using qcow2 format
-for every disk in the backup. The disk must have enough space to hold the 
-current data in the top layer of an image.
+A scratch disk is created using qcow2 format for every disk in the 
+backup. The disk must have enough space to hold the current data in
+the top layer of an image.
 
 #### Use case 1 - running 2 backup solutions in the same time
 
@@ -569,6 +567,7 @@ the checkpoints list, since this info is not stored in the qcow2 images.
   - parent: UUID
   - vm_id: UUID
   - creation_date: TIMESTAMP
+  - checkpoint_xml: TEXT
 
 Add vm_checkpoint_disk_map table. This table keeps the disks included in
 every checkpoint. Used when starting a backup to create checkpoint xml
@@ -658,9 +657,9 @@ socket:
 
 - Add 'Enable Incremental Backup' checkbox on New/Edit Disk dialogs.
 
-- Removing last snapshot should be disabled if 'Enable Incremental Backup'
-  is checked and the base image is raw. Backup must be disabled in order
-  to remove the last snapshot.
+- Removing last snapshot will disable 'Enable Incremental Backup' 
+  if base image is raw. Snapshot must be created in order re-enable
+  'Enable Incremental Backup'.
 
 
 ### Open Issues

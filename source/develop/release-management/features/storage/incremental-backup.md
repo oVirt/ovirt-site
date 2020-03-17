@@ -173,7 +173,7 @@ Specify 'backup' property on ```disk``` entity: 'incremental'/'none' (TBD: 'full
 
 Request:
 ```
-POST /vms/vm-uuid/diskattachments
+PUT /vms/vm-uuid/diskattachments
 
 <disk_attachment>
     ...

@@ -82,6 +82,14 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 
 #### oVirt Engine
 
+ - [BZ 1801558](https://bugzilla.redhat.com/1801558) **/etc/ovirt-provider-ovn/logger.conf should be included in the backup**
+
+   
+
+ - [BZ 1797659](https://bugzilla.redhat.com/1797659) **[API]Have a generic way to initialize a VM in run-once**
+
+   
+
  - [BZ 1809470](https://bugzilla.redhat.com/1809470) **[HE] ovirt-provider-ovn is non-functional on 4.3.9 Hosted-Engine [RHV clone - 4.3.9]**
 
    
@@ -101,6 +109,13 @@ It is possible to select Red Hat CoreOS operation system for a VM.
    
 
 
+#### oVirt Engine Metrics
+
+ - [BZ 1797023](https://bugzilla.redhat.com/1797023) **In RHV Metric Store, installer vm does not take the static ip mentioned in the configuration file**
+
+   
+
+
 ### No Doc Update
 
 #### oVirt Engine
@@ -116,7 +131,7 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 
 #### Contributors
 
-22 people contributed to this release:
+23 people contributed to this release:
 
 	Amit Bawer
 	Andrej Krejcir
@@ -132,6 +147,7 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 	Martin Perina
 	Milan Zamazal
 	Nir Soffer
+	Ori_Liel
 	Ravi Nori
 	Sandro Bonazzola
 	Shani Leviim
@@ -140,3 +156,4 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 	Simone Tiraboschi
 	Vojtech Juranek
 	Yedidyah Bar David
+	emesika

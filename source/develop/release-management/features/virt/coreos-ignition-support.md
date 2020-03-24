@@ -1,10 +1,10 @@
 ---
 title: CoreOS ignition support
 category: feature
-authors: rgolan
+authors: rgolan, lrotenbe
 feature_name: CoreOS ignition support
 feature_modules: engine
-feature_status: Tech Preview 4.3
+feature_status: Merged
 ---
 
 # CoreOS ignition support
@@ -47,8 +47,16 @@ tweak the kernel args to include it `coreos.oem.id=openstack`
 
 ## Limitations
 
+There are small differences between the user experience in 4.3 to 4.4.
+
+#### 4.3
+
 At the moment the extra argument in `Initial Boot` or the 'VM.initialization' API object are not inserted into the
-ignition config, except for 'hostname' - which will drop the hostname value in `/etc/hostname`
+ignition config, except for 'hostname' - which will drop the hostname value in `/etc/hostname` and 'custom script' - which contains the full ignition JSON.
+
+#### 4.4
+
+The extra arguments in 'VM.initialization' API object that are not - 'hostname', user details and 'custom script' are not inserted into the ignition config.
 
 ## Benefit to oVirt
 
@@ -166,6 +174,8 @@ vm_service.start(
 
 ## How to create and validate ignition configurations?
 
+Configuration documentation and examples are in https://coreos.com/ignition/docs
+
 See the Fedora CoreOS config transpiler https://github.com/coreos/fcct
 
 To validate a config use [Ignition config validator]()
@@ -175,6 +185,25 @@ To validate a config use [Ignition config validator]()
 User creates a VM from RHCOS/FCOS [image](), and pastes a valid ignition configuration into the 'custom script' section
 of `Initial Boot` section Boot the VM When the VM finishes booting all the changes made by ignition shall be applied.
 
+Differences between 4.3 to 4.4:
+
+#### 4.3
+See limitations for 4.3 and the above work-flow.
+#### 4.4
+In 4.4, the only way to enable ignition to a VM is by selecting the RedHat CoreOS Operation System Type.
+As a result, the section of `Initial Boot` will changed to ignition and show only the available options for ignition.
+It is not required to insert custom script if it is not needed. A ignition version will be automatically added from the engine.
+- In case the user added user in the Web-Admin `Initial Boot` section and the user is different from users in the custom script, it will configure all of them.
+- If the user configured hostname in the Web-Admin `Initial Boot` section and in the custom script, the UI will be ignored.
+- Sending custom script will always be "the stronger" entity and will win in cases of collusion with the engine.
+- The same changes apply to API use.
+
+For 4.4, `use_ignition` is added to the API to force select initialization with ignition.
+Note that `use_cloud_init` won't work in 4.4.
+
+- In both 4.3 and 4.4 `use_initialization` flag added, selecting 'RedHat CoreOS' Operation System for the VM and using this flag will automatically select the initialization type for the VM.
+
+
 ## Event Reporting
 
 There are no special ovirt-engine events for this activity.
@@ -183,8 +212,16 @@ There are no special ovirt-engine events for this activity.
 ## Documentation & External references
 
 [CoreOS ignition docs](https://coreos.com/ignition/docs/latest/)
+
 [Ignition example configs](https://coreos.com/ignition/docs/latest/examples.html)
+
 [Ignition config validator](https://github.com/coreos/container-linux-userdata-validator)
+
+#### Related bugs:
+
+[Add RHCOS to the list of operating systems](https://bugzilla.redhat.com/1726907)
+
+[Have a generic way to initialize a VM in run-once](https://bugzilla.redhat.com/1797659)
 
 ## Testing
 
@@ -198,9 +235,7 @@ For a negative test, make sure that cloud-init keep working for Centos or any ot
 
 ## Future work
 - This feature doesn't support all the `VM.initialization` properties, and we would certainly want to include some of
-  them, without letting the admin specifying an ignition config:
-  - authentication/ssh-authorized-keys: that would be simply a copy to an ignition config snippet
-  - hostname: this is already available in master, but a user still needs to define an igntion config in custom_script -
-    https://gerrit.ovirt.org/#/c/100397/
+  them, without letting the admin specifying an ignition config.
 - Network configuration which are currently cloud-init specific protocol will not work with ignition. Ignition simply
-  manipulate the disk therefor the desired network state will be achieved through laying configuration files.
+  manipulate the disk therefore the desired network state will be achieved through laying configuration files.
+- Better user experience with the Web-Admin UI. Currently we made some changes to make it more friendly but, we would like     to add JSON validator to the custom script section. 

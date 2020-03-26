@@ -390,8 +390,15 @@ Response:
 
 ## Future Work
 
-- Support for full backup for raw disks. Libvirt supports full backup of
-  raw disks without creating a new checkpoint.
+- Support incremental backup.
+  Currently only full backup for raw and qcow2 disks is supported,
+  to enable support for incremental backup (work in progress), 
+  Engine config value 'IsIncrementalBackupSupported' must be set to 'true'.
+  ```
+  # engine-config -s "IsIncrementalBackupSupported=true"
+  # systemctl restart ovirt-engine 
+  ```
+  
 
 - API for listing and deleting checkpoints.
 

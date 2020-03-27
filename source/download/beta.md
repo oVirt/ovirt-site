@@ -1,6 +1,6 @@
 ---
-title: Download Alpha
-authors: gshereme,sandrobonazzola
+title: Download Beta
+authors: sandrobonazzola
 ---
 
 <style>
@@ -22,17 +22,15 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 }
 </style>
 
-# Download oVirt 4.4 Alpha
+# Download oVirt 4.4 Beta
 
 <img class="screenshot" src="download_1.png">
 
-oVirt 4.4.0 Alpha is intended for testing only use and is available for the following platforms:
+oVirt 4.4.0 Beta is intended for testing only use and is available for the following platforms:
 
 Engine:
-
-- Red Hat Enterprise Linux 7.7 or later but < 8
-- CentOS Linux 7.7 or later but < 8
-- Scientific Linux 7.7 or later but < 8
+- Red Hat Enterprise Linux 8.1 or later
+- CentOS Linux 8.1 or later
 
 Hosts:
 - Red Hat Enterprise Linux 8.1 or later
@@ -62,7 +60,7 @@ Depending on your environment requirements, you may want to use only oVirt Nodes
 #### Download oVirt Node
 
 {:.instructions}
-1.  Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.4 - Alpha - Installation ISO](https://resources.ovirt.org/pub/ovirt-4.4-pre/iso/ovirt-node-ng-installer/))
+1.  Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.4 - Beta - Installation ISO](https://resources.ovirt.org/pub/ovirt-4.4-pre/iso/ovirt-node-ng-installer/))
 
 2.  Write the oVirt Node Installation ISO disk image to a USB, CD, or DVD.
 
@@ -177,6 +175,6 @@ and [Browser Support and Mobile Clients](/download/browsers_and_mobile.html) for
 
 ## RPM Repositories and GPG keys
 
-[RPM repository for oVirt 4.4 Alpha](https://resources.ovirt.org/pub/ovirt-4.4-pre/)
+[RPM repository for oVirt 4.4 Beta](https://resources.ovirt.org/pub/ovirt-4.4-pre/)
 
 See [RPMs and GPG](/download/rpms_and_gpg.html) for older releases, nightlies, mirrors, and GPG keys.

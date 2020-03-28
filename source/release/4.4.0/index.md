@@ -701,14 +701,18 @@ Use the following components instead:
 
    Cause: OVS switch type for nmstate managed hosts is currently known to be not working
 
+   Consequence: OVS clusters cannot contain RHEL 8 hosts
+   
+   Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RHEL 8.
 
+ - ovirt-imageio development is still in progress. In this beta you can’t upload images to data domains using the engine web application. You can still copy iso images into the deprecated ISO domain for installing VMs or upload and download to/from data domains is fully functional via the REST API and SDK.
 
-Consequence: OVS clusters cannot contain RHEL 8 hosts
-
-
-
-Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RHEL 8.
-
+   For uploading and downloading via the SDK, please see:
+   
+   - https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk.py
+   - https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_disk.py
+   
+   Both scripts are standalone command line tool, try --help for more info.
 
 ### Bug Fixes
 

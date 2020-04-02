@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.0 Second Beta release as of April 02, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.0 Second Beta release as of April 03, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -926,6 +926,10 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
    
 
+ - [BZ 1754748](https://bugzilla.redhat.com/1754748) **Enabling LV cache along with VDO volumes fails during Deployment**
+
+   
+
  - [BZ 1807815](https://bugzilla.redhat.com/1807815) **[RFE]Provide option to control blacklist or whitelist multipath devices from cockpit**
 
    
@@ -1234,6 +1238,10 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
    
 
  - [BZ 1743690](https://bugzilla.redhat.com/1743690) **Commit and Undo buttons active when no snapshot selected**
+
+   
+
+ - [BZ 1610212](https://bugzilla.redhat.com/1610212) **After updating to RHV 4.1 while trying to edit the disk, getting error "Cannot edit Virtual Disk. Cannot edit Virtual Disk. Disk extension combined with disk compat version update isn't supported. Please perform the updates separately."**
 
    
 
@@ -1846,6 +1854,14 @@ where NNN is number of minutes the timeout should be.
 
 #### oVirt Engine
 
+ - [BZ 1819514](https://bugzilla.redhat.com/1819514) **Failed to register 4.4 host to the latest engine (4.4.0-0.29.master.el8ev)**
+
+   
+
+ - [BZ 1819248](https://bugzilla.redhat.com/1819248) **Cannot upgrade host after engine setup**
+
+   
+
  - [BZ 1816951](https://bugzilla.redhat.com/1816951) **[CNV&RHV] CNV VM migration failure is not handled correctly by the engine**
 
    
@@ -2322,3 +2338,4 @@ where NNN is number of minutes the timeout should be.
 	parthdhanjal
 	thaorell
 	yodem
+	

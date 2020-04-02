@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.0 First Beta release as of March 27, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.0 Second Beta release as of April 02, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -191,6 +191,24 @@ Result: VDSM's 'ssl_protocol', 'ssl_excludes' and 'ssl_ciphers' config options h
 
 
 #### oVirt Engine
+
+ - [BZ 1679110](https://bugzilla.redhat.com/1679110) **[RFE] change Admin Portal toast notifications location**
+
+   Feature: 
+
+Changing the location of the toast notifications area from upper right corner to lower right corner. 
+
+
+
+Reason: 
+
+The default top right location covers all the action buttons and is quite intrusive.
+
+
+
+Result: 
+
+Toast notifications are growing bottom-up from  bottom right corner up to 400px from top, while buttons of "Dismiss all" and "Do not disturb" are located below the notifications area (please see attachments for more details).
 
  - [BZ 1780943](https://bugzilla.redhat.com/1780943) **[RFE] Add timeout and abort command to async live snapshot**
 
@@ -400,6 +418,10 @@ Result:
 
 The host, regardless of its initial state before restart, will be put into maintenance mode, skipping connecting & activating phases.
 
+ - [BZ 1731395](https://bugzilla.redhat.com/1731395) **[RFE] Introduce a "Secure" variant of CPUs following the CPU-related vulnerability mitigations**
+
+   Described in feature page: https://www.ovirt.org/develop/release-management/features/virt/secure-cpus.html
+
  - [BZ 1306586](https://bugzilla.redhat.com/1306586) **change Windows drivers and sysprep delivery method to a CDROM**
 
    Feature: Replace the floppy device with an additional CDROM device for sysprep installation for Compatibility Versions 4.4 and later. 
@@ -434,7 +456,7 @@ Result:
 
  - [BZ 1482465](https://bugzilla.redhat.com/1482465) **[RFE] Add sorting for Cluster's columns**
 
-   Feature: Added sorting to more of the Cluster View's Columns. These columns include CPU Type, Data Center, and Compatibility Version.
+   Feature: Added sorting to more of the Cluster View's Columns. These columns include CPU Type and Compatibility Version.
 
 
 
@@ -701,18 +723,14 @@ Use the following components instead:
 
    Cause: OVS switch type for nmstate managed hosts is currently known to be not working
 
-   Consequence: OVS clusters cannot contain RHEL 8 hosts
-   
-   Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RHEL 8.
 
- - ovirt-imageio development is still in progress. In this beta you can’t upload images to data domains using the engine web application. You can still copy iso images into the deprecated ISO domain for installing VMs or upload and download to/from data domains is fully functional via the REST API and SDK.
 
-   For uploading and downloading via the SDK, please see:
-   
-   - https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk.py
-   - https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_disk.py
-   
-   Both scripts are standalone command line tool, try --help for more info.
+Consequence: OVS clusters cannot contain RHEL 8 hosts
+
+
+
+Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RHEL 8.
+
 
 ### Bug Fixes
 
@@ -814,6 +832,8 @@ Use the following components instead:
 
  - [BZ 1743296](https://bugzilla.redhat.com/1743296) **When having many VMs with the same name - The same VM is selected each time**
 
+ - [BZ 1731212](https://bugzilla.redhat.com/1731212) **RHV 4.4 landing page does not show login or allow scrolling.**
+
  - [BZ 1590911](https://bugzilla.redhat.com/1590911) **wrong template details shown when names are matching**
 
  - [BZ 1769339](https://bugzilla.redhat.com/1769339) **webadmin - Extend floating disk size on image, ISCSI, thin-prov' disks does not work**
@@ -898,11 +918,11 @@ Use the following components instead:
 
    
 
- - [BZ 1811989](https://bugzilla.redhat.com/1811989) **[vdo] VDO systemd unit file shouldn't be edited for modifying VDO max_discard_size**
+ - [BZ 1814554](https://bugzilla.redhat.com/1814554) **Refrain from showing up the read-only fields in HC cockpit deployment wizard**
 
    
 
- - [BZ 1754748](https://bugzilla.redhat.com/1754748) **Enabling LV cache along with VDO volumes fails during Deployment**
+ - [BZ 1811989](https://bugzilla.redhat.com/1811989) **[vdo] VDO systemd unit file shouldn't be edited for modifying VDO max_discard_size**
 
    
 
@@ -1001,6 +1021,13 @@ Use the following components instead:
    
 
 
+#### oVirt Provider OVN
+
+ - [BZ 1701121](https://bugzilla.redhat.com/1701121) **/etc/ovirt-provider-ovn/ovirt-provider-ovn.conf is a config file, although it's not meant to be**
+
+   
+
+
 #### oVirt Hosted Engine Setup
 
  - [BZ 1603591](https://bugzilla.redhat.com/1603591) **[RFE] - Hosted-engine deployment on NFS should have option to specify exact NFS version v4.0.**
@@ -1013,10 +1040,6 @@ Use the following components instead:
 
 
 #### OTOPI
-
- - [BZ 1814940](https://bugzilla.redhat.com/1814940) **otopi fails with: Python 2 is disabled in RHEL8**
-
-   
 
  - [BZ 1750093](https://bugzilla.redhat.com/1750093) **dnf plugin silently ignores updated packages with broken dependencies**
 
@@ -1052,6 +1075,10 @@ Use the following components instead:
 #### VDSM
 
  - [BZ 1816004](https://bugzilla.redhat.com/1816004) **Failed to create a new disk or copy template disk on iscsi of FCP storage domain - qemu-img: Protocol driver \'host_device\' does not support image creation**
+
+   
+
+ - [BZ 1812914](https://bugzilla.redhat.com/1812914) **Support setting a static DNS to interface that has dynamic IP**
 
    
 
@@ -1170,11 +1197,23 @@ Use the following components instead:
 
 #### oVirt Engine
 
+ - [BZ 1786999](https://bugzilla.redhat.com/1786999) **Multipath status changes are not displayed in Engine events**
+
+   
+
+ - [BZ 1784398](https://bugzilla.redhat.com/1784398) **System permissions to user can not be added**
+
+   
+
+ - [BZ 1816519](https://bugzilla.redhat.com/1816519) **Importing a registered template with already exists name shouldn't be allowed**
+
+   
+
  - [BZ 1785364](https://bugzilla.redhat.com/1785364) **After engine restore, ovn networks are not restored and new OVN networks are not working properly**
 
    
 
- - [BZ 1768844](https://bugzilla.redhat.com/1768844) **RHEL Advanced virtualization versioning support**
+ - [BZ 1768844](https://bugzilla.redhat.com/1768844) **RHEL Advanced virtualization module streams support**
 
    As a part of adding new host we are now enabling advanced virtualization channel on the host to use latest supported libvirt and qemu packages
 
@@ -1219,6 +1258,10 @@ Use the following components instead:
    
 
  - [BZ 1783750](https://bugzilla.redhat.com/1783750) **Block upgrade if there's a risk of running out of space (say, any brick / volume is @ >90% full capacity)**
+
+   
+
+ - [BZ 1517696](https://bugzilla.redhat.com/1517696) **[UI] - grids bottom scrollbar hides bottom row**
 
    
 
@@ -1271,6 +1314,10 @@ Use the following components instead:
    
 
  - [BZ 1805142](https://bugzilla.redhat.com/1805142) **Updating an OpenStack port creates invalid json**
+
+   
+
+ - [BZ 1782236](https://bugzilla.redhat.com/1782236) **Windows Update (the drivers) enablement**
 
    
 
@@ -1405,10 +1452,6 @@ Result:
    
 
  - [BZ 1768851](https://bugzilla.redhat.com/1768851) **webadmin - block(ISCSI/FC) storage domain window is a mess - misaligned "Advance Parameters" makes it hard to choose other options**
-
-   
-
- - [BZ 1731212](https://bugzilla.redhat.com/1731212) **RHV 4.4 landing page does not show login or allow scrolling.**
 
    
 
@@ -1703,6 +1746,10 @@ where NNN is number of minutes the timeout should be.
 
 #### OTOPI
 
+ - [BZ 1814940](https://bugzilla.redhat.com/1814940) **otopi fails with: Python 2 is disabled in RHEL8**
+
+   
+
  - [BZ 1525905](https://bugzilla.redhat.com/1525905) **[RFE] otopi should notify about nonexistent before=/after= events**
 
    
@@ -1733,15 +1780,15 @@ where NNN is number of minutes the timeout should be.
 
    
 
+ - [BZ 1808850](https://bugzilla.redhat.com/1808850) **Failed to create a new disk or copy template disk on iscsi domains due to OVF failure in ILLEGAL state**
+
+   
+
  - [BZ 1807050](https://bugzilla.redhat.com/1807050) **vgs are not seen immediately after iscsiadm login**
 
    
 
  - [BZ 1797477](https://bugzilla.redhat.com/1797477) **Power Management configuration fails with JSON-RPC error**
-
-   
-
- - [BZ 1795206](https://bugzilla.redhat.com/1795206) **VDSM 'ascii' code exception is thrown upon attempt to start VM with Cyrillic letters in name.Continues after restart**
 
    
 
@@ -1799,7 +1846,27 @@ where NNN is number of minutes the timeout should be.
 
 #### oVirt Engine
 
+ - [BZ 1816951](https://bugzilla.redhat.com/1816951) **[CNV&RHV] CNV VM migration failure is not handled correctly by the engine**
+
+   
+
+ - [BZ 1816739](https://bugzilla.redhat.com/1816739) **[CNV&RHV] CNV VM updated form CNV side doesn't update vm properties over on RHV side**
+
+   
+
+ - [BZ 1816691](https://bugzilla.redhat.com/1816691) **[CNV&RHV] Changes that require Virtual Machine restart: namespace**
+
+   
+
  - [BZ 1808126](https://bugzilla.redhat.com/1808126) **host_service.install() does not work with deploy_hosted_engine as True.**
+
+   
+
+ - [BZ 1797927](https://bugzilla.redhat.com/1797927) **[REST-API] Attaching/adding a disk with SATA interface to a VM fails with Exception Caused by: java.lang.IllegalArgumentException: Unknown disk interface "SATA"**
+
+   
+
+ - [BZ 1814197](https://bugzilla.redhat.com/1814197) **[CNV&RHV] when provider is remover DC is left behind and active**
 
    
 
@@ -1848,6 +1915,10 @@ where NNN is number of minutes the timeout should be.
    
 
  - [BZ 1802543](https://bugzilla.redhat.com/1802543) **Support back compatibility with 4.3 cluster creating live snapshots**
+
+   
+
+ - [BZ 1791255](https://bugzilla.redhat.com/1791255) **[RFE] There are no available hosts capable of running the engine VM. Why?**
 
    
 
@@ -2047,6 +2118,10 @@ where NNN is number of minutes the timeout should be.
 
    
 
+ - [BZ 1700725](https://bugzilla.redhat.com/1700725) **[scale] RHV-M runs out of memory due to to much data reported by the guest agent**
+
+   
+
  - [BZ 1690475](https://bugzilla.redhat.com/1690475) **When a live storage migration fails, the auto generated snapshot does not get removed**
 
    
@@ -2109,6 +2184,17 @@ where NNN is number of minutes the timeout should be.
 #### oVirt Release Package
 
  - [BZ 1598404](https://bugzilla.redhat.com/1598404) **branding: oVirt Node cockpit and oVirt Engine have different coloring**
+
+   
+
+
+#### Kubevirt java client
+
+ - [BZ 1816643](https://bugzilla.redhat.com/1816643) **[CNV&RHV] VM created in CNV not visible in RHV**
+
+   
+
+ - [BZ 1816654](https://bugzilla.redhat.com/1816654) **[CNV&RHV] adding provider with already created vm failed**
 
    
 
@@ -2236,4 +2322,3 @@ where NNN is number of minutes the timeout should be.
 	parthdhanjal
 	thaorell
 	yodem
-	

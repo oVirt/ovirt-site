@@ -29,12 +29,12 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 oVirt 4.4.0 Beta is intended for testing only use and is available for the following platforms:
 
 Engine:
-- Red Hat Enterprise Linux 8.1 or later
-- CentOS Linux 8.1 or later
+- Red Hat Enterprise Linux 8.1
+- CentOS Linux 8.1
 
 Hosts:
-- Red Hat Enterprise Linux 8.1 or later
-- CentOS Linux 8.1 or later
+- Red Hat Enterprise Linux 8.1
+- CentOS Linux 8.1
 - oVirt Node (based on CentOS Linux 8.1)
 
 See the [Release Notes for oVirt 4.4.0](/release/4.4.0/).

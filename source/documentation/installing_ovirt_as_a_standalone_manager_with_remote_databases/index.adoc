@@ -22,6 +22,7 @@ Installing a standalone {engine-name} environment with remote databases involves
 
 . xref:Installing_the_Red_Hat_Virtualization_Manager_SM_remoteDB_deploy[Install and configure the {virt-product-fullname} {engine-name}:]
 .. xref:Installing_RHEL_for_RHVM_SM_remoteDB_deploy[Install two {enterprise-linux} machines: one for the {engine-name}, and one for the databases.] The second machine will be referred to as the remote server.
+.. xref:Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enable the {virt-product-fullname} {engine-name} repositories.]
 .. xref:Preparing_a_Remote_PostgreSQL_Database_install_RHVM[Manually configure the {engine-name} database on the remote server.] You can also use this procedure to manually configure the Data Warehouse database if you do not want the Data Warehouse setup script to configure it automatically.
 .. xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Configure the {virt-product-fullname} {engine-name} using `engine-setup`.]
 .. xref:Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM[Install the Data Warehouse service and database on the remote server.]
@@ -64,6 +65,8 @@ include::../common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 This machine must meet the minimum xref:hardware-requirements_SM_remoteDB_deploy[{engine-name} hardware requirements].
 
 . Install a second {enterprise-linux} machine to use for the databases. This machine will be referred to as the remote server.
+
+include::../common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+2]
 
 Before configuring the {virt-product-fullname} {engine-name}, you must manually configure the {engine-name} database on the remote server. You can also use this procedure to manually configure the Data Warehouse database if you do not want the Data Warehouse setup script to configure it automatically.
 

@@ -1,7 +1,7 @@
 [id='Configuring_the_Red_Hat_Virtualization_Manager_{context}']
-= Configuring the {virt-product-fullname} {engine-name}
+= Installing and Configuring the {virt-product-fullname} {engine-name}
 
-Install the `rhvm` package and dependencies, and configure the {virt-product-fullname} {engine-name} using the `engine-setup` command. The script asks you a series of questions and, after you provide the required values for all questions, applies that configuration and starts the `ovirt-engine` service.
+Install the package and dependencies for the {virt-product-fullname} {engine-name}, and configure it using the `engine-setup` command. The script asks you a series of questions and, after you provide the required values for all questions, applies that configuration and starts the `ovirt-engine` service.
 
 [IMPORTANT]
 ====
@@ -25,12 +25,22 @@ You can run `engine-setup --accept-defaults` to automatically accept all questio
 Reboot the machine if any kernel-related packages were updated.
 ====
 
+ifdef::rhv-doc[]
 . Install the `rhvm` package and dependencies.
 +
 [options="nowrap" subs="normal"]
 ----
 # yum install rhvm
 ----
+endif::[]
+ifdef::ovirt-doc[]
+. Install the `ovirt-engine` package and dependencies.
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-engine
+----
+endif::[]
 
 . Run the `engine-setup` command to begin configuring the {virt-product-fullname} {engine-name}:
 +

@@ -355,6 +355,10 @@ RewriteRule ^(.*)$ /documentation/ [R=301,L]
 RewriteCond %{REQUEST_URI} /documentation/self-hosted.*
 RewriteRule ^(.*)$ /documentation/ [R=301,L]
 
+# upgrade-guide -> upgrade_guide
+RewriteCond %{REQUEST_URI} /documentation/upgrade-guide.*
+RewriteRule ^(.*)$ /documentation/upgrade_guide/ [R=301,L]
+
 # how-to -> develop
 RewriteCond %{REQUEST_URI} /documentation/how-to.*
 RewriteRule ^(.*)$ /develop/ [R=301,L]

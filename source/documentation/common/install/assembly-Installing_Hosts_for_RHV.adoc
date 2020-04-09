@@ -15,7 +15,12 @@ SELinux is in enforcing mode upon installation. To verify, run `getenforce`. SEL
 |====
 |Host Type |Other Names |Description
 |*{hypervisor-fullname}* |{hypervisor-shortname}, thin host |This is a minimal operating system based on {enterprise-linux}. It is distributed as an ISO file from the Customer Portal and contains only the packages required for the machine to act as a host.
+ifdef::rhv-doc[]
 |*{enterprise-linux-host-fullname}* |{enterprise-linux-host-shortname}, thick host |{enterprise-linux} systems with the appropriate subscriptions attached can be used as hosts.
+endif::[]
+ifdef::ovirt-doc[]
+|*{enterprise-linux-host-fullname}* |{enterprise-linux-host-shortname}, thick host |{enterprise-linux} systems with the appropriate repositories enabled can be used as hosts.
+endif::[]
 |====
 
 .Host Compatibility

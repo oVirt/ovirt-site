@@ -61,7 +61,7 @@ guide or the corresponding section in
 If you're upgrading an existing Hosted Engine setup, please follow
 [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine)
 guide or the corresponding section within the
-[Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/)
+[Upgrade Guide](/documentation/upgrade_guide/)
 
 ### EPEL
 

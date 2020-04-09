@@ -45,6 +45,7 @@ Though stopping the original {engine-name} from running is not obligatory, it is
 ----
 # scp -p __file_name__ __log_file_name__ storage.example.com:/backup/
 ----
+ifdef::rhv-doc[]
 +
 . If you do not require the {engine-name} machine for other purposes, unregister it from Red Hat Subscription Manager:
 // review above
@@ -53,6 +54,7 @@ Though stopping the original {engine-name} from running is not obligatory, it is
 ----
 # subscription-manager unregister
 ----
+endif::[]
 +
 //Not needed for migration
 ifdef::SHE_backup_restore[]

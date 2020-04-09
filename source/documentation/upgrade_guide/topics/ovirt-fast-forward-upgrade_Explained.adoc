@@ -1,0 +1,27 @@
+[id="ovirt-fast-forward-upgrade_Explained"]
+
+:ovirt-fast-forward-upgrade_explained:
+
+= ovirt-fast-forward-upgrade Explained
+
+You can upgrade the {engine-name} to the latest version with the `ovirt-fast-forward-upgrade` tool. `ovirt-fast-forward-upgrade` detects the current version of the {engine-name} and checks for available upgrades. If an upgrade is available, the tool upgrades the {engine-name} to the next major version, and continues to upgrade the {engine-name} until the latest version is installed.
+
+During the upgrade process, the tool might pause and prompt you to manually complete some upgrade tasks, such as upgrading hosts or the cluster compatibility version. You can leave `ovirt-fast-forward-upgrade` paused while you complete these tasks.
+
+`ovirt-fast-forward-upgrade` supports the following upgrade paths:
+
+* Upgrading a standalone {engine-name} with local databases
+* Upgrading a self-hosted engine environment using local databases
+
+[NOTE]
+====
+`ovirt-fast-forward-upgrade` upgrades the {engine-name}. You need to manually upgrade the hosts, and compatibility versions of clusters and data centers, and you need to reboot any running virtual machines. See xref:Updating_all_hosts_in_a_cluster_minor_updates[] to upgrade the hosts.
+====
+
+[NOTE]
+====
+`ovirt-fast-forward-upgrade` does not support {virt-product-fullname} environments deployed and managed with Satellite.
+====
+
+
+:ovirt-fast-forward-upgrade_explained!:

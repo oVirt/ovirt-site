@@ -3,13 +3,9 @@ title: oVirt 4.3.8 Release Notes
 category: documentation
 toc: true
 authors: lveyde,sandrobonazzola
+page_classes: releases
 ---
 
-<style>
-h1, h2, h3, h4, h5, h6, li, a, p {
-    font-family: 'Open Sans', sans-serif !important;
-}
-</style>
 
 # oVirt 4.3.8 Release Notes
 

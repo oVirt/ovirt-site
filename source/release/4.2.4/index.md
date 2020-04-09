@@ -2,6 +2,7 @@
 title: oVirt 4.2.4 Release Notes
 category: documentation
 toc: true
+page_classes: releases
 ---
 
 # oVirt 4.2.4 Release Notes

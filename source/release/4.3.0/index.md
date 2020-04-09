@@ -3,6 +3,7 @@ title: oVirt 4.3.0 Release Notes
 category: documentation
 toc: true
 authors: sandrobonazzola, gregsheremeta
+page_classes: releases
 ---
 
 # oVirt 4.3.0 Release Notes

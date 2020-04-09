@@ -1,0 +1,19 @@
+[id="Updating_a_self-hosted_engine_{context}"]
+= Updating a Self-Hosted Engine
+
+:context: SHE_minor_updates
+:SHE_minor_updates:
+
+To update a self-hosted engine from your current version of 4.3 to the latest version of 4.3, you must place the environment in global maintenance mode and then follow the standard procedure for updating between minor versions.
+
+[discrete]
+include::../she/snip-Enabling_Global_Maintenance_Mode.adoc[leveloffset=+1]
+
+[discrete]
+include::proc-Updating_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
+
+[discrete]
+include::../she/snip-Disabling_Global_Maintenance_Mode.adoc[leveloffset=+1]
+
+:context!: SHE_minor_updates
+:SHE_minor_updates!:

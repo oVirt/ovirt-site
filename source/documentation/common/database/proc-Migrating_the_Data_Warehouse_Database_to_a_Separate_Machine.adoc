@@ -8,12 +8,10 @@ To migrate the Data Warehouse service only, see xref:Migrating_the_Data_Warehous
 The new database server must have {enterprise-linux} 7 installed.
 Enable the required repositories on the new database server.
 
-ifdef::rhv-doc[]
 :context: migrate_DWH_DB
 [discrete]
 include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
 :context!: migrate_DWH_DB
-endif::[]
 
 [discrete]
 == Migrating the Data Warehouse Database to a Separate Machine

@@ -22,10 +22,8 @@ Installing a standalone {engine-name} environment with local databases involves 
 
 . xref:Installing_the_Red_Hat_Virtualization_Manager_SM_localDB_deploy[Install and configure the {virt-product-fullname} {engine-name}:]
 .. xref:Installing_RHEL_for_RHVM_SM_localDB_deploy[Install a {enterprise-linux} machine for the {engine-name}.]
-ifdef::rhv-doc[]
-.. xref:Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Register the {engine-name} machine with the Content Delivery Network and enable the {virt-product-fullname} {engine-name} repositories.]
-endif::[]
-.. xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Configure the {virt-product-fullname} {engine-name} using `engine-setup`.]
+.. xref:Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enable the {virt-product-fullname} {engine-name} repositories.]
+.. xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Install and Configure the {virt-product-fullname} {engine-name} using `engine-setup`.]
 .. xref:Connecting_to_the_Administration_Portal_install_RHVM[Connect to the Administration Portal to add hosts and storage domains.]
 
 . xref:Installing_Hosts_for_RHV_SM_localDB_deploy[Install hosts to run virtual machines on:]
@@ -56,22 +54,24 @@ include::../common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 == Installing the {virt-product-fullname} {engine-name}
 :context: install_RHVM
 
+Installing the {virt-product-fullname} {engine-name} involves the following steps:
+
+. xref:Installing_RHEL_for_RHVM_SM_localDB_deploy[Preparing the {virt-product-fullname} {engine-name} Machine]
+. xref:Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories]
+. xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Installing and Configuring the {virt-product-fullname} {engine-name}]
+. xref:Connecting_to_the_Administration_Portal_install_RHVM[Connecting to the Administration Portal]
+
+
 [id='Installing_RHEL_for_RHVM_SM_localDB_deploy']
-=== Installing the {virt-product-fullname} {engine-name} Machine
+=== Preparing the {virt-product-fullname} {engine-name} Machine
 
 The {virt-product-fullname} {engine-name} must run on {enterprise-linux} 7. For detailed instructions on installing {enterprise-linux}, see the link:{URL_rhel_docs_legacy}html/Installation_Guide/index.html[_{enterprise-linux} 7 Installation Guide_].
 
 This machine must meet the minimum xref:hardware-requirements_SM_localDB_deploy[{engine-name} hardware requirements].
 
-ifdef::rhv-doc[]
-To install the {virt-product-fullname} {engine-name} on a system that does not have access to the Content Delivery Network, see xref:Configuring_an_Offline_Repository_for_Red_Hat_Virtualization_Manager_Installation_SM_localDB_deploy[] before configuring the {engine-name}.
-endif::[]
+By default, the {virt-product-fullname} {engine-name}'s configuration script, `engine-setup`, creates and configures the {engine-name} database and Data Warehouse database automatically on the {engine-name} machine. To set up either database, or both, manually, see xref:Preparing_a_Local_Manually-Configured_PostgreSQL_Database_SM_localDB_deploy[] before configuring the {engine-name}.
 
-By default, the {virt-product-fullname} {engine-name}'s configuration script, `engine-setup`, creates and configures the {engine-name} database and Data Warehouse database automatically on the {engine-name} machine. To set up either database (or both) manually instead, see xref:Preparing_a_Local_Manually-Configured_PostgreSQL_Database_SM_localDB_deploy[] before configuring the {engine-name}.
-
-ifdef::rhv-doc[]
 include::../common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+2]
-endif::[]
 
 include::../common/install/proc-Configuring_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+2]
 
@@ -90,11 +90,6 @@ include::../common/storage/assembly-Adding_Storage_Domains_to_RHV.adoc[leveloffs
 
 :numbered!:
 
-ifdef::rhv-doc[]
-[appendix]
-include::../common/install/proc-Configuring_an_Offline_Repository_for_Red_Hat_Virtualization_Manager_Installation.adoc[leveloffset=+1]
-endif::[]
-
 //adding context back
 :context: SM_localDB_deploy
 
@@ -108,11 +103,6 @@ include::../common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leve
 
 [appendix]
 include::../common/admin/proc-Removing_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
-
-ifdef::rhv-doc[]
-[appendix]
-include::../common/security/assembly-Securing_Red_Hat_Virtualization.adoc[leveloffset=+1]
-endif::[]
 
 [appendix]
 == Legal notice

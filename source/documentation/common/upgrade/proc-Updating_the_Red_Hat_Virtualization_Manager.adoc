@@ -31,10 +31,18 @@ ifdef::local_database_upgrade,remote_database_upgrade,minor_updates[. Log in to 
 
 . Update the setup packages:
 +
+ifdef::rhv-doc[]
 [options="nowrap" subs="normal"]
 ----
 # yum update ovirt\\*setup\* rh\*vm-setup-plugins
 ----
+endif::[]
+ifdef::ovirt-doc[]
+[options="nowrap" subs="normal"]
+----
+# yum update ovirt\\*setup\*
+----
+endif::[]
 
 . Update the {virt-product-fullname} {engine-name} with the `engine-setup` script. The `engine-setup` script prompts you with some configuration questions, then stops the `ovirt-engine` service, downloads and installs the updated packages, backs up and updates the database, performs post-installation configuration, and starts the `ovirt-engine` service.
 +
@@ -79,7 +87,7 @@ ifndef::SHE_minor_updates[If any kernel packages were updated, reboot the machin
 ifdef::appendices[]
 [NOTE]
 ====
-If the update from RHV 4.2.7 to RHV 4.2.8 fails with a message indicating a dependency error with an `eap7-jboss-server-migration-wildfly` package:
+If the update from {virt-product-shortname} 4.2.7 to {virt-product-shortname} 4.2.8 fails with a message indicating a dependency error with an `eap7-jboss-server-migration-wildfly` package:
 
 . Check if all the required repositories are enabled.
 . Update the `eap7-jboss-server-migration-wildfly` packages installed on the Manager:

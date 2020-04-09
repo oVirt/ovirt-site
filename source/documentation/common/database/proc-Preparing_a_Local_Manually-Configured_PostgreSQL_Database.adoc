@@ -17,8 +17,10 @@ The locale settings in the `postgresql.conf` file must be set to `en_US.UTF8`.
 The database name must contain only numbers, underscores, and lowercase letters.
 ====
 
+ifdef::rhv-doc[]
 [discrete]
 include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
+endif::[]
 
 [discrete]
 == Initializing the PostgreSQL Database

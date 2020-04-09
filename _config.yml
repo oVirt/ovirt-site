@@ -135,8 +135,10 @@ exclude:
   - LICENSE.md
   - CONTRIBUTING.md
   - CODEOWNERS
-  # used for shared asciidoc content
+  # avoid generating paginated asciidoc content
   - documentation/common/**/*.adoc
+  - documentation/upgrade_guide/topics
+  - documentation/upgrade_guide/assembly*
 
 sass:
   add_charset: true

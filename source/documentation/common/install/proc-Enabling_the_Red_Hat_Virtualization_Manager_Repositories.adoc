@@ -1,6 +1,8 @@
 [id='Enabling_the_Red_Hat_Virtualization_Manager_Repositories_{context}']
 = Enabling the {virt-product-fullname} {engine-name} Repositories
 
+ifdef::rhv-doc[]
+
 Register the system with Red Hat Subscription Manager, attach the `{virt-product-fullname} {engine-name}` subscription, and enable {engine-name} repositories.
 // review above
 
@@ -59,3 +61,17 @@ To list all enabled repositories:
     --enable=rhel-7-server-ansible-2-rpms \
     --enable=jb-eap-7.2-for-rhel-7-server-rpms
 ----
+
+endif::[]
+ifdef::ovirt-doc[]
+
+Ensure the correct repositories are enabled:
+
+[options="nowrap" subs="normal"]
+----
+# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+----
+
+You can check which repositories are currently enabled by running `yum repolist`.
+
+endif::[]

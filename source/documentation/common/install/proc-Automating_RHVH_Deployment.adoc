@@ -98,7 +98,7 @@ IPAPPEND 2
 
 . Create a Kickstart file and make it available over the network. See link:{URL_rhel_docs_legacy}html/Installation_Guide/chap-kickstart-installations.html[Kickstart Installations] in the _{enterprise-linux} Installation Guide_.
 
-. Ensure that the Kickstart file meets the following RHV-specific requirements:
+. Ensure that the Kickstart file meets the following {virt-product-shortname}-specific requirements:
 
 * The `%packages` section is not required for {hypervisor-shortname}. Instead, use the `liveimg` option and specify the *redhat-virtualization-host-__version_number___version.squashfs.img* file from the {hypervisor-shortname} ISO image:
 +
@@ -152,6 +152,7 @@ reboot
 nodectl init
 %end
 ----
+ifdef::rhv-doc[]
 +
 .Kickstart Example for Deploying {hypervisor-shortname} with Registration and Network Configuration from Satellite
 +
@@ -199,6 +200,7 @@ sync
 systemctl reboot
 %end
 ----
+endif::[]
 
 . Add the Kickstart file location to the boot loader configuration file on the PXE server:
 [options="nowrap" subs="normal"]

@@ -7,10 +7,8 @@ You can migrate the `engine` database of a self-hosted engine to a remote databa
 
 The new database server must have {enterprise-linux} 7 installed and the required repositories enabled:
 
-ifdef::rhv-doc[]
 [discrete]
 include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
-endif::[]
 
 [discrete]
 == Migrating the Self-Hosted Engine Database to a Remote Server

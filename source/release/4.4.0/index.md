@@ -13,15 +13,15 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.0 Second Beta release as of April 03, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.0 Third Beta release as of April 08, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
-This release is available now for Red Hat Enterprise Linux 7.7 and
-CentOS Linux 7.7 (or similar).
+This release is available now for Red Hat Enterprise Linux 8.1 and
+CentOS Linux 8.1 (or similar).
 
 
 To find out how to interact with oVirt developers and users and ask questions,
@@ -125,6 +125,10 @@ Result: option `--vm-start` can be used after `--vm-start-paused`
 
 #### VDSM
 
+ - [BZ 1739557](https://bugzilla.redhat.com/1739557) **RFE: add support for native TLS encryption on migration TCP transport**
+
+   See the feature page: https://www.ovirt.org/develop/release-management/features/virt/migration-encryption.html
+
  - [BZ 1780943](https://bugzilla.redhat.com/1780943) **[RFE] Add timeout and abort command to async live snapshot**
 
    Feature: 
@@ -209,6 +213,10 @@ The default top right location covers all the action buttons and is quite intrus
 Result: 
 
 Toast notifications are growing bottom-up from  bottom right corner up to 400px from top, while buttons of "Dismiss all" and "Do not disturb" are located below the notifications area (please see attachments for more details).
+
+ - [BZ 1455465](https://bugzilla.redhat.com/1455465) **Virt: blank template should be of 'server' type and not 'desktop' type.**
+
+   In this release, the default "optimized for" value optimization type for bundled templates is now set to "Server".
 
  - [BZ 1780943](https://bugzilla.redhat.com/1780943) **[RFE] Add timeout and abort command to async live snapshot**
 
@@ -307,6 +315,10 @@ RHCOS uses ignition to initialize the VM. With this RFE, when selecting RHCOS in
  - [BZ 1549486](https://bugzilla.redhat.com/1549486) **[RFE] update landing and login pages to to be compatible with Patternfly 4**
 
    
+
+ - [BZ 1739557](https://bugzilla.redhat.com/1739557) **RFE: add support for native TLS encryption on migration TCP transport**
+
+   See the feature page: https://www.ovirt.org/develop/release-management/features/virt/migration-encryption.html
 
  - [BZ 1767319](https://bugzilla.redhat.com/1767319) **[RFE] forbid updating mac pool that contains ranges overlapping with any mac range in the system**
 
@@ -624,6 +636,27 @@ and replace below strings:
 Those replacement are only breaking changes contained in version 1.1.0 compared to 1.0.3, but for upgrades from 4.3 those changes will be performed automatically as a part of engine-setup. So we just need to fix documentation mentioning manual setup of logger-log4j extension.
 
 
+#### oVirt Engine Metrics
+
+ - [BZ 1523289](https://bugzilla.redhat.com/1523289) **[RFE] Create a role that will list to the admin which hosts are not configured for metrics**
+
+   Feature: 
+
+List hosts that are not configured for metrics.
+
+
+
+Reason: 
+
+So that the user can check the reason the Collectd, Rsyslog/Fluentd services are not working as expected and fix it.
+
+
+
+Result: 
+
+When running the manage services playbook the "/etc/ovirt-engine-metrics/hosts_not_configured_for_metrics" file is created and includes the list of hosts that the services are not running on.
+
+
 ### Rebase: Bug Fixeses and Enhancementss
 
 #### oVirt Engine WildFly
@@ -824,8 +857,6 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
  - [BZ 1583328](https://bugzilla.redhat.com/1583328) **NPE while running VM with passthrough network vnic type**
 
- - [BZ 1719990](https://bugzilla.redhat.com/1719990) **(l10n) VMs cannot be created when using the French web interface.**
-
  - [BZ 1781095](https://bugzilla.redhat.com/1781095) **Hide partial engine-cleanup option**
 
  - [BZ 1750212](https://bugzilla.redhat.com/1750212) **MERGE_STATUS fails with 'Invalid UUID string: mapper' when Direct LUN that already exists is hot-plugged**
@@ -910,6 +941,14 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 #### oVirt Cockpit Plugin
 
+ - [BZ 1754748](https://bugzilla.redhat.com/1754748) **Enabling LV cache along with VDO volumes fails during Deployment**
+
+   
+
+ - [BZ 1811989](https://bugzilla.redhat.com/1811989) **[vdo] VDO systemd unit file shouldn't be edited for modifying VDO max_discard_size**
+
+   
+
  - [BZ 1603591](https://bugzilla.redhat.com/1603591) **[RFE] - Hosted-engine deployment on NFS should have option to specify exact NFS version v4.0.**
 
    
@@ -919,14 +958,6 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
    
 
  - [BZ 1814554](https://bugzilla.redhat.com/1814554) **Refrain from showing up the read-only fields in HC cockpit deployment wizard**
-
-   
-
- - [BZ 1811989](https://bugzilla.redhat.com/1811989) **[vdo] VDO systemd unit file shouldn't be edited for modifying VDO max_discard_size**
-
-   
-
- - [BZ 1754748](https://bugzilla.redhat.com/1754748) **Enabling LV cache along with VDO volumes fails during Deployment**
 
    
 
@@ -999,6 +1030,10 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 
 #### oVirt Ansible hosted-engine setup role
+
+ - [BZ 1816619](https://bugzilla.redhat.com/1816619) **[RFE] Enable update of appliance from channels after VM is deployed**
+
+   
 
  - [BZ 1787267](https://bugzilla.redhat.com/1787267) **Misleading fail message: deprecation of 'ovirt_host_facts' to be renamed to 'ovirt_host_info'**
 
@@ -1077,6 +1112,22 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 
 #### VDSM
+
+ - [BZ 1680368](https://bugzilla.redhat.com/1680368) **Failed to create VM from template in CreateVolumeContainerCommand when stopping VDSM service in a single host environment**
+
+   
+
+ - [BZ 1819098](https://bugzilla.redhat.com/1819098) **Broken rollback for BlockVolume createVolumeMetadata**
+
+   
+
+ - [BZ 1818554](https://bugzilla.redhat.com/1818554) **Libvirt service fails to start**
+
+   
+
+ - [BZ 1817001](https://bugzilla.redhat.com/1817001) **[SR-IOV] [I40E] Hotunplug doesn't release the VF on the host**
+
+   
 
  - [BZ 1816004](https://bugzilla.redhat.com/1816004) **Failed to create a new disk or copy template disk on iscsi of FCP storage domain - qemu-img: Protocol driver \'host_device\' does not support image creation**
 
@@ -1201,6 +1252,14 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 #### oVirt Engine
 
+ - [BZ 1770697](https://bugzilla.redhat.com/1770697) **VM can't start after was shut down with - XML error: Invalid PCI address 0000:03:01.0. slot must be <= 0**
+
+   
+
+ - [BZ 1820995](https://bugzilla.redhat.com/1820995) **[OVN] ovirt-provider-ovn.service is dead after deploy/upgrade to ovirt-engine-4.4.0-0.31.master.el8ev.noarch**
+
+   
+
  - [BZ 1786999](https://bugzilla.redhat.com/1786999) **Multipath status changes are not displayed in Engine events**
 
    
@@ -1213,7 +1272,7 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
    
 
- - [BZ 1785364](https://bugzilla.redhat.com/1785364) **After engine restore, ovn networks are not restored and new OVN networks are not working properly**
+ - [BZ 1785364](https://bugzilla.redhat.com/1785364) **After engine restore, ovn networks are not restored and new OVN networks are not working properly on 4.4**
 
    
 
@@ -1285,10 +1344,6 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
    
 
- - [BZ 1809040](https://bugzilla.redhat.com/1809040) **[CNV&RHV] let the user know that token is not valid anymore**
-
-   
-
  - [BZ 1809052](https://bugzilla.redhat.com/1809052) **[CNV&RHV] ovirt-engine log file spammed by failed timers ( approx 3-5 messages/sec )**
 
    
@@ -1346,10 +1401,6 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
    
 
  - [BZ 1777215](https://bugzilla.redhat.com/1777215) **Add deprecation message to "Export to Export Domain" dialog**
-
-   
-
- - [BZ 1770697](https://bugzilla.redhat.com/1770697) **VM can't start after was shut down with - XML error: Invalid PCI address 0000:03:01.0. slot must be <= 0**
 
    
 
@@ -1677,15 +1728,7 @@ where NNN is number of minutes the timeout should be.
 
 #### oVirt Engine Metrics
 
- - [BZ 1807860](https://bugzilla.redhat.com/1807860) **[RFE] Allow resource allocation options to be customized**
-
-   
-
  - [BZ 1773313](https://bugzilla.redhat.com/1773313) **RHV Metric store installation fails with error: "You need to install \"jmespath\" prior to running json_query filter"**
-
-   
-
- - [BZ 1523289](https://bugzilla.redhat.com/1523289) **[RFE] Create a role that will list to the admin which hosts are not configured for metrics**
 
    
 
@@ -1776,6 +1819,10 @@ where NNN is number of minutes the timeout should be.
 
 #### VDSM
 
+ - [BZ 1819125](https://bugzilla.redhat.com/1819125) **Cold storage migration to iscsi domain fails**
+
+   
+
  - [BZ 1811425](https://bugzilla.redhat.com/1811425) **VM CD-ROM payload device switch to an empty source file**
 
    
@@ -1854,6 +1901,14 @@ where NNN is number of minutes the timeout should be.
 
 #### oVirt Engine
 
+ - [BZ 1819205](https://bugzilla.redhat.com/1819205) **[CodeChange][i18n] oVirt 4.4 webadmin - translation update**
+
+   
+
+ - [BZ 1820182](https://bugzilla.redhat.com/1820182) **ISCSI ONLY- Cloning a VM(deep copy) from template fails in 'MeasureVolumeVDS' method with Could not open image No such file or directory**
+
+   
+
  - [BZ 1819514](https://bugzilla.redhat.com/1819514) **Failed to register 4.4 host to the latest engine (4.4.0-0.29.master.el8ev)**
 
    
@@ -1906,6 +1961,10 @@ where NNN is number of minutes the timeout should be.
 
    
 
+ - [BZ 1809040](https://bugzilla.redhat.com/1809040) **[CNV&RHV] let the user know that token is not valid anymore**
+
+   
+
  - [BZ 1801194](https://bugzilla.redhat.com/1801194) **User experience of ignition/Custom script textbox is low.**
 
    
@@ -1947,6 +2006,10 @@ where NNN is number of minutes the timeout should be.
    
 
  - [BZ 1782279](https://bugzilla.redhat.com/1782279) **Warning message for low space is not received on Imported Storage domain**
+
+   
+
+ - [BZ 1798139](https://bugzilla.redhat.com/1798139) **VirtIO-SCSI virtual disk cannot be added to VM.**
 
    
 
@@ -2185,6 +2248,10 @@ where NNN is number of minutes the timeout should be.
 
 #### oVirt Engine Metrics
 
+ - [BZ 1807860](https://bugzilla.redhat.com/1807860) **[RFE] Allow resource allocation options to be customized**
+
+   
+
  - [BZ 1762263](https://bugzilla.redhat.com/1762263) **[RFE] Require Ansible 2.9 in ovirt-engine-metrics**
 
    
@@ -2204,6 +2271,13 @@ where NNN is number of minutes the timeout should be.
    
 
 
+#### oVirt-Cockpit SSO
+
+ - [BZ 1789733](https://bugzilla.redhat.com/1789733) **Host console SSO not working at all!**
+
+   
+
+
 #### Kubevirt java client
 
  - [BZ 1816643](https://bugzilla.redhat.com/1816643) **[CNV&RHV] VM created in CNV not visible in RHV**
@@ -2217,7 +2291,7 @@ where NNN is number of minutes the timeout should be.
 
 #### Contributors
 
-119 people contributed to this release:
+126 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -2235,6 +2309,7 @@ where NNN is number of minutes the timeout should be.
 	Bernhard M. Wiedemann
 	Bohdan Iakymets
 	Brian Ward
+	Camila Moura
 	Charles Thao
 	Dafna Ron
 	Dan Kenigsberg
@@ -2262,10 +2337,12 @@ where NNN is number of minutes the timeout should be.
 	Greg Sheremeta
 	Ido Rosenzwig
 	Irit Goihman
+	Jan Zmeskal
 	Joey
 	John Call
 	Juan Hernandez
 	Kaustav Majumder
+	Kedar Kulkarni
 	Klaas Demter
 	Kobi Hakimi
 	Lev Veyde
@@ -2300,9 +2377,11 @@ where NNN is number of minutes the timeout should be.
 	Ravi Nori
 	Ritesh
 	Ritesh Chikatwar
+	Roberto Ciatti
 	Roman Hodain
 	Roy Golan
 	Ryan Barry
+	Ryan Kraus
 	Sahina Bose
 	Sandro Bonazzola
 	Scott Dickerson
@@ -2325,6 +2404,7 @@ where NNN is number of minutes the timeout should be.
 	Yoav Kleinberger
 	Yotam Fromm
 	Yuval Turgeman
+	benams1
 	bond95
 	dependabot[bot]
 	emesika
@@ -2334,6 +2414,7 @@ where NNN is number of minutes the timeout should be.
 	imjoey
 	kobihk
 	mathianasj
+	michalskrivanek
 	mnecas
 	parthdhanjal
 	thaorell

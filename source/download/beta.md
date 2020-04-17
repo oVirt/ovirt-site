@@ -48,7 +48,7 @@ oVirt Engine and a Host are installed together with the Engine running as a Virt
 Once you install a second Host, the Engine Virtual Machine will be highly available. See the
 [Self-Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide.html) for full details.
 
-[Alternate download options](/download/alternate_downloads.html)
+[Alternate download options](/download/beta_alternate_downloads.html)
 
 oVirt supports two types of [Hosts](/documentation/install-guide/chap-Introduction_to_Hosts.html):
 
@@ -71,14 +71,14 @@ Depending on your environment requirements, you may want to use only oVirt Nodes
 Instead of or in addition to oVirt Node, you can use a standard Enterprise Linux installation as a Host.
 
 {:.instructions}
-1.  Install one of the supported operating systems (CentOS, RHEL, or Scientific Linux) on your Host and update it:
+1.  Install one of the supported operating systems (CentOS, RHEL) on your Host and update it:
 
-        sudo yum update -y
+        sudo dnf update -y
         # reboot if the kernel was updated
 
 2.  Add the official oVirt repository:
 
-        sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm
+        sudo dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm
 
 ## Install oVirt using the Cockpit wizard
 

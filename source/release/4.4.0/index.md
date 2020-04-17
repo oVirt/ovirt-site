@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.0 Third Beta release as of April 09, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.0 Fourth Beta release as of April 17, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -129,6 +129,10 @@ Result: option `--vm-start` can be used after `--vm-start-paused`
 
    See the feature page: https://www.ovirt.org/develop/release-management/features/virt/migration-encryption.html
 
+ - [BZ 1680398](https://bugzilla.redhat.com/1680398) **QEMU-GA capabilities are reported as none for a few minutes after VM start. Therefore, VM details are not reported by engine**
+
+   Mechanism for polling QEMU-GA in VDSM has been enhanced to query newly started VMs more often in order to get the stats as soon as the agent becomes available in guest.
+
  - [BZ 1780943](https://bugzilla.redhat.com/1780943) **[RFE] Add timeout and abort command to async live snapshot**
 
    Feature: 
@@ -195,6 +199,18 @@ Result: VDSM's 'ssl_protocol', 'ssl_excludes' and 'ssl_ciphers' config options h
 
 
 #### oVirt Engine
+
+ - [BZ 1821930](https://bugzilla.redhat.com/1821930) **Enable only TLSv1.2+ protocol for SPICE on EL7 hosts**
+
+   For RHEL 7 based hosts we configure SPICE encryption during host deployment:
+
+  - Only TLSv1.2 and newer protocols are enabled
+
+  - Available ciphers are limited as described in BZ1563271
+
+
+
+For RHEL 8 based hosts we don't configure SPICE encryption at all, we completely reply on defined RHEL crypto policies (similar to VDSM BZ1179273)
 
  - [BZ 1679110](https://bugzilla.redhat.com/1679110) **[RFE] change Admin Portal toast notifications location**
 
@@ -772,6 +788,11 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
  - [BZ 1696313](https://bugzilla.redhat.com/1696313) **Drop unneeded dependencies from safelease**
 
 
+#### oVirt Cockpit Plugin
+
+ - [BZ 1808152](https://bugzilla.redhat.com/1808152) **[ RHHI-V  1.8 ]  Failed to create VDO**
+
+
 #### oVirt Ansible hosted-engine setup role
 
  - [BZ 1756244](https://bugzilla.redhat.com/1756244) **On dual stack env hosted-engine deploy chooses IPv6 just due to a link-local IPv6 address**
@@ -802,6 +823,8 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 #### VDSM
 
+ - [BZ 1680368](https://bugzilla.redhat.com/1680368) **Failed to create VM from template in CreateVolumeContainerCommand when stopping VDSM service in a single host environment**
+
  - [BZ 1798175](https://bugzilla.redhat.com/1798175) **Regression: KVM Importing fails due to missing readinto function on the StreamAdapter**
 
  - [BZ 1788783](https://bugzilla.redhat.com/1788783) **after_migration is not sent to the guest after migration**
@@ -828,6 +851,8 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 
 #### oVirt Engine
+
+ - [BZ 1816777](https://bugzilla.redhat.com/1816777) **Missing key 'path' when connecting to browser console in VM portal**
 
  - [BZ 1733843](https://bugzilla.redhat.com/1733843) **Export to OVA fails if VM is running on the Host doing the export**
 
@@ -902,6 +927,10 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 #### imgbased
 
+ - [BZ 1809367](https://bugzilla.redhat.com/1809367) **Host update fails with environment block too small**
+
+   
+
  - [BZ 1803017](https://bugzilla.redhat.com/1803017) **The discard mount option is not set properly**
 
    
@@ -941,11 +970,31 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 #### oVirt Cockpit Plugin
 
- - [BZ 1754748](https://bugzilla.redhat.com/1754748) **Enabling LV cache along with VDO volumes fails during Deployment**
+ - [BZ 1822121](https://bugzilla.redhat.com/1822121) **Filter /dev/mapper/x devices, when provided with blacklist_gluster_devices option enabled**
 
    
 
- - [BZ 1811989](https://bugzilla.redhat.com/1811989) **[vdo] VDO systemd unit file shouldn't be edited for modifying VDO max_discard_size**
+ - [BZ 1818566](https://bugzilla.redhat.com/1818566) **Cockpit UI logout due to 15 min timeout**
+
+   
+
+ - [BZ 1817306](https://bugzilla.redhat.com/1817306) **Blacklisting is not done for LVM cache fast devices**
+
+   
+
+ - [BZ 1816105](https://bugzilla.redhat.com/1816105) **Make either the public network for all hosts or use same FQDN for both networks mandatory**
+
+   
+
+ - [BZ 1816090](https://bugzilla.redhat.com/1816090) **Direct usage of IPv6 addresses shouldn't be allowed**
+
+   
+
+ - [BZ 1816051](https://bugzilla.redhat.com/1816051) **Falling back to DNS,TCP doesn't help for liveliness check of the host**
+
+   
+
+ - [BZ 1754748](https://bugzilla.redhat.com/1754748) **Enabling LV cache along with VDO volumes fails during Deployment**
 
    
 
@@ -962,10 +1011,6 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
    
 
  - [BZ 1807815](https://bugzilla.redhat.com/1807815) **[RFE]Provide option to control blacklist or whitelist multipath devices from cockpit**
-
-   
-
- - [BZ 1808152](https://bugzilla.redhat.com/1808152) **[ RHHI-V  1.8 ]  Failed to create VDO**
 
    
 
@@ -1113,10 +1158,6 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 #### VDSM
 
- - [BZ 1680368](https://bugzilla.redhat.com/1680368) **Failed to create VM from template in CreateVolumeContainerCommand when stopping VDSM service in a single host environment**
-
-   
-
  - [BZ 1819098](https://bugzilla.redhat.com/1819098) **Broken rollback for BlockVolume createVolumeMetadata**
 
    
@@ -1252,11 +1293,27 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 #### oVirt Engine
 
+ - [BZ 1824472](https://bugzilla.redhat.com/1824472) **Default cluster has wrong bios type**
+
+   
+
+ - [BZ 1823388](https://bugzilla.redhat.com/1823388) **Ensure that meaningful messages are logged, when gluster volumes doesn not have o-direct enabled**
+
+   
+
+ - [BZ 1823348](https://bugzilla.redhat.com/1823348) **Attaching CDROM to a VM from an ISO residing on a block domain fails**
+
+   
+
  - [BZ 1770697](https://bugzilla.redhat.com/1770697) **VM can't start after was shut down with - XML error: Invalid PCI address 0000:03:01.0. slot must be <= 0**
 
    
 
  - [BZ 1820995](https://bugzilla.redhat.com/1820995) **[OVN] ovirt-provider-ovn.service is dead after deploy/upgrade to ovirt-engine-4.4.0-0.31.master.el8ev.noarch**
+
+   
+
+ - [BZ 1755518](https://bugzilla.redhat.com/1755518) **importing an image or a template from export domain results in a non indented fields yaml files**
 
    
 
@@ -1770,6 +1827,10 @@ where NNN is number of minutes the timeout should be.
 
 #### oVirt Engine Appliance
 
+ - [BZ 1813291](https://bugzilla.redhat.com/1813291) **Enable posgresql 12 module**
+
+   
+
  - [BZ 1594548](https://bugzilla.redhat.com/1594548) **[RFE] Ensure Cockpit is installed properly (on Engine): cockpit-bridge is not a deps, causing login failure to cockpit**
 
    
@@ -1778,6 +1839,10 @@ where NNN is number of minutes the timeout should be.
 ### No Doc Update
 
 #### oVirt Cockpit Plugin
+
+ - [BZ 1811989](https://bugzilla.redhat.com/1811989) **[vdo] VDO systemd unit file shouldn't be edited for modifying VDO max_discard_size**
+
+   
 
  - [BZ 1752113](https://bugzilla.redhat.com/1752113) **Hosted-Engine will not deploy if SSH access is not enabled for the root user.**
 
@@ -1901,11 +1966,15 @@ where NNN is number of minutes the timeout should be.
 
 #### oVirt Engine
 
- - [BZ 1819205](https://bugzilla.redhat.com/1819205) **[CodeChange][i18n] oVirt 4.4 webadmin - translation update**
+ - [BZ 1820182](https://bugzilla.redhat.com/1820182) **ISCSI/FC- LSM/Cloning a VM(deep copy) from template fails in 'MeasureVolumeVDS' method with Could not open image No such file or directory**
 
    
 
- - [BZ 1820182](https://bugzilla.redhat.com/1820182) **ISCSI ONLY- Cloning a VM(deep copy) from template fails in 'MeasureVolumeVDS' method with Could not open image No such file or directory**
+ - [BZ 1816648](https://bugzilla.redhat.com/1816648) **upgrade from 4.3 to 4.4 fails on pg_restore**
+
+   
+
+ - [BZ 1819205](https://bugzilla.redhat.com/1819205) **[CodeChange][i18n] oVirt 4.4 webadmin - translation update**
 
    
 
@@ -1954,6 +2023,10 @@ where NNN is number of minutes the timeout should be.
    
 
  - [BZ 1584563](https://bugzilla.redhat.com/1584563) **[RFE] Expand message in the main events view**
+
+   
+
+ - [BZ 1802270](https://bugzilla.redhat.com/1802270) **Cluster Upgrade fails to run, AnsibleServlet fails to start the upgrade ansible playbook**
 
    
 
@@ -2161,10 +2234,6 @@ where NNN is number of minutes the timeout should be.
 
    
 
- - [BZ 1726330](https://bugzilla.redhat.com/1726330) **[Cinderlib] - Start vm with 3PAR-ISCSI managed storage domain fails with the error : "Managed Volume is already attached"**
-
-   
-
  - [BZ 1690155](https://bugzilla.redhat.com/1690155) **Disk migration progress bar not clearly visible and unusable.**
 
    
@@ -2271,6 +2340,13 @@ where NNN is number of minutes the timeout should be.
    
 
 
+#### oVirt Engine Appliance
+
+ - [BZ 1802478](https://bugzilla.redhat.com/1802478) **hosted-engine deploy does not configure a serial console in the engine vm**
+
+   
+
+
 #### oVirt-Cockpit SSO
 
  - [BZ 1789733](https://bugzilla.redhat.com/1789733) **Host console SSO not working at all!**
@@ -2291,11 +2367,12 @@ where NNN is number of minutes the timeout should be.
 
 #### Contributors
 
-126 people contributed to this release:
+128 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
 	Allon Mureinik
+	Amar Shah
 	Amit Bawer
 	Andrej Cernek
 	Andrej Krejcir

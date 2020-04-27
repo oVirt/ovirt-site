@@ -1,7 +1,7 @@
 ---
 title: Repository mirrors
 category: infra
-authors: amarchuk, bproffitt, dcaroest, ngoldin
+authors: amarchuk, bproffitt, dcaroest, ngoldin, ederevea
 ---
 
 # Repository mirrors
@@ -10,7 +10,7 @@ authors: amarchuk, bproffitt, dcaroest, ngoldin
 
 Do you want to become a mirror? Do you have some bandwidth to spare?
 
-Drop us a line at [infa](mailto:infra@ovirt.org) and tell us about yourself! You just need to pass us a public ssh key, and once set up you'll be able to rsync from our site with the following command:
+Drop us a line at [infa](mailto:infra-support@ovirt.org) and tell us about yourself! You just need to pass us a public ssh key, and once set up you'll be able to rsync from our site with the following command:
 
        rsync -rltHvvP mirror@resources.ovirt.org:/var/www/html destination/dir
 
@@ -21,10 +21,11 @@ After some validation we will add your site to this page and to the mirrorlist!
 ## For admins
 
 We have a simple setup to allow mirroring of the oVirt repositories. Right now the mirroring is done through ssh with rsync. You'll find in **resources.ovirt.org** a user named **mirror**, that's the user that the mirrors should use, you'll see that it has a lot of entries under *~/.ssh/authorized_keys*, there each entry is restricted to run only a specific command that allows them to rsync the repo directory.
+Please refer to the [read the docs page](https://ovirt-infra-docs.readthedocs.io/en/latest/General/Mirror/index.html) for more info on adding mirrors.
 
 ### Adding a mirror
 
-To add a mirror you just need to add it's public ssh key in *~mirror/.ssh/authorized_keys*, with the command restriction as the other entries. Then when the mirror is confirmed you can add it to the mirrorlist (*resources.ovirt.org:/var/www/html/pub/yum-repo/mirrorlist*) and to this wiki.
+Then when the mirror is in sync you can add it to the mirrorlist (*resources.ovirt.org:/var/www/html/pub/yum-repo/mirrorlist*) and to this wiki.
 
 ## Current mirrors
 

@@ -46,7 +46,7 @@ Reporting bugs is one of the most valuable ways you can contribute! Ideas for ne
 
 ## Participate in the oVirt infrastructure
 
-Our project infrastructure can always benefit from extra people, hardware and network bandwidth. First of all, consider [becoming a public mirror](/develop/infra/repository-mirrors.html) of oVirt repositories. You can also [become an infra team member](/develop/infra/becoming-an-infrastructure-team-member.html) or [donate hardware](/community/get-involved/donate-hardware.html) to the project to improve our capacity and redundancy.
+Our project infrastructure can always benefit from extra people, hardware and network bandwidth. First of all, consider [becoming a public mirror](/community/get-involved/repository-mirrors.html) of oVirt repositories. You can also [become an infra team member](/develop/infra/becoming-an-infrastructure-team-member.html) or [donate hardware](/community/get-involved/donate-hardware.html) to the project to improve our capacity and redundancy.
 
 ## Supporters, Sponsors, and Providers
 

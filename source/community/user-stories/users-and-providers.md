@@ -31,11 +31,6 @@ The following organizations use oVirt for customer-facing or internal servers. M
 </div>
 
 <div class="case-study">
-[![Cornerstone Technical Solutions](/images/logos/Cornerstone.png)](https://cornerstonets.net/)
-[Cornerstone Technical Solutions](//cornerstonets.net/) delivers IT management services, including oVirt-based virtualization services for consolidating datacenters.
-</div>
-
-<div class="case-study">
 [![Internet Complete!, Inc.](/images/logos/Tl.png)](http://icnet.net/)
  [Internet Complete](//icnet.net/) is dedicated to providing customers in Oklahoma with leading technologies - such as oVirt-managed hosting - for fast and reliable Internet solutions.
 </div>

@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.10 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.10 First Release Candidate as of April 23, 2020.
+The oVirt Project is pleased to announce the availability of the 4.3.10 Second Release Candidate as of April 28, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -109,15 +109,20 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### Contributors
 
-10 people contributed to this release:
+15 people contributed to this release:
 
 	Ahmad Khiet
+	Daniel Erez
 	Dominik Holler
 	Lev Veyde
 	Martin Necas
+	Martin Perina
 	Milan Zamazal
 	Nir Levy
+	Ondra Machacek
 	Ori Liel
 	Radoslaw Szwajkowski
+	Roberto Ciatti
+	Sandro Bonazzola
 	Yedidyah Bar David
 	Yuval Turgeman

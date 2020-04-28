@@ -80,11 +80,6 @@ The [National University of Sciences & Technology (NUST)](//www.nust.edu.pk/Page
 
 <div class="case-studies">
 <div class="case-study">
-[![Cloud Times](/images/logos/Ct.png)](http://www.cloud-times.com/)
-[Cloud Times](//www.cloud-times.com/) is a solution provider of Cloud Client Equipment, Virtual Desktop Infrastructure, and the “Cloud plus Client” Management Platform, helping Chinese enterprises in the transition to “Cloud plus Client” architecture.
-</div>
-
-<div class="case-study">
 ![](/images/logos/AlterWay.png)
 [Alter Way](https://www.alterway.fr/) is a French hosting company that provides solutions for their customers' digital strategies, using a DevOps approach and open source solutions, including oVirt. Read the [case study.](/community/user-stories/alter-way-case-study/)
 </div>

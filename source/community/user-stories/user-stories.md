@@ -47,18 +47,6 @@ Read the full [Brussels Airport case study](/community/user-stories/brussels-air
 
 </div>
 <div class="case-study">
-### CloudSpin
-
-![](/images/logos/Cloudspin.png)
-
-"If you haven’t already figured it out, I am not in CloudSpin for money, I do this so developers have somewhere to fire up their project and put it on the real Internet. This is a place to chop, cut, rebuild, and work together."
-
-That's the best way to sum up [CloudSpin](/community/user-stories/cloudspin-case-study/), a one-person hosting company that's taken a unique approach to hosting: users can work with CloudSpin free of charge. No fees, just a great workshop to start building software.
-
-Read the full [CloudSpin case study](/community/user-stories/cloudspin-case-study/)
-
-</div>
-<div class="case-study">
 ### it-novum
 
 ![](/images/logos/It-novum.png)

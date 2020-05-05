@@ -59,7 +59,7 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
 #### Data Warehouse
 
 - [DWH Development Environment](/develop/dwh-development-environment)
-- [How to write patches for DWH](/develop/reports/)
+- [How to write patches for DWH](/develop/write-patches-for-dwh)
 
 #### Storage
 

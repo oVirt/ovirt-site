@@ -96,7 +96,7 @@ defaults:
       layout: "developer_outdated"
   -
     scope:
-      path: 'develop/resources'
+      path: '/community/get-involved/resources'
     values:
       layout: "developer_outdated"
   -

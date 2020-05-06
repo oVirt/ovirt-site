@@ -1,6 +1,6 @@
 ---
 title: oVirt in Education
-authors: bproffitt
+authors: bproffitt,sandrobonazzola
 ---
 
 <!-- TODO: Content review -->
@@ -13,7 +13,7 @@ Because of the critical work such institutions do, we want to highlight these or
 
 ## Asia
 
-[National University of Sciences & Technology](//www.nust.edu.pk/Pages/Home.aspx), Islamabad, Pakistan
+[National University of Sciences & Technology](//nust.edu.pk/Pages/Default.aspx), Islamabad, Pakistan
 The National University of Sciences and Technology aims to emerge as a comprehensive residential institution responsive to technological change, dedicated to excellence and committed to international educational and research needs of Pakistan.
 
 ## Europe

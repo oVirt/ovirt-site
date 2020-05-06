@@ -1,6 +1,6 @@
 ---
 title: Users and Providers
-authors: blafuente, bproffitt
+authors: blafuente, bproffitt, sandrobonazzola
 page_classes: partner-logos
 ---
 
@@ -62,8 +62,8 @@ These institutions have chosen oVirt to manage their virtual workloads. See also
 
 <div class="case-studies">
 <div class="case-study">
-[![NUST](/images/logos/Nust.svg)](http://www.nust.edu.pk/Pages/Home.aspx)
-The [National University of Sciences & Technology (NUST)](//www.nust.edu.pk/Pages/Home.aspx) is a public research university in Islamabad, Pakistan. The university primarily focuses on Science, technology, engineering and mathematics.
+[![NUST](/images/logos/Nust.svg)](http://nust.edu.pk/Pages/Default.aspx)
+The [National University of Sciences & Technology (NUST)](//nust.edu.pk/Pages/Default.aspx) is a public research university in Islamabad, Pakistan. The university primarily focuses on Science, technology, engineering and mathematics.
 </div>
 
 <div class="case-study">

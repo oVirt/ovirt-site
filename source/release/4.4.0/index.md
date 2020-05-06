@@ -13,15 +13,15 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.0 Fourth Beta release as of April 17, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.0 First Release Candidate as of May 06, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
-This release is available now for Red Hat Enterprise Linux 8.1 and
-CentOS Linux 8.1 (or similar).
+This release is available now for Red Hat Enterprise Linux 7.7 and
+CentOS Linux 7.7 (or similar).
 
 
 To find out how to interact with oVirt developers and users and ask questions,
@@ -45,9 +45,9 @@ page.
 To learn about features introduced before 4.4.0, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
 
-## BETA RELEASE
+## RELEASE CANDIDATE
 
-In order to install this Beta Release you will need to enable pre-release repository.
+In order to install this Release Candidate you will need to enable pre-release repository.
 
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
 
@@ -56,17 +56,6 @@ In order to install this Beta Release you will need to enable pre-release reposi
 ## What's New in 4.4.0?
 
 ### Release Note
-
-#### oVirt Engine
-
- - [BZ 1732738](https://bugzilla.redhat.com/1732738) **[RFE] Update engine to use OpenJDK 11 - both build and runtime**
-
-   Modernizing the software stack of ovirt-engine to both compile and runtime using java-11-openjdk.
-
-Java 11 openjdk is the new LTS version from Red Hat so this 
-
-is only a natural step forward.
-
 
 #### oVirt Release Package
 
@@ -88,12 +77,28 @@ is only a natural step forward.
 
  - [BZ 1725775](https://bugzilla.redhat.com/1725775) **Replace screen requirement with tmux**
 
-   tmux is now installed on hosts instead of screen.
+   Before this update, `screen` was installed on hosts. With this update, `screen` is removed, and `tmux` is installed on hosts instead.
 
-screen has been deprecated in RHEL 7.6 and is not available anymore in RHEL 8.
+
+
+`screen` was deprecated in RHEL 7.6, and is not included with RHEL 8.
 
 
 #### oVirt Ansible hosted-engine setup role
+
+ - [BZ 1816619](https://bugzilla.redhat.com/1816619) **[RFE] Enable update of appliance from channels after VM is deployed**
+
+   Feature: Change the default value of Hosted Engine deployment to update engine VM packages.
+
+Add the ability to run engine-setup offline deployment in order to avoid updates.
+
+
+
+Reason: Get an updated engine VM. 
+
+
+
+Result: Packages will be updated.
 
  - [BZ 1602816](https://bugzilla.redhat.com/1602816) **[RFE] hosted-engine deployment playbook should reject bridging over a teaming device with a clear error**
 
@@ -127,7 +132,11 @@ Result: option `--vm-start` can be used after `--vm-start-paused`
 
  - [BZ 1739557](https://bugzilla.redhat.com/1739557) **RFE: add support for native TLS encryption on migration TCP transport**
 
-   See the feature page: https://www.ovirt.org/develop/release-management/features/virt/migration-encryption.html
+   With this update, you can enable encryption for live migration of virtual machines between hosts in the same cluster, providing more protection to data transferred between hosts. 
+
+
+
+Enable or disable encryption in the Administration Portal, in the Edit Cluster dialog box, under Migration Policy > Additional Properties. Encryption is disabled by default.
 
  - [BZ 1680398](https://bugzilla.redhat.com/1680398) **QEMU-GA capabilities are reported as none for a few minutes after VM start. Therefore, VM details are not reported by engine**
 
@@ -153,47 +162,27 @@ A default value is set in engine-config and can be changed. In case the job will
 
  - [BZ 1749284](https://bugzilla.redhat.com/1749284) **Change the Snapshot operation to be asynchronous**
 
-   Feature: 
-
-Asynchronous live snapshot
-
-Reason: 
-
-Before this enhancement the live snapshot operation was synchronized. In that state the engine let VDSM to do the operation for 180 seconds by default. In case the time passed, the engine considered the operation as failure. This can happen due to big memory VM with memory load or/and having slow storage.
+   Before this update, the live snapshot operation was synchronized, such that if VDSM required more than 180 seconds to create a snapshot, the operation failed, preventing snapshots of some virtual machines, such as those with large memory loads, or slow storage.
 
 
 
-Result: 
-
-With this enhancement the operation will be asynchronous. Letting the operation run until it ends without timeout.
-
-The operation now will succeed to large memory load VMs or/and slow storage.
+With this update, the live snapshot operation is asynchronous, so the operation runs until it ends successfully, regardless of how long it takes.
 
  - [BZ 1692709](https://bugzilla.redhat.com/1692709) **[RFE] Investigate viability of automatically setting up boot partition for FIPS hosts**
 
-   In addition to setting `fips=1`, host's boot partition need to be explicitly stated in the kernel boot parameters (like: `boot=/dev/sda1`or `boot=UUID=<id>`), this bug will set the boot partition into the kernel boot parameters.
+   With this update, each host's boot partition is explicitly stated in the kernel boot parameters. For example: `boot=/dev/sda1` or `boot=UUID=<id>`
 
  - [BZ 1179273](https://bugzilla.redhat.com/1179273) **[RFE] vdsm: Utilize system-wide crypto-policies**
 
-   Feature: Use crypto policies introduced in CentOS 8 in favour of VDSM's local crypto settings
-
-
-
-Reason: Using crypto policies provides consistency across the whole OS in regard to crypto standards. Since oVirt solution is composed of multiple projects it is desirable to have a single, easily maintainable way of defining these standards. This is exactly what crypto policies do - they provide a set of configuration files that affect multiple libraries and programming languages to guarantee uniformity, at the same time keeping the used cipher strings, suites and protocols up to date with widely accepted security recommendations.
-
-
+   The VDSM's 'ssl_protocol', 'ssl_excludes' and 'ssl_ciphers' config options have been removed. 
 
 To find our more about crypto policies, please visit:
-
-
 
 https://www.redhat.com/en/blog/consistent-security-crypto-policies-red-hat-enterprise-linux-8
 
 
 
-Result: VDSM's 'ssl_protocol', 'ssl_excludes' and 'ssl_ciphers' config options have been removed. If you need to fine-tune your crypto settings you should do it by changing, or creating your own crypto policy. As an example, if you need your hosts to communicate with some legacy systems that still use insecure TLSv1 or TLSv1.1, you can change your crypto policy to 'LEGACY' with: 
-
-
+If you need to fine-tune your crypto settings you should do it by changing or creating your own crypto policy. As an example, if you need your hosts to communicate with some legacy systems that still use insecure TLSv1 or TLSv1.1, you can change your crypto policy to 'LEGACY' with: 
 
  update-crypto-policies --set LEGACY
 
@@ -290,43 +279,19 @@ The user can run once a VM that set to windows operation system, attach the wind
 
  - [BZ 1749284](https://bugzilla.redhat.com/1749284) **Change the Snapshot operation to be asynchronous**
 
-   Feature: 
-
-Asynchronous live snapshot
-
-Reason: 
-
-Before this enhancement the live snapshot operation was synchronized. In that state the engine let VDSM to do the operation for 180 seconds by default. In case the time passed, the engine considered the operation as failure. This can happen due to big memory VM with memory load or/and having slow storage.
+   Before this update, the live snapshot operation was synchronized, such that if VDSM required more than 180 seconds to create a snapshot, the operation failed, preventing snapshots of some virtual machines, such as those with large memory loads, or slow storage.
 
 
 
-Result: 
-
-With this enhancement the operation will be asynchronous. Letting the operation run until it ends without timeout.
-
-The operation now will succeed to large memory load VMs or/and slow storage.
+With this update, the live snapshot operation is asynchronous, so the operation runs until it ends successfully, regardless of how long it takes.
 
  - [BZ 1692709](https://bugzilla.redhat.com/1692709) **[RFE] Investigate viability of automatically setting up boot partition for FIPS hosts**
 
-   In addition to setting `fips=1`, host's boot partition need to be explicitly stated in the kernel boot parameters (like: `boot=/dev/sda1`or `boot=UUID=<id>`), this bug will set the boot partition into the kernel boot parameters.
+   With this update, each host's boot partition is explicitly stated in the kernel boot parameters. For example: `boot=/dev/sda1` or `boot=UUID=<id>`
 
  - [BZ 1726907](https://bugzilla.redhat.com/1726907) **[RFE] Add RHCOS to the list of operating systems**
 
-   Feature: 
-
-Add Red Hat CoreOS
-
-
-
-Reason: 
-
-RHCOS is an OS dedicated for containers solution. Users can now select this OS type for VM.
-
-Result: 
-
-When selecting this VM type, the main difference from other RHEL is the initialization step.
-
-RHCOS uses ignition to initialize the VM. With this RFE, when selecting RHCOS in OS type, the initialize will be changed to ignition type.
+   With this update, you can select Red Hat CoreOS (RHCOS) as the operating system for a virtual machine. When you do so, the initialization type is set to `ignition`. RHCOS uses ignition to initialize the virtual machine, differentiating it from RHEL.
 
  - [BZ 1549486](https://bugzilla.redhat.com/1549486) **[RFE] update landing and login pages to to be compatible with Patternfly 4**
 
@@ -334,7 +299,11 @@ RHCOS uses ignition to initialize the VM. With this RFE, when selecting RHCOS in
 
  - [BZ 1739557](https://bugzilla.redhat.com/1739557) **RFE: add support for native TLS encryption on migration TCP transport**
 
-   See the feature page: https://www.ovirt.org/develop/release-management/features/virt/migration-encryption.html
+   With this update, you can enable encryption for live migration of virtual machines between hosts in the same cluster, providing more protection to data transferred between hosts. 
+
+
+
+Enable or disable encryption in the Administration Portal, in the Edit Cluster dialog box, under Migration Policy > Additional Properties. Encryption is disabled by default.
 
  - [BZ 1767319](https://bugzilla.redhat.com/1767319) **[RFE] forbid updating mac pool that contains ranges overlapping with any mac range in the system**
 
@@ -362,6 +331,12 @@ Result:
 
 The newly cloned VM is now fully customizable.
 
+ - [BZ 1732738](https://bugzilla.redhat.com/1732738) **[RFE] Update engine to use OpenJDK 11 - both build and runtime**
+
+   Modernizing the software stack of ovirt-engine for build and runtime using java-11-openjdk.
+
+Java 11 openjdk is the new LTS version from Red Hat.
+
  - [BZ 1700021](https://bugzilla.redhat.com/1700021) **[RFE] engine-setup should warn and prompt if ca.pem is missing but other generated pki files exist**
 
    Previously, if ca.pem was not present, engine-setup automatically regenerated all PKI files, requiring you to reinstall or re-enroll certificates for all hosts. 
@@ -372,7 +347,7 @@ Now, if ca.pem is not present but other PKI files are, engine-setup prompts you 
 
  - [BZ 1450351](https://bugzilla.redhat.com/1450351) **[RFE] Allow specifying a shutdown reason on the .shutdown() call**
 
-   This feature will allow users to set the reason for shutdown/power-off(stop) a VM using REST API request.
+   With this update, you can set the reason for shutting down or powering off a virtual machine when using a REST API request to execute the shutdown or power-off.
 
  - [BZ 1572155](https://bugzilla.redhat.com/1572155) **[RFE] provide VM status and uptime in VM general tab**
 
@@ -398,23 +373,7 @@ Now, if ca.pem is not present but other PKI files are, engine-setup prompts you 
 
  - [BZ 1652565](https://bugzilla.redhat.com/1652565) **[RFE] Unable to edit floating disk**
 
-   Feature: 
-
-Enable editing floating disks from the UI
-
- 
-
-Reason: 
-
-Currently, it's possible editing only VM disks (from the VM they attached to).
-
-
-
-Result: 
-
-This patch adds a button for editing disks from the 'Disks' tab.
-
-Once the popup shows up, the user will be able to edit a floating disk's parameters (such as description and alias) and also extends its size.
+   In this release, it is now possible to edit the properties of a Floating Disk in the Storage > Disks tab of Administration Portal. For example, the user can edit the Description, Alias, and Size of the disk.
 
  - [BZ 854932](https://bugzilla.redhat.com/854932) **RESTAPI: missing update impl at /api/disks/xxx**
 
@@ -448,19 +407,31 @@ The host, regardless of its initial state before restart, will be put into maint
 
  - [BZ 1731395](https://bugzilla.redhat.com/1731395) **[RFE] Introduce a "Secure" variant of CPUs following the CPU-related vulnerability mitigations**
 
-   Described in feature page: https://www.ovirt.org/develop/release-management/features/virt/secure-cpus.html
-
- - [BZ 1306586](https://bugzilla.redhat.com/1306586) **change Windows drivers and sysprep delivery method to a CDROM**
-
-   Feature: Replace the floppy device with an additional CDROM device for sysprep installation for Compatibility Versions 4.4 and later. 
+   Previously, with every security update a new CPU type was created in the vdc_options table under the key ServerCPUList in the database for all affected architectures. For example, the Intel Skylake Client Family included the following CPU types:
 
 
 
-Reason: To deprecate floppy support which has resulted in many issues.
+Intel Skylake Client Family
+
+Intel Skylake Client IBRS Family
+
+Intel Skylake Client IBRS SSBD Family
+
+Intel Skylake Client IBRS SSBD MDS Family
+
+    
+
+With this update, only two CPU Types are now supported for any CPU microarchitecture that has security updates, keeping the CPU list manageable. For example:
 
 
 
-Result: An additional CDROM device shall be used to replace the floppy drive for versions 4.4 and later.
+Intel Skylake Client Family
+
+Secure Intel Skylake Client Family
+
+    
+
+The default CPU type will not change. The Secure CPU type will contain the latest updates.
 
  - [BZ 1358501](https://bugzilla.redhat.com/1358501) **[RFE] multihost network change - notify when done**
 
@@ -484,15 +455,7 @@ Result:
 
  - [BZ 1482465](https://bugzilla.redhat.com/1482465) **[RFE] Add sorting for Cluster's columns**
 
-   Feature: Added sorting to more of the Cluster View's Columns. These columns include CPU Type and Compatibility Version.
-
-
-
-Reason: Requested via this report.
-
-
-
-Result: Now the user can sort by these columns.
+   With this update, when viewing clusters, you can sort by the Cluster CPU Type and Compatibility Version columns.
 
  - [BZ 1600059](https://bugzilla.redhat.com/1600059) **[RFE] Add by default a storage lease to HA VMs**
 
@@ -540,7 +503,9 @@ A large number of LUNs may slow down the operation.
 
  - [BZ 1688796](https://bugzilla.redhat.com/1688796) **[RFE] Make it possible to enable Kerberos/GSSAPI debug on AAA**
 
-   A new config variable AAA_JAAS_ENABLE_DEBUG has been added to enable Kerberos/GSSAPI debug on AAA. The default value is false and to enable debug the user should create a new config file /etc/ovirt-engine/engine.conf.d/99-kerberos-debug.conf with contents
+   With this update a new configuration variable, AAA_JAAS_ENABLE_DEBUG, has been added to enable Kerberos/GSSAPI debug on AAA. The default value is `false`. 
+
+To enable debugging, create a new configuration file named `/etc/ovirt-engine/engine.conf.d/99-kerberos-debug.conf` with the following content:
 
 
 
@@ -652,27 +617,6 @@ and replace below strings:
 Those replacement are only breaking changes contained in version 1.1.0 compared to 1.0.3, but for upgrades from 4.3 those changes will be performed automatically as a part of engine-setup. So we just need to fix documentation mentioning manual setup of logger-log4j extension.
 
 
-#### oVirt Engine Metrics
-
- - [BZ 1523289](https://bugzilla.redhat.com/1523289) **[RFE] Create a role that will list to the admin which hosts are not configured for metrics**
-
-   Feature: 
-
-List hosts that are not configured for metrics.
-
-
-
-Reason: 
-
-So that the user can check the reason the Collectd, Rsyslog/Fluentd services are not working as expected and fix it.
-
-
-
-Result: 
-
-When running the manage services playbook the "/etc/ovirt-engine-metrics/hosts_not_configured_for_metrics" file is created and includes the list of hosts that the services are not running on.
-
-
 ### Rebase: Bug Fixeses and Enhancementss
 
 #### oVirt Engine WildFly
@@ -706,25 +650,17 @@ When running the manage services playbook the "/etc/ovirt-engine-metrics/hosts_n
 
  - [BZ 1698016](https://bugzilla.redhat.com/1698016) **remove cockpit-machines-ovirt dependency**
 
-   cockpit-machines-ovirt has been deprecated in 4.3 with bug #1698014.
-
-Dropping from ovirt-host dependencies and from RHV-H image.
+   cockpit-machines-ovirt has been deprecated in Red Hat Virtualization version 4.3 (reference bug #1698014), and has been removed from the ovirt-host dependencies and from the RHV-H image.
 
 
 #### VDSM
 
  - [BZ 1703840](https://bugzilla.redhat.com/1703840) **drop vdsm-hook-macspoof**
 
-   MAC spoof hook has been dropped. If someone still depend of ifacemacspoof hook, they can find and fix the vnic
-
-profiles using a script similar to the one provided in  https://gerrit.ovirt.org/#/c/94613/ commit message.
+   The vdsm-hook-macspoof has been dropped from the VDSM code. If you still require the ifacemacspoof hook, you can find and fix the vnic profiles using a script similar to the one provided in the https://gerrit.ovirt.org/#/c/94613/ commit message.
 
 
 #### oVirt Engine
-
- - [BZ 1732437](https://bugzilla.redhat.com/1732437) **Remove direct kernel/initrd booting from oVirt Engine**
-
-   The linux boot parameters, including direct kernel, initrd and custom kernel parameters are removed within this bug from the WEB-UI. It is deprecated from ansible and REST-API to support older versions.
 
  - [BZ 1753889](https://bugzilla.redhat.com/1753889) **[v3 REST API] Remove v3 API support**
 
@@ -732,7 +668,7 @@ profiles using a script similar to the one provided in  https://gerrit.ovirt.org
 
  - [BZ 1795684](https://bugzilla.redhat.com/1795684) **[RFE] Drop support for hystrix monitoring integration**
 
-   Hystrix monitoring integration has been removed from ovirt-engine due to limited adoption and hard maintainability
+   Hystrix monitoring integration has been removed from ovirt-engine due to limited adoption and difficulty to maintain.
 
  - [BZ 1638675](https://bugzilla.redhat.com/1638675) **Drop OpenStack Neutron deployment**
 
@@ -856,7 +792,11 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
  - [BZ 1733843](https://bugzilla.redhat.com/1733843) **Export to OVA fails if VM is running on the Host doing the export**
 
+ - [BZ 1785364](https://bugzilla.redhat.com/1785364) **After engine restore, ovn networks are not restored and new OVN networks are not working properly on 4.4**
+
  - [BZ 1808788](https://bugzilla.redhat.com/1808788) **VM configured with 16 CPUs fails on start with unsupported configuration error .**
+
+ - [BZ 1806276](https://bugzilla.redhat.com/1806276) **[HE] ovirt-provider-ovn is non-functional on 4.3.9 Hosted-Engine**
 
  - [BZ 1795886](https://bugzilla.redhat.com/1795886) **Validation for disk incremental backup property should be done only for incremental backup operation**
 
@@ -885,6 +825,8 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
  - [BZ 1781095](https://bugzilla.redhat.com/1781095) **Hide partial engine-cleanup option**
 
  - [BZ 1750212](https://bugzilla.redhat.com/1750212) **MERGE_STATUS fails with 'Invalid UUID string: mapper' when Direct LUN that already exists is hot-plugged**
+
+ - [BZ 1754363](https://bugzilla.redhat.com/1754363) **[Scale] Engine generates excessive amount of dns configuration related sql queries**
 
  - [BZ 1743296](https://bugzilla.redhat.com/1743296) **When having many VMs with the same name - The same VM is selected each time**
 
@@ -969,6 +911,10 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 
 #### oVirt Cockpit Plugin
+
+ - [BZ 1825748](https://bugzilla.redhat.com/1825748) **Unable to enter the host details in the cockpit with single node deployment**
+
+   
 
  - [BZ 1822121](https://bugzilla.redhat.com/1822121) **Filter /dev/mapper/x devices, when provided with blacklist_gluster_devices option enabled**
 
@@ -1076,7 +1022,7 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 #### oVirt Ansible hosted-engine setup role
 
- - [BZ 1816619](https://bugzilla.redhat.com/1816619) **[RFE] Enable update of appliance from channels after VM is deployed**
+ - [BZ 1827135](https://bugzilla.redhat.com/1827135) **failed to deploy hosted-engine 4.4 from 4.3 backup file due to versionlock**
 
    
 
@@ -1158,6 +1104,14 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 #### VDSM
 
+ - [BZ 1803484](https://bugzilla.redhat.com/1803484) **[UI] - Add nmstate version under 'Hosts' > 'General' software information**
+
+   
+
+ - [BZ 1820283](https://bugzilla.redhat.com/1820283) **Error creating storage domain via vdsm**
+
+   
+
  - [BZ 1819098](https://bugzilla.redhat.com/1819098) **Broken rollback for BlockVolume createVolumeMetadata**
 
    
@@ -1170,7 +1124,7 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
    
 
- - [BZ 1816004](https://bugzilla.redhat.com/1816004) **Failed to create a new disk or copy template disk on iscsi of FCP storage domain - qemu-img: Protocol driver \'host_device\' does not support image creation**
+ - [BZ 1766193](https://bugzilla.redhat.com/1766193) **[Scale] oVirt should support up to 200 networks per host**
 
    
 
@@ -1290,8 +1244,48 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
    
 
+ - [BZ 1417545](https://bugzilla.redhat.com/1417545) **Unable to set global volume options using 'all' as volume name**
+
+   
+
 
 #### oVirt Engine
+
+ - [BZ 1758048](https://bugzilla.redhat.com/1758048) **clone(as thin) VM from template or create snapshot fails with 'Requested capacity 1073741824 < parent capacity 3221225472 (volume:1211)'**
+
+   
+
+ - [BZ 1417545](https://bugzilla.redhat.com/1417545) **Unable to set global volume options using 'all' as volume name**
+
+   
+
+ - [BZ 1803484](https://bugzilla.redhat.com/1803484) **[UI] - Add nmstate version under 'Hosts' > 'General' software information**
+
+   
+
+ - [BZ 1793988](https://bugzilla.redhat.com/1793988) **[REST API] copyhostnetwork operation failure detail message is not formatted with values**
+
+   
+
+ - [BZ 1679877](https://bugzilla.redhat.com/1679877) **[ALL_LANG except zh_CN] Column names are truncated on network -> network -> clusters -> manage networks screen.**
+
+   
+
+ - [BZ 1820100](https://bugzilla.redhat.com/1820100) **Webadmin - wrong warning message when attaching export domain to data center**
+
+   
+
+ - [BZ 1802223](https://bugzilla.redhat.com/1802223) **"Storage consumption" - incorrect recalculate**
+
+   
+
+ - [BZ 1801710](https://bugzilla.redhat.com/1801710) **ovirt-imageio service not available on engine host after clean reprovision meaning upload/download operations from UI do not work**
+
+   
+
+ - [BZ 1813305](https://bugzilla.redhat.com/1813305) **Engine updating SLA policies of VMs continuously in  an environment which is not having any QOS configured**
+
+   
 
  - [BZ 1824472](https://bugzilla.redhat.com/1824472) **Default cluster has wrong bios type**
 
@@ -1301,15 +1295,11 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
    
 
- - [BZ 1823348](https://bugzilla.redhat.com/1823348) **Attaching CDROM to a VM from an ISO residing on a block domain fails**
+ - [BZ 1784049](https://bugzilla.redhat.com/1784049) **Rhel6 guest with cluster default q35 chipset causes kernel panic**
 
    
 
  - [BZ 1770697](https://bugzilla.redhat.com/1770697) **VM can't start after was shut down with - XML error: Invalid PCI address 0000:03:01.0. slot must be <= 0**
-
-   
-
- - [BZ 1820995](https://bugzilla.redhat.com/1820995) **[OVN] ovirt-provider-ovn.service is dead after deploy/upgrade to ovirt-engine-4.4.0-0.31.master.el8ev.noarch**
 
    
 
@@ -1326,10 +1316,6 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
    
 
  - [BZ 1816519](https://bugzilla.redhat.com/1816519) **Importing a registered template with already exists name shouldn't be allowed**
-
-   
-
- - [BZ 1785364](https://bugzilla.redhat.com/1785364) **After engine restore, ovn networks are not restored and new OVN networks are not working properly on 4.4**
 
    
 
@@ -1389,10 +1375,6 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
    
 
- - [BZ 1633126](https://bugzilla.redhat.com/1633126) **[RFE] Provide roles for node replacement**
-
-   
-
  - [BZ 1795232](https://bugzilla.redhat.com/1795232) **Apply Patternfly 4 styles and layouts to error and non-webadmin pages**
 
    
@@ -1401,19 +1383,7 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
    
 
- - [BZ 1809052](https://bugzilla.redhat.com/1809052) **[CNV&RHV] ovirt-engine log file spammed by failed timers ( approx 3-5 messages/sec )**
-
-   
-
  - [BZ 1565696](https://bugzilla.redhat.com/1565696) **UI plugin API - action button callbacks invoked multiple times**
-
-   
-
- - [BZ 1806276](https://bugzilla.redhat.com/1806276) **[HE] ovirt-provider-ovn is non-functional on 4.3.9 Hosted-Engine**
-
-   
-
- - [BZ 1809640](https://bugzilla.redhat.com/1809640) **Engine should not explode if host reports duplicated nameservers**
 
    
 
@@ -1534,10 +1504,6 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
    
 
  - [BZ 1776317](https://bugzilla.redhat.com/1776317) **Cannot hotplug more than 2 vNICs per VM**
-
-   
-
- - [BZ 1754363](https://bugzilla.redhat.com/1754363) **[Scale] Engine generates excessive amount of dns configuration related sql queries**
 
    
 
@@ -1793,23 +1759,11 @@ where NNN is number of minutes the timeout should be.
 
    
 
- - [BZ 1717339](https://bugzilla.redhat.com/1717339) **command 'SystemLogSocketName' is currently not permitted - did you already set it via a RainerScript command (v6+ config)?**
-
-   
-
  - [BZ 1687729](https://bugzilla.redhat.com/1687729) **Code Change - Use dedicated Ansible module for manageing SELinux file context**
 
    
 
  - [BZ 1677679](https://bugzilla.redhat.com/1677679) **Remove hacky things from ansible.cfg**
-
-   
-
- - [BZ 1755412](https://bugzilla.redhat.com/1755412) **Setting "oreg_url: registry.redhat.io" fails with error**
-
-   
-
- - [BZ 1714994](https://bugzilla.redhat.com/1714994) **TODO comment in the check_logging_collectors.yml**
 
    
 
@@ -1836,9 +1790,27 @@ where NNN is number of minutes the timeout should be.
    
 
 
+#### oVirt-Cockpit SSO
+
+ - [BZ 1826248](https://bugzilla.redhat.com/1826248) **[4.4][ovirt-cockpit-sso] Compatibility issues with python3**
+
+   
+
+
 ### No Doc Update
 
+#### oVirt Engine NodeJS Modules
+
+ - [BZ 1824523](https://bugzilla.redhat.com/1824523) **cockpit is affected by multiple CVEs**
+
+   
+
+
 #### oVirt Cockpit Plugin
+
+ - [BZ 1824523](https://bugzilla.redhat.com/1824523) **cockpit is affected by multiple CVEs**
+
+   
 
  - [BZ 1811989](https://bugzilla.redhat.com/1811989) **[vdo] VDO systemd unit file shouldn't be edited for modifying VDO max_discard_size**
 
@@ -1884,7 +1856,15 @@ where NNN is number of minutes the timeout should be.
 
 #### VDSM
 
+ - [BZ 1820068](https://bugzilla.redhat.com/1820068) **Live snapshot fails and leave disks in locked state**
+
+   
+
  - [BZ 1819125](https://bugzilla.redhat.com/1819125) **Cold storage migration to iscsi domain fails**
+
+   
+
+ - [BZ 1816004](https://bugzilla.redhat.com/1816004) **Failed to create a new disk or copy template disk on iscsi of FCP storage domain - qemu-img: Protocol driver \'host_device\' does not support image creation**
 
    
 
@@ -1966,15 +1946,23 @@ where NNN is number of minutes the timeout should be.
 
 #### oVirt Engine
 
- - [BZ 1820182](https://bugzilla.redhat.com/1820182) **ISCSI/FC- LSM/Cloning a VM(deep copy) from template fails in 'MeasureVolumeVDS' method with Could not open image No such file or directory**
-
-   
-
  - [BZ 1816648](https://bugzilla.redhat.com/1816648) **upgrade from 4.3 to 4.4 fails on pg_restore**
 
    
 
+ - [BZ 1820182](https://bugzilla.redhat.com/1820182) **ISCSI/FC- LSM/Cloning a VM(deep copy) from template fails in 'MeasureVolumeVDS' method with Could not open image No such file or directory**
+
+   
+
+ - [BZ 1823348](https://bugzilla.redhat.com/1823348) **Attaching CDROM to a VM from an ISO residing on a block domain fails**
+
+   
+
  - [BZ 1819205](https://bugzilla.redhat.com/1819205) **[CodeChange][i18n] oVirt 4.4 webadmin - translation update**
+
+   
+
+ - [BZ 1820995](https://bugzilla.redhat.com/1820995) **[OVN] ovirt-provider-ovn.service is dead after deploy/upgrade to ovirt-engine-4.4.0-0.31.master.el8ev.noarch**
 
    
 
@@ -1983,18 +1971,6 @@ where NNN is number of minutes the timeout should be.
    
 
  - [BZ 1819248](https://bugzilla.redhat.com/1819248) **Cannot upgrade host after engine setup**
-
-   
-
- - [BZ 1816951](https://bugzilla.redhat.com/1816951) **[CNV&RHV] CNV VM migration failure is not handled correctly by the engine**
-
-   
-
- - [BZ 1816739](https://bugzilla.redhat.com/1816739) **[CNV&RHV] CNV VM updated form CNV side doesn't update vm properties over on RHV side**
-
-   
-
- - [BZ 1816691](https://bugzilla.redhat.com/1816691) **[CNV&RHV] Changes that require Virtual Machine restart: namespace**
 
    
 
@@ -2011,6 +1987,10 @@ where NNN is number of minutes the timeout should be.
    
 
  - [BZ 1712832](https://bugzilla.redhat.com/1712832) **Storage migration of a compressed image is failing with error "No space left on device" in block storage domain**
+
+   
+
+ - [BZ 1732437](https://bugzilla.redhat.com/1732437) **Remove direct kernel/initrd booting from oVirt Engine**
 
    
 
@@ -2034,11 +2014,11 @@ where NNN is number of minutes the timeout should be.
 
    
 
- - [BZ 1809040](https://bugzilla.redhat.com/1809040) **[CNV&RHV] let the user know that token is not valid anymore**
+ - [BZ 1801194](https://bugzilla.redhat.com/1801194) **User experience of ignition/Custom script textbox is low.**
 
    
 
- - [BZ 1801194](https://bugzilla.redhat.com/1801194) **User experience of ignition/Custom script textbox is low.**
+ - [BZ 1809640](https://bugzilla.redhat.com/1809640) **Engine should not explode if host reports duplicated nameservers**
 
    
 
@@ -2075,10 +2055,6 @@ where NNN is number of minutes the timeout should be.
    
 
  - [BZ 1801129](https://bugzilla.redhat.com/1801129) **separate dwh setup: No such file or directory: '/usr/share/ovirt-engine/selinux'**
-
-   
-
- - [BZ 1782279](https://bugzilla.redhat.com/1782279) **Warning message for low space is not received on Imported Storage domain**
 
    
 
@@ -2206,10 +2182,6 @@ where NNN is number of minutes the timeout should be.
 
    
 
- - [BZ 1707451](https://bugzilla.redhat.com/1707451) **Don't execute removal of hosted engine configuration when host is turned off**
-
-   
-
  - [BZ 1734839](https://bugzilla.redhat.com/1734839) **Unable to start guests in our Power9 cluster without running in headless mode.**
 
    
@@ -2317,10 +2289,6 @@ where NNN is number of minutes the timeout should be.
 
 #### oVirt Engine Metrics
 
- - [BZ 1807860](https://bugzilla.redhat.com/1807860) **[RFE] Allow resource allocation options to be customized**
-
-   
-
  - [BZ 1762263](https://bugzilla.redhat.com/1762263) **[RFE] Require Ansible 2.9 in ovirt-engine-metrics**
 
    
@@ -2354,20 +2322,9 @@ where NNN is number of minutes the timeout should be.
    
 
 
-#### Kubevirt java client
-
- - [BZ 1816643](https://bugzilla.redhat.com/1816643) **[CNV&RHV] VM created in CNV not visible in RHV**
-
-   
-
- - [BZ 1816654](https://bugzilla.redhat.com/1816654) **[CNV&RHV] adding provider with already created vm failed**
-
-   
-
-
 #### Contributors
 
-128 people contributed to this release:
+130 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -2379,6 +2336,7 @@ where NNN is number of minutes the timeout should be.
 	Arik Hadas
 	Artur Socha
 	Asaf Rachmani
+	Aviv Turgeman
 	Barak Korren
 	Bartosz Rybacki
 	Bell Levin
@@ -2444,6 +2402,7 @@ where NNN is number of minutes the timeout should be.
 	Nir Soffer
 	NirLevyRH
 	Ondra Machacek
+	Ori Liel
 	Ori_Liel
 	Pavel Bar
 	Petr Kubica
@@ -2494,6 +2453,7 @@ where NNN is number of minutes the timeout should be.
 	michalskrivanek
 	mnecas
 	parthdhanjal
+	rchikatw
 	thaorell
 	yodem
 	

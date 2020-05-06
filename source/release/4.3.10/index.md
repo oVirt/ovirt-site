@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.10 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.10 Second Release Candidate as of April 28, 2020.
+The oVirt Project is pleased to announce the availability of the 4.3.10 Third Release Candidate as of May 06, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -66,11 +66,6 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 ### Bug Fixes
 
-#### VDSM
-
- - [BZ 1819721](https://bugzilla.redhat.com/1819721) **Regression in Migration of VM that starts in pause mode: took 11 hours**
-
-
 #### oVirt Engine
 
  - [BZ 1820642](https://bugzilla.redhat.com/1820642) **[cinderlib] Cinderlib DB is missing a backup and restore option [RHV clone - 4.3.10]**
@@ -79,6 +74,17 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 
 ### Other
+
+#### VDSM
+
+ - [BZ 1829348](https://bugzilla.redhat.com/1829348) **lvm2 dependency on ppc64le need to stay on 7.6**
+
+   
+
+ - [BZ 1829597](https://bugzilla.redhat.com/1829597) **Require lvm2 with supporting locking_type=4 for pvs command on CentOS**
+
+   
+
 
 #### imgbased
 
@@ -89,7 +95,11 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### oVirt Engine
 
- - [BZ 1825740](https://bugzilla.redhat.com/1825740) **[OVN] ovirt sync to ovirt-provider-ovn breaks on upgrade of ovirt-engine-4.2.8.9-0.1.el7ev.noarch to ovirt-engine-4.3.9.4-11.el7.noarch**
+ - [BZ 1832218](https://bugzilla.redhat.com/1832218) **clone(as thin) VM from template or create snapshot fails with 'Requested capacity 1073741824 < parent capacity 3221225472 (volume:1211)' [RHV clone - 4.3.10]**
+
+   
+
+ - [BZ 1828067](https://bugzilla.redhat.com/1828067) **mountOptions is ignored for "import storage domain" from GUI [RHV clone - 4.3.10]**
 
    
 
@@ -102,6 +112,10 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### oVirt Engine
 
+ - [BZ 1827039](https://bugzilla.redhat.com/1827039) **Error retrieving OpenID userinfo [RHV clone - 4.3.10]**
+
+   
+
  - [BZ 1817450](https://bugzilla.redhat.com/1817450) **host_service.install() does not work with deploy_hosted_engine as True. [RHV clone - 4.3.10]**
 
    
@@ -109,20 +123,26 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### Contributors
 
-15 people contributed to this release:
+20 people contributed to this release:
 
 	Ahmad Khiet
+	Artur Socha
+	Benny Zlotnik
 	Daniel Erez
 	Dominik Holler
 	Lev Veyde
+	Liran Rotenberg
 	Martin Necas
 	Martin Perina
 	Milan Zamazal
 	Nir Levy
+	Nir Soffer
 	Ondra Machacek
 	Ori Liel
 	Radoslaw Szwajkowski
 	Roberto Ciatti
 	Sandro Bonazzola
+	Steven Rosenberg
 	Yedidyah Bar David
 	Yuval Turgeman
+

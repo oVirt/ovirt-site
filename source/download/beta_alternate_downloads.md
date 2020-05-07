@@ -1,5 +1,5 @@
 ---
-title: Download Beta
+title: Download Release Candidate
 authors: sandrobonazzola
 ---
 
@@ -32,7 +32,7 @@ preferred because the Engine Virtual Machine will be highly available (once a se
 However, if you prefer to run oVirt Engine standalone on physical hardware or another virtualization provider, you can install oVirt Engine
 and Nodes / Hosts separately.
 
-oVirt 4.4.0 Beta is intended for testing only use and is available for the following platforms:
+oVirt 4.4.0 Release Candidate is intended for testing only use and is available for the following platforms:
 
 Engine:
 - Red Hat Enterprise Linux 8.1
@@ -104,7 +104,7 @@ Depending on your environment requirements, you may want to use only oVirt Nodes
 #### Download oVirt Node
 
 {:.instructions}
-1.  Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.4 - Beta - Installation ISO](https://resources.ovirt.org/pub/ovirt-4.4-pre/iso/ovirt-node-ng-installer/))
+1.  Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.4 - Release Candidate - Installation ISO](https://resources.ovirt.org/pub/ovirt-4.4-pre/iso/ovirt-node-ng-installer/))
 
 2.  Write the oVirt Node Installation ISO disk image to a USB, CD, or DVD.
 
@@ -207,6 +207,6 @@ and [Browser Support and Mobile Clients](/download/browsers_and_mobile.html) for
 
 ## RPM Repositories and GPG keys
 
-[RPM repository for oVirt 4.4 Beta](https://resources.ovirt.org/pub/ovirt-4.4-pre/)
+[RPM repository for oVirt 4.4 Release Candidate](https://resources.ovirt.org/pub/ovirt-4.4-pre/)
 
 See [RPMs and GPG](/download/rpms_and_gpg.html) for older releases, nightlies, mirrors, and GPG keys.

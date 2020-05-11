@@ -1,0 +1,21 @@
+[id='Changing_the_Data_Center_Compatibility_Version_{context}']
+= Changing the Data Center Compatibility Version
+
+// Included in:
+// Admin
+// Upgrade
+
+{virt-product-fullname} data centers have a compatibility version. The compatibility version indicates the version of {virt-product-fullname} with which the data center is intended to be compatible. All clusters in the data center must support the desired compatibility level.
+
+[IMPORTANT]
+====
+To change the data center compatibility version, you must have first updated the compatibility version of all clusters and virtual machines in the data center.
+====
+
+.Procedure
+
+. In the Administration Portal, click menu:Compute[Data Centers].
+. Select the data center to change and click btn:[Edit].
+. Change the *Compatibility Version* to the desired value.
+. Click btn:[OK]. The *Change Data Center Compatibility Version* confirmation dialog opens.
+. Click btn:[OK] to confirm.

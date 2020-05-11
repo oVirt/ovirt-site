@@ -1,0 +1,10 @@
+[id='RHV_key_components_{context}']
+.{virt-product-fullname} Key Components
+[options="header"]
+|====
+|Component Name |Description
+|{virt-product-fullname} {engine-name} |A service that provides a graphical user interface and a REST API to manage the resources in the environment. The {engine-name} is installed on a physical or virtual machine running {enterprise-linux}.
+|Hosts |{enterprise-linux-host-fullname}s ({enterprise-linux-host-shortname}s) and {hypervisor-fullname}s (image-based hypervisors) are the two supported types of host. Hosts use Kernel-based Virtual Machine (KVM) technology and provide resources used to run virtual machines.
+|Shared Storage |A storage service is used to store the data associated with virtual machines.
+|Data Warehouse |A service that collects configuration information and statistical data from the {engine-name}.
+|====

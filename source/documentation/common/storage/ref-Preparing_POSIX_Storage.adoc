@@ -1,0 +1,13 @@
+[id='Preparing_POSIX_Storage_{context}']
+= Preparing POSIX-compliant File System Storage
+
+POSIX file system support allows you to mount file systems using the same mount options that you would normally use when mounting them manually from the command line. This functionality is intended to allow access to storage not exposed using NFS, iSCSI, or FCP.
+
+Any POSIX-compliant file system used as a storage domain in {virt-product-fullname} must be a clustered file system, such as Global File System 2 (GFS2), and must support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with {virt-product-fullname}.
+
+For information on setting up and configuring POSIX-compliant file system storage, see link:{URL_rhel_docs_legacy}html/Global_File_System_2/index.html[_{enterprise-linux} Global File System 2_].
+
+[IMPORTANT]
+====
+Do *not* mount NFS storage by creating a POSIX-compliant file system storage domain. Always create an NFS storage domain instead.
+====

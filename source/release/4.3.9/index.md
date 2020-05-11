@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.9 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.9 Fourth Release Candidate as of March 11, 2020.
+The oVirt Project is pleased to announce the availability of the 4.3.9 release as of March 19, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -23,14 +23,6 @@ projects, including libvirt, Gluster, PatternFly, and Ansible.
 This release is available now for Red Hat Enterprise Linux 7.7 and
 CentOS Linux 7.7 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
@@ -44,12 +36,6 @@ page.
 
 To learn about features introduced before 4.3.9, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm)
 
 
 
@@ -96,6 +82,14 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 
 #### oVirt Engine
 
+ - [BZ 1801558](https://bugzilla.redhat.com/1801558) **/etc/ovirt-provider-ovn/logger.conf should be included in the backup**
+
+   
+
+ - [BZ 1797659](https://bugzilla.redhat.com/1797659) **[API]Have a generic way to initialize a VM in run-once**
+
+   
+
  - [BZ 1809470](https://bugzilla.redhat.com/1809470) **[HE] ovirt-provider-ovn is non-functional on 4.3.9 Hosted-Engine [RHV clone - 4.3.9]**
 
    
@@ -115,6 +109,13 @@ It is possible to select Red Hat CoreOS operation system for a VM.
    
 
 
+#### oVirt Engine Metrics
+
+ - [BZ 1797023](https://bugzilla.redhat.com/1797023) **In RHV Metric Store, installer vm does not take the static ip mentioned in the configuration file**
+
+   
+
+
 ### No Doc Update
 
 #### oVirt Engine
@@ -130,8 +131,9 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 
 #### Contributors
 
-20 people contributed to this release:
+23 people contributed to this release:
 
+	Amit Bawer
 	Andrej Krejcir
 	Artur Socha
 	Asaf Rachmani
@@ -145,10 +147,13 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 	Martin Perina
 	Milan Zamazal
 	Nir Soffer
+	Ori_Liel
 	Ravi Nori
 	Sandro Bonazzola
 	Shani Leviim
 	Sharon Gratch
+	Shirly Radco
 	Simone Tiraboschi
 	Vojtech Juranek
 	Yedidyah Bar David
+	emesika

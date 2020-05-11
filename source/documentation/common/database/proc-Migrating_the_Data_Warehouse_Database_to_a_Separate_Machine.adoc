@@ -1,0 +1,63 @@
+[id='Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_{context}']
+= Migrating the Data Warehouse Database to a Separate Machine
+
+Migrate the Data Warehouse database (`ovirt_engine_history`) before you migrate the Data Warehouse service. Use `engine-backup` to create a database backup and restore it on the new database machine. For more information on `engine-backup`, run `engine-backup --help`.
+
+To migrate the Data Warehouse service only, see xref:Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine_{context}[].
+
+The new database server must have {enterprise-linux} 7 installed.
+Enable the required repositories on the new database server.
+
+:context: migrate_DWH_DB
+[discrete]
+include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
+:context!: migrate_DWH_DB
+
+[discrete]
+== Migrating the Data Warehouse Database to a Separate Machine
+
+. Create a backup of the Data Warehouse database and configuration files on the {engine-name}:
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --mode=backup --scope=dwhdb --scope=files --file=_file_name_ --log=_log_file_name_
+----
+
+. Copy the backup file from the {engine-name} to the new machine:
++
+[options="nowrap" subs="normal"]
+----
+# scp _/tmp/file_name_ _root@new.dwh.server.com:/tmp_
+----
+
+. Install `engine-backup` on the new machine:
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-engine-tools-backup
+----
+
+. Install the PostgreSQL server package:
++
+[options="nowrap" subs="normal"]
+----
+# yum install rh-postgresql10 rh-postgresql10-postgresql-contrib
+----
+
+. Initialize the PostgreSQL database, start the `postgresql` service, and ensure that this service starts on boot:
++
+[options="nowrap" ]
+----
+# scl enable rh-postgresql10 -- postgresql-setup --initdb
+# systemctl enable rh-postgresql10-postgresql
+# systemctl start rh-postgresql10-postgresql
+----
+
+. Restore the Data Warehouse database on the new machine. _file_name_ is the backup file copied from the {engine-name}.
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db --no-restore-permissions
+----
+
+The Data Warehouse database is now hosted on a separate machine from that on which the {engine-name} is hosted. After successfully restoring the Data Warehouse database, a prompt instructs you to run the `engine-setup` command. Before running this command, migrate the Data Warehouse service.

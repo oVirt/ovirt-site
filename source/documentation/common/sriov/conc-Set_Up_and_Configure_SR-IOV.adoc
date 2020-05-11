@@ -1,0 +1,4 @@
+[NOTE]
+====
+This is one in a series of topics that show how to set up and configure SR-IOV on {virt-product-fullname}. For more information, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Setting Up and Configuring SR-IOV]
+====

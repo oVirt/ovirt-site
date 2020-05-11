@@ -1,0 +1,28 @@
+[id='hardware-requirements_{context}']
+= Hardware Requirements
+
+// Included in:
+// PPG
+// Install
+
+The minimum and recommended hardware requirements outlined here are based on a typical small to medium-sized installation. The exact requirements vary between deployments based on sizing and load.
+
+ifdef::rhv-doc[]
+Hardware certification for {virt-product-fullname} is covered by the hardware certification for {enterprise-linux}. For more information, see link:https://access.redhat.com/solutions/725243[]. To confirm whether specific hardware items are certified for use with {enterprise-linux}, see link:https://access.redhat.com/ecosystem/#certifiedHardware[].
+endif::[]
+
+ifdef::ovirt-doc[]
+The {virt-product-fullname} {engine-name} runs on {enterprise-linux} operating systems like link:https://www.centos.org/[CentOS Linux], link:https://www.scientificlinux.org[Scientific Linux], and link:https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux[Red Hat Enterprise Linux].
+endif::[]
+
+.{virt-product-fullname} {engine-name} Hardware Requirements
+[options="header"]
+|====
+|Resource |Minimum |Recommended
+|CPU |A dual core CPU. |A quad core CPU or multiple dual core CPUs.
+|Memory |4 GB of available system RAM if Data Warehouse is not installed and if memory is not being consumed by existing processes. |16 GB of system RAM.
+|Hard Disk |25 GB of locally accessible, writable disk space. |50 GB of locally accessible, writable disk space.
+
+You can use the link:https://access.redhat.com/labs/rhevmhdsc/[RHV {engine-name} History Database Size Calculator] to calculate the appropriate disk space for the {engine-name} history database size.
+|Network Interface |1 Network Interface Card (NIC) with bandwidth of at least 1 Gbps. |1 Network Interface Card (NIC) with bandwidth of at least 1 Gbps.
+|====

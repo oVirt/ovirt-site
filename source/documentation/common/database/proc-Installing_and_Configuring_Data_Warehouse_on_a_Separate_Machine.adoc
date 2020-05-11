@@ -1,0 +1,214 @@
+[id='Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_{context}']
+= Installing and Configuring Data Warehouse on a Separate Machine
+
+:context: install_DWH_remote
+
+This section describes installing and configuring the Data Warehouse service on a separate machine from the {virt-product-fullname} {engine-name}. Installing Data Warehouse on a separate machine helps to reduce the load on the {engine-name} machine.
+
+[NOTE]
+====
+You can install the Data Warehouse database on a machine separate from the Data Warehouse service.
+====
+
+.Prerequisites
+
+* The {virt-product-fullname} {engine-name} is installed on a separate machine.
+
+* A physical server or virtual machine running {enterprise-linux} 7.
+
+* The {engine-name} database password.
+
+ifdef::DWH[]
+//Not needed for SM install with remote DBs; everything is installed on one remote host in that flow.
+* Access from the Data Warehouse machine to the {engine-name} database machine's TCP port 5432.
+
+* If you choose to install the Data Warehouse database separately from the Data Warehouse service, you must set up the database first. To install a remote Data Warehouse database manually, see link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_remote_databases#installing_the_red_hat_virtualization_manager_sm_remotedb_deploy#Preparing_a_Remote_PostgreSQL_Database_install_RHVM[Preparing a Remote PostgreSQL Database]. You must have the following information about the database machine:
+
+** The FQDN
+
+** The port through which the database can be reached (5432 by default)
+
+** The database name
+
+** The database user
+
+** The database password
+
+** You must manually grant access by editing the `postgresql.conf` file. Edit the `/var/opt/rh/rh-postgresql10/lib/pgsql/data/postgresql.conf` file and modify the `listen_addresses` line so that it matches the following:
++
+[options="nowrap" subs="normal"]
+----
+listen_addresses = '*'
+----
+If the line does not exist or has been commented out, add it manually.
+endif::DWH[]
+
+[discrete]
+include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
+
+[discrete]
+== Installing Data Warehouse on a Separate Machine
+
+. Log in to the machine where you want to install the database.
+
+. Ensure that all packages are up to date:
++
+[options="nowrap" subs="normal"]
+----
+# yum update
+----
++
+. Install the `ovirt-engine-dwh-setup` package:
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-engine-dwh-setup
+----
++
+. Run the `engine-setup` command to begin the installation:
++
+[options="nowrap" subs="normal"]
+----
+# engine-setup
+----
+// I was not prompted. Perhaps because I installed ovirt-engine-dwh-setup instead of rhvm?
+. Ensure you answer `No` when asked whether to install the {engine-name} on this machine:
++
+[options="nowrap" subs="normal"]
+----
+Configure Engine on this host (Yes, No) [Yes]: No
+----
+. Answer `Yes` to install Data Warehouse on this machine:
++
+[options="nowrap" subs="normal"]
+----
+Configure Data Warehouse on this host (Yes, No) [Yes]:
+----
+. Press `Enter` to accept the automatically-detected host name, or enter an alternative host name and press `Enter`:
++
+[options="nowrap" subs="normal"]
+----
+Host fully qualified DNS name of this server [_autodetected hostname_]:
+----
++
+. Press `Enter` to automatically configure the firewall, or type `No` and press `Enter` to maintain existing settings:
++
+[options="nowrap" subs="normal"]
+----
+Setup can automatically configure the firewall on this system.
+Note: automatic configuration of the firewall may overwrite current settings.
+Do you want Setup to configure the firewall? (Yes, No) [Yes]:
+----
+If you choose to automatically configure the firewall, and no firewall managers are active, you are prompted to select your chosen firewall manager from a list of supported options. Type the name of the firewall manager and press `Enter`. This applies even in cases where only one option is listed.
+. Enter the fully qualified domain name of the {engine-name} machine, and then press `Enter`:
++
+[options="nowrap" subs="normal"]
+----
+Host fully qualified DNS name of the engine server []:
+----
++
+. Press `Enter` to allow setup to sign the certificate on the {engine-name} via SSH:
++
+[options="nowrap" subs="normal"]
+----
+Setup will need to do some actions on the remote engine server. Either automatically, using ssh as root to access it, or you will be prompted to manually perform each such action.
+Please choose one of the following:
+1 - Access remote engine server using ssh as root
+2 - Perform each action manually, use files to copy content around
+(1, 2) [1]:
+----
++
+. Press `Enter` to accept the default SSH port, or enter an alternative port number and then press `Enter`:
++
+[options="nowrap" subs="normal"]
+----
+ssh port on remote engine server [22]:
+----
++
+. Enter the root password for the {engine-name} machine:
++
+[options="nowrap" subs="normal"]
+----
+root password on remote engine server _manager.example.com_:
+----
++
+. Specify whether to host the Data Warehouse database on this machine (Local), or on another machine (Remote):
++
+[options="nowrap" subs="normal"]
+----
+Where is the DWH database located? (Local, Remote) [Local]:
+----
+
+** If you select `Local`, the `engine-setup` script can configure your database automatically (including adding a user and a database), or it can connect to a preconfigured local database:
++
+[options="nowrap" subs="normal"]
+----
+Setup can configure the local postgresql server automatically for the DWH to run. This may conflict with existing applications.
+Would you like Setup to automatically configure postgresql and create DWH database, or prefer to perform that manually? (Automatic, Manual) [Automatic]:
+----
++
+*** If you select `Automatic` by pressing `Enter`, no further action is required here.
+*** If you select `Manual`, input the following values for the manually-configured local database:
++
+[options="nowrap" subs="normal"]
+----
+DWH database secured connection (Yes, No) [No]:
+DWH database name [ovirt_engine_history]:
+DWH database user [ovirt_engine_history]:
+DWH database password:
+----
+
+ifdef::SM_remoteDB_deploy[]
+** If you select `Remote`, you are prompted to provide details about the remote database host. Input the following values for the preconfigured remote database host:
++
+[options="nowrap" subs="normal"]
+----
+DWH database host []: _dwh-db-fqdn_
+DWH database port [5432]:
+DWH database secured connection (Yes, No) [No]:
+DWH database name [ovirt_engine_history]:
+DWH database user [ovirt_engine_history]:
+DWH database password: _password_
+----
+endif::SM_remoteDB_deploy[]
+
+. Enter the fully qualified domain name and password for the {engine-name} database machine. If you are installing the Data Warehouse database on the same machine where the {engine-name} database is installed, use the same FQDN. Press `Enter` to accept the default values in each other field:
++
+[options="nowrap" subs="normal"]
+----
+Engine database host []: _engine-db-fqdn_
+Engine database port [5432]:
+Engine database secured connection (Yes, No) [No]:
+Engine database name [engine]:
+Engine database user [engine]:
+Engine database password: _password_
+----
++
+. Choose how long Data Warehouse will retain collected data:
++
+[options="nowrap" subs="normal"]
+----
+Please choose Data Warehouse sampling scale:
+(1) Basic
+(2) Full
+(1, 2)[1]:
+----
+`Full` uses the default values for the data storage settings listed in link:{URL_virt_product_docs}data-warehouse/Data_Warehouse_Guide.html#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file[Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf] (recommended when Data Warehouse is installed on a remote host).
++
+`Basic` reduces the values of `DWH_TABLES_KEEP_HOURLY` to `720` and `DWH_TABLES_KEEP_DAILY` to `0`, easing the load on the {engine-name} machine. Use `Basic` when the {engine-name} and Data Warehouse are installed on the same machine.
+. Confirm your installation settings:
++
+[options="nowrap" subs="normal"]
+----
+Please confirm installation settings (OK, Cancel) [OK]:
+----
++
+. After the Data Warehouse configuration is complete, on the {virt-product-fullname} {engine-name}, restart the `ovirt-engine` service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart ovirt-engine
+----
+. Optionally, set up SSL to secure database connections using the instructions at link: https://www.postgresql.org/docs/10/ssl-tcp.html#SSL-FILE-USAGE[].
+
+:context!: install_DWH_remote

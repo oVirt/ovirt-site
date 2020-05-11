@@ -1,0 +1,23 @@
+[id='Installing_Red_Hat_Enterprise_Linux_Hosts_{context}']
+= Installing {enterprise-linux-host-fullname}s
+
+ifdef::rhv-doc[]
+A {enterprise-linux-host-fullname} is based on a standard basic installation of {enterprise-linux} 7 on a physical server, with the `{enterprise-linux} Server` and `{virt-product-fullname}` subscriptions attached.
+endif::[]
+ifdef::ovirt-doc[]
+A {enterprise-linux-host-fullname} is based on a standard basic installation of {enterprise-linux} 7 on a physical server, with the `{enterprise-linux} Server` and `{virt-product-fullname}` repositories enabled.
+endif::[]
+
+For detailed installation instructions, see the link:{URL_rhel_docs_legacy}html/Installation_Guide/index.html[_{enterprise-linux} 7 Installation Guide_].
+
+The host must meet the minimum link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/planning_and_prerequisites_guide/rhv_requirements#host-requirements[host requirements].
+
+[IMPORTANT]
+====
+Virtualization must be enabled in your host's BIOS settings. For information on changing your host's BIOS settings, refer to your host's hardware documentation.
+====
+
+[IMPORTANT]
+====
+Third-party watchdogs should not be installed on {enterprise-linux-host-fullname}s, as they can interfere with the watchdog daemon provided by VDSM.
+====

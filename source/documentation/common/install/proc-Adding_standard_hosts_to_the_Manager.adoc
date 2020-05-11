@@ -1,0 +1,25 @@
+[id='Adding_standard_hosts_to_the_Manager_{context}']
+= Adding Standard Hosts to the {virt-product-fullname} {engine-name}
+
+Adding a host to your {virt-product-fullname} environment can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, and creation of a bridge.
+
+include::../install/snip-IPv6_important_note.adoc[]
+
+
+.Procedure
+
+. From the Administration Portal, click menu:Compute[Hosts].
+. Click btn:[New].
+. Use the drop-down list to select the *Data Center* and *Host Cluster* for the new host.
+. Enter the *Name* and the *Address* of the new host. The standard SSH port, port 22, is auto-filled in the *SSH Port* field.
+. Select an authentication method to use for the {engine-name} to access the host.
+* Enter the root user's password to use password authentication.
+* Alternatively, copy the key displayed in the *SSH PublicKey* field to */root/.ssh/authorized_keys* on the host to use public key authentication.
+. Optionally, click the *Advanced Parameters* button to change the following advanced host settings:
+* Disable automatic firewall configuration.
+* Add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
+. Optionally configure power management, where the host has a supported power management card. For information on power management configuration, see link:{URL_virt_product_docs}admin-guide/administration-guide.html#Host_Power_Management_settings_explained[Host Power Management Settings Explained] in the _Administration Guide_.
+. Click btn:[OK].
+
+
+The new host displays in the list of hosts with a status of `Installing`, and you can view the progress of the installation in the *Events* section of the *Notification Drawer* (image:../common/images/EventsIcon.png[]). After a brief delay the host status changes to `Up`.

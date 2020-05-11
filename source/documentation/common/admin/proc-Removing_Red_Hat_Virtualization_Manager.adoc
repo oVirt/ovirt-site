@@ -1,0 +1,53 @@
+[id='Removing_Red_Hat_Virtualization_Manager_{context}']
+= Removing the {virt-product-fullname} {engine-name}
+
+You can use the `engine-cleanup` command to remove specific components or all components of the {virt-product-fullname} {engine-name}.
+
+[NOTE]
+====
+A backup of the {engine-name} database and a compressed archive of the PKI keys and configuration are always automatically created. These files are saved under `/var/lib/ovirt-engine/backups/`, and include the date and `engine-` and `engine-pki-` in their file names respectively.
+====
+
+
+.Procedure
+
+. Run the following command on the {engine-name} machine:
++
+[options="nowrap" subs="normal"]
+----
+# engine-cleanup
+----
++
+. You are prompted whether to remove all {virt-product-fullname} {engine-name} components:
+* Type `Yes` and press `Enter` to remove all components:
++
+[options="nowrap" subs="normal"]
+----
+Do you want to remove all components? (Yes, No) [Yes]:
+----
+* Type `No` and press `Enter` to select the components to remove. You can select whether to retain or remove each component individually:
++
+[options="nowrap" subs="normal"]
+----
+Do you want to remove Engine database content? All data will be lost (Yes, No) [No]:
+Do you want to remove PKI keys? (Yes, No) [No]:
+Do you want to remove PKI configuration? (Yes, No) [No]:
+Do you want to remove Apache SSL configuration? (Yes, No) [No]:
+----
++
+. You are given another opportunity to change your mind and cancel the removal of the {virt-product-fullname} {engine-name}. If you choose to proceed, the `ovirt-engine` service is stopped, and your environment's configuration is removed in accordance with the options you selected.
++
+[options="nowrap" subs="normal"]
+----
+During execution engine service will be stopped (OK, Cancel) [OK]:
+ovirt-engine is about to be removed, data will be lost (OK, Cancel) [Cancel]:OK
+----
+ifdef::rhv-doc[]
++
+. Remove the {virt-product-fullname} packages:
++
+[options="nowrap" subs="normal"]
+----
+# yum remove rhvm* vdsm-bootstrap
+----
+endif::[]

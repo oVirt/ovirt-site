@@ -1,0 +1,14 @@
+= Introduction to the VM Portal
+include::../common/collateral_files/ovirt-attributes.adoc[]
+:imagesdir: images
+:context: VM_portal
+:VM_portal:
+
+include::chap-Accessing_the_VM_Portal.adoc[leveloffset=+1]
+
+include::chap-Managing_virtual_machines.adoc[]
+
+[appendix]
+== Legal notice
+
+Certain portions of this text first appeared in the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/{vernum_rhv}/html-single/introduction_to_the_vm_portal/[Red Hat Virtualization 4.3 Introduction to the VM Portal]. Copyright © 2019 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

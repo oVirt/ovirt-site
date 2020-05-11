@@ -339,13 +339,25 @@ RewriteEngine On
 
 # regular redirects for old content
 
-# old quick start -> installation guide
+# old quick start -> documentation
 RewriteCond %{REQUEST_URI} /documentation/quickstart.*
-RewriteRule ^(.*)$ /documentation/install-guide/Installation_Guide.html [R=301,L]
+RewriteRule ^(.*)$ /documentation/ [R=301,L]
 
-# hosted engine how-to -> self-hosted engine guide
+# hosted engine how-to -> documentation
 RewriteCond %{REQUEST_URI} /documentation/how-to/hosted-engine.*
-RewriteRule ^(.*)$ /documentation/self-hosted/Self-Hosted_Engine_Guide.html [R=301,L]
+RewriteRule ^(.*)$ /documentation/ [R=301,L]
+
+# install-guide is no longer a single title
+RewriteCond %{REQUEST_URI} /documentation/install-guide.*
+RewriteRule ^(.*)$ /documentation/ [R=301,L]
+
+# self-hosted is no longer a single title
+RewriteCond %{REQUEST_URI} /documentation/self-hosted.*
+RewriteRule ^(.*)$ /documentation/ [R=301,L]
+
+# upgrade-guide -> upgrade_guide
+RewriteCond %{REQUEST_URI} /documentation/upgrade-guide.*
+RewriteRule ^(.*)$ /documentation/upgrade_guide/ [R=301,L]
 
 # how-to -> develop
 RewriteCond %{REQUEST_URI} /documentation/how-to.*

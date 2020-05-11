@@ -1,0 +1,67 @@
+[id='Migrating_the_self-hosted_engine_database_{context}']
+= Migrating the Self-Hosted Engine Database to a Remote Server
+
+:context: migrate_SHE_DB
+
+You can migrate the `engine` database of a self-hosted engine to a remote database server after the {virt-product-fullname} {engine-name} has been initially configured. Use `engine-backup` to create a database backup and restore it on the new database server.
+
+The new database server must have {enterprise-linux} 7 installed and the required repositories enabled:
+
+[discrete]
+include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
+
+[discrete]
+== Migrating the Self-Hosted Engine Database to a Remote Server
+
+. Log in to a self-hosted engine node and place the environment into `global` maintenance mode. This disables the High Availability agents and prevents the {engine-name} virtual machine from being migrated during the procedure:
++
+----
+# hosted-engine --set-maintenance --mode=global
+----
+
+. Log in to the {virt-product-fullname} {engine-name} machine and stop the `ovirt-engine` service so that it does not interfere with the engine backup:
++
+----
+# systemctl stop ovirt-engine.service
+----
+
+. Create the `engine` database backup:
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --scope=files --scope=db --mode=backup --file=_file_name_ --log=_backup_log_name_
+----
+
+. Copy the backup file to the new database server:
++
+[options="nowrap" subs="normal"]
+----
+# scp _/tmp/engine.dump_ _root@new.database.server.com:/tmp_
+----
+
+. Log in to the new database server and install `engine-backup`:
++
+----
+# yum install ovirt-engine-tools-backup
+----
+
+. Restore the database on the new database server. _file_name_ is the backup file copied from the {engine-name}.
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --mode=restore --scope=files --scope=db --file=_file_name_ --log=_restore_log_name_ --provision-db --no-restore-permissions
+----
+
+. Now that the database has been migrated, start the `ovirt-engine` service:
++
+----
+# systemctl start ovirt-engine.service
+----
+
+. Log in to a self-hosted engine node and turn off maintenance mode, enabling the High Availability agents:
++
+----
+# hosted-engine --set-maintenance --mode=none
+----
+
+:context!: migrate_SHE_DB

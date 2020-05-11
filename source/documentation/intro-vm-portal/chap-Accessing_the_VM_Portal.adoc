@@ -1,0 +1,14 @@
+[[chap-Accessing_the_VM_Portal]]
+= Accessing the VM Portal
+
+include::topics/What_is_the_VM_Portal.adoc[][leveloffset=+1]
+
+include::../common/prereqs/ref-Manager_Browser_Requirements.adoc[leveloffset=+1]
+
+include::../common/prereqs/ref-Manager_Client_Requirements.adoc[leveloffset=+1]
+
+include::topics/Installing_the_CA_certificate.adoc[leveloffset=+1]
+
+include::topics/Logging_in_to_the_VM_Portal.adoc[leveloffset=+1]
+
+include::topics/Graphical_User_Interface_elements.adoc[leveloffset=+1]

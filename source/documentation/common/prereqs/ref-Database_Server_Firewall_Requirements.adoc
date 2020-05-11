@@ -1,0 +1,36 @@
+[id='database-server-firewall-requirements_{context}']
+= Database Server Firewall Requirements
+
+// Included in:
+// PPG
+// Install
+
+{virt-product-fullname} supports the use of a remote database server for the {engine-name} database (`engine`) and the Data Warehouse database (`ovirt-engine-history`). If you plan to use a remote database server, it must allow connections from the {engine-name} and the Data Warehouse service (which can be separate from the {engine-name}).
+
+Similarly, if you plan to access a local or remote Data Warehouse database from an external system, such as Red Hat CloudForms, the database must allow connections from that system.
+
+[IMPORTANT]
+====
+Accessing the {engine-name} database from external systems is not supported.
+====
+
+[NOTE]
+====
+A diagram of these firewall requirements is available at https://access.redhat.com/articles/3932211.
+You can use the IDs in the table to look up connections in the diagram.
+====
+
+.Database Server Firewall Requirements
+[options="header", cols="2,2,2,5,5,5,3", frame=all, grid=all]
+|====
+|ID |Port(s) |Protocol |Source |Destination |Purpose |Encrypted by default
+|D1
+|5432 |TCP, UDP |{virt-product-fullname} {engine-name}
+
+Data Warehouse service |{engine-name} (`engine`) database server
+
+Data Warehouse (`ovirt-engine-history`) database server |Default port for PostgreSQL database connections.
+| link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/migrating_to_remote_servers_she_cockpit_deploy#Migrating_the_self-hosted_engine_database_SHE_cockpit_deploy[No, but can be enabled].
+|D2 |5432 |TCP, UDP |External systems |Data Warehouse (`ovirt-engine-history`) database server |Default port for PostgreSQL database connections.
+| Disabled by default. link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/migrating_to_remote_servers_she_cockpit_deploy#Migrating_the_self-hosted_engine_database_SHE_cockpit_deploy[No, but can be enabled].
+|====

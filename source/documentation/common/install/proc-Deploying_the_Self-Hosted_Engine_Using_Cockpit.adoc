@@ -1,0 +1,81 @@
+[id='Deploying_the_Self-Hosted_Engine_Using_Cockpit_{context}']
+= Deploying the Self-Hosted Engine Using Cockpit
+
+Deploy a self-hosted engine, using Cockpit to collect the details of your environment. This is the recommended method. Cockpit is enabled by default on {hypervisor-fullname}s, and can be installed on {enterprise-linux-host-fullname}s.
+
+.Prerequisites
+
+* FQDNs prepared for your {engine-name} and the deployment host. Forward and reverse lookup records must both be set in the DNS.
+
+.Procedure
+
+. Log in to Cockpit at `https://__HostIPorFQDN__:9090` and click menu:Virtualization[Hosted Engine].
+. Click btn:[Start] under the *Hosted Engine* option.
+. Enter the details for the {engine-name} virtual machine:
+.. Enter the *Engine VM FQDN*. This is the FQDN for the {engine-name} virtual machine, not the base host.
+.. Enter a *MAC Address* for the {engine-name} virtual machine, or accept a randomly generated one.
+.. Choose either *DHCP* or *Static* from the *Network Configuration* drop-down list.
++
+[NOTE]
+====
+For IPv6, {virt-product-fullname} supports only static addressing.
+====
++
+* If you choose *DHCP*, you must have a DHCP reservation for the {engine-name} virtual machine so that its host name resolves to the address received from DHCP. Specify its MAC address in the *MAC Address* field.
+* If you choose *Static*, enter the following details:
+** *VM IP Address* - The IP address must belong to the same subnet as the host. For example, if the host is in 10.1.1.0/24, the {engine-name} virtual machine’s IP must be in the same subnet range (10.1.1.1-254/24).
+** *Gateway Address*
+** *DNS Servers*
+.. Select the *Bridge Interface* from the drop-down list.
+.. Enter and confirm the virtual machine's *Root Password*.
+.. Specify whether to allow *Root SSH Access*.
+.. Enter the *Number of Virtual CPUs* for the virtual machine.
+.. Enter the *Memory Size (MiB)*. The available memory is displayed next to the input field.
+. Optionally expand the *Advanced* fields:
+.. Enter a *Root SSH Public Key* to use for root access to the {engine-name} virtual machine.
+.. Select or clear the *Edit Hosts File* check box to specify whether to add entries for the {engine-name} virtual machine and the base host to the virtual machine's `/etc/hosts` file. You must ensure that the host names are resolvable.
+.. Change the management *Bridge Name*, or accept the default `ovirtmgmt`.
+.. Enter the *Gateway Address* for the management bridge.
+.. Enter the *Host FQDN* of the first host to add to the {engine-name}. This is the FQDN of the base host you are running the deployment on.
+. Click *Next*.
+. Enter and confirm the *Admin Portal Password* for the `admin@internal` user.
+. Configure event notifications:
+.. Enter the *Server Name* and *Server Port Number* of the SMTP server.
+.. Enter the *Sender E-Mail Address*.
+.. Enter the *Recipient E-Mail Addresses*.
+. Click *Next*.
+. Review the configuration of the {engine-name} and its virtual machine. If the details are correct, click *Prepare VM*.
+. When the virtual machine installation is complete, click *Next*.
+. Select the *Storage Type* from the drop-down list, and enter the details for the self-hosted engine storage domain:
+* For NFS:
+.. Enter the full address and path to the storage in the *Storage Connection* field.
+.. If required, enter any *Mount Options*.
+.. Enter the *Disk Size (GiB)*.
+.. Select the *NFS Version* from the drop-down list.
+.. Enter the *Storage Domain Name*.
+* For iSCSI:
+.. Enter the *Portal IP Address*, *Portal Port*, *Portal Username*, and *Portal Password*.
+.. Click *Retrieve Target List* and select a target. You can only select one iSCSI target during the deployment, but multipathing is supported to connect all portals of the same portal group.
++
+[NOTE]
+====
+To specify more than one iSCSI target, you must enable multipathing before deploying the self-hosted engine. See link:{URL_rhel_docs_legacy}html-single/dm_multipath/[_{enterprise-linux} DM Multipath_] for details. There is also a link:https://access.redhat.com/labs/multipathhelper/#/[Multipath Helper] tool that generates a script to install and configure multipath with different options.
+====
++
+.. Enter the *Disk Size (GiB)*.
+.. Enter the *Discovery Username* and *Discovery Password*.
+* For Fibre Channel:
+.. Enter the *LUN ID*. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Reusing LUNs] in the _Administration Guide_.
+.. Enter the *Disk Size (GiB)*.
+* For {gluster-storage-fullname}:
+.. Enter the full address and path to the storage in the *Storage Connection* field.
+.. If required, enter any *Mount Options*.
+.. Enter the *Disk Size (GiB)*.
+. Click *Next*.
+. Review the storage configuration. If the details are correct, click *Finish Deployment*.
+. When the deployment is complete, click *Close*.
++
+One data center, cluster, host, storage domain, and the {engine-name} virtual machine are already running. You can log in to the Administration Portal to add further resources.
+. Optionally, add a directory server using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script so you can add additional users to the environment. For more information, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Configuring an External LDAP Provider] in the _Administration Guide_.
+
+The self-hosted engine's status is displayed in Cockpit's menu:Virtualization[Hosted Engine] tab. The {engine-name} virtual machine, the host running it, and the self-hosted engine storage domain are flagged with a gold crown in the Administration Portal.

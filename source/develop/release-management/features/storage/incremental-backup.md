@@ -174,7 +174,7 @@ Specify 'backup' property on ```disk``` entity: 'incremental'/'none' (TBD: 'full
 
 Request:
 ```
-POST /vms/vm-uuid/diskattachments
+PUT /vms/vm-uuid/diskattachments
 
 <disk_attachment>
     ...
@@ -391,6 +391,16 @@ Response:
 
 ## Future Work
 
+
+- Support incremental backup.
+  Currently only full backup for raw and qcow2 disks is supported,
+  to enable support for incremental backup (work in progress), 
+  Engine config value 'IsIncrementalBackupSupported' must be set to 'true'.
+  ```
+  # engine-config -s "IsIncrementalBackupSupported=true"
+  # systemctl restart ovirt-engine 
+  ```
+  
 - API for listing and deleting checkpoints.
 
 ## Detailed design

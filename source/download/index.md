@@ -26,14 +26,14 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 <img class="screenshot" src="download_1.png">
 
-oVirt 4.3.8 is intended for production use and is available for the following platforms:
+oVirt 4.3.9 is intended for production use and is available for the following platforms:
 
 - Red Hat Enterprise Linux 7.7 or later but < 8
 - CentOS Linux 7.7 or later but < 8
 - Scientific Linux 7.7 or later but < 8
 - oVirt Node (based on CentOS)
 
-See the [Release Notes for oVirt 4.3.8](/release/4.3.8/).
+See the [Release Notes for oVirt 4.3.9](/release/4.3.9/).
 
 ## Install oVirt with Cockpit
 
@@ -41,14 +41,14 @@ oVirt is installed using a graphical installer in Cockpit.
 
 oVirt Engine and a Host are installed together with the Engine running as a Virtual Machine on that Host.
 Once you install a second Host, the Engine Virtual Machine will be highly available. See the
-[Self-Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide.html) for full details.
+[oVirt documentation](/documentation/) for full details.
 
 [Alternate download options](/download/alternate_downloads.html)
 
-oVirt supports two types of [Hosts](/documentation/install-guide/chap-Introduction_to_Hosts.html):
+oVirt supports two types of [Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Installing_Hosts_for_RHV_SHE_cockpit_deploy):
 
 * [oVirt Node](/download/node.html), a minimal hypervisor operating system based on CentOS
-* [Enterprise Linux (such as CentOS or RHEL)](/documentation/install-guide/chap-Enterprise_Linux_Hosts.html)
+* [Enterprise Linux (such as CentOS or RHEL)](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Enterprise_Linux_hosts_SHE_cockpit_deploy)
 
 Depending on your environment requirements, you may want to use only oVirt Nodes, only EL Hosts, or both.
 
@@ -122,11 +122,11 @@ and high-availability.
 
 Once you have installed additional oVirt Nodes or EL Hosts, use the oVirt Administration Portal to add them to the Engine.
 Navigate to Compute → Hosts → New and enter the Host details. See
-[Adding a Host to the oVirt Engine](/documentation/install-guide/chap-Adding_a_Host_to_the_oVirt_Engine.html) for detailed instructions.
+[Adding a Host to the oVirt Engine](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_standard_hosts_to_the_Manager_SHE_cockpit_deploy) for detailed instructions.
 
 ## Install Virtual Machines
 
-Once oVirt Engine is installed and you have added Hosts and [configured storage](/documentation/install-guide/chap-Configuring_Storage.html),
+Once oVirt Engine is installed and you have added Hosts and [configured storage](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_Storage_Domains_to_RHV_SHE_cockpit_deploy),
 you can now install Virtual Machines! See the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide.html)
 for complete instructions.
 

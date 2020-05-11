@@ -45,7 +45,7 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
 - [Migrate PKI to SHA256 signatures](/develop/migrate-pki-to-sha256)
 - [Networking](/develop/networking/)
 - [Internal](/develop/internal/)
-- [Resources](/develop/resources/)
+- [Resources](/community/get-involved/resources)
 - [Security](/develop/security/)
 - [SLA](/develop/sla/)
 - [Storage](/develop/storage/)
@@ -59,7 +59,7 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
 #### Data Warehouse
 
 - [DWH Development Environment](/develop/dwh-development-environment)
-- [How to write patches for DWH](/develop/reports/)
+- [How to write patches for DWH](/develop/write-patches-for-dwh)
 
 #### Storage
 

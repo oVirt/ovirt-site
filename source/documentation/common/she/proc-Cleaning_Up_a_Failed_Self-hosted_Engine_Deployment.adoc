@@ -1,0 +1,37 @@
+[id='Cleaning_Up_a_Failed_Self-hosted_Engine_Deployment_{context}']
+= Cleaning Up a Failed Self-hosted Engine Deployment
+
+If a self-hosted engine deployment was interrupted, subsequent deployments will fail with an error message. The error will differ depending on the stage in which the deployment failed.
+
+If you receive an error message, you can run the cleanup script on the deployment host to clean up the failed deployment. However, it's best to reinstall your base operating system and start the deployment from the beginning.
+
+[NOTE]
+====
+The cleanup script has the following limitations:
+
+* A disruption in the network connection while the script is running might cause the script to fail to remove the management bridge or to recreate a working network configuration.
+
+* The script is not designed to clean up any shared storage device used during a failed deployment. You need to clean the shared storage device before you can reuse it in a subsequent deployment.
+====
+
+.Procedure
+
+. Run `/usr/sbin/ovirt-hosted-engine-cleanup` and select `y` to remove anything left over from the failed self-hosted engine deployment.
++
+----
+# /usr/sbin/ovirt-hosted-engine-cleanup
+This will de-configure the host to run ovirt-hosted-engine-setup from scratch.
+Caution, this operation should be used with care.
+Are you sure you want to proceed? [y/n]
+----
+
+. Define whether to reinstall on the same shared storage device or select a different shared storage device.
+  * To deploy the installation on the same storage domain, clean up the storage domain by running the following command in the appropriate directory on the server for NFS, Gluster, PosixFS or local storage domains:
++
+[options="nowrap" subs="normal"]
+----
+# rm -rf _storage_location_/*
+----
+  * For iSCSI or Fibre Channel Protocol (FCP) storage, see link:https://access.redhat.com/solutions/2121581[] for information on how to clean up the storage.
+  * Alternatively, select a different shared storage device.
+. Redeploy the self-hosted engine.

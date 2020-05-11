@@ -1,0 +1,108 @@
+[id='host-firewall-requirements_{context}']
+= Host Firewall Requirements
+
+// Included in:
+// PPG
+// Install
+
+{enterprise-linux-host-fullname}s and {hypervisor-fullname}s ({hypervisor-shortname}) require a number of ports to be opened to allow network traffic through the system's firewall. The firewall rules are automatically configured by default when adding a new host to the {engine-name}, overwriting any pre-existing firewall configuration. 
+
+To disable automatic firewall configuration when adding a new host, clear the *Automatically configure host firewall* check box under *Advanced Parameters*.
+
+To customize the host firewall rules, see link:https://access.redhat.com/solutions/2772331[].
+[NOTE]
+====
+A diagram of these firewall requirements is available at https://access.redhat.com/articles/3932211.
+You can use the IDs in the table to look up connections in the diagram.
+====
+
+.Virtualization Host Firewall Requirements
+[options="header", %autowidth, frame=all, grid=all]
+
+|====
+|ID |Port(s) |Protocol |Source |Destination |Purpose |Encrypted by default
+|H1 |22 |TCP |{virt-product-fullname} {engine-name} |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |Secure Shell (SSH) access.
+
+Optional.
+|Yes
+|H2 |2223 |TCP |{virt-product-fullname} {engine-name} |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |Secure Shell (SSH) access to enable connection to virtual machine serial consoles.
+|Yes
+|H3 |161 |UDP |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |{virt-product-fullname} {engine-name} |Simple network management protocol (SNMP). Only required if you want Simple Network Management Protocol traps sent from the host to one or more external SNMP managers.
+
+Optional.
+|No
+|H4 |111 |TCP |NFS storage server |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |NFS connections.
+
+Optional.
+|No
+|H5 |5900 - 6923 |TCP |Administration Portal clients
+
+VM Portal clients |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |Remote guest console access via VNC and SPICE. These ports must be open to facilitate client access to virtual machines.
+|Yes (optional)
+|H6 |5989 |TCP, UDP |Common Information Model Object Manager (CIMOM) |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |Used by Common Information Model Object Managers (CIMOM) to monitor virtual machines running on the host. Only required if you want to use a CIMOM to monitor the virtual machines in your virtualization environment.
+
+Optional.
+|No
+|H7 |9090 |TCP |{virt-product-fullname} {engine-name}
+
+Client machines |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |Required to access the Cockpit web interface, if installed.
+|Yes
+|H8 |16514 |TCP |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |Virtual machine migration using *libvirt*.
+|Yes
+|H9 |49152 - 49215 |TCP |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |Virtual machine migration and fencing using VDSM. These ports must be open to facilitate both automated and manual migration of virtual machines.
+|Yes. Depending on agent for fencing, migration is done through libvirt.
+|H10 |54321 |TCP |{virt-product-fullname} {engine-name}
+
+{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |VDSM communications with the {engine-name} and other virtualization hosts.
+|Yes
+|H11 |54322 |TCP |{virt-product-fullname} {engine-name} (ImageIO Proxy server) |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |Required for communication with the ImageIO daemon (*ovirt-imageio-daemon*).
+|Yes
+|H12 |6081 |UDP |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s |Required, when Open Virtual Network (OVN) is used as a network provider, to allow OVN to create tunnels between hosts.
+|No
+|H13 |53 |TCP, UDP |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s | DNS Server | DNS lookup requests from ports above 1023 to port 53, and responses. This port is required and open by default.
+|No
+|H14 |123 |UDP |{hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s | NTP Server |NTP requests from ports above 1023 to port 123, and responses. This port is required and open by default.
+|====
+
+[NOTE]
+====
+By default, {enterprise-linux} allows outbound traffic to DNS and NTP on any destination address. If you disable outgoing traffic, make exceptions for the {hypervisor-fullname}s
+
+{enterprise-linux-host-fullname}s to send requests to DNS and NTP servers. Other nodes may also require DNS and NTP. In that case, consult the requirements for those nodes and configure the firewall accordingly.
+====

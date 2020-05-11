@@ -1,0 +1,40 @@
+[id='Installing_Cockpit_on_Linux_Hosts_{context}']
+= Installing Cockpit on {enterprise-linux-host-fullname}s
+
+You can install Cockpit for monitoring the host's resources and performing administrative tasks.
+
+
+.Procedure
+
+. Install the dashboard packages:
+[options="nowrap" subs="normal"]
++
+----
+
+# yum install cockpit-ovirt-dashboard
+
+----
+
+. Enable and start the `cockpit.socket` service:
+[options="nowrap" subs="normal"]
++
+----
+# systemctl enable cockpit.socket
+# systemctl start cockpit.socket
+
+----
+. Check if Cockpit is an active service in the firewall:
++
+----
+# firewall-cmd --list-services
+----
++
+You should see `cockpit` listed. If it is not, enter the following with root permissions to add `cockpit` as a service to your firewall:
++
+----
+# firewall-cmd --permanent --add-service=cockpit
+----
++
+The `--permanent` option keeps the `cockpit` service active after rebooting.
+
+You can log in to the Cockpit web interface at `https://_HostFQDNorIP_:9090`.

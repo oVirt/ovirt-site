@@ -1,0 +1,111 @@
+[id="Upgrading_Remote_Databases_from_PG95_to_PG10_{context}"]
+= Upgrading Remote Databases from PostgreSQL 9.5 to 10
+
+{virt-product-fullname} 4.3 uses PostgreSQL 10 instead of PostgreSQL 9.5. If your databases are installed locally, the upgrade script automatically upgrades them from version 9.5 to 10. However, if either of your databases ({engine-name} or Data Warehouse) is installed on a separate machine, you must perform the following procedure on each remote database before upgrading the {engine-name}.
+
+. Stop the service running on the machine:
+* Stop the `ovirt-engine` service on the {engine-name} machine:
++
+----
+# systemctl stop ovirt-engine
+----
+* Stop the `ovirt-engine-dwh` service on the Data Warehouse machine:
++
+----
+# systemctl stop ovirt-engine-dwhd
+----
+
+. Enable the required repository to receive the PostgreSQL 10 package:
++
+ifdef::rhv-doc[]
+Enable either the {virt-product-fullname} {engine-name} repository:
++
+----
+# subscription-manager repos --enable=rhel-7-server-rhv-4.3-manager-rpms
+----
++
+or the SCL repository:
++
+----
+# subscription-manager repos --enable rhel-server-rhscl-7-rpms
+----
+endif::[]
+ifdef::ovirt-doc[]
+* Ensure the correct repositories are enabled:
++
+[options="nowrap" subs="normal"]
+----
+# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+----
+endif::[]
+
+. Install the PostgreSQL 10 packages:
++
+----
+# yum install rh-postgresql10 rh-postgresql10-postgresql-contrib
+----
+
+. Stop and disable the PostgreSQL 9.5 service:
++
+----
+# systemctl stop rh-postgresql95-postgresql
+# systemctl disable rh-postgresql95-postgresql
+----
+
+. Upgrade the PostgreSQL 9.5 database to PostgreSQL
+10:
++
+----
+# scl enable rh-postgresql10 -- postgresql-setup --upgrade-from=rh-postgresql95-postgresql --upgrade
+----
+
+. Start and enable the `rh-postgresql10-postgresql.service` and check that it is running:
++
+----
+# systemctl start rh-postgresql10-postgresql.service
+# systemctl enable rh-postgresql10-postgresql.service
+# systemctl status rh-postgresql10-postgresql.service
+----
++
+Ensure that you see output similar to the following:
++
+[options="nowrap" ]
+----
+rh-postgresql10-postgresql.service - PostgreSQL database server
+   Loaded: loaded (/usr/lib/systemd/system/rh-postgresql10-postgresql.service;
+enabled; vendor preset: disabled)
+   Active: active (running) since ...
+----
+
+. Copy the [filename]`pg_hba.conf` client configuration file from the PostgreSQL 9.5 environment to the PostgreSQL 10 environment:
++
+[options="nowrap" subs="normal"]
+----
+# cp -p /var/opt/rh/rh-postgresql95/lib/pgsql/data/pg_hba.conf  /var/opt/rh/rh-postgresql10/lib/pgsql/data/pg_hba.conf
+----
+
+. Update the following parameters in [filename]`/var/opt/rh/rh-postgresql10/lib/pgsql/data/postgresql.conf`:
++
+[options="nowrap" subs="normal"]
+----
+listen_addresses='*'
+autovacuum_vacuum_scale_factor=0.01
+autovacuum_analyze_scale_factor=0.075
+autovacuum_max_workers=6
+maintenance_work_mem=65536
+max_connections=150
+work_mem = 8192
+----
+
+. Restart the PostgreSQL 10 service to apply the configuration changes:
++
+----
+# systemctl restart rh-postgresql10-postgresql.service
+----
+
+. Start the `ovirt-engine-dwhd` service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl start ovirt-engine-dwhd
+----

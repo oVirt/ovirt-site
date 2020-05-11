@@ -29,7 +29,11 @@ group :jekyll_plugins do
   gem "jekyll-font-awesome-sass"
   gem "jekyll-favicon"
   gem 'jekyll-analytics'
+  gem 'jekyll-asciidoc'
 end
+
+# for syntax highlighting
+gem 'coderay', '~> 1.1', '>= 1.1.2'
 
 # for events
 gem 'icalendar', '~> 1.5'

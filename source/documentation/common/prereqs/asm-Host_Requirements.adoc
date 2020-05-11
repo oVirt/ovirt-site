@@ -1,0 +1,24 @@
+[id='host-requirements']
+= Host Requirements
+
+// Included in:
+// PPG
+// Install
+
+ifdef::rhv-doc[]
+Hardware certification for {virt-product-fullname} is covered by the hardware certification for {enterprise-linux}. For more information, see link:https://access.redhat.com/solutions/725243[]. To confirm whether specific hardware items are certified for use with {enterprise-linux}, see link:https://access.redhat.com/ecosystem/#certifiedHardware[].
+
+For more information on the requirements and limitations that apply to guests see link:https://access.redhat.com/articles/rhel-limits[] and link:https://access.redhat.com/articles/906543[].
+endif::[]
+
+include::ref-Host_CPU_Requirements.adoc[leveloffset=+1]
+
+include::ref-Host_Memory_Requirements.adoc[leveloffset=+1]
+
+include::ref-Host_Storage_Requirements.adoc[leveloffset=+1]
+
+include::ref-Host_PCI_Device_Requirements.adoc[leveloffset=+1]
+
+include::ref-Host_Device_Assignment_Requirements.adoc[leveloffset=+1]
+
+include::ref-vGPU_Requirements.adoc[leveloffset=+1]

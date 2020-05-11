@@ -1,0 +1,197 @@
+[id='Replacing_SHA-1_Certificates_with_SHA-256_Certificates_{context}']
+= Replacing SHA-1 Certificates with SHA-256 Certificates
+
+{virt-product-fullname} 4.3 uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable {virt-product-fullname}'s public key infrastructure (PKI) to use SHA-256 signatures. However, for systems upgraded from 4.1 or earlier, one of the following is required:
+
+* xref:Preventing_Warning_Messages_from_Appearing_in_the_Browser_{context}[Prevent warning messages from appearing in your browser when connecting to the Administration Portal.] These warnings may either appear as pop-up windows or in the browser's *Web Console* window. This option is not required if you already replaced the {virt-product-fullname} {engine-name}'s Apache SSL certificate after the upgrade. However, if the certificate was signed with SHA-1, you should replace it with an SHA-256 certificate. For more details see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Replacing the {virt-product-fullname} {engine-name} CA Certificate] in the _Administration Guide_.
+
+* xref:Replacing_All_Signed_Certificates_with_SHA-256_{context}[Replace the SHA-1 certificates throughout the system with SHA-256 certificates.]
+
+[id='Preventing_Warning_Messages_from_Appearing_in_the_Browser_{context}']
+[discrete]
+== Preventing Warning Messages from Appearing in the Browser
+
+. Log in to the {engine-name} machine as the root user.
+
+. Check whether */etc/pki/ovirt-engine/openssl.conf* includes the line `default_md = sha256`:
++
+[options="nowrap" subs="normal"]
+----
+# cat /etc/pki/ovirt-engine/openssl.conf
+----
++
+If it still includes `default_md = sha1`, back up the existing configuration and change the default to `sha256`:
++
+[options="nowrap" subs="normal"]
+----
+# cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf."$(date +"%Y%m%d%H%M%S")"
+# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf
+----
+
+. Define the certificate that should be re-signed:
++
+----
+# names="apache"
+----
+
+ifdef::SHE_upgrade[]
+. Log in to one of the self-hosted engine nodes and enable global maintenance:
++
+----
+# hosted-engine --set-maintenance --mode=global
+----
+endif::SHE_upgrade[]
+
+. On the {engine-name}, re-sign the Apache certificate:
++
+----
+
+for name in $names; do
+    subject="$(
+        openssl \
+            x509 \
+            -in /etc/pki/ovirt-engine/certs/"${name}".cer \
+            -noout \
+            -subject \
+        | sed \
+            's;subject= \(.*\);\1;' \
+    )"
+   /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
+        --name="${name}" \
+        --password=mypass \
+        --subject="${subject}" \
+        --san=DNS:"${ENGINE_FQDN}" \
+        --keep-key
+done
+
+----
+
+. Restart the *httpd* service:
++
+----
+# systemctl restart httpd
+----
+
+ifdef::SHE_upgrade[]
+. Log in to one of the self-hosted engine nodes and disable global maintenance:
++
+----
+# hosted-engine --set-maintenance --mode=none
+----
+endif::SHE_upgrade[]
+
+. Connect to the Administration Portal to confirm that the warning no longer appears.
+
+. If you previously imported a CA or https certificate into the browser, find the certificate(s), remove them from the browser, and reimport the new CA certificate. Install the certificate authority according to the instructions provided by your browser. To get the certificate authority's certificate, navigate to `http://_your-manager-fqdn_/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA`, replacing _your-manager-fqdn_ with the fully qualified domain name (FQDN).
+
+[id='Replacing_All_Signed_Certificates_with_SHA-256_{context}']
+[discrete]
+== Replacing All Signed Certificates with SHA-256
+
+. Log in to the {engine-name} machine as the root user.
+
+. Check whether */etc/pki/ovirt-engine/openssl.conf* includes the line `default_md = sha256`:
++
+[options="nowrap" subs="normal"]
+----
+# cat /etc/pki/ovirt-engine/openssl.conf
+----
++
+If it still includes `default_md = sha1`, back up the existing configuration and change the default to `sha256`:
++
+[options="nowrap" subs="normal"]
+----
+# cp -p /etc/pki/ovirt-engine/openssl.conf /etc/pki/ovirt-engine/openssl.conf."$(date +"%Y%m%d%H%M%S")"
+# sed -i 's/^default_md = sha1/default_md = sha256/' /etc/pki/ovirt-engine/openssl.conf
+----
+
+. Re-sign the CA certificate by backing it up and creating a new certificate in *ca.pem.new*:
++
+[options="nowrap" subs="normal"]
+----
+# cp -p /etc/pki/ovirt-engine/private/ca.pem /etc/pki/ovirt-engine/private/ca.pem."$(date +"%Y%m%d%H%M%S")"
+# openssl x509 -signkey /etc/pki/ovirt-engine/private/ca.pem -in /etc/pki/ovirt-engine/ca.pem -out /etc/pki/ovirt-engine/ca.pem.new -days 3650 -sha256
+----
+
+. Replace the existing certificate with the new certificate:
++
+[options="nowrap" subs="normal"]
+----
+# mv /etc/pki/ovirt-engine/ca.pem.new /etc/pki/ovirt-engine/ca.pem
+----
+
+. Define the certificates that should be re-signed:
++
+[options="nowrap" subs="normal"]
+----
+# names="engine apache websocket-proxy jboss imageio-proxy"
+----
++
+If you replaced the {virt-product-fullname} {engine-name} SSL Certificate after the upgrade, run the following instead:
++
+[options="nowrap" subs="normal"]
+----
+# names="engine websocket-proxy jboss imageio-proxy"
+----
++
+For more details see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Replacing the {virt-product-fullname} {engine-name} CA Certificate] in the _Administration Guide_.
+
+ifdef::SHE_upgrade[]
+.	Log in to one of the self-hosted engine nodes and enable global maintenance:
++
+----
+# hosted-engine --set-maintenance --mode=global
+----
+endif::SHE_upgrade[]
+
+. On the {engine-name}, re-sign the certificates:
++
+[options="nowrap" subs="normal"]
+----
+for name in $names; do
+   subject="$(
+        openssl \
+            x509 \
+            -in /etc/pki/ovirt-engine/certs/"${name}".cer \
+            -noout \
+            -subject \
+        | sed \
+            's;subject= \(.*\);\1;' \
+        )"
+     /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
+            --name="${name}" \
+            --password=mypass \
+            --subject="${subject}" \
+            --san=DNS:"${ENGINE_FQDN}" \
+            --keep-key
+done
+
+----
+
+. Restart the following services:
++
+----
+# systemctl restart httpd
+# systemctl restart ovirt-engine
+# systemctl restart ovirt-websocket-proxy
+# systemctl restart ovirt-imageio-proxy
+----
+
+ifdef::SHE_upgrade[]
+. Log in to one of the self-hosted engine nodes and disable global maintenance:
++
+----
+# hosted-engine --set-maintenance --mode=none
+----
+endif::SHE_upgrade[]
+
+. Connect to the Administration Portal to confirm that the warning no longer appears.
+
+. If you previously imported a CA or https certificate into the browser, find the certificate(s), remove them from the browser, and reimport the new CA certificate. Install the certificate authority according to the instructions provided by your browser. To get the certificate authority's certificate, navigate to `http://_your-manager-fqdn_/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA`, replacing _your-manager-fqdn_ with the fully qualified domain name (FQDN).
+
+. Enroll the certificates on the hosts. Repeat the following procedure for each host.
+
+.. In the Administration Portal, click menu:Compute[Hosts].
+.. Select the host and click menu:Management[Maintenance].
+.. Once the host is in maintenance mode, click menu:Installation[Enroll Certificate].
+.. Click menu:Management[Activate].

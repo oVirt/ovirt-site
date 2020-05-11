@@ -1,0 +1,31 @@
+[id='Adding_FCP_Storage_{context}']
+= Adding FCP Storage
+
+This procedure shows you how to attach existing FCP storage to your {virt-product-fullname} environment as a data domain.
+
+.Procedure
+
+. Click menu:Storage[Domains].
+. Click *New Domain*.
+. Enter the *Name* of the storage domain.
+. Select an FCP *Data Center* from the drop-down list.
++
+If you do not yet have an appropriate FCP data center, select `(none)`.
+. Select the *Domain Function* and the *Storage Type* from the drop-down lists. The storage domain types that are not compatible with the chosen data center are not available.
+. Select an active host in the *Host* field. If this is not the first data domain in a data center, you must select the data center's SPM host.
++
+[IMPORTANT]
+====
+All communication to the storage domain is through the selected host and not directly from the {virt-product-fullname} {engine-name}. At least one active host must exist in the system and be attached to the chosen data center. All hosts must have access to the storage device before the storage domain can be configured.
+====
++
+. The *New Domain* window automatically displays known targets with unused LUNs when *Fibre Channel* is selected as the storage type. Select the *LUN ID* check box to select all of the available LUNs.
+. Optionally, you can configure the advanced parameters.
+.. Click *Advanced Parameters*.
+.. Enter a percentage value into the *Warning Low Space Indicator* field. If the free space available on the storage domain is below this percentage, warning messages are displayed to the user and logged.
+.. Enter a GB value into the *Critical Space Action Blocker* field. If the free space available on the storage domain is below this value, error messages are displayed to the user and logged, and any new action that consumes space, even temporarily, will be blocked.
+.. Select the *Wipe After Delete* check box to enable the wipe after delete option. This option can be edited after the domain is created, but doing so will not change the wipe after delete property of disks that already exist.
+.. Select the *Discard After Delete* check box to enable the discard after delete option. This option can be edited after the domain is created. This option is only available to block storage domains.
+. Click *OK*.
+
+The new FCP data domain remains in a `Locked` status while it is being prepared for use. When ready, it is automatically attached to the data center.

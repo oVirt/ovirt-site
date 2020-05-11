@@ -1,0 +1,28 @@
+[id='Storage_Requirements_{context}']
+= Storage Requirements
+
+// Included in:
+// PPG
+// Install
+
+Hosts require storage to store configuration, logs, kernel dumps, and for use as swap space. Storage can be local or network-based. {hypervisor-fullname} ({hypervisor-shortname}) can boot with one, some, or all of its default allocations  in network storage. Booting from network storage can result in a freeze if there is a network disconnect. Adding a drop-in multipath configuration file can help address losses in network connectivity. If {hypervisor-shortname} boots from SAN storage and loses connectivity, the files become read-only until network connectivity restores. Using network storage might result in a performance downgrade.
+
+The minimum storage requirements of {hypervisor-shortname} are documented in this section. The storage requirements for {enterprise-linux-host-fullname}s vary based on the amount of disk space used by their existing configuration but are expected to be greater than those of {hypervisor-shortname}.
+
+The minimum storage requirements for host installation are listed below. However, {org-fullname} recommends using the default allocations, which use more storage space.
+
+* / (root) - 6 GB
+* /home - 1 GB
+* /tmp - 1 GB
+* /boot - 1 GB
+* /var - 15 GB
+* /var/crash - 10 GB
+* /var/log - 8 GB
+* /var/log/audit - 2 GB
+* swap - 1 GB (for the recommended swap size, see link:https://access.redhat.com/solutions/15244[])
+* Anaconda reserves 20% of the thin pool size within the volume group for future metadata expansion. This is to prevent an out-of-the-box configuration from running out of space under normal usage conditions. Overprovisioning of thin pools during installation is also not supported.
+* *Minimum Total - 55 GB*
+
+If you are also installing the {engine-appliance-name} for self-hosted engine installation, `/var/tmp` must be at least 5 GB.
+
+If you plan to use memory overcommitment, add enough swap space to provide virtual memory for all of virtual machines. See link:{URL_virt_product_docs}admin-guide/administration-guide.html[Memory Optimization].

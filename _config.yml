@@ -44,6 +44,19 @@ kramdown:
   parse_block_html: true
   parse_span_html: true
 
+asciidoctor:
+  base_dir: :docdir
+  # to be able to resolve includes in parent directories
+  safe: unsafe
+  attributes:
+    chunk_section_depth: 1
+    site-baseurl: /
+    page-liquid: ''
+    source-highlighter: coderay
+    coderay-css: style
+    icons: font
+    experimental: ''
+
 # YAML defaults for pages
 defaults:
   -
@@ -83,7 +96,7 @@ defaults:
       layout: "developer_outdated"
   -
     scope:
-      path: 'develop/resources'
+      path: '/community/get-involved/resources'
     values:
       layout: "developer_outdated"
   -
@@ -122,6 +135,10 @@ exclude:
   - LICENSE.md
   - CONTRIBUTING.md
   - CODEOWNERS
+  # avoid generating paginated asciidoc content
+  - documentation/common/**/*.adoc
+  - documentation/upgrade_guide/topics
+  - documentation/upgrade_guide/assembly*
 
 sass:
   add_charset: true

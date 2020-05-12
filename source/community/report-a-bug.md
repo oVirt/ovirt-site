@@ -8,7 +8,7 @@ authors: dneary,sandrobonazzola
 
 For reporting bugs, the oVirt project uses the Bugzilla bugtracker and testing tool.
 
-For reporting security issues please follow the [security reporting procedure](/documentation/security/security/).
+For reporting security issues please follow the [security reporting procedure](/community/security/).
 
 ## How to create a Bugzilla account
 

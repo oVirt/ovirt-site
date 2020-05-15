@@ -1,0 +1,9 @@
+[id="Upgrading_from_4-3"]
+= Upgrading from 4.3 to {virt-product-fullname} 4.4
+
+
+include::../common/upgrade/proc-Upgrading_the_Manager_to_4-4.adoc[leveloffset=+1]
+
+// Add new {engine-name} upgrade versions here
+
+You can now update the hosts.

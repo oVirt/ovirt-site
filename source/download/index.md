@@ -26,14 +26,19 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 <img class="screenshot" src="download_1.png">
 
-oVirt 4.3.9 is intended for production use and is available for the following platforms:
+oVirt 4.4.0 is intended for production use and is available for the following platforms:
 
-- Red Hat Enterprise Linux 7.7 or later but < 8
-- CentOS Linux 7.7 or later but < 8
-- Scientific Linux 7.7 or later but < 8
-- oVirt Node (based on CentOS)
+Engine:
+- Red Hat Enterprise Linux 8.1
+- CentOS Linux 8.1
 
-See the [Release Notes for oVirt 4.3.9](/release/4.3.9/).
+Hosts:
+- Red Hat Enterprise Linux 8.1
+- CentOS Linux 8.1
+- oVirt Node (based on CentOS Linux 8.1)
+
+See the [Release Notes for oVirt 4.4.0](/release/4.4.0/).
+
 
 ## Install oVirt with Cockpit
 
@@ -55,7 +60,7 @@ Depending on your environment requirements, you may want to use only oVirt Nodes
 #### Download oVirt Node
 
 {:.instructions}
-1.  Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.3 - Stable Release - Installation ISO](https://resources.ovirt.org/pub/ovirt-4.3/iso/ovirt-node-ng-installer/))
+1.  Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.4 - Stable Release - Installation ISO](https://resources.ovirt.org/pub/ovirt-4.4/iso/ovirt-node-ng-installer/))
 
 2.  Write the oVirt Node Installation ISO disk image to a USB, CD, or DVD.
 
@@ -66,24 +71,24 @@ Depending on your environment requirements, you may want to use only oVirt Nodes
 Instead of or in addition to oVirt Node, you can use a standard Enterprise Linux installation as a Host.
 
 {:.instructions}
-1.  Install one of the supported operating systems (CentOS, RHEL, or Scientific Linux) on your Host and update it:
+1.  Install one of the supported operating systems (CentOS, RHEL) on your Host and update it:
 
-        sudo yum update -y
+        sudo dnf update -y
         # reboot if the kernel was updated
 
 2.  Add the official oVirt repository:
 
-        sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+        sudo dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 
 ## Install oVirt using the Cockpit wizard
 
 {:.instructions}
-1.  Enable the Base, Optional, and Extra repositories (Red Hat Enterprise Linux only):
+1.  Enable the Base, Appstream, and Ansible repositories (Red Hat Enterprise Linux only):
 
         # RHEL only -- they are enabled by default on CentOS and oVirt Node
-        sudo subscription-manager repos --enable="rhel-7-server-rpms"
-        sudo subscription-manager repos --enable="rhel-7-server-optional-rpms"
-        sudo subscription-manager repos --enable="rhel-7-server-extras-rpms"
+        sudo subscription-manager repos --enable="rhel-8-for-x86_64-baseos-rpms"
+        sudo subscription-manager repos --enable="rhel-8-for-x86_64-appstream-rpms"
+        sudo subscription-manager repos --enable="ansible-2-for-rhel-8-x86_64-rpms"
 
 2.  Install Cockpit and the cockpit-ovirt-dashboard plugin:
 
@@ -170,6 +175,6 @@ and [Browser Support and Mobile Clients](/download/browsers_and_mobile.html) for
 
 ## RPM Repositories and GPG keys
 
-[RPM repository for oVirt 4.3 - Latest stable release](https://resources.ovirt.org/pub/ovirt-4.3/)
+[RPM repository for oVirt 4.4 - Latest stable release](https://resources.ovirt.org/pub/ovirt-4.4/)
 
 See [RPMs and GPG](/download/rpms_and_gpg.html) for older releases, nightlies, mirrors, and GPG keys.

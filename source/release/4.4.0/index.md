@@ -13,15 +13,15 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.0 First Release Candidate as of May 06, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.0 Second Release Candidate as of May 14, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
-This release is available now for Red Hat Enterprise Linux 8.1 and
-CentOS Linux 8.1 (or similar).
+This release is available now for Red Hat Enterprise Linux 7.7 and
+CentOS Linux 7.7 (or similar).
 
 
 To find out how to interact with oVirt developers and users and ask questions,
@@ -188,6 +188,10 @@ If you need to fine-tune your crypto settings you should do it by changing or cr
 
 
 #### oVirt Engine
+
+ - [BZ 1306586](https://bugzilla.redhat.com/1306586) **change Windows drivers and sysprep delivery method to a CDROM**
+
+   The floppy device has been replaced by a CDROM device for sysprep installation of Compatibility Versions 4.4 and later.
 
  - [BZ 1821930](https://bugzilla.redhat.com/1821930) **Enable only TLSv1.2+ protocol for SPICE on EL7 hosts**
 
@@ -615,6 +619,27 @@ and replace below strings:
 
 
 Those replacement are only breaking changes contained in version 1.1.0 compared to 1.0.3, but for upgrades from 4.3 those changes will be performed automatically as a part of engine-setup. So we just need to fix documentation mentioning manual setup of logger-log4j extension.
+
+
+#### oVirt Engine Metrics
+
+ - [BZ 1523289](https://bugzilla.redhat.com/1523289) **[RFE] Create a role that will list to the admin which hosts are not configured for metrics**
+
+   Feature: 
+
+List hosts that are not configured for metrics.
+
+
+
+Reason: 
+
+So that the user can check the reason the Collectd, Rsyslog/Fluentd services are not working as expected and fix it.
+
+
+
+Result: 
+
+When running the manage services playbook the "/etc/ovirt-engine-metrics/hosts_not_configured_for_metrics" file is created and includes the list of hosts that the services are not running on.
 
 
 ### Rebase: Bug Fixeses and Enhancementss
@@ -1089,6 +1114,10 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 #### oVirt Hosted Engine HA
 
+ - [BZ 1830730](https://bugzilla.redhat.com/1830730) **Add log messages for DNS query test**
+
+   
+
  - [BZ 1768511](https://bugzilla.redhat.com/1768511) **ovirt-ha-broker "sometimes" fails to load on RHEL8 due to a permission error on a systemd defined RuntimeDirectory**
 
    
@@ -1105,6 +1134,10 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 #### VDSM
 
  - [BZ 1803484](https://bugzilla.redhat.com/1803484) **[UI] - Add nmstate version under 'Hosts' > 'General' software information**
+
+   
+
+ - [BZ 1821309](https://bugzilla.redhat.com/1821309) **Can't change gateway of a static IPv4 address**
 
    
 
@@ -1255,6 +1288,10 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
    
 
+ - [BZ 1831620](https://bugzilla.redhat.com/1831620) **[UI] Wrong header name for bond's slaves**
+
+   
+
  - [BZ 1417545](https://bugzilla.redhat.com/1417545) **Unable to set global volume options using 'all' as volume name**
 
    
@@ -1362,10 +1399,6 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
  - [BZ 1812906](https://bugzilla.redhat.com/1812906) **Upgrade via backup and restore from 4.3 to 4.4 is blocked**
 
    engine-backup in version 4.4 allows restoring also from backups taken by 4.3, to allow using that as a means to upgrade from 4.3 on EL7 to 4.4 on EL8 (which does not allow direct upgrade).
-
- - [BZ 1811866](https://bugzilla.redhat.com/1811866) **[Scale] Webadmin clusters list view response time is too long because of excessive amount of qos related sql queries**
-
-   
 
  - [BZ 1783750](https://bugzilla.redhat.com/1783750) **Block upgrade if there's a risk of running out of space (say, any brick / volume is @ >90% full capacity)**
 
@@ -2324,7 +2357,7 @@ where NNN is number of minutes the timeout should be.
 
 #### Contributors
 
-130 people contributed to this release:
+134 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -2340,6 +2373,7 @@ where NNN is number of minutes the timeout should be.
 	Barak Korren
 	Bartosz Rybacki
 	Bell Levin
+	Beni Pelled
 	Benny Zlotnik
 	Bernhard M. Wiedemann
 	Bohdan Iakymets
@@ -2370,6 +2404,7 @@ where NNN is number of minutes the timeout should be.
 	Germano Veit Michel
 	Gobinda Das
 	Greg Sheremeta
+	Hilda Stastna
 	Ido Rosenzwig
 	Irit Goihman
 	Jan Zmeskal
@@ -2432,6 +2467,7 @@ where NNN is number of minutes the timeout should be.
 	Tal Nisan
 	Tomasz Baranski
 	Tomáš Golembiovský
+	Uri Lublin
 	Vitor de Lima
 	Vojtech Juranek
 	Vojtech Szocs
@@ -2440,6 +2476,7 @@ where NNN is number of minutes the timeout should be.
 	Yoav Kleinberger
 	Yotam Fromm
 	Yuval Turgeman
+	bamsalem
 	benams1
 	bond95
 	dependabot[bot]
@@ -2456,4 +2493,3 @@ where NNN is number of minutes the timeout should be.
 	rchikatw
 	thaorell
 	yodem
-	

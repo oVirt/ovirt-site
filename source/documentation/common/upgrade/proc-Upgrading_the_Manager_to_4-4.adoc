@@ -1,0 +1,32 @@
+[id="Upgrading_the_Manager_to_4-4_{context}"]
+= Upgrading the {engine-name} from 4.3 to 4.4
+
+Upgrade the {virt-product-fullname} {engine-name} from 4.3 to 4.4.
+
+// Included in:
+// Upgrade Guide
+
+[IMPORTANT]
+====
+Upgrading from 4.3 to 4.4 requires host reinstallation with Enterprise Linux 8.
+Procedure is then a migration more than an upgrade.
+====
+
+.Procedure
+
+For a standalone engine this means basically:
+
+1. backup engine data on 4.3.9 with:
+   `engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log`
+2. copy the backup to a safe location
+3. reinstall engine host with EL 8
+4. enable repos with:
+   `dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm`
+5. `dnf update` (reboot if needed)
+6. enable modules with:
+   `dnf module enable -y javapackages-tools pki-deps postgresql:12 389-ds`
+7. install engine rpms with:
+   `dnf install ovirt-engine`    
+8. restore the engine data with:
+   `engine-backup --mode=restore --file=backup.bck --log=restore.log --provision-db --provision-dwh-db --restore-permissions --provision-dwh-db`
+9. run `engine-setup`.

@@ -35,4 +35,9 @@ Here is how to report a bug found in oVirt:
 <br>All other fields can be left at their default value.
 9. Finally, click the **Submit Bug** button, and you’re done!
 
-Thank you for submitting a bug. A developer will review your submission, and if more information is needed, we'll send you an email to the email address you provided.
+Thank you for submitting a bug report! A developer will review your submission, and if more information is needed, we'll send you an email to the email address you provided.
+
+If information provided within the bug description are insufficient or you don't know where to look for getting more details,
+it may help proactively attach a [sos report](https://github.com/sosreport/sos/wiki) or
+an [oVirt Log Collector report](/documentation/admin-guide/chap-Utilities.html#the-log-collector-tool)
+to your report.

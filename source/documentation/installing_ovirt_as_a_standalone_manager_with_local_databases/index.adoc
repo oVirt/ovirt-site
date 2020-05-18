@@ -8,7 +8,7 @@ Standalone {engine-name} installation is manual and customizable. You must insta
 
 In a local database environment, the {engine-name} database and Data Warehouse database can be created automatically by the {engine-name} configuration script. Alternatively, you can create these databases manually on the {engine-name} machine before running `engine-setup`.
 
-See the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/planning_and_prerequisites_guide/[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration.
+See the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/planning_and_prerequisites_guide/[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration.
 
 include::../common/arch/con-RHV_key_components.adoc[]
 
@@ -44,7 +44,7 @@ Installing a standalone {engine-name} environment with local databases involves 
 
 [IMPORTANT]
 ====
-Keep the environment up to date. See link:https://access.redhat.com/articles/2974891[] for more information. Since bug fixes for known issues are frequently released, {org-fullname} recommends using scheduled tasks to update the hosts and the {engine-name}.
+Keep the environment up to date. See link:https://access.redhat.com/articles/2974891[] for more information. Since bug fixes for known issues are frequently released, use scheduled tasks to update the hosts and the {engine-name}.
 ====
 
 
@@ -107,4 +107,4 @@ include::../common/admin/proc-Removing_Red_Hat_Virtualization_Manager.adoc[level
 [appendix]
 == Legal notice
 
-Certain portions of this text first appeared in the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/{vernum_rhv}/html-single/installing_red_hat_virtualization_as_a_standalone_manager_with_local_databases/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a standalone Manager with local databases]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].
+Certain portions of this text first appeared in link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/installing_ovirt_as_a_standalone_manager_with_local_databases/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a standalone Manager with local databases]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

@@ -12,7 +12,7 @@ SELinux is in enforcing mode upon installation. To verify, run `getenforce`. SEL
 
 .Host Types
 [options="header"]
-|====
+|===
 |Host Type |Other Names |Description
 |*{hypervisor-fullname}* |{hypervisor-shortname}, thin host |This is a minimal operating system based on {enterprise-linux}. It is distributed as an ISO file from the Customer Portal and contains only the packages required for the machine to act as a host.
 ifdef::rhv-doc[]
@@ -21,11 +21,11 @@ endif::[]
 ifdef::ovirt-doc[]
 |*{enterprise-linux-host-fullname}* |{enterprise-linux-host-shortname}, thick host |{enterprise-linux} systems with the appropriate repositories enabled can be used as hosts.
 endif::[]
-|====
+|===
 
 .Host Compatibility
 
-When you create a new data center, you can set the compatibility version. Select the compatibility version that suits all the hosts in the data center. Once set, version regression is not allowed. For a fresh {virt-product-fullname} installation, the latest compatibility version is set in the default data center and default cluster; to use an earlier compatibility version, you must create additional data centers and clusters. For more information about compatibility versions see _{virt-product-fullname} {engine-name} Compatibility_ in the link:https://access.redhat.com/support/policy/updates/rhev[{virt-product-fullname} Life Cycle].
+When you create a new data center, you can set the compatibility version. Select the compatibility version that suits all the hosts in the data center. Once set, version regression is not allowed. For a fresh {virt-product-fullname} installation, the latest compatibility version is set in the default data center and default cluster; to use an earlier compatibility version, you must create additional data centers and clusters. For more information about compatibility versions see _{virt-product-fullname} {engine-name} Compatibility_ in link:https://access.redhat.com/support/policy/updates/rhev[{virt-product-fullname} Life Cycle].
 
 [id='Red_Hat_Virtualization_Hosts_{context}']
 == {hypervisor-fullname}s

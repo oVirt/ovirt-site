@@ -27,18 +27,10 @@ For security and performance reasons, users may want to configure the websocket 
 # engine-setup
 ----
 +
-ifdef::rhv-doc[]
 [NOTE]
 ====
-If the `rhvm` package has also been installed, choose `No` when asked to configure the {engine-name} (`Engine`) on this host.
+If the `{engine-package}` package has also been installed, choose `No` when asked to configure the {engine-name} (`Engine`) on this host.
 ====
-endif::[]
-ifdef::ovirt-doc[]
-[NOTE]
-====
-If the `ovirt-engine` package has also been installed, choose `No` when asked to configure the {engine-name} on this host.
-====
-endif::[]
 +
 . Press `Enter` to allow `engine-setup` to configure a websocket proxy server on the machine.
 +
@@ -97,21 +89,13 @@ root password on remote engine server _engine_host.example.com_:
 
 ----
 
-. Select whether to review iptables rules if they differ from the current settings.
-+
-[options="nowrap" subs="normal"]
-----
-Generated iptables rules are different from current ones.
-Do you want to review them? (Yes, No) [No]:
-----
-+
 . Press `Enter` to confirm the configuration settings.
 +
 [options="nowrap" subs="normal"]
 ----
 --== CONFIGURATION PREVIEW ==--
 
-Firewall manager                        : iptables
+Firewall manager                        : firewalld
 Update Firewall                         : True
 Host FQDN                               : host.example.com
 Configure WebSocket Proxy               : True

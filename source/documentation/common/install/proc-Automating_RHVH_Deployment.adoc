@@ -15,15 +15,14 @@ The automated {hypervisor-shortname} deployment has 3 stages:
 == Preparing the Installation Environment
 
 ifdef::rhv-doc[]
-. Log in to the link:https://access.redhat.com[Customer Portal].
-. Click *Downloads* in the menu bar.
-. Click *{virt-product-fullname}*. Scroll up and click *Download Latest* to access the product
+. Go to the link:https://access.redhat.com/products/red-hat-virtualization#getstarted[Get Started with Red Hat Virtualization] on the Red Hat Customer Portal and log in.
+. Click *Download Latest* to access the product
 download page.
-. Go to *Hypervisor Image for RHV 4.3* and and click *Download Now*.
+. Choose the appropriate *Hypervisor Image for RHV* from the list and click *Download Now*.
 endif::[]
 ifdef::ovirt-doc[]
 . Visit the link:https://ovirt.org/download/node.html[oVirt Node Download] page.
-. Download link:https://www.ovirt.org/download/node.html#ovirt-node-43---stable-release[oVirt Node 4.3 - Stable Release - Installation ISO].
+. Choose the version of *oVirt Node* to download and click its *Installation ISO* link.
 endif::[]
 . Make the {hypervisor-shortname} ISO image available over the network. See https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-making-media-additional-sources.html#sect-making-media-sources-network[Installation Source on a Network] in the _{enterprise-linux} Installation Guide_.
 . Extract the *squashfs.img* hypervisor image file from the {hypervisor-shortname} ISO:

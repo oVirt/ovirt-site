@@ -1,0 +1,21 @@
+[id='proc_Manually_installing_the_appliance_{context}']
+= Manually installing the {engine-appliance-name}
+
+When you deploy the self-hosted engine, the following sequence of events takes place:
+
+. The installer installs the {engine-appliance-name} to the deployment host.
+. The appliance installs the {engine-name} virtual machine.
+. The appliance installs the {engine-name} on the {engine-name} virtual machine.
+
+However, you can install the appliance manually on the deployment host beforehand if you need to. The appliance is large and network connectivity issues might cause the appliance installation to take a long time, or possibly fail.
+
+.Procedure
+
+To install the {engine-appliance-name} to the host manually, enter the following command:
+
+[options="nowrap" subs="normal"]
+----
+# yum install {engine-package}-appliance
+----
+
+Now, when you deploy the self-hosted engine, the installer detects that the appliance is already installed.

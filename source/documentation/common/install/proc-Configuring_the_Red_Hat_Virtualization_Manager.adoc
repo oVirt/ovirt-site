@@ -25,22 +25,12 @@ You can run `engine-setup --accept-defaults` to automatically accept all questio
 Reboot the machine if any kernel-related packages were updated.
 ====
 
-ifdef::rhv-doc[]
-. Install the `rhvm` package and dependencies.
+. Install the `{engine-package}` package and dependencies.
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install rhvm
+# yum install {engine-package}
 ----
-endif::[]
-ifdef::ovirt-doc[]
-. Install the `ovirt-engine` package and dependencies.
-+
-[options="nowrap" subs="normal"]
-----
-# yum install ovirt-engine
-----
-endif::[]
 
 . Run the `engine-setup` command to begin configuring the {virt-product-fullname} {engine-name}:
 +
@@ -55,11 +45,16 @@ endif::[]
 ----
 Configure Engine on this host (Yes, No) [Yes]:
 ----
-. Optionally install Open Virtual Network (OVN). Selecting `Yes` will install an OVN central server on the {engine-name} machine, and add it to {virt-product-fullname} as an external network provider. The default cluster will use OVN as its default network provider, and hosts added to the default cluster will automatically be configured to communicate with OVN.
+. Optional: Install Open Virtual Network (OVN). Selecting `Yes` installs an OVN server on the {engine-name} machine and adds it to {virt-product-fullname} as an external network provider. This action also configures the Default cluster to use OVN as its default network provider.
++
+[IMPORTANT]
+====
+Also see the "Next steps" in link:{URL_virt_product_docs}admin-guide/administration-guide.html[Adding Open Virtual Network (OVN) as an External Network Provider] in the _Administration Guide_.
+====
 +
 [options="nowrap" subs="normal"]
 ----
-Configure ovirt-provider-ovn (Yes, No) [Yes]:
+Configure ovirt-provider-ovn and set the Default cluster's default network provider to ovirt-provider-ovn (non-Default clusters may be configured with an OVN provider after installation) (Yes, No) [Yes]:
 ----
 +
 For more information on using OVN networks in {virt-product-fullname}, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Adding Open Virtual Network (OVN) as an External Network Provider] in the _Administration Guide_.
@@ -115,13 +110,12 @@ Additional configuration is required on the client machine to use this feature. 
 Host fully qualified DNS name of this server [_autodetected host name_]:
 ----
 
-. The `engine-setup` command checks your firewall configuration and offers to open the ports used by the {engine-name} for external communication, such as ports 80 and 443. If you do not allow `engine-setup` to modify your firewall configuration, you must manually open the ports used by the {engine-name}. `firewalld` is configured as the firewall manager; `iptables` is deprecated.
+. The `engine-setup` command checks your firewall configuration and offers to open the ports used by the {engine-name} for external communication, such as ports 80 and 443. If you do not allow `engine-setup` to modify your firewall configuration, you must manually open the ports used by the {engine-name}. `firewalld` is configured as the firewall manager.
 +
 [options="nowrap" subs="normal"]
 ----
 Setup can automatically configure the firewall on this system.
 Note: automatic configuration of the firewall may overwrite current settings.
-NOTICE: iptables is deprecated and will be removed in future releases
 Do you want Setup to configure the firewall? (Yes, No) [Yes]:
 ----
 +

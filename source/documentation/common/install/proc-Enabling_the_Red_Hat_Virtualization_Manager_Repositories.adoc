@@ -50,28 +50,65 @@ To list all enabled repositories:
 
 . Configure the repositories:
 +
+ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
 [options="nowrap" subs="normal"]
 ----
 # subscription-manager repos \
     --disable='*' \
-    --enable=rhel-7-server-rpms \
-    --enable=rhel-7-server-supplementary-rpms \
-    --enable=rhel-7-server-rhv-4.3-manager-rpms \
-    --enable=rhel-7-server-rhv-4-manager-tools-rpms \
-    --enable=rhel-7-server-ansible-2-rpms \
-    --enable=jb-eap-7.2-for-rhel-7-server-rpms
+    --enable=rhel-8-for-x86_64-baseos-rpms \
+    --enable=rhel-8-for-x86_64-appstream-rpms \
+    --enable=rhv-4-manager-beta-for-rhel-8-x86_64-rpms \
+    --enable=fast-datapath-for-rhel-8-x86_64-rpms \    
+    --enable=ansible-2.9-for-rhel-8-x86_64-rpms \
+    --enable=jb-eap-7.3-for-rhel-8-x86_64-rpms
+----
+endif::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
+ifdef::remote_database_install,manual_database_install,migrate_DWH_DB,install_DWH_remote[]
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos \
+    --disable='*' \
+    --enable=rhel-8-for-x86_64-baseos-rpms \
+    --enable=rhel-8-for-x86_64-appstream-rpms \
+    --enable=rhv-4-manager-beta-for-rhel-8-x86_64-rpms \
+----
+endif::remote_database_install,manual_database_install,migrate_DWH_DB,install_DWH_remote[]
+ifdef::migrate_SHE_DB,migrate_manager_db[]
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos \
+    --disable='*' \
+    --enable=rhel-8-for-x86_64-baseos-rpms \
+    --enable=rhel-8-for-x86_64-appstream-rpms \
+----
+endif::migrate_SHE_DB,migrate_manager_db[]
+ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
+. Enable the `pki-deps` module.
++
+[options="nowrap" subs="normal"]
++
+----
+# yum module -y enable pki-deps
+----
+endif::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
+. Enable version 12 of the `postgresql` module.
++
+[options="nowrap" subs="normal"]
++
+----
+# yum module -y enable postgresql:12
 ----
 
-endif::[]
+endif::rhv-doc[]
 ifdef::ovirt-doc[]
 
 Ensure the correct repositories are enabled:
 
 [options="nowrap" subs="normal"]
 ----
-# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 ----
 
 You can check which repositories are currently enabled by running `yum repolist`.
 
-endif::[]
+endif::ovirt-doc[]

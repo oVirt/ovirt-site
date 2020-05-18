@@ -93,4 +93,4 @@ If the new environment is running without issue, you can decommission the origin
 [appendix]
 == Legal notice
 
-Certain portions of this text first appeared in the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/{vernum_rhv}/html-single/migrating_from_a_standalone_manager_to_a_self-hosted_engine/[Red Hat Virtualization {vernum_rhv} Migrating from a standalone Manager to a self-hosted engine]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].
+Certain portions of this text first appeared in link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/html-single/migrating_from_a_standalone_manager_to_a_self-hosted_engine/[Red Hat Virtualization {vernum_rhv} Migrating from a standalone Manager to a self-hosted engine]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

@@ -8,7 +8,7 @@ Standalone {engine-name} installation is manual and customizable. You must insta
 
 In a remote database environment, you must create the {engine-name} database manually before running `engine-setup`. You can create the Data Warehouse database manually, or let the Data Warehouse configuration script (`ovirt-engine-dwh-setup`) create it automatically if you are installing the Data Warehouse service on the same machine.
 
-See the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/planning_and_prerequisites_guide/[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration.
+See the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/planning_and_prerequisites_guide/[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration.
 
 include::../common/arch/con-RHV_key_components.adoc[]
 
@@ -47,7 +47,7 @@ Installing a standalone {engine-name} environment with remote databases involves
 
 [IMPORTANT]
 ====
-Keep the environment up to date. Since bug fixes for known issues are frequently released, {org-fullname} recommends using scheduled tasks to update the hosts and the {engine-name}.
+Keep the environment up to date. Since bug fixes for known issues are frequently released, use scheduled tasks to update the hosts and the {engine-name}.
 ====
 
 
@@ -112,4 +112,4 @@ include::../common/admin/proc-Removing_Red_Hat_Virtualization_Manager.adoc[level
 [appendix]
 == Legal notice
 
-Certain portions of this text first appeared in the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/{vernum_rhv}/html-single/installing_red_hat_virtualization_as_a_standalone_manager_with_remote_databases/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a standalone Manager with remote databases]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].
+Certain portions of this text first appeared in link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/installing_ovirt_as_a_standalone_manager_with_remote_databases/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a standalone Manager with remote databases]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

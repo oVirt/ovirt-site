@@ -30,7 +30,7 @@ You can use the IDs in the table to look up connections in the diagram.
 Data Warehouse service |{engine-name} (`engine`) database server
 
 Data Warehouse (`ovirt-engine-history`) database server |Default port for PostgreSQL database connections.
-| link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/migrating_to_remote_servers_she_cockpit_deploy#Migrating_the_self-hosted_engine_database_SHE_cockpit_deploy[No, but can be enabled].
+| link:{URL_virt_product_docs}html/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/migrating_to_remote_servers_she_cockpit_deploy#Migrating_the_self-hosted_engine_database_SHE_cockpit_deploy[No, but can be enabled].
 |D2 |5432 |TCP, UDP |External systems |Data Warehouse (`ovirt-engine-history`) database server |Default port for PostgreSQL database connections.
-| Disabled by default. link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/migrating_to_remote_servers_she_cockpit_deploy#Migrating_the_self-hosted_engine_database_SHE_cockpit_deploy[No, but can be enabled].
+| Disabled by default. link:{URL_virt_product_docs}html/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/migrating_to_remote_servers_she_cockpit_deploy#Migrating_the_self-hosted_engine_database_SHE_cockpit_deploy[No, but can be enabled].
 |====

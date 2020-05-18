@@ -3,7 +3,7 @@
 
 If your network environment is complex, you may need to configure a host network manually before adding the host to the {virt-product-fullname} {engine-name}.
 
-{org-fullname} recommends the following practices for configuring a host network:
+Consider the following practices for configuring a host network:
 
 * Configure the network with Cockpit. Alternatively, you can use `nmtui` or `nmcli`.
 
@@ -46,5 +46,3 @@ If your network environment is complex, you may need to configure a host network
 * Do not disable `firewalld`.
 
 * Customize the firewall rules in the Administration Portal after adding the host to the {engine-name}. See link:{URL_virt_product_docs}admin-guide/administration-guide.html#Configuring_Host_Firewall_Rules[Configuring Host Firewall Rules].
-
-include::../install/snip-IPv6_important_note.adoc[]

@@ -11,7 +11,7 @@ endif::upgrade[]
 * Plan for any necessary virtual machine downtime. After you update the clusters' compatibility versions during the upgrade, a new hardware configuration is automatically applied to each virtual machine once it reboots. You must reboot any running or suspended virtual machines as soon as possible to apply the configuration changes.
 
 // This link must always be the latest version.
-* Ensure your environment meets the requirements for {virt-product-fullname} 4.3. For a complete list of prerequisites, see the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html-single/planning_and_prerequisites_guide/index#RHV_requirements[__Planning and Prerequisites Guide__].
+* Ensure your environment meets the requirements for {virt-product-fullname} 4.3. For a complete list of prerequisites, see the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html-single/planning_and_prerequisites_guide/index#RHV_requirements[__Planning and Prerequisites Guide__].
 
 ifdef::rhv-doc[]
 // This link must always be the latest version.

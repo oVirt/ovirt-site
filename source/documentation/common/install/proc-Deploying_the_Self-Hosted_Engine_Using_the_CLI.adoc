@@ -11,6 +11,8 @@ You can deploy a self-hosted engine from the command line. After installing the 
 .Prerequisites
 
 * FQDNs prepared for your {engine-name} and the host. Forward and reverse lookup records must both be set in the DNS.
+* When using a block storage domain, either FCP or iSCSI, a single target LUN is the only supported setup for a self-hosted engine.
+
 
 .Procedure
 
@@ -19,11 +21,15 @@ You can deploy a self-hosted engine from the command line. After installing the 
 ----
 # yum install ovirt-hosted-engine-setup
 ----
-. {org-fullname} recommends using the `screen` window manager to run the script to avoid losing the session in case of network or terminal disruption. Install and start `screen`:
 +
+. Use the `tmux` window manager to run the script to avoid losing the session in case of network or terminal disruption.
++
+Install and run `tmux`:
++
+[options="nowrap" subs="+quotes,verbatim"]
 ----
-# yum install screen
-# screen
+# yum -y install tmux
+# tmux
 ----
 . Start the deployment script:
 +
@@ -58,10 +64,11 @@ Please indicate a nic to set ovirtmgmt bridge on: (eth1, eth0) [eth1]:
 +
 . If you want to use a custom appliance for the virtual machine installation, enter the path to the OVA archive. Otherwise, leave this field empty to use the {engine-appliance-name}.
 +
+[options="nowrap" subs="normal"]
 ----
 If you want to deploy with a custom engine appliance image,
 please specify the path to the OVA archive you would like to use
-(leave it empty to skip, the setup will use rhvm-appliance rpm installing it if missing):
+(leave it empty to skip, the setup will use {engine-package}-appliance rpm installing it if missing):
 ----
 +
 . Enter the virtual machine's CPU and memory configuration:
@@ -202,24 +209,16 @@ Please select the destination LUN (1) [1]:
 +
 [IMPORTANT]
 ====
-Only replica 3 Gluster storage is supported. Ensure you have the following configuration:
+Only replica 1 and replica 3 Gluster storage are supported. Ensure you configure the volume as follows:
 
-* In the */etc/glusterfs/glusterd.vol* file on all three Gluster servers, set `rpc-auth-allow-insecure` to `on`.
-+
+[options="nowrap" subs="normal"]
 ----
-option rpc-auth-allow-insecure on
-----
-
-* Configure the volume as follows:
-+
-----
-gluster volume set _volume_ cluster.quorum-type auto
-gluster volume set _volume_ network.ping-timeout 10
-gluster volume set _volume_ auth.allow \*
-gluster volume set _volume_ group virt
-gluster volume set _volume_ storage.owner-uid 36
-gluster volume set _volume_ storage.owner-gid 36
-gluster volume set _volume_ server.allow-insecure on
+gluster volume set _VOLUME_NAME_ group virt
+gluster volume set _VOLUME_NAME_ performance.strict-o-direct on
+gluster volume set _VOLUME_NAME_ network.remote-dio off
+gluster volume set _VOLUME_NAME_ storage.owner-uid 36
+gluster volume set _VOLUME_NAME_ storage.owner-gid 36
+gluster volume set _VOLUME_NAME_ network.ping-timeout 30
 ----
 ====
 +

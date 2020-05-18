@@ -17,7 +17,7 @@ You need to install the guest agents and drivers on a virtual machine to enable 
 
 .{virt-product-fullname} Guest Drivers
 [options="header"]
-|====
+|===
 |Driver |Description |Works on
 |`virtio-net` |Paravirtualized network driver provides enhanced performance over emulated devices like rtl. |Server and Desktop.
 |`virtio-block` |Paravirtualized HDD driver offers increased I/O performance over emulated devices like IDE by optimizing the coordination and communication between the virtual machine and the hypervisor. The driver complements the software implementation of the virtio-device used by the host to play the role of a hardware device. |Server and Desktop.
@@ -25,13 +25,13 @@ You need to install the guest agents and drivers on a virtual machine to enable 
 |`virtio-serial` |Virtio-serial provides support for multiple serial ports. The improved performance is used for fast communication between the virtual machine and the host that avoids network complications. This fast communication is required for the guest agents and for other features such as clipboard copy-paste between the virtual machine and the host and logging. |Server and Desktop.
 |`virtio-balloon` |Virtio-balloon is used to control the amount of memory a virtual machine actually accesses. It offers improved memory overcommitment. |Server and Desktop.
 |`qxl` |A paravirtualized display driver reduces CPU usage on the host and provides better performance through reduced network bandwidth on most workloads. |Server and Desktop.
-|====
+|===
 
 
 
 .{virt-product-fullname} Guest Agents and Tools
 [options="header"]
-|====
+|===
 |Guest agent/tool |Description |Works on
 |`ovirt-guest-agent-common` |Enables the {virt-product-fullname} {engine-name} to receive internal virtual machine events and information such as IP address and installed applications. Also enables the {engine-name} to execute specific commands on a virtual machine, such as shut down or reboot.
 
@@ -39,4 +39,4 @@ On virtual machines running {enterprise-linux} 6 or 7, `ovirt-guest-agent-common
 |`qemu-guest-agent` |Used instead of `ovirt-guest-agent-common` on {enterprise-linux} 8 virtual machines. It is installed and enabled by default. |Server and Desktop.
 |`spice-agent` |The SPICE agent supports multiple monitors and is responsible for client-mouse-mode support to provide a better user experience and improved responsiveness than the QEMU emulation. Cursor capture is not needed in client-mouse-mode. The SPICE agent reduces bandwidth usage when used over a wide area network by reducing the display level, including color depth, disabling wallpaper, font smoothing, and animation. The SPICE agent enables clipboard support allowing cut and paste operations for both text and images between client and virtual machine, and automatic guest display setting according to client-side settings. On Windows-based virtual machines, the SPICE agent consists of vdservice and vdagent. |Server and Desktop.
 |`rhev-sso` |An agent that enables users to automatically log in to their virtual machines based on the credentials used to access the {virt-product-fullname} {engine-name}. |Desktop.
-|====
+|===

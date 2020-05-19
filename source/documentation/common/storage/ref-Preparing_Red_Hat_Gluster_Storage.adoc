@@ -1,7 +1,7 @@
 [id='Preparing_Red_Hat_Gluster_Storage_{context}']
 = Preparing {gluster-storage-fullname}
 
-For information on setting up and configuring {gluster-storage-fullname}, see the link:https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.4/html/installation_guide/[_{gluster-storage-fullname} Installation Guide_].
+For information on setting up and configuring {gluster-storage-fullname}, see the link:{URL_gluster_docs}3.5/html/installation_guide/[_{gluster-storage-fullname} Installation Guide_].
 
 ifdef::rhv-doc[]
 For the {gluster-storage-fullname} versions that are supported with {virt-product-fullname}, see link:https://access.redhat.com/articles/2356261[].

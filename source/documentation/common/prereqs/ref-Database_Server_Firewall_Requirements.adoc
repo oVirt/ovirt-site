@@ -22,7 +22,7 @@ You can use the IDs in the table to look up connections in the diagram.
 
 .Database Server Firewall Requirements
 [options="header", cols="2,2,2,5,5,5,3", frame=all, grid=all]
-|====
+|===
 |ID |Port(s) |Protocol |Source |Destination |Purpose |Encrypted by default
 |D1
 |5432 |TCP, UDP |{virt-product-fullname} {engine-name}
@@ -33,4 +33,4 @@ Data Warehouse (`ovirt-engine-history`) database server |Default port for Postgr
 | link:{URL_virt_product_docs}html/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/migrating_to_remote_servers_she_cockpit_deploy#Migrating_the_self-hosted_engine_database_SHE_cockpit_deploy[No, but can be enabled].
 |D2 |5432 |TCP, UDP |External systems |Data Warehouse (`ovirt-engine-history`) database server |Default port for PostgreSQL database connections.
 | Disabled by default. link:{URL_virt_product_docs}html/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/migrating_to_remote_servers_she_cockpit_deploy#Migrating_the_self-hosted_engine_database_SHE_cockpit_deploy[No, but can be enabled].
-|====
+|===

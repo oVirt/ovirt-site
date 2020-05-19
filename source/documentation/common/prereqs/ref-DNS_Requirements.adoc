@@ -17,7 +17,7 @@ By default, {enterprise-linux} allows outbound traffic to DNS and NTP on any des
 ====
 * The {virt-product-fullname} {engine-name} and all hosts ({hypervisor-fullname} and {enterprise-linux-host-fullname}) must have a fully qualified domain name and full, perfectly-aligned forward and reverse name resolution.
 * Running a DNS service as a virtual machine in the {virt-product-fullname} environment is not supported. All DNS services the {virt-product-fullname} environment uses must be hosted outside of the environment.
-* {org-fullname} strongly recommends using DNS instead of the `/etc/hosts` file for name resolution. Using a hosts file typically requires more work and has a greater chance for errors.
+* Use DNS instead of the `/etc/hosts` file for name resolution. Using a hosts file typically requires more work and has a greater chance for errors.
 ====
 
 .IPMI and Other Fencing Mechanisms (optional)

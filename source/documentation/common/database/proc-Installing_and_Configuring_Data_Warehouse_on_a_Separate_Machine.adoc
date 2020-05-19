@@ -2,6 +2,7 @@
 = Installing and Configuring Data Warehouse on a Separate Machine
 
 :context: install_DWH_remote
+:install_DWH_remote:
 
 This section describes installing and configuring the Data Warehouse service on a separate machine from the {virt-product-fullname} {engine-name}. Installing Data Warehouse on a separate machine helps to reduce the load on the {engine-name} machine.
 
@@ -34,7 +35,7 @@ ifdef::DWH[]
 
 ** The database password
 
-** You must manually grant access by editing the `postgresql.conf` file. Edit the `/var/opt/rh/rh-postgresql10/lib/pgsql/data/postgresql.conf` file and modify the `listen_addresses` line so that it matches the following:
+** You must manually grant access by editing the `postgresql.conf` file. Edit the `/var/lib/pgsql/12/data/postgresql.conf` file and modify the `listen_addresses` line so that it matches the following:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -212,3 +213,4 @@ Please confirm installation settings (OK, Cancel) [OK]:
 . Optionally, set up SSL to secure database connections using the instructions at link: https://www.postgresql.org/docs/10/ssl-tcp.html#SSL-FILE-USAGE[].
 
 :context!: install_DWH_remote
+:install_DWH_remote!:

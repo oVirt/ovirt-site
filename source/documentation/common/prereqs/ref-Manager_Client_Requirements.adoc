@@ -21,10 +21,10 @@ SPICE support is divided into tiers:
 
 .Client Operating System SPICE Support
 [options="header"]
-|====
+|===
 |Support Tier |Operating System
 |Tier 1 |{enterprise-linux} 7.2 and later
 | |Microsoft Windows 7
 |Tier 2 |Microsoft Windows 8
 | |Microsoft Windows 10
-|====
+|===

@@ -6,7 +6,7 @@ A local storage domain can be set up on a host. When you set up a host to use lo
 [IMPORTANT]
 ====
 On {hypervisor-fullname} ({hypervisor-shortname}), local storage should always be defined on a file system that is separate from `/` (root).
-{org-fullname} recommends using a separate logical volume or disk, to prevent possible loss of data during upgrades.
+Use a separate logical volume or disk, to prevent possible loss of data during upgrades.
 ====
 
 .Preparing Local Storage for {enterprise-linux-host-fullname}s
@@ -28,7 +28,7 @@ On {hypervisor-fullname} ({hypervisor-shortname}), local storage should always b
 
 .Preparing Local Storage for {hypervisor-fullname}s
 
-{org-fullname} recommends creating the local storage on a logical volume as follows:
+Create the local storage on a logical volume:
 
 . Create a local storage directory:
 +

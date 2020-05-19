@@ -1,45 +1,40 @@
 [id='proc-Customizing_Multipath_Configurations_for_SAN_Vendors_{context}']
 = Customizing Multipath Configurations for SAN Vendors
 
-To customize the multipath configuration settings, do not modify `/etc/multipath.conf`. Instead, create a new configuration file that overrides `/etc/multipath.conf`. While overriding the configuration, preserve some of the settings, as described here.
+To customize the multipath configuration settings, do not modify `/etc/multipath.conf`. Instead, create a new configuration file that overrides `/etc/multipath.conf`.
 
 [WARNING]
 ====
-Upgrading VDSM may overwrite `/etc/multipath.conf` file, erasing the customizations and triggering storage issues.
+Upgrading Virtual Desktop and Server Manager (VDSM)  overwrites the `/etc/multipath.conf` file. If `multipath.conf` contains customizations, overwriting it can trigger storage issues.
 ====
 
 .Prerequisites
 
-This topic is only relevant for systems where someone has performed the following steps:
-
-* Configured multiple storage connection paths to the same target (multipath).
-* Configured iSCSI multipathing to complete iSCSI bonding.
-
-For more information, see the "Additional resources" section.
+* This topic only applies to systems that have been configured to use multipath connections storage domains, and therefore have a `/etc/multipath.conf` file.
+* Do not override the `user_friendly_names` and `find_multipaths` settings. For more information, see xref:ref-Recommended_Settings_for_Multipath.conf_{context}[]
+* Avoid overriding `no_path_retry` and `polling_interval` unless required by the storage vendor. For more information, see xref:ref-Recommended_Settings_for_Multipath.conf_{context}[]
 
 .Procedure
 
-To override the values of settings in `/etc/multipath.conf`, create a new configuration file or files in the `/etc/multipath/conf.d/` directory.
-
-When naming the new configuration file, consider that the files in `/etc/multipath/conf.d/` execute in alphabetical order. Each file overrides the preceding files and `/etc/multipath.conf`. To make the order of execution clear, follow the established convention of using numbers at the beginning of the file name. For example, create a file called `/etc/multipath/conf.d/90-myfile.conf`, where _90-myfile_ is the file name you choose.
-
-To apply the new configuration settings, enter the `systemctl reload multipathd` command. This command avoids restarting the multipathd service, which would generate errors in the VDSM logs.
-
-When you create the new configuration file, do not override the following settings in the VDSM-generated `multipath.conf`:
-
-`user_friendly_names	no`:: This setting controls whether user-friendly names are assigned to devices in addition to the actual device names. Multiple hosts must use the same name to access devices. Disabling this setting prevents user-friendly names from interfering with this requirement.
-
-`find_multipaths	no`:: This setting controls whether {hypervisor-shortname} tries to access all devices through multipath, even if only one path is available. Disabling this setting prevents {virt-product-shortname} from using the too-clever behavior when this setting is enabled.
-
-When you create the new configuration file, unless a SAN vendor recommends a compelling reason, avoid overriding the following settings in the VDSM-generated `multipath.conf`:
-
-`no_path_retry	4`:: This setting controls the number of polling attempts to retry when no paths are available. Before {virt-product-shortname} version 4.2, the value of `no_path_retry` was `fail` because QEMU had trouble with the I/O queuing when no paths were available. The `fail` value made it fail quickly and paused the virtual machine. {virt-product-shortname} version 4.2 changed this value to `4` so when multipathd detects the last path has failed, it checks all of the paths four more times. Assuming the default 5-second polling interval, checking the paths takes 20 seconds. If no path is up, multipathd tells the kernel to stop queuing and fails all outstanding and future I/O until a path is restored. When a path is restored, the 20-second delay is reset for the next time all paths fail. For more details, see link:https://gerrit.ovirt.org/#/c/88082/[the commit that changed this setting].
-
-`polling_interval	5`:: This setting determines the number of seconds between polling attempts to detect whether a path is open or has failed. Unless the vendor provides a clear reason for increasing the value, keep the VDSM-generated default so the system responds to path failures sooner.
+. To override the values of settings in `/etc/multipath.conf`, create a new configuration file in the `/etc/multipath/conf.d/` directory.
++
+[NOTE]
+====
+The files in `/etc/multipath/conf.d/` execute in alphabetical order. Follow the convention of naming the file with a number at the beginning of its name. For example, `/etc/multipath/conf.d/90-myfile.conf`.
+====
+. Copy the settings you want to override from `/etc/multipath.conf` to the new configuration file in `/etc/multipath/conf.d/`. Edit the setting values and save your changes.
+. Apply the new configuration settings by entering the `systemctl reload multipathd` command.
++
+[NOTE]
+====
+Avoid restarting the multipathd service. Doing so generates errors in the VDSM logs.
+====
 
 .Verification steps
 
-If you override the VDSM-generated settings in `/etc/multipath.conf`, verify that the new configuration performs as expected in a wide range of failure scenarios.
+If you override the VDSM-generated settings in `/etc/multipath.conf`, verify that the new configuration performs as expected in a variety of failure scenarios.
+
+For example, disable all of the storage connections. Then enable one connection at a time and verify that doing so makes the storage domain reachable.
 
 .Troubleshooting
 
@@ -47,9 +42,6 @@ If a {hypervisor-fullname} has trouble accessing shared storage, check `/etc/mul
 
 .Additional resources
 
-* The `multipath` man page.
-* The `multipathd` man page.
-* The `/etc/multipath.conf` file.
-* The link:{URL_rhel_docs_legacy}html-single/dm_multipath/[_{enterprise-linux} DM Multipath_] topic in the RHEL documentation.
-* The link:{URL_virt_product_docs}admin-guide/administration-guide.html[Configuring iSCSI Multipathing] topic in the Administration Guide.
-* The link:https://access.redhat.com/solutions/3234761[How do I customize /etc/multipath.conf on my RHVH hypervisors? What values must not change and why?] solution article, which shows an example `multipath.conf` file and was the basis for this topic.
+* link:{URL_rhel_docs_legacy}html-single/dm_multipath/[_{enterprise-linux} DM Multipath_] in the RHEL documentation.
+* link:{URL_virt_product_docs}admin-guide/administration-guide.html#Configuring_iSCSI_Multipathing[Configuring iSCSI Multipathing] in the Administration Guide.
+* link:https://access.redhat.com/solutions/3234761[How do I customize /etc/multipath.conf on my RHVH hypervisors? What values must not change and why?] on the Red Hat Customer Portal, which shows an example `multipath.conf` file and was the basis for this topic.

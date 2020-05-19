@@ -34,7 +34,7 @@ You can use the *Discover Targets* options to add LUNs on many targets or multip
 +
 [NOTE]
 ====
-You can define credentials for an iSCSI target for a specific host with the REST API. See link:http://ovirt.github.io/ovirt-engine-api-model/4.3#services/storage_server_connection_extensions-methods-add[StorageServerConnectionExtensions: add] in the _REST API Guide_ for more information.
+You can define credentials for an iSCSI target for a specific host with the REST API. See link:http://ovirt.github.io/ovirt-engine-api-model/4.4#services/storage_server_connection_extensions-methods-add[StorageServerConnectionExtensions: add] in the _REST API Guide_ for more information.
 ====
 +
 .. Click *Discover*.

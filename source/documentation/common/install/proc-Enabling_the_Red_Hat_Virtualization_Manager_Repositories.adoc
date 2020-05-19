@@ -82,6 +82,33 @@ ifdef::migrate_SHE_DB,migrate_manager_db[]
     --enable=rhel-8-for-x86_64-appstream-rpms \
 ----
 endif::migrate_SHE_DB,migrate_manager_db[]
+
+endif::rhv-doc[]
+
+ifdef::ovirt-doc[]
+
+Ensure the correct repositories are enabled:
+
+[options="nowrap" subs="normal"]
+----
+# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
+----
+
+You can check which repositories are currently enabled by running `yum repolist`.
+
+. Enable version the `javapackages-tools` module.
++
+[options="nowrap" subs="normal"]
++
+----
+# yum module -y javapackages-tools
+----
+
+
+endif::ovirt-doc[]
+
+
+
 ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
 . Enable the `pki-deps` module.
 +
@@ -98,17 +125,3 @@ endif::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DW
 ----
 # yum module -y enable postgresql:12
 ----
-
-endif::rhv-doc[]
-ifdef::ovirt-doc[]
-
-Ensure the correct repositories are enabled:
-
-[options="nowrap" subs="normal"]
-----
-# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
-----
-
-You can check which repositories are currently enabled by running `yum repolist`.
-
-endif::ovirt-doc[]

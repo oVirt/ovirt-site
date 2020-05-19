@@ -9,7 +9,7 @@ Hosts require storage to store configuration, logs, kernel dumps, and for use as
 
 The minimum storage requirements of {hypervisor-shortname} are documented in this section. The storage requirements for {enterprise-linux-host-fullname}s vary based on the amount of disk space used by their existing configuration but are expected to be greater than those of {hypervisor-shortname}.
 
-The minimum storage requirements for host installation are listed below. However, {org-fullname} recommends using the default allocations, which use more storage space.
+The minimum storage requirements for host installation are listed below. However, use the default allocations, which use more storage space.
 
 * / (root) - 6 GB
 * /home - 1 GB

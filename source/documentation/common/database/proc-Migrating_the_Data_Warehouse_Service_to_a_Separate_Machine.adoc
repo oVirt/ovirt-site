@@ -1,7 +1,11 @@
 [id='Migrating_the_Data_Warehouse_Service_to_a_Separate_Machine_{context}']
 = Migrating the Data Warehouse Service to a Separate Machine
 
-You can migrate the Data Warehouse service installed and configured on the {virt-product-fullname} {engine-name} to a separate machine. Hosting the Data Warehouse service on a separate machine helps to reduce the load on the {engine-name} machine. Notice that this procedure migrates the Data Warehouse service only. To migrate the Data Warehouse database (`ovirt_engine_history`) prior to migrating the Data Warehouse service, see xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_{context}[].
+You can migrate the Data Warehouse service installed and configured on the {virt-product-fullname} {engine-name} to a separate machine. Hosting the Data Warehouse service on a separate machine helps to reduce the load on the {engine-name} machine.
+
+Notice that this procedure migrates the Data Warehouse service only.
+
+To migrate the Data Warehouse database (`ovirt_engine_history`) prior to migrating the Data Warehouse service, see xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_{context}[].
 
 .Prerequisites
 
@@ -58,7 +62,7 @@ endif::[]
 # systemctl stop ovirt-engine-dwhd.service
 ----
 +
-. If the database is hosted on a remote machine, you must manually grant access by editing the postgres.conf file. Edit the _/var/opt/rh/rh-postgresql10/lib/pgsql/data/postgresql.conf_ file and modify the listen_addresses line so that it matches the following:
+. If the database is hosted on a remote machine, you must manually grant access by editing the postgres.conf file. Edit the [filename]`/var/lib/pgsql/12/data/postgresql.conf` file and modify the listen_addresses line so that it matches the following:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -73,13 +77,13 @@ See xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_{context}[]
 +
 [options="nowrap" subs="normal"]
 ----
-# systemctl restart rh-postgresql10-postgresql
+# systemctl restart postgresql-12
 ----
 
 [[configuring_new_machine]]
 == Configuring the New Data Warehouse Machine
 
-The order of the questions shown in this step may differ depending on your environment.
+The order of the options or settings shown in this section may differ depending on your environment.
 
 . If you are migrating both the `ovirt_engine_history` database and the Data Warehouse service to the *same* machine, run the following, otherwise proceed to the next step.
 +
@@ -94,7 +98,6 @@ The order of the questions shown in this step may differ depending on your envir
      /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf
 ----
 +
-
 . Run the `engine-setup` command to begin configuration of Data Warehouse on the machine:
 +
 [options="nowrap" subs="normal"]
@@ -180,6 +183,17 @@ endif::DWH[]
 ----
 # service ovirt-engine restart
 ----
++
+. Run the following command to modify the file */etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf* and set the options to `False`:
++
+[options="nowrap" subs="normal"]
+----
+# sed -i \
+     -e 's;^\(OVESETUP_DWH_CORE/enable=bool\):True;\1:False;' \
+     -e 's;^\(OVESETUP_DWH_CONFIG/remoteEngineConfigured=bool\):True;\1:False;' \
+     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf
+----
++
 . Disable the Data Warehouse service:
 +
 [options="nowrap" subs="normal"]
@@ -195,3 +209,4 @@ endif::DWH[]
 ----
 
 The Data Warehouse service is now hosted on a separate machine from the {engine-name}.
+//synch

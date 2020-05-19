@@ -2,6 +2,7 @@
 = Preparing a Local Manually Configured PostgreSQL Database
 
 :context: manual_database_install
+:manual_database_install:
 
 Use this procedure to set up the {engine-name} database or Data Warehouse database with custom values. Set up this database before you configure the {engine-name}; you must supply the database credentials during `engine-setup`.
 
@@ -17,10 +18,8 @@ The locale settings in the `postgresql.conf` file must be set to `en_US.UTF8`.
 The database name must contain only numbers, underscores, and lowercase letters.
 ====
 
-ifdef::rhv-doc[]
 [discrete]
 include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
-endif::[]
 
 [discrete]
 == Initializing the PostgreSQL Database
@@ -29,23 +28,29 @@ endif::[]
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install rh-postgresql10 rh-postgresql10-postgresql-contrib
+# yum install postgresql-server postgresql-contrib
 ----
 
-. Initialize the PostgreSQL database, start the `postgresql` service, and ensure that this service starts on boot:
+. Initialize the PostgreSQL database instance:
 +
 [options="nowrap" ]
 ----
-# scl enable rh-postgresql10 -- postgresql-setup --initdb
-# systemctl enable rh-postgresql10-postgresql
-# systemctl start rh-postgresql10-postgresql
+# postgresql-setup --initdb
+----
+
+. Start the `postgresql` service, and ensure that this service starts on boot:
++
+[options="nowrap" ]
+----
+# systemctl enable postgresql
+# systemctl start postgresql
 ----
 
 . Connect to the `psql` command line interface as the `postgres` user:
 +
 [options="nowrap" ]
 ----
-su - postgres -c 'scl enable rh-postgresql10 -- psql'
+# su - postgres -c psql
 ----
 
 . Create a default user. The {engine-name}'s default user is `engine` and Data Warehouse's default user is `ovirt_engine_history`:
@@ -91,7 +96,7 @@ _database_name_=# CREATE LANGUAGE plpgsql;
 _database_name_=# \q
 ----
 
-. Ensure the database can be accessed remotely by enabling md5 client authentication. Edit the `/var/opt/rh/rh-postgresql10/lib/pgsql/data/pg_hba.conf` file, and add the following line immediately underneath the line starting with `local` at the bottom of the file, replacing `X.X.X.X` with the IP address of the {engine-name} or the Data Warehouse machine, and `0-32` or `0-128` with the CIDR mask length:
+. Edit the `/var/lib/pgsql/data/pg_hba.conf` file to enable md5 client authentication, so the engine can access the database remotely. Add the following line immediately below the line that starts with `local` at the bottom of the file. Replace `X.X.X.X` with the IP address of the {engine-name} or Data Warehouse machine, and replace `0-32` or `0-128` with the CIDR mask length:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -99,7 +104,7 @@ host    _database_name_    _user_name_    _X.X.X.X/0-32_    md5
 host    _database_name_    _user_name_    _X.X.X.X::/0-128_   md5
 ----
 
-. Update the PostgreSQL server's configuration. Edit the `/var/opt/rh/rh-postgresql10/lib/pgsql/data/postgresql.conf` file and add the following lines to the bottom of the file:
+. Update the PostgreSQL server's configuration. Edit the `/var/lib/pgsql/12/data/postgresql.conf` file and add the following lines to the bottom of the file:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -115,10 +120,11 @@ work_mem=8192
 +
 [options="nowrap" subs="normal"]
 ----
-# systemctl restart rh-postgresql10-postgresql
+# systemctl restart postgresql
 ----
-. Optionally, set up SSL to secure database connections using the instructions at link:http://www.postgresql.org/docs/10/static/ssl-tcp.html#SSL-FILE-USAGE[].
+. Optionally, set up SSL to secure database connections using the instructions at link:http://www.postgresql.org/docs/12/static/ssl-tcp.html#SSL-FILE-USAGE[].
 
 Return to xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[], and answer `Local` and `Manual` when asked about the database.
 
 :context!: manual_database_install
+:manual_database_install!:

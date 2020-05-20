@@ -3,6 +3,9 @@ include::../common/collateral_files/ovirt-attributes.adoc[]
 :context: SHE_cli_deploy
 :SHE_cli_deploy:
 
+// Make sure Jekyll displays a guide title
+[discrete]
+= Installing {virt-product-fullname} as a self-hosted engine using the command line
 
 Self-hosted engine installation is automated using Ansible. The installation script (`hosted-engine --deploy`) runs on an initial deployment host, and the {virt-product-fullname} {engine-name} (or "engine") is installed and configured on a virtual machine that is created on the deployment host. The {engine-name} and Data Warehouse databases are installed on the {engine-name} virtual machine, but can be migrated to a separate server post-installation if required.
 
@@ -10,7 +13,7 @@ Hosts that can run the {engine-name} virtual machine are referred to as self-hos
 
 A storage domain dedicated to the {engine-name} virtual machine is referred to as the self-hosted engine storage domain. This storage domain is created by the installation script, so the underlying storage must be prepared before beginning the installation.
 
-See the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/planning_and_prerequisites_guide/[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration. See link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html-single/planning_and_prerequisites_guide/#self-hosted-engine-recommendations[Self-Hosted Engine Recommendations] for configuration specific to a self-hosted engine environment.
+See the link:{URL_downstream_virt_product_docs}html/planning_and_prerequisites_guide/[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration. See link:{URL_downstream_virt_product_docs}html-single/planning_and_prerequisites_guide/#self-hosted-engine-recommendations[Self-Hosted Engine Recommendations] for configuration specific to a self-hosted engine environment.
 
 include::../common/arch/con-RHV_key_components.adoc[]
 
@@ -125,4 +128,4 @@ include::../common/admin/proc-Removing_Red_Hat_Virtualization_Manager.adoc[level
 [appendix]
 == Legal notice
 
-Certain portions of this text first appeared in link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a self-hosted engine using the command line]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}html-single/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a self-hosted engine using the command line]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

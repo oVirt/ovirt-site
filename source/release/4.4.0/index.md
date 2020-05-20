@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.0 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.0 Second Release Candidate as of May 14, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.0 release as of May 20, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -23,14 +23,6 @@ projects, including libvirt, Gluster, PatternFly, and Ansible.
 This release is available now for Red Hat Enterprise Linux 8.1 and
 CentOS Linux 8.1 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
@@ -44,12 +36,6 @@ page.
 
 To learn about features introduced before 4.4.0, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
 
 
 
@@ -437,6 +423,10 @@ Secure Intel Skylake Client Family
 
 The default CPU type will not change. The Secure CPU type will contain the latest updates.
 
+ - [BZ 1733932](https://bugzilla.redhat.com/1733932) **[RFE] add an option to remove unregistered entities from attached storage domain**
+
+   With this update, you can remove an unregistered entity, such as a virtual machine, a template, or a disk, without importing it into the environment.
+
  - [BZ 1358501](https://bugzilla.redhat.com/1358501) **[RFE] multihost network change - notify when done**
 
    Feature: Network operations that span multiple hosts will have a start and end event in the events tab and engine.log, and a popup notification for the end of the operation in the web-admin if triggered from the web-admin.
@@ -819,6 +809,8 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
  - [BZ 1785364](https://bugzilla.redhat.com/1785364) **After engine restore, ovn networks are not restored and new OVN networks are not working properly on 4.4**
 
+ - [BZ 1810893](https://bugzilla.redhat.com/1810893) **mountOptions is ignored for "import storage domain" from GUI**
+
  - [BZ 1808788](https://bugzilla.redhat.com/1808788) **VM configured with 16 CPUs fails on start with unsupported configuration error .**
 
  - [BZ 1806276](https://bugzilla.redhat.com/1806276) **[HE] ovirt-provider-ovn is non-functional on 4.3.9 Hosted-Engine**
@@ -1035,6 +1027,10 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
 
 #### oVirt Host Dependencies
+
+ - [BZ 1836645](https://bugzilla.redhat.com/1836645) **Package ovirt-imageio-client is not included in latest 4.4 build - rhv-release-4.4.0-36**
+
+   
 
  - [BZ 1782754](https://bugzilla.redhat.com/1782754) **Disable goferd on RHV Host Images**
 
@@ -1372,15 +1368,7 @@ Workaround (if any): Do not upgrade hosts in clusters with OVS switch type to RH
 
    
 
- - [BZ 1810893](https://bugzilla.redhat.com/1810893) **mountOptions is ignored for "import storage domain" from GUI**
-
-   
-
  - [BZ 1743690](https://bugzilla.redhat.com/1743690) **Commit and Undo buttons active when no snapshot selected**
-
-   
-
- - [BZ 1610212](https://bugzilla.redhat.com/1610212) **After updating to RHV 4.1 while trying to edit the disk, getting error "Cannot edit Virtual Disk. Cannot edit Virtual Disk. Disk extension combined with disk compat version update isn't supported. Please perform the updates separately."**
 
    
 

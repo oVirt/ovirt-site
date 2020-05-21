@@ -47,5 +47,3 @@ OVirt Board Members
 *   Martin Tessun - Mentor
 *   Michael Enescu – Cisco, Strategic member
 *   Ryan Harper – IBM, Strategic member
-*   Scott Moser – Canonical, Strategic member
-

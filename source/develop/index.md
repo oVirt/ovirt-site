@@ -46,7 +46,6 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
 - [Networking](/develop/networking/)
 - [Internal](/develop/internal/)
 - [Resources](/community/get-involved/resources)
-- [Security](/develop/security/)
 - [SLA](/develop/sla/)
 - [Storage](/develop/storage/)
 - [Permission system](/develop/developer-guide/action-permissions-overview.html)

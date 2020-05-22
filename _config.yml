@@ -106,11 +106,6 @@ defaults:
       layout: "developer_outdated"
   -
     scope:
-      path: 'develop/security'
-    values:
-      layout: "developer_outdated"
-  -
-    scope:
       path: 'develop/sla'
     values:
       layout: "developer_outdated"

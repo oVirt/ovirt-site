@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.10 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.10 Fourth Release Candidate as of May 14, 2020.
+The oVirt Project is pleased to announce the availability of the 4.3.10 Fifth Release Candidate as of May 22, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -68,6 +68,10 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### oVirt Engine
 
+ - [BZ 1832218](https://bugzilla.redhat.com/1832218) **clone(as thin) VM from template or create snapshot fails with 'Requested capacity 1073741824 < parent capacity 3221225472 (volume:1211)' [RHV clone - 4.3.10]**
+
+ - [BZ 1828067](https://bugzilla.redhat.com/1828067) **mountOptions is ignored for "import storage domain" from GUI [RHV clone - 4.3.10]**
+
  - [BZ 1820642](https://bugzilla.redhat.com/1820642) **[cinderlib] Cinderlib DB is missing a backup and restore option [RHV clone - 4.3.10]**
 
  - [BZ 1796136](https://bugzilla.redhat.com/1796136) **[cloned ]RHV 4.3 landing page does not show login or allow scrolling.**
@@ -76,10 +80,6 @@ In order to install this Release Candidate you will need to enable pre-release r
 ### Other
 
 #### VDSM
-
- - [BZ 1829348](https://bugzilla.redhat.com/1829348) **lvm2 dependency on ppc64le need to stay on 7.6**
-
-   
 
  - [BZ 1829597](https://bugzilla.redhat.com/1829597) **Require lvm2 with supporting locking_type=4 for pvs command on CentOS**
 
@@ -90,12 +90,14 @@ In order to install this Release Candidate you will need to enable pre-release r
 
  - [BZ 1812574](https://bugzilla.redhat.com/1812574) **imgbase layout --init failed during the kickstart installation**
 
-   
+   Before this update, imgbase layout --init failed during Red Hat Virtualization Host installation with Kickstart.
+
+In this release, the installation with Kickstart succeeds.
 
 
 #### oVirt Engine
 
- - [BZ 1832905](https://bugzilla.redhat.com/1832905) **engine-backup --mode=verify is broken**
+ - [BZ 1837994](https://bugzilla.redhat.com/1837994) **VM gets stuck after previewing memory snapshot -  Failed to set time: internal error: unable to execute QEMU agent command 'guest-set-time'**
 
    
 
@@ -107,20 +109,19 @@ In order to install this Release Candidate you will need to enable pre-release r
 
    
 
- - [BZ 1832218](https://bugzilla.redhat.com/1832218) **clone(as thin) VM from template or create snapshot fails with 'Requested capacity 1073741824 < parent capacity 3221225472 (volume:1211)' [RHV clone - 4.3.10]**
-
-   
-
- - [BZ 1828067](https://bugzilla.redhat.com/1828067) **mountOptions is ignored for "import storage domain" from GUI [RHV clone - 4.3.10]**
-
-   
-
  - [BZ 1815411](https://bugzilla.redhat.com/1815411) **Disable usage of Ansible 2.10 for RHV**
 
    
 
 
 ### No Doc Update
+
+#### VDSM
+
+ - [BZ 1829348](https://bugzilla.redhat.com/1829348) **lvm2 dependency on ppc64le need to stay on 7.6**
+
+   
+
 
 #### oVirt Engine
 

@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.1 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.1 First Release Candidate as of May 22, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.1 First Release Candidate as of May 25, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.

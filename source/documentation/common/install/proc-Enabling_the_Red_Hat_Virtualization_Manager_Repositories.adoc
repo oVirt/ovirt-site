@@ -96,12 +96,12 @@ Ensure the correct repositories are enabled:
 
 You can check which repositories are currently enabled by running `yum repolist`.
 
-. Enable version the `javapackages-tools` module.
+. Enable the `javapackages-tools` module.
 +
 [options="nowrap" subs="normal"]
 +
 ----
-# yum module -y javapackages-tools
+# yum module -y enable javapackages-tools
 ----
 
 

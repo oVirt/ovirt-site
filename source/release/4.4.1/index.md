@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.1 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.1 First Release Candidate as of May 25, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.1 Second Release Candidate as of May 27, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -55,9 +55,28 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 ## What's New in 4.4.1?
 
+### Bug Fixes
+
+#### oVirt Engine
+
+ - [BZ 1837460](https://bugzilla.redhat.com/1837460) **grafana is not backed up**
+
+
 ### Other
 
 #### oVirt Engine
+
+ - [BZ 1839967](https://bugzilla.redhat.com/1839967) **Error encountered when running ovirt-engine-rename**
+
+   
+
+ - [BZ 1662733](https://bugzilla.redhat.com/1662733) **Webadmin- Download 2 disks on a running VM fails but only 1 disk is shown in the error message**
+
+   
+
+ - [BZ 1707707](https://bugzilla.redhat.com/1707707) **Ovirt: Can't upload Disk Snapshots with size >1G to iSCSI storage using Java/Python SDK**
+
+   
 
  - [BZ 1828931](https://bugzilla.redhat.com/1828931) **engine-vacuum fails with permission denied for schema pg_temp_23**
 
@@ -74,6 +93,14 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### VDSM
 
+ - [BZ 1810974](https://bugzilla.redhat.com/1810974) **ipmilan fencing fails with JSON-RPC error when password contains space**
+
+   
+
+ - [BZ 1690485](https://bugzilla.redhat.com/1690485) **vdsm should send events on dhcpv4 and dhcpv6 success to engine**
+
+   
+
  - [BZ 1835096](https://bugzilla.redhat.com/1835096) **Snapshot reports as 'done' even though it failed (due to I/O error)**
 
    
@@ -83,19 +110,44 @@ In order to install this Release Candidate you will need to enable pre-release r
    
 
 
+#### cockpit-ovirt
+
+ - [BZ 1833879](https://bugzilla.redhat.com/1833879) **"Installation Guide" and "RHV Documents" didn't jump to the correct pages.**
+
+   
+
+
 #### Contributors
 
-12 people contributed to this release:
+30 people contributed to this release:
 
+	Ahmad Khiet
 	Ales Musil
 	Amit Bawer
 	Andrej Cernek
 	Artur Socha
+	Asaf Rachmani
+	Aviv Turgeman
+	Bell Levin
+	Bella Khizgiyev
+	Dana Elfassy
+	Daniel Erez
+	Dominik Holler
+	Eitan Raviv
 	Eli Mesika
 	Eyal Shenitzky
+	Fedor Gavrilov
+	Gal Zaidman
+	Gal-Zaidman
 	Lev Veyde
 	Liran Rotenberg
+	Marcin Sobczyk
+	Martin Perina
 	Milan Zamazal
+	Nir Levy
 	Nir Soffer
 	Ori Liel
+	Sandro Bonazzola
+	Steven Rosenberg
+	Vojtech Juranek
 	Yedidyah Bar David

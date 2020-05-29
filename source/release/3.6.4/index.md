@@ -13,8 +13,6 @@ oVirt is an open source alternative to VMware vSphere, and provides an awesome K
 
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](/develop/release-management/releases/).
-For a general overview of oVirt, read [the Quick Start Guide](/documentation/quickstart/quickstart-guide/)
-and the [about oVirt](/community/about.html) page.
 
 ## Install / Upgrade from previous versions
 
@@ -27,9 +25,6 @@ In order to install it on a clean system, you need to install
 If you are upgrading from a previous version, you may have the ovirt-release35 package already installed on your system. You can then install ovirt-release36.rpm as in a clean install side-by-side.
 
 Once ovirt-release36 package is installed, you will have the ovirt-3.6 stable repository and any other repository needed for satisfying dependencies enabled by default.
-
-If you're installing oVirt 3.6.4 on a clean host, you should read our
-[Quick Start Guide](/documentation/quickstart/quickstart-guide/).
 
 If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.6. Please see [oVirt 3.5.6 Release Notes](/develop/release-management/releases/3.5.6/) for upgrade instructions.
 

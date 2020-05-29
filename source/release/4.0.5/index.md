@@ -16,8 +16,6 @@ This release is available now for Red Hat Enterprise Linux 7.2, CentOS Linux 7.2
 
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](/develop/release-management/releases/).
-For a general overview of oVirt, read [the Quick Start Guide](/documentation/quickstart/quickstart-guide/)
-and the [about oVirt](/community/about.html) page.
 
 An updated documentation has been provided by our downstream 
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization?version=4.0/)
@@ -61,8 +59,7 @@ In order to install it on a clean system, you need to install
 
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
 
-and then follow our [Quick Start Guide](/documentation/quickstart/quickstart-guide/) or
-a more updated documentation from our downstream
+and then follow documentation from our downstream
 [Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/)
 
 If you're upgrading from a previous release on Enterprise Linux 7 you just need to execute:

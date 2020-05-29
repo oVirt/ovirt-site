@@ -140,8 +140,6 @@ If you're updating from a pre release version and you want to have rollback supp
 
 ## Fedora / CentOS / RHEL
 
-If you're installing oVirt 3.4 on a clean host, you should read our [Quick Start Guide](/documentation/quickstart/quickstart-guide/).
-
 If you're using pre-release repo you'll need to run:
 
           # yum update "ovirt-engine-setup*"

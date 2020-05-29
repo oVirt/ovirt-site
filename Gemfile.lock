@@ -123,7 +123,6 @@ GEM
       forwardable-extended (~> 2.6)
     public_suffix (3.1.1)
     rainbow (3.0.0)
-    rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -173,10 +172,7 @@ DEPENDENCIES
   kramdown
   liquid
   listen
-  rake
 
 RUBY VERSION
    ruby 2.5.5p157
 
-BUNDLED WITH
-   1.16.1

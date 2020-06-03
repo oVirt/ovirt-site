@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.3.10 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.3.10 Fifth Release Candidate as of May 22, 2020.
+The oVirt Project is pleased to announce the availability of the 4.3.10 release as of June 03, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -23,14 +23,6 @@ projects, including libvirt, Gluster, PatternFly, and Ansible.
 This release is available now for Red Hat Enterprise Linux 7.7 and
 CentOS Linux 7.7 (or similar).
 
-
-To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
-All issues or bugs should be reported via
-[Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
@@ -44,12 +36,6 @@ page.
 
 To learn about features introduced before 4.3.10, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43-pre.rpm)
 
 
 
@@ -68,7 +54,11 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### oVirt Engine
 
+ - [BZ 1837994](https://bugzilla.redhat.com/1837994) **VM gets stuck after previewing memory snapshot -  Failed to set time: internal error: unable to execute QEMU agent command 'guest-set-time'**
+
  - [BZ 1832218](https://bugzilla.redhat.com/1832218) **clone(as thin) VM from template or create snapshot fails with 'Requested capacity 1073741824 < parent capacity 3221225472 (volume:1211)' [RHV clone - 4.3.10]**
+
+ - [BZ 1842375](https://bugzilla.redhat.com/1842375) **Failed snapshot creation can cause data corruption of other VMs [RHV clone - 4.3.10]**
 
  - [BZ 1828067](https://bugzilla.redhat.com/1828067) **mountOptions is ignored for "import storage domain" from GUI [RHV clone - 4.3.10]**
 
@@ -96,10 +86,6 @@ In this release, the installation with Kickstart succeeds.
 
 
 #### oVirt Engine
-
- - [BZ 1837994](https://bugzilla.redhat.com/1837994) **VM gets stuck after previewing memory snapshot -  Failed to set time: internal error: unable to execute QEMU agent command 'guest-set-time'**
-
-   
 
  - [BZ 1832707](https://bugzilla.redhat.com/1832707) **Errors from tar are not logged**
 

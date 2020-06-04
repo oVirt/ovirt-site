@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.1 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.1 Second Release Candidate as of May 27, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.1 Third Release Candidate as of June 03, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -66,6 +66,18 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### oVirt Engine
 
+ - [BZ 1839676](https://bugzilla.redhat.com/1839676) **Run engine-setup with answerfile fails on "rollback failed: cannot use a string pattern on a bytes-like object"**
+
+   
+
+ - [BZ 1679730](https://bugzilla.redhat.com/1679730) **Warn about host IP addresses outside range**
+
+   
+
+ - [BZ 1538649](https://bugzilla.redhat.com/1538649) **[RFE] [UI] - Add right click menu to VM's vNIC panel**
+
+   
+
  - [BZ 1839967](https://bugzilla.redhat.com/1839967) **Error encountered when running ovirt-engine-rename**
 
    
@@ -117,14 +129,24 @@ In order to install this Release Candidate you will need to enable pre-release r
    
 
 
+### No Doc Update
+
+#### oVirt Engine
+
+ - [BZ 1835586](https://bugzilla.redhat.com/1835586) **ansible-runner-service.log is in /var/lib**
+
+   
+
+
 #### Contributors
 
-30 people contributed to this release:
+34 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
 	Amit Bawer
 	Andrej Cernek
+	Arik Hadas
 	Artur Socha
 	Asaf Rachmani
 	Aviv Turgeman
@@ -142,11 +164,14 @@ In order to install this Release Candidate you will need to enable pre-release r
 	Lev Veyde
 	Liran Rotenberg
 	Marcin Sobczyk
+	Martin Necas
 	Martin Perina
+	Michal Skrivanek
 	Milan Zamazal
 	Nir Levy
 	Nir Soffer
 	Ori Liel
+	Pavel Bar
 	Sandro Bonazzola
 	Steven Rosenberg
 	Vojtech Juranek

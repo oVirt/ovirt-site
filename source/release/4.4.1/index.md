@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.1 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.1 Third Release Candidate as of June 03, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.1 Fourth Release Candidate as of June 11, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -31,7 +31,6 @@ All issues or bugs should be reported via
 The oVirt Project makes no guarantees as to its suitability or usefulness.
 This pre-release should not to be used in production, and it is not feature
 complete.
-
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
 the [Download](/download/) page.
@@ -52,8 +51,16 @@ In order to install this Release Candidate you will need to enable pre-release r
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
 
 
-
 ## What's New in 4.4.1?
+
+### Enhancements
+
+#### oVirt Engine
+
+ - [BZ 1841083](https://bugzilla.redhat.com/1841083) **bump up max memory limit to 6TB**
+
+   In 4.4 the maximum memory size for 64bit x86_64 and ppc64/ppc64le VMs is now 6TB. For x86_64 this limit is applied also to VMs in 4.2 and 4.3 Cluster Levels.
+
 
 ### Bug Fixes
 
@@ -62,9 +69,45 @@ In order to install this Release Candidate you will need to enable pre-release r
  - [BZ 1837460](https://bugzilla.redhat.com/1837460) **grafana is not backed up**
 
 
+#### VDSM
+
+ - [BZ 1612152](https://bugzilla.redhat.com/1612152) **[GSS] Crashes in glusterVdoVolumeList seen in messages file.**
+
+
 ### Other
 
+#### oVirt Release Package
+
+ - [BZ 1844389](https://bugzilla.redhat.com/1844389) **CentOS Stream release rpm**
+
+   
+
+
 #### oVirt Engine
+
+ - [BZ 1844797](https://bugzilla.redhat.com/1844797) **Can't extend a managed block disk**
+
+   
+
+ - [BZ 1575542](https://bugzilla.redhat.com/1575542) **date/time selectors in volume snapshot's schedule doesn't work**
+
+   
+
+ - [BZ 1842004](https://bugzilla.redhat.com/1842004) **Addition of IPV6 hosts to hyperconverged cluster fails**
+
+   
+
+ - [BZ 1624732](https://bugzilla.redhat.com/1624732) **Installing a Websocket Proxy on a Separate Machine fails on el8**
+
+   
+
+ - [BZ 1837911](https://bugzilla.redhat.com/1837911) **Can't edit a LUN disk attached to a VM from the VM->Disks screen**
+
+   
+
+ - [BZ 1826454](https://bugzilla.redhat.com/1826454) **When accessing any type of console error "Sorry, VM Portal is currently having some issues"**
+
+   
 
  - [BZ 1839676](https://bugzilla.redhat.com/1839676) **Run engine-setup with answerfile fails on "rollback failed: cannot use a string pattern on a bytes-like object"**
 
@@ -105,6 +148,14 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### VDSM
 
+ - [BZ 1842767](https://bugzilla.redhat.com/1842767) **Unable to call volumeEmptyCheck in vdsm-gluster due to errors in vdsm-gluster**
+
+   
+
+ - [BZ 1841030](https://bugzilla.redhat.com/1841030) **RHV upgrade for 4.3 to 4.4 fails for IBRS CPU type**
+
+   
+
  - [BZ 1810974](https://bugzilla.redhat.com/1810974) **ipmilan fencing fails with JSON-RPC error when password contains space**
 
    
@@ -124,7 +175,58 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### cockpit-ovirt
 
- - [BZ 1833879](https://bugzilla.redhat.com/1833879) **"Installation Guide" and "RHV Documents" didn't jump to the correct pages.**
+ - [BZ 1688245](https://bugzilla.redhat.com/1688245) **Gluster IPV6 storage domain requires additional mount options**
+
+   
+
+ - [BZ 1832822](https://bugzilla.redhat.com/1832822) **Cockpit: Blacklist list in inventory file entering empty fields**
+
+   
+
+
+#### oVirt imageio
+
+ - [BZ 1839400](https://bugzilla.redhat.com/1839400) **[RFE] Support fallback to proxy_url if transfer_url is not accessible**
+
+   
+
+ - [BZ 1836858](https://bugzilla.redhat.com/1836858) **[v2v] Improve performance when using small requests**
+
+   
+
+ - [BZ 1835719](https://bugzilla.redhat.com/1835719) **[RFE] support showing parsed configuration**
+
+   
+
+
+#### oVirt Setup Lib
+
+ - [BZ 1840756](https://bugzilla.redhat.com/1840756) **An endless loop occurs when using autoAcceptDefault=True**
+
+   
+
+
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1840756](https://bugzilla.redhat.com/1840756) **An endless loop occurs when using autoAcceptDefault=True**
+
+   
+
+ - [BZ 1634742](https://bugzilla.redhat.com/1634742) **HE cleanup code is not cleaning libvirt.qemu.conf correctly and HE can't be redeployed**
+
+   
+
+
+#### imgbased
+
+ - [BZ 1827232](https://bugzilla.redhat.com/1827232) **[RHVH 4.4] sometimes when defining 2 sizes of huge pages the parameters order changed and all memory occupied by the huge pages.**
+
+   
+
+
+#### oVirt Node NG Image
+
+ - [BZ 1838926](https://bugzilla.redhat.com/1838926) **ovirt-node-ng-image CI broken due to c, network is not active**
 
    
 
@@ -133,6 +235,18 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### oVirt Engine
 
+ - [BZ 1839076](https://bugzilla.redhat.com/1839076) **engine-vacuum on nonexistent table returns 0**
+
+   
+
+ - [BZ 1828669](https://bugzilla.redhat.com/1828669) **After SPM select the engine lost communication to all hosts until restarted [improved logging]**
+
+   
+
+ - [BZ 1833770](https://bugzilla.redhat.com/1833770) **Getting "WebSocket Proxy certificate signed successfully" log message when it actually fails**
+
+   
+
  - [BZ 1835586](https://bugzilla.redhat.com/1835586) **ansible-runner-service.log is in /var/lib**
 
    
@@ -140,7 +254,7 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### Contributors
 
-34 people contributed to this release:
+51 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -149,11 +263,14 @@ In order to install this Release Candidate you will need to enable pre-release r
 	Arik Hadas
 	Artur Socha
 	Asaf Rachmani
+	Aviv Litman
 	Aviv Turgeman
 	Bell Levin
 	Bella Khizgiyev
+	Benny Zlotnik
 	Dana Elfassy
 	Daniel Erez
+	Denis Chaplygin
 	Dominik Holler
 	Eitan Raviv
 	Eli Mesika
@@ -161,8 +278,13 @@ In order to install this Release Candidate you will need to enable pre-release r
 	Fedor Gavrilov
 	Gal Zaidman
 	Gal-Zaidman
+	Germano Veit Michel
+	Gobinda Das
+	Hilda Stastna
+	Kaustav Majumder
 	Lev Veyde
 	Liran Rotenberg
+	Lucia Jelinkova
 	Marcin Sobczyk
 	Martin Necas
 	Martin Perina
@@ -170,9 +292,18 @@ In order to install this Release Candidate you will need to enable pre-release r
 	Milan Zamazal
 	Nir Levy
 	Nir Soffer
-	Ori Liel
+	Ori_Liel
 	Pavel Bar
+	Prajith Kesava Prasad
+	Radoslaw Szwajkowski
+	Ritesh Chikatwar
 	Sandro Bonazzola
+	Shani Leviim
+	Shirly Radco
+	Shmuel Melamud
 	Steven Rosenberg
+	Tal Nisan
+	Tomáš Golembiovský
 	Vojtech Juranek
 	Yedidyah Bar David
+	parthdhanjal

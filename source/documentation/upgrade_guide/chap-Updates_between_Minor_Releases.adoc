@@ -1,10 +1,12 @@
 [id='Updates_between_Minor_Releases']
-= Updates between Minor Releases
+= Updates between minor releases
+
+ifdef::context[:parent-context: {context}]
 
 :context: minor_updates
 :minor_updates:
 
-To update from your current version of 4.3 to the latest version of 4.3, update the {engine-name} and then update the hosts.
+To update from your current version of 4.4 to the latest version of 4.4, update the {engine-name} and then update the hosts.
 
 ifdef::rhv-doc[]
 include::../common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
@@ -24,9 +26,11 @@ You can also update hosts individually:
 
 include::../common/upgrade/proc-Updating_Individual_Hosts.adoc[leveloffset=+1]
 
-{org-fullname} recommends updating the hosts from the Administration Portal. However, you can update the hosts using `yum update` instead:
+You should update the hosts from the Administration Portal. However, you can update the hosts using `yum update` instead:
 
 include::../common/upgrade/proc-Manually_Updating_Hosts.adoc[leveloffset=+1]
 
-:context!: minor_updates
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
+
 :minor_updates!:

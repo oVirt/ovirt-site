@@ -1,32 +1,134 @@
 [id="Upgrading_the_Manager_to_4-4_{context}"]
-= Upgrading the {engine-name} from 4.3 to 4.4
-
-Upgrade the {virt-product-fullname} {engine-name} from 4.3 to 4.4.
+= Upgrading the {virt-product-fullname} {engine-name} from 4.3 to 4.4
 
 // Included in:
 // Upgrade Guide
 
+{virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} 8.2 or later. A clean installation of {enterprise-linux} 8.2 and {virt-product-fullname} {engine-name} 4.4 is required, even if you are using the same physical machine that you use to run {virt-product-fullname} {engine-name} 4.3. The upgrade process requires restoring {virt-product-fullname} {engine-name} 4.3 backup files onto the {virt-product-fullname} {engine-name} 4.4 machine.
+
+////
+[NOTE]
+====
+You can only restore backups to environments of the same minor release as that of the backup. For example, a backup of a {virt-product-fullname} version 4.2 environment can only be restored to another {virt-product-fullname} version 4.2 environment. To view the version of {virt-product-fullname} contained in a backup file, unpack the backup file and read the value in the file named version, located in the root directory of the unpacked files.
+====
+////
+
 [IMPORTANT]
 ====
-Upgrading from 4.3 to 4.4 requires host reinstallation with Enterprise Linux 8.
-Procedure is then a migration more than an upgrade.
+All data centers and clusters in the environment must have the cluster compatibility level set to version 4.3 before you start the procedure.
+====
+
+[NOTE]
+====
+Connected hosts and virtual machines can continue to work while the {engine-name} is being upgraded.
 ====
 
 .Procedure
 
-For a standalone engine this means basically:
+ifdef::SHE_upgrade[]
+. Log in to the {engine-name} host machine.
 
-1. backup engine data on 4.3.9 with:
-   `engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log`
-2. copy the backup to a safe location
-3. reinstall engine host with EL 8
-4. enable repos with:
-   `dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm`
-5. `dnf update` (reboot if needed)
-6. enable modules with:
-   `dnf module enable -y javapackages-tools pki-deps postgresql:12 389-ds`
-7. install engine rpms with:
-   `dnf install ovirt-engine`    
-8. restore the engine data with:
-   `engine-backup --mode=restore --file=backup.bck --log=restore.log --provision-db --provision-dwh-db --restore-permissions --provision-dwh-db`
-9. run `engine-setup`.
+. Enable global maintenance mode.
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --set-maintenance --mode=global
+----
+
+. Log in to the {engine-name} virtual machine and shut down the engine service.
++
+[options="nowrap" subs="normal"]
+----
+# systemctl stop ovirt-engine
+----
+endif::SHE_upgrade[]
+
+ifdef::local_database_upgrade,remote_database_upgrade[. Log in to the {engine-name} machine.]
+
+. Back up the {virt-product-fullname} {engine-name} 4.3 environment.
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log
+----
+
+. Copy the backup file to a suitable device.
+
+ifdef::SHE_upgrade[]
+
+. Install {hypervisor-shortname} 4.4 or {enterprise-linux} 8.2 or later on the machine you want to use as the self-hosted engine deployment host. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Installing_Hosts_for_RHV_SHE_cockpit_deploy[Installing the Self-hosted Engine Deployment Host] for more information.
+
+. Copy the backup file to the new host.
+
+. Log in to the {engine-name} host and deploy the self-hosted engine with the backup file:
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --deploy --restore-from-file=backup.bck
+----
++
+[NOTE]
+====
+During the deployment you need to provide a new storage domain. The deployment script renames the 4.3 storage domain and retains its data.
+====
+
+endif::SHE_upgrade[]
+
+ifdef::local_database_upgrade,remote_database_upgrade[]
+
+. Install {hypervisor-shortname} 4.4 or {enterprise-linux} 8.2 or later. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Installing_Hosts_for_RHV_SHE_cockpit_deploy[Installing Hosts for {virt-product-fullname}] in one of the _Installing {virt-product-fullname}_ guides for more information.
+
+. Install {virt-product-fullname} {engine-name} 4.4. See one of the _Installing {virt-product-fullname}_ guides.
+
+. Copy the backup file to the {virt-product-fullname} {engine-name} 4.4 machine and restore it.
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --mode=restore --file=backup.bck --provision-all-databases
+----
++
+[NOTE]
+====
+If the backup contained grants for extra database users, this command creates the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See https://access.redhat.com/articles/2686731.
+====
+endif::local_database_upgrade,remote_database_upgrade[]
+
+. Install optional extension packages if they were installed on the {virt-product-fullname} {engine-name} 4.3 machine.
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-engine-extension-aaa-ldap ovirt-engine-extension-aaa-misc ovirt-engine-extension-logger-log4j
+----
++
+[NOTE]
+====
+The configuration for these package extensions must be manually reapplied because they are not migrated as part of the backup and restore process.
+====
+
+. Decommission the {virt-product-fullname} {engine-name} 4.3 machine if a different machine is used for {virt-product-fullname} {engine-name} 4.4. Two different {engine-name}s must not manage the same hosts or storage.
+
+ifdef::local_database_upgrade,remote_database_upgrade[]
+. Run `engine-setup` to configure the {engine-name}.
++
+[options="nowrap" subs="normal"]
+----
+# engine-setup
+----
+endif::local_database_upgrade,remote_database_upgrade[]
+[NOTE]
+====
+If you use external CA to sign HTTPS certificates, follow the steps in Replacing the {virt-product-fullname} {engine-name} CA Certificate in the Administration Guide to log in to the Administration portal after the upgrade. Ensure the CA certificate is added to system-wide trust stores of all clients to ensure the foreign menu of virt-viewer works. See link:https://bugzilla.redhat.com/show_bug.cgi?id=1313379[BZ#1313379] for more information.
+====
+
+The {virt-product-fullname} {engine-name} 4.4 is now installed, with the cluster compatibility version set to 4.3. Now you need to upgrade the hosts in your environment to {virt-product-shortname} 4.4, after which you can change the cluster compatibility version to 4.4.
+
+.Additional resources
+
+* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index[Installing Red Hat Virtualization as a self-hosted engine using the Cockpit web interface]
+
+* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/[Installing Red Hat Virtualization as a self-hosted engine using the command line]
+
+* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/[Installing Red Hat Virtualization as a standalone Manager with local databases]
+
+
+* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/[Installing Red Hat Virtualization as a standalone Manager with remote databases]

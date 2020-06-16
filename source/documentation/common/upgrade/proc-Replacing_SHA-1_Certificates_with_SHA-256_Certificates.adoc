@@ -1,11 +1,7 @@
 [id='Replacing_SHA-1_Certificates_with_SHA-256_Certificates_{context}']
 = Replacing SHA-1 Certificates with SHA-256 Certificates
 
-{virt-product-fullname} 4.3 uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable {virt-product-fullname}'s public key infrastructure (PKI) to use SHA-256 signatures. However, for systems upgraded from 4.1 or earlier, one of the following is required:
-
-* xref:Preventing_Warning_Messages_from_Appearing_in_the_Browser_{context}[Prevent warning messages from appearing in your browser when connecting to the Administration Portal.] These warnings may either appear as pop-up windows or in the browser's *Web Console* window. This option is not required if you already replaced the {virt-product-fullname} {engine-name}'s Apache SSL certificate after the upgrade. However, if the certificate was signed with SHA-1, you should replace it with an SHA-256 certificate. For more details see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Replacing the {virt-product-fullname} {engine-name} CA Certificate] in the _Administration Guide_.
-
-* xref:Replacing_All_Signed_Certificates_with_SHA-256_{context}[Replace the SHA-1 certificates throughout the system with SHA-256 certificates.]
+{virt-product-fullname} {vernum_rhv} uses SHA-256 signatures, which provide a more secure way to sign SSL certificates than SHA-1. Newly installed systems do not require any special steps to enable {virt-product-fullname}'s public key infrastructure (PKI) to use SHA-256 signatures.
 
 [id='Preventing_Warning_Messages_from_Appearing_in_the_Browser_{context}']
 [discrete]
@@ -134,7 +130,7 @@ If you replaced the {virt-product-fullname} {engine-name} SSL Certificate after 
 # names="engine websocket-proxy jboss imageio-proxy"
 ----
 +
-For more details see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Replacing the {virt-product-fullname} {engine-name} CA Certificate] in the _Administration Guide_.
+For more details see link:{URL_virt_product_docs}html/administration_guide/appe-red_hat_enterprise_virtualization_and_ssl#Replacing_the_Manager_CA_Certificate[Replacing the {virt-product-fullname} {engine-name} CA Certificate] in the _Administration Guide_.
 
 ifdef::SHE_upgrade[]
 .	Log in to one of the self-hosted engine nodes and enable global maintenance:

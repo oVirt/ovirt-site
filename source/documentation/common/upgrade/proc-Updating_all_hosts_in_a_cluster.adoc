@@ -5,21 +5,10 @@
 
 You can update all hosts in a cluster instead of updating hosts individually. This is particularly useful during upgrades to new versions of {virt-product-fullname}. See link:https://github.com/oVirt/ovirt-ansible-cluster-upgrade/blob/master/README.md[] for more information about the Ansible role used to automate the updates.
 
-{org-fullname} recommends updating one cluster at a time.
+Update one cluster at a time.
 
 //Limitations
 include::snip-Host_update_limitations.adoc[]
-
-ifdef::4-0_local_db,4-0_remote_db,4-0_SHE[]
-* {hypervisor-shortname} 4.0 hosts cannot be updated with {virt-product-fullname} {engine-name} 4.3. They must be updated manually from the command line:
-+
-[options="nowrap" subs="normal"]
-----
-# yum update redhat-virtualization-host-image-update
-----
-+
-This limitation applies only to {hypervisor-shortname} 4.0. Other {hypervisor-shortname} versions and all {enterprise-linux-host-shortname} can be updated using {virt-product-fullname} {engine-name} 4.3.
-endif::4-0_local_db,4-0_remote_db,4-0_SHE[]
 
 .Procedure
 
@@ -31,12 +20,12 @@ endif::4-0_local_db,4-0_remote_db,4-0_SHE[]
 * *Upgrade Timeout (Minutes)* sets the time to wait for an individual host to be updated before the cluster upgrade fails with a timeout. The default is `60`. You can increase it for large clusters where 60 minutes might not be enough, or reduce it for small clusters where the hosts update quickly.
 * *Check Upgrade* checks each host for available updates before running the upgrade process. It is not selected by default, but you can select it if you need to ensure that recent updates are included, such as when you have configured the {engine-name} to check for host updates less frequently than the default.
 * *Reboot After Upgrade* reboots each host after it is updated, and is selected by default. You can clear this check box to speed up the process if you are sure that there are no pending updates that require a host reboot.
-* *Use Maintenance Policy* sets the cluster's scheduling policy to link:{URL_virt_product_docs}admin-guide/administration-guide.html[`cluster_maintenance`] during the update. It is selected by default, so activity is limited and virtual machines cannot start unless they are highly available. You can clear this check box if you have a custom scheduling policy that you want to keep using during the update, but this could have unknown consequences. Ensure your custom policy is compatible with cluster upgrade activity before disabling this option.
+* *Use Maintenance Policy* sets the cluster's scheduling policy to link:{URL_virt_product_docs}html/administration_guide/sect-cluster_tasks#Cluster_Scheduling_Policy_Settings[`cluster_maintenance`] during the update. It is selected by default, so activity is limited and virtual machines cannot start unless they are highly available. You can clear this check box if you have a custom scheduling policy that you want to keep using during the update, but this could have unknown consequences. Ensure your custom policy is compatible with cluster upgrade activity before disabling this option.
 . Click *Next*.
 . Review the summary of the hosts and virtual machines that will be affected.
 . Click *Upgrade*.
 
-You can track the progress of host updates in the menu:Compute[Hosts] view, and in the *Events* section of the *Notification Drawer* (image:../common/images/EventsIcon.png[]).
+You can track the progress of host updates in the menu:Compute[Hosts] view, and in the *Events* section of the *Notification Drawer* (image:common/images/EventsIcon.png[]).
 
 You can track the progress of individual virtual machine migrations in the *Status* column of the menu:Compute[Virtual Machines] view. In large environments, you may need to filter the results to show a particular group of virtual machines.
 

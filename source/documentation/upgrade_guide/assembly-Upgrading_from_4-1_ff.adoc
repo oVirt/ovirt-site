@@ -25,7 +25,7 @@ ifdef::rhv-doc[]
 endif::[]
 
 // Prerequisites
-include::../common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
+include::../../common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
 
 ////
 THIS IS DONE AUTOMATICALLY BY ovirt-fast-forward-upgrade
@@ -38,17 +38,17 @@ include::topics/Upgrading_with_ovirt-fast-forward-upgrade.adoc[leveloffset=+1]
 
 You can now update the hosts.
 
-include::../common/upgrade/proc-Updating_all_hosts_in_a_cluster.adoc[leveloffset=+1]
+include::../../common/upgrade/proc-Updating_all_hosts_in_a_cluster.adoc[leveloffset=+1]
 
-include::../common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
+include::../../common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
 
-include::../common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
+include::../../common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
 
-include::../common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
+include::../../common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
 
-include::../common/upgrade/proc-Replacing_SHA-1_Certificates_with_SHA-256_Certificates.adoc[leveloffset=+1]
+include::../../common/upgrade/proc-Replacing_SHA-1_Certificates_with_SHA-256_Certificates.adoc[leveloffset=+1]
 
 // Upgrades from 4.1 only
-include::../common/upgrade/proc-Updating_OVN_Providers.adoc[leveloffset=+1]
+include::../../common/upgrade/proc-Updating_OVN_Providers.adoc[leveloffset=+1]
 
 :4-1_local_db_ff!:

@@ -9,6 +9,7 @@ This guide explains how to upgrade the following environments to {virt-product-f
 
 * *Self-hosted engine, local database*: Both the Data Warehouse database and the {engine-name} database are installed on the {engine-name}.
 
+////
 To save time when upgrading a {engine-name} with local databases, use the `ovirt-fast-forward-upgrade` tool.
 
 [NOTE]
@@ -17,6 +18,7 @@ To save time when upgrading a {engine-name} with local databases, use the `ovirt
 ====
 
 Alternatively, you can manually upgrade the {engine-name}. For remote database environments, this path is required.
+////
 
 [IMPORTANT]
 ====
@@ -31,41 +33,16 @@ Select the appropriate instructions for your environment from the following tabl
 |===
 
 |Current {engine-name} version |Target {engine-name} version |Relevant section
-|4.0 |4.3 a|*Local database environment:*
-
-* Fast-forward upgrade: xref:Upgrading_from_4-0_ff[]
-* Manual upgrade: xref:Upgrading_from_4-0[]
-
-*Remote database environment:* xref:Remote_Upgrading_from_4-0[]
-
-*Self-hosted engine, local database environment:*
-
-* Fast-forward upgrade: xref:Upgrading_from_4-0_ff[]
-* Manual upgrade: xref:SHE_Upgrading_from_4-0[]
-
-|4.1 |4.3 a|*Local database environment:*
-
-* Fast-forward upgrade: xref:Upgrading_from_4-1_ff[]
-* Manual upgrade: xref:Upgrading_from_4-1[]
-
-*Remote database environment:* xref:Remote_Upgrading_from_4-1[]
-
-*Self-hosted engine, local database environment:*
-
-* Fast-forward upgrade: xref:Upgrading_from_4-1_ff[]
-* Manual upgrade: xref:SHE_Upgrading_from_4-1[]
-
-
 |4.2 |4.3 a|*Local database environment:*
 
-* Fast-forward upgrade: xref:Upgrading_from_4-2_ff[]
+// * Fast-forward upgrade: xref:Upgrading_from_4-2_ff[]
 * Manual upgrade: xref:Upgrading_from_4-2[]
 
 *Remote database environment:* xref:Remote_Upgrading_from_4-2[]
 
 *Self-hosted engine, local database environment:*
 
-* Fast-forward upgrade: xref:Upgrading_from_4-2_ff[]
+// * Fast-forward upgrade: xref:Upgrading_from_4-2_ff[]
 * Manual upgrade: xref:SHE_Upgrading_from_4-2[]
 
 

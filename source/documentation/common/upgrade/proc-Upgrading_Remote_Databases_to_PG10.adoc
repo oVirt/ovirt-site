@@ -35,7 +35,7 @@ ifdef::ovirt-doc[]
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 ----
 endif::[]
 

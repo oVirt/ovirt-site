@@ -1,0 +1,42 @@
+// Module included in the following assemblies:
+//
+// Upgrading from 4.3 to {virt-product-fullname} 4.4
+//
+[id="Upgrading_hosts_to_4-4_{context}"]
+
+= Migrating hosts and virtual machines from {virt-product-shortname} 4.3 to 4.4
+
+You can migrate hosts and virtual machines from {virt-product-fullname} 4.3 to 4.4 such that you minimize the down-time of virtual machines in your environment.
+
+This process requires migrating all virtual machines off of one host so as to make that host available to upgrade to {virt-product-shortname} 4.4. After the upgrade, you can reattach the host to the {engine-name}.
+
+.Prerequisites
+
+* Hosts for {virt-product-shortname} 4.4 require {enterprise-linux} 8.2 or later. A clean installation of {enterprise-linux} 8.2 or later, or {hypervisor-fullname} 4.4 is required, even if you are using the same physical machine that you use to run hosts for {virt-product-shortname} 4.3.
+* {virt-product-fullname} {engine-name} 4.4 is installed and running.
+* The compatibility level of the data center and cluster to which the hosts belong is set to 4.3.
+
+
+.Procedure
+
+. Pick a host to upgrade and migrate that host's virtual machines to another host in the same 4.3 cluster. You can use Live Migration to minimize virtual machine down-time. For more information, see
+link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#sect-Migrating_Virtual_Machines_Between_Hosts[Migrating Virtual Machines Between Hosts] in one of the _Installing {virt-product-fullname}_ guides for more information.
+
+. Install {enterprise-linux} 8.2 or later, or {hypervisor-shortname} 4.4. For more information, see link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy[Installing Hosts for {virt-product-fullname}] in one of the _Installing {virt-product-fullname}_ guides for more information.
+
+. Install the appropriate packages to enable the host for {virt-product-shortname} 4.4. For more information, see link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy[Installing Hosts for {virt-product-fullname}] in one of the _Installing {virt-product-fullname}_ guides for more information.
+
+. Add this host to the {engine-name}, assigning it to the same cluster. You can now migrate virtual machines onto this host. For more information, see link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Adding_standard_hosts_to_the_Manager_SM_localDB_deploy[Adding Standard Hosts to the {engine-name}] in one of the _Installing {virt-product-fullname}_ guides for more information.
+
+Repeat these steps to migrate virtual machines and upgrade hosts for the rest of the hosts in the same cluster, one by one, until all are running {virt-product-fullname} 4.4.
+
+.Additional resources
+
+* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index[Installing Red Hat Virtualization as a self-hosted engine using the Cockpit web interface]
+
+* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/[Installing Red Hat Virtualization as a self-hosted engine using the command line]
+
+* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/[Installing Red Hat Virtualization as a standalone Manager with local databases]
+
+
+* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/[Installing Red Hat Virtualization as a standalone Manager with remote databases]

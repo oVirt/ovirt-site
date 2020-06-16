@@ -4,7 +4,7 @@
 :context: SHE_minor_updates
 :SHE_minor_updates:
 
-To update a self-hosted engine from your current version of 4.3 to the latest version of 4.3, you must place the environment in global maintenance mode and then follow the standard procedure for updating between minor versions.
+To update a self-hosted engine from your current version to the latest version, you must place the environment in global maintenance mode and then follow the standard procedure for updating between minor versions.
 
 [discrete]
 include::../she/snip-Enabling_Global_Maintenance_Mode.adoc[leveloffset=+1]

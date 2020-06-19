@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, li, a, p {
 
 # oVirt 4.4.1 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.1 Fourth Release Candidate as of June 11, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.1 Fifth Release Candidate as of June 19, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -31,6 +31,7 @@ All issues or bugs should be reported via
 The oVirt Project makes no guarantees as to its suitability or usefulness.
 This pre-release should not to be used in production, and it is not feature
 complete.
+
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
 the [Download](/download/) page.
@@ -51,11 +52,33 @@ In order to install this Release Candidate you will need to enable pre-release r
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
 
 
+
 ## What's New in 4.4.1?
+
+### Release Note
+
+#### oVirt Engine WildFly
+
+ - [BZ 1830951](https://bugzilla.redhat.com/1830951) **Rebase on Wildfly 19.1**
+
+   oVirt Engine is now running on WildFly 19.1.0.FINAL
+
 
 ### Enhancements
 
 #### oVirt Engine
+
+ - [BZ 1763812](https://bugzilla.redhat.com/1763812) **[RFE] Move the Remove VM button to the drop down menu when viewing details such as snapshots**
+
+   Feature: Moved the VM remove button to the more button's drop down menu.
+
+
+
+Reason: For usability. Many users would press the remove VM in a details tab view thinking that it would just remove the detailed item. Instead it deleted the VM itself.
+
+
+
+Result: The user now has to press the more drop down button to delete the VM, but it should be less confusing as to which button to use when attempting to remove a detail such as a snapshot.
 
  - [BZ 1841083](https://bugzilla.redhat.com/1841083) **bump up max memory limit to 6TB**
 
@@ -68,6 +91,8 @@ In order to install this Release Candidate you will need to enable pre-release r
 
  - [BZ 1837460](https://bugzilla.redhat.com/1837460) **grafana is not backed up**
 
+ - [BZ 1832905](https://bugzilla.redhat.com/1832905) **engine-backup --mode=verify is broken**
+
 
 #### VDSM
 
@@ -78,6 +103,10 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### oVirt Release Package
 
+ - [BZ 1845670](https://bugzilla.redhat.com/1845670) **Cannot use any element on oVirt Node cockpit login page**
+
+   
+
  - [BZ 1844389](https://bugzilla.redhat.com/1844389) **CentOS Stream release rpm**
 
    
@@ -85,11 +114,35 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### oVirt Engine
 
+ - [BZ 1846212](https://bugzilla.redhat.com/1846212) **After grafana setup, if next engine-setup fails, rollback fails**
+
+   
+
+ - [BZ 1828282](https://bugzilla.redhat.com/1828282) **Inconsistent terms for login, log out, sign out, etc.**
+
+   
+
+ - [BZ 1832181](https://bugzilla.redhat.com/1832181) **vNIC is added to a running VM while the network is not attached on the host if specifying network filters**
+
+   
+
  - [BZ 1844797](https://bugzilla.redhat.com/1844797) **Can't extend a managed block disk**
 
    
 
  - [BZ 1575542](https://bugzilla.redhat.com/1575542) **date/time selectors in volume snapshot's schedule doesn't work**
+
+   
+
+ - [BZ 1839398](https://bugzilla.redhat.com/1839398) **Configuring HP type by Rest API doesn't set headless mode. In PPC arch such VM fails on start**
+
+   
+
+ - [BZ 1844822](https://bugzilla.redhat.com/1844822) **DiskCopy: IllegalStateException: No default constructor for collection type**
+
+   
+
+ - [BZ 1704349](https://bugzilla.redhat.com/1704349) **glance integration with recent RDO is not working**
 
    
 
@@ -106,6 +159,10 @@ In order to install this Release Candidate you will need to enable pre-release r
    
 
  - [BZ 1826454](https://bugzilla.redhat.com/1826454) **When accessing any type of console error "Sorry, VM Portal is currently having some issues"**
+
+   
+
+ - [BZ 1834523](https://bugzilla.redhat.com/1834523) **Edit VM -> Enable Smartcard sharing does not stick when VM is running**
 
    
 
@@ -129,11 +186,11 @@ In order to install this Release Candidate you will need to enable pre-release r
 
    
 
- - [BZ 1707707](https://bugzilla.redhat.com/1707707) **Ovirt: Can't upload Disk Snapshots with size >1G to iSCSI storage using Java/Python SDK**
+ - [BZ 1838439](https://bugzilla.redhat.com/1838439) **After editing 4.2 cluster properties it isn't possible to create 4.2 VM in the cluster**
 
    
 
- - [BZ 1828931](https://bugzilla.redhat.com/1828931) **engine-vacuum fails with permission denied for schema pg_temp_23**
+ - [BZ 1707707](https://bugzilla.redhat.com/1707707) **Ovirt: Can't upload Disk Snapshots with size >1G to iSCSI storage using Java/Python SDK**
 
    
 
@@ -153,6 +210,10 @@ In order to install this Release Candidate you will need to enable pre-release r
    
 
  - [BZ 1841030](https://bugzilla.redhat.com/1841030) **RHV upgrade for 4.3 to 4.4 fails for IBRS CPU type**
+
+   
+
+ - [BZ 1704349](https://bugzilla.redhat.com/1704349) **glance integration with recent RDO is not working**
 
    
 
@@ -184,7 +245,18 @@ In order to install this Release Candidate you will need to enable pre-release r
    
 
 
+#### oVirt Host Dependencies
+
+ - [BZ 1836026](https://bugzilla.redhat.com/1836026) **Add pkgs required by STIG**
+
+   
+
+
 #### oVirt imageio
+
+ - [BZ 1591439](https://bugzilla.redhat.com/1591439) **[RFE] [v2v] - imageio performance - concurrent I/O**
+
+   
 
  - [BZ 1839400](https://bugzilla.redhat.com/1839400) **[RFE] Support fallback to proxy_url if transfer_url is not accessible**
 
@@ -224,6 +296,24 @@ In order to install this Release Candidate you will need to enable pre-release r
    
 
 
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1845049](https://bugzilla.redhat.com/1845049) **configure engine for showing  link to grafana instance in ovirt landing page**
+
+   
+
+ - [BZ 1814643](https://bugzilla.redhat.com/1814643) **[RFE] Configure Grafana for oVirt DWH**
+
+   
+
+
+#### oVirt Engine Appliance
+
+ - [BZ 1822535](https://bugzilla.redhat.com/1822535) **Hosted-engine restore from file fails when there are VM's having snapshots with old compatibility levels.**
+
+   
+
+
 #### oVirt Node NG Image
 
  - [BZ 1838926](https://bugzilla.redhat.com/1838926) **ovirt-node-ng-image CI broken due to c, network is not active**
@@ -235,7 +325,15 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 #### oVirt Engine
 
+ - [BZ 1814212](https://bugzilla.redhat.com/1814212) **Convert existing oVirt engine extensions configuration files to the new content required by oVirt engine 4.4**
+
+   
+
  - [BZ 1839076](https://bugzilla.redhat.com/1839076) **engine-vacuum on nonexistent table returns 0**
+
+   
+
+ - [BZ 1842495](https://bugzilla.redhat.com/1842495) **high cpu usage after entering wrong search pattern in RHVM**
 
    
 
@@ -251,10 +349,14 @@ In order to install this Release Candidate you will need to enable pre-release r
 
    
 
+ - [BZ 1828931](https://bugzilla.redhat.com/1828931) **engine-vacuum fails with permission denied for schema pg_temp_23**
+
+   
+
 
 #### Contributors
 
-51 people contributed to this release:
+53 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -299,8 +401,10 @@ In order to install this Release Candidate you will need to enable pre-release r
 	Ritesh Chikatwar
 	Sandro Bonazzola
 	Shani Leviim
+	Sharon Gratch
 	Shirly Radco
 	Shmuel Melamud
+	Steve Goodman
 	Steven Rosenberg
 	Tal Nisan
 	Tomáš Golembiovský

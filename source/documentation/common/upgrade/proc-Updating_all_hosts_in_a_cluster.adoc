@@ -25,7 +25,7 @@ include::snip-Host_update_limitations.adoc[]
 . Review the summary of the hosts and virtual machines that will be affected.
 . Click *Upgrade*.
 
-You can track the progress of host updates in the menu:Compute[Hosts] view, and in the *Events* section of the *Notification Drawer* (image:common/images/EventsIcon.png[]).
+You can track the progress of host updates in the menu:Compute[Hosts] view, and in the *Events* section of the *Notification Drawer* (image:../common/images/EventsIcon.png[]).
 
 You can track the progress of individual virtual machine migrations in the *Status* column of the menu:Compute[Virtual Machines] view. In large environments, you may need to filter the results to show a particular group of virtual machines.
 

@@ -53,7 +53,7 @@ All low level operations should be able to fail at any point and return to a con
 
 ### Basic Structure
 
-![](RepoLegend.png "RepoLegend.png")
+![](/images/wiki/RepoLegend.png)
 
 These are operations that can be used
 
@@ -68,7 +68,7 @@ Adds a new Tag and volume that might depend on another existing Tag and Volume p
 
 4.  .Change the tag from weak to strong. (Seals the deal)
 
-![](im_op_add_child.png "im_op_add_child.png")
+![](/images/wiki/Im_op_add_child.png)
 
 ### Switcheroo
 
@@ -83,7 +83,7 @@ Creates a new volume and makes it the one pointed to by the existing tag and cre
     -   Change the new tag from weak to strong
     -   Alternatively for cross domain operations, you will do an "Add New" on second domain and copy the data from the old volume between stage 3 and 4.
 
-![](im_op_switch.png "im_op_switch.png")
+![](/images/wiki/Im_op_switch.png)
 
 ### Delete Image
 
@@ -93,7 +93,7 @@ This doesn't really delete the image but rather makes it in accessible from the 
 2.  Lock the volume
 3.  Turn the tag to a weak tag
 
-![](im_op_delete_image.png "im_op_delete_image.png")
+![](/images/wiki/Im_op_delete_image.png)
 
 ### Delete Orphan volume
 
@@ -103,7 +103,7 @@ If a volume is not reference by any tag weak of strong it can be safely deleted.
 2.  Lock volume
 3.  Delete volume
 
-![](im_op_delete_oropan_volume.png "im_op_delete_oropan_volume.png")
+![](/images/wiki/Im_op_delete_orphan_volume.png)
 
 ### Delete Weak Tip
 
@@ -115,7 +115,7 @@ If a weak tah is not referenced by any volume it can be safely assume that no on
 
 Note that you can't just roll to delete orphan without making sure the volume is actually and orphan now!
 
-![](im_op_delete_weak_tip.png "im_op_delete_weak_tip.png")
+![](/images/wiki/Im_op_delete_weak_tip.png)
 
 ### Delete Single Linked
 
@@ -127,7 +127,7 @@ If a weak tag has only 1 dependent the two volumes can be merged and the tag rem
 4.  Either merge up or down depending on what is best according to the data inside the volumes
 5.  Reparent according to merge direction in previous phase
 
-![](im_op_delete_single_linked.png "im_op_delete_single_linked.png")
+![](/images/wiki/Im_op_delete_single_linked.png)
 
 ### Convert \\ Replace
 
@@ -140,7 +140,7 @@ This is used to either convert or replace a volume with new data.
 
 4.  Change the tag to point to the new volume. (Seals the deal)
 
-![](im_op_convert_replace.png "im_op_convert_replace.png")
+![](/images/wiki/Im_op_convert_replace.png)
 
 ### Reparent
 
@@ -150,7 +150,7 @@ Sometimes the content of the volume doesn't really depend on it's immediate pare
 2.  Lock the volume you wish to reparent
 3.  Change it's metadata (Seal the deal)
 
-![](im_op_reparent.png "im_op_reparent.png")
+![](/images/wiki/Im_op_reparent.png)
 
 ## Repository Checker
 

@@ -261,7 +261,7 @@ In the new/edit VM dialog a new part will be added containing the attach and cre
 
 ![](/images/wiki/NoImage.png)
 
-![](/images/wiki/withTwo.png)
+![](/images/wiki/WithTwo.png)
 
 *   VM:
     -   The new/edit VM dialog will be enriched to contain also the instance type and image lists.

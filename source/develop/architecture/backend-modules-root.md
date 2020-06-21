@@ -10,6 +10,6 @@ authors: amuller
 
 **Visualization:** This is how the landing page looks like in oVirt 3.2, in Firefox 17.
 
-![](LandingPage.png "LandingPage.png")
+![](/images/wiki/LandingPage.png)
 
 [Category: Architecture](Category: Architecture)

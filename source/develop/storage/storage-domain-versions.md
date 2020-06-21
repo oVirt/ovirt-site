@@ -64,7 +64,7 @@ Export domains cannot be upgraded; they must be created in the version 3 format 
 
 At the moment it is planned to support an automatic upgrade to version 3 from the previous versions.
 
-![](DomainUpgrade1.png "DomainUpgrade1.png")
+![](/images/wiki/DomainUpgrade1.png)
 
 ## References
 

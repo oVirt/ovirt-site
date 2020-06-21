@@ -90,28 +90,28 @@ First an authentication is done against 'Keystone' to get the `token` and then o
 
 ## User Experience
 ### Network Manager menu
-![Network Manager menu](/source/images/wiki/networks_menu.png)
+![Network Manager menu](/images/wiki/networks_menu.png)
 
 ### Network Managers list
-![Network Managers list](/source/images/wiki/network_managers_list.png)
+![Network Managers list](/images/wiki/network_managers_list.png)
 
 ### Specific Network Manager Subnets list
-![Specific Network Manager Subnets list](/source/images/wiki/specific_network_manager_subnets_list.png)
+![Specific Network Manager Subnets list](/images/wiki/specific_network_manager_subnets_list.png)
 
 ### Network Manager - general
-![Network Manager - general](/source/images/wiki/network_manager_general.png)
+![Network Manager - general](/images/wiki/network_manager_general.png)
 
 ### Networks list
-![Networks list](/source/images/wiki/cloud_networks_list.png)
+![Networks list](/images/wiki/cloud_networks_list.png)
 
 ### Add Network
-![Add Network](/source/images/wiki/add_cloud_network.png)
+![Add Network](/images/wiki/add_cloud_network.png)
 
 ### Subnets list
-![Subnets list](/source/images/wiki/cloud_subnets_list.png)
+![Subnets list](/images/wiki/cloud_subnets_list.png)
 
 ### Add Subnet
-![Add Subnet](/source/images/wiki/add_cloud_subnet.png)
+![Add Subnet](/images/wiki/add_cloud_subnet.png)
 
 ## Dependencies
 * [OpenStack Networking API v2.0] (https://developer.openstack.org/api-ref/networking/v2/index.html)

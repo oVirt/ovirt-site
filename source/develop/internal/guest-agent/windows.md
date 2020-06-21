@@ -10,7 +10,7 @@ authors: vfeenstr
 
 ## An overview how the single sign on process works on Microsoft Windows® systems
 
-![](Ovirt-guest-agent-sso-windows2.png "Ovirt-guest-agent-sso-windows2.png")
+![](/images/wiki/Ovirt-guest-agent-sso-windows2.png")
 
 1.  VDSM sends a 'login' message to the oVirt Guest Agent
 2.  In case the "SAS" library is installed, the service will simulate a "Secure attention sequence" by issuing a SendSAS(0) call on the SAS library

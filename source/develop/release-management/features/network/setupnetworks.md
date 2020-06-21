@@ -140,7 +140,7 @@ e.g the network's vlan configuration is not valid
 
 ### GUI
 
-![File:general.png](/images/wiki/general.png) ![File:more_cases.png](/images/wiki/more_cases.png)
+![File:general.png](/images/wiki/General.png) ![File:more_cases.png](/images/wiki/More_cases.png)
 
 ### UI Alternative Suggestion
 

@@ -125,7 +125,7 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ### Active Checks on Remote Nodes
 
-![](/images/wiki/active.png)
+![](/images/wiki/Active.png)
 
 *   Active checks are initiated by the Nagios and run on a regularly scheduled basis.
 *   To execute active checks on gluster nodes, NRPE add-on will be used
@@ -134,7 +134,7 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ### Passive checks on Remote Nodes
 
-![](/images/wiki/passive.png)
+![](/images/wiki/Passive.png)
 
 *   Passive checks are initiated and performed external applications/processes and results are submitted to Nagios for processing
 *   To execute passive checks on gluster nodes, NSCA add-on will be used
@@ -144,7 +144,7 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ### Generating SNMP Traps/Alerts From Nagios Server
 
-![](/images/wiki/trap.png)
+![](/images/wiki/Trap.png)
 
 *   External Program/script/cron jobs or Application hooks monitor the status of specific resources/services.
 *   The results are passed on to the NSCA client which in turn pass the results to NSCA server on the monitoring server.
@@ -156,7 +156,7 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ### Generating traps/alerts Based on the Syslog Entries
 
-![](/images/wiki/syslog.png)
+![](/images/wiki/Syslog.png)
 
 *   rsyslog's omprog filter is used to send passive checks to Nagios server whenever logs of interest appear in syslog.
 *   omprog allows for the execution of external scripts and this is used to send an NSCA check result

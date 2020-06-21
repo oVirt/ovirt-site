@@ -78,7 +78,7 @@ When admin clicks reinstall for a host, the Advanced Parameters option will be a
 
 Advanced Parameters opened:
 
-![]( Installhostopened.png " Installhostopened.png")
+![](/images/wiki/Installhostopened.png)
 
 ## Open Issues
 

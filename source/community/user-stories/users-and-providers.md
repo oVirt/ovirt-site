@@ -96,10 +96,9 @@ The following organizations are very helpful to the oVirt community by providing
 
 ## Board Members
 
-The following companies are represented on [the oVirt Board](https://www.ovirt.org/community/about/board/).
+The following companies and institutes are represented on [the oVirt Board](/community/about/board/).
 
 {:.ovirt-board-logos}
-[![Canonical](/images/logos/Canonical.svg)](http://canonical.com/)
-[![Cisco](/images/logos/Cisco.svg)](http://cisco.com/)
-[![IBM](/images/logos/IBM.svg)](http://ibm.com/)
-[![Red Hat](/images/logos/Red_Hat.svg)](http://redhat.com/)
+[![IBM](/images/logos/IBM.svg)](//ibm.com/)
+[![Red Hat](/images/logos/Red_Hat.svg)](//redhat.com/)
+[![Caltech](/images/logos/Caltech.svg)](//www.caltech.edu/)

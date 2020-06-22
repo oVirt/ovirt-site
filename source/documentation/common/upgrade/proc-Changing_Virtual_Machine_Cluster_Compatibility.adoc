@@ -20,7 +20,7 @@ next_run_config_exists=True
 +
 The search results show all virtual machines with pending changes.
 
-. Select each virtual machine and click *Reboot*.
+. Select each virtual machine and click *Restart*. Alternatively, if necessary you can reboot a virtual machine from within the virtual machine itself.
 
 When the virtual machine starts, the new compatibility version is automatically applied.
 

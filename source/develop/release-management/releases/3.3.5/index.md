@@ -28,8 +28,6 @@ Since oVirt 3.4.0 has been released, in order to install 3.3.5 instead of 3.4.0 
 
 ### Fedora / CentOS / RHEL
 
-If you're installing oVirt 3.3.5 on a clean host you should read our [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
-
 If you're upgrading from oVirt 3.3 you should just execute:
 
       # yum update ovirt-engine-setup

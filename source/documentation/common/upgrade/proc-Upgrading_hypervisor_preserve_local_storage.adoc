@@ -1,0 +1,117 @@
+[id='Upgrading_hypervisor_preserving_local_storage_{context}']
+= Upgrading {hypervisor-shortname} while preserving local storage
+
+// Included in:
+// Upgrading from 4.3 to {virt-product-fullname} 4.4
+
+Environments with local storage cannot migrate virtual machines to a host in another cluster because the local storage is not shared with other storage domains. To upgrade {hypervisor-shortname} 4.3 hosts that have a local storage domain, reinstall the host while preserving the local storage, create a new local storage domain in the 4.4 environment, and import the previous local storage into the new domain.
+
+For {enterprise-linux} hosts, if you used separate space for storage domains, such as disks, partitions, or logical volume, you can reinstall while keeping the domains.
+
+.Prerequisites
+
+* {virt-product-fullname} {engine-name} 4.4 is installed and running.
+* The compatibility level of the data center and cluster to which the host belongs is set to 4.3.
+
+.Procedure
+
+. Ensure that the local storage on the {hypervisor-shortname} 4.3 host's local storage is in maintenance mode before starting this process. Complete these steps:
+
+.. Open the *Data Centers* tab.
+
+.. Click the *Storage* tab in the *Details* pane and select the storage domain in the results list.
+
+.. Click *Maintenance*.
+
+. Reinstall the {hypervisor-fullname}, as described in link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Red_Hat_Virtualization_Hosts_SHE_cockpit_deploy[Installing {hypervisor-fullname}] in the _Installation Guide_.
++
+[IMPORTANT]
+====
+When selecting the device on which to install {hypervisor-shortname} from the Installation Destination screen, do not select the device(s) storing the virtual machines. Only select the device where the operating system should be installed.
+
+If you are using kickstart to install the host, ensure that you preserve the devices containing the virtual machines by adding the following to the kickstart file, replacing device with the relevant device.
+
+[options="nowrap" subs="normal"]
+----
+# clearpart --all --drives=_device_
+----
+
+For more information on using kickstart, see link:{URL_rhel_docs_latest}html-single/performing_an_advanced_rhel_installation/index#kickstart_references[Kickstart references] in _Red Hat Enterprise Linux 8 Performing an advanced RHEL installation_.
+====
+
+. On the reinstalled host, create a directory, for example [filename]`/data` in which to recover the previous environment.
++
+[options="nowrap" subs="normal"]
+----
+# mkdir /data
+----
+
+. Mount the previous local storage in the new directory. In our example, [filename]`/dev/sdX1` is the local storage:
++
+[options="nowrap" subs="normal"]
+----
+# mount /dev/sdX1 /data
+----
+
+. Set the following permissions for the new directory.
++
+[options="nowrap" subs="normal"]
+----
+# chown -R 36:36 /data
+# chmod -R 0755 /data
+----
+
+. {org-fullname} recommends that you also automatically mount the local storage via [filename]`/etc/fstab` in case the server requires a reboot:
++
+[options="nowrap" subs="normal"]
+----
+# blkid | grep -i sdX1
+/dev/sdX1: UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" TYPE="ext4"
+# vi /etc/fstab
+UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" /data    ext4    defaults     0       0
+----
+
+. In the Administration Portal, create a data center and select *Local* in the *Storage Type* drop-down menu.
+
+. Configure a cluster on the new data center. See link:{URL_virt_product_docs}{URL_format}/administration_guide/index#Creating_a_New_Cluster[Creating a New Cluster] in the _Administration Guide_ for more information.
+
+. Add the host to the {engine-name}. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Adding_standard_hosts_to_the_Manager_SHE_cockpit_deploy[Adding Standard Hosts to the {virt-product-fullname} Manager] in one of the _Installing {virt-product-fullname}_ guides for more information.
+
+. On the host, create a new directory that will be used to create the initial local storage domain. For example:
++
+[options="nowrap" subs="normal"]
+----
+# mkdir -p /localfs
+# chown 36:36 /localfs
+# chmod -R 0755 /localfs
+----
+
+. In the Administration Portal, open the *Storage* tab and click *New Domain* to create a new local storage domain.
+
+. Set the name to `localfs` and set the path to [filename]`/localfs`.
+
+. Once the local storage is active, click *Import Domain* and set the domain's details.
+For example, define `Data` as the name, `Local on Host` as the storage type and [filename]`/data` as the path.
+
+. Click btn:[OK] to confirm the message that appears informing you that storage domains are already attached to the data center.
+
+. Activate the new storage domain:
+
+.. Open the *Data Centers* tab.
+.. Click the *Storage* tab in the details pane and select the new data storage domain in the results list.
+.. Click *Activate*.
+
+. Once the new storage domain is active, import the virtual machines and their disks:
+
+.. In the *Storage* tab, select *data*.
+
+.. Select the *VM Import* tab in the details pane, select the virtual machines and click *Import*. See link:{URL_virt_product_docs}{URL_format}/administration_guide/index#Importing_Virtual_Machines_from_an_Imported_Data_Storage_Domain[Importing Virtual Machines from Imported Data Storage Domains] in the _Administration Guide_ for more details.
+
+. Once you have ensured that all virtual machines have been successfully imported and are functioning properly, you can move `localfs` to maintenance mode.
+. Click the *Storage* tab and select *localfs* from the results list.
+.. Click the *Data Center* tab in the details pane.
+.. Click Maintenance, then click btn:[OK] to move the storage domain to maintenance mode.
+.. Click *Detach*. The Detach Storage confirmation window opens.
+.. Click btn:[OK].
+
+You have now upgraded the host to version 4.4, created a new local storage domain, and imported the 4.3 storage domain and its virtual machines.

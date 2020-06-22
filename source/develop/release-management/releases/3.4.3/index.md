@@ -21,7 +21,6 @@ In order to install it on a clean system, you need to install
 
 `# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
 
-You should read then our [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
 
 If you're upgrading from a previous version you should have ovirt-release package already installed on your system.
 

@@ -33,3 +33,6 @@ source/.jekyll-metadata
 # local Docker image related files
 /.dockerid
 /.gem-docker
+
+# ignore docs index.html: index.adoc is used instead
+source/documentation/*/index.html

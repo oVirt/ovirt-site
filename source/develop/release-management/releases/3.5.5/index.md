@@ -11,7 +11,7 @@ The oVirt Project is pleased to announce the availability of oVirt 3.5.5 release
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization. This release is available now for Red Hat Enterprise Linux 6.7, CentOS Linux 6.7 (or similar) and Red Hat Enterprise Linux 7.1, CentOS Linux 7.1 (or similar).
 
-To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/). For a general overview of oVirt, read [the Quick Start Guide](/documentation/quickstart/quickstart-guide/) and the [about oVirt](/community/about.html) page.
+To find out more about features which were added in previous oVirt releases, check out the [previous versions release notes](/develop/release-management/releases/). 
 
 ## Install / Upgrade from previous versions
 
@@ -24,8 +24,6 @@ In order to install oVirt 3.5.5 Release on a clean system, you need to install
 If you are upgrading from a previous version, you may have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
 
 Once ovirt-release35 package is installed, you will have the ovirt-3.5-stable repository and any other repository needed for satisfying dependencies enabled by default.
-
-If you're installing oVirt 3.5.5 on a clean host, you should read our [Quick Start Guide](/documentation/quickstart/quickstart-guide/).
 
 If you are upgrading from oVirt < 3.4.1, you must first upgrade to oVirt 3.4.1 or later. Please see [oVirt 3.4.1 release notes](/develop/release-management/releases/3.4.1/) for upgrade instructions.
 

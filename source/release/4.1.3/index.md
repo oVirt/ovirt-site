@@ -18,9 +18,6 @@ Packages for Fedora 24 are also available as a Tech Preview.
 
 
 
-For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
-and visit the [About oVirt](/community/about.html) page.
-
 For detailed installation instructions, read the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
 To learn about features introduced before 4.1.3, see the [release notes for previous versions](/documentation/#previous-release-notes).

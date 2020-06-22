@@ -71,8 +71,6 @@ If you are upgrading from oVirt < 3.4.1, you must first upgrade to oVirt 3.4.1 o
 
 Once ovirt-release35 package is installed, you will have the ovirt-3.5-stable repository and any other repository needed for satisfying dependencies enabled by default.
 
-If you're installing oVirt 3.5 on a clean host, you should read our [Quick Start Guide](/documentation/quickstart/quickstart-guide/).
-
 If you're using pre-release repo you'll need to re-enable pre release repository:
 
       [ovirt-3.5-pre]

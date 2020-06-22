@@ -14,11 +14,6 @@ awesome KVM management interface for multi-node virtualization.
 This release is available now for Red Hat Enterprise Linux 7.6,
 CentOS Linux 7.6 (or similar).
 
-
-
-For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
-and visit the [About oVirt](/documentation/introduction/about-ovirt/) page.
-
 For detailed installation instructions, read the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
 To learn about features introduced before 4.3.5, see the [release notes for previous versions](/documentation/#previous-release-notes).

@@ -25,7 +25,7 @@ ifdef::rhv-doc[]
 +
 [options="nowrap" subs="normal"]
 ----
-# subscription-manager repos --enable=rhel-7-server-rhvh-4-rpms
+# subscription-manager repos --enable=rhvh-4-beta-for-rhel-8-x86_64-rpms
 ----
 
 * For {enterprise-linux-host-fullname}s:
@@ -33,19 +33,22 @@ ifdef::rhv-doc[]
 [options="nowrap" subs="normal"]
 ----
 # subscription-manager repos \
-    --enable=rhel-7-server-rpms \
-    --enable=rhel-7-server-rhv-4-mgmt-agent-rpms \
-    --enable=rhel-7-server-ansible-2-rpms
+    --enable=rhel-8-for-x86_64-baseos-rpms \
+    --enable=rhel-8-for-x86_64-appstream-rpms \
+    --enable=rhv-4-mgmt-agent-beta-for-rhel-8-x86_64-rpms \
+    --enable=ansible-2.9-for-rhel-8-x86_64-rpms \
+    --enable=advanced-virt-for-rhel-8-x86_64-rpms \
+    --enable=fast-datapath-for-rhel-8-x86_64-rpms
 ----
 endif::[]
 ifdef::ovirt-doc[]
-* For {hypervisor-fullname}s, the `ovirt-release43` RPM package enabling the correct repositories is already installed.
+* For {hypervisor-fullname}s, the `ovirt-release44` RPM package enabling the correct repositories is already installed.
 
 * For {enterprise-linux-host-fullname}s:
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 ----
 endif::[]
 

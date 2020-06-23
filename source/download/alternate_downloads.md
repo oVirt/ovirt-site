@@ -3,12 +3,6 @@ title: Download
 authors: gshereme, sandrobonazzola
 ---
 
-<style>
-.instructions li {
-    margin-top: 20px;
-}
-</style>
-
 # Alternate Installation Methods
 
 For production installations, we recommend installing oVirt using the graphical Cockpit installer in the

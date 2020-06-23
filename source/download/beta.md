@@ -1,26 +1,8 @@
 ---
 title: Download Beta
 authors: sandrobonazzola
+page_classes: download
 ---
-
-<style>
-h1, h2, h3, h4, h5, h6, li, a, p {
-    font-family: 'Open Sans', sans-serif !important;
-}
-.instructions li {
-    margin-top: 20px;
-}
-.screenshot {
-    float: right;
-    width: 55%;
-    padding-left: 40px;
-    padding-bottom: 40px;
-}
-.install-start {
-    width: 245px;
-    padding-left: 40px;
-}
-</style>
 
 # Download oVirt 4.4 Beta
 

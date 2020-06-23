@@ -28,11 +28,12 @@
 
   - icon = '<i class="icon fab fa-github"></i>'
 
-  .edit-this-page
-    - issue_url = "https://github.com/#{site.data.site.github}/issues/new?labels=#{labels}&title=Issue:%20#{page.url}&template=#{issue_template}"
-    %a{ :href => issue_url, :title => "Report an issue", :target => "_blank" }= "#{icon}Report an issue with this page"
-  .edit-this-page
-    - edit_url = "https://github.com/#{site.data.site.github}/edit/master/#{[site['source'], page.path].join('/')}"
-    %a{ :href => edit_url, :title => "Edit this page", :target => "_blank" }= "#{icon}Edit this page"
+  - if not page.generated
+    .edit-this-page
+      - issue_url = "https://github.com/#{site.data.site.github}/issues/new?labels=#{labels}&title=Issue:%20#{page.url}&template=#{issue_template}"
+      %a{ :href => issue_url, :title => "Report an issue", :target => "_blank" }= "#{icon}Report an issue with this page"
+    .edit-this-page
+      - edit_url = "https://github.com/#{site.data.site.github}/edit/master/#{[site['source'], page.path].join('/')}"
+      %a{ :href => edit_url, :title => "Edit this page", :target => "_blank" }= "#{icon}Edit this page"
 
   = insert_piwik_tracker

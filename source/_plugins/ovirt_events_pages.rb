@@ -13,6 +13,7 @@ module OVirt
           'layout' => 'application',
           'title' => "#{year} Events",
           'year' => year,
+          'generated' => true,
         }
         site.pages << page
       end

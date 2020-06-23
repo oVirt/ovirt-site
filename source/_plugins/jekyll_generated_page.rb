@@ -12,6 +12,8 @@ class JekyllGeneratedPage < ::Jekyll::PageWithoutAFile
     self.process(@name)
 
     self.content = @content
-    self.data = {}
+    self.data = {
+      'generated' => true,
+    }
   end
 end

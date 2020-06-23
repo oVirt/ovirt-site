@@ -12,6 +12,7 @@ module OVirt
 
       self.data = {
         'layout' => 'default',
+        'generated' => true,
       }
     end
   end

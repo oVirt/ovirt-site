@@ -43,8 +43,6 @@ The engine-VM should be treated as any other VM in the system, from provisioning
 
 ### High level flow
 
-![](High Level Design - Edit HE VM(2).png "High Level Design - Edit HE VM(2).png")
-
 1.  installation creates and upload the OVF {VM guid}.ovf to a pre-created OVF_DISK
 2.  HA Agent read’s OVF from OVF_STORE
 3.  watchdog send a vdsm “create” verb with the OVF as argument. VM starts.

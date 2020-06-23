@@ -9,7 +9,7 @@ This page was created as a result of a [https://lists.ovirt.org/pipermail/engine
 
 ## Architecture
 
-![](/images/wiki/engine_ha_architecture.png)
+![](/images/wiki/Engine_ha_architecture.png)
 
 ## Issues with current implementation
 

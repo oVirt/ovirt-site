@@ -26,7 +26,7 @@ When integrating oVirt components for new build we need to run full set of syste
 One RHEL7 hypervisor will provide the full environment infrastructure for testing. The host will run at least 5 separate virtual machines. 1 serves for engine setup, 2 serves as hyperivors (VDSM installation) and 2 serves as storage providers (nfs and iscsi). All Vms will work with same internal NAT for communication.
 Before each run the setup will be initialized from scratch.
 
-![](/images/wiki/testingEnv.png)
+![](/images/wiki/TestingEnv.png)
 
 #### Creating Environment Flow
 

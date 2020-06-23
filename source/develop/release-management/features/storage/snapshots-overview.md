@@ -50,7 +50,7 @@ The solution is being neglected in favor of the sub-tabs concept as removing sna
 
 #### [DEPRECATED] Manage Snapshots Dialog
 
-![](/images/wiki/Manage_snapshots_dialog_sketch.png "manage snapshots dialog sketch")
+![](/images/wiki/manage_snapshots_dialog_sketch.png "manage snapshots dialog sketch")
 
 ## REST-API
 

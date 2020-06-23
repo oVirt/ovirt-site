@@ -43,10 +43,10 @@ In the following table, networking entities are listed with their implementation
 | TCP/UDP stack    |   X    |   -   |               |
 
 ### Linux legacy networking model
-![Linux legacy networking model](/feature/openvswitch/linux_legacy_networking_model.svg)
+![Linux legacy networking model](/develop/release-management/features/network/openvswitch/linux_legacy_networking_model.svg)
 
 ### OVS networking model 
-![OVS networking model](/feature/openvswitch/ovs_networking_model.svg)
+![OVS networking model](/develop/release-management/features/network/openvswitch/ovs_networking_model.svg)
 
 ## Limitations
 
@@ -64,7 +64,7 @@ Currently there are some limitations compared to Linux bridge [RFE OvS support](
 ## Specifications
 
 ### Solution Diagram
-![Solution Diagram](/feature/openvswitch/solution_diagram.svg)
+![Solution Diagram](/develop/release-management/features/network/openvswitch/solution_diagram.svg)
 
 ### NetSwitch
 A generic switch interface, relaying setup or report requests to the relevant switch implementation (currently two, legacy Linux networking and OVS).

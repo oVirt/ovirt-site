@@ -123,8 +123,6 @@ Fields that can contain IPv6 address:
     -   subnet mask - in IPv4 subnet mask has the form of dotted decimal number, same as IPv4 address. In IPv6 only `prefix` (an integer in the range 0-128) acceptable. Usually here will be the numbers 64/56/48.
     -   gateway - regular IPv6 address
 
-![](Ipv6.jpg "Ipv6.jpg")
-
 *   address of nics in network interfaces - add column for IPv6 address(es)
 
 ![](/images/wiki/Ipv6_network_interfaces.png)

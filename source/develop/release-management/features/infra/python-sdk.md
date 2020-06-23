@@ -39,7 +39,7 @@ __TOC__
 
 ### Creating a resource:
 
-![](/images/wiki/create_sdk_resource.png)
+![](/images/wiki/Create_sdk_resource.png)
 
 ### Accessing resource properties and sub-collections:
 

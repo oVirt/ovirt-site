@@ -145,7 +145,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](/images/wiki/Attach_disk_maintab_dialogue.png)
 
-![](/images/wiki/Disks_subtab.png)
+![](/images/wiki/disks_subtab.png)
 
 ![](/images/wiki/Disks_subtab_attach_disk_dialogue.png)
 

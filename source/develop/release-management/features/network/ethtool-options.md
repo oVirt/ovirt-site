@@ -38,7 +38,7 @@ Up until now, oVirt used to persist its network configuration in Fedora/EL speci
 
 With the proposed solution, ethtool options will be a property that can be set per logical network as well as be defined on the assignment of a network on a physical device, just like ip addressing.
 
-![](/images/wiki/ethtool_networks.png)
+![](/images/wiki/Ethtool_networks.png)
 
 Above you can see that in the networks tab, in the dialog for creating a new logical network, it is possible to define custom network properties, one of which will be ethtool options. These ethtool options will apply to any assignment of the network to a NIC on a host unless overridden as in the next two images.
 

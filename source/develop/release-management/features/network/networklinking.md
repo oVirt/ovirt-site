@@ -130,7 +130,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
             * Add 'Advanced Parameters' section which includes the 'Port Mirroring' and the 'Card Status' properties.
 
-![](/images/wiki/vnicWiring.png)
+![](/images/wiki/VnicWiring.png)
 
 ### REST API
 

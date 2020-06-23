@@ -12,7 +12,7 @@ Maintaining SLA requires dynamic management of each virtualization host accordin
 
 Dynamic SLA policy enforcement requires several components in order to have a complete implementation: A policy, a policy engine or manager, information to use for decision making, and tuning "knobs". The proposed solution in oVirt uses the Memory Overcommitment Manager (MOM) policy engine and policy language. MOM retrieves information via the vdsm API. The tuning knobs are also available to MOM as vdsm API calls.
 
-![](mom-flow.png "mom-flow.png")
+![](/images/wiki/Mom-flow.png)
 
 ## About MOM
 

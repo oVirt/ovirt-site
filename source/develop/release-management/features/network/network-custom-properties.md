@@ -71,7 +71,7 @@ Note that preset custom property keys will exist for bridge options (whenever th
 
 OPTIONAL: As part of the feature it might be a good idea to allow setting custom properties per logical network (on the DC level), and not only on the assignment of a network on a physical device. These custom properties on the logical network will serve as a "mold", to be used by default when assigning the network to a device. This ended up not being implemented for oVirt 3.5, but might be added in the future.
 
-![](/images/wiki/bridge_opts_networks.png)
+![](/images/wiki/Bridge_opts_networks.png)
 
 Above you can see that in the networks tab, in the dialog for creating a new logical network, it is possible to define custom network properties, which will include bridge options (for VM networks) by default. These custom properties will be applied upon any assignment of the network to a NIC on a host, unless overridden as described before.
 

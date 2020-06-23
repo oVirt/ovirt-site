@@ -115,7 +115,7 @@ Steps To Use:
     1.  For oVirt-node hosts - the registration will occur through the oVirt-node (assuming the kernel parameters are configured for that Foreman template), and the host will be approved automatically by Foreman
     2.  For other OS - at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send REST-API call to add or approve the host)
 
-![](/images/wiki/installingOSExample.png)
+![](/images/wiki/InstallingOSExample.png)
 
 #### Future Plans: VM provisioning
 

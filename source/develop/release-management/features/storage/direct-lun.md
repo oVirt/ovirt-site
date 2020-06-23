@@ -78,7 +78,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 **\1**
 
-![](/images/wiki/import_direct_lun.png)
+![](/images/wiki/Import_direct_lun.png)
 
 **Attach and detach should be part of the VM interface.**
 
@@ -88,7 +88,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 *' No filter on the LUNs, used disks may be grayed out.*'
 
-![](/images/wiki/attach_direct_lun.png)
+![](/images/wiki/Attach_direct_lun.png)
 
 # Rest API
 
@@ -102,7 +102,7 @@ The API specifies a block device by GUID or UUID, instead of the PDIV quartet of
 
 Other disk device parameters are the same as in VDSM volumes.
 
-    'devices': [   
+    'devices': [
            {'type': 'disk',
             'device': 'disk',
             'iface': 'virtio|ide',

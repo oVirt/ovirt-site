@@ -1,0 +1,82 @@
+[id="Upgrading_the_Manager_to_4-3_{context}"]
+= Upgrading the {engine-name} from 4.2 to 4.3
+
+Upgrade the {virt-product-fullname} {engine-name} from 4.2 to 4.3.
+
+// Included in:
+// Upgrade Guide
+
+[IMPORTANT]
+====
+If the upgrade fails, the `engine-setup` command attempts to roll your {virt-product-fullname} {engine-name} installation back to its previous state. For this reason, the previous version's repositories must not be removed until after the upgrade is complete. If the upgrade fails, detailed instructions display that explain how to restore your installation.
+====
+
+.Procedure
+
+ifdef::SHE_upgrade[. Log in to the {engine-name} virtual machine.]
+ifdef::local_database_upgrade,remote_database_upgrade[. Log in to the {engine-name} machine.]
+
+. Enable the {virt-product-fullname} 4.3 repositories:
++
+ifdef::rhv-doc[]
+----
+# subscription-manager repos \
+    --enable=rhel-7-server-rhv-4.3-manager-rpms \
+    --enable=jb-eap-7.2-for-rhel-7-server-rpms
+----
+endif::[]
+ifdef::ovirt-doc[]
+----
+# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
+----
+endif::[]
++
+All other repositories remain the same across {virt-product-fullname} releases.
+
+. Update the setup packages:
++
+ifdef::rhv-doc[]
+[options="nowrap" subs="normal"]
+----
+# yum update ovirt\\*setup\* rh\*vm-setup-plugins
+----
+endif::[]
+ifdef::ovirt-doc[]
+[options="nowrap" subs="normal"]
+----
+# yum update ovirt\\*setup\*
+----
+endif::[]
+
+. Run `engine-setup` and follow the prompts to upgrade the {virt-product-fullname} {engine-name}:
++
+----
+# engine-setup
+----
++
+When the script completes successfully, the following message appears:
++
+----
+Execution of setup completed successfully
+----
+
+ifdef::rhv-doc[]
+. Disable the {virt-product-fullname} 4.2 repositories to ensure the system does not use any 4.2 packages:
++
+----
+# subscription-manager repos \
+    --disable=rhel-7-server-rhv-4.2-manager-rpms \
+    --disable=jb-eap-7-for-rhel-7-server-rpms
+----
+endif::[]
+
+. Update the base operating system:
++
+----
+# yum update
+----
++
+[IMPORTANT]
+====
+If any kernel packages were updated, reboot the machine to complete the upgrade.
+====

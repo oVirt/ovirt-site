@@ -2,15 +2,14 @@
 = Migrating the Self-Hosted Engine Database to a Remote Server
 
 :context: migrate_SHE_DB
+:migrate_SHE_DB:
 
 You can migrate the `engine` database of a self-hosted engine to a remote database server after the {virt-product-fullname} {engine-name} has been initially configured. Use `engine-backup` to create a database backup and restore it on the new database server.
 
-The new database server must have {enterprise-linux} 7 installed and the required repositories enabled:
+The new database server must have {enterprise-linux} 8 installed and the required repositories enabled:
 
-ifdef::rhv-doc[]
 [discrete]
 include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
-endif::[]
 
 [discrete]
 == Migrating the Self-Hosted Engine Database to a Remote Server
@@ -67,3 +66,4 @@ endif::[]
 ----
 
 :context!: migrate_SHE_DB
+:migrate_SHE_DB!:

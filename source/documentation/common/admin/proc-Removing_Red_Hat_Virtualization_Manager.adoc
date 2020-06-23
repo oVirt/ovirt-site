@@ -42,12 +42,10 @@ Do you want to remove Apache SSL configuration? (Yes, No) [No]:
 During execution engine service will be stopped (OK, Cancel) [OK]:
 ovirt-engine is about to be removed, data will be lost (OK, Cancel) [Cancel]:OK
 ----
-ifdef::rhv-doc[]
 +
 . Remove the {virt-product-fullname} packages:
 +
 [options="nowrap" subs="normal"]
 ----
-# yum remove rhvm* vdsm-bootstrap
+# yum remove {engine-package}* vdsm-bootstrap
 ----
-endif::[]

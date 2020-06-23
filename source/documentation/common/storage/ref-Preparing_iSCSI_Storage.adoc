@@ -19,7 +19,7 @@ If you are using block storage and you intend to deploy virtual machines on raw 
 ====
 If your host is booting from SAN storage and loses connectivity to the storage, the storage file systems become read-only and remain in this state after connectivity is restored.
 
-To prevent this situation, {org-fullname} recommends adding a drop-in multipath configuration file on the root file system of the SAN for the boot LUN to ensure that it is queued when there is a connection:
+To prevent this situation, add a drop-in multipath configuration file on the root file system of the SAN for the boot LUN to ensure that it is queued when there is a connection:
 
 [options="nowrap" subs="normal"]
 ----

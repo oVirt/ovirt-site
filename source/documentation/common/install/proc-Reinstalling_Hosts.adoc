@@ -11,11 +11,11 @@ Reinstall {hypervisor-fullname}s ({hypervisor-shortname}) and {enterprise-linux-
 
 .Prerequisites
 
-* If migration is enabled at cluster level, virtual machines are automatically migrated to another host in the cluster; as a result, it is recommended that host reinstalls are performed at a time when the host's usage is relatively low.
+* If the cluster has migration enabled, virtual machines can automatically migrate to another host in the cluster. Therefore, reinstall a host while its usage is relatively low.
 
-* Ensure that the cluster has sufficient memory reserve in order for its hosts to perform maintenance. If a cluster lacks sufficient memory, the virtual machine migration operation will hang and then fail. You can reduce the memory usage of this operation by shutting down some or all virtual machines before moving the host to maintenance.
+* Ensure that the cluster has sufficient memory for its hosts to perform maintenance. If a cluster lacks memory, migration of virtual machines will hang and then fail. To reduce memory usage, shut down some or all of the virtual machines before moving the host to maintenance.
 
-* Ensure that the cluster contains more than one host before performing a reinstall. Do not attempt to reinstall all the hosts at the same time, as one host must remain available to perform Storage Pool Manager (SPM) tasks.
+* Ensure that the cluster contains more than one host before performing a reinstall. Do not attempt to reinstall all the hosts at the same time. One host must remain available to perform Storage Pool Manager (SPM) tasks.
 
 .Procedure
 
@@ -31,9 +31,9 @@ endif::SHE_backup_restore,SHE_restore_only[]
 
 . Click *OK* to reinstall the host.
 
-Once successfully reinstalled, the host displays a status of *Up*. Any virtual machines that were migrated off the host can now be migrated back to it.
+After a host has been reinstalled and its status returns to *Up*, you can migrate virtual machines back to the host.
 
 [IMPORTANT]
 ====
-After a {hypervisor-fullname} is successfully registered to the {virt-product-fullname} {engine-name} and then reinstalled, it may erroneously appear in the Administration Portal with the status of *Install Failed*. Click menu:Management[Activate], and the host will change to an *Up* status and be ready for use.
+After you register a {hypervisor-fullname} to the {virt-product-fullname} {engine-name} and reinstall it, the Administration Portal may erroneously display its status as *Install Failed*. Click menu:Management[Activate], and the host will change to an *Up* status and be ready for use.
 ====

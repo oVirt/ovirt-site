@@ -12,7 +12,7 @@ authors: bproffitt
 
 The idea of the virtual data center has been, perhaps justly, tied to the enterprise: a set of tools designed to assist large-scale businesses manage the data that has become the life-blood of business in the 21st Century. But virtualization is not just for the enterprise, and a virtualization management platform like oVirt can be a valuable asset to smaller, entrepreneurial companies, too.
 
-[Nieuwland Geo-Informatie](//http://nieuwland.nl/), a Wageningen, Netherlands software company, is one such organization. Nieuwland builds mobile applications as well as offers their clients back-end storage and web hosting to support those apps.
+[Nieuwland Geo-Informatie](https://www.nieuwland.nl/), a Wageningen, Netherlands software company, is one such organization. Nieuwland builds mobile applications as well as offers their clients back-end storage and web hosting to support those apps.
 
 Joop van de Wege, a systems engineer with Nieuwland, outlined in detail how his firm uses oVirt to manage the many virtual servers that are key to their business processes.
 
@@ -67,7 +67,7 @@ The oVirt community has been a big plus for the platform as well at Nieuwland. V
 <div class="well well-lg">
 ![](/images/logos/Nwld.png)
 
-**Name:** [Nieuwland Geo-Informati](//nieuwland.nl/)
+**Name:** [Nieuwland Geo-Informati](https://www.nieuwland.nl/)
 **Activity:** Software Development
 **Location:** Wageningen, Netherlands
 **Size:** Approx. 100 staff

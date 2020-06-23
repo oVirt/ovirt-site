@@ -96,17 +96,12 @@ defaults:
       layout: "developer_outdated"
   -
     scope:
-      path: 'develop/resources'
+      path: '/community/get-involved/resources'
     values:
       layout: "developer_outdated"
   -
     scope:
       path: 'develop/sdk'
-    values:
-      layout: "developer_outdated"
-  -
-    scope:
-      path: 'develop/security'
     values:
       layout: "developer_outdated"
   -
@@ -135,8 +130,10 @@ exclude:
   - LICENSE.md
   - CONTRIBUTING.md
   - CODEOWNERS
-  # used for shared asciidoc content
+  # avoid generating paginated asciidoc content
   - documentation/common/**/*.adoc
+  - documentation/upgrade_guide/topics
+  - documentation/upgrade_guide/assembly*
 
 sass:
   add_charset: true

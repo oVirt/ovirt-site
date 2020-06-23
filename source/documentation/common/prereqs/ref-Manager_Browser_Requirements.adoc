@@ -31,11 +31,11 @@ endif::[]
 
 .Browser Requirements
 [options="header"]
-|====
+|===
 |Support Tier |Operating System Family |Browser
 |Tier 1 |{enterprise-linux} |Mozilla Firefox Extended Support Release (ESR) version
 | |Any |Most recent version of Google Chrome, Mozilla Firefox, or Microsoft Edge
 |Tier 2 | |
 |Tier 3 |Any |Earlier versions of Google Chrome or Mozilla Firefox
 | |Any |Other browsers
-|====
+|===

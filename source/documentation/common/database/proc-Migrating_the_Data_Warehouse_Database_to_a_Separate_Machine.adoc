@@ -8,12 +8,12 @@ To migrate the Data Warehouse service only, see xref:Migrating_the_Data_Warehous
 The new database server must have {enterprise-linux} 7 installed.
 Enable the required repositories on the new database server.
 
-ifdef::rhv-doc[]
 :context: migrate_DWH_DB
+:migrate_DWH_DB:
 [discrete]
 include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
 :context!: migrate_DWH_DB
-endif::[]
+:migrate_DWH_DB!:
 
 [discrete]
 == Migrating the Data Warehouse Database to a Separate Machine
@@ -43,16 +43,15 @@ endif::[]
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install rh-postgresql10 rh-postgresql10-postgresql-contrib
+# yum install postgresql-server postgresql-contrib
 ----
 
 . Initialize the PostgreSQL database, start the `postgresql` service, and ensure that this service starts on boot:
 +
 [options="nowrap" ]
 ----
-# scl enable rh-postgresql10 -- postgresql-setup --initdb
-# systemctl enable rh-postgresql10-postgresql
-# systemctl start rh-postgresql10-postgresql
+# systemctl enable postgresql-12
+# systemctl start postgresql-12
 ----
 
 . Restore the Data Warehouse database on the new machine. _file_name_ is the backup file copied from the {engine-name}.

@@ -1,0 +1,19 @@
+// Host update limitations
+.Limitations
+
+* On {hypervisor-shortname}, the update only preserves modified content in the `/etc` and `/var` directories. Modified data in other paths is overwritten during an update.
+
+* If the cluster has migration enabled, virtual machines are automatically migrated to another host in the cluster.
+ifdef::ind_host_update,man_host_update[Update a host when its usage is relatively low.]
+
+* In a self-hosted engine environment, the {engine-name} virtual machine can only migrate between self-hosted engine nodes in the same cluster. It cannot migrate to standard hosts.
+
+* The cluster must have sufficient memory reserved for its hosts to perform maintenance. Otherwise, virtual machine migrations will hang and fail. You can reduce the memory usage of host updates by shutting down some or all virtual machines before updating hosts.
+
+ifdef::ind_host_update,man_host_update[]
+* Do not update all hosts at the same time, as one host must remain available to perform Storage Pool Manager (SPM) tasks.
+endif::ind_host_update,man_host_update[]
+
+* You cannot migrate a pinned virtual machine (such as a virtual machine using a vGPU) to another host.
+ifdef::ind_host_update,man_host_update[Pinned virtual machines must be shut down before updating the host.]
+ifdef::cluster_host_update[Pinned virtual machines are shut down during the update, unless you choose to skip that host instead.]

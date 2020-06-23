@@ -14,8 +14,6 @@ oVirt is an open source alternative to VMware™ vSphere™, and provides an awe
 
 To find out more about features which were added in previous oVirt releases,
 check out the [previous versions release notes](/develop/release-management/releases/).
-For a general overview of oVirt, read [the Quick Start Guide](/documentation/quickstart/quickstart-guide/)
-and the [about oVirt](/community/about.html) page.
 
 ## Install / Upgrade from previous versions
 
@@ -24,8 +22,6 @@ and the [about oVirt](/community/about.html) page.
 In order to install it on a clean system, you need to install
 
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
-
-and then follow our [Quick Start Guide](/documentation/quickstart/quickstart-guide/).
 
 If you're upgrading from a previous release on Enterprise Linux 7 you just need to execute:
 

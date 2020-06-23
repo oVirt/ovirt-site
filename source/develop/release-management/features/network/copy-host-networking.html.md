@@ -43,17 +43,22 @@ This method takes a single parameter, the host ID from which to copy the configu
 
 #### Copy a network configuration using the Web Administration portal
 
-1. In the Administration portal, locate a cluster and identify the "source host" whose configuration you want to copy.
+1. In the Administration portal main Hosts page, identify the "source host" whose configuration is to be copied.
 2. Identify a "destination host" to which you are copying the configuration.
 3. On the destination host, verify that the number of physical connections is equal to, or greater than, those on the
 source host.
 
     * If the destination host has more interfaces than the source host, ignore the surplus interfaces.
 
-4. On the destination host, click the `Copy Host Networking` button.
-5. In the popup window that appears, select the source host from which to copy the configuration.
-6. Click the `Copy` button. When the destination host finishes copying the network configuration, it reboots with
-the new network configuration.
+4. When the source host is selected in the hosts list, click the `Copy Host Networks` button or right-click the host
+   and select the `Copy Host Networks` option from the context menu.
+   * Note: only one host must be selected for this action to be available.
+5. In the popup window that appears, select the destination host to which the configuration is to be copied.
+   * Note: only hosts in the same cluster as the source host will be listed as potential destinations.
+6. Click the `Copy Host Networks` button. 
+7. Engine applies the configuration and posts a notification when done.
+
+![copy host networks image](../../../../images/wiki/copy_host_networks.png)
   
 #### Copy a network configuration using the REST API
 

@@ -27,23 +27,25 @@ Note that the IQN can be updated on the host side (iSCSI initiator), or on the s
 # scp -p __file_name__ host.example.com:/backup/
 ----
 
-. Log in to the new host. If you are deploying on {hypervisor-fullname}, the self-hosted engine deployment tool is available by default. If you are deploying on {enterprise-linux}, you must install the package:
+. Log in to the new host.
+
+. If you are deploying on {hypervisor-fullname}, `ovirt-hosted-engine-setup` is already installed, so skip this step. If you are deploying on {enterprise-linux}, install the `ovirt-hosted-engine-setup` package:
 +
 [options="nowrap" subs="normal"]
 ----
 # yum install ovirt-hosted-engine-setup
 ----
-
-. {org-fullname} recommends using the `screen` window manager to run the script to avoid losing the session in case of network or terminal disruption. Install and run `screen`:
++
+. Use the `tmux` window manager to run the script to avoid losing the session in case of network or terminal disruption.
++
+Install and run `tmux`:
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install screen
-# screen
+# yum -y install tmux
+# tmux
 ----
 +
-In the event of session timeout or connection disruption, run `screen -d -r` to recover the deployment session.
-
 . Run the `hosted-engine` script, specifying the path to the backup file:
 +
 [options="nowrap" subs="normal"]
@@ -120,24 +122,16 @@ endif::SHE_backup_restore,SHE_restore_only[]
 +
 [IMPORTANT]
 ====
-Only replica 3 Gluster storage is supported. Ensure you have the following configuration:
+Only replica 1 and replica 3 Gluster storage are supported. Ensure you configure the volume as follows:
 
-* In the */etc/glusterfs/glusterd.vol* file on all three Gluster servers, set `rpc-auth-allow-insecure` to `on`.
-+
+[options="nowrap" subs="normal"]
 ----
-option rpc-auth-allow-insecure on
-----
-
-* Configure the volume as follows:
-+
-----
-gluster volume set _volume_ cluster.quorum-type auto
-gluster volume set _volume_ network.ping-timeout 10
-gluster volume set _volume_ auth.allow \*
-gluster volume set _volume_ group virt
-gluster volume set _volume_ storage.owner-uid 36
-gluster volume set _volume_ storage.owner-gid 36
-gluster volume set _volume_ server.allow-insecure on
+gluster volume set _VOLUME_NAME_ group virt
+gluster volume set _VOLUME_NAME_ performance.strict-o-direct on
+gluster volume set _VOLUME_NAME_ network.remote-dio off
+gluster volume set _VOLUME_NAME_ storage.owner-uid 36
+gluster volume set _VOLUME_NAME_ storage.owner-gid 36
+gluster volume set _VOLUME_NAME_ network.ping-timeout 30
 ----
 ====
 

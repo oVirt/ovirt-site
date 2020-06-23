@@ -6,9 +6,6 @@ directory_index: false
 # Apache configuration file
 # httpd.apache.org/docs/2.2/mod/quickreference.html
 
-# Note .htaccess files are an overhead, this logic should be in your Apache
-# config if possible: httpd.apache.org/docs/2.2/howto/htaccess.html
-
 # Techniques in here adapted from all over, including:
 #   Kroc Camen: camendesign.com/.htaccess
 #   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
@@ -355,6 +352,10 @@ RewriteRule ^(.*)$ /documentation/ [R=301,L]
 RewriteCond %{REQUEST_URI} /documentation/self-hosted.*
 RewriteRule ^(.*)$ /documentation/ [R=301,L]
 
+# upgrade-guide -> upgrade_guide
+RewriteCond %{REQUEST_URI} /documentation/upgrade-guide.*
+RewriteRule ^(.*)$ /documentation/upgrade_guide/ [R=301,L]
+
 # how-to -> develop
 RewriteCond %{REQUEST_URI} /documentation/how-to.*
 RewriteRule ^(.*)$ /develop/ [R=301,L]
@@ -367,9 +368,13 @@ RewriteRule ^(.*)$ /download/node.html [R=301,L]
 RewriteCond %{REQUEST_URI} /download/ovirt-live.*
 RewriteRule ^(.*)$ /documentation/ovirt-orb/ [R=301,L]
 
-# /blog/ -> blog.html
-RewriteCond %{REQUEST_URI} /blog/$
-RewriteRule ^(.*)$ /blog.html [R=301,L]
+# blog redirections
+RedirectMatch ^/blog/(.*)\.html http://blogs.ovirt.org/$1/
+RedirectMatch ^/blog/(.*) http://blogs.ovirt.org/$1
+
+# privacy policy moved
+RewriteCond %{REQUEST_URI} ^/site/privacy-policy/$$
+RewriteRule ^(.*)$ /privacy-policy.html [R=301,L]
 
 # /documentation/introduction/about-ovirt/ -> /community/about.html
 RewriteCond %{REQUEST_URI} /documentation/introduction/about-ovirt/$

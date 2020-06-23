@@ -603,7 +603,7 @@ Your host has been removed from the environment and is no longer visible in the 
 
 ### Updating a Host Between Minor Releases
 
-See the "Updates Between Minor Releases" chapter in the [Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/) for instructions on keeping your host current between minor releases.
+See the "Updates Between Minor Releases" chapter in the [Upgrade Guide](/documentation/upgrade_guide/) for instructions on keeping your host current between minor releases.
 
 ### Reinstalling Hosts
 

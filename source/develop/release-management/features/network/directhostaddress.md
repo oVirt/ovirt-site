@@ -68,17 +68,17 @@ When admin clicks add host, the Advanced Parameters option will be added, and wh
 
 Advanced Parameters closed:
 
-![](/images/wiki/addHostClosed.png)
+![](/images/wiki/AddHostClosed.png)
 
 Advanced Parameters opened:
 
-![](/images/wiki/addHostOpened.png)
+![](/images/wiki/AddHostOpened.png)
 
 When admin clicks reinstall for a host, the Advanced Parameters option will be added, and when opened will allow entering a direct address:
 
 Advanced Parameters opened:
 
-![]( Installhostopened.png " Installhostopened.png")
+![](/images/wiki/Installhostopened.png)
 
 ## Open Issues
 

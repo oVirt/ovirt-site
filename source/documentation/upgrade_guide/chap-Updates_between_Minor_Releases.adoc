@@ -1,0 +1,36 @@
+[id='Updates_between_Minor_Releases']
+= Updates between minor releases
+
+ifdef::context[:parent-context: {context}]
+
+:context: minor_updates
+:minor_updates:
+
+To update from your current version of 4.4 to the latest version of 4.4, update the {engine-name} and then update the hosts.
+
+ifdef::rhv-doc[]
+include::../common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
+endif::[]
+
+To update a standalone {engine-name}, follow the standard procedure for minor updates:
+
+include::../common/upgrade/proc-Updating_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
+
+include::../common/upgrade/assembly-Updating_a_self-hosted_engine.adoc[leveloffset=+1]
+//Adding context back after assembly
+:context: minor_updates
+
+include::../common/upgrade/proc-Updating_all_hosts_in_a_cluster.adoc[leveloffset=+1]
+
+You can also update hosts individually:
+
+include::../common/upgrade/proc-Updating_Individual_Hosts.adoc[leveloffset=+1]
+
+You should update the hosts from the Administration Portal. However, you can update the hosts using `yum update` instead:
+
+include::../common/upgrade/proc-Manually_Updating_Hosts.adoc[leveloffset=+1]
+
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
+
+:minor_updates!:

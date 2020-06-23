@@ -12,7 +12,7 @@ Hosts that can run the {engine-name} virtual machine are referred to as self-hos
 
 A storage domain dedicated to the {engine-name} virtual machine is referred to as the self-hosted engine storage domain. This storage domain is created by the installation script, so the underlying storage must be prepared before beginning the installation.
 
-See the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/planning_and_prerequisites_guide/[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration. See link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html-single/planning_and_prerequisites_guide/#self-hosted-engine-recommendations[Self-Hosted Engine Recommendations] for configuration specific to a self-hosted engine environment.
+See the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/planning_and_prerequisites_guide/[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration. See link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html-single/planning_and_prerequisites_guide/#self-hosted-engine-recommendations[Self-Hosted Engine Recommendations] for configuration specific to a self-hosted engine environment.
 
 include::../common/arch/con-RHV_key_components.adoc[]
 
@@ -47,6 +47,7 @@ Cockpit is available by default on {hypervisor-fullname}s, and can be installed 
 
 . xref:Installing_the_Red_Hat_Virtualization_Manager_SHE_cockpit_deploy[Install and configure the {virt-product-fullname} {engine-name}:]
 .. xref:Deploying_the_Self-Hosted_Engine_Using_Cockpit_install_RHVM[Install the self-hosted engine through the deployment host's Cockpit web interface.]
+.. xref:Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enable the {virt-product-fullname} {engine-name} repositories.]
 .. xref:Connecting_to_the_Administration_Portal_install_RHVM[Connect to the Administration Portal to add hosts and storage domains.]
 
 . xref:Installing_Hosts_for_RHV_SHE_cockpit_deploy[Add more self-hosted engine nodes and standard hosts to the {engine-name}.] Self-hosted engine nodes can run the {engine-name} virtual machine and other virtual machines. Standard hosts can run all other virtual machines, but not the {engine-name} virtual machine.
@@ -62,7 +63,7 @@ Cockpit is available by default on {hypervisor-fullname}s, and can be installed 
 
 [IMPORTANT]
 ====
-Keep the environment up to date. Since bug fixes for known issues are frequently released, {org-fullname} recommends using scheduled tasks to update the hosts and the {engine-name}.
+Keep the environment up to date. Since bug fixes for known issues are frequently released, use scheduled tasks to update the hosts and the {engine-name}.
 ====
 
 
@@ -78,15 +79,13 @@ include::../common/install/assembly-Installing_the_self-hosted_engine_deployment
 == Installing the {virt-product-fullname} {engine-name}
 :context: install_RHVM
 
-The {engine-appliance-name} is installed during the deployment process; however, if required, you can install it on the deployment host before starting the installation:
-
-----
-# yum install rhvm-appliance
-----
-
-Manually installing the {engine-name} virtual machine is not supported.
+include::../common/she/proc_Manually_installing_the_appliance.adoc[leveloffset=+2]
 
 include::../common/install/proc-Deploying_the_Self-Hosted_Engine_Using_Cockpit.adoc[leveloffset=+2]
+
+Enabling the {virt-product-fullname} {engine-name} repositories is not part of the automated installation. Log in to the {engine-name} virtual machine to enable the repositories:
+
+include::../common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+2]
 
 Log in to the Administration Portal, where you can add hosts and storage to the environment:
 
@@ -130,4 +129,4 @@ include::../common/admin/proc-Removing_Red_Hat_Virtualization_Manager.adoc[level
 [appendix]
 == Legal notice
 
-Certain portions of this text first appeared in the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/{vernum_rhv}/html-single/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a self-hosted engine using the Cockpit web interface]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].
+Certain portions of this text first appeared in link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a self-hosted engine using the Cockpit web interface]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

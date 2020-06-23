@@ -8,8 +8,7 @@ You can install {virt-product-fullname} as a self-hosted engine using either the
 
 Because the {engine-name} installation is automated, the {engine-name} database (`engine`) and Data Warehouse service and database (`ovirt-engine-history`) can only be installed locally. If you want to host any databases or services on remote machines, you must migrate them after the installation is complete. Instructions for this are included in both of the following guides.
 
-* To install a self-hosted engine using Cockpit (recommended), see link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/[_Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface_].
-
+* To install a self-hosted engine using Cockpit (recommended), see link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/
 * To install a self-hosted engine using the command line, see link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_command_line/[_Installing {virt-product-fullname} as a self-hosted engine using the command line_].
 
 [[SM_install_options]]

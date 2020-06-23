@@ -1,7 +1,7 @@
 [id='Custom_Partitioning_{context}']
 = Custom Partitioning
 
-Custom partitioning on {hypervisor-fullname} ({hypervisor-shortname}) is not recommended. {org-fullname} strongly recommends using the *Automatically configure partitioning* option in the *Installation Destination* window.
+Custom partitioning on {hypervisor-fullname} ({hypervisor-shortname}) is not recommended. Use the *Automatically configure partitioning* option in the *Installation Destination* window.
 
 If your installation requires custom partitioning, select the `I will configure partitioning` option during the installation, and note that the following restrictions apply:
 

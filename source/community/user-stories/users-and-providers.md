@@ -1,6 +1,6 @@
 ---
 title: Users and Providers
-authors: blafuente, bproffitt
+authors: blafuente, bproffitt, sandrobonazzola
 page_classes: partner-logos
 ---
 
@@ -28,11 +28,6 @@ The following organizations use oVirt for customer-facing or internal servers. M
 <div class="case-study">
 [![Computer Port IT Solutions](/images/logos/Computer_Port_IT_Solutions.png)](http://computerport.in)
 [Computer Port IT Solutions](http://computerport.in), based in India, is an IT management & consulting service provider, specializing in virtualization and private cloud solutions, using oVirt, hyper-converged infrastructure, and other technologies.
-</div>
-
-<div class="case-study">
-[![Cornerstone Technical Solutions](/images/logos/Cornerstone.png)](https://cornerstonets.net/)
-[Cornerstone Technical Solutions](//cornerstonets.net/) delivers IT management services, including oVirt-based virtualization services for consolidating datacenters.
 </div>
 
 <div class="case-study">
@@ -67,8 +62,8 @@ These institutions have chosen oVirt to manage their virtual workloads. See also
 
 <div class="case-studies">
 <div class="case-study">
-[![NUST](/images/logos/Nust.svg)](http://www.nust.edu.pk/Pages/Home.aspx)
-The [National University of Sciences & Technology (NUST)](//www.nust.edu.pk/Pages/Home.aspx) is a public research university in Islamabad, Pakistan. The university primarily focuses on Science, technology, engineering and mathematics.
+[![NUST](/images/logos/Nust.svg)](http://nust.edu.pk/Pages/Default.aspx)
+The [National University of Sciences & Technology (NUST)](http://nust.edu.pk/Pages/Default.aspx) is a public research university in Islamabad, Pakistan. The university primarily focuses on Science, technology, engineering and mathematics.
 </div>
 
 <div class="case-study">
@@ -79,11 +74,6 @@ The [National University of Sciences & Technology (NUST)](//www.nust.edu.pk/Page
 ## Cloud Providers
 
 <div class="case-studies">
-<div class="case-study">
-[![Cloud Times](/images/logos/Ct.png)](http://www.cloud-times.com/)
-[Cloud Times](//www.cloud-times.com/) is a solution provider of Cloud Client Equipment, Virtual Desktop Infrastructure, and the “Cloud plus Client” Management Platform, helping Chinese enterprises in the transition to “Cloud plus Client” architecture.
-</div>
-
 <div class="case-study">
 ![](/images/logos/AlterWay.png)
 [Alter Way](https://www.alterway.fr/) is a French hosting company that provides solutions for their customers' digital strategies, using a DevOps approach and open source solutions, including oVirt. Read the [case study.](/community/user-stories/alter-way-case-study/)
@@ -106,10 +96,9 @@ The following organizations are very helpful to the oVirt community by providing
 
 ## Board Members
 
-The following companies are represented on [the oVirt Board](https://www.ovirt.org/community/about/board/).
+The following companies and institutes are represented on [the oVirt Board](/community/about/board/).
 
 {:.ovirt-board-logos}
-[![Canonical](/images/logos/Canonical.svg)](http://canonical.com/)
-[![Cisco](/images/logos/Cisco.svg)](http://cisco.com/)
-[![IBM](/images/logos/IBM.svg)](http://ibm.com/)
-[![Red Hat](/images/logos/Red_Hat.svg)](http://redhat.com/)
+[![IBM](/images/logos/IBM.svg)](//ibm.com/)
+[![Red Hat](/images/logos/Red_Hat.svg)](//redhat.com/)
+[![Caltech](/images/logos/Caltech.svg)](//www.caltech.edu/)

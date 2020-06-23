@@ -1,11 +1,12 @@
 [id='Deploying_the_Self-Hosted_Engine_Using_Cockpit_{context}']
-= Deploying the Self-Hosted Engine Using Cockpit
+= Deploying the Self-hosted Engine using Cockpit
 
 Deploy a self-hosted engine, using Cockpit to collect the details of your environment. This is the recommended method. Cockpit is enabled by default on {hypervisor-fullname}s, and can be installed on {enterprise-linux-host-fullname}s.
 
 .Prerequisites
 
 * FQDNs prepared for your {engine-name} and the deployment host. Forward and reverse lookup records must both be set in the DNS.
+* When using a block storage domain, either FCP or iSCSI, a single target LUN is the only supported setup for a self-hosted engine.
 
 .Procedure
 

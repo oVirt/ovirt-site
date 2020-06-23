@@ -99,7 +99,7 @@ As long as the setup contains 3.5v Data Centers, the Import Storage Domain featu
 
 This is an example of how to recover a setup if it encountered a disaster.
 
-1. Create a new engine setup with new Data Base (see [Quick_Start_Guide#Install_oVirt](/documentation/quickstart/quickstart-guide/#install-ovirt))
+1. Create a new engine setup with new Data Base
 2. Create a new Data Center version 3.5 with cluster and add a Host to this cluster. (Recommended to reboot the Host)
 3. Once the Host is UP and running, add and activate a new empty Storage Domain to initialize the Data Center.
 4. If there were VMs/Templates which ran in the old setup on different compatible versions, or different CPU types, then those type of clusters should be created on the new Data Center.

@@ -16,10 +16,6 @@ This release is available now for Red Hat Enterprise Linux 7.6,
 CentOS Linux 7.6 (or similar).
 
 
-
-For a general overview of oVirt, read the [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
-and visit the [About oVirt](/documentation/introduction/about-ovirt/) page.
-
 For detailed installation instructions, read the [Installation Guide](/documentation/install-guide/Installation_Guide/).
 
 To learn about features introduced before 4.3.4, see the [release notes for previous versions](/documentation/#previous-release-notes).
@@ -72,7 +68,7 @@ guide or the corresponding section in
 If you're upgrading an existing Hosted Engine setup, please follow
 [Hosted_Engine_Howto#Upgrade_Hosted_Engine](/documentation/how-to/hosted-engine/#upgrade-hosted-engine)
 guide or the corresponding section within the
-[Upgrade Guide](/documentation/upgrade-guide/upgrade-guide/).
+[Upgrade Guide](/documentation/upgrade_guide/).
 
 ### EPEL
 

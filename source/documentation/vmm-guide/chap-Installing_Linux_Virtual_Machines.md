@@ -30,7 +30,7 @@ Create a new virtual machine and configure the required settings.
 
 **Creating Linux Virtual Machines**
 
-1. Click **Compute** &raar; **Virtual Machines**.
+1. Click **Compute** &rarr; **Virtual Machines**.
 
 2. Click **New** button to open the **New Virtual Machine** window.
 
@@ -62,7 +62,7 @@ The new virtual machine is created and displays in the list of virtual machines 
 
 **Starting Virtual Machines**
 
-1. Click **Compute** &raar; **Virtual Machines** and select a virtual machine with a status of `Down`.
+1. Click **Compute** &rarr; **Virtual Machines** and select a virtual machine with a status of `Down`.
 
 2. Click **Run**.
 
@@ -79,7 +79,7 @@ Use Remote Viewer to connect to a virtual machine.
 
 1. Install Remote Viewer if it is not already installed. See [Installing Console Components](sect-Installing_Console_Components).
 
-2. Click **Compute** &raar; **Virtual Machines** and select a virtual machine.
+2. Click **Compute** &rarr; **Virtual Machines** and select a virtual machine.
 
 3. Click **Console**. A **console.vv** file will be downloaded.
 

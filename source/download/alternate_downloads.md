@@ -13,17 +13,24 @@ preferred because the Engine Virtual Machine will be highly available (once a se
 However, if you prefer to run oVirt Engine standalone on physical hardware or another virtualization provider, you can install oVirt Engine
 and Nodes / Hosts separately.
 
-oVirt 4.3.9 is intended for production use and is available for the following platforms:
+oVirt 4.4.0 is intended for production use and is available for the following platforms:
 
-- Red Hat Enterprise Linux 7.7 or later but < 8
-- CentOS Linux 7.7 or later but < 8
-- Scientific Linux 7.7 or later but < 8
+Engine:
+- Red Hat Enterprise Linux 8.1
+- CentOS Linux 8.1
+
+Hosts:
+- Red Hat Enterprise Linux 8.1
+- CentOS Linux 8.1
+- oVirt Node (based on CentOS Linux 8.1)
+
+See the [Release Notes for oVirt 4.4.0](/release/4.4.0/).
 
 <div class="row"></div>
 
 ## Install oVirt Engine using RPM
 
-oVirt Engine is installed using RPM packages on a supported Enterprise Linux 7 distribution,
+oVirt Engine is installed using RPM packages on a supported Enterprise Linux 8 distribution,
 such as CentOS Linux or Red Hat Enterprise Linux.
 
 {:.alert.alert-warning}
@@ -32,29 +39,47 @@ unless you are a developer or need to customize the source code.
 
 {:.alert.alert-warning}
 **Important:** You cannot skip a version when updating oVirt Engine. For example, if you are updating from
-3.6 to 4.3, you first need to update to 4.0, then to 4.1, 4.2 and finally to 4.3. (Host upgrades can use the
+3.6 to 4.4, you first need to update to 4.0, then to 4.1, 4.2, 4.3 and finally to 4.4. (Host upgrades can use the
 [oVirt Fast Forward Upgrade tool](https://github.com/oVirt/ovirt-fast-forward-upgrade).)
-If you are updating from a previous version, be sure to have the latest release repository installed
-by running <br/>
-`sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm`.
+If you are updating from 4.3, please note you'll need to migrate your engine from el7 to el8.
+
+### Upgrading from previous releases
+
+For a standalone engine this means basically:
+
+1. backup engine data on 4.3.9 with:
+   `engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log`
+2. copy the backup to a safe location
+3. reinstall engine host with EL 8
+4. enable repos with:
+   `dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm`
+5. `dnf update` (reboot if needed)
+6. enable modules with:
+   `dnf module enable -y javapackages-tools pki-deps postgresql:12 389-ds`
+7. install engine rpms with:
+   `dnf install ovirt-engine`    
+8. restore the engine data with:
+   `engine-backup --mode=restore --file=backup.bck --log=restore.log --provision-db --provision-dwh-db --restore-permissions --provision-dwh-db`
+9. run `engine-setup`.
 
 #### Red Hat Enterprise Linux, CentOS Linux
 
 {:.instructions}
 1.  Enable the Base, Optional, and Extra repositories (Red Hat Enterprise Linux only):
 
-        # RHEL only -- they are enabled by default on CentOS
-        subscription-manager repos --enable="rhel-7-server-rpms"
-        subscription-manager repos --enable="rhel-7-server-optional-rpms"
-        subscription-manager repos --enable="rhel-7-server-extras-rpms"
+        # RHEL only -- they are enabled by default on CentOS and oVirt Node
+        sudo subscription-manager repos --enable="rhel-8-for-x86_64-baseos-rpms"
+        sudo subscription-manager repos --enable="rhel-8-for-x86_64-appstream-rpms"
+        sudo subscription-manager repos --enable="ansible-2-for-rhel-8-x86_64-rpms"
 
 2.  Add the official oVirt repository.
 
-        sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+        sudo dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm
+        sudo dnf module enable -y javapackages-tools pki-deps postgresql:12 389-ds
 
 3.  Install oVirt Engine.
 
-        sudo yum install -y ovirt-engine
+        sudo dnf install -y ovirt-engine
 
 4.  Set up oVirt Engine.
 
@@ -86,7 +111,7 @@ Depending on your environment requirements, you may want to use only oVirt Nodes
 physical machine to act as a hypervisor in an oVirt environment.
 
 {:.instructions}
-1.  Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.3 - Stable Release - Installation ISO](https://resources.ovirt.org/pub/ovirt-4.3/iso/ovirt-node-ng-installer/))
+1.  Download the oVirt Node Installation ISO (current stable is [oVirt Node 4.4 - Stable Release - Installation ISO](https://resources.ovirt.org/pub/ovirt-4.4/iso/ovirt-node-ng-installer/))
 
 2.  Write the oVirt Node Installation ISO disk image to a USB, CD, or DVD.
 
@@ -101,14 +126,14 @@ basic installation of an Enterprise Linux operating system on a physical server 
 packages are installed.
 
 {:.instructions}
-1.  Install one of the supported operating systems (CentOS, RHEL, or Scientific Linux) on your Host and update it:
+1.  Install one of the supported operating systems (CentOS, RHEL) on your Host and update it:
 
-        sudo yum update -y
+        sudo dnf update -y
         # reboot if the kernel was updated
 
 2.  Add the official oVirt repository:
 
-        sudo yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+        sudo dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 
 See [Chapter 7: Enterprise Linux Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Enterprise_Linux_hosts_SHE_cockpit_deploy) for full installation
 instructions.
@@ -193,6 +218,6 @@ and [Browser Support and Mobile Clients](/download/browsers_and_mobile.html) for
 
 ## RPM Repositories and GPG keys
 
-[RPM repository for oVirt 4.3 - Latest stable release](https://resources.ovirt.org/pub/ovirt-4.3/)
+[RPM repository for oVirt 4.4 - Latest stable release](https://resources.ovirt.org/pub/ovirt-4.4/)
 
 See [RPMs and GPG](/download/rpms_and_gpg.html) for older releases, nightlies, mirrors, and GPG keys.

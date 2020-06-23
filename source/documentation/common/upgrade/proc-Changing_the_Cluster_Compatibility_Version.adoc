@@ -1,0 +1,36 @@
+[id='Changing_the_Cluster_Compatibility_Version_{context}']
+= Changing the Cluster Compatibility Version
+
+// Included in:
+// Admin
+// Upgrade
+
+{virt-product-fullname} clusters have a compatibility version. The cluster compatibility version indicates the features of {virt-product-fullname} supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.
+
+[IMPORTANT]
+====
+To change the cluster compatibility version, you must have first updated all the hosts in your cluster to a level that supports your desired compatibility level. Check if there is an icon next to the host indicating an update is available.
+====
+
+.Procedure
+
+. In the Administration Portal, click menu:Compute[Clusters].
+. Select the cluster to change and click btn:[Edit].
+. On the *General* tab, change the *Compatibility Version* to the desired value.
+. Click btn:[OK]. The *Change Cluster Compatibility Version* confirmation dialog opens.
+. Click btn:[OK] to confirm.
+
+[IMPORTANT]
+====
+An error message might warn that some virtual machines and templates are incorrectly configured. To fix this error, edit each virtual machine manually. The *Edit Virtual Machine* window provides additional validations and warnings that show what to correct. Sometimes the issue is automatically corrected and the virtual machine's configuration just needs to be saved again. After editing each virtual machine, you will be able to change the cluster compatibility version.
+====
+
+ifdef::admin[]
+After updating a cluster's compatibility version, you must update the cluster compatibility version of all running or suspended virtual machines by rebooting them from the Administration Portal, or using the REST API, instead of from within the guest operating system. Virtual machines that require a reboot are marked with the pending changes icon (image:../common/images/pendingchanges.png[]). You cannot change the cluster compatibility version of a virtual machine snapshot that is in preview. You must first commit or undo the preview.
+
+In a self-hosted engine environment, the {engine-name} virtual machine does not need to be restarted.
+
+Although you can wait to reboot the virtual machines at a convenient time, rebooting immediately is highly recommended so that the virtual machines use the latest configuration. Virtual machines that have not been updated run with the old configuration, and the new configuration could be overwritten if other changes are made to the virtual machine before the reboot.
+
+Once you have updated the compatibility version of all clusters and virtual machines in a data center, you can then change the compatibility version of the data center itself.
+endif::admin[]

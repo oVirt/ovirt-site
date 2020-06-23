@@ -38,6 +38,9 @@ The migration involves the following key steps:
 . xref:Backing_up_the_Original_Manager_migrating_to_SHE[Back up the original {engine-name} using the `engine-backup` tool.]
 
 . xref:Restoring_the_Backup_on_a_New_Self-hosted_Engine_migrating_to_SHE[Deploy a new self-hosted engine and restore the backup.]
+
+. xref:Enabling_the_Red_Hat_Virtualization_Manager_Repositories_migrating_to_SHE[Enable the {engine-name} repositories on the new {engine-name} virtual machine.]
+
 . xref:Reinstalling_an_Existing_Host_as_a_Self-Hosted_Engine_Node_migrating_to_SHE[Convert regular hosts to self-hosted engine nodes that can host the new {engine-name}.]
 
 This procedure assumes that you have access and can make changes to the original {engine-name}.
@@ -67,6 +70,10 @@ After backing up the {engine-name}, deploy a new self-hosted engine and restore 
 
 include::../common/backup-restore/proc-Restoring_the_Backup_on_a_New_Self-hosted_Engine.adoc[leveloffset=+1]
 
+When the deployment is complete, log in to the new {engine-name} virtual machine and enable the required repositories.
+
+include::../common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
+
 The {virt-product-fullname} {engine-name} has been migrated to a self-hosted engine setup. The {engine-name} is now operating on a virtual machine on the new self-hosted engine node.
 
 The hosts will be running in the new environment, but cannot host the {engine-name} virtual machine. You can convert some or all of these hosts to self-hosted engine nodes.
@@ -86,4 +93,4 @@ If the new environment is running without issue, you can decommission the origin
 [appendix]
 == Legal notice
 
-Certain portions of this text first appeared in the link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/{vernum_rhv}/html-single/migrating_from_a_standalone_manager_to_a_self-hosted_engine/[Red Hat Virtualization {vernum_rhv} Migrating from a standalone Manager to a self-hosted engine]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].
+Certain portions of this text first appeared in link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/html-single/migrating_from_a_standalone_manager_to_a_self-hosted_engine/[Red Hat Virtualization {vernum_rhv} Migrating from a standalone Manager to a self-hosted engine]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

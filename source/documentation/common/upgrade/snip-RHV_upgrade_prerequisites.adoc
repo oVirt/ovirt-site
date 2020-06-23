@@ -1,0 +1,25 @@
+ifdef::upgrade[]
+[id='Upgrade_Prerequisites_{context}']
+
+= Prerequisites
+endif::upgrade[]
+
+ifndef::upgrade[]
+.Prerequisites
+endif::upgrade[]
+
+* Plan for any necessary virtual machine downtime. After you update the clusters' compatibility versions during the upgrade, a new hardware configuration is automatically applied to each virtual machine once it reboots. You must reboot any running or suspended virtual machines as soon as possible to apply the configuration changes.
+
+// This link must always be the latest version.
+* Ensure your environment meets the requirements for {virt-product-fullname} {vernum_rhv}. For a complete list of prerequisites, see the link:{URL_downstream_virt_product_docs}/planning_and_prerequisites_guide/index#RHV_requirements[__Planning and Prerequisites Guide__].
+
+ifdef::rhv-doc[]
+// This link must always be the latest version.
+* Ensure the hosts have the correct repositories enabled.
+For the list of required repositories, see link:{URL_virt_product_docs}html/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/installing_hosts_for_rhv_she_cockpit_deploy#Enabling_the_RHVH_repository_SHE_cockpit_deploy[Enabling the {hypervisor-fullname} Repository] for {hypervisor-shortname}, or link:{URL_virt_product_docs}html/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/installing_hosts_for_rhv_she_cockpit_deploy#Enabling_the_Red_Hat_Enterprise_Linux_Host_Repositories_SHE_cockpit_deploy[Enabling the {enterprise-linux-host-fullname} Repositories] for {enterprise-linux-host-shortname}.
+endif::[]
+ifdef::ovirt-doc[]
+* Ensure the hosts have the correct repositories enabled by installing the link:https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm[ovirt-release44.rpm] RPM package.
+endif::[]
+
+// The {engine-name} repo requirement is appended to the end of this list in each assembly, because it must be the starting version, and would therefore require a lot of ifdefs to include it here.

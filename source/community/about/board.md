@@ -43,9 +43,7 @@ The board at board@oVirt.org
 OVirt Board Members
 
 *   Doron Fediuck  – Red Hat, Strategic member
-*   Itamar Heim – Project, engine-core
-*   Martin Tessun - Mentor
-*   Michael Enescu – Cisco, Strategic member
+*   Itamar Heim – Red Hat, Project, engine-core
+*   Martin Tessun - Red Hat, Mentor
+*   Michael Enescu – Caltech, Mentor
 *   Ryan Harper – IBM, Strategic member
-*   Scott Moser – Canonical, Strategic member
-

@@ -1,0 +1,54 @@
+[id="Red_Hat_Virtualization_Upgrade_Overview"]
+= {virt-product-fullname} Upgrade Overview
+
+This guide explains how to upgrade the following environments to {virt-product-fullname} 4.3:
+
+* *Standalone manager, local database*: Both the Data Warehouse database and the {engine-name} database are installed on the {engine-name}.
+
+* *Standalone manager, remote database*: Either the Data Warehouse database or the {engine-name} database, or both, are on a separate machine.
+
+* *Self-hosted engine, local database*: Both the Data Warehouse database and the {engine-name} database are installed on the {engine-name}.
+
+////
+To save time when upgrading a {engine-name} with local databases, use the `ovirt-fast-forward-upgrade` tool.
+
+[NOTE]
+====
+`ovirt-fast-forward-upgrade` supports local database environments only.
+====
+
+Alternatively, you can manually upgrade the {engine-name}. For remote database environments, this path is required.
+////
+
+[IMPORTANT]
+====
+Plan any necessary downtime in advance. After you update the clusters' compatibility versions during the upgrade, a new hardware configuration is automatically applied to each virtual machine once it reboots. You must reboot any running or suspended VMs as soon as possible to apply the configuration changes.
+====
+
+Select the appropriate instructions for your environment from the following table. If your {engine-name} and host versions differ (if you have previously upgraded the {engine-name} but not the hosts), follow the instructions that match the {engine-name}'s version.
+
+.Supported Upgrade Paths
+
+[cols="2,2,6", options="header"]
+|===
+
+|Current {engine-name} version |Target {engine-name} version |Relevant section
+|4.2 |4.3 a|*Local database environment:*
+
+// * Fast-forward upgrade: xref:Upgrading_from_4-2_ff[]
+* Manual upgrade: xref:Upgrading_from_4-2[]
+
+*Remote database environment:* xref:Remote_Upgrading_from_4-2[]
+
+*Self-hosted engine, local database environment:*
+
+// * Fast-forward upgrade: xref:Upgrading_from_4-2_ff[]
+* Manual upgrade: xref:SHE_Upgrading_from_4-2[]
+
+
+|4.3.x |4.3.y a|xref:Updates_between_Minor_Releases[]
+|===
+
+ifdef::rhv-doc[]
+For interactive upgrade instructions, you can also use the RHV Upgrade Helper available at https://access.redhat.com/labs/rhvupgradehelper/. This application asks you to provide information about your upgrade path and your current environment, and presents the relevant steps for upgrade as well as steps to prevent known issues specific to your upgrade scenario.
+endif::[]

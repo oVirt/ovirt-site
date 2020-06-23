@@ -1,0 +1,26 @@
+[id="Updating_the_Local_Repository_for_an_Offline_Red_Hat_Enterprise_Virtualization_Manager_Installation"]
+= Updating the Local Repository for an Offline {virt-product-fullname} {engine-name} Installation
+
+If your {virt-product-fullname} {engine-name} is hosted on a machine that receives packages via FTP from a local repository, you must regularly synchronize the repository to download package updates from the Content Delivery Network, then update or upgrade that machine. Updated packages address security issues, fix bugs, and add enhancements.
+
+
+. On the system hosting the repository, synchronize the repository to download the most recent version of each available package:
++
+ifdef::rhv-doc[]
+[options="nowrap" subs="normal"]
+----
+# reposync -l --newest-only /var/ftp/pub/rhevrepo
+
+----
+endif::[]
+ifdef::ovirt-doc[]
+[options="nowrap" subs="normal"]
+----
+# reposync -l --newest-only /var/ftp/pub/ovirtrepo
+
+----
+endif::[]
++
+This command might download a large number of packages, and take a long time to complete.
+
+. Ensure that the repository is available on the {engine-name} machine, and then update or upgrade the machine.

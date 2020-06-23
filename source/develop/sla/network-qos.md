@@ -53,12 +53,12 @@ see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implem
 
 The UI for setting of QoS properties will be added to the Add/Edit Profile dialog.
  **Network QoS sub tab**
-![](Qos_new_tab.png "fig:Qos_new_tab.png")
+![](/images/wiki/Qos_new_tab.png)
 
 The Network QoS will be added as sub tab of Data Center (administrator port6al only) . The administrator will be able to Add/Remove/Edit Network QoS entities. The QoS name and all 6 properties will be viewed in the table.
 
 **Add/Edit Network QoS dialog**
-![](Qos_neq_dialog.png "fig:Qos_neq_dialog.png")
+![](/images/wiki/Qos_neq_dialog.png)
 
 The Add/Edit Network QoS dialog will include text field for name and six text fields for the values.
 The administrator could enable/disable the QoS properties (for each inbound / outbound). Disabled QoS will mean no limitation on the traffic in this direction

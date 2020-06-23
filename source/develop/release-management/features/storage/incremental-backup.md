@@ -1,7 +1,7 @@
 ---
 title: Incremental Backup
 category: feature
-authors: nsoffer, derez
+authors: nsoffer, derez, eshenitz
 feature_name: Incremental Backup
 feature_modules: imageio,engine,vdsm
 feature_status: Design
@@ -40,8 +40,8 @@ to storage.
 
 ### Capabilities added with this feature
 
-- Perform full or incremental backup for disks using qcow2 format
-  without temporary snapshots.
+- Perform full backup for raw or qcow2 disks or incremental backup for disks 
+  using qcow2 format without temporary snapshots.
 
 - Backup raw guest data instead copying qcow2 data for qcow2 disks.
 
@@ -49,23 +49,24 @@ to storage.
 
 ### Creating VM
 
-When adding a disk, the user should enable incremental backup for every
-disk. If incremental backup is enabled for a disk, a backup application
-can include the disk during incremental backups.
+When adding a disk, the user should mark 'enable incremental backup' for every
+disk that should be included in an incremental backup. If incremental backup is 
+enabled for a disk, a backup application can include the disk during incremental
+backups.
 
 Since incremental backup requires qcow2 format, disks enabled for
 incremental backup will use qcow2 format instead of raw format. See
 [Disk Format](#disk-format) for more info.
 
-Disks not marked for incremental backup can be backed in the same way
-they were backed in the past.
+Disks not marked for incremental backup can be backed using full backup or in the 
+same way they were backed in the past.
 
 ### Enabling existing VM for incremental backup
 
-Since raw disks are not supported, a user needs to create a snapshot
-including the disks to enabled incremental backup for the disks. This
-creates a qcow2 layer on top of the raw disk, that can be used to
-perform incremental backups from this point.
+Since raw disks are not supported for incremental backup, a user needs
+to create a snapshot including the disks to enabled incremental backup
+for the disks. This creates a qcow2 layer on top of the raw disk, that
+can be used to perform incremental backups from this point.
 
 ### Deleting snapshots on existing VMs
 
@@ -78,7 +79,7 @@ disk to re-enable back incremental backup.
 ### Disk format
 
 Here is a table showing how enabling incremental backup affects disk
-format.
+format when creating a new disk.
 
 ```
 storage     provisioning        incremental     format
@@ -101,50 +102,56 @@ lun         -                   disabled        raw
 
 1. Backup application finds VM disks that should be included in the
    backup using oVirt API. Currently only disks marked for incremental
-   backup (using qcow2 format) can be included.
+   backup (using qcow2 format) can be included in an incremental backup.
 
-1. Backup application starts backup using oVirt API, specifying a VM id,
+2. Backup application starts backup using oVirt API, specifying a VM id,
    optional previous backup id, and list of disks to backup.
    If previous backup uuid isn't specified, all data in the specified disks,
    at the point of the backup, will be included in the backup.
 
-1. System prepares VM for backup. The VM may be running during the
+3. System prepares VM for backup. The VM may be running during the
    backup.
 
-1. Backup application waits until backup is ready using oVirt SDK.
+4. Backup application waits until backup is ready using oVirt SDK.
 
-1. When backup is ready backup application creates image transfer for
+5. When backup is ready backup application creates image transfer for
    every disk included in the backup.
 
-1. Backup application obtains changed blocks list from ovirt-imageio for
+6. Backup application obtains changed blocks list from ovirt-imageio for
    every image transfer. If change list is not available, the backup
    application will get an error.
 
-1. Backup application downloads changed blocks in raw format from
+7. Backup application downloads changed blocks in raw format from
    ovirt-imageio and store them in the backup media. If changed blocks
    list is not available, backup application can fall back to copying
    the entire disk.
 
-1. Backup application finalizes image transfers.
+8. Backup application finalizes image transfers.
 
-1. Backup application finalizes backup using oVirt API.
+9. Backup application finalizes backup using oVirt API.
 
 ### Incremental restore flow
 
 1. User selects restore point based on available backups using the
    backup application (not part of oVirt).
 
-1. Backup application creates a new disk or a snapshot with existing disk
+2. Backup application creates a new disk or a snapshot with existing disk
    to hold the restored data.
 
-1. Backup application starts an upload image transfer for every disk,
+3. Backup application starts an upload image transfer for every disk,
    specifying format=raw. This enable format conversion when uploading
    raw data to qcow2 disk.
 
-1. Backup application transfer the data included in this restore point
+4. Backup application transfer the data included in this restore point
    to imageio using HTTP API.
 
-1. Backup application finalize the image transfers.
+5. Backup application finalize the image transfers.
+
+### Checkpoint deletion
+
+1. Backup application finds the oldest checkpoint of a VM.
+
+2. Backup application remove the checkpoint
 
 ### Restoring snapshots
 
@@ -253,8 +260,9 @@ Response:
 #### Starting incremental backup
 
 Start incremental backup since checkpoint id "previous-checkpoint-uuid".
-The response include 'to_checkpoint_id' which should be used as the
-'from_checkpoint_id' in the next incremental backup.
+The response will not include 'to_checkpoint_id' which should be used as the
+'from_checkpoint_id' in the next incremental backup, only when the backup
+phase will be "ready".
 
 Request:
 ```
@@ -273,7 +281,6 @@ Response:
 ```
 <backup id="backup-uuid">
     <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
-    <to_checkpoint_id>new-checkpoind-uuid</to_checkpoint_id>
     <disks>
         <disk id="disk-uuid" />
         ...
@@ -286,7 +293,10 @@ Response:
 
 #### Getting backup info
 
-When backup phase is "ready", you can start downloading the disks.
+When backup phase is "ready", you can get the specific backup info.
+The response will include 'to_checkpoint_id' which should be used as the
+'from_checkpoint_id' in the next incremental backup.
+Now you can start downloading the disks.
 
 Request:
 ```
@@ -341,6 +351,67 @@ to storage.
 
 Uploading "qcow2" data to "raw" disk is not supported.
 
+### Checkpoints REST API
+
+#### Get all created checkpoints for a VM
+
+To get all the created checkpoints of a VM :
+
+Request:
+
+```
+GET /vms/vm-uuid/checkpoints/
+```
+
+Response:
+
+```
+<checkpoints>
+   <checkpoint id="checkpoint-uuid">
+       <parent_checkpoint_id>parent-checkpoint-uuid</parent_checkpoint_id>
+       <disks>
+           <disk id="disk-uuid" />
+           ...
+           ...
+       </disks>
+       <creation_date>
+   </checkpoint>
+</checkpoints>
+```
+
+#### Get a specific VM checkpoint
+
+To get a specific VM checkpoint:
+
+Request:
+
+```
+GET /vms/vm-uuid/checkpoints/checkpoint-uuid/
+```
+
+Response:
+
+```
+<checkpoint id="checkpoint-uuid">
+   <parent_checkpoint_id>parent-checkpoint-uuid</parent_checkpoint_id>
+   <disks>
+       <disk id="disk-uuid" />
+       ...
+       ...
+   </disks>
+   <creation_date>
+</checkpoint>
+```
+
+#### Remove the root checkpoint of a specific VM checkpoint
+
+To remove the root of the checkpoints chain a DELETE request should be used:
+
+Request:
+
+```
+DELETE /vms/vm-uuid/checkpoints/checkpoint-uuid/
+```
 
 ### imageio backup API
 
@@ -390,9 +461,15 @@ Response:
 
 ## Future Work
 
-- Support for full backup for raw disks. Libvirt supports full backup of
-  raw disks without creating a new checkpoint.
-
+- Support incremental backup.
+  Currently only full backup for raw and qcow2 disks is supported,
+  to enable support for incremental backup (work in progress), 
+  Engine config value 'IsIncrementalBackupSupported' must be set to 'true'.
+  ```
+  # engine-config -s "IsIncrementalBackupSupported=true"
+  # systemctl restart ovirt-engine 
+  ```
+  
 - API for listing and deleting checkpoints.
 
 ## Detailed design
@@ -505,16 +582,14 @@ Checkpoints may be generated by multiple unrelated or partly related
 users, deleting checkpoints cannot be done automatically by every user
 after backup.
 
-The backup API should allow specifying some range of checkpoint to
-delete. Probably specifying a checkpoint that should be kept, deleting
-all older snapshots.
+The checkpoints API allow the deletion of the oldest (root) checkpoint.
 
 ### Scratch disk
 
 For now we'll use a scratch disk on the host (created by libvirt).
-As a future work, we'll consider to create a scratch disk using qcow2 format
-for every disk in the backup. The disk must have enough space to hold the 
-current data in the top layer of an image.
+A scratch disk is created using qcow2 format for every disk in the 
+backup. The disk must have enough space to hold the current data in
+the top layer of an image.
 
 #### Use case 1 - running 2 backup solutions in the same time
 
@@ -569,6 +644,7 @@ the checkpoints list, since this info is not stored in the qcow2 images.
   - parent: UUID
   - vm_id: UUID
   - creation_date: TIMESTAMP
+  - checkpoint_xml: TEXT
 
 Add vm_checkpoint_disk_map table. This table keeps the disks included in
 every checkpoint. Used when starting a backup to create checkpoint xml
@@ -620,6 +696,10 @@ Called before starting a backup, or once after starting a VM.
 Libvirt will fail to redefine checkpoints if unknown bitmap exists on
 storage, or a bitmap is missing on storage.
 
+#### VM.list_checkpoints
+
+Get from libvirt all the VM defined checkpoints.  
+
 #### VM.delete_checkpoints
 
 Delete checkpoints in libvirt and storage using libvirt API.
@@ -658,9 +738,9 @@ socket:
 
 - Add 'Enable Incremental Backup' checkbox on New/Edit Disk dialogs.
 
-- Removing last snapshot should be disabled if 'Enable Incremental Backup'
-  is checked and the base image is raw. Backup must be disabled in order
-  to remove the last snapshot.
+- Removing last snapshot will disable 'Enable Incremental Backup' 
+  if base image is raw. Snapshot must be created in order re-enable
+  'Enable Incremental Backup'.
 
 
 ### Open Issues
@@ -675,21 +755,6 @@ socket:
 - When creating a snapshot, an active bitmap should be copied to the new
   top layer, and qemu should continue to track changes, writing into the
   copied bitmap (libvirt).
-
-- Handle VM stop during a backup - should abort the backup, causing
-  image transfers to fail (engine).
-
-- Handle VM start during a backup of an offline VM - should abort the
-  backup, causing image transfers to fail (engine).
-
-- Locking disks during backup - currently image transfer lock the disk,
-  but we need to lock the disk when creating the backup. Image transfer
-  should skip locking if the disk is included in incremental backup
-  (engine).
-
-- How to handle failure on finalize and cancel? For example failure
-  to delete a scratch disk. Should the system continue to track the
-  items and retry to complete the operation later? (engine).
 
 - Need to allocate extra space for qcow2 metedata when using
   preallocated qcow2 on block storage (vdsm).
@@ -709,7 +774,7 @@ socket:
   If not the next backup must be full (libvirt/qemu).
 
 - How to handle hot plug disk? can we continue to track changes on a
-  detached disk, or we should require a full backup in this case?
+  detached disk, or we should require a full backup in this case (libvirt)?
 
 - Attaching disk with bitmaps to older qemu version will invalidate
   bitmaps, creating corrupted backups. how can we prevent this? (qemu).
@@ -760,6 +825,9 @@ socket:
 
 - See also Eric's talk from KVM Forum 2018:
   [Facilitating Incremental Backup](https://events.linuxfoundation.org/wp-content/uploads/2017/12/Eric-Blake_2018-libvirt-incremental-backup.pdf)
+
+- See also DevConf session about incremental backup talk from DevConf 2020:
+  [Back to the future - incremental backup in oVirt - DevConf.CZ 2020](https://www.youtube.com/watch?v=foyi1UyadEc)
 
 - qemu - track changed blocks using dirty bitmaps. dirty bitmap support
   added in qemu-3.0, and backported to qemu-rhev in CentOS 7.6. See

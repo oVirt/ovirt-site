@@ -3,9 +3,6 @@
 
 Adding a host to your {virt-product-fullname} environment can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, and creation of a bridge.
 
-include::../install/snip-IPv6_important_note.adoc[]
-
-
 .Procedure
 
 . From the Administration Portal, click menu:Compute[Hosts].

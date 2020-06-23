@@ -12,7 +12,7 @@ MOM exists today as an independent library that can be used by python programs s
 
 To integrate mom, vdsm will initialize the mom library in a new thread and start it. Therefore, mom and vdsm will exist in the same process. Vdsm will configure the mom instance to use plugins and a policy that exclusively target the vdsm API. All statistics collection will occur via API calls and any management actions (including adjustments to KSM and VM balloons) will be done through the vdsm api as well. Mom will not use libvirt at all (not even to monitor for new VMs on the system).
 
-![](/images/wiki/mom-vdsm.png)
+![](/images/wiki/Mom-vdsm.png)
 
 ## Packaging logistics
 

@@ -17,7 +17,6 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### Fedora / CentOS / RHEL
 
-If you're installing oVirt 3.3.2 on a clean host you should read our [Quick Start Guide](/documentation/quickstart/quickstart-guide/)
 
 **IMPORTANT NOTE:** If you're upgrading from a previous version please update ovirt-release to latest version (10) and ensure you've **ovirt-3.3.2** and **ovirt-stable** repository enabled.
 

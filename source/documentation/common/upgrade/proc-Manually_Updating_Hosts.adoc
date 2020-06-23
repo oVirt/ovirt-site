@@ -1,0 +1,64 @@
+[id='Manually_Updating_Hosts_{context}']
+= Manually Updating Hosts
+
+:man_host_update:
+
+You can use the `yum` command to update your hosts. Update your systems regularly, to ensure timely application of security and bug fixes.
+
+//Limitations
+include::snip-Host_update_limitations.adoc[]
+
+.Procedure
+
+. Ensure the correct repositories are enabled. You can check which repositories are currently enabled by running `yum repolist`.
+
+ifdef::rhv-doc[]
+* For {hypervisor-fullname}s:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos --enable=rhvh-4-beta-for-rhel-8-x86_64-rpms
+----
+* For {enterprise-linux-host-fullname}s:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos \
+    --enable=rhel-8-for-x86_64-baseos-rpms \
+    --enable=rhel-8-for-x86_64-appstream-rpms \
+    --enable=rhv-4-mgmt-agent-beta-for-rhel-8-x86_64-rpms \
+    --enable=ansible-2.9-for-rhel-8-x86_64-rpms \
+    --enable=advanced-virt-for-rhel-8-x86_64-rpms \
+    --enable=fast-datapath-for-rhel-8-x86_64-rpms
+----
+endif::[]
+ifdef::ovirt-doc[]
+* For {hypervisor-fullname}s, the `ovirt-release44` RPM package enabling the correct repositories is already installed.
+
+* For {enterprise-linux-host-fullname}s:
++
+[options="nowrap" subs="normal"]
+----
+# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
+----
+endif::[]
+
+. In the Administration Portal, click menu:Compute[Hosts] and select the host to be updated.
+. Click menu:Management[Maintenance].
+. Update the host:
++
+[options="nowrap" subs="normal"]
+----
+# yum update
+----
+
+. Reboot the host to ensure all updates are correctly applied.
++
+[NOTE]
+====
+Check the imgbased logs to see if any additional package updates have failed for a {hypervisor-fullname}. If some packages were not successfully reinstalled after the update, check that the packages are listed in */var/imgbased/persisted-rpms*. Add any missing packages then run `rpm -Uvh /var/imgbased/persisted-rpms/*`.
+====
+
+Repeat this process for each host in the {virt-product-fullname} environment.
+
+:man_host_update!:

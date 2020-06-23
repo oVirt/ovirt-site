@@ -5,57 +5,53 @@
 
 {hypervisor-shortname} supports NIST 800-53 partitioning requirements to improve security. {hypervisor-shortname} uses a NIST 800-53 partition layout by default.
 
-The host must meet the minimum  link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/planning_and_prerequisites_guide/rhv_requirements#host-requirements[host requirements].
+The host must meet the minimum  link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/planning_and_prerequisites_guide/rhv_requirements#host-requirements[host requirements].
 
 .Procedure
 ifdef::rhv-doc[]
-. Download the {hypervisor-shortname} ISO image from the Customer Portal:
-.. Log in to the Customer Portal at link:https://access.redhat.com[].
-.. Click *Downloads* in the menu bar.
-.. Click *{virt-product-fullname}*. Scroll up and click *Download Latest* to access the product
+. Go to the link:https://access.redhat.com/products/red-hat-virtualization#getstarted[Get Started with Red Hat Virtualization] on the Red Hat Customer Portal and log in.
+. Click *Download Latest* to access the product
 download page.
-.. Go to *Hypervisor Image for RHV 4.3* and and click *Download Now*.
-.. Create a bootable media device. See https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-making-media.html[Making Media] in the _{enterprise-linux} Installation Guide_ for more information.
+. Choose the appropriate *Hypervisor Image for RHV* from the list and click *Download Now*.
 endif::[]
 ifdef::ovirt-doc[]
-. Download the {hypervisor-fullname} {vernum_rhv} - Stable Release - Installation ISO disk image from the oVirt site:
-.. Visit the link:https://ovirt.org/download/node.html[oVirt Node Download] page.
-.. Download link:https://www.ovirt.org/download/node.html#ovirt-node-43---stable-release[oVirt Node 4.3 - Stable Release - Installation ISO].
-.. Write the {hypervisor-fullname} Installation ISO disk image to a USB, CD, or DVD.
+. Visit the link:https://ovirt.org/download/node.html[oVirt Node Download] page.
+. Choose the version of *oVirt Node* to download and click its *Installation ISO* link.
+. Write the {hypervisor-fullname} Installation ISO disk image to a USB, CD, or DVD.
 endif::[]
 . Start the machine on which you are installing {hypervisor-shortname}, booting from the prepared installation media.
-. From the boot menu, select *Install {hypervisor-shortname} 4.3* and press `Enter`.
+. From the boot menu, select *Install {hypervisor-shortname} 4.4* and press `Enter`.
 +
 [NOTE]
 ====
 You can also press the `Tab` key to edit the kernel parameters. Kernel parameters must be separated by a space, and you can boot the system using the specified kernel parameters by pressing the `Enter` key. Press the `Esc` key to clear any changes to the kernel parameters and return to the boot menu.
 ====
 
-. Select a language, and click *Continue*.
-. Select a time zone from the *Date &amp; Time* screen and click *Done*.
-. Select a keyboard layout from the *Keyboard* screen and click *Done*.
-. Select the device on which to install {hypervisor-shortname} from the *Installation Destination* screen. Optionally, enable encryption. Click *Done*.
+. Select a language, and click btn:[Continue].
+. Select a keyboard layout from the *Keyboard Layout* screen and click btn:[Done].
+. Select the device on which to install {hypervisor-shortname} from the *Installation Destination* screen. Optionally, enable encryption. Click btn:[Done].
 +
 [IMPORTANT]
 ====
-{org-fullname} strongly recommends using the *Automatically configure partitioning* option.
+Use the *Automatically configure partitioning* option.
 ====
+. Select a time zone from the *Time &amp; Date* screen and click btn:[Done].
 +
 . Select a network from the *Network &amp; Host Name* screen and click *Configure...* to configure the connection details.
 +
 [NOTE]
 ====
-To use the connection every time the system boots, select the *Automatically connect to this network when it is available* check box. For more information, see link:{URL_rhel_docs_legacy}html-single/installation_guide/sect-network-hostname-configuration-x86#sect-edit-network-connections-x86[Edit Network Connections] in the _{enterprise-linux} 7 Installation Guide_.
+To use the connection every time the system boots, select the *Connect automatically with priority* check box. For more information, see link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/graphical-installation_graphical-installation#network-hostname_configuring-system-settings[Configuring network and host name options] in the _{enterprise-linux} 8 Installation Guide_.
 ====
 +
-Enter a host name in the *Host name* field, and click *Done*.
-. Optionally configure *Language Support*, *Security Policy*, and *Kdump*. See link:{URL_rhel_docs_legacy}html-single/installation_guide/index#chap-installing-using-anaconda-x86[Installing Using Anaconda] in the _{enterprise-linux} 7 Installation Guide_ for more information on each of the sections in the *Installation Summary* screen.
+Enter a host name in the *Host Name* field, and click *Done*.
+. Optionally configure *Language Support*, *Security Policy*, and *Kdump*. See link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/graphical-installation_graphical-installation[Customizing your RHEL installation using the GUI] in _Performing a standard RHEL installation_ for _{enterprise-linux} 8 for more information on each of the sections in the *Installation Summary* screen.
 . Click *Begin Installation*.
 . Set a root password and, optionally, create an additional user while {hypervisor-shortname} installs.
 +
 [WARNING]
 ====
-{org-fullname} strongly recommends not creating untrusted users on {hypervisor-shortname}, as this can lead to exploitation of local security vulnerabilities.
+Do not create untrusted users on {hypervisor-shortname}, as this can lead to exploitation of local security vulnerabilities.
 ====
 +
 . Click *Reboot* to complete the installation.

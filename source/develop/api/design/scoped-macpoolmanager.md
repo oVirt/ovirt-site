@@ -49,11 +49,11 @@ Definition of domains from which MAC addresses will be allocated for each ~~data
 
 Below is three screenshots. 'New/edit MAC pool pane' is shared component used both in new tabs of ~~datacenter~~ cluster dialog and systemconfig, which are remaining two screenshots.
 
-![](/images/wiki/newMacAddressPool.png)
+![](/images/wiki/NewMacAddressPool.png)
 
 dialog for creating/editing MAC Pool data (name, description, duplicity allowancy) and its MAC address ranges.
 
-![](/images/wiki/configureDialog_addingModifyingRemovingPoolsAndPrivileges.png)
+![](/images/wiki/ConfigureDialog_addingModifyingRemovingPoolsAndPrivileges.png)
 
 new tab in configure dialog allowing to manipulate with existing MAC pools or creating new ones as well as (de)assigning user privileges to specific MAC pools.
 

@@ -35,14 +35,14 @@ oVirt needs concise, user-friendly, up-to-date installation and usage documentat
 
 Reporting bugs is one of the most valuable ways you can contribute! Ideas for new features are also very welcome. Report bugs and RFEs using the following issue trackers:
 
-* [Bugzilla - bugs and RFEs in oVirt Engine and oVirt Node](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt)
+* [Bugzilla - how to report a bug](/community/report-a-bug/)
 * [VM Portal GitHub - bugs and RFEs in VM Portal](https://github.com/oVirt/ovirt-web-ui/issues)
 * [oVirt Documentation GitHub - Documentation issues](https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation)
-* Security issues follow a [special reporting procedure](/develop/security/security.html).
+* Security issues follow a [special reporting procedure](/community/security/).
 
 ## Participate in the oVirt infrastructure
 
-Our project infrastructure can always benefit from extra people, hardware and network bandwidth. First of all, consider [becoming a public mirror](/develop/infra/repository-mirrors.html) of oVirt repositories. You can also [become an infra team member](/develop/infra/becoming-an-infrastructure-team-member.html) or [donate hardware](/community/get-involved/donate-hardware.html) to the project to improve our capacity and redundancy.
+Our project infrastructure can always benefit from extra people, hardware and network bandwidth. First of all, consider [becoming a public mirror](/community/get-involved/repository-mirrors.html) of oVirt repositories. You can also [become an infra team member](/develop/infra/becoming-an-infrastructure-team-member.html) or [donate hardware](/community/get-involved/donate-hardware.html) to the project to improve our capacity and redundancy.
 
 ## Supporters, Sponsors, and Providers
 

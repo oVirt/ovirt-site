@@ -96,13 +96,6 @@ rvm use 2.5
 ./setup.sh && ./run-server.sh
 ```
 
-or
-
-```
-sudo ./docker-setup.sh
-sudo ./docker-run.sh
-```
-
 If the site builds successfully, you will see this message:
 The Jekyll web server is standing watch at http://\[address\]:4000
 (the exact URL is given on the terminal when Jekyll is ready)

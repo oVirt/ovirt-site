@@ -1,0 +1,23 @@
+==== Removing an External LDAP Provider
+
+This procedure shows you how to remove an external configured LDAP provider and its users.
+
+*Removing an External LDAP Provider*
+
+. Remove the LDAP provider configuration files, replacing the default name _profile1_:
++
+[options="nowrap" subs="normal"]
+----
+# rm /etc/ovirt-engine/extensions.d/_profile1_-authn.properties
+# rm /etc/ovirt-engine/extensions.d/_profile1_-authz.properties
+# rm /etc/ovirt-engine/aaa/_profile1_.properties
+----
+
+. Restart the `ovirt-engine` service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart ovirt-engine
+----
+
+. In the Administration Portal, in the *Users* resource tab, select the users of this provider (those whose `Authorization provider` is _profile1_-authz) and click *Remove*. 

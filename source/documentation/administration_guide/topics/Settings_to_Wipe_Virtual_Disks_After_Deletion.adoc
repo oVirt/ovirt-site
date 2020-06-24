@@ -1,0 +1,61 @@
+[[Settings_to_Wipe_Virtual_Disks_After_Deletion]]
+=== Settings to Wipe Virtual Disks After Deletion
+
+The `wipe_after_delete` flag, viewed in the Administration Portal as the *Wipe After Delete* check box will replace used data with zeros when a virtual disk is deleted. If it is set to false, which is the default, deleting the disk will open up those blocks for reuse but will not wipe the data. It is, therefore, possible for this data to be recovered because the blocks have not been returned to zero.
+
+The `wipe_after_delete` flag only works on block storage. On file storage, for example NFS, the option does nothing because the file system will ensure that no data exists.
+
+Enabling `wipe_after_delete` for virtual disks is more secure, and is recommended if the virtual disk has contained any sensitive data. This is a more intensive operation and users may experience degradation in performance and prolonged delete times.
+
+[NOTE]
+====
+The wipe after delete functionality is not the same as secure delete, and cannot guarantee that the data is removed from the storage, just that new disks created on same storage will not expose data from old disks.
+====
+The `wipe_after_delete` flag default can be changed to `true` during the setup process (see link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_local_databases/installing_the_red_hat_virtualization_manager_sm_localdb_deploy#Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Configuring the {virt-product-fullname} {engine-name}]), or by using the `engine-config` tool on the {virt-product-fullname} {engine-name}. Restart the `ovirt-engine` service for the setting change to take effect.
+
+[NOTE]
+====
+Changing the `wipe_after_delete` flag's default setting will not affect the *Wipe After Delete* property of disks that already exist.
+====
+
+
+*Setting SANWipeAfterDelete to Default to True Using the Engine Configuration Tool*
+
+. Run the `engine-config` tool with the `--set` action:
++
+[options="nowrap" subs="normal"]
+----
+
+# engine-config --set SANWipeAfterDelete=true
+
+----
++
+. Restart the `ovirt-engine` service for the change to take effect:
++
+[options="nowrap" subs="normal"]
+----
+
+# systemctl restart ovirt-engine.service
+
+----
+
+
+The */var/log/vdsm/vdsm.log* file located on the host can be checked to confirm that a virtual disk was successfully wiped and deleted.
+
+For a successful wipe, the log file will contain the entry, `_storage_domain_id_/_volume_id_ was zeroed and will be deleted`. For example:
+
+[options="nowrap" subs="normal"]
+----
+
+a9cb0625-d5dc-49ab-8ad1-72722e82b0bf/a49351a7-15d8-4932-8d67-512a369f9d61 was zeroed and will be deleted
+
+----
+For a successful deletion, the log file will contain the entry, `finished with VG:__storage_domain_id__ LVs: _list_of_volume_ids_, img: _image_id_`. For example:
+
+[options="nowrap" subs="normal"]
+----
+
+finished with VG:a9cb0625-d5dc-49ab-8ad1-72722e82b0bf LVs: {'a49351a7-15d8-4932-8d67-512a369f9d61': ImgsPar(imgs=['11f8b3be-fa96-4f6a-bb83-14c9b12b6e0d'], parent='00000000-0000-0000-0000-000000000000')}, img: 11f8b3be-fa96-4f6a-bb83-14c9b12b6e0d
+
+----
+An unsuccessful wipe will display a log message `zeroing _storage_domain_id_/_volume_id_ failed. Zero and remove this volume manually`, and an unsuccessful delete will display `Remove failed for some of VG: _storage_domain_id_ zeroed volumes: _list_of_volume_ids_`.

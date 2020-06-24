@@ -1,0 +1,53 @@
+[[Search_criteria]]
+=== Search Criteria
+
+You can specify the search criteria after the colon in the query. The syntax of `{criteria}` is as follows:
+
+`<prop><operator><value>`
+
+or
+
+`<obj-type><prop><operator><value>`
+
+*Examples*
+
+The following table describes the parts of the syntax:
+[[search_criteria]]
+
+.Example Search Criteria
+[options="header"]
+|===
+|Part |Description |Values |Example |Note
+|prop |The property of the searched-for resource. Can also be the property of a resource type (see `obj-type`), or *tag* (custom tag). |Limit your search to objects with a certain property. For example, search for objects with a *status* property. |Status |N/A
+|obj-type |A resource type that can be associated with the searched-for resource. |These are system objects, like data centers and virtual machines. |Users |N/A
+|operator |Comparison operators. |=
+
+!= (not equal)
+
+>
+
+<
+
+>=
+
+\<= |N/A |Value options depend on property.
+|Value |What the expression is being compared to. |String
+
+Integer
+
+Ranking
+
+Date (formatted according to Regional Settings) |Jones
+
+256
+
+normal a|
+
+* Wildcards can be used within strings.
+
+* "" (two sets of quotation marks with no space between them) can be used to represent an un-initialized (empty) string.
+
+* Double quotes should be used around a string or date containing spaces
+
+
+|===

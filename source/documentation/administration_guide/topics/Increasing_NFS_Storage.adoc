@@ -1,0 +1,14 @@
+[[Increasing_NFS_Storage]]
+==== Increasing NFS Storage
+
+To increase the amount of NFS storage, you can either create a new storage domain and add it to an existing data center, or increase the available free space on the NFS server. For the former option, see xref:Adding_NFS_Storage_storage_admin[]. The following procedure explains how to increase the available free space on the existing NFS server.
+
+
+*Increasing an Existing NFS Storage Domain*
+
+. Click menu:Storage[Domains].
+. Click the NFS storage domain's name to open the details view.
+. Click the *Data Center* tab and click *Maintenance* to place the storage domain into maintenance mode. This unmounts the existing share and makes it possible to resize the storage domain.
+. On the NFS server, resize the storage. For {enterprise-linux} 6 systems, see link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhel}6/html-single/Storage_Administration_Guide/index.html#s2-disk-storage-parted-resize-part[{enterprise-linux} 6 Storage Administration Guide]. For {enterprise-linux} 7 systems, see link:{URL_rhel_docs_legacy}html-single/Storage_Administration_Guide/index.html#s2-disk-storage-parted-resize-part[{enterprise-linux} 7 Storage Administration Guide].
+// review above
+. In the details view, click the *Data Center* tab and click *Activate* to mount the storage domain.

@@ -1,0 +1,35 @@
+[[Turning_On_a_SPICE_Proxy]]
+==== Turning On a SPICE Proxy
+
+This procedure explains how to activate (or turn on) the SPICE proxy.
+
+
+*Activating SPICE Proxy*
+
+. On the {engine-name}, use the engine-config tool to set a proxy: 
++
+[options="nowrap" subs="normal"]
+----
+# `engine-config -s SpiceProxyDefault=someProxy`
+----
++
+. Restart the `ovirt-engine` service: 
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart ovirt-engine.service
+----
++
+The proxy must have this form:
++
+[options="nowrap" subs="normal"]
+----
+protocol://[host]:[port]
+----
++
+[NOTE]
+====
+Only SPICE clients shipped with {enterprise-linux} 6.7, {enterprise-linux} 7.2, or later, support HTTPS proxies. Earlier clients only support HTTP. If HTTPS is specified for earlier clients, the client will ignore the proxy setting and attempt a direct connection to the host.
+====
+
+SPICE Proxy is now activated (turned on). It is now possible to connect to the {virt-product-fullname} network through the SPICE proxy.

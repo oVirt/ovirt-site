@@ -1,0 +1,42 @@
+[[Creating_a_bond_device_in_the_administration_portal]]
+==== Creating a Bond Device in the Administration Portal
+
+You can create a bond device on a specific host in the Administration Portal. The bond device can carry both VLAN-tagged and untagged traffic.
+
+.Procedure
+
+. Click menu:Compute[Hosts].
+. Click the host's name to open the details view.
+. Click the *Network Interfaces* tab to list the physical network interfaces attached to the host.
+. Click *Setup Host Networks*.
+. Check the switch configuration. If the switch has been configured to provide Link Layer Discovery Protocol (LLDP) information, hover your cursor over a physical NIC to view the switch port's aggregation configuration.
+
+. Drag and drop a NIC onto another NIC or onto a bond.
++
+[NOTE]
+====
+Two NICs form a new bond. A NIC and a bond adds the NIC to the existing bond.
+
+If the logical networks are xref:Bond_logical_networks_compatibility[incompatible], the bonding operation is blocked.
+====
+
+. Select the *Bond Name* and *Bonding Mode* from the drop-down menus. See xref:Bonding_Modes[] for details.
++
+If you select the *Custom* bonding mode, you can enter bonding options in the text field, as in the following examples:
++
+* If your environment does not report link states with `ethtool`, you can set ARP monitoring by entering `mode=_1_ arp_interval=_1_ arp_ip_target=_192.168.0.2_`.
+
+* You can designate a NIC with higher throughput as the primary interface by entering `mode=_1_ primary=_eth0_`.
++
+For a comprehensive list of bonding options and their descriptions, see the link:https://www.kernel.org/doc/Documentation/networking/bonding.txt[_Linux Ethernet Bonding Driver HOWTO_] on Kernel.org.
+
+. Click *OK*.
+. Attach a logical network to the new bond and configure it. See xref:Editing_host_network_interfaces[] for instructions.
++
+[NOTE]
+====
+You cannot attach a logical network directly to an individual NIC in the bond.
+====
+
+. Optionally, you can select *Verify connectivity between Host and Engine* if the host is in maintenance mode.
+. Click *OK*.

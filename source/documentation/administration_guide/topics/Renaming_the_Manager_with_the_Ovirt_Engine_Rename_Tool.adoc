@@ -1,0 +1,102 @@
+[[Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool]]
+==== Renaming the {engine-name} with the oVirt Engine Rename Tool
+
+You can use the `ovirt-engine-rename` command to update records of the fully qualified domain name (FQDN) of the {engine-name}.
+
+[IMPORTANT]
+====
+The `ovirt-engine-rename` command does not update SSL certificates, such as `imageio-proxy` or `websocket-proxy`. These must be updated manually, after running `ovirt-engine-rename`. See xref:Updating_SSL_Certificates[Updating SSL Certificates] below.
+====
+
+The tool checks whether the {engine-name} provides a local ISO or Data storage domain. If it does, the tool prompts the user to eject, shut down, or place into maintenance mode any virtual machine or storage domain connected to the storage before continuing with the operation. This ensures that virtual machines do not lose connectivity with their virtual disks, and prevents ISO storage domains from losing connectivity during the renaming process.
+
+
+*Using the oVirt Engine Rename Tool*
+
+. Prepare all DNS and other relevant records for the new FQDN.
+. Update the DHCP server configuration if DHCP is used.
+. Update the host name on the {engine-name}.
+. Run the following command:
++
+[options="nowrap" subs="normal"]
+----
+# /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename
+----
++
+. When prompted, press `Enter` to stop the engine service:
++
+[options="nowrap" subs="normal"]
+----
+During execution engine service will be stopped (OK, Cancel) [OK]:
+----
++
+. When prompted, enter the new FQDN for the {engine-name}:
++
+[options="nowrap" subs="normal"]
+----
+New fully qualified server name:__new_engine_fqdn__
+----
+
+The `ovirt-engine-rename` command updates records of the FQDN of the {engine-name}.
+
+*For a self-hosted engine, complete these additional steps:*
+
+. Run the following command on every existing self-hosted engine node:
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --set-shared-config fqdn __new_engine_fqdn__ --type=he_local
+----
++
+This command modifies the FQDN in each self-hosted engine node's local copy of [filename]`/etc/ovirt-hosted-engine-ha/hosted-engine.conf`
+
+
+. Run the following command on one of the self-hosted engine nodes:
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --set-shared-config fqdn __new_engine_fqdn__ --type=he_shared
+----
++
+This command modifies the FQDN in the master copy of [filename]`/etc/ovirt-hosted-engine-ha/hosted-engine.conf` on the shared storage domain.
+
+Now, all new and existing self-hosted engine nodes use the new FQDN.
+
+[[Updating_SSL_Certificates]]
+*Updating SSL Certificates*
+
+Run the following commands after the `ovirt-engine-rename` command to update the SSL certificates:
+
+[options="nowrap" subs="normal"]
+----
+1. # names="websocket-proxy imageio-proxy"
+----
+
+[options="nowrap" subs="normal"]
+----
+2. # subject="$(\
+    openssl x509 \
+    -in /etc/pki/ovirt-engine/certs/apache.cer \
+    -noout \
+    -subject | \
+        sed \
+            's;subject= \(.*\);\1;'
+  )"
+----
+
+[options="nowrap" subs="normal"]
+----
+3. # . /usr/share/ovirt-engine/bin/engine-prolog.sh
+----
+
+[options="nowrap" subs="normal"]
+----
+4. # for name in $names; do
+    /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
+        --name="${name}" \
+        --password=mypass \
+        --subject="${subject}" \
+        --keep-key \
+        --san=DNS:"${ENGINE_FQDN}"
+  done
+----

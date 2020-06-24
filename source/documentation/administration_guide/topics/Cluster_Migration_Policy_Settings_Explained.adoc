@@ -1,0 +1,68 @@
+[[Cluster_Migration_Policy_Settings_Explained]]
+==== Migration Policy Settings Explained
+
+A migration policy defines the conditions for live migrating virtual machines in the event of host failure. These conditions include the downtime of the virtual machine during migration, network bandwidth, and how the virtual machines are prioritized.
+
+.Migration Policies Explained
+[options="header"]
+|===
+|Policy |Description
+|*Legacy* |Legacy behavior of 3.6 version. Overrides in `vdsm.conf` are still applied. The guest agent hook mechanism is disabled.
+|*Minimal downtime* |A policy that lets virtual machines migrate in typical situations. Virtual machines should not experience any significant downtime. The migration will be aborted if the virtual machine migration does not converge after a long time (dependent on QEMU iterations, with a maximum of 500 milliseconds). The guest agent hook mechanism is enabled.
+|*Post-copy migration* a|Virtual machines should not experience any significant downtime similar to the minimal downtime policy. The post-copy policy first tries pre-copy to verify whether convergence may occur. The migration switches to post-copy if the virtual machine migration does not converge after a long time. The disadvantage of this policy is that in the post-copy phase, the virtual machine may slow down significantly as the missing parts of memory are transferred between the hosts.
+
+If anything goes wrong during the post-copy phase, such as a network failure of the migration network between the hosts, then the migration process leads to an inconsistent and paused VM and the result is a lost VM. Therefore, it is not possible to abort a migration during the post-copy phase.
+[WARNING]
+.Warning
+====
+If the network connection breaks prior to the completion of the post-copy process, the {engine-name} pauses and then kills the running VM. Do not use post-copy migration if the VM availability is critical or if the migration network is unstable.
+====
+|*Suspend workload if needed* |A policy that lets virtual machines migrate in most situations, including virtual machines running heavy workloads. Because of this, virtual machines may experience a more significant downtime than with some of the other settings. The migration may still be aborted for extreme workloads. The guest agent hook mechanism is enabled.
+|===
+The bandwidth settings define the maximum bandwidth of both outgoing and incoming migrations per host.
+
+.Bandwidth Explained
+[options="header"]
+|===
+|Policy |Description
+|*Auto* |Bandwidth is copied from the *Rate Limit [Mbps]* setting in the data center *Host Network QoS*. If the rate limit has not been defined, it is computed as a minimum of link speeds of sending and receiving network interfaces. If rate limit has not been set, and link speeds are not available,  it is determined by local VDSM setting on sending host.
+|*Hypervisor default* |Bandwidth is controlled by local VDSM setting on sending Host.
+|*Custom* |Defined by user (in Mbps). This value is divided by the number of concurrent migrations (default is 2, to account for ingoing and outgoing migration). Therefore, the user-defined bandwidth must be large enough to accommodate all concurrent migrations.
+
+For example, if the `Custom` bandwidth is defined as 600 Mbps, a virtual machine migration's maximum bandwidth is actually 300 Mbps.
+|===
+
+The resilience policy defines how the virtual machines are prioritized in the migration.
+[[Resilience_Policy_settings]]
+
+.Resilience Policy Settings
+[options="header"]
+|===
+|Field |Description/Action
+|*Migrate Virtual Machines* |Migrates all virtual machines in order of their defined priority.
+|*Migrate only Highly Available Virtual Machines* |Migrates only highly available virtual machines to prevent overloading other hosts.
+|*Do Not Migrate Virtual Machines* |Prevents virtual machines from being migrated.
+|===
+The *Additional Properties* are only applicable to the *Legacy* migration policy.
+
+.Additional Properties Explained
+[options="header"]
+|===
+|Property |Description
+|*Auto Converge migrations* a|Allows you to set whether auto-convergence is used during live migration of virtual machines. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine. Auto-convergence is disabled globally by default.
+
+* Select *Inherit from global setting* to use the auto-convergence setting that is set at the global level. This option is selected by default.
+
+* Select *Auto Converge* to override the global setting and allow auto-convergence for the virtual machine.
+
+* Select *Don't Auto Converge* to override the global setting and prevent auto-convergence for the virtual machine.
+
+|*Enable migration compression* a|Allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern. Migration compression is disabled globally by default.
+
+* Select *Inherit from global setting* to use the compression setting that is set at the global level. This option is selected by default.
+
+* Select *Compress* to override the global setting and allow compression for the virtual machine.
+
+* Select *Don't compress* to override the global setting and prevent compression for the virtual machine.
+
+|===

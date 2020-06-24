@@ -1,0 +1,51 @@
+[[Cluster_General_Settings_Explained]]
+==== General Cluster Settings Explained
+
+The table below describes the settings for the *General* tab in the *New Cluster* and *Edit Cluster* windows. Invalid entries are outlined in orange when you click *OK*, prohibiting the changes being accepted. In addition, field prompts indicate the expected values or range of values.
+
+[[Cluster-Properties]]
+.General Cluster Settings
+[options="header"]
+|===
+|Field |Description/Action
+|*Data Center* |The data center that will contain the cluster. The data center must be created before adding a cluster.
+|*Name* |The name of the cluster. This text field has a 40-character limit and must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores.
+|*Description / Comment* |The description of the cluster or additional notes. These fields are recommended but not mandatory.
+|*Management Network* |The logical network that will be assigned the management network role. The default is *ovirtmgmt*. This network will also be used for migrating virtual machines if the migration network is not properly attached to the source or the destination hosts.
+
+On existing clusters, the management network can only be changed using the *Manage Networks* button in the *Logical Networks* tab in the details view.
+|*CPU Architecture* a|The CPU architecture of the cluster. All hosts in a cluster must run the architecture you specify. Different CPU types are available depending on which CPU architecture is selected.
+
+* *undefined*: All other CPU types.
+
+* *x86_64*: For Intel and AMD CPU types.
+
+* *ppc64*: For IBM POWER CPU types.
+
+|*CPU Type* |The oldest CPU family in the cluster. For a list of CPU types, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/planning_and_prerequisites_guide/rhv_requirements#CPU_Requirements_RHV_planning[CPU Requirements] in the _Planning and Prerequisites Guide_. You cannot change this cannot after creating the cluster without significant disruption. Set CPU type to the oldest CPU model in the cluster. Only features present in all models can be used. For both Intel and AMD CPU types, the listed CPU models are in logical order from the oldest to the newest.
+|*Compatibility Version* |The version of {virt-product-fullname}. You will not be able to select a version earlier than the version specified for the data center.
+|*Switch Type* |The type of switch used by the cluster. *Linux Bridge* is the standard {virt-product-fullname} switch. *OVS* provides support for Open vSwitch networking features.
+|*Firewall Type* |Specifies the firewall type for hosts in the cluster, either *firewalld* (default) or *iptables*.
+*iptables* is only supported on {enterprise-linux} 7 hosts, in clusters with compatibility version 4.2 or 4.3. You can only add {enterprise-linux} 8 hosts to clusters with firewall type *firewalld*.
+If you change an existing cluster's firewall type, you must xref:Reinstalling_Hosts_admin[reinstall all hosts] in the cluster to apply the change.
+|*Default Network Provider* |Specifies the default external network provider that the cluster will use. If you select Open Virtual Network (OVN), the hosts added to the cluster are automatically  configured to communicate with the OVN provider.
+
+If you change the default network provider, you must xref:Reinstalling_Hosts_admin[reinstall all hosts] in the cluster to apply the change.
+
+|*Maximum Log Memory Threshold* |Specifies the logging threshold for maximum memory consumption as a percentage or as an absolute value in MB. A message is logged if a host's memory usage exceeds the percentage value or if a host's available memory falls below the absolute value in MB. The default is `95%`.
+|*Enable Virt Service* |If this radio button is selected, hosts in this cluster will be used to run virtual machines.
+|*Enable Gluster Service* |If this radio button is selected, hosts in this cluster will be used as {gluster-storage-fullname} Server nodes, and not for running virtual machines.
+|*Import existing gluster configuration* a|This check box is only available if the *Enable Gluster Service* radio button is selected. This option allows you to import an existing Gluster-enabled cluster and all its attached hosts to {virt-product-fullname} {engine-name}.
+
+The following options are required for each host in the cluster that is being imported:
+
+* *Address*: Enter the IP or fully qualified domain name of the Gluster host server.
+
+* *Fingerprint*: {virt-product-fullname} {engine-name} fetches the host's fingerprint, to ensure you are connecting with the correct host.
+
+* *Root Password*: Enter the root password required for communicating with the host.
+
+|*Enable to set VM maintenance reason* |If this check box is selected, an optional reason field will appear when a virtual machine in the cluster is shut down from the {engine-name}. This allows you to provide an explanation for the maintenance, which will appear in the logs and when the virtual machine is powered on again.
+|*Enable to set Host maintenance reason* |If this check box is selected, an optional reason field will appear when a host in the cluster is moved into maintenance mode from the {engine-name}. This allows you to provide an explanation for the maintenance, which will appear in the logs and when the host is activated again.
+|*Additional Random Number Generator source* |If the check box is selected, all hosts in the cluster have the additional random number generator device available. This enables passthrough of entropy from the random number generator device to virtual machines.
+|===

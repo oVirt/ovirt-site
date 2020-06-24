@@ -1,0 +1,76 @@
+[[Installing_a_new_OVN_network_provider]]
+===== Installing a New OVN Network Provider
+
+[WARNING]
+====
+If the `openvswitch` package is already installed and if the version is 1:2.6.1 (version 2.6.1, epoch 1), the OVN installation will fail when it tries to install the latest `openvswitch` package. See the Doc Text in link:https://bugzilla.redhat.com/show_bug.cgi?id=1505398[BZ#1505398] for the details and a workaround.
+====
+
+Installing OVN using `engine-setup` performs the following steps:
+
+* Sets up an OVN central server on the {engine-name} machine.
+
+* Adds OVN to {virt-product-fullname} as an external network provider.
+
+* On the Default cluster only, sets the *Default Network Provider* to `ovirt-provider-ovn`.
+
+[IMPORTANT]
+====
+* Installing OVN changes the *Default Network Provider* setting on the Default cluster only, not on other clusters.
+* Changing the *Default Network Provider* setting does not update hosts in that cluster to use the *Default Network Provider*.
+* For hosts and virtual machines to use OVN, perform the addition tasks described in the "Next steps" at the end of this topic.
+====
+
+.Procedure
+
+. Optional: If you use a preconfigured answer file with `engine-setup`, add the following entry to install OVN:
++
+----
+OVESETUP_OVN/ovirtProviderOvn=bool:True
+----
+
+. Run `engine-setup` on the {engine-name} machine.
+
+. If you do not use a preconfigured answer file, answer `Yes` when the `engine-setup` asks:
++
+----
+# `Configure ovirt-provider-ovn and set the Default cluster's default network provider to ovirt-provider-ovn (non-Default clusters may be configured with an OVN provider after installation) (Yes, No) [Yes]:
+----
+
+. Answer the following question:
++
+----
+# `Use default credentials (admin@internal) for ovirt-provider-ovn (Yes, No) [Yes]?`:
+----
++
+If `Yes`, `engine-setup` uses the default engine user and password specified earlier in the setup process. This option is only available during new installations.
++
+----
+# `oVirt OVN provider user[admin]`:
+# `oVirt OVN provider password[empty]`:
+----
++
+You can use the default values or specify the oVirt OVN provider user and password.
+
+[NOTE]
+====
+To change the authentication method later, you can edit the `/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf` file, or create a new `/etc/ovirt-provider-ovn/conf.d/20_engine_setup.conf` file. Restart the `ovirt-provider-ovn` service for the change to take effect. See link:https://github.com/oVirt/ovirt-provider-ovn/blob/master/README.adoc[] for more information about OVN authentication.
+====
+
+[#Installing-OVN-next-steps]
+.Next steps
+
+Before you can create virtual machines that use a newly-installed OVN network, complete these additional steps:
+
+. xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[Add a network to the *Default* cluster].
+.. While doing so, select the *Create on external provider* check box. This creates a network based on `ovirt-provider-ovn`.
+.. Optional: To xref:Connecting_an_OVN_Network_to_a_Physical_Network[connect the OVN network to a physical network], select the *Connect to physical network* check box and specify the {virt-product-fullname} network to use.
+.. Optional: Determine whether the network should use a security group and select one from the *Security Groups* drop-down. For more information on the available options see xref:Logical_Network_General_Settings_Explained[].
+
+. xref:Adding_standard_hosts_to_the_Manager_host_tasks[Add hosts to] or xref:Reinstalling_Hosts_admin[reinstall the hosts on] the Default cluster so they use the cluster's new *Default Network Provider*, `ovirt-provider-ovn`.
+
+. Optional: Edit non-Default clusters and set *Default Network Provider* to `ovirt-provider-ovn`.
+.. Optional: Reinstall the hosts on each non-Default cluster so they use the cluster's new *Default Network Provider*, `ovirt-provider-ovn`.
+
+.Additional resources
+* To configure your hosts to use an existing, non-default network, see xref:Configuring_Hosts_for_an_OVN_tunnel_network[].

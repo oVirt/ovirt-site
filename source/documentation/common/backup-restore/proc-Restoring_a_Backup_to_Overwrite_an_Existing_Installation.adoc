@@ -1,0 +1,56 @@
+[id='Restoring_a_Backup_to_Overwrite_an_Existing_Installation_{context}']
+= Restoring a Backup to Overwrite an Existing Installation
+
+The `engine-backup` command can restore a backup to a machine on which the {virt-product-fullname} {engine-name} has already been installed and set up. This is useful when you have taken a backup of an environment, performed changes on that environment, and then want to undo the changes by restoring the environment from the backup.
+
+Changes made to the environment since the backup was taken, such as adding or removing a host, will not appear in the restored environment. You must redo these changes.
+
+
+.Procedure
+
+. Log in to the {engine-name} machine.
+
+. Remove the configuration files and clean the database associated with the {engine-name}:
++
+[options="nowrap" subs="normal"]
+----
+# engine-cleanup
+----
++
+The `engine-cleanup` command only cleans the {engine-name} database; it does not drop the database or delete the user that owns that database.
+
+. Restore a full backup or a database-only backup. You do not need to create a new database or specify the database credentials because the user and database already exist.
+
+* Restore a full backup:
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --restore-permissions
+----
++
+* Restore a database-only backup by restoring the configuration files and the database backup:
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --mode=restore --scope=files --scope=db --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --restore-permissions
+----
++
+[NOTE]
+====
+To restore only the {engine-name} database (for example, if the Data Warehouse database is located on another machine), you can omit the `--scope=dwhdb` parameter.
+====
++
+If successful, the following output displays:
++
+[options="nowrap" subs="normal"]
+----
+You should now run engine-setup.
+Done.
+----
+
+. Reconfigure the {engine-name}:
++
+[options="nowrap" subs="normal"]
+----
+# engine-setup
+----

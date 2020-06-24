@@ -1,0 +1,25 @@
+[[Assigning_a_Quota_to_an_Object]]
+=== Assigning a Quota to an Object
+
+*Assigning a Quota to a Virtual Machine*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click *Edit*.
+. Select the quota you want the virtual machine to consume from the *Quota* drop-down list.
+. Click *OK*.
+
+
+*Assigning a Quota to a Virtual Disk*
+
+. Click menu:Compute[Virtual Machines]. 
+. Click a virtual machine's name to open the details view.
+. Click the *Disks* tab and select the disk you plan to associate with a quota.
+. Click *Edit*. 
+. Select the quota you want the virtual disk to consume from the *Quota* drop-down list.
+. Click *OK*.
+
+
+[IMPORTANT]
+====
+Quota must be selected for all objects associated with a virtual machine, in order for that virtual machine to work. If you fail to select a quota for the objects associated with a virtual machine, the virtual machine will not work. The error that the {engine-name} throws in this situation is generic, which makes it difficult to know if the error was thrown because you did not associate a quota with all of the objects associated with the virtual machine. It is not possible to take snapshots of virtual machines that do not have an assigned quota. It is not possible to create templates of virtual machines whose virtual disks do not have assigned quotas.
+====

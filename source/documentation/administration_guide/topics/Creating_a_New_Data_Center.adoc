@@ -1,0 +1,24 @@
+[[Creating_a_New_Data_Center]]
+==== Creating a New Data Center
+
+This procedure creates a data center in your virtualization environment. The data center requires a functioning cluster, host, and storage domain to operate.
+
+[NOTE]
+====
+After you set the *Compatibility Version*, you cannot lower the version number. Version regression is not supported.
+
+You can specify a MAC pool range for a cluster. Setting a MAC pool range is no longer supported.
+====
+
+
+*Creating a New Data Center*
+
+. Click menu:Compute[Data Centers].
+. Click *New*.
+. Enter the *Name* and *Description* of the data center.
+. Select the *Storage Type*, *Compatibility Version*, and *Quota Mode* of the data center from the drop-down menus.
+. Click *OK* to create the data center and open the *Data Center - Guide Me* window.
+. The *Guide Me* window lists the entities that need to be configured for the data center. Configure these entities or postpone configuration by clicking the *Configure Later* button. Configuration can be resumed by selecting the data center and clicking *More Actions* (image:../common/images/moreactions.png[]), then clicking *Guide Me*.
+
+
+The new data center will remain *Uninitialized* until a cluster, host, and storage domain are configured for it; use *Guide Me* to configure these entities.

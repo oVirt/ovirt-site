@@ -1,0 +1,34 @@
+[[The_oVirt_Engine_Rename_Tool]]
+==== The oVirt Engine Rename Tool
+
+When the `engine-setup` command is run in a clean environment, the command generates a number of certificates and keys that use the fully qualified domain name of the {engine-name} supplied during the setup process. If the fully qualified domain name of the {engine-name} must be changed later on (for example, due to migration of the machine hosting the {engine-name} to a different domain), the records of the fully qualified domain name must be updated to reflect the new name. The `ovirt-engine-rename` command automates this task.
+
+The `ovirt-engine-rename` command updates records of the fully qualified domain name of the {engine-name} in the following locations:
+
+
+* /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
+
+* /etc/ovirt-engine/isouploader.conf.d/10-engine-setup.conf
+
+* /etc/ovirt-engine/logcollector.conf.d/10-engine-setup.conf
+
+* /etc/pki/ovirt-engine/cert.conf
+
+* /etc/pki/ovirt-engine/cert.template
+
+* /etc/pki/ovirt-engine/certs/apache.cer
+
+* /etc/pki/ovirt-engine/keys/apache.key.nopass
+
+* /etc/pki/ovirt-engine/keys/apache.p12
+
+
+[WARNING]
+====
+While the `ovirt-engine-rename` command creates a new certificate for the web server on which the {engine-name} runs, it does not affect the certificate for the {engine-name} or the certificate authority. Due to this, there is some risk involved in using the `ovirt-engine-rename` command, particularly in environments that have been upgraded from Red Hat Enterprise Virtualization 3.2 and earlier. Therefore, changing the fully qualified domain name of the {engine-name} by running `engine-cleanup` and `engine-setup` is recommended where possible.
+====
+
+[WARNING]
+====
+During the upgrade process, the old hostname must be resolvable. If the oVirt Engine Rename Tool fails with the message `[ ERROR ] Host name is not valid: <OLD FQDN> did not resolve into an IP address`, add the old hostname to the `/etc/hosts` file, use the oVirt Engine Rename Tool, and then remove the old hostname from the `/etc/hosts` file.
+====

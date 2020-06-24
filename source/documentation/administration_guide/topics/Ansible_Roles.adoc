@@ -1,0 +1,10 @@
+[[Ansible_Roles]]
+=== Ansible Roles
+
+Multiple Ansible roles are available to help configure and manage various parts of the {virt-product-fullname} infrastructure. Ansible roles provide a method of modularizing Ansible code by breaking up large playbooks into smaller, reusable files that can be shared with other users.
+
+The Ansible roles available for {virt-product-fullname} are categorized by the various infrustructure components. For more information about the Ansible roles, see the link:https://github.com/oVirt/ovirt-ansible/blob/master/README.md[oVirt Ansible Roles] documentation. For the documentation installed with Ansible roles, see xref:Installing_Ansible_Roles[].
+
+include::./Installing_Ansible_Roles.adoc[]
+
+include::./Using_Ansible_Roles.adoc[]

@@ -1,0 +1,36 @@
+[[Bonding_Modes]]
+==== Bonding Modes
+
+The packet dispersal algorithm is determined by the bonding mode. (See the link:https://www.kernel.org/doc/Documentation/networking/bonding.txt[Linux Ethernet Bonding Driver HOWTO] for details). {virt-product-fullname}'s default bonding mode is `(Mode 4) Dynamic Link Aggregation(802.3ad)`.
+
+{virt-product-fullname} supports the following bonding modes, because they can be used in virtual machine (bridged) networks:
+
+`(Mode 1) Active-Backup`:: One NIC is active. If the active NIC fails, one of the backup NICs replaces it as the only active NIC in the bond. The MAC address of this bond is visible only on the network adapter port. This prevents MAC address confusion that might occur if the MAC address of the bond were to change, reflecting the MAC address of the new active NIC.
+
+`(Mode 2) Load Balance (balance-xor)`:: The NIC that transmits packets is selected by performing an XOR operation on the source MAC address and the destination MAC address, multiplied by the `modulo` of the total number of NICs. This algorithm ensures that the same NIC is selected for each destination MAC address.
+
+`(Mode 3) Broadcast`:: Packets are transmitted to all NICs.
+
+`(Mode 4) Dynamic Link Aggregation(802.3ad)` (Default):: The NICs are aggregated into groups that share the same speed and duplex settings . All the NICs in the active aggregation group are used.
++
+[NOTE]
+====
+`(Mode 4) Dynamic Link Aggregation(802.3ad)` requires a switch that supports 802.3ad.
+
+The bonded NICs must have the same aggregator IDs. Otherwise, the {engine-name} displays a warning exclamation mark icon on the bond in the *Network Interfaces* tab and the `ad_partner_mac` value of the bond is reported as `00:00:00:00:00:00`. You can check the aggregator IDs by entering the following command:
+
+[options="nowrap" subs="normal"]
+----
+# cat /proc/net/bonding/_bond0_
+----
+
+See link:https://access.redhat.com/solutions/67546[].
+====
+
+{virt-product-fullname} does not support the following bonding modes, because they cannot be used in bridged networks and are, therefore, incompatible with virtual machine logical networks:
+
+`(Mode 0) Round-Robin`:: The NICs transmit packets in sequential order. Packets are transmitted in a loop that begins with the first available NIC in the bond and ends with the last available NIC in the bond. Subsequent loops start with the first available NIC.
+
+`(Mode 5) Balance-TLB`, also called Transmit Load-Balance:: Outgoing traffic is distributed, based on the load, over all the NICs in the bond. Incoming traffic is received by the active NIC. If the NIC receiving incoming traffic fails, another NIC is assigned.
+
+`(Mode 6) Balance-ALB`, also called Adaptive Load-Balance:: `(Mode 5) Balance-TLB` is combined with receive load-balancing for IPv4 traffic. ARP negotiation is used for balancing the receive load.

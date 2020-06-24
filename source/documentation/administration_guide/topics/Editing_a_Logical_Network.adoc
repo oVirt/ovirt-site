@@ -1,0 +1,27 @@
+[[Editing_a_Logical_Network]]
+==== Editing a Logical Network
+
+[IMPORTANT]
+====
+A logical network cannot be edited or moved to another interface if it is not synchronized with the network configuration on the host. See xref:Editing_host_network_interfaces[] on how to synchronize your networks.
+====
+
+*Editing a Logical Network*
+
+. Click menu:Compute[Data Centers].
+. Click the data center's name to open the details view.
+. Click the *Logical Networks* tab and select a logical network.
+. Click *Edit*.
+. Edit the necessary settings.
++
+[NOTE]
+====
+You can edit the name of a new or existing network, with the exception of the default network, without having to stop the virtual machines.
+====
+
+. Click *OK*.
+
+[NOTE]
+====
+Multi-host network configuration automatically applies updated network settings to all of the hosts within the data center to which the network is assigned. Changes can only be applied when virtual machines using the network are down. You cannot rename a logical network that is already configured on a host. You cannot disable the *VM Network* option while virtual machines or templates using that network are running.
+====

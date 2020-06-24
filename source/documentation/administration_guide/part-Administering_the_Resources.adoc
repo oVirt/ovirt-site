@@ -1,0 +1,19 @@
+[[part-Administering_the_Resources]]
+= Administering the Resources 
+include::chap-Quality_of_Service.adoc[]
+
+include::chap-Data_Centers.adoc[leveloffset=+1]
+
+include::chap-Clusters.adoc[leveloffset=+1]
+
+include::chap-Logical_Networks.adoc[]
+
+include::chap-Hosts.adoc[]
+
+include::chap-Storage.adoc[]
+
+include::chap-Pools.adoc[]
+
+include::chap-Virtual_Disks.adoc[]
+
+include::chap-External_Providers.adoc[]

@@ -1,0 +1,19 @@
+// This assembly is included in the following assemblies:
+//
+// common/sriov/assembly-Set_Up_and_Configure_SR-IOV.adoc
+
+[id='what-are-sr-iov-and-ari']
+
+= What are SR-IOV and ARI?
+
+Single Root I/O Virtualization (SR-IOV) is a hardware reference that enables you to use a single PCI Express (PCIe) endpoint as multiple separate devices by using two PCIe functions:
+
+* Physical Functions (PFs) have full configuration and control of the PCIe device, including data movement. Each PCIe device can have between one and eight independent VFs, depending on the hardware.
+
+* Virtual Functions (VFs) are lightweight PCIe functions that contain the resources necessary for data movement and a minimized set of configuration resources. You can create multiple VFs on each PF. Each PF can support a different number of VFs, depending on the vendor. The number of VFs can vary from one device to another.
+
+To support more than eight VFs, the PCIe specification implements Alternative Routing ID Interpretation (ARI), which reinterprets the device number field in the PCIe header. For ARI to work, both the PCIe device and the port immediately upstream of the device (i.e., root port or switch) must support ARI.
+
+The system firmware (BIOS or UEFI) allocates resources, including memory, I/O port apertures, and PCIe bus number ranges, for the PCIe topology. As such, SR-IOV must be supported and enabled by the firmware to allocate sufficient resources.
+
+SR-IOV supports InfiniBand (IB).

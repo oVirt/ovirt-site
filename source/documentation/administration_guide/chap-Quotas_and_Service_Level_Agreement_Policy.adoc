@@ -1,0 +1,24 @@
+[[chap-Quotas_and_Service_Level_Agreement_Policy]]
+== Quotas and Service Level Agreement Policy
+
+include::topics/Introduction_to_Quota.adoc[]
+
+include::topics/Shared_Quota_and_Individually-defined_Quota.adoc[]
+
+include::topics/Quota_Accounting.adoc[]
+
+include::topics/Enabling_and_Changing_Quota_for_a_DC.adoc[]
+
+include::topics/Creating_a_New_Quota_Policy.adoc[]
+
+include::topics/Explanation_of_Quota_Threshold_Settings.adoc[]
+
+include::topics/Assigning_a_Quota_to_an_Object.adoc[]
+
+include::topics/Using_Quota_to_limit_user_resources.adoc[]
+
+include::topics/Editing_Quotas.adoc[]
+
+include::topics/Removing_Quotas.adoc[]
+
+include::topics/Service_Level_Agreement_Policy_Enforcement.adoc[]

@@ -1,0 +1,56 @@
+[[Introduction_to_Directory_Servers]]
+=== Introduction to Directory Servers
+
+During installation, {virt-product-fullname} {engine-name} creates an *admin* user on the *internal* domain. The user is also referred to as `admin@internal`. This account is intended for use when initially configuring the environment and for troubleshooting. After you have attached an external directory server, added the directory users, and assigned them with appropriate roles and permissions, the `admin@internal` user can be disabled if it is not required.The directory servers supported are:
+
+* 389ds
+
+* 389ds RFC-2307 Schema
+
+* Active Directory
+
+* IBM Security Directory Server
+
+* IBM Security Directory Server RFC-2307 Schema
+
+* FreeIPA
+
+* iDM
+
+* Novell eDirectory RFC-2307 Schema
+
+* OpenLDAP RFC-2307 Schema
+
+* OpenLDAP Standard Schema
+
+* Oracle Unified Directory RFC-2307 Schema
+
+* RFC-2307 Schema (Generic)
+
+* Red Hat Directory Server (RHDS)
+
+* Red Hat Directory Server (RHDS) RFC-2307 Schema
+
+* iPlanet
+
+
+
+[IMPORTANT]
+====
+It is not possible to install {virt-product-fullname} {engine-name} (`rhevm`) and IdM (`ipa-server`) on the same system. IdM is incompatible with the `mod_ssl` package, which is required by {virt-product-fullname} {engine-name}.
+====
+
+[IMPORTANT]
+====
+If you are using Active Directory as your directory server, and you want to use *sysprep* in the creation of templates and virtual machines, then the {virt-product-fullname} administrative user must be delegated control over the Domain to:
+
+* *Join a computer to the domain*
+
+* *Modify the membership of a group*
+
+
+
+For information on creation of user accounts in Active Directory, see link:http://technet.microsoft.com/en-us/library/cc732336.aspx[].
+
+For information on delegation of control in Active Directory, see link:http://technet.microsoft.com/en-us/library/cc732524.aspx[].
+====

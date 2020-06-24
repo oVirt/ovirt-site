@@ -1,0 +1,18 @@
+[[Hosted_Engine_Settings_Explained]]
+==== Hosted Engine Settings Explained
+
+The *Hosted Engine* settings table details the information required on the *Hosted Engine* tab of the *New Host* or *Edit Host* window.
+
+.*Hosted Engine* Settings
+[options="header"]
+|===
+|Field Name |Description
+|*Choose hosted engine deployment action* a|Three options are available:
+
+* *None* - No actions required.
+
+* *Deploy* - Select this option to deploy the host as a self-hosted engine node.
+
+* *Undeploy* - For a self-hosted engine node, you can select this option to undeploy the host and remove self-hosted engine related configurations.
+
+|===

@@ -1,0 +1,29 @@
+[[User_Roles_Explained]]
+==== User Roles Explained
+
+The table below describes basic user roles which confer permissions to access and configure virtual machines in the VM Portal.
+
+[[User_Roles_Basic]]
+.{virt-product-fullname} User Roles - Basic
+[options="header"]
+|===
+|Role |Privileges |Notes
+|UserRole |Can access and use virtual machines and pools. |Can log in to the VM Portal, use assigned virtual machines and pools, view virtual machine state and details.
+|PowerUserRole |Can create and manage virtual machines and templates. |Apply this role to a user for the whole environment with the *Configure* window, or for specific data centers or clusters. For example, if a PowerUserRole is applied on a data center level, the PowerUser can create virtual machines and templates in the data center.
+|UserVmManager |System administrator of a virtual machine. |Can manage virtual machines and create and use snapshots. A user who creates a virtual machine in the VM Portal is automatically assigned the UserVmManager role on the machine.
+|===
+The table below describes advanced user roles which allow you to do more fine tuning of permissions for resources in the VM Portal.
+
+[[User_Roles_Advanced]]
+.{virt-product-fullname} User Roles - Advanced
+[options="header"]
+|===
+|Role |Privileges |Notes
+|UserTemplateBasedVm |Limited privileges to only use Templates. |Can use templates to create virtual machines.
+|DiskOperator |Virtual disk user. |Can use, view and edit virtual disks. Inherits permissions to use the virtual machine to which the virtual disk is attached.
+|VmCreator |Can create virtual machines in the VM Portal. |This role is not applied to a specific virtual machine; apply this role to a user for the whole environment with the *Configure* window. Alternatively apply this role for specific data centers or clusters. When applying this role to a cluster, you must also apply the DiskCreator role on an entire data center, or on specific storage domains.
+|TemplateCreator |Can create, edit, manage and remove virtual machine templates within assigned resources. |This role is not applied to a specific template; apply this role to a user for the whole environment with the *Configure* window. Alternatively apply this role for specific data centers, clusters, or storage domains.
+|DiskCreator |Can create, edit, manage and remove virtual disks within assigned clusters or data centers. |This role is not applied to a specific virtual disk; apply this role to a user for the whole environment with the *Configure* window. Alternatively apply this role for specific data centers or storage domains.
+|TemplateOwner |Can edit and delete the template, assign and manage user permissions for the template. |This role is automatically assigned to the user who creates a template. Other users who do not have *TemplateOwner* permissions on a template cannot view or use the template.
+|VnicProfileUser |Logical network and network interface user for virtual machine and template. |Can attach or detach network interfaces from specific logical networks.
+|===

@@ -1,0 +1,34 @@
+[[Performing_Networking_Tasks]]
+==== Performing Networking Tasks
+
+menu:Network[Networks] provides a central location for users to perform logical network-related operations and search for logical networks based on each network's property or association with other resources. The *New*, *Edit* and *Remove* buttons allow you to create, change the properties of, and delete logical networks within data centers.
+
+Click on each network name and use the tabs in the details view to perform functions including:
+
+* Attaching or detaching the networks to clusters and hosts
+
+* Removing network interfaces from virtual machines and templates
+
+* Adding and removing permissions for users to access and manage networks
+
+These functions are also accessible through each individual resource.
+
+[WARNING]
+====
+Do not change networking in a data center or a cluster if any hosts are running as this risks making the host unreachable.
+====
+
+[IMPORTANT]
+====
+If you plan to use {virt-product-fullname} nodes to provide any services, remember that the services will stop if the {virt-product-fullname} environment stops operating.
+
+This applies to all services, but you should be especially aware of the hazards of running the following on {virt-product-fullname}:
+
+
+* Directory Services
+
+* DNS
+
+* Storage
+
+====

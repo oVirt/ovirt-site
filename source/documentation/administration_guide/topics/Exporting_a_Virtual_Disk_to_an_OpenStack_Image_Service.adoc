@@ -1,0 +1,15 @@
+[[Exporting_a_Virtual_Disk_to_an_OpenStack_Image_Service]]
+==== Exporting a Virtual Disk to an OpenStack Image Service
+
+Virtual disks can be exported to an OpenStack Image Service that has been added to the {engine-name} as an external provider.
+
+[IMPORTANT]
+====
+Virtual disks can only be exported if they do not have multiple volumes, are not thin provisioned, and do not have any snapshots.
+====
+
+. Click menu:Storage[Disks] and select the disks to export.
+. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Export*.
+. From the *Domain Name* drop-down list, select the OpenStack Image Service to which the disks will be exported.
+. From the *Quota* drop-down list, select a quota for the disks if a quota is to be applied.
+. Click *OK*.

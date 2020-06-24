@@ -1,0 +1,18 @@
+[[Engine_Vacuum_Modes]]
+==== Engine Vacuum Modes
+
+Engine Vacuum has two modes:
+
+*Standard Vacuum*:: 
+Frequent standard vacuuming is recommended.
++
+Standard vacuum removes dead row versions in tables and indexes and marks the space as available for future reuse. Frequently updated tables should be vacuumed on a regular basis. However, standard vacuum does not return the space to the operating system.
++
+Standard vacuum, with no parameters, processes every table in the current database.
+
+*Full Vacuum*::
+Full vacuum is not recommended for routine use, but should only be run when a significant amount of space needs to be reclaimed from within the table.
++
+Full vacuum compacts the tables by writing a new copy of the table file with no dead space, thereby enabling the operating system to reclaim the space. Full vacuum can take a long time.
++
+Full vacuum requires extra disk space for the new copy of the table, until the operation completes and the old copy is deleted. Because full vacuum requires an exclusive lock on the table, it cannot be run in parallel with other uses of the table.

@@ -14,7 +14,7 @@ Most virtual machine tasks in oVirt can be performed in both the VM Portal and A
 
 The VM Portal's user interface is described in the [Introduction to the VM Portal](/documentation/intro-user/Introduction_to_the_User_Portal/).
 
-The Administration Portal's user interface is described in the[Introduction to the Administration Portal](/documentation/intro-admin/Introduction_to_the_Administration_Portal/).
+The Administration Portal's user interface is described in the [Administration Guide](/documentation/administration_guide/).
 
 ## Supported Virtual Machine Operating Systems
 

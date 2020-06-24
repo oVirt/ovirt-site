@@ -1,0 +1,11 @@
+[[Viewing_Host_Errata]]
+==== Viewing Host Errata
+
+Errata for each host can be viewed after the host has been configured to receive errata information from the Red Hat Satellite server. For more information on configuring a host to receive errata information see xref:Configuring_Satellite_Errata_Management_for_a_Host[]
+
+
+*Viewing Host Errata*
+
+. Click menu:Compute[Hosts].
+. Click the host's name to open the details view.
+. Click the *Errata* tab.

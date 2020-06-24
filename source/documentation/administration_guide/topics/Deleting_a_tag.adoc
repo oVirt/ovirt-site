@@ -1,0 +1,17 @@
+[[Deleting_a_tag]]
+=== Deleting a Tag
+
+When a tag is no longer needed, remove it.
+
+
+*Deleting a Tag*
+
+. Click the *Tags* icon (image:images/Tag.png[]) in the header bar.
+. Select the tag you want to delete and click *Remove*. A message warns you that removing the tag will also remove all descendants of the tag.
+. Click *OK*.
+
+You have removed the tag and all its descendants. The tag is also removed from all the objects that it was attached to.
+
+
+
+

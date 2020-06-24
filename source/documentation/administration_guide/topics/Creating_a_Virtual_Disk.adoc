@@ -1,0 +1,35 @@
+[[Creating_a_Virtual_Disk]]
+==== Creating a Virtual Disk
+
+*Image* disk creation is managed entirely by the {engine-name}. *Direct LUN* disks require externally prepared targets that already exist. *Cinder* disks require access to an instance of OpenStack Volume that has been added to the {virt-product-fullname} environment using the *External Providers* window; see xref:Adding_an_OpenStack_Block_Storage_Cinder_Instance_for_Storage_Management[] for more information.
+
+You can create a virtual disk that is attached to a specific virtual machine. Additional options are available when creating an attached virtual disk, as specified in xref:Explanation_of_Settings_in_the_New_Virtual_Disk_Window[].
+
+*Creating a Virtual Disk Attached to a Virtual Machine*
+
+. Click menu:Compute[Virtual Machines].
+. Click the virtual machine's name to open the details view.
+. Click the *Disks* tab.
+. Click *New*.
+. Click the appropriate button to specify whether the virtual disk will be an *Image*, *Direct LUN*, or *Cinder* disk.
+. Select the options required for your virtual disk. The options change based on the disk type selected. See xref:Explanation_of_Settings_in_the_New_Virtual_Disk_Window[] for more details on each option for each disk type.
+. Click *OK*.
+
+
+You can also create a floating virtual disk that does not belong to any virtual machines. You can attach this disk to a single virtual machine, or to multiple virtual machines if the disk is shareable. Some options are not available when creating a virtual disk, as specified in xref:Explanation_of_Settings_in_the_New_Virtual_Disk_Window[].
+
+*Creating a Floating Virtual Disk*
+ifdef::rhv-doc[]
+[IMPORTANT]
+====
+Creating floating virtual disks is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend to use them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
+
+For more information on Red Hat Technology Preview features support scope, see link:https://access.redhat.com/support/offerings/techpreview/[].
+====
+endif::[]
+
+. Click menu:Storage[Disks].
+. Click *New*.
+. Click the appropriate button to specify whether the virtual disk will be an *Image*, *Direct LUN*, or *Cinder* disk.
+. Select the options required for your virtual disk. The options change based on the disk type selected. See xref:Explanation_of_Settings_in_the_New_Virtual_Disk_Window[] for more details on each option for each disk type.
+. Click *OK*.

@@ -1,0 +1,22 @@
+:numbered!:
+
+[appendix]
+[[appe-Red_Hat_Enterprise_Virtualization_User_Interface_Plugins]]
+== {virt-product-fullname} User Interface Plugins
+
+include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugins.adoc[]
+
+[[sect-Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Lifecycle]]
+=== {virt-product-fullname} User Interface Plugin Lifecycle
+
+include::topics/RHEV_UI_Plugin_Lifecycle.adoc[]
+
+include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Discovery.adoc[]
+
+include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Loading.adoc[]
+
+include::topics/Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Bootstrapping.adoc[]
+
+include::topics/UI_Plugin-related_Files_and_their_Locations.adoc[]
+
+include::topics/Example_RHEV_UI_Plugin_Deployment.adoc[]

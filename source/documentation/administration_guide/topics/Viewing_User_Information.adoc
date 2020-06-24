@@ -1,0 +1,10 @@
+==== Viewing User Information
+
+You can view detailed user account information:
+
+[options="nowrap" subs="normal"]
+----
+# ovirt-aaa-jdbc-tool user show test1
+----
+
+This command displays more information than in the Administration Portal's menu:Administration[Users] screen. 

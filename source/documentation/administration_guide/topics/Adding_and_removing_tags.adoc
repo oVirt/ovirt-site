@@ -1,0 +1,14 @@
+[[Adding_and_removing_tags]]
+=== Adding and Removing Tags to and from Objects
+
+You can assign tags to and remove tags from hosts, virtual machines, and users.
+
+*Adding and Removing Tags to and from Objects*
+
+. Select the object(s) you want to tag or untag.
+. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Assign Tags*.
+. Select the check box to assign a tag to the object, or clear the check box to detach the tag from the object.
+. Click *OK*.
+
+
+The specified tag is now added or removed as a custom property of the selected object(s).

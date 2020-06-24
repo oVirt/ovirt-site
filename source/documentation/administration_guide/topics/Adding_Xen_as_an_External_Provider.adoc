@@ -1,0 +1,47 @@
+[[Adding_Xen_as_an_External_Provider]]
+==== Adding a RHEL 5 Xen Host as a Virtual Machine Provider
+
+Add a RHEL 5 Xen host to import virtual machines from Xen to {virt-product-fullname}.
+
+{virt-product-fullname} uses V2V to convert RHEL 5 Xen virtual machines to the correct format before they are imported. The `virt-v2v` package must be installed on at least one host. The `virt-v2v` package is available by default on {hypervisor-fullname}s ({hypervisor-shortname}) and is installed on {enterprise-linux-host-fullname}s as a dependency of VDSM when added to the {virt-product-fullname} environment. {enterprise-linux-host-fullname}s must be {enterprise-linux} 7.2 or later.
+
+[NOTE]
+====
+The `virt-v2v` package is not available on ppc64le architecture; these hosts cannot be used as proxy hosts.
+====
+
+*Adding a RHEL 5 Xen Instance as a Virtual Machine Provider*
+
+. Enable public key authentication between the proxy host and the RHEL 5 Xen host:
+.. Log in to the proxy host and generate SSH keys for the *vdsm* user.
++
+[options="nowrap" subs="normal"]
+----
+# sudo -u vdsm ssh-keygen
+----
++
+.. Copy the *vdsm* user's public key to the RHEL 5 Xen host. The proxy host's *known_hosts* file will also be updated to include the host key of the RHEL 5 Xen host.
++
+[options="nowrap" subs="normal"]
+----
+# sudo -u vdsm ssh-copy-id root@_xenhost.example.com_
+----
++
+.. Log in to the RHEL 5 Xen host to verify that the login works correctly.
++
+[options="nowrap" subs="normal"]
+----
+# sudo -u vdsm ssh root@_xenhost.example.com_
+----
++
+. Click menu:Administration[Providers].
+. Click *Add*.
+. Enter a *Name* and *Description*.
+. Select *XEN* from the *Type* drop-down list.
+. Select the *Data Center* into which Xen virtual machines will be imported, or select *Any Data Center* to specify the destination data center during individual import operations.
+. Enter the URI of the RHEL 5 Xen host in the *URI* field.
+. Select a host in the chosen data center with `virt-v2v` installed to serve as the *Proxy Host* during virtual machine import operations. This host must also be able to connect to the network of the RHEL 5 Xen external provider. If you selected *Any Data Center* above, you cannot choose the host here, but instead can specify a host during individual import operations.
+. Click *Test* to test whether you can authenticate successfully with the RHEL 5 Xen host.
+. Click *OK*.
+
+To import virtual machines from a RHEL 5 Xen external provider, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Importing_a_Virtual_Machine_from_Xen[Importing a Virtual Machine from a RHEL 5 Xen Host] in the _Virtual Machine Management Guide_.

@@ -1,0 +1,28 @@
+[id='Overwriting_a_Self-Hosted_Engine']
+= Overwriting a Self-Hosted Engine from an Existing Backup
+
+:context: SHE_overwrite
+:SHE_overwrite:
+
+If a self-hosted engine is accessible, but is experiencing an issue such as database corruption, or a configuration error that is difficult to roll back, you can restore the environment to a previous state using a backup taken before the problem began, if one is available.
+
+Restoring a self-hosted engine's previous state involves the following steps:
+
+. xref:Enabling_Global_Maintenance_Mode_SHE_overwrite[Place the environment in global maintenance mode.]
+
+. xref:Restoring_a_Backup_to_Overwrite_an_Existing_Installation_SHE_overwrite[Restore the backup on the {engine-name} virtual machine.]
+
+. xref:Disabling_Global_Maintenance_Mode_SHE_overwrite[Disable global maintenance mode.]
+
+For more information about `engine-backup --mode=restore` options, see xref:sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager[].
+
+include::../she/snip-Enabling_Global_Maintenance_Mode.adoc[leveloffset=+1]
+
+include::proc-Restoring_a_Backup_to_Overwrite_an_Existing_Installation.adoc[leveloffset=+1]
+
+include::../she/snip-Disabling_Global_Maintenance_Mode.adoc[leveloffset=+1]
+
+When the environment is running again, you can start any virtual machines that were stopped, and check that the resources in the environment are behaving as expected.
+
+:SHE_overwrite!:
+:context!: SHE_overwrite

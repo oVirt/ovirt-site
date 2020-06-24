@@ -1,0 +1,103 @@
+[[memory_optimization]]
+==== Memory Optimization
+
+To increase the number of virtual machines on a host, you can use _memory overcommitment_, in which the memory you assign to virtual machines exceeds RAM and relies on swap space.
+
+However, there are potential problems with memory overcommitment:
+
+* Swapping performance - Swap space is slower and consumes more CPU resources than RAM, impacting virtual machine performance. Excessive swapping can lead to CPU thrashing.
+* Out-of-memory (OOM) killer - If the host runs out of swap space, new processes cannot start, and the kernel's OOM killer daemon begins shutting down active processes such as virtual machine guests.
+
+To help overcome these shortcomings, you can do the following:
+
+* Limit memory overcommitment using the *Memory Optimization* setting and the _Memory Overcommit Manager (MoM)_.
+* Make the swap space large enough to accommodate the maximum potential demand for virtual memory and have a safety margin remaining.
+* Reduce virtual memory size by enabling _memory ballooning_ and _Kernel Same-page Merging (KSM)_.
+
+===== Memory Optimization and Memory Overcommitment
+
+You can limit the amount of memory overcommitment by selecting one of the *Memory Optimization* settings: *None* (0%), *150%*, or *200%*.
+
+Each setting represents a percentage of RAM. For example, with a host that has 64 GB RAM, selecting *150%* means you can overcommit memory by an additional 32 GB, for a total of 96 GB in virtual memory. If the host uses 4 GB of that total, the remaining 92 GB are available. You can assign most of that to the virtual machines (*Memory Size* on the *System* tab), but consider leaving some of it unassigned as a safety margin.
+// Is it a soft limit (a target value) or hard limit? How does MoM impose the limit? Is it based on the memory assigned to VMs or does it measure optimized virtual memory? If it measures optimized, what happens if optimization decreases and virtual memory exceeds the limit?
+
+Sudden spikes in demand for virtual memory can impact performance before the MoM, memory ballooning, and KSM have time to re-optimize virtual memory. To reduce that impact, select a limit that is appropriate for the kinds of applications and workloads you are running:
+
+* For workloads that produce more incremental growth in demand for memory, select a higher percentage, such as *200%* or *150%*.
+* For more critical applications or workloads that produce more sudden increases in demand for memory, select a lower percentage, such as *150%* or *None* (0%). Selecting *None* helps prevent memory overcommitment but allows the MoM, memory balloon devices, and KSM to continue optimizing virtual memory.
+
+[IMPORTANT]
+====
+Always test your *Memory Optimization* settings by stress testing under a wide range of conditions before deploying the configuration to production.
+====
+
+To configure the *Memory Optimization* setting, click the *Optimization* tab in the *New Cluster* or *Edit Cluster* windows. See xref:Cluster_Optimization_Settings_Explained[].
+
+Additional comments:
+
+* The link:{URL_virt_product_docs}data-warehouse/Data_Warehouse_Guide.html#Host_hourly_and_daily_history_views[Host Statistics views] display useful historical information for sizing the overcommitment ratio.
+* The actual memory available cannot be determined in real time because the amount of memory optimization achieved by KSM and memory ballooning changes continuously.
+* When virtual machines reach the virtual memory limit, new apps cannot start.
+* When you plan the number of virtual machines to run on a host, use the maximum virtual memory (physical memory size and the *Memory Optimization* setting) as a starting point. Do not factor in the smaller virtual memory achieved by memory optimizations such as memory ballooning and KSM.
+
+===== Swap Space and Memory Overcommitment
+Red Hat provides link:https://access.redhat.com/solutions/15244[these recommendations for configuring swap space].
+
+When applying these recommendations, follow the guidance to size the swap space as "last effort memory" for a worst-case scenario. Use the physical memory size and *Memory Optimization* setting as a basis for estimating the total virtual memory size. Exclude any reduction of the virtual memory size from optimization by the MoM, memory ballooning, and KSM.
+
+[IMPORTANT]
+====
+To help prevent an OOM condition, make the swap space large enough to handle a worst-case scenario and still have a safety margin available. Always stress-test your configuration under a wide range of conditions before deploying it to production.
+====
+
+===== The Memory Overcommit Manager (MoM)
+
+The _Memory Overcommit Manager (MoM)_ does two things:
+
+* It limits memory overcommitment by applying the *Memory Optimization* setting to the hosts in a cluster, as described in the preceding section.
+* It optimizes memory by managing the _memory ballooning_ and _KSM_, as described in the following sections.
+
+You do not need to enable or disable MoM.
+
+When a host's free memory drops below 20%, ballooning commands like `mom.Controllers.Balloon - INFO Ballooning guest:half1 from 1096400 to 1991580` are logged to */var/log/vdsm/mom.log*, the Memory Overcommit Manager log file.
+
+===== Memory Ballooning
+Virtual machines start with the full amount of virtual memory you have assigned to them. As virtual memory usage exceeds RAM, the host relies more on swap space. If enabled, _memory ballooning_ lets virtual machines give up the unused portion of that memory. The freed memory can be reused by other processes and virtual machines on the host. The reduced memory footprint makes swapping less likely and improves performance.
+
+The _virtio-balloon_ package that provides the memory balloon device and drivers ships as a loadable kernel module (LKM). By default, it is configured to load automatically. Blacklisting the module or unloading it disables ballooning.
+// Where does it ship? With the {hypervisor-fullname} and {enterprise-linux-host-fullname}s? ("host" being the Red Hat term for hypervisor)
+
+The memory balloon devices do not coordinate directly with each other; they rely on the host's Memory Overcommit Manager (MoM) process to continuously monitor each virtual machine needs and instruct the balloon device to increase or decrease virtual memory.
+
+Performance considerations:
+
+* Red Hat does not recommend memory ballooning and overcommitment for workloads that require continuous high-performance and low latency. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Configuring High-Performance Virtual Machines, Templates, and Pools].
+* Use memory ballooning when increasing virtual machine density (economy) is more important than performance.
+* Memory ballooning does not have a significant impact on CPU utilization. (KSM consumes some CPU resources, but consumption remains consistent under pressure.)
+
+To enable memory ballooning, click the *Optimization* tab in the *New Cluster* or *Edit Cluster* windows. Then select the *Enable Memory Balloon Optimization* checkbox. This setting enables memory overcommitment on virtual machines running on the hosts in this cluster. When this check box is selected, the MoM starts ballooning where and when possible, with a limitation of the guaranteed memory size of every virtual machine. See xref:Cluster_Optimization_Settings_Explained[].
+
+Each host in this cluster receives a balloon policy update when its status changes to Up. If necessary, you can manually update the balloon policy on a host without having to change the status. See xref:Updating_the_MoM_Policy_on_Hosts_in_a_Cluster[].
+
+===== Kernel Same-page Merging (KSM)
+
+When a virtual machine runs, it often creates duplicate memory pages for items such as common libraries and high-use data. Furthermore, virtual machines that run similar guest operating systems and applications produce duplicate memory pages in virtual memory.
+
+When enabled, _Kernel Same-page Merging_ (KSM) examines the virtual memory on a host, eliminates duplicate memory pages, and shares the remaining memory pages across multiple applications and virtual machines. These shared memory pages are marked copy-on-write; if a virtual machine needs to write changes to the page, it makes a copy first before writing its modifications to that copy.
+
+While KSM is enabled, the MoM manages KSM. You do not need to configure or control KSM manually.
+
+KSM increases virtual memory performance in two ways. Because a shared memory page is used more frequently, the host is more likely to the store it in cache or main memory, which improves the memory access speed. Additionally, with memory overcommitment, KSM reduces the virtual memory footprint, reducing the likelihood of swapping and improving performance.
+
+KSM consumes more CPU resources than memory ballooning. The amount of CPU KSM consumes remains consistent under pressure. Running identical virtual machines and applications on a host provides KSM with more opportunities to merge memory pages than running dissimilar ones. If you run mostly dissimilar virtual machines and applications, the CPU cost of using KSM may offset its benefits.
+
+//In {enterprise-linux} 7, KSM is NUMA-aware. By taking NUMA locality into account, KSM is less likely to move a shared page to a remote node and reduce its performance. To avoid merging pages across NUMA nodes when KSM is in use, change the `/sys/kernel/mm/ksm/merge_across_nodes` tunable to `0` by entering: `virsh node-memory-tune --shm-merge-across-nodes 0`. For more information, see Chapter 9, NUMA.
+// Borrowed this ^^^ content from the RHEL documentation. Is it valid for RHV?
+
+Performance considerations:
+
+* After the KSM daemon merges large amounts of memory, the kernel memory accounting statistics may eventually contradict each other. If your system has a large amount of free memory, you might improve performance by disabling KSM.
+* Red Hat does not recommend KSM and overcommitment for workloads that require continuous high-performance and low latency. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Configuring High-Performance Virtual Machines, Templates, and Pools].
+* Use KSM when increasing virtual machine density (economy) is more important than performance.
+
+To enable KSM, click the *Optimization* tab in the *New Cluster* or *Edit Cluster* windows. Then select the *Enable KSM* checkbox. This setting enables MoM to run KSM when necessary and when it can yield a memory saving benefit that outweighs its CPU cost. See xref:Cluster_Optimization_Settings_Explained[].

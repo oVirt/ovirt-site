@@ -1,0 +1,24 @@
+[[Search_auto_completion]]
+=== Search Auto-Completion
+
+The Administration Portal provides auto-completion to help you create valid and powerful search queries. As you type each part of a search query, a drop-down list of choices for the next part of the search opens below the Search Bar. You can either select from the list and then continue typing/selecting the next part of the search, or ignore the options and continue entering your query manually.
+
+The following table specifies by example how the Administration Portal auto-completion assists in constructing a query:
+
+`Hosts: Vms.status = down`
+
+[[query_contruction]]
+.Example Search Queries Using Auto-Completion
+[options="header"]
+|===
+|Input |List Items Displayed |Action
+|*h* |`Hosts` (1 option only) |Select `Hosts` or type *Hosts*
+|*Hosts:* |All host properties |Type *v*
+|*Hosts: v* |host properties starting with a `v` |Select `Vms` or type *Vms*
+|*Hosts: Vms* |All virtual machine properties |Type *s*
+|*Hosts: Vms.s* |All virtual machine properties beginning with `s` |Select `status` or type *status*
+|*Hosts: Vms.status* |`=`
+
+`!=` |Select or type *=*
+|*Hosts: Vms.status =* |All status values |Select or type *down*
+|===

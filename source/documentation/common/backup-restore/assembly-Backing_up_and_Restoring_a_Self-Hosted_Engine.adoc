@@ -1,0 +1,62 @@
+[id='Backing_up_and_Restoring_a_Self-hosted_Engine']
+= Backing up and Restoring a Self-Hosted Engine
+:context: SHE_backup_restore
+:SHE_backup_restore:
+
+You can back up a self-hosted engine and restore it in a new self-hosted environment. Use this procedure for tasks such as migrating the environment to a new self-hosted engine storage domain with a different storage type.
+
+When you specify a backup file during deployment, the backup is restored on a new {engine-name} virtual machine, with a new self-hosted engine storage domain. The old {engine-name} is removed, and the old self-hosted engine storage domain is renamed and can be manually removed after you confirm that the new environment is working correctly. Deploying on a fresh host is highly recommended; if the host used for deployment existed in the backed up environment, it will be removed from the restored database to avoid conflicts in the new environment.
+
+The backup and restore operation involves the following key actions:
+
+. xref:Backing_up_the_Original_Manager_SHE_backup_restore[Back up the original {engine-name} using the `engine-backup` tool.]
+
+. xref:Restoring_the_Backup_on_a_New_Self-hosted_Engine_SHE_backup_restore[Deploy a new self-hosted engine and restore the backup.]
+
+. xref:Enabling_the_Red_Hat_Virtualization_Manager_Repositories_SHE_backup_restore[Enable the {engine-name} repositories on the new {engine-name} virtual machine.]
+
+. xref:Reinstalling_Hosts_SHE_backup_restore[Reinstall the self-hosted engine nodes to update their configuration.]
+
+. xref:Removing_a_Storage_Domain_SHE_backup_restore[Remove the old self-hosted engine storage domain.]
+
+This procedure assumes that you have access and can make changes to the original {engine-name}.
+
+.Prerequisites
+
+* A fully qualified domain name prepared for your {engine-name} and the host. Forward and reverse lookup records must both be set in the DNS. The new {engine-name} must have the same fully qualified domain name as the original {engine-name}.
+
+* The original {engine-name} must be updated to the latest minor version. The {engine-name} version in the backup file must match the version of the new {engine-name}. See link:{URL_virt_product_docs}upgrade_guide#Updating_the_Red_Hat_Virtualization_Manager_minor_updates[Updating the {virt-product-fullname} {engine-name}] in the _Upgrade Guide_.
+
+* There must be at least one regular host in the environment. This host (and any other regular hosts) will remain active to host the SPM role and any running virtual machines. If a regular host is not already the SPM, move the SPM role before creating the backup by selecting a regular host and clicking menu:Management[Select as SPM].
++
+If no regular hosts are available, there are two ways to  add one:
+
+** Remove the self-hosted engine configuration from a node (but do not remove the node from the environment). See xref:Removing_a_Host_from_a_Self-Hosted_Engine_Environment[].
+** Add a new regular host. See xref:Adding_standard_hosts_to_the_Manager_host_tasks[].
+
+include::proc-Backing_up_the_Original_Manager.adoc[leveloffset=+1]
+
+After backing up the {engine-name}, deploy a new self-hosted engine and restore the backup on the new virtual machine.
+
+include::proc-Restoring_the_Backup_on_a_New_Self-hosted_Engine.adoc[leveloffset=+1]
+
+When the deployment is complete, log in to the new {engine-name} virtual machine and enable the required repositories.
+
+include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
+
+The {engine-name} and its resources are now running in the new self-hosted environment. The self-hosted engine nodes must be reinstalled in the {engine-name} to update their self-hosted engine configuration. Standard hosts are not affected. Perform the following procedure for each self-hosted engine node.
+
+include::../install/proc-Reinstalling_Hosts.adoc[leveloffset=+1]
+
+After reinstalling the self-hosted engine nodes, you can check the status of the new environment by running the following command on one of the nodes:
+
+----
+# hosted-engine --vm-status
+----
+
+During the restoration, the old self-hosted engine storage domain was renamed, but was not removed from the new environment in case the restoration was faulty. After confirming that the environment is running normally, you can remove the old self-hosted engine storage domain.
+
+include::../storage/proc-Removing_a_Storage_Domain.adoc[leveloffset=+1]
+
+:SHE_backup_restore!:
+:context!: SHE_backup_restore

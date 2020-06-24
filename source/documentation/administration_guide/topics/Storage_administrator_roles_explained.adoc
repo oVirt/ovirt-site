@@ -1,0 +1,17 @@
+[[Cluster_virtual_machine_entities]]
+==== Storage Administrator Roles Explained
+
+
+*Storage Domain Permission Roles*
+
+The table below describes the administrator roles and privileges applicable to storage domain administration.
+
+[[Storage_Administrator_Roles]]
+
+.{virt-product-fullname} System Administrator Roles
+[options="header"]
+|===
+|Role |Privileges |Notes
+|StorageAdmin |Storage Administrator |Can create, delete, configure and manage a specific storage domain.
+|GlusterAdmin |Gluster Storage Administrator |Can create, delete, configure and manage Gluster storage volumes.
+|===

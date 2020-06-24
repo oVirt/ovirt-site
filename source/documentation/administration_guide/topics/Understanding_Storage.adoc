@@ -1,0 +1,12 @@
+[[Understanding_Storage]]
+=== Understanding Storage Domains
+
+A storage domain is a collection of images that have a common storage interface. A storage domain contains complete images of templates and virtual machines (including snapshots), or ISO files. A storage domain can be made of block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems).
+
+On NFS, all virtual disks, templates, and snapshots are files.
+
+On SAN (iSCSI/FCP), each virtual disk, template or snapshot is a logical volume. Block devices are aggregated into a logical entity called a volume group, and then divided by LVM (Logical Volume Manager) into logical volumes for use as virtual hard disks. See _{enterprise-linux} Logical Volume Manager Administration Guide_ for more information on LVM.
+
+Virtual disks can have one of two formats, either QCOW2 or raw. The type of storage can be sparse or preallocated. Snapshots are always sparse but can be taken for disks of either format.
+
+Virtual machines that share the same storage domain can be migrated between hosts that belong to the same cluster.

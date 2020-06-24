@@ -1,0 +1,13 @@
+[[Host_Console_Settings_Explained]]
+==== Host Console Settings Explained
+
+The *Console* settings table details the information required on the *Console* tab of the *New Host* or *Edit Host* window.
+
+
+.*Console* settings
+[options="header"]
+|===
+|Field Name |Description
+|*Override display address* |Select this check box to override the display addresses of the host. This feature is useful in a case where the hosts are defined by internal IP and are behind a NAT firewall. When a user connects to a virtual machine from outside of the internal network, instead of returning the private address of the host on which the virtual machine is running, the machine returns a public IP or FQDN (which is resolved in the external network to the public IP).
+|*Display address* |The display address specified here will be used for all virtual machines running on this host. The address must be in the format of a fully qualified domain name or IP.
+|===

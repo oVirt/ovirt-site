@@ -1,0 +1,31 @@
+[[Importing_Virtual_Machines_from_an_Imported_Data_Storage_Domain]]
+==== Importing Virtual Machines from Imported Data Storage Domains
+
+Import a virtual machine into one or more clusters from a data storage domain you have imported into your {virt-product-fullname} environment. This procedure assumes that the imported data storage domain has been attached to a data center and has been activated.
+
+
+.Procedure
+
+. Click menu:Storage[Domains].
+. Click the imported storage domain's name to open the details view.
+. Click the *VM Import* tab.
+. Select one or more virtual machines to import.
+. Click *Import*.
+. For each virtual machine in the *Import Virtual Machine(s)* window, ensure the correct target cluster is selected in the *Cluster* list.
+. Map external virtual machine vNIC profiles to profiles that are present on the target cluster(s):
+.. Click *vNic Profiles Mapping*.
+.. Select the vNIC profile to use from the *Target vNic Profile* drop-down list.
+.. If multiple target clusters are selected in the *Import Virtual Machine(s)* window, select each target cluster in the *Target Cluster* drop-down list and ensure the mappings are correct.
+.. Click *OK*.
+. If a MAC address conflict is detected, an exclamation mark appears next to the name of the virtual machine. Mouse over the icon to view a tooltip displaying the type of error that occurred.
++
+Select the *Reassign Bad MACs* check box to reassign new MAC addresses to all problematic virtual machines. Alternatively, you can select the *Reassign* check box per virtual machine.
++
+[NOTE]
+====
+If there are no available addresses to assign, the import operation will fail. However, in the case of MAC addresses that are outside the cluster's MAC address pool range, it is possible to import the virtual machine without reassigning a new MAC address.
+====
++
+. Click *OK*.
+
+The imported virtual machines no longer appear in the list under the *VM Import* tab.

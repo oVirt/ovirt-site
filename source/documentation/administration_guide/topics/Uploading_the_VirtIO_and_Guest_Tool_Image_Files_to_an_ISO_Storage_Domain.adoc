@@ -1,0 +1,72 @@
+[[Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain]]
+==== Uploading the VirtIO and Guest Tool Image Files to an ISO Storage Domain
+
+[NOTE]
+====
+The ISO domain is a deprecated storage domain type. The ISO Uploader tool has been deprecated. Upload ISO images to the data domain with the Administration Portal or with the REST API. See xref:Uploading Images to a Data Storage Domain[] for details.
+====
+
+The `virtio-win.iso` image and Virtual Floppy Drive (VFD) images contain the VirtIO drivers for Windows virtual machines, and  `RHV-toolsSetup___version__.iso`  contains the {virt-product-fullname} Guest Tools for Windows virtual machines. These image files provide software that you can install on virtual machines to improve performance and usability.
+
+To install and upload the most recent versions of `virtio-win` and `RHV-toolsSetup___version__.iso` files:
+
+. Install the image files on the {engine-name} machine:
++
+[options="nowrap" subs="normal"]
+----
+# yum -y install virtio-win rhv-guest-tools-iso*
+----
++
+After you install them on the {engine-name} machine, these image files are:
++
+* [filename]`/usr/share/virtio-win/virtio-win_amd64.vfd` (symbolic link)
+* [filename]`/usr/share/virtio-win/virtio-win_servers_amd64.vfd` (symbolic link)
+* [filename]`/usr/share/virtio-win/virtio-win_servers_x86.vfd` (symbolic link)
+* [filename]`/usr/share/virtio-win/virtio-win_x86.vfd` (symbolic link)
+* [filename]`/usr/share/virtio-win/virtio-win.iso` (symbolic link)
+* [filename]`/usr/share/rhv-guest-tools-iso/RHV-toolsSetup___version__.iso`
++
+[NOTE]
+====
+The above symbolic links refer to files with versions in their names. When copying them or using a tool like rsync, make sure to copy the target of the symbolic link.
+====
+
+. Upload the image files to an ISO storage domain that was not created locally during installation:
++
+[options="nowrap" subs="normal"]
+----
+# yum -y install virtio-win rhv-guest-tools-iso*
+# engine-iso-uploader --iso-domain=_ISODomain_ upload  \
+    /usr/share/virtio-win/virtio-win_amd64.vfd \
+    /usr/share/virtio-win/virtio-win_servers_amd64.vfd \
+    /usr/share/virtio-win/virtio-win_servers_x86.vfd \
+    /usr/share/virtio-win/virtio-win_x86.vfd \
+    /usr/share/virtio-win/virtio-win.iso \
+    /usr/share/rhv-guest-tools-iso/RHV-toolsSetup___version__.iso
+----
++
+. Attach the image files to virtual machines.
+
+The virtual machines can now use the virtio drivers and guest tools.
+
+For information on attaching the image files to a virtual machine, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.htmlindex#Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_.
+
+////
+.Uploading the VirtIO and Guest Tool Image Files
+====
+This example demonstrates the commands to install and upload these image files to the iso domain named `ISODomain`.
+
+[options="nowrap" subs="normal"]
+----
+# yum -y install virtio-win rhv-guest-tools-iso*
+# engine-iso-uploader --iso-domain=ISODomain upload \
+    /usr/share/virtio-win/virtio-win_amd64.vfd \
+    /usr/share/virtio-win/virtio-win_servers_amd64.vfd \
+    /usr/share/virtio-win/virtio-win_servers_x86.vfd \
+    /usr/share/virtio-win/virtio-win_x86.vfd \
+    /usr/share/virtio-win/virtio-win.iso \
+    /usr/share/rhv-guest-tools-iso/RHV-toolsSetup_{vernum_rhv}_6.iso
+----
+
+====
+////

@@ -1,0 +1,35 @@
+// Module included in the following assemblies:
+//
+[id='con_Backup_domains_explained_{context}']
+= Backup storage domains explained
+
+A backup storage domain is one that you can use specifically for storing and migrating virtual machines and virtual machine templates for the purpose of backing up and restoring for disaster recovery, migration, or any other backup/restore usage model. A backup domain differs from a non-backup domain in that all virtual machines on a backup domain are in a powered-down state. A virtual machine cannot run on a backup domain.
+
+You can set any data storage domain to be a backup domain. You can enable or disable this setting by selecting or deselecting a checkbox in the Manage Domain dialog box. You can enable this setting only after all virtual machines on that storage domain are stopped.
+
+You cannot start a virtual machine stored on a backup domain. The Manager blocks this and any other operation that might invalidate the backup. However, you can run a virtual machine based on a template stored on a backup domain if the virtual machine's disks are not part of a backup domain.
+
+As with other types of storage domains, you can attach or detach backup domains to or from a data center. So, in addition to storing backups, you can use backup domains to migrate virtual machines between data centers.
+
+.Advantages
+
+Some reasons to use a backup domain, rather than an export domain, are listed here:
+
+* You can have multiple backup storage domains in a data center, as opposed to only one export domain.
+* You can dedicate a backup storage domain to use for backup and disaster recovery.
+* You can transfer a backup of a virtual machine, a template, or a snapshot to a backup storage domain
+* Migrating a large number of virtual machines, templates, or OVF files is significantly faster with backup domains than export domains.
+* A backup domain uses disk space more efficiently than an export domain.
+* Backup domains support both file storage (NFS, Gluster) and block storage (Fiber Channel and iSCSI). This contrasts with export domains, which only support file storage.
+* You can dynamically enable and disable the backup setting for a storage domain, taking into account the restrictions.
+
+.Restrictions
+* Any virtual machine or template on a _backup domain must have all its disks on that same domain.
+* All virtual machines on a storage domain must be powered down before you can set it to be a backup domain.
+* You cannot run a virtual machine that is stored on a backup domain, because doing so might manipulate the disk's data.
+* A backup domain cannot be the target of memory volumes because memory volumes are only supported for active virtual machines.
+* You cannot preview a virtual machine on a backup domain.
+* Live migration of a virtual machine to a backup domain is not possible.
+* You cannot set a backup domain to be the master domain.
+* You cannot set a Self-hosted engine's domain to be a backup domain.
+* Do not use the default storage domain as a backup domain.

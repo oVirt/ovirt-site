@@ -1,0 +1,33 @@
+[[Reusing_LUNs]]
+==== Reusing LUNs
+
+LUNs cannot be reused, as is, to create a storage domain or virtual disk. If you try to reuse the LUNs, the Administration Portal displays the following error message:
+
+[options="nowrap" subs="normal"]
+----
+Physical device initialization failed. Please check that the device is empty and accessible by the host.
+----
+
+A self-hosted engine shows the following error during installation:
+
+[options="nowrap" subs="normal"]
+----
+[ ERROR ] Error creating Volume Group: Failed to initialize physical device: ("[u'/dev/mapper/000000000000000000000000000000000']",)
+[ ERROR ] Failed to execute stage 'Misc configuration': Failed to initialize physical device: ("[u'/dev/mapper/000000000000000000000000000000000']",)
+----
+
+Before the LUN can be reused, the old partitioning table must be cleared.
+
+*Clearing the Partition Table from a LUN*
+
+[IMPORTANT]
+====
+You must run this procedure on the correct LUN so that you do not inadvertently destroy data.
+====
+
+Run the `dd` command with the ID of the LUN that you want to reuse, the maximum number of bytes to read and write at a time, and the number of input blocks to copy:
+
+[options="nowrap" subs="normal"]
+----
+# dd if=/dev/zero of=/dev/mapper/LUN_ID bs=1M count=200 oflag=direct
+----

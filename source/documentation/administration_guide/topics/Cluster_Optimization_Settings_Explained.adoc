@@ -1,0 +1,35 @@
+[[Cluster_Optimization_Settings_Explained]]
+==== Optimization Settings Explained
+*Memory Considerations*
+
+Memory page sharing allows virtual machines to use up to 200% of their allocated memory by utilizing unused memory in other virtual machines. This process is based on the assumption that the virtual machines in your {virt-product-fullname} environment will not all be running at full capacity at the same time, allowing unused memory to be temporarily allocated to a particular virtual machine.
+
+:context: cluster_opt_settings
+include::../../common/admin/snip-CPU-Considerations.adoc[]
+
+The table below describes the settings for the *Optimization* tab in the *New Cluster* and *Edit Cluster* windows.
+
+[[Memory_Optimization_settings]]
+.Optimization Settings
+[options="header"]
+|===
+|Field |Description/Action
+|*Memory Optimization* a|
+
+* *None - Disable memory overcommit*: Disables memory page sharing.
+
+* *For Server Load - Allow scheduling of 150% of physical memory*: Sets the memory page sharing threshold to 150% of the system memory on each host.
+
+* *For Desktop Load - Allow scheduling of 200% of physical memory*: Sets the memory page sharing threshold to 200% of the system memory on each host.
+
+|*CPU Threads* |Selecting the *Count Threads As Cores* check box enables hosts to run virtual machines with a total number of processor cores greater than the number of cores in the host.
+
+When this check box is selected, the exposed host threads are treated as cores that virtual machines can use. For example, a 24-core system with 2 threads per core (48 threads total) can run virtual machines with up to 48 cores each, and the algorithms to calculate host CPU load would compare load against twice as many potential utilized cores.
+
+|*Memory Balloon* |Selecting the *Enable Memory Balloon Optimization* check box enables memory overcommitment on virtual machines running on the hosts in this cluster. When this check box is selected, the Memory Overcommit Manager (MoM) starts ballooning where and when possible, with a limitation of the guaranteed memory size of every virtual machine.
+
+To have a balloon running, the virtual machine needs to have a balloon device with relevant drivers. Each virtual machine includes a balloon device unless specifically removed. Each host in this cluster receives a balloon policy update when its status changes to `Up`. If necessary, you can manually update the balloon policy on a host without having to change the status. See xref:Updating_the_MoM_Policy_on_Hosts_in_a_Cluster[].
+
+It is important to understand that in some scenarios ballooning may collide with KSM. In such cases MoM will try to adjust the balloon size to minimize collisions. Additionally, in some scenarios ballooning may cause sub-optimal performance for a virtual machine. Administrators are advised to use ballooning optimization with caution.
+|*KSM control* |Selecting the *Enable KSM* check box enables MoM to run Kernel Same-page Merging (KSM) when necessary and when it can yield a memory saving benefit that outweighs its CPU cost.
+|===

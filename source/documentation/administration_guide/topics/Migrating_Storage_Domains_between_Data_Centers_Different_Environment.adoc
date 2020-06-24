@@ -1,0 +1,49 @@
+[[Migrating_SD_between_DC_different_env]]
+==== Migrating Storage Domains between Data Centers in Different Environments
+
+Migrate a storage domain from one {virt-product-fullname} environment to another
+to allow the destination environment to access the data contained in the storage domain.
+This procedure involves removing the storage domain from one {virt-product-fullname} environment,
+and importing it into a different environment.
+To import and attach an existing data storage domain to a {virt-product-fullname} data center,
+the storage domain's source data center must have the correct supported compatibility level.
+See link:https://access.redhat.com/solutions/4303801[Supportability and constraints regarding importing Storage Domains and Virtual Machines from older RHV versions] for more information.
+
+
+.Procedure
+
+. Log in to the Administration Portal of the source environment.
+. Shut down all virtual machines running on the required storage domain.
+. Click menu:Storage[Domains].
+. Click the storage domain's name to open the details view.
+. Click the *Data Center* tab.
+. Click *Maintenance*, then click *OK*.
+. Click *Detach*, then click *OK*.
+. Click *Remove*.
+. In the *Remove Storage(s)* window, ensure the *Format Domain, i.e. Storage Content will be lost!* check box is not selected. This step preserves the data in the storage domain for later use.
+. Click *OK* to remove the storage domain from the source environment.
+. Log in to the Administration Portal of the destination environment.
+. Click menu:Storage[Domains].
+. Click *Import Domain*.
+. Select the destination data center from the *Data Center* drop-down list.
+. Enter a name for the storage domain.
+. Select the *Domain Function* and *Storage Type* from the appropriate drop-down lists.
+. Select a host from the *Host* drop-down list.
+. Enter the details of the storage domain.
++
+[NOTE]
+====
+The fields for specifying the details of the storage domain change depending on the value you select in the *Storage Type* drop-down list. These fields are the same as those available for adding a new storage domain.
+====
++
+. Select the *Activate Domain in Data Center* check box to automatically activate the storage domain when it is attached.
+. Click *OK*.
+
+The storage domain is attached to the destination data center in the new {virt-product-fullname} environment and is automatically activated. You can now import virtual machines and templates from the imported storage domain to the destination data center.
+
+[WARNING]
+====
+Upon attaching a Storage Domain to the destination Data-Center,
+it may be upgraded to a newer Storage Domain format and may not re-attach to the source Data-Center.
+This breaks the use of a Data-Domain as a replacement for Export Domains.
+====

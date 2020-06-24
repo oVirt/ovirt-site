@@ -1,0 +1,19 @@
+[[Cluster_permissions_entities]]
+==== Cluster Administrator Roles Explained
+
+
+*Cluster Permission Roles*
+
+The table below describes the administrator roles and privileges applicable to cluster administration.
+
+[[Cluster_Administrator_Roles]]
+
+.{virt-product-fullname} System Administrator Roles
+[options="header"]
+|===
+|Role |Privileges |Notes
+|ClusterAdmin |Cluster Administrator |Can use, create, delete, manage all physical and virtual resources in a specific cluster, including hosts, templates and virtual machines. Can configure network properties within the cluster such as designating display networks, or marking a network as required or non-required.
+
+However, a *ClusterAdmin* does not have permissions to attach or detach networks from a cluster, to do so *NetworkAdmin* permissions are required.
+|NetworkAdmin |Network Administrator |Can configure and manage the network of a particular cluster. A network administrator of a cluster inherits network permissions for virtual machines within the cluster as well.
+|===

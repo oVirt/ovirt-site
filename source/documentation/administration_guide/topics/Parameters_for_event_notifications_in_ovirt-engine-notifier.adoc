@@ -1,0 +1,49 @@
+[[Parameters_for_event_notifications_in_notifier]]
+=== Parameters for Event Notifications in ovirt-engine-notifier.conf
+
+The event notifier configuration file can be found in */usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf*.
+
+.ovirt-engine-notifier.conf variables
+[options="header"]
+|===
+|Variable Name |Default |Remarks
+|SENSITIVE_KEYS |none |A comma-separated list of keys that will not be logged.
+|JBOSS_HOME |/opt/rh/eap7/root/usr/share/wildfly |The location of the JBoss application server used by the {engine-name}.
+|ENGINE_ETC |/etc/ovirt-engine |The location of the `etc` directory used by the {engine-name}.
+|ENGINE_LOG |/var/log/ovirt-engine |The location of the `logs` directory used by the {engine-name}.
+|ENGINE_USR |/usr/share/ovirt-engine |The location of the `usr` directory used by the {engine-name}.
+|ENGINE_JAVA_MODULEPATH |${ENGINE_USR}/modules |The file path to which the JBoss modules are appended.
+|NOTIFIER_DEBUG_ADDRESS |none |The address of a machine that can be used to perform remote debugging of the Java virtual machine that the notifier uses.
+|NOTIFIER_STOP_TIME |30 |The time, in seconds, after which the service will time out.
+|NOTIFIER_STOP_INTERVAL |1 |The time, in seconds, by which the timeout counter will be incremented.
+|INTERVAL_IN_SECONDS |120 |The interval in seconds between instances of dispatching messages to subscribers.
+|IDLE_INTERVAL |30 |The interval, in seconds, between which low-priority tasks will be performed.
+|DAYS_TO_KEEP_HISTORY |0 |This variable sets the number of days dispatched events will be preserved in the history table. If this variable is not set, events remain on the history table indefinitely.
+|FAILED_QUERIES_NOTIFICATION_THRESHOLD |30 |The number of failed queries after which a notification email is sent. A notification email is sent after the first failure to fetch notifications, and then once every time the number of failures specified by this variable is reached. If you specify a value of `0` or `1`, an email will be sent with each failure.
+|FAILED_QUERIES_NOTIFICATION_RECIPIENTS |none |The email addresses of the recipients to which notification emails will be sent. Email addresses must be separated by a comma. This entry has been deprecated by the `FILTER` variable.
+|DAYS_TO_SEND_ON_STARTUP |0 |The number of days of old events that will be processed and sent when the notifier starts.
+|FILTER |exclude:* |The algorithm used to determine the triggers for and recipients of email notifications. The value for this variable comprises a combination of `include` or `exclude`, the event, and the recipient. For example, `include:VDC_START(smtp:mail@example.com) ${FILTER}`
+|MAIL_SERVER |none |The SMTP mail server address. Required.
+|MAIL_PORT |25 |The port used for communication. Possible values include `25` for plain SMTP, `465` for SMTP with SSL, and `587` for SMTP with TLS.
+|MAIL_USER |none |If SSL is enabled to authenticate the user, then this variable must be set. This variable is also used to specify the "from" user address when the MAIL_FROM variable is not set. Some mail servers do not support this functionality. The address is in RFC822 format.
+|SENSITIVE_KEYS |${SENSITIVE_KEYS},MAIL_PASSWORD |Required to authenticate the user if the mail server requires authentication or if SSL or TLS is enabled.
+|MAIL_PASSWORD |none |Required to authenticate the user if the mail server requires authentication or if SSL or TLS is enabled.
+|MAIL_SMTP_ENCRYPTION |none |The type of encryption to be used in communication. Possible values are `none`, `ssl`, `tls`.
+|HTML_MESSAGE_FORMAT |false |The mail server sends messages in HTML format if this variable is set to `true`.
+|MAIL_FROM |none |This variable specifies a sender address in RFC822 format, if supported by the mail server.
+|MAIL_REPLY_TO |none |This variable specifies reply-to addresses in RFC822 format on sent mail, if supported by the mail server.
+|MAIL_SEND_INTERVAL |1 |The number of SMTP messages to be sent for each IDLE_INTERVAL
+|MAIL_RETRIES |4 |The number of times to attempt to send an email before failing.
+|SNMP_MANAGER |none |The IP addresses or fully qualified domain names of machines that will act as the SNMP managers. Entries must be separated by a space and can contain a port number. For example, `manager1.example.com manager2.example.com:164`
+|SNMP_COMMUNITY |public |The default SNMP community.
+|SNMP_OID |1.3.6.1.4.1.2312.13.1.1 |The default trap object identifiers for alerts. All trap types are sent, appended with event information, to the SNMP manager when this OID is defined. Note that changing the default trap prevents generated traps from complying with the {engine-name}'s management information base.
+|ENGINE_INTERVAL_IN_SECONDS |300 |The interval, in seconds, between monitoring the machine on which the {engine-name} is installed. The interval is measured from the time the monitoring is complete.
+|ENGINE_MONITOR_RETRIES |3 |The number of times the notifier attempts to monitor the status of the machine on which the {engine-name} is installed in a given interval after a failure.
+|ENGINE_TIMEOUT_IN_SECONDS |30 |The time, in seconds, to wait before the notifier attempts to monitor the status of the machine on which the {engine-name} is installed in a given interval after a failure.
+|IS_HTTPS_PROTOCOL |false |This entry must be set to `true` if JBoss is being run in secured mode.
+|SSL_PROTOCOL |TLS |The protocol used by JBoss configuration connector when SSL is enabled.
+|SSL_IGNORE_CERTIFICATE_ERRORS |false |This value must be set to `true` if JBoss is running in secure mode and SSL errors is to be ignored.
+|SSL_IGNORE_HOST_VERIFICATION |false |This value must be set to `true` if JBoss is running in secure mode and host name verification is to be ignored.
+|REPEAT_NON_RESPONSIVE_NOTIFICATION |false |This variable specifies whether repeated failure messages will be sent to subscribers if the machine on which the {engine-name} is installed is non-responsive.
+|ENGINE_PID |/var/lib/ovirt-engine/ovirt-engine.pid |The path and file name of the PID of the {engine-name}.
+|===

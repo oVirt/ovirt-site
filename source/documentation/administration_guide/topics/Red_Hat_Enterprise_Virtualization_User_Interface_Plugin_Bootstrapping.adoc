@@ -1,0 +1,42 @@
+[[Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Bootstrapping]]
+==== {virt-product-fullname} User Interface Plug-in Bootstrapping
+
+A typical plug-in bootstrap sequence consists of following steps:
+
+
+*Plug-in Bootstrap Sequence*
+
+. Obtain pluginApi instance for the given plug-in
+. Obtain runtime plug-in configuration object (optional)
+. Register relevant event handler functions
+. Notify UI plug-in infrastructure to proceed with plug-in initialization
+
+
+The following code snippet illustrates the above mentioned steps in practice:
+	
+[options="nowrap" subs="normal"]
+----
+
+// Access plug-in API using 'parent' due to this code being evaluated within the context of an iframe element.
+// As 'parent.pluginApi' is subject to Same-Origin Policy, this will only work when WebAdmin HTML page and plug-in
+// host page are served from same origin. WebAdmin HTML page and plug-in host page will always be on same origin
+// when using UI plug-in infrastructure support to serve plug-in resource files.
+var api = parent.pluginApi('MyPlugin');
+
+// Runtime configuration object associated with the plug-in (or an empty object).
+var config = api.configObject();
+
+// Register event handler function(s) for later invocation by UI plug-in infrastructure.
+api.register({
+	    // UiInit event handler function.
+		UiInit: function() {
+				// Handle UiInit event.
+					window.alert('Favorite music band is ' + config.band);
+					    }
+});
+
+// Notify UI plug-in infrastructure to proceed with plug-in initialization.
+api.ready();
+
+----
+

@@ -1,0 +1,29 @@
+[[Adding_Network_Labels_to_Host_Network_Interfaces]]
+==== Adding Network Labels to Host Network Interfaces
+
+Using network labels allows you to greatly simplify the administrative workload associated with assigning logical networks to host network interfaces. Setting a label on a role network (for instance, a migration network or a display network) causes a mass deployment of that network on all hosts. Such mass additions of networks are achieved through the use of DHCP. This method of mass deployment was chosen over a method of typing in static addresses, because of the unscalable nature of the task of typing in many static IP addresses.
+
+There are two methods of adding labels to a host network interface:
+
+* Manually, in the Administration Portal
+* Automatically, with the LLDP Labeler service
+
+*Adding Network Labels in the Administration Portal*
+
+. Click menu:Compute[Hosts].
+. Click the host's name to open the details view.
+. Click the *Network Interfaces* tab.
+. Click *Setup Host Networks*.
+. Click *Labels* and right-click *[New Label]*. Select a physical network interface to label.
+. Enter a name for the network label in the *Label* text field.
+. Click *OK*.
+
+*Adding Network Labels with the LLDP Labeler Service*
+
+You can automate the process of assigning labels to host network interfaces in the configured list of clusters with the LLDP Labeler service.
+
+include::../../common/network/proc-Configuring_LLDP_Labeler.adoc[]
+
+You have added a network label to a host network interface. Newly created logical networks with the same label are automatically assigned to all host network interfaces with that label. Removing a label from a logical network automatically removes that logical network from all host network interfaces with that label.
+
+:context: labels

@@ -1,0 +1,30 @@
+[[Explanation_of_Settings_in_the_VM_Interface_Profile_Window]]
+==== Explanation of Settings in the VM Interface Profile Window
+
+
+.VM Interface Profile Window
+[options="header"]
+|===
+|Field Name |Description
+|*Network* |A drop-down list of the available networks to apply the vNIC profile to.
+|*Name* |The name of the vNIC profile. This must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores between 1 and 50 characters.
+|*Description* |The description of the vNIC profile. This field is recommended but not mandatory.
+|*QoS* |A drop-down list of the available Network Quality of Service policies to apply to the vNIC profile. QoS policies regulate inbound and outbound network traffic of the vNIC.
+|*Network Filter* a|A drop-down list of the available network filters to apply to the vNIC profile. Network filters improve network security by filtering the type of packets that can be sent to and from virtual machines. The default filter is `vdsm-no-mac-spoofing`, which is a combination of `no-mac-spoofing` and `no-arp-mac-spoofing`. For more information on the network filters provided by libvirt, see the link:{URL_rhel_docs_legacy}html/Virtualization_Deployment_and_Administration_Guide/sect-Virtual_Networking-Applying_network_filtering.html#sect-Applying_network_filtering-Advanced_Filter_Configuration_Topics[Pre-existing network filters] section of the _{enterprise-linux} Virtualization Deployment and Administration Guide_.
+
+Use `<No Network Filter>` for virtual machine VLANs and bonds. On trusted virtual machines, choosing not to use a network filter can improve performance.
+
+[NOTE]
+====
+Red Hat no longer supports disabling filters by setting the `EnableMACAntiSpoofingFilterRules` parameter to `false` using the `engine-config` tool. Use the `<No Network Filter>` option instead.
+====
+
+|*Passthrough* |A check box to toggle the passthrough property. Passthrough allows a vNIC to connect directly to a virtual function of a host NIC. The passthrough property cannot be edited if the vNIC profile is attached to a virtual machine.
+
+QoS, network filters, and port mirroring are disabled in the vNIC profile if passthrough is enabled.
+|*Migratable* |A check box to toggle whether or not vNICs using this profile can be migrated. Migration is enabled by default on regular vNIC profiles; the check box is selected and cannot be changed. When the *Passthrough* check box is selected, *Migratable* becomes available and can be deselected, if required, to disable migration of passthrough vNICs.
+|*Port Mirroring* |A check box to toggle port mirroring. Port mirroring copies layer 3 network traffic on the logical network to a virtual interface on a virtual machine. It it not selected by default. For further details, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html-single/technical_reference/#Port_Mirroring[Port Mirroring] in the _Technical Reference_.
+|*Device Custom Properties* |A drop-down menu to select available custom properties to apply to the vNIC profile. Use the *+* and *-* buttons to add and remove properties respectively.
+|*Allow all users to use this Profile* |A check box to toggle the availability of the profile to all users in the environment. It is selected by default.
+|===
+

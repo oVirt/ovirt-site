@@ -1,0 +1,56 @@
+[[Setting_up_a_Host_Logging_Server]]
+=== Setting Up a Host Logging Server
+
+Hosts generate and update log files, recording their actions and problems. Collecting these log files centrally simplifies debugging.
+
+This procedure should be used on your centralized log server. You could use a separate logging server, or use this procedure to enable host logging on the {virt-product-fullname} {engine-name}.
+
+
+*Setting up a Host Logging Server*
+
+. Check to see if the firewall allows traffic on the `UDP 514` port, and is open to `syslog` service traffic:
++
+[options="nowrap" subs="normal"]
+----
+# firewall-cmd --query-service=syslog
+----
++
+If the output is `no`, allow traffic on the `UDP 514` port with:
++
+----
+# firewall-cmd --add-service=syslog --permanent
+# firewall-cmd --reload
+----
++
+. Create a new `.conf` file on the syslog server, for example, `/etc/rsyslog.d/from_remote.conf`, and add the following lines:
++
+[options="nowrap" subs="normal"]
+----
+template(name="DynFile" type="string" string="/var/log/%HOSTNAME%/%PROGRAMNAME%.log")
+RuleSet(name="RemoteMachine"){  action(type="omfile" dynaFile="DynFile")  }
+Module(load="imudp")
+Input(type="imudp" port="514" ruleset="RemoteMachine")
+----
++
+. Restart the `rsyslog` service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart rsyslog.service
+----
++
+. Log in to the hypervisor, and in the `/etc/rsyslog.conf` add the following line:
++
+[options="nowrap" subs="normal"]
+----
+*.info;mail.none;authpriv.none;cron.none @<syslog-FQDN>:514
+----
++
+. Restart the rsyslog service on the hypervisor.
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart rsyslog.service
+----
+
+Your centralized log server is now configured to receive and store the *messages* and *secure* logs from your virtualization hosts.

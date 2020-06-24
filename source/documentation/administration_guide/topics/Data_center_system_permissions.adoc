@@ -1,0 +1,22 @@
+[[Data_center_system_permissions]]
+==== Managing System Permissions for a Data Center
+
+As the *SuperUser*, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a *DataCenterAdmin* role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a *ClusterAdmin* has administrator privileges only for the assigned cluster.
+
+A data center administrator is a system administration role for a specific data center only. This is useful in virtualization environments with multiple data centers where each data center requires an administrator. The *DataCenterAdmin* role is a hierarchical model; a user assigned the data center administrator role for a data center can manage all objects in the data center with the exception of storage for that data center. Use the *Configure* button in the header bar to assign a data center administrator for all data centers in the environment.
+
+The data center administrator role permits the following actions:
+
+* Create and remove clusters associated with the data center.
+
+* Add and remove hosts, virtual machines, and pools associated with the data center.
+
+* Edit user permissions for virtual machines associated with the data center.
+
+
+
+[NOTE]
+====
+You can only assign roles and permissions to existing users.
+====
+You can change the system administrator of a data center by removing the existing system administrator and adding the new system administrator.

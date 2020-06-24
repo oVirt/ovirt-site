@@ -1,0 +1,17 @@
+[[Importing_Networks]]
+==== Importing Networks From External Providers
+
+To use networks from an external network provider (OpenStack Networking or any third-party provider that implements the OpenStack Neutron REST API), register the provider with the {engine-name}. See xref:Adding_an_OpenStack_Network_Service_Neutron_for_Network_Provisioning[Adding an OpenStack Network Service Neutron for Network Provisioning] or xref:Adding_an_External_Network_Provider[Adding an External Network Provider] for more information. Then, use the following procedure to import the networks provided by that provider into the {engine-name} so the networks can be used by virtual machines.
+
+*Importing a Network From an External Provider*
+
+. Click menu:Network[Networks].
+. Click *Import*.
+. From the *Network Provider* drop-down list, select an external provider. The networks offered by that provider are automatically discovered and listed in the *Provider Networks* list.
+. Using the check boxes, select the networks to import in the *Provider Networks* list and click the down arrow to move those networks into the *Networks to Import* list.
+. You can customize the name of the network that you are importing. To customize the name, click the network's name in the *Name* column, and change the text.
+. From the *Data Center* drop-down list, select the data center into which the networks will be imported.
+. Optional: Clear the *Allow All* check box to prevent that network from being available to all users.
+. Click *Import*.
+
+The selected networks are imported into the target data center and can be attached to virtual machines. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Adding a New Network Interface] in the _Virtual Machine Management Guide_ for more information.

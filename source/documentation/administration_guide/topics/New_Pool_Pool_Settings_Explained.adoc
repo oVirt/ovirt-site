@@ -1,0 +1,16 @@
+[[New_Pool_Pool_Settings_Explained]]
+==== New Pool and Edit Pool Type Settings Explained
+
+The following table details the information required on the *Type* tab of the *New Pool* and *Edit Pool* windows.
+
+.*Type* settings
+[options="header"]
+|===
+|Field Name |Description
+|*Pool Type* a|This drop-down menu allows you to specify the type of the virtual machine pool. The following options are available:
+
+* *Automatic*: After a user finishes using a virtual machine taken from a virtual machine pool, that virtual machine is automatically returned to the virtual machine pool.
+
+* *Manual*: After a user finishes using a virtual machine taken from a virtual machine pool, that virtual machine is only returned to the virtual machine pool when an administrator manually returns the virtual machine.
+|*Stateful Pool* | Specify whether the state of virtual machines in the pool is preserved when a virtual machine is passed to a different user. This means that changes made by a previous user will persist on the virtual machine.
+|===

@@ -1,0 +1,72 @@
+[[Maintaining_the_Self-Hosted_Engine]]
+= Maintaining the Self-Hosted Engine
+
+[discrete]
+== Self-hosted Engine Maintenance Modes
+
+The maintenance modes enable you to start, stop, and modify the {engine-name} virtual machine without interference from the high-availability agents, and to restart and modify the self-hosted engine nodes in the environment without interfering with the {engine-name}.
+
+There are three maintenance modes that can be enforced:
+
+* `global` - All high-availability agents in the cluster are disabled from monitoring the state of the {engine-name} virtual machine. The global maintenance mode must be applied for any setup or upgrade operations that require the `ovirt-engine` service to be stopped, such as upgrading to a later version of {virt-product-fullname}.
+
+* `local` - The high-availability agent on the node issuing the command is disabled from monitoring the state of the {engine-name} virtual machine. The node is exempt from hosting the {engine-name} virtual machine while in local maintenance mode; if hosting the {engine-name} virtual machine when placed into this mode, the {engine-name} will migrate to another node, provided there is one available. The local maintenance mode is recommended when applying system changes or updates to a self-hosted engine node.
+
+* `none` - Disables maintenance mode, ensuring that the high-availability agents are operating.
+
+[discrete]
+== Setting Local Maintenance
+
+Stop the high-availability agent on a single self-hosted engine node.
+
+.Setting the local maintenance mode from the Administration Portal
+
+. Put a self-hosted engine node into local maintenance mode:
+.. In the Administration Portal, click menu:Compute[Hosts] and select a self-hosted engine node.
+.. Click menu:Management[Maintenance]. Local maintenance mode is automatically triggered for that node.
+
+. After you have completed any maintenance tasks, disable the maintenance mode:
+.. In the Administration Portal, click menu:Compute[Hosts] and select the self-hosted engine node.
+.. Click menu:Management[Activate].
+
+.Setting the local maintenance mode from the command line
+
+.  Log in to a self-hosted engine node and put it into local maintenance mode:
++
+----
+# hosted-engine --set-maintenance --mode=local
+----
+
+. After you have completed any maintenance tasks, disable the maintenance mode:
++
+----
+# hosted-engine --set-maintenance --mode=none
+----
+
+[discrete]
+== Setting Global Maintenance
+
+Stop the high-availability agents on all self-hosted engine nodes in the cluster.
+
+.Setting the global maintenance mode from the Administration Portal
+
+. Put all of the self-hosted engine nodes into global maintenance mode:
+.. In the Administration Portal, click menu:Compute[Hosts] and select any self-hosted engine node.
+.. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Enable Global HA Maintenance*.
+. After you have completed any maintenance tasks, disable the maintenance mode:
+.. In the Administration Portal, click menu:Compute[Hosts] and select any self-hosted engine node.
+.. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Disable Global HA Maintenance*.
+
+.Setting the global maintenance mode from the command line
+
+.  Log in to any self-hosted engine node and put it into global maintenance mode:
++
+----
+# hosted-engine --set-maintenance --mode=global
+----
+
+. After you have completed any maintenance tasks, disable the maintenance mode:
++
+----
+# hosted-engine --set-maintenance --mode=none
+----

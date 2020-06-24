@@ -1,0 +1,34 @@
+[[Configuring_Satellite_Errata_Management_for_a_Host]]
+==== Setting up Satellite errata viewing for a host
+
+In the Administration Portal, you can configure a host to view errata from Red Hat Satellite. After you associate a host with a Red Hat Satellite provider, you can receive updates in the host configuration dashboard about available errata and their importance, and decide when it is practical to apply the updates.
+
+{virt-product-fullname} 4.4 supports viewing errata with Red Hat Satellite 6.6.
+
+.Prerequisites
+
+* The Satellite server must be added as an external provider.
+* The {engine-name} and any hosts on which you want to view errata must be registered in the Satellite server by their respective FQDNs. This ensures that external content host IDs do not need to be maintained in {virt-product-fullname}.
++
+[IMPORTANT]
+====
+Hosts added using an IP address cannot report errata.
+====
+* The Satellite account that manages the host must have Administrator permissions and a default organization set.
+* The host must be registered to the Satellite server and have the `katello-agent` package installed.
+
+
+.Procedure
+
+. Click menu:Compute[Hosts] and select the host.
+. Click *Edit*.
+. Select the *Use Foreman/Satellite* check box.
+. Select the required Satellite server from the drop-down list.
+. Click *OK*.
+
+The host is now configured to show the available errata, and their importance, in the same dashboard used to manage the host's configuration.
+
+.Additional resources
+
+* xref:Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning[].
+* link:{URL_satellite_docs}html/managing_hosts/registering_hosts[Registering a host and installing the `katello-agent` package] in the Red Hat Satellite document _Managing Hosts_.

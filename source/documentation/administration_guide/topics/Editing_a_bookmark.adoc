@@ -1,0 +1,11 @@
+[[Editing_a_bookmark]]
+=== Editing a Bookmark
+
+You can modify the name and search string of a bookmark.
+
+*Editing a Bookmark*
+
+. Click the *Bookmarks* icon (image:images/Bookmark.png[]) in the header bar.
+. Select a bookmark and click *Edit*.
+. Change the *Name* and *Search string* fields as necessary.
+. Click *OK*.

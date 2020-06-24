@@ -1,0 +1,21 @@
+[[SPICE_Logs_for_Guest_Machines]]
+==== SPICE Logs for Guest Machines
+
+
+.spice-vdagent Logs for Guest Machines
+[options="header"]
+|===
+|Log Type |Log Location |To Change Log Level:
+|Windows Guest |C:\Windows\Temp\vdagent.log
+
+C:\Windows\Temp\vdservice.log |Not applicable
+|{enterprise-linux} Guest |Use `journalctl` as the root user. a|To run the `spice-vdagentd` service in debug mode, as the root user create a */etc/sysconfig/spice-vdagentd* file with this entry: `SPICE_VDAGENTD_EXTRA_ARGS=”-d -d”`
+
+To run `spice-vdagent` in debug mode, from the command line:
+                         
+----
+$ killall - u $USER spice-vdagent 
+$ spice-vdagent -x -d [-d] [ \|& tee spice-vdagent.log ] 
+----
+|===
+

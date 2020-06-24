@@ -1,0 +1,32 @@
+:numbered!:
+
+[appendix]
+[[appe-Proxies]]
+== Proxies
+
+[[sect-SPICE_Proxy]]
+=== SPICE Proxy
+
+include::topics/SPICE_Proxy_Overview.adoc[]
+
+include::topics/SPICE_Proxy_Machine_Setup.adoc[]
+
+include::topics/Turning_On_a_SPICE_Proxy.adoc[]
+
+include::topics/Turning_off_a_SPICE_Proxy.adoc[]
+
+[[sect-Squid_Proxy]]
+=== Squid Proxy
+
+include::topics/Installing_and_Configuring_a_Squid_Proxy.adoc[]
+
+[[sect-Websocket_Proxy]]
+=== Websocket Proxy
+
+:context: proxy_admin
+
+include::topics/Websocket_Proxy_Overview.adoc[]
+
+include::../common/admin/proc-Migrating_the_Websocket_Proxy_to_a_Separate_Machine.adoc[leveloffset=+3]
+
+:context!: proxy_admin

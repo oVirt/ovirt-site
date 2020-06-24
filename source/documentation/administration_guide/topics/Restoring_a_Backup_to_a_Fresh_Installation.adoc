@@ -1,0 +1,56 @@
+[[Restoring_a_Backup_to_a_Fresh_Installation]]
+==== Restoring a Backup to a Fresh Installation
+
+The `engine-backup` command can be used to restore a backup to a fresh installation of the {virt-product-fullname} {engine-name}. The following procedure must be performed on a machine on which the base operating system has been installed and the required packages for the {virt-product-fullname} {engine-name} have been installed, but the `engine-setup` command has not yet been run. This procedure assumes that the backup file or files can be accessed from the machine on which the backup is to be restored.
+
+
+*Restoring a Backup to a Fresh Installation*
+
+. Log on to the {engine-name} machine. If you are restoring the engine database to a remote host, you will need to log on to and perform the relevant actions on that host. Likewise, if also restoring the Data Warehouse to a remote host, you will need to log on to and perform the relevant actions on that host.
+. Restore a complete backup or a database-only backup.
+
+* Restore a complete backup: 
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --provision-db --restore-permissions
+----
++
+If Data Warehouse is also being restored as part of the complete backup, provision the additional database:
++
+[options="nowrap" subs="normal"]
+----
+engine-backup --mode=restore --file=_file_name_ --log=_log_file_name_ --provision-db --provision-dwh-db --restore-permissions
+----
+
+* Restore a database-only backup by restoring the configuration files and database backup: 
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --mode=restore --scope=files --scope=db --file=_file_name_ --log=_log_file_name_ --provision-db --restore-permissions
+----
++
+The example above restores a backup of the {engine-name} database. 
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --mode=restore --scope=files --scope=dwhdb --file=_file_name_ --log=_log_file_name_ --provision-dwh-db --restore-permissions
+----
+The example above restores a backup of the Data Warehouse database.
++
+If successful, the following output displays:
++
+[options="nowrap" subs="normal"]
+----
+You should now run engine-setup.
+Done.
+----
++
+. Run the following command and follow the prompts to configure the restored {engine-name}: 
++
+[options="nowrap" subs="normal"]
+----
+# engine-setup
+----
+
+The {virt-product-fullname} {engine-name} has been restored to the version preserved in the backup. To change the fully qualified domain name of the new {virt-product-fullname} system, see xref:The_oVirt_Engine_Rename_Tool[].

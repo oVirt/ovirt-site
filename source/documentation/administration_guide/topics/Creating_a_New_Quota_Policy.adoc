@@ -1,0 +1,26 @@
+[[Creating_a_New_Quota_Policy]]
+=== Creating a New Quota Policy
+
+You have enabled quota mode, either in Audit or Enforcing mode. You want to define a quota policy to manage resource usage in your data center.
+
+
+*Creating a New Quota Policy*
+
+. Click menu:Administration[Quota].
+. Click *Add*.
+. Fill in the *Name* and *Description* fields.
+. Select a *Data Center*.
+. In the *Memory &amp; CPU* section, use the green slider to set *Cluster Threshold*.
+. In the *Memory &amp; CPU* section, use the blue slider to set *Cluster Grace*.
+. Click the *All Clusters* or the *Specific Clusters* radio button. If you select *Specific Clusters*, select the check box of the clusters that you want to add a quota policy to.
+. Click *Edit* to open the *Edit Quota* window.
+.. Under the *Memory* field, select either the *Unlimited* radio button (to allow limitless use of Memory resources in the cluster), or select the *limit to* radio button to set the amount of memory set by this quota. If you select the *limit to* radio button, input a memory quota in megabytes (MB) in the *MB* field.
+.. Under the *CPU* field, select either the *Unlimited* radio button or the *limit to* radio button to set the amount of CPU set by this quota. If you select the *limit to* radio button, input a number of vCPUs in the *vCpus* field.
+.. Click *OK* in the *Edit Quota* window.
+. In the *Storage* section, use the green slider to set *Storage Threshold*.
+. In the *Storage* section, use the blue slider to set *Storage Grace*.
+. Click the *All Storage Domains* or the *Specific Storage Domains* radio button. If you select *Specific Storage Domains*, select the check box of the storage domains that you want to add a quota policy to.
+. Click *Edit* to open the *Edit Quota* window.
+.. Under the *Storage Quota* field, select either the *Unlimited* radio button (to allow limitless use of Storage) or the *limit to* radio button to set the amount of storage to which quota will limit users. If you select the *limit to* radio button, input a storage quota size in gigabytes (GB) in the *GB* field.
+.. Click *OK* in the *Edit Quota* window.
+. Click *OK* in the *New Quota* window.

@@ -1,0 +1,79 @@
+[[Explanation_of_Settings_in_the_New_Scheduling_Policy_and_Edit_Scheduling_Policy_Window]]
+==== Explanation of Settings in the New Scheduling Policy and Edit Scheduling Policy Window
+
+The following table details the options available in the *New Scheduling Policy* and *Edit Scheduling Policy* windows.
+
+.New Scheduling Policy and Edit Scheduling Policy Settings
+[options="header"]
+|===
+|Field Name |Description
+|*Name* |The name of the scheduling policy. This is the name used to refer to the scheduling policy in the {virt-product-fullname} {engine-name}.
+|*Description* |A description of the scheduling policy. This field is recommended but not mandatory.
+|*Filter Modules* a|A set of filters for controlling the hosts on which a virtual machine in a cluster can run. Enabling a filter will filter out hosts that do not meet the conditions specified by that filter, as outlined below:
+
+* `CpuPinning`: Hosts which do not satisfy the CPU pinning definition.
+
+* `Migration`: Prevent migration to the same host.
+
+* `PinToHost`: Hosts other than the host to which the virtual machine is pinned.
+
+* `CPU-Level`: Hosts that do not meet the CPU topology of the virtual machine.
+
+* `CPU`: Hosts with fewer CPUs than the number assigned to the virtual machine.
+
+* `Memory`: Hosts that do not have sufficient memory to run the virtual machine.
+
+* `VmAffinityGroups`: Hosts that do not meet the conditions specified for a virtual machine that is a member of an affinity group. For example, that virtual machines in an affinity group must run on the same host or on separate hosts.
+
+* `VmToHostsAffinityGroups`: Group of hosts that do not meet the conditions specified for a virtual machine that is a member of an affinity group. For example, that virtual machines in an affinity group must run on one of the hosts in a group or on a separate host that is excluded from the group.
+
+* `InClusterUpgrade`: Hosts that are running an earlier operating system than the host that the virtual machine currently runs on.
+
+* `HostDevice`: Hosts that do not support host devices required by the virtual machine.
+
+* `HA`: Forces the {engine-name} virtual machine in a self-hosted engine environment to run only on hosts with a positive high availability score.
+
+* `Emulated-Machine`: Hosts which do not have proper emulated machine support.
+
+* `Network`: Hosts on which networks required by the network interface controller of a virtual machine are not installed, or on which the cluster's display network is not installed.
+
+* `HostedEnginesSpares`: Reserves space for the {engine-name} virtual machine on a specified number of self-hosted engine nodes.
+
+* `Label`: Hosts that do not have the required affinity labels.
+
+* `Compatibility-Version`: Runs virtual machines only on hosts with the correct compatibility version support.
+
+* `CPUOverloaded`: Hosts that are CPU overloaded.
+
+
+|*Weights Modules* a|A set of weightings for controlling the relative priority of factors considered when determining the hosts in a cluster on which a virtual machine can run.
+
+
+* `InClusterUpgrade`: Weight hosts in accordance with their operating system version. The weight penalizes hosts with earlier operating systems more than hosts with the same operating system as the host that the virtual machine is currently running on. This ensures that priority is always given to hosts with later operating systems.
+
+* `OptimalForHaReservation`: Weights hosts in accordance with their high availability score.
+
+* `None`: Weights hosts in accordance with the even distribution module.
+
+* `OptimalForEvenGuestDistribution`: Weights hosts in accordance with the number of virtual machines running on those hosts.
+
+* `VmAffinityGroups`: Weights hosts in accordance with the affinity groups defined for virtual machines. This weight module determines how likely virtual machines in an affinity group are to run on the same host or on separate hosts in accordance with the parameters of that affinity group.
+
+* `VmToHostsAffinityGroups`: Weights hosts in accordance with the affinity groups defined for virtual machines. This weight module determines how likely virtual machines in an affinity group are to run on one of the hosts in a group or on a separate host that is excluded from the group.
+
+* `OptimalForCPUPowerSaving`: Weights hosts in accordance with their CPU usage, giving priority to hosts with higher CPU usage.
+
+* `OptimalForEvenCpuDistribution`: Weights hosts in accordance with their CPU usage, giving priority to hosts with lower CPU usage.
+
+* `HA`: Weights hosts in accordance with their high availability score.
+
+* `PreferredHosts`: Preferred hosts have priority during virtual machine setup.
+
+* `OptimalForMemoryPowerSaving`: Weights hosts in accordance with their memory usage, giving priority to hosts with lower available memory.
+
+* `OptimalForMemoryEvenDistribution`: Weights hosts in accordance with their memory usage, giving priority to hosts with higher available memory.
+
+
+|*Load Balancer* |This drop-down menu allows you to select a load balancing module to apply. Load balancing modules determine the logic used to migrate virtual machines from hosts experiencing high usage to hosts experiencing lower usage.
+|*Properties* |This drop-down menu allows you to add or remove properties for load balancing modules, and is only available when you have selected a load balancing module for the scheduling policy. No properties are defined by default, and the properties that are available are specific to the load balancing module that is selected. Use the *+* and *-* buttons to add or remove additional properties to or from the load balancing module.
+|===

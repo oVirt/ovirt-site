@@ -1,0 +1,52 @@
+[[Supported_VDSM_events]]
+=== Supported VDSM Events
+
+
+[[vdsm-hook-names]]
+
+.Supported VDSM Events
+[options="header"]
+|===
+|Name |Description
+|before_vm_start |Before virtual machine starts.
+|after_vm_start |After virtual machine starts.
+|before_vm_cont |Before virtual machine continues.
+|after_vm_cont |After virtual machine continues.
+|before_vm_pause |Before virtual machine pauses.
+|after_vm_pause |After virtual machine pauses.
+|before_vm_hibernate |Before virtual machine hibernates.
+|after_vm_hibernate |After virtual machine hibernates.
+|before_vm_dehibernate |Before virtual machine dehibernates.
+|after_vm_dehibernate |After virtual machine dehibernates.
+|before_vm_migrate_source |Before virtual machine migration, run on the source host from which the migration is occurring.
+|after_vm_migrate_source |After virtual machine migration, run on the source host from which the migration is occurring.
+|before_vm_migrate_destination |Before virtual machine migration, run on the destination host to which the migration is occurring.
+|after_vm_migrate_destination |After virtual machine migration, run on the destination host to which the migration is occurring.
+|after_vm_destroy |After virtual machine destruction.
+|before_vdsm_start |Before VDSM is started on the host. *before_vdsm_start* hooks are executed as the user root, and do not inherit the environment of the VDSM process.
+|after_vdsm_stop |After VDSM is stopped on the host. *after_vdsm_stop* hooks are executed as the user root, and do not inherit the environment of the VDSM process.
+|before_nic_hotplug |Before the NIC is hot plugged into the virtual machine.
+|after_nic_hotplug |After the NIC is hot plugged into the virtual machine.
+|before_nic_hotunplug |Before the NIC is hot unplugged from the virtual machine
+|after_nic_hotunplug |After the NIC is hot unplugged from the virtual machine.
+|after_nic_hotplug_fail |After hot plugging the NIC to the virtual machine fails.
+|after_nic_hotunplug_fail |After hot unplugging the NIC from the virtual machine fails.
+|before_disk_hotplug |Before the disk is hot plugged into the virtual machine.
+|after_disk_hotplug |After the disk is hot plugged into the virtual machine.
+|before_disk_hotunplug |Before the disk is hot unplugged from the virtual machine
+|after_disk_hotunplug |After the disk is hot unplugged from the virtual machine.
+|after_disk_hotplug_fail |After hot plugging the disk to the virtual machine fails.
+|after_disk_hotunplug_fail |After hot unplugging the disk from the virtual machine fails.
+|before_device_create |Before creating a device that supports custom properties.
+|after_device_create |After creating a device that supports custom properties.
+|before_update_device |Before updating a device that supports custom properties.
+|after_update_device |After updating a device that supports custom properties.
+|before_device_destroy |Before destroying a device that supports custom properties.
+|after_device_destroy |After destroying a device that supports custom properties.
+|before_device_migrate_destination |Before device migration, run on the destination host to which the migration is occurring.
+|after_device_migrate_destination |After device migration, run on the destination host to which the migration is occurring.
+|before_device_migrate_source |Before device migration, run on the source host from which the migration is occurring.
+|after_device_migrate_source |After device migration, run on the source host from which the migration is occurring.
+|after_network_setup |After setting up the network when starting a host machine.
+|before_network_setup |Before setting up the network when starting a host machine. 
+|===

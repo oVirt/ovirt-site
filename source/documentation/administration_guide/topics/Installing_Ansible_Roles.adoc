@@ -1,0 +1,17 @@
+[[Installing_Ansible_Roles]]
+==== Installing Ansible Roles
+
+You can install Ansible roles for {virt-product-fullname} from the {virt-product-fullname} {engine-name} repository. Use the following command to install the Ansible roles on the {engine-name} machine:
+
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-ansible-roles
+----
+
+By default the roles are installed to */usr/share/ansible/roles*. The structure of the `ovirt-ansible-roles` package is as follows:
+
+* */usr/share/ansible/roles* - stores the roles.
+
+* */usr/share/doc/ovirt-ansible-roles/* - stores the examples, a basic overview, and the licence.
+
+* */usr/share/doc/ansible/roles/_role_name_* - stores the documentation specific to the role.

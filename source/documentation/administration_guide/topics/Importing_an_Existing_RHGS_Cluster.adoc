@@ -1,0 +1,30 @@
+[[Importing_an_Existing_RHGS_Cluster]]
+==== Importing an Existing {gluster-storage-fullname} Cluster
+
+You can import a {gluster-storage-fullname} cluster and all hosts belonging to the cluster into {virt-product-fullname} {engine-name}.
+
+When you provide details such as the IP address or host name and password of any host in the cluster, the `gluster peer status` command is executed on that host through SSH, then displays a list of hosts that are a part of the cluster. You must manually verify the fingerprint of each host and provide passwords for them. You will not be able to import the cluster if one of the hosts in the cluster is down or unreachable. As the newly imported hosts do not have VDSM installed, the bootstrap script installs all the necessary VDSM packages on the hosts after they have been imported, and reboots them.
+
+
+*Importing an Existing {gluster-storage-fullname} Cluster to the {virt-product-fullname} {engine-name}*
+
+. Click menu:Compute[Clusters].
+. Click *New*.
+. Select the *Data Center* the cluster will belong to.
+. Enter the *Name* and *Description* of the cluster.
+. Select the *Enable Gluster Service* check box and the *Import existing gluster configuration* check box.
++
+The *Import existing gluster configuration* field is only displayed if the *Enable Gluster Service* is selected.
+. In the *Hostname* field, enter the host name or IP address of any server in the cluster.
++
+The host *SSH Fingerprint* displays to ensure you are connecting with the correct host. If a host is unreachable or if there is a network error, an error *Error in fetching fingerprint* displays in the *Fingerprint* field.
+. Enter the *Password* for the server, and click *OK*.
+. The *Add Hosts* window opens, and a list of hosts that are a part of the cluster displays.
+. For each host, enter the *Name* and the *Root Password*.
+. If you wish to use the same password for all hosts, select the *Use a Common Password* check box to enter the password in the provided text field.
++
+Click *Apply* to set the entered password all hosts.
++
+Verify that the fingerprints are valid and submit your changes by clicking *OK*.
+
+The bootstrap script installs all the necessary VDSM packages on the hosts after they have been imported, and reboots them. You have now successfully imported an existing {gluster-storage-fullname} cluster into {virt-product-fullname} {engine-name}.

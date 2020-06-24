@@ -1,0 +1,45 @@
+[[Adding_an_OpenStack_Block_Storage_Cinder_Instance_for_Storage_Management]]
+==== Adding an OpenStack Block Storage (Cinder) Instance for Storage Management
+ifdef::rhv-doc[]
+[IMPORTANT]
+====
+Using an OpenStack Block Storage (Cinder) instance for storage management is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend to use them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
+
+For more information on Red Hat Technology Preview features support scope, see link:https://access.redhat.com/support/offerings/techpreview/[].
+====
+endif::[]
+
+Add an OpenStack Block Storage (Cinder) instance for storage management to the {virt-product-fullname} {engine-name}. The OpenStack Cinder volumes are provisioned by Ceph Storage.
+
+*Adding an OpenStack Block Storage (Cinder) Instance for Storage Management*
+
+. Click menu:Administration[Providers].
+. Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[].
+. Enter a *Name* and *Description*.
+. Select *OpenStack Block Storage* from the *Type* drop-down list.
+. Select the *Data Center* to which OpenStack Block Storage volumes will be attached.
+. Enter the URL or fully qualified domain name of the machine on which the OpenStack Block Storage instance is installed, followed by the port number, in the *Provider URL* text field.
+
+. Optionally, select the *Requires Authentication* check box and enter the *Username* and *Password* for the OpenStack Block Storage instance user registered in Keystone.
+Define the authentication URL of the Keystone server by defining the *Protocol* (must be `HTTP`), *Hostname*, and *API Port*.
++
+Enter the *Tenant* for the OpenStack Block Storage instance.
+
+. Click *Test* to test whether you can authenticate successfully with the OpenStack Block Storage instance using the provided credentials.
+. Click *OK*.
+. If client Ceph authentication (`cephx`) is enabled, you must also complete the following steps. The `cephx` protocol is enabled by default.
+.. On your Ceph server, create a new secret key for the `client.cinder` user using the `ceph auth get-or-create` command. See link:https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/3/html-single/configuration_guide/#cephx_configuration_reference[Cephx Configuration Reference] for more information on `cephx`, and link:https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/3/html-single/administration_guide/#managing_users[Managing Users] for more information on creating keys for new users. If a key already exists for the `client.cinder` user, retrieve it using the same command.
+.. In the Administration Portal, select the newly created Cinder external provider from the *Providers* list.
+.. Click the *Authentication Keys* tab.
+.. Click *New*.
+.. Enter the secret key in the *Value* field.
+.. Copy the automatically generated *UUID*, or enter an existing UUID in the text field.
+.. On your Cinder server, add the UUID from the previous step and the `cinder` user to */etc/cinder/cinder.conf*:
++
+[options="nowrap" subs="normal"]
+----
+rbd_secret_uuid = _UUID_
+rbd_user = cinder
+----
+
+See xref:Creating_a_Virtual_Disk[] for more information about creating a OpenStack Block Storage (Cinder) disk.

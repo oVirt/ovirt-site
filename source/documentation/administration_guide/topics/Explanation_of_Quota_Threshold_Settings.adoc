@@ -1,0 +1,14 @@
+[[Explanation_of_Quota_Threshold_Settings]]
+=== Explanation of Quota Threshold Settings
+
+.Quota thresholds and grace
+[options="header"]
+|===
+|Setting |Definition
+|Cluster Threshold |The amount of cluster resources available per data center.
+|Cluster Grace |The amount of the cluster available for the data center after exhausting the data center's Cluster Threshold.
+|Storage Threshold |The amount of storage resources available per data center.
+|Storage Grace |The amount of storage available for the data center after exhausting the data center's Storage Threshold.
+|===
+
+If a quota is set to 100 GB with 20% Grace, then consumers are blocked from using storage after they use 120 GB of storage. If the same quota has a Threshold set at 70%, then consumers receive a warning when they exceed 70 GB of storage consumption (but they remain able to consume storage until they reach 120 GB of storage consumption.) Both "Threshold" and "Grace" are set relative to the quota. "Threshold" may be thought of as the "soft limit", and exceeding it generates a warning. "Grace" may be thought of as the "hard limit", and exceeding it makes it impossible to consume any more storage resources.

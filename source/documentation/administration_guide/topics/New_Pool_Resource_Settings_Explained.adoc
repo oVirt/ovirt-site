@@ -1,0 +1,12 @@
+[[New_Pool_Resource_Settings_Explained]]
+==== New Pool and Edit Pool Resource Allocation Settings Explained
+
+The following table details the information required on the *Resource Allocation* tab of the *New Pool* and *Edit Pool* windows that are specific to virtual machine pools. All other settings are identical to those in the *New Virtual Machine* window. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Virtual_Machine_Resource_Allocation_settings_explained[Virtual Machine Resource Allocation Settings Explained] in the _Virtual Machine Management Guide_ for more information.
+
+.*Resource Allocation* settings
+[options="header"]
+|===
+|Field Name |Sub-element |Description
+|*Disk Allocation* |*Auto select target* |Select this check box to automatically select the storage domain that has the most free space. The *Target* and *Disk Profile* fields are disabled.
+| |*Format* |This field is read-only and always displays *QCOW2* unless the storage domain type is OpenStack Volume (Cinder), in which case the format is *Raw*.
+|===

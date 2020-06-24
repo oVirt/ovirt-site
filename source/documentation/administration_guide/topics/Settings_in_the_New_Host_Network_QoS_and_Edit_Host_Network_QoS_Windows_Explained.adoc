@@ -1,0 +1,29 @@
+[[Settings_in_the_New_Host_Network_QoS_and_Edit_Host_Network_QoS_Windows_Explained]]
+==== Settings in the New Host Network Quality of Service and Edit Host Network Quality of Service Windows Explained
+
+Host network quality of service settings allow you to configure bandwidth limits for outbound traffic.
+[[Host_Network_QoS_Settings]]
+
+.Host Network QoS Settings
+[options="header"]
+|===
+|Field Name |Description
+|*Data Center* |The data center to which the host network QoS policy is to be added. This field is configured automatically according to the selected data center.
+|*QoS Name* |A name to represent the host network QoS policy within the {engine-name}.
+|*Description* |A description of the host network QoS policy.
+|*Outbound* a|The settings to be applied to outbound traffic.
+
+* *Weighted Share*: Signifies how much of the logical link's capacity a specific network should be allocated, relative to the other networks attached to the same logical link. The exact share depends on the sum of shares of all networks on that link. By default this is a number in the range 1-100.
+
+* *Rate Limit [Mbps]*: The maximum bandwidth to be used by a network.
+
+* *Committed Rate [Mbps]*: The minimum bandwidth required by a network. The Committed Rate requested is not guaranteed and will vary depending on the network infrastructure and the Committed Rate requested by other networks on the same logical link.
+
+|===
+
+To change the maximum value allowed by the *Rate Limit [Mbps]* or *Committed Rate [Mbps]* fields, use the `engine-config` command to change the value of the `MaxAverageNetworkQoSValue` configuration key. You must restart the *ovirt-engine* service for the change to take effect. For example:
+	
+----
+# engine-config -s MaxAverageNetworkQoSValue=2048
+# systemctl restart ovirt-engine
+----

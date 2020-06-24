@@ -1,0 +1,8 @@
+==== Setting User Timeout
+
+You can set the user timeout period: 
+
+[options="nowrap" subs="normal"]
+----
+# engine-config --set UserSessionTimeOutInterval=_integer_
+----

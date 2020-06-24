@@ -1,0 +1,19 @@
+[[Creating_MAC_Address_Pools]]
+==== Creating MAC Address Pools
+
+You can create new MAC address pools.
+
+*Creating a MAC Address Pool*
+
+. Click menu:Administration[Configure].
+. Click the *MAC Address Pools* tab.
+. Click *Add*.
+. Enter the *Name* and *Description* of the new MAC address pool.
+. Select the *Allow Duplicates* check box to allow a MAC address to be used multiple times in a pool. The MAC address pool will not automatically use a duplicate MAC address, but enabling the duplicates option means a user can manually use a duplicate MAC address.
++
+[NOTE]
+====
+If one MAC address pool has duplicates disabled, and another has duplicates enabled, each MAC address can be used once in the pool with duplicates disabled but can be used multiple times in the pool with duplicates enabled.
+====
+. Enter the required *MAC Address Ranges*. To enter multiple ranges click the plus button next to the *From* and *To* fields.
+. Click *OK*.

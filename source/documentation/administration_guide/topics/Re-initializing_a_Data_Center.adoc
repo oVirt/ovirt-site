@@ -1,0 +1,18 @@
+[[Re-initializing_a_Data_Center]]
+==== Re-Initializing a Data Center: Recovery Procedure
+
+This recovery procedure replaces the master data domain of your data center with a new master data domain. You must re-initialize your master data domain if its data is corrupted. Re-initializing a data center allows you to restore all other resources associated with the data center, including clusters, hosts, and non-problematic storage domains.
+
+You can import any backup or exported virtual machines or templates into your new master data domain.
+
+
+*Re-Initializing a Data Center*
+
+. Click menu:Compute[Data Centers] and select the data center.
+. Ensure that any storage domains attached to the data center are in maintenance mode.
+. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Re-Initialize Data Center*.
+. The *Data Center Re-Initialize* window lists all available (detached; in maintenance mode) storage domains. Click the radio button for the storage domain you are adding to the data center.
+. Select the *Approve operation* check box.
+. Click *OK*.
+
+The storage domain is attached to the data center as the master data domain and activated. You can now import any backup or exported virtual machines or templates into your new master data domain.

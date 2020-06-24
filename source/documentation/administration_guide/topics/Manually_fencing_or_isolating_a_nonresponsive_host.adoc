@@ -1,0 +1,23 @@
+[[Manually_fencing_or_isolating_a_nonresponsive_host]]
+==== Manually Fencing or Isolating a Non-Responsive Host
+
+If a host unpredictably goes into a non-responsive state, for example, due to a hardware failure, it can significantly affect the performance of the environment. If you do not have a power management device, or if it is incorrectly configured, you can reboot the host manually.
+
+[WARNING]
+====
+Do not use the *Confirm host has been rebooted* option unless you have manually rebooted the host. Using this option while the host is still running can lead to a virtual machine image corruption.
+====
+
+
+*Manually fencing or isolating a non-responsive host*
+
+. In the Administration Portal, click menu:Compute[Hosts] and confirm the host's status is `Non Responsive`.
+. Manually reboot the host. This could mean physically entering the lab and rebooting the host.
+. In the Administration Portal, select the host and click *More Actions* (image:../common/images/moreactions.png[]), then click *Confirm 'Host has been Rebooted'*.
+. Select the *Approve Operation* check box and click *OK*.
+. If your hosts take an unusually long time to boot, you can set `ServerRebootTimeout` to specify how many seconds to wait before determining that the host is `Non Responsive`:
++
+[options="nowrap" subs="normal"]
+----
+# engine-config --set ServerRebootTimeout=_integer_
+----

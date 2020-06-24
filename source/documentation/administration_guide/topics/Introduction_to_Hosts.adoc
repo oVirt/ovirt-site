@@ -1,0 +1,36 @@
+[[Introduction_to_Hosts]]
+=== Introduction to Hosts
+
+Hosts, also known as hypervisors, are the physical servers on which virtual machines run. Full virtualization is provided by using a loadable Linux kernel module called Kernel-based Virtual Machine (KVM).
+
+KVM can concurrently host multiple virtual machines running either Windows or Linux operating systems. Virtual machines run as individual Linux processes and threads on the host machine and are managed remotely by the {virt-product-fullname} {engine-name}. A {virt-product-fullname} environment has one or more hosts attached to it.
+
+{virt-product-fullname} supports two methods of installing hosts. You can use the {hypervisor-fullname} ({hypervisor-shortname}) installation media, or install hypervisor packages on a standard {enterprise-linux} installation.
+
+[NOTE]
+====
+You can identify the host type of an individual host in the {virt-product-fullname} {engine-name} by selecting the host's name to open the details view, and checking the *OS Description* under *Software*.
+====
+
+Hosts use `tuned` profiles, which provide virtualization optimizations. For more information on `tuned`, see the link:{URL_rhel_docs_legacy}html/Performance_Tuning_Guide/sect-Red_Hat_Enterprise_Linux-Performance_Tuning_Guide-Performance_Monitoring_Tools-tuned_and_tuned_adm.html[_{enterprise-linux} 7 Performance Tuning Guide_].
+
+The {hypervisor-fullname} has security features enabled. Security Enhanced Linux (SELinux) and the firewall are fully configured and on by default. The status of SELinux on a selected host is reported under *SELinux mode* in the *General* tab of the details view. The {engine-name} can open required ports on {enterprise-linux-host-fullname}s when it adds them to the environment.
+
+A host is a physical 64-bit server with the Intel VT or AMD-V extensions running {enterprise-linux} 7 AMD64/Intel 64 version.
+
+A physical host on the {virt-product-fullname} platform:
+
+
+* Must belong to only one cluster in the system.
+
+* Must have CPUs that support the AMD-V or Intel VT hardware virtualization extensions.
+
+* Must have CPUs that support all functionality exposed by the virtual CPU type selected upon cluster creation.
+
+* Has a minimum of 2 GB RAM.
+
+* Can have an assigned system administrator with system permissions.
+
+Administrators can receive the latest security advisories from the {virt-product-fullname} watch list. Subscribe to the {virt-product-fullname} watch list to receive new security advisories for {virt-product-fullname} products by email. Subscribe by completing this form:
+
+link:https://www.redhat.com/mailman/listinfo/rhsa-announce[https://www.redhat.com/mailman/listinfo/rhsa-announce]

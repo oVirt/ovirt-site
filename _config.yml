@@ -134,6 +134,10 @@ exclude:
   - documentation/common/**/*.adoc
   - documentation/upgrade_guide/topics
   - documentation/upgrade_guide/assembly*
+  - documentation/administration_guide/topics
+  - documentation/administration_guide/appe*
+  - documentation/administration_guide/chap*
+  - documentation/administration_guide/part*
 
 sass:
   add_charset: true

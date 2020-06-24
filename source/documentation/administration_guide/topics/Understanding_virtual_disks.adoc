@@ -1,0 +1,39 @@
+[[Understanding_virtual_disks]]
+=== Understanding Virtual Disks
+
+{virt-product-fullname} features *Preallocated* (thick provisioned) and *Sparse* (thin provisioned) storage options.
+
+* Preallocated
++
+A preallocated virtual disk allocates all the storage required for a virtual machine up front. For example, a 20 GB preallocated logical volume created for the data partition of a virtual machine will take up 20 GB of storage space immediately upon creation.
+
+* Sparse
++
+A sparse allocation allows an administrator to define the total storage to be assigned to the virtual machine, but the storage is only allocated when required.
++
+For example, a 20 GB thin provisioned logical volume would take up 0 GB of storage space when first created. When the operating system is installed it may take up the size of the installed file, and would continue to grow as data is added up to a maximum of 20 GB size.
+
+You can view a virtual disk's *ID* in menu:Storage[Disks]. The *ID* is used to identify a virtual disk because its device name (for example, */dev/vda0*) can change, causing disk corruption. You can also view a virtual disk's ID in */dev/disk/by-id*.
+
+You can view the *Virtual Size* of a disk in menu:Storage[Disks] and in the *Disks* tab of the details view for storage domains, virtual machines, and templates. The *Virtual Size* is the total amount of disk space that the virtual machine can use. It is the number that you enter in the *Size(GB)* field when you create or edit a virtual disk.
+
+You can view the *Actual Size* of a disk in the *Disks* tab of the details view for storage domains and templates. This is the amount of disk space that has been allocated to the virtual machine so far. Preallocated disks show the same value for *Virtual Size* and *Actual Size*. Sparse disks may show different values, depending on how much disk space has been allocated.
+
+[NOTE]
+====
+When creating a Cinder virtual disk, the format and type of the disk are handled internally by Cinder and are not managed by {virt-product-fullname}.
+====
+The possible combinations of storage types and formats are described in the following table.
+
+[[vdisk-combos]]
+
+.Permitted Storage Combinations
+[options="header"]
+|===
+|Storage |Format |Type |Note
+|NFS |Raw |Preallocated |A file with an initial size that equals the amount of storage defined for the virtual disk, and has no formatting.
+|NFS |Raw |Sparse |A file with an initial size that is close to zero, and has no formatting.
+|NFS |QCOW2 |Sparse |A file with an initial size that is close to zero, and has QCOW2 formatting. Subsequent layers will be QCOW2 formatted.
+|SAN |Raw |Preallocated |A block device with an initial size that equals the amount of storage defined for the virtual disk, and has no formatting.
+|SAN |QCOW2 |Sparse |A block device with an initial size that is much smaller than the size defined for the virtual disk (currently 1 GB), and has QCOW2 formatting for which space is allocated as needed (currently in 1 GB increments).
+|===

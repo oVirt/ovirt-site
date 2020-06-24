@@ -1,0 +1,8 @@
+[[Configuring_Subnets_on_External_Provider_Logical_Networks]]
+==== Configuring Subnets on External Provider Logical Networks
+
+A logical network provided by an external provider can only assign IP addresses to virtual machines if one or more subnets have been defined on that logical network. If no subnets are defined, virtual machines will not be assigned IP addresses. If there is one subnet, virtual machines will be assigned an IP address from that subnet, and if there are multiple subnets, virtual machines will be assigned an IP address from any of the available subnets. The DHCP service provided by the external network provider on which the logical network is hosted is responsible for assigning these IP addresses.
+
+While the {virt-product-fullname} {engine-name} automatically discovers predefined subnets on imported logical networks, you can also add or remove subnets to or from logical networks from within the {engine-name}.
+
+If you add Open Virtual Network (OVN) (ovirt-provider-ovn) as an external network provider, multiple subnets can be connected to each other by routers. To manage these routers, you can use the link:https://developer.openstack.org/api-ref/network/v2/?expanded=list-routers-detail,create-router-detail#routers-routers[OpenStack Networking API v2.0]. Please note, however, that ovirt-provider-ovn has a limitation: Source NAT (enable_snat in the OpenStack API) is not implemented.

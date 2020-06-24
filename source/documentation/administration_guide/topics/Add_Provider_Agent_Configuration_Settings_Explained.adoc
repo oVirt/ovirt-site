@@ -1,0 +1,16 @@
+[[Add_Provider_Agent_Configuration_Settings_Explained]]
+==== Add Provider Agent Configuration Settings Explained
+
+The *Agent Configuration* tab in the *Add Provider* window allows users to register details for networking plugins. This tab is only available for the *OpenStack Networking* provider type.
+
+.Add Provider: Agent Configuration Settings
+[options="header"]
+|===
+|Setting |Explanation
+|*Interface Mappings* |A comma-separated list of mappings in the format of _label_:__interface__.
+|*Broker Type* |The message broker type that the OpenStack Networking instance uses. Select *RabbitMQ* or *Qpid*.
+|*Host* |The URL or fully qualified domain name of the machine on which the message broker is installed.
+|*Port* |The remote port by which a connection with the above host is to be made. By default, this port is 5762 if SSL is not enabled on the host, and 5761 if SSL is enabled.
+|*Username* |A user name for authenticating the OpenStack Networking instance with the above message broker. By default, this user name is `neutron`.
+|*Password* |The password against which the above user name is to be authenticated.
+|===

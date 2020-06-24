@@ -1,0 +1,12 @@
+[[Destroying_a_storage_domain]]
+==== Destroying a Storage Domain
+
+A storage domain encountering errors may not be able to be removed through the normal procedure. Destroying a storage domain forcibly removes the storage domain from the virtualized environment.
+
+
+*Destroying a Storage Domain*
+
+. Click menu:Storage[Domains].
+. Select the storage domain and click *More Actions* (image:../common/images/moreactions.png[]), then click *Destroy*.
+. Select the *Approve operation* check box.
+. Click *OK*.

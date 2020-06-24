@@ -1,0 +1,39 @@
+[[chap-Data_Centers]]
+= Data Centers
+
+include::topics/Data_Centers.adoc[]
+
+include::topics/The_Storage_Pool_ManagerSPM.adoc[]
+
+include::topics/SPM_Priority.adoc[]
+
+[[sect-Data_Center_Tasks]]
+== Data Center Tasks
+
+include::topics/Creating_a_New_Data_Center.adoc[]
+
+include::topics/Explanation_of_Settings_in_the_New_Data_Center_and_Edit_Data_Center_Windows.adoc[]
+
+include::topics/Re-initializing_a_Data_Center.adoc[]
+
+include::topics/Removing_a_Data_Center.adoc[]
+
+include::topics/Force_Removing_a_Data_Center.adoc[]
+
+include::topics/Changing_the_Data_Center_Storage_Type.adoc[]
+
+:context: admin
+:admin:
+include::../common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+2]
+
+[[sect-Data_Centers_and_Storage_Domains]]
+== Data Centers and Storage Domains
+
+include::topics/Attaching_a_data_domain.adoc[]
+
+include::topics/Attaching_an_iso_domain.adoc[]
+
+include::topics/Attaching_an_export_domain.adoc[]
+
+include::topics/Detaching_storage_domains_from_a_data_center.adoc[]
+

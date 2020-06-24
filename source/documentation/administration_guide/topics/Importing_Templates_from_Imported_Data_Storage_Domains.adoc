@@ -1,0 +1,22 @@
+[[Importing_Templates_from_Imported_Data_Storage_Domains]]
+==== Importing Templates from Imported Data Storage Domains
+
+Import a template from a data storage domain you have imported into your {virt-product-fullname} environment. This procedure assumes that the imported data storage domain has been attached to a data center and has been activated.
+
+
+.Procedure
+
+. Click menu:Storage[Domains].
+. Click the imported storage domain's name to open the details view.
+. Click the *Template Import* tab.
+. Select one or more templates to import.
+. Click *Import*.
+. For each template in the *Import Templates(s)* window, ensure the correct target cluster is selected in the *Cluster* list.
+. Map external virtual machine vNIC profiles to profiles that are present on the target cluster(s):
+.. Click *vNic Profiles Mapping*.
+.. Select the vNIC profile to use from the *Target vNic Profile* drop-down list.
+.. If multiple target clusters are selected in the *Import Templates* window, select each target cluster in the *Target Cluster* drop-down list and ensure the mappings are correct.
+.. Click *OK*.
+. Click *OK*.
+
+The imported templates no longer appear in the list under the *Template Import* tab.

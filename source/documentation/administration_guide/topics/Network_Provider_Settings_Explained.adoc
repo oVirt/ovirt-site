@@ -1,0 +1,11 @@
+[[Network_Provider_Settings_Explained]]
+==== Network Provider Settings Explained
+
+The *Network Provider* settings table details the information required on the *Network Provider* tab of the *New Host* or *Edit Host* window.
+
+.*Network Provider* settings
+[options="header"]
+|===
+|Field Name |Description
+|*External Network Provider* |If you have added an external network provider and want the host's network to be provisioned by the external network provider, select one from the list.
+|===

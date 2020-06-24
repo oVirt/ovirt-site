@@ -1,0 +1,17 @@
+[[Data_center_permissions_entities]]
+==== Data Center Administrator Roles Explained
+
+
+*Data Center Permission Roles*
+
+The table below describes the administrator roles and privileges applicable to data center administration.
+
+[[Data_Center_Administrator_Roles]]
+
+.{virt-product-fullname} System Administrator Roles
+[options="header"]
+|===
+|Role |Privileges |Notes
+|DataCenterAdmin |Data Center Administrator |Can use, create, delete, manage all physical and virtual resources within a specific data center except for storage, including clusters, hosts, templates and virtual machines.
+|NetworkAdmin |Network Administrator |Can configure and manage the network of a particular data center. A network administrator of a data center inherits network permissions for virtual machines within the data center as well.
+|===

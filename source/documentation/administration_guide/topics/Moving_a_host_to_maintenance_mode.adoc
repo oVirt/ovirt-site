@@ -1,0 +1,42 @@
+[[Moving_a_host_to_maintenance_mode]]
+==== Moving a Host to Maintenance Mode
+
+Many common maintenance tasks, including network configuration and deployment of software updates, require that hosts be placed into maintenance mode. Hosts should be placed into maintenance mode before any event that might cause VDSM to stop working properly, such as a reboot, or issues with networking or storage.
+
+When a host is placed into maintenance mode the {virt-product-fullname} {engine-name} attempts to migrate all running virtual machines to alternative hosts. The standard prerequisites for live migration apply, in particular there must be at least one active host in the cluster with capacity to run the migrated virtual machines.
+
+[NOTE]
+====
+Virtual machines that are pinned to the host and cannot be migrated are shut down. You can check which virtual machines are pinned to the host by clicking btn:[Pinned to Host] in the *Virtual Machines* tab of the host's details view.
+====
+
+*Placing a Host into Maintenance Mode*
+
+. Click menu:Compute[Hosts] and select the desired host.
+. Click menu:Management[Maintenance] to open the *Maintenance Host(s)* confirmation window.
+. Optionally, enter a *Reason* for moving the host into maintenance mode, which will appear in the logs and when the host is activated again.
++
+[NOTE]
+====
+The host maintenance *Reason* field will only appear if it has been enabled in the cluster settings. See xref:Cluster_General_Settings_Explained[] for more information.
+====
++
+. Optionally, select the required options for hosts that support Gluster.
++
+Select the *Ignore Gluster Quorum and Self-Heal Validations* option to avoid the default checks. By default, the {engine-name} checks that the Gluster quorum is not lost when the host is moved to maintenance mode. The {engine-name} also checks that there is no self-heal activity that will be affected by moving the host to maintenance mode. If the Gluster quorum will be lost or if there is self-heal activity that will be affected, the {engine-name} prevents the host from being placed into maintenance mode. Only use this option if there is no other way to place the host in maintenance mode.
++
+Select the *Stop Gluster Service* option to stop all Gluster services while moving the host to maintenance mode.
++
+[NOTE]
+====
+These fields will only appear in the host maintenance window when the selected host supports Gluster. See link:https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure/1.0/html-single/maintaining_red_hat_hyperconverged_infrastructure/#maintenance_tasks[Replacing the Primary Gluster Storage Node] in _Maintaining Red Hat Hyperconverged Infrastructure_ for more information.
+====
++
+. Click *OK* to initiate maintenance mode.
+
+All running virtual machines are migrated to alternative hosts. If the host is the Storage Pool Manager (SPM), the SPM role is migrated to another host. The *Status* field of the host changes to `Preparing for Maintenance`, and finally `Maintenance` when the operation completes successfully. VDSM does not stop while the host is in maintenance mode.
+
+[NOTE]
+====
+If migration fails on any virtual machine, click menu:Management[Activate] on the host to stop the operation placing it into maintenance mode, then click *Cancel Migration* on the virtual machine to stop the migration.
+====

@@ -1,0 +1,86 @@
+// This assembly is included in the following assemblies:
+//
+// Administration Guide
+
+ifdef::context[:parent-context: {context}]
+
+[id='setting-up-and-configuring-sr-iov']
+
+:context: assembly-setting-up-and-configuring-sr-iov
+
+= Setting Up and Configuring SR-IOV
+
+This topic summarizes the steps for setting up and configuring SR-IOV, with links out to topics that cover each step in detail.
+
+== Prerequisites
+
+Set up your hardware in accordance with the link:{URL_downstream_virt_product_docs}html/hardware_considerations_for_implementing_sr-iov/index[Hardware Considerations for Implementing SR-IOV]
+
+== Set Up and Configure SR-IOV
+
+To set up and configure SR-IOV, complete the following tasks.
+
+. link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/
+. link:{URL_virt_product_docs}administration_guide/#Editing_VFs_on_NIC[Editing the virtual function configuration on a NIC].
+
+. link:{URL_virt_product_docs}administration_guide/#Enabling_Passthrough_on_a_vNIC_Profile[Enabling passthrough on a vNIC Profile].
+
+. link:{URL_downstream_virt_product_docs}html/virtual_machine_management_guide/sect-migrating_virtual_machines_between_hosts#Configuring_virtual_vachines_with_SR-IOV-Enabled_vNICs[Configuring Virtual Machines with SR-IOV-Enabled vNICs to Reduce Network Outage during Migration].
+
+.Notes
+
+- The number of the 'passthrough' vNICs depends on the number of available virtual functions (VFs) on the host. For example, to run a virtual machine (VM) with three SR-IOV cards (vNICs), the host must have three or more VFs enabled.
+- Hotplug and unplug are supported.
+- Live migration is supported.
+- To migrate a VM, the destination host must also have enough available VFs to receive the VM. During the migration, the VM releases a number of VFs on the source host and occupies the same number of VFs on the destination host.
+- On the host, you will see a device, link, or ifcae like any other interface. That device disappears when it is attached to a VM, and reappears when it is released.
+- Avoid attaching a host device directly to a VM for SR-IOV feature.
+- To use a VF as a trunk port with several VLANs and configure the VLANs within the Guest, please see link:https://access.redhat.com/solutions/3951231[Cannot configure VLAN on SR-IOV VF interfaces inside the Virtual Machine].
+
+
+Here is an example of what the libvirt XML for the interface would look like:
+[source, xml]
+  ----
+  <interface type='hostdev'>
+     <mac address='00:1a:yy:xx:vv:xx'/>
+     <driver name='vfio'/>
+     <source>
+       <address type='pci' domain='0x0000' bus='0x05' slot='0x10' function='0x0'/>
+     </source>
+     <alias name='ua-18400536-5688-4477-8471-be720e9efc68'/>
+     <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x0'/>
+   </interface>
+   ----
+
+
+
+.Troubleshooting
+
+The following example shows you how to get diagnostic information about the VFs attached to an interface.
+
+....
+# ip -s link show dev enp5s0f0
+
+1: enp5s0f0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9000 qdisc mq state UP mode DEFAULT qlen 1000
+    link/ether 86:e2:ba:c2:50:f0 brd ff:ff:ff:ff:ff:ff
+    RX: bytes  packets  errors  dropped overrun mcast
+    30931671   218401   0       0       0       19165434
+    TX: bytes  packets  errors  dropped carrier collsns
+    997136     13661    0       0       0       0
+    vf 0 MAC 02:00:00:00:00:01, spoof checking on, link-state auto, trust off, query_rss off
+    vf 1 MAC 00:1a:4b:16:01:5e, spoof checking on, link-state auto, trust off, query_rss off
+    vf 2 MAC 02:00:00:00:00:01, spoof checking on, link-state auto, trust off, query_rss off
+....
+
+// include::conc-What-are-SR-IOV-and-ARI.adoc[leveloffset=+1]
+
+== Additional Resources
+
+* link:https://access.redhat.com/solutions/3867761[How to configure SR-IOV passthrough for RHV VM?]
+* link:https://access.redhat.com/articles/3215851[How to configure bonding with SR-IOV VF(Virtual Function) in RHV]
+* link:https://access.redhat.com/articles/2335291[How to enable host device passthrough and SR-IOV to allow assigning dedicated virtual NICs to virtual machines in RHV]
+
+
+// Restore the context to what it was before this assembly.
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]

@@ -1,0 +1,19 @@
+[[Editing_MAC_Address_Pool_Permissions]]
+==== Editing MAC Address Pool Permissions
+
+After a MAC address pool has been created, you can edit its user permissions. The user permissions control which data centers can use the MAC address pool. See xref:sect-Roles[] for more information on adding new user permissions.
+
+*Editing MAC Address Pool Permissions*
+
+. Click menu:Administration[Configure].
+. Click the *MAC Address Pools* tab.
+. Select the required MAC address pool.
+. Edit the user permissions for the MAC address pool:
+* To add user permissions to a MAC address pool:
+.. Click *Add* in the user permissions pane at the bottom of the *Configure* window.
+.. Search for and select the required users.
+.. Select the required role from the *Role to Assign* drop-down list.
+.. Click *OK* to add the user permissions.
+* To remove user permissions from a MAC address pool:
+.. Select the user permission to be removed in the user permissions pane at the bottom of the *Configure* window.
+.. Click *Remove* to remove the user permissions.

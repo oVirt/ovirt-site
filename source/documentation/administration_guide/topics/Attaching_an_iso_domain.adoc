@@ -1,0 +1,19 @@
+[[Attaching_an_iso_domain]]
+==== Attaching an Existing ISO domain to a Data Center
+
+An ISO domain that is *Unattached* can be attached to a data center. The ISO domain must be of the same *Storage Type* as the data center.
+
+Only one ISO domain can be attached to a data center.
+
+
+*Attaching an Existing ISO Domain to a Data Center*
+
+. Click menu:Compute[Data Centers].
+. Click a data center's name to open the details view.
+. Click the *Storage* tab to list the storage domains already attached to the data center.
+. Click *Attach ISO*.
+. Click the radio button for the appropriate ISO domain.
+. Click *OK*.
+
+
+The ISO domain is attached to the data center and is automatically activated.

@@ -1,0 +1,17 @@
+[[Updating_a_host_between_minor_releases]]
+= Updating Hosts Between Minor Releases
+
+:context: admin
+:admin_minor_updates:
+
+You can update xref:Updating_all_hosts_in_a_cluster_admin[all hosts in a cluster], or update xref:Updating_Individual_Hosts_admin[individual hosts].
+
+include::../../common/upgrade/proc-Updating_all_hosts_in_a_cluster.adoc[leveloffset=+1]
+
+include::../../common/upgrade/proc-Updating_Individual_Hosts.adoc[leveloffset=+1]
+
+You should update the hosts from the Administration Portal. However, you can update the hosts using `yum update` instead:
+
+include::../../common/upgrade/proc-Manually_Updating_Hosts.adoc[leveloffset=+1]
+
+:admin_minor_updates!:

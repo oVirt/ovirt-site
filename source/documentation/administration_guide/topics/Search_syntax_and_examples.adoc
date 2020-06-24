@@ -1,0 +1,21 @@
+[[Search_syntax_and_examples]]
+=== Search Syntax and Examples
+
+The syntax of the search queries for {virt-product-fullname} resources is as follows:
+
+`result type: {criteria} [sortby sort_spec]`
+
+*Syntax Examples*
+
+The following examples describe how the search query is used and help you to understand how {virt-product-fullname} assists with building search queries.
+[[search_query_eg]]
+
+.Example Search Queries
+[options="header"]
+|===
+|Example |Result
+|Hosts: Vms.status = up page 2 |Displays page 2 of a list of all hosts running virtual machines that are up.
+|Vms: domain = qa.company.com |Displays a list of all virtual machines running on the specified domain.
+|Vms: users.name = Mary |Displays a list of all virtual machines belonging to users with the user name Mary.
+|Events: severity > normal sortby time |Displays the list of all Events whose severity is higher than Normal, sorted by time.
+|===

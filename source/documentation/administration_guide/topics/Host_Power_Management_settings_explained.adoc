@@ -1,0 +1,74 @@
+[[Host_Power_Management_settings_explained]]
+==== Host Power Management Settings Explained
+
+The *Power Management* settings table contains the information required on the *Power Management* tab of the *New Host* or *Edit Host* windows. You can configure power management if the host has a supported power management card.
+
+
+.*Power Management* Settings
+[options="header"]
+|===
+|Field Name |Description
+|*Enable Power Management* |Enables power management on the host. Select this check box to enable the rest of the fields in the *Power Management* tab.
+|*Kdump integration* |Prevents the host from fencing while performing a kernel crash dump, so that the crash dump is not interrupted. In {enterprise-linux} 7.1 and later, kdump is available by default. If kdump is available on the host, but its configuration is not valid (the kdump service cannot be started), enabling *Kdump integration* will cause the host (re)installation to fail. If this is the case, see xref:sect-fence_kdump_Advanced_Configuration[].
+|*Disable policy control of power management* |Power management is controlled by the *Scheduling Policy* of the host's *cluster*. If power management is enabled and the defined low utilization value is reached, the {engine-name} will power down the host machine, and restart it again when load balancing requires or there are not enough free hosts in the cluster. Select this check box to disable policy control.
+|*Agents by Sequential Order* a|Lists the host's fence agents. Fence agents can be sequential, concurrent, or a mix of both.
+
+* If fence agents are used sequentially, the primary agent is used first to stop or start a host, and if it fails, the secondary agent is used.
+
+* If fence agents are used concurrently, both fence agents have to respond to the Stop command for the host to be stopped; if one agent responds to the Start command, the host will go up.
+
+Fence agents are sequential by default. Use the up and down buttons to change the sequence in which the fence agents are used.
+
+To make two fence agents concurrent, select one fence agent from the *Concurrent with* drop-down list next to the other fence agent. Additional fence agents can be added to the group of concurrent fence agents by selecting the group from the *Concurrent with* drop-down list next to the additional fence agent.
+|*Add Fence Agent* |Click the *+* button to add a new fence agent. The *Edit fence agent* window opens. See the table below for more information on the fields in this window.
+|*Power Management Proxy Preference* |By default, specifies that the {engine-name} will search for a fencing proxy within the same *cluster* as the host, and if no fencing proxy is found, the {engine-name} will search in the same *dc* (data center). Use the up and down buttons to change the sequence in which these resources are used. This field is available under *Advanced Parameters*.
+|===
+
+
+The following table contains the information required in the *Edit fence agent* window.
+
+
+.*Edit fence agent* Settings
+[options="header"]
+|===
+|Field Name |Description
+|*Address* |The address to access your host's power management device. Either a resolvable hostname or an IP address.
+|*User Name* |User account with which to access the power management device. You can set up a user on the device, or use the default user.
+|*Password* |Password for the user accessing the power management device.
+|*Type* a|The type of power management device in your host. Choose one of the following:
+
+* *apc* - APC MasterSwitch network power switch. Not for use with APC 5.x power switch devices.
+
+* *apc_snmp* - Use with APC 5.x power switch devices.
+
+* *bladecenter* - IBM Bladecenter Remote Supervisor Adapter.
+
+* *cisco_ucs* - Cisco Unified Computing System.
+
+* *drac5* - Dell Remote Access Controller for Dell computers.
+
+* *drac7* - Dell Remote Access Controller for Dell computers.
+
+* *eps* - ePowerSwitch 8M+ network power switch.
+
+* *hpblade* - HP BladeSystem.
+
+* *ilo*, *ilo2*, *ilo3*, *ilo4* - HP Integrated Lights-Out.
+
+* *ipmilan* - Intelligent Platform Management Interface and Sun Integrated Lights Out Management devices.
+
+* *rsa* - IBM Remote Supervisor Adapter.
+
+* *rsb* - Fujitsu-Siemens RSB management interface.
+
+* *wti* - WTI Network Power Switch.
+
+For more information about power management devices, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/technical_reference/power_management[Power Management] in the _Technical Reference_.
+|*Port* |The port number used by the power management device to communicate with the host.
+|*Slot* |The number used to identify the blade of the power management device.
+|*Service Profile* |The service profile name used to identify the blade of the power management device. This field appears instead of *Slot* when the device type is `cisco_ucs`.
+|*Options* |Power management device specific options. Enter these as 'key=value'. See the documentation of your host's power management device for the options available.
+
+For {enterprise-linux} 7 hosts, if you are using cisco_ucs as the power management device, you also need to append `ssl_insecure=1` to the *Options* field.
+|*Secure* |Select this check box to allow the power management device to connect securely to the host. This can be done via ssh, ssl, or other authentication protocols depending on the power management agent.
+|===

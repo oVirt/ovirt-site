@@ -1,0 +1,17 @@
+[[Manager_Log_Files]]
+=== {virt-product-fullname} {engine-name} Log Files
+
+
+.Service Activity
+[options="header"]
+|===
+|Log File |Description
+|*/var/log/ovirt-engine/engine.log* |Reflects all {virt-product-fullname} {engine-name} GUI crashes, Active Directory lookups, Database issues, and other events.
+|*/var/log/ovirt-engine/host-deploy* |Log files from hosts deployed from the {virt-product-fullname} {engine-name}.
+|*/var/lib/ovirt-engine/setup-history.txt* |Tracks the installation and upgrade of packages associated with the {virt-product-fullname} {engine-name}.
+|*/var/log/httpd/ovirt-requests-log* |Logs files from requests made to the {virt-product-fullname} {engine-name} via HTTPS, including how long each request took.
+
+A `Correlation-Id` header is included to allow you to compare requests when comparing a log file with */var/log/ovirt-engine/engine.log*.
+|*/var/log/ovn-provider/ovirt-provider-ovn.log* |Logs the activities of the OVN provider.
+For information about Open vSwitch logs, see the link:http://openvswitch.org[Open vSwitch documentation].
+|===

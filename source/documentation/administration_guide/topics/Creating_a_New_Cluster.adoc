@@ -1,0 +1,40 @@
+[[Creating_a_New_Cluster]]
+==== Creating a New Cluster
+
+A data center can contain multiple clusters, and a cluster can contain multiple hosts. All hosts in a cluster must have the same CPU architecture. To optimize your CPU types, create your hosts before you create your cluster. After creating the cluster, you can configure the hosts using the *Guide Me* button.
+
+*Creating a New Cluster*
+
+. Click menu:Compute[Clusters].
+. Click *New*.
+. Select the *Data Center* the cluster will belong to from the drop-down list.
+. Enter the *Name* and *Description* of the cluster.
+. Select a network from the *Management Network* drop-down list to assign the management network role.
+. Select the *CPU Architecture*.
+. For *CPU Type*, select _the oldest CPU processor family_ among the hosts that will be part of this cluster. The CPU types are listed in order from the oldest to newest.
++
+[IMPORTANT]
+====
+A hosts whose CPU processor family is older than the one you specify with *CPU Type* cannot be part of this cluster.
+For details, see link:https://access.redhat.com/solutions/634853[].
+====
+. Select the *Compatibility Version* of the cluster from the drop-down list.
+. Select the *Switch Type* from the drop-down list.
+. Select the *Firewall Type* for hosts in the cluster, either *Firewalld* (default) or *iptables*.
++
+[NOTE]
+====
+*iptables* is only supported on {enterprise-linux} 7 hosts, in clusters with compatibility version 4.2 or 4.3. You can only add {enterprise-linux} 8 hosts to clusters with firewall type *firewalld*
+====
+. Select either the *Enable Virt Service* or *Enable Gluster Service* check box to define whether the cluster will be populated with virtual machine hosts or with Gluster-enabled nodes.
+. Optionally select the *Enable to set VM maintenance reason* check box to enable an optional reason field when a virtual machine is shut down from the {engine-name}, allowing the administrator to provide an explanation for the maintenance.
+. Optionally select the *Enable to set Host maintenance reason* check box to enable an optional reason field when a host is placed into maintenance mode from the {engine-name}, allowing the administrator to provide an explanation for the maintenance.
+. Optionally select the */dev/hwrng source* (external hardware device) check box to specify the random number generator device that all hosts in the cluster will use. The */dev/urandom source* (Linux-provided device) is enabled by default.
+. Click the *Optimization* tab to select the memory page sharing threshold for the cluster, and optionally enable CPU thread handling and memory ballooning on the hosts in the cluster.
+. Click the *Migration Policy* tab to define the virtual machine migration policy for the cluster.
+. Click the *Scheduling Policy* tab to optionally configure a scheduling policy, configure scheduler optimization settings, enable trusted service for hosts in the cluster, enable HA Reservation, and add a custom serial number policy.
+. Click the *Console* tab to optionally override the global SPICE proxy, if any, and specify the address of a SPICE proxy for hosts in the cluster.
+. Click the *Fencing policy* tab to enable or disable fencing in the cluster, and select fencing options.
+. Click the *MAC Address Pool* tab to specify a MAC address pool other than the default pool for the cluster. For more options on creating, editing, or removing MAC address pools, see xref:sect-MAC_Address_Pools[].
+. Click *OK* to create the cluster and open the *Cluster - Guide Me* window.
+. The *Guide Me* window lists the entities that need to be configured for the cluster. Configure these entities or postpone configuration by clicking the *Configure Later* button. Configuration can be resumed by selecting the cluster and clicking *More Actions* (image:../common/images/moreactions.png[]), then clicking *Guide Me*.

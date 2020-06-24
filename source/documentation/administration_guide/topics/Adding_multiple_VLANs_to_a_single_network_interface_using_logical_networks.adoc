@@ -1,0 +1,35 @@
+[[Adding_multiple_VLANs_to_a_single_network_interface_using_logical_networks]]
+==== Adding Multiple VLANs to a Single Network Interface Using Logical Networks
+
+Multiple VLANs can be added to a single network interface to separate traffic on the one host.
+
+[IMPORTANT]
+====
+You must have created more than one logical network, all with the *Enable VLAN tagging* check box selected in the *New Logical Network* or *Edit Logical Network* windows.
+====
+
+
+*Adding Multiple VLANs to a Network Interface using Logical Networks*
+
+. Click menu:Compute[Hosts].
+. Click the host's name to open the details view.
+. Click the *Network Interfaces* tab.
+. Click *Setup Host Networks*.
+. Drag your VLAN-tagged logical networks into the *Assigned Logical Networks* area next to the physical network interface. The physical network interface can have multiple logical networks assigned due to the VLAN tagging.
+. Edit the logical networks:
+.. Hover your cursor over an assigned logical network and click the pencil icon.
+.. If your logical network definition is not synchronized with the network configuration on the host, select the *Sync network* check box.
+.. Select a *Boot Protocol*:
+* *None*
+* *DHCP*
+* *Static*
+.. Provide the *IP* and *Subnet Mask*.
+.. Click *OK*.
+. Select the *Verify connectivity between Host and Engine* check box to run a network check; this will only work if the host is in maintenance mode.
+. Click *OK*.
+
+Add the logical network to each host in the cluster by editing a NIC on each host in the cluster. After this is done, the network will become operational.
+
+This process can be repeated multiple times, selecting and editing the same network interface each time on each host to add logical networks with different VLAN tags to a single network interface.
+
+:context: vlan

@@ -1,0 +1,28 @@
+[[Logical_Network_General_Settings_Explained]]
+==== Logical Network General Settings Explained
+
+The table below describes the settings for the *General* tab of the *New Logical Network* and *Edit Logical Network* window.
+
+
+.*New Logical Network* and *Edit Logical Network* Settings
+[options="header"]
+|===
+|Field Name |Description
+|*Name* |The name of the logical network. This text field must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores.
+
+Note that while the name of the logical network can be longer than 15 characters and can contain non-ASCII characters, the on-host identifier (_vdsm_name_) will differ from the name you defined. See xref:Vdsm_To_Network_Mapping_Tool[Mapping VDSM Names to Logical Network Names] for instructions on displaying a mapping of these names.
+|*Description* |The description of the logical network. This text field has a 40-character limit.
+|*Comment* |A field for adding plain text, human-readable comments regarding the logical network.
+|*Create on external provider* |Allows you to create the logical network to an OpenStack Networking instance that has been added to the {engine-name} as an external provider.
+
+*External Provider* - Allows you to select the external provider on which the logical network will be created.
+|*Enable VLAN tagging* |VLAN tagging is a security feature that gives all network traffic carried on the logical network a special characteristic. VLAN-tagged traffic cannot be read by interfaces that do not also have that characteristic. Use of VLANs on logical networks also allows a single network interface to be associated with multiple, differently VLAN-tagged logical networks. Enter a numeric value in the text entry field if VLAN tagging is enabled.
+|*VM Network* |Select this option if only virtual machines use this network. If the network is used for traffic that does not involve virtual machines, such as storage communications, do not select this check box.
+|*MTU* |Choose either *Default*, which sets the maximum transmission unit (MTU) to the value given in the parenthesis (), or *Custom* to set a custom MTU for the logical network. You can use this to match the MTU supported by your new logical network to the MTU supported by the hardware it interfaces with. Enter a numeric value in the text entry field if *Custom* is selected.
+|*Network Label* |Allows you to specify a new label for the network or select from existing labels already attached to host network interfaces. If you select an existing label, the logical network will be automatically assigned to all host network interfaces with that label.
+|*Security Groups* |Allows you to assign security groups to the ports on this logical network. 
+`Disabled` disables the security group feature. 
+`Enabled` enables the feature. When a port is created and attached to this network, it will be defined with port security enabled. This means that access to/from the virtual machines will be subject to the security groups currently being provisioned.
+ `Inherit from Configuration` enables the ports to inherit the behavior from the configuration file that is defined for all networks. By default, the file disables security groups.
+ See xref:Assigning_Security_Groups_to_Logical_Networks[] for details.
+|===

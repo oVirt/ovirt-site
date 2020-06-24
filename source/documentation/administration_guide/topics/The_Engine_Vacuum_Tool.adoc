@@ -1,0 +1,22 @@
+[[The_Engine_Vacuum_Tool]]
+==== The Engine Vacuum Tool
+
+The Engine Vacuum tool maintains PostgreSQL databases by updating tables and removing dead rows, allowing disk space to be reused. See the link:https://www.postgresql.org/docs/10/sql-vacuum.html[PostgreSQL documentation] for information about the `VACUUM` command and its parameters.
+
+The Engine Vacuum command is `engine-vacuum`. You must log in as the *root* user and provide the administration credentials for the {virt-product-fullname} environment.
+
+Alternatively, the Engine Vacuum tool can be run while using the `engine-setup` command to customize an existing installation:
+
+[options="nowrap" ]
+----
+$ engine-setup
+...
+[ INFO  ] Stage: Environment customization
+...
+Perform full vacuum on the engine database engine@localhost?
+This operation may take a while depending on this setup health and the
+configuration of the db vacuum process.
+See https://www.postgresql.org/docs/10/static/sql-vacuum.html
+(Yes, No) [No]:
+----
+The *Yes* option runs the Engine Vacuum tool in full vacuum verbose mode.

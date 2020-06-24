@@ -1,0 +1,27 @@
+[[Adding_a_Satellite_Host_Provider_Host]]
+==== Adding a Satellite Host Provider Host
+
+The process for adding a Satellite host provider host is almost identical to that of adding a {enterprise-linux-host-fullname} except for the method by which the host is identified in the {engine-name}. The following procedure outlines how to add a host provided by a Satellite host provider.
+
+*Adding a Satellite Host Provider Host*
+
+. Click menu:Compute[Hosts].
+. Click *New*.
+. Use the drop-down menu to select the *Host Cluster* for the new host.
+. Select the *Foreman/Satellite* check box to display the options for adding a Satellite host provider host and select the provider from which the host is to be added.
+. Select either *Discovered Hosts* or *Provisioned Hosts*.
+* *Discovered Hosts* (default option): Select the host, host group, and compute resources from the drop-down lists.
+* *Provisioned Hosts*: Select a host from the *Providers Hosts* drop-down list.
++
+Any details regarding the host that can be retrieved from the external provider are automatically set, and can be edited as desired.
+. Enter the *Name* and *SSH Port* (Provisioned Hosts only) of the new host.
+. Select an authentication method to use with the host.
+* Enter the root user's password to use password authentication.
+* Copy the key displayed in the *SSH PublicKey* field to */root/.ssh/authorized_hosts* on the host to use public key authentication (Provisioned Hosts only).
+. You have now completed the mandatory steps to add a {enterprise-linux-host-fullname}. Click the *Advanced Parameters* drop-down button to show the advanced host settings.
+.. Optionally disable automatic firewall configuration.
+.. Optionally add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
+. You can configure the *Power Management*, *SPM*, *Console*, and *Network Provider* using the applicable tabs now; however, as these are not fundamental to adding a {enterprise-linux-host-fullname}, they are not covered in this procedure.
+. Click *OK* to add the host and close the window.
+
+The new host displays in the list of hosts with a status of `Installing`, and you can view the progress of the installation in the details view. After installation is complete, the status will update to `Reboot`. The host must be activated for the status to change to `Up`.

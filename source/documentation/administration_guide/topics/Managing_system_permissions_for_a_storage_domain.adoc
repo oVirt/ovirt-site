@@ -1,0 +1,22 @@
+[[Cluster_hosts_entities]]
+==== Managing System Permissions for a Storage Domain
+
+As the *SuperUser*, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a *DataCenterAdmin* role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a *ClusterAdmin* has administrator privileges only for the assigned cluster.
+
+A storage administrator is a system administration role for a specific storage domain only. This is useful in data centers with multiple storage domains, where each storage domain requires a system administrator. Use the *Configure* button in the header bar to assign a storage administrator for all storage domains in the environment.
+
+The storage domain administrator role permits the following actions:
+
+* Edit the configuration of the storage domain.
+
+* Move the storage domain into maintenance mode.
+
+* Remove the storage domain.
+
+
+
+[NOTE]
+====
+You can only assign roles and permissions to existing users.
+====
+You can also change the system administrator of a storage domain by removing the existing system administrator and adding the new system administrator.

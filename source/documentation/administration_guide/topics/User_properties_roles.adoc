@@ -1,0 +1,9 @@
+[[User_properties_roles]]
+==== User and Administrator Roles
+
+{virt-product-fullname} provides a range of pre-configured roles, from an administrator with system-wide permissions to an end user with access to a single virtual machine. While you cannot change or remove the default roles, you can clone and customize them, or create new roles according to your requirements. There are two types of roles:
+
+
+* Administrator Role: Allows access to the *Administration Portal* for managing physical and virtual resources. An administrator role confers permissions for actions to be performed in the VM Portal; however, it has no bearing on what a user can see in the VM Portal.
+
+* User Role: Allows access to the *VM Portal* for managing and accessing virtual machines and templates. A user role determines what a user can see in the VM Portal. Permissions granted to a user with an administrator role are reflected in the actions available to that user in the VM Portal.

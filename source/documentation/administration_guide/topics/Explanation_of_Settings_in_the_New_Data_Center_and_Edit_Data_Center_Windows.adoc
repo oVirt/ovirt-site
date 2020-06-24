@@ -1,0 +1,30 @@
+[[Data_center_properties]]
+==== Explanation of Settings in the New Data Center and Edit Data Center Windows
+
+The table below describes the settings of a data center as displayed in the *New Data Center* and *Edit Data Center* windows. Invalid entries are outlined in orange when you click *OK*, prohibiting the changes being accepted. In addition, field prompts indicate the expected values or range of values.
+[[datacenters-Properties]]
+
+.Data Center Properties
+[options="header"]
+|===
+|Field |Description/Action
+|*Name* |The name of the data center. This text field has a 40-character limit and must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores.
+|*Description* |The description of the data center. This field is recommended but not mandatory.
+|*Storage Type* |Choose *Shared* or *Local* storage type.
+
+Different types of storage domains (iSCSI, NFS, FC, POSIX, and Gluster) can be added to the same data center. Local and shared domains, however, cannot be mixed.
+
+You can change the storage type after the data center is initialized. See xref:Changing_the_Data_Center_Storage_Type[].
+|*Compatibility Version* |The version of {virt-product-fullname}.
+
+After upgrading the {virt-product-fullname} {engine-name}, the hosts, clusters and data centers may still be in the earlier version. Ensure that you have upgraded all the hosts, then the clusters, before you upgrade the Compatibility Level of the data center.
+|*Quota Mode* a|Quota is a resource limitation tool provided with {virt-product-fullname}. Choose one of:
+
+* *Disabled*: Select if you do not want to implement Quota
+
+* *Audit*: Select if you want to edit the Quota settings
+
+* *Enforced*: Select to implement Quota
+|*Comment* |Optionally add a plain text comment about the data center.
+
+|===

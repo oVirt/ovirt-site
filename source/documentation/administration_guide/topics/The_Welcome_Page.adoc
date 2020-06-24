@@ -1,0 +1,20 @@
+[[The_Welcome_Page]]
+==== The Welcome Page
+
+The Welcome Page is the page that is initially displayed when you visit the homepage of the {engine-name}. In addition to customizing the overall look and feel, you can also make other changes such as adding links to the page for additional documentation or internal websites by editing a template file. The elements of the Welcome Page that can be customized are as follows:
+
+
+* The page title
+
+* The header (left, center and right)
+
+* The error message
+
+* The link to forward and the associated message for that link
+
+The classes for the Welcome Page are located in *welcome_style.css*.
+
+*The Template File*
+
+The template file for the Welcome Page is a regular HTML file of the name `welcome_page.template` that does not contain `HTML`, `HEAD` or `BODY` tags. This file is inserted directly into the Welcome Page itself, and acts as a container for the content that is displayed in the Welcome Page. As such, you must edit this file to add new links or change the content itself. Another feature of the template file is that it contains placeholder text such as `{user_portal}` that is replaced by corresponding text in the *messages.properties* file when the Welcome Page is processed.
+

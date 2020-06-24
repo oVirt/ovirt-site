@@ -1,0 +1,18 @@
+[id='Removing_a_Storage_Domain_{context}']
+= Removing a Storage Domain
+
+You have a storage domain in your data center that you want to remove from the virtualized environment.
+
+.Procedure
+
+. Click menu:Storage[Domains].
+. Move the storage domain to maintenance mode and detach it:
+.. Click the storage domain's name to open the details view.
+.. Click the *Data Center* tab.
+.. Click *Maintenance*, then click *OK*.
+.. Click *Detach*, then click *OK*.
+. Click *Remove*.
+. Optionally select the *Format Domain, i.e. Storage Content will be lost!* check box to erase the content of the domain.
+. Click *OK*.
+
+The storage domain is permanently removed from the environment.

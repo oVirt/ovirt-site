@@ -1,0 +1,26 @@
+[[Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning]]
+==== Adding a Red Hat Satellite Instance for Host Provisioning
+
+Add a Satellite instance for host provisioning to the {virt-product-fullname} {engine-name}. {virt-product-fullname} 4.2 is supported with Red Hat Satellite 6.1.
+
+
+*Adding a Satellite Instance for Host Provisioning*
+
+. Click menu:Administration[Providers].
+. Click *Add*.
+. Enter a *Name* and *Description*.
+. Select *Foreman/Satellite* from the *Type* drop-down list.
+. Enter the URL or fully qualified domain name of the machine on which the Satellite instance is installed in the *Provider URL* text field. You do not need to specify a port number.
++
+[IMPORTANT]
+====
+IP addresses cannot be used to add a Satellite instance.
+====
++
+. Select the *Requires Authentication* check box.
+. Enter the *Username* and *Password* for the Satellite instance. You must use the same user name and password as you would use to log in to the Satellite provisioning portal.
+. Test the credentials:
+.. Click *Test* to test whether you can authenticate successfully with the Satellite instance using the provided credentials.
+.. If the Satellite instance uses SSL, the *Import provider certificates* window opens; click *OK* to import the certificate that the Satellite instance provides to ensure the {engine-name} can communicate with the instance.
+. Click *OK*.
+

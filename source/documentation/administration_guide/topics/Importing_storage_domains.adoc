@@ -1,0 +1,42 @@
+[[Importing_storage_domains]]
+==== Importing storage domains
+
+Import a storage domain that was previously attached to a data center in the same environment or in a different environment. This procedure assumes the storage domain is no longer attached to any data center in any environment, to avoid data corruption. To import and attach an existing data storage domain to a data center, the target data center must be initialized.
+
+.Procedure
+
+. Click menu:Storage[Domains].
+. Click *Import Domain*.
+. Select the *Data Center* you want to import the storage domain to.
+. Enter a *Name* for the storage domain.
+. Select the *Domain Function* and *Storage Type* from the drop-down lists.
+. Select a host from the *Host* drop-down list.
++
+[IMPORTANT]
+====
+All communication to the storage domain is through the selected host and not directly from the {virt-product-fullname} {engine-name}. At least one active host must exist in the system and be attached to the chosen data center. All hosts must have access to the storage device before the storage domain can be configured.
+====
++
+. Enter the details of the storage domain.
++
+[NOTE]
+====
+The fields for specifying the details of the storage domain change depending on the values you select in the *Domain Function* and *Storage Type* lists. These fields are the same as those available for adding a new storage domain.
+====
++
+. Select the *Activate Domain in Data Center* check box to activate the storage domain after attaching it to the selected data center.
+. Click *OK*.
+
+You can now import virtual machines and templates from the storage domain to the data center.
+
+[WARNING]
+====
+Upon attaching a Storage Domain to the destination Data-Center,
+it may be upgraded to a newer Storage Domain format and may not re-attach to the source Data-Center.
+This breaks the use of a Data-Domain as a replacement for Export Domains.
+====
+
+.Related information
+
+* xref:Importing_Virtual_Machines_from_an_Imported_Data_Storage_Domain[]
+* xref:Importing_Templates_from_Imported_Data_Storage_Domains[]

@@ -1,0 +1,19 @@
+[NOTE]
+====
+This is one in a series of topics that show how to set up and configure SR-IOV on {virt-product-fullname}:
+
+. link:{URL_downstream_virt_product_docs}html/hardware_considerations_for_implementing_sr-iov/index[Hardware Considerations for Implementing SR-IOV] (this topic)
+
+. Configure the host for PCI passthrough (choose the appropriate installation guide for your environment):
+  * link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/  
+  * link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_command_line/configuring_a_host_for_pci_passthrough_she_cli_deploy[Installing {virt-product-fullname} as a Self-Hosted Engine Using the Command Line]
+  * link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_local_databases/configuring_a_host_for_pci_passthrough_sm_localdb_deploy[Installing {virt-product-fullname} as a Standalone Manager with Local Databases]
+  * link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_remote_databases/configuring_a_host_for_pci_passthrough_sm_remotedb_deploy[Installing {virt-product-fullname} as a Standalone Manager with Remote Databases]
+
+. link:{URL_virt_product_docs}administration_guide/#Editing_VFs_on_NIC[Edit the virtual function configuration on a NIC]
+
+. link:{URL_virt_product_docs}administration_guide/#Enabling_Passthrough_on_a_vNIC_Profile[Enable passthrough on a vNIC Profile]
+
+. link:{URL_downstream_virt_product_docs}html-single/virtual_machine_management_guide/#Live_migration_prerequisites[Make the VM with SR-IOV capable of being migrated]
+
+====

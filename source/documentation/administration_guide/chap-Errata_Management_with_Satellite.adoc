@@ -1,0 +1,40 @@
+[[chap-Errata_Management_with_Satellite]]
+= Setting up errata viewing with Red Hat Satellite
+
+In the Administration Portal, you can configure {virt-product-fullname} to view errata from Red Hat Satellite in the {virt-product-fullname} {engine-name}. After you associate your hosts, virtual machines, and the {engine-name} with a Red Hat Satellite provider, you can receive updates about available errata and their importance, and decide when to apply them. For more information about Red Hat Satellite see the link:{URL_satellite_docs}[Red Hat Satellite Documentation].
+
+{virt-product-fullname} 4.4 supports viewing errata with Red Hat Satellite 6.6.
+
+.Prerequisites
+
+* The Satellite server must be added as an external provider.
+* The {engine-name}, hosts, and virtual machines must all be registered in the Satellite server by their respective FQDNs. This ensures that external content host IDs do not need to be maintained in {virt-product-fullname}.
+* The Satellite account that manages the {engine-name}, hosts and virtual machines must have Administrator permissions and a default organization set.
+* The {engine-name} must be registered to the Satellite server as a content host and have the `katello-agent` package installed.
+
+.Configuring {virt-product-fullname} errata
+
+To associate the {engine-name}, host, and virtual machine with a Red Hat Satellite provider, complete the following tasks:
+
+. xref:Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning[Add the required Satellite server to the {engine-name} as an external provider].
+
+. xref:Configuring_Satellite_Errata_Management_for_a_Host[Configure the required hosts to display available errata].
+
+. link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Configure the required virtual machines to display available errata].
+
+.Viewing {virt-product-fullname} {engine-name} errata
+
+. Click menu:Administration[Errata].
+. Select the *Security*, *Bugs*, or *Enhancements* check boxes to view only those errata types.
+
+.Additional resources
+
+* xref:Configuring_Satellite_Errata_Management_for_a_Host[]
+//* xref:Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux[] for {enterprise-linux} virtual machines
+* link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Installing the Guest Agents, Tools, and Drivers on Linux] in the _Virtual Machine Management Guide_ for {enterprise-linux} virtual machines.
+//* xref:Installing_the_Guest_Agents_and_Drivers_on_Windows[] for Windows virtual machines
+* link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_ for Windows virtual machines.
+* link:{URL_satellite_docs}html/managing_hosts/registering_hosts[Registering a host and installing the `katello-agent` package] in the Red Hat Satellite document _Managing Hosts_.
+* xref:Viewing_Host_Errata[]
+* link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Configuring Satellite errata viewing for a virtual machine] in the _Virtual Machine Management Guide_ for more information.
+* link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Viewing Red Hat Satellite errata for a virtual machine] in the _Virtual Machine Management Guide_.

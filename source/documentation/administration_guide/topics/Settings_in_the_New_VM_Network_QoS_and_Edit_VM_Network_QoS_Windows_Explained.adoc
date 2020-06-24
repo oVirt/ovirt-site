@@ -1,0 +1,36 @@
+[[Settings_in_the_New_VM_Network_QoS_and_Edit_VM_Network_QoS_Windows_Explained]]
+==== Settings in the New Virtual Machine Network QoS and Edit Virtual Machine Network QoS Windows Explained
+
+Virtual machine network quality of service settings allow you to configure bandwidth limits for both inbound and outbound traffic on three distinct levels.
+[[Network_QoS_Settings]]
+
+.Virtual Machine Network QoS Settings
+[options="header"]
+|===
+|Field Name |Description
+|*Data Center* |The data center to which the virtual machine network QoS policy is to be added. This field is configured automatically according to the selected data center.
+|*Name* |A name to represent the virtual machine network QoS policy within the {engine-name}.
+|*Inbound* a|The settings to be applied to inbound traffic. Select or clear the *Inbound* check box to enable or disable these settings.
+
+* *Average*: The average speed of inbound traffic.
+
+* *Peak*: The speed of inbound traffic during peak times.
+
+* *Burst*: The speed of inbound traffic during bursts.
+
+|*Outbound* a|The settings to be applied to outbound traffic. Select or clear the *Outbound* check box to enable or disable these settings.
+
+* *Average*: The average speed of outbound traffic.
+
+* *Peak*: The speed of outbound traffic during peak times.
+
+* *Burst*: The speed of outbound traffic during bursts.
+
+|===
+
+To change the maximum value allowed by the *Average*, *Peak*, or *Burst* fields, use the `engine-config` command to change the value of the `MaxAverageNetworkQoSValue`, `MaxPeakNetworkQoSValue`, or `MaxBurstNetworkQoSValue` configuration keys. You must restart the *ovirt-engine* service for any changes to take effect. For example:
+	
+----
+# engine-config -s MaxAverageNetworkQoSValue=2048
+# systemctl restart ovirt-engine
+----

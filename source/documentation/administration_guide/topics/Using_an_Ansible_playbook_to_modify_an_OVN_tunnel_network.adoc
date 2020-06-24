@@ -1,0 +1,46 @@
+[[Using_an_Ansible_playbook_to_modify_an_OVN_tunnel_network]]
+===== Using an Ansible playbook to modify an OVN tunnel network
+
+You can use the `ovirt-provider-ovn-driver` Ansible playbook to use long names to modify the tunnel network for OVN controllers.
+
+*Ansible playbook to modify an OVN tunnel network*
+
+[options="nowrap" subs="normal"]
+----
+# ansible-playbook --key-file <path_to_key_file> -i <path_to_inventory> --extra-vars " cluster_name=<cluster_name> ovn_central=<ovn_central_ip_address> ovirt_network=<ovirt network name> ovn_tunneling_interface=<vdsm_network_name>" ovirt-provider-ovn-driver.yml
+----
+
+*Parameters*
+
+key-file:: The key file to log into the host. The default key file is usually found in the `/etc/pki/ovirt-engine/keys` directory.
+
+inventory:: The oVirt VM inventory. To locate the inventory value, use this script: `/usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory`.
+
+cluster_name:: The name of the cluster on which to update the name.
+
+ovn_central:: The IP address to the OVN central server. This IP address must be accessible to all hosts.
+
+ovirt_network:: The oVirt network name.
+
+ovn_tunneling_interface:: The VDSM network name.
+
+[NOTE]
+====
+The `ovirt-provider-ovn-driver` Ansible playbook supports using either the `ovirt_network` parameter or the `ovn_tunneling_interface` parameter. This playbook fails if both parameters are present in the same playbook.
+====
+
+*Playbook with `ovirt_network` parameter*
+
+[options="nowrap" subs="normal"]
+----
+# ansible-playbook --key-file /etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars " cluster_name=test-cluster ovn_central=192.168.200.2 ovirt_network=\"Long\ Network\ Name\ with\ \Ascii\ character\ \☺\"" ovirt-provider-ovn-driver.yml
+----
+
+*Playbook with `ovn_tunneling_interface` parameter*
+
+[options="nowrap" subs="normal"]
+----
+# ansible-playbook --key-file /etc/pki/ovirt-engine/keys/engine_id_rsa -i /usr/share/ovirt-engine-metrics/bin/ovirt-engine-hosts-ansible-inventory --extra-vars " cluster_name=test-cluster ovn_central=192.168.200.2 ovn_tunneling_interface=on703ea21ddbc34" ovirt-provider-ovn-driver.yml
+----
+
+On the {engine-name} machine, navigate to the `/usr/share/ovirt-engine/playbooks` directory to run the Ansible playbooks.

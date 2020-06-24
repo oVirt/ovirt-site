@@ -1,0 +1,179 @@
+[[Creating_a_VM_Pool]]
+=== Creating a Virtual Machine Pool
+
+You can create a virtual machine pool containing multiple virtual machines based on a common template. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#chap-Templates[Templates] in the _Virtual Machine Management Guide_ for information about sealing a virtual machine and creating a template.
+
+*`Sysprep` File Configuration Options for Windows Virtual Machines*
+
+Several `sysprep` file configuration options are available, depending on your requirements.
+
+If your pool does not need to join a domain, you can use the default `sysprep` file, located in `/usr/share/ovirt-engine/conf/sysprep/`.
+
+If your pool needs to join a domain, you can create a custom `sysprep` for each Windows operating system:
+
+. Copy the relevant sections for each operating system from `/usr/share/ovirt-engine/conf/osinfo-defaults.properties` to a new file and save as `99-defaults.properties`.
+. In `99-defaults.properties`, specify the Windows product activation key and the path of your new custom `sysprep` file:
++
+[options="nowrap" subs="quotes"]
+----
+os.__operating_system__.productKey.value=__Windows_product_activation_key__
+...
+os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep.__operating_system__
+----
+
+. Create a new `sysprep` file, specifying the domain, domain password, and domain administrator:
++
+[options="nowrap" subs="normal"]
+----
+    <Credentials>
+        <Domain>__AD_Domain__</Domain>
+        <Password>__Domain_Password__</Password>
+        <Username>__Domain_Administrator__</Username>
+    </Credentials>
+----
+
+If you need to configure different `sysprep` settings for different pools of Windows virtual machines, you can create a custom `sysprep` file in the Administration Portal (see link:#custom_sysprep[Creating a Virtual Machine Pool] below). See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines[Using Sysprep to Automate the Configuration of Virtual Machines] in the _Virtual Machine Guide_ for more information.
+
+*Creating a Virtual Machine Pool*
+
+. Click menu:Compute[Pools].
+. Click *New*.
+. Select a *Cluster*  from the drop-down list.
+. Select a *Template* and version from the drop-down menu. A template provides standard settings for all the virtual machines in the pool.
+. Select an *Operating System* from the drop-down list.
+. Use *Optimized for* to optimize virtual machines for *Desktop* or *Server*.
++
+[NOTE]
+====
+*High Performance* optimization is not recommended for pools because a high performance virtual machine is pinned to a single host and concrete resources. A pool containing multiple virtual machines with such a configuration would not run well.
+====
+
+. Enter a *Name* and, optionally, a *Description* and *Comment*.
++
+The *Name* of the pool is applied to each virtual machine in the pool, with a numeric suffix. You can customize the numbering of the virtual machines with `?` as a placeholder.
++
+.Pool Name and Virtual Machine Numbering Examples
+====
+* Pool: `MyPool`
++
+Virtual machines: `MyPool-1`, `MyPool-2`, ... `MyPool-10`
+* Pool: `MyPool-???`
++
+Virtual machines: `MyPool-001`, `MyPool-002`, ... `MyPool-010`
+====
+
+. Enter the *Number of VMs* for the pool.
+. Enter the number of virtual machines to be prestarted in the *Prestarted* field.
+. Select the *Maximum number of VMs per user* that a single user is allowed to run in a session. The minimum is *1*.
+. Select the *Delete Protection* check box to enable delete protection. anchor:custom_sysprep[]
+. If you are creating a pool of non-Windows virtual machines or if you are using the default `sysprep`, skip this step. If you are creating a custom `sysprep` file for a pool of Windows virtual machines:
+.. Click the *Show Advanced Options* button.
+.. Click the *Initial Run* tab and select the *Use Cloud-Init/Sysprep* check box.
+.. Click the *Authentication* arrow and enter the *User Name* and *Password* or select *Use already configured password*.
++
+[NOTE]
+====
+This `User Name` is the name of the local administrator. You can change its value from its default value (`user`) here in the *Authentication* section or in a custom `sysprep` file.
+====
+
+.. Click the *Custom Script* arrow and paste the contents of the default `sysprep` file, located in `/usr/share/ovirt-engine/conf/sysprep/`, into the text box.
+.. You can modify the following values of the `sysprep` file:
+
+* `Key`. If you do not want to use the pre-defined Windows activation product key, replace `<![CDATA[$ProductKey$]]>` with a valid product key:
++
+[options="nowrap" subs="normal"]
+----
+    <ProductKey>
+        <Key><![CDATA[$ProductKey$]]></Key>
+    </ProductKey>
+----
++
+.Windows Product Key Example
+====
+    <ProductKey>
+        <Key>0000-000-000-000</Key>
+    </ProductKey>
+====
+
+* `Domain` that the Windows virtual machines will join, the domain's `Password`, and the domain administrator's `Username`:
++
+[source,yaml,subs="normal"]
+----
+    <Credentials>
+        <Domain>__AD_Domain__</Domain>
+        <Password>__Domain_Password__</Password>
+        <Username>__Domain_Administrator__</Username>
+    </Credentials>
+----
++
+.Domain Credentials Example
+====
+    <Credentials>
+        <Domain>addomain.local</Domain>
+        <Password>12345678</Password>
+        <Username>Sarah_Smith</Username>
+    </Credentials>
+====
++
+[NOTE]
+====
+The `Domain`, `Password`, and `Username` are required to join the domain. The `Key` is for activation. You do not necessarily need both.
+
+The domain and credentials cannot be modified in the *Initial Run* tab.
+====
+
+* `FullName` of the local administrator:
++
+[source,yaml,subs="normal"]
+----
+    <UserData>
+    ...
+        <FullName>__Local_Administrator__</FullName>
+    ...
+    </UserData>
+----
+* `DisplayName` and `Name` of the local administrator:
++
+[source,yaml,subs="normal"]
+----
+    <LocalAccounts>
+        <LocalAccount wcm:action="add">
+            <Password>
+                <Value><![CDATA[$AdminPassword$]]></Value>
+                <PlainText>true</PlainText>
+            </Password>
+            <DisplayName>__Local_Administrator__</DisplayName>
+            <Group>administrators</Group>
+            <Name>__Local_Administrator__</Name>
+        </LocalAccount>
+    </LocalAccounts>
+----
++
+The remaining variables in the `sysprep` file can be filled in on the *Initial Run* tab.
+
+. Optional. Set a *Pool Type*:
+.. Click the *Type* tab and select a *Pool Type*:
+* *Manual* - The administrator is responsible for explicitly returning the virtual machine to the pool.
+* *Automatic* - The virtual machine is automatically returned to the virtual machine pool.
+.. Select the *Stateful Pool* check box to ensure that virtual machines are started in a stateful mode. This ensures that changes made by a previous user will persist on a virtual machine.
+.. Click *OK*.
+. Optional. Override the SPICE proxy:
+.. In the *Console* tab, select the *Override SPICE Proxy* check box.
+.. In the  *Overridden SPICE proxy address* text field, specify the address of a SPICE proxy to override the global SPICE proxy.
+.. Click *OK*.
+. For a pool of Windows virtual machines, click menu:Compute[Virtual Machines], select each virtual machine from the pool, and click menu:Run[Run Once].
++
+[NOTE]
+====
+If the virtual machine does not start and `Info  [windeploy.exe] Found no unattend file` appears in `%WINDIR%\panther\UnattendGC\setupact.log`, add the *UnattendFile* key to the registry of the Windows virtual machine that was used to create the template for the pool:
+
+. Check that the Windows virtual machine has an attached floppy device with the unattend file, for example, `A:\Unattend.xml`.
+. Click *Start*, click *Run*, type `regedit` in the *Open* text box, and click *OK*.
+. In the left pane, go to menu:HKEY_LOCAL_MACHINE[SYSTEM > Setup].
+. Right-click the right pane and select menu:New[String Value].
+. Enter *UnattendFile* as the key name.
+. Double-click the new key and enter the `unattend` file name and path, for example, *A:\Unattend.xml*, as the key's value.
+. Save the registry, seal the Windows virtual machine, and create a new template. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#chap-Templates[Templates] in the _Virtual Machine Management Guide_ for details.
+====
+
+You have created and configured a virtual machine pool with the specified number of identical virtual machines. You can view these virtual machines in menu:Compute[Virtual Machines], or by clicking the name of a pool to open its details view; a virtual machine in a pool is distinguished from independent virtual machines by its icon.

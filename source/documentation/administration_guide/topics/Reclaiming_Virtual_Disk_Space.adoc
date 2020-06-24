@@ -1,0 +1,26 @@
+[[Reclaiming_virtual_disk_space]]
+==== Reclaiming Virtual Disk Space
+
+Virtual disks that use thin provisioning do not automatically shrink after deleting files from them. For example, if the actual disk size is 100GB and you delete 50GB of files, the allocated disk size remains at 100GB, and the remaining 50GB is not returned to the host, and therefore cannot be used by other virtual machines. This unused disk space can be reclaimed by the host by performing a sparsify operation on the virtual machine's disks. This transfers the free space from the disk image to the host. You can sparsify multiple virtual disks in parallel.
+
+Perform this operation before cloning a virtual machine, creating a template based on a virtual machine, or cleaning up a storage domain's disk space.
+
+*Limitations*
+
+* NFS storage domains must use NFS version 4.2 or higher.
+
+* You cannot sparsify a disk that uses a direct LUN or Cinder.
+
+* You cannot sparsify a disk that uses a preallocated allocation policy. If you are creating a virtual machine from a template, you must select *Thin* from the *Storage Allocation* field, or if selecting *Clone*, ensure that the template is based on a virtual machine that has thin provisioning.
+
+* You can only sparsify active snapshots.
+
+*Sparsifying a Disk*
+
+. Click menu:Compute[Virtual Machines] and shut down the required virtual machine.
+. Click the virtual machine's name to open the details view.
+. Click the *Disks* tab. Ensure that the disk's status is `OK`.
+. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Sparsify*.
+. Click *OK*.
+
+A `Started to sparsify` event appears in the *Events* tab during the sparsify operation and the disk's status displays as `Locked`. When the operation is complete, a `Sparsified successfully` event appears in the *Events* tab and the disk's status displays as `OK`. The unused disk space has been returned to the host and is available for use by other virtual machines.

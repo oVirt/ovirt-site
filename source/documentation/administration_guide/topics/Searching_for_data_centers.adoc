@@ -1,0 +1,26 @@
+[[Searching_for_data_centers]]
+=== Searching for Data Centers
+
+The following table describes all search options for Data Centers.
+[[searching_datacenters]]
+
+.Searching for Data Centers
+[options="header"]
+|===
+|Property (of resource or resource-type) |Type |Description (Reference)
+|`Clusters._clusters-prop_` |Depends on property type |The property of the clusters associated with the data center.
+|`name` |String |The name of the data center.
+|`description` |String |A description of the data center.
+|`type` |String |The type of data center.
+|`status` |List |The availability of the data center.
+|`sortby` |List |Sorts the returned results by one of the resource properties.
+|`page` |Integer |The page number of results to display.
+|===
+
+*Example*
+
+`Datacenter: type = nfs and status != up`
+
+This example returns a list of data centers with a storage type of NFS and status other than up.
+
+

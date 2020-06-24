@@ -1,0 +1,35 @@
+[[Assigning_Security_Groups_to_VNIC_Profiles]]
+==== Assigning Security Groups to vNIC Profiles
+
+
+[NOTE]
+====
+This feature is only available when OpenStack Networking (neutron) is added as an external network provider. Security groups cannot be created through the {virt-product-fullname} {engine-name}. You must create security groups through OpenStack. For more information, see link:https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/10/html-single/users_and_identity_management_guide/#project-security[Project Security Management] in the _Red Hat OpenStack Platform Users and Identity Management Guide_.
+====
+
+You can assign security groups to the vNIC profile of networks that have been imported from an OpenStack Networking instance and that use the Open vSwitch plug-in. A security group is a collection of strictly enforced rules that allow you to filter inbound and outbound traffic over a network interface. The following procedure outlines how to attach a security group to a vNIC profile.
+
+[NOTE]
+====
+A security group is identified using the ID of that security group as registered in the OpenStack Networking instance. You can find the IDs of security groups for a given tenant by running the following command on the system on which OpenStack Networking is installed:
+
+[options="nowrap" subs="normal"]
+----
+# neutron security-group-list
+----
+
+====
+
+
+*Assigning Security Groups to vNIC Profiles*
+
+. Click menu:Network[Networks].
+. Click the logical network's name to open the details view.
+. Click the *vNIC Profiles* tab.
+. Click *New*, or select an existing vNIC profile and click *Edit*.
+. From the custom properties drop-down list, select *SecurityGroups*. Leaving the custom property drop-down blank applies the default security settings, which permit all outbound traffic and intercommunication but deny all inbound traffic from outside of the default security group. Note that removing the *SecurityGroups* property later will not affect the applied security group.
+. In the text field, enter the ID of the security group to attach to the vNIC profile.
+. Click *OK*.
+
+
+You have attached a security group to the vNIC profile. All traffic through the logical network to which that profile is attached will be filtered in accordance with the rules defined for that security group.

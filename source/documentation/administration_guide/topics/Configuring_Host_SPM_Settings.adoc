@@ -1,0 +1,15 @@
+[[Configuring_Host_SPM_Settings]]
+==== Configuring Host Storage Pool Manager Settings
+
+The Storage Pool Manager (SPM) is a management role given to one of the hosts in a data center to maintain access control over the storage domains. The SPM must always be available, and the SPM role will be assigned to another host if the SPM host becomes unavailable. As the SPM role uses some of the host's available resources, it is important to prioritize hosts that can afford the resources.
+
+The Storage Pool Manager (SPM) priority setting of a host alters the likelihood of the host being assigned the SPM role: a host with high SPM priority will be assigned the SPM role before a host with low SPM priority.
+
+
+*Configuring SPM settings*
+
+. Click menu:Compute[Hosts].
+. Click *Edit*.
+. Click the *SPM* tab.
+. Use the radio buttons to select the appropriate SPM priority for the host.
+. Click *OK*.

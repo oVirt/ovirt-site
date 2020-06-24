@@ -1,0 +1,17 @@
+[[Explanation_of_Settings_in_the_Add_Hosts_Window]]
+==== Explanation of Settings in the Add Hosts Window
+
+The *Add Hosts* window allows you to specify the details of the hosts imported as part of a Gluster-enabled cluster. This window appears after you have selected the *Enable Gluster Service* check box in the *New Cluster* window and provided the necessary host details.
+
+[[Add_Gluster_Hosts]]
+
+.Add Gluster Hosts Settings
+[options="header"]
+|===
+|Field |Description
+|Use a common password |Tick this check box to use the same password for all hosts belonging to the cluster. Enter the password in the *Password* field, then click the *Apply* button to set the password on all hosts.
+|Name |Enter the name of the host.
+|Hostname/IP |This field is automatically populated with the fully qualified domain name or IP of the host you provided in the *New Cluster* window.
+|Root Password |Enter a password in this field to use a different root password for each host. This field overrides the common password provided for all hosts in the cluster.
+|Fingerprint |The host fingerprint is displayed to ensure you are connecting with the correct host. This field is automatically populated with the fingerprint of the host you provided in the *New Cluster* window.
+|===

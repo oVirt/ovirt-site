@@ -1,0 +1,13 @@
+[[Removing_a_host]]
+==== Removing a Host
+
+Remove a host from your virtualized environment.
+
+
+*Removing a host*
+
+. Click menu:Compute[Hosts] and select the host.
+. Click menu:Management[Maintenance].
+. when the host is in maintenance mode, click *Remove* to open the *Remove Host(s)* confirmation window.
+. Select the *Force Remove* check box if the host is part of a {gluster-storage-fullname} cluster and has volume bricks on it, or if the host is non-responsive.
+. Click *OK*.

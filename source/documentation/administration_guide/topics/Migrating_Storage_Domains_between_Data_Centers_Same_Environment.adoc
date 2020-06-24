@@ -1,0 +1,26 @@
+[[Migrating_SD_between_DC_Same_Env]]
+==== Migrating Storage Domains between Data Centers in the Same Environment
+
+Migrate a storage domain from one data center to another in the same {virt-product-fullname} environment to allow the destination data center to access the data contained in the storage domain. This procedure involves detaching the storage domain from one data center, and attaching it to a different data center.
+
+
+.Procedure
+
+. Shut down all virtual machines running on the required storage domain.
+. Click menu:Storage[Domains].
+. Click the storage domain's name to open the details view.
+. Click the *Data Center* tab.
+. Click *Maintenance*, then click *OK*.
+. Click *Detach*, then click *OK*.
+. Click *Attach*.
+. Select the destination data center and click *OK*.
+
+
+The storage domain is attached to the destination data center and is automatically activated. You can now import virtual machines and templates from the storage domain to the destination data center.
+
+[WARNING]
+====
+Upon attaching a Storage Domain to the destination Data-Center,
+it may be upgraded to a newer Storage Domain format and may not re-attach to the source Data-Center.
+This breaks the use of a Data-Domain as a replacement for Export Domains.
+====

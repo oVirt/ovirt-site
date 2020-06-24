@@ -1,0 +1,22 @@
+[[Managing_system_permissions_for_a_cluster]]
+==== Managing System Permissions for a Cluster
+
+As the *SuperUser*, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a *DataCenterAdmin* role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a *ClusterAdmin* has administrator privileges only for the assigned cluster.
+
+A cluster administrator is a system administration role for a specific cluster only. This is useful in data centers with multiple clusters, where each cluster requires a system administrator. The *ClusterAdmin* role is a hierarchical model: a user assigned the cluster administrator role for a cluster can manage all objects in the cluster. Use the *Configure* button in the header bar to assign a cluster administrator for all clusters in the environment.
+
+The cluster administrator role permits the following actions:
+
+* Create and remove associated clusters.
+
+* Add and remove hosts, virtual machines, and pools associated with the cluster.
+
+* Edit user permissions for virtual machines associated with the cluster.
+
+
+
+[NOTE]
+====
+You can only assign roles and permissions to existing users.
+====
+You can also change the system administrator of a cluster by removing the existing system administrator and adding the new system administrator.

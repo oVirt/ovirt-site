@@ -1,0 +1,44 @@
+// Module included in the following assemblies:
+//
+// appe-Red_Hat_Virtualization_and_SSL.adoc
+[id="Manually_setting_up_encrypted_communication_for_vdsm"]
+= Manually Setting Up Encrypted Communication for VDSM
+
+You can manually set up encrypted communication for VDSM with the {engine-name} and with other VDSM instances.
+
+Hosts in clusters with level 4.2 are automatically reconfigured for strong encryption during host reinstallation.
+
+[NOTE]
+====
+{hypervisor-shortname} 4.2 and {enterprise-linux-host-shortname} support strong encryption.
+====
+
+[discrete]
+== Procedure
+
+. Click menu:Compute[Hosts] and select the host.
+
+. Click menu:Management[Maintenance] to open the *Maintenance Host(s)* confirmation window.
+
+. Click *OK* to initiate maintenance mode.
+
+. On the host, create  `/etc/vdsm/vdsm.conf.d/99-custom-ciphers.conf` with the following setting:
++
+[options="nowrap" subs="normal"]
+----
+[vars]
+ssl_ciphers = HIGH
+----
++
+See link:https://www.openssl.org/docs/man1.0.2/apps/ciphers.html[OpenSSL Cipher Strings] for more information.
+
+. Restart VDSM:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart vdsm
+----
+
+. Click menu:Compute[Hosts] and select the host.
+
+. Click menu:Management[Activate] to reactivate the host.

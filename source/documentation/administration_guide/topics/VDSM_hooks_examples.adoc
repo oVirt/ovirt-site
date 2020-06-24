@@ -1,0 +1,89 @@
+[[VDSM_hooks_examples]]
+=== VDSM Hook Examples
+
+The example hook scripts provided in this section are strictly not supported by Red Hat. You must ensure that any and all hook scripts that you install to your system, regardless of source, are thoroughly tested for your environment.
+
+[[VDSM_Hooks-example-numaset]]
+.NUMA Node Tuning
+====
+
+*Purpose:*
+
+This hook script allows for tuning the allocation of memory on a NUMA host based on the `numaset` custom property. Where the custom property is not set no action is taken.
+
+*Configuration String:*
+
+[options="nowrap" ]
+----
+numaset=^(interleave|strict|preferred):[\^]?\d+(-\d+)?(,[\^]?\d+(-\d+)?)*$
+----
+
+The regular expression used allows the `numaset` custom property for a given virtual machine to specify both the allocation mode (`interleave`, `strict`, `preferred`) and the node to use. The two values are separated by a colon (`:`). The regular expression allows specification of the `nodeset` as:
+
+* that a specific node (`numaset=strict:1`, specifies that only node 1 be used), or
+
+* that a range of nodes be used (`numaset=strict:1-4`, specifies that nodes 1 through 4 be used), or
+
+* that a specific node not be used (`numaset=strict:^3`, specifies that node 3 not be used), or
+
+* any comma-separated combination of the above (`numaset=strict:1-4,6`, specifies that nodes 1 to 4, and 6 be used).
+
+*Script:*
+
+*/usr/libexec/vdsm/hooks/before_vm_start/50_numa*
+----
+
+#!/usr/bin/python
+
+import os
+import sys
+import hooking
+import traceback
+
+'''
+numa hook
+=========
+add numa support for domain xml:
+
+<numatune>
+    <memory mode="strict" nodeset="1-4,^3" />
+</numatune>
+
+memory=interleave|strict|preferred
+
+numaset="1" (use one NUMA node)
+numaset="1-4" (use 1-4 NUMA nodes)
+numaset="^3" (don't use NUMA node 3)
+numaset="1-4,^3,6" (or combinations)
+
+syntax:
+    numa=strict:1-4
+'''
+
+if os.environ.has_key('numa'):
+    try:
+        mode, nodeset = os.environ['numa'].split(':')
+
+        domxml = hooking.read_domxml()
+
+        domain = domxml.getElementsByTagName('domain')[0]
+        numas = domxml.getElementsByTagName('numatune')
+
+        if not len(numas) > 0:
+            numatune = domxml.createElement('numatune')
+            domain.appendChild(numatune)
+
+            memory = domxml.createElement('memory')
+            memory.setAttribute('mode', mode)
+            memory.setAttribute('nodeset', nodeset)
+            numatune.appendChild(memory)
+
+            hooking.write_domxml(domxml)
+        else:
+            sys.stderr.write('numa: numa already exists in domain xml')
+            sys.exit(2)
+    except:
+        sys.stderr.write('numa: [unexpected error]: %s\n' % traceback.format_exc())
+        sys.exit(2)
+----
+====

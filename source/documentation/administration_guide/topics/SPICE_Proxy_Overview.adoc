@@ -1,0 +1,9 @@
+[[SPICE_Proxy_Overview]]
+==== SPICE Proxy Overview
+
+The SPICE Proxy is a tool used to connect SPICE Clients to virtual machines when the SPICE Clients are outside the network that connects the hypervisors. Setting up a SPICE Proxy consists of installing `Squid` on a machine and configuring the firewall to allow proxy traffic. Turning a SPICE Proxy on consists of using `engine-config` on the {engine-name} to set the key `SpiceProxyDefault` to a value consisting of the name and port of the proxy. Turning a SPICE Proxy off consists of using `engine-config` on the {engine-name} to remove the value to which the key `SpiceProxyDefault` has been set.
+
+[IMPORTANT]
+====
+The SPICE Proxy can only be used in conjunction with the standalone SPICE client, and cannot be used to connect to virtual machines using noVNC.
+====

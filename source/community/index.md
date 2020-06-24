@@ -1,13 +1,9 @@
 ---
 title: Community
 authors: bproffitt, dneary, knesenko, quaid, sandrobonazzola, theron, gregsheremeta
+page_classes: community
 ---
 
-<style>
-h1, h2, h3, h4, h5, h6, li, a, p, div, #footer {
-  font-family: 'Open Sans', sans-serif !important;
-}
-</style>
 
 # Community
 

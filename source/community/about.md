@@ -1,19 +1,8 @@
 ---
 title: About
 authors: gregsheremeta
+page_classes: about
 ---
-
-<style>
-h1, h2, h3, h4, h5, h6, li, a, p, div, #footer {
-  font-family: 'Open Sans', sans-serif !important;
-}
-.screenshot {
-    float: right;
-    width: 55%;
-    padding-left: 40px;
-    padding-bottom: 40px;
-}
-</style>
 
 # Welcome to oVirt!
 

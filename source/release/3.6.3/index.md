@@ -3,6 +3,7 @@ title: oVirt 3.6.3 Release Notes
 category: documentation
 toc: true
 authors: didi, sandrobonazzola
+page_classes: releases
 ---
 
 # oVirt 3.6.3 Release Notes

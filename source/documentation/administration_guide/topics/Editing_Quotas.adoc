@@ -1,0 +1,12 @@
+[[Editing_Quotas]]
+=== Editing Quotas
+
+This procedure describes how to change existing quotas.
+
+
+*Editing Quotas*
+
+. Click menu:Administration[Quota] and select a quota.
+. Click *Edit*.
+. Edit the fields as required.
+. Click *OK*.

@@ -1,0 +1,24 @@
+[[Editing-VLAN-Settings]]
+==== Editing a Host's VLAN Settings
+
+To change the VLAN settings of a host, the host must be removed from the {engine-name}, reconfigured, and re-added to the {engine-name}.
+
+To keep networking synchronized, do the following:
+
+. Put the host in maintenance mode.
+. Manually remove the management network from the host. This will make the host reachable over the new VLAN.
+. Add the host to the cluster. Virtual machines that are not connected directly to the management network can be migrated between hosts safely.
+
+The following warning message appears when the VLAN ID of the management network is changed:
+
+[options="nowrap" subs="quotes"]
+----
+Changing certain properties (e.g. VLAN, MTU) of the management network could lead to loss of connectivity to hosts in the data center, if its underlying network infrastructure isn't configured to accommodate the changes. Are you sure you want to proceed?
+----
+
+Proceeding causes all of the hosts in the data center to lose connectivity to the {engine-name} and causes the migration of hosts to the new management network to fail. The management network will be reported as "out-of-sync".
+
+[IMPORTANT]
+====
+If you change the management network's VLAN ID, you must xref:Reinstalling_Hosts_admin[reinstall the host] to apply the new VLAN ID.
+====

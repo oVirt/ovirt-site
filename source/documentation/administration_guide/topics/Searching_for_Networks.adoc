@@ -1,0 +1,30 @@
+[[Searching_for_Networks]]
+=== Searching for Networks
+
+The following table describes all search options for networks.
+[[searching_networks]]
+
+.Searching for Networks
+[options="header"]
+|===
+|Property (of resource or resource-type) |Type |Description (Reference)
+|`Cluster_network._clusternetwork-prop_` |Depends on property type |The property of the cluster associated with the network.
+|`Host_Network._hostnetwork-prop_` |Depends on property type |The property of the host associated with the network.
+|`name` |String |The human readable name that identifies the network.
+|`description` |String |Keywords or text describing the network, optionally used when creating the network.
+|`vlanid` |Integer |The VLAN ID of the network.
+|`stp` |String |Whether Spanning Tree Protocol (STP) is enabled or disabled for the network.
+|`mtu` |Integer |The maximum transmission unit for the logical network.
+|`vmnetwork` |String |Whether the network is only used for virtual machine traffic.
+|`datacenter` |String |The data center to which the network is attached.
+|`sortby` |List |Sorts the returned results by one of the resource properties.
+|`page` |Integer |The page number of results to display.
+|===
+
+*Example*
+
+`Network: mtu > 1500 and vmnetwork = true`
+
+This example returns a list of networks with a maximum transmission unit greater than 1500 bytes, and which are set up for use by only virtual machines.
+
+

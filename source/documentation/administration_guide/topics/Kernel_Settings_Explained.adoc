@@ -1,0 +1,27 @@
+[[Kernel_Settings_Explained]]
+==== Kernel Settings Explained
+
+The *Kernel* settings table details the information required on the *Kernel* tab of the *New Host* or *Edit Host* window. Common kernel boot parameter options are listed as check boxes so you can easily select them.
+
+For more complex changes, use the free text entry field next to *Kernel command line* to add in any additional parameters required. If you change any kernel command line parameters, you must  xref:Reinstalling_Hosts_admin[reinstall the host].
+
+[IMPORTANT]
+====
+If the host is attached to the {engine-name}, you must place the host into maintenance mode before making changes. After making the changes, xref:Reinstalling_Hosts_admin[reinstall the host] to apply the changes.
+====
+
+.*Kernel* Settings
+[options="header"]
+|===
+|Field Name |Description
+|*Hostdev Passthrough &amp; SR-IOV* |Enables the IOMMU flag in the kernel to allow a host device to be used by a virtual machine as if the device is a device attached directly to the virtual machine itself. The host hardware and firmware must also support IOMMU. The virtualization extension and IOMMU extension must be enabled on the hardware. See xref:Configuring_a_Host_for_PCI_Passthrough_host_tasks[Configuring a Host for PCI Passthrough]. IBM POWER8 has IOMMU enabled by default.
+|*Nested Virtualization* |Enables the vmx or svm flag to allow you to run virtual machines within virtual machines. This option is only intended for evaluation purposes and not supported for production purposes. The `vdsm-hook-nestedvt` hook must be installed on the host.
+|*Unsafe Interrupts* |If IOMMU is enabled but the passthrough fails because the hardware does not support interrupt remapping, you can consider enabling this option. Note that you should only enable this option if the virtual machines on the host are trusted; having the option enabled potentially exposes the host to MSI attacks from the virtual machines. This option is only intended to be used as a workaround when using uncertified hardware for evaluation purposes.
+|*PCI Reallocation* |If your SR-IOV NIC is unable to allocate virtual functions because of memory issues, consider enabling this option. The host hardware and firmware must also support PCI reallocation. This option is only intended to be used as a workaround when using uncertified hardware for evaluation purposes.
+|*Kernel command line* |This field allows you to append more kernel parameters to the default parameters.
+|===
+
+[NOTE]
+====
+If the kernel boot parameters are grayed out, click the *reset* button and the options will be available.
+====

@@ -1,0 +1,14 @@
+[[Editing_a_role]]
+==== Editing or Copying a Role
+
+You can change the settings for roles you have created, but you cannot change default roles. To change default roles, clone and modify them to suit your requirements.
+
+
+*Editing or Copying a Role*
+
+. Click menu:Administration[Configure] to open the *Configure* window. The window shows a list of default User and Administrator roles, and any custom roles.
+. Select the role you wish to change. Click *Edit* to open the *Edit Role* window, or click *Copy* to open the *Copy Role* window.
+. If necessary, edit the *Name* and *Description* of the role.
+. Use the *Expand All* or *Collapse All* buttons to view more or fewer of the permissions for the listed objects. You can also expand or collapse the options for each object.
+. For each of the objects, select or clear the actions you wish to permit or deny for the role you are editing.
+. Click *OK* to apply the changes you have made.

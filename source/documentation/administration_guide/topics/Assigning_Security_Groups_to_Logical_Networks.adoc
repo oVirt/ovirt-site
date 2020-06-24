@@ -1,0 +1,28 @@
+[[Assigning_Security_Groups_to_Logical_Networks]]
+==== Assigning Security Groups to Logical Networks and Ports
+
+[NOTE]
+====
+This feature is only available when Open Virtual Network (OVN) is added as an external network provider (as ovirt-provider-ovn). Security groups cannot be created through the {virt-product-fullname} {engine-name}. You must create security groups through OpenStack Networking API v2.0 or Ansible. 
+====
+
+A security group is a collection of strictly enforced rules that allow you to filter inbound and outbound traffic over a network. You can also use security groups to filter traffic at the port level.
+
+In {virt-product-fullname} 4.2.7, security groups are disabled by default. 
+
+.Assigning Security Groups to Logical Networks
+. Click menu:Compute[Clusters].
+. Click the cluster name to open the details view.
+. Click the *Logical Networks* tab.
+. Click *Add Network* and define the properties, ensuring that you select `ovirt-provider-ovn` from the `External Providers` drop-down list. For more information, see xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[].
+. Select `Enabled` from the `Security Group` drop-down list. For more details see xref:Logical_Network_General_Settings_Explained[].
+. Click `OK`.
+. Create security groups using either
+link:https://developer.openstack.org/api-ref/network/v2/#security-groups-security-groups[OpenStack Networking API v2.0] or 
+link:https://docs.ansible.com/ansible/2.7/modules/os_security_group_module.html[Ansible].
+. Create security group rules using either 
+link:https://developer.openstack.org/api-ref/network/v2/#security-group-rules-security-group-rules[OpenStack Networking API v2.0] or 
+ link:https://docs.ansible.com/ansible/2.7/modules/os_security_group_rule_module.html[Ansible].
+. Update the ports with the security groups that you defined using either link:https://developer.openstack.org/api-ref/network/v2/?expanded=update-port-detail#ports[OpenStack Networking API v2.0] or link:https://docs.ansible.com/ansible/2.7/modules/os_port_module.html[Ansible].
+. Optional. Define whether the security feature is enabled at the port level. Currently, this is only possible using the link:https://developer.openstack.org/api-ref/network/v2/?expanded=update-port-detail#ports[OpenStack Networking API]. If the `port_security_enabled` attribute is not set, it will default to the value specified in the network to which it belongs. 
+  

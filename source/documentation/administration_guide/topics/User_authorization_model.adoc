@@ -1,0 +1,13 @@
+[[User_authorization_model]]
+==== User Authorization Model
+
+{virt-product-fullname} applies authorization controls based on the combination of the three components:
+
+
+* The user performing the action
+
+* The type of action being performed
+
+* The object on which the action is being performed
+
+

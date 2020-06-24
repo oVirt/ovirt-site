@@ -1,0 +1,160 @@
+[[Installing_and_Configuring_a_Squid_Proxy]]
+==== Installing and Configuring a Squid Proxy
+
+This section explains how to install and configure a Squid proxy to the VM Portal. A Squid proxy server is used as a content accelerator. It caches frequently-viewed content, reducing bandwidth and improving response times.
+
+
+*Configuring a Squid Proxy*
+
+. Obtain a keypair and certificate for the HTTPS port of the Squid proxy server. You can obtain this keypair the same way that you would obtain a keypair for another SSL/TLS service. The keypair is in the form of two PEM files which contain the private key and the signed certificate. For this procedure, we assume that they are named *proxy.key* and *proxy.cer*.
++
+[NOTE]
+====
+The keypair and certificate can also be generated using the certificate authority of the engine. If you already have the private key and certificate for the proxy and do not want to generate it with the engine certificate authority, skip to the next step.
+====
++
+. Choose a host name for the proxy. Then, choose the other components of the distinguished name of the certificate for the proxy.
++
+[NOTE]
+====
+It is good practice to use the same country and same organization name used by the engine itself. Find this information by logging in to the machine where the {engine-name} is installed and running the following command:
+				
+[options="nowrap" subs="normal"]
+----
+
+# openssl x509 -in /etc/pki/ovirt-engine/ca.pem -noout -subject
+
+----
+This command outputs something like this:
+				
+[options="nowrap" subs="normal"]
+----
+
+subject= /C=US/O=Example Inc./CN=_engine.example.com_.81108
+
+----
+The relevant part here is */C=US/O=Example Inc.*. Use this to build the complete distinguished name for the certificate for the proxy:
+				
+[options="nowrap" subs="normal"]
+----
+
+/C=US/O=Example Inc./CN=_proxy.example.com_
+
+----
+====
++
+. Log in to the proxy machine and generate a certificate signing request:
++
+[options="nowrap" subs="normal"]
+----
+# openssl req -newkey rsa:2048 -subj '/C=US/O=Example Inc./CN=_proxy.example.com_' -nodes -keyout proxy.key -out proxy.req
+----
++
+[IMPORTANT]
+====
+You must include the quotes around the distinguished name for the certificate. The `-nodes` option ensures that the private key is not encrypted; this means that you do not need to enter the password to start the proxy server.
+====
++
+The command generates two files: *proxy.key* and *proxy.req*. *proxy.key* is the private key. Keep this file safe. *proxy.req* is the certificate signing request. *proxy.req* does not require any special protection.
+. To generate the signed certificate, copy the certificate signing request file from the proxy machine to the {engine-name} machine:
++
+[options="nowrap" subs="normal"]
+----
+# scp proxy.req _engine.example.com_:/etc/pki/ovirt-engine/requests/.
+----
++
+. Log in to the {engine-name} machine and sign the certificate:
++
+[options="nowrap" subs="normal"]
+----
+# /usr/share/ovirt-engine/bin/pki-enroll-request.sh --name=proxy --days=3650 --subject='/C=US/O=Example Inc./CN=_proxy.example.com_'
+----
++
+This signs the certificate and makes it valid for 10 years (3650 days). Set the certificate to expire earlier, if you prefer.
+. The generated certificate file is available in the directory */etc/pki/ovirt-engine/certs* and should be named *proxy.cer*. On the proxy machine, copy this file from the {engine-name} machine to your current directory:
++
+[options="nowrap" subs="normal"]
+----
+# scp _engine.example.com_:/etc/pki/ovirt-engine/certs/proxy.cer .
+----
++
+. Ensure both *proxy.key* and *proxy.cer* are present on the proxy machine:
++	
+[options="nowrap" subs="normal"]
+----
+# ls -l proxy.key proxy.cer
+----
++
+. Install the Squid proxy server package on the proxy machine:
++
+[options="nowrap" subs="normal"]
+----
+# yum install squid
+----
++
+. Move the private key and signed certificate to a place where the proxy can access them, for example to the */etc/squid* directory:
++
+[options="nowrap" subs="normal"]
+----
+# cp proxy.key proxy.cer /etc/squid/.
+----
++
+. Set permissions so that the `squid` user can read these files:
++
+[options="nowrap" subs="normal"]
+----
+# chgrp squid /etc/squid/proxy.*
+# chmod 640 /etc/squid/proxy.*
+----
++
+. The Squid proxy must verify the certificate used by the engine. Copy the {engine-name} certificate to the proxy machine. This example uses the file path */etc/squid*:
++
+[options="nowrap" subs="normal"]
+----
+# scp engine.example.com:/etc/pki/ovirt-engine/ca.pem /etc/squid/.
+----
++
+[NOTE]
+====
+The default CA certificate is located in */etc/pki/ovirt-engine/ca.pem* on the {engine-name} machine.
+====
++
+. Set permissions so that the `squid` user can read the certificate file:
++
+[options="nowrap" subs="normal"]
+----
+# chgrp squid /etc/squid/ca.pem
+# chmod 640 /etc/squid/ca.pem
+----
++
+. If SELinux is in enforcing mode, change the context of port 443 using the `semanage` tool to permit Squid to use port 443:
++
+[options="nowrap" subs="normal"]
+----
+# yum install policycoreutils-python
+# semanage port -m -p tcp -t http_cache_port_t 443
+----
++
+. Replace the existing Squid configuration file with the following:
++
+[options="nowrap" subs="normal"]
+----
+https_port 443 key=/etc/squid/proxy.key cert=/etc/squid/proxy.cer ssl-bump defaultsite=_engine.example.com_
+cache_peer _engine.example.com_ parent 443 0 no-query originserver ssl sslcafile=/etc/squid/ca.pem name=engine login=PASSTHRU
+cache_peer_access engine allow all
+ssl_bump allow all
+http_access allow all
+----
++
+. Restart the Squid proxy server:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart squid.service
+----
+
+[NOTE]
+====
+Squid Proxy in the default configuration will terminate its connection after 15 idle minutes. To increase the amount of time before Squid Proxy terminates its idle connection, adjust the `read_timeout` option in *squid.conf* (for instance *read_timeout 10 hours*).
+====
+

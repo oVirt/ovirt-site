@@ -1,0 +1,6 @@
+[[Log_Collector]]
+==== Log Collector
+
+A log collection tool is included in the {virt-product-fullname} {engine-name}. This allows you to easily collect relevant logs from across the {virt-product-fullname} environment when requesting support.
+
+The log collection command is `ovirt-log-collector`. You are required to log in as the *root* user and provide the administration credentials for the {virt-product-fullname} environment. The `ovirt-log-collector -h` command displays usage information, including a list of all valid options for the `ovirt-log-collector` command.

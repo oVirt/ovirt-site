@@ -1,0 +1,8 @@
+[[chap-Bookmarks]]
+== Bookmarks
+
+include::topics/Saving_a_query_string_as_a_bookmark.adoc[]
+
+include::topics/Editing_a_bookmark.adoc[]
+
+include::topics/Deleting_a_bookmark.adoc[]

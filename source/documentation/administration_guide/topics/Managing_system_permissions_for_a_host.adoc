@@ -1,0 +1,18 @@
+[[To_view_hosts_in_a_cluster]]
+==== Managing System Permissions for a Host
+
+As the *SuperUser*, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a *DataCenterAdmin* role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a *ClusterAdmin* has administrator privileges only for the assigned cluster.
+
+A host administrator is a system administration role for a specific host only. This is useful in clusters with multiple hosts, where each host requires a system administrator. You can use the *Configure* button in the header bar to assign a host administrator for all hosts in the environment.
+
+The host administrator role permits the following actions:
+
+* Edit the configuration of the host.
+
+* Set up the logical networks.
+
+* Remove the host.
+
+
+
+You can also change the system administrator of a host by removing the existing system administrator and adding the new system administrator.

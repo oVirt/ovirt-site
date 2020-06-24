@@ -1,0 +1,31 @@
+[[Searching_for_storage]]
+=== Searching for Storage
+
+The following table describes all search options for storage.
+[[searching_storage]]
+
+.Searching for Storage
+[options="header"]
+|===
+|Property (of resource or resource-type) |Type |Description (Reference)
+|`Hosts._hosts-prop_` |Depends on property type |The property of the hosts associated with the storage.
+|`Clusters._clusters-prop_` |Depends on property type |The property of the clusters associated with the storage.
+|`name` |String |The unique name that identifies the storage on the network.
+|`status` |String |The status of the storage domain.
+|`external_status` |String |The health status of the storage domain as reported by external systems and plug-ins.
+|`datacenter` |String |The data center to which the storage belongs.
+|`type` |String |The type of the storage.
+|`size` |Integer |The size of the storage.
+|`used` |Integer |The amount of the storage that is used.
+|`committed` |Integer |The amount of the storage that is committed.
+|`sortby` |List |Sorts the returned results by one of the resource properties.
+|`page` |Integer |The page number of results to display.
+|===
+
+*Example*
+
+`Storage: size > 200 or used < 50`
+
+This example returns a list of storage with total storage space greater than 200 GB, or used storage space less than 50 GB.
+
+

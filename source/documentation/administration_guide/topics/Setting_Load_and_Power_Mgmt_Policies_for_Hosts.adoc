@@ -1,0 +1,45 @@
+[[Configuring_scheduling_policy]]
+==== Setting Load and Power Management Policies for Hosts in a Cluster
+
+The *evenly_distributed* and *power_saving* scheduling policies allow you to specify acceptable memory and CPU usage values, and the point at which virtual machines must be migrated to or from a host. The *vm_evenly_distributed* scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. For a detailed explanation of each scheduling policy, see xref:Cluster_Scheduling_Policy_Settings[].
+
+
+*Setting Load and Power Management Policies for Hosts*
+
+. Click menu:Compute[Clusters] and select a cluster.
+. Click *Edit*.
+. Click the *Scheduling Policy* tab.
+. Select one of the following policies:
+* *none*
+* *vm_evenly_distributed*
+.. Set the minimum number of virtual machines that must be running on at least one host to enable load balancing in the *HighVmCount* field.
+.. Define the maximum acceptable difference between the number of virtual machines on the most highly-utilized host and the number of virtual machines on the least-utilized host in the *MigrationThreshold* field.
+.. Define the number of slots for virtual machines to be reserved on SPM hosts in the *SpmVmGrace* field.
+.. Optionally, in the *HeSparesCount* field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. See xref:Configuring_Memory_Slots_Reserved_for_the_SHE[] for more information.
+* *evenly_distributed*
+.. Set the time (in minutes) that a host can run a CPU load outside of the defined utilization values before the scheduling policy takes action in the *CpuOverCommitDurationMinutes* field.
+.. Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the *HighUtilization* field.
+.. Enter the minimum required free memory in MB above which virtual machines start migrating to other hosts in the *MinFreeMemoryForUnderUtilized*.
+.. Enter the maximum required free memory in MB below which virtual machines start migrating to other hosts in the *MaxFreeMemoryForOverUtilized*.
+.. Optionally, in the *HeSparesCount* field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. See xref:Configuring_Memory_Slots_Reserved_for_the_SHE[] for more information.
+* *power_saving*
+.. Set the time (in minutes) that a host can run a CPU load outside of the defined utilization values before the scheduling policy takes action in the *CpuOverCommitDurationMinutes* field.
+.. Enter the CPU utilization percentage below which the host will be considered under-utilized in the *LowUtilization* field.
+.. Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the *HighUtilization* field.
+.. Enter the minimum required free memory in MB above which virtual machines start migrating to other hosts in the *MinFreeMemoryForUnderUtilized*.
+.. Enter the maximum required free memory in MB below which virtual machines start migrating to other hosts in the *MaxFreeMemoryForOverUtilized*.
+.. Optionally, in the *HeSparesCount* field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. See xref:Configuring_Memory_Slots_Reserved_for_the_SHE[] for more information.
+. Choose one of the following as the *Scheduler Optimization* for the cluster:
+* Select *Optimize for Utilization* to include weight modules in scheduling to allow best selection.
+* Select *Optimize for Speed* to skip host weighting in cases where there are more than ten pending requests.
+. If you are using an OpenAttestation server to verify your hosts, and have set up the server's details using the `engine-config` tool, select the *Enable Trusted Service* check box.
+[IMPORTANT]
+====
+OpenAttestation and Intel Trusted Execution Technology (Intel TXT) are no longer available.
+====
+. Optionally select the *Enable HA Reservation* check box to enable the {engine-name} to monitor cluster capacity for highly available virtual machines.
+. Optionally select the *Provide custom serial number policy* check box to specify a serial number policy for the virtual machines in the cluster, and then select one of the following options:
+* Select *Host ID* to set the host's UUID as the virtual machine's serial number.
+* Select *Vm ID* to set the virtual machine's UUID as its serial number.
+* Select *Custom serial number*, and then specify a custom serial number in the text field.
+. Click *OK*.

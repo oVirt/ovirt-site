@@ -1,0 +1,8 @@
+==== Editing User Information
+
+You can update user information, such as the email address:
+
+[options="nowrap" ]
+----
+# ovirt-aaa-jdbc-tool user edit test1 --attribute=email=jdoe@example.com
+----

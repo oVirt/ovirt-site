@@ -1,0 +1,173 @@
+[[Add_Provider_General_Settings_Explained]]
+==== Add Provider General Settings Explained
+
+The *General* tab in the *Add Provider* window allows you to register the core details of the external provider.
+
+.Add Provider: General Settings
+[options="header"]
+|===
+|Setting |Explanation
+|*Name* |A name to represent the provider in the {engine-name}.
+|*Description* |A plain text, human-readable description of the provider.
+|*Type* a|The type of external provider. Changing this setting alters the available fields for configuring the provider.
+
+*Foreman/Satellite*
+
+* *Provider URL*: The URL or fully qualified domain name of the machine that hosts the Satellite instance. You do not need to add the port number to the end of the URL or fully qualified domain name.
+
+* *Requires Authentication*: Allows you to specify whether authentication is required for the provider. Authentication is mandatory when *Foreman/Satellite* is selected.
+
+* *Username*: A user name for connecting to the Satellite instance. This user name must be the user name used to log in to the provisioning portal on the Satellite instance.
+
+* *Password*: The password against which the above user name is to be authenticated. This password must be the password used to log in to the provisioning portal on the Satellite instance.
+
+*OpenStack Image*
+
+* *Provider URL*: The URL or fully qualified domain name of the machine on which the OpenStack Image service is hosted. You must add the port number for the OpenStack Image service to the end of the URL or fully qualified domain name. By default, this port number is 9292.
+
+* *Requires Authentication*: Allows you to specify whether authentication is required to access the OpenStack Image service.
+
+* *Username*: A user name for connecting to the Keystone server. This user name must be the user name for the OpenStack Image service registered in the Keystone instance of which the OpenStack Image service is a member.
+
+* *Password*: The password against which the above user name is to be authenticated. This password must be the password for the OpenStack Image service registered in the Keystone instance of which the OpenStack Image service is a member.
+
+* *Protocol*: The protocol used to communicate with the Keystone server. This must be set to `HTTP`.
+
+* *Hostname*: The IP address or hostname of the Keystone server.
+
+* *API port*: The API port number of the Keystone server.
+
+* *API Version*: The version of the Keystone service. The value is `v2.0` and the field is disabled.
+
+* *Tenant Name*: The name of the OpenStack tenant of which the OpenStack Image service is a member.
+
+*OpenStack Networking*
+
+* *Networking Plugin*: The networking plugin with which to connect to the OpenStack Networking server. For OpenStack Networking, *Open vSwitch* is the only option, and is selected by default.
+
+* *Automatic Synchronization*: Allows you to specify whether the provider will be automatically synchronized with existing networks.
+
+* *Provider URL*: The URL or fully qualified domain name of the machine on which the OpenStack Networking instance is hosted. You must add the port number for the OpenStack Networking instance to the end of the URL or fully qualified domain name. By default, this port number is 9696.
+
+* *Read Only*: Allows you to specify whether the OpenStack Networking instance can be modified from the Administration Portal.
+
+* *Requires Authentication*: Allows you to specify whether authentication is required to access the OpenStack Networking service.
+
+* *Username*: A user name for connecting to the OpenStack Networking instance. This user name must be the user name for OpenStack Networking registered in the Keystone instance of which the OpenStack Networking instance is a member.
+
+* *Password*: The password against which the above user name is to be authenticated. This password must be the password for OpenStack Networking registered in the Keystone instance of which the OpenStack Networking instance is a member.
+
+* *Protocol*: The protocol used to communicate with the Keystone server. The default is *HTTPS*.
+
+* *Hostname*: The IP address or hostname of the Keystone server.
+
+* *API port*: The API port number of the Keystone server.
+
+* *API Version*: The version of the Keystone server. This appears in the URL. If v2.0 appears, select *v2.0*. If v3 appears select `v3`.
+
+The following fields appear when you select `v3` from the *API Version* field:
+
+* *User Domain Name*: The name of the user defined in the domain.
++
+With Keystone API v3, domains are used to determine administrative boundaries of service entities in OpenStack. Domains allow you to group users together for various purposes, such as setting domain-specific configuration or security options. For more information, see link:https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/11/html-single/architecture_guide/#comp-identity[OpenStack Identity (keystone)] in the Red Hat OpenStack Platform _Architecture Guide_.
+
+* *Project Name*: Defines the project name for OpenStack Identity API v3.
+
+* *Project Domain Name*: Defines the project’s domain name for OpenStack Identity API v3.
+
+The following field appears when you select *v2.0* from the *API Version* field:
+
+* *Tenant Name*: Appears only when v2 is selected from the *API Version* field. The name of the OpenStack tenant of which the OpenStack Networking instance is a member.
+
+*OpenStack Volume*
+
+* *Data Center*: The data center to which OpenStack Volume storage volumes will be attached.
+
+* *Provider URL*: The URL or fully qualified domain name of the machine on which the OpenStack Volume instance is hosted. You must add the port number for the OpenStack Volume instance to the end of the URL or fully qualified domain name. By default, this port number is 8776.
+
+* *Requires Authentication*: Allows you to specify whether authentication is required to access the OpenStack Volume service.
+
+* *Username*: A user name for connecting to the Keystone server. This user name must be the user name for OpenStack Volume registered in the Keystone instance of which the OpenStack Volume instance is a member.
+
+* *Password*: The password against which the above user name is to be authenticated. This password must be the password for OpenStack Volume registered in the Keystone instance of which the OpenStack Volume instance is a member.
+
+* *Protocol*: The protocol used to communicate with the Keystone server. This must be set to `HTTP`.
+
+* *Hostname*: The IP address or hostname of the Keystone server.
+
+* *API port*: The API port number of the Keystone server.
+
+* *API Version*: The version of the Keystone server.  The value is `v2.0` and the field is disabled.
+
+* *Tenant Name*: The name of the OpenStack tenant of which the OpenStack Volume instance is a member.
+
+*VMware*
+
+* *Data Center*: Specify the data center into which VMware virtual machines will be imported, or select *Any Data Center* to specify the destination data center during individual import operations (using the *Import* function in the *Virtual Machines* tab).
+
+* *vCenter*: The IP address or fully qualified domain name of the VMware vCenter instance.
+
+* *ESXi*: The IP address or fully qualified domain name of the host from which the virtual machines will be imported.
+
+* *Data Center*: The name of the data center in which the specified ESXi host resides.
+
+* *Cluster*: The name of the cluster in which the specified ESXi host resides.
+
+* *Verify server's SSL certificate*: Specify whether the ESXi host's certificate will be verified on connection.
+
+* *Proxy Host*: Select a host in the chosen data center with `virt-v2v` installed to serve as the host during virtual machine import operations. This host must also be able to connect to the network of the VMware vCenter external provider. If you selected *Any Data Center*, you cannot choose the host here, but can specify a host during individual import operations (using the *Import* function in the *Virtual Machines* tab).
+
+* *Username*: A user name for connecting to the VMware vCenter instance. The user must have access to the VMware data center and ESXi host on which the virtual machines reside.
+
+* *Password*: The password against which the above user name is to be authenticated.
+
+*RHEL 5 Xen*
+
+* *Data Center*: Specify the data center into which Xen virtual machines will be imported, or select *Any Data Center* to instead specify the destination data center during individual import operations (using the *Import* function in the *Virtual Machines* tab).
+
+* *URI*: The URI of the RHEL 5 Xen host.
+
+* *Proxy Host*: Select a host in the chosen data center with `virt-v2v` installed to serve as the host during virtual machine import operations. This host must also be able to connect to the network of the RHEL 5 Xen external provider. If you selected *Any Data Center*, you cannot choose the host here, but instead can specify a host during individual import operations (using the *Import* function in the *Virtual Machines* tab).
+
+*KVM*
+
+* *Data Center*: Specify the data center into which KVM virtual machines will be imported, or select *Any Data Center* to instead specify the destination data center during individual import operations (using the *Import* function in the *Virtual Machines* tab).
+
+* *URI*: The URI of the KVM host.
+
+* *Proxy Host*: Select a host in the chosen data center to serve as the host during virtual machine import operations. This host must also be able to connect to the network of the KVM external provider. If you selected *Any Data Center*, you cannot choose the host here, but instead can specify a host during individual import operations (using the *Import* function in the *Virtual Machines* tab).
+
+* *Requires Authentication*: Allows you to specify whether authentication is required to access the KVM host.
+
+* *Username*: A user name for connecting to the KVM host.
+
+* *Password*: The password against which the above user name is to be authenticated.
+
+*External Network Provider*
+
+* *Networking Plugin*: Determines which implementation of the driver will be used on the host to handle NIC operations. If an external network provider with the `oVirt Network Provider for OVN` plugin is added as the default network provider for a cluster, this also determines which driver will be installed on hosts added to the cluster.
+
+* *Automatic Synchronization*: Allows you to specify whether the provider will be automatically synchronized with existing networks.
+
+* *Provider URL*: The URL or fully qualified domain name of the machine on which the external network provider is hosted. You must add the port number for the external network provider to the end of the URL or fully qualified domain name. By default, this port number is 9696.
+
+* *Read Only*: Allows you to specify whether the external network provider can be modified from the Administration Portal.
+
+* *Requires Authentication*: Allows you to specify whether authentication is required to access the external network provider.
+
+* *Username*: A user name for connecting to the external network provider. If you are authenticating with Active Directory, the user name must be in the format of _username_@_domain_@_auth_profile_ instead of the default _username_@_domain_.
+
+* *Password*: The password against which the above user name is to be authenticated.
+
+* *Protocol*: The protocol used to communicate with the Keystone server. The default is *HTTPS*.
+
+* *Hostname*: The IP address or hostname of the Keystone server.
+
+* *API port*: The API port number of the Keystone server.
+
+* *API Version*: The version of the Keystone server.  The value is `v2.0` and the field is disabled.
+
+* *Tenant Name*: Optional. The name of the tenant of which the external network provider is a member.
+
+|*Test* |Allows users to test the specified credentials. This button is available to all provider types.
+|===

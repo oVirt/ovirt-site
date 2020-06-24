@@ -1,0 +1,94 @@
+[[Adding_an_OpenStack_Network_Service_Neutron_for_Network_Provisioning]]
+
+==== Adding an OpenStack Networking (Neutron) Instance for Network Provisioning
+
+[IMPORTANT]
+====
+OpenStack Networking (Neutron) requires {enterprise-linux} 7 hosts. {enterprise-linux} 8 hosts are not compatible with Red Hat OpenStack Platform versions 10, 13, and 14.
+====
+
+Add an OpenStack Networking (neutron) instance for network provisioning to the {virt-product-fullname} {engine-name}. To add other third-party network providers that implement the OpenStack Neutron REST API, see xref:Adding_an_External_Network_Provider[].
+
+[IMPORTANT]
+====
+{virt-product-fullname} supports Red Hat OpenStack Platform versions 10, 13, and 14 as external network providers.
+
+* OpenStack 10 should be deployed with an OVS driver.
+* OpenStack 13 should be deployed with an OVS, OVN, or ODL driver.
+* OpenStack 14 should be deployed with an OVN or ODL driver.
+====
+
+To use neutron networks, hosts must have the neutron agents configured. You can configure the agents manually, or use the Red&nbsp;Hat OpenStack Platform director to deploy the Networker role, before adding the network node to the {engine-name} as a host. Using the director is recommended. Automatic deployment of the neutron agents through the *Network Provider* tab in the *New Host* window is not supported.
+
+Although network nodes and regular hosts can be used in the same cluster, virtual machines using neutron networks can only run on network nodes.
+
+.Adding a Network Node as a Host
+
+. Use the Red Hat OpenStack Platform director to deploy the Networker role on the network node. See link:https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/10/html-single/advanced_overcloud_customization/index#sect-Creating_a_New_Role[Creating a New Role] and https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/10/html-single/advanced_overcloud_customization/index#Standalone-Networker[Networker] in the _Red Hat OpenStack Platform Advanced Overcloud Customization Guide_.
+ifdef::rhv-doc[]
+include::../common/install/snip-RHEL_repo_steps.adoc[]
+endif::[]
+. Install the Openstack Networking hook:
++
+[options="nowrap" subs="normal"]
+----
+# yum install vdsm-hook-openstacknet
+----
++
+. Add the network node to the {engine-name} as a host. See xref:Adding_standard_hosts_to_the_Manager_host_tasks[].
++
+[IMPORTANT]
+====
+Do not select the OpenStack Networking provider from the *Network Provider* tab. This is currently not supported.
+====
++
+. Remove the firewall rule that rejects ICMP traffic:
++
+[options="nowrap" subs="normal"]
+----
+# iptables -D INPUT -j REJECT --reject-with icmp-host-prohibited
+----
+
+*Adding an OpenStack Networking (Neutron) Instance for Network Provisioning*
+
+. Click menu:Administration[Providers].
+. Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[].
+. Enter a *Name* and *Description*.
+. Select *OpenStack Networking* from the *Type* drop-down list.
+. Ensure that *Open vSwitch* is selected in the *Networking Plugin* field.
+. Optionally, select the *Automatic Synchronization* check box. This enables automatic synchronization of the external network provider with existing networks.
+. Enter the URL or fully qualified domain name of the machine on which the OpenStack Networking instance is installed in the *Provider URL* text field, followed by the port number. The *Read-Only* check box is selected by default. This prevents users from modifying the OpenStack Networking instance.
++
+[IMPORTANT]
+====
+You must leave the *Read-Only* check box selected for your setup to be supported by Red Hat.
+====
++
+. Optionally, select the *Requires Authentication* check box and enter the *Username* and *Password* for the OpenStack Networking user registered in Keystone.
+You must also define the authentication URL of the Keystone server by defining the *Protocol, Hostname, API Port,* and *API Version*.
++
+For API version 2.0, enter the *Tenant* for the OpenStack Networking instance. For API version 3, enter the *User Domain Name*, *Project Name*, and *Project Domain Name*.
+
+
+
+. Test the credentials:
+.. Click *Test* to test whether you can authenticate successfully with the OpenStack Networking instance using the provided credentials.
+.. If the OpenStack Networking instance uses SSL, the *Import provider certificates* window opens; click *OK* to import the certificate that the OpenStack Networking instance provides to ensure the {engine-name} can communicate with the instance.
+. Click the *Agent Configuration* tab.
++
+ifdef::rhv-doc[]
+[WARNING]
+====
+The following steps are provided only as a Technology Preview. {virt-product-fullname} only supports preconfigured neutron hosts.
+====
+endif::[]
+// review above
++
+. Enter a comma-separated list of interface mappings for the Open vSwitch agent in the *Interface Mappings* field.
+. Select the message broker type that the OpenStack Networking instance uses from the *Broker Type* list.
+. Enter the URL or fully qualified domain name of the host on which the message broker is hosted in the *Host* field.
+. Enter the *Port* by which to connect to the message broker. This port number will be 5762 by default if the message broker is not configured to use SSL, and 5761 if it is configured to use SSL.
+. Enter the *Username* and *Password* of the OpenStack Networking user registered in the message broker instance.
+. Click *OK*.
+
+You have added the OpenStack Networking instance to the {virt-product-fullname} {engine-name}. Before you can use the networks it provides, import the networks into the {engine-name}. See xref:Importing_Networks[].

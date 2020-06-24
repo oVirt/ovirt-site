@@ -1,0 +1,13 @@
+[[Accessing_Cockpit_from_the_Admin_Portal]]
+==== Accessing Cockpit from the Administration Portal
+
+Cockpit is available by default on {hypervisor-fullname}s ({hypervisor-shortname}) and {enterprise-linux-host-fullname}s. You can access the Cockpit web interface by typing the address into a browser, or through the Administration Portal.
+
+
+*Accessing Cockpit from the Administration Portal*
+
+. In the Administration Portal, click menu:Compute[Hosts] and select a host.
+. Click *Host Console*. 
+
+The Cockpit login page opens in a new browser window.
+

@@ -1,0 +1,36 @@
+[[Creating_a_new_logical_network_in_a_data_center_or_cluster]]
+==== Creating a New Logical Network in a Data Center or Cluster
+
+Create a logical network and define its use in a data center, or in clusters in a data center.
+
+*Creating a New Logical Network in a Data Center or Cluster*
+
+. Click menu:Compute[Data Centers] or menu:Compute[Clusters].
+. Click the data center or cluster name to open the details view.
+. Click the *Logical Networks* tab.
+. Open the *New Logical Network* window:
+* From a data center details view, click *New*.
+* From a cluster details view, click *Add Network*.
+. Enter a *Name*, *Description*, and *Comment* for the logical network.
+. Optionally, enable *Enable VLAN tagging*.
+. Optionally, disable *VM Network*.
+. Optionally, select the *Create on external provider* check box. This disables the *Network Label*, *VM Network*, and *MTU* options. See xref:chap-External_Providers[] for details.
+
+. Select the *External Provider*. The *External Provider* list does not include external providers that are in `read-only` mode.
++
+You can create an internal, isolated network, by selecting *ovirt-provider-ovn* on the *External Provider* list and leaving *Connect to physical network* unselected.
+
+. Enter a new label or select an existing label for the logical network in the *Network Label* text field.
+. Set the *MTU* value to *Default (1500)* or *Custom*.
+. If you selected *ovirt-provider-ovn* from the *External Provider* drop-down list, define whether the network should implement *Security Groups*. See xref:Logical_Network_General_Settings_Explained[] for details.
+. From the *Cluster* tab, select the clusters to which the network will be assigned. You can also specify whether the logical network will be a required network.
+. If *Create on external provider* is selected, the *Subnet* tab will be visible. From the *Subnet* tab, select the *Create subnet* and enter a *Name*, *CIDR*, and *Gateway* address, and select an *IP Version* for the subnet that the logical network will provide. You can also add DNS servers as required.
+. From the *vNIC Profiles* tab, add vNIC profiles to the logical network as required.
+. Click *OK*.
+
+If you entered a label for the logical network, it is automatically added to all host network interfaces with that label.
+
+[NOTE]
+====
+When creating a new logical network or making changes to an existing logical network that is used as a display network, any running virtual machines that use that network must be rebooted before the network becomes available or the changes are applied.
+====

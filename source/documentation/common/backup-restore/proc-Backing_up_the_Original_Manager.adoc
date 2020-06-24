@@ -7,7 +7,7 @@
 
 Back up the original {engine-name} using the `engine-backup` command, and copy the backup file to a separate location so that it can be accessed at any point during the process.
 
-For more information about `engine-backup --mode=backup` options, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Backing Up and Restoring the {virt-product-fullname} {engine-name}] in the _Administration Guide_.
+For more information about `engine-backup --mode=backup` options, see link:{URL_virt_product_docs}administration_guide#sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager[Backing Up and Restoring the {virt-product-fullname} {engine-name}] in the _Administration Guide_.
 
 .Procedure
 

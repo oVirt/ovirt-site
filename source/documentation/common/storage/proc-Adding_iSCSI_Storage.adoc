@@ -34,7 +34,7 @@ You can use the *Discover Targets* options to add LUNs on many targets or multip
 +
 [NOTE]
 ====
-You can define credentials for an iSCSI target for a specific host with the REST API. See link:http://ovirt.github.io/ovirt-engine-api-model/4.4#services/storage_server_connection_extensions-methods-add[StorageServerConnectionExtensions: add] in the _REST API Guide_ for more information.
+You can define credentials for an iSCSI target for a specific host with the REST API. See link:{URL_downstream_virt_product_docs}html/rest_api_guide/services#services-storage_server_connection_extensions-methods-add[StorageServerConnectionExtensions: add] in the _REST API Guide_ for more information.
 ====
 +
 .. Click *Discover*.
@@ -55,6 +55,6 @@ If more than one path access is required, you must discover and log in to the ta
 .. Select the *Discard After Delete* check box to enable the discard after delete option. This option can be edited after the domain is created. This option is only available to block storage domains.
 . Click *OK*.
 
-If you have configured multiple storage connection paths to the same target, follow the procedure in link:{URL_virt_product_docs}admin-guide/administration-guide.html[Configuring iSCSI Multipathing] to complete iSCSI bonding.
+If you have configured multiple storage connection paths to the same target, follow the procedure in link:{URL_virt_product_docs}administration_guide#Configuring_iSCSI_Multipathing[Configuring iSCSI Multipathing] to complete iSCSI bonding.
 
-If you want to migrate your current storage network to an iSCSI bond, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Migrating a Logical Network to an iSCSI Bond].
+If you want to migrate your current storage network to an iSCSI bond, see link:{URL_virt_product_docs}administration_guide#Migrating_a_logical_network_to_an_iscsi_bond[Migrating a Logical Network to an iSCSI Bond].

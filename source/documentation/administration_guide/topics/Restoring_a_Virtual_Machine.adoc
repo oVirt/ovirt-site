@@ -1,0 +1,84 @@
+[[Restoring_a_Virtual_Machine]]
+==== Restoring a Virtual Machine
+
+Restore a virtual machine that has been backed up using the backup and restore API. This procedure assumes you have a backup virtual machine on which the software used to manage the previous backup is installed.
+
+*Restoring a Virtual Machine*
+
+. In the Administration Portal, create a floating disk on which to restore the backup. See xref:Creating_a_Virtual_Disk[] for details on how to create a floating disk.
+. Attach the disk to the backup virtual machine:
++
+[options="nowrap" subs="normal"]
+----
+POST /api/vms/`_{vm:id}_`/disks/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<disk id="_{disk:id}_">
+</disk>
+----
++
+NOTE: Here, replace `_{vm:id}_` with the ID of this _backup_ virtual machine, not the virtual machine whose snapshot you made earlier. Replace `_{disk:id}_` with the disk ID you got while backing up the virtual machine.
+
+. Use the backup software to restore the backup to the disk.
+. Detach the disk from the backup virtual machine:
++
+[options="nowrap" subs="normal"]
+----
+DELETE /api/vms/`_{vm:id}_`/disks/_{disk:id}_ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<action>
+    <detach>true</detach>
+</action>
+----
++
++
+NOTE: Here, replace `_{vm:id}_` with the ID of this _backup_ virtual machine, not the virtual machine whose snapshot you made earlier. Replace `_{disk:id}_` with the disk ID.
+
+. Create a new virtual machine using the configuration data of the virtual machine being restored:
++
+[options="nowrap" ]
+----
+POST /api/vms/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<vm>
+    <cluster>
+        <name>cluster_name</name>
+    </cluster>
+    <name>_NAME_</name>
+      <initialization>
+      <configuration>
+  <data>
+  <!-- omitting long ovf data -->
+  </data>
+      <type>ovf</type>
+      </configuration>
+      </initialization>
+    ...
+</vm>
+----
++
+[NOTE]
+====
+To override any of the values in the ovf while creating the virtual machine,  redefine the element _before_ or _after_ the `initialization` element. Not within the initialization element.
+====
++
+. Attach the disk to the new virtual machine:
++
+[options="nowrap" subs="normal"]
+----
+POST /api/vms/`_{vm:id}_`/disks/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<disk id="_{disk:id}_">
+</disk>
+----
++
+NOTE: Here, replace `_{vm:id}_` with the ID of the _new_ virtual machine, not the virtual machine whose snapshot you made earlier.  Replace `_{disk:id}_` with the disk ID.
+
+You have restored a virtual machine using a backup that was created using the backup and restore API.

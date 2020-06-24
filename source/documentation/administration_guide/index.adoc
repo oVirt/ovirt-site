@@ -1,0 +1,31 @@
+= Administration Guide
+include::../common/collateral_files/ovirt-attributes.adoc[]
+
+// Make sure Jekyll displays a guide title
+[discrete]
+= Administration Guide
+
+include::part-Administering_and_Maintaining_the_Red_Hat_Virtualization_Environment.adoc[]
+
+include::part-Administering_the_Resources.adoc[]
+
+include::part-Administering_the_Environment.adoc[]
+
+include::part-Gathering_Information_About_the_Environment.adoc[]
+
+include::appe-VDSM_and_Hooks.adoc[]
+
+include::appe-Custom_Network_Properties.adoc[]
+
+include::appe-Red_Hat_Virtualization_User_Interface_Plugins.adoc[]
+
+include::appe-Red_Hat_Virtualization_and_Encrypted_Communication.adoc[]
+
+include::appe-Branding.adoc[]
+
+include::appe-System_Accounts.adoc[]
+
+[appendix]
+== Legal notice
+
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}html-single/administration_guide/[Red Hat Virtualization {vernum_rhv} Administration Guide]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

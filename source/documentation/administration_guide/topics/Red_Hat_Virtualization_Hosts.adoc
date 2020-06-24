@@ -1,0 +1,20 @@
+[[Intro_to_RHVH]]
+=== {hypervisor-fullname}
+
+{hypervisor-fullname} ({hypervisor-shortname}) is installed using a special build of {enterprise-linux} with only the packages required to host virtual machines. It uses an `Anaconda` installation interface based on the one used by {enterprise-linux-host-fullname}s, and can be updated through the {virt-product-fullname} {engine-name} or via `yum`. Using the `yum` command is the only way to install additional packages and have them persist after an upgrade.
+
+{hypervisor-shortname} features a Cockpit web interface for monitoring the host's resources and performing administrative tasks. Direct access to {hypervisor-shortname} via SSH or console is not supported, so the Cockpit web interface provides a graphical user interface for tasks that are performed before the host is added to the {virt-product-fullname} {engine-name}, such as configuring networking and deploying a self-hosted engine, and can also be used to run terminal commands via the *Terminal* sub-tab.
+
+Access the Cockpit web interface at https://_HostFQDNorIP_:9090 in your web browser. Cockpit for {hypervisor-shortname} includes a custom *Virtualization* dashboard that displays the host's health status, SSH Host Key, self-hosted engine status, virtual machines, and virtual machine statistics.
+
+{hypervisor-shortname} uses the Automatic Bug Reporting Tool (ABRT) to collect meaningful debug information about application crashes. For more information, see the link:{URL_rhel_docs_legacy}html-single/system_administrators_guide/index#ch-abrt[_{enterprise-linux} System Administrator's Guide_].
+
+[NOTE]
+====
+Custom boot kernel arguments can be added to {hypervisor-fullname} using the `grubby` tool. The `grubby` tool makes persistent changes to the *grub.cfg* file. Navigate to the *Terminal* sub-tab in the host's Cockpit web interface to use `grubby` commands. See the link:{URL_rhel_docs_legacy}html/System_Administrators_Guide/sec-Making_Persistent_Changes_to_a_GRUB_2_Menu_Using_the_grubby_Tool.html[_{enterprise-linux} System Administrator's Guide_] for more information.
+====
+
+[WARNING]
+====
+Do not create untrusted users on {hypervisor-shortname}, as this can lead to exploitation of local security vulnerabilities.
+====

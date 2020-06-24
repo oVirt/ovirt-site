@@ -1,0 +1,45 @@
+[[Configuring_Host_Power_Management_Settings]]
+==== Configuring Host Power Management Settings
+
+Configure your host power management device settings to perform host life-cycle operations (stop, start, restart) from the Administration Portal.
+
+You must configure host power management in order to utilize host high availability and virtual machine high availability. For more information about power management devices, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/technical_reference/power_management[Power Management] in the _Technical Reference_.
+
+*Configuring Power Management Settings*
+
+. Click menu:Compute[Hosts] and select a host.
+. Click menu:Management[Maintenance], and click *OK* to confirm.
+. When the host is in maintenance mode, click *Edit*.
+. Click the *Power Management* tab.
+. Select the *Enable Power Management* check box to enable the fields.
+. Select the *Kdump integration* check box to prevent the host from fencing while performing a kernel crash dump.
++
+[IMPORTANT]
+====
+If you enable or disable *Kdump integration* on an existing host, you must xref:Reinstalling_Hosts_admin[reinstall the host] for kdump to be configured.
+====
++
+. Optionally, select the *Disable policy control of power management* check box if you do not want your host's power management to be controlled by the *Scheduling Policy* of the host's *cluster*.
+. Click the plus (*+*) button to add a new power management device. The *Edit fence agent* window opens.
+. Enter the *User Name* and *Password* of the power management device into the appropriate fields.
+. Select the power management device *Type* in the drop-down list.
+. Enter the IP address in the *Address* field.
+. Enter the *SSH Port* number used by the power management device to communicate with the host.
+. Enter the *Slot* number used to identify the blade of the power management device.
+. Enter the *Options* for the power management device. Use a comma-separated list of _'key=value'_ entries.
+* If both IPv4 and IPv6 IP addresses can be used (default), leave the *Options* field blank.
+* If only IPv4 IP addresses can be used, enter `inet4_only=1`.
+* If only IPv6 IP addresses can be used, enter `inet6_only=1`.
+. Select the *Secure* check box to enable the power management device to connect securely to the host.
+. Click *Test* to ensure the settings are correct. *Test Succeeded, Host Status is: on* will display upon successful verification.
+. Click *OK* to close the *Edit fence agent* window.
+. In the *Power Management* tab, optionally expand the *Advanced Parameters* and use the up and down buttons to specify the order in which the {engine-name} will search the host's *cluster* and *dc* (datacenter) for a fencing proxy.
+. Click *OK*.
+
+[NOTE]
+====
+* For IPv6, {virt-product-fullname} supports only static addressing.
+* Dual-stack *IPv4 and IPv6* addressing is not supported.
+====
+
+The menu:Management[Power Management] drop-down menu is now enabled in the Administration Portal.

@@ -1,0 +1,13 @@
+[[Importing_a_USB_policy]]
+==== Importing a USB Policy
+
+An existing USB device policy must be downloaded and imported into the USB Filter Editor before you can edit it.
+
+
+*Importing a USB Policy*
+
+. Using a Secure Copy client, such as WinSCP, download the *usbfilter.txt* file from the server running {virt-product-fullname} {engine-name}. The file can be found in the following directory on the server:
+*/etc/ovirt-engine/*
+. Double-click the USB Filter Editor shortcut icon on your desktop to open the editor.
+. Click *Import* to open the *Open* window.
+. Open the *usbfilter.txt* file that was downloaded from the server.

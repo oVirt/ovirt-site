@@ -1,0 +1,49 @@
+[[Setting_fencing_parameters_on_a_host]]
+==== Setting Fencing Parameters on a Host
+
+The parameters for host fencing are set using the *Power Management* fields on the *New Host* or *Edit Host* windows. Power management enables the system to fence a troublesome host using an additional interface such as a Remote Access Card (RAC).
+
+All power management operations are done using a proxy host, as opposed to directly by the {virt-product-fullname} {engine-name}. At least two hosts are required for power management operations.
+
+
+*Setting fencing parameters on a host*
+
+. Click menu:Compute[Hosts] and select the host.
+. Click *Edit*.
+. Click the *Power Management* tab.
+. Select the *Enable Power Management* check box to enable the fields.
+. Select the *Kdump integration* check box to prevent the host from fencing while performing a kernel crash dump.
++
+[IMPORTANT]
+====
+If you enable or disable *Kdump integration* on an existing host, you must  xref:Reinstalling_Hosts_admin[reinstall the host].
+====
++
+. Optionally, select the *Disable policy control of power management* check box if you do not want your host's power management to be controlled by the *Scheduling Policy* of the host's cluster.
+. Click the *+* button to add a new power management device. The *Edit fence agent* window opens.
+. Enter the *Address*, *User Name*, and *Password* of the power management device.
+. Select the power management device *Type* from the drop-down list.
++
+[NOTE]
+====
+For more information on how to set up a custom power management device, see link:https://access.redhat.com/articles/1238743[].
+====
++
+. Enter the *SSH Port* number used by the power management device to communicate with the host.
+. Enter the *Slot* number used to identify the blade of the power management device.
+. Enter the *Options* for the power management device. Use a comma-separated list of _'key=value'_ entries.
+. Select the *Secure* check box to enable the power management device to connect securely to the host.
+. Click the *Test* button to ensure the settings are correct. *Test Succeeded, Host Status is: on* will display upon successful verification.
++
+[WARNING]
+====
+Power management parameters (userid, password, options, etc) are tested by {virt-product-fullname} {engine-name} only during setup and manually after that. If you choose to ignore alerts about incorrect parameters, or if the parameters are changed on the power management hardware without the corresponding change in {virt-product-fullname} {engine-name}, fencing is likely to fail when most needed.
+====
++
+. Click *OK* to close the *Edit fence agent* window.
+. In the *Power Management* tab, optionally expand the *Advanced Parameters* and use the up and down buttons to specify the order in which the {engine-name} will search the host's *cluster* and *dc* (datacenter) for a fencing proxy.
+. Click *OK*.
+
+
+You are returned to the list of hosts. Note that the exclamation mark next to the host's name has now disappeared, signifying that power management has been successfully configured.
+

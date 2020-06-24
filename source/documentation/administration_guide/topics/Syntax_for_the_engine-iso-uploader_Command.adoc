@@ -1,0 +1,75 @@
+[[Syntax_for_the_engine-iso-uploader_Command]]
+==== Syntax for the engine-iso-uploader Command
+
+The basic syntax for the ISO uploader command is:
+
+[options="nowrap" subs="normal"]
+----
+# engine-iso-uploader _options_ list
+# engine-iso-uploader _options_ upload _file file file_
+----
+
+The ISO uploader command supports two actions - `list`, and `upload`.
+
+
+* The `list` action lists the ISO storage domains to which ISO files can be uploaded. The {virt-product-fullname} {engine-name} creates this list on the machine on which the {engine-name} is installed during the installation process.
+
+* The `upload` action uploads a single ISO file or multiple ISO files separated by spaces to the specified ISO storage domain. NFS is used by default, but SSH is also available.
++
+[NOTE]
+====
+If you use SSH, you are prompted multiple times to enter the SSH user password. You can avoid these prompts by uploading the public SSH key to the iso domain server before uploading an ISO file, and then using the `--key-file=_KEYFILE_` option. One way to upload the public SSH key is to use the `ssh-copy-id -i ~/.ssh/_mykey_ _user@host_` command.
+====
+
+You must specify one of the above actions when you use the ISO uploader command. Moreover, you must specify at least one local file to use the `upload` action.
+
+There are several parameters to further refine the `engine-iso-uploader` command.
+
+*General Options*
+
+*`--version`*:: Displays the version of the ISO uploader command.
+
+*`-h`, `--help`*:: Displays information on how to use the ISO uploader command.
+
+*`--conf-file=_PATH_`*:: Sets _PATH_ as the configuration file the command will to use. The default is */etc/ovirt-engine/isouploader.conf*.
+
+*`--log-file=_PATH_`*:: Sets _PATH_ as the specific file name the command will use to write log output. The default is */var/log/ovirt-engine/ovirt-iso-uploader/ovirt-iso-uploader___date__.log*.
+
+*`--cert-file=_PATH_`*:: Sets _PATH_ as the certificate for validating the engine. The default is */etc/pki/ovirt-engine/ca.pem*.
+
+*`--insecure`*:: Specifies that no attempt will be made to verify the engine.
+
+*`--nossl`*:: Specifies that SSL will not be used to connect to the engine.
+
+*`--quiet`*:: Sets quiet mode, reducing console output to a minimum.
+
+*`-v`, `--verbose`*:: Sets verbose mode, providing more console output.
+
+*`-f`, `--force`*:: Force mode is necessary when the source file being uploaded has the same file name as an existing file in the destination ISO domain. This option forces the existing file to be overwritten.
+
+
+*{virt-product-fullname} {engine-name} Options*
+
+*`-u _USER_`, `--user=_USER_`*:: Specifies the user whose credentials will be used to execute the command. The _USER_ is specified in the format _username_@_domain_. The user must exist in the specified domain and be known to the {virt-product-fullname} {engine-name}.
+
+*`-r _FQDN_`, `--engine=_FQDN_`*:: Specifies the IP address or fully qualified domain name of the {virt-product-fullname} {engine-name} from which the images will be uploaded. It is assumed that the image uploader is being run from the same machine on which the {virt-product-fullname} {engine-name} is installed. The default value is `localhost:443`.
+
+
+*ISO Storage Domain Options*
+
+The following options specify the ISO domain to which the images will be uploaded. These options cannot be used together; you must used either the `-i` option or the `-n` option.
+
+*`-i`, `--iso-domain=_ISODOMAIN_`*:: Sets the storage domain _ISODOMAIN_ as the destination for uploads.
+
+*`-n`, `--nfs-server=_NFSSERVER_`*:: Sets the NFS path _NFSSERVER_ as the destination for uploads.
+
+
+*Connection Options*
+
+The ISO uploader uses NFS as default to upload files. These options specify SSH file transfer instead.
+
+*`--ssh-user=_USER_`*:: Sets _USER_ as the SSH user name to use for the upload. The default is `root`.
+
+*`--ssh-port=_PORT_`*:: Sets _PORT_ as the port to use when connecting to SSH.
+
+*`-k _KEYFILE_`, `--key-file=_KEYFILE_`*:: Sets _KEYFILE_ as the private key to use for SSH authentication. If you don't set a key, you are prompted to enter the password of the user specified by `--ssh-user=_USER_`. You must upload the public SSH key to the ISO domain server before uploading an ISO file. One way to do this is to use the `ssh-copy-id -i ~/.ssh/_mykey_ _user@host_` command.

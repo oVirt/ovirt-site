@@ -1,0 +1,108 @@
+[[Backing_Up_a_Virtual_Machine]]
+==== Backing Up a Virtual Machine
+
+Use the backup and restore API to back up a virtual machine. This procedure assumes you have two virtual machines: the virtual machine to back up, and a virtual machine on which the software for managing the backup is installed.
+
+
+*Backing Up a Virtual Machine*
+
+. Using the REST API, create a snapshot of the virtual machine to back up:
++
+[options="nowrap" subs="normal"]
+----
+POST /api/vms/`_{vm:id}_`/snapshots/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<snapshot>
+    <description>BACKUP</description>
+</snapshot>
+----
++
+[NOTE]
+====
+* Here, replace `_{vm:id}_` with the VM ID of the virtual machine whose snapshot you are making. This ID is available from the *General* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows in the *Administration Portal* and *VM Portal*.
+* Taking a snapshot of a virtual machine stores its current configuration data in the `data` attribute of the `configuration` attribute in `initialization` under the snapshot.
+====
++
+[IMPORTANT]
+====
+You cannot take snapshots of disks marked as shareable or based on direct LUN disks.
+====
++
+. Retrieve the configuration data of the virtual machine from the `data` attribute under the snapshot:
++
+[options="nowrap" subs="normal"]
+----
+GET /api/vms/`_{vm:id}_`/snapshots/`_{snapshot:id}_` HTTP/1.1
+All-Content: true
+Accept: application/xml
+Content-type: application/xml
+----
++
+[NOTE]
+====
+* Here, replace `_{vm:id}_` with the ID of the virtual machine whose snapshot you made earlier. Replace `_{snapshot:id}_` with the snapshot ID.
+* Add the `All-Content: true` header to retrieve additional OVF data in the response. The OVF data in the XML response is located within the VM configuration element, `<initialization><configuration>`. Later, you will use this data to restore the virtual machine.
+====
+. Get the snapshot ID:
++
+[options="nowrap" subs="normal"]
+----
+GET /api/vms/{vm:id}/snapshots/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+----
++
+. Identify the disk ID of the snapshot:
++
+[options="nowrap" subs="normal"]
+----
+GET /api/vms/`_{vm:id}_`/snapshots/`_{snapshot:id}_`/disks HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+----
++
+. Attach the snapshot to a backup virtual machine as an active disk attachment, with the correct interface type (for example, *virtio_scsi*):
++
+[options="nowrap" subs="normal"]
+----
+POST /api/vms/`_{vm:id}_`/diskattachments/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+
+<disk_attachment>
+	<active>true</active>
+	<interface>_virtio_scsi_</interface>
+	<disk id="_{disk:id}_">
+	<snapshot id="_{snapshot:id}_"/>
+	</disk>
+</disk_attachment>
+----
++
+NOTE: Here, replace `_{vm:id}_` with the ID of the _backup_ virtual machine, not the virtual machine whose snapshot you made earlier. Replace `_{disk:id}_` with the disk ID. Replace `_{snapshot:id}_` with the snapshot ID.
+
+. Use the backup software on the backup virtual machine to back up the data on the snapshot disk.
+. Remove the snapshot disk attachment from the backup virtual machine:
++
+[options="nowrap" subs="normal"]
+----
+DELETE /api/vms/`_{vm:id}_`/diskattachments/`_{snapshot:id}_` HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+----
++
+NOTE: Here, replace `_{vm:id}_` with the ID of the _backup_ virtual machine, not the virtual machine whose snapshot you made earlier. Replace `_{snapshot:id}_` with the snapshot ID.
+
+. Optionally, delete the snapshot:
++
+[options="nowrap" subs="normal"]
+----
+DELETE /api/vms/`_{vm:id}_`/snapshots/`_{snapshot:id}_` HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+----
++
+NOTE: Here, replace `_{vm:id}_` with the ID of the virtual machine whose snapshot you made earlier. Replace `_{snapshot:id}_` with the snapshot ID.
+
+You have backed up the state of a virtual machine at a fixed point in time using backup software installed on a separate virtual machine.

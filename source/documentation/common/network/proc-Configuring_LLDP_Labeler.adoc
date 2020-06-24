@@ -1,0 +1,48 @@
+[id='Configuring_LLDP_Labeler_{context}'']
+
+By default, LLDP Labeler runs as an hourly service. This option is useful if you make hardware changes (for example, NICs, switches, or cables) or change switch configurations.
+
+.Prerequisites
+
+* The interfaces must be connected to a Juniper switch.
+
+ifdef::Network[]
+* The Juniper switch must be configured to provide the `Port VLAN` using LLDP.
+endif::Network[]
+
+ifdef::Bonding[]
+* The Juniper switch must be configured for Link Aggregation Control Protocol (LACP) using LLDP.
+endif::Bonding[]
+
+.Procedure
+
+.  Configure the `username` and `password` in `/etc/ovirt-lldp-labeler/conf.d/ovirt-lldp-credentials.conf`:
+
+* `username` - the username of the {engine-name} administrator. The default is `admin@internal`.
+* `password` - the password of the {engine-name} administrator. The default is `123456`.
+
+. Configure the LLDP Labeler service by updating the following values in `etc/ovirt-lldp-labeler/conf.d/ovirt-lldp-credentials.conf`:
+
+* `clusters` - a comma-separated list of clusters on which the service should run. Wildcards are supported. For example, `Cluster\*` defines LLDP Labeler to run on all clusters starting with word `Cluster`. To run the service on all clusters in the data center, type `*`. The default is `Def*`.
+
+* `api_url` - the full URL of the {engine-name}'s API. The default is `https://_Manager_FQDN_/ovirt-engine/api`
+
+* `ca_file` - the path to the custom CA certificate file. Leave this value empty if you do not use custom certificates. The default is empty.
+
+* `auto_bonding` - enables LLDP Labeler's bonding capabilities. The default is `true`.
+
+* `auto_labeling` - enables LLDP Labeler's labeling capabilities. The default is `true`.
+
+. Optionally, you can configure the service to run at a different time interval by changing the value of `OnUnitActiveSec` in `etc/ovirt-lldp-labeler/conf.d/ovirt-lldp-labeler.timer`. The default is `1h`.
+
+. Configure the service to start now and at boot by entering the following command:
++
+----
+# systemctl enable --now ovirt-lldp-labeler
+----
++
+To invoke the service manually, enter the following command:
++
+----
+# /usr/bin/python /usr/share/ovirt-lldp-labeler/ovirt_lldp_labeler_cli.py
+----

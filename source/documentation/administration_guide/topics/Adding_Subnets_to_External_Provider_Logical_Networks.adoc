@@ -1,0 +1,20 @@
+[[Adding_Subnets_to_External_Provider_Logical_Networks]]
+==== Adding Subnets to External Provider Logical Networks
+
+Create a subnet on a logical network provided by an external provider.
+
+
+*Adding Subnets to External Provider Logical Networks*
+
+. Click menu:Network[Networks].
+. Click the logical network's name to open the details view.
+. Click the *Subnets* tab.
+. Click *New*.
+. Enter a *Name* and *CIDR* for the new subnet.
+. From the *IP Version* drop-down list, select either *IPv4* or *IPv6*.
+. Click *OK*.
+
+[NOTE]
+====
+For IPv6, {virt-product-fullname} supports only static addressing.
+====

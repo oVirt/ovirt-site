@@ -1,0 +1,27 @@
+// Module included in the following assemblies:
+// doc-Administration_Guide
+
+[id='IPv6-networking-support-{context}']
+
+= IPv6 Networking Support
+
+{virt-product-fullname} supports static IPv6 networking in most contexts.
+
+[NOTE]
+====
+{virt-product-fullname} requires IPv6 to remain enabled on the computer or virtual machine where you are running the {engine-name} (also called "the {engine-name} machine"). link:https://access.redhat.com/solutions/8709[Do not disable IPv6] on the {engine-name} machine, even if your systems do not use it.
+====
+
+.Limitations for IPv6
+
+* Only static IPv6 addressing is supported. Dynamic IPv6 addressing with *DHCP* or *Stateless Address Autoconfiguration* are not supported.
+* Dual-stack addressing, IPv4 _and_ IPv6, is not supported.
+* OVN networking can be used with only IPv4 _or_ IPv6.
+* Switching clusters from IPv4 to IPv6 is not supported.
+* Only a single gateway per host can be set for IPv6.
+* If both networks share a single gateway (are on the same subnet), you can move the default route role from the management network (ovirtmgmt) to another logical network. The host and {engine-name} should have the same IPv6 gateway. If the host and {engine-name} are not on the same subnet, the {engine-name} might lose connectivity with the host because the IPv6 gateway was removed.
+* Using a glusterfs storage domain with an IPv6-addressed gluster server is not supported.
+
+//* At this time, the network that supplies yum repositories does not support IPv6 connections. Therefore, if you are installing {virt-product-fullname} on an IPv6 network, you must prepare an internal yum repository that includes all of the required components to be used by the deployment RPM packages. Copy all of the packages to the network and make them available to the yum repositories on each deployed setup for IPv6. See link:{URL_rhel_docs_legacy}html/system_administrators_guide/sec-configuring_yum_and_yum_repositories[Configuring Yum and Yum Repositories]
+// How does the user know which packages are required?
+// Disabled the preceding content while we sort out https://bugzilla.redhat.com/show_bug.cgi?id=1622916

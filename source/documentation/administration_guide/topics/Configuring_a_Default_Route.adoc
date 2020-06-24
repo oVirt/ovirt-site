@@ -1,0 +1,29 @@
+[[Configuring_a_Default_Route]]
+==== Configuring a Non-Management Logical Network as the Default Route
+
+The default route used by hosts in a cluster is through the management network (`ovirtmgmt`). The following procedure provides instructions to configure a non-management logical network as the default route.
+
+*Prerequisite:*
+
+* If you are using the `default_route` custom property, you need to clear the custom property from all attached hosts and then follow this procedure.
+
+
+*Configuring the Default Route Role*
+
+. Click menu:Network[Networks].
+. Click the name of the non-management logical network to configure as the default route to access its details.
+. Click the *Clusters* tab.
+. Click *Manage Network* to open the *Manage Network* window.
+. Select the *Default Route* checkbox for the appropriate cluster(s).
+. Click *OK*.
+
+When networks are attached to a host, the default route of the host will be set on the network of your choice. It is recommended to configure the default route role before any host is added to your cluster. If your cluster already contains hosts, they may become out-of-sync until you sync your change to them.
+
+.Important Limitations with IPv6
+
+* For IPv6, {virt-product-fullname} supports only static addressing.
+* If both networks share a single gateway (are on the same subnet), you can move the default route role from the management network (ovirtmgmt) to another logical network.
+// https://bugzilla.redhat.com/show_bug.cgi?id=1467332
+* If the host and {engine-name} are not on the same subnet, the {engine-name} loses connectivity with the host because the IPv6 gateway has been removed.
+* Moving the default route role to a non-management network removes the IPv6 gateway from the network interface and generates an alert: "On cluster _clustername_ the 'Default Route Role' network is no longer network ovirtmgmt. The IPv6 gateway is being removed from this network."
+// Can the user take any precautions to avoid this situation and still have IPv6?

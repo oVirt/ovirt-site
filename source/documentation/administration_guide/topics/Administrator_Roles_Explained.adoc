@@ -1,0 +1,36 @@
+[[Administrator_Roles_Explained]]
+==== Administrator Roles Explained
+
+The table below describes basic administrator roles which confer permissions to access and configure resources in the Administration Portal.
+
+[[Admin_Roles_Basic]]
+
+.{virt-product-fullname} System Administrator Roles - Basic
+[options="header"]
+|===
+|Role |Privileges |Notes
+|SuperUser |System Administrator of the {virt-product-fullname} environment. |Has full permissions across all objects and levels, can manage all objects across all data centers.
+|ClusterAdmin |Cluster Administrator. |Possesses administrative permissions for all objects underneath a specific cluster.
+|DataCenterAdmin |Data Center Administrator. |Possesses administrative permissions for all objects underneath a specific data center except for storage.
+|===
+
+[IMPORTANT]
+====
+Do not use the administrative user for the directory server as the {virt-product-fullname} administrative user. Create a user in the directory server specifically for use as the {virt-product-fullname} administrative user.
+====
+The table below describes advanced administrator roles which allow you to do more fine tuning of permissions for resources in the Administration Portal.
+
+[[Admin_Roles_Advanced]]
+
+.{virt-product-fullname} System Administrator Roles - Advanced
+[options="header"]
+|===
+|Role |Privileges |Notes
+|TemplateAdmin |Administrator of a virtual machine template. |Can create, delete, and configure the storage domains and network details of templates, and move templates between domains.
+|StorageAdmin |Storage Administrator. |Can create, delete, configure, and manage an assigned storage domain.
+|HostAdmin |Host Administrator. |Can attach, remove, configure, and manage a specific host.
+|NetworkAdmin |Network Administrator. |Can configure and manage the network of a particular data center or cluster. A network administrator of a data center or cluster inherits network permissions for virtual pools within the cluster.
+|VmPoolAdmin |System Administrator of a virtual pool. |Can create, delete, and configure a virtual pool; assign and remove virtual pool users; and perform basic operations on a virtual machine in the pool.
+|GlusterAdmin |Gluster Storage Administrator. |Can create, delete, configure, and manage Gluster storage volumes.
+|VmImporterExporter |Import and export Administrator of a virtual machine. |Can import and export virtual machines. Able to view all virtual machines and templates exported by other users.
+|===

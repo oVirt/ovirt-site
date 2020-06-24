@@ -1,0 +1,8 @@
+[[Removing_an_External_Provider]]
+=== Removing an External Provider
+
+*Removing an External Provider*
+
+. Click menu:Administration[Providers] and select the external provider to remove.
+. Click *Remove*.
+. Click *OK*.

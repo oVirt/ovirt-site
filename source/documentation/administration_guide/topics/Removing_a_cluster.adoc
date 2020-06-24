@@ -1,0 +1,17 @@
+[[Removing_a_cluster]]
+==== Removing a Cluster
+
+Move all hosts out of a cluster before removing it.
+
+[NOTE]
+====
+You cannot remove the *Default* cluster, as it holds the *Blank* template. You can, however, rename the *Default* cluster and add it to a new data center.
+====
+
+
+*Removing a Cluster*
+
+. Click menu:Compute[Clusters] and select a cluster.
+. Ensure there are no hosts in the cluster.
+. Click *Remove*.
+. Click *OK*

@@ -1,0 +1,18 @@
+[[Editing_MAC_Address_Pools]]
+==== Editing MAC Address Pools
+
+You can edit MAC address pools to change the details, including the range of MAC addresses available in the pool and whether duplicates are allowed.
+
+*Editing MAC Address Pool Properties*
+
+. Click menu:Administration[Configure].
+. Click the *MAC Address Pools* tab.
+. Select the MAC address pool to be edited.
+. Click *Edit*.
+. Change the *Name*, *Description*, *Allow Duplicates*, and *MAC Address Ranges* fields as required.
++
+[NOTE]
+====
+When a MAC address range is updated, the MAC addresses of existing NICs are not reassigned. MAC addresses that were already assigned, but are outside of the new MAC address range, are added as user-specified MAC addresses and are still tracked by that MAC address pool.
+====
+. Click *OK*.

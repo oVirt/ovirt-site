@@ -1,0 +1,15 @@
+[[Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Discovery]]
+==== {virt-product-fullname} User Interface Plug-in Discovery
+
+Creating plug-in descriptors is the first step in the plug-in discovery process. Plug-in descriptors contain important plug-in metadata and optional default plug-in-specific configurations.
+
+As part of handling administration portal HTML page requests (`HTTP GET`), User Interface plug-in infrastructure attempts to discover and load plug-in descriptors from your local file system. For each plug-in descriptor, the infrastructure also attempts to load corresponding plug-in user configurations used to override default plug-in-specific configurations (if any exist) and tweak plug-in runtime behavior. Plug-in user configuration is optional. After loading descriptors and corresponding user configuration files, oVirt Engine aggregates User Interface plug-in data and embeds it into the administration portal HTML page for runtime evaluation.
+
+By default, plug-in descriptors reside in *$ENGINE_USR/ui-plug-ins*, with a default mapping of *ENGINE_USR=/usr/share/ovirt-engine* as defined by oVirt Engine local configuration. Plug-in descriptors are expected to comply with JSON format specifications, but plug-in descriptors allow Java/C++ style comments (of both `/*` and `//` varieties) in addition to the JSON format specifications.
+
+By default, plug-in user configuration files reside in *$ENGINE_ETC/ui-plug-ins*, with a default mapping of *ENGINE_ETC=/etc/ovirt-engine* as defined by oVirt Engine local configuration. Plug-in user configuration files are expected to comply with same content format rules as plug-in descriptors.
+
+[NOTE]
+====
+Plug-in user configuration files generally follow the *<descriptorFileName>-config.json* naming convention.
+====

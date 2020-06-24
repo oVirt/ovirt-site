@@ -1,0 +1,19 @@
+[[The_USB_Filter_Editor_interface]]
+==== The USB Filter Editor Interface
+
+Double-click the USB Filter Editor shortcut icon on your desktop.
+
+The *Red Hat USB Filter Editor* interface displays the *Class*, *Vendor*, *Product*, *Revision*, and *Action* for each USB device. Permitted USB devices are set to *Allow* in the *Action* column; prohibited devices are set to *Block*.
+
+.USB Editor Fields
+[options="header"]
+|===
+|Name |Description
+|*Class* |Type of USB device; for example, printers, mass storage controllers.
+|*Vendor* |The manufacturer of the selected type of device.
+|*Product* |The specific USB device model.
+|*Revision* |The revision of the product.
+|*Action* |Allow or block the specified device.
+|===
+
+The USB device policy rules are processed in their listed order. Use the *Up* and *Down* buttons to move rules higher or lower in the list. The universal *Block* rule needs to remain as the lowest entry to ensure all USB devices are denied unless explicitly allowed in the USB Filter Editor.

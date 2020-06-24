@@ -1,0 +1,59 @@
+[[Using_Ansible_Roles]]
+==== Using Ansible Roles to Configure {virt-product-fullname}
+
+The following procedure guides you through creating and running a playbook that uses Ansible roles to configure {virt-product-fullname}. This example uses Ansible to connect to the {engine-name} on the local machine and create a new data center.
+
+*Prerequisites*
+
+* Ensure the `roles_path` option in */etc/ansible/ansible.cfg* points to the location of your Ansible roles (*/usr/share/ansible/roles*).
+
+* Ensure that you have the Python SDK installed on the machine running the playbook.
+
+
+*Configuring {virt-product-fullname} using Ansible Roles*
+
+. Create a file in your working directory to store the {virt-product-fullname} {engine-name} user password:
++
+[options="nowrap" subs="normal"]
+----
+# cat passwords.yml
+  ---
+engine_password: _youruserpassword_
+----
++
+. Encrypt the user password. You will be asked for a Vault password.
++
+[options="nowrap" subs="normal"]
+----
+# ansible-vault encrypt passwords.yml
+New Vault password:
+Confirm New Vault password:
+----
++
+. Create a file that stores the {engine-name} details such as the URL, certificate location, and user.
++
+[options="nowrap" subs="quotes"]
+----
+# cat engine_vars.yml
+---
+engine_url: https://example.engine.redhat.com/ovirt-engine/api
+engine_user: admin@internal
+engine_cafile: /etc/pki/ovirt-engine/ca.pem
+----
++
+[NOTE]
+====
+If you prefer, these variables can be added directly to the playbook instead.
+====
++
+. Create your playbook. To simplify this you can copy and modify an example in */usr/share/doc/ovirt-ansible-roles/examples*.
++
+. Run the playbook.
++
+[options="nowrap" subs="normal"]
+----
+# ansible-playbook --ask-vault-pass rhv_infra.yml
+----
+
+
+You have successfully used the `ovirt-datacenters` Ansible role to create a data center named `mydatacenter`.

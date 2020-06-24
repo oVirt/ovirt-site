@@ -1,0 +1,48 @@
+[[Creating_a_Backup_with_the_engine-backup_Command]]
+==== Creating a Backup with the engine-backup Command
+
+The {virt-product-fullname} {engine-name} can be backed up using the `engine-backup` command while the {engine-name} is active. Append one of the following options to `--scope` to specify which backup to perform:
+
+* `all`: A full backup of all databases and configuration files on the {engine-name}
+
+* `files`: A backup of only the files on the system
+
+* `db`: A backup of only the {engine-name} database
+
+* `dwhdb`: A backup of only the Data Warehouse database
+
+[IMPORTANT]
+====
+To restore a database to a fresh installation of {virt-product-fullname} {engine-name}, a database backup alone is not sufficient; the {engine-name} also requires access to the configuration files. Any backup that specifies a scope other than the default, `all`, must be accompanied by the `files` scope, or a filesystem backup.
+====
+
+*Example Usage of the engine-backup Command*
+
+. Log on to the machine running the {virt-product-fullname} {engine-name}.
+. Create a backup:
++
+.Creating a Full Backup
+====
+
+[options="nowrap" subs="normal"]
+----
+# engine-backup --scope=all --mode=backup --file=_file_name_ --log=_log_file_name_
+----
+
+====
++
+.Creating a {engine-name} Database Backup
+====
+
+[options="nowrap" subs="normal"]
+----
+# engine-backup --scope=files --scope=db --mode=backup --file=_file_name_ --log=_log_file_name_
+----
+
+====
++
+Replace the `db` option with `dwhdb` to back up the Data Warehouse database.
++
+A `tar` file containing a backup is created using the path and file name provided.
+
+The `tar` files containing the backups can now be used to restore the environment.

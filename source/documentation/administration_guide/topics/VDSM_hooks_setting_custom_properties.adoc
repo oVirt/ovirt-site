@@ -1,0 +1,8 @@
+[[VDSM_hooks_setting_custom_properties]]
+=== Setting Virtual Machine Custom Properties
+
+Once custom properties are defined in the {virt-product-fullname} {engine-name}, you can begin setting them on virtual machines. Custom properties are set on the *Custom Properties* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows in the Administration Portal.
+
+You can also set custom properties from the *Run Virtual Machine(s)* dialog box. Custom properties set from the *Run Virtual Machine(s)* dialog box will only apply to the virtual machine until it is next shutdown.
+
+The *Custom Properties* tab provides a facility for you to select from the list of defined custom properties. Once you select a custom property key an additional field will display allowing you to enter a value for that key. Add additional key/value pairs by clicking the *+* button and remove them by clicking the *-* button.

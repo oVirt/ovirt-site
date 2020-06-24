@@ -1,0 +1,74 @@
+[[Administering_the_Manager_Virtual_Machine]]
+= Administering the {engine-name} Virtual Machine
+
+The `hosted-engine` utility provides many commands to help administer the {engine-name} virtual machine. You can run `hosted-engine` on any self-hosted engine node. To see all available commands, run `hosted-engine --help`. For additional information on a specific command, run `hosted-engine --_command_ --help`.
+
+== Updating the Self-Hosted Engine Configuration
+
+To update the self-hosted engine configuration, use the `hosted-engine --set-shared-config` command. This command updates the self-hosted engine configuration on the shared storage domain after the initial deployment.
+
+To see the current configuration values, use the `hosted-engine --get-shared-config` command.
+
+To see a list of all available configuration keys and their corresponding types, enter the following command:
+
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --set-shared-config _key_ --type=_type_ --help
+----
+
+Where `_type_` is one of the following:
+
+[horizontal]
+`he_local`:: Sets values in the local instance of [filename]`etc/ovirt-hosted-engine/hosted-engine.conf` on the local host, so only that host uses the new values. To enable the new value, restart the ovirt-ha-agent and ovirt-ha-broker services.
+`he_shared`:: Sets values in [filename]`etc/ovirt-hosted-engine/hosted-engine.conf` on shared storage, so all hosts that are deployed after a configuration change use these values. To enable the new value on a host, redeploy that host.
+`ha`:: Sets values in [filename]`/var/lib/ovirt-hosted-engine-ha/ha.conf` on local storage. New settings take effect immediately.
+`broker`:: Sets values in [filename]`/var/lib/ovirt-hosted-engine-ha/broker.conf` on local storage. Restart the ovirt-ha-broker service to enable new settings.
+
+== Configuring Email Notifications
+
+You can configure email notifications using SMTP for any HA state transitions on the self-hosted engine nodes. The keys that can be updated include: `smtp-server`, `smtp-port`, `source-email`, `destination-emails`, and `state_transition`.
+
+*To configure email notifications:*
+
+. On a self-hosted engine node, set the `smtp-server` key to the desired SMTP server address:
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --set-shared-config smtp-server __smtp.example.com__ --type=broker
+----
++
+[NOTE]
+====
+To verify that the self-hosted engine configuration file has been updated, run:
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --get-shared-config smtp-server --type=broker
+broker : smtp.example.com, type : broker
+----
+
+====
+
+. Check that the default SMTP port (port 25) has been configured:
+
++
+----
+# hosted-engine --get-shared-config smtp-port --type=broker
+broker : 25, type : broker
+----
+
+. Specify an email address you want the SMTP server to use to send out email notifications. Only one address can be specified.
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --set-shared-config source-email _source@example.com_ --type=broker
+----
+
+. Specify the destination email address to receive email notifications. To specify multiple email addresses, separate each address by a comma.
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --set-shared-config destination-emails _destination1@example.com_,_destination2@example.com_ --type=broker
+----
+
+
+To verify that SMTP has been properly configured for your self-hosted engine environment, change the HA state on a self-hosted engine node and check if email notifications were sent. For example, you can change the HA state by placing HA agents into maintenance mode. See xref:Maintaining_the_Self-Hosted_Engine[] for more information.

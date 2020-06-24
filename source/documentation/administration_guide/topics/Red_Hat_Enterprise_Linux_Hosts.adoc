@@ -1,0 +1,14 @@
+[[Adding_Red_Hat_Enterprise_Linux_Hosts]]
+=== {enterprise-linux-host-fullname}s
+
+You can use a {enterprise-linux} 7 installation on capable hardware as a host. {virt-product-fullname} supports hosts running {enterprise-linux} 7 Server AMD64/Intel 64 version with Intel VT or AMD-V extensions. To use your {enterprise-linux} machine as a host, you must also attach the `{enterprise-linux} Server` and `{virt-product-fullname}` subscriptions.
+
+Adding a host can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, and the creation of a bridge. Use the details view to monitor the process as the host and management system establish a connection.
+
+Optionally, you can install a Cockpit web interface for monitoring the host's resources and performing administrative tasks. The Cockpit web interface provides a graphical user interface for tasks that are performed before the host is added to the {virt-product-fullname} {engine-name}, such as configuring networking and deploying a self-hosted engine, and can also be used to run terminal commands via the *Terminal* sub-tab.
+
+[IMPORTANT]
+====
+Third-party watchdogs should not be installed on {enterprise-linux-host-fullname}s, as they can interfere with the watchdog daemon provided by VDSM.
+====
+

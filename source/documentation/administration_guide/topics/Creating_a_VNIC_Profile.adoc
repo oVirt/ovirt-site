@@ -1,0 +1,28 @@
+[[Creating_a_VNIC_Profile]]
+==== Creating or Editing a vNIC Profile
+
+Create or edit a Virtual Network Interface Controller (vNIC) profile to regulate network bandwidth for users and groups.
+
+[NOTE]
+====
+If you are enabling or disabling port mirroring, all virtual machines using the associated profile must be in a down state before editing.
+====
+
+
+*Creating or Editing a vNIC Profile*
+
+. Click menu:Network[Networks].
+. Click the logical network's name to open the details view.
+. Click the *vNIC Profiles* tab. 
+. Click *New* or *Edit*.
+. Enter the *Name* and *Description* of the profile.
+. Select the relevant Quality of Service policy from the *QoS* list.
+. Select a *Network Filter* from the drop-down list to manage the traffic of network packets to and from virtual machines. For more information on network filters, see link:{URL_rhel_docs_legacy}html-single/Virtualization_Deployment_and_Administration_Guide/index.html#sect-Virtual_Networking-Applying_network_filtering[Applying network filtering] in the _{enterprise-linux} Virtualization Deployment and Administration Guide_.
+. Select the *Passthrough* check box to enable passthrough of the vNIC and allow direct device assignment of a virtual function. Enabling the passthrough property will disable QoS, network filtering, and port mirroring as these are not compatible. For more information on passthrough, see xref:Enabling_Passthrough_on_a_vNIC_Profile[].
+. If *Passthrough* is selected, optionally deselect the *Migratable* check box to disable migration for vNICs using this profile. If you keep this check box selected, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Live_migration_prerequisites[Additional Prerequisites for Virtual Machines with SR-IOV-Enabled vNICs] in the _Virtual Machine Management Guide_.
+. Use the *Port Mirroring* and *Allow all users to use this Profile* check boxes to toggle these options.
+. Select a custom property from the custom properties list, which displays *Please select a key...* by default. Use the *+* and *-* buttons to add or remove custom properties.
+. Click *OK*.
+
+Apply this profile to users and groups to regulate their network bandwidth. If you edited a vNIC profile, you must either restart the virtual machine, or hot unplug and then hot plug the vNIC if the guest operating system supports vNIC hot plug and hot unplug.
+

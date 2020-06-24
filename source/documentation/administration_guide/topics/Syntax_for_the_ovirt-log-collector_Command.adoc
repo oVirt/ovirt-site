@@ -1,0 +1,92 @@
+[[Syntax_for_the_ovirt-log-collector_Command]]
+==== Syntax for the ovirt-log-collector Command
+
+The basic syntax for the log collector command is:
+
+[options="nowrap" subs="normal"]
+----
+# ovirt-log-collector _options_  list _all|clusters|datacenters_
+# ovirt-log-collector _options_ collect
+----
+The two supported modes of operation are `list` and `collect`.
+
+* The `list` parameter lists either the hosts, clusters, or data centers attached to the {virt-product-fullname} {engine-name}. You are able to filter the log collection based on the listed objects.
+
+* The `collect` parameter performs log collection from the {virt-product-fullname} {engine-name}. The collected logs are placed in an archive file under the */tmp/logcollector* directory. The `ovirt-log-collector` command assigns each log a specific file name.
+
+Unless another parameter is specified, the default action is to list the available hosts together with the data center and cluster to which they belong. You will be prompted to enter user names and passwords to retrieve certain logs.
+
+There are numerous parameters to further refine the `ovirt-log-collector` command.
+
+*General options*
+
+*`--version`*:: Displays the version number of the command in use and returns to prompt.
+
+*`-h`, `--help`*:: Displays command usage information and returns to prompt.
+
+*`--conf-file=_PATH_`*:: Sets _PATH_ as the configuration file the tool is to use.
+
+*`--local-tmp=_PATH_`*:: Sets _PATH_ as the directory in which logs are saved. The default directory is */tmp/logcollector*.
+
+*`--ticket-number=_TICKET_`*:: Sets _TICKET_ as the ticket, or case number, to associate with the SOS report.
+
+*`--upload=_FTP_SERVER_`*:: Sets _FTP_SERVER_ as the destination for retrieved logs to be sent using FTP.
++
+ifdef::rhv-doc[]
+Do not use this option unless advised to by a Red Hat support representative.
+endif::[]
+
+*`--log-file=_PATH_`*:: Sets _PATH_ as the specific file name the command should use for the log output.
+
+*`--quiet`*:: Sets quiet mode, reducing console output to a minimum. Quiet mode is off by default.
+
+*`-v`, `--verbose`*:: Sets verbose mode, providing more console output. Verbose mode is off by default.
+
+*`--time-only`*:: Displays only information about time differences between hosts, without generating a full SOS report.
+
+
+*{virt-product-fullname} {engine-name} Options*
+
+These options filter the log collection and specify authentication details for the {virt-product-fullname} {engine-name}.
+
+These parameters can be combined for specific commands. For example, `ovirt-log-collector --user=admin@internal --cluster ClusterA,ClusterB --hosts "SalesHost"*` specifies the user as `admin@internal` and limits the log collection to only `SalesHost` hosts in clusters `A` and `B`.
+
+*`--no-hypervisors`*:: Omits virtualization hosts from the log collection.
+
+*`--one-hypervisor-per-cluster`*:: Collects the logs of one host (the SPM, if there is one) from each cluster.
+
+*`-u _USER_`, `--user=_USER_`*:: Sets the user name for login. The _USER_ is specified in the format _user_@_domain_, where _user_ is the user name and _domain_ is the directory services domain in use. The user must exist in directory services and be known to the {virt-product-fullname} {engine-name}.
+
+*`-r _FQDN_`, `--rhevm=_FQDN_`*:: Sets the fully qualified domain name of the {virt-product-fullname} {engine-name} from which to collect logs, where _FQDN_ is replaced by the fully qualified domain name of the {engine-name}. It is assumed that the log collector is being run on the same local host as the {virt-product-fullname} {engine-name}; the default value is `localhost`.
+
+*`-c _CLUSTER_`, `--cluster=_CLUSTER_`*:: Collects logs from the virtualization hosts in the nominated _CLUSTER_ in addition to logs from the {virt-product-fullname} {engine-name}. The cluster(s) for inclusion must be specified in a comma-separated list of cluster names or match patterns.
+
+*`-d _DATACENTER_`, `--data-center=_DATACENTER_`*:: Collects logs from the virtualization hosts in the nominated _DATACENTER_ in addition to logs from the {virt-product-fullname} {engine-name}. The data center(s) for inclusion must be specified in a comma-separated list of data center names or match patterns.
+
+*`-H _HOSTS_LIST_`, `--hosts=_HOSTS_LIST_`*:: Collects logs from the virtualization hosts in the nominated _HOSTS_LIST_ in addition to logs from the {virt-product-fullname} {engine-name}. The hosts for inclusion must be specified in a comma-separated list of host names, fully qualified domain names, or IP addresses. Match patterns are also valid.
+
+
+*SSH Configuration*
+
+*`--ssh-port=_PORT_`*:: Sets _PORT_ as the port to use for SSH connections with virtualization hosts.
+
+*`-k _KEYFILE_`, `--key-file=_KEYFILE_`*:: Sets _KEYFILE_ as the public SSH key to be used for accessing the virtualization hosts.
+
+*`--max-connections=_MAX_CONNECTIONS_`*:: Sets _MAX_CONNECTIONS_ as the maximum concurrent SSH connections for logs from virtualization hosts. The default is `10`.
+
+
+*PostgreSQL Database Options*
+
+The database user name and database name must be specified, using the `pg-user` and `dbname` parameters, if they have been changed from the default values.
+
+Use the `pg-dbhost` parameter if the database is not on the local host. Use the optional `pg-host-key` parameter to collect remote logs. The PostgreSQL SOS plugin must be installed on the database server for remote log collection to be successful.
+
+*`--no-postgresql`*:: Disables collection of database. The log collector will connect to the {virt-product-fullname} {engine-name} PostgreSQL database and include the data in the log report unless the `--no-postgresql` parameter is specified.
+
+*`--pg-user=_USER_`*:: Sets _USER_ as the user name to use for connections with the database server. The default is *postgres*.
+
+*`--pg-dbname=_DBNAME_`*:: Sets _DBNAME_ as the database name to use for connections with the database server. The default is *rhevm*.
+
+*`--pg-dbhost=_DBHOST_`*:: Sets _DBHOST_ as the host name for the database server. The default is *localhost*.
+
+*`--pg-host-key=_KEYFILE_`*:: Sets _KEYFILE_ as the public identity file (private key) for the database server. This value is not set by default; it is required only where the database does not exist on the local host.

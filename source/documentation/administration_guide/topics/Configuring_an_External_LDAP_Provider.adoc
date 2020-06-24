@@ -1,0 +1,224 @@
+[[Configuring_an_External_LDAP_Provider]]
+==== Configuring an External LDAP Provider (Interactive Setup)
+
+The *ovirt-engine-extension-aaa-ldap* extension allows users to customize their external directory setup easily. The *ovirt-engine-extension-aaa-ldap* extension supports many different LDAP server types, and an interactive setup script is provided to assist you with the setup for most LDAP types.
+
+If the LDAP server type is not listed in the interactive setup script, or you want to do more customization, you can manually edit the configuration files. See xref:Configuring_an_External_LDAP_Provider_ManualMethod[] for more information.
+
+For an Active Directory example, see xref:Attaching_an_Active_Directory[].
+
+*Prerequisites:*
+
+* You must know the domain name of the DNS or the LDAP server.
+
+* To set up secure connection between the LDAP server and the {engine-name}, ensure that a PEM-encoded CA certificate has been prepared.
+
+* Have at least one set of account name and password ready to perform search and login queries to the LDAP server.
+
+*Configuring an External LDAP Provider*
+
+. On the {virt-product-fullname} {engine-name}, install the LDAP extension package:
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-engine-extension-aaa-ldap-setup
+----
++
+. Run `ovirt-engine-extension-aaa-ldap-setup` to start the interactive setup:
++
+[options="nowrap" subs="normal"]
+----
+# ovirt-engine-extension-aaa-ldap-setup
+----
++
+. Select an LDAP type by entering the corresponding number. If you are not sure which schema your LDAP server is, select the standard schema of your LDAP server type. For Active Directory, follow the procedure at xref:Attaching_an_Active_Directory[].
++
+[options="nowrap" subs="normal"]
+----
+Available LDAP implementations:
+ 1 - 389ds
+ 2 - 389ds RFC-2307 Schema
+ 3 - Active Directory
+ 4 - IBM Security Directory Server
+ 5 - IBM Security Directory Server RFC-2307 Schema
+ 6 - IPA
+ 7 - Novell eDirectory RFC-2307 Schema
+ 8 - OpenLDAP RFC-2307 Schema
+ 9 - OpenLDAP Standard Schema
+10 - Oracle Unified Directory RFC-2307 Schema
+11 - RFC-2307 Schema (Generic)
+12 - RHDS
+13 - RHDS RFC-2307 Schema
+14 - iPlanet
+Please select:
+----
++
+. Press `Enter` to accept the default and configure domain name resolution for your LDAP server name:
++
+[options="nowrap" subs="normal"]
+----
+It is highly recommended to use DNS resolution for LDAP server.
+If for some reason you intend to use hosts or plain address disable DNS usage.
+Use DNS (Yes, No) [Yes]:
+----
++
+. Select a DNS policy method:
++
+* For option 1, the DNS servers listed in */etc/resolv.conf* are used to resolve the IP address. Check that the */etc/resolv.conf* file is updated with the correct DNS servers.
++
+* For option 2, enter the fully qualified domain name (FQDN) or the IP address of the LDAP server. You can use the `dig` command with the SRV record to find out the domain name. An SRV record takes the following format:
++
+[options="nowrap" subs="normal"]
+----
+__service._protocol_._domain_name_
+----
++
+Example: `dig _ldap._tcp.redhat.com SRV`.
+
+* For option 3, enter a space-separated list of LDAP servers. Use either the FQDN or IP address of the servers. This policy provides load-balancing between the LDAP servers. Queries are distributed among all LDAP servers according to the round-robin algorithm.
+* For option 4, enter a space-separated list of LDAP servers. Use either the FQDN or IP address of the servers. This policy defines the first LDAP server to be the default LDAP server to respond to queries. If the first server is not available, the query will go to the next LDAP server on the list.
++
+[options="nowrap" subs="normal"]
+----
+1 - Single server
+2 - DNS domain LDAP SRV record
+3 - Round-robin between multiple hosts
+4 - Failover between multiple hosts
+Please select:
+----
+
+. Select the secure connection method your LDAP server supports and specify the method to obtain a PEM-encoded CA certificate:
+* `File` allows you to provide the full path to the certificate.
+* `URL` allows you to specify a URL for the certificate.
+* `Inline` allows you to paste the content of the certificate in the terminal.
+* `System` allows you to specify the default location for all CA files.
+* `Insecure` skips certificate validation, but the connection is still encrypted using TLS.
++
+[options="nowrap" subs="normal"]
+----
+NOTE:
+It is highly recommended to use secure protocol to access the LDAP server.
+Protocol startTLS is the standard recommended method to do so.
+Only in cases in which the startTLS is not supported, fallback to non standard ldaps protocol.
+Use plain for test environments only.
+Please select protocol to use (startTLS, ldaps, plain) [startTLS]: _startTLS_
+Please select method to obtain PEM encoded CA certificate (File, URL, Inline, System, Insecure):
+Please enter the password:
+----
++
+[NOTE]
+====
+LDAPS stands for Lightweight Directory Access Protocol Over Secure Socket Links. For SSL connections, select the `ldaps` option.
+====
++
+. Enter the search user distinguished name (DN). The user must have permissions to browse all users and groups on the directory server. The search user must be specified in LDAP annotation. If anonymous search is allowed, press `Enter` without any input.
++
+[options="nowrap" subs="normal"]
+----
+Enter search user DN (for example uid=username,dc=example,dc=com or leave empty for anonymous): `uid=user1,ou=Users,ou=department-1,dc=example,dc=com`
+Enter search user password:
+----
++
+. Enter the base DN:
++
+[options="nowrap" subs="normal"]
+----
+Please enter base DN (dc=redhat,dc=com) [dc=redhat,dc=com]: _ou=department-1,dc=redhat,dc=com_
+----
++
+. Select `Yes` if you intend to configure single sign-on for virtual machines. Note that the feature cannot be used with single sign-on to the Administration Portal feature. The script reminds you that the profile name must match the domain name. You will still need to follow the instructions in link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Configuring Single Sign-On for Virtual Machines] in the _Virtual Machine Management Guide_.
++
+[options="nowrap" subs="normal"]
+----
+Are you going to use Single Sign-On for Virtual Machines (Yes, No) [Yes]:
+----
++
+. Specify a profile name. The profile name is visible to users on the login page. This example uses `redhat.com`.
++
+[NOTE]
+====
+To rename the profile after the domain has been configured, edit the `ovirt.engine.aaa.authn.profile.name` attribute in the */etc/ovirt-engine/extensions.d/_redhat.com_-authn.properties* file. Restart the `ovirt-engine` service for the changes to take effect.
+====
++
+[options="nowrap" subs="normal"]
+----
+Please specify profile name that will be visible to users: _redhat.com_
+----
++
+.The Administration Portal Login Page
+image::images/AAA_login_profile.png[]
++
+[NOTE]
+====
+Users must select the profile from the drop-down list when logging in for the first time. The information is stored in browser cookies and preselected the next time the user logs in.
+====
++
+. Test the login function to ensure your LDAP server is connected to your {virt-product-fullname} environment properly. For the login query, enter your `user name` and `password`:
++
+[options="nowrap" ]
+----
+NOTE:
+It is highly recommended to test drive the configuration before applying it into engine.
+Login sequence is executed automatically, but it is recommended to also execute Search sequence manually after successful Login sequence.
+
+Please provide credentials to test login flow:
+Enter user name:
+Enter user password:
+[ INFO  ] Executing login sequence...
+...
+[ INFO  ] Login sequence executed successfully
+----
+
+. Check that the user details are correct. If the user details are incorrect, select `Abort`:
++
+[options="nowrap"  subs="quotes"]
+----
+Please make sure that user details are correct and group membership meets expectations (search for PrincipalRecord and GroupRecord titles).
+Abort if output is incorrect.
+Select test sequence to execute (Done, Abort, Login, Search) [Abort]:
+----
+
+. Manually testing the Search function is recommended. For the search query, select `Principal` for user accounts or `Group` for group accounts. Select `Yes` to `Resolve Groups` if you want the group account information for the user account to be returned. Three configuration files are created and displayed in the screen output.
++
+[options="nowrap" subs="normal"]
+----
+Select test sequence to execute (Done, Abort, Login, Search) [Search]: _Search_
+Select entity to search (Principal, Group) [Principal]:
+Term to search, trailing '*' is allowed: _testuser1_
+Resolve Groups (Yes, No) [No]:
+----
+
+. Select `Done` to complete the setup:
++
+[options="nowrap" subs="normal"]
+----
+Select test sequence to execute (Done, Abort, Login, Search) [Abort]: _Done_
+[ INFO  ] Stage: Transaction setup
+[ INFO  ] Stage: Misc configuration
+[ INFO  ] Stage: Package installation
+[ INFO  ] Stage: Misc configuration
+[ INFO  ] Stage: Transaction commit
+[ INFO  ] Stage: Closing up
+CONFIGURATION SUMMARY
+Profile name is: redhat.com
+The following files were created:
+    /etc/ovirt-engine/aaa/redhat.com.properties
+    /etc/ovirt-engine/extensions.d/redhat.com.properties
+    /etc/ovirt-engine/extensions.d/redhat.com-authn.properties
+[ INFO  ] Stage: Clean up
+Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-20171004101225-mmneib.log:
+[ INFO  ] Stage: Pre-termination
+[ INFO  ] Stage: Termination
+----
+
+. Restart the `ovirt-engine` service. The profile you have created is now available on the Administration Portal and the VM Portal login pages. To assign the user accounts on the LDAP server appropriate roles and permissions, for example, to log in to the VM Portal, see xref:sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks[].
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart ovirt-engine.service
+----
+
+[NOTE]
+====
+For more information, see the LDAP authentication and authorization extension README file at */usr/share/doc/ovirt-engine-extension-aaa-ldap-_version_*.
+====

@@ -1,0 +1,58 @@
+[[Configuring_VNIC_Profiles_for_UCS]]
+==== Configuring vNIC Profiles for UCS Integration
+
+Cisco's Unified Computing System (UCS) is used to manage data center aspects such as computing, networking and storage resources.
+
+The `vdsm-hook-vmfex-dev` hook allows virtual machines to connect to Cisco's UCS-defined port profiles by configuring the vNIC profile. The UCS-defined port profiles contain the properties and settings used to configure virtual interfaces in UCS. The `vdsm-hook-vmfex-dev` hook is installed by default with VDSM. See xref:appe-VDSM_and_Hooks[] for more information.
+
+When a virtual machine that uses the vNIC profile is created, it will use the Cisco vNIC.
+
+The procedure to configure the vNIC profile for UCS integration involves first configuring a custom device property. When configuring the custom device property, any existing value it contained is overwritten. When combining new and existing custom properties, include all of the custom properties in the command used to set the key's value. Multiple custom properties are separated by a semi-colon.
+
+[NOTE]
+====
+A UCS port profile must be configured in Cisco UCS before configuring the vNIC profile.
+====
+
+
+*Configuring the Custom Device Property*
+
+. On the {virt-product-fullname} {engine-name}, configure the `vmfex` custom property and set the cluster compatibility level using `--cver`.
++
+[options="nowrap" subs="normal"]
+----
+
+# engine-config -s CustomDeviceProperties='{type=interface;prop={vmfex=^[a-zA-Z0-9_.-]{2,32}$}}' --cver=4.4
+
+----
++
+. Verify that the `vmfex` custom device property was added.
++
+[options="nowrap" subs="normal"]
+----
+
+# engine-config -g CustomDeviceProperties
+
+----
++
+. Restart the `ovirt-engine` service.
++
+[options="nowrap" subs="normal"]
+----
+
+# systemctl restart ovirt-engine.service
+
+----
+
+The vNIC profile to configure can belong to a new or existing logical network. See xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[] for instructions to configure a new logical network.
+
+
+*Configuring a vNIC Profile for UCS Integration*
+
+. Click menu:Network[Networks].
+. Click the logical network's name to open the details view.
+. Click the *vNIC Profiles* tab.
+. Click *New*, or select a vNIC profile and click *Edit*.
+. Enter the *Name* and *Description* of the profile.
+. Select the `vmfex` custom property from the custom properties list and enter the UCS port profile name.
+. Click *OK*.

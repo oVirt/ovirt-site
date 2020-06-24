@@ -135,7 +135,7 @@ gluster volume set _VOLUME_NAME_ network.ping-timeout 30
 ----
 ====
 
-* For Fibre Channel, select a LUN from the auto-detected list. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Reusing LUNs] in the _Administration Guide_.
+* For Fibre Channel, select a LUN from the auto-detected list. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see link:{URL_virt_product_docs}administration_guide#Reusing_LUNs[Reusing LUNs] in the _Administration Guide_.
 
 . Enter the {engine-name} disk size.
 +

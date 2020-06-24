@@ -1,0 +1,32 @@
+[[Editing_VFs_on_NIC]]
+==== Editing the Virtual Function Configuration on a NIC
+
+include::../../common/sriov/conc-Set_Up_and_Configure_SR-IOV.adoc[]
+
+Single Root I/O Virtualization (SR-IOV) enables a single PCIe endpoint to be used as multiple separate devices. This is achieved through the introduction of two PCIe functions: physical functions (PFs) and virtual functions (VFs). A PCIe card can have between one and eight PFs, but each PF can support many more VFs (dependent on the device).
+
+You can edit the configuration of SR-IOV-capable Network Interface Controllers (NICs) through the {virt-product-fullname} {engine-name}, including the number of VFs on each NIC and to specify the virtual networks allowed to access the VFs.
+
+Once VFs have been created, each can be treated as a standalone NIC. This includes having one or more logical networks assigned to them, creating bonded interfaces with them, and to directly assign vNICs to them for direct device passthrough.
+
+A vNIC must have the passthrough property enabled in order to be directly attached to a VF. See xref:Enabling_Passthrough_on_a_vNIC_Profile[].
+
+
+*Editing the Virtual Function Configuration on a NIC*
+
+. Click menu:Compute[Hosts].
+. Click the name of an SR-IOV-capable host to open the details view.
+. Click the *Network Interfaces* tab.
+. Click *Setup Host Networks*.
+. Select an SR-IOV-capable NIC, marked with a image:images/SR-IOV-icon.png[]
+, and click the pencil icon.
+. To edit the number of virtual functions, click the *Number of VFs setting* drop-down button and edit the *Number of VFs* text field.
++
+[IMPORTANT]
+====
+Changing the number of VFs will delete all previous VFs on the network interface before creating new VFs. This includes any VFs that have virtual machines directly attached.
+====
++
+. The *All Networks* check box is selected by default, allowing all networks to access the virtual functions. To specify the virtual networks allowed to access the virtual functions, select the *Specific networks* radio button to list all networks. You can then either select the check box for desired networks, or you can use the *Labels* text field to automatically select networks based on one or more network labels.
+. Click *OK*.
+. In the *Setup Host Networks* window, click *OK*.

@@ -1,0 +1,15 @@
+[[Explanation_of_Settings_in_the_Manage_Networks_Window]]
+==== Explanation of Settings in the Manage Networks Window
+
+The table below describes the settings for the *Manage Networks* window.
+
+.Manage Networks Settings
+[options="header"]
+|===
+|Field |Description/Action
+|*Assign* |Assigns the logical network to all hosts in the cluster.
+|*Required* |A Network marked "required" must remain operational in order for the hosts associated with it to function properly. If a required network ceases to function, any hosts associated with it become non-operational.
+|*VM Network* |A logical network marked "VM Network" carries network traffic relevant to the virtual machine network.
+|*Display Network* |A logical network marked "Display Network" carries network traffic relevant to SPICE and to the virtual network controller.
+|*Migration Network* |A logical network marked "Migration Network" carries virtual machine and storage migration traffic. If an outage occurs on this network, the management network (*ovirtmgmt* by default) will be used instead. 
+|===

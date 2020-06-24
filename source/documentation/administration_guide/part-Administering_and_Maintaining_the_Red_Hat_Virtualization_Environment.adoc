@@ -1,0 +1,30 @@
+[[part-Administering_and_Maintaining_the_Red_Hat_Virtualization_Environment]]
+= Administering and Maintaining the {virt-product-fullname} Environment
+The {virt-product-fullname} environment requires an administrator to keep it running. As an administrator, your tasks include:
+
+* Managing physical and virtual resources such as hosts and virtual machines. This includes upgrading and adding hosts, importing domains, converting virtual machines created on foreign hypervisors, and managing virtual machine pools.
+
+* Monitoring the overall system resources for potential problems such as extreme load on one of the hosts, insufficient memory or disk space, and taking any necessary actions (such as migrating virtual machines to other hosts to lessen the load or freeing resources by shutting down machines).
+
+* Responding to the new requirements of virtual machines (for example, upgrading the operating system or allocating more memory).
+
+* Managing customized object properties using tags.
+
+* Managing searches saved as xref:chap-Bookmarks[public bookmarks].
+
+* Managing user setup and setting permission levels.
+
+* Troubleshooting for specific users or virtual machines for overall system functionality.
+
+* Generating general and specific reports.
+
+
+include::chap-Global_Configuration.adoc[]
+
+include::chap-Dashboard.adoc[]
+
+include::chap-Searches.adoc[]
+
+include::chap-Bookmarks.adoc[]
+
+include::chap-Tags.adoc[]

@@ -1,0 +1,163 @@
+[[Configuring_an_External_LDAP_Provider_ManualMethod]]
+==== Configuring an External LDAP Provider (Manual Method)
+
+The `ovirt-engine-extension-aaa-ldap` extension uses the LDAP protocol to access directory servers and is fully customizable. Kerberos authentication is not required unless you want to enable the single sign-on to the VM Portal or the Administration Portal feature.
+
+If the interactive setup method in the previous section does not cover your use case, you can manually modify the configuration files to attach your LDAP server. The following procedure uses generic details. Specific values depend on your setup.
+
+
+*Configuring an External LDAP Provider Manually*
+
+. On the {virt-product-fullname} {engine-name}, install the LDAP extension package:
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-engine-extension-aaa-ldap
+----
++
+. Copy the LDAP configuration template file into the */etc/ovirt-engine* directory. Template files are available for active directories (*ad*) and other directory types (*simple*). This example uses the simple configuration template.
++
+[options="nowrap" subs="normal"]
+----
+# cp -r /usr/share/ovirt-engine-extension-aaa-ldap/examples/simple/. /etc/ovirt-engine
+----
++
+. Rename the configuration files to match the profile name you want visible to users on the Administration Portal and the VM Portal login pages:
++
+[options="nowrap" subs="normal"]
+----
+# mv /etc/ovirt-engine/aaa/profile1.properties /etc/ovirt-engine/aaa/_example_.properties
+# mv /etc/ovirt-engine/extensions.d/profile1-authn.properties /etc/ovirt-engine/extensions.d/_example_-authn.properties
+# mv /etc/ovirt-engine/extensions.d/profile1-authz.properties /etc/ovirt-engine/extensions.d/_example_-authz.properties
+----
++
+. Edit the LDAP property configuration file by uncommenting an LDAP server type and updating the domain and passwords fields:
++
+[options="nowrap" subs="normal"]
+----
+#  vi /etc/ovirt-engine/aaa/_example_.properties
+----
++
+.Example profile: LDAP server section
+====
+
+[options="nowrap" subs="normal"]
+----
+# Select one
+#
+include = <openldap.properties>
+#include = <389ds.properties>
+#include = <rhds.properties>
+#include = <ipa.properties>
+#include = <iplanet.properties>
+#include = <rfc2307-389ds.properties>
+#include = <rfc2307-rhds.properties>
+#include = <rfc2307-openldap.properties>
+#include = <rfc2307-edir.properties>
+#include = <rfc2307-generic.properties>
+
+# Server
+#
+vars.server = _ldap1.company.com_
+
+# Search user and its password.
+#
+vars.user = uid=search,cn=users,cn=accounts,dc=_company_,dc=_com_
+vars.password = _123456_
+
+pool.default.serverset.single.server = ${global:vars.server}
+pool.default.auth.simple.bindDN = ${global:vars.user}
+pool.default.auth.simple.password = ${global:vars.password}
+
+----
+
+====
++
+To use TLS or SSL protocol to interact with the LDAP server, obtain the root CA certificate for the LDAP server and use it to create a public keystore file. Uncomment the following lines and specify the full path to the public keystore file and the password to access the file.
++
+[NOTE]
+====
+For more information on creating a public keystore file, see xref:Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server[].
+====
++
+.Example profile: keystore section
+====
+
+[options="nowrap" subs="normal"]
+----
+# Create keystore, import certificate chain and uncomment
+# if using tls.
+pool.default.ssl.startTLS = true
+pool.default.ssl.truststore.file = _/full/path/to/myrootca.jks_
+pool.default.ssl.truststore.password = _password_
+----
+
+====
++
+. Review the authentication configuration file. The profile name visible to users on the Administration Portal and the VM Portal login pages is defined by *ovirt.engine.aaa.authn.profile.name*. The configuration profile location must match the LDAP configuration file location. All fields can be left as default.
++
+[options="nowrap" subs="normal"]
+----
+# vi /etc/ovirt-engine/extensions.d/_example_-authn.properties
+----
++
+.Example authentication configuration file
+====
+
+[options="nowrap" subs="normal"]
+----
+ovirt.engine.extension.name = _example_-authn
+ovirt.engine.extension.bindings.method = jbossmodule
+ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine.extension.aaa.ldap
+ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engine.extension.aaa.ldap.AuthnExtension
+ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authn
+ovirt.engine.aaa.authn.profile.name = _example_
+ovirt.engine.aaa.authn.authz.plugin = _example_-authz
+config.profile.file.1 = ../aaa/_example_.properties
+----
+
+====
++
+. Review the authorization configuration file. The configuration profile location must match the LDAP configuration file location. All fields can be left as default.
++
+[options="nowrap" subs="normal"]
+----
+# vi /etc/ovirt-engine/extensions.d/_example_-authz.properties
+----
++
+.Example authorization configuration file
+====
+
+[options="nowrap" subs="normal"]
+----
+ovirt.engine.extension.name = _example_-authz
+ovirt.engine.extension.bindings.method = jbossmodule
+ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine.extension.aaa.ldap
+ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engine.extension.aaa.ldap.AuthzExtension
+ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authz
+config.profile.file.1 = ../aaa/_example_.properties
+----
+====
++
+. Ensure that the ownership and permissions of the configuration profile are appropriate:
++
+[options="nowrap" subs="normal"]
+----
+# chown ovirt:ovirt /etc/ovirt-engine/aaa/_example_.properties
+# chmod 600 /etc/ovirt-engine/aaa/_example_.properties
+----
++
+. Restart the engine service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart ovirt-engine.service
+----
++
+. The _example_ profile you have created is now available on the Administration Portal and the VM Portal login pages. To give the user accounts on the LDAP server appropriate permissions, for example, to log in to the VM Portal, see xref:sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks[].
+
+
+[NOTE]
+====
+For more information, see the LDAP authentication and authorization extension README file at */usr/share/doc/ovirt-engine-extension-aaa-ldap-_version_*.
+====

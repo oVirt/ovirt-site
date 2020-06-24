@@ -1,0 +1,20 @@
+[[Changing_the_FQDN_of_a_Host]]
+==== Changing the FQDN of a Host
+
+Use the following procedure to change the fully qualified domain name of hosts.
+
+
+*Updating the FQDN of a Host*
+
+. Place the host into maintenance mode so the virtual machines are live migrated to another host. See xref:Moving_a_host_to_maintenance_mode[] for more information. Alternatively, manually shut down or migrate all the virtual machines to another host. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Manually_migrating_virtual_machines[Manually Migrating Virtual Machines] in the _Virtual Machine Management Guide_ for more information.
+. Click *Remove*, and click *OK* to remove the host from the Administration Portal.
+. Use the `hostnamectl` tool to update the host name. For more options, see link:{URL_rhel_docs_legacy}html/Networking_Guide/ch-Configure_Host_Names.html[ Configure Host Names] in the _{enterprise-linux} 7 Networking Guide_.
++
+[options="nowrap" subs="normal"]
+----
+# hostnamectl set-hostname _NEW_FQDN_
+----
++
+. Reboot the host.
+. Re-register the host with the {engine-name}. See xref:Adding_standard_hosts_to_the_Manager_host_tasks[] for more information.
+

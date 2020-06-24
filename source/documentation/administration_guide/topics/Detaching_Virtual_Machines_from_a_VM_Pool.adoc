@@ -1,0 +1,18 @@
+[[Detaching_Virtual_Machines_from_a_VM_Pool]]
+=== Detaching Virtual Machines from a Virtual Machine Pool
+
+You can detach virtual machines from a virtual machine pool. Detaching a virtual machine removes it from the pool to become an independent virtual machine.
+
+*Detaching Virtual Machines from a Virtual Machine Pool*
+
+. Click menu:Compute[Pools].
+. Click the pool's name to open the details view.
+. Click the *Virtual Machines* tab to list the virtual machines in the pool.
+. Ensure the virtual machine has a status of `Down`; you cannot detach a running virtual machine.
+. Select one or more virtual machines and click *Detach*.
+. Click *OK*.
+
+[NOTE]
+====
+The virtual machine still exists in the environment and can be viewed and accessed from menu:Compute[Virtual Machines]. Note that the icon changes to denote that the detached virtual machine is an independent virtual machine.
+====

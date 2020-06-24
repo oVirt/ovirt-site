@@ -1,0 +1,16 @@
+[[Host_Log_Files]]
+=== Host Log Files
+
+[options="header"]
+|===
+|Log File |Description
+|*/var/log/messages* |The log file used by `libvirt`. Use `journalctl` to view the log. You must be a member of the _adm_,
+_systemd-journal_, or _wheel_ groups to view the log.
+|*/var/log/vdsm/spm-lock.log* |Log file detailing the host's ability to obtain a lease on the Storage Pool Manager role. The log details when the host has acquired, released, renewed, or failed to renew the lease.
+|*/var/log/vdsm/vdsm.log* |Log file for VDSM, the {engine-name}'s agent on the host(s).
+|*/tmp/ovirt-host-deploy-_Date_.log* |A host deployment log that is copied to the {engine-name} as `/var/log/ovirt-engine/host-deploy/ovirt-_Date-Host-Correlation_ID_`.log after the host has been successfully deployed.
+|*/var/log/vdsm/import/import-_UUID-Date_.log* |Log file detailing virtual machine imports from a KVM host, a VMWare provider, or a RHEL 5 Xen host, including import failure information. _UUID_ is the UUID of the virtual machine that was imported and _Date_ is the date and time that the import began.
+|*/var/log/vdsm/supervdsm.log*| Logs VDSM tasks that were executed with superuser permissions.
+|*/var/log/vdsm/upgrade.log*| VDSM uses this log file during host upgrades to log configuration changes.
+|*/var/log/vdsm/mom.log* | Logs the activities of the VDSM's memory overcommitment manager.
+|===

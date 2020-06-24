@@ -1,0 +1,21 @@
+[[Viewing_Host_Health_Status]]
+==== Viewing the Health Status of a Host
+
+Hosts have an external health status in addition to their regular *Status*. The external health status is reported by plug-ins or external systems, or set by an administrator, and appears to the left of the host's *Name* as one of the following icons:
+
+* *OK*: No icon
+
+* *Info*: image:images/Info.png[]
+
+* *Warning*: image:images/Warning.png[]
+
+* *Error*: image:images/Error.png[]
+
+* *Failure*: image:images/Failure.png[]
+
+To view further details about the host's health status, click the host's name to open the details view, and click the *Events* tab.
+
+The host's health status can also be viewed using the REST API. A `GET` request on a host will include the `external_status` element, which contains the health status.
+
+You can set a host's health status in the REST API via the `events` collection. For more information, see link:http://ovirt.github.io/ovirt-engine-api-model/4.4#services-events-methods-add[Adding Events] in the _REST API Guide_.
+

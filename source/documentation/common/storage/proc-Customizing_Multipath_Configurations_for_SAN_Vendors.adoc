@@ -43,5 +43,5 @@ If a {hypervisor-fullname} has trouble accessing shared storage, check `/etc/mul
 .Additional resources
 
 * link:{URL_rhel_docs_legacy}html-single/dm_multipath/[_{enterprise-linux} DM Multipath_] in the RHEL documentation.
-* link:{URL_virt_product_docs}admin-guide/administration-guide.html#Configuring_iSCSI_Multipathing[Configuring iSCSI Multipathing] in the Administration Guide.
+* link:{URL_virt_product_docs}administration_guide#Configuring_iSCSI_Multipathing[Configuring iSCSI Multipathing] in the Administration Guide.
 * link:https://access.redhat.com/solutions/3234761[How do I customize /etc/multipath.conf on my RHVH hypervisors? What values must not change and why?] on the Red Hat Customer Portal, which shows an example `multipath.conf` file and was the basis for this topic.

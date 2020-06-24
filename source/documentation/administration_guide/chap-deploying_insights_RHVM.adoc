@@ -1,0 +1,42 @@
+[[chap-deploying_insights_RHVM]]
+
+== Deploying Insights in Red Hat Virtualization Manager
+
+To deploy Red Hat Insights on an existing Red Hat
+Enterprise Linux (RHEL) system with Red Hat Virtualization Manager installed, complete these tasks:
+
+* Register the system to the Red Hat Insights application.
+* Enable data collection from the Red Hat Virtualization environment.
+
+.Register the system to Red Hat Insights
+Register the system to communicate with the Red Hat Insights service and to view results displayed in
+the Red Hat Insights console.
+
+----
+[root@server ~]# insights-client --register
+----
+
+.Enable data collection from the Red Hat Virtualization environment
+Modify the `/etc/ovirt-engine/rhv-log-collector-analyzer/rhv-log-collector-analyzer.conf` file to
+include the following line:
+----
+upload-json=True
+----
+
+.View your Insights results in the Insights Console
+System and infrastructure results can be viewed in the link:https://cloud.redhat.com/insights/overview[Insights console].
+The `Overview` tab provides a dashboard view of current risks to your infrastructure. From this starting point, you can
+investigate how a specific rule is affecting your system, or take a system-based approach to view all
+the rule matches that pose a risk to the system.
+
+
+. Select `Rule` hits by severity to view rules by the `Total Risk` they pose to your infrastructure (`Critical`, `Important`, `Moderate`, or `Low`).
++
+Or
+. Select `Rule` hits by category to see the type of risk they pose to your infrastructure (`Availability`, `Stability`,  `Performance`, or `Security`).
+. Search for a specific rule by name, or scroll through the list of rules to see high-level information
+about risk, systems exposed, and availability of Ansible Playbook to automate remediation.
+. Click on a rule to see a description of the rule, learn more from relevant knowledge base articles,
+and view a list of systems that are affected.
+. Click on a system to see specific information about detected issues and steps to resolve the
+issue.

@@ -1,0 +1,105 @@
+[[Preparing_GPU_Passthrough]]
+==== Preparing Host and Guest Systems for GPU Passthrough
+
+The Graphics Processing Unit (GPU) device from a host can be directly assigned to a virtual machine. Before this can be achieved, both the host and the virtual machine require amendments to their *grub* configuration files. You can edit the host *grub* configuration file using the *Kernel command line* free text entry field in the Administration Portal. Both the host machine and the virtual machine require reboot for the changes to take effect.
+
+This procedure is relevant for hosts with either x86_64 or ppc64le architecture.
+
+For more information on the hardware requirements for direct device assignment, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/planning_and_prerequisites_guide/rhv_requirements#PCI_Device_Requirements_RHV_planning[PCI Device Requirements] in the _Planning and Prerequisites Guide_.
+
+[IMPORTANT]
+====
+If the host is attached to the {engine-name} already, ensure you place the host into maintenance mode before applying any changes.
+====
+
+
+*Preparing a Host for GPU Passthrough*
+
+. In the Administration Portal, click menu:Compute[Hosts].
+. Click the host's name to open the details view.
+. Click the *General* tab, and click *Hardware*. Locate the GPU device _vendor ID:product ID_. In this example, the IDs are `10de:13ba` and `10de:0fbc`.
+. Right-click the host and select *Edit*. Click the *Kernel* tab.
+. In the *Kernel command line* free text entry field, enter the IDs located in the previous steps.
++
+[options="nowrap" subs="normal"]
+----
+pci-stub.ids=10de:13ba,10de:0fbc
+----
++
+. Blacklist the corresponding drivers on the host. For example, to blacklist nVidia's nouveau driver, next to _pci-stub.ids=xxxx:xxxx_, enter *rdblacklist=nouveau*.
++
+[options="nowrap" subs="normal"]
+----
+pci-stub.ids=10de:13ba,10de:0fbc rdblacklist=nouveau
+----
++
+. Click *OK*.
+. Click menu:Installation[Reinstall] to commit the changes to the host.
+. Reboot the host after the reinstallation is complete.
+
+[NOTE]
+====
+To confirm the device is bound to the `pci-stub` driver, run the `lspci` command:
+
+[options="nowrap" ]
+----
+# lspci -nnk
+...
+01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GM107GL [Quadro K2200] [10de:13ba] (rev a2)
+        Subsystem: NVIDIA Corporation Device [10de:1097]
+        Kernel driver in use: pci-stub
+01:00.1 Audio device [0403]: NVIDIA Corporation Device [10de:0fbc] (rev a1)
+        Subsystem: NVIDIA Corporation Device [10de:1097]
+        Kernel driver in use: pci-stub
+...
+----
+
+For instructions on how to make the above changes by editing the *grub* configuration file, see link:https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.6/html-single/Administration_Guide/index.html#Preparing_GPU_Passthrough[Preparing Host and Guest Systems for GPU Passthrough] in the 3.6 _Administration Guide_.
+====
+
+Proceed to the next procedure to configure GPU passthrough on the guest system side.
+
+
+*Preparing a Guest Virtual Machine for GPU Passthrough*
+
+.For Linux
+
+. Only proprietary GPU drivers are supported. Black list the corresponding open source driver in the *grub* configuration file. For example:
++
+[options="nowrap" ]
+----
+$ vi /etc/default/grub
+...
+GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... rdblacklist=nouveau"
+...
+----
++
+. Locate the GPU BusID. In this example, is BusID is `00:09.0`.
++
+[options="nowrap" subs="normal"]
+----
+# lspci | grep VGA
+00:09.0 VGA compatible controller: NVIDIA Corporation GK106GL [Quadro K4000] (rev a1)
+----
++
+. Edit the */etc/X11/xorg.conf* file and append the following content:
++
+[options="nowrap" subs="normal"]
+----
+Section "Device"
+Identifier "Device0"
+Driver "nvidia"
+VendorName "NVIDIA Corporation"
+BusID "PCI:0:9:0"
+EndSection
+----
++
+. Restart the virtual machine.
+
+.For Windows
+
+. Download and install the corresponding drivers for the device. For example, for Nvidia drivers, go to link:http://www.nvidia.com/Download/index.aspx?lang=en-us[NVIDIA Driver Downloads].
+. Restart the virtual machine.
+
+
+The host GPU can now be directly assigned to the prepared virtual machine. For more information on assigning host devices to virtual machines, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Host Devices] in the _Virtual Machine Management Guide_.

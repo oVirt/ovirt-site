@@ -1,0 +1,30 @@
+[[Configuring_Host_Firewall_Rules]]
+= Configuring Host Firewall Rules
+
+You can configure the host firewall rules so that they are persistent, using Ansible. The cluster must be configured to use `firewalld`.
+
+.Configuring Firewall Rules for Hosts
+
+. On the {engine-name} machine, edit *ovirt-host-deploy-post-tasks.yml.example* to add a custom firewall port:
++
+[options="nowrap" subs="normal"]
+----
+# vi /etc/ovirt-engine/ansible/ovirt-host-deploy-post-tasks.yml.example
+---
+#
+# Any additional tasks required to be executing during host deploy process can
+# be added below
+#
+- name: Enable additional port on firewalld
+  firewalld:
+    port: "_12345/tcp_"
+    permanent: yes
+    immediate: yes
+    state: enabled
+----
+
+. Save the file to another location as *ovirt-host-deploy-post-tasks.yml*.
+
+New or reinstalled hosts are configured with the updated firewall rules.
+
+Existing hosts must be reinstalled by clicking menu:Installation[Reinstall] and selecting *Automatically configure host firewall*.

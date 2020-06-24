@@ -1,0 +1,11 @@
+:numbered!:
+
+[appendix]
+[[appe-Red_Hat_Enterprise_Virtualization_and_Encrypted_Communication]]
+// keeping old section id to prevent broken links
+[[appe-Red_Hat_Enterprise_Virtualization_and_SSL]]
+== {virt-product-fullname} and Encrypted Communication
+
+include::topics/Replacing_the_Manager_CA_Certificate.adoc[]
+
+include::topics/Setting_Up_Encrypted_Communication_between_the_Manager_and_an_LDAP_Server.adoc[]

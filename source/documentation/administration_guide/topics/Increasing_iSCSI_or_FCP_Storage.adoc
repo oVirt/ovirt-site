@@ -1,0 +1,38 @@
+[[Increasing_iSCSI_or_FCP_Storage]]
+==== Increasing iSCSI or FCP Storage
+
+There are several ways to increase iSCSI or FCP storage size:
+
+* Add an existing LUN to the current storage domain.
+* Create a new storage domain with new LUNs and add it to an existing data center. See xref:Adding_iSCSI_Storage_storage_admin[].
+* Expand the storage domain by resizing the underlying LUNs.
+
+For information about creating, configuring, or resizing iSCSI storage on {enterprise-linux} 7 systems, see the  link:{URL_rhel_docs_legacy}html-single/Storage_Administration_Guide/index.html#osm-target-setup[_{enterprise-linux} 7 Storage Administration Guide_].
+
+The following procedure explains how to expand storage area network (SAN) storage by adding a new LUN to an existing storage domain.
+
+*Prerequisites*
+
+* The storage domain's status must be `UP`.
+*  The LUN must be accessible to all the hosts whose status is `UP`, or else the operation will fail and the LUN will not be added to the domain. The hosts themselves, however, will not be affected. If a newly added host, or a host that is coming out of maintenance or a `Non Operational` state, cannot access the LUN, the host's state will be `Non Operational`.
+
+*Increasing an Existing iSCSI or FCP Storage Domain*
+
+. Click menu:Storage[Domains] and select an iSCSI or FCP domain.
+. Click btn:[Manage Domain].
+. Click *Targets > LUNs* and click the *Discover Targets* expansion button.
+. Enter the connection information for the storage server and click btn:[Discover] to initiate the connection.
+. Click *LUNs > Targets* and select the check box of the newly available LUN.
+. Click btn:[OK] to add the LUN to the selected storage domain.
+
+This will increase the storage domain by the size of the added LUN.
+
+When expanding the storage domain by resizing the underlying LUNs, the LUNs must also be refreshed in the Administration Portal.
+
+*Refreshing the LUN Size*
+
+. Click menu:Storage[Domains] and select an iSCSI or FCP domain.
+. Click *Manage Domain*.
+. Click on *LUNs > Targets*.
+. In the *Additional Size* column, click the *Add _Additional_Storage_Size_* button of the LUN to refresh.
+. Click *OK* to refresh the LUN to indicate the new storage size.

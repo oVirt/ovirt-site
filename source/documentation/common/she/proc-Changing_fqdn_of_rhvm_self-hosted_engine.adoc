@@ -1,0 +1,6 @@
+[id='Changing_FQDN_of_RHVM_self-hosted_engine']
+= Changing the FQDN of the {engine-name} in a Self-Hosted Engine
+
+You can use the `ovirt-engine-rename` command to update records of the fully qualified domain name (FQDN) of the {engine-name}.
+
+For details see xref:Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool[].

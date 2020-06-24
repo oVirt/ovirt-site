@@ -1,0 +1,32 @@
+[[SPICE_Logs_for_SPICE_Clients_Launched_Using_consolevv_Files]]
+==== SPICE Logs for SPICE Clients Launched Using console.vv Files
+
+
+*For Linux client machines:*
+
+. Enable SPICE debugging by running the `remote-viewer` command with the `--spice-debug` option. When prompted, enter the connection URL, for example, spice://_virtual_machine_IP_:__port__.
++
+[options="nowrap" subs="normal"]
+----
+#  remote-viewer --spice-debug
+----
++
+. To run SPICE client with the debug parameter and to pass a .vv file to it, download the *console.vv* file and run the `remote-viewer` command with the `--spice-debug` option and specify the full path to the *console.vv* file.
++
+[options="nowrap" subs="normal"]
+----
+# remote-viewer --spice-debug __/path/to/__console.vv
+----
+
+
+*For Windows client machines:*
+
+. In versions of `virt-viewer` 2.0-11.el7ev and later, *virt-viewer.msi* installs `virt-viewer` and `debug-viewer.exe`.
+. Run the `remote-viewer` command with the `spice-debug` argument and direct the command at the path to the console:
++
+[options="nowrap" subs="normal"]
+----
+remote-viewer --spice-debug __path\to\__console.vv 
+----
++
+. To view logs, connect to the virtual machine, and you will see a command prompt running GDB that prints standard output and standard error of `remote-viewer`.

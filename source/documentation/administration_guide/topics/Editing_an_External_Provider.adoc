@@ -1,0 +1,9 @@
+[[Editing_an_External_Provider]]
+=== Editing an External Provider
+
+*Editing an External Provider*
+
+. Click menu:Administration[Providers] and select the external provider to edit.
+. Click *Edit*.
+. Change the current values for the provider to the preferred values.
+. Click *OK*.

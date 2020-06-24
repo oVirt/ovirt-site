@@ -1,0 +1,12 @@
+[[Setting_Discard_After_Delete_for_a_Storage_Domain]]
+==== Setting Discard After Delete for a Storage Domain
+
+When the *Discard After Delete* check box is selected, a `blkdiscard` command is called on a logical volume when it is removed and the underlying storage is notified that the blocks are free. The storage array can use the freed space and allocate it when requested. *Discard After Delete* only works on block storage. The flag is not available on the {virt-product-fullname} {engine-name} for file storage, for example NFS.
+
+*Restrictions:*
+
+* *Discard After Delete* is only available on block storage domains, such as iSCSI or Fibre Channel.
+
+* The underlying storage must support `Discard`.
+
+*Discard After Delete* can be enabled both when creating a block storage domain or when editing a block storage domain. See xref:sect-Preparing_and_Adding_Block_Storage[Preparing and Adding Block Storage] and xref:Editing_Storage_Domains[Editing Storage Domains].

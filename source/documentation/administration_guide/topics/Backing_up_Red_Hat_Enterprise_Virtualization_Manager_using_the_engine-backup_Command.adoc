@@ -1,0 +1,5 @@
+[[Backing_up_Red_Hat_Enterprise_Virtualization_Manager_using_the_engine-backup_Command]]
+==== Backing up {virt-product-fullname} {engine-name} - Overview
+
+Use the `engine-backup` tool to take regular backups of the {virt-product-fullname} {engine-name}. The tool backs up the engine database and configuration files into a single file and can be run without interrupting the `ovirt-engine` service.
+

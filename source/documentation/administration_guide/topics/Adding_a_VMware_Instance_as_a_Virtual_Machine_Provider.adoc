@@ -1,0 +1,32 @@
+[[Adding_a_VMware_Instance_as_a_Virtual_Machine_Provider]]
+==== Adding a VMware Instance as a Virtual Machine Provider
+
+Add a VMware vCenter instance to import virtual machines from VMware to the {virt-product-fullname} {engine-name}.
+
+{virt-product-fullname} uses V2V to convert VMware virtual machines to the correct format before they are imported. The `virt-v2v` package must be installed on at least one host. The `virt-v2v` package is available by default on {hypervisor-fullname}s ({hypervisor-shortname}) and is installed on {enterprise-linux-host-fullname}s as a dependency of VDSM when added to the {virt-product-fullname} environment. {enterprise-linux-host-fullname}s must be {enterprise-linux} 7.2 or later.
+
+[NOTE]
+====
+The `virt-v2v` package is not available on ppc64le architecture; these hosts cannot be used as proxy hosts.
+====
+
+*Adding a VMware vCenter Instance as a Virtual Machine Provider*
+
+. Click menu:Administration[Providers].
+. Click *Add*.
+. Enter a *Name* and *Description*.
+. Select *VMware* from the *Type* drop-down list.
+. Select the *Data Center* into which VMware virtual machines will be imported, or select *Any Data Center* to instead specify the destination data center during individual import operations.
+. Enter the IP address or fully qualified domain name of the VMware vCenter instance in the *vCenter* field.
+. Enter the IP address or fully qualified domain name of the host from which the virtual machines will be imported in the *ESXi* field.
+. Enter the name of the data center in which the specified ESXi host resides in the *Data Center* field.
+. If you have exchanged the SSL certificate between the ESXi host and the {engine-name}, leave the *Verify server's SSL certificate* check box selected to verify the ESXi host's certificate. If not, clear the check box.
+. Select a host in the chosen data center with `virt-v2v` installed to serve as the *Proxy Host* during virtual machine import operations. This host must also be able to connect to the network of the VMware vCenter external provider. If you selected *Any Data Center* above, you cannot choose the host here, but instead can specify a host during individual import operations.
+. Enter the *Username* and *Password* for the VMware vCenter instance. The user must have access to the VMware data center and ESXi host on which the virtual machines reside.
+. Test the credentials:
+.. Click *Test* to test whether you can authenticate successfully with the VMware vCenter instance using the provided credentials.
+.. If the VMware vCenter instance uses SSL, the *Import provider certificates* window opens; click *OK* to import the certificate that the VMware vCenter instance provides to ensure the {engine-name} can communicate with the instance.
+. Click *OK*.
+
+To import virtual machines from the VMware external provider, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Importing_a_Virtual_Machine_from_a_VMware_Provider[Importing a Virtual Machine from a VMware Provider] in the _Virtual Machine Management Guide_.
+

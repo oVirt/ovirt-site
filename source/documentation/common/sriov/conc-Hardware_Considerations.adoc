@@ -1,0 +1,19 @@
+Single Root I/O Virtualization (SR-IOV) is a hardware reference that enables a single PCI Express (PCIe) endpoint to be used as multiple separate devices. This is achieved through the introduction of two PCIe functions: Physical Functions (PFs) and Virtual Functions (VFs).
+
+Physical functions are traditional PCIe functions that include SR-IOV capability, possessing full configuration and control of the PCIe device, including data movement. Each PCIe device can have between one and eight independent PFs. 
+
+Virtual functions are lightweight PCIe functions that contain the resources necessary for data movement and a minimized set of configuration resources. Multiple VFs can be created on each PF and each PF can support a different amount of VFs. The total number of VFs allowed is dependent on the PCIe device vendor, and is different between devices. 
+
+The PCIe specification supports greater numbers of VFs through the implementation of Alternative Routing ID Interpretation (ARI), which reinterprets the device number field in the PCIe header allowing for more than eight functions. This translation relies on both the PCIe device and the port immediately upstream of the device, whether root port or switch, supporting ARI.
+
+The system firmware (BIOS or UEFI) allocates resources, including memory, I/O port apertures, and PCIe bus number ranges, for the PCIe topology. As such, SR-IOV must be supported and enabled by the firmware in order to allocate sufficient resources.
+
+=== Summary of Hardware Considerations for SR-IOV
+
+* Firmware (BIOS or UEFI) must support SR-IOV. Check if the extension is enabled by default. If not, enable it manually. This is similar to enabling the virtualization extension (VT-d or AMD-Vi). Refer to vendor manuals for specific details.
+* Root ports, or ports immediately upstream of the PCIe device (such as a PCIe switch), must support ARI.
+* PCIe device must support SR-IOV.
+
+Refer to vendor specification and datasheets to confirm that hardware meets these requirements.
+
+The `lspci -v` command can be used to print information for PCI devices already installed on a system.

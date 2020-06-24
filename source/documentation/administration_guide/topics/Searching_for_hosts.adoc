@@ -1,0 +1,45 @@
+[[Searching_for_hosts]]
+=== Searching for Hosts
+
+The following table describes all search options for hosts.
+[[searching_hosts]]
+
+.Searching for Hosts
+[options="header"]
+|===
+|Property (of resource or resource-type) |Type |Description (Reference)
+|`Vms._Vms-prop_` |Depends on property type |The property of the virtual machines associated with the host.
+|`Templates._templates-prop_` |Depends on property type |The property of the templates associated with the host.
+|`Events._events-prop_` |Depends on property type |The property of the events associated with the host.
+|`Users._users-prop_` |Depends on property type |The property of the users associated with the host.
+|`name` |String |The name of the host.
+|`status` |List |The availability of the host.
+|`external_status` |String |The health status of the host as reported by external systems and plug-ins.
+|`cluster` |String |The cluster to which the host belongs.
+|`address` |String |The unique name that identifies the host on the network.
+|`cpu_usage` |Integer |The percent of processing power used.
+|`mem_usage` |Integer |The percentage of memory used.
+|`network_usage` |Integer |The percentage of network usage.
+|`load` |Integer |Jobs waiting to be executed in the *run-queue* per processor, in a given time slice.
+|`version` |Integer |The version number of the operating system.
+|`cpus` |Integer |The number of CPUs on the host.
+|`memory` |Integer |The amount of memory available.
+|`cpu_speed` |Integer |The processing speed of the CPU.
+|`cpu_model` |String |The type of CPU.
+|`active_vms` |Integer |The number of virtual machines currently running.
+|`migrating_vms` |Integer |The number of virtual machines currently being migrated.
+|`committed_mem` |Integer |The percentage of committed memory.
+|`tag` |String |The tag assigned to the host.
+|`type` |String |The type of host.
+|`datacenter` |String |The data center to which the host belongs.
+|`sortby` |List |Sorts the returned results by one of the resource properties.
+|`page` |Integer |The page number of results to display.
+|===
+
+*Example*
+
+`Hosts: cluster = Default and Vms.os = rhel6`
+
+This example returns a list of hosts which are part of the Default cluster and host virtual machines running the {enterprise-linux} 6 operating system.
+
+

@@ -1,0 +1,15 @@
+[[Fencing_Policy_Settings_Explained]]
+==== Fencing Policy Settings Explained
+
+The table below describes the settings for the *Fencing Policy* tab in the *New Cluster* and *Edit Cluster* windows.
+
+.Fencing Policy Settings
+[options="header"]
+|===
+|Field |Description/Action
+|*Enable fencing* |Enables fencing on the cluster. Fencing is enabled by default, but can be disabled if required; for example, if temporary network issues are occurring or expected, administrators can disable fencing until diagnostics or maintenance activities are completed. Note that if fencing is disabled, highly available virtual machines running on non-responsive hosts will not be restarted elsewhere.
+|*Skip fencing if host has live lease on storage* |If this check box is selected, any hosts in the cluster that are Non Responsive and still connected to storage will not be fenced.
+|*Skip fencing on cluster connectivity issues* |If this check box is selected, fencing will be temporarily disabled if the percentage of hosts in the cluster that are experiencing connectivity issues is greater than or equal to the defined *Threshold*. The *Threshold* value is selected from the drop-down list; available values are *25*, *50*, *75*, and *100*.
+|*Skip fencing if gluster bricks are up* |This option is only available when {gluster-storage-fullname} functionality is enabled. If this check box is selected, fencing is skipped if bricks are running and can be reached from other peers. See link:https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure/1.0/html-single/maintaining_red_hat_hyperconverged_infrastructure/#configure_high_availability_using_fencing_policies[Chapter 2. Configure High Availability using Fencing Policies] and link:https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure/1.0/html-single/maintaining_red_hat_hyperconverged_infrastructure/#ref-rhgs-fencing-policies[Appendix A. Fencing Policies for {gluster-storage-fullname}] in _Maintaining Red Hat Hyperconverged Infrastructure_ for more information.
+|*Skip fencing if gluster quorum not met* |This option is only available when {gluster-storage-fullname} functionality is enabled. If this check box is selected, fencing is skipped if bricks are running and shutting down the host will cause loss of quorum. See link:https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure/1.0/html-single/maintaining_red_hat_hyperconverged_infrastructure/#configure_high_availability_using_fencing_policies[Chapter 2. Configure High Availability using Fencing Policies] and link:https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure/1.0/html-single/maintaining_red_hat_hyperconverged_infrastructure/#ref-rhgs-fencing-policies[Appendix A. Fencing Policies for {gluster-storage-fullname}] in _Maintaining Red Hat Hyperconverged Infrastructure_ for more information.
+|===

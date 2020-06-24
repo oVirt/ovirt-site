@@ -1,0 +1,17 @@
+[[Creating_a_CPU_Profile]]
+==== Creating a CPU Profile
+
+CPU profiles define the maximum amount of processing capability a virtual machine in a cluster can access on the host on which it runs, expressed as a percent of the total processing capability available to that host. CPU profiles are created based on CPU profiles defined under data centers, and are not automatically applied to all virtual machines in a cluster; they must be manually assigned to individual virtual machines for the profile to take effect.
+
+This procedure assumes you have already defined one or more CPU quality of service entries under the data center to which the cluster belongs.
+
+
+*Creating a CPU Profile*
+
+. Click menu:Compute[Clusters].
+. Click the cluster's name to open the details view.
+. Click the *CPU Profiles* tab.
+. Click *New*.
+. Enter a *Name* and a *Description* for the CPU profile.
+. Select the quality of service to apply to the CPU profile from the *QoS* list.
+. Click *OK*.

@@ -1,0 +1,15 @@
+[[Removing_a_CPU_Profile]]
+==== Removing a CPU Profile
+
+Remove an existing CPU profile from your {virt-product-fullname} environment.
+
+*Removing a CPU Profile*
+
+. Click menu:Compute[Clusters].
+. Click the cluster's name to open the details view.
+. Click the *CPU Profiles* tab and select the CPU profile to remove.
+. Click *Remove*.
+. Click *OK*.
+
+
+If the CPU profile was assigned to any virtual machines, those virtual machines are automatically assigned the `default` CPU profile.

@@ -1,0 +1,32 @@
+[[Introduction_to_Third_Party_Resource_Providers_in_Red_Hat_Enterprise_Virtualization]]
+=== Introduction to External Providers in {virt-product-fullname}
+
+In addition to resources managed by the {virt-product-fullname} {engine-name} itself, {virt-product-fullname} can also take advantage of resources managed by external sources. The providers of these resources, known as external providers, can provide resources such as virtualization hosts, virtual machine images, and networks.
+
+{virt-product-fullname} currently supports the following external providers:
+
+*Red Hat Satellite for Host Provisioning*:: Satellite is a tool for managing all aspects of the life cycle of both physical and virtual hosts. In {virt-product-fullname}, hosts managed by Satellite can be added to and used by the {virt-product-fullname} {engine-name} as virtualization hosts. After you add a Satellite instance to the {engine-name}, the hosts managed by the Satellite instance can be added by searching for available hosts on that Satellite instance when adding a new host. For more information on installing Red Hat Satellite and managing hosts using Red Hat Satellite, see the link:https://access.redhat.com/documentation/en-us/red_hat_satellite/6.2/html/installation_guide/[_Red Hat Satellite Installation Guide_] and link:https://access.redhat.com/documentation/en-us/red_hat_satellite/6.2/html/host_configuration_guide/[_Red Hat Satellite Host Configuration Guide_].
+
+
+*OpenStack Image Service (Glance) for Image Management*:: OpenStack Image Service provides a catalog of virtual machine images. In {virt-product-fullname}, these images can be imported into the {virt-product-fullname} {engine-name} and used as floating disks or attached to virtual machines and converted into templates. After you add an OpenStack Image Service to the {engine-name}, it appears as a storage domain that is not attached to any data center. Virtual disks in a {virt-product-fullname} environment can also be exported to an OpenStack Image Service as virtual disks.
+
+
+*OpenStack Networking (Neutron) for Network Provisioning*:: OpenStack Networking provides software-defined networks. In {virt-product-fullname}, networks provided by OpenStack Networking can be imported into the {virt-product-fullname} {engine-name} and used to carry all types of traffic and create complicated network topologies. After you add OpenStack Networking to the {engine-name}, you can access the networks provided by OpenStack Networking by manually importing them.
+
+
+*OpenStack Volume (Cinder) for Storage Management*:: OpenStack Volume provides persistent block storage management for virtual hard drives. The OpenStack Cinder volumes are provisioned by Ceph Storage. In {virt-product-fullname}, you can create disks on OpenStack Volume storage that can be used as floating disks or attached to virtual machines. After you add OpenStack Volume to the {engine-name}, you can create a disk on the storage provided by OpenStack Volume.
+
+
+*VMware for Virtual Machine Provisioning*:: Virtual machines created in VMware can be converted using V2V (`virt-v2v`) and imported into a {virt-product-fullname} environment. After you add a VMware provider to the {engine-name}, you can import the virtual machines it provides. V2V conversion is performed on a designated proxy host as part of the import operation.
+
+
+*RHEL 5 Xen for Virtual Machine Provisioning*:: Virtual machines created in RHEL 5 Xen can be converted using V2V (`virt-v2v`) and imported into a {virt-product-fullname} environment. After you add a RHEL 5 Xen host to the {engine-name}, you can import the virtual machines it provides. V2V conversion is performed on a designated proxy host as part of the import operation.
+
+
+*KVM for Virtual Machine Provisioning*:: Virtual machines created in KVM can be imported into a {virt-product-fullname} environment. After you add a KVM host to the {engine-name}, you can import the virtual machines it provides.
+
+*Open Virtual Network (OVN) for Network Provisioning*:: Open Virtual Network (OVN) is an Open vSwitch (OVS) extension that provides software-defined networks. After you add OVN to the {engine-name}, you can import existing OVN networks, and create new OVN networks from the {engine-name}. You can also automatically install OVN on the {engine-name} using `engine-setup`.
+
+*External Network Provider for Network Provisioning*:: Supported external sofware-defined network providers include any provider that implements the OpenStack Neutron REST API. Unlike OpenStack Networking (Neutron), the Neutron agent is not used as the virtual interface driver implementation on the host. Instead, the virtual interface driver needs to be provided by the implementer of the external network provider.
+
+All external resource providers are added using a single window that adapts to your input. You must add the resource provider before you can use the resources it provides in your {virt-product-fullname} environment.

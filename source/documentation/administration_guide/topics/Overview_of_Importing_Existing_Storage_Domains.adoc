@@ -1,0 +1,29 @@
+[[Overview_of_Importing_Existing_Storage_Domains]]
+==== Overview of Importing Existing Storage Domains
+
+Aside from adding new storage domains, which contain no data, you can import existing storage domains and access the data they contain. By importing storage domains, you can recover data in the event of a failure in the Manager database, and migrate data from one data center or environment to another.
+
+The following is an overview of importing each storage domain type:
+
+*Data*:: Importing an existing data storage domain allows you to access all of the virtual machines and templates that the data storage domain contains. After you import the storage domain, you must manually import virtual machines, floating disk images, and templates into the destination data center. The process for importing the virtual machines and templates that a data storage domain contains is similar to that for an export storage domain. However, because data storage domains contain all the virtual machines and templates in a given data center, importing data storage domains is recommended for data recovery or large-scale migration of virtual machines between data centers or environments.
++
+[IMPORTANT]
+====
+You can import existing data storage domains that were attached to data centers with the correct supported compatibility level. See link:https://access.redhat.com/solutions/4303801[Supportability and constraints regarding importing Storage Domains and Virtual Machines from older RHV versions] for more information. 
+====
+
+*ISO*:: Importing an existing ISO storage domain allows you to access all of the ISO files and virtual diskettes that the ISO storage domain contains. No additional action is required after importing the storage domain to access these resources; you can attach them to virtual machines as required.
+
+*Export*:: Importing an existing export storage domain allows you to access all of the virtual machine images and templates that the export storage domain contains. Because export domains are designed for exporting and importing virtual machine images and templates, importing export storage domains is recommended method of migrating small numbers of virtual machines and templates inside an environment or between environments. For information on exporting and importing virtual machines and templates to and from export storage domains, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#sect-Exporting_and_Importing_Virtual_Machines_and_Templates[Exporting and Importing Virtual Machines and Templates] in the _Virtual Machine Management Guide_.
++
+[NOTE]
+====
+The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disks, and templates can then be uploaded from the imported storage domain to the attached data center.
+====
++
+[WARNING]
+====
+Upon attaching a Storage Domain to the destination Data-Center,
+it may be upgraded to a newer Storage Domain format and may not re-attach to the source Data-Center.
+This breaks the use of a Data-Domain as a replacement for Export Domains.
+====

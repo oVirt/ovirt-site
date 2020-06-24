@@ -1,0 +1,48 @@
+[id='Setting_Legacy_SPICE_Cipher_{context}']
+= Setting a Legacy SPICE Cipher
+
+SPICE consoles use FIPS-compliant encryption by default, with a cipher string. The default SPICE cipher string is:
+`kECDHE+FIPS:kDHE+FIPS:kRSA+FIPS:!eNULL:!aNULL`
+
+This string is generally sufficient. However, if you have a virtual machine with an older operating system or SPICE client, where either one or the other does not support FIPS-compliant encryption, you must use a weaker cipher string. Otherwise, a connection security error may occur if you install a new cluster or a new host in an existing cluster and try to connect to that virtual machine.
+
+You can change the cipher string by using an Ansible playbook.
+
+*Changing the cipher string*
+
+. On the {engine-name} machine, create a file in the directory [filename]`/usr/share/ovirt-engine/playbooks`. For example:
++
+[options="nowrap" subs="normal"]
+----
+# vim /usr/share/ovirt-engine/playbooks/change-spice-cipher.yml
+----
++
+. Enter the following in the file and save it:
++
+[source,yaml,options="nowrap" subs="quotes"]
+----
+name: oVirt - setup weaker SPICE encryption for old clients
+hosts: _hostname_
+vars:
+  host_deploy_spice_cipher_string: 'DEFAULT:-RC4:-3DES:-DES'
+roles:
+  - ovirt-host-deploy-spice-encryption
+----
++
+. Run the file you just created:
++
+[options="nowrap" subs="normal"]
+----
+# ansible-playbook -l _hostname_ /usr/share/ovirt-engine/playbooks/change-spice-cipher.yml
+----
+
+
+
+Alternatively, you can reconfigure the host with the Ansible playbook `ovirt-host-deploy`  using the  `--extra-vars` option  with the variable `host_deploy_spice_cipher_string`:
+
+[options="nowrap" subs="normal"]
+----
+# ansible-playbook -l _hostname_ \
+  --extra-vars host_deploy_spice_cipher_string=”DEFAULT:-RC4:-3DES:-DES” \
+  /usr/share/ovirt-engine/playbooks/ovirt-host-deploy.yml
+----

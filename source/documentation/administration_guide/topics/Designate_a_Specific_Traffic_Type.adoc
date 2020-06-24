@@ -1,0 +1,19 @@
+[[Designate_a_Specific_Traffic_Type]]
+==== Designate a Specific Traffic Type for a Logical Network with the Manage Networks Window
+
+Specify the traffic type for the logical network to optimize the network traffic flow.
+
+
+*Specifying Traffic Types for Logical Networks*
+
+. Click menu:Compute[Clusters].
+. Click the cluster's name to open the details view.
+. Click the *Logical Networks* tab.
+. Click *Manage Networks*.
+. Select the appropriate check boxes and radio buttons.
+. Click *OK*.
+
+[NOTE]
+====
+Logical networks offered by external providers must be used as virtual machine networks; they cannot be assigned special cluster roles such as display or migration.
+====

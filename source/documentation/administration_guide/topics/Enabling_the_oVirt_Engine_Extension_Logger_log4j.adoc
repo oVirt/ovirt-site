@@ -1,0 +1,100 @@
+[[Enabling_the_oVirt_Engine_Extension_Logger_log4j]]
+=== Enabling the oVirt Engine Extension Logger log4j
+
+Logger implementation requires the ovirt-engine-extension-logger-log4j package. With the implementation, Red Had Virtualization {engine-name} delegates records into log4j. Log4j is a customizable framework that provides appenders for various technologies, including SNMP and syslog.
+
+The oVirt Engine Extension Logger log4j passes the `engine.log` files to an existing syslog server. The configuration procedure overlaps with link:{URL_virt_product_docs}administration_guide/#Setting_up_a_Host_Logging_Server[Setting up a Host Logging Server].
+
+Use this procedure on the central syslog server. You can use a separate logging server, or use this procedure to pass the `engine.log` files from the {engine-name} to the syslog server.
+
+[NOTE]
+====
+To define the syslog server for this extension, navigate to the */etc/ovirt-engine/extensions.d* directory and edit the value for `log4j.appender.myappender.SyslogHost` in the `Log4jLogger.properties` file.
+
+To define the syslog facility, navigate to the */etc/ovirt-engine/extensions.d* directory and edit the value for `log4j.appender.myappender.Facility` in the `Log4jLogger.properties` file. For example, `log4j.appender.myappender.Facility=local1`.
+====
+
+*Configuring the oVirt Engine Extension Logger log4j*
+
+. Install the extension.
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-engine-extension-logger-log4j
+----
++
+. Create the `Log4jLogger.properties` file in the */etc/ovirt-engine/extensions.d/* directory and include the following contents.
++
+[options="nowrap" subs="normal"]
+----
+ovirt.engine.extension.name = log4jlogger
+ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.logger.Logger
+ovirt.engine.extension.bindings.method = jbossmodule
+ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine-extensions.logger.log4j
+ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engineextensions.logger.log4j.Log4jLogger
+log4j.rootLogger=DEBUG, myappender
+log4j.appender.myappender=org.apache.log4j.net.SyslogAppender
+log4j.appender.myappender.SyslogHost=localhost
+log4j.appender.myappender.layout=org.apache.log4j.PatternLayout
+log4j.appender.myappender.layout.ConversionPattern=[%c] %m%n
+----
++
+. Install and configure rsyslog.
++
+[options="nowrap" subs="normal"]
+----
+# yum install rsyslog
+----
++
+. Configure SELinux to allow `rsyslog` traffic.
++
+[options="nowrap" subs="normal"]
+----
+# semanage port -a -t syslogd_port_t -p udp 514
+----
++
+. Edit */etc/rsyslog.conf* and add the following lines:
++
+[options="nowrap" subs="normal"]
+----
+$template TmplAuth, "/var/log/%fromhost%/secure"
+$template TmplMsg, "/var/log/%fromhost%/messages"
+
+$RuleSet remote
+authpriv.*   ?TmplAuth
+*.info,mail.none;authpriv.none,cron.none   ?TmplMsg
+$RuleSet RSYSLOG_DefaultRuleset
+$InputUDPServerBindRuleset remote
+----
++
+. Uncomment the following two lines.
++
+[options="nowrap" subs="normal"]
+----
+#$ModLoad imudp
+#$UDPServerRun 514
+----
++
+. Restart the `rsyslog` service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart rsyslog.service
+----
++
+. If the firewall is enabled and active, run the following command to add the necessary rules for opening the rsyslog ports in Firewalld.
++
+[options="nowrap" subs="normal"]
+----
+# firewall-cmd --permanent --add-port=514/udp
+# firewall-cmd --reload
+----
++
+. Restart {virt-product-fullname} {engine-name}.
++
+[options="nowrap" subs="normal"]
+----
+# restart ovirt-engine
+----
+
+The existing syslog server can now receive and store the `engine.log` files.

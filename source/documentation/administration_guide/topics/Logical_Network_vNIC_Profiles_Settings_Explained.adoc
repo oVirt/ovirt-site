@@ -1,0 +1,16 @@
+[[Logical_Network_vNIC_Profiles_Settings_Explained]]
+==== Logical Network vNIC Profiles Settings Explained
+
+The table below describes the settings for the *vNIC Profiles* tab of the *New Logical Network* window.
+
+
+.*New Logical Network* Settings
+[options="header"]
+|===
+|Field Name |Description
+|*vNIC Profiles* |Allows you to specify one or more vNIC profiles for the logical network. You can add or remove a vNIC profile to or from the logical network by clicking the plus or minus button next to the vNIC profile. The first field is for entering a name for the vNIC profile.
+
+*Public* - Allows you to specify whether the profile is available to all users.
+
+*QoS* - Allows you to specify a network quality of service (QoS) profile to the vNIC profile.
+|===

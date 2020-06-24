@@ -1,0 +1,17 @@
+// Module included in the following assemblies:
+//
+[id='Setting_a_storage_domain_to_be_a_backup_domain_{context}']
+= Setting a data storage domain to be a backup domain
+
+.Prerequisites
+
+* All disks belonging to a virtual machine or template on the storage domain must be on the same domain.
+* All virtual machines on the domain must be powered down.
+
+.Procedure
+
+. In the Administration Portal, select menu:Storage[Domains].
+. Create a new storage domain or select an existing storage domain and click *Manage Domain*. The Manage Domains dialog box opens.
+. Under *Advanced Parameters*, select the *Backup* checkbox.
+
+The domain is now a backup domain.

@@ -1,0 +1,34 @@
+[[chap-External_Providers]]
+== External Providers
+
+include::topics/Introduction_to_External_Providers_in_RHV.adoc[]
+
+[[sect-Adding_External_Providers]]
+=== Adding External Providers
+
+include::topics/Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning.adoc[]
+
+include::topics/Adding_an_OpenStack_Image_Service_Glance_for_Image_Management.adoc[]
+
+include::topics/Adding_an_OpenStack_Network_Service_Neutron_for_Network_Provisioning.adoc[]
+
+include::topics/Adding_an_OpenStack_Block_Storage_Cinder_Instance_for_Storage_Management.adoc[]
+
+include::topics/Adding_a_VMware_Instance_as_a_Virtual_Machine_Provider.adoc[]
+
+include::topics/Adding_Xen_as_an_External_Provider.adoc[]
+
+include::topics/Adding_KVM_as_an_External_Provider.adoc[]
+
+include::topics/Adding_OVN_as_an_External_Network_Provider.adoc[]
+
+include::topics/Adding_an_External_Network_Provider.adoc[]
+
+include::topics/Add_Provider_General_Settings_Explained.adoc[]
+
+include::topics/Add_Provider_Agent_Configuration_Settings_Explained.adoc[]
+
+
+include::topics/Editing_an_External_Provider.adoc[]
+
+include::topics/Removing_an_External_Provider.adoc[]

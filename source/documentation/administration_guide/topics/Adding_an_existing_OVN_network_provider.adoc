@@ -1,0 +1,110 @@
+[[Adding_an_existing_OVN_network_provider]]
+===== Adding an Existing OVN Network Provider
+
+Adding an existing OVN central server as an external network provider in {virt-product-fullname} involves the following key steps:
+
+* Install the OVN provider, a proxy used by the {engine-name} to interact with OVN. The OVN provider can be installed on any machine, but must be able to communicate with the OVN central server and the {engine-name}.
+
+* Add the OVN provider to {virt-product-fullname} as an external network provider.
+
+* Create a new cluster that uses OVN as its default network provider. Hosts added to this cluster are automatically configured to communicate with OVN.
+
+*Prerequisites*
+
+The following packages are required by the OVN provider and must be available on the provider machine:
+
+* openvswitch-ovn-central
+
+* openvswitch
+
+* openvswitch-ovn-common
+
+* python-openvswitch
+
+If these packages are not available from the repositories already enabled on the provider machine, they can be downloaded from the OVS website: link:http://openvswitch.org/download/[].
+
+*Adding an Existing OVN Network Provider*
+
+. Install and configure the OVN provider.
+.. Install the provider on the provider machine:
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-provider-ovn
+----
++
+.. If you are not installing the provider on the same machine as the {engine-name}, add the following entry to the `/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf` file (create this file if it does not already exist):
++
+[options="nowrap" subs="normal"]
+----
+[OVIRT]
+ovirt-host=https://__Manager_host_name__
+----
++
+This is used for authentication, if authentication is enabled.
+.. If you are not installing the provider on the same machine as the OVN central server, add the following entry to the `/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf` file (create this file if it does not already exist):
++
+[options="nowrap" subs="normal"]
+----
+[OVN REMOTE]
+ovn-remote=tcp:__OVN_central_server_IP__:6641
+----
++
+.. Open ports 9696, 6641, and 6642 in the firewall to allow communication between the OVN provider, the OVN central server, and the {engine-name}. This can be done either manually or by adding the `ovirt-provider-ovn` and `ovirt-provider-ovn-central` services to the appropriate zone:
++
+[options="nowrap" subs="normal"]
+----
+# firewall-cmd --zone=_ZoneName_ --add-service=ovirt-provider-ovn --permanent
+# firewall-cmd --zone=_ZoneName_ --add-service=ovirt-provider-ovn-central --permanent
+# firewall-cmd --reload
+----
++
+.. Start and enable the service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl start ovirt-provider-ovn
+# systemctl enable ovirt-provider-ovn
+----
++
+.. Configure the OVN central server to listen to requests from ports 6642 and 6641:
++
+[options="nowrap" subs="normal"]
+----
+# ovn-sbctl set-connection ptcp:6642
+# ovn-nbctl set-connection ptcp:6641
+----
++
+. In the Administration Portal, click menu:Administration[Providers].
+. Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[].
+. Enter a *Name* and *Description*.
+. From the *Type* list, select *External Network Provider*.
+. Click the *Networking Plugin* text box and select *oVirt Network Provider for OVN* from the drop-down menu.
+. Optionally, select the *Automatic Synchronization* check box. This enables automatic synchronization of the external network provider with existing networks.
++
+[NOTE]
+====
+Automatic synchronization is enabled by default on the *ovirt-provider-ovn* network provider created by the *engine-setup* tool.
+====
+
+. Enter the URL or fully qualified domain name of the OVN provider in the *Provider URL* text field, followed by the port number. If the OVN provider and the OVN central server are on separate machines, this is the URL of the provider machine, not the central server. If the OVN provider is on the same machine as the {engine-name}, the URL can remain the default `http://localhost:9696`.
+. Clear the *Read-Only* check box to allow creating new OVN networks from the {virt-product-fullname} {engine-name}.
+. Optionally, select the *Requires Authentication* check box and enter the *Username* and *Password* for the for the external network provider user registered in Keystone.
+You must also define the authentication URL of the Keystone server by defining the *Protocol*, *Hostname*, and *API Port*.
++
+Optionally, enter the *Tenant* for the external network provider.
++
+The authentication method must be configured in the `/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf` file (create this file if it does not already exist). Restart the `ovirt-provider-ovn` service for the change to take effect. See link:https://github.com/oVirt/ovirt-provider-ovn/blob/master/README.adoc[] for more information about OVN authentication.
+. Test the credentials:
+.. Click *Test* to test whether you can authenticate successfully with OVN using the provided credentials.
+.. If the OVN instance uses SSL, the *Import provider certificates* window opens; click *OK* to import the certificate that the OVN instance provides to ensure the {engine-name} can communicate with the instance.
+. Click *OK*.
+. Create a new cluster that uses OVN as its default network provider. See xref:Creating_a_New_Cluster[] and select the OVN network provider from the *Default Network Provider* drop-down list.
+. Add hosts to the cluster. Hosts added to this cluster are automatically configured to communicate with OVN. To add new hosts, see xref:Adding_standard_hosts_to_the_Manager_host_tasks[].
+. Import or add OVN networks to the new cluster. To import networks, see xref:Importing_Networks[Importing Networks]. To create new networks using OVN, see xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[Creating a new logical network in a data center or cluster], and select the *Create on external provider* check box. `ovirt-provider-ovn` is selected by default.
++
+To configure your hosts to use an existing, non-default network, see xref:Configuring_Hosts_for_an_OVN_tunnel_network[].
++
+To connect the OVN network to a native {virt-product-fullname} network, select the *Connect to physical network* check box and specify the {virt-product-fullname} network to use. See xref:Connecting_an_OVN_Network_to_a_Physical_Network[] for more information and prerequisites.
+
+You can now create virtual machines that use OVN networks.

@@ -1,0 +1,20 @@
+[[Viewing_or_Editing_the_Gateway]]
+==== Viewing or Editing the Gateway for a Logical Network
+
+Users can define the gateway, along with the IP address and subnet mask, for a logical network. This is necessary when multiple networks exist on a host and traffic should be routed through the specified network, rather than the default gateway.
+
+If multiple networks exist on a host and the gateways are not defined, return traffic will be routed through the default gateway, which may not reach the intended destination. This would result in users being unable to ping the host.
+
+{virt-product-fullname} handles multiple gateways automatically whenever an interface goes up or down.
+
+
+*Viewing or Editing the Gateway for a Logical Network*
+
+. Click menu:Compute[Hosts].
+. Click the host's name to open the details view.
+. Click the *Network Interfaces* tab to list the network interfaces attached to the host, and their configurations.
+. Click *Setup Host Networks*.
+. Hover your cursor over an assigned logical network and click the pencil icon to open the *Edit Management Network* window.
+
+
+The *Edit Management Network* window displays the network name, the boot protocol, and the IP, subnet mask, and gateway addresses. The address information can be manually edited by selecting a *Static* boot protocol.

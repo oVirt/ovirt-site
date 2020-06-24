@@ -1,0 +1,18 @@
+[[Editing_Instance_Types]]
+==== Editing Instance Types
+
+Administrators can edit existing instance types from the *Configure* window.
+
+
+*Editing Instance Type Properties*
+
+. Click menu:Administration[Configure].
+. Click the *Instance Types* tab.
+. Select the instance type to be edited.
+. Click *Edit*.
+. Change the settings as required.
+. Click *OK*.
+
+The configuration of the instance type is updated. When a new virtual machine based on this instance type is created, or when an existing virtual machine based on this instance type is updated, the new configuration is applied.
+
+Existing virtual machines based on this instance type will display fields, marked with a chain icon, that will be updated. If the existing virtual machines were running when the instance type was changed, the orange Pending Changes icon will appear beside them and the fields with the chain icon will be updated at the next restart. 

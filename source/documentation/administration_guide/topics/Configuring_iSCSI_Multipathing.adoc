@@ -1,0 +1,27 @@
+[[Configuring_iSCSI_Multipathing]]
+==== Configuring iSCSI Multipathing
+
+iSCSI multipathing enables you to create and manage groups of logical networks and iSCSI storage connections. Multiple network paths between the hosts and iSCSI storage prevent host downtime caused by network path failure.
+
+The {engine-name} connects each host in the data center to each target, using the NICs or VLANs that are assigned to the logical networks in the iSCSI bond.
+
+You can create an iSCSI bond with multiple targets and logical networks for redundancy.
+
+.Prerequisites
+
+* One or more xref:Adding_iSCSI_Storage_storage_admin[iSCSI targets]
+* One or more xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[logical networks] that meet the following requirements:
+** Not defined as xref:Migrating_a_logical_network_to_an_iscsi_bond[*Required* or *VM Network*]
+** xref:Editing_host_network_interfaces[Assigned to a host interface]
+** xref:Editing_host_network_interfaces[Assigned a static IP address] in the same VLAN and subnet as the other logical networks in the iSCSI bond
+
+.Procedure
+
+. Click menu:Compute[Data Centers].
+. Click the data center name to open the details view.
+. In the *iSCSI Multipathing* tab, click *Add*.
+. In the *Add iSCSI Bond* window, enter a *Name* and a *Description*.
+. Select a logical network from *Logical Networks* and a storage domain from *Storage Targets*. You must select all the paths to the same target.
+. Click *OK*.
+
+The hosts in the data center are connected to the iSCSI targets through the logical networks in the iSCSI bond.

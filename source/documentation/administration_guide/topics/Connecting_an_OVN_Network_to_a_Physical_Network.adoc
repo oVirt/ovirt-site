@@ -1,0 +1,41 @@
+[[Connecting_an_OVN_Network_to_a_Physical_Network]]
+===== Connecting an OVN Network to a Physical Network
+ifdef::rhv-doc[]
+[IMPORTANT]
+====
+This feature relies on Open vSwitch support, which is available only as a Technology Preview in {virt-product-fullname}. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
+
+For more information on Red Hat Technology Preview features support scope, see https://access.redhat.com/support/offerings/techpreview/.
+====
+endif::[]
+
+You can create an external provider network that overlays a native {virt-product-fullname} network so that the virtual machines on each appear to be sharing the same subnet.
+
+[IMPORTANT]
+====
+If you created a subnet for the OVN network, a virtual machine using that network will receive an IP address from there. If you want the physical network to allocate the IP address, do not create a subnet for the OVN network.
+====
+
+*Prerequisites*
+
+* The cluster must have *OVS* selected as the *Switch Type*. Hosts added to this cluster must not have any pre-existing {virt-product-fullname} networks configured, such as the *ovirtmgmt* bridge.
+* The physical network must be available on the hosts. You can enforce this by setting the physical network as required for the cluster (in the *Manage Networks* window, or the *Cluster* tab of the *New Logical Network* window).
+
+*Creating a New External Network Connected to a Physical Network*
+
+. Click menu:Compute[Clusters].
+. Click the cluster's name to open the details view.
+. Click the *Logical Networks* tab and click *Add Network*.
+. Enter a *Name* for the network.
+. Select the *Create on external provider* check box. `ovirt-provider-ovn` is selected by default.
+. Select the *Connect to physical network* check box if it is not already selected by default.
+. Choose the physical network to connect the new network to:
+* Click the *Data Center Network* radio button and select the physical network from the drop-down list. This is the recommended option.
+* Click the *Custom* radio button and enter the name of the physical network. If the physical network has VLAN tagging enabled, you must also select the *Enable VLAN tagging* check box and enter the physical network's VLAN tag.
++
+[IMPORTANT]
+====
+The physical network's name must not be longer than 15 characters, or contain special characters.
+====
++
+. Click *OK*.

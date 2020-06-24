@@ -1,0 +1,89 @@
+[id='Booting_a_Self-Hosted_Engine_in_Rescue_Mode_{context}']
+= Booting the {engine-name} Virtual Machine in Rescue Mode
+
+This topic describes how to boot the {engine-name} virtual machine into rescue mode when it does not start. For more information, see link:{URL_rhel_docs_legacy}html/system_administrators_guide/sec-terminal_menu_editing_during_boot[Booting to Rescue Mode] in the __{enterprise-linux} System Administrator's Guide__.
+
+. Connect to one of the hosted-engine nodes:
++
+[options="nowrap" subs="normal"]
+----
+$ ssh root@__host_address__
+----
+
+. Put the self-hosted engine in global maintenance mode:
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --set-maintenance --mode=global
+----
+
+. Check if there is already a running instance of the {engine-name} virtual machine:
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --vm-status
+----
++
+If a {engine-name} virtual machine instance is running, connect to its host:
++
+[options="nowrap" subs="normal"]
+----
+# ssh root@__host_address__
+----
+
+. Shut down the virtual machine:
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --vm-shutdown
+----
++
+[NOTE]
+====
+If the virtual machine does not shut down, execute the following command:
+----
+# hosted-engine --vm-poweroff
+----
+====
+// . Connect to one of the hosted-engine hosts via ssh.
+
+. Start the {engine-name} virtual machine in pause mode:
++
+[options="nowrap" subs="normal"]
+----
+hosted-engine --vm-start-paused
+----
+
+. Set a temporary VNC password:
++
+[options="nowrap" subs="normal"]
+----
+hosted-engine --add-console-password
+----
++
+The command outputs the necessary information you need to log in to the Manger virtual machine with VNC.
+
+. Log in to the {engine-name} virtual machine with VNC. The {engine-name} virtual machine is still paused, so it appears to be frozen.
+
+. Resume the {engine-name} virtual machine with the following command on its host:
++
+[WARNING]
+====
+After running the following command, the boot loader menu appears. You need to enter into rescue mode before the boot loader proceeds with the normal boot process. Read the next step about entering into rescue mode before proceeding with this command.
+====
++
+[options="nowrap" subs="normal"]
+----
+# /usr/bin/virsh -c qemu:///system?authfile=/etc/ovirt-hosted-engine/virsh_auth.conf resume HostedEngine
+----
+
+. Boot the {engine-name} virtual machine in rescue mode.
+
+. Disable global maintenance mode
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --set-maintenance --mode=none
+----
+
+You can now run rescue tasks on the {engine-name} virtual machine.

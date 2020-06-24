@@ -1,0 +1,15 @@
+[[Assigning_an_Administrator_or_User_Role_to_a_Resource]]
+==== Assigning an Administrator or User Role to a Resource
+
+Assign administrator or user roles to resources to allow users to access or manage that resource.
+
+*Assigning a Role to a Resource*
+
+. Find and click the resource's name to open the details view.
+. Click the *Permissions* tab to list the assigned users, the user's role, and the inherited permissions for the selected resource.
+. Click *Add*.
+. Enter the name or user name of an existing user into the *Search* text box and click *Go*. Select a user from the resulting list of possible matches.
+. Select a role from the *Role to Assign* drop-down list.
+. Click *OK*.
+
+The user now has the inherited permissions of that role enabled for that resource.

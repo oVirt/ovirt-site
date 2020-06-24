@@ -1,0 +1,18 @@
+[[Managing_System_Permissions_for_a_Network]]
+==== Managing System Permissions for a Network
+
+As the *SuperUser*, the system administrator manages all aspects of the Administration Portal. More specific administrative roles can be assigned to other users. These restricted administrator roles are useful for granting a user administrative privileges that limit them to a specific resource. For example, a *DataCenterAdmin* role has administrator privileges only for the assigned data center with the exception of the storage for that data center, and a *ClusterAdmin* has administrator privileges only for the assigned cluster.
+
+A network administrator is a system administration role that can be applied for a specific network, or for all networks on a data center, cluster, host, virtual machine, or template. A network user can perform limited administration roles, such as viewing and attaching networks on a specific virtual machine or template. You can use the *Configure* button in the header bar to assign a network administrator for all networks in the environment.
+
+The network administrator role permits the following actions:
+
+* Create, edit and remove networks.
+
+* Edit the configuration of the network, including configuring port mirroring.
+
+* Attach and detach networks from resources including clusters and virtual machines.
+
+
+
+The user who creates a network is automatically assigned *NetworkAdmin* permissions on the created network. You can also change the administrator of a network by removing the existing administrator and adding the new administrator.

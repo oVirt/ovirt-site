@@ -1,0 +1,15 @@
+[[Prestarting_Virtual_Machines_in_a_Pool]]
+=== Prestarting Virtual Machines in a Pool
+
+The virtual machines in a virtual machine pool are powered down by default. When a user requests a virtual machine from a pool, a machine is powered up and assigned to the user. In contrast, a prestarted virtual machine is already running and waiting to be assigned to a user, decreasing the amount of time a user has to wait before being able to access a machine. When a prestarted virtual machine is shut down it is returned to the pool and restored to its original state. The maximum number of prestarted virtual machines is the number of virtual machines in the pool.
+
+Prestarted virtual machines are suitable for environments in which users require immediate access to virtual machines which are not specifically assigned to them. Only automatic pools can have prestarted virtual machines.
+
+
+*Prestarting Virtual Machines in a Pool*
+
+. Click menu:Compute[Pools] and select the virtual machine pool.
+. Click *Edit*.
+. Enter the number of virtual machines to be prestarted in the *Prestarted VMs* field.
+. Click the *Type* tab. Ensure *Pool Type* is set to *Automatic*.
+. Click *OK*.

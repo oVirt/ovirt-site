@@ -1,0 +1,75 @@
+[[chap-Users_and_Roles]]
+== Users and Roles
+
+include::topics/Introduction_to_users.adoc[]
+
+include::topics/Introduction_to_Directory_Servers.adoc[]
+
+[[sect-Configuring_an_External_LDAP_Provider]]
+=== Configuring an External LDAP Provider
+
+include::topics/Configuring_an_External_LDAP_Provider.adoc[]
+
+include::topics/Attaching_an_Active_Directory.adoc[]
+
+include::topics/Configuring_an_External_LDAP_Provider_ManualMethod.adoc[]
+
+include::topics/Removing_an_External_LDAP_Provider.adoc[]
+
+include::topics/Configuring_LDAP_and_Kerberos_for_Single_Sign-on.adoc[]
+
+[[sect-User_Authorization]]
+=== User Authorization
+
+include::topics/User_authorization_model.adoc[]
+
+include::topics/User_actions.adoc[]
+
+[[sect-Red_Hat_Enterprise_Virtualization_Manager_User_Tasks]]
+=== Administering User Tasks From the Administration Portal
+
+include::topics/Adding_users.adoc[]
+
+include::topics/Viewing_user_information.adoc[]
+
+include::topics/Viewing_User_Permissions_on_Resources.adoc[]
+
+include::topics/Removing_Users.adoc[]
+
+include::topics/Viewing_Logged_In_Users.adoc[]
+
+include::topics/Terminating_a_User_Session.adoc[]
+
+[[sect-Administering_User_Tasks_From_the_commandline]]
+=== Administering User Tasks From the Command Line
+
+You can use the `ovirt-aaa-jdbc-tool` tool to manage user accounts on the internal domain. Changes made using the tool take effect immediately and do not require you to restart the `ovirt-engine` service. For a full list of user options, run `ovirt-aaa-jdbc-tool user --help`. Common examples are provided in this section.
+
+[IMPORTANT]
+====
+You must be logged into the {engine-name} machine.
+====
+
+include::topics/Creating_a_User.adoc[]
+
+include::topics/Setting_Password.adoc[]
+
+include::topics/Setting_User_Timeout.adoc[]
+
+include::topics/Pre-encrypting_User_Password.adoc[]
+
+include::topics/Viewing_User_Information.adoc[]
+
+include::topics/Editing_User_Information.adoc[]
+
+include::topics/Removing_User.adoc[]
+
+include::topics/Disabling_the_Internal_Administrative_User.adoc[]
+
+include::topics/Managing_Groups.adoc[]
+
+include::topics/Querying_Users_and_Groups.adoc[]
+
+include::topics/Managing_Account_Settings.adoc[]
+
+include::topics/Configuring_Additional_Local_Domains.adoc[]

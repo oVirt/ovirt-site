@@ -1,0 +1,26 @@
+[[Bonding_Methods]]
+
+Network bonding combines multiple NICs into a bond device, with the following advantages:
+
+* The transmission speed of bonded NICs is greater than that of a single NIC.
+
+* Network bonding provides fault tolerance, because the bond device will not fail unless all its NICs fail.
+
+Using NICs of the same make and model ensures that they support the same bonding options and modes.
+
+[IMPORTANT]
+====
+{virt-product-fullname}'s default bonding mode, `(Mode 4) Dynamic Link Aggregation`, requires a switch that supports 802.3ad.
+[[Bond_logical_networks_compatibility]]
+The logical networks of a bond must be compatible. A bond can support only 1 non-VLAN logical network. The rest of the logical networks must have unique VLAN IDs.
+
+Bonding must be enabled for the switch ports. Consult the manual provided by your switch vendor for specific instructions.
+====
+
+You can create a network bond device using one of the following methods:
+
+* Manually, in the xref:Creating_a_bond_device_in_the_administration_portal[Administration Portal], for a specific host
+
+* Automatically, using xref:Creating_a_bond_device_with_the_lldp_labeler_service[LLDP Labeler], for unbonded NICs of all hosts in a cluster or data center
+
+If your environment uses iSCSI storage and you want to implement redundancy, follow the instructions for xref:Configuring_iSCSI_Multipathing[configuring iSCSI multipathing].

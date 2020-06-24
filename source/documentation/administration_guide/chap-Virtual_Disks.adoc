@@ -1,0 +1,43 @@
+[[chap-Virtual_Machine_Disks]]
+== Virtual Disks
+
+include::topics/Understanding_virtual_machine_storage.adoc[]
+
+include::topics/Understanding_virtual_disks.adoc[]
+
+include::topics/Settings_to_Wipe_Virtual_Disks_After_Deletion.adoc[]
+
+include::topics/Shareable_Disks.adoc[]
+
+include::topics/Read_Only_Disks.adoc[]
+
+[[sect-Virtual_Disk_Tasks]]
+=== Virtual Disk Tasks
+
+:context: virtual_disk_tasks
+
+include::topics/Creating_a_Virtual_Disk.adoc[]
+
+include::topics/Explanation_of_Settings_in_the_New_Virtual_Disk_Window.adoc[]
+
+include::topics/Overview_of_Live_Storage_Migration.adoc[]
+
+include::topics/Moving_a_Virtual_Disk.adoc[]
+
+include::topics/Changing_the_Disk_Interface_Type.adoc[]
+
+include::topics/Copying_a_Virtual_Disk.adoc[]
+
+==== Uploading Images to a Data Storage Domain
+
+You can upload virtual disk images and ISO images to your data storage domain in the Administration Portal or with the REST API. See xref:Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[].
+
+include::topics/Importing_a_Disk_Image.adoc[]
+
+include::topics/Importing_an_Unregistered_Disk_Image.adoc[]
+
+include::topics/Importing_a_Disk_Image_from_an_OpenStack_Image_Service.adoc[]
+
+include::topics/Exporting_a_Virtual_Disk_to_an_OpenStack_Image_Service.adoc[]
+
+include::topics/Reclaiming_Virtual_Disk_Space.adoc[]

@@ -1,0 +1,6 @@
+[[SPM_Priority]]
+=== SPM Priority
+
+The SPM role uses some of a host's available resources. The SPM priority setting of a host alters the likelihood of the host being assigned the SPM role: a host with high SPM priority will be assigned the SPM role before a host with low SPM priority. Critical virtual machines on hosts with low SPM priority will not have to contend with SPM operations for host resources.
+
+You can change a host's SPM priority in the *SPM* tab in the *Edit Host* window.

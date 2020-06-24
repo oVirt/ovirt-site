@@ -1,0 +1,13 @@
+[[Removing_a_Virtual_Machine_Network_QoS_Entry]]
+==== Removing a Virtual Machine Network Quality of Service Entry
+
+Remove an existing virtual machine network quality of service entry.
+
+
+*Removing a Virtual Machine Network Quality of Service Entry*
+
+. Click menu:Compute[Data Centers].
+. Click a data center's name to open the details view.
+. Click the *QoS* tab.
+. Under *VM Network*, select a virtual machine network quality of service entry and click *Remove*.
+. Click *OK*.

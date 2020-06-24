@@ -1,0 +1,42 @@
+[[Syntax_for_the_engine-vacuum_Command]]
+==== Syntax for the engine-vacuum Command
+
+The basic syntax for the `engine-vacuum` command is:
+	
+[options="nowrap" subs="normal"]
+----
+# engine-vacuum
+----
+	
+[options="nowrap" subs="normal"]
+----
+# engine-vacuum _option_
+----
+
+Running the `engine-vacuum` command with no options performs a standard vacuum.
+
+There are several parameters to further refine the `engine-vacuum` command.
+
+*General Options*
+
+*`-h` `--help`*:: Displays information on how to use the `engine-vacuum` command.
+
+
+*`-a`*:: Runs a standard vacuum, analyzes the database, and updates the optimizer statistics.
+
+
+*`-A`*:: Analyzes the database and updates the optimizer statistics, without vacuuming.
+
+
+*`-f`*:: Runs a full vacuum.
+
+
+*`-v`*:: Runs in verbose mode, providing more console output.
+
+
+*`-t _table_name_`*:: Vacuums a specific table or tables.
++
+[options="nowrap" subs="normal"]
+----
+# engine-vacuum -f -v -t vm_dynamic -t vds_dynamic
+----

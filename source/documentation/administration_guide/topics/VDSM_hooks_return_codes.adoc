@@ -1,0 +1,16 @@
+[[VDSM_hooks_return_codes]]
+=== VDSM Hook Return Codes
+
+Hook scripts must return one of the return codes shown in xref:hook-return-codes[]. The return code will determine whether further hook scripts are processed by VDSM.
+
+[[hook-return-codes]]
+
+.Hook Return Codes
+[options="header"]
+|===
+|Code |Description
+|0 |The hook script ended successfully
+|1 |The hook script failed, other hooks should be processed
+|2 |The hook script failed, no further hooks should be processed
+|>2 |Reserved
+|===

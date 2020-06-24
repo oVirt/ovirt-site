@@ -1,0 +1,46 @@
+[[Adding_KVM_as_an_External_Provider]]
+==== Adding a KVM Host as a Virtual Machine Provider
+
+Add a KVM host to import virtual machines from KVM to {virt-product-fullname} {engine-name}.
+
+*Adding a KVM Host as a Virtual Machine Provider*
+
+. Enable public key authentication between the proxy host and the KVM host:
+.. Log in to the proxy host and generate SSH keys for the *vdsm* user.
++
+[options="nowrap" subs="normal"]
+----
+# sudo -u vdsm ssh-keygen
+----
++
+.. Copy the *vdsm* user's public key to the KVM host. The proxy host's *known_hosts* file will also be updated to include the host key of the KVM host.
++
+[options="nowrap" subs="normal"]
+----
+# sudo -u vdsm ssh-copy-id root@_kvmhost.example.com_
+----
++
+.. Log in to the KVM host to verify that the login works correctly.
++
+[options="nowrap" subs="normal"]
+----
+# sudo -u vdsm ssh root@_kvmhost.example.com_
+----
++
+. Click menu:Administration[Providers].
+. Click *Add*.
+. Enter a *Name* and *Description*.
+. Select *KVM* from the *Type* drop-down list.
+. Select the *Data Center* into which KVM virtual machines will be imported, or select *Any Data Center* to specify the destination data center during individual import operations.
+. Enter the URI of the KVM host in the *URI* field.
++
+[options="nowrap" subs="normal"]
+----
+qemu+ssh://root@host.example.com/system
+----
+. Select a host in the chosen data center to serve as the *Proxy Host* during virtual machine import operations. This host must also be able to connect to the network of the KVM external provider. If you selected *Any Data Center* in the *Data Center* field above, you cannot choose the host here. The field is greyed out and shows *Any Host in Data Center*. Instead you can specify a host during individual import operations.
+. Optionally, select the *Requires Authentication* check box and enter the *Username* and *Password* for the KVM host. The user must have access to the KVM host on which the virtual machines reside.
+. Click *Test* to test whether you can authenticate successfully with the KVM host using the provided credentials.
+. Click *OK*.
+
+To import virtual machines from a KVM external provider, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Importing_a_Virtual_Machine_from_KVM[Importing a Virtual Machine from a KVM Host] in the _Virtual Machine Management Guide_.

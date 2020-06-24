@@ -1,0 +1,18 @@
+[[Search_criteria_multiple_criteria_and_wildcards]]
+=== Search: Multiple Criteria and Wildcards
+
+Wildcards can be used in the `<value>` part of the syntax for strings. For example, to find all users beginning with *m*, enter `m*`.
+
+You can perform a search having two criteria by using the Boolean operators `AND` and `OR`. For example:
+
+`Vms: users.name = m* AND status = Up`
+
+This query returns all running virtual machines for users whose names begin with "m".
+
+`Vms: users.name = m* AND tag = "paris-loc"`
+
+This query returns all virtual machines tagged with "paris-loc" for users whose names begin with "m".
+
+When two criteria are specified without `AND` or `OR`, `AND` is implied. `AND` precedes `OR`, and `OR` precedes implied `AND`.
+
+

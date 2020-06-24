@@ -1,0 +1,15 @@
+[[Copying_a_Virtual_Disk]]
+==== Copying a Virtual Disk
+
+You can copy a virtual disk from one storage domain to another. The copied disk can be attached to virtual machines.
+
+*Copying a Virtual Disk*
+
+. Click menu:Storage[Disks] and select the virtual disk(s).
+. Click *Copy* .
+. Optionally, enter a new name in the *Alias* field.
+. From the *Target* list, select the storage domain to which the virtual disk(s) will be copied.
+. From the *Disk Profile* list, select a profile for the disk(s), if applicable.
+. Click *OK*.
+
+The virtual disks have a status of `Locked` while being copied.

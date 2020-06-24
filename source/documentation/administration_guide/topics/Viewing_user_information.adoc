@@ -1,0 +1,10 @@
+[[Viewing_user_information]]
+==== Viewing User Information
+
+*Viewing User Information*
+
+. Click menu:Administration[Users] to display the list of authorized users.
+. Click the user's name to open the details view, usually with the *General* tab displaying general information, such as the domain name, email and status of the user.
+. The other tabs allow you to view groups, permissions, quotas, and events for the user.
+
+For example, to view the groups to which the user belongs, click the *Directory Groups* tab.

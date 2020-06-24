@@ -1,0 +1,12 @@
+==== Creating a New User
+
+You can create a new user account. The optional `--attribute` command specifies account details. For a full list of options, run `ovirt-aaa-jdbc-tool user add --help`.
+
+[options="nowrap" subs="quotes"]
+----
+# ovirt-aaa-jdbc-tool user add _test1_ --attribute=firstName=_John_ --attribute=lastName=_Doe_
+adding user test1...
+user added successfully
+----
+
+You can add the newly created user in the Administration Portal and assign the user appropriate roles and permissions. See xref:Adding_users[] for more information.

@@ -102,6 +102,11 @@ the feature cannot determine what to do and the operation will fail.
 
 * The cluster's management network stays on the original interface which is excluded from the operation. 
 
+* Copying QoS, DNS and custom_properties is not supported.
+
+* Copying labels (i.e., label attached to network interface on source host, will not be copied to network
+interface on target host).
+
 
 ### Implementation
 

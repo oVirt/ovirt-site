@@ -368,13 +368,10 @@ Response:
 ```
 <checkpoints>
    <checkpoint id="checkpoint-uuid">
-       <parent_checkpoint_id>parent-checkpoint-uuid</parent_checkpoint_id>
-       <disks>
-           <disk id="disk-uuid" />
-           ...
-           ...
-       </disks>
-       <creation_date>
+      <link href="/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks" rel="disks"/>
+      <parent_id>parent-checkpoint-uuid</parent_id>
+      <creation_date>xxx</creation_date>
+      <vm href="/ovirt-engine/api/vms/vm-uuid" id="vm-uuid"/>
    </checkpoint>
 </checkpoints>
 ```
@@ -393,13 +390,10 @@ Response:
 
 ```
 <checkpoint id="checkpoint-uuid">
-   <parent_checkpoint_id>parent-checkpoint-uuid</parent_checkpoint_id>
-   <disks>
-       <disk id="disk-uuid" />
-       ...
-       ...
-   </disks>
-   <creation_date>
+  <link href="/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks" rel="disks"/>
+  <parent_id>parent-checkpoint-uuid</parent_id>
+  <creation_date>xxx</creation_date>
+  <vm href="/ovirt-engine/api/vms/vm-uuid" id="vm-uuid"/>
 </checkpoint>
 ```
 

@@ -56,7 +56,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 [UDS Enterprise](https://www.udsenterprise.com/en/) is a connection broker that deploys VDIs and Vapps, enabling hypervisors, authenticators and connection protocols to run simultaneously. With oVirt, it makes a 100% open source solution.
 </div>
 
-## Partners in Education
+## oVirt in Education
 
 These institutions have chosen oVirt to manage their virtual workloads. See also the [Keele University](https://www.ovirt.org/community/user-stories/keele-university-case-study/), [Florida State University](https://www.ovirt.org/community/user-stories/RCC-case-study/), and [University of Seville](https://www.ovirt.org/community/user-stories/universidad-de-sevilla-case-study/) case studies.
 

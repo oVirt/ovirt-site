@@ -10,7 +10,7 @@ authors: dcaroest
 
 All the hosts have a server installation of Fedora 19, with a hardware RAID5 setup and bonding on all interfaces.
 
-The hosts are separated in two groups, one that hosts the [hosted engine](/documentation/how-to/hosted-engine/) and all the others. Right now we also have one of the hosts reserved (ovirt-srv08.ovirt.org) for the new integration testing framework.
+The hosts are separated in two groups, one that hosts the hosted engine and all the others. Right now we also have one of the hosts reserved (ovirt-srv08.ovirt.org) for the new integration testing framework.
 
 ## Network configuration
 

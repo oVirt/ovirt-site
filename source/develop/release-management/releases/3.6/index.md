@@ -149,11 +149,7 @@ The support for Debian Jessie is highly experimental and implemented as a best e
       deb `[`http://resources.ovirt.org/pub/ovirt-3.6/debian/`](http://resources.ovirt.org/pub/ovirt-3.6/debian/)` binary/
       deb-src `[`http://resources.ovirt.org/pub/ovirt-3.6/debian/`](http://resources.ovirt.org/pub/ovirt-3.6/debian/)` source/
 
-## oVirt Hosted Engine
 
-If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](/documentation/how-to/hosted-engine/#fresh-install) guide.
-
-If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](/documentation/how-to/hosted-engine/#upgrade-hosted-engine) guide.
 
 ## oVirt Live
 

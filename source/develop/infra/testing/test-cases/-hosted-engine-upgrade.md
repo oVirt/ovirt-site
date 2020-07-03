@@ -17,7 +17,7 @@ Test the upgrade of oVirt Hosted Engine deployments
 ## How to test
 
 1.  Ensure Hosted Engine is working
-2.  Follow [Upgrade Hosted Engine](/documentation/how-to/hosted-engine/#upgrade-hosted-engine) guide
+2.  Follow [Upgrade Guide](/documentation/upgrade_guide/)
 3.  Ensure Hosted Engine is still working after the upgrade
 
 ## Expected Results
@@ -28,4 +28,3 @@ Test the upgrade of oVirt Hosted Engine deployments
 ## Optional
 
 *   Perform other oVirt Hosted Engine / oVirt Engine test cases
-

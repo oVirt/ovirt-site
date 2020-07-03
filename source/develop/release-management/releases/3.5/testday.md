@@ -79,7 +79,7 @@ You need at least two physical servers to install and configure a basic yet comp
 You need at least two physical servers to install and configure a basic yet complete oVirt environment with shared storage to exercise the following tests. You may need to read the following documents:
 
 *   [Unify maintenance path of Hosted Engine with host maintenance](/develop/release-management/features/engine/self-hosted-engine-maintenance-flows/)
-*   [Hosted Engine on NFS](/documentation/how-to/hosted-engine/)
+
 
 |------------------------------------------------------------|-------------------|-----|---------|
 | Scenario                                                   | Tested By/ Distro | BZs | remarks |

@@ -13,7 +13,7 @@ feature_status: Released
 
 This feature is deprecated in 3.6 and it will be dropped in the next release, 4.0.
 
-An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [Self Hosted Engine](/develop/release-management/features/engine/self-hosted-engine/). See also its [Howto](/documentation/how-to/hosted-engine/) page.
+An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [Self Hosted Engine](/develop/release-management/features/engine/self-hosted-engine/). 
 
 ## Summary
 

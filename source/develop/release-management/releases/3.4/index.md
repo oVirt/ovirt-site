@@ -15,7 +15,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 ## Hosted Engine
 
-*   oVirt 3.4 features [hosted engine](/documentation/how-to/hosted-engine/), which enables oVirt engine to be run as a virtual machine (VM) on the host it manages. Hosted engine solves the chicken-and-the egg problem for users: the basic challenge of deploying and running an oVirt engine inside a VM. This clustered solution enables users to configure multiple hosts to run the hosted engine, ensuring the engine still runs in the event of any one host failure.
+*   oVirt 3.4 features hosted engine, which enables oVirt engine to be run as a virtual machine (VM) on the host it manages. Hosted engine solves the chicken-and-the egg problem for users: the basic challenge of deploying and running an oVirt engine inside a VM. This clustered solution enables users to configure multiple hosts to run the hosted engine, ensuring the engine still runs in the event of any one host failure.
 
 ## Enhanced Gluster Support
 

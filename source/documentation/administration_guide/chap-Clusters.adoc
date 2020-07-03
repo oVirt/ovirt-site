@@ -1,7 +1,7 @@
 [[chap-Clusters]]
 = Clusters
 
-include::topics/Clusters.adoc[]
+include::topics/Clusters.adoc[leveloffset=-1]
 
 [[sect-Cluster_Tasks]]
 == Cluster Tasks
@@ -11,35 +11,35 @@ include::topics/Clusters.adoc[]
 Some cluster options do not apply to Gluster clusters. For more information about using {gluster-storage-fullname} with {virt-product-fullname}, see link:https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.3/html/configuring_red_hat_virtualization_with_red_hat_gluster_storage/[_Configuring {virt-product-fullname} with {gluster-storage-fullname}_].
 ====
 
-include::topics/Creating_a_New_Cluster.adoc[]
+include::topics/Creating_a_New_Cluster.adoc[leveloffset=-1]
 
-include::topics/Cluster_General_Settings_Explained.adoc[]
+include::topics/Cluster_General_Settings_Explained.adoc[leveloffset=-1]
 
-include::topics/Cluster_Optimization_Settings_Explained.adoc[]
+include::topics/Cluster_Optimization_Settings_Explained.adoc[leveloffset=-1]
 
-include::topics/Cluster_Migration_Policy_Settings_Explained.adoc[]
+include::topics/Cluster_Migration_Policy_Settings_Explained.adoc[leveloffset=-1]
 
-include::topics/Cluster_Scheduling_Policy_Settings.adoc[]
+include::topics/Cluster_Scheduling_Policy_Settings.adoc[leveloffset=-1]
 
-include::topics/Cluster_Console_Settings_Explained.adoc[]
+include::topics/Cluster_Console_Settings_Explained.adoc[leveloffset=-1]
 
-include::topics/Fencing_Policy_Settings_Explained.adoc[]
+include::topics/Fencing_Policy_Settings_Explained.adoc[leveloffset=-1]
 
-include::topics/Setting_Load_and_Power_Mgmt_Policies_for_Hosts.adoc[]
+include::topics/Setting_Load_and_Power_Mgmt_Policies_for_Hosts.adoc[leveloffset=-1]
 
-include::topics/Updating_the_MoM_Policy_on_Hosts_in_a_Cluster.adoc[]
+include::topics/Updating_the_MoM_Policy_on_Hosts_in_a_Cluster.adoc[leveloffset=-1]
 
-include::topics/Creating_a_CPU_Profile.adoc[]
+include::topics/Creating_a_CPU_Profile.adoc[leveloffset=-1]
 
-include::topics/Removing_a_CPU_Profile.adoc[]
+include::topics/Removing_a_CPU_Profile.adoc[leveloffset=-1]
 
-include::topics/Importing_an_Existing_RHGS_Cluster.adoc[]
+include::topics/Importing_an_Existing_RHGS_Cluster.adoc[leveloffset=-1]
 
-include::topics/Explanation_of_Settings_in_the_Add_Hosts_Window.adoc[]
+include::topics/Explanation_of_Settings_in_the_Add_Hosts_Window.adoc[leveloffset=-1]
 
-include::topics/Removing_a_cluster.adoc[]
+include::topics/Removing_a_cluster.adoc[leveloffset=-1]
 
-include::topics/Memory_Optimization.adoc[]
+include::topics/Memory_Optimization.adoc[leveloffset=-1]
 
 
 :context: admin

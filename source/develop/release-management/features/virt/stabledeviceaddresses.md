@@ -242,7 +242,7 @@ import
 
 OVFReader should be extended to read the information retrieved in the new structure from VDSM from the OVF file.
 
-new OVF documentation that reflects latest changes can be found in <http://www.ovirt.org/wiki/Ovf>
+new OVF documentation that reflects latest changes can be found in [Ovf](/wiki/Ovf)
 
 ### API Design
 

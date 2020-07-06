@@ -118,7 +118,7 @@ to the metrics store machine.
 
 ### Metrics Store Installation 
 
-Please follow the metrics store installation instructions: [Metrics Store setup on top of OpenShift](https://www.ovirt.org/develop/release-management/features/metrics/setting-up-viaq-logging/)
+Please follow the metrics store installation instructions: [Metrics Store setup on top of OpenShift](/develop/release-management/features/metrics/setting-up-viaq-logging/)
 
 Once you have finished this step, you should have:
 
@@ -128,7 +128,7 @@ Once you have finished this step, you should have:
 
 ## oVirt Hypervisors and Engine Setup ##
 
-Please follow the instructions: [Deploy Collectd and Rsyslog on Hypervisors and Engine](https://www.ovirt.org/develop/release-management/features/metrics/hypervisors-and-engine-setup)
+Please follow the instructions: [Deploy Collectd and Rsyslog on Hypervisors and Engine](/develop/release-management/features/metrics/hypervisors-and-engine-setup)
 
 
 ## Example Dashboards

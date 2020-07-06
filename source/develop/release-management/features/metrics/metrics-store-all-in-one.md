@@ -56,5 +56,5 @@ Basic VMs profiles will be available, but can be updated by the user if needed.
 
 ## Metrics store current documentation
 
-### [oVirt Metrics Store Installation Guide](https://www.ovirt.org/documentation/metrics-install-guide/metrics-install-guide)
-### [oVirt Metrics Store User Guide](https://www.ovirt.org/documentation/metrics-user-guide/metrics-user-guide)
+### [oVirt Metrics Store Installation Guide](/documentation/metrics-install-guide/metrics-install-guide)
+### [oVirt Metrics Store User Guide](/documentation/metrics-user-guide/metrics-user-guide)

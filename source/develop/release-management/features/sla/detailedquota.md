@@ -227,7 +227,7 @@ Affected oVirt projects:
 ### Documentation / External references
 
 [Features/Quota](/develop/release-management/features/sla/quota/)
-<http://www.ovirt.org/wiki/Features/Design/Quota>
+[Features/Design/Quota](/wiki/Features/Design/Quota)
 
 
 

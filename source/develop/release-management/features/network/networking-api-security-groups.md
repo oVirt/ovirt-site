@@ -621,7 +621,7 @@ There are 3 main tests:
 
 [oVirt OVN integration](https://ovirt.org/develop/release-management/features/network/external-network-provider/)
 
-[oVirt Provider OVN](https://www.ovirt.org/develop/release-management/features/network/ovirt-ovn-provider/)
+[oVirt Provider OVN](/develop/release-management/features/network/ovirt-ovn-provider/)
 
 [RFE Provide support for adding security groups and rules using ovirt-provider-ovn](https://bugzilla.redhat.com/1539829)
 

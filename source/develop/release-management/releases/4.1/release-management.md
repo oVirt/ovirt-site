@@ -37,7 +37,7 @@ Translations are handled by Zanata. You can join the translators team and see cu
 
 ### Beta Release Criteria
 
-1.  MUST: Release Notes have feature-specific information: [oVirt 4.1 Release Notes](http://www.ovirt.org/release/4.1.0/)
+1.  MUST: Release Notes have feature-specific information: [oVirt 4.1 Release Notes](/release/4.1.0/)
 2.  MUST: Alpha Release Criteria are met
 3.  MUST: Supported localizations must be at least at 70% of completeness for being included in the release
 4.  MUST: All accepted features must be substantially complete and in a testable state and enabled by default -- if so specified by the change

@@ -7,5 +7,5 @@ authors: sandrobonazzola
 
 See also all [oVirt Features](/develop/release-management/features/)
 
-* [Quota 3.2](https://www.ovirt.org/develop/release-management/features/sla/quota-3.2/)
-* [Domain Scan](http://www.ovirt.org/develop/release-management/features/storage/domain-scan/)
+* [Quota 3.2](/develop/release-management/features/sla/quota-3.2/)
+* [Domain Scan](/develop/release-management/features/storage/domain-scan/)

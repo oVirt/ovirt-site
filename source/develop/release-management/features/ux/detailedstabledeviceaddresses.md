@@ -174,7 +174,7 @@ OvfVmReader and OvfVmWriter should be enhanced to support:
        manage Floppy/CDROM as a device
 
 Those changes should bee coordinated with the OVF team.
-see <http://www.ovirt.org/wiki/Ovf>
+see [Ovf](/wiki/Ovf)
 
 ### User Experience
 

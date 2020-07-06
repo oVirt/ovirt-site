@@ -160,7 +160,7 @@ Please check [Node_Release_Notes](/develop/projects/node/release-notes/) prior t
 
 ## oVirt Information Details
 
-Beta RPMs for Fedora 17 are available from <http://www.ovirt.org/releases/beta/fedora/17/>. In order to use it create a `/etc/yum.repos.d/ovirt-engine-beta.repo` file with the following content:
+Beta RPMs for Fedora 17 are available from [here](/releases/beta/fedora/17/). In order to use it create a `/etc/yum.repos.d/ovirt-engine-beta.repo` file with the following content:
 
     [ovirt-beta]
     name=ovirt-beta

@@ -348,81 +348,43 @@ Therefore, the vNICs of running VMs have to be hot unplugged and hot re-plugged 
 
 ## Documentation & External references
 
-[oVirt OVN Provider][1]
+[oVirt OVN Provider](/develop/release-management/features/network/ovirt-ovn-provider/)
 
-[1]: https://www.ovirt.org/develop/release-management/features/network/ovirt-ovn-provider/
+[Provider Physical Network](/develop/release-management/features/network/provider-physical-network/)
 
-[Provider Physical Network][2]
+[What is GENEVE?](https://www.redhat.com/en/blog/what-geneve)
 
-[2]: https://www.ovirt.org/develop/release-management/features/network/provider-physical-network/
+[openstack](https://specs.openstack.org/openstack/neutron-specs/specs/kilo/mtu-selection-and-advertisement.html)
 
-[What is GENEVE?][3]
+[openstack doc](https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/12/html/networking_guide/sec-mtu)
 
-[3]: https://www.redhat.com/en/blog/what-geneve
+[GENEVE](https://tools.ietf.org/html/draft-gross-geneve-00#section-4.1.1)
 
-[openstack][4]
+[option `df_default`  ovs-vswitchd.conf.db(5)](http://www.openvswitch.org//support/dist-docs/ovs-vswitchd.conf.db.5.html)
 
-[4]: https://specs.openstack.org/openstack/neutron-specs/specs/kilo/mtu-selection-and-advertisement.html
+[Bug 1538465 - Support MTU property with OVN networks](https://bugzilla.redhat.com/show_bug.cgi?id=1538465)
 
-[openstack doc][5]
+[Bug 1451342 - configure guest MTU based on underlying network](https://bugzilla.redhat.com/show_bug.cgi?id=1451342)
 
-[5]: https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/12/html/networking_guide/sec-mtu
+[Network Details in OpenStack API](https://developer.openstack.org/api-ref/network/v2/?expanded=create-network-detail#show-network-details)
 
-[GENEVE][6]
+[OpenStack Java SDK](https://github.com/woorea/openstack-java-sdk)
 
-[6]: https://tools.ietf.org/html/draft-gross-geneve-00#section-4.1.1
+[MTU support in libvirt](https://libvirt.org/formatnetwork.html#elementsConnect)
 
-[option `df_default`  ovs-vswitchd.conf.db(5)][7]
+[Configuration of OVN's internal DHCP server by ovirt-provider-ovn](https://github.com/oVirt/ovirt-provider-ovn/#section-dhcp)
 
-[7]: http://www.openvswitch.org//support/dist-docs/ovs-vswitchd.conf.db.5.html
+[Trello](https://trello.com/c/wTtoBph7/131-add-mtu-to-interface-elements-in-vdsm-proper-and-in-ovn-driver)
 
-[Bug 1538465 - Support MTU property with OVN networks][8]
+[Related patches](https://gerrit.ovirt.org/#/q/topic:managed_mtu)
 
-[8]: https://bugzilla.redhat.com/show_bug.cgi?id=1538465
+[MTU extensions in OpenStack Networking API v2.0](https://developer.openstack.org/api-ref/network/v2/index.html#mtu-extensions)
 
-[Bug 1451342 - configure guest MTU based on underlying network][9]
+[LLDP](https://ovirt.org/develop/release-management/features/network/lldp/)
 
-[9]: https://bugzilla.redhat.com/show_bug.cgi?id=1451342
+[AutoSync](http://ovirt.github.io/ovirt-engine-api-model/4.2/#types/open_stack_network_provider/attributes/auto_sync)
 
-[Network Details in OpenStack API][10]
-
-[10]: https://developer.openstack.org/api-ref/network/v2/?expanded=create-network-detail#show-network-details
-
-[OpenStack Java SDK][11]
-
-[11]: https://github.com/woorea/openstack-java-sdk
-
-[MTU support in libvirt][12]
-
-[12]: https://libvirt.org/formatnetwork.html#elementsConnect
-
-[Configuration of OVN's internal DHCP server by ovirt-provider-ovn][13]
-
-[13]: https://github.com/oVirt/ovirt-provider-ovn/#section-dhcp
-
-[Trello][14]
-
-[14]: https://trello.com/c/wTtoBph7/131-add-mtu-to-interface-elements-in-vdsm-proper-and-in-ovn-driver
-
-[Related patches][15]
-
-[15]: https://gerrit.ovirt.org/#/q/topic:managed_mtu
-
-[MTU extensions in OpenStack Networking API v2.0][16]
-
-[16]: https://developer.openstack.org/api-ref/network/v2/index.html#mtu-extensions
-
-[LLDP][17]
-
-[17]: https://ovirt.org/develop/release-management/features/network/lldp/
-
-[AutoSync][18]
-
-[18]: http://ovirt.github.io/ovirt-engine-api-model/4.2/#types/open_stack_network_provider/attributes/auto_sync
-
-[Autodefine External Network][19]
-
-[19]: https://ovirt.org/develop/release-management/features/network/autodefine-external-network/
+[Autodefine External Network](https://ovirt.org/develop/release-management/features/network/autodefine-external-network/)
 
 ## Testing
 All test have to be checked using a VM with machine type rhel7.4.0 or later and

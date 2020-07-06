@@ -60,7 +60,7 @@ As described above, the configuration settings is divided into configuration cha
 #### **Enable Headless Mode and enable Serial console**
 Displayed in console side-tab of the VM dialog.
 
-For Headless VM handling please see http://www.ovirt.org/develop/release-management/features/virt/headless-vm
+For Headless VM handling please see [headless vm](/develop/release-management/features/virt/headless-vm)
 
 #### **Disable all USB devices**
 Displayed in console side-tab of the VM dialog.

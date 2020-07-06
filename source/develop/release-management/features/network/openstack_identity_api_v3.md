@@ -233,58 +233,32 @@ is ignored.
 
 ## Documentation & External references
 
-[OpenStack Identity API Specification][1]
+[OpenStack Identity API Specification](https://developer.openstack.org/api-ref/identity/)
 
-[1]: https://developer.openstack.org/api-ref/identity/
+[oVirt OpenStack Neutron Integration](/develop/release-management/features/network/osn-integration/)
 
-[oVirt OpenStack Neutron Integration][2]
+[oVirt OVN Integration](/develop/release-management/features/network/external-network-provider/)
 
-[2]: https://ovirt.org/develop/release-management/features/network/osn-integration/
+[oVirt Glance Integration](/develop/release-management/features/storage/glance-integration/)
 
-[oVirt OVN Integration][3]
+[oVirt Cinder Integration](/develop/release-management/features/storage/cinder-integration/)
 
-[3]: https://ovirt.org/develop/release-management/features/network/external-network-provider/
+[oVirt Provider OVN](/develop/release-management/features/network/ovirt-ovn-provider/)
 
-[oVirt Glance Integration][4]
+[Authentication and Authorization at the oVirt Provider OVN](/develop/release-management/features/network/ovirt-ovn-provider/#authentication-and-authorization-at-the-provider)
 
-[4]: https://ovirt.org/develop/release-management/features/storage/glance-integration/
+[OpenStack Identity API v2.0](https://web.archive.org/web/20180103081650/https://developer.openstack.org/api-ref/identity/v2/)
 
-[oVirt Cinder Integration][5]
-
-[5]: https://ovirt.org/develop/release-management/features/storage/cinder-integration/
-
-[oVirt Provider OVN][6]
-
-[6]: https://www.ovirt.org/develop/release-management/features/network/ovirt-ovn-provider/
-
-[Authentication and Authorization at the oVirt Provider OVN][7]
-
-[7]: https://www.ovirt.org/develop/release-management/features/network/ovirt-ovn-provider/#authentication-and-authorization-at-the-provider
-
-[OpenStack Identity API v2.0][8]
-
-[8]: https://web.archive.org/web/20180103081650/https://developer.openstack.org/api-ref/identity/v2/
-
-[OpenStack Java SDK][9]
-
-[9]: https://github.com/woorea/openstack-java-sdk
+[OpenStack Java SDK](https://github.com/woorea/openstack-java-sdk)
 
 
-[Trello][10]
+[Trello](https://trello.com/c/3LN6xSIT/257-engine-support-keystone-v3)
 
-[10]: https://trello.com/c/3LN6xSIT/257-engine-support-keystone-v3
+[Related patches](https://gerrit.ovirt.org/#/q/topic:keystone_v3)
 
-[Related patches][11]
+[Blueprint for tracking things being removed in the Queens release](https://blueprints.launchpad.net/keystone/+spec/removed-as-of-queens)
 
-[11]: https://gerrit.ovirt.org/#/q/topic:keystone_v3
-
-[Blueprint for tracking things being removed in the Queens release][12]
-
-[12]: https://blueprints.launchpad.net/keystone/+spec/removed-as-of-queens
-
-[RFE - Certify OVN from OSP 13 via Neutron API with external OSP provider.][13]
-
-[13]: https://bugzilla.redhat.com/1598391
+[RFE - Certify OVN from OSP 13 via Neutron API with external OSP provider.](https://bugzilla.redhat.com/1598391)
 
 ## Testing
 

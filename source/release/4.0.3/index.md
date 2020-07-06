@@ -35,7 +35,7 @@ authentication and certificates handling:
    was specified during engine-setup invocation. If your engine FQDN is not
    accessible from all engine clients, you will not be able to login. Please
    use ovirt-engine-rename tool to fix your FQDN, more information can be
-   found at https://www.ovirt.org/documentation/how-to/networking/changing-engine-hostname/ .
+   found at /documentation/how-to/networking/changing-engine-hostname/ .
    If you try to access engine using IP or DNS alias, an error will be
    thrown. Please consult following bugs targeted to oVirt 4.0.4 which
    should fix this limitation:

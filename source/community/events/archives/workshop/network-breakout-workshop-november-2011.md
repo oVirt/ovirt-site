@@ -6,7 +6,7 @@ authors: adrian15, quaid
 
 # Network breakout - oVirt workshop November 2011
 
-<http://www.ovirt.org/wp-content/uploads/2011/11/Quantum_Ovirt_discussion.pdf>
+[Quantum Ovirt discussion](https://resources.ovirt.org/old-site-files/wp/Quantum_Ovirt_discussion.pdf)
 
 Quantum basic API approach:
 

@@ -139,4 +139,5 @@ This will be implemented in future versions.
 This will be implemented in future versions.
 
 ## Dependencies / Related Features
-High Performance VM  (https://www.ovirt.org/develop/release-management/features/virt/high-performance-vm/)
+[High Performance VM](/develop/release-management/features/virt/high-performance-vm/)
+

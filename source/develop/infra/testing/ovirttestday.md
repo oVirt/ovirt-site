@@ -73,7 +73,7 @@ for **installation** check: [Ovirt_Information_Details](/develop/infra/testing/o
 
 *   f18 manager (vm) + f18 hypervisors
 *   f18 manager (vm) + el6 hypervisors
-*   f18 manager AIO (nested virt - [http://www.ovirt.org/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM Nested_KVM](/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM_Nested_KVM))
+*   f18 manager AIO (nested virt - [/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM Nested_KVM](/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM_Nested_KVM))
 *   ovirt-live - [OVirt Live](/download/ovirt-live/)
 
 The following is the list of categories which we would like to focus on. this is basically regression testing:

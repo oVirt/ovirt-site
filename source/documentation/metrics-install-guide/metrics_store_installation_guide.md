@@ -12,6 +12,6 @@ title: oVirt Metrics Store Installation Guide
 
 ## Chapter 4: [Verifying the Installation](Verifying_the_Installation)
 
-**Next:** [Metrics Store User Guide](https://www.ovirt.org/documentation/metrics-user-guide/metrics-user-guide)
+**Next:** [Metrics Store User Guide](/documentation/metrics-user-guide/metrics-user-guide)
 
 [Adapted from RHV 4.3 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html-single/metrics_store_installation_guide/)

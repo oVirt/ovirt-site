@@ -19,9 +19,7 @@ See VM-Affinity page for more details [Features/VM-Affinity](/develop/release-ma
 
 ## Owner
 
-<http://www.ovirt.org/User:Tsaban>
-
-*   Name: http://www.ovirt.org/User:Tsaban (Tsaban)
+*   Name: Tsaban (Tsaban)
 *   Email: <tsaban@redhat.com>
 
 ## Procedure

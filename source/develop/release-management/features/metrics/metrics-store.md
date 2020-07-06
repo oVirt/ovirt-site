@@ -54,12 +54,12 @@ that will detect and notify the user when something goes wrong in the environmen
 
 ## Installation Guide
 
-Follow the installation guide at:  [Metrics Store - Installation Guide](http://www.ovirt.org/develop/release-management/features/metrics/metrics-store-installation/)
+Follow the installation guide at:  [Metrics Store - Installation Guide](/develop/release-management/features/metrics/metrics-store-installation/)
 
 ## Collected Data
 
-Follow the list of collected metrics and logs at:  [Metrics Store - Collected Data](http://www.ovirt.org/develop/release-management/features/metrics/metrics-store-collected-metrics/)
+Follow the list of collected metrics and logs at:  [Metrics Store - Collected Data](/develop/release-management/features/metrics/metrics-store-collected-metrics/)
 
 ## Metrics Schema
 
-Follow the metrics schema, when creating your reports, at: [Metrics Store - Schema](http://www.ovirt.org/develop/release-management/features/metrics/metrics-store-schema/)
+Follow the metrics schema, when creating your reports, at: [Metrics Store - Schema](/develop/release-management/features/metrics/metrics-store-schema/)

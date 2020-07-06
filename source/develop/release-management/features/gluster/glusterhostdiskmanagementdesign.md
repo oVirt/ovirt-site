@@ -155,4 +155,4 @@ Input:
 
 # Documentation / External references
 
-<http://www.ovirt.org/Features/GlusterHostDiskManagement>
+[GlusterHostDiskManagement](/Features/GlusterHostDiskManagement)

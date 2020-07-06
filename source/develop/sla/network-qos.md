@@ -47,7 +47,7 @@ We would like to expose to the user the ability to configure the Network Quality
 
 ## Design and Implementation
 
-see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
+see : [/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 #### GUI
 
@@ -68,12 +68,12 @@ Once inbound/outbound was enabled all three field must be filled (This will be v
 
 We define a new entity called "NetworkQoS" - the QoS properties will be contained in this object.
 A NetworkQoS object will be added to NetworkProfile entity.
-see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
+see : [/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 #### DB Change
 
 Add network_qos table.
-see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
+see : [/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 #### REST API
 
@@ -86,7 +86,7 @@ libvirt version 1.0.1 or higher is required to enable the QoS feature (vdsm 3.3 
 *   Add support of QoS properties in VDSM API: run VM, hot plug and update VM device verbs (update in schema)
 *   Add support in the vnic object and the vnic to_xml()
 
-see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
+see : [/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 ### Tests
 

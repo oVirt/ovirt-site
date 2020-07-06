@@ -18,7 +18,7 @@ See the [Discover](https://www.elastic.co/guide/en/kibana/5.6/discover.html) sec
 
 3. In the **Visualization** tab, you can create data visualizations for the `project.*` for admin user or using the `project.ovirt-metrics-ovirt_env_name-uuid` and the `project.ovirt-logs-ovirt_env_name-uuid` indexes for non-admin user .
 
-The [Metrics Store User Guide](https://www.ovirt.org/documentation/metrics-user-guide/metrics-user-guide) describes the available parameters. See the Visualize section of the Kibana User Guide for information about visualizing logs and metrics.
+The [Metrics Store User Guide](/documentation/metrics-user-guide/metrics-user-guide) describes the available parameters. See the Visualize section of the Kibana User Guide for information about visualizing logs and metrics.
 
 **Prev:** [Chapter 3: Deploying Collectd and Rsyslog](Deploying_Collectd_and_Rsyslog)
 

@@ -12,7 +12,7 @@ Our community keeps growing as more individual users and organizations choose oV
 
 ## Professional Services & Integrators
 
-The following organizations use oVirt for customer-facing or internal servers. Many are active in the oVirt community. For deployment examples, read the [it-novum](/community/user-stories/it-novum-case-study/), [Nimbus Concept](/community/user-stories/nimbus-concept-case-study/), [Nieuwland](https://www.ovirt.org/community/user-stories/nieuwland-case-study/) and [UDS Enterprise](/community/user-stories/universidad-de-sevilla-case-study/) case studies.
+The following organizations use oVirt for customer-facing or internal servers. Many are active in the oVirt community. For deployment examples, read the [it-novum](/community/user-stories/it-novum-case-study/), [Nimbus Concept](/community/user-stories/nimbus-concept-case-study/), [Nieuwland](/community/user-stories/nieuwland-case-study/) and [UDS Enterprise](/community/user-stories/universidad-de-sevilla-case-study/) case studies.
 
 <div class="case-studies">
 <div class="case-study">
@@ -58,7 +58,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 ## oVirt in Education
 
-These institutions have chosen oVirt to manage their virtual workloads. See also the [Keele University](https://www.ovirt.org/community/user-stories/keele-university-case-study/), [Florida State University](https://www.ovirt.org/community/user-stories/RCC-case-study/), and [University of Seville](https://www.ovirt.org/community/user-stories/universidad-de-sevilla-case-study/) case studies.
+These institutions have chosen oVirt to manage their virtual workloads. See also the [Keele University](/community/user-stories/keele-university-case-study/), [Florida State University](/community/user-stories/RCC-case-study/), and [University of Seville](/community/user-stories/universidad-de-sevilla-case-study/) case studies.
 
 <div class="case-studies">
 <div class="case-study">

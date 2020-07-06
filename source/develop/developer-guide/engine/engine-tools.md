@@ -55,7 +55,7 @@ documentation within [oVirt Administration Guide](/documentation/admin-guide/adm
 ### engine-image-uploader
 
 Please refer to [The Image Uploader Tool](/documentation/admin-guide/chap-Utilities/#the-image-uploader-tool)
-documentation within [oVirt Administration Guide](http://www.ovirt.org/documentation/admin-guide/administration-guide/)
+documentation within [oVirt Administration Guide](/documentation/admin-guide/administration-guide/)
 
 ### ovirt-log-collector
 

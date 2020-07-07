@@ -43,7 +43,7 @@ A new oVirt Live ISO is available at:
 
 ### oVirt Node
 
-oVirt Node is now released continously. Please refer to the [Node Project](/develop/projects/node/node/) page for release notes, download and install instructions.
+oVirt Node is now released continously. Please refer to the [Node Project](/download/node.html) page for release notes, download and install instructions.
 
 ## What's New in 3.6.5?
 

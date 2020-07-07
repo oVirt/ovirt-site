@@ -63,4 +63,3 @@ traffic from the monitoring machine
 
       $ ebtables -t nat -A PREROUTING -s 00:1a:4a:16:01:51 -i vnet0 -j dnat --to-destination 00:1a:4a:16:01:11
 
-Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-promisc-4.10.0-0.442.git6822c4b.el6.noarch.rpm>

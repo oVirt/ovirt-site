@@ -37,4 +37,3 @@ Host attached USB devices can be viewed with `lsusb`
 
 N.B.: link to binary file is dead 2014 05 13
 
-*   ~~Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-hostusb-4.10.0-0.442.git6822c4b.el6.noarch.rpm>~~

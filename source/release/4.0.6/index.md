@@ -79,21 +79,9 @@ to execute:
       # engine-setup
 
 Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should
-follow our [Migration Guide](../../documentation/migration-engine-36-to-40/) in
+follow our [Migration Guide](https://web.archive.org/web/20170723145830/http://www.ovirt.org/documentation/migration-engine-36-to-40/) in
 order to migrate to Enterprise Linux 7 or Fedora 23.
 
-
-### oVirt Hosted Engine
-
-If you're going to install oVirt as Hosted Engine on a clean system please
-follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install)
-guide or the corresponding Red Hat Virtualization
-[Self Hosted Engine Guide](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/self-hosted-engine-guide/)
-
-If you're upgrading an existing Hosted Engine setup, please follow
-[Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine)
-guide or the corresponding Red Hat Virtualization
-[Upgrade Guide](https://access.redhat.com/documentation/en/red-hat-virtualization/4.0/paged/upgrade-guide/)## What's New in 4.0.6?
 
 ### Enhancement
 

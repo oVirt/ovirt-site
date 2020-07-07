@@ -36,7 +36,7 @@ So, first step is disable 3.3 / stable repository and enable 3.2 in /etc/yum.rep
 
       [ovirt-32]
       name=Stable builds of the oVirt 3.2 project
-`baseurl=`[`http://ovirt.org/releases/3.2/rpm/EL/$releasever/`](/releases/3.2/rpm/EL/$releasever/)
+      baseurl=<https://resources.ovirt.org/releases/3.2/rpm/EL/$releasever/>
       enabled=1
       skip_if_unavailable=1
       gpgcheck=0

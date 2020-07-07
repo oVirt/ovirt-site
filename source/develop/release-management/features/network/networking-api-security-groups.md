@@ -619,7 +619,7 @@ There are 3 main tests:
 
 [OpenStack Networking API specification](https://developer.openstack.org/api-ref/network/v2/)
 
-[oVirt OVN integration](https://ovirt.org/develop/release-management/features/network/external-network-provider/)
+[oVirt OVN integration](/develop/release-management/features/network/external-network-provider.html)
 
 [oVirt Provider OVN](/develop/release-management/features/network/ovirt-ovn-provider/)
 

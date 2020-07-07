@@ -11,4 +11,3 @@ The vhostmd package must be installed on each host where guests are required to 
 
 The vhostmd hook enables vhostmd functionality on oVirt guests
 
-Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-vhostmd-4.10.0-0.442.git6822c4b.el6.noarch.rpm>

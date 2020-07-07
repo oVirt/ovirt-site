@@ -45,4 +45,3 @@ Will attach 2 sr-iov VFs to vm
 
 7 is max for 82576 card
 
-Please install **vdsm-hook-sriov** rpm from the following repository: <http://ovirt.org/releases/nightly/rpm/EL/6/noarch>

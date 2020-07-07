@@ -167,7 +167,7 @@ Storage can be implemented using:
 
 Using the oVirt Administration Portal, navigate to Storage → Domains → New and enter the Storage details.
 See [Configuring Storage](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_Storage_Domains_to_RHV_SHE_cockpit_deploy) and
-[Storage Administration](/documentation/admin-guide/chap-Storage.html) for guidance on configuring storage for your
+[Storage Administration](/documentation/administration_guide/#chap-Storage) for guidance on configuring storage for your
 environment.
 
 ## Install Virtual Machines

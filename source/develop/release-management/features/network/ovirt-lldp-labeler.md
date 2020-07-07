@@ -11,7 +11,7 @@ feature_status: In Development
 
 ## Summary
 
-oVirt LLDP labeler is a tool that utilizes [LLDP support](https://ovirt.org/blog/2017/11/webadmin-lldp/) 
+oVirt LLDP labeler is a tool that utilizes LLDP support
 added to oVirt in 4.2. The tool helps to some extent automate network 
 configuration overhead in clusters that are managed by the labeler. 
 It can be used as a separate service or as one-time tool using its cli.

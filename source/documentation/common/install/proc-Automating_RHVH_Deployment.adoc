@@ -21,7 +21,7 @@ download page.
 . Choose the appropriate *Hypervisor Image for RHV* from the list and click *Download Now*.
 endif::[]
 ifdef::ovirt-doc[]
-. Visit the link:https://ovirt.org/download/node.html[oVirt Node Download] page.
+. Visit the link:/download/node.html[oVirt Node Download] page.
 . Choose the version of *oVirt Node* to download and click its *Installation ISO* link.
 endif::[]
 . Make the {hypervisor-shortname} ISO image available over the network. See https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-making-media-additional-sources.html#sect-making-media-sources-network[Installation Source on a Network] in the _{enterprise-linux} Installation Guide_.

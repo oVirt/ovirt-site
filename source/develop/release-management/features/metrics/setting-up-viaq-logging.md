@@ -29,7 +29,7 @@ The following packages are required:
 
 ### Customizing vars.yaml
 
-In the first playbook you run [Run ovirt-metrics-store-installation playbook](https://ovirt.org/develop/release-management/features/metrics/metrics-store-installation/#run-ovirt-metrics-store-installation-playbook),
+In the first playbook you run [Run ovirt-metrics-store-installation playbook](/develop/release-management/features/metrics/metrics-store-installation/#run-ovirt-metrics-store-installation-playbook),
 a few files are generated and copied to the metrics store virtual machine.
 
 

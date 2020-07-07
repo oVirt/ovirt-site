@@ -26,7 +26,7 @@ OVS is to be fully integrated (natively) into oVirt through VDSM, becoming the d
 The introduction of OVS as an additional network switching solution raises the need to generalize and abstract the requirements from the system networking services and define a spec which considers both options (OVS & native Linux networking).
 The OVS model of arranging networking entities is different from the native Linux networking, but is closer to industry networking modeling.
 A VM can not be simply connected to an OvS bridge. In order to connect a VM to an OvS bridge, a user must first define an OvS VM network. 
-This automatically creates an OVN network, which is built on top of an OvS integration bridge. The VM is then attached to the OVN network via the OvS integration bridge (see [Autodefine External Network](https://ovirt.org/develop/release-management/features/network/autodefine-external-network/)).
+This automatically creates an OVN network, which is built on top of an OvS integration bridge. The VM is then attached to the OVN network via the OvS integration bridge (see [Autodefine External Network](/develop/release-management/features/network/autodefine-external-network.html)).
 
 ### Network Entities
 In the following table, networking entities are listed with their implementation options.

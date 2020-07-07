@@ -15,7 +15,7 @@ download page.
 . Choose the appropriate *Hypervisor Image for RHV* from the list and click *Download Now*.
 endif::[]
 ifdef::ovirt-doc[]
-. Visit the link:https://ovirt.org/download/node.html[oVirt Node Download] page.
+. Visit the link:/download/node.html[oVirt Node Download] page.
 . Choose the version of *oVirt Node* to download and click its *Installation ISO* link.
 . Write the {hypervisor-fullname} Installation ISO disk image to a USB, CD, or DVD.
 endif::[]

@@ -53,4 +53,3 @@ Using libvirt, the network is defined like this (the hook uses libvirt python AP
 
 Note that these interface definitions are completely static - you never need to modify them due to migration, or starting up/shutting down the guest.
 
-Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-vmfex-4.10.0-0.395.gite6d01e8.el7.noarch.rpm>

@@ -29,7 +29,7 @@ If you're upgrading from a previous release on Enterprise Linux 7 you just need 
       # yum update "ovirt-engine-setup*"
       # engine-setup
 
-Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our [Migration Guide](../../documentation/migration-engine-36-to-40/) in order to migrate to Enterprise Linux 7 or Fedora 23.
+Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our [Migration Guide](https://web.archive.org/web/20170723145830/http://www.ovirt.org/documentation/migration-engine-36-to-40/) in order to migrate to Enterprise Linux 7 or Fedora 23.
 
 
 

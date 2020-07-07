@@ -23,4 +23,3 @@ Note: more than one disk can be added:
 
          scratchpad=20G,/tmp/disk1:1T,/tmp/disk2
 
-Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-scratchpad-4.10.0-0.442.git6822c4b.el6.noarch.rpm>

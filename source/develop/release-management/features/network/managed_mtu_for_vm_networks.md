@@ -380,11 +380,11 @@ Therefore, the vNICs of running VMs have to be hot unplugged and hot re-plugged 
 
 [MTU extensions in OpenStack Networking API v2.0](https://developer.openstack.org/api-ref/network/v2/index.html#mtu-extensions)
 
-[LLDP](https://ovirt.org/develop/release-management/features/network/lldp/)
+[LLDP](/develop/release-management/features/network/lldp/)
 
 [AutoSync](http://ovirt.github.io/ovirt-engine-api-model/4.2/#types/open_stack_network_provider/attributes/auto_sync)
 
-[Autodefine External Network](https://ovirt.org/develop/release-management/features/network/autodefine-external-network/)
+[Autodefine External Network](/develop/release-management/features/network/autodefine-external-network/)
 
 ## Testing
 All test have to be checked using a VM with machine type rhel7.4.0 or later and

@@ -9,67 +9,35 @@ page_classes: releases
 # oVirt 4.1.0 Release Notes
 
 The oVirt Project is pleased to announce the availability of 4.1.0
-Release as
-of February 1st, 2017.
+Release as of February 1st, 2017.
 
-oVirt is an open source alternative to VMware™ vSphere™, and provides an awesome
-KVM management interface for multi-node virtualization.
-This release is available now for Red Hat Enterprise Linux 7.3, CentOS Linux 7.3
-(or similar).
+oVirt is a free open-source distributed virtualization solution,
+designed to manage your entire enterprise infrastructure.
+oVirt uses the trusted KVM hypervisor and is built upon several other community
+projects, including libvirt, Gluster, PatternFly, and Ansible.
 
+This release is available now for Red Hat Enterprise Linux 7.3,
+CentOS Linux 7.3 (or similar).
 
+If you'd like to try oVirt as quickly as possible, follow the instructions on
+the [Download](/download/) page.
 
-To find out more about features which were added in previous oVirt releases,
-check out the [previous versions release notes](/develop/release-management/releases/).
-For a general overview of oVirt, read [the Quick Start Guide](Quick_Start_Guide)
-and the [about oVirt](about oVirt) page.
+For complete installation, administration, and usage instructions, see
+the [oVirt Documentation](/documentation/).
 
-An updated documentation has been provided by our downstream
-[Red Hat Virtualization](https://access.redhat.com/documentation/en/red-hat-virtualization?version=4.0/)
+For a general overview of oVirt, read the [About oVirt](/community/about.html)
+page.
 
+To learn about features introduced before 4.1.0, see the [release notes for previous versions](/documentation/#previous-release-notes).
 
-## Install / Upgrade from previous versions
-
-
-### Fedora / CentOS / RHEL
-
-
-
-In order to install it on a clean system, you need to install
-
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm)
-
-
-and then follow our
-[Installation Guide](/documentation/install-guide/Installation_Guide/)
-
-If you're upgrading from a previous release on Enterprise Linux 7 you just need
-to execute:
-
-      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release41.rpm
-      # yum update "ovirt-*-setup*"
-      # engine-setup
-
-Upgrade on Fedora 23 is not supported and you should
-follow our [Migration Guide](../../documentation/migration-engine-36-to-40/) in
-order to migrate to Fedora 24.
-
-
-### oVirt Hosted Engine
-
-If you're going to install oVirt as Hosted Engine on a clean system please
-follow [Self Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/)
-
-If you're upgrading an existing Hosted Engine setup, please follow the [Upgrade Guide](/documentation/upgrade_guide/)
 
 ### EPEL
 
-TL;DR Don't enable all of EPEL on oVirt machines.
+Don't enable all of EPEL on oVirt machines.
 
-The ovirt-release package enables the epel repositories and includes several
+The ovirt-release package enables the EPEL repositories and includes several
 specific packages that are required from there. It also enables and uses
-the CentOS OpsTools SIG repos, for other packages.
+the CentOS SIG repos, for other packages.
 
 EPEL currently includes collectd 5.7.1, and the collectd package there includes
 the write_http plugin.
@@ -77,12 +45,13 @@ the write_http plugin.
 OpsTools currently includes collectd 5.7.0, and the write_http plugin is
 packaged separately.
 
-ovirt-release does not use collectd from epel, so if you only use it, you
+ovirt-release does not use collectd from EPEL, so if you only use it, you
 should be ok.
 
 If you want to use other packages from EPEL, you should make sure to not
 include collectd. Either use `includepkgs` and add those you need, or use
 `exclude=collectd*`.
+
 ## What's New in 4.1.0 Async release?
 On February 3rd 2017 the ovirt team issued an async release of ovirt-engine package including a fix for:
 - [BZ 1417597](https://bugzilla.redhat.com/1417597) <b>Failed to update template</b><br>

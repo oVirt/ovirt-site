@@ -9,17 +9,24 @@ page_classes: releases
 
 The oVirt Project is pleased to announce the availability of the 4.2.3 release as of May 04, 2018.
 
-oVirt is an open source alternative to VMware™ vSphere™, providing an
-awesome KVM management interface for multi-node virtualization.
+oVirt is a free open-source distributed virtualization solution,
+designed to manage your entire enterprise infrastructure.
+oVirt uses the trusted KVM hypervisor and is built upon several other community
+projects, including libvirt, Gluster, PatternFly, and Ansible.
+
 This release is available now for Red Hat Enterprise Linux 7.5,
 CentOS Linux 7.5 (or similar).
 
+If you'd like to try oVirt as quickly as possible, follow the instructions on
+the [Download](/download/) page.
 
+For complete installation, administration, and usage instructions, see
+the [oVirt Documentation](/documentation/).
 
-For detailed installation instructions, read the [Installation Guide](/documentation/install-guide/Installation_Guide/).
+For a general overview of oVirt, read the [About oVirt](/community/about.html)
+page.
 
 To learn about features introduced before 4.2.3, see the [release notes for previous versions](/documentation/#previous-release-notes).
-
 
 ## CVE-2018-3639 - Important - oVirt - Speculative Store Bypass
 
@@ -36,7 +43,7 @@ issue.
 If you are running oVirt on Red Hat Enterprise Linux, please apply updates
 described in [https://access.redhat.com/security/cve/cve-2018-3639](https://access.redhat.com/security/cve/cve-2018-3639).
 
-If you are running oVirt on CentOS Linux please apply updated described by:
+If you are running oVirt on CentOS Linux please apply updates described by:
 - [CESA-2018:1629 Important CentOS 7 kernel Security Update](https://lists.centos.org/pipermail/centos-announce/2018-May/022843.html)
 - [CESA-2018:1632 Important CentOS 7 libvirt Security Update](https://lists.centos.org/pipermail/centos-announce/2018-May/022840.html)
 - [CESA-2018:1649 Important CentOS 7 java-1.8.0-openjdk Security Update](https://lists.centos.org/pipermail/centos-announce/2018-May/022839.html)
@@ -58,33 +65,6 @@ The oVirt team recommends end users and systems administrator to apply any
 available updates as soon as practical.
 
 
-## Install / Upgrade from previous versions
-
-### CentOS / RHEL
-
-
-
-
-
-In order to install it on a clean system, you need to install
-
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm)
-
-
-and then follow our
-[Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
-
-
-If you're upgrading from a previous release on Enterprise Linux 7 you just need
-to execute:
-
-      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
-      # yum update "ovirt-*-setup*"
-      # engine-setup
-
-
-
 ### No Fedora support
 
 Regretfully, Fedora is not supported anymore, and RPMs for it are not provided.
@@ -94,16 +74,9 @@ At this point, we only try to fix problems specific to Fedora if they affect
 developers. For some of the work to be done to restore support for Fedora, see
 also tracker [bug 1460625](https://bugzilla.redhat.com/showdependencytree.cgi?id=1460625&hide_resolved=0).
 
-### oVirt Hosted Engine
-
-If you're going to install oVirt as a Hosted Engine on a clean system please
-follow [Self Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/).
-
-If you're upgrading an existing Hosted Engine setup, please follow the [Upgrade Guide](/documentation/upgrade_guide/).
-
 ### EPEL
 
-TL;DR Don't enable all of EPEL on oVirt machines.
+Don't enable all of EPEL on oVirt machines.
 
 The ovirt-release package enables the EPEL repositories and includes several
 specific packages that are required from there. It also enables and uses

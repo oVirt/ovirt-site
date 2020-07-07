@@ -10,60 +10,25 @@ page_classes: releases
 
 The oVirt Project is pleased to announce the availability of the 4.3.5 release as of July 30, 2019.
 
-oVirt is an open source alternative to VMware™ vSphere™, providing an
-awesome KVM management interface for multi-node virtualization.
+oVirt is a free open-source distributed virtualization solution,
+designed to manage your entire enterprise infrastructure.
+oVirt uses the trusted KVM hypervisor and is built upon several other community
+projects, including libvirt, Gluster, PatternFly, and Ansible.
+
 This release is available now for Red Hat Enterprise Linux 7.6,
 CentOS Linux 7.6 (or similar).
 
-For detailed installation instructions, read the [Installation Guide](/documentation/install-guide/Installation_Guide/).
+If you'd like to try oVirt as quickly as possible, follow the instructions on
+the [Download](/download/) page.
+
+For complete installation, administration, and usage instructions, see
+the [oVirt Documentation](/documentation/).
+
+For a general overview of oVirt, read the [About oVirt](/community/about.html)
+page.
 
 To learn about features introduced before 4.3.5, see the [release notes for previous versions](/documentation/#previous-release-notes).
 
-
-## Install / Upgrade from previous versions
-
-### CentOS / RHEL
-
-
-
-
-
-In order to install it on a clean system, you need to install
-
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm)
-
-
-and then follow our
-[Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
-
-
-
-If you are upgrading from older versions please upgrade to 4.2.8 before upgrading to 4.3.5
-
-If you're upgrading from oVirt Engine 4.2.8 you just need to execute:
-
-      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
-      # yum update "ovirt-*-setup*"
-      # engine-setup
-
-If you're upgrading from oVirt Node NG 4.2 you just need to execute:
-
-      # yum install https://resources.ovirt.org/pub/ovirt-4.3/rpm/el7/noarch/ovirt-node-ng-image-update-4.3.5-1.el7.noarch.rpm
-      # reboot
-
-If you're upgrading from oVirt Node NG 4.3 please use oVirt Engine Administration portal for handling the upgrade.
-
-
-
-
-### oVirt Hosted Engine
-
-If you're going to install oVirt as a Hosted Engine on a clean system please
-follow  [Self Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/).
-
-If you're upgrading an existing Hosted Engine setup, please follow
-[Upgrade Guide](/documentation/upgrade_guide/).
 
 ### EPEL
 

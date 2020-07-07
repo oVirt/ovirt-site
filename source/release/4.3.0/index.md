@@ -10,62 +10,25 @@ page_classes: releases
 
 The oVirt Project is pleased to announce the availability of the 4.3.0 release as of February 04, 2019.
 
-oVirt is an open source alternative to VMware™ vSphere™, providing an
-awesome KVM management interface for multi-node virtualization.
+oVirt is a free open-source distributed virtualization solution,
+designed to manage your entire enterprise infrastructure.
+oVirt uses the trusted KVM hypervisor and is built upon several other community
+projects, including libvirt, Gluster, PatternFly, and Ansible.
+
 This release is available now for Red Hat Enterprise Linux 7.6,
 CentOS Linux 7.6 (or similar).
 
+If you'd like to try oVirt as quickly as possible, follow the instructions on
+the [Download](/download/) page.
 
+For complete installation, administration, and usage instructions, see
+the [oVirt Documentation](/documentation/).
 
-For detailed installation instructions, read the [Installation Guide](/documentation/install-guide/Installation_Guide/).
+For a general overview of oVirt, read the [About oVirt](/community/about.html)
+page.
 
 To learn about features introduced before 4.3.0, see the [release notes for previous versions](/documentation/#previous-release-notes).
 
-
-## Install / Upgrade from previous versions
-
-### CentOS / RHEL
-
-
-
-
-
-In order to install it on a clean system, you need to install
-
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm)
-
-
-and then follow our
-[Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
-
-
-If you're upgrading from oVirt Engine 4.2 you just need to execute:
-
-      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
-      # yum update "ovirt-*-setup*"
-      # engine-setup
-
-If you're upgrading from oVirt Node NG 4.2 you just need to execute:
-
-      # yum install https://resources.ovirt.org/pub/ovirt-4.3/rpm/el7/noarch/ovirt-node-ng-image-update-4.3.0-1.el7.noarch.rpm
-      # reboot
-
-
-### Fedora Tech Preview
-
-With oVirt 4.3 we are reintroducing Fedora 28 as platform for running oVirt in tech preview.
-More recent builds for Fedora are built for the master branch, so users that want to test them,
-can use the [nightly snapshot](/develop/dev-process/install-nightly-snapshot/).
-For some of the work to be done to completely restore support for Fedora, see
-also tracker [bug 1460625](https://bugzilla.redhat.com/showdependencytree.cgi?id=1460625&hide_resolved=0).
-
-### oVirt Hosted Engine
-
-If you're going to install oVirt as a Hosted Engine on a clean system please
-follow [Self Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/).
-
-If you're upgrading an existing Hosted Engine setup, please follow the [Upgrade Guide](/documentation/upgrade_guide/).
 
 ### EPEL
 

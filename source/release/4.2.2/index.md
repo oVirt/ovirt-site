@@ -9,43 +9,24 @@ page_classes: releases
 
 The oVirt Project is pleased to announce the availability of the 4.2.2 release as of March 28, 2018.
 
-oVirt is an open source alternative to VMware™ vSphere™, providing an
-awesome KVM management interface for multi-node virtualization.
+oVirt is a free open-source distributed virtualization solution,
+designed to manage your entire enterprise infrastructure.
+oVirt uses the trusted KVM hypervisor and is built upon several other community
+projects, including libvirt, Gluster, PatternFly, and Ansible.
+
 This release is available now for Red Hat Enterprise Linux 7.4,
 CentOS Linux 7.4 (or similar).
 
+If you'd like to try oVirt as quickly as possible, follow the instructions on
+the [Download](/download/) page.
 
+For complete installation, administration, and usage instructions, see
+the [oVirt Documentation](/documentation/).
 
-For detailed installation instructions, read the [Installation Guide](/documentation/install-guide/Installation_Guide/).
+For a general overview of oVirt, read the [About oVirt](/community/about.html)
+page.
 
 To learn about features introduced before 4.2.2, see the [release notes for previous versions](/documentation/#previous-release-notes).
-
-
-## Install / Upgrade from previous versions
-
-### CentOS / RHEL
-
-
-
-
-
-In order to install it on a clean system, you need to install
-
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm)
-
-
-and then follow our
-[Installation Guide](http://www.ovirt.org/documentation/install-guide/Installation_Guide/).
-
-
-If you're upgrading from a previous release on Enterprise Linux 7 you just need
-to execute:
-
-      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release42.rpm
-      # yum update "ovirt-*-setup*"
-      # engine-setup
-
 
 
 ### No Fedora support
@@ -57,16 +38,9 @@ At this point, we only try to fix problems specific to Fedora if they affect
 developers. For some of the work to be done to restore support for Fedora, see
 also tracker [bug 1460625](https://bugzilla.redhat.com/showdependencytree.cgi?id=1460625&hide_resolved=0).
 
-### oVirt Hosted Engine
-
-If you're going to install oVirt as a Hosted Engine on a clean system please
-follow [Self Hosted Engine Guide](/documentation/self-hosted/Self-Hosted_Engine_Guide/).
-
-If you're upgrading an existing Hosted Engine setup, please follow the [Upgrade Guide](/documentation/upgrade_guide/).
-
 ### EPEL
 
-TL;DR Don't enable all of EPEL on oVirt machines.
+Don't enable all of EPEL on oVirt machines.
 
 The ovirt-release package enables the EPEL repositories and includes several
 specific packages that are required from there. It also enables and uses

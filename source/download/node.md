@@ -32,7 +32,7 @@ This is the site hosting oVirt Node 4.4 images including the latest oVirt 4.4 re
 
 This is the site hosting oVirt Node 4.4 pre release images including the latest oVirt 4.4 pre release packages.
 
-* [Pre-Release Installation ISO site)](https://resources.ovirt.org/pub/ovirt-4.4-pre/iso/)
+* [Pre-Release Installation ISO site)](https://resources.ovirt.org/pub/ovirt-4.4-pre/iso/ovirt-node-ng-installer/)
 
 ## oVirt Node Master - Latest master, experimental
 

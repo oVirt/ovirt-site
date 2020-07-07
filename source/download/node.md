@@ -24,15 +24,15 @@ guide for installation instructions.
 
 ## oVirt Node 4.4 - Stable Release
 
-This is the oVirt Node 4.4 image including the latest oVirt 4.4 packages. This is the latest stable release.
+This is the site hosting oVirt Node 4.4 images including the latest oVirt 4.4 released packages.
 
-* [Installation ISO (4.4.0 based on el8)](https://resources.ovirt.org/pub/ovirt-4.4/iso/ovirt-node-ng-installer/4.4.0-2020052110/el8/ovirt-node-ng-installer-4.4.0-2020052110.el8.iso)
+* [Released Installation ISO site](https://resources.ovirt.org/pub/ovirt-4.4/iso/ovirt-node-ng-installer/)
 
 ## oVirt Node 4.4 - Pre Release
 
-This is the oVirt Node 4.4 pre release image including the latest oVirt 4.4 pre release packages.
+This is the site hosting oVirt Node 4.4 pre release images including the latest oVirt 4.4 pre release packages.
 
-* [Installation ISO (4.4.1 pre release based on el8)](https://resources.ovirt.org/pub/ovirt-4.4-pre/iso/ovirt-node-ng-installer/4.4.1-2020052300/el8/ovirt-node-ng-installer-4.4.1-2020052300.el8.iso)
+* [Pre-Release Installation ISO site)](https://resources.ovirt.org/pub/ovirt-4.4-pre/iso/)
 
 ## oVirt Node Master - Latest master, experimental
 
@@ -48,7 +48,7 @@ This is the oVirt Node image build based on oVirt packages from the master branc
 
 This is the oVirt Node 4.3 image including the latest oVirt 4.3 packages.
 
-* [Installation ISO (4.3.9 based on el7)](https://resources.ovirt.org/pub/ovirt-4.3/iso/ovirt-node-ng-installer/4.3.9-2020031917/el7/ovirt-node-ng-installer-4.3.9-2020031917.el7.iso)
+* [Installation ISO (4.3.10 based on el7)](https://resources.ovirt.org/pub/ovirt-4.3/iso/ovirt-node-ng-installer/4.3.10-2020060117/el7/ovirt-node-ng-installer-4.3.10-2020060117.el7.iso)
 
 ## oVirt Node 4.2
 

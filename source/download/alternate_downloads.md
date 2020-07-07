@@ -13,18 +13,20 @@ preferred because the Engine Virtual Machine will be highly available (once a se
 However, if you prefer to run oVirt Engine standalone on physical hardware or another virtualization provider, you can install oVirt Engine
 and Nodes / Hosts separately.
 
-oVirt 4.4.0 is intended for production use and is available for the following platforms:
+oVirt 4.4.1 is intended for production use and is available for the following platforms:
 
 Engine:
-- Red Hat Enterprise Linux 8.1
-- CentOS Linux 8.1
+- Red Hat Enterprise Linux 8.2
+- CentOS Linux 8.2
+- CentOS Stream (Tech Preview)
 
 Hosts:
-- Red Hat Enterprise Linux 8.1
-- CentOS Linux 8.1
-- oVirt Node (based on CentOS Linux 8.1)
+- Red Hat Enterprise Linux 8.2
+- CentOS Linux 8.2
+- oVirt Node (based on CentOS Linux 8.2)
+- CentOS Stream (Tech Preview)
 
-See the [Release Notes for oVirt 4.4.0](/release/4.4.0/).
+See the [Release Notes for oVirt 4.4.1](/release/4.4.1/).
 
 <div class="row"></div>
 
@@ -47,7 +49,7 @@ If you are updating from 4.3, please note you'll need to migrate your engine fro
 
 For a standalone engine this means basically:
 
-1. backup engine data on 4.3.9 with:
+1. backup engine data on 4.3.10 with:
    `engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log`
 2. copy the backup to a safe location
 3. reinstall engine host with EL 8
@@ -74,7 +76,7 @@ For a standalone engine this means basically:
 
 2.  Add the official oVirt repository.
 
-        sudo dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm
+        sudo dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
         sudo dnf module enable -y javapackages-tools pki-deps postgresql:12 389-ds
 
 3.  Install oVirt Engine.

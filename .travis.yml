@@ -11,4 +11,4 @@ script:
       exit 2
     fi
   - bundle exec jekyll build
-  - bundle exec htmlproofer ./_site --allow-hash-href --empty-alt-ignore --assume-extension --check-img-http --file-ignore="./_site/events/.*" --http-status-ignore=429
+  - bundle exec htmlproofer ./_site --allow-hash-href --empty-alt-ignore --assume-extension --check-img-http --file-ignore="/events/" --http-status-ignore=429

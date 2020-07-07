@@ -79,14 +79,6 @@ Links to other significant project schedules, useful for seeing how oVirt aligns
 *   QEMU 2.5.0: [2015-12-10](http://wiki.qemu.org/Planning/2.5)
 *   Tiny Core 6.4: [2015-09-08](http://forum.tinycorelinux.net/index.php/topic,18818.0.html)
 
-## Nightly Builds
-
-Nightly builds are available from oVirt snapshots repositories:
-
-[`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/)
-[`http://resources.ovirt.org/pub/ovirt-master-snapshot/`](http://resources.ovirt.org/pub/ovirt-master-snapshot/)
-
-Please refer to [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/) guide for enabling those repositories
 
 ## oVirt Live
 

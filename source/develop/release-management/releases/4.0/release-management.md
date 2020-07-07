@@ -17,12 +17,6 @@ date: 2016-04-15 08:32:01 CEST
 | 2016-06-01 | oVirt 4.0 RC1                   |
 | 2016-06-15 | oVirt 4.0 GA Release            |
 
-## Nightly Builds
-
-Nightly builds are available from oVirt master snapshots repositories.
-
-Please refer to [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/) guide for enabling those repositories
-
 ## oVirt Live
 
 Latest nightly iso is available here: <http://jenkins.ovirt.org/job/ovirt_live_create_iso/>

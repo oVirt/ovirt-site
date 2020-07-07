@@ -37,7 +37,7 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
 #### Development Help
 
 - [Building oVirt engine](/develop/developer-guide/engine/engine-development-environment/)
-- [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/)
+- [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot.html)
 - [Testing ovirt-engine patches with Lago](/develop/infra/testing/lago/testing-engine-patches-with-lago/)
 - [Building VDSM](/develop/developer-guide/vdsm/developers/)
 - [FAQ](/develop/faq)

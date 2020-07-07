@@ -18,11 +18,6 @@ tags: release, management
 | 2017-12-18 | oVirt 4.2 RC3            |
 | 2017-12-20 | oVirt 4.2 GA Release     |
 
-## Nightly Builds
-
-Nightly builds are available from oVirt master snapshots repositories.
-
-Please refer to [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/) guide for enabling those repositories
 
 ## Translation Status
 

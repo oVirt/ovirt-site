@@ -18,11 +18,6 @@ date: 2016-11-30 14:51:34+01:00
 | 2017-01-26 | oVirt 4.1 RC2                                            |
 | 2017-02-01 | oVirt 4.1 GA Release                                     |
 
-## Nightly Builds
-
-Nightly builds are available from oVirt master snapshots repositories.
-
-Please refer to [Install nightly snapshot](http://www.ovirt.org/develop/dev-process/install-nightly-snapshot/) guide for enabling those repositories
 
 ## oVirt Live
 

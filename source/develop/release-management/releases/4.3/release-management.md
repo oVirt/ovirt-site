@@ -24,7 +24,7 @@ tags: release, management
 
 Nightly builds are available from oVirt master snapshots repositories.
 
-Please refer to [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot/) guide for enabling those repositories
+Please refer to [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot.html) guide for enabling those repositories
 
 ## Translation Status
 

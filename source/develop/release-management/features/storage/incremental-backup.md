@@ -228,8 +228,10 @@ Response:
 
 #### Starting full backup
 
-Start full backup. The response includes 'to_checkpoint_id' which
-is created on the disks. It can be used in the next incremental backup.
+Start full backup. The response phase indicates that the backup is "initializing".
+You need to poll the backup until the phase is "ready". 
+Once the backup is ready the response will include 'to_checkpoint_id' which
+should be used as the 'from_checkpoint_id' in the next incremental backup.
 
 Request:
 ```
@@ -246,7 +248,6 @@ POST /vms/vm-uuid/backups
 Response:
 ```
 <backup id="backup-uuid">
-    <to_checkpoint_id>new-checkpoind-uuid</to_checkpoint_id>
     <disks>
         <disk id="disk-uuid" />
         ...
@@ -260,9 +261,10 @@ Response:
 #### Starting incremental backup
 
 Start incremental backup since checkpoint id "previous-checkpoint-uuid".
-The response will not include 'to_checkpoint_id' which should be used as the
-'from_checkpoint_id' in the next incremental backup, only when the backup
-phase will be "ready".
+The response phase indicates that the backup is "initializing".
+You need to poll the backup until the phase is "ready". 
+Once the backup is ready the response will include 'to_checkpoint_id' which
+should be used as the 'from_checkpoint_id' in the next incremental backup.
 
 Request:
 ```

@@ -79,6 +79,11 @@ The [National University of Sciences & Technology (NUST)](http://nust.edu.pk/Pag
 [Alter Way](https://www.alterway.fr/) is a French hosting company that provides solutions for their customers' digital strategies, using a DevOps approach and open source solutions, including oVirt. Read the [case study.](/community/user-stories/alter-way-case-study/)
 </div>
 
+## Backup Providers
+
+<div class="case-studies">
+</div>
+
 ## Supporters
 
 The following organizations are very helpful to the oVirt community by providing tools and services that are helpful to the development of oVirt.

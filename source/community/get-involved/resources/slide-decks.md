@@ -35,9 +35,6 @@ These template presentations are provided to build new slides for oVirt presenta
 
 *   Open Source Virtualization with oVirt (45 minutes introduction, oVirt 3.5, planned features for 3.6 and interaction with OpenStack): [Open_Source_Virtualization_with_oVirt_GLT_2015.odp](http://resources.ovirt.org/old-site-files/wiki/Open_Source_Virtualization_with_oVirt_GLT_2015.odp) (ODP)
 
-## Sasoconf 2015
-
-*   Introduction to oVirt in SASO Conference: [Introduction to oVirt (ODP)](https://villadalmine.fedorapeople.org/Presentaciones/Sasoconf2015/Introduction_to_oVirt-Sasoconf2015.odp)
 
 ## chemnitz 2015
 
@@ -77,9 +74,6 @@ This is a large presentation, with notes. It can be used as is, or cut to fit a 
 *   Elastic Overkill: Is Cloud Really The Be-All End-All for Everyone?:[FISL15_ElasticOverkill.odp](http://resources.ovirt.org/old-site-files/wiki/FISL15_ElasticOverkill.odp) (ODP)
 *   oVirt: How to Connect with a Mature Open Source Project:[FISL15_MatureCommunity.odp](http://resources.ovirt.org/old-site-files/wiki/FISL15_MatureCommunity.odp) (ODP)
 
-## Fudcon 2014 in Managua
-
-*   [Crea Tu Primer Nodo en Ovirt](https://villadalmine.fedorapeople.org/Presentaciones/Fudcon2014Managua/) (HTML)
 
 ## oVirt Decks from FOSDEM 2012
 

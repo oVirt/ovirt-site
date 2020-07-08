@@ -3,7 +3,6 @@ title: oVirt in Education
 authors: bproffitt,sandrobonazzola
 ---
 
-<!-- TODO: Content review -->
 
 # oVirt in Education
 
@@ -19,7 +18,7 @@ The National University of Sciences and Technology aims to emerge as a comprehen
 ## Europe
 
 [Keele University](//www.keele.ac.uk/), Stafforshire UK
-Keele University has a small and dedicated IT staff handling all of the IT demands of the 10,000 students and 2,000 staff. To handle their virtualization needs, they have been using oVirt 3.2 since mid 2013. [Case study](/community/user-stories/keele-university-case-study/).
+Keele University has a small and dedicated IT staff handling all of the IT demands of the 10,000 students and 2,000 staff. To handle their virtualization needs, they have been using oVirt 3.2 since mid 2013. [Case study](/community/user-stories/keele-university-case-study.html).
 
 [Silesian University in Opava](//www.slu.cz/slu/en), Opava, Czech Republic
 The Silesian University in Opava, a member of European University Association, belongs among the top five universities created after 1989. Immediately after its inception, the university began to provide students comprehensive education in the fields of humanities and economics.

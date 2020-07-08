@@ -1,13 +1,11 @@
 ---
 title: Recording video
-authors: dneary
+authors: dneary,sandrobonazzola
 ---
-
-<!-- TODO: Content review -->
 
 # Recording video
 
-This page will contain instructions on recording a screencast on Linux and Windows for oVirt demo screencasts. I found this article very informative and useful: [How I record demo videos](http://www.itauthor.com/2009/03/10/how-i-record-demo-videos/)
+This page will contain instructions on recording a screencast on Linux and Windows for oVirt demo screencasts.
 
 ## GNOME 3
 
@@ -17,11 +15,6 @@ This page will contain instructions on recording a screencast on Linux and Windo
 ## GNOME 2 or KDE
 
 *   Install recordmydesktop with the appropriate front-end for your desktop
-*   <Add instructions on using recordmydesktop>
-
-## Windows
-
-*   <Add instructions on recording desktop on windows>
 
 # Adding a soundtrack
 
@@ -32,7 +25,3 @@ This page will contain instructions on recording a screencast on Linux and Windo
 *   Record your voice-over (use a microphone to get better sound quality)
 *   Use Pitivi to synchronise sound and image, and to cut beginning and end bits out.
 *   Save in a YouTube compatible format which is not patent encumbered such as .ogv or .webm
-
-## Other desktops
-
-*   <Add instructions for other desktop environments here>

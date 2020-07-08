@@ -12,7 +12,7 @@ Our community keeps growing as more individual users and organizations choose oV
 
 ## Professional Services & Integrators
 
-The following organizations use oVirt for customer-facing or internal servers. Many are active in the oVirt community. For deployment examples, read the [it-novum](/community/user-stories/it-novum-case-study/), [Nimbus Concept](/community/user-stories/nimbus-concept-case-study/), [Nieuwland](/community/user-stories/nieuwland-case-study/) and [UDS Enterprise](/community/user-stories/universidad-de-sevilla-case-study/) case studies.
+The following organizations use oVirt for customer-facing or internal servers. Many are active in the oVirt community. For deployment examples, read the [it-novum](/community/user-stories/it-novum-case-study.html), [Nimbus Concept](/community/user-stories/nimbus-concept-case-study.html), [Nieuwland](/community/user-stories/nieuwland-case-study.html) and [UDS Enterprise](/community/user-stories/universidad-de-sevilla-case-study.html) case studies.
 
 <div class="case-studies">
 <div class="case-study">
@@ -58,7 +58,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 ## oVirt in Education
 
-These institutions have chosen oVirt to manage their virtual workloads. See also the [Keele University](/community/user-stories/keele-university-case-study/), [Florida State University](/community/user-stories/RCC-case-study/), and [University of Seville](/community/user-stories/universidad-de-sevilla-case-study/) case studies.
+These institutions have chosen oVirt to manage their virtual workloads. See also the [Keele University](/community/user-stories/keele-university-case-study.html), [Florida State University](/community/user-stories/RCC-case-study.html), and [University of Seville](/community/user-stories/universidad-de-sevilla-case-study.html) case studies.
 
 <div class="case-studies">
 <div class="case-study">
@@ -76,7 +76,7 @@ The [National University of Sciences & Technology (NUST)](http://nust.edu.pk/Pag
 <div class="case-studies">
 <div class="case-study">
 ![](/images/logos/AlterWay.png)
-[Alter Way](https://www.alterway.fr/) is a French hosting company that provides solutions for their customers' digital strategies, using a DevOps approach and open source solutions, including oVirt. Read the [case study.](/community/user-stories/alter-way-case-study/)
+[Alter Way](https://www.alterway.fr/) is a French hosting company that provides solutions for their customers' digital strategies, using a DevOps approach and open source solutions, including oVirt. Read the [case study.](/community/user-stories/alter-way-case-study.html)
 </div>
 
 ## Backup Providers
@@ -101,7 +101,7 @@ The following organizations are very helpful to the oVirt community by providing
 
 ## Board Members
 
-The following companies and institutes are represented on [the oVirt Board](/community/about/board/).
+The following companies and institutes are represented on [the oVirt Board](/community/about/board.html).
 
 {:.ovirt-board-logos}
 [![IBM](/images/logos/IBM.svg)](//ibm.com/)

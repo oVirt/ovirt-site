@@ -18,7 +18,7 @@ The boards role is to coordinate and help ensure smooth running of the oVirt pro
 8.  Set license policies and deal with licensing questions and issues
 9.  Facilitate a form for cross project architectual coordination
 
-The board specifically does not get involved in the day-to-day of projects or technical implementation. It may however help facilitate [communication](/community/about/contact/) between projects to resolve release schedule or integration issues.
+The board specifically does not get involved in the day-to-day of projects or technical implementation. It may however help facilitate [communication](/community/about/contact.html) between projects to resolve release schedule or integration issues.
 
 There is no limit on the number of seats on the board. Additional board members are voted onto the board by the existing board members based in merit. The basic criteria for a board member is someone who is:
 

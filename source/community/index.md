@@ -35,10 +35,10 @@ oVirt needs concise, user-friendly, up-to-date installation and usage documentat
 
 Reporting bugs is one of the most valuable ways you can contribute! Ideas for new features are also very welcome. Report bugs and RFEs using the following issue trackers:
 
-* [Bugzilla - how to report a bug](/community/report-a-bug/)
+* [Bugzilla - how to report a bug](/community/report-a-bug.html)
 * [VM Portal GitHub - bugs and RFEs in VM Portal](https://github.com/oVirt/ovirt-web-ui/issues)
 * [oVirt Documentation GitHub - Documentation issues](https://github.com/oVirt/ovirt-site/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation)
-* Security issues follow a [special reporting procedure](/community/security/).
+* Security issues follow a [special reporting procedure](/community/security.html).
 
 ## Participate in the oVirt infrastructure
 

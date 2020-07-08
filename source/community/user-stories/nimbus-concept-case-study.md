@@ -38,7 +38,7 @@ When the Nimbus team integrates oVirt and OpenStack Neutron, they use [Puppet](h
 
 Beyond deploying oVirt directly as a customer solution, Nimbus has also incorporated oVirt inside a product they are developing called OriginStack.
 
-[OriginStack](https://www.youtube.com/watch?v=wikIIH8tLTc) consists of an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package. Nimbus Concept has partnered with an Intel platinum partner, [Telecomputer](http://www.telecomputer.es/), to offer unified hardware and basic software support, so a client can have a solution that provides an easy way of having a small virtualized infrastructure out of the box that also lets them start the migration of some services to the cloud.
+[OriginStack](https://www.youtube.com/watch?v=wikIIH8tLTc) consists of an appliance that integrates hardware, virtualization (oVirt/KVM), private cloud (OpenStack), and support in one integrated package. Nimbus Concept has partnered with an Intel platinum partner, Telecomputer, to offer unified hardware and basic software support, so a client can have a solution that provides an easy way of having a small virtualized infrastructure out of the box that also lets them start the migration of some services to the cloud.
 
 Nimbus Concept provides a pre-deployed and pre-configured oVirt and OpenStack stack with storage ([Glance](http://glance.openstack.org)) and network (Neutron) linked so the user has a ready-to-use system with multiple ways of using computing resources. This can be done wither with a traditional “scale-up” virtualized method, or a “scale-out” cloud method.
 

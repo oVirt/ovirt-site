@@ -8,7 +8,7 @@ authors: bproffitt, dneary
 
 ## oVirt User Case Studies
 
-We are collecting stories of oVirt users and how they are using the software. We have feedback and experiences from hosting companies, small business and educational institutions, and we are always looking to hear from our users! For more information on other prominent oVirt community members, see our [Users and Providers page](/community/user-stories/users-and-providers/)!
+We are collecting stories of oVirt users and how they are using the software. We have feedback and experiences from hosting companies, small business and educational institutions, and we are always looking to hear from our users! For more information on other prominent oVirt community members, see our [Users and Providers page](/community/user-stories/users-and-providers.html)!
 
 <div class="case-studies">
 <div class="case-study">

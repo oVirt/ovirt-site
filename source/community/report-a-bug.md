@@ -8,7 +8,7 @@ authors: dneary,sandrobonazzola
 
 For reporting bugs, the oVirt project uses the Bugzilla bugtracker and testing tool.
 
-For reporting security issues please follow the [security reporting procedure](/community/security/).
+For reporting security issues please follow the [security reporting procedure](/community/security.html).
 
 ## How to create a Bugzilla account
 
@@ -39,5 +39,5 @@ Thank you for submitting a bug report! A developer will review your submission, 
 
 If information provided within the bug description are insufficient or you don't know where to look for getting more details,
 it may help proactively attach a [sos report](https://github.com/sosreport/sos/wiki) or
-an [oVirt Log Collector report](/documentation/admin-guide/chap-Utilities.html#the-log-collector-tool)
+an [oVirt Log Collector report](/documentation/administration_guide/#sect-The_Log_Collector_Tool)
 to your report.

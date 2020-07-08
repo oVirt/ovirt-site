@@ -8,7 +8,8 @@ authors: dneary
 <div class="col-md-7 col-md-offset-1 pad-sides">
 # Alter Way Case Study
 
-[Alter Way](//alterway.fr), a French hosting and services company founded in 2006, has been using oVirt in its public cloud offering, [H2O](//h2o.alterway.fr/), since last year. The service launched in October 2012, and there are already over 300 VMs being managed on the service for clients. We recently caught up with Stéphane Vincent, Director of Strategic Services and Innovation, to talk about why Alter Way chose oVirt, how they are using it, and what excites them about the 3.3 release.
+[Alter Way](//alterway.fr), a French hosting and services company founded in 2006, has been using oVirt in its public cloud offering "H2O".
+The service launched in October 2012, and there are already over 300 VMs being managed on the service for clients. We recently caught up with Stéphane Vincent, Director of Strategic Services and Innovation, to talk about why Alter Way chose oVirt, how they are using it, and what excites them about the 3.3 release.
 
 "We decided early on to standardise on KVM for our hypervisor layer, and evaluated a number of management solutions for it. We looked at OpenNebula, CloudStack, Proxmox, Red Hat Enterprise Virtualization, oVirt and OpenStack. In the end, we settled on oVirt for hosting our public cloud offering, and OpenStack for our private cloud offering," says Stéphane. The main features of oVirt which influenced the decision were "it allowed us to scale up as well as scale out our client workloads. oVirt allows us to do everything that our clients expect, including the ability to dedicate several hypervisors within a datacenter to a client. The main technical feature we depend on is memory ballooning - the ability to scale up the memory available to a VM based on demand."
 

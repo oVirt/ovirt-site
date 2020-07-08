@@ -44,4 +44,4 @@ And how has their experience been with the oVirt community? "It would be great t
 </div>
 </div>
 </div>
-[Category:Case studies](/community/user-stories/user-stories/)
+[Category:Case studies](/community/user-stories/user-stories.html)

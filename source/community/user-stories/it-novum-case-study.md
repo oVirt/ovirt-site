@@ -59,4 +59,4 @@ Moving forward, it-novum is integrating their open cloud management system, with
 </div>
 </div>
 </div>
-[Category:Case studies](/community/user-stories/user-stories/)
+[Category:Case studies](/community/user-stories/user-stories.html)

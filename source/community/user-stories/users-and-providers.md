@@ -82,6 +82,9 @@ The [National University of Sciences & Technology (NUST)](http://nust.edu.pk/Pag
 ## Backup Providers
 
 <div class="case-studies">
+<div class="case-study">
+![](/images/logos/storware.png)
+[Storware](https://storware.eu/) is a data protection software company headquartered in Warsaw, Poland. Storware solutions can be used for [data backup and recovery of virtual machines, containers and cloud environments,](https://storware.eu/products/vprotect/) as well as to protect [Microsoft Office 365 data.](https://storware.eu/products/kodo-for-cloud/)
 </div>
 
 ## Supporters

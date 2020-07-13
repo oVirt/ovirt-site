@@ -1,14 +1,14 @@
 ---
-title: oVirt 4.4.1 Release Notes
+title: oVirt 4.4.1.1 Release Notes
 category: documentation
 authors: sandrobonazzola lveyde
 toc: true
 page_classes: releases
 ---
 
-# oVirt 4.4.1 Release Notes
+# oVirt 4.4.1.1 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.1 release as of July 08, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.1.1 release as of July 13, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -135,7 +135,7 @@ Result: Better feedback to the user
 
 #### oVirt Engine Data Warehouse
 
- - [BZ 1848381](https://bugzilla.redhat.com/1848381) **[RFE] Add to dashboards description panel**
+ - [BZ 1848381](https://bugzilla.redhat.com/1848381) **[RFE] Add description panel to all oVirt dashboards**
 
    Feature: Description panels 
 
@@ -194,8 +194,6 @@ Result: User can invoke a copy host networks action from the web-admin.
 ### Bug Fixes
 
 #### oVirt Engine
-
- - [BZ 1839545](https://bugzilla.redhat.com/1839545) **Imported VM from 4.2 cluster with no custom emulated machine cannot run without config changes**
 
  - [BZ 1820140](https://bugzilla.redhat.com/1820140) **Hosted Engine VM can get memory hotplug to more than the physically available RAM**
 
@@ -281,10 +279,6 @@ Result: User can invoke a copy host networks action from the web-admin.
    
 
  - [BZ 1846954](https://bugzilla.redhat.com/1846954) **Can't power on guest on rhv4.4 after v2v conversion because of unmatched machine type**
-
-   
-
- - [BZ 1845396](https://bugzilla.redhat.com/1845396) **[CNV&RHV] Failed to create VM from openshift template**
 
    
 
@@ -419,6 +413,10 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 #### VDSM
 
+ - [BZ 1841076](https://bugzilla.redhat.com/1841076) **vdsm should use the switch '--inet6' for querying gluster volume info with '--remote-host'**
+
+   
+
  - [BZ 1522926](https://bugzilla.redhat.com/1522926) **[RFE] Integrate lvm filter configuration in vdsm-tool configure step**
 
    
@@ -524,10 +522,6 @@ Result: User can invoke a copy host networks action from the web-admin.
 
    
 
- - [BZ 1805267](https://bugzilla.redhat.com/1805267) **[RFE] ImageIO support for IPv6**
-
-   
-
  - [BZ 1591439](https://bugzilla.redhat.com/1591439) **[RFE] [v2v] - imageio performance - concurrent I/O**
 
    
@@ -546,6 +540,10 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 
 #### oVirt Setup Lib
+
+ - [BZ 1854324](https://bugzilla.redhat.com/1854324) **Add 'Abort' option after warning messages during installation**
+
+   
 
  - [BZ 1840756](https://bugzilla.redhat.com/1840756) **An endless loop occurs when using autoAcceptDefault=True**
 
@@ -604,13 +602,6 @@ Result: User can invoke a copy host networks action from the web-admin.
    
 
  - [BZ 1832732](https://bugzilla.redhat.com/1832732) **unneeded  sudoers configuration for  vdsm  and sanlock  service control**
-
-   
-
-
-#### oVirt Log Collector
-
- - [BZ 1738439](https://bugzilla.redhat.com/1738439) **log collector doesn't work properly on machine with FIPS enabled**
 
    
 
@@ -741,10 +732,6 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 
 #### oVirt Engine Data Warehouse
-
- - [BZ 1846365](https://bugzilla.redhat.com/1846365) **Handle grafana in ovirt-engine-rename**
-
-   
 
  - [BZ 1846870](https://bugzilla.redhat.com/1846870) **SSO after setup of grafana on separate machine fails**
 

@@ -19,7 +19,7 @@ This release is available now for Red Hat Enterprise Linux 8.2 and
 CentOS Linux 8.2 (or similar).
 
 To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
+visit our [community page](/community/).
 All issues or bugs should be reported via
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 

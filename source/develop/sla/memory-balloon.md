@@ -15,7 +15,7 @@ on VM needs in a dynamic way. In this way it's possible to create memory over co
 
 Currently the balloon memory device is being created by default by libvirt for non RHEV environments,
 and VDSM disables it by default for RHEV. This change will enable the balloon device, supporting
-oVirt's MOM sub-project integration<sup>[[1](/wiki/Features/MomIntegration)]</sup>.
+oVirt's MOM sub-project integration<sup>[[1](/develop/release-management/features/sla/momintegration.html)]</sup>.
 
 ## Engine core
 

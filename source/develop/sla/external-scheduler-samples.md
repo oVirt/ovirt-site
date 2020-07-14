@@ -27,13 +27,13 @@ The external scheduler ships with this sample filter doing just that: [Filter By
 
 Scoring is referring to the act of giving hosts scores representing how well are they suited to run a specific VM. For instance, ksm scoring may give hosts running similar VMs a higher rank. making them more likely to be selected.
 
-Luckily we have just that sample already shipping with the external proxy, this proxy scores based on the similarity of the VMs operating system: [Score_KSM_OS](Score_KSM_OS)
+Luckily we have just that sample already shipping with the external proxy, this proxy scores based on the similarity of the VMs operating system: [Score KSM OS](/develop/sla/score-ksm-os.html)
 
 ## Load Balancing
 
 Load balancing is an optional settings telling the engine to periodically check if some hosts are overloaded. If one or more are found the engine will try and migrate VMs from those hosts (one at a time). There are a few default load balancers shipping with Ovirt, but the user can replace them with a custom load balancer of his own. For instance a memory load balancer may move a VMs from hosts that are under memory pressure (for instance due to overcommitting)
 
-An example of this can be found here: [Host_Memory_balance](Host_Memory_balance)
+An example of this can be found here: [Host Memory balance](/develop/sla/host-memory-balance.html)
 
 **This includes a complete explanation of every part of the code, I would recommend taking a look at it if you wish to write your own external scheduling component**
 

@@ -69,7 +69,7 @@ Assignment operations on entities:
 
 ### GUI
 
-A [GUI](/develop/release-management/features/sla/affinity-labels-management-via-webadmin) for affinity labels management was made available as of version 4.1.
+A [GUI](/develop/release-management/features/sla/affinity-labels-management-via-admin-portal.html) for affinity labels management was made available as of version 4.1.
 
 ### Permissions
 

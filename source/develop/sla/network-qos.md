@@ -10,11 +10,11 @@ authors: danken, moti, ofri, ovedo
 
 Network Quality of Service feature will be added to oVirt from version 3.3 and will support cluster version 3.3 or higher.
 The feature will allow the user to limit the inbound and outbound network traffic in virtual NIC level.
-In order to define more natural coupling of the QoS to a VNIC we define a new concept called **[VNIC Profile](Features/Vnic_Profiles)**. The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC
+In order to define more natural coupling of the QoS to a VNIC we define a new concept called **[VNIC Profile](/develop/release-management/features/sla/vnic-profiles.html)**. The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC
 
 #### Owner
 
-*   Name: [Ofri Masad](User:omasad)
+*   Name: Ofri Masad
 *   Email: <omasad at redhat dot com>
 
 #### Current status
@@ -47,7 +47,7 @@ We would like to expose to the user the ability to configure the Network Quality
 
 ## Design and Implementation
 
-see : [/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
+see : [Network QoS - detailed design Implementation details](/develop/release-management/features/network/network-qos-detailed-design.html) for detailed design
 
 #### GUI
 
@@ -68,12 +68,12 @@ Once inbound/outbound was enabled all three field must be filled (This will be v
 
 We define a new entity called "NetworkQoS" - the QoS properties will be contained in this object.
 A NetworkQoS object will be added to NetworkProfile entity.
-see : [/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
+see : [Network QoS - detailed design Implementation details](/develop/release-management/features/network/network-qos-detailed-design.html) for detailed design
 
 #### DB Change
 
 Add network_qos table.
-see : [/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
+see : [Network QoS - detailed design Implementation details](/develop/release-management/features/network/network-qos-detailed-design.html) for detailed design
 
 #### REST API
 
@@ -86,7 +86,7 @@ libvirt version 1.0.1 or higher is required to enable the QoS feature (vdsm 3.3 
 *   Add support of QoS properties in VDSM API: run VM, hot plug and update VM device verbs (update in schema)
 *   Add support in the vnic object and the vnic to_xml()
 
-see : [/Features/Design/Network_QoS_-_detailed_design Implementation details](/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
+see : [Network QoS - detailed design Implementation details](/develop/release-management/features/network/network-qos-detailed-design.html) for detailed design
 
 ### Tests
 
@@ -98,7 +98,7 @@ see : [/Features/Design/Network_QoS_-_detailed_design Implementation details](/F
 
 ### Dependencies / Related Features
 
-*   Dependent on the feature [Vnic Profiles](/Features/Vnic_Profiles)
+*   Dependent on the feature [Vnic Profiles](/develop/release-management/features/sla/vnic-profiles.html)
 
 Affected ovirt projects:
 

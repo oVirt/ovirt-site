@@ -45,6 +45,6 @@ The additional blocks then contain the following fields separated by '|' charact
 | engine health report         | {"reason": "vm not running on this host", "health": "bad", "vm": "down", "detail": "unknown"} | vm represent the state of the engine VM, health the state of the ovirt-engine service            |
 | hostname                     | the node's hostname                                                                           |                                                                                                  |
 | local maintenance            | 0|1                                                                                           |                                                                                                  |
-| stopped                      | 0|1                                                                                           | usually 0, but is set to 1 by the agent during proper ha_agent shutdown                         |
+| stopped                      | 0|1                                                                                           | usually 0, but is set to 1 by the agent during proper ha_agent shutdown                          |
 | crc32                        | 8 hex characters                                                                              | CRC32 checksum of the whole 512B block (without trailing zeros) with crc field set to 00000000   |
 

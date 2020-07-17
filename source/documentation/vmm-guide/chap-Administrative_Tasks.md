@@ -659,7 +659,7 @@ The `virt-v2v` package must be installed on at least one host (referred to in th
 
     **Note:** If a virtual machine's network device uses the driver type e1000 or rtl8139, the virtual machine will use the same driver type after it has been imported to oVirt.
 
-    If required, you can change the driver type to VirtIO manually after the import. To change the driver type after a virtual machine has been imported, see [Editing network interfaces](/documentation/vmm-guide/chap-Editing_Virtual_Machines/#editing-a-network-interface). If the network device uses driver types other than e1000 or rtl8139, the driver type is changed to VirtIO automatically during the import. The **Attach VirtIO-drivers** option allows the VirtIO drivers to be injected to the imported virtual machine files so that when the driver is changed to VirtIO, the device will be properly detected by the operating system.
+    If required, you can change the driver type to VirtIO manually after the import. To change the driver type after a virtual machine has been imported, see [Editing network interfaces](/documentation/vmm-guide/chap-Editing_Virtual_Machines.html/#editing-a-network-interface). If the network device uses driver types other than e1000 or rtl8139, the driver type is changed to VirtIO automatically during the import. The **Attach VirtIO-drivers** option allows the VirtIO drivers to be injected to the imported virtual machine files so that when the driver is changed to VirtIO, the device will be properly detected by the operating system.
 
     **The Import Virtual Machine(s) Window**
 

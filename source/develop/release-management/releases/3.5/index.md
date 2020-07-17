@@ -10,15 +10,15 @@ The oVirt Project is pleased to announce the availability of its sixth formal re
 
 oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
 
-To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4 release notes](/develop/release-management/releases/3.4/), [oVirt 3.3 release notes](/develop/release-management/releases/3.3/), [oVirt 3.2 release notes](/develop/release-management/releases/3.2/) and [oVirt 3.1 release notes](/develop/release-management/releases/3.1/). For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide/) and the [about oVirt](/community/about.html) page.
+To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4 release notes](/develop/release-management/releases/3.4/), [oVirt 3.3 release notes](/develop/release-management/releases/3.3/), [oVirt 3.2 release notes](/develop/release-management/releases/3.2/) and [oVirt 3.1 release notes](/develop/release-management/releases/3.1/). For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide.html) and the [about oVirt](/community/about.html) page.
 
 # oVirt 3.5 Release Notes
 
 ## Live Merge
 
-If an image has one or more snapshots, oVirt 3.5's merge command will combine the data of one volume into another. [Live merges](/develop/release-management/features/storage/live-merge/) can be performed with data is pulled from one snapshot into another snapshot. The engine can merge multiple disks at the same time and each merge can independently fail or succeed in each operation.
+If an image has one or more snapshots, oVirt 3.5's merge command will combine the data of one volume into another. [Live merges](/develop/release-management/features/storage/live-merge.html) can be performed with data is pulled from one snapshot into another snapshot. The engine can merge multiple disks at the same time and each merge can independently fail or succeed in each operation.
 
-**Note:** This is currently a restricted use case. You must be running a Fedora 20 host that has been updated from the virt-preview yum repository. See [this page](/develop/release-management/features/storage/live-merge/#important:-special-environment-setup) for more details.
+**Note:** This is currently a restricted use case. You must be running a Fedora 20 host that has been updated from the virt-preview yum repository. See [this page](/develop/release-management/features/storage/live-merge.html#important:-special-environment-setup) for more details.
 
 ## Import Storage Domain
 
@@ -26,19 +26,19 @@ This latest release expands oVirt's feature of [importing ISOs and exporting sto
 
 ## Advanced Foreman Integration
 
-oVirt 3.5 adds the capability to provision and add hypervisors to oVirt from bare metal. Foreman is a complete lifecycle management tool for physical and virtual servers. Through deep integration with configuration management, DHCP, DNS, TFTP, and PXE-based unattended installations, Foreman manages every stage of the lifecycle of your physical or virtual servers. Integrating [Foreman with oVirt](/develop/release-management/features/foreman/advancedforemanintegration/) helps add hypervisor hosts managed by Foreman to the oVirt engine.
+oVirt 3.5 adds the capability to provision and add hypervisors to oVirt from bare metal. Foreman is a complete lifecycle management tool for physical and virtual servers. Through deep integration with configuration management, DHCP, DNS, TFTP, and PXE-based unattended installations, Foreman manages every stage of the lifecycle of your physical or virtual servers. Integrating Foreman with oVirt helps add hypervisor hosts managed by Foreman to the oVirt engine.
 
 ## Enhanced Authentication, Authorization and Accounting Support
 
-A new architecture has been built for oVirt 3.5's [authentication, authorization and accounting](/develop/release-management/features/infra/aaa/) (AAA) system. The enhancements will provide a clear separation of authentication from authorization and provide a developer API to develop custom extensions for authentication and authorization.
+A new architecture has been built for oVirt 3.5's [authentication, authorization and accounting](/develop/release-management/features/infra/aaa.html) (AAA) system. The enhancements will provide a clear separation of authentication from authorization and provide a developer API to develop custom extensions for authentication and authorization.
 
 ## New PatternFly Interface
 
-oVirt 3.5 will have a new look and feel, using PatternFly, the open interface project. The [new look and feel](/develop/release-management/features/ux/newlookandfeelpatternflyphase1/) aims to maintain the colors and spirit associated with oVirt, while updating it with a new, modern, sleek, and minimal look. The minimal design allows complex screens to look cleaner and airier, and lets the user focus on the data and the tasks by removing all extraneous visual elements.
+oVirt 3.5 will have a new look and feel, using PatternFly, the open interface project. The new look and feel aims to maintain the colors and spirit associated with oVirt, while updating it with a new, modern, sleek, and minimal look. The minimal design allows complex screens to look cleaner and airier, and lets the user focus on the data and the tasks by removing all extraneous visual elements.
 
 ## Advanced Scheduling with Optaplanner
 
-The [Optaplanner](/develop/release-management/features/sla/optaplanner/) is a new service that takes a snapshot of a cluster (a list of hosts and VMs) and computes an optimized VM-to-Host assignment solution. Optimization will is done on per Cluster basis. The administrator can use this information as a hint to tweak the cluster to better utilize resources.
+The [Optaplanner](/develop/release-management/features/sla/optaplanner.html) is a new service that takes a snapshot of a cluster (a list of hosts and VMs) and computes an optimized VM-to-Host assignment solution. Optimization will is done on per Cluster basis. The administrator can use this information as a hint to tweak the cluster to better utilize resources.
 
 ## Other Enhancements
 
@@ -48,14 +48,14 @@ The [Optaplanner](/develop/release-management/features/sla/optaplanner/) is a ne
 
 ### Networking
 
-*   [Unified Persistence](/develop/release-management/features/network/networkreloaded/#unified-persistence) is a way for oVirt-defined network configurations in hosts to be set in a format that is distribution agnostic and that closely matches the oVirt network setup API.
-*   A [Neutron Virtual Appliance](/develop/release-management/features/cloud/neutronvirtualappliance/) will be available from the oVirt Image Repository (glance.ovirt.org). For 3.5, the appliance is based on OpenStack IceHouse, listed as ""Neutron Appliance (CentOS X.X) - IceHouse-YYYY.X-XX" on the provided images list.
+*   [Unified Persistence](/develop/release-management/features/network/networkreloaded.html#unified-persistence) is a way for oVirt-defined network configurations in hosts to be set in a format that is distribution agnostic and that closely matches the oVirt network setup API.
+*   A Neutron Virtual Appliance will be available from the oVirt Image Repository (glance.ovirt.org). For 3.5, the appliance is based on OpenStack IceHouse, listed as ""Neutron Appliance (CentOS X.X) - IceHouse-YYYY.X-XX" on the provided images list.
 
 ### Integration
 
-*   It is now possible to setup the engine and [WebSocket-Proxy](/develop/release-management/features/integration/websocketproxy-on-a-separate-host/), [DWH](/develop/release-management/features/engine/separate-dwh-host/), [Reports](/develop/release-management/features/engine/separate-reports-host/) on separate hosts.
-*   [Hosted Engine](/develop/release-management/features/storage/read-only-disk/) has now added support for [iSCSI storage](/develop/release-management/features/engine/self-hosted-engine-iscsi-support/), VLAN-tagged network interfaces, bonded network interfaces, and Red Hat Enterprise Linux 7 (or similar).
-*   [oVirt Windows Guest Tools](/develop/release-management/features/engine/windows-guest-tools/) for oVirt 3.5 are now available as a release candidate.
+*   It is now possible to setup the engine and [WebSocket-Proxy](/develop/release-management/features/integration/websocketproxy-on-a-separate-host.html), [DWH](/develop/release-management/features/engine/separate-dwh-host.html), Reports on separate hosts.
+*   [Hosted Engine](/develop/release-management/features/storage/read-only-disk.html) has now added support for [iSCSI storage](/develop/release-management/features/engine/self-hosted-engine-iscsi-support.html), VLAN-tagged network interfaces, bonded network interfaces, and Red Hat Enterprise Linux 7 (or similar).
+*   [oVirt Windows Guest Tools](/develop/release-management/features/engine/windows-guest-tools.html) for oVirt 3.5 are now available as a release candidate.
 
 ## Install / Upgrade from Previous Versions
 
@@ -733,7 +733,7 @@ Pre-release version is still available here:
  - Cannot approve hosts using REST API
  - [LOG] Ability to log org.ovirt.engine.core.common.businessentities.LUNs class
  - Incorrect schema or REST API answer
- - [REST API]: Missing VM statistics field.
+ - [REST API] Missing VM statistics field.
  - Performing Live Storage Migration when target domain equal to source domain will cause infinite loop of 'LiveMigrateDiskCommand'
  - in the Sessions sub-tab of Virtual Machine press F5 to refresh the webpage failed(display blank page)
 

@@ -18,7 +18,7 @@ authors: sandrobonazzola
 | **2016-06-29** | General availability     |
 
 ## Release criteria
-* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
+* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management.html) Release Criteria
 * Release notes must be filled: [oVirt 3.6.7 Release Notes](/release/3.6.7/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.7 Testing](Testing/oVirt 3.6.7 Testing)
@@ -35,7 +35,7 @@ authors: sandrobonazzola
 | **2016-05-23** | General availability     |
 
 ## Release criteria
-* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
+* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management.html) Release Criteria
 * Release notes must be filled: [oVirt 3.6.6 Release Notes](/release/3.6.6/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.6 Testing](Testing/oVirt 3.6.6 Testing)
@@ -52,7 +52,7 @@ authors: sandrobonazzola
 | **2016-04-21** | General availability     |
 
 ## Release criteria
-* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
+* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management.html) Release Criteria
 * Release notes must be filled: [oVirt 3.6.5 Release Notes](/release/3.6.5/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.5 Testing](Testing/oVirt 3.6.5 Testing)
@@ -68,7 +68,7 @@ authors: sandrobonazzola
 | **2016-03-29** | General availability     |
 
 ## Release criteria
-* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
+* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management.html) Release Criteria
 * Release notes must be filled: [oVirt 3.6.4 Release Notes](/release/3.6.4/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.4 Testing](Testing/oVirt 3.6.4 Testing)
@@ -90,7 +90,7 @@ authors: sandrobonazzola
 
 
 ## Release criteria
-* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
+* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management.html) Release Criteria
 * Release notes must be filled: [oVirt 3.6.3 Release Notes](/release/3.6.3/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.3 Testing](Testing/oVirt 3.6.3 Testing)
@@ -108,7 +108,7 @@ authors: sandrobonazzola
 | **2016-01-26** | General availability     |
 
 ## Release criteria
-* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
+* See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management.html) Release Criteria
 * Release notes must be filled: [oVirt 3.6.2 Release Notes](/release/3.6.2/)
 * Blocking bugs must be fixed
 * QE must test the release: [Testing/oVirt 3.6.2 Testing](Testing/oVirt 3.6.2 Testing)
@@ -128,7 +128,7 @@ authors: sandrobonazzola
 
 ### Release criteria
 
-*   See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management/) Release Criteria
+*   See [oVirt 3.6 release-management](/develop/release-management/releases/3.6/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 3.6.1 Release Notes](/release/3.6.1/)
 *   Blocking bugs must be fixed
 *   QE must test the release: [Testing/oVirt 3.6.1 Testing](/release/3.6.1/testing/)

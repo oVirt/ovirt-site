@@ -90,7 +90,7 @@ To find out more about features which were added in previous oVirt releases, che
 *   [Node VDSM Plugin](/develop/release-management/features/vdsm/vdsm-plugin/) converts the generic oVirt Node image into an image customized use with oVirt Engine.
 *   oVirt Node works on a different asynchronous release schedule from the rest of oVirt.
     -   At the time of the oVirt 3.3 release, the current version of ovirt-node will be 3.0.1.
-    -   Feature for oVirt node 3.0.0 can be found on the [oVirt Node 3.0.0 release page](/develop/projects/node/3.0-release-management/)
+    -   Feature for oVirt node 3.0.0 can be found on the [oVirt Node 3.0.0 release page](/develop/projects/node/3.0-release-management.html)
 
 #### Integration
 

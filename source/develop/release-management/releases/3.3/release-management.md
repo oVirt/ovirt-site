@@ -207,7 +207,7 @@ Features being considered for inclusion/already in master:
 *   [Node VDSM Plugin](/develop/release-management/features/vdsm/vdsm-plugin/) extract all vdsm and oVirt Engine specific code from ovirt-node into a plugin
 *   oVirt Node works on a different asynchronous release schedule from the rest of oVirt.
     -   At the time of the oVirt 3.3 release, the current version of ovirt-node will be 3.0.0.
-    -   Feature for oVirt node 3.0.0 can be found on the [oVirt Node 3.0.0 release page](/develop/projects/node/3.0-release-management/)
+    -   Feature for oVirt node 3.0.0 can be found on the [oVirt Node 3.0.0 release page](/develop/projects/node/3.0-release-management.html)
 
 ### Integration
 

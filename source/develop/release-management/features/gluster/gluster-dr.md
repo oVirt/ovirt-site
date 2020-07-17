@@ -73,7 +73,7 @@ Such a script is already available at [ovirt-georep-backup](https://github.com/s
 In the event of a disaster, the storage domain can be attached to a running instance of oVirt. 
 
 1. A new instance of oVirt is setup with a master storage domain. A master storage domain needs to be active in oVirt to initialize the Data Center and perform further operations
-2. Use the [Import Storage Domain](/develop/release-management/features/storage/importstoragedomain/) feature to import the gluster volume from secondary site (the one setup as slave gluster volume in previous setup)
+2. Use the [Import Storage Domain](/develop/release-management/features/storage/importstoragedomain.html) feature to import the gluster volume from secondary site (the one setup as slave gluster volume in previous setup)
     - In case the storage domain contains the VMs and all its disks, the VMs can be imported to the new oVirt instance
     - In case the storage domain contains only floating disks (i.e not attached to any VMs or where the storage domain does not contain the VM's OS disks), the disks can be registered via GUI (see [Bug 1138139](https://bugzilla.redhat.com/show_bug.cgi?id=1138139))
         * There's currently an issue where disks with snapshots cannot be registered. The overlay image file needs to be manually deleted from the storage domain before this is possible (see [Bug 1334256](https://bugzilla.redhat.com/show_bug.cgi?id=1334256))

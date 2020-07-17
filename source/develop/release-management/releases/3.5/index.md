@@ -22,7 +22,7 @@ If an image has one or more snapshots, oVirt 3.5's merge command will combine th
 
 ## Import Storage Domain
 
-This latest release expands oVirt's feature of [importing ISOs and exporting storage domains](/develop/release-management/features/storage/importstoragedomain/) to expand support for importing an existing data storage domain. Based on information stored in the storage domain, oVirt can revive entities such as disks, virtual machines, and templates in the setup of any data center to which the storage domain is attached.
+This latest release expands oVirt's feature of [importing ISOs and exporting storage domains](/develop/release-management/features/storage/importstoragedomain.html) to expand support for importing an existing data storage domain. Based on information stored in the storage domain, oVirt can revive entities such as disks, virtual machines, and templates in the setup of any data center to which the storage domain is attached.
 
 ## Advanced Foreman Integration
 

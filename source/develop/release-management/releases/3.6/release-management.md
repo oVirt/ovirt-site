@@ -19,7 +19,7 @@ authors: bproffitt, danken, sandrobonazzola
 | <s>2015-05-12</s> 
  <s>2015-05-19</s>  
  <s>2015-05-26</s>  
- <s>2015-05-27</s>  | <s>Alpha Release Test Day: [oVirt 3.6 Test Day](oVirt 3.6 Test Day)</s>  |
+ <s>2015-05-27</s>  | <s>Alpha Release Test Day</s>  |
 | **2015-06-15**    | Feature freeze                                                                      |
 | <s>2015-06-17</s> 
  <s>2015-06-24</s>  
@@ -97,16 +97,16 @@ Translations are handled by Zanata. You can join the translators team and see cu
 
 ## Key Proposed Changes
 
-The following list is a subset of the [features proposed for oVirt 3.6](/develop/release-management/releases/3.6/proposed-feature/)
+The following list is a subset of the features proposed for oVirt 3.6
 
-*   [Features/Management Network As A Role](/develop/release-management/features/network/management-network-as-a-role/)
-*   [Features/DetailedHostNetworkingApi](/develop/release-management/features/network/detailedhostnetworkingapi/)
-*   [Features/HostNetworkingApi](/develop/release-management/features/network/hostnetworkingapi/)
-*   [Features/IsolatedNetworks](/develop/release-management/features/network/isolatednetworks/)
-*   [Features/Cluster parameters override](/develop/release-management/features/engine/cluster-parameters-override/)
+*   [Features/Management Network As A Role](/develop/release-management/features/network/management-network-as-a-role.html)
+*   [Features/DetailedHostNetworkingApi](/develop/release-management/features/network/detailedhostnetworkingapi.html)
+*   [Features/HostNetworkingApi](/develop/release-management/features/network/hostnetworkingapi.html)
+*   [Features/IsolatedNetworks](/develop/release-management/features/network/isolatednetworks.html)
+*   [Features/Cluster parameters override](/develop/release-management/features/engine/cluster-parameters-override.html)
 *   Drop support for Fedora <= 20
-*   [Add support for Fedora 22](/develop/release-management/features/os-support/fedora-22-support/)
-*   [Add support for Ubuntu hosts](/develop/release-management/features/debian-support-for-hosts/)
+*   [Add support for Fedora 22](/develop/release-management/features/os-support/fedora-22-support.html)
+*   [Add support for Ubuntu hosts](/develop/release-management/features/debian-support-for-hosts.html)
 *   No support for new features on el6. el6 hosts would be allowed only in [3.5 compatibility mode](https://lists.ovirt.org/pipermail/users/2014-September/027421.html).
 *   Hosted Engine support only on hosts supporting 3.6 compatibility level (EL7 and Fedora). A guide will be provided for migrating from EL6
 

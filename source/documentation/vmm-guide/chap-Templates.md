@@ -154,7 +154,7 @@ If you have used a template to create a virtual machine using the thin provision
 
 ### Migrating Templates to the Export Domain
 
-    **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the "Importing Existing Storage Domains" section in the [Administration Guide](/documentation/admin-guide/administration-guide/) for information on importing storage domains.
+    **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the "Importing Existing Storage Domains" section in the [Administration Guide](/documentation/administration_guide/) for information on importing storage domains.
 
 Export templates into the export domain to move them to another data domain, either in the same oVirt environment, or another one. This procedure requires access to the Administration Portal.
 
@@ -198,7 +198,7 @@ A copy of the template's virtual hard disk has been created, either on the same,
 
 ### Importing a Template into a Data Center
 
-    **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the "Importing Existing Storage Domains" section in the [Administration Guide](/documentation/admin-guide/administration-guide/) for information on importing storage domains.
+    **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the "Importing Existing Storage Domains" section in the [Administration Guide](/documentation/administration_guide/) for information on importing storage domains.
 
 Import templates from a newly attached export domain. This procedure requires access to the Administration Portal.
 

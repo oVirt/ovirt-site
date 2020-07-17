@@ -694,7 +694,7 @@ oVirt 4.2 supports errata management with Foreman 6.1.
 
 The following prerequisites apply:
 
-* The host that the virtual machine runs on also needs to be configured to receive errata information from Foreman. See "Configuring Foreman Errata Management for a Host" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for more information.
+* The host that the virtual machine runs on also needs to be configured to receive errata information from Foreman. See "Configuring Foreman Errata Management for a Host" in the [Administration Guide](/documentation/administration_guide/) for more information.
 
 * The virtual machine must have the rhevm-guest-agent package installed. This package allows the virtual machine to report its host name to the oVirt Engine. This allows the Foreman server to identify the virtual machine as a content host and report the applicable errata. For more information on installing the ovirt-guest-agent package see the Installing the Guest Agents and Drivers on Enterprise Linux section above for Enterprise Linux virtual machines and the Installing the Guest Agents and Drivers on Windows section for Windows virtual machines.
 

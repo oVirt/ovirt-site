@@ -14,7 +14,7 @@ title: Administrative Tasks
 
 3. Optionally in the Administration Portal, enter a **Reason** for shutting down the virtual machine in the **Shut down Virtual Machine(s)** confirmation window. This allows you to provide an explanation for the shutdown, which will appear in the logs and when the virtual machine is powered on again.
 
-    **Note:** The virtual machine shutdown **Reason** field will only appear if it has been enabled in the cluster settings. For more information, see "Explanation of Settings and Controls in the New Cluster and Edit Cluster Windows" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
+    **Note:** The virtual machine shutdown **Reason** field will only appear if it has been enabled in the cluster settings. For more information, see "Explanation of Settings and Controls in the New Cluster and Edit Cluster Windows" in the [Administration Guide](/documentation/administration_guide/).
 
 4. Click **OK** in the **Shut down Virtual Machine(s)** confirmation window.
 
@@ -173,7 +173,7 @@ The table below describes the user roles and privileges applicable to virtual ma
 
 ### Assigning Virtual Machines to Users
 
-If you are creating virtual machines for users other than yourself, you have to assign roles to the users before they can use the virtual machines. Note that permissions can only be assigned to existing users. See "Users and Roles" in the [Administration Guide](/documentation/admin-guide/administration-guide/) for details on creating user accounts.
+If you are creating virtual machines for users other than yourself, you have to assign roles to the users before they can use the virtual machines. Note that permissions can only be assigned to existing users. See "Users and Roles" in the [Administration Guide](/documentation/administration_guide/) for details on creating user accounts.
 
 The VM Portal supports three default roles: User, PowerUser and UserVmManager. However, customized roles can be configured via the Administration Portal. The default roles are described below.
 
@@ -183,7 +183,7 @@ The VM Portal supports three default roles: User, PowerUser and UserVmManager. H
 
 * A **UserVmManager** can edit and remove virtual machines, assign user permissions, use snapshots and use templates. It is suitable if you need to make configuration changes to your virtual environment.
 
-When you create a virtual machine, you automatically inherit **UserVmManager** privileges. This enables you to make changes to the virtual machine and assign permissions to the users you manage, or users who are in your Identity Management (IdM) or RHDS group. See the [Administration Guide](/documentation/admin-guide/administration-guide/) for more information.
+When you create a virtual machine, you automatically inherit **UserVmManager** privileges. This enables you to make changes to the virtual machine and assign permissions to the users you manage, or users who are in your Identity Management (IdM) or RHDS group. See the [Administration Guide](/documentation/administration_guide/) for more information.
 
 **Assigning Permissions to Users**
 
@@ -533,7 +533,7 @@ You can remove affinity labels only from the details view of a cluster.
 
 ## Exporting and Importing Virtual Machines and Templates
 
-    **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the "Importing Existing Storage Domains" section in the [Administration Guide](/documentation/admin-guide/administration-guide/) for information on importing storage domains.
+    **Note:** The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disk images, and templates can then be uploaded from the imported storage domain to the attached data center. See the "Importing Existing Storage Domains" section in the [Administration Guide](/documentation/administration_guide/) for information on importing storage domains.
 
 Virtual machines and templates can be exported from and imported to data centers in the same or different oVirt environment. You can export or import virtual machines by using an export domain, or by using a oVirt host. Templates can only be imported or exported using an export domain.
 
@@ -613,7 +613,7 @@ You have a virtual machine on an export domain. Before the virtual machine can b
 
 ### Importing a Virtual Machine from a VMware Provider
 
-Import virtual machines from a VMware vCenter provider to your oVirt environment. You can import from a VMware provider by entering its details in the **Import Virtual Machine(s)** window during each import operation, or you can add the VMware provider as an external provider, and select the preconfigured provider during import operations. To add an external provider, see "Adding a VMware Instance as a Virtual Machine Provider" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
+Import virtual machines from a VMware vCenter provider to your oVirt environment. You can import from a VMware provider by entering its details in the **Import Virtual Machine(s)** window during each import operation, or you can add the VMware provider as an external provider, and select the preconfigured provider during import operations. To add an external provider, see "Adding a VMware Instance as a Virtual Machine Provider" in the [Administration Guide](/documentation/administration_guide/).
 
 oVirt uses V2V to convert VMware virtual machines to the correct format before they are imported. You must install the `virt-v2v` package on a least one Enterprise Linux 7 host before proceeding. This package is available in the base `rhel-7-server-rpms` repository.
 

@@ -266,7 +266,7 @@ You can hot plug virtual machine disks. Hot plugging means enabling or disabling
 
 8. Click **OK**.
 
-If the disk was created as block storage, for example iSCSI, and the **Wipe After Delete** check box was selected when creating the disk, you can view the log file on the host to confirm that the data has been wiped after permanently removing the disk. See "Settings to Wipe Virtual Disks After Deletion" in the [Administration Guide](/documentation/admin-guide/administration-guide/).
+If the disk was created as block storage, for example iSCSI, and the **Wipe After Delete** check box was selected when creating the disk, you can view the log file on the host to confirm that the data has been wiped after permanently removing the disk. See "Settings to Wipe Virtual Disks After Deletion" in the [Administration Guide](/documentation/administration_guide/).
 
 If the disk was created as block storage, for example iSCSI, and the **Discard After Delete** check box was selected on the storage domain before the disk was removed, a `blkdiscard` command is called on the logical volume when it is removed and the underlying storage is notified that the blocks are free. A `blkdiscard` is also called on the logical volume when a virtual disk is removed if the virtual disk is attached to at least one virtual machine with the **Enable Discard** check box selected.
 

@@ -50,17 +50,17 @@ Running basic example:'
 ### ovirt-iso-uploader
 
 Please refer to [The ISO Uploader Tool](/documentation/admin-guide/chap-Utilities/#the-iso-uploader-tool)
-documentation within [oVirt Administration Guide](/documentation/admin-guide/administration-guide/)
+documentation within [oVirt Administration Guide](/documentation/administration_guide/)
 
 ### engine-image-uploader
 
 Please refer to [The Image Uploader Tool](/documentation/admin-guide/chap-Utilities/#the-image-uploader-tool)
-documentation within [oVirt Administration Guide](/documentation/admin-guide/administration-guide/)
+documentation within [oVirt Administration Guide](/documentation/administration_guide/)
 
 ### ovirt-log-collector
 
 Please refer to [The Log Collector Tool](/documentation/admin-guide/chap-Utilities/#the-log-collector-tool)
-documentation within [oVirt Administration Guide](/documentation/admin-guide/administration-guide/)
+documentation within [oVirt Administration Guide](/documentation/administration_guide/)
 
 ### Tools TODO
 

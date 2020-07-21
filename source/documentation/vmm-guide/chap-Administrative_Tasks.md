@@ -1047,7 +1047,7 @@ Virtual machines with vNICs that are directly connected to a virtual function (V
 
 * Set the VirtIO vNIC’s `No Network Filter` option before configuring the bond.
 
-* Add both vNICs as slaves under an `active-backup` bond on the virtual machine, with the passthrough vNIC as the primary interface.
+* Add both vNICs as subordinate to an `active-backup` bond on the virtual machine, with the passthrough vNIC as the primary interface.
 
   The bond and vNIC profiles can have one of the following configurations:
 

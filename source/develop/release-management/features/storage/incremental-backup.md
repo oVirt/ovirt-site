@@ -105,9 +105,9 @@ lun         -                   disabled        raw
    backup (using qcow2 format) can be included in an incremental backup.
 
 2. Backup application starts backup using oVirt API, specifying a VM id,
-   optional previous backup id, and list of disks to backup.
-   If previous backup uuid isn't specified, all data in the specified disks,
-   at the point of the backup, will be included in the backup.
+   optional previous checkpoint id, and list of disks to backup.
+   If previous checkpoint uuid isn't specified, all data in the specified disks,
+   at the point of the backup, will be included in the backup (full backup).
 
 3. System prepares VM for backup. The VM may be running during the
    backup.
@@ -170,7 +170,7 @@ bitmap, but this info is not exposed to the management layer.
 
 To recover from invalid bitmaps, the invalid bitmap and all previous
 bitmaps must be deleted. The next backup will have to include the entire
-disk contents.
+disk contents (full backup).
 
 ### Backup REST API
 
@@ -228,10 +228,10 @@ Response:
 
 #### Starting full backup
 
-Start full backup. The response phase indicates that the backup is "initializing".
-You need to poll the backup until the phase is "ready". 
-Once the backup is ready the response will include 'to_checkpoint_id' which
-should be used as the 'from_checkpoint_id' in the next incremental backup.
+Start full backup. The response phase indicates that the backup is `"initializing"`.
+You need to poll the backup until the phase is `"ready"`. 
+Once the backup is ready the response will include `<to_checkpoint_id>` which
+should be used as the `<from_checkpoint_id>` in the next incremental backup.
 
 Request:
 ```
@@ -260,11 +260,11 @@ Response:
 
 #### Starting incremental backup
 
-Start incremental backup since checkpoint id "previous-checkpoint-uuid".
-The response phase indicates that the backup is "initializing".
-You need to poll the backup until the phase is "ready". 
-Once the backup is ready the response will include 'to_checkpoint_id' which
-should be used as the 'from_checkpoint_id' in the next incremental backup.
+Start incremental backup since checkpoint id `<from_checkpoint_uuid>`.
+The response phase indicates that the backup is `"initializing"`.
+You need to poll the backup until the phase is `"ready"`. 
+Once the backup is ready the response will include `<to_checkpoint_id>` which
+should be used as the `<from_checkpoint_id>` in the next incremental backup.
 
 Request:
 ```
@@ -296,8 +296,8 @@ Response:
 #### Getting backup info
 
 When backup phase is "ready", you can get the specific backup info.
-The response will include 'to_checkpoint_id' which should be used as the
-'from_checkpoint_id' in the next incremental backup.
+The response will include `<to_checkpoint_id>` which should be used as the
+`<from_checkpoint_id>` in the next incremental backup.
 Now you can start downloading the disks.
 
 Request:
@@ -317,7 +317,7 @@ Response:
         ...
     </disks>
     <phase>ready</phase>
-    <creation_date>...
+    <creation_date>
 </vm_backup>
 ```
 
@@ -328,6 +328,24 @@ POST /vms/vm-uuid/backups/backup-uuid/finalize
 
 <action></action>
 ```
+
+### Creating an image transfer for downloading an incremental backup disk
+When the backup is ready to download, an *imagetransfer* object should be created.
+To correlate the transfer with the backup, `<backup>` property should be specified with the relevant backup id.
+The transfer `<format>` property should be `raw` (this indicates that NBD is used as the ImageTransfer backend).
+
+Request:
+
+````
+POST /imagetransfers
+
+<image_transfer>
+    <disk id="123"/>
+    <backup id="456"/>
+    <direction>download</direction>
+    <format>raw</format>
+</image_transfer>
+````
 
 #### Creating image transfer for incremental restore
 
@@ -399,7 +417,7 @@ Response:
 </checkpoint>
 ```
 
-#### Remove the root checkpoint of a specific VM checkpoint
+#### Remove the root checkpoint of a specific VM
 
 To remove the root of the checkpoints chain a DELETE request should be used:
 

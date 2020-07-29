@@ -296,7 +296,7 @@ The following table describes the CPU load metrics reported by the **Load** plug
 
 * **interval:** 10
 
-* **collectd.dstypes:** [Guide](Gauge)
+* **collectd.dstypes:** Gauge
 
 ### Disk Consumption Metrics
 

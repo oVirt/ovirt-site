@@ -76,7 +76,7 @@ Features being considered for inclusion/already in master:
     -   automatic storage domain upgrade
     -   Japanese localization
     -   [Unidirectional Gluster Geo-replication support](/develop/release-management/features/gluster/gluster-geo-replication/)
-    -   [Support for asynchronous Gluster volume tasks](/develop/release-management/features/gluster/gluster-volume-asynchronous-tasks-management/)
+    -   [Support for asynchronous Gluster volume tasks](/develop/release-management/features/gluster/gluster-volume-asynchronous-tasks-management.html)
     -   [Gluster Volume Performance Statistics](/develop/release-management/features/gluster/gluster-volume-performance-statistics/)
     -   [Configuration sync with Gluster CLI](/develop/release-management/features/gluster/gluster-sync-configuration-with-cli/)
     -   [Monitoring Gluster Volumes and Bricks](/develop/release-management/features/gluster/glustervolumeadvanceddetails/)

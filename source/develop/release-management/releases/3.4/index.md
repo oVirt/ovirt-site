@@ -9,7 +9,9 @@ The oVirt Project is pleased to announce the availability of its fifth formal re
 
 oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
 
-To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.3 release notes](/develop/release-management/releases/3.3/), [oVirt 3.2 release notes](/develop/release-management/releases/3.2/) and [oVirt 3.1 release notes](/develop/release-management/releases/3.1/). For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide/) and the [about oVirt](/community/about.html) page.
+To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.3 release notes](/develop/release-management/releases/3.3/),
+[oVirt 3.2 release notes](/develop/release-management/releases/3.2/) and [oVirt 3.1 release notes](/develop/release-management/releases/3.1/).
+For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide) and the [about oVirt](/community/about.html) page.
 
 # oVirt 3.4 Release Notes
 
@@ -19,12 +21,12 @@ To find out more about features which were added in previous oVirt releases, che
 
 ## Enhanced Gluster Support
 
-*   [Gluster Volume Asynchronous Tasks Management](/develop/release-management/features/gluster/gluster-volume-asynchronous-tasks-management/) enables users to re-balance volumes and remove bricks in Gluster operations/rebalance and remove bricks in Gluster volumes.
+*   [Gluster Volume Asynchronous Tasks Management](/develop/release-management/features/gluster/gluster-volume-asynchronous-tasks-management.html) enables users to re-balance volumes and remove bricks in Gluster operations/rebalance and remove bricks in Gluster volumes.
 
 ## Preview: PPC64
 
-*   [Engine Support for PPC64](/develop/release-management/features/engine/engine-support-for-ppc64/) will add PPC64 architecture awareness to the ovirt-engine code, which currently makes various assumptions based on the x86 architecture. When specifying virtual machine devices, for example, what is suitable for x86 architecture may not be for POWER (or may not be available yet).
-*   [VDSM Support for PPC64](/develop/release-management/features/vdsm/for-ppc64/) introduces the capability of managing KVM on IBM POWER processors via oVirt. Administrators will be able to perform management functionalities such as adding or activating KVM, creating clusters of KVM and performing VM lifecycle management on any IBM POWER host.
+*   [Engine Support for PPC64](/develop/release-management/features/virt/engine-support-for-ppc64.html) will add PPC64 architecture awareness to the ovirt-engine code, which currently makes various assumptions based on the x86 architecture. When specifying virtual machine devices, for example, what is suitable for x86 architecture may not be for POWER (or may not be available yet).
+*   [VDSM Support for PPC64](/develop/release-management/features/virt/for-ppc64.html) introduces the capability of managing KVM on IBM POWER processors via oVirt. Administrators will be able to perform management functionalities such as adding or activating KVM, creating clusters of KVM and performing VM lifecycle management on any IBM POWER host.
     -   <div class="alert alert-info">
         Migration is still a work in progress for KVM on IBM POWER processor.
 
@@ -32,64 +34,64 @@ To find out more about features which were added in previous oVirt releases, che
 
 ## Preview: Hot-plug CPUs
 
-oVirt 3.4 adds a preview of a [Hot-plug CPU](/develop/release-management/features/virt/hot-plug-cpu/) feature that enables administrators to ensure customer's service-level agreements are being met, the full utilization of spare hardware, and the capability to dynamically to scale vertically, down or up, a system's hardware according to application needs without restarting the virtual machine.
+oVirt 3.4 adds a preview of a [Hot-plug CPU](/develop/release-management/features/virt/hot-plug-cpu.html) feature that enables administrators to ensure customer's service-level agreements are being met, the full utilization of spare hardware, and the capability to dynamically to scale vertically, down or up, a system's hardware according to application needs without restarting the virtual machine.
 
 ## Other Enhancements
 
 ### Virt
 
-*   [Guest Agents for openSUSE](/develop/release-management/features/virt/guestagentopensuse/) and [Ubuntu](/develop/release-management/features/virt/guestagentubuntu/) provide ovirt-guest-agent packages for these Linux distributions.
-*   [SPICE Proxy](/develop/release-management/features/virt/spice-proxy/) lets the users define a proxy that will be used by SPICE client to connect to the guest. It is useful when the user (e.g., using user portal) is outside of the network where the hypervisors reside.
-*   [SSO Method Control](/develop/release-management/features/infra/sso-method-control/) enables users to switch between various SSO methods in the UI. The first version of the patch only allows switching between guest agent SSO (current approach) and disabling SSO.
-*   [Init Persistent](/develop/release-management/features/virt/vm-init-persistent/) allows persistent use of Windows Sysprep and Cloud-Init data to the Database. By persisting the data, administrators can create a template with VM-Init data that will enable initialize VMs with relevant data.
-*   [Guest Reboot](/develop/release-management/features/engine/guest-reboot/) enable users to restart VMs with single command.
-*   [Template Versioning](/develop/release-management/features/virt/template-versions/) enables adding new versions to existing templates, by either selecting a VM and using it to create a new version of a template or by editing a template, and when saving, selecting Save As Version.
+*   [Guest Agents for openSUSE](/develop/release-management/features/virt/guestagentopensuse.html) and [Ubuntu](/develop/release-management/features/virt/guestagentubuntu.html) provide ovirt-guest-agent packages for these Linux distributions.
+*   [SPICE Proxy](/develop/release-management/features/virt/spice-proxy.html) lets the users define a proxy that will be used by SPICE client to connect to the guest. It is useful when the user (e.g., using user portal) is outside of the network where the hypervisors reside.
+*   [SSO Method Control](/develop/release-management/features/infra/sso-method-control.html) enables users to switch between various SSO methods in the UI. The first version of the patch only allows switching between guest agent SSO (current approach) and disabling SSO.
+*   [Init Persistent](/develop/release-management/features/virt/vm-init-persistent.html) allows persistent use of Windows Sysprep and Cloud-Init data to the Database. By persisting the data, administrators can create a template with VM-Init data that will enable initialize VMs with relevant data.
+*   [Guest Reboot](/develop/release-management/features/virt/guest-reboot.html) enable users to restart VMs with single command.
+*   [Template Versioning](/develop/release-management/features/virt/template-versions.html) enables adding new versions to existing templates, by either selecting a VM and using it to create a new version of a template or by editing a template, and when saving, selecting Save As Version.
 
 ### Infra
 
-*   [oVirt Engine SNMP Traps](/develop/release-management/features/engine/engine-snmp/) extends events notifier capabilities and enables oVirt to generate SNMP traps out of system events to integrate oVirt with generic monitoring systems.
-*   [Authentication & Directory rewrites](Features/Authentication-Rewrite) allow re-implementation of Authentication and Directory support within oVirt, which is currently based on Kerberos and "internal" user for authentication, and on LDAP and the database (for internal domains).
+*   [oVirt Engine SNMP Traps](/develop/release-management/features/infra/engine-snmp.html) extends events notifier capabilities and enables oVirt to generate SNMP traps out of system events to integrate oVirt with generic monitoring systems.
+*   [Authentication & Directory rewrites](/develop/release-management/features/infra/authentication-rewrite.html) allow re-implementation of Authentication and Directory support within oVirt, which is currently based on Kerberos and "internal" user for authentication, and on LDAP and the database (for internal domains).
 
 ### Networking
 
-*   [Network Labels](/develop/release-management/features/network/networklabels/) provides the ability to label networks and to use that label on the host's interfaces, so the label abstracts the networks from the physical interface/bond (which can be labelled with one or more labels).
-*   [Predictable vNIC Order](/develop/release-management/features/network/predictable-vnic-order/) resolves the usual mess in MAC address and PCI address mapping when adding a virtual NIC to an oVirt guest by making in-guest order of NICs predictable, depending their visual order.
-*   [OpenStack Neutron integration](/develop/release-management/features/network/detailed-osn-integration/) will give users the ability to use various technologies that OpenStack Neutron provides for its networks, such as IPAM, L3 routing, and security groups, as well as the capability to use technologies not natively supported in oVirt for VM networks.
+*   [Network Labels](/develop/release-management/features/network/networklabels.html) provides the ability to label networks and to use that label on the host's interfaces, so the label abstracts the networks from the physical interface/bond (which can be labelled with one or more labels).
+*   [Predictable vNIC Order](/develop/release-management/features/network/predictable-vnic-order.html) resolves the usual mess in MAC address and PCI address mapping when adding a virtual NIC to an oVirt guest by making in-guest order of NICs predictable, depending their visual order.
+*   [OpenStack Neutron integration](/develop/release-management/features/network/detailed-osn-integration.html) will give users the ability to use various technologies that OpenStack Neutron provides for its networks, such as IPAM, L3 routing, and security groups, as well as the capability to use technologies not natively supported in oVirt for VM networks.
     -   <div class="alert alert-info">
         This feature still does not include migration for security groups, which will be added in an upcoming release during the 3.4 release cycle.
 
         </div>
 
-*   [Adding iproute2 support](/develop/release-management/features/network/networkreloaded/), creating a network backend from iproute2 tools, following the internal API.
+*   [Adding iproute2 support](/develop/release-management/features/network/networkreloaded.html), creating a network backend from iproute2 tools, following the internal API.
     -   <div class="alert alert-info">
         This feature is still partially implemented, and will be completed in an upcoming release during the 3.4 release cycle.
 
         </div>
 
-*   [Multi-Host Network Configuration](/develop/release-management/features/network/multihostnetworkconfiguration/) allows the administrator to modify a network (i.e., VLAN-id or MTU) that is already provisioned by the hosts and to apply the network changes to all of the hosts within the datacenter to which the network is assigned. The feature will be enabled for 3.1 datacenters and above, regardless of cluster level in order to avoid inconsistency between hosts network configuration in various clusters.
+*   [Multi-Host Network Configuration](/develop/release-management/features/network/multihostnetworkconfiguration.html) allows the administrator to modify a network (i.e., VLAN-id or MTU) that is already provisioned by the hosts and to apply the network changes to all of the hosts within the datacenter to which the network is assigned. The feature will be enabled for 3.1 datacenters and above, regardless of cluster level in order to avoid inconsistency between hosts network configuration in various clusters.
 
 **Planned Features: Networking**
 
-*   [Host Network Quality of Service](/develop/release-management/features/network/detailed-host-network-qos/) provides the means to control the traffic of a specific network through a host's physical interface. It is a natural extension of the [VM Network QoS](/documentation/sla/network-qos/) feature, which provided the same functionality for a VM network through a VM's virtual interface. This feature was planned for oVirt 3.4, but is postponed until oVirt 3.5.
+*   [Host Network Quality of Service](/develop/release-management/features/network/detailed-host-network-qos.html) provides the means to control the traffic of a specific network through a host's physical interface. It is a natural extension of the [VM Network QoS](/develop/sla/network-qos.html) feature, which provided the same functionality for a VM network through a VM's virtual interface. This feature was planned for oVirt 3.4, but is postponed until oVirt 3.5.
 
 ### Storage
 
-*   [Multiple Storage Domains](/develop/release-management/features/storage/multiplestoragedomains/) enables a virtual machine to spread its disks across several storage domains within the same datacenter.
-*   [Read Only Disk for Engine](/develop/release-management/features/storage/read-only-disk/) gives Engine the read-only disk capability already found in VDSM.
-*   [Single-disk Snapshot](/develop/release-management/features/storage/single-disk-snapshot/) enables the creation of a customized snapshot, allowing the user to select from which disks to take a snapshot.
+*   [Multiple Storage Domains](/develop/release-management/features/storage/multiplestoragedomains.html) enables a virtual machine to spread its disks across several storage domains within the same datacenter.
+*   [Read Only Disk for Engine](/develop/release-management/features/storage/read-only-disk.html) gives Engine the read-only disk capability already found in VDSM.
+*   [Single-disk Snapshot](/develop/release-management/features/storage/single-disk-snapshot.html) enables the creation of a customized snapshot, allowing the user to select from which disks to take a snapshot.
 
 ### SLA & Scheduling
 
-*   [VM Affinity](/develop/release-management/features/sla/vm-affinity/) makes it possible to apply Affinity and Anti-Affinity rules to VMs to manually dictate scenarios in which VMs should run together on the same, or separately on different hypervisor hosts.
-*   [Power off capacity added to power policy](/develop/release-management/features/sla/hostpowermanagementpolicy/) enables hosts to be shutdown and have the Engine clear the host to migrate all VMs elsewhere.
-*   [Even VM distribution based on VM count per host](/develop/release-management/features/sla/even-vm-count-distribution/) provides a cluster policy that evenly distributes VMs based on VM count.
-*   [High Availability VM Reservation](/develop/release-management/features/sla/ha-vm-reservation/) serves as a mechanism to ensure appropriate capacity exists within a cluster for HA VMs in the event the host they currently resides on fails unexpectedly.
-*   [Self Hosted Engine Maintenance Flows](/develop/release-management/features/engine/self-hosted-engine-maintenance-flows/) reports additional information about the hosted engine system to the engine, allowing the engine to control the hosted engine maintenance modes.
+*   [VM Affinity](/develop/release-management/features/sla/vm-affinity.html) makes it possible to apply Affinity and Anti-Affinity rules to VMs to manually dictate scenarios in which VMs should run together on the same, or separately on different hypervisor hosts.
+*   [Power off capacity added to power policy](/develop/release-management/features/sla/hostpowermanagementpolicy.html) enables hosts to be shutdown and have the Engine clear the host to migrate all VMs elsewhere.
+*   [Even VM distribution based on VM count per host](/develop/release-management/features/sla/even-vm-count-distribution.html) provides a cluster policy that evenly distributes VMs based on VM count.
+*   [High Availability VM Reservation](/develop/release-management/features/sla/ha-vm-reservation.html) serves as a mechanism to ensure appropriate capacity exists within a cluster for HA VMs in the event the host they currently resides on fails unexpectedly.
+*   [Self Hosted Engine Maintenance Flows](/develop/release-management/features/sla/self-hosted-engine-maintenance-flows.html) reports additional information about the hosted engine system to the engine, allowing the engine to control the hosted engine maintenance modes.
 
 ### UX Enhancements
 
-*   [UI Refresh Synchronization](/develop/release-management/features/ux/uirefreshsynchronization/) solves UI consistency issues related to the UI not being updated when certain actions/events happen by centralizing the refresh logic.
-*   [Lower Resolution Support](/develop/release-management/features/ux/uirefreshsynchronization/) repairs the issue of lower resolutions causing the tab bar and action menu wrap overlapping other UI elements by adding a scrollable tab bar for the tabs and a cascading menu bar for the action menu.
+*   [UI Refresh Synchronization](/develop/release-management/features/ux/uirefreshsynchronization.html) solves UI consistency issues related to the UI not being updated when certain actions/events happen by centralizing the refresh logic.
+*   [Lower Resolution Support](/develop/release-management/features/ux/uirefreshsynchronization.html) repairs the issue of lower resolutions causing the tab bar and action menu wrap overlapping other UI elements by adding a scrollable tab bar for the tabs and a cascading menu bar for the action menu.
 
 # Install / Upgrade from Previous Versions
 
@@ -152,9 +154,9 @@ If you're upgrading from oVirt 3.3.2 or later you should just execute:
 
 If you're upgrading from oVirt 3.3.0 or 3.3.1 you must first upgrade to a newer version of oVirt 3.3 (latest is 3.3.5)
 
-If you're upgrading from oVirt 3.2, you should read [oVirt 3.2 to 3.3 upgrade](/develop/release-management/releases/3.2/to-3.3-upgrade/).
+If you're upgrading from oVirt 3.2, you should read [oVirt 3.2 to 3.3 upgrade](/develop/release-management/releases/3.2/to-3.3-upgrade.html).
 
-If you're upgrading from oVirt 3.1, you should upgrade to 3.2 before upgrading to 3.4. Please read [oVirt 3.1 to 3.2 upgrade](/develop/release-management/releases/3.1/to-3.2-upgrade/) before starting the upgrade.
+If you're upgrading from oVirt 3.1, you should upgrade to 3.2 before upgrading to 3.4. Please read [oVirt 3.1 to 3.2 upgrade](/develop/release-management/releases/3.1/to-3.2-upgrade.html) before starting the upgrade.
 
 **On CentOS and RHEL:** For upgrading to 3.2, you'll need 3.2 stable repository. So, the first step is to disable 3.3 / stable repository and enable 3.2 in /etc/yum.repos.d/ovirt.repo:
 
@@ -603,7 +605,7 @@ will upgrade to latest 3.3.
  - Default route is not set properly for management network if downstream/upstream engine and VDSM are mixed
  - RHEV 3.2 API changing IP on hypervisor bond sub-int reqs re-passing bond opts
  - Override previous export of same template fail
- - [REST]: Missing domain field on VM\\Template object.
+ - [REST] Missing domain field on VM\\Template object.
  - [REST-API] XSD schema validation error: response for create vm returned with 'type' and 'data' fields instead of with one of these fields
  - webadmin: Missing add new ISO option in data center "guide me" dialog
  - Failure to add domain via engine-manage-domains if the kerberos realm is not an uppercase of the DNS domain

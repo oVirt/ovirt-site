@@ -3,6 +3,7 @@ require 'html-proofer'
 options = {
   assume_extension: true,
   check_img_http: true,
+  checks_to_ignore: [ "LinkCheck" ],
   empty_alt_ignore: true,
   allow_hash_href: true,
   http_status_ignore: [429],

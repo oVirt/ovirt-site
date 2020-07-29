@@ -870,7 +870,7 @@ Result: User can invoke a copy host networks action from the web-admin.
 	Lucia Jelinkova
 	Marcin Sobczyk
 	Martin Nečas
-	Martin Peřina
+	Martin Perina
 	Michal Skrivanek
 	Milan Zamazal
 	Nijin Ashok

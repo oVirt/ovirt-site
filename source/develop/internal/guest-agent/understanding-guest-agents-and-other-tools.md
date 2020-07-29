@@ -23,18 +23,18 @@ Please refer to [Virtual Machine Management Guide](/documentation/vmm-guide/Virt
 
 ## Agents
 
-### oVirt Guest Agent
-
-**The oVirt Guest Agent has been deprecated** in favor of QEMU Guest Agent and is not available anymore for recent OS. It can still be found for less recent OS in their own distribution repositories.
-The oVirt Guest Agent provides information, notifications, and actions between the oVirt web interface and the guest. A more detailed description can be found at [oVirt Guest Agent](guest-agent.html).
-The agent provides the Machine Name, Operating System, IP Addresses, Installed Applications, Network and RAM usage and others details to the web interface. The agent also provides Single Sign On 
-so a authenticated user to the web interface does not need to authenticate again when connected to a VM.
-
 ### QEMU Guest Agent
 
 The QEMU Guest Agent helps management applications with executing functions which need assistance of the guest OS. For example, freezing and thawing filesystems, entering suspend.
 It provides information, notifications, and actions between the oVirt web interface and the guest. A more detailed description can be found at [QEMU Guest Agent](https://wiki.libvirt.org/page/Qemu_guest_agent).
 
+### oVirt Guest Agent
+
+**The oVirt Guest Agent has been deprecated** in favor of QEMU Guest Agent and is not available anymore for recent OS. It can still be found for less recent OS in their own distribution repositories.
+The oVirt Guest Agent provides information, notifications, and actions between the oVirt web interface and the guest.
+A more detailed description can be found at [oVirt Guest Agent](guest-agent.html).
+The agent provides the Machine Name, Operating System, IP Addresses, Installed Applications, Network and RAM usage and others details to the web interface.
+The agent also provides Single Sign On so an authenticated user to the web interface does not need to authenticate again when connected to a VM.
 
 ### Spice Agent
 

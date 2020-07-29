@@ -17,8 +17,8 @@ This page describes the hacked solution, and tracks the known gaps to its fruiti
 ## What's Done and How to Use It
 
 1.  To manage Xen hosts in oVirt, you first need a Xen host to manage. I followed <http://wiki.xen.org/wiki/Fedora_Host_Installation> to install Xen on Fedora 19. Please note that you'd better set up a bridge named `ovirtmgmt` instead of `br0`. Reboot the host to see that everything is fine, and that you have access to your dom0.
-2.  A second step is to installed an unchanged oVirt Engine on a host. I used an [All-in-One](/Feature/AllInOne) installation of oVirt, running on my Xen dom0.
-3.  I needed to modify Vdsm in so it would be possible to run Xen VMs. My patches are not expected to by accepted upstream, at least not in their current form, so you would need to build Vdsm [from source](Vdsm Developers), first applying the [Xen-related patches](http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:xen,n,z). When you build Vdsm, take note of [Vdsm_Developers#Building_with_hooks_support](Vdsm_Developers#Building_with_hooks_support).
+2.  A second step is to installed an unchanged oVirt Engine on a host. I used an [All-in-One](/develop/release-management/features/integration/allinone.html) installation of oVirt, running on my Xen dom0.
+3.  I needed to modify Vdsm in so it would be possible to run Xen VMs. My patches are not expected to by accepted upstream, at least not in their current form, so you would need to build Vdsm [from source](/develop/developer-guide/vdsm/developers.html), first applying the [Xen-related patches](http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:xen,n,z). When you build Vdsm, take note of [Vdsm_Developers#Building_with_hooks_support](/develop/developer-guide/vdsm/developers.html#building-with-hooks-support).
 4.  Install Vdsm on your dom0. Do not forget to install vdsm-hook-xen.rpm, too.
 5.  On your Engine host,
 

@@ -835,7 +835,7 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 #### Contributors
 
-67 people contributed to this release:
+62 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -848,6 +848,7 @@ Result: User can invoke a copy host networks action from the web-admin.
 	Aviv Turgeman
 	Bell Levin
 	Bella Khizgiyev
+	Ben Amsalem
 	Benny Zlotnik
 	Dana Elfassy
 	Daniel Erez
@@ -860,7 +861,6 @@ Result: User can invoke a copy host networks action from the web-admin.
 	Eyal Shenitzky
 	Fedor Gavrilov
 	Gal Zaidman
-	Gal-Zaidman
 	Germano Veit Michel
 	Gobinda Das
 	Hilda Stastna
@@ -879,6 +879,7 @@ Result: User can invoke a copy host networks action from the web-admin.
 	Oleh Horbachov
 	Ondra Machacek
 	Ori Liel
+	Parth Dhanjal
 	Pavel Bar
 	Prajith Kesava Prasad
 	Radoslaw Szwajkowski
@@ -898,5 +899,3 @@ Result: User can invoke a copy host networks action from the web-admin.
 	Yedidyah Bar David
 	Yotam Fromm
 	Yuval Turgeman
-	bamsalem
-	parthdhanjal

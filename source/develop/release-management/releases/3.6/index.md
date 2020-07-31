@@ -16,11 +16,11 @@ To find out more about features which were added in previous oVirt releases, che
 
 ## Experimental Docker Integration
 
-oVirt Engine setup now provides experimental [Cinder and Glance](/develop/release-management/features/cinderglance-docker-integration/) automated deployment using Docker
+oVirt Engine setup now provides experimental Cinder and Glance automated deployment using Docker
 
 Cinder and Glance images are from kollaglue project. <https://github.com/openstack/kolla> kollaglue is 'the official' effort from openstack project to provide production-ready containers and deployment tools for operating OpenStack clouds. The kollaglue Docker images are built by the Kolla project maintainers. On oVirt side we have an optional plugin for oVirt engine-setup to pull and deploy their ready to use containers (glance and cinder only) and automatically adding them into your oVirt engine isntance.
 
-Recently the cinder container setup for oVirt got broken cause they introduced the use of Ansible's playbooks to customize and complete the container setup and unfortunately we are still not ready for that. You should be able to manually setup cinder with that containers following this guides: <https://github.com/openstack/kolla/blob/master/doc/ansible-deployment.rst> <https://github.com/openstack/kolla/blob/master/doc/cinder-guide.rst>
+Recently the cinder container setup for oVirt got broken cause they introduced the use of Ansible's playbooks to customize and complete the container setup and unfortunately we are still not ready for that. You should be able to manually setup cinder with that containers following kolla documentation: <https://docs.openstack.org/kolla/latest/>
 
 Glance container setup and its oVirt integration are still working.
 
@@ -28,11 +28,11 @@ Kolla images will not run on Fedora 22 or later currently. Fedora 22 compresses 
 
 ## Self Hosted Engine FC Support
 
-Hosted Engine has now added support for [FC storage](/develop/release-management/features/engine/self-hosted-engine-fc-support/)
+Hosted Engine has now added support for [FC storage](/develop/release-management/features/sla/self-hosted-engine-fc-support.html)
 
 ## Self Hosted Engine Gluster Support
 
-*   Hosted Engine has now added support for [Gluster storage](/develop/release-management/features/engine/self-hosted-engine-gluster-support/)
+*   Hosted Engine has now added support for [Gluster storage](/develop/release-management/features/sla/self-hosted-engine-gluster-support.html)
 
 ## oVirt Live
 
@@ -48,7 +48,7 @@ Support for running oVirt on Fedora 22 (or similar) has been added providing cus
 
 ## VirtIO Serial Console
 
-Users can now directly connect, using ssh, to the [serial consoles](/develop/release-management/features/engine/serial-console/) of the VMs.
+Users can now directly connect, using ssh, to the [serial consoles](/develop/release-management/features/virt/serial-console.html) of the VMs.
 
 ## Affinity Rules Enforcement Manager
 
@@ -64,11 +64,11 @@ Behavior of the manager:
 
 ## Cluster parameters override
 
-[Cluster parameters override](/develop/release-management/features/engine/cluster-parameters-override/) feature allows to configure the 'emulated machine' and 'cpu model' parameters for each VM separately instead of relying on the cluster default.
+[Cluster parameters override](/develop/release-management/features/virt/cluster-parameters-override.html) feature allows to configure the 'emulated machine' and 'cpu model' parameters for each VM separately instead of relying on the cluster default.
 
 ## Other features
 
-For a detailed description of the above features and a complete list of the features included in this release please see [oVirt 3.6 features list](/Category:OVirt_3.6_Feature)
+For a detailed description of the above features and a complete list of the features included in this release please see [oVirt 3.6 features list](feature.html)
 
 Please note that All-In-One setup is now deprecated in 3.6 and will be dropped in 4.0. You're strongly encouraged to use Hosted Engine setup instead of All-In-One.
 
@@ -119,7 +119,7 @@ before adding the host to the engine.
 
 ## Fedora / CentOS / RHEL
 
-In order to install it on a clean system, you need to run (see also [Known Issues](#Known_Issues) above):
+In order to install it on a clean system, you need to run (see also [Known Issues](#known-issues) above):
 
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
 
@@ -159,7 +159,7 @@ A new oVirt Live ISO is available:
 
 ## oVirt Node
 
-oVirt Node is now released continuously, the download link can be found in the [oVirt Node Release](/develop/projects/node/node/#release) section
+oVirt Node is now released continuously, the download link can be found in the [oVirt Node Release](/download/node.html) section
 
 # <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 
@@ -256,7 +256,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - [text] engine setup should specify full service name for dwhd
  - [RFE] New host network API:No default BOND mode for create BOND via REST
  - Network labels| Attach operation fail for new network with label
- - REST API: missing support for ssh keys handling
+ - REST API : missing support for ssh keys handling
  - oVirt 3.6 using Cinder as external store does not remove cloned disk image - ceph backend
  - Missing buttons and power management on host edit after saving host with wrong power management
  - PowerSaving balancing not take in account CPU under utilized hosts
@@ -775,7 +775,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - webadmin [TEXT]: misleading error message when attempting IDE hotplug
  - [RFE] add API for Cluster Fencing Policy
  - [RFE][RHEV-M webadmin] improve German translation.
- - [REST API]: VM next_run do not have all fields updated.
+ - [REST API] VM next_run do not have all fields updated.
  - Can't change a vm disk's storage domain from a file domain to a block domain when creating a template from a vm
  - UI paging/sorting: paging/sorting using the paging-buttons/column-headers doesn't update the search text; need to eliminate paging-text/sorting-text from search-text completely
  - [RFE] While adding new disk from RHEV admin portal: move the "Allocation Policy" list box below the Storage Domain List box.

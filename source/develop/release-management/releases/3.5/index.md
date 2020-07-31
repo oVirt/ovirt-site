@@ -18,7 +18,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 If an image has one or more snapshots, oVirt 3.5's merge command will combine the data of one volume into another. [Live merges](/develop/release-management/features/storage/live-merge.html) can be performed with data is pulled from one snapshot into another snapshot. The engine can merge multiple disks at the same time and each merge can independently fail or succeed in each operation.
 
-**Note:** This is currently a restricted use case. You must be running a Fedora 20 host that has been updated from the virt-preview yum repository. See [this page](/develop/release-management/features/storage/live-merge.html#important:-special-environment-setup) for more details.
+**Note:** This is currently a restricted use case. You must be running a Fedora 20 host that has been updated from the virt-preview yum repository. See [this page](/develop/release-management/features/storage/live-merge.html#important-special-environment-setup) for more details.
 
 ## Import Storage Domain
 
@@ -53,9 +53,9 @@ The [Optaplanner](/develop/release-management/features/sla/optaplanner.html) is 
 
 ### Integration
 
-*   It is now possible to setup the engine and [WebSocket-Proxy](/develop/release-management/features/integration/websocketproxy-on-a-separate-host.html), [DWH](/develop/release-management/features/engine/separate-dwh-host.html), Reports on separate hosts.
-*   [Hosted Engine](/develop/release-management/features/storage/read-only-disk.html) has now added support for [iSCSI storage](/develop/release-management/features/engine/self-hosted-engine-iscsi-support.html), VLAN-tagged network interfaces, bonded network interfaces, and Red Hat Enterprise Linux 7 (or similar).
-*   [oVirt Windows Guest Tools](/develop/release-management/features/engine/windows-guest-tools.html) for oVirt 3.5 are now available as a release candidate.
+*   It is now possible to setup the engine and [WebSocket-Proxy](/develop/release-management/features/integration/websocketproxy-on-a-separate-host.html), [DWH](/develop/release-management/features/integration/separate-dwh-host.html), Reports on separate hosts.
+*   [Hosted Engine](/develop/release-management/features/storage/read-only-disk.html) has now added support for [iSCSI storage](/develop/release-management/features/sla/self-hosted-engine-iscsi-support.html), VLAN-tagged network interfaces, bonded network interfaces, and Red Hat Enterprise Linux 7 (or similar).
+*   [oVirt Windows Guest Tools](/develop/release-management/features/integration/windows-guest-tools.html) for oVirt 3.5 are now available as a release candidate.
 
 ## Install / Upgrade from Previous Versions
 
@@ -70,17 +70,6 @@ If you are upgrading from a previous version, you should have the ovirt-release3
 If you are upgrading from oVirt < 3.4.1, you must first upgrade to oVirt 3.4.1 or later. Please see [oVirt 3.4.1 release notes](/develop/release-management/releases/3.4.1/) for upgrade instructions.
 
 Once ovirt-release35 package is installed, you will have the ovirt-3.5-stable repository and any other repository needed for satisfying dependencies enabled by default.
-
-If you're using pre-release repo you'll need to re-enable pre release repository:
-
-      [ovirt-3.5-pre]
-      name=Latest oVirt 3.5 Pre Release
-`#baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever/`](http://resources.ovirt.org/pub/ovirt-3.5-pre/rpm/fc$releasever/)
-`mirrorlist=`[`http://resources.ovirt.org/pub/yum-repo/mirrorlist-ovirt-3.5-pre-fc$releasever`](http://resources.ovirt.org/pub/yum-repo/mirrorlist-ovirt-3.5-pre-fc$releasever)
-      enabled=1
-      skip_if_unavailable=1
-      gpgcheck=1
-`gpgkey=`[`file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5`](file:///etc/pki/rpm-gpg/RPM-GPG-ovirt-3.5)
 
 and to run:
 
@@ -99,9 +88,6 @@ An oVirt Node build will be also available soon in:
 
 [`http://resources.ovirt.org/pub/ovirt-3.5/iso`](http://resources.ovirt.org/pub/ovirt-3.5/iso)
 
-Pre-release version is still available here:
-
-[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-node-iso-3.5.0.ovirt35.20140630.el6.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-node-iso-3.5.0.ovirt35.20140630.el6.iso)
 
 *   To circumvent some SELinux issues, please append enforcing=0 to the kernel commandline when booting the ISO.
 *   The ISO is missing the plugin for Hosted Engine, but we hope to deliver an iso that includes this plugin shortly.

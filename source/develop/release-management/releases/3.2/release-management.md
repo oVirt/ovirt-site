@@ -56,34 +56,33 @@ Features being considered for inclusion/already in master:
 
 *   Primarily a bug fix release (list of bugs would be useful)
 *   Engine
-    -   [UI plugins](/develop/release-management/features/ux/uiplugins/)
-    -   [Make network a main tab](/develop/release-management/features/network/networkmaintab/) - stretch goal for 3.2
-    -   [Import of existing gluster clusters](/develop/release-management/features/gluster/gluster-import-existing-cluster/)
-    -   [Bootstrap improvements](/develop/release-management/features/infra/bootstrap-improvements/)
-    -   [PKI improvments](/develop/release-management/features/infra/pki-improvements/)
-    -   [SLA is a target for inclusion (MOM)](/develop/release-management/features/sla/sla-mom/)
-    -   [Improving Quota for 3.2](/develop/release-management/features/ux/quota-3.2/)
-    -   [Integrate smartcard support](/develop/release-management/features/virt/smartcard-support/)
-    -   [Display Address Override](/develop/release-management/features/virt/display-address-override/)
+    -   UI plugins
+    -   [Make network a main tab](/develop/release-management/features/network/networkmaintab.html) - stretch goal for 3.2
+    -   [Import of existing gluster clusters](/develop/release-management/features/gluster/gluster-import-existing-cluster.html)
+    -   [Bootstrap improvements](/develop/release-management/features/infra/bootstrap-improvements.html)
+    -   [PKI improvments](/develop/release-management/features/infra/pki-improvements.html)
+    -   [SLA is a target for inclusion (MOM)](/develop/release-management/features/sla/sla-mom.html)
+    -   [Improving Quota for 3.2](/develop/release-management/features/sla/quota-3.2.html)
+    -   [Integrate smartcard support](/develop/release-management/features/virt/smartcard-support.html)
+    -   [Display Address Override](/develop/release-management/features/virt/display-address-override.html)
     -   VM creation base on pre-defined profiles (instance types)
-    -   [libvdsm preview](/develop/release-management/features/vdsm/libvdsm/)
-    -   [Storage live migration](/develop/release-management/features/storage/storagelivemigration/) on multiple disks
-    -   [Sync network](/documentation/how-to/networking/setupnetworks-syncnetworks/)
-    -   [nwfilter](/develop/release-management/features/network/networkfiltering/)
+    -   [libvdsm preview](/develop/release-management/features/vdsm/libvdsm.html)
+    -   [Storage live migration](/develop/release-management/features/storage/storagelivemigration.html) on multiple disks
+    -   Sync network
+    -   [nwfilter](/develop/release-management/features/network/networkfiltering.html)
     -   webadmin: allow column resizing & sorting in grid (bz 767924)
-    -   [port mirroring](/develop/release-management/features/network/portmirroring/)
+    -   [port mirroring](/develop/release-management/features/network/portmirroring.html)
     -   user level api
     -   automatic storage domain upgrade
     -   Japanese localization
-    -   [Unidirectional Gluster Geo-replication support](/develop/release-management/features/gluster/gluster-geo-replication/)
+    -   [Unidirectional Gluster Geo-replication support](/develop/release-management/features/gluster/gluster-geo-replication.html)
     -   [Support for asynchronous Gluster volume tasks](/develop/release-management/features/gluster/gluster-volume-asynchronous-tasks-management.html)
-    -   [Gluster Volume Performance Statistics](/develop/release-management/features/gluster/gluster-volume-performance-statistics/)
-    -   [Configuration sync with Gluster CLI](/develop/release-management/features/gluster/gluster-sync-configuration-with-cli/)
-    -   [Monitoring Gluster Volumes and Bricks](/develop/release-management/features/gluster/glustervolumeadvanceddetails/)
-    -   [Performance and Scalability](/develop/release-management/features/sla/performance-and-scalability/)
+    -   [Gluster Volume Performance Statistics](/develop/release-management/features/gluster/gluster-volume-performance-statistics.html)
+    -   [Configuration sync with Gluster CLI](/develop/release-management/features/gluster/gluster-sync-configuration-with-cli.html)
+    -   [Monitoring Gluster Volumes and Bricks](/develop/release-management/features/gluster/glustervolumeadvanceddetails.html)
+    -   [Performance and Scalability](/develop/release-management/features/sla/performance-and-scalability.html)
 *   Node
-    -   [TUI redesign](/develop/release-management/features/node/tuiredesign/)
-    -   [Node automation](/develop/release-management/features/node/nodeautomation/) work -- refactor git repo to make standard python tools work
-    -   [glusterfs client support](/develop/release-management/features/node/glusterfs-support/)
-    -   [Full plugin support](/develop/release-management/features/plugins/plugins/) Including example plugins (snmp, cim)
-
+    -   TUI redesign
+    -   [Node automation](/develop/release-management/features/node/nodeautomation.html) work -- refactor git repo to make standard python tools work
+    -   [glusterfs client support](/develop/release-management/features/node/glusterfs-support.html)
+    -   Full plugin support

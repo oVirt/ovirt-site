@@ -13,9 +13,9 @@ The oVirt 3.1 release includes these notable changes.
 
 ### Installer
 
-*   The installation script now supports the configuration of a HTTP/HTTPS proxy, allowing the oVirt Engine to be accessed via port 80 for HTTP, and port 443 for HTTPS ([Features/OvirtEnginePort80](Features/OvirtEnginePort80)).
-*   The oVirt Engine now supports the use of a remote PostgreSQL database server, specified during installation ([Features/RemoteDB](/develop/release-management/features/integration/remotedb/)).
-*   An 'all-in-one' proof of concept mode is now available. This allows a single machine to both run the management engine and act as a virtualization host ([Feature/AllInOne](/develop/release-management/features/integration/allinone/)).
+*   The installation script now supports the configuration of a HTTP/HTTPS proxy, allowing the oVirt Engine to be accessed via port 80 for HTTP, and port 443 for HTTPS.
+*   The oVirt Engine now supports the use of a remote PostgreSQL database server, specified during installation ([Features/RemoteDB](/develop/release-management/features/integration/remotedb.html)).
+*   An 'all-in-one' proof of concept mode is now available. This allows a single machine to both run the management engine and act as a virtualization host ([Feature/AllInOne](/develop/release-management/features/integration/allinone.html)).
 
 ### Tools
 
@@ -35,24 +35,24 @@ The oVirt 3.1 release includes these notable changes.
 
 ### Storage
 
-*   Support has been added for presenting any block device as a local disk attached to a virtual machine simply by specifying the device's GUID. This provides **directlun** support, which previously had to be implemented using a VDSM hook ([Features/Direct_Lun](/develop/release-management/features/storage/direct-lun/)).
-*   Support has been added to VDSM, and by extension oVirt Engine, for the attachment and use of NFSv4 storage ([Features/NFSv4)](/develop/release-management/features/storage/nfsv4/)).
-*   It is now possible to override some of VDSM's default NFS settings from the oVirt Engine when attaching storage ([Features/AdvancedNfsOptions](/develop/release-management/features/storage/advancednfsoptions/)).
-*   Support has been added for the attachment and use of POSIX filesystem compliant storage, allowing users to attach any type of storage supported by **mount** ([Features/PosixFSConnection](/develop/release-management/features/storage/posixfsconnection/)).
-*   Support for defining the priority of hosts in the storage pool manager (SPM) selection process has been added. Hosts can also be assigned a priority of **-1**m which means that they must not be selected as the SPM ([Features/SPMPriority](/develop/release-management/features/storage/spmpriority/)).
-*   Support has been added for sharing of disks between virtual machines. Previously each disk could only be attached to a single virtual machine, it is now possible to share a disk between multiple virtual machines concurrently ([Features/SharedRawDisk](/develop/release-management/features/storage/sharedrawdisk/)).
-*   Support has been added for hot plugging and unplugging of **virtio-blk** disks to and from virtual machines If the "Add" menu command in the virtual disks pane of a running VM is disabled, a disk may be added from the VM "Guide Me" dialog) ([Features/HotPlug](Features/HotPlug)).
-*   Support has been added for floating disks, disks which are not necessarily attached to a virtual machine at any one point in time but can be attached to virtual machines as and when needed. Floating disks can be found in the web administration portal under the **Disks** tab ([Features/FloatingDisk](/develop/release-management/features/storage/floatingdisk/)).
-*   It is now possible for virtual machines to have their disks spread across multiple storage domains within the same data center. Previously all disks attached to a virtual machine had to reside on the same storage domain ([Features/MultipleStorageDomains](/develop/release-management/features/storage/multiplestoragedomains/)).
-*   Initial support has been added for provisioning and managing Gluster based storage clusters in oVirt. See [Features/Gluster_Support](/develop/release-management/features/gluster/gluster-support/) for implementation details and known issues.
+*   Support has been added for presenting any block device as a local disk attached to a virtual machine simply by specifying the device's GUID. This provides **directlun** support, which previously had to be implemented using a VDSM hook ([Features/Direct_Lun](/develop/release-management/features/storage/direct-lun.html)).
+*   Support has been added to VDSM, and by extension oVirt Engine, for the attachment and use of NFSv4 storage ([Features/NFSv4)](/develop/release-management/features/storage/nfsv4.html)).
+*   It is now possible to override some of VDSM's default NFS settings from the oVirt Engine when attaching storage ([Features/AdvancedNfsOptions](/develop/release-management/features/storage/advancednfsoptions.html)).
+*   Support has been added for the attachment and use of POSIX filesystem compliant storage, allowing users to attach any type of storage supported by **mount** ([Features/PosixFSConnection](/develop/release-management/features/storage/posixfsconnection.html)).
+*   Support for defining the priority of hosts in the storage pool manager (SPM) selection process has been added. Hosts can also be assigned a priority of **-1**m which means that they must not be selected as the SPM ([Features/SPMPriority](/develop/release-management/features/storage/spmpriority.html)).
+*   Support has been added for sharing of disks between virtual machines. Previously each disk could only be attached to a single virtual machine, it is now possible to share a disk between multiple virtual machines concurrently ([Features/SharedRawDisk](/develop/release-management/features/storage/sharedrawdisk.html)).
+*   Support has been added for hot plugging and unplugging of **virtio-blk** disks to and from virtual machines If the "Add" menu command in the virtual disks pane of a running VM is disabled, a disk may be added from the VM "Guide Me" dialog) ([Features/HotPlug](/develop/release-management/features/storage/hotplugdisk.html)).
+*   Support has been added for floating disks, disks which are not necessarily attached to a virtual machine at any one point in time but can be attached to virtual machines as and when needed. Floating disks can be found in the web administration portal under the **Disks** tab ([Features/FloatingDisk](/develop/release-management/features/storage/floatingdisk.html)).
+*   It is now possible for virtual machines to have their disks spread across multiple storage domains within the same data center. Previously all disks attached to a virtual machine had to reside on the same storage domain ([Features/MultipleStorageDomains](/develop/release-management/features/storage/multiplestoragedomains.html)).
+*   Initial support has been added for provisioning and managing Gluster based storage clusters in oVirt. See [Features/Gluster_Support](/develop/release-management/features/gluster/gluster-support.html) for implementation details and known issues.
 
 ### Virtualization
 
-*   Previously it was not possible to import a Virtual Machine or Template that had already been imported, even if it was to a different data center. This is no longer the case ([Features/ImportMoreThanOnce](/develop/release-management/features/storage/importmorethanonce/)).
-*   Devices attached to guest virtual machines now retain the same address allocations as other devices are added and/or removed from the guest's configuration ([Features/Design/DetailedStableDeviceAddresses](/develop/release-management/features/ux/detailedstabledeviceaddresses/)).
-*   Support for "pre-started" virtual machine pools has been added. Instead of having to wait for a virtual machine allocated from the pool to boot user's will instead, where possible, be allocated a virtual machine which has already been started ([Features/PrestartedVm](/develop/release-management/features/virt/prestartedvm/)).
-*   Support for virtual machine payloads has been added, in the form of a Floppy or CD/DVD image that will be passed to the virtual machine. Virtual machine payloads may be either temporary or permanent.([Features/VMPayload](/develop/release-management/features/virt/vmpayload/)).
-*   Added support for cloning a Virtual Machine from a specific Snapshot ([Features/CloneVmFromSnapshot](/develop/release-management/features/infra/clonevmfromsnapshot/)).
+*   Previously it was not possible to import a Virtual Machine or Template that had already been imported, even if it was to a different data center. This is no longer the case ([Features/ImportMoreThanOnce](/develop/release-management/features/storage/importmorethanonce.html)).
+*   Devices attached to guest virtual machines now retain the same address allocations as other devices are added and/or removed from the guest's configuration ([Features/Design/DetailedStableDeviceAddresses](/develop/release-management/features/ux/detailedstabledeviceaddresses.html)).
+*   Support for "pre-started" virtual machine pools has been added. Instead of having to wait for a virtual machine allocated from the pool to boot user's will instead, where possible, be allocated a virtual machine which has already been started ([Features/PrestartedVm](/develop/release-management/features/virt/prestartedvm.html)).
+*   Support for virtual machine payloads has been added, in the form of a Floppy or CD/DVD image that will be passed to the virtual machine. Virtual machine payloads may be either temporary or permanent.([Features/VMPayload](/develop/release-management/features/virt/vmpayload.html)).
+*   Added support for cloning a Virtual Machine from a specific Snapshot ([Features/CloneVmFromSnapshot](/develop/release-management/features/virt/clonevmfromsnapshot.html)).
 *   Support has been added for virtualization hosts with Intel Sandybridge and Opteron G4 based CPUs.
 
 <!-- -->
@@ -65,22 +65,22 @@ The oVirt 3.1 release includes these notable changes.
 
 ### SLA
 
-*   Added support for the definition quotas restricting user resource usage ([Features/Quota](/develop/release-management/features/sla/quota/)).
-*   Added support for pinning Virtual Machines to specific physical CPUs ([Features/Design/cpu-pinning](/documentation/sla/cpu-pinning/)).
+*   Added support for the definition quotas restricting user resource usage ([Features/Quota](/develop/release-management/features/sla/quota.html)).
+*   Added support for pinning Virtual Machines to specific physical CPUs ([Features/Design/cpu-pinning](/develop/sla/cpu-pinning.html)).
 
 ### Network
 
-*   A new network setup API to support complex network provisioning tasks has been added to the backend, as a result the user interface for host network setup has also been redesigned ([Features/Design/Network/SetupNetworks](/develop/release-management/features/network/setupnetworks/)).
-*   It is now possible to adjust the MTU of a logical network, when it is not attached to a cluster ([Features/Network/Jumbo_frames](/develop/release-management/features/network/jumbo-frames/)).
-*   It is now possible to create bridgeless logical networks, previously all logical network were represented using a bridge ([Features/Design/Network/Bridgeless_Networks](/develop/release-management/features/network/bridgeless-networks/)).
-*   Hot plugging and unplugging of virtual Network Interface Cards from virtual machines is now supported ([Features/HotplugNic](/develop/release-management/features/network/hotplugnic/)).
-*   ~~Support for port mirroring, allowing all network traffic to be mirrored to a specific virtual machine, has been added ([Features/PortMirroring](/develop/release-management/features/network/portmirroring/)).~~ (postponed to Ovirt-3.2)
-*   Previously, all logical networks were considered mandatory for all hosts in a cluster. Hosts that were not attached to all logcal networks in the cluster were marked non-responsive. Administrators now have the option to mark specific logical networks as non-mandatory, bypassing this behavior ([Features/Design/Network/Required_Networks](/develop/release-management/features/network/required-networks/)).
+*   A new network setup API to support complex network provisioning tasks has been added to the backend, as a result the user interface for host network setup has also been redesigned ([Features/Design/Network/SetupNetworks](/develop/release-management/features/network/setupnetworks.html)).
+*   It is now possible to adjust the MTU of a logical network, when it is not attached to a cluster ([Features/Network/Jumbo_frames](/develop/release-management/features/network/jumbo-frames.html)).
+*   It is now possible to create bridgeless logical networks, previously all logical network were represented using a bridge ([Features/Design/Network/Bridgeless_Networks](/develop/release-management/features/network/bridgeless-networks.html)).
+*   Hot plugging and unplugging of virtual Network Interface Cards from virtual machines is now supported ([Features/HotplugNic](/develop/release-management/features/network/hotplugnic.html)).
+*   ~~Support for port mirroring, allowing all network traffic to be mirrored to a specific virtual machine, has been added ([Features/PortMirroring](/develop/release-management/features/network/portmirroring.html)).~~ (postponed to Ovirt-3.2)
+*   Previously, all logical networks were considered mandatory for all hosts in a cluster. Hosts that were not attached to all logcal networks in the cluster were marked non-responsive. Administrators now have the option to mark specific logical networks as non-mandatory, bypassing this behavior ([Features/Design/Network/Required_Networks](/develop/release-management/features/network/required-networks.html)).
 
 ### Interfaces
 
-*   New Python SDK, packaged as *ovirt-engine-sdk* ([SDK](/develop/sdk/sdk/)).
-*   New Python CLI, packaged as *ovirt-engine-cli* ([CLI](/develop/release-management/features/infra/cli/)).
+*   New Python SDK, packaged as *ovirt-engine-sdk* ([SDK](/develop/release-management/features/infra/python-sdk.html)).
+*   New Python CLI, packaged as *ovirt-engine-cli* ([CLI](/develop/release-management/features/infra/cli.html)).
 *   Added JSON support for REST API.
 *   Added session support to the REST API, allowing one login to process multiple requests.
 
@@ -95,10 +95,7 @@ The oVirt Engine provides the browser based management interface for managing yo
 To install the oVirt Engine on a Fedora 17 system:
 
 *   Log in to the system on which you wish to host oVirt Engine as the **root** user.
-*   Install the *ovirt-release* package using **yum**, this package configures your system to receive updates from the oVirt project's software repository:
-
-`   # yum localinstall `[`/releases/ovirt-release-fedora.noarch.rpm`](/releases/ovirt-release-fedora.noarch.rpm)
-
+*   Add the yum repository to your system: https://resources.ovirt.org/releases/3.1/rpm/Fedora/17/
 *   Install the *ovirt-engine* package, and all of the packages it depends on, using **yum**:
 
          # yum install ovirt-engine
@@ -110,7 +107,7 @@ To install the oVirt Engine on a Fedora 17 system:
 Suggested quick start path for new users:
 
 *   Add a host to the *Default* cluster.
-*   Add storage, refer to [Troubleshooting NFS Storage Issues](/documentation/how-to/troubleshooting/troubleshooting-nfs-storage-issues/) for information on configuring NFS storage for use with oVirt. Support is also available for iSCSI, FCP, and POSIX compliant filesystem storage.
+*   Add storage, refer to [Troubleshooting NFS Storage Issues](/develop/troubleshooting-nfs-storage-issues.html) for information on configuring NFS storage for use with oVirt. Support is also available for iSCSI, FCP, and POSIX compliant filesystem storage.
     -   Add a data storage domain to the *Default* data center.
     -   Add an ISO storage domain to the *Default* data center.
 *   Upload operating system installation media, in ISO format, to the ISO storage domain using the **engine-iso-uploader** command line tool.
@@ -159,7 +156,7 @@ Your Fedora host has been added to the environment, after adding your first host
 
 ## Upgrade Instructions
 
-Upgrading from oVirt 3.0 to oVirt 3.1 is **not** recommended. Users are instead advised to use the migration process as documented on this page. Upgrade instructions are however available, refer to [OVirt 3.0 to 3.1 upgrade](/develop/release-management/releases/3.0/to-3.1-upgrade/) for more information.
+Upgrading from oVirt 3.0 to oVirt 3.1 is **not** recommended. Users are instead advised to use the migration process as documented on this page. Upgrade instructions are however available, refer to [OVirt 3.0 to 3.1 upgrade](/develop/release-management/releases/3.0/to-3.1-upgrade.html) for more information.
 
 ## Migration Instructions
 

@@ -40,7 +40,7 @@ These flows should be supported from the GUI.
 
 *   Run VM
 
-1.  Async manage disk target connection on [all](#Notes) hosts for all the required disks/domains.
+1.  Async manage disk target connection on [all](#notes) hosts for all the required disks/domains.
 2.  Wait on connection on the preferred host.
     -   If succeded, RunVM
     -   If not immediately try next hosts until success.
@@ -57,7 +57,7 @@ These flows should be supported from the GUI.
 
 *   Migration
 
-1.  Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#Notes).
+1.  Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#notes).
 2.  Do migration.
 
 *   Stop VM
@@ -67,7 +67,7 @@ These flows should be supported from the GUI.
 
 *   HA
 
-1.  Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#Notes).
+1.  Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#notes).
 2.  Restart the VM
 
 The following UI mockups contain guidelines for the different screens and wizards:
@@ -98,7 +98,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 A new API is added for this feature.
 
-The API specifies a block device by GUID or UUID, instead of the PDIV quartet of a regular [VDSM volume](/documentation/admin-guide/virt/live-snapshots/#introduction).
+The API specifies a block device by GUID or UUID, instead of the PDIV quartet of a regular VDSM volume.
 
 Other disk device parameters are the same as in VDSM volumes.
 
@@ -125,7 +125,7 @@ Will be a query relating the "name" of the disk and all of the connection detail
 
 VM disks specified this way should support all the modes and features, i.e Sharable, Hot-Plug, etc.
 
-See [Stable Device Addresses](/develop/release-management/features/ux/design/stabledeviceaddresses/) for the complete device interface.
+See [Stable Device Addresses](/develop/release-management/features/virt/stabledeviceaddresses.html) for the complete device interface.
 
 # Engine considerations
 
@@ -143,13 +143,13 @@ A vDisk represents the time evolution of a VM or floating disk and extra Engine 
 
 It's started from a *single* block device returned by getDeviceList (or equivalent function).
 
-Creating a new entity from the same block device should result in the [same](#Notes) vDisk entity.
+Creating a new entity from the same block device should result in the [same](#notes) vDisk entity.
 
 Successive snapshots creates new (time stamp, image UID) entries.
 
 The image UID can be transferred to runVM, hot-plug, migrate, etc.
 
-Before starting of any operations Engine should assert that the [**destination host**](#Notes) is connected to the target.
+Before starting of any operations Engine should assert that the [**destination host**](#notes) is connected to the target.
 
 The LunID is the GUID (WWID) and should be used for identify the disk.
 
@@ -184,4 +184,4 @@ Multiple uses of a LUN for different SD is prevented.
 <dd>
 the host running or that will run the VM.
 
-[Direct_Lun](/develop/release-management/features/) [Direct_Lun](/develop/release-management/releases/3.1/feature/)
+[Direct_Lun](/develop/release-management/features/) [Direct_Lun](/develop/release-management/releases/3.1/featurelist.html)

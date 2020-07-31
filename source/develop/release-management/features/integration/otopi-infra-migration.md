@@ -116,10 +116,10 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Print additional message to the user finalizing the successful install | Done                    | Done                 |                                                      | Low      |             |
 | Log a summary of the parameters                                        | Done                    | Done                 |                                                      | Low      |             |
 
-<references>
+
 [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31]
 
-</references>
+
 ### engine-cleanup
 
 | Feature                                                        | Existing implementation | Otopi implementation | Owner                                                 | Priority | Target date |
@@ -147,10 +147,10 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Add info message to the user finalizing the successful cleanup | Done                    | Done                 | |[Sandro Bonazzola](https://github.com/sandrobonazzola) |          |             |
 | Add info message on where the logs are located                 | Done                    | Done                 |                                                       |          |             |
 
-<references>
+
 [34] <ref name="dbdrop">database is not dropped but all objects within are dropped, should be revisit when [bug#951923](https://bugzilla.redhat.com/show_bug.cgi?id=951923) is resolved.
 
-</references>
+
 ## Detailed Description
 
 TBD

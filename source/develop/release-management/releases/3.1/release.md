@@ -18,7 +18,7 @@ In the 3.1 release, Red Hat Directory Server and IBM Tivoli Directory Server joi
 
 For more information on oVirt 3.1, including installation instructions, please refer to [the release notes](/develop/release-management/releases/3.1/).
 
-The new release is available for [download](/get-ovirt/).
+The new release is available for [download](/download/).
 
 For the entire oVirt community, thanks for your participation in making this release happen. In particular, thanks to anyone who contributed to the release through testing, submitting patches, and bug reporting.
 

@@ -7,7 +7,9 @@ authors: sradco
 
 ## Summary
 
-Starting with this release, the Grafana dashboard for the Data Warehouse is installed by default to enable easy monitoring of Red Hat Virtualization metrics and logs.Grafana includes pre-built dashboards for datacenter, cluster, host, and VM data, Executive overview, Trend analysis and detailed view for per-object statistics 
+Starting with this release, the Grafana dashboard for the Data Warehouse is installed by default to enable easy monitoring of Red Hat Virtualization metrics and logs.
+
+Grafana includes pre-built dashboards for datacenter, cluster, host, and VM data, Executive overview, Trend analysis and detailed view for per-object statistics 
 
 The Data Warehouse is installed by default at Basic scale resource use. 
 To obtain the full benefits of Grafana, it is recommended to update the Data Warehouse scale to Full.

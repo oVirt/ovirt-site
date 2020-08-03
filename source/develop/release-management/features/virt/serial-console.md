@@ -46,7 +46,7 @@ Instructions about how to manually setup the serial console connectivity will be
 
 ## Release Notes
 
-For information about setup and troubleshooting, see the page [Serial_Console_Setup](/documentation/admin-guide/serial-console-setup/)
+For information about setup and troubleshooting, see the [Administration Guide](/documentation/administration_guide/index.html)
 
       == VirtIO serial console ==
       Allow the users to connect directly to the emulated serial console of the VMs, using SSH.
@@ -106,12 +106,4 @@ For information about setup and troubleshooting, see the page [Serial_Console_Se
 Up until oVirt 3.6.0-rc1, the oVirt Engine configures the console type to "VirtIO". Unfortunately, this can cause issues with some Guest Operating Systems, and can require additional configuration as well. [A Patch is available](https://gerrit.ovirt.org/#/c/46700/) to switch the default console type "Serial" (Emulated serial console), which should work out of the box in the majority of the Guest OS. The aforementioned patch will be included in oVirt 3.6.0-final.
 
 Note for existing hosts (upgraded from 3.5) the host needs to be re-deployed to correctly install vmconsole packages and set up necessary ssh keys properly. Just rerun the deployment over an existing host.
-
-Additional troubleshooting help [here](/documentation/admin-guide/serial-console-setup/#troubleshooting)
-
-## Manual Configuration
-
-Please see [how to setup manually the ovirt-vmconsole integration](/documentation/admin-guide/serial-console-setup/#manual-setup)
-
-
 

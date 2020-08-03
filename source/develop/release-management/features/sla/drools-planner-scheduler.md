@@ -10,7 +10,7 @@ authors: lhornyak
 
 ## Summary
 
-To improve the quality of VM scheduling, built on the [pluggable scheduling architecture](/develop/release-management/features/sla/ovirtschedulerapi/), this project will integrate **drools** and **planner** into the ovirt engine
+To improve the quality of VM scheduling, built on the [pluggable scheduling architecture](/develop/release-management/features/sla/ovirtschedulerapi.html), this project will integrate **drools** and **planner** into the ovirt engine
 
 The main objectives of the drools scheduler:
 
@@ -37,9 +37,9 @@ The main objectives of the drools scheduler:
 
 The rule calculation will be broken down to three major categories:
 
-*   [costs of the migration](#Costs_of_the_migration)
-*   [benefits of the migration](#Benefits_of_the_migration)
-*   [costs of the situatuion](#Costs_of_the_situation)
+*   [costs of the migration](#costs-of-the-migration)
+*   [benefits of the migration](#benefits-of-the-migration)
+*   [costs of the situatuion](#costs-of-the-situation)
 
 Also, there will be some hard constraints enforced, e.g. required optional networks must be available on vds.
 
@@ -78,7 +78,7 @@ The benefits of the migration:
 
 Note that the benefits may be negative, in case the host is already overallocated or overused.
 
-All rules in [situation costs](#costs_of_the_situation) should have a migration benefits counterpart, but this one should calculate the difference from an optimal state after the migration.
+All rules in [situation costs](#costs-of-the-situation) should have a migration benefits counterpart, but this one should calculate the difference from an optimal state after the migration.
 
 ### Implementation details
 
@@ -96,7 +96,7 @@ All rules in [situation costs](#costs_of_the_situation) should have a migration 
     -   VM cpus > VDS.cpus - not enough CPUs
     -   *note that cpu over and under-allocation are soft constraints*
 *   future hard constraints
-    -   [Trusted_compute_pools](/develop/release-management/features/sla/trusted-compute-pools/) VM's with trusted flag can only run on trusted hosts
+    -   [Trusted_compute_pools](/develop/release-management/features/sla/trusted-compute-pools.html) VM's with trusted flag can only run on trusted hosts
 
 ## Benefit to oVirt
 
@@ -104,7 +104,7 @@ The new scheduler improves oVirt's default scheduler (~VdsSelector) and gives a 
 
 ## Dependencies / Related Features
 
-*   This feature will be built built on [Features/SLA_PluggableArchitecture](/develop/release-management/features/sla/ovirtschedulerapi/).
+*   This feature will be built built on [Features/SLA_PluggableArchitecture](/develop/release-management/features/sla/ovirtschedulerapi.html).
 *   drools and drools planner <http://www.jboss.org/drools/>
 *   [870322](https://bugzilla.redhat.com/870322) - Keep history data for VDS and VM load
 

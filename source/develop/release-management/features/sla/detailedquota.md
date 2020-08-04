@@ -95,7 +95,7 @@ Each Data Center entity is configured with one of the following operation modes:
 2.  Soft Limit - Only warning messages would be issued when Quota restrictions are violated.
 3.  Hard Limit - Enforced the restrictions completely and prevent the resource allocation.
 
-See more info in the [Installation/Upgrade](#Installation/Upgrade) section
+See more info in the [Installation/Upgrade](#installationupgrade) section
 
 #### CRUD
 
@@ -226,8 +226,7 @@ Affected oVirt projects:
 
 ### Documentation / External references
 
-[Features/Quota](/develop/release-management/features/sla/quota/)
-[Features/Design/Quota](/wiki/Features/Design/Quota)
+[Features/Quota](/develop/release-management/features/sla/quota.html)
 
 
 
@@ -244,4 +243,3 @@ Affected oVirt projects:
 *   Email Notifications - The administrator will use the notification service for the Quota threshold event messages, to configure which users, will get notification email on Quota that exceeded the threshold. (We should consider using postponed notifications, to avoid flood).
 *   Quota Feature Scope - Just to clarify, Quota is designed from the billing POV and not from the hardware point of view, It will only be managed in the ovirt-engine scope.
 
-[Quota](Category: Feature) [Quota](/develop/release-management/releases/3.1/feature/)

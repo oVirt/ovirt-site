@@ -10,9 +10,10 @@ oVirt Engine uses `PostgreSQL 9.5.x` as a database platform to store information
 
 Installing the `ovirt-engine-dwh` package creates a second database called `ovirt_engine_history`, which contains historical configuration information and statistical metrics collected every minute over time from the `engine` operational database. Tracking the changes to the database provides information on the objects in the database, enabling the user to analyze activity, enhance performance, and resolve difficulties.
 
-    **Warning:** The replication of data in the `ovirt_engine_history` database is performed by the oVirt Engine Extract Transform Load Service, `ovirt-engine-dwhd`. The service is based on Talend Open Studio, a data integration tool. This service is configured to start automatically during the data warehouse package setup. It is a Java program responsible for extracting data from the `engine` database, transforming the data to the history database standard and loading it to the `ovirt_engine_history` database.
+   **Warning:** The replication of data in the `ovirt_engine_history` database is performed by the oVirt Engine Extract Transform Load Service, `ovirt-engine-dwhd`. The service is based on Talend Open Studio, a data integration tool. This service is configured to start automatically during the data warehouse package setup. It is a Java program responsible for extracting data from the `engine` database, transforming the data to the history database standard and loading it to the `ovirt_engine_history` database.
+   The `ovirt-engine-dwhd` service must not be stopped.
+   {:.alert.alert-warning}
 
-    The `ovirt-engine-dwhd` service must not be stopped.
 
 The `ovirt_engine_history` database schema changes over time. The database includes a set of database views to provide a supported, versioned API with a consistent structure. A view is a virtual table composed of the result set of a database query. The database stores the definition of a view as a `SELECT` statement. The result of the `SELECT` statement populates the virtual table that the view returns. A user references the view name in `PL/PGSQL` statements the same way a table is referenced.
 

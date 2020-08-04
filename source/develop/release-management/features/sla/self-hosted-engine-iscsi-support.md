@@ -130,17 +130,10 @@ Users will be able to use iSCSI storage as data domain for Hosted Engine.
     -   <https://bugzilla.redhat.com/show_bug.cgi?id=738239>
     -   <http://www.linuxjournal.com/content/creating-software-backed-iscsi-targets-red-hat-enterprise-linux-6>
 
-## Testing
-
-You can use nightly builds, available from oVirt snapshots repositories:
-
-[`http://resources.ovirt.org/pub/ovirt-3.5-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-3.5-snapshot-static/)
-[`http://resources.ovirt.org/pub/ovirt-3.5-snapshot/`](http://resources.ovirt.org/pub/ovirt-3.5-snapshot/)
-
 ### Test Cases
 
-*   [QA:TestCase Hosted Engine iSCSI Multiple LUN Support](/develop/infra/testing/test-cases/-hosted-engine-iscsi-multiple-lun-support/)
+*   [QA:TestCase Hosted Engine iSCSI Multiple LUN Support](/develop/infra/testing/test-cases/-hosted-engine-iscsi-multiple-lun-support.html)
 
 
 
-[Self Hosted Engine iSCSI Support](/develop/release-management/features/) [Self Hosted Engine iSCSI Support](/develop/release-management/releases/3.5/feature/) [Self Hosted Engine iSCSI Support](Category:Integration)
+[Self Hosted Engine iSCSI Support](/develop/release-management/features/) [Self Hosted Engine iSCSI Support](/develop/release-management/releases/3.5/feature.html) [Self Hosted Engine iSCSI Support](Category:Integration)

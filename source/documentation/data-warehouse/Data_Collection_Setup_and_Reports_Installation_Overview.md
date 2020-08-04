@@ -20,17 +20,17 @@ It is recommended that you set the system time zone for all machines in your Dat
 
 To calculate an estimate of the space and resources the `ovirt_engine_history` database will use, use the oVirt Engine History Database Size Calculator tool. The estimate is based on the number of entities and the length of time you have chosen to retain the history records.
 
-    **Important:** The following behavior is expected in `engine-setup`:
+   **Important:** The following behavior is expected in `engine-setup`:
 
-    * Install the Data Warehouse package, run `engine-setup`, and answer `No` to configuring Data Warehouse:
+   * Install the Data Warehouse package, run `engine-setup`, and answer `No` to configuring Data Warehouse:
 
             Configure Data Warehouse on this host (Yes, No) [Yes]: No
 
-    * Run `engine-setup` again; setup no longer presents the option to configure those services.
+   * Run `engine-setup` again; setup no longer presents the option to configure those services.
 
-    To force `engine-setup` to present both options again, run `engine-setup --reconfigure-optional-components`.
+     To force `engine-setup` to present both options again, run `engine-setup --reconfigure-optional-components`.
 
-    To configure only the currently installed Data Warehouse packages, and prevent setup from applying package updates found in enabled repositories, add the `--offline` option.
+     To configure only the currently installed Data Warehouse packages, and prevent setup from applying package updates found in enabled repositories, add the `--offline` option.
 
 **Next:** [Installing and Configuring Data Warehouse on a Separate Machine](Data_Warehouse_and_Reports_Configuration_Notes)
 

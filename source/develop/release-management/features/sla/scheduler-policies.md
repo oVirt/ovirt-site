@@ -63,5 +63,5 @@ Now the scheduling policy is attached to the cluster you choose and it's working
 
 ## See Also
 
-See [Features/oVirtSchedulerAPI](/develop/release-management/features/sla/ovirtschedulerapi/)
+See [Features/oVirtSchedulerAPI](/develop/release-management/features/sla/ovirtschedulerapi.html)
 

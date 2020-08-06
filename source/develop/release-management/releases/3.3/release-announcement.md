@@ -59,7 +59,7 @@ oVirt provides a rich set of possibilities to integrate with and extend the oVir
 *   Automate and script operations related to your VM lifecycle using the oVirt CLI and REST API, including starting and stop VMs, automation of back-ups, scheduling operations, creation of storage and network resources, and more
 *   A rich collection of hooks which can be used to perform custom actions via scripts during a VM's lifecycle
 *   APIs in a variety of programming languages, including Java and Python, to allow programmatic control of oVirt in your preferred language
-*   A UI plug-in framework which allows you to add advanced functionality to the management interface. For example, [integration of Nagios monitoring](/develop/release-management/features/ux/uiplugins/#ovirt-monitoring-ui-plugin), [Foreman for system configuration](/develop/release-management/features/ux/uiplugins/#foreman-ui-plugin), or [the management of NetApp storage](//captainkvm.com/2012/09/how-is-netapp-integrating-with-ovirt-and-rhev/),
+*   A UI plug-in framework which allows you to add advanced functionality to the management interface. For example, integration of Nagios monitoring, Foreman for system configuration, or the management of NetApp storage.
 
 The ability to extend and integrate your VM management application into your IT operations gives you the flexibility and power you need to get the most from your infrastructure.
 

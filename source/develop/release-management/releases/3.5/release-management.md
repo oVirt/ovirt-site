@@ -12,30 +12,19 @@ authors: sandrobonazzola
     -   RC5 Build: **2014-10-09** (Thu)
     -   RC4 Build: **2014-10-02** (Thu)
     -   RC3 Build: **2014-09-24** (Wed)
-    -   [oVirt 3.5 Third Test Day](/develop/release-management/releases/3.5/testday/): **2014-09-17** (Wed)
+    -   oVirt 3.5 Third Test Day: **2014-09-17** (Wed)
     -   RC2 Build: **2014-09-11** (Thu)
     -   Build refresh: *' 2014-08-22*' (Fri)
     -   RC1 Build: *' 2014-08-05*' (Tue)
-    -   [oVirt 3.5 Second Test Day](/develop/release-management/releases/3.5/testday/): **2014-07-29** (Tue)
+    -   oVirt 3.5 Second Test Day: **2014-07-29** (Tue)
     -   Second Beta release: **2014-07-23** (Wed)
-    -   [oVirt 3.5 First Test Day](/develop/release-management/releases/3.5/testday/): **2014-07-01** (Tue)
+    -   oVirt 3.5 First Test Day: **2014-07-01** (Tue)
     -   Branching - Beta release: **2014-06-30** (Mon)
     -   Feature freeze: **2014-06-15** (Sun)
     -   Second Alpha release: **2014-06-06** (Fri)
     -   Alpha release: **2014-05-20** (Tue)
 
-**More details on test days, etc. to come in the next few weeks**
 
-### Nightly Builds
-
-Nightly builds are available from oVirt snapshots repositories:
-
-[`http://resources.ovirt.org/pub/ovirt-3.5-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-3.5-snapshot-static/)
-[`http://resources.ovirt.org/pub/ovirt-3.5-snapshot/`](http://resources.ovirt.org/pub/ovirt-3.5-snapshot/)
-
-## Features Status Table
-
-To try and improve 3.5 planning over the wiki approach in 3.3, this google doc <http://goo.gl/4SuYdE> has been created.
 
 ## Tracker Bug
 
@@ -50,22 +39,14 @@ To try and improve 3.5 planning over the wiki approach in 3.3, this google doc <
 ### MUST
 
 *   **MUST**: No blockers on the lower level components - libvirt, lvm,device-mapper,qemu-kvm, Jboss, postgres, iscsi-initiator
-    -   **Current blocker list:**
-    -   ...
 *   **MUST**: All image related operations work - copy, move, import, export, snapshot (vm and template)
 *   **MUST**: Ovirt/host installation should work flawlessly (w/o SSL)
 *   **MUST**: Fully operational flow (define DC hierarchy so you can run vm) with GUI/CLI/Python-API/REST-API
 *   **MUST**: vm life-cycle is working flawlessly (start,suspend,resume,stop,migrate)
 *   **MUST**: Upgrade from previous release
-    -   **Features/bug list:**
-    -   ...
 *   **MUST**: ovirt-node full cycle (register, approve and running VM, reboot and verify things still work)
-    -   See [Node test procedure](Node test procedure)
 *   **MUST**: No known data corruptors
-    -   **Current list of data corruptors:**
-    -   ...
 *   **MUST**: Can define NFS, iSCSI, FC and local based storage domains
-    -   See [storage test procedure](storage test procedure)
 *   **MUST**: Can define VLAN based networks, bond interfaces, and have VLANs over bonded interfaces
 *   **MUST**: Can authenticate users against at least one external LDAP server
 *   **MUST**: Can run multiple VMs
@@ -98,4 +79,3 @@ To try and improve 3.5 planning over the wiki approach in 3.3, this google doc <
 
 *   It must be possible to install oVirt Engine on a clean host for supported OS
 *   It must be possible to run a VM on one host with supported OS
-

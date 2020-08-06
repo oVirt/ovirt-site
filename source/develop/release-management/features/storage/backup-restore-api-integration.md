@@ -72,11 +72,11 @@ Full VM backup can be implemented for example by using the following oVirt capab
 `URL = SERVER:PORT/api/vms/VM_ID/snapshots/ID`
 `Method = GET  (with All-Content:true header)`
 
-*   Navigate to the wanted disk snapshot by accessing: ([Example](/develop/release-management/features/storage/backup-restore-api-integration/#get-disk-snapshot-data))
+*   Navigate to the wanted disk snapshot by accessing: ([Example](#get-disk-snapshot-data))
 
 `SERVER:PORT/api/vms/GUID/snapshots/GUID/disks`
 
-*   Attach the disk snapshot to the vm using the disk id and the snapshot id: ([Example](/develop/release-management/features/storage/backup-restore-api-integration/#attach-disk-to-backup-vm))
+*   Attach the disk snapshot to the vm using the disk id and the snapshot id: ([Example](#attach-disk-to-backup-vm))
 
 `URL = SERVER:PORT/api/vms/GUID/disks/`
 `Method = POST (with Content-Type:application/xml header)`
@@ -95,7 +95,7 @@ Full VM backup can be implemented for example by using the following oVirt capab
 `URL = SERVER:PORT/api/vms/VM_ID/disks/DISK_ID/activate`
 `Method = POST`
 
-*   After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](/develop/release-management/features/storage/backup-restore-api-integration/#detach-disk-from-backup-vm)):
+*   After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](#detach-disk-from-backup-vm)):
 
 `URL = SERVER:PORT/api/vms/GUID/disks/GUID`
 `Method = DELETE`
@@ -127,7 +127,7 @@ Full VM backup can be implemented for example by using the following oVirt capab
 <disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"></disk>
 ```
 
-3. After copying the data from the disk detach the disk from the VM: ([Example](/develop/release-management/features/storage/backup-restore-api-integration/#detach-disk-from-backup-vm)):
+3. After copying the data from the disk detach the disk from the VM: ([Example](#detach-disk-from-backup-vm)):
 
 `URL = SERVER:PORT/api/vms/GUID/disks/GUID`
 `Method = DELETE`
@@ -224,8 +224,7 @@ Complete API providing ability to do full , file-level & incremental backups/res
 
 ### Documentation / External references
 
-*   [Live Snapshots](/documentation/admin-guide/virt/live-snapshots/)
-*   [LiveMerge](live-merge)
+*   [LiveMerge](/develop/release-management/features/storage/live-merge.html)
 
 ## Appendix
 

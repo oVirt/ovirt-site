@@ -13,9 +13,6 @@ Trusted Compute Pools provide a way for Administrator to deploy VMs on trusted h
 ## Owner
 
 *   Name: Gang Wei (gwei3)
-
-<!-- -->
-
 *   Email: <gang.wei@intel.com>
 
 ## Current status
@@ -86,7 +83,10 @@ When the VM created in the trusted cluster was exported as OVF file, OVF file sh
 
 Create a trusted cluster via restful API, curl command may like this.
 
-      curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '`<cluster><name>`my_trust_cluster`</name><data_center><name>`"Default"`</name></data_center>` `<version minor="2" major="3"/>` `<cpu id="Intel SandyBridge Family"/><trusted_service>`true`</trusted_service></cluster>`' '`[`http://engine`](http://engine)`.***.com:80/api/clusters'
+    curl -v -u "admin@internal:abc123" \
+      -H "Content-type: application/xml" \
+      -d '<cluster><name>my_trust_cluster</name><data_center><name>"Default"</name></data_center> <version minor="2" major="3"/> <cpu id="Intel SandyBridge Family"/><trusted_service>true</trusted_service></cluster>' \
+      'http://engine.***.com:80/api/clusters'
 
 Key relevant modification includes api.xsd and ClusterMapper.java.
 
@@ -108,8 +108,7 @@ None.
 
 ## Documentation / External references
 
-*   [Trusted compute pools deployment](/documentation/sla/trusted-compute-pools-deployment/)
-*   <https://github.com/OpenAttestation/OpenAttestation.git>
+*   [Trusted compute pools deployment](/develop/sla/trusted-compute-pools-deployment.html)
 *   <http://en.wikipedia.org/wiki/Trusted_Execution_Technology>
 
 
@@ -129,7 +128,7 @@ None.
 
 ### Add a trusted host
 
-Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster)
+Dependens on [Create a trusted cluster](#create-a-trusted-cluster)
 
 1.  go to the **Hosts** tab
 2.  click on **New** button
@@ -139,7 +138,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster)
 
 ### Add an untrusted host
 
-Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster)
+Dependens on [Create a trusted cluster](#create-a-trusted-cluster)
 
 1.  open the **Hosts** tab
 2.  click on **New** button
@@ -149,7 +148,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster)
 
 ### Reboot the trusted host
 
-Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add a trusted host](#Add_a_trusted_host)
+Dependens on [Create a trusted cluster](#create-a-trusted-cluster) , and [Add a trusted host](#add-a-trusted-host)
 
 1.  go to the **Hosts** tab
 2.  reboot the host in the trusted cluster(s) manually
@@ -158,7 +157,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add 
 
 ### Reboot the untrusted host
 
-Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add an untrusted host](#Add_an_untrusted_host)
+Dependens on [Create a trusted cluster](#create-a-trusted-cluster) , and [Add an untrusted host](#add-an-untrusted-host)
 
 1.  go to the "Hosts" tab
 2.  reboot the host in the untrusted cluster(s) manually
@@ -167,7 +166,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add 
 
 ### Reboot engine
 
-Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , [#Add a trusted host](#Add_a_trusted_host), and [#Add an untrusted host](#Add_an_untrusted_host)
+Dependens on [#Create a trusted cluster](#create-a-trusted-cluster) , [Add a trusted host](#add-a-trusted-host), and [Add an untrusted host](#add-an-untrusted-host)
 
 1.  make sure there are at least two hosts in the trusted cluster(s), and one is trusted and the other is untrusted
 2.  restart the engine service
@@ -176,7 +175,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , [#Add a tr
 
 ### Create a truster cluster via restful API
 
-1.  Exec command: curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '<cluster><name>my_trust_cluster</name><data_center><name>"Default"</name></data_center> <version minor="2"    major="3"/> <cpu id="Intel SandyBridge Family"/><trusted_service>true</trusted_service></cluster>' '<http://engine>.\*\*\*.com:80/api/clusters'
+1.  Exec command: curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '<cluster><name>my_trust_cluster</name><data_center><name>"Default"</name></data_center> <version minor="2"    major="3"/> <cpu id="Intel SandyBridge Family"/><trusted_service>true</trusted_service></cluster>' 'http://engine.\*\*\*.com:80/api/clusters'
 2.  go to the **Clusters** tab
 3.  choose the trusted cluster that has just been created , and here is **my_trust_cluster**
 4.  click **Edit** button
@@ -184,7 +183,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , [#Add a tr
 
 ### Create a trusted VM
 
-Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add a trusted host](#Add_a_trusted_host)
+Dependens on [Create a trusted cluster](#create-a-trusted-cluster) , and [Add a trusted host](#add-a-trusted-host)
 
 1.  go to **Virtual Machines** tab
 2.  click on **New** button

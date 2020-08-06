@@ -11,7 +11,8 @@ This document describes the design for the stable Device addresses feature.
 
 In the term Device we include PCI, VirtIO Serial, SCSI, IDE, CCID and actually anything libvirt supports.
 
-Allow devices in guest virtual machines to retain the same device address allocations as other devices are added or removed from the guest configuration. This is particularly important for Windows guests in order to prevent warnings or reactivation when device addresses change.
+Allow devices in guest virtual machines to retain the same device address allocations as other devices are added or removed from the guest configuration.
+This is particularly important for Windows guests in order to prevent warnings or reactivation when device addresses change.
 
 This feature is supported by libvirt and should be implemented by oVirt Engine and VDSM.
 
@@ -20,9 +21,6 @@ When creating a VM, QEMU allocates device addresses to the guest devices, these 
 ## Owner
 
 *   Feature owner: Eli Mesika (emesika)
-
-<!-- -->
-
 *   GUI Component owner: Not Relevant
 *   REST Component owner: Not Relevant
 *   Engine Component owner: Eli Mesika (emesika)
@@ -37,21 +35,21 @@ When creating a VM, QEMU allocates device addresses to the guest devices, these 
 
 **The general implementation concepts are:**
 
-     1. The 'create' verb should get a new parameter in the XML describing the device addresses of the VM.
-        This parameter is optional and if not given VDSM should learn the device addresses from libvirt.
-     2. The device addresses are not being parsed by oVirt Engine, they are persisted as is without manipulations of the data.
-     3. The 'getAllVmStats' verb should report the hash of the device addresses of the VMS.
-     4. If a change is detected by RHEVM to the device addresses (the reported hash was changed), it should query VDSM 
-        for the full VM configuration by using the 'list' verb with the 'long' format and the list of changed VMs.
-     5. The list verb should report the device addresses as part of the VM configuration.
+1. The 'create' verb should get a new parameter in the XML describing the device addresses of the VM.
+   This parameter is optional and if not given VDSM should learn the device addresses from libvirt.
+2. The device addresses are not being parsed by oVirt Engine, they are persisted as is without manipulations of the data.
+3. The 'getAllVmStats' verb should report the hash of the device addresses of the VMS.
+4. If a change is detected by RHEVM to the device addresses (the reported hash was changed), it should query VDSM 
+   for the full VM configuration by using the 'list' verb with the 'long' format and the list of changed VMs.
+5. The list verb should report the device addresses as part of the VM configuration.
 
 **Notes:**
 
-     1. Export - the device addresses should be part of the exported configuration of the VM.
-     2. Import - the device addresses should be part of the imported configuration of the VM.
-     3. The 'list' verb reports the full configuration of all the VMs on the host. 
-        This verb was extended to support a given list of VMs to avoid the overhead of reporting all VMs 
-        configuration while only a small group is needed.
+1. Export - the device addresses should be part of the exported configuration of the VM.
+2. Import - the device addresses should be part of the imported configuration of the VM.
+3. The 'list' verb reports the full configuration of all the VMs on the host. 
+   This verb was extended to support a given list of VMs to avoid the overhead of reporting all VMs 
+   configuration while only a small group is needed.
 
 ## GUI
 
@@ -72,7 +70,7 @@ This section describes the backend design for this feature.
 ### API
 
 Old API will be supported for Clusters with Compatibility Version under 3.1 Sample:
-
+{% highlight json %}
      'bridge': 'rhevm,rhevm,rhevm,rhevm,rhevm,rhevm,rhevm',
      'acpiEnable': 'true',
      'emulatedMachine': 'rhel6.2.0',
@@ -127,6 +125,7 @@ Old API will be supported for Clusters with Compatibility Version under 3.1 Samp
      'timeOffset': '0',
      'spiceSecureChannels': 'smain,sinputs',
      'display': 'qxl'
+{% endhighlight %}
 
 ### New API
 
@@ -135,7 +134,7 @@ New API will be used for Clusters with Compatibility Version 3.1 or upper
 VDSM will distinguish if a new format or old format was sent according to existence/absence of the 'devices' key
 
 Sample :
-
+{% highlight json %}
      'vmId': '27c61cea-f4fd-47e9-84e8-d1598f32ccc0',
      'vmName': 'myVM',
      'acpiEnable': 'true', 
@@ -158,8 +157,8 @@ Sample :
      'devices': [   
             {'type': 'disk',
              'device': 'disk',
-             'index': ,                            ,                        ,                            ,                        ,                            ,                             ,                          } - vram size depends from number of video devices: '65536' if (monitors 
-
+             'index':
+{% endhighlight %}
      DB Design
 
     New table vm_device:
@@ -242,7 +241,6 @@ import
 
 OVFReader should be extended to read the information retrieved in the new structure from VDSM from the OVF file.
 
-new OVF documentation that reflects latest changes can be found in [Ovf](/wiki/Ovf)
 
 ### API Design
 
@@ -287,16 +285,6 @@ Add tests for new VM device DAL
 ### Expected unit-tests
 
 Verify that all new Device DAO tests pass Verify that all VM DAO tests pass Verify that all Disk DAO and Disk VM mapping DAO tests pass Test both old & new OVFs for export/import
-
-### Special considerations
-
-External resources, mocking, etc..
-
-     1.
-
-### Jenkins setup (if needed) for tests
-
-     1.
 
 ### Pre-integration needs
 

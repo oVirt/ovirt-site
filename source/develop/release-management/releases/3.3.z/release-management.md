@@ -25,7 +25,7 @@ Nightly builds are available enabling the oVirt 3.3 snapshots repositories:
 *   See [OVirt 3.3 release-management](/develop/release-management/releases/3.3/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 3.3.5 release notes](/develop/release-management/releases/3.3.5/)
 *   Blocking bugs must be fixed:  - Tracker: oVirt 3.3.5 release
-*   QE must test the release: [Testing/oVirt 3.3.5 testing](/develop/release-management/releases/3.3.5/testing/)
+*   QE must test the release
 
 ## oVirt 3.3.4
 
@@ -40,7 +40,7 @@ Nightly builds are available enabling the oVirt 3.3 snapshots repositories:
 *   See [OVirt 3.3 release-management](/develop/release-management/releases/3.3/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 3.3.4 release notes](/develop/release-management/releases/3.3.4/)
 *   Blocking bugs must be fixed:  - Tracker: oVirt 3.3.4 release
-*   QE must test the release: [Testing/Ovirt 3.3.4 testing](/develop/release-management/releases/3.3.4/testing/)
+*   QE must test the release
 
 ## oVirt 3.3.3
 
@@ -55,7 +55,7 @@ Nightly builds are available enabling the oVirt 3.3 snapshots repositories:
 *   See [OVirt 3.3 release-management](/develop/release-management/releases/3.3/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 3.3.3 release notes](/develop/release-management/releases/3.3.3/)
 *   Blocking bugs must be fixed:  - Tracker: oVirt 3.3.3 release
-*   QE must test the release: [Testing/Ovirt 3.3.3 testing](/develop/release-management/releases/3.3.3/testing/)
+*   QE must test the release
 
 ## oVirt 3.3.2
 
@@ -70,7 +70,7 @@ Nightly builds are available enabling the oVirt 3.3 snapshots repositories:
 *   See [OVirt 3.3 release-management](/develop/release-management/releases/3.3/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 3.3.2 release notes](/develop/release-management/releases/3.3.2/)
 *   Blocking bugs must be fixed:  - Tracker: oVirt 3.3.2 release
-*   QE must test the release: [Testing/Ovirt 3.3.2 testing](/develop/release-management/releases/3.3.2/testing/)
+*   QE must test the release
 
 ## oVirt 3.3.1
 
@@ -85,5 +85,5 @@ Nightly builds are available enabling the oVirt 3.3 snapshots repositories:
 *   See [OVirt 3.3 release-management](/develop/release-management/releases/3.3/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 3.3.1 release notes](/develop/release-management/releases/3.3.1/)
 *   Blocking bugs must be fixed:  - Tracker: oVirt 3.3.1 release
-*   QE must test the release: [Testing/Ovirt 3.3.1 testing](/develop/release-management/releases/3.3.1/testing/)
+*   QE must test the release
 

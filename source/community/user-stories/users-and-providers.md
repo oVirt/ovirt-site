@@ -42,7 +42,7 @@ The founders of [Netbulae](//www.netbulae.eu/) have experience in ICT, automatio
 
 <div class="case-study">
 ![](/images/logos/Nimbus.png)
-[Nimbus Concept](http://www.nimbusconcept.com/index-en.html) develop, deploy and integrate custom solutions including cloud and critical infrastructure projects based on open source systems, using oVirt as the main virtualization layer.
+[Nimbus Concept](http://www.nimbusconcept.com/index.html) develop, deploy and integrate custom solutions including cloud and critical infrastructure projects based on open source systems, using oVirt as the main virtualization layer.
 </div>
 
 <div class="case-study">
@@ -87,7 +87,7 @@ The [National University of Sciences & Technology (NUST)](http://nust.edu.pk/Pag
 </div>
 <div class="case-study">
 [![Vinchin](/images/logos/vinchin.png)](https://www.vinchin.com/en)
-[Vinchin](https://www.vinchin.com/en) is a professional provider of data protection solutions for enterprises. It provides a series of data backup, instant recovery, and offsite DR solutions for private cloud, public cloud and hybrid cloud, including oVirt virtual environment. 
+[Vinchin](https://www.vinchin.com/en/) is a professional provider of data protection solutions for enterprises. It provides a series of data backup, instant recovery, and offsite DR solutions for private cloud, public cloud and hybrid cloud, including oVirt virtual environment.
 </div>
 
 ## Supporters

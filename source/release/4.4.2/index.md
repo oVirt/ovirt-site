@@ -8,7 +8,7 @@ page_classes: releases
 
 # oVirt 4.4.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.2 First Release Candidate as of July 30, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.2 Second Release Candidate as of August 06, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -53,6 +53,32 @@ In order to install this Release Candidate you will need to enable pre-release r
 ### Enhancements
 
 #### oVirt Engine
+
+ - [BZ 1749803](https://bugzilla.redhat.com/1749803) **[RFE] Improve workflow for storage migration of VMs with multiple disks**
+
+   Feature: 
+
+Allow setting the same target domain for multiple disks at
+
+once on the move/copy popup.
+
+
+
+Reason:
+
+Currently, while moving/copying multiple disks, the user is required to set the target domain for each disk separately, one by one.
+
+
+
+Result: 
+
+For multiple selected disks, if a common target domain exists, it can be set as the target domain for all those disks at once by selecting it from the list.
+
+
+
+In case a common storage domain doesn't exist, or setting a different target domain for part of the disks,
+
+(so not all disks will be moved/copied to the same storage domain), the common target domain would be set as 'Mixed'.
 
  - [BZ 1837873](https://bugzilla.redhat.com/1837873) **[RFE] No warning/blocking when detaching storage domain when there are VMs with disk on the detached domain and second disk on other domain**
 
@@ -117,7 +143,15 @@ for example , you can use now the followingf from the storage domains TAB
 
 #### VDSM
 
+ - [BZ 1859876](https://bugzilla.redhat.com/1859876) **imgbase check failed after register to engine**
+
+   
+
  - [BZ 1860716](https://bugzilla.redhat.com/1860716) **VDSM Traceback failure at the journal log on DEBUG mode**
+
+   
+
+ - [BZ 1840414](https://bugzilla.redhat.com/1840414) **Live merge failure with libvirt error virDomainBlockCommit() failed**
 
    
 
@@ -137,10 +171,30 @@ for example , you can use now the followingf from the storage domains TAB
 
    
 
+ - [BZ 1850458](https://bugzilla.redhat.com/1850458) **Proper block SD teardown**
+
+   
+
 
 #### oVirt Engine
 
+ - [BZ 1828089](https://bugzilla.redhat.com/1828089) **Import data domain from previous RHV version fails**
+
+   
+
+ - [BZ 1840732](https://bugzilla.redhat.com/1840732) **VM can be started during ofline disk migration when the disk is locked**
+
+   
+
+ - [BZ 1839772](https://bugzilla.redhat.com/1839772) **[UI] Incorrect total of VMs ,shows under single host detail view**
+
+   
+
  - [BZ 1855377](https://bugzilla.redhat.com/1855377) **[CNV&RHV] Add-Disk operation failed to complete.**
+
+   
+
+ - [BZ 1860769](https://bugzilla.redhat.com/1860769) **Ensure that meaningful messages are logged, when edit cluster properties change and gluster service enabled**
 
    
 
@@ -153,6 +207,10 @@ for example , you can use now the followingf from the storage domains TAB
    
 
  - [BZ 1854478](https://bugzilla.redhat.com/1854478) **[UI] Inject copy host network failure into the event log UI.**
+
+   
+
+ - [BZ 1801206](https://bugzilla.redhat.com/1801206) **Possible missing block path for a SCSI host device needs to be handled in the UI**
 
    
 
@@ -189,6 +247,20 @@ for example , you can use now the followingf from the storage domains TAB
    
 
  - [BZ 1842272](https://bugzilla.redhat.com/1842272) **When trying to export VM to a different SD the VM clone creates on the source SD instead.**
+
+   
+
+
+#### oVirt dependencies
+
+ - [BZ 1851092](https://bugzilla.redhat.com/1851092) **Package ovirt-engine missing java dependencies in a RPM**
+
+   
+
+
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1852752](https://bugzilla.redhat.com/1852752) **Fix chainsaw graphs**
 
    
 
@@ -234,16 +306,25 @@ for example , you can use now the followingf from the storage domains TAB
    
 
 
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1846365](https://bugzilla.redhat.com/1846365) **Handle grafana in ovirt-engine-rename**
+
+   
+
+
 #### Contributors
 
-31 people contributed to this release:
+42 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
 	Amit Bawer
 	Andrej Cernek
+	Anton Marchukov
 	Arik Hadas
 	Artur Socha
+	Aviv Litman
 	Bell Levin
 	Bella Khizgiyev
 	Benny Zlotnik
@@ -252,20 +333,29 @@ for example , you can use now the followingf from the storage domains TAB
 	Eitan Raviv
 	Eli Mesika
 	Eyal Shenitzky
+	Germano Veit Michel
+	Jan Zmeskal
+	Kobi Hakimi
 	Lev Veyde
 	Liran Rotenberg
+	Luca
 	Lucia Jelinkova
 	Marcin Sobczyk
 	Martin Nečas
+	Martin Perina
 	Milan Zamazal
 	Nir Soffer
+	Orcun Atakan
 	Ori Liel
+	Radoslaw Szwajkowski
 	Ritesh Chikatwar
 	Sandro Bonazzola
 	Shani Leviim
 	Sharon Gratch
+	Shirly Radco
 	Shmuel Melamud
 	Steven Rosenberg
 	Tomáš Golembiovský
 	Vojtech Juranek
+	Xavi
 	Yedidyah Bar David

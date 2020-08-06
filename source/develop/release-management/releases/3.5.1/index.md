@@ -41,7 +41,7 @@ Support for running oVirt Engine on Red Hat Enterprise Linux 7 and CentOS 7 (or 
 
 ### oVirt Engine Extensions
 
-More information available at [Features/AAA](/develop/release-management/features/infra/aaa/).
+More information available at [Features/AAA](/develop/release-management/features/infra/aaa.html).
 
 #### Log4J logger bridge
 
@@ -54,10 +54,6 @@ A new LDAP implementation for ovirt-engine, replaces the legacy Kerberos/LDAP im
 #### Misc Authentication and Authorization utility
 
 Extensions required mainly for enabling single signon of ovirt-engine with environments such as Kerberos. Package name is ovirt-engine-extension-aaa-misc, LDAP specific integration is documented within the ovirt-engine-extension-aaa-ldap package [3](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-ldap.git;a=blob;f=README;hb=HEAD#l158), and in package specific documents [4](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-misc.git;a=blob;f=README.http;hb=HEAD)[5](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-misc.git;a=blob;f=README.mapping;hb=HEAD).
-
-### Migration of local DWH Reports to remote
-
-For those who already upgraded from 3.4 to 3.5 a new guide is now available in the [Migration of local DWH Reports to remote](/develop/release-management/features/engine/migration-of-local-dwh-reports-to-remote/) feature page
 
 ### Hosted Engine
 

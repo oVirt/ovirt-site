@@ -11,4 +11,4 @@ script:
       exit 2
     fi
   - bundle exec jekyll build
-  - bundle exec htmlproofer ./_site --allow-hash-href --empty-alt-ignore --checks-to-ignore=LinkCheck
+  - bundle exec ruby test.rb

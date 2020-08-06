@@ -30,7 +30,7 @@ The aim of this feature is to enhance the engine setup being able to install and
 
 The noVNC client used for VM web console utilizes websockets for passing VNC data. However, VNC server in qemu doesn't support websockets natively and there must be a websocket proxy placed between the client and VNC server. This proxy can run either on any node that has access to the host network but, currently, the engine-setup is only able to install and configure the WebSocketProxy on the node that runs the engine.
 
-It's currently already possible run the WebSocketProxy on a separate host but it requires a manual procedure. What we are proposing will automate a bit the setup process making it easier but still requiring some manual actions on both the machine.
+Currently, it's already possible run the WebSocketProxy on a separate host but it requires a manual procedure. What we are proposing will automate a bit the setup process making it easier but still requiring some manual actions on both the machine.
 
 Assumption:
 
@@ -41,7 +41,7 @@ Assumption:
     -   first the host with the engine to setup also the CA
     -   than the host with websocket-proxy
 
-Under this assumptions it can works this way:
+Under this assumptions it can work this way:
 
 *   On the first node:
     1.  Via yum, the user installs the required RPMs on the first machine (the engine one)
@@ -62,7 +62,7 @@ Under this assumptions it can works this way:
 
     5.  engine-setup also asks engine fqdn in order to automatically download the engine cert
 
-At the end WebSocket Proxy runs on a different host, in order to connect to it from your browser trusting the engine cert it's not enough (cause we now have two host) so the user has to download the CA cert end explicitly trust it in his browser. The CA cert can be downloaded from http://\<enginehost>/ca.crt
+At the end WebSocket Proxy runs on a different host, in order to connect to it from your browser trusting the engine cert it's not enough (cause we now have two hosts) so the user has to download the CA cert end explicitly trust it in his browser. The CA cert can be downloaded from http://\<enginehost>/ca.crt
 
 # Example setup
 
@@ -389,4 +389,4 @@ Add a virtualization host, start a VM from the engine and pen the noVNC console.
 
 
 
-[WebSocketProxy on a separate host](/develop/release-management/features/) [WebSocketProxy on a separate host](/develop/release-management/releases/3.5/feature/) [WebSocketProxy on a separate host](Category:Integration)
+[WebSocketProxy on a separate host](/develop/release-management/features/) [WebSocketProxy on a separate host](/develop/release-management/releases/3.5/feature.html) [WebSocketProxy on a separate host](Category:Integration)

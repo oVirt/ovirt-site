@@ -32,7 +32,7 @@ Using a phased approach, we are going to a point where messaging is the main com
 ### Current status
 
 *   Last updated on -- by (WIKI)
-*   Were currently in [Phase 1](#Phase_1)
+*   Were currently in [Phase 1](#phase-1)
 
 ## Phases
 
@@ -102,4 +102,4 @@ In this phase internal broker will be pulled out (if we are not already using st
 
 *   [ schema ](http://resources.ovirt.org/old-site-files/wiki/Schemas.tgz) ([dia](https://wiki.gnome.org/Apps/Dia/) file containing the schema sources)
 
-[JsonRpc](/develop/release-management/features/) [JsonRpc](/develop/release-management/releases/3.5/feature/)
+[JsonRpc](/develop/release-management/features/) [JsonRpc](/develop/release-management/releases/3.5/feature.html)

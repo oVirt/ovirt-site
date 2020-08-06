@@ -184,7 +184,7 @@ For a detailed information and examples regarding the usage of the Image I/O RES
 
 ## Dependencies / Related Features
 
-*   [ Features/StoragePool_Metadata_Removal](SPM Removal) changes the way the engine works with storage, any interactions with this project should be examined.
+*   [StoragePool Metadata Removal](/develop/release-management/features/storage/storagepool-metadata-removal.html) changes the way the engine works with storage, any interactions with this project should be examined.
 
 ## Limitations
 

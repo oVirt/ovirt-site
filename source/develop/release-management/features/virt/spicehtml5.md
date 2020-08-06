@@ -22,7 +22,7 @@ The design, architecture and implementation is almost same as the noVNC case. Th
 *   we use same (modified) websocket proxy python-websockify
 *   we make use of external package with the client (spice-html5) and slightly modified client page that is served by jboss
 
-For more info please visit [Features/noVNC_console](/develop/release-management/features/virt/novnc-console/)
+For more info please visit [Features/noVNC_console](/develop/release-management/features/virt/novnc-console.html)
 
       Note: In future the websockets support for SPICE will be implemented in QEMU. When this happens, the implementation of spice-html5 in the engine should use this feature instead of using websocket proxy.
 

@@ -90,7 +90,7 @@ The creation of key/cert pair could be part of engine setup process (together wi
 Prerequisities: Browser that has proper websockets and postmessage support (tested with FF and Chrome)
 
 *   In the engine-setup answer 'Yes' to 'Configure websocket proxy on the machine'"
-*   Import CA of the engine in your browser. You can download the certificate authority by navigating '<https://><your engine address>/ca.crt'.
+*   Import CA of the engine in your browser. You can download the certificate authority by navigating `https://<your engine address>/ca.crt`.
 *   Set up a VM as usual, set its Display Type to VNC and run it.
 *   In Console Options dialog, select 'noVNC'
 *   Click the console button to invoke the console.
@@ -106,7 +106,7 @@ Execute:
 
 ### Setup Websocket Proxy on a Separate Machine
 
-With release 3.5 oVirt supports also the deploy of WebSocket Proxy on a separate host via engine-setup; please follow this instruction: [Features/WebSocketProxy on a separate host](/develop/release-management/features/integration/websocketproxy-on-a-separate-host/)
+With release 3.5 oVirt supports also the deploy of WebSocket Proxy on a separate host via engine-setup; please follow this instruction: [Features/WebSocketProxy on a separate host](/develop/release-management/features/integration/websocketproxy-on-a-separate-host.html)
 
 ## Using noVNC
 

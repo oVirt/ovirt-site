@@ -56,8 +56,6 @@ Lots currently under discussion
 
 ## Quantum API
 
-<http://docs.openstack.org/incubation/openstack-network/developer/quantum-api-1.0/content/>
-
 python plugin interface
 
 Plugins handle the datastore; both opensource plugins use mysql database
@@ -70,4 +68,4 @@ existing quantum implementation handles one plugin; combining openvswitch/nexus 
 
 Design of quantum was to start small; thus the name. Consumer API reached consensus and allowed the project to get off the ground; expanding scope to provide a good API on the backend could be considered.
 
-[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011/)
+[Category:Workshop November 2011](/community/events/archives/workshop/workshop-november-2011.html)

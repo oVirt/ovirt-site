@@ -4,7 +4,7 @@ category: feature
 authors: acathrow, alourie, didi, dneary, jbrooks, netbulae, oschreib, sandrobonazzola
 feature_name: All in One
 feature_modules: engine,node
-feature_status: Released
+feature_status: Removed
 ---
 
 # All in One
@@ -13,7 +13,7 @@ feature_status: Released
 
 This feature is deprecated in 3.6 and it will be dropped in the next release, 4.0.
 
-An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [Self Hosted Engine](/develop/release-management/features/engine/self-hosted-engine/). 
+An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [Self Hosted Engine](/develop/release-management/features/sla/self-hosted-engine.html). 
 
 ## Summary
 
@@ -26,6 +26,7 @@ An alternative, supported since 3.4 and the only one to be in 4.0, is to use a [
 ## Current status
 *   Included since 3.1
 *   Deprecated since 3.6.0
+*   Removed since 4.0.0
 
 ## Detailed Description
 
@@ -63,7 +64,3 @@ It is recommended to generate the answer file automatically:
 ... After that, proceed with installation using the answer file you have just created:
 
 `engine-setup --config-append=`<answer file full path>
-
-
-
-[All In One](/develop/release-management/features/) [All In One](/develop/release-management/releases/3.1/feature/) [All In One](Category:Integration)

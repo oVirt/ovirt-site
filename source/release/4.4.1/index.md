@@ -1,14 +1,14 @@
 ---
-title: oVirt 4.4.1 Release Notes
+title: oVirt 4.4.1.4 Release Notes
 category: documentation
 authors: sandrobonazzola lveyde
 toc: true
 page_classes: releases
 ---
 
-# oVirt 4.4.1 Release Notes
+# oVirt 4.4.1.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.1 release as of July 08, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.1.4 release as of July 28, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -19,9 +19,10 @@ This release is available now for Red Hat Enterprise Linux 8.2 and
 CentOS Linux 8.2 (or similar).
 
 To find out how to interact with oVirt developers and users and ask questions,
-visit our [community page]"(/community/).
+visit our [community page](/community/).
 All issues or bugs should be reported via
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
+
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
 the [Download](/download/) page.
@@ -55,16 +56,49 @@ To learn about features introduced before 4.4.1, see the
    It's possible to add hosts, which don't provide classic rsa-sha-1 SSH public keys, but provide only rsa-sha256/rsa-sha-512 SSH public keys (for example CentOS 8 hosts with FIPS hardening enabled), to oVirt Engine.
 
 
-#### oVirt Engine WildFly
-
- - [BZ 1830951](https://bugzilla.redhat.com/1830951) **Rebase on Wildfly 19.1**
-
-   oVirt Engine is now running on WildFly 19.1.0.FINAL
-
-
 ### Enhancements
 
 #### oVirt Engine
+
+ - [BZ 1813831](https://bugzilla.redhat.com/1813831) **[RFE][CBT] Allow to view and remove VM backup checkpoints**
+
+   Feature: 
+
+Incremental backup root checkpoint removal.
+
+
+
+Reason: 
+
+Before this feature, when a backup was taken for a VM a checkpoint created in libvirt and on the engine database.
+
+
+
+In a large scale scenario, users can have many backups for a VM so there will be many checkpoints on libvirt and on the engine database. This could lead to performance degradation when the engine needs to redefine the checkpoints on the host after the VM powered off and restarted, also, saving many checkpoints in the database will consume a lot of space because each checkpoint entity saves the created checkpoint XML description.
+
+
+
+Result: 
+
+This feature provides the following operations - 
+
+
+
+1. View all the VM checkpoints using the new checkpoints service under the VM service - 
+
+GET path-to-engine/api/vms/vm-uuid/checkpoints
+
+
+
+2. View a specific checkpoint - 
+
+GET path-to-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid
+
+
+
+3. Remove the oldest (root) checkpoint from the chain - 
+
+DELETE path-to-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid
 
  - [BZ 1477049](https://bugzilla.redhat.com/1477049) **[RFE] [New UI - New setup networks dialog] - Add 'Unmanaged' network icon to the front NIC panel**
 
@@ -116,7 +150,7 @@ Result: User can invoke a copy host networks action from the web-admin.
 
  - [BZ 1841083](https://bugzilla.redhat.com/1841083) **bump up max memory limit to 6TB**
 
-   In 4.4 the maximum memory size for 64bit x86_64 and ppc64/ppc64le VMs is now 6TB. For x86_64 this limit is applied also to VMs in 4.2 and 4.3 Cluster Levels.
+   With this update, the maximum memory size for 64-bit virtual machines based on x86_64 or ppc64/ppc64le architectures is now 6 TB. This limit also applies to virtual machines based on x86_64 architecture in 4.2 and 4.3 Cluster Levels.
 
  - [BZ 1679730](https://bugzilla.redhat.com/1679730) **Warn about host IP addresses outside range**
 
@@ -135,7 +169,7 @@ Result: Better feedback to the user
 
 #### oVirt Engine Data Warehouse
 
- - [BZ 1848381](https://bugzilla.redhat.com/1848381) **[RFE] Add to dashboards description panel**
+ - [BZ 1848381](https://bugzilla.redhat.com/1848381) **[RFE] Add description panel to all oVirt dashboards**
 
    Feature: Description panels 
 
@@ -146,6 +180,13 @@ Reason: Explain to the user what reports are presented and what their purpose is
 
 
 Result: Text that explains the reports, on each dashboard and at the beginning of the page
+
+
+#### oVirt Engine WildFly
+
+ - [BZ 1830951](https://bugzilla.redhat.com/1830951) **Rebase on Wildfly 19.1**
+
+   With this release, the oVirt engine runs on WildFly 19.1.0.Final.
 
 
 #### oVirt Ansible hosted-engine setup role
@@ -188,7 +229,7 @@ Result: User can invoke a copy host networks action from the web-admin.
 
  - [BZ 1846256](https://bugzilla.redhat.com/1846256) **SSO allows all engine users to login to grafana**
 
-   Doc team: Please check the "Additional Info" part of the description and decide what's the best way to publish this. Perhaps a new doc bug to include this in the documentation, or a release notes item (for current bug?), or something else.
+   Grafana now allows Single-Sign-On (SSO) using oVirt engine users, but does not allow automatic creation of them. A future version (see bugs 1835163 and 1807323) will allow automatic creation of admin users. For now, users must be created manually, but after that they can login using SSO.
 
 
 ### Bug Fixes
@@ -239,9 +280,19 @@ Result: User can invoke a copy host networks action from the web-admin.
  - [BZ 1835096](https://bugzilla.redhat.com/1835096) **Snapshot reports as 'done' even though it failed (due to I/O error)**
 
 
+#### cockpit-ovirt
+
+ - [BZ 1676582](https://bugzilla.redhat.com/1676582) **hosted-engine --deploy uses inconsistent storage units (uses both GiB and GB)**
+
+
 #### oVirt Hosted Engine Setup
 
  - [BZ 1634742](https://bugzilla.redhat.com/1634742) **HE cleanup code is not cleaning libvirt.qemu.conf correctly and HE can't be redeployed**
+
+
+#### oVirt Hosted Engine HA
+
+ - [BZ 1850117](https://bugzilla.redhat.com/1850117) **Python error - a bytes-like object is required, not 'str' -  seen when trying to set hosted-engine shared config for storage**
 
 
 #### oVirt Ansible hosted-engine setup role
@@ -253,20 +304,16 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 #### oVirt Release Package
 
+ - [BZ 1858234](https://bugzilla.redhat.com/1858234) **ovirt 4.4.1.1 hci and problems with ansible 2.9.10 and/or missing python2**
+
+   
+
  - [BZ 1845670](https://bugzilla.redhat.com/1845670) **Cannot use any element on oVirt Node cockpit login page**
 
    
 
 
 #### oVirt Engine
-
- - [BZ 1853894](https://bugzilla.redhat.com/1853894) **Dashboard is broken and not visible on latest rhvm-4.4.1.7-0.3.el8ev.noarch**
-
-   
-
- - [BZ 1834698](https://bugzilla.redhat.com/1834698) **SCSI Hostdev Passthrough: SCSI SD moved to inactive when running VM with bootable scsi_hostdev**
-
-   
 
  - [BZ 1770893](https://bugzilla.redhat.com/1770893) **Manager shows successful upgrade even when upgrade failed in imgbased**
 
@@ -284,14 +331,6 @@ Result: User can invoke a copy host networks action from the web-admin.
 
    
 
- - [BZ 1845396](https://bugzilla.redhat.com/1845396) **[CNV&RHV] Failed to create VM from openshift template**
-
-   
-
- - [BZ 1846375](https://bugzilla.redhat.com/1846375) **[RFE] Include a link to grafana on front page**
-
-   
-
  - [BZ 1842253](https://bugzilla.redhat.com/1842253) **[ALL_LANG] Compute - Virtual Machines - Console - Console Options : no margin on left side of Dialog box**
 
    
@@ -305,10 +344,6 @@ Result: User can invoke a copy host networks action from the web-admin.
    
 
  - [BZ 1851708](https://bugzilla.redhat.com/1851708) **Download template disk with format="raw" fails**
-
-   
-
- - [BZ 1522926](https://bugzilla.redhat.com/1522926) **[RFE] Integrate lvm filter configuration in vdsm-tool configure step**
 
    
 
@@ -419,7 +454,7 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 #### VDSM
 
- - [BZ 1522926](https://bugzilla.redhat.com/1522926) **[RFE] Integrate lvm filter configuration in vdsm-tool configure step**
+ - [BZ 1841076](https://bugzilla.redhat.com/1841076) **vdsm should use the switch '--inet6' for querying gluster volume info with '--remote-host'**
 
    
 
@@ -428,10 +463,6 @@ Result: User can invoke a copy host networks action from the web-admin.
    
 
  - [BZ 1842894](https://bugzilla.redhat.com/1842894) **[4.4] Can't delete snapshot with memory (after review & commit) in case of multiple snapshots**
-
-   
-
- - [BZ 1837199](https://bugzilla.redhat.com/1837199) **[scale] LVM metadata reload failures are breaking volume creation and deletion**
 
    
 
@@ -448,10 +479,6 @@ Result: User can invoke a copy host networks action from the web-admin.
    
 
  - [BZ 1841030](https://bugzilla.redhat.com/1841030) **RHV upgrade for 4.3 to 4.4 fails for IBRS CPU type**
-
-   
-
- - [BZ 1557147](https://bugzilla.redhat.com/1557147) **No efficient api method to collect metadata of all volumes from sd**
 
    
 
@@ -478,11 +505,15 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 #### cockpit-ovirt
 
- - [BZ 1848588](https://bugzilla.redhat.com/1848588) **Error while attaching the lvmcache to LUKS device thinpool**
+ - [BZ 1856670](https://bugzilla.redhat.com/1856670) **[Day2] Fails to expand the volume, from the cluster of 6 nodes**
 
    
 
- - [BZ 1676582](https://bugzilla.redhat.com/1676582) **hosted-engine --deploy uses inconsistent storage units (uses both GiB and GB)**
+ - [BZ 1856685](https://bugzilla.redhat.com/1856685) **[Day2] Fails to crate new volume, with the cluster of 6 nodes**
+
+   
+
+ - [BZ 1848588](https://bugzilla.redhat.com/1848588) **Error while attaching the lvmcache to LUKS device thinpool**
 
    
 
@@ -524,10 +555,6 @@ Result: User can invoke a copy host networks action from the web-admin.
 
    
 
- - [BZ 1805267](https://bugzilla.redhat.com/1805267) **[RFE] ImageIO support for IPv6**
-
-   
-
  - [BZ 1591439](https://bugzilla.redhat.com/1591439) **[RFE] [v2v] - imageio performance - concurrent I/O**
 
    
@@ -546,6 +573,10 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 
 #### oVirt Setup Lib
+
+ - [BZ 1854324](https://bugzilla.redhat.com/1854324) **Add 'Abort' option after warning messages during installation**
+
+   
 
  - [BZ 1840756](https://bugzilla.redhat.com/1840756) **An endless loop occurs when using autoAcceptDefault=True**
 
@@ -599,25 +630,7 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 #### oVirt Hosted Engine HA
 
- - [BZ 1850117](https://bugzilla.redhat.com/1850117) **Python error - a bytes-like object is required, not 'str' -  seen when trying to set hosted-engine shared config for storage**
-
-   
-
  - [BZ 1832732](https://bugzilla.redhat.com/1832732) **unneeded  sudoers configuration for  vdsm  and sanlock  service control**
-
-   
-
-
-#### oVirt Log Collector
-
- - [BZ 1738439](https://bugzilla.redhat.com/1738439) **log collector doesn't work properly on machine with FIPS enabled**
-
-   
-
-
-#### oVirt Engine UI Extensions
-
- - [BZ 1853894](https://bugzilla.redhat.com/1853894) **Dashboard is broken and not visible on latest rhvm-4.4.1.7-0.3.el8ev.noarch**
 
    
 
@@ -626,11 +639,35 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 #### oVirt Engine
 
+ - [BZ 1858622](https://bugzilla.redhat.com/1858622) **Volume metadata is not copied from source volume**
+
+   
+
+ - [BZ 1851998](https://bugzilla.redhat.com/1851998) **Prevent SELinux errors when rotating ansible-runner-service.log to allow logging of ARS and not exhaust space on RHV Manager**
+
+   
+
+ - [BZ 1853894](https://bugzilla.redhat.com/1853894) **Dashboard is broken and not visible on latest rhvm-4.4.1.7-0.3.el8ev.noarch**
+
+   
+
  - [BZ 1853495](https://bugzilla.redhat.com/1853495) **[CodeChange][i18n] oVirt 4.4 webadmin - translation update (July-2020)**
 
    
 
+ - [BZ 1845396](https://bugzilla.redhat.com/1845396) **[CNV&RHV] Block creation of diskless VMs**
+
+   
+
+ - [BZ 1846375](https://bugzilla.redhat.com/1846375) **[RFE] Include a link to grafana on front page**
+
+   
+
  - [BZ 1827179](https://bugzilla.redhat.com/1827179) **Missing "Enable VNC Encryption" in cluster API**
+
+   
+
+ - [BZ 1522926](https://bugzilla.redhat.com/1522926) **[RFE] Integrate lvm filter configuration in vdsm-tool configure step**
 
    
 
@@ -717,7 +754,19 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 #### VDSM
 
+ - [BZ 1522926](https://bugzilla.redhat.com/1522926) **[RFE] Integrate lvm filter configuration in vdsm-tool configure step**
+
+   
+
+ - [BZ 1837199](https://bugzilla.redhat.com/1837199) **[scale] LVM metadata reload failures are breaking volume creation and deletion**
+
+   
+
  - [BZ 1821627](https://bugzilla.redhat.com/1821627) **Creation of live snapshot of VM wirh RO disk fails - external snapshot for readonly disk sda is not supported**
+
+   
+
+ - [BZ 1557147](https://bugzilla.redhat.com/1557147) **No efficient api method to collect metadata of all volumes from sd**
 
    
 
@@ -742,10 +791,6 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 #### oVirt Engine Data Warehouse
 
- - [BZ 1846365](https://bugzilla.redhat.com/1846365) **Handle grafana in ovirt-engine-rename**
-
-   
-
  - [BZ 1846870](https://bugzilla.redhat.com/1846870) **SSO after setup of grafana on separate machine fails**
 
    
@@ -766,7 +811,18 @@ Result: User can invoke a copy host networks action from the web-admin.
    
 
 
+#### oVirt Ansible hosted-engine setup role
+
+ - [BZ 1859483](https://bugzilla.redhat.com/1859483) **Error seen when launching Hosted Engine Deployment wizard**
+
+   
+
+
 #### oVirt Engine UI Extensions
+
+ - [BZ 1853894](https://bugzilla.redhat.com/1853894) **Dashboard is broken and not visible on latest rhvm-4.4.1.7-0.3.el8ev.noarch**
+
+   
 
  - [BZ 1853427](https://bugzilla.redhat.com/1853427) **[CodeChange][i18n] oVirt 4.4 ui-extensions - translation update (July-2020)**
 
@@ -779,7 +835,7 @@ Result: User can invoke a copy host networks action from the web-admin.
 
 #### Contributors
 
-64 people contributed to this release:
+62 people contributed to this release:
 
 	Ahmad Khiet
 	Ales Musil
@@ -792,6 +848,7 @@ Result: User can invoke a copy host networks action from the web-admin.
 	Aviv Turgeman
 	Bell Levin
 	Bella Khizgiyev
+	Ben Amsalem
 	Benny Zlotnik
 	Dana Elfassy
 	Daniel Erez
@@ -804,7 +861,6 @@ Result: User can invoke a copy host networks action from the web-admin.
 	Eyal Shenitzky
 	Fedor Gavrilov
 	Gal Zaidman
-	Gal-Zaidman
 	Germano Veit Michel
 	Gobinda Das
 	Hilda Stastna
@@ -813,16 +869,17 @@ Result: User can invoke a copy host networks action from the web-admin.
 	Liran Rotenberg
 	Lucia Jelinkova
 	Marcin Sobczyk
-	Martin Necas
+	Martin Nečas
 	Martin Perina
-	Martin Peřina
 	Michal Skrivanek
 	Milan Zamazal
 	Nijin Ashok
 	Nir Levy
 	Nir Soffer
+	Oleh Horbachov
 	Ondra Machacek
 	Ori Liel
+	Parth Dhanjal
 	Pavel Bar
 	Prajith Kesava Prasad
 	Radoslaw Szwajkowski
@@ -842,6 +899,3 @@ Result: User can invoke a copy host networks action from the web-admin.
 	Yedidyah Bar David
 	Yotam Fromm
 	Yuval Turgeman
-	bamsalem
-	eslutsky
-	parthdhanjal

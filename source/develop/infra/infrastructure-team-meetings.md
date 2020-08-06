@@ -29,14 +29,14 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-05-12
 
-"[Minutes](/meetings/ovirt/2014/ovirt.2014-05-12-13.06.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2014/ovirt.2014-05-12-13.06.log.html)"
 
 *   Hosting
 *   Jenkins
 
 #### 2014-04-07
 
-"[Minutes](/meetings/ovirt/2014/ovirt.2014-04-07-14.03.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2014/ovirt.2014-04-07-14.03.log.html)"
 
 *   Hosting
 *   Jenkins
@@ -45,7 +45,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-03-31
 
-"[Minutes](/meetings/ovirt/2014/ovirt.2014-03-31-14.02.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2014/ovirt.2014-03-31-14.02.log.html)"
 
 *   Hosting
 *   Foreman and Puppet
@@ -55,7 +55,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-03-17
 
-"[Minutes](/meetings/ovirt/2014/ovirt.2014-03-17-15.10.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2014/ovirt.2014-03-17-15.10.log.html)"
 
 *   Hosting
 *   Foreman and Puppet
@@ -64,7 +64,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-03-03
 
-"[Minutes](/meetings/ovirt/2014/ovirt.2014-03-03-15.01.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2014/ovirt.2014-03-03-15.01.log.html)"
 
 *   Hosting
 *   Foreman and Puppet
@@ -73,7 +73,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-02-17
 
-"[Minutes](/meetings/ovirt/2014/ovirt.2014-02-17-15.11.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2014/ovirt.2014-02-17-15.11.log.html)"
 
 *   Hosting
 *   Foreman and Puppet
@@ -82,7 +82,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-02-03
 
-"[Minutes](/meetings/ovirt/2014/ovirt.2014-02-03-15.50.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2014/ovirt.2014-02-03-15.50.log.html)"
 
 *   Hosting
 *   Foreman and Puppet
@@ -90,19 +90,19 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2014-01-06
 
-"[Minutes](/meetings/ovirt/2014/ovirt.2014-01-06-15.06.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2014/ovirt.2014-01-06-15.06.log.html)"
 
 *   Hosting
 
 #### 2013-12-23
 
-"[Minutes](/meetings/ovirt/2013/ovirt.2013-12-23-15.04.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-12-23-15.04.log.html)"
 
 *   Hosting
 
 #### 2013-12-16
 
-"[Minutes](/meetings/ovirt/2013/ovirt.2013-12-16-15.08.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-12-16-15.08.log.html)"
 
 *   Hosting
 *   Puppet and Foreman
@@ -111,7 +111,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-12-09
 
-"[Minutes](/meetings/ovirt/2013/ovirt.2013-12-09-15.11.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-12-09-15.11.log.html)"
 
 *   Hosting
 *   Puppet and Foreman
@@ -120,7 +120,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-11-25
 
-"[Minutes](/meetings/ovirt/2013/ovirt.2013-11-25-15.05.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-11-25-15.05.log.html)"
 
 *   Hosting
 *   Puppet and Foreman
@@ -129,7 +129,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-11-18
 
-"[Minutes](/meetings/ovirt/2013/ovirt.2013-11-18-15.02.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-11-18-15.02.log.html)"
 
 *   Hosting
 *   Puppet and Foreman
@@ -138,7 +138,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-11-11
 
-"[Minutes](/meetings/ovirt/2013/ovirt.2013-11-11-14.59.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-11-11-14.59.log.html)"
 
 *   Hosting
 *   Puppet and Foreman
@@ -147,7 +147,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-11-04
 
-"[Minutes](/meetings/ovirt/2013/ovirt.2013-11-04-15.01.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-11-04-15.01.log.html)"
 
 *   Hosting
 *   Puppet and Foreman
@@ -156,7 +156,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-10-28
 
-"[Minutes](/meetings/ovirt/2013/ovirt.2013-10-28-15.03.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-10-28-15.03.log.html)"
 
 *   Introductions
 *   Review of action items
@@ -168,7 +168,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-10-21
 
-"[Minutes](/meetings/ovirt/2013/ovirt.2013-10-21-14.02.log.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-10-21-14.02.log.html)"
 
 *   Introductions
 *   Review of action items
@@ -204,7 +204,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-08-19
 
-"[Minutes](/meetings/ovirt/2013/ovirt.2013-08-19-14.01.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-08-19-14.01.html)"
 
 *   Introductions
 *   Review of action items
@@ -216,7 +216,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-08-12
 
-"[Minutes](/meetings/ovirt/2013/ovirt.2013-08-12-14.01.html)"
+"[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-08-12-14.01.html)"
 
 *   Introductions
 *   Review of action items
@@ -228,7 +228,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-07-08
 
-*[Minutes](/meetings/ovirt/2013/ovirt.2013-07-08-13.59.html)*
+*[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-07-08-13.59.html)*
 
 *   Introductions
 *   Review of action items
@@ -240,7 +240,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-06-17
 
-*[Minutes](/meetings/ovirt/2013/ovirt.2013-06-17-14.03.html)*
+*[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-06-17-14.03.html)*
 
 *   Introductions
 *   Review of action items
@@ -252,7 +252,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-06-10
 
-*[Minutes](/meetings/ovirt/2013/ovirt.2013-06-10-14.02.html)*
+*[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-06-10-14.02.html)*
 
 *   Introductions
 *   Review of action items
@@ -264,7 +264,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-06-03
 
-*[Minutes](/meetings/ovirt/2013/ovirt.2013-06-03-14.24.html)*
+*[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-06-03-14.24.html)*
 
 *   Introductions
 *   Review of action items
@@ -276,7 +276,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-05-27
 
-*[Minutes](/meetings/ovirt/2013/ovirt.2013-05-27-14.06.html)*
+*[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-05-27-14.06.html)*
 
 *   Introductions
 *   Review of action items
@@ -289,7 +289,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-05-20
 
-*[Minutes](/meetings/ovirt/2013/ovirt.2013-05-20-14.04.html)*
+*[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-05-20-14.04.html)*
 
 *   Introductions
 *   Review of action items
@@ -330,7 +330,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-04-29
 
-*[Minutes](/meetings/ovirt/2013/ovirt.2013-04-29-14.01.html)*
+*[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-04-29-14.01.html)*
 
 *Agenda*
 
@@ -350,7 +350,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-04-15
 
-*[Minutes](/meetings/ovirt/2013/ovirt.2013-04-22-14.00.html)*
+*[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-04-22-14.00.html)*
 
 *Agenda*
 
@@ -370,7 +370,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-04-08
 
-*[Minutes](/meetings/ovirt/2013/ovirt.2013-04-08-14.04.html)*
+*[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-04-08-14.04.html)*
 
 *Agenda*
 
@@ -403,7 +403,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-03-18
 
-*[Minutes](/meetings/ovirt/2013/ovirt.2013-03-18-15.01.html)*
+*[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-03-18-15.01.html)*
 
 *Agenda*
 
@@ -494,7 +494,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-02-04
 
-*[Minutes](/meetings/ovirt/2013/ovirt.2013-02-04-15.14.html)*
+*[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-02-04-15.14.html)*
 
 *Agenda*
 
@@ -505,7 +505,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-01-28
 
-*[Minutes](/meetings/ovirt/2013/ovirt.2013-01-28-15.10.html)*
+*[Minutes](https://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-01-28-15.10.html)*
 
 *Agenda*
 
@@ -524,9 +524,9 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 *   Coverage - quaid on vacation 25 Jan - 08 Feb
 *   Finalize and clearly publish information on who has access to what, how access is granted, and how decisions are made about new infrastructure
-    -   [Becoming an Infrastructure team member](/develop/infra/becoming-an-infrastructure-team-member/)
-    -   [Infrastructure team assignments](/develop/infra/infrastructure-team-administrators/)
-    -   [Infrastructure#Decision process](/develop/infra/infrastructure/#decision-process)
+    -   [Becoming an Infrastructure team member](/develop/infra/becoming-an-infrastructure-team-member.html)
+    -   [Infrastructure team assignments](/develop/infra/infrastructure-team-administrators.html)
+    -   [Infrastructure Decision process](/develop/infra/infrastructure.html#decision-process)
 *   Hosting
 *   Puppet
 *   Jenkins
@@ -553,7 +553,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *[Minutes](https://lists.ovirt.org/pipermail/infra/2013-January/001800.html)*
 
 *   New hosting design
-    -   Review & discuss & improve upon draft: <http://etherpad.ovirt.org/p/new_hosting_design_Jan_2013>
+    -   Review & discuss & improve upon draft: new_hosting_design_Jan_2013
     -   **Decision on list by Wednesday 09 January 2013**
 *   Trac ticket review: <https://fedorahosted.org/ovirt/report/1>
     -   **"If it is not a ticket in Trac, it's not real for oVirt Infra"**
@@ -877,13 +877,13 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Short, one-line introductions.
 *   Agenda affirmation - anything to add or change?
 *   Review of open topics - what are the things we need to be talking about, in general?
-    -   Some specific and ongoing tasks are on the [Infrastructure team task list](/develop/infra/infrastructure-team-task-list/):
-        -   [Infrastructure team task list](/develop/infra/infrastructure-team-task-list/)
+    -   Some specific and ongoing tasks are on the [Infrastructure team task list](/develop/infra/infrastructure-team-task-list.html):
+        -   [Infrastructure team task list](/develop/infra/infrastructure-team-task-list.html)
 *   How are we going to be more open & enable others to do Infra work?
     -   Being transparent
     -   Building trust
 *   What is an oVirt sub-project and do we want to be one?
-    -   [Adding a subproject](/governance/adding-a-subproject)
+    -   [Adding a subproject](/develop/projects/adding-a-new-project.html)
 *   What is the mission of the oVirt infra project?
     -   Strawdog: "To provide a free/open source infrastructure of participation that supports the development of the oVirt project, and to do so by providing full free/open access to the entire infrastructure as a collaboration."
 *   Any other business? (AOB)

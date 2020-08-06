@@ -24,7 +24,7 @@ So we'd like to begin with 3 policies expressing the range.
     -   Engine
     -   VDSM
     -   MoM
-*   Detailed design: [Sla/policies/aggressive](Sla/policies/aggressive)
+*   Detailed design: [Sla/policies/aggressive](/develop/sla/policies/aggressive.html)
 
 ## Default / Naive Policy
 
@@ -35,7 +35,7 @@ So we'd like to begin with 3 policies expressing the range.
     -   Engine
     -   VDSM
     -   MoM
-*   Detailed design: [Sla/policies/default](Sla/policies/default)
+*   Detailed design: Sla/policies/default
 
 ## High QoS Policy
 
@@ -46,5 +46,5 @@ So we'd like to begin with 3 policies expressing the range.
     -   Engine
     -   VDSM
     -   MoM
-*   Detailed design: [Sla/policies/qos](Sla/policies/qos)
+*   Detailed design: Sla/policies/qos
 

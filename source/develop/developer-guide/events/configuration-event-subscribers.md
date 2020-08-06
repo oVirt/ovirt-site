@@ -8,7 +8,7 @@ authors: moolit
 
 ## oVirt Engine Notifier Configuration Subscribers
 
-See also [Features/engine-snmp](/develop/release-management/features/engine/engine-snmp/).
+See also [Features/engine-snmp](/develop/release-management/features/infra/engine-snmp.html).
 
 ### Summary
 

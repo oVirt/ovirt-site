@@ -47,7 +47,7 @@ password: `smartvm`
 Click on 'Admininstrator' and then select 'Configuration' to change how the appliance behaves:
 1. Select the appliance to configure
 
-    CFME Region: Region 0 → Zones → Zone: Default zone(current) → Server: EVM[1](current) should be selected by default.
+    CFME Region: Region 0 → Zones → Zone: Default zone(current) → Server: EVM\[1\](current) should be selected by default.
 
     The hostname and IP address of the appliance will be shown here, be careful as in some cases this will be the internal IP address and not the one you connected to.
 

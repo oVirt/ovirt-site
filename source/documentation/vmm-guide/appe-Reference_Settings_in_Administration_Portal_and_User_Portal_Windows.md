@@ -898,7 +898,7 @@ The options that are available in the **Initial Run** section differ depending o
 | **Networks &rarr; DNS Servers** | The DNS servers to be used by the virtual machine. |
 | **Networks &rarr; DNS Search Domains ** | The DNS search domains to be used by the virtual machine. |
 | **Networks &rarr; Network** | Configures network interfaces for the virtual machine. Select this check box and click **+** or **-** to add or remove network interfaces to or from the virtual machine. When you click **+**, a set of fields becomes visible that can specify whether to use DHCP, and configure an IP address, netmask, and gateway, and specify whether the network interface will start on boot. |
-| **Custom Script** | Custom scripts that will be run on the virtual machine when it starts. The scripts entered in this field are custom YAML sections that are added to those produced by the Engine, and allow you to automate tasks such as creating users and files, configuring `yum` repositories and running commands. For more information on the format of scripts that can be entered in this field, see the [Custom Script](/Features/vm-init-persistent#Custom_Script) documentation. |
+| **Custom Script** | Custom scripts that will be run on the virtual machine when it starts. The scripts entered in this field are custom YAML sections that are added to those produced by the Engine, and allow you to automate tasks such as creating users and files, configuring `yum` repositories and running commands. For more information on the format of scripts that can be entered in this field, see the [Custom Script](/develop/release-management/features/virt/vm-init-persistent.html#custom-script) documentation. |
 
 
 **Initial Run Section (Windows-based Virtual Machines)**

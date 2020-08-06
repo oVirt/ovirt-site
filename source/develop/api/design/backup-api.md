@@ -38,11 +38,9 @@ The disk can be definied as bootable for the VM if it's attached as bootable and
 
 ## Example (using oVirt 4.x API)
 
-1. Navigate to the wanted disk snapshot from REST by accessing:
-SERVER:PORT:/api/vms/GUID/snapshots/GUID/disks
+1. Navigate to the wanted disk snapshot from REST by accessing: `SERVER:PORT:/api/vms/GUID/snapshots/GUID/disks`
 
-2. POST a disk attachment with the disk id and the snapshot id and choose "false" for bootable and the desired disk interface
- [http://SERVER:PORT/api/vms/GUID/diskattachments/](http://SERVER:PORT/api/vms/GUID/diskattachments/)
+2. POST a disk attachment with the disk id and the snapshot id and choose "false" for bootable and the desired disk interface `http://SERVER:PORT/api/vms/GUID/diskattachments/`
 
 When attaching the disk you will have to pass the the disk id and the snapshot id and the disk interface as in the following example:
 
@@ -61,15 +59,13 @@ After copying the data from the disk detach the disk snapshot from the VM using 
 
 ## Example (Legacy oVirt 3.X API)
 Note: Since prior to version 4.0 the disks themselves are defined as bootable, if the new backup disk will be a boot disk and will have an OS installed on it then there can be one of the other use cases:
-\* If the backup VM will already contain a boot disk with OS installed on it, then the original boot disk will be remained.
 
-*   If the backup VM will not contain a boot disk with OS installed on it, then the original boot disk will act as a boot disk which the VM will start the boot from.
+* If the backup VM will already contain a boot disk with OS installed on it, then the original boot disk will be remained.
+* If the backup VM will not contain a boot disk with OS installed on it, then the original boot disk will act as a boot disk which the VM will start the boot from.
 
-1. Navigate to the wanted disk snapshot from REST by accessing:
-SERVER:PORT:/api/vms/GUID/snapshots/GUID/disks
+1. Navigate to the wanted disk snapshot from REST by accessing: `SERVER:PORT:/api/vms/GUID/snapshots/GUID/disks`
 
-2. POST the copied disk with the disk id and the snapshot id:
- [http://SERVER:PORT/api/vms/GUID/disks/](http://SERVER:PORT/api/vms/GUID/disks/)
+2. POST the copied disk with the disk id and the snapshot id: `http://SERVER:PORT/api/vms/GUID/disks/`
 
 When creating a disk you will have to pass the the disk id and the snapshot id such as the following example:
 

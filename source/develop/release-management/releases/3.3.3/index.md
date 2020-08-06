@@ -13,7 +13,7 @@ oVirt is an open source alternative to VMware vSphere, and provides an awesome K
 
 To find out more about features that were added in previous oVirt releases, check out the [oVirt 3.3.2 release notes](/develop/release-management/releases/3.3.2/), [oVirt 3.3.1 release notes](/develop/release-management/releases/3.3.1/), [oVirt 3.3 release notes](/develop/release-management/releases/3.3/), [oVirt 3.2 release notes](/develop/release-management/releases/3.2/), and [oVirt 3.1 release notes](/develop/release-management/releases/3.1/).
 
-For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide/) and the [about oVirt](/community/about.html) page.
+For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide.html) and the [about oVirt](/community/about.html) page.
 
 ## Install / Upgrade from previous versions
 
@@ -30,9 +30,9 @@ If you're upgrading from oVirt 3.3, you should just execute:
       # yum update ovirt-engine-setup
       # engine-setup
 
-If you're upgrading from oVirt 3.2, you should read [oVirt 3.2 to 3.3 upgrade](/develop/release-management/releases/3.2/to-3.3-upgrade/)
+If you're upgrading from oVirt 3.2, you should read [oVirt 3.2 to 3.3 upgrade](/develop/release-management/releases/3.2/to-3.3-upgrade.html)
 
-If you're upgrading from oVirt 3.1, you should upgrade to 3.2 before upgrading to 3.3.3. Please read [oVirt 3.1 to 3.2 upgrade](/develop/release-management/releases/3.1/to-3.2-upgrade/) before starting the upgrade.
+If you're upgrading from oVirt 3.1, you should upgrade to 3.2 before upgrading to 3.3.3. Please read [oVirt 3.1 to 3.2 upgrade](/develop/release-management/releases/3.1/to-3.2-upgrade.html) before starting the upgrade.
  On CentOS and RHEL: For upgrading to 3.2 you'll need the 3.2 stable repository.
 So, the first step is disable 3.3 / stable repository and enable 3.2 in /etc/yum.repos.d/ovirt.repo:
 

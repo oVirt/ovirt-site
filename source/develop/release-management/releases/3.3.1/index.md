@@ -11,7 +11,7 @@ The oVirt Project is pleased to announce the availability of oVirt 3.3.1 release
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
 
-To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.3 release notes](/develop/release-management/releases/3.3/), [oVirt 3.2 release notes](/develop/release-management/releases/3.2/) and [oVirt 3.1 release notes](/develop/release-management/releases/3.1/). For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide/) and the [about oVirt](/community/about.html) page.
+To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.3 release notes](/develop/release-management/releases/3.3/), [oVirt 3.2 release notes](/develop/release-management/releases/3.2/) and [oVirt 3.1 release notes](/develop/release-management/releases/3.1/). For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide.html) and the [about oVirt](/community/about.html) page.
 
 ## Install / Upgrade from previous versions
 
@@ -23,9 +23,9 @@ If you're upgrading from oVirt 3.3 you should just execute:
       # yum update ovirt-engine-setup
       # engine-setup
 
-If you're upgrading from oVirt 3.2 you should read [oVirt 3.2 to 3.3 upgrade](/develop/release-management/releases/3.2/to-3.3-upgrade/)
+If you're upgrading from oVirt 3.2 you should read [oVirt 3.2 to 3.3 upgrade](/develop/release-management/releases/3.2/to-3.3-upgrade.html)
 
-If you're upgrading from oVirt 3.1 you should upgrade to 3.2 before upgrading to 3.3.1. Please read [oVirt 3.1 to 3.2 upgrade](/develop/release-management/releases/3.1/to-3.2-upgrade/) before starting the upgrade.
+If you're upgrading from oVirt 3.1 you should upgrade to 3.2 before upgrading to 3.3.1. Please read [oVirt 3.1 to 3.2 upgrade](/develop/release-management/releases/3.1/to-3.2-upgrade.html) before starting the upgrade.
 On CentOS and RHEL: For upgrading to 3.2 you'll need 3.2 stable repository.
 So, first step is disable 3.3 / stable repository and enable 3.2 in /etc/yum.repos.d/ovirt.repo:
 
@@ -72,13 +72,12 @@ The updates for oVirt Node can be found [here](http://resources.ovirt.org/releas
 
 **Note:** An RPM containing the oVirt Node image is also missing, this currently prevents an update through oVirt Engine.
 
-Upgrade instructions can be found on the [Node_Troubleshooting#Upgrading_oVirt_Node](/develop/projects/node/troubleshooting/#upgrading-ovirt-node) page.
 
 ## What's New in 3.3.1?
 
 ### Vnic Profiles
 
-The [vnic profiles](/develop/release-management/features/sla/vnic-profiles/) feature was developed as a requirement for the Network QoS feature. Users can now limit the inbound and outbound network traffic on a virtual NIC level by applying profiles which define custom properties such as port mirroring or quality of service (QoS).
+The [vnic profiles](/develop/release-management/features/sla/vnic-profiles.html) feature was developed as a requirement for the Network QoS feature. Users can now limit the inbound and outbound network traffic on a virtual NIC level by applying profiles which define custom properties such as port mirroring or quality of service (QoS).
 
 **Important note:**
 
@@ -98,11 +97,11 @@ It is now possible to add/remove network interfaces in the add/edit VM dialog, w
 
 ### Manage Storage Connections
 
-The [Manage Storage Connections](/develop/release-management/features/storage/manage-storage-connections/) adds the ability to add, edit and delete storage connections. This helps supporting configuration changes such as adding paths (multipathing), changes of hardware, and ease failover to remote sites, by quickly switching to work with another storage that holds a backup/sync of the contents of the current storage.
+The [Manage Storage Connections](/develop/release-management/features/storage/manage-storage-connections.html) adds the ability to add, edit and delete storage connections. This helps supporting configuration changes such as adding paths (multipathing), changes of hardware, and ease failover to remote sites, by quickly switching to work with another storage that holds a backup/sync of the contents of the current storage.
 
 ### Multiple Monitors
 
-[Multiple Monitors](/develop/release-management/features/virt/multiplemonitors/) feature added the ability to channel Spice display protocol up to 4 different PCI channels in a single VM
+[Multiple Monitors](/develop/release-management/features/virt/multiplemonitors.html) feature added the ability to channel Spice display protocol up to 4 different PCI channels in a single VM
 
 ### oVirt Scheduler
 

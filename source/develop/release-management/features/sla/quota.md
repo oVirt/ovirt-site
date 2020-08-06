@@ -100,7 +100,7 @@ Each Data Center entity is configured with one of the following operation modes:
 2.  Soft Limit (audit)- Only warning messages would be issued when Quota restrictions are violated.
 3.  Hard Limit (enabled)- Enforced the restrictions completely and prevent the resource allocation.
 
-See more info in the [Installation/Upgrade](#Installation/Upgrade) section
+See more info in the [Installation/Upgrade](#installationupgrade) section
 
 ### CRUD
 
@@ -156,7 +156,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ### REST-API
 
-Enable quota_mode under data center entity (see [quota enforcement in data center](#Data_Center)):
+Enable quota_mode under data center entity (see [quota enforcement in data center](#data-center)):
 
 `   `<datacenter>
              ...
@@ -286,9 +286,7 @@ Affected oVirt projects:
 
 ## Documentation / External references
 
-[Features/Quota](/develop/release-management/features/sla/quota/)
-[Features/Design/Quota](/wiki/Features/Design/Quota)
-
+[Features/Quota](/develop/release-management/features/sla/quota.html)
 
 
 ## Future Work

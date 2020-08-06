@@ -19,7 +19,7 @@ title: oVirt 4.2.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management/) Release Criteria
+*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 4.2.8 Release Notes](/release/4.2.8/)
 *   Blocking bugs must be fixed: [oVirt 4.2.8 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.2.8&v1=blocker)
 
@@ -39,7 +39,7 @@ title: oVirt 4.2.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management/) Release Criteria
+*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 4.2.7 Release Notes](/release/4.2.7/)
 *   Blocking bugs must be fixed: [oVirt 4.2.7 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.2.7&v1=blocker)
 
@@ -57,7 +57,7 @@ title: oVirt 4.2.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management/) Release Criteria
+*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 4.2.6 Release Notes](/release/4.2.6/)
 *   Blocking bugs must be fixed: [oVirt 4.2.6 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.2.6&v1=blocker)
 
@@ -76,7 +76,7 @@ title: oVirt 4.2.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management/) Release Criteria
+*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 4.2.5 Release Notes](/release/4.2.5/)
 *   Blocking bugs must be fixed: [oVirt 4.2.5 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.2.5&v1=blocker)
 
@@ -98,7 +98,7 @@ title: oVirt 4.2.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management/) Release Criteria
+*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 4.2.4 Release Notes](/release/4.2.4/)
 *   Blocking bugs must be fixed: [oVirt 4.2.4 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.2.4&v1=blocker)
 
@@ -119,7 +119,7 @@ title: oVirt 4.2.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management/) Release Criteria
+*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 4.2.3 Release Notes](/release/4.2.3/)
 *   Blocking bugs must be fixed: [oVirt 4.2.3 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.2.3&v1=blocker)
 
@@ -141,7 +141,7 @@ title: oVirt 4.2.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management/) Release Criteria
+*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 4.2.2 Release Notes](/release/4.2.2/)
 *   Blocking bugs must be fixed: [oVirt 4.2.2 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.2.2&v1=blocker)
 
@@ -164,6 +164,6 @@ title: oVirt 4.2.z Release Management
 
 ### Release criteria
 
-*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management/) Release Criteria
+*   See [oVirt 4.2 release-management](/develop/release-management/releases/4.2/release-management.html) Release Criteria
 *   Release notes must be filled: [oVirt 4.2.1 Release Notes](/release/4.2.1/)
 *   Blocking bugs must be fixed: [oVirt 4.2.1 blocker bugs](https://bugzilla.redhat.com/buglist.cgi?classification=oVirt&f1=flagtypes.name&o1=substring&query_format=advanced&target_milestone=ovirt-4.2.1&v1=blocker)

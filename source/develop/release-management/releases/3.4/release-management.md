@@ -12,19 +12,15 @@ authors: bproffitt, danken, sandrobonazzola
 
 *   General availability: **2014-03-27**
     -   RC2 Build: **\1**
-    -   [oVirt 3.4 Third Test Day:](/develop/release-management/releases/3.4/test-day/) **\1**
+    -   oVirt 3.4 Third Test Day **\1**
     -   RC Build: **\1**
     -   Beta 3 release: **\1**
-    -   [oVirt 3.4 Second Test Day:](/develop/release-management/releases/3.4/test-day/) **\1**
+    -   oVirt 3.4 Second Test Day **\1**
     -   Beta 2 release: **2014-02-07**
-    -   [oVirt 3.4 Test Day:](/develop/release-management/releases/3.4/test-day/) **\1**
+    -   oVirt 3.4 Test Day **\1**
     -   Beta release: **2014-01-22**
     -   Branching / Feature freeze: **2014-01-15**
     -   Alpha release: **2014-01-09**
-
-## Features Status Table
-
-To try and improve 3.4 planning over the wiki approach in 3.3, this google doc <http://bit.ly/17qBn6F> has been created.
 
 ## Tracker Bug
 
@@ -45,10 +41,8 @@ To try and improve 3.4 planning over the wiki approach in 3.3, this google doc <
 *   **MUST**: vm life-cycle is working flawlessly (start,suspend,resume,stop,migrate)
 *   **MUST**: Upgrade from previous release
 *   **MUST**: ovirt-node full cycle (register, approve and running VM, reboot and verify things still work)
-    -   See [Node test procedure](Node test procedure)
 *   **MUST**: No known data corruptors
 *   **MUST**: Can define NFS, iSCSI, FC and local based storage domains
-    -   See [storage test procedure](storage test procedure)
 *   **MUST**: Can define VLAN based networks, bond interfaces, and have VLANs over bonded interfaces
 *   **MUST**: Can authenticate users against at least one external LDAP server
 *   **MUST**: Can run multiple VMs

@@ -12,7 +12,7 @@ Virtual machines consolidate computing tasks and workloads. In traditional compu
 
 Most virtual machine tasks in oVirt can be performed in both the VM Portal and Administration Portal. However, the user interface differs between each portal, and some administrative tasks require access to the Administration Portal. Tasks that can only be performed in the Administration Portal will be described as such in this book. Which portal you use, and which tasks you can perform in each portal, is determined by your level of permissions.
 
-The VM Portal's user interface is described in the [Introduction to the VM Portal](/documentation/intro-user/Introduction_to_the_User_Portal/).
+The VM Portal's user interface is described in the [Introduction to the VM Portal](/documentation/intro-vm-portal/).
 
 The Administration Portal's user interface is described in the [Administration Guide](/documentation/administration_guide/).
 

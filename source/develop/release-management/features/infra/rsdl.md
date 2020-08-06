@@ -2,11 +2,11 @@
 title: RSDL
 category: api
 authors: michael pasternak
+toc: true
 ---
 
 # RSDL
 
-__TOC__
 
 ## Description
 
@@ -29,714 +29,663 @@ each URI in RSDL contains all necessary info to generate HTTP request from it, t
 each URI in RSDL contains "rel" and "description" describing the meaning of the given operation on the certain URI, humans can easily fetch all available operations for the given collection/resource simply by locating different descriptors with same URI.
 
 ## Format
-
-`   `<rsdl rel="rsdl" href="/api?rsdl">
-`       `<description></description>
-`       `<version revision="0" build="0" minor="0" major="0"/>
-`       `<schema rel="schema" href="/api?schema">
-`           `<name>`api.xsd`</name>
-`           `<description></description>
-`       `</schema>
-`       `<general rel="*" href="/*">
-`           `<request>
-`               `<headers>
-                         
-
-<header required="true|false">
-`                       `<name></name>
-`                       `<description></description>
-`                       `<value></value>
-                         
-
-</header>
+{% highlight xml %}
+   <rsdl rel="rsdl" href="/api?rsdl">
+       <description></description>
+       <version revision="0" build="0" minor="0" major="0"/>
+       <schema rel="schema" href="/api?schema">
+           <name>api.xsd</name>
+           <description></description>
+       </schema>
+       <general rel="*" href="/*">
+           <request>
+               <headers>
+                   <header required="true|false">
+                       <name></name>
+                       <description></description>
+                       <value></value>
+                  </header>
+                  ...
+               </headers>
+               <url>
+                   <parameters_set>
+                       <parameter context="query|matrix" type="xs:string" required="true|false">
+                           <name></name>
+                           <value></value>
+                       </parameter>
+                       ...
+                   </parameters_set>
+                   ...
+           </request>
+           <name></name>
+           <description></description>
+       </general>
+       <links>
+           <link rel="get|..." href="/api/xxx">
+               <request>
+                   <http_method>GET|POST|PUT|DELETE|...</http_method>
+                   <headers>
+                        <header required="true|false">
+                           <name></name>
+                           <value></value>
+                        </header>
                         ...
-`               `</headers>
-`               `<url>
-`                   `<parameters_set>
-`                       `<parameter context="query|matrix" type="xs:string" required="true|false">
-`                           `<name></name>
-`                           `<value></value>
-`                       `</parameter>
-                         ...
-`                   `</parameters_set>
-                         ...
-`           `</request>
-`           `<name></name>
-`           `<description></description>
-`       `</general>
-`       `<links>
-`           `<link rel="get|..." href="/api/xxx">
-`               `<request>
-`                   `<http_method>`GET|POST|PUT|DELETE|...`</http_method>
-`                   `<headers>
-                             
+                   </headers>
+                   <url>
+                       <parameters_set>
+                           <parameter context="query|matrix" type="" required="true|false">
+                               <name></name>
+                               <value></value>
+                           </parameter>
+                           ...
+                       </parameters_set>
+                       ...
+                   </url>
+                   <body>
+                       <type>...</type>
+                       <parameters_set>
+                           <parameter type="" required="true|false">
+                               <name>FQ-name-to-parameter</name>
+                           </parameter>
+                           ...
+                       </parameters_set>
+                       ...
+                  </body>
+               </request>
+               <response>
+                   <type></type>
+                   ...
+               </response>
+           </link>
+           ...
+       </links>
+   </rsdl>
+{% endhighlight %}
 
-<header required="true|false">
-`                           `<name></name>
-`                           `<value></value>
-                             
 
-</header>
-                             ...
-`                   `</headers>
-`                   `<url>
-`                       `<parameters_set>
-`                           `<parameter context="query|matrix" type="" required="true|false">
-`                               `<name></name>
-`                               `<value></value>
-`                           `</parameter>
-                                 ...
-`                       `</parameters_set>
-                             ...
-`                   `</url>
-                         
-
-<body>
-`                       `<type>`...`</type>
-`                       `<parameters_set>
-`                           `<parameter type="" required="true|false">
-`                               `<name>`FQ-name-to-parameter`</name>
-`                           `</parameter>
-                                 ...
-`                       `</parameters_set>
-                             ...
-                         
-
-</body>
-`               `</request>
-`               `<response>
-`                   `<type></type>
-                         ...
-`               `</response>
-`           `</link>
-                 ...
-`       `</links>
-`   `</rsdl>
 
 ### Components
 
-#### uri
+#### URI
+{% highlight xml %}
+   <links>
+       <link rel="get|..." href="/api/xxx">
+{% endhighlight %}
 
-`   `<links>
-`       `<link rel="get|..." href="/api/xxx">
+#### Request
 
-#### request
+{% highlight xml %}
+   <request>
+       <http_method>GET|POST|PUT|DELETE|...</http_method>
+       <headers>
+            <header required="true|false">
+               <name></name>
+               <value></value>
+            </header>
+            ...
+       </headers>
+       <url>
+           <parameters_set>
+               <parameter context="query|matrix" type="" required="true|false">
+                   <name></name>
+                   <value></value>
+               </parameter>
+               ...
+           </parameters_set>
+           ...
+       </url>
+       <body>
+           <type>...</type>
+           <parameters_set>
+               <parameter type="" required="true|false">
+                   <name>FQ-name-to-parameter</name>
+               </parameter>
+               ...
+           </parameters_set>
+           ...
+       </body>
+   </request>
+{% endhighlight %}
 
-`   `<request>
-`       `<http_method>`GET|POST|PUT|DELETE|...`</http_method>
-`       `<headers>
-                 
+#### Response
 
-<header required="true|false">
-`               `<name></name>
-`               `<value></value>
-                 
-
-</header>
-                 ...
-`       `</headers>
-`       `<url>
-`           `<parameters_set>
-`               `<parameter context="query|matrix" type="" required="true|false">
-`                   `<name></name>
-`                   `<value></value>
-`               `</parameter>
-                     ...
-`           `</parameters_set>
-                 ...
-`       `</url>
-             
-
-<body>
-`           `<type>`...`</type>
-`           `<parameters_set>
-`               `<parameter type="" required="true|false">
-`                   `<name>`FQ-name-to-parameter`</name>
-`               `</parameter>
-                     ...
-`           `</parameters_set>
-                 ...
-             
-
-</body>
-`   `</request>
-
-#### response
-
-`   `<response>
-`       `<type></type>
-             ...
-`   `</response>
+{% highlight xml %}
+   <response>
+       <type></type>
+       ...
+   </response>
+{% endhighlight %}
 
 ### XML schema
 
+{% highlight xml %}
 <xs:element name="detailedLinks" type="DetailedLinks"/>
+ <xs:complexType name="DetailedLinks">
+   <xs:sequence>
+     <xs:annotation>
+       <xs:appinfo>
+         <jaxb:property name="links"/>
+       </xs:appinfo>
+     </xs:annotation>
+     <xs:element type="DetailedLink" name="link" maxOccurs="unbounded"/>
+   </xs:sequence>
+ </xs:complexType>
 
-` `<xs:complexType name="DetailedLinks">
-`   `<xs:sequence>
-`     `<xs:annotation>
-`       `<xs:appinfo>
-`         `<jaxb:property name="links"/>
-`       `</xs:appinfo>
-`     `</xs:annotation>
-`     `<xs:element type="DetailedLink" name="link" maxOccurs="unbounded"/>
-`   `</xs:sequence>
-` `</xs:complexType>
+ <xs:element name="link" type="Link"/>
 
-` `<xs:element name="link" type="Link"/>
+ <xs:complexType name="Link">
+   <xs:attribute name="href" type="xs:string"/>
+   <xs:attribute name="rel" type="xs:string"/>
+ </xs:complexType>
 
-` `<xs:complexType name="Link">
-`   `<xs:attribute name="href" type="xs:string"/>
-`   `<xs:attribute name="rel" type="xs:string"/>
-` `</xs:complexType>
+ <xs:element name="url" type="Url"/>
 
-` `<xs:element name="url" type="Url"/>
+ <xs:complexType name="Url">
+   <xs:sequence>
+     <xs:element ref="parameters_set" maxOccurs="unbounded" minOccurs="0">
+       <xs:annotation>
+         <xs:appinfo>
+           <jaxb:property name="ParametersSets"/>
+         </xs:appinfo>
+       </xs:annotation>
+     </xs:element>
+   </xs:sequence>
+ </xs:complexType>
 
-` `<xs:complexType name="Url">
-`   `<xs:sequence>
-`     `<xs:element ref="parameters_set" maxOccurs="unbounded" minOccurs="0">
-`       `<xs:annotation>
-`         `<xs:appinfo>
-`           `<jaxb:property name="ParametersSets"/>
-`         `</xs:appinfo>
-`       `</xs:annotation>
-`     `</xs:element>
-`   `</xs:sequence>
-` `</xs:complexType>
+ <xs:element name="body" type="Body"/>
 
-` `<xs:element name="body" type="Body"/>
+ <xs:complexType name="Body">
+   <xs:sequence>
+     <xs:element name="type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+     <xs:element ref="parameters_set" maxOccurs="unbounded" minOccurs="0">
+       <xs:annotation>
+         <xs:appinfo>
+           <jaxb:property name="ParametersSets"/>
+         </xs:appinfo>
+       </xs:annotation>
+     </xs:element>
+   </xs:sequence>
+   <xs:attribute name="required" type="xs:boolean">
+               <xs:annotation>
+         <xs:appinfo>
+           <jaxb:property generateIsSetMethod="false"/>
+         </xs:appinfo>
+       </xs:annotation>
+   </xs:attribute>
+ </xs:complexType>
 
-` `<xs:complexType name="Body">
-`   `<xs:sequence>
-`     `<xs:element name="type" type="xs:string" minOccurs="1" maxOccurs="1"/>
-`     `<xs:element ref="parameters_set" maxOccurs="unbounded" minOccurs="0">
-`       `<xs:annotation>
-`         `<xs:appinfo>
-`           `<jaxb:property name="ParametersSets"/>
-`         `</xs:appinfo>
-`       `</xs:annotation>
-`     `</xs:element>
-`   `</xs:sequence>
-`   `<xs:attribute name="required" type="xs:boolean">
-`               `<xs:annotation>
-`         `<xs:appinfo>
-`           `<jaxb:property generateIsSetMethod="false"/>
-`         `</xs:appinfo>
-`       `</xs:annotation>
-`   `</xs:attribute>
-` `</xs:complexType>
+ <xs:element name="request" type="Request"/>
 
-` `<xs:element name="request" type="Request"/>
+ <xs:complexType name="Request">
+   <xs:sequence>
+     <xs:element name="http_method" type="HttpMethod" minOccurs="1" maxOccurs="1"/>
+     <xs:element ref="headers" minOccurs="0" maxOccurs="1"/>
+     <xs:element ref="url" minOccurs="0" maxOccurs="1"/>
+     <xs:element ref="body" minOccurs="0" maxOccurs="1"/>
+   </xs:sequence>
+ </xs:complexType>
 
-` `<xs:complexType name="Request">
-`   `<xs:sequence>
-`     `<xs:element name="http_method" type="HttpMethod" minOccurs="1" maxOccurs="1"/>
-`     `<xs:element ref="headers" minOccurs="0" maxOccurs="1"/>
-`     `<xs:element ref="url" minOccurs="0" maxOccurs="1"/>
-`     `<xs:element ref="body" minOccurs="0" maxOccurs="1"/>
-`   `</xs:sequence>
-` `</xs:complexType>
+ <xs:simpleType name="HttpMethod">
+   <xs:restriction base="xs:string">
+     <xs:enumeration value="GET"/>
+     <xs:enumeration value="POST"/>
+     <xs:enumeration value="PUT"/>
+     <xs:enumeration value="DELETE"/>
+     <xs:enumeration value="OPTIONS"/>
+   </xs:restriction>
+ </xs:simpleType>
 
-` `<xs:simpleType name="HttpMethod">
-`   `<xs:restriction base="xs:string">
-`     `<xs:enumeration value="GET"/>
-`     `<xs:enumeration value="POST"/>
-`     `<xs:enumeration value="PUT"/>
-`     `<xs:enumeration value="DELETE"/>
-`     `<xs:enumeration value="OPTIONS"/>
-`   `</xs:restriction>
-` `</xs:simpleType>
+ <xs:element name="response" type="Response"/>
 
-` `<xs:element name="response" type="Response"/>
+ <xs:complexType name="Response">
+   <xs:sequence>
+     <xs:element name="type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+   </xs:sequence>
+ </xs:complexType>
 
-` `<xs:complexType name="Response">
-`   `<xs:sequence>
-`     `<xs:element name="type" type="xs:string" minOccurs="1" maxOccurs="1"/>
-`   `</xs:sequence>
-` `</xs:complexType>
+ <xs:element name="parameter" type="Parameter"/>
 
-` `<xs:element name="parameter" type="Parameter"/>
+ <xs:complexType name="Parameter">
+   <xs:complexContent>
+     <xs:extension base="BaseResource">
+       <xs:sequence>
+             <xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1"/>
+             <xs:element ref="parameters_set" minOccurs="0" maxOccurs="1"/>
+       </xs:sequence>
+       <xs:attribute name="required" type="xs:boolean">
+         <xs:annotation>
+           <xs:appinfo>
+             <jaxb:property generateIsSetMethod="false"/>
+           </xs:appinfo>
+         </xs:annotation>
+       </xs:attribute>
+       <xs:attribute name="type" type="xs:string"/>
+       <xs:attribute name="context" type="xs:string"/>
+     </xs:extension>
+   </xs:complexContent>
+ </xs:complexType>
 
-` `<xs:complexType name="Parameter">
-`   `<xs:complexContent>
-`     `<xs:extension base="BaseResource">
-`       `<xs:sequence>
-`             `<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1"/>
-`             `<xs:element ref="parameters_set" minOccurs="0" maxOccurs="1"/>
-`       `</xs:sequence>
-`       `<xs:attribute name="required" type="xs:boolean">
-`         `<xs:annotation>
-`           `<xs:appinfo>
-`             `<jaxb:property generateIsSetMethod="false"/>
-`           `</xs:appinfo>
-`         `</xs:annotation>
-`       `</xs:attribute>
-`       `<xs:attribute name="type" type="xs:string"/>
-`       `<xs:attribute name="context" type="xs:string"/>
-`     `</xs:extension>
-`   `</xs:complexContent>
-` `</xs:complexType>
+ <xs:element name="header" type="Header"/>
 
-` `<xs:element name="header" type="Header"/>
+ <xs:complexType name="Header">
+   <xs:complexContent>
+     <xs:extension base="BaseResource">
+       <xs:sequence>
+         <xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1"/>
+       </xs:sequence>
+      <xs:attribute name="required" type="xs:boolean">
+       <xs:annotation>
+         <xs:appinfo>
+           <jaxb:property generateIsSetMethod="false"/>
+         </xs:appinfo>
+       </xs:annotation>
+      </xs:attribute>
+     </xs:extension>
+   </xs:complexContent>
+ </xs:complexType>
 
-` `<xs:complexType name="Header">
-`   `<xs:complexContent>
-`     `<xs:extension base="BaseResource">
-`       `<xs:sequence>
-`         `<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1"/>
-`       `</xs:sequence>
-`      `<xs:attribute name="required" type="xs:boolean">
-`       `<xs:annotation>
-`         `<xs:appinfo>
-`           `<jaxb:property generateIsSetMethod="false"/>
-`         `</xs:appinfo>
-`       `</xs:annotation>
-`      `</xs:attribute>
-`     `</xs:extension>
-`   `</xs:complexContent>
-` `</xs:complexType>
+ <xs:element name="headers" type="Headers"/>
 
-` `<xs:element name="headers" type="Headers"/>
+ <xs:complexType name="Headers">
+   <xs:sequence>
+     <xs:element ref="header" maxOccurs="unbounded">
+       <xs:annotation>
+         <xs:appinfo>
+           <jaxb:property name="Headers"/>
+         </xs:appinfo>
+       </xs:annotation>
+     </xs:element>
+   </xs:sequence>
+ </xs:complexType>
 
-` `<xs:complexType name="Headers">
-`   `<xs:sequence>
-`     `<xs:element ref="header" maxOccurs="unbounded">
-`       `<xs:annotation>
-`         `<xs:appinfo>
-`           `<jaxb:property name="Headers"/>
-`         `</xs:appinfo>
-`       `</xs:annotation>
-`     `</xs:element>
-`   `</xs:sequence>
-` `</xs:complexType>
+ <xs:element name="parameters_set" type="ParametersSet"/>
 
-` `<xs:element name="parameters_set" type="ParametersSet"/>
+ <xs:complexType name="ParametersSet">
+   <xs:sequence>
+     <xs:element ref="parameter" maxOccurs="unbounded" minOccurs="0">
+       <xs:annotation>
+         <xs:appinfo>
+           <jaxb:property name="Parameters"/>
+         </xs:appinfo>
+       </xs:annotation>
+     </xs:element>
+   </xs:sequence>
+ </xs:complexType>
 
-` `<xs:complexType name="ParametersSet">
-`   `<xs:sequence>
-`     `<xs:element ref="parameter" maxOccurs="unbounded" minOccurs="0">
-`       `<xs:annotation>
-`         `<xs:appinfo>
-`           `<jaxb:property name="Parameters"/>
-`         `</xs:appinfo>
-`       `</xs:annotation>
-`     `</xs:element>
-`   `</xs:sequence>
-` `</xs:complexType>
+ <xs:element name="schema" type="Schema"/>
 
-` `<xs:element name="schema" type="Schema"/>
+ <xs:complexType name="Schema">
+   <xs:complexContent>
+     <xs:extension base="Link">
+       <xs:sequence>
+         <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1"/>
+         <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+       </xs:sequence>
+     </xs:extension>
+   </xs:complexContent>
+ </xs:complexType>
 
-` `<xs:complexType name="Schema">
-`   `<xs:complexContent>
-`     `<xs:extension base="Link">
-`       `<xs:sequence>
-`         `<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1"/>
-`         `<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-`       `</xs:sequence>
-`     `</xs:extension>
-`   `</xs:complexContent>
-` `</xs:complexType>
+ <xs:element name="general_metadata" type="GeneralMetadata"/>
 
-` `<xs:element name="general_metadata" type="GeneralMetadata"/>
+ <xs:complexType name="GeneralMetadata">
+   <xs:complexContent>
+     <xs:extension base="DetailedLink">
+       <xs:sequence>
+         <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1"/>
+         <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+       </xs:sequence>
+     </xs:extension>
+   </xs:complexContent>
+ </xs:complexType>
 
-` `<xs:complexType name="GeneralMetadata">
-`   `<xs:complexContent>
-`     `<xs:extension base="DetailedLink">
-`       `<xs:sequence>
-`         `<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1"/>
-`         `<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>
-`       `</xs:sequence>
-`     `</xs:extension>
-`   `</xs:complexContent>
-` `</xs:complexType>
+ <xs:element name="rsdl" type="RSDL"/>
 
-` `<xs:element name="rsdl" type="RSDL"/>
+ <xs:complexType name="RSDL">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element type="Version" name="version" minOccurs="0" maxOccurs="1" />
+      <xs:element ref="schema" minOccurs="0" maxOccurs="1" />
+      <xs:element type="GeneralMetadata" name="general" minOccurs="0" maxOccurs="1"/>
+      <xs:element type="DetailedLinks" name="links" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="href" type="xs:string"/>
+    <xs:attribute name="rel" type="xs:string"/>
+ </xs:complexType>
+{% endhighlight %}
 
-` `<xs:complexType name="RSDL">
-`    `<xs:sequence>
-`      `<xs:element name="description" type="xs:string" minOccurs="0"/>
-`      `<xs:element type="Version" name="version" minOccurs="0" maxOccurs="1" />
-`      `<xs:element ref="schema" minOccurs="0" maxOccurs="1" />
-`      `<xs:element type="GeneralMetadata" name="general" minOccurs="0" maxOccurs="1"/>
-`      `<xs:element type="DetailedLinks" name="links" minOccurs="0"/>
-`    `</xs:sequence>
-`    `<xs:attribute name="href" type="xs:string"/>
-`    `<xs:attribute name="rel" type="xs:string"/>
-` `</xs:complexType>
-
-[RSDL schema](/develop/release-management/features/infra/rsdl-schema/)
+[RSDL schema](/develop/release-management/features/infra/rsdl-schema.html)
 
 ## Usage
 
-### examples
+### Examples
 
-#### list resources
+#### List resources
 
-`       `<link rel="get" href="/api/clusters">
-`           `<request>
-`               `<http_method>`GET`</http_method>
-`               `<headers>
-                         
+{% highlight xml %}
+       <link rel="get" href="/api/clusters">
+           <request>
+               <http_method>GET</http_method>
+               <headers>
+                  <header required="false">
+                       <name>Filter</name>
+                       <value>true|false</value>
+                  </header>
+               </headers>
+               <url>
+                   <parameters_set>
+                       <parameter context="query" type="xs:string" required="false">
+                           <name>search</name>
+                           <value>search query</value>
+                       </parameter>
+                       <parameter context="matrix" type="xs:boolean" required="false">
+                           <name>case_sensitive</name>
+                           <value>true|false</value>
+                       </parameter>
+                       <parameter context="matrix" type="xs:int" required="false">
+                           <name>max</name>
+                           <value>max results</value>
+                       </parameter>
+                   </parameters_set>
+               </url>
+               <body/>
+           </request>
+           <response>
+               <type>Clusters</type>
+           </response>
+       </link>
+{% endhighlight %}
 
-<header required="false">
-`                       `<name>`Filter`</name>
-`                       `<value>`true|false`</value>
-                         
+#### Get resource
 
-</header>
-`               `</headers>
-`               `<url>
-`                   `<parameters_set>
-`                       `<parameter context="query" type="xs:string" required="false">
-`                           `<name>`search`</name>
-`                           `<value>`search query`</value>
-`                       `</parameter>
-`                       `<parameter context="matrix" type="xs:boolean" required="false">
-`                           `<name>`case_sensitive`</name>
-`                           `<value>`true|false`</value>
-`                       `</parameter>
-`                       `<parameter context="matrix" type="xs:int" required="false">
-`                           `<name>`max`</name>
-`                           `<value>`max results`</value>
-`                       `</parameter>
-`                   `</parameters_set>
-`               `</url>
-                     
+{% highlight xml %}
+       <link rel="get" href="/api/clusters/{cluster:id}">
+           <request>
+               <http_method>GET</http_method>
+               <headers>
+                  <header required="false">
+                       <name>Filter</name>
+                       <value>true|false</value>
+                  </header>
+               </headers>
+               <body/>
+           </request>
+           <response>
+               <type>Cluster</type>
+           </response>
+       </link>
+{% endhighlight %}
 
-<body/>
-`           `</request>
-`           `<response>
-`               `<type>`Clusters`</type>
-`           `</response>
-`       `</link>
+#### Update resource
 
-#### get resource
+{% highlight xml %}
+       <link rel="update" href="/api/clusters/{cluster:id}">
+           <request>
+               <http_method>PUT</http_method>
+               <headers>
+                  <header required="true">
+                       <name>Content-Type</name>
+                       <value>application/xml|json</value>
+                  </header>
+                  <header required="false">
+                       <name>Correlation-Id</name>
+                       <value>any string</value>
+                  </header>
+               </headers>
+               <body>
+                   <type>Cluster</type>
+                   <parameters_set>
+                       <parameter type="xs:string" required="false">
+                           <name>cluster.name</name>
+                       </parameter>
+                       <parameter type="xs:string" required="false">
+                           <name>cluster.description</name>
+                       </parameter>
+                       <parameter type="xs:string" required="false">
+                           <name>cluster.cpu.id</name>
+                       </parameter>
+                       <parameter type="xs:int" required="false">
+                           <name>cluster.version.major</name>
+                       </parameter>
+                       <parameter type="xs:int" required="false">
+                           <name>cluster.version.minor</name>
+                       </parameter>
+                       <parameter type="xs:double" required="false">
+                           <name>cluster.memory_policy.overcommit.percent</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.memory_policy.transparent_hugepages.enabled</name>
+                       </parameter>
+                       <parameter type="xs:string" required="false">
+                           <name>cluster.scheduling_policy.policy</name>
+                       </parameter>
+                       <parameter type="xs:int" required="false">
+                           <name>cluster.scheduling_policy.thresholds.low</name>
+                       </parameter>
+                       <parameter type="xs:int" required="false">
+                           <name>cluster.scheduling_policy.thresholds.high</name>
+                       </parameter>
+                       <parameter type="xs:int" required="false">
+                           <name>cluster.scheduling_policy.thresholds.duration</name>
+                       </parameter>
+                       <parameter type="xs:string" required="false">
+                           <name>cluster.error_handling.on_error</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.virt_service</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.gluster_service</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.threads_as_cores</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.tunnel_migration</name>
+                       </parameter>
+                   </parameters_set>
+               </body>
+           </request>
+           <response>
+               <type>Cluster</type>
+           </response>
+       </link>
+{% endhighlight %}
 
-`       `<link rel="get" href="/api/clusters/{cluster:id}">
-`           `<request>
-`               `<http_method>`GET`</http_method>
-`               `<headers>
-                         
+#### Create resource
 
-<header required="false">
-`                       `<name>`Filter`</name>
-`                       `<value>`true|false`</value>
-                         
+{% highlight xml %}
+       <link rel="add" href="/api/clusters">
+           <request>
+               <http_method>POST</http_method>
+               <headers>
+                  <header required="true">
+                       <name>Content-Type</name>
+                       <value>application/xml|json</value>
+                  </header>
+                  <header required="false">
+                       <name>Expect</name>
+                       <value>201-created</value>
+                  </header>
+                  <header required="false">
+                       <name>Correlation-Id</name>
+                       <value>any string</value>
+                  </header>
+               </headers>
+               <body>
+                   <type>Cluster</type>
+                   <parameters_set>
+                       <parameter type="xs:string" required="true">
+                           <name>cluster.data_center.id|name</name>
+                       </parameter>
+                       <parameter type="xs:string" required="true">
+                           <name>cluster.name</name>
+                       </parameter>
+                       <parameter type="xs:int" required="true">
+                           <name>cluster.version.major</name>
+                       </parameter>
+                       <parameter type="xs:int" required="true">
+                           <name>cluster.version.minor</name>
+                       </parameter>
+                       <parameter type="xs:string" required="true">
+                           <name>cluster.cpu.id</name>
+                       </parameter>
+                       <parameter type="xs:string" required="false">
+                           <name>cluster.description</name>
+                       </parameter>
+                       <parameter type="xs:double" required="false">
+                           <name>cluster.memory_policy.overcommit.percent</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.memory_policy.transparent_hugepages.enabled</name>
+                       </parameter>
+                       <parameter type="xs:string" required="false">
+                           <name>cluster.scheduling_policy.policy</name>
+                       </parameter>
+                       <parameter type="xs:int" required="false">
+                           <name>cluster.scheduling_policy.thresholds.low</name>
+                       </parameter>
+                       <parameter type="xs:int" required="false">
+                           <name>cluster.scheduling_policy.thresholds.high</name>
+                       </parameter>
+                       <parameter type="xs:int" required="false">
+                           <name>cluster.scheduling_policy.thresholds.duration</name>
+                       </parameter>
+                       <parameter type="xs:string" required="false">
+                           <name>cluster.error_handling.on_error</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.virt_service</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.gluster_service</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.threads_as_cores</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.tunnel_migration</name>
+                       </parameter>
+                   </parameters_set>
+               </body>
+           </request>
+           <response>
+               <type>Cluster</type>
+           </response>
+       </link>
+{% endhighlight %}
 
-</header>
-`               `</headers>
-                     
+#### Delete resource
 
-<body/>
-`           `</request>
-`           `<response>
-`               `<type>`Cluster`</type>
-`           `</response>
-`       `</link>
+{% highlight xml %}
+       <link rel="delete" href="/api/clusters/{cluster:id}">
+           <request>
+               <http_method>DELETE</http_method>
+               <headers>
+                  <header required="false">
+                       <name>Correlation-Id</name>
+                       <value>any string</value>
+                  </header>
+               </headers>
+               <url>
+                   <parameters_set>
+                       <parameter context="matrix" type="xs:boolean" required="false">
+                           <name>async</name>
+                           <value>true|false</value>
+                       </parameter>
+                   </parameters_set>
+               </url>
+               <body/>
+           </request>
+       </link>
+{% endhighlight %}
 
-#### update resource
-
-`       `<link rel="update" href="/api/clusters/{cluster:id}">
-`           `<request>
-`               `<http_method>`PUT`</http_method>
-`               `<headers>
-                         
-
-<header required="true">
-`                       `<name>`Content-Type`</name>
-`                       `<value>`application/xml|json`</value>
-                         
-
-</header>
-<header required="false">
-`                       `<name>`Correlation-Id`</name>
-`                       `<value>`any string`</value>
-                         
-
-</header>
-`               `</headers>
-                     
-
-<body>
-`                   `<type>`Cluster`</type>
-`                   `<parameters_set>
-`                       `<parameter type="xs:string" required="false">
-`                           `<name>`cluster.name`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="false">
-`                           `<name>`cluster.description`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="false">
-`                           `<name>`cluster.cpu.id`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="false">
-`                           `<name>`cluster.version.major`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="false">
-`                           `<name>`cluster.version.minor`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:double" required="false">
-`                           `<name>`cluster.memory_policy.overcommit.percent`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.memory_policy.transparent_hugepages.enabled`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="false">
-`                           `<name>`cluster.scheduling_policy.policy`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="false">
-`                           `<name>`cluster.scheduling_policy.thresholds.low`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="false">
-`                           `<name>`cluster.scheduling_policy.thresholds.high`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="false">
-`                           `<name>`cluster.scheduling_policy.thresholds.duration`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="false">
-`                           `<name>`cluster.error_handling.on_error`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.virt_service`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.gluster_service`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.threads_as_cores`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.tunnel_migration`</name>
-`                       `</parameter>
-`                   `</parameters_set>
-                     
-
-</body>
-`           `</request>
-`           `<response>
-`               `<type>`Cluster`</type>
-`           `</response>
-`       `</link>
-
-#### create resource
-
-`       `<link rel="add" href="/api/clusters">
-`           `<request>
-`               `<http_method>`POST`</http_method>
-`               `<headers>
-                         
-
-<header required="true">
-`                       `<name>`Content-Type`</name>
-`                       `<value>`application/xml|json`</value>
-                         
-
-</header>
-<header required="false">
-`                       `<name>`Expect`</name>
-`                       `<value>`201-created`</value>
-                         
-
-</header>
-<header required="false">
-`                       `<name>`Correlation-Id`</name>
-`                       `<value>`any string`</value>
-                         
-
-</header>
-`               `</headers>
-                     
-
-<body>
-`                   `<type>`Cluster`</type>
-`                   `<parameters_set>
-`                       `<parameter type="xs:string" required="true">
-`                           `<name>`cluster.data_center.id|name`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="true">
-`                           `<name>`cluster.name`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="true">
-`                           `<name>`cluster.version.major`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="true">
-`                           `<name>`cluster.version.minor`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="true">
-`                           `<name>`cluster.cpu.id`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="false">
-`                           `<name>`cluster.description`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:double" required="false">
-`                           `<name>`cluster.memory_policy.overcommit.percent`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.memory_policy.transparent_hugepages.enabled`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="false">
-`                           `<name>`cluster.scheduling_policy.policy`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="false">
-`                           `<name>`cluster.scheduling_policy.thresholds.low`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="false">
-`                           `<name>`cluster.scheduling_policy.thresholds.high`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="false">
-`                           `<name>`cluster.scheduling_policy.thresholds.duration`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="false">
-`                           `<name>`cluster.error_handling.on_error`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.virt_service`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.gluster_service`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.threads_as_cores`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.tunnel_migration`</name>
-`                       `</parameter>
-`                   `</parameters_set>
-                     
-
-</body>
-`           `</request>
-`           `<response>
-`               `<type>`Cluster`</type>
-`           `</response>
-`       `</link>
-
-#### delete resource
-
-`       `<link rel="delete" href="/api/clusters/{cluster:id}">
-`           `<request>
-`               `<http_method>`DELETE`</http_method>
-`               `<headers>
-                         
-
-<header required="false">
-`                       `<name>`Correlation-Id`</name>
-`                       `<value>`any string`</value>
-                         
-
-</header>
-`               `</headers>
-`               `<url>
-`                   `<parameters_set>
-`                       `<parameter context="matrix" type="xs:boolean" required="false">
-`                           `<name>`async`</name>
-`                           `<value>`true|false`</value>
-`                       `</parameter>
-`                   `</parameters_set>
-`               `</url>
-                     
-
-<body/>
-`           `</request>
-`       `</link>
-
-### code generation
+### Code generation
 
 #### RSDL URI descriptor
 
-`       `<link rel="add" href="/api/clusters">
-`           `<request>
-`               `<http_method>`POST`</http_method>
-`               `<headers>
-                         
+{% highlight xml %}
+       <link rel="add" href="/api/clusters">
+           <request>
+               <http_method>POST</http_method>
+               <headers>
+                  <header required="true">
+                       <name>Content-Type</name>
+                       <value>application/xml|json</value>
+                  </header>
+                  <header required="false">
+                       <name>Expect</name>
+                       <value>201-created</value>
+                  </header>
+                  <header required="false">
+                       <name>Correlation-Id</name>
+                       <value>any string</value>
+                  </header>
+               </headers>
+               <body>
+                   <type>Cluster</type>
+                   <parameters_set>
+                       <parameter type="xs:string" required="true">
+                           <name>cluster.data_center.id|name</name>
+                       </parameter>
+                       <parameter type="xs:string" required="true">
+                           <name>cluster.name</name>
+                       </parameter>
+                       <parameter type="xs:int" required="true">
+                           <name>cluster.version.major</name>
+                       </parameter>
+                       <parameter type="xs:int" required="true">
+                           <name>cluster.version.minor</name>
+                       </parameter>
+                       <parameter type="xs:string" required="true">
+                           <name>cluster.cpu.id</name>
+                       </parameter>
+                       <parameter type="xs:string" required="false">
+                           <name>cluster.description</name>
+                       </parameter>
+                       <parameter type="xs:double" required="false">
+                           <name>cluster.memory_policy.overcommit.percent</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.memory_policy.transparent_hugepages.enabled</name>
+                       </parameter>
+                       <parameter type="xs:string" required="false">
+                           <name>cluster.scheduling_policy.policy</name>
+                       </parameter>
+                       <parameter type="xs:int" required="false">
+                           <name>cluster.scheduling_policy.thresholds.low</name>
+                       </parameter>
+                       <parameter type="xs:int" required="false">
+                           <name>cluster.scheduling_policy.thresholds.high</name>
+                       </parameter>
+                       <parameter type="xs:int" required="false">
+                           <name>cluster.scheduling_policy.thresholds.duration</name>
+                       </parameter>
+                       <parameter type="xs:string" required="false">
+                           <name>cluster.error_handling.on_error</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.virt_service</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.gluster_service</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.threads_as_cores</name>
+                       </parameter>
+                       <parameter type="xs:boolean" required="false">
+                           <name>cluster.tunnel_migration</name>
+                       </parameter>
+                   </parameters_set>
+               </body>
+           </request>
+           <response>
+               <type>Cluster</type>
+           </response>
+       </link>
+{% endhighlight %}
 
-<header required="true">
-`                       `<name>`Content-Type`</name>
-`                       `<value>`application/xml|json`</value>
-                         
-
-</header>
-<header required="false">
-`                       `<name>`Expect`</name>
-`                       `<value>`201-created`</value>
-                         
-
-</header>
-<header required="false">
-`                       `<name>`Correlation-Id`</name>
-`                       `<value>`any string`</value>
-                         
-
-</header>
-`               `</headers>
-                     
-
-<body>
-`                   `<type>`Cluster`</type>
-`                   `<parameters_set>
-`                       `<parameter type="xs:string" required="true">
-`                           `<name>`cluster.data_center.id|name`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="true">
-`                           `<name>`cluster.name`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="true">
-`                           `<name>`cluster.version.major`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="true">
-`                           `<name>`cluster.version.minor`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="true">
-`                           `<name>`cluster.cpu.id`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="false">
-`                           `<name>`cluster.description`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:double" required="false">
-`                           `<name>`cluster.memory_policy.overcommit.percent`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.memory_policy.transparent_hugepages.enabled`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="false">
-`                           `<name>`cluster.scheduling_policy.policy`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="false">
-`                           `<name>`cluster.scheduling_policy.thresholds.low`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="false">
-`                           `<name>`cluster.scheduling_policy.thresholds.high`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:int" required="false">
-`                           `<name>`cluster.scheduling_policy.thresholds.duration`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:string" required="false">
-`                           `<name>`cluster.error_handling.on_error`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.virt_service`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.gluster_service`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.threads_as_cores`</name>
-`                       `</parameter>
-`                       `<parameter type="xs:boolean" required="false">
-`                           `<name>`cluster.tunnel_migration`</name>
-`                       `</parameter>
-`                   `</parameters_set>
-                     
-
-</body>
-`           `</request>
-`           `<response>
-`               `<type>`Cluster`</type>
-`           `</response>
-`       `</link>
-
-#### generated code signature/s
-
+#### Generated code signature/s
+{% highlight java %}
          /**
           * Adds Cluster object.
           * @param cluster {@link org.ovirt.engine.sdk.entities.Cluster}
@@ -809,6 +758,7 @@ each URI in RSDL contains "rel" and "description" describing the meaning of the 
                  ClientProtocolException, ServerException, IOException {
                  ....
          }
+{% endhighlight %}
 
 ## Repository
 
@@ -816,5 +766,4 @@ each URI in RSDL contains "rel" and "description" describing the meaning of the 
 
 ## Maintainer
 
-Michael Pasternak: mpastern@redhat.com
-
+Michael Pasternak

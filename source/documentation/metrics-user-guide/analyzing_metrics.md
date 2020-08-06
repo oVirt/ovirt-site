@@ -296,7 +296,7 @@ The following table describes the CPU load metrics reported by the **Load** plug
 
 * **interval:** 10
 
-* **collectd.dstypes:** [Guide](Gauge)
+* **collectd.dstypes:** Gauge
 
 ### Disk Consumption Metrics
 
@@ -774,22 +774,22 @@ The following table describes the process metrics reported by the **Processes** 
 |Metric Name |collectd.type |collectd.dstypes|
 |-
 |collectd.processes.ps_state |ps_state |Gauge|
-|collectd.processes.ps_disk_ops.read |ps_disk_ops |[Derive](Derive)|
-|collectd.processes.ps_disk_ops.write |ps_disk_ops |[Derive](Derive)|
+|collectd.processes.ps_disk_ops.read |ps_disk_ops |Derive|
+|collectd.processes.ps_disk_ops.write |ps_disk_ops |Derive|
 |collectd.processes.ps_vm |ps_vm |Gauge|
 |collectd.processes.ps_rss|ps_rss|Gauge|
 |collectd.processes.ps_data|ps_data|Gauge|
 |collectd.processes.ps_code|ps_code|Gauge|
 |collectd.processes.ps_stacksize|ps_stacksize|Gauge|
-|collectd.processes.ps_cputime.syst|ps_cputime|[Derive](Derive)|
-|collectd.processes.ps_cputime.user|ps_cputime|[Derive](Derive)|
+|collectd.processes.ps_cputime.syst|ps_cputime|Derive|
+|collectd.processes.ps_cputime.user|ps_cputime|Derive|
 |collectd.processes.ps_count.processes|ps_count|Gauge|
 |collectd.processes.ps_count.threads|ps_count|Gauge|
-|collectd.processes.ps_pagefaults.majfltadd |ps_pagefaults|[Derive](Derive)|
-|collectd.processes.ps_pagefaults.minflt |ps_pagefaults|[Derive](Derive)|
-|collectd.processes.ps_disk_octets.write |ps_disk_octets |[Derive](Derive)|
-| collectd.processes.ps_disk_octets.read|ps_disk_octets |[Derive](Derive)|
-|collectd.processes.fork_rate |fork_rate |[Derive](Derive)|
+|collectd.processes.ps_pagefaults.majfltadd |ps_pagefaults|Derive|
+|collectd.processes.ps_pagefaults.minflt |ps_pagefaults|Derive|
+|collectd.processes.ps_disk_octets.write |ps_disk_octets |Derive|
+| collectd.processes.ps_disk_octets.read|ps_disk_octets |Derive|
+|collectd.processes.fork_rate |fork_rate |Derive|
 
 **Additional Values**
 
@@ -822,7 +822,7 @@ The following table describes the Swap metrics reported by the **Swap** plugin.
 |Metric Name |collectd.type |collectd.type_instance|collectd.dstypes |Description|
 |-
 |collectd.swap.swap |swap |used / free /  cached|Gauge|The used, available, and cached swap space (in bytes). |
-|collectd.swap.swap_io|swap_io |in / out |[Derive](Derive) |The number of swap pages written and read per second.\
+|collectd.swap.swap_io|swap_io |in / out |Derive |The number of swap pages written and read per second.\
 |collectd.swap.percent|percent |used / free / cached |Gauge |The percentage of used, available, and cached swap space.|
 
 **Additional Fields**
@@ -849,27 +849,27 @@ The following table describes the virtual machine metrics reported by the **Virt
 
 |Metric Name |collectd.type |collectd.type_instance |collectd.dstypes
 |-
-|collectd.virt.ps_cputime.syst |ps_cputime.syst |N/A |[Derive](Derive)|
+|collectd.virt.ps_cputime.syst |ps_cputime.syst |N/A |Derive|
 |collectd.virt.percent |percent |virt_cpu_total |Gauge|
-|collectd.virt.ps_cputime.user |ps_cputime.user |N/A |[Derive](Derive)|
-|collectd.virt.virt_cpu_total |virt_cpu_total |CPU number |[Derive](Derive)|
-|collectd.virt.virt_vcpu |virt_vcpu |CPU number |[Derive](Derive)|
+|collectd.virt.ps_cputime.user |ps_cputime.user |N/A |Derive|
+|collectd.virt.virt_cpu_total |virt_cpu_total |CPU number |Derive|
+|collectd.virt.virt_vcpu |virt_vcpu |CPU number |Derive|
 |collectd.virt.disk_octets.read |disk_octets.read |disk name |Gauge|
 |collectd.virt.disk_ops.read |disk_ops.read |disk name |Gauge|
 |collectd.virt.disk_octets.write |disk_octets.write |disk name |Gauge|
 |collectd.virt.disk_ops.write |disk_ops.write |disk name |Gauge|
-|collectd.virt.if_octets.rx |if_octets.rx |network name |[Derive](Derive)|
-|collectd.virt.if_dropped.rx |if_dropped.rx |network name |[Derive](Derive)|
-|collectd.virt.if_errors.rx|if_errors.rx |network name |[Derive](Derive)|
-|collectd.virt.if_octets.tx|if_octets.tx |network name |[Derive](Derive)|
-|collectd.virt.if_dropped.tx |if_dropped.tx |network name |[Derive](Derive)|
-|collectd.virt.if_errors.tx |if_errors.tx |network name |[Derive](Derive)|
-|collectd.virt.if_packets.rx |if_packets.rx |network name |[Derive](Derive)|
-|collectd.virt.if_packets.tx |if_packets.tx |network name |[Derive](Derive)|
+|collectd.virt.if_octets.rx |if_octets.rx |network name |Derive|
+|collectd.virt.if_dropped.rx |if_dropped.rx |network name |Derive|
+|collectd.virt.if_errors.rx|if_errors.rx |network name |Derive|
+|collectd.virt.if_octets.tx|if_octets.tx |network name |Derive|
+|collectd.virt.if_dropped.tx |if_dropped.tx |network name |Derive|
+|collectd.virt.if_errors.tx |if_errors.tx |network name |Derive|
+|collectd.virt.if_packets.rx |if_packets.rx |network name |Derive|
+|collectd.virt.if_packets.tx |if_packets.tx |network name |Derive|
 |collectd.virt.memory|memory |rss / total /actual_balloon / available / unused / usable / last_update / major_fault / minor_fault / swap_in / swap_out |Gauge|
-|collectd.virt.total_requests |total_requests |flush-DISK |[Derive](Derive)|
-|collectd.virt.total_time_in_ms |total_time_in_ms |flush-DISK |[Derive](Derive)|
-|collectd.virt.total_time_in_ms |total_time_in_ms |flush-DISK |[Derive](Derive)|
+|collectd.virt.total_requests |total_requests |flush-DISK |Derive|
+|collectd.virt.total_time_in_ms |total_time_in_ms |flush-DISK |Derive|
+|collectd.virt.total_time_in_ms |total_time_in_ms |flush-DISK |Derive|
 
 **Additional Values**
 

@@ -1,6 +1,7 @@
 [id='Updates_between_Minor_Releases']
 = Updates between minor releases
 
+include::../common/collateral_files/ovirt-attributes.adoc[]
 ifdef::context[:parent-context: {context}]
 
 :context: minor_updates

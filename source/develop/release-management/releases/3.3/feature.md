@@ -20,6 +20,6 @@ See also all [oVirt Features](/develop/release-management/features/)
 * [Move as Copy and Delete](/develop/release-management/features/storage/moveascopyanddelete.html)
 * [Online Virtual Drive Resize](/develop/release-management/features/storage/online-virtual-drive-resize.html)
 * [OVF Auto Updater](/develop/release-management/features/storage/ovfautoupdater.html)
-* [UI Plugins](/develop/release-management/features/ux/uiplugins.html)
+* UI Plugins
 * [UI Plugins Original Design Notes](/develop/release-management/features/ux/uipluginsoriginaldesignnotes.html#ui-plugins-original-design-notes)
 * [Virtio-SCSI](/develop/release-management/features/storage/virtio-scsi.html)

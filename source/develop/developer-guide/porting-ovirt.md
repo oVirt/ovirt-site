@@ -27,7 +27,13 @@ preferred distributions.
 
 ## Porting oVirt
 
-Because oVirt integrates closely with both the Hypervisor and guest operating systems running on the Hypervisor, there is some porting and integration work required to enable oVirt Engine to manage nodes running on operating systems other than Fedora, CentOS and Red Hat Enterprise Linux. The main work involved is related to porting and integrating [ VDSM](:Category:Vdsm), [libvirt](http://libvirt.org/) and their dependencies to the new distribution for the hypervisor, and ensuring that the [Guest Agent](/develop/developer-guide/vdsm/guest-agent/), [virtio](http://www.linux-kvm.org/page/Virtio) and [SPICE](http://spice-space.org/) integrate correctly on guests.
+Because oVirt integrates closely with both the Hypervisor and guest operating systems running on the Hypervisor,
+there is some porting and integration work required to enable oVirt Engine to manage nodes running on operating
+systems other than Fedora, CentOS and Red Hat Enterprise Linux.
+The main work involved is related to porting and integrating [VDSM](/develop/developer-guide/vdsm/vdsm.html),
+[libvirt](http://libvirt.org/) and their dependencies to the new distribution for the hypervisor, and ensuring
+that the [Guest Agent](/develop/developer-guide/vdsm/guest-agent.html), [virtio](http://www.linux-kvm.org/page/Virtio)
+and [SPICE](http://spice-space.org/) integrate correctly on guests.
 
 ## Gentoo
 
@@ -38,11 +44,11 @@ Because oVirt integrates closely with both the Hypervisor and guest operating sy
 
 Porting the guest agent and VDSM to Ubuntu is a high priority for the project.
 
-*   [ Porting the Guest Agent](Ubuntu/GuestAgent)
-*   [VDSM on Ubuntu](/develop/developer-guide/vdsm/on-ubuntu/)
-*   [oVirt on Ubuntu](/develop/developer-guide/ubuntu)
+*   [Porting the Guest Agent](/develop/release-management/features/virt/guestagentubuntu.html)
+*   [VDSM on Ubuntu](/develop/developer-guide/vdsm/on-ubuntu.html)
+*   [oVirt on Ubuntu](/develop/developer-guide/ubuntu.html)
 
 ## Arch Linux
 
-* [oVirt on Arch Linux](/develop/developer-guide/arch-linux)
+* [oVirt on Arch Linux](/develop/developer-guide/arch-linux.html)
 

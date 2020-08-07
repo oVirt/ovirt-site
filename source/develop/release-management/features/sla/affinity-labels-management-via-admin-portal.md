@@ -20,7 +20,7 @@ Provide affinity label management within the the administration portal UI.
 
 ## Detailed Description
 
-[Affinity labels](/documentation/sla/affinity-labels) were introduced in version 4.0, but could only be managed via the REST API. This feature allows users to manage their labels without ever leaving the the administration portal UI.
+[Affinity labels](/develop/sla/affinity-labels.html) were introduced in version 4.0, but could only be managed via the REST API. This feature allows users to manage their labels without ever leaving the the administration portal UI.
 
 ### Affinity Label Detail Tabs
 

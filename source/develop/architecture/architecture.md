@@ -18,7 +18,7 @@ Also, usually an identity service is deployed aside the engine, to authenticate 
 
 The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualization of networking and other system services. The supported Linux distributions to date are Fedora 17 or oVirt-node, which is basically a stripped-down distribution containing just enough components to allow virtualization.
 
-The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type. Storage nodes are grouped into storage pools, which can ensure high availability and redundancy. The [Vdsm Storage Terminology](Vdsm Storage Terminology) page has more details.
+The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type. Storage nodes are grouped into storage pools, which can ensure high availability and redundancy. The [Vdsm Storage Terminology](/develop/developer-guide/vdsm/storage-terminology.html) page has more details.
 
 The different diagrams and descriptions below represent the architecture of the oVirt project, and its different components.
 
@@ -54,7 +54,7 @@ It is a large scale, centralized management for server and desktop virtualizatio
 Some features provided by the engine:
 
 1.  VM lifecycle management
-2.  Authentication via [Features/AAA](Features/AAA)
+2.  Authentication via [Features/AAA](/develop/release-management/features/infra/aaa.html)
 3.  Network management - adding logical networks, and attaching them to hosts
 4.  Storage management - managing storage domains (NFS/iSCSI/Local), and virtual VM disks
 5.  High Availability - restart guest VMs from failed hosts automatically on other hosts
@@ -114,9 +114,9 @@ The following diagram illustrates the Hook mechanism in the VM lifetime cycle:
 
 ### MOM integration
 
-![ [MoM](MoM) Integration diagram with [VDSM](VDSM) ](/images/wiki/Mom-vdsm.png " MoM Integration diagram with VDSM ")
+![MoM Integration diagram with VDSM](/images/wiki/Mom-vdsm.png)
 
-VDSM is integrated with [MoM](MoM). The behavior of MOM is configured with policies. With these policies users can fine tune the host for high memory overcommit or safe operation. In order to control its mom instance, vdsm does ship a mom configuration file and a mom policy file that sets mom's default behavior. At startup, vdsmd imports mom and initializes it with the configuration and policy files. From that point on, mom interacts with vdsm through the well-defined API in API.py and is controlling the memory balloons of each VM running on the host. The MOM Instance runs as a thread within the vdsm daemon.
+VDSM is integrated with [MoM](/develop/projects/mom.html). The behavior of MOM is configured with policies. With these policies users can fine tune the host for high memory overcommit or safe operation. In order to control its mom instance, vdsm does ship a mom configuration file and a mom policy file that sets mom's default behavior. At startup, vdsmd imports mom and initializes it with the configuration and policy files. From that point on, mom interacts with vdsm through the well-defined API in API.py and is controlling the memory balloons of each VM running on the host. The MOM Instance runs as a thread within the vdsm daemon.
 
 ## Web-based User Interface
 
@@ -128,7 +128,7 @@ Following diagram provides a high level overview of oVirt user interface archite
 *   [GWT Platform](https://github.com/ArcBees/GWTP): [Model-View-Presenter](http://en.wikipedia.org/wiki/Model_View_Presenter) framework following GWT [best](http://www.gwtproject.org/articles/mvp-architecture.html) [practices](http://www.gwtproject.org/articles/mvp-architecture-2.html) ([slides](http://courses.coreservlets.com/Course-Materials/pdf/ajax/GWT-MVP-Intro.pdf))
 *   [GWT INjection](http://code.google.com/p/google-gin/wiki/GinTutorial): [dependency injection](http://en.wikipedia.org/wiki/Dependency_injection) framework for GWT
 *   oVirt GWT-Common: module housing common components such as widgets, abstract and infra-level classes, etc.
-*   [oVirt UI Plugins](UIPlugins): feature allowing WebAdmin UI to be extended by JavaScript-based plugins at runtime
+*   oVirt UI Plugins: feature allowing WebAdmin UI to be extended by JavaScript-based plugins at runtime
 
 Following diagram shows a typical GWT development workflow:
 

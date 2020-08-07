@@ -18,7 +18,6 @@ This page includes the high-level design for the new scheduling model.
 ## Owner
 
 *   Name: Gilad Chaplik (gchaplik)
-    -   Email: <gchaplik@redhat.com>
 *   Name: Doron Fediuck (Doron)
     -   Email: <dfediuck@redhat.com>
 
@@ -109,11 +108,11 @@ Since internal filters and load balancers can run much faster, the engine will i
 
 ## Detailed Design
 
-The specific API and design details can be found in the following page: [Features/oVirtSchedulerAPI](/develop/release-management/features/sla/ovirtschedulerapi/)
+The specific API and design details can be found in the following page: [Features/oVirtSchedulerAPI](/develop/release-management/features/sla/ovirtschedulerapi.html)
 
 ## References
 
-Some of the concepts in this design are related to the filter scheduler Nova Scheduler is using [1](http://docs.openstack.org/trunk/config-reference/content/section_compute-scheduler.html).
+Some of the concepts in this design are related to the filter scheduler
+[Nova Scheduler](https://web.archive.org/web/20140627062707/https://docs.openstack.org/trunk/config-reference/content/section_compute-scheduler.html) is using.
 The idea is to possibly allow logic and potentially some code sharing between these sub-projects,
 even though both use different implementations and architectures.
-

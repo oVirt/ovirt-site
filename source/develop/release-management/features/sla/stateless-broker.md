@@ -19,11 +19,11 @@ Replacing custom made agent-broker RPC implementation with python's standard xml
 
 #### Initial design and implementation
 
-*   Name: Denis Chaplygin (dchaplyg) dchaplyg@redhat.com
+*   Name: Denis Chaplygin (dchaplyg)
 
 #### Maintainers
 
-*   Name: Denis Chaplygin (dchaplyg) dchaplyg@redhat.com
+*   Name: Denis Chaplygin (dchaplyg)
 *   Name: Martin Sivak (msivak) msivak@redhat.com
 
 ## Current status

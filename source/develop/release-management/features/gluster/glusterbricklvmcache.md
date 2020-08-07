@@ -15,7 +15,6 @@ This feature is about allowing the user to configure lvmcache on gluster bricks 
 ## Owner
 
 *   Name: [Denis Chaplygin](https://github.com/akashihi)
-*   Email: <dchaplyg@redhat.com>
 
 ## Current status
 

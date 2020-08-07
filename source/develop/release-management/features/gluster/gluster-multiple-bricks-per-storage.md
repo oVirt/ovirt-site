@@ -18,7 +18,6 @@ Having one (or more) physical block device, user should be able to create a LVM 
 ## Owner
 
 *   Name: [Denis Chaplygin](https://github.com/akashihi)
-*   Email: <dchaplyg@redhat.com>
 
 ## Current status
 

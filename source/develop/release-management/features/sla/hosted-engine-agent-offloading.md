@@ -17,7 +17,6 @@ The goal of this feature is to make the agent lightweight again by moving all no
 ## Owner
 
 *   Name: [Denis Chaplygin](https://github.com/akashihi)
-*   Email: <dchaplyg@redhat.com>
 
 ## Current status
 

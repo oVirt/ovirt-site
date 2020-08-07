@@ -18,7 +18,6 @@ The goal of this feature is to is to move config extraction code to the broker. 
 ## Owner
 
 *   Name: [Denis Chaplygin](https://github.com/akashihi)
-*   Email: <dchaplyg@redhat.com>
 
 ## Current status
 

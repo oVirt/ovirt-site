@@ -10,7 +10,7 @@ Deploy a self-hosted engine, using Cockpit to collect the details of your enviro
 
 .Procedure
 
-. Log in to Cockpit at `https://__HostIPorFQDN__:9090` and click menu:Virtualization[Hosted Engine].
+. Log in to Cockpit at `https://__HostIPorFQDN__:9090` using the root user and click menu:Virtualization[Hosted Engine].
 . Click btn:[Start] under the *Hosted Engine* option.
 . Enter the details for the {engine-name} virtual machine:
 .. Enter the *Engine VM FQDN*. This is the FQDN for the {engine-name} virtual machine, not the base host.

@@ -17,10 +17,10 @@ This feature has these aims:
 
 *   to extract the console settings dialog from User Portal and use it in Webadmin as well - MERGED
 *   to enhance this dialog with additional options that reflect recently added oVirt features, there are:
-    -   [Features/Spice Proxy](/develop/release-management/features/virt/spice-proxy/) - DONE
-    -   [Features/Display Address Override](/develop/release-management/features/virt/display-address-override/)
-    -   [Features/Non plugin console invocation](/develop/release-management/features/virt/non-plugin-console-invocation/) - DONE
-    -   [Features/noVNC console](/develop/release-management/features/virt/novnc-console/), [Features/SpiceHTML5](/develop/release-management/features/virt/spicehtml5/) - DONE
+    -   [Features/Spice Proxy](/develop/release-management/features/virt/spice-proxy.html) - DONE
+    -   [Features/Display Address Override](/develop/release-management/features/virt/display-address-override.html)
+    -   [Features/Non plugin console invocation](/develop/release-management/features/virt/non-plugin-console-invocation.html) - DONE
+    -   [Features/noVNC console](/develop/release-management/features/virt/novnc-console.html), [Features/SpiceHTML5](/develop/release-management/features/virt/spicehtml5.html) - DONE
 *   to make use of browser local storage to save configuration of the dialog per-VM - DONE
 
 ## Limitations

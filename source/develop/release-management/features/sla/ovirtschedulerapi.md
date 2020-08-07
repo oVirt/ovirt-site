@@ -8,11 +8,11 @@ authors: doron, gchaplik, lhornyak, nslomian
 
 ## Summary
 
-High level design can be found in the following page: [Features/oVirtScheduler](/develop/release-management/features/sla/ovirtscheduler/)
+High level design can be found in the following page: [Features/oVirtScheduler](/develop/release-management/features/sla/ovirtscheduler.html)
 
 ## Owner
 
-Name: Gilad Chaplik (gchaplik) Email: <gchaplik@redhat.com>
+Name: Gilad Chaplik (gchaplik)
 
 ## Current status
 
@@ -65,7 +65,7 @@ Explanation: memory filter, the filter will exclude hosts that don't have enough
 
 Signature:
 
-         `<Host, Integer>`[] score(Host[], properties)
+         <Host, Integer>[] score(Host[], properties)
 
 *   Input: set of hosts, properties.
 *   Output: set of pairs, pair of host and its score → logically orders the Hosts.
@@ -93,13 +93,13 @@ Flow:
                  hosts = filter(hosts, properties)
              # init cost table
              for (host in hosts)
-`           map += `<host, 0>
+           map += <host, 0>
              # go over all cost functions
              for (cost_function in cost_functions)
                  result = cost_function(hosts, properties)
                  # aggregate factored scores for all hosts               
                  for (host in hosts)
-`               map += `<host, map[host] + result[host] * factors[cost_function]>
+               map += <host, map[host] + result[host] * factors[cost_function]>
          }
 
 ### Balance
@@ -108,7 +108,7 @@ Called periodically. Each cluster may use a single balancing logic at any given 
 
 Signature
 
-         `<VM, Host[]>` balance(Host[], properties)
+         <VM, Host[]> balance(Host[], properties)
 
 *   Input: Hosts, properties (initial host list, custom properties map).
 *   Output: VM, hosts (a VM to migrate, filtered hosts (non-over utilized hosts)).
@@ -134,7 +134,7 @@ Code sample:
              vms_on_host = filter(key=lambda vm: vm['run_on_host'] = max_host['id'], vms)
              vm = vms_on_host[random(vms_on_host.size)]
              non_utilized_hosts =filter(key=lambda host: host['usage_mem_percent'] > properties['mem_threshold'], hosts)
-`       return `<vm, non_utilized_hosts>
+       return <vm, non_utilized_hosts>
          }
 
 ## Design
@@ -149,9 +149,9 @@ Cluster's policy will have a set of filters, cost functions and a single balanci
 In this class only a single method ought to be implemented, but when balance is implemented it is advised to implement a cost-function, since it later influences migration processes, and being aligned with overall selection policy.
 
          Class ClusterPolicy
-             `<Filter, filterSequence(first,last,no-order), customParameters>`[]
-             `<CostFunction, factor, customParameters>`[]
-`       `<Balance, customParameters>
+             <Filter, filterSequence(first,last,no-order), customParameters>[]
+             <CostFunction, factor, customParameters>[]
+       <Balance, customParameters>
 
 Move current selection process into new arch: Policy Units and Cluster Policies:
 
@@ -180,13 +180,13 @@ Current Policies:
 |----------------------------|---------|---------------------------------|-----------|
 | id                         | UUID    |                                 |           |
 | name                       | string  | Class/File name                 |           |
-| is_internal               | boolean | java = true, python = false     |           |
-| has_filter                | boolean | Does filter method implemented? |           |
-| has_cost_function        | boolean | Does filter method implemented? |           |
-| has_balance               | boolean | Does filter method implemented? |           |
-| filter_parameters         | string  |                                 |           |
-| cost_function_parameters | string  |                                 |           |
-| balance_parameters        | string  |                                 |           |
+| is_internal                | boolean | java = true, python = false     |           |
+| has_filter                 | boolean | Does filter method implemented? |           |
+| has_cost_function          | boolean | Does filter method implemented? |           |
+| has_balance                | boolean | Does filter method implemented? |           |
+| filter_parameters          | string  |                                 |           |
+| cost_function_parameters   | string  |                                 |           |
+| balance_parameters         | string  |                                 |           |
 
 ### policy table
 
@@ -194,29 +194,29 @@ Current Policies:
 |-------------|---------|--------------|-----------|
 | id          | UUID    |              |           |
 | name        | string  |              |           |
-| is_locked  | boolean | non-editable |           |
-| is_default | boolean |              |           |
+| is_locked   | boolean | non-editable |           |
+| is_default  | boolean |              |           |
 
 ### policy-cluster table
 
 | Name           | Type | Description | Relations        |
 |----------------|------|-------------|------------------|
 | Id             | UUID |             |                  |
-| policy_id     | UUID |             | Policy table     |
-| vds_group_id | UUID |             | vds_group table |
+| policy_id      | UUID |             | Policy table     |
+| vds_group_id   | UUID |             | vds_group table  |
 
 ### policy-policy unit table
 
 | Name                     | Type     | Description                                                      | Relations         |
 |--------------------------|----------|------------------------------------------------------------------|-------------------|
 | id                       | UUID     |                                                                  |                   |
-| policy_id               | UUID     |                                                                  | Policy table      |
-| policy_unit_id         | UUID     |                                                                  | Policy Unit table |
-| filter_selected         | boolean  |                                                                  |                   |
-| filter_sequence         | int/enum | execute filter first, last or no-order (for performance reasons) |                   |
-| cost_function_selected | boolean  |                                                                  |                   |
+| policy_id                | UUID     |                                                                  | Policy table      |
+| policy_unit_id           | UUID     |                                                                  | Policy Unit table |
+| filter_selected          | boolean  |                                                                  |                   |
+| filter_sequence          | int/enum | execute filter first, last or no-order (for performance reasons) |                   |
+| cost_function_selected   | boolean  |                                                                  |                   |
 | factor                   | int      |                                                                  |                   |
-| balance_selected        | boolean  |                                                                  |                   |
+| balance_selected         | boolean  |                                                                  |                   |
 
 ### policy parameters table
 
@@ -224,10 +224,10 @@ Current Policies:
 |----------------------------|--------|-------------|--------------------------|
 | id                         | UUID   |             |                          |
 | policy-cluster-id          | UUID   |             | policy-cluster table     |
-| policy-policy_unit-id     | UUID   |             | policy-policy unit table |
-| filter_parameters         | string |             |                          |
-| cost_function_parameters | string |             |                          |
-| balance_parameters        | string |             |                          |
+| policy-policy_unit-id      | UUID   |             | policy-policy unit table |
+| filter_parameters          | string |             |                          |
+| cost_function_parameters   | string |             |                          |
+| balance_parameters         | string |             |                          |
 
 ## Concurrent Scheduler Invocations – and Pending Resources (memory, CPU)
 
@@ -282,79 +282,79 @@ Action Groups:
 19. api/schedulingpolicyunits/{schedulingpolicyunit:id}: get: GET; response: SchedulingPolicyUnit
 
 *   Elements (samples):
-
-` `<scheduling_policy_unit type="load_balancing" href="/ovirt-engine/api/schedulingpolicyunits/d58c8e32-44e1-418f-9222-52cd887bf9e0" id="d58c8e32-44e1-418f-9222-52cd887bf9e0">
-`   `<name>`OptimalForEvenGuestDistribution`</name>
-`   `<description>`Even VM count distribution policy`</description>
-`   `<internal>`true`</internal>
-`   `<enabled>`true`</enabled>
-`   `<properties>
-`       `<property>
-`           `<name>`HighVmCount`</name>
-`           `<value>`^([0-9]|[1-9][0-9]+)$`</value>
-`       `</property>
-`       `<property>
-`           `<name>`MigrationThreshold`</name>
-`           `<value>`^([2-9]|[1-9][0-9]+)$`</value>
-`       `</property>
-`       `<property>
-`           `<name>`SpmVmGrace`</name>
-`           `<value>`^([0-9]|[1-9][0-9]+)$`</value>
-`       `</property>
-`   `</properties>
-` `</scheduling_policy_unit>
-` `<scheduling_policy href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579" id="8d5d7bec-68de-4a67-b53e-0ac54686d579">
-`   `<name>`vm_evenly_distributed`</name>
-`   `<description/>
-`   `<link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/filters" rel="filters"/>
-`   `<link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/weights" rel="weights"/>
-`   `<link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/balances" rel="balances"/>
-`   `<link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/clusters" rel="clusters"/>
-`   `<locked>`true`</locked>
-`   `<default_policy>`false`</default_policy>
-`   `<properties>
-`       `<property>
-`           `<name>`HighVmCount`</name>
-`           `<value>`10`</value>
-`       `</property>
-`       `<property>
-`           `<name>`MigrationThreshold`</name>
-`           `<value>`5`</value>
-`       `</property>
-`       `<property>
-`           `<name>`SpmVmGrace`</name>
-`           `<value>`5`</value>
-`       `</property>
-`   `</properties>
-` `</scheduling_policy>
-` `<filters>
-`   `<filter id="84e6ddee-ab0d-42dd-82f0-c297779db566">
-`       `<scheduling_policy_unit href="/ovirt-engine/api/schedulingpolicyunits/84e6ddee-ab0d-42dd-82f0-c297779db566" id="84e6ddee-ab0d-42dd-82f0-c297779db566"/>
-`       `<position>`0`</position>
-`   `</filter>
+{% highlight xml %}
+ <scheduling_policy_unit type="load_balancing" href="/ovirt-engine/api/schedulingpolicyunits/d58c8e32-44e1-418f-9222-52cd887bf9e0" id="d58c8e32-44e1-418f-9222-52cd887bf9e0">
+   <name>OptimalForEvenGuestDistribution</name>
+   <description>Even VM count distribution policy</description>
+   <internal>true</internal>
+   <enabled>true</enabled>
+   <properties>
+       <property>
+           <name>HighVmCount</name>
+           <value>^([0-9]|[1-9][0-9]+)$</value>
+       </property>
+       <property>
+           <name>MigrationThreshold</name>
+           <value>^([2-9]|[1-9][0-9]+)$</value>
+       </property>
+       <property>
+           <name>SpmVmGrace</name>
+           <value>^([0-9]|[1-9][0-9]+)$</value>
+       </property>
+   </properties>
+ </scheduling_policy_unit>
+ <scheduling_policy href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579" id="8d5d7bec-68de-4a67-b53e-0ac54686d579">
+   <name>vm_evenly_distributed</name>
+   <description/>
+   <link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/filters" rel="filters"/>
+   <link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/weights" rel="weights"/>
+   <link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/balances" rel="balances"/>
+   <link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/clusters" rel="clusters"/>
+   <locked>true</locked>
+   <default_policy>false</default_policy>
+   <properties>
+       <property>
+           <name>HighVmCount</name>
+           <value>10</value>
+       </property>
+       <property>
+           <name>MigrationThreshold</name>
+           <value>5</value>
+       </property>
+       <property>
+           <name>SpmVmGrace</name>
+           <value>5</value>
+       </property>
+   </properties>
+ </scheduling_policy>
+ <filters>
+   <filter id="84e6ddee-ab0d-42dd-82f0-c297779db566">
+       <scheduling_policy_unit href="/ovirt-engine/api/schedulingpolicyunits/84e6ddee-ab0d-42dd-82f0-c297779db566" id="84e6ddee-ab0d-42dd-82f0-c297779db566"/>
+       <position>0</position>
+   </filter>
          ...
-` `</filters>
-` `<cluster href="/ovirt-engine/api/clusters/00000001-0001-0001-0001-000000000086" id="00000001-0001-0001-0001-000000000086">
+ </filters>
+ <cluster href="/ovirt-engine/api/clusters/00000001-0001-0001-0001-000000000086" id="00000001-0001-0001-0001-000000000086">
        ...
-`   `<scheduling_policy href="/ovirt-engine/api/schedulingpolicies/20d25257-b4bd-4589-92a6-c4c5c5d3fd1a" id="20d25257-b4bd-4589-92a6-c4c5c5d3fd1a">
-`       `<name>`evenly_distributed`</name>
-`       `<policy>`evenly_distributed`</policy>
-`       `<thresholds high="80" duration="120"/>
-`       `<properties>
-`           `<property>
-`               `<name>`CpuOverCommitDurationMinutes`</name>
-`               `<value>`2`</value>
-`           `</property>
-`           `<property>
-`               `<name>`HighUtilization`</name>
-`               `<value>`80`</value>
-`           `</property>
-`       `</properties>
-`   `</scheduling_policy>
+   <scheduling_policy href="/ovirt-engine/api/schedulingpolicies/20d25257-b4bd-4589-92a6-c4c5c5d3fd1a" id="20d25257-b4bd-4589-92a6-c4c5c5d3fd1a">
+       <name>evenly_distributed</name>
+       <policy>evenly_distributed</policy>
+       <thresholds high="80" duration="120"/>
+       <properties>
+           <property>
+               <name>CpuOverCommitDurationMinutes</name>
+               <value>2</value>
+           </property>
+           <property>
+               <name>HighUtilization</name>
+               <value>80</value>
+           </property>
+       </properties>
+   </scheduling_policy>
        ...
-` `</cluster>
-
+ </cluster>
+{% endhighlight %}
 ## External Scheduler
 
-See [External Scheduler](/develop/release-management/features/sla/external-scheduling-proxy/)
+See [External Scheduler](/develop/release-management/features/sla/external-scheduling-proxy.html)
 

@@ -58,7 +58,7 @@ Migration encryption is supported in Vdsm by passing ``encrypted`` migration par
 
 To make migration encryption working, there are some changes needed in certificate handling:
 
-* libvirt support for checking the expected host name in the certificate, see [Limitations](#Limitations) above.
+* libvirt support for checking the expected host name in the certificate, see [Limitations](#limitations) above.
 * Introduction of QEMU-only certificates.
 
 QEMU-only certificates are needed because a direct secure connection between QEMU processes is established and used for the migration.  For security reasons, QEMU processes must not be able to connect to libvirt, Vdsm or other services.  That means separate distinguishable QEMU certificates must be used for QEMU connections.  The safest and most robust way to separate QEMU certificates from other certificates is to use a separate certification authority for issuing QEMU certificates.  Then it is automatically ensured that QEMU processes can't connect to libvirt or Vdsm, since their certificates are signed by a different certificate authority than the other services expect.  We need to add:

@@ -57,7 +57,7 @@ authors: bproffitt, danken, sandrobonazzola
  <s>2015-10-12</s>  
  **2015-11-04**     | Release                                                                             |
 
-**NOTE** this is a tentative planning according to [Release process](Release process)
+**NOTE** this is a tentative planning according to [Release process](/develop/release-management/process/release-process.html)
 
 ## External Project Schedules
 
@@ -68,27 +68,20 @@ Links to other significant project schedules, useful for seeing how oVirt aligns
 *   Fedora 23: [2015-10-27](https://fedoraproject.org/wiki/Releases/23/Schedule)
 *   Fedora 22 End Of Life: [2016-06-17 (1 month after Fedora 24 release)](https://fedoraproject.org/wiki/Releases/24/Schedule)
 *   Fedora 21 End Of Life: [2015-11-27 (1 month after Fedora 23 release)](https://fedoraproject.org/wiki/Releases/23/Schedule)
-*   Foreman 1.8.4: [2015-09-15](http://projects.theforeman.org/rb/releases/foreman)
-*   Foreman 1.9.2: [2015-10-13](http://projects.theforeman.org/rb/releases/foreman)
-*   Foreman 1.10.0: [2015-11-01](http://projects.theforeman.org/rb/releases/foreman)
-*   Foreman 1.11.0: [2016-02-01](http://projects.theforeman.org/rb/releases/foreman)
-*   GlusterFS 3.7: [2015-05-06](http://www.gluster.org/community/documentation/index.php/Planning37)
-*   GlusterFS 4.0: [No date yet](http://www.gluster.org/community/documentation/index.php/Planning40)
+*   Foreman 1.8.4: 2015-09-15
+*   Foreman 1.9.2: 2015-10-13
+*   Foreman 1.10.0: 2015-11-01
+*   Foreman 1.11.0: 2016-02-01
+*   GlusterFS 3.7: 2015-05-06
+*   GlusterFS 4.0: No date yet
 *   OpenStack Kilo: [2015-04-30](https://wiki.openstack.org/wiki/Kilo_Release_Schedule)
 *   OpenStack Liberty: [2015-10-15](https://wiki.openstack.org/wiki/Liberty_Release_Schedule)
 *   QEMU 2.5.0: [2015-12-10](http://wiki.qemu.org/Planning/2.5)
 *   Tiny Core 6.4: [2015-09-08](http://forum.tinycorelinux.net/index.php/topic,18818.0.html)
 
-
 ## oVirt Live
 
 oVirt Live has been rebased on EL7.
-
-Please help us testing it! Latest nightly iso is available here: <http://jenkins.ovirt.org/job/ovirt_live_create_iso/>
-
-## Features Status Table
-
-To try and improve 3.6 planning over the wiki approach in 3.3, this google doc <http://goo.gl/9X3G49> has been created.
 
 ## Translation Status
 
@@ -103,10 +96,10 @@ The following list is a subset of the features proposed for oVirt 3.6
 *   [Features/DetailedHostNetworkingApi](/develop/release-management/features/network/detailedhostnetworkingapi.html)
 *   [Features/HostNetworkingApi](/develop/release-management/features/network/hostnetworkingapi.html)
 *   [Features/IsolatedNetworks](/develop/release-management/features/network/isolatednetworks.html)
-*   [Features/Cluster parameters override](/develop/release-management/features/engine/cluster-parameters-override.html)
+*   [Features/Cluster parameters override](/develop/release-management/features/virt/cluster-parameters-override.html)
 *   Drop support for Fedora <= 20
-*   [Add support for Fedora 22](/develop/release-management/features/os-support/fedora-22-support.html)
-*   [Add support for Ubuntu hosts](/develop/release-management/features/debian-support-for-hosts.html)
+*   [Add support for Fedora 22](/develop/release-management/features/integration/fedora-22-support.html)
+*   Add support for Ubuntu hosts
 *   No support for new features on el6. el6 hosts would be allowed only in [3.5 compatibility mode](https://lists.ovirt.org/pipermail/users/2014-September/027421.html).
 *   Hosted Engine support only on hosts supporting 3.6 compatibility level (EL7 and Fedora). A guide will be provided for migrating from EL6
 

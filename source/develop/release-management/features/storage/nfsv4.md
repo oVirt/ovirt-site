@@ -26,7 +26,10 @@ Done:
 
 # Description
 
-Currently VDSM only supports NFS version 3. Once this change is introduced VDSM will enable if client and server both support NFSv4 for domains to be accessed this way. By default VDSM will let the NFS protocol decide what is the optimal version to use. In some cases the user might want to prevent VDSM from accessing the the server with version 4. In order to accommodate that a new optional parameter has been introduced to the type specific arg dictionary to allow specifying a version manually.
+Currently VDSM only supports NFS version 3. Once this change is introduced VDSM will enable if client and server both support
+NFSv4 for domains to be accessed this way. By default VDSM will let the NFS protocol decide what is the optimal version to use.
+In some cases the user might want to prevent VDSM from accessing the the server with version 4. In order to accommodate that
+a new optional parameter has been introduced to the type specific arg dictionary to allow specifying a version manually.
 
 # Dependency
 
@@ -40,7 +43,8 @@ None
 
 # User Experience
 
-see GUI mock-up in "Advanced NFS Options" wiki page at: [Features/AdvancedNfsOptions#User Experience](/develop/release-management/features/storage/advancednfsoptions/#user-experience)
+see GUI mock-up in "Advanced NFS Options" wiki page at:
+[Features/AdvancedNfsOptions#User Experience](/develop/release-management/features/storage/advancednfsoptions.html#user-experience)
 
 # Upgrade
 
@@ -48,7 +52,8 @@ None
 
 # How to use
 
-This **should not** be specified under normal use and VDSM should be allowed to decide the appropriate values. The new connection specific argument is:
+This **should not** be specified under normal use and VDSM should be allowed to decide the appropriate values.
+The new connection specific argument is:
 
 *   **version** - *Optional*, *integer* - The NFS protocol version number used to contact the server's NFS service. If the server does not support the requested version, the mount request fails. If this option is not specified, the client negotiates a suitable version with the server, trying version 4 first, version 3 second.
 
@@ -56,4 +61,3 @@ This **should not** be specified under normal use and VDSM should be allowed to 
 
 The user should be able to set a value after being aptly warned.
 
-[NFSv4](/develop/release-management/features/) [NFSv4](/develop/release-management/releases/3.3/feature/)

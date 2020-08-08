@@ -106,4 +106,4 @@ NA
 
 ### Open Issues
 
-[LockMechanism](/develop/release-management/features/) [LockMechanism](/develop/release-management/releases/3.3/feature/)
+[LockMechanism](/develop/release-management/features/) [LockMechanism](/develop/release-management/releases/3.3/feature.html)

@@ -138,7 +138,7 @@ The aggregation builder performs two types of aggregations, metric and bucket, w
 
       **Note:** The order in which you define the buckets determines the order in which they will be executed, so the first aggregation determines the data set for any subsequent aggregations. For more information, see [Aggregation Builder](https://www.elastic.co/guide/en/kibana/4.5/visualize.html#aggregation-builder) in the Kibana documentation.
 
-   ii. Select the metric you want to display from the **Field** drop-down list. For details about each of the available metrics, see [Metrics Schema](Metrics_Schema).
+   ii. Select the metric you want to display from the **Field** drop-down list. For details about each of the available metrics, see [Metrics Schema](#metrics-schema).
 
    iii. Select the required interval from the **Interval** field.
 
@@ -915,7 +915,7 @@ When using the **Discover** page, select the index named project.ovirt-logs-&lt;
 
 In the **Visualization** page select project.ovirt-metrics-&lt;ovirt-env-name>.uuid for metrics data or project.ovirt-logs-&lt;ovirt-env-name>.uuid for log data.
 
-**Prev:** [Chapter 1: Introduction](Introduction)<br>
-**Next:** [Chapter 3: Analyzing Logs](Logs)
+**Prev:** [Chapter 1: Introduction](Introduction.html)<br>
+**Next:** [Chapter 3: Analyzing Logs](Logs.html)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/metrics_store_user_guide/chap-metrics)

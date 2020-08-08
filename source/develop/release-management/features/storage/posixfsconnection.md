@@ -38,7 +38,7 @@ None
 
 # Related Features
 
-[Features/ConnectionMonitoring](Features/ConnectionMonitoring)
+Features/ConnectionMonitoring
 
 # Affected Functionality
 
@@ -103,4 +103,4 @@ This part is for api.
 
 ![](/images/wiki/Posixfsnewdatacenterdialog.png) ![](/images/wiki/Posixfsnewdomaindialog.png)
 
-[PosixFSConnection](/develop/release-management/features/) [PosixFSConnection](/develop/release-management/releases/3.3/feature/)
+[PosixFSConnection](/develop/release-management/features/) [PosixFSConnection](/develop/release-management/releases/3.3/feature.html)

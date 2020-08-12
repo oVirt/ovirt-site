@@ -227,7 +227,7 @@ There are no special ovirt-engine events for this activity.
 
 - Prepare a FCOS or RHCOS template. An image can be found here:
 https://ci.centos.org/artifacts/fedora-coreos/prod/builds/latest/
-- Create a VM from that template, like shown in section [CRUD](#CRUD)
+- Create a VM from that template, like shown in section [CRUD](#crud)
 - Verify that a file name /foo/bar exists with content 'example file'
 
 For a negative test, make sure that cloud-init keep working for Centos or any other cloud-init ready OS.

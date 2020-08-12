@@ -52,13 +52,14 @@ It'll be easier to install the ovirt-guest-agent on Ubuntu guests.
 
 *   URL: <http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/12.04/xUbuntu_12.04/>
 
-#### 13.10
-
-*   URL: <http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/13.10/xUbuntu_13.10/>
-
 #### 14.04
 
 *   URL: <http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/14.04/xUbuntu_14.04/>
+
+#### 16.04
+
+*   URL: <http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/16.04/xUbuntu_16.04/>
+
 
 ### Documentation / External references
 
@@ -80,7 +81,7 @@ It'll be easier to install the ovirt-guest-agent on Ubuntu guests.
 
 #### Installation
 
-$REPOURL is any of the URLs listed in the [Repository](/develop/release-management/features/virt/guestagentubuntu/#repository) section
+$REPOURL is any of the URLs listed in the [Repository](#repository) section
 
       # echo 'deb  $REPOURL /' >> /etc/apt/sources.list.d/ovirt-guest-agent.list
       # wget $REPOURL/Release.key

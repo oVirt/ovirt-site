@@ -8,8 +8,8 @@ authors: cctrieloff, quaid
 
 ## Getting ready for Graduation check list
 
-*   Demonstrated development towards [project maturity](/project-maturity/)
-*   Demonstrated Integration with one of the listed oVirt APIs [adding-a-subproject](/governance/adding-a-subproject/)
+*   Demonstrated development towards project maturity
+*   Demonstrated Integration with one of the listed oVirt APIs
 *   Demonstrated the support of the oVirt release schedule
 *   Licensing is in order
 *   Demonstrate the ability to make a release

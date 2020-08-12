@@ -15,7 +15,6 @@ This feature adds full support for ppc64le platform. Most of the requirements ar
 ## Owner
 
 *   name: Martin Polednik (Martin Polednik)
-*   email: <mpolednik@redhat.com>
 
 ## Current Status
 

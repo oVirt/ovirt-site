@@ -13,7 +13,6 @@ This feature will add support for running VMs with UEFI (OVMF[1]) and Q35 chipse
 ## Owner
 
 *   name: Martin Polednik (Martin Polednik)
-*   email: <mpolednik@redhat.com>
 
 ## Current Status
 

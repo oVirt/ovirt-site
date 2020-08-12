@@ -15,7 +15,6 @@ This feature will add host device reporting and their passthrough to guests.
 ### Owner VDSM
 
 *   name: Martin Polednik (Martin Polednik)
-*   email: <mpolednik@redhat.com>
 
 ### Owner Engine
 

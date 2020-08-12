@@ -12,7 +12,6 @@ This feature will track the refactoring and reworking of VmDevices inside VDSM.
 ## Owner
 
 *   Name: Martin Polednik (Martin Polednik)
-*   Email: <mpolednik@redhat.com>
 
 ## Current status
 

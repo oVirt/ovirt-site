@@ -412,6 +412,4 @@ VDSM
 
 <http://en.wikipedia.org/wiki/Strategy_pattern>
 
-[Features/Vdsm_for_PPC64](/develop/release-management/features/vdsm/for-ppc64/)
-
-
+[Features/Vdsm_for_PPC64](/develop/release-management/features/virt/for-ppc64.html)

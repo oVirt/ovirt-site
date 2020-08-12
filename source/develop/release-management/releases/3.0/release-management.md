@@ -15,7 +15,7 @@ authors: danken, dneary, jumper45, mburns, oschreib, quaid, rmiddle
     -   Final VDSM: **2012-01-10**
     -   Final oVirt-engine: **2012-01-12 12:00 UTC**
     -   Versioned git branch creation: **2012-01-12**
-    -   First test day: **2012-01-16** (more info at [Testing/OvirtTestDay](/develop/infra/testing/ovirttestday/) )
+    -   First test day: **2012-01-16**
     -   Components maintainers **MUST** send their release notes prior to the new branch creation.
 
 ### Requirements

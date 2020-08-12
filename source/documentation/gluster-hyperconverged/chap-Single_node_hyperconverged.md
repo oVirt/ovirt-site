@@ -6,7 +6,7 @@ title: Deploying oVirt and Gluster Single node Hyperconverged
 
 ## Pre-requisites
 
-* A single host with  Enterprise Linux 7 or oVirt Node. Refer [Enterprise Linux Hosts](install-guide/chap-Enterprise_Linux_Hosts) or [oVirt Nodes](install-guide/chap-oVirt_Nodes)
+* A single host with Enterprise Linux 8 or oVirt Node. Refer [Enterprise Linux Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Enterprise_Linux_hosts_SHE_cockpit_deploy) or [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Virtualization_Hosts_SHE_cockpit_deploy)
 
 * You must have at least 2 interfaces on the host, so that the frontend and backend traffic can be separated out. Having only one network will cause the engine monitoring, client traffic, gluster I/O traffic to all run together and interfere each other. To segregate the backend network, the gluster cluster is formed using the backend network addresses, and the nodes are added to the engine using the frontend network address.
 
@@ -26,9 +26,9 @@ Follow below steps to configure this.
 **Installing the packages on the host**
 
 1. Subscribe to ovirt repos from http://resources.ovirt.org/pub/yum-repo/
-   For instance, to subscribe to oVirt 4.3 repo,
+   For instance, to subscribe to oVirt 4.4 repo,
 
-        # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
+        # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 
 2. Install gluster-ansible-roles and cockpit-ovirt that will provide a UI for the installation of Hosted Engine. gluster-ansible project provides Ansible roles to deploy, configure, and maintain GlusterFS clusters.The roles are classified into following categories, which will have sub-roles (if necessary) for specific task, which will be explained in detail in their respective repositories.
 
@@ -44,7 +44,7 @@ gluster.maintenance - helps user to replace nodes and other maintenance activiti
 ## Deploying on oVirt Node based Hosts
 
 **oVirt Node contains all the required packages to set up the hyperconverged environment.**
-Refer to [oVirt Nodes](install-guide/chap-oVirt_Nodes) for instructions on installing oVirt Node on the host. You can proceed to setting up the hyperconverged environment if you have an oVirt Node based host.
+Refer to [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Virtualization_Hosts_SHE_cockpit_deploy) for instructions on installing oVirt Node on the host. You can proceed to setting up the hyperconverged environment if you have an oVirt Node based host.
 
 ### Setting up the hyperconverged environment
 
@@ -76,4 +76,4 @@ Browse to the the Web Console management interface of the first hyperconverged h
 
 Use the Ansible based installation flow of Hosted Engine to set up oVirt within a virtual machine. The storage details should be provided as type: ```glusterfs``` and connection path as: ```<hostname>:/engine``` (Replace hostname with address of host on which installation is carried out)
 
-**Prev:**  [Chapter: Maintenance and Upgrading Resources ](chap-Maintenance_and_Upgrading_Resources) <br>
+**Prev:**  [Chapter: Maintenance and Upgrading Resources ](chap-Maintenance_and_Upgrading_Resources.html) <br>

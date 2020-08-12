@@ -283,7 +283,7 @@ encapsulated in a VLAN or as plain Ethernet frames:
    reference the first network as its physical network according the
    screenshot. If the DHCP server of the physical network should be used, no
    subnet should be defined.
-   ![Create new logical VM network](../../../../images/features/network/managed-mtu-for-vm-networks_new-network-dialog.png)
+   ![Create new logical VM network](/images/features/network/managed-mtu-for-vm-networks_new-network-dialog.png)
 4. Use the vNIC profile of this new logical network in a vNIC of the desired VM.
 5. [If requirements are fulfilled, libvirt tries to propagate the MTU into the VM.](#set-the-mtu-by-libvirt), else the MTU has to be configured manually inside the guest.
 
@@ -348,9 +348,9 @@ Therefore, the vNICs of running VMs have to be hot unplugged and hot re-plugged 
 
 ## Documentation & External references
 
-[oVirt OVN Provider](/develop/release-management/features/network/ovirt-ovn-provider/)
+[oVirt OVN Provider](/develop/release-management/features/network/ovirt-ovn-provider.html)
 
-[Provider Physical Network](/develop/release-management/features/network/provider-physical-network/)
+[Provider Physical Network](/develop/release-management/features/network/provider-physical-network.html)
 
 [What is GENEVE?](https://www.redhat.com/en/blog/what-geneve)
 
@@ -380,11 +380,11 @@ Therefore, the vNICs of running VMs have to be hot unplugged and hot re-plugged 
 
 [MTU extensions in OpenStack Networking API v2.0](https://developer.openstack.org/api-ref/network/v2/index.html#mtu-extensions)
 
-[LLDP](/develop/release-management/features/network/lldp/)
+[LLDP](/develop/release-management/features/network/lldp.html)
 
 [AutoSync](http://ovirt.github.io/ovirt-engine-api-model/4.2/#types/open_stack_network_provider/attributes/auto_sync)
 
-[Autodefine External Network](/develop/release-management/features/network/autodefine-external-network/)
+[Autodefine External Network](/develop/release-management/features/network/autodefine-external-network.html)
 
 ## Testing
 All test have to be checked using a VM with machine type rhel7.4.0 or later and

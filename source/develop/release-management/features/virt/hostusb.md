@@ -8,7 +8,7 @@ feature_status: Obsolete
 
 # hostusb
 
-*Note this hook should not be used ever since 3.6 since the passthrough support for USB was implemented natively as part of [hostdev-passthrough](/develop/release-management/features/virt/hostdev-passthrough/)*<br>
+*Note this hook should not be used ever since 3.6 since the passthrough support for USB was implemented natively as part of [hostdev-passthrough](/develop/release-management/features/virt/hostdev-passthrough.html)*<br>
 **Do not use this hook!**
 
 hostusb adds host's usb device/s to VM. This hook is useful for VMs that need to access USB devices attached to the hypervisor host, most commonly HASP plugs

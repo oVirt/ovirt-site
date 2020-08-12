@@ -22,17 +22,16 @@ OpenStack Cinder(/ceph) Integration
 
 ## Detailed Description
 
-Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engine. For initial phase, the integration should ensure support for creating/deleting volumes from a Cinder storage domain, while monitoring relevant statuses using [CoCo](CommandCoordinator) mechanism. The engine/vdsm should allow running VMs with attached ceph volumes via librbd library using libvirt support ([using libvirt with ceph rbd](http://ceph.com/docs/master/rbd/libvirt/)). As for security, when required, running VMs can authenticate using [CEPHX](http://ceph.com/docs/v0.69/rados/operations/auth-intro/) protocol (secret management will be handled in engine/vdsm).
+Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engine. For initial phase, the integration should ensure support for creating/deleting volumes from a Cinder storage domain, while monitoring relevant statuses using [CoCo](/develop/release-management/features/infra/commandcoordinator.html) mechanism. The engine/vdsm should allow running VMs with attached ceph volumes via librbd library using libvirt support ([using libvirt with ceph rbd](http://ceph.com/docs/master/rbd/libvirt/)). As for security, when required, running VMs can authenticate using [CEPHX](http://ceph.com/docs/v0.69/rados/operations/auth-intro/) protocol (secret management will be handled in engine/vdsm).
 There is a known issue with OpenStack when deleting a snapshot which has dependent volumes based on it. to avoid this bug the OpenStack Cinder should configure the ceph backend with this attribute rbd_flatten_volume_from_snapshot as True.
 
 ## Dependencies / Related Features
 
-*   [https://github.com/woorea/openstack-java-sdk woorea](https://github.com/woorea/openstack-java-sdk woorea) openstack-java-sdk should be updated and expanded to include cinder-model/cinder-client modules (needed for having an interface to interact with cinder rest-api commands.
+*   [Woorea - OpenStack Java SDK](https://github.com/woorea/openstack-java-sdk) should be updated and expanded to include cinder-model/cinder-client modules (needed for having an interface to interact with cinder rest-api commands.
 
 ## Documentation / External references
 
 *   Ceph documentation: <http://ceph.com/docs/master/>
-*   Ceph for Cinder: <http://techs.enovance.com/6572/brace-yourself-devstack-ceph-is-here>
 *   Libvirt with Ceph: <http://ceph.com/docs/master/rbd/libvirt/>
 *   Cinder REST API: <http://developer.openstack.org/api-ref-blockstorage-v2.html>
 *   OpenStack Java SDK: <https://github.com/woorea/openstack-java-sdk>
@@ -288,7 +287,7 @@ E.g. 
 
 ## Authentication Keys
 
-When client Ceph authentication [(Cephx)](http://docs.ceph.com/docs/v0.69/rados/operations/auth-intro/#ceph-authentication-cephx) is enabled, authentication keys should be configured as follows:
+When client Ceph authentication (Cephx) is enabled, authentication keys should be configured as follows:
 
 *   (1) Create a new secret key on ceph using 'ceph auth get-or-create' - see example in [Configuring client for Nova/Cinder](http://docs.ceph.com/docs/master/rbd/libvirt/#configuring-the-vm)
     -   E.g.1. ceph auth get-or-create client.cinder | ssh {your-nova-compute-server} sudo tee /etc/ceph/ceph.client.cinder.keyring

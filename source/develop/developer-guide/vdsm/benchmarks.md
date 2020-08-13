@@ -8,7 +8,7 @@ authors: fromani
 
 ## Summary
 
-This page collects the common VDSM test scenarios for performance and scalability analysis. We have a template for futher scenarios, in order to make sure we have all the informations to analyse and share the results. To run the benchmarks and to collect the data, you need to [set up profiling](/develop/developer-guide/vdsm/profiling-vdsm/) first.
+This page collects the common VDSM test scenarios for performance and scalability analysis. We have a template for futher scenarios, in order to make sure we have all the informations to analyse and share the results. To run the benchmarks and to collect the data, you need to [set up profiling](/develop/developer-guide/vdsm/profiling-vdsm.html) first.
 
 **WORK IN PROGRESS**
 

@@ -5,7 +5,7 @@ authors: apuimedo, dyasny
 
 # vmfex
 
-**NOTE: There is a new hook with better integration to vNic profile management** [UCS Integration](/develop/release-management/features/network/ucs-integration/)****
+**NOTE: There is a new hook with better integration to vNic profile management** [UCS Integration](/develop/release-management/features/network/ucs-integration.html)****
 
 This hook enables the use of Cisco VM Fabric Extender (VM-FEX) in oVirt.
 

@@ -19,7 +19,7 @@ docker run --name=postgresql -d -p 5432:5432 registry.centos.org/centos/postgres
 ```
 
 3. Prepare the PostgreSQL database according to the guide below:
-[Preparing_a_Remote_PostgreSQL_Database_for_Use_with_the_oVirt_Engine](/documentation/install-guide/appe-Preparing_a_Remote_PostgreSQL_Database_for_Use_with_the_oVirt_Engine/)
+[Preparing a Remote PostgreSQL Database](/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/#Preparing_a_Remote_PostgreSQL_Database_install_RHVM)
 
 
 ```

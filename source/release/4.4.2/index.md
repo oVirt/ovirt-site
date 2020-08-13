@@ -8,7 +8,7 @@ page_classes: releases
 
 # oVirt 4.4.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.2 Second Release Candidate as of August 06, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.2 Third Release Candidate as of August 13, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -80,6 +80,20 @@ In case a common storage domain doesn't exist, or setting a different target dom
 
 (so not all disks will be moved/copied to the same storage domain), the common target domain would be set as 'Mixed'.
 
+ - [BZ 1860309](https://bugzilla.redhat.com/1860309) **Upgrade to GWT 2.9.0**
+
+   Feature: 
+
+Upgrade GWT (Google Web Toolkit) version from 2.8.0 to 2.9.0
+
+
+
+Reason: 
+
+1. support for building with Java 11
+
+2. accumulated improvements and bug fixes (from versions 2.8.1, 2.8.2, 2.9.0)
+
  - [BZ 1837873](https://bugzilla.redhat.com/1837873) **[RFE] No warning/blocking when detaching storage domain when there are VMs with disk on the detached domain and second disk on other domain**
 
    Feature: 
@@ -101,6 +115,18 @@ Currently, when that entity also has multiple disks on a different storage domai
 Result:
 
 In order to avoid the entity's split, a new warning was added in that case while confirming the SD detach.
+
+ - [BZ 1667019](https://bugzilla.redhat.com/1667019) **Button for removing cluster can be mistaken for button removing VMs**
+
+   Feature: Moved the Cluster's Remove Button to the drop down menu.
+
+
+
+Reason: Enhanced usability.
+
+
+
+Result: The remove button resides within the drop down menu to avoid removing the Cluster accidentally.
 
  - [BZ 1819260](https://bugzilla.redhat.com/1819260) **[RFE] enhance search filter for Storage Domains with free argument**
 
@@ -125,9 +151,28 @@ for example , you can use now the followingf from the storage domains TAB
 "free_size > 6 and total_size < 20"
 
 
+#### oVirt dependencies
+
+ - [BZ 1860309](https://bugzilla.redhat.com/1860309) **Upgrade to GWT 2.9.0**
+
+   Feature: 
+
+Upgrade GWT (Google Web Toolkit) version from 2.8.0 to 2.9.0
+
+
+
+Reason: 
+
+1. support for building with Java 11
+
+2. accumulated improvements and bug fixes (from versions 2.8.1, 2.8.2, 2.9.0)
+
+
 ### Bug Fixes
 
 #### VDSM
+
+ - [BZ 1849850](https://bugzilla.redhat.com/1849850) **KVM Importing fails due to missing readinto function on the VMAdapter**
 
  - [BZ 1854922](https://bugzilla.redhat.com/1854922) **spec_ctrl host feature not detected**
 
@@ -136,16 +181,16 @@ for example , you can use now the followingf from the storage domains TAB
 
 #### oVirt Engine
 
+ - [BZ 1863615](https://bugzilla.redhat.com/1863615) **High Performance, headless VM fails to run when having graphic consoles devices**
+
+ - [BZ 1573218](https://bugzilla.redhat.com/1573218) **Updating CPU pinning setting or NUMA nodes setting for a running VM requires VM restart (should be updated only for VM next run)**
+
  - [BZ 1856677](https://bugzilla.redhat.com/1856677) **postgresql restarts too much, eventually fails**
 
 
 ### Other
 
 #### VDSM
-
- - [BZ 1859876](https://bugzilla.redhat.com/1859876) **imgbase check failed after register to engine**
-
-   
 
  - [BZ 1860716](https://bugzilla.redhat.com/1860716) **VDSM Traceback failure at the journal log on DEBUG mode**
 
@@ -171,12 +216,20 @@ for example , you can use now the followingf from the storage domains TAB
 
    
 
- - [BZ 1850458](https://bugzilla.redhat.com/1850458) **Proper block SD teardown**
+
+#### oVirt Engine
+
+ - [BZ 1860284](https://bugzilla.redhat.com/1860284) **VM can not be taken from pool when no prestarted VM's are available**
 
    
 
+ - [BZ 1846350](https://bugzilla.redhat.com/1846350) **Extra white space and over-stretched components in WebAdmin dialogues - Storage dialogs**
 
-#### oVirt Engine
+   
+
+ - [BZ 1850401](https://bugzilla.redhat.com/1850401) **Remove isDeferringFileVolumePreallocationSupported flag**
+
+   
 
  - [BZ 1828089](https://bugzilla.redhat.com/1828089) **Import data domain from previous RHV version fails**
 
@@ -242,10 +295,6 @@ for example , you can use now the followingf from the storage domains TAB
 
    
 
- - [BZ 1771469](https://bugzilla.redhat.com/1771469) **Hot-plug SATA disk from VM fails with error - Validation of action 'HotPlugDiskToVm' failed for  user admin@internal-authz. Reasons: VAR__ACTION__HOT_PLUG,VAR__TYPE__DISK,ACTION_TYPE_DISK_INTERFACE_UNSUPPORTED,$osName Other OS**
-
-   
-
  - [BZ 1842272](https://bugzilla.redhat.com/1842272) **When trying to export VM to a different SD the VM clone creates on the source SD instead.**
 
    
@@ -265,9 +314,28 @@ for example , you can use now the followingf from the storage domains TAB
    
 
 
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1849517](https://bugzilla.redhat.com/1849517) **[RFE] Allow passing arbitrary vars to ansible**
+
+   
+
+ - [BZ 1826875](https://bugzilla.redhat.com/1826875) **HE deployment gets into an endless loop when the memory is not sufficient and you choose not to continue.**
+
+   
+
+
 ### No Doc Update
 
 #### oVirt Engine
+
+ - [BZ 1866709](https://bugzilla.redhat.com/1866709) **database restore fails if non-default extensions are included in the backup**
+
+   
+
+ - [BZ 1866688](https://bugzilla.redhat.com/1866688) **CVE-2020-10775 ovirt-engine: Redirect to arbitrary URL allows for phishing**
+
+   
 
  - [BZ 1841195](https://bugzilla.redhat.com/1841195) **Hosted Engine deployment fails with restored backup from 4.3.9 when CA renewal is selected**
 
@@ -315,47 +383,48 @@ for example , you can use now the followingf from the storage domains TAB
 
 #### Contributors
 
-42 people contributed to this release:
+43 people contributed to this release:
 
-	Ahmad Khiet
-	Ales Musil
-	Amit Bawer
-	Andrej Cernek
-	Anton Marchukov
-	Arik Hadas
-	Artur Socha
-	Aviv Litman
-	Bell Levin
-	Bella Khizgiyev
-	Benny Zlotnik
-	Dana Elfassy
-	Daniel Erez
-	Eitan Raviv
-	Eli Mesika
-	Eyal Shenitzky
-	Germano Veit Michel
-	Jan Zmeskal
-	Kobi Hakimi
-	Lev Veyde
-	Liran Rotenberg
-	Luca
-	Lucia Jelinkova
-	Marcin Sobczyk
-	Martin Nečas
-	Martin Perina
-	Milan Zamazal
-	Nir Soffer
-	Orcun Atakan
-	Ori Liel
-	Radoslaw Szwajkowski
-	Ritesh Chikatwar
-	Sandro Bonazzola
-	Shani Leviim
-	Sharon Gratch
-	Shirly Radco
-	Shmuel Melamud
-	Steven Rosenberg
-	Tomáš Golembiovský
-	Vojtech Juranek
-	Xavi
-	Yedidyah Bar David
+	Ahmad Khiet (Contributed to: ovirt-engine)
+	Ales Musil (Contributed to: vdsm)
+	Amit Bawer (Contributed to: vdsm)
+	Andrej Cernek (Contributed to: vdsm)
+	Anton Marchukov (Contributed to: ovirt-dependencies)
+	Arik Hadas (Contributed to: ovirt-engine)
+	Artur Socha (Contributed to: ovirt-engine, vdsm-jsonrpc-java)
+	Asaf Rachmani (Contributed to: ovirt-hosted-engine-setup)
+	Aviv Litman (Contributed to: ovirt-dwh)
+	Bell Levin (Contributed to: vdsm)
+	Bella Khizgiyev (Contributed to: ovirt-engine)
+	Benny Zlotnik (Contributed to: ovirt-engine)
+	Dana Elfassy (Contributed to: ovirt-engine)
+	Daniel Erez (Contributed to: ovirt-engine)
+	Eitan Raviv (Contributed to: ovirt-engine)
+	Eli Mesika (Contributed to: ovirt-engine)
+	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
+	Germano Veit Michel (Contributed to: vdsm)
+	Jan Zmeskal (Contributed to: ovirt-ansible-infra)
+	Kobi Hakimi (Contributed to: ovirt-ansible-repositories)
+	Lev Veyde (Contributed to: ovirt-engine, ovirt-release)
+	Liran Rotenberg (Contributed to: ovirt-engine)
+	Luca (Contributed to: ovirt-ansible-infra)
+	Lucia Jelinkova (Contributed to: ovirt-engine)
+	Marcin Sobczyk (Contributed to: vdsm)
+	Martin Nečas (Contributed to: ovirt-ansible-infra, ovirt-ansible-repositories, ovirt-engine)
+	Martin Perina (Contributed to: ovirt-dependencies, vdsm-jsonrpc-java)
+	Milan Zamazal (Contributed to: vdsm)
+	Nir Soffer (Contributed to: ovirt-engine, ovirt-imageio, vdsm)
+	Orcun Atakan (Contributed to: ovirt-ansible-infra)
+	Ori Liel (Contributed to: ovirt-engine)
+	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
+	Ritesh Chikatwar (Contributed to: ovirt-engine)
+	Sandro Bonazzola (Contributed to: ovirt-dependencies, ovirt-engine, vdsm-jsonrpc-java, wix-toolset-binaries)
+	Shani Leviim (Contributed to: ovirt-engine)
+	Sharon Gratch (Contributed to: ovirt-engine)
+	Shirly Radco (Contributed to: ovirt-dwh)
+	Shmuel Melamud (Contributed to: ovirt-engine)
+	Steven Rosenberg (Contributed to: ovirt-engine, vdsm)
+	Tomáš Golembiovský (Contributed to: vdsm)
+	Vojtech Juranek (Contributed to: ovirt-imageio, vdsm)
+	Xavi (Contributed to: ovirt-ansible-infra)
+	Yedidyah Bar David (Contributed to: ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup)

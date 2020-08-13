@@ -7,7 +7,7 @@ authors: emesika
 # REST API - Adding a new BE
 
 In this wiki we will introduce all the steps needed in the REST API side in order to add a new Business Entity
-Examples on each step are based on work done in [patch](http://gerrit.ovirt.org/#/c/16159) for the Extrenal Tasks [RFE](/develop/release-management/features/infra/externaltasks/)
+Examples on each step are based on work done in [patch](http://gerrit.ovirt.org/#/c/16159) for the Extrenal Tasks [RFE](/develop/release-management/features/infra/externaltasks.html)
 
 ## Creating BE in api.xsd
 

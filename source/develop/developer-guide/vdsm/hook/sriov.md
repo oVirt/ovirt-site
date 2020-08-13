@@ -7,7 +7,7 @@ authors: dyasny, knesenko
 
 ## Obsolete
 
-This hook has been obsoleted by the [native support of SR-IOV](/develop/release-management/features/engine/sr-iov/).
+This hook has been obsoleted by the [native support of SR-IOV](/develop/release-management/features/network/sr-iov.html).
 
 The sriov vdsm hook enables SRIOV support in oVirt.
 

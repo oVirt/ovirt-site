@@ -42,8 +42,8 @@ The following actions can be requested from the agent:
 
 *   **Lock screen** - Request locking the user's desktop.
 *   **Login** - Perform a login in user's behalf.
-    -   [Automatic login on RHEL](/develop/developer-guide/vdsm/guest-agent-login-rhel/)
-    -   [Automatic login on Microsoft's Windows](/develop/developer-guide/vdsm/guest-agent-login-windows/)
+    -   [Automatic login on RHEL](/develop/developer-guide/vdsm/guest-agent-login-rhel.html)
+    -   [Automatic login on Microsoft's Windows](/develop/developer-guide/vdsm/guest-agent-login-windows.html)
 *   **Logoff** - Log off the active user.
 *   **Shutdown** - Shut down the virtual machine.
 

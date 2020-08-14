@@ -7,7 +7,7 @@ authors: emesika
 
 ## ERD
 
-[oVirt 3.1 ERD](/images/8/84/rhevm-3-1.png)
+[oVirt 3.1 ERD](/images/wiki/rhevm-3-1.png)
 
 ## Database structure and dependencies
 

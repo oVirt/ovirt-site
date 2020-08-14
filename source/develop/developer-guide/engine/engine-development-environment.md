@@ -174,8 +174,8 @@ The service will not exit as long as engine is up, to stop press <Ctrl>C.
 
 Open a web browser and navigate to one of the following links to access the welcome page:
 
-*   <http://localhost:8080>
-*   <https://localhost:8443>
+*   `http://localhost:8080`
+*   `https://localhost:8443`
 
 Debug port is available via port `8787`, to be used by Eclipse or any other debugger.
 
@@ -230,7 +230,7 @@ Get threading info:
 
 #### Enable DEBUG log - Runtime Change; No Restart
 
-Using the [JMX Support](/develop/developer-guide/engine/engine-development-environment/#jmx-support) you can interact with the logging bean and change it in runtime:
+Using the [JMX Support](#jmx-support) you can interact with the logging bean and change it in runtime:
 
 *   adding loggers
 *   modifying logger's log level
@@ -311,7 +311,7 @@ Build with tests:
         # GWT super dev mode:
         $ make gwt-debug DEV_BUILD_GWT_SUPER_DEV_MODE=1
 
-See [Debugging Frontend Applications](/develop/developer-guide/debugfrontend/) and [GWT Debug Quick Refresh](/blog/2017/08/ovirt-webadmin-gwt-debug-quick-refresh/) for more information.
+See [Debugging Frontend Applications](/develop/developer-guide/debugfrontend.html) and [GWT Debug Quick Refresh](https://blogs.ovirt.org/2017/08/ovirt-webadmin-gwt-debug-quick-refresh/) for more information.
 
 ## Packaging
 
@@ -349,7 +349,7 @@ Example:
 
 ### Before you begin
 
-Check if all prerequisites are installed, refer to [prerequisites](#Prerequisites)
+Check if all prerequisites are installed, refer to [prerequisites](#prerequisites)
 
 * Don't forget to browse to the webadmin from a browser which the project was built to using the make command.
 
@@ -359,5 +359,5 @@ There are [issues](https://code.google.com/p/google-web-toolkit/issues/detail?id
 
 The workaround to this problem is to remove all GWTAR files inside the gwt-user.jar package and build the project using `EXTRA_BUILD_FLAGS="-Dgwt.usearchives=false"`.
 
-Author: --Alon Bar-Lev (Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
+Author: Alon Bar-Lev (Alonbl)
 

@@ -5,9 +5,13 @@ authors: abonas, fkobzik, gshereme, lhornyak, tjelinek, vszocs, ybronhei
 
 # Debugging Frontend Applications
 
-This document contains instructions and tips for debugging oVirt web applications built with [Google Web Toolkit](http://www.gwtproject.org/), an open source set of tools for building web applications using Java programming language. One GWT tool we'll use in particular is [Development Mode](http://www.gwtproject.org/doc/latest/DevGuideCompilingAndDebugging.html#DevGuideDevMode), which allows debugging GWT application without having to manually translate it to JavaScript.
+This document contains instructions and tips for debugging oVirt web applications built with [Google Web Toolkit](http://www.gwtproject.org/),
+an open source set of tools for building web applications using Java programming language.
+One GWT tool we'll use in particular is [Development Mode](http://www.gwtproject.org/doc/latest/DevGuideCompilingAndDebugging.html#DevGuideDevMode),
+which allows debugging GWT application without having to manually translate it to JavaScript.
 
-This document assumes that you have [Engine development environment](/develop/developer-guide/engine/engine-development-environment/) and [Java IDE](/develop/developer-guide/engine/building/ide/) configured accordingly.
+This document assumes that you have [Engine development environment](/develop/developer-guide/engine/engine-development-environment.html)
+and [Java IDE](/develop/developer-guide/engine/building/ide.html) configured accordingly.
 
 Tip: *Working Java IDE is required in order to debug GWT applications via Development Mode. This is due to [JPDA](http://en.wikipedia.org/wiki/Java_Platform_Debugger_Architecture) being used as the debugging protocol between IDE and Development Mode.*
 
@@ -77,8 +81,8 @@ After your IDE connects to Development Mode, Development Mode GUI (graphical win
 
 Start a web browser (the one you've specified earlier through `GWT_USER_AGENT`) and navigate to GWT application's debug URL:
 
-*   WebAdmin: <http://127.0.0.1:8080/ovirt-engine/webadmin/WebAdmin.html?gwt.codesvr=127.0.0.1:9997>
-*   UserPortal: <http://127.0.0.1:8080/ovirt-engine/userportal/UserPortal.html?gwt.codesvr=127.0.0.1:9997>
+*   WebAdmin: `http://127.0.0.1:8080/ovirt-engine/webadmin/WebAdmin.html?gwt.codesvr=127.0.0.1:9997`
+*   UserPortal: `http://127.0.0.1:8080/ovirt-engine/userportal/UserPortal.html?gwt.codesvr=127.0.0.1:9997`
 
 Tip: *GWT application's debug URL contains the suffix `?gwt.codesvr=127.0.0.1:9997` which tells GWT Developer Plugin to connect to Development Mode at `127.0.0.1:9997`.*
 
@@ -112,7 +116,7 @@ Compiling GWT application in draft mode has following effects:
 
 *Q: My web browser doesn't prompt me to install GWT Developer Plugin.*
 
-A: Make sure your browser is officially supported by GWT Developer Plugin. Alternatively, get it from [here](http://gwt.googleusercontent.com/samples/MissingPlugin/MissingPlugin.html) and install the plugin manually into your browser.
+A: Make sure your browser is officially supported by GWT Developer Plugin. 
 
 *Q: The web page is blank after navigating to debug URL.*
 

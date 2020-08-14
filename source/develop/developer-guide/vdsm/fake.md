@@ -60,7 +60,7 @@ or use e.g. Apache Tomcat
 
 ## oVirt-Engine Batch Configuration
 
-The fake hosts and VMs can be installed by REST API - more info: [REST_API_Using_BASH_Automation](/develop/api/rest-api/rest-api-using-bash-automation/).
+The fake hosts and VMs can be installed by REST API - more info: [REST_API_Using_BASH_Automation](/develop/api/rest-api/rest-api-using-bash-automation.html).
 
     #!/bin/bash
 

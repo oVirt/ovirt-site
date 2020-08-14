@@ -7,7 +7,8 @@ authors: moti, ofrenkel, roy, smelamud
 
 ## Abstract
 
-This is an overview and a how-to for developers. It should give a good idea about how permissions are built into the engine architecture and how to add/update authorization to commands and entities.
+This is an overview and a how-to for developers.
+It should give a good idea about how permissions are built into the engine architecture and how to add/update authorization to commands and entities.
 
 ## Terminology
 
@@ -106,6 +107,7 @@ Every command checks permissions required to run it in CommandBase.isUserAuthori
 
 ### More Info
 
-*   [User queries](/develop/release-management/features/infra/user-portal-permissions/)
-*   [Network permissions](Features/NetworkPermissions)
-*   [Disk permissions](/develop/release-management/features/storage/diskpermissions/)
+*   [User queries](/develop/release-management/features/infra/user-portal-permissions.html)
+*   [Network permissions](/develop/release-management/features/network/networkpermissions.html)
+*   [Disk permissions](/develop/release-management/features/storage/diskpermissions.html)
+

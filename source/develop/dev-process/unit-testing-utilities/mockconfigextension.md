@@ -7,7 +7,7 @@ authors: amureini
 # Mock Config Extension
 
 `MockConfigExtension` is JUnit Jupier extension that handles mocking of
-the Config class. It replaces the [MockConfigRule](../mockconfigrule)
+the Config class. It replaces the [MockConfigRule](mockconfigrule.html)
 that was used for previous JUnit versions.
 
 ## Creating the extension

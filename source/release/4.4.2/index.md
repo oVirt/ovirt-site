@@ -38,7 +38,7 @@ For a general overview of oVirt, read the [About oVirt](/community/about.html)
 page.
 
 To learn about features introduced before 4.4.2, see the
-[release notes for previous versions](/documentation/#previous-release-notes).
+[release notes for previous versions](/documentation/#latest-release-notes).
 
 ## RELEASE CANDIDATE
 

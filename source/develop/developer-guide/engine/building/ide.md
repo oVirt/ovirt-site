@@ -31,7 +31,7 @@ of 'esc'+':' combination ;)
 
 #### Setting up oVirt engine development environment in Eclipse
 
-*   Before you start, perform a maven build from command line (refer [Building oVirt engine](Building oVirt engine)). This makes sure that the generated code is available, and you won't see too many compilation errors in eclipse after importing the projects.
+*   Before you start, perform a maven build from command line (refer [Building oVirt engine](/develop/developer-guide/engine/engine-development-environment.html)). This makes sure that the generated code is available, and you won't see too many compilation errors in eclipse after importing the projects.
 
 <!-- -->
 
@@ -170,7 +170,7 @@ Configuration example: ![](/images/wiki/Maven-Configurations.png)
 ### Others
 
 *   Same as Net Beans...
-*   [Backend with jrebel](/develop/developer-guide/java/backend-with-jrebel/)
+*   [Backend with jrebel](/develop/developer-guide/java/backend-with-jrebel.html)
 
 ### Troubleshooting
 

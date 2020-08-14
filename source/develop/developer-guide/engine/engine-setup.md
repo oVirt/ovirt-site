@@ -5,9 +5,9 @@ authors: didi
 
 # Engine Setup
 
-Some information about engine-setup and related tools - this currently includes engine-setup, engine-cleanup and [ovirt-engine-rename](/documentation/how-to/networking/changing-engine-hostname/).
+Some information about engine-setup and related tools - this currently includes engine-setup, engine-cleanup and [ovirt-engine-rename](/develop/networking/changing-engine-hostname.html).
 
-These tools are based on [Otopi](/develop/developer-guide/engine/otopi/).
+These tools are based on [Otopi](/develop/developer-guide/engine/otopi.html).
 
 ## Configuration
 
@@ -49,7 +49,7 @@ The postinstall file, ```/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf
 In principle, it should never be touched manually, by any means other than running engine-setup itself.
 
 ### Otopi Environment
-As mentioned above, engine-setup is mainly a set of plugins for [Otopi](/develop/developer-guide/engine/otopi/).
+As mentioned above, engine-setup is mainly a set of plugins for [Otopi](/develop/developer-guide/engine/otopi.html).
 Both postinstall (if exists) and answerfile (if provided) are simply used to set values in Otopi's environment.
 
 Postinstall is always written in the end of a successful run, and is read, if exists, on start of run.

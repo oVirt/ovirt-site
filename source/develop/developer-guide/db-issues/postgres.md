@@ -5,10 +5,11 @@ authors: emesika
 
 # Postgres
 
+This page is obsolete.
+
 ## Installation
 
 We are using version 9.1.x
-[Installation Guide](/wiki/Installing_PostgreSQL_DB)
 
 ## Authentication
 

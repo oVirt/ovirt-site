@@ -5,17 +5,16 @@ authors: abonas, adahms, knesenko, lveyde, moti, roy, yair zaslavsky
 
 # oVirt engine tools
 
-Engine tools are mainly standlone java programs wrapped-up by scripts and mostly using the engine libraries
+Engine tools are mainly standalone java programs wrapped-up by scripts and mostly using the engine libraries
 
 ## Tools list
 
 1.  engine-manage-domains
 2.  engine-config
 3.  engine-notifier
-4.  engine-iso-uploader
-5.  engine-logcollector
-6.  generate-ssh-keys
-7.  store-utils.sh
+4.  ovirt-log-collector
+5.  generate-ssh-keys
+6.  store-utils.sh
 
 ### Tools description
 
@@ -47,19 +46,10 @@ You can edit the configuration located at /etc/ovirt-engine/engine-config/engine
 Running basic example:'
 'engine-config -l' - will show you list of properties that can be alttered 'engine-config-g <property_name>' - will show you the value of a property 'engine-config-s <property_name>=<property_value>' - will alter the value of a property
 
-### ovirt-iso-uploader
-
-Please refer to [The ISO Uploader Tool](/documentation/admin-guide/chap-Utilities/#the-iso-uploader-tool)
-documentation within [oVirt Administration Guide](/documentation/administration_guide/)
-
-### engine-image-uploader
-
-Please refer to [The Image Uploader Tool](/documentation/admin-guide/chap-Utilities/#the-image-uploader-tool)
-documentation within [oVirt Administration Guide](/documentation/administration_guide/)
 
 ### ovirt-log-collector
 
-Please refer to [The Log Collector Tool](/documentation/admin-guide/chap-Utilities/#the-log-collector-tool)
+Please refer to [The Log Collector Tool](/documentation/administration_guide/#sect-The_Log_Collector_Tool)
 documentation within [oVirt Administration Guide](/documentation/administration_guide/)
 
 ### Tools TODO

@@ -12,7 +12,7 @@ speeds up the test.
 
 >**Note**:<br/>
 > `MockConfigRule` supports JUnit 4 and JUnit 5 Legacy Engine. For JUnit
-> Jupiter, use [MockConfigExtension](../mockconfigextension) instead.
+> Jupiter, use [MockConfigExtension](mockconfigextension.html) instead.
 
 ## Creating the Rule
 

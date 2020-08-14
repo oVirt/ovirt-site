@@ -10,7 +10,7 @@ authors: amureini
 
 >**Note**:<br/>
 > `RandomUtilsSeedingRule` supports JUnit 4 and JUnit 5 Legacy Engine. For JUnit
-> Jupiter, use [RandomUtilsSeedingExtension](../mockconfigextension) instead.
+> Jupiter, use [RandomUtilsSeedingExtension](mockconfigextension.html) instead.
 
 ## Creating the Rule
 

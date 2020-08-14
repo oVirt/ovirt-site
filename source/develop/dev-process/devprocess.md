@@ -7,7 +7,8 @@ authors: amureini, gina, granha, ovedo, roy, snmishra, ybronhei
 
 ## Development Process
 
-The code you write, and the way you present it, are crucial for understanding and maintaining the source code. Please read the following sections for guidelines on Git, Gerrit, patch management and more.
+The code you write, and the way you present it, are crucial for understanding and maintaining the source code.
+Please read the following sections for guidelines on Git, Gerrit, patch management and more.
 
 ### Patch Review Process Goals
 
@@ -20,7 +21,8 @@ The patch review process goals are:
 5.  Archived discussions
 6.  Patches which can be cherry-picked
 
-The oVirt project uses gerrit in order to review patches. For more on Gerrit and how to use it see [Working with oVirt Gerrit](/develop/dev-process/working-with-gerrit/)
+The oVirt project uses gerrit in order to review patches.
+For more on Gerrit and how to use it see [Working with oVirt Gerrit](/develop/dev-process/working-with-gerrit.html)
 
 ### Basic Principles
 
@@ -34,7 +36,7 @@ The oVirt project uses gerrit in order to review patches. For more on Gerrit and
 
 #### Coding standards
 
-*   all coding standards for the project can be found at [Backend Coding Standards](/develop/dev-process/backend-coding-standards/)
+*   all coding standards for the project can be found at [Backend Coding Standards](/develop/dev-process/backend-coding-standards.html)
 
 ##### who's my reviewer?
 
@@ -121,6 +123,8 @@ or using gerrit's review page directly by clicking on the topic
 
 ##### Interactive Rebase
 
-You can also interactive rebase. It is very useful when you would like to re-write your own commit objects before pushing them somewhere. It is an easy way to split, merge or re-order commits before sharing them with others. You can also use it to clean up commits you've pulled from someone when applying them locally.
+You can also interactive rebase. It is very useful when you would like to re-write your own commit objects before pushing them somewhere.
+It is an easy way to split, merge or re-order commits before sharing them with others.
+You can also use it to clean up commits you've pulled from someone when applying them locally.
 
-For more information on using interactive rebase see <http://book.git-scm.com/4_interactive_rebasing.html>
+For more information on using interactive rebase see <https://book.git-scm.com/docs/git-rebase#_interactive_mode>

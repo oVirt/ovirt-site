@@ -66,4 +66,4 @@ The bigger concern is with the engine's certificate. Currently, to the best of o
 
 Certificates can include an optional extension called Authority Information Access. In oVirt releases up to and including 3.2, the CA certificate included this extension, pointing at the engine hostname. In 3.3 and later, this extension is no longer included. Systems installed with 3.2 or before, and upgraded to 3.3, will still include this extension. That's why it's safer to rename such systems by running cleanup and setup again if possible.
 
-See also [Features/PKI](Features/PKI).
+See also [Features/PKI](/develop/release-management/features/infra/pki.html).

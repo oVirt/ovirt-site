@@ -8,7 +8,7 @@ feature_status: design
 ---
 
 # New policy language for MOM
-Currently, [MOM](/documentation/sla/host-mom-policy/)
+Currently, [MOM](/develop/sla/host-mom-policy.html)
 policies are written in a lisp-like scripting language
 that can be confusing to use.
 We want to change the model and the language,

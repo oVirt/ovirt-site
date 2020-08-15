@@ -44,5 +44,5 @@ Lowers the bar for getting a engine/node setup up and running with the least amo
 
 ## Documentation / External references
 
-[Hosted Engine documentation](http://documentation-devel.engineering.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.5-Beta/html-single/Installation_Guide/index.html#chap-The_Self-Hosted_Engine) [Feature Page Hosted Engine](/develop/release-management/features/engine/self-hosted-engine/)
+[Hosted Engine documentation](https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/) [Feature Page Hosted Engine](/develop/release-management/features/sla/self-hosted-engine.html)
 

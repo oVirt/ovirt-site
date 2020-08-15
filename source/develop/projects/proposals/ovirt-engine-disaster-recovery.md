@@ -19,7 +19,7 @@ oVirt Engine DR  is a web application, that uses Java + Ovirt API + MariaDB, to 
 
 ## Current Status
 
-*   This project is in [incubation](/governance/adding-a-subproject/).
+*   This project is in [incubation](/develop/projects/incubating-an-subproject.html).
 *   Last updated: Feb 18 2017
 *   It's been modified to use new feature of ovirt API, and uses 100% API, to change storage connections.
 

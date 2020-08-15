@@ -18,7 +18,6 @@ Main issues which to be addressed in this version:
 *   In current design, a command quota dependency is inherited by its descendants. This situation leads to wrong quota calculation (when inheriting implemented methods) and unnecessary quota calculations (when the descendant should not be quota dependent). The redundant quota references often results with corrupted data passed to the QuotaManager.
 *   Current design calls for a relatively complex implementation in each new command, When large portions of the code are duplicated .
 
-Please see: [Features/Quota-3.2](/develop/release-management/features/ux/quota-3.2/)
 
 ## GUI
 

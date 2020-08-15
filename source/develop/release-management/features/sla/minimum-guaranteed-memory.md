@@ -29,7 +29,7 @@ This lays foundation of proper memory SLA and QoS management in oVirt.
 
 ## Design and Implementation
 
-see : [/SLA-mom-ballooning-tp High-level](/SLA-mom-ballooning-tp High-level) for high-level design
+see : [SLA-mom-ballooning-tp High-level](/develop/release-management/features/sla/sla-mom-ballooning-tp.html) for high-level design
 
 #### GUI
 

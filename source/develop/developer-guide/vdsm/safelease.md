@@ -8,7 +8,7 @@ authors: danken
 
 ## What is safelease
 
-Safelease is the current cluster lock utility used by Vdsm. It will be superseded by [sanlock](/develop/developer-guide/vdsm/sanlock/).
+Safelease is the current cluster lock utility used by Vdsm. It will be superseded by [sanlock](/develop/developer-guide/vdsm/sanlock.html).
 
 ## What is it used for
 
@@ -16,7 +16,7 @@ It is used for taking cluster wide locks on pools. This helps preventing the hos
 
 ## How does safelease works
 
-Safelease uses an algorithm base on the article ["Light-Weight Leases for Storage-Centric Coordination"](http://www.springerlink.com/index/x1155p2744917647.pdf) by G Chockler and D Malkhi.
+Safelease uses an algorithm base on the article ["Light-Weight Leases for Storage-Centric Coordination"](https://dspace.mit.edu/handle/1721.1/30464) by G Chockler and D Malkhi.
 
 It basically uses a sector sized block of data and assumes writes and reads to and from it are atomic. It requires a constant connection to the storage to keep the lease alive.
 

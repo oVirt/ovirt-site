@@ -4,7 +4,7 @@ category: debian
 authors: vfeenstr
 ---
 
-[Back to Debian MainPage](Debian)
+[Back to Debian MainPage](guestagentdebian.html)
 
 # Guest Agent on Debian
 

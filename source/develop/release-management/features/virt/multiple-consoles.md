@@ -71,7 +71,7 @@ Currently engine sends only `video` device to the vdsm. The `graphics` device is
     }
 
 This call will result in adding following devices:
-
+```xml
     <graphics
       autoport="yes"
       keymap="en-us" 
@@ -85,6 +85,7 @@ This call will result in adding following devices:
         <address bus="0x00" domain="0x0000" function="0x0" slot="0x02" type="pci"/>
         <model heads="1" type="cirrus" vram="32768"/>
     </video>
+```
 
 ##### VDSM -> Engine
 
@@ -115,7 +116,7 @@ VdsBrokerObjectsBuilder processes these fields "sent" by VDSM:
 
 ##### VDSM -> Engine
 
-In future we'll need to report more ports (for multiple graphics devices). There are various solutions, but for sake of simlicity and backward compatibility I'm inclined in introducing a new field 'additionalDisplayPort' to ports mentioned in [VDSM -> Engine](VDSM -> Engine). The data 'sent' by VDSM would look like this:
+In future we'll need to report more ports (for multiple graphics devices). There are various solutions, but for sake of simlicity and backward compatibility I'm inclined in introducing a new field 'additionalDisplayPort' to ports mentioned in [VDSM -> Engine](#vdsm---engine). The data 'sent' by VDSM would look like this:
 
 *   `displayPort` - port of first graphics framebuffer - two corner cases might happen
     -   Both SPICE and VNC are configured: In this case this field would contain _SPICE_ port and the additionalDisplayPort would be dedicated the VNC port

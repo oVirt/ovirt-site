@@ -13,14 +13,9 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 ## Owner
 
 *   Name: Alon Bar-Lev (Alonbl)
-*   Email: <alonbl@redhat.com>
-
-<!-- -->
 
 *   Name: Alex Lourie (Alourie)
 *   Email: <alourie@redhat.com>
-
-<!-- -->
 
 *   Name: [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   Email: <sbonazzo@redhat.com>

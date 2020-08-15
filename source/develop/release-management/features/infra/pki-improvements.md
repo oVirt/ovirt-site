@@ -13,7 +13,6 @@ Move to standard PKI PKCS#12 instead of proprietary Java Key Store, separate bet
 ## Owner
 
 *   Name: Alon Bar-Lev (Alonbl)
-*   Email: <alonbl@redhat.com>
 
 ## Current status
 

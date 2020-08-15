@@ -13,7 +13,6 @@ A complete re-write of the vdsm-bootstrap.
 ## Owner
 
 *   Name: Alon Bar-Lev (Alonbl)
-*   Email: <alonbl@redhat.com>
 
 ## Current status
 

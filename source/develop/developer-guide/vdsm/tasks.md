@@ -32,7 +32,7 @@ When starting the origin command as a Task we want to keep the internal paramete
 
 #### New Design in Engine
 
-[/Wiki/AsyncTaskManagerChanges Async Task Manger](/Wiki/AsyncTaskManagerChanges Async Task Manger)
+[AsyncTaskManagerChanges Async Task Manger](/develop/release-management/features/infra/asynctaskmanagerchanges.html)
 
 ### Internal Implementation In Vdsm
 

@@ -8,11 +8,12 @@ authors: fromani
 
 ## Summary
 
-VDSM uses libvirt to manage the life cycle of the VMs, and to collect the statistics about them. This page collects performance and scalability information, and discussion about possible improvements, about how VDSM uses libvirt. A rewrite of the VM startup code is also planned and described on a [different page](/develop/developer-guide/vdsm/vm-startup/)
+VDSM uses libvirt to manage the life cycle of the VMs, and to collect the statistics about them. This page collects performance and scalability information, and discussion about possible improvements, about how VDSM uses libvirt. A rewrite of the VM startup code is also planned and described on a [different page](/develop/developer-guide/vdsm/vm-startup.html)
 
 #### WARNING!
 
-This document is obsoleted by [Features/VDSM scalability sampling](/develop/developer-guide/vdsm/scalability-sampling/) and </Features/VDSM_scalability_start_stop>
+This document is obsoleted by [Features/VDSM scalability sampling](/develop/developer-guide/vdsm/scalability-sampling.html)
+ and Features/VDSM_scalability_start_stop
 
 ### Owner
 
@@ -45,7 +46,7 @@ the VM is Up and running.
 
 *   the overall startup time of all the VMs being started
 
-Profiling of VDSM will be done using the [methods described here](/develop/developer-guide/vdsm/profiling-vdsm/)
+Profiling of VDSM will be done using the [methods described here](/develop/developer-guide/vdsm/profiling-vdsm.html)
 
 #### Possible improvements
 
@@ -65,7 +66,7 @@ Profiling of VDSM will be done using the [methods described here](/develop/devel
 
 improvements are been made in libvirt with respect to locking/scalability. Sources:
 
-[libvirt slides](http://events.linuxfoundation.org/sites/events/files/cojp13_privoznik.pdf) summary: (2013) improvements in libvirt (see slide 13)
+[libvirt slides](https://mprivozn.fedorapeople.org/presentations/LinuxCon2013/libvirt.pdf) summary: (2013) improvements in libvirt (see slide 13)
 
 [Mailing List Thread](http://www.redhat.com/archives/libvir-list/2012-December/msg00717.html) summary: plans (2012-12) to remove the QEMU driver lock inside libvirt
 
@@ -100,7 +101,7 @@ A path to improve is to trim those round trips, but this is not trivial due to t
 
 #### CPU statistics
 
-VDSM collects the CPU statistics using the [virDomainGetCPUStats](http://libvirt.org/html/libvirt-libvirt.html#virDomainGetCPUStats) API. (v)CPUs can be hotplug/unplug-ed at runtime, and to cope with this the API has to be flexible. In practice, this means that under the hood VDSM has to issue two calls, one to get the active CPUs ID and one to gather the actual statistics.
+VDSM collects the CPU statistics using the [virDomainGetCPUStats](https://libvirt.org/html/libvirt-libvirt-domain.html#virDomainGetCPUStats) API. (v)CPUs can be hotplug/unplug-ed at runtime, and to cope with this the API has to be flexible. In practice, this means that under the hood VDSM has to issue two calls, one to get the active CPUs ID and one to gather the actual statistics.
 
 Inside libvirt, the CPU statistics are actually collected inside the QEMU driver, but using cgroups. Interaction with QEMU monitor is not needed.
 
@@ -108,7 +109,7 @@ Inside libvirt, the CPU statistics are actually collected inside the QEMU driver
 
 #### Network statistics
 
-VDSM collects the network statistics using the [virDomainInterfaceStats](http://libvirt.org/html/libvirt-libvirt.html#virDomainInterfaceStats) API.
+VDSM collects the network statistics using the [virDomainInterfaceStats](https://libvirt.org/html/libvirt-libvirt-domain.html#virDomainInterfaceStats) API.
 
 Inside libvirt, the network statistics are collected inside the QEMU driver, but using the standard /proc/net/dev linux interface. Interaction with QEMU monitor is not needed.
 
@@ -116,7 +117,7 @@ Inside libvirt, the network statistics are collected inside the QEMU driver, but
 
 #### Block layer statistics
 
-The collection of statistics can be expensive. In particular, block layer statistics are collected using the [virDomainGetBlockInfo](http://libvirt.org/html/libvirt-libvirt.html#virDomainGetBlockInfo) API. This is the main bottleneck for statistics gathering because libvirt needs to access QEMU through the monitor connection. This API call is blocking, and this is the main driver behind the choice to have one thread per VM to collect statistics.
+The collection of statistics can be expensive. In particular, block layer statistics are collected using the [virDomainGetBlockInfo](https://libvirt.org/html/libvirt-libvirt-domain.html#virDomainGetBlockInfo) API. This is the main bottleneck for statistics gathering because libvirt needs to access QEMU through the monitor connection. This API call is blocking, and this is the main driver behind the choice to have one thread per VM to collect statistics.
 
 There are no plans yet to make virDomainGetBlockInfo optionally not blocking. This may be caused by the fact the monitor protocol is JSON based.
 
@@ -124,7 +125,7 @@ There are no plans yet to make virDomainGetBlockInfo optionally not blocking. Th
 
 The libvirt developers recommend to use a separate thread to collect block statistics, as VDSM currently does. The blocking behaviour of virDomainGetBlockInfo has been source of bugs. A way to improve the reporting, and to avoid VDSM to wait indefinitely on it, is to add a timeout.
 
-Libvirt exposes a timeout infrastructure through the [virEventAddTimeout](http://libvirt.org/html/libvirt-libvirt.html#virEventAddTimeout) API. virDomainGetBlockInfo has not yet a direct way to setup a timeout.
+Libvirt exposes a timeout infrastructure through the [virEventAddTimeout](https://libvirt.org/html/libvirt-libvirt-event.html#virEventAddTimeout) API. virDomainGetBlockInfo has not yet a direct way to setup a timeout.
 
 **ACTION PENDING**: make sure the best way forward is to use the generic timeout API.
 

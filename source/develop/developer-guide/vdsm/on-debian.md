@@ -4,13 +4,17 @@ category: vdsm
 authors: stirabos
 ---
 
-The aim is this page is tracking the progress to have oVirt managing a Debian based host for virtualizaion purposes. oVirt require to have an agent on each host, the agent is called VDSM so the first step is to have VDSM running on Debian.
+The aim is this page is tracking the progress to have oVirt managing a Debian based host for virtualizaion purposes.
+oVirt require to have an agent on each host, the agent is called VDSM so the first step is to have VDSM running on Debian.
 
 Targeted Debian Version: Debian Jessie (8), is current testing and feature frozen, it should be releases when ready so it's about months.
 
 # VDSM on Debian
 
-The aim is to have VDSM 4.17 on Debian. Here we have a patch for the packaging work. <http://gerrit.ovirt.org/#/c/37737/> Currently VDSM is just running on Fedora/RHEL/Centos and derivates. No positive feedback on other distribution till today.
+The aim is to have VDSM 4.17 on Debian.
+Here we have a patch for the packaging work.
+<http://gerrit.ovirt.org/#/c/37737/> Currently VDSM is just running on Fedora/RHEL/Centos and derivates.
+No positive feedback on other distribution till today.
 
 ### Building it
 
@@ -80,14 +84,18 @@ under /etc/apt/sources.list Than $ sudo apt-get update $ sudo apt-get install vd
 
 VDSM is relaying on a custom release of M2Crypto python libraries. M2Crypto is an OpenSSL wrapper. Upstream release of M2Crypto is available here: <https://github.com/M2Crypto/M2Crypto/>
 
-Fedora release (and derivate including RHEL and Centos) includes some additional patches, in particular one to properly work with SSL timeouts: <http://pkgs.fedoraproject.org/cgit/m2crypto.git/tree/m2crypto-0.21.1-timeouts.patch> The path was submitted for upstream but never merged cause not compatible with Windows.
+Fedora release (and derivate including RHEL and Centos) includes some additional patches, in particular one to properly work with SSL timeouts: [m2crypto-0.21.1-timeouts.patch](http://www.zhangsheng.org/magic/3.0/sources/SOURCES.m/m2crypto/m2crypto-0.21.1-timeouts.patch)
+The patch was submitted for upstream but never merged cause not compatible with Windows.
 
-VDSM needs that for SSL communication; an attempt to have a path to avoid it was done here <http://gerrit.ovirt.org/#/c/37746/> but it was not enough to pass SSL unit tests.
+VDSM needs that for SSL communication; an attempt to have a patch to avoid it was done here <http://gerrit.ovirt.org/#/c/37746/> but it was not enough to pass SSL unit tests.
 
-The bug is tracked here: <https://bugzilla.redhat.com/show_bug.cgi?id=1192496> I asked to the M2Crypto upstream maintainer about the process to have the patch merged but it's quite a long process and we need to ensure it works on every platform. One possible alternative is repackaging M2Crypto for Debian in a custom version with the timeout patch requiring it instead of the vanilla one for VDSM. Apply:
+The bug is tracked here: <https://bugzilla.redhat.com/show_bug.cgi?id=1192496>
+I asked to the M2Crypto upstream maintainer about the process to have the patch merged but it's quite a long process
+and we need to ensure it works on every platform. One possible alternative is repackaging M2Crypto for Debian in a custom
+version with the timeout patch requiring it instead of the vanilla one for VDSM. Apply:
 
-1.  <http://pkgs.fedoraproject.org/cgit/m2crypto.git/tree/m2crypto-0.21.1-timeouts.patch>
-2.  <http://pkgs.fedoraproject.org/cgit/m2crypto.git/tree/m2crypto-0.21.1-memoryview.patch>
+1.  [m2crypto-0.21.1-timeouts.patch](http://www.zhangsheng.org/magic/3.0/sources/SOURCES.m/m2crypto/m2crypto-0.21.1-timeouts.patch)
+2.  [m2crypto-0.21.1-memoryview.patch](http://www.zhangsheng.org/magic/3.0/sources/SOURCES.m/m2crypto/m2crypto-0.21.1-memoryview.patch)
 
 and rebuilding it starting from <git://anonscm.debian.org/collab-maint/m2crypto>
 
@@ -97,7 +105,7 @@ To complete some unit tests, VDSM is looking for /etc/pki/vdsm/keys/libvirt_pass
 
 ## Current results
 
-VDSM building process is running 915 unit tests skipping 20 of them and getting errors on 1. Here a build log with the open errors: <http://fpaste.org/189250/>
+VDSM building process is running 915 unit tests skipping 20 of them and getting errors on 1.
 
 ## TODO
 
@@ -107,6 +115,6 @@ VDSM building process is running 915 unit tests skipping 20 of them and getting 
 
 # Existing Efforts
 
-*   [Ovirt build on debian/ubuntu](/develop/developer-guide/ubuntu/)
-*   [Porting oVirt](/develop/developer-guide/porting-ovirt/)
-*   [VDSM_on_Ubuntu](/develop/developer-guide/vdsm/on-ubuntu/)
+*   [oVirt build on debian/ubuntu](/develop/developer-guide/ubuntu.html)
+*   [Porting oVirt](/develop/developer-guide/porting-ovirt.html)
+*   [VDSM_on_Ubuntu](/develop/developer-guide/vdsm/on-ubuntu.html)

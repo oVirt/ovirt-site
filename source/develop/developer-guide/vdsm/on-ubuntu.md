@@ -6,7 +6,11 @@ authors: danken, zhshzhou
 
 # VDSM on Ubuntu
 
-This page describes Ubuntu imcompabilities that must be fixed to run VDSM. With the workaround, it is possible to build VDSM on Ubuntu and run some functional tests. The last section presents a code repository containing the modified VDSM to be run on Ubuntu. This is a working VDSM snapshot with the following workarounds. If you are interested, please pick a workaround and create long term solution patch for it, then paste the Gerrit link beside the workdaround.
+This page describes Ubuntu imcompabilities that must be fixed to run VDSM.
+With the workaround, it is possible to build VDSM on Ubuntu and run some functional tests.
+The last section presents a code repository containing the modified VDSM to be run on Ubuntu.
+This is a working VDSM snapshot with the following workarounds.
+If you are interested, please pick a workaround and create long term solution patch for it, then paste the Gerrit link beside the workdaround.
 
 Targeted Ubuntu Version: **Ubuntu Server 12.10**
 
@@ -180,8 +184,8 @@ DK: it would be highly advises to break the nasty SysV service to something smal
 
 ## Existing Effort
 
-*   [Ovirt build on debian/ubuntu](/develop/developer-guide/ubuntu/)
-*   [Porting oVirt](/develop/developer-guide/porting-ovirt/)
+*   [oVirt build on debian/ubuntu](/develop/developer-guide/ubuntu.html)
+*   [Porting oVirt](/develop/developer-guide/porting-ovirt.html)
 
 ## Code
 

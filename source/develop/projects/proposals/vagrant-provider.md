@@ -16,7 +16,7 @@ This will be a provider plugin for the Vagrant suite that allows command-line ea
 
 ## Current Status
 
-*   This project is in [incubation](/governance/adding-a-subproject/).
+*   This project is in [incubation](/develop/projects/incubating-an-subproject.html).
 *   Last updated: Dec 6 2016
 
 Vagrant Provider currently exists as an independent open source project hosted on [github](https://github.com/myoung34/vagrant-ovirt4). This wiki page will gather input on whether Vagrant Provider should become a full oVirt sub-project and (if so) how best to integrate it into the oVirt stack.

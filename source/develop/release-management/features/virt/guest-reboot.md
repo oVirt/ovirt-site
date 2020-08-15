@@ -13,7 +13,7 @@ Support reboot in both engine and vdsm. Enable users to restart VM with single c
 
 ### Current Condition
 
-The current behavior in the engine requires the user who wishes to reboot VM to wait until the VM is `Down`, then press run and wait until it is `Up` again. Adding a new button/REST action (with configurable behavior, see [later](#Backend)) would solve this issue. Also, if the guest OS refuses the "soft" version of shutdown, after some period it goes back to state `Up` and this delay period is not configurable.
+The current behavior in the engine requires the user who wishes to reboot VM to wait until the VM is `Down`, then press run and wait until it is `Up` again. Adding a new button/REST action (with configurable behavior, see [later](#backend)) would solve this issue. Also, if the guest OS refuses the "soft" version of shutdown, after some period it goes back to state `Up` and this delay period is not configurable.
 
 ### Proposed changes
 

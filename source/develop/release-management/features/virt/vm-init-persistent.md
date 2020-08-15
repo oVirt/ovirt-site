@@ -54,7 +54,7 @@ More inforamation please refer to [Cloud-Init](http://cloudinit.readthedocs.org/
 
 ### UX Design
 
-[UX Design page](/develop/release-management/proposals/cloud-init/)
+[UX Design page](/develop/release-management/features/virt/cloud-init-integration.html)
 
 ![](/images/wiki/Cloud_init.png)
 

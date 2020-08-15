@@ -7,8 +7,8 @@ authors: abonas, danken, dougsland, imansano, jniederm, jumper45, lvroyce, mburn
 
 # Installing VDSM from rpm
 
-This Documents has come to describe the steps required in order to install & configure VDSM on the same host with ovirt-engine, this steps are usually not required when installing VDSM on another host than ovirt-engine
-Use this guide in order to install ovirt-engine: [Installing_ovirt-engine_from_rpm](/develop/developer-guide/engine/installing-engine-from-rpm/)
+This Documents has come to describe the steps required in order to install & configure VDSM on the same host with ovirt-engine,
+this steps are usually not required when installing VDSM on another host than ovirt-engine.
 
 ### Installing Prerequisite Packages
 

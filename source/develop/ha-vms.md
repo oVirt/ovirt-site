@@ -71,7 +71,7 @@ VM lease is a feature that guarantees a VM can't be run in multiple instances at
 
 VM leases can be enabled only for highly available VMs, in High Availability section of the VM editing dialog again.  Just select *Target Storage Domain for VM Lease* in the dialog.
 
-Basically, a VM with a lease can start on a given host only after it acquires its lease there.  Once the VM stops, gets paused, is killed or its QEMU process crashes, it releases the lease, making it available for starting the VM on another host.  VM leases are thoroughly described in a separate [document about leases](/develop/release-management/features/storage/vm-leases/).
+Basically, a VM with a lease can start on a given host only after it acquires its lease there.  Once the VM stops, gets paused, is killed or its QEMU process crashes, it releases the lease, making it available for starting the VM on another host.  VM leases are thoroughly described in a separate [document about leases](/develop/release-management/features/storage/vm-leases.html).
 
 To prevent split brain it's best to use VM leases on highly available VMs.  The same also helps restarting highly available VMs on other hosts in case of prolonged storage problems on some of the hosts.  Since paused VMs release their leases, the VMs become available for running on other hosts, but can cause trouble when attempting to resume them later on the original host.  For that reason `KILL` is the only possible resume behavior for VMs with leases, which helps destroy the paused VM instance when Engine moves the VM to Unknown status and attempts to start it elsewhere.  Of course, `KILL` behavior means killing the VM under the given conditions, so think about your setup before using it.
 

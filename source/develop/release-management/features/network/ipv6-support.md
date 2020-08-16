@@ -32,7 +32,8 @@ This feature enables using IPv6 protocol by vdsm and ovirt-engine.
 
 ## Detailed Description
 
-With growing importance of protocol IPv6 there is need to provide this functionality in oVirt. This feature enables IPv6 at the Vdsm and Ovirt-engine sides, so the users won't need to use IPv4 anymore.
+With growing importance of protocol IPv6 there is need to provide this functionality in oVirt.
+This feature enables IPv6 at the Vdsm and Ovirt-engine sides, so the users won't need to use IPv4 anymore.
 
 ## Vdsm api
 
@@ -188,7 +189,7 @@ Records that contain "href" as string, should be tested if they work with IPv6 a
 *   jsonrpc: make TCPReactor IPv6 capable
     -   <http://gerrit.ovirt.org/#/c/11740>
 *   jsonRpcUtils - done as well.
-*   The [multiple gateways](/develop/release-management/features/network/multiple-gateways/) implementation is incompatible with IPv6.
+*   The [multiple gateways](/develop/release-management/features/network/multiple-gateways.html) implementation is incompatible with IPv6.
     -   New class handling source route in vdsm/sourceRoute.py
 *   Minor changes to lib/vdsm/ipwrapper.py to be ipv6 aware
 
@@ -231,12 +232,12 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 
 ## Dependencies / Related Features
 
-*   [Features/Node ipv6 support](/develop/projects/node/ipv6-support/)
+*   [Features/Node ipv6 support](/develop/projects/node/ipv6-support.html)
 *   We need to define requirements for customers, who want to use IPv6 in Ovirt. RIPE NCC already make a list of requirements for IPv6 support so we can use it <http://www.ripe.net/ripe/docs/ripe-554>
 
 ## Documentation / External references
 
-*   Presentation for Ovirt networking team [ODP](http://resources.ovirt.org/old-site-files/wiki/Ipv6-session.odp)
+*   Presentation for Ovirt networking team [ODP](https://resources.ovirt.org/old-site-files/wiki/Ipv6-session.odp)
 *   <https://lists.ovirt.org/pipermail/users/2014-December/030135.html>
 
 ## Testing
@@ -262,9 +263,9 @@ Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovi
 *   Test functionality of newly-added attributes to @NetworkOptions, @SetupNetworkNetAttributes
     -   Create Network with both static IPv4 and IPv6 addresses.
     -   Create Network where IPv6 will be using Stateless autoconfiguration and DHCPv6 at the same time.
-*   Test that every api schema that can contain IP address, can contain IPv6 address. Listed in [#Vdsm api](#Vdsm_api) Records that DO NOT need to change.
+*   Test that every api schema that can contain IP address, can contain IPv6 address. Listed in [#Vdsm api](#vdsm-api) Records that DO NOT need to change.
     -   Create IP on IPv6 network only, reported IPv6 address should be IPv6.
-*   Test functionality of IPv6 related fields. Listed in [#Vdsm api](#Vdsm_api) Records that already contains IPv6 fields.
+*   Test functionality of IPv6 related fields. Listed in [#Vdsm api](#vdsm-api) Records that already contains IPv6 fields.
 
 ### oVirt-Engine GUI
 

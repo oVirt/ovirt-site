@@ -13,7 +13,7 @@ This feature allow Enterprise customers to provision large guests for their trad
 *   NUMA bindings of guest resources (vCPUs & memory)
 *   Virtual NUMA topology
 
-You may also refer to the [simple feature page](/develop/release-management/features/sla/numa-and-virtual-numa/).
+You may also refer to the [simple feature page](/develop/release-management/features/sla/numa-and-virtual-numa.html).
 
 ## Owner
 

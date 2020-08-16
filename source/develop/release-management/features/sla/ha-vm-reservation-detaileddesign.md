@@ -10,7 +10,7 @@ authors: doron, kianku
 
 ## Summary
 
-High level design can be found at [Features/HA_VM_reservation](/develop/release-management/features/sla/ha-vm-reservation/)
+High level design can be found at [Features/HA_VM_reservation](/develop/release-management/features/sla/ha-vm-reservation.html)
 
 ## Owner
 
@@ -65,7 +65,7 @@ Once we know how to calculate the VM resource, we can monitor it, the following 
 
 This part is a bit more tricky, we would like oVirt to have the capability of not only monitor the current state of the cluster but to actually make an active decision when running/migrating a VM. by selecting the best host to place the VM.
 
-For that we will add a new weight function to the existing one presented in the scheduling feature [Features/oVirtScheduler](/develop/release-management/features/sla/ovirtscheduler/). The existing one combined with the new weight function will present a result for the best host to apply the VM into.
+For that we will add a new weight function to the existing one presented in the scheduling feature [Features/oVirtScheduler](/develop/release-management/features/sla/ovirtscheduler.html). The existing one combined with the new weight function will present a result for the best host to apply the VM into.
 
 *   The scoring method
 

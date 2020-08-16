@@ -4,13 +4,13 @@ category: feature
 authors: mburns
 ---
 
-The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
 
 # Universal oVirt Node Image
 
 ## Summary
 
-This feature converts the oVirt Node image into a generic image that can be customized for many different projects using [Node Plugins](/develop/release-management/features/node/plugins/).
+This feature converts the oVirt Node image into a generic image that can be customized for many different projects
+using Node Plugins.
 
 ## Owner
 
@@ -28,23 +28,25 @@ This feature converts the oVirt Node image into a generic image that can be cust
 
 ## Detailed Description
 
-A number of requests to use oVirt Node in projects other than oVirt have been received. This feature is the conversion of oVirt Node into a generic image that can be customized for use in other projects using specialized Plugins. A separate feature for moving the logic for working with oVirt Engine into a plugin is also filed [here](/develop/release-management/features/vdsm/vdsm-plugin/)
+A number of requests to use oVirt Node in projects other than oVirt have been received.
+This feature is the conversion of oVirt Node into a generic image that can be customized for use in other projects using specialized Plugins.
+A separate feature for moving the logic for working with oVirt Engine into a plugin is also
+filed [here](/develop/release-management/features/vdsm/vdsm-plugin.html)
 
 ## Benefit to oVirt
 
-Making oVirt Node more generic and available to other projects widens the user base for the model that oVirt Node uses. This model will then get additional testing and use outside of the oVirt Project and thus be more stable in the long term.
+Making oVirt Node more generic and available to other projects widens the user base for the model that oVirt Node uses.
+This model will then get additional testing and use outside of the oVirt Project and thus be more stable in the long term.
 
 ## Dependencies / Related Features
 
-*   [Node VDSM Plugin](/develop/release-management/features/vdsm/vdsm-plugin/)
+*   [Node VDSM Plugin](/develop/release-management/features/vdsm/vdsm-plugin.html)
 *   Affected Packages
     -   ovirt-node
     -   ovirt-node-image
     -   New Package for the plugin
 
-## Documentation / External references
 
-*   Coming Soon
 
 
 

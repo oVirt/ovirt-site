@@ -273,7 +273,7 @@ guest VMs, along with the available methods of provisioning it.
     - ovirt-provider-ovn REST API. [REST example](#create-a-subnet)
 3. provision a router
     - manageIQ UI
-    - ovirt-provider-ovn REST API. [REST example](#create-a-router)
+    - ovirt-provider-ovn REST API. [REST example](#create-a-logical-router)
 4. attach the subnet to the router
     - manageIQ UI
     - oVirt ovirt-provider-ovn REST API. [REST example](#configure-the-router)

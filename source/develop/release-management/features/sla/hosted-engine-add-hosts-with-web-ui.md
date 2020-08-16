@@ -29,8 +29,8 @@ Allow to deploy additional hosts for Hosted Engine using Web UI
 
 ## Dependencies / Related Features
 
-*   Depends on [Features/Hosted_Engine_configuration_on_shared_storage](/develop/release-management/features/hosted-engine-configuration-on-shared-storage/)
-*   A tracker bug has been created for tracking issues:
+*   Depends on [Features/Hosted_Engine_configuration_on_shared_storage](/develop/release-management/features/sla/hosted-engine-configuration-on-shared-storage.html)
+*   A tracker bug has been created for tracking issues:hosted-engine-configuration-on-shared-storage
 
 ## Documentation / External references
 

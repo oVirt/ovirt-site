@@ -35,7 +35,7 @@ There are two key metrics that libvirt can enable users to set limit
 For more details refer to:
 
 *   [libvirt docs](http://libvirt.org/formatdomain.html#elementsDisks)
-*   [aggregate QoS objects](/develop/release-management/features/sla/aggregate-qos/)
+*   [aggregate QoS objects](/develop/release-management/features/sla/aggregate-qos.html)
 
 ### Storage Domain QoS limits
 
@@ -73,7 +73,7 @@ For more details refer to:
 
 A new entity Disk Profile will be created by the same vnic profiles concepts [1]. For now Disk Profile will hold a Storage Domain and QoS object. When introducing the feature a default Disk Profile will be created for each Storage Domain, and all disks will be attached to its relevant default profile.
 
-*   [1] [Vnic Profiles feature](/develop/release-management/features/sla/vnic-profiles/).
+*   [1] [Vnic Profiles feature](/develop/release-management/features/sla/vnic-profiles.html).
 
 (Note: aggregate all profiles feature pages like for QoS).
 

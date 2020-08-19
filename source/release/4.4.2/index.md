@@ -8,7 +8,7 @@ page_classes: releases
 
 # oVirt 4.4.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.2 Third Release Candidate as of August 13, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.2 Fourth Release Candidate as of August 20, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -176,6 +176,8 @@ Reason:
 
  - [BZ 1854922](https://bugzilla.redhat.com/1854922) **spec_ctrl host feature not detected**
 
+ - [BZ 1663135](https://bugzilla.redhat.com/1663135) **RFE: importing vm from KVM external provider should work also to block based SD**
+
  - [BZ 1793290](https://bugzilla.redhat.com/1793290) **guestDiskMapping can be missing or incorrect when retrieved from qga**
 
 
@@ -185,12 +187,32 @@ Reason:
 
  - [BZ 1573218](https://bugzilla.redhat.com/1573218) **Updating CPU pinning setting or NUMA nodes setting for a running VM requires VM restart (should be updated only for VM next run)**
 
+ - [BZ 1663135](https://bugzilla.redhat.com/1663135) **RFE: importing vm from KVM external provider should work also to block based SD**
+
  - [BZ 1856677](https://bugzilla.redhat.com/1856677) **postgresql restarts too much, eventually fails**
+
+
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1847966](https://bugzilla.redhat.com/1847966) **grafana setup with "weird" characters is broken**
+
+
+#### oVirt Engine UI Extensions
+
+ - [BZ 1855761](https://bugzilla.redhat.com/1855761) **Web Admin interface broken on Firefox**
 
 
 ### Other
 
 #### VDSM
+
+ - [BZ 1859876](https://bugzilla.redhat.com/1859876) **imgbase check failed after register to engine**
+
+   
+
+ - [BZ 1855078](https://bugzilla.redhat.com/1855078) **KeyError with vlanned bridgeless default route networks**
+
+   
 
  - [BZ 1860716](https://bugzilla.redhat.com/1860716) **VDSM Traceback failure at the journal log on DEBUG mode**
 
@@ -219,11 +241,15 @@ Reason:
 
 #### oVirt Engine
 
- - [BZ 1860284](https://bugzilla.redhat.com/1860284) **VM can not be taken from pool when no prestarted VM's are available**
+ - [BZ 1869302](https://bugzilla.redhat.com/1869302) **ansible 2.9.12 - host deploy fixes**
 
    
 
- - [BZ 1846350](https://bugzilla.redhat.com/1846350) **Extra white space and over-stretched components in WebAdmin dialogues - Storage dialogs**
+ - [BZ 1866745](https://bugzilla.redhat.com/1866745) **Configure imageio backend http CA file**
+
+   
+
+ - [BZ 1860284](https://bugzilla.redhat.com/1860284) **VM can not be taken from pool when no prestarted VM's are available**
 
    
 
@@ -295,6 +321,10 @@ Reason:
 
    
 
+ - [BZ 1771469](https://bugzilla.redhat.com/1771469) **Hot-plug SATA disk from VM fails with error - Validation of action 'HotPlugDiskToVm' failed for  user admin@internal-authz. Reasons: VAR__ACTION__HOT_PLUG,VAR__TYPE__DISK,ACTION_TYPE_DISK_INTERFACE_UNSUPPORTED,$osName Other OS**
+
+   
+
  - [BZ 1842272](https://bugzilla.redhat.com/1842272) **When trying to export VM to a different SD the VM clone creates on the source SD instead.**
 
    
@@ -307,7 +337,22 @@ Reason:
    
 
 
+#### ovirt-imageio
+
+ - [BZ 1862107](https://bugzilla.redhat.com/1862107) **Image transfer via imageio proxy broken after replacing apache pki**
+
+   
+
+
 #### oVirt Engine Data Warehouse
+
+ - [BZ 1866349](https://bugzilla.redhat.com/1866349) **Update reports descriptions according to documentation notes**
+
+   
+
+ - [BZ 1857778](https://bugzilla.redhat.com/1857778) **[RFE] Add Five_most_utilized_hosts_over_time (Br4B) to Trend Dashboard**
+
+   
 
  - [BZ 1852752](https://bugzilla.redhat.com/1852752) **Fix chainsaw graphs**
 
@@ -321,6 +366,36 @@ Reason:
    
 
  - [BZ 1826875](https://bugzilla.redhat.com/1826875) **HE deployment gets into an endless loop when the memory is not sufficient and you choose not to continue.**
+
+   
+
+
+#### oVirt Engine UI Extensions
+
+ - [BZ 1772038](https://bugzilla.redhat.com/1772038) **In case there are no available hosts to migrate the VM to then "migrate VM" dialog is opened with disabled fields instead of showing a notification message**
+
+   
+
+ - [BZ 1857197](https://bugzilla.redhat.com/1857197) **Cluster stats not available**
+
+   
+
+ - [BZ 1772030](https://bugzilla.redhat.com/1772030) **Tooltips text windows position are dis-alligned for the "Cluster upgrade" dialog**
+
+   
+
+
+#### cockpit-ovirt
+
+ - [BZ 1856630](https://bugzilla.redhat.com/1856630) **[day2] Warning pops up with expand cluster operation to use device with format /dev/mapper even with blacklist gluster devices enabled**
+
+   
+
+ - [BZ 1866698](https://bugzilla.redhat.com/1866698) **HE deployment should save the state when clicking "No" in "Exit Wizard"**
+
+   
+
+ - [BZ 1855758](https://bugzilla.redhat.com/1855758) **auto-populate LV cache size for other hosts during deployment**
 
    
 
@@ -383,7 +458,7 @@ Reason:
 
 #### Contributors
 
-43 people contributed to this release:
+48 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: vdsm)
@@ -394,8 +469,10 @@ Reason:
 	Artur Socha (Contributed to: ovirt-engine, vdsm-jsonrpc-java)
 	Asaf Rachmani (Contributed to: ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh)
+	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-engine-nodejs-modules)
 	Bell Levin (Contributed to: vdsm)
 	Bella Khizgiyev (Contributed to: ovirt-engine)
+	Ben Amsalem (Contributed to: ovirt-web-ui)
 	Benny Zlotnik (Contributed to: ovirt-engine)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Daniel Erez (Contributed to: ovirt-engine)
@@ -403,6 +480,7 @@ Reason:
 	Eli Mesika (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
 	Germano Veit Michel (Contributed to: vdsm)
+	Hilda Stastna (Contributed to: ovirt-web-ui)
 	Jan Zmeskal (Contributed to: ovirt-ansible-infra)
 	Kobi Hakimi (Contributed to: ovirt-ansible-repositories)
 	Lev Veyde (Contributed to: ovirt-engine, ovirt-release)
@@ -416,15 +494,17 @@ Reason:
 	Nir Soffer (Contributed to: ovirt-engine, ovirt-imageio, vdsm)
 	Orcun Atakan (Contributed to: ovirt-ansible-infra)
 	Ori Liel (Contributed to: ovirt-engine)
-	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
+	Parth Dhanjal (Contributed to: cockpit-ovirt)
+	Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions)
 	Ritesh Chikatwar (Contributed to: ovirt-engine)
 	Sandro Bonazzola (Contributed to: ovirt-dependencies, ovirt-engine, vdsm-jsonrpc-java, wix-toolset-binaries)
+	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shani Leviim (Contributed to: ovirt-engine)
-	Sharon Gratch (Contributed to: ovirt-engine)
+	Sharon Gratch (Contributed to: ovirt-engine, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shirly Radco (Contributed to: ovirt-dwh)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Steven Rosenberg (Contributed to: ovirt-engine, vdsm)
 	Tomáš Golembiovský (Contributed to: vdsm)
-	Vojtech Juranek (Contributed to: ovirt-imageio, vdsm)
+	Vojtech Juranek (Contributed to: ovirt-engine, ovirt-imageio, vdsm)
 	Xavi (Contributed to: ovirt-ansible-infra)
 	Yedidyah Bar David (Contributed to: ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup)

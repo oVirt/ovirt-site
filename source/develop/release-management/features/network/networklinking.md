@@ -20,7 +20,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ## Current status
 
-[Network Linking Detailed Design](/develop/release-management/features/network/detailednetworklinking/)
+[Network Linking Detailed Design](/develop/release-management/features/network/detailednetworklinking.html)
 
 *   Last update date: 04/11/2012
 
@@ -162,7 +162,7 @@ The feature is an enhancement of the oVirt-engine Vnic management:
 
 The Network Permissions is dependent on the following features:
 
-*   [Permission on Networks](/develop/release-management/features/network/networkpermissions/)
+*   [Permission on Networks](/develop/release-management/features/network/networkpermissions.html)
 
 Affected oVirt projects:
 

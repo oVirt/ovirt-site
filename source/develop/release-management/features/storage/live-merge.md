@@ -51,7 +51,7 @@ This diagram is a bit out-dated. Please bear with the developers until they can 
 
 ### Special considerations for ovirt-engine
 
-*   When a Live Merge is performed, engine's `RemoveSnapshotCommand` branches and calls `RemoveSnapshotSingleDiskLiveCommand`. This new command uses a new command-execution infrastructure which allows for the coordination of HSM Async Tasks by polling for the expected end state after a job is completed, rather than relying on the SPM to maintain a list of jobs. See [`CommandCoordinator`'s feature page](/develop/release-management/features/engine/commandcoordinator/) for further details.
+*   When a Live Merge is performed, engine's `RemoveSnapshotCommand` branches and calls `RemoveSnapshotSingleDiskLiveCommand`. This new command uses a new command-execution infrastructure which allows for the coordination of HSM Async Tasks by polling for the expected end state after a job is completed, rather than relying on the SPM to maintain a list of jobs. See [`CommandCoordinator`'s feature page](/develop/release-management/features/infra/commandcoordinator.html) for further details.
 *   Care is taken to prevent race conditions when tracking Live Merge jobs executed by VDSM. For SPM jobs, a job placeholder is inserted into the database before the job is started on VDSM. This is reversed in the case of Live Merge, where the block job placeholder is stored in the database only after the call to VDSM to start the job has returned. Accordingly, a virtual machine job may accidentally be discovered by the polling thread, but the polling thread will not accidentally remove a job that has not yet started. Only after a job is in the database is the polling thread is allowed to update or remove it. This simplifies the control flow and ensures that the thread starting the job has an opportunity to finish any tasks before handing off control to the monitoring thread.
 *   Upon command completion, engine updates the database records to reflect the current state of the images. If the merge and deletion steps were successful, the deleted image is removed from the database along with the deleted snapshot. If the merge succeeded but deletion failed, the virtual machine's volume chain is corrected in the database, and the now-orphaned image is marked illegal and associated with the defunct snapshot. If merging failed, the volume chain remains intact but the images involved are marked illegal. The state of the database records after these failure scenarios make it possible for the command to be retried, where upon success the database will be cleaned up as if no failure had occurred..
 
@@ -74,11 +74,11 @@ This feature hides the complexity of the Live Merge flow behind a simple "Delete
 
 ### Engine
 
-*   [CommandCoordinator](/develop/release-management/features/engine/commandcoordinator/)
+*   [CommandCoordinator](/develop/release-management/features/infra/commandcoordinator.html)
 
 ## Documentation / External references
 
-*   [libvirt blockCommit API](http://libvirt.org/html/libvirt-libvirt.html#virDomainBlockCommit)
+*   [libvirt blockCommit API](https://libvirt.org/html/libvirt-libvirt-domain.html#virDomainBlockCommit)
 
 ## Testing
 

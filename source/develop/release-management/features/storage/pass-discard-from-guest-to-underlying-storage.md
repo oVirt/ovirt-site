@@ -12,9 +12,14 @@ feature_status: Released in oVirt 4.1
 ## Summary
 
 ### How thinly provisioned disks were previously used
-Today, when the engine creates a thinly provisioned disk on a block domain, a logical volume with a preconfigured size is created, regardless its virtual size.<br/>
-When the watermark comes near the LV's size, the *SPM* extends the LV, so that the disk grows again and again until it reaches its virtual size.<br/>
-If the lun that is used to create the storage domain is also thinly provisioned, it behaves in a similar way. That is, when the engine extends a disk with one Gigabyte, it doesn't necessarily get 1G from the storage, but it does get 1G of virtual space. Therefore, like the LV, the underlying thinly provisioned lun will grow more and more until it reaches its virtual size.
+Today, when the engine creates a thinly provisioned disk on a block domain, a logical volume with a preconfigured size is created,
+regardless its virtual size.
+
+When the watermark comes near the LV's size, the *SPM* extends the LV, so that the disk grows again and again until it reaches its virtual size.
+
+If the lun that is used to create the storage domain is also thinly provisioned, it behaves in a similar way.
+That is, when the engine extends a disk with one Gigabyte, it doesn't necessarily get 1G from the storage, but it does get 1G of virtual space.
+Therefore, like the LV, the underlying thinly provisioned lun will grow more and more until it reaches its virtual size.
 
 Similarly, in file domains, the underlying thinly provisioned lun gets bigger as the corresponding disk's file grows.
 
@@ -42,7 +47,8 @@ Released in oVirt 4.1.
 ## General functionality and restrictions
 
 ### Under the hood
-This feature adds a new virtual machine's disk property called ***"Pass Discard"*** (***"Enable Discard"*** in the UI).<br/>
+This feature adds a new virtual machine's disk property called ***"Pass Discard"*** (***"Enable Discard"*** in the UI).
+
 If all the [restrictions](#restrictions) are met and *Pass Discard* is enabled, when a discard command (UNMAP SCSI command) is sent from the guest, qemu will not ignore it and will pass it on to the underlying storage. Then, the storage will set the unused blocks as free so that others can use them, and the reported consumed space of the underlying thinly provisioned lun will reduce.
 
 ### Possible consumers of the discarded blocks
@@ -68,7 +74,7 @@ So now we can better understand what **can** consume those discarded blocks:
 
 1. Disks on other storage domains - because the storage is not full; and if it was full - we've just discarded a few blocks that can now be consumed.
 2. Other disks on *sd1* if *sd1* is not out of space - because if the vg is not full, vdsm can extend its logical volumes with any blocks that it is given by the storage, and those discarded blocks are not exceptional.
-3. In fact, if *sd1* went out of space, and enough blocks were discarded to extend it, the user can always do that by adding another lun to the domain or by extending the existing one using the [Refresh LUN Size](/develop/release-management/features/storage/lun-resize) feature, making it possible for the logical volumes to extend.
+3. In fact, if *sd1* went out of space, and enough blocks were discarded to extend it, the user can always do that by adding another lun to the domain or by extending the existing one using the [Refresh LUN Size](/develop/release-management/features/storage/lun-resize.html) feature, making it possible for the logical volumes to extend.
 
 #### File storage
 Unlike block storage, file storage does not have restrictions caused by metadata, so if the underlying file system supports discard, it will work in any scenario.<br/>
@@ -113,7 +119,7 @@ In order to send a *discard* command from the guest, one can do it:
 # Here's the discard option -----------------^
 ```
 
-For more information about sending *discard* from EL7 based OSs, refer to [Storage Administration Guide - Discard unused blocks](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/ch02s04.html).<br/>
+For more information about sending *discard* from EL7 based OSs, refer to [Storage Administration Guide - Discard unused blocks](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fs-discard-unused-blocks).<br/>
 Either way, these conditions regarding the *discard* command should be met:
 
 - It should be supported by the device's file system, *ext4* for example.
@@ -213,8 +219,8 @@ Content-Type: application/xml
 
 
 ## Related Features
-* [Discard after delete](/develop/release-management/features/storage/discard-after-delete/)
-* [Wipe volumes using blkdiscard](/develop/release-management/features/storage/wipe-volumes-using-blkdiscard/)
+* [Discard after delete](/develop/release-management/features/storage/discard-after-delete.html)
+* [Wipe volumes using blkdiscard](/develop/release-management/features/storage/wipe-volumes-using-blkdiscard.html)
 
 
 ## References

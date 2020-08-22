@@ -186,7 +186,7 @@ Shared raw disk will be dependent on floating disk.
 
 ### Documentation / External references
 
-[Features/FloatingDisk](/develop/release-management/features/storage/floatingdisk/)
+[Features/FloatingDisk](/develop/release-management/features/storage/floatingdisk.html)
 
 
 

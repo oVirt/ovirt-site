@@ -31,7 +31,8 @@ The shared raw disk feature enables to share disks between multiple VMs in the D
 ### Detailed Description
 
 The shared disk feature should provide the ability to attach a disk to multiple VMs. It is the user's responsibility to make sure that the VMs do not corrupt disk data.
-Users should be able to easily manage disks as standalone entities which are not shared between VMs (see [Features/FloatingDisk](/develop/release-management/features/storage/floatingdisk/)),
+Users should be able to easily manage disks as standalone entities which are not shared between VMs
+(see [Features/FloatingDisk](/develop/release-management/features/storage/floatingdisk.html)),
  or as entities which are shared between multiple VMs, and be able to switch between the two states. This feature will enable oVirt users to more easily run external cluster applications, or shared data warehouses on VMs.
 
 #### Entity Description
@@ -119,7 +120,6 @@ Stateless VM
 * New disk will present a calculated default disk name which the user can change.
 
 === User work-flows ===
-<!-- Describe the high-level work-flows relevant to this feature. -->
 
 The Administrator Portal should allow the following operations:
 

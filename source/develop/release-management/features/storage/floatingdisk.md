@@ -30,7 +30,7 @@ This feature covers the management and usage of disks in floating state.
 
 ## Current status
 
-*   [Features/DetailedFloatingDisk](/develop/release-management/features/storage/detailedfloatingdisk/)
+*   [Features/DetailedFloatingDisk](/develop/release-management/features/storage/detailedfloatingdisk.html)
 *   Last updated date: Sun January 25 2011
 
 ## Detailed Description
@@ -56,5 +56,5 @@ Affected oVirt projects:
 
 ## Documentation / External references
 
-*   [Features/DetailedFloatingDisk](/develop/release-management/features/storage/detailedfloatingdisk/)
+*   [Features/DetailedFloatingDisk](/develop/release-management/features/storage/detailedfloatingdisk.html)
 

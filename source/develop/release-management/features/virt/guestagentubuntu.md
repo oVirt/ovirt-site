@@ -4,10 +4,15 @@ category: feature
 authors: vfeenstr
 feature_name: oVirt Guest Agent on Ubuntu
 feature_modules: ovirt-guest-agent
-feature_status: Done
+feature_status: Obsolete
 ---
 
 # Guest Agent Ubuntu
+
+This feature is obsolete.
+
+On Ubuntu 20.04.1 LTS (Focal Fossa) and later you should use qemu-guest-agent with oVirt 4.3 and later.
+Kept the following sections for reference.
 
 ## oVirt Guest Agent on Ubuntu 12.04+
 
@@ -117,6 +122,3 @@ Testing has to be executed on a Ubuntu 12.04+ system. Lower versions do not fulf
         -   guestIPs (if there are IPv4 addresses)
 
 **Note:** The VM UUID can be found on the Admin Portal in the General tab for the VM **Note:** The FQDN value is only only shown if the FQDN is not empty, not localhost and not localhost.localdomain
-
-
-

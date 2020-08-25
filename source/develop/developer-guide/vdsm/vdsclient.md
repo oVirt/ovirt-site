@@ -6,7 +6,7 @@ authors: amuller, dougsland, ybronhei
 
 # Vds Client
 
-**vdsClient is deprecated in 4.1 and above, please use [vdsm-client](./vdsm-client/) instead.**
+**vdsClient is deprecated in 4.1 and above, please use [vdsm-client](./vdsm-client.html) instead.**
 
 ## About vdsClient
 

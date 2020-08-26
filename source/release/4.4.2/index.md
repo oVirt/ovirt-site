@@ -8,7 +8,7 @@ page_classes: releases
 
 # oVirt 4.4.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.2 Fourth Release Candidate as of August 20, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.2 Fifth Release Candidate as of August 26, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -130,25 +130,21 @@ Result: The remove button resides within the drop down menu to avoid removing th
 
  - [BZ 1819260](https://bugzilla.redhat.com/1819260) **[RFE] enhance search filter for Storage Domains with free argument**
 
-   This RFE was resolved by 
+   The following search filter properties for Storage Domains have been enhanced: 
+
+- 'size' changed to 'free_size'
+
+- 'total_size' added to the search engine options
+
+- 'used' changed to 'used_size'
 
 
 
-1) change "size" to "free_size"
-
-2) add "total_size" to the search engine options
-
-3) change "used" to "used_size"
-
-4) adding "(GB)" when displaying 1-3 above  
+For example , you can use now the following in the Storage Domains tab:
 
 
 
-for example , you can use now the followingf from the storage domains TAB
-
-
-
-"free_size > 6 and total_size < 20"
+"free_size > 6 GB and total_size < 20 GB"
 
 
 #### oVirt dependencies
@@ -206,10 +202,6 @@ Reason:
 
 #### VDSM
 
- - [BZ 1859876](https://bugzilla.redhat.com/1859876) **imgbase check failed after register to engine**
-
-   
-
  - [BZ 1855078](https://bugzilla.redhat.com/1855078) **KeyError with vlanned bridgeless default route networks**
 
    
@@ -241,15 +233,15 @@ Reason:
 
 #### oVirt Engine
 
- - [BZ 1869302](https://bugzilla.redhat.com/1869302) **ansible 2.9.12 - host deploy fixes**
-
-   
-
  - [BZ 1866745](https://bugzilla.redhat.com/1866745) **Configure imageio backend http CA file**
 
    
 
  - [BZ 1860284](https://bugzilla.redhat.com/1860284) **VM can not be taken from pool when no prestarted VM's are available**
+
+   
+
+ - [BZ 1846350](https://bugzilla.redhat.com/1846350) **Extra white space and over-stretched components in WebAdmin dialogues - Storage dialogs**
 
    
 
@@ -400,9 +392,38 @@ Reason:
    
 
 
+#### oVirt Ansible hosted-engine setup role
+
+ - [BZ 1866956](https://bugzilla.redhat.com/1866956) **Hosted-Engine restore from backup and 4.4 upgrade fail if Blank template is set as HA**
+
+   
+
+ - [BZ 1868571](https://bugzilla.redhat.com/1868571) **Failed to deploy HE over NFS storage  "FileNotFoundError: [Errno 2] No such file or directory"**
+
+   
+
+
+#### oVirt environment shutdown ansible roles
+
+ - [BZ 1855772](https://bugzilla.redhat.com/1855772) **shutdown-env role emit DEPRECATION WARNING**
+
+   
+
+
 ### No Doc Update
 
+#### VDSM
+
+ - [BZ 1859876](https://bugzilla.redhat.com/1859876) **imgbase check failed after register to engine**
+
+   
+
+
 #### oVirt Engine
+
+ - [BZ 1869302](https://bugzilla.redhat.com/1869302) **ansible 2.9.12 - host deploy fixes**
+
+   
 
  - [BZ 1866709](https://bugzilla.redhat.com/1866709) **database restore fails if non-default extensions are included in the backup**
 
@@ -436,10 +457,6 @@ Reason:
 
    
 
- - [BZ 1856375](https://bugzilla.redhat.com/1856375) **Can't add additional host as hosted-engine ha-host from "Guide me" from UI.**
-
-   
-
  - [BZ 1826255](https://bugzilla.redhat.com/1826255) **[CNV&RHV]Change name of type of provider - CNV -> OpenShift Virtualization**
 
    
@@ -456,9 +473,16 @@ Reason:
    
 
 
+#### ovirt-engine-extension-aaa-ldap
+
+ - [BZ 1778471](https://bugzilla.redhat.com/1778471) **Using more than one asterisk in LDAP search string is not working when searching for  AD users.**
+
+   
+
+
 #### Contributors
 
-48 people contributed to this release:
+50 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: vdsm)
@@ -467,7 +491,7 @@ Reason:
 	Anton Marchukov (Contributed to: ovirt-dependencies)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine, vdsm-jsonrpc-java)
-	Asaf Rachmani (Contributed to: ovirt-hosted-engine-setup)
+	Asaf Rachmani (Contributed to: ovirt-ansible-hosted-engine-setup, ovirt-ansible-shutdown-env, ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-engine-nodejs-modules)
 	Bell Levin (Contributed to: vdsm)
@@ -482,14 +506,15 @@ Reason:
 	Germano Veit Michel (Contributed to: vdsm)
 	Hilda Stastna (Contributed to: ovirt-web-ui)
 	Jan Zmeskal (Contributed to: ovirt-ansible-infra)
+	Kedar Kulkarni (Contributed to: ovirt-ansible-hosted-engine-setup)
 	Kobi Hakimi (Contributed to: ovirt-ansible-repositories)
-	Lev Veyde (Contributed to: ovirt-engine, ovirt-release)
+	Lev Veyde (Contributed to: ovirt-ansible-shutdown-env, ovirt-engine, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine)
 	Luca (Contributed to: ovirt-ansible-infra)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-infra, ovirt-ansible-repositories, ovirt-engine)
-	Martin Perina (Contributed to: ovirt-dependencies, vdsm-jsonrpc-java)
+	Martin Perina (Contributed to: ovirt-dependencies, ovirt-engine-extension-aaa-ldap, vdsm-jsonrpc-java)
 	Milan Zamazal (Contributed to: vdsm)
 	Nir Soffer (Contributed to: ovirt-engine, ovirt-imageio, vdsm)
 	Orcun Atakan (Contributed to: ovirt-ansible-infra)
@@ -497,12 +522,13 @@ Reason:
 	Parth Dhanjal (Contributed to: cockpit-ovirt)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions)
 	Ritesh Chikatwar (Contributed to: ovirt-engine)
-	Sandro Bonazzola (Contributed to: ovirt-dependencies, ovirt-engine, vdsm-jsonrpc-java, wix-toolset-binaries)
+	Sandro Bonazzola (Contributed to: ovirt-ansible-shutdown-env, ovirt-dependencies, ovirt-engine, vdsm-jsonrpc-java, wix-toolset-binaries)
 	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shani Leviim (Contributed to: ovirt-engine)
 	Sharon Gratch (Contributed to: ovirt-engine, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shirly Radco (Contributed to: ovirt-dwh)
 	Shmuel Melamud (Contributed to: ovirt-engine)
+	Simone Tiraboschi (Contributed to: ovirt-ansible-shutdown-env)
 	Steven Rosenberg (Contributed to: ovirt-engine, vdsm)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: ovirt-engine, ovirt-imageio, vdsm)

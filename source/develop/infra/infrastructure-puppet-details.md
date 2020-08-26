@@ -14,4 +14,4 @@ authors: quaid
 *   sshkeys & accounts for all project maintainers
 *   sshkeys & accounts for non-maintainer journeyfolk who work on that service
 
-[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation/)
+[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation.html)

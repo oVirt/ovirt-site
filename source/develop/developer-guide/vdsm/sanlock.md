@@ -24,16 +24,16 @@ For more information, see
 
 *   sanlock(8)
 *   wdmd(8)
-*   <https://pagure.io/sanlock/blob/master/f/README.mk>
+*   <https://pagure.io/sanlock/blob/master/f/README.rst>
 
 ## VDSM And SANLock
 
-VDSM is taking advantage of SANLock since [Storage Domain Version 3](/documentation/storage/storage-domain-versions/#storage-domain-version-3) for the following tasks:
+VDSM is taking advantage of SANLock since [Storage Domain Version 3](/develop/storage/storage-domain-versions.html#storage-domain-version-3) for the following tasks:
 
 *   Acquiring the SPM resource
 *   Acquiring the Volumes resources
 
-**Note:** In all the previous [Storage Domain Versions](/documentation/storage/storage-domain-versions/) SANLock is never activated.
+**Note:** In all the previous [Storage Domain Versions](/develop/storage/storage-domain-versions.html) SANLock is never activated.
 
 ### Lockspaces and Resources In VDSM
 
@@ -50,7 +50,7 @@ The SPM resource is located instead on the "leases" file/LV with offset 0 (tempo
 
 ### Libvirt XML Including SANLock Resources
 
-The XML that VDSM prepares for libvirt to run a VM on a [Storage Domain Version 3](/documentation/storage/storage-domain-versions/#storage-domain-version-3) includes all the information required to acquire the Volumes resources:
+The XML that VDSM prepares for libvirt to run a VM on a [Storage Domain Version 3](/develop/storage/storage-domain-versions.html#storage-domain-version-3) includes all the information required to acquire the Volumes resources:
 
 <?xml version="1.0" encoding="utf-8"?>
 <domain type="kvm">
@@ -251,4 +251,4 @@ This dumps the sanlock daemon's internal circular buffer of recent debug message
 
 [1] <http://libvirt.org/formatdomain.html#elementsLease>
 
-[2] <http://libvirt.org/locking.html>
+[2] <https://libvirt.org/kbase/locking.html>

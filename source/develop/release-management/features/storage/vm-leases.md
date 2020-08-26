@@ -416,8 +416,7 @@ workflows.
 
 ## Dependencies / Related Features
 
-This is a requirement for improving HA VMs failover feature. See
-[vm-failover-with-vm-leases](../virt/vm-failover-with-vm-leases)
+This is a requirement for improving HA VMs failover feature.
 
 
 ### Entity Description

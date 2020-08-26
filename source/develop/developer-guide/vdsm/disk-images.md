@@ -45,7 +45,7 @@ When creating a virtual disk there are normally two ways of allocating the stora
 
 On file based storage domains, files thinly provisioned by design (the file system provides this). "Preallocation" is achieved by writing zeros to the file right after creating it which does not guarantee preallocation when using smart storage (compression / dedup would cause the zeros not to be written to disk and not to allocate the actual disk space).
 
-On block devices thin provisioning requires either defining the LUNs as sparse on the storage array (transparent to Vdsm) or using Vdsm's [Thin provisioning mechanism](Thin provisioning mechanism) and formatting the volume with qcow2. Preallocated volumes are simply LVs which are created with the same size as the virtual disk. Preallocated volumes would normally not be formatted as qcow2 as it could affect performance and currently Vdsm does not take advantage of the compression and encryption capabilities so there is no advantage over raw devices (for more info see [Disk Format](Disk Format)).
+On block devices thin provisioning requires either defining the LUNs as sparse on the storage array (transparent to Vdsm) or using Vdsm's Thin provisioning mechanism and formatting the volume with qcow2. Preallocated volumes are simply LVs which are created with the same size as the virtual disk. Preallocated volumes would normally not be formatted as qcow2 as it could affect performance and currently Vdsm does not take advantage of the compression and encryption capabilities so there is no advantage over raw devices.
 
 ## Snapshots
 

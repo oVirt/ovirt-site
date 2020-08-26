@@ -11,7 +11,7 @@ authors: sradco, sdickers
 
 ## Prerequisites
 
-<b>Please note:</b> It is assumed a standard oVirt engine development environment has already been setup.  Follow steps available at [oVirt Engine Development Environment](/develop/developer-guide/engine/engine-development-environment/) or within the ovirt-engine source tree at [README.adoc](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.adoc;hb=HEAD) before you start with DWH.
+<b>Please note:</b> It is assumed a standard oVirt engine development environment has already been setup.  Follow steps available at [oVirt Engine Development Environment](/develop/developer-guide/engine/engine-development-environment.html) or within the ovirt-engine source tree at [README.adoc](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.adoc;hb=HEAD) before you start with DWH.
 
 ### Database
 
@@ -55,7 +55,7 @@ The services will not exit as long as engine is up, to stop press <Ctrl>C.
 
 ## How to write DWH patches
 
-Please refer to [How to write patches for DWH](write-patches-for-dwh) for further information.
+Please refer to [How to write patches for DWH](write-patches-for-dwh.html) for further information.
 
 ## Packaging
 
@@ -67,5 +67,5 @@ Create source tarball by executing:
 
       $ make dist
 
-Follow the standard [guidelines for building RPM package](/develop/dev-process/build-binary-package)
+Follow the standard [guidelines for building RPM package](/develop/dev-process/build-binary-package.html)
 

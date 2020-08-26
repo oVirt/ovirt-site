@@ -8,7 +8,7 @@ authors: fromani
 
 ## Summary
 
-This page gather the design of the VM startup revamp. The code which handles the VM startup in current (<= 4.14.x) has become tangled and hard to follow. A rewrite will be beneficial. Performance improvements about the VDSM startup are covered in a [separate page](/develop/developer-guide/vdsm/libvirt-performance-scalability/)
+This page gather the design of the VM startup revamp. The code which handles the VM startup in current (<= 4.14.x) has become tangled and hard to follow. A rewrite will be beneficial. Performance improvements about the VDSM startup are covered in a [separate page](/develop/developer-guide/vdsm/libvirt-performance-scalability.html)
 
 This page aims to document the internals and the execution flow of a VM startup/migration; migration is covered here (because it is is tightly correlated with VM creation. If you look for a gentler introduction to VDSM architecture, you'd probably better served by other wiki page. The remainder of this page will provide minimal context and minimal documentation about some other important parts of VDSM like the client interface, the API abstraction, the libvirt interaction and so on.
 
@@ -221,7 +221,7 @@ Meta-proposal: try to preserve orthogonality between the folling concepts; e.g. 
 
 1 clearly separate the control flows for each major startup mode (creation, recovery, restoring state); avoid multiplex-like functions like _run
 
-2 OK to create the VMs in a separate thread, throttle parallelism until we can fully depend on libvirt not being a bottleneck ([details here](/develop/developer-guide/vdsm/libvirt-performance-scalability/#startup-of-many-vms))
+2 OK to create the VMs in a separate thread, throttle parallelism until we can fully depend on libvirt not being a bottleneck ([details here](/develop/developer-guide/vdsm/libvirt-performance-scalability.html#startup-of-many-vms))
 
 3 introduce 'staging area' for VMs being created, e.g. while the creation thread is running. In a nutshell, a separate private vmContainer-like structure to hold half-baked VMs; move VMs to public vmContainer -as it is now- only when they are fully created. Rationale: improve transactional behaviour as seen from the outside (engine), and make code more robust.
 
@@ -231,7 +231,7 @@ Abandon staging area concept. Rationale: we can achieve the same result by enfor
 
 1 clearly separate the control flows for each major startup mode (creation, recovery, restoring state); avoid multiplex-like functions like _run
 
-2 OK to create the VMs in a separate thread, throttle parallelism until we can fully depend on libvirt not being a bottleneck ([details here](/develop/developer-guide/vdsm/libvirt-performance-scalability/#startup-of-many-vms))
+2 OK to create the VMs in a separate thread, throttle parallelism until we can fully depend on libvirt not being a bottleneck ([details here](/develop/developer-guide/vdsm/libvirt-performance-scalability.html#startup-of-many-vms))
 
 3 builder-like classmethod for every creation flow except the creation.
 

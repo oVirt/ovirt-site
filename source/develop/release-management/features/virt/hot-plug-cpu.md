@@ -18,7 +18,7 @@ This feature allows you to hot plug CPUs to a running virtual machine from the o
 ## Current status
 
 *   phase 1 (i.e all content in this wiki) - Done
-*   phase 2 - [Hot_plug_cpu#Phase_2](/develop/release-management/features/virt/hot-plug-cpu/#phase-2) desgin stage
+*   phase 2 - [Hot_plug_cpu#Phase_2](#phase-2) desgin stage
 *   limitations: unplug isn't supported fully due to libvirt's bug [#1017858](https://bugzilla.redhat.com/show_bug.cgi?id=1017858#c11)
 *   Last updated: ,
 
@@ -116,7 +116,7 @@ i.e that the as for RHEL, the guest alone handles the plug/unplug without the ne
 
 for more details see comment 11 on Bug [#1017858](https://bugzilla.redhat.com/show_bug.cgi?id=1017858#c11)
 
-[qemu-guest-agent](http://wiki.qemu.org/Features/QAPI/GuestAgent)
+[qemu-guest-agent](https://wiki.qemu.org/Features/GuestAgent)
 
 ## Guest OS Support Matrix
 
@@ -228,7 +228,7 @@ for more details see comment 11 on Bug [#1017858](https://bugzilla.redhat.com/sh
 
 *   [oVIrt VDSM RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1036492)
 *   [QEMU hotplug cpu feature wiki page](http://wiki.qemu.org/Features/CPUHotplug)
-*   [Linux Kernel Documentation for hotplug](https://www.kernel.org/doc/Documentation/cpu-hotplug.txt)
+*   [Linux Kernel Documentation for hotplug](https://www.kernel.org/doc/Documentation/core-api/cpu_hotplug.rst)
 
 ## Open Issues
 
@@ -436,6 +436,3 @@ Have a VM with a single CPU, which is fully utilized Actions
 1. . Hot plug CPU 1 -> 2. Expected Results
 
 1. Check adaptation of the OS of the CPU change: Verify indeed the hot plug indeed improve the performance, and the 2nd CPU is used to balance the load.
-
-
-

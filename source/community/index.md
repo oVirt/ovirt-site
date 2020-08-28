@@ -12,6 +12,7 @@ oVirt is a community project, and we welcome contributions from everyone! If you
 There are a few ways to engage with the oVirt Community:
 
 * [Events](/events/)
+* [Archived Conferences Presentations](archived_conferences_presentations.html)
 * [Forums / Mailing lists](https://lists.ovirt.org/archives/)
 * [oVirt Facebook group](https://www.facebook.com/groups/ovirt.openvirtualization/)
 * [Twitter](https://twitter.com/ovirt)

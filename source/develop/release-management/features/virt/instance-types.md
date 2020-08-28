@@ -49,7 +49,7 @@ In case of oVirt the image is just a disk containing anything. The user can deci
 The old template used in the oVirt until now.
 
 **VM**
-The VM is a combination of the triple instance type, image and template (while any of this three can be empty). For details on where the specific fields will come from please see the detailed table: [Features/Instance Types#Design](/develop/release-management/features/virt/instance-types/#design)
+The VM is a combination of the triple instance type, image and template (while any of this three can be empty). For details on where the specific fields will come from please see the detailed table: [Instance Types Design](/develop/release-management/features/virt/instance-types.html#design)
 
 ## Design
 
@@ -76,56 +76,56 @@ The specific values means:
 | Field name                | Description                                  | Template | Instance Type | VM      |
 |---------------------------|----------------------------------------------|----------|---------------|---------|
 |                           |                                              | Present  | Comm          | Present |
-| vm_guid                  | Internal unique ID                           | N        |               | N       |
-| vm_name                  | name set by user for vm and template         | Y        |               | Y       |
-| mem_size_mb             | Memory Size                                  | Y        |               | Y       |
-| vmt_guid                 | Internal link to template object             | N        |               | N       |
+| vm_guid                   | Internal unique ID                           | N        |               | N       |
+| vm_name                   | name set by user for vm and template         | Y        |               | Y       |
+| mem_size_mb               | Memory Size                                  | Y        |               | Y       |
+| vmt_guid                  | Internal link to template object             | N        |               | N       |
 | OS                        | Operating System Type                        | Y        |               | N       |
 | description               | description set by user for vm and template  | Y        |               | Y       |
-| vds_group_id            | vm cluster                                   | Y        |               | N       |
+| vds_group_id              | vm cluster                                   | Y        |               | N       |
 | domain                    | directory services domain                    | D        |               | D       |
-| creation_date            | internal. creation date                      | N        |               | N       |
-| num_of_monitors         | number of monitors                           | Y        |               | Y       |
-| is_initialized           | internal. mark if vm was syspreped           | N        |               | N       |
-| is_auto_suspend         | legacy from auto-suspend feature, not in use | D        |               | D       |
-| num_of_sockets          | umber of sockets                             | Y        |               | Y       |
-| cpu_per_socket          | cpu per socket                               | Y        |               | Y       |
-| usb_policy               | usb policy                                   | Y        |               | Y       |
-| time_zone                | time zone                                    | Y        |               | N       |
-| is_stateless             | stateless flag                               | Y        |               | N       |
-| fail_back                | legacy from fail-back feature, not in use    | D        |               | D       |
-| dedicated_vm_for_vds   | specific host for running vm                 | Y        |               | N       |
-| auto_startup             | HA                                           | Y        |               | Y       |
-| vm_type                  | vm type (server/desktop)                     | Y        |               | N       |
-| nice_level               | vm nice level                                | D        |               | D       |
-| default_boot_sequence   | boot sequence                                | Y        |               | Y       |
-| default_display_type    | display type(SPICE, VNC)                     | Y        |               | Y       |
+| creation_date             | internal. creation date                      | N        |               | N       |
+| num_of_monitors           | number of monitors                           | Y        |               | Y       |
+| is_initialized            | internal. mark if vm was syspreped           | N        |               | N       |
+| is_auto_suspend           | legacy from auto-suspend feature, not in use | D        |               | D       |
+| num_of_sockets            | umber of sockets                             | Y        |               | Y       |
+| cpu_per_socket            | cpu per socket                               | Y        |               | Y       |
+| usb_policy                | usb policy                                   | Y        |               | Y       |
+| time_zone                 | time zone                                    | Y        |               | N       |
+| is_stateless              | stateless flag                               | Y        |               | N       |
+| fail_back                 | legacy from fail-back feature, not in use    | D        |               | D       |
+| dedicated_vm_for_vds      | specific host for running vm                 | Y        |               | N       |
+| auto_startup              | HA                                           | Y        |               | Y       |
+| vm_type                   | vm type (server/desktop)                     | Y        |               | N       |
+| nice_level                | vm nice level                                | D        |               | D       |
+| default_boot_sequence     | boot sequence                                | Y        |               | Y       |
+| default_display_type      | display type(SPICE, VNC)                     | Y        |               | Y       |
 | priority                  | priority                                     | Y        |               | Y       |
-| iso_path                 | cd                                           | Y        |               | N       |
+| iso_path                  | cd                                           | Y        |               | N       |
 | origin                    | internal. where the vm was created           | N        |               | N       |
-| initrd_url               | boot params                                  | Y        |               | N       |
-| kernel_url               | boot params                                  | Y        |               | N       |
-| kernel_params            | boot params                                  | Y        |               | N       |
-| migration_support        | migration support options                    | Y        |               | Y       |
-| userdefined_properties   | custom properties                            | Y        |               | N       |
-| predefined_properties    | custom properties                            | Y        |               | N       |
-| min_allocated_mem       | memory guaranteed                            | Y        |               | Y       |
-| child_count              | internal. for template, not in use?          | N        |               | N       |
-| quota_id                 | link to quota                                | Y        |               | N       |
-| allow_console_reconnect | allow reconnect to console                   | Y        |               | N       |
-| cpu_pinning              | cpu pinning                                  | N        |               | N       |
-| is_smartcard_enabled    | smartcard enabled                            | Y        |               | Y       |
-| payload                   | payload (device, not in vm_static)          | N        |               | N       |
+| initrd_url                | boot params                                  | Y        |               | N       |
+| kernel_url                | boot params                                  | Y        |               | N       |
+| kernel_params             | boot params                                  | Y        |               | N       |
+| migration_support         | migration support options                    | Y        |               | Y       |
+| userdefined_properties    | custom properties                            | Y        |               | N       |
+| predefined_properties     | custom properties                            | Y        |               | N       |
+| min_allocated_mem         | memory guaranteed                            | Y        |               | Y       |
+| child_count               | internal. for template, not in use?          | N        |               | N       |
+| quota_id                  | link to quota                                | Y        |               | N       |
+| allow_console_reconnect   | allow reconnect to console                   | Y        |               | N       |
+| cpu_pinning               | cpu pinning                                  | N        |               | N       |
+| is_smartcard_enabled      | smartcard enabled                            | Y        |               | Y       |
+| payload                   | payload (device, not in vm_static)           | N        |               | N       |
 | thin/clone                |                                              | N        |               | N       |
-| soundcard                 | payload (device, not in vm_static)          | Y        |               | Y       |
-| Balloon                   | payload (device, not in vm_static)          | N        |               | Y       |
+| soundcard                 | payload (device, not in vm_static)           | Y        |               | Y       |
+| Balloon                   | payload (device, not in vm_static)           | N        |               | Y       |
 | network interface         | binding of NIC to logical network            | N        |               | Y       |
-| instance_type_id        | internal. link to vm's instance type         | N        |               | N       |
-| image_type_id           | internal. link to vm's image type            | N        |               | N       |
-| host_cpu_flags          | use host cpu flags                           | Y        |               | N       |
-| db_generation            | internal                                     | N        |               | N       |
-| is_delete_protected     | protection from accidental deletion          | Y        |               | N       |
-| is_disabled              | disabled-template (for templates only)       | Y        |               | N       |
+| instance_type_id          | internal. link to vm's instance type         | N        |               | N       |
+| image_type_id             | internal. link to vm's image type            | N        |               | N       |
+| host_cpu_flags            | use host cpu flags                           | Y        |               | N       |
+| db_generation             | internal                                     | N        |               | N       |
+| is_delete_protected       | protection from accidental deletion          | Y        |               | N       |
+| is_disabled               | disabled-template (for templates only)       | Y        |               | N       |
 | vncKeyboardLayout         | VNC specific keyboard layout                 | Y        |               | N       |
 | tunnelMigration           | use libvirt-to-libvirt communication         | N        |               | N       |
 | migrationDowntime         | max downtime during migration                | Y        |               | Y       |
@@ -209,7 +209,7 @@ Since the Instance Type is not attached to any cluster, there are no restriction
 
 This is an example of the user workflow, how the new Instance Types approach would be used.
 
-1: Create a new **Instance Type**: Under the configure (top right corner) a new side tab called "Instance Types" will be present. Under that a list of instance types with new/edit/delete buttons will be present (similar to the VM dialog). By pressing a "new" or "edit" button the user will be provided by the same dialog than on new/edit VM or template (with relevant fields only). 2: Create a new **Image**: In the *Virtual Machines* main tab select a VM, than click *Create Image* which will extract the image and the image specific configuration (similar to current *make template*) 3: Create a new VM: In *Virtual Machines* main tab click the "New VM" button. Select the data center, cluster, instance type, image and template. Assigns the logical network to network interfaces, than click OK. 4: Run the created VM 5: Edit *Instance Type* (e.g. added more memory to it) 6: The change is reflected also on the VM after restarting it (but this will be implemented as a separate feature - [Features/Edit Running VM](/develop/release-management/features/virt/edit-running-vm/))
+1: Create a new **Instance Type**: Under the configure (top right corner) a new side tab called "Instance Types" will be present. Under that a list of instance types with new/edit/delete buttons will be present (similar to the VM dialog). By pressing a "new" or "edit" button the user will be provided by the same dialog than on new/edit VM or template (with relevant fields only). 2: Create a new **Image**: In the *Virtual Machines* main tab select a VM, than click *Create Image* which will extract the image and the image specific configuration (similar to current *make template*) 3: Create a new VM: In *Virtual Machines* main tab click the "New VM" button. Select the data center, cluster, instance type, image and template. Assigns the logical network to network interfaces, than click OK. 4: Run the created VM 5: Edit *Instance Type* (e.g. added more memory to it) 6: The change is reflected also on the VM after restarting it (but this will be implemented as a separate feature - [Features/Edit Running VM](/develop/release-management/features/virt/edit-running-vm.html))
 
 ## Runtime
 

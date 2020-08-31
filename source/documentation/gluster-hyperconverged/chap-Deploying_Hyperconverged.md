@@ -112,7 +112,7 @@ Brick configuration allows for per-host definition of bricks. This is useful in 
 
 ![Brick setup sub-tab](/images/gluster-hyperconverged/7-Bricks.png)
 
-**Prev:** [Chapter: Introduction](../chap-Introduction) <br>
-**Next:** [Chapter: Additional Steps](../chap-Additional_Steps)
+**Prev:** [Chapter: Introduction](chap-Introduction) <br>
+**Next:** [Chapter: Additional Steps](chap-Additional_Steps)
 
 

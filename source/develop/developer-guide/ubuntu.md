@@ -20,7 +20,7 @@ Build-Depends: maven2, openjdk6-jdk It looks like postgres-8.4 is too old, so I'
 
 ### Building ovirt-engine (for Debian)
 
-Following: [Building oVirt engine](Building oVirt engine) (changes to make are documented below) Changes: Installing JBoss AS Get JBoss from jboss.org or build the package. wget <http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download> Building JBoss 5.1.0GA with Debian Squeeze: <http://wiki.debian.org/JBossPackaging#Building_the_packages_from_vcs> Build the package (but be aware that the package is n ot fully debian policy conform and no security patches get applied!)
+Following: [Building oVirt engine](/develop/developer-guide/engine/engine-development-environment.html) (changes to make are documented below) Changes: Installing JBoss AS Get JBoss from jboss.org or build the package. wget <http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download> Building JBoss 5.1.0GA with Debian Squeeze: <http://wiki.debian.org/JBossPackaging#Building_the_packages_from_vcs> Build the package (but be aware that the package is n ot fully debian policy conform and no security patches get applied!)
 
 Creating the database
 
@@ -107,5 +107,5 @@ wont work, because we're using dpkg
 
 A spice-xpi package for debian/ubuntu would be nice, too. See here: <http://www.spice-space.org/> <http://www.spice-space.org/download.html> -> spice-xpi
 
-There is an ubuntu package here: <https://launchpad.net/~gekkio/+archive/spice> libspice-server1 is in Debian/Testing already and is a dependency of libvirt-bin
+
 

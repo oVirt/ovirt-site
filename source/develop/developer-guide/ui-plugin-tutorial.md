@@ -10,11 +10,11 @@ authors: vszocs
 
 ### Introduction
 
-Welcome, space traveler! This tutorial will walk you through the basics of creating your first [UI plugin](/develop/release-management/features/ux/uiplugins/) for oVirt web administration application (WebAdmin).
+Welcome, space traveler! This tutorial will walk you through the basics of creating your first UI plugin for oVirt web administration application (WebAdmin).
 
 The *oVirt Space Shooter* plugin we will create is based on [Alien Invasion](https://github.com/cykod/AlienInvasion), sample HTML5 game developed by [Pascal Rettig](https://github.com/cykod) and released under both GPL and MIT license. For those who are impatient, you can play the game [here](http://cykod.github.io/AlienInvasion/).
 
-No prior [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming experience is required, just make sure you have oVirt Engine [up and running](/develop/developer-guide/engine/installing-engine-from-rpm/) on your system. Oh, and once we're done creating our plugin, be prepared to blast some aliens!
+No prior [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming experience is required, just make sure you have oVirt Engine [up and running](/develop/developer-guide/engine/installing-engine-from-rpm.html) on your system. Oh, and once we're done creating our plugin, be prepared to blast some aliens!
 
 *Note: code presented here aims to demonstrate how to write a simple plugin, it's not meant to be a showcase of best JavaScript coding practices. When writing a real-world plugin, you should follow good JavaScript coding practices such as scoping your application within a single global variable, using closure for proper information hiding, etc.*
 
@@ -503,6 +503,4 @@ And we're done! Take a break from coding and play the game to see new score and 
 ### Mission Accomplished
 
 Congratulations! You've made it past all the levels, you should have a pretty good understanding of UI plugins now.
-
-See [UI plugins feature page](/develop/release-management/features/ux/uiplugins/) for details on plugin infrastructure, plugin API reference and other useful information to aid you in writing your own plugins.
 

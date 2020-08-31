@@ -7,7 +7,7 @@ authors: amureini
 
 ## What Are User Queries?
 
-[User queries](/develop/release-management/features/infra/user-portal-permissions/) are, in a nutshell, queries that can be run a regular user, without requiring admin permissions.
+[User queries](/develop/release-management/features/infra/user-portal-permissions.html) are, in a nutshell, queries that can be run a regular user, without requiring admin permissions.
 
 ## The General Case
 
@@ -95,4 +95,4 @@ GetAllDisksByVmId(VdcQueryAuthType.User),
 
 #### Testing your Query
 
-A test case should be written for each new query. You can use the guidelines in the [Testing Queries](/develop/dev-process/unit-testing-utilities/testing-queries/) article.
+A test case should be written for each new query. You can use the guidelines in the [Testing Queries](/develop/dev-process/unit-testing-utilities/testing-queries.html) article.

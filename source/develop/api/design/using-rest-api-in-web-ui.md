@@ -35,7 +35,7 @@ Conceptually, data displayed (or otherwise acted upon) by client is different th
 
 Simply put, client and server each serve different purposes, so the underlying data representations should reflect their purposes as much as possible. Sharing data representations (entities) between client and server restricts both client and server; in our case, server drives entity design and client makes best effort to adapt to that design. This typically leads to problems such as client having to deserialize "heavy" objects just to display a small subset of their data to the user.
 
-*The primary goal* of utilizing [oVirt REST API](/develop/api/rest-api/rest-api/) in web UI is to decouple client from server while using standard API to communicate with Engine backend. In addition, this should bring following positive side effects:
+*The primary goal* of utilizing [oVirt REST API](/develop/api/rest-api/rest-api.html) in web UI is to decouple client from server while using standard API to communicate with Engine backend. In addition, this should bring following positive side effects:
 
 *   server having full control over backend business entities and related objects, unconstrained and independent from any client
 *   client having the freedom to use whatever data representation is suitable, i.e. representation that overlays raw data returned by REST API
@@ -43,13 +43,13 @@ Simply put, client and server each serve different purposes, so the underlying d
 *   no need for GWT-specific hacks, such as tricking GWT compiler into thinking that all shared code is live
 *   not using Java `BackendLocal` interface directly, i.e. abstract away from query/action concept used internally by Engine backend
 
-*The secondary goal* of this effort is to provide implementation utilizing REST API in a way that allows reuse by any JavaScript-based application, be it oVirt web UI, [UI plugins](/develop/release-management/features/ux/uiplugins/) or any other web application. This means the REST API will be used by more clients; considering the added potential for change requests driven by client-specific requirements, this should result in overall improvement of REST API itself.
+*The secondary goal* of this effort is to provide implementation utilizing REST API in a way that allows reuse by any JavaScript-based application, be it oVirt web UI, UI plugins or any other web application. This means the REST API will be used by more clients; considering the added potential for change requests driven by client-specific requirements, this should result in overall improvement of REST API itself.
 
 *Note:* due to deRPC "experimental" status, any further GWT SDK upgrade has potential to introduce regressions to deRPC implementation, including semantics of custom field serializers and rules for serializable user-defined types. In oVirt UI, we should therefore consider upgrading GWT SDK only after having a well-defined migration path to REST API.
 
 ## Analysis of Java SDK
 
-[oVirt Java SDK](/develop/release-management/features/infra/java-sdk/) has its code auto-generated from REST API definition. There are two Java modules in [ovirt-engine-sdk-java](git://gerrit.ovirt.org/ovirt-engine-sdk-java) repository:
+[oVirt Java SDK](/develop/release-management/features/infra/java-sdk.html) has its code auto-generated from REST API definition. There are two Java modules in [ovirt-engine-sdk-java](git://gerrit.ovirt.org/ovirt-engine-sdk-java) repository:
 
 *   `ovirt-engine-sdk-java-codegen`
     -   fetch local copy of XSD (entities) and RSDL (operations) from running Engine: `mvn validate -Pupdate-metadata`
@@ -86,8 +86,8 @@ Having such JSON file could simplify maintenance of all SDK code generators:
 
 **oVirt JavaScript SDK** would be an umbrella term for two different projects:
 
-*   [REST API JavaScript Binding](#REST_API_JavaScript_Binding) - part of oVirt Engine repository
-*   [oVirt.js](#oVirt.js) - part of oVirt web UI repository (assuming the UI will be decoupled from Engine backend in terms of source repository and related aspects such as build process and z-stream)
+*   [REST API JavaScript Binding](#rest-api-javascript-binding) - part of oVirt Engine repository
+*   [oVirt.js](#ovirtjs) - part of oVirt web UI repository (assuming the UI will be decoupled from Engine backend in terms of source repository and related aspects such as build process and z-stream)
 
 ### REST API JavaScript Binding
 
@@ -113,7 +113,7 @@ The purpose of this project is to provide standard library (high-level SDK) for 
 
     <script type='text/javascript' src='http://path/to/oVirt.js'></script>
 
-The oVirt.js library would be maintained within the oVirt web UI repository (i.e. alongside WebAdmin and UserPortal) and therefore unrelated to Engine build process. oVirt.js file would be generated as part of web UI build, assuming the build environment meets oVirt.js build time dependencies. Since oVirt.js could be used with any Engine version / API version combination and therefore should be Engine-agnostic, it doesn't necessarily have to ship as RPM package, i.e. the oVirt.js file alone is perfectly usable by web applications. Unlike the [JavaScript Binding](#REST_API_JavaScript_Binding), oVirt.js code would be maintained directly.
+The oVirt.js library would be maintained within the oVirt web UI repository (i.e. alongside WebAdmin and UserPortal) and therefore unrelated to Engine build process. oVirt.js file would be generated as part of web UI build, assuming the build environment meets oVirt.js build time dependencies. Since oVirt.js could be used with any Engine version / API version combination and therefore should be Engine-agnostic, it doesn't necessarily have to ship as RPM package, i.e. the oVirt.js file alone is perfectly usable by web applications. Unlike the [JavaScript Binding](#rest-api-javascript-binding), oVirt.js code would be maintained directly.
 
 Core functionality offered by oVirt.js would include:
 

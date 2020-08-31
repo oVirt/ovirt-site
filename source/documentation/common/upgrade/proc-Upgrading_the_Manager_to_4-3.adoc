@@ -27,7 +27,7 @@ ifdef::rhv-doc[]
 endif::[]
 ifdef::ovirt-doc[]
 ----
-# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
+# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
 ----
 endif::[]
 +

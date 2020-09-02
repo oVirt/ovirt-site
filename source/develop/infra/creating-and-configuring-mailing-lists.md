@@ -25,7 +25,7 @@ These settings have been adapted to Mailman 3; they may require some adjustment.
 ### Configuration for -commits list
 
 * in *Settings* > *Message acceptance* set *Maximum message size* to 0
-* the sender address should be added to non-members and allowed to post; because of a bug this is not possible, use the alternative method listed in chapter [Mailman 3 web interface shortcomings](#mailman-3-web-interface-shortcomings)
+* the sender address should be added to non-members and allowed to post; because of a bug this is not possible, use the alternative method listed in chapter [Mailman 3 administratice interface shortcomings](#mailman-3-administrative-interface-shortcomings)
 * in *Message acceptance*, set *Default action to take when a non-member posts to the list* to 'Discard (no notification)'
 * in *Subscription Policy* set to 'Confirm then Moderate'
 
@@ -75,4 +75,4 @@ If you need to close a mailing list, either to direct to a new location or becau
 * in *Subscription Policy* set to 'Confirm then Moderate'
 * in *Message Acceptance* set both 'Default action to take…' settings to 'Reject (with notification)' and insert a text explaining the situation
 
-[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation/) [Category:Infrastructure SOP](/develop/infra/infrastructure-sop/) [Category:Mailing lists](Category:Mailing lists)
+[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation.html) [Category:Infrastructure SOP](/develop/infra/infrastructure-sop.html)

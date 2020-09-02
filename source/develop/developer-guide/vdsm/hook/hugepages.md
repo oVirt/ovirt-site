@@ -11,9 +11,11 @@ This is useful for VMs running large memory loads, so that memory page fragmenta
 
 How this works: The hook will add pages: sysctl vm.nr_hugepages=512 and will add add the following xml in domain\\devices:
 
-`   `<memoryBacking>
-`       `<hugepages/>
-`   `</memoryBacking>
+```xml
+   <memoryBacking>
+       <hugepages/>
+   </memoryBacking>
+```
 
 IMPORTANT: hugepages must be mounted prior to libvirt start up, ie:
 

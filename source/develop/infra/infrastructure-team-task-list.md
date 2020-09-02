@@ -16,7 +16,7 @@ authors: dneary, quaid, rmiddle
 *   Publican for docs.ovirt.org (using OpenShift?)
 *   Puppet server for all of Infra needs
 *   Move Jenkins from EC2 to dedicated host for performance and cost benefits
-*   Fill out [Design of oVirt project infrastructure](Design of oVirt project infrastructure)
+*   Fill out Design of oVirt project infrastructure
 *   Add true night repo's (rmiddle & eedri)
 *   Extend vdsm's on-commit hook, so it runs functional tests too. This requires installing vdsm.rpm as well as vdsm-tests.rpm, starting vdsmd service, running the tests, and cleaning the host.
 *   <s>Add log rotate for Jenkins slave logs.</s> - (rmiddle) Completed 7/24/2012
@@ -39,9 +39,9 @@ authors: dneary, quaid, rmiddle
     -   MySQL
 *   Services upgrades
 *   DNS requests
-*   [Adding a new system administrator to a host](/develop/infra/adding-a-new-system-administrator-to-a-host/)
+*   [Adding a new system administrator to a host](/develop/infra/adding-a-new-system-administrator-to-a-host.html)
 
 ## Standard procedures
 
-Standard procedures for performing any one-time or ongoing tasks are found in [:Category:Infrastructure documentation](:Category:Infrastructure documentation).
+Standard procedures for performing any one-time or ongoing tasks are found in [Infrastructure documentation](/develop/infra/infrastructure-documentation.html).
 

@@ -135,4 +135,4 @@ In the future there may be other services that supersede this need, but for now 
 
 *   <http://qugstart.com/blog/ruby-and-rails/create-a-new-git-remote-repository-from-some-local-files-or-local-git-repository/>
 
-[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation/)
+[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation.html)

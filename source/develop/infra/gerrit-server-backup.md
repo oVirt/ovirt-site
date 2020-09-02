@@ -237,4 +237,4 @@ authors: quaid
 *   <http://www.postgresql.org/docs/8.4/static/backup-dump.html>
 *   <http://www.postgresql.org/docs/8.4/static/libpq-pgpass.html>
 
-[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation/)
+[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation.html)

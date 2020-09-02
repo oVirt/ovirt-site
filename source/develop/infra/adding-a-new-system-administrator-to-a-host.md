@@ -120,4 +120,4 @@ Here are the final commands as run:
     visudo
     ls -hal /home/foo/.ssh
 
-[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation/) [Category:Infrastructure SOP](/develop/infra/infrastructure-sop/)
+[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation.html) [Category:Infrastructure SOP](/develop/infra/infrastructure-sop.html)

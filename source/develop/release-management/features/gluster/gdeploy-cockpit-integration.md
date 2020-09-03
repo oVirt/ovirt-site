@@ -4,19 +4,24 @@ category: feature
 authors: rnachimu
 feature_name: Gdeploy Integration with Cockpit
 feature_modules: cockpit plugin for ovirt
-feature_status: WIP, 4.1 proposed feature
+feature_status: Obsolete
 ---
 
 # Gdeploy integration with Cockpit-oVirt Plugin
 
 ## Summary
-With the introduction of Cockpit-oVirt Plugin in [oVirt Node NG](/develop/projects/node/4.0), it is possible to deploy hosted-engine using cockpit. But in a Hyper-Converged environment with Gluster, we still need to configure Glusterfs storage manually before deploying hosted engine.
+
+**Note**: this feature is now obsolete: gdeploy is not used anymore; gluster-ansible is used instead.
+
+
+With the introduction of Cockpit-oVirt Plugin in oVirt Node NG, it is possible to deploy hosted-engine using cockpit.
+But in a Hyper-Converged environment with Gluster, we still need to configure Glusterfs storage manually before deploying hosted engine.
 Gdeploy is an ansible based tool to deploy GlusterFS Servers. It can be used to deploy Glusterfs over multiple nodes.
 
 This feature describes a mechanism to integrate gdeploy and Cockpit-oVirt Plugin to facilitate the easy deployment of Hyper-Converged Ovirt-Gluster environment.
 
 ### Cockpit-oVirt Plugin
-The [Cockpit-oVirt plugin](/develop/release-management/features/cockpit) is a [Cockpit](http://cockpit-project.org) plugin which provides VM-centric monitoring and management of a host machine while taking advantage of already built-in admin functionality in the Cockpit.
+The [Cockpit-oVirt plugin](/develop/release-management/features/node/cockpit.html) is a [Cockpit](http://cockpit-project.org) plugin which provides VM-centric monitoring and management of a host machine while taking advantage of already built-in admin functionality in the Cockpit.
 This also has a provision to deploy oVirt Hosted-Engine through Cockpit UI.
 
 ### Gdeploy
@@ -134,5 +139,5 @@ wizard.
 ## External links
 * [The Cockpit project](http://cockpit-project.org)
 * [gdeploy](https://github.com/gluster/gdeploy)
-* [HCI deployment using oVirt and Gluster](/blog/2016/08/up-and-running-with-ovirt-4-0-and-gluster-storage)
+* [HCI deployment using oVirt and Gluster](https://blogs.ovirt.org/2016/08/up-and-running-with-ovirt-4-0-and-gluster-storage/)
 

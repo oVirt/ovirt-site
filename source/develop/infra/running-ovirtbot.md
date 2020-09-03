@@ -12,4 +12,4 @@ As a normal user:
     cd /var/www/html/meetings/
     sudo -u supybot supybot -d /var/lib/supybot/ovirtbot.conf
 
-[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation/)
+[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation.html)

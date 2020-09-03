@@ -13,7 +13,7 @@ feature_status: Completed
 
 This feature allows the administrator to create, start, stop and monitor geo-replication for Gluster volumes from oVirt engine. With this the administrator can view the status of geo-replication sessions on Gluster volumes and also would be able to start/stop the geo-replication sessions. GlusterFS geo-replication provides a continuous, asynchronous, distributed and incremental replication service from one site to another over Local Area Networks (LANs), Wide Area Network (WANs), and across the Internet.
 
-To read more about GlusterFS geo-replication, see <http://gluster.org/community/documentation/index.php/Gluster_3.2:_GlusterFS_Geo-replication_Deployment_Overview>.
+To read more about GlusterFS geo-replication, see <https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/>.
 
 ## Owner
 
@@ -145,7 +145,7 @@ With the distributed geo-replication, when a geo-replication session is created 
 
 *   Cascaded viewing is not available. (Sometimes a volume can be used as both source as well as destination)
 
-Refer the URL: [Features/Design/GlusterGeoReplication](/develop/release-management/features/ux/glustergeoreplication/) for detailed design of the feature.
+Refer the URL: [Features/Design/GlusterGeoReplication](/develop/release-management/features/gluster/glustergeoreplication.html) for detailed design of the feature.
 
 ## Dependencies / Related Features and Projects
 
@@ -153,9 +153,7 @@ Refer the URL: [Features/Design/GlusterGeoReplication](/develop/release-manageme
 
 ## Documentation / External references
 
-<http://www.gluster.org/community/documentation/index.php/GlusterFS_Geo_Replication>
-
-<http://gluster.org/community/documentation/index.php/Gluster_3.2:_Starting_GlusterFS_Geo-replication>
+<https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/>
 
 
 

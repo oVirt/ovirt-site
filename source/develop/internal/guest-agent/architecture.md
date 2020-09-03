@@ -20,5 +20,4 @@ VDSM communicates with the guest using a VirtIO channel using plain text command
 
 Each message sent by VDSM has a mandatory field `__name__` which contains the command name.
 
-All additional fields in the message are considered arguments to the command. Please see the [OVirt_Guest_Agent/Command Definitions](OVirt_Guest_Agent/Command Definitions) page for detailed information about supported commands and their arguments.
-<!-- TODO: above link is broken, where should it point to? -->
+All additional fields in the message are considered arguments to the command.

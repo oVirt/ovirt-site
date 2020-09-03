@@ -11,7 +11,8 @@ feature_status: Completed
 
 ## Summary
 
-This feature provides support for provisioning and managing Gluster based storage clusters in oVirt. Inital support was added to oVirt 3.1. glusterfs repo is available at <http://download.gluster.org/pub/gluster/glusterfs/>
+This feature provides support for provisioning and managing Gluster based storage clusters in oVirt.
+Inital support was added to oVirt 3.1. glusterfs repo is available at <http://download.gluster.org/pub/gluster/glusterfs/>
 
 ## Owner
 
@@ -203,7 +204,7 @@ Affected oVirt projects:
 
 ## Documentation / External references
 
-GlusterFS : <http://www.gluster.org/community/documentation/index.php/Main_Page>
+GlusterFS : <https://docs.gluster.org/en/latest/>
 
 
 
@@ -219,4 +220,4 @@ GlusterFS : <http://www.gluster.org/community/documentation/index.php/Main_Page>
 *   Log management
 *   Reporting
 
-[Gluster Support](/develop/release-management/features/) [Gluster Support](/develop/release-management/releases/3.2/feature/)
+[Gluster Support](/develop/release-management/features/) [Gluster Support](/develop/release-management/releases/3.2/feature.html)

@@ -132,7 +132,7 @@ Users will be able to use iSCSI storage as data domain for Hosted Engine.
 
 ### Test Cases
 
-*   [QA:TestCase Hosted Engine iSCSI Multiple LUN Support](/develop/infra/testing/test-cases/-hosted-engine-iscsi-multiple-lun-support.html)
+*   [QA:TestCase Hosted Engine iSCSI Multiple LUN Support](/develop/infra/testing/test-cases/hosted-engine-iscsi-multiple-lun-support.html)
 
 
 

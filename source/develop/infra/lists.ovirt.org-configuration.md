@@ -100,8 +100,7 @@ Don't forget to add sections to '/etc/aliases' for each mailing list, then run '
 
 <http://www.iredmail.org/forum/topic1582-howto-configure-mailman-on-centosrhel-5.html>
 
-<http://linux.indhran.info/2008/12/how-to-setup-mailman-in-redhat.html>
 
 /usr/share/doc/mailman/INSTALL.REDHAT
 
-[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation/)
+[Category:Infrastructure documentation](/develop/infra/infrastructure-documentation.html)

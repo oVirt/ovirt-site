@@ -10,7 +10,7 @@ authors: sahina
 
 ### Summary
 
-For summary of the feature, see [Features/Gluster_Geo_Replication](/develop/release-management/features/gluster/gluster-geo-replication/)
+For summary of the feature, see [Features/Gluster_Geo_Replication](/develop/release-management/features/gluster/gluster-geo-replication.html)
 
 ### Owner
 

@@ -10,7 +10,7 @@ authors: sahina
 
 ### Summary
 
-This feature provide the support for managing the asynchronous tasks on Gluster volumes. See: [Gluster Volume Asynchronous Tasks Management](/develop/release-management/features/gluster/gluster-volume-asynchronous-tasks-management/)
+This feature provide the support for managing the asynchronous tasks on Gluster volumes. See: [Gluster Volume Asynchronous Tasks Management](/develop/release-management/features/gluster/gluster-volume-asynchronous-tasks-management.html)
 
 ### Owner
 

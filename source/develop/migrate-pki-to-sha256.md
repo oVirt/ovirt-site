@@ -24,7 +24,7 @@ created by the internal CA. This is no longer considered secure, see e.g.
 [Edge/IE](https://blogs.windows.com/msedgedev/2016/11/18/countdown-to-sha-1-deprecation/)
 or [shattered.io](https://shattered.io/).
 
-See [Features/PKI](/develop/release-management/features/infra/pki/) for general
+See [Features/PKI](/develop/release-management/features/infra/pki.html) for general
 details about PKI in oVirt.
 
 If you are worried only by a recent browser warning about or rejecting your
@@ -92,7 +92,7 @@ If all normally-existing entities:
 names="engine apache websocket-proxy jboss imageio-proxy"
 ```
 
-If you [replaced the https cert](/documentation/admin-guide/appe-oVirt_and_SSL/#replacing-the-ovirt-engine-ssl-certificate)
+If you [replaced the https cert](/documentation/administration_guide/#Replace)
 with a cert signed by a 3rd party, you should not include "apache" in above - e.g.
 use one of:
 

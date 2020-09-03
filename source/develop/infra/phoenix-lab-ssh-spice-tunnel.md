@@ -71,4 +71,4 @@ That will start the SSH tunnel in the background with a SOCKS proxy listening on
 
 So after all this hacky setup, you'll be able to connect to any vm in the phx engine using the spice link in the UI. Hopefully that will not be needed i the future once we have a better solution (vpn?).
 
-[oVirt Infrastructure](/develop/infra/infrastructure/)
+[oVirt Infrastructure](/develop/infra/infrastructure.html)

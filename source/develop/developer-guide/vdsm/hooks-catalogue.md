@@ -16,8 +16,6 @@ authors: dyasny
 
 [hostusb](/develop/release-management/features/virt/hostusb.html) - Attach a hosts' USB device to the VM
 
-[hugepages](/develop/developer-guide/vdsm/hook/hugepages.html) - Enable hugepages for the VM
-
 [isolatedprivatevlan](/develop/developer-guide/vdsm/hook/isolatedprivatevlan.html) - Connect VM to an isolated private VLAN instead of a shared network
 
 [numa](/develop/developer-guide/vdsm/hook/numa.html) - Pin a VM to a NUMA node(s)

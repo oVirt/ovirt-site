@@ -17,7 +17,7 @@ The feature will enable to track backups done using engine-backup utility and to
 
 ### Owner
 
-*   Name: Eli Mesika (MyUser)
+*   Name: Eli Mesika
 
 <!-- -->
 
@@ -91,7 +91,7 @@ Bug ID:
 
 ### Documentation / External references
 
-See also [Ovirt-engine-backup](/develop/release-management/features/integration/engine-backup/).
+See also [Ovirt-engine-backup](/develop/release-management/features/integration/engine-backup.html).
 
 ### Testing
 
@@ -107,4 +107,4 @@ TBD
 
 
 
-[BackupAwareness](/develop/release-management/features/) [BackupAwareness](/develop/release-management/releases/3.6/proposed-feature/) [BackupAwareness](Category:oVirt 3.6 Feature)
+[BackupAwareness](/develop/release-management/features/)

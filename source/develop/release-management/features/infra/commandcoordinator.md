@@ -38,8 +38,8 @@ This feature lets NON Spm commands like LiveMerge to be persisted into the datab
 
 ### Dependencies / Related Features
 
-[Features/Design/CommandCoordinatorFlowsAndEvents](/develop/release-management/features/engine/command-coordinator-flows-and-events/)
-[LiveMerge](/Features/Design/LiveMerge)
+[Features/Design/CommandCoordinatorFlowsAndEvents](/develop/release-management/features/infra/command-coordinator-flows-and-events.html)
+[LiveMerge](/develop/release-management/features/storage/live-merge.html)
 
 ### Documentation / External references
 
@@ -250,7 +250,7 @@ All the Async tasks need to work with the new code changes. Instead of commands 
 
 ### Test Cases
 
-*   [QA:TestCase CommandCoordinator](/develop/infra/testing/test-cases/commandcoordinator/)
+*   [QA:TestCase CommandCoordinator](/develop/infra/testing/test-cases/commandcoordinator.html)
 
 
 

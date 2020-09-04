@@ -7,7 +7,7 @@ authors: rnahcimu
 
 # Summary
 
-This document describes the design of Disk Management feature for Gluster in Ovirt. refer [Features/GlusterHostDiskManagement](/develop/release-management/features/gluster/glusterhostdiskmanagement/)
+This document describes the design of Disk Management feature for Gluster in Ovirt. refer [Features/GlusterHostDiskManagement](/develop/release-management/features/gluster/glusterhostdiskmanagement.html)
 
 # Design
 

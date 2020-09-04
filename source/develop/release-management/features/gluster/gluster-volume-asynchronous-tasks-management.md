@@ -148,5 +148,5 @@ Few other items, that are modified in the course of Corbett are as follows : The
 
 ## Detailed Design
 
-Please see [Detailed Gluster Volume Asynchronous Tasks Management](/develop/release-management/features/gluster/detailed-gluster-volume-asynchronous-tasks-management/)
+Please see [Detailed Gluster Volume Asynchronous Tasks Management](/develop/release-management/features/gluster/detailed-gluster-volume-asynchronous-tasks-management.html)
 

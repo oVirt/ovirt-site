@@ -12,7 +12,7 @@ The following feature page deals with improvements added to the engine async tas
 
 ## Owner
 
-*   Name: Yair Zaslavsky (MyUser)
+*   Name: Yair Zaslavsky
 
 
 ## Current status
@@ -88,7 +88,7 @@ The things that can be tested are: 1. Test case 1 (Check for regression) Make su
 
 ## Dependencies / Related Features
 
-These fixes are a part of the on going effort around the Async Task Manager changes. See also [1](/develop/release-management/features/infra/asynctaskmanagerchanges/)
+These fixes are a part of the on going effort around the Async Task Manager changes. See also [1](/develop/release-management/features/infra/asynctaskmanagerchanges.html)
 
 ## Documentation / External references
 

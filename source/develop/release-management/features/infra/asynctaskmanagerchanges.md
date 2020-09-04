@@ -16,9 +16,6 @@ The current design is still a **draft**. There are other ideas for design for th
 
 *   Name: Yair Zaslavsky (Yair Zaslavsky)
 
-<!-- -->
-
-*   Email: yzaslavs@redhat.com
 
 ## Current status & Motivation
 

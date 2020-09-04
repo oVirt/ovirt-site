@@ -18,9 +18,6 @@ A clone from snapshot will create disks at destination VM that are a collapsed c
 
 *   Name: Yair Zaslavsky (Yair Zaslavsky)
 
-<!-- -->
-
-*   Email: <yzaslavs@redhat.com>
 
 ### Current status
 

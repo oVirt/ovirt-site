@@ -14,9 +14,6 @@ The following feature page deals with improvements added to the engine async tas
 
 *   Name: Yair Zaslavsky (MyUser)
 
-<!-- -->
-
-*   Email: yzaslavs@redhat.com
 
 ## Current status
 

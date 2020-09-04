@@ -35,12 +35,12 @@ Gluster and compute resources run on the same node as shown below. This setup re
 
 ### What's available now
 
-Since 3.6.7, users can set up a hyperconverged deployment using Gluster and oVirt. The steps to do this are covered in a separate [blog post](http://blogs-ramesh.blogspot.in/2016/01/ovirt-and-gluster-hyperconvergence.html)
+Since 3.6.7, users can set up a hyperconverged deployment using Gluster and oVirt. The steps to do this are covered in a separate [blog post](http://blogs-ramesh.blogspot.com/2016/01/ovirt-and-gluster-hyperconvergence.html)
 
 *  Gluster sharding available from glusterfs 3.7.11. Sharding eliminates the issues seen while healing large files as files are now split into shards. Users need to enable sharding on gluster volumes in hyperconverged enviroments. For further information on sharding, refer [Glusterfs Sharding](http://blog.gluster.org/2015/12/introducing-shard-translator/)
-*  Hosted engine deployment supports using glusterfs for storage domain [Feature Page](../engine/self-hosted-engine-gluster-support)
-*  Separate storage network for glusterfs traffic [Feature Page](/develop/release-management/features/network/select-network-for-gluster/) - [Bugzilla](https://bugzilla.redhat.com/1049994)
-*  Host disks management and device provisioning [Feature Page](/develop/release-management/features/gluster/glusterhostdiskmanagement/)
+*  Hosted engine deployment supports using glusterfs for storage domain [Feature Page](/develop/release-management/features/sla/self-hosted-engine-gluster-support.html)
+*  Separate storage network for glusterfs traffic [Feature Page](/develop/release-management/features/gluster/select-network-for-gluster.html) - [Bugzilla](https://bugzilla.redhat.com/1049994)
+*  Host disks management and device provisioning [Feature Page](/develop/release-management/features/gluster/glusterhostdiskmanagement.html)
 *  Simplified provisioning of the 3 hosts using gdeploy. See [gdeploy](http://gdeploy.readthedocs.io/) and a [Sample hc.conf](https://github.com/gluster/gdeploy/blob/2.0/examples/hc.conf)
 *  Disaster recovery solution using gluster geo-replication (TBD: Feature page). Refer [DR script](https://github.com/sabose/ovirt-georep-backup)
 *  Monitoring gluster storage and cluster using nagios
@@ -58,7 +58,7 @@ Since 4.0, following features are available in oVirt
 
 ### Future plans
 
-*   Improve UX when creating a Gluster Volume to be used as Storage Domain [Feature Page](/develop/release-management/features/storage/glusterfs-storage-domain/#usability-enhancements-in-ovirt-3.6)
+*   Improve UX when creating a Gluster Volume to be used as Storage Domain [Feature Page](/develop/release-management/features/storage/glusterfs-storage-domain.html#usability-enhancements-in-ovirt-36)
 *   Data locality [Buzilla-1](https://bugzilla.redhat.com/1177790) [Bugzilla-2](https://bugzilla.redhat.com/1177791)
     -   Scheduling of disk creation: disks of the same VM on the same replica set
     -   Scheduling of the VM based on disk locality: start VM on the hosts of disks replica set

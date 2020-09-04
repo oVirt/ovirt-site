@@ -109,7 +109,7 @@ Yes, it's possible with *apache mod_ssl* module. Full blog post is available [he
 
 ## Is it possible to use CAS for authentication?
 
-Yes, it's possible with *apache mod_auth_cas* module. Full blog post is available [here](/blog/2016/04/sso/).
+Yes, it's possible with *apache mod_auth_cas* module. Full blog post is available [here](https://blogs.ovirt.org/2016/04/advanced-users-authentication-using-kerberos-cas-sso-and-active-directory/).
 
 ## Is it possible to use SSSD for authentication?
 

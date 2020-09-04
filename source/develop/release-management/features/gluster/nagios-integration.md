@@ -53,7 +53,7 @@ At a high-level, each functional block will have the following software componen
 **\1**
 
 *   UI plugins for alert dashboard and trends. The Trends UI plugin is planned for the first phase.
-*   The monitoring plugin [Features/UIPlugins#oVirt_Monitoring_UI_Plugin](/develop/release-management/features/ux/uiplugins/#ovirt-monitoring-ui-plugin) can also be used to view the Nagios plugin data within oVirt
+*   The [oVirt Monitoring UI Plugin](/develop/release-management/features/ux/uiplugins43.html#ovirt-monitoring-ui-plugin) can also be used to view the Nagios plugin data within oVirt
 
 ## Dependencies / Related Features
 
@@ -215,7 +215,7 @@ This installation has been currently tested on Fedora20 / RHEL6
 
 To install the `gluster-nagios-common` and `gluster-nagios-addons` packages, add the repo at [download.gluster.org repository](http://download.gluster.org/pub/gluster/glusterfs-nagios)
 
-On Fedora 20
+On Fedora
 
     # yum install gluster-nagios-common gluster-nagios-addons
 
@@ -235,7 +235,7 @@ Make sure that the node can receive nrpe requests from nagios server. You can do
 
 To install the `gluster-nagios-common` and `nagios-server-addons` packages, add the repo at [download.gluster.org repository](http://download.gluster.org/pub/gluster/glusterfs-nagios)
 
-On Fedora 20
+On Fedora
 
     # yum install gluster-nagios-common nagios-server-addons
 
@@ -295,7 +295,7 @@ You should now see a Trends tab and a Dashboard tab once logged into oVirt like 
 
 Option 2 : Using the Monitoring-UI plugin
 
-Install the monitoring ui plugin as per [Features/UIPlugins#oVirt_Monitoring_UI_Plugin](/develop/release-management/features/ux/uiplugins/#ovirt-monitoring-ui-plugin)
+Install the [oVirt Monitoring UI Plugin](/develop/release-management/features/ux/uiplugins43.html#ovirt-monitoring-ui-plugin)
 
 The Gluster services will be available in a sub-tab under the cluster as well as each host.
 

@@ -143,13 +143,15 @@ We will use the existing events URL (.../api/events) and the existing Event busi
 
 Example of add event
 
-`  `<event>
-`       `<description>`message`</description>
-`       `<severity>`normal`</severity>
-`       `<origin>`Origin`</origin>
-`       `<custom_event_id>`1`</custom_event_id>
-`       `<event_flood_in_sec>`30`</event_flood_in_sec>
-`   `</event>
+```xml
+  <event>
+       <description>message</description>
+       <severity>normal</severity>
+       <origin>Origin</origin>
+       <custom_event_id>1</custom_event_id>
+       <event_flood_in_sec>30</event_flood_in_sec>
+   </event>
+```
 
 ### User Experience
 
@@ -178,7 +180,7 @@ Add the permission(ActionGroup) to manipulate External Events to other *admin* r
 
 [RFE1](https://bugzilla.redhat.com/show_bug.cgi?id=866123)
 [RFE2](https://bugzilla.redhat.com/show_bug.cgi?id=873223)
- [Features/ExternalEvents](/develop/release-management/features/infra/externalevents/)
+ [Features/ExternalEvents](/develop/release-management/features/infra/externalevents.html)
 
 ### Future directions
 
@@ -187,4 +189,3 @@ Gathering Events/Alerts by the History ETL should be considered in future releas
 Separate between Events and Alerts in DB/BL/API
 Support search on *custom_data*
 
-[Category: Feature](Category: Feature)

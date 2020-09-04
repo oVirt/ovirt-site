@@ -17,7 +17,7 @@ Since ovirt-engine-3.5 a stable extensible interface for AAA (Authentication, Au
 For most people, extension specific documentation should be sufficient, the following extensions are available. These extensions are provided as independent packages, install if required.
 
 *   ovirt-engine-extension-aaa-ldap - an LDAP based authentication and authorization, obsoletes the legacy Kerberos/LDAP implementation, [ovirt-3.5](https://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-ldap.git;a=blob;f=README;hb=ovirt-engine-extension-aaa-ldap-1.0), [ovirt-3.6](https://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-ldap.git;a=blob;f=README;hb=HEAD).
-*   [AAA_JDBC ovirt-engine-extension-aaa-jdbc](AAA_JDBC ovirt-engine-extension-aaa-jdbc) - a JDBC based authentication and authorization, provided as default local provider in 3.6 and up.
+*   [AAA_JDBC ovirt-engine-extension-aaa-jdbc](/develop/release-management/features/infra/aaa-jdbc.html) - a JDBC based authentication and authorization, provided as default local provider in 3.6 and up.
 *   [ovirt-engine-extension-aaa-misc HTTP Autnentication](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-misc.git;a=blob;f=README.http;hb=HEAD) - an SSO helper authentication.
 *   [ovirt-engine-extension-aaa-misc RegExp Mapper](http://gerrit.ovirt.org/gitweb?p=ovirt-engine-extension-aaa-misc.git;a=blob;f=README.mapping;hb=HEAD) - a mapper implementation to transform user and principal names.
 

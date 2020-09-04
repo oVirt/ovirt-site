@@ -11,7 +11,8 @@ feature_status: FINISHED
 
 ## Summary
 
-AAA-JDBC is an extension which allows to store authentication and authorization data in relational database and provides these data using standardized oVirt AAA API similarly to already existing AAA-LDAP extension.
+AAA-JDBC is an extension which allows to store authentication and authorization data in relational database and provides these data using standardized oVirt AAA API
+similarly to already existing AAA-LDAP extension.
 
 ## Owner
 
@@ -57,7 +58,7 @@ Only username is mandatory, other attributes are optional. Following attributes 
 *   lastName
 *   title
 
-**ATTENTION:** Newly created users are unable to login until [ password-reset](#Password_management) command is executed on them.
+**ATTENTION:** Newly created users are unable to login until [ password-reset](#password-management) command is executed on them.
 
 ### Showing details about existing user
 

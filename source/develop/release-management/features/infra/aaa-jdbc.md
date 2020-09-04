@@ -17,7 +17,7 @@ AAA-JDBC is an extension which allows to store authentication and authorization 
 
 *   Martin Peřina <mperina@redhat.com>
 *   Alon Bar Lev
-*   Mooli Tayer <mtayer@redhat.com>
+*   Mooli Tayer
 
 ## Detailed Description
 

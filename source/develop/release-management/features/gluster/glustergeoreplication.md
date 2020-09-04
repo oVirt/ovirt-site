@@ -8,7 +8,7 @@ authors: kmayilsa, sahina, sandrobonazzola, shtripat
 
 ## Summary
 
-This document describes the design for geo replication feature under gluster. For overview of this feature, refer [Features/Gluster_Geo_Replication](/develop/release-management/features/gluster/gluster-geo-replication/)
+This document describes the design for geo replication feature under gluster. For overview of this feature, refer [Features/Gluster_Geo_Replication](/develop/release-management/features/gluster/gluster-geo-replication.html)
 
 ## Design
 

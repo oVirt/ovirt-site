@@ -9,7 +9,7 @@ authors: arthur.berezin, moolit, moti, pbenas
 
 <span class="label label-warning"><big>ATTENTION: This page is no longer up to date as of ovirt-engine-3.5.0 that introduced MIB support at <https://bugzilla.redhat.com/show_bug.cgi?id=1136818></big></span>
 
-See also [Features/configuration-event-subscribers](/develop/developer-guide/events/configuration-event-subscribers/).
+See also [Features/configuration-event-subscribers](/develop/developer-guide/events/configuration-event-subscribers.html).
 
 ### Summary
 
@@ -18,17 +18,12 @@ This feature extends events notifier capabilities and enables it to generate SNM
 ### Owner
 
 *   Name: Mooli Tayer (mtayer)
-
-<!-- -->
-
 *   Name: Arthur Berezin (aberezin)
-*   Email: <art@redhat.com>
 
 ### Current status
 
 *   Target Release: 3.4
 *   Status: Post
-*   Last updated: ,
 
 ### Benefit to oVirt
 

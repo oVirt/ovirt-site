@@ -98,11 +98,13 @@ TBD
 
 ### create proxy
 
+```java
          // #1 - import
          import org.ovirt.engine.sdk.Api;
 
          // #2 - create proxy
-         Api api = new Api("`[`http://localhost:8080/api`](http://localhost:8080/api)`", "user@domain", "password");
+         Api api = new Api("http://localhost:8080/api", "user@domain", "password");
+```
 
 ### list entities
 
@@ -259,9 +261,7 @@ Once you have correctly installed JSSE, secure HTTP communication over SSL shoul
 
 ### Generating the truststore
 
-1 Download oVirt host CA certificate from
-
-`   `[`https://host:port/ca.crt`](https://host:port/ca.crt)
+1 Download oVirt host CA certificate from `https://host:port/ca.crt`
 
 2. Generate keystore
 
@@ -387,9 +387,6 @@ use this signature: Api(String url, String username, String password, boolean no
 
 21. make API.java thread safe (done)
 
-## Change Log
-
-[java-sdk-changelog](/develop/sdk/java-sdk-changelog/)
 
 ## Maintainers
 

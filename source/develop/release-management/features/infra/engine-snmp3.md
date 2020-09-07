@@ -10,7 +10,7 @@ feature_status: In Development
 
 ## oVirt Engine SNMPv3 Traps
 
-See also [Features/configuration-event-subscribers](/develop/developer-guide/events/configuration-event-subscribers/).
+See also [Features/configuration-event-subscribers](/develop/developer-guide/events/configuration-event-subscribers.html).
 
 ### Summary
 

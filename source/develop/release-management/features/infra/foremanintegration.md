@@ -22,7 +22,7 @@ Integrating Foreman with oVirt will help adding hypervisor hosts that are manage
 ### Current Status
 
 *   Supported in oVirt>=3.5 over RHEL>=6.6
-*   Tested with Satellite Version 6.0.4 (Setup details described in [1](/index.php?title=Features/ForemanIntegration&action=submit#Make_Foreman_Appliance))
+*   Tested with Satellite Version 6.0.4 (Setup details described in [Make Foreman Appliance](#make-foreman-appliance))
 
 ### Detailed Description
 
@@ -69,7 +69,7 @@ Screenshot 4 - All the details that the host provider set, are updated automatic
 **API Design** No changes in the API. The external provider's hosts will be shown only in the UI.
 
 *   Engine/Backend/DB
-    -   Adding the provider DB/engine/UI and etc. is covered in another feature, [Features/Detailed Quantum Integration](/develop/release-management/features/network/detailed-osn-integration/).
+    -   Adding the provider DB/engine/UI and etc. is covered in another feature, [Features/Detailed Quantum Integration](/develop/release-management/features/network/detailed-osn-integration.html).
     -   Additional changes:
         -   Adding a host provider interface, with implementation for Foreman
         -   The host provider will currently support listing hosts, filtered listing of hosts (we might add in the future a textbox in the add-host-dialog to support freetext search criteria), and testing connection (useful in the add provider dialog).
@@ -88,7 +88,7 @@ Prerequisites:
 *   Correlate the defined Host group with relevant templates (PXE / kickstart files) associated to the relevant OSs
 *   oVirt needs proper permissions to view relevant bare-metal hosts, host groups, compute resources and execute provision request [TODO define roles automatically]
 *   Set Foreman's compute resource that correlates to the required permissions (Availability to approve and add host by oVirt provision plugin.
-*   Define puppet class for installing oVirt-Engine public key to allow deploy oVirt on provisioned host (locate them under /usr/share/puppet/modules) - example in [2](/index.php?title=Features/ForemanIntegration&action=submit#Make_Foreman_Appliance).
+*   Define puppet class for installing oVirt-Engine public key to allow deploy oVirt on provisioned host (locate them under /usr/share/puppet/modules) - example in [Make Foreman Appliance](#make-foreman-appliance).
 
 Steps To Use:
 
@@ -222,9 +222,9 @@ To allow testing the feature in "allinone" configuration, which means running fo
       At the end you should see:
       Installing   Done   [100%] [.........................................................................................]
        Success!
-` * Foreman is running at `[`https://localhost.localdomain`](https://localhost.localdomain)
+` * Foreman is running at https://localhost.localdomain`
            Initial credentials are admin / NUrbTvc6Vkv6XNxa
-` * Foreman Proxy is running at `[`https://localhost.localdomain:8443`](https://localhost.localdomain:8443)
+` * Foreman Proxy is running at https://localhost.localdomain:8443`
        * Puppetmaster is running at port 8140
        The full log is at /var/log/foreman-installer/foreman-installer.log
 

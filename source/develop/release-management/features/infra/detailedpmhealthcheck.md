@@ -100,7 +100,7 @@ See [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1090808)
 
 ### Documentation / External references
 
-[Features/PMHealthCheck](/develop/release-management/features/infra/pmhealthcheck/)
+[Features/PMHealthCheck](/develop/release-management/features/infra/pmhealthcheck.html)
 
 ### Future Directions
 
@@ -109,5 +109,3 @@ N/A
 ### Open Issues
 
 N/A
-
-[Category: Feature](Category: Feature)

@@ -149,7 +149,7 @@ Servlet:
 
 ## See Also
 
-*   [Features/PKIReduce](/develop/release-management/features/infra/pkireduce/)
+*   [Features/PKIReduce](/develop/release-management/features/infra/pkireduce.html)
 
 Author: --Alon Bar-Lev (Alonbl)  02:24, 1 July 2014 (GMT)
 

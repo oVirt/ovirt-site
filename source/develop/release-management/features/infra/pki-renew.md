@@ -6,7 +6,7 @@ authors: didib
 
 # PKI Renew
 
-For a general overview of PKI in oVirt, see [Features/PKI](/develop/release-management/features/infra/pki/).
+For a general overview of PKI in oVirt, see [Features/PKI](/develop/release-management/features/infra/pki.html).
 
 This page documents optional changes that can be done to PKI during upgrade.
 
@@ -18,7 +18,7 @@ compatibility with rfc2459, and if needed, prompts the user to renew the PKI.
 If the reply is 'No', engine-setup does not renew. On a later run (e.g. next upgrade),
 it checks and prompts again.
 
-See also: [3.5.4 Release Notes](/develop/release-management/releases/3.5.4/#pki)
+See also: [3.5.4 Release Notes](/develop/release-management/releases/3.5.4/index.html#pki)
 
 ## SubjectAltName
 

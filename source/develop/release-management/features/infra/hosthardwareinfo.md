@@ -267,4 +267,4 @@ Type Detail - [None, None, None, None, None, None, 'Synchronous', None, None, No
 Speed - 1333 MHz (0.8ns)
 Size - 4096 MB
 
-[HostHardwareInfo](/develop/release-management/features/) [HostHardwareInfo](/develop/release-management/releases/3.2/feature/)
+[HostHardwareInfo](/develop/release-management/features/) [HostHardwareInfo](/develop/release-management/releases/3.2/feature.html)

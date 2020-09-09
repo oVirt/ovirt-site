@@ -15,12 +15,10 @@ A simple utility to backup and restore a complete ovirt-engine environment.
 
 ## Owner
 
-*   Name: Ofer Schreiber (oschreib)
-*   Email: <oschreib@redhat.com>
+*   Name: Ofer Schreiber
 
 ## Current status
 
-*   Last updated: ,
 
 ### Phase
 
@@ -28,7 +26,7 @@ First version released in ovirt 3.3.
 
 DWH/Reports support added in ovirt 3.4.1.
 
-DB provisioning, speed/size tuning options, [engine notification](/develop/release-management/features/backupawareness/) added in oVirt 3.6.
+DB provisioning, speed/size tuning options, [engine notification](/develop/release-management/features/infra/backupawareness.html) added in oVirt 3.6.
 
 ## Howto
 

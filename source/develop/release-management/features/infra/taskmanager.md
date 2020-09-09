@@ -17,7 +17,7 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 
 ## Current status
 
-[Task Manager Detailed Design](/wiki/Features/TaskManagerDetailed)
+[Task Manager Detailed Design](/develop/release-management/features/infra/taskmanagerdetailed.html)
 
 *   Last updated date: Sun Jan 01 2012
 
@@ -38,4 +38,4 @@ Affected oVirt projects:
 *   API
 
 
-[TaskManager](/develop/release-management/features/) [TaskManager](/develop/release-management/releases/3.1/feature/)
+[TaskManager](/develop/release-management/features/) [TaskManager](/develop/release-management/releases/3.1/feature.html)

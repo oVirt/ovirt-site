@@ -44,7 +44,7 @@ Following parts were not finished and they were postponed to oVirt 4 release:
 Non Responding Treatment in oVirt <= 3.5 is described [ here](/images/wiki/Current-whole-process.png). Following changes are planned for oVirt 3.6:
 
 *   Non Responding Treatment will be executed for any host when host status is changed to **NonResponsive** (in oVirt <= 3.5 SSH Soft Fencing execution is enabled for all hosts and Non Responding Treatment execution is enabled only for hosts with **Virt** capabilities, in oVirt 3.6 only SSH Soft Fencing step will be executed for **Gluster** only hosts).
-*   The delay between host status **Up** is changed to **NonResponsive** is defined on page [Automatic Fencing](/develop/developer-guide/engine/automatic-fencing/#automatic-fencing).
+*   The delay between host status **Up** is changed to **NonResponsive** is defined on page [Automatic Fencing](/develop/developer-guide/engine/automatic-fencing.html#automatic-fencing).
 *   Non Responding Treatment will contain by default 3 steps (they can be enabled/disabled per host):
     1.  **SSH Soft Fencing**
     2.  **Kdump Detection**

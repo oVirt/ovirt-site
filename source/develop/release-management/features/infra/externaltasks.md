@@ -87,7 +87,7 @@ Each of these items would be a subtask of the overall Cloning task. At the begin
 
 ### Dependencies / Related Features
 
-See also [UI-Plugins](/develop/release-management/features/ux/uiplugins/)
+See also [UI-Plugins](/develop/release-management/features/ux/uiplugins43.html)
 
 ### Documentation / External references
 

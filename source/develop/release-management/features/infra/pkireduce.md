@@ -8,11 +8,11 @@ authors: alonbl
 
 ## Current Implementation
 
-[Features/PKI](/develop/release-management/features/infra/pki/)
+[Features/PKI](/develop/release-management/features/infra/pki.html)
 
 ## Problems in Current Implementation
 
-[Features/PKI#Caveats](/develop/release-management/features/infra/pki/#caveats)
+[Features/PKI#Caveats](/develop/release-management/features/infra/pki.html#caveats)
 
 ## Mission
 

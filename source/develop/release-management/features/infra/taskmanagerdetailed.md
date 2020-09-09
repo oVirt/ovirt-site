@@ -8,16 +8,17 @@ authors: lpeer, moti, sandrobonazzola
 
 ### Summary
 
-A Task Manager is a monitor which shows the current actions running in ovirt-engine and tracks their progress. It also capable of presenting completed commands for a period of time. The current design describes tasks monitoring.
-[/wiki/Features/TaskManager Task Manager feature page](/wiki/Features/TaskManager Task Manager feature page)
+A Task Manager is a monitor which shows the current actions running in ovirt-engine and tracks their progress.
+It also capable of presenting completed commands for a period of time. The current design describes tasks monitoring.
+[Task Manager feature page](/develop/release-management/features/infra/taskmanager.html)
 
 ### Owner
 
 *   Name: Moti Asayag (Moti)
     -   Email: <masayag@redhat.com>
-*   GUI Component owner: Gilad Chaplik <gchaplik@redhat.com>
-*   REST Component owner: Michael Pasternak <mpasternak@redhat.com>
-*   QA Owner: Yaniv Kaul <ykaul@redhat.com
+*   GUI Component owner: Gilad Chaplik
+*   REST Component owner: Michael Pasternak
+*   QA Owner: Yaniv Kaul <ykaul@redhat.com>
 
 ### Current status
 
@@ -409,7 +410,7 @@ Describe how the feature will effect new installation or existing one.
 
 ### Dependencies / Related Features and Projects
 
-The Task Manager is depended on the Internal Locking Mechanism feature [Features/DetailedLockMechanism](/develop/release-management/features/infra/detailedlockmechanism/).
+The Task Manager is depended on the Internal Locking Mechanism feature [Features/DetailedLockMechanism](/develop/release-management/features/infra/detailedlockmechanism.html).
 
 ### Documentation / External references
 
@@ -420,4 +421,4 @@ The Task Manager is depended on the Internal Locking Mechanism feature [Features
 2.  Paging - restriction of returned number of records.
 3.  Commands monitoring and permission model, adding Tasks view to users.
 
-[TaskManager](/develop/release-management/features/) [TaskManager](/develop/release-management/releases/3.1/feature/)
+[TaskManager](/develop/release-management/features/) [TaskManager](/develop/release-management/releases/3.1/feature.html)

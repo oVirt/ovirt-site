@@ -191,7 +191,7 @@ nic3 = vm6.nics.get(name='eth01')
 nic4 = vm6.nics.get(name='eth0')
 ```
 
-*   [more examples](/wiki/Testing/PythonApi)
+
 
 ## Development tips
 
@@ -342,9 +342,6 @@ codegen
 
 *   refactoring internal exceptions for better error handling on client side
 
-## Change Log
-
-[python-sdk-changelog](/develop/sdk/python-sdk-changelog/)
 
 ## Maintainers
 

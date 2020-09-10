@@ -159,7 +159,7 @@ property, located in a new section, called **NETWORK**. As stated in the
 Existing ports can later be updated, disabling the **port-security** attribute,
 which would remove the ACLs that drop all IP traffic to the VM.
 
-As defined in the [network port security attribute definition](https://developer.openstack.org/api-ref/network/v2/#port-security), updating the **port-security** attribute on a network object **does not** cascade the value to ports attached to that network - meaning that effect would only apply to ports created *after* that update. Check the [upgrade](#installation/upgrade) section for the consequences of this requirement on ovirt-provider-ovn upgrades.
+As defined in the [network port security attribute definition](https://developer.openstack.org/api-ref/network/v2/#port-security), updating the **port-security** attribute on a network object **does not** cascade the value to ports attached to that network - meaning that effect would only apply to ports created *after* that update. Check the [upgrade](#installationupgrade) section for the consequences of this requirement on ovirt-provider-ovn upgrades.
 
 ## User workflow
 
@@ -177,8 +177,7 @@ used, which creates one security group - for which a security group rule
 allowing all **egress** traffic is automatically created - plus one security
 group rule allowing **ingress** tcp traffic meant for port 22:
 
-{%- raw %}
-~~~~~~
+```yaml
 
 - os_security_group:
     cloud: ovirt
@@ -196,15 +195,13 @@ group rule allowing **ingress** tcp traffic meant for port 22:
     port_range_min: 22
     port_range_max: 22
 
-~~~~~~
-{% endraw -%}
+```
 
 * finally, the user is required to update the ports, indicating which security
 groups apply to it. The following ansible task shows how a single port, referenced
 by name, is updated:
 
-{%- raw %}
-~~~~~~
+```yaml
 
 - os_port:
     cloud: ovirt
@@ -213,12 +210,11 @@ by name, is updated:
     security_groups:
         - "{{ my_app_default_security_group.id }}"
 
-~~~~~~
-{% endraw -%}
+```
 
 ### Installation/Upgrade
 
-The install time required updates are described in the section [below](#engine-setup).
+The install time required updates are described in the section below.
 
 After the upgrade, the newly created network's **port_security_enabled**
 attribute will default to what's set in the configuration file, which, unless
@@ -249,13 +245,14 @@ drop all IP traffic. More information can be found in
 [Activating the feature](#activating-the-feature).
 
 The ansible representation of this group is:
-~~~~~
+
+```yaml
 - os_security_group:
     cloud: ovirt
     state: present
     name: deny-all
     description: security group to drop all IP traffic
-~~~~~
+```
 
 ### Initial rule creation
 
@@ -279,7 +276,7 @@ A bug has been created to track this feature request. Its state can be followed
 
 ## Mapping networking API to OVN model objects
 
-The security group data will be modeled as a [port group](https://github.com/openvswitch/ovs/blob/master/ovn/ovn-nb.xml#L926).
+The security group data will be modeled as a [port group](https://github.com/openvswitch/ovs/blob/branch-2.10/ovn/ovn-nb.xml#L926).
 This ovn-nb table is only available on Open vSwitch 2.10, released upstream
 August 20th 2018.
 
@@ -621,7 +618,7 @@ There are 3 main tests:
 
 [oVirt OVN integration](/develop/release-management/features/network/external-network-provider.html)
 
-[oVirt Provider OVN](/develop/release-management/features/network/ovirt-ovn-provider/)
+[oVirt Provider OVN](/develop/release-management/features/network/ovirt-ovn-provider.html)
 
 [RFE Provide support for adding security groups and rules using ovirt-provider-ovn](https://bugzilla.redhat.com/1539829)
 

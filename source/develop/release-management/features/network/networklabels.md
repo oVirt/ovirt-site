@@ -148,7 +148,7 @@ The network label on host nic level are represented as a sub-collection of the n
 *   **POST** adds a new label and will trigger setupNetworks which will be interpreted to attaching all of the matching labelled networks to the nic.
     -   The setup-networks designed to maintain consistency of the label on the host.
 
-       /api/hosts/{host:id}/nics/{nic:id}/labels/{label:id}
+`/api/hosts/{host:id}/nics/{nic:id}/labels/{label:id}`
 
 Supported actions:
 
@@ -158,49 +158,54 @@ Supported actions:
 
 A representation of **label** element:
 
-` `<label id="label_name" />
+```xml
+ <label id="label_name" />
+```
 
 A representation of **labels** element:
 
-` `<labels>
-`   `<label id="label_name_1" />
-`   `<label id="label_name_2" />
-` `</labels>
-       
+```xml
+ <labels>
+   <label id="label_name_1" />
+   <label id="label_name_2" />
+ </labels>
+```
 
 ###### Phase 2 (when UI will use the RESTAPI)
 
 The user will be able to provide the list of labels per nic via as part of the setupnetworks API:
 
-` `*`/api/hosts/{host:id}/nics/setupnetworks`*
+`/api/hosts/{host:id}/nics/setupnetworks`
 
 **POST** request example:
 
+```xml
 <action>
-`  `<host_nics>
-`    `<host_nic>
-`      `<labels>
-              `<label id="label_name_1" />` 
-              `<label id="label_name_2" />` 
-`      `</labels>
+  <host_nics>
+    <host_nic>
+      <labels>
+              <label id="label_name_1" /> 
+              <label id="label_name_2" /> 
+      </labels>
             ...
-`    `</host_nic>
+    </host_nic>
           ...
-` `</host_nics>
+ </host_nics>
 </action>
+```
 
 ##### Network level
 
 The network level are represent as a sub-collection of network:
 
-       /api/networks/{network:id}/labels
+`/api/networks/{network:id}/labels`
 
 Supported actions:
 
 *   **GET** returns all of the labels for a specific network
 *   **POST** add a label to network (starting with a single label per network)
 
-       /api/networks/{network:id}/labels/{label:id}
+`/api/networks/{network:id}/labels/{label:id}`
 
 Supported actions:
 
@@ -209,13 +214,15 @@ Supported actions:
 
 A representation of **label** element:
 
-` `<network>
+```xml
+ <network>
          ...
-`   `<labels>
-`     `<label>`lbl1`</label>
-`   `</labels>
+   <labels>
+     <label>lbl1</label>
+   </labels>
          ...
-` `<network>
+ <network>
+```
 
 #### Search Engine
 
@@ -229,7 +236,7 @@ For phase 2:
 
 ## Dependencies / Related Features
 
-The feature will use the [Multi-Host Network Configuration](/develop/release-management/features/network/multihostnetworkconfiguration/) feature to achieve its goals.
+The feature will use the [Multi-Host Network Configuration](/develop/release-management/features/network/multihostnetworkconfiguration.html) feature to achieve its goals.
 
 ## Documentation / External references
 
@@ -239,11 +246,11 @@ Testing can be done on a host with 1 nic - it requires to define the management 
 
 Via API:
 
-1.  Set label 'lbl' to network 'red' and 'blue' (both vlan) and attach them to cluster X: POST <label id="lbl"/> to /api/networks/{network:id}/labels for each network.
-2.  Send a POST label request to an unassigned host's nic in that cluster to /api/hosts/{host:id}/nics/{nic:id}/labels: <label id="lbl"/>
+1.  Set label 'lbl' to network 'red' and 'blue' (both vlan) and attach them to cluster X: **POST** `<label id="lbl"/>` to `/api/networks/{network:id}/labels` for each network.
+2.  Send a **POST** label request to an unassigned host's nic in that cluster to `/api/hosts/{host:id}/nics/{nic:id}/labels`: `<label id="lbl"/>`
 3.  Verify label is created
 4.  Verify networks 'red' and 'blue' were attached to the labeled nic.
-5.  Delete 'lbl' from that nic by sending a DELETE to /api/hosts/{host:id}/nics/{nic:id}/labels/lbl
+5.  Delete 'lbl' from that nic by sending a **DELETE** to `/api/hosts/{host:id}/nics/{nic:id}/labels/lbl`
 6.  Verify both 'red' and 'blue' were removed from that host.
 
 Via Webadmin:

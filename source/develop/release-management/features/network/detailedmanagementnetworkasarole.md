@@ -11,7 +11,7 @@ feature_status: WIP
 
 ## Summary
 
-This page describes the implementation details of the ["Management network as a role" feature](/develop/release-management/features/network/management-network-as-a-role/).
+This page describes the implementation details of the ["Management network as a role" feature](/develop/release-management/features/network/management-network-as-a-role.html).
 
 ### Entity Description
 
@@ -35,7 +35,7 @@ This page describes the implementation details of the ["Management network as a 
 
 ### UI
 
-The UI layer will be updated according to the [feature page](/develop/release-management/features/network/management-network-as-a-role/).
+The UI layer will be updated according to the [feature page](/develop/release-management/features/network/management-network-as-a-role.html).
 
 All places that refer to *ConfigurationValues.ManagementNetwork* value will be updated with the new logic:
 

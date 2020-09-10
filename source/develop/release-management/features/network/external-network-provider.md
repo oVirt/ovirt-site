@@ -22,9 +22,6 @@ simplified Neutron-like API.
 ### Owner
 
 *   Feature Owner: Marcin Mirecki: mmirecki (mmirecki)
-
-<!-- -->
-
 *   Email: <mmirecki@redhat.com>
 
 ### Benefit to oVirt
@@ -49,8 +46,8 @@ The result should be an API over which oVirt can communicate with an external
 network management systems, and use the networks defined in them in provisioned VMs.
 
 For information about OpenStack Neutron integration please refer to:
-[OSN Integration](/develop/release-management/features/network/osn-integration/)
-[Detailed OSN Integration](/develop/release-management/features/network/detailed-osn-integration/)
+[OSN Integration](/develop/release-management/features/network/osn-integration.html)
+[Detailed OSN Integration](/develop/release-management/features/network/detailed-osn-integration.html)
 
 ### Differences from OpenStack Neutron Integration
 
@@ -98,7 +95,7 @@ the connecting of VM NICs to external networks.
 
 The data structure of an external network provider:
 
-```
+```json
 {
     provider:{
         name: "<network name>"
@@ -305,6 +302,7 @@ Authentication (optional):
 * authenticate: POST: http://host:35357/v2.0/tokens
 
 Request:
+```json
 {"auth": {"passwordCredentials": {"username": "<user>", "password": "<password>"}}}
 Response: {
 "access":{
@@ -312,6 +310,7 @@ Response: {
         "id": "<token>"
     }
 }}
+```
 
 
 * tets connection: GET: http://host:9696/v2.0/

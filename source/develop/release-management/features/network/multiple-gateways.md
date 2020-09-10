@@ -20,13 +20,12 @@ Previously users solved the issue with source routing manually, this feature sim
 
 *   Name: Assaf Muller (amuller)
 *   Email: <amuller@redhat.com>
-*   IRC: amuller at #ovirt (irc.oftc.net)
 
 ## Current Status
 
 *   oVirt-3.3
 *   Merged, bug fix stage
-*   Last updated: ,
+
 
 ## Why do we need multiple gateways?
 
@@ -115,7 +114,7 @@ Currently, only when setting the management network, a gateway may be specified.
 
 ## Testing
 
-*   Set up networking as described [ above](#Why_do_we_need_multiple_gateways.3F). Most importantly, place your spice client outside of the hosts' own subnet.
+*   Set up networking as described [above](#why-do-we-need-multiple-gateways). Most importantly, place your spice client outside of the hosts' own subnet.
 *   Verify that spice traffic travels through the designated host.
 *   Test the above both with static addresses and with DHCP.
 

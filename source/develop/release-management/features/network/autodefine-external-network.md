@@ -11,7 +11,7 @@ feature_status: In Development
 
 ## Summary
 
-This feature extends [Provider Physical Network](/develop/release-management/features/network/provider-physical-network/) 
+This feature extends [Provider Physical Network](/develop/release-management/features/network/provider-physical-network.html) 
 adding support for auto-defined external network connected to physical ones. 
 With this feature implemented, when a physical VM network is created, Engine 
 automatically creates an external network based on it, and connects the external

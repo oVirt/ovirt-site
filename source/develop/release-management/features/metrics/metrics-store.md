@@ -22,7 +22,7 @@ Real-time monitoring will provide visibility into the user's complete infrastruc
 The oVirt Metrics Store is based on the [OpenShift Logging](https://github.com/openshift/origin-aggregated-logging) stack.
 It consists of multiple components abbreviated as the "EFK" stack: Elasticsearch, Rsyslog, Kibana.
 You can use either the OpenShift Container Platform (OCP) based on RHEL7, or OpenShift Origin (Origin) based on CentOS7.
-[Ansible](https://github.com/openshift/openshift-ansible) is used to install logging using the OpenShift Ansible logging [roles](https://github.com/openshift/openshift-ansible/blob/master/roles/openshift_logging/README.md).
+[Ansible](https://github.com/openshift/openshift-ansible) is used to install logging using the OpenShift Ansible logging [roles](https://github.com/openshift/openshift-ansible/blob/release-3.11/roles/openshift_logging/README.md).
 
 On the oVirt hosts, Collectd is used to send metrics about the host, engine and vms to a local Rsyslog.
 Rsyslog is used to collect Engine, VDSM logs and the Collectd metrics, parse the data and add additional metadata and send the data to the remote metrics store.
@@ -54,12 +54,12 @@ that will detect and notify the user when something goes wrong in the environmen
 
 ## Installation Guide
 
-Follow the installation guide at:  [Metrics Store - Installation Guide](/develop/release-management/features/metrics/metrics-store-installation/)
+Follow the installation guide at:  [Metrics Store - Installation Guide](/develop/release-management/features/metrics/metrics-store-installation.html)
 
 ## Collected Data
 
-Follow the list of collected metrics and logs at:  [Metrics Store - Collected Data](/develop/release-management/features/metrics/metrics-store-collected-metrics/)
+Follow the list of collected metrics and logs at:  [Metrics Store - Collected Data](/develop/release-management/features/metrics/metrics-store-collected-metrics.html)
 
 ## Metrics Schema
 
-Follow the metrics schema, when creating your reports, at: [Metrics Store - Schema](/develop/release-management/features/metrics/metrics-store-schema/)
+Follow the metrics schema, when creating your reports, at: [Metrics Store - Schema](/develop/release-management/features/metrics/metrics-store-schema.html)

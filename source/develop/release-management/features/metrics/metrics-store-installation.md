@@ -33,7 +33,7 @@ For an oVirt environment with 50 hosts:
 - Preallocated 500GB partition - It will be used for persistent storage. Use a partition other than root (/) to avoid filling up the partition, for example, /var.
 - Add the Metrics Store Machine FQDN to your enterprise hostname resolution system, for example, DNS and add a wildcard dns prefix for this address.
 
-- Please make sure to follow the [OpenShift `masters` prerequisites](https://docs.openshift.org/latest/install_config/install/prerequisites.html#hardware)
+- Please make sure to follow the [OpenShift `masters` prerequisites](https://docs.okd.io/3.11/install/prerequisites.html#hardware)
 
 ### Update config.yml file
 
@@ -118,22 +118,22 @@ to the metrics store machine.
 
 ### Metrics Store Installation 
 
-Please follow the metrics store installation instructions: [Metrics Store setup on top of OpenShift](/develop/release-management/features/metrics/setting-up-viaq-logging/)
+Please follow the metrics store installation instructions: [Metrics Store setup on top of OpenShift](/develop/release-management/features/metrics/setting-up-viaq-logging.html)
 
 Once you have finished this step, you should have:
 
-  * Kibana - <https://kibana.{elasticsearch_host}>
-  * OpenShift portal - <https://{elasticsearch_host}:8443>
+  * Kibana - `https://kibana.{elasticsearch_host}`
+  * OpenShift portal - `https://{elasticsearch_host}:8443`
 
 
 ## oVirt Hypervisors and Engine Setup ##
 
-Please follow the instructions: [Deploy Collectd and Rsyslog on Hypervisors and Engine](/develop/release-management/features/metrics/hypervisors-and-engine-setup)
+Please follow the instructions: [Deploy Collectd and Rsyslog on Hypervisors and Engine](/develop/release-management/features/metrics/hypervisors-and-engine-setup.html)
 
 
 ## Example Dashboards
 
-Kibana should be available at <https://kibana.{elasticsearch_host}>
+Kibana should be available at `https://kibana.{elasticsearch_host}`
 
 Dashboard examples include `System Dashboard`, `Hosts Dashboard`, `VMs Dashboard`, `Processes Dashboard`.
 
@@ -165,11 +165,11 @@ You are done! Go to the `Dashboard` tab in the Kibana UI and choose a dashboard.
 
 Currently there are 3 example dashboards:
 
-  * System Dashboard - https://kibana.{elasticsearch_host}/app/kibana#/dashboard/System-Dashboard
+  * System Dashboard - `https://kibana.{elasticsearch_host}/app/kibana#/dashboard/System-Dashboard`
 
-  * Hosts Dashboard - https://kibana.{elasticsearch_host}/app/kibana#/dashboard/Hosts-Dashboard
+  * Hosts Dashboard - `https://kibana.{elasticsearch_host}/app/kibana#/dashboard/Hosts-Dashboard`
   
-  * VMs Dashboard - https://kibana.{elasticsearch_host}/app/kibana#/dashboard/VMs-Dashboard
+  * VMs Dashboard - `https://kibana.{elasticsearch_host}/app/kibana#/dashboard/VMs-Dashboard`
 
 ### Viewing Saved Dashboards
 

@@ -12,7 +12,7 @@ See also all [oVirt Features](/develop/release-management/features/)
 * [Cinder Integration](/develop/release-management/features/storage/cinder-integration.html)
 * [Copy Disks](/develop/release-management/features/storage/copy-disks.html)
 * [Extension Tester Tool](/develop/release-management/features/infra/extension-tester-tool.html)
-* [Fedora 21 Support](/develop/release-management/features/integration/fedora-21-support.html)
+* Fedora 21 Support
 * [Fedora 22 Support](/develop/release-management/features/integration/fedora-22-support.html)
 * [GenericRegistration](/develop/release-management/features/node/genericregistration.html)
 * [Hot Plug Memory](/develop/release-management/features/virt/hot-plug-memory.html)

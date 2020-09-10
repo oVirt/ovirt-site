@@ -19,7 +19,6 @@ Define special parameters per VM virtual device, and pass them down to vdsm hook
 ## Current Status
 
 *   oVirt-3.3
-*   Last updated: ,
 
 ## Detailed Description
 
@@ -137,14 +136,14 @@ As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not
 *   Verify that you may only place the label property on vNics and not disks, and the capped property on disks and not vNics.
 *   Verify that the 'True|False' regex works properly on 'capped'
 *   Examine the vdsm.log to verify that the custom properties were sent during the updateDevice verb
-*   [Create a new VDSM hook](Vdsm_Hooks) that occurs during before updateDevice that prints the value for the 'label' and 'capped' environment variables, and the domxml of the device the hook received
+*   [Create a new VDSM hook](/develop/developer-guide/vdsm/hooks.html) that occurs during before updateDevice that prints the value for the 'label' and 'capped' environment variables, and the domxml of the device the hook received
 *   Verify that when the device received is a nic, 'red' is printed, and when the device received is a disk, 'True' is printed
 *   Finally, use the same hook for all relevant hook points: vmCreate, vmHotplugNic, vmHotunplugNic, vmHotplugDisk, vmHotunplugDisk, vmMigrate
 
 ## Documentation / External references
 
 *   Benoit ML asking for per-vNIC custom properties: <https://lists.ovirt.org/pipermail/users/2012-November/010857.html>
-*   [Features/Quantum_Integration](/develop/release-management/features/network/osn-integration/)
+*   [Features/Quantum_Integration](/develop/release-management/features/network/osn-integration.html)
 *   Almost any interesting hook for [hotplug disk](https://bugzilla.redhat.com/show_bug.cgi?id=908656) is going to require per-disk triggering proprty
 
 ## Comments and Discussion

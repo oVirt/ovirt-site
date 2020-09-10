@@ -16,8 +16,6 @@ Define special parameters per network, and pass them down to Vdsm hooks when the
 ## Owner
 
 *   Name: Lior Vernia (lvernia)
-*   Email: <lvernia@redhat.com>
-*   IRC: lvernia at #ovirt (irc.oftc.net)
 
 ## Detailed Description
 
@@ -47,7 +45,7 @@ Up until now, oVirt used to persist its network configuration in Fedora/EL speci
 
 <!-- -->
 
-    engine-config -s 'UserDefinedNetworkCustomProperties=ethtool_opts=.*' --cver='3.5'
+    `engine-config -s 'UserDefinedNetworkCustomProperties=ethtool_opts=.*' --cver='3.5'`
 
 *   Restart the ovirt-engine service; as with any other change in configuration values, they only take effect the next time the engine is run.
 *   Pick one of the networks attached to the interface whose ethtool options you want to configure. It'll work with ANY network attached to that interface (part of why this modelling is skewed).
@@ -81,9 +79,11 @@ Above you can see that in the networks tab, in the dialog for creating a new log
 
 This feature affects the **setupNetwork** Vdsm verbs. setupNetwork accepts an **options** dictionary of type @SetupNetworkOptions beyond the dictionaries describing networks and bonds to be set up. A new optional key "custom" would be added to SetupNetworkOptions. Its value is a dictionary of custom properties and their string value. E.g. based on one of the usages described below:
 
+```json
     {'storagenet':
         {'bonding': 'bond0'}, 'vlan': '10', 'bootproto': 'dhcp',
                      'custom': {'ethtool_opts': '--offload em2 rx on --offload em1 tx on'}}
+```
 
 Vdsm would pass the network definition and their custom properties to setupNetwork's hook scripts.
 
@@ -133,6 +133,7 @@ When executing Setup Networks, the VdsNetworkInterface custom properties member 
 
 Add a custom_properties field to api.xsd for the NIC type:
 
+```xml
     <host_nic href="/api/hosts/517b98ee-386c-4538-8f9c-b3216663fb20/nics/e8c1764e-28bb-42a6-aa95-76ce73e944e2" id="e8c1764e-28bb-42a6-aa95-76ce73e944e2">
         <name>em1</name>
         <mac address="84:2b:2b:9f:29:b0"/>
@@ -145,6 +146,7 @@ Add a custom_properties field to api.xsd for the NIC type:
            <custom_property name="forward_delay" value="1500"/>
         </custom_properties>
     </host_nic>
+```
 
 If the extension to logical networks is implemented (which seems unlikely at the moment), then that entity will have be to extended as well. There will also be a need to modify the Setup Networks command in rsdl_metadata.yaml, but probably not the obsolete add/update NIC commands. Again, if the feature includes implementation of custom properties on logical networks, then the add/update network commands will need to be modified too. At last, mapping between the REST entities and the engine entities will have to be modified.
 
@@ -160,7 +162,7 @@ As this is a 3.5 feature, its related GUI widgets should not be shown for hosts 
 *   Verify that the properties were inserted into the DB.
 *   Restart the engine, for the configuration changes to take effect.
 *   From the Engine, define a network and set the 'hostonly' property (Make sure the cluster level is 3.5+)
-*   [Create a new VDSM hook](Vdsm_Hooks) that occurs during before (and after) setupNetwork that prints the value for the 'hostonly' environment variabls, and the network definition that the hook received.
+*   [Create a new VDSM hook](/develop/developer-guide/vdsm/hooks.html) that occurs during before (and after) setupNetwork that prints the value for the 'hostonly' environment variabls, and the network definition that the hook received.
 *   Verify that 'True' is printed.
 
 ### Bridge options

@@ -8,15 +8,13 @@ authors: danken, lvernia, mkolesni, moti, mpavlik
 
 ## Summary
 
-We intend to add support for OpenStack Neutron as a network provider. Please see further details in [Features/OSN_Integration](/develop/release-management/features/network/osn-integration/)
+We intend to add support for OpenStack Neutron as a network provider. Please see further details in [Features/OSN_Integration](/develop/release-management/features/network/osn-integration.html)
 
 ## Owner
 
 *   Name: Mike Kolesnik (Mkolesni)
-
-<!-- -->
-
 *   Email: <mkolesni@redhat.com>
+
 
 ## Current status
 
@@ -33,7 +31,7 @@ We intend to add support for OpenStack Neutron as a network provider. Please see
 
 #### Planned changes for 3.4
 
-*   Implement the items detailed at [Features/Detailed_OSN_Integration#Phase_2_-_Enhanced_VM_networking](Features/Detailed_OSN_Integration#Phase_2_-_Enhanced_VM_networking)
+*   Implement the items detailed at [Phase 2- Enhanced VM networking](#phase-2---enhanced-vm-networking)
 
 ## Detailed Description
 
@@ -197,18 +195,15 @@ The integration of network providers into oVirt will be incremental. The followi
 
 All the components need to be installed, and set to run on startup.
 
-Good documentation is available at <https://access.redhat.com/site/documentation/en-US/Red_Hat_OpenStack/2/html/Getting_Started_Guide/chap-Deploying__OpenStack_Networking_Services.html>
 
 ##### Configure Keystone
 
 1.  Install keystone
-    1.  Steps described at: <http://docs.openstack.org/developer/keystone/installing.html#installing-from-packages-fedora>
-    2.  And: <http://fedoraproject.org/wiki/Getting_started_with_OpenStack_on_Fedora_17#Initial_Keystone_setup>
+    1.  Steps described at: <http://fedoraproject.org/wiki/Getting_started_with_OpenStack_on_Fedora_17#Initial_Keystone_setup>
 
 2.  Configure Neutron in keystone
-    1.  Steps described at: <http://docs.openstack.org/grizzly/openstack-network/admin/content/keystone.html>
-        1.  Add Neutron service
-        2.  Add Neutron admin user
+    1.  Add Neutron service
+    2.  Add Neutron admin user
 
 Note: get_id function is:
 
@@ -219,17 +214,16 @@ Note: get_id function is:
 ##### Configure Neutron manager
 
 1.  Install Neutron manger
-    1.  Steps described at: <http://docs.openstack.org/trunk/install-guide/install/yum/content/ch_neutron.html>
-        1.  Install Neutron plugin
-        2.  Run plugin self configuration (This will create the DB)
-        3.  Configure /etc/quantum/quantum.conf:
-            1.  Choose qpid by un-commenting the corresponding values
-            2.  Un-comment notification_driver = quantum.openstack.common.notifier.list_notifier
+    1.  Install Neutron plugin
+    2.  Run plugin self configuration (This will create the DB)
+    3.  Configure /etc/quantum/quantum.conf:
+        1.  Choose qpid by un-commenting the corresponding values
+        2.  Un-comment notification_driver = quantum.openstack.common.notifier.list_notifier
 
-        4.  Configure /etc/quantum/plugin.ini:
-            1.  Fill correct IP in sql_connection
-            2.  Change: tenant_network_type = vlan
-            3.  Edit: network_vlan_ranges = <label>:<tag start>:<tag end>,physnet1:1000:2999
+    4.  Configure /etc/quantum/plugin.ini:
+        1.  Fill correct IP in sql_connection
+        2.  Change: tenant_network_type = vlan
+        3.  Edit: network_vlan_ranges = <label>:<tag start>:<tag end>,physnet1:1000:2999
 
 #### oVirt Engine required configuration
 
@@ -335,13 +329,12 @@ Once the properties are set, the following sequence will install, configure and 
 
 ## Dependencies / Related Features and Projects
 
-Please see the [feature page](/develop/release-management/features/network/osn-integration/).
+Please see the [feature page](/develop/release-management/features/network/osn-integration.html).
 
 ## Documentation / External references
 
 *   <https://wiki.openstack.org/wiki/Neutron/APIv2-specification>
 *   <http://docs.openstack.org/api/openstack-network/2.0/content/>
-*   <http://docs.openstack.org/trunk/openstack-network/admin/content/>
 
 
 

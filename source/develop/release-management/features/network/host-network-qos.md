@@ -11,9 +11,9 @@ feature_status: Implementation
 
 ### Summary
 
-This feature provides means by which to control the traffic of a specific network through a host's physical interface. It is a natural extension of the [VM Network QoS](/documentation/sla/network-qos/) feature, which provided the same functionality for a VM network through a VM's virtual interface.
+This feature provides means by which to control the traffic of a specific network through a host's physical interface. It is a natural extension of the [VM Network QoS](/develop/sla/network-qos.html) feature, which provided the same functionality for a VM network through a VM's virtual interface.
 
-You may also refer to the [detailed feature page](/develop/release-management/features/network/detailed-host-network-qos/).
+You may also refer to the [detailed feature page](/develop/release-management/features/network/detailed-host-network-qos.html).
 
 ### Owner
 
@@ -29,7 +29,7 @@ Generally speaking, network QoS (Quality of Service) in oVirt could be applied o
 *   Host - control the traffic from a specific network passing through a physical NIC.
 *   DC (Data Center) - control the traffic related to a specific logical network throughout the entire DC, including through its infrastructure (e.g. L2 switches).
 
-The VM level was taken care of as part of the [VM Network QoS](/documentation/sla/network-qos/) feature in oVirt 3.3, whereas this feature aims to take care of the host level in a similar manner; it will be possible to cap bandwidth usage of a specific network on a specific network interface of a host, both for average usage and peak usage for a short period of time ("burst"), so that no single network could "clog" an entire physical interface.
+The VM level was taken care of as part of the [VM Network QoS](/develop/sla/network-qos.html) feature in oVirt 3.3, whereas this feature aims to take care of the host level in a similar manner; it will be possible to cap bandwidth usage of a specific network on a specific network interface of a host, both for average usage and peak usage for a short period of time ("burst"), so that no single network could "clog" an entire physical interface.
 
 DC-wide QoS remains to be handled in the future.
 
@@ -39,7 +39,7 @@ This feature would help to prevent situations in which two or more networks are 
 
 ![](/images/wiki/Host_network_qos.png)
 
-One oVirt 3.3 feature that could specifically benefit from host-level QoS is [Migration Network](/develop/release-management/features/network/migration-network/), which enabled to designate a specific network to be used for VM migration, to avoid burdening the management network. For the management network to continue functioning properly, it would likely have to be attached to a different network interface on the host, otherwise migration-related traffic could easily lead to congestion. Being able to configure network QoS on the host level means that these two networks could now reside on the same physical NIC without fear of congestion, as can be seen in the diagram above.
+One oVirt 3.3 feature that could specifically benefit from host-level QoS is [Migration Network](/develop/release-management/features/network/migration-network.html), which enabled to designate a specific network to be used for VM migration, to avoid burdening the management network. For the management network to continue functioning properly, it would likely have to be attached to a different network interface on the host, otherwise migration-related traffic could easily lead to congestion. Being able to configure network QoS on the host level means that these two networks could now reside on the same physical NIC without fear of congestion, as can be seen in the diagram above.
 
 ### Testing
 

@@ -30,32 +30,34 @@ The current host networking api (up to ovirt-engine-3.6) suffers from various li
 
 ## Proposed Solution
 
-Introduce **<network_attachment>** element which describes how the network is configured on the host:
+Introduce **`<network_attachment>`** element which describes how the network is configured on the host:
 
-` `<network_attachment>
-`   `<network/>
-`   `<host_nic/>
-`   `<ip_address_assignments/>
-`   `<properties/>
-`   `<reported_configurations>
-`     `<in_sync>`false`</in_sync>
-`     `<reported_configuration>
-`       `<name>`mtu`</name>
-`       `<value>`9000`</value>
-`       `<in_sync>`false`</in_sync>
-`     `</reported_configuration>
-`     `<reported_configuration>
-`       `<name>`bridged`</name>
-`       `<value>`false`</value>
-`       `<in_sync>`false`</in_sync>
-`     `</reported_configuration>
-`     `<reported_configuration>
-`       `<name>`200`</name>
-`       `<value>`false`</value>
-`       `<in_sync>`false`</in_sync>
-`     `</reported_configuration>
-`   `</reported_configurations>
-` `</network_attachment>
+```xml
+ <network_attachment>
+   <network/>
+   <host_nic/>
+   <ip_address_assignments/>
+   <properties/>
+    <reported_configurations>
+     <in_sync>false</in_sync>
+     <reported_configuration>
+       <name>mtu</name>
+       <value>9000</value>
+       <in_sync>false</in_sync>
+     </reported_configuration>
+     <reported_configuration>
+       <name>bridged</name>
+       <value>false</value>
+       <in_sync>false</in_sync>
+     </reported_configuration>
+     <reported_configuration>
+       <name>200</name>
+       <value>false</value>
+       <in_sync>false</in_sync>
+     </reported_configuration>
+   </reported_configurations>
+ </network_attachment>
+```
 
 *   network - which logical network is connected to the host
 *   host_nic - an optional sub-element which described the underlying interface
@@ -65,51 +67,55 @@ Introduce **<network_attachment>** element which describes how the network is co
 *   properties - network custom properties
 *   reported_configuration - read-only element, returned *only* when the network is out-of-sync with the logical network definition, listing the specific out-of-sync properties.
 
-The **ip_address_assignments** representation is:
+The **`ip_address_assignments`** representation is:
 
-` `<ip_address_assignments>
-`   `<ip_address_assignment>
-           `<assignment_method>`STATIC`</assignment_method>` 
+```xml
+ <ip_address_assignments>
+   <ip_address_assignment>
+           <assignment_method>STATIC</assignment_method> 
              
-`     `<ip address="…" netmask="…" gateway ="…"/>
-`   `</ip_address_assignment>
-`   `<ip_address_assignment>
-           `<assignment_method>`STATIC`</assignment_method>` 
-`     `<ip address="…" netmask="…" gateway ="…"/>
-`     `<ip>
-`   `</ip_address_assignment>
+     <ip address="…" netmask="…" gateway ="…"/>
+   </ip_address_assignment>
+   <ip_address_assignment>
+           <assignment_method>STATIC</assignment_method> 
+     <ip address="…" netmask="…" gateway ="…"/>
+     <ip>
+   </ip_address_assignment>
        
          
-`   `<ip_address_assignment>
-           `<assignment_method>`STATIC`</assignment_method>` 
-`     `<ip address="…" netmask="…" gateway ="…" version="6"/>
-`   `</ip_address_assignment>
-` `<ip_address_assignments>
+   <ip_address_assignment>
+           <assignment_method>STATIC</assignment_method> 
+     <ip address="…" netmask="…" gateway ="…" version="6"/>
+   </ip_address_assignment>
+ <ip_address_assignments>
+```
 
-A new **link_aggregation** element is added to abstract the implementation:
+A new **`link_aggregation`** element is added to abstract the implementation:
 
-`   `<link_aggregation>
-`     `<options>
+```xml
+   <link_aggregation>
+     <options>
              
-`       `<option>
-`         `<name>`module`</name>
-`         `<value>`bonding`</value>
-`       `</option>
-`       `<option>
-`         `<name>`mode`</name>
-`         `<value>`1`</value>
-`         `<type>`Active-Backup`</type>
-`       `</option>
-`       `<option>
-`         `<name>`miimon`</name>
-`         `<value>`100`</value>
-`       `</option>
-`     `</options>
-`     `<slaves>
-`       `<host_nic id="833ebaeb-0988-4bd5-b860-e00bcc3f576a"/>
-`       `<host_nic id="782e8199-984e-407f-b242-3d6c7dc2f7b7"/>
-`     `</slaves>
-`   `</link_aggregation>
+       <option>
+         <name>module</name>
+         <value>bonding</value>
+       </option>
+       <option>
+         <name>mode</name>
+         <value>1</value>
+         <type>Active-Backup</type>
+       </option>
+       <option>
+         <name>miimon</name>
+         <value>100</value>
+       </option>
+     </options>
+     <slaves>
+       <host_nic id="833ebaeb-0988-4bd5-b860-e00bcc3f576a"/>
+       <host_nic id="782e8199-984e-407f-b242-3d6c7dc2f7b7"/>
+     </slaves>
+   </link_aggregation>
+```
 
 The link_aggregation element will be used from within the host_nic element for bonding devices.
 
@@ -117,7 +123,7 @@ The link_aggregation element will be used from within the host_nic element for b
 
 *   A collection of network attachments that are attached to a specific physical interface or a bond:
 
-       /api/hosts/{host:id}/nics/{nic:id}/networkattachments
+       `/api/hosts/{host:id}/nics/{nic:id}/networkattachments`
 
 *   Supported actions:
     1.  **GET** returns a list of networks attached to the nic
@@ -127,21 +133,22 @@ The link_aggregation element will be used from within the host_nic element for b
 
 *   A multi-network configuration action to support complex network settings (i.e. cross nics actions: move network from one nic to another or create network on bond)
 
-       /api/hosts/{host:id}/setupnetworks
+       `/api/hosts/{host:id}/setupnetworks`
 
 *   Supported actions:
     -   **POST** - expects a relative change to be applied on the host, using *PATCH* behaviour.
 *   Request structure:
-
-` `<action>
-`   `<modified_bonds />
-         `<removed_bonds />`    
-`   `<modified_network_attachments />
-`   `<synchronized_network_attachments/>
-`   `<removed_network_attachments />
-`   `<check_connectivity />
-`   `<connectivity_timeout />
-` `</action>
+```xml
+ <action>
+   <modified_bonds />
+         <removed_bonds />    
+   <modified_network_attachments />
+   <synchronized_network_attachments/>
+   <removed_network_attachments />
+   <check_connectivity />
+   <connectivity_timeout />
+ </action>
+```
 
 *   modified_bonds - describes bonds to create or to update, those bonds could be referred by name from the network_attachment element
 *   removed_bonds - id list of bonds to be removed
@@ -154,7 +161,7 @@ The link_aggregation element will be used from within the host_nic element for b
 
 #### Network attachment resource under nic
 
-       /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
+  `/api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}`
 
 *   Supported actions:
     1.  **GET** - returns a specific network attachment; attaches network to the nic, when nic id is provided.
@@ -163,7 +170,7 @@ The link_aggregation element will be used from within the host_nic element for b
 
 #### Network statistics sub-collection (optional)
 
-       /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachments:id}/statistics
+  `/api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachments:id}/statistics`
 
 *   Supported actions:
     1.  **GET** returns a specific statistics for a network attachment(if reported) which is attached to the nic
@@ -178,7 +185,7 @@ Introducing new sub-collections to reflect the host network configuration:
 
 *   A collection of network attachments which represent how the network is provisioned on the host
 
-       /api/hosts/{host:id}/networkattachments
+  `/api/hosts/{host:id}/networkattachments`
 
 *   Supported actions:
     1.  **GET** returns a list of networks attachments configured on the host
@@ -188,7 +195,7 @@ Where the networkattachment element will omit the host_nic element from the requ
 
 #### Host Network attachment resource
 
-       /api/hosts/{host:id}/networkattachments/{networkattachment:id}
+  `/api/hosts/{host:id}/networkattachments/{networkattachment:id}`
 
 *   Supported actions:
     1.  **GET** returns a specific network configured on the host
@@ -197,88 +204,97 @@ Where the networkattachment element will omit the host_nic element from the requ
 
 ## Current Host Networking API (up to ovirt-engine-3.5)
 
-       /api/hosts/{host:id}/nics
+  `/api/hosts/{host:id}/nics`
 
 *   **GET** - list of network interfaces (GetVdsInterfacesByVdsId)
 *   **POST** - creates a bond (AddBond)
 
-       /api/hosts/{host:id}/nics/setupnetworks
+  `/api/hosts/{host:id}/nics/setupnetworks`
 
 *   **POST** - performs setup networks action (SetupNetworks)
 
-       /api/hosts/{host:id}/nics/{nic:id}
+  `/api/hosts/{host:id}/nics/{nic:id}`
 
 *   **GET** - gets a specific network interface (GetVdsInterfacesByVdsId)
 *   **DELETE** - removes a bond (RemoveBond)
 *   **PUT** - updates a network which is attached to the specific network interface, aka mini-setup networks (UpdateNetworkToVdsInterface)
 
-       /api/hosts/{host:id}/nics/{nic:id}/attach
+  `/api/hosts/{host:id}/nics/{nic:id}/attach`
 
 *   **POST** - adds a network to a nic (AttachNetworkToVdsInterface)
 
-       /api/hosts/{host:id}/nics/{nic:id}/detach
+  `/api/hosts/{host:id}/nics/{nic:id}/detach`
 
 *   **POST** - removes a network from a nic (DetachNetworkFromVdsInterface)
 
-       /api/hosts/{host:id}/nics/{nic:id}/statistics
+  `/api/hosts/{host:id}/nics/{nic:id}/statistics`
 
 *   **GET** - list the statistics of the specific network interface
 
-Network labels related actions are listed at [Features/NetworkLabels#REST](/develop/release-management/features/network/networklabels/#rest).
+Network labels related actions are listed at [Features/NetworkLabels#REST](/develop/release-management/features/network/networklabels.html#rest).
 
 ## What should be deprecated?
 
 *   The *network* element in host_nic is replaced by *networkattachments* subcollection:
 
-       /api/hosts/{host:id}/nics/{nic:id}:
-` `<host_nic>
-`   `<network />
-` `</host_nic>
+  `/api/hosts/{host:id}/nics/{nic:id}`
+
+```xml
+ <host_nic>
+   <network />
+ </host_nic>
+```
 
 is replaced by:
 
-         /api/hosts/{host:id}/nics/{nic:id}/networkattachments:
-` `<network_attachments/>
+  `/api/hosts/{host:id}/nics/{nic:id}/networkattachments`
+
+```xml
+<network_attachments/>
+```
 
 The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and will be represented as a *networkattachment* element of the underlying nic.
 
-*   Deprecated: /api/hosts/{host:id}/nics/setupnetworks
+*   Deprecated: `/api/hosts/{host:id}/nics/setupnetworks`
 
-` `<host_nics>
-`   `<host_nic>
-`     `<network id="..."/>
-`   `</host_nic>
-` `</host_nics>
+```xml
+ <host_nics>
+   <host_nic>
+     <network id="..."/>
+   </host_nic>
+ </host_nics>
+```
 
-Is replaced by: /api/hosts/{host:id}/hostsetupnetworks
+*   Is replaced by: `/api/hosts/{host:id}/hostsetupnetworks`
 
-` `<modified_network_attachments>
-            ...
-` `</modified_network_attachments>
-       
+{% highlight xml %}
+     <modified_network_attachments>
+           ...
+     </modified_network_attachments>
+{% endhighlight %}
 
 Request should contain only nics or bonds (no vlans).
 
 *   Deprecated Host nics actions:
 
-       /api/hosts/{host:id}/nics/{nic:id}/attach
-       is replaced by POST request to 
-       /api/hosts/{host:id}/nics/{nic:id}/networkattachments
+    `/api/hosts/{host:id}/nics/{nic:id}/attach`
+    is replaced by **POST** request to 
+    `/api/hosts/{host:id}/nics/{nic:id}/networkattachments`
 
 and:
 
-       /api/hosts/{host:id}/nics/{nic:id}/detach
-       is replaced by DELETE request to:
-       /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
+   `/api/hosts/{host:id}/nics/{nic:id}/detach`
+   is replaced by **DELETE** request to:
+   `/api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}`
 
 *   Updating network interface
 
-       `**`PUT`**` on /api/hosts/{host:id}/nics/{nic:id}/
-       the action semantics is changed to edit bond only
+   **PUT** on `/api/hosts/{host:id}/nics/{nic:id}/`
+   the action semantics is changed to edit bond only
 
 is replaced by
 
-         `**`PUT`**` on /api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}
+   **PUT** on `/api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}`
 
 ## Behaviour Change
 

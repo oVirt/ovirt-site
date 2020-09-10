@@ -16,7 +16,7 @@ The feature introduced here adds the ability to configure these filters by param
 
 ## Owner
 
-*   Name: [Dominik Holler](User:dominikholler)
+*   Name: Dominik Holler
 
 *   Email: <dholler@redhat.com>
 
@@ -192,11 +192,11 @@ The feature depends on [Network Filter for vNIC profiles][2], which is already a
 
 [Networking Filtering in order to prevent mac spoofing (/develop/release-management/features/network/networkfiltering)][1]
 
-[1]: /develop/release-management/features/network/networkfiltering/
+[1]: /develop/release-management/features/network/networkfiltering.html
 
 [Network Filter for vNIC profiles (/feature/networkfilter)][2]
 
-[2]: /feature/networkfilter
+[2]: networkfilter.html
 
 [Usage of variables in filters in libvirt][3]
 

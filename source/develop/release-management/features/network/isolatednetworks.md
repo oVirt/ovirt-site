@@ -27,7 +27,7 @@ Local networks are desired for enabling a secured connectivity among vms, isolat
 
 ### Detailed Description
 
-Based on [Host Networking API design](/develop/release-management/features/network/hostnetworkingapi/), removing the constraint of having a network interface configured for each network attachment will allow the user to create a network attachment which isn't bounded to any network interface.
+Based on [Host Networking API design](/develop/release-management/features/network/hostnetworkingapi.html), removing the constraint of having a network interface configured for each network attachment will allow the user to create a network attachment which isn't bounded to any network interface.
 Isolated networks will be represented on host level to reflect not being tied to any network interface:
 \* When network attachment entity on host level is associated with an interface - it will be referred to as network configured on a nic.
 

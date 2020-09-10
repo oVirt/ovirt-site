@@ -44,7 +44,7 @@ Allow assigning different VLANs to management networks in different clusters und
 *   The new valid value (*MANAGEMENT*) will be added to Network.Usages collection.
     -   NetworkUsage enum will be extended with the new *MANAGEMENT* value.
 *   A request that will make a management network non-required will fail.
-*   The new optional parameter (management network) will be added for creating a new cluster API call (see [point 1 of User work-flows](#User_work-flows))
+*   The new optional parameter (management network) will be added for creating a new cluster API call (see [point 1 of User work-flows](#user-work-flows))
 
 ### User work-flows
 
@@ -72,7 +72,7 @@ Resolving the certifiacate limitation (e.g. by making possible its changing) wil
 
 ## Documentation
 
-The high level feature description could be found [here](/develop/release-management/features/network/detailedmanagementnetworkasarole/).
+The high level feature description could be found [here](/develop/release-management/features/network/detailedmanagementnetworkasarole.html).
 
 ## Open Issues
 
@@ -83,5 +83,5 @@ The high level feature description could be found [here](/develop/release-manage
         -   remove all old cluster hosts from oVirt and add them back under the new created cluster in the destination DC
         -   remove the old cluster from the system
     -   Let the user to choose one of the destination DC networks as the management one for the moved cluster (like it is done in creating a new cluster). The user should be warned that the management traffic to the cluster hosts will remain AS IS until "setup host networks" operation will be successfully completed on each one of the hosts.
-*   How the new "management network" parameter will be represented in "Create new cluster" dialog in UI (see [the second bullet of UI section](UI))?
+*   How the new "management network" parameter will be represented in "Create new cluster" dialog in UI (see [the second bullet of UI section](#ui))?
 

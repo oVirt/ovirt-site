@@ -22,14 +22,15 @@ Logging](https://github.com/openshift/origin-aggregated-logging) stack.
 You can use either the OpenShift Container Platform (OCP) based on RHEL7, or
 OpenShift Origin (Origin) based on CentOS7.  Ansible is used to install logging
 using the [OpenShift Ansible](https://github.com/openshift/openshift-ansible)
-logging [roles](https://github.com/openshift/openshift-ansible/blob/master/roles/openshift_logging/README.md).
+logging [roles](https://github.com/openshift/openshift-ansible/blob/release-3.11/roles/openshift_logging/README.md).
 
 Ansible is used to install oVirt metrics store using OpenShift Ansible.
 The following packages are required:
 
 ### Customizing vars.yaml
 
-In the first playbook you run [Run ovirt-metrics-store-installation playbook](/develop/release-management/features/metrics/metrics-store-installation/#run-ovirt-metrics-store-installation-playbook),
+In the first playbook you run
+[Run ovirt-metrics-store-installation playbook](/develop/release-management/features/metrics/metrics-store-installation.html#run-ovirt-metrics-store-installation-playbook),
 a few files are generated and copied to the metrics store virtual machine.
 
 
@@ -112,6 +113,7 @@ To search Elasticsearch, first get the name of the Elasticsearch pod, then use o
 The example search below will look for all log records in project.logging and will sort them by @timestamp
 (which is the timestamp when the record was created at the source) in descending order (that is, latest first):
 
+```
     # oc project logging
     # espod=`oc get pods -l component=es -o jsonpath='{.items[0].metadata.name}'`
     # oc exec -c elasticsearch $espod -- curl --connect-timeout 1 -s -k \
@@ -174,6 +176,7 @@ The example search below will look for all log records in project.logging and wi
     "timed_out": false,
     "took": 15
     }
+```
 
 Creating the Admin User
 -----------------------

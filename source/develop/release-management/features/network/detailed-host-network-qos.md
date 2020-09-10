@@ -13,15 +13,13 @@ feature_status: Implementation
 
 #### Summary
 
-This feature provides means by which to control the traffic of a specific network through a host's physical interface. It is a natural extension of the [VM Network QoS](/documentation/sla/network-qos/) feature, which provided the same functionality for a VM network through a VM's virtual interface.
+This feature provides means by which to control the traffic of a specific network through a host's physical interface. It is a natural extension of the [VM Network QoS](/develop/sla/network-qos.html) feature, which provided the same functionality for a VM network through a VM's virtual interface.
 
-You may also refer to the [simple feature page](/develop/release-management/features/network/host-network-qos/).
+You may also refer to the [simple feature page](/develop/release-management/features/network/host-network-qos.html).
 
 #### Owner
 
 *   Name: Lior Vernia (previously owned by Giuseppe Vallarelli)
-*   E-mail: lvernia@redhat.com
-*   IRC: lvernia at #ovirt (irc.oftc.net)
 
 #### Detailed Description
 
@@ -31,7 +29,7 @@ Generally speaking, network QoS (Quality of Service) in oVirt could be applied o
 *   Host - control the traffic from a specific network passing through a physical NIC.
 *   Cluster/DC (Data Center) - control the traffic related to a specific logical network throughout the entire cluster/DC, including through its infrastructure (e.g. L2 switches).
 
-The VM level was taken care of as part of the [VM Network QoS](/documentation/sla/network-qos/) feature in oVirt 3.3, whereas this feature aims to take care of the host level in a similar manner; it will be possible to cap bandwidth usage of a specific network on a specific network interface of a host, both for average usage and peak usage for a short period of time ("burst"), so that no single network could "clog" an entire physical interface.
+The VM level was taken care of as part of the [VM Network QoS](/develop/sla/network-qos.html) feature in oVirt 3.3, whereas this feature aims to take care of the host level in a similar manner; it will be possible to cap bandwidth usage of a specific network on a specific network interface of a host, both for average usage and peak usage for a short period of time ("burst"), so that no single network could "clog" an entire physical interface.
 
 Cluster/DC-wide QoS remains to be handled in the future.
 
@@ -105,7 +103,7 @@ It's possible to retrieve the QoS defined for an host's network with the followi
     connection.getVdsCapabilities()['info']['networks']['whatever']
 
 the expected result should be something similar to:
-
+```json
     {'addr': '',
      'bridged': True,
      'cfg': {'DELAY': '0',
@@ -122,6 +120,7 @@ the expected result should be something similar to:
      'ports': ['p1p2'],
      'qos': {'out': {'ls': {'m1': 5000, 'd': 300, 'm2': 1500}}},
      'stp': 'off'}
+```
 
 ###### Implementation
 

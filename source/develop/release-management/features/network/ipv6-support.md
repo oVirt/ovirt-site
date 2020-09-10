@@ -13,7 +13,6 @@ This feature enables using IPv6 protocol by vdsm and ovirt-engine.
 ## Owner
 
 *   Name: Yevgeny Zaspitsky (YevgenyZ)
-*   Email: <yzaspits@redhat.com>
 
 ## Current status
 
@@ -26,9 +25,7 @@ This feature enables using IPv6 protocol by vdsm and ovirt-engine.
         -   Verify that engine could be accessed over IPv6 (GUI and REST-API).
         -   Allow IPv6 address for power management (fencing)
 
-<!-- -->
 
-*   Last updated: ,
 
 ## Detailed Description
 
@@ -232,7 +229,7 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 
 ## Dependencies / Related Features
 
-*   [Features/Node ipv6 support](/develop/projects/node/ipv6-support.html)
+*   Node ipv6 support
 *   We need to define requirements for customers, who want to use IPv6 in Ovirt. RIPE NCC already make a list of requirements for IPv6 support so we can use it <http://www.ripe.net/ripe/docs/ripe-554>
 
 ## Documentation / External references

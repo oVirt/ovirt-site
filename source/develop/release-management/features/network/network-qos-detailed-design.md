@@ -11,17 +11,16 @@ authors: lhornyak, ofri
 Network Quality of Service feature will be added to oVirt from version 3.3 and will support cluster version 3.3 or higher.
 The feature will allow the user to limit the inbound and outbound network traffic in virtual NIC level.
 In order to define more natural coupling of the QoS to a VNIC we define a new concept called **VNIC Profile**. The VNIC profile will be applied in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC.
- see [/Features/Network_QoS Network QoS](/Features/Network_QoS Network QoS) for detailed description of the feature
+ see [/Features/Network_QoS](/develop/sla/network-qos.html) for detailed description of the feature
 
 #### Owner
 
 *   Name: Ofri Masad (omasad)
-*   Email: <omasad at redhat dot com>
+
 
 #### Current status
 
 *   Status: design
-*   Last updated: ,
 *   patchset
 
 ## Design and Implementation
@@ -37,7 +36,7 @@ The two parts will be developed in parallel
 
 #### GUI
 
-see : [QoS Feature overview](/documentation/sla/network-qos/)
+see : [QoS Feature overview](/develop/sla/network-qos.html)
 
 #### Backend
 
@@ -57,12 +56,12 @@ Add network_qos table with 7 columns.
 | Column Name       | Column Type | Null? / Default |
 |-------------------|-------------|-----------------|
 | id                | UUID        |                 |
-| inbound_average  | Integer     | Null            |
-| inbound_peak     | Integer     | Null            |
-| inbound_burst    | Integer     | Null            |
-| outbound_average | Integer     | Null            |
-| outbound_peak    | Integer     | Null            |
-| outbound_burst   | Integer     | Null            |
+| inbound_average   | Integer     | Null            |
+| inbound_peak      | Integer     | Null            |
+| inbound_burst     | Integer     | Null            |
+| outbound_average  | Integer     | Null            |
+| outbound_peak     | Integer     | Null            |
+| outbound_burst    | Integer     | Null            |
 
 #### REST API
 
@@ -79,7 +78,7 @@ libvirt version 1.0.1 or higher is required to enable the QoS feature (vdsm 3.3 
 
 #### GUI (VNIC Profiles)
 
-see : [QoS Feature overview](/documentation/sla/network-qos/)
+see : [QoS Feature overview](/develop/sla/network-qos.html)
 
 #### Backend
 

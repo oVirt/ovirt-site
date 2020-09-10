@@ -19,14 +19,11 @@ Allow to hot plug and unplug a NIC to/from running guest.
 
 *   Name: Igor Lvovsky (MyUser)
 
-<!-- -->
-
-*   Email: ilvovsky@redhat.com
 
 ### Current status
 
-*   [Features/Design/DetailedHotPlugNic](/develop/release-management/features/ux/detailedhotplugnic/)
-*   Last Update: Feb 1 20012
+*   [Features/Design/DetailedHotPlugNic](/develop/release-management/features/ux/detailedhotplugnic.html)
+
 
 ### Detailed Description
 
@@ -38,7 +35,7 @@ The following feature will improve user experience and will add flexibility for 
 
 ### Dependencies / Related Features
 
-This feature is depends from [Features/Design/StableDeviceAddresses](/develop/release-management/features/ux/design/stabledeviceaddresses/) feature that introduce a new device's parameter layout
+This feature is depends from [Features/Design/StableDeviceAddresses](/develop/release-management/features/virt/stabledeviceaddresses.html) feature that introduce a new device's parameter layout
 
 Affected oVirt projects:
 

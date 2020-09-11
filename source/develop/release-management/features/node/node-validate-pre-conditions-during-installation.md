@@ -10,7 +10,7 @@ feature_status: WIP, 4.1 proposed feature
 # Node RPM Persistence After Upgrades
 
 ## Summary
-Currently [oVirt Node NG](/develop/projects/node/4.0) does not complain if it is getting installed in an environment where i.e. the storage layout is wrong (i.e. a thin pool is missing)
+Currently [oVirt Node NG](/develop/release-management/features/node/node.next.html) does not complain if it is getting installed in an environment where i.e. the storage layout is wrong (i.e. a thin pool is missing)
 
 ### Owner
 * Name: Douglas Schilling Landgraf

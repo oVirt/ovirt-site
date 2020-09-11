@@ -46,7 +46,7 @@ Refer [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_usin
 
 ### Setting up the hyperconverged environment
 
-Steps for installing are detailed in this [blog post](/blog/2018/02/up-and-running-with-ovirt-4-2-and-gluster-storage/).
+Steps for installing are detailed in this [blog post](https://blogs.ovirt.org/2018/02/up-and-running-with-ovirt-4-2-and-gluster-storage/).
 
 More details on the deployment wizard are explained below
 
@@ -112,7 +112,7 @@ Brick configuration allows for per-host definition of bricks. This is useful in 
 
 ![Brick setup sub-tab](/images/gluster-hyperconverged/7-Bricks.png)
 
-**Prev:** [Chapter: Introduction](chap-Introduction) <br>
-**Next:** [Chapter: Additional Steps](chap-Additional_Steps)
+**Prev:** [Chapter: Introduction](chap-Introduction.html) <br>
+**Next:** [Chapter: Additional Steps](chap-Additional_Steps.html)
 
 

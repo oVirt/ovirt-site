@@ -40,16 +40,19 @@ When creating a VM, QEMU allocates device addresses to the guest devices, these 
 ### Entity Description
 
 A new BE VmDevice that represents video/controller/any-other-device
-==== VM Device ==== VmDevice will have the following properties
-vmId - VM or template Id
-type - The device type (for example 'sound')
-device - The device (for example 'ich6')
-address - A string reprenting all address details (for example "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'")
-bootOrder - The device boot order
-specparams - Any device specific parameters (for example memory allocation per monitor in video device)
-isManaged - Is the device managed
-isPlugged - Is the device plugable
-isReadOnly - The device access mode
+
+#### VM Device
+`VmDevice` will have the following properties
+
+* `vmId` - VM or template Id
+* `type` - The device type (for example 'sound')
+* `device` - The device (for example 'ich6')
+* `address` - A string reprenting all address details (for example "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'")
+* `bootOrder` - The device boot order
+* `specparams` - Any device specific parameters (for example memory allocation per monitor in video device)
+* `isManaged` - Is the device managed
+* `isPlugged` - Is the device plugable
+* `isReadOnly` - The device access mode
 
 ### CRUD
 
@@ -174,7 +177,7 @@ OvfVmReader and OvfVmWriter should be enhanced to support:
        manage Floppy/CDROM as a device
 
 Those changes should bee coordinated with the OVF team.
-see [Ovf](/wiki/Ovf)
+
 
 ### User Experience
 
@@ -221,8 +224,8 @@ Direct LUN enables adding a block device to the system either by its GUID or UUI
 
 ### Documentation / External references
 
-[Features/Design/StableDeviceAddresses](/develop/release-management/features/ux/design/stabledeviceaddresses/)
+[Features/Design/StableDeviceAddresses](/develop/release-management/features/virt/stabledeviceaddresses.html)
 
 ### Open Issues
 
-[Category: Feature](Category: Feature)
+

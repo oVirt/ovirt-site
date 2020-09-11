@@ -11,7 +11,7 @@ feature_status: Design
 
 ## Summary
 
-This feature adds SR-IOV support to oVirt management system (which is currently available via a vdsm-hook [1](/develop/developer-guide/vdsm/hook/sriov/) only).
+This feature adds SR-IOV support to oVirt management system (which is currently available via a vdsm-hook [1](/develop/developer-guide/vdsm/hook/sriov.html) only).
 
 ## Owner
 
@@ -203,13 +203,13 @@ not supported in 3.6
 
     hostdevChangeNumvfs(String deviceName, int numOfVf)
 
-*   this verb is implemented as part of [hostdev passthrough](/develop/release-management/features/engine/hostdev-passthrough/).
+*   this verb is implemented as part of [hostdev passthrough](/develop/release-management/features/virt/hostdev-passthrough.html).
 *   for sr-iov supported nics this verb updates 'sriov_numvfs' file in sysfs (/sys/class/net/'device name'/device/sriov_numvfs) which contains the number of VFs that are enabled on this PF.
     -   The update is done by first changing the current value to 0 in order to remove all the existing VFs and then changing it to the desired value.
 
 #### hostdevListByCaps
 
-*   [hostdevListByCaps](/develop/release-management/features/engine/hostdev-passthrough/#vdsm.2c-host-side)-
+*   [hostdevListByCaps](/develop/release-management/features/virt/hostdev-passthrough.html#vdsm-and-host-side)-
     -   SR-IOV related data
         -   net_iface_name
         -   PF
@@ -322,8 +322,8 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 
 ## Dependencies / Related Features
 
-*   [hostdev passthrough](/develop/release-management/features/engine/hostdev-passthrough/)
-*   [UCS integration](/develop/release-management/features/network/ucs-integration/)
+*   [hostdev passthrough](/develop/release-management/features/virt/hostdev-passthrough.html)
+*   [UCS integration](/develop/release-management/features/network/ucs-integration.html)
 *   [PCI: SRIOV control and status via sysfs](http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=1789382a72a537447d65ea4131d8bcc1ad85ce7b)
 *   [official network adapters support in RHEL](https://access.redhat.com/articles/1390483)
 *   List of guest operating systems that have available VF drivers for [intel nics](http://www.intel.com/support/network/adapter/pro100/sb/CS-031492.htm)

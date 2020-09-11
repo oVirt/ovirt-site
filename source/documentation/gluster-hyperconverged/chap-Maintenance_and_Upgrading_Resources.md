@@ -6,13 +6,13 @@ title: Maintenance and Upgrading Resources
 
 ## Maintaining the Self-Hosted Engine
 
-Refer [Maintaing the Self-hosted Engine](self-hosted/chap-Maintenance_and_Upgrading_Resources)
+Refer [Maintaing the Self-hosted Engine](chap-Maintenance_and_Upgrading_Resources.html)
 
 ## Maintaining Gluster storage
 
 * Hosts can be moved to maintenance in the oVirt Engine UI to perform maintenance tasks. Ensure that gluster services are stopped while moving host to maintenance by enabling this option in UI
 
-* If upgrading gluster version on the hosts, rolling upgrades are supported. Refer to [gluster documentation](https://gluster.readthedocs.io/en/latest/Upgrade-Guide/README/) for rolling upgrades for version specific information
+* If upgrading gluster version on the hosts, rolling upgrades are supported. Refer to [gluster documentation](https://docs.gluster.org/en/latest/Upgrade-Guide) for rolling upgrades for version specific information
     * Move host to maintenance with glusterd service stopped
     * Upgrade the gluster packages
     * Activate the host
@@ -35,5 +35,5 @@ NOTE: If geo-replication is setup on the gluster volumes, the geo-replication ne
 * To use storage from the newly added hosts, you need to ensure that storage is added either in increments of 1 bricks (for non-HA usecase) or 3 bricks (either replica 3 or replica 2 + arbiter)
 * The bricks can be provisioned from the oVirt Engine UI using the `Storage Devices` sub-tab under `Hosts` or using the `Create Volume` from the Cockpit Gluster dashboard.
 
-**Prev:** [Chapter: Troubleshooting](chap-Troubleshooting) <br>
-**Next:** [Chapter: Single Node Hyperconverged](chap-Single_node_hyperconverged)
+**Prev:** [Chapter: Troubleshooting](chap-Troubleshooting.html) <br>
+**Next:** [Chapter: Single Node Hyperconverged](chap-Single_node_hyperconverged.html)

@@ -36,7 +36,7 @@ The package currently supports Fedora, RHEL, Debian, and Ubuntu (and compatible 
 
 After package installation, cloud-init will start during the boot process and looks for various "data sources" that supply it with instructions on what to configure. These sources can be local configuration data stored on the VM itself, an attached block device (config disk) identified by a specific volume labels and directory structure, or a metadata server accessible via the network at a predefined IP address. We'll be using a config disk, which will allow the engine to create and attach data to the VMs dynamically based on user preferences, as well as allowing a user to attach their own already-prepared config disks.
 
-Note that there are multiple config disk types supported by cloud-init, each with their own varying structures and capabilities. We are most interested in using [config-drive version 2](http://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/view/head:/doc/sources/configdrive/README.rst) [2], which is also in supported by OpenStack.
+Note that there are multiple config disk types supported by cloud-init, each with their own varying structures and capabilities. We are most interested in using config-drive version 2 [2], which is also in supported by OpenStack.
 
 Once cloud-init discovers a data source, it scans it for meta-data and user-data. Generally, meta-data contains information about the cloud that is passed to the guest (instance identification, network setup, etc [3]), whereas user-data contains instructions on provisioning the specific system in question (usernames/passwords to configure, timezone, custom scripts to run, packages to install, files to inject, etc [4]). If cloud-init has not previously seen the supplied instance identifier (i.e. this is a new configuration), it will proceed to set up the system accordingly. The end result is a system with all basic provisioning complete before the first login.
 
@@ -261,8 +261,8 @@ Integrating with cloud-init will make provisioning Linux VMs easier for admins, 
 
 Related features:
 
-*   [Features/VMPayload](/develop/release-management/features/virt/vmpayload/)
-*   [Features/Intial Run Vm tab](/develop/release-management/features/virt/intial-run-vm-tab/)
+*   [Features/VMPayload](/develop/release-management/features/virt/vmpayload.html)
+*   [Features/Intial Run Vm tab](/develop/release-management/features/virt/intial-run-vm-tab.html)
 
 ## Documentation / External References
 
@@ -323,8 +323,8 @@ Connect to the VM and observe the CD indeed attached and other changes filled be
 
 [5] Cloud-init documentation: <https://launchpad.net/cloud-init/>
 
-[6] Config-Drive version 2 readme: <http://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/view/head:/doc/sources/configdrive/README.rst>
+[6] 
 
-[7] OpenStack meta-data example: <http://docs.openstack.org/grizzly/openstack-compute/admin/content/config-drive.html>
+[7] 
 
-[8] User-data example: <http://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/view/head:/doc/examples/cloud-config.txt>
+[8] User-data example: <https://github.com/canonical/cloud-init/blob/master/doc/examples/cloud-config.txt>

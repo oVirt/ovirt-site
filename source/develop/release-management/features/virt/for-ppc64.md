@@ -177,7 +177,7 @@ At the minimum following user interfaces will be affected
 
 *   Configure the bridge Interface:
 
-[Installing VDSM from rpm#Configuring the bridge Interface](/develop/developer-guide/vdsm/installing-vdsm-from-rpm/#configuring-the-bridge-interface)
+[Installing VDSM from rpm#Configuring the bridge Interface](/develop/developer-guide/vdsm/installing-vdsm-from-rpm.html#configuring-the-bridge-interface)
 
 *   Configure and start VDSM
 
@@ -237,7 +237,7 @@ Affected oVirt projects:
 
 ## Documentation / External references
 
-KVM on IBM POWER : <http://www.linux-kvm.org/wiki/images/5/5d/2011-forum-KVM_on_the_IBM_POWER7_Processor.pdf>
+KVM on IBM POWER : <http://www.linux-kvm.org/images/5/5d/2011-forum-KVM_on_the_IBM_POWER7_Processor.pdf>
 
 
 ## Future Work
@@ -255,4 +255,4 @@ Known limitations:
 *   [Support only in the Fedora 20 and onwards](http://bugzilla.redhat.com/show_bug.cgi?id=1057724)
 *   [VDSM for ppc64 needs qemu 1.6](http://bugzilla.redhat.com/show_bug.cgi?id=1063799)
 
-[Vdsm_for_PPC64](/develop/release-management/features/) [Vdsm_for_PPC64](/develop/release-management/releases/3.4/feature/)
+

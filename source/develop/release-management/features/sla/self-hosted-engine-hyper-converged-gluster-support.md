@@ -20,7 +20,7 @@ This feature enable the user to use Hyper Converged Gluster storage for Hosted E
 
 ## Detailed Description
 
-Refer [Features/Self Hosted Engine Gluster Support](/develop/release-management/features/engine/self-hosted-engine-gluster-support/) for pre-requisites and changes
+Refer [Features/Self Hosted Engine Gluster Support](/develop/release-management/features/sla/self-hosted-engine-gluster-support.html) for pre-requisites and changes
 
 ## Benefit to oVirt
 
@@ -33,15 +33,15 @@ Users will be able to use Gluster Hyper Converged storage as data domain for Hos
 
 ## Dependencies / Related Features
 
-*   [Features/Gluster_Support](/develop/release-management/features/gluster/gluster-support/)
-*   [Features/GlusterFS Storage Domain](/develop/release-management/features/storage/glusterfs-storage-domain/)
-*   [Features/Self Hosted Engine Gluster Support](/develop/release-management/features/engine/self-hosted-engine-gluster-support/)
+*   [Features/Gluster_Support](/develop/release-management/features/gluster/gluster-support.html)
+*   [Features/GlusterFS Storage Domain](/develop/release-management/features/storage/glusterfs-storage-domain.html)
+*   [Features/Self Hosted Engine Gluster Support](/develop/release-management/features/sla/self-hosted-engine-gluster-support.html)
 *   A tracker bug has been created for tracking issues:
 
 ## Documentation / External references
 
 *   [Gluster Home Page](http://www.gluster.org/)
-*   [Gluster Storage Domain Reference](/documentation/admin-guide/gluster-storage-domain-reference/)
+*   [Gluster Storage Domain Reference](/documentation/administration_guide/index.html#Adding_Red_Hat_Gluster_Storage)
 
 ## Testing
 
@@ -49,9 +49,9 @@ Test plan still to be created
 
 ## Release Notes
 
-      ==Self Hosted Engine Gluster Support==
-`Hosted Engine has now added support for `[`Hyper` `Converged` `Gluster` `storage`](Features/Self_Hosted_Engine_Hyper_Converged_Gluster_Support)
+```
+# Self Hosted Engine Gluster Support
+
+Hosted Engine has now added support for [Hyper Converged Gluster storage](/develop/release-management/features/sla/self-hosted-engine-hyper-converged-gluster-support.html)
 
 
-
-[Self Hosted Engine Hyper Converged Gluster Support](/develop/release-management/features/) [Self Hosted Engine Hyper Converged Gluster Support](Category:oVirt 4.0 Proposed Feature) [Self Hosted Engine Hyper Converged Gluster Support](Category:Integration)

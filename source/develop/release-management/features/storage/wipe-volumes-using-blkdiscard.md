@@ -25,7 +25,6 @@ This feature is useful for security-conscious users who use *Wipe After Delete* 
 
 ## Owner
 * Idan Shaby
-* Email: <ishaby@redhat.com>
 
 
 ## Current status
@@ -75,8 +74,8 @@ A better way to wipe a volume would be:
 
 
 ## Related Features
-* [Pass discard from guest to underlying storage](/develop/release-management/features/storage/pass-discard-from-guest-to-underlying-storage/)
-* [Discard after delete](/develop/release-management/features/storage/discard-after-delete/)
+* [Pass discard from guest to underlying storage](/develop/release-management/features/storage/pass-discard-from-guest-to-underlying-storage.html)
+* [Discard after delete](/develop/release-management/features/storage/discard-after-delete.html)
 
 
 ## References

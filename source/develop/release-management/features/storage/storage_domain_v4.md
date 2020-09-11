@@ -17,8 +17,8 @@ The new 4.1 DC level delivers several features that do, in fact, require
 such an upgrade, which inspired the introduction of a new storage domain
 format, V4. This new format includes:
 
-* Support of newer [QCOW2 compat levels](../qcow2v3)
-* A new `xleases` volume to support [VM leases](../vm-leases)
+* Support of newer [QCOW2 compat levels](/develop/release-management/features/storage/qcow2v3.html)
+* A new `xleases` volume to support [VM leases](/develop/release-management/features/storage/vm-leases.html)
 
 
 ## Current status
@@ -27,6 +27,5 @@ format, V4. This new format includes:
 
 ## Upgrade
 
-The upgrade will be handled as a [storage domain live
-upgrade](../storagedomainliveupgrade), just like previous domain upgrades
+The upgrade will be handled as a [storage domain live upgrade](/develop/release-management/features/storage/storagedomainliveupgrade.html), just like previous domain upgrades
 were handled.

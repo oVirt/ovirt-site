@@ -123,7 +123,7 @@ Filters out host according to affinity enforce mode (hard).
 
 A new type was added to the engine's API model - **AffinityRule** . It has two attributes: one for virtual machines and another for hosts.
 
-```
+```xml
 <vms_rule>
   <positive>true|false</positive>
   <enforcing>true|false</enforcing>
@@ -195,5 +195,5 @@ DELETE /api/clusters/00000002-0002-0002-0002-00000000017a/affinitygroups/e723767
 
 
 
-[Affinity Rules Enforcement Manager](/develop/release-management/features/sla/affinity-rules-enforcement-manager/)
-[VM to host Affinity](/develop/release-management/features/sla/soft-host-to-vm-affinity-support/)
+[Affinity Rules Enforcement Manager](/develop/release-management/features/sla/affinity-rules-enforcement-manager.html)
+[VM to host Affinity](/develop/release-management/features/sla/soft-host-to-vm-affinity-support.html)

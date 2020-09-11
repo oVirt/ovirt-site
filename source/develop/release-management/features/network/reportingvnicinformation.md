@@ -25,63 +25,77 @@ Today only the IPv4 addresses are reported to the User, kept on VM level. This f
 
 ### Current status
 
-[http://wiki.ovirt.org/wiki/Feature/DetailedReportingVnicInformation Reporting vNIC implementation reported by Guest Agent Detailed Design](http://wiki.ovirt.org/wiki/Feature/DetailedReportingVnicInformation Reporting vNIC implementation reported by Guest Agent Detailed Design)
+[Reporting vNIC implementation reported by Guest Agent Detailed Design](/develop/release-management/features/network/detailedreportingvnicinformation.html)
 
 ### User Experience
 
 #### API Changes
 
-New attributes will be added to VM nics collection /api/vms/{vm:id}/nics:
+New attributes will be added to VM nics collection `/api/vms/{vm:id}/nics`:
 
-`   `<nics>
-`       `<nic id="56d6d62f-6af0-4c02-8500-4be041180031">
-`           `<name>`nic1`</name>
+```xml
+   <nics>
+       <nic id="56d6d62f-6af0-4c02-8500-4be041180031">
+           <name>nic1</name>
                  ...
-`           `<reported_data>
-`               `<rel="devices" href=/api/vms/{vm:id}/nics/{nic:id}/reporteddevices>
-`           `<reported_data/>
-`      `<nic/>
+           <reported_data>
+               <rel="devices" href=/api/vms/{vm:id}/nics/{nic:id}/reporteddevices>
+           <reported_data/>
+      <nic/>
              ...
-`   `</nics>
+   </nics>
+```
 
+```
 device:id = UUID.fromString(name)
+```
 
-` `<network_device id={device:id} href=/api/vms/{vm:id}/reporteddevices/{device:id}>
-`       `<name>`p1p2`</name>
-`       `<description>`guest reported data`</description>
-`       `<ips>
-`           `<ip version="v4" address="10.35.1.177"/>
-`           `<ip version="v6" address="fe80::21a:4aff:fe16:151"/>
-`       `</ips>
-             `<mac address></mac>`        
-` `</network_device>
+```xml
+ <network_device id={device:id} href=/api/vms/{vm:id}/reporteddevices/{device:id}>
+       <name>p1p2</name>
+       <description>guest reported data</description>
+       <ips>
+           <ip version="v4" address="10.35.1.177"/>
+           <ip version="v6" address="fe80::21a:4aff:fe16:151"/>
+       </ips>
+             <mac address></mac>        
+ </network_device>
+```
 
 ##### Backward compatibility
 
 Note that the existing IPs reported on /api/vms/{vm:id} are left intact, however the IPs addresses are retrieved from the VM's nics.
 
-`  `<guest_info>
-`      `<ips>
-`          `<ip address="1.1.1.1"/>
-`          `<ip address="2.2.2.2"/>
-`      `</ips>
-`  `</guest_info>
+```xml
+  <guest_info>
+      <ips>
+          <ip address="1.1.1.1"/>
+          <ip address="2.2.2.2"/>
+      </ips>
+  </guest_info>
+```
 
 A new link will be added under the VM:
 
-` `<link rel="devices" href="/api/vms/6c56bd4b-ef18-4e50-b182-277ed78e819d/reporteddevices"/>
+```xml
+ <link rel="devices" href="/api/vms/6c56bd4b-ef18-4e50-b182-277ed78e819d/reporteddevices"/>
+```
 
+```
 device:id = UUID.fromString(name+mac)
+```
 
-` `<network_device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
-`       `<name>`p1p2`</name>
-`       `<description>`guest reported data`</description>
-`       `<ips>
-`           `<ip version="v4" address="10.35.1.177"/>
-`           `<ip version="v6" address="fe80::21a:4aff:fe16:151"/>
-`       `</ips>
-             `<mac address></mac>`        
-` `</network_device>
+```xml
+ <network_device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
+       <name>p1p2</name>
+       <description>guest reported data</description>
+       <ips>
+           <ip version="v4" address="10.35.1.177"/>
+           <ip version="v6" address="fe80::21a:4aff:fe16:151"/>
+       </ips>
+             <mac address></mac>        
+ </network_device>
+```
 
 Populating the VM's **network_devices** element under **guest_info** is implemented by mechanism introduced by ["All-Content Header" patch](http://gerrit.ovirt.org/#/c/9815)
 Only if the request header contains the 'All-Content=true', the network's devices information will be populate the for the VM.
@@ -129,4 +143,3 @@ Affected oVirt projects:
 
 *   ipv6_addresses --> inet6
 
-[Category: Feature](Category: Feature)

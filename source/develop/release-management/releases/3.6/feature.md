@@ -8,7 +8,7 @@ authors: jmarks
 See also all [oVirt Features](/develop/release-management/features/)
 
 * [Backup Awareness](/develop/release-management/features/infra/backupawareness.html)
-* [Cinder and Glance integration via Docker](/develop/release-management/features/integration/cinderglance-docker-integration.html)
+* Cinder and Glance integration via Docker
 * [Cinder Integration](/develop/release-management/features/storage/cinder-integration.html)
 * [Copy Disks](/develop/release-management/features/storage/copy-disks.html)
 * [Extension Tester Tool](/develop/release-management/features/infra/extension-tester-tool.html)

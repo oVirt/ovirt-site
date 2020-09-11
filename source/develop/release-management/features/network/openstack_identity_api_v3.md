@@ -164,7 +164,7 @@ domain name, the project name and the domain name of the project.
 To avoid inconsistency between the authentication URL and the API version, the
 authentication URL is built from the protocol, host name, API port and version.
 
-![add a new provider](../../../../images/features/network/openstack_idendity_api-add-dialog-provider.png)
+![add a new provider](/images/features/network/openstack_idendity_api-add-dialog-provider.png)
 
 Please note, that the OpenStack user requires permissions to create ports on the
 network.
@@ -235,19 +235,19 @@ is ignored.
 
 [OpenStack Identity API Specification](https://developer.openstack.org/api-ref/identity/)
 
-[oVirt OpenStack Neutron Integration](/develop/release-management/features/network/osn-integration/)
+[oVirt OpenStack Neutron Integration](/develop/release-management/features/network/osn-integration.html)
 
-[oVirt OVN Integration](/develop/release-management/features/network/external-network-provider/)
+[oVirt OVN Integration](/develop/release-management/features/network/external-network-provider.html)
 
-[oVirt Glance Integration](/develop/release-management/features/storage/glance-integration/)
+[oVirt Glance Integration](/develop/release-management/features/storage/glance-integration.html)
 
-[oVirt Cinder Integration](/develop/release-management/features/storage/cinder-integration/)
+[oVirt Cinder Integration](/develop/release-management/features/storage/cinder-integration.html)
 
-[oVirt Provider OVN](/develop/release-management/features/network/ovirt-ovn-provider/)
+[oVirt Provider OVN](/develop/release-management/features/network/ovirt-ovn-provider.html)
 
-[Authentication and Authorization at the oVirt Provider OVN](/develop/release-management/features/network/ovirt-ovn-provider/#authentication-and-authorization-at-the-provider)
+[Authentication and Authorization at the oVirt Provider OVN](/develop/release-management/features/network/ovirt-ovn-provider.html#authentication-and-authorization-at-the-provider)
 
-[OpenStack Identity API v2.0](https://web.archive.org/web/20180103081650/https://developer.openstack.org/api-ref/identity/v2/)
+[OpenStack Identity API v2.0](https://web.archive.org/web/20170127173135/http://developer.openstack.org/api-ref/identity/v2/)
 
 [OpenStack Java SDK](https://github.com/woorea/openstack-java-sdk)
 

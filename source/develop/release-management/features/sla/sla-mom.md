@@ -15,11 +15,11 @@ Introducing MoM, maintained by Adam Litke <alitke@redhat.com>, as a part of oVir
 ### Owner
 
 *   Name: Adam Litke (Aglitke)
-*   Name: Doron Fediuck (Doron)
+*   Email: <alitke@redhat.com>
 
 <!-- -->
 
-*   Email: <alitke@redhat.com>
+*   Name: Doron Fediuck (Doron)
 *   Email: <dfediuck@redhat.com>
 
 ### Current status
@@ -28,8 +28,8 @@ Introducing MoM, maintained by Adam Litke <alitke@redhat.com>, as a part of oVir
 
 ### Detailed Description
 
-*   Original proposal: [Project Proposal - MOM](/develop/projects/proposals/mom/)
-*   Policy handling: [Sla/host-mom-policy](/documentation/sla/host-mom-policy/)
+*   Original proposal: [Project Proposal - MOM](/develop/projects/mom.html)
+*   Policy handling: [Sla/host-mom-policy](/develop/sla/host-mom-policy.html)
 
 <!-- -->
 
@@ -46,7 +46,7 @@ This is the foundation of SLA @oVirt, allowing enforcement of various aspects su
 
 ### Dependencies / Related Features
 
-*   [SLA-mom-ballooning-tp](/develop/release-management/features/sla/sla-mom-ballooning-tp/)
+*   [SLA-mom-ballooning-tp](/develop/release-management/features/sla/sla-mom-ballooning-tp.html)
 
 ### Documentation / External references
 

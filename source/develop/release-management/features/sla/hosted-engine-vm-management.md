@@ -120,9 +120,3 @@ TODO - map what fields rely on engine - some may be not that important for now a
 
 ## Release Notes
 
-## Your feature heading
-
-
-
-
-[Hosted engine VM management](/develop/release-management/features/) [Hosted engine VM management](Category:oVirt 4.0 Proposed Feature) [Hosted engine VM management](Category:Integration) [Hosted engine VM management](/documentation/sla/)

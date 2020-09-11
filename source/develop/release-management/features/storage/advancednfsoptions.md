@@ -17,7 +17,7 @@ Allows advanced users to override some of VDSM default nfs options
 
 To do:
 
-*   [Make needed change in Ovirt-Engine](/develop/release-management/features/storage/advancednfsoptions/#changes-in-ovirt-engine)
+*   [Make needed change in Ovirt-Engine](#changes-in-ovirt-engine)
 *   Make needed change in the GUIs
 
 Done:

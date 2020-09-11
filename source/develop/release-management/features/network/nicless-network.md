@@ -17,9 +17,6 @@ Create an in-host-only network, with no external communication
 
 *   Name: Yevgeny Zaspitsky (yevgenyz)
 
-<!-- -->
-
-*   Email: <yzaspits@redhat.com>
 
 ## Detailed Description
 
@@ -29,7 +26,7 @@ Having a disconnected network may first seem to add complexity to VM placement. 
 
 ## Benefit to oVirt
 
-*   [All-in-One](/develop/release-management/features/integration/allinone/) use case: we'd like to have a complete oVirt deployment that does not rely on external resources, such as layer-2 connectivity or DNS.
+*   [All-in-One](/develop/release-management/features/integration/allinone.html) use case: we'd like to have a complete oVirt deployment that does not rely on external resources, such as layer-2 connectivity or DNS.
 *   Collaborative computing: an oVirt user may wish to have a group of VMs with heavy in-group secret communication, where only one of the VMs exposes an external web service. The in-group secret communication could be limited to a nic-less network, no need to let it spill outside.
 *   Nic-less networks can be tunneled to remote network segments over IP, a layer 2 NIC may not be part of its definition.
 
@@ -75,7 +72,7 @@ Any oVirt-managed host is able to support an isolated network unconditionally an
 #### Alternative approaches
 
 *   Similar to the described above, but creating the network on a host would be done just before running a VM that uses the network.
-*   [Features/IsolatedNetworks](/develop/release-management/features/network/isolatednetworks/) - this approach is about to treat an isolated network like any other network and let it be attached to a host rather than a NIC. The network would not be defined as isolated in advance and being such or not would be determined by the usage. This approach leads another sub-feature "host label" in order to automate an isolated network creating.
+*   [Features/IsolatedNetworks](/develop/release-management/features/network/isolatednetworks.html) - this approach is about to treat an isolated network like any other network and let it be attached to a host rather than a NIC. The network would not be defined as isolated in advance and being such or not would be determined by the usage. This approach leads another sub-feature "host label" in order to automate an isolated network creating.
 
 ### UI
 
@@ -92,7 +89,7 @@ No changes will be done to the REST API, but the implementation will allow speci
 
 ## Documentation / External references
 
-*   [All-in-One](/develop/release-management/features/integration/allinone/) - an oVirt deployment that needs to fire up VMs with no external network connectivity.
+*   [All-in-One](/develop/release-management/features/integration/allinone.html) - an oVirt deployment that needs to fire up VMs with no external network connectivity.
 
 <!-- -->
 

@@ -21,7 +21,7 @@ He can also replace the entire load balancing logic with an entity suitably call
 
 Filtering is referring to the act of disqualifying hosts from being a candidates for running a VM. For instance, a VM count filter may rule out hosts already running a certain number of VMs.
 
-The external scheduler ships with this sample filter doing just that: [Filter By VM Count](Filter By VM Count)
+The external scheduler ships with this sample filter doing just that: [Filter By VM Count](/develop/sla/filter-by-vm-count.html)
 
 ## Scoring
 

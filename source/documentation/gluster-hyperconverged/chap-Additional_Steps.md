@@ -4,7 +4,7 @@ title: Additional steps on a Hyperconverged setup
 
 # Chapter: Additional Steps on the Hyperconverged Setup
 
-The [blog](/blog/2018/02/up-and-running-with-ovirt-4-2-and-gluster-storage/) covers the steps involved once the Hosted Engine deployment succeeds.
+The [blog](https://blogs.ovirt.org/2018/02/up-and-running-with-ovirt-4-2-and-gluster-storage/) covers the steps involved once the Hosted Engine deployment succeeds.
 
 To outline, next steps would be:
 
@@ -20,6 +20,6 @@ To outline, next steps would be:
     - Skip fencing if bricks are online
 * [Optional] Configure disaster recovery
 
-**Prev:** [Chapter: Deploying oVirt and Gluster hyperconverged](chap-Deploying_Hyperconverged) <br/>
-**Next:** [Chapter: Troubleshooting](chap-Troubleshooting)
+**Prev:** [Chapter: Deploying oVirt and Gluster hyperconverged](chap-Deploying_Hyperconverged.html) <br/>
+**Next:** [Chapter: Troubleshooting](chap-Troubleshooting.html)
 

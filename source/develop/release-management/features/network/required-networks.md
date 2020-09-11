@@ -27,9 +27,6 @@ non-operational state, thus it can not be activated till it has the network atta
 *   Last updated date: April 10 2012
 *   implementation: done
 
-## Detailed Description
-
-Refer to [Required_Networks_detailed](Required_Networks_detailed)
 
 ## Benefit to oVirt
 
@@ -41,11 +38,13 @@ Refer to [Required_Networks_detailed](Required_Networks_detailed)
 
 when attaching a network to a cluster, add a boolean required property to it
 
-      POST api/clusters/{id}/networks
-<network id="28372223-881c-4996-81f2-936c6cc2c874">
-` `<name>`test`</name>
-` `<required>`false`</required>
-</network>
+ **POST** `api/clusters/{id}/networks`
 
+```xml
+<network id="28372223-881c-4996-81f2-936c6cc2c874">
+ <name>test</name>
+ <required>false</required>
+</network>
+```
 
 

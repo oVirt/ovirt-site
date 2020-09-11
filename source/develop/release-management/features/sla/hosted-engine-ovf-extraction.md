@@ -37,9 +37,9 @@ The specific goals associated with this feature are as follows:
 
 *   Less code - less bugs.
 *   Clean separation of concerns makes code cleaner and easier to maintain.
-*   Hosted engine state updates will happen faster and without delays, thus decreasing overall latency of the whole system. See [Hosted engine shared configuration extraction and caching](develop/release-management/features/sla/hosted-engine-ovf-extraction#documentation)
+*   Hosted engine state updates will happen faster and without delays, thus decreasing overall latency of the whole system.
 
 ## Documentation / External references
 
-*   [Documentation/External references](develop/release-management/features/sla/hosted-engine-agent-offloading/#documentation)
+*   [Documentation/External references](/develop/release-management/features/sla/hosted-engine-agent-offloading.html)
 

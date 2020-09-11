@@ -118,3 +118,15 @@ That solution would be oVirt. Today, more than 3,000 students use this virtual d
 Read the full [Universidad de Sevilla case study](/community/user-stories/universidad-de-sevilla-case-study.html)
 
 </div>
+
+<div class="case-study">
+### the Solution Company
+
+![](/images/logos/theSolutionCompany.png)
+
+When an hospital in Germany needed to renew their IT preparing to fight against COVID19 [the Solution Company](https://www.the-solution-company.com/en/home)
+provided a solution based on oVirt making the entire IT a lot faster, easier and more reliable.
+
+
+Read the full [the Solution Company case study](/community/user-stories/the-solution-company.html)
+</div>

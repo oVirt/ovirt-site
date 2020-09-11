@@ -14,17 +14,14 @@ The HA VM reservation feature ensure the safety of HA VMs in case of host failov
 
 ## Owner
 
-*   Name: Kobi Ianko (kianku), Email: kobi@redhat.com
-
-<!-- -->
-
+*   Name: Kobi Ianku (kianku)
 *   Name: Scott Herold (sherold), Email: sherold@redhat.com
 
 ## Current status
 
 *   Target Release: 3.4
 *   Status: design
-*   Last updated: ,
+
 
 ## Detailed Description
 
@@ -76,7 +73,7 @@ When enabled the weight and balancing methods will kick into action as well as t
 
 ## Detailed Design
 
-Detailed design can be found here [HA_VM_reservation_detailedDesign](/develop/release-management/features/sla/ha-vm-reservation-detaileddesign/)
+Detailed design can be found here [HA_VM_reservation_detailedDesign](/develop/release-management/features/sla/ha-vm-reservation-detaileddesign.html)
 
 ## Benefit to oVirt
 

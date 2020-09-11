@@ -103,7 +103,7 @@ This feature proposes a new API verb for VDSM for querying the data fields of VM
 
 ## Benefit to oVirt
 
-The proposed API verb can reduce the required volume of data sent over the management network to in a range of 75-90% **without using compression**. Please see the [Measurements Page](/develop/release-management/features/vdsm/measurements/) for the actual results of the tests performed using this API in comparison to the current way.
+The proposed API verb can reduce the required volume of data sent over the management network to in a range of 75-90% **without using compression**. Please see the [Measurements Page](/develop/release-management/features/vdsm/measurements.html) for the actual results of the tests performed using this API in comparison to the current way.
 
 This proposal introduces a more flexible way of changing the API by adding new fields or deprecating them by exclusion from the callers side. Additionally fields are only sent when they have been really changed since the last request.
 

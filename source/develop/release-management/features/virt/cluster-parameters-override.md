@@ -17,9 +17,6 @@ This feature allows to configure the 'emulated machine' and 'cpu model' paramete
 
 *   Name: Eldan Shachar (eshachar)
 
-<!-- -->
-
-*   Email: <eshachar@redhat.com>
 
 ## Detailed Description
 
@@ -77,4 +74,3 @@ This will allow a user to provide a backward-compatibility for certain VMs and t
 
 
 
-[Cluster parameters override](/develop/release-management/features/) [Cluster parameters override](/develop/release-management/releases/3.6/proposed-feature/) [Cluster parameters override](Category:oVirt 3.6 Feature)

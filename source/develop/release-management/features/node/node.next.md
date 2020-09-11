@@ -36,9 +36,7 @@ This feature is about changing the core of Node, and how it is build. Other rela
 
 *   The core changes should be transparent to subprojects
 
-## Documentation / External references
 
-*   [Node/Specs](/develop/projects/node/specs/)
 
 ## Testing
 

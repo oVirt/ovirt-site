@@ -10,9 +10,11 @@ feature_status: Design / partly implementaion stage
 # Soft host to VM affinity support and Rack use case
 
 ## Summary
-Certain set of VMs form a logical management unit and should run on a certain set of hosts for SLA or management (e.g. a separate rack for each customer). The VMs can run anywhere in case the dedicated rack needs to be turned off, but should return to their dedicated hosts once the rack is back up.
+Certain set of VMs form a logical management unit and should run on a certain set of hosts for SLA or management (e.g. a separate rack for each customer).
+The VMs can run anywhere in case the dedicated rack needs to be turned off, but should return to their dedicated hosts once the rack is back up.
 
-This would be best implemented by enhancing the current VM to VM soft affinity rules to support hosts as well. The other piece that is needed is to add affinity based balancing operation to allow the VMs to return to the proper host when it becomes available.
+This would be best implemented by enhancing the current VM to VM soft affinity rules to support hosts as well.
+The other piece that is needed is to add affinity based balancing operation to allow the VMs to return to the proper host when it becomes available.
 
 ### Owners
 
@@ -72,7 +74,7 @@ Enables Affinity Groups soft enforcement for VMs to hosts; VMs in group are most
 
 
 ### Affinity Rules Enforcement Manager
-The existing procedure for vm affinity procedure as shown in [Affinity Rules Enforcement Manager](/develop/release-management/features/sla/affinity-rules-enforcement-manager/) 
+The existing procedure for vm affinity procedure as shown in [Affinity Rules Enforcement Manager](/develop/release-management/features/sla/affinity-rules-enforcement-manager.html) 
 will be enhanced:
 
 *   **chooseNextVmToMigrate** will follow this order of selection:
@@ -116,7 +118,7 @@ for vms and hosts lists.
 A new type will be added - **AffinityRule** with two attributes of that type,
 one for virtual machines and another for hosts:
 
-```
+```xml
 <vms_rule>
   <positive>true|false</positive>
   <enforcing>true|false</enforcing>
@@ -215,5 +217,5 @@ For more information see the following Bugzilla link:
 Deep dive:
 <https://www.youtube.com/watch?v=rs_5BSqacWE>
 
-[Affinity Rules Enforcement Manager](/develop/release-management/features/sla/affinity-rules-enforcement-manager/)
-[VM Affinity](/develop/release-management/features/sla/vm-affinity/)
+[Affinity Rules Enforcement Manager](/develop/release-management/features/sla/affinity-rules-enforcement-manager.html)
+[VM Affinity](/develop/release-management/features/sla/vm-affinity.html)

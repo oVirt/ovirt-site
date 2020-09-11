@@ -10,7 +10,7 @@ feature_status: On QA
 # Node RPM Persistence After Upgrades
 
 ## Summary
-[oVirt Node NG](/develop/projects/node/4.0) is an advancement over vintage Node, especially that it allows users to install RPMs or customize the system through configuration management tools. Some of these changes are migrated over from /etc after upgrades, and some are kept persistenly in /var, but any packages which are installed on a running layer will be lost after upgrades and need re-installation. This presents some problems with vendor tooling, IPMI, utilities to collect statistics, and other add-ons.
+[oVirt Node NG](/develop/release-management/features/node/node.next.html) is an advancement over vintage Node, especially that it allows users to install RPMs or customize the system through configuration management tools. Some of these changes are migrated over from /etc after upgrades, and some are kept persistenly in /var, but any packages which are installed on a running layer will be lost after upgrades and need re-installation. This presents some problems with vendor tooling, IPMI, utilities to collect statistics, and other add-ons.
 
 This feature presents a mechanism by which packages installed through yum/dnf can be saved and automatically re-applied when the OS is updated.
 
@@ -52,15 +52,15 @@ Node NG performs a number of actions when updates are applied.
 
 A reliable mechanism must be written in order to capture packages as they are installed, however.
 
-[yum.PackageObject](http://yum.baseurl.org/api/yum-3.2.26/yum.packages.PackageObject-class.html) is able to immediately provide the location of a cached RPM (after downloading or from localinstall), and this is available as part of yum plugin hooks.
+[yum.PackageObject](http://yum.baseurl.org/api/yum/yum/packages.html?highlight=yum.packages.packageobjec#yum.packages.PackageObject) is able to immediately provide the location of a cached RPM (after downloading or from localinstall), and this is available as part of yum plugin hooks.
 
-It _may_ be possible to [extend RPM](http://www.rpm.org/wiki/DevelDocs/Plugins), but some research must be done in order to discover whether RPM's plugin interface is as informative as yum.PackageObject. It is possible that RPM's plugin mechanism only triggers during the execution of the RPM specfile, and cannot be used to pin down the location of the actual package. This also provides the additional burden of maintaining a small codebase in C, though that may be an acceptable tradeoff.
+It _may_ be possible to [extend RPM](http://rpm.org/devel_doc/plugins.html), but some research must be done in order to discover whether RPM's plugin interface is as informative as yum.PackageObject. It is possible that RPM's plugin mechanism only triggers during the execution of the RPM specfile, and cannot be used to pin down the location of the actual package. This also provides the additional burden of maintaining a small codebase in C, though that may be an acceptable tradeoff.
 
 ## Implementation
 
 ### yum plugin
 
-yum provides a [variety of places to add hooks](http://yum.baseurl.org/wiki/WritingYumPlugins), and actually somewhat more than what's listed:
+yum provides a [variety of places to add hooks](http://yum.baseurl.org/wiki/WritingYumPlugins.html), and actually somewhat more than what's listed:
 
     args
     clean

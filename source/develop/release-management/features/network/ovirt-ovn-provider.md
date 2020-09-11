@@ -222,6 +222,7 @@ of the OVN logical switch port which should be associated with this vNIC, and se
 the value of the "external-ids:iface-id" column in the logical switch port record.
 The complete xml would look as follows:
 
+```xml
     <interface type='bridge'>
          ...
          <source bridge='ovsbr0'/>
@@ -230,6 +231,7 @@ The complete xml would look as follows:
          </virtualport>
          ...
     </interface>
+```
 
 This is the equivalent of executing the following OVS commands:
 	`ovs-vsctl add-port br-int <nic name>`
@@ -297,14 +299,14 @@ The behavior of authentication and authorization is defined by the
 ### Authentication
 
 Authentication is implemented by a single request of the OpenStack
-[Identity API v2.0](https://developer.openstack.org/api-ref/identity/v2/),
+[Identity API v2.0](https://web.archive.org/web/20170127173135/http://developer.openstack.org/api-ref/identity/v2/),
 commonly known as keystone API.
 
 The provider handles the following request for authentication:
 
 *   POST tokens - authenticates and generates a token from username and
     password, using a subset of the parameters of the OpenStack
-    [specification](https://developer.openstack.org/api-ref/identity/v2/?expanded=authenticate-detail#authenticate).
+    [specification](https://web.archive.org/web/20170127173135/http://developer.openstack.org/api-ref/identity/v2/#authenticate).
 
 ### Authorization
 
@@ -318,7 +320,7 @@ There are various plugins available, which differentiate by their behavior.
 Supported are the plugins to authorize by username or group membership:
 
 *  AuthorizationByUserName - uses the oVirt engine's
-   [SSO](/develop/release-management/features/infra/uniformssosupport/) to
+   [SSO](/develop/release-management/features/infra/uniformssosupport.html) to
    create a token from the given username and password. So the user has to be a
    valid user of oVirt engine. The token in the requests to the OpenStack Rest
    API is authorized, if it is associated to the username defined in the

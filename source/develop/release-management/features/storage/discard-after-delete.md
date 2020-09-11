@@ -31,7 +31,6 @@ This feature is useful for users that have thinly provisioned luns and wish to r
 
 ## Owner
 * Idan Shaby
-* Email: <ishaby@redhat.com>
 
 
 ## Current status
@@ -53,7 +52,7 @@ This feature adds a new storage domain property called ***Discard After Delete**
 If all the [restrictions](#restrictions) are met, a *blkdiscard* command will be issued on each logical volume before it is removed in two possible cases:
 
 1. *Discard After Delete* is enabled for the relevant storage domain.<br/>
-2. The disk is attached to at least one virtual machine with [*Pass Discard*](/develop/release-management/features/storage/pass-discard-from-guest-to-underlying-storage/) enabled.<br/>
+2. The disk is attached to at least one virtual machine with [*Pass Discard*](/develop/release-management/features/storage/pass-discard-from-guest-to-underlying-storage.html) enabled.<br/>
 The logic behind this is that if the user wanted "live" discarding, he will probably want to discard the whole disk when it is removed even if its storage domain's *Discard After Delete* property is disabled.
 
 The consequences are the same as those from the previous section, when using vdsm configuration file. The differences between the two are:
@@ -146,8 +145,8 @@ Content-Type: application/xml
 
 
 ## Related Features
-* [Pass discard from guest to underlying storage](/develop/release-management/features/storage/pass-discard-from-guest-to-underlying-storage/)
-* [Wipe volume using blkdiscard](/develop/release-management/features/storage/wipe-volume-using-blkdiscard/)
+* [Pass discard from guest to underlying storage](/develop/release-management/features/storage/pass-discard-from-guest-to-underlying-storage.html)
+* [Wipe volume using blkdiscard](/develop/release-management/features/storage/wipe-volumes-using-blkdiscard.html)
 
 
 ## References

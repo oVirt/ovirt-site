@@ -10,7 +10,7 @@ authors: danken, lpeer, moti
 
 The Network Permissions feature is supplementary for network related actions in the system.
 It enables permissions management on a Network to control which user is allowed to perform what action when it relates to network.
-Please refer to [Action Permissions overview](/develop/developer-guide/action-permissions-overview/) for further information about Multi-Level-Administration (MLA).
+Please refer to [Action Permissions overview](/develop/developer-guide/action-permissions-overview.html) for further information about Multi-Level-Administration (MLA).
 
 ## Owner
 
@@ -182,10 +182,10 @@ Add Network as an entity of both User/Admin role dialog.
 ![](/images/wiki/Network-permissions-dialog.png)
 
 Add Network User role to Roles Tree in:
- *frontend/webadmin/modules/uicommonweb/src/main/java/org/ovirt/engine/ui/uicommonweb/models/configure/roles_ui/RoleTreeView.java*
 
-` `*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*
-` `*`frontend/webadmin/modules/uicompat/src/main/resources/org/ovirt/engine/ui/uicompat/Enums.properties`*
+*`frontend/webadmin/modules/uicommonweb/src/main/java/org/ovirt/engine/ui/uicommonweb/models/configure/roles_ui/RoleTreeView.java`*
+*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*
+*`frontend/webadmin/modules/uicompat/src/main/resources/org/ovirt/engine/ui/uicompat/Enums.properties`*
 
 On 'New Logical Network' dialog a new option will be added as check box with message: "Allow all users to use this Network"
 Checking this option will grant 'everyone' permissions of the created network with 'VmNetworkUser' role.
@@ -208,7 +208,3 @@ Affected oVirt projects:
 *   Engine-core
 *   Admin Portal
 
-## Documentation / External references
-
-
-[Category: Feature](Category: Feature)

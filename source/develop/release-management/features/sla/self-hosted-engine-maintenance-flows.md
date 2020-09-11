@@ -17,16 +17,13 @@ Make maintenance operations easier on hosted engine clusters and their participa
 
 ### Owner
 
-*   Featue Owner: Greg Padgett: gpadgett (gpadgett)
+*   Featue Owner: Greg Padgett (gpadgett)
 
-<!-- -->
-
-*   Email: <gpadgett@redhat.com>
 
 ### Current status
 
 *   Design and initial implementation
-*   Last updated: ,
+
 
 ### Detailed Description
 
@@ -63,6 +60,5 @@ In each case above, the HA maintenance state will be reflected in the Host > Gen
 
 ### Dependencies / Related Features
 
-[Features/Self_Hosted_Engine](/develop/release-management/features/engine/self-hosted-engine/)
+[Self_Hosted_Engine](/develop/release-management/features/sla/self-hosted-engine.html)
 
-[Self Hosted Engine Maintenance Flows](/develop/release-management/features/) [Self Hosted Engine Maintenance Flows](/develop/release-management/releases/3.4/feature/)

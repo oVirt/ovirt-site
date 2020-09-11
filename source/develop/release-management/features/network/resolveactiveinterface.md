@@ -17,11 +17,9 @@ The feature will extend the engine ability to resolve the active interface in wh
 
 ## Owner
 
-*   Name: [Eliraz Levi](Eliraz Levi)
+*   Name: Eliraz Levi
 
-<!-- -->
 
-*   Email: <elevi@redhat.com>
 
 ## Detailed Description
 
@@ -30,7 +28,7 @@ However, engine must first know, the correct interface to deploy the management 
 Until now, engine acquired the correct interface by looking at the lastClientIface element of VdsGetCapabilities verb.
 As approaching the removal of the direct Engine-Vdsm TCP connection requirement, vdsm will no longer be able to compute the lastClientIface element.
 Instead, engine will resolve the correct interface as followed next:
-engine will resolve the host ip address by using the java's [INetAddress.getByName](http://download.java.net/jdk7/archive/b123/docs/api/java/net/InetAddress.html#getByName(java.lang.String)) function. The limitation of this approach will be discussed later.
+engine will resolve the host ip address by using the java's INetAddress.getByName function. The limitation of this approach will be discussed later.
 Next, engine will compare between the resolved host's ip address and the one that owned (if exists) by each of host's interfaces. In case of a match, the interface will be resolved as the hostActiveNic.
 note that the host's interface's ip address, is reported by vdsm's VdsGetCapabilities verb.
  The main concept of the feature, is that in case of a "nested" network topology configuration , only the top Link-Layer component will own an ip address.
@@ -97,4 +95,3 @@ Explain what will be done in case the feature won't be ready on time
 *   important to mention, the original "GetRoute" feature in which a new vdsm verb defining an API of engine telling the host its ip address. Vdsm will then response with the hostActiveNic.
     -   The feature was abandoned as engine is not able to tell vdsm it's own ip address as same as vdsm is seeing it as the engine can be hiding behind NAT for example.
 
-<!-- -->

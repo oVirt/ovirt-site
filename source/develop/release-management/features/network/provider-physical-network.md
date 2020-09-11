@@ -11,7 +11,7 @@ feature_status: In Development
 
 ## Summary
 
-This feature extends [ovirt-ovn-provider](/develop/release-management/features/network/ovirt-ovn-provider/) adding support for physical network access. It allows user to connect external OVN networks to a physical (oVirt native) network.
+This feature extends [ovirt-ovn-provider](/develop/release-management/features/network/ovirt-ovn-provider.html) adding support for physical network access. It allows user to connect external OVN networks to a physical (oVirt native) network.
 
 Feature progress is tracked on [ovn-localnet Trello](https://trello.com/b/lxIBEn0A/ovn-localnet). Related patches can be found on [gerrit topic:localnet](https://gerrit.ovirt.org/#/q/topic:localnet).
 
@@ -128,5 +128,5 @@ Testing of this feature should cover:
 
 [Provider Extended Attributes of Networks in OpenStack Networking API v2.0](https://developer.openstack.org/api-ref/network/v2/#provider-extended-attributes)
 
-[Unrestricted Network Names](/develop/release-management/features/network/unrestricted-network-names/)
+[Unrestricted Network Names](/develop/release-management/features/network/unrestricted-network-names.html)
 

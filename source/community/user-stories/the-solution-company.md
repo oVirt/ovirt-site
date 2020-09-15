@@ -1,7 +1,7 @@
 ---
 title: the Solution Company case study
 category: community
-authors: sandrobonazzola
+authors: sandrobonazzola, bproffitt, stoobie
 ---
 
 <div class="row">
@@ -10,42 +10,44 @@ authors: sandrobonazzola
 
 ![](/images/user-stories/theSolutionCompany_ThinClients.jpg)
 
-We at [the Solution Company](https://www.the-solution-company.com/en/home) were asked to do IT for a hospital at the start of the 2020 and it was aweful.
-The Hardware and Software was from back in the 2000 decade and we had a very hard time to get around there, since hospitals tend not to invest too much in IT,
-there were no means in updating anything in the near future.
-From Cabling over hardware to software and administrative things, everything was in a very bad shape.
+[the Solution Company](https://www.the-solution-company.com/en/home) was asked to revamp the IT infrastructure for a hospital at the beginning of 2020… and frankly,
+the existing infrastructure situation was awful. Their hardware and software were from back in the 2000’s, and it was very difficult to manage and operate.
+This hospital had made the decision to not invest much in IT, so there were no available funds in the foreseeable future. Everything was in bad shape, all the way down to the cables!
 
-With the coronavirus feared to come to Europe, the ministry of health in Germany started preparing.
-For the area the hospital was in, it was decided not to take patients to nearest hospital, but to concentrate treatment to a few specialized ones.
+With COVID-19 threatening to arrive in Europe, the Ministry of Health in Germany began preparations.
+For the area in which the hospital is located, it was decided to set aside specific hospitals to treat COVID-19 patients, including this one.
 
-A week or two before the lockdown in Germany started, we got a call, asking us to renew the entire IT to support the nurses and doctors.
-They also told us, we had two and a half weeks to do that and we needed to start immediately.
+A week or two before the lockdown in Germany started, we got a call asking us to refresh the entire IT infrastructure to support the nurses and doctors.
+The hospital administrators also told us that we only had two and a half weeks, and we needed to start immediately.
 
-With that kind of time pressure we started to buy and install lots of hardware, renewed the cabling, installed wireless, build two more server rooms.
-Luckily most companies we relied on did a lot to help as fast as they could. 
+With the clock ticking, we started to buy and install large quantities of hardware, including new cabling, wireless networking, and two additional server rooms.
+Luckily, most vendors we relied on did a lot to help as quickly as they could. Wherever we could, we made choices that required less time and effort to organize and install.
 
-Wherever we could, we chose the ways that meant the less time efford in organizing and installing.
-That was the point where **oVirt** came on the scene. We do a lot with open-source software and had experience with oVirt,
-it has **proven to be reliable and fast, immediatly available and had anything we needed to get started**. 
+That’s where [oVirt](https://www.ovirt.org) came on the scene. We do a lot with open source software and had experience with oVirt, which has proven to be reliable and fast,
+was immediately available, and had everything we needed to get started right away.
 
-So we installed a hyperconverged oVirt (on Gluster) infrastructure, moved existing machines to it, and also started to introduce Windows 10 Pools for the medical staff to work with.
-We also built an easy-to-use thin client based off **CentOS Linux** and started deploying it all over the hospital. 
-(The staff wanted them so badly, whenever we appeared with a cart full of thin clients, they stood in a row to be the first to get them. No joke.)
+So we installed a hyperconverged oVirt (on Gluster) infrastructure, migrated existing virtual machines, and also started to introduce Windows 10 VM pools for the medical staff to use.
 
-To be honest, we weren't quite in time after two and half weeks, due to lots of organizational and logistic issues.
-However, oVirt was no part of that. From day one **it made the entire IT a lot faster, easier and more reliable**
-(we had some cases during the preparation with parts of the hyperconverged cluster failing, with **little to no downtime**, which was not possible there before the intruduction of oVirt)
+We also built easy-to-use thin clients based on [CentOS Linux}(https://www.centos.org) and began deploying them all over the hospital.
+(Not a joke: the staff wanted them so badly, whenever we appeared with a cart full of thin clients, they stood in line to be the first to get them. )
 
-Since then we are happy with it (and so is the hospitals staff). It also has cut time spent for support a lot.
-And more important, the time the staff sitting in front of a computer, which in turn helped patients.
+To be honest, we didn’t quite make the two-and-a-half week deadline, because of several organizational and logistic issues.
+But oVirt was one of the reasons that we completed the job as quickly as we did. From day one it made the entire IT infrastructure a lot faster, easier to use and maintain, and more reliable.
+
+
+
+Since then, we (and the hospital staff) are very happy with oVirt. It has even significantly cut the time the support staff invests, and more importantly,
+the time the hospital staff spends sitting in front of a computer. So the patients win too, which is really the ultimate goal.
 Thanks to mobile thin clients, the doctors can even take their computers with them.
 
-It worked so good, we soon start to deploy oVirt in several schools in the area, to support IT & Computer Science Education.
+It worked so well, we’ll soon begin to deploy oVirt in several schools in the area, to support IT and Computer Science Education.
 
-For the records, the Hyperconverged Cluster deployed at the hostpial consists of 3 Storages, 3 Hosts, (120 Cores, 2.2TB RAM, 60T(x3) Storage total), 40GBit Interconnect between the clusters. 
-We also utilize **AWX/Ansible** for administration and **Centos Linux for the ThinClients** and to carry out other services throughout the Hospital. 
-Our ThinClients support currently up to two screens, and the entire infrastructure has proven to work with medical equipment, too 
-(some connected to computers via usb, especially the medical card readers)
+For the record, the hyperconverged cluster deployed at the hospital consists of 3 storage domains, 3 hosts, totalling 120 Cores, 2.2 TB RAM, 180 TB storage),
+and 40 GBit Interconnect between the clusters.
+
+We also use AWX/Ansible for administration and CentOS Linux for the thin clients, and to carry out other services throughout the hospital.
+Thin clients support up to two screens, and the entire infrastructure has proven to work with medical equipment too, some of which is connected via USB, such as medical card readers.
+
 
 </div>
 <div class="col-md-4 pad-sides">

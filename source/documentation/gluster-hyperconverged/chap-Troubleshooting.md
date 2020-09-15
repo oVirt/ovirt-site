@@ -72,7 +72,6 @@ If the state is other than `Peer in Cluster (Connected)` then there is an issue.
         * Move host to maintenance
         * Reinstall the host choosing the "Hosted Engine deploy" option from the Hosted Engine tab.
 
-Refer [Troubleshooting Self-Hosted Engine](self-hosted/chap-Deploying_Self-Hosted_Engine)
 
-**Prev:** [Chapter: Additional Steps ](chap-Additional_Steps) <br/>
-**Next:** [Chapter: Maintenance and Upgrading Resources ](chap-Maintenance_and_Upgrading_Resources)
+**Prev:** [Chapter: Additional Steps ](chap-Additional_Steps.html) <br/>
+**Next:** [Chapter: Maintenance and Upgrading Resources ](chap-Maintenance_and_Upgrading_Resources.html)

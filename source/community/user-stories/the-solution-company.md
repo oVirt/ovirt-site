@@ -28,7 +28,7 @@ was immediately available, and had everything we needed to get started right awa
 
 So we installed a hyperconverged oVirt (on Gluster) infrastructure, migrated existing virtual machines, and also started to introduce Windows 10 VM pools for the medical staff to use.
 
-We also built easy-to-use thin clients based on [CentOS Linux}(https://www.centos.org) and began deploying them all over the hospital.
+We also built easy-to-use thin clients based on [CentOS Linux](https://www.centos.org) and began deploying them all over the hospital.
 (Not a joke: the staff wanted them so badly, whenever we appeared with a cart full of thin clients, they stood in line to be the first to get them. )
 
 To be honest, we didn’t quite make the two-and-a-half week deadline, because of several organizational and logistic issues.

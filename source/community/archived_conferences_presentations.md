@@ -2,12 +2,143 @@
 title: Archived Conferences Presentations
 authors: sandrobonazzola
 page_classes: community
+toc: true
 ---
 
 # Archived Conferences Presentations
 
 oVirt community presented at several conferences in the past years. In this page you'll find archived presentations kept for reference.
 Please note that presentation may refer to obsoleted or deprecated features and shouldn't be considered valid for latest oVirt release.
+Templates and resources for creating new presentations can be found in [oVirt Slide Decks](/community/get-involved/resources/slide-decks.html) page
+
+## 2020-09 - oVirt 2020 Online conference
+
+* Sandro Bonazzola - oVirt and its community
+  [[Recordings]](https://youtu.be/RShWTjjGfUg)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/oVirt_and_its_community.pdf)
+* Devrim Yılmaz and Saygın Baktır - Open Virtualization Infrastructure for large Telco: How Turkcell adopted oVirt for its test and development environments
+  [[Recordings]](https://youtu.be/8ZMFkRD1_ok)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/Open_Virtualization_Infrastructure_for_large_Telco.pdf)
+* Eyal Shenitzky and Nir Soffer - Back to the future – incremental backup in oVirt
+  [[Recordings]](https://youtu.be/X-xHD9ddN6s)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/Back_to_the_future-incremental_backup_in_oVirt.pdf)
+* Dr. Arman Khalatyan - Micro-services: Towards to reproducible science
+  [[Recordings]](https://youtu.be/hU6rGBQ_9ZU)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/Micro-services-Towards_to_reproducible_science.pptx)
+* Paul Staniforth and Dr Z. Cliffe Schreuders - Using oVirt to provide a FOSS VDI solution to teach cyber security in a sandboxed realistic environment to remote students
+  [[Recordings]](https://youtu.be/wuLH1Ban1TA)
+  [[Slides 1]](https://resources.ovirt.org/site-files/2020/Using_oVirt_to_provide_a_FOSS_VDI_solution_to_teach_cyber_security.pdf)
+  [[Slides 2]](https://resources.ovirt.org/site-files/2020/Cybercrime_and_Security_Innovation_Centre.pdf)
+* Gobinda Das - Introduction to oVirt hyperconvergence
+  [[Recordings]](https://youtu.be/ydaymbXUWd4)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/Introduction%20to%20oVirt%20hyperconvergence.pdf)
+* Lev Veyde - oVirt 4.3 to 4.4 upgrade flow
+  [[Recordings]](https://youtu.be/JlDmpAtActc)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/oVirt_43_to_44_upgrade_flow.pdf)
+* Shall Ao - Next-Gen backup and DR solution for oVirt
+  [[Recordings]](https://youtu.be/TWiMQKBhjH0)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/Next-Gen%20oVirt%20Backup%20%26%20DR%20Solution%20-%20vinchin%20-%20official%20presentation.pdf)
+* Marcin Kubacki - Extending oVirt UI with backup & recovery operation plugin – vProtect example
+  [[Recordings]](https://youtu.be/3jP8I3t7P9E)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/Extending_oVirt_UI_with_backup_and_recovery_operation_plugin.pdf)
+* Ales Musil - Using NetworkManager for host networking in oVirt 4.4
+  [[Recordings]](https://youtu.be/_oMG1nBcwn0)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/Using_NetworkManager_for_host_networking_in_oVirt_44.pdf)
+* Artur Socha - oVirt SSO
+  [[Recordings]](https://youtu.be/Y1awg8gRVS4)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/oVirt_SSO.pdf)
+* Ritesh Chikatwar - Cluster upgrade in RHHI
+  [[Recordings]](https://youtu.be/TQZ7slmUiD4)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/Cluster_upgrade_in_RHHI.pdf)
+* Gal Zaidman - Windows VMs on oVirt 4.4, what’s new?
+  [[Recordings]](https://youtu.be/KQnHaHUXfz8)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/Windows_VMs_oVirt_44_Whats_new.pdf)
+* Dana Elfassy - What’s new in host deploy?
+  [[Recordings]](https://youtu.be/ldJJQkYX8jM)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/Whats_new_in_host_deploy.pdf)
+* Steven Rosenberg - Automating Load Balancing via Predictive Analysis
+  [[Recordings]](https://youtu.be/xCTvhHLcm64)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/Automating_Load_Balancing_via_Predictive_Analysis.pdf)
+* Prajith Kesava Prasad - Replacing gluster host in oVirt-Engine
+  [[Recordings]](https://youtu.be/dFWW5fEupYQ)
+  [[Panopto]](https://pro.panopto.com/Panopto/Pages/Viewer.aspx?tid=6b0e92cb-6ef0-47c0-a617-ac1f0054a6d9)
+  [[Slides]](https://resources.ovirt.org/site-files/2020/Replacing_gluster_host_in_oVirt-Engine.pdf)
+
+## 2019-10 - oVirt 2019 Conference / Rome
+
+See conference report on [oVirt Blog](https://blogs.ovirt.org/2019/10/ovirt-conference-2019-report/).
+[[Recordings]](https://youtu.be/TWqLNmdpUKs) are available.
+
+* Sandro Bonazzola - oVirt and its community [[Slides - PDF]](https://resources.ovirt.org/site-files/2019/10/2019-10%20oVirt%20and%20its%20community.pdf)
+* Stefano Stagnaro - oVirt installation made easy (videos linked within blog post)
+* Simon Coter - Introducing Oracle Linux Virtualization Manager [[Slides - PDF]](https://resources.ovirt.org/site-files/2019/10/2019-10%20Oracle%20Linux%20Virtualization%20Manager.pdf)
+* Gaetano La Rosa - Certificarsi RHCVA (it_IT) [[Slides - PDF]](https://resources.ovirt.org/site-files/2019/10/2019-10%20oVirt%20Training.pdf)
+* Pawel Maczka - vProtect – Best practices for oVirt Backup & Recovery
+  [[Slides - PDF]](https://resources.ovirt.org/site-files/2019/10/2019-10%20Best%20Practices%20for%20oVirt%20Backup%20and%20Recovery.pdf)
+* Martin Tessun - New features in Red Hat Virtualization 4.3 [[Slides - PDF]](https://resources.ovirt.org/site-files/2019/10/2019-10%20RHV%204.3%20Features%20and%20Roadmap.pdf)
+* Dominik Holler - SDN deployment with OVN, Neutron, and Skydive [[Slides - PDF]](https://resources.ovirt.org/site-files/2019/10/2019-10%20SDN%20with%20Neutron%20and%20Skydive.pdf)
+* Marcin Kubacki - Disaster Recovery strategies for oVirt [[Slides - PDF]](https://resources.ovirt.org/site-files/2019/10/2019-10%20Disaster%20recovery%20strategies%20for%20oVirt.pdf)
+* Simone Tiraboschi - oVirt Ansible Automation - Part 1 [[Slides - PDF]](https://resources.ovirt.org/site-files/2019/10/2019-10%20Ansible%20-%20automation%20for%20everyone.pdf)
+* Gianluca Cecchi - oVirt Ansible Automation - Part 2 [[Slides - PDF]](https://resources.ovirt.org/site-files/2019/10/2019-10%20oVirt%20Ansible%20Automation%20-%20Patching%20Oracle%20RDBMS.pdf)
+  
+
+## 2019-01 - oVirt 4.3 Deep Dives
+
+* Simone Tiraboschi - Hosted Engine 4.3 Deep Dive [[Slides - PDF]](/images/Hosted-Engine-4.3-deep-dive.pdf)
+
+
+## 2015-11 - oVirt 3.6.0 meetups / release parties
+
+* Sandro Bonazzola - Italian community release party [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/OVirt-3.6-release-meetup.odp)
+
+
+## 2015-07 - FISL 16
+
+* Amador Pahim - oVirt Community Meeting
+  [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/FISl2015_OVirt-Overview20150701.odp)
+* Amador Pahim - Integration: oVirt Docker
+  [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/FISL2015_oVirt_Docker.odp)
+  [[Session recording]](https://www.youtube.com/watch?v=3iJvueiOTIc)
+* Marcelo Barbosa - GlusterFS and oVirt
+  [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/GlusterFS_and_oVirt_2015.odp)
+  [[Session recording]](https://youtu.be/RDFT2c7O5II?t=3437)
+* Douglas Schilling Landgraf- Generic Registration
+  [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/OVirt_Register_2015.odp)
+  [[Session recording]](https://youtu.be/RDFT2c7O5II)
+* Cândido Raphael - Case study VDI TR Odonto
+  [[Slides - PDF]](https://resources.ovirt.org/old-site-files/wiki/OVirt_CaseStudy_FISL16_VDI.pdf)
+  [[Session recording]](https://youtu.be/RDFT2c7O5II?t=1437)
+* Amador Pahim - Virtualization CPU SLA 
+  [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/FISL2015_CPU_SLA.odp)
+  [[Session recording]](https://www.youtube.com/watch?v=P4tvwAp730c)
+
+## 2015-04 - Grazer Linuxtage 2015
+
+* René Koch - Open Source Virtualization with oVirt: [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Open_Source_Virtualization_with_oVirt_GLT_2015.odp)
+
+
+## 2015-03 - Chemnitzer Linuxtage
+
+* René Koch - Open Source Virtualization with oVirt [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Open_Source_Virtualization_with_oVirt_CLT_2015.odp)
+
+
+## 2015-02 - Brno 2015 oVirt Developer Summit
+
+* Douglas Landgraf, Ryan Barry - oVirt Node Architecture [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Ovirt_Node_Architecture.odp)
+* Douglas Landgraf - Build process of ovirt node and the plugins [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Build_process_of_ovirt-node_and_the_plugins.odp)
+
+
+## 2014-11 - Datacom 2014
+
+* Douglas Schilling Landgraf - oVirt Development Process [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Development-Process.odp)
+
+
+## 2014-10 - Latinoware 2014
+
+* Amador Pahim - oVirt Project Overview [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Ovirt-overview-latinoware2014.odp)
+* Douglas Schilling Landgraf - oVirt Node Project [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Ovirt-node-latinoware2014.odp)
+* Laercio da Silva Motta - virt-v2v migração profissional descomplicada (pt_BR) [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Virt-v2v-latinoware2014.odp)
+
 
 ## 2014-10 - oVirt Workshop KVM Forum 2014
 The 2014 oVirt workshop was co-located with the [KVM Forum](//events.linuxfoundation.org/events/kvm-forum) in Düsseldorf, Germany on October 16, 2014
@@ -20,6 +151,25 @@ The 2014 oVirt workshop was co-located with the [KVM Forum](//events.linuxfounda
 * User & Partner oVirt Stories
 * Sandro Bonazzola - Live: Exploring oVirt
 * Future Directions for oVirt
+
+
+## 2014-05 FISL 15
+oVirt has been represented at [FISL 15](https://fedoraproject.org/wiki/FISL15). [[Session recording]](https://www.youtube.com/watch?v=UPLP2F1CAn4)
+
+* Brian Proffitt - Elastic Overkill: Is Cloud Really The Be-All End-All for Everyone? [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/FISL15_ElasticOverkill.odp)
+* Brian Proffitt- oVirt: How to Connect with a Mature Open Source Project
+  [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/FISL15_MatureCommunity.odp)
+  [[Session recording]](https://www.youtube.com/watch?v=lNRkwtuLuqU)
+* Amador Pahim - Virtualization Management The oVirt Way [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/OVirt-Overview.odp)
+* Marcelo Barbosa - oVirt Installation Process [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/OVirt-Installation.odp)
+* Amador Pahim - oVirt 3.4 Hot Features [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/OVirt34-NewFeatures.odp)
+* Douglas Schilling Landgraf - V2V - Migrating virtual machines to oVirt [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Virt-v2v.odp) 
+
+
+## 2014-04 - LinuxFest Northwest 2014
+
+* Brian Proffitt - oVirt: Community Update 2014 [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Ovirt_Community_Update-2014-FISL.odp)
+
 
 ## 2014-02 - oVirt at FOSDEM 2014
 There were several oVirt or oVirt related talks in the [Virtualization and IaaS DevRoom](//fosdem.org/2014/schedule/track/virtualisation_and_iaas/):
@@ -238,6 +388,12 @@ Bangalore oVirt Workshop was held on in the [Red Hat Bangalore Campus](https://m
   [[Slides]](https://resources.ovirt.org/old-site-files/wiki/Workshop-1203-vdsm-mom.odp)
 
 
+## 2012-02 - oVirt Decks from FOSDEM 2012
+
+* Itamar Heim - Virtualization Management the oVirt way  [[Slides]](https://resources.ovirt.org/old-site-files/wiki/Fosdem2012-ovirt-clean.pdf)
+* Omer Frenkel - oVirt Engine Core: Internals and Infrastructure: [[Slides]](https://resources.ovirt.org/old-site-files/wiki/Ovirt-engine-core_fosdem_2012.pdf)
+
+
 ## 2011-11 oVirt Kick-off Workshop
 The first oVirt Workshop was held over three days at Cisco's main campus in San Jose, California, from 1st – 3rd November 2011.
 We introduced the project, the technologies inside of the new projects, and had technical breakouts for learning and hacking.
@@ -248,6 +404,7 @@ We introduced the project, the technologies inside of the new projects, and had 
   [[Slides]](https://resources.ovirt.org/old-site-files/wiki/Ovirt-arch-iheim.pdf)
 * Mike Burns, Alan Pevec, Perry Myers - oVirt Node
   [[Slides]](https://resources.ovirt.org/old-site-files/wiki/Ovirt-node-nov-11.pdf)
+  [[Slides]](https://resources.ovirt.org/old-site-files/wiki/Ovirt-node.pdf)
 * Michael Pasternak - Introduction to oVirt RESTful API SDK and CLI
   [[Slides]](https://resources.ovirt.org/old-site-files/wiki/OVirt-API-CLI-SDK-20111102.pdf)
 * Livnat Peer, Omer Frenkel - Engine Core
@@ -267,4 +424,7 @@ We introduced the project, the technologies inside of the new projects, and had 
   [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wiki/Ovirt-guest-agent.odp)
 * Dan Wendlandt - Openstack Quantum: Virtual Networks for OpenStack
   [[Slides]](https://resources.ovirt.org/old-site-files/wiki/Quantum_Ovirt_discussion-20111103.pdf)
+* Doron Fediuck - Get Me Started! Setting up a development setup
+  [[Slides - PDF]](https://resources.ovirt.org/old-site-files/wp/ovirt-dev-setup.pdf)
+  [[Slides - ODP]](https://resources.ovirt.org/old-site-files/wp/ovirt-dev-setup.odp)
 

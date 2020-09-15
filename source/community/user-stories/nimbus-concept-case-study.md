@@ -12,7 +12,7 @@ authors: bproffitt
 
 Archimedes was speaking metaphorically, but even in the most literal sense, the 2nd Century-B.C. Greek scientist had his facts straight: with the simplest tool, one person can accomplish many great feats. We don't often think of software as such a tool, taking it for granted in these modern times. But software can be the great equalizer, enabling a few to do the work of many.
 
-A very clear example of this can be found in the Spanish startup [Nimbus Concept](http://www.nimbusconcept.com/index-en.html). This two-person company located in Madrid has leveraged the power of open source solutions such as oVirt, OpenStack, and Gluster to deliver some powerful solutions.
+A very clear example of this can be found in the Spanish startup [Nimbus Concept](http://www.nimbusconcept.com/index.html). This two-person company located in Madrid has leveraged the power of open source solutions such as oVirt, OpenStack, and Gluster to deliver some powerful solutions.
 
 According to Technical Manager Eduardo Garcia, Nimbus Concepts is a small consulting company primarily offering open source solutions and advice to small- to medium-sized businesses, supplementing any technical needs they may have, typically with an existing IT department. Most of Nimbus' clientele are in Spain but the also have some small clients in Latin America. While there are just two people on the payroll, Garcia added that they work closely with 3-5 freelancers on a regular basis and also collaborate with larger companies to fulfill the needs of their clients.
 

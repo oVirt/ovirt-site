@@ -75,13 +75,13 @@ The statistics can be reset by the command:
 
 ## pg_top tool
 
-**pg_top** allows to monitor PostgreSQL processes. The usage is similar to Unix top command for monitoring of OS processes. Instalation on Fedora:
+**pg_top** allows to monitor PostgreSQL processes. The usage is similar to Unix top command for monitoring of OS processes. Instalation on **Fedora**:
 
     # yum install pg_top
 
 Project site:
 
-*   <http://ptop.projects.pgfoundry.org/>
+*   <https://pg_top.gitlab.io/>
 
 Usage:
 

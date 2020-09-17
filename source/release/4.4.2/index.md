@@ -8,7 +8,7 @@ page_classes: releases
 
 # oVirt 4.4.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.2 Fifth Release Candidate as of August 26, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.2 release as of September 17, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -23,10 +23,6 @@ visit our [community page](/community/).
 All issues or bugs should be reported via
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
-
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
 the [Download](/download/) page.
@@ -38,17 +34,19 @@ For a general overview of oVirt, read the [About oVirt](/community/about.html)
 page.
 
 To learn about features introduced before 4.4.2, see the
-[release notes for previous versions](/documentation/#latest-release-notes).
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
-
+[release notes for previous versions](/documentation/#previous-release-notes).
 
 
 ## What's New in 4.4.2?
+
+### Release Note
+
+#### oVirt dependencies
+
+ - [BZ 1851092](https://bugzilla.redhat.com/1851092) **Package ovirt-engine missing java dependencies in a RPM**
+
+   ovirt-dependency package has been added to the oVirt distribution providing binary java dependencies previously bundled within oVirt Engine packages.
+
 
 ### Enhancements
 
@@ -198,9 +196,20 @@ Reason:
  - [BZ 1855761](https://bugzilla.redhat.com/1855761) **Web Admin interface broken on Firefox**
 
 
+#### oVirt Ansible hosted-engine setup role
+
+ - [BZ 1866956](https://bugzilla.redhat.com/1866956) **Hosted-Engine restore from backup and 4.4 upgrade fail if Blank template is set as HA**
+
+ - [BZ 1868571](https://bugzilla.redhat.com/1868571) **Failed to deploy HE over NFS storage  "FileNotFoundError: [Errno 2] No such file or directory"**
+
+
 ### Other
 
 #### VDSM
+
+ - [BZ 1875805](https://bugzilla.redhat.com/1875805) **Disk QoS not applied live (AttributeError: 'Drive' object has no attribute 'get')**
+
+   
 
  - [BZ 1855078](https://bugzilla.redhat.com/1855078) **KeyError with vlanned bridgeless default route networks**
 
@@ -222,16 +231,16 @@ Reason:
 
    
 
- - [BZ 1856065](https://bugzilla.redhat.com/1856065) **[Scale] While create snapshot to VM with 13Disks (Diff SDs) - "dictionary changed size during iteration"**
-
-   
-
  - [BZ 1779527](https://bugzilla.redhat.com/1779527) **During hosted engine deploy, vdsm log has: "Failed to connect to guest agent channel"**
 
    
 
 
 #### oVirt Engine
+
+ - [BZ 1874543](https://bugzilla.redhat.com/1874543) **[RHV 4.4] Can not login to RHV Manager "Warning alert:app_url domain differs from SSO_ENGINE_URL or SSO_ALTERNATE_ENGINE_FQDN domains"**
+
+   
 
  - [BZ 1866745](https://bugzilla.redhat.com/1866745) **Configure imageio backend http CA file**
 
@@ -322,13 +331,6 @@ Reason:
    
 
 
-#### oVirt dependencies
-
- - [BZ 1851092](https://bugzilla.redhat.com/1851092) **Package ovirt-engine missing java dependencies in a RPM**
-
-   
-
-
 #### ovirt-imageio
 
  - [BZ 1862107](https://bugzilla.redhat.com/1862107) **Image transfer via imageio proxy broken after replacing apache pki**
@@ -377,6 +379,13 @@ Reason:
    
 
 
+#### oVirt Engine NodeJS Modules
+
+ - [BZ 1862759](https://bugzilla.redhat.com/1862759) **Resolve CVE alerts on Github**
+
+   
+
+
 #### cockpit-ovirt
 
  - [BZ 1856630](https://bugzilla.redhat.com/1856630) **[day2] Warning pops up with expand cluster operation to use device with format /dev/mapper even with blacklist gluster devices enabled**
@@ -391,14 +400,7 @@ Reason:
 
    
 
-
-#### oVirt Ansible hosted-engine setup role
-
- - [BZ 1866956](https://bugzilla.redhat.com/1866956) **Hosted-Engine restore from backup and 4.4 upgrade fail if Blank template is set as HA**
-
-   
-
- - [BZ 1868571](https://bugzilla.redhat.com/1868571) **Failed to deploy HE over NFS storage  "FileNotFoundError: [Errno 2] No such file or directory"**
+ - [BZ 1862759](https://bugzilla.redhat.com/1862759) **Resolve CVE alerts on Github**
 
    
 
@@ -414,12 +416,20 @@ Reason:
 
 #### VDSM
 
+ - [BZ 1874807](https://bugzilla.redhat.com/1874807) **TPS result complaining about exiting symbolic link**
+
+   
+
  - [BZ 1859876](https://bugzilla.redhat.com/1859876) **imgbase check failed after register to engine**
 
    
 
 
 #### oVirt Engine
+
+ - [BZ 1877790](https://bugzilla.redhat.com/1877790) **lsm causes disk to change from RAW to QCOW2, but database is not updated**
+
+   
 
  - [BZ 1869302](https://bugzilla.redhat.com/1869302) **ansible 2.9.12 - host deploy fixes**
 
@@ -466,13 +476,6 @@ Reason:
    
 
 
-#### oVirt Engine Data Warehouse
-
- - [BZ 1846365](https://bugzilla.redhat.com/1846365) **Handle grafana in ovirt-engine-rename**
-
-   
-
-
 #### ovirt-engine-extension-aaa-ldap
 
  - [BZ 1778471](https://bugzilla.redhat.com/1778471) **Using more than one asterisk in LDAP search string is not working when searching for  AD users.**
@@ -482,11 +485,11 @@ Reason:
 
 #### Contributors
 
-50 people contributed to this release:
+51 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: vdsm)
-	Amit Bawer (Contributed to: vdsm)
+	Amit Bawer (Contributed to: ovirt-engine, vdsm)
 	Andrej Cernek (Contributed to: vdsm)
 	Anton Marchukov (Contributed to: ovirt-dependencies)
 	Arik Hadas (Contributed to: ovirt-engine)
@@ -516,13 +519,14 @@ Reason:
 	Martin Nečas (Contributed to: ovirt-ansible-infra, ovirt-ansible-repositories, ovirt-engine)
 	Martin Perina (Contributed to: ovirt-dependencies, ovirt-engine-extension-aaa-ldap, vdsm-jsonrpc-java)
 	Milan Zamazal (Contributed to: vdsm)
+	Nir Levy (Contributed to: imgbased)
 	Nir Soffer (Contributed to: ovirt-engine, ovirt-imageio, vdsm)
 	Orcun Atakan (Contributed to: ovirt-ansible-infra)
 	Ori Liel (Contributed to: ovirt-engine)
 	Parth Dhanjal (Contributed to: cockpit-ovirt)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions)
 	Ritesh Chikatwar (Contributed to: ovirt-engine)
-	Sandro Bonazzola (Contributed to: ovirt-ansible-shutdown-env, ovirt-dependencies, ovirt-engine, vdsm-jsonrpc-java, wix-toolset-binaries)
+	Sandro Bonazzola (Contributed to: imgbased, ovirt-ansible-shutdown-env, ovirt-dependencies, ovirt-engine, vdsm-jsonrpc-java, wix-toolset-binaries)
 	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shani Leviim (Contributed to: ovirt-engine)
 	Sharon Gratch (Contributed to: ovirt-engine, ovirt-engine-ui-extensions, ovirt-web-ui)

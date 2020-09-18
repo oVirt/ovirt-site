@@ -1,7 +1,7 @@
 // Warning: Changing these attribute definitions is very likely to
 // break links throughout our doc set.
 // Carefully analyze, test, and peer review all changes to this file!
-:vernum_rhv: 4.4-beta
+:vernum_rhv: 4.4
 :vernum_rhv_legacy: 4.3
 :vernum_satellite: 6.5
 :vernum_rhel: 8.0

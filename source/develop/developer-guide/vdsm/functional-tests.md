@@ -65,7 +65,7 @@ Not needed.
 
 *   Install the latest GlusterFS RPMs.
 
-You can download the .repo file to /etc/yum.repos.d from the [GlusterFS official site](http://download.gluster.org/pub/gluster/glusterfs/qa-releases/3.4.0alpha/).
+You can download the .repo file to /etc/yum.repos.d from the [GlusterFS official site](https://download.gluster.org/pub/gluster/glusterfs/).
 
 *   Start glusterd system service
 *   Setup testing volume

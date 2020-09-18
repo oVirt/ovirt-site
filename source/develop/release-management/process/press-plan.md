@@ -9,7 +9,7 @@ News and Review contacts who cover virtualization:
 
 ## Reviews
 
-Paul Venezia, Infoworld <http://www.infoworld.com/author-bios/paul-venezia>
+Paul Venezia, Infoworld <https://www.infoworld.com/author/Paul-Venezia/>
 
 Paul Ferrill, Serverwatch <http://www.serverwatch.com/author/Paul-Ferrill-3660.htm>
 
@@ -17,7 +17,7 @@ Frank Ohlhorst, eWEEK, TechTarget, others <http://www.eweek.com/cp/bio/Frank-Ohl
 
 Michael Otey, WindowsITPro <http://www.windowsitpro.com/author/5030568/MichaelOtey>
 
-Keith Schultz, InfoWorld <http://www.infoworld.com/author-bios/keith-schultz>
+Keith Schultz, InfoWorld (needs to be verified if still valid)
 
 Rick Vanover, Virtualization Review <http://virtualizationreview.com/Blogs/Everyday-Virtualization/List/Blog-List.aspx>
 
@@ -43,13 +43,13 @@ Derrick Harris, GigaOm <http://gigaom.com/author/dharrisstructure/>
 
 Cade Metz, Wired Enterprise <http://www.wired.com/wiredenterprise/author/cade_metz/>
 
-Dave Greenfield, NetworkWorld (works for silver peak) <http://www.networkworld.com/community/user/26141>
+Dave Greenfield, NetworkWorld (works for silver peak) <https://www.networkworld.com/author/Dave-Greenfield/>
 
-David Marshall, InfoWorld <http://www.infoworld.com/author-bios/david-marshall>
+David Marshall, InfoWorld (needs to be verified if still valid)
 
 Bert Latamore, Services Angle <http://servicesangle.com/blog/author/bertlatamore/>
 
-Scott Fulton, Read Write Web <http://www.readwriteweb.com/cloud/author/scott-fulton.php>
+Scott Fulton, Read Write Web <https://readwrite.com/author/scott-fulton/>
 
 Bruce Hoard, Virtualization Review <http://virtualizationreview.com/Blogs/The-Hoard-Facts/List/Blog-List.aspx>
 
@@ -65,23 +65,23 @@ Robert McMillan, Wired Enterprise <http://www.wired.com/wiredenterprise/author/b
 
 Doug Barney, Virtualization Review <http://virtualizationreview.com/Blogs/Doug-on-Cloud/List/Blog-List.aspx>
 
-Ashlee Vance, Businessweek <http://www.businessweek.com/authors/283-ashlee-vance>
+Ashlee Vance, Businessweek <https://twitter.com/valleyhack>
 
-Eric Knorr, InfoWorld <http://www.infoworld.com/author-bios/eric-knorr>
+Eric Knorr, InfoWorld <https://www.infoworld.com/author/Eric-Knorr/>
 
 Robert Mullins, InformationWeek <http://www.informationweek.com/authors/7032>
 
 Brandon Butler, Network World <http://www.networkworld.com/Home/bbutler.html>
 
-Chris Talbot, Network Computing <http://www.networkcomputing.com/sitesearch?sort=publishDate+desc&queryText=Chris+Talbot>
+Chris Talbot, Network Computing (needs to be verified if still valid)
 
 Elias Khnaser, Virtualization Review <http://virtualizationreview.com/Blogs/Virtual-Insider/List/Blog-List.aspx>
 
-Dan Kusnetzky, ZDNet <http://www.zdnet.com/meet-the-team/us/dan.kusnetzky/>
+Dan Kusnetzky, ZDNet <https://www.zdnet.com/meet-the-team/us/dan-kusnetzky/>
 
-Howard Marks, Network Computing <http://www.networkcomputing.com/blogs/author/6607>
+Howard Marks, Network Computing <https://www.networkcomputing.com/author/howard-marks>
 
-Nancy Gohring, PC World <http://www.pcworld.com/author/Nancy-Gohring>
+Nancy Gohring, PC World (needs to be verified if still valid)
 
 # Analysts/commentators
 

@@ -19,10 +19,6 @@ date: 2016-11-30 14:51:34+01:00
 | 2017-02-01 | oVirt 4.1 GA Release                                     |
 
 
-## oVirt Live
-
-Latest nightly iso is available here: <http://jenkins.ovirt.org/job/ovirt-live_master_create-iso-el7-x86_64/>
-
 ## Translation Status
 
 Translations are handled by Zanata. You can join the translators team and see current translation status here:

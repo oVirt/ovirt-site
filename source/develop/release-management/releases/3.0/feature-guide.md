@@ -7,7 +7,7 @@ authors: jbrooks
 
 # oVirt 3.0 Feature Guide
 
-(adapted from [RHEV 3.0 feature guide](http://www.redhat.com/resourcelibrary/datasheets/RHEV-3.0-FeatureGuide))
+(adapted from RHEV 3.0 feature guide)
 
 oVirt is a complete virtualization management platform, licensed and developed as open source software. oVirt builds on the powerful Kernel-based Virtual Machine (KVM) hypervisor, and on the RHEV-M management server released by Red Hat to the open source community.
 

@@ -64,8 +64,8 @@ passwd user
     java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin port-allocator
     ```
 
-11. Config `JAVA_HOME` in <http://jenkins.ovirt.org/configure>
-12. Config default maven in <http://jenkins.ovirt.org/configure>
+11. Config `JAVA_HOME` in  [Jenkins > configuration](https://jenkins.ovirt.org/configure){:data-proofer-ignore=''}
+12. Config default maven in [Jenkins > configuration](https://jenkins.ovirt.org/configure){:data-proofer-ignore=''}
 13. Edit `/etc/sysconfig/jenkins` (replace line):
 
     ```

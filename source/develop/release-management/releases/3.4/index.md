@@ -11,7 +11,7 @@ oVirt is an open source alternative to VMware vSphere, and provides an excellent
 
 To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.3 release notes](/develop/release-management/releases/3.3/),
 [oVirt 3.2 release notes](/develop/release-management/releases/3.2/) and [oVirt 3.1 release notes](/develop/release-management/releases/3.1/).
-For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide) and the [about oVirt](/community/about.html) page.
+For a general overview of oVirt, read [the oVirt 3.0 feature guide](/develop/release-management/releases/3.0/feature-guide.html) and the [about oVirt](/community/about.html) page.
 
 # oVirt 3.4 Release Notes
 
@@ -114,7 +114,7 @@ If the above command doesn't work for you, try using a distribution-specific nam
           # yum update ovirt-release-fedora
 
 *   **Note:** On CentOS and RHEL you'll need also [EPEL](http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm) repositories enabled.
-*   **Note:** On CentOS and RHEL for DWH you'll need also [jpackage 6](http://mirrors.dotsrc.org/jpackage/6.0/generic/free/RPMS/jpackage-release-6-3.jpp6.noarch.rpm) repositories enabled.
+*   **Note:** On CentOS and RHEL for DWH you'll need also [jpackage 6](http://mirrors.ibiblio.org/jpackage/6.0/generic/RPMS.free/jpackage-release-6-3.jpp6.noarch.rpm) repositories enabled.
 *   **Note:** On Fedora 19 you'll need to enable fedora-updates repository for having updated openstack packages (was in fedora-updates-testing until Jan 23th - you might want to run 'yum clean all').
 *   **Note:** On Fedora 19, you'll need to enable fedora-virt-preview repository for using Fedora 19 as node on 3.4 clusters.
 
@@ -185,14 +185,14 @@ will upgrade to latest 3.3.
 # <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Known Issues
 
 <div  id="mw-customcollapsible-0" class="mw-collapsible mw-collapsed">
-*   EL >= 6.5 or cloud-init >= 0.7.2 are needed for cloud-init feature support ()
+*   EL >= 6.5 or cloud-init >= 0.7.2 are needed for cloud-init feature support
 *   All-in-one requires fedora-virt-preview repository
-*   For using Fedora 19 as node on 3.4 clusters you need to enable fedora-virt-preview repository ()
+*   For using Fedora 19 as node on 3.4 clusters you need to enable fedora-virt-preview repository
 *   Node needs to be booted in permissive mode by appending `enforcing=0` to the kernel command line.
-*   Fedora 20 does not work as an engine ()
-*   engine-setup: upgrade from 3.3 overwrites exports with acl None ()
-*   Hosts with Fedora 19 might not be able to discover iscsi targets due to (), it's recommended to update selinux and selinux-target packages to version [3.12.1-74.19](https://admin.fedoraproject.org/updates/selinux-policy-3.12.1-74.19.fc19)
-*   Host deployment may fail on EL6 system due to a recently tuned regression (, ). Please downgrade tuned to previous version while waiting for a new tuned package to solve this issue.
+*   Fedora 20 does not work as an engine
+*   engine-setup: upgrade from 3.3 overwrites exports with acl None
+*   Hosts with Fedora 19 might not be able to discover iscsi targets due to, it's recommended to update selinux and selinux-target packages to version 3.12.1-74.19
+*   Host deployment may fail on EL6 system due to a recently tuned regression. Please downgrade tuned to previous version while waiting for a new tuned package to solve this issue.
 
 </div>
 # <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed

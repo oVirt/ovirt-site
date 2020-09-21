@@ -82,7 +82,7 @@ The oVirt Guest Tools relies on the following dependencies:
 * VirtIO-Win drivers: <http://secondary.fedoraproject.org/pub/alt/virtio-win/latest/>
 * Spice drivers and agent From: <http://www.spice-space.org/download/binaries/spice-guest-tools/>
 * Spice QXL for 32 and 64 bit Windows: <https://www.spice-space.org/download/windows/qxl/qxl-0.1-24/>
-* oVirt Guest Agent: <http://gerrit.ovirt.org/ovirt-guest-agent>
+* oVirt Guest Agent: <https://gerrit.ovirt.org/gitweb?p=ovirt-guest-agent.git;a=summary>
 
 ## Documentation / External references
 

@@ -13,7 +13,8 @@ feature_status: WIP
 
 ### Summary
 
-This feature will provide a more convenient way to deploy oVirt self-hosted-engine creating the engine VM from a pre-installed appliance to be configured on fly. This can save a lot time and make the setup easier.
+This feature will provide a more convenient way to deploy oVirt self-hosted-engine creating the engine VM from a pre-installed appliance to be configured on fly.
+This can save a lot time and make the setup easier.
 
 ### Owner
 
@@ -50,10 +51,10 @@ The whole process could take a few minutes (excluding initial download time).
 
 ### Dependencies / Related Features
 
-The appliance jobs need to provide the correct images. Both OVA and RPM (the rpm is simply a wrapper for the OVA) could be download from: 
-  <http://jenkins.ovirt.org/job/ovirt-appliance_ovirt-3.6_build-artifacts-el7-x86_64/lastSuccessfulBuild/>
+The appliance jobs need to provide the correct images.
 
-The RPM is also available in the oVirt repo: the user could simply install them via yum and hosted-engine-setup should automatically detect them. __NOTE:__ The installation may take some time due to the size of the RPM.
+The RPM is available in the oVirt repo: the user could simply install them via yum and hosted-engine-setup should automatically detect them.
+__NOTE:__ The installation may take some time due to the size of the RPM.
 
 `[root@hostedEngine] yum install ovirt-engine-appliance`
 
@@ -459,7 +460,7 @@ On each run hosted-engine-setup will generate its corresponded answerfile; pleas
 If you are going to test is using a virtual machine for the host creating a nested virtual machine for the engine VM, please:
 
 *   Enable nested virtualization on the external hypervisor
-*   Disable no-mac-spoof filter on the external hypervisor; if you are using oVirt as your external hypervisor, you can proceed following this instructions: <https://github.com/oVirt/vdsm/tree/master/vdsm_hooks/macspoof>
+*   Disable no-mac-spoof filter on the external hypervisor; if you are using oVirt as your external hypervisor
 
 ### Contingency Plan
 

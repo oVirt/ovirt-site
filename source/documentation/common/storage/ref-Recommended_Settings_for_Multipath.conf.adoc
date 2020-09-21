@@ -1,4 +1,4 @@
-[id='ref-Recommended_Settings_for_Multipath.conf_{context}']
+[id='ref-Recommended_Settings_for_Multipath_conf_{context}']
 = Recommended Settings for Multipath.conf
 
 When overriding `/etc/multipath.conf`, Do not override the following settings:

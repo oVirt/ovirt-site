@@ -11,8 +11,8 @@ Upgrading Virtual Desktop and Server Manager (VDSM)  overwrites the `/etc/multip
 .Prerequisites
 
 * This topic only applies to systems that have been configured to use multipath connections storage domains, and therefore have a `/etc/multipath.conf` file.
-* Do not override the `user_friendly_names` and `find_multipaths` settings. For more information, see xref:ref-Recommended_Settings_for_Multipath.conf_{context}[]
-* Avoid overriding `no_path_retry` and `polling_interval` unless required by the storage vendor. For more information, see xref:ref-Recommended_Settings_for_Multipath.conf_{context}[]
+* Do not override the `user_friendly_names` and `find_multipaths` settings. For more information, see xref:ref-Recommended_Settings_for_Multipath_conf_{context}[]
+* Avoid overriding `no_path_retry` and `polling_interval` unless required by the storage vendor. For more information, see xref:ref-Recommended_Settings_for_Multipath_conf_{context}[]
 
 .Procedure
 

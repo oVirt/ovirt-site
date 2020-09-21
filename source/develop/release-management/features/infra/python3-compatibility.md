@@ -27,7 +27,7 @@ To help us achieve that, this page will keep links to some useful resources and 
 
 *   [Making C Python modules 2.x and 3.x compatible with a bit of ifdefing.](http://docs.python.org/3/howto/cporting.html)
 *   [Book on Python3 porting (opened at the C Python modules section).](http://python3porting.com/cextensions.html)
-*   [Six: Python 2 and 3 helper library.](http://pythonhosted.org/six/)
+*   [Six: Python 2 and 3 helper library.](https://pypi.org/project/six/)
 *   [Great blog post about single codebase for the versions we want to support (MUST READ).](http://lucumr.pocoo.org/2013/5/21/porting-to-python-3-redux/)
 
 ## Status (Feel free to add components/dependencies that should be ported)

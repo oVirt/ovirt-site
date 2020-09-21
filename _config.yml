@@ -138,6 +138,7 @@ exclude:
   - documentation/administration_guide/appe*
   - documentation/administration_guide/chap*
   - documentation/administration_guide/part*
+  - documentation/upgrade_guide/chap-*
 
 sass:
   add_charset: true

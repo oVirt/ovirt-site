@@ -12,7 +12,7 @@ This feature covers the migration of all the network related functionality to us
 
 ## Owner
 
-*   Feature owner: Mike Burns <mburns@redhat.com> (?)
+*   Feature owner: Mike Burns <mburns@redhat.com>
 
 ## Current status
 
@@ -48,9 +48,9 @@ This migration ensures that Node can still be based on Fedora and doesn't need m
     -   F9 Feature: <http://fedoraproject.org/wiki/Releases/FeatureMoreNetworkManager>
     -   <http://fedoraproject.org/wiki/Tools/NetworkManager>
 *   GNOME
-    -   <https://live.gnome.org/NetworkManagerConfiguration>
+    -   <https://wiki.gnome.org/Projects/NetworkManager>
 
 ## Comments and Discussion
 
-*   Mailinglist: node-devel@ovirt.org
+*   Mailinglist: devel@ovirt.org
 

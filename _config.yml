@@ -139,6 +139,8 @@ exclude:
   - documentation/administration_guide/chap*
   - documentation/administration_guide/part*
   - documentation/upgrade_guide/chap-*
+  - documentation/intro-vm-portal/topics
+  - documentation/intro-vm-portal/chap*
 
 sass:
   add_charset: true

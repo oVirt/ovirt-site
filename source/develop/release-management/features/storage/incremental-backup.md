@@ -228,10 +228,20 @@ Response:
 
 #### Starting full backup
 
-Start full backup. The response phase indicates that the backup is `"initializing"`.
-You need to poll the backup until the phase is `"ready"`. 
+Start a full backup.
+The response will include the following fields:
+- phase: the current phase of the backup.
+- disks: link to the disks that participate in the backup.
+         Each disk will contain a field called `backup_mode` that will indicate on
+         the type of backup that was taken for the disk.
+- creation_date: the date when the backup was created.
+- to_checkpoint_id: the ID of the checkpoint that was created during the backup.
+
+If the phase indicates that the backup is `"initializing"`,
+you need to poll the backup until the phase is `"ready"`.
 Once the backup is ready the response will include `<to_checkpoint_id>` which
 should be used as the `<from_checkpoint_id>` in the next incremental backup.
+When starting a full backup, the `backup_mode` for all the disks will be `full` (`backup_mode="full"`)
 
 Request:
 ```
@@ -248,11 +258,7 @@ POST /vms/vm-uuid/backups
 Response:
 ```
 <backup id="backup-uuid">
-    <disks>
-        <disk id="disk-uuid" />
-        ...
-        ...
-    </disks>
+    <link href="/ovirt-engine/api/vms/vm-uuid/backups/backup-uuid/disks" rel="disks"/>
     <phase>initiailizing</phase>
     <creation_date>
 </backup>
@@ -266,12 +272,18 @@ You need to poll the backup until the phase is `"ready"`.
 Once the backup is ready the response will include `<to_checkpoint_id>` which
 should be used as the `<from_checkpoint_id>` in the next incremental backup.
 
+In case of starting an incremental backup which includes disks that weren't part
+of the given `<from_checkpoint_uuid>`, or new disks that were attached
+to the VM after the given `<from_checkpoint_uuid>` was taken, the system will detect
+those disks and a full backup will be taken for them (`backup_mode="full"`).
+The `backup_mode` for the rest of the the disks will be `incremental` (`backup_mode="incremental"`).
+
 Request:
 ```
 POST /vms/vm-uuid/backups
 
 <backup>
-    <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
+    <from_checkpoint_id>previous-checkpoint-ucouid</from_checkpoint_id>
     <disks>
         <disk id="disk-uuid" />
         ...
@@ -283,11 +295,7 @@ Response:
 ```
 <backup id="backup-uuid">
     <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
-    <disks>
-        <disk id="disk-uuid" />
-        ...
-        ...
-    </disks>
+    <link href="/ovirt-engine/api/vms/vm-uuid/backups/backup-uuid/disks" rel="disks"/>
     <phase>initiailizing</phase>
     <creation_date>
 </backup>
@@ -311,7 +319,7 @@ Response:
     <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
     <to_checkpoint_id>new-checkpoind-uuid</to_checkpoint_id>
     <disks>
-        <disk id="disk-uuid">
+        <disk id="disk-uuid" backup_mode="incremental">
             <image_id>image-uuid</image_id>
         </disk>
         ...
@@ -429,6 +437,26 @@ DELETE /vms/vm-uuid/checkpoints/checkpoint-uuid/
 
 ### imageio backup API
 
+#### Disks backup_mode
+
+Before downloading the data, the user must check if incremental
+backup is available for a particular disk. If the system can provide
+incremental backup data for a disk, the disk `backup_mode` will be
+`incremetnal`. in this case the user can start an image transfer,
+download the backup using dirty extents to preform incremental backup.
+
+If the system cannot provide `incremetnal` backup data for a disk, the
+disk backup_mode will be `full`. The user can start an image
+transfer and download the backup using data and zero ranges to perform
+`full` backup of this disk. The next backup for this disk can be incremental.
+
+The system cannot provide incremental backup when:
+- adding a new disk to a VM
+- adding existing disk to a backup, which was not included in a
+  previous backup specified by the `<from_checkpoint_uuid>`
+- the system find that persistent dirty bitmaps are missing on
+  storage
+
 #### Map request
 
 Get map of zeros and data ranges on storage.
@@ -495,6 +523,16 @@ compared to the stored checkpoints on engine database. If a bitmap is
 missing in the image, or unknown bitmap exist, all the checkpoints on
 the disk and engine database must be deleted, and the current backup
 must be a full backup.
+
+### Setting the disks backup_mode before starting an incremental backup
+
+Before starting an incremental backup, the system will validate that all
+the disks that participate in the incremental backup already backed-up in
+in the given checkpoint ID. For disks which are part of the given checkpoint ID
+the backup mode will be `incremental`, if the disks are not part of the given
+checkpoint, the backup mode will be `full`.
+Also, if the Engine cannot synchronize the checkpoints with libvirt, all disks
+will be marked as `backup_mode=full`.
 
 ### Incremental backup pipeline
 
@@ -640,8 +678,8 @@ backups tasks. Use during backup to track and montior backup.
   - vm_id: UUID
   - creation_date: TIMESTAMP
 
-Add vm_backup_disk_map table. This table keeps the backup url for every
-disk. This url will be used instead of the image path on the host when
+Add vm_backup_disk_map table. This table keeps the backup url and the backup mode
+for every disk. The url will be used instead of the image path on the host when
 creating an image transfer for a disk.
 
 - vm_backup_disk_map
@@ -787,17 +825,11 @@ socket:
 - Are bitmaps copied in block copy during LSM for the active layer?
   If not the next backup must be full (libvirt/qemu).
 
-- How to handle hot plug disk? can we continue to track changes on a
-  detached disk, or we should require a full backup in this case (libvirt)?
-
 - Attaching disk with bitmaps to older qemu version will invalidate
   bitmaps, creating corrupted backups. how can we prevent this? (qemu).
 
 - Are bitmaps are copied down from the active layer during live merge
   (libvirt/qemu) and cold merge (qemu-img)?
-
-- Need libvirt API to list all bitmaps in an image in a running VM
-  (libvirt).
 
 - Do we need also qemu-img API to list all bitmaps in an image for
   managing bitmaps in floating disks?

@@ -15,7 +15,6 @@ The following issues will be covered
 * [Postgres](/develop/developer-guide/db-issues/postgres.html)
 * [Postgresql changing db pass](/develop/developer-guide/db-issues/postgresql-changing-db-pass.html)
 * [psql and pgadmin3](/develop/developer-guide/db-issues/psql.html)
-* [DB Model](/develop/developer-guide/db-issues/db-model.html)
 * [DB Structure](/develop/developer-guide/db-issues/dbstructure.html)
 * [DB Scripts](/develop/developer-guide/db-issues/dbscripts.html)
 * [DB Upgrade](/develop/developer-guide/db-issues/dbupgrade.html)

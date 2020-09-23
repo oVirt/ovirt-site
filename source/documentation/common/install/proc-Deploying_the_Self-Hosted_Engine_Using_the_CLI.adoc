@@ -228,7 +228,7 @@ Please specify the full shared storage connection path to use (example: host:/pa
 If needed, specify additional mount options for the connection to the hosted-engine storage domain []:
 ----
 +
-* For Fibre Channel, select a LUN from the auto-detected list. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Reusing LUNs] in the _Administration Guide_.
+* For Fibre Channel, select a LUN from the auto-detected list. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see link:{URL_virt_product_docs}administration_guide/index.html[Reusing LUNs] in the _Administration Guide_.
 +
 ----
 The following luns have been found on the requested target:
@@ -249,7 +249,7 @@ Please specify the size of the VM disk in GB: [50]:
 +
 When the deployment completes successfully, one data center, cluster, host, storage domain, and the {engine-name} virtual machine are already running. You can log in to the Administration Portal to add any other resources.
 +
-. Optionally, add a directory server using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script so you can add additional users to the environment. For more information, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Configuring an External LDAP Provider] in the _Administration Guide_.
+. Optionally, add a directory server using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script so you can add additional users to the environment. For more information, see link:{URL_virt_product_docs}administration_guide/index.html[Configuring an External LDAP Provider] in the _Administration Guide_.
 
 The {engine-name} virtual machine, the host running it, and the self-hosted engine storage domain are flagged with a gold crown in the Administration Portal.
 

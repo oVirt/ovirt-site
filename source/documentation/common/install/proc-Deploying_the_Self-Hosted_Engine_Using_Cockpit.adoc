@@ -66,7 +66,7 @@ To specify more than one iSCSI target, you must enable multipathing before deplo
 .. Enter the *Disk Size (GiB)*.
 .. Enter the *Discovery Username* and *Discovery Password*.
 * For Fibre Channel:
-.. Enter the *LUN ID*. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Reusing LUNs] in the _Administration Guide_.
+.. Enter the *LUN ID*. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see link:{URL_virt_product_docs}administration_guide/index.html[Reusing LUNs] in the _Administration Guide_.
 .. Enter the *Disk Size (GiB)*.
 * For {gluster-storage-fullname}:
 .. Enter the full address and path to the storage in the *Storage Connection* field.
@@ -77,6 +77,6 @@ To specify more than one iSCSI target, you must enable multipathing before deplo
 . When the deployment is complete, click *Close*.
 +
 One data center, cluster, host, storage domain, and the {engine-name} virtual machine are already running. You can log in to the Administration Portal to add further resources.
-. Optionally, add a directory server using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script so you can add additional users to the environment. For more information, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Configuring an External LDAP Provider] in the _Administration Guide_.
+. Optionally, add a directory server using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script so you can add additional users to the environment. For more information, see link:{URL_virt_product_docs}administration_guide/index.html[Configuring an External LDAP Provider] in the _Administration Guide_.
 
 The self-hosted engine's status is displayed in Cockpit's menu:Virtualization[Hosted Engine] tab. The {engine-name} virtual machine, the host running it, and the self-hosted engine storage domain are flagged with a gold crown in the Administration Portal.

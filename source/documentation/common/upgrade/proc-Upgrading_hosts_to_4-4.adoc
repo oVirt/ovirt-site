@@ -19,8 +19,8 @@ This process requires migrating all virtual machines off of one host so as to ma
 
 .Procedure
 
-. Pick a host to upgrade and migrate that host's virtual machines to another host in the same 4.3 cluster. You can use Live Migration to minimize virtual machine down-time. For more information, see
-link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#sect-Migrating_Virtual_Machines_Between_Hosts[Migrating Virtual Machines Between Hosts] in one of the _Installing {virt-product-fullname}_ guides for more information.
+. Pick a host to upgrade and migrate that host's virtual machines to another host in the same 4.3 cluster. You can use Live Migration to minimize virtual machine down-time.
+// For more information, see link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#sect-Migrating_Virtual_Machines_Between_Hosts[Migrating Virtual Machines Between Hosts] in one of the _Installing {virt-product-fullname}_ guides for more information.
 
 . Install {enterprise-linux} 8.2 or later, or {hypervisor-shortname} 4.4. For more information, see link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_localDB_deploy[Installing Hosts for {virt-product-fullname}] in one of the _Installing {virt-product-fullname}_ guides for more information.
 

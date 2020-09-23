@@ -5,8 +5,9 @@ A storage domain must be in maintenance mode before it can be detached and remov
 
 [IMPORTANT]
 ====
-You cannot move a storage domain into maintenance mode if a virtual machine has a lease on the storage domain. The virtual machine needs to be shut down, or the lease needs to be to removed or moved to a different storage domain first. See the link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#What_is_high_availability[_Virtual Machine Management Guide_] for information about virtual machine leases.
+You cannot move a storage domain into maintenance mode if a virtual machine has a lease on the storage domain. The virtual machine needs to be shut down, or the lease needs to be to removed or moved to a different storage domain first. 
 ====
+// See the link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#What_is_high_availability[_Virtual Machine Management Guide_] for information about virtual machine leases.
 
 Expanding iSCSI domains by adding more LUNs can only be done when the domain is active.
 

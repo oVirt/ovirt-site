@@ -130,7 +130,7 @@ If you replaced the {virt-product-fullname} {engine-name} SSL Certificate after 
 # names="engine websocket-proxy jboss imageio-proxy"
 ----
 +
-For more details see link:{URL_virt_product_docs}html/administration_guide/appe-red_hat_enterprise_virtualization_and_ssl#Replacing_the_Manager_CA_Certificate[Replacing the {virt-product-fullname} {engine-name} CA Certificate] in the _Administration Guide_.
+For more details see link:{URL_virt_product_docs}/administration_guide/index.html#Replacing_the_Manager_CA_Certificate[Replacing the {virt-product-fullname} {engine-name} CA Certificate] in the _Administration Guide_.
 
 ifdef::SHE_upgrade[]
 .	Log in to one of the self-hosted engine nodes and enable global maintenance:

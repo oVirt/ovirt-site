@@ -35,7 +35,7 @@ To configure the *Memory Optimization* setting, click the *Optimization* tab in 
 
 Additional comments:
 
-* The link:{URL_virt_product_docs}data-warehouse/Data_Warehouse_Guide.html#Host_hourly_and_daily_history_views[Host Statistics views] display useful historical information for sizing the overcommitment ratio.
+// * The link:{URL_virt_product_docs}data-warehouse/Data_Warehouse_Guide.html#Host_hourly_and_daily_history_views[Host Statistics views] display useful historical information for sizing the overcommitment ratio.
 * The actual memory available cannot be determined in real time because the amount of memory optimization achieved by KSM and memory ballooning changes continuously.
 * When virtual machines reach the virtual memory limit, new apps cannot start.
 * When you plan the number of virtual machines to run on a host, use the maximum virtual memory (physical memory size and the *Memory Optimization* setting) as a starting point. Do not factor in the smaller virtual memory achieved by memory optimizations such as memory ballooning and KSM.

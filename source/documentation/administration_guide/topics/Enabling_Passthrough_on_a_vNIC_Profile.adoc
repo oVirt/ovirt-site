@@ -18,9 +18,10 @@ For more information on SR-IOV, direct device assignment, and the hardware consi
 . Click *New*.
 . Enter the *Name* and *Description* of the profile.
 . Select the *Passthrough* check box.
-. Optionally deselect the *Migratable* check box to disable migration for vNICs using this profile. If you keep this check box selected, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Live_migration_prerequisites[Additional Prerequisites for Virtual Machines with SR-IOV-Enabled vNICs] in the _Virtual Machine Management Guide_.
+. Optionally deselect the *Migratable* check box to disable migration for vNICs using this profile. If you keep this check box selected, see link:{URL_downstream_virt_product_docs}html-single/virtual_machine_management_guide/#Live_migration_prerequisites[Additional Prerequisites for Virtual Machines with SR-IOV-Enabled vNICs] in the _Virtual Machine Management Guide_.
 . If necessary, select a custom property from the custom properties list, which displays *Please select a key...* by default. Use the *+* and *-* buttons to add or remove custom properties.
 . Click *OK*.
 
 
-The vNIC profile is now passthrough-capable. To use this profile to directly attach a virtual machine to a NIC or PCI VF, attach the logical network to the NIC and create a new *PCI Passthrough* vNIC on the desired virtual machine that uses the passthrough vNIC profile. For more information on these procedures respectively, see xref:Editing_host_network_interfaces[], and link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Adding_a_Network_Interface[Adding a New Network Interface] in the _Virtual Machine Management Guide_.
+The vNIC profile is now passthrough-capable. To use this profile to directly attach a virtual machine to a NIC or PCI VF, attach the logical network to the NIC and create a new *PCI Passthrough* vNIC on the desired virtual machine that uses the passthrough vNIC profile. For more information on these procedures respectively, see xref:Editing_host_network_interfaces[]
+//, and link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Adding_a_Network_Interface[Adding a New Network Interface] in the _Virtual Machine Management Guide_.

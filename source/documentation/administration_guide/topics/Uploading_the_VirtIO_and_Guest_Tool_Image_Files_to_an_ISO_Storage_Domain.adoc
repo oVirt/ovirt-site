@@ -48,10 +48,10 @@ The above symbolic links refer to files with versions in their names. When copyi
 . Attach the image files to virtual machines.
 
 The virtual machines can now use the virtio drivers and guest tools.
-
+////
 For information on attaching the image files to a virtual machine, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.htmlindex#Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_.
 
-////
+
 .Uploading the VirtIO and Guest Tool Image Files
 ====
 This example demonstrates the commands to install and upload these image files to the iso domain named `ISODomain`.

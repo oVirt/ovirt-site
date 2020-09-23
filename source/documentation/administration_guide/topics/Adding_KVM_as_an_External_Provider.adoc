@@ -43,4 +43,4 @@ qemu+ssh://root@host.example.com/system
 . Click *Test* to test whether you can authenticate successfully with the KVM host using the provided credentials.
 . Click *OK*.
 
-To import virtual machines from a KVM external provider, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Importing_a_Virtual_Machine_from_KVM[Importing a Virtual Machine from a KVM Host] in the _Virtual Machine Management Guide_.
+// To import virtual machines from a KVM external provider, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Importing_a_Virtual_Machine_from_KVM[Importing a Virtual Machine from a KVM Host] in the _Virtual Machine Management Guide_.

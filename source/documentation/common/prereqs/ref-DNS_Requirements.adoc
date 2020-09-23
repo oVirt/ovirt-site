@@ -32,6 +32,7 @@ The specific port number depends on the type of the fence agent you are using an
 
 The firewall requirement tables in the following sections do not represent this option.
 
-.Metrics Store, Kibana, and ElasticSearch
+// .Metrics Store, Kibana, and ElasticSearch
 
-For Metrics Store, Kibana, and ElasticSearch, see link:{URL_virt_product_docs}metrics-install-guide/metrics_store_installation_guide.html#Network_configuration_for_metrics_store_virtual_machines[Network Configuration for Metrics Store virtual machines].
+// For Metrics Store, Kibana, and ElasticSearch, see link:{URL_virt_product_docs}metrics-install-guide/metrics_store_installation_guide.html#Network_configuration_for_metrics_store_virtual_machines[Network Configuration for Metrics Store virtual machines].
+ 

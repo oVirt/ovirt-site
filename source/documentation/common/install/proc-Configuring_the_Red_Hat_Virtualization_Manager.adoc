@@ -101,7 +101,8 @@ endif::SM_remoteDB_deploy[]
 ----
 Configure VM Console Proxy on this host (Yes, No) [Yes]:
 ----
-Additional configuration is required on the client machine to use this feature. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Opening_a_Serial_Console_to_a_Virtual_Machine[Opening a Serial Console to a Virtual Machine] in the _Virtual Machine Management Guide_.
+Additional configuration is required on the client machine to use this feature.
+// See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Opening_a_Serial_Console_to_a_Virtual_Machine[Opening a Serial Console to a Virtual Machine] in the _Virtual Machine Management Guide_.
 
 . Press `Enter` to accept the automatically detected host name, or enter an alternative host name and press `Enter`. Note that the automatically detected host name may be incorrect if you are using virtual hosts.
 +
@@ -280,7 +281,7 @@ Please choose Data Warehouse sampling scale:
 (2) Full
 (1, 2)[1]:
 ----
-`Full` uses the default values for the data storage settings listed in the link:{URL_virt_product_docs}data-warehouse/Data_Warehouse_Guide.html#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file[_Data Warehouse Guide_] (recommended when Data Warehouse is installed on a remote server).
+`Full` uses the default values for the data storage settings listed in the link:{URL_downstream_virt_product_docs}html-single/data_warehouse_guide/#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file[_Data Warehouse Guide_] (recommended when Data Warehouse is installed on a remote server).
 +
 `Basic` reduces the values of `DWH_TABLES_KEEP_HOURLY` to `720` and `DWH_TABLES_KEEP_DAILY` to `0`, easing the load on the {engine-name} machine. Use `Basic` when the {engine-name} and Data Warehouse are installed on the same machine.
 endif::SM_localDB_deploy[]

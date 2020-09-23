@@ -49,7 +49,7 @@ Configure Engine on this host (Yes, No) [Yes]:
 +
 [IMPORTANT]
 ====
-Also see the "Next steps" in link:{URL_virt_product_docs}admin-guide/administration-guide.html[Adding Open Virtual Network (OVN) as an External Network Provider] in the _Administration Guide_.
+Also see the "Next steps" in link:{URL_virt_product_docs}administration_guide/index.html[Adding Open Virtual Network (OVN) as an External Network Provider] in the _Administration Guide_.
 ====
 +
 [options="nowrap" subs="normal"]
@@ -57,7 +57,7 @@ Also see the "Next steps" in link:{URL_virt_product_docs}admin-guide/administrat
 Configure ovirt-provider-ovn and set the Default cluster's default network provider to ovirt-provider-ovn (non-Default clusters may be configured with an OVN provider after installation) (Yes, No) [Yes]:
 ----
 +
-For more information on using OVN networks in {virt-product-fullname}, see link:{URL_virt_product_docs}admin-guide/administration-guide.html[Adding Open Virtual Network (OVN) as an External Network Provider] in the _Administration Guide_.
+For more information on using OVN networks in {virt-product-fullname}, see link:{URL_virt_product_docs}administration_guide/index.html[Adding Open Virtual Network (OVN) as an External Network Provider] in the _Administration Guide_.
 
 . Optionally allow `engine-setup` to configure the Image I/O Proxy (`ovirt-imageio-proxy`) to allow the {engine-name} to upload virtual disks into storage domains.
 +

@@ -5,7 +5,7 @@ Self-hosted engine nodes are added in the same way as a standard host, with an a
 
 .Prerequisites
 
-* If you are reusing a self-hosted engine node, remove its existing self-hosted engine configuration. See link:{URL_virt_product_docs}admin-guide/administration-guide.html[Removing a Host from a Self-Hosted Engine Environment].
+* If you are reusing a self-hosted engine node, remove its existing self-hosted engine configuration. See link:{URL_virt_product_docs}administration_guide/index.html[Removing a Host from a Self-Hosted Engine Environment].
 
 .Procedure
 
@@ -13,7 +13,7 @@ Self-hosted engine nodes are added in the same way as a standard host, with an a
 
 . Click btn:[New].
 +
-For information on additional host settings, see link:{URL_virt_product_docs}admin-guide/administration-guide.html#sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows[Explanation of Settings and Controls in the New Host and Edit Host Windows] in the _Administration Guide_.
+For information on additional host settings, see link:{URL_virt_product_docs}administration_guide/index.html#sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows[Explanation of Settings and Controls in the New Host and Edit Host Windows] in the _Administration Guide_.
 
 . Use the drop-down list to select the *Data Center* and *Host Cluster* for the new host.
 
@@ -25,7 +25,7 @@ For information on additional host settings, see link:{URL_virt_product_docs}adm
 
 ** Alternatively, copy the key displayed in the *SSH PublicKey* field to */root/.ssh/authorized_keys* on the host to use public key authentication.
 
-. Optionally, configure power management, where the host has a supported power management card. For information on power management configuration, see link:{URL_virt_product_docs}admin-guide/administration-guide.html#Host_Power_Management_settings_explained[Host Power Management Settings Explained] in the _Administration Guide_.
+. Optionally, configure power management, where the host has a supported power management card. For information on power management configuration, see link:{URL_virt_product_docs}administration_guide/index.html#Host_Power_Management_settings_explained[Host Power Management Settings Explained] in the _Administration Guide_.
 
 . Click the *Hosted Engine* tab.
 

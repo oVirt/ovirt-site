@@ -25,4 +25,4 @@ The minimum storage requirements for host installation are listed below. However
 
 If you are also installing the {engine-appliance-name} for self-hosted engine installation, `/var/tmp` must be at least 5 GB.
 
-If you plan to use memory overcommitment, add enough swap space to provide virtual memory for all of virtual machines. See link:{URL_virt_product_docs}admin-guide/administration-guide.html[Memory Optimization].
+If you plan to use memory overcommitment, add enough swap space to provide virtual memory for all of virtual machines. See link:{URL_virt_product_docs}administration_guide/index.html[Memory Optimization].

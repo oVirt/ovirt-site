@@ -22,7 +22,7 @@ OpenStack Cinder(/ceph) Integration
 
 ## Detailed Description
 
-Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engine. For initial phase, the integration should ensure support for creating/deleting volumes from a Cinder storage domain, while monitoring relevant statuses using [CoCo](/develop/release-management/features/infra/commandcoordinator.html) mechanism. The engine/vdsm should allow running VMs with attached ceph volumes via librbd library using libvirt support ([using libvirt with ceph rbd](http://ceph.com/docs/master/rbd/libvirt/)). As for security, when required, running VMs can authenticate using [CEPHX](http://ceph.com/docs/v0.69/rados/operations/auth-intro/) protocol (secret management will be handled in engine/vdsm).
+Managing OpenStack Cinder volumes provisioned by ceph storage through oVirt engine. For initial phase, the integration should ensure support for creating/deleting volumes from a Cinder storage domain, while monitoring relevant statuses using [CoCo](/develop/release-management/features/infra/commandcoordinator.html) mechanism. The engine/vdsm should allow running VMs with attached ceph volumes via librbd library using libvirt support ([using libvirt with ceph rbd](https://docs.ceph.com/en/latest/rbd/libvirt/)). As for security, when required, running VMs can authenticate using [CEPHX](https://web.archive.org/web/20150112075731/http://docs.ceph.com/docs/v0.69/rados/operations/auth-intro/) protocol (secret management will be handled in engine/vdsm).
 There is a known issue with OpenStack when deleting a snapshot which has dependent volumes based on it. to avoid this bug the OpenStack Cinder should configure the ceph backend with this attribute rbd_flatten_volume_from_snapshot as True.
 
 ## Dependencies / Related Features
@@ -31,12 +31,12 @@ There is a known issue with OpenStack when deleting a snapshot which has depende
 
 ## Documentation / External references
 
-*   Ceph documentation: <http://ceph.com/docs/master/>
-*   Libvirt with Ceph: <http://ceph.com/docs/master/rbd/libvirt/>
+*   Ceph documentation: <https://docs.ceph.com/en/latest/>
+*   Libvirt with Ceph: <https://docs.ceph.com/en/latest/rbd/libvirt/>
 *   Cinder REST API: <http://developer.openstack.org/api-ref-blockstorage-v2.html>
 *   OpenStack Java SDK: <https://github.com/woorea/openstack-java-sdk>
 *   Introducing Ceph to OpenStack: <http://www.sebastien-han.fr/blog/2012/06/10/introducing-ceph-to-openstack/>
-*   Configure OpenStack Ceph Client: <http://ceph.com/docs/master/rbd/rbd-openstack/#configure-openstack-ceph-clients>
+*   Configure OpenStack Ceph Client: <https://docs.ceph.com/en/latest/rbd/rbd-openstack/#configure-openstack-ceph-clients>
 
 ## Phases
 
@@ -241,7 +241,7 @@ E.g. 
 </disk>
 ```
 
-*   [TBD] [CEPHX](http://ceph.com/docs/v0.69/rados/operations/auth-intro/) secret handling - [Libvirt with CEPH (Configuring the VM section)](http://ceph.com/docs/master/rbd/libvirt/#configuring-the-vm).
+*   [TBD] [CEPHX](https://web.archive.org/web/20150112075731/http://docs.ceph.com/docs/v0.69/rados/operations/auth-intro/) secret handling - [Libvirt with CEPH (Configuring the VM section)](https://docs.ceph.com/en/latest/rbd/libvirt/#configuring-the-vm).
 
 ### UI
 

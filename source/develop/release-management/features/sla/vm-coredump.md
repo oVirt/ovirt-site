@@ -34,10 +34,11 @@ This feature depends on the libvirt (already support)
 
 ### Documentation / External references
 
-For libvirt support, please see [libvirt's documentation on virDomainCoreDump API](http://libvirt.org/html/libvirt-libvirt.html#virDomainCoreDump).
+For libvirt support, please see [libvirt's documentation on virDomainCoreDump API](https://libvirt.org/html/libvirt-libvirt-domain.html#virDomainCoreDump).
 
 #### User Interface
 
+```python
 def coreDump(self, to, params):
 
          """  
@@ -52,6 +53,6 @@ def coreDump(self, to, params):
              *bypass-cache* - avoid file system cache when saving.
              *memory-only* - dump VM's memory only.
          """  
-
+```
 
 

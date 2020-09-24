@@ -16,7 +16,7 @@ This feature allows oVirt users to resize virtual disks while they are in use by
 ## Owner
 
 *   Feature owner: Sean Cohen <scohen@redhat.com>
-*   Engine Component owner: Sergey Gotliv <sgotliv@redhat.com>
+*   Engine Component owner: Sergey Gotliv
 *   VDSM Component owner: Federico Simoncelli <fsimonce@redhat.com>
 
 ## Current Status
@@ -59,14 +59,17 @@ User can extend virtual drive size using UI or REST API.
 
 #### Standard updating of virtual machine disk:
 
-    PUT /api/vms/{VM_ID}/disks/{DISK_ID} HTTP/1.1
-    Accept: application/xml
-    Content-type: application/xml
+```
+PUT /api/vms/{VM_ID}/disks/{DISK_ID} HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
+```
 
+```xml
     <disk>
         <size>{NEW_SIZE_IN_BYTES}</size>
     </disk>
-
+```
 # Detailed Description
 
 1.  A request from oVirt Engine is sent to the SPM to extend the image. The scope of this request is mainly to extend the Logical Volume where the image resides and to update the metadata. The extension relevant only when the image is RAW and resides on both a block device and file domain. QCOW images will be treated as a NO-OP at this phase. In the case of a RAW image on a file domain a “truncate” command will be issued on the image to add additional sparse space at the end but we expect the QEMU process to do this anyway as part of its implementation. A preallocated RAW file will be extended using a non-sparse dd command to add zeroes at the end of the image (this is for consistence even if preallocating data on NFS doesn't guarantee that the space is actually reserved).
@@ -81,7 +84,7 @@ User can extend virtual drive size using UI or REST API.
 
 ## Documentation / External references
 
-*   <http://libvirt.org/html/libvirt-libvirt.html#virDomainBlockResize>
+*   <https://libvirt.org/html/libvirt-libvirt-domain.html#virDomainBlockResize>
 
 
 ## Future Work

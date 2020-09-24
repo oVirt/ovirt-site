@@ -29,7 +29,7 @@ Done
 
 ### Detailed Description
 
-Porting the ovirt-guest-agent to SLE (SuSE Linux Enterprise) 11 SP3
+Porting the ovirt-guest-agent to SLE (SuSE Linux Enterprise) 12 SP2
 
 #### Required changes
 
@@ -42,8 +42,8 @@ Porting the ovirt-guest-agent to SLE (SuSE Linux Enterprise) 11 SP3
 
 ### Repository
 
-*   URL: <http://download.opensuse.org/repositories/home:/evilissimo/SLE_11_SP3/>
-*   Repo File: <http://download.opensuse.org/repositories/home:/evilissimo/SLE_11_SP3/home:evilissimo.repo>
+*   URL: <http://download.opensuse.org/repositories/home:/evilissimo/SLE_12_SP2/>
+*   Repo File: <http://download.opensuse.org/repositories/home:/evilissimo/SLE_12_SP2/home:evilissimo.repo>
 
 ### Benefit to oVirt
 
@@ -67,7 +67,7 @@ Porting the ovirt-guest-agent to SLE (SuSE Linux Enterprise) 11 SP3
 
 #### Installation
 
-`# zypper addrepo `[`http://download.opensuse.org/repositories/home:/evilissimo/SLE_11_SP3/home:evilissimo.repo`](http://download.opensuse.org/repositories/home:/evilissimo/SLE_11_SP3/home:evilissimo.repo)
+`# zypper addrepo `[`http://download.opensuse.org/repositories/home:/evilissimo/SLE_12_SP2/home:evilissimo.repo`](http://download.opensuse.org/repositories/home:/evilissimo/SLE_12_SP2/home:evilissimo.repo)
       # zypper refresh
       # zypper install ovirt-guest-agent-common
       # service ovirt-guest-agent start 

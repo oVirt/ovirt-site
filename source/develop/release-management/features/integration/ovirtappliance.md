@@ -24,15 +24,13 @@ The first step will be to create an image with the correct functionality, in a s
 
 ## Current status
 
-Builds are stable, built daily, and based on latest oVirt 3.6 packages.
-
-The last 3.5 build is still available, and master builds are available too.
+Builds are stable, built daily, and based on latest stable packages.
 
 Availability:
 
-*   <http://jenkins.ovirt.org/view/All/job/ovirt-appliance-engine_3.5_merged/>
-*   <http://jenkins.ovirt.org/view/All/job/ovirt-appliance_ovirt-3.6_build-artifacts-el7-x86_64/>
-*   <http://jenkins.ovirt.org/view/All/job/ovirt-appliance_master_build-artifacts-el7-x86_64/>
+*  4.3 nightly builds: <https://jenkins.ovirt.org/job/ovirt-appliance_4.3_build-artifacts-el7-x86_64/>
+*  master / 4.4 nightly builds: <https://jenkins.ovirt.org/job/ovirt-appliance_master_build-artifacts-el8-x86_64/>
+
 
 ## Details
 

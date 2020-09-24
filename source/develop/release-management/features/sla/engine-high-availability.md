@@ -5,7 +5,8 @@ authors: emesika, liran.zelkha, plysan
 
 # Engine High Availability
 
-This page was created as a result of a [https://lists.ovirt.org/pipermail/engine-devel/2013-August/005436.html discussion](https://lists.ovirt.org/pipermail/engine-devel/2013-August/005436.html discussion) that started at @engine_devel. As we are considering an active/active architecture for Engine, we'll use this page to document required features and code changes that will be required.
+This page was created as a result of a [discussion](https://lists.ovirt.org/pipermail/engine-devel/2013-August/005436.html) that started at @engine_devel.
+As we are considering an active/active architecture for Engine, we'll use this page to document required features and code changes that will be required.
 
 ## Architecture
 
@@ -18,7 +19,7 @@ This page was created as a result of a [https://lists.ovirt.org/pipermail/engine
     -   Currently there is InMemoryLockManager used by bll commands and monitoring lock in VdsManager. We could find a way to implement InMemoryLockManager to cluster wide using infinispan.
 
 2.  Singletons. We need to find a mechanism to migrate our singletons to be cross-cluster.
-    -   This is a major issue, since if the Engine running the Singleton crashes, we need to migrate the Singleton. The best solution is to probably dump the Singleton approach. We can ride on the CDI [http://gerrit.ovirt.org/#/c/5575/ change](http://gerrit.ovirt.org/#/c/5575/_change) and the code-refactor it requires.
+    -   This is a major issue, since if the Engine running the Singleton crashes, we need to migrate the Singleton. The best solution is to probably dump the Singleton approach. We can ride on the CDI [change](http://gerrit.ovirt.org/#/c/5575) and the code-refactor it requires.
     -   Migrating the singletons approach can achieve high availability, but only one active instance running in cluster cannot achieve high scalability which should be a benefit for clustering. To solve this problem, we could:
         -   Have one instance of the 'singleton' running on each node, but make the global variables (should always be maps) in the singleton clustered.
         -   When the singleton's methods are invoked, we can:

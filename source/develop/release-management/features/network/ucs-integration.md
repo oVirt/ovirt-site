@@ -61,7 +61,7 @@ Things done:
 *   [Filter out unused virtual functions from being reported as nics](http://gerrit.ovirt.org/#/c/22559/).
 *   [Clone and refactor the current hook to use custom device properties and to run "before_device_create" and "before_device_hotplug"](http://gerrit.ovirt.org/#/c/22529/).
 
-You can get the hook resulting from this integration level [here](http://plain.resources.ovirt.org/releases/3.4/rpm/el6/noarch/vdsm-hook-vmfex-dev-4.14.6-0.el6.noarch.rpm)
+You can get the hook resulting from this integration level [here](https://resources.ovirt.org/releases/3.4/rpm/EL/6/noarch/vdsm-hook-vmfex-dev-4.14.6-0.el6.noarch.rpm)
 
 #### Installation
 

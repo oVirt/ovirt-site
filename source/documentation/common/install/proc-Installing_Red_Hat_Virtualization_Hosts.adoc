@@ -5,7 +5,7 @@
 
 {hypervisor-shortname} supports NIST 800-53 partitioning requirements to improve security. {hypervisor-shortname} uses a NIST 800-53 partition layout by default.
 
-The host must meet the minimum  link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/planning_and_prerequisites_guide/rhv_requirements#host-requirements[host requirements].
+The host must meet the minimum  link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html/planning_and_prerequisites_guide/rhv_requirements#host-requirements[host requirements].
 
 .Procedure
 ifdef::rhv-doc[]

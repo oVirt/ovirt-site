@@ -52,25 +52,27 @@ The SPM resource is located instead on the "leases" file/LV with offset 0 (tempo
 
 The XML that VDSM prepares for libvirt to run a VM on a [Storage Domain Version 3](/develop/storage/storage-domain-versions.html#storage-domain-version-3) includes all the information required to acquire the Volumes resources:
 
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <domain type="kvm">
-`  `<name>`vm1`</name>
+  <name>vm1</name>
         ...
-`  `<devices>
+  <devices>
           ...
-`    `<disk device="disk" snapshot="no" type="block">
+    <disk device="disk" snapshot="no" type="block">
             
 
             ...
-`    `</disk>
-`    `<lease>
-`      `<key>`c29ca345-4aab-42f1-97c5-bdf967073d22`</key>
-`      `<lockspace>`7b1cff35-9482-4946-9654-adf1db5ecd10`</lockspace>
-`      `<target offset="109051904" path="/dev/7b1cff35-9482-4946-9654-adf1db5ecd10/leases"/>
-`    `</lease>
+    </disk>
+    <lease>
+      <key>c29ca345-4aab-42f1-97c5-bdf967073d22</key>
+      <lockspace>7b1cff35-9482-4946-9654-adf1db5ecd10</lockspace>
+      <target offset="109051904" path="/dev/7b1cff35-9482-4946-9654-adf1db5ecd10/leases"/>
+    </lease>
           ...
-`  `</devices>
+  </devices>
 </domain>
+```
 
 For more information about how libvirt is handling the leases please refer to its specific documentation [1] [2]
 
@@ -247,7 +249,6 @@ This dumps the sanlock daemon's internal circular buffer of recent debug message
 
 ## References
 
-<references/>
 
 [1] <http://libvirt.org/formatdomain.html#elementsLease>
 

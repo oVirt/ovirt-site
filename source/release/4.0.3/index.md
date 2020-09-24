@@ -164,5 +164,5 @@ and can no longer be added by running 'hosted-engine --deploy' on the host.
 
 #### Team: Integration
 
- - [BZ 1366879](https://bugzilla.redhat.com/1366879) <b>--upgrade-appliance - Failed to execute stage 'Environment customization': File contains no section headers. file: <???>, line: 1 u'None'</b><br>
+ - [BZ 1366879](https://bugzilla.redhat.com/1366879) <b>--upgrade-appliance - Failed to execute stage 'Environment customization': File contains no section headers. file: `<???>`, line: 1 u'None'</b><br>
 

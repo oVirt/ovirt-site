@@ -9,14 +9,16 @@ The QoS Hook sets up QoS on a VM's network interface.
 
 libvirt domain xml:
 
+```xml
 <interface>
           ...
-`    `<bandwidth>
-`        `<inbound average='1' peak='2' burst='5'/>
-`        `<outbound average='0.5'/>
-`    `</bandwidth>
+    <bandwidth>
+        <inbound average='1' peak='2' burst='5'/>
+        <outbound average='0.5'/>
+    </bandwidth>
           ...
 </interface>
+```
 
 Note: for average, peak, and burst explanation look at:
 

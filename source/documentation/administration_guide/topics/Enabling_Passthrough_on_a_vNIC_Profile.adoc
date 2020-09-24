@@ -7,7 +7,7 @@ The passthrough property of a vNIC profile enables a vNIC to be directly connect
 
 The passthrough property cannot be enabled if the vNIC profile is already attached to a vNIC; this procedure creates a new profile to avoid this. If a vNIC profile has passthrough enabled, QoS, network filters, and port mirroring cannot be enabled on the same profile.
 
-For more information on SR-IOV, direct device assignment, and the hardware considerations for implementing these in {virt-product-fullname}, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/hardware_considerations_for_implementing_sr-iov/[Hardware Considerations for Implementing SR-IOV].
+For more information on SR-IOV, direct device assignment, and the hardware considerations for implementing these in {virt-product-fullname}, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html/hardware_considerations_for_implementing_sr-iov/[Hardware Considerations for Implementing SR-IOV].
 
 
 *Enabling Passthrough*

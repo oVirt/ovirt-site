@@ -5,7 +5,7 @@ The Graphics Processing Unit (GPU) device from a host can be directly assigned t
 
 This procedure is relevant for hosts with either x86_64 or ppc64le architecture.
 
-For more information on the hardware requirements for direct device assignment, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/planning_and_prerequisites_guide/rhv_requirements#PCI_Device_Requirements_RHV_planning[PCI Device Requirements] in the _Planning and Prerequisites Guide_.
+For more information on the hardware requirements for direct device assignment, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html/planning_and_prerequisites_guide/rhv_requirements#PCI_Device_Requirements_RHV_planning[PCI Device Requirements] in the _Planning and Prerequisites Guide_.
 
 [IMPORTANT]
 ====

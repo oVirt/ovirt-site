@@ -49,7 +49,7 @@ VM Portal clients |{virt-product-fullname} {engine-name} |Provides websocket pro
 |No
 |M6 |7410 |UDP |{hypervisor-fullname}s
 
-{enterprise-linux-host-fullname}s |{virt-product-fullname} {engine-name} |If Kdump is enabled on the hosts, open this port for the fence_kdump listener on the {engine-name}. See link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html/administration_guide/sect-host_resilience#sect-fence_kdump_Advanced_Configuration[fence_kdump Advanced Configuration]. `fence_kdump` doesn't provide a way to encrypt the connection. However, you can manually configure this port to block access from hosts that are not eligible.
+{enterprise-linux-host-fullname}s |{virt-product-fullname} {engine-name} |If Kdump is enabled on the hosts, open this port for the fence_kdump listener on the {engine-name}. See link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html/administration_guide/sect-host_resilience#sect-fence_kdump_Advanced_Configuration[fence_kdump Advanced Configuration]. `fence_kdump` doesn't provide a way to encrypt the connection. However, you can manually configure this port to block access from hosts that are not eligible.
 |No
 |M7 |54323 |TCP |Administration Portal clients |{virt-product-fullname} {engine-name} (ImageIO Proxy server) |Required for communication with the ImageIO Proxy (`ovirt-imageio-proxy`).
 |Yes

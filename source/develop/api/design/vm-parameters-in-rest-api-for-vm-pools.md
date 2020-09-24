@@ -39,13 +39,14 @@ That means that VM parameters are inherited from the template used and there is 
 
 The proposal is to add new `<vm>` subelement with all the VM fields into the `<vmpool>` element. The values of these fields will override the values of the corresponding template parameters. The structure will be as follows:
 
+```xml
 <vm_pool>
-` `<size>`50`</size>
+ <size>50</size>
        ...
-` `<template id="xxx"/>
-` `<vm>
-`  `<some_overriden_field_a>`new value`</some_overriden_field_a>
-`  `<some_overriden_field_b>`new value 2`</some_overriden_field_b>
-` `</vm>
+ <template id="xxx"/>
+ <vm>
+  <some_overriden_field_a>new value</some_overriden_field_a>
+  <some_overriden_field_b>new value 2</some_overriden_field_b>
+ </vm>
 </vm_pool>
-
+```

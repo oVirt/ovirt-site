@@ -28,15 +28,18 @@ A function to add new object columns to the white list fn_db_add_column_to_objec
 2) Look for "Initial white list settings" comment.
 3) Add at the end of this section.
 
+```sql
          if not exists (select 1 from object_column_white_list where object_name = 'T') then
            insert into object_column_white_list(object_name,column_name)
            (select 'T', column_name
             from information_schema.columns
             where table_name = 'T' and
             column_name in ('c1,'c2');
+```
 
 4) Assume you have a SP that selects from T by id (c1 column), it should now look like :
 
+```sql
       Create or replace FUNCTION GetAllFromT(v_id UUID, v_user_id UUID, v_is_filtered BOOLEAN)   
       RETURNS SETOF T
         AS $procedure$
@@ -60,21 +63,23 @@ A function to add new object columns to the white list fn_db_add_column_to_objec
         RETURN;
       END; $procedure$
       LANGUAGE plpgsql;
+```
 
 5) You should add the following to fixters.xml
 
+```xml
 <table name="object_column_white_list">
-`       `<column>`object_name`</column>
-`       `<column>`column_name`</column>
-`   `<row>
-`       `<value>`T`</value>
-`       `<value>`c1`</value>
-`   `</row>
-`   `<row>
-`       `<value>`T`</value>
-`       `<value>`c2`</value>
-`   `</row>
-       
-
+       <column>object_name</column>
+       <column>column_name</column>
+   <row>
+       <value>T</value>
+       <value>c1</value>
+   </row>
+   <row>
+       <value>T</value>
+       <value>c2</value>
+   </row>
 </table>
+```
+
 That's all, this insures that administrator will get all c1 to c4 columns while users will get only c1 and c2.

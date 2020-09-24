@@ -23,12 +23,13 @@ This page describes the hacked solution, and tracks the known gaps to its fruiti
 5.  On your Engine host,
 
     1.  cat <<EOF >/etc/ovirt-host-deploy.conf.d/50-xen.conf
-
+```
     [environment:enforce]
 
     VDSM/checkVirtHardware=bool:False
 
     EOF
+```
 
 6.  Log into your Engine's admin portal, and add your dom0 to your cluster. Define a VM and start it up.
 7.  To actually have something running inside the VM, I've copied a Fedora image onto the VM's disk volume. I suppose that importing a VM would work, too.
@@ -56,6 +57,7 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
 3.  Expose an alias per virtual device. Aliases are assigned by libvirt and are used to uniquely identify a device.
 4.  When a cdrom is specified with
 
+```xml
     <tt><disk device="cdrom" snapshot="no" type="file">
 
     <target bus="ide" dev="hdc"/>
@@ -65,6 +67,7 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
     <serial/>
 
     </disk></tt>
+```
 
     the VM does not attempt to boot from its hard disk. Only complete removal of cdrom worked for me.
 
@@ -93,4 +96,3 @@ If I could run HVM Xen guests within KVM L1 guests, development would have been 
       (XEN) VMX: CPU0 has insufficient VMExit Control (000f6fff; requires 00008200)
       (XEN) VMX: failed to initialise.
 
-[Category:How to](Category:How to)

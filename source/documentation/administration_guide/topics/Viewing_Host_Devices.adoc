@@ -3,7 +3,7 @@
 
 You can view the host devices for each host in the *Host Devices* tab in the details view. If the host has been configured for direct device assignment, these devices can be directly attached to virtual machines for improved performance.
 
-For more information on the hardware requirements for direct device assignment, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html-single/hardware_considerations_for_implementing_sr-iov/[Additional Hardware Considerations for Using Device Assignment] in _Hardware Considerations for Implementing SR-IOV_.
+For more information on the hardware requirements for direct device assignment, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/hardware_considerations_for_implementing_sr-iov/[Additional Hardware Considerations for Using Device Assignment] in _Hardware Considerations for Implementing SR-IOV_.
 
 For more information on configuring the host for direct device assignment, see xref:Configuring_a_Host_for_PCI_Passthrough_host_tasks[].
 

@@ -7,7 +7,7 @@ A self-hosted engine can be deployed from a xref:Installing_Red_Hat_Virtualizati
 
 [IMPORTANT]
 ====
-If you plan to use bonded interfaces for high availability or VLANs to separate different types of traffic (for example, for storage or management connections), you should configure them on the host before beginning the self-hosted engine deployment. See link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4-beta/html-single/planning_and_prerequisites_guide/#networking-recommendations[Networking Recommendations] in the _Planning and Prerequisites Guide_.
+If you plan to use bonded interfaces for high availability or VLANs to separate different types of traffic (for example, for storage or management connections), you should configure them on the host before beginning the self-hosted engine deployment. See link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/#networking-recommendations[Networking Recommendations] in the _Planning and Prerequisites Guide_.
 ====
 
 include::proc-Installing_Red_Hat_Virtualization_Hosts.adoc[leveloffset=+1]

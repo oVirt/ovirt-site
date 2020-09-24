@@ -95,7 +95,7 @@ In case that such a command is invoked not in the context of an external Job, it
       AddExternalJob - Adds an external Job and returns its UUID
       EndExternalJob - Ends the given Job
       AddExternalStep - Adds an external step to a Job directly or under an existing Step
-`                  If command is an oVirt internal command, it cpould be added only if it is flagged as `**`Monitored`**
+                  If command is an oVirt internal command, it cpould be added only if it is flagged as **Monitored**
       EndExternalStep - Ends the given Step (For steps that represents plug-in operations only)
 
 ### Flow
@@ -103,19 +103,19 @@ In case that such a command is invoked not in the context of an external Job, it
 *Add Job/Step* Flow:
  use api/jobs to add a new job using POST and giving a job **description** as a parameter
 
-      use api/jobs/`<jobId>`/steps to add a new step using POST and giving a step `**`parentId`**` , `**`parentType`**`, `**`description`**` and `**`status`**` as parameters (The parentId is the UUID of the parent of the new created step, the parentType may be `**`Job`**` or `**`Step`**`)
+      use api/jobs/<jobId>/steps to add a new step using POST and giving a step **parentId** , **parentType**, **description** and **status** as parameters (The parentId is the UUID of the parent of the new created step, the parentType may be **Job** or **Step**)
 
 ''List Job(s)/Step(s):
  use api/jobs to list all jobs
 
-`use api/jobs/`<jobId>` to list the job identified by `<jobId>
-`use api/jobs/`<jobId>`/steps to list all steps of the job identified by `<jobId>
-`use api/jobs/`<jobId>`/steps/`<stepId>` to list a specific step identified by `<stepId>` under the job identified by `<jobId>
+use api/jobs/<jobId> to list the job identified by <jobId>
+use api/jobs/<jobId>/steps to list all steps of the job identified by <jobId>
+use api/jobs/<jobId>/steps/<stepId> to list a specific step identified by <stepId> under the job identified by <jobId>
 
 *End Job/Step* Flow:
  use api/jobs/<jobId>/end to end a job using POST and giving a **jobId** **status** and an optional **force** flag
 
-      use api/jobs/`<jobId>`/steps/`<stepId>` /end  to end a step using POST and giving a `**`stepId`**` `**`stepType`**` `**`status`**` and an optional `**`force`**` flag
+      use api/jobs/<jobId>/steps/<stepId> /end  to end a step using POST and giving a **stepId** **stepType** **status** and an optional **force** flag
 
 ### Permissions
 
@@ -148,90 +148,102 @@ Since each Job may have steps that invoke internal oVirt command or external plu
 
 Add support for the following:
 
-      /api/jobs
-`/api/jobs/`<job_id>
-      /api/jobs/`<job_id>`/steps
-`/api/jobs/`<job_id>`/steps/`<step_id>
+* `/api/jobs`
+* `/api/jobs/<job_id>`
+* `/api/jobs/<job_id>/steps`
+* `/api/jobs/<job_id>/steps/<step_id>`
 
+```xml
 <jobs>
-`   `<job id = "xxx" href="api/jobs/xxx>
-`       `<description>`a description`</description>
-`       `<action_type>` the action type`</action_type>
-`       `<status>`[STARTED|FINISHED|FAILED|ABORTED|UNKNOWN]`</status>
-`        `<owner>`the owner`</owner>
-             `<start_time>`...`</start_time>`                
-`       `<end_time>`...`</end_time>
-`       `<last_updated>`...`</last_updated>
-`        `<external>`[true|false]`</external>
-`       `<auto_cleared>`[true|false]`</auto_cleared>
-`   `<job>
-         .....
+   <job id = "xxx" href="api/jobs/xxx">
+      <description>a description</description>
+      <action_type> the action type</action_type>
+      <status>[STARTED|FINISHED|FAILED|ABORTED|UNKNOWN]</status>
+      <owner>the owner</owner>
+             <start_time>...</start_time>                
+      <end_time>...</end_time>
+      <last_updated>...</last_updated>
+      <external>[true|false]</external>
+      <auto_cleared>[true|false]</auto_cleared>
+   <job>
+   ...
 </jobs>
 
 <steps>
-`    `<step id="yyy" href="api/jobs/xxx/steps/yyy>
-              [`<parent_job id="xxx" href="api/jobs/xxx"/>` | `<parent_step id="yyy" href="api/jobs/xxx/steps/yyy"/>`]
-`        `<description>`a description`</description>
-`        `<type>`[VALIDATING|EXECUTING|FINALIZING]`</type>
-`        `<number>`...`</number>
-`        `<status>`[STARTED|FINISHED|FAILED|ABORTED|UNKNOWN]`</status>
-              `<start_time>`...`</start_time>`                
-`        `<end_time>`...`</end_time>
-`        `<external>`[true|false]`</external>
-`   `</step>
+    <step id="yyy" href="api/jobs/xxx/steps/yyy">
+              [<parent_job id="xxx" href="api/jobs/xxx"/> | <parent_step id="yyy" href="api/jobs/xxx/steps/yyy"/>]
+        <description>a description</description>
+        <type>[VALIDATING|EXECUTING|FINALIZING]</type>
+        <number>...</number>
+        <status>[STARTED|FINISHED|FAILED|ABORTED|UNKNOWN]</status>
+              <start_time>...</start_time>                
+        <end_time>...</end_time>
+        <external>[true|false]</external>
+   </step>
          ....
 </steps>
+```
 
 #### Post
 
 Adding a new Job/Step will be implemented by the POST operation
- Job:
 
+Job:
+
+```xml
 <job>
-`    `<description></description>
-`    `<auto_cleared>`[true|false]`</auto_cleared]
-   </job>
+    <description></description>
+    <auto_cleared>[true|false]</auto_cleared>
+</job>
+```
 
-Step
-
+Step:
+```xml
 <step>
-`    `<description></description>
-`    `<type></type>
-`    `<status>
-`         `<state></state>
-`    `</status>
+    <description></description>
+    <type></type>
+    <status>
+         <state></state>
+    </status>
 </step>
+```
 
-Sub-step
+Sub-step:
 
+```xml
 <step>
-`    `<parent_step  id="yyy" />
-`    `<description></description>
-`    `<type></type>
-`    `<status>
-`         `<state></state>
-`    `</status>
+    <parent_step  id="yyy" />
+    <description></description>
+    <type></type>
+    <status>
+         <state></state>
+    </status>
 </step>
+```
 
 Ending an existing Job/Step will be done via a supported **action** on the Job/Step business entity
 
-      /api/Jobs/`<job_id>`/end - will end the given job
-      /api/Jobs/`<job_id>`/steps/`<step_id>`/end - will end the given step
+* `/api/Jobs/<job_id>/end` - will end the given job
+* `/api/Jobs/<job_id>/steps/<step_id>/end` - will end the given step
 
 End a job
 
+```xml
 <action>
-`  `<status>
-`     `<state>`FAILED`</state>
-        `</status>`>
-`  `<force>`false`</force>
+  <status>
+     <state>FAILED</state>
+        </status>>
+  <force>false</force>
 </action>
+```
 
 End a Step
 
+```xml
 <action>
-`  `<succeeded>`true`</succeeded>
+  <succeeded>true</succeeded>
 </action>
+```
 
 ### User Experience
 
@@ -253,8 +265,7 @@ Add additional fields to job and step tables upon upgrade Add the permission(Act
 
 [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=872719)
 
-[Features/ExternalTasks](Features/ExternalTasks)
+[Features/ExternalTasks](/develop/release-management/features/infra/externaltasks.html)
 
 ### Future directions
 
-[Category: Feature](Category: Feature)

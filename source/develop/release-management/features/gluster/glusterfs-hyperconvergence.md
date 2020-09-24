@@ -72,6 +72,5 @@ Feature pages TBD:
 
 ## References
 
-<references />
 
 [1] <http://searchvirtualstorage.techtarget.com/definition/hyper-convergence>

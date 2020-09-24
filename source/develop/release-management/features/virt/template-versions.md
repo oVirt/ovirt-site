@@ -17,7 +17,6 @@ by default it will be the latest version.
 ## Owner
 
 *   Name: Omer Frenkel
-*   Email: ofrenkel@redhat.com
 
 ## Current Status
 
@@ -102,20 +101,24 @@ If version section will be defined, user will have to fill the following fields:
 *version_number* should not be filled by the user. (it's calculated by the engine), if user fills it, it will be ignored
  **Example for adding a template version** - this section should be added as part of body inside the template element. The relevant url is: api/templates
 
+```xml
 <version>
-` `<base_template id="1c4f1c18-030f-4a78-9b61-e17ca1d45cb0"/>
-` `<version_name>`"second template for lab"`</version_name>
+ <base_template id="1c4f1c18-030f-4a78-9b61-e17ca1d45cb0"/>
+ <version_name>"second template for lab"</version_name>
 </version>
+```
 
 *   PUT: (update a template version)
 
 Only the version name can be updated. No update is supported for version section in 3.4 for base template id nor numbering.
 
-Example for editing a template's version name: (add the version part inside the template element in the request body) Relevant api is the same as updating a template : api/templates/<templateId>
+Example for editing a template's version name: (add the version part inside the template element in the request body) Relevant api is the same as updating a template : `api/templates/<templateId>`
 
+```xml
 <version>
-         `<version_name>`"new name of this version"`</version_name>` 
+  <version_name>"new name of this version"</version_name> 
 </version>
+```
 
 **VMs usecase**
 

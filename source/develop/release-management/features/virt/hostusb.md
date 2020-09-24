@@ -15,13 +15,12 @@ hostusb adds host's usb device/s to VM. This hook is useful for VMs that need to
 
 VM XML changes:
 
+```xml
 <hostdev mode='subsystem' type='usb'>
-          
-
-             <vendor id='0x1234'/>
-             <product id='0xbeef'/>
-
+  <vendor id='0x1234'/>
+  <product id='0xbeef'/>
 </hostdev>
+```
 
 Syntax:
 
@@ -29,7 +28,7 @@ Syntax:
 
 This maps to:
 
-         hostusb=VendorId:ProductId&AnotherVendorId:AnotherProductId... 
+         hostusb=VendorId:ProductId&AnotherVendorId:AnotherProductId...
 
 Note: The VM must be pinned to host and this hook will fail any migration attempt.
 

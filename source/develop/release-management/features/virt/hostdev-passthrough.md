@@ -14,12 +14,11 @@ This feature will add host device reporting and their passthrough to guests.
 
 ### Owner VDSM
 
-*   name: Martin Polednik (Martin Polednik)
+*   name: Martin Polednik
 
 ### Owner Engine
 
-*   name: Martin Betak (Martin Betak)
-*   email: <mbetak@redhat.com>
+*   name: Martin Betak
 
 ### Current Status
 
@@ -418,10 +417,9 @@ Current state of UI allows pinning a VM to specific host and select the host's d
 
 ### References
 
-<references/>
 #### Useful Links
 
-1.  <http://libvirt.org/guide/html/Application_Development_Guide-Device_Config-PCI_Pass.html>
+1.  <https://libvirt.org/docs/libvirt-appdev-guide-python/en-US/html/libvirt_application_development_guide_using_python-Guest_Domains-Device_Config-PCI_Pass.html>
 2.  <https://bbs.archlinux.org/viewtopic.php?id=162768> (great post for troubleshooting)
 3.  <http://vfio.blogspot.cz/> (Alex Williamson's blog on VFIO)
 
@@ -431,5 +429,3 @@ Current state of UI allows pinning a VM to specific host and select the host's d
 [2] <https://www.kernel.org/doc/Documentation/vfio.txt>
 
 [3] <http://vfio.blogspot.cz/2015/05/vfio-gpu-how-to-series-part-3-host.html>
-
-[4]

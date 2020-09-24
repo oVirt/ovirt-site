@@ -9,7 +9,7 @@ authors: drankevi, mkolesni, moti, roy, ykaul
 
 ### Owner
 
-*   Name: Roy Golan (MyUser)
+*   Name: Roy Golan
 *   Email: <rgolan@redhat.com>
 
 ### Abstract
@@ -146,7 +146,7 @@ e.g the network's vlan configuration is not valid
 
 I would like to describe a suggestion for a dialog, where the state of the network elements will be described using Blocks and Links.
 
-The Networking Elements here are taken from the RHEV Technical guide: [RHEV Technical Reference Guide](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Technical_Reference_Guide/sect-Technical_Reference_Guide-Network_Architecture-Networking_in_Hosts_and_Virtual_Machines.html)
+The Networking Elements here are taken from the RHEV Technical guide: [RHEV Technical Reference Guide](https://web.archive.org/web/20120331001716/http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Technical_Reference_Guide/sect-Technical_Reference_Guide-Network_Architecture-Networking_in_Hosts_and_Virtual_Machines.html)
 
 The UI Blocks describe the following networking elements: (Each element will be represented by a block, with a specific color)
 

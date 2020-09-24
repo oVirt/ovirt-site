@@ -12,9 +12,10 @@ authors: alkaplan, apuimedo, danken, lpeer, moti
 
 The network wiring feature is an enhancement for the VM Network Interface management. It supports the following actions without unplugging the Vnic, maintaining the address of the Vnic:
 
-    * Dynamically changing the network of a running VM (without unplugging the Vnic)
-    * Unwiring a network of a VM without unplugging the vnic
-[Network Linking Feature Page](/Feature/NetworkLinking)
+* Dynamically changing the network of a running VM (without unplugging the Vnic)
+* Unwiring a network of a VM without unplugging the vnic
+    
+[Network Linking Feature Page](/develop/release-management/features/network/networklinking.html)
 
 ### Owner
 
@@ -146,7 +147,7 @@ A new API is added for this feature.
        'portMirroring': blue[,red],    <---  If not specified, the current portMirroring keeps in effect. Otherwise, only the specified networks will be mirrored to the vnic, e.g., empty list -> unset any mirroring.
      }
 
-Vdsm would implement this using <http://libvirt.org/html/libvirt-libvirt.html#virDomainUpdateDeviceFlags> .
+Vdsm would implement this using <https://libvirt.org/html/libvirt-libvirt-domain.html#virDomainUpdateDeviceFlags> .
 
 If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
 

@@ -45,10 +45,10 @@ It'll be easier to install the ovirt-guest-agent on OpenSUSE guests.
 
 ### Repository
 
-#### openSUSE 13.1
+#### openSUSE LEAP 42.3
 
-*   URL: <http://download.opensuse.org/repositories/home:/evilissimo/openSUSE_13.1>
-*   Repo File: <http://download.opensuse.org/repositories/home:/evilissimo/openSUSE_13.1/home:evilissimo.repo>
+*   URL: <http://download.opensuse.org/repositories/home:/evilissimo/openSUSE_Leap_42.3/>
+*   Repo File: <http://download.opensuse.org/repositories/home:/evilissimo/openSUSE_Leap_42.3/home:evilissimo.repo>
 
 #### openSUSE Factory
 

@@ -11,7 +11,7 @@ authors: rafaelmartins
 
 This guide will describe how to adapt ovirt-system-tests test suites, that are mainly designed for CI testing, to manually test ovirt-engine patches.
 
-This guide assumes that you have lago and all the ovirt-system-tests requirements installed on your machine, [according to the documentation](http://ovirt-system-tests.readthedocs.io/en/latest/docs/general/installation.html), and that you got yourself previously familiarized with ovirt-system-tests.
+This guide assumes that you have lago and all the ovirt-system-tests requirements installed on your machine, [according to the documentation](https://ovirt-system-tests.readthedocs.io/en/latest/general/installation/index.html), and that you got yourself previously familiarized with ovirt-system-tests.
 
 ## Creating the test suite
 
@@ -43,18 +43,18 @@ Also, if you added or removed machines in the Lago initialization file, you'll n
 
 ## Preparing a build with your patch
 
-To be able to use your modifications in lago, you must build a modified RPM. Lago is built on [repoman](http://repoman.readthedocs.io/), so it can fetch RPMs from several places, including [oVirt Jenkins instance](http://jenkins.ovirt.org/).
+To be able to use your modifications in lago, you must build a modified RPM. Lago is built on [repoman](https://repoman.readthedocs.io/en/latest/), so it can fetch RPMs from several places, including [oVirt Jenkins instance](https://jenkins.ovirt.org/).
 
 The easier way to build an RPM is using jenkins' `build-artifacts` jobs, but they take around 1 hour to run, and the artifacts will be removed after some time. You must also consider that these jobs are used by the scheduled jobs that update the `ovirt-master-snapshot` repository, then your job may need to wait on the build queue.
 
-For this example we will use the following job: [http://jenkins.ovirt.org/job/ovirt-engine\_master\_build-artifacts-el7-x86\_64/](http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el7-x86_64/).
+For this example we will use the following job: [https://jenkins.ovirt.org/job/ovirt-engine_4.3_build-artifacts-el7-x86_64/](https://jenkins.ovirt.org/job/ovirt-engine_4.3_build-artifacts-el7-x86_64/).
 
 To build a Gerrit patch manually on it, you must authenticate and click on the "Build with Parameters" link. It will ask for two paramenters:
 
 - GERRIT\_REFSPEC: Go to your Gerrit patch and click on Download. The URLs have the git refspec, that looks similar to `refs/changes/54/64454/1`. This is the value you need.
 - GERRIT\_BRANCH: No need to change.
 
-When it is done, artifacts will be attached to the build page. You will need the build page URL, that looks similar to [http://jenkins.ovirt.org/job/ovirt-engine\_master\_build-artifacts-el7-x86\_64/1008/](http://jenkins.ovirt.org/job/ovirt-engine_master_build-artifacts-el7-x86_64/1008/).
+When it is done, artifacts will be attached to the build page. You will need the build page URL, that looks similar to `https://jenkins.ovirt.org/job/ovirt-engine_4.3_build-artifacts-el7-x86_64/424/`.
 
 If you want to build locally, just create the RPM as usual, and use its path instead of the Jenkins URL in the next steps.
 

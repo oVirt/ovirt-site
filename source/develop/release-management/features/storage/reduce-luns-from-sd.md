@@ -15,11 +15,8 @@ Adding ability to reduce LUNs from a Block Storage Domain.
 
 ## Owner
 
-*   Name: [ Liron Aravot](User:laravot)
+*   Name: Liron Aravot
 
-<!-- -->
-
-*   Email: <laravot@redhat.com>
 
 ## Detailed Description
 
@@ -66,8 +63,8 @@ The user will be able to choose the LUNs it wishes to reduce from the Storage Do
 
 This feature is using the following LVM commands:
 
-*   [pvmove](https://linux.die.net/man/8/pvmove)
+*   [pvmove](https://man7.org/linux/man-pages/man8/pvmove.8.html)
 
-*   [vgreduce](http://linuxcommand.org/man_pages/vgreduce8.html)
+*   [vgreduce](https://man7.org/linux/man-pages/man8/vgreduce.8.html)
 
 

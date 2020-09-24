@@ -75,7 +75,7 @@ We will insert the custom properties column into the vm_device table. Custom pro
 
 Not all custom properties are valid for every setups - they depend on the hooks installed on hosts. Therefore, just like with per-VM properties, a user would have to define the valid properties and their valid values in vdc_options. Note that properties likely to be valid for an interface, but invalid for a disk. The option_name value will be DeviceCustomProperties, and its corresponding option_value will look like:
 
-[{type=disk; prop={value1=regex1; ...; valueN=regexN}};{type=interface; prop={value1=regex1; ...; valueN=regexN}};...]
+`[{type=disk; prop={value1=regex1; ...; valueN=regexN}};{type=interface; prop={value1=regex1; ...; valueN=regexN}};...]`
 
 Following device types are supported:
 
@@ -116,10 +116,13 @@ Update all relevant VdsBroker commands that involve verbs related to adding, rem
 
 #### REST
 
-Add a custom_properties field to api.xsd for NICs and disks: <custom_properties>
-<custom_property value="123" name="sndbuf"/>
-<custom_property value="true" name="sap_agent"/>
+Add a custom_properties field to api.xsd for NICs and disks:
+```xml
+<custom_properties>
+  <custom_property value="123" name="sndbuf"/>
+  <custom_property value="true" name="sap_agent"/>
 </custom_properties>
+```
 
 And subsequently fix the NicMapper to map properly from VmInterface to NIC and vice versa.
 
@@ -130,7 +133,7 @@ As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not
 ## Testing
 
 *   Use the engine-config tool to insert the property 'label': 'red' to vNics, and 'capped': 'True' to disks. Specify the regex on the 'capped' property to 'True|False'
-*   For example: engine-config -s CustomDeviceProperties="{type=interface;prop={speed=^([0-9]{1,5})$;duplex=^(full|half)$}}" will set two custom properties for vNics: speed and duplex.
+*   For example: `engine-config -s CustomDeviceProperties="{type=interface;prop={speed=^([0-9]{1,5})$;duplex=^(full|half)$}}"` will set two custom properties for vNics: speed and duplex.
 *   Verify that the properties were inserted into the DB
 *   From the Engine, edit a vNic and place the label property, and the capped property on a disk (Make sure the cluster level is 3.3+)
 *   Verify that you may only place the label property on vNics and not disks, and the capped property on disks and not vNics.

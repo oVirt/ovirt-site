@@ -820,7 +820,12 @@ P - Pool
 
 C - Cluster
 
-<table><colgroup><col style="width: 60%; " class="col_1"><!--Empty--></col><col style="width: 20%; " class="col_2"><!--Empty--></col><col style="width: 20%; " class="col_3"><!--Empty--></col></colgroup>
+<table>
+  <colgroup>
+    <col style="width: 60%; " class="col_1"/>
+	<col style="width: 20%; " class="col_2"/>
+	<col style="width: 20%; " class="col_3"/>
+  </colgroup>
 <thead>
 <tr>
 <th align="left" valign="top" id="idm140207901275968" scope="col">Setting</th><th align="center" valign="top" id="idm140207901274880" scope="col">Enabled (Y/N)</th><th align="center" valign="top" id="idm140207901273792" scope="col">Applies to</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm140207901275968"> <p>
@@ -986,7 +991,12 @@ The following icons indicate the states of a high performance virtual machine in
 
 **High Performance Icons**
 
-<table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 17%; " class="col_1"><!--Empty--></col><col style="width: 83%; " class="col_2"><!--Empty--></col></colgroup><thead><tr><th align="left" valign="top" id="idm140207901153328" scope="col">Icon</th><th align="left" valign="top" id="idm140207901152240" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm140207901153328"> <p>
+<table class="lt-4-cols lt-7-rows">
+  <colgroup>
+    <col style="width: 17%; " class="col_1"/>
+	<col style="width: 83%; " class="col_2"/>
+  </colgroup>
+  <thead><tr><th align="left" valign="top" id="idm140207901153328" scope="col">Icon</th><th align="left" valign="top" id="idm140207901152240" scope="col">Description</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm140207901153328"> <p>
 										<span class="inlinemediaobject"><img src="/images/vmm-guide/hp_vm.png" alt="hp vm"/></span>
 
 									</p>
@@ -1060,16 +1070,27 @@ The following table summarizes the recommended manual settings. The **Enabled (Y
 
 **Manual High Performance Configuration Settings**
 
-<table class="lt-4-cols lt-7-rows"><colgroup><col style="width: 60%; " class="col_1"><!--Empty--></col><col style="width: 20%; " class="col_2"><!--Empty--></col><col style="width: 20%; " class="col_3"><!--Empty--></col></colgroup><thead><tr><th align="left" valign="top" id="idm140207901082352" scope="col">Setting</th><th align="center" valign="top" id="idm140207901081264" scope="col">Enabled (Y/N)</th><th align="center" valign="top" id="idm140207901080176" scope="col">Applies to</th></tr></thead><tbody><tr><td align="left" valign="top" headers="idm140207901082352"> <p>
-										<span class="strong strong"><strong>NUMA Node Count</strong></span> (Host tab)
-									</p>
-									 </td><td align="center" valign="top" headers="idm140207901081264"> <p>
-										<code class="literal">Y</code>
-									</p>
-									 </td><td align="center" valign="top" headers="idm140207901080176"> <p>
-										<code class="literal">VM</code>
-									</p>
-									 </td></tr><tr><td align="left" valign="top" headers="idm140207901082352"> <p>
+<table class="lt-4-cols lt-7-rows">
+  <colgroup>
+    <col style="width: 60%; " class="col_1"/>
+    <col style="width: 20%; " class="col_2"/>
+    <col style="width: 20%; " class="col_3"/>
+  </colgroup>
+  <thead>
+    <tr>
+	  <th align="left" valign="top" id="idm140207901082352" scope="col">Setting</th>
+	  <th align="center" valign="top" id="idm140207901081264" scope="col">Enabled (Y/N)</th>
+	  <th align="center" valign="top" id="idm140207901080176" scope="col">Applies to</th>
+	</tr>
+  </thead>
+    <tbody>
+	  <tr>
+	   <td align="left" valign="top" headers="idm140207901082352"><p><span class="strong strong"><strong>NUMA Node Count</strong></span> (Host tab)</p></td>
+	   <td align="center" valign="top" headers="idm140207901081264"><p><code class="literal">Y</code></p></td>
+	   <td align="center" valign="top" headers="idm140207901080176"><p><code class="literal">VM</code></p></td>
+	  </tr>
+	  <tr>
+	    <td align="left" valign="top" headers="idm140207901082352"><p>
 										<span class="strong strong"><strong>Tune Mode</strong></span> (Host tab)
 									</p>
 									 </td><td align="center" valign="top" headers="idm140207901081264"> <p>
@@ -1259,7 +1280,7 @@ You can now install vGPUs on the virtual machines running on this host.
     **Important:** You cannot migrate a virtual machine using a vGPU to a different host. When upgrading the virtual machine, verify the operating system and GPU vendor support in the vendor’s documentation.
 	{: .alert .alert-info}
 
-**Prev:** [Chapter 3: Installing Windows Virtual Machines](chap-Installing_Windows_Virtual_Machines) <br>
-**Next:** [Chapter 5: Editing Virtual Machines](chap-Editing_Virtual_Machines)
+**Prev:** [Chapter 3: Installing Windows Virtual Machines](chap-Installing_Windows_Virtual_Machines.html) <br>
+**Next:** [Chapter 5: Editing Virtual Machines](chap-Editing_Virtual_Machines.html)
 
 [Adapted from RHV 4.2 documentation - CC-BY-SA](https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.2/html/virtual_machine_management_guide/chap-additional_configuration)

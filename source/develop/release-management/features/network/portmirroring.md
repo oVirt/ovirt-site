@@ -62,7 +62,9 @@ Will be available soon.
 
 The only change is the ability to set whether the VM NIC should get mirrored traffic or not, so we add the following element to the NIC type:
 
-*   <xs:element name="mirror_to_port" type="xs:boolean" minOccurs="0"/>
+```xml
+<xs:element name="mirror_to_port" type="xs:boolean" minOccurs="0"/>
+```
 
 ## Benefit to oVirt
 

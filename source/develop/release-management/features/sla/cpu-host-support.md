@@ -12,8 +12,7 @@ CPU-Host support allows the virtual machines to see and utilize the host's CPU f
 
 ## Owner
 
-*   Name: Laszlo Hornyak (Lhornyak)
-*   Email: <lhornyak@redhatdotcom>
+*   Name: Laszlo Hornyak
 
 ## Current status
 
@@ -38,7 +37,12 @@ Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, mig
     -   Add new element cpu_mode with values *custom*, *host_model* and *host_passthrough* to CPU
     -   example
 
-<cpu><topology cores="1" sockets="1"/><cpu_mode>`HOST_PASSTHROUGH`</cpu_mode></cpu>
+```xml
+<cpu>
+  <topology cores="1" sockets="1"/>
+  <cpu_mode>HOST_PASSTHROUGH</cpu_mode>
+</cpu>
+```
 
 Label should be "Pass through host CPU". When this is set the VM should be marked as non-migratable
 

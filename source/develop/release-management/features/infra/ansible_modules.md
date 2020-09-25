@@ -38,7 +38,7 @@ and that it is better to describe the desired state of a system than the process
 describes oVirt ansible modules.
 
 # Ansible oVirt modules
-You can see all Ansible oVirt modules source code [here](https://github.com/ansible/ansible) and the documentation [here](https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules.html#ovirt).
+You can see all Ansible oVirt modules source code [here](https://github.com/ansible/ansible) and the documentation [here](https://docs.ansible.com/ansible/latest/collections/ovirt/ovirt/).
 
 __Important__: Ansible oVirt modules works with oVirt version 4 and higher.
 

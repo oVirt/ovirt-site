@@ -49,13 +49,15 @@ NVDIMM hot plug is not supported by the platform.
 
 VMs with NVDIMM devices must be pinned to a host and cannot be migrated.
 
-SELinux currently prevents access to NVDIMM devices in devdax mode, see https://bugzilla.redhat.com/1855336.
+SELinux currently prevents access to NVDIMM devices in devdax mode, see <https://bugzilla.redhat.com/1855336>.
+
+NVDIMM on POWER is currently not expected to be stable, until platform fixes are completed.
 
 ## User Experience
 
 An NVDIMM device is added or removed to or from the VM the same way as a host device.  There is a special NVDIMM category of host devices containing NVDIMM devices available on the host.
 
-TODO: Add a screenshot.
+![](/images/wiki/nvdimm-host-device.png)
 
 ## Testing
 

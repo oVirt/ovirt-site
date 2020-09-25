@@ -570,7 +570,7 @@ The package lldpad has to be installed and the demon lldpad has to be running.
 
 [Ansible Docs » lldp - get details reported by lldp][3]
 
-[3]: http://docs.ansible.com/ansible/lldp_module.html
+[3]: https://docs.ansible.com/ansible/latest/collections/community/general/lldp_module.html
 
 [OpenStack: Introspection LLDP reporting][4]
 

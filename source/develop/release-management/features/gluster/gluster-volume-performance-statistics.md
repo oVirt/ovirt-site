@@ -34,7 +34,7 @@ This feature provides the support for monitoring and measuring the performance o
 
 Display results of the 'gluster volume top' command on GUI. GlusterFS Volume Top command allows you to view the glusterfs bricks’ performance metrics like read, write, file open calls, file read calls, file write calls, directory open calls, and directory read calls.
 
-[Gluster Volume Top](http://gluster.org/community/documentation/index.php/Gluster_3.2:_Running_GlusterFS_Volume_Top_Command) has further details on this
+[Gluster Volume Top](https://web.archive.org/web/20160310222215/http://gluster.org/community/documentation/index.php/Gluster_3.2:_Running_GlusterFS_Volume_Top_Command) has further details on this
 
 #### VDSM Changes
 
@@ -45,6 +45,7 @@ This receives volume-name, brick-name, list-count as a input and executes gluste
 If nfs is True, then the top open output is per NFS server.
 
         Output dictionary which contains open fd count and maximum fd count:
+```python
          {'statusCode' : CODE,
              'brickCount': BRICK-COUNT,
              'bricks': {BRICK-NAME: {'count':FILE-COUNT,
@@ -53,7 +54,7 @@ If nfs is True, then the top open output is per NFS server.
                                                              'maxOpenTime': MAX-OPEN-TIME, 
                                                              'files': [{FILE-NAME: FILE-OPEN-COUNT}, ...]
                                                           }, ...} }
-
+```
 2. glusterVolumeTopRead (volumeName,brickName=[ ], nfs=True/False?, listCount=None/100?)
 
 This gives an output dictionary of a list of highest read calls on each brick. If brick name or list count is not given it works with the default value (all bricks, 100 files). This will use gluster volume top read gluster cli command internally.
@@ -73,13 +74,14 @@ This returns list of files which has highest open calls on directories of each b
 Uses gluster volume top readdir gluster cli command and returns the dictionary as below:
 
              Output dictionary:
+```python
              {'statusCode': CODE,
                      'brickCount': BRICK-COUNT,
                      'topOp': TOP-OP,
                      'bricks': {BRICK-NAME: {  'count':READ-DIR-COUNT,
                                                                   'files': [{DIR-NAME: DIR-READ-COUNT}, ...]
                                                                }, ...} }
-
+```
 6. glusterVolumeTopReadPerf (volumeName, blockSize=None, count=None, brickName=None, listCount=None)
 
 This functionality helps to identify disk performance based on specific block size
@@ -99,7 +101,7 @@ This provides write throughput of files on a specific brick/brick-wise
 
 #### Entities
 
-<File:TopClassDiagram.png>
+![](/images/wiki/TopClassDiagram.png)
 
 **\1**
 
@@ -113,12 +115,12 @@ This provides write throughput of files on a specific brick/brick-wise
 
 #### REST API
 
-*   GET: /api/clusters/<cluster-id>/glustervolumes/<volume-id>/top;type=<TopStatisticType>
+*   GET: `/api/clusters/<cluster-id>/glustervolumes/<volume-id>/top;type=<TopStatisticType>`
     -   Other matrix parameters
         -   nfs=true/false
         -   blocksize
         -   count
-*   GET: /api/clusters/<cluster-id>/glustervolumes/<volume-id>/bricks/<brick-id>/top;type=<TopStatisticType>
+*   GET: `/api/clusters/<cluster-id>/glustervolumes/<volume-id>/bricks/<brick-id>/top;type=<TopStatisticType>`
 
 ### Profile
 
@@ -149,25 +151,27 @@ To view the profile info, "Details" sub-menu of the Profiling menu needs to be c
 
 #### REST API
 
-*   GET: /api/clusters/<cluster_id>/glustervolumes/<volume_id>/profilestatistics
+*   GET: `/api/clusters/<cluster_id>/glustervolumes/<volume_id>/profilestatistics`
 
-` `<profileinfo>
-`      `<profilestatstype>`CUMULATIVE|INTERVAL`</profilestatstype>
-`      `<duration>`..`</duration>
-`      `<totalbytesread>`..`<totalbytesread>
-`      `<totalbyteswrite>`..`<totalbyteswrite>
-`      `<blockinfo>
-`      `<blockstatistics>`../`</blockstatistics>
-`      `<blockstatistics>`../`</blockstatistics>
-`      `</blockinfo>
-`      `<fopinfo>
-            `<fopstatistics>`...`</fopstatistics>`  
-`      `<fopstatistics>`...`</fopstatistics>
-`      `</fopinfo>
+```xml
+ <profileinfo>
+      <profilestatstype>CUMULATIVE|INTERVAL</profilestatstype>
+      <duration>..</duration>
+      <totalbytesread>..<totalbytesread>
+      <totalbyteswrite>..<totalbyteswrite>
+      <blockinfo>
+      <blockstatistics>../</blockstatistics>
+      <blockstatistics>../</blockstatistics>
+      </blockinfo>
+      <fopinfo>
+            <fopstatistics>...</fopstatistics>  
+      <fopstatistics>...</fopstatistics>
+      </fopinfo>
 </profileinfo>
+```
 
-*   POST: /api/clusters/<cluster_id>/glustervolumes/<volume_id>/startprofiling
-*   POST:/api/clusters/<cluster_id>/glustervolumes/<volume_id>/stopprofiling
+*   POST: `/api/clusters/<cluster_id>/glustervolumes/<volume_id>/startprofiling`
+*   POST: `/api/clusters/<cluster_id>/glustervolumes/<volume_id>/stopprofiling`
 
 #### HOW TO
 

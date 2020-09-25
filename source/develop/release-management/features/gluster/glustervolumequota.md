@@ -15,7 +15,7 @@ This feature allows the administrators to enable and disable disk utlization lim
 
 Gluster volume quota feature provides users a mechanism to control the disk utlization at volume level or directory level or both. System administrators can also monitor the resource utilization to limit the storage for the users depending on their role in the organization.
 
-To read more about Gluster volume quota feature, see <http://gluster.org/community/documentation/index.php/Gluster_3.2:_Managing_Directory_Quota>.
+To read more about Gluster volume quota feature, see <https://web.archive.org/web/20160310212525/http://gluster.org/community/documentation/index.php/Gluster_3.2:_Managing_Directory_Quota>.
 
 # Owner
 

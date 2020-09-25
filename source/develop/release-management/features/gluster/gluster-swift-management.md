@@ -138,7 +138,7 @@ Periodic sync job will report if service status changes in a server.
     -   Go to Manage link under the clusters general sub tab.
     -   Click on the Start radio button in the manage gluster swift services popup.
     -   Click on OK button.
-    -   Verify for the message "SWIFT Services started on cluster <cluster Name>".
+    -   Verify for the message "SWIFT Services started on cluster `<cluster Name>`".
 
 <!-- -->
 
@@ -148,7 +148,7 @@ Periodic sync job will report if service status changes in a server.
     -   Go to Manage link under the clusters general sub tab.
     -   Click on the Stop radio button in the manage gluster swift services popup.
     -   Click on OK button.
-    -   Verify for the message "SWIFT Services stopped on cluster <cluster Name>".
+    -   Verify for the message "SWIFT Services stopped on cluster `<cluster Name>`".
 
 <!-- -->
 
@@ -158,7 +158,7 @@ Periodic sync job will report if service status changes in a server.
     -   Go to Manage link under the clusters general sub tab.
     -   Click on the Restart radio button in the manage gluster swift services in the popup.
     -   Click on OK button.
-    -   Verify for the message "SWIFT Services re-started on cluster <cluster Name>
+    -   Verify for the message "SWIFT Services re-started on cluster `<cluster Name>`
     -   Verify that Gluster Swift status shows as "UP" in the general subtab of cluster.
 
 <!-- -->
@@ -171,7 +171,7 @@ Periodic sync job will report if service status changes in a server.
     -   Verify that Status column of all the services shows "Up" .
     -   Verify for the following message for all the services present in the server.
 
-    1.  Status of service <Service Type> on server <server Name> changed from Up to Down. Updating in engine now.
+    1.  Status of service `<Service Type>` on server `<server Name>` changed from Up to Down. Updating in engine now.
 
 <!-- -->
 
@@ -183,7 +183,7 @@ Periodic sync job will report if service status changes in a server.
     -   Verify that Status column of all the services shows "Down" .
     -   Verify for the following message for all the services present in the server.
 
-    1.  Status of service <Service Type> on server <server Name> changed from Up to Down. Updating in engine now.
+    1.  Status of service `<Service Type>` on server `<server Name>` changed from Up to Down. Updating in engine now.
 
 <!-- -->
 
@@ -195,12 +195,12 @@ Periodic sync job will report if service status changes in a server.
     -   Verify that Status column of all the services shows "UP" .
     -   Verify for the following message for all the services present in the server.
 
-    1.  Status of service <Service Type> on server <server Name> changed from Down to Up. Updating in engine now.
+    1.  Status of service `<Service Type>` on server `<server Name>` changed from Down to Up. Updating in engine now.
 
 ## Documentation / External references
 
 *   <http://www.gluster.org/community/documentation/index.php/GlusterFS_Swift>
-*   <http://www.gluster.org/community/documentation/index.php/Arch/Understanding_Swift_Integration>
+*   <https://web.archive.org/web/20160625190027/http://www.gluster.org/community/documentation/index.php/Arch/Understanding_Swift_Integration>
 
 
 

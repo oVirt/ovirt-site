@@ -3,7 +3,7 @@
 
 Ansible is an automation tool used to configure systems, deploy software, and perform rolling updates. Ansible includes support for {virt-product-fullname}, and Ansible modules are available to allow you to automate post-installation tasks such as data center setup and configuration, managing users, or virtual machine operations.
 
-Ansible provides an easier method of automating {virt-product-fullname} configuration compared to REST APIs and SDKs, and allows you to integrate with other Ansible modules. For more information about the Ansible modules available for {virt-product-fullname}, see the link:http://docs.ansible.com/ansible/list_of_cloud_modules.html#ovirt[Ovirt modules] in the Ansible documentation.
+Ansible provides an easier method of automating {virt-product-fullname} configuration compared to REST APIs and SDKs, and allows you to integrate with other Ansible modules. For more information about the Ansible modules available for {virt-product-fullname}, see the link:https://docs.ansible.com/ansible/latest/collections/ovirt/ovirt/[oVirt collection] in the Ansible documentation.
 
 [NOTE]
 ====

@@ -36,6 +36,23 @@ page.
 To learn about features introduced before 4.4.2, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
 
+## Known issues
+
+### How to prevent hosts entering emergency mode after upgrade from oVirt 4.4.1
+
+Due to **[[Bug 1837864]](https://bugzilla.redhat.com/show_bug.cgi?id=1837864) - Host enter emergency mode after upgrading to latest build**, 
+
+If you have your root file system on a multipath device on your hosts you should be aware that after upgrading from 4.4.1 to 4.4.2 you may get your host entering emergency mode.
+
+In order to prevent this be sure to upgrade oVirt Engine first, then on your hosts:
+1. Remove the current lvm filter while still on 4.4.1, or in emergency mode (if rebooted).
+2. Reboot.
+3. Upgrade to 4.4.2 (redeploy in case of already being on 4.4.2).
+4. Run vdsm-tool config-lvm-filter to confirm there is a new filter in place.
+5. Only if not using oVirt Node:
+   - run "dracut --force --add multipath” to rebuild initramfs with the correct filter configuration
+6. Reboot.
+
 
 ## What's New in 4.4.2?
 
@@ -54,29 +71,15 @@ To learn about features introduced before 4.4.2, see the
 
  - [BZ 1749803](https://bugzilla.redhat.com/1749803) **[RFE] Improve workflow for storage migration of VMs with multiple disks**
 
-   Feature: 
-
-Allow setting the same target domain for multiple disks at
-
-once on the move/copy popup.
+   This enhancement enables you to set the same target domain for multiple disks. 
 
 
 
-Reason:
-
-Currently, while moving/copying multiple disks, the user is required to set the target domain for each disk separately, one by one.
+Previously, when moving or copying multiple disks, you needed to set the target domain for each disk separately. Now, if a common target domain exists, you can set it as the target domain for all disks.
 
 
 
-Result: 
-
-For multiple selected disks, if a common target domain exists, it can be set as the target domain for all those disks at once by selecting it from the list.
-
-
-
-In case a common storage domain doesn't exist, or setting a different target domain for part of the disks,
-
-(so not all disks will be moved/copied to the same storage domain), the common target domain would be set as 'Mixed'.
+If there is no common storage domain, such that not all disks are moved or copied to the same storage domain, set the common target domain as 'Mixed'.
 
  - [BZ 1860309](https://bugzilla.redhat.com/1860309) **Upgrade to GWT 2.9.0**
 
@@ -162,6 +165,50 @@ Reason:
 2. accumulated improvements and bug fixes (from versions 2.8.1, 2.8.2, 2.9.0)
 
 
+### Known Issue
+
+#### VDSM
+
+ - [BZ 1837864](https://bugzilla.redhat.com/1837864) **Host enter emergency mode after upgrading to latest build**
+
+   When upgrading from Red Hat Virtualization 4.4 GA (RHV 4.4.1) to RHEV 4.4.2, the host enters emergency mode and cannot be restarted. 
+
+Workaround: see the solution in https://access.redhat.com/solutions/5428651
+
+
+#### oVirt Engine
+
+ - [BZ 1837864](https://bugzilla.redhat.com/1837864) **Host enter emergency mode after upgrading to latest build**
+
+   When upgrading from Red Hat Virtualization 4.4 GA (RHV 4.4.1) to RHEV 4.4.2, the host enters emergency mode and cannot be restarted. 
+
+Workaround: see the solution in https://access.redhat.com/solutions/5428651
+
+
+#### imgbased
+
+ - [BZ 1837864](https://bugzilla.redhat.com/1837864) **Host enter emergency mode after upgrading to latest build**
+
+   When upgrading from Red Hat Virtualization 4.4 GA (RHV 4.4.1) to RHEV 4.4.2, the host enters emergency mode and cannot be restarted. 
+
+Workaround: see the solution in https://access.redhat.com/solutions/5428651
+
+
+#### oVirt Node NG Image
+
+ - [BZ 1850378](https://bugzilla.redhat.com/1850378) **Installation of node will not quit when mountpoint has existing domain (VMs)**
+
+   When you upgrade Red Hat Virtualization from 4.3 to 4.4 with a storage domain that is locally mounted on / (root), the upgrade fails. Specifically, on the host it appears that the upgrade is successful, but the host's status on the Administration Portal, is `NonOperational`.
+
+
+
+Local storage should always be defined on a file system that is separate from / (root). Use a separate logical volume or disk, to prevent possible loss of data during upgrades.
+
+
+
+If you are using / (root) as the locally mounted storage domain, migrate your data to a separate logical volume or disk prior to upgrading.
+
+
 ### Bug Fixes
 
 #### VDSM
@@ -201,6 +248,13 @@ Reason:
  - [BZ 1866956](https://bugzilla.redhat.com/1866956) **Hosted-Engine restore from backup and 4.4 upgrade fail if Blank template is set as HA**
 
  - [BZ 1868571](https://bugzilla.redhat.com/1868571) **Failed to deploy HE over NFS storage  "FileNotFoundError: [Errno 2] No such file or directory"**
+
+
+#### oVirt Engine Appliance
+
+ - [BZ 1866811](https://bugzilla.redhat.com/1866811) **gssapi packages missing on upgrade**
+
+ - [BZ 1866780](https://bugzilla.redhat.com/1866780) **hosted-engine upgrade to 4.4 with dwh on remote machine fails due to grafana**
 
 
 ### Other
@@ -247,10 +301,6 @@ Reason:
    
 
  - [BZ 1860284](https://bugzilla.redhat.com/1860284) **VM can not be taken from pool when no prestarted VM's are available**
-
-   
-
- - [BZ 1846350](https://bugzilla.redhat.com/1846350) **Extra white space and over-stretched components in WebAdmin dialogues - Storage dialogs**
 
    
 

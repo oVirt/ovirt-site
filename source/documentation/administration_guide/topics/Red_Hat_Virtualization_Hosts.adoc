@@ -11,7 +11,7 @@ Access the Cockpit web interface at https://_HostFQDNorIP_:9090 in your web brow
 
 [NOTE]
 ====
-Custom boot kernel arguments can be added to {hypervisor-fullname} using the `grubby` tool. The `grubby` tool makes persistent changes to the *grub.cfg* file. Navigate to the *Terminal* sub-tab in the host's Cockpit web interface to use `grubby` commands. See the link:{URL_rhel_docs_legacy}html/System_Administrators_Guide/sec-Making_Persistent_Changes_to_a_GRUB_2_Menu_Using_the_grubby_Tool.html[_{enterprise-linux} System Administrator's Guide_] for more information.
+Custom boot kernel arguments can be added to {hypervisor-fullname} using the `grubby` tool. The `grubby` tool makes persistent changes to the *grub.cfg* file. Navigate to the *Terminal* sub-tab in the host's Cockpit web interface to use `grubby` commands. See the link:{URL_rhel_docs_legacy}html/system_administrators_guide/ch-Working_with_the_GRUB_2_Boot_Loader#sec-Making_Persistent_Changes_to_a_GRUB_2_Menu_Using_the_grubby_Tool[_{enterprise-linux} System Administrator's Guide_] for more information.
 ====
 
 [WARNING]

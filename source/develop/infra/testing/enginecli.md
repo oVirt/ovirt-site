@@ -19,12 +19,15 @@ In order to connect to ovirt-engine using the ovirt-shell, (CLI api which uses R
 
 *   The following commands will connect you to the interactive shell:
 
+```bash
          # ovirt-shell
-         # (disconnected) > connect "`[`http://localhost:8080/api`](http://localhost:8080/api)`" "user@domain" "password"
+         # (disconnected) > connect "http://localhost:8080/api" "user@domain" "password"
          # [oVirt-shell:connected]#
+```
 
-*   Once you are connected to the shell, you can simply run 'help', which will revel some of the following options:
+*   Once you are connected to the shell, you can simply run '`help`', which will revel some of the following options:
 
+```
        AVAILABLE COMMANDS
        
          * action           execute an action on an object
@@ -46,6 +49,7 @@ In order to connect to ovirt-engine using the ovirt-shell, (CLI api which uses R
          * show             show one object
          * status           show status
          * update           update an object
+```
 
 Below you can find an example ovirt-engine-sdk for the following steps:
 

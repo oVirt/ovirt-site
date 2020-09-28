@@ -10,9 +10,9 @@ options = {
   check_opengraph: true,
   only_4xx: true,
   http_status_ignore: [429],
-  file_ignore: [ "/events/" ],
   url_ignore: [ "https://github.com/oVirt/.*/edit/.*" ],
-  parallel: { in_processes: 8 }
+  parallel: { in_processes: 8 },
+  cache: { timeframe: '6w' },
 }
 
 HTMLProofer.check_directory("./_site", options).run

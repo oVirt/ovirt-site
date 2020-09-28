@@ -2,12 +2,17 @@
 title: DiskAlignment
 authors: fsimonce
 feature_name: Disk Alignment
-feature_status: Released in oVirt 3.3
+feature_status: Obsolete
 ---
+
+**Note**: this feature is now obsolete. It was introduced in oVirt 3.3 and dropped in oVirt 4.4 [(Bug #1533086)](https://bugzilla.redhat.com/show_bug.cgi?id=1533086)
+
+
 
 # Disks Block Alignment
 
-This page describes the Disk Block Alignment feature. The main scope of this feature is to provide a way in oVirt to find the virtual disks with misaligned partitions. For more information on this matter please refer to the [virt-alignment-scan](http://libguestfs.org/virt-alignment-scan.1.html) tool and to the NetApp document that summarises the problem: <http://media.netapp.com/documents/tr-3747.pdf>
+This page describes the Disk Block Alignment feature. The main scope of this feature is to provide a way in oVirt to find the virtual disks with misaligned partitions. For more information on this matter please refer to the [virt-alignment-scan](http://libguestfs.org/virt-alignment-scan.1.html) tool.
+The NetApp document that summarises the problem used to be at: `http://media.netapp.com/documents/tr-3747.pdf` but is not available anymore.
 
 > When older operating systems install themselves, the partitioning tools place partitions at a sector misaligned with the underlying storage (commonly the first partition starts on sector 63). Misaligned partitions can result in an operating system issuing more I/O than should be necessary.
 

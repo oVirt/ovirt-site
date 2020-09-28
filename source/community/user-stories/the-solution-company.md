@@ -1,5 +1,5 @@
 ---
-title: the Solution Company case study
+title: the IT & Solution Company case study
 category: community
 authors: sandrobonazzola, bproffitt, stoobie
 ---
@@ -10,7 +10,7 @@ authors: sandrobonazzola, bproffitt, stoobie
 
 ![](/images/user-stories/theSolutionCompany_ThinClients.jpg)
 
-[the Solution Company](http://it-solution.company/) was asked to revamp the IT infrastructure for a hospital at the beginning of 2020… and frankly,
+[the IT & Solution Company](http://it-solution.company/) was asked to revamp the IT infrastructure for a hospital at the beginning of 2020… and frankly,
 the existing infrastructure situation was awful. Their hardware and software were from back in the 2000’s, and it was very difficult to manage and operate.
 This hospital had made the decision to not invest much in IT, so there were no available funds in the foreseeable future. Everything was in bad shape, all the way down to the cables!
 

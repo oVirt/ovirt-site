@@ -215,10 +215,11 @@ Details of the RESTful APIs for the Gluster volume quota feature are as below
 
 ### Listing APIs
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/quota|rel=get - lists all the disk usage limits for the volume directory-wise
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/quota|rel=get` - lists all the disk usage limits for the volume directory-wise
 
 Output:
 
+```xml
     <diskUsageLimits>
       <diskUsageLimit href="" id="">
         <actions>
@@ -232,29 +233,35 @@ Output:
         <hardLimitExceeded>{Y/N}</hardLimitExceeded>
       </diskUsageLimit>
     </diskUsageLimits>
+```
 
 ### Actions Supported
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/enable-quota|rel=enable-quota - enables quota feature for the volume
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/enable-quota|rel=enable-quota` - enables quota feature for the volume
 
 Input:
 
+```xml
     <action/>
+```
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/enable-quota|rel=disable-quota - disables quota feature for the volume
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/enable-quota|rel=disable-quota` - disables quota feature for the volume
 
 Input:
 
+```xml
     <action/>
+```
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/quota|rel=add - adds disk usage limit for said volume and directory
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/quota|rel=add` - adds disk usage limit for said volume and directory
     -   Parameters
-        -   dirName - String
-        -   hardLimit - String
-        -   softLimitPcnt - String
+        -   `dirName` - String
+        -   `hardLimit` - String
+        -   `softLimitPcnt` - String
 
 Input:
 
+```xml
     <action>
       <diskUsageLimit>
         <dirName>{dir-name}</dirName>
@@ -262,62 +269,75 @@ Input:
         <softLimitPcnt>{soft-limit-percentage}</softLimitPcnt>
       </diskUsageLimit>
     </action>
+```
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/quota|rel=delete - removes a disk usage limit for said volume and directory
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/quota|rel=delete` - removes a disk usage limit for said volume and directory
     -   Parameters
-        -   dirName - String
+        -   `dirName` - String
 
 Input:
 
+```xml
     <action>
       <diskUsageLimit>
         <dirName>{dir-name}</dirName>
       </diskUsageLimit>
     </action>
+```
 
 or
 
+```xml
     <diskUsageLimit id="{limit-id}" />
+```
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/set-quota-soft-timeout|rel=set-quota-soft-timeout - sets the quota related soft timeout value
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/set-quota-soft-timeout|rel=set-quota-soft-timeout` - sets the quota related soft timeout value
     -   Parameters
-        -   timeout - String
+        -   `timeout` - String
 
 Input:
 
+```xml
     <action>
       <softTimeout>{soft-timeout-value}</softTimeout>
     </action>
+```
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/set-quota-hard-timeout|rel=set-quota-hard-timeout - sets the quota related hard timeout value
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/set-quota-hard-timeout|rel=set-quota-hard-timeout` - sets the quota related hard timeout value
     -   Parameters
-        -   timeout - String
+        -   `timeout` - String
 
 Input:
 
+```xml
     <action>
       <hardTimeout>{hard-timeout-value}</hardTimeout>
     </action>
+```
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/set-quota-alert-time|rel=set-quota-alert-time - sets the quota related alert time value
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/set-quota-alert-time|rel=set-quota-alert-time` - sets the quota related alert time value
     -   Parameters
-        -   time - String
+        -   `time` - String
 
 Input:
 
+```xml
     <action>
       <alertTime>{alert-time-value}</alertTime>
     </action>
+```
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/set-deafult-soft-limit|rel=set-deafult-soft-limit - sets the quota related default soft limit percentage
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/set-deafult-soft-limit|rel=set-deafult-soft-limit` - sets the quota related default soft limit percentage
     -   Parameters
-        -   limit - String
+        -   `limit` - String
 
 Input:
 
+```xml
     <action>
       <limit>{limit-percentage-value}</limit>
     </action>
+```
 
 ## Limitations
 
@@ -331,7 +351,7 @@ None
 
 # Documentation / External references
 
-<http://gluster.org/community/documentation/index.php/Gluster_3.2:_Managing_Directory_Quota>
+<https://web.archive.org/web/20160310212525/http://gluster.org/community/documentation/index.php/Gluster_3.2:_Managing_Directory_Quota>
 
 
 

@@ -11,7 +11,7 @@ status: Deprecated
 
 This feature allows the administrator to manage the gluster swift related services and configuration from oVirt Engine. With this the administrator can view gluster swift status in the cluster as well as on each host/server. Administrator will be able to start/stop gluster swift service across the servers in a cluster or on each server.
 
-To read more about gluster swift integration, see <http://www.gluster.org/community/documentation/index.php/GlusterFS_Swift>
+To read more about gluster swift integration, see <https://github.com/gluster/gluster-swift/blob/master/doc/markdown/quick_start_guide.md>
 
 ## Owner
 
@@ -199,7 +199,7 @@ Periodic sync job will report if service status changes in a server.
 
 ## Documentation / External references
 
-*   <http://www.gluster.org/community/documentation/index.php/GlusterFS_Swift>
+*   <https://github.com/gluster/gluster-swift/blob/master/doc/markdown/quick_start_guide.md>
 *   <https://web.archive.org/web/20160625190027/http://www.gluster.org/community/documentation/index.php/Arch/Understanding_Swift_Integration>
 
 

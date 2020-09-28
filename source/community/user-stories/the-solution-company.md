@@ -10,7 +10,7 @@ authors: sandrobonazzola, bproffitt, stoobie
 
 ![](/images/user-stories/theSolutionCompany_ThinClients.jpg)
 
-[the Solution Company](https://www.the-solution-company.com/en/home) was asked to revamp the IT infrastructure for a hospital at the beginning of 2020… and frankly,
+[the Solution Company](http://it-solution.company/) was asked to revamp the IT infrastructure for a hospital at the beginning of 2020… and frankly,
 the existing infrastructure situation was awful. Their hardware and software were from back in the 2000’s, and it was very difficult to manage and operate.
 This hospital had made the decision to not invest much in IT, so there were no available funds in the foreseeable future. Everything was in bad shape, all the way down to the cables!
 
@@ -52,12 +52,12 @@ Thin clients support up to two screens, and the entire infrastructure has proven
 </div>
 <div class="col-md-4 pad-sides">
 <div class="well well-lg">
-![](/images/logos/theSolutionCompany.png)<br>
+![](/images/logos/theSolutionCompany.png)<br/>
 
-**Company name:** the Solution Company<br>
-**Activity:** Consulting<br>
-**Founded:** ???<br>
-**Size:** ??? employees, ??? revenues
+**Company name:** the IT & Solution Company<br/>
+**Activity:** Network / Development<br/>
+**Founded:** 2017<br/>
+**Size:** 5 employees
 
 </div>
 </div>

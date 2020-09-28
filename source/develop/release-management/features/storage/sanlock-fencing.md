@@ -116,7 +116,7 @@ This feature requires fencing support in sanlock, discussed in the sanlock-devel
 
 *   [RFE] Add support for iscsi/scsi fencing in RHEV - <https://bugzilla.redhat.com/804272>
 *   <http://en.wikipedia.org/wiki/Fencing_%28computing%29>
-*   Red Hat GFS 6.0: Administrator's Guide: Using the Fencing System - <https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/3/html/GFS_6.0_Administration_Guide/ch-fence.html>
+*   Red Hat GFS 6.0: Administrator's Guide: Using the Fencing System - (Documentation used to be at `https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/3/html/GFS_6.0_Administration_Guide/ch-fence.html` but the page doesn't exist anymore)
 
 ## Testing
 

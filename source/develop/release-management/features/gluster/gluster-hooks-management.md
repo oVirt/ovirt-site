@@ -1,7 +1,7 @@
 ---
 title: Gluster Hooks Management
 category: feature
-authors: kmayilsa, prasanth, sahina, shireesh
+authors: kmayilsa, prasanth, sahina, shireesh, Gobinda Das
 feature_name: Gluster Hooks management
 feature_modules: engine,gluster
 feature_status: Released
@@ -13,7 +13,7 @@ feature_status: Released
 
 This feature allows the user to manage the gluster hooks(Volume lifecycle extensions) from oVirt Engine. With this the user can view the list of hooks available in the hosts along with their statuses. The user will be able to enable or disable hooks and view the content s of them.
 
-To read more about gluster hooks <http://www.gluster.org/community/documentation/index.php/Features/Hooks>
+To read more about gluster hooks <https://docs.gluster.org/en/latest/Administrator%20Guide/Hook-scripts/>
 
 ## Owner
 
@@ -108,7 +108,7 @@ As the hooks present in the servers are periodically synchronized with engine da
 
 ## Documentation / External references
 
-<http://www.gluster.org/community/documentation/index.php/Features/Hooks>
+<https://docs.gluster.org/en/latest/Administrator%20Guide/Hook-scripts/>
 
 
 
@@ -230,4 +230,3 @@ As the hooks present in the servers are periodically synchronized with engine da
 **\1**
 
 :#All the conflicts should be successfully resolved
-

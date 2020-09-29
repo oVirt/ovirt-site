@@ -19,12 +19,16 @@ This feature allows you to hot plug CPUs to a running virtual machine from the o
 
 *   phase 1 (i.e all content in this wiki) - Done
 *   phase 2 - [Hot_plug_cpu#Phase_2](#phase-2) desgin stage
-*   limitations: unplug isn't supported fully due to libvirt's bug [#1017858](https://bugzilla.redhat.com/show_bug.cgi?id=1017858#c11)
-*   Last updated: ,
+*   limitations: unplug isn't supported fully due to libvirt's [Bug #1017858](https://bugzilla.redhat.com/show_bug.cgi?id=1017858#c11)
+
 
 ## Detailed Description
 
-Historically, CPU and memory hot add and remove capabilities were thought of as server hardware RAS features. However, the concepts of CPU and memory hot add and remove are both common and necessary for Virtualized environments. Virtual CPUs and virtual memory assigned to a virtual machine (VM) need to be be added or removed from a running guest in order to meet either the workload's demands or to maintain the SLA associated with the workload. It is also desired for the rapid reconfiguration of a guest once a workload has been completed or migrated and an administrator wants to reconfigure the VM without having to re-boot the VM.
+Historically, CPU and memory hot add and remove capabilities were thought of as server hardware RAS features.
+However, the concepts of CPU and memory hot add and remove are both common and necessary for Virtualized environments.
+Virtual CPUs and virtual memory assigned to a virtual machine (VM) need to be be added or removed from a running guest in order to meet either
+the workload's demands or to maintain the SLA associated with the workload.
+It is also desired for the rapid reconfiguration of a guest once a workload has been completed or migrated and an administrator wants to reconfigure the VM without having to re-boot the VM.
 
 ## Benefit to oVirt
 
@@ -32,15 +36,19 @@ This feature enables the following powerful use cases:
 
 *   Admins can ensure customer's SLA are being met
 *   Spare hardware can be effectively used - it's common to see systems overdimentioned x3 for an average max load
-*   System hardware can be dynamic scaled vertically, down or up, in accordance with your needs \*without restarting\* the virtual machine
+*   System hardware can be dynamic scaled vertically, down or up, in accordance with your needs **without restarting** the virtual machine
 
 ## Detailed Design
 
 ### Client Usage
 
-The term plug/unplug CPUs is simpler from the user POV. The user just needs to set the desired number of sockets he needs. I.e we support a number which is the multiplication of the Cores per sockets and sockets.
+The term plug/unplug CPUs is simpler from the user POV.
+The user just needs to set the desired number of sockets he needs.
+I.e we support a number which is the multiplication of the Cores per sockets and sockets.
 
-All of this means that the user can now simply change the number of sockets of a running VM while its status is UP. This would trigger a call to VDSM to setNumberOfCpus(vmId, num). there is no notion of plug/unplug.
+All of this means that the user can now simply change the number of sockets of a running VM while its status is UP.
+This would trigger a call to VDSM to `setNumberOfCpus(vmId, num)`.
+There is no notion of plug/unplug.
 
 #### UI
 
@@ -50,31 +58,54 @@ See that "Sockets" text input is editable while the VM is UP (its editable only 
 
 #### REST
 
-This is a typical update to a VM resource. The number of sockets is changed to 2. this will hotplug 1 more CPU to the machine.
+This is a typical update to a VM resource.
+The number of sockets is changed to 2.
+This will hotplug 1 more CPU to the machine.
 
-      hotplug-cpu.xml
-`  `<vm><cpu><topology sockets="2" cores="1"></topology></cpu></vm>
+```bash
+  cat hotplug-cpu.xml
+```
 
-        curl -X PUT --user user@domain:pass -H "Content-Type:application/xml" -d@hotplug-cpu.xml  `[`http://localhost:8080/ovirt-engine/api/vms/`](http://localhost:8080/ovirt-engine/api/vms/)`${vmId}
+```xml
+  <vm>
+    <cpu>
+      <topology sockets="2" cores="1"></topology>
+    </cpu>
+  </vm>
+```
+
+```bash
+  curl -X PUT \
+    --user user@domain:pass \
+    -H "Content-Type:application/xml" \
+    -d@hotplug-cpu.xml  http://localhost:8080/ovirt-engine/api/vms/${vmId}
+```
 
 ### Engine
 
-Engine must allow updates to the number of sockets field while the VM is up. When calling the UpdateVmCommand, we will check
+Engine must allow updates to the number of sockets field while the VM is up. When calling the `UpdateVmCommand`, we will check
 if the current number is different then the stored number of sockets. if it is we then call VDSM setNumberOfCpus(vmId, num).
 If we returned with no error, the new number of CPUs is stored into db. The engine view of the actual vCpus of this machine is now syncronized.
 
-A pre-condition for adding more CPUs is that a VM has a MAX_VCPUS set in its xml. this means we have to start the VM with some configured maximum. this number doesn't affect any reosurce allocation on the VM itself. Till today the MAX_VCPUS was equal to the number of CPUs the VM started with. So its impossible to hot plug more CPUs
-to machines that started < 3.4 (i.e setup upgraded and the machines stayed UP)
+A pre-condition for adding more CPUs is that a VM has a `MAX_VCPUS` set in its xml.
+This means we have to start the VM with some configured maximum.
+This number doesn't affect any reosurce allocation on the VM itself.
+Till today the `MAX_VCPUS` was equal to the number of CPUs the VM started with.
+So its impossible to hot plug more CPUs to machines that started < 3.4 (i.e setup upgraded and the machines stayed UP)
 
 pseudo-code for building a VM xml we send to VDSM
 
+```python
       if (hot plug is supported for this compat version) {
           smp = ConfigValues.MaxNumOfVmCpus
       }
+```
 
 #### Update Vm Command - Error handling
 
-The API to hot plug CPU is using UpdateVmCommand. essentially if there is a change in topology a child Command HotSetNumberOfCpus will be called. The call to the child command fails atomically and it shall \*NOT\* abort the parent UpdateVmCommand.
+The API to hot plug CPU is using `UpdateVmCommand`.
+Essentially if there is a change in topology a child Command `HotSetNumberOfCpus` will be called.
+The call to the child command fails atomically and it shall **NOT** abort the parent `UpdateVmCommand`.
 
 e.g - we want to update a running's VM desription and to hotplug 1 more cpu
 
@@ -84,12 +115,12 @@ e.g - we want to update a running's VM desription and to hotplug 1 more cpu
 4.  UpdateVmCommand check for the failure and outputs and AuditLog
 5.  UpdateVmCommand terminates and commit changes to DB with the new description only. the old number of sockets remains unchanged
 
-## changes
+##### changes
 
 | Component       | requirement                                                                                                         | completed                                                    |
 |-----------------|---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
 | Engine          | UpdateVmCommand permits number of cpus change while VM is running                                                   | Done                                                         |
-| Engine          | UpdateVmCommand canDo fail if # of cpus is not supported on host (config value?, get the actual number from caps?) | 0                                                            |
+| Engine          | UpdateVmCommand canDo fail if # of cpus is not supported on host (config value?, get the actual number from caps?)  | 0                                                            |
 | Engine          | UpdateVmCommand send setNumberOfCpus verb when cpus changes                                                         | Done                                                         |
 | Engine          | UpdateVmCommand stores the new number of CPUs only if the call to setNumberOfCpus succeeded                         | Done                                                         |
 | Engine - osinfo | create configuration for plug/unplug                                                                                | not clear which OSs we block/allow - PPC is blocked entirely |
@@ -98,7 +129,7 @@ e.g - we want to update a running's VM desription and to hotplug 1 more cpu
 | VDSM            | in vm.py, bind the verb to an underling call to libvirt's setVcpus                                                  | Done                                                         |
 | VDSM            | call before/after hooks for plug/unplug to enable various method for onlining the CPU at the guest OS               | Done                                                         |
 
-      === check list ===
+###### check list
 
 | Component | check                                                                                              | completed |
 |-----------|----------------------------------------------------------------------------------------------------|-----------|
@@ -114,7 +145,7 @@ libvirt's setNumOfCpus --guest will use the guest agent to offline/online the re
 
 i.e that the as for RHEL, the guest alone handles the plug/unplug without the need of the agent to do the underling job.
 
-for more details see comment 11 on Bug [#1017858](https://bugzilla.redhat.com/show_bug.cgi?id=1017858#c11)
+for more details see comment 11 on [Bug #1017858](https://bugzilla.redhat.com/show_bug.cgi?id=1017858#c11)
 
 [qemu-guest-agent](https://wiki.qemu.org/Features/GuestAgent)
 
@@ -122,107 +153,23 @@ for more details see comment 11 on Bug [#1017858](https://bugzilla.redhat.com/sh
 
 | OS                               | Version                                   | Arch      | Plug            | Unplug          |
 |----------------------------------|-------------------------------------------|-----------|-----------------|-----------------|
-| Red Hat Enterprise Linux 6.3     |                                           | x86       | <center>        
-                                                                                            +                
-
-                                                                                            </center>        | <center>        
-                                                                                                              -                
-
-                                                                                                              </center>        |
-| Red Hat Enterprise Linux 6.5     |                                           | x86       | <center>        
-                                                                                            +                
-
-                                                                                            </center>        | <center>        
-                                                                                                              +                
-
-                                                                                                              </center>        |
-| Microsoft Windows Server 2003    | All                                       | x86       | <center>        
-                                                                                            -                
-
-                                                                                            </center>        | <center>        
-                                                                                                              -                
-
-                                                                                                              </center>        |
-| Microsoft Windows Server 2003    | All                                       | x64       | <center>        
-                                                                                            -                
-
-                                                                                            </center>        | <center>        
-                                                                                                              -                
-
-                                                                                                              </center>        |
-| Microsoft Windows Server 2008    | All x86                                   | <center>  
-                                                                                -          
-
-                                                                                </center>  | <center>        
-                                                                                            -                
-
-                                                                                            </center>        |
+| Red Hat Enterprise Linux 6.3     |                                           | x86       | +               | -               |
+| Red Hat Enterprise Linux 6.5     |                                           | x86       | +               | +               |
+| Microsoft Windows Server 2003    | All                                       | x86       | -               | -               |
+| Microsoft Windows Server 2003    | All                                       | x64       | -               | -               |
+| Microsoft Windows Server 2008    | All                                       | x86       | -               | -               |
 | Microsoft Windows Server 2008    | Standard, Enterprise                      | x64       | Reboot Required | Reboot Required |
-| Microsoft Windows Server 2008    | Datacenter                                | x64       | <center>        
-                                                                                            +                
-
-                                                                                            </center>        | <center>        
-                                                                                                              ?                
-
-                                                                                                              </center>        |
-| Microsoft Windows Server 2008 R2 | All                                       | x86       | <center>        
-                                                                                            -                
-
-                                                                                            </center>        | <center>        
-                                                                                                              -                
-
-                                                                                                              </center>        |
+| Microsoft Windows Server 2008    | Datacenter                                | x64       | +               | ?               |
+| Microsoft Windows Server 2008 R2 | All                                       | x86       | -               | -               |
 | Microsoft Windows Server 2008 R2 | Standard, Enterprise                      | x64       | Reboot Required | Reboot Required |
-| Microsoft Windows Server 2008 R2 | Datacenter                                | x64       | <center>        
-                                                                                            +                
-
-                                                                                            </center>        | <center>        
-                                                                                                              ?                
-
-                                                                                                              </center>        |
-| Microsoft Windows Server 2012    | All                                       | x64       | <center>        
-                                                                                            +                
-
-                                                                                            </center>        | <center>        
-                                                                                                              ?                
-
-                                                                                                              </center>        |
-| Microsoft Windows Server 2012 R2 | All                                       | x64       | <center>        
-                                                                                            +                
-
-                                                                                            </center>        | <center>        
-                                                                                                              ?                
-
-                                                                                                              </center>        |
-| Microsoft Windows 7              | All                                       | x86       | <center>        
-                                                                                            -                
-
-                                                                                            </center>        | <center>        
-                                                                                                              -                
-
-                                                                                                              </center>        |
+| Microsoft Windows Server 2008 R2 | Datacenter                                | x64       | +               | ?               |
+| Microsoft Windows Server 2012    | All                                       | x64       | +               | ?               |
+| Microsoft Windows Server 2012 R2 | All                                       | x64       | +               | ?               |
+| Microsoft Windows 7              | All                                       | x86       | -               | -               |
 | Microsoft Windows 7              | Starter, Home, Home Premium, Professional | x64       | Reboot Required | Reboot Required |
-| Microsoft Windows 7              | Enterprise, Ultimate                      | x64       | <center>        
-                                                                                            +                
-
-                                                                                            </center>        | <center>        
-                                                                                                              ?                
-
-                                                                                                              </center>        |
-| Microsoft Windows 8.x            | All                                       | x86       | <center>        
-                                                                                            +                
-
-                                                                                            </center>        | <center>        
-                                                                                                              ?                
-
-                                                                                                              </center>        |
-| Microsoft Windows 8.x            | All                                       | x64       | <center>        
-                                                                                            +                
-
-                                                                                            </center>        | <center>        
-                                                                                                              ?                
-
-                                                                                                              </center>        |
+| Microsoft Windows 7              | Enterprise, Ultimate                      | x64       | +               | ?               |
+| Microsoft Windows 8.x            | All                                       | x86       | +               | ?               |
+| Microsoft Windows 8.x            | All                                       | x64       | +               | ?               |
 
 ## Documentation / External references
 
@@ -244,10 +191,11 @@ if we have cpu pinning for cpu 1-4 and we start the VM with 4 CPU and then we of
 
 #### hook support
 
-hook support is provided to solve potential problems with online/offline the cpu after the actual addition to the VM system. Its not clear if some linux versions will have the cpu added but offline in the system so the hook is to cover the gap.
+hook support is provided to solve potential problems with online/offline the cpu after the actual addition to the VM system.
+Its not clear if some linux versions will have the cpu added but offline in the system so the hook is to cover the gap.
 
-      /usr/libexec/vdsm/hooks/before_set_num_of_cpus
-      /usr/libexec/vdsm/hooks/after_set_num_of_cpus
+* `/usr/libexec/vdsm/hooks/before_set_num_of_cpus`
+* `/usr/libexec/vdsm/hooks/after_set_num_of_cpus`
 
 ## Phase 2
 
@@ -285,7 +233,9 @@ note: VDSM-guest-agent work for reporting this is already in progress - <http://
 
 *   how to check the guest CPUs - LINUX
 
+```bash
       lscpu -e -a
+```
 
 TODO - format the tests
 
@@ -309,7 +259,7 @@ TODO - format the tests
 (Check what is the maximum number of CPUs, supported on host by getVdsCaps on host).
 
 1.  1.  Expected Results
-        1.  CanDoAction fail
+        1.  `CanDoAction` fail
 
     2.  Breakdown
 
@@ -319,7 +269,7 @@ TODO - format the tests
         1.  For a VM with 1 CPU, try to run CPU hot unplug.
 
     3.  Expected Results
-        1.  Expect CanDoAction, since 1 CPU is the minimum.
+        1.  Expect `CanDoAction`, since 1 CPU is the minimum.
 
     4.  Breakdown
 

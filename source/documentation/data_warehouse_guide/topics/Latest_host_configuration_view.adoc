@@ -1,0 +1,44 @@
+[[Latest_host_configuration_view]]
+==== Host Configuration
+
+The following table shows the configuration history parameters of the hosts in the system.
+[[References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_host_configuration_view]]
+
+.v4_2_configuration_history_hosts
+[options="header"]
+|===
+|Name |Type |Description |Indexed 
+|history_id |integer |The ID of the configuration version in the history database. This is identical to the value of `host_configuration_version` in the host statistics views and it can be used to join them. |No
+|host_id |uuid |The unique ID of the host in the system. |Yes
+|host_unique_id |character varying(128) |This field is a combination of the host's physical UUID and one of its MAC addresses, and is used to detect hosts already registered in the system. |No
+|host_name |character varying(255) |Name of the host (same as in the edit dialog). |No
+|cluster_id |uuid |The unique ID of the cluster that this host belongs to. |Yes
+|host_type |smallint |
+
+* 0 - RHEL Host
+
+* 2 - RHEV Hypervisor Node
+ |No
+
+|fqdn_or_ip |character varying(255) |The host's DNS name or its IP address for {virt-product-fullname} {engine-name} to communicate with (as displayed in the edit dialog). |No
+|memory_size_mb |integer |The host's physical memory capacity, expressed in megabytes (MB).  |No
+|swap_size_mb |integer |The host swap partition size. |No
+|cpu_model |character varying(255) |The host's CPU model. |No
+|number_of_cores |smallint |Total number of CPU cores in the host. |No
+|number_of_sockets |smallint |Total number of CPU sockets. |No
+|cpu_speed_mh |numeric(18,0) |The host's CPU speed, expressed in megahertz (MHz). |No
+|host_os |character varying(255) |The host's operating system version. |No
+|kernel_version |character varying(255) |The host's kernel version. |No
+|kvm_version |character varying(255) |The host's KVM version. |No
+|vdsm_version |character varying |The host's VDSM version. |No
+|vdsm_port |integer |As displayed in the edit dialog. |No
+|threads_per_core |smallint |Total number of threads per core. |No
+|hardware_manufacturer |character varying(255) |The host's hardware manufacturer. |No
+|hardware_product_name |character varying(255) |The product name of the host's hardware. |No
+|hardware_version |character varying(255) |The version of the host's hardware. |No
+|hardware_serial_number |character varying(255) |The serial number of the host's hardware. |No
+|cluster_configuration_version |integer |The cluster configuration version at the time of creation or update. This is identical to the value of `history_id` in the `v4_2_configuration_history_clusters` view and it can be used to join them. |No
+|create_date |timestamp with time zone |The date this entity was added to the system. |No
+|update_date |timestamp with time zone |The date this entity was changed in the system. |No
+|delete_date |timestamp with time zone |The date this entity was deleted from the system. |No
+|===

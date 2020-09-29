@@ -1,0 +1,106 @@
+[[Latest_virtual_machine_configuration_view]]
+==== Virtual Machine Configuration
+
+The following table shows the configuration history parameters of the virtual machines in the system.
+[[References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_vm_configuration_view]]
+
+.v4_2_configuration_history_vms
+[options="header"]
+|===
+|Name |Type |Description |Indexed
+|history_id |integer |The ID of the configuration version in the history database. This is identical to the value of `vm_configuration_version` in the virtual machine statistics views and it can be used to join them. |No
+|vm_id |uuid |The unique ID of this virtual machine in the system. |Yes
+|vm_name |character varying(255) |The name of the virtual machine. |No
+|vm_description |character varying(4000) |As displayed in the edit dialog. |No
+|vm_type |smallint |
+
+* 0 - Desktop
+
+* 1 - Server
+|No
+
+|cluster_id |uuid |The unique ID of the cluster this virtual machine belongs to. |Yes
+|template_id |uuid |The unique ID of the template this virtual machine is derived from. Templates are not synchronized to the history database in this version of {virt-product-fullname}. |No
+|template_name |character varying(40) |Name of the template from which this virtual machine is derived. |No
+|cpu_per_socket |smallint |Virtual CPUs per socket. |No
+|number_of_sockets |smallint |Total number of virtual CPU sockets. |No
+|memory_size_mb |integer |Total memory allocated to the virtual machine, expressed in megabytes (MB). |No
+|operating_system |smallint |
+
+* 0 - Other OS
+
+* 1 - Windows XP
+
+* 3 - Windows 2003
+
+* 4 - Windows 2008
+
+* 5 - Linux
+
+* 7 - {enterprise-linux} 5.x
+
+* 8 - {enterprise-linux} 4.x
+
+* 9 - {enterprise-linux} 3.x
+
+* 10 - Windows 2003 x64
+
+* 11 - Windows 7
+
+* 12 - Windows 7 x64
+
+* 13 - {enterprise-linux} 5.x x64
+
+* 14 - {enterprise-linux} 4.x x64
+
+* 15 - {enterprise-linux} 3.x x64
+
+* 16 - Windows 2008 x64
+
+* 17 - Windows 2008 R2 x64
+
+* 18 - {enterprise-linux} 6.x
+
+* 19 - {enterprise-linux} 6.x x64
+
+* 20 - Windows 8
+
+* 21 - Windows 8 x64
+
+* 23 - Windows 2012 x64
+
+* 1001 - Other
+
+* 1002 - Linux
+
+* 1003 - {enterprise-linux} 6.x
+
+* 1004 - SUSE Linux Enterprise Server 11
+
+* 1193 - SUSE Linux Enterprise Server 11
+
+* 1252 - Ubuntu Precise Pangolin LTS
+
+* 1253 - Ubuntu Quantal Quetzal
+
+* 1254 - Ubuntu Raring Ringtails
+
+* 1255 - Ubuntu Saucy Salamander
+ |No
+
+|default_host |uuid |As displayed in the edit dialog, the ID of the default host in the system. |No
+|high_availability |boolean |As displayed in the edit dialog. |No
+|initialized |boolean |A flag to indicate if this virtual machine was started at least once for Sysprep initialization purposes. |No
+|stateless |boolean |As displayed in the edit dialog. |No
+|fail_back |boolean |As displayed in the edit dialog. |No
+|usb_policy |smallint |As displayed in the edit dialog. |No
+|time_zone |character varying(40) |As displayed in the edit dialog. |No
+|vm_pool_id |uuid |The ID of the pool to which this virtual machine belongs. |No
+|vm_pool_name |character varying(255) |The name of the virtual machine's pool. |No
+|created_by_user_id |uuid |The ID of the user that created this virtual machine. |No
+|cluster_configuration_version |integer |The cluster configuration version at the time of creation or update. This is identical to the value of `history_id` in the `v4_2_configuration_history_clusters` view and it can be used to join them. |No
+|default_host_configuration_version |integer |The host configuration version at the time of creation or update. This is identical to the value of `history_id` in the `v4_2_configuration_history_hosts` view and it can be used to join them. |No
+|create_date |timestamp with time zone |The date this entity was added to the system. |No
+|update_date |timestamp with time zone |The date this entity was changed in the system. |No
+|delete_date |timestamp with time zone |The date this entity was deleted from the system. |No
+|===

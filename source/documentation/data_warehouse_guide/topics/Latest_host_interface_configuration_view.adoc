@@ -1,0 +1,38 @@
+[[Latest_host_interface_configuration_view]]
+==== Host Interface Configuration
+
+The following table shows the configuration history parameters of the host interfaces in the system.
+[[References_RHEV_3_Reporting_Database-Configuration_Views_table-host_interface_configuration_view]]
+
+.v4_2_configuration_history_hosts_interfaces
+[options="header"]
+|===
+|Name |Type |Description |Indexed
+|history_id |integer |The ID of the configuration version in the history database. This is identical to the value of `host_interface_configuration_version` in the host interface statistics views and it can be used to join them. |No
+|host_interface_id |uuid |The unique ID of this interface in the system. |Yes
+|host_interface_name |character varying(50) |The interface name as reported by the host. |No
+|host_id |uuid |Unique ID of the host this interface belongs to. |Yes
+|host_interface_type |smallint |
+
+* 0 - rt18139_pv
+
+* 1 - rt18139
+
+* 2 - e1000
+
+* 3 - pv
+ |No
+
+|host_interface_speed_bps |integer |The interface speed in bits per second. |No
+|mac_address |character varying(59) |The interface MAC address. |No
+|logical_network_name |character varying(50) |The logical network associated with the interface. |No
+|ip_address |character varying(20) |As displayed in the edit dialog. |No
+|gateway |character varying(20) |As displayed in the edit dialog. |No
+|bond |boolean |A flag to indicate if this interface is a bonded interface. |No
+|bond_name |character varying(50) |The name of the bond this interface is part of (if it is part of a bond). |No
+|vlan_id |integer |As displayed in the edit dialog. |No
+|host_configuration_version |integer |The host configuration version at the time of creation or update. This is identical to the value of `history_id` in the `v4_2_configuration_history_hosts` view and it can be used to join them. |No
+|create_date |timestamp with time zone |The date this entity was added to the system. |No
+|update_date |timestamp with time zone |The date this entity was changed in the system. |No
+|delete_date |timestamp with time zone |The date this entity was deleted from the system. |No
+|===

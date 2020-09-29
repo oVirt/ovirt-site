@@ -1,0 +1,89 @@
+[[chap-About_History_Database]]
+== About the History Database
+
+include::topics/History_Database_Overview.adoc[]
+
+include::topics/Tracking_configuration_history.adoc[]
+
+include::topics/Recording_statistical_history.adoc[]
+
+include::topics/Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd.conf.adoc[]
+
+include::topics/Tracking_tag_history.adoc[]
+
+include::topics/Allowing_Read_Only_Access_to_the_History_Database.adoc[]
+
+[[sect-Statistics_History_Views]]
+=== Statistics History Views
+
+Statistics data is available in `hourly`, `daily`, and `samples` views.
+
+To query a statistics view, run `SELECT * FROM _view_name__[hourly|daily|samples];`. For example:
+[options="nowrap" subs="normal"]
+----
+# SELECT * FROM v4_4_statistics_hosts_resources_usage_daily;
+----
+
+
+To list all available views, run:
+[options="nowrap" subs="normal"]
+----
+# \dv
+----
+
+include::topics/Enabling_debug_mode.adoc[]
+
+include::topics/Storage_domain_daily_history_view.adoc[]
+
+include::topics/Host_hourly_and_daily_history_views.adoc[]
+
+include::topics/Host_interface_hourly_and_daily_history_views.adoc[]
+
+include::topics/Virtual_machine_hourly_and_daily_history_views.adoc[]
+
+include::topics/Virtual_machine_interface_hourly_and_daily_history_views.adoc[]
+
+include::topics/Virtual_machine_disk_hourly_and_samples_history_views.adoc[]
+
+[[sect-Configuration_History_Views]]
+=== Configuration History Views
+
+To query a configuration view, run `SELECT * FROM _view_name_;`. For example:
+[options="nowrap" subs="normal"]
+----
+# SELECT * FROM v4_4_configuration_history_datacenters;
+----
+
+
+To list all available views, run:
+[options="nowrap" subs="normal"]
+----
+# \dv
+----
+
+
+[NOTE]
+====
+`delete_date` does not appear in latest views because these views provide the latest configuration of living entities, which, by definition, have not been deleted.
+====
+include::topics/Latest_datacenter_configuration_view1.adoc[]
+
+include::topics/Latest_datacenter_configuration_view2.adoc[]
+
+include::topics/Latest_storage_domain_configuration_view.adoc[]
+
+include::topics/Latest_cluster_configuration_view.adoc[]
+
+include::topics/Latest_host_configuration_view.adoc[]
+
+include::topics/Latest_host_interface_configuration_view.adoc[]
+
+include::topics/Latest_virtual_machine_configuration_view.adoc[]
+
+include::topics/Latest_virtual_machine_interface_configuration_view.adoc[]
+
+include::topics/Virtual_Machine_Device_Configuration.adoc[]
+
+include::topics/Latest_virtual_machine_disk_configuration_view.adoc[]
+
+include::topics/User_Details_History.adoc[]

@@ -1,0 +1,19 @@
+[[Latest_datacenter_configuration_view1]]
+==== Data Center Configuration
+
+The following table shows the configuration history parameters of the data centers in the system.
+[[References_RHEV_3_Reporting_Database-Configuration_Views_table-Cluster_configuration_view-70]]
+
+.v4_2_configuration_history_datacenters
+[options="header"]
+|===
+|Name |Type |Description |Indexed
+|history_id |integer |The ID of the configuration version in the history database. This is identical to the value of `datacenter_configuration_version` in the `v4_2_configuration_history_clusters` view and it can be used to join them. |No
+|datacenter_id |uuid |The unique ID of the data center in the system. |Yes
+|datacenter_name |character varying(40) |Name of the data center, as displayed in the edit dialog. |No
+|datacenter_description |character varying(4000) |Description of the data center, as displayed in the edit dialog. |No
+|is_local_storage |boolean |A flag to indicate whether the data center uses local storage. |No
+|create_date |timestamp with time zone |The date this entity was added to the system. |No
+|update_date |timestamp with time zone |The date this entity was changed in the system. |No
+|delete_date |timestamp with time zone |The date this entity was deleted from the system. |No
+|===

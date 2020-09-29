@@ -1,0 +1,43 @@
+[[Installing_Windows_on_Virtio_Optimized_Hardware]]
+==== Installing Windows on VirtIO-optimized hardware
+
+Install VirtIO-optimized disk and network device drivers during your Windows installation by attaching the `virtio-win___version__.iso` file to your virtual machine. These drivers provide a performance improvement over emulated device drivers.
+
+Use the *Run Once* option to attach the `virtio-win___version__.iso` file in a one-off boot different from the *Boot Options* defined in the *New Virtual Machine* window.
+
+.Prerequisites
+
+The following items have been added to the virtual machine:
+
+* a *Red Hat VirtIO* network interface.
+* a disk that uses the *VirtIO* interface. This disk can be on a
+
+You can upload `virtio-win___version__.iso` to a data storage domain.
+
+[NOTE]
+====
+{org-fullname} recommends uploading ISO images to the data domain with the Administration Portal or with the REST API. For more information, see link:{URL_virt_product_docs}administration_guide[Uploading Images to a Data Storage Domain] in the _Administration Guide_.
+
+If necessary, you can upload the `virtio-win` ISO file to an ISO storage domain that is hosted on the {engine-name}. The ISO storage domain type is deprecated. For more information, see link:{URL_virt_product_docs}administration_guide/index#Copy_ISO_to_ISO_domain-storage_tasks[Uploading images to an ISO domain] in the _Administration Guide_.
+====
+
+
+.Procedure
+
+To install the virtio-win drivers when installing Windows, complete the following steps:
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click menu:Run[Run Once].
+. Expand the *Boot Options* menu.
+. Select the *Attach CD* check box, and select a Windows ISO from the drop-down list.
+. Select the *Attach Windows guest tools CD* check box.
+. Move *CD-ROM* to the top of the *Boot Sequence* field.
+. Configure other *Run Once* options as required. See xref:Virtual_Machine_Run_Once_settings_explained[] for more details.
+. Click btn:[OK]. The status of the virtual machine changes to *Up*, and the operating system installation begins.
++
+Open a console to the virtual machine if one does not open automatically during the Windows installation.
+. When prompted to select a drive onto which you want to install Windows, click btn:[Load driver] and btn:[OK].
+. Under *Select the driver to install*, select the appropriate driver for the version of Windows. For example, for Windows Server 2019, select *Red Hat VirtIO SCSI controller (E:\amd64\2k19\viostor.inf)*
+. Click Next.
+
+The rest of the installation proceeds as normal.

@@ -1,0 +1,16 @@
+[[Editing_network_interfaces]]
+==== Editing a Network Interface
+
+In order to change any network settings, you must edit the network interface. This procedure can be performed on virtual machines that are running, but some actions can be performed only on virtual machines that are not running.
+
+
+*Editing Network Interfaces*
+
+. Click menu:Compute[Virtual Machines].
+. Click a virtual machine name to go to the details view.
+. Click the *Network Interfaces* tab and select the network interface to edit.
+. Click btn:[Edit].
+. Change settings as required. You can specify the *Name*, *Profile*, *Type*, and *Custom MAC address*. See xref:Adding_a_Network_Interface[].
+. Click btn:[OK].
+
+

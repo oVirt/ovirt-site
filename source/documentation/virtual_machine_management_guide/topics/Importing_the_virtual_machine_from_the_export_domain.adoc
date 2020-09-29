@@ -1,0 +1,33 @@
+[[Importing_the_virtual_machine_from_the_export_domain]]
+==== Importing a Virtual Machine from the Export Domain
+
+You have a virtual machine on an export domain. Before the virtual machine can be imported to a new data center, the export domain must be attached to the destination data center.
+
+
+*Importing a Virtual Machine into the Destination Data Center*
+
+. Click menu:Storage[Domains] and select the export domain. The export domain must have a status of `Active`.
+. Click the export domain's name to go to the details view.
+. Click the *VM Import* tab to list the available virtual machines to import.
+. Select one or more virtual machines to import and click btn:[Import].
+. Select the *Target Cluster*.
+. Select the *Collapse Snapshots* check box to remove snapshot restore points and include templates in template-based virtual machines.
+. Click the virtual machine to be imported and click the *Disks* sub-tab. From this tab, you can use the *Allocation Policy* and *Storage Domain* drop-down lists to select whether the disk used by the virtual machine will be thinly provisioned or preallocated, and can also select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine.
+. Click btn:[OK] to import the virtual machines.
++
+The *Import Virtual Machine Conflict* window opens if the virtual machine exists in the virtualized environment.
++
+Choose one of the following radio buttons:
+
+* *Don't import*
+* *Import as cloned* and enter a unique name for the virtual machine in the *New Name* field.
+
+. Optionally select the *Apply to all* check box to import all duplicated virtual machines with the same suffix, and then enter a suffix in the *Suffix to add to the cloned VMs* field.
+. Click btn:[OK].
+
+
+
+[IMPORTANT]
+====
+During a single import operation, you can only import virtual machines that share the same architecture. If any of the virtual machines to be imported have a different architecture to that of the other virtual machines to be imported, a warning will display and you will be prompted to change your selection so that only virtual machines with the same architecture will be imported.
+====

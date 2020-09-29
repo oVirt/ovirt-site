@@ -1,0 +1,111 @@
+[[Installing_the_Guest_Agents_and_Drivers_on_Windows]]
+= Installing the guest agents, tools, and drivers on Windows
+
+.Procedure
+
+To install the guest agents, tools, and drivers on a Windows virtual machine, complete the following steps:
+
+. On the {engine-name} machine, install the `virtio-win` package:
++
+[options="nowrap" subs="normal"]
+----
+# dnf install virtio-win*
+----
++
+After you install the package, the ISO file is located in [filename]`/usr/share/virtio-win/virtio-win___version__.iso` on the {engine-name} machine.
+
+. Upload [filename]`virtio-win___version__.iso` to a data storage domain. See link:{URL_virt_product_docs}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain] in the __Administration Guide__ for details.
+
+. In the Administration or VM Portal, if the virtual machine is running, use the *Change CD* button to attach the [filename]`virtio-win___version__.iso` file to each of your virtual machines. If the virtual machine is powered off, click the *Run Once* button and attach the ISO as a CD.
+
+. Log in to the virtual machine.
+
+. Select the CD Drive containing the [filename]`virtio-win___version__.iso` file. You can complete the installation with either the GUI or the command line.
+
+. Run the installer.
+  To install with the GUI, complete the following steps:::
+  .. Double-click `virtio-win-gt-x64.msi` or `virtio-win-gt-x86.msi`.
+  .. Click btn:[Next] at the welcome screen.
+  .. Follow the prompts in the installation wizard. Ensure all check boxes in the list of components are selected, including the *RHEV Agent*, which is disabled by default.
+  .. When installation is complete, select *Yes, I want to restart my computer now* and click *Finish* to apply the changes.
+  .. After the virtual machine reboots, open the CD-ROM and go to the [filename]`guest-agent` directory and double-click [filename]`qemu-ga-x86_64.msi` or [filename]`qemu-ga-i386.msi`, to install qemu-ga, the Qemu guest agent.
+
+  To install silently with the command line, complete the following steps:::
+  .. Open a command prompt with Administrator privileges.
+  .. Enter the [cmd]`msiexec` command:
++
+[options="nowrap" subs="normal"]
+----
+D:\ msiexec /i "_PATH_TO_MSI_" /qn [/l*v "_PATH_TO_LOG_"][/norestart] ADDLOCAL=ALL
+----
++
+Other possible values for ADDLOCAL are listed below.
++
+For example, to run the installation when `virtio-win-gt-x64.msi` is on the `D:\` drive, without saving the log, and then immediately restart the virtual machine, enter the following command:
++
+[options="nowrap" subs="normal"]
+----
+D:\ msiexec /i "virtio-win-gt-x64.msi" /qn ADDLOCAL=ALL
+----
+
+After installation completes, the guest agents and drivers pass usage information to the {virt-product-fullname} {engine-name} and enable you to access USB devices, single sign-on into virtual machines, and other functionality.
+The {virt-product-fullname} guest agent runs as a service called *RHEV Agent* that you can configure using the *rhev-agent* configuration file located in [filename]`C:\Program Files\Virtio-Win\RHV_Agent`.
+
+== Values for ADDLOCAL to customize virtio-win command-line installation
+
+When installing [filename]`virtio-win-gt-x64.msi` or [filename]`virtio-win-gt-x32.msi` with the command line, you can install any one driver, or any combination of drivers.
+
+You can also install specific agents, but you must also install each agent's corresponding drivers.
+
+The `ADDLOCAL` parameter of the [cmd]`msiexec` command enables you to specify which drivers or agents to install. `ADDLOCAL=ALL` installs all drivers and agents. Other values are listed in the following tables.
+
+.Possible values for ADDLOCAL to install drivers
+[options="header"]
+|====
+|Value for ADDLOCAL|Driver Name|Description
+|`FE_network_driver`|`virtio-net` |Paravirtualized network driver provides enhanced performance over emulated devices like rtl.
+|`FE_balloon_driver`|`virtio-balloon` | Controls the amount of memory a virtual machine actually accesses. It offers improved memory overcommitment.
+|`FE_pvpanic_driver`|`pvpanic`|QEMU pvpanic device driver.
+|`FE_qemufwcfg_driver`|`qemufwcfg` | QEMU FWCfg device driver.
+|`FE_qemupciserial_driver`|`qemupciserial`| QEMU PCI serial device driver.
+|`FE_spice_driver`|`Spice Driver` | A paravirtualized display driver reduces CPU usage on the host and provides better performance through reduced network bandwidth on most workloads.
+|`FE_vioinput_driver`|`vioinput` | VirtIO Input Driver.
+|`FE_viorng_driver`|`viorng` | VirtIO RNG device driver.
+|`FE_vioscsi_driver`|`vioscsi` | VirtIO SCSI pass-through controller.
+|`FE_vioserial_driver`|`vioserial` | VirtIO Serial device driver.
+|`FE_viostor_driver`|`viostor` | VirtIO Block driver.
+|====
+
+.Possible values for ADDLOCAL to install agents and required corresponding drivers
+[options="header"]
+|====
+|Agent | Description |Corresponding driver(s) | Value for `ADDLOCAL`
+|Spice Agent|Supports multiple monitors, responsible for client-mouse-mode support, reduces bandwidth usage, enables clipboard support between client and virtual machine, provide a better user experience and improved responsiveness.| `vioserial` and Spice driver | `FE_spice_Agent,FE_vioserial_driver,FE_spice_driver`
+|`RHEV_Agent`| Enables the Red Hat Virtualization Manager to receive internal virtual machine events and information, SSO support, Also enables the Manager to execute specific commands on a virtual machine. | `vioserial` |`FE_RHEV_Agent,FE_vioserial_driver`
+|====
+
+.Examples
+
+The following command installs only the VirtIO SCSI pass-through controller, the VirtIO Serial device driver, and the VirtIO Block driver:
+
+[options="nowrap" subs="normal"]
+----
+D:\ msiexec /i "virtio-win-gt-x64.msi" /qn ADDLOCAL=`FE_vioscsi_driver,FE_vioserial_driver,FE_viostor_driver
+----
+
+The following command installs only the Spice Agent and its required corresponding drivers:
+
+[options="nowrap" subs="normal"]
+----
+D:\ msiexec /i "virtio-win-gt-x64.msi" /qn ADDLOCAL = FE_spice_Agent,FE_vioserial_driver,FE_spice_driver
+----
+
+.Additional resources
+
+* xref:Updating_the_Guest_Agents_and_Drivers_on_Windows[]
+
+The Microsoft Developer website:
+
+* link:https://docs.microsoft.com/en-us/windows/win32/msi/windows-installer-portal[Windows Installer]
+* link:https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options[Command-Line Options] for the Windows installer
+* link:https://docs.microsoft.com/en-us/windows/win32/msi/property-reference[Property Reference] for the Windows installer

@@ -14,4 +14,4 @@ To use networks from an external network provider (OpenStack Networking or any t
 . Optional: Clear the *Allow All* check box to prevent that network from being available to all users.
 . Click *Import*.
 
-The selected networks are imported into the target data center and can be attached to virtual machines. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Adding a New Network Interface] in the _Virtual Machine Management Guide_ for more information.
+The selected networks are imported into the target data center and can be attached to virtual machines. See link:{URL_virt_product_docs}virtual_machine_management_guide/[Adding a New Network Interface] in the _Virtual Machine Management Guide_ for more information.

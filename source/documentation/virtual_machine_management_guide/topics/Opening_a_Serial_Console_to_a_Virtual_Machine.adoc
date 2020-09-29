@@ -1,0 +1,114 @@
+[[Opening_a_Serial_Console_to_a_Virtual_Machine]]
+==== Opening a Serial Console to a Virtual Machine
+
+You can access a virtual machine's serial console from the command line instead of opening a console from the Administration Portal or the VM Portal. The serial console is emulated through VirtIO channels, using SSH and key pairs. The {engine-name} acts as a proxy for the connection, provides information about virtual machine placement, and stores the authentication keys. You can add public keys for each user from either the Administration Portal or the VM Portal. You can access serial consoles for only those virtual machines for which you have appropriate permissions.
+
+[IMPORTANT]
+====
+To access the serial console of a virtual machine, the user must have *UserVmManager*, *SuperUser*, or *UserInstanceManager* permission on that virtual machine. These permissions must be explicitly defined for each user. It is not enough to assign these permissions to *Everyone*.
+====
+
+The serial console is accessed through TCP port 2222 on the {engine-name}. This port is opened during `engine-setup` on new installations. To change the port, see link:https://github.com/oVirt/ovirt-vmconsole/blob/master/README#L116[ovirt-vmconsole/README].
+
+Using a serial console requires configuring the firewall rules. For more information, see:
+* link:{URL_downstream_virt_product_docs}html/planning_and_prerequisites_guide/rhv_requirements#RHV-manager-firewall-requirements_RHV_planning[Rule "M3" in the {virt-product-fullname} {engine-name} Firewall Requirements]
+* link:{URL_downstream_virt_product_docs}html/planning_and_prerequisites_guide/rhv_requirements#host-firewall-requirements_RHV_planning[Rule "H2" in the Host Firewall Requirements]
+
+The serial console relies on the `ovirt-vmconsole` package and the `ovirt-vmconsole-proxy` on the {engine-name}, and the `ovirt-vmconsole` package and the `ovirt-vmconsole-host` package on the virtualization hosts. These packages are installed by default on new installations. To install the packages on existing installations, reinstall the host. See link:{URL_virt_product_docs}administration_guide/#Reinstalling_Hosts[Reinstalling Hosts] in the _Administration Guide_.
+
+*Enabling a Virtual Machine's Serial Console*
+
+. On the virtual machine whose serial console you are accessing, add the following lines to */etc/default/grub*:
++
+[options="nowrap" subs="normal"]
+----
+GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8"
+GRUB_TERMINAL="console serial"
+GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
+----
++
+[NOTE]
+====
+`GRUB_CMDLINE_LINUX_DEFAULT` applies this configuration only to the default menu entry. Use `GRUB_CMDLINE_LINUX` to apply the configuration to all the menu entries.
+
+If these lines already exist in */etc/default/grub*, update them. Do not duplicate them.
+====
+
+. Rebuild */boot/grub2/grub.cfg*:
++
+** BIOS-based machines:
++
+[options="nowrap" subs="normal"]
+----
+# grub2-mkconfig -o /boot/grub2/grub.cfg
+----
+
+** UEFI-based machines:
++
+[options="nowrap" subs="normal"]
+----
+# grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+----
++
+See link:{URL_rhel_docs_legacy}html/system_administrators_guide/ch-working_with_the_grub_2_boot_loader#sec-GRUB_2_over_a_Serial_Console[GRUB 2 over a Serial Console] in the _{enterprise-linux} 7 System Administrator's Guide_ for details.
+
+. On the client machine from which you are accessing the virtual machine serial console, generate an SSH key pair. The {engine-name} supports standard SSH key types, for example, an RSA key:
++
+[options="nowrap" subs="normal"]
+----
+# ssh-keygen -t rsa -b 2048 -C "_user@domain_" -f .ssh/serialconsolekey
+----
+This command generates a public key and a private key.
+. In the Administration Portal or the VM Portal, click the name of the signed-in user on the header bar and click *Options*. This opens the *Edit Options* window.
+. In the *User's Public Key* text field, paste the public key of the client machine that will be used to access the serial console.
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click btn:[Edit].
+. In the *Console* tab of the *Edit Virtual Machine* window, select the *Enable VirtIO serial console* check box.
+
+*Connecting to a Virtual Machine's Serial Console*
+
+On the client machine, connect to the virtual machine's serial console:
+
+* If a single virtual machine is available, this command connects the user to that virtual machine:
++
+[options="nowrap" subs="normal"]
+----
+# ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ -i .ssh/serialconsolekey
+{enterprise-linux} Server release 6.7 (Santiago)
+Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
+_USER_ login:
+
+----
+* If more than one virtual machine is available, this command lists the available virtual machines and their IDs:
++
+[options="nowrap" subs="normal"]
+----
+# ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ -i .ssh/serialconsolekey list
+1. vm1 [vmid1]
+2. vm2 [vmid2]
+3. vm3 [vmid3]
+> 2
+{enterprise-linux} Server release 6.7 (Santiago)
+Kernel 2.6.32-573.3.1.el6.x86_64 on an x86_64
+_USER_ login:
+----
++
+Enter the number of the machine to which you want to connect, and press `Enter`.
+
+* Alternatively, connect directly to a virtual machine using its unique identifier or its name:
++
+[options="nowrap" subs="normal"]
+----
+# ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ connect --vm-id _vmid1_
+----
++
+[options="nowrap" subs="normal"]
+----
+# ssh -t -p 2222 ovirt-vmconsole@_Manager_FQDN_ connect --vm-name _vm1_
+----
+
+*Disconnecting from a Virtual Machine's Serial Console*
+
+Press any key followed by *`~ .`* to close a serial console session.
+
+If the serial console session is disconnected abnormally, a TCP timeout occurs. You will be unable to reconnect to the virtual machine's serial console until the timeout period expires.

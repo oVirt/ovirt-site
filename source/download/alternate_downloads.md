@@ -177,12 +177,12 @@ environment.
 Once oVirt Engine is installed and you have added Hosts and [configured storage](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_Storage_Domains_to_RHV_SHE_cockpit_deploy),
 you can now install Virtual Machines!
 
-See the [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide.html) for complete
+See the [Virtual Machine Management Guide](/documentation/virtual_machine_management_guide/) for complete
 instructions.
 
 For best Virtual Machine performance and accurate dashboard statistics, be sure to install the
-[oVirt Guest Agent and Drivers for Linux](/documentation/vmm-guide/chap-Installing_Linux_Virtual_Machines.html#installing-the-guest-agents-and-drivers-on-enterprise-linux)
-\[for [Windows](/documentation/vmm-guide/chap-Installing_Windows_Virtual_Machines.html#installing-the-guest-agents-and-drivers-on-windows)\]
+[oVirt Guest Agent and Drivers for Linux](/documentation/virtual_machine_management_guide/#installing-the-guest-agents-and-drivers-on-enterprise-linux)
+\[for [Windows](/documentation/virtual_machine_management_guide/#installing-the-guest-agents-and-drivers-on-windows)\]
 in each Virtual Machine.
 
 The following virtual machine guest operating systems are supported:
@@ -212,8 +212,8 @@ The following virtual machine guest operating systems are supported:
 The console is a graphical window that allows you to view and interact with the screen of a Virtual Machine.
 In oVirt, you can use a web-based console viewer or a desktop application (we recommend 
 [Remote Viewer](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-graphic_user_interface_tools_for_guest_virtual_machine_management-remote_viewer)).
-For Windows virtual machines, Remote Desktop Protocol is also available. See [Installing Console Components](/documentation/vmm-guide/chap-Introduction.html#installing-console-components),
-[VNC Console Options](/documentation/vmm-guide/chap-Additional_Configuration.html#vnc-console-options), and
+For Windows virtual machines, Remote Desktop Protocol is also available. See [Installing Console Components](/documentation/virtual_machine_management_guide/#installing-console-components),
+[VNC Console Options](/documentation/virtual_machine_management_guide/#vnc-console-options), and
 and [Browser Support and Mobile Clients](/download/browsers_and_mobile.html) for more information.
 
 <hr/>

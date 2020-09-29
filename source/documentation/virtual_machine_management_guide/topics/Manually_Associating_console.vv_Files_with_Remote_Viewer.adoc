@@ -1,0 +1,22 @@
+[[Manually_Associating_console.vv_Files_with_Remote_Viewer]]
+===== Manually Associating console.vv Files with Remote Viewer
+
+If you are prompted to download a *console.vv* file when attempting to open a console to a virtual machine using the native client console option, and Remote Viewer is already installed, then you can manually associate *console.vv* files with Remote Viewer so that Remote Viewer can automatically use those files to open consoles.
+
+
+*Manually Associating console.vv Files with Remote Viewer*
+
+. Start the virtual machine.
+. Open the *Console Options* window:
+ * In the Administration Portal, click menu:Console[Console Options].
+ * In the VM Portal, click the virtual machine name and click the pencil icon beside *Console*.
+. Change the console invocation method to *Native client* and click btn:[OK].
+. Attempt to open a console to the virtual machine, then click *Save* when prompted to open or save the *console.vv* file.
+. Click the location on your local machine where you saved the file.
+. Double-click the *console.vv* file and select *Select a program from a list of installed programs* when prompted.
+. In the *Open with* window, select *Always use the selected program to open this kind of file* and click the *Browse* button.
+. Click the *C:\Users\_[user name]_\AppData\Local\virt-viewer\bin* directory and select *remote-viewer.exe*.
+. Click *Open* and then click btn:[OK].
+
+
+When you use the native client console invocation option to open a console to a virtual machine, Remote Viewer will automatically use the *console.vv* file that the {virt-product-fullname} {engine-name} provides to open a console to that virtual machine without prompting you to select the application to use.

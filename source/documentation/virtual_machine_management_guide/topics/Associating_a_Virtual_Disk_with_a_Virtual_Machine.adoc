@@ -1,0 +1,28 @@
+[[Associating_a_Virtual_Disk_with_a_Virtual_Machine]]
+==== Attaching an Existing Disk to a Virtual Machine
+
+Floating disks are disks that are not associated with any virtual machine.
+
+Floating disks can minimize the amount of time required to set up virtual machines. Designating a floating disk as storage for a virtual machine makes it unnecessary to wait for disk preallocation at the time of a virtual machine's creation.
+
+Floating disks can be attached to a single virtual machine, or to multiple virtual machines if the disk is shareable. Each virtual machine that uses the shared disk can use a different disk interface type.
+
+Once a floating disk is attached to a virtual machine, the virtual machine can access it.
+
+
+*Attaching Virtual Disks to Virtual Machines*
+
+. Click menu:Compute[Virtual Machines].
+. Click a virtual machine name to go to the details view.
+. Click the *Disks* tab.
+. Click btn:[Attach].
+. Select one or more virtual disks from the list of available disks and select the required interface from the *Interface* drop-down.
+. Click btn:[OK].
+
+
+
+[NOTE]
+====
+No Quota resources are consumed by attaching virtual disks to, or detaching virtual disks from, virtual machines.
+====
+

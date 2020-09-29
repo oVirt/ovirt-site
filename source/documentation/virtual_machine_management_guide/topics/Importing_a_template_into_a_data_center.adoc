@@ -1,0 +1,26 @@
+[[Importing_a_template_into_a_data_center]]
+==== Importing a Template into a Data Center
+
+
+[NOTE]
+====
+The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disks, and templates can then be uploaded from the imported storage domain to the attached data center. See the link:{URL_virt_product_docs}administration_guide#sect-Importing_Existing_Storage_Domains[Importing Existing Storage Domains] section in the _{virt-product-fullname} Administration Guide_ for information on importing storage domains.
+====
+Import templates from a newly attached export domain. This procedure requires access to the Administration Portal.
+
+
+*Importing a Template into a Data Center*
+
+. Click menu:Storage[Domains] and select the newly attached export domain.
+. Click the domain name to go to the details view.
+. Click the *Template Import* tab and select a template.
+. Click btn:[Import].
+. Use the drop-down lists to select the *Target Cluster* and *CPU Profile*.
+. Select the template to view its details, then click the *Disks* tab and select the *Storage Domain* to import the template into.
+. Click btn:[OK].
+. If the *Import Template Conflict* window appears, enter a *New Name* for the template, or select the *Apply to all* check box and enter a *Suffix to add to the cloned Templates*. Click btn:[OK].
+. Click btn:[Close].
+
+The template is imported into the destination data center. This can take up to an hour, depending on your storage hardware. You can view the import progress in the *Events* tab.
+
+Once the importing process is complete, the templates will be visible in menu:Compute[Templates]. The templates can create new virtual machines, or run existing imported virtual machines based on that template.

@@ -1,0 +1,11 @@
+[[Viewing_Virtual_Machines_Pinned_to_a_Host]]
+=== Viewing Virtual Machines Pinned to a Host
+
+You can view virtual machines pinned to a host even while the virtual machines are offline. Use the *Pinned to Host* list to see which virtual machines will be affected and which virtual machines will require a manual restart after the host becomes active again.
+
+*Viewing Virtual Machines Pinned to a Host*
+
+. Click menu:Compute[Hosts].
+. Click a host name to go to the details view.
+. Click the *Virtual Machines* tab.
+. Click btn:[Pinned to Host].

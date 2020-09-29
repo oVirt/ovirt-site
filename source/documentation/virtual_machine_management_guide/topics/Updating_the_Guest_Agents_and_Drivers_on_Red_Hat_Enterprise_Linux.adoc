@@ -1,0 +1,37 @@
+[[Updating_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux]]
+==== Updating the Guest Agents and Drivers on {enterprise-linux}
+
+Update the guest agents and drivers on your {enterprise-linux} virtual machines to use the latest version.
+
+
+*Updating the Guest Agents and Drivers on {enterprise-linux}*
+
+. Log in to the {enterprise-linux} virtual machine.
+. Update the `ovirt-guest-agent-common` package: 
++
+[options="nowrap" subs="normal"]
+----
+# yum update ovirt-guest-agent-common
+----
++
+. Restart the service:
+
+
+* For {enterprise-linux} 6
++
+[options="nowrap" subs="normal"]
+----
+# service ovirt-guest-agent restart
+----
+
+
+* For {enterprise-linux} 7
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart ovirt-guest-agent.service
+----
+
+
+
+

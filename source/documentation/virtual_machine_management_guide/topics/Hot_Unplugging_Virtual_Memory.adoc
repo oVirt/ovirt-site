@@ -1,0 +1,24 @@
+[[Hot_Unplugging_Virtual_Memory]]
+==== Hot Unplugging Virtual Memory
+
+You can hot unplug virtual memory. Hot unplugging means disabling devices while a virtual machine is running.
+
+[IMPORTANT]
+====
+- Only memory added with hot plugging can be hot unplugged.
+- The virtual machine operating system must support memory hot unplugging. 
+- The virtual machines must not have a memory balloon device enabled. This feature is disabled by default.
+- All blocks of the hot-plugged memory must be set to *online_movable* in the virtual machine's device management rules. In virtual machines running up-to-date versions of {enterprise-linux} or CoreOS, this rule is set by default. For information on device management rules, consult the documentation for the virtual machine's operating system.
+
+If any of these conditions are not met, the memory hot unplug action may fail or cause unexpected behavior.
+====
+
+*Hot Unplugging Virtual Memory*
+
+. Click menu:Compute[Virtual Machines] and select a running virtual machine.
+. Click the *Vm Devices* tab.
+. In the *Hot Unplug* column, click btn:[Hot Unplug] beside the memory device to be removed. 
+. Click btn:[OK] in the *Memory Hot Unplug* window.
+
+
+The *Physical Memory Guaranteed* value for the virtual machine is decremented automatically if necessary.

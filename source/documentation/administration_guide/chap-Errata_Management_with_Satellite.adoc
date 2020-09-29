@@ -20,7 +20,7 @@ To associate the {engine-name}, host, and virtual machine with a Red Hat Satelli
 
 . xref:Configuring_Satellite_Errata_Management_for_a_Host[Configure the required hosts to display available errata].
 
-. link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Configure the required virtual machines to display available errata].
+. link:{URL_virt_product_docs}virtual_machine_management_guide[Configure the required virtual machines to display available errata].
 
 .Viewing {virt-product-fullname} {engine-name} errata
 
@@ -31,10 +31,10 @@ To associate the {engine-name}, host, and virtual machine with a Red Hat Satelli
 
 * xref:Configuring_Satellite_Errata_Management_for_a_Host[]
 //* xref:Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux[] for {enterprise-linux} virtual machines
-* link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Installing the Guest Agents, Tools, and Drivers on Linux] in the _Virtual Machine Management Guide_ for {enterprise-linux} virtual machines.
+* link:{URL_virt_product_docs}virtual_machine_management_guide[Installing the Guest Agents, Tools, and Drivers on Linux] in the _Virtual Machine Management Guide_ for {enterprise-linux} virtual machines.
 //* xref:Installing_the_Guest_Agents_and_Drivers_on_Windows[] for Windows virtual machines
-* link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_ for Windows virtual machines.
+* link:{URL_virt_product_docs}virtual_machine_management_guide[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_ for Windows virtual machines.
 * link:{URL_satellite_docs}html/managing_hosts/registering_hosts[Registering a host and installing the `katello-agent` package] in the Red Hat Satellite document _Managing Hosts_.
 * xref:Viewing_Host_Errata[]
-* link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Configuring Satellite errata viewing for a virtual machine] in the _Virtual Machine Management Guide_ for more information.
-* link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Viewing Red Hat Satellite errata for a virtual machine] in the _Virtual Machine Management Guide_.
+* link:{URL_virt_product_docs}virtual_machine_management_guide[Configuring Satellite errata viewing for a virtual machine] in the _Virtual Machine Management Guide_ for more information.
+* link:{URL_virt_product_docs}virtual_machine_management_guide[Viewing Red Hat Satellite errata for a virtual machine] in the _Virtual Machine Management Guide_.

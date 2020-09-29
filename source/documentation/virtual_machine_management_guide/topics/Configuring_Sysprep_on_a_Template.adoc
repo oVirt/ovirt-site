@@ -1,0 +1,34 @@
+[[Configuring_Sysprep_on_a_Template]]
+==== Configuring Sysprep on a Template
+
+You can use this procedure to specify a set of standard `Sysprep` settings to include in the template, alternatively you can configure the `Sysprep` settings when creating a virtual machine based on this template.
+
+Replacement strings can be used to substitute values provided in the default files in the */usr/share/ovirt-engine/conf/sysprep/* directory.  For example, *"<Domain><![CDATA[$JoinDomain$]]></Domain>"* can be used to indicate the domain to join.
+
+[IMPORTANT]
+====
+Do not reboot the virtual machine while `Sysprep` is running.
+====
+
+*Prerequisites*
+
+
+* The Windows virtual machine parameters have been correctly defined.
+
++
+If not, click menu:Compute[Virtual Machines], click btn:[Edit], and enter the required information in the *Operating System* and *Cluster* fields.
+
+
+* The correct product key has been defined in an override file on the {engine-name}. 
+
+
+
+*Using `Sysprep` to Prepare a Template*
+
+. Build the Windows virtual machine with the required patches and software.
+. Seal the Windows virtual machine. See xref:Sealing_Virtual_Machines_in_Preparation_for_Deployment_as_Templates[]
+. Create a template based on the Windows virtual machine. See xref:Creating_a_template_from_an_existing_virtual_machine[]
+. Update the `Sysprep` file with a text editor if additional changes are required.
+
+
+You can now provision new virtual machines using this template.

@@ -1,0 +1,22 @@
+[[Sealing_a_Windows_7_or_Windows_2008_template]]
+===== Sealing a Windows 7, Windows 2008, or Windows 2012 Virtual Machine for Deployment as Template
+
+Seal a Windows 7, Windows 2008, or Windows 2012 virtual machine before creating a template to use to deploy virtual machines.
+
+
+*Sealing a Windows 7, Windows 2008, or Windows 2012 Virtual Machine for Deployment as a Template*
+
+. On the Windows virtual machine, launch `Sysprep` from *C:\Windows\System32\sysprep\sysprep.exe*.
+. Enter the following information into `Sysprep`:
+
+
+* Under *System Cleanup Action*, select *Enter System Out-of-Box-Experience (OOBE)*.
+
+* Select the *Generalize* check box if you need to change the computer's system identification number (SID).
+
+* Under *Shutdown Options*, select *Shutdown*.
+
+. Click btn:[OK] to complete the sealing process; the virtual machine shuts down automatically upon completion.
+
+
+The Windows 7, Windows 2008, or Windows 2012 virtual machine is sealed and ready to create a template to use for deploying virtual machines.

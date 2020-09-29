@@ -1,0 +1,25 @@
+[[Importing_a_Virtual_Disk_from_an_OpenStack_Image_Service_as_a_Template]]
+==== Importing a Virtual Disk from an OpenStack Image Service as a Template
+
+Virtual disks managed by an OpenStack Image Service can be imported into the {virt-product-fullname} {engine-name} if that OpenStack Image Service has been added to the {engine-name} as an external provider. This procedure requires access to the Administration Portal.
+
+
+. Click menu:Storage[Domains] and select the OpenStack Image Service domain.
+. Click the storage domain name to go to the details view.
+. Click the *Images* tab and select the image to import.
+. Click *Import*.
++
+[NOTE]
+====
+If you are importing an image from a Glance storage domain, you have the option of specifying the template name.
+====
+
+. Select the *Data Center* into which the virtual disk will be imported.
+. Select the storage domain in which the virtual disk will be stored from the *Domain Name* drop-down list.
+. Optionally, select a *Quota* to apply to the virtual disk.
+. Select the *Import as Template* check box.
+. Select the *Cluster* in which the virtual disk will be made available as a template.
+. Click btn:[OK].
+
+
+The image is imported as a template and is displayed in the *Templates* tab. You can now create virtual machines based on the template.

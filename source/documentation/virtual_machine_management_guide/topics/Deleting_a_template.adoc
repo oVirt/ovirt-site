@@ -1,0 +1,13 @@
+[[Deleting_a_template]]
+=== Deleting a Template
+
+If you have used a template to create a virtual machine using the thin provisioning storage allocation option, the template cannot be deleted as the virtual machine needs it to continue running. However, cloned virtual machines do not depend on the template they were cloned from and the template can be deleted.
+
+
+*Deleting a Template*
+
+. Click menu:Compute[Templates] and select a template.
+. Click btn:[Remove].
+. Click btn:[OK].
+
+

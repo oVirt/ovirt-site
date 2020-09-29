@@ -1,0 +1,18 @@
+[[Installing_Remote_Viewer_on_Linux]]
+===== Installing Remote Viewer on {enterprise-linux}
+
+The Remote Viewer application provides users with a graphical console for connecting to virtual machines. Once installed, it is called automatically when attempting to open a SPICE session with a virtual machine. Alternatively, it can also be used as a standalone application. Remote Viewer is included in the `virt-viewer` package provided by the base {enterprise-linux} Workstation and {enterprise-linux} Server repositories.
+
+
+*Installing Remote Viewer on Linux*
+
+. Install the `virt-viewer` package: 
++
+[options="nowrap" subs="normal"]
+----
+# dnf install virt-viewer
+----
++
+. Restart your browser for the changes to take effect.
+
+You can now connect to your virtual machines using either the SPICE protocol or the VNC protocol.

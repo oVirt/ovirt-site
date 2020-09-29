@@ -1,0 +1,13 @@
+[[Removing_Host_Devices_from_a_Virtual_Machine]]
+==== Removing Host Devices from a Virtual Machine
+
+If you are removing all host devices directly attached to the virtual machine in order to add devices from a different host, you can instead add the devices from the desired host, which will automatically remove all of the devices already attached to the virtual machine.
+
+
+.Procedure
+
+. Click menu:Compute[Virtual Machines].
+. Select a virtual machine to go to the details view.
+. Click the *Host Devices* tab to list the host devices attached to the virtual machine.
+. Select the host device to detach from the virtual machine, or hold `Ctrl` to select multiple devices, and click btn:[Remove device]. This opens the *Remove Host Device(s)* window.
+. Click btn:[OK] to confirm and detach these devices from the virtual machine.

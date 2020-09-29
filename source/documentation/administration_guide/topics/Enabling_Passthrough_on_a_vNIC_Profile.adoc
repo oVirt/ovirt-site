@@ -24,4 +24,4 @@ For more information on SR-IOV, direct device assignment, and the hardware consi
 
 
 The vNIC profile is now passthrough-capable. To use this profile to directly attach a virtual machine to a NIC or PCI VF, attach the logical network to the NIC and create a new *PCI Passthrough* vNIC on the desired virtual machine that uses the passthrough vNIC profile. For more information on these procedures respectively, see xref:Editing_host_network_interfaces[]
-//, and link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Adding_a_Network_Interface[Adding a New Network Interface] in the _Virtual Machine Management Guide_.
+//, and link:{URL_virt_product_docs}virtual_machine_management_guide/#Adding_a_Network_Interface[Adding a New Network Interface] in the _Virtual Machine Management Guide_.

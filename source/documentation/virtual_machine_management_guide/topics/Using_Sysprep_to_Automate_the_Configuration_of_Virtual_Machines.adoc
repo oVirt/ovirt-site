@@ -1,0 +1,35 @@
+[[Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines]]
+=== Using Sysprep to Automate the Configuration of Virtual Machines
+
+`Sysprep` is a tool used to automate the setup of Windows virtual machines, for example, configuring host names, network interfaces, authorized keys, set up users, or to connect to Active Directory. `Sysprep` is installed with every version of Windows.
+
+{virt-product-fullname} enhances `Sysprep` by exploiting virtualization technology to deploy virtual workstations based on a single template. {virt-product-fullname} builds a tailored auto-answer file for each virtual workstation.
+
+`Sysprep` generates a complete unattended installation answer file. Default values for several Windows operating systems are available in the */usr/share/ovirt-engine/conf/sysprep/* directory. You can also create a custom `Sysprep` file and reference it from the the *osinfo* file in the */etc/ovirt-engine/osinfo.conf.d/* directory. These files act as templates for `Sysprep`. The fields in these files can be copied and edited as required. This definition will override any values entered into the *Initial Run* fields of the *Edit Virtual Machine* window.
+
+You can create a custom `sysprep` file when creating a pool of Windows virtual machines, to accommodate various operating systems and domains. See link:{URL_virt_product_docs}administration_guide/#Creating_a_VM_Pool[Creating a Virtual Machine Pool] in the _Administration Guide_ for details.
+
+The override file must be created under */etc/ovirt-engine/osinfo.conf.d/*, have a filename that puts it after */etc/ovirt-engine/osinfo.conf.d/00-defaults.properties*, and ends in *.properties*. For example, */etc/ovirt-engine/osinfo.conf.d/10-productkeys.properties*. The last file will have precedence and override any other previous file.
+
+Copy the default values for your Windows operating system from */etc/ovirt-engine/osinfo.conf.d/00-defaults.properties* into the override file, and input your values in the `productKey.value` and `sysprepPath.value` fields.
+
+.Windows 7 Default Configuration Values
+====
+			 
+[options="nowrap" subs="normal"]
+----
+# Windows7(11, OsType.Windows, false),false
+os.windows_7.id.value = 11
+os.windows_7.name.value = Windows 7
+os.windows_7.derivedFrom.value = windows_xp
+os.windows_7.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep.w7
+os.windows_7.productKey.value =
+os.windows_7.devices.audio.value = ich6
+os.windows_7.devices.diskInterfaces.value.3.3 = IDE, VirtIO_SCSI, VirtIO
+os.windows_7.devices.diskInterfaces.value.3.4 = IDE, VirtIO_SCSI, VirtIO
+os.windows_7.devices.diskInterfaces.value.3.5 = IDE, VirtIO_SCSI, VirtIO
+os.windows_7.isTimezoneTypeInteger.value = false
+
+----
+
+====

@@ -1,0 +1,152 @@
+[[Importing_a_Virtual_Machine_from_Xen]]
+==== Importing a virtual machine from a RHEL 5 Xen host
+
+Import virtual machines from Xen on {enterprise-linux} 5 to your {virt-product-fullname} environment. {virt-product-fullname} uses V2V to import QCOW2 or raw virtual machine disk formats.
+
+The `virt-v2v` package must be installed on at least one host (referred to in this procedure as the proxy host). The `virt-v2v` package is available by default on {hypervisor-fullname}s ({hypervisor-shortname}) and is installed on {enterprise-linux-host-fullname}s as a dependency of VDSM when added to the {virt-product-fullname} environment. {enterprise-linux-host-fullname}s must be {enterprise-linux} 7.2 or later.
+
+[WARNING]
+====
+If you are importing a Windows virtual machine from a RHEL 5 Xen host and you are using VirtIO devices, install the VirtIO drivers before importing the virtual machine. If the drivers are not installed, the virtual machine may not boot after import.
+
+The VirtIO drivers can be installed from the `virtio-win___version__.iso` or the `RHV-toolsSetup___version__.iso`. See xref:Installing_the_Guest_Agents_and_Drivers_on_Windows[] for details.
+
+If you are not using VirtIO drivers, review the configuration of the virutal machine before first boot to ensure that VirtIO devices are not being used.
+====
+
+[NOTE]
+====
+The `virt-v2v` package is not available on the ppc64le architecture and these hosts cannot be used as proxy hosts.
+====
+
+[IMPORTANT]
+====
+An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning will display and you will be prompted to change your selection to include only virtual machines with the same architecture.
+====
+
+[NOTE]
+====
+If the import fails, refer to the relevant log file in `/var/log/vdsm/import/` and to `/var/log/vdsm/vdsm.log` on the proxy host for details.
+====
+
+
+.Procedure
+
+To import a virtual machine from RHEL 5 Xen, follow these steps:
+
+. Shut down the virtual machine. Starting the virtual machine through Xen during the import process can result in data corruption.
+. Enable public key authentication between the proxy host and the RHEL 5 Xen host:
+.. Log in to the proxy host and generate SSH keys for the *vdsm* user.
++
+[options="nowrap" subs="normal"]
+----
+# sudo -u vdsm ssh-keygen
+----
++
+.. Copy the *vdsm* user's public key to the RHEL 5 Xen host.
++
+[options="nowrap" subs="normal"]
+----
+# sudo -u vdsm ssh-copy-id root@_xenhost.example.com_
+----
++
+.. Log in to the RHEL 5 Xen host to verify that the login works correctly.
++
+[options="nowrap" subs="normal"]
+----
+# sudo -u vdsm ssh root@_xenhost.example.com_
+----
++
+. Log in to the Administration Portal.
+. Click menu:Compute[Virtual Machines].
+. Click *More Actions* (image:../common/images/moreactions.png[]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
+. Select the *Data Center* that contains the proxy host.
+. Select *XEN (via RHEL)* from the *Source* drop-down list.
+. Optionally, select a RHEL 5 Xen *External Provider* from the drop-down list. The URI will be pre-filled with the correct URI. See link:{URL_virt_product_docs}administration_guide/#Adding_Xen_as_an_External_Provider[Adding a RHEL 5 Xen Host as a Virtual Machine Provider] in the _Administration Guide_ for more information.
+. Enter the *URI* of the RHEL 5 Xen host. The required format is pre-filled; you must replace `<hostname>` with the host name of the RHEL 5 Xen host.
+. Select the proxy host from the *Proxy Host* drop-down list.
+. Click *Load* to list the virtual machines on the RHEL 5 Xen host that can be imported.
+. Select one or more virtual machines from the *Virtual Machines on Source* list, and use the arrows to move them to the *Virtual Machines to Import* list.
++
+[NOTE]
+====
+Due to current limitations, Xen virtual machines with block devices do not appear in the *Virtual Machines on Source* list. They must be imported manually. See xref:Importing_Block_Based_Virtual_Machine_from_Xen_host[].
+====
++
+. Click btn:[Next].
+. Select the *Cluster* in which the virtual machines will reside.
+. Select a *CPU Profile* for the virtual machines.
+. Use the *Allocation Policy* and *Storage Domain* lists to select whether the disk used by the virtual machine will be thinly provisioned or preallocated, and select the storage domain on which the disk will be stored.
++
+[NOTE]
+====
+The target storage domain must be a file-based domain. Due to current limitations, specifying a block-based domain causes the V2V operation to fail.
+====
++
+. If a virtual machine appears with a warning symbol beside its name, or has a tick in the *VM in System* column, select the *Clone* check box to clone the virtual machine.
++
+[NOTE]
+====
+Cloning a virtual machine changes its name and MAC addresses and clones all of its disks, removing all snapshots.
+====
++
+. Click btn:[OK] to import the virtual machines.
+
+The CPU type of the virtual machine must be the same as the CPU type of the cluster into which it is being imported. To view the cluster's *CPU Type* in the Administration Portal:
+
+. Click menu:Compute[Clusters].
+. Select a cluster.
+. Click btn:[Edit].
+. Click the *General* tab.
+
+If the CPU type of the virtual machine is different, configure the imported virtual machine's CPU type:
+
+. Click menu:Compute[Virtual Machines].
+. Select the virtual machine.
+. Click btn:[Edit].
+. Click the *System* tab.
+. Click the *Advanced Parameters* arrow.
+. Specify the *Custom CPU Type* and click btn:[OK].
+
+[id='Importing_Block_Based_Virtual_Machine_from_Xen_host']
+.Importing a Block-Based Virtual Machine from a RHEL 5 Xen Host
+
+. Enable public key authentication between the proxy host and the RHEL 5 Xen host:
+.. Log in to the proxy host and generate SSH keys for the *vdsm* user.
++
+[options="nowrap" subs="normal"]
+----
+# sudo -u vdsm ssh-keygen
+----
++
+.. Copy the *vdsm* user's public key to the RHEL 5 Xen host.
++
+[options="nowrap" subs="normal"]
+----
+# sudo -u vdsm ssh-copy-id root@_xenhost.example.com_
+----
++
+.. Log in to the RHEL 5 Xen host to verify that the login works correctly.
++
+[options="nowrap" subs="normal"]
+----
+# sudo -u vdsm ssh root@_xenhost.example.com_
+----
++
+. Attach an export domain. See link:{URL_virt_product_docs}administration_guide/#Attaching_an_export_domain[Attaching an Existing Export Domain to a Data Center] in the _Administration Guide_ for details.
+. On the proxy host, copy the virtual machine from the RHEL 5 Xen host:
++
+[options="nowrap" subs="normal"]
+----
+# virt-v2v-copy-to-local -ic xen+ssh://root@_xenhost.example.com_ _vmname_
+----
++
+. Convert the virtual machine to libvirt XML and move the file to your export domain:
++
+[options="nowrap" subs="normal"]
+----
+# virt-v2v -i libvirtxml _vmname_.xml -o rhev -of raw -os _storage.example.com:/exportdomain_
+----
++
+. In the Administration Portal, click menu:Storage[Domains], click the export domain's name, and click the *VM Import* tab in the details view to verify that the virtual machine is in your export domain.
+. Import the virtual machine into the destination data domain. See xref:Importing_the_virtual_machine_from_the_export_domain[] for details.

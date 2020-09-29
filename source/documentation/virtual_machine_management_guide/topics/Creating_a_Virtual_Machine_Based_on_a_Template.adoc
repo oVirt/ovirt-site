@@ -1,0 +1,34 @@
+[[Creating_a_Virtual_Machine_Based_on_a_Template]]
+=== Creating a Virtual Machine Based on a Template
+
+Create a virtual machine from a template to enable the virtual machines to be pre-configured with an operating system, network interfaces, applications and other resources.
+
+[NOTE]
+====
+Virtual machines created from a template depend on that template. So you cannot remove a template from the {engine-name} if a virtual machine was created from that template. However, you can clone a virtual machine from a template to remove the dependency on that template.
+====
+
+[NOTE]
+====
+If the BIOS type of the virtual machine differs from the BIOS type of the template, the {engine-name} might change devices in the virtual machine, possibly preventing the operating system from booting. For example, if the template uses IDE disks and the i440fx chipset, changing the BIOS type to the Q35 chipset automatically changes the IDE disks to SATA disks. So configure the chipset and BIOS type to match the chipset and BIOS type of the template.
+====
+
+*Creating a Virtual Machine Based on a Template*
+
+. Click menu:Compute[Virtual Machines].
+. Click btn:[New].
+. Select the *Cluster* on which the virtual machine will run.
+. Select a template from the *Template* list.
+. Enter a *Name*, *Description*, and any *Comments*, and accept the default values inherited from the template in the rest of the fields. You can change them if needed.
+. Click the *Resource Allocation* tab.
+. Select the *Thin* or *Clone* radio button in the *Storage Allocation* area. If you select *Thin*, the disk format is QCOW2. If you select *Clone*, select either *QCOW2* or *Raw* for disk format.
+. Use the *Target* drop-down list to select the storage domain on which the virtual machine's virtual disk will be stored.
+. Click btn:[OK].
+
+
+The virtual machine is displayed in the *Virtual Machines* tab.
+
+.Additional Resources
+
+* xref:Creating_a_cloned_virtual_machine_based_on_a_template[]
+* link:{URL_virt_product_docs}administration_guide/index#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.

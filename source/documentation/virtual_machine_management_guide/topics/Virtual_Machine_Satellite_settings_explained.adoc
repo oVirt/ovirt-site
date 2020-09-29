@@ -1,0 +1,18 @@
+[[Virtual_Machine_Satellite_settings_explained]]
+==== Virtual Machine Foreman/Satellite Settings Explained
+
+The following table details the options available on the *Foreman/Satellite* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows
+[[New_VMs_Satellite_Options]]
+
+.Virtual Machine:Foreman/Satellite Settings
+[cols="1,2,1", options="header"]
+|===
+|Field Name
+|Description
+|Power cycle required?
+
+
+|*Provider*
+|If the virtual machine is running {enterprise-linux} and the system is configured to work with a Satellite server, select the name of the Satellite from the list. This enables you to use Satellite's content management feature to display the relevant Errata for this virtual machine. See xref:Configuring_Satellite_Errata[] for more details.
+|Yes.
+|===

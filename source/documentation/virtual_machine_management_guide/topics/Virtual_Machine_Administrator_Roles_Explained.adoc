@@ -1,0 +1,15 @@
+[[Virtual_Machine_Administrator_Roles_Explained]]
+==== Virtual Machine Administrator Roles Explained
+
+The table below describes the administrator roles and privileges applicable to virtual machine administration.
+
+[[Virtual_Machine_Administrator_Roles]]
+
+.{virt-product-fullname} System Administrator Roles
+[options="header"]
+|===
+|Role |Privileges |Notes
+|DataCenterAdmin |Data Center Administrator |Possesses administrative permissions for all objects underneath a specific data center except for storage.
+|ClusterAdmin |Cluster Administrator |Possesses administrative permissions for all objects underneath a specific cluster.
+|NetworkAdmin |Network Administrator |Possesses administrative permissions for all operations on a specific logical network. Can configure and manage networks attached to virtual machines. To configure port mirroring on a virtual machine network, apply the *NetworkAdmin* role on the network and the *UserVmManager* role on the virtual machine.
+|===

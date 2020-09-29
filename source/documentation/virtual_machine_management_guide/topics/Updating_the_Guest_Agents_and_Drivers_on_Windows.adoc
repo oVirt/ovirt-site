@@ -1,0 +1,23 @@
+[[Updating_the_Guest_Agents_and_Drivers_on_Windows]]
+==== Updating the Guest Agents and Drivers on Windows
+
+*Updating the guest agents, tools, and drivers on Windows*
+
+. On the {virt-product-fullname} {engine-name} machine, update the {virt-product-fullname} Guest Tools package to the latest version:
++
+[options="nowrap" subs="normal"]
+----
+# dnf upgrade -y virtio-win
+----
++
+The ISO file is located in [filename]`/usr/share/virtio-win/virtio-win___version__.iso` on the {engine-name} machine.
+. Upload [filename]`virtio-win___version__.iso` to a data domain. See link:{URL_virt_product_docs}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain] in the __Administration Guide__ for details.
+. In the Administration or VM Portal, if the virtual machine is running, use the *Change CD* drop-down list to attach the [filename]`virtio-win___version__.iso` file to each of your virtual machines. If the virtual machine is powered off, click the *Run Once* button and attach the ISO as a CD.
+. Log in to the virtual machine.
+. Select the CD Drive containing the [filename]`virtio-win___version__.iso` file.
+. Double-click `virtio-win-gt-x64.msi` for a 64-bit guest operating system or `virtio-win-gt-x86.msi` for a 32-bit guest operating system.
+. Click btn:[Next] at the welcome screen.
+. Follow the prompts in the installation wizard. Ensure all check boxes in the list of components are selected, including the *RHEV Agent* which is disabled by default.
+. Once installation is complete, select *Yes, I want to restart my computer now* and click *Finish* to apply the changes.
+. After the reboot completes, open the virtual CD drive and change to the [filename]`guest-agent` directory.
+. Double-click [filename]`qemu-ga-x86_64.msi` or [filename]`qemu-ga-i386.msi`.

@@ -1,0 +1,15 @@
+[[Editing_an_Affinity_Group]]
+==== Editing an Affinity Group
+
+
+
+*Editing Affinity Groups*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click the virtual machine's name to go to the details view.
+. Click the *Affinity Groups* tab.
+. Click btn:[Edit].
+. Change the *VM Affinity Rule* drop-down and *Enforcing* check box to the preferred values and use the *+* and *-* buttons to add or remove virtual machines to or from the affinity group.
+. Click btn:[OK].
+
+

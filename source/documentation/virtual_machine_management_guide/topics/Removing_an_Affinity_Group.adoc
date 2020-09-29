@@ -1,0 +1,15 @@
+[[Removing_an_Affinity_Group]]
+==== Removing an Affinity Group
+
+
+
+*Removing Affinity Groups*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click the virtual machine's name to go to the details view.
+. Click the *Affinity Groups* tab.
+. Click btn:[Remove].
+. Click btn:[OK].
+
+
+The affinity policy that applied to the virtual machines that were members of that affinity group no longer applies.

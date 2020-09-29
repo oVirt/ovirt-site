@@ -1,0 +1,26 @@
+[[What_is_high_availability]]
+==== What is High Availability?
+
+High availability is recommended for virtual machines running critical workloads. A highly available virtual machine is automatically restarted, either on its original host or another host in the cluster, if its process is interrupted, such as in the following scenarios:
+
+* A host becomes non-operational due to hardware failure.
+
+* A host is put into maintenance mode for scheduled downtime.
+
+* A host becomes unavailable because it has lost communication with an external storage resource.
+
+A highly available virtual machine is not restarted if it is shut down cleanly, such as in the following scenarios:  
+
+* The virtual machine is shut down from within the guest.
+
+* The virtual machine is shut down from the {engine-name}.
+
+* The host is shut down by an administrator without being put in maintenance mode first.
+
+With storage domains V4 or later, virtual machines have the additional capability to acquire a lease on a special volume on the storage, enabling a virtual machine to start on another host even if the original host loses power. The functionality also prevents the virtual machine from being started on two different hosts, which may lead to corruption of the virtual machine disks. 
+
+With high availability, interruption to service is minimal because virtual machines are restarted within seconds with no user intervention required. High availability keeps your resources balanced by restarting guests on a host with low current resource utilization, or based on any workload balancing or power saving policies that you configure. This ensures that there is sufficient capacity to restart virtual machines at all times.
+
+*High Availability and Storage I/O Errors*
+
+If a storage I/O error occurs, the virtual machine is paused. You can define how the host handles highly available virtual machines after the connection with the storage domain is reestablished; they can either be resumed, ungracefully shut down, or remain paused. For more information about these options, see xref:Virtual_Machine_High_Availability_settings_explained[].

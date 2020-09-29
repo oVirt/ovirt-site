@@ -1,0 +1,51 @@
+[[chap-Editing_Virtual_Machines]]
+== Editing Virtual Machines
+
+include::topics/Editing_Virtual_Machine_Properties.adoc[]
+
+[[sect-Network_Interfaces]]
+=== Network Interfaces
+
+include::topics/Adding_a_Network_Interface.adoc[]
+
+include::topics/Editing_network_interfaces.adoc[]
+
+include::topics/Hot_Plugging_Network_Interfaces.adoc[]
+
+include::topics/Removing_a_Network_Interface.adoc[]
+
+include::topics/Blacklisting_Network_Interfaces.adoc[]
+
+[[sect-Virtual_Disks]]
+=== Virtual Disks
+
+include::topics/Adding_a_Virtual_Disk.adoc[]
+
+include::topics/Associating_a_Virtual_Disk_with_a_Virtual_Machine.adoc[]
+
+include::topics/Extending_the_Available_Size_of_a_Virtual_Disk.adoc[]
+
+include::topics/Hot_Plugging_a_Virtual_Disk.adoc[]
+
+include::topics/Removing_Virtual_Disks_From_Virtual_Machines.adoc[]
+
+include::topics/Importing_a_Disk_Image.adoc[]
+
+include::topics/Importing_an_Unregistered_Disk_Image.adoc[]
+
+[[sect-Virtual_Memory]]
+=== Virtual Memory
+
+include::topics/Hot_Plugging_Virtual_Memory.adoc[]
+
+include::topics/Hot_Unplugging_Virtual_Memory.adoc[]
+
+include::topics/Hot_Plugging_vCPUs.adoc[]
+
+include::topics/Pinning_a_Virtual_Machine_to_Multiple_Hosts.adoc[]
+
+include::topics/Viewing_Virtual_Machines_Pinned_to_a_Host.adoc[]
+
+include::topics/Changing_the_CD_for_a_Virtual_Machine.adoc[]
+
+include::topics/Enabling_and_Disabling_Smartcards.adoc[]

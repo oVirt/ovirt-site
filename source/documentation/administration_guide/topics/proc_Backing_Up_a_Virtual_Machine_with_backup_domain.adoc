@@ -9,9 +9,9 @@ You can back up a powered down virtual machine or snapshot. You can then store t
 
 . Create a new virtual machine based on the virtual machine you want to back up:
 
- * To back up a snapshot, first create a virtual machine from a snapshot. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Creating a Virtual Machine from a Snapshot] in the _Virtual Machine Management Guide_.
- * To back up a virtual machine, first clone the virtual machine. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Cloning a Virtual Machine] in the _Virtual Machine Management Guide_. Make sure the clone is powered down before proceeding.
-. Export the new virtual machine to a backup domain. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Exporting a Virtual Machine to a Data Domain] in the _Virtual Machine Management Guide_.
+ * To back up a snapshot, first create a virtual machine from a snapshot. See link:{URL_virt_product_docs}virtual_machine_management_guide/[Creating a Virtual Machine from a Snapshot] in the _Virtual Machine Management Guide_.
+ * To back up a virtual machine, first clone the virtual machine. See link:{URL_virt_product_docs}virtual_machine_management_guide/[Cloning a Virtual Machine] in the _Virtual Machine Management Guide_. Make sure the clone is powered down before proceeding.
+. Export the new virtual machine to a backup domain. See link:{URL_virt_product_docs}virtual_machine_management_guide/[Exporting a Virtual Machine to a Data Domain] in the _Virtual Machine Management Guide_.
 
 .Procedure: Restoring a Virtual Machine
 

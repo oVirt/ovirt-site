@@ -1,0 +1,18 @@
+[[Cloud-Init_Use_Case_Scenarios]]
+==== Cloud-Init Use Case Scenarios
+
+Cloud-Init can be used to automate the configuration of virtual machines in a variety of scenarios. Several common scenarios are as follows:
+
+
+* *Virtual Machines Created Based on Templates*
++
+You can use the Cloud-Init options in the *Initial Run* section of the *Run Once* window to initialize a virtual machine that was created based on a template. This allows you to customize the virtual machine the first time that virtual machine is started.
+
+* *Virtual Machine Templates*
++
+You can use the *Use Cloud-Init/Sysprep* options in the *Initial Run* tab of the *Edit Template* window to specify options for customizing virtual machines created based on that template.
+
+* *Virtual Machine Pools*
++
+You can use the *Use Cloud-Init/Sysprep* options in the *Initial Run* tab of the *New Pool* window to specify options for customizing virtual machines taken from that virtual machine pool. This allows you to specify a set of standard settings that will be applied every time a virtual machine is taken from that virtual machine pool. You can inherit or override the options specified for the template on which the virtual machine is based, or specify options for the virtual machine pool itself.
+

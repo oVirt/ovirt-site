@@ -1,0 +1,20 @@
+==== Importing an Unregistered Disk Image from an Imported Storage Domain
+
+You can import floating virtual disks from a storage domain. Floating disks created outside of a {virt-product-fullname} environment are not registered with the {engine-name}. Scan the storage domain to identify unregistered floating disks to be imported.
+
+This procedure requires access to the Administration Portal.
+
+[NOTE]
+====
+Only QEMU-compatible disks can be imported into the {engine-name}.
+====
+
+
+*Importing a Disk Image*
+
+. Click menu:Storage[Domains].
+. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Scan Disks* so that the {engine-name} can identify unregistered disks.
+. Select an unregistered disk name and click *Disk Import*.
+. Select one or more disk images and click *Import*. This opens the *Import Disk(s)* window.
+. Select the appropriate *Disk Profile* for each disk.
+. Click btn:[OK] to import the selected disks.

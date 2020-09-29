@@ -1,0 +1,33 @@
+[[Manually_migrating_virtual_machines]]
+==== Manually Migrating Virtual Machines
+
+A running virtual machine can be live migrated to any host within its designated host cluster. Live migration of virtual machines does not cause any service interruption. Migrating virtual machines to a different host is especially useful if the load on a particular host is too high. For live migration prerequisites, see xref:Live_migration_prerequisites[].
+
+For high performance virtual machines and/or virtual machines defined with *Pass-Through Host CPU*, *CPU Pinning*, or *NUMA Pinning*, the default migration mode is *Manual*. Select *Select Host Automatically* so that the virtual machine migrates to the host that offers the best performance.
+
+[NOTE]
+====
+When you place a host into maintenance mode, the virtual machines running on that host are automatically migrated to other hosts in the same cluster. You do not need to manually migrate these virtual machines.
+====
+
+[NOTE]
+====
+Live migrating virtual machines between different clusters is generally not recommended. The currently only supported use case is documented at link:https://access.redhat.com/articles/1390733[].
+====
+
+
+*Manually Migrating Virtual Machines*
+
+. Click menu:Compute[Virtual Machines] and select a running virtual machine.
+. Click btn:[Migrate].
+. Use the radio buttons to select whether to *Select Host Automatically* or to *Select Destination Host*, specifying the host using the drop-down list.
++
+[NOTE]
+====
+When the *Select Host Automatically* option is selected, the system determines the host to which the virtual machine is migrated according to the load balancing and power management rules set up in the scheduling policy.
+====
++
+. Click btn:[OK].
+
+
+During migration, progress is shown in the *Migration* progress bar. Once migration is complete the *Host* column will update to display the host the virtual machine has been migrated to.

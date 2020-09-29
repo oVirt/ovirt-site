@@ -1,0 +1,18 @@
+[id='Creating_a_Virtual_Machine_from_a_Snapshot_{context}']
+==== Creating a Virtual Machine from a Snapshot
+
+You can use a snapshot to create another virtual machine.
+
+*Creating a Virtual Machine from a Snapshot*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click the virtual machine's name to go to the details view.
+. Click the *Snapshots* tab to list the available snapshots.
+. Select a snapshot in the list displayed and click *Clone*.
+. Enter the *Name* of the virtual machine.
+. Click btn:[OK].
+
+
+After a short time, the cloned virtual machine appears in the *Virtual Machines* tab in the navigation pane with a status of `Image Locked`. The virtual machine remains in this state until {virt-product-fullname} completes the creation of the virtual machine. A virtual machine with a preallocated 20 GB hard drive takes about fifteen minutes to create. Sparsely-allocated virtual disks take less time to create than do preallocated virtual disks.
+
+When the virtual machine is ready to use, its status changes from `Image Locked` to `Down` in menu:Compute[Virtual Machines].

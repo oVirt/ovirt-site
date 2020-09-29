@@ -1,0 +1,9 @@
+[[Remote_Viewer_Hotkeys]]
+===== Remote Viewer Hotkeys
+
+You can access the hotkeys for a virtual machine in both full screen mode and windowed mode. If you are using full screen mode, you can display the menu containing the button for hotkeys by moving the mouse pointer to the middle of the top of the screen. If you are using windowed mode, you can access the hotkeys via the *Send key* menu on the virtual machine window title bar.
+
+[NOTE]
+====
+If `vdagent` is not running on the client machine, the mouse can become captured in a virtual machine window if it is used inside a virtual machine and the virtual machine is not in full screen. To unlock the mouse, press `Shift` + `F12`.
+====

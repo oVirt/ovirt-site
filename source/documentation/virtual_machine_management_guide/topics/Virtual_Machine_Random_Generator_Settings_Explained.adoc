@@ -1,0 +1,40 @@
+[[Virtual_Machine_Random_Generator_Settings_Explained]]
+==== Virtual Machine Random Generator Settings Explained
+
+The following table details the options available on the *Random Generator* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
+[[New_VMs_Random_Generator]]
+
+.Virtual Machine: Random Generator Settings
+[cols="1,2,1", options="header"]
+|===
+|Field Name
+|Description
+|Power cycle required?
+
+
+|*Random Generator enabled*
+|Selecting this check box enables a paravirtualized Random Number Generator PCI device (virtio-rng). This device allows entropy to be passed from the host to the virtual machine in order to generate a more sophisticated random number. Note that this check box can only be selected if the RNG device exists on the host and is enabled in the host's cluster.
+|Yes.
+
+
+|*Period duration (ms)*
+|Specifies the duration of the RNG's "full cycle" or "full period" in milliseconds. If omitted, the libvirt default of 1000 milliseconds (1 second) is used. If this field is filled,
+*Bytes per period* must be filled also.
+|Yes.
+
+
+|*Bytes per period*
+|Specifies how many bytes are permitted to be consumed per period.
+|Yes.
+
+
+|*Device source:*
+a|The source of the random number generator. This is automatically selected depending on the source supported by the host's cluster.
+
+* */dev/urandom source* - The Linux-provided random number generator.
+
+* */dev/hwrng source* - An external hardware generator.
+|Yes.
+
+
+|===

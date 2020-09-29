@@ -1,0 +1,16 @@
+[[Configuring_Single_Sign_On_for_Windows_Virtual_Machines]]
+==== Configuring single sign-on for Windows virtual machines
+
+To configure single sign-on for Windows virtual machines, the Windows guest agent must be installed on the guest virtual machine. The virtio-win ISO image provides this agent. If the `virtio-win___version__.iso` image is not available in your storage domain, contact your system administrator.
+
+
+.Procedure
+
+. Select the Windows virtual machine. Ensure the machine is powered up.
+. Click *Change CD*.
+. Select `virtio-win___version__.iso` from the list of images.
+. Click btn:[OK].
+. Click btn:[Console] and log in to the virtual machine.
+. On the virtual machine, locate the CD drive to access the contents of the guest tools ISO file and launch `virtio-win___version__.iso`. After the tools have been installed, you will be prompted to restart the machine to apply the changes.
+
+Log in to the VM Portal using the user name and password of a user configured to use single sign-on and connect to the console of the virtual machine. You will be logged in automatically.

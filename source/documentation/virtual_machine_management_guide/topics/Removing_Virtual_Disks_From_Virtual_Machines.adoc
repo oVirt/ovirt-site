@@ -1,0 +1,18 @@
+[[Removing_Virtual_Disks_From_Virtual_Machines]]
+==== Removing a Virtual Disk from a Virtual Machine
+
+*Removing Virtual Disks From Virtual Machines*
+
+. Click menu:Compute[Virtual Machines].
+. Click a virtual machine name to go to the details view.
+. Click the *Disks* tab and select the virtual disk to remove.
+. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Deactivate*.
+. Click btn:[OK].
+. Click btn:[Remove].
+. Optionally, select the *Remove Permanently* check box to completely remove the virtual disk from the environment. If you do not select this option - for example, because the disk is a shared disk - the virtual disk will remain in menu:Storage[Disks].
+. Click btn:[OK].
+
+
+If the disk was created as block storage, for example iSCSI, and the *Wipe After Delete* check box was selected when creating the disk, you can view the log file on the host to confirm that the data has been wiped after permanently removing the disk. See link:{URL_virt_product_docs}administration_guide/#Settings_to_Wipe_Virtual_Disks_After_Deletion[Settings to Wipe Virtual Disks After Deletion] in the _Administration Guide_.
+
+If the disk was created as block storage, for example iSCSI, and the *Discard After Delete* check box was selected on the storage domain before the disk was removed, a `blkdiscard` command is called on the logical volume when it is removed and the underlying storage is notified that the blocks are free. See link:{URL_virt_product_docs}administration_guide/#Setting_Discard_After_Delete_for_a_Storage_Domain[Setting Discard After Delete for a Storage Domain] in the _Administration Guide_. A `blkdiscard` is also called on the logical volume when a virtual disk is removed if the virtual disk is attached to at least one virtual machine with the *Enable Discard* check box selected.

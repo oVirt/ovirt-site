@@ -1,0 +1,21 @@
+[[Configuring_operating_systems_with_osinfo]]
+=== Configuring Operating Systems with osinfo
+
+{virt-product-fullname} stores operating system configurations for virtual machines in */etc/ovirt-engine/osinfo.conf.d/00-defaults.properties*. This file contains default values such as `os.other.devices.display.protocols.value = spice/qxl,vnc/vga,vnc/qxl`.
+
+There are only a limited number of scenarios in which you would change these values:
+
+* Adding an operating system that does not appear in the list of supported guest operating systems
+* Adding a product key (for example, `os.windows_10x64.productKey.value =`)
+* Configuring the `sysprep` path for a Windows virtual machine (for example, `os.windows_10x64.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep.w10x64`)
+
+[IMPORTANT]
+====
+Do not edit the actual *00-defaults.properties* file. Changes will be overwritten if you upgrade or restore the {engine-name}.
+
+Do not change values that come directly from the operating system or the {engine-name}, such as maximum memory size.
+====
+
+To change the operating system configurations, create an override file in */etc/ovirt-engine/osinfo.conf.d/*. The file name must begin with a value greater than `00`, so that the file appears after */etc/ovirt-engine/osinfo.conf.d/00-defaults.properties*, and ends with the extension, *.properties*.
+
+For example, *10-productkeys.properties* overrides the default file, *00-defaults.properties*. The last file in the file list has precedence over earlier files.

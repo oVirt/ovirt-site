@@ -1,0 +1,27 @@
+[[Configuring_a_highly_available_virtual_machine]]
+==== Configuring a Highly Available Virtual Machine
+
+High availability must be configured individually for each virtual machine.
+
+
+*Configuring a Highly Available Virtual Machine*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click btn:[Edit].
+. Click the *High Availability* tab.
+. Select the *Highly Available* check box to enable high availability for the virtual machine.
+. Select the storage domain to hold the virtual machine lease, or select *No VM Lease* to disable the functionality, from the *Target Storage Domain for VM Lease* drop-down list. See xref:What_is_high_availability[] for more information about virtual machine leases.
++
+[IMPORTANT]
+====
+This functionality is only available on storage domains that are V4 or later.
+====
++
+. Select *AUTO_RESUME*, *LEAVE_PAUSED*, or *KILL* from the *Resume Behavior* drop-down list. If you defined a virtual machine lease, *KILL* is the only option available. For more information see xref:Virtual_Machine_High_Availability_settings_explained[].
++
+
+. Select *Low*, *Medium*, or *High* from the *Priority* drop-down list. When migration is triggered, a queue is created in which the high priority virtual machines are migrated first. If a cluster is running low on resources, only the high priority virtual machines are migrated.
+. Click btn:[OK].
+
+
+

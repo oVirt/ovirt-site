@@ -1,0 +1,66 @@
+[[Remote_Viewer_Options]]
+===== Remote Viewer Options
+
+When you specify the *Native client* console invocation option, you will connect to virtual machines using Remote Viewer. The Remote Viewer window provides a number of options for interacting with the virtual machine to which it is connected.
+
+.Remote Viewer Options
+[options="header"]
+|===
+|Option a|Hotkey
+|File a|
+
+* *Screenshot*: Takes a screen capture of the active window and saves it in a location of your specification.
+
+* *USB device selection*: If USB redirection has been enabled on your virtual machine, the USB device plugged into your client machine can be accessed from this menu.
+
+* *Quit*: Closes the console. The hot key for this option is `Shift` + `Ctrl` + `Q`.
+
+
+|View a|
+
+* *Full screen*: Toggles full screen mode on or off. When enabled, full screen mode expands the virtual machine to fill the entire screen. When disabled, the virtual machine is displayed as a window. The hot key for enabling or disabling full screen is `SHIFT` + `F11`.
+
+* *Zoom*: Zooms in and out of the console window. `Ctrl` + `+` zooms in, `Ctrl` + `-` zooms out, and `Ctrl` + `0` returns the screen to its original size.
+
+* *Automatically resize*: Tick to enable the guest resolution to automatically scale according to the size of the console window.
+
+* *Displays*: Allows users to enable and disable displays for the guest virtual machine.
+
+
+|Send key a|
+
+* `Ctrl` + `Alt` + `Del`: On a {enterprise-linux} virtual machine, it displays a dialog with options to suspend, shut down or restart the virtual machine. On a Windows virtual machine, it displays the task manager or Windows Security dialog.
+
+* `Ctrl` + `Alt` + `Backspace`: On a {enterprise-linux} virtual machine, it restarts the X sever. On a Windows virtual machine, it does nothing.
+
+* `Ctrl` + `Alt` + `F1`
+
+* `Ctrl` + `Alt` + `F2`
+
+* `Ctrl` + `Alt` + `F3`
+
+* `Ctrl` + `Alt` + `F4`
+
+* `Ctrl` + `Alt` + `F5`
+
+* `Ctrl` + `Alt` + `F6`
+
+* `Ctrl` + `Alt` + `F7`
+
+* `Ctrl` + `Alt` + `F8`
+
+* `Ctrl` + `Alt` + `F9`
+
+* `Ctrl` + `Alt` + `F10`
+
+* `Ctrl` + `Alt` + `F11`
+
+* `Ctrl` + `Alt` + `F12`
+
+* `Printscreen`: Passes the *Printscreen* keyboard option to the virtual machine.
+
+
+|Help |The *About* entry displays the version details of Virtual Machine Viewer that you are using.
+|Release Cursor from Virtual Machine |`SHIFT` + `F12`
+|===
+

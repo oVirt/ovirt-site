@@ -25,7 +25,7 @@ The maintainers of the Infrastructure project are:
 *   **Puppet and Foreman Lead:** Ewoud Kohl van Wijngaarden (Ekohl), David Caro (Dcaroest),Barak Korren (Bkorren)
 *   **Mail Servers** Karsten Wade (Quaid),Michael Scherer (Misc)
 
-Read [Becoming an Infrastructure team member](/develop/infra/becoming-an-infrastructure-team-member.html) for details on joining this project.
+Read [Becoming an Infrastructure team member](/community/becoming-an-infrastructure-team-member.html) for details on joining this project.
 
 Read [Infrastructure team assignments](/develop/infra/infrastructure-team-administrators.html) for information about who has access to which parts of the oVirt infrastructure.
 

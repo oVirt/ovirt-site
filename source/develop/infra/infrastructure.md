@@ -70,7 +70,7 @@ People who come to work on this project are *not* already experts, but they migh
 ### Joining
 
 *   To gain access to systems - think of them as keys to doors - we match your skill and the trust you have built with the project. This is part of being a [meritocracy](/community/about/governance.html).
-*   Interested to join the Infrastructure Team ? [Click here](/develop/infra/becoming-an-infrastructure-team-member.html)
+*   Interested to join the Infrastructure Team ? [Click here](/community/becoming-an-infrastructure-team-member.html)
 
 ### Communication
 

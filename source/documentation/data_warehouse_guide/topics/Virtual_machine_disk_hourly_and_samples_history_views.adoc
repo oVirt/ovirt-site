@@ -1,0 +1,39 @@
+[[Virtual_machine_disk_hourly_and_samples_history_views]]
+==== Virtual Disk Statistics Views
+
+
+.Historical Statistics for the Virtual Disks in the System
+[options="header"]
+|===
+|Name |Type |Description |Indexed
+|history_id |bigint |The unique ID of this row in the table. |No
+|history_datetime |date |The timestamp of this history row (rounded to minute, hour, day as per the aggregation level). |Yes
+|vm_disk_id |uuid |Unique ID of the disk in the system. |Yes
+|vm_disk_status |smallint a|
+
+* 0 - Unassigned
+
+* 1 - OK
+
+* 2 - Locked
+
+* 3 - Invalid
+
+* 4 - Illegal
+ |No
+
+|seconds_in_status |integer |The total number of seconds that the virtual disk was in the status shown in the status column for the aggregation period. For example, if a virtual disk was locked for 55 seconds and OK for 5 seconds during a minute, two rows will show for this minute. One will have a status of `Locked` and seconds_in_status of 55, the other will have a status of OK and a seconds_in_status of 5. |No
+|minutes_in_status |numeric(7,2) |The total number of minutes that the virtual disk was in the status shown in the status column for the aggregation period. For example, if a virtual disk was locked for 55 minutes and OK for 5 minutes during an hour, two rows will show for this hour. One will have a status of `Locked` and minutes_in_status of 55, the other will have a status of OK and a minutes_in_status of 5. |No
+|vm_disk_actual_size_mb |integer |The actual size allocated to the disk. |No
+|read_rate_bytes_per_second |integer |Read rate to disk in bytes per second. |No
+|max_read_rate_bytes_per_second |integer |The maximum read rate for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|read_latency_seconds |numeric(18,9) |The virtual disk read latency measured in seconds. |No
+|write_rate_bytes_per_second |integer |Write rate to disk in bytes per second. |No
+|max_read_latency_seconds |numeric(18,9) |The maximum read latency for the aggregation period, measured in seconds. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|max_write_rate_bytes_per_second |integer |The maximum write rate for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|write_latency_seconds |numeric(18,9) |The virtual disk write latency measured in seconds. |No
+|max_write_latency_seconds |numeric(18,9) |The maximum write latency for the aggregation period, measured in seconds. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|flush_latency_seconds |numeric(18,9) |The virtual disk flush latency measured in seconds. |No
+|max_flush_latency_seconds |numeric(18,9) |The maximum flush latency for the aggregation period, measured in seconds. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|vm_disk_configuration_version |integer |The virtual disk configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_2_configuration_history_vms_disks` view and it can be used to join them. |Yes
+|===

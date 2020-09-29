@@ -1,0 +1,52 @@
+[[Host_hourly_and_daily_history_views]]
+==== Host Statistics Views
+
+
+.Historical Statistics for Each Host in the System
+[options="header"]
+|===
+|Name |Type |Description |Indexed
+|history_id |bigint |The unique ID of this row in the table. |No
+|history_datetime |date |The timestamp of this history row (rounded to minute, hour, day as per the aggregation level). |Yes
+|host_id |uuid |Unique ID of the host in the system. |Yes
+|host_status |smallint a|
+
+* -1 - `Unknown Status` (used only to indicate a problem with the ETL.
+ifdef::rhv-doc[]
+Please notify Red Hat Support.
+endif::[]
+)
+
+* 1 - `Up`
+
+* 2 - `Maintenance`
+
+* 3 - `Problematic`
+|No
+
+|seconds_in_status |integer |The total number of seconds that the host was in the status shown in the status column for the aggregation period. For example, if a host was up for 55 seconds and down for 5 seconds during a minute, two rows will show for this minute. One will have a status of `Up` and seconds_in_status of 55, the other will have a status of `Down` and a seconds_in_status of 5. |No
+|minutes_in_status |numeric(7,2) |The total number of minutes that the host was in the status shown in the status column for the aggregation period. For example, if a host was up for 55 minutes and down for 5 minutes during an hour, two rows will show for this hour. One will have a status of `Up` and minutes_in_status of 55, the other will have a status of `Down` and a minutes_in_status of 5. |No
+|memory_usage_percent |smallint |Percentage of used memory on the host. |No
+|max_memory_usage |smallint |The maximum memory usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|ksm_shared_memory_mb |bigint |The Kernel Shared Memory size, in megabytes (MB), that the host is using. |No
+|max_ksm_shared_memory_mb |bigint |The maximum KSM memory usage for the aggregation period expressed in megabytes (MB). For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|cpu_usage_percent |smallint |Used CPU percentage on the host. |No
+|max_cpu_usage |smallint |The maximum CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|ksm_cpu_percent |smallint |CPU percentage ksm on the host is using. |No
+|max_ksm_cpu_percent |smallint |The maximum KSM usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|active_vms |smallint |The average number of active virtual machines for this aggregation. |No
+|max_active_vms |smallint |The maximum active number of virtual machines for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|total_vms |smallint |The average number of all virtual machines on the host for this aggregation. |No
+|max_total_vms |smallint |The maximum total number of virtual machines for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|total_vms_vcpus |integer |Total number of vCPUs allocated to the host. |No
+|max_total_vms_vcpus |integer |The maximum total virtual machine vCPU number for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|cpu_load |integer |The CPU load of the host. |No
+|max_cpu_load |integer |The maximum CPU load for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|system_cpu_usage_percent |smallint |Used CPU percentage on the host. |No
+|max_system_cpu_usage_percent |smallint |The maximum system CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|user_cpu_usage_percent |smallint |Used user CPU percentage on the host. |No
+|max_user_cpu_usage_percent |smallint |The maximum user CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|swap_used_mb |integer |Used swap size usage of the host in megabytes (MB). |No
+|max_swap_used_mb |integer |The maximum user swap size usage of the host for the aggregation period in megabytes (MB), expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|host_configuration_version |integer |The host configuration version at the time of sample. The host configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_2_configuration_history_hosts` view and it can be used to join them. |Yes
+|===

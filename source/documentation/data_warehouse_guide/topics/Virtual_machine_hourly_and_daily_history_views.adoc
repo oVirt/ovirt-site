@@ -1,0 +1,48 @@
+[[Virtual_machine_hourly_and_daily_history_views]]
+==== Virtual Machine Statistics Views
+
+
+.Historical Statistics for Each Virtual Machine in the System
+[options="header"]
+|===
+|Name |Type |Description |Indexed
+|history_id |bigint |The unique ID of this row in the table. |No
+|history_datetime |date |The timestamp of this history row (rounded to minute, hour, day as per the aggregation level). |Yes
+|vm_id |uuid |Unique ID of the virtual machine in the system. |Yes
+|vm_status |smallint a|
+
+* -1 - Unknown Status (used only to indicate problems with the ETL.
+ifdef::rhv-doc[]
+Please notify Red Hat Support.
+endif::[]
+)
+* 0 - Down
+
+* 1 - Up
+
+* 2 - Paused
+
+* 3 - Problematic
+|No
+
+|seconds_in_status |integer |The total number of seconds that the virtual machine was in the status shown in the status column for the aggregation period. For example, if a virtual machine was up for 55 seconds and down for 5 seconds during a minute, two rows will show for this minute. One will have a status of Up and seconds_in_status, the other will have a status of Down and a seconds_in_status of 5. |No
+|minutes_in_status |numeric(7,2) |The total number of minutes that the virtual machine was in the status shown in the status column for the aggregation period. For example, if a virtual machine was up for 55 minutes and down for 5 minutes during an hour, two rows will show for this hour. One will have a status of Up and minutes_in_status, the other will have a status of Down and a minutes_in_status of 5. |No
+|cpu_usage_percent |smallint |The percentage of the CPU in use by the virtual machine. |No
+|max_cpu_usage |smallint |The maximum CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|memory_usage_percent |smallint |Percentage of used memory in the virtual machine. The guest tools must be installed on the virtual machine for memory usage to be recorded. |No
+|max_memory_usage |smallint |The maximum memory usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. The guest tools must be installed on the virtual machine for memory usage to be recorded. |No
+|user_cpu_usage_percent |smallint |Used user CPU percentage on the host. |No
+|max_user_cpu_usage_percent |smallint |The maximum user CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregation, it is the maximum hourly average value. |No
+|system_cpu_usage_percent |smallint |Used system CPU percentage on the host. |No
+|max_system_cpu_usage_percent |smallint |The maximum system CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|vm_ip |text |The IP address of the first NIC. Only shown if the guest agent is installed. |No
+|currently_running_on_host |uuid |The unique ID of the host the virtual machine is running on. |No
+|current_user_id |uuid |The unique ID of the user logged into the virtual machine console, if the guest agent is installed. |No
+|disks_usage |text |The disk description. File systems type, mount point, total size, and used size. |No
+|vm_configuration_version |integer |The virtual machine configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_2_configuration_history_vms` view.|Yes
+|current_host_configuration_version |integer |The host configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_2_configuration_history_hosts` view and it can be used to join them. |Yes
+|memory_buffered_kb |bigint |The amount of buffered memory on the virtual machine, in kilobytes (KB). |No
+|memory_cached_kb |bigint |The amount of cached memory on the virtual machine, in kilobytes (KB). |No
+|max_memory_buffered_kb |bigint |The maximum buffered memory for the aggregation period, in kilobytes (KB). For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|max_memory_cached_kb |bigint |The maximum cached memory for the aggregation period, in kilobytes (KB). For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|===

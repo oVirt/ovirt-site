@@ -1,0 +1,19 @@
+[[Virtual_machine_interface_hourly_and_daily_history_views]]
+==== Virtual Machine Interface Statistics Views
+
+
+.Historical Statistics for the Virtual Machine Network Interfaces in the System
+[options="header"]
+|===
+|Name |Type |Description |Indexed
+|history_id |integer |The unique ID of this row in the table. |No
+|history_datetime |date |The timestamp of this history row (rounded to minute, hour, day as per the aggregation level). |Yes
+|vm_interface_id |uuid |Unique ID of the interface in the system. |Yes
+|receive_rate_percent |smallint |Used receive rate percentage on the host. |No
+|max_receive_rate_percent |smallint |The maximum receive rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|transmit_rate_percent |smallint |Used transmit rate percentage on the host. |No
+|max_transmit_rate_percent |smallint |The maximum transmit rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average rate. |No
+|received_total_byte |bigint |The total number of bytes received by the virtual machine. |No
+|transmitted_total_byte |bigint |The total number of bytes transmitted from the virtual machine. |No
+|vm_interface_configuration_version |integer |The virtual machine interface configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_2_configuration_history_vms_interfaces` view and it can be used to join them. |Yes
+|===

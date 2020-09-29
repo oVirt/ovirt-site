@@ -1,0 +1,43 @@
+[[Latest_storage_domain_configuration_view]]
+==== Storage Domain Configuration
+
+The following table shows the configuration history parameters of the storage domains in the system.
+[[References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_storage_domain_configuration_view]]
+
+.v4_2_configuration_history_storage_domains
+[options="header"]
+|===
+|Name |Type |Description |Indexed
+|history_id |integer |The ID of the configuration version in the history database. This is identical to the value of `storage_configuration_version` in the storage domain statistics views and it can be used to join them. |No
+|storage_domain_id |uuid |The unique ID of this storage domain in the system. |Yes
+|storage_domain_name |character varying(250) |Storage domain name. |No
+|storage_domain_type |smallint |
+
+* 0 - Data (Master)
+
+* 1 - Data
+
+* 2 - ISO
+
+* 3 - Export
+ |No
+
+|storage_type |smallint |
+
+* 0 - Unknown
+
+* 1 - NFS
+
+* 2 - FCP
+
+* 3 - iSCSI
+
+* 4 - Local
+
+* 6 - All
+ |No
+
+|create_date |timestamp with time zone |The date this entity was added to the system. |No
+|update_date |timestamp with time zone |The date this entity was changed in the system. |No
+|delete_date |timestamp with time zone |The date this entity was deleted from the system. |No
+|===

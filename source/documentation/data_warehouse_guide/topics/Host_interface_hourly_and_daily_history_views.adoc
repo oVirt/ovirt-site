@@ -1,0 +1,19 @@
+[[Host_interface_hourly_and_daily_history_views]]
+==== Host Interface Statistics Views
+
+
+.Historical Statistics for Each Host Network Interface in the System
+[options="header"]
+|===
+|Name |Type |Description |Indexed
+|history_id |bigint |The unique ID of this row in the table. |No
+|history_datetime |date |The timestamp of this history view (rounded to minute, hour, day as per the aggregation level). |Yes
+|host_interface_id |uuid |Unique identifier of the interface in the system. |Yes
+|receive_rate_percent |smallint |Used receive rate percentage on the host. |No
+|max_receive_rate_percent |smallint |The maximum receive rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|transmit_rate_percent |smallint |Used transmit rate percentage on the host. |No
+|max_transmit_rate_percent |smallint |The maximum transmit rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|received_total_byte |bigint |The total number of bytes received by the host. |No
+|transmitted_total_byte |bigint |The total number of bytes transmitted from the host. |No
+|host_interface_configuration_version |integer |The host interface configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_2_configuration_history_hosts_interfaces` view and it can be used to join them. |Yes
+|===

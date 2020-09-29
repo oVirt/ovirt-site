@@ -132,15 +132,17 @@ exclude:
   - CODEOWNERS
   # avoid generating paginated asciidoc content
   - documentation/common/**/*.adoc
-  - documentation/upgrade_guide/topics
-  - documentation/upgrade_guide/assembly*
-  - documentation/administration_guide/topics
   - documentation/administration_guide/appe*
   - documentation/administration_guide/chap*
   - documentation/administration_guide/part*
-  - documentation/upgrade_guide/chap-*
+  - documentation/administration_guide/topics
+  - documentation/data_warehouse_guide/chap*
+  - documentation/data_warehouse_guide/topics
   - documentation/intro-vm-portal/topics
   - documentation/intro-vm-portal/chap*
+  - documentation/upgrade_guide/assembly*
+  - documentation/upgrade_guide/chap-*
+  - documentation/upgrade_guide/topics
   - documentation/virtual_machine_management_guide/appe*
   - documentation/virtual_machine_management_guide/chap*
   - documentation/virtual_machine_management_guide/topics

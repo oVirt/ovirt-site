@@ -1,0 +1,31 @@
+[[Overview_of_Configuring_Data_Warehouse]]
+=== Overview of Configuring Data Warehouse
+
+You can install and configure Data Warehouse on the same machine as the {engine-name}, or on a separate machine with access to the {engine-name}:
+
+Install and configure Data Warehouse on the {engine-name} machine:: This configuration requires only a single registered machine, and is the simplest to configure, but it increases the demand on the {engine-name} machine. Users who require access to the Data Warehouse service require access to the {engine-name} machine itself. See link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_local_databases/#Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Configuring the {virt-product-fullname} {engine-name}] in _Installing {virt-product-fullname} as a standalone {engine-name} with local databases_.
+
+Install and configure Data Warehouse on a separate machine:: This configuration requires two registered machines. It reduces the load on the {engine-name} machine and avoids potential CPU and memory-sharing conflicts on that machine. Administrators can also allow user access to the Data Warehouse machine, without the need to grant access to the {engine-name} machine. See xref:Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_{context}[] for more information on this configuration.
+
+It is recommended that you set the system time zone for all machines in your Data Warehouse deployment to UTC. This ensures that data collection is not interrupted by variations in your local time zone: for example, a change from summer time to winter time.
+
+To calculate an estimate of the space and resources the `ovirt_engine_history` database will use, use the link:https://access.redhat.com/labs/rhevmhdsc/[RHV {engine-name} History Database Size Calculator] tool. The estimate is based on the number of entities and the length of time you have chosen to retain the history records.
+
+[IMPORTANT]
+====
+The following behavior is expected in `engine-setup`:
+
+
+* Install the Data Warehouse package, run `engine-setup`, and answer `No` to configuring Data Warehouse:
+
+[options="nowrap" subs="normal"]
+----
+Configure Data Warehouse on this host (Yes, No) [Yes]: No
+----
+
+* Run `engine-setup` again; setup no longer presents the option to configure Data Warehouse.
+
+To force `engine-setup` to present the option again, run `engine-setup --reconfigure-optional-components`.
+
+To configure only the currently installed Data Warehouse packages, and prevent setup from applying package updates found in enabled repositories, add the `--offline` option .
+====

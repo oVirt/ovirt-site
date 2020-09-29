@@ -1,0 +1,100 @@
+[[Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines]]
+==== Configuring Single Sign-On for {enterprise-linux} Virtual Machines Using IPA (IdM)
+
+To configure single sign-on for {enterprise-linux} virtual machines using GNOME and KDE graphical desktop environments and IPA (IdM) servers, you must install the `ovirt-guest-agent` package on the virtual machine and install the packages associated with your window manager.
+
+[IMPORTANT]
+====
+The following procedure assumes that you have a working IPA configuration and that the IPA domain is already joined to the {engine-name}. You must also ensure that the clocks on the {engine-name}, the virtual machine and the system on which IPA (IdM) is hosted are synchronized using NTP.
+====
+
+[[configure-sso-linux-74]]
+Configuring Single Sign-On for {enterprise-linux} Virtual Machines
+
+. Log in to the {enterprise-linux} virtual machine.
+. Enable the repository:
+
+* For {enterprise-linux} 6:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms
+----
+
+* For {enterprise-linux} 7:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos --enable=rhel-7-server-rh-common-rpms
+----
+
+. Download and install the guest agent, single sign-on, and IPA packages:
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-guest-agent-common ovirt-guest-agent-pam-module ovirt-guest-agent-gdm-plugin ipa-client
+----
+
+. Run the following command and follow the prompts to configure `ipa-client` and join the virtual machine to the domain:
++
+[options="nowrap" subs="normal"]
+----
+# ipa-client-install --permit --mkhomedir
+----
++
+[NOTE]
+====
+In environments that use DNS obfuscation, this command should be:
+
+[options="nowrap" subs="normal"]
+----
+# ipa-client-install --domain=_FQDN_ --server==_FQDN_
+----
+====
++
+. For {enterprise-linux} 7.2 and later:
++
+[options="nowrap" subs="normal"]
+----
+# authconfig --enablenis --update
+----
++
+[NOTE]
+====
+{enterprise-linux} 7.2 has a new version of the System Security Services Daemon (SSSD), which introduces configuration that is incompatible with the {virt-product-fullname} {engine-name} guest agent single sign-on implementation. This command ensures that single sign-on works.
+====
+
+. Fetch the details of an IPA user:
++
+[options="nowrap" subs="normal"]
+----
+# getent passwd _ipa-user_
+----
+
+. Record the IPA user's UID and GID:
++
+[options="nowrap" subs="normal"]
+----
+_ipa-user_:*:936600010:936600001::/home/_ipa-user_:/bin/sh
+----
+
+. Create a home directory for the IPA user:
++
+[options="nowrap" subs="normal"]
+----
+# mkdir /home/_ipa-user_
+----
+
+. Assign ownership of the directory to the IPA user:
++
+[options="nowrap" subs="normal"]
+----
+# chown 936600010:936600001 /home/_ipa-user_
+----
+
+Log in to the VM Portal using the user name and password of a user configured to use single sign-on and connect to the console of the virtual machine. You will be logged in automatically.
+
+
+
+
+

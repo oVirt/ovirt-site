@@ -1,0 +1,70 @@
+[[Virtual_Machine_Network_Interface_dialogue_entries]]
+=== Explanation of Settings in the New Network Interface and Edit Network Interface Windows
+
+These settings apply when you are adding or editing a virtual machine network interface. If you have more than one network interface attached to a virtual machine, you can put the virtual machine on more than one logical network.
+
+
+.Network Interface Settings
+[cols="1,2,1", options="header"]
+|===
+
+|Field Name
+|Description
+|Power cycle required?
+
+
+|*Name*
+|The name of the network interface. This text field has a 21-character limit and must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores.
+| No.
+
+|*Profile*
+|The vNIC profile and logical network that the network interface is placed on. By default, all network interfaces are put on the *ovirtmgmt* management network.
+| No.
+
+
+|*Type*
+a|The virtual interface the network interface presents to virtual machines.
+
+* *rtl8139* and *e1000* device drivers are included in most operating systems.
+
+* *VirtIO* is faster but requires VirtIO drivers. {enterprise-linux} 5 and later include VirtIO drivers. Windows does not include VirtIO drivers, but they can be installed from the guest tools ISO or virtual floppy disk.
+
+* *PCI Passthrough* enables the vNIC to be directly connected to a virtual function (VF) of an SR-IOV-enabled NIC. The vNIC will then bypass the software network virtualization and connect directly to the VF for direct device assignment. The selected vNIC profile must also have *Passthrough* enabled.
+| Yes.
+
+
+|*Custom MAC address*
+|Choose this option to set a custom MAC address. The {virt-product-fullname} {engine-name} automatically generates a MAC address that is unique to the environment to identify the network interface. Having two devices with the same MAC address online in the same network causes networking conflicts.
+| Yes.
+
+
+|*Link State*
+a|Whether or not the network interface is connected to the logical network.
+
+* *Up*: The network interface is located on its slot.
+
+** When the *Card Status* is *Plugged*, it means the network interface is connected to a network cable, and is active.
+
+** When the *Card Status* is *Unplugged*, the network interface will automatically be connected to the network and become active once plugged.
+
+* *Down*: The network interface is located on its slot, but it is not connected to any network. Virtual machines will not be able to run in this state.
+| No.
+
+
+|*Card Status*
+a|Whether or not the network interface is defined on the virtual machine.
+
+* `Plugged`: The network interface has been defined on the virtual machine.
+
+** If its *Link State* is `Up`, it means the network interface is connected to a network cable, and is active.
+
+** If its *Link State* is `Down`, the network interface is not connected to a network cable.
+
+* `Unplugged`: The network interface is only defined on the {engine-name}, and is not associated with a virtual machine.
+
+** If its *Link State* is `Up`, when the network interface is plugged it will automatically be connected to a network and become active.
+
+** If its *Link State* is `Down`, the network interface is not connected to any network until it is defined on a virtual machine.
+| No.
+
+|===

@@ -1,0 +1,14 @@
+[[Rebooting_a_Virtual_Machine]]
+=== Rebooting a Virtual Machine
+
+
+
+*Rebooting a Virtual Machine*
+
+. Click menu:Compute[Virtual Machines] and select a running virtual machine.
+. Click btn:[Reboot].
+. Click btn:[OK] in the *Reboot Virtual Machine(s)* confirmation window.
+
+The *Status* of the virtual machine changes to `Reboot In Progress` before returning to `Up`.
+
+

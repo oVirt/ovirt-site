@@ -1,0 +1,41 @@
+[[Virtual_Machine_Boot_Options_settings_explained]]
+==== Virtual Machine Boot Options Settings Explained
+
+The following table details the options available on the *Boot Options* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows
+[[New_VMs_Boot_Options]]
+
+.Virtual Machine: Boot Options Settings
+[cols="1,2,1", options="header"]
+|===
+
+|Field Name
+|Description
+|Power cycle required?
+
+
+|*First Device*
+a|After installing a new virtual machine, the new virtual machine must go into Boot mode before powering up. Select the first device that the virtual machine must try to boot:
+
+* *Hard Disk*
+
+* *CD-ROM*
+
+* *Network (PXE)*
+| Yes.
+
+
+|*Second Device*
+|Select the second device for the virtual machine to use to boot if the first device is not available. The first device selected in the previous option does not appear in the options.
+| Yes.
+
+
+|*Attach CD*
+|If you have selected *CD-ROM* as a boot device, tick this check box and select a CD-ROM image from the drop-down menu. The images must be available in the ISO domain.
+| Yes.
+
+
+|*Enable menu to select boot device*
+|Enables a menu to select the boot device. After the virtual machine starts and connects to the console, but before the virtual machine starts booting, a menu displays that allows you to select the boot device. This option should be enabled before the initial boot to allow you to select the required installation media.
+| Yes.
+
+|===

@@ -1,0 +1,14 @@
+[[Creating_an_Affinity_Label]]
+==== Creating an Affinity Label
+
+You can create affinity labels from the details view of a virtual machine, host, or cluster. This procedure uses the cluster details view.
+
+*Creating an Affinity Label*
+
+. Click menu:Compute[Clusters] and select the appropriate cluster.
+. Click the cluster's name to go to the details view.
+. Click the *Affinity Labels* tab.
+. Click *New*.
+. Enter a *Name* for the affinity label.
+. Use the drop-down lists to select the virtual machines and hosts to be associated with the label. Use the *+* button to add additional virtual machines and hosts.
+. Click btn:[OK].

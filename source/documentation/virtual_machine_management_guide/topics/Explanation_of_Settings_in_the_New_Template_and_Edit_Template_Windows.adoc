@@ -1,0 +1,67 @@
+[[Explanation_of_Settings_in_the_New_Template_and_Edit_Template_Windows]]
+=== Explanation of Settings in the New Template Window
+
+The following table details the settings for the *New Template* window.
+
+[NOTE]
+The following tables do not include information on whether a power cycle is required because that information is not applicable to this scenario.
+
+
+. New Template Settings
+[cols="1,2", options="header"]
+|===
+|Field
+|Description/Action
+
+|*Name*
+|The name of the template. This is the name by which the template is listed in the *Templates* tab in the Administration Portal and is accessed via the REST API. This text field has a 40-character limit and must be a unique name within the data center with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores. The name can be reused in different data centers in the environment.
+
+
+|*Description*
+|A description of the template. This field is recommended but not mandatory.
+
+
+|*Comment*
+|A field for adding plain text, human-readable comments regarding the template.
+
+
+|*Cluster*
+|The cluster with which the template is associated. This is the same as the original virtual machines by default. You can select any cluster in the data center.
+
+
+|*CPU Profile*
+|The CPU profile assigned to the template. CPU profiles define the maximum amount of processing capability a virtual machine can access on the host on which it runs, expressed as a percent of the total processing capability available to that host. CPU profiles are defined for a cluster based on quality of service entries created for data centers.
+
+
+|*Create as a Template Sub-Version*
+a|Specifies whether the template is created as a new version of an existing template. Select this check box to access the settings for configuring this option.
+
+* *Root Template*: The template under which the sub-template is added.
+
+* *Sub-Version Name*: The name of the template. This is the name by which the template is accessed when creating a new virtual machine based on the template. If the virtual machine is stateless, the list of sub-versions will contain a *latest* option rather than the name of the latest sub-version. This option automatically applies the latest template sub-version to the virtual machine upon reboot. Sub-versions are particularly useful when working with pools of stateless virtual machines.
+
+
+|*Disks Allocation*
+a|*Alias* - An alias for the virtual disk used by the template. By default, the alias is set to the same value as that of the source virtual machine.
+
+*Virtual Size* - The total amount of disk space that a virtual machine based on the template can use. This value cannot be edited, and is provided for reference only. This value corresponds with the size, in GB, that was specified when the disk was created or edited.
+
+*Format* - The format of the virtual disk used by the template. The available options are QCOW2 and Raw. By default, the format is set to Raw.
+
+*Target* - The storage domain on which the virtual disk used by the template is stored. By default, the storage domain is set to the same value as that of the source virtual machine. You can select any storage domain in the cluster.
+
+*Disk Profile* - The disk profile to assign to the virtual disk used by the template. Disk profiles are created based on storage profiles defined in the data centers.  For more information, see link:{URL_virt_product_docs}administration_guide[Creating a Disk Profile].
+
+
+|*Allow all users to access this Template*
+|Specifies whether a template is public or private. A public template can be accessed by all users, whereas a private template can only be accessed by users with the *TemplateAdmin* or *SuperUser* roles.
+
+
+|*Copy VM permissions*
+|Copies explicit permissions that have been set on the source virtual machine to the template.
+
+
+|*Seal Template* (Linux only)
+|Specifies whether a template is sealed. 'Sealing' is an operation that erases all machine-specific configurations from a filesystem, including SSH keys, UDEV rules, MAC addresses, system ID, and hostname. This setting prevents a virtual machine based on this template from inheriting the configuration of the source virtual machine.
+
+|===

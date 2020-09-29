@@ -1,0 +1,54 @@
+[[Configuring_qxl_drivers_on_virtual_machines]]
+===== Installing and Configuring QXL Drivers
+
+You must manually install QXL drivers on virtual machines running {enterprise-linux} 5.4 or later. This is unnecessary for virtual machines running {enterprise-linux} 6 or {enterprise-linux} 7 as the QXL drivers are installed by default.
+
+
+*Installing QXL Drivers*
+
+. Log in to a {enterprise-linux} virtual machine.
+. Install the QXL drivers:
++
+[options="nowrap" subs="normal"]
+----
+# yum install xorg-x11-drv-qxl
+----
+
+
+
+You can configure QXL drivers using either a graphical interface or the command line. Perform only one of the following procedures.
+
+
+*Configuring QXL drivers in GNOME*
+
+. Click *System*.
+. Click *Administration*.
+. Click *Display*.
+. Click the *Hardware* tab.
+. Click *Video Cards Configure*.
+. Select *qxl* and click btn:[OK].
+. Restart X-Windows by logging out of the virtual machine and logging back in.
+
+
+
+
+*Configuring QXL drivers on the command line*
+
+. Back up */etc/X11/xorg.conf*: 
++
+[options="nowrap" subs="normal"]
+----
+# cp /etc/X11/xorg.conf /etc/X11/xorg.conf.$$.backup
+----
++
+. Make the following change to the Device section of */etc/X11/xorg.conf*:
++			
+[options="nowrap" subs="normal"]
+----
+Section 	"Device"
+Identifier	"Videocard0"
+Driver		"qxl"
+Endsection
+----
+
+

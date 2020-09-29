@@ -1,0 +1,17 @@
+[[Enabling_SAP_monitoring_for_a_virtual_machine_from_the_Administration_Portal]]
+==== Enabling SAP Monitoring
+
+Enable SAP monitoring on a virtual machine through the Administration Portal.
+
+*Enabling SAP Monitoring on Virtual Machines*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click btn:[Edit].
+. Click the *Custom Properties* tab.
+. Select `sap_agent` from the drop-down list. Ensure the secondary drop-down menu is set to *True*.
++
+If previous properties have been set, select the plus sign to add a new property rule and select `sap_agent`.
+. Click btn:[OK].
+
+
+

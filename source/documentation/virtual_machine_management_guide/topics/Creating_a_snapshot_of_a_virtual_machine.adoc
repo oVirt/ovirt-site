@@ -1,0 +1,24 @@
+[[Creating_a_snapshot_of_a_virtual_machine]]
+==== Creating a Snapshot of a Virtual Machine
+
+A snapshot is a view of a virtual machine's operating system and applications on any or all available disks at a given point in time. Take a snapshot of a virtual machine before you make a change to it that may have unintended consequences. You can use a snapshot to return a virtual machine to a previous state.
+
+
+*Creating a Snapshot of a Virtual Machine*
+
+. Click menu:Compute[Virtual Machines].
+. Click a virtual machine's name to go to the details view.
+. Click the *Snapshots* tab and click *Create*.
+. Enter a description for the snapshot.
+. Select *Disks to include* using the check boxes.
++
+[NOTE]
+====
+If no disks are selected, a partial snapshot of the virtual machine, without a disk, is created. You can preview this snapshot to view the configuration of the virtual machine. Note that committing a partial snapshot will result in a virtual machine without a disk.
+====
+
+. Select *Save Memory* to include a running virtual machine's memory in the snapshot.
+. Click btn:[OK].
+
+
+The virtual machine's operating system and applications on the selected disk(s) are stored in a snapshot that can be previewed or restored. The snapshot is created with a status of `Locked`, which changes to `Ok`. When you click the snapshot, its details are shown on the *General*, *Disks*, *Network Interfaces*, and *Installed Applications* drop-down views in the *Snapshots* tab.

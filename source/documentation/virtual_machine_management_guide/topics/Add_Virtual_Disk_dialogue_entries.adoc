@@ -1,0 +1,116 @@
+[[Add_Virtual_Disk_dialogue_entries]]
+=== Explanation of settings in the New Virtual Disk and Edit Virtual Disk windows
+
+[NOTE]
+The following tables do not include information on whether a power cycle is required because that information is not applicable to these scenarios.
+
+.New Virtual Disk and Edit Virtual Disk settings: *Image*
+[cols="1,2", options="header"]
+|===
+|Field Name |Description
+|*Size(GB)* |The size of the new virtual disk in GB.
+|*Alias* |The name of the virtual disk, limited to 40 characters.
+|*Description* |A description of the virtual disk. This field is recommended but not mandatory.
+|*Interface* |The virtual interface the disk presents to virtual machines. *VirtIO* is faster, but requires drivers. {enterprise-linux} 5 and later include these drivers. Windows does not include these drivers, but you can install them from the virtio-win ISO image. IDE and SATA devices do not require special drivers.
+
+The interface type can be updated after stopping all virtual machines that the disk is attached to.
+|*Data Center* |The data center in which the virtual disk will be available.
+|*Storage Domain* |The storage domain in which the virtual disk will be stored. The drop-down list shows all storage domains available in the given data center, and also shows the total space and currently available space in the storage domain.
+|*Allocation Policy* a|The provisioning policy for the new virtual disk.
+
+* *Preallocated* allocates the entire size of the disk on the storage domain at the time the virtual disk is created. The virtual size and the actual size of a preallocated disk are the same. Preallocated virtual disks take more time to create than thin provisioned virtual disks, but have better read and write performance. Preallocated virtual disks are recommended for servers and other I/O intensive virtual machines. If a virtual machine is able to write more than 1 GB every four seconds, use preallocated disks where possible.
+
+* *Thin Provision* allocates 1 GB at the time the virtual disk is created and sets a maximum limit on the size to which the disk can grow. The virtual size of the disk is the maximum limit; the actual size of the disk is the space that has been allocated so far. Thin provisioned disks are faster to create than preallocated disks and allow for storage over-commitment. Thin provisioned virtual disks are recommended for desktops.
+
+
+|*Disk Profile* |The disk profile assigned to the virtual disk. Disk profiles define the maximum amount of throughput and the maximum level of input and output operations for a virtual disk in a storage domain. Disk profiles are defined on the storage domain level based on storage quality of service entries created for data centers.
+|*Activate Disk(s)* |Activate the virtual disk immediately after creation. This option is not available when creating a floating disk.
+|*Wipe After Delete* |Allows you to enable enhanced security for deletion of sensitive material when the virtual disk is deleted.
+|*Bootable* |Allows you to enable the bootable flag on the virtual disk.
+|*Shareable* |Allows you to attach the virtual disk to more than one virtual machine at a time.
+|*Read Only* |Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another. This option is not available when creating a floating disk.
+|*Enable Discard* |Allows you to shrink a thin provisioned disk while the virtual machine is up. For block storage, the underlying storage device must support discard calls, and the option cannot be used with *Wipe After Delete* unless the underlying storage supports the discard_zeroes_data property. For file storage, the underlying file system and the block device must support discard calls. If all requirements are met, SCSI UNMAP commands issued from guest virtual machines is passed on by QEMU to the underlying storage to free up the unused space.
+|===
+
+
+The *Direct LUN* settings can be displayed in either *Targets > LUNs* or *LUNs > Targets*. *Targets > LUNs* sorts available LUNs according to the host on which they are discovered, whereas *LUNs > Targets* displays a single list of LUNs.
+
+
+.New Virtual Disk and Edit Virtual Disk settings: *Direct LUN*
+[cols="1,2", options="header"]
+|===
+|Field Name |Description
+|*Alias* |The name of the virtual disk, limited to 40 characters.
+|*Description* |A description of the virtual disk. This field is recommended but not mandatory. By default the last 4 characters of the LUN ID is inserted into the field.
+
+The default behavior can be configured by setting the `PopulateDirectLUNDiskDescriptionWithLUNId` configuration key to the appropriate value using the `engine-config` command.  The configuration key can be set to `-1` for the full LUN ID to be used, or `0` for this feature to be ignored. A positive integer populates the description with the corresponding number of characters of the LUN ID.
+|*Interface* |The virtual interface the disk presents to virtual machines. *VirtIO* is faster, but requires drivers. {enterprise-linux} 5 and later include these drivers. Windows does not include these drivers, but you can install them from the virtio-win ISO image. IDE and SATA devices do not require special drivers.
+
+The interface type can be updated after stopping all virtual machines that the disk is attached to.
+|*Data Center* |The data center in which the virtual disk will be available.
+|*Host* |The host on which the LUN will be mounted. You can select any host in the data center.
+|*Storage Type* |The type of external LUN to add. You can select from either *iSCSI* or *Fibre Channel*.
+|*Discover Targets* a|This section can be expanded when you are using iSCSI external LUNs and *Targets > LUNs* is selected.
+
+*Address* - The host name or IP address of the target server.
+
+*Port* - The port by which to attempt a connection to the target server. The default port is 3260.
+
+*User Authentication* - The iSCSI server requires User Authentication. The *User Authentication* field is visible when you are using iSCSI external LUNs.
+
+*CHAP user name* - The user name of a user with permission to log in to LUNs. This field is accessible when the *User Authentication* check box is selected.
+
+*CHAP password* - The password of a user with permission to log in to LUNs. This field is accessible when the *User Authentication* check box is selected.
+|*Activate Disk(s)* |Activate the virtual disk immediately after creation. This option is not available when creating a floating disk.
+|*Bootable* |Allows you to enable the bootable flag on the virtual disk.
+|*Shareable* |Allows you to attach the virtual disk to more than one virtual machine at a time.
+|*Read Only* |Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another. This option is not available when creating a floating disk.
+|*Enable Discard* |Allows you to shrink a thin provisioned disk while the virtual machine is up. With this option enabled, SCSI UNMAP commands issued from guest virtual machines is passed on by QEMU to the underlying storage to free up the unused space.
+|*Enable SCSI Pass-Through* |Available when the *Interface* is set to *VirtIO-SCSI*. Selecting this check box enables passthrough of a physical SCSI device to the virtual disk. A VirtIO-SCSI interface with SCSI passthrough enabled automatically includes SCSI discard support. *Read Only* is not supported when this check box is selected.
+
+When this check box is not selected, the virtual disk uses an emulated SCSI device. *Read Only* is supported on emulated VirtIO-SCSI disks.
+|*Allow Privileged SCSI I/O* |Available when the *Enable SCSI Pass-Through* check box is selected. Selecting this check box enables unfiltered SCSI Generic I/O (SG_IO) access, allowing privileged SG_IO commands on the disk. This is required for persistent reservations.
+|*Using SCSI Reservation* |Available when the *Enable SCSI Pass-Through* and *Allow Privileged SCSI I/O* check boxes are selected. Selecting this check box disables migration for any virtual machine using this disk, to prevent virtual machines that are using SCSI reservation from losing access to the disk.
+|===
+
+
+Fill in the fields in the *Discover Targets* section and click *Discover* to discover the target server. You can then click the *Login All* button to list the available LUNs on the target server and, using the radio buttons next to each LUN, select the LUN to add.
+
+Using LUNs directly as virtual machine hard disk images removes a layer of abstraction between your virtual machines and their data.
+
+The following considerations must be made when using a direct LUN as a virtual machine hard disk image:
+
+
+* Live storage migration of direct LUN hard disk images is not supported.
+
+* Direct LUN disks are not included in virtual machine exports.
+
+* Direct LUN disks are not included in virtual machine snapshots.
+
+The *Cinder* settings form will be disabled if there are no available OpenStack Volume storage domains on which you have permissions to create a disk in the relevant Data Center. *Cinder* disks require access to an instance of OpenStack Volume that has been added to the {virt-product-fullname} environment using the *External Providers* window; see link:{URL_virt_product_docs}administration_guide[Adding an OpenStack Volume (Cinder) Instance for Storage Management] for more information.
+
+
+.New Virtual Disk and Edit Virtual Disk settings: *Cinder*
+[cols="1,2", options="header"]
+|===
+|Field Name |Description
+|*Size(GB)* |The size of the new virtual disk in GB.
+|*Alias* |The name of the virtual disk, limited to 40 characters.
+|*Description* |A description of the virtual disk. This field is recommended but not mandatory.
+|*Interface* |The virtual interface the disk presents to virtual machines. *VirtIO* is faster, but requires drivers. {enterprise-linux} 5 and later include these drivers.Windows does not include these drivers, but you can install them from the virtio-win ISO image. IDE and SATA devices do not require special drivers.
+
+The interface type can be updated after stopping all virtual machines that the disk is attached to.
+|*Data Center* |The data center in which the virtual disk will be available.
+|*Storage Domain* |The storage domain in which the virtual disk will be stored. The drop-down list shows all storage domains available in the given data center, and also shows the total space and currently available space in the storage domain.
+|*Volume Type* |The volume type of the virtual disk. The drop-down list shows all available volume types. The volume type will be managed and configured on OpenStack Cinder.
+|*Activate Disk(s)* |Activate the virtual disk immediately after creation. This option is not available when creating a floating disk.
+|*Bootable* |Allows you to enable the bootable flag on the virtual disk.
+|*Shareable* |Allows you to attach the virtual disk to more than one virtual machine at a time.
+|*Read Only* |Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another. This option is not available when creating a floating disk.
+|===
+
+
+[IMPORTANT]
+====
+Mounting a journaled file system requires read-write access. Using the *Read Only* option is not appropriate for virtual disks that contain such file systems (e.g. *EXT3*, *EXT4*, or *XFS*).
+====

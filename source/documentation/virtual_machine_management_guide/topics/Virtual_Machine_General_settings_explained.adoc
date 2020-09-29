@@ -1,0 +1,36 @@
+[[Virtual_Machine_General_settings_explained]]
+==== Virtual Machine General Settings Explained
+
+The following table details the options available on the *General* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
+[[New_VMs_Fields]]
+
+.Virtual Machine: General Settings
+[cols="1,2,1", options="header"]
+|===
+|Field Name |Description | Power cycle required?
+|*Cluster* |The name of the host cluster to which the virtual machine is attached. Virtual machines are hosted on any physical machine in that cluster in accordance with policy rules. | Yes. Cross-cluster migration is for emergency use only. Moving clusters requires the virtual machine to be down.
+|*Template* |The template on which the virtual machine is based. This field is set to `Blank` by default, which allows you to create a virtual machine on which an operating system has not yet been installed. Templates are displayed as *Name \| Sub-version name (Sub-version number)*. Each new version is displayed with a number in brackets that indicates the relative order of the version, with a higher number indicating a more recent version.
+
+The version name is displayed as `base version` if it is the root template of the template version chain.
+
+When the virtual machine is stateless, there is an option to select the `latest` version of the template. This option means that anytime a new version of this template is created, the virtual machine is automatically recreated on restart based on the latest template. | Not applicable. This setting is for provisioning new virtual machines only.
+|*Operating System* |The operating system. Valid values include a range of {enterprise-linux} and Windows variants. | Yes. Potentially changes the virtual hardware.
+|*Instance Type* |The instance type on which the virtual machine's hardware configuration can be based. This field is set to *Custom* by default, which means the virtual machine is not connected to an instance type. The other options available from this drop down menu are *Large*, *Medium*, *Small*, *Tiny*, *XLarge*, and any custom instance types that the Administrator has created.
+
+Other settings that have a chain link icon next to them are pre-filled by the selected instance type. If one of these values is changed, the virtual machine will be detached from the instance type and the chain icon will appear broken. However, if the changed setting is restored to its original value, the virtual machine will be reattached to the instance type and the links in the chain icon will rejoin. | Yes.
+|*Optimized for* |The type of system for which the virtual machine is to be optimized. There are three options: *Server*, *Desktop*, and *High Performance*; by default, the field is set to *Server*. Virtual machines optimized to act as servers have no sound card, use a cloned disk image, and are not stateless. Virtual machines optimized to act as desktop machines do have a sound card, use an image (thin allocation), and are stateless. Virtual machines optimized for high performance have a number of configuration changes. See xref:Configuring_High_Performance_Virtual_Machines_Templates_and_Pools[]. | Yes.
+|*Name* |The name of the virtual machine. The name must be a unique name within the data center and must not contain any spaces, and must contain at least one character from A-Z or 0-9. The maximum length of a virtual machine name is 255 characters. The name can be reused in different data centers in the environment. | Yes.
+|*VM ID* |The virtual machine ID. The virtual machine's creator can set a custom ID for that virtual machine. The custom ID must contain only numbers, in the format, `00000000-0000-0000-0000-00000000`.
+
+If no ID is specified during creation a UUID will be automatically assigned. For both custom and automatically-generated IDs, changes are not possible after virtual machine creation. | Yes.
+|*Description* |A meaningful description of the new virtual machine. | No.
+|*Comment* |A field for adding plain text human-readable comments regarding the virtual machine. | No.
+|*Affinity Labels* |Add or remove a selected *Affinity Label*. | No.
+|*Stateless* |Select this check box to run the virtual machine in stateless mode. This mode is used primarily for desktop virtual machines. Running a stateless desktop or server creates a new COW layer on the virtual machine hard disk image where new and changed data is stored. Shutting down the stateless virtual machine deletes the new COW layer which includes all data and configuration changes, and returns the virtual machine to its original state. Stateless virtual machines are useful when creating machines that need to be used for a short time, or by temporary staff. | Not applicable.
+|*Start in Pause Mode* |Select this check box to always start the virtual machine in pause mode. This option is suitable for virtual machines which require a long time to establish a SPICE connection; for example, virtual machines in remote locations. | Not applicable.
+|*Delete Protection* |Select this check box to make it impossible to delete the virtual machine. It is only possible to delete the virtual machine if this check box is not selected. | No.
+|*Instance Images* |Click *Attach* to attach a floating disk to the virtual machine, or click *Create* to add a new virtual disk. Use the plus and minus buttons to add or remove additional virtual disks.
+
+Click btn:[Edit] to change the configuration of a virtual disk that has already been attached or created. | No.
+|*Instantiate VM network interfaces by picking a vNIC profile.* |Add a network interface to the virtual machine by selecting a vNIC profile from the *nic1* drop-down list. Use the plus and minus buttons to add or remove additional network interfaces. | No.
+|===

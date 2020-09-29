@@ -1,0 +1,34 @@
+[id='proc_Exporting_individual_virtual_machines_to_a_data_domain_{context}']
+= Exporting a Virtual Machine to a Data Domain
+
+You can export a virtual machine to a data domain to do any of the following:
+
+* Migrate the virtual machine or its clone to another data center.
+* Store a clone of the virtual machine as a backup.
+
+[WARNING]
+====
+You cannot export a running virtual machine. Shut down the virtual machine before exporting it.
+====
+
+.Prerequisite
+
+The data domain is attached to a data center.
+
+.Procedure
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click the *Disks* tab.
+. Select all disks belonging to the virtual machine.
+. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Move*.
+. Under *Target*, select the domain.
+. Click btn:[OK].
+
+The disks migrate to the new domain.
+
+[NOTE]
+====
+When you move a disk from one type of data domain another, the disk format changes accordingly. For example, if the disk is on an NFS data domain, and it is in sparse format, then if you move the disk to an iSCSI domain its format changes to preallocated. This is different from using an export domain, because an export domain is NFS.
+====
+
+// The following is from the topic on exporting to an export domain. What is the case for a data domain?
+// The export begins. The virtual machine appears in menu:Compute[Virtual Machines] with an `Image Locked` status while it is exported. Depending on the size of your virtual machine hard disk images, and your storage hardware, this can take up to an hour. Click the *Events* tab to view  progress. When complete, the virtual machine has been exported to the data domain and appears in the *VM Import* tab of the data domain's details view.

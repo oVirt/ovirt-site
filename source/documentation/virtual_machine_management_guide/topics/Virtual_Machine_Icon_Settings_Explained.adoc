@@ -1,0 +1,31 @@
+[[Virtual_Machine_Icon_Settings_Explained]]
+==== Virtual Machine Icon Settings Explained
+
+You can add custom icons to virtual machines and templates. Custom icons can help to differentiate virtual machines in the VM Portal. The following table details the options available on the *Icon* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
+[[New_VMs_Icon]]
+
+[NOTE]
+This table does not include information on whether a power cycle is required because these settings apply to the virtual machine's _appearance in the Administration portal_, not to its configuration.
+
+
+.Virtual Machine: Icon Settings
+[cols="1,2", options="header"]
+|===
+|Button Name
+|Description
+
+|*Upload*
+a|Click this button to select a custom image to use as the virtual machine's icon. The following limitations apply:
+
+* Supported formats: jpg, png, gif
+
+* Maximum size: 24 KB
+
+* Maximum dimensions: 150px width, 120px height
+|Power cycle required?
+
+
+|*Use default*
+|Click this button to set the operating system's default image as the virtual machine's icon.
+
+|===

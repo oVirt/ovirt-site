@@ -1,0 +1,15 @@
+[[Viewing_Satellite_Errata]]
+=== Viewing Red Hat Satellite Errata for a Virtual Machine
+
+Errata for each virtual machine can be viewed after the {virt-product-fullname} virtual machine has been configured to receive errata information from the Red Hat Satellite server.
+
+For more information on configuring a virtual machine to display available errata see xref:Configuring_Satellite_Errata[]
+
+
+*Viewing Red Hat Satellite Errata*
+
+. Click menu:Compute[Virtual Machines].
+. Click the virtual machine's name to go to the details view.
+. Click *Errata*.
+
+

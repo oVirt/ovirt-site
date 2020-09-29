@@ -1,0 +1,79 @@
+[[Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux]]
+= Installing the Guest Agents and Drivers on {enterprise-linux}
+
+The {virt-product-fullname} guest agents and drivers are provided by the {virt-product-fullname} Agent repository.
+
+[NOTE]
+====
+{enterprise-linux} 8 virtual machines use the `qemu-guest-agent` service, which is installed and enabled by default, instead of the `ovirt-guest-agent` service. If you need to manually install the guest agent on RHEL 8, follow the procedure below.
+====
+
+.Procedure
+
+. Log in to the {enterprise-linux} virtual machine.
+
+. Enable the {virt-product-fullname} Agent repository:
+* For {enterprise-linux} 6
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos --enable=rhel-6-server-rhv-4-agent-rpms
+----
+* For {enterprise-linux} 7
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos --enable=rhel-7-server-rh-common-rpms
+----
+* For {enterprise-linux} 8
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos --enable=rhel-8-for-x86_64-appstream-rpms
+----
+. Install the guest agent and dependencies:
+* For {enterprise-linux} 6 or 7, install the ovirt guest agent:
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-guest-agent-common
+----
+* For {enterprise-linux} 8, install the qemu guest agent:
++
+[options="nowrap" subs="normal"]
+----
+# yum install qemu-guest-agent
+----
+. Start and enable the `ovirt-guest-agent` service:
+* For {enterprise-linux} 6
++
+[options="nowrap" subs="normal"]
+----
+# service ovirt-guest-agent start
+# chkconfig ovirt-guest-agent on
+----
+* For {enterprise-linux} 7
++
+[options="nowrap" subs="normal"]
+----
+# systemctl start ovirt-guest-agent
+# systemctl enable ovirt-guest-agent
+----
+
+. Start and enable the `qemu-guest-agent` service:
+* For {enterprise-linux} 6
++
+[options="nowrap" subs="normal"]
+----
+# service qemu-ga start
+# chkconfig qemu-ga on
+----
+* For {enterprise-linux} 7 or 8
++
+[options="nowrap" subs="normal"]
+----
+# systemctl start qemu-guest-agent
+# systemctl enable qemu-guest-agent
+----
+
+The guest agent now passes usage information to the {virt-product-fullname} {engine-name}. You can configure the guest agent in the `/etc/ovirt-guest-agent.conf` file.

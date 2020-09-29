@@ -1,0 +1,49 @@
+[[CPU_hot_plug]]
+=== Hot Plugging vCPUs
+
+You can hot plug vCPUs. Hot plugging means enabling or disabling devices while a virtual machine is running.
+
+[IMPORTANT]
+====
+Hot unplugging a vCPU is only supported if the vCPU was previously hot plugged. A virtual machine's vCPUs cannot be hot unplugged to less vCPUs than it was originally created with.
+====
+The following prerequisites apply:
+
+
+* The virtual machine's *Operating System* must be explicitly set in the *New Virtual Machine* or *Edit Virtual Machine* window.
+
+* The virtual machine's operating system must support CPU hot plug. See the table below for support details.
+
+* Windows virtual machines must have the guest agents installed. See xref:Installing_the_Guest_Agents_and_Drivers_on_Windows[].
+
+
+
+.Hot Plugging vCPUs
+
+. Click menu:Compute[Virtual Machines] and select a running virtual machine.
+. Click btn:[Edit].
+. Click the *System* tab.
+. Change the value of *Virtual Sockets* as required.
+. Click btn:[OK].
+
+
+
+[[CPU_hotplug_OS_support]]
+
+.Operating System Support Matrix for vCPU Hot Plug
+[options="header"]
+|===
+|Operating System |Version |Architecture |Hot Plug Supported |Hot Unplug Supported
+|{enterprise-linux} Atomic Host 7 | |x86 |Yes |Yes
+|{enterprise-linux} 6.3+ | |x86 |Yes |Yes
+|{enterprise-linux} 7.0+ | |x86 |Yes |Yes
+|{enterprise-linux} 7.3+ | |PPC64 |Yes |Yes
+|{enterprise-linux} 8.0+ | |x86 |Yes |Yes
+|Microsoft Windows Server 2012 R2 |All |x64 |Yes |No
+|Microsoft Windows Server 2016 |Standard, Datacenter |x64 |Yes |No
+|Microsoft Windows Server 2019 |Standard, Datacenter |x64 |Yes |No
+|Microsoft Windows 8.x |All |x86 |Yes |No
+|Microsoft Windows 8.x |All |x64 |Yes |No
+|Microsoft Windows 10 |All |x86 |Yes |No
+|Microsoft Windows 10 |All |x64 |Yes |No
+|===

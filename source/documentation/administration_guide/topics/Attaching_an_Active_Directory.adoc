@@ -98,7 +98,7 @@ Enter search user DN (empty for anonymous): _cn=user1,ou=Users,dc=test,dc=redhat
 Enter search user password:
 ----
 +
-. Specify whether to use single sign-on for virtual machines. This feature is enabled by default, but cannot be used if single sign-on to the Administration Portal is enabled. The script reminds you that the profile name must match the domain name. You will still need to follow the instructions in link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Configuring Single Sign-On for Virtual Machines] in the _Virtual Machine Management Guide_.
+. Specify whether to use single sign-on for virtual machines. This feature is enabled by default, but cannot be used if single sign-on to the Administration Portal is enabled. The script reminds you that the profile name must match the domain name. You will still need to follow the instructions in link:{URL_virt_product_docs}virtual_machine_management_guide/[Configuring Single Sign-On for Virtual Machines] in the _Virtual Machine Management Guide_.
 +
 [options="nowrap" subs="normal"]
 ----

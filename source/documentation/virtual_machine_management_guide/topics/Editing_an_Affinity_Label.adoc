@@ -1,0 +1,14 @@
+[[Editing_an_Affinity_Label]]
+==== Editing an Affinity Label
+
+You can edit affinity labels from the details view of a virtual machine, host, or cluster. This procedure uses the cluster details view.
+
+*Editing an Affinity Label*
+
+. Click menu:Compute[Clusters] and select the appropriate cluster.
+. Click the cluster's name to go to the details view.
+. Click the *Affinity Labels* tab.
+. Select the label you want to edit.
+. Click btn:[Edit].
+. Use the *+* and *-* buttons to add or remove virtual machines and hosts to or from the affinity label.
+. Click btn:[OK].

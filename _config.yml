@@ -141,6 +141,9 @@ exclude:
   - documentation/upgrade_guide/chap-*
   - documentation/intro-vm-portal/topics
   - documentation/intro-vm-portal/chap*
+  - documentation/virtual_machine_management_guide/appe*
+  - documentation/virtual_machine_management_guide/chap*
+  - documentation/virtual_machine_management_guide/topics
 
 sass:
   add_charset: true

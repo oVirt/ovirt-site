@@ -1,0 +1,28 @@
+[[Configuring_Multiple_Displays_for_Windows_Virtual_Machines]]
+==== Configuring Multiple Displays for Windows Virtual Machines
+
+A maximum of four displays can be configured for a single Windows virtual machine when connecting to the virtual machine using the SPICE protocol.
+
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. With the virtual machine in a powered-down state, click btn:[Edit].
+. Click the *Console* tab.
+. Select the number of displays from the *Monitors* drop-down list.
++
+[NOTE]
+====
+This setting controls the maximum number of displays that can be enabled for the virtual machine. While the virtual machine is running, additional displays can be enabled up to this number.
+====
++
+. Click btn:[OK].
+. Start a SPICE session with the virtual machine.
+. Open the *View* drop-down menu at the top of the SPICE client window.
+. Open the *Display* menu.
+. Click the name of a display to enable or disable that display.
++
+[NOTE]
+====
+By default, *Display 1* is the only display that is enabled on starting a SPICE session with a virtual machine. If no other displays are enabled, disabling this display will close the session.
+====
+
+

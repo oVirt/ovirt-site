@@ -1,0 +1,16 @@
+[[Removing_an_Affinity_Label]]
+==== Removing an Affinity Label
+
+You can remove affinity labels only from the details view of a cluster.
+
+*Removing an Affinity Label*
+
+. Click menu:Compute[Clusters] and select the appropriate cluster.
+. Click the cluster's name to go to the details view.
+. Click the *Affinity Labels* tab.
+. Select the label you want to remove.
+. Click btn:[Edit].
+. Use the *-* buttons to remove all virtual machines and hosts from the label.
+. Click btn:[OK].
+. Click btn:[Delete].
+. Click btn:[OK].

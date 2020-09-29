@@ -1,0 +1,9 @@
+== Templates
+
+A template is a copy of a virtual machine that you can use to simplify the subsequent, repeated creation of similar virtual machines. Templates capture the configuration of software, configuration of hardware, and the software installed on the virtual machine on which the template is based. The virtual machine on which a template is based is known as the source virtual machine.
+
+When you create a template based on a virtual machine, a read-only copy of the virtual machine's disk is created. This read-only disk becomes the base disk image of the new template, and of any virtual machines created based on the template. As such, the template cannot be deleted while any virtual machines created based on the template exist in the environment.
+
+Virtual machines created based on a template use the same NIC type and driver as the original virtual machine, but are assigned separate, unique MAC addresses.
+
+You can create a virtual machine directly from menu:Compute[Templates], as well as from menu:Compute[Virtual Machines]. In menu:Compute[Templates], select the required template and click *New VM*. For more information on selecting the settings and controls for the new virtual machine see xref:Virtual_Machine_General_settings_explained[].

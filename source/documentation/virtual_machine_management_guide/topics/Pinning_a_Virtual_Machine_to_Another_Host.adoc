@@ -1,0 +1,16 @@
+[[Pinning_a_Virtual_Machine_to_Another_Host]]
+==== Pinning a Virtual Machine to Another Host
+
+You can use the *Host Devices* tab in the details view of a virtual machine to pin it to a specific host.
+
+If the virtual machine has any host devices attached to it, pinning it to another host automatically removes the host devices from the virtual machine. 
+
+
+*Pinning a Virtual Machine to a Host*
+
+. Click a virtual machine name and click the *Host Devices* tab.
+. Click *Pin to another host*. This opens the *Pin VM to Host* window.
+. Use the *Host* drop-down menu to select a host.
+. Click btn:[OK] to pin the virtual machine to the selected host.
+
+

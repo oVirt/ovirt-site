@@ -1,0 +1,22 @@
+[[Guest_Agent_Hooks]]
+==== Guest Agent Hooks
+
+Hooks are scripts that trigger activity within a virtual machine when key events occur:
+
+* Before migration
+
+* After migration
+
+* Before hibernation
+
+* After hibernation
+
+
+
+The hooks configuration base directory is `/etc/ovirt-guest-agent/hooks.d` on Linux systems and `C:\Program Files\Redhat\RHEV\Drivers\Agent` on Windows systems.
+
+Each event has a corresponding subdirectory: `before_migration` and `after_migration`, `before_hibernation` and `after_hibernation`. All files or symbolic links in that directory will be executed.
+
+The executing user on Linux systems is `ovirtagent`. If the script needs `root` permissions, the elevation must be executed by the creator of the hook script.
+
+The executing user on Windows systems is the `System Service` user.

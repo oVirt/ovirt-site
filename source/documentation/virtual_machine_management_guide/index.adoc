@@ -1,0 +1,29 @@
+= Virtual Machine Management Guide
+include::../common/collateral_files/ovirt-attributes.adoc[]
+
+// Make sure Jekyll displays a guide title
+[discrete]
+= Virtual Machine Management Guide
+
+include::chap-Introduction.adoc[]
+
+include::assembly-Installing_Red_Hat_Enterprise_Linux_Virtual_Machines.adoc[leveloffset=+1]
+
+include::chap-Installing_Windows_Virtual_Machines.adoc[leveloffset=+1]
+
+include::chap-Additional_Configuration.adoc[leveloffset=+1]
+
+include::chap-Editing_Virtual_Machines.adoc[]
+
+include::chap-Administrative_Tasks.adoc[]
+
+include::chap-Templates.adoc[]
+
+include::appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows.adoc[]
+
+include::appe-virt_sysprep_operations.adoc[]
+
+[appendix]
+== Legal notice
+
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}/virtual_machine_management_guide/[Red Hat Virtualization {vernum_rhv} Virtual Machine Management Guide]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

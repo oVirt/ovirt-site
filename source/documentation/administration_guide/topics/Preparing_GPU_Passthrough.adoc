@@ -102,4 +102,4 @@ EndSection
 . Restart the virtual machine.
 
 
-The host GPU can now be directly assigned to the prepared virtual machine. For more information on assigning host devices to virtual machines, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Host Devices] in the _Virtual Machine Management Guide_.
+The host GPU can now be directly assigned to the prepared virtual machine. For more information on assigning host devices to virtual machines, see link:{URL_virt_product_docs}virtual_machine_management_guide/[Host Devices] in the _Virtual Machine Management Guide_.

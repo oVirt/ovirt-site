@@ -1,0 +1,17 @@
+[[Configuring_Multiple_Displays_for_Red_Hat_Enterprise_Linux_Guest_Virtual_Machines]]
+==== Configuring Multiple Displays for {enterprise-linux} Virtual Machines
+
+A maximum of four displays can be configured for a single {enterprise-linux} virtual machine when connecting to the virtual machine using the SPICE protocol.
+
+
+. Start a SPICE session with the virtual machine.
+. Open the *View* drop-down menu at the top of the SPICE client window.
+. Open the *Display* menu.
+. Click the name of a display to enable or disable that display.
+
+[NOTE]
+====
+By default, *Display 1* is the only display that is enabled on starting a SPICE session with a virtual machine. If no other displays are enabled, disabling this display will close the session.
+====
+
+

@@ -1,0 +1,21 @@
+[[Adding_a_Virtual_Disk]]
+==== Adding a New Virtual Disk
+
+You can add multiple virtual disks to a virtual machine.
+
+*Image* is the default type of disk. You can also add a *Direct LUN* disk or a *Cinder* (OpenStack Volume) disk. *Image* disk creation is managed entirely by the {engine-name}. *Direct LUN* disks require externally prepared targets that already exist. *Cinder* disks require access to an instance of OpenStack Volume that has been added to the {virt-product-fullname} environment using the *External Providers* window; see link:{URL_virt_product_docs}administration_guide[Adding an OpenStack Volume (Cinder) Instance for Storage Management] for more information. Existing disks are either floating disks or shareable disks attached to virtual machines.
+
+
+*Adding Disks to Virtual Machines*
+
+. Click menu:Compute[Virtual Machines].
+. Click a virtual machine name to go to the details view.
+. Click the *Disks* tab.
+. Click btn:[New].
+. Use the appropriate radio buttons to switch between *Image*, *Direct LUN*, or *Cinder*.
+. Enter a *Size(GB)*, *Alias*, and *Description* for the new disk.
+. Use the drop-down lists and check boxes to configure the disk. See xref:Add_Virtual_Disk_dialogue_entries[] for more details on the fields for all disk types.
+. Click btn:[OK].
+
+
+The new disk appears in the details view after a short time.

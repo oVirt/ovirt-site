@@ -1,0 +1,120 @@
+[[chap-Additional_Configuration]]
+= Additional Configuration
+
+include::topics/Configuring_operating_systems_with_osinfo.adoc[]
+
+[[sect-Configuring_Single_Sign-On_for_Virtual_Machines]]
+=== Configuring Single Sign-On for Virtual Machines
+
+Configuring single sign-on, also known as password delegation, allows you to automatically log in to a virtual machine using the credentials you use to log in to the VM Portal. Single sign-on can be used on both {enterprise-linux} and Windows virtual machines.
+
+[NOTE]
+====
+Single sign-on is not supported for virtual machines running {enterprise-linux} 8.0.
+====
+
+
+[IMPORTANT]
+====
+If single sign-on to the VM Portal is enabled, single sign-on to virtual machines will not be possible. With single sign-on to the VM Portal enabled, the VM Portal does not need to accept a password, thus the password cannot be delegated to sign in to virtual machines.
+====
+include::topics/Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines.adoc[]
+
+include::topics/Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines_Using_Active_Directory.adoc[]
+
+include::topics/Configuring_Single_Sign_On_for_Windows_Virtual_Machines.adoc[]
+
+include::topics/Disabling_Single_Sign-on_for_Virtual_Machines.adoc[]
+
+[[sect-Configuring_USB_Devices]]
+=== Configuring USB Devices
+
+A virtual machine connected with the SPICE protocol can be configured to connect directly to USB devices.
+
+The USB device will only be redirected if the virtual machine is active, in focus and is run from the VM Portal. USB redirection can be manually enabled each time a device is plugged in or set to automatically redirect to active virtual machines in the Console Options window.
+
+[IMPORTANT]
+====
+Note the distinction between the client machine and guest machine. The client is the hardware from which you access a guest. The guest is the virtual desktop or virtual server which is accessed through the VM Portal or Administration Portal.
+====
+
+USB redirection *Enabled* mode allows KVM/SPICE USB redirection for Linux and Windows virtual machines. Virtual (guest) machines require no guest-installed agents or drivers for native USB. On {enterprise-linux} clients, all packages required for USB redirection are provided by the `virt-viewer` package. On Windows clients, you must also install the `usbdk` package. Enabled USB mode is supported on the following clients and guests:
+
+[NOTE]
+====
+If you have a 64-bit architecture PC, you must use the 64-bit version of Internet Explorer to install the 64-bit version of the USB driver. The USB redirection will not work if you install the 32-bit version on a 64-bit architecture. As long as you initially install the correct USB type, you can access USB redirection from both 32- and 64-bit browsers.
+====
+
+include::topics/Using_USB_Devices_on_a_Windows_Client.adoc[]
+
+include::topics/Using_USB_Devices_on_a_Red_Hat_Enterprise_Linux_Client.adoc[]
+
+[[sect-Configuring_Multiple_Monitors]]
+=== Configuring Multiple Monitors
+
+include::topics/Configuring_Multiple_Displays_for_Red_Hat_Enterprise_Linux_Guest_Virtual_Machines.adoc[]
+
+include::topics/Configuring_Multiple_Displays_for_Windows_Virtual_Machines.adoc[]
+
+[[sect-Configuring_Console_Options]]
+=== Configuring Console Options
+
+[[sect-Console_Options]]
+==== Console Options
+
+Connection protocols are the underlying technology used to provide graphical consoles for virtual machines and allow users to work with virtual machines in a similar way as they would with physical machines. {virt-product-fullname} currently supports the following connection protocols:
+
+*SPICE*
+
+Simple Protocol for Independent Computing Environments (SPICE) is the recommended connection protocol for both Linux virtual machines and Windows virtual machines. To open a console to a virtual machine using SPICE, use Remote Viewer.
+
+*VNC*
+
+Virtual Network Computing (VNC) can be used to open consoles to both Linux virtual machines and Windows virtual machines. To open a console to a virtual machine using VNC, use Remote Viewer or a VNC client.
+
+*RDP*
+
+Remote Desktop Protocol (RDP) can only be used to open consoles to Windows virtual machines, and is only available when you access a virtual machines from a Windows machine on which Remote Desktop has been installed. Before you can connect to a Windows virtual machine using RDP, you must set up remote sharing on the virtual machine and configure the firewall to allow remote desktop connections.
+
+[NOTE]
+====
+SPICE is not supported on virtual machines running Windows 8 or Windows 8.1. If a virtual machine running one of these operating systems is configured to use the SPICE protocol, it detects the absence of the required SPICE drivers and runs in VGA compatibility mode.
+====
+include::topics/Accessing_console_options.adoc[]
+
+include::topics/SPICE_Console_Options.adoc[]
+
+include::topics/VNC_Console_Options.adoc[]
+
+include::topics/RDP_Console_Options.adoc[]
+
+[[sect-Remote_Viewer_Options]]
+==== Remote Viewer Options
+
+include::topics/Remote_Viewer_Options.adoc[]
+
+include::topics/Remote_Viewer_Hotkeys.adoc[]
+
+include::topics/Manually_Associating_console.vv_Files_with_Remote_Viewer.adoc[]
+
+[[sect-Configuring_a_Watchdog]]
+=== Configuring a Watchdog
+
+include::topics/Adding_a_Watchdog_Card_to_a_Virtual_machine.adoc[]
+
+include::topics/Installing_a_Watchdog.adoc[]
+
+include::topics/Confirming_Watchdog_Functionality.adoc[]
+
+include::topics/Parameters_for_Watchdogs_in_watchdog_conf.adoc[]
+
+include::topics/Configuring_virtual_NUMA.adoc[]
+
+include::topics/Configuring_Satellite_Errata.adoc[]
+
+include::topics/Configuring_Headless_Machines.adoc[]
+
+include::topics/Configuring_high_performance_virtual_machines.adoc[]
+
+// Very basic attribute, since I assume this section could one day be its own assembly and this attribute will therefore not be needed.
+:vmm:

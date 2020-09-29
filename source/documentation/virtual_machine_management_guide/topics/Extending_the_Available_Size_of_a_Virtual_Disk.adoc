@@ -1,0 +1,17 @@
+[[Extending_the_Available_Size_of_a_Virtual_Disk]]
+==== Extending the Available Size of a Virtual Disk
+
+You can extend the available size of a virtual disk while the virtual disk is attached to a virtual machine. Resizing a virtual disk does not resize the underlying partitions or file systems on that virtual disk. Use the `fdisk` utility to resize the partitions and file systems as required. See link:https://access.redhat.com/articles/1190213[How to Resize a Partition using fdisk] for more information.
+
+
+*Extending the Available Size of Virtual Disks*
+
+. Click menu:Compute[Virtual Machines].
+. Click a virtual machine name to go to the details view.
+. Click the *Disks* tab and select the disk to edit.
+. Click btn:[Edit].
+. Enter a value in the `Extend size by(GB)` field.
+. Click btn:[OK].
+
+
+The target disk's status becomes `locked` for a short time, during which the drive is resized. When the resizing of the drive is complete, the status of the drive becomes `OK`.

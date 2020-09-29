@@ -1,0 +1,146 @@
+[[Virtual_Machine_Resource_Allocation_settings_explained]]
+==== Virtual Machine Resource Allocation Settings Explained
+
+The following table details the options available on the *Resource Allocation* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
+[[New_VMs_Resource]]
+
+.Virtual Machine: Resource Allocation Settings
+[cols="1,1,2,1", options="header"]
+|===
+|Field Name
+|Sub-element
+|Description
+|Power cycle required?
+
+
+|*CPU Allocation*
+|*CPU Profile*
+|The CPU profile assigned to the virtual machine. CPU profiles define the maximum amount of processing capability a virtual machine can access on the host on which it runs, expressed as a percent of the total processing capability available to that host. CPU profiles are defined for a cluster, based on quality of service entries created for data centers.
+| No.
+
+
+|
+|*CPU Shares*
+a|Allows users to set the level of CPU resources a virtual machine can demand relative to other virtual machines.
+
+* *Low* - 512
+
+* *Medium* - 1024
+
+* *High* - 2048
+
+* *Custom* - A custom level of CPU shares defined by the user.
+| No.
+
+
+|
+|*CPU Pinning topology*
+a|Enables the virtual machine's virtual CPU (vCPU) to run on a specific physical CPU (pCPU) in a specific host. The syntax of CPU pinning is `v#p[_v#p]`, for example:
+
+* `0#0` - Pins vCPU 0 to pCPU 0.
+
+* `0#0_1#3` - Pins vCPU 0 to pCPU 0, and pins vCPU 1 to pCPU 3.
+
+* `1#1-4,^2` - Pins vCPU 1 to one of the pCPUs in the range of 1 to 4, excluding pCPU 2.
+
+In order to pin a virtual machine to a host, you must also select the following on the *Host* tab:
+
+* *Start Running On:* *Specific*
+
+* *Pass-Through Host CPU*
+
+If CPU pinning is set and you change *Start Running On: Specific* a *CPU pinning topology will be lost* window appears when you click btn:[OK].
+
+When defined, *Migration Options* in the *Hosts* tab is set to *Allow manual migration only*.
+| Yes.
+
+
+|*Memory Allocation*
+|*Physical Memory Guaranteed*
+|The amount of physical memory guaranteed for this virtual machine. Should be any number between 0 and the defined memory for this virtual machine.
+| If lowered, yes. Otherwise, no.
+
+|
+|*Memory Balloon Device Enabled*
+|Enables the memory balloon device for this virtual machine. Enable this setting to allow memory overcommitment in a cluster. Enable this setting for applications that allocate large amounts of memory suddenly but set the guaranteed memory to the same value as the defined memory.Use ballooning for applications and loads that slowly consume memory, occasionally release memory, or stay dormant for long periods of time, such as virtual desktops. See link:{URL_virt_product_docs}administration_guide#Cluster_Optimization_Settings_Explained[Optimization Settings Explained] in the _Administration Guide_ for more information.
+| Yes.
+
+
+|*IO Threads*
+|*IO Threads Enabled*
+|Enables IO threads. Select this check box to improve the speed of disks that have a VirtIO interface by pinning them to a thread separate from the virtual machine's other functions. Improved disk performance increases a virtual machine's overall performance. Disks with VirtIO interfaces are pinned to an IO thread using a round-robin algorithm.
+| Yes.
+
+
+|*Queues*
+|*Multi Queues Enabled*
+|Enables multiple queues. This check box is selected by default. It creates up to four queues per vNIC, depending on how many vCPUs are available.
+
+It is possible to define a different number of queues per vNIC by creating a custom property as follows:
+
+`engine-config -s "CustomDeviceProperties={type=interface;prop={_other-nic-properties_;queues=[1-9][0-9]*}}"`
+
+where _other-nic-properties_ is a semicolon-separated list of pre-existing NIC custom properties.
+| Yes.
+
+
+|*Storage Allocation*
+|
+|The *Storage Allocation* option is only available when the virtual machine is created from a template.
+| Not applicable.
+
+
+|
+|*Thin*
+|Provides optimized usage of storage capacity. Disk space is allocated only as it is required. When selected, the format of the disks will be marked as QCOW2 and you will not be able to change it.
+| Not applicable.
+
+
+|
+|*Clone*
+|Optimized for the speed of guest read and write operations. All disk space requested in the template is allocated at the time of the clone operation. Possible disk formats are *QCOW2* or *Raw*.
+| Not applicable.
+
+
+|
+|*VirtIO-SCSI Enabled*
+|Allows users to enable or disable the use of VirtIO-SCSI on the virtual machines.
+| Not applicable.
+
+
+|*Disk Allocation*
+|
+|The *Disk Allocation* option is only available when you are creating a virtual machine from a template.
+| Not applicable.
+
+
+|
+|*Alias*
+|An alias for the virtual disk. By default, the alias is set to the same value as that of the template.
+| Not applicable.
+
+
+|
+|*Virtual Size*
+|The total amount of disk space that the virtual machine based on the template can use. This value cannot be edited, and is provided for reference only.
+| Not applicable.
+
+
+|
+|*Format*
+|The format of the virtual disk. The available options are *QCOW2* and *Raw*. When *Storage Allocation* is *Thin*, the disk format is *QCOW2*. When Storage Allocation is *Clone*, select *QCOW2* or *Raw*.
+| Not applicable.
+
+
+|
+|*Target*
+|The storage domain on which the virtual disk is stored. By default, the storage domain is set to the same value as that of the template.
+| Not applicable.
+
+
+|
+|*Disk Profile*
+|The disk profile to assign to the virtual disk. Disk profiles are created based on storage profiles defined in the data centers. For more information, see link:{URL_virt_product_docs}administration_guide[Creating a Disk Profile].
+| Not applicable.
+
+|===

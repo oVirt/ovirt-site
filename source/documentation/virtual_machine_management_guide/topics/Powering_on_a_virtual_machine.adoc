@@ -1,0 +1,18 @@
+[[Powering_on_a_virtual_machine]]
+==== Starting a Virtual Machine
+
+*Starting Virtual Machines*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine with a status of `Down`.
+. Click btn:[Run].
+
+The *Status* of the virtual machine changes to `Up`, and the operating system installation begins. Open a console to the virtual machine if one does not open automatically.
+
+[NOTE]
+====
+A virtual machine will not start on a host that the CPU is overloaded on. By default, a host's CPU is considered overloaded if it has a load of more than 80% for 5 minutes but these values can be changed using scheduling policies. See link:{URL_virt_product_docs}administration_guide/#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
+====
+
+
+
+

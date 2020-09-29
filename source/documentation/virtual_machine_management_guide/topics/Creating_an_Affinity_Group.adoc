@@ -1,0 +1,19 @@
+[[Creating_an_Affinity_Group]]
+==== Creating an Affinity Group
+
+You can create new affinity groups in the Administration Portal.
+
+
+*Creating Affinity Groups*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click the virtual machine's name to go to the details view.
+. Click the *Affinity Groups* tab.
+. Click *New*.
+. Enter a *Name* and *Description* for the affinity group.
+. From the *VM Affinity Rule* drop-down, select *Positive* to apply positive affinity or *Negative* to apply negative affinity. Select *Disable* to disable the affinity rule.
+. Select the *Enforcing* check box to apply hard enforcement, or ensure this check box is cleared to apply soft enforcement.
+. Use the drop-down list to select the virtual machines to be added to the affinity group. Use the *+* and *-* buttons to add or remove additional virtual machines.
+. Click btn:[OK].
+
+

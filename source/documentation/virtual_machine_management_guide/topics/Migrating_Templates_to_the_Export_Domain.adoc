@@ -1,0 +1,26 @@
+[[Migrating_Templates_to_the_Export_Domain]]
+==== Migrating Templates to the Export Domain
+
+
+[NOTE]
+====
+The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disks, and templates can then be uploaded from the imported storage domain to the attached data center. See the link:{URL_virt_product_docs}administration_guide#sect-Importing_Existing_Storage_Domains[Importing Existing Storage Domains] section in the _{virt-product-fullname} Administration Guide_ for information on importing storage domains.
+====
+Export templates into the export domain to move them to another data domain, either in the same {virt-product-fullname} environment, or another one. This procedure requires access to the Administration Portal.
+
+
+*Exporting Individual Templates to the Export Domain*
+
+. Click menu:Compute[Templates] and select a template.
+. Click btn:[Export].
+. Select the *Force Override* check box to replace any earlier version of the template on the export domain.
+. Click btn:[OK] to begin exporting the template; this may take up to an hour, depending on the virtual disk size and your storage hardware.
+
+
+Repeat these steps until the export domain contains all the templates to migrate before you start the import process.
+
+. Click menu:Storage[Domains] and select the export domain.
+. Click the domain name to see the details view.
+. Click the *Template Import* tab to view all exported templates in the export domain.
+
+

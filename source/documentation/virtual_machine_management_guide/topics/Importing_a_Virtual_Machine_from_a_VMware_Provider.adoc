@@ -1,0 +1,77 @@
+[[Importing_a_Virtual_Machine_from_a_VMware_Provider]]
+==== Importing a Virtual Machine from a VMware Provider
+
+Import virtual machines from a VMware vCenter provider to your {virt-product-fullname} environment. You can import from a VMware provider by entering its details in the *Import Virtual Machine(s)* window during each import operation, or you can add the VMware provider as an external provider, and select the preconfigured provider during import operations. To add an external provider, see link:{URL_virt_product_docs}administration_guide/#sect-Adding_External_Providers[Adding a VMware Instance as a Virtual Machine Provider].
+
+{virt-product-fullname} uses V2V to import VMware virtual machines. For OVA files, the only disk format {virt-product-fullname} supports is VMDK.
+
+The `virt-v2v` package must be installed on at least one host (referred to in this procedure as the proxy host). The `virt-v2v` package is available by default on {hypervisor-fullname}s ({hypervisor-shortname}) and is installed on {enterprise-linux-host-fullname}s as a dependency of VDSM when added to the {virt-product-fullname} environment. {enterprise-linux-host-fullname}s must be {enterprise-linux} 7.2 or later.
+
+[NOTE]
+====
+The `virt-v2v` package is not available on the ppc64le architecture and these hosts cannot be used as proxy hosts.
+====
+
+[WARNING]
+====
+The virtual machine must be shut down before being imported. Starting the virtual machine through VMware during the import process can result in data corruption.
+====
+
+[IMPORTANT]
+====
+An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning will display and you will be prompted to change your selection to include only virtual machines with the same architecture.
+====
+
+[NOTE]
+====
+If the import fails, refer to the relevant log file in */var/log/vdsm/import/* and to */var/log/vdsm/vdsm.log* on the proxy host for details.
+====
+
+
+*Importing a Virtual Machine from VMware*
+
+. Click menu:Compute[Virtual Machines].
+. Click *More Actions* (image:../common/images/moreactions.png[]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
+. Select *VMware* from the *Source* list.
+. If you have configured a VMware provider as an external provider, select it from the *External Provider* list. Verify that the provider credentials are correct. If you did not specify a destination data center or proxy host when configuring the external provider, select those options now.
+. If you have not configured a VMware provider, or want to import from a new VMware provider, provide the following details:
+.. Select from the list the *Data Center* in which the virtual machine will be available.
+.. Enter the IP address or fully qualified domain name of the VMware vCenter instance in the *vCenter* field.
+.. Enter the IP address or fully qualified domain name of the host from which the virtual machines will be imported in the *ESXi* field.
+.. Enter the name of the data center and the cluster in which the specified ESXi host resides in the *Data Center* field.
+.. If you have exchanged the SSL certificate between the ESXi host and the {engine-name}, leave *Verify server's SSL certificate* checked to verify the ESXi host's certificate. If not, uncheck the option.
+.. Enter the *Username* and *Password* for the VMware vCenter instance. The user must have access to the VMware data center and ESXi host on which the virtual machines reside.
+.. Select a host in the chosen data center with `virt-v2v` installed to serve as the *Proxy Host* during virtual machine import operations. This host must also be able to connect to the network of the VMware vCenter external provider.
+. Click *Load* to list the virtual machines on the VMware provider that can be imported.
+. Select one or more virtual machines from the *Virtual Machines on Source* list, and use the arrows to move them to the *Virtual Machines to Import* list. Click btn:[Next].
++
+[NOTE]
+====
+If a virtual machine's network device uses the driver type e1000 or rtl8139, the virtual machine will use the same driver type after it has been imported to {virt-product-fullname}.
+
+If required, you can change the driver type to VirtIO manually after the import. To change the driver type after a virtual machine has been imported, see xref:Editing_network_interfaces[]. If the network device uses driver types other than e1000 or rtl8139, the driver type is changed to VirtIO automatically during the import. The *Attach VirtIO-drivers* option allows the VirtIO drivers to be injected to the imported virtual machine files so that when the driver is changed to VirtIO, the device will be properly detected by the operating system.
+====
++
+. Select the *Cluster* in which the virtual machines will reside.
+. Select a *CPU Profile* for the virtual machines.
+. Select the *Collapse Snapshots* check box to remove snapshot restore points and include templates in template-based virtual machines.
+. Select the *Clone* check box to change the virtual machine name and MAC addresses, and clone all disks, removing all snapshots. If a virtual machine appears with a warning symbol beside its name or has a tick in the *VM in System* column, you must clone the virtual machine and change its name.
+. Click each virtual machine to be imported and click the *Disks* sub-tab. Use the *Allocation Policy* and *Storage Domain* lists to select whether the disk used by the virtual machine will be thinly provisioned or preallocated, and select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine.
+. If you selected the *Clone* check box, change the name of the virtual machine in the *General* sub-tab.
+. Click btn:[OK] to import the virtual machines.
+
+The CPU type of the virtual machine must be the same as the CPU type of the cluster into which it is being imported. To view the cluster's *CPU Type* in the Administration Portal:
+
+. Click menu:Compute[Clusters].
+. Select a cluster.
+. Click btn:[Edit].
+. Click the *General* tab.
+
+If the CPU type of the virtual machine is different, configure the imported virtual machine's CPU type:
+
+. Click menu:Compute[Virtual Machines].
+. Select the virtual machine.
+. Click btn:[Edit].
+. Click the *System* tab.
+. Click the *Advanced Parameters* arrow.
+. Specify the *Custom CPU Type* and click btn:[OK].

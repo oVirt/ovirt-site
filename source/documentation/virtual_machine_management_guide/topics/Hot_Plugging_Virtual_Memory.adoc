@@ -1,0 +1,24 @@
+[[Hot_Plugging_Virtual_Memory]]
+==== Hot Plugging Virtual Memory
+
+You can hot plug virtual memory. Hot plugging means enabling or disabling devices while a virtual machine is running. Each time memory is hot plugged, it appears as a new memory device in the *Vm Devices* tab in the details view of the virtual machine, up to a maximum of 16 available slots. When the virtual machine is restarted, these devices are cleared from the *Vm Devices* tab without reducing the virtual machine's memory, allowing you to hot plug more memory devices. If the hot plug fails (for example, if there are no more available slots), the memory increase will be applied when the virtual machine is restarted.
+
+[IMPORTANT]
+====
+This feature is currently not supported for the self-hosted engine {engine-name} virtual machine.
+====
+
+
+*Hot Plugging Virtual Memory*
+
+. Click menu:Compute[Virtual Machines] and select a running virtual machine.
+. Click btn:[Edit].
+. Click the *System* tab.
+. Increase the *Memory Size* by entering the total amount required. Memory can be added in multiples of 256 MB. By default, the maximum memory allowed for the virtual machine is set to 4x the memory size specified. Though the value is changed in the user interface, the maximum value is not hot plugged, and you will see the pending changes icon (image:../common/images/pendingchanges.png[]). To avoid that, you can change the maximum memory back to the original value.
+. Click btn:[OK].
++
+This action opens the *Pending Virtual Machine changes* window, as some values such as *maxMemorySizeMb* and *minAllocatedMem* will not change until the virtual machine is restarted. However, the hot plug action is triggered by the change to the *Memory Size* value, which can be applied immediately.
+. Click btn:[OK].
+
+
+The virtual machine's *Defined Memory* is updated in the *General* tab in the details view. You can see the newly added memory device in the *Vm Devices* tab in the details view.

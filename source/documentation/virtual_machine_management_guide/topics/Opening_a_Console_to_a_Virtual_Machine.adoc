@@ -1,0 +1,17 @@
+[[Opening_a_Console_to_a_Virtual_Machine]]
+==== Opening a console to a virtual machine
+
+Use Remote Viewer to connect to a virtual machine.
+
+*Connecting to Virtual Machines*
+
+. Install Remote Viewer if it is not already installed. See xref:sect-Installing_Console_Components[].
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click btn:[Console].
+* If the connection protocol is set to SPICE, a console window will automatically open for the virtual machine.
+* If the connection protocol is set to VNC, a *console.vv* file will be downloaded. Click the file and a console window will automatically open for the virtual machine.
+
+[NOTE]
+====
+You can configure the system to automatically connect to a virtual machine. See xref:Automatically_connecting_to_a_Virtual_Machine[].
+====

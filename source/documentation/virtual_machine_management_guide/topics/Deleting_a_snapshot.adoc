@@ -1,0 +1,33 @@
+[[Deleting_a_snapshot]]
+==== Deleting a Snapshot
+
+You can delete a virtual machine snapshot and permanently remove it from your {virt-product-fullname} environment. This operation is only supported on a running virtual machine.
+
+[IMPORTANT]
+====
+When you delete a snapshot from an image chain, there must be enough free space in the storage domain to temporarily accommodate both the original volume and the newly merged volume. Otherwise, snapshot deletion will fail and you will need to export and re-import the volume to remove snapshots. This is due to the data from the two volumes being merged in the resized volume and the resized volume growing to accommodate the total size of the two merged images.
+
+
+* If the snapshot being deleted is contained in a base image, the volume subsequent to the volume containing the snapshot being deleted is extended to include the base volume.
+
+* If the snapshot being deleted is contained in a QCOW2 (thin provisioned), non-base image hosted on internal storage, the successor volume is extended to include the volume containing the snapshot being deleted.
+
+====
+
+
+*Deleting a Snapshot*
+
+. Click menu:Compute[Virtual Machines].
+. Click the virtual machine's name to go to the details view.
+. Click the *Snapshots* tab to list the snapshots for that virtual machine.
+. Select the snapshot to delete.
+. Click *Delete*.
+. Click btn:[OK].
+
+
+
+[NOTE]
+====
+If the deletion fails, fix the underlying problem (for example, a failed host, an inaccessible storage device, or even a temporary network issue) and try again.
+====
+

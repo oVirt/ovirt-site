@@ -102,7 +102,7 @@ endif::SM_remoteDB_deploy[]
 Configure VM Console Proxy on this host (Yes, No) [Yes]:
 ----
 Additional configuration is required on the client machine to use this feature.
-// See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html#Opening_a_Serial_Console_to_a_Virtual_Machine[Opening a Serial Console to a Virtual Machine] in the _Virtual Machine Management Guide_.
+// See link:{URL_virt_product_docs}virtual_machine_management_guide/#Opening_a_Serial_Console_to_a_Virtual_Machine[Opening a Serial Console to a Virtual Machine] in the _Virtual Machine Management Guide_.
 
 . Press `Enter` to accept the automatically detected host name, or enter an alternative host name and press `Enter`. Note that the automatically detected host name may be incorrect if you are using virtual hosts.
 +

@@ -524,7 +524,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 *   Coverage - quaid on vacation 25 Jan - 08 Feb
 *   Finalize and clearly publish information on who has access to what, how access is granted, and how decisions are made about new infrastructure
-    -   [Becoming an Infrastructure team member](/develop/infra/becoming-an-infrastructure-team-member.html)
+    -   [Becoming an Infrastructure team member](/community/becoming-an-infrastructure-team-member.html)
     -   [Infrastructure team assignments](/develop/infra/infrastructure-team-administrators.html)
     -   [Infrastructure Decision process](/develop/infra/infrastructure.html#decision-process)
 *   Hosting

@@ -1,0 +1,25 @@
+[[Tracking_configuration_history]]
+=== Tracking Configuration History
+
+Data from the {virt-product-fullname} History Database (called `ovirt_engine_history`) can be used to track the `engine` database.
+
+The ETL service, `ovirt-engine-dwhd`, tracks three types of changes:
+
+
+* A new entity is added to the `engine` database - the ETL Service replicates the change to the `ovirt_engine_history` database as a new entry.
+
+* An existing entity is updated - the ETL Service replicates the change to the `ovirt_engine_history` database as a new entry.
+
+* An entity is removed from the `engine` database - A new entry in the `ovirt_engine_history` database flags the corresponding entity as removed. Removed entities are only flagged as removed.
+
+The configuration tables in the `ovirt_engine_history` database differ from the corresponding tables in the `engine` database in several ways. The most apparent difference is they contain fewer *configuration* columns. This is because certain configuration items are less interesting to report than others and are not kept due to database size considerations. Also, columns from a few tables in the `engine` database appear in a single table in `ovirt_engine_history` and have different column names to make viewing data more convenient and comprehensible. All configuration tables contain:
+
+* a `history_id` to indicate the configuration version of the entity;
+
+* a `create_date` field to indicate when the entity was added to the system;
+
+* an `update_date` field to indicate when the entity was changed; and
+
+* a `delete_date` field to indicate the date the entity was removed from the system.
+
+

@@ -1,0 +1,48 @@
+[[Latest_virtual_machine_disk_configuration_view]]
+==== Virtual Disk Configuration
+
+The following table shows the configuration history parameters of the virtual disks in the system.
+[[References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_vm_disk_configuration_view]]
+
+.v4_2_configuration_history_vms_disks
+[options="header"]
+|===
+|Name |Type |Description |Indexed
+|history_id |integer |The ID of the configuration version in the history database. This is identical to the value of `vm_disk_configuration_version` in the virtual disks statistics views and it can be used to join them. |No
+|vm_disk_id |uuid |The unique ID of this disk in the system. |Yes
+|vm_disk_name |text |The name of the virtual disk, as displayed in the edit dialog. |No
+|vm_disk_description |character varying(500) |As displayed in the edit dialog. |No
+|image_id |uuid |The unique ID of the image in the system. |No
+|storage_domain_id |uuid |The ID of the storage domain this disk image belongs to. |Yes
+|vm_disk_size_mb |integer |The defined size of the disk in megabytes (MB). |No
+|vm_disk_type |smallint |As displayed in the edit dialog. Only System and Data are currently used.
+
+
+* 0 - Unassigned
+
+* 1 - System
+
+* 2 - Data
+
+* 3 - Shared
+
+* 4 - Swap
+
+* 5 - Temp
+ |No
+
+|vm_disk_format |smallint |As displayed in the edit dialog.
+
+
+* 3 - Unassigned
+
+* 4 - COW
+
+* 5 - Raw
+ |No
+
+|is_shared |boolean |Flag that indicates if the virtual machine's disk is shared. |No
+|create_date |timestamp with time zone |The date this entity was added to the system. |No
+|update_date |timestamp with time zone |The date this entity was changed in the system. |No
+|delete_date |timestamp with time zone |The date this entity was deleted from the system. |No
+|===

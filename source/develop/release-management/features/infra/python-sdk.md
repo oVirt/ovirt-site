@@ -4,9 +4,14 @@ category: sdk
 authors: adahms, bproffitt, michael pasternak
 ---
 
-# Python-sdk
+# Python-SDK (API v3)
 
-The oVirt Python-SDK is an automatically generated software development kit for the oVirt engine API. This software development kit allows you to develop Python-based applications for automating a variety of complex administrative tasks in oVirt.
+The oVirt Python-SDK is an automatically generated software development kit for the oVirt engine API.
+This software development kit allows you to develop Python-based applications for automating a variety of complex administrative tasks in oVirt.
+
+**Note:** please note that in this page examples refers to the version 3 of the API.
+
+**Note:** if you're looking for the version 4 of the API please refer to the [oVirt Engine API Python SDK Documentation](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/README.adoc).
 
 __TOC__
 

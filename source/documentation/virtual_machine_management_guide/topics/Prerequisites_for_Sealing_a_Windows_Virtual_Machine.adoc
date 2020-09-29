@@ -1,0 +1,39 @@
+[[Prerequisites_for_Sealing_a_Windows_Virtual_Machine]]
+===== Prerequisites for Sealing a Windows Virtual Machine
+
+
+[IMPORTANT]
+====
+Do not reboot the virtual machine while Sysprep is running.
+====
+
+Before starting `Sysprep`, verify that the following settings are configured:
+
+* The Windows virtual machine parameters have been correctly defined.
+* If not, click *Edit* in menu:Compute[Virtual Machines] and enter the required information in the *Operating System* and *Cluster* fields.
+* The correct product key has been defined in an override file on the {engine-name}.
+
+The override file must be created under */etc/ovirt-engine/osinfo.conf.d/*, have a filename that puts it after */etc/ovirt-engine/osinfo.conf.d/00-defaults.properties*, and ends in *.properties*. For example, */etc/ovirt-engine/osinfo.conf.d/10-productkeys.properties*. The last file will have precedence and override any other previous file.
+
+If not, copy the default values for your Windows operating system from */etc/ovirt-engine/osinfo.conf.d/00-defaults.properties* into the override file, and input your values in the `productKey.value` and `sysprepPath.value` fields.
+
+.Windows 7 Default Configuration Values
+====
+							
+[options="nowrap" subs="normal"]
+----
+# Windows7(11, OsType.Windows, false),false
+os.windows_7.id.value = 11
+os.windows_7.name.value = Windows 7
+os.windows_7.derivedFrom.value = windows_xp
+os.windows_7.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep.w7
+os.windows_7.productKey.value =
+os.windows_7.devices.audio.value = ich6
+os.windows_7.devices.diskInterfaces.value.3.3 = IDE, VirtIO_SCSI, VirtIO
+os.windows_7.devices.diskInterfaces.value.3.4 = IDE, VirtIO_SCSI, VirtIO
+os.windows_7.devices.diskInterfaces.value.3.5 = IDE, VirtIO_SCSI, VirtIO
+os.windows_7.isTimezoneTypeInteger.value = false
+
+----
+
+====

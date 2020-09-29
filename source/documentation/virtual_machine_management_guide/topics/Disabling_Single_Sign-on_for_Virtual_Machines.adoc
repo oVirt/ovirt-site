@@ -1,0 +1,14 @@
+[[Disabling_Single_Sign-on_for_Virtual_Machines]]
+==== Disabling Single Sign-on for Virtual Machines
+
+The following procedure explains how to disable single sign-on for a virtual machine.
+
+
+*Disabling Single Sign-On for Virtual Machines*
+
+. Select a virtual machine and click btn:[Edit].
+. Click the *Console* tab.
+. Select the *Disable Single Sign On* check box.
+. Click btn:[OK].
+
+

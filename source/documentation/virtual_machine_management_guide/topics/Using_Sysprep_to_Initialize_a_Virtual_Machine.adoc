@@ -1,0 +1,20 @@
+[[Using_Sysprep_to_Initialize_a_Virtual_Machine]]
+==== Using Sysprep to Initialize a Virtual Machine
+
+Use `Sysprep` to automate the initial configuration of a Windows virtual machine. You can use the *Sysprep* fields to configure a virtual machine's host name, time zone, root password, authorized keys, network interfaces, and DNS service.
+
+
+.Using Sysprep to Initialize a Virtual Machine
+
+This procedure starts a virtual machine with a set of `Sysprep` settings. If the relevant settings are included in the template the virtual machine is based on, review the settings and make changes where required.
+
+. Create a new Windows virtual machine based on a template of the required Windows virtual machine. See xref:Creating_a_Virtual_Machine_Based_on_a_Template[].
+. Click menu:Compute[Virtual Machines] and select the virtual machine.
+. Click the btn:[Run] drop-down button and select *Run Once*.
+. Expand the *Boot Options* section, select the *Attach Floppy* check box, and select the *[sysprep]* option.
+. Select the *Attach CD* check box and select the required Windows ISO from the drop-down list.
+. Move the *CD-ROM* to the top of the *Boot Sequence* field.
+. Configure any further *Run Once* options as required. See xref:Virtual_Machine_Run_Once_settings_explained[] for more details.
+. Click btn:[OK].
+
+

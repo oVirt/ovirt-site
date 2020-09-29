@@ -1,0 +1,123 @@
+[[Virtual_Machine_Console_settings_explained]]
+==== Virtual Machine Console Settings Explained
+
+The following table details the options available on the *Console* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
+[[New_VMs_Console]]
+
+.Virtual Machine: Console Settings
+[cols="1,2,1", options="header"]
+|===
+|Field Name
+|Description
+|Power cycle required?
+
+
+|*Graphical Console Section*
+|A group of settings.
+|Yes.
+
+
+|*Headless Mode*
+a|Select this check box if you do not a require a graphical console for the virtual machine.
+
+When selected, all other fields in the *Graphical Console* section are disabled. In the VM Portal, the *Console* icon in the virtual machine's details view is also disabled.
+
+[IMPORTANT]
+====
+See xref:Configuring_Headless_Machines[] for more details and prerequisites for using headless mode.
+====
+| Yes.
+
+
+|*Video Type*
+|Defines the graphics device. *QXL* is the default and supports both graphic protocols. *VGA* supports only the VNC protocol.
+| Yes.
+
+
+|*Graphics protocol*
+|Defines which display protocol to use. *SPICE* is the default protocol. *VNC* is an alternative option. To allow both protocols select *SPICE + VNC*.
+| Yes.
+
+
+|*VNC Keyboard Layout*
+|Defines the keyboard layout for the virtual machine. This option is only available when using the VNC protocol.
+| Yes.
+
+
+|*USB Support*
+a|Defines SPICE USB redirection. This option is only available for virtual machines using the SPICE protocol. Select either:
+
+* *Disabled* - USB controller devices are added according to the `devices.usb.controller` value in the *osinfo-defaults.properties* configuration file. The default for all x86 and x86_64 operating systems is `piix3-uhci`. For ppc64 systems, the default is `nec-xhci`.
+
+* *Enabled* - Enables native KVM/SPICE USB redirection for Linux and Windows virtual machines. Virtual machines do not require any in-guest agents or drivers for native USB.
+| Yes.
+
+
+|*Console Disconnect Action*
+a|Defines what happens when the console is disconnected. This is only relevant with SPICE and VNC console connections. This setting can be changed while the virtual machine is running but will not take effect until a new console connection is established. Select either:
+
+* *No action* - No action is taken.
+
+* *Lock screen* - This is the default option. For all Linux machines and for Windows desktops this locks the currently active user session. For Windows servers, this locks the desktop and the currently active user.
+
+* *Logout user* - For all Linux machines and Windows desktops, this logs out the currently active user session. For Windows servers, the desktop and the currently active user are logged out.
+
+* *Shutdown virtual machine* - Initiates a graceful virtual machine shutdown.
+
+* *Reboot virtual machine* - Initiates a graceful virtual machine reboot.
+
+| No.
+
+
+|*Monitors*
+|The number of monitors for the virtual machine. This option is only available for virtual desktops using the SPICE display protocol. You can choose *1*, *2* or *4*. Note that multiple monitors are not supported for Windows systems with WDDMDoD drivers.
+| Yes.
+
+
+|*Smartcard Enabled*
+|Smart cards are an external hardware security feature, most commonly seen in credit cards, but also used by many businesses as authentication tokens. Smart cards can be used to protect {virt-product-fullname} virtual machines. Tick or untick the check box to activate and deactivate Smart card authentication for individual virtual machines.
+| Yes.
+
+
+|*Single Sign On method*
+a|Enabling Single Sign On allows users to sign into the guest operating system when connecting to a virtual machine from the VM Portal using the Guest Agent.
+
+* *Disable Single Sign On* - Select this option if you do not want the Guest Agent to attempt to sign into the virtual machine.
+
+* *Use Guest Agent* - Enables Single Sign On to allow the Guest Agent to sign you into the virtual machine.
+| If you select Use Guest Agent, no. Otherwise, yes.
+
+|*Disable strict user checking*
+|Click the *Advanced Parameters* arrow and select the check box to use this option. With this option selected, the virtual machine does not need to be rebooted when a different user connects to it.
+
+By default, strict checking is enabled so that only one user can connect to the console of a virtual machine. No other user is able to open a console to the same virtual machine until it has been rebooted. The exception is that a *SuperUser* can connect at any time and replace a existing connection. When a *SuperUser* has connected, no normal user can connect again until the virtual machine is rebooted.
+
+Disable strict checking with caution, because you can expose the previous user's session to the new user.
+| No.
+
+
+|*Soundcard Enabled*
+|A sound card device is not necessary for all virtual machine use cases. If it is for yours, enable a sound card here.
+| Yes.
+
+
+|*Enable SPICE file transfer*
+|Defines whether a user is able to drag and drop files from an external host into the virtual machine's SPICE console. This option is only available for virtual machines using the SPICE protocol. This check box is selected by default.
+| No.
+
+
+|*Enable SPICE clipboard copy and paste*
+|Defines whether a user is able to copy and paste content from an external host into the virtual machine's SPICE console. This option is only available for virtual machines using the SPICE protocol. This check box is selected by default.
+| No.
+
+
+|*Serial Console Section*
+|A group of settings.
+|
+
+
+|*Enable VirtIO serial console*
+|The VirtIO serial console is emulated through VirtIO channels, using SSH and key pairs, and allows you to access a virtual machine's serial console directly from a client machine's command line, instead of opening a console from the Administration Portal or the VM Portal. The serial console requires direct access to the {engine-name}, since the {engine-name} acts as a proxy for the connection, provides information about virtual machine placement, and stores the authentication keys. Select the check box to enable the VirtIO console on the virtual machine. Requires a firewall rule. See xref:Opening_a_Serial_Console_to_a_Virtual_Machine[Opening a Serial Console to a Virtual Machine].
+| Yes.
+
+|===

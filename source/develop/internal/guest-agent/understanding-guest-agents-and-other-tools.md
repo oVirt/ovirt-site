@@ -18,7 +18,7 @@ There used to be also:
 
 *   oVirt Guest Agent - Deprecated and not available on recent OSs
 
-Please refer to [Virtual Machine Management Guide](/documentation/vmm-guide/Virtual_Machine_Management_Guide.html) for agents and drivers installation instructions.
+Please refer to [Virtual Machine Management Guide](/documentation/virtual_machine_management_guide) for agents and drivers installation instructions.
 
 
 ## Agents

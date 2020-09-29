@@ -1,0 +1,103 @@
+[[Virtual_Machine_Initial_Run_settings_explained]]
+==== Virtual Machine Initial Run Settings Explained
+
+The following table details the options available on the *Initial Run* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows. The settings in this table are only visible if the *Use Cloud-Init/Sysprep* check box is selected, and certain options are only visible when either a Linux-based or Windows-based option has been selected in the *Operating System* list in the *General* tab, as outlined below.
+[[New_VMs_Initial_Run-227]]
+
+[NOTE]
+This table does not include information on whether a power cycle is required because the settings apply to the virtual machine's _initial_ run; the virtual machine is not running when you configure these settings.
+
+.Virtual Machine: Initial Run Settings
+[cols="1,1,2", options="header"]
+|===
+|Field Name
+|Operating System
+|Description
+
+
+|*Use Cloud-Init/Sysprep*
+|Linux, Windows
+|This check box toggles whether Cloud-Init or Sysprep will be used to initialize the virtual machine.
+
+
+|*VM Hostname*
+|Linux, Windows
+|The host name of the virtual machine.
+
+
+|*Domain*
+|Windows
+|The Active Directory domain to which the virtual machine belongs.
+
+
+|*Organization Name*
+|Windows
+|The name of the organization to which the virtual machine belongs. This option corresponds to the text field for setting the organization name displayed when a machine running Windows is started for the first time.
+
+
+|*Active Directory OU*
+|Windows
+|The organizational unit in the Active Directory domain to which the virtual machine belongs.
+
+
+|*Configure Time Zone*
+|Linux, Windows
+|The time zone for the virtual machine. Select this check box and select a time zone from the *Time Zone* list.
+
+
+|*Admin Password*
+|Windows
+a|The administrative user password for the virtual machine. Click the disclosure arrow to display the settings for this option.
+
+* *Use already configured password*: This check box is automatically selected after you specify an initial administrative user password. You must clear this check box to enable the *Admin Password* and *Verify Admin Password* fields and specify a new password.
+
+* *Admin Password*: The administrative user password for the virtual machine. Enter the password in this text field and the *Verify Admin Password* text field to verify the password.
+
+
+|*Authentication*
+|Linux
+a|The authentication details for the virtual machine. Click the disclosure arrow to display the settings for this option.
+
+* *Use already configured password*: This check box is automatically selected after you specify an initial root password. You must clear this check box to enable the *Password* and *Verify Password* fields and specify a new password.
+
+* *Password*: The root password for the virtual machine. Enter the password in this text field and the *Verify Password* text field to verify the password.
+
+* *SSH Authorized Keys*: SSH keys to be added to the authorized keys file of the virtual machine. You can specify multiple SSH keys by entering each SSH key on a new line.
+
+* *Regenerate SSH Keys*: Regenerates SSH keys for the virtual machine.
+
+
+|*Custom Locale*
+|Windows
+a|Custom locale options for the virtual machine. Locales must be in a format such as `en-US`. Click the disclosure arrow to display the settings for this option.
+
+* *Input Locale*: The locale for user input.
+
+* *UI Language*: The language used for user interface elements such as buttons and menus.
+
+* *System Locale*: The locale for the overall system.
+
+* *User Locale*: The locale for users.
+
+
+|*Networks*
+|Linux
+a|Network-related settings for the virtual machine. Click the disclosure arrow to display the settings for this option.
+
+* *DNS Servers*: The DNS servers to be used by the virtual machine.
+
+* *DNS Search Domains*: The DNS search domains to be used by the virtual machine.
+
+* *Network*: Configures network interfaces for the virtual machine. Select this check box and click *\+* or *-* to add or remove network interfaces to or from the virtual machine. When you click *+*, a set of fields becomes visible that can specify whether to use DHCP, and configure an IP address, netmask, and gateway, and specify whether the network interface will start on boot.
+
+
+|*Custom Script*
+|Linux
+|Custom scripts that will be run on the virtual machine when it starts. The scripts entered in this field are custom YAML sections that are added to those produced by the {engine-name}, and allow you to automate tasks such as creating users and files, configuring `yum` repositories and running commands. For more information on the format of scripts that can be entered in this field, see the link:http://cloudinit.readthedocs.org/en/latest/topics/examples.html#yaml-examples[Custom Script] documentation.
+
+
+|*Sysprep*
+|Windows
+|A custom Sysprep definition. The definition must be in the format of a complete unattended installation answer file. You can copy and paste the default answer files in the */usr/share/ovirt-engine/conf/sysprep/* directory on the machine on which the {virt-product-fullname} {engine-name} is installed and alter the fields as required. See xref:chap-Templates[] for more information.
+
+|===

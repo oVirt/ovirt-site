@@ -1,0 +1,25 @@
+[[Shutting_down_a_virtual_machine]]
+=== Shutting Down a Virtual Machine
+
+You can turn off a virtual machine using *Shutdown* or *Power Off*. *Shutdown* gracefully shuts down a virtual machine. *Power Off* executes a hard shutdown. A graceful shutdown is usually preferable to a hard shutdown.
+
+[NOTE]
+====
+If an exclamation point appears next to the virtual machine, a snapshot deletion process has failed, and you may not be able to restart the machine after shutting it down. Try to delete the snapshot again and ensure that the explanation mark disappears before shutting down the virtual machine. See xref:Deleting_a_snapshot[] for more information.
+====
+
+.Procedure
+
+. Click menu:Compute[Virtual Machines] and select a running virtual machine.
+. Click btn:[Shutdown].
+. Optionally in the Administration Portal, enter a *Reason* for shutting down the virtual machine in the *Shut down Virtual Machine(s)* confirmation window. This allows you to provide an explanation for the shutdown, which will appear in the logs and when the virtual machine is powered on again.
++
+[NOTE]
+====
+The virtual machine shutdown *Reason* field will only appear if it has been enabled in the cluster settings. For more information, see link:{URL_virt_product_docs}administration_guide/#sect-Cluster_Tasks[Explanation of Settings and Controls in the New Cluster and Edit Cluster Windows] in the _Administration Guide_.
+====
++
+. Click btn:[OK] in the *Shut down Virtual Machine(s)* confirmation window.
+
+
+If the virtual machine gracefully shuts down, the *Status* of the virtual machine changes to `Down`. If the virtual machine does not gracefully shut down, click the down arrow next to btn:[Shutdown] and then click btn:[Power Off] to execute a hard shutdown.

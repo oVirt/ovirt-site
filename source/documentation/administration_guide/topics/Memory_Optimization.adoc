@@ -71,7 +71,7 @@ The memory balloon devices do not coordinate directly with each other; they rely
 
 Performance considerations:
 
-* Red Hat does not recommend memory ballooning and overcommitment for workloads that require continuous high-performance and low latency. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Configuring High-Performance Virtual Machines, Templates, and Pools].
+* Red Hat does not recommend memory ballooning and overcommitment for workloads that require continuous high-performance and low latency. See link:{URL_virt_product_docs}virtual_machine_management_guide/[Configuring High-Performance Virtual Machines, Templates, and Pools].
 * Use memory ballooning when increasing virtual machine density (economy) is more important than performance.
 * Memory ballooning does not have a significant impact on CPU utilization. (KSM consumes some CPU resources, but consumption remains consistent under pressure.)
 
@@ -97,7 +97,7 @@ KSM consumes more CPU resources than memory ballooning. The amount of CPU KSM co
 Performance considerations:
 
 * After the KSM daemon merges large amounts of memory, the kernel memory accounting statistics may eventually contradict each other. If your system has a large amount of free memory, you might improve performance by disabling KSM.
-* Red Hat does not recommend KSM and overcommitment for workloads that require continuous high-performance and low latency. See link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Configuring High-Performance Virtual Machines, Templates, and Pools].
+* Red Hat does not recommend KSM and overcommitment for workloads that require continuous high-performance and low latency. See link:{URL_virt_product_docs}virtual_machine_management_guide/[Configuring High-Performance Virtual Machines, Templates, and Pools].
 * Use KSM when increasing virtual machine density (economy) is more important than performance.
 
 To enable KSM, click the *Optimization* tab in the *New Cluster* or *Edit Cluster* windows. Then select the *Enable KSM* checkbox. This setting enables MoM to run KSM when necessary and when it can yield a memory saving benefit that outweighs its CPU cost. See xref:Cluster_Optimization_Settings_Explained[].

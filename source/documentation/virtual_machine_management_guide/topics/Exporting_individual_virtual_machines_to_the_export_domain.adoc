@@ -1,0 +1,34 @@
+[[Exporting_individual_virtual_machines_to_the_export_domain]]
+==== Exporting a Virtual Machine to the Export Domain
+
+Export a virtual machine to the export domain so that it can be imported into a different data center. Before you begin, the export domain must be attached to the data center that contains the virtual machine to be exported.
+
+[WARNING]
+====
+The virtual machine must be shut down before being exported.
+====
+
+*Exporting a Virtual Machine to the Export Domain*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Export to Export Domain*.
+. Optionally, select the following check boxes in the *Export Virtual Machine* window:
+
+* *Force Override*: overrides existing images of the virtual machine on the export domain.
+
+* *Collapse Snapshots*: creates a single export volume per disk. This option removes snapshot restore points and includes the template in a template-based virtual machine, and removes any dependencies a virtual machine has on a template. For a virtual machine that is dependent on a template, either select this option, export the template with the virtual machine, or make sure the template exists in the destination data center.
++
+[NOTE]
+====
+When you create a virtual machine from a template by clicking menu:Compute[Templates] and clicking btn:[New VM], you wll see two storage allocation options in the *Storage Allocation* section in the *Resource Allocation* tab:
+
+* If *Clone* is  selected, the virtual machine is not dependent on the template. The template does not have to exist in the destination data center.
+
+* If *Thin* is selected, the virtual machine is dependent on the template, so the template must exist in the destination data center or be exported with the virtual machine. Alternatively, select the *Collapse Snapshots* check box to collapse the template disk and virtual disk into a single disk.
+
+To check which option was selected, click a virtual machine's name and click the *General* tab in the details view.
+====
++
+. Click btn:[OK].
+
+The export of the virtual machine begins. The virtual machine displays in menu:Compute[Virtual Machines] with an `Image Locked` status while it is exported. Depending on the size of your virtual machine hard disk images, and your storage hardware, this can take up to an hour. Click the *Events* tab to view  progress. When complete, the virtual machine has been exported to the export domain and displays in the *VM Import* tab of the export domain's details view.

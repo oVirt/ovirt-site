@@ -1,0 +1,20 @@
+[[Exporting_a_virtual_machine_to_a_host]]
+==== Exporting a Virtual Machine to a Host
+
+You can export a virtual machine to a specific path or mounted NFS shared storage on a host in the {virt-product-fullname} data center. The export will produce an Open Virtual Appliance (OVA) package.
+
+[WARNING]
+====
+The virtual machine must be shut down before being exported.
+====
+
+*Exporting a Virtual Machine to a Host*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Export to OVA*.
+. Select the host from the *Host* drop-down list.
+. Enter the absolute path to the export directory in the *Directory* field, including the trailing slash. For example: [filename]`/images2/ova/`
+. Optionally change the default name of the file in the *Name* field.
+. Click btn:[OK]
+
+The status of the export can be viewed in the *Events* tab.

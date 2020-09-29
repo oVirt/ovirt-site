@@ -1,0 +1,19 @@
+[[Hot_Plugging_Network_Interfaces]]
+==== Hot Plugging a Network Interface
+
+You can hot plug network interfaces. Hot plugging means enabling and disabling devices while a virtual machine is running.
+
+[NOTE]
+====
+The guest operating system must support hot plugging network interfaces.
+====
+
+
+*Hot Plugging Network Interfaces*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click the virtual machine's name to go to the details view.
+. Click the *Network Interfaces* tab and select the network interface to hot plug.
+. Click btn:[Edit].
+. Set the *Card Status* to *Plugged* to enable the network interface, or set it to *Unplugged* to disable the network interface.
+. Click btn:[OK].

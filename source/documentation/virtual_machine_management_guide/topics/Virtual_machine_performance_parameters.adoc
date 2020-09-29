@@ -1,0 +1,4 @@
+[[Virtual_machine_performance_parameters]]
+=== Virtual Machine Performance Parameters
+
+For information on the parameters that {virt-product-fullname} virtual machines can support, see link:https://access.redhat.com/articles/rhel-limits[{enterprise-linux} technology capabilities and limits] and link:https://access.redhat.com/articles/906543[Virtualization limits for {virt-product-fullname}].

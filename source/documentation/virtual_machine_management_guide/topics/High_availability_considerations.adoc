@@ -1,0 +1,20 @@
+[[High_availability_considerations]]
+==== High Availability Considerations
+
+A highly available host requires a power management device and fencing parameters. In addition, for a virtual machine to be highly available when its host becomes non-operational, it needs to be started on another available host in the cluster. To enable the migration of highly available virtual machines:
+
+
+* Power management must be configured for the hosts running the highly available virtual machines.
+
+* The host running the highly available virtual machine must be part of a cluster which has other available hosts.
+
+* The destination host must be running.
+
+* The source and destination host must have access to the data domain on which the virtual machine resides.
+
+* The source and destination host must have access to the same virtual networks and VLANs.
+
+* There must be enough CPUs on the destination host that are not in use to support the virtual machine's requirements.
+
+* There must be enough RAM on the destination host that is not in use to support the virtual machine's requirements.
+

@@ -1,0 +1,31 @@
+[[Preventing_automatic_migration_of_a_virtual_machine]]
+==== Preventing Automatic Migration of a Virtual Machine
+
+{virt-product-fullname} {engine-name} allows you to disable automatic migration of virtual machines. You can also disable manual migration of virtual machines by setting the virtual machine to run only on a specific host.
+
+The ability to disable automatic migration and require a virtual machine to run on a particular host is useful when using application high availability products, such as Red Hat High Availability or Cluster Suite.
+
+
+*Preventing Automatic Migration of Virtual Machines*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click btn:[Edit].
+. Click the *Host* tab.
+. In the *Start Running On* section, select *Any Host in Cluster* or *Specific Host(s)*, which enables you to select multiple hosts.
++
+[WARNING]
+====
+Explicitly assigning a virtual machine to a specific host and disabling migration are mutually exclusive with {virt-product-fullname} high availability. 
+====
++
+[IMPORTANT]
+====
+If the virtual machine has host devices directly attached to it, and a different host is specified, the host devices from the previous host will be automatically removed from the virtual machine.
+====
++
+. Select *Allow manual migration only* or *Do not allow migration* from the *Migration Options* drop-down list.
+. Optionally, select the *Use custom migration downtime* check box and specify a value in milliseconds.
+. Click btn:[OK].
+
+
+

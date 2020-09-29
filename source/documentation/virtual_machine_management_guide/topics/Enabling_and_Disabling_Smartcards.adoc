@@ -1,0 +1,75 @@
+[[Enabling_and_Disabling_Smartcards]]
+=== Smart Card Authentication
+
+Smart cards are an external hardware security feature, most commonly seen in credit cards, but also used by many businesses as authentication tokens. Smart cards can be used to protect {virt-product-fullname} virtual machines.
+
+
+*Enabling Smart Cards*
+
+. Ensure that the smart card hardware is plugged into the client machine and is installed according to manufacturer's directions.
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click btn:[Edit].
+. Click the *Console* tab and select the *Smartcard enabled* check box.
+. Click btn:[OK].
+. Connect to the running virtual machine by clicking the *Console* button. Smart card authentication is now passed from the client hardware to the virtual machine.
+
+
+
+[IMPORTANT]
+====
+Important
+
+If the Smart card hardware is not correctly installed, enabling the Smart card feature will result in the virtual machine failing to load properly.
+====
+
+
+*Disabling Smart Cards*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click btn:[Edit].
+. Click the *Console* tab, and clear the *Smartcard enabled* check box.
+. Click btn:[OK].
+
+
+
+
+*Configuring Client Systems for Smart Card Sharing*
+
+. Smart cards may require certain libraries in order to access their certificates. These libraries must be visible to the NSS library, which `spice-gtk` uses to provide the smart card to the guest. NSS expects the libraries to provide the PKCS #11 interface.
+. Make sure that the module architecture matches `spice-gtk/remote-viewer`'s architecture. For instance, if you have only the 32b PKCS #11 library available, you must install the 32b build of virt-viewer in order for smart cards to work.
+
+
+
+
+*Configuring RHEL Clients with CoolKey Smart Card Middleware*
+
+CoolKey Smart Card middleware is a part of {enterprise-linux}. Install the `Smart card support` group. If the Smart Card Support group is installed on a {enterprise-linux} system, smart cards are redirected to the guest when Smart Cards are enabled. The following command installs the `Smart card support` group: 
+
+[options="nowrap" subs="normal"]
+----
+# dnf groupinstall "Smart card support"
+----
+
+
+
+
+*Configuring RHEL Clients with Other Smart Card Middleware*
+
+Register the library in the system's NSS database. Run the following command as root: 
+
+[options="nowrap" subs="normal"]
+----
+# modutil -dbdir /etc/pki/nssdb -add "_module name_" -libfile _/path/to/library_.so
+----
+
+
+
+
+*Configuring Windows Clients*
+
+Red Hat does not provide PKCS #11 support to Windows clients. Libraries that provide PKCS #11 support must be obtained from third parties. When such libraries are obtained, register them by running the following command as a user with elevated privileges: 
+
+[options="nowrap" subs="normal"]
+----
+modutil -dbdir %PROGRAMDATA%\pki\nssdb -add "_module name_" -libfile C:_\Path\to\module_.dll
+----

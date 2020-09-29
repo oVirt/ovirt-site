@@ -1,0 +1,32 @@
+[[Installing_Remote_Viewer_on_Windows]]
+===== Installing Remote Viewer on Windows
+
+The Remote Viewer application provides users with a graphical console for connecting to virtual machines. Once installed, it is called automatically when attempting to open a SPICE session with a virtual machine. Alternatively, it can also be used as a standalone application.
+
+
+*Installing Remote Viewer on Windows*
+
+. Open a web browser and download one of the following installers according to the architecture of your system.
+
+
+* Virt Viewer for 32-bit Windows:
++
+[options="nowrap" subs="normal"]
+----
+https://_your-manager-fqdn_/ovirt-engine/services/files/spice/virt-viewer-x86.msi
+----
+
+* Virt Viewer for 64-bit Windows:
++
+[options="nowrap" subs="normal"]
+----
+https://_your-manager-fqdn_/ovirt-engine/services/files/spice/virt-viewer-x64.msi
+----
+
+. Open the folder where the file was saved.
+. Double-click the file.
+. Click *Run* if prompted by a security warning.
+. Click *Yes* if prompted by User Account Control.
+
+
+Remote Viewer is installed and can be accessed via `Remote Viewer` in the *VirtViewer* folder of *All Programs* in the start menu.

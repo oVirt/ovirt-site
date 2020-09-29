@@ -1,0 +1,34 @@
+[[Parameters_for_Watchdogs_in_watchdog_conf]]
+==== Parameters for Watchdogs in watchdog.conf
+
+The following is a list of options for configuring the `watchdog` service available in the */etc/watchdog.conf* file. To configure an option, you must uncomment that option and restart the `watchdog` service after saving the changes.
+
+[NOTE]
+====
+For a more detailed explanation of options for configuring the `watchdog` service and using the `watchdog` command, see the `watchdog` man page.
+====
+
+.watchdog.conf variables
+[options="header"]
+|===
+|Variable name |Default Value |Remarks
+|`ping` |N/A |An IP address that the watchdog attempts to ping to verify whether that address is reachable. You can specify multiple IP addresses by adding additional `ping` lines.
+|`interface` |N/A |A network interface that the watchdog will monitor to verify the presence of network traffic. You can specify multiple network interfaces by adding additional `interface` lines.
+|`file` |`/var/log/messages` |A file on the local system that the watchdog will monitor for changes. You can specify multiple files by adding additional `file` lines.
+|`change` |`1407` |The number of watchdog intervals after which the watchdog checks for changes to files. A `change` line must be specified on the line directly after each `file` line, and applies to the `file` line directly above that `change` line.
+|`max-load-1` |`24` |The maximum average load that the virtual machine can sustain over a one-minute period. If this average is exceeded, then the watchdog is triggered. A value of `0` disables this feature.
+|`max-load-5` |`18` |The maximum average load that the virtual machine can sustain over a five-minute period. If this average is exceeded, then the watchdog is triggered. A value of `0` disables this feature. By default, the value of this variable is set to a value approximately three quarters that of `max-load-1`.
+|`max-load-15` |`12` |The maximum average load that the virtual machine can sustain over a fifteen-minute period. If this average is exceeded, then the watchdog is triggered. A value of `0` disables this feature. By default, the value of this variable is set to a value approximately one half that of `max-load-1`.
+|`min-memory` |`1` |The minimum amount of virtual memory that must remain free on the virtual machine. This value is measured in pages. A value of `0` disables this feature.
+|`repair-binary` |`/usr/sbin/repair` |The path and file name of a binary file on the local system that will be run when the watchdog is triggered. If the specified file resolves the issues preventing the watchdog from resetting the watchdog counter, then the watchdog action is not triggered.
+|`test-binary` |N/A |The path and file name of a binary file on the local system that the watchdog will attempt to run during each interval. A test binary allows you to specify a file for running user-defined tests.
+|`test-timeout` |N/A |The time limit, in seconds, for which user-defined tests can run. A value of `0` allows user-defined tests to continue for an unlimited duration.
+|`temperature-device` |N/A |The path to and name of a device for checking the temperature of the machine on which the `watchdog` service is running.
+|`max-temperature` |`120` |The maximum allowed temperature for the machine on which the `watchdog` service is running. The machine will be halted if this temperature is reached. Unit conversion is not taken into account, so you must specify a value that matches the watchdog card being used.
+|`admin` |`root` |The email address to which email notifications are sent.
+|`interval` |`10` |The interval, in seconds, between updates to the watchdog device. The watchdog device expects an update at least once every minute, and if there are no updates over a one-minute period, then the watchdog is triggered. This one-minute period is hard-coded into the drivers for the watchdog device, and cannot be configured.
+|`logtick` |`1` |When verbose logging is enabled for the `watchdog` service, the `watchdog` service periodically writes log messages to the local system. The `logtick` value represents the number of watchdog intervals after which a message is written.
+|`realtime` |`yes` |Specifies whether the watchdog is locked in memory. A value of `yes` locks the watchdog in memory so that it is not swapped out of memory, while a value of `no` allows the watchdog to be swapped out of memory. If the watchdog is swapped out of memory and is not swapped back in before the watchdog counter reaches zero, then the watchdog is triggered.
+|`priority` |`1` |The schedule priority when the value of `realtime` is set to `yes`.
+|`pidfile` |`/var/run/syslogd.pid` |The path and file name of a PID file that the watchdog monitors to see if the corresponding process is still active. If the corresponding process is not active, then the watchdog is triggered.
+|===

@@ -1,0 +1,53 @@
+=== Affinity Groups
+
+Affinity groups help you determine where selected virtual machines run in relation to each other and specified hosts. This capability helps manage workload scenarios such as licensing requirements, high-availability workloads, and disaster recovery.
+
+.The VM Affinity Rule
+When you create an affinity group, you select the virtual machines that belong to the group. To define _where these virtual machines can run in relation to each other_, you enable a *VM Affinity Rule*: A positive rule tries to run the virtual machines together on a single host; a negative affinity rule tries to run the virtual machines apart on separate hosts. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.
+
+.The Host Affinity Rule
+Optionally, you can add hosts to the affinity group. To define _where virtual machines in the group can run in relation to hosts in the group_, you enable a *Host Affinity Rule*: A positive rule tries to run the virtual machines on hosts in the affinity group; a negative affinity rule tries to run the virtual machines on hosts that are not in the affinity group. If the rule cannot be fulfilled, the outcome depends on whether the weight or filter module is enabled.
+
+.The Default Weight Module
+By default, both rules apply the _weight module_ in the cluster's scheduling policy. With the weight module, the scheduler attempts to fulfill a rule, but allows the virtual machines in the affinity group to run anyway if the rule cannot be fulfilled.
+
+For example, with a positive *VM Affinity Rule* and the weight module enabled, the scheduler _tries_ to run all of the affinity group's virtual machines on a single host. However, if a single host does not have sufficient resources for this, the scheduler runs the virtual machines on multiple hosts.
+
+For this module to work, the *weight module* section of the scheduling policies must contain the `VmAffinityGroups` and `VmToHostsAffinityGroups` keywords.
+
+
+.The Enforcing Option and Filter Module
+Both rules have an *Enforcing* option which applies the _filter module_ in the cluster's scheduling policy. The filter module overrides the weight module. With the filter module enabled, the scheduler _requires_ that a rule be fulfilled. If a rule cannot be fulfilled, the filter module prevents the virtual machines in the affinity group from running.
+
+For example, with a positive *Host Affinity Rule* and *Enforcing* enabled (the filter module enabled), the scheduler _requires_ the affinity group's virtual machines to run on hosts that are part of the affinity group. However, if those hosts are down, the scheduler does not run the virtual machines at all.
+
+For this module to work, the *filter module* section of the scheduling policies must contain the `VmAffinityGroups` and `VmToHostsAffinityGroups` keywords.
+
+.Examples
+To see how these rules and options can be used with one another, see xref:Affinity_groups_examples[].
+
+[WARNING]
+====
+* An _affinity label_ is functionally the same as an affinity group with a positive *Host Affinity Rule* and *Enforcing* enabled.
+* For affinity labels to work, the *filter module* section of the scheduling policies must contain `Label`.
+* If an affinity group and affinity label conflict with each other, the affected virtual machines do not run. To help prevent, troubleshoot, and resolve conflicts, see xref:Affinity_groups_troubleshooting[].
+
+====
+
+[IMPORTANT]
+====
+Each rule is affected by the weight and filter modules in the cluster's scheduling policy.
+
+* For the *VM Affinity Rule* rule to work, the scheduling policy must have the `VmAffinityGroups` keyword in its *Weight module* and *Filter module* sections.
+* For the *Host Affinity Rule* to work, the scheduling policy must have the `VmToHostsAffinityGroups` keyword in its *Weight module* and *Filter module* sections.
+
+For more information, see link:{URL_virt_product_docs}administration_guide[Scheduling Policies] in the _Administration Guide_.
+
+====
+
+[NOTE]
+====
+* Affinity groups apply to virtual machines in a cluster. Moving a virtual machine from one cluster to another removes it from the affinity groups in the original cluster.
+* Virtual machines do not have to restart for the affinity group rules to take effect.
+
+====

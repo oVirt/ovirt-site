@@ -1,0 +1,41 @@
+[[Configuring_Headless_Machines]]
+=== Configuring Headless Virtual Machines
+
+You can configure a headless virtual machine when it is not necessary to access the machine via a graphical console. This headless machine will run without graphical and video devices. This can be  useful in situations where the host has limited resources, or to comply with virtual machine usage requirements such as real-time virtual machines.
+
+Headless virtual machines can be administered via a Serial Console, SSH, or any other service for command line access. Headless mode is applied via the *Console* tab when creating or editing virtual machines and machine pools, and when editing templates. It is also available when creating or editing instance types.
+
+If you are creating a new headless virtual machine, you can use the *Run Once* window to access the virtual machine via a graphical console for the first run only. See xref:Virtual_Machine_Run_Once_settings_explained[] for more details.
+
+Prerequisites
+
+
+* If you are editing an existing virtual machine, and the {virt-product-fullname} guest agent has not been installed, note the machine's IP prior to selecting *Headless Mode*.
+
+* Before running a virtual machine in headless mode, the GRUB configuration for this machine must be set to console mode otherwise the guest operating system's boot process will hang. To set console mode, comment out the spashimage flag in the GRUB menu configuration file: 
++
+[options="nowrap" subs="normal"]
+----
+
+ #splashimage=(hd0,0)/grub/splash.xpm.gz serial --unit=0 --speed=9600 --parity=no --stop=1 terminal --timeout=2 serial
+
+----
+
+
+
+[NOTE]
+====
+Restart the virtual machine if it is running when selecting the *Headless Mode* option.
+====
+
+
+*Configuring a Headless Virtual Machine*
+
+. Click menu:Compute[Virtual Machines] and select a virtual machine.
+. Click btn:[Edit].
+. Click the *Console* tab.
+. Select *Headless Mode*. All other fields in the *Graphical Console* section are disabled.
+. Optionally, select *Enable VirtIO serial console* to enable communicating with the virtual machine via serial console. This is highly recommended.
+. Reboot the virtual machine if it is running. See xref:Rebooting_a_Virtual_Machine[].
+
+

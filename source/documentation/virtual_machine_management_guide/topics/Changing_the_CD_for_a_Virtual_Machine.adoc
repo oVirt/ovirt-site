@@ -1,0 +1,13 @@
+[[Changing_the_CD_for_a_Virtual_Machine]]
+=== Changing the CD for a Virtual Machine
+
+You can change the CD accessible to a virtual machine while that virtual machine is running, using ISO images that have been uploaded to the data domain of the virtual machine's cluster. See link:{URL_virt_product_docs}administration_guide/#Uploading_Images_to_a_Data_Storage_Domain[Uploading Images to a Data Storage Domain] in the _Administration Guide_ for details.
+
+*Changing the CD for a Virtual Machine*
+
+. Click menu:Compute[Virtual Machines] and select a running virtual machine.
+. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Change CD*.
+. Select an option from the drop-down list:
+* Select an ISO file from the list to eject the CD currently accessible to the virtual machine and mount that ISO file as a CD.
+* Select *[Eject]* from the list to eject the CD currently accessible to the virtual machine.
+. Click btn:[OK].

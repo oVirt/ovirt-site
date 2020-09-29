@@ -1,0 +1,31 @@
+[[Installing_usbdk_on_Windows]]
+==== Installing usbdk on Windows
+
+`usbdk` is a driver that enables `remote-viewer` exclusive access to USB devices on Windows operating systems. Installing `usbdk` requires Administrator privileges. Note that the previously supported `USB Clerk` option has been deprecated and is no longer supported.
+
+
+*Installing usbdk on Windows*
+
+. Open a web browser and download one of the following installers according to the architecture of your system.
+
+
+* `usbdk` for 32-bit Windows:
++
+[options="nowrap" subs="normal"]
+----
+https://_[your manager's address]_/ovirt-engine/services/files/spice/usbdk-x86.msi
+----
++
+* `usbdk` for 64-bit Windows:
++
+[options="nowrap" subs="normal"]
+----
+https://_[your manager's address]_/ovirt-engine/services/files/spice/usbdk-x64.msi
+----
+
+. Open the folder where the file was saved.
+. Double-click the file.
+. Click *Run* if prompted by a security warning.
+. Click *Yes* if prompted by User Account Control.
+
+

@@ -7,7 +7,7 @@ For more information on the hardware requirements for direct device assignment, 
 
 For more information on configuring the host for direct device assignment, see xref:Configuring_a_Host_for_PCI_Passthrough_host_tasks[].
 
-For more information on attaching host devices to virtual machines, see link:{URL_virt_product_docs}vmm-guide/Virtual_Machine_Management_Guide.html[Host Devices] in the _Virtual Machine Management Guide_.
+For more information on attaching host devices to virtual machines, see link:{URL_virt_product_docs}virtual_machine_management_guide/[Host Devices] in the _Virtual Machine Management Guide_.
 
 
 *Viewing Host Devices*

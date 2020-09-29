@@ -1,0 +1,14 @@
+[[Accessing_console_options]]
+===== Accessing Console Options
+
+You can configure several options for opening graphical consoles for virtual machines in the Administration Portal.
+
+*Accessing Console Options*
+
+. Click menu:Compute[Virtual Machines] and select a running virtual machine.
+. Click menu:Console[Console Options].
+
+[NOTE]
+====
+You can configure the connection protocols and video type in the *Console* tab of the *Edit Virtual Machine* window in the Administration Portal. Additional options specific to each of the connection protocols, such as the keyboard layout when using the VNC connection protocol, can be configured. See xref:Virtual_Machine_Console_settings_explained[] for more information.
+====

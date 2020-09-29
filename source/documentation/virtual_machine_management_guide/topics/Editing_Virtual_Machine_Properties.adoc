@@ -1,0 +1,50 @@
+[[Editing_Virtual_Machine_Properties]]
+=== Editing Virtual Machine Properties
+
+Changes to storage, operating system, or networking parameters can adversely affect the virtual machine. Ensure that you have the correct details before attempting to make any changes. Virtual machines can be edited while running, and some changes (listed in the procedure below) will be applied immediately. To apply all other changes, the virtual machine must be shut down and restarted.
+
+[NOTE]
+====
+External virtual machines (marked with the prefix *external*) cannot be edited through the {virt-product-fullname} {engine-name}.
+====
+
+*Editing Virtual Machines*
+
+. Click menu:Compute[Virtual Machines].
+. Select the virtual machine to be edited.
+. Click btn:[Edit].
+. Change settings as required.
++
+Changes to the following settings are applied immediately:
+
+* *Name*
+
+* *Description*
+
+* *Comment*
+
+* *Optimized for* (Desktop/Server/High Performance)
+
+* *Delete Protection*
+
+* *Network Interfaces*
+
+* *Memory Size* (Edit this field to hot plug virtual memory. See xref:Hot_Plugging_Virtual_Memory[].)
+
+* *Virtual Sockets* (Edit this field to hot plug CPUs. See xref:CPU_hot_plug[].)
+
+* *Use custom migration downtime*
+
+* *Highly Available*
+
+* *Priority for Run/Migration queue*
+
+* *Disable strict user checking*
+
+* *Icon*
++
+. Click btn:[OK].
+. If the *Next Start Configuration* pop-up window appears, click btn:[OK].
+
+
+Some changes are applied immediately. All other changes are applied when you shut down and restart your virtual machine. Until then, the pending changes icon (image:../common/images/pendingchanges.png[]) appears as a reminder to restart the virtual machine.

@@ -1,0 +1,14 @@
+[[Suspending_a_virtual_machine]]
+=== Suspending a Virtual Machine
+
+Suspending a virtual machine is equal to placing that virtual machine into *Hibernate* mode.
+
+
+*Suspending a Virtual Machine*
+
+. Click menu:Compute[Virtual Machines] and select a running virtual machine.
+. Click btn:[Suspend].
+
+The *Status* of the virtual machine changes to `Suspended`.
+
+

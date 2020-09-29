@@ -1,0 +1,24 @@
+[[Using_USB_Devices_on_a_Windows_Client]]
+==== Using USB Devices on a Windows Client
+
+The `usbdk` driver must be installed on the Windows client for the USB device to be redirected to the guest. Ensure the version of `usbdk` matches the architecture of the client machine. For example, the 64-bit version of `usbdk` must be installed on 64-bit Windows machines. 
+
+[NOTE]
+====
+USB redirection is only supported when you open the virtual machine from the VM Portal.
+====
+
+*Using USB Devices on a Windows Client*
+
+. When the `usbdk` driver is installed, select a virtual machine that has been configured to use the SPICE protocol.
+. Ensure USB support is set to *Enabled*:
+
+.. Click btn:[Edit].
+.. Click the *Console* tab.
+.. Select *Enabled* from the *USB Support* drop-down list.
+.. Click btn:[OK].
+
+. Click menu:Console[Console Options]. 
+. Select the *Enable USB Auto-Share* check box and click btn:[OK].
+. Start the virtual machine from the VM Portal and click btn:[Console] to connect to that virtual machine. 
+. Plug your USB device into the client machine to make it appear automatically on the guest machine.

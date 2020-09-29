@@ -1,0 +1,46 @@
+[[Importing_a_virtual_machine_from_a_host]]
+==== Importing a Virtual Machine from a Host
+
+Import an Open Virtual Appliance (OVA) file into your {virt-product-fullname} environment. You can import the file from any {hypervisor-fullname} in the data center.
+
+[IMPORTANT]
+====
+Currently, only {virt-product-fullname} and VMware OVAs can be imported. KVM and Xen are not supported.
+
+The import process uses `virt-v2v`. Only virtual machines running operating systems compatible with `virt-v2v` can be successfully imported. For a current list of compatible operating systems, see link:https://access.redhat.com/articles/1351473[].
+====
+
+*Importing an OVA File*
+
+. Copy the OVA file to a host in your cluster, in a file system location such as *var/tmp*.
++
+[NOTE]
+====
+The location can be a local directory or a remote nfs mount, as long as it has sufficient space and is accessible to the qemu user (UID 36).
+====
++
+. Ensure that the OVA file has permissions allowing read/write access to the *qemu* user (UID 36) and the *kvm* group (GID 36):
++
+[options="nowrap" subs="normal"]
+----
+# chown 36:36 _path_to_OVA_file/file.OVA_
+----
++
+. Click menu:Compute[Virtual Machines].
+. Click *More Actions* (image:../common/images/moreactions.png[]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
+.. Select *Virtual Appliance (OVA)* from the *Source* list.
+.. Select a host from the *Host* list.
+.. In the *Path* field, specify the absolute path of the OVA file.
+.. Click *Load* to list the virtual machine to be imported.
+.. Select the virtual machine from the *Virtual Machines on Source* list, and use the arrows to move it to the *Virtual Machines to Import* list.
+. Click btn:[Next].
+.. Select the *Storage Domain* for the virtual machine.
+.. Select the *Target Cluster* where the virtual machines will reside.
+.. Select the *CPU Profile* for the virtual machines.
+.. Select the *Allocation Policy* for the virtual machines.
+.. Optionally, select the *Attach VirtIO-Drivers* check box and select the appropriate image on the list to add VirtIO drivers.
+.. Select the *Allocation Policy* for the virtual machines.
+.. Select the virtual machine, and on the *General* tab select the *Operating System*.
+.. On the *Network Interfaces* tab, select the *Network Name* and *Profile Name*.
+.. Click the *Disks* tab to view the *Alias*, *Virtual Size*, and *Actual Size* of the virtual machine.
+. Click btn:[OK] to import the virtual machines.

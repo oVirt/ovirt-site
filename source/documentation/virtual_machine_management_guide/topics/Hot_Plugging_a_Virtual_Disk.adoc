@@ -1,0 +1,18 @@
+[[Hot_Plugging_a_Virtual_Disk]]
+==== Hot Plugging a Virtual Disk
+
+You can hot plug virtual disks. Hot plugging means enabling or disabling devices while a virtual machine is running.
+
+[NOTE]
+====
+The guest operating system must support hot plugging virtual disks.
+====
+
+
+*Hot Plugging Virtual Disks*
+
+. Click menu:Compute[Virtual Machines].
+. Click a virtual machine name to go to the details view.
+. Click the *Disks* tab and select the virtual disk to hot plug.
+. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Activate* to enable the disk, or *Deactivate* to disable the disk.
+. Click btn:[OK].

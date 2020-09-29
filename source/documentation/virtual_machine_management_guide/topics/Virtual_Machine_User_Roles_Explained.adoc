@@ -1,0 +1,15 @@
+==== Virtual Machine User Roles Explained
+
+The table below describes the user roles and privileges applicable to virtual machine users. These roles allow access to the VM Portal for managing and accessing virtual machines, but they do not confer any permissions for the Administration Portal.
+
+.{virt-product-fullname} System User Roles
+[options="header"]
+|===
+|Role |Privileges |Notes
+|UserRole |Can access and use virtual machines and pools. |Can log in to the VM Portal and use virtual machines and pools.
+|PowerUserRole |Can create and manage virtual machines and templates. |Apply this role to a user for the whole environment with the *Configure* window, or for specific data centers or clusters. For example, if a PowerUserRole is applied on a data center level, the PowerUser can create virtual machines and templates in the data center. Having a *PowerUserRole* is equivalent to having the *VmCreator*, *DiskCreator*, and *TemplateCreator* roles.
+|UserVmManager |System administrator of a virtual machine. |Can manage virtual machines and create and use snapshots. A user who creates a virtual machine in the VM Portal is automatically assigned the UserVmManager role on the machine.
+|UserTemplateBasedVm |Limited privileges to only use Templates. |Level of privilege to create a virtual machine by means of a template.
+|VmCreator |Can create virtual machines in the VM Portal. |This role is not applied to a specific virtual machine; apply this role to a user for the whole environment with the *Configure* window. When applying this role to a cluster, you must also apply the *DiskCreator* role on an entire data center, or on specific storage domains.
+|VnicProfileUser |Logical network and network interface user for virtual machines. |If the *Allow all users to use this Network* option was selected when a logical network is created, *VnicProfileUser* permissions are assigned to all users for the logical network. Users can then attach or detach virtual machine network interfaces to or from the logical network.
+|===

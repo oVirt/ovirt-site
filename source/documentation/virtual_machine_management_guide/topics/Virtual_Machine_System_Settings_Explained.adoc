@@ -1,0 +1,100 @@
+[[Virtual_Machine_System_Settings_Explained]]
+==== Virtual Machine System Settings Explained
+
+:context: vm_sys_settings
+include::../../common/admin/snip-CPU-Considerations.adoc[]
+
+The following table details the options available on the *System* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
+[[New_VMs_Initial_Run-226]]
+
+.Virtual Machine: System Settings
+[cols="1,2,1", options="header"]
+|===
+
+|Field Name
+|Description
+|Power cycle required?
+
+
+|*Memory Size*
+|The amount of memory assigned to the virtual machine. When allocating memory, consider the processing and storage needs of the applications that are intended to run on the virtual machine.
+|If OS supports hotplugging, no. Otherwise, yes.
+
+
+|*Maximum Memory*
+|The maximum amount of memory that can be assigned to the virtual machine. Maximum guest memory is also constrained by the selected guest architecture and the cluster compatibility level.
+| If OS supports hotplugging, no. Otherwise, yes.
+
+
+|*Total Virtual CPUs*
+|The processing power allocated to the virtual machine as CPU Cores. For high performance, do not assign more cores to a virtual machine than are present on the physical host.
+| If OS supports hotplugging, no. Otherwise, yes.
+
+
+|*Virtual Sockets*
+|The number of CPU sockets for the virtual machine. Do not assign more sockets to a virtual machine than are present on the physical host.
+| If OS supports hotplugging, no. Otherwise, yes.
+
+
+|*Cores per Virtual Socket*
+|The number of cores assigned to each virtual socket.
+| If OS supports hotplugging, no. Otherwise, yes.
+
+
+|*Threads per Core*
+|The number of threads assigned to each core. Increasing the value enables simultaneous multi-threading (SMT). IBM POWER8 supports up to 8 threads per core. For x86 and x86_64 (Intel and AMD) CPU types, the recommended value is 1, unless you want to replicate the exact host topology, which you can do using CPU pinning. For more information, see xref:Pinning_CPU[].
+| If OS supports hotplugging, no. Otherwise, yes.
+
+
+|*BIOS Type*
+a|Specifies the chipset and BIOS type. Defaults to the cluster's default BIOS type. Options are:
+
+* *Cluster default* The BIOS type defined under General cluster settings.
+* *Q35 Chipset with Legacy BIOS* Legacy BIOS without UEFI (Default for clusters with compatibility version 4.4)
+* *Q35 Chipset with UEFI BIOS* BIOS with UEFI
+* *Q35 Chipset with SecureBoot* UEFI with SecureBoot, which authenticates the digital signatures of the boot loader
+* *Legacy* i440fx chipset with legacy BIOS
+
+For more information, see link:{URL_virt_product_docs}administration_guide/index#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.
+| Yes.
+
+|*Custom Emulated Machine*
+|This option allows you to specify the machine type. If changed, the virtual machine will only run on hosts that support this machine type. Defaults to the cluster's default machine type.
+| Yes.
+
+
+|*Custom CPU Type*
+|This option allows you to specify a CPU type. If changed, the virtual machine will only run on hosts that support this CPU type. Defaults to the cluster's default CPU type.
+| Yes.
+
+
+|*Hardware Clock Time Offset*
+|This option sets the time zone offset of the guest hardware clock. For Windows, this should correspond to the time zone set in the guest. Most default Linux installations expect the hardware clock to be GMT+00:00.
+| Yes.
+
+
+|*Custom Compatibility Version*
+|The compatibility version determines which features are supported by the cluster, as well as, the values of some properties and the emulated machine type. By default, the virtual machine is configured to run in the same compatibility mode as the cluster as the default is inherited from the cluster. In some situations the default compatibility mode needs to be changed. An example of this is if the cluster has been updated to a later compatibility version but the virtual machines have not been restarted. These virtual machines can be set to use a custom compatibility mode that is older than that of the cluster. See  link:{URL_virt_product_docs}administration_guide[Changing the Cluster Compatibility Version] in the _Administration Guide_ for more information.
+| Yes.
+
+
+
+|*Serial Number Policy*
+a|Override the system-level and cluster-level policies for assigning a serial numbers to virtual machines. Apply a policy that is unique to this virtual machine:
+
+* *System Default*: Use the system-wide defaults, which are configured in the {engine-name} database link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/administration_guide/sect-the_engine_configuration_tool[using the engine configuration tool] and the `DefaultSerialNumberPolicy` and `DefaultCustomSerialNumber` key names. The default value for `DefaultSerialNumberPolicy` is to use the Host ID. See link:{URL_virt_product_docs}administration_guide/#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
+
+* *Host ID*: Set this virtual machine's serial number to the UUID of the host.
+
+* *Vm ID*: Set this virtual machine's serial number to the UUID of this virtual machine.
+
+* *Custom serial number*: Set this virtual machine's serial number to the value you specify in the following *Custom Serial Number* parameter.
+| Yes.
+
+
+|*Custom Serial Number*
+|Specify the custom serial number to apply to this virtual machine.
+| Yes.
+
+
+|===

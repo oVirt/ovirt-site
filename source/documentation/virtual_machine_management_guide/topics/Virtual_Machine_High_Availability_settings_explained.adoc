@@ -1,0 +1,61 @@
+[[Virtual_Machine_High_Availability_settings_explained]]
+==== Virtual Machine High Availability Settings Explained
+
+The following table details the options available on the *High Availability* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
+[[New_VMs_HA]]
+
+.Virtual Machine: High Availability Settings
+[cols="1,2,1", options="header"]
+|===
+|Field Name |Description | Power cycle required?
+|*Highly Available* |Select this check box if the virtual machine is to be highly available. For example, in cases of host maintenance, all virtual machines are automatically live migrated to another host. If the host crashes and is in a non-responsive state, only virtual machines with high availability are restarted on another host. If the host is manually shut down by the system administrator, the virtual machine is not automatically live migrated to another host.
+
+Note that this option is unavailable for virtual machines defined as *Server* or *Desktop* if the *Migration Options* setting in the *Hosts* tab is set to *Do not allow migration*. For a virtual machine to be highly available, it must be possible for the {engine-name} to migrate the virtual machine to other available hosts as necessary.
+
+However, for virtual machines defined as *High Performance*, you can define high availability regardless of the *Migration Options* setting.
+ | Yes.
+
+|*Target Storage Domain for VM Lease* a|Select the storage domain to hold a virtual machine lease, or select *No VM Lease* to disable the functionality. When a storage domain is selected, it will hold a virtual machine lease on a special volume that allows the virtual machine to be started on another host if the original host loses power or becomes unresponsive.
+
+This functionality is only available on storage domain V4 or later.
+
+[NOTE]
+====
+If you define a lease, the only *Resume Behavior* available is KILL.
+====
+ | Yes.
+
+|*Resume Behavior* a|Defines the desired behavior of a virtual machine that is paused due to storage I/O errors, once a connection with the storage is reestablished. You can define the desired resume behavior even if the virtual machine is not highly available.
+
+The following options are available:
+
+* *AUTO_RESUME* - The virtual machine is automatically resumed, without requiring user intervention. This is recommended for virtual machines that are not highly available and that do not require user intervention after being in the paused state.
+
+* *LEAVE_PAUSED* - The virtual machine remains in pause mode until it is manually resumed or restarted.
+
+* *KILL* - The virtual machine is automatically resumed if the I/O error is remedied within 80 seconds. However, if more than 80 seconds pass, the virtual machine is ungracefully shut down. This is recommended for highly available virtual machines, to allow the {engine-name} to restart them on another host that is not experiencing the storage I/O error.
++
+*KILL* is the only option available when using virtual machine leases.
+ | No.
+
+|*Priority for Run/Migration queue* |Sets the priority level for the virtual machine to be migrated or restarted on another host.
+ | No.
+
+|*Watchdog* a|Allows users to attach a watchdog card to a virtual machine. A watchdog is a timer that is used to automatically detect and recover from failures. Once set, a watchdog timer continually counts down to zero while the system is in operation, and is periodically restarted by the system to prevent it from reaching zero. If the timer reaches zero, it signifies that the system has been unable to reset the timer and is therefore experiencing a failure. Corrective actions are then taken to address the failure. This functionality is especially useful for servers that demand high availability.
+
+*Watchdog Model*: The model of watchdog card to assign to the virtual machine. At current, the only supported model is *i6300esb*.
+
+*Watchdog Action*: The action to take if the watchdog timer reaches zero. The following actions are available:
+
+* *none* - No action is taken. However, the watchdog event is recorded in the audit log.
+
+* *reset* - The virtual machine is reset and the {engine-name} is notified of the reset action.
+
+* *poweroff* - The virtual machine is immediately shut down.
+
+* *dump* - A dump is performed and the virtual machine is paused.
+
+* *pause* - The virtual machine is paused, and can be resumed by users.
+ | Yes.
+
+|===

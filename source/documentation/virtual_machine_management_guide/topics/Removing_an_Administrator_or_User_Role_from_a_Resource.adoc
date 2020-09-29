@@ -1,0 +1,17 @@
+[[Removing_an_Administrator_or_User_Role_from_a_Resource]]
+==== Removing an Administrator or User Role from a Resource
+
+Remove an administrator or user role from a resource; the user loses the inherited permissions associated with the role for that resource.
+
+
+*Removing a Role from a Resource*
+
+. Use the resource tabs, tree mode, or the search function to find and select the resource in the results list.
+. Click the resource's name to go to the details view.
+. Click the *Permissions* tab to list the assigned users, the user's role, and the inherited permissions for the selected resource.
+. Select the user to remove from the resource.
+. Click btn:[Remove]. The *Remove Permission* window opens to confirm permissions removal.
+. Click btn:[OK].
+
+
+You have removed the user's role, and the associated permissions, from the resource.

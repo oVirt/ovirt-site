@@ -1,0 +1,11 @@
+[[Using_Cloud-Init_to_Automate_the_Configuration_of_Virtual_Machines]]
+=== Using Cloud-Init to Automate the Configuration of Virtual Machines
+
+Cloud-Init is a tool for automating the initial setup of virtual machines such as configuring the host name, network interfaces, and authorized keys. It can be used when provisioning virtual machines that have been deployed based on a template to avoid conflicts on the network.
+
+To use this tool, the `cloud-init` package must first be installed on the virtual machine. Once installed, the Cloud-Init service starts during the boot process to search for instructions on what to configure. You can then use options in the *Run Once* window to provide these instructions one time only, or options in the *New Virtual Machine*, *Edit Virtual Machine* and *Edit Template* windows to provide these instructions every time the virtual machine starts.
+
+[NOTE]
+====
+Alternatively, you can configure Cloud-Init with link:https://docs.ansible.com/ansible/latest/modules/ovirt_vm_module.html#examples[Ansible], link:{URL_downstream_virt_product_docs}html-single/python_sdk_guide/#Starting_a_Virtual_Machine_with_Cloud-Init[Python], link:https://github.com/oVirt/ovirt-engine-sdk-java/blob/master/sdk/src/test/java/org/ovirt/engine/sdk4/examples/StartVmWithCloudInit.java[Java], or link:{URL_downstream_virt_product_docs}html-single/ruby_sdk_guide/#starting_a_virtual_machine_with_cloud_init[Ruby].
+====

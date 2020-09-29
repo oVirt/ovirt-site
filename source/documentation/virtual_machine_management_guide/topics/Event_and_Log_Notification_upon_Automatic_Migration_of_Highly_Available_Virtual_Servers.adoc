@@ -1,0 +1,20 @@
+[[Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers]]
+==== Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers
+
+When a virtual server is automatically migrated because of the high availability function, the details of an automatic migration are documented in the *Events* tab and in the engine log to aid in troubleshooting, as illustrated in the following examples:
+
+.Notification in the Events Tab of the Administration Portal
+====
+Highly Available _Virtual_Machine_Name_ failed. It will be restarted automatically.
+
+_Virtual_Machine_Name_ was restarted on Host _Host_Name_
+
+====
+
+.Notification in the {engine-name} engine.log
+====
+This log can be found on the {virt-product-fullname} {engine-name} at */var/log/ovirt-engine/engine.log*:
+
+Failed to start Highly Available VM. Attempting to restart. VM Name: _Virtual_Machine_Name_, VM Id:_Virtual_Machine_ID_Number_
+
+====

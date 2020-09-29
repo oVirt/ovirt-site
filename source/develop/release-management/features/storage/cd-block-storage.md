@@ -12,7 +12,7 @@ feature_status: Design
 
 ## Summary
 
-This feature adds new implementation for CD-ROM management no block storage domains,
+This feature adds new implementation for CD-ROM management on block storage domains,
 namely for loading, ejecting and changing CD-ROM.
 
 ## Owner
@@ -102,7 +102,7 @@ This feature reworks existing vdsm API for loading, ejecting and
 changing CD to be able to work on block storage domains.
 From implementation point of view it is only one function,`ChangeCD`.
 This function will handle all aforementioned cases - loading CD, ejecting CD and changing CD.
-It  will also ensure, that the CD will be changed atomically.
+It will also ensure, that the CD will be changed atomically.
 This means that the change either happens or previous state will be preserved,
 e.g. if user wants to change CD by another and activation of new CD fails, CDROM will still hold
 old CD once the operation finishes.
@@ -144,7 +144,7 @@ old CD once the operation finishes.
 ```xml
     <ovirt-vm:device devtype="disk" name="sdc" state="ejecting">
 ```
-1. vdsm eject CD from VM (calling libvirt `updateDeviceFlags()`)
+1. vdsm ejects CD from VM (calling libvirt `updateDeviceFlags()`)
   - if failed (e.g. timeout?):
       1. remove the `state` attribute (log error)
       1. fail with original error

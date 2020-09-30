@@ -1,0 +1,51 @@
+[[configure_she_stretch_cluster]]
+=== Configure a Self-hosted Engine Stretch Cluster Environment
+
+This procedure provides instructions to configure a stretch cluster using a self-hosted engine deployment.
+
+include::../concept/cpt_StretchPrerequisites.adoc[]
+
+*Limitations*:
+
+* Maximum 7ms latency between sites.
+
+*Configuring the Self-hosted Engine Stretch Cluster*
+
+. Deploy the self-hosted engine. See link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface[_Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface_].
+
+. Install additional self-hosted engine nodes in each site and add them to your cluster. See link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_self-hosted_engine_nodes_to_the_Manager_SHE_cockpit_deploy[Adding Self-hosted Engine Nodes to the {virt-product-fullname} {engine-name}] in _Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface_.
+
+. Optionally, install additional standard hosts. See link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_standard_hosts_to_the_Manager_SHE_cockpit_deploy[Adding Standard Hosts to the {virt-product-fullname} {engine-name}] in _Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface_.
+
+include::../task/task_CommonStepsConfigureStretchCluster.adoc[]
+
+[[configure_standalone_manager_stretch_cluster]]
+=== Configure a Standalone {engine-name} Stretch Cluster Environment
+
+This procedure provides instructions to configure a stretch cluster using a standalone {engine-name} deployment.
+
+include::../concept/cpt_StretchPrerequisites.adoc[]
+
+*Limitations*:
+
+* Maximum 100ms latency between sites.
+
+[IMPORTANT]
+====
+The {engine-name} must be highly available for virtual machines to failover and failback between sites. If the {engine-name} goes down with the site, the virtual machines will not failover.
+
+The standalone {engine-name} is only highly available when managed externally. For example:
+
+* Using Red Hat’s High Availability Add-On.
+* As a highly available virtual machine in a separate virtualization environment.
+* Using {enterprise-linux} Cluster Suite.
+* In a public cloud.
+====
+
+*Configuring the Standalone {engine-name} Stretch Cluster*
+
+. Install and configure the {virt-product-fullname} {engine-name}. See link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_local_databases/[_Installing {virt-product-fullname} as a standalone {engine-name} with local databases_].
+
+. Install the hosts in each site and add them to the cluster. See link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_local_databases/#Installing_Hosts_for_RHV_SM_localDB_deploy[Installing Hosts for {virt-product-fullname}] in _Installing {virt-product-fullname} as a standalone {engine-name} with local databases_.
+
+include::../task/task_CommonStepsConfigureStretchCluster.adoc[]

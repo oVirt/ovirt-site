@@ -138,6 +138,10 @@ exclude:
   - documentation/administration_guide/topics
   - documentation/data_warehouse_guide/chap*
   - documentation/data_warehouse_guide/topics
+  - documentation/disaster_recovery_guide/assembly
+  - documentation/disaster_recovery_guide/concept
+  - documentation/disaster_recovery_guide/reference
+  - documentation/disaster_recovery_guide/task
   - documentation/intro-vm-portal/topics
   - documentation/intro-vm-portal/chap*
   - documentation/upgrade_guide/assembly*

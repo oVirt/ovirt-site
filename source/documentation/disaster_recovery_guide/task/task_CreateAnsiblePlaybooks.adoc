@@ -1,0 +1,39 @@
+[[create_ansible_playbooks]]
+=== Create the Required Ansible Playbooks
+
+Ansible is used to initiate and manage the disaster recovery failover and failback. You therefore need to create Ansible playbooks to facilitate this. For more information about creating Ansible playbooks, see the link:http://docs.ansible.com/ansible/latest/playbooks.html[Ansible documentation].
+
+*Prerequisites*:
+
+* Fully functioning {virt-product-fullname} environment in the primary site.
+* A backup environment in the secondary site with the same data center and cluster compatibility level as the primary environment. The backup environment must have:
+** A {virt-product-fullname} {engine-name}.
+** Active hosts capable of running the virtual machines and connecting to the replicated storage domains.
+** A data center with clusters.
+** Networks with the same general connectivity as the primary site.
+* Replicated storage. See <<storage_considerations_active-passive>> for more information.
++
+NOTE: The replicated storage that contains virtual machines and templates must not be attached to the secondary site.
+* The `oVirt.disaster-recovery` package must be installed on the highly available Red Hat Ansible Engine machine that will automate the failover and failback.
+* The machine running Red Hat Ansible Engine must be able to use SSH to connect to the {engine-name} in the primary and secondary site.
+
+It is also recommended to create environment properties that exist in the primary site, such as affinity groups, affinity labels, users, on the secondary site.
+
+NOTE: The default behaviour of the Ansible playbooks can be configured in the `/usr/share/ansible/roles/oVirt.disaster-recovery/defaults/main.yml` file.
+
+The following playbooks must be created:
+
+* The playbook that creates the file to map entities on the primary and secondary site.
+* The failover playbook.
+* The failback playbook.
+
+You can also create an optional playbook to clean the primary site before failing back.
+
+Create the playbooks and associated files in `/usr/share/ansible/roles/oVirt.disaster-recovery/` on the Ansible machine that is managing the failover and failback. If you have multiple Ansible machines that can manage it, ensure that you copy the files to all of them.
+
+You can test the configuration using one or more of the testing procedures in <<testing_active_passive>>.
+
+include::../task/task_UsingOvirtDrScript.adoc[]
+include::../task/task_GenerateMapping.adoc[]
+include::../task/task_CreateFailoverFailbackPlaybooks.adoc[]
+include::../task/task_CreateCleanupPlaybook.adoc[]

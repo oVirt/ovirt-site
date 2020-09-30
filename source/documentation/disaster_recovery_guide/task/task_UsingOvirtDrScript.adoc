@@ -1,0 +1,25 @@
+[[Using-ovirt-dr-script]]
+==== Using the `ovirt-dr` Script for Ansible Tasks
+
+The `ovirt-dr` script is located in */usr/share/ansible/roles/oVirt.disaster-recovery/files*. This script simplifies the following Ansible tasks:
+
+* Generating a `var` mapping file of the primary and secondary sites for failover and fallback
+* Validating the `var` mapping file
+* Executing failover on a target site
+* Executing failback from a target site to a source site
+
+*Usage*
+
+[options="nowrap" subs="normal"]
+----
+# ./ovirt-dr _generate/validate/failover/failback_
+              [--conf-file=dr.conf]
+              [--log-file=ovirt-dr-_log_number_.log]
+              [--log-level=_DEBUG/INFO/WARNING/ERROR_]
+----
+
+You can set the parameters for the script's actions in the configuration file,  */usr/share/ansible/roles/oVirt.disaster-recovery/files/dr.conf*.
+
+You can change the location of the configuration file with the `--conf-file` option.
+
+You can set the location and level of logging detail with the `--log-file` and `--log-level` options.

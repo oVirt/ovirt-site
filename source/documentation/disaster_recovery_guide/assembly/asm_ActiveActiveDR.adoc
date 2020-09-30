@@ -1,0 +1,11 @@
+[[active_active]]
+== Active-Active Disaster Recovery
+:cptdir: ../concept
+:taskdir: ../task
+
+This chapter provides instructions to configure {virt-product-fullname} for disaster recovery using the active-active disaster recovery solution.
+
+include::{cptdir}/cpt_OverviewActiveActive.adoc[]
+include::{cptdir}/cpt_NetworkConsiderationsAA.adoc[]
+include::{cptdir}/cpt_StorageConsiderationsAA.adoc[]
+include::{taskdir}/task_ConfigureStretchCluster.adoc[]

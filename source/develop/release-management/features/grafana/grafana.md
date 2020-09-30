@@ -17,6 +17,6 @@ To obtain the full benefits of Grafana, it is recommended to update the Data War
 
 Full scaling may require migrating the Data Warehouse to a separate virtual machine.
 
-For Data Warehouse scaling instructions, see [Changing the Data Warehouse Sampling Scale](/documentation/data-warehouse/Changing_the_Data_Warehouse_Sampling_Scale.html)
+For Data Warehouse scaling instructions, see [Changing the Data Warehouse Sampling Scale](/documentation/data_warehouse_guide/)
 
-For instructions on migrating to or installing on a separate machine, see [Migrating Data Warehouse to a Separate Machine](/documentation/data-warehouse/Migrating_Data_Warehouse_to_a_Separate_Machine.html)
+For instructions on migrating to or installing on a separate machine, see [Migrating Data Warehouse to a Separate Machine](/documentation/data_warehouse_guide/)

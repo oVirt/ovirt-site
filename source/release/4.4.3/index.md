@@ -1,13 +1,14 @@
 ---
 title: oVirt 4.4.3 Release Notes
 category: documentation
+authors: sandrobonazzola lveyde
 toc: true
 page_classes: releases
 ---
 
 # oVirt 4.4.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.3 First Release Candidate as of September 17, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.3 Second Release Candidate as of September 25, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -51,7 +52,18 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 ### Enhancements
 
+#### VDSM
+
+ - [BZ 1859092](https://bugzilla.redhat.com/1859092) **Logical Name is missing when attaching RO direct LUN to a VM**
+
+   Previously, the logical name of LUN disks within the guest weren't pull to the user visibility. Now, the LUN logical name is pulled and shown in the disk device.
+
+
 #### oVirt Engine
+
+ - [BZ 1881119](https://bugzilla.redhat.com/1881119) **[RFE] Make engine-backup refuse to restore a backup from a version earlier than 4.3.10**
+
+   engine-backup now refuses to restore a backup taken with a version earlier than 4.3.10, to prevent a missing cinderlib database on restore - as cinderlib database backup was added on in 4.3.10.
 
  - [BZ 1797717](https://bugzilla.redhat.com/1797717) **Search backend cannot find VMs which name starts with a search keyword**
 
@@ -124,6 +136,15 @@ Reason: When the qemu-img process failed, the engine was reporting a successful 
 Result: Now when the qemu-img process fails to compete, the failure is detected and reported to the engine which fails appropriately.
 
 
+### Removed functionality
+
+#### VDSM
+
+ - [BZ 1853320](https://bugzilla.redhat.com/1853320) **[Code change] Remove setup networks based on network-scripts**
+
+   
+
+
 ### Bug Fixes
 
 #### VDSM
@@ -142,6 +163,10 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
 
 #### oVirt Engine
 
+ - [BZ 1881307](https://bugzilla.redhat.com/1881307) **Can't update cluster's MAC pool if the cluster contain template with vNIC**
+
+ - [BZ 1855305](https://bugzilla.redhat.com/1855305) **Cannot hotplug disk reports libvirtError: Requested operation is not valid: Domain already contains a disk with that address**
+
  - [BZ 1869317](https://bugzilla.redhat.com/1869317) **SCSI Hostdev Passthrough: VM snapshot is dropping attached scsi_hostdev.**
 
  - [BZ 1855249](https://bugzilla.redhat.com/1855249) **noVNC console via websocket with separated host doesn't work in chrome**
@@ -157,6 +182,11 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
  - [BZ 1808320](https://bugzilla.redhat.com/1808320) **[Permissions] DataCenterAdmin role defined on DC level does not allow Cluster creation**
 
 
+#### oVirt Provider OVN
+
+ - [BZ 1835550](https://bugzilla.redhat.com/1835550) **ovirt-provider-ovn takes more than ExternalNetworkProviderTimeout to respond to engine requests**
+
+
 #### oVirt Engine Data Warehouse
 
  - [BZ 1846365](https://bugzilla.redhat.com/1846365) **Handle grafana in ovirt-engine-rename**
@@ -167,6 +197,10 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
 ### Other
 
 #### VDSM
+
+ - [BZ 1857347](https://bugzilla.redhat.com/1857347) **Live merge in endless loop trying to pivot after unrecoverable error from libvirt**
+
+   
 
  - [BZ 1870148](https://bugzilla.redhat.com/1870148) **Cannot bond a NIC with vlan tagged network attachment**
 
@@ -183,11 +217,31 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
 
 #### oVirt Engine
 
+ - [BZ 1659829](https://bugzilla.redhat.com/1659829) **[Backup restore API] Preview snapshot operation, while the VM has a snapshot disk attached, fails with NullPointerException and leaves the snapshot and a disk in status LOCKED. The VM cannot be started**
+
+   
+
+ - [BZ 1865923](https://bugzilla.redhat.com/1865923) **Cannot remove existing virtual disks in the clone modal (Admin portal)**
+
+   
+
+ - [BZ 1804675](https://bugzilla.redhat.com/1804675) **[ja_JP] Text alignment correction needed on administration -> configure -> instance type -> add page**
+
+   
+
+ - [BZ 1880972](https://bugzilla.redhat.com/1880972) **UI exception when viewing and sorting VMs via VMs > Network Interfaces > up and down with keyboard**
+
+   
+
+ - [BZ 1792870](https://bugzilla.redhat.com/1792870) **[RFE] Display cluster ID in cluster view**
+
+   
+
  - [BZ 1873112](https://bugzilla.redhat.com/1873112) **Cannot update cluster chipset/firmware type if the cluster contains templates**
 
    
 
- - [BZ 1855305](https://bugzilla.redhat.com/1855305) **Cannot hotplug disk reports libvirtError: Requested operation is not valid: Domain already contains a disk with that address**
+ - [BZ 1846350](https://bugzilla.redhat.com/1846350) **Extra white space and over-stretched components in WebAdmin dialogues - Storage dialogs**
 
    
 
@@ -223,6 +277,10 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
 
    
 
+ - [BZ 1438386](https://bugzilla.redhat.com/1438386) **[RFE] - provide a way for the user to replace host which has both virt and gluster services enabled  from UI**
+
+   
+
  - [BZ 1828333](https://bugzilla.redhat.com/1828333) **Can't resume an upload after it has been paused**
 
    
@@ -236,13 +294,6 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
    
 
  - [BZ 1857148](https://bugzilla.redhat.com/1857148) **OVA import (exported from the same 4.4 cluster) is not using the correct BIOS Type.**
-
-   
-
-
-#### oVirt Provider OVN
-
- - [BZ 1835550](https://bugzilla.redhat.com/1835550) **ovirt-provider-ovn takes more than ExternalNetworkProviderTimeout to respond to engine requests**
 
    
 
@@ -282,9 +333,20 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
    
 
 
+#### IOProcess
+
+ - [BZ 1777805](https://bugzilla.redhat.com/1777805) **Improve logging during block size detections**
+
+   
+
+
 ### No Doc Update
 
 #### VDSM
+
+ - [BZ 1876605](https://bugzilla.redhat.com/1876605) **VM with scsi hostdev (scsi_generic custom property) fails on start:'node-name too long for qemu'**
+
+   
 
  - [BZ 1876230](https://bugzilla.redhat.com/1876230) **LSM fails on CreateLiveSnapshotForVmCommand - Unable to prepare the volume path for disk vdb**
 
@@ -298,6 +360,10 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
    
 
  - [BZ 1877279](https://bugzilla.redhat.com/1877279) **dwh status is overwritten by engine-setup**
+
+   
+
+ - [BZ 1876923](https://bugzilla.redhat.com/1876923) **PostgreSQL 12 in RHV 4.4 - engine-setup menu ref URL needs updating**
 
    
 
@@ -329,14 +395,17 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
 
    
 
- - [BZ 1842344](https://bugzilla.redhat.com/1842344) **Status loop due to host initialization not checking network status, monitoring finding the network issue and auto-recovery.**
+
+#### ovirt-engine-extension-logger-log4j
+
+ - [BZ 1877312](https://bugzilla.redhat.com/1877312) **package contains wrong symlink to log4j.jar**
 
    
 
 
 #### Contributors
 
-46 people contributed to this release:
+51 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Alan Rominger (Contributed to: ovirt-ansible-collection)
@@ -353,22 +422,27 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
 	Christopher Brown (Contributed to: ovirt-ansible-collection)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Darin (Contributed to: ovirt-ansible-collection)
-	Dominik Holler (Contributed to: ovirt-provider-ovn)
+	Dominik Holler (Contributed to: ovirt-engine, ovirt-provider-ovn)
 	Douglas Schilling Landgraf (Contributed to: engine-db-query)
 	Eli Mesika (Contributed to: ovirt-engine, vdsm)
-	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
+	Evgheni Dereveanchin (Contributed to: ovirt-release)
+	Eyal Shenitzky (Contributed to: ioprocess, ovirt-engine, vdsm)
 	Germano Veit Michel (Contributed to: vdsm)
 	Lev Veyde (Contributed to: ovirt-dwh, ovirt-engine, ovirt-release)
-	Liran Rotenberg (Contributed to: ovirt-engine)
+	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection, ovirt-engine)
+	Martin Perina (Contributed to: ovirt-engine-extension-logger-log4j)
 	Michal Skrivanek (Contributed to: ovirt-engine)
 	Milan Zamazal (Contributed to: vdsm)
 	Nijin Ashok (Contributed to: ovirt-ansible-collection)
-	Nir Soffer (Contributed to: ovirt-engine, vdsm)
+	Nir Soffer (Contributed to: ioprocess, ovirt-engine, vdsm)
+	Ori Liel (Contributed to: ovirt-engine)
+	Pavel Bar (Contributed to: ioprocess)
 	Pierre Lecomte (Contributed to: ovirt-engine)
 	Prajith Kesava Prasad (Contributed to: ovirt-engine)
+	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Reto Gantenbein (Contributed to: ovirt-ansible-collection)
 	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-engine)
 	Sean Sackowitz (Contributed to: ovirt-ansible-collection)

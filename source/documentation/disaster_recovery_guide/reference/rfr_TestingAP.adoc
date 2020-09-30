@@ -1,0 +1,20 @@
+[[testing_active_passive]]
+== Testing the Active-Passive Configuration
+:refdir: ../reference
+
+You must test your disaster recovery solution after configuring it. This section provides multiple options to test the active-passive disaster recovery configuration.
+
+. Test failover while the primary site remains active and without interfering with virtual machines on the primary site's storage domains. See <<discreet_failover>>.
+. Test failover and failback using specific storage domains attached to the the primary site, therefore allowing the primary site to remain active. See <<discreet_failover_failback>>.
+. Test failover and failback for an impending disaster where you have a grace period to failover to the secondary site, or an unplanned shutdown of the primary site. See <<non_discreet_failover_failback>>.
+
+[IMPORTANT]
+====
+Ensure that you completed all the steps to configure your active-passive configuration before running any of these tests.
+====
+
+include::{refdir}/rfr_discreet_failover.adoc[]
+
+include::{refdir}/rfr_discreet_failover_failback.adoc[]
+
+include::{refdir}/rfr_non_discreet_failover_failback.adoc[]

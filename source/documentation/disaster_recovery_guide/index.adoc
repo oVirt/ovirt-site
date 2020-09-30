@@ -1,0 +1,22 @@
+= Disaster Recovery Guide
+include::../common/collateral_files/ovirt-attributes.adoc[]
+:imagesdir: images
+:toclevels: 4
+
+// Make sure Jekyll displays a guide title
+[discrete]
+= Disaster Recovery Guide
+
+include::concept/cpt_DisasterRecoverySolutions.adoc[]
+include::assembly/asm_ActiveActiveDR.adoc[]
+include::assembly/asm_ActivePassiveDR.adoc[]
+
+[appendix]
+include::reference/rfr_MappingFileAttributes.adoc[]
+[appendix]
+include::reference/rfr_TestingAP.adoc[]
+
+[appendix]
+== Legal notice
+
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}/disaster_recovery_guide/[Red Hat Virtualization {vernum_rhv} Data Warehouse Guide]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

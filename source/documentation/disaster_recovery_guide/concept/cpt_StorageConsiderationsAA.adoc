@@ -1,0 +1,8 @@
+[[storage_considerations_active_active]]
+==== Storage Considerations
+
+The storage domain for {virt-product-fullname} can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about {virt-product-fullname} storage see link:{URL_virt_product_docs}administration_guide/#chap-Storage[Storage] in the _Administration Guide_.
+
+The sites require synchronously replicated storage that is writeable on both sites with shared layer 2 (L2) network connectivity. The replicated storage is required to allow virtual machines to migrate between sites and continue running on the site’s storage. All storage replication options supported by {enterprise-linux} 7 and later can be used in the stretch cluster.
+
+IMPORTANT: If you have a custom multipath configuration that is recommended by the storage vendor, see the instructions and important limitations in link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#proc-Customizing_Multipath_Configurations_for_SAN_Vendors_SHE_cockpit_deploy[Customizing Multipath Configurations for SAN Vendors].

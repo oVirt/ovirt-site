@@ -26,13 +26,13 @@ the default application for opening a console to a virtual machine is Remote Vie
 the client machine (for example, the end user or administrator's laptop). For Windows virtual machines, Remote
 Desktop Protocol is also available.
 
-See [Installing Console Components](/documentation/virtual_machine_management_guide/#installing-console-components)
+See [Installing Console Components](/documentation/virtual_machine_management_guide/#sect-Installing_Console_Components)
 for installation instructions.
 
 #### Browser based
 
 There is also a browser-based console available. In the Console Options dialog for the Virtual Machine, select `noVNC`.
-See [VNC Console Options](/documentation/virtual_machine_management_guide/#vnc-console-options) for more
+See [VNC Console Options](/documentation/virtual_machine_management_guide/#VNC_Console_Options) for more
 information.
 
 ## Mobile Client for Android - moVirt

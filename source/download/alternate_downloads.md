@@ -181,8 +181,8 @@ See the [Virtual Machine Management Guide](/documentation/virtual_machine_manage
 instructions.
 
 For best Virtual Machine performance and accurate dashboard statistics, be sure to install the
-[oVirt Guest Agent and Drivers for Linux](/documentation/virtual_machine_management_guide/#installing-the-guest-agents-and-drivers-on-enterprise-linux)
-\[for [Windows](/documentation/virtual_machine_management_guide/#installing-the-guest-agents-and-drivers-on-windows)\]
+[oVirt Guest Agent and Drivers for Linux](/documentation/virtual_machine_management_guide/#Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux)
+\[for [Windows](/documentation/virtual_machine_management_guide/#Installing_the_Guest_Agents_and_Drivers_on_Windows)\]
 in each Virtual Machine.
 
 The following virtual machine guest operating systems are supported:
@@ -212,8 +212,8 @@ The following virtual machine guest operating systems are supported:
 The console is a graphical window that allows you to view and interact with the screen of a Virtual Machine.
 In oVirt, you can use a web-based console viewer or a desktop application (we recommend 
 [Remote Viewer](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-graphic_user_interface_tools_for_guest_virtual_machine_management-remote_viewer)).
-For Windows virtual machines, Remote Desktop Protocol is also available. See [Installing Console Components](/documentation/virtual_machine_management_guide/#installing-console-components),
-[VNC Console Options](/documentation/virtual_machine_management_guide/#vnc-console-options), and
+For Windows virtual machines, Remote Desktop Protocol is also available. See [Installing Console Components](/documentation/virtual_machine_management_guide/#sect-Installing_Console_Components),
+[VNC Console Options](/documentation/virtual_machine_management_guide/#VNC_Console_Options), and
 and [Browser Support and Mobile Clients](/download/browsers_and_mobile.html) for more information.
 
 <hr/>

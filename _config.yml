@@ -150,6 +150,7 @@ exclude:
   - documentation/virtual_machine_management_guide/appe*
   - documentation/virtual_machine_management_guide/chap*
   - documentation/virtual_machine_management_guide/topics
+  - documentation/virtual_machine_management_guide/assembly*
 
 sass:
   add_charset: true

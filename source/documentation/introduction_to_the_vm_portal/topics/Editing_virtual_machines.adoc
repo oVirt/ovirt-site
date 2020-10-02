@@ -11,7 +11,7 @@ You can edit a virtual machine's disks and network interfaces in the virtual mac
 *Editing a virtual machine*
 
 In the virtual machines pane, click the card of the virtual machine that you want to edit. The Virtual machine dashboard is displayed, which contains the following fields, organized in individual cards.
-Click the *Edit* icon (image:/documentation/intro-vm-portal/images/Edit_VM.png[width=20px]) in the appropriate card to edit the values in that card:
+Click the *Edit* icon (image:/documentation/introduction_to_the_vm_portal/images/Edit_VM.png[width=20px]) in the appropriate card to edit the values in that card:
 
 .Virtual Machine name and description
 * *Name* - The virtual machine name may contain only upper- or lower-case letters, numbers, underscores, hyphens, or periods. Special characters and spaces are not allowed.
@@ -34,17 +34,17 @@ Click the *Edit* icon (image:/documentation/intro-vm-portal/images/Edit_VM.png[w
 .Snapshots
 Displays a list of snapshots that have been saved.
 
-* Click the *Edit* icon (image:/documentation/intro-vm-portal/images/Edit_VM.png[width=20px]) to display the *Create Snapshot* button for creating a new snapshot. See Explanation of Settings in the New Network Interface and Edit Network Interface Windows in the _Virtual Machine Management Guide_ for details.
+* Click the *Edit* icon (image:/documentation/introduction_to_the_vm_portal/images/Edit_VM.png[width=20px]) to display the *Create Snapshot* button for creating a new snapshot. See Explanation of Settings in the New Network Interface and Edit Network Interface Windows in the _Virtual Machine Management Guide_ for details.
 * Click the *information*, *restore*, or *delete* icon to view details, restore a snapshot, or delete a snapshot.
 
 .Network Interfaces
 Displays a list of network interfaces defined for this virtual machine.
 
-* Click the *Edit* icon (image:/documentation/intro-vm-portal/images/Edit_VM.png[width=20px]) to display the *Create NIC* button for creating a new network interface entry. See Explanation of Settings in the New Network Interface and Edit Network Interface Windows in the _Virtual Machine Management Guide_ for details.
+* Click the *Edit* icon (image:/documentation/introduction_to_the_vm_portal/images/Edit_VM.png[width=20px]) to display the *Create NIC* button for creating a new network interface entry. See Explanation of Settings in the New Network Interface and Edit Network Interface Windows in the _Virtual Machine Management Guide_ for details.
 * Click the *Edit* or *Delete* icon to edit or delete a network interface.
 
 .Disks
 Displays a list of disks that are defined for this virtual machine.
 
-* Click the *Edit* icon (image:/documentation/intro-vm-portal/images/Edit_VM.png[width=20px]) to display the *Create Disk* button for creating a new disk entry.
+* Click the *Edit* icon (image:/documentation/introduction_to_the_vm_portal/images/Edit_VM.png[width=20px]) to display the *Create Disk* button for creating a new disk entry.
 * Click the *Edit* or *Delete* icon to edit or delete the disk. See  Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows in the _Virtual Machine Management Guide_ for details.

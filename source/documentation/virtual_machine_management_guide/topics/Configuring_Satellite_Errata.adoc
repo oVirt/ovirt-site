@@ -28,7 +28,7 @@ Virtual machines added using an IP address cannot report errata.
 
 .Additional resources
 
-* link:{URL_virt_product_docs}administration_guide/index#Configuring_Satellite_Errata_Management_for_a_Host[Setting up Satellite errata viewing for a host] in the _Administration Guide_
-* link:{URL_virt_product_docs}virtual_machine_management_guideindex#Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux[Installing the Guest Agents, Tools, and Drivers on Linux] in the _Virtual Machine Management Guide_ for {enterprise-linux} virtual machines.
-* link:{URL_virt_product_docs}virtual_machine_management_guideindex#Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_ for Windows virtual machines.
+* link:{URL_virt_product_docs}administration_guide/index.html#Configuring_Satellite_Errata_Management_for_a_Host[Setting up Satellite errata viewing for a host] in the _Administration Guide_
+* link:{URL_virt_product_docs}virtual_machine_management_guide/index.html#Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux[Installing the Guest Agents, Tools, and Drivers on Linux] in the _Virtual Machine Management Guide_ for {enterprise-linux} virtual machines.
+* link:{URL_virt_product_docs}virtual_machine_management_guide/index.html#Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_ for Windows virtual machines.
 * link:{URL_satellite_docs}html/managing_hosts/host-management-without-goferd-and-katello-agent_managing-hosts[Host Management Without Goferd and Katello Agent] in the Red Hat Satellite document _Managing Hosts_.

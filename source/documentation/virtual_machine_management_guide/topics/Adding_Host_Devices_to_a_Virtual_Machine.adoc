@@ -41,7 +41,7 @@ If the virtual machine cannot start on the specified host or access the host dev
 .. Click the btn:[Edit] button. This opens the *Edit Virtual Machine* pane.
 .. Click the *Custom Properties* tab.
 .. Click the *Please select a key* and select *scsi_hostdev* from the bottom of the drop-down list.
-.. In most cases, select *scsi-hd*. Otherwise, for tape or CD changer devices, select the *scsi_generic* option. For more details, see link:{URL_virt_product_docs}virtual_machine_management_guideindex#Virtual_Machine_Custom_Properties_settings_explained[Virtual Machine Custom Properties Settings Explained].
+.. In most cases, select *scsi-hd*. Otherwise, for tape or CD changer devices, select the *scsi_generic* option. For more details, see link:{URL_virt_product_docs}virtual_machine_management_guide/index.html#Virtual_Machine_Custom_Properties_settings_explained[Virtual Machine Custom Properties Settings Explained].
 .. Click the btn:[OK] button.
 . Run the virtual machine.
 . While the virtual machine starts running, watch for *Operation Canceled* error messages.

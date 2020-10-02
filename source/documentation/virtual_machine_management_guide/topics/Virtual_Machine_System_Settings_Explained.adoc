@@ -55,7 +55,7 @@ a|Specifies the chipset and BIOS type. Defaults to the cluster's default BIOS ty
 * *Q35 Chipset with SecureBoot* UEFI with SecureBoot, which authenticates the digital signatures of the boot loader
 * *Legacy* i440fx chipset with legacy BIOS
 
-For more information, see link:{URL_virt_product_docs}administration_guide/index#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.
+For more information, see link:{URL_virt_product_docs}administration_guide/index.html#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.
 | Yes.
 
 |*Custom Emulated Machine*

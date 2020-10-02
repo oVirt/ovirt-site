@@ -249,7 +249,7 @@ a|
 |*static hugepages*
 |Predictable results
 a|
-* Requires a kernel command line in the Edit Host configuration in the Administraion Portal. See link:http://ovirt.github.io/ovirt-engine-api-model/4.4/index#types-operating_system-attributes-custom_kernel_cmdline[Custom kernel command line]
+* Requires a kernel command line in the Edit Host configuration in the Administraion Portal. See link:http://ovirt.github.io/ovirt-engine-api-model/4.4/index.html#types-operating_system-attributes-custom_kernel_cmdline[Custom kernel command line]
 * Requires a host reboot.
 |
 |===

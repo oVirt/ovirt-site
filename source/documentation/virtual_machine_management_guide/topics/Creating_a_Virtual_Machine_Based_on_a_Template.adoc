@@ -31,4 +31,4 @@ The virtual machine is displayed in the *Virtual Machines* tab.
 .Additional Resources
 
 * xref:Creating_a_cloned_virtual_machine_based_on_a_template[]
-* link:{URL_virt_product_docs}administration_guide/index#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.
+* link:{URL_virt_product_docs}administration_guide/index.html#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.

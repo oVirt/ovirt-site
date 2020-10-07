@@ -7,7 +7,7 @@ Configure user permissions to assign users to certain vNIC profiles. Assign the 
 *User Permissions for vNIC Profiles*
 
 . Click menu:Network[vNIC Profile].
-. Click the vNIC profile's name to open the details view.
+. Click the vNIC profile's name. This opens the details view.
 . Click the *Permissions* tab to show the current user permissions for the profile.
 . Click *Add* or *Remove* to change user permissions for the vNIC profile.
 . In the *Add Permissions to User* window, click *My Groups* to display your user groups. You can use this option to grant permissions to other users in your groups.

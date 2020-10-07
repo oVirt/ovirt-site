@@ -14,4 +14,4 @@ You can change the storage type of the data center after it has been initialized
 . Click menu:Compute[Data Centers] and select the data center to change.
 . Click *Edit*.
 . Change the *Storage Type* to the desired value.
-. Click *OK*.
+. Click btn:[OK].

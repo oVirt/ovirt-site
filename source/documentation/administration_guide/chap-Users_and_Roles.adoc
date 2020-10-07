@@ -18,6 +18,8 @@ include::topics/Removing_an_External_LDAP_Provider.adoc[]
 
 include::topics/Configuring_LDAP_and_Kerberos_for_Single_Sign-on.adoc[]
 
+//include::topics/Configuring_Red_Hat_SSO.adoc[]
+
 [[sect-User_Authorization]]
 === User Authorization
 

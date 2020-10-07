@@ -3,7 +3,7 @@
 
 You can create new MAC address pools.
 
-*Creating a MAC Address Pool*
+.Procedure
 
 . Click menu:Administration[Configure].
 . Click the *MAC Address Pools* tab.
@@ -16,4 +16,4 @@ You can create new MAC address pools.
 If one MAC address pool has duplicates disabled, and another has duplicates enabled, each MAC address can be used once in the pool with duplicates disabled but can be used multiple times in the pool with duplicates enabled.
 ====
 . Enter the required *MAC Address Ranges*. To enter multiple ranges click the plus button next to the *From* and *To* fields.
-. Click *OK*.
+. Click btn:[OK].

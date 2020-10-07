@@ -31,7 +31,7 @@ combinations.
 *Editing Host Network Interfaces and Assigning Logical Networks to Hosts*
 
 . Click menu:Compute[Hosts].
-. Click the host's name to open the details view.
+. Click the host's name. This opens the details view.
 . Click the *Network Interfaces* tab.
 . Click *Setup Host Networks*.
 . Optionally, hover your cursor over host network interface to view configuration information provided by the switch.
@@ -43,7 +43,7 @@ If a NIC is connected to more than one logical network, only one of the networks
 ====
 
 . Configure the logical network:
-.. Hover your cursor over an assigned logical network and click the pencil icon to open the *Edit Management Network* window.
+.. Hover your cursor over an assigned logical network and click the pencil icon. This opens the *Edit Management Network* window.
 .. From the *IPv4* tab, select a *Boot Protocol* from *None*, *DHCP*, or *Static*. If you selected *Static*, enter the *IP*, *Netmask / Routing Prefix*, and the *Gateway*.
 +
 [NOTE]
@@ -82,13 +82,10 @@ Set *all* hosts in a cluster to use the same IP stack for their management netwo
 [options="nowrap" subs="normal"]
 ----
 forward_delay=1500
-gc_timer=3765
 group_addr=1:80:c2:0:0:0
 group_fwd_mask=0x0
-hash_elasticity=4
 hash_max=512
 hello_time=200
-hello_timer=70
 max_age=2000
 multicast_last_member_count=2
 multicast_last_member_interval=100
@@ -129,7 +126,7 @@ A separate, dedicated logical network is recommended for use with FCoE.
 .. If your logical network definition is not synchronized with the network configuration on the host, select the *Sync network* check box. For more information about unsynchronized hosts and how to synchronize them, see xref:Synchronizing_host_networks[].
 +
 . Select the *Verify connectivity between Host and Engine* check box to check network connectivity. This action only works if the host is in maintenance mode.
-. Click *OK*.
+. Click btn:[OK].
 
 [NOTE]
 ====

@@ -13,7 +13,7 @@ After a MAC address pool has been created, you can edit its user permissions. Th
 .. Click *Add* in the user permissions pane at the bottom of the *Configure* window.
 .. Search for and select the required users.
 .. Select the required role from the *Role to Assign* drop-down list.
-.. Click *OK* to add the user permissions.
+.. Click btn:[OK] to add the user permissions.
 * To remove user permissions from a MAC address pool:
 .. Select the user permission to be removed in the user permissions pane at the bottom of the *Configure* window.
 .. Click *Remove* to remove the user permissions.

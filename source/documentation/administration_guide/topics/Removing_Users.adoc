@@ -7,6 +7,6 @@ When a user account is no longer required, remove it from {virt-product-fullname
 
 . Click menu:Administration[Users] to display the list of authorized users.
 . Select the user to be removed. Ensure the user is not running any virtual machines.
-. Click *Remove*, then click *OK*.
+. Click *Remove*, then click btn:[OK].
 
 The user is removed from {virt-product-fullname}, but not from the external directory.

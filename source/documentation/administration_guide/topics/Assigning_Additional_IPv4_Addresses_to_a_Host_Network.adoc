@@ -1,7 +1,7 @@
 [[Assigning_Additional_IPv4_Addresses_to_a_Host_Network]]
 ==== Assigning Additional IPv4 Addresses to a Host Network
 
-A host network, such as the *ovirtmgmt* management network, is created with only one IP address when initially set up. This means that if a NIC's configuration file (for example, */etc/sysconfig/network-scripts/ifcfg-eth01*) is configured with multiple IP addresses, only the first listed IP address will be assigned to the host network. Additional IP addresses may be required if connecting to storage, or to a server on a separate private subnet using the same NIC.
+A host network, such as the *ovirtmgmt* management network, is created with only one IP address when initially set up. This means that if a NIC's configuration file is configured with multiple IP addresses, only the first listed IP address will be assigned to the host network. Additional IP addresses may be required if connecting to storage, or to a server on a separate private subnet using the same NIC.
 
 The `vdsm-hook-extra-ipv4-addrs` hook allows you to configure additional IPv4 addresses for host networks. For more information about hooks, see xref:appe-VDSM_and_Hooks[].
 
@@ -14,7 +14,7 @@ In the following procedure, the host-specific tasks must be performed on each ho
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install vdsm-hook-extra-ipv4-addrs
+# dnf install vdsm-hook-extra-ipv4-addrs
 ----
 +
 . On the {engine-name}, run the following command to add the key:
@@ -32,12 +32,12 @@ In the following procedure, the host-specific tasks must be performed on each ho
 ----
 +
 . In the Administration Portal, click menu:Compute[Hosts].
-. Click the host's name to open the details view.
+. Click the host's name. This opens the details view.
 . Click the *Network Interfaces* tab and click *Setup Host Networks*.
 . Edit the host network interface by hovering the cursor over the assigned logical network and clicking the pencil icon.
 . Select *ipv4_addr* from the *Custom Properties* drop-down list and add the additional IP address and prefix (for example 5.5.5.5/24). Multiple IP addresses must be comma-separated.
-. Click *OK* to close the *Edit Network* window.
-. Click *OK* to close the *Setup Host Networks* window.
+. Click btn:[OK] to close the *Edit Network* window.
+. Click btn:[OK] to close the *Setup Host Networks* window.
 
 
 The additional IP addresses will not be displayed in the {engine-name}, but you can run the command `ip addr show` on the host to confirm that they have been added.

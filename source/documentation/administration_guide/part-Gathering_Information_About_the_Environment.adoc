@@ -1,6 +1,7 @@
 [[part-Gathering_Information_About_the_Environment]]
+
 = Gathering Information About the Environment
 
-include::chap-deploying_insights_RHVM.adoc[]
+include::chap-monitoring_and_observability.adoc[]
 
 include::chap-Log_Files.adoc[]

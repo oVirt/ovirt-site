@@ -7,7 +7,7 @@ The Memory Overcommit Manager handles memory balloon and KSM functions on a host
 *Synchronizing MoM Policy on a Host*
 
 . Click menu:Compute[Clusters].
-. Click the cluster's name to open the details view.
+. Click the cluster's name. This opens the details view.
 . Click the *Hosts* tab and select the host that requires an updated MoM policy.
 . Click *Sync MoM Policy*.
 

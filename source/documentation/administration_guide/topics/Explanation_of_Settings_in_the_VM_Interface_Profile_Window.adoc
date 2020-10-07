@@ -23,7 +23,7 @@ Red Hat no longer supports disabling filters by setting the `EnableMACAntiSpoofi
 
 QoS, network filters, and port mirroring are disabled in the vNIC profile if passthrough is enabled.
 |*Migratable* |A check box to toggle whether or not vNICs using this profile can be migrated. Migration is enabled by default on regular vNIC profiles; the check box is selected and cannot be changed. When the *Passthrough* check box is selected, *Migratable* becomes available and can be deselected, if required, to disable migration of passthrough vNICs.
-|*Port Mirroring* |A check box to toggle port mirroring. Port mirroring copies layer 3 network traffic on the logical network to a virtual interface on a virtual machine. It it not selected by default. For further details, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/technical_reference/#Port_Mirroring[Port Mirroring] in the _Technical Reference_.
+|*Port Mirroring* |A check box to toggle port mirroring. Port mirroring copies layer 3 network traffic on the logical network to a virtual interface on a virtual machine. It it not selected by default. For further details, see link:{URL_downstream_virt_product_docs}html-single/technical_reference/#Port_Mirroring[Port Mirroring] in the _Technical Reference_.
 |*Device Custom Properties* |A drop-down menu to select available custom properties to apply to the vNIC profile. Use the *+* and *-* buttons to add and remove properties respectively.
 |*Allow all users to use this Profile* |A check box to toggle the availability of the profile to all users in the environment. It is selected by default.
 |===

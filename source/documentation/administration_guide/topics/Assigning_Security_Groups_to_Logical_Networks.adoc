@@ -12,7 +12,7 @@ In {virt-product-fullname} 4.2.7, security groups are disabled by default.
 
 .Assigning Security Groups to Logical Networks
 . Click menu:Compute[Clusters].
-. Click the cluster name to open the details view.
+. Click the cluster name. This opens the details view.
 . Click the *Logical Networks* tab.
 . Click *Add Network* and define the properties, ensuring that you select `ovirt-provider-ovn` from the `External Providers` drop-down list. For more information, see xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[].
 . Select `Enabled` from the `Security Group` drop-down list. For more details see xref:Logical_Network_General_Settings_Explained[].

@@ -7,10 +7,10 @@ You can remove a logical network from menu:Network[Networks] or menu:Compute[Dat
 *Removing Logical Networks*
 
 . Click menu:Compute[Data Centers].
-. Click a data center's name to open the details view.
+. Click a data center's name. This opens the details view.
 . Click the *Logical Networks* tab to list the logical networks in the data center.
 . Select a logical network and click *Remove*.
 . Optionally, select the *Remove external network(s) from the provider(s) as well* check box to remove the logical network both from the {engine-name} and from the external provider if the network is provided by an external provider. The check box is grayed out if the external provider is in read-only mode.
-. Click *OK*.
+. Click btn:[OK].
 
 The logical network is removed from the {engine-name} and is no longer available.

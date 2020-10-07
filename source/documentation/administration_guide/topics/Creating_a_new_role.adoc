@@ -6,10 +6,10 @@ If the role you require is not on {virt-product-fullname}'s default list of role
 
 *Creating a New Role*
 
-. Click menu:Administration[Configure] to open the *Configure* window. The *Roles* tab is selected by default, showing a list of default User and Administrator roles, and any custom roles.
+. Click menu:Administration[Configure]. This opens the *Configure* window. The *Roles* tab is selected by default, showing a list of default User and Administrator roles, and any custom roles.
 . Click *New*.  
 . Enter the *Name* and *Description* of the new role.
 . Select either *Admin* or *User* as the *Account Type*.
 . Use the *Expand All* or *Collapse All* buttons to view more or fewer of the permissions for the listed objects in the *Check Boxes to Allow Action* list. You can also expand or collapse the options for each object.
 . For each of the objects, select or clear the actions you want to permit or deny for the role you are setting up.
-. Click *OK* to apply the changes. The new role displays on the list of roles.
+. Click btn:[OK] to apply the changes. The new role displays on the list of roles.

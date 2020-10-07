@@ -7,21 +7,20 @@ The passthrough property of a vNIC profile enables a vNIC to be directly connect
 
 The passthrough property cannot be enabled if the vNIC profile is already attached to a vNIC; this procedure creates a new profile to avoid this. If a vNIC profile has passthrough enabled, QoS, network filters, and port mirroring cannot be enabled on the same profile.
 
-For more information on SR-IOV, direct device assignment, and the hardware considerations for implementing these in {virt-product-fullname}, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html/hardware_considerations_for_implementing_sr-iov/[Hardware Considerations for Implementing SR-IOV].
+For more information on SR-IOV, direct device assignment, and the hardware considerations for implementing these in {virt-product-fullname}, see link:{URL_downstream_virt_product_docs}html/hardware_considerations_for_implementing_sr-iov/[Hardware Considerations for Implementing SR-IOV].
 
 
 *Enabling Passthrough*
 
 . Click menu:Network[Networks].
-. Click the logical network's name to open the details view.
+. Click the logical network's name. This opens the details view.
 . Click the *vNIC Profiles* tab to list all vNIC profiles for that logical network.
 . Click *New*.
 . Enter the *Name* and *Description* of the profile.
 . Select the *Passthrough* check box.
-. Optionally deselect the *Migratable* check box to disable migration for vNICs using this profile. If you keep this check box selected, see link:{URL_downstream_virt_product_docs}html-single/virtual_machine_management_guide/#Live_migration_prerequisites[Additional Prerequisites for Virtual Machines with SR-IOV-Enabled vNICs] in the _Virtual Machine Management Guide_.
+. Optionally deselect the *Migratable* check box to disable migration for vNICs using this profile. If you keep this check box selected, see link:{URL_virt_product_docs}virtual_machine_management_guide#Live_migration_prerequisites[Additional Prerequisites for Virtual Machines with SR-IOV-Enabled vNICs] in the _Virtual Machine Management Guide_.
 . If necessary, select a custom property from the custom properties list, which displays *Please select a key...* by default. Use the *+* and *-* buttons to add or remove custom properties.
-. Click *OK*.
+. Click btn:[OK].
 
 
-The vNIC profile is now passthrough-capable. To use this profile to directly attach a virtual machine to a NIC or PCI VF, attach the logical network to the NIC and create a new *PCI Passthrough* vNIC on the desired virtual machine that uses the passthrough vNIC profile. For more information on these procedures respectively, see xref:Editing_host_network_interfaces[]
-//, and link:{URL_virt_product_docs}virtual_machine_management_guide/#Adding_a_Network_Interface[Adding a New Network Interface] in the _Virtual Machine Management Guide_.
+The vNIC profile is now passthrough-capable. To use this profile to directly attach a virtual machine to a NIC or PCI VF, attach the logical network to the NIC and create a new *PCI Passthrough* vNIC on the desired virtual machine that uses the passthrough vNIC profile. For more information on these procedures respectively, see xref:Editing_host_network_interfaces[], and link:{URL_virt_product_docs}virtual_machine_management_guide#Adding_a_Network_Interface[Adding a New Network Interface] in the _Virtual Machine Management Guide_.

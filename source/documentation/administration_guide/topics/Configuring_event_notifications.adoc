@@ -19,7 +19,7 @@ The {virt-product-fullname} {engine-name} can notify designated users via email 
 The email address can be a text message email address (for example, `_1234567890@carrierdomainname.com_`) or an email group address that includes email addresses and text message email addresses.
 ====
 
-. Click *OK*.
+. Click btn:[OK].
 . On the {engine-name} machine, copy `ovirt-engine-notifier.conf` to a new file called `90-email-notify.conf`:
 +
 [options="nowrap" subs="normal"]

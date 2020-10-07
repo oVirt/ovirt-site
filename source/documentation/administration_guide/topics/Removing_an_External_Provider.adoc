@@ -5,4 +5,4 @@
 
 . Click menu:Administration[Providers] and select the external provider to remove.
 . Click *Remove*.
-. Click *OK*.
+. Click btn:[OK].

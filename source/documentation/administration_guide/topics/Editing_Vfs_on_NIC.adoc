@@ -1,32 +1,41 @@
 [[Editing_VFs_on_NIC]]
-==== Editing the Virtual Function Configuration on a NIC
+==== Configuring virtual functions on a NIC
 
 include::../../common/sriov/conc-Set_Up_and_Configure_SR-IOV.adoc[]
 
-Single Root I/O Virtualization (SR-IOV) enables a single PCIe endpoint to be used as multiple separate devices. This is achieved through the introduction of two PCIe functions: physical functions (PFs) and virtual functions (VFs). A PCIe card can have between one and eight PFs, but each PF can support many more VFs (dependent on the device).
+Single Root I/O Virtualization (SR-IOV) enables you to use each PCIe endpoint as multiple separate devices by using physical functions (PFs) and virtual functions (VFs). A PCIe card can have between one and eight PFs. Each PF can have many VFs. The number of VFs it can have depends on the specific type of PCIe device.
 
-You can edit the configuration of SR-IOV-capable Network Interface Controllers (NICs) through the {virt-product-fullname} {engine-name}, including the number of VFs on each NIC and to specify the virtual networks allowed to access the VFs.
-
-Once VFs have been created, each can be treated as a standalone NIC. This includes having one or more logical networks assigned to them, creating bonded interfaces with them, and to directly assign vNICs to them for direct device passthrough.
-
-A vNIC must have the passthrough property enabled in order to be directly attached to a VF. See xref:Enabling_Passthrough_on_a_vNIC_Profile[].
+To configure SR-IOV-capable Network Interface Controllers (NICs), you use the {virt-product-fullname} {engine-name}.  There, you can configure the number of VFs on each NIC.
 
 
-*Editing the Virtual Function Configuration on a NIC*
+You can configure a VF like you would configure a standalone NIC, including:
+
+* Assigning one or more logical networks to the VF.
+* Creating bonded interfaces with VFs.
+* Assigning vNICs to VFs for direct device passthrough.
+
+By default, all virtual networks have access to the virtual functions. You can disable this default and specify which networks have access to a virtual function.
+
+.Prerequisite
+
+* For a vNIC to be attached to a VF must, its passthrough property must be enabled. For details, see xref:Enabling_Passthrough_on_a_vNIC_Profile[].
+
+.Procedure
 
 . Click menu:Compute[Hosts].
-. Click the name of an SR-IOV-capable host to open the details view.
+. Click the name of an SR-IOV-capable host. This opens the details view.
 . Click the *Network Interfaces* tab.
 . Click *Setup Host Networks*.
 . Select an SR-IOV-capable NIC, marked with a image:images/SR-IOV-icon.png[]
 , and click the pencil icon.
-. To edit the number of virtual functions, click the *Number of VFs setting* drop-down button and edit the *Number of VFs* text field.
+. Optional: To change the number of virtual functions, click the *Number of VFs setting* drop-down button and edit the *Number of VFs* text field.
 +
 [IMPORTANT]
 ====
-Changing the number of VFs will delete all previous VFs on the network interface before creating new VFs. This includes any VFs that have virtual machines directly attached.
+Changing the number of VFs deletes all previous VFs on the network interface before creating the new VFs. This includes any VFs that have virtual machines directly attached.
 ====
 +
-. The *All Networks* check box is selected by default, allowing all networks to access the virtual functions. To specify the virtual networks allowed to access the virtual functions, select the *Specific networks* radio button to list all networks. You can then either select the check box for desired networks, or you can use the *Labels* text field to automatically select networks based on one or more network labels.
-. Click *OK*.
-. In the *Setup Host Networks* window, click *OK*.
+. Optional: To limit which virtual networks have access virtual functions, select *Specific networks*.
+.. Select the networks that should have access to the VF, or use *Labels* to select networks based on their network labels.
+. Click btn:[OK].
+. In the *Setup Host Networks* window, click btn:[OK].

@@ -15,4 +15,4 @@ You can edit MAC address pools to change the details, including the range of MAC
 ====
 When a MAC address range is updated, the MAC addresses of existing NICs are not reassigned. MAC addresses that were already assigned, but are outside of the new MAC address range, are added as user-specified MAC addresses and are still tracked by that MAC address pool.
 ====
-. Click *OK*.
+. Click btn:[OK].

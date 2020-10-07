@@ -20,9 +20,9 @@ The following procedure explains how to expand storage area network (SAN) storag
 
 . Click menu:Storage[Domains] and select an iSCSI or FCP domain.
 . Click btn:[Manage Domain].
-. Click *Targets > LUNs* and click the *Discover Targets* expansion button.
+. Click menu:Targets[LUNs] and click the *Discover Targets* expansion button.
 . Enter the connection information for the storage server and click btn:[Discover] to initiate the connection.
-. Click *LUNs > Targets* and select the check box of the newly available LUN.
+. Click menu:LUNs[Targets] and select the check box of the newly available LUN.
 . Click btn:[OK] to add the LUN to the selected storage domain.
 
 This will increase the storage domain by the size of the added LUN.
@@ -32,7 +32,7 @@ When expanding the storage domain by resizing the underlying LUNs, the LUNs must
 *Refreshing the LUN Size*
 
 . Click menu:Storage[Domains] and select an iSCSI or FCP domain.
-. Click *Manage Domain*.
-. Click on *LUNs > Targets*.
-. In the *Additional Size* column, click the *Add _Additional_Storage_Size_* button of the LUN to refresh.
-. Click *OK* to refresh the LUN to indicate the new storage size.
+. Click menu:Manage Domain[].
+. Click menu:LUNs[Targets].
+. In the *Additional Size* column, click btn:[Add _Additional_Storage_Size_] button of the LUN to refresh.
+. Click btn:[OK] to refresh the LUN to indicate the new storage size.

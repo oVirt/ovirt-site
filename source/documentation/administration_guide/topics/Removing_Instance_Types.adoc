@@ -8,7 +8,7 @@
 . Select the instance type to be removed.
 . Click *Remove*.
 . If any virtual machines are based on the instance type to be removed, a warning window listing the attached virtual machines will appear. To continue removing the instance type, select the *Approve Operation* check box. Otherwise click *Cancel*.
-. Click *OK*.
+. Click btn:[OK].
 
 
 The instance type is removed from the *Instance Types* list and can no longer be used when creating a new virtual machine. Any virtual machines that were attached to the removed instance type will now be attached to *Custom* (no instance type).

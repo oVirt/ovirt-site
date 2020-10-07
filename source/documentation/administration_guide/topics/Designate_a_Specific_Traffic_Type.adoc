@@ -7,11 +7,11 @@ Specify the traffic type for the logical network to optimize the network traffic
 *Specifying Traffic Types for Logical Networks*
 
 . Click menu:Compute[Clusters].
-. Click the cluster's name to open the details view.
+. Click the cluster's name. This opens the details view.
 . Click the *Logical Networks* tab.
 . Click *Manage Networks*.
 . Select the appropriate check boxes and radio buttons.
-. Click *OK*.
+. Click btn:[OK].
 
 [NOTE]
 ====

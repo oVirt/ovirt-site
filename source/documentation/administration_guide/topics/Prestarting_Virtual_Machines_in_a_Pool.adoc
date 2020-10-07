@@ -12,4 +12,4 @@ Prestarted virtual machines are suitable for environments in which users require
 . Click *Edit*.
 . Enter the number of virtual machines to be prestarted in the *Prestarted VMs* field.
 . Click the *Type* tab. Ensure *Pool Type* is set to *Automatic*.
-. Click *OK*.
+. Click btn:[OK].

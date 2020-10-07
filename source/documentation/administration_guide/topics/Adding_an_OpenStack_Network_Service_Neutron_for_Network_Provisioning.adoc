@@ -26,7 +26,7 @@ Although network nodes and regular hosts can be used in the same cluster, virtua
 
 . Use the Red Hat OpenStack Platform director to deploy the Networker role on the network node. See link:https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/10/html-single/advanced_overcloud_customization/index#sect-Creating_a_New_Role[Creating a New Role] and https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/10/html-single/advanced_overcloud_customization/index#Standalone-Networker[Networker] in the _Red Hat OpenStack Platform Advanced Overcloud Customization Guide_.
 ifdef::rhv-doc[]
-include::../common/install/snip-RHEL_repo_steps.adoc[]
+include::../../common/install/snip-RHEL_repo_steps.adoc[]
 endif::[]
 . Install the Openstack Networking hook:
 +
@@ -73,7 +73,7 @@ For API version 2.0, enter the *Tenant* for the OpenStack Networking instance. F
 
 . Test the credentials:
 .. Click *Test* to test whether you can authenticate successfully with the OpenStack Networking instance using the provided credentials.
-.. If the OpenStack Networking instance uses SSL, the *Import provider certificates* window opens; click *OK* to import the certificate that the OpenStack Networking instance provides to ensure the {engine-name} can communicate with the instance.
+.. If the OpenStack Networking instance uses SSL, the *Import provider certificates* window opens; click btn:[OK] to import the certificate that the OpenStack Networking instance provides to ensure the {engine-name} can communicate with the instance.
 . Click the *Agent Configuration* tab.
 +
 ifdef::rhv-doc[]
@@ -82,13 +82,13 @@ ifdef::rhv-doc[]
 The following steps are provided only as a Technology Preview. {virt-product-fullname} only supports preconfigured neutron hosts.
 ====
 endif::[]
-// review above
+
 +
 . Enter a comma-separated list of interface mappings for the Open vSwitch agent in the *Interface Mappings* field.
 . Select the message broker type that the OpenStack Networking instance uses from the *Broker Type* list.
 . Enter the URL or fully qualified domain name of the host on which the message broker is hosted in the *Host* field.
 . Enter the *Port* by which to connect to the message broker. This port number will be 5762 by default if the message broker is not configured to use SSL, and 5761 if it is configured to use SSL.
 . Enter the *Username* and *Password* of the OpenStack Networking user registered in the message broker instance.
-. Click *OK*.
+. Click btn:[OK].
 
 You have added the OpenStack Networking instance to the {virt-product-fullname} {engine-name}. Before you can use the networks it provides, import the networks into the {engine-name}. See xref:Importing_Networks[].

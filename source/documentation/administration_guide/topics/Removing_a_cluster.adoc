@@ -14,4 +14,4 @@ You cannot remove the *Default* cluster, as it holds the *Blank* template. You c
 . Click menu:Compute[Clusters] and select a cluster.
 . Ensure there are no hosts in the cluster.
 . Click *Remove*.
-. Click *OK*
+. Click btn:[OK]

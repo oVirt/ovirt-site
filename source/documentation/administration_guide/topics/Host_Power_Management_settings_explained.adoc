@@ -63,7 +63,7 @@ The following table contains the information required in the *Edit fence agent* 
 
 * *wti* - WTI Network Power Switch.
 
-For more information about power management devices, see link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html/technical_reference/power_management[Power Management] in the _Technical Reference_.
+For more information about power management devices, see link:{URL_downstream_virt_product_docs}html/technical_reference/power_management[Power Management] in the _Technical Reference_.
 |*Port* |The port number used by the power management device to communicate with the host.
 |*Slot* |The number used to identify the blade of the power management device.
 |*Service Profile* |The service profile name used to identify the blade of the power management device. This field appears instead of *Slot* when the device type is `cisco_ucs`.

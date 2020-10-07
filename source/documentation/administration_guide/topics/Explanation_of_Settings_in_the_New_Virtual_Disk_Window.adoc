@@ -1,9 +1,9 @@
 [[Explanation_of_Settings_in_the_New_Virtual_Disk_Window]]
-==== Explanation of Settings in the New Virtual Disk Window
+==== Explanation of settings in the New Virtual Disk window
 
 Because the New Virtual Disk windows for creating floating and attached virtual disks are very similar, their settings are described in a single section.
 
-.New Virtual Disk and Edit Virtual Disk Settings: *Image*
+.New Virtual Disk and Edit Virtual Disk settings: *Image*
 [options="header"]
 |===
 |Field Name |Description
@@ -12,7 +12,7 @@ Because the New Virtual Disk windows for creating floating and attached virtual 
 |*Description* |A description of the virtual disk. This field is recommended but not mandatory.
 |*Interface* |This field only appears when creating an attached disk.
 
-The virtual interface the disk presents to virtual machines. *VirtIO* is faster, but requires drivers. {enterprise-linux} 5 and later include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. *IDE* devices do not require special drivers.
+The virtual interface the disk presents to virtual machines. *VirtIO* is faster, but requires drivers. {enterprise-linux} 5 and later include these drivers. Windows does not include these drivers, but you can install them from the virtio-win ISO image. IDE and SATA devices do not require special drivers.
 
 The interface type can be updated after stopping all virtual machines that the disk is attached to.
 |*Data Center* |This field only appears when creating a floating disk.
@@ -60,7 +60,7 @@ The following considerations must be made when using a direct LUN as a virtual m
 * Direct LUN disks are not included in virtual machine snapshots.
 
 
-.New Virtual Disk and Edit Virtual Disk Settings: *Direct LUN*
+.New Virtual Disk and Edit Virtual Disk settings: *Direct LUN*
 [options="header"]
 |===
 |Field Name |Description
@@ -70,7 +70,7 @@ The following considerations must be made when using a direct LUN as a virtual m
 The default behavior can be configured by setting the `PopulateDirectLUNDiskDescriptionWithLUNId` configuration key to the appropriate value using the `engine-config` command.  The configuration key can be set to `-1` for the full LUN ID to be used, or `0` for this feature to be ignored. A positive integer populates the description with the corresponding number of characters of the LUN ID.
 |*Interface* |This field only appears when creating an attached disk.
 
-The virtual interface the disk presents to virtual machines. *VirtIO* is faster, but requires drivers. {enterprise-linux} 5 and later include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. *IDE* devices do not require special drivers.
+The virtual interface the disk presents to virtual machines. *VirtIO* is faster, but requires drivers. {enterprise-linux} 5 and later include these drivers. Windows does not include these drivers, but they can be installed from the virtio-win ISO . IDE and SATA devices do not require special drivers.
 
 The interface type can be updated after stopping all virtual machines that the disk is attached to.
 |*Data Center* |This field only appears when creating a floating disk.
@@ -119,7 +119,7 @@ Available when the *Enable SCSI Pass-Through* and *Allow Privileged SCSI I/O* ch
 The *Cinder* settings form will be disabled if there are no available OpenStack Volume storage domains on which you have permissions to create a disk in the relevant Data Center. *Cinder* disks require access to an instance of OpenStack Volume that has been added to the {virt-product-fullname} environment using the *External Providers* window; see xref:Adding_an_OpenStack_Block_Storage_Cinder_Instance_for_Storage_Management[] for more information.
 
 
-.New Virtual Disk and Edit Virtual Disk Settings: *Cinder*
+.New Virtual Disk and Edit Virtual Disk settings: *Cinder*
 [options="header"]
 |===
 |Field Name |Description
@@ -128,7 +128,7 @@ The *Cinder* settings form will be disabled if there are no available OpenStack 
 |*Description* |A description of the virtual disk. This field is recommended but not mandatory.
 |*Interface* |This field only appears when creating an attached disk.
 
-The virtual interface the disk presents to virtual machines. *VirtIO* is faster, but requires drivers. {enterprise-linux} 5 and later include these drivers. Windows does not include these drivers, but they can be installed from the guest tools ISO or virtual floppy disk. *IDE* devices do not require special drivers.
+The virtual interface the disk presents to virtual machines. *VirtIO* is faster, but requires drivers. {enterprise-linux} 5 and later include these drivers. Windows does not include these drivers, but you can install them from the virtio-win ISO image. IDE and SATA devices do not require special drivers.
 
 The interface type can be updated after stopping all virtual machines that the disk is attached to.
 |*Data Center* |This field only appears when creating a floating disk.

@@ -1,7 +1,8 @@
 [[Synchronizing_host_networks]]
 ==== Synchronizing Host Networks
 
-The {engine-name} defines a network interface as  `out-of-sync` when the definition of the interface on the host differs from the definitions stored by the {engine-name}.
+The {engine-name} defines a network interface as `out-of-sync` when the definition of the interface on the host differs from the definitions stored by the {engine-name}.
+
 Out-of-sync networks appear with an Out-of-sync icon image:images/out-of-sync.png[] in the host's *Network Interfaces* tab and with this icon image:images/out-of-sync-setup.png[] in the *Setup Host Networks* window.
 
 When a host's network is out of sync, the only activities that you can perform on the unsynchronized network in the *Setup Host Networks* window are detaching the logical network from the network interface or synchronizing the network.
@@ -17,6 +18,11 @@ A host will become out of sync if:
 * You move a host to a different data center with the same network name, but with different values/parameters.
 
 * You change a network's *VM Network* property by manually removing the bridge from the host.
+
+[IMPORTANT]
+====
+If you change the network’s *MTU* settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see link:https://access.redhat.com/solutions/4540631[] and link:https://bugzilla.redhat.com/show_bug.cgi?id=1766414[BZ#1766414].
+====
 
 .Preventing Hosts from Becoming Unsynchronized
 Following these best practices will prevent your host from becoming unsynchronized:
@@ -36,13 +42,13 @@ You can synchronize a host's networks on three levels:
 .Synchronizing Host Networks on the Logical Network Level
 
 . Click menu:Compute[Hosts].
-. Click the host's name to open the details view.
+. Click the host's name. This opens the details view.
 . Click the *Network Interfaces* tab.
 . Click *Setup Host Networks*.
-. Hover your cursor over the unsynchronized network and click the pencil icon to open the *Edit Network* window.
+. Hover your cursor over the unsynchronized network and click the pencil icon. This opens the *Edit Network* window.
 . Select the *Sync network* check box.
-. Click *OK* to save the network change.
-. Click *OK* to close the *Setup Host Networks* window.
+. Click btn:[OK] to save the network change.
+. Click btn:[OK] to close the *Setup Host Networks* window.
 
 .Synchronizing a Host's Networks on the Host level
 
@@ -53,5 +59,5 @@ You can synchronize a host's networks on three levels:
 
 [NOTE]
 ====
-You can also synchronize a host's networks via the REST API. See link:http://ovirt.github.io/ovirt-engine-api-model/4.4#services-host-methods-sync_all_networks[syncallnetworks] in the _REST API Guide_.
+You can also synchronize a host's networks via the REST API. See link:http://ovirt.github.io/ovirt-engine-api-model/4.4/#services[syncallnetworks] in the _REST API Guide_.
 ====

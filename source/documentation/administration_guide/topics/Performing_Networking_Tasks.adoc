@@ -3,7 +3,7 @@
 
 menu:Network[Networks] provides a central location for users to perform logical network-related operations and search for logical networks based on each network's property or association with other resources. The *New*, *Edit* and *Remove* buttons allow you to create, change the properties of, and delete logical networks within data centers.
 
-Click on each network name and use the tabs in the details view to perform functions including:
+Click each network name and use the tabs in the details view to perform functions including:
 
 * Attaching or detaching the networks to clusters and hosts
 

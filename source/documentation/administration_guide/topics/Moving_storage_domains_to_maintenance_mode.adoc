@@ -5,9 +5,8 @@ A storage domain must be in maintenance mode before it can be detached and remov
 
 [IMPORTANT]
 ====
-You cannot move a storage domain into maintenance mode if a virtual machine has a lease on the storage domain. The virtual machine needs to be shut down, or the lease needs to be to removed or moved to a different storage domain first. 
+You cannot move a storage domain into maintenance mode if a virtual machine has a lease on the storage domain. The virtual machine needs to be shut down, or the lease needs to be to removed or moved to a different storage domain first. See the link:{URL_virt_product_docs}virtual_machine_management_guide#What_is_high_availability[_Virtual Machine Management Guide_] for information about virtual machine leases.
 ====
-// See the link:{URL_virt_product_docs}virtual_machine_management_guide/#What_is_high_availability[_Virtual Machine Management Guide_] for information about virtual machine leases.
 
 Expanding iSCSI domains by adding more LUNs can only be done when the domain is active.
 
@@ -16,7 +15,7 @@ Expanding iSCSI domains by adding more LUNs can only be done when the domain is 
 
 . Shut down all the virtual machines running on the storage domain.
 . Click menu:Storage[Domains].
-. Click the storage domain's name to open the details view.
+. Click the storage domain's name. This opens the details view.
 . Click the *Data Center* tab.
 . Click *Maintenance*.
 +
@@ -25,7 +24,7 @@ Expanding iSCSI domains by adding more LUNs can only be done when the domain is 
 The `Ignore OVF update failure` check box allows the storage domain to go into maintenance mode even if the OVF update fails.
 ====
 
-. Click *OK*. 
+. Click btn:[OK]. 
 
 The storage domain is deactivated and has an `Inactive` status in the results list. You can now edit, detach, remove, or reactivate the inactive storage domains from the data center.
 

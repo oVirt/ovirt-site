@@ -14,11 +14,11 @@ The master storage, if it is the last available storage domain, cannot be remove
 *Detaching a Storage Domain from a Data Center*
 
 . Click menu:Compute[Data Centers].
-. Click a data center's name to open the details view.
+. Click a data center's name. This opens the details view.
 . Click the *Storage* tab to list the storage domains attached to the data center.
 . Select the storage domain to detach. If the storage domain is `Active`, click *Maintenance*.
-. Click *OK* to initiate maintenance mode.
+. Click btn:[OK] to initiate maintenance mode.
 . Click *Detach*.
-. Click *OK*.
+. Click btn:[OK].
 
 It can take up to several minutes for the storage domain to disappear from the details view.

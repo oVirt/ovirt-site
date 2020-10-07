@@ -1,0 +1,13 @@
+[id="monitoring_and_observability"]
+
+== Monitoring and observability
+
+This chapter provides a number of ways to monitor and obtain metrics and logs from your {virt-product-fullname} system.
+
+//include::topics/Architecture_diagram_log_metrics.adoc[]
+
+//include::topics/install_collectd_and_rsyslog.adoc[]
+
+//include::topics/set_up_configure_grafana.adoc[]
+
+include::topics/Deploying_insights_RHVM.adoc[]

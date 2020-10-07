@@ -20,7 +20,7 @@ To define the syslog facility, navigate to the */etc/ovirt-engine/extensions.d* 
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install ovirt-engine-extension-logger-log4j
+# dnf install ovirt-engine-extension-logger-log4j
 ----
 +
 . Create the `Log4jLogger.properties` file in the */etc/ovirt-engine/extensions.d/* directory and include the following contents.
@@ -30,8 +30,8 @@ To define the syslog facility, navigate to the */etc/ovirt-engine/extensions.d* 
 ovirt.engine.extension.name = log4jlogger
 ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.logger.Logger
 ovirt.engine.extension.bindings.method = jbossmodule
-ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine-extensions.logger.log4j
-ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engineextensions.logger.log4j.Log4jLogger
+ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine.extension.logger.log4j
+ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engine.extension.logger.log4j.Log4jLogger
 log4j.rootLogger=DEBUG, myappender
 log4j.appender.myappender=org.apache.log4j.net.SyslogAppender
 log4j.appender.myappender.SyslogHost=localhost
@@ -43,7 +43,7 @@ log4j.appender.myappender.layout.ConversionPattern=[%c] %m%n
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install rsyslog
+# dnf install rsyslog
 ----
 +
 . Configure SELinux to allow `rsyslog` traffic.

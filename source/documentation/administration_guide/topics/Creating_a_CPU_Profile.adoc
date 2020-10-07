@@ -9,9 +9,9 @@ This procedure assumes you have already defined one or more CPU quality of servi
 *Creating a CPU Profile*
 
 . Click menu:Compute[Clusters].
-. Click the cluster's name to open the details view.
+. Click the cluster's name. This opens the details view.
 . Click the *CPU Profiles* tab.
 . Click *New*.
 . Enter a *Name* and a *Description* for the CPU profile.
 . Select the quality of service to apply to the CPU profile from the *QoS* list.
-. Click *OK*.
+. Click btn:[OK].

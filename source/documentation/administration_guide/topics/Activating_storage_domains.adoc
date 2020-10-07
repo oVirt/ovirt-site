@@ -5,7 +5,7 @@ If you have been making changes to a data center's storage, you have to put stor
 
 
 . Click menu:Storage[Domains]. 
-. Click an inactive storage domain's name to open the details view.
+. Click an inactive storage domain's name. This opens the details view.
 . Click the *Data Centers* tab.
 . Click *Activate*.
 

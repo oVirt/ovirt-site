@@ -1,0 +1,65 @@
+// Module included in the following assemblies:
+//
+// doc-Administration_Guide/chap-Logical_Networks.adoc
+
+[id="proc-Adding-a-static-route-on-a-host"]
+= Adding a static route on a host
+
+You can use nmstate to add static routes to hosts. This method requires you to configure the hosts directly, without using {virt-product-fullname} {engine-name}.
+
+Static-routes you add are preserved as long as the related routed bridge, interface, or bond exists and has an IP address. Otherwise, the system removes the static route.
+
+IMPORTANT: Except for adding or removing a static route on a host, always use the {virt-product-shortname} {engine-name} to configure host network settings in your cluster. For details, see link:{URL_virt_product_docs}administration_guide/index#con-Network-Manager-Stateful-Configuration-nmstate[Network Manager Stateful Configuration (nmstate)].
+
+[NOTE]
+====
+The custom static-route is preserved so long as its interface/bond exists and has an IP address. Otherwise, it will be removed.
+
+As a result, VM networks behave differently from non-VM networks:
+
+* VM networks are based on a bridge. Moving the network from one interfaces/bond to another does not affect the route on a VM Network.
+* Non-VM networks are based on an interface. Moving the network from one interfaces/bond to another deletes the route related to the Non-VM network.
+====
+
+.Prerequisites
+
+This procedure requires nmstate, which is only available if your environment uses:
+
+* {virt-product-fullname} {engine-name} version 4.4
+* {enterprise-linux-host-fullname}s and {hypervisor-fullname}s that are based on {enterprise-linux} 8
+
+.Procedure
+
+. Connect to the host you want to configure.
+. On the host, create a `static_route.yml` file, with the following example content:
++
+[source,yaml]
+----
+routes:
+  config:
+  - destination: 192.168.123.0/24
+    next-hop-address: 192.168.178.1
+    next-hop-interface: eth1
+----
+. Replace the example values shown with real values for your network.
+. To route your traffic to a secondary added network, use `next-hop-interface` to specify an interface or network name.
+** To use a non-virtual machine network, specify an interface such as `eth1`.
+** To use a virtual machine network, specify a network name that is also the bridge name such as `net1`.
+. Run this command:
++
+----
+$ nmstatectl set static_route.yml
+----
+
+.Verification steps
+
+* Run the IP route command, `ip route`, with the destination parameter value you set in `static_route.yml`. This should show the desired route. For example, run the following command:
++
+----
+$ ip route | grep 192.168.123.0`
+----
+
+.Additional resources
+
+* link:{URL_virt_product_docs}administration_guide/index#con-Network-Manager-Stateful-Configuration-nmstate[Network Manager Stateful Configuration (nmstate)]
+* link:{URL_virt_product_docs}administration_guide/index#proc-Removing-a-static-route-on-a-host[Removing a static route on a host]

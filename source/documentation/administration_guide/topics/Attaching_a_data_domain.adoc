@@ -7,11 +7,11 @@ Data domains that are *Unattached* can be attached to a data center. Shared stor
 *Attaching an Existing Data Domain to a Data Center*
 
 . Click menu:Compute[Data Centers].
-. Click a data center's name to open the details view.
+. Click a data center's name. This opens the details view.
 . Click the *Storage* tab to list the storage domains already attached to the data center.
 . Click *Attach Data*.
 . Select the check box for the data domain to attach to the data center. You can select multiple check boxes to attach multiple data domains.
-. Click *OK*.
+. Click btn:[OK].
 
 
 The data domain is attached to the data center and is automatically activated.

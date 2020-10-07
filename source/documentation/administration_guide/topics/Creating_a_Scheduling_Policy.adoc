@@ -20,4 +20,4 @@ You can create new scheduling policies to control the logic by which virtual mac
 .. From the drop-down menu in the *Load Balancer* section, select the load balancing policy to apply to the scheduling policy.
 .. From the drop-down menu in the *Properties* section, select a load balancing property to apply to the scheduling policy and use the text field to the right of that property to specify a value.
 .. Use the *+* and *-* buttons to add or remove additional properties.
-. Click *OK*.
+. Click btn:[OK].

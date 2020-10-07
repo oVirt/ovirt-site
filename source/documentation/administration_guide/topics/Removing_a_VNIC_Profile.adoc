@@ -7,7 +7,7 @@ Remove a vNIC profile to delete it from your virtualized environment.
 *Removing a vNIC Profile*
 
 . Click menu:Network[Networks].
-. Click the logical network's name to open the details view.
+. Click the logical network's name. This opens the details view.
 . Click the *vNIC Profiles* tab to display available vNIC profiles.
 . Select one or more profiles and click *Remove*.
-. Click *OK*.
+. Click btn:[OK].

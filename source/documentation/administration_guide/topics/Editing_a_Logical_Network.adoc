@@ -9,7 +9,7 @@ A logical network cannot be edited or moved to another interface if it is not sy
 *Editing a Logical Network*
 
 . Click menu:Compute[Data Centers].
-. Click the data center's name to open the details view.
+. Click the data center's name. This opens the details view.
 . Click the *Logical Networks* tab and select a logical network.
 . Click *Edit*.
 . Edit the necessary settings.
@@ -19,7 +19,7 @@ A logical network cannot be edited or moved to another interface if it is not sy
 You can edit the name of a new or existing network, with the exception of the default network, without having to stop the virtual machines.
 ====
 
-. Click *OK*.
+. Click btn:[OK].
 
 [NOTE]
 ====

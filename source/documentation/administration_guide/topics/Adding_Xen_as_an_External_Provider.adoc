@@ -42,6 +42,6 @@ The `virt-v2v` package is not available on ppc64le architecture; these hosts can
 . Enter the URI of the RHEL 5 Xen host in the *URI* field.
 . Select a host in the chosen data center with `virt-v2v` installed to serve as the *Proxy Host* during virtual machine import operations. This host must also be able to connect to the network of the RHEL 5 Xen external provider. If you selected *Any Data Center* above, you cannot choose the host here, but instead can specify a host during individual import operations.
 . Click *Test* to test whether you can authenticate successfully with the RHEL 5 Xen host.
-. Click *OK*.
+. Click btn:[OK].
 
-// To import virtual machines from a RHEL 5 Xen external provider, see link:{URL_virt_product_docs}virtual_machine_management_guide/#Importing_a_Virtual_Machine_from_Xen[Importing a Virtual Machine from a RHEL 5 Xen Host] in the _Virtual Machine Management Guide_.
+To import virtual machines from a RHEL 5 Xen external provider, see link:{URL_virt_product_docs}virtual_machine_management_guide#Importing_a_Virtual_Machine_from_Xen[Importing a Virtual Machine from a RHEL 5 Xen Host] in the _Virtual Machine Management Guide_.

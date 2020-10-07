@@ -6,17 +6,17 @@
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
 . Click *Edit*.
 . Select the quota you want the virtual machine to consume from the *Quota* drop-down list.
-. Click *OK*.
+. Click btn:[OK].
 
 
 *Assigning a Quota to a Virtual Disk*
 
 . Click menu:Compute[Virtual Machines]. 
-. Click a virtual machine's name to open the details view.
+. Click a virtual machine's name. This opens the details view.
 . Click the *Disks* tab and select the disk you plan to associate with a quota.
 . Click *Edit*. 
 . Select the quota you want the virtual disk to consume from the *Quota* drop-down list.
-. Click *OK*.
+. Click btn:[OK].
 
 
 [IMPORTANT]

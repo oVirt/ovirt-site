@@ -1,0 +1,37 @@
+[id='Configuring_cluster_to_use_Q35_or_UEFI_{context}']
+
+= Configuring a cluster to use the Q35 Chipset and UEFI
+
+After upgrading a cluster to  {virt-product-fullname} {vernum_rhv}, all virtual machines in the cluster run the {vernum_rhv} version of VDSM. You can configure a cluster’s default BIOS type, which determines the default BIOS type of any new virtual machines you create in that cluster. If necessary, you can override the cluster's default BIOS type by specifying a different BIOS type when you create a virtual machine.
+
+ifdef::rhv-doc[]
+[NOTE]
+====
+Q35 Chipset with UEFI and SecureBoot are Technology Preview features only. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
+====
+endif::[]
+
+// For information on upgrading a cluster see <link to upgrade guide>.
+
+.Procedure
+
+To configure the default BIOS type for new virtual machines in the cluster:
+
+. In the VM Portal or the Administration Portal, click menu:Compute[Clusters].
+. Select a cluster and click *Edit*.
+. Click *General*.
+. Define the default BIOS type for new virtual machines in the cluster by clicking the *BIOS Type* dropdown menu, and selecting one of the following:
++
+* *Legacy*
+* *Q35 Chipset with Legacy BIOS*
+* *Q35 Chipset with UEFI BIOS*
+* *Q35 Chipset with SecureBoot*
+
+. From the *Compatibility Version* dropdown menu select *{vernum_rhv}*. The {engine-name} checks that all running hosts are compatible with {vernum_rhv}, and if they are, the {engine-name} uses {vernum_rhv} features.
+. If any existing virtual machines in the cluster should use the new BIOS type, configure them to do so.
+Any new virtual machines in the cluster that are configured to use the BIOS type *Cluster default* now use the BIOS type you selected. For more information, see xref:Configuring_vm_to_use_Q35_or_UEFI_cluster_opt_settings[Configuring a virtual machine to use the Q35 Chipset and UEFI].
+
+[NOTE]
+====
+Because you can change the BIOS type only before installing an operating system, for any existing virtual machines that are configured to use the BIOS type *Cluster default*, change the BIOS type to the previous default cluster BIOS type. Otherwise the virtual machine might not boot. Alternatively, you can reinstall the virtual machine's operating system.
+====

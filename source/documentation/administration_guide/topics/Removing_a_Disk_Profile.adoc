@@ -6,10 +6,10 @@ Remove an existing disk profile from your {virt-product-fullname} environment.
 *Removing a Disk Profile*
 
 . Click menu:Storage[Domains]. 
-. Click the data storage domain's name to open the details view.
+. Click the data storage domain's name. This opens the details view.
 . Click the *Disk Profiles* tab.
 . Select the disk profile to remove.
 . Click *Remove*.
-. Click *OK*.
+. Click btn:[OK].
 
 If the disk profile was assigned to any virtual disks, the disk profile is removed from those virtual disks.

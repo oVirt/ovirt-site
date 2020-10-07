@@ -6,7 +6,7 @@ You can create a bond device on a specific host in the Administration Portal. Th
 .Procedure
 
 . Click menu:Compute[Hosts].
-. Click the host's name to open the details view.
+. Click the host's name. This opens the details view.
 . Click the *Network Interfaces* tab to list the physical network interfaces attached to the host.
 . Click *Setup Host Networks*.
 . Check the switch configuration. If the switch has been configured to provide Link Layer Discovery Protocol (LLDP) information, hover your cursor over a physical NIC to view the switch port's aggregation configuration.
@@ -30,7 +30,7 @@ If you select the *Custom* bonding mode, you can enter bonding options in the te
 +
 For a comprehensive list of bonding options and their descriptions, see the link:https://www.kernel.org/doc/Documentation/networking/bonding.txt[_Linux Ethernet Bonding Driver HOWTO_] on Kernel.org.
 
-. Click *OK*.
+. Click btn:[OK].
 . Attach a logical network to the new bond and configure it. See xref:Editing_host_network_interfaces[] for instructions.
 +
 [NOTE]
@@ -39,4 +39,4 @@ You cannot attach a logical network directly to an individual NIC in the bond.
 ====
 
 . Optionally, you can select *Verify connectivity between Host and Engine* if the host is in maintenance mode.
-. Click *OK*.
+. Click btn:[OK].

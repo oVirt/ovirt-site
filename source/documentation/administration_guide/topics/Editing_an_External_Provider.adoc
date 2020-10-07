@@ -6,4 +6,4 @@
 . Click menu:Administration[Providers] and select the external provider to edit.
 . Click *Edit*.
 . Change the current values for the provider to the preferred values.
-. Click *OK*.
+. Click btn:[OK].

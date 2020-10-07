@@ -11,30 +11,30 @@ If you have a logical network that you created for iSCSI traffic and configured 
 
 . Modify the current logical network so that it is not *Required*:
 .. Click menu:Compute[Clusters].
-.. Click the cluster name to open the details view.
+.. Click the cluster name. This opens the details view.
 .. In the *Logical Networks* tab, select the current logical network (`net-1`) and click *Manage Networks*.
-.. Clear the *Require* check box and click *OK*.
+.. Clear the *Require* check box and click btn:[OK].
 
 . Create a new logical network that is not *Required* and not *VM network*:
-.. Click *Add Network* to open the *New Logical Network* window.
+.. Click *Add Network*. This opens the *New Logical Network* window.
 .. In the *General* tab, enter the *Name* (`net-2`) and clear the *VM network* check box.
-.. In the *Cluster* tab, clear the *Require* check box and click *OK*.
+.. In the *Cluster* tab, clear the *Require* check box and click btn:[OK].
 
 . Remove the current network bond and reassign the logical networks:
 .. Click menu:Compute[Hosts].
-.. Click the host name to open the details view.
+.. Click the host name. This opens the details view.
 .. In the *Network Interfaces* tab, click *Setup Host Networks*.
 .. Drag `net-1` to the right to unassign it.
 .. Drag the current bond to the right to remove it.
 .. Drag `net-1` and `net-2` to the left to assign them to physical interfaces.
-.. Click the pencil icon of `net-2` to open the *Edit Network* window.
+.. Click the pencil icon of `net-2`. This opens the *Edit Network* window.
 .. In the *IPV4* tab, select *Static*.
-.. Enter the *IP* and *Netmask/Routing Prefix* of the subnet and click *OK*.
+.. Enter the *IP* and *Netmask/Routing Prefix* of the subnet and click btn:[OK].
 
 . Create the iSCSI bond:
 .. Click menu:Compute[Data Centers].
-.. Click the data center name to open the details view.
+.. Click the data center name. This opens the details view.
 .. In the *iSCSI Multipathing* tab, click *Add*.
-.. In the *Add iSCSI Bond* window, enter a *Name*, select the networks, `net-1` and `net-2`, and click *OK*.
+.. In the *Add iSCSI Bond* window, enter a *Name*, select the networks, `net-1` and `net-2`, and click btn:[OK].
 
 Your data center has an iSCSI bond containing the old and new logical networks.

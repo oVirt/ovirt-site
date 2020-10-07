@@ -11,11 +11,11 @@ An export domain that is *Unattached* can be attached to a data center. Only one
 *Attaching an Existing Export Domain to a Data Center*
 
 . Click menu:Compute[Data Centers].
-. Click a data center's name to open the details view.
+. Click a data center's name. This opens the details view.
 . Click the *Storage* tab to list the storage domains already attached to the data center.
 . Click *Attach Export*.
 . Click the radio button for the appropriate export domain.
-. Click *OK*.
+. Click btn:[OK].
 
 
 The export domain is attached to the data center and is automatically activated.

@@ -1,0 +1,35 @@
+[id='Configuring_vm_to_use_Q35_or_UEFI_{context}']
+
+= Configuring a virtual machine to use the Q35 Chipset and UEFI
+
+ifdef::rhv-doc[]
+[NOTE]
+====
+Q35 Chipset with UEFI and SecureBoot are Technology Preview features only. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
+====
+endif::[]
+
+You can configure a virtual machine to use the Q35 chipset and UEFI before installing an operating system. Converting a virtual machine from legacy BIOS to UEFI, or from UEFI to legacy BIOS, might prevent the virtual machine from booting. If you change the BIOS type of an existing virtual machine, reinstall the operating system.
+
+[WARNING]
+====
+If the virtual machine’s BIOS type is set to *Cluster default*, changing the BIOS type of the cluster changes the BIOS type of the virtual machine. If the virtual machine has an operating system installed, changing the cluster BIOS type can cause booting the virtual machine to fail.
+====
+
+.Procedure
+
+To configure a virtual machine to use the Q35 chipset and UEFI:
+
+. In the VM Portal or the Administration Portal click menu:Compute[Virtual Machines].
+. Select a virtual machine and click *Edit*.
+. On the *General* tab, click *Show Advanced Options*.
+. Click menu:System[Advanced Parameters].
+. Select one of the following from the *BIOS Type* dropdown menu:
++
+* *Cluster default*
+* *Q35 Chipset with Legacy BIOS*
+* *Q35 Chipset with UEFI BIOS*
+* *Q35 Chipset with SecureBoot*
+. Click btn:[OK].
+. From the Virtual Machine portal or the Administration Portal, power off the virtual machine.
+The next time you start the virtual machine, it will run with the new BIOS type you selected.

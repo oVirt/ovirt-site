@@ -124,6 +124,8 @@ include::topics/Importing_Templates_from_Imported_Data_Storage_Domains.adoc[]
 
 include::topics/Uploading_Images_to_a_Data_Storage_Domain.adoc[]
 
+include::topics/proc_Copy_image_to_ISO_domain.adoc[leveloffset=+3]
+
 include::topics/Moving_storage_domains_to_maintenance_mode.adoc[]
 
 include::topics/Editing_Storage_Domains.adoc[]
@@ -147,3 +149,7 @@ include::topics/Removing_a_Disk_Profile.adoc[]
 include::topics/Viewing_the_Health_Status_of_a_Storage_Domain.adoc[]
 
 include::topics/Setting_Discard_After_Delete_for_a_storage_domain.adoc[]
+
+include::topics/proc-Enabling-4K-support-more-than-250-nodes.adoc[leveloffset=+3]
+
+include::topics/proc-Disabling-4K-support.adoc[leveloffset=+3]

@@ -17,7 +17,7 @@ You can specify a MAC pool range for a cluster. Setting a MAC pool range is no l
 . Click *New*.
 . Enter the *Name* and *Description* of the data center.
 . Select the *Storage Type*, *Compatibility Version*, and *Quota Mode* of the data center from the drop-down menus.
-. Click *OK* to create the data center and open the *Data Center - Guide Me* window.
+. Click btn:[OK] to create the data center and open the *Data Center - Guide Me* window.
 . The *Guide Me* window lists the entities that need to be configured for the data center. Configure these entities or postpone configuration by clicking the *Configure Later* button. Configuration can be resumed by selecting the data center and clicking *More Actions* (image:../common/images/moreactions.png[]), then clicking *Guide Me*.
 
 

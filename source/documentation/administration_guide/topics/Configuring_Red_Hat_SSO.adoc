@@ -1,0 +1,12 @@
+[id='Configuring_Red_Hat_SSO']
+
+=== Configuring Red Hat Single Sign-On
+
+
+Red Hat Single Sign-on allows users to log in...
+
+
+[NOTE]
+====
+If RHSSO is configured, previous LDAP sign ons will not work.
+====

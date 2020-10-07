@@ -40,9 +40,9 @@ For more information on how to set up a custom power management device, see link
 Power management parameters (userid, password, options, etc) are tested by {virt-product-fullname} {engine-name} only during setup and manually after that. If you choose to ignore alerts about incorrect parameters, or if the parameters are changed on the power management hardware without the corresponding change in {virt-product-fullname} {engine-name}, fencing is likely to fail when most needed.
 ====
 +
-. Click *OK* to close the *Edit fence agent* window.
+. Click btn:[OK] to close the *Edit fence agent* window.
 . In the *Power Management* tab, optionally expand the *Advanced Parameters* and use the up and down buttons to specify the order in which the {engine-name} will search the host's *cluster* and *dc* (datacenter) for a fencing proxy.
-. Click *OK*.
+. Click btn:[OK].
 
 
 You are returned to the list of hosts. Note that the exclamation mark next to the host's name has now disappeared, signifying that power management has been successfully configured.

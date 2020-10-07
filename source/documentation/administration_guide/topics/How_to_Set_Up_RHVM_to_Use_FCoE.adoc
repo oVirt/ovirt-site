@@ -31,7 +31,7 @@ You also need to install the required VDSM hook package on the hosts. Depending 
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install vdsm-hook-fcoe
+# dnf install vdsm-hook-fcoe
 ----
 
 

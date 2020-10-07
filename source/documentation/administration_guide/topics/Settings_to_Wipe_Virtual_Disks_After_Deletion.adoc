@@ -11,7 +11,7 @@ Enabling `wipe_after_delete` for virtual disks is more secure, and is recommende
 ====
 The wipe after delete functionality is not the same as secure delete, and cannot guarantee that the data is removed from the storage, just that new disks created on same storage will not expose data from old disks.
 ====
-The `wipe_after_delete` flag default can be changed to `true` during the setup process (see link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_local_databases#Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Configuring the {virt-product-fullname} {engine-name}]), or by using the `engine-config` tool on the {virt-product-fullname} {engine-name}. Restart the `ovirt-engine` service for the setting change to take effect.
+The `wipe_after_delete` flag default can be changed to `true` during the setup process (see link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_local_databases/[Configuring the {virt-product-fullname} {engine-name}]), or by using the `engine-config` tool on the {virt-product-fullname} {engine-name}. Restart the `ovirt-engine` service for the setting change to take effect.
 
 [NOTE]
 ====

@@ -1,8 +1,7 @@
 [[Creating_a_VM_Pool]]
-=== Creating a Virtual Machine Pool
+=== Creating a virtual machine pool
 
-You can create a virtual machine pool containing multiple virtual machines based on a common template.
-// See link:{URL_virt_product_docs}virtual_machine_management_guide/#chap-Templates[Templates] in the _Virtual Machine Management Guide_ for information about sealing a virtual machine and creating a template.
+You can create a virtual machine pool containing multiple virtual machines based on a common template. See link:{URL_virt_product_docs}virtual_machine_management_guide#chap-Templates[Templates] in the _Virtual Machine Management Guide_ for information about sealing a virtual machine and creating a template.
 
 *`Sysprep` File Configuration Options for Windows Virtual Machines*
 
@@ -33,8 +32,7 @@ os.__operating_system__.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysprep._
     </Credentials>
 ----
 
-If you need to configure different `sysprep` settings for different pools of Windows virtual machines, you can create a custom `sysprep` file in the Administration Portal (see link:#custom_sysprep[Creating a Virtual Machine Pool] below).
-//  See link:{URL_virt_product_docs}virtual_machine_management_guide/#Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines[Using Sysprep to Automate the Configuration of Virtual Machines] in the _Virtual Machine Guide_ for more information.
+If you need to configure different `sysprep` settings for different pools of Windows virtual machines, you can create a custom `sysprep` file in the Administration Portal (see link:#custom_sysprep[Creating a Virtual Machine Pool] below). See link:{URL_virt_product_docs}virtual_machine_management_guide#Using_Sysprep_to_Automate_the_Configuration_of_Virtual_Machines[Using Sysprep to Automate the Configuration of Virtual Machines] in the _Virtual Machine Guide_ for more information.
 
 *Creating a Virtual Machine Pool*
 
@@ -158,25 +156,26 @@ The remaining variables in the `sysprep` file can be filled in on the *Initial R
 * *Manual* - The administrator is responsible for explicitly returning the virtual machine to the pool.
 * *Automatic* - The virtual machine is automatically returned to the virtual machine pool.
 .. Select the *Stateful Pool* check box to ensure that virtual machines are started in a stateful mode. This ensures that changes made by a previous user will persist on a virtual machine.
-.. Click *OK*.
+.. Click btn:[OK].
 . Optional. Override the SPICE proxy:
 .. In the *Console* tab, select the *Override SPICE Proxy* check box.
 .. In the  *Overridden SPICE proxy address* text field, specify the address of a SPICE proxy to override the global SPICE proxy.
-.. Click *OK*.
+.. Click btn:[OK].
 . For a pool of Windows virtual machines, click menu:Compute[Virtual Machines], select each virtual machine from the pool, and click menu:Run[Run Once].
 +
 [NOTE]
 ====
 If the virtual machine does not start and `Info  [windeploy.exe] Found no unattend file` appears in `%WINDIR%\panther\UnattendGC\setupact.log`, add the *UnattendFile* key to the registry of the Windows virtual machine that was used to create the template for the pool:
 
-. Check that the Windows virtual machine has an attached floppy device with the unattend file, for example, `A:\Unattend.xml`.
+// . Check that the Windows virtual machine has an attached secondary CD-ROM device with the unattend file, for example, `A:\Unattend.xml`.
+. Select the virtual machine and click menu:Run[Run once].
+. Under Boot Options, check *Attach Windows guest tools CD*.
 . Click *Start*, click *Run*, type `regedit` in the *Open* text box, and click *OK*.
 . In the left pane, go to menu:HKEY_LOCAL_MACHINE[SYSTEM > Setup].
 . Right-click the right pane and select menu:New[String Value].
 . Enter *UnattendFile* as the key name.
 . Double-click the new key and enter the `unattend` file name and path, for example, *A:\Unattend.xml*, as the key's value.
-. Save the registry, seal the Windows virtual machine, and create a new template. 
+. Save the registry, seal the Windows virtual machine, and create a new template. See link:{URL_virt_product_docs}virtual_machine_management_guide#chap-Templates[Templates] in the _Virtual Machine Management Guide_ for details.
 ====
-// See link:{URL_virt_product_docs}virtual_machine_management_guide/#chap-Templates[Templates] in the _Virtual Machine Management Guide_ for details.
 
 You have created and configured a virtual machine pool with the specified number of identical virtual machines. You can view these virtual machines in menu:Compute[Virtual Machines], or by clicking the name of a pool to open its details view; a virtual machine in a pool is distinguished from independent virtual machines by its icon.

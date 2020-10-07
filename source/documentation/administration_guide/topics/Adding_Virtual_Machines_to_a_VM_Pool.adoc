@@ -9,4 +9,4 @@ If you require more virtual machines than originally provisioned in a virtual ma
 . Click menu:Compute[Pools] and select the virtual machine pool.
 . Click *Edit*.
 . Enter the number of additional virtual machines in the *Increase number of VMs in pool by* field.
-. Click *OK*.
+. Click btn:[OK].

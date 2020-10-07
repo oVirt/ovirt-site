@@ -9,7 +9,7 @@ Adding an existing OVN central server as an external network provider in {virt-p
 
 * Create a new cluster that uses OVN as its default network provider. Hosts added to this cluster are automatically configured to communicate with OVN.
 
-*Prerequisites*
+.Prerequisites
 
 The following packages are required by the OVN provider and must be available on the provider machine:
 
@@ -23,14 +23,14 @@ The following packages are required by the OVN provider and must be available on
 
 If these packages are not available from the repositories already enabled on the provider machine, they can be downloaded from the OVS website: link:http://openvswitch.org/download/[].
 
-*Adding an Existing OVN Network Provider*
+.Procedure
 
 . Install and configure the OVN provider.
 .. Install the provider on the provider machine:
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install ovirt-provider-ovn
+# dnf install ovirt-provider-ovn
 ----
 +
 .. If you are not installing the provider on the same machine as the {engine-name}, add the following entry to the `/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf` file (create this file if it does not already exist):
@@ -97,8 +97,8 @@ Optionally, enter the *Tenant* for the external network provider.
 The authentication method must be configured in the `/etc/ovirt-provider-ovn/conf.d/10_engine_setup.conf` file (create this file if it does not already exist). Restart the `ovirt-provider-ovn` service for the change to take effect. See link:https://github.com/oVirt/ovirt-provider-ovn/blob/master/README.adoc[] for more information about OVN authentication.
 . Test the credentials:
 .. Click *Test* to test whether you can authenticate successfully with OVN using the provided credentials.
-.. If the OVN instance uses SSL, the *Import provider certificates* window opens; click *OK* to import the certificate that the OVN instance provides to ensure the {engine-name} can communicate with the instance.
-. Click *OK*.
+.. If the OVN instance uses SSL, the *Import provider certificates* window opens; click btn:[OK] to import the certificate that the OVN instance provides to ensure the {engine-name} can communicate with the instance.
+. Click btn:[OK].
 . Create a new cluster that uses OVN as its default network provider. See xref:Creating_a_New_Cluster[] and select the OVN network provider from the *Default Network Provider* drop-down list.
 . Add hosts to the cluster. Hosts added to this cluster are automatically configured to communicate with OVN. To add new hosts, see xref:Adding_standard_hosts_to_the_Manager_host_tasks[].
 . Import or add OVN networks to the new cluster. To import networks, see xref:Importing_Networks[Importing Networks]. To create new networks using OVN, see xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[Creating a new logical network in a data center or cluster], and select the *Create on external provider* check box. `ovirt-provider-ovn` is selected by default.

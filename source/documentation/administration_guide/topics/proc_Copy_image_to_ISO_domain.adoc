@@ -1,0 +1,65 @@
+// Module included in the following assemblies:
+//
+// chap-Storage
+
+[id="Copy_ISO_to_ISO_domain-{context}"]
+= Uploading images to an ISO domain
+
+[NOTE]
+====
+The ISO domain is a deprecated storage domain type. The ISO Uploader tool, `ovirt-iso-uploader`, is removed in {virt-product-fullname} 4.4. You should upload ISO images to the data domain with the Administration Portal or with the REST API. See xref:Uploading Images to a Data Storage Domain[] for details.
+
+Although the ISO domain is deprecated, this information is provided in case you must use an ISO domain.
+====
+
+To upload an ISO image to an ISO storage domain in order to make it available from within the {engine-name}, follow these steps.
+
+.Procedure
+
+. Login as root to the host that belongs to the Data Center where your ISO storage domain resides.
+
+. Get a directory tree of `/rhv/data-center`:
++
+[options="nowrap" subs="normal"]
+----
+# tree /rhev/data-center
+.
+|-- 80dfacc7-52dd-4d75-ab82-4f9b8423dc8b
+|   |-- 76d1ecba-b61d-45a4-8eb5-89ab710a6275 -> /rhev/data-center/mnt/10.10.10.10:_rhevnfssd/76d1ecba-b61d-45a4-8eb5-89ab710a6275
+|   |-- b835cd1c-111c-468d-ba70-fec5346af227 -> /rhev/data-center/mnt/10.10.10.10:_rhevisosd/b835cd1c-111c-468d-ba70-fec5346af227
+|   |-- mastersd -> 76d1ecba-b61d-45a4-8eb5-89ab710a6275
+|   |-- tasks -> mastersd/master/tasks
+|   `-- vms -> mastersd/master/vms
+|-- hsm-tasks
+`-- mnt
+    |-- 10.10.10.10:_rhevisosd
+    |   |-- b835cd1c-111c-468d-ba70-fec5346af227
+    |   |   |-- dom_md
+    |   |   |   |-- ids
+    |   |   |   |-- inbox
+    |   |   |   |-- leases
+    |   |   |   |-- metadata
+    |   |   |   `-- outbox
+    |   |   `-- images
+    |   |       `-- 11111111-1111-1111-1111-111111111111
+    |   `-- lost+found [error opening dir]
+
+(output trimmed)
+----
+
+. Securely copy the image from the source location into the full path of `11111111-1111-1111-1111-111111111111`:
++
+[options="nowrap" subs="normal"]
+----
+# scp root@isosource:/isos/example.iso /rhev/data-center/mnt/10.96.4.50:_rhevisosd/b835cd1c-111c-468d-ba70-fec5346af227/images/11111111-1111-1111-1111-111111111111
+----
+
+. File permissions for the newly copied ISO image should be 36:36 (vdsm:kvm). If they are not, change user and group ownership of the ISO file to 36:36 (vdsm's user and group):
++
+[options="nowrap" subs="normal"]
+----
+# cd /rhev/data-center/mnt/10.96.4.50:_rhevisosd/b835cd1c-111c-468d-ba70-fec5346af227/images/11111111-1111-1111-1111-111111111111
+# chown 36.36 example.iso
+----
+
+The ISO image should now be available in the ISO domain in the data center.

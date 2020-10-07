@@ -8,4 +8,4 @@ You can remove a virtual machine pool from a data center. You must first either 
 
 . Click menu:Compute[Pools] and select the virtual machine pool.
 . Click *Remove*.
-. Click *OK*.
+. Click btn:[OK].

@@ -6,10 +6,10 @@ Attach a storage domain to a data center.
 *Attaching a Storage Domain to a Data Center*
 
 . Click menu:Storage[Domains]. 
-. Click the storage domain's name to open the details view.
+. Click the storage domain's name. This opens the details view.
 . Click the *Data Center* tab.
 . Click *Attach*.
 . Select the appropriate data center.
-. Click *OK*.
+. Click btn:[OK].
 
 The storage domain is attached to the data center and is automatically activated.

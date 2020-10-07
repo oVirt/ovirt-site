@@ -26,4 +26,4 @@ If Power Management is not enabled, you can restart or stop the host by selectin
 When two fencing agents are defined on a host, they can be used concurrently or sequentially. For concurrent agents, both agents have to respond to the Stop command for the host to be stopped; and when one agent responds to the Start command, the host will go up. For sequential agents, to start or stop a host, the primary agent is used first; if it fails, the secondary agent is used.
 ====
 +
-. Click *OK*.
+. Click btn:[OK].

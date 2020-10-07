@@ -14,6 +14,10 @@ include::topics/Removing_a_Logical_Network.adoc[]
 
 include::topics/Configuring_a_Default_Route.adoc[]
 
+include::topics/proc-Adding-a-static-route-on-a-host.adoc[leveloffset=+3]
+
+include::topics/proc-Removing-a-static-route-on-a-host.adoc[leveloffset=+3]
+
 include::topics/Viewing_or_Editing_the_Gateway.adoc[]
 
 include::topics/Logical_Network_General_Settings_Explained.adoc[]
@@ -29,7 +33,7 @@ include::topics/Explanation_of_Settings_in_the_Manage_Networks_Window.adoc[]
 include::topics/Editing_Vfs_on_NIC.adoc[]
 
 [[sect-Virtual_Network_Interface_Cards]]
-=== Virtual Network Interface Cards
+=== Virtual Network Interface Cards (vNICs)
 
 include::topics/VNIC_Profile_Overview.adoc[]
 
@@ -67,6 +71,8 @@ include::topics/Assigning_Security_Groups_to_Logical_Networks.adoc[]
 
 :Network:
 :context: hosts_networking
+
+include::topics/con-Network-Manager-Stateful-Configuration-nmstate.adoc[leveloffset=+3]
 
 include::topics/Refreshing_Host_Capabilities.adoc[]
 

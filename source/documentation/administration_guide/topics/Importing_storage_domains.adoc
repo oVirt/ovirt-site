@@ -25,7 +25,7 @@ The fields for specifying the details of the storage domain change depending on 
 ====
 +
 . Select the *Activate Domain in Data Center* check box to activate the storage domain after attaching it to the selected data center.
-. Click *OK*.
+. Click btn:[OK].
 
 You can now import virtual machines and templates from the storage domain to the data center.
 

@@ -15,7 +15,7 @@ In the Administration Portal, you can configure a host to view errata from Red H
 Hosts added using an IP address cannot report errata.
 ====
 * The Satellite account that manages the host must have Administrator permissions and a default organization set.
-* The host must be registered to the Satellite server and have the `katello-agent` package installed.
+* The host must be registered to the Satellite server and have the `katello-host-tools` package installed.
 
 
 .Procedure
@@ -24,11 +24,11 @@ Hosts added using an IP address cannot report errata.
 . Click *Edit*.
 . Select the *Use Foreman/Satellite* check box.
 . Select the required Satellite server from the drop-down list.
-. Click *OK*.
+. Click btn:[OK].
 
 The host is now configured to show the available errata, and their importance, in the same dashboard used to manage the host's configuration.
 
 .Additional resources
 
-* xref:Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning[].
-* link:{URL_satellite_docs}html/managing_hosts/registering_hosts[Registering a host and installing the `katello-agent` package] in the Red Hat Satellite document _Managing Hosts_.
+* xref:Adding_a_Red_Hat_Satellite_Instance_for_Host_Provisioning[]
+* link:{URL_satellite_docs}html/managing_hosts/host-management-without-goferd-and-katello-agent_managing-hosts[Host Management Without Goferd and Katello Agent] in the Red Hat Satellite document _Managing Hosts_

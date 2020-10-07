@@ -4,7 +4,7 @@
 When a network interface card is added to a host, the capabilities of the host must be refreshed to display that network interface card in the {engine-name}.
 
 
-*Refreshing Host Capabilities*
+.Procedure
 
 . Click menu:Compute[Hosts] and select a host.
 . Click menu:Management[Refresh Capabilities].

@@ -7,12 +7,12 @@ This procedure describes how to use quotas to limit the resources a user has acc
 *Assigning a User to a Quota*
 
 . Click menu:Administration[Quota].
-. Click the name of the target quota to open the details view.
+. Click the name of the target quota. This opens the details view.
 . Click the *Consumers* tab.
 . Click *Add*.
 . In the *Search* field, type the name of the user you want to associate with the quota.
 . Click *GO*.
 . Select the check box next to the user's name.
-. Click *OK*.
+. Click btn:[OK].
 
 After a short time, the user will appear in the *Consumers* tab in the details view.

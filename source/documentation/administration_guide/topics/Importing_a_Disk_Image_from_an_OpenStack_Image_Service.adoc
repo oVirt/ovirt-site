@@ -6,12 +6,12 @@ Virtual disks managed by an OpenStack Image Service can be imported into the {vi
 
 
 . Click menu:Storage[Domains].
-. Click the OpenStack Image Service domain's name to open the details view.
+. Click the OpenStack Image Service domain's name. This opens the details view.
 . Click the *Images* tab and select an image.
 . Click *Import*.
 . Select the *Data Center* into which the image will be imported.
 . From the *Domain Name* drop-down list, select the storage domain in which the image will be stored.
 . Optionally, select a quota to apply to the image from the *Quota* drop-down list.
-. Click *OK*.
+. Click btn:[OK].
 
 The disk can now be attached to a virtual machine.

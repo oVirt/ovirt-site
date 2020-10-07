@@ -11,12 +11,12 @@ There are two methods of adding labels to a host network interface:
 *Adding Network Labels in the Administration Portal*
 
 . Click menu:Compute[Hosts].
-. Click the host's name to open the details view.
+. Click the host's name. This opens the details view.
 . Click the *Network Interfaces* tab.
 . Click *Setup Host Networks*.
 . Click *Labels* and right-click *[New Label]*. Select a physical network interface to label.
 . Enter a name for the network label in the *Label* text field.
-. Click *OK*.
+. Click btn:[OK].
 
 *Adding Network Labels with the LLDP Labeler Service*
 

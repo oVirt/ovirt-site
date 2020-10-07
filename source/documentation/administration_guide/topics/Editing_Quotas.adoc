@@ -9,4 +9,4 @@ This procedure describes how to change existing quotas.
 . Click menu:Administration[Quota] and select a quota.
 . Click *Edit*.
 . Edit the fields as required.
-. Click *OK*.
+. Click btn:[OK].

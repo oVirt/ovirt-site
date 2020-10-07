@@ -13,6 +13,6 @@ It may be necessary to *Destroy* a corrupted storage domain before you can *Forc
 . Click menu:Compute[Data Centers] and select the data center to remove.
 . Click *More Actions* (image:../common/images/moreactions.png[]), then click *Force Remove*.
 . Select the *Approve operation* check box.
-. Click *OK*
+. Click btn:[OK]
 
 The data center and attached storage domain are permanently removed from the {virt-product-fullname} environment.

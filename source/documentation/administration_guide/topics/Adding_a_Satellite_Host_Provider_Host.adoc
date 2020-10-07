@@ -22,6 +22,6 @@ Any details regarding the host that can be retrieved from the external provider 
 .. Optionally disable automatic firewall configuration.
 .. Optionally add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
 . You can configure the *Power Management*, *SPM*, *Console*, and *Network Provider* using the applicable tabs now; however, as these are not fundamental to adding a {enterprise-linux-host-fullname}, they are not covered in this procedure.
-. Click *OK* to add the host and close the window.
+. Click btn:[OK] to add the host and close the window.
 
 The new host displays in the list of hosts with a status of `Installing`, and you can view the progress of the installation in the details view. After installation is complete, the status will update to `Reboot`. The host must be activated for the status to change to `Up`.

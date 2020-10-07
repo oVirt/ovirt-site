@@ -10,7 +10,7 @@ This procedure explains how to set up a machine as a SPICE Proxy. A SPICE Proxy 
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install squid
+# dnf install squid
 ----
 +
 . Open */etc/squid/squid.conf*. Change:

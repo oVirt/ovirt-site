@@ -9,20 +9,20 @@ To update a disk interface type, all virtual machines using the disk must first 
 *Changing a Disk Interface Type*
 
 . Click menu:Compute[Virtual Machines] and stop the appropriate virtual machine(s).
-. Click the virtual machine's name to open the details view.
+. Click the virtual machine's name. This opens the details view.
 . Click the *Disks* tab and select the disk.
 . Click *Edit*.
-. From the *Interface* list, select the new interface type and click *OK*.
+. From the *Interface* list, select the new interface type and click btn:[OK].
 
 You can attach a disk to a different virtual machine that requires a different interface type.
 
 *Attaching a Disk to a Different Virtual Machine using a Different Interface Type*
 
 . Click menu:Compute[Virtual Machines] and stop the appropriate virtual machine(s).
-. Click the virtual machine's name to open the details view.
+. Click the virtual machine's name. This opens the details view.
 . Click the *Disks* tab and select the disk.
-. Click *Remove*, then click *OK*.
+. Click *Remove*, then click btn:[OK].
 . Go back to *Virtual Machines* and click the name of the new virtual machine that the disk will be attached to.
 . Click the *Disks* tab, then click *Attach*.
 . Select the disk in the *Attach Virtual Disks* window and select the appropriate interface from the *Interface* drop-down.
-. Click *OK*.
+. Click btn:[OK].

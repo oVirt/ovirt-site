@@ -24,7 +24,7 @@ If you created a subnet for the OVN network, a virtual machine using that networ
 *Creating a New External Network Connected to a Physical Network*
 
 . Click menu:Compute[Clusters].
-. Click the cluster's name to open the details view.
+. Click the cluster's name. This opens the details view.
 . Click the *Logical Networks* tab and click *Add Network*.
 . Enter a *Name* for the network.
 . Select the *Create on external provider* check box. `ovirt-provider-ovn` is selected by default.
@@ -38,4 +38,4 @@ If you created a subnet for the OVN network, a virtual machine using that networ
 The physical network's name must not be longer than 15 characters, or contain special characters.
 ====
 +
-. Click *OK*.
+. Click btn:[OK].

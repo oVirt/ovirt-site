@@ -24,12 +24,12 @@ A security group is identified using the ID of that security group as registered
 *Assigning Security Groups to vNIC Profiles*
 
 . Click menu:Network[Networks].
-. Click the logical network's name to open the details view.
+. Click the logical network's name. This opens the details view.
 . Click the *vNIC Profiles* tab.
 . Click *New*, or select an existing vNIC profile and click *Edit*.
 . From the custom properties drop-down list, select *SecurityGroups*. Leaving the custom property drop-down blank applies the default security settings, which permit all outbound traffic and intercommunication but deny all inbound traffic from outside of the default security group. Note that removing the *SecurityGroups* property later will not affect the applied security group.
 . In the text field, enter the ID of the security group to attach to the vNIC profile.
-. Click *OK*.
+. Click btn:[OK].
 
 
 You have attached a security group to the vNIC profile. All traffic through the logical network to which that profile is attached will be filtered in accordance with the rules defined for that security group.

@@ -1,7 +1,7 @@
 [[Removing_a_USB_policy]]
 ==== Removing a USB Policy
 
-Double-click the USB Filter Editor shortcut icon on your desktop to open the editor.
+Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.
 
 
 *Removing a USB Policy*

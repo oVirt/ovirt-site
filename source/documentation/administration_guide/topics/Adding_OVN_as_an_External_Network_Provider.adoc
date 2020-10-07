@@ -1,27 +1,27 @@
 [[Adding_OVN_as_an_External_Network_Provider]]
 ==== Adding Open Virtual Network (OVN) as an External Network Provider
 
-Open Virtual Network (OVN) enables you to create networks without adding VLANs or changing the infrastructure. OVN is an Open vSwitch (OVS) extension that enables support for virtual networks by adding native OVS support for virtual L2 and L3 overlays.
+You can use Open Virtual Network (OVN) to create overlay virtual networks that enable communication among the virtual machines without adding VLANs or changing the infrastructure. OVN is an extension of Open vSwitch (OVS) that provides native support for virtual L2 and L3 overlays.
 
-You can either xref:Installing_a_new_OVN_network_provider[install a new OVN network provider] or xref:Adding_an_existing_OVN_network_provider[add an existing one].
+You can xref:Installing_a_new_OVN_network_provider[install a new OVN network provider] or xref:Adding_an_existing_OVN_network_provider[add an existing one].
 
 You can also connect an OVN network to a native {virt-product-fullname} network. See xref:Connecting_an_OVN_Network_to_a_Physical_Network[] for more information.
 ifdef::rhv-doc[This feature is available as a Technology Preview only.]
-// review above
+
 
 ////
 When a 4.2 Technical Reference document exists, we'll move the API paragraphs there.
 deferred-maintenance
 ////
 
-A Neutron-like REST API is exposed by `ovirt-provider-ovn`, enabling you to create networks, subnets, ports, and routers (see the  link:https://developer.openstack.org/api-ref/network/v2/[_OpenStack Networking API v2.0_] for details). These overlay networks enable communication among the virtual machines.
+The `ovirt-provider-ovn` exposes a Neutron-like REST API. You can use this API to create networks, subnets, ports, and routers. For details, see link:https://developer.openstack.org/api-ref/network/v2/[_OpenStack Networking API v2.0_].
 
-[NOTE]
-====
-OVN is supported as an external provider by CloudForms, using the OpenStack (Neutron) API. See link:https://access.redhat.com/documentation/en-us/red_hat_cloudforms/4.6/html/managing_providers/network_providers[Network Managers] in _Red Hat CloudForms: Managing Providers_ for details.
-====
+// [NOTE]
+// ====
+// CloudForms supports OVN as an external provider using the OpenStack (Neutron) API. See link:https://access.redhat.com/documentation/en-us/red_hat_cloudforms/4.6/html/managing_providers/network_providers[Network Managers] in _Red Hat CloudForms: Managing Providers_ for details.
+// ====
 
-For more information on OVS and OVN, see the OVS documentation at link:http://docs.openvswitch.org/en/latest/[] and link:http://openvswitch.org/support/dist-docs/[].
+For more details, see the link:http://docs.openvswitch.org/en/latest/[Open vSwitch Documentation] and link:http://openvswitch.org/support/dist-docs/[Open vSwitch Manpages].
 
 
 include::Installing_a_new_OVN_network_provider.adoc[]

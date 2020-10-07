@@ -7,7 +7,7 @@ Import a template from a data storage domain you have imported into your {virt-p
 .Procedure
 
 . Click menu:Storage[Domains].
-. Click the imported storage domain's name to open the details view.
+. Click the imported storage domain's name. This opens the details view.
 . Click the *Template Import* tab.
 . Select one or more templates to import.
 . Click *Import*.
@@ -16,7 +16,7 @@ Import a template from a data storage domain you have imported into your {virt-p
 .. Click *vNic Profiles Mapping*.
 .. Select the vNIC profile to use from the *Target vNic Profile* drop-down list.
 .. If multiple target clusters are selected in the *Import Templates* window, select each target cluster in the *Target Cluster* drop-down list and ensure the mappings are correct.
-.. Click *OK*.
-. Click *OK*.
+.. Click btn:[OK].
+. Click btn:[OK].
 
 The imported templates no longer appear in the list under the *Template Import* tab.

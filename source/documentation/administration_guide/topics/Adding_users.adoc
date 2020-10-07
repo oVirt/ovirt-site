@@ -5,13 +5,13 @@ Users must be created already before they can be added and assigned roles and pe
 
 *Adding Users and Assigning VM Portal Permissions*
 
-. On the header bar, click menu:Administration[Configure] to open the *Configure* window. 
+. On the header bar, click menu:Administration[Configure]. This opens the *Configure* window. 
 . Click *System Permissions*.
-. Click *Add* to open the *Add System Permission to User* window.
+. Click *Add*. This opens the *Add System Permission to User* window.
 . Select a profile under *Search*. The profile is the domain you want to search. Enter a name or part of a name in the search text field, and click *GO*. Alternatively, click *GO* to view a list of all users and groups.
 . Select the check boxes for the appropriate users or groups.
 . Select an appropriate role to assign under *Role to Assign*. The *UserRole* role gives the user account the permission to log in to the VM Portal.
-. Click *OK*.
+. Click btn:[OK].
 
 Log in to the VM Portal to verify that the user account has the permissions to log in.
 

@@ -27,6 +27,6 @@ include::topics/Installing_and_Configuring_a_Squid_Proxy.adoc[]
 
 include::topics/Websocket_Proxy_Overview.adoc[]
 
-include::../common/admin/proc-Migrating_the_Websocket_Proxy_to_a_Separate_Machine.adoc[leveloffset=+3]
+// include::../common/admin/proc-Migrating_the_Websocket_Proxy_to_a_Separate_Machine.adoc[leveloffset=+3]
 
 :context!: proxy_admin

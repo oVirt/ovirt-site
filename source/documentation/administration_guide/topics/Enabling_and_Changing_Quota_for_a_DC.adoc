@@ -11,6 +11,6 @@ Use *Audit* mode to test your quota to verify that it works as you expect it to.
 . Click menu:Compute[Data Centers] and select a data center.
 . Click *Edit*.
 . In the *Quota Mode* drop-down list, change the quota mode to *Enforced*.
-. Click *OK*.
+. Click btn:[OK].
 
 If you set the quota mode to *Audit* during testing, then you must change it to *Enforced* in order for the quota settings to take effect.

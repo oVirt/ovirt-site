@@ -12,4 +12,4 @@ The Storage Pool Manager (SPM) priority setting of a host alters the likelihood 
 . Click *Edit*.
 . Click the *SPM* tab.
 . Use the radio buttons to select the appropriate SPM priority for the host.
-. Click *OK*.
+. Click btn:[OK].

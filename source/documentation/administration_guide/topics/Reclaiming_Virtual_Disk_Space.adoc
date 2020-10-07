@@ -18,9 +18,9 @@ Perform this operation before cloning a virtual machine, creating a template bas
 *Sparsifying a Disk*
 
 . Click menu:Compute[Virtual Machines] and shut down the required virtual machine.
-. Click the virtual machine's name to open the details view.
+. Click the virtual machine's name. This opens the details view.
 . Click the *Disks* tab. Ensure that the disk's status is `OK`.
 . Click *More Actions* (image:../common/images/moreactions.png[]), then click *Sparsify*.
-. Click *OK*.
+. Click btn:[OK].
 
 A `Started to sparsify` event appears in the *Events* tab during the sparsify operation and the disk's status displays as `Locked`. When the operation is complete, a `Sparsified successfully` event appears in the *Events* tab and the disk's status displays as `OK`. The unused disk space has been returned to the host and is available for use by other virtual machines.

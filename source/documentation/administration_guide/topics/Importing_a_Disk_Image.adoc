@@ -12,8 +12,8 @@ Only QEMU-compatible disks can be imported into the {engine-name}.
 *Importing a Disk Image*
 
 . Click menu:Storage[Domains].
-. Click the name of an imported storage domain to open the details view.
+. Click the name of an imported storage domain. This opens the details view.
 . Click the *Disk Import* tab.
 . Select one or more disks and click *Import*.
 . Select the appropriate *Disk Profile* for each disk.
-. Click *OK*.
+. Click btn:[OK].

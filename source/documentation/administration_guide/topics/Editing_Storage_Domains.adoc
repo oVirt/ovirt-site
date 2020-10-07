@@ -10,7 +10,7 @@ You can edit storage domain parameters through the Administration Portal. Depend
 
 [NOTE]
 ====
-iSCSI storage connections cannot be edited via the Administration Portal, but can be edited via the REST API. See link:http://ovirt.github.io/ovirt-engine-api-model/4.4#services-storage_server_connection_extension-methods-update[Updating Storage Connections] in the _REST API Guide_.
+iSCSI storage connections cannot be edited via the Administration Portal, but can be edited via the REST API. See link:http://ovirt.github.io/ovirt-engine-api-model/4.4/#services[Updating Storage Connections] in the _REST API Guide_.
 ====
 
 *Editing an Active Storage Domain*
@@ -18,21 +18,21 @@ iSCSI storage connections cannot be edited via the Administration Portal, but ca
 . Click menu:Storage[Domains] and select a storage domain.
 . Click *Manage Domain*.
 . Edit the available fields as required.
-. Click *OK*.
+. Click btn:[OK].
 
 
 *Editing an Inactive Storage Domain*
 
 . Click menu:Storage[Domains].
 . If the storage domain is active, move it to maintenance mode:
-.. Click the storage domain's name to open the details view.
+.. Click the storage domain's name. This opens the details view.
 .. Click the *Data Center* tab.
 .. Click *Maintenance*.
-.. Click *OK*.
+.. Click btn:[OK].
 . Click *Manage Domain*.
 . Edit the storage path and other details as required. The new connection details must be of the same storage type as the original connection.
-. Click *OK*.
+. Click btn:[OK].
 . Activate the storage domain:
-.. Click the storage domain's name to open the details view.
+.. Click the storage domain's name. This opens the details view.
 .. Click the *Data Center* tab.
 .. Click *Activate*.

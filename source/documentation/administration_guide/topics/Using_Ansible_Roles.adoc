@@ -48,6 +48,51 @@ If you prefer, these variables can be added directly to the playbook instead.
 +
 . Create your playbook. To simplify this you can copy and modify an example in */usr/share/doc/ovirt-ansible-roles/examples*.
 +
+[options="nowrap" subs="normal"]
+----
+# cat rhv_infra.yml
+---
+- name: RHV infrastructure
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    # Contains variables to connect to the {engine-name}
+    - engine_vars.yml
+    # Contains encrypted `engine_password` variable using ansible-vault
+    - passwords.yml
+
+  pre_tasks:
+    - name: Login to RHV
+      ovirt_auth:
+        url: "{{ engine_url }}"
+        username: "{{ engine_user }}"
+        password: "{{ engine_password }}"
+        ca_file: "{{ engine_cafile | default(omit) }}"
+        insecure: "{{ engine_insecure | default(true) }}"
+      tags:
+        - always
+
+  vars:
+    data_center_name: mydatacenter
+    data_center_description: mydatacenter
+    data_center_local: false
+    compatibility_version: 4.4
+
+  roles:
+    - ovirt-datacenters
+
+  post_tasks:
+    - name: Logout from RHV
+      ovirt_auth:
+        state: absent
+        ovirt_auth: "{{ ovirt_auth }}"
+      tags:
+        - always
+
+----
++
 . Run the playbook.
 +
 [options="nowrap" subs="normal"]

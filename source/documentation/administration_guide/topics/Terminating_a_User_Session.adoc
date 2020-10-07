@@ -8,4 +8,4 @@ You can terminate the session of a user who is currently logged in.
 . Click menu:Administration[Active User Sessions].
 . Select the user session to be terminated.
 . Click *Terminate Session*.
-. Click *OK*.
+. Click btn:[OK].

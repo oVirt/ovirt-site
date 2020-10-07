@@ -158,18 +158,22 @@ SSL_KEY=/etc/pki/ovirt-engine/keys/apache.key.nopass
 ----
 BACKUP_PATHS="${BACKUP_PATHS}
 /etc/ovirt-engine-backup"
-cp -f /etc/pki/ovirt-engine/apache-ca.pem
+cp -f /etc/pki/ovirt-engine/apache-ca.pem \
 /etc/pki/ca-trust/source/anchors/_3rd-party-ca-cert_.pem
 update-ca-trust
 ----
-
 . Restart the `ovirt-provider-ovn` service:
 +
 [options="nowrap" subs="normal"]
 ----
 # systemctl restart ovirt-provider-ovn.service
 ----
-
+. Restart the `ovirt-imageio` service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart ovirt-imageio.service
+----
 . Restart the `ovirt-engine` service:
 +
 [options="nowrap" subs="normal"]

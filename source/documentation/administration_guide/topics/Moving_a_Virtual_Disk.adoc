@@ -17,6 +17,6 @@ Consider the following when moving a disk:
 . Click *Move*.
 . From the *Target* list, select the storage domain to which the virtual disk(s) will be moved.
 . From the *Disk Profile* list, select a profile for the disk(s), if applicable.
-. Click *OK*.
+. Click btn:[OK].
 
 The virtual disks are moved to the target storage domain. During the move procedure, the *Status* column displays `Locked` and a progress bar indicating the progress of the move operation.

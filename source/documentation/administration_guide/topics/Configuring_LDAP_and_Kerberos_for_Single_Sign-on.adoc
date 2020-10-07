@@ -74,7 +74,7 @@ kadmin> quit
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install ovirt-engine-extension-aaa-misc ovirt-engine-extension-aaa-ldap mod_auth_gssapi mod_session
+# dnf install ovirt-engine-extension-aaa-misc ovirt-engine-extension-aaa-ldap mod_auth_gssapi mod_session
 ----
 +
 . Copy the SSO configuration template file into the */etc/ovirt-engine* directory. Template files are available for Active Directory (*ad-sso*) and other directory types (*simple-sso*). This example uses the simple SSO configuration template.

@@ -13,9 +13,9 @@ Storage domains have an external health status in addition to their regular *Sta
 
 * *Failure*: image:images/Failure.png[]
 
-To view further details about the storage domain's health status, click the storage domain's name to open the details view, and click the *Events* tab.
+To view further details about the storage domain's health status, click the storage domain's name. This opens the details view, and click the *Events* tab.
 
 The storage domain's health status can also be viewed using the REST API. A `GET` request on a storage domain will include the `external_status` element, which contains the health status.
 
-You can set a storage domain's health status in the REST API via the `events` collection. For more information, see link:http://ovirt.github.io/ovirt-engine-api-model/4.4#services-events-methods-add[Adding Events] in the _REST API Guide_.
+You can set a storage domain's health status in the REST API via the `events` collection. For more information, see link:http://ovirt.github.io/ovirt-engine-api-model/4.4/#services[Adding Events] in the _REST API Guide_.
 

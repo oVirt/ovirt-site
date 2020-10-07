@@ -28,7 +28,7 @@ Upgrading your environment from 4.1 to 4.3 involves the following steps:
 
 . xref:Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-1_remote_db[Replace SHA-1 certificates with SHA-256 certificates]
 
-ifdef::rhv-docs[]
+ifdef::rhv-doc[]
 . If you installed the technology preview version of Open Virtual Network (OVN) in 4.1, xref:Updating_OVN_Providers_4-1_remote_db[update the OVN provider's networking plugin]
 endif::[]
 

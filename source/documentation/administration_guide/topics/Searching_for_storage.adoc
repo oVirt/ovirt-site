@@ -15,17 +15,16 @@ The following table describes all search options for storage.
 |`external_status` |String |The health status of the storage domain as reported by external systems and plug-ins.
 |`datacenter` |String |The data center to which the storage belongs.
 |`type` |String |The type of the storage.
-|`size` |Integer |The size of the storage.
-|`used` |Integer |The amount of the storage that is used.
-|`committed` |Integer |The amount of the storage that is committed.
+|`free-size` |Integer |The size (GB) of the free storage.
+|`used-size` |Integer |The amount (GB) of the storage that is used.
+|`total_size`|Integer |The total amount (GB) of the storage that is available.
+|`committed` |Integer |The amount (GB) of the storage that is committed.
 |`sortby` |List |Sorts the returned results by one of the resource properties.
 |`page` |Integer |The page number of results to display.
 |===
 
 *Example*
 
-`Storage: size > 200 or used < 50`
+`Storage: free_size > 6 GB and total_size < 20 GB`
 
-This example returns a list of storage with total storage space greater than 200 GB, or used storage space less than 50 GB.
-
-
+This example returns a list of storage with free storage space greater than 6 GB, or total storage space less than 20 GB.

@@ -1,0 +1,40 @@
+// Module included in:
+//
+// Administration Guide
+//   chap-Clusters.adoc
+
+[id='About_UEFI_Q35-{context}']
+= UEFI and the Q35 chipset
+
+ifdef::rhv-doc[]
+[NOTE]
+====
+Q35 Chipset with UEFI and SecureBoot are Technology Preview features only. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
+====
+endif::[]
+
+The Intel Q35 chipset, the default chipset for new virtual machines, includes support for the Unified Extensible Firmware Interface (UEFI), which replaces legacy BIOS.
+
+Alternatively you can configure a virtual machine or cluster to use the legacy Intel i440fx chipset, which does not support UEFI.
+
+UEFI provides several advantages over legacy BIOS, including the following:
+
+* A modern boot loader
+* SecureBoot, which authenticates the digital signatures of the boot loader
+* GUID Partition Table (GPT), which enables disks larger than 2 TB
+
+To use UEFI on a virtual machine, you must configure the virtual machine’s cluster for {vernum_rhv} compatibility or later. Then you can set UEFI for any existing virtual machine, or to be the default BIOS type for new virtual machines in the cluster. The following options are available:
+
+.Available BIOS Types
+[options="header"]
+|====
+|BIOS Type |Description
+|Q35 Chipset with Legacy BIOS| Legacy BIOS without UEFI (Default for clusters with compatibility version 4.4)
+|Q35 Chipset with UEFI BIOS| BIOS with UEFI
+|Q35 Chipset with SecureBoot|UEFI with SecureBoot, which authenticates the digital signatures of the boot loader
+|Legacy|i440fx chipset with legacy BIOS
+|====
+
+.Set the BIOS Type before installing the operating system
+
+You can configure a virtual machine to use the Q35 chipset and UEFI before installing an operating system. Converting a virtual machine from legacy BIOS to UEFI is not supported after installing an operating system.

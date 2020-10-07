@@ -3,7 +3,7 @@
 
 Search for attached USB devices to either allow or block them in the USB Filter Editor.
 
-Double-click the USB Filter Editor shortcut icon on your desktop to open the editor.
+Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.
 
 
 *Searching for USB Device Policies*

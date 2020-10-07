@@ -1,7 +1,7 @@
 [[Adding_a_USB_policy]]
 ==== Adding a USB Policy
 
-Double-click the USB Filter Editor shortcut icon on your desktop to open the editor.
+Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.
 
 
 *Adding a USB Policy*
@@ -11,7 +11,7 @@ Double-click the USB Filter Editor shortcut icon on your desktop to open the edi
 +
 Click the *Allow* button to permit virtual machines use of the USB device; click the *Block* button to prohibit the USB device from virtual machines.
 +
-Click *OK* to add the selected filter rule to the list and close the window.
+Click btn:[OK] to add the selected filter rule to the list and close the window.
 +
 .Adding a Device
 ====

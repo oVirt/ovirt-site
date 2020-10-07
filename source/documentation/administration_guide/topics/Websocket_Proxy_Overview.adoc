@@ -3,6 +3,6 @@
 
 The websocket proxy allows users to connect to virtual machines via a noVNC console.
 
-The websocket proxy can be installed and configured on the {virt-product-fullname} {engine-name} machine during the initial configuration (see link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_local_databases/#Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Configuring the {virt-product-fullname} {engine-name}]), or on a separate machine (see link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_remote_databases/[Installing a Websocket Proxy on a Separate Machine]).
+The websocket proxy can be installed and configured on the {virt-product-fullname} {engine-name} machine during the initial configuration (see link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_local_databases/[Configuring the {virt-product-fullname} {engine-name}]), or on a separate machine (see link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_remote_databases/[Installing a Websocket Proxy on a Separate Machine]).
 
-The websocket proxy can also be migrated from the {engine-name} machine to a separate machine. See xref:Migrating_the_Websocket_Proxy_to_a_Separate_Machine_proxy_admin[].
+// The websocket proxy can also be migrated from the {engine-name} machine to a separate machine. See xref:Migrating_the_Websocket_Proxy_to_a_Separate_Machine_proxy_admin[].

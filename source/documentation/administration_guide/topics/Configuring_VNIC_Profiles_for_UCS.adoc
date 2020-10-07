@@ -50,9 +50,9 @@ The vNIC profile to configure can belong to a new or existing logical network. S
 *Configuring a vNIC Profile for UCS Integration*
 
 . Click menu:Network[Networks].
-. Click the logical network's name to open the details view.
+. Click the logical network's name. This opens the details view.
 . Click the *vNIC Profiles* tab.
 . Click *New*, or select a vNIC profile and click *Edit*.
 . Enter the *Name* and *Description* of the profile.
 . Select the `vmfex` custom property from the custom properties list and enter the UCS port profile name.
-. Click *OK*.
+. Click btn:[OK].

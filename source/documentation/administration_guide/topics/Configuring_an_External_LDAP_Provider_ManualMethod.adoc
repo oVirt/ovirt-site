@@ -12,7 +12,7 @@ If the interactive setup method in the previous section does not cover your use 
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install ovirt-engine-extension-aaa-ldap
+# dnf install ovirt-engine-extension-aaa-ldap
 ----
 +
 . Copy the LDAP configuration template file into the */etc/ovirt-engine* directory. Template files are available for active directories (*ad*) and other directory types (*simple*). This example uses the simple configuration template.

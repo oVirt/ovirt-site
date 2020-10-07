@@ -11,7 +11,7 @@
 ----
 +
 The ISO file is located in [filename]`/usr/share/virtio-win/virtio-win___version__.iso` on the {engine-name} machine.
-. Upload [filename]`virtio-win___version__.iso` to a data domain. See link:{URL_virt_product_docs}administration_guide/index.html#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain] in the __Administration Guide__ for details.
+. Upload [filename]`virtio-win___version__.iso` to a data domain. See link:{URL_virt_product_docs}administration_guide/[Uploading Images to a Data Storage Domain] in the __Administration Guide__ for details.
 . In the Administration or VM Portal, if the virtual machine is running, use the *Change CD* drop-down list to attach the [filename]`virtio-win___version__.iso` file to each of your virtual machines. If the virtual machine is powered off, click the *Run Once* button and attach the ISO as a CD.
 . Log in to the virtual machine.
 . Select the CD Drive containing the [filename]`virtio-win___version__.iso` file.

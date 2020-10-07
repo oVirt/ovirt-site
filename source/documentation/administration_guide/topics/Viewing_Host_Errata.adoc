@@ -7,5 +7,5 @@ Errata for each host can be viewed after the host has been configured to receive
 *Viewing Host Errata*
 
 . Click menu:Compute[Hosts].
-. Click the host's name to open the details view.
+. Click the host's name. This opens the details view.
 . Click the *Errata* tab.

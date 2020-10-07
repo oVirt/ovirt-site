@@ -41,6 +41,6 @@ qemu+ssh://root@host.example.com/system
 . Select a host in the chosen data center to serve as the *Proxy Host* during virtual machine import operations. This host must also be able to connect to the network of the KVM external provider. If you selected *Any Data Center* in the *Data Center* field above, you cannot choose the host here. The field is greyed out and shows *Any Host in Data Center*. Instead you can specify a host during individual import operations.
 . Optionally, select the *Requires Authentication* check box and enter the *Username* and *Password* for the KVM host. The user must have access to the KVM host on which the virtual machines reside.
 . Click *Test* to test whether you can authenticate successfully with the KVM host using the provided credentials.
-. Click *OK*.
+. Click btn:[OK].
 
-// To import virtual machines from a KVM external provider, see link:{URL_virt_product_docs}virtual_machine_management_guide/#Importing_a_Virtual_Machine_from_KVM[Importing a Virtual Machine from a KVM Host] in the _Virtual Machine Management Guide_.
+To import virtual machines from a KVM external provider, see link:{URL_virt_product_docs}virtual_machine_management_guide#Importing_a_Virtual_Machine_from_KVM[Importing a Virtual Machine from a KVM Host] in the _Virtual Machine Management Guide_.

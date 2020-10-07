@@ -18,10 +18,10 @@ You can create an iSCSI bond with multiple targets and logical networks for redu
 .Procedure
 
 . Click menu:Compute[Data Centers].
-. Click the data center name to open the details view.
+. Click the data center name. This opens the details view.
 . In the *iSCSI Multipathing* tab, click *Add*.
 . In the *Add iSCSI Bond* window, enter a *Name* and a *Description*.
 . Select a logical network from *Logical Networks* and a storage domain from *Storage Targets*. You must select all the paths to the same target.
-. Click *OK*.
+. Click btn:[OK].
 
 The hosts in the data center are connected to the iSCSI targets through the logical networks in the iSCSI bond.

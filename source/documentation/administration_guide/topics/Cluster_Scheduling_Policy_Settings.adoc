@@ -1,11 +1,11 @@
 [[Cluster_Scheduling_Policy_Settings]]
 ==== Scheduling Policy Settings Explained
 
-Scheduling policies allow you to specify the usage and distribution of virtual machines between available hosts. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. Regardless of the scheduling policy, a virtual machine will not start on a host with an overloaded CPU. By default, a host's CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. See xref:sect-Scheduling_Policies[] for more information about scheduling policies.
+Scheduling policies allow you to specify the usage and distribution of virtual machines between available hosts. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. Regardless of the scheduling policy, a virtual machine will not start on a host with an overloaded CPU. By default, a host's CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. See link:{URL_virt_product_docs}administration_guide/#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
 
 [[Cluster-General]]
 .Scheduling Policy Tab Properties
-[options="header"]
+[cols="1,3", options="header"]
 |===
 |Field |Description/Action
 |*Select Policy* a|Select a policy from the drop-down list.
@@ -52,19 +52,35 @@ Scheduling policies allow you to specify the usage and distribution of virtual m
 
 * *Optimize for Speed*: Skips host weighting in cases where there are more than ten pending requests.
 
-|*Enable Trusted Service* | Enable integration with an OpenAttestation server. Before this can be enabled, use the `engine-config` tool to enter the OpenAttestation server's details.
-[IMPORTANT]
-====
-OpenAttestation and Intel Trusted Execution Technology (Intel TXT) are no longer available.
-====
+|*Enable Trusted Service* |Enable integration with an OpenAttestation server. Before this can be enabled, use the `engine-config` tool to enter the OpenAttestation server's details. *IMPORTANT*: OpenAttestation and Intel Trusted Execution Technology (Intel TXT) are no longer available.
 |*Enable HA Reservation* |Enable the {engine-name} to monitor cluster capacity for highly available virtual machines. The {engine-name} ensures that appropriate capacity exists within a cluster for virtual machines designated as highly available to migrate in the event that their existing host fails unexpectedly.
-|*Provide custom serial number policy* a|This check box allows you to specify a serial number policy for the virtual machines in the cluster. Select one of the following options:
+|*Serial Number Policy* a|Configure the policy for assigning serial numbers to each new virtual machine in the cluster:
 
-* *Host ID*: Sets the host's UUID as the virtual machine's serial number.
+* *System Default*: Use the system-wide defaults in the {engine-name} database. To configure these defaults, link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/administration_guide/sect-the_engine_configuration_tool[use the engine configuration tool] to set the values of the `DefaultSerialNumberPolicy` and `DefaultCustomSerialNumber`. These key-value pairs are saved in the `vdc_options` table of the {engine-name} database.
++
+For `DefaultSerialNumberPolicy`:
++
+  - Default value: `HOST_ID`
+  - Possible values: `HOST_ID`, `VM_ID`, `CUSTOM`
+  - Command line example: `engine-config --set DefaultSerialNumberPolicy=VM_ID`
+  - Important: Restart the {engine-name} to apply the configuration.
++
+For `DefaultCustomSerialNumber`:
++
+  - Default value: Dummy serial number
+  - Possible values: Any string (max length 255 characters)
+  - Command line example: `engine-config --set DefaultCustomSerialNumber="My very special string value"`
+  - Important: Restart the {engine-name} to apply the configuration.
 
-* *Vm ID*: Sets the virtual machine's UUID as its serial number.
+* *Host ID*: Set each new virtual machine's serial number to the UUID of the host.
 
-* *Custom serial number*: Allows you to specify a custom serial number.
+* *Vm ID*: Set each new virtual machine's serial number to the UUID of the virtual machine.
+
+* *Custom serial number*: Set each new virtual machine's serial number to the value you specify in the following *Custom Serial Number* parameter.
+
+
+|*Custom Serial Number* |Specify the custom serial number to apply to new virtual machines in the cluster.
+
 
 |===
 

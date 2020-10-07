@@ -21,7 +21,7 @@ For an Active Directory example, see xref:Attaching_an_Active_Directory[].
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install ovirt-engine-extension-aaa-ldap-setup
+# dnf install ovirt-engine-extension-aaa-ldap-setup
 ----
 +
 . Run `ovirt-engine-extension-aaa-ldap-setup` to start the interactive setup:
@@ -126,7 +126,7 @@ Enter search user password:
 Please enter base DN (dc=redhat,dc=com) [dc=redhat,dc=com]: _ou=department-1,dc=redhat,dc=com_
 ----
 +
-. Select `Yes` if you intend to configure single sign-on for virtual machines. Note that the feature cannot be used with single sign-on to the Administration Portal feature. The script reminds you that the profile name must match the domain name. You will still need to follow the instructions in link:{URL_virt_product_docs}virtual_machine_management_guide/[Configuring Single Sign-On for Virtual Machines] in the _Virtual Machine Management Guide_.
+. Select `Yes` if you intend to configure single sign-on for virtual machines. Note that the feature cannot be used with single sign-on to the Administration Portal feature. The script reminds you that the profile name must match the domain name. You will still need to follow the instructions in link:{URL_virt_product_docs}virtual_machine_management_guide[Configuring Single Sign-On for Virtual Machines] in the _Virtual Machine Management Guide_.
 +
 [options="nowrap" subs="normal"]
 ----

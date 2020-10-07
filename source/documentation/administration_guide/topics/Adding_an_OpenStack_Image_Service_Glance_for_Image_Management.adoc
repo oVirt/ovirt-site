@@ -17,5 +17,5 @@ Enter the *Tenant* for the OpenStack Image instance.
 
 . Test the credentials:
 .. Click *Test* to test whether you can authenticate successfully with the OpenStack Image instance using the provided credentials.
-.. If the OpenStack Image instance uses SSL, the *Import provider certificates* window opens. Click *OK* to import the certificate that the OpenStack Image instance provides to ensure the {engine-name} can communicate with the instance.
-. Click *OK*.
+.. If the OpenStack Image instance uses SSL, the *Import provider certificates* window opens. Click btn:[OK] to import the certificate that the OpenStack Image instance provides to ensure the {engine-name} can communicate with the instance.
+. Click btn:[OK].

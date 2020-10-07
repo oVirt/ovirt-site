@@ -21,6 +21,6 @@ IP addresses cannot be used to add a Satellite instance.
 . Enter the *Username* and *Password* for the Satellite instance. You must use the same user name and password as you would use to log in to the Satellite provisioning portal.
 . Test the credentials:
 .. Click *Test* to test whether you can authenticate successfully with the Satellite instance using the provided credentials.
-.. If the Satellite instance uses SSL, the *Import provider certificates* window opens; click *OK* to import the certificate that the Satellite instance provides to ensure the {engine-name} can communicate with the instance.
-. Click *OK*.
+.. If the Satellite instance uses SSL, the *Import provider certificates* window opens; click btn:[OK] to import the certificate that the Satellite instance provides to ensure the {engine-name} can communicate with the instance.
+. Click btn:[OK].
 

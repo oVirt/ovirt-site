@@ -6,11 +6,11 @@ Detach a storage domain from one data center to migrate it to another data cente
 *Detaching a Storage Domain from the Data Center*
 
 . Click menu:Storage[Domains]. 
-. Click the storage domain's name to open the details view.
+. Click the storage domain's name. This opens the details view.
 . Click the *Data Center* tab.
 . Click *Maintenance*.
-. Click *OK* to initiate maintenance mode.
+. Click btn:[OK] to initiate maintenance mode.
 . Click *Detach*.
-. Click *OK* to detach the storage domain.
+. Click btn:[OK] to detach the storage domain.
 
 The storage domain has been detached from the data center, ready to be attached to another data center.

@@ -15,13 +15,13 @@ See link:https://access.redhat.com/solutions/4303801[Supportability and constrai
 . Log in to the Administration Portal of the source environment.
 . Shut down all virtual machines running on the required storage domain.
 . Click menu:Storage[Domains].
-. Click the storage domain's name to open the details view.
+. Click the storage domain's name. This opens the details view.
 . Click the *Data Center* tab.
-. Click *Maintenance*, then click *OK*.
-. Click *Detach*, then click *OK*.
+. Click *Maintenance*, then click btn:[OK].
+. Click *Detach*, then click btn:[OK].
 . Click *Remove*.
 . In the *Remove Storage(s)* window, ensure the *Format Domain, i.e. Storage Content will be lost!* check box is not selected. This step preserves the data in the storage domain for later use.
-. Click *OK* to remove the storage domain from the source environment.
+. Click btn:[OK] to remove the storage domain from the source environment.
 . Log in to the Administration Portal of the destination environment.
 . Click menu:Storage[Domains].
 . Click *Import Domain*.
@@ -37,7 +37,7 @@ The fields for specifying the details of the storage domain change depending on 
 ====
 +
 . Select the *Activate Domain in Data Center* check box to automatically activate the storage domain when it is attached.
-. Click *OK*.
+. Click btn:[OK].
 
 The storage domain is attached to the destination data center in the new {virt-product-fullname} environment and is automatically activated. You can now import virtual machines and templates from the imported storage domain to the destination data center.
 

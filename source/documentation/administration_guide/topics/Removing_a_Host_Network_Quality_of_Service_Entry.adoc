@@ -7,7 +7,7 @@ Remove an existing network quality of service entry.
 *Removing a Host Network Quality of Service Entry*
 
 . Click menu:Compute[Data Centers].
-. Click a data center's name to open the details view.
+. Click a data center's name. This opens the details view.
 . Click the *QoS* tab.
 . Under *Host Network*, select a host network quality of service entry and click *Remove*.
-. Click *OK* when prompted.
+. Click btn:[OK] when prompted.

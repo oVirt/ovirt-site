@@ -11,7 +11,7 @@ Administrators can edit existing instance types from the *Configure* window.
 . Select the instance type to be edited.
 . Click *Edit*.
 . Change the settings as required.
-. Click *OK*.
+. Click btn:[OK].
 
 The configuration of the instance type is updated. When a new virtual machine based on this instance type is created, or when an existing virtual machine based on this instance type is updated, the new configuration is applied.
 

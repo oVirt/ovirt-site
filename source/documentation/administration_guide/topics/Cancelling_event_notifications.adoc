@@ -7,9 +7,9 @@ A user has configured some unnecessary email notifications and wants them cancel
 *Canceling Event Notifications*
 
 . Click menu:Administration[Users].
-. Click the user's *User Name* to open the details view.
+. Click the user's *User Name*. This opens the details view.
 . Click the *Event Notifier* tab to list events for which the user receives email notifications.
 . Click *Manage Events*.
 . Use the *Expand All* button, or the subject-specific expansion buttons, to view the events.
 . Clear the appropriate check boxes to remove notification for that event.
-. Click *OK*.
+. Click btn:[OK].

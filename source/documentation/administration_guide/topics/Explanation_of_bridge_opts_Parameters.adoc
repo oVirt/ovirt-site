@@ -10,13 +10,10 @@
 |===
 |Parameter |Description
 |forward_delay |Sets the time, in deciseconds, a bridge will spend in the listening and learning states. If no switching loop is discovered in this time, the bridge will enter forwarding state. This allows time to inspect the traffic and layout of the network before normal network operation.
-|gc_timer |Sets the garbage collection time, in deciseconds, after which the forwarding database is checked and cleared of timed-out entries.
-|group_addr |Set to zero when sending a general query. Set to the IP multicast address when sending a group-specific query, or group-and-source-specific query.
+|group_addr |To send a general query, set this value to zero. To send a group-specific and group-and-source-specific queries, set this value to a 6-byte MAC address, not an IP address. Allowed values are `01:80:C2:00:00:0x` except `01:80:C2:00:00:01`, `01:80:C2:00:00:02` and `01:80:C2:00:00:03`.
 |group_fwd_mask |Enables bridge to forward link local group addresses. Changing this value from the default will allow non-standard bridging behavior.
-|hash_elasticity |The maximum chain length permitted in the hash table.Does not take effect until the next new multicast group is added. If this cannot be satisfied after rehashing, a hash collision occurs and snooping is disabled.
 |hash_max |The maximum amount of buckets in the hash table. This takes effect immediately and cannot be set to a value less than the current number of multicast group entries. Value must be a power of two.
 |hello_time |Sets the time interval, in deciseconds, between sending 'hello' messages, announcing bridge position in the network topology. Applies only if this bridge is the Spanning Tree root bridge.
-|hello_timer |Time, in deciseconds, since last 'hello' message was sent.
 |max_age |Sets the maximum time, in deciseconds, to receive a 'hello' message from another root bridge before that bridge is considered dead and takeover begins.
 |multicast_last_member_count |Sets the number of 'last member' queries sent to the multicast group after receiving a 'leave group' message from a host.
 |multicast_last_member_interval |Sets the time, in deciseconds, between 'last member' queries.

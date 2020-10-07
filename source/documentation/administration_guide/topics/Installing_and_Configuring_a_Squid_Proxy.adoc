@@ -89,7 +89,7 @@ This signs the certificate and makes it valid for 10 years (3650 days). Set the 
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install squid
+# dnf install squid
 ----
 +
 . Move the private key and signed certificate to a place where the proxy can access them, for example to the */etc/squid* directory:
@@ -131,7 +131,7 @@ The default CA certificate is located in */etc/pki/ovirt-engine/ca.pem* on the {
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install policycoreutils-python
+# dnf install policycoreutils-python
 # semanage port -m -p tcp -t http_cache_port_t 443
 ----
 +
@@ -157,4 +157,3 @@ http_access allow all
 ====
 Squid Proxy in the default configuration will terminate its connection after 15 idle minutes. To increase the amount of time before Squid Proxy terminates its idle connection, adjust the `read_timeout` option in *squid.conf* (for instance *read_timeout 10 hours*).
 ====
-

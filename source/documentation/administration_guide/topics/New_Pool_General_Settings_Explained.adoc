@@ -8,9 +8,7 @@ The following table details the information required on the *General* tab of the
 [options="header"]
 |===
 |Field Name |Description
-|*Template* |The template and template sub-version on which the virtual machine pool is based. If you create a pool based on the `latest` sub-version of a template, all virtual machines in the pool, when rebooted, will automatically receive the latest template version. 
-// For more information on configuring templates for virtual machines see link:{URL_virt_product_docs}virtual_machine_management_guide/#Virtual_Machine_General_settings_explained[Virtual Machine General Settings Explained]
-//  and link:{URL_virt_product_docs}virtual_machine_management_guide/#Explanation_of_Settings_in_the_New_Template_and_Edit_Template_Windows[Explanation of Settings in the New Template and Edit Template Windows] in the _Virtual Machine Management Guide_.
+|*Template* |The template and template sub-version on which the virtual machine pool is based. If you create a pool based on the `latest` sub-version of a template, all virtual machines in the pool, when rebooted, will automatically receive the latest template version. For more information on configuring templates for virtual machines see link:{URL_virt_product_docs}virtual_machine_management_guide#Virtual_Machine_General_settings_explained[Virtual Machine General Settings Explained] and link:{URL_virt_product_docs}virtual_machine_management_guide#Explanation_of_Settings_in_the_New_Template_and_Edit_Template_Windows[Explanation of Settings in the New Template and Edit Template Windows] in the _Virtual Machine Management Guide_.
 |*Description* |A meaningful description of the virtual machine pool.
 |*Comment* |A field for adding plain text human-readable comments regarding the virtual machine pool.
 |*Prestarted VMs* |Allows you to specify the number of virtual machines in the virtual machine pool that will be started before they are taken and kept in that state to be taken by users. The value of this field must be between `0` and the total number of virtual machines in the virtual machine pool.

@@ -7,7 +7,7 @@ Remove a subnet from a logical network provided by an external provider.
 *Removing Subnets from External Provider Logical Networks*
 
 . Click menu:Network[Networks].
-. Click the logical network's name to open the details view.
+. Click the logical network's name. This opens the details view.
 . Click the *Subnets* tab.
 . Select a subnet and click *Remove*.
-. Click *OK*.
+. Click btn:[OK].

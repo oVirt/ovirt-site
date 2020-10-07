@@ -8,12 +8,12 @@ Migrate a storage domain from one data center to another in the same {virt-produ
 
 . Shut down all virtual machines running on the required storage domain.
 . Click menu:Storage[Domains].
-. Click the storage domain's name to open the details view.
+. Click the storage domain's name. This opens the details view.
 . Click the *Data Center* tab.
-. Click *Maintenance*, then click *OK*.
-. Click *Detach*, then click *OK*.
+. Click *Maintenance*, then click btn:[OK].
+. Click *Detach*, then click btn:[OK].
 . Click *Attach*.
-. Select the destination data center and click *OK*.
+. Select the destination data center and click btn:[OK].
 
 
 The storage domain is attached to the destination data center and is automatically activated. You can now import virtual machines and templates from the storage domain to the destination data center.

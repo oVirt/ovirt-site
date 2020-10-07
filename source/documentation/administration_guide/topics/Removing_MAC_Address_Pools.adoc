@@ -10,4 +10,4 @@ You can remove a created MAC address pool if the pool is not associated with a c
 . Click the *MAC Address Pools* tab.
 . Select the MAC address pool to be removed.
 . Click the *Remove*.
-. Click *OK*.
+. Click btn:[OK].

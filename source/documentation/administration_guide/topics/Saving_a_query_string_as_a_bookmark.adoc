@@ -6,9 +6,9 @@ A bookmark can be used to remember a search query, and shared with other users.
 *Saving a Query String as a Bookmark*
 
 . Enter the desired search query in the search bar and perform the search.
-. Click the star-shaped *Bookmark* button to the right of the search bar to open the *New Bookmark* window.
+. Click the star-shaped *Bookmark* button to the right of the search bar. This opens the *New Bookmark* window.
 . Enter the *Name* of the bookmark.
 . Edit the *Search string* field, if required.
-. Click *OK*.
+. Click btn:[OK].
 
 Click the *Bookmarks* icon (image:images/Bookmark.png[]) in the header bar to find and select the bookmark.

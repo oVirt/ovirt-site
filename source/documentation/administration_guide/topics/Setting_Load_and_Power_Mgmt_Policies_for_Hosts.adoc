@@ -38,8 +38,9 @@ The *evenly_distributed* and *power_saving* scheduling policies allow you to spe
 OpenAttestation and Intel Trusted Execution Technology (Intel TXT) are no longer available.
 ====
 . Optionally select the *Enable HA Reservation* check box to enable the {engine-name} to monitor cluster capacity for highly available virtual machines.
-. Optionally select the *Provide custom serial number policy* check box to specify a serial number policy for the virtual machines in the cluster, and then select one of the following options:
-* Select *Host ID* to set the host's UUID as the virtual machine's serial number.
-* Select *Vm ID* to set the virtual machine's UUID as its serial number.
-* Select *Custom serial number*, and then specify a custom serial number in the text field.
-. Click *OK*.
+. Optionally select a *Serial Number Policy* for the virtual machines in the cluster:
+* *System Default*: Use the system-wide defaults, which are configured in the {engine-name} database link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/administration_guide/sect-the_engine_configuration_tool[using the engine configuration tool] and the `DefaultSerialNumberPolicy` and `DefaultCustomSerialNumber` key names. The default value for `DefaultSerialNumberPolicy` is to use the Host ID. See link:{URL_virt_product_docs}administration_guide/#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
+* *Host ID*: Set each virtual machine's serial number to the UUID of the host.
+* *Vm ID*: Set each virtual machine's serial number to the UUID of the virtual machine.
+* *Custom serial number*: Set each virtual machine's serial number to the value you specify in the following *Custom Serial Number* parameter.
+. Click btn:[OK].

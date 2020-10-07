@@ -35,7 +35,7 @@ To configure the *Memory Optimization* setting, click the *Optimization* tab in 
 
 Additional comments:
 
-// * The link:{URL_virt_product_docs}data_warehouse_guide/#Host_hourly_and_daily_history_views[Host Statistics views] display useful historical information for sizing the overcommitment ratio.
+* The link:{URL_virt_product_docs}data_warehouse_guide/#Host_hourly_and_daily_history_views[Host Statistics views] display useful historical information for sizing the overcommitment ratio.
 * The actual memory available cannot be determined in real time because the amount of memory optimization achieved by KSM and memory ballooning changes continuously.
 * When virtual machines reach the virtual memory limit, new apps cannot start.
 * When you plan the number of virtual machines to run on a host, use the maximum virtual memory (physical memory size and the *Memory Optimization* setting) as a starting point. Do not factor in the smaller virtual memory achieved by memory optimizations such as memory ballooning and KSM.
@@ -71,7 +71,7 @@ The memory balloon devices do not coordinate directly with each other; they rely
 
 Performance considerations:
 
-* Red Hat does not recommend memory ballooning and overcommitment for workloads that require continuous high-performance and low latency. See link:{URL_virt_product_docs}virtual_machine_management_guide/[Configuring High-Performance Virtual Machines, Templates, and Pools].
+* Red Hat does not recommend memory ballooning and overcommitment for workloads that require continuous high-performance and low latency. See link:{URL_virt_product_docs}virtual_machine_management_guide[Configuring High-Performance Virtual Machines, Templates, and Pools].
 * Use memory ballooning when increasing virtual machine density (economy) is more important than performance.
 * Memory ballooning does not have a significant impact on CPU utilization. (KSM consumes some CPU resources, but consumption remains consistent under pressure.)
 
@@ -97,7 +97,7 @@ KSM consumes more CPU resources than memory ballooning. The amount of CPU KSM co
 Performance considerations:
 
 * After the KSM daemon merges large amounts of memory, the kernel memory accounting statistics may eventually contradict each other. If your system has a large amount of free memory, you might improve performance by disabling KSM.
-* Red Hat does not recommend KSM and overcommitment for workloads that require continuous high-performance and low latency. See link:{URL_virt_product_docs}virtual_machine_management_guide/[Configuring High-Performance Virtual Machines, Templates, and Pools].
+* Red Hat does not recommend KSM and overcommitment for workloads that require continuous high-performance and low latency. See link:{URL_virt_product_docs}virtual_machine_management_guide[Configuring High-Performance Virtual Machines, Templates, and Pools].
 * Use KSM when increasing virtual machine density (economy) is more important than performance.
 
 To enable KSM, click the *Optimization* tab in the *New Cluster* or *Edit Cluster* windows. Then select the *Enable KSM* checkbox. This setting enables MoM to run KSM when necessary and when it can yield a memory saving benefit that outweighs its CPU cost. See xref:Cluster_Optimization_Settings_Explained[].

@@ -10,7 +10,7 @@ include::../../common/upgrade/proc-Updating_all_hosts_in_a_cluster.adoc[leveloff
 
 include::../../common/upgrade/proc-Updating_Individual_Hosts.adoc[leveloffset=+1]
 
-You should update the hosts from the Administration Portal. However, you can update the hosts using `yum update` instead:
+You should update the hosts from the Administration Portal. However, you can update the hosts using `dnf upgrade` instead:
 
 include::../../common/upgrade/proc-Manually_Updating_Hosts.adoc[leveloffset=+1]
 

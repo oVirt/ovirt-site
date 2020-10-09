@@ -16,19 +16,18 @@ authors: doron, lhornyak
 ## Current status
 
 *   Specification phase
-*   Last updated: ,
 
 ## Detailed Description
 
-The external scheduler is a daemon and its purpose is for oVirt users to extend the scheduling process with custom python filters, scoring functions and load balancing functions. As mentioned above any plugin file {NAME}.py must implement at least one of the functions. The service will be started by the installer, and the engine will be able to communicate with it using XML-RPC.
+The external scheduler is a daemon and its purpose is for oVirt users to extend the scheduling process with custom python filters, scoring functions and load balancing functions. As mentioned above any plugin file `{NAME}.py` must implement at least one of the functions. The service will be started by the installer, and the engine will be able to communicate with it using XML-RPC.
 
-*   Scheduler conf file (/etc/ovirt/scheduler/scheduler.conf), optional (defaults):
-
+*   Scheduler conf file (`/etc/ovirt/scheduler/scheduler.conf`), optional (defaults):
+```
       #listerning port=18781
       #ssl=true
       #plugins_path=$PYTHONPATH/ovirt_scheduler/plugins
-
-*   Additionally for every python plugin an optional config file can be added (etc/ovirt/scheduler/plugins/{NAME}.conf).
+```
+*   Additionally for every python plugin an optional config file can be added (`/etc/ovirt/scheduler/plugins/{NAME}.conf`).
 
 ## Benefit to oVirt
 
@@ -51,31 +50,32 @@ This feature will also allow new feaures to build on it.
 
 Engine and external scheduler API:
 
-*   Discover(void): returns a XML containing all available policy units and configurations (configuration is optional).
+*   `Discover(void)`: returns a XML containing all available policy units and configurations (configuration is optional).
 
 Discover will iterate all plugins and config files and extract the data.
 
 Sample of data returned by the discover function:
 
-`     `<PolicyUnits>
-`       `<Filters>
-`         `<Filter>
-`           `<name>`Memory`</name>
-`           `<Properties>
-`             `<name>`Heat`</name>
-`             `<CustomProperties>`server_ip=\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b;threshold={0-99}`</CustomProperties>
-`             `<default_values>`127.0.0.1;70`</default_values>
-`           `</Properties>
-`         `</Filter>
-`       `</Filters>
-`       `<CostFunctions>
-`         `<CostFunction name="Memory"/>
-`       `</CostFunctions>
-`       `<Balances>
-`         `<Balance name="Memory"/>
-`       `<Balances>
-`     `</PolicyUnits>
-         
+{% highlight xml %}
+<PolicyUnits>
+  <Filters>
+    <Filter>
+      <name>Memory</name>
+      <Properties>
+        <name>Heat</name>
+        <CustomProperties>server_ip=\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b;threshold={0-99}</CustomProperties>
+        <default_values>127.0.0.1;70</default_values>
+      </Properties>
+   </Filter>
+  </Filters>
+  <CostFunctions>
+    <CostFunction name="Memory"/>
+  </CostFunctions>
+  <Balances>
+    <Balance name="Memory"/>
+  </Balances>
+</PolicyUnits>
+{% endhighlight %}
 
 note: name is the file name and customProperties and defaultValues are fetched from plugin config file.
 
@@ -87,19 +87,19 @@ The engine will call this method during initialization to expose all plugins. It
 
 ### runFilters
 
-*   List<UUID> runFilters(filtersList, Hosts(as xml), VM(as xml), properties_map)
+*   `List<UUID> runFilters(filtersList, Hosts(as xml), VM(as xml), properties_map)`
 
 runFilters will execute a set of filters plugins sequentially (provided as a name list).
 
 ### runCostFunctions
 
-*   Map<UUID, int> runCostFunctions(<costFunction,Factor>List, Hosts(as xml), VM(as xml), properties_map)
+*   `Map<UUID, int> runCostFunctions(<costFunction,Factor>List, Hosts(as xml), VM(as xml), properties_map)`
 
 runCostFunctions will execute a set of cost function plugins sequentially (provided as a name list), then calculate a cost table (using factors) and return it to the engine.
 
 ### runLoadBalancing
 
-*   Map <UUID, List<UUID>> runLoadBalancing(balanceName, Hosts(as xml), properties_map)
+*   `Map <UUID, List<UUID>> runLoadBalancing(balanceName, Hosts(as xml), properties_map)`
 
 Will execute the balance plugin named balance name on the hosts and properties_map.
 

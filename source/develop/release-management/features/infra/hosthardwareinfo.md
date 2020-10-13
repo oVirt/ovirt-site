@@ -14,9 +14,7 @@ When assigning new host to oVirt engine the engine retrieves general information
 
 *   Name: Yaniv Bronhaim (ybronhei)
 
-<!-- -->
 
-*   Email: ybronhei@redhat.com
 
 ## Current status
 
@@ -28,44 +26,48 @@ When assigning new host to oVirt engine the engine retrieves general information
 
 The following feature allows the user interface to present host's hardware information when adding new hypervisor.
 This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information with getVdsHardwareInfo API method. This returns the following fields[1]:
- 1. Host Manufacturer - Manufacturer of the host's machine and hardware' vendor (e.g LENOVO)
 
-      2. Host Version - For each host the manufacturer gives a unique name (e.g. Lenovo T420s)
-      3. Host Product Name - ID of the product - same for all similar products (e.g 4174BH4)
-      4. Host UUID - Unique ID for each host (e.g E03DD601-5219-11CB-BB3F-892313086897)
-      5. Host Family - Type of host's CPU - (e.g Core i5)
-      6. Host Serial Number - Unique ID for host's chassis (e.g R9M4N4G)
+```
+1. Host Manufacturer - Manufacturer of the host's machine and hardware' vendor (e.g LENOVO)
+2. Host Version - For each host the manufacturer gives a unique name (e.g. Lenovo T420s)
+3. Host Product Name - ID of the product - same for all similar products (e.g 4174BH4)
+4. Host UUID - Unique ID for each host (e.g E03DD601-5219-11CB-BB3F-892313086897)
+5. Host Family - Type of host's CPU - (e.g Core i5)
+6. Host Serial Number - Unique ID for host's chassis (e.g R9M4N4G)
+```
 
 The following parameters below are suggested to be added:
 
-      7. BIOS Revision
-      8. BIOS Version
-      9. BIOS is upgradable
-      10. BIOS Vendor
-      11. BIOS Release Date
+```
+7. BIOS Revision
+8. BIOS Version
+9. BIOS is upgradable
+10. BIOS Vendor
+11. BIOS Release Date
 
-      12. Processor Version
-      13. Processor Core Count
-      14. Processor Vendor
-      15. Processor Core Enabled
-      16. Processor Current Speed
-      17. Processor Max Speed
-      18. Processor Thread Count
+12. Processor Version
+13. Processor Core Count
+14. Processor Vendor
+15. Processor Core Enabled
+16. Processor Current Speed
+17. Processor Max Speed
+18. Processor Thread Count
 
-      19. Chassis Asset Tag
-      20. Chassis Serial Number
-      21. Chassis Manufacturer
+19. Chassis Asset Tag
+20. Chassis Serial Number
+21. Chassis Manufacturer
 
-      22. Memory Serial Number
-      23. Memory Total Width
-      24. Memory Number of Devices
-      25. Memory Manufacturer
-      26. Memory Data Width
-      27. Memory Error Correction Type
-      28. Memory Maximum Capacity
-      29. Memory Type Detail
-      30. Memory Speed
-      31. Memory Size
+22. Memory Serial Number
+23. Memory Total Width
+24. Memory Number of Devices
+25. Memory Manufacturer
+26. Memory Data Width
+27. Memory Error Correction Type
+28. Memory Maximum Capacity
+29. Memory Type Detail
+30. Memory Speed
+31. Memory Size
+```
 
 [1] More parameters can be added on request.
 
@@ -73,6 +75,7 @@ The following parameters below are suggested to be added:
 
 Under Hosts tab we have general information about the chosen host. In this tab you see general information that was retrieved from the host:
 ![](/images/wiki/General-tab.png)
+
 This feature adds new host's sub-tab called Hardware Information. Hardware Information will display the following fields:
 ![](/images/wiki/Bios.png)
 
@@ -83,33 +86,40 @@ When Vdsm receives getVdsHardwareInfo request, it retrieves the hardware informa
 ### Engine Flow
 
 When refreshing host's capabilities we call to getVdsHardwareInfo, On update this information is written to the database to vds_dynamic table with other all host information.
+
 ----
 Short explanation about vds tables:
-We have 3 tables that engine works with - vds_static, vds_dynamic, vds_statistics, all goes to one view that is called VDS
-vds_statistics includes fields that get updated every 2 sec (highest frequency)
-vds_static includes fields that get changed threw the UI like IP, CPU Cores (that can be specified by the user) and more configurable data.
-vds_dynamic includes host information that retrieved from specific vds
+
+We have 3 tables that engine works with - `vds_static`, `vds_dynamic`, `vds_statistics`, all goes to one view that is called VDS.
+
+* `vds_statistics` includes fields that get updated every 2 sec (highest frequency)
+* `vds_static` includes fields that get changed threw the UI like IP, CPU Cores (that can be specified by the user) and more configurable data.
+* `vds_dynamic` includes host information that retrieved from specific vds
+
 Hardware information needs to be part of the vds dynamic information and retrieved in constants intervals or cases by API request from host (as get capabilities)
+
 ----
  This information is mapped to Vds entity and kept there, when mapping to UI we use those parameters to build the Host entity.
 
 ### REST API
 
 The host's Hardware parameters is shown via engine rest API under host object as the following:
- <hardware_information>
-
-` `<manufacturer>`Dell Inc.`</manufacturer>
-` `<version>`01`</version>
-` `<serial_number>`H2CQ95J`</serial_number>
-` `<product_name>`OptiPlex 790`</product_name>
-` `<uuid>`4C4C4544-0032-4310-8051-C8C04F39354A`</uuid>
-` `<family>`Core i7`</family>
+```xml
+<hardware_information>
+   <manufacturer>Dell Inc.</manufacturer>
+   <version>01</version>
+   <serial_number>H2CQ95J</serial_number>
+   <product_name>OptiPlex 790</product_name>
+   <uuid>4C4C4544-0032-4310-8051-C8C04F39354A</uuid>
+   <family>Core i7</family>
 </hardware_information>
+```
 
 ## dmidecode Output
 
 ### System Information
 
+```
 dmi_type - 1
 SKU Number - Not Specified
 UUID - E03DD601-5219-11CB-BB3F-892313086897
@@ -121,9 +131,11 @@ Product Name - 4174BH4
 dmi_handle - 0x0010
 dmi_size - 27
 Manufacturer - LENOVO
+```
 
 ### Bios Information
 
+```
 NEC PC-98 - False
 EDD is supported - True
 PC Card (PCMCIA) is supported - False
@@ -175,9 +187,11 @@ Installed Languages - 1
 ACPI - True
 LS-120 boot - False
 IEEE 1394 boot - False
+```
 
 ### Cache Information
 
+```
 dmi_type - 7
 System Type - Data
 Socket Designation - L2-Cache
@@ -194,9 +208,11 @@ Error Correction Type - Single-bit ECC
 Speed - Unknown
 Operational Mode - Write Through
 dmi_size - 19
+```
 
 ### Processor Information
 
+```
 Upgrade - ZIF Socket
 Socket Designation - CPU
 L2 Cache Handle - 0x0003
@@ -223,9 +239,11 @@ Characteristics - ['64-bit capable']
 Voltage - 1.2 V
 Max Speed - 2600
 Thread Count - 4
+```
 
 ### Chassis Information
 
+```
 dmi_type - 3
 Type - Notebook
 Power Supply State - Unknown
@@ -239,9 +257,11 @@ Boot-Up State - Unknown
 dmi_handle - 0x0012
 dmi_size - 21
 Manufacturer - LENOVO
+```
 
 ### Memory Information
 
+```
 Use - System Memory
 Location - System Board Or Motherboard
 Type -
@@ -266,5 +286,6 @@ Locator - ChannelB-DIMM0
 Type Detail - [None, None, None, None, None, None, 'Synchronous', None, None, None, None, None]
 Speed - 1333 MHz (0.8ns)
 Size - 4096 MB
+```
 
 [HostHardwareInfo](/develop/release-management/features/) [HostHardwareInfo](/develop/release-management/releases/3.2/feature.html)

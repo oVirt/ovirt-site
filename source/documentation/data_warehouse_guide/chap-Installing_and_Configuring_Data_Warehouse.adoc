@@ -3,7 +3,7 @@
 
 :context: DWH_admin
 
-include::topics/Overview_of_Configuring_Data_Warehouse.adoc[]
+include::topics/Overview_of_Configuring_Data_Warehouse.adoc[leveloffset=+1]
 
 include::../common/database/proc-Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine.adoc[leveloffset=+1]
 

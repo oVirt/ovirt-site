@@ -65,7 +65,7 @@ On success of create brick action, new storage device with the brick name will a
 
 There will be an 'Expand Brick' action available in the storage device sub to expand the existing bricks. This helps to expand the existing LV as well as the file system in the LV. This will be an online operation without any disruption to the volume using the brick.
 
-<TODO: Add the UI Mock up>
+<< TODO: Add the UI Mock up >>
 
 ### Change in Brick selection
 
@@ -75,7 +75,7 @@ This feature enables Gluster volume creation and add brick to existing volume mo
 
 ## Detailed Design
 
-Refer the URL: [GlusterHostDiskManagement](/Features/Design/GlusterHostDiskManagement) for detailed design of the feature.
+Refer the URL: [Gluster Host Disk Management Design](/develop/release-management/features/gluster/glusterhostdiskmanagementdesign.html) for detailed design of the feature.
 
 ## Dependencies / Related Features and Projects
 
@@ -94,5 +94,3 @@ None
 ## Open Issues
 
 None
-
-[GlusterHostDiskManagement](Category: Feature) [Category: Gluster](Category: Gluster) [GlusterHostDiskManagement](Category:oVirt 3.6 Proposed Feature) [GlusterHostDiskManagement](Category:oVirt 3.6 Feature)

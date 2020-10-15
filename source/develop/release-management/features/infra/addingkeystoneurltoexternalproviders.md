@@ -12,7 +12,7 @@ Enable to add keystone URL for OpenStack external providers that require authent
 
 ## Owner
 
-*   Name: Eli Mesika (MyUser)
+*   Name: Eli Mesika
 
 <!-- -->
 

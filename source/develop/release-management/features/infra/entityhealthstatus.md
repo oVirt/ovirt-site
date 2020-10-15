@@ -30,10 +30,7 @@ It will first be supported on hosts and storage domains.
 
 ### Owner
 
-*   Name: Eli Mesika (MyUser)
-
-<!-- -->
-
+*   Name: Eli Mesika
 *   Email: emesika@redhat.com
 
 ### Current status

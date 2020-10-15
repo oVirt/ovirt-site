@@ -8,7 +8,7 @@ page_classes: releases
 
 # oVirt 4.4.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.3 Fourth Release Candidate as of October 08U, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.3 Fifth Release Candidate as of October 16, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -60,6 +60,20 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 
 #### oVirt Engine
+
+ - [BZ 1862968](https://bugzilla.redhat.com/1862968) **[RFE] auto-set cpu and numa to a vm for best performance**
+
+   This feature will introduce a way to automatically set the CPU and NUMA pinning of a VM.
+
+Currently, it is optional to do so when adding a VM using REST-API only.
+
+The new value is: auto_pinning_policy. It can be set to `existing`, using the current topology of the VM's CPU. Or, it can be set to `adjust`, using the dedicated host CPU topology, changing it accordingly to the VM.
+
+The result will provide a better performance to that VM.
+
+ - [BZ 1568461](https://bugzilla.redhat.com/1568461) **[RFE] Kernel address space layout randomization [KASLR] support**
+
+   
 
  - [BZ 1859092](https://bugzilla.redhat.com/1859092) **Logical Name is missing when attaching RO direct LUN to a VM**
 
@@ -211,6 +225,13 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
  - [BZ 1835550](https://bugzilla.redhat.com/1835550) **ovirt-provider-ovn takes more than ExternalNetworkProviderTimeout to respond to engine requests**
 
 
+#### oVirt Ansible collection
+
+ - [BZ 1821425](https://bugzilla.redhat.com/1821425) **Hosted Engine deployment is using wrong size/space checks**
+
+ - [BZ 1871694](https://bugzilla.redhat.com/1871694) **HostedEngine VM is broken after Cluster changed to UEFI**
+
+
 #### oVirt Engine Data Warehouse
 
  - [BZ 1846365](https://bugzilla.redhat.com/1846365) **Handle grafana in ovirt-engine-rename**
@@ -222,7 +243,19 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
 
 #### VDSM
 
+ - [BZ 1809102](https://bugzilla.redhat.com/1809102) **Enable OVS switch type for nmstate managed hosts**
+
+   
+
+ - [BZ 1725166](https://bugzilla.redhat.com/1725166) **[RFE] Private VLAN / port isolation**
+
+   
+
  - [BZ 1861671](https://bugzilla.redhat.com/1861671) **[CBT] Copy bitmaps to the new volume during storage migration when the VM contains incremental backups**
+
+   
+
+ - [BZ 1834233](https://bugzilla.redhat.com/1834233) **While Start or Reboot VM - It takes a long time till VM status is 'UP'**
 
    
 
@@ -246,6 +279,10 @@ The copy of the bitmaps is done using the new 'qemu-img bitmaps' command.
 
 This operation is transparent to the user.
 
+ - [BZ 1847090](https://bugzilla.redhat.com/1847090) **[RFE] Support transferring snapshots using raw format (NBD backend)**
+
+   
+
  - [BZ 1870148](https://bugzilla.redhat.com/1870148) **Cannot bond a NIC with vlan tagged network attachment**
 
    
@@ -261,6 +298,34 @@ This operation is transparent to the user.
 
 #### oVirt Engine
 
+ - [BZ 1854000](https://bugzilla.redhat.com/1854000) **Updating storage domain throws error dialog, but the path information gets updated**
+
+   
+
+ - [BZ 1847090](https://bugzilla.redhat.com/1847090) **[RFE] Support transferring snapshots using raw format (NBD backend)**
+
+   
+
+ - [BZ 1879030](https://bugzilla.redhat.com/1879030) **The import_vm_from_ova.py example script fails when specifying the cluster name**
+
+   
+
+ - [BZ 1863051](https://bugzilla.redhat.com/1863051) **[RFE] Allow management of permissions of MAC Address Pools via REST-API**
+
+   
+
+ - [BZ 1887202](https://bugzilla.redhat.com/1887202) **Disk.reduce() allowed on active image, possibly corrupting disk**
+
+   
+
+ - [BZ 1809102](https://bugzilla.redhat.com/1809102) **Enable OVS switch type for nmstate managed hosts**
+
+   
+
+ - [BZ 1876234](https://bugzilla.redhat.com/1876234) **Expose OVA's OVF via the API**
+
+   
+
  - [BZ 1861671](https://bugzilla.redhat.com/1861671) **[CBT] Copy bitmaps to the new volume during storage migration when the VM contains incremental backups**
 
    
@@ -270,6 +335,10 @@ This operation is transparent to the user.
    
 
  - [BZ 1856671](https://bugzilla.redhat.com/1856671) **[RFE] Expose the "reinstallation required" flag of the hosts in the API**
+
+   
+
+ - [BZ 1884634](https://bugzilla.redhat.com/1884634) **[CNV&RHV] Disable creating new disks for Kubevirt VM**
 
    
 
@@ -438,9 +507,46 @@ This operation is transparent to the user.
    
 
 
-#### oVirt Log Collector
+#### cockpit-ovirt
 
- - [BZ 1877479](https://bugzilla.redhat.com/1877479) **ovirt-log-collector fails to gather hosts' info with latest sos**
+ - [BZ 1885119](https://bugzilla.redhat.com/1885119) **[RHHI] - different disk for different hosts (playbook for gluster deployment is generated wrong)**
+
+   
+
+ - [BZ 1850439](https://bugzilla.redhat.com/1850439) **cockpit ovirt(upstream) docs links point to downstream docs.**
+
+   
+
+ - [BZ 1816737](https://bugzilla.redhat.com/1816737) **when running installation of hosted engine again, /var/tmp is full**
+
+   
+
+
+#### ovirt-imageio
+
+ - [BZ 1847090](https://bugzilla.redhat.com/1847090) **[RFE] Support transferring snapshots using raw format (NBD backend)**
+
+   
+
+ - [BZ 1862719](https://bugzilla.redhat.com/1862719) **Remove python 2 leftovers**
+
+   
+
+
+#### oVirt Engine UI Extensions
+
+ - [BZ 1870718](https://bugzilla.redhat.com/1870718) **Keep dialogs consistent with GWT by locating the primary action button to the left of the secondary action button**
+
+   
+
+ - [BZ 1851865](https://bugzilla.redhat.com/1851865) **[RFE] Destination Host in migrate VM dialog has to be searchable and sortable**
+
+   
+
+
+#### oVirt Engine SDK 4 Python
+
+ - [BZ 1847090](https://bugzilla.redhat.com/1847090) **[RFE] Support transferring snapshots using raw format (NBD backend)**
 
    
 
@@ -472,15 +578,15 @@ This operation is transparent to the user.
 
 #### oVirt Engine
 
+ - [BZ 1842344](https://bugzilla.redhat.com/1842344) **Status loop due to host initialization not checking network status, monitoring finding the network issue and auto-recovery.**
+
+   
+
  - [BZ 1826365](https://bugzilla.redhat.com/1826365) **LSM for ISCSI disk size smaller than 1GB created with API fails**
 
    
 
  - [BZ 1881958](https://bugzilla.redhat.com/1881958) **Non admin users behave as admin users and have their permissions**
-
-   
-
- - [BZ 1856375](https://bugzilla.redhat.com/1856375) **Can't add additional host as hosted-engine ha-host from "Guide me" from UI.**
 
    
 
@@ -537,6 +643,13 @@ This operation is transparent to the user.
    
 
 
+#### oVirt Ansible collection
+
+ - [BZ 1887142](https://bugzilla.redhat.com/1887142) **[4.4.3-8] failed to update packages in deploy because of new ansible-2.9.14 is available when we have version lock on ansible-2.9.13**
+
+   
+
+
 #### ovirt-engine-extension-logger-log4j
 
  - [BZ 1877312](https://bugzilla.redhat.com/1877312) **package contains wrong symlink to log4j.jar**
@@ -551,63 +664,88 @@ This operation is transparent to the user.
    
 
 
+#### oVirt Log Collector
+
+ - [BZ 1877479](https://bugzilla.redhat.com/1877479) **ovirt-log-collector fails to gather hosts' info with latest sos**
+
+   
+
+
+#### cockpit-ovirt
+
+ - [BZ 1858248](https://bugzilla.redhat.com/1858248) **[Day2] Volume creation with 6 or more nodes in cluster, should allow users to select the hosts for brick creation**
+
+   
+
+
 #### Contributors
 
-57 people contributed to this release:
+68 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Alan Rominger (Contributed to: ovirt-ansible-collection)
-	Ales Musil (Contributed to: vdsm)
+	Ales Musil (Contributed to: ovirt-engine, vdsm)
 	Amit Bawer (Contributed to: ovirt-engine, vdsm)
 	Andrej Cernek (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-ansible-collection, ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine)
-	Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup)
+	Asaf Rachmani (Contributed to: cockpit-ovirt, ovirt-ansible-collection, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine-metrics)
+	Aviv Turgeman (Contributed to: cockpit-ovirt)
 	Baptiste Mille-Mathias (Contributed to: ovirt-ansible-collection)
 	Bell Levin (Contributed to: vdsm)
 	Bella Khizgiyev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
+	Brian Ward (Contributed to: ovirt-ansible-collection)
 	Christopher Brown (Contributed to: ovirt-ansible-collection)
 	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
+	Daniel Erez (Contributed to: ovirt-engine-sdk)
 	Darin (Contributed to: ovirt-ansible-collection)
-	Dominik Holler (Contributed to: ovirt-engine, ovirt-provider-ovn)
+	Dominik Holler (Contributed to: ovirt-engine, ovirt-provider-ovn, vdsm)
 	Douglas Schilling Landgraf (Contributed to: engine-db-query, ovirt-log-collector)
 	Eitan Raviv (Contributed to: ovirt-engine)
 	Eli Mesika (Contributed to: ovirt-engine, vdsm)
 	Evgheni Dereveanchin (Contributed to: ovirt-release)
-	Eyal Shenitzky (Contributed to: ioprocess, ovirt-engine, vdsm)
+	Eyal Shenitzky (Contributed to: ioprocess, ovirt-engine, ovirt-engine-sdk, vdsm)
+	Gal Zaidman (Contributed to: cockpit-ovirt)
 	Germano Veit Michel (Contributed to: vdsm)
+	Hilda Stastna (Contributed to: ovirt-engine-ui-extensions)
 	Kaustav Majumder (Contributed to: vdsm)
+	Kedar Kulkarni (Contributed to: ovirt-ansible-collection)
+	Klett IT (Contributed to: ovirt-ansible-collection)
+	Kobi Hakimi (Contributed to: ovirt-ansible-collection)
 	Lev Veyde (Contributed to: ovirt-dwh, ovirt-engine, ovirt-log-collector, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
-	Martin Nečas (Contributed to: ovirt-ansible-collection, ovirt-engine)
-	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-extension-logger-log4j)
+	Martin Nečas (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-engine-ui-extensions)
+	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-engine-extension-logger-log4j, ovirt-engine-sdk)
 	Michal Skrivanek (Contributed to: ovirt-engine)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nijin Ashok (Contributed to: ovirt-ansible-collection)
 	Nir Levy (Contributed to: imgbased)
-	Nir Soffer (Contributed to: ioprocess, ovirt-engine, vdsm)
-	Ori Liel (Contributed to: ovirt-engine)
+	Nir Soffer (Contributed to: ioprocess, ovirt-engine, ovirt-engine-sdk, ovirt-imageio, vdsm)
+	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
+	Parth Dhanjal (Contributed to: cockpit-ovirt)
 	Pavel Bar (Contributed to: ioprocess)
 	Pierre Lecomte (Contributed to: ovirt-engine)
 	Prajith Kesava Prasad (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Reto Gantenbein (Contributed to: ovirt-ansible-collection)
-	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-engine, ovirt-engine-metrics, ovirt-hosted-engine-setup, ovirt-log-collector)
+	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-engine, ovirt-engine-metrics, ovirt-engine-sdk, ovirt-hosted-engine-setup, ovirt-log-collector)
+	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions)
 	Sean Sackowitz (Contributed to: ovirt-ansible-collection)
 	Shani Leviim (Contributed to: ovirt-engine)
+	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions)
 	Shirly Radco (Contributed to: ovirt-dwh, ovirt-engine-metrics)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Shubha Kulkarni (Contributed to: ovirt-engine)
 	Simone Tiraboschi (Contributed to: ovirt-engine)
 	Sloane Hertel (Contributed to: ovirt-ansible-collection)
-	Steven Rosenberg (Contributed to: ovirt-engine, vdsm)
+	Steven Rosenberg (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
 	Tomáš Golembiovský (Contributed to: vdsm)
-	Vojtech Juranek (Contributed to: ovirt-engine, vdsm)
+	Vojtech Juranek (Contributed to: ovirt-engine, ovirt-imageio, vdsm)
 	Yedidyah Bar David (Contributed to: ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup)
 	bverschueren (Contributed to: ovirt-ansible-collection)
 	hiyokotaisa (Contributed to: ovirt-ansible-collection)

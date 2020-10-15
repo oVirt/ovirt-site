@@ -15,10 +15,7 @@ A task may have other nesting sub-tasks under it.
 
 ### Owner
 
-*   Name: James Rankin (MyUser)
-
-<!-- -->
-
+*   Name: James Rankin
 *   Email: jrankin@redhat.com
 
 ### Current status

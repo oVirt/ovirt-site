@@ -181,7 +181,9 @@ Specify 'backup' property on ```disk``` entity: 'incremental'/'none' (TBD: 'full
 Request:
 ```
 PUT /vms/vm-uuid/diskattachments
+```
 
+```xml
 <disk_attachment>
     ...
     <disk>
@@ -193,7 +195,7 @@ PUT /vms/vm-uuid/diskattachments
 ```
 
 Response:
-```
+```xml
 <disk_attachments>
   <disk_attachment>
         ...
@@ -215,7 +217,7 @@ GET /vms/vm-uuid/diskattachments
 ```
 
 Response:
-```
+```xml
 <disks>
     <disk>
         ...
@@ -246,7 +248,9 @@ When starting a full backup, the `backup_mode` for all the disks will be `full` 
 Request:
 ```
 POST /vms/vm-uuid/backups
+```
 
+```xml
 <backup>
     <disks>
         <disk id="disk-uuid" />
@@ -256,7 +260,7 @@ POST /vms/vm-uuid/backups
 ```
 
 Response:
-```
+```xml
 <backup id="backup-uuid">
     <link href="/ovirt-engine/api/vms/vm-uuid/backups/backup-uuid/disks" rel="disks"/>
     <phase>initiailizing</phase>
@@ -281,7 +285,9 @@ The `backup_mode` for the rest of the the disks will be `incremental` (`backup_m
 Request:
 ```
 POST /vms/vm-uuid/backups
+```
 
+```xml
 <backup>
     <from_checkpoint_id>previous-checkpoint-ucouid</from_checkpoint_id>
     <disks>
@@ -292,7 +298,7 @@ POST /vms/vm-uuid/backups
 ```
 
 Response:
-```
+```xml
 <backup id="backup-uuid">
     <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
     <link href="/ovirt-engine/api/vms/vm-uuid/backups/backup-uuid/disks" rel="disks"/>
@@ -314,7 +320,7 @@ GET /vms/vm-uuid/backups/backup-uuid
 ```
 
 Response:
-```
+```xml
 <vm_backup id="backup-uuid">
     <from_checkpoint_id>previous-checkpoint-uuid</from_checkpoint_id>
     <to_checkpoint_id>new-checkpoind-uuid</to_checkpoint_id>
@@ -333,7 +339,9 @@ Response:
 
 ```
 POST /vms/vm-uuid/backups/backup-uuid/finalize
+```
 
+```xml
 <action></action>
 ```
 
@@ -344,16 +352,18 @@ The transfer `<format>` property should be `raw` (this indicates that NBD is use
 
 Request:
 
-````
+```
 POST /imagetransfers
+```
 
+```xml
 <image_transfer>
     <disk id="123"/>
     <backup id="456"/>
     <direction>download</direction>
     <format>raw</format>
 </image_transfer>
-````
+```
 
 #### Creating image transfer for incremental restore
 
@@ -362,7 +372,8 @@ disk, you need to specify the "format" key in the transfer:
 
 ```
 POST /imagetransfers
-
+```
+```xml
 <image_transfer>
     <disk id="123"/>
     <direction>upload</direction>
@@ -393,7 +404,7 @@ GET /vms/vm-uuid/checkpoints/
 
 Response:
 
-```
+```xml
 <checkpoints>
    <checkpoint id="checkpoint-uuid">
       <link href="/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks" rel="disks"/>
@@ -416,7 +427,7 @@ GET /vms/vm-uuid/checkpoints/checkpoint-uuid/
 
 Response:
 
-```
+```xml
 <checkpoint id="checkpoint-uuid">
   <link href="/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks" rel="disks"/>
   <parent_id>parent-checkpoint-uuid</parent_id>
@@ -685,7 +696,7 @@ creating an image transfer for a disk.
 - vm_backup_disk_map
   - backup_id: UUID
   - disk_id: UUID
-  - backup_url: "nbd:unix:/tmp/<id>.sock:exportname=<sdb>" | "nbd://localhost:<12345>/<sdb>"
+  - backup_url: ``nbd:unix:/tmp/<id>.sock:exportname=<sdb>`` | ``nbd://localhost:<12345>/<sdb>``
 
 Add vm_checkpoints table. This table keeps the checkpoints created by
 backup tasks. This info is used before backup to update libvirt about
@@ -804,10 +815,6 @@ socket:
   delete the corrupted bitmaps manually. This will fail HA VM flows and
   storage operations. (libvirt/qemu).
 
-- When creating a snapshot, an active bitmap should be copied to the new
-  top layer, and qemu should continue to track changes, writing into the
-  copied bitmap (libvirt).
-
 - Need to allocate extra space for qcow2 metedata when using
   preallocated qcow2 on block storage (vdsm).
 
@@ -819,17 +826,8 @@ socket:
   be enough when image contains lots of bitmaps.  with defaults, each
   bitmap uses 2M per TB (engine, vdsm).
 
-- Are bitmaps copied when copying images with qemu-img convert? if not
-  next backup after LSM or move disk must be full (qemu-img).
-
-- Are bitmaps copied in block copy during LSM for the active layer?
-  If not the next backup must be full (libvirt/qemu).
-
 - Attaching disk with bitmaps to older qemu version will invalidate
   bitmaps, creating corrupted backups. how can we prevent this? (qemu).
-
-- Are bitmaps are copied down from the active layer during live merge
-  (libvirt/qemu) and cold merge (qemu-img)?
 
 - Do we need also qemu-img API to list all bitmaps in an image for
   managing bitmaps in floating disks?

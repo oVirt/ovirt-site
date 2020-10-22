@@ -14,11 +14,8 @@ The Host Power Management feature allows the oVirt engine to remotely control th
 
 ### Owner
 
-*   Name: Simon Grinberg (MyUser)
+*   Name: Simon Grinberg
 
-<!-- -->
-
-*   Email: sgrinber@redhat.com
 
 ### Current status
 

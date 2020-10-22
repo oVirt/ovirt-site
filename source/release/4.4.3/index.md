@@ -8,7 +8,7 @@ page_classes: releases
 
 # oVirt 4.4.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.3 Fifth Release Candidate as of October 16, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.3 Sixth Release Candidate as of October 22, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -74,6 +74,22 @@ The result will provide a better performance to that VM.
  - [BZ 1568461](https://bugzilla.redhat.com/1568461) **[RFE] Kernel address space layout randomization [KASLR] support**
 
    
+
+ - [BZ 1752751](https://bugzilla.redhat.com/1752751) **[RFE] Show vCPUs and allocated memory in virtual machines summary**
+
+   Features delivered under this issue (by their importance): 
+
+
+
+1. Chosen grid settings (column visibility and order) are now by default persisted on the server. Existing settings will be migrated (uploaded) to the server. Functionality can be disabled by de-selecting checkbox 'Persist grid settings' in the Options pop-up (see screenshot).
+
+
+
+2. It's now possible to reset grid settings - this option is now available via newly added action button (kebab button) in the top right corner of the grid (check animated gif for details)
+
+
+
+3. Two new columns were added to Virtual Machine screen: number  of vCPUs and Memory in MB (see the screenshot for exact labels). Columns are hidden by default. User may show them by using column context menu (existing feature: pop-up triggered by right click on any column header) or by action "Change column visibility/order" (via kebab button added as part of this story - see screenshots).
 
  - [BZ 1859092](https://bugzilla.redhat.com/1859092) **Logical Name is missing when attaching RO direct LUN to a VM**
 
@@ -243,6 +259,10 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
 
 #### VDSM
 
+ - [BZ 1861674](https://bugzilla.redhat.com/1861674) **[CBT] Report backup mode (full or incremental) for disks that participates in the VM backup**
+
+   
+
  - [BZ 1809102](https://bugzilla.redhat.com/1809102) **Enable OVS switch type for nmstate managed hosts**
 
    
@@ -279,10 +299,6 @@ The copy of the bitmaps is done using the new 'qemu-img bitmaps' command.
 
 This operation is transparent to the user.
 
- - [BZ 1847090](https://bugzilla.redhat.com/1847090) **[RFE] Support transferring snapshots using raw format (NBD backend)**
-
-   
-
  - [BZ 1870148](https://bugzilla.redhat.com/1870148) **Cannot bond a NIC with vlan tagged network attachment**
 
    
@@ -302,7 +318,7 @@ This operation is transparent to the user.
 
    
 
- - [BZ 1847090](https://bugzilla.redhat.com/1847090) **[RFE] Support transferring snapshots using raw format (NBD backend)**
+ - [BZ 1881325](https://bugzilla.redhat.com/1881325) **CPU Type Bug With Coffee Lake CPU.**
 
    
 
@@ -354,6 +370,10 @@ The copy of the bitmaps is done using the new 'qemu-img bitmaps' command.
 
 This operation is transparent to the user.
 
+ - [BZ 1877668](https://bugzilla.redhat.com/1877668) **model_Cascadelake-Server-noTSX (cpu flag) is missing from vdc_options table**
+
+   
+
  - [BZ 1883844](https://bugzilla.redhat.com/1883844) **[CNV&RHV] Remove warning about no active storage domain for Kubevirt VMs**
 
    
@@ -379,6 +399,10 @@ This operation is transparent to the user.
    
 
  - [BZ 1865923](https://bugzilla.redhat.com/1865923) **Cannot remove existing virtual disks in the clone modal (Admin portal)**
+
+   
+
+ - [BZ 1804675](https://bugzilla.redhat.com/1804675) **[ja_JP] Text alignment correction needed on administration -> configure -> instance type -> add page**
 
    
 
@@ -443,6 +467,13 @@ This operation is transparent to the user.
    
 
 
+#### oVirt Ansible collection
+
+ - [BZ 1850028](https://bugzilla.redhat.com/1850028) **[HE] Can't deploy HE with uppercase characters in the HE-VM MAC address**
+
+   
+
+
 #### oVirt Engine Data Warehouse
 
  - [BZ 1874880](https://bugzilla.redhat.com/1874880) **Update column settings to contain only relevant columns**
@@ -481,6 +512,13 @@ This operation is transparent to the user.
 #### IOProcess
 
  - [BZ 1777805](https://bugzilla.redhat.com/1777805) **Improve logging during block size detections**
+
+   
+
+
+#### imgbased
+
+ - [BZ 1883195](https://bugzilla.redhat.com/1883195) **/etc/multipath/conf.d is not copied correctly**
 
    
 
@@ -524,10 +562,6 @@ This operation is transparent to the user.
 
 #### ovirt-imageio
 
- - [BZ 1847090](https://bugzilla.redhat.com/1847090) **[RFE] Support transferring snapshots using raw format (NBD backend)**
-
-   
-
  - [BZ 1862719](https://bugzilla.redhat.com/1862719) **Remove python 2 leftovers**
 
    
@@ -543,10 +577,14 @@ This operation is transparent to the user.
 
    
 
+ - [BZ 1358295](https://bugzilla.redhat.com/1358295) **[i18n][ALL_LANG] wrong translation of error message canceling operation**
 
-#### oVirt Engine SDK 4 Python
+   
 
- - [BZ 1847090](https://bugzilla.redhat.com/1847090) **[RFE] Support transferring snapshots using raw format (NBD backend)**
+
+#### oVirt Web UI
+
+ - [BZ 1358295](https://bugzilla.redhat.com/1358295) **[i18n][ALL_LANG] wrong translation of error message canceling operation**
 
    
 
@@ -554,6 +592,22 @@ This operation is transparent to the user.
 ### No Doc Update
 
 #### VDSM
+
+ - [BZ 1861673](https://bugzilla.redhat.com/1861673) **[CBT] Copy bitmaps from deleted layer (top) to the base when cold merge operation is done on a  VM that contains incremental backups**
+
+   
+
+ - [BZ 1729222](https://bugzilla.redhat.com/1729222) **VDSM should depend on fence-agents-all which doesn't require telnet package**
+
+   
+
+ - [BZ 1835650](https://bugzilla.redhat.com/1835650) **[security] selecting STIG profile cause host to be unusable due to indirect dependency on telnet**
+
+   
+
+ - [BZ 1751520](https://bugzilla.redhat.com/1751520) **[logging] filter "RPC call" logs**
+
+   
 
  - [BZ 1826365](https://bugzilla.redhat.com/1826365) **LSM for ISCSI disk size smaller than 1GB created with API fails**
 
@@ -664,6 +718,13 @@ This operation is transparent to the user.
    
 
 
+#### oVirt Engine Metrics
+
+ - [BZ 1889522](https://bugzilla.redhat.com/1889522) **metrics playbooks are broken due to typo**
+
+   
+
+
 #### oVirt Log Collector
 
  - [BZ 1877479](https://bugzilla.redhat.com/1877479) **ovirt-log-collector fails to gather hosts' info with latest sos**
@@ -678,9 +739,20 @@ This operation is transparent to the user.
    
 
 
+#### ovirt-engine-extension-aaa-ldap
+
+ - [BZ 1879199](https://bugzilla.redhat.com/1879199) **ovirt-engine-extension-aaa-ldap-setup fails on cert import**
+
+   
+
+ - [BZ 1691253](https://bugzilla.redhat.com/1691253) **ovirt-engine-extension-aaa-ldap-setup does not escape special characters in password**
+
+   
+
+
 #### Contributors
 
-68 people contributed to this release:
+70 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Alan Rominger (Contributed to: ovirt-ansible-collection)
@@ -695,6 +767,7 @@ This operation is transparent to the user.
 	Baptiste Mille-Mathias (Contributed to: ovirt-ansible-collection)
 	Bell Levin (Contributed to: vdsm)
 	Bella Khizgiyev (Contributed to: ovirt-engine)
+	Ben Amsalem (Contributed to: ovirt-web-ui)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
 	Brian Ward (Contributed to: ovirt-ansible-collection)
 	Christopher Brown (Contributed to: ovirt-ansible-collection)
@@ -710,7 +783,7 @@ This operation is transparent to the user.
 	Eyal Shenitzky (Contributed to: ioprocess, ovirt-engine, ovirt-engine-sdk, vdsm)
 	Gal Zaidman (Contributed to: cockpit-ovirt)
 	Germano Veit Michel (Contributed to: vdsm)
-	Hilda Stastna (Contributed to: ovirt-engine-ui-extensions)
+	Hilda Stastna (Contributed to: ovirt-engine-ui-extensions, ovirt-web-ui)
 	Kaustav Majumder (Contributed to: vdsm)
 	Kedar Kulkarni (Contributed to: ovirt-ansible-collection)
 	Klett IT (Contributed to: ovirt-ansible-collection)
@@ -720,24 +793,25 @@ This operation is transparent to the user.
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-engine-ui-extensions)
-	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-engine-extension-logger-log4j, ovirt-engine-sdk)
-	Michal Skrivanek (Contributed to: ovirt-engine)
+	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-engine-extension-aaa-ldap, ovirt-engine-extension-logger-log4j, ovirt-engine-sdk)
+	Michal Skrivanek (Contributed to: ovirt-engine, ovirt-engine-metrics)
+	Miguel Martín (Contributed to: ovirt-engine-extension-aaa-ldap)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nijin Ashok (Contributed to: ovirt-ansible-collection)
 	Nir Levy (Contributed to: imgbased)
 	Nir Soffer (Contributed to: ioprocess, ovirt-engine, ovirt-engine-sdk, ovirt-imageio, vdsm)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Parth Dhanjal (Contributed to: cockpit-ovirt)
-	Pavel Bar (Contributed to: ioprocess)
+	Pavel Bar (Contributed to: ioprocess, ovirt-ansible-collection)
 	Pierre Lecomte (Contributed to: ovirt-engine)
 	Prajith Kesava Prasad (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Reto Gantenbein (Contributed to: ovirt-ansible-collection)
 	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-engine, ovirt-engine-metrics, ovirt-engine-sdk, ovirt-hosted-engine-setup, ovirt-log-collector)
-	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions)
+	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Sean Sackowitz (Contributed to: ovirt-ansible-collection)
-	Shani Leviim (Contributed to: ovirt-engine)
-	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions)
+	Shani Leviim (Contributed to: ovirt-engine, vdsm)
+	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shirly Radco (Contributed to: ovirt-dwh, ovirt-engine-metrics)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Shubha Kulkarni (Contributed to: ovirt-engine)

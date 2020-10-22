@@ -17,12 +17,7 @@ This utility is intended to bring the host to a state it can be reused by oVirt 
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
-
-*   Name: TBD (MyUser)
-
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
-
+*   Name: TBD
 *   Email: TBD
 
 ### Present
@@ -73,7 +68,7 @@ and the later tries it a second time without a formal clean-up being performed
       # yum remove ovirt-engine,
       # yum install ovirt-engine
       # engine-cleanup
-      #  engine-setup
+      # engine-setup
 
 * If sequence II is not possible, don't start cleanup at all, but exit with proper message.
 

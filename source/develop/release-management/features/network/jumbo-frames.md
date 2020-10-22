@@ -11,10 +11,7 @@ Typically, just another parameter for a network configuration to determine the [
 
 ## Owner
 
-*   Name: Roy Golan (MyUser)
-
-<!-- -->
-
+*   Name: Roy Golan
 *   Email: rgolan@redhat.com
 
 ## definition
@@ -58,13 +55,16 @@ If this limitation is removed we need to validate the MTU for the non-vlan netwo
 
 mtu is a new optional parameter when creating a logical network. Not sending it defaults to 0 which api-wise means "use default value"
 
-      POST /api/networks/
+Endpoint: **POST** `/api/networks/`
+
+```xml
 <action>
-`  `<network>
-`    `<name>`....`</name>
-`    `<mtu>`9000`</mtu>
-`  `</network>
+  <network>
+    <name>....</name>
+    <mtu>9000</mtu>
+  </network>
 </action>
+```
 
 ### implementation on host
 

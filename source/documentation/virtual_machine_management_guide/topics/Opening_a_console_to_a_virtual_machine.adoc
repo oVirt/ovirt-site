@@ -1,5 +1,5 @@
 [[Logging_in_to_a_virtual_machine_using_SPICE]]
-==== Opening a Console to a Virtual Machine
+=== Opening a Console to a Virtual Machine
 
 Use Remote Viewer to connect to a virtual machine.
 

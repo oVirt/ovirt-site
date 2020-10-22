@@ -2,7 +2,25 @@
 title: Community
 authors: bproffitt, dneary, knesenko, quaid, sandrobonazzola, theron, gregsheremeta
 page_classes: community
+no_container: true
 ---
+
+<section class="community_head">
+# Get involved!
+
+oVirt is a community-driven virtualization project and people just like you are making it happen.
+</section>
+
+<section class="container">
+# Getting involved
+
+The oVirt community is a group of multidiscilinary individuals who are contributing code, writing documentation, reporting bugs, contributing UX and design expertise, and engaging with the community.
+
+Before getting started, we recommend that you:
+
+* Sign up for the users@ovirt.org mailing list and send us an email saying how you would like to contribute. Visit our [mailing lists](https://lists.ovirt.org/archives/) page for other oVirt mailing lists to sign up for.
+* For fluent, real time communication, [join us on IRC](/community/about/contact#irc)
+* Please read our [community etiquette guidelines](/community/about/community-guidelines.html). (Quick summary: Be nice!)
 
 
 # Community
@@ -67,3 +85,4 @@ You can find some of them listed here:
  * [oVirt Simple Backup](https://github.com/zipurman/oVIRT_Simple_Backup)
  * [oVirt Desktop Client](https://github.com/nkovacne/ovirt-desktop-client)
  * [oVirt filesystem in userspace](https://github.com/yuvalturg/ovirtfs)
+</section>

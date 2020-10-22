@@ -30,19 +30,19 @@ img.error-not-fixed, img.error-fixed
 
 
 header.masthead
-  $header-font-size: 2.5ex
+  $header-font-size: 3ex
   $logo-height: 29px
-  $vertical-pad: 2rem
+  $vertical-pad: 0rem
   $border-height: 4px
 
   width: 100%
-  height: 65px
+  height: 80px
   margin: 0 auto
   padding: 0 $header-font-size
   border-bottom: none
-  background-color: #666
+  background-color: #025081
   box-shadow: -4px 0px 9px #626060
-  font-size: 2.5ex
+  font-size: 3ex
 
   section, div
     vertical-align: middle
@@ -91,17 +91,21 @@ header.masthead .navbar-header
     color: white
 
 header.masthead .navbar-nav li a
-  padding: 21px
-  color: #d0eec7
+  padding: 25px
+  padding-left: 40px
+  padding-right: 40px
+  margin-left: 20px
+  margin-right: 20px
+  color: white
   opacity: 100
   @media screen and (max-width: 768px)
-    font-size: 2ex
-    padding: 10px
+    font-size: 3ex
+    padding: 0px
 
 header.masthead .navbar-nav li.active a
   color: white
   opacity: 100
-  background-color: #61b710
+  background-color: #0088CE
   box-shadow: none
 
 header.masthead .navbar-nav li a:hover
@@ -197,15 +201,54 @@ header.masthead .navbar-collapse.in
     max-width: 100%
     height: auto
 
+.community_head
+  padding: 0
+  margin: -4em 0 0
+  margin-top: -27px
+  @media screen and (max-width: 768px)
+    margin-top: -5px
+  background-image: url(/images/community/community-backrgound.png)
+  background-repeat: no-repeat
+  background-color: #ededed
+  background-size: 100%
+  font-family: 'Open Sans', sans-serif !important
+  color: #FFF
+  text-align: center
+  min-height: 40vh
+  display: block
+  align-items: center
+  width: 100%
+  clear: both
+  max-width: 100%
+
+  h1
+    padding-top: 10vh
+    padding-bottom: 5vh
+    display: block
+    clear: both
+
+  p
+    display: block
+    clear: both
+    font-size: 3.5ex
+    padding-left: 25%
+    padding-right: 25%
+
 .intro
   padding: 0
   margin: -4em 0 0
   margin-top: -27px
   @media screen and (max-width: 768px)
     margin-top: -5px
-  background-image: none
+  background-image: url(/images/home/homepage-background.png)
   background-color: #ededed
   background-size: 100%
+  font-family: 'Open Sans', sans-serif !important
+  color: #FFF
+  text-align: center
+  min-height: 50vh
+  display: flex
+  align-items: center
 
   h2
     display: block
@@ -509,7 +552,7 @@ ol.breadcrumb
     vertical-align: text-bottom
 
   h3
-    color: $ovirt_color_green
+    color: #fff
   ul
     list-style: none
     padding-left: 0
@@ -527,8 +570,7 @@ ol.breadcrumb
   font-size: $promoFontSize
   line-height: 40px
 
-  h2
-    color: $ovirt_color_green
+
 
 .promo_features
   padding: 2em 0

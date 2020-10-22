@@ -14,10 +14,7 @@ Allow to hot plug and unplug a NIC to/from running guest.
 
 ### Owner
 
-*   Name: Igor Lvovsky (MyUser)
-
-<!-- -->
-
+*   Name: Igor Lvovsky
 *   Email: ilvovsky@redhat.com
 
 ### Current status

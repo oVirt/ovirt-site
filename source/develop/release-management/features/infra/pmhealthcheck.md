@@ -12,13 +12,13 @@ authors: emesika, gchaplik
 
 ### Owner
 
-*   Name: Eli Mesika (MyUser)
-*   Name: Eli Mesika (MyUser)
+*   Name: Eli Mesika
+*   Email: emesika@redhat.com
 
 <!-- -->
 
-*   Email: aberezin@redhat.com
-*   Email: emesika@redhat.com
+*   Name: Arthur Berezin
+
 
 ### Current status
 

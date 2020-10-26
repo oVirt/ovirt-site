@@ -42,6 +42,8 @@ Just as an example for a simple and useful violation, if during testing you ofte
       [environment:default]
       OVESETUP_SYSTEM/memCheckEnabled=bool:False
 
+Generation of answer files is done by OTOPI's dialog module, and using them is immitating interactive runs. For details see [Bug 1396925](https://bugzilla.redhat.com/show_bug.cgi?id=1396925).
+
 ### Postinstall file
 
 The postinstall file, ```/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf```, seems like an answerfile, and has exactly the same syntax and semantics, but is very different: It serves as the place where engine-setup saves its internal data, the things it needs to remember for the next time it is ran, usually for upgrades. These generally include things like whether some feature/component is enabled.
@@ -98,6 +100,6 @@ These are usually not tested routinely, and officially are unsupported and shoul
 
 Some examples:
 
-- Vars to control the size of database dumps taken by engine-setup to allow rollback (not to be confused with engine-backup) and the speed of backup/restore. These were added for [bug #1188132](https://bugzilla.redhat.com/show_bug.cgi?id=1188132), some details are in the commit message (https://gerrit.ovirt.org/39190).
+- Vars to control the size of database dumps taken by engine-setup to allow rollback (not to be confused with engine-backup) and the speed of backup/restore. These were added for [bug #1188132](https://bugzilla.redhat.com/show_bug.cgi?id=1188132), some details are in the commit message ([gerrit.ovirt.org/39190](https://gerrit.ovirt.org/39190)).
 
 - A variable to allow ignoring checks of PostgreSQL configuration options, might be useful if using a remote database and you have your own opinion about how some of them should be set. Added for [bug #1573091](https://bugzilla.redhat.com/show_bug.cgi?id=1573091), see [comment 6](https://bugzilla.redhat.com/show_bug.cgi?id=1573091#c6) there for details.

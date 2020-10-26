@@ -9,7 +9,7 @@ authors: didi
 
 OTOPI's "home page": <http://gerrit.ovirt.org/gitweb?p=otopi.git;a=blob;f=README;hb=HEAD>
 
-A nice presentation about OTOPI and host-deploy-engine (the first tool to use otopi): <http://resources.ovirt.org/old-site-files/wiki/Ovirt-host-deploy_3.2.pdf>
+A nice presentation about OTOPI and ovirt-host-deploy (the first tool to use otopi): <http://resources.ovirt.org/old-site-files/wiki/Ovirt-host-deploy_3.2.pdf>. ovirt-host-deploy is now not in use anymore, and its functionality was rewritten in ansible.
 
 ### Environment
 
@@ -31,7 +31,11 @@ Some of these keys can be used to affect/configure otopi-based tools by setting 
 
        These files can be used with the options above. E.g. if running 'engine-setup' emits, during the end:
 
-[ INFO ] Generating answer file '/var/lib/ovirt-engine/setup/answers/20130901173707-setup.conf' You can copy this file either to /etc/ovirt-engine-setup.conf.d where it will be read automatically by further runs, or to /my/conf/path/my-answers.conf and then use it with engine-setup --config=/my/conf/path/my-answers.conf
+```
+[ INFO ] Generating answer file '/var/lib/ovirt-engine/setup/answers/20130901173707-setup.conf'
+```
+
+       You can copy this file either to /etc/ovirt-engine-setup.conf.d where it will be read automatically by further runs, or to /my/conf/path/my-answers.conf and then use it with engine-setup --config=/my/conf/path/my-answers.conf .
 
 Important note: Such options/conf files override code which might not have been ran at all if only dialog interaction was used. E.g. a first clean setup with the allinone plugin installed, during which we chose to "Configure VDSM on this host", will create a file /etc/ovirt-engine-setup.conf.d/20-setup-aio.conf which disables this plugin on further runs of engine-setup (used for upgrades). If we add in /etc/ovirt-engine-setup.conf.d our own file with the content [environment:default] OVESETUP_AIO/enable=bool:True then this plugin will be activated on all subsequent runs of engine-setup, and might cause problems by trying to configure VDSM on our already configured host.
 
@@ -103,7 +107,7 @@ otopi most probably has no humans using it directly. Although technically you ca
 
 Following is a list of projects/tools that are using otopi or are related to it:
 
-* ovirt-host-deploy
+* ovirt-host-deploy (Not in use in 4.4+; re-implemented in ansible)
 
 * Inside ovirt-engine: engine-setup, engine-cleanup, ovirt-engine-rename, ovirt-engine-provisiondb, ovirt-engine-health
 

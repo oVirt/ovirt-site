@@ -1,14 +1,14 @@
 ---
 title: oVirt 4.4.3 Release Notes
 category: documentation
-authors: sandrobonazzola lveyde
+authors: lveyde sandrobonazzola
 toc: true
 page_classes: releases
 ---
 
 # oVirt 4.4.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.3 Sixth Release Candidate as of October 22, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.3 Seventh Release Candidate as of October 29, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -50,30 +50,56 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 ## What's New in 4.4.3?
 
-### Enhancements
-
-#### VDSM
-
- - [BZ 1859092](https://bugzilla.redhat.com/1859092) **Logical Name is missing when attaching RO direct LUN to a VM**
-
-   Previously, the logical name of LUN disks within the guest weren't pull to the user visibility. Now, the LUN logical name is pulled and shown in the disk device.
-
+### Release Note
 
 #### oVirt Engine
 
- - [BZ 1862968](https://bugzilla.redhat.com/1862968) **[RFE] auto-set cpu and numa to a vm for best performance**
+ - [BZ 1888626](https://bugzilla.redhat.com/1888626) **Require ansible-2.9.14 in ovirt-engine**
 
-   This feature will introduce a way to automatically set the CPU and NUMA pinning of a VM.
+   ansible-2.9.14 is required for proper functionality of RHV 4.4.3
 
-Currently, it is optional to do so when adding a VM using REST-API only.
+ - [BZ 1824103](https://bugzilla.redhat.com/1824103) **Lifespan of certificates created by oVirt engine CA should not exceed 398 days**
 
-The new value is: auto_pinning_policy. It can be set to `existing`, using the current topology of the VM's CPU. Or, it can be set to `adjust`, using the dedicated host CPU topology, changing it accordingly to the VM.
+   Up until 4.4.3 RHV used below validity lifetime for certificates:
 
-The result will provide a better performance to that VM.
 
- - [BZ 1568461](https://bugzilla.redhat.com/1568461) **[RFE] Kernel address space layout randomization [KASLR] support**
 
-   
+1. CA certificate - 10 years
+
+2. RHV Manager HTTPS certificate - 5 years
+
+3. RHV hypervisors certificates 5 - years
+
+
+
+But due recent efforts to reduce certificate lifetime [1][2] we have decided to shorten RHV certificate lifetime to align with those suggestions:
+
+
+
+1. CA certificate - 10 years (no change)
+
+2. RHV Manager HTTPS certificate - 398 days
+
+3. RHV hypervisors certificates 398 days
+
+
+
+This change doesn't affect existing certificates, it will be applied only on newly created certificates in RHV 4.4.3 and newer.
+
+
+
+We have also discussed to shorten RHV CA certificate lifetime, but we have decided not to change the lifetime, because expiring CA certificate requires reenrolling certificates for all hosts, which means that all hosts needs to go to Maintenance status and this is very disruptive operation.
+
+
+
+[1] https://cabforum.org/2019/09/10/ballot-sc22-reduce-certificate-lifetimes-v2/
+
+[2] https://www.thesslstore.com/blog/ssl-certificate-validity-will-be-limited-to-one-year-by-apples-safari-browser/
+
+
+### Enhancements
+
+#### oVirt Engine
 
  - [BZ 1752751](https://bugzilla.redhat.com/1752751) **[RFE] Show vCPUs and allocated memory in virtual machines summary**
 
@@ -91,9 +117,19 @@ The result will provide a better performance to that VM.
 
 3. Two new columns were added to Virtual Machine screen: number  of vCPUs and Memory in MB (see the screenshot for exact labels). Columns are hidden by default. User may show them by using column context menu (existing feature: pop-up triggered by right click on any column header) or by action "Change column visibility/order" (via kebab button added as part of this story - see screenshots).
 
- - [BZ 1859092](https://bugzilla.redhat.com/1859092) **Logical Name is missing when attaching RO direct LUN to a VM**
+ - [BZ 1862968](https://bugzilla.redhat.com/1862968) **[RFE] auto-set cpu and numa to a vm for best performance**
 
-   Previously, the logical name of LUN disks within the guest weren't pull to the user visibility. Now, the LUN logical name is pulled and shown in the disk device.
+   This feature will introduce a way to automatically set the CPU and NUMA pinning of a VM.
+
+Currently, it is optional to do so when adding a VM using REST-API only.
+
+The new value is: auto_pinning_policy. It can be set to `existing`, using the current topology of the VM's CPU. Or, it can be set to `adjust`, using the dedicated host CPU topology, changing it accordingly to the VM.
+
+The result will provide a better performance to that VM.
+
+ - [BZ 1568461](https://bugzilla.redhat.com/1568461) **[RFE] Kernel address space layout randomization [KASLR] support**
+
+   
 
  - [BZ 1881119](https://bugzilla.redhat.com/1881119) **[RFE] Make engine-backup refuse to restore a backup from a version earlier than 4.3.10**
 
@@ -170,6 +206,25 @@ Reason: When the qemu-img process failed, the engine was reporting a successful 
 Result: Now when the qemu-img process fails to compete, the failure is detected and reported to the engine which fails appropriately.
 
 
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1851029](https://bugzilla.redhat.com/1851029) **[RFE] Add to time based queries the samples table**
+
+   Feature: 
+
+Add 2 hours of data to time based queries  
+
+
+
+Reason: 
+
+Missing 02:00-02:59 hours of data in the reports 
+
+
+
+Result: User is up to date 02:00-02:59 hours back and cannot see current data, adding 2 hours from the sample table will give the user better knowledge.
+
+
 ### Removed functionality
 
 #### VDSM
@@ -202,6 +257,8 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
 
 
 #### oVirt Engine
+
+ - [BZ 1890635](https://bugzilla.redhat.com/1890635) **Fail to deploy stand-alone Engine due to missing 'exportfs'**
 
  - [BZ 1702016](https://bugzilla.redhat.com/1702016) **Block moving HE hosts into different Data Centers and make HE host moved to different cluster NonOperational after activation**
 
@@ -259,6 +316,10 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
 
 #### VDSM
 
+ - [BZ 1891520](https://bugzilla.redhat.com/1891520) **Moving or copying raw preallocated disk to file storage make the disk sparse**
+
+   
+
  - [BZ 1861674](https://bugzilla.redhat.com/1861674) **[CBT] Report backup mode (full or incremental) for disks that participates in the VM backup**
 
    
@@ -313,6 +374,34 @@ This operation is transparent to the user.
 
 
 #### oVirt Engine
+
+ - [BZ 1890010](https://bugzilla.redhat.com/1890010) **Exception when listing disk snapshots under storage domain**
+
+   
+
+ - [BZ 1861674](https://bugzilla.redhat.com/1861674) **[CBT] Report backup mode (full or incremental) for disks that participates in the VM backup**
+
+   
+
+ - [BZ 1825020](https://bugzilla.redhat.com/1825020) **[RFE] RHV-M Deployment/Install Needs it's own UUID**
+
+   
+
+ - [BZ 1358295](https://bugzilla.redhat.com/1358295) **[i18n][ALL_LANG] wrong translation of error message canceling operation**
+
+   
+
+ - [BZ 1804675](https://bugzilla.redhat.com/1804675) **[ja_JP] Text alignment correction needed on administration -> configure -> instance type -> add page**
+
+   
+
+ - [BZ 1829691](https://bugzilla.redhat.com/1829691) **Engine adding PCI-E elements on XML of i440FX SeaBIOS VM created from Q35 Template**
+
+   
+
+ - [BZ 1877668](https://bugzilla.redhat.com/1877668) **model_Cascadelake-Server-noTSX (cpu flag) is missing from vdc_options table**
+
+   
 
  - [BZ 1854000](https://bugzilla.redhat.com/1854000) **Updating storage domain throws error dialog, but the path information gets updated**
 
@@ -370,10 +459,6 @@ The copy of the bitmaps is done using the new 'qemu-img bitmaps' command.
 
 This operation is transparent to the user.
 
- - [BZ 1877668](https://bugzilla.redhat.com/1877668) **model_Cascadelake-Server-noTSX (cpu flag) is missing from vdc_options table**
-
-   
-
  - [BZ 1883844](https://bugzilla.redhat.com/1883844) **[CNV&RHV] Remove warning about no active storage domain for Kubevirt VMs**
 
    
@@ -399,10 +484,6 @@ This operation is transparent to the user.
    
 
  - [BZ 1865923](https://bugzilla.redhat.com/1865923) **Cannot remove existing virtual disks in the clone modal (Admin portal)**
-
-   
-
- - [BZ 1804675](https://bugzilla.redhat.com/1804675) **[ja_JP] Text alignment correction needed on administration -> configure -> instance type -> add page**
 
    
 
@@ -476,6 +557,18 @@ This operation is transparent to the user.
 
 #### oVirt Engine Data Warehouse
 
+ - [BZ 1853252](https://bugzilla.redhat.com/1853252) **Modifying the variables to include all deleted entities**
+
+   
+
+ - [BZ 1885654](https://bugzilla.redhat.com/1885654) **Fix resources usage queries to show the used resources**
+
+   
+
+ - [BZ 1871865](https://bugzilla.redhat.com/1871865) **Update units in reports setting**
+
+   
+
  - [BZ 1874880](https://bugzilla.redhat.com/1874880) **Update column settings to contain only relevant columns**
 
    
@@ -534,13 +627,24 @@ This operation is transparent to the user.
    
 
 
-#### oVirt Engine Metrics
+#### oVirt Hosted Engine Setup
 
- - [BZ 1870133](https://bugzilla.redhat.com/1870133) **Issue with dashboards creation when sending metrics to external Elasticsearch**
+ - [BZ 1881250](https://bugzilla.redhat.com/1881250) **[RFE] validate engine FQDN if --restore-from-file**
 
    
 
- - [BZ 1862134](https://bugzilla.redhat.com/1862134) **Update the metrics role based on the released linux-system-roles logging role**
+ - [BZ 1891521](https://bugzilla.redhat.com/1891521) **Failed to detect iSCSI lun on RHEL 8.3 during HE deployment.**
+
+   
+
+
+#### oVirt Engine Metrics
+
+ - [BZ 1880015](https://bugzilla.redhat.com/1880015) **oVirt metrics example Kibana dashboards are broken in Kibana 7.x**
+
+   
+
+ - [BZ 1870133](https://bugzilla.redhat.com/1870133) **Issue with dashboards creation when sending metrics to external Elasticsearch**
 
    
 
@@ -601,19 +705,11 @@ This operation is transparent to the user.
 
    
 
- - [BZ 1835650](https://bugzilla.redhat.com/1835650) **[security] selecting STIG profile cause host to be unusable due to indirect dependency on telnet**
-
-   
-
  - [BZ 1751520](https://bugzilla.redhat.com/1751520) **[logging] filter "RPC call" logs**
 
    
 
  - [BZ 1826365](https://bugzilla.redhat.com/1826365) **LSM for ISCSI disk size smaller than 1GB created with API fails**
-
-   
-
- - [BZ 1839444](https://bugzilla.redhat.com/1839444) **[RFE] Use more efficient dumpStorageDomain() in dump-volume-chains**
 
    
 
@@ -631,6 +727,22 @@ This operation is transparent to the user.
 
 
 #### oVirt Engine
+
+ - [BZ 1890018](https://bugzilla.redhat.com/1890018) **HE deployment fails when applying OpenSCAP profile, due to nfs-utils**
+
+   
+
+ - [BZ 1887893](https://bugzilla.redhat.com/1887893) **[REST-API] all_content ignored when specified as query parameter**
+
+   
+
+ - [BZ 1887268](https://bugzilla.redhat.com/1887268) **Cannot perform yum update on my RHV manager (ansible conflict)**
+
+   
+
+ - [BZ 1861673](https://bugzilla.redhat.com/1861673) **[CBT] Copy bitmaps from deleted layer (top) to the base when cold merge operation is done on a  VM that contains incremental backups**
+
+   
 
  - [BZ 1842344](https://bugzilla.redhat.com/1842344) **Status loop due to host initialization not checking network status, monitoring finding the network issue and auto-recovery.**
 
@@ -699,6 +811,10 @@ This operation is transparent to the user.
 
 #### oVirt Ansible collection
 
+ - [BZ 1844965](https://bugzilla.redhat.com/1844965) **engine logs are not copied**
+
+   
+
  - [BZ 1887142](https://bugzilla.redhat.com/1887142) **[4.4.3-8] failed to update packages in deploy because of new ansible-2.9.14 is available when we have version lock on ansible-2.9.13**
 
    
@@ -713,6 +829,10 @@ This operation is transparent to the user.
 
 #### oVirt Hosted Engine Setup
 
+ - [BZ 1892378](https://bugzilla.redhat.com/1892378) **engine logs are not copied**
+
+   
+
  - [BZ 1859922](https://bugzilla.redhat.com/1859922) **Local Maintenance by cli and restarting ovirt-ha-agent.service causes 0 score of the host with HE vm on it**
 
    
@@ -721,6 +841,10 @@ This operation is transparent to the user.
 #### oVirt Engine Metrics
 
  - [BZ 1889522](https://bugzilla.redhat.com/1889522) **metrics playbooks are broken due to typo**
+
+   
+
+ - [BZ 1862134](https://bugzilla.redhat.com/1862134) **Update the metrics role based on the released linux-system-roles logging role**
 
    
 
@@ -752,11 +876,11 @@ This operation is transparent to the user.
 
 #### Contributors
 
-70 people contributed to this release:
+71 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Alan Rominger (Contributed to: ovirt-ansible-collection)
-	Ales Musil (Contributed to: ovirt-engine, vdsm)
+	Ales Musil (Contributed to: ovirt-engine, ovirt-release, vdsm)
 	Amit Bawer (Contributed to: ovirt-engine, vdsm)
 	Andrej Cernek (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-ansible-collection, ovirt-engine)
@@ -784,11 +908,12 @@ This operation is transparent to the user.
 	Gal Zaidman (Contributed to: cockpit-ovirt)
 	Germano Veit Michel (Contributed to: vdsm)
 	Hilda Stastna (Contributed to: ovirt-engine-ui-extensions, ovirt-web-ui)
+	Jean-Louis Dupond (Contributed to: ovirt-engine)
 	Kaustav Majumder (Contributed to: vdsm)
 	Kedar Kulkarni (Contributed to: ovirt-ansible-collection)
 	Klett IT (Contributed to: ovirt-ansible-collection)
 	Kobi Hakimi (Contributed to: ovirt-ansible-collection)
-	Lev Veyde (Contributed to: ovirt-dwh, ovirt-engine, ovirt-log-collector, ovirt-release)
+	Lev Veyde (Contributed to: ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup, ovirt-log-collector, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
@@ -808,7 +933,7 @@ This operation is transparent to the user.
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Reto Gantenbein (Contributed to: ovirt-ansible-collection)
 	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-engine, ovirt-engine-metrics, ovirt-engine-sdk, ovirt-hosted-engine-setup, ovirt-log-collector)
-	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
+	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Sean Sackowitz (Contributed to: ovirt-ansible-collection)
 	Shani Leviim (Contributed to: ovirt-engine, vdsm)
 	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
@@ -820,7 +945,7 @@ This operation is transparent to the user.
 	Steven Rosenberg (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: ovirt-engine, ovirt-imageio, vdsm)
-	Yedidyah Bar David (Contributed to: ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup)
+	Yedidyah Bar David (Contributed to: ovirt-ansible-collection, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup)
 	bverschueren (Contributed to: ovirt-ansible-collection)
 	hiyokotaisa (Contributed to: ovirt-ansible-collection)
 	jekader (Contributed to: ovirt-ansible-collection)

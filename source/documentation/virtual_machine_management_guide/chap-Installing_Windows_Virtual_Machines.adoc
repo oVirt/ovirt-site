@@ -20,9 +20,9 @@ include::../common/install/proc-Creating_a_virtual_machine.adoc[leveloffset=+1]
 [[sect-Starting_the_Virtual_Machine_Using_the_Run_Once_Option]]
 == Starting the virtual machine using Run Once
 
-include::topics/Installing_Windows_on_Virtio_Optimized_Hardware.adoc[]
+include::topics/Installing_Windows_on_Virtio_Optimized_Hardware.adoc[leveloffset=+2]
 
-include::topics/Opening_a_Console_to_a_Virtual_Machine.adoc[]
+include::topics/Opening_a_Console_to_a_Virtual_Machine.adoc[leveloffset=+2]
 
 [[Installing_Guest_Agents_and_Drivers_Windows]]
 == Installing guest agents and drivers

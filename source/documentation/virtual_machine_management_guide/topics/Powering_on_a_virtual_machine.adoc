@@ -1,5 +1,5 @@
 [[Powering_on_a_virtual_machine]]
-=== Starting a Virtual Machine
+= Starting a Virtual Machine
 
 *Starting Virtual Machines*
 

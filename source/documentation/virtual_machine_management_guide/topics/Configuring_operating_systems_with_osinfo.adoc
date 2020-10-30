@@ -1,5 +1,5 @@
 [[Configuring_operating_systems_with_osinfo]]
-== Configuring Operating Systems with osinfo
+= Configuring Operating Systems with osinfo
 
 {virt-product-fullname} stores operating system configurations for virtual machines in */etc/ovirt-engine/osinfo.conf.d/00-defaults.properties*. This file contains default values such as `os.other.devices.display.protocols.value = spice/qxl,vnc/vga,vnc/qxl`.
 

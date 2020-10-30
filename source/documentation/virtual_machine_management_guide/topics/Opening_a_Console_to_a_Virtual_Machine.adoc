@@ -1,5 +1,5 @@
 [[Opening_a_Console_to_a_Virtual_Machine]]
-=== Opening a console to a virtual machine
+= Opening a console to a virtual machine
 
 Use Remote Viewer to connect to a virtual machine.
 

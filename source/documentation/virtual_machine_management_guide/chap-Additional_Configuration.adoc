@@ -1,7 +1,7 @@
 [[chap-Additional_Configuration]]
 = Additional Configuration
 
-include::topics/Configuring_operating_systems_with_osinfo.adoc[]
+include::topics/Configuring_operating_systems_with_osinfo.adoc[leveloffset=+1]
 
 [[sect-Configuring_Single_Sign-On_for_Virtual_Machines]]
 === Configuring Single Sign-On for Virtual Machines

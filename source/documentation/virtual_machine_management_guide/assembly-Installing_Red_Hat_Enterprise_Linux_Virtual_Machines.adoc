@@ -31,9 +31,9 @@ include::../common/install/proc-Creating_a_virtual_machine.adoc[leveloffset=+1]
 [[Starting_the_Virtual_Machine]]
 == Starting the Virtual Machine
 
-include::topics/Powering_on_a_virtual_machine.adoc[]
+include::topics/Powering_on_a_virtual_machine.adoc[leveloffset=+2]
 
-include::topics/Opening_a_console_to_a_virtual_machine.adoc[]
+include::topics/Opening_a_console_to_a_virtual_machine.adoc[leveloffset=+2]
 
 include::topics/Opening_a_Serial_Console_to_a_Virtual_Machine.adoc[]
 

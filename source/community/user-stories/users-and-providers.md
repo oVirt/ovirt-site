@@ -71,6 +71,19 @@ The [National University of Sciences & Technology (NUST)](http://nust.edu.pk/Pag
 [Silesian University](//www.slu.cz/slu/en) in Opava, Czech Republic is one of the top five universities created in the country after 1989. It has an enrollment of more than 9000 students in approximately 50 study programs. Silesian University is a member of the European University Association.
 </div>
 
+<div class="case-study">
+[![SkyVirt](/images/logos/skyvirt.jpg)](https://skyvirt.tech)
+There is no viable alternative for real-world experience. That’s the motivation we made the SkyVirt® - (Real Time Emulation)Training Platform- <a href="https://skyvirt.tech/TarunKumar">Tarun Kumar Kushwaha (Founder)</a>
+SkyVirt® is Virtual Training Environment(VTE) designed as a real-time emulation platform for conducting the training for full spectrum IT Infrastructure, Cyber Security & Digital Forensics 
+Four training delivery methods are utilizing within the SkyVirt® to drive Cyber Warrior proficiency:
+•	Hyper-Realistic-Based Modules 
+•	Self-Paced Modules
+•	Team-Based Dynamic Modules
+•	Custom Module Assessments and Delivery
+: Till now we have successfully hosted 2000+ VMs on ovirt cluster.
+For  SkyVirt® we are using pure and core Open-Source technology like Ovirt, CEPH. We have no doubt on Ovirt because It’s fully sponsored by renowned multinational software company RedHat and many others. 
+</div>
+
 ## Cloud Providers
 
 <div class="case-studies">

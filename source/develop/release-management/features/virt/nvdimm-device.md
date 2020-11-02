@@ -53,6 +53,8 @@ SELinux currently prevents access to NVDIMM devices in devdax mode, see <https:/
 
 NVDIMM on POWER is currently not expected to be stable, until platform fixes are completed.
 
+Data persistence cannot be guaranteed in case of a host crash unless devdax mode is used for the host device, see [QEMU documentation](https://github.com/qemu/qemu/blob/master/docs/nvdimm.txt) for more details.
+
 ## User Experience
 
 An NVDIMM device is added or removed to or from the VM the same way as a host device.  There is a special NVDIMM category of host devices containing NVDIMM devices available on the host.

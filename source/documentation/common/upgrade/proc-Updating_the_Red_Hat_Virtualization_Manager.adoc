@@ -6,16 +6,12 @@
 // Administration Guide
 // Migrating from a standalone {engine-name} to a self-hosted engine
 
-
-
-
 ifdef::upgrade[]
-[WARNING]
-====
-Be sure to enable the correct repositories as detailed in *Prerequisites*. Otherwise, the upgrade might fail.
-====
+ifdef::ovirt-doc[]
+.Prerequisite
+* The RPM package link:https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm[ovirt-release44.rpm]{engine-name} is installed. This package includes the necessary repositories.
+endif::ovirt-doc[]
 endif::upgrade[]
-
 Updates to the {virt-product-fullname} {engine-name} are released through the Content Delivery Network.
 
 .Procedure

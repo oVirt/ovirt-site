@@ -9,7 +9,7 @@
 ifdef::upgrade[]
 ifdef::ovirt-doc[]
 .Prerequisite
-* The RPM package link:https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm[ovirt-release44.rpm]{engine-name} is installed. This package includes the necessary repositories.
+* The RPM package link:https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm[ovirt-release44.rpm] is installed. This package includes the necessary repositories.
 endif::ovirt-doc[]
 endif::upgrade[]
 Updates to the {virt-product-fullname} {engine-name} are released through the Content Delivery Network.

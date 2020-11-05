@@ -8,7 +8,7 @@ page_classes: releases
 
 # oVirt 4.4.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.3 Seventh Release Candidate as of October 29, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.3 Eighth Release Candidate as of November 05, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -206,25 +206,6 @@ Reason: When the qemu-img process failed, the engine was reporting a successful 
 Result: Now when the qemu-img process fails to compete, the failure is detected and reported to the engine which fails appropriately.
 
 
-#### oVirt Engine Data Warehouse
-
- - [BZ 1851029](https://bugzilla.redhat.com/1851029) **[RFE] Add to time based queries the samples table**
-
-   Feature: 
-
-Add 2 hours of data to time based queries  
-
-
-
-Reason: 
-
-Missing 02:00-02:59 hours of data in the reports 
-
-
-
-Result: User is up to date 02:00-02:59 hours back and cannot see current data, adding 2 hours from the sample table will give the user better knowledge.
-
-
 ### Removed functionality
 
 #### VDSM
@@ -258,15 +239,11 @@ Result: User is up to date 02:00-02:59 hours back and cannot see current data, a
 
 #### oVirt Engine
 
- - [BZ 1890635](https://bugzilla.redhat.com/1890635) **Fail to deploy stand-alone Engine due to missing 'exportfs'**
-
  - [BZ 1702016](https://bugzilla.redhat.com/1702016) **Block moving HE hosts into different Data Centers and make HE host moved to different cluster NonOperational after activation**
 
  - [BZ 1871694](https://bugzilla.redhat.com/1871694) **HostedEngine VM is broken after Cluster changed to UEFI**
 
  - [BZ 1871819](https://bugzilla.redhat.com/1871819) **Prepare default OVN configuration for scaling scenarios**
-
- - [BZ 1875363](https://bugzilla.redhat.com/1875363) **engine-setup failing on FIPS enable rhel8 machine**
 
  - [BZ 1879373](https://bugzilla.redhat.com/1879373) **grafana backup might fail**
 
@@ -316,13 +293,37 @@ Result: User is up to date 02:00-02:59 hours back and cannot see current data, a
 
 #### VDSM
 
- - [BZ 1891520](https://bugzilla.redhat.com/1891520) **Moving or copying raw preallocated disk to file storage make the disk sparse**
-
-   
-
  - [BZ 1861674](https://bugzilla.redhat.com/1861674) **[CBT] Report backup mode (full or incremental) for disks that participates in the VM backup**
 
-   
+   A new field added to a disk, this field called 'backup_mode'.
+
+
+
+The backup_mode is used only if the disk is part of a backup operation, otherwise, the backup_mode will be 'NULL'.
+
+
+
+If the disk is part of a running backup, the backup_mode can have one of the two options - 
+
+
+
+ - full - if the backup that was taken for the disk was a 
+
+   full backup.
+
+
+
+ - incremental - if the backup that was taken for the disk 
+
+   was an incremental backup.
+
+
+
+This will allow the engine to create a backup for a VM that contains both full for the disks that were not part of the previous backup and incremental backup for the disks that already backed up in the previous backup.
+
+
+
+The user can check the disk's backup_mode and download the backup using the right method in imageio according to it.
 
  - [BZ 1809102](https://bugzilla.redhat.com/1809102) **Enable OVS switch type for nmstate managed hosts**
 
@@ -334,7 +335,11 @@ Result: User is up to date 02:00-02:59 hours back and cannot see current data, a
 
  - [BZ 1861671](https://bugzilla.redhat.com/1861671) **[CBT] Copy bitmaps to the new volume during storage migration when the VM contains incremental backups**
 
-   
+   When migrating a disk that belongs to a VM that contains the VM's full or incremental backups, all the backup bitmaps will be removed when the disk migration is done.
+
+
+
+The fix for this bug will copy all the disk's bitmaps during the disk migration from one storage domain to another.
 
  - [BZ 1834233](https://bugzilla.redhat.com/1834233) **While Start or Reboot VM - It takes a long time till VM status is 'UP'**
 
@@ -381,7 +386,35 @@ This operation is transparent to the user.
 
  - [BZ 1861674](https://bugzilla.redhat.com/1861674) **[CBT] Report backup mode (full or incremental) for disks that participates in the VM backup**
 
-   
+   A new field added to a disk, this field called 'backup_mode'.
+
+
+
+The backup_mode is used only if the disk is part of a backup operation, otherwise, the backup_mode will be 'NULL'.
+
+
+
+If the disk is part of a running backup, the backup_mode can have one of the two options - 
+
+
+
+ - full - if the backup that was taken for the disk was a 
+
+   full backup.
+
+
+
+ - incremental - if the backup that was taken for the disk 
+
+   was an incremental backup.
+
+
+
+This will allow the engine to create a backup for a VM that contains both full for the disks that were not part of the previous backup and incremental backup for the disks that already backed up in the previous backup.
+
+
+
+The user can check the disk's backup_mode and download the backup using the right method in imageio according to it.
 
  - [BZ 1825020](https://bugzilla.redhat.com/1825020) **[RFE] RHV-M Deployment/Install Needs it's own UUID**
 
@@ -433,7 +466,11 @@ This operation is transparent to the user.
 
  - [BZ 1861671](https://bugzilla.redhat.com/1861671) **[CBT] Copy bitmaps to the new volume during storage migration when the VM contains incremental backups**
 
-   
+   When migrating a disk that belongs to a VM that contains the VM's full or incremental backups, all the backup bitmaps will be removed when the disk migration is done.
+
+
+
+The fix for this bug will copy all the disk's bitmaps during the disk migration from one storage domain to another.
 
  - [BZ 1881471](https://bugzilla.redhat.com/1881471) **Hosted Engine VM gets devices unplugged**
 
@@ -557,18 +594,6 @@ This operation is transparent to the user.
 
 #### oVirt Engine Data Warehouse
 
- - [BZ 1853252](https://bugzilla.redhat.com/1853252) **Modifying the variables to include all deleted entities**
-
-   
-
- - [BZ 1885654](https://bugzilla.redhat.com/1885654) **Fix resources usage queries to show the used resources**
-
-   
-
- - [BZ 1871865](https://bugzilla.redhat.com/1871865) **Update units in reports setting**
-
-   
-
  - [BZ 1874880](https://bugzilla.redhat.com/1874880) **Update column settings to contain only relevant columns**
 
    
@@ -627,22 +652,7 @@ This operation is transparent to the user.
    
 
 
-#### oVirt Hosted Engine Setup
-
- - [BZ 1881250](https://bugzilla.redhat.com/1881250) **[RFE] validate engine FQDN if --restore-from-file**
-
-   
-
- - [BZ 1891521](https://bugzilla.redhat.com/1891521) **Failed to detect iSCSI lun on RHEL 8.3 during HE deployment.**
-
-   
-
-
 #### oVirt Engine Metrics
-
- - [BZ 1880015](https://bugzilla.redhat.com/1880015) **oVirt metrics example Kibana dashboards are broken in Kibana 7.x**
-
-   
 
  - [BZ 1870133](https://bugzilla.redhat.com/1870133) **Issue with dashboards creation when sending metrics to external Elasticsearch**
 
@@ -705,6 +715,10 @@ This operation is transparent to the user.
 
    
 
+ - [BZ 1835650](https://bugzilla.redhat.com/1835650) **[security] selecting STIG profile cause host to be unusable due to indirect dependency on telnet**
+
+   
+
  - [BZ 1751520](https://bugzilla.redhat.com/1751520) **[logging] filter "RPC call" logs**
 
    
@@ -727,10 +741,6 @@ This operation is transparent to the user.
 
 
 #### oVirt Engine
-
- - [BZ 1890018](https://bugzilla.redhat.com/1890018) **HE deployment fails when applying OpenSCAP profile, due to nfs-utils**
-
-   
 
  - [BZ 1887893](https://bugzilla.redhat.com/1887893) **[REST-API] all_content ignored when specified as query parameter**
 
@@ -810,10 +820,6 @@ This operation is transparent to the user.
 
 
 #### oVirt Ansible collection
-
- - [BZ 1844965](https://bugzilla.redhat.com/1844965) **engine logs are not copied**
-
-   
 
  - [BZ 1887142](https://bugzilla.redhat.com/1887142) **[4.4.3-8] failed to update packages in deploy because of new ansible-2.9.14 is available when we have version lock on ansible-2.9.13**
 
@@ -932,7 +938,7 @@ This operation is transparent to the user.
 	Prajith Kesava Prasad (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Reto Gantenbein (Contributed to: ovirt-ansible-collection)
-	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-engine, ovirt-engine-metrics, ovirt-engine-sdk, ovirt-hosted-engine-setup, ovirt-log-collector)
+	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-engine, ovirt-engine-metrics, ovirt-engine-sdk, ovirt-hosted-engine-setup, ovirt-log-collector, ovirt-release)
 	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Sean Sackowitz (Contributed to: ovirt-ansible-collection)
 	Shani Leviim (Contributed to: ovirt-engine, vdsm)

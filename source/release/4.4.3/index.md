@@ -101,6 +101,10 @@ We have also discussed to shorten RHV CA certificate lifetime, but we have decid
 
 #### oVirt Engine
 
+ - [BZ 1177156](https://bugzilla.redhat.com/1177156) **[RFE] Ability to clone a running VM directly from GUI**
+
+   
+
  - [BZ 1752751](https://bugzilla.redhat.com/1752751) **[RFE] Show vCPUs and allocated memory in virtual machines summary**
 
    Features delivered under this issue (by their importance): 
@@ -206,6 +210,17 @@ Reason: When the qemu-img process failed, the engine was reporting a successful 
 Result: Now when the qemu-img process fails to compete, the failure is detected and reported to the engine which fails appropriately.
 
 
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1851029](https://bugzilla.redhat.com/1851029) **[RFE] Add to time based queries the samples table**
+
+   Previously, time-based Grafana reports did not include the most recent two to three hours of sample data. With this update, you can now view sample data from that time period.
+
+
+
+For example, if you ran the report at 11:54, the report had data only until 9:00. Now the report has data until 11:54.
+
+
 ### Removed functionality
 
 #### VDSM
@@ -238,6 +253,8 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
 
 
 #### oVirt Engine
+
+ - [BZ 1890635](https://bugzilla.redhat.com/1890635) **Fail to deploy stand-alone Engine due to missing 'exportfs'**
 
  - [BZ 1702016](https://bugzilla.redhat.com/1702016) **Block moving HE hosts into different Data Centers and make HE host moved to different cluster NonOperational after activation**
 
@@ -292,6 +309,10 @@ Result: Now when the qemu-img process fails to compete, the failure is detected 
 ### Other
 
 #### VDSM
+
+ - [BZ 1891520](https://bugzilla.redhat.com/1891520) **Moving or copying raw preallocated disk to file storage make the disk sparse**
+
+   
 
  - [BZ 1861674](https://bugzilla.redhat.com/1861674) **[CBT] Report backup mode (full or incremental) for disks that participates in the VM backup**
 
@@ -379,6 +400,14 @@ This operation is transparent to the user.
 
 
 #### oVirt Engine
+
+ - [BZ 1891306](https://bugzilla.redhat.com/1891306) **Live cloning is failing**
+
+   
+
+ - [BZ 1892242](https://bugzilla.redhat.com/1892242) **Wrong snapshot disk href**
+
+   
 
  - [BZ 1890010](https://bugzilla.redhat.com/1890010) **Exception when listing disk snapshots under storage domain**
 
@@ -652,6 +681,13 @@ This operation is transparent to the user.
    
 
 
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1891521](https://bugzilla.redhat.com/1891521) **Failed to add block storage on RHEL 8.3 during HE deployment.**
+
+   
+
+
 #### oVirt Engine Metrics
 
  - [BZ 1870133](https://bugzilla.redhat.com/1870133) **Issue with dashboards creation when sending metrics to external Elasticsearch**
@@ -699,6 +735,13 @@ This operation is transparent to the user.
 #### oVirt Web UI
 
  - [BZ 1358295](https://bugzilla.redhat.com/1358295) **[i18n][ALL_LANG] wrong translation of error message canceling operation**
+
+   
+
+
+#### oVirt Engine Appliance
+
+ - [BZ 1868597](https://bugzilla.redhat.com/1868597) **mod_auth_openidc package missing on upgrade**
 
    
 
@@ -821,7 +864,18 @@ This operation is transparent to the user.
 
 #### oVirt Ansible collection
 
+ - [BZ 1844965](https://bugzilla.redhat.com/1844965) **engine logs are not copied**
+
+   
+
  - [BZ 1887142](https://bugzilla.redhat.com/1887142) **[4.4.3-8] failed to update packages in deploy because of new ansible-2.9.14 is available when we have version lock on ansible-2.9.13**
+
+   
+
+
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1853252](https://bugzilla.redhat.com/1853252) **Modifying the variables to include all deleted entities**
 
    
 
@@ -863,6 +917,10 @@ This operation is transparent to the user.
 
 
 #### cockpit-ovirt
+
+ - [BZ 1885140](https://bugzilla.redhat.com/1885140) **Scroll bar disappears after clicking "No" in "Exit Wizard"**
+
+   
 
  - [BZ 1858248](https://bugzilla.redhat.com/1858248) **[Day2] Volume creation with 6 or more nodes in cluster, should allow users to select the hosts for brick creation**
 
@@ -919,7 +977,7 @@ This operation is transparent to the user.
 	Kedar Kulkarni (Contributed to: ovirt-ansible-collection)
 	Klett IT (Contributed to: ovirt-ansible-collection)
 	Kobi Hakimi (Contributed to: ovirt-ansible-collection)
-	Lev Veyde (Contributed to: ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup, ovirt-log-collector, ovirt-release)
+	Lev Veyde (Contributed to: ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup, ovirt-log-collector, ovirt-node-ng-image, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)

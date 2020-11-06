@@ -11,7 +11,10 @@ feature_status: Obsolete
 
 This feature is obsolete.
 
-On Ubuntu 20.04.1 LTS (Focal Fossa) and later you should use qemu-guest-agent with oVirt 4.3 and later.
+On Ubuntu 18.04 LTS and later you should use qemu-guest-agent with oVirt 4.3 and later.
+
+On Ubuntu 16.04 LTS you can install qemu-guest-agent from Ubuntu 18.04 LTS (<https://packages.ubuntu.com/bionic/qemu-guest-agent>)
+
 Kept the following sections for reference.
 
 ## oVirt Guest Agent on Ubuntu 12.04+

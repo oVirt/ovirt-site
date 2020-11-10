@@ -8,24 +8,20 @@ page_classes: releases
 
 # oVirt 4.4.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.3 Eighth Release Candidate as of November 05, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.3 release as of November 10, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
-This release is available now for Red Hat Enterprise Linux 8.2 and
+This release is available now for Red Hat Enterprise Linux 8.2/8.3 (8.3 recommended) and
 CentOS Linux 8.2 (or similar).
 
 To find out how to interact with oVirt developers and users and ask questions,
 visit our [community page](/community/).
 All issues or bugs should be reported via
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
-
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
 
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
@@ -38,14 +34,24 @@ For a general overview of oVirt, read the [About oVirt](/community/about.html)
 page.
 
 To learn about features introduced before 4.4.3, see the
-[release notes for previous versions](/documentation/#latest-release-notes).
+[release notes for previous versions](/documentation/#previous-release-notes).
 
-## RELEASE CANDIDATE
+## Known issues
 
-In order to install this Release Candidate you will need to enable pre-release repository.
+### How to prevent hosts entering emergency mode after upgrade from oVirt 4.4.1
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
+Due to **[[Bug 1837864]](https://bugzilla.redhat.com/show_bug.cgi?id=1837864) - Host enter emergency mode after upgrading to latest build**, 
 
+If you have your root file system on a multipath device on your hosts you should be aware that after upgrading from 4.4.1 to 4.4.3 you may get your host entering emergency mode.
+
+In order to prevent this be sure to upgrade oVirt Engine first, then on your hosts:
+1. Remove the current lvm filter while still on 4.4.1, or in emergency mode (if rebooted).
+2. Reboot.
+3. Upgrade to 4.4.3 (redeploy in case of already being on 4.4.3).
+4. Run vdsm-tool config-lvm-filter to confirm there is a new filter in place.
+5. Only if not using oVirt Node:
+   - run "dracut --force --add multipath” to rebuild initramfs with the correct filter configuration
+6. Reboot.
 
 
 ## What's New in 4.4.3?
@@ -56,7 +62,7 @@ In order to install this Release Candidate you will need to enable pre-release r
 
  - [BZ 1888626](https://bugzilla.redhat.com/1888626) **Require ansible-2.9.14 in ovirt-engine**
 
-   ansible-2.9.14 is required for proper functionality of RHV 4.4.3
+   Ansible-2.9.14 is required for proper setup and functioning of Red Hat Virtualization Manager 4.4.3.
 
  - [BZ 1824103](https://bugzilla.redhat.com/1824103) **Lifespan of certificates created by oVirt engine CA should not exceed 398 days**
 
@@ -254,6 +260,8 @@ For example, if you ran the report at 11:54, the report had data only until 9:00
 
 #### oVirt Engine
 
+ - [BZ 1894576](https://bugzilla.redhat.com/1894576) **Warning mentioning engine being at version 4.5 leads to a nightmare path upgrading the cluster ending with a dead datacenter**
+
  - [BZ 1890635](https://bugzilla.redhat.com/1890635) **Fail to deploy stand-alone Engine due to missing 'exportfs'**
 
  - [BZ 1702016](https://bugzilla.redhat.com/1702016) **Block moving HE hosts into different Data Centers and make HE host moved to different cluster NonOperational after activation**
@@ -304,6 +312,11 @@ For example, if you ran the report at 11:54, the report had data only until 9:00
  - [BZ 1846365](https://bugzilla.redhat.com/1846365) **Handle grafana in ovirt-engine-rename**
 
  - [BZ 1861368](https://bugzilla.redhat.com/1861368) **grafana startup may take some time**
+
+
+#### imgbased
+
+ - [BZ 1883195](https://bugzilla.redhat.com/1883195) **/etc/multipath/conf.d is not copied correctly**
 
 
 ### Other
@@ -663,13 +676,6 @@ This operation is transparent to the user.
    
 
 
-#### imgbased
-
- - [BZ 1883195](https://bugzilla.redhat.com/1883195) **/etc/multipath/conf.d is not copied correctly**
-
-   
-
-
 #### oVirt Hosted Engine HA
 
  - [BZ 1860927](https://bugzilla.redhat.com/1860927) **Parsing the output from "hosted-engine --vm-start" is wrong**
@@ -922,10 +928,6 @@ This operation is transparent to the user.
 
    
 
- - [BZ 1858248](https://bugzilla.redhat.com/1858248) **[Day2] Volume creation with 6 or more nodes in cluster, should allow users to select the hosts for brick creation**
-
-   
-
 
 #### ovirt-engine-extension-aaa-ldap
 
@@ -987,7 +989,7 @@ This operation is transparent to the user.
 	Miguel Martín (Contributed to: ovirt-engine-extension-aaa-ldap)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nijin Ashok (Contributed to: ovirt-ansible-collection)
-	Nir Levy (Contributed to: imgbased)
+	Nir Levy (Contributed to: imgbased, ovirt-node-ng-image)
 	Nir Soffer (Contributed to: ioprocess, ovirt-engine, ovirt-engine-sdk, ovirt-imageio, vdsm)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Parth Dhanjal (Contributed to: cockpit-ovirt)
@@ -996,7 +998,7 @@ This operation is transparent to the user.
 	Prajith Kesava Prasad (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Reto Gantenbein (Contributed to: ovirt-ansible-collection)
-	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-engine, ovirt-engine-metrics, ovirt-engine-sdk, ovirt-hosted-engine-setup, ovirt-log-collector, ovirt-release)
+	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-appliance, ovirt-engine, ovirt-engine-metrics, ovirt-engine-sdk, ovirt-hosted-engine-setup, ovirt-log-collector, ovirt-node-ng-image, ovirt-release)
 	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Sean Sackowitz (Contributed to: ovirt-ansible-collection)
 	Shani Leviim (Contributed to: ovirt-engine, vdsm)

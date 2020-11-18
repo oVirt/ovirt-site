@@ -60,6 +60,10 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 #### oVirt Engine
 
+ - [BZ 1877675](https://bugzilla.redhat.com/1877675) **[RFE] Introduce Datacenter and cluster level 4.5**
+ 
+   We are going to introduce datacenter and cluster level 4.5, which will be available only on CentOS/RHEL 8.3 hypervisors with Advanced Virtualization 8.3 packages.
+
  - [BZ 1888626](https://bugzilla.redhat.com/1888626) **Require ansible-2.9.14 in ovirt-engine**
 
    Ansible-2.9.14 is required for proper setup and functioning of Red Hat Virtualization Manager 4.4.3.

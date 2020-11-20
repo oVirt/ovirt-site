@@ -16,8 +16,6 @@ In a highly consolidated and shared environment found in the virtual datacenter,
 
 Name: Gilad Chaplik (gchaplik)
 
-Email: <gchaplik@redhat.com>
-
 ### Current status
 
 Status: implementation

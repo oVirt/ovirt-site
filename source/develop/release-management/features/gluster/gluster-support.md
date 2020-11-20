@@ -17,7 +17,7 @@ Inital support was added to oVirt 3.1. glusterfs repo is available at <http://do
 ## Owner
 
 *   Feature owner: Shireesh Anjal <sanjal@redhat.com>
-    -   GUI Component owner: Gilad Chaplik <gchaplik@redhat.com>
+    -   GUI Component owner: Gilad Chaplik
     -   REST Component owner: Shireesh Anjal
     -   Engine Component owner: Shireesh Anjal
     -   VDSM Component owner: Balamurugan Arumugam <barumuga@redhat.com>

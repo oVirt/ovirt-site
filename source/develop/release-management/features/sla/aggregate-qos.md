@@ -14,8 +14,6 @@ While oVirt is rapidly continues to grow and gather features, it’s important t
 
 Name: Gilad Chaplik (gchaplik)
 
-Email: <gchaplik@redhat.com>
-
 ## Current status
 
 Target Version: 3.5

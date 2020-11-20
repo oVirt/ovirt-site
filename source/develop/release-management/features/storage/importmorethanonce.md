@@ -12,7 +12,6 @@ feature_status: Released
 ## Owner
 
 *   Name: Gilad Chaplik (gchaplik)
-*   Email: <gchaplik@redhat.com>
 
 ## Summary
 

@@ -15,7 +15,6 @@ This is a pure GUI/UX feature
 ## Owner
 
 *   Name: Gilad Chaplik (Gchaplik)
-    -   Email: <gchaplik@redhat.com>
 
 ## Current Status
 

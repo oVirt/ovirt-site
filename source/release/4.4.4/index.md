@@ -8,7 +8,7 @@ page_classes: releases
 
 # oVirt 4.4.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.4 Second Release Candidate as of November 19, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.4 Third Release Candidate as of November 26, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -52,7 +52,18 @@ In order to install this Release Candidate you will need to enable pre-release r
 
 ### Enhancements
 
+#### VDSM
+
+ - [BZ 1859092](https://bugzilla.redhat.com/1859092) **Logical Name is missing when attaching RO direct LUN to a VM**
+
+   Previously, the logical name of LUN disks within the guest weren't pull to the user visibility. Now, the LUN logical name is pulled and shown in the disk device.
+
+
 #### oVirt Engine
+
+ - [BZ 1859092](https://bugzilla.redhat.com/1859092) **Logical Name is missing when attaching RO direct LUN to a VM**
+
+   Previously, the logical name of LUN disks within the guest weren't pull to the user visibility. Now, the LUN logical name is pulled and shown in the disk device.
 
  - [BZ 1872210](https://bugzilla.redhat.com/1872210) **[RFE] Don't require ovirt-guest-agent on Ubuntu 18.04.1 LTS (Bionic Beaver) and newer**
 
@@ -96,7 +107,22 @@ Result: The latest Ubuntu and Debian Operating Systems are now supported without
 
 ### Other
 
+#### VDSM
+
+ - [BZ 1893773](https://bugzilla.redhat.com/1893773) **NVDIMM: memory usage in WebAdmin is always ~100% regardless to actual usage inside the VM.**
+
+   
+
+
 #### oVirt Engine Data Warehouse
+
+ - [BZ 1851725](https://bugzilla.redhat.com/1851725) **[RFE] Add tags to grafana dashboards**
+
+   
+
+ - [BZ 1894298](https://bugzilla.redhat.com/1894298) **ModuleNotFoundError: No module named 'ovirt_engine' raised when starting ovirt-engine-dwhd.py in dev env**
+
+   
 
  - [BZ 1892247](https://bugzilla.redhat.com/1892247) **Fix duplicates in time-based queries (that use the hourly + daily tables)**
 
@@ -104,6 +130,22 @@ Result: The latest Ubuntu and Debian Operating Systems are now supported without
 
 
 #### oVirt Engine
+
+ - [BZ 1899768](https://bugzilla.redhat.com/1899768) **Live merge fails on invoking callback end method 'onSucceeded' for a VM with Cluster Chipset/Firmware Type "Cluster default" or "Legacy".**
+
+   
+
+ - [BZ 1895697](https://bugzilla.redhat.com/1895697) **Modifying disk allocation target domain in the clone modal doesn't reflect on the cloned VM**
+
+   
+
+ - [BZ 1892291](https://bugzilla.redhat.com/1892291) **Change the representation of empty disk.usage statistics**
+
+   
+
+ - [BZ 1885997](https://bugzilla.redhat.com/1885997) **[OVS] Trigger sync while switching host from legacy type cluster to OVS type and vise versa**
+
+   
 
  - [BZ 1893540](https://bugzilla.redhat.com/1893540) **Cannot clone a suspended VM**
 
@@ -157,10 +199,21 @@ Result: The latest Ubuntu and Debian Operating Systems are now supported without
 
    
 
+ - [BZ 1726558](https://bugzilla.redhat.com/1726558) **[v2v] VMware VMs with EFI BIOS and secure boot are converted to Q35 with UEFI instead of Q35 with SecureBoot**
+
+   
+
 
 #### VDSM JSON-RPC Java
 
  - [BZ 1890430](https://bugzilla.redhat.com/1890430) **Kubevirt / OpenShift Virtualization provider - the cluster/host cpu mismatch message**
+
+   
+
+
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1897888](https://bugzilla.redhat.com/1897888) **[RFE] Refine "hosted-engine --check-deployed" results.**
 
    
 
@@ -191,7 +244,15 @@ Result: The latest Ubuntu and Debian Operating Systems are now supported without
 
 #### oVirt Engine
 
+ - [BZ 1811593](https://bugzilla.redhat.com/1811593) **Some PKI files are not removed by engine-cleanup**
+
+   
+
  - [BZ 1833780](https://bugzilla.redhat.com/1833780) **Live storage migration failed -  Failed to change disk image**
+
+   
+
+ - [BZ 1856375](https://bugzilla.redhat.com/1856375) **Can't add additional host as hosted-engine ha-host from "Guide me" from UI.**
 
    
 
@@ -213,7 +274,7 @@ Result: The latest Ubuntu and Debian Operating Systems are now supported without
 
 #### Contributors
 
-30 people contributed to this release:
+35 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: vdsm)
@@ -221,18 +282,22 @@ Result: The latest Ubuntu and Debian Operating Systems are now supported without
 	Andrej Cernek (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine, vdsm-jsonrpc-java)
+	Asaf Rachmani (Contributed to: ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh)
-	Aviv Turgeman (Contributed to: cockpit-ovirt)
+	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-hosted-engine-setup)
 	Bell Levin (Contributed to: vdsm)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
+	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Dominik Holler (Contributed to: ovirt-engine)
 	Ehud Yonasi (Contributed to: vdsm)
+	Eitan Raviv (Contributed to: ovirt-engine)
+	Eyal Shenitzky (Contributed to: ovirt-engine)
 	Jean-Louis Dupond (Contributed to: ovirt-engine)
 	Kaustav Majumder (Contributed to: ovirt-engine)
 	Lev Veyde (Contributed to: ovirt-engine, ovirt-release)
-	Liran Rotenberg (Contributed to: ovirt-engine)
+	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Perina (Contributed to: ovirt-engine)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
@@ -244,4 +309,5 @@ Result: The latest Ubuntu and Debian Operating Systems are now supported without
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Steven Rosenberg (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
+	Vojtech Juranek (Contributed to: vdsm)
 	Yedidyah Bar David (Contributed to: ovirt-dwh, ovirt-engine)

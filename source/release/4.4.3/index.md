@@ -8,14 +8,14 @@ page_classes: releases
 
 # oVirt 4.4.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.3 release as of November 10, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.3 async release as of November 29, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
-This release is available now for Red Hat Enterprise Linux 8.2/8.3 (8.3 recommended) and
+This release is available now for Red Hat Enterprise Linux 8.2 and
 CentOS Linux 8.2 (or similar).
 
 To find out how to interact with oVirt developers and users and ask questions,
@@ -36,33 +36,12 @@ page.
 To learn about features introduced before 4.4.3, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
 
-## Known issues
-
-### How to prevent hosts entering emergency mode after upgrade from oVirt 4.4.1
-
-Due to **[[Bug 1837864]](https://bugzilla.redhat.com/show_bug.cgi?id=1837864) - Host enter emergency mode after upgrading to latest build**, 
-
-If you have your root file system on a multipath device on your hosts you should be aware that after upgrading from 4.4.1 to 4.4.3 you may get your host entering emergency mode.
-
-In order to prevent this be sure to upgrade oVirt Engine first, then on your hosts:
-1. Remove the current lvm filter while still on 4.4.1, or in emergency mode (if rebooted).
-2. Reboot.
-3. Upgrade to 4.4.3 (redeploy in case of already being on 4.4.3).
-4. Run vdsm-tool config-lvm-filter to confirm there is a new filter in place.
-5. Only if not using oVirt Node:
-   - run "dracut --force --add multipath” to rebuild initramfs with the correct filter configuration
-6. Reboot.
-
 
 ## What's New in 4.4.3?
 
 ### Release Note
 
 #### oVirt Engine
-
- - [BZ 1877675](https://bugzilla.redhat.com/1877675) **[RFE] Introduce Datacenter and cluster level 4.5**
- 
-   We are going to introduce datacenter and cluster level 4.5, which will be available only on CentOS/RHEL 8.3 hypervisors with Advanced Virtualization 8.3 packages.
 
  - [BZ 1888626](https://bugzilla.redhat.com/1888626) **Require ansible-2.9.14 in ovirt-engine**
 
@@ -117,29 +96,17 @@ We have also discussed to shorten RHV CA certificate lifetime, but we have decid
 
  - [BZ 1752751](https://bugzilla.redhat.com/1752751) **[RFE] Show vCPUs and allocated memory in virtual machines summary**
 
-   Features delivered under this issue (by their importance): 
+   This enhancement enables customization of the columns displayed in the Virtual Machines table of the Administration Portal.
 
+- Two new columns have been added to the Virtual Machines table - (number of) ‘vCPUs’, and ‘Memory (MB)’. These columns are not displayed by default.
 
+- A new pop-up menu has been added to the Virtual Machines table that allows you to reset the table column settings, and to add or remove columns from the display.
 
-1. Chosen grid settings (column visibility and order) are now by default persisted on the server. Existing settings will be migrated (uploaded) to the server. Functionality can be disabled by de-selecting checkbox 'Persist grid settings' in the Options pop-up (see screenshot).
-
-
-
-2. It's now possible to reset grid settings - this option is now available via newly added action button (kebab button) in the top right corner of the grid (check animated gif for details)
-
-
-
-3. Two new columns were added to Virtual Machine screen: number  of vCPUs and Memory in MB (see the screenshot for exact labels). Columns are hidden by default. User may show them by using column context menu (existing feature: pop-up triggered by right click on any column header) or by action "Change column visibility/order" (via kebab button added as part of this story - see screenshots).
+- The selected column display settings (column visibility and order) are now persistent on the server by default, and are migrated (uploaded) to the server. This functionality can be disabled in the User > Options popup, by de-selecting the 'Persist grid settings' option.
 
  - [BZ 1862968](https://bugzilla.redhat.com/1862968) **[RFE] auto-set cpu and numa to a vm for best performance**
 
-   This feature will introduce a way to automatically set the CPU and NUMA pinning of a VM.
-
-Currently, it is optional to do so when adding a VM using REST-API only.
-
-The new value is: auto_pinning_policy. It can be set to `existing`, using the current topology of the VM's CPU. Or, it can be set to `adjust`, using the dedicated host CPU topology, changing it accordingly to the VM.
-
-The result will provide a better performance to that VM.
+   This enhancement introduces a new option for automatically setting the CPU and NUMA pinning of a Virtual Machine by introducing a new configuration parameter, auto_pinning_policy. This option can be set to `existing`, using the current topology of the Virtual Machine's CPU, or it can be set to `adjust`, using the dedicated host CPU topology and changing it according to the Virtual Machine.
 
  - [BZ 1568461](https://bugzilla.redhat.com/1568461) **[RFE] Kernel address space layout randomization [KASLR] support**
 
@@ -151,57 +118,11 @@ The result will provide a better performance to that VM.
 
  - [BZ 1797717](https://bugzilla.redhat.com/1797717) **Search backend cannot find VMs which name starts with a search keyword**
 
-   Feature: 
-
-
-
-Enable to use a keyword in a free text search in search engine.
-
-
-
-Search engine enables to enter free text pattern in a search expression, this
-
-kind of search looks for the pattern on all the entity fields.
-
-
-
-In the case that the free text pattern starts with a keyword (column
-
-name) that is related to the searched entity, search engine fails to
-
-find the expected results and generates an error.
-
-
-
-For example, if you have a cluster named "namedCluster" and you are
-
-searching for "Cluster:name*" , you will get an empty result and an
-
-error complaining on illegal search, also if you are doing that from UI ,
-
-you will see that the character '*' is marked with red.
-
-
-
-Reason: 
-
-
-
-search engine should enable to search for entity column values that are prefixed with a keyword
-
-
-
-Result: 
-
-
-
-Support for search for entity column values that are prefixed with a keyword was added
+   With this enhancement, you can now perform a free text search in the Administration Portal that includes internally defined keywords.
 
  - [BZ 1657294](https://bugzilla.redhat.com/1657294) **[RFE] - enable renaming HostedEngine VM name**
 
-   Feature: 
-
-Let the user specify a custom name for the engine VM
+   With this enhancement, the user can change the HostedEngine VM name after deployment.
 
  - [BZ 1828347](https://bugzilla.redhat.com/1828347) **[RFE] support virtio-win flows in 4.4**
 
@@ -209,15 +130,7 @@ Let the user specify a custom name for the engine VM
 
  - [BZ 1854888](https://bugzilla.redhat.com/1854888) **RHV-M shows successful operation if OVA export/import failed during "qemu-img convert" phase**
 
-   Feature: Added error handling for ova importing and exporting.
-
-
-
-Reason: When the qemu-img process failed, the engine was reporting a successful completion of the process when the process actually failed.
-
-
-
-Result: Now when the qemu-img process fails to compete, the failure is detected and reported to the engine which fails appropriately.
+   This enhancements adds error handling for OVA import and export operations, providing successful detection and reporting to the Red Hat Virtualization Manager if the qemu-img process fails to complete.
 
 
 #### oVirt Engine Data Warehouse
@@ -418,6 +331,10 @@ This operation is transparent to the user.
 
 #### oVirt Engine
 
+ - [BZ 1894758](https://bugzilla.redhat.com/1894758) **[DR] Remote data sync to the secondary site never completes**
+
+   
+
  - [BZ 1891306](https://bugzilla.redhat.com/1891306) **Live cloning is failing**
 
    
@@ -550,10 +467,6 @@ This operation is transparent to the user.
 
    
 
- - [BZ 1438386](https://bugzilla.redhat.com/1438386) **[RFE] - provide a way for the user to replace host which has both virt and gluster services enabled  from UI**
-
-   
-
  - [BZ 1859586](https://bugzilla.redhat.com/1859586) **[HE] Re-deploying HE on host leaves host in state=LocalMaintenance with score=0 indefinitely**
 
    
@@ -606,6 +519,10 @@ This operation is transparent to the user.
 
    
 
+ - [BZ 1726558](https://bugzilla.redhat.com/1726558) **[v2v] VMware VMs with EFI BIOS and secure boot are converted to Q35 with UEFI instead of Q35 with SecureBoot**
+
+   
+
  - [BZ 1822372](https://bugzilla.redhat.com/1822372) **Adding quota to group doesn't propagate to users**
 
    
@@ -632,6 +549,10 @@ This operation is transparent to the user.
 
 
 #### oVirt Ansible collection
+
+ - [BZ 1884599](https://bugzilla.redhat.com/1884599) **Hosted-engine deploy is failing with error "Unable to access credentials /etc/pki/vdsm/libvirt-vnc/ca-cert.pem"**
+
+   
 
  - [BZ 1850028](https://bugzilla.redhat.com/1850028) **[HE] Can't deploy HE with uppercase characters in the HE-VM MAC address**
 
@@ -756,6 +677,13 @@ This operation is transparent to the user.
    
 
 
+#### oVirt Node NG Image
+
+ - [BZ 1883157](https://bugzilla.redhat.com/1883157) **Upgrade to 4.4.2 will fail due to dangling symlinks**
+
+   
+
+
 ### No Doc Update
 
 #### VDSM
@@ -794,6 +722,14 @@ This operation is transparent to the user.
 
 
 #### oVirt Engine
+
+ - [BZ 1894111](https://bugzilla.redhat.com/1894111) **After host upgrade from 4.4.2 to 4.4.3 there are still packages left to upgrade**
+
+   
+
+ - [BZ 1891332](https://bugzilla.redhat.com/1891332) **Engine have a memory leak**
+
+   
 
  - [BZ 1887893](https://bugzilla.redhat.com/1887893) **[REST-API] all_content ignored when specified as query parameter**
 
@@ -928,6 +864,14 @@ This operation is transparent to the user.
 
 #### cockpit-ovirt
 
+ - [BZ 1895762](https://bugzilla.redhat.com/1895762) **cockpit ovirt(downstream) docs links point to upstream docs.**
+
+   
+
+ - [BZ 1858248](https://bugzilla.redhat.com/1858248) **[Day2] Volume creation with 6 or more nodes in cluster, should allow users to select the hosts for brick creation**
+
+   
+
  - [BZ 1885140](https://bugzilla.redhat.com/1885140) **Scroll bar disappears after clicking "No" in "Exit Wizard"**
 
    
@@ -979,7 +923,7 @@ This operation is transparent to the user.
 	Germano Veit Michel (Contributed to: vdsm)
 	Hilda Stastna (Contributed to: ovirt-engine-ui-extensions, ovirt-web-ui)
 	Jean-Louis Dupond (Contributed to: ovirt-engine)
-	Kaustav Majumder (Contributed to: vdsm)
+	Kaustav Majumder (Contributed to: ovirt-engine, vdsm)
 	Kedar Kulkarni (Contributed to: ovirt-ansible-collection)
 	Klett IT (Contributed to: ovirt-ansible-collection)
 	Kobi Hakimi (Contributed to: ovirt-ansible-collection)

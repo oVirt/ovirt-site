@@ -8,7 +8,7 @@ page_classes: releases
 
 # oVirt 4.4.3 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.3 async release as of November 29, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.3 Async release as of November 29, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -118,7 +118,7 @@ We have also discussed to shorten RHV CA certificate lifetime, but we have decid
 
  - [BZ 1797717](https://bugzilla.redhat.com/1797717) **Search backend cannot find VMs which name starts with a search keyword**
 
-   With this enhancement, you can now perform a free text search in the Administration Portal that includes internally defined keywords.
+   With this enhancement, you can now perform a free text search in the Administration Portal for entity names that begin with internally defined keywords.
 
  - [BZ 1657294](https://bugzilla.redhat.com/1657294) **[RFE] - enable renaming HostedEngine VM name**
 
@@ -628,6 +628,10 @@ This operation is transparent to the user.
 
 #### cockpit-ovirt
 
+ - [BZ 1895553](https://bugzilla.redhat.com/1895553) **Add pre-flight in cockpit deployment flow to check for disk block sizes used for bricks and LV cache to be identical**
+
+   
+
  - [BZ 1885119](https://bugzilla.redhat.com/1885119) **[RHHI] - different disk for different hosts (playbook for gluster deployment is generated wrong)**
 
    
@@ -890,7 +894,7 @@ This operation is transparent to the user.
 
 #### Contributors
 
-71 people contributed to this release:
+72 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Alan Rominger (Contributed to: ovirt-ansible-collection)
@@ -921,6 +925,7 @@ This operation is transparent to the user.
 	Eyal Shenitzky (Contributed to: ioprocess, ovirt-engine, ovirt-engine-sdk, vdsm)
 	Gal Zaidman (Contributed to: cockpit-ovirt)
 	Germano Veit Michel (Contributed to: vdsm)
+	Gobinda Das (Contributed to: cockpit-ovirt)
 	Hilda Stastna (Contributed to: ovirt-engine-ui-extensions, ovirt-web-ui)
 	Jean-Louis Dupond (Contributed to: ovirt-engine)
 	Kaustav Majumder (Contributed to: ovirt-engine, vdsm)
@@ -946,7 +951,7 @@ This operation is transparent to the user.
 	Prajith Kesava Prasad (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Reto Gantenbein (Contributed to: ovirt-ansible-collection)
-	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-appliance, ovirt-engine, ovirt-engine-metrics, ovirt-engine-sdk, ovirt-hosted-engine-setup, ovirt-log-collector, ovirt-node-ng-image, ovirt-release)
+	Sandro Bonazzola (Contributed to: cockpit-ovirt, engine-db-query, ovirt-appliance, ovirt-engine, ovirt-engine-metrics, ovirt-engine-sdk, ovirt-hosted-engine-setup, ovirt-log-collector, ovirt-node-ng-image, ovirt-release)
 	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Sean Sackowitz (Contributed to: ovirt-ansible-collection)
 	Shani Leviim (Contributed to: ovirt-engine, vdsm)

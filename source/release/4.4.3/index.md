@@ -15,7 +15,7 @@ designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
-This release is available now for Red Hat Enterprise Linux 8.2 and
+This release is available now for Red Hat Enterprise Linux 8.2/8.3 (8.3 recommended) and
 CentOS Linux 8.2 (or similar).
 
 To find out how to interact with oVirt developers and users and ask questions,
@@ -36,6 +36,23 @@ page.
 To learn about features introduced before 4.4.3, see the
 [release notes for previous versions](/documentation/#previous-release-notes).
 
+## Known issues
+
+### How to prevent hosts entering emergency mode after upgrade from oVirt 4.4.1
+
+Due to **[[Bug 1837864]](https://bugzilla.redhat.com/show_bug.cgi?id=1837864) - Host enter emergency mode after upgrading to latest build**, 
+
+If you have your root file system on a multipath device on your hosts you should be aware that after upgrading from 4.4.1 to 4.4.3 you may get your host entering emergency mode.
+
+In order to prevent this be sure to upgrade oVirt Engine first, then on your hosts:
+1. Remove the current lvm filter while still on 4.4.1, or in emergency mode (if rebooted).
+2. Reboot.
+3. Upgrade to 4.4.3 (redeploy in case of already being on 4.4.3).
+4. Run vdsm-tool config-lvm-filter to confirm there is a new filter in place.
+5. Only if not using oVirt Node:
+   - run "dracut --force --add multipath” to rebuild initramfs with the correct filter configuration
+6. Reboot.
+
 
 ## What's New in 4.4.3?
 
@@ -43,7 +60,11 @@ To learn about features introduced before 4.4.3, see the
 
 #### oVirt Engine
 
- - [BZ 1888626](https://bugzilla.redhat.com/1888626) **Require ansible-2.9.14 in ovirt-engine**
+- [BZ 1877675](https://bugzilla.redhat.com/1877675) **[RFE] Introduce Datacenter and cluster level 4.5**
+
+   We are going to introduce datacenter and cluster level 4.5, which will be available only on CentOS/RHEL 8.3 hypervisors with Advanced Virtualization 8.3 packages.
+
+- [BZ 1888626](https://bugzilla.redhat.com/1888626) **Require ansible-2.9.14 in ovirt-engine**
 
    Ansible-2.9.14 is required for proper setup and functioning of Red Hat Virtualization Manager 4.4.3.
 

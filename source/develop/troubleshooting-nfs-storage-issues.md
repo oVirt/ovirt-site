@@ -69,7 +69,7 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
 *   **nfs-check.py** is available in the **vdsm/contrib/** directory of the vdsm source
 *   Run it on a node via **\1**
 
-       $ git clone http://gerrit.ovirt.org/p/vdsm.git
+       $ git clone "https://gerrit.ovirt.org/vdsm"
        $ cd vdsm/contrib
        $ python nfs-check.py myNFSServer:/nfsTarget
 

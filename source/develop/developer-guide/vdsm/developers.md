@@ -48,7 +48,7 @@ Our public git repository is located at: [oVirt.org](http://gerrit.ovirt.org/git
 
 You can clone this repository by running the following command:
 
-      git clone http://gerrit.ovirt.org/p/vdsm.git
+      git clone "https://gerrit.ovirt.org/vdsm"
 
 ## Installing the required packages
 
@@ -332,7 +332,7 @@ There are several ways to update your vds_bootstrap, for example:
 
 *   Clone vdsm tree and create an updated vdsm-bootstrap rpm and update the **oVirt Engine** system
 
-        # git clone git://gerrit.ovirt.org/vdsm
+        # git clone "https://gerrit.ovirt.org/vdsm"
         # cd vdsm
         (if required increase the Version/Release from vdsm.spec.in)
         # ./autogen.sh --system && make && make rpm
@@ -340,7 +340,7 @@ There are several ways to update your vds_bootstrap, for example:
 
 *   Clone the vdsm tree, execute autogen/make and copy the vds_bootstrap/vds_bootstrap.py to /usr/share/vds_bootstrap
 
-        # git clone git://gerrit.ovirt.org/vdsm
+        # git clone "https://gerrit.ovirt.org/vdsm"
         # cd vdsm
         # ./autogen.sh --system && make
         # cp vds_bootstrap/vds_bootstrap.py /usr/share/vds_bootstrap 

@@ -16,7 +16,7 @@ $ engine-setup
 Perform full vacuum on the engine database engine@localhost?
 This operation may take a while depending on this setup health and the
 configuration of the db vacuum process.
-See https://www.postgresql.org/docs/10/static/sql-vacuum.html
+See https://www.postgresql.org/docs/12/static/sql-vacuum.html
 (Yes, No) [No]:
 ----
 The *Yes* option runs the Engine Vacuum tool in full vacuum verbose mode.

@@ -1,5 +1,5 @@
 [[part-Administering_the_Resources]]
-= Administering the Resources 
+= Administering the Resources
 include::chap-Quality_of_Service.adoc[]
 
 include::chap-Data_Centers.adoc[leveloffset=+1]

@@ -8,14 +8,14 @@ page_classes: releases
 
 # oVirt 4.4.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.4 Third Release Candidate as of November 26, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.4 Fourth Release Candidate as of December 03, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
-This release is available now for Red Hat Enterprise Linux 8.2 and
+This release is available now for Red Hat Enterprise Linux 8.2/8.3 (8.3 recommended) and
 CentOS Linux 8.2 (or similar).
 
 To find out how to interact with oVirt developers and users and ask questions,
@@ -47,6 +47,23 @@ In order to install this Release Candidate you will need to enable pre-release r
 `# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
 
 
+## Known issues
+
+### How to prevent hosts entering emergency mode after upgrade from oVirt 4.4.1
+
+Due to **[[Bug 1837864]](https://bugzilla.redhat.com/show_bug.cgi?id=1837864) - Host enter emergency mode after upgrading to latest build**,
+
+If you have your root file system on a multipath device on your hosts you should be aware that after upgrading from 4.4.1 to 4.4.4 you may get your host entering emergency mode.
+
+In order to prevent this be sure to upgrade oVirt Engine first, then on your hosts:
+1. Remove the current lvm filter while still on 4.4.1, or in emergency mode (if rebooted).
+2. Reboot.
+3. Upgrade to 4.4.4 (redeploy in case of already being on 4.4.4).
+4. Run vdsm-tool config-lvm-filter to confirm there is a new filter in place.
+5. Only if not using oVirt Node:
+   - run "dracut --force --add multipath” to rebuild initramfs with the correct filter configuration
+6. Reboot.
+
 
 ## What's New in 4.4.4?
 
@@ -57,6 +74,73 @@ In order to install this Release Candidate you will need to enable pre-release r
  - [BZ 1859092](https://bugzilla.redhat.com/1859092) **Logical Name is missing when attaching RO direct LUN to a VM**
 
    Previously, the logical name of LUN disks within the guest weren't pull to the user visibility. Now, the LUN logical name is pulled and shown in the disk device.
+
+
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1866363](https://bugzilla.redhat.com/1866363) **[RFE] Add variables to choose specific entity**
+
+   Feature: 
+
+Add '$host_id' and '$vm_id' variables to choose specific entity.
+
+
+
+Reason: 
+
+In order to allow selection and search of virtual machines or hosts.
+
+
+
+Result:
+
+It will be possible to view the relevant reports according to a selected virtual machine or host. In addition it will be possible to search for the machine or host in the variable's search bar.
+
+ - [BZ 1851725](https://bugzilla.redhat.com/1851725) **[RFE] Add tags to grafana dashboards**
+
+   Feature: 
+
+Add tags to grafana dashboards.
+
+The tags are:
+
+1. Cluster
+
+2. DC (Data Center)
+
+3. Host
+
+4. VM
+
+5. SD (Storage Domains)
+
+6. CPU
+
+7. Memory
+
+8. Disk
+
+9. Interface 
+
+10. Downtime
+
+11. Uptime
+
+12. OS (Operating System) 
+
+13. HA (High Availability)
+
+
+
+Reason: 
+
+Adding tags will make it easier to sort and know the contents of dashboards.
+
+
+
+Result:
+
+Each dashboard will have a number of tags that describe the content displayed within it.
 
 
 #### oVirt Engine
@@ -76,6 +160,25 @@ Reason: To support the latest Ubuntu Operating Systems and to turn off ovirt gue
 
 
 Result: The latest Ubuntu and Debian Operating Systems are now supported without ovirt guest agent support.
+
+
+#### oVirt Ansible collection
+
+ - [BZ 1893385](https://bugzilla.redhat.com/1893385) **hosted-engine deploy (restore-from-file) fails if any non-management logical network is marked as required in backup file**
+
+   In previous versions, when using 'hosted-engine --restore-from-file' to restore or upgrade, if the backup included extra required networks in the cluster, and if the user did not reply 'Yes' to the question about pausing the execution, deployment failed.
+
+
+
+With this version, regardless of the answer to 'pause?', if the host is found to be in state "Non Operational", deployment will pause, outputting relevant information to the user, and waiting until a lock file is removed. This should allow the user to then connect to the web admin UI and manually handle the situation, activate the host, and then remove the lock file and continue the deployment.
+
+
+
+This version also allows supplying a custom hook to fix such and similar issues automatically.
+
+
+
+Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See also comment 27 for details.
 
 
 ### Bug Fixes
@@ -116,20 +219,16 @@ Result: The latest Ubuntu and Debian Operating Systems are now supported without
 
 #### oVirt Engine Data Warehouse
 
- - [BZ 1851725](https://bugzilla.redhat.com/1851725) **[RFE] Add tags to grafana dashboards**
-
-   
-
  - [BZ 1894298](https://bugzilla.redhat.com/1894298) **ModuleNotFoundError: No module named 'ovirt_engine' raised when starting ovirt-engine-dwhd.py in dev env**
-
-   
-
- - [BZ 1892247](https://bugzilla.redhat.com/1892247) **Fix duplicates in time-based queries (that use the hourly + daily tables)**
 
    
 
 
 #### oVirt Engine
+
+ - [BZ 1900540](https://bugzilla.redhat.com/1900540) **Engine try to stop NBD server during online backup**
+
+   
 
  - [BZ 1899768](https://bugzilla.redhat.com/1899768) **Live merge fails on invoking callback end method 'onSucceeded' for a VM with Cluster Chipset/Firmware Type "Cluster default" or "Legacy".**
 
@@ -199,10 +298,6 @@ Result: The latest Ubuntu and Debian Operating Systems are now supported without
 
    
 
- - [BZ 1726558](https://bugzilla.redhat.com/1726558) **[v2v] VMware VMs with EFI BIOS and secure boot are converted to Q35 with UEFI instead of Q35 with SecureBoot**
-
-   
-
 
 #### VDSM JSON-RPC Java
 
@@ -211,9 +306,9 @@ Result: The latest Ubuntu and Debian Operating Systems are now supported without
    
 
 
-#### oVirt Hosted Engine Setup
+#### imgbased
 
- - [BZ 1897888](https://bugzilla.redhat.com/1897888) **[RFE] Refine "hosted-engine --check-deployed" results.**
+ - [BZ 1902646](https://bugzilla.redhat.com/1902646) **ssh connection fails due to overly permissive openssh.config file permissions**
 
    
 
@@ -241,10 +336,18 @@ Result: The latest Ubuntu and Debian Operating Systems are now supported without
 
    
 
+ - [BZ 1892247](https://bugzilla.redhat.com/1892247) **Fix duplicates in time-based queries (that use the hourly + daily tables)**
+
+   
+
 
 #### oVirt Engine
 
  - [BZ 1811593](https://bugzilla.redhat.com/1811593) **Some PKI files are not removed by engine-cleanup**
+
+   
+
+ - [BZ 1898066](https://bugzilla.redhat.com/1898066) **host deploy fails when tune profile is null**
 
    
 
@@ -272,42 +375,58 @@ Result: The latest Ubuntu and Debian Operating Systems are now supported without
    
 
 
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1897888](https://bugzilla.redhat.com/1897888) **[RFE] Refine "hosted-engine --check-deployed" results.**
+
+   
+
+
+#### oVirt Provider OVN
+
+ - [BZ 1895015](https://bugzilla.redhat.com/1895015) **Bad permissions in /etc/sudoers.d drop-in files**
+
+   
+
+
 #### Contributors
 
-35 people contributed to this release:
+37 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
-	Ales Musil (Contributed to: vdsm)
+	Ales Musil (Contributed to: ovirt-provider-ovn, vdsm)
 	Amit Bawer (Contributed to: vdsm)
 	Andrej Cernek (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine, vdsm-jsonrpc-java)
-	Asaf Rachmani (Contributed to: ovirt-hosted-engine-setup)
+	Asaf Rachmani (Contributed to: imgbased, ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh)
-	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-hosted-engine-setup)
+	Aviv Turgeman (Contributed to: ovirt-hosted-engine-setup)
 	Bell Levin (Contributed to: vdsm)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
 	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
-	Dominik Holler (Contributed to: ovirt-engine)
+	Dominik Holler (Contributed to: ovirt-engine, ovirt-provider-ovn)
 	Ehud Yonasi (Contributed to: vdsm)
 	Eitan Raviv (Contributed to: ovirt-engine)
-	Eyal Shenitzky (Contributed to: ovirt-engine)
+	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
 	Jean-Louis Dupond (Contributed to: ovirt-engine)
 	Kaustav Majumder (Contributed to: ovirt-engine)
+	Kobi Hakimi (Contributed to: ovirt-ansible-collection)
 	Lev Veyde (Contributed to: ovirt-engine, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
-	Marcin Sobczyk (Contributed to: vdsm)
-	Martin Perina (Contributed to: ovirt-engine)
-	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
+	Marcin Sobczyk (Contributed to: ovirt-provider-ovn, vdsm)
+	Martin Nečas (Contributed to: ovirt-ansible-collection)
+	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, vdsm-jsonrpc-java)
+	Milan Zamazal (Contributed to: ovirt-engine, ovirt-vmconsole, vdsm)
+	Nir Levy (Contributed to: imgbased)
 	Nir Soffer (Contributed to: ovirt-engine, vdsm)
-	Parth Dhanjal (Contributed to: cockpit-ovirt)
-	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-release)
+	Sandro Bonazzola (Contributed to: ovirt-engine)
 	Shani Leviim (Contributed to: ovirt-engine)
 	Shirly Radco (Contributed to: ovirt-dwh)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Steven Rosenberg (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: vdsm)
-	Yedidyah Bar David (Contributed to: ovirt-dwh, ovirt-engine)
+	Yedidyah Bar David (Contributed to: ovirt-ansible-collection, ovirt-dwh, ovirt-engine)

@@ -9,9 +9,9 @@ include::../common/collateral_files/ovirt-attributes.adoc[]
 
 Standalone {engine-name} installation is manual and customizable. You must install a {enterprise-linux} machine, then run the configuration script (`engine-setup`) and provide information about how you want to configure the {virt-product-fullname} {engine-name}. Add hosts and storage after the {engine-name} is running. At least two hosts are required for virtual machine high availability.
 
-In a remote database environment, you must create the {engine-name} database manually before running `engine-setup`. You can create the Data Warehouse database manually, or let the Data Warehouse configuration script (`ovirt-engine-dwh-setup`) create it automatically if you are installing the Data Warehouse service on the same machine.
+To install the {engine-name} with a remote {engine-name} database, manually create the database on the remote machine before running `engine-setup`. To install the Data Warehouse database on a remote machine, run the Data Warehouse configuration script (`ovirt-engine-dwh-setup`) on the remote machine. This script installs the Data Warehouse service and can create the Data Warehouse database automatically.
 
-See the link:{URL_downstream_virt_product_docs}html/planning_and_prerequisites_guide/[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration.
+See the link:{URL_downstream_virt_product_docs}html-single/planning_and_prerequisites_guide/index[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration.
 
 include::../common/arch/con-RHV_key_components.adoc[]
 
@@ -63,7 +63,7 @@ include::../common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 [id='Installing_RHEL_for_RHVM_SM_remoteDB_deploy']
 === Installing the {virt-product-fullname} {engine-name} Machine and the Remote Server
 
-. The {virt-product-fullname} {engine-name} must run on {enterprise-linux} 7. For detailed instructions on installing {enterprise-linux}, see the link:{URL_rhel_docs_legacy}html/Installation_Guide/index.html[_{enterprise-linux} 7 Installation Guide_].
+. The {virt-product-fullname} {engine-name} must run on {enterprise-linux} 8. For detailed installation instructions, see link:{URL_rhel_docs_latest}html-single/performing_a_standard_rhel_installation/index[_Performing a standard {enterprise-linux-shortname} installation_].
 +
 This machine must meet the minimum xref:hardware-requirements_SM_remoteDB_deploy[{engine-name} hardware requirements].
 

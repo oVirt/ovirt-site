@@ -210,28 +210,28 @@ POST /ovirt-engine/api/datacenters/123/setmaster
 
 With a request body like this:
 
-
-
+~~~ xml
 <action>
 
   <storage_domain id="456"/>
 
 </action>
-
-
+~~~
 
 There's also an option for using the storage domain's name:
 
+
+~~~ xml
 <action>
 
-  <storage_domain>
+    <storage_domain>
 
-    <name>my-nfs</name>
+        <name>my-nfs</name>
 
-  </storage_domain>
+    </storage_domain>
 
 </action>
-
+~~~
 
 
 The specified storage domain should become the new master storage domain.

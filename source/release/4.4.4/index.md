@@ -8,7 +8,7 @@ page_classes: releases
 
 # oVirt 4.4.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.4 Fourth Release Candidate as of December 03, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.4 Fifth Release Candidate as of December 10, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -66,6 +66,15 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 
 ## What's New in 4.4.4?
+
+### Release Note
+
+#### VDSM
+
+ - [BZ 1899865](https://bugzilla.redhat.com/1899865) **[RFE] Remove dpdk from host networking**
+
+   Experimental support for DPDK has been removed in oVirt 4.4.4
+
 
 ### Enhancements
 
@@ -145,6 +154,88 @@ Each dashboard will have a number of tags that describe the content displayed wi
 
 #### oVirt Engine
 
+ - [BZ 1884233](https://bugzilla.redhat.com/1884233) **oVirt-engine reports misleading login-domain for external RH-SSO accounts**
+
+   Feature: 
+
+Authz name is now used as user domain on RHVM home page. It replaces profile. Additionally several log statements related to authorization/authentication flow has been made consistent by presenting both user's authz name and profile name where applicable
+
+
+
+Reason: 
+
+Before this change usage of user profile and authz name was inconsintent which might have led to confusion when troubleshooting login issues/misconfiguration.
+
+RHVM internally always uses username & authz name to identify the user, profile is only used at login screen. Additionally, there might be multiple profiles attached to single authz configuration. Authz name by convention represents a domain ie. example.com so it makes sense to stick to the following pattern when presenting user:  username@authz ie. jsmith@example.com
+
+
+
+Result: 
+
+<username>@<authz name> is displayed on home page after user is successfully logged into RHVM. Additionally,  log statements now contains both Authz name and profile name in addition to username.
+
+ - [BZ 1729897](https://bugzilla.redhat.com/1729897) **[RFE] Per-vNUMA node tuning modes**
+
+   Previously, the NUMA tune mode was set to the VM, setting every virtual NUMA node of the VM with this setting. Now, it is possible to set NUMA tune mode for each virtual NUMA node.
+
+ - [BZ 1576923](https://bugzilla.redhat.com/1576923) **RFE: Ability to move master role to another domain without putting the domain to maintenance**
+
+   Feature:
+
+Add the ability to move the master role to another domain without putting the domain to maintenance, using the REST API. 
+
+
+
+Reason:
+
+Currently, you can't migrate the master role to a newer domain, without migrating the VMs from the old one and putting it on maintenance.
+
+
+
+Another scenario was the inability to put on maintenance a hosted_storage domain. 
+
+
+
+Result: 
+
+There's now an option to move the master role using the REST API to a different storage domain, without putting them into maintenance.
+
+For example, for setting a storage domain with ID '456' as a master on a data center with ID '123', send a request like this:
+
+
+
+POST /ovirt-engine/api/datacenters/123/setmaster
+
+
+
+With a request body like this:
+
+
+
+<action>
+
+  <storage_domain id="456"/>
+
+</action>
+
+
+
+There's also an option for using the storage domain's name:
+
+<action>
+
+  <storage_domain>
+
+    <name>my-nfs</name>
+
+  </storage_domain>
+
+</action>
+
+
+
+The specified storage domain should become the new master storage domain.
+
  - [BZ 1859092](https://bugzilla.redhat.com/1859092) **Logical Name is missing when attaching RO direct LUN to a VM**
 
    Previously, the logical name of LUN disks within the guest weren't pull to the user visibility. Now, the LUN logical name is pulled and shown in the disk device.
@@ -183,7 +274,28 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 
 ### Bug Fixes
 
+#### VDSM
+
+ - [BZ 1903358](https://bugzilla.redhat.com/1903358) **Speed up activation with large number of storage domain**
+
+ - [BZ 1508098](https://bugzilla.redhat.com/1508098) **[RFE] RHV should configure sanlock host name**
+
+ - [BZ 1904774](https://bugzilla.redhat.com/1904774) **Direct lun disk is reflected on the guest by lun ID instead of disk ID**
+
+ - [BZ 1892403](https://bugzilla.redhat.com/1892403) **Image download via SDK broken with older engines**
+
+
 #### oVirt Engine
+
+ - [BZ 1905417](https://bugzilla.redhat.com/1905417) **vGPU: VM failed to run with mdev_type instance (java NPE in engine.log)**
+
+ - [BZ 1904947](https://bugzilla.redhat.com/1904947) **ISO domain images list is empty when virtio-win is not installed on the engine side.**
+
+ - [BZ 1904774](https://bugzilla.redhat.com/1904774) **Direct lun disk is reflected on the guest by lun ID instead of disk ID**
+
+ - [BZ 1508098](https://bugzilla.redhat.com/1508098) **[RFE] RHV should configure sanlock host name**
+
+ - [BZ 1888142](https://bugzilla.redhat.com/1888142) **Confusing warning message in the logs while shutting down a pool VM**
 
  - [BZ 1875386](https://bugzilla.redhat.com/1875386) **openssl conf files point at qemu-ca-certificate**
 
@@ -212,6 +324,10 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 
 #### VDSM
 
+ - [BZ 1893656](https://bugzilla.redhat.com/1893656) **[CBT] VM state switches from 'up' to 'powering up' right after full backup - causing a second immediate backup attempt to fail**
+
+   
+
  - [BZ 1893773](https://bugzilla.redhat.com/1893773) **NVDIMM: memory usage in WebAdmin is always ~100% regardless to actual usage inside the VM.**
 
    
@@ -225,6 +341,30 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 
 
 #### oVirt Engine
+
+ - [BZ 1792905](https://bugzilla.redhat.com/1792905) **Sparsification is not reflected on image size of qcow volumes**
+
+   
+
+ - [BZ 1881505](https://bugzilla.redhat.com/1881505) **German translation of ME should be checked by a native and technical German speaker please**
+
+   
+
+ - [BZ 1900546](https://bugzilla.redhat.com/1900546) **[CBT][incremental backup] Engine reports that backup was finalized when stopping backup failed**
+
+   
+
+ - [BZ 1796231](https://bugzilla.redhat.com/1796231) **VM disk remains in locked state if image transfer (image download) timesout due to inactivity.**
+
+   
+
+ - [BZ 1895695](https://bugzilla.redhat.com/1895695) **Modifying (add/remove/replace) NICs in the clone modal doesn't reflect on the cloned VM**
+
+   
+
+ - [BZ 1895667](https://bugzilla.redhat.com/1895667) **Missing UI proper error message for cloning a VM which in a process of cloning**
+
+   
 
  - [BZ 1900540](https://bugzilla.redhat.com/1900540) **Engine try to stop NBD server during online backup**
 
@@ -343,6 +483,14 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 
 #### oVirt Engine
 
+ - [BZ 1868114](https://bugzilla.redhat.com/1868114) **RHV-M UI/Webadmin:  The "Disk Snapshots" tab reflects incorrect "Creation Date" information.**
+
+   
+
+ - [BZ 1903595](https://bugzilla.redhat.com/1903595) **[PPC] Can't add PPC host to Engine**
+
+   
+
  - [BZ 1811593](https://bugzilla.redhat.com/1811593) **Some PKI files are not removed by engine-cleanup**
 
    
@@ -391,10 +539,10 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 
 #### Contributors
 
-37 people contributed to this release:
+45 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
-	Ales Musil (Contributed to: ovirt-provider-ovn, vdsm)
+	Ales Musil (Contributed to: ovirt-engine, ovirt-provider-ovn, vdsm)
 	Amit Bawer (Contributed to: vdsm)
 	Andrej Cernek (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
@@ -404,6 +552,7 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 	Aviv Turgeman (Contributed to: ovirt-hosted-engine-setup)
 	Bell Levin (Contributed to: vdsm)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
+	Ben Amsalem (Contributed to: ovirt-web-ui)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
 	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
@@ -411,22 +560,29 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 	Ehud Yonasi (Contributed to: vdsm)
 	Eitan Raviv (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
+	Hilda Stastna (Contributed to: ovirt-web-ui)
 	Jean-Louis Dupond (Contributed to: ovirt-engine)
 	Kaustav Majumder (Contributed to: ovirt-engine)
 	Kobi Hakimi (Contributed to: ovirt-ansible-collection)
 	Lev Veyde (Contributed to: ovirt-engine, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
+	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: ovirt-provider-ovn, vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection)
 	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, vdsm-jsonrpc-java)
 	Milan Zamazal (Contributed to: ovirt-engine, ovirt-vmconsole, vdsm)
 	Nir Levy (Contributed to: imgbased)
-	Nir Soffer (Contributed to: ovirt-engine, vdsm)
+	Nir Soffer (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
+	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
+	Radoslaw Szwajkowski (Contributed to: ovirt-web-ui)
 	Sandro Bonazzola (Contributed to: ovirt-engine)
+	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-web-ui)
 	Shani Leviim (Contributed to: ovirt-engine)
+	Sharon Gratch (Contributed to: ovirt-web-ui)
 	Shirly Radco (Contributed to: ovirt-dwh)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Steven Rosenberg (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
-	Vojtech Juranek (Contributed to: vdsm)
+	Vojtech Juranek (Contributed to: ovirt-engine-sdk, vdsm)
 	Yedidyah Bar David (Contributed to: ovirt-ansible-collection, ovirt-dwh, ovirt-engine)
+	aelrayess (Contributed to: ovirt-engine-sdk)

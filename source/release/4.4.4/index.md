@@ -172,7 +172,7 @@ RHVM internally always uses username & authz name to identify the user, profile 
 
 Result: 
 
-<username>@<authz name> is displayed on home page after user is successfully logged into RHVM. Additionally,  log statements now contains both Authz name and profile name in addition to username.
+`<username>@<authz name>` is displayed on home page after user is successfully logged into RHVM. Additionally,  log statements now contains both Authz name and profile name in addition to username.
 
  - [BZ 1729897](https://bugzilla.redhat.com/1729897) **[RFE] Per-vNUMA node tuning modes**
 

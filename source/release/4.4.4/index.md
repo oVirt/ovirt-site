@@ -1,14 +1,14 @@
 ---
 title: oVirt 4.4.4 Release Notes
 category: documentation
-authors: sandrobonazzola lveyde
+authors: lveyde sandrobonazzola
 toc: true
 page_classes: releases
 ---
 
 # oVirt 4.4.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.4 Fifth Release Candidate as of December 10, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.4 Fifth Release Candidate as of December 11, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -166,13 +166,13 @@ Reason:
 
 Before this change usage of user profile and authz name was inconsintent which might have led to confusion when troubleshooting login issues/misconfiguration.
 
-RHVM internally always uses username & authz name to identify the user, profile is only used at login screen. Additionally, there might be multiple profiles attached to single authz configuration. Authz name by convention represents a domain ie. example.com so it makes sense to stick to the following pattern when presenting user:  username@authz ie. jsmith@example.com
+RHVM internally always uses username &amp; authz name to identify the user, profile is only used at login screen. Additionally, there might be multiple profiles attached to single authz configuration. Authz name by convention represents a domain ie. example.com so it makes sense to stick to the following pattern when presenting user:  username@authz ie. jsmith@example.com
 
 
 
 Result: 
 
-`<username>@<authz name>` is displayed on home page after user is successfully logged into RHVM. Additionally,  log statements now contains both Authz name and profile name in addition to username.
+&lt;username&gt;@&lt;authz name&gt; is displayed on home page after user is successfully logged into RHVM. Additionally,  log statements now contains both Authz name and profile name in addition to username.
 
  - [BZ 1729897](https://bugzilla.redhat.com/1729897) **[RFE] Per-vNUMA node tuning modes**
 
@@ -210,28 +210,28 @@ POST /ovirt-engine/api/datacenters/123/setmaster
 
 With a request body like this:
 
-```xml
-<action>
 
-  <storage_domain id="456"/>
 
-</action>
-```
+&lt;action&gt;
+
+  &lt;storage_domain id="456"/&gt;
+
+&lt;/action&gt;
+
+
 
 There's also an option for using the storage domain's name:
 
+&lt;action&gt;
 
-```xml
-<action>
+  &lt;storage_domain&gt;
 
-    <storage_domain>
+    &lt;name&gt;my-nfs&lt;/name&gt;
 
-        <name>my-nfs</name>
+  &lt;/storage_domain&gt;
 
-    </storage_domain>
+&lt;/action&gt;
 
-</action>
-```
 
 
 The specified storage domain should become the new master storage domain.
@@ -446,13 +446,6 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
    
 
 
-#### imgbased
-
- - [BZ 1902646](https://bugzilla.redhat.com/1902646) **ssh connection fails due to overly permissive openssh.config file permissions**
-
-   
-
-
 ### No Doc Update
 
 #### VDSM
@@ -547,9 +540,9 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 	Andrej Cernek (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine, vdsm-jsonrpc-java)
-	Asaf Rachmani (Contributed to: imgbased, ovirt-hosted-engine-setup)
+	Asaf Rachmani (Contributed to: cockpit-ovirt, imgbased, ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh)
-	Aviv Turgeman (Contributed to: ovirt-hosted-engine-setup)
+	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-hosted-engine-setup)
 	Bell Levin (Contributed to: vdsm)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Ben Amsalem (Contributed to: ovirt-web-ui)

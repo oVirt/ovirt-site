@@ -1,7 +1,7 @@
 ---
 title: oVirt 4.4.4 Release Notes
 category: documentation
-authors: lveyde sandrobonazzola
+authors: sandrobonazzola lveyde
 toc: true
 page_classes: releases
 ---
@@ -166,13 +166,13 @@ Reason:
 
 Before this change usage of user profile and authz name was inconsintent which might have led to confusion when troubleshooting login issues/misconfiguration.
 
-RHVM internally always uses username &amp; authz name to identify the user, profile is only used at login screen. Additionally, there might be multiple profiles attached to single authz configuration. Authz name by convention represents a domain ie. example.com so it makes sense to stick to the following pattern when presenting user:  username@authz ie. jsmith@example.com
+RHVM internally always uses username & authz name to identify the user, profile is only used at login screen. Additionally, there might be multiple profiles attached to single authz configuration. Authz name by convention represents a domain ie. example.com so it makes sense to stick to the following pattern when presenting user:  username@authz ie. jsmith@example.com
 
 
 
 Result: 
 
-&lt;username&gt;@&lt;authz name&gt; is displayed on home page after user is successfully logged into RHVM. Additionally,  log statements now contains both Authz name and profile name in addition to username.
+'<username>@<authz name>' is displayed on home page after user is successfully logged into RHVM. Additionally,  log statements now contains both Authz name and profile name in addition to username.
 
  - [BZ 1729897](https://bugzilla.redhat.com/1729897) **[RFE] Per-vNUMA node tuning modes**
 
@@ -211,27 +211,29 @@ POST /ovirt-engine/api/datacenters/123/setmaster
 With a request body like this:
 
 
+```xml
+<action>
 
-&lt;action&gt;
+  <storage_domain id="456"/>
 
-  &lt;storage_domain id="456"/&gt;
-
-&lt;/action&gt;
+</action>
+```
 
 
 
 There's also an option for using the storage domain's name:
 
-&lt;action&gt;
+```xml
+<action>
 
-  &lt;storage_domain&gt;
+  <storage_domain>
 
-    &lt;name&gt;my-nfs&lt;/name&gt;
+    <name>my-nfs</name>
 
-  &lt;/storage_domain&gt;
+  </storage_domain>
 
-&lt;/action&gt;
-
+</action>
+```
 
 
 The specified storage domain should become the new master storage domain.
@@ -442,6 +444,13 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 #### VDSM JSON-RPC Java
 
  - [BZ 1890430](https://bugzilla.redhat.com/1890430) **Kubevirt / OpenShift Virtualization provider - the cluster/host cpu mismatch message**
+
+   
+
+
+#### imgbased
+
+ - [BZ 1902646](https://bugzilla.redhat.com/1902646) **ssh connection fails due to overly permissive openssh.config file permissions**
 
    
 

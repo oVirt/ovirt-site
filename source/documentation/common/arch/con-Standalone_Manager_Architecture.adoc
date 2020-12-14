@@ -2,11 +2,10 @@
 = Standalone {engine-name} Architecture
 
 The {virt-product-fullname} {engine-name} runs on a physical server, or a virtual machine hosted in a separate virtualization environment. A standalone {engine-name} is easier to deploy and manage, but requires an additional physical server. The {engine-name} is only highly available when managed externally with a product such as Red Hat's High Availability Add-On.
-// review above
 
 The minimum setup for a standalone {engine-name} environment includes:
 
-* One {virt-product-fullname} {engine-name} machine. The {engine-name} is typically deployed on a physical server. However, it can also be deployed on a virtual machine, as long as that virtual machine is hosted in a separate environment. The {engine-name} must run on {enterprise-linux} 7.
+* One {virt-product-fullname} {engine-name} machine. The {engine-name} is typically deployed on a physical server. However, it can also be deployed on a virtual machine, as long as that virtual machine is hosted in a separate environment. The {engine-name} must run on {enterprise-linux} 8.
 
 * A minimum of two hosts for virtual machine high availability. You can use {enterprise-linux-host-fullname}s or {hypervisor-fullname}s ({hypervisor-shortname}). VDSM (the host agent) runs on all hosts to facilitate communication with the {virt-product-fullname} {engine-name}.
 

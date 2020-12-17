@@ -44,7 +44,9 @@ If you'd like to contribute code to oVirt, visit the [Developer section](/develo
 
 ## Translate
 
-oVirt's user interface and documentation are available in multiple languages for users around the globe. Examples include Italian, Portuguese, Chinese, Japanese, Korean, and more. To contribute translations, sign up for [Zanata](https://translate.zanata.org) and access our [project](https://translate.zanata.org/project/view/ovirt).
+oVirt's user interface and documentation are available in multiple languages for users around the globe.
+Examples include Italian, Portuguese, Chinese, Japanese, Korean, and more.
+To contribute translations, please follow our [How-To](/develop/localization.html).
 
 ## Documentation
 

@@ -1,14 +1,14 @@
 ---
 title: oVirt 4.4.4 Release Notes
 category: documentation
-authors: sandrobonazzola lveyde
+authors: lveyde sandrobonazzola
 toc: true
 page_classes: releases
 ---
 
 # oVirt 4.4.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.4 Fifth Release Candidate as of December 11, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.4 Sixth Release Candidate as of December 17, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -220,7 +220,6 @@ With a request body like this:
 ```
 
 
-
 There's also an option for using the storage domain's name:
 
 ```xml
@@ -322,6 +321,11 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
  - [BZ 1694711](https://bugzilla.redhat.com/1694711) **Incorrect NUMA pinning due to improper correlation between CPU sockets and NUMA nodes**
 
 
+#### cockpit-ovirt
+
+ - [BZ 1903567](https://bugzilla.redhat.com/1903567) **cockpit cant discover iscsi and fc luns**
+
+
 ### Other
 
 #### VDSM
@@ -343,6 +347,22 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 
 
 #### oVirt Engine
+
+ - [BZ 1627997](https://bugzilla.redhat.com/1627997) **[RFE] Allow SPM switching if all tasks have finished via REST-API**
+
+   
+
+ - [BZ 1904202](https://bugzilla.redhat.com/1904202) **Create backup failed on vm after hot plugging a disk**
+
+   
+
+ - [BZ 1900594](https://bugzilla.redhat.com/1900594) **[CBT][incremental backup] Engine fail to stop backup if VM was destroyed during backup**
+
+   
+
+ - [BZ 1881115](https://bugzilla.redhat.com/1881115) **RHEL VM icons squashed, please adhere to brand rules**
+
+   
 
  - [BZ 1792905](https://bugzilla.redhat.com/1792905) **Sparsification is not reflected on image size of qcow volumes**
 
@@ -448,9 +468,9 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
    
 
 
-#### imgbased
+#### cockpit-ovirt
 
- - [BZ 1902646](https://bugzilla.redhat.com/1902646) **ssh connection fails due to overly permissive openssh.config file permissions**
+ - [BZ 1899917](https://bugzilla.redhat.com/1899917) **[day2] create volume flow from cockpit allows to select more than 3 hosts**
 
    
 
@@ -541,7 +561,7 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 
 #### Contributors
 
-45 people contributed to this release:
+47 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: ovirt-engine, ovirt-provider-ovn, vdsm)
@@ -554,7 +574,7 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-hosted-engine-setup)
 	Bell Levin (Contributed to: vdsm)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
-	Ben Amsalem (Contributed to: ovirt-web-ui)
+	Ben Amsalem (Contributed to: ovirt-engine, ovirt-web-ui)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
 	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
@@ -576,8 +596,10 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 	Nir Levy (Contributed to: imgbased)
 	Nir Soffer (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
+	Parth Dhanjal (Contributed to: cockpit-ovirt)
+	Pavel Bar (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-web-ui)
-	Sandro Bonazzola (Contributed to: ovirt-engine)
+	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-release)
 	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-web-ui)
 	Shani Leviim (Contributed to: ovirt-engine)
 	Sharon Gratch (Contributed to: ovirt-web-ui)

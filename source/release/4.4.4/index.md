@@ -8,7 +8,7 @@ page_classes: releases
 
 # oVirt 4.4.4 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.4 Sixth Release Candidate as of December 17, 2020.
+The oVirt Project is pleased to announce the availability of the 4.4.4 release as of December 21, 2020.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -23,10 +23,6 @@ visit our [community page](/community/).
 All issues or bugs should be reported via
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
-
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
 the [Download](/download/) page.
@@ -38,14 +34,7 @@ For a general overview of oVirt, read the [About oVirt](/community/about.html)
 page.
 
 To learn about features introduced before 4.4.4, see the
-[release notes for previous versions](/documentation/#latest-release-notes).
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
-
+[release notes for previous versions](/documentation/#previous-release-notes).
 
 ## Known issues
 
@@ -356,10 +345,6 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 
    
 
- - [BZ 1900594](https://bugzilla.redhat.com/1900594) **[CBT][incremental backup] Engine fail to stop backup if VM was destroyed during backup**
-
-   
-
  - [BZ 1881115](https://bugzilla.redhat.com/1881115) **RHEL VM icons squashed, please adhere to brand rules**
 
    
@@ -369,10 +354,6 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
    
 
  - [BZ 1881505](https://bugzilla.redhat.com/1881505) **German translation of ME should be checked by a native and technical German speaker please**
-
-   
-
- - [BZ 1900546](https://bugzilla.redhat.com/1900546) **[CBT][incremental backup] Engine reports that backup was finalized when stopping backup failed**
 
    
 
@@ -505,6 +486,14 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 
 #### oVirt Engine
 
+ - [BZ 1900594](https://bugzilla.redhat.com/1900594) **[CBT][incremental backup] Engine fail to stop backup if VM was destroyed during backup**
+
+   
+
+ - [BZ 1900546](https://bugzilla.redhat.com/1900546) **[CBT][incremental backup] Engine reports that backup was finalized when stopping backup failed**
+
+   
+
  - [BZ 1868114](https://bugzilla.redhat.com/1868114) **RHV-M UI/Webadmin:  The "Disk Snapshots" tab reflects incorrect "Creation Date" information.**
 
    
@@ -559,6 +548,13 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
    
 
 
+#### oVirt Node NG Image
+
+ - [BZ 1907803](https://bugzilla.redhat.com/1907803) **ovirt-node anaconda installclass needs rebase on CentOS 8.3 anaconda-33.16.3.***
+
+   
+
+
 #### Contributors
 
 47 people contributed to this release:
@@ -569,7 +565,7 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 	Andrej Cernek (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine, vdsm-jsonrpc-java)
-	Asaf Rachmani (Contributed to: cockpit-ovirt, imgbased, ovirt-hosted-engine-setup)
+	Asaf Rachmani (Contributed to: cockpit-ovirt, imgbased, ovirt-hosted-engine-setup, ovirt-node-ng-image)
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-hosted-engine-setup)
 	Bell Levin (Contributed to: vdsm)
@@ -578,7 +574,7 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
 	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
-	Dominik Holler (Contributed to: ovirt-engine, ovirt-provider-ovn)
+	Dominik Holler (Contributed to: ovirt-engine, ovirt-provider-ovn, ovirt-release)
 	Ehud Yonasi (Contributed to: vdsm)
 	Eitan Raviv (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
@@ -593,13 +589,13 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 	Martin Nečas (Contributed to: ovirt-ansible-collection)
 	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, vdsm-jsonrpc-java)
 	Milan Zamazal (Contributed to: ovirt-engine, ovirt-vmconsole, vdsm)
-	Nir Levy (Contributed to: imgbased)
+	Nir Levy (Contributed to: imgbased, ovirt-node-ng-image)
 	Nir Soffer (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Parth Dhanjal (Contributed to: cockpit-ovirt)
 	Pavel Bar (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-web-ui)
-	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-release)
+	Sandro Bonazzola (Contributed to: ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release)
 	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-web-ui)
 	Shani Leviim (Contributed to: ovirt-engine)
 	Sharon Gratch (Contributed to: ovirt-web-ui)
@@ -608,5 +604,5 @@ Doc team: Perhaps instead of above, or in addition to it, open a doc bug. See al
 	Steven Rosenberg (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: ovirt-engine-sdk, vdsm)
-	Yedidyah Bar David (Contributed to: ovirt-ansible-collection, ovirt-dwh, ovirt-engine)
+	Yedidyah Bar David (Contributed to: ovirt-ansible-collection, ovirt-dwh, ovirt-engine, ovirt-node-ng-image)
 	aelrayess (Contributed to: ovirt-engine-sdk)

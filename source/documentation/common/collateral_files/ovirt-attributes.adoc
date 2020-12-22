@@ -3,7 +3,7 @@
 // Carefully analyze, test, and peer review all changes to this file!
 :vernum_rhv: 4.4
 :vernum_rhv_legacy: 4.3
-:vernum_satellite: 6.5
+:vernum_satellite: 6.7
 :vernum_rhel: 8.0
 :vernum_rhel_legacy: 7.6
 :vernum_gluster: 3.3
@@ -36,7 +36,7 @@
 :URL_vernum_rhel_latest: 8/
 :URL_product_satellite: red_hat_satellite/
 :URL_vernum_satellite: 6.6/
-:URL_format: 
+:URL_format:
 // Here are the composite URL attributes.
 // Where possible, use these instead of the atomic URL attributes.
 :URL_virt_product_docs: /documentation/
@@ -64,6 +64,7 @@
 :enterprise-linux-shortname: EL
 :gluster-storage-fullname: Gluster Storage
 :org-fullname: oVirt
+:container-platform: OKD
 // This ovirt-doc attribute triggers some ifdef and ifeval statements that
 // express or suppress organization-specific content.
 :ovirt-doc:

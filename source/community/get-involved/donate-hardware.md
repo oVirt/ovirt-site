@@ -12,8 +12,8 @@ authors: ederevea sandrobonazzola
 | 14x PowerEdge R620 | 2014 | Red Hat | **warranty expired in 2017** | hypervisors & OpenShift nodes |
 | 10x PowerEdge R430 | 2016 | Red Hat | **warranty expired in 2019** | OST workers                   |
 | 2x Power S812L     | 2015 | IBM     | *on loan from IBM*           | POWER8 hypervisors            |
-| 3x s390 VM         |      | IBM     | -                            | s390 hypervisors              | 
-| 1x s390 VM         |      | Fedora  | -                            | s390 hypervisors              |
+| 3x s390 VM         |      | IBM     | -                            | s390 CI Workers               | 
+| 1x s390 VM         |      | Fedora  | -                            | s390 CI Workers               |
 {: .bordered}
 
 # Donate hardware

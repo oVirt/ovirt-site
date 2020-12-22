@@ -1,8 +1,20 @@
 ---
 title: Donate hardware
 category: develop
-authors: ederevea
+authors: ederevea sandrobonazzola
 ---
+
+# Resources donated so far
+
+| Quantity / Model   | Year | Donor   | warranty status              | Used for                      |
+|:---------------------------------------------------------------------------------------------------|
+| 2x PowerEdge R720  | 2014 | Red Hat | extended warranty active     | storage servers               |
+| 14x PowerEdge R620 | 2014 | Red Hat | **warranty expired in 2017** | hypervisors & OpenShift nodes |
+| 10x PowerEdge R430 | 2016 | Red Hat | **warranty expired in 2019** | OST workers                   |
+| 2x Power S812L     | 2015 | IBM     | *on loan from IBM*           | POWER8 hypervisors            |
+| 3x s390 VM         |      | IBM     | -                            | s390 hypervisors              | 
+| 1x s390 VM         |      | Fedora  | -                            | s390 hypervisors              |
+{: .bordered}
 
 # Donate hardware
 
@@ -33,6 +45,9 @@ Typical requirements are:
 
 ## Process
 
-If you have spare hardware available at your datacenter that meets these requirements feel free to reach us via the [infra list](https://lists.ovirt.org). The system should have the last release of CentOS installed along with an SSH pubkey of one of the infra team members that will be used for bootstrap.
+If you have spare hardware available at your datacenter that meets these requirements feel free to reach us via the [infra list](https://lists.ovirt.org).
+The system should have CentOS Stream installed along with an SSH pubkey of one of the infra team members that will be used for bootstrap.
 
-Note: If you have hardware up for donation but cannot provide hosting but can ship it to Arizona - please reach out to us via the mailing list as we may have space to accomodate it in our PHX datacenter.
+Note: If you have hardware up for donation but cannot provide hosting but can ship it to Arizona - please reach out to us via the mailing list as we may
+have space to accomodate it in our PHX datacenter.
+

@@ -124,6 +124,9 @@ include::../common/admin/proc-Migrating_the_Websocket_Proxy_to_a_Separate_Machin
 //end sect
 
 [appendix]
+include::../common/install/appe-Set_up_Cinderlib.adoc[leveloffset=+1]
+
+[appendix]
 include::../common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+1]
 
 [appendix]

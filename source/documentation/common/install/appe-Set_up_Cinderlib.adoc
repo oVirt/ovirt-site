@@ -1,0 +1,100 @@
+[id='Set_up_Cinderlib']
+
+= Setting up Cinderlib
+
+ifdef::rhv-doc[]
+[IMPORTANT]
+====
+Cinderlib is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend to use them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
+
+For more information on Red Hat Technology Preview features support scope, see link:https://access.redhat.com/support/offerings/techpreview/[].
+====
+endif::[]
+
+.Setting up Cinderlib on the {engine-name}
+
+. Enable the `openstack-cinderlib` repositories on Red Hat Enterprise Linux:
++
+----
+
+# subscription-manager repos --enable=openstack-16.1-cinderlib-for-rhel-8-x86_64-rpms
+----
+
+ifdef::ovirt-doc[]
+. Enable the `centos-release-openstack-ussuri` repositories on CentOS Stream:
++
+----
+
+# yum install centos-release-openstack-ussuri.noarch
+----
+endif::[]
+
+. Install the `OpenStack Cinderlib` package:
++
+----
+# yum install -y openstack-cinder
+----
+. In the {virt-product-fullname} {engine-name}, enable managed block domain support:
++
+----
+# engine-config -s ManagedBlockDomainSupported=true
+----
+. Restart the {engine-name} to save the new configuration:
++
+----
+# systemctl restart ovirt-engine
+----
+
+.Setting up Cinderlib on the host
+
+. Enable the `openstack-cinderlib` repositories on Red Hat Enterprise Linux:
++
+----
+# subscription-manager repos --enable=openstack-16.1-cinderlib-for-rhel-8-x86_64-rpms
+----
+
+ifdef::ovirt-doc[]
+. Enable the `centos-release-openstack-ussuri` repositories on CentOS Stream:
++
+----
+# yum install -y centos-release-openstack-ussuri.noarch
+----
+endif::[]
+
+. Install the Python `brick` package:
++
+----
+# yum install -y python3-os-brick
+----
+. Restart the VDSM on the host to save the new configuration:
++
+----
+# systemctl restart vdsmd
+----
+
+
+.Using Cinderlib with a ceph driver
+
+If you are using Cinderlib together with a ceph driver:
+
+. Enable the following repositories on Red Hat Enterprise Linux:
++
+----
+# subscription-manager repos --enable=rhceph-4-osd-for-rhel-8-x86_64-rpms \
+                                          --enable=rhceph-4-mon-for-rhel-8-x86_64-rpms \
+                                          --enable=rhceph-4-tools-for-rhel-8-x86_64-rpms
+----
+
+ifdef::ovirt-doc[]
+. Enable the `centos-release-ceph-nautilus` repositories on CentOS Stream:
++
+----
+# yum install -y centos-release-ceph-nautilus.noarch
+----
+endif::[]
+
+. Run the following command on the {engine-name} and on the hosts:
++
+----
+# yum install -y ceph-common
+----

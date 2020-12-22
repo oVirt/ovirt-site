@@ -102,6 +102,9 @@ include::../common/database/proc-Preparing_a_Local_Manually-Configured_PostgreSQ
 :context: SM_localDB_deploy
 
 [appendix]
+include::../common/install/appe-Set_up_Cinderlib.adoc[leveloffset=+1]
+
+[appendix]
 include::../common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+1]
 
 [appendix]

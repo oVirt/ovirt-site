@@ -166,7 +166,7 @@ At the minimum following user interfaces will be affected
     yum install gcc rpm-build dosfstools psmisc libnl libselinux-python genisoimage openssl m2crypto python python-devel python-nose python-netaddr python-ethtool python-inotify python-pthreading python-dmidecode python-argparse python-ordereddict python-ethtool python-ioprocess autoconf automake gettext-devel libtool pyflakes python-pep8 systemd-units
 
     cd ~/
-    git clone git://gerrit.ovirt.org/vdsm
+    git clone "https://gerrit.ovirt.org/vdsm"
     cd vdsm
     git checkout ovirt-3.4
     ./autogen.sh

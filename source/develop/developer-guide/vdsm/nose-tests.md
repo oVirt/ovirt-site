@@ -9,7 +9,7 @@ authors: danken, ykaplan
 How to run vdsm Nose Tests:
 
 1.  First you must have a vdsm git repository:
-        git clone ssh://username@gerrit.ovirt.org:29418/vdsm
+        git clone "https://gerrit.ovirt.org/vdsm"
 
 2.  Install python-nose
 3.  To perform static tests (pyflakes and pep8) use: 'make check-local'

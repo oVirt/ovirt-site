@@ -47,6 +47,7 @@ To allow SSH to access Gerrit, update the SSH public key via Gerrit settings:
          HostName gerrit.ovirt.org
          Port 29418
          User <username>
+         PubkeyAcceptedKeyTypes=+rsa-sha2-512
        
 
 ### Changing File Permissions

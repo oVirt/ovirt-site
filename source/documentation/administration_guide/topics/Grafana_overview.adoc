@@ -1,0 +1,20 @@
+[id="Grafana_overview"]
+
+Grafana is a web-based UI tool used to display the data stored in the oVirt Data Warehouse PostgreSQL database under the database name `ovirt_engine_history`.
+
+Data from the {engine-name} is aggregated in hourly and daily aggregations. The data is retained according to the scale setting defined in the Data Warehouse configuration during engine-setup (Basic or Full scale):
+
+* *Basic* (default) - sampled every 24 hours, hourly data saved for 1 month, daily data - no daily aggregations saved.
+* *Full* (recommended)- sampled every 24 hours, hourly data saved for 2 months, daily aggregations saved for 5 years.
+
+Full sample scaling may require migrating the Data Warehouse to a separate virtual machine.
+
+* For Data Warehouse scaling instructions, see link:{URL_virt_product_docs}{URL_format}/data_warehouse_guide/index#Changing_the_Data_Warehouse_Sampling_Scale[Changing the Data Warehouse Sampling Scale].
+* For instructions on migrating the Data Warehouse to or installing on a separate machine,
+see link:{URL_virt_product_docs}{URL_format}/data_warehouse_guide/index#Migrating_Data_Warehouse_to_a_Separate_Machine_DWH_admin[Migrating Data Warehouse to a Separate Machine]
+and link:{URL_virt_product_docs}{URL_format}/data_warehouse_guide/index#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_DWH_admin[Installing and Configuring Data Warehouse on a Separate Machine].
+
+[NOTE]
+====
+{org-fullname} only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.
+====

@@ -4,10 +4,23 @@
 
 This chapter provides a number of ways to monitor and obtain metrics and logs from your {virt-product-fullname} system.
 
-//include::topics/Architecture_diagram_log_metrics.adoc[]
 
-//include::topics/install_collectd_and_rsyslog.adoc[]
+=== Using DWH and Grafana to monitor {virt-product-shortname}
 
-//include::topics/set_up_configure_grafana.adoc[]
+==== Grafana dashboards
+
+include::topics/Grafana_overview.adoc[]
+
+==== Configuring Grafana
+
+include::topics/Configure_grafana.adoc[]
+
+=== Sending metrics to a remote instance of Elasticsearch
+
+include::topics/Sending_metrics_to_ELK.adoc[]
+
+ifdef::rhv-doc[]
+=== Deploying Insights in Red Hat Virtualization Manager
 
 include::topics/Deploying_insights_RHVM.adoc[]
+endif::[]

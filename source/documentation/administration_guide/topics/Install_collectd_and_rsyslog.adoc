@@ -1,0 +1,36 @@
+[id="Install_collectd_and_rsyslog"]
+
+
+Deploy `collectd` and `rsyslog` on the hosts to collect logs and metrics.
+
+[NOTE]
+====
+You do not need to repeat this procedure for new hosts. Every new host that is added is automatically configured by the {engine-name} to send the data to Elasticsearch during host-deploy.
+====
+
+.Procedure
+
+. Log in to the {engine-name} machine using SSH.
+
+. Copy `/etc/ovirt-engine-metrics/config.yml.example` to create `/etc/ovirt-engine-metrics/config.yml.d/config.yml`:
++
+[options="nowrap" subs="normal"]
+----
+# cp /etc/ovirt-engine-metrics/config.yml.example /etc/ovirt-engine-metrics/config.yml.d/config.yml
+----
+
+. Edit the `ovirt_env_name` and `elasticsearch_host` parameters in `config.yml` and save the file. These parameters are mandatory and are documented in the file. Add the following variables:
++
+----
+use_omelasticsearch_cert: false
+viaq_metrics_store: false
+rsyslog_elasticsearch_usehttps_metrics: !!str off
+rsyslog_elasticsearch_usehttps_logs: !!str off
+----
++
+. Deploy `collectd` and `rsyslog` on the hosts:
++
+[options="nowrap" subs="normal"]
+----
+# /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh
+----

@@ -1,0 +1,47 @@
+[id="Configure_grafana"]
+
+
+.Installation
+
+Grafana integration is enabled and installed by default when running {virt-product-fullname} {engine-name} `engine-setup` for Stand Alone Manager installations. For Self-Hosted engine installations, you must enable Grafana integration manually when running `engine-setup`.
+
+To enable Grafana integration in the Self-Hosted engine:
+
+. Log in to the machine where you want to install Grafana.
+. Run the `engine-setup` command as follows:
++
+----
+# engine-setup --reconfigure-optional-components
+----
++
+. Answer `Yes` to install Grafana on this machine:
++
+----
+Configure Grafana on this host (Yes, No) [Yes]:
+----
+
+To access the Grafana dashboards:
+
+* Go to `\https://<engine FQDN or IP address>/ovirt-engine-grafana`
+
+or
+
+* Click *Monitoring Portal* in the web administration welcome page for the *Administration Portal*.
+
+.Built-in Grafana dashboards
+
+The following dashboards are available in the initial Grafana setup to report Data Center, Cluster, Host, and Virtual Machine data:
+
+* *Executive* dashboards - display the user console connection activity, operating system count for hosts, and active virtual machines.
+* *Trend* dashboards - display trends in virtual machines, CPU, memory, network, interface, transmit and receive, disks, read and write activity.
+* *Service Level* dashboards - display uptime, downtime, quality of service, and intervals for important thresholds (CPU, memory).
+* *Inventory* dashboards - displays an inventory list of hosts in a cluster, disk usage in a storage domain, virtual machines in a cluster, and data per data center.
+
+.Customized Grafana dashboards
+
+You can create customized dashboards or copy and modify existing dashboards according to your reporting needs.
+
+----
+NOTE:
+Built-in dashboards cannot be customized.
+----

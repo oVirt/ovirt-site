@@ -170,7 +170,7 @@ done
 # systemctl restart httpd
 # systemctl restart ovirt-engine
 # systemctl restart ovirt-websocket-proxy
-# systemctl restart ovirt-imageio-proxy
+# systemctl restart ovirt-imageio
 ----
 
 ifdef::SHE_upgrade[]
@@ -188,6 +188,6 @@ endif::SHE_upgrade[]
 . Enroll the certificates on the hosts. Repeat the following procedure for each host.
 
 .. In the Administration Portal, click menu:Compute[Hosts].
-.. Select the host and click menu:Management[Maintenance].
+.. Select the host and click menu:Management[Maintenance] and btn:[OK].
 .. Once the host is in maintenance mode, click menu:Installation[Enroll Certificate].
 .. Click menu:Management[Activate].

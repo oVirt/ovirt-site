@@ -36,7 +36,7 @@ Perform full vacuum on the oVirt engine history
 database ovirt_engine_history@localhost?
 This operation may take a while depending on this setup health and the
 configuration of the db vacuum process.
-See https://www.postgresql.org/docs/9.0/static/sql-vacuum.html
+See https://www.postgresql.org/docs/12/static/sql-vacuum.html
 (Yes, No) [No]:
 [...]
 Setup can backup the existing database. The time and space required for the database backup depend on its size. This process takes time, and in some cases (for instance, when the size is few GBs) may take several hours to complete.

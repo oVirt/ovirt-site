@@ -11,7 +11,7 @@ feature_status: In development
 
 ## Summary
 
-This feature adds new display type `bochs-display` and enables it for
+This feature adds a new display type `bochs-display` and enables it for
 UEFI VMs.
 
 ## Owner
@@ -101,3 +101,5 @@ whenever they depend on direct VGA hardware access or not.
 14. Use REST API to create a VM with 'Server' configuration without
     setting its display type explicitly.<br> **Expected result:** VM
     display type is set to `bochs`.
+15. Create a VM having `bochs` display type. Run it.<br> **Expected
+    result:** VM XML in the Engine log includes `bochs` display type.

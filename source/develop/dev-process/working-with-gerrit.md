@@ -115,6 +115,10 @@ Allow the hook to be executed:
       git config commit.template config/engine-commit-template.txt
        
 
+
+> **_NOTE:_** Alternatively, if you're contributing to other projects than ovirt-engine
+> try looking for template in it's git tree instead.
+
 ### Configuring the Git Commit Spell Check, Syntax Highlighting and Maxwidth
 
       # edit ~/.vimrc

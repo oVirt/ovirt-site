@@ -90,6 +90,10 @@ Make sure to activate the virtual environment before running any tests
 
 ## Testing
 
+Execute make to compile VDSM first:
+
+      # make
+
 Running the tests except slow and stress tests:
 
       make check

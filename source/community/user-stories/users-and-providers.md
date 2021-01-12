@@ -78,6 +78,10 @@ The [National University of Sciences & Technology (NUST)](http://nust.edu.pk/Pag
 ![](/images/logos/AlterWay.png)
 [Alter Way](https://www.alterway.fr/) is a French hosting company that provides solutions for their customers' digital strategies, using a DevOps approach and open source solutions, including oVirt. Read the [case study.](/community/user-stories/alter-way-case-study.html)
 </div>
+<div class="case-study">
+![](/images/logos/shellrent.png)
+[Shellrent](https://www.shellrent.com/) Shellrent is an Italian hosting provider headquartered in Vicenza, Italy. Founded in 2006, it provides domains and web hosting services in addition to cloud servers and managed IT infrastructure based on oVirt. Read the [case study.](/community/user-stories/shellrent.html)
+</div>
 
 ## Backup Providers
 <div class="case-studies">

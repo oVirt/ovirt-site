@@ -94,6 +94,10 @@ Execute make to compile VDSM first:
 
       # make
 
+Storage tests require additional setup of fake devices (replace 'setup' with 'teardown' for cleanup):
+
+      # python ./tests/storage/userstorage.py setup
+
 Running the tests except slow and stress tests:
 
       make check

@@ -110,6 +110,5 @@ The following organizations are very helpful to the oVirt community by providing
 The following companies and institutes are represented on [the oVirt Board](/community/about/board.html).
 
 {:.ovirt-board-logos}
-[![IBM](/images/logos/IBM.svg)](//ibm.com/)
 [![Red Hat](/images/logos/Red_Hat.svg)](//redhat.com/)
 [![Caltech](/images/logos/Caltech.svg)](//www.caltech.edu/)

@@ -130,3 +130,14 @@ provided a solution based on oVirt making the entire IT a lot faster, easier and
 
 Read the full [the Solution Company case study](/community/user-stories/the-solution-company.html)
 </div>
+
+<div class="case-study">
+### Shellrent
+
+![](/images/logos/shellrent.png)
+
+When Xen-based virtualizations were no longer mirroring their needs, Shellrent started monitoring alternatives in March 2020, and the choice came to oVirt with Gluster FS:
+a flexible, reliable, powerful and competitive virtualization system.
+
+Read the full [Shellrent case study](/community/user-stories/shellrent.html)
+</div>

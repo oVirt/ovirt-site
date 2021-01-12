@@ -124,7 +124,7 @@ Allow the hook to be executed:
       # edit ~/.vimrc
       syntax on
       filetype plugin indent on
-      autocmd Filetype gitcommit spell textwidth=72
+      autocmd Filetype gitcommit setlocal spell textwidth=72
        
 
 ### Rebasing

@@ -46,4 +46,3 @@ OVirt Board Members
 *   Itamar Heim – Red Hat, Project, engine-core
 *   Martin Tessun - Red Hat, Mentor
 *   Michael Enescu – Caltech, Mentor
-*   Ryan Harper – IBM, Strategic member

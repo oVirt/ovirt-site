@@ -58,19 +58,17 @@ or if you are using Fedora (use .fc28 for Fedora 28):
 
       dnf install `cat automation/check-patch.packages.fc28`
 
-On any platform, you should also install tox, required for running the
-tests. The best way to install it is using pip:
+On any platform, you should also setup VDSM virtual environment.
+Follow the setup steps in [README.md](https://github.com/oVirt/vdsm#development-environment-setup)
 
-    pip install --user tox
+Once you activate the virtual environment the required development tools
+during the build and testing will be available (e.g. tox), keeping your system
+clean.
 
 If pip is not available in your distribution, you can install it using
 easy_install:
 
     easy_install pip
-
-Once you installed tox, tox will install the required development tools
-during the build inside a virtual environment, keeping your system
-clean.
 
 ## Configuring the source
 
@@ -83,6 +81,12 @@ To configure a development build environment:
 To see available options:
 
      ./configure --help
+
+## Setup virtual environment
+
+Follow the development environment setup in [README.md](https://github.com/oVirt/vdsm#development-environment-setup)
+
+Make sure to activate the virtual environment before running any tests
 
 ## Testing
 

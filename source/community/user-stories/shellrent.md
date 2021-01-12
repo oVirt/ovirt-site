@@ -21,7 +21,7 @@ is monitored and thoroughly analyzed in order to provide customers and partners 
 We sat with Tommaso De Marchi, Chief Operation Officer at Shellrent, to discuss the reason behind the choice of partnering with oVirt and the advantages hence derived.
 
 “The continuous R&D process we put into our whole infrastructure made us soon realize Xen-based virtualizations were no longer mirroring our needs when it came to licenses and updates.
-Therefore, we started monitoring alternatives (such as VMWare, oVirt e OpenStack) and eventually, in March 2020, we picked oVirt with Gluster FS:
+Therefore, we started monitoring alternatives (such as VMWare, oVirt and OpenStack) and eventually, in March 2020, we picked oVirt with Gluster FS:
 a flexible, reliable, powerful and competitive virtualization system.
 What contributed to our choice was mainly a lively and up-to-date community; a regular roadmap of new releases and the solid partnership with trustful and structured Companies
 such as Red Hat and IBM.

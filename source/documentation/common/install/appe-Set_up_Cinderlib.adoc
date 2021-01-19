@@ -32,7 +32,7 @@ endif::[]
 . Install the `OpenStack Cinderlib` package:
 +
 ----
-# yum install -y openstack-cinder
+# yum install -y python3-cinderlib
 ----
 . In the {virt-product-fullname} {engine-name}, enable managed block domain support:
 +

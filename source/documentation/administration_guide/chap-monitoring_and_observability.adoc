@@ -18,9 +18,10 @@ include::topics/Configure_grafana.adoc[]
 === Sending metrics to a remote instance of Elasticsearch
 
 include::topics/Sending_metrics_to_ELK.adoc[]
-//to be included in upstream only
-ifdef::ovirt-doc[]
 
+//to be included in upstream only
+
+ifdef::ovirt-doc[]
 === Metrics schema
 
 include::topics/Metrics_Schema.adoc[]

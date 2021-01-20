@@ -1,0 +1,88 @@
+[[Interface]]
+=== Network Interface Metrics
+
+The following types of metrics are reported from physical and virtual network interfaces on the host:
+
+* Bytes (octets) transmitted and received (total, or per second)
+* Packets transmitted and received (total, or per second)
+* Interface errors (total, or per second)
+
+The following table describes the network interface metrics reported by the *Interface* plugin.
+
+.Network Interface Metrics
+[options="header"]
+
+|====
+|collectd.type |Metric Name |Description
+
+|if_octets |collectd.interface.if_octets.rx |A count of the bytes received by the interface. You can view this metric as a Rate/sec or a cumulative count (Max):
+
+* Rate/sec: Provides the current traffic level on the interface in bytes/sec.
+
+* Max: Provides the cumulative count of bytes received. Note that since this metric is a cumulative counter, its value will periodically restart from zero when the maximum possible value of the counter is exceeded.
+|if_octets |collectd.interface.if_octets.tx |A count of the bytes transmitted by the interface. You can view this metric as a Rate/sec or a cumulative count (Max):
+
+* Rate/sec: Provides the current traffic level on the interface in bytes/sec.
+
+* Max: Provides the cumulative count of bytes transmitted. Note that since this metric is a cumulative counter, its value will periodically restart from zero when the maximum possible value of the counter is exceeded.
+
+|if_packets |collectd.interface.if_packets.rx | A count of the packets received by the interface.
+
+You can view this metric as a Rate/sec or a cumulative count (Max):
+
+* Rate/sec: Provides the current traffic level on the interface in bytes/sec.
+
+* Max: Provides the cumulative count of packets received. Note that since this metric is a cumulative counter, its value will periodically restart from zero when the maximum possible value of the counter is exceeded.
+
+|if_packets |collectd.interface.if_packets.tx | A count of the packets transmitted by the interface.
+
+You can view this metric as a Rate/sec or a cumulative count (Max):
+
+* Rate/sec: Provides the current traffic level on the interface in packets/sec.
+
+* Max: Provides the cumulative count of packets transmitted. Note that since this metric is a cumulative counter, its value will periodically restart from zero when the maximum possible value of the counter is exceeded.
+
+|if_errors |collectd.interface.if_errors.rx | A count of errors received on the interface.
+
+You can view this metric as a Rate/sec or a cumulative count (Max).
+
+* Rate/sec rollup provides the current rate of errors received on the interface in errors/sec.
+
+* Max rollup provides the total number of errors received since the beginning. Note that since this is a cumulative counter, its value will periodically restart from zero when the maximum possible value of the counter is exceeded.
+
+|if_errors |collectd.interface.if_errors.tx | A count of errors transmitted on the interface.
+
+You can view this metric as a Rate/sec or a cumulative count (Max).
+
+* Rate/sec rollup provides the current rate of errors transmitted on the interface in errors/sec.
+
+* Max rollup provides the total number of errors transmitted since the beginning. Note that since this is a cumulative counter, its value will periodically restart from zero when the maximum possible value of the counter is exceeded.
+
+|if_dropped |collectd.interface.if_dropped.rx | A count of dropped packets received on the interface.
+
+You can view this metric as a Rate/sec or a cumulative count (Max).
+
+* Rate/sec rollup provides the current rate of dropped packets received on the interface in packets/sec.
+
+* Max rollup provides the total number of dropped packets received since the beginning. Note that since this is a cumulative counter, its value will periodically restart from zero when the maximum possible value of the counter is exceeded.
+|if_dropped |collectd.interface.if_dropped.tx | A count of dropped packets transmitted on the interface.
+
+You can view this metric as a Rate/sec or a cumulative count (Max).
+
+* Rate/sec rollup provides the current rate of dropped packets transmitted on the interface in packets/sec.
+
+* Max rollup provides the total number of dropped packets transmitted since the beginning. Note that since this is a cumulative counter, its value will periodically restart from zero when the maximum possible value of the counter is exceeded.
+|====
+
+*Additional Values*
+
+** *collectd.plugin:* Interface
+** *collectd.type_instance:* None
+** *collectd.plugin_instance:* _The network's name_
+** *ovirt.entity:* host
+** *ovirt.cluster.name.raw:* _The cluster's name_
+** *ovirt.engine_fqdn.raw:* _The {engine-name}'s FQDN_
+** *hostname:* _The host's FQDN_
+** *ipaddr4:* _IP address_
+** *interval:* 10
+** *collectd.dstypes:* xref:Derive[Derive]

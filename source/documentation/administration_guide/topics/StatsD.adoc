@@ -1,0 +1,53 @@
+[[StatsD]]
+=== StatsD Metrics
+
+The following table describes the StatsD metrics reported by the *StatsD* plugin.
+
+[options="header"]
+|====
+|Metric Name |collectd.type |collectd.type_instance |Description
+|collectd.statsd.host_storage |host_storage |storage uuid |The latency for writing to the storage domain.
+|collectd.statsd.vm_balloon_cur |vm_balloon_cur |N/A |The current amount of memory available to the guest virtual machine (in KB).
+|collectd.statsd.vm_balloon_max |vm_balloon_max |N/A |The maximum amount of memory available to the guest virtual machine (in KB).
+|collectd.statsd.vm_balloon_min |vm_balloon_min |N/A |The minimum amount of memory guaranteed to the guest virtual machine (in KB).
+|collectd.statsd.vm_balloon_target |vm_balloon_target |N/A |The amount of memory requested (in KB).
+|collectd.statsd.vm_cpu_sys |vm_cpu_sys |N/A |Ratio of non-guest virtual machine CPU time to total CPU time spent by QEMU.
+|collectd.statsd.vm_cpu_usage |vm_cpu_usage |N/A |Total CPU usage since VM start in (ns).
+|collectd.statsd.vm_cpu_user |vm_cpu_user |N/A |Ratio of guest virtual machine CPU time to total CPU time spent by QEMU.
+
+|collectd.statsd.vm_disk_apparent_size |vm_disk_apparent_size |disk name |The size of the disk (in bytes).
+
+|collectd.statsd.vm_disk_flush_latency |vm_disk_flush_latency |disk name |The virtual disk's flush latency (in seconds).
+
+|collectd.statsd.vm_disk_read_bytes |vm_disk_read_bytes |disk name |The read rate from disk (in bytes per second).
+
+|collectd.statsd.vm_disk_read_latency |vm_disk_read_latency |disk name |The virtual disk's read latency (in seconds).
+
+|collectd.statsd.vm_disk_read_ops |vm_disk_read_ops |disk name |The number of read operations since the virtual machine was started.
+
+|collectd.statsd.vm_disk_read_rate |vm_disk_read_rate |disk name |The virtual machine's read activity rate (in bytes per second).
+|collectd.statsd.vm_disk_true_size |vm_disk_true_size |disk name |The amount of underlying storage allocated (in bytes).
+
+|collectd.statsd.vm_disk_write_latency |vm_disk_write_latency |disk name |The virtual disk's write latency (in seconds).
+|collectd.statsd.vm_disk_write_ops |vm_disk_write_ops |disk name |The number of write operations since the virtual machine was started.
+|collectd.statsd.vm_disk_write_rate |vm_disk_write_rate |disk name |The virtual machine's write activity rate (in bytes per second).
+
+|collectd.statsd.vm_nic_rx_bytes |vm_nic_rx_bytes |network name |The total number of incoming bytes.
+|collectd.statsd.vm_nic_rx_dropped |vm_nic_rx_dropped |network name |The number of incoming packets that have been dropped.
+|collectd.statsd.vm_nic_rx_errors|vm_nic_rx_errors |network name |The number of incoming packets that contained errors.
+|collectd.statsd.vm_nic_speed|vm_nic_speed |network name |The interface speed (in Mbps).
+|collectd.statsd.vm_nic_tx_bytes|vm_nic_tx_bytes |network name |The total number of outgoing bytes.
+|collectd.statsd.vm_nic_tx_dropped |vm_nic_tx_dropped |network name |The number of outgoing packets that were dropped.
+|collectd.statsd.vm_nic_tx_errors |vm_nic_tx_errors |network name |The number of outgoing packets that contained errors.
+|====
+*Additional Values*
+
+** *collectd.plugin:* StatsD
+** *collectd.plugin_instance:* The virtual machine's name (except for collectd.statsd.host_storage=N/A)
+** *ovirt.entity:* vm (except for collectd.statsd.host_storage=host)
+** *ovirt.cluster.name.raw:* _The cluster's name_
+** *ovirt.engine_fqdn.raw:* _The {engine-name}'s FQDN_
+** *hostname:* _The host's FQDN_
+** *ipaddr4:* _IP address_
+** *interval:* 10
+** *collectd.dstypes:* xref:Gauge[Gauge]

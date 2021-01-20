@@ -1,0 +1,44 @@
+[[Postgresql]]
+=== PostgreSQL Metrics
+
+PostgreSQL data collected by executing SQL statements on a PostgreSQL database.
+
+The following table describes the PostgreSQL metrics reported by the *PostgreSQL* plugin.
+
+.PostgreSQL Metrics
+[options="header"]
+
+|====
+|Metric Name |collectd.type_instance |Description
+|collectd.postgresql.pg_numbackends |N/A |How many server processes this database is using.
+
+.2+|collectd.postgresql.pg_n_tup_g |live |The number of live rows in the database.
+|dead |The number of dead rows in the database. Rows that are deleted or obsoleted by an update are not physically removed from their table; they remain present as dead rows until a VACUUM is performed.
+.4+|collectd.postgresql.pg_n_tup_c |del |The number of delete operations.
+|upd  |The number of update operations.
+ |hot_upd  |The number of update operations that have been performed without requiring an index update.
+|ins  |The number of insert operations.
+|collectd.postgresql.pg_xact |num_deadlocks |The number of deadlocks that have been detected by the database. Deadlocks are caused by two or more competing actions that are unable to finish because each is waiting for the other's resources to be unlocked.
+
+|collectd.postgresql.pg_db_size |N/A |The size of the database on disk, in bytes.
+
+.7+|collectd.postgresql.pg_blks a|heap_read | How many disk blocks have been read.
+|heap_hit |How many read operations were served from the buffer in memory, so that a disk read was not necessary. This only includes hits in the PostgreSQL buffer cache, not the operating system's file system cache.
+|idx_read |How many disk blocks have been read by index access operations.
+|idx_hit |How many index access operations have been served from the buffer in memory.
+|toast_read |How many disk blocks have been read on TOAST tables.
+|toast_hit |How many TOAST table reads have been served from buffer in memory.
+|tidx_read |How many disk blocks have been read by index access operations on TOAST tables.
+|====
+
+*Additional Values*
+
+** *collectd.plugin:* Postgresql
+** *collectd.plugin_instance:* _Database's Name_
+** *ovirt.entity:* engine
+** *ovirt.cluster.name.raw:* _The cluster's name_
+** *ovirt.engine_fqdn.raw:* _The {engine-name}'s FQDN_
+** *hostname:* _The host's FQDN_
+** *ipaddr4:* _IP address_
+** *interval:* 10
+** *collectd.dstypes:* xref:Gauge[Gauge]

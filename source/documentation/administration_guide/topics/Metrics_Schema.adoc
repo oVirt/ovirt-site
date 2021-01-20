@@ -1,0 +1,39 @@
+[[Metrics_Schema]]
+== Metrics Schema
+
+The following sections describe the metrics that are available from the *Field* menu when creating visualizations.
+
+[NOTE]
+====
+All metric values are collected at 10 second intervals.
+====
+
+include::Aggregation.adoc[Aggregation]
+
+include::CPU.adoc[CPU]
+
+include::Load.adoc[CPU Load Average]
+
+include::DF.adoc[Disk Consumption]
+
+include::Disks.adoc[Disk Operations]
+
+include::Entropy.adoc[Entropy]
+
+include::Interface.adoc[Network Interface]
+
+include::Memory.adoc[Memory]
+
+include::NFS.adoc[NFS]
+
+include::postgresql.adoc[Postgresql]
+
+include::Processes.adoc[Processes]
+
+include::StatsD.adoc[StatSd]
+
+include::Swap.adoc[Swap]
+
+include::Virt.adoc[Virt]
+
+include::Gauge.adoc[]

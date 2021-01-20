@@ -19,6 +19,13 @@ include::topics/Configure_grafana.adoc[]
 
 include::topics/Sending_metrics_to_ELK.adoc[]
 
+ifdef::ovirt-doc[]
+
+=== Metrics schema
+
+include::topics/Metrics_Schema.adoc[]
+endif::[]
+
 ifdef::rhv-doc[]
 === Deploying Insights in Red Hat Virtualization Manager
 

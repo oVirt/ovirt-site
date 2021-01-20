@@ -1,0 +1,40 @@
+[[Processes]]
+=== Process Metrics
+
+The following table describes the process metrics reported by the *Processes* plugin.
+
+[options="header"]
+|====
+|Metric Name |collectd.type|Description |collectd.dstypes
+|collectd.processes.ps_state |ps_state|The number of processes in each state. |xref:Gauge[Gauge]
+|collectd.processes.ps_disk_ops.read |ps_disk_ops|The process's I/O read operations. |xref:Derive[Derive]
+|collectd.processes.ps_disk_ops.write |ps_disk_ops|The process's I/O write operations. |xref:Derive[Derive]
+|collectd.processes.ps_vm |ps_vm|The total amount of memory including swap. |xref:Gauge[Gauge]
+|collectd.processes.ps_rss|ps_rss|The amount of physical memory assigned to the process.|xref:Gauge[Gauge]
+|collectd.processes.ps_data|ps_data||xref:Gauge[Gauge]
+|collectd.processes.ps_code|ps_code||xref:Gauge[Gauge]
+
+|collectd.processes.ps_stacksize|ps_stacksize||xref:Gauge[Gauge]
+|collectd.processes.ps_cputime.syst|ps_cputime|The amount of time spent by the matching processes in kernel mode. The values are scaled to microseconds per second to match collectd's numbers.|xref:Derive[Derive]
+|collectd.processes.ps_cputime.user|ps_cputime|The amount of time spent by the matching processes in user mode. The values are scaled to microseconds per second.|xref:Derive[Derive]
+|collectd.processes.ps_count.processes|ps_count|The number of processes for the defined process.|xref:Gauge[Gauge]
+|collectd.processes.ps_count.threads|ps_count|The number of threads for the defined process. |xref:Gauge[Gauge]
+|collectd.processes.ps_pagefaults.majfltadd |ps_pagefaults|The number of major page faults caused by the process. |xref:Derive[Derive]
+|collectd.processes.ps_pagefaults.minflt |ps_pagefaults|The number of major page faults caused by the process.|xref:Derive[Derive]
+|collectd.processes.ps_disk_octets.write |ps_disk_octets|The process's I/O write operations in transferred bytes. |xref:Derive[Derive]
+|collectd.processes.ps_disk_octets.read|ps_disk_octets|The process's I/O read operations in transferred bytes. |xref:Derive[Derive]
+
+|collectd.processes.fork_rate |fork_rate|The system's fork rate. |xref:Derive[Derive]
+
+|====
+
+*Additional Values*
+
+** *collectd.plugin:* Processes
+** *collectd.type_instance:* N/A (except for collectd.processes.ps_state=running/ zombies/ stopped/ paging/ blocked/ sleeping)
+** *ovirt.entity:* host
+** *ovirt.cluster.name.raw:* _The cluster's name_
+** *ovirt.engine_fqdn.raw:* _The {engine-name}'s FQDN_
+** *hostname:* _The host's FQDN_
+** *ipaddr4:* _IP address_
+** *interval:* 10

@@ -1,0 +1,26 @@
+[[DF]]
+=== Disk Consumption Metrics
+
+Disk consumption (DF) metrics enable you to monitor metrics about disk consumption, such as the used, reserved, and free space for each mounted file system.
+
+The following table describes the disk consumption metrics reported by the *DF* plugin.
+
+[options="header"]
+|====
+|Metric Name |Description
+|collectd.df.df_complex |The amount of free, used, and reserved disk space, in bytes, on this file system.
+|collectd.df.percent_bytes |The amount of free, used, and reserved disk space, as a percentage of total disk space, on this file system.
+|====
+
+*Additional Values*
+
+** *collectd.plugin:* DF
+** *collectd.type_instance:* free, used, reserved
+** *collectd.plugin_instance:* _A mounted partition_
+** *ovirt.entity:* host
+** *ovirt.cluster.name.raw:* _The cluster's name_
+** *ovirt.engine_fqdn.raw:* _The {engine-name}'s FQDN_
+** *hostname:* _The host's FQDN_
+** *ipaddr4:* _IP address_
+** *interval:* 10
+** *collectd.dstypes:* xref:Gauge[Gauge]

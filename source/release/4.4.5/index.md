@@ -1,14 +1,14 @@
 ---
 title: oVirt 4.4.5 Release Notes
 category: documentation
-authors: lveyde sandrobonazzola
+authors: sandrobonazzola lveyde
 toc: true
 page_classes: releases
 ---
 
 # oVirt 4.4.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.5 First Release Candidate as of January 14, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.5 Second Release Candidate as of January 21, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -67,6 +67,19 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 ## What's New in 4.4.5?
 
+### Release Note
+
+#### oVirt Engine
+
+ - [BZ 1916076](https://bugzilla.redhat.com/1916076) **Rebase on Wildfly 22**
+
+   oVirt Engine now requires WildFly 22
+
+ - [BZ 1848872](https://bugzilla.redhat.com/1848872) **Rebase on Wildfly 21.0.2**
+
+   oVirt Engine is now requiring WildFly 21.0.2
+
+
 ### Enhancements
 
 #### oVirt Engine
@@ -93,6 +106,8 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 
 #### oVirt Engine
 
+ - [BZ 1910411](https://bugzilla.redhat.com/1910411) **Always use Single-PCI for Linux guests**
+
  - [BZ 1914648](https://bugzilla.redhat.com/1914648) **Q35: BIOS type changed to "Default" when creating new VM from template with Q35 chipset.**
 
  - [BZ 1890665](https://bugzilla.redhat.com/1890665) **Update numa node value is not applied after the VM restart**
@@ -101,12 +116,16 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 
  - [BZ 1910338](https://bugzilla.redhat.com/1910338) **OVA export might fail with: nlosetup: /var/tmp/ova_vm.ova.tmp: failed to set up loop device: Resource temporarily unavailable**
 
+ - [BZ 1886520](https://bugzilla.redhat.com/1886520) **Cannot import OVA that was exported from oVirt on PPC**
+
  - [BZ 1908757](https://bugzilla.redhat.com/1908757) **Create VM by auto_pinning_policy=adjust fails with ArrayIndexOutOfBoundsException**
 
  - [BZ 1906270](https://bugzilla.redhat.com/1906270) **HW clock and windows clock problem in Turkey Standard Time**
 
 
 #### VDSM
+
+ - [BZ 1860492](https://bugzilla.redhat.com/1860492) **Create template with option "seal template" from VM snapshot fails to remove VM specific information.**
 
  - [BZ 1773922](https://bugzilla.redhat.com/1773922) **remote-viewer prompts for password after migration of a VM with expired ticket**
 
@@ -124,6 +143,13 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
    
 
 
+#### oVirt Engine SDK 4 Python
+
+ - [BZ 1805030](https://bugzilla.redhat.com/1805030) **Java SDK connection.timeout is in milliseconds**
+
+   
+
+
 #### OTOPI
 
  - [BZ 1908602](https://bugzilla.redhat.com/1908602) **dnf packager is broken on CentOS Stream**
@@ -131,18 +157,7 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
    
 
 
-#### imgbased
-
- - [BZ 1903777](https://bugzilla.redhat.com/1903777) **chronyd is disabled after upgrading RHV-H 4.4.2 -&gt; 4.4.3**
-
-   
-
-
 #### oVirt Engine
-
- - [BZ 1886520](https://bugzilla.redhat.com/1886520) **Cannot import OVA that was exported from oVirt on PPC**
-
-   
 
  - [BZ 1897160](https://bugzilla.redhat.com/1897160) **SCSI Pass-Through is enabled by default**
 
@@ -150,6 +165,13 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 
 
 ### No Doc Update
+
+#### cockpit-ovirt
+
+ - [BZ 1893161](https://bugzilla.redhat.com/1893161) **Cockpit hosted engine installer allows a disk size bigger than the LUN**
+
+   
+
 
 #### OTOPI
 
@@ -175,27 +197,32 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 
 #### Contributors
 
-24 people contributed to this release:
+29 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
-	Ales Musil (Contributed to: vdsm)
+	Ales Musil (Contributed to: ovirt-release, vdsm)
 	Amit Bawer (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine)
 	Asaf Rachmani (Contributed to: imgbased)
 	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-engine-nodejs-modules)
+	Benny Zlotnik (Contributed to: ovirt-engine)
 	Dana Elfassy (Contributed to: ovirt-engine)
+	Eitan Raviv (Contributed to: ovirt-engine)
 	Eli Mesika (Contributed to: ovirt-engine)
+	Eyal Shenitzky (Contributed to: ovirt-engine)
 	Jean-Louis Dupond (Contributed to: vdsm)
 	Lev Veyde (Contributed to: ovirt-engine, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine)
 	Martin Perina (Contributed to: ovirt-engine)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nir Soffer (Contributed to: vdsm)
-	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
+	Ondra Machacek (Contributed to: ovirt-engine-sdk-java)
+	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk, ovirt-engine-sdk-java)
 	Parth Dhanjal (Contributed to: cockpit-ovirt)
+	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)
-	Sandro Bonazzola (Contributed to: cockpit-ovirt, ovirt-cockpit-sso, ovirt-engine, ovirt-release)
+	Sandro Bonazzola (Contributed to: cockpit-ovirt, ovirt-cockpit-sso, ovirt-engine, ovirt-engine-sdk-java, ovirt-release, vdsm)
 	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules)
 	Shani Leviim (Contributed to: ovirt-engine)
 	Steven Rosenberg (Contributed to: ovirt-engine, ovirt-engine-sdk)

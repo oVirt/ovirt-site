@@ -47,8 +47,8 @@ First, all the clusters' version in the Data Center should be upgraded to 4.1:
 
 ```xml
 PUT http://localhost:8080/ovirt-engine/api/clusters/123 HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+Accept: application/xml
+Content-type: application/xml
 
 <cluster>
   <version>
@@ -64,8 +64,8 @@ Then, the Data Center's version should be updated to 4.1:
 
 ```xml
 PUT http://localhost:8080/ovirt-engine/api/datacenters/111111 HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+Accept: application/xml
+Content-type: application/xml
 
 <data_center>
   <version>
@@ -83,9 +83,9 @@ A new Data Center can be added with explicit version although the default should
 ##### Add a new 4.1 Data Center
 
 ```xml
-POST http://localhost:8080/ovirt-engine/api/datacenters HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+POST http://localhost:8080/ovirt-engine/api/datacenters HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
 <data_center>
   <name>mydc</name>
@@ -102,9 +102,9 @@ Content-type: application/xml
 You can use explicit `storageFormat` V4 in the request for adding a new Storage Domain or not mention it and the default will be V4.
 
 ```xml
-POST http://localhost:8080/ovirt-engine/api/storagedomains HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+POST http://localhost:8080/ovirt-engine/api/storagedomains HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
 <storage_domain>
   <name>storage_name</name>
@@ -177,15 +177,15 @@ Important: The disk's attribute `QcowCompat` will only be presented for QCOW vol
 The QCOW compat can be fetched using the following REST APIs:
 
 ```xml
-GET http://localhost:8080/ovirt-engine/api/storagedomains/123/disks/111 HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+GET http://localhost:8080/ovirt-engine/api/storagedomains/123/disks/111 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 ```
 
 ```xml
-GET http://localhost:8080/ovirt-engine/api/disks/111 HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+GET http://localhost:8080/ovirt-engine/api/disks/111 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 ```
 
 Only the active volume of the disk is being presented, therefore the query will only return the relevant QCOW version of the active volume.
@@ -257,9 +257,9 @@ There are two types of QCOW_versions:
  qcow2_v3 (QCOW compat 1.1)
 
 ```xml
-PUT http://localhost:8080/ovirt-engine/api/storagedomains/123/disks/111 HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+PUT http://localhost:8080/ovirt-engine/api/storagedomains/123/disks/111 HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
 <disk>
     <qcow_version>qcow2_v3</qcow_version>

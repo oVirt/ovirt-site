@@ -58,20 +58,20 @@ A new BE VmDevice that represents video/controller/any-other-device
 
 New table vm_device:
 
-       device_id           -- Unique identifier of the VM device
-       vm_id               -- The VM/Template id (FK of vm_static)
-       type                -- The type  (for example : disk, interface etc.)
-       device              -- The device (for example : floppy, cdrom etc.)
-       address             -- The device address as a string
-       boot_order          -- The device boot order
-       spec_params         -- The device special parameters, for example ('display': 'vnc')
-       is_managed          -- Indicates if the device is managed 
-       is_plugged          -- Indicates if device is plugable
-       is_readonly         -- Indicates if device is read-only.
+       device_id           -- Unique identifier of the VM device
+       vm_id               -- The VM/Template id (FK of vm_static)
+       type                -- The type  (for example : disk, interface etc.)
+       device              -- The device (for example : floppy, cdrom etc.)
+       address             -- The device address as a string
+       boot_order          -- The device boot order
+       spec_params         -- The device special parameters, for example ('display': 'vnc')
+       is_managed          -- Indicates if the device is managed 
+       is_plugged          -- Indicates if device is plugable
+       is_readonly         -- Indicates if device is read-only.
 
 Adding a column to vm_dynamic:
 
-       hash                -- holds the md5 like hash indicating a change 
+       hash                -- holds the md5 like hash indicating a change 
 
 Generation CRUD SPs for the new vm_device table Modify all relevant views & SP to have the hash field.
 
@@ -96,11 +96,11 @@ Adding test data for vm_device in fixtures.xml
 
 All places in which we send/receive VM details are affected:
 
-       CreateVDSCommand           - called when running a VM
-       GetAllVmStatsVDSCommand    - called to get basic information (status) on all VMs
-       GetVmStatsVDSCommand       - called to get basic information (status) on all one VM
-       ListVDSCommand             - called to get all VM details, will be used when recognizing that hash has been changed on a VM
-       refreshVdsRunTimeInfo      - called periodically to refresh VMs information and persist it to db.
+       CreateVDSCommand           - called when running a VM
+       GetAllVmStatsVDSCommand    - called to get basic information (status) on all VMs
+       GetVmStatsVDSCommand       - called to get basic information (status) on all one VM
+       ListVDSCommand             - called to get all VM details, will be used when recognizing that hash has been changed on a VM
+       refreshVdsRunTimeInfo      - called periodically to refresh VMs information and persist it to db.
 
 In order to support both old (under 3.1) structure and new structure (3.1 and above), we will have to re-factor current code in above classes. This will be done by creating a VMInfoManagerHelper class that will implement all shared code as device indexing etc.
 We will have to create VMOldInfoManager and VMInfoManager VM30InfoManager stands for old (under 3.1) structure
@@ -115,20 +115,20 @@ Those classes will handle both composing the right structure for VDSM when a VM 
 
 create:
 
-       query cluster to get version comparability value
-       3.0 and below => create VMOldInfoManager and calls methods in it to compose structural info for VDSM
-       3.1 and above => create VMInfoManager and calls methods in it to compose structural info for VDSM
+       query cluster to get version comparability value
+       3.0 and below => create VMOldInfoManager and calls methods in it to compose structural info for VDSM
+       3.1 and above => create VMInfoManager and calls methods in it to compose structural info for VDSM
 
 refreshVdsRunTimeInfo:
 
-       query cluster to get version comparability value
-       3.0 and below => create VMOldInfoManager and calls methods in it to persist data from structural info from VDSM
-         run on all VMs and do old logic 
-       3.1 and above => create VMInfoManager and calls methods in it to persist data from structural info from VDSM
-         run on all VMs 
-         compare hash value if different add VM to change list
-         call List requesting long format for all VMs in the changed list
-         persist changes in DB
+       query cluster to get version comparability value
+       3.0 and below => create VMOldInfoManager and calls methods in it to persist data from structural info from VDSM
+         run on all VMs and do old logic 
+       3.1 and above => create VMInfoManager and calls methods in it to persist data from structural info from VDSM
+         run on all VMs 
+         compare hash value if different add VM to change list
+         call List requesting long format for all VMs in the changed list
+         persist changes in DB
 
 ![](/images/wiki/Flow.png)
 
@@ -151,14 +151,14 @@ Addresses are kept in the database as a plain-text strings. However, when passed
 Example
 DB:
 
-       "type='drive' controller='0' bus='0' unit='0'"
+       "type='drive' controller='0' bus='0' unit='0'"
 
 Structure:
 
-       { type='drive',
-         controller='0',
-         bus='0',
-         unit='0' }
+       { type='drive',
+         controller='0',
+         bus='0',
+         unit='0' }
 
 #### Video Cards
 
@@ -170,11 +170,11 @@ In new format, we will have to send each video card as a VM device and calculate
 
 OvfVmReader and OvfVmWriter should be enhanced to support:
 
-       is_plugged flag
-       access_mode
-       boot order
-       address
-       manage Floppy/CDROM as a device
+       is_plugged flag
+       access_mode
+       boot order
+       address
+       manage Floppy/CDROM as a device
 
 Those changes should bee coordinated with the OVF team.
 
@@ -188,9 +188,9 @@ This feature is not exposed to the GUI in 3.1
 In order to prevent data duplication we will tend to upgrade some old data to new format and still be backward compatible.
 issues:
 
-       Boot Order    - migrate boot order info to new format even from VMs that are in old (under 3.1) clusters
-       Floppy/CDROM  - migrate Floppy/CDROM to be stored as a disk
-       Sound/Video   - migrate as Vm Device
+       Boot Order    - migrate boot order info to new format even from VMs that are in old (under 3.1) clusters
+       Floppy/CDROM  - migrate Floppy/CDROM to be stored as a disk
+       Sound/Video   - migrate as Vm Device
 
 #### User work-flows
 

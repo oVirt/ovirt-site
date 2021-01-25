@@ -14,11 +14,11 @@ When Power Management is defined on the Host and the host becomes non-responding
 The Host non-responding treatment is doing the following actions
  Send a Stop command
 
-        Wait for status 'off' 
-          (controlled by FenceStopStatusDelayBetweenRetriesInSec,FenceStopStatusRetries configuration values)
-        Send a Start command
-        Wait for status 'on' 
-          (controlled by FenceStartStatusDelayBetweenRetriesInSec,FenceStartStatusRetries configuration values)
+        Wait for status 'off' 
+          (controlled by FenceStopStatusDelayBetweenRetriesInSec,FenceStopStatusRetries configuration values)
+        Send a Start command
+        Wait for status 'on' 
+          (controlled by FenceStartStatusDelayBetweenRetriesInSec,FenceStartStatusRetries configuration values)
 
 The current implementation of PM proxy selection is based on selection of host from the data center with 'UP' status.
  This implementation is not robust enough, since fence action such as 'RestartVds' which is comprised of two fence actions (stop & start) might be able to complete the first action, but fails to detect a proxy for the second. In some cases the entire DC becomes non-responsive or even stopped. In that case no host on DC could act as a proxy.
@@ -112,25 +112,25 @@ Actual proxy used in a fencing operation should be logged as well.
 The REST API will be enhanced to include the new Proxy Preferences as follows
 
 {% highlight xml %}
-  <host>
-    <power_management>
-       <pm_proxies>
-          <pm_proxy>
-             <proprietary>cluster</proprietary>
-          </pm_proxy>
-         <pm_proxy>
-             <proprietary>dc</proprietary>
-          </pm_proxy>
-       </pm_proxies>
-    </power_management>
- </host>
+  <host>
+    <power_management>
+       <pm_proxies>
+          <pm_proxy>
+             <proprietary>cluster</proprietary>
+          </pm_proxy>
+         <pm_proxy>
+             <proprietary>dc</proprietary>
+          </pm_proxy>
+       </pm_proxies>
+    </power_management>
+ </host>
 {% endhighlight %}
 
 To achieve that we should do the following:
 in api.xsd (schema) define new elements:
  *PmProxy* which contains one field : predefined
 
-        *PmProxies* which contains a list of PmProxy
+        *PmProxies* which contains a list of PmProxy
 
 - Add enum PmProxyType {CLUSTER,DATACENTER} in org.ovirt.engine.api.model package
 - Add PmProxyType enum to capabilities (BackendCapabilitiesResource)
@@ -181,20 +181,20 @@ Example of POST request to update Host pm proxy details :
 
 {% highlight xml %}
   <host>
-    <power_management type="apc_snmp">
-       <pm_proxies>
-          <pm_proxy>
-             <type>cluster</type>
-          </pm_proxy>
-          <pm_proxy>
-             <type>dc</type>
-          </pm_proxy>
-          <pm_proxy>
-             <type>other_dc</type>
-          </pm_proxy>
-      </pm_proxies>
-    </power_management>
-  </host>
+    <power_management type="apc_snmp">
+       <pm_proxies>
+          <pm_proxy>
+             <type>cluster</type>
+          </pm_proxy>
+          <pm_proxy>
+             <type>dc</type>
+          </pm_proxy>
+          <pm_proxy>
+             <type>other_dc</type>
+          </pm_proxy>
+      </pm_proxies>
+    </power_management>
+  </host>
 {% endhighlight %}
 
 The default will stay "cluster,DC" and the admin can change this value per host using the API
@@ -237,21 +237,21 @@ Example:
 The following program loads the local C standard library implementation and uses it to call the printf function.
 
 {% highlight java %}
-      import com.sun.jna.Library;
-      import com.sun.jna.Native;
-      import com.sun.jna.Platform;
-      /** Simple example of native library declaration and usage. */
-      public class HelloWorld {
-         public interface CLibrary extends Library {
-             CLibrary INSTANCE = (CLibrary) Native.loadLibrary(
-                 (Platform.isWindows() ? "msvcrt" : "c"), CLibrary.class);
-             void printf(String format, Object... args);
-         }
-         public static void main(String[] args) {
-             CLibrary.INSTANCE.printf("Hello, World\n");
-             for (int i = 0; i < args.length; i++) {
-                 CLibrary.INSTANCE.printf("Argument %d: %s\n", i, args[i]);
-             }
-         }
+      import com.sun.jna.Library;
+      import com.sun.jna.Native;
+      import com.sun.jna.Platform;
+      /** Simple example of native library declaration and usage. */
+      public class HelloWorld {
+         public interface CLibrary extends Library {
+             CLibrary INSTANCE = (CLibrary) Native.loadLibrary(
+                 (Platform.isWindows() ? "msvcrt" : "c"), CLibrary.class);
+             void printf(String format, Object... args);
+         }
+         public static void main(String[] args) {
+             CLibrary.INSTANCE.printf("Hello, World\n");
+             for (int i = 0; i < args.length; i++) {
+                 CLibrary.INSTANCE.printf("Argument %d: %s\n", i, args[i]);
+             }
+         }
       }
 {% endhighlight %}

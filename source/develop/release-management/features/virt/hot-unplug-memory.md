@@ -30,7 +30,7 @@ some limitations:
 - You can't remove arbitrary amount of memory.  Only previously hot plugged
   memory devices can be removed.
 
-- The guest OS must support memory hot unplug.  Up-to-date RHEL/CentOS 7
+- The guest OS must support memory hot unplug.  Up-to-date RHEL/CentOS 7
   systems support it.
 
 - All blocks of the previously hot plugged memory must be onlined as movable.
@@ -43,7 +43,7 @@ fail or cause problems.
 ## Making hot plugged memory movable
 
 To fulfill the requirement of making hot plugged memory movable on an
-up-to-date RHEL/CentOS 7 guest system, ovirt-guest-agent of version
+up-to-date RHEL/CentOS 7 guest system, ovirt-guest-agent of version
 1.0.13-2.el7 or higher must be installed in the guest.  Please note that proper
 ovirt-guest-agent version must be installed in the guest prior to hot plugging
 any memory in order to guarantee that hot plugged memory is movable.

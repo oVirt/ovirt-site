@@ -20,35 +20,35 @@ In order to connect to ovirt-engine using the ovirt-shell, (CLI api which uses R
 *   The following commands will connect you to the interactive shell:
 
 ```bash
-         # ovirt-shell
-         # (disconnected) > connect "http://localhost:8080/api" "user@domain" "password"
-         # [oVirt-shell:connected]#
+         # ovirt-shell
+         # (disconnected) > connect "http://localhost:8080/api" "user@domain" "password"
+         # [oVirt-shell:connected]#
 ```
 
 *   Once you are connected to the shell, you can simply run '`help`', which will revel some of the following options:
 
 ```
-       AVAILABLE COMMANDS
-       
-         * action           execute an action on an object
-         * cd               change directory
-         * clear            clear the screen
-         * connect          connect to a oVirt manager
-         * console          open a console to a VM
-         * create           create a new object
-         * delete           delete an object
-         * disconnect       disconnect from oVirt manager
-         * exit             quit this interactive terminal
-         * getkey           dump private ssh key
-         * help             show help
-         * list             list or search objects
-         * ping             test the connection
-         * pwd              print working directory
-         * save             save configuration variables
-         * set              set a configuration variable
-         * show             show one object
-         * status           show status
-         * update           update an object
+       AVAILABLE COMMANDS
+       
+         * action           execute an action on an object
+         * cd               change directory
+         * clear            clear the screen
+         * connect          connect to a oVirt manager
+         * console          open a console to a VM
+         * create           create a new object
+         * delete           delete an object
+         * disconnect       disconnect from oVirt manager
+         * exit             quit this interactive terminal
+         * getkey           dump private ssh key
+         * help             show help
+         * list             list or search objects
+         * ping             test the connection
+         * pwd              print working directory
+         * save             save configuration variables
+         * set              set a configuration variable
+         * show             show one object
+         * status           show status
+         * update           update an object
 ```
 
 Below you can find an example ovirt-engine-sdk for the following steps:

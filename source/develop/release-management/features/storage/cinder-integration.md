@@ -136,7 +136,7 @@ There is a known issue with OpenStack when deleting a snapshot which has depende
         <requires_authentication>true</requires_authentication>
         <username>cinder</username>
         <data_center href="/api/datacenters/{id}" id="{id}">
-            ...
+            ...
         </data_center>
     </openstack_volume_provider>
 </openstack_volume_providers>
@@ -164,7 +164,7 @@ There is a known issue with OpenStack when deleting a snapshot which has depende
 ```xml
 <openstack_volume_authentication_keys>
     <openstack_volume_authentication_key>
-    <description>my ceph secret</description>
+    <description>my ceph secret</description>
     <uuid>c50352a3-0700-48e9-9189-ed359c09bcf8</uuid>
     <usage_type>ceph</usage_type>
     <creation_date>2015-05-31T15:28:25.525+03:00</creation_date>
@@ -177,7 +177,7 @@ There is a known issue with OpenStack when deleting a snapshot which has depende
 ```xml
 <openstack_volume_authentication_key>
     <uuid>0e6fff8d-8af9-49e2-b04f-1a5dbbe883a2</uuid>
-    <description>my ceph secret</description>
+    <description>my ceph secret</description>
     <usage_type>ceph</usage_type>
     <value>YQo=</value>
 </openstack_volume_authentication_key>
@@ -194,7 +194,7 @@ There is a known issue with OpenStack when deleting a snapshot which has depende
         <storage_domain>
             <name>cinder</name>
         </storage_domain>
-    </storage_domains> 
+    </storage_domains> 
     <provisioned_size>1073741824</provisioned_size>
     <interface>virtio</interface>
     <format>raw</format>
@@ -219,8 +219,8 @@ There is a known issue with OpenStack when deleting a snapshot which has depende
 
 Cinder disks are deleted asynchronously, hence ';async' flag could be passed as part of the URL for getting 202-Accepted return status.
 
-E.g. 
-    `DELETE /api/disks/{disk_id};async`
+E.g. 
+    `DELETE /api/disks/{disk_id};async`
     
 ```xml
 <action></action>
@@ -234,7 +234,7 @@ E.g. 
 ```xml
 <disk type="network" device="disk">
     <host name="{monitor-host}" port="6789"/>
-                     ...
+                     ...
 
     </source>
     <target dev="vda" bus="virtio"/>
@@ -298,9 +298,9 @@ When client Ceph authentication (Cephx) is enabled, authentication keys should b
     -   Can be retrieved by 'ceph auth get client.cinder'
 *   (5) From 'UUID' text-box, copy the automatically generated UUID (or create a new one), and add to cinder.conf.
 
-         E.g. '/etc/cinder/cinder.conf':
-         rbd_secret_uuid = 148eb4bc-c47c-4ffe-b14e-3a0fb6c76833
-         rbd_user = cinder
+         E.g. '/etc/cinder/cinder.conf':
+         rbd_secret_uuid = 148eb4bc-c47c-4ffe-b14e-3a0fb6c76833
+         rbd_user = cinder
 
 Note: client authentication keys are only used upon running a VM; i.e. authentication for ceph volume manipulation should be configured solely on Cinder side.
 

@@ -17,8 +17,8 @@ The storage types that are in scope of this feature are iSCSI and the file based
 
 ## Owner
 
-Name: Alissa Bonas<br/>
-Email: abonas@redhat.com
+Name: Alissa Bonas<br/>
+Email: abonas@redhat.com
 
 ## Current Status and gaps
 
@@ -102,7 +102,7 @@ Example of request body - POSIX:
 
     <storage_connection>
         <type>posixfs</type>
-        <address>fileserver.lab.somecompanyname.com</address>
+        <address>fileserver.lab.somecompanyname.com</address>
         <path>/export/storagedata/username/dataNewData</path>
         <vfs_type>nfs</vfs_type>
     </storage_connection>

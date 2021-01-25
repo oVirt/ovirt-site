@@ -16,8 +16,8 @@ authors: lpeer, moti
    Username should include the domain. e.g. `admin@internal`
 5. Click on Headers -> Custom headers and add
 
-      name: Content-type
-      value: application/xml
+      name: Content-type
+      value: application/xml
 
 6. Select "Get" method, put in URL field the server address, followed by `/api`. e.g: `http://localhost:8080/api/`
 7. Click on send
@@ -36,7 +36,7 @@ If wishes to run command/action:
    The request body:
    {% highlight xml %}
    <snapshot>
-     <description>New Snapshot for VM</description>
+     <description>New Snapshot for VM</description>
      <vm id="61d0c568-62f5-4b8c-8548-7000beb27d7c" href="/api/vms/67f2ba3e-1a32-4aee-8be6-3f5c6fa4cfd8"/>
    </snapshot>
    {% endhighlight %}
@@ -49,13 +49,13 @@ The second method is by using *curl* utility from the command line.
 
 Example of adding new snapshot:
 
-      curl -v -u "admin@internal":letmein\! \
-        -H "Content-type: application/xml" \
-        -d '`<snapshot>`  \
-             `<description>`New Snapshot for VM`</description>` \
-             `<vm id="61d0c568-62f5-4b8c-8548-7000beb27d7c" href="/api/vms/61d0c568-62f5-4b8c-8548-7000beb27d7c"/>` \
-         `</snapshot>`' \
-        http://localhost:8080/api/vms/61d0c568-62f5-4b8c-8548-7000beb27d7c/snapshots
+      curl -v -u "admin@internal":letmein\! \
+        -H "Content-type: application/xml" \
+        -d '`<snapshot>`  \
+             `<description>`New Snapshot for VM`</description>` \
+             `<vm id="61d0c568-62f5-4b8c-8548-7000beb27d7c" href="/api/vms/61d0c568-62f5-4b8c-8548-7000beb27d7c"/>` \
+         `</snapshot>`' \
+        http://localhost:8080/api/vms/61d0c568-62f5-4b8c-8548-7000beb27d7c/snapshots
 
 The *curl* command line utility (provided by the *curl* package) could be enhanced by a script which could run in parallel to test various scenarios.
 It is also suitable for any type of non-functional tests (NFT). For full list of arguments refer to curl man pages.

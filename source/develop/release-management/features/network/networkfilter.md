@@ -103,50 +103,50 @@ Will consist the following parts:
 1.  Add NetworkFilter Type and Service. The network filter struct will be as followed:
 
 ```xml
- <network_filter id="00000019-0019-0019-0019-00000000026b">
-     <name>example-network-filter-b</name>
-     <version>
-         <build>-1</build>
-         <major>4</major>
-         <minor>0</minor>
-         <revision>-1</revision>
-     </version>
- </network_filter>
+ <network_filter id="00000019-0019-0019-0019-00000000026b">
+     <name>example-network-filter-b</name>
+     <version>
+         <build>-1</build>
+         <major>4</major>
+         <minor>0</minor>
+         <revision>-1</revision>
+     </version>
+ </network_filter>
 ```
 
 1.  Add command for listing all network filters:
     1.  For example a GET request `http://localhost:8080/ovirt-engine/api/cluster/<id>/networkfilter` will display all network filters:
 
 ```xml
- <network_filters>
-     <network_filter id="00000019-0019-0019-0019-00000000026c">
-         <name>example-network-filter-a</name>
-         <version>
-             <build>-1</build>
-             <major>4</major>
-             <minor>0</minor>
-             <revision>-1</revision>
-         </version>
-     </network_filter>
-     <network_filter id="00000019-0019-0019-0019-00000000026b">
-         <name>example-network-filter-b</name>
-         <version>
-             <build>-1</build>
-             <major>4</major>
-             <minor>0</minor>
-             <revision>-1</revision>
-         </version>
-     </network_filter>
-     <network_filter id="00000019-0019-0019-0019-00000000026a">
-         <name>example-network-filter-a</name>
-         <version>
-             <build>-1</build>
-             <major>3</major>
-             <minor>0</minor>
-             <revision>-1</revision>
-         </version>
-     </network_filter>
- </network_filters>
+ <network_filters>
+     <network_filter id="00000019-0019-0019-0019-00000000026c">
+         <name>example-network-filter-a</name>
+         <version>
+             <build>-1</build>
+             <major>4</major>
+             <minor>0</minor>
+             <revision>-1</revision>
+         </version>
+     </network_filter>
+     <network_filter id="00000019-0019-0019-0019-00000000026b">
+         <name>example-network-filter-b</name>
+         <version>
+             <build>-1</build>
+             <major>4</major>
+             <minor>0</minor>
+             <revision>-1</revision>
+         </version>
+     </network_filter>
+     <network_filter id="00000019-0019-0019-0019-00000000026a">
+         <name>example-network-filter-a</name>
+         <version>
+             <build>-1</build>
+             <major>3</major>
+             <minor>0</minor>
+             <revision>-1</revision>
+         </version>
+     </network_filter>
+ </network_filters>
 ```
 
 1.  Allow to add/update a vNIC profile's network filter.
@@ -159,28 +159,28 @@ The command will be as followed `http://{engine_ip_address}:8080/ovirt-engine/ap
 
 ```xml
 <vnic_profile>
-     <name>use_default_network_filter</name>
-     <network id="00000000-0000-0000-0000-000000000009"/>
- </vnic_profile>
+     <name>use_default_network_filter</name>
+     <network id="00000000-0000-0000-0000-000000000009"/>
+ </vnic_profile>
 ```
 
 1.  1.  In case en empty network filter was mentioned, no network filter will be configured for the specific vnic profile regardless of the vnic profile's default network filter. For example:
 
 ```xml
- <vnic_profile>
-     <name>no_network_filter</name>
-     <network id="00000000-0000-0000-0000-000000000009"/>
-     <network_filter/>
- </vnic_profile>
+ <vnic_profile>
+     <name>no_network_filter</name>
+     <network id="00000000-0000-0000-0000-000000000009"/>
+     <network_filter/>
+ </vnic_profile>
 ```
 
 1.  1.  In case that a specific valid network filter id was mentioned, the vnic profile will be configured with the mentioned network filter regardless of the vnic profiles's default network filter. For example:
 
 ```xml
 <vnic_profile>
-    <name>user_choice_network_filter</name>
-    <network id="00000000-0000-0000-0000-000000000009"/>
-    <network_filter id= "0000001b-001b-001b-001b-0000000001d5"/>
+    <name>user_choice_network_filter</name>
+    <network id="00000000-0000-0000-0000-000000000009"/>
+    <network_filter id= "0000001b-001b-001b-001b-0000000001d5"/>
 </vnic_profile>
 ```
 
@@ -256,30 +256,30 @@ Explain what will be done in case the feature won't be ready on time
 
 ## Release Notes
 ```
-      == Your feature heading ==
-      A descriptive text of your feature to be included in release notes
+      == Your feature heading ==
+      A descriptive text of your feature to be included in release notes
 ```
 
 
 
-                   filter_id               |       filter_name       | version 
+                   filter_id               |       filter_name       | version 
       -------------------------------------+-------------------------+---------
-      00000019-0019-0019-0019-000000000308 | vdsm-no-mac-spoofing    | 3.2
-      0000001a-001a-001a-001a-000000000281 | allow-arp               | 3.6
-      0000001b-001b-001b-001b-0000000001d5 | allow-dhcp              | 3.6
-      0000001c-001c-001c-001c-0000000003a2 | allow-dhcp-server       | 3.6
-      0000001d-001d-001d-001d-00000000031f | allow-incoming-ipv4     | 3.6
-      0000001e-001e-001e-001e-000000000281 | allow-ipv4              | 3.6
-      0000001f-001f-001f-001f-000000000283 | clean-traffic           | 3.6
-      00000020-0020-0020-0020-000000000106 | no-arp-ip-spoofing      | 3.6
-      00000021-0021-0021-0021-0000000000c1 | no-arp-mac-spoofing     | 3.6
-      00000022-0022-0022-0022-0000000002e8 | no-arp-spoofing         | 3.6
-      00000023-0023-0023-0023-000000000317 | no-ip-multicast         | 3.6
-      00000024-0024-0024-0024-000000000328 | no-ip-spoofing          | 3.6
-      00000025-0025-0025-0025-000000000112 | no-mac-broadcast        | 3.6
-      00000026-0026-0026-0026-0000000003a2 | no-mac-spoofing         | 3.6
-      00000027-0027-0027-0027-000000000403 | no-other-l2-traffic     | 3.6
-      00000028-0028-0028-0028-000000000164 | no-other-rarp-traffic   | 3.6
-      00000029-0029-0029-0029-00000000006b | qemu-announce-self      | 3.6
-      0000002a-002a-002a-002a-000000000070 | qemu-announce-self-rarp | 3.6
+      00000019-0019-0019-0019-000000000308 | vdsm-no-mac-spoofing    | 3.2
+      0000001a-001a-001a-001a-000000000281 | allow-arp               | 3.6
+      0000001b-001b-001b-001b-0000000001d5 | allow-dhcp              | 3.6
+      0000001c-001c-001c-001c-0000000003a2 | allow-dhcp-server       | 3.6
+      0000001d-001d-001d-001d-00000000031f | allow-incoming-ipv4     | 3.6
+      0000001e-001e-001e-001e-000000000281 | allow-ipv4              | 3.6
+      0000001f-001f-001f-001f-000000000283 | clean-traffic           | 3.6
+      00000020-0020-0020-0020-000000000106 | no-arp-ip-spoofing      | 3.6
+      00000021-0021-0021-0021-0000000000c1 | no-arp-mac-spoofing     | 3.6
+      00000022-0022-0022-0022-0000000002e8 | no-arp-spoofing         | 3.6
+      00000023-0023-0023-0023-000000000317 | no-ip-multicast         | 3.6
+      00000024-0024-0024-0024-000000000328 | no-ip-spoofing          | 3.6
+      00000025-0025-0025-0025-000000000112 | no-mac-broadcast        | 3.6
+      00000026-0026-0026-0026-0000000003a2 | no-mac-spoofing         | 3.6
+      00000027-0027-0027-0027-000000000403 | no-other-l2-traffic     | 3.6
+      00000028-0028-0028-0028-000000000164 | no-other-rarp-traffic   | 3.6
+      00000029-0029-0029-0029-00000000006b | qemu-announce-self      | 3.6
+      0000002a-002a-002a-002a-000000000070 | qemu-announce-self-rarp | 3.6
 

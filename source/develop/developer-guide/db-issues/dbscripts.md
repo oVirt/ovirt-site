@@ -13,20 +13,20 @@ If those parameters are not given, defaults defined in *dbcustomfunctions.sh* *s
 
 From root account perform:
 
-      su - postgres -c "psql -d template1 -c "create database `<database_name>`  owner engine;""
+      su - postgres -c "psql -d template1 -c "create database `<database_name>`  owner engine;""
 
 ## How to upgrade a database?
 
-       upgrade.sh [-h] [-s SERVERNAME] [-p PORT] [-d DATABASE] [-u USERNAME] [-f VERSION] [-c] [-v]
+       upgrade.sh [-h] [-s SERVERNAME] [-p PORT] [-d DATABASE] [-u USERNAME] [-f VERSION] [-c] [-v]
 
 ## How to refresh my stored procedures & views?
 
-       refreshStoredProcedures.sh [-h] [-s SERVERNAME] [-d DATABASE] [-u USERNAME] [-v]
+       refreshStoredProcedures.sh [-h] [-s SERVERNAME] [-d DATABASE] [-u USERNAME] [-v]
 
 ## How to backup/restore my database ?
 
-       backup.sh [-h] [-s SERVERNAME] [-p PORT] [-d DATABASE] [-l DIR] -u USERNAME [-v]
-       restore.sh [-h] [-s SERVERNAME] [-p PORT] -u USERNAME -d DATABASE -f FILE [-r]
+       backup.sh [-h] [-s SERVERNAME] [-p PORT] [-d DATABASE] [-l DIR] -u USERNAME [-v]
+       restore.sh [-h] [-s SERVERNAME] [-p PORT] -u USERNAME -d DATABASE -f FILE [-r]
 
 ## Remote database support
 

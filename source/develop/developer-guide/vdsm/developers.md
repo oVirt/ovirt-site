@@ -13,7 +13,7 @@ authors: abonas, adahms, amuller, amureini, apahim, apevec, danken, dougsland, e
 
 To build VDSM, enable the oVirt repositories by installing the ovirt-release rpm:
 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
       
       
  or if you are using Fedora 
@@ -23,15 +23,15 @@ To build VDSM, enable the oVirt repositories by installing the ovirt-release rpm
        
 If you need a previous installation, use the corresponding repository instead:
 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm 
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm 
+      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
       
  for Fedora 
     
-     dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm 
-     dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm 
-     dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
+     dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm 
+     dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm 
+     dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
 
 This adds all the required repositories for you, including:
 
@@ -52,11 +52,11 @@ You can clone this repository by running the following command:
 
 ## Installing the required packages
 
-      yum install `cat automation/check-patch.packages.el7`
+      yum install `cat automation/check-patch.packages.el7`
 
 or if you are using Fedora (use .fc28 for Fedora 28):
 
-      dnf install `cat automation/check-patch.packages.fc28`
+      dnf install `cat automation/check-patch.packages.fc28`
 
 On any platform, you should also setup VDSM virtual environment.
 Follow the setup steps in [README.md](https://github.com/oVirt/vdsm#development-environment-setup)
@@ -76,7 +76,7 @@ VDSM uses autoconf and automake as its build system.
 
 To configure a development build environment:
 
-      ./autogen.sh --system --enable-timestamp
+      ./autogen.sh --system --enable-timestamp
 
 To see available options:
 
@@ -111,7 +111,7 @@ threads and child processes.
 
 To exclude a specific test (test_foo):
 
-      make check NOSE_EXCLUDE=test_foo
+      make check NOSE_EXCLUDE=test_foo
 
 Running code style and quality checks:
 
@@ -169,15 +169,15 @@ To run specific test direcly via `pytest`:
 
 To create an RPM:
 
-      make rpm
+      make rpm
 
 VDSM automatically builds using the latest tagged version. If you want to explicitly define a version, use:
 
-      make rpmversion=4.9 rpmrelease=999.funkyBranch
+      make rpmversion=4.9 rpmrelease=999.funkyBranch
 
 ## Building with hooks support
 
-      ./autogen.sh --system  --enable-hooks && make rpm
+      ./autogen.sh --system  --enable-hooks && make rpm
 
 ## Basic installation
 
@@ -195,12 +195,12 @@ To install packages built using "make rpm" use dnf upgrade:
 
 Before starting vdsmd service for the first time vdsm requires some configuration procedures for external services that being used by vdsmd. To ease this process vdsm provides a utility (vdsm-tool). To perform full reconfiguration of external services perform:
 
-      # vdsm-tool configure --force
-      (for more information read "vdsm-tool --help") 
+      # vdsm-tool configure --force
+      (for more information read "vdsm-tool --help") 
 
 Finally start the vdsmd service:
 
-      # service vdsmd start
+      # service vdsmd start
 
 
 ## Code Style
@@ -235,9 +235,9 @@ One you tick the "Verified" checkbox, remember explaining how exactly you perfor
 
 1) First, you must generate the rpm with your changes from the vdsm source directory:
 
-      #vdsm> ./autogen.sh --system
-      #vdsm> make
-      #vdsm> make rpm
+      #vdsm> ./autogen.sh --system
+      #vdsm> make
+      #vdsm> make rpm
 
 **Note**: all rpm files will be generated at rpmbuild dir, usually: /home/your-user/rpmbuild/RPMS
 
@@ -245,45 +245,45 @@ One you tick the "Verified" checkbox, remember explaining how exactly you perfor
 
 *   Install required package
 
-      # yum install createrepo -y
+      # yum install createrepo -y
 
 *   Enable httpd service (if it's not installed, install it first with yum install httpd)
 
-      # chkconfig httpd on
+      # chkconfig httpd on
 
 or
 
-      # ln -s '/lib/systemd/system/httpd.service' '/etc/systemd/system/multi-user.target.wants/httpd.service'
+      # ln -s '/lib/systemd/system/httpd.service' '/etc/systemd/system/multi-user.target.wants/httpd.service'
 
 *   Create the directory that will hold the rpm files (repo)
 
-      # mkdir /var/www/html/my-vdsm-changes
+      # mkdir /var/www/html/my-vdsm-changes
 
 *   Copy the vdsm packages to repo
 
-      # cp ${HOME}/rpmbuild/RPMS/noarch/* /var/www/html/my-vdsm-changes
-      # cp ${HOME}/rpmbuild/RPMS/x86_64/* /var/www/html/my-vdsm-changes
+      # cp ${HOME}/rpmbuild/RPMS/noarch/* /var/www/html/my-vdsm-changes
+      # cp ${HOME}/rpmbuild/RPMS/x86_64/* /var/www/html/my-vdsm-changes
 
 *   Create the repo inside the yum.repos.d
 
-      # vi /etc/yum.repos.d/my-vdsm-changes.repo
+      # vi /etc/yum.repos.d/my-vdsm-changes.repo
       [my-vdsm-changes]
-      name = my vdsm changes
-      baseurl = http://127.0.0.1/my-vdsm-changes
-      enabled = 1
-      gpgcheck = 0
+      name = my vdsm changes
+      baseurl = http://127.0.0.1/my-vdsm-changes
+      enabled = 1
+      gpgcheck = 0
 
 *   Execute createrepo tool
 
-      # createrepo /var/www/html/my-vdsm-changes
+      # createrepo /var/www/html/my-vdsm-changes
 
 *   Start httpd service
 
-      # service httpd start
+      # service httpd start
 
 *   List all repos and see your new repo
 
-      # yum repolist
+      # yum repolist
 
 **Note**: SELinux might throw permission denied to repo located at /var/www/html/
 
@@ -304,22 +304,22 @@ As developer you might need to add many hosts into your environment for tests. V
 
 *   2) Install required packages
 
-      # yum install vdsm-hook-faqemu -y 
+      # yum install vdsm-hook-faqemu -y 
 
 *   3) Change vdsm config file to enable this feature
 
-      # vi /etc/vdsm/vdsm.conf 
-       [vars]
+      # vi /etc/vdsm/vdsm.conf 
+       [vars]
 
-       fake_kvm_support = true  
+       fake_kvm_support = true  
 
 *   4) Restart the vdsmd daemon (**Only required if you had previously VDSM installed**)
 
-      # systemctl restart vdsmd.service 
+      # systemctl restart vdsmd.service 
 
 *   5) Open the oVirt Engine portal and add the new 'Fake' Host
 
-       Login with your admin user -> Hosts -> New 
+       Login with your admin user -> Hosts -> New 
 
 *   6) The host should be UP
 
@@ -340,28 +340,28 @@ There are several ways to update your vds_bootstrap, for example:
 
 *   Yum update in **oVirt Engine** machine (if the repo is not updated, use the others approaches)
 
-       # yum update vdsm-bootstrap 
+       # yum update vdsm-bootstrap 
 
 *   Clone vdsm tree and create an updated vdsm-bootstrap rpm and update the **oVirt Engine** system
 
-        # git clone "https://gerrit.ovirt.org/vdsm"
-        # cd vdsm
-        (if required increase the Version/Release from vdsm.spec.in)
-        # ./autogen.sh --system && make && make rpm
-        # rpm -Uvh ~/rpmbuild/RPMS/noarch/vdsm-bootstrap* 
+        # git clone "https://gerrit.ovirt.org/vdsm"
+        # cd vdsm
+        (if required increase the Version/Release from vdsm.spec.in)
+        # ./autogen.sh --system && make && make rpm
+        # rpm -Uvh ~/rpmbuild/RPMS/noarch/vdsm-bootstrap* 
 
 *   Clone the vdsm tree, execute autogen/make and copy the vds_bootstrap/vds_bootstrap.py to /usr/share/vds_bootstrap
 
-        # git clone "https://gerrit.ovirt.org/vdsm"
-        # cd vdsm
-        # ./autogen.sh --system && make
-        # cp vds_bootstrap/vds_bootstrap.py /usr/share/vds_bootstrap 
-                 
+        # git clone "https://gerrit.ovirt.org/vdsm"
+        # cd vdsm
+        # ./autogen.sh --system && make
+        # cp vds_bootstrap/vds_bootstrap.py /usr/share/vds_bootstrap 
+                 
 
 *   Manually backport the above <http://gerrit.ovirt.org/5611> patch to your current vds_bootstrap (/usr/share/vds_bootstrap)
 
-        # vi /usr/share/vds_bootstrap/vds_bootstrap.py
-        Make the changes manually
+        # vi /usr/share/vds_bootstrap/vds_bootstrap.py
+        Make the changes manually
 
 **Non Responsive status**
 
@@ -390,34 +390,34 @@ Finally, we are assuming you already have qemu-kvm/libvirt/virt-manager installe
 
 *   1) Check if nested KVM is enabled (should be **Y**)
 
-       # cat /sys/module/kvm_intel/parameters/nested
-        N
+       # cat /sys/module/kvm_intel/parameters/nested
+        N
 
 *   2) In that case, it's disabled, to enable (can be via modprobe conf as well, simply: echo "options kvm-intel nested=1" > /etc/modprobe.d/kvm-intel.conf ):
 
-       # vi /etc/default/grub
+       # vi /etc/default/grub
 
 Add to the end of line **GRUB_CMDLINE_LINUX kvm-intel.nested=1**
 
 Example:
 
-       GRUB_CMDLINE_LINUX="rd.md=0 rd.dm=0  KEYTABLE=us SYSFONT=True rd.lvm.lv=vg/lv_root rd.luks=0 rd.lvm.lv=vg/lv_swap LANG=en_US.UTF-8 rhgb quiet kvm-intel.nested=1"
+       GRUB_CMDLINE_LINUX="rd.md=0 rd.dm=0  KEYTABLE=us SYSFONT=True rd.lvm.lv=vg/lv_root rd.luks=0 rd.lvm.lv=vg/lv_swap LANG=en_US.UTF-8 rhgb quiet kvm-intel.nested=1"
 
 *   3) Save the changes:
 
-       # grub2-mkconfig -o /boot/grub2/grub.cfg
+       # grub2-mkconfig -o /boot/grub2/grub.cfg
 
 *   4) Reboot the system:
 
-       # reboot
+       # reboot
 
 *   5) Install hook for nested virtualization on hypervisor/hypervisors. This will configure both the host and guest for nested KVM. With the nestedvt vdsm hook installed, every guest launched from your nested-enabled hosts will inherit its own KVM-hosting capability. [More details](http://community.redhat.com/blog/2013/08/testing-ovirt-3-3-with-nested-kvm):
 
-       # yum install -y vdsm-hook-nestedvt 
+       # yum install -y vdsm-hook-nestedvt 
 
 *   6) Restart vdsmd on hypervisor
 
-       # service vdsmd restart 
+       # service vdsmd restart 
 
 After vdsm restarts, you can check to see that your hooks are installed in your host’s “Host Hooks” tab: ![](/images/wiki/Nestedvt_hook.png)
 
@@ -427,8 +427,8 @@ Works out of the box.
 
 *   1) To check if nested KVM is enabled (should be **1**)
 
-       # cat /sys/module/kvm_amd/parameters/nested
-        1
+       # cat /sys/module/kvm_amd/parameters/nested
+        1
 
 *   2) Install oVirt Node as guest with virt-manager (or any other distro).
 
@@ -436,8 +436,8 @@ Works out of the box.
 
 *   3) After virtual machine starts, check in the guest that svm flag in the /proc/cpuinfo.
 
-       # grep -m1 svm /proc/cpuinfo
-        flags           : fpu de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx lm up nopl pni cx16 popcnt hypervisor lahf_lm svm abm sse4a
+       # grep -m1 svm /proc/cpuinfo
+        flags           : fpu de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx lm up nopl pni cx16 popcnt hypervisor lahf_lm svm abm sse4a
 
 More info about nested-kvm: <https://github.com/torvalds/linux/blob/master/Documentation/virt/kvm/nested-vmx.rst>
 
@@ -447,140 +447,140 @@ In the following example we will build vdsm-4.13.0 using patches for ovirt-3.3.2
 
 1) Clone vdsm package from Fedora git
 
-        $ mkdir ~/vdsm-fedora && cd ~/vdsm-fedora
-        $ fedpkg clone vdsm && cd vdsm
+        $ mkdir ~/vdsm-fedora && cd ~/vdsm-fedora
+        $ fedpkg clone vdsm && cd vdsm
 
 Switch the stable branches (at moment f21 is **rawhide**, not stable) and check the last patch added to the build from changelog:
 
-        $ fedpkg switch-branch f20
-        $ vi vdsm.spec
-        
-        Example:
-        * Tue Nov 12 2013 Douglas Schilling Landgraf `<xxx@xxx>` - 4.13.0-11
-        - update from branch ovirt-3.3 which include:
-          upgrade-fix-v3ResetMetaVolSize-argument
-          lvm-Do-not-use-udev-cache-for-obtaining-device-list
-          Fix-ballooning-rules-for-computing-the-minimum-avail
-         Avoid-M2Crypto-races
-         spec-declare-we-provide-an-existing-python-cpopen
-         configuring-selinux-allowing-qemu-kvm-to-generate-co
-`  `<snip>
+        $ fedpkg switch-branch f20
+        $ vi vdsm.spec
+        
+        Example:
+        * Tue Nov 12 2013 Douglas Schilling Landgraf `<xxx@xxx>` - 4.13.0-11
+        - update from branch ovirt-3.3 which include:
+          upgrade-fix-v3ResetMetaVolSize-argument
+          lvm-Do-not-use-udev-cache-for-obtaining-device-list
+          Fix-ballooning-rules-for-computing-the-minimum-avail
+         Avoid-M2Crypto-races
+         spec-declare-we-provide-an-existing-python-cpopen
+         configuring-selinux-allowing-qemu-kvm-to-generate-co
+`  `<snip>
 
 So, the last patch added to the build 3.3.1 was **configuring-selinux-allowing-qemu-kvm-to-generate-co**, based on that you can use **git format-patch** to generate the patches to be included into next build
 
 2) Clone the vdsm tree:
 
-        $ mkdir ~/vdsm-upstream && cd ~/vdsm-upstream
-`  $ git clone `[`git://gerrit.ovirt.org/vdsm`](git://gerrit.ovirt.org/vdsm)
+        $ mkdir ~/vdsm-upstream && cd ~/vdsm-upstream
+`  $ git clone `[`git://gerrit.ovirt.org/vdsm`](git://gerrit.ovirt.org/vdsm)
 
 3) Go to branch that hold the patches for 3.3.2, in this case **ovirt-3.3**
 
-        $ git checkout remotes/origin/ovirt-3.3 -b 3.3.2
-        Branch 3.3.2 set up to track remote branch ovirt-3.3 from origin.
-        Switched to a new branch '3.3.2'
+        $ git checkout remotes/origin/ovirt-3.3 -b 3.3.2
+        Branch 3.3.2 set up to track remote branch ovirt-3.3 from origin.
+        Switched to a new branch '3.3.2'
 
 3) Select the patches that you want to add to the build using **format-patch**
 
-        Examples:
-        * Last 3 patches:
-`    $ git format-patch `**`-3`**
-          0001-fuserTests-fix-for-f20-and-arch.patch
-          0002-Adding-debian-folder-makefile.patch
-          0003-Fix-Makefile.am-in-debian-folder.patch
+        Examples:
+        * Last 3 patches:
+`    $ git format-patch `**`-3`**
+          0001-fuserTests-fix-for-f20-and-arch.patch
+          0002-Adding-debian-folder-makefile.patch
+          0003-Fix-Makefile.am-in-debian-folder.patch
 
-        * Specifying the commit:
-          $ git format-patch `**<commit id>**` -1
-          0001-fuserTests-fix-for-f20-and-arch.patch
+        * Specifying the commit:
+          $ git format-patch `**<commit id>**` -1
+          0001-fuserTests-fix-for-f20-and-arch.patch
 
 In our case, the last patch is **configuring-selinux-allowing-qemu-kvm-to-generate-co**
 
-        $ git format-patch -19
-        0001-Invalidate-filters-on-HSMs-before-rescanning-extende.patch
-        0002-vm-refresh-raw-disk-before-live-extension.patch
-        0003-Renaming-etc-sysctl.d-vdsm-to-etc-sysctl.d-vdsm.conf.patch
-`  `<snip>
+        $ git format-patch -19
+        0001-Invalidate-filters-on-HSMs-before-rescanning-extende.patch
+        0002-vm-refresh-raw-disk-before-live-extension.patch
+        0003-Renaming-etc-sysctl.d-vdsm-to-etc-sysctl.d-vdsm.conf.patch
+`  `<snip>
 
 Again, why -19 ? Because we are 19 patches behind from version **3.3.1** You can use **git log** to check how many patches we do have after **configuring-selinux-allowing-qemu-kvm-to-generate-co**
 
 Copy the 19 patches to the ~/vdsm-fedora dir
 
-         $ cp *.patch ~/vdsm-fedora/vdsm
+         $ cp *.patch ~/vdsm-fedora/vdsm
 
 4) Build new vdsm with the new patches
 
-         $ cd ~/vdsm-fedora/vdsm/
-         $ vi vdsm.spec
+         $ cd ~/vdsm-fedora/vdsm/
+         $ vi vdsm.spec
 
 Example:
 
-`  `<snip>
-`  Url:            `[`/wiki/Vdsm`](/wiki/Vdsm)
-        # The source for this package was pulled from upstream's vcs.
-        # Use the following commands to generate the tarball:
-`  #  git clone `[`http://gerrit.ovirt.org/p/vdsm`](http://gerrit.ovirt.org/p/vdsm)
-        #  cd vdsm
-        #  git reset --hard {vdsm_release}
-        #  ./autogen.sh --system
-        #  make VERSION={version}-{vdsm_release} dist
-        Source0:        %{vdsm_name}-%{version}%{?vdsm_relttag}.tar.gz
-        # ovirt-3.3.2 patches
-        Patch0:         0001-Invalidate-filters-on-HSMs-before-rescanning-extende.patch
-        Patch1:         0002-vm-refresh-raw-disk-before-live-extension.patch
-        Patch2:         0003-Renaming-etc-sysctl.d-vdsm-to-etc-sysctl.d-vdsm.conf.patch
-        ...
-        Patch18:       0019-Fix-Makefile.am-in-debian-folder.patch
-`  `</snip>
+`  `<snip>
+`  Url:            `[`/wiki/Vdsm`](/wiki/Vdsm)
+        # The source for this package was pulled from upstream's vcs.
+        # Use the following commands to generate the tarball:
+`  #  git clone `[`http://gerrit.ovirt.org/p/vdsm`](http://gerrit.ovirt.org/p/vdsm)
+        #  cd vdsm
+        #  git reset --hard {vdsm_release}
+        #  ./autogen.sh --system
+        #  make VERSION={version}-{vdsm_release} dist
+        Source0:        %{vdsm_name}-%{version}%{?vdsm_relttag}.tar.gz
+        # ovirt-3.3.2 patches
+        Patch0:         0001-Invalidate-filters-on-HSMs-before-rescanning-extende.patch
+        Patch1:         0002-vm-refresh-raw-disk-before-live-extension.patch
+        Patch2:         0003-Renaming-etc-sysctl.d-vdsm-to-etc-sysctl.d-vdsm.conf.patch
+        ...
+        Patch18:       0019-Fix-Makefile.am-in-debian-folder.patch
+`  `</snip>
 
 .... continue until the last patch then add the patch macro in the spec for **all patches**
 
-` `<snip>
-       %description gluster
-       Gluster plugin enables VDSM to serve Gluster functionalities.
-       %endif
-       %prep
-       %setup -q
-       # ovirt-3.3.2 patches
-       %patch0 -p1
-       %patch1 -p1
-       %patch2 -p1
-       ...
-       %patch23 -p1
-` `</snip>
+` `<snip>
+       %description gluster
+       Gluster plugin enables VDSM to serve Gluster functionalities.
+       %endif
+       %prep
+       %setup -q
+       # ovirt-3.3.2 patches
+       %patch0 -p1
+       %patch1 -p1
+       %patch2 -p1
+       ...
+       %patch23 -p1
+` `</snip>
 
 **PLEASE NOTE**: if changes/patches are being added to the upstream spec file you MUST manually update the FEDORA spec as well. You can manually verify the patches or use grep -i "vdsm.spec" in the patch generated.
 
 Time to increase the **Release** in the spec and **changelog**
 
-` `<snip>
-       Release:        `**`12`**`%{?dist}%{?extra_release}
-` `</snip>
+` `<snip>
+       Release:        `**`12`**`%{?dist}%{?extra_release}
+` `</snip>
 
-       %changelog
-       * Thu Nov 28 2013 PERSON_NAME `<xxx@xxx.com>` - 4.13.0-12
-       - lvm: Do not use udev cache for obtaining device list (BZ#1014942)
-       - Fix ballooning rules for computing the minimum available memory (BZ#1025845)
-       ....
-       - Fix Makefile.am in debian folder
+       %changelog
+       * Thu Nov 28 2013 PERSON_NAME `<xxx@xxx.com>` - 4.13.0-12
+       - lvm: Do not use udev cache for obtaining device list (BZ#1014942)
+       - Fix ballooning rules for computing the minimum available memory (BZ#1025845)
+       ....
+       - Fix Makefile.am in debian folder
 
 Ok, build the new spec locally for initial test:
 
-       $ fedpkg local  (or fedpkg srpm)
+       $ fedpkg local  (or fedpkg srpm)
 
 Hopefully it worked, now let's make a test build in Koji systems:
 
-` $ fedpkg --dist f19 scratch-build --srpm ~/rpmbuild/SRPM/`<vdsm-package.srpm>
-` $ fedpkg --dist f20 scratch-build --srpm ~/rpmbuild/SRPM/`<vdsm-package.srpm>
-` $ fedpkg --dist el6 scratch-build --srpm ~/rpmbuild/SRPM/`<vdsm-package.srpm>
+` $ fedpkg --dist f19 scratch-build --srpm ~/rpmbuild/SRPM/`<vdsm-package.srpm>
+` $ fedpkg --dist f20 scratch-build --srpm ~/rpmbuild/SRPM/`<vdsm-package.srpm>
+` $ fedpkg --dist el6 scratch-build --srpm ~/rpmbuild/SRPM/`<vdsm-package.srpm>
 
 If it worked correctly, you can use fedpkg import ~/rpmbuild/SRPM/<vdsm-package.srpm> in each branch or use import into master and then git merge in the branches
 
 **PLEASE NOTE**: If it's a beta release, please only import to **master** branch which is rawhide.
 
-       $ fedpkg switch-branch f19
-       $ fedpkg import  ~/rpmbuild/SRPM/`<vdsm-package.srpm>`  (you can import f20 build into f19 for example, it will be build again anyway)
-       $ fedpkg commit -p
-       $ fedpkg build
-       $ fepkg update
+       $ fedpkg switch-branch f19
+       $ fedpkg import  ~/rpmbuild/SRPM/`<vdsm-package.srpm>`  (you can import f20 build into f19 for example, it will be build again anyway)
+       $ fedpkg commit -p
+       $ fedpkg build
+       $ fepkg update
 
 Which fedpkg build will generate a koji url that will provide the RPMs and can be shared to release engineers/testers.
 
@@ -588,7 +588,7 @@ Which fedpkg build will generate a koji url that will provide the RPMs and can b
 
 VDSM for ovirt-3.6 depends on ovirt-vmconsole package. To fetch the sources of ovirt-vmconsole, run
 
-      git clone http://gerrit.ovirt.org/p/ovirt-vmconsole.git
+      git clone http://gerrit.ovirt.org/p/ovirt-vmconsole.git
 
 ## Troubleshooting
 
@@ -600,7 +600,7 @@ Since c0729453573, vdsm requires newer libvirt and selinux-policy packages, whic
 
 You have no tags in your repo. If you want to push your repo from another machine, you must also push the tags:
 
-      git push --tags remote 
+      git push --tags remote 
 
 ## Code Documentation
 

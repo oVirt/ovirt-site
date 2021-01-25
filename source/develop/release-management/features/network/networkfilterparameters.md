@@ -280,7 +280,7 @@ example is [available][6]
 
 ## Release Notes
 
-      == Network Filter Parameters ==
+      == Network Filter Parameters ==
       Network filters of virtual machines can configured by parameters.
 
 

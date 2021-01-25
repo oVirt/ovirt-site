@@ -11,7 +11,7 @@ This can be especially useful when the VM runs software that relies on specific 
 
 syntax:
 
-      smbios: smbios={'serial': '1234'}^{'vendor': 'redhat'}
+      smbios: smbios={'serial': '1234'}^{'vendor': 'redhat'}
 
 add/edit 2 attributes to smbios: serial and vendor
 

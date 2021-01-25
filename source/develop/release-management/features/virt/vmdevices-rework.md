@@ -46,7 +46,7 @@ Currently, there are multiple representations of a device in its lifetime inside
 
 The `dev_` prefix can be omitted if for each occurrence of function/method call there exists a \*device\* word in one of the namespaces accessed.
 
-      PEP8: we're trying to make the code as consistent as possible while slowly converting everything to be pep8 compliant. Therefore, following rules can be used:
+      PEP8: we're trying to make the code as consistent as possible while slowly converting everything to be pep8 compliant. Therefore, following rules can be used:
 
 *   use pep8 conventions in new modules,
 *   use pep8 conventions in old module if the code is about to move,

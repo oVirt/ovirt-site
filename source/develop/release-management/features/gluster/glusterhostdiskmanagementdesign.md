@@ -72,7 +72,7 @@ The details of the REST APIs for Disk Provisioning feature are as below -
 
 * Description: a collection of storage devices that are attached to a specific host.
 
-* Endpoint: `/api/hosts/{host:id}/storagedevices`
+* Endpoint: `/api/hosts/{host:id}/storagedevices`
 
 * Supported actions:
     1.  **GET** returns a list of storage devices attached to the host
@@ -81,25 +81,25 @@ The details of the REST APIs for Disk Provisioning feature are as below -
 
 ```xml
 <storage_devices>
- <storage_device>
-   <id>Storage device guid</id>
-   <host>Host ID</host>
-   <name>Device Name</name>
-   <device_uuid>Device UUID</device_uuid>
-   <file_system_uuid>Device UUID</file_system_uuid>
-   <model>Device Model information</model>
-   <device_path>device_path</device_path>
-   <parent>Parent Device</parent>
-   <mount_point>mount point if mounted</mount_point>
-   <file_system_type>File System type</file_system_type>
-   <is_free>Is Device is Free for use<is_free>
- </storage_device>
+ <storage_device>
+   <id>Storage device guid</id>
+   <host>Host ID</host>
+   <name>Device Name</name>
+   <device_uuid>Device UUID</device_uuid>
+   <file_system_uuid>Device UUID</file_system_uuid>
+   <model>Device Model information</model>
+   <device_path>device_path</device_path>
+   <parent>Parent Device</parent>
+   <mount_point>mount point if mounted</mount_point>
+   <file_system_type>File System type</file_system_type>
+   <is_free>Is Device is Free for use<is_free>
+ </storage_device>
 </storage_devices>
 ```
 
 ### storagedevice resource under host
 
-* Endpoint: `/api/hosts/{host:id}/storagedevices/{storagedeviceuuid}`
+* Endpoint: `/api/hosts/{host:id}/storagedevices/{storagedeviceuuid}`
 
 *   Supported actions:
     1.  **GET** returns the details about the given storage device by uuid
@@ -108,17 +108,17 @@ The details of the REST APIs for Disk Provisioning feature are as below -
 
 ```xml
 <storage_device>
-   <id>Storage device guid</id>
-   <host>Host ID</host>
-   <name>Device Name</name>
-   <device_uuid>Device UUID</device_uuid>
-   <file_system_uuid>Device UUID</file_system_uuid>
-   <model>Device Model information</model>
-   <device_path>device_path</device_path>
-   <parent>Parent Device</parent>
-   <mount_point>mount point if mounted</mount_point>
-   <file_system_type>File System type</file_system_type>
-   <is_free>Is Device is Free for use<is_free>
+   <id>Storage device guid</id>
+   <host>Host ID</host>
+   <name>Device Name</name>
+   <device_uuid>Device UUID</device_uuid>
+   <file_system_uuid>Device UUID</file_system_uuid>
+   <model>Device Model information</model>
+   <device_path>device_path</device_path>
+   <parent>Parent Device</parent>
+   <mount_point>mount point if mounted</mount_point>
+   <file_system_type>File System type</file_system_type>
+   <is_free>Is Device is Free for use<is_free>
 </storage_device>
 ```
 
@@ -126,7 +126,7 @@ The details of the REST APIs for Disk Provisioning feature are as below -
 
 * Description: an action to create gluster brick
 
-* Endpoint: `/api/hosts/{host:id}/createbrick`
+* Endpoint: `/api/hosts/{host:id}/createbrick`
 
 * Supported actions:
     - **POST** - executes CreateBrick action on the host
@@ -134,21 +134,21 @@ The details of the REST APIs for Disk Provisioning feature are as below -
 * Input:
 
 ```xml
- <action>
-     <name> Brick Name </name>
-     <storage_devices>
-         <storage_device>
-            <id>Device Id </id>
-         </storage_device>
-    </storage_devices>
- </action>
+ <action>
+     <name> Brick Name </name>
+     <storage_devices>
+         <storage_device>
+            <id>Device Id </id>
+         </storage_device>
+    </storage_devices>
+ </action>
 ```
 
 ### Extend Gluster Brick of the Host resource
 
 * Description: An action to extand the given gluster brick
 
-* Endpoint: `/api/hosts/{host:id}/storagedevices/{storagedeviceuuid}/extendbrick`
+* Endpoint: `/api/hosts/{host:id}/storagedevices/{storagedeviceuuid}/extendbrick`
 
 *   Supported actions:
     -   **POST** - executes ExtendBrick action on the given storage device. It extends the give LV with the specified storage devices.
@@ -157,11 +157,11 @@ The details of the REST APIs for Disk Provisioning feature are as below -
 
 ```xml
 <action>
-    <storage_devices>
-        <storage_device>
-           <id> Device Id </id>
-        </storage_device>
-   </storage_devices>
+    <storage_devices>
+        <storage_device>
+           <id> Device Id </id>
+        </storage_device>
+   </storage_devices>
 </action>
 ```
 

@@ -31,9 +31,9 @@ Email: emesika@redhat.com
 Add a class PmHealtCheckManager to handle the scheduled check
 This class will
 
-        Read the related configuration values(see Configuration) and if feature is enabled reads the
-        PMHealtCheckIntervalInSec  configurationvariable.   
-        Create the Quartz job in it initialize() method which will be called from backend::initialize()
+        Read the related configuration values(see Configuration) and if feature is enabled reads the
+        PMHealtCheckIntervalInSec  configurationvariable.   
+        Create the Quartz job in it initialize() method which will be called from backend::initialize()
 
 ### CRUD
 
@@ -51,8 +51,8 @@ N/A
 
 The following configuration variabled will be added to vdc_options
 
-        PMHealthCheckEnabled (boolean, false by default) - Enable/Diable the Pm Health Check scheduled job
-        PMHealthCheckIntervalInSec (int, default 3600) - Determines the number of seconds for scheduling the PM Healt Check operation
+        PMHealthCheckEnabled (boolean, false by default) - Enable/Diable the Pm Health Check scheduled job
+        PMHealthCheckIntervalInSec (int, default 3600) - Determines the number of seconds for scheduling the PM Healt Check operation
 
 Those configuration value should be exposed to the engine-config tool.
 
@@ -60,15 +60,15 @@ Those configuration value should be exposed to the engine-config tool.
 
 The PmHealtCheckManager (if enabled) will create a Quartz job that runs each PmHealtCheckIntervalInSec and will do the following:
 
-        Search for all Hosts with defined and enabled power management 
-        For each Host
-            If the Host has just a Primary card, send a status command to this card, In case that this failed 
-            and Alert is generated, in case that it succeeded we check if there is an active alert for this host 
-            and remove it.
-            If the Host has Primary & Secondary cards 
-               For sequential devices, both are tested but only warning alerts are generated if one of those 
-               cards is OK and one fails
-               For concurrent devices both are tested and alert is generated no matter which card fails
+        Search for all Hosts with defined and enabled power management 
+        For each Host
+            If the Host has just a Primary card, send a status command to this card, In case that this failed 
+            and Alert is generated, in case that it succeeded we check if there is an active alert for this host 
+            and remove it.
+            If the Host has Primary & Secondary cards 
+               For sequential devices, both are tested but only warning alerts are generated if one of those 
+               cards is OK and one fails
+               For concurrent devices both are tested and alert is generated no matter which card fails
 
 ### API
 

@@ -145,20 +145,20 @@ It is not in used today and we see no reason to keep it around.
 
 Modify create_functions.sql:
 
-       Add support for Network to `*`fn_get_entity_parents`*` stored-procedure.
-       Add support for Network to `*`fn_get_entity_name`*` stored-procedure.
-       Remove VmInterface from `*`fn_get_entity_name`*` and `*`fn_get_entity_parents`*` stored-procedure.
+       Add support for Network to `*`fn_get_entity_parents`*` stored-procedure.
+       Add support for Network to `*`fn_get_entity_name`*` stored-procedure.
+       Remove VmInterface from `*`fn_get_entity_name`*` and `*`fn_get_entity_parents`*` stored-procedure.
 
 Add new view:
 
-       user_network_permissions_view
-       A join of users to networks which the user has a permission on, united with permissions a user have for the Data-Center.
+       user_network_permissions_view
+       A join of users to networks which the user has a permission on, united with permissions a user have for the Data-Center.
 
 #### Updated Queries
 
 The following queries will be modified to be filtered by the user:
 
-      GetAllNetworksByClusterIdQuery - when filter is set the query returns the networks that the User has permission on or attached to the User's VM.
+      GetAllNetworksByClusterIdQuery - when filter is set the query returns the networks that the User has permission on or attached to the User's VM.
 
 #### Upgrade DB
 

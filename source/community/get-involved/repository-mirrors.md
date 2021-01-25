@@ -12,7 +12,7 @@ Do you want to become a mirror? Do you have some bandwidth to spare?
 
 Drop us a line at [infa](mailto:infra-support@ovirt.org) and tell us about yourself! You just need to pass us a public ssh key, and once set up you'll be able to rsync from our site with the following command:
 
-       rsync -rltHvvP mirror@resources.ovirt.org:/var/www/html destination/dir
+       rsync -rltHvvP mirror@resources.ovirt.org:/var/www/html destination/dir
 
 After some validation we will add your site to this page and to the mirrorlist!
 

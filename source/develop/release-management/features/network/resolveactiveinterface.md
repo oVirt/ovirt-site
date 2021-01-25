@@ -87,8 +87,8 @@ Explain what will be done in case the feature won't be ready on time
 
 ## Release Notes
 
-      == Your feature heading ==
-      A descriptive text of your feature to be included in release notes
+      == Your feature heading ==
+      A descriptive text of your feature to be included in release notes
 
 ## Comments and Discussion
 

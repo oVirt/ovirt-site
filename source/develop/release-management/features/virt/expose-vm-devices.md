@@ -36,14 +36,14 @@ The idea of this feature is to allow users to see more information of devices,
 and prepare the ground for future work, like allowing setting device address and more.
 for every device we will show:
 
-      * icon per type
-      * Type: like USB, Controller, Disk...
-      * address
-      * boot order
-      * plugged
-      * readonly
-      * engine managed
-      * spec params
+      * icon per type
+      * Type: like USB, Controller, Disk...
+      * address
+      * boot order
+      * plugged
+      * readonly
+      * engine managed
+      * spec params
 
 ### UI
 

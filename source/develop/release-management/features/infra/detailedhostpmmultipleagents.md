@@ -58,9 +58,9 @@ Adding the following columns to vds_static:
 Views:
  vds (adding all pm_secondary\* fields)
 
-      vds_with_tags (adding all pm_secondary* fields)
-      dwh_host_configuration_history_view (adding only pm_secondary_ip)
-      dwh_host_configuration_full_check_view (adding only pm_secondary_ip)
+      vds_with_tags (adding all pm_secondary* fields)
+      dwh_host_configuration_history_view (adding only pm_secondary_ip)
+      dwh_host_configuration_full_check_view (adding only pm_secondary_ip)
 
 Stored Procedures:
  InsertVdsStatic
@@ -94,48 +94,48 @@ The REST API will be enhanced to include the multiple Agents definitions as foll
 Keep in mind that we should preserve the former syntax for backward compatibility and deprecate it in future
 For any case in which we found old flat PM definitions and other definitions inside the agents block, the setting in the agent block will take presence.
 
-` `<power_management type="rsa">
-`     `<enabled>`true`</enabled>
-           
+` `<power_management type="rsa">
+`     `<enabled>`true`</enabled>
+           
 
 <address>
 ip or fqdn
 
 </address>
-`     `<username>`user`</username>
-`     `<password>`password`</password>
-`      `<options><option value="" name="port"/><option value="false" name="secure"/></options>
-`      `<agents>
-`        `<agent type="rsa">
-                          
+`     `<username>`user`</username>
+`     `<password>`password`</password>
+`      `<options><option value="" name="port"/><option value="false" name="secure"/></options>
+`      `<agents>
+`        `<agent type="rsa">
+                          
 
 <address>
 ip or fqdn
 
 </address>
-                          `<username>`user`</username>` order="primary"
-`                    `<password>`password`</password>
-`                    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
-`                    `<concurrent>`false`</concurrent>
-`                    `<order>`1`</order>
-`        `</agent>
-`       `<agent type="ipmi">
-                          
+                          `<username>`user`</username>` order="primary"
+`                    `<password>`password`</password>
+`                    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
+`                    `<concurrent>`false`</concurrent>
+`                    `<order>`1`</order>
+`        `</agent>
+`       `<agent type="ipmi">
+                          
 
 <address>
 ip or fqdn
 
 </address>
-                          `<username>`user`</username>` order="primary"
-`                    `<password>`password`</password>
-`                    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
-`                    `<concurrent>`false`</concurrent>
-`                    `<order>`2`</order>
-`        `</agent>
-            ......
-`      `</agents>
-`   `</power_management>
-       
+                          `<username>`user`</username>` order="primary"
+`                    `<password>`password`</password>
+`                    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
+`                    `<concurrent>`false`</concurrent>
+`                    `<order>`2`</order>
+`        `</agent>
+            ......
+`      `</agents>
+`   `</power_management>
+       
 
 *concurrent* flag will be handled in the Host level
 Add custom mapping for these new power-management fields in HostMapper.java, for both REST-->Backend and Backend-->REST directions)
@@ -145,29 +145,29 @@ Add custom mapping for these new power-management fields in HostMapper.java, for
 **No Secondary Agent**
 If no Power Management is defined , the Stop/Start scenarios works without a change. For example, the Restart scenario is:
 
-       Send a Stop command 
-       Wait for status 'off' [1]    
-       Send a Start command
-       Wait for status 'on' [2]
+       Send a Stop command 
+       Wait for status 'off' [1]    
+       Send a Start command
+       Wait for status 'on' [2]
 
 If a secondary agent is defined
  **Sequential**:
  Send a Stop command to Primary agent
 
-       Wait for status 'off' [1]
-       If Stop failed 
-          Send a Stop command to Secondary agent and wait for status 'off'
-       Send a Start command to Primary agent
-       Wait for status 'on' [2]
-       If Start failed 
-          Send a Start command to Secondary agent and wait for status 'on'
+       Wait for status 'off' [1]
+       If Stop failed 
+          Send a Stop command to Secondary agent and wait for status 'off'
+       Send a Start command to Primary agent
+       Wait for status 'on' [2]
+       If Start failed 
+          Send a Start command to Secondary agent and wait for status 'on'
 
 **Concurrent**:
 
-       Send a Stop command to Primary and Secondary agents
-       Wait for status 'off' on both Primary and Secondary agents[1]
-       Send a Start command to Primary and Secondary agents
-       Wait for status 'on' on either  Primary or Secondary agent[2]
+       Send a Stop command to Primary and Secondary agents
+       Wait for status 'off' on both Primary and Secondary agents[1]
+       Send a Start command to Primary and Secondary agents
+       Wait for status 'on' on either  Primary or Secondary agent[2]
 
 [1] Controlled by FenceStopStatusDelayBetweenRetriesInSec,FenceStopStatusRetries configuration values
 [2] Controlled by FenceStartStatusDelayBetweenRetriesInSec,FenceStartStatusRetries configuration values

@@ -21,57 +21,57 @@ In the current implementation we have been executing child commands using Backen
 
 A few methods have been added to CommandBase, these methods will only be called from with in a command.
 
-        /**
-         * Checks to see if the command can be execute and sets a global flag
-         */
-         protected void checkCanDoAction()
+        /**
+         * Checks to see if the command can be execute and sets a global flag
+         */
+         protected void checkCanDoAction()
 
-       /**
-         * This method is called before executeAction and after checkCanDoAction
-         * to insert the async task place holders for the child commands.
-         */
-        protected void insertAsyncTaskPlaceHolders()
+       /**
+         * This method is called before executeAction and after checkCanDoAction
+         * to insert the async task place holders for the child commands.
+         */
+        protected void insertAsyncTaskPlaceHolders()
 
-        /**
-          * Commands can override this method to build a map of all child commands.
-          * Called from insertAsyncTaskPlaceHolders to build a list of all child
-          * commands and insert async task place holders for them
-          * @return
-          */
-         protected Map`<Guid, CommandBase<?>`> buildChildCommands()
+        /**
+          * Commands can override this method to build a map of all child commands.
+          * Called from insertAsyncTaskPlaceHolders to build a list of all child
+          * commands and insert async task place holders for them
+          * @return
+          */
+         protected Map`<Guid, CommandBase<?>`> buildChildCommands()
 
-         /**
-          * Called to construct the child command.
-          * @param actionType
-          * @param parameters
-          * @param runAsInternal
-          * @param context
-          * @return
-          */
-         protected CommandBase`<?>` constructCommand(VdcActionType actionType,
-                 VdcActionParametersBase parameters,
-                 boolean runAsInternal,
-                 CommandContext context)
+         /**
+          * Called to construct the child command.
+          * @param actionType
+          * @param parameters
+          * @param runAsInternal
+          * @param context
+          * @return
+          */
+         protected CommandBase`<?>` constructCommand(VdcActionType actionType,
+                 VdcActionParametersBase parameters,
+                 boolean runAsInternal,
+                 CommandContext context)
 
-         /**
-          * calls execute action the child command.
-          * @param command
-          * @param parameters
-          * @return
-          */
-         protected VdcReturnValueBase runCommand(CommandBase`<?>` command)
+         /**
+          * calls execute action the child command.
+          * @param command
+          * @param parameters
+          * @return
+          */
+         protected VdcReturnValueBase runCommand(CommandBase`<?>` command)
 
 #### Change in the way command is executed
 
 So to execute a command in the new framework we would use the following code.
 
-         command.checkCanDoAction();
-         command.insertAsyncTaskPlaceHolders();
-         returnValue = command.executeAction();
+         command.checkCanDoAction();
+         command.insertAsyncTaskPlaceHolders();
+         returnValue = command.executeAction();
 
 instead of just
 
-         returnValue = command.executeAction();
+         returnValue = command.executeAction();
 
 #### Modifications to Parent Commands
 
@@ -79,47 +79,47 @@ The CommandBase.insertAsyncTaskPlaceHolders method calls buildChildCommands to b
 
 A parent command that is modified to use the feature should over write method buildChildCommands to build a map of child commands. For example the AddVmTemplateCommand can override the buildChildCommands method to build a map of all CreateImageTemplateCommands for each DiskImage.
 
-         @Override
-         protected Map`<Guid, CommandBase<?>`> buildChildCommands() {
-             Guid vmSnapshotId = Guid.NewGuid();
-             for (DiskImage diskImage : mImages) {
-                 commandsMap.put(diskImage.getImageId(), constructCommand(
-                         VdcActionType.CreateImageTemplate,
-                         buildChildCommandParameters(diskImage, vmSnapshotId),
-                         true,
-                         ExecutionHandler.createDefaultContexForTasks(getExecutionContext())));
-             }
-             return commandsMap;
-         } 
+         @Override
+         protected Map`<Guid, CommandBase<?>`> buildChildCommands() {
+             Guid vmSnapshotId = Guid.NewGuid();
+             for (DiskImage diskImage : mImages) {
+                 commandsMap.put(diskImage.getImageId(), constructCommand(
+                         VdcActionType.CreateImageTemplate,
+                         buildChildCommandParameters(diskImage, vmSnapshotId),
+                         true,
+                         ExecutionHandler.createDefaultContexForTasks(getExecutionContext())));
+             }
+             return commandsMap;
+         } 
 
 and in the place where AddVmTemplateCommand was calling Back.runInternalAction the new code calls CommandBase.runCommand.
 
-         for (DiskImage diskImage : mImages) {
-                 // The return value of this action is the 'copyImage' task GUID:
-                 VdcReturnValueBase retValue = runCommand(commandsMap.get(diskImage.getImageId()));
-                 .......
-         }
+         for (DiskImage diskImage : mImages) {
+                 // The return value of this action is the 'copyImage' task GUID:
+                 VdcReturnValueBase retValue = runCommand(commandsMap.get(diskImage.getImageId()));
+                 .......
+         }
 
 #### Modifications to child Commands
 
 The child command that creates a task by calling CommandBase.createTask also needs to be modified. So in this case CreateImageTemplateCommand is modified to override the method insertAsyncTaskPlaceHolders. The method calls CommandBase.createAsyncTask to create a place holder in the db and return the task id associated with it.
 
-         private Guid taskId;
-         protected void insertAsyncTaskPlaceHolders() {
-                taskId = createAsyncTask(VdcActionType.AddVmTemplate,
-                                             VdcObjectType.Storage,
-                                             getParameters().getStorageDomainId(),
-                                             getParameters().getDestinationStorageDomainId());
-         }
+         private Guid taskId;
+         protected void insertAsyncTaskPlaceHolders() {
+                taskId = createAsyncTask(VdcActionType.AddVmTemplate,
+                                             VdcObjectType.Storage,
+                                             getParameters().getStorageDomainId(),
+                                             getParameters().getDestinationStorageDomainId());
+         }
 
 The task id is passed to the createTask when executeCommand is called so that the row in the database can be updated with the vdsm id when the task is submitted to vdsm
 
-                     createTask(taskId,
-                             vdsReturnValue.getCreationInfo(),
-                             VdcActionType.AddVmTemplate,
-                             VdcObjectType.Storage,
-                             getParameters().getStorageDomainId(),
-                             getParameters().getDestinationStorageDomainId());
+                     createTask(taskId,
+                             vdsReturnValue.getCreationInfo(),
+                             VdcActionType.AddVmTemplate,
+                             VdcObjectType.Storage,
+                             getParameters().getStorageDomainId(),
+                             getParameters().getDestinationStorageDomainId());
 
 #### Fail Commands Without Vdsm Id
 

@@ -54,8 +54,8 @@ When attaching the disk you will have to pass the the disk id and the snapshot i
 
 After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters:
 
-      Method = DELETE
-      URL indicates to the specific disk in the VM: http://SERVER:PORT/api/vms/GUID/diskattachments/GUID
+      Method = DELETE
+      URL indicates to the specific disk in the VM: http://SERVER:PORT/api/vms/GUID/diskattachments/GUID
 
 ## Example (Legacy oVirt 3.X API)
 Note: Since prior to version 4.0 the disks themselves are defined as bootable, if the new backup disk will be a boot disk and will have an OS installed on it then there can be one of the other use cases:
@@ -75,8 +75,8 @@ When creating a disk you will have to pass the the disk id and the snapshot id s
 
 After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters:
 
-      Method = DELETE
-      URL indicates to the specific disk in the VM: http://SERVER:PORT/api/vms/GUID/disks/GUID
+      Method = DELETE
+      URL indicates to the specific disk in the VM: http://SERVER:PORT/api/vms/GUID/disks/GUID
       Body=<action><detach>true</detach></action>
 
 

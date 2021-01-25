@@ -23,7 +23,7 @@ The external scheduler is a daemon and its purpose is for oVirt users to extend 
 
 *   Scheduler conf file (`/etc/ovirt/scheduler/scheduler.conf`), optional (defaults):
 ```
-      #listerning port=18781
+      #listerning port=18781
       #ssl=true
       #plugins_path=$PYTHONPATH/ovirt_scheduler/plugins
 ```
@@ -63,17 +63,17 @@ Sample of data returned by the discover function:
       <name>Memory</name>
       <Properties>
         <name>Heat</name>
-        <CustomProperties>server_ip=\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b;threshold={0-99}</CustomProperties>
-        <default_values>127.0.0.1;70</default_values>
+        <CustomProperties>server_ip=\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b;threshold={0-99}</CustomProperties>
+        <default_values>127.0.0.1;70</default_values>
       </Properties>
-   </Filter>
+   </Filter>
   </Filters>
   <CostFunctions>
     <CostFunction name="Memory"/>
   </CostFunctions>
-  <Balances>
-    <Balance name="Memory"/>
-  </Balances>
+  <Balances>
+    <Balance name="Memory"/>
+  </Balances>
 </PolicyUnits>
 {% endhighlight %}
 
@@ -81,9 +81,9 @@ note: name is the file name and customProperties and defaultValues are fetched f
 
 The engine will call this method during initialization to expose all plugins. It will compare its persistent data (policy unit table) with returned plugins/configurations, and handle changes:
 
-         * additional plugins: audit log.
-         * deleted plugins: need to make sure that the plugins isn't in use, if so disable the policy and audit log.
-         * edited plugins: save checksum?
+         * additional plugins: audit log.
+         * deleted plugins: need to make sure that the plugins isn't in use, if so disable the policy and audit log.
+         * edited plugins: save checksum?
 
 ### runFilters
 

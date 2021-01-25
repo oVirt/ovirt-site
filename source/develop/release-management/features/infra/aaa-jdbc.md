@@ -245,8 +245,8 @@ Following command updates setting PASSWORD_EXPIRATION_DAYS:
 
 To configure a new profile which uses aaa-jdbc extension please execute following steps:
 
-1.  ` Setup database for aaa-jdbc extension`
-    ` `
+1.  ` Setup database for aaa-jdbc extension`
+    ` `
     <div>
     Please replace DB_NAME, DB_USER and DB_PASSWORD with real values:
 
@@ -258,8 +258,8 @@ To configure a new profile which uses aaa-jdbc extension please execute followin
         __EOF__
         "
 
-2.  ` Configure PostgreSQL`
-    ` `
+2.  ` Configure PostgreSQL`
+    ` `
     <div>
     Please add following line into /var/lib/pgsql/data/pg_hba.conf (please replace DB_NAME and DB_USER with real values):
 
@@ -278,8 +278,8 @@ To configure a new profile which uses aaa-jdbc extension please execute followin
     After that please restart postgresql service.
 
     </div>
-3.  ` Populate database for aaa-jdbc extension`
-    ` `
+3.  ` Populate database for aaa-jdbc extension`
+    ` `
     <div>
     Please replace DB_HOST, DB_NAME, DB_USER and DB_PASSWORD with real values:
 
@@ -292,8 +292,8 @@ To configure a new profile which uses aaa-jdbc extension please execute followin
             -u DB_USER \
             -c apply
 
-4.  ` Setup AAA profile`
-    ` `
+4.  ` Setup AAA profile`
+    ` `
     <div>
     Select name of your profile (it will be visible to users during login) and copy example configuration files and rename according to your PROFILE (replace PROFILE with selected value):
 
@@ -310,8 +310,8 @@ To configure a new profile which uses aaa-jdbc extension please execute followin
 
     </div>
 5.  Restart ovirt-engine service and check /var/log/ovirt-engine/engine.log to see if extension is initialized successfully according to PROFILE.
-6.  ` Setup users and groups`
-    ` `
+6.  ` Setup users and groups`
+    ` `
     <div>
     Setup your users and groups using ovirt-aaa-jdbc-tool and specify database configuration using --db-config command line option:
 

@@ -88,11 +88,11 @@ The main thing is, come communicate with us if you have any questions, are inter
 * The Infra team generally follows the principle that if it didn't get discussed on the [mailing list](https://lists.ovirt.org/archives/list/infra@ovirt.org/) it didn't really happen.
 * This means all important or broad-reaching decisions are discussed and decided on the mailing list.
 * The team uses the same [collaborative decision process](https://blogs.apache.org/comdev/entry/how_apache_projects_use_consensus) that other oVirt teams use, with some lightweight elements added to move along minor votes.
-  * +1 is a vote in favor of a proposition 
-  * -1 is a vote against a proposition, must be accompanied with an explanation of the negative vote.
-  * +/-0 is an abstention
-  * 3 or more +1 votes are required for anything substantial, important, or far-reaching
-  * 0 or more votes will pass a minor proposition - "If no one objects, it passes."
+  * +1 is a vote in favor of a proposition 
+  * -1 is a vote against a proposition, must be accompanied with an explanation of the negative vote.
+  * +/-0 is an abstention
+  * 3 or more +1 votes are required for anything substantial, important, or far-reaching
+  * 0 or more votes will pass a minor proposition - "If no one objects, it passes."
 
 ## Our Architecture
 

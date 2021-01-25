@@ -57,36 +57,36 @@ No dependencies
 
 *   In shell:
 
-       # vdsm-tool register --engine-fqdn engine.localdomain
+       # vdsm-tool register --engine-fqdn engine.localdomain
 
 For more options:
 
-       #  vdsm-tool register --help
-       usage: vdsm-tool register [-h] [--node-fqdn NODE_FQDN] [--node-name NODE_NAME]
-                      --engine-fqdn ENGINE_FQDN
-                      [--engine-https-port ENGINE_HTTPS_PORT] [--ssh-user SSH_USER]
-                      [--ssh-port SSH_PORT] [--nocheck-fqdn CHECK_FQDN]
-                      [--fingerprint FINGERPRINT] [--vdsm-port VDSM_PORT]
-        Tool to register node to Engine
-        --engine-fqdn ENGINE_FQDN
-                             Engine FQDN (See also: --check-fqdn)
-         optional arguments:
-       -h, --help            show this help message and exit
-       --node-fqdn NODE_FQDN
-                             Define node FQDN or IP address. If not provided, will be used system host name
-       --node-name NODE_NAME
-                             Define node name. If not provided, will be used system short host name (the name before the first dot in the system host name)
-       --engine-https-port ENGINE_HTTPS_PORT
-                             Define engine https port. If not provided, will be used 443
-       --ssh-user SSH_USER   SSH username to establish the connection with Engine. If not provided, the user which is executing the script will catch and used
-       --ssh-port SSH_PORT   SSH port to establish the connection with Engine If not provided, the script will use the default SSH port 22
-       --nocheck-fqdn CHECK_FQDN
-                             Disable or Enable FQDN check for Engine CA, this option is enabled by default (Use: True or False)
-       --fingerprint FINGERPRINT
-                             Specify an existing fingerprint to be validated against Engine CA fingerprint
-       --vdsm-port VDSM_PORT
-                             Specify the listen port of VDSM If not provided, will be used the default 54321
-       Example of use:
+       #  vdsm-tool register --help
+       usage: vdsm-tool register [-h] [--node-fqdn NODE_FQDN] [--node-name NODE_NAME]
+                      --engine-fqdn ENGINE_FQDN
+                      [--engine-https-port ENGINE_HTTPS_PORT] [--ssh-user SSH_USER]
+                      [--ssh-port SSH_PORT] [--nocheck-fqdn CHECK_FQDN]
+                      [--fingerprint FINGERPRINT] [--vdsm-port VDSM_PORT]
+        Tool to register node to Engine
+        --engine-fqdn ENGINE_FQDN
+                             Engine FQDN (See also: --check-fqdn)
+         optional arguments:
+       -h, --help            show this help message and exit
+       --node-fqdn NODE_FQDN
+                             Define node FQDN or IP address. If not provided, will be used system host name
+       --node-name NODE_NAME
+                             Define node name. If not provided, will be used system short host name (the name before the first dot in the system host name)
+       --engine-https-port ENGINE_HTTPS_PORT
+                             Define engine https port. If not provided, will be used 443
+       --ssh-user SSH_USER   SSH username to establish the connection with Engine. If not provided, the user which is executing the script will catch and used
+       --ssh-port SSH_PORT   SSH port to establish the connection with Engine If not provided, the script will use the default SSH port 22
+       --nocheck-fqdn CHECK_FQDN
+                             Disable or Enable FQDN check for Engine CA, this option is enabled by default (Use: True or False)
+       --fingerprint FINGERPRINT
+                             Specify an existing fingerprint to be validated against Engine CA fingerprint
+       --vdsm-port VDSM_PORT
+                             Specify the listen port of VDSM If not provided, will be used the default 54321
+       Example of use:
 
 vdsm-tool register --engine-fqdn engine.mydomain
 
@@ -102,15 +102,15 @@ For autoinstall users can keep using the already know boot keys: management_serv
 
 Example for PXE or Grub for autoinstall of ovirt-node with **dhcp**:
 
-         firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain BOOTIF=ens3 hostname=node.localdomain
+         firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain BOOTIF=ens3 hostname=node.localdomain
 
 Example for PXE or Grub for autoinstall of ovirt-node with **static ip address**:
 
-         firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain BOOTIF=ens3 hostname=node.localdomain ip=192.168.122.125 netmask=255.255.255.0 gateway=192.168.122.1
+         firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain BOOTIF=ens3 hostname=node.localdomain ip=192.168.122.125 netmask=255.255.255.0 gateway=192.168.122.1
 
 Example for PXE or Grub for autoinstall specifying ovirt engine port (**Use for non default https port. The default engine https port is 443**)
 
-         firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain:7443 BOOTIF=ens3 hostname=node.localdomain
+         firstboot storage_init=/dev/sda adminpw=RHhwCLrQXB8zE management_server=engine.localdomain:7443 BOOTIF=ens3 hostname=node.localdomain
 
 ## AutoRegistration
 
@@ -120,7 +120,7 @@ The auto-registration is handled by /sbin/ovirt-node-plugin-vdsm-autoreg which d
 
 *   Autoinstall log:
 
-        /var/log/vdsm/register.log
+        /var/log/vdsm/register.log
 
 ## **Documentation / External references**
 

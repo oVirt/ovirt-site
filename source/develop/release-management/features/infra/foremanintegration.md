@@ -134,57 +134,57 @@ To allow testing the feature in "allinone" configuration, which means running fo
 
 *   Enable IP forwarding
 
-      Edit /etc/sysctl.conf and set "net.ipv4.ip_forward = 1"
+      Edit /etc/sysctl.conf and set "net.ipv4.ip_forward = 1"
 
 *   Create virt network
 
-      save the following to file called foreman_net.xml:
-` `<network>
-`  `<name>`foreman`</name>
-`   `<uuid>`3a80901c-a020-4e7a-bd3b-770b29844b03`</uuid>
-`   `<forward mode='nat'>
-`   `<nat>
-`    `<port start='1024' end='65535'/>
-`   `</nat>
-`   `</forward>
-`   `<bridge name='virbrforeman' stp='off' delay='0'/>
-`    `<mac address='52:54:00:38:f9:08'/>
-`    `<ip address='192.168.223.1' netmask='255.255.255.0'></ip>
-` `</network>
+      save the following to file called foreman_net.xml:
+` `<network>
+`  `<name>`foreman`</name>
+`   `<uuid>`3a80901c-a020-4e7a-bd3b-770b29844b03`</uuid>
+`   `<forward mode='nat'>
+`   `<nat>
+`    `<port start='1024' end='65535'/>
+`   `</nat>
+`   `</forward>
+`   `<bridge name='virbrforeman' stp='off' delay='0'/>
+`    `<mac address='52:54:00:38:f9:08'/>
+`    `<ip address='192.168.223.1' netmask='255.255.255.0'></ip>
+` `</network>
 
 *   Set the network to virsh
 
-      # virsh - vdsm@ovirt:shibboleth
-      # net-define /path/to/foreman_net.xml
-      # net-autostart foreman
-      # net-start foreman 
-      With "ip -4 a" you should see that virbrforeman has the right ip
+      # virsh - vdsm@ovirt:shibboleth
+      # net-define /path/to/foreman_net.xml
+      # net-autostart foreman
+      # net-start foreman 
+      With "ip -4 a" you should see that virbrforeman has the right ip
 
 *   Config engine
 
-      #engine-config -s CustomDeviceProperties='{type=interface;prop={extnet=^[a-zA-Z0-9_ ---]+$}}'
-      #engine-config -g CustomDeviceProperties
-      ( You can read about it under vdsm_hooks/*extnet*/README )
+      #engine-config -s CustomDeviceProperties='{type=interface;prop={extnet=^[a-zA-Z0-9_ ---]+$}}'
+      #engine-config -g CustomDeviceProperties
+      ( You can read about it under vdsm_hooks/*extnet*/README )
 
 *   Install the vdsm-hook-extnet rpm on host
 *   Add the host to engine if its not already there
 *   Create route rule on host
 
-       ip route add 192.168.223.0/24 scope link dev virbrforeman table 170066347
-      (The number of table depends on your dhcp assigned address. You can check for yours by:  "ip rule show")
+       ip route add 192.168.223.0/24 scope link dev virbrforeman table 170066347
+      (The number of table depends on your dhcp assigned address. You can check for yours by:  "ip rule show")
 
 *   Configure oVirt
 
-      Go to the Networks tab
-      click on "ovirtmgmt"
-      then on the "vNIC Profiles" subtab
-      New -> name: foreman_libvirt_net ->  in "please select a key" select extnet and put "foreman" as value
+      Go to the Networks tab
+      click on "ovirtmgmt"
+      then on the "vNIC Profiles" subtab
+      New -> name: foreman_libvirt_net ->  in "please select a key" select extnet and put "foreman" as value
 
 *   Set foreman Vm network by running
 
-      ip addr add dev eth0 192.168.223.2/24
-      ip link set dev eth0 up
-      ip route add dev eth0 default via 192.168.223.1
+      ip addr add dev eth0 192.168.223.2/24
+      ip link set dev eth0 up
+      ip route add dev eth0 default via 192.168.223.1
 
 ### Make Foreman Appliance
 
@@ -196,8 +196,8 @@ To allow testing the feature in "allinone" configuration, which means running fo
 *   Install on one machine Centos 6.5 (Don't create user foreman. Better to leave only root user)
 *   Set static IP address in this network
 
-      e.g for 192.168.100.0 subnet:
-      vi /etc/sysconfig/network-scripts/ifcfg-eth0 
+      e.g for 192.168.100.0 subnet:
+      vi /etc/sysconfig/network-scripts/ifcfg-eth0 
       DEVICE=eth0
       TYPE=Ethernet
       ONBOOT=yes
@@ -210,94 +210,94 @@ To allow testing the feature in "allinone" configuration, which means running fo
 *   Copy /etc/resolve.conf from the physical host that runs the VMs and set this host as the default gw
 *   Set EPEL Repo:
 
-`wget `[`http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`](http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm)
-      rpm -ivh epel-release-6-8.noarch.rpm
+`wget `[`http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`](http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm)
+      rpm -ivh epel-release-6-8.noarch.rpm
 
 *   Install foreman:
 
-`yum -y install `[`http://yum.theforeman.org/releases/1.6/el6/x86_64/foreman-release.rpm`](http://yum.theforeman.org/releases/1.6/el6/x86_64/foreman-release.rpm)
-      yum -y install foreman-installer
-      foreman-installer -i (enable foreman_compute_ovirt and foreman_plugin_discovery - you can always re-run it. so don't worry about mistakes)
-      (better not to install - puppetdb_foreman to avoid Bug `[`http://projects.theforeman.org/issues/3570`](http://projects.theforeman.org/issues/3570)`)
-      At the end you should see:
-      Installing   Done   [100%] [.........................................................................................]
-       Success!
-` * Foreman is running at https://localhost.localdomain`
-           Initial credentials are admin / NUrbTvc6Vkv6XNxa
-` * Foreman Proxy is running at https://localhost.localdomain:8443`
-       * Puppetmaster is running at port 8140
-       The full log is at /var/log/foreman-installer/foreman-installer.log
+`yum -y install `[`http://yum.theforeman.org/releases/1.6/el6/x86_64/foreman-release.rpm`](http://yum.theforeman.org/releases/1.6/el6/x86_64/foreman-release.rpm)
+      yum -y install foreman-installer
+      foreman-installer -i (enable foreman_compute_ovirt and foreman_plugin_discovery - you can always re-run it. so don't worry about mistakes)
+      (better not to install - puppetdb_foreman to avoid Bug `[`http://projects.theforeman.org/issues/3570`](http://projects.theforeman.org/issues/3570)`)
+      At the end you should see:
+      Installing   Done   [100%] [.........................................................................................]
+       Success!
+` * Foreman is running at https://localhost.localdomain`
+           Initial credentials are admin / NUrbTvc6Vkv6XNxa
+` * Foreman Proxy is running at https://localhost.localdomain:8443`
+       * Puppetmaster is running at port 8140
+       The full log is at /var/log/foreman-installer/foreman-installer.log
 
-      In case something failed follow the errors and try again. Don't move on with the instructions.
+      In case something failed follow the errors and try again. Don't move on with the instructions.
 
 *   Stop the iptables on your foreman machine
 
-      iptables -F
+      iptables -F
 
 *   Go to foreman web interface and change admin password
 *   In the WebUI: Go to infrastructure -> provisioning setup -> follow the guide and configure and dns and dhcp by the foreman-installer command that the foreman suggested (see [1])
 *   Run the installer with the desired configuration
 *   Install the ovirt provision plugin
 
-      yum -y install ruby193-rubygem-ovirt_provision_plugin
+      yum -y install ruby193-rubygem-ovirt_provision_plugin
 
 *   Install the discovery images
 
-      foreman-installer --foreman-plugin-discovery-install-images=true
+      foreman-installer --foreman-plugin-discovery-install-images=true
 
 *   Go to the ui again ->Hosts->Provisioning Templates-> find PXELinux global default and add there in the end:
 
-        LABEL discovery
-        MENU LABEL Foreman Discovery 
-        MENU DEFAULT
-        KERNEL boot/foreman-discovery-image-latest.el6.iso-vmlinuz
-        APPEND rootflags=loop initrd=boot/foreman-discovery-image-latest.el6.iso-img  root=live:/foreman.iso
-                          rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M
-                          elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 
-                          nomodeset selinux=0 stateless foreman.url=`[`https://192.168.100.2`](https://192.168.100.2)` <-- here put the foreman's ip
-        IPAPPEND 2
+        LABEL discovery
+        MENU LABEL Foreman Discovery 
+        MENU DEFAULT
+        KERNEL boot/foreman-discovery-image-latest.el6.iso-vmlinuz
+        APPEND rootflags=loop initrd=boot/foreman-discovery-image-latest.el6.iso-img  root=live:/foreman.iso
+                          rootfstype=auto ro rd.live.image rd.live.check rd.lvm=0 rootflags=ro crashkernel=128M
+                          elevator=deadline max_loop=256 rd.luks=0 rd.md=0 rd.dm=0 
+                          nomodeset selinux=0 stateless foreman.url=`[`https://192.168.100.2`](https://192.168.100.2)` <-- here put the foreman's ip
+        IPAPPEND 2
 
-       Change also - ONTIMEOUT discovery
+       Change also - ONTIMEOUT discovery
 
 *   Go back to Host->Provisioning Templates and click on "Build PXE defaults"
 *   Create puppet module for the engine's ssh pk
 
-      Go to Foreman's appliance and create a folder under /etc/puppet/modules with the follow directories 
-      (the directories' names are important. otherwise puppet doesn't recognize the classes):
+      Go to Foreman's appliance and create a folder under /etc/puppet/modules with the follow directories 
+      (the directories' names are important. otherwise puppet doesn't recognize the classes):
 
-      Directory "files" -> under it put the "authorized_keys" file filled with the engine's pk and set the file with execute permission
-        e.g: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvNAlTKk/L2I+uyzeqKPErywGgFuQ0GQVf4HT4ir64Wi41SDwtt0edVQ8PwAeyY2jhbwGy0EzPgg0z/SVFIay5uEDSS8ObPICpTNpVlLp5618DKlCnOo3AwYMqbSBsPw6mKVnTvGjdw3lbBey/mEWrx5w7QHJw6FqwDyQ4big12yOECigGr1NYZWzsdVgDzI5oG3fbYHj/tfdDYfeWixNVZG4a0wBONjKJewr8hApMa8BkGJi/gkQ9XWjfx/RClHXWwgR1YMEUG0oBxWf394tueytheAxhYyujq7TOfgwC1cCa8EYUJxEbNuCjL25b1WnC+hp66/O8TYRTpWBFs9Y/ ovirt-engine
+      Directory "files" -> under it put the "authorized_keys" file filled with the engine's pk and set the file with execute permission
+        e.g: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvNAlTKk/L2I+uyzeqKPErywGgFuQ0GQVf4HT4ir64Wi41SDwtt0edVQ8PwAeyY2jhbwGy0EzPgg0z/SVFIay5uEDSS8ObPICpTNpVlLp5618DKlCnOo3AwYMqbSBsPw6mKVnTvGjdw3lbBey/mEWrx5w7QHJw6FqwDyQ4big12yOECigGr1NYZWzsdVgDzI5oG3fbYHj/tfdDYfeWixNVZG4a0wBONjKJewr8hApMa8BkGJi/gkQ9XWjfx/RClHXWwgR1YMEUG0oBxWf394tueytheAxhYyujq7TOfgwC1cCa8EYUJxEbNuCjL25b1WnC+hp66/O8TYRTpWBFs9Y/ ovirt-engine
 
-      Directory "lib" -> empty dir (there are puppet plugins which look for the lib directory, so better to have it if you installed one)
+      Directory "lib" -> empty dir (there are puppet plugins which look for the lib directory, so better to have it if you installed one)
 
-      Directory "manifests" -> init.pp and site.pp
-        init.pp:
-      class ovirtpk {
-           # create a directory                                                    
-           file { "/root/.ssh":
-                   ensure => "directory",
-                   mode  => '0700',
-                   owner => 'root',
-                   group => 'root',
-                   before => File['/root/.ssh/authorized_keys'],
-           }
-           file { "/root/.ssh/authorized_keys":
-                   path => '/root/.ssh/authorized_keys',
-                   ensure => file,
-                   mode  => '0600',
-                   owner => 'root',
-                   group => 'root',
-                   source => "puppet:///modules/ovirtpk/authorized_keys",
-           }
+      Directory "manifests" -> init.pp and site.pp
+        init.pp:
+      class ovirtpk {
+           # create a directory                                                    
+           file { "/root/.ssh":
+                   ensure => "directory",
+                   mode  => '0700',
+                   owner => 'root',
+                   group => 'root',
+                   before => File['/root/.ssh/authorized_keys'],
+           }
+           file { "/root/.ssh/authorized_keys":
+                   path => '/root/.ssh/authorized_keys',
+                   ensure => file,
+                   mode  => '0600',
+                   owner => 'root',
+                   group => 'root',
+                   source => "puppet:///modules/ovirtpk/authorized_keys",
+           }
       }
-        site.pp:
-      node default {
-             include ovirtpk
+        site.pp:
+      node default {
+             include ovirtpk
       }
 
-      Directory "tests" -> init.pp
-        init.pp: 
-      class { 'ovirtpk': }
+      Directory "tests" -> init.pp
+        init.pp: 
+      class { 'ovirtpk': }
 
 *   Run "puppet apply /etc/puppet/modules/ovirtpk/manifests/site.pp" to verify that all set as needed. and "puppet agent --test"
 *   In Foreman's UI: Go to Configure->Pupppet Classes-> click on "Import from [your-hostname]"

@@ -18,9 +18,9 @@ The main building block of authorization. Permissions are stored in `permissions
 
 Permission is composed of the target Object (`object_type_id`, `object_id`), User (`ad_element_id`), and Role (`role_id`).
 
-            Permission
-           /     |     \
-        Object  User   Role
+            Permission
+           /     |     \
+        Object  User   Role
 
 That means that the user has right to act in that particular role in relation to that particular object (for example, he has right to act as `UserVmManager` for a particular VM).
 
@@ -66,29 +66,29 @@ User having at least one permission that contains ADMIN role. Only super user ca
 
 &nbsp;
 
-       Data Center
-        |
-        +--- Cluster
-        |        |
-        |        +--- Host
-        |        |
-        |        +--- VM
-        |        |     |
-        |        |     +--- Disk
-        |        |
-        |        +--- VM Pool
-        |        |
-        |        +--- Gluster Volume
-        |
-        +--- Storage Domain
-        |        |
-        |        +--- Disk
-        |
-        +--- Quota
-        |
-        +--- Template
-        |
-        +--- Network
+       Data Center
+        |
+        +--- Cluster
+        |        |
+        |        +--- Host
+        |        |
+        |        +--- VM
+        |        |     |
+        |        |     +--- Disk
+        |        |
+        |        +--- VM Pool
+        |        |
+        |        +--- Gluster Volume
+        |
+        +--- Storage Domain
+        |        |
+        |        +--- Disk
+        |
+        +--- Quota
+        |
+        +--- Template
+        |
+        +--- Network
 
 *   Special object ID `Guid.SYSTEM` is root of all hierarchies and used to give global permissions.
 *   The hierarchy is defined in the DB, specifically in `fn_get_entity_parents` DB function.

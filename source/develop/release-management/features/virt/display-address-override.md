@@ -59,24 +59,24 @@ To help the administrator to avoid the situation that some hosts in the cluster 
 Example of creating a host with display address overridden:
 
       <host>
-          <name>hostX</name>
-          <address>som.address</address>
-          <root_password>somePassword</root_password>
-         <display>
-             <address>someDisplayAddress</address>
-         </display>
+          <name>hostX</name>
+          <address>som.address</address>
+          <root_password>somePassword</root_password>
+         <display>
+             <address>someDisplayAddress</address>
+         </display>
       </host>
-       
+       
 
 If the display address has been overridden, the example of how to switch it back to the default:
 
-       
+       
       <host>
       <display>
       <address/>
       </display>
       </host>
-       
+       
 
 ## Documentation / External references
 

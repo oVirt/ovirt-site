@@ -55,14 +55,14 @@ If this limitation is removed we need to validate the MTU for the non-vlan netwo
 
 mtu is a new optional parameter when creating a logical network. Not sending it defaults to 0 which api-wise means "use default value"
 
-Endpoint: **POST** `/api/networks/`
+Endpoint: **POST** `/api/networks/`
 
 ```xml
 <action>
-  <network>
-    <name>....</name>
-    <mtu>9000</mtu>
-  </network>
+  <network>
+    <name>....</name>
+    <mtu>9000</mtu>
+  </network>
 </action>
 ```
 
@@ -71,32 +71,32 @@ Endpoint: **POST** `/api/networks/`
 *   The mtu on the bare interface is always the highest common between all pseudo-interfaces (vlan, bridge) on top of it
 *   single network bridged mtu 1500
 
-      eth0  mtu=1500
-      br0  
-       |
-      eth0 mtu=1500
+      eth0  mtu=1500
+      br0  
+       |
+      eth0 mtu=1500
 
 *   vlaned bridged mtu 1500 and vlaned non-bridged mtu 9000
 
-      eth0 mtu=9000
-      br0  mtu=1500
-       |
-      eth0.300 mtu=1500  
-      eth0.500 mtu=9000
+      eth0 mtu=9000
+      br0  mtu=1500
+       |
+      eth0.300 mtu=1500  
+      eth0.500 mtu=9000
 
 ### Messages
 
 *   Audit log
 
-      VDS_SET_NONOPERATIONAL_NETWORK_MTU_DIFFER(605, HOUR)
+      VDS_SET_NONOPERATIONAL_NETWORK_MTU_DIFFER(605, HOUR)
 
 *   AuditLogMessages.properies
 
-      VDS_SET_NONOPERATIONAL_NETWORK_MTU_DIFFER=MTU on network ${NetworkName} is ${VDS_MTU} and expected to be ${CLUSTER_MTU}
+      VDS_SET_NONOPERATIONAL_NETWORK_MTU_DIFFER=MTU on network ${NetworkName} is ${VDS_MTU} and expected to be ${CLUSTER_MTU}
 
 *   Enums.properties
 
-      AuditLogType___VDS_SET_NONOPERATIONAL_NETWORK_MTU_DIFFER=The MTU value of the Host network differs from Cluster
+      AuditLogType___VDS_SET_NONOPERATIONAL_NETWORK_MTU_DIFFER=The MTU value of the Host network differs from Cluster
 
 *   Enums.java
 

@@ -50,8 +50,8 @@ Test plan still to be created
 ## Release Notes
 
 ```
-# Self Hosted Engine Gluster Support
+# Self Hosted Engine Gluster Support
 
-Hosted Engine has now added support for [Hyper Converged Gluster storage](/develop/release-management/features/sla/self-hosted-engine-hyper-converged-gluster-support.html)
+Hosted Engine has now added support for [Hyper Converged Gluster storage](/develop/release-management/features/sla/self-hosted-engine-hyper-converged-gluster-support.html)
 
 

@@ -9,7 +9,7 @@ The promisc vdsm hook provides the ability to mirror/redirect other VMs network 
 
 The hook is getting network (bridge) name and mode:
 
-      promisc=blue:mirror,red:redirect 
+      promisc=blue:mirror,red:redirect 
 
 and sets the current running VM in promiscuous mode, ie: mirror all blue traffic to current VM
 
@@ -31,18 +31,18 @@ vnet0 = security vm, running IPS/IDS vnet1 = the vm which we want to monitor its
 
 add filter:
 
-      $ ifconfig blue promisc
-      $ tc qdisc add dev vnet1 ingress
-      $ tc filter add dev vnet1 parent ffff: protocol ip u32 match u8 0 0 action mirred egress redirect dev vnet0
-      $ tc qdisc replace dev vnet1 parent root prio
-      ` $ id=`tc qdisc show dev vnet1 | grep prio | awk '{print $3}'` `
-      $ tc filter add dev vnet1 parent $id protocol ip u32 match u8 0 0 action mirred egress redirect dev vnet0
+      $ ifconfig blue promisc
+      $ tc qdisc add dev vnet1 ingress
+      $ tc filter add dev vnet1 parent ffff: protocol ip u32 match u8 0 0 action mirred egress redirect dev vnet0
+      $ tc qdisc replace dev vnet1 parent root prio
+      ` $ id=`tc qdisc show dev vnet1 | grep prio | awk '{print $3}'` `
+      $ tc filter add dev vnet1 parent $id protocol ip u32 match u8 0 0 action mirred egress redirect dev vnet0
 
 remove filter:
 
-      $ tc qdisc del dev vnet1 root
-      $ tc qdisc del dev vnet1 ingress
-      $ ifconfig blue -promisc
+      $ tc qdisc del dev vnet1 root
+      $ tc qdisc del dev vnet1 ingress
+      $ ifconfig blue -promisc
 
 ## in-line (redirect) mode with ebtables sample:
 
@@ -53,13 +53,13 @@ need to change the mac address of the packets from monitored interface to the mo
 
 set the bridge in promisc mode
 
-      $ ifconfig `<netwok name>` promisc
+      $ ifconfig `<netwok name>` promisc
 
 traffic to the monitoring machine
 
-      $ ebtables -t nat -A PREROUTING -d 00:1a:4a:16:01:51 -i eth0 -j dnat --to-destination 00:1a:4a:16:01:11
+      $ ebtables -t nat -A PREROUTING -d 00:1a:4a:16:01:51 -i eth0 -j dnat --to-destination 00:1a:4a:16:01:11
 
 traffic from the monitoring machine
 
-      $ ebtables -t nat -A PREROUTING -s 00:1a:4a:16:01:51 -i vnet0 -j dnat --to-destination 00:1a:4a:16:01:11
+      $ ebtables -t nat -A PREROUTING -s 00:1a:4a:16:01:51 -i vnet0 -j dnat --to-destination 00:1a:4a:16:01:11
 

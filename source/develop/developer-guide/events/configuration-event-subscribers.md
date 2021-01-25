@@ -36,21 +36,21 @@ A new 'Event Filter' section is now available in the notifier's configuration fi
 Lets take a look;
 
       #--------------#
-      # Event Filter #
+      # Event Filter #
       #--------------#
-      # Filter logic.
+      # Filter logic.
       #
-      # First match algorithm for include/exclude messages.
-      # Entry is message|*(subscriber|*)
-      # * = all messages/all subscribers.
-      # * as a subscriber should be used only for exclude.
+      # First match algorithm for include/exclude messages.
+      # Entry is message|*(subscriber|*)
+      # * = all messages/all subscribers.
+      # * as a subscriber should be used only for exclude.
       #
-      # examples:
-      # FILTER="include:VDC_START(smtp:mail@example.com) ${FILTER}"
-      # FILTER="exclude:VDC_START include:*(smtp:mail1@gmail.com) ${FILTER}"
+      # examples:
+      # FILTER="include:VDC_START(smtp:mail@example.com) ${FILTER}"
+      # FILTER="exclude:VDC_START include:*(smtp:mail1@gmail.com) ${FILTER}"
       #
-      # The final filter list contains FILTER  as well as 'event_subscriber' table records.
-      # database record are considered first.
+      # The final filter list contains FILTER  as well as 'event_subscriber' table records.
+      # database record are considered first.
       FILTER="exclude:*"
 
 ### DB v.s Configuration
@@ -62,7 +62,7 @@ There are a few things to note:
 *   While the UI only permits subscription to a subset of selected events the configuration enables subscription to them all.
 *   UI/DB subscribers subscribe to "event_up_name" events and get notifications on their matching "event_down_name" according to the 'event_map' table.
 
-       To allow better granularity configuration subscribers must register to both.
+       To allow better granularity configuration subscribers must register to both.
 
 *   There is a current limitation in the UI allowing only email subscription. this might change in the future.
 

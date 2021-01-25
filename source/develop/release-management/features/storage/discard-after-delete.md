@@ -110,8 +110,8 @@ The *Discard After Delete* checkbox can be found under the *"Advanced Parameters
 
 ##### Add a new block domain
 ```xml
-POST api/storagedomains
-Content-Type: application/xml
+POST api/storagedomains
+Content-Type: application/xml
 
 <storage_domain>
   <host id="123"/>
@@ -126,8 +126,8 @@ Content-Type: application/xml
 
 ##### Update an existing block domain
 ```xml
-POST api/storagedomains/<storage_domain_id>
-Content-Type: application/xml
+POST api/storagedomains/<storage_domain_id>
+Content-Type: application/xml
 
 <storage_domain>
   <discard_after_delete>true</discard_after_delete>

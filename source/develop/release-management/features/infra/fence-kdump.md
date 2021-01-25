@@ -71,13 +71,13 @@ Patches were sent to support fence_kdump configuration directly in */etc/kdump.c
 
 If option **fence_kdump_nodes** will contain at least one host to send notification to, for example:
 
-      fence_kdump_nodes 192.168.1.10 10.34.63.155
+      fence_kdump_nodes 192.168.1.10 10.34.63.155
 
 fence_kdump will be configured.
 
 If required, other *fence_kdump_send* arguments can be set using **fence_kdump_args** option, for example:
 
-      fence_kdump_args -p 7410 -f auto -i 5"
+      fence_kdump_args -p 7410 -f auto -i 5"
 
 Patches are managed using those RFEs:
 
@@ -205,13 +205,13 @@ Following config values are used:
 | Patches for Fedora 20                                                                 | Done, included in kexec-tools >= 2.0.4-27    |
 | Patches for RHEL 6.6                                                                  | Done, included in kexec-tools >= 2.0.0-273.1 |
 | Patches for RHEL 7.1                                                                  | Done, included in kexec-tools >= 2.0.4-32.1  |
-|                                                                                       |
+|                                                                                       |
 | vdsm                                                                                  |
 | Detect status of kdump support for host                                               | Done                                          |
-|                                                                                       |
+|                                                                                       |
 | ovirt-host-deploy                                                                     |
 | Create plugin to configure fence_kdump during host deploy                            | Done                                          |
-|                                                                                       |
+|                                                                                       |
 | engine                                                                                |
 | Display status of kdump configuration for host                                        | Done                                          |
 | Enable/disable kdump detection in Host Power Management configuration                 | Done                                          |
@@ -220,11 +220,11 @@ Following config values are used:
 | Add fence_kdump handling to fencing flow                                             | Done                                          |
 | Execute fence_kdump configuration during host deploy                                 | Done                                          |
 | Display error when host kdump detection is enabled, but kdump not configured for host | Done                                          |
-|                                                                                       |
+|                                                                                       |
 | engine-setup                                                                          |
 | Configure fence_kdump listener host and port during setup                            | Done                                          |
 | Add firewall rule for fence_kdump listener                                           | Done                                          |
-|                                                                                       |
+|                                                                                       |
 | ovirt-node                                                                            |
 | Enable kdump support in kernel                                                        | Done                                          |
 | Include kexec-tools package with fence_kdump configuration support                   | Done                                          |

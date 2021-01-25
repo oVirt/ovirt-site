@@ -7,30 +7,30 @@ authors: emesika
 
 Help
 
-       \h
-       \?
+       \h
+       \?
 
 Editor
 
-       \e 
+       \e 
 
 Format
 
-       \x 
+       \x 
 
 History
 
-       \set HISTFILE ~/.psql_history- :HOST - :DBNAME  (history file per host/db)
-       \set HISTSIZE 2000
-       CTRL + r
+       \set HISTFILE ~/.psql_history- :HOST - :DBNAME  (history file per host/db)
+       \set HISTSIZE 2000
+       CTRL + r
 
 Cost
 
-       \timing
+       \timing
 
 Run script
 
-       \i [script name]
+       \i [script name]
 
 # pgadminIII
 
@@ -44,7 +44,7 @@ ANALYZE collects statistics about the contents of tables in the database, and st
 
 With no parameter, ANALYZE examines every table in the current database. With a parameter, ANALYZE examines only that table. It is further possible to give a list of column names, in which case only the statistics for those columns are collected.
 
-       ANALYZE [ VERBOSE ] [ table [ ( column [, ...] ) ] ]
+       ANALYZE [ VERBOSE ] [ table [ ( column [, ...] ) ] ]
 
 ## Explain
 
@@ -54,13 +54,13 @@ The most critical part of the display is the estimated statement execution cost,
 
 The ANALYZE option causes the statement to be actually executed, not only planned. The total elapsed time expended within each plan node (in milliseconds) and total number of rows it actually returned are added to the display. This is useful for seeing whether the planner's estimates are close to reality.
 
-       EXPLAIN [ ( option [, ...] ) ] statement
-       where option can be one of:
-        ANALYZE [ boolean ]
-        VERBOSE [ boolean ]
-        COSTS [ boolean ]
-        BUFFERS [ boolean ]
-        FORMAT { TEXT | XML | JSON | YAML }
+       EXPLAIN [ ( option [, ...] ) ] statement
+       where option can be one of:
+        ANALYZE [ boolean ]
+        VERBOSE [ boolean ]
+        COSTS [ boolean ]
+        BUFFERS [ boolean ]
+        FORMAT { TEXT | XML | JSON | YAML }
 
 see also
 [Using EXPLAIN](http://www.postgresql.org/docs/9.0/static/using-explain.htm)

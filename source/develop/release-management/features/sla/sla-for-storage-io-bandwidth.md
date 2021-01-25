@@ -102,29 +102,29 @@ If a host find a vDisk is congested it will report related info to engine by get
 
 The algorithm is as follows
 
-       initialization:
-       vDisk[i].climit =  very big number (similar to unlimited)
+       initialization:
+       vDisk[i].climit =  very big number (similar to unlimited)
 
-       Each run:
-       vDiskTuneUp = []
-       vDiskCongested = `[](/)` * priorityCount  
-       for disk in vDisk:
-         if disk.throughput >= disk.climit * 90%:
-             vDiskTuneUp.append(vm)
-         if vm.throughput < vm.climit * 90% && vm.util > 90%:
-             vDiskCongested[vm.priority].append(vm) 
-       for diskPriority = 0 to priorityCount - 1:
-         if len(vDiskCongested[diskPriority]) == 0:
-             continue  # no disk is congested for this diskPriority
-         break  
-         else:
-             diskPriority = priorityCount
-       for disk in vDisk:
-         if disk.priority > diskPriority:
-             # decrease those whose priorities are lower
-             disk.climit = disk.throughput - (vm.disk - vm.blimit) * 10%
-         else if  disk in vDiskTuneUp:
-             disk.climit = disk.climit * 110%
+       Each run:
+       vDiskTuneUp = []
+       vDiskCongested = `[](/)` * priorityCount  
+       for disk in vDisk:
+         if disk.throughput >= disk.climit * 90%:
+             vDiskTuneUp.append(vm)
+         if vm.throughput < vm.climit * 90% && vm.util > 90%:
+             vDiskCongested[vm.priority].append(vm) 
+       for diskPriority = 0 to priorityCount - 1:
+         if len(vDiskCongested[diskPriority]) == 0:
+             continue  # no disk is congested for this diskPriority
+         break  
+         else:
+             diskPriority = priorityCount
+       for disk in vDisk:
+         if disk.priority > diskPriority:
+             # decrease those whose priorities are lower
+             disk.climit = disk.throughput - (vm.disk - vm.blimit) * 10%
+         else if  disk in vDiskTuneUp:
+             disk.climit = disk.climit * 110%
 
 #### Discussion
 

@@ -47,27 +47,27 @@ The domain, user and password that it used are the credentials used to login int
 
 #### Use diagram
 
-      vdsm control:            ovirt-engine --HTTPS(mutual authentication)--> vdsm
-      qemu control:            vdsm --API----> libvirt --usock--------------> qemu
-      guest agent:             vdsm --usock--> qemu    --virtual serial-----> guest agent
-      user: ovirt user portal: browser --HTTPS-----------> ovirt-engine
-      user: spice/novnc        native  --SSL(vnc/spice)-->  qemu
-      user  novnc/spice-html5: browser --SSL(webscoket)--> websocket proxy --TCP(vnc/spice)--> qemu
+      vdsm control:            ovirt-engine --HTTPS(mutual authentication)--> vdsm
+      qemu control:            vdsm --API----> libvirt --usock--------------> qemu
+      guest agent:             vdsm --usock--> qemu    --virtual serial-----> guest agent
+      user: ovirt user portal: browser --HTTPS-----------> ovirt-engine
+      user: spice/novnc        native  --SSL(vnc/spice)-->  qemu
+      user  novnc/spice-html5: browser --SSL(webscoket)--> websocket proxy --TCP(vnc/spice)--> qemu
 
 #### Auto login sequence
 
-           Desktop    ovirt-engine    vdsm    libvirt    qemu     guest-agent  Guest OS
-       1.     ---HTTPS---> login
-       2.     ---HTTPS---> Start Graphical
-       3.
-       4.                ---HTTPS(m.auth)-->---usock--->Ticket
-       5.                ---HTTPS(m.auth)-->---usock--->---serial-->user/password
-       6.                                                            -------------->
-       7.     <--HTTPS- Execute spice/vnc client with Ticket, host, port
-       8.     ---SSL----------------------------------->Ticket
-       9.                           <--usock--------- disconnect
-      10                            ---usock----------->---serial-->lock-screen
-      11.                           ---usock----------->Ticket
+           Desktop    ovirt-engine    vdsm    libvirt    qemu     guest-agent  Guest OS
+       1.     ---HTTPS---> login
+       2.     ---HTTPS---> Start Graphical
+       3.
+       4.                ---HTTPS(m.auth)-->---usock--->Ticket
+       5.                ---HTTPS(m.auth)-->---usock--->---serial-->user/password
+       6.                                                            -------------->
+       7.     <--HTTPS- Execute spice/vnc client with Ticket, host, port
+       8.     ---SSL----------------------------------->Ticket
+       9.                           <--usock--------- disconnect
+      10                            ---usock----------->---serial-->lock-screen
+      11.                           ---usock----------->Ticket
 
 1.  User login into ovirt-engine user portal.
 2.  User request graphical session to a VM within user portal.
@@ -204,17 +204,17 @@ The xxxagent can as well be vdagent, however per the tight and decoupling design
 
 ##### Sequence
 
-           Desktop    ovirt-engine    vdsm    libvirt    qemu     guest-agent  Guest OS
-       1.
-       2.     ---HTTPS---> login
-       3.     ---HTTPS---> Start Graphical
-       4.                ---HTTPS(m.auth)-->---usock--->---serial-->get SPN
-       5.
-       6.                ---HTTPS(m.auth)-->---usock--->Ticket
-       7.     <--HTTPS- Execute spice/vnc client with Ticket, host, port, SPN
-       8.     ---SSL----------------------------------->Ticket
-       9.     ---SSL----------------------------------->---serial-->SASL
-      10.                                                             ----------->
+           Desktop    ovirt-engine    vdsm    libvirt    qemu     guest-agent  Guest OS
+       1.
+       2.     ---HTTPS---> login
+       3.     ---HTTPS---> Start Graphical
+       4.                ---HTTPS(m.auth)-->---usock--->---serial-->get SPN
+       5.
+       6.                ---HTTPS(m.auth)-->---usock--->Ticket
+       7.     <--HTTPS- Execute spice/vnc client with Ticket, host, port, SPN
+       8.     ---SSL----------------------------------->Ticket
+       9.     ---SSL----------------------------------->---serial-->SASL
+      10.                                                             ----------->
 
 1.  User login into his desktop using kerberos.
 2.  User access ovirt-engine user portal.
@@ -258,9 +258,9 @@ A new component to be loaded by spice-client for the sso channel to interact wit
 
 At qemu side, define spice port for the interaction:
 
-      -device virtio-serial-pci
-      -device virtserialport,chardev=spicesso,name=spice.sso.0
-      -chardev spicevmc,id=myappl,name=spicesso
+      -device virtio-serial-pci
+      -device virtserialport,chardev=spicesso,name=spice.sso.0
+      -chardev spicevmc,id=myappl,name=spicesso
 
 At guest a serial device at /dev/virtio-ports/spice.sso.0 will be available for guest agent use.
 
@@ -286,22 +286,22 @@ At client configure spice client to execute spice-sso-client for spice.sso.0 spi
 
 ###### Sequence
 
-            Client                                       Guest
-       1.1    <---SIGNATURE---------------------------------
-       1.2.1  ---SIGNATURE--------------------------------->
-       1.2.2  <---SIGNATURE---------------------------------
-       2.     <--authenticate kerberos password-------------
-       3.     ---error 300, delay-------------------------->
-       4.     ---startTLS---------------------------------->
-       5.     <--error 400, unsupported ------------------->
-       6.     ---startSASL--------------------------------->
-       7.     <--ok-----------------------------------------
-       8.     <--------------SASL negotiation-------------->
-       9      <---SIGNATURE---------------------------------
-      10.1    <--authenticate kerberos password-------------
-      10.2    ---ok---------------------------------------->
-      10.3    ---credentials kerberos AAEK12DS==----------->
-      10.4    <--ok-----------------------------------------
+            Client                                       Guest
+       1.1    <---SIGNATURE---------------------------------
+       1.2.1  ---SIGNATURE--------------------------------->
+       1.2.2  <---SIGNATURE---------------------------------
+       2.     <--authenticate kerberos password-------------
+       3.     ---error 300, delay-------------------------->
+       4.     ---startTLS---------------------------------->
+       5.     <--error 400, unsupported ------------------->
+       6.     ---startSASL--------------------------------->
+       7.     <--ok-----------------------------------------
+       8.     <--------------SASL negotiation-------------->
+       9      <---SIGNATURE---------------------------------
+      10.1    <--authenticate kerberos password-------------
+      10.2    ---ok---------------------------------------->
+      10.3    ---credentials kerberos AAEK12DS==----------->
+      10.4    <--ok-----------------------------------------
 
 1.  Signature exchange
     1.  Guest detect new client connection and sends signature.

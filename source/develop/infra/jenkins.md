@@ -19,20 +19,20 @@ These are specs for servers to run Jenkins slaves for oVirt testing. One base co
 
 # Access
 
-* OS Level Access: Restricted to infra team only. (PKI)
-* Read UI Access: Anonymous read access is available to see all jobs/workspaces and build results. 
-* Login UI Access: availialble only to infra team, and by request to <infra@ovirt.org>.
+* OS Level Access: Restricted to infra team only. (PKI)
+* Read UI Access: Anonymous read access is available to see all jobs/workspaces and build results. 
+* Login UI Access: availialble only to infra team, and by request to <infra@ovirt.org>.
 
 Contact Infra team if you think you should have privileged access to the server.
 
 ## Troubleshooting OS level access:
 
 ```
-restorecon -R -v /home/user
-restorecon -R -v /home/user/.ssh
-chmod 700 /home/user/.ssh
-chmod 600 /home/user/.ssh/authorized_keys
-passwd user
+restorecon -R -v /home/user
+restorecon -R -v /home/user/.ssh
+chmod 700 /home/user/.ssh
+chmod 600 /home/user/.ssh/authorized_keys
+passwd user
 ```
 
 # Installation
@@ -85,24 +85,24 @@ If `/dev/xvdk` exists, follow these steps:
 1. Edit the storage device:
 
    ```
-   fdisk -cu /dev/xvdk
+   fdisk -cu /dev/xvdk
    ```
-2. Create a new swap partition (type 82) and save changes.
+2. Create a new swap partition (type 82) and save changes.
 
 3. Create swap:
 
    ```
-   mkswap /dev/xvdk1
+   mkswap /dev/xvdk1
    ```
 4. Activate swap:
 
    ```
-   swapon /dev/xvdk1
+   swapon /dev/xvdk1
    ```
 5. Add device to the filesystem list:
 
    ```
-   echo "/dev/xvdk1       none    swap    sw      0       0" >> /etc/fstab
+   echo "/dev/xvdk1       none    swap    sw      0       0" >> /etc/fstab
    ```
 
 If `/dev/xvdk` does not exist, [create a swapfile](http://www.cyberciti.biz/faq/linux-add-a-swap-file-howto/).
@@ -110,10 +110,10 @@ If `/dev/xvdk` does not exist, [create a swapfile](http://www.cyberciti.biz/faq/
 ## Add temporary space for workspace (deletes data after reboot)
 
 ```
-mkfs -t ext4 /dev/xvdj
-mkdir /ephemeral0
-echo "/dev/xvdj /ephemeral0 ext4 defaults 1 2" >> /etc/fstab
-mount /ephemeral0
+mkfs -t ext4 /dev/xvdj
+mkdir /ephemeral0
+echo "/dev/xvdj /ephemeral0 ext4 defaults 1 2" >> /etc/fstab
+mount /ephemeral0
 ```
 
 ## Expand default root partition
@@ -121,39 +121,39 @@ mount /ephemeral0
 Amazon VM comes with a default 5GB / partition. but it actually has 50GB you can use. run this command to expand it
 
 ```
-resize2fs /dev/xvde1
+resize2fs /dev/xvde1
 ```
 
 ## Change open files
 
 Jenkins slave might run out of openfiles. to change this you need to run:
 
-1. `ulimit -n 2048`
-2. Edit `/etc/sysctl.conf`:
+1. `ulimit -n 2048`
+2. Edit `/etc/sysctl.conf`:
 
    ```
-   fs.file-max = 2048
+   fs.file-max = 2048
    ```
    
-3. Edit `/etc/security/limits.conf`:
+3. Edit `/etc/security/limits.conf`:
 
    ```
-   jenkins  soft    nofiles    2048
-   jenkins  hard    nofiles    2048
+   jenkins  soft    nofiles    2048
+   jenkins  hard    nofiles    2048
    ```
 
 ## allows sudo access for jenkins user
 
 Jenkins user needs sudo access to be able to run tests from jenkins jobs, do this on each jenkins slave: edit /etc/suders:
 
-1. Comment out this line: 
+1. Comment out this line: 
 
    ```
-   Defaults    requiretty
+   Defaults    requiretty
    ```
 
-2. Add the line:
+2. Add the line:
 
    ```
-   jenkins ALL=(ALL)       NOPASSWD: ALL
+   jenkins ALL=(ALL)       NOPASSWD: ALL
    ```

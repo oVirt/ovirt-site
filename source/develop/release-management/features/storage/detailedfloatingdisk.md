@@ -85,7 +85,7 @@ Supporting a floating state for disks is essential to derived features (e.g. 'Sh
                 -   Detach - detaches the selected Disk from the selected VM.
     -   Each row is composed of the following columns:
 
-      VM, Name, Storage Domain, Description, Size, Actual Size, Allocation,Creation Date, Floating(Yes/No), Shared(Yes/No), Managed(Yes/No). 
+      VM, Name, Storage Domain, Description, Size, Actual Size, Allocation,Creation Date, Floating(Yes/No), Shared(Yes/No), Managed(Yes/No). 
 
 *   VMs -> Disks sub-tab
     -   Attach/Detach all shared and/or floating disks.
@@ -101,9 +101,9 @@ The Power User Portal should allow the following operations:
 
 *   Attach/Detach only floating disks to a VM (through disks sub-tab).
 
-       Note:
-        For now, premissions for disk entities will *not* be supported.
-        Consequently, availabilty of disks will be deterimined by their type (i.e. users can attach only floating disks).
+       Note:
+        For now, premissions for disk entities will *not* be supported.
+        Consequently, availabilty of disks will be deterimined by their type (i.e. users can attach only floating disks).
 
 #### Search
 

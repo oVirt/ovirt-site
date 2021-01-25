@@ -16,15 +16,15 @@ In principle, the user **vdsm**, with uid **36** and gid **36**, must have read 
 
 1. Change the ownership of the export directory, replacing *directory_name* with the name of the directory:
 
-        # chown 36:36 directory_name
+        # chown 36:36 directory_name
 
 2. Add the **rw** options on the export in **/etc/exports**.
 
-        # /exports/directory_name       *(rw)
+        # /exports/directory_name       *(rw)
 
 3. Set the permissions of the export directory, replacing *directory_name* with the name of the directory:
 
-        # chmod 0755 directory_name
+        # chmod 0755 directory_name
 
 4. The NFS server must actually be running.
 
@@ -69,9 +69,9 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
 *   **nfs-check.py** is available in the **vdsm/contrib/** directory of the vdsm source
 *   Run it on a node via **\1**
 
-       $ git clone "https://gerrit.ovirt.org/vdsm"
-       $ cd vdsm/contrib
-       $ python nfs-check.py myNFSServer:/nfsTarget
+       $ git clone "https://gerrit.ovirt.org/vdsm"
+       $ cd vdsm/contrib
+       $ python nfs-check.py myNFSServer:/nfsTarget
 
 ### Setting NFS Server
 
@@ -93,45 +93,45 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
 
 #### Fedora 26 or higher
 
-      #> groupadd kvm -g 36
-      #> useradd vdsm -u 36 -g kvm
+      #> groupadd kvm -g 36
+      #> useradd vdsm -u 36 -g kvm
 
-      # mkdir /storage
+      # mkdir /storage
 
-      # chmod 0755 /storage
-      # chown 36:36 /storage/
+      # chmod 0755 /storage
+      # chown 36:36 /storage/
 
-      # yum -y install nfs-utils
+      # yum -y install nfs-utils
 
-      # cat /etc/exports
-      /storage    *(rw)
+      # cat /etc/exports
+      /storage    *(rw)
 
-      # systemctl start rpcbind.service
-      # systemctl start nfs-server.service
+      # systemctl start rpcbind.service
+      # systemctl start nfs-server.service
       
       # Relevant only for NFS v3
-      # systemctl start nfs-lock.service 
+      # systemctl start nfs-lock.service 
       
 
-      # systemctl enable rpcbind.service
-      # systemctl enable nfs-server.service
+      # systemctl enable rpcbind.service
+      # systemctl enable nfs-server.service
        
 
       # Relevant only for NFS v3
-      # systemctl enable nfs-lock.service
+      # systemctl enable nfs-lock.service
 
 #### RHEL7 based distro
 
-      #> groupadd kvm -g 36
-      #> useradd vdsm -u 36 -g kvm
+      #> groupadd kvm -g 36
+      #> useradd vdsm -u 36 -g kvm
 
-      # mkdir /storage
+      # mkdir /storage
 
-      # chmod 0755 /storage
-      # chown 36:36 /storage/
+      # chmod 0755 /storage
+      # chown 36:36 /storage/
 
-      # cat /etc/exports
-      /storage    *(rw)
+      # cat /etc/exports
+      /storage    *(rw)
 
       # systemctl enable rpcbind
       # systemctl enable nfs-server
@@ -147,22 +147,22 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
 
 Normally the NFS server of any distro should work out of the box. Using older NFS servers or following different tuning advices throughout the internet may lead to a misconfiguration that gives lockups/freezes/stalls. Rule of thumb is to always ensure that the tcp window size parameters of your server are larger than the wsize and rsize mount option of your hypervisor hosts. E.g. using Fedora 19 as a hypervisor node these parameters are set to 1 MB.
 
-       # df
+       # df
       ...
-      10.10.30.253:/var/nas3/ovirt on /rhev/data-center/mnt/10.10.30.253:_var_nas3_ovirt type nfs (...,rsize=1048576,wsize=1048576,...)
+      10.10.30.253:/var/nas3/ovirt on /rhev/data-center/mnt/10.10.30.253:_var_nas3_ovirt type nfs (...,rsize=1048576,wsize=1048576,...)
       ...
-       
+       
 
 In this case it is a good idea to set the tcp window parameters on the NFS server to at least 4 MB in /etc/sysctl.conf.
 
-       # cat /etc/sysctl.conf
-      net.ipv4.tcp_mem=4096 65536 4194304
-      net.ipv4.tcp_rmem=4096 65536 4194304
-      net.ipv4.tcp_wmem=4096 65536 4194304
+       # cat /etc/sysctl.conf
+      net.ipv4.tcp_mem=4096 65536 4194304
+      net.ipv4.tcp_rmem=4096 65536 4194304
+      net.ipv4.tcp_wmem=4096 65536 4194304
       net.core.rmem_max=8388608
       net.core.wmem_max=8388608
-       
+       
 
 To activate these settings for the running server reload them with
 
-       # sysctl -p 
+       # sysctl -p 

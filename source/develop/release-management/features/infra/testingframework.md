@@ -30,12 +30,12 @@ Before each run the setup will be initialized from scratch.
 
 #### Creating Environment Flow
 
-      * Create templates (kick start) for each VM
-      * Build RPMs
-      * Setup resources
-      * Provision repositories
-      * Engine deploy
-      * Jenkins run noise tests based on engine's python sdk
+      * Create templates (kick start) for each VM
+      * Build RPMs
+      * Setup resources
+      * Provision repositories
+      * Engine deploy
+      * Jenkins run noise tests based on engine's python sdk
 
 ##### First phase
 
@@ -62,8 +62,8 @@ With these definitions, we can both create the images/network/virt domains and c
 
 ## Benefit to oVirt
 
-      * Upstream contribution for system testings.
-      * Easy cleanup and setup for new testing environment.
+      * Upstream contribution for system testings.
+      * Easy cleanup and setup for new testing environment.
 
 ## Steps To setup Testing Environment
 

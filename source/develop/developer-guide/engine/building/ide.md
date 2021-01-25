@@ -111,7 +111,7 @@ If the above didn't help try also removing
 
 *   In order to open the ovirt-engine project, do:
 
-       File-->Open Project
+       File-->Open Project
 
 Select the main pom.xml located at the root of the ovirt-engine directory.
 It should then open the project structure on the left pane (there is a package-based view as well similar to Eclipse. In order to switch to it, select in left upper corner of the left pane: "view as: Packages").
@@ -121,11 +121,11 @@ It also detects automatically the project is working with Git and its settings, 
 
 In order to use it in IntelliJ, please install the Eclipse Code Formatter plugin:
 
-       Settings --> IDE settings --> Plugins --> Available, search for Eclipse Code Formatter and right click "Install".
+       Settings --> IDE settings --> Plugins --> Available, search for Eclipse Code Formatter and right click "Install".
 
 *   After plugin installation, go to:
 
-       Settings --> Project Settings --> Eclipse Code Formatter
+       Settings --> Project Settings --> Eclipse Code Formatter
 
 1.  Import the code styling xml that is part of the ovirt-engine project: ovirt-engine/config/engine-code-format.xml
 2.  Make sure the Import order section is set on "Manual configuration" with the following order (that follows latest Eclipse defaults) : java;javax;org;com;
@@ -137,7 +137,7 @@ Example: ![](/images/wiki/IDEA-EclipseFormatter-Settings.png)
 
 *   In order to prevent collapsing explicit class imports to one liner (e.g. com.my.package.\*), do the following:
 
-       Settings -> Code Style -> Imports
+       Settings -> Code Style -> Imports
 
 Set "use single class import" as checked, and "class count" and "name count" settings to 99
 
@@ -149,11 +149,11 @@ Set "use single class import" as checked, and "class count" and "name count" set
 
 First, make sure that IntelliJ is pointed at the correct Maven configuration, especially if you have several different versions.
 
-       Settings--> Project Settings --> Maven
+       Settings--> Project Settings --> Maven
 
 In order to benefit from the Maven integration and build the project from within IntelliJ , go to :
 
-       Run --> Edit configurations --> Add new configuration (select Maven)
+       Run --> Edit configurations --> Add new configuration (select Maven)
 
 1.  Give it a meaningful name (such as "build including UI")
 2.  Fill the working directory (where the parent pom.xml is located)

@@ -40,18 +40,18 @@ The first two lines are optional, you can leave them blank or delete them, if on
 
       +1
       +1
-      This is a simple
-      multiline message
+      This is a simple
+      multiline message
 
 This output will generate a **CR** of **+1**, a **VR** of **+1**, and everything else will be interpreted as message. If for example the next hook would return:
 
       0
-      Second hook message
+      Second hook message
 
 Then the CR punctuation will be flatted to 0, the VR value will be kept intact and the message for this hook will be appended to the global message. And if the last one would be this:
 
-      Third hook 
-      ouput message
+      Third hook 
+      ouput message
 
 Then neither of the review values will be changed and only the output message will be appended.
 

@@ -30,10 +30,10 @@ to achieve that we need a config value, per version with a list of supported emu
 
 ### New Config value
 
-      ClusterEmulationModes(3.0,"rhel6.2.0, pc-1.0")
-      ClusterEmulationModes(3.1,"rhel6.3.0, pc-1.0")
-      ClusterEmulationModes(3.2,"rhel6.4.0, pc-1.0")
-      ClusterEmulationModes(3.3,"rhel6.4.0, pc-1.0")
+      ClusterEmulationModes(3.0,"rhel6.2.0, pc-1.0")
+      ClusterEmulationModes(3.1,"rhel6.3.0, pc-1.0")
+      ClusterEmulationModes(3.2,"rhel6.4.0, pc-1.0")
+      ClusterEmulationModes(3.3,"rhel6.4.0, pc-1.0")
 
 ### New Host field
 
@@ -51,8 +51,8 @@ its reported emulatedMachines list match against the Config Value
 ### New NON_OPERATIONAL reason
 
       NonOperationalReason
-       ...,
-      EMULATED_MACHINES_INCOMPATIBLE_WITH_CLUSTER ;
+       ...,
+      EMULATED_MACHINES_INCOMPATIBLE_WITH_CLUSTER ;
 
 This new REASON if for host which can't join the cluster becuase they
 don't comply with the Config ClusterEmulatedMachines or the clusters
@@ -65,16 +65,16 @@ If the cluster definition is null then the host will be matched against the conf
 That match will set the cluster definition for the rest of the hosts in that cluster
  consider this pseudo-code:
 
-      operational = false 
-      if cluster.emulationMode == NULL
-       for configVal in Config.ClusterEmulationMode(3.3)
-          if configVal in host.emulationModes 
-              cluster.emulationMode = configVal
-              operational = true
-       else if clusterEmulationMode in host.emulationMode
-             operational = true
-      if (!operational)
-          set host non operationl, reason = EMULATED_MACHINES_INCOMPATIBLE_WITH_CLUSTER
+      operational = false 
+      if cluster.emulationMode == NULL
+       for configVal in Config.ClusterEmulationMode(3.3)
+          if configVal in host.emulationModes 
+              cluster.emulationMode = configVal
+              operational = true
+       else if clusterEmulationMode in host.emulationMode
+             operational = true
+      if (!operational)
+          set host non operationl, reason = EMULATED_MACHINES_INCOMPATIBLE_WITH_CLUSTER
 
 ### Run VM
 

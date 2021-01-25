@@ -55,22 +55,22 @@ The XML that VDSM prepares for libvirt to run a VM on a [Storage Domain Version 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <domain type="kvm">
-  <name>vm1</name>
-        ...
-  <devices>
-          ...
-    <disk device="disk" snapshot="no" type="block">
-            
+  <name>vm1</name>
+        ...
+  <devices>
+          ...
+    <disk device="disk" snapshot="no" type="block">
+            
 
-            ...
-    </disk>
-    <lease>
-      <key>c29ca345-4aab-42f1-97c5-bdf967073d22</key>
-      <lockspace>7b1cff35-9482-4946-9654-adf1db5ecd10</lockspace>
-      <target offset="109051904" path="/dev/7b1cff35-9482-4946-9654-adf1db5ecd10/leases"/>
-    </lease>
-          ...
-  </devices>
+            ...
+    </disk>
+    <lease>
+      <key>c29ca345-4aab-42f1-97c5-bdf967073d22</key>
+      <lockspace>7b1cff35-9482-4946-9654-adf1db5ecd10</lockspace>
+      <target offset="109051904" path="/dev/7b1cff35-9482-4946-9654-adf1db5ecd10/leases"/>
+    </lease>
+          ...
+  </devices>
 </domain>
 ```
 
@@ -180,35 +180,35 @@ The sanlock daemon continually writes to storage at a fixed interval to renew it
 
 Before recovery timeouts are reached, sanlock will log errors related to failed renewals and leases getting too old. If these are seen, it may be wise to reduce the i/o load on storage or the host, to avoid crossing the threshold into an actual recovery.
 
-       14:27:54 / 13256 (sanlock successfully renews lease)
-       14:27:58 / 13260 (storage connection blocked to begin test)
-       14:28:14 / 13276 (sanlock starts next scheduled lease renewal 20 sec after last)
+       14:27:54 / 13256 (sanlock successfully renews lease)
+       14:27:58 / 13260 (storage connection blocked to begin test)
+       14:28:14 / 13276 (sanlock starts next scheduled lease renewal 20 sec after last)
 
 *   background for following messages, not log messages
 
-       14:28:15 sanlock[123]: 13277 LNAME aio collect 0x7f7f7c0008c0:0x7f7f7c0008d0:0x7f7f9dd72000 result -5:0 match res
-       14:28:15 sanlock[123]: 13277 s1 delta_renew read rv -5 offset 0 /dev/VG/LV
-       14:28:15 sanlock[123]: 13277 s1 renewal error -5 delta_length 0 last_success 13256
+       14:28:15 sanlock[123]: 13277 LNAME aio collect 0x7f7f7c0008c0:0x7f7f7c0008d0:0x7f7f9dd72000 result -5:0 match res
+       14:28:15 sanlock[123]: 13277 s1 delta_renew read rv -5 offset 0 /dev/VG/LV
+       14:28:15 sanlock[123]: 13277 s1 renewal error -5 delta_length 0 last_success 13256
 
 *   sanlock reports first i/o error
 *   First error could be as late as 14:28:24 / 13286 if i/o times out instead of quickly failing.
 *   These messages repeat for each i/o error, with frequency between twice a second and once every 10 seconds.
 *   Some or all of these lines may appear, depending on the type of i/o problems.
 
-       14:28:54 sanlock[123]: 13316 s1 check_our_lease warning 60 last_success 13256
-       14:28:55 sanlock[123]: 13317 s1 check_our_lease warning 61 last_success 13256
-       ...
-       14:29:13 sanlock[123]: 13335 s1 check_our_lease warning 79 last_success 13256
+       14:28:54 sanlock[123]: 13316 s1 check_our_lease warning 60 last_success 13256
+       14:28:55 sanlock[123]: 13317 s1 check_our_lease warning 61 last_success 13256
+       ...
+       14:29:13 sanlock[123]: 13335 s1 check_our_lease warning 79 last_success 13256
 
 *   io_renewal_warn seconds (60) after the last successful renewal, lease age warnings start appearing, once a second.
 *   No adverse effects yet; these warnings precede an actual lease expiration.
 
-       14:29:14 sanlock[123]: 13336 s1 check_our_lease failed 80
+       14:29:14 sanlock[123]: 13336 s1 check_our_lease failed 80
 
 *   id_renewal_fail seconds (80) after the last successful renewal, the lease expires.
 *   recovery begins at this time; sanlock begins killing pid's.
 
-       14:29:14 wdmd[111]: test failed pid 12437 renewal 13256 expire 13336
+       14:29:14 wdmd[111]: test failed pid 12437 renewal 13256 expire 13336
 
 *   The first warning from wdmd appears, indicating that the watchdog will fire and reset the host unless all pid's exit (or renewals resume) within 10 seconds.
 
@@ -222,7 +222,7 @@ The sanlock daemon has a large number of different but intricatly related timeou
 
 The i/o timeout can be tuned, but it is critical that all hosts use the same i/o timeout value. sanlock will not detect if hosts use different i/o timeouts, and this misconfiguration could lead to data corruption. When the sanlock daemon starts, it adds an entry to /var/log/messages which includes the basic timeout values:
 
-       sanlock daemon started 2.0 aio 1 10 renew 20 80 ...
+       sanlock daemon started 2.0 aio 1 10 renew 20 80 ...
 
 *   `aio 1` -- async i/o is enabled
 *   `10` -- io_timeout
@@ -232,18 +232,18 @@ The i/o timeout can be tuned, but it is critical that all hosts use the same i/o
 
 Debugging the sanlock daemon process.
 
-      # sanlock client status [-D]
+      # sanlock client status [-D]
 
 This displays all lockspaces, leases and pid's currently being managed.
 -D includes extra internal debugging information.
 
-      # sanlock client host_status -s LOCKSPACE [-D]
+      # sanlock client host_status -s LOCKSPACE [-D]
 
 This displays the status of all host_id leases being monitored.
 LOCKSPACE can simply be the lockspace name/uuid.
 -D includes extra internal debugging information.
 
-      # sanlock client log_dump
+      # sanlock client log_dump
 
 This dumps the sanlock daemon's internal circular buffer of recent debug messages.
 

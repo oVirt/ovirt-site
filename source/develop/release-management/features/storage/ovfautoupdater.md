@@ -38,20 +38,20 @@ The time interval (minutes) between OvfAutoUpdater runs can be configured by the
 
 `vm_static` table:
 
-       add column - `db_generation BIGINT default 1`
+       add column - `db_generation BIGINT default 1`
 
 `vm_ovf_generations` table - newly add table
 
-       vm_guid UUID PRIMARY KEY,
-       storage_pool_id UUID REFERENCES storage_pool(id) ON DELETE CASCADE,
-       ovf_generation BIGINT DEFAULT 0
+       vm_guid UUID PRIMARY KEY,
+       storage_pool_id UUID REFERENCES storage_pool(id) ON DELETE CASCADE,
+       ovf_generation BIGINT DEFAULT 0
 
 Add to this table records for all the pre-exiting VMs/templates with initial `ovf_generation` of `1` (as their OVF should be already up to date from before)
 
 `vdc_options` table:
 
-       add row - OvfUpdateIntervalInMinutes config value.
-       add row - OvfItemsCountPerUpdate config value
+       add row - OvfUpdateIntervalInMinutes config value.
+       add row - OvfItemsCountPerUpdate config value
 
 ### Engine
 
@@ -70,4 +70,4 @@ Add to this table records for all the pre-exiting VMs/templates with initial `ov
 
 ### NOTES
 
-OVFs of VMs/Templates that are being/were updated exactly during their processing by OvfAutoUpdater run will have their OVF updated in the storage the next OvfAutoUpdater run, DB updates will occur regularly.
+OVFs of VMs/Templates that are being/were updated exactly during their processing by OvfAutoUpdater run will have their OVF updated in the storage the next OvfAutoUpdater run, DB updates will occur regularly.

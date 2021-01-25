@@ -33,30 +33,30 @@ It will be possible to trigger the Disk Alignment scan both from the Disks main 
 
 A new XML-RPC call (Engine-VDSM) will be introduced:
 
-    scanDiskAlignment(vmId, driveSpecs)
+    scanDiskAlignment(vmId, driveSpecs)
 
 **vmId** is the UUID of the VM that is attached to the disk or a blank UUID in case of a floating disk. In the future the **vmId** can be used to identify a running VM and execute the scan through a guest agent in those cases where it's impossible to do it concurrently (e.g. COW disk format). The **driveSpecs** parameter is in the same format used when starting a VM on a VDSM host:
 
-    driveSpecs = {
-        'poolID':   `<poolID>`,
-        'domainID': `<domainID>`,
-        'imageID':  `<imageID>`,
-        'volumeID': `<volumeID>`,
+    driveSpecs = {
+        'poolID':   `<poolID>`,
+        'domainID': `<domainID>`,
+        'imageID':  `<imageID>`,
+        'volumeID': `<volumeID>`,
     }
 
 Or for direct LUNs:
 
-    driveSpecs = {
-        'GUID': `<GUID>`,
+    driveSpecs = {
+        'GUID': `<GUID>`,
     }
 
 The expected information returned in case of success are:
 
-    alignmentInfo = {
-        'status': {'message': 'Done', 'code': 0},
-        'alignment': {
-           '/dev/sda1': True,
-           '/dev/sda2': True,
+    alignmentInfo = {
+        'status': {'message': 'Done', 'code': 0},
+        'alignment': {
+           '/dev/sda1': True,
+           '/dev/sda2': True,
     }}
 
 The result (with the scan execution timestamp) is stored in the `base_disks` table (as other similar properties such as the `bootable` and `shareable` flags).

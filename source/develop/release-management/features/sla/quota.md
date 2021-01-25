@@ -157,20 +157,20 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 Enable quota_mode under data center entity (see [quota enforcement in data center](#data-center)):
 
-`   `<datacenter>
-             ...
-`       `<quota_mode>`enabled/disabled/audit`</quota_mode>
-`   `</datacenter>
+`   `<datacenter>
+             ...
+`       `<quota_mode>`enabled/disabled/audit`</quota_mode>
+`   `</datacenter>
 
 Quota is a sub-collection of Data Center and consists limits: /datacenters/{datacenter:id}/quotas.
 
-`   `<quota>
-             `<datacenter href="<data-center_id>`"/>
-`       `<cluster_soft_limit_pct></cluster_soft_limit_pct>
-`       `<cluster_hard_limit_pct></cluster_hard_limit_pct>
-`       `<storage_soft_limit_pct></storage_soft_limit_pct>
-`       `<storage_hard_limit_pct></storage_hard_limit_pct>
-`   `<quota>
+`   `<quota>
+             `<datacenter href="<data-center_id>`"/>
+`       `<cluster_soft_limit_pct></cluster_soft_limit_pct>
+`       `<cluster_hard_limit_pct></cluster_hard_limit_pct>
+`       `<storage_soft_limit_pct></storage_soft_limit_pct>
+`       `<storage_hard_limit_pct></storage_hard_limit_pct>
+`   `<quota>
 
 *   link to parent data center.
 *   soft and hard thresholds (in percentage), for enforcing quota (grace and threshould in UI).
@@ -179,12 +179,12 @@ Quota is a sub-collection of Data Center and consists limits: /datacenters/{data
 
 ##### QuotaStorageLimit entity
 
-`   `<quotastoragelimit>
-             `<quota href="<quota_id>`"/>
-             `<storagedoamin href="<storage-domain_id>`"/>
-`       `<limit>`#`</limit>
-`       `<usage>`#`</usage>
-`   `<quotastoragelimit>
+`   `<quotastoragelimit>
+             `<quota href="<quota_id>`"/>
+             `<storagedoamin href="<storage-domain_id>`"/>
+`       `<limit>`#`</limit>
+`       `<usage>`#`</usage>
+`   `<quotastoragelimit>
 
 *   quota - reference to quota.
 *   storage_domain - link to specific storage domain, no link means it's a single global limit for all SD in DC.
@@ -193,14 +193,14 @@ Quota is a sub-collection of Data Center and consists limits: /datacenters/{data
 
 ##### QuotaClusterLimit entity
 
-`   `<quotaclusterlimit>
-             `<quota href="<quota_id>`"/>
-             `<cluster href="<storage-domain_id>`"/>
-`       `<vcpu_limit>`#`</limit>
-`       `<vcpu_usage>`#`</usage>
-`       `<memory_limit>`#`</limit>
-`       `<memory_usage>`#`</usage>
-`   `<quotaclusterlimit>
+`   `<quotaclusterlimit>
+             `<quota href="<quota_id>`"/>
+             `<cluster href="<storage-domain_id>`"/>
+`       `<vcpu_limit>`#`</limit>
+`       `<vcpu_usage>`#`</usage>
+`       `<memory_limit>`#`</limit>
+`       `<memory_usage>`#`</usage>
+`   `<quotaclusterlimit>
 
 *   quota - reference to quota.
 *   cluster - link to specific cluster, no link means it's a single global limit for all cluster in DC.

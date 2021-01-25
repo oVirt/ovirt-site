@@ -113,7 +113,7 @@ For import VM:
 <action>
   <cluster id="afsdasdf"/>
   <storage_domain id="111111111"/>
-  <importAsNewEntity>true`/importAsNewEntity>   //This is the new value
+  <importAsNewEntity>true`/importAsNewEntity>   //This is the new value
   <vm>
     <name>new_name</name>
   </vm>

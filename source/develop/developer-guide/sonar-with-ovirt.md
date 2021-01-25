@@ -30,14 +30,14 @@ Sonar usually does not need any special configuration, you only have to run 'mvn
 ## A build script
 ```bash
       #!/bin/bash
-      . $HOME/.bashrc
-      #remove the wrong artifacts from the local maven repo
-      #in order to check if dependencies are not broken
-      rm ~/.m2/repository/org/ovirt -rf
-      cd ~$HOME/ovirt-engine
-      git pull
-      #install everything again
-      mvn clean install -DskipTests=true;
-      #and then run the checks
-      mvn clean compile sonar:sonar -P enable-dao-tests -e -Dsonar.skippedModules=sharedgwt-deployment,gwt-extension,ovirt-checkstyle-extension -DargLine="-Xmx3g -XX:MaxPermSize=2048M" -DtestFailureIgnore=true -DforkMode=always #-Dtest=*Test.java
+      . $HOME/.bashrc
+      #remove the wrong artifacts from the local maven repo
+      #in order to check if dependencies are not broken
+      rm ~/.m2/repository/org/ovirt -rf
+      cd ~$HOME/ovirt-engine
+      git pull
+      #install everything again
+      mvn clean install -DskipTests=true;
+      #and then run the checks
+      mvn clean compile sonar:sonar -P enable-dao-tests -e -Dsonar.skippedModules=sharedgwt-deployment,gwt-extension,ovirt-checkstyle-extension -DargLine="-Xmx3g -XX:MaxPermSize=2048M" -DtestFailureIgnore=true -DforkMode=always #-Dtest=*Test.java
 ```

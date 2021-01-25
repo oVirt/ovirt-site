@@ -50,12 +50,12 @@ Install and setup ovirt-engine on machine A, ovirt-engine-dwh on machine B, see 
 
 On A:
 
-      yum install ovirt-engine-setup
+      yum install ovirt-engine-setup
       engine-setup
 
 On B:
 
-      yum install ovirt-engine-dwh-setup
+      yum install ovirt-engine-dwh-setup
       engine-setup
 
 
@@ -67,7 +67,7 @@ To fix this, you can try one of the following:
 
 *   Restart dwhd:
 
-      service ovirt-engine-dwhd restart
+      service ovirt-engine-dwhd restart
 
 and make sure that it stopped and started cleanly (without errors in the log)
 
@@ -75,7 +75,7 @@ and make sure that it stopped and started cleanly (without errors in the log)
 
 Make sure that dwhd is stopped, and then, in the engine's database,
 
-      UPDATE dwh_history_timekeeping SET var_value = 0 WHERE var_name = 'DwhCurrentlyRunning';
+      UPDATE dwh_history_timekeeping SET var_value = 0 WHERE var_name = 'DwhCurrentlyRunning';
 
 Details:
 

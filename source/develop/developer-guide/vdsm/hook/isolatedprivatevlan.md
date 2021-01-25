@@ -12,12 +12,12 @@ The isolatedprivatevlan vdsm hook limits VM traffic to a specific gateway by its
 The hook is updating each interface entry in VM domain:
 
 <interface ...>
-`   `<filterref filter='isolatedprivatevlan-vdsm'>
-`       `<parameter name='GATEWAY_MAC' value='aa:bb:cc:dd:ee:ff'/>
-`   `</filterref>
-`   `<filterref filter='clean-traffic'>
-`       `<parameter name='IP' value='10.35.16.50'/>
-`   `</filterref>
+`   `<filterref filter='isolatedprivatevlan-vdsm'>
+`       `<parameter name='GATEWAY_MAC' value='aa:bb:cc:dd:ee:ff'/>
+`   `</filterref>
+`   `<filterref filter='clean-traffic'>
+`       `<parameter name='IP' value='10.35.16.50'/>
+`   `</filterref>
 </interface>
 
 syntax:

@@ -41,12 +41,12 @@ The proposal is to add new `<vm>` subelement with all the VM fields into the `<v
 
 ```xml
 <vm_pool>
- <size>50</size>
-       ...
- <template id="xxx"/>
- <vm>
-  <some_overriden_field_a>new value</some_overriden_field_a>
-  <some_overriden_field_b>new value 2</some_overriden_field_b>
- </vm>
+ <size>50</size>
+       ...
+ <template id="xxx"/>
+ <vm>
+  <some_overriden_field_a>new value</some_overriden_field_a>
+  <some_overriden_field_b>new value 2</some_overriden_field_b>
+ </vm>
 </vm_pool>
 ```

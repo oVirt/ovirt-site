@@ -18,7 +18,7 @@ The squid proxy is configured to reply only to ips from the Phoenix lab, it has 
 
 To invalidate a cache object, you must login to the squid server and run:
 
-` [root@proxy ~]# squidclient -m PURGE `<URL_TO_PURGE>
+` [root@proxy ~]# squidclient -m PURGE `<URL_TO_PURGE>
 
 Where <URL_TO_PURGE> is the url you want to invalidate, you should get a 200 response if everything went well:
 

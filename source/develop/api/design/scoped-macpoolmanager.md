@@ -77,24 +77,24 @@ A new macpools top level collection will be added supporting the following opera
 *   Response:
 
 <mac_pools>
-`    `<mac_pool id="AAA">
-`        `<name>`Default`</name>
-`        `<description>`The default MAC addresses pool`</description>
-`        `<allow_duplicates>`false`</allow_duplicates>
-`        `<ranges>
-`            `<range>
-`                `<from>`00:1A:4A:01:00:00`</from>
-`                `<to>`00:1A:4A:FF:FF:FF`</to>
-`            `</range>
-`            `<range>
-`                `<from>`02:1A:4A:01:00:00`</from>
-`                `<to>`02:1A:4A:FF:FF:FF`</to>
-`            `</range>
-`        `</ranges>
-`    `</mac_pool>
-`    `<mac_pool id="BBB">
-              ...
-`    `</mac_pool>
+`    `<mac_pool id="AAA">
+`        `<name>`Default`</name>
+`        `<description>`The default MAC addresses pool`</description>
+`        `<allow_duplicates>`false`</allow_duplicates>
+`        `<ranges>
+`            `<range>
+`                `<from>`00:1A:4A:01:00:00`</from>
+`                `<to>`00:1A:4A:FF:FF:FF`</to>
+`            `</range>
+`            `<range>
+`                `<from>`02:1A:4A:01:00:00`</from>
+`                `<to>`02:1A:4A:FF:FF:FF`</to>
+`            `</range>
+`        `</ranges>
+`    `</mac_pool>
+`    `<mac_pool id="BBB">
+              ...
+`    `</mac_pool>
 </mac_pools>
 
 2. POST api/macpools
@@ -102,19 +102,19 @@ A new macpools top level collection will be added supporting the following opera
 *   Request:
 
 <mac_pool id="AAA">
-`    `<name>`Default`</name>
-`    `<description>`The default MAC addresses pool`</description>
-`    `<allow_duplicates>`false`</allow_duplicates>
-`    `<ranges>
-`        `<range>
-`            `<from>`00:1A:4A:01:00:00`</from>
-`            `<to>`00:1A:4A:FF:FF:FF`</to>
-`        `</range>
-`        `<range>
-`            `<from>`02:1A:4A:01:00:00`</from>
-`            `<to>`02:1A:4A:FF:FF:FF`</to>
-`        `</range>
-`    `</ranges>
+`    `<name>`Default`</name>
+`    `<description>`The default MAC addresses pool`</description>
+`    `<allow_duplicates>`false`</allow_duplicates>
+`    `<ranges>
+`        `<range>
+`            `<from>`00:1A:4A:01:00:00`</from>
+`            `<to>`00:1A:4A:FF:FF:FF`</to>
+`        `</range>
+`        `<range>
+`            `<from>`02:1A:4A:01:00:00`</from>
+`            `<to>`02:1A:4A:FF:FF:FF`</to>
+`        `</range>
+`    `</ranges>
 </mac_pool>
 
 *   Response: **GUID on the new pool**
@@ -124,26 +124,26 @@ A new macpools top level collection will be added supporting the following opera
 *   Request:
 
 <mac_pool>
-`    `<description>`The default MAC addresses pool - allows duplicates`</description>
-`    `<allow_duplicates>`true`</allow_duplicates>
+`    `<description>`The default MAC addresses pool - allows duplicates`</description>
+`    `<allow_duplicates>`true`</allow_duplicates>
 </mac_pool>
 
 *   Response:
 
 <mac_pool id="AAA">
-`    `<name>`Default`</name>
-`    `<description>`The default MAC addresses pool - allows duplicates`</description>
-`    `<allow_duplicates>`true`</allow_duplicates>
-`    `<ranges>
-`        `<range>
-`            `<from>`00:1A:4A:01:00:00`</from>
-`            `<to>`00:1A:4A:FF:FF:FF`</to>
-`        `</range>
-`        `<range>
-`            `<from>`02:1A:4A:01:00:00`</from>
-`            `<to>`02:1A:4A:FF:FF:FF`</to>
-`        `</range>
-`    `</ranges>
+`    `<name>`Default`</name>
+`    `<description>`The default MAC addresses pool - allows duplicates`</description>
+`    `<allow_duplicates>`true`</allow_duplicates>
+`    `<ranges>
+`        `<range>
+`            `<from>`00:1A:4A:01:00:00`</from>
+`            `<to>`00:1A:4A:FF:FF:FF`</to>
+`        `</range>
+`        `<range>
+`            `<from>`02:1A:4A:01:00:00`</from>
+`            `<to>`02:1A:4A:FF:FF:FF`</to>
+`        `</range>
+`    `</ranges>
 </mac_pool>
 
 #### Changes to existing resources

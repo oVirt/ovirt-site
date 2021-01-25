@@ -20,48 +20,48 @@ No positive feedback on other distribution till today.
 
 The build command is:
 
-      fakeroot debian/rules binary
+      fakeroot debian/rules binary
 
 The clean up one:
 
-      fakeroot debian/rules binary
+      fakeroot debian/rules binary
 
 ### Creating a simple repo for it
 
 To build a simple repo:
 
-      $ mkdir ~/debian
-      $ mkdir ~/debian/binary
-      $ mkdir ~/debian/source
+      $ mkdir ~/debian
+      $ mkdir ~/debian/binary
+      $ mkdir ~/debian/source
 
 copy all the .deb to ~/debian/binary than regenerate Packages.gz and Source.gz
 
-      $ cd ~/debian
-      $ dpkg-scanpackages binary /dev/null | gzip -9c > binary/Packages.gz
-      $ cd ~/debian
-      $ dpkg-scansources source /dev/null | gzip -9c > source/Sources.gz
+      $ cd ~/debian
+      $ dpkg-scanpackages binary /dev/null | gzip -9c > binary/Packages.gz
+      $ cd ~/debian
+      $ dpkg-scansources source /dev/null | gzip -9c > source/Sources.gz
 
 Than add Release files:
 
-      stirabos@debian8t1:~/archive_20150624$ cat ~/debian/binary/Release 
-      Archive: unstable
-      Component: contrib
-      Origin: stirabos
-      Label: First attempt to have VDSM on Debian Jessie (still not working)
-      Architecture: amd64
-      stirabos@debian8t1:~/archive_20150624$ cat ~/debian/source/Release 
-      Archive: unstable
-      Component: contrib
-      Origin: stirabos
-      Label: First attempt to have VDSM on Debian Jessie (still not working)
-      Architecture: source
+      stirabos@debian8t1:~/archive_20150624$ cat ~/debian/binary/Release 
+      Archive: unstable
+      Component: contrib
+      Origin: stirabos
+      Label: First attempt to have VDSM on Debian Jessie (still not working)
+      Architecture: amd64
+      stirabos@debian8t1:~/archive_20150624$ cat ~/debian/source/Release 
+      Archive: unstable
+      Component: contrib
+      Origin: stirabos
+      Label: First attempt to have VDSM on Debian Jessie (still not working)
+      Architecture: source
 
 Upload it to the destination folder
 
 You can use it adding
 
-      # vdsm 4.17
-      deb `[`http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/)` binary/
+      # vdsm 4.17
+      deb `[`http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/`](http://resources.ovirt.org/pub/ovirt-3.6-pre/debian/)` binary/
 
 under /etc/apt/sources.list Than $ sudo apt-get update $ sudo apt-get install vdsm to install vdsm
 

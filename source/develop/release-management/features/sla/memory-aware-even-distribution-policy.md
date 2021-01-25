@@ -45,11 +45,11 @@ In each iteration of the balancing process:
 
 2. If (1) has nothing to do, handle memory balancing
 
-        a. Get a list of memory violator hosts, based on physical memory only
-        b. For each host
-            b.1. Sort VMs by memory usage
-            b.2  Validate if Smallest memory-using VM matches any of under-utilized hosts (based on mem and cpu, so end result will not cause the destination to violate balance thresholds).
-            b.3  If vm+dest host match, Migrate the VM.
+        a. Get a list of memory violator hosts, based on physical memory only
+        b. For each host
+            b.1. Sort VMs by memory usage
+            b.2  Validate if Smallest memory-using VM matches any of under-utilized hosts (based on mem and cpu, so end result will not cause the destination to violate balance thresholds).
+            b.3  If vm+dest host match, Migrate the VM.
 
 Advanced options:
 

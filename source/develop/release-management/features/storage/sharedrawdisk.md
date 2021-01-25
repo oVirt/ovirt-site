@@ -60,7 +60,7 @@ Remove Shareable Disk
 *   User can remove the shareable raw disk entirely from the setup, whether the disk is inactive in all the VMs which are attached to it, or all the VMs which the disk attached to, are in status down (or any combination of the two).
      When disk will be removed a warning message should display the user the following message :
 
-      Removing the shareable disk will remove it from all the VMs which are associated with it.
+      Removing the shareable disk will remove it from all the VMs which are associated with it.
 
 Remove VM
 
@@ -115,7 +115,7 @@ Stateless VM
 #### Installation/Upgrade
 
 *   Disk name should be generated automatically based on the vm name and disk number in the VM, as follow:
-`<VM-name>_<Disk-name>` ("<Disk-name" = "Disk" + internal_drive_mapping) . Description will be empty. 
+`<VM-name>_<Disk-name>` ("<Disk-name" = "Disk" + internal_drive_mapping) . Description will be empty. 
 
 * New disk will present a calculated default disk name which the user can change.
 

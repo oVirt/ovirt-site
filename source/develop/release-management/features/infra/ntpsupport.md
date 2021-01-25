@@ -59,8 +59,8 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 *   VDSM to report the configured NTP servers
 *   Engine to alert on:
 
-      * mismatch in hypervisor's NTP configuration.
-      * time diff from ovirt-engine service is greater than X (x = config param ???)
+      * mismatch in hypervisor's NTP configuration.
+      * time diff from ovirt-engine service is greater than X (x = config param ???)
 
 *   UI - display the reported NTP configureation
 *   Add a new ovirt-setup-lugin package to enable configuring the ovirt-engine server to NTP server.

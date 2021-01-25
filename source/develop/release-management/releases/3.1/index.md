@@ -59,9 +59,9 @@ The oVirt 3.1 release includes these notable changes.
 
 *   "windows" and "linux" OS Types are removed from the OS repository as they have no real use. This will break import of those OSs. To fix the import its enough to add to *$PREFIX/etc/ovirt-engine/osinfo.conf.d/20-import-export-linux-windows-fix.properties*
 
-       20-import-export-linux-windows-fix.properties:
-       backwardCompatibility.linux = 5
-       backwardCompatibility.windows = 1
+       20-import-export-linux-windows-fix.properties:
+       backwardCompatibility.linux = 5
+       backwardCompatibility.windows = 1
 
 ### SLA
 
@@ -98,11 +98,11 @@ To install the oVirt Engine on a Fedora 17 system:
 *   Add the yum repository to your system: https://resources.ovirt.org/releases/3.1/rpm/Fedora/17/
 *   Install the *ovirt-engine* package, and all of the packages it depends on, using **yum**:
 
-         # yum install ovirt-engine
+         # yum install ovirt-engine
 
 *   Run the **engine-setup** script and follow the prompts to complete installation of oVirt Engine. Once the Engine has been installed successfully the script will provide instructions for accessing the web Administration Portal:
 
-         # engine-setup
+         # engine-setup
 
 Suggested quick start path for new users:
 
@@ -112,7 +112,7 @@ Suggested quick start path for new users:
     -   Add an ISO storage domain to the *Default* data center.
 *   Upload operating system installation media, in ISO format, to the ISO storage domain using the **engine-iso-uploader** command line tool.
 
-         # engine-iso-uploader -i MyISODomainName upload /root/Downloads/Fedora-17-x86_64-DVD.iso
+         # engine-iso-uploader -i MyISODomainName upload /root/Downloads/Fedora-17-x86_64-DVD.iso
 
 *   Create a virtual machine!
 
@@ -167,8 +167,8 @@ Users of oVirt 3.0 who wish to migrate to oVirt 3.1 should:
 *   Detach the export storage domain.
 *   Cleanup the engine installation:
 
-         # engine-cleanup
-         # yum remove ovirt\* 
+         # engine-cleanup
+         # yum remove ovirt\* 
 
 *   Upgrade to Fedora 17: <https://fedoraproject.org/wiki/How_to_use_PreUpgrade>
 *   Install oVirt Engine 3.1.

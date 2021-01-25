@@ -108,7 +108,7 @@ The feature is ready and only needs to be enabled.
 
 ### Release Notes
 
-      == Scheduling multipliers changed ==
+      == Scheduling multipliers changed ==
       The impact of scheduling multipliers was changed as the underlying weight values were normalized. Please check that the values you use represent the real relative value of importance instead of empirical number that you used to get the desired behaviour in the past.
 
 ### Comments and Discussion

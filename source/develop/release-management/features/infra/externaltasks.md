@@ -35,32 +35,32 @@ Sub-Tasks of the same Task may run concurrently
 Tasks/Sub-Tasks should support the following statuses:
 
       Waiting
-      Started (only for the task)
+      Started (only for the task)
       Running
-      Completed 
+      Completed 
       Failed
 
 Solution should support setting percentage for the Task Started state
 **Task Flow**
 
-        Waiting -> Started (x %) |
-                                 -> Completed
-                                 |
-                                 -> Failed 
+        Waiting -> Started (x %) |
+                                 -> Completed
+                                 |
+                                 -> Failed 
 
 **Sub Task Flow**
 
-       Waiting -> Running        |
-                                 -> Completed
-                                 |
-                                 -> Failed
+       Waiting -> Running        |
+                                 -> Completed
+                                 |
+                                 -> Failed
 
 **\1**
 
-      Adding a new task
-      Adding a nested sub-task to an existing task
-      Removing a task
-      Updating a task/sub-task status
+      Adding a new task
+      Adding a nested sub-task to an existing task
+      Removing a task
+      Updating a task/sub-task status
 
 As in the Task Monitor that serves internal oVirt commands, Task should be displayed for a configurable time after competion and then vanished from the UI.
 
@@ -72,12 +72,12 @@ this feature will enable all users to track the advance of a task that is not co
 Sample use-cases:
 A user would like to clone a VM and cranks up our Rapid Cloning wizard. They fill in all the information and have selected a VM that is currently running. Upon clicking Ok, the information is sent to the server which starts performing a set of actions including the following
 
-        a. Shutdown the VM (oVirt REST)
-        b. Coalesce the disk (oVirt REST)
-        c. Clone the disk (External)
-        d. Update metadata in domain associated with new disk (External)
-        e. Create new VM based on data from original VM (oVirt REST)
-        f. Attach cloned disk to VM (oVirt REST)
+        a. Shutdown the VM (oVirt REST)
+        b. Coalesce the disk (oVirt REST)
+        c. Clone the disk (External)
+        d. Update metadata in domain associated with new disk (External)
+        e. Create new VM based on data from original VM (oVirt REST)
+        f. Attach cloned disk to VM (oVirt REST)
 
 Each of these items would be a subtask of the overall Cloning task. At the beginning of this process, we would create the Cloning task through REST in oVirt. We could potentially include all the subtasks in the initial creation or add them as needed.
  As the tasks are performed, we would make REST calls to update the started/ finished status as well as the percentage complete if that's supported.
@@ -97,25 +97,25 @@ See also [UI-Plugins](/develop/release-management/features/ux/uiplugins43.html)
 
 ### Test 1
 
-      Create an external job which is marked as auto-cleared
-       Add external steps and sub steps to the job
-       Update on completed tasks and sub tasks 
-       Check that job completes successfully and is cleared after the configured timeout 
+      Create an external job which is marked as auto-cleared
+       Add external steps and sub steps to the job
+       Update on completed tasks and sub tasks 
+       Check that job completes successfully and is cleared after the configured timeout 
 
 ### Test 2
 
-       Repeat test 1 with auto-cleared = false
-       After job completes verify that it is not cleared after the configured timeout from DB
-       Clear the job manually
+       Repeat test 1 with auto-cleared = false
+       After job completes verify that it is not cleared after the configured timeout from DB
+       Clear the job manually
 
 ### Test 3
 
-       Repeat test 1 with a job that includes a mix of internal and external steps , 
-       Make sure that for internal steps the job/step parent id should be set in the URI parameters
-       
+       Repeat test 1 with a job that includes a mix of internal and external steps , 
+       Make sure that for internal steps the job/step parent id should be set in the URI parameters
+       
 
 ### Test 4
 
-       Repeat test 2 with a job that includes a mix of internal and external steps ,
-       Make sure that for internal steps the job/step parent id should be set in the URI parameters
+       Repeat test 2 with a job that includes a mix of internal and external steps ,
+       Make sure that for internal steps the job/step parent id should be set in the URI parameters
 

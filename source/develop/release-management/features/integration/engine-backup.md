@@ -96,31 +96,31 @@ Due to some misunderstanding about the previous points, it was sometimes suggest
 *   Copy backup to machineB
 *   On machineB:
 
-       * engine-setup
-       * engine-cleanup
-       * restore
+       * engine-setup
+       * engine-cleanup
+       * restore
 
 This "almost" works. engine-setup/engine-cleanup on machineB create a user/database for us. What's missing? The password is generated randomly by setup, and so will be different on both machines and restore will not be able to connect. What can we do to continue and save us from manually doing all the work (2x create, edit pg_hba, restart postgresql)? Generally, two options:
 
 1. change the password:
 
-       * Open the backup in some temporary directory (it's a tar file)
-       * look at the file "files/etc/ovirt-engine/engine.conf.d/10-setup-database.conf" and find the password used when doing backup
-       * as user postgres, run psql, and there do:
-          alter role engine ENCRYPTED PASSWORD 'MYPASSWORD';
-         replace MYPASSWORD with the password you found inside the backup file.
+       * Open the backup in some temporary directory (it's a tar file)
+       * look at the file "files/etc/ovirt-engine/engine.conf.d/10-setup-database.conf" and find the password used when doing backup
+       * as user postgres, run psql, and there do:
+          alter role engine ENCRYPTED PASSWORD 'MYPASSWORD';
+         replace MYPASSWORD with the password you found inside the backup file.
 
 2. manually create with existing credentials:
 
-       * instead of doing setup/cleanup to merely create a database, do that yourself manually, but instead of inventing a new password (and other credentials), use the ones found inside the backup file (as explained in the previous option "change the password"). This is a bit more work than running setup/cleanup, but is probably much faster (especially if scripted).
+       * instead of doing setup/cleanup to merely create a database, do that yourself manually, but instead of inventing a new password (and other credentials), use the ones found inside the backup file (as explained in the previous option "change the password"). This is a bit more work than running setup/cleanup, but is probably much faster (especially if scripted).
 
 3. After running engine-setup and before engine-cleanup, check what random password was chosen by setup:
 
-      grep ENGINE_DB_PASSWORD /etc/ovirt-engine/engine.conf.d/10-setup-database.conf
+      grep ENGINE_DB_PASSWORD /etc/ovirt-engine/engine.conf.d/10-setup-database.conf
 
 Then use this password on restore (after cleanup). Note that you must provide more credentials than just the password:
 
-      engine-backup --mode=restore --file=BACKUP_FILE --log=LOG_FILE --change-db-credentials --db-host=localhost --db-user=engine --db-name=engine --db-password
+      engine-backup --mode=restore --file=BACKUP_FILE --log=LOG_FILE --change-db-credentials --db-host=localhost --db-user=engine --db-name=engine --db-password
 
 ## DWH/Reports
 
@@ -136,12 +136,12 @@ The text below applies to versions <= 3.5.
 
 If dwhd is running during backup, 'engine-setup' after restore will emit the following error and exit:
 
-      [ ERROR ] dwhd is currently running. Its hostname is `*`hostname`*`. Please stop it before running Setup.
-      [ ERROR ] Failed to execute stage 'Transaction setup': dwhd is currently running
+      [ ERROR ] dwhd is currently running. Its hostname is `*`hostname`*`. Please stop it before running Setup.
+      [ ERROR ] Failed to execute stage 'Transaction setup': dwhd is currently running
 
 This will be emitted whether or not dwh is setup on the same machine as the engine or on a different one. To "fix" this, connect to the engine db using psql and run:
 
-      UPDATE dwh_history_timekeeping SET var_value=0 WHERE var_name ='DwhCurrentlyRunning';
+      UPDATE dwh_history_timekeeping SET var_value=0 WHERE var_name ='DwhCurrentlyRunning';
 
 Then run 'engine-setup' again and it should succeed.
 
@@ -183,26 +183,26 @@ See also the documentation of PostgreSQL - on [postgresql.org](http://www.postgr
 
 Backup logic:
 
-      * Create Temporary directory
-      * Copy configuration files into temp directory
-         1. /etc/ovirt-engine/  (ovirt engine configuration)
-         2. /etc/sysconfig/ovirt-engine (ovirt engine configuration)
-         3. /etc/exports.d  (NFS export created on setup)
-         4. /etc/pki/ovirt-engine (ovirt-engine keys)
-         5. Firewall
-         6. Other
-       * Create tar file from that directory
-       * Create database backup using pg_dump (database configuration should be read from /etc and written into temporary .pgpass file)
+      * Create Temporary directory
+      * Copy configuration files into temp directory
+         1. /etc/ovirt-engine/  (ovirt engine configuration)
+         2. /etc/sysconfig/ovirt-engine (ovirt engine configuration)
+         3. /etc/exports.d  (NFS export created on setup)
+         4. /etc/pki/ovirt-engine (ovirt-engine keys)
+         5. Firewall
+         6. Other
+       * Create tar file from that directory
+       * Create database backup using pg_dump (database configuration should be read from /etc and written into temporary .pgpass file)
 
 Restore: Phase one (BASH)
 
-      1. Request user to run engine-setup
-      2. Override DB and PKI directories
+      1. Request user to run engine-setup
+      2. Override DB and PKI directories
 
 Phase two (??)
 
-      * Gather all needed information from the backup
-      *  Run otopi based ovirt-engine-setup with special parameters (use pg_dump, don't create new PKI)
+      * Gather all needed information from the backup
+      *  Run otopi based ovirt-engine-setup with special parameters (use pg_dump, don't create new PKI)
 
 ## Benefit to oVirt
 

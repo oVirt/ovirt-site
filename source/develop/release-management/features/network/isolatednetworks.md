@@ -37,7 +37,7 @@ Isolated networks will be represented on host level to reflect not being tied to
 
 #### Network attachment statistics sub-collection
 
-       /api/hosts/{host:id}/networkattachments/{networkattachment:id}/statistics
+       /api/hosts/{host:id}/networkattachments/{networkattachment:id}/statistics
 
 *   Supported actions:
     \*# **GET** returns a specific statistics for a network (if reported) which is attached to the host
@@ -47,12 +47,12 @@ Isolated networks will be represented on host level to reflect not being tied to
 A collection designed to specify network labels on host level which aren't bounded to a specific nic.
 Using this resource, an isolated networks could be configured on host, if a network is labelled with the same label.
 
-       /api/hosts/{host:id}/networklabels/
+       /api/hosts/{host:id}/networklabels/
 
 *   **GET** - list host network labels
 *   **POST** - add a label to the host
 
-       /api/hosts/{host:id}/networklabels/{networklabel:id}
+       /api/hosts/{host:id}/networklabels/{networklabel:id}
 
 *   **GET** - returns a specific host network label
 *   **DELETE** - removes a specific host network label
@@ -60,7 +60,7 @@ Using this resource, an isolated networks could be configured on host, if a netw
 **pros**: Using host level network labels we can support auto-provision of isolated networks
 **cons**: The management of labels becomes more complex, cannot use same label for nics
 
-       /api/hosts/{host:id}/setupnetworks
+       /api/hosts/{host:id}/setupnetworks
 
 No changes required. Without specifying the host_nic for the network_attachment element, an isolated will be configured on the host.
 

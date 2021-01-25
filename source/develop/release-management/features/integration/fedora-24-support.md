@@ -54,7 +54,7 @@ The feature is self contained: if support for Fedora 24 won't be stable enough f
 
 ## Release Notes
 
-    == Fedora 24 Support ==
-    Support for running oVirt on Fedora 24 (or similar) has been added.
+    == Fedora 24 Support ==
+    Support for running oVirt on Fedora 24 (or similar) has been added.
     oVirt is supporting Fedora as tech preview due to limited time resources.
     Contribution toward having a better Fedora support are welcome.

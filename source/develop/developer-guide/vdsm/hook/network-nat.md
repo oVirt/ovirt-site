@@ -13,12 +13,12 @@ This is a modification of the existing extnet hook.
 
 Go to the engine machine's command line and do:
 
-         sudo engine-config -s CustomDeviceProperties=\
-         '{type=interface;prop={extnet_pg=^[a-zA-Z0-9_ ---]+(:[a-zA-Z0-9_ ---]+|)$}}'
+         sudo engine-config -s CustomDeviceProperties=\
+         '{type=interface;prop={extnet_pg=^[a-zA-Z0-9_ ---]+(:[a-zA-Z0-9_ ---]+|)$}}'
 
 Verify that it was properly added
 
-         sudo engine-config -g CustomDeviceProperties
+         sudo engine-config -g CustomDeviceProperties
 
 Restart the engine.
 
@@ -32,8 +32,8 @@ Then, attach the defined profile to the relevant vNIC. When the VM is run, the r
 
 You just need to create a python executable and put it in:
 
-       /usr/libexec/vdsm/hooks/before_device_create
-       /usr/libexec/vdsm/hooks/before_nic_hotplug
+       /usr/libexec/vdsm/hooks/before_device_create
+       /usr/libexec/vdsm/hooks/before_nic_hotplug
 
     #!/usr/bin/python
 

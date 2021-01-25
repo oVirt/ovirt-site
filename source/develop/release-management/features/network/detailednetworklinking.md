@@ -38,7 +38,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 #### Engine API
 
       VmNetworkInterface:
-        boolean linked;
+        boolean linked;
 
 #### Database Changes
 
@@ -55,7 +55,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 *   canDoAction- allow 'null' network just for 3.2 or upper cluster compatibility version.
 *   'linkState' property of VmNetworkInterface should be stored in the DB
 
-      VmNetworkInterfaceDAODbFacadeImpl- save
+      VmNetworkInterfaceDAODbFacadeImpl- save
 
 *   The 'linkState' property is sent to the VDSM by ActivateDeactivateVmNicCommand command (for running VMs with the nic set to plugged)
 
@@ -65,7 +65,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 *   canDoAction- allow 'null' network.
 *   'linkState' property of VmNetworkInterface should also be stored in the DB
 
-      VmNetworkInterfaceDAODbFacadeImpl- update
+      VmNetworkInterfaceDAODbFacadeImpl- update
 
 *   If the vm is up
 

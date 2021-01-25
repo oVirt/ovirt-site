@@ -45,13 +45,13 @@ None
 
 the configuration should be migrated to the shared storage. You can check it this way:
 
-      sdUUID_line=$(grep sdUUID /etc/ovirt-hosted-engine/hosted-engine.conf)
+      sdUUID_line=$(grep sdUUID /etc/ovirt-hosted-engine/hosted-engine.conf)
       sdUUID=${sdUUID_line:7:36}
-      conf_volume_UUID_line=$(grep conf_volume_UUID /etc/ovirt-hosted-engine/hosted-engine.conf)
+      conf_volume_UUID_line=$(grep conf_volume_UUID /etc/ovirt-hosted-engine/hosted-engine.conf)
       conf_volume_UUID=${conf_volume_UUID_line:17:36}
-      conf_image_UUID_line=$(grep conf_image_UUID /etc/ovirt-hosted-engine/hosted-engine.conf)
+      conf_image_UUID_line=$(grep conf_image_UUID /etc/ovirt-hosted-engine/hosted-engine.conf)
       conf_image_UUID=${conf_image_UUID_line:16:36}
-      dd if=/rhev/data-center/mnt/192.168.1.115:_Virtual_ext35u36/$sdUUID/images/$conf_image_UUID/$conf_volume_UUID 2>/dev/null| tar -xOf - vm.conf
+      dd if=/rhev/data-center/mnt/192.168.1.115:_Virtual_ext35u36/$sdUUID/images/$conf_image_UUID/$conf_volume_UUID 2>/dev/null| tar -xOf - vm.conf
 
 please substitute '192.168.1.115:_Virtual_ext35u36' with your mount point. It should extract your vm.conf
 
@@ -63,8 +63,8 @@ please substitute '192.168.1.115:_Virtual_ext35u36' with your mount point. It sh
 
 Hosted-engine VM configuration is now saved on the shared storage to enable subsequent features.
 
-      == Hosted Engine ==
-      Hosted Engine configuration has been moved to its shared storage allowing to centralize any configuration change without the need of manually copy the configuration to all the hosts in its cluster.
+      == Hosted Engine ==
+      Hosted Engine configuration has been moved to its shared storage allowing to centralize any configuration change without the need of manually copy the configuration to all the hosts in its cluster.
 
 
 

@@ -22,7 +22,7 @@ check out the [previous versions release notes](/develop/release-management/rele
 
 In order to install it on a clean system, you need to install
 
-`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
+`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
 
 If you are upgrading from a previous version, you may have the ovirt-release35 package already installed on your system. You can then install ovirt-release36.rpm as in a clean install side-by-side.
 
@@ -32,8 +32,8 @@ If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 o
 
 For upgrading now you just need to execute:
 
-      # yum update "ovirt-engine-setup*"
-      # engine-setup
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
 
 
 ### oVirt Live
@@ -51,7 +51,7 @@ Here are the steps to reload the configuration on-the-fly:
 * set: engine-config -s WebSocketProxy=NEW_VALUE
 *   refresh cache via REST API POST call, i.e.:
 
-      curl --silent --insecure --request POST --header "Accept: application/xml" --header "Content-Type: application/xml" --user "admin@internal:PWD" "http://localhost:8080/ovirt-engine/api/reloadconfigurations" --data '<action/>'
+      curl --silent --insecure --request POST --header "Accept: application/xml" --header "Content-Type: application/xml" --user "admin@internal:PWD" "http://localhost:8080/ovirt-engine/api/reloadconfigurations" --data '<action/>'
 
 *   refresh GUI: Ctrl+R
 

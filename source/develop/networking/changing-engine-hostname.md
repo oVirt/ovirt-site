@@ -13,7 +13,7 @@ see [BZ 1325746](https://bugzilla.redhat.com/1325746).
 Make sure the name or names you want resolve to an IP address of the engine machine, by adding
 relevant records to the DNS or to /etc/hosts, and then:
 
-         # echo 'SSO_ALTERNATE_ENGINE_FQDNS="alias1.example.com alias2.example.com"' \
+         # echo 'SSO_ALTERNATE_ENGINE_FQDNS="alias1.example.com alias2.example.com"' \
          > /etc/ovirt-engine/engine.conf.d/99-custom-sso-setup.conf
          # systemctl restart ovirt-engine.service
 
@@ -30,21 +30,21 @@ It's possible to add also IP addresses of engine host, but using IP addresses in
 3.  Change the hostname. This is usually done by editing /etc/hostname and rebooting. There are other options and details which are not in the scope of this document.
 4.  Run the script ovirt-engine-rename:
 
-         # /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename
+         # /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename
 
 It's otopi-based. This means, among other things, that it looks similar engine-setup/cleanup, and provides similar logging, options, etc.
 
 Options specific to it:
 
-`   --newname=`<newname>
+`   --newname=`<newname>
 
 An example run, which does everything in batch and does not ask questions, if possible:
 
-         # /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename \
-         --newname=ovirte1n.home.local \
-         --otopi-environment="OSETUP_RENAME/forceIgnoreAIAInCA=bool:'True' \
-         OVESETUP_CORE/engineStop=bool:'True' \
-         OSETUP_RENAME/confirmForceOverwrite=bool:'False'"
+         # /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename \
+         --newname=ovirte1n.home.local \
+         --otopi-environment="OSETUP_RENAME/forceIgnoreAIAInCA=bool:'True' \
+         OVESETUP_CORE/engineStop=bool:'True' \
+         OSETUP_RENAME/confirmForceOverwrite=bool:'False'"
 
 ### Discussion
 

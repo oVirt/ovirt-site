@@ -135,22 +135,22 @@ Here are the GUI mock-ups for the New/Edit VM/Template/VM-Pool dialogs:
 
 *   Today, the API contains USB definitions as follows (both in VMs and Templates):
 
-        <xs:complexType name="Usb">
-          <xs:sequence>
-            <xs:element name="enabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-          </xs:sequence>
-        </xs:complexType>
-       
+        <xs:complexType name="Usb">
+          <xs:sequence>
+            <xs:element name="enabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+       
 
 *   In order to support two kinds of USB support, we add a new string element named "type", which should contain either "Legacy" or "Native":
 
-        <xs:complexType name="Usb">
-          <xs:sequence>
-            <xs:element name="enabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1"/>
-          </xs:sequence>
-        </xs:complexType>
-       
+        <xs:complexType name="Usb">
+          <xs:sequence>
+            <xs:element name="enabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+       
 
 *   Some notes on the new element:
     -   It is a temporary one, as in the future only the native option will be supported.

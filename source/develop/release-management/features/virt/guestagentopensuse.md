@@ -75,12 +75,12 @@ It'll be easier to install the ovirt-guest-agent on OpenSUSE guests.
 
 #### Installation
 
-`# zypper addrepo `<URL to repo file from the Repository section>
-      # zypper refresh
-      # zypper install ovirt-guest-agent-common
-      # service ovirt-guest-agent start
-      OR with systemd
-      # systemctl start ovirt-guest-agent.service
+`# zypper addrepo `<URL to repo file from the Repository section>
+      # zypper refresh
+      # zypper install ovirt-guest-agent-common
+      # service ovirt-guest-agent start
+      OR with systemd
+      # systemctl start ovirt-guest-agent.service
 
 ### Testing
 

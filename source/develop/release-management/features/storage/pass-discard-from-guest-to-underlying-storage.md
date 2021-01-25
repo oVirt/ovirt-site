@@ -165,8 +165,8 @@ Therefore, it is always allowed to enable both *Wipe After Delete* and *Pass Dis
 
 #### Add a new virtual machine's disk
 ```xml
-POST api/vms/<vm_id>/diskattachments
-Content-Type: application/xml
+POST api/vms/<vm_id>/diskattachments
+Content-Type: application/xml
 
 <disk_attachment>
     <disk>
@@ -186,8 +186,8 @@ Content-Type: application/xml
 
 #### Attach a disk to a virtual machine
 ```xml
-POST api/vms/<vm_id>/diskattachments
-Content-Type: application/xml
+POST api/vms/<vm_id>/diskattachments
+Content-Type: application/xml
 
 <disk_attachment>
     <disk id="<disk_id>"/>
@@ -200,8 +200,8 @@ Content-Type: application/xml
 
 #### Update a virtual machine disk
 ```xml
-PUT api/vms/<vm_id>/diskattachments/<disk_attachment_id>
-Content-Type: application/xml
+PUT api/vms/<vm_id>/diskattachments/<disk_attachment_id>
+Content-Type: application/xml
 
 <disk_attachment>
     <pass_discard>true</pass_discard> <!--The value of pass_discard -->

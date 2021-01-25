@@ -34,16 +34,16 @@ Today only the IPv4 addresses are reported to the User, kept on VM level. This f
 New attributes will be added to VM nics collection `/api/vms/{vm:id}/nics`:
 
 ```xml
-   <nics>
-       <nic id="56d6d62f-6af0-4c02-8500-4be041180031">
-           <name>nic1</name>
-                 ...
-           <reported_data>
-               <rel="devices" href=/api/vms/{vm:id}/nics/{nic:id}/reporteddevices>
-           <reported_data/>
-      <nic/>
-             ...
-   </nics>
+   <nics>
+       <nic id="56d6d62f-6af0-4c02-8500-4be041180031">
+           <name>nic1</name>
+                 ...
+           <reported_data>
+               <rel="devices" href=/api/vms/{vm:id}/nics/{nic:id}/reporteddevices>
+           <reported_data/>
+      <nic/>
+             ...
+   </nics>
 ```
 
 ```
@@ -51,15 +51,15 @@ device:id = UUID.fromString(name)
 ```
 
 ```xml
- <network_device id={device:id} href=/api/vms/{vm:id}/reporteddevices/{device:id}>
-       <name>p1p2</name>
-       <description>guest reported data</description>
-       <ips>
-           <ip version="v4" address="10.35.1.177"/>
-           <ip version="v6" address="fe80::21a:4aff:fe16:151"/>
-       </ips>
-             <mac address></mac>        
- </network_device>
+ <network_device id={device:id} href=/api/vms/{vm:id}/reporteddevices/{device:id}>
+       <name>p1p2</name>
+       <description>guest reported data</description>
+       <ips>
+           <ip version="v4" address="10.35.1.177"/>
+           <ip version="v6" address="fe80::21a:4aff:fe16:151"/>
+       </ips>
+             <mac address></mac>        
+ </network_device>
 ```
 
 ##### Backward compatibility
@@ -67,18 +67,18 @@ device:id = UUID.fromString(name)
 Note that the existing IPs reported on /api/vms/{vm:id} are left intact, however the IPs addresses are retrieved from the VM's nics.
 
 ```xml
-  <guest_info>
-      <ips>
-          <ip address="1.1.1.1"/>
-          <ip address="2.2.2.2"/>
-      </ips>
-  </guest_info>
+  <guest_info>
+      <ips>
+          <ip address="1.1.1.1"/>
+          <ip address="2.2.2.2"/>
+      </ips>
+  </guest_info>
 ```
 
 A new link will be added under the VM:
 
 ```xml
- <link rel="devices" href="/api/vms/6c56bd4b-ef18-4e50-b182-277ed78e819d/reporteddevices"/>
+ <link rel="devices" href="/api/vms/6c56bd4b-ef18-4e50-b182-277ed78e819d/reporteddevices"/>
 ```
 
 ```
@@ -86,15 +86,15 @@ device:id = UUID.fromString(name+mac)
 ```
 
 ```xml
- <network_device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
-       <name>p1p2</name>
-       <description>guest reported data</description>
-       <ips>
-           <ip version="v4" address="10.35.1.177"/>
-           <ip version="v6" address="fe80::21a:4aff:fe16:151"/>
-       </ips>
-             <mac address></mac>        
- </network_device>
+ <network_device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
+       <name>p1p2</name>
+       <description>guest reported data</description>
+       <ips>
+           <ip version="v4" address="10.35.1.177"/>
+           <ip version="v6" address="fe80::21a:4aff:fe16:151"/>
+       </ips>
+             <mac address></mac>        
+ </network_device>
 ```
 
 Populating the VM's **network_devices** element under **guest_info** is implemented by mechanism introduced by ["All-Content Header" patch](http://gerrit.ovirt.org/#/c/9815)

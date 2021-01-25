@@ -31,12 +31,12 @@ Note: this is enough to make VDSM run without ssl, but spice, quemu and the ovir
 Maximum concurrent outgoing migrations. Should be 3 or less for 1 gig links. Prior to ovirt 3.3 it was set to 5.
 
       [vars]
-      max_outgoing_migrations = 3
+      max_outgoing_migrations = 3
 
 ### migration max bandwidth
 
 Maximum bandwidth for migration, in MiBps, 0 means libvirt's 'default, since 0.10.x default in libvirt is unlimited
 
       [vars]
-      migration_max_bandwidth = 32
+      migration_max_bandwidth = 32
 

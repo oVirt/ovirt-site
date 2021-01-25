@@ -29,44 +29,44 @@ This information is taken by using dmidecode command, this command runs with roo
 
 ```
 1. Host Manufacturer - Manufacturer of the host's machine and hardware' vendor (e.g LENOVO)
-2. Host Version - For each host the manufacturer gives a unique name (e.g. Lenovo T420s)
-3. Host Product Name - ID of the product - same for all similar products (e.g 4174BH4)
-4. Host UUID - Unique ID for each host (e.g E03DD601-5219-11CB-BB3F-892313086897)
-5. Host Family - Type of host's CPU - (e.g Core i5)
-6. Host Serial Number - Unique ID for host's chassis (e.g R9M4N4G)
+2. Host Version - For each host the manufacturer gives a unique name (e.g. Lenovo T420s)
+3. Host Product Name - ID of the product - same for all similar products (e.g 4174BH4)
+4. Host UUID - Unique ID for each host (e.g E03DD601-5219-11CB-BB3F-892313086897)
+5. Host Family - Type of host's CPU - (e.g Core i5)
+6. Host Serial Number - Unique ID for host's chassis (e.g R9M4N4G)
 ```
 
 The following parameters below are suggested to be added:
 
 ```
-7. BIOS Revision
-8. BIOS Version
-9. BIOS is upgradable
-10. BIOS Vendor
-11. BIOS Release Date
+7. BIOS Revision
+8. BIOS Version
+9. BIOS is upgradable
+10. BIOS Vendor
+11. BIOS Release Date
 
-12. Processor Version
-13. Processor Core Count
-14. Processor Vendor
-15. Processor Core Enabled
-16. Processor Current Speed
-17. Processor Max Speed
-18. Processor Thread Count
+12. Processor Version
+13. Processor Core Count
+14. Processor Vendor
+15. Processor Core Enabled
+16. Processor Current Speed
+17. Processor Max Speed
+18. Processor Thread Count
 
-19. Chassis Asset Tag
-20. Chassis Serial Number
-21. Chassis Manufacturer
+19. Chassis Asset Tag
+20. Chassis Serial Number
+21. Chassis Manufacturer
 
-22. Memory Serial Number
-23. Memory Total Width
-24. Memory Number of Devices
-25. Memory Manufacturer
-26. Memory Data Width
-27. Memory Error Correction Type
-28. Memory Maximum Capacity
-29. Memory Type Detail
-30. Memory Speed
-31. Memory Size
+22. Memory Serial Number
+23. Memory Total Width
+24. Memory Number of Devices
+25. Memory Manufacturer
+26. Memory Data Width
+27. Memory Error Correction Type
+28. Memory Maximum Capacity
+29. Memory Type Detail
+30. Memory Speed
+31. Memory Size
 ```
 
 [1] More parameters can be added on request.
@@ -106,12 +106,12 @@ Hardware information needs to be part of the vds dynamic information and retriev
 The host's Hardware parameters is shown via engine rest API under host object as the following:
 ```xml
 <hardware_information>
-   <manufacturer>Dell Inc.</manufacturer>
-   <version>01</version>
-   <serial_number>H2CQ95J</serial_number>
-   <product_name>OptiPlex 790</product_name>
-   <uuid>4C4C4544-0032-4310-8051-C8C04F39354A</uuid>
-   <family>Core i7</family>
+   <manufacturer>Dell Inc.</manufacturer>
+   <version>01</version>
+   <serial_number>H2CQ95J</serial_number>
+   <product_name>OptiPlex 790</product_name>
+   <uuid>4C4C4544-0032-4310-8051-C8C04F39354A</uuid>
+   <family>Core i7</family>
 </hardware_information>
 ```
 

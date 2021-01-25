@@ -22,11 +22,11 @@ This page holds relevant information for MoM and other SLA-related packages
     -   URL:
     -   <git:git://gerrit.ovirt.org/mom>
 
-        After checkout mom code:
-        1.run following cmd to install mom:
-          cd mom
-          python setup.py install
-        2.restart vdsm, vdsm will run mom as a thread
+        After checkout mom code:
+        1.run following cmd to install mom:
+          cd mom
+          python setup.py install
+        2.restart vdsm, vdsm will run mom as a thread
 
 *   **vdsm**
     -   version:vdsm-4.10.0

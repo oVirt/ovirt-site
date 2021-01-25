@@ -58,15 +58,15 @@ Introducing new functionality of deleting a disk from a snapshot.
 
 ### Get disk snapshots by storage domain
 
-    GET /api/storagedomains/{storage_id}/disksnapshots
+    GET /api/storagedomains/{storage_id}/disksnapshots
 
 ### Delete a disk snapshot from storage domain
 
-    DELETE /api/storagedomains/{storage_id}/disksnapshots/{image_id}
+    DELETE /api/storagedomains/{storage_id}/disksnapshots/{image_id}
 
 ### Delete a snapshot disk:
 
-    DELETE /api/vms/{vm_id}/snapshots/{snapshot_id}/disks/{disk_id}
+    DELETE /api/vms/{vm_id}/snapshots/{snapshot_id}/disks/{disk_id}
 
 ## Backend
 

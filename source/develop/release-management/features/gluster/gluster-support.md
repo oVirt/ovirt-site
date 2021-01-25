@@ -178,7 +178,7 @@ All the Gluster related events that are audited will be available to be subscrib
 
 The host bootstrapping feature of VDSM will be enhanced to support bootstrapping based on the service(s) requested from the host.
 
-       SELinux should be set to permissive on the node running gluster
+       SELinux should be set to permissive on the node running gluster
 
 ### Roles
 

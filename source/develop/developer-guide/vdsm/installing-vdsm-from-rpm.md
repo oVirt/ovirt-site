@@ -14,13 +14,13 @@ this steps are usually not required when installing VDSM on another host than ov
 
 execute the following command as root:
 
-      yum install -y bridge-utils
+      yum install -y bridge-utils
 
 ### Configuring oVirt's Repository
 
 Execute the following command:
 
-      sudo yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release-master.rpm
+      sudo yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release-master.rpm
 
 ## VDSM
 
@@ -28,11 +28,11 @@ Execute the following command:
 
 Disable the network manager service by executing as root:
 
-      systemctl stop NetworkManager.service
-      systemctl disable NetworkManager.service
+      systemctl stop NetworkManager.service
+      systemctl disable NetworkManager.service
 
-      service network start
-      chkconfig network on
+      service network start
+      chkconfig network on
 
 Add the following content into a new file named: **/etc/sysconfig/network-scripts/ifcfg-ovirtmgmt**:
 
@@ -57,7 +57,7 @@ and remove the IPADDR, NETMASK and BOOTPROTO keys, since the interface should no
 
 Restart the network service by executing:
 
-      service network restart
+      service network restart
 
 **Note that if any other bridge (from ovirtmgmt) is present at the time of host installation, the bridge creation operation is skipped and you have to change the bridge settings to correspond to above shown configuration manually.**
 
@@ -67,7 +67,7 @@ Restart the network service by executing:
 
 Install VDSM by executing as root the following commands:
 
-      yum install -y vdsm vdsm-cli
+      yum install -y vdsm vdsm-cli
 
 Note:if you are using vdsm-4.10.0, you may need to install libvirt-0.10.0 which can't be found in yum. You can find the libvirt rpm in the following page:<http://libvirt.org/sources/>
 
@@ -76,16 +76,16 @@ Note:if you are using vdsm-4.10.0, you may need to install libvirt-0.10.0 which 
 Add the following content into the file: **/etc/vdsm/vdsm.conf** (you may need to create that file):
 
       [vars]
-      ssl = false
+      ssl = false
 
 Restart the vdsmd service by executing:
 
-      systemctl restart vdsmd
+      systemctl restart vdsmd
 
 If Vdsm was started earlier with ssl=true, it would refuse to start and you may need to use the undocumented verb
 
-      vdsm-tool configure --force
-      systemctl start vdsmd
+      vdsm-tool configure --force
+      systemctl start vdsmd
 
 which edits **/etc/libvirt/qemu.conf** and changes **spice_tls=1** to **spice_tls=0**.
 

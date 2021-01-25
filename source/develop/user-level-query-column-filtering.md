@@ -29,56 +29,56 @@ A function to add new object columns to the white list fn_db_add_column_to_objec
 3) Add at the end of this section.
 
 ```sql
-         if not exists (select 1 from object_column_white_list where object_name = 'T') then
-           insert into object_column_white_list(object_name,column_name)
-           (select 'T', column_name
-            from information_schema.columns
-            where table_name = 'T' and
-            column_name in ('c1,'c2');
+         if not exists (select 1 from object_column_white_list where object_name = 'T') then
+           insert into object_column_white_list(object_name,column_name)
+           (select 'T', column_name
+            from information_schema.columns
+            where table_name = 'T' and
+            column_name in ('c1,'c2');
 ```
 
 4) Assume you have a SP that selects from T by id (c1 column), it should now look like :
 
 ```sql
-      Create or replace FUNCTION GetAllFromT(v_id UUID, v_user_id UUID, v_is_filtered BOOLEAN)   
-      RETURNS SETOF T
-        AS $procedure$
+      Create or replace FUNCTION GetAllFromT(v_id UUID, v_user_id UUID, v_is_filtered BOOLEAN)   
+      RETURNS SETOF T
+        AS $procedure$
       DECLARE
-      v_columns text[];
+      v_columns text[];
       BEGIN
-         BEGIN
-           if (v_is_filtered) then
-               RETURN QUERY SELECT DISTINCT (rec).*
-               FROM fn_db_mask_object('T') as q (rec T)
-               WHERE (rec).c1 = v_id
-               AND EXISTS (SELECT 1
-                   FROM   user_vds_permissions_view
-                   WHERE  user_id = v_user_id AND entity_id = v_id);
-           else
-               RETURN QUERY SELECT DISTINCT T.*
-               FROM T
-               WHERE c1 = v_id;
-           end if;
-         END;
-        RETURN;
-      END; $procedure$
-      LANGUAGE plpgsql;
+         BEGIN
+           if (v_is_filtered) then
+               RETURN QUERY SELECT DISTINCT (rec).*
+               FROM fn_db_mask_object('T') as q (rec T)
+               WHERE (rec).c1 = v_id
+               AND EXISTS (SELECT 1
+                   FROM   user_vds_permissions_view
+                   WHERE  user_id = v_user_id AND entity_id = v_id);
+           else
+               RETURN QUERY SELECT DISTINCT T.*
+               FROM T
+               WHERE c1 = v_id;
+           end if;
+         END;
+        RETURN;
+      END; $procedure$
+      LANGUAGE plpgsql;
 ```
 
 5) You should add the following to fixters.xml
 
 ```xml
 <table name="object_column_white_list">
-       <column>object_name</column>
-       <column>column_name</column>
-   <row>
-       <value>T</value>
-       <value>c1</value>
-   </row>
-   <row>
-       <value>T</value>
-       <value>c2</value>
-   </row>
+       <column>object_name</column>
+       <column>column_name</column>
+   <row>
+       <value>T</value>
+       <value>c1</value>
+   </row>
+   <row>
+       <value>T</value>
+       <value>c2</value>
+   </row>
 </table>
 ```
 

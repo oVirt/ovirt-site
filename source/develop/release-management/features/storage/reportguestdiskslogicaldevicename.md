@@ -69,4 +69,4 @@ The value of the mapping field is an object {'$serial': {'name': '$devname'}}
 ### DB Changes
 
 vm_device table:
-       add column -logical_name VARCHAR(255)
+       add column -logical_name VARCHAR(255)

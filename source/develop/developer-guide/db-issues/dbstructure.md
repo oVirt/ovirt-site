@@ -19,29 +19,29 @@ authors: emesika
 
 in JBoss 7.x the database configuration is defined in $JBOSS_HOME/standalone/configuration/standalone.xml
 
-`             `<datasources>
-`               `<datasource jndi-name="java:/ENGINEDataSource" pool-name="ENGINEDataSource" enabled="true">
-`                   `<connection-url>`jdbc:postgresql://localhost:5432/ovirt`</connection-url>
-`                   `<driver>`postgresql`</driver>
-`                   `<transaction-isolation>`TRANSACTION_READ_COMMITTED`</transaction-isolation>
-`                   `<pool>
-`                       `<min-pool-size>`1`</min-pool-size>
-`                       `<max-pool-size>`100`</max-pool-size>
-`                       `<prefill>`true`</prefill>
-`                   `</pool>
-`                   `<security>
-`                       `<user-name>`postgres`</user-name>
-`                   `</security>
-`                   `<statement>
-`                       `<prepared-statement-cache-size>`100`</prepared-statement-cache-size>
-`                   `</statement>
-`               `</datasource>
-`               `<drivers>
-`                   `<driver name="postgresql" module="org.postgresql">
-`                       `<xa-datasource-class>`org.postgresql.xa.PGXADataSource`</xa-datasource-class>
-`                   `</driver>
-`               `</drivers>
-`           `</datasources>
+`             `<datasources>
+`               `<datasource jndi-name="java:/ENGINEDataSource" pool-name="ENGINEDataSource" enabled="true">
+`                   `<connection-url>`jdbc:postgresql://localhost:5432/ovirt`</connection-url>
+`                   `<driver>`postgresql`</driver>
+`                   `<transaction-isolation>`TRANSACTION_READ_COMMITTED`</transaction-isolation>
+`                   `<pool>
+`                       `<min-pool-size>`1`</min-pool-size>
+`                       `<max-pool-size>`100`</max-pool-size>
+`                       `<prefill>`true`</prefill>
+`                   `</pool>
+`                   `<security>
+`                       `<user-name>`postgres`</user-name>
+`                   `</security>
+`                   `<statement>
+`                       `<prepared-statement-cache-size>`100`</prepared-statement-cache-size>
+`                   `</statement>
+`               `</datasource>
+`               `<drivers>
+`                   `<driver name="postgresql" module="org.postgresql">
+`                       `<xa-datasource-class>`org.postgresql.xa.PGXADataSource`</xa-datasource-class>
+`                   `</driver>
+`               `</drivers>
+`           `</datasources>
 
 ## Database objects
 
@@ -56,10 +56,10 @@ This includes only the baseline of the database while each addition to this stru
 
 The *create_tables.sql* script includes also constrains definitions of 3 types
 
-       Primary keys
-       Foreign keys
-       Default value for a column
-       Value validation
+       Primary keys
+       Foreign keys
+       Default value for a column
+       Value validation
 
 ### Indexes
 
@@ -87,24 +87,24 @@ Script helper functions are defined in *dbfunctions.sh* and *dbcustomfunctions.s
 Some of those stored procedure implement horizonal/vertical filter according to the user that is accessing the database.
 Example:
 
-       Create or replace FUNCTION GetVdsByVdsId(v_vds_id UUID, v_user_id UUID, v_is_filtered BOOLEAN) RETURNS SETOF vds
-        AS $procedure$
-        DECLARE
-        v_columns text[];
-        BEGIN
-         BEGIN
-           if (v_is_filtered) then
-               RETURN QUERY SELECT DISTINCT (rec).*
-               FROM fn_db_mask_object('vds') as q (rec vds)
-               WHERE (rec).vds_id = v_vds_id
-               AND EXISTS (SELECT 1
-                   FROM   user_vds_permissions_view
-                   WHERE  user_id = v_user_id AND entity_id = v_vds_id);
-           else
-               RETURN QUERY SELECT DISTINCT vds.*
-               FROM vds
-               WHERE vds_id = v_vds_id;
-           end if;
-         END;
-        RETURN;
-       END; $procedure$
+       Create or replace FUNCTION GetVdsByVdsId(v_vds_id UUID, v_user_id UUID, v_is_filtered BOOLEAN) RETURNS SETOF vds
+        AS $procedure$
+        DECLARE
+        v_columns text[];
+        BEGIN
+         BEGIN
+           if (v_is_filtered) then
+               RETURN QUERY SELECT DISTINCT (rec).*
+               FROM fn_db_mask_object('vds') as q (rec vds)
+               WHERE (rec).vds_id = v_vds_id
+               AND EXISTS (SELECT 1
+                   FROM   user_vds_permissions_view
+                   WHERE  user_id = v_user_id AND entity_id = v_vds_id);
+           else
+               RETURN QUERY SELECT DISTINCT vds.*
+               FROM vds
+               WHERE vds_id = v_vds_id;
+           end if;
+         END;
+        RETURN;
+       END; $procedure$

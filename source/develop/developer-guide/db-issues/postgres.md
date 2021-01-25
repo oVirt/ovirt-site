@@ -39,9 +39,9 @@ Default postgres configuration files are under */var/lib/pgsql/data*
 
 ### postgresql.conf
 
-`  `[`defaults`](http://www.postgresql.org/docs/current/static/view-pg-settings.html)
-`   `[`reset`](http://www.postgresql.org/docs/current/static/sql-reset.html)
-      === reload configuration ===
+`  `[`defaults`](http://www.postgresql.org/docs/current/static/view-pg-settings.html)
+`   `[`reset`](http://www.postgresql.org/docs/current/static/sql-reset.html)
+      === reload configuration ===
 
 If you are making modifications to the Postgres configuration file postgresql.conf (or similar), and you want to new settings to take effect without needing to restart the entire database, there are two ways to accomplish this.
 
@@ -55,7 +55,7 @@ option 1
 
 ### Remote access (listen_addresses)
 
-` `[`pg_hba.conf`](http://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html)
+` `[`pg_hba.conf`](http://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html)
 
 ### max_connections
 
@@ -89,28 +89,28 @@ The user can select the commit mode of each transaction, so that it is possible 
 
 For the following , a good understanding of the database clock lifecycle is needed.
 
-      page request --> changes --> dirty --> commit to WAL --> Statistics (pg_stat_user_tables etc.) (*) --> Write to disk & clean dirty flag (*)
-      (*) - async
+      page request --> changes --> dirty --> commit to WAL --> Statistics (pg_stat_user_tables etc.) (*) --> Write to disk & clean dirty flag (*)
+      (*) - async
 
 Dedicated
 
-        logging can be more verbose
-        shared_buffers - 25% of RAM
-        work_mem should be `<OS cache size>` / (max_connections * 2)
-        maintenance_work_mem - 50MB per each 1GB of RAM
-        checkpoint_segments - at least 10 [1]
-        checkpoint_timeout
-        wal_buffers - 16MB  [2]
-        
-`  [1] `[`http://www.postgresql.org/docs/9.1/static/pgbuffercache.html` `pg_buffercache`](http://www.postgresql.org/docs/9.1/static/pgbuffercache.html pg_buffercache)
-        [2] `[`http://www.postgresql.org/docs/9.1/static/wal-configuration.html` `WAL` `Configuration`](http://www.postgresql.org/docs/9.1/static/wal-configuration.html WAL Configuration)`   
+        logging can be more verbose
+        shared_buffers - 25% of RAM
+        work_mem should be `<OS cache size>` / (max_connections * 2)
+        maintenance_work_mem - 50MB per each 1GB of RAM
+        checkpoint_segments - at least 10 [1]
+        checkpoint_timeout
+        wal_buffers - 16MB  [2]
+        
+`  [1] `[`http://www.postgresql.org/docs/9.1/static/pgbuffercache.html` `pg_buffercache`](http://www.postgresql.org/docs/9.1/static/pgbuffercache.html pg_buffercache)
+        [2] `[`http://www.postgresql.org/docs/9.1/static/wal-configuration.html` `WAL` `Configuration`](http://www.postgresql.org/docs/9.1/static/wal-configuration.html WAL Configuration)`   
 
 Shared
 
-        reduce logging 
-        shared_buffers - 10% of RAM
-        be very stingy about increasing work_mem 
-        all other recomendations from the Dedicated section may apply
+        reduce logging 
+        shared_buffers - 10% of RAM
+        be very stingy about increasing work_mem 
+        all other recomendations from the Dedicated section may apply
 
 ### pgtune
 
@@ -134,20 +134,20 @@ The default logging level is only Errors but this can be easily changed.
 
 Controls the line prefix of each log message.
 
-       %t timestamp
-       %u user
-       %r remote host connection
-       %d database connection
-       %p pid of connection
+       %t timestamp
+       %u user
+       %r remote host connection
+       %d database connection
+       %p pid of connection
 
 ### log_statement
 
 Controls which statements are logged
 
-       none
-       ddl
-       mod
-       all
+       none
+       ddl
+       mod
+       all
 
 ### log_min_duration_statement
 

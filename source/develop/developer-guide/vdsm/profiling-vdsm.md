@@ -26,7 +26,7 @@ The advantage of using the standard python tools is that statistics are in the P
 
 To explore statistics or to quickly change the presentation of the statistics, the pstats interactive mode can be handy
 
-         python -m pstats /path/to/main/profile/data
+         python -m pstats /path/to/main/profile/data
 
 [quick description of the interactive mode](http://stefaanlippens.net/python_profiling_with_pstats_interactive_mode)
 
@@ -36,23 +36,23 @@ TODO: add helper snippets/scripts
 
 If you want to profile single funcions, this decorator is a simple yet effective solution. Credit for this code goes to Antoni Segura Puimedon for the original implementation; the version presented here was edited with the sole purpose to be self-contained:
 
-         def profile(func):
-             from cProfile import Profile
-             from functools import wraps
-             from tempfile import NamedTemporaryFile
-             @wraps(func)
-             def profiled_execution(*args, **kwargs):
-                 logging.info('profiling method %s' % func.__name__)
-                 profiler = Profile()
-                 ret = profiler.runcall(func, *args, **kwargs)
-                 prof_file = NamedTemporaryFile(mode='w',
-                                                prefix=func.__name__,
-                                                delete=False)
-                 profiler.dump_stats(prof_file.name)
-                 logging.info('profiled method %s and dumped results to %s' % (
-                              func.__name__, prof_file.name))
-                 return ret
-             return profiled_execution
+         def profile(func):
+             from cProfile import Profile
+             from functools import wraps
+             from tempfile import NamedTemporaryFile
+             @wraps(func)
+             def profiled_execution(*args, **kwargs):
+                 logging.info('profiling method %s' % func.__name__)
+                 profiler = Profile()
+                 ret = profiler.runcall(func, *args, **kwargs)
+                 prof_file = NamedTemporaryFile(mode='w',
+                                                prefix=func.__name__,
+                                                delete=False)
+                 profiler.dump_stats(prof_file.name)
+                 logging.info('profiled method %s and dumped results to %s' % (
+                              func.__name__, prof_file.name))
+                 return ret
+             return profiled_execution
 
 The "logging" module is already used extensively inside VDSM so it is assumed to be available. You can embed this snippet in the file containing the function you want to profile, or in the vdsm library code. In this case, a good place is lib/vdsm/utils.py in the VDSM source tree.
 

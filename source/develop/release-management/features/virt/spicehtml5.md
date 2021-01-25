@@ -24,7 +24,7 @@ The design, architecture and implementation is almost same as the noVNC case. Th
 
 For more info please visit [Features/noVNC_console](/develop/release-management/features/virt/novnc-console.html)
 
-      Note: In future the websockets support for SPICE will be implemented in QEMU. When this happens, the implementation of spice-html5 in the engine should use this feature instead of using websocket proxy.
+      Note: In future the websockets support for SPICE will be implemented in QEMU. When this happens, the implementation of spice-html5 in the engine should use this feature instead of using websocket proxy.
 
 However, there is one difference, which is worth noting - in VNC case, there is only one port which the clients connects to. With SPICE, there is secured port and unsecured one. If the client is using the secured one, it is required to pass this information to websockify. This information is passed in the url path.
 

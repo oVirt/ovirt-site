@@ -45,7 +45,7 @@ if you don't know who is should review your patch you can either -
 *   ping the engine-devel@ovirt.org mailing list with the link to gerrits request
 *   git blame your code and trace recent users who committed code that you changed
 
-      git blame HEAD~1 path/to/file -L {start},{end}
+      git blame HEAD~1 path/to/file -L {start},{end}
 
 #### Patch Format
 
@@ -53,20 +53,20 @@ if you don't know who is should review your patch you can either -
 
 use the project template for a commit message
 
-      git commit -s -t config/engine-commit-template.txt
+      git commit -s -t config/engine-commit-template.txt
 
 *   other patch format (VDSM)
 
-      short summary under 80 chars
+      short summary under 80 chars
 
-       Longer description.
-       With multiple paragraphs if necessary. 
-       Wrapped at ~80 chars.
+       Longer description.
+       With multiple paragraphs if necessary. 
+       Wrapped at ~80 chars.
 
-      Bug-Url: https://bugzilla.redhat.com/XXXXXX
-      Signed-off-by: full name <mail>
+      Bug-Url: https://bugzilla.redhat.com/XXXXXX
+      Signed-off-by: full name <mail>
 
-       
+       
 
 #### Sending a Patch For Work In Progress
 
@@ -76,8 +76,8 @@ Patches in draft are blocked from being merged until they are "published"
 
 To push a patch to drafts:
 
-      git push origin HEAD:refs/drafts/master
-       
+      git push origin HEAD:refs/drafts/master
+       
 
 #### Describe your changes properly
 
@@ -117,7 +117,7 @@ To push a patch to drafts:
 
 Create a branch for everything you work on. It can be done by either postfixing the topic to the push link
 
-      push origin HEAD:refs/publish/master/{NAME_OF_YOUR_TOPIC}
+      push origin HEAD:refs/publish/master/{NAME_OF_YOUR_TOPIC}
 
 or using gerrit's review page directly by clicking on the topic
 

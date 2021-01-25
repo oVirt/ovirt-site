@@ -103,65 +103,65 @@ Example of usage:
 ```xml
 <vm>
   …
-  <initialization>
-      <host>
+  <initialization>
+      <host>
         <address>cloudInitInstanceName</address>
       </host>
-      <authorized_keys>
-        <authorized_key>
-          <user>
-            <user_name>root</user_name>
-          </user>
-          <key>ssh-rsa AAAAB3Nza[…]75zkdD user@domain.com</key>
-        </authorized_key>
-      </authorized_keys>
-      <regenerate_ssh_keys>true</regenerate_ssh_keys>
-      <timezone>Asia/Jerusalem</timezone>
-      <users>
-        <user>
-          <user_name>root</user_name>
-          <password>myPass</password>
-        </user>
-      </users>
+      <authorized_keys>
+        <authorized_key>
+          <user>
+            <user_name>root</user_name>
+          </user>
+          <key>ssh-rsa AAAAB3Nza[…]75zkdD user@domain.com</key>
+        </authorized_key>
+      </authorized_keys>
+      <regenerate_ssh_keys>true</regenerate_ssh_keys>
+      <timezone>Asia/Jerusalem</timezone>
+      <users>
+        <user>
+          <user_name>root</user_name>
+          <password>myPass</password>
+        </user>
+      </users>
       <dns_search>qa.lab redhat.com</dns_search>
       <dns_servers>8.8.8.8 127.0.0.1</dns_servers>
-      <nic_configurations>
-        <nic_configuration>
-          <name>eth0</name>
-          <boot_protocol>static</boot_protocol>
-          <ip>
+      <nic_configurations>
+        <nic_configuration>
+          <name>eth0</name>
+          <boot_protocol>static</boot_protocol>
+          <ip>
             <address>192.168.2.11</address>
             <netmask>255.255.255.0</netmask>
             <gateway>192.168.2.1</gateway>
           </ip>
-          <ipv6_boot_protocol>static</ipv6_boot_protocol>
-          <ipv6>
+          <ipv6_boot_protocol>static</ipv6_boot_protocol>
+          <ipv6>
             <address>2001::1234</address>
             <netmask>64</netmask>
             <gateway>2001::fffa</gateway>
           </ipv6>
-          <on_boot>true</on_boot>
-        </nic_configuration>
-        <nic_configuration>
-          <name>eth1</name>
-          <boot_protocol>dhcp</boot_protocol>
-          <ipv6_boot_protocol>none</ipv6_boot_protocol>
-        </nic_configuration>
-        <nic_configuration>
-          <name>eth2</name>
-          <boot_protocol>none</boot_protocol>
-          <ipv6_boot_protocol>autoconf</ipv6_boot_protocol>
-          <on_boot>true</on_boot>
-        </nic_configuration>
-      </nic_configurations>
-      <files>
-        <file>
-          <name>/tmp/testFile1.txt</name>
-          <content>temp content</content>
-          <type>PLAINTEXT</type>
-        </file>
-      </files>
-  </initialization>
+          <on_boot>true</on_boot>
+        </nic_configuration>
+        <nic_configuration>
+          <name>eth1</name>
+          <boot_protocol>dhcp</boot_protocol>
+          <ipv6_boot_protocol>none</ipv6_boot_protocol>
+        </nic_configuration>
+        <nic_configuration>
+          <name>eth2</name>
+          <boot_protocol>none</boot_protocol>
+          <ipv6_boot_protocol>autoconf</ipv6_boot_protocol>
+          <on_boot>true</on_boot>
+        </nic_configuration>
+      </nic_configurations>
+      <files>
+        <file>
+          <name>/tmp/testFile1.txt</name>
+          <content>temp content</content>
+          <type>PLAINTEXT</type>
+        </file>
+      </files>
+  </initialization>
 </vm>
 ```
 
@@ -170,72 +170,72 @@ Example of usage:
 Example of usage, setting hostname, root password and writing simple text file:
 
 ```python
-vmstat = vm.get_status().state
-if vmstat == 'down':
-    
-    try:
-        osVersion = vm.get_os().get_type()
-        if (osVersion == "rhel_6x64" or osVersion == "rhel_6" or osVersion == "rhel_7x64") and CLOUDINIT == "yes":
-            print "Starting VM: " + vm.name + " with cloud-init options"
-            scontent = "write_files:\n-   content: |\n        search example.com\n        nameserver 10.10.10.1\n        nameserver 10.10.10.2\n    path: /etc/resolv.conf"
-            action = params.Action(
-                vm=params.VM(
-                    initialization=params.Initialization(
-                        cloud_init=params.CloudInit(
-                            host=params.Host(address="rheltest001.example.com"),
-                            users=params.Users(
-                                user=[params.User(user_name="root", password="secret")]
-                                ),
-                            files=params.Files(
-                                file=[params.File(name="/etc/resolv.conf", content=scontent, type_="PLAINTEXT")]
-                                )
-                            )
-                        )
-                    )
-                )
-            vm.start( action )
-        else:
-            print "Starting VM " + vm.name
-            vm.start()
-        while vmstat != 'down':
-            sleep(1)
-            vmstat = vm.get_status().state
-    except Exception, err:
-        print "Error on starting VM"
-        print err
+vmstat = vm.get_status().state
+if vmstat == 'down':
+    
+    try:
+        osVersion = vm.get_os().get_type()
+        if (osVersion == "rhel_6x64" or osVersion == "rhel_6" or osVersion == "rhel_7x64") and CLOUDINIT == "yes":
+            print "Starting VM: " + vm.name + " with cloud-init options"
+            scontent = "write_files:\n-   content: |\n        search example.com\n        nameserver 10.10.10.1\n        nameserver 10.10.10.2\n    path: /etc/resolv.conf"
+            action = params.Action(
+                vm=params.VM(
+                    initialization=params.Initialization(
+                        cloud_init=params.CloudInit(
+                            host=params.Host(address="rheltest001.example.com"),
+                            users=params.Users(
+                                user=[params.User(user_name="root", password="secret")]
+                                ),
+                            files=params.Files(
+                                file=[params.File(name="/etc/resolv.conf", content=scontent, type_="PLAINTEXT")]
+                                )
+                            )
+                        )
+                    )
+                )
+            vm.start( action )
+        else:
+            print "Starting VM " + vm.name
+            vm.start()
+        while vmstat != 'down':
+            sleep(1)
+            vmstat = vm.get_status().state
+    except Exception, err:
+        print "Error on starting VM"
+        print err
 ```
 
 Same as above, but setting also networking:
 
 ```python
-action = params.Action(
-           vm=params.VM(
-               initialization=params.Initialization(
-                   cloud_init=params.CloudInit(
-                       host=params.Host(address="testvm.example.com"),
-                       authorized_keys=params.AuthorizedKeys(
-                           authorized_key=[params.AuthorizedKey(user=params.User(user_name="root"), key="ssh-rsa AAAAB3NzaC1yc.........")]
-                           ),
-                       regenerate_ssh_keys=True,
-                       users=params.Users(
-                           user=[params.User(user_name="root", password="SecretPassword")]
-                           ),
-                       network_configuration=params.NetworkConfiguration(
-                           nics=params.Nics(nic=[params.NIC(name="eth0",
-                                               boot_protocol="STATIC",
-                                               on_boot=True,
-                                               network=params.Network(ip=params.IP(
-                                                                       address="192.168.100.10",
-                                                                       netmask="255.255.255.0",
-                                                                       gateway="192.168.100.1")))])
-                           ),
-                       files=params.Files(
-                           file=[params.File(name="/etc/motd", content="Automatic configuration", type_="PLAINTEXT")]
-                           )
-                       )
-                   )
-               )
-           )
+action = params.Action(
+           vm=params.VM(
+               initialization=params.Initialization(
+                   cloud_init=params.CloudInit(
+                       host=params.Host(address="testvm.example.com"),
+                       authorized_keys=params.AuthorizedKeys(
+                           authorized_key=[params.AuthorizedKey(user=params.User(user_name="root"), key="ssh-rsa AAAAB3NzaC1yc.........")]
+                           ),
+                       regenerate_ssh_keys=True,
+                       users=params.Users(
+                           user=[params.User(user_name="root", password="SecretPassword")]
+                           ),
+                       network_configuration=params.NetworkConfiguration(
+                           nics=params.Nics(nic=[params.NIC(name="eth0",
+                                               boot_protocol="STATIC",
+                                               on_boot=True,
+                                               network=params.Network(ip=params.IP(
+                                                                       address="192.168.100.10",
+                                                                       netmask="255.255.255.0",
+                                                                       gateway="192.168.100.1")))])
+                           ),
+                       files=params.Files(
+                           file=[params.File(name="/etc/motd", content="Automatic configuration", type_="PLAINTEXT")]
+                           )
+                       )
+                   )
+               )
+           )
 ```
 
 ## Required Changes

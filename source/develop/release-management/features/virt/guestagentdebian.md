@@ -69,12 +69,12 @@ It'll be easier to install the ovirt-guest-agent on Debian guests.
 
 #### Installation
 
-      # echo "deb `[`http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/`](http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/)` ./" >> /etc/apt/sources.list
-      # gpg -v -a --keyserver `[`http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/Release.key`](http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/Release.key)` --recv-keys D5C7F7C373A1A299
-      # gpg --export --armor 73A1A299 | apt-key add -
-      # apt-get update
-      # apt-get install ovirt-guest-agent
-      # service ovirt-guest-agent start
+      # echo "deb `[`http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/`](http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/)` ./" >> /etc/apt/sources.list
+      # gpg -v -a --keyserver `[`http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/Release.key`](http://download.opensuse.org/repositories/home:/evilissimo:/deb/Debian_7.0/Release.key)` --recv-keys D5C7F7C373A1A299
+      # gpg --export --armor 73A1A299 | apt-key add -
+      # apt-get update
+      # apt-get install ovirt-guest-agent
+      # service ovirt-guest-agent start
 
 ### Testing
 

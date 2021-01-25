@@ -39,14 +39,14 @@ Here is the structure of an event:
 
 ```
 SEND
-destination: <queue/topic>
+destination: <queue/topic>
 content-type: text/json
-content-length: <length>
-content-encoding: <token as defined by IANA>
+content-length: <length>
+content-encoding: <token as defined by IANA>
 {
-    "jsonrpc": "2.0",
-    "method": "`<receiver>`|`<component>`|`<operation_id>`|`<unique_id>`",
-    "params": {
+    "jsonrpc": "2.0",
+    "method": "`<receiver>`|`<component>`|`<operation_id>`|`<unique_id>`",
+    "params": {
         <contents>
     }
 }

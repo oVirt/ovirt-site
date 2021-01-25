@@ -12,19 +12,19 @@ The VDSM service exposes a set of node level APIs to the virtualization manager 
 
 To make the HSM service stand alone, VDSM service will be re-factored like these. The VDSM service will keep the same APIs as before to oVirt engine and other node level API consumers. HSM service starts as an stand-alone XML-RPC service provider to the VDSM service. Also it is negotiable to support other bindings like REST API, however XML-RPC binding is the initial proposal here. HSM service will start as a stand alone service and export the XML-RPC APIs by a well known port.
 
-      I) VDSM service opens the connection to HSM service.  If the open fails, it will fall back to the legacy way without HSM standalone service.
-        Like these:
-      class APIBase(object)
-           def __init__(self):
-               cli = hsm.ServiceProxy(hsm_proxy_server)
-       
-               if cli:  <---HSM standalone service exists
-                  self._irs = cli
-               else:  <---fall back to the legacy way
-                  self._cif = clientIF.getInstance()
-                  self._irs = self._cif.irs
-                  
-           
+      I) VDSM service opens the connection to HSM service.  If the open fails, it will fall back to the legacy way without HSM standalone service.
+        Like these:
+      class APIBase(object)
+           def __init__(self):
+               cli = hsm.ServiceProxy(hsm_proxy_server)
+       
+               if cli:  <---HSM standalone service exists
+                  self._irs = cli
+               else:  <---fall back to the legacy way
+                  self._cif = clientIF.getInstance()
+                  self._irs = self._cif.irs
+                  
+           
 
 II) superVDSM service will serve both VDSM service and HSM service
 
@@ -34,7 +34,7 @@ IV) log service will be cloned to serve both VDSM and HSM service.
 
 V)The configuration parameters in vdsm.conf should be pull out to another hsm.conf file. And all VDSM process should not read hsm.conf directly. If it is necessary to get the HSM configurations, an API will be added into VDSM process for hsm configuration querying
 
-         An example, [irs] section in vdsm.conf should be pulled out into hsm.conf
+         An example, [irs] section in vdsm.conf should be pulled out into hsm.conf
 
 VI) All of the HSM files should be self contained and will be packaged into another RPM package different from VDSM package.
 

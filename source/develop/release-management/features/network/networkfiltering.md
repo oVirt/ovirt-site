@@ -30,14 +30,14 @@ In order to prevent mac spoofing, the Engine will use custom libvirt rules consi
 The custom rule will be defined by vdsm on libvirt named *vdsm-no-mac-spoofing*. Once the system is configured for network filtering, that rule will be sent to VDSM upon running VMs, reported for each VM network interface.
 VDSM will extent the DOM network interface element sent to libvirt:
 
-`  `<interface type="bridge">
-`      `<mac address="aa:aa:aa:aa:aa:aa"/>
-`      `<model type="virtio"/>
-            
+`  `<interface type="bridge">
+`      `<mac address="aa:aa:aa:aa:aa:aa"/>
+`      `<model type="virtio"/>
+            
 
-            ...
-`      `<filterref filter='vdsm-no-mac-spoofing'/>
-`   `</interface>
+            ...
+`      `<filterref filter='vdsm-no-mac-spoofing'/>
+`   `</interface>
 
 libvirt will use the rule to configure the ebtables to prevent mac spoofing and arp mac spoofing.
 
@@ -56,9 +56,9 @@ The feature will be enabled for **3.2 cluster level** and above, as required VDS
 
 'Run VM' process will be changed as follow:
 
-        For each VM network interface being sent to VDSM
-          If `*`EnableMACAntiSpoofingFilterRules`*` is enabled  and cluster level equals/greater than 3.2:
-            Add vdsm-no-mac-spoofing filter name for the VM interface
+        For each VM network interface being sent to VDSM
+          If `*`EnableMACAntiSpoofingFilterRules`*` is enabled  and cluster level equals/greater than 3.2:
+            Add vdsm-no-mac-spoofing filter name for the VM interface
 
 Changes will be made in *VmInfoBuilder.addNetworkInterfaceProperties()*
 
@@ -72,13 +72,13 @@ VDSM will define a custom nwfilter rule on libvirt - vdsm-no-mac-spoofing, consi
 
 The VM creation API will be extended to support network filtering for VM nics.
 
-        nicModel
-        device
-        network
-        type
-        macAddr
-        ....
-        filters
+        nicModel
+        device
+        network
+        type
+        macAddr
+        ....
+        filters
 
 Where *filters* is a List of filters (as per libvirt-10-21 libvirt supports a single filter only).
 

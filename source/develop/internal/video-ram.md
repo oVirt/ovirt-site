@@ -27,7 +27,7 @@ Meanings of `<video>` element attributes in domain XML:
 
 ## QXL QEMU driver
 
-**Please note** that all the information about video RAM sizes below should be taken with grain of salt. Nobody knows the perfect ultimate answer to that topic, there are different guest OS drivers and as stated above, things may completely change in oVirt 4. Users should be able to override the computed default settings if they use uncommon arrangements or the computed values don't work well for them. This can be done using before_vm_start VDSM hook.
+**Please note** that all the information about video RAM sizes below should be taken with grain of salt. Nobody knows the perfect ultimate answer to that topic, there are different guest OS drivers and as stated above, things may completely change in oVirt 4. Users should be able to override the computed default settings if they use uncommon arrangements or the computed values don't work well for them. This can be done using before_vm_start VDSM hook.
 
 You can look for implementation details in qxl.c in QEMU sources. But don't rely on anything, things may change, so it's a good idea to get confirmation from QEMU and/or libvirt developers about everything.
 
@@ -35,11 +35,11 @@ libvirt `ram` represents primary memory bar, 32-bit only. libvirt `vram` represe
 
 `vgamem` is allocated within `ram`. Minimum `ram` size, as enforced by QEMU regardless the command line settings, is `2 * vgamem`. `vram` is allocated separately.
 
-Maximum supported screen resolution is 4 megapixels (2560x1600). Maximum number of heads is 4.
+Maximum supported screen resolution is 4 megapixels (2560x1600). Maximum number of heads is 4.
 
-The required memory sizes are basically dependent on screen resolution multiplied by number of heads. But this should actually be the bounding rectangle of the screen arrangement. For instance, let's assume 4 screens with resolution 1024x768 each. If they are arranged compactly in a single row or in two rows and two columns, it's fine, memory for 3 megapixels is required. But if three screens are in a row and the fourth screen is below them then the required memory may correspond (depending on the driver) to 4.5 (3072x1536) megapixels; when all the screens are arranged diagonally, it's 12 (4096x3072) megapixels. We don't assume such setups when computing memory values.
+The required memory sizes are basically dependent on screen resolution multiplied by number of heads. But this should actually be the bounding rectangle of the screen arrangement. For instance, let's assume 4 screens with resolution 1024x768 each. If they are arranged compactly in a single row or in two rows and two columns, it's fine, memory for 3 megapixels is required. But if three screens are in a row and the fourth screen is below them then the required memory may correspond (depending on the driver) to 4.5 (3072x1536) megapixels; when all the screens are arranged diagonally, it's 12 (4096x3072) megapixels. We don't assume such setups when computing memory values.
 
-Due to 32-bit addressing in QEMU, total (for all video cards together) maximum size of `ram` is 256 or 512 MB. **TODO**: Check what happens when we specify more.
+Due to 32-bit addressing in QEMU, total (for all video cards together) maximum size of `ram` is 256 or 512 MB. **TODO**: Check what happens when we specify more.
 
 All memory sizes should be specified as powers of 2. This is not a strict requirement, it's just advised.
 

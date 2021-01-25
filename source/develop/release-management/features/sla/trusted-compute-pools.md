@@ -83,9 +83,9 @@ When the VM created in the trusted cluster was exported as OVF file, OVF file sh
 
 Create a trusted cluster via restful API, curl command may like this.
 
-    curl -v -u "admin@internal:abc123" \
-      -H "Content-type: application/xml" \
-      -d '<cluster><name>my_trust_cluster</name><data_center><name>"Default"</name></data_center> <version minor="2" major="3"/> <cpu id="Intel SandyBridge Family"/><trusted_service>true</trusted_service></cluster>' \
+    curl -v -u "admin@internal:abc123" \
+      -H "Content-type: application/xml" \
+      -d '<cluster><name>my_trust_cluster</name><data_center><name>"Default"</name></data_center> <version minor="2" major="3"/> <cpu id="Intel SandyBridge Family"/><trusted_service>true</trusted_service></cluster>' \
       'http://engine.***.com:80/api/clusters'
 
 Key relevant modification includes api.xsd and ClusterMapper.java.

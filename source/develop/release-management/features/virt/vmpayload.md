@@ -59,30 +59,30 @@ The payload options are:
 
 This is an example for the API for this feature, the vm_paload element will work in add/edit VM and for Run-VM actions
 
-         <vm>
-         ...
-           <payloads>
-               <payload type='cdrom'>
-                   <files>
-                       <file>
-                            <name>my.txt</name>
-                            <content>some content</content>
-                      </file>
-                   </files>
-               </payload>
-           </payloads>
-        </vm>
-       
+         <vm>
+         ...
+           <payloads>
+               <payload type='cdrom'>
+                   <files>
+                       <file>
+                            <name>my.txt</name>
+                            <content>some content</content>
+                      </file>
+                   </files>
+               </payload>
+           </payloads>
+        </vm>
+       
 
 ## Design Notes
 
 vmPayload is passed in the create params:
 
-       'vmPayload': { 'cdrom': [{'filename': 'content' }, {'filename': 'content'}],
-        'floppy': [{'filename': 'content' }, {'filename': 'content'}],
-        'sysprep': {'filename': 'content' },
-        'network': '...' }
-       
+       'vmPayload': { 'cdrom': [{'filename': 'content' }, {'filename': 'content'}],
+        'floppy': [{'filename': 'content' }, {'filename': 'content'}],
+        'sysprep': {'filename': 'content' },
+        'network': '...' }
+       
 
 ## User work-flows
 

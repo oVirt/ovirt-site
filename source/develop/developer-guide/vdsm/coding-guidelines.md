@@ -22,18 +22,18 @@ authors: adahms, danken, dougsland
 *   White space between code stanzas are welcome. They help to create breathing while reading long code. However, splitting stanzas into helper functions could be even better.
 *   Let logging method do the formatting for you:
 
-      logging.debug('hello %s', 'world')
+      logging.debug('hello %s', 'world')
 
 Rather than:
 
-      logging.debug('hello %s' % 'world')
+      logging.debug('hello %s' % 'world')
 
 *   try-except blocks should be tiny (if existing at all), and the caught exception should be the narrowest possible. Note the following code:
 
       try:
-        code_that_may_raise
-      except Exception:
-        log
+        code_that_may_raise
+      except Exception:
+        log
 
 Code such as the above basically means "I do not care if code_that_may_raise fails or succeeds". If this is the case, why try run that code at all?
 

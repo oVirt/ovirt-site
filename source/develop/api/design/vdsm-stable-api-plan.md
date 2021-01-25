@@ -32,10 +32,10 @@ Things to declare
 *   Experimental verbs are unversioned and can appear or disappear at any time without notice.
 *   VDSM Can export support for multiple supported API versions.
 
-       {"Image Manipulator": "1.0.0",
-        "Networking": "2.1.2",
-        "Storage Connection Management": "3.0.4",
-        "GlusterFS Support": "1.0.12"]}
+       {"Image Manipulator": "1.0.0",
+        "Networking": "2.1.2",
+        "Storage Connection Management": "3.0.4",
+        "GlusterFS Support": "1.0.12"]}
 
 *   Release with an API change is a new API version.
 *   Versioning features separately means that clients that don't use certain parts of VDSM will not have to care if the bits they are not using change.

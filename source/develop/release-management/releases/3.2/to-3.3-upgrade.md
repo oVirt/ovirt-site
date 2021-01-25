@@ -18,16 +18,16 @@ The following instructions were tested upgrading oVirt 3.2.3-1.fc18 to 3.3.0-4.f
 *   Make sure to backup the DB and the /etc/pki/ovirt-engine folders before the upgrade.
 *   Update the system the oVirt Engine was installed on to Fedora 18 using:
 
-      # yum update
+      # yum update
 
 *   Upgrade the system the oVirt Engine was installed on to Fedora 19:
     -   More info about preupgrade: <http://fedoraproject.org/wiki/PreUpgrade>
 
-      # fedup --network 19
+      # fedup --network 19
 
 After reboot the following packages are on the system:
 
-      # rpm -qa |grep ovirt
+      # rpm -qa |grep ovirt
       ovirt-engine-setup-3.3.0-4.fc19.noarch
       ovirt-engine-restapi-3.2.3-1.fc18.noarch
       ovirt-engine-webadmin-portal-3.2.3-1.fc18.noarch
@@ -49,28 +49,28 @@ After reboot the following packages are on the system:
 
 You may need to execute the following commands in order to have yum working correctly:
 
-      # yum clean all
-      # yum update
-      # ln -s /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-19-primary /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-x86_64
+      # yum clean all
+      # yum update
+      # ln -s /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-19-primary /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-x86_64
 
 Apache and PosgreSQL are up and running but the following error will be found:
 
-      # service ovirt-engine status
-      Redirecting to /bin/systemctl status  ovirt-engine.service
-      ovirt-engine.service - oVirt Engine
-        Loaded: loaded (/usr/lib/systemd/system/ovirt-engine.service; enabled)
-        Active: failed (Result: exit-code) since mer 2013-09-18 08:01:50 EDT; 1s ago
-       Process: 619 ExecStart=/usr/bin/engine-service start (code=exited,  status=1/FAILURE)
+      # service ovirt-engine status
+      Redirecting to /bin/systemctl status  ovirt-engine.service
+      ovirt-engine.service - oVirt Engine
+        Loaded: loaded (/usr/lib/systemd/system/ovirt-engine.service; enabled)
+        Active: failed (Result: exit-code) since mer 2013-09-18 08:01:50 EDT; 1s ago
+       Process: 619 ExecStart=/usr/bin/engine-service start (code=exited,  status=1/FAILURE)
 
 You must now update oVirt:
 
-      # engine-setup
+      # engine-setup
 
 The setup will guide you during the oVirt upgrade.
 
 If you want to enable novnc/spice html5:
 
-      # yum -y install ovirt-engine-websocket-proxy
-      # engine-setup
+      # yum -y install ovirt-engine-websocket-proxy
+      # engine-setup
 
 and access https: //<fqdn>:6100 for accepting the certificate

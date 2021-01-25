@@ -19,7 +19,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 In order to install it on a clean system, you need to install
 
-`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
+`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
 
 
 If you're upgrading from a previous version you should have ovirt-release package already installed on your system.
@@ -28,14 +28,14 @@ You can then install ovirt-release34.rpm as in a clean install side-by-side.
 
 If you're upgrading from oVirt 3.4.0 you can now remove ovirt-release package:
 
-      # yum remove ovirt-release
-      # yum update "ovirt-engine-setup*"
-      # engine-setup
+      # yum remove ovirt-release
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
 
 If you're upgrading from 3.3.2 or later, keep ovirt-release rpm in place until the upgrade is completed.
 
-      # yum update "ovirt-engine-setup*"
-      # engine-setup
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
 
 If you're upgrading from oVirt <= 3.3.1 you must first upgrade to oVirt 3.3.5. Please see [oVirt 3.3.5 release notes](/develop/release-management/releases/3.3.5/) for upgrading instructions.
 
@@ -58,11 +58,11 @@ A new oVirt Live ISO is available:
 *   Host deployment may fail on EL6 system due to a recent tuned regression (, ). Please downgrade tuned to previous version while waiting for a new tuned package solving this issue.
 *   ovirt-log-collector installation fails on Fedora 19 due to a conflict with sos 3.0 recently introduced also on release 19 () as workaround please downgrade sos before installing ovirt-engine:
 
-       # yum downgrade sos
+       # yum downgrade sos
 
 *   after installing ovirt-engine yum update will fail on Fedora 19 due to sos 3.0 conflict with ovirt-log-collector () as workaround please exclude sos from yum updates adding the following line in **/etc/yum.conf**:
 
-       exclude=sos
+       exclude=sos
 
 ## Bugs fixed
 

@@ -48,7 +48,7 @@ The most interesting use case is for VM-Pools, where vms are stateless.
 *   if the pool is from 'latest', pool is updated to use new version of template
 *   from this point, every vm that is taken from the pool will have the new version.
 
-      vms in use will not be affected immediately.
+      vms in use will not be affected immediately.
 
 **New Functionality**
 
@@ -103,8 +103,8 @@ If version section will be defined, user will have to fill the following fields:
 
 ```xml
 <version>
- <base_template id="1c4f1c18-030f-4a78-9b61-e17ca1d45cb0"/>
- <version_name>"second template for lab"</version_name>
+ <base_template id="1c4f1c18-030f-4a78-9b61-e17ca1d45cb0"/>
+ <version_name>"second template for lab"</version_name>
 </version>
 ```
 
@@ -116,7 +116,7 @@ Example for editing a template's version name: (add the version part inside the 
 
 ```xml
 <version>
-  <version_name>"new name of this version"</version_name> 
+  <version_name>"new name of this version"</version_name> 
 </version>
 ```
 

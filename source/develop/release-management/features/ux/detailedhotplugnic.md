@@ -94,14 +94,14 @@ vm_device table to 'true'. If the VM is up then the VDSM is also being called to
       plugUnplugNic(1000)
 
       plugUnplugVmNicParameters.java
-      Guid vmId;
-      Guid nicId;
-      boolean plug;
+      Guid vmId;
+      Guid nicId;
+      boolean plug;
 
 #### Model
 
       vm_interface_view:
-      join vm_device.isPlugged as active
+      join vm_device.isPlugged as active
 
 ##### Error codes
 

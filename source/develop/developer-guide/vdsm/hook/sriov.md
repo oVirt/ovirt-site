@@ -21,7 +21,7 @@ The hook works as follows:
 
 syntax:
 
-      sr-iov: sriov=eth10,eth11
+      sr-iov: sriov=eth10,eth11
 
 Will attach 2 sr-iov VFs to vm
 
@@ -32,7 +32,7 @@ Will attach 2 sr-iov VFs to vm
 *   Enable IOMME:
     -   Intel CPU, pass intel_iommu=on to the kernel command line
 
-      (dmesg | grep "Intel-IOMMU: enabled" # make sure that iommu is enabled)
+      (dmesg | grep "Intel-IOMMU: enabled" # make sure that iommu is enabled)
 
 *   -   AMD CPU
 
@@ -41,7 +41,7 @@ Will attach 2 sr-iov VFs to vm
 *   Load sr-iov PF and VF
     -   Intel Corporation 82576 Gigabit Network Connection:
 
-      modprobe igb max_vfs=7 
+      modprobe igb max_vfs=7 
 
 7 is max for 82576 card
 

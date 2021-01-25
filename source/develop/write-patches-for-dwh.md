@@ -12,11 +12,11 @@ authors: sradco
 
 *   Download and install the latest Talend DI version.
 
-      Available from: `[`http://www.talend.com/download.php`](http://www.talend.com/download.php)` 
+      Available from: `[`http://www.talend.com/download.php`](http://www.talend.com/download.php)` 
 
 *   Import the oVirt DWH project from the path:
 
-      < repository folder path >/ovirt-dwh/tos_project
+      < repository folder path >/ovirt-dwh/tos_project
 
 *   You may now edit the project using the studio.
 *   Setup connections context in the Talend DI for the ovirt_engine_history database.
@@ -33,7 +33,7 @@ Follow the following steps:
 *   Setup a postgreSQL "engine" DB.
 *   Make the necessary changes in:
 
-        ./ovirt-engine/packaging/dbscripts/create_dwh_views.sql
+        ./ovirt-engine/packaging/dbscripts/create_dwh_views.sql
 
 ## If a change to the "ovirt_engine_history" DB is required
 
@@ -43,7 +43,7 @@ Follow the following steps:
 *   Setup a postgreSQL "ovirt_engine_history" DB.
 *   Create an upgrade sql file in the following folder:
 
-         ./ovirt-dwh/packaging/dbscripts/upgrade/
+         ./ovirt-dwh/packaging/dbscripts/upgrade/
 
 When needed, update the new column values before removing a related column.
 
@@ -65,7 +65,7 @@ Follow the following steps:
 *   Setup a postgreSQL "engine" DB.
 *   Make the necessary changes for the latest views:
 
-        ./ovirt-dwh/packaging/dbscripts/create_views_X_Y.sql
+        ./ovirt-dwh/packaging/dbscripts/create_views_X_Y.sql
 
 ### Maintain Legacy views - Make the necessary changes to former views
 
@@ -90,25 +90,25 @@ First,
 
 *   -   Open the zip file and copy the java files from:
 
-       ./HistoryETL/src/ovirt_engine_dwh
+       ./HistoryETL/src/ovirt_engine_dwh
 
 To the git repository :
 
-       ./ovirt-dwh/etl_export/src/ovirt_engine_dwh
+       ./ovirt-dwh/etl_export/src/ovirt_engine_dwh
 
 *   -   When changing the context - for example added a variable ,
 
 copy the context from the zip file:
 
-       ./HistoryETL/ovirt_engine_dwh/
+       ./HistoryETL/ovirt_engine_dwh/
 
 To the git repository:
 
-       ./ovirt-dwh/etl_export/ovirt_engine_dwh
+       ./ovirt-dwh/etl_export/ovirt_engine_dwh
 
 *   -   When upgrading a Talend version, copy the routines from the zip file:
 
-       ./HistoryETL/src/routines/
+       ./HistoryETL/src/routines/
 
 To the git repository:
 
@@ -122,7 +122,7 @@ Second,
 
 *   Copy from the zip file to the git repository :
 
-       ./ovirt-dwh/tos_project 
+       ./ovirt-dwh/tos_project 
 
 Important ! Copy only into the folders that already exist in the tos_project folder. Do not copy : Metadata, sqlPatterns and temp.
 

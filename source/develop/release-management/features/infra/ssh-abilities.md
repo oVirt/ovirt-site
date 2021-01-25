@@ -37,17 +37,17 @@ Modifying Host and Action objects
 \* Adding SSH field for both Host and Action to allow flexibility in the authentication protocol, this includes port, authentication method, and fingerprint - When authentication method's default value is Password. Under ssh field we add 'User' reference that includes username and password fields. keeping rootPassword field deprecated for backward compatibility.
 
 <host>
-        `<rootPassword>`123`</rootPassword>` -> Still in use for backward compatibility
-`  `<ssh>
-`    `<port>`22`</port>
-`    `<fingerprint>`11:22:33:44:55:66:77:88`</fingerprint>
-`    `<authentication_method>`publickey`</authentication_method>
-`    `<user>
-`       `<user_name>`ybronhei`</user_name>
-             `<password>`123`</password>` - When this set we ignore the rootPassword
-             ... - There are more fields under user, we don't use the other fields during install, update and approve host
-`    `</user>
-` `</ssh>
+        `<rootPassword>`123`</rootPassword>` -> Still in use for backward compatibility
+`  `<ssh>
+`    `<port>`22`</port>
+`    `<fingerprint>`11:22:33:44:55:66:77:88`</fingerprint>
+`    `<authentication_method>`publickey`</authentication_method>
+`    `<user>
+`       `<user_name>`ybronhei`</user_name>
+             `<password>`123`</password>` - When this set we ignore the rootPassword
+             ... - There are more fields under user, we don't use the other fields during install, update and approve host
+`    `</user>
+` `</ssh>
 </host>
 
 4. UI

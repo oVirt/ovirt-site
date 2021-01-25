@@ -34,37 +34,37 @@ and the direct blocking calls we do to fetch aggregated data from our agents (al
 
 current situation a high-level
 
-                            *
-                            | [exclusive lock]
-                            * 
-                            | ----------[if status is Up or going to Maintenance...]
-                                               |
-                                               | VDSM::GetVdsStats
-                                               | ----------------------------[Failed]--------- Non Oper
-                                               | [sucess]
-                                               | DB::save VdsDynamic and Statistics
-                            |
-                            | ----------[other status, Unassigned]
-                                               | refresh HW caps and cluster checks
-                            |
-                            | refresh VM stats
-                                               | ------[time for stats]----
-                                                                       |
-                                                                       | VDSM::GetAllVmStats
-                                               |[list only]
-                                               | VDSM::GetVMsList
-                                               |
-                                               | compare list of db vms and running vms
-                                                                        | migration ended?
-                                                                        | vm is up?
-                                                                        | vm is down?
-                                                                        | memory checks
-                                                                        | watchdog events,network checks etc...
-                              | free exclusive lock
-                                         
-                                               
-                                               
-                                               
+                            *
+                            | [exclusive lock]
+                            * 
+                            | ----------[if status is Up or going to Maintenance...]
+                                               |
+                                               | VDSM::GetVdsStats
+                                               | ----------------------------[Failed]--------- Non Oper
+                                               | [sucess]
+                                               | DB::save VdsDynamic and Statistics
+                            |
+                            | ----------[other status, Unassigned]
+                                               | refresh HW caps and cluster checks
+                            |
+                            | refresh VM stats
+                                               | ------[time for stats]----
+                                                                       |
+                                                                       | VDSM::GetAllVmStats
+                                               |[list only]
+                                               | VDSM::GetVMsList
+                                               |
+                                               | compare list of db vms and running vms
+                                                                        | migration ended?
+                                                                        | vm is up?
+                                                                        | vm is down?
+                                                                        | memory checks
+                                                                        | watchdog events,network checks etc...
+                              | free exclusive lock
+                                         
+                                               
+                                               
+                                               
 
 ### poll to push - Reactive Programming
 

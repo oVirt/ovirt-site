@@ -58,19 +58,19 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 *   Use existing VM Snapshot/Create a vm snapshot (example):
 
-`URL = SERVER:PORT/api/vms/VM_ID/snapshots`
-`Method = POST (with Content-Type:application/xml header)`
+`URL = SERVER:PORT/api/vms/VM_ID/snapshots`
+`Method = POST (with Content-Type:application/xml header)`
 
 ```xml
 <snapshot>
-  <description>Virtual Machine 1 - Snapshot For Backup</description>
+  <description>Virtual Machine 1 - Snapshot For Backup</description>
 </snapshot>
 ```
 
 *   Grab the wanted vm configuration from the needed snapshot - it'll be under initialization/configuration/data
 
-`URL = SERVER:PORT/api/vms/VM_ID/snapshots/ID`
-`Method = GET  (with All-Content:true header)`
+`URL = SERVER:PORT/api/vms/VM_ID/snapshots/ID`
+`Method = GET  (with All-Content:true header)`
 
 *   Navigate to the wanted disk snapshot by accessing: ([Example](#get-disk-snapshot-data))
 
@@ -78,8 +78,8 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 *   Attach the disk snapshot to the vm using the disk id and the snapshot id: ([Example](#attach-disk-to-backup-vm))
 
-`URL = SERVER:PORT/api/vms/GUID/disks/`
-`Method = POST (with Content-Type:application/xml header)`
+`URL = SERVER:PORT/api/vms/GUID/disks/`
+`Method = POST (with Content-Type:application/xml header)`
 
 ```xml
 <disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
@@ -87,18 +87,18 @@ Full VM backup can be implemented for example by using the following oVirt capab
 </disk>
 ```
 
- **note**: you can attempt to plug the disk to the vm by adding `<active>true</active>` to the request body,
- otherwise you'll need to plug/activate it manually so that the data will be available for the backup.
+ **note**: you can attempt to plug the disk to the vm by adding `<active>true</active>` to the request body,
+ otherwise you'll need to plug/activate it manually so that the data will be available for the backup.
 
 *   if needed activate/plug the disk manually (depending on how the previous step was executed):
 
-`URL = SERVER:PORT/api/vms/VM_ID/disks/DISK_ID/activate`
-`Method = POST`
+`URL = SERVER:PORT/api/vms/VM_ID/disks/DISK_ID/activate`
+`Method = POST`
 
 *   After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](#detach-disk-from-backup-vm)):
 
-`URL = SERVER:PORT/api/vms/GUID/disks/GUID`
-`Method = DELETE`
+`URL = SERVER:PORT/api/vms/GUID/disks/GUID`
+`Method = DELETE`
 
 ```xml
 <action>
@@ -120,8 +120,8 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 2. Attach the disk to the virtual appliance:
 
-`URL = SERVER:PORT/api/vms/GUID/disks/`
-`Method = POST (with Content-Type:application/xml header)`
+`URL = SERVER:PORT/api/vms/GUID/disks/`
+`Method = POST (with Content-Type:application/xml header)`
 
 ```xml
 <disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"></disk>
@@ -129,8 +129,8 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 3. After copying the data from the disk detach the disk from the VM: ([Example](#detach-disk-from-backup-vm)):
 
-`URL = SERVER:PORT/api/vms/GUID/disks/GUID`
-`Method = DELETE`
+`URL = SERVER:PORT/api/vms/GUID/disks/GUID`
+`Method = DELETE`
 
 ```xml
 <action>
@@ -140,8 +140,8 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 4. Create a vm using the configuration that was saved as part of the backup flow:
 
-`URL = SERVER:PORT/api/vms/`
-`Method = POST(with Content-Type:application/xml header)`
+`URL = SERVER:PORT/api/vms/`
+`Method = POST(with Content-Type:application/xml header)`
 
 ```xml
 <vm>
@@ -160,11 +160,11 @@ Full VM backup can be implemented for example by using the following oVirt capab
 </vm>
 ```
 
-  * The OVF configuration should be passed within CDATA block or after
-    escaping to prevent error in the parsing of the request.
+  * The OVF configuration should be passed within CDATA block or after
+    escaping to prevent error in the parsing of the request.
     
-  * Note that any of the vm properties can be modified during that request by specifying it within the value (the given 
-    example is with the vm name overridden).
+  * Note that any of the vm properties can be modified during that request by specifying it within the value (the given 
+    example is with the vm name overridden).
 
 #### Difference between Virtual appliance and Host appliance
 

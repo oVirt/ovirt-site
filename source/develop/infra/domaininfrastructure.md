@@ -54,38 +54,38 @@ This infrastructure is in the package: org.ovirt.engine.core.bll.adbroker, and i
 
 *   Querying user properties by principal name:
 
-        // Create query data object
-        LdapQueryData queryData = new LdapQueryDataImpl();
+        // Create query data object
+        LdapQueryData queryData = new LdapQueryDataImpl();
 
-        // We wish to get the user by its principal name
-        queryData.setLdapQueryType(LdapQueryType.getUserByPrincipalName);
+        // We wish to get the user by its principal name
+        queryData.setLdapQueryType(LdapQueryType.getUserByPrincipalName);
 
-        // The input of the query
-        queryData.setFilterParameters(new Object[] { krbPrincipalName });
+        // The input of the query
+        queryData.setFilterParameters(new Object[] { krbPrincipalName });
 
-        // The domain we wish to query
-        queryData.setDomain(domain);
+        // The domain we wish to query
+        queryData.setDomain(domain);
 
-        // Setting the credentials for the query
-        LdapCredentials credentials = new LdapCredentials(username, password);
+        // Setting the credentials for the query
+        LdapCredentials credentials = new LdapCredentials(username, password);
 
-        // Creating the directory searcher
-        DirectorySearcher searcher = new DirectorySearcher(credentials);
+        // Creating the directory searcher
+        DirectorySearcher searcher = new DirectorySearcher(credentials);
 
-        // Running the query
-        List<AdUser> resultByUpn = searcher.FindAll(queryData);
-       
+        // Running the query
+        List<AdUser> resultByUpn = searcher.FindAll(queryData);
+       
 
 *   Querying group properties by group name:
 
-        LdapQueryData queryData = new LdapQueryDataImpl();
-        queryData.setLdapQueryType(LdapQueryType.getGroupByName);
-        queryData.setFilterParameters(new Object[] { "dev" });
-        queryData.setDomain(domain);
+        LdapQueryData queryData = new LdapQueryDataImpl();
+        queryData.setLdapQueryType(LdapQueryType.getGroupByName);
+        queryData.setFilterParameters(new Object[] { "dev" });
+        queryData.setDomain(domain);
 
-        LdapCredentials credentials = new LdapCredentials(username, password);
+        LdapCredentials credentials = new LdapCredentials(username, password);
 
-        DirectorySearcher searcher = new DirectorySearcher(credentials);
+        DirectorySearcher searcher = new DirectorySearcher(credentials);
 
-        List<AdUser> resultByname = searcher.FindAll(queryData);
-       
+        List<AdUser> resultByname = searcher.FindAll(queryData);
+       

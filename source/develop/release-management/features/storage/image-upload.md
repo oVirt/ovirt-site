@@ -117,25 +117,25 @@ For a detailed information and examples regarding the usage of the Image I/O RES
   * The user requests to start a transfer session.
     * A new transfer can be started, with a supplied image or without. If one is not supplied, the Engine will create one.
   * The Engine starts to poll the command until it finishes its initialization.
-  * Once the initialization is over, Engine tells VDSM to start an image transfer session with a ticket.
-  * VDSM prepares an image.
-  * VDSM sends the transfer ticket to ovirt-imageio-daemon.
-  * Engine sends tickets back to the client.
-  * The client starts sending/receiving data with its ticket.
-  * Proxy verifies ticket and open connection to ovirt-imageio-daemon
-  * Proxy sends ticket uuid to ovirt-imageio-daemon
-  * ovirt-imageio-daemon verifies that it has a ticket with this uuid.
-  * proxy pushes data to ovirt-imageio-daemon.
-  * ovirt-imageio-daemon writes data to path associated with the ticket.
+  * Once the initialization is over, Engine tells VDSM to start an image transfer session with a ticket.
+  * VDSM prepares an image.
+  * VDSM sends the transfer ticket to ovirt-imageio-daemon.
+  * Engine sends tickets back to the client.
+  * The client starts sending/receiving data with its ticket.
+  * Proxy verifies ticket and open connection to ovirt-imageio-daemon
+  * Proxy sends ticket uuid to ovirt-imageio-daemon
+  * ovirt-imageio-daemon verifies that it has a ticket with this uuid.
+  * proxy pushes data to ovirt-imageio-daemon.
+  * ovirt-imageio-daemon writes data to path associated with the ticket.
   * The client sends data to the proxy, while extending the session through the Engine.
-    * In each request, the client finishes sending data, waits for 200 OK from proxy,
-    * Proxy finished, waits for 200 OK from ovirt-imageio-daemon.
-    * ovirt-imageio-daemon returns 200 OK.
-  * The client finishes, finalizes the session with engine.
-  * engine tells VDSM to end the session.
-  * VDSM revokes the ticket for this session.
-  * ovirt-imageio-daemon removes the ticket.
-  * VDSM tears down the image.
+    * In each request, the client finishes sending data, waits for 200 OK from proxy,
+    * Proxy finished, waits for 200 OK from ovirt-imageio-daemon.
+    * ovirt-imageio-daemon returns 200 OK.
+  * The client finishes, finalizes the session with engine.
+  * engine tells VDSM to end the session.
+  * VDSM revokes the ticket for this session.
+  * ovirt-imageio-daemon removes the ticket.
+  * VDSM tears down the image.
   * VDSM verifies the image.
   * Engine frees the image, making it ready for use.
 
@@ -146,26 +146,26 @@ For a detailed information and examples regarding the usage of the Image I/O RES
 * **Reporting progress (Currently available only from the UI)**
   * After every successful request, the UI updates the engine with the status of the transfer, mentioning the amount of data sent.
   * Engine saves this info in the transfer's entity in the DB.
-  * UI displays current progress.
+  * UI displays current progress.
 
 * **Putting host in maintenance (TBD)**
-  * engine tells VDSM to revoke the tickets
-  * VDSM revokes ovirt-imageio-daemon tickets
-  * ovirt-imageio-daemon closes connections using revoked tickets
-  * VDSM tears down images
-  * UI may retry operation, will get another host to continue the upload/download
+  * engine tells VDSM to revoke the tickets
+  * VDSM revokes ovirt-imageio-daemon tickets
+  * ovirt-imageio-daemon closes connections using revoked tickets
+  * VDSM tears down images
+  * UI may retry operation, will get another host to continue the upload/download
 
 * **Cancel operation**
-  * UI sends cancel session request to engine
-  * engine tells VDSM to revoke the ticket due to cancellation
-  * VDSM revokes the ovirt-imageio-daemon ticket
-  * ovirt-imageio-daemon deletes the ticket and closes connections
-  * VDSM tears down image
+  * UI sends cancel session request to engine
+  * engine tells VDSM to revoke the ticket due to cancellation
+  * VDSM revokes the ovirt-imageio-daemon ticket
+  * ovirt-imageio-daemon deletes the ticket and closes connections
+  * VDSM tears down image
 
 * **Renewing a ticket**
-  * engine sends new renew session ticket request to VDSM
-  * VDSM updates the ticket expiration time
-  * ovirt-imageio-daemon restarts expiration timer for this ticket
+  * engine sends new renew session ticket request to VDSM
+  * VDSM updates the ticket expiration time
+  * ovirt-imageio-daemon restarts expiration timer for this ticket
 
 * **Pausing a transfer**
   * The client chooses to pause the transfer.

@@ -78,11 +78,11 @@ Body:
  <name>fromRest</name>
  <storage_connections>
   <storage_connection id={storageconnection_id} />
-      ....
+      ....
  </storage_connections>
  <networks>
   <network id={network_id} />
-      ....
+      ....
  </networks>
 </iscsi_bond>
 ```

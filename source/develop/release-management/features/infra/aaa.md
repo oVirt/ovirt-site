@@ -67,10 +67,10 @@ Extension interface is org.ovirt.engine.api.extensions.aaa.Acct.
 
 For each extension create /etc/ovirt-engine/extension.d/XXX.properties we have the following attributes:
 
-      ovirt.engine.extension.name = @NAME@
-      ovirt.engine.extension.bindings.method = jbossmodule
-      ovirt.engine.extension.binding.jbossmodule.module = @MODULE@
-      ovirt.engine.extension.binding.jbossmodule.class = @CLASS@
+      ovirt.engine.extension.name = @NAME@
+      ovirt.engine.extension.bindings.method = jbossmodule
+      ovirt.engine.extension.binding.jbossmodule.module = @MODULE@
+      ovirt.engine.extension.binding.jbossmodule.class = @CLASS@
 
 @MODULE, @CLASS@ should be replaced by values taken from extension documentation.
 
@@ -80,7 +80,7 @@ For each extension create /etc/ovirt-engine/extension.d/XXX.properties we have t
 
 In addition to common:
 
-      ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authz
+      ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authz
 
 Extension specific fields may also be specified.
 
@@ -88,7 +88,7 @@ Extension specific fields may also be specified.
 
 In addition to common:
 
-      ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Mapping
+      ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Mapping
 
 Extension specific fields may also be specified.
 
@@ -96,10 +96,10 @@ Extension specific fields may also be specified.
 
 In addition to common:
 
-      ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authn
-      ovirt.engine.aaa.authn.profile.name = profile1    # user visible name for this authn profile.
-      ovirt.engine.aaa.authn.authz.plugin = authz1      # refers to the authz extension to be used.
-      ovirt.engine.aaa.authn.mapping.plugin = mapping1  # optional mapper extension to be used.
+      ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authn
+      ovirt.engine.aaa.authn.profile.name = profile1    # user visible name for this authn profile.
+      ovirt.engine.aaa.authn.authz.plugin = authz1      # refers to the authz extension to be used.
+      ovirt.engine.aaa.authn.mapping.plugin = mapping1  # optional mapper extension to be used.
 
 Extension specific fields may also be specified.
 
@@ -107,7 +107,7 @@ Extension specific fields may also be specified.
 
 In addition to common:
 
-      ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Acct
+      ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Acct
 
 Extension specific fields may also be specified.
 

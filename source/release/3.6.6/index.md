@@ -21,7 +21,7 @@ check out the [previous versions release notes](/develop/release-management/rele
 
 In order to install it on a clean system, you need to install
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
 
 If you are upgrading from a previous version, you may have the ovirt-release35 package already installed on your system. You can then install ovirt-release36.rpm as in a clean install side-by-side.
 
@@ -31,8 +31,8 @@ If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 o
 
 For upgrading now you just need to execute:
 
-      # yum update "ovirt-engine-setup*"
-      # engine-setup
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
 
 
 ### oVirt Live

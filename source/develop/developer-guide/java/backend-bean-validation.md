@@ -12,13 +12,13 @@ Using the [jsr 303](http://beanvalidation.org/1.0/spec/) and its Jboss reference
 
 To validate the command inputs parameters classes i.e. all the descendants of **VdcActionParametersBase** and the beans they are composed from. The validation is fits into the execution before CanDoAction phase:
 
-      Authorization check 
-             |
-              -> Backward Compatibility check
-                           |
-                            -> *Validate Inputs*
-                                    |
-                                     -> Can do action
+      Authorization check 
+             |
+              -> Backward Compatibility check
+                           |
+                            -> *Validate Inputs*
+                                    |
+                                     -> Can do action
 
 ## How to annotate my command inputs
 
@@ -29,9 +29,9 @@ we want to validate to target ` diskId ` will never be null.
 
 the required constraint annotation is:
 
-      public class HotPlugDiskToVmParameters extends VmDiskOperatinParameterBase {
-         @NotNull
-         private Guid diskId;
+      public class HotPlugDiskToVmParameters extends VmDiskOperatinParameterBase {
+         @NotNull
+         private Guid diskId;
 
 that's it. The rest is done by ` CommandBase.validateInputs() ` !
 
@@ -39,15 +39,15 @@ that's it. The rest is done by ` CommandBase.validateInputs() ` !
 
 if you need to validate a member inside an object passed:
 
-      class VmManagementParameterBase
+      class VmManagementParameterBase
       @Valid
-      private VmStatic vmStatic
+      private VmStatic vmStatic
 
 and in VmStatic class
 
-      class VmStatic
-      @Size(min = 1)
-      private Name name;
+      class VmStatic
+      @Size(min = 1)
+      private Name name;
 
 ### Control when to use a validation - Validation Groups
 
@@ -61,39 +61,39 @@ To achieve that we use Validation Groups. Its a marker interface passed to the v
 
 1st annotate and specify a new marker interface in ` groups `
 
-       class StorageDomainManagementParameter extends StorageDomainParametersBase {
-         @Valid
-         private storage_domain_static privateStorageDomain;
+       class StorageDomainManagementParameter extends StorageDomainParametersBase {
+         @Valid
+         private storage_domain_static privateStorageDomain;
       ...
-       @ValidName(message = "VALIDATION.STORAGE_DOMAIN.NAME.INVALID", groups = { CreateEntity.class, UpdateEntity.class })
-       private String name = "";
+       @ValidName(message = "VALIDATION.STORAGE_DOMAIN.NAME.INVALID", groups = { CreateEntity.class, UpdateEntity.class })
+       private String name = "";
 
 The marker interface:
 
-      import javax.validation.groups.Default;
-      public interface CreateEntity extends Default { }
-       
+      import javax.validation.groups.Default;
+      public interface CreateEntity extends Default { }
+       
 
 now state what validation groups your command needs by invoking addValidationGroups or overriding addValidationGroup method
 
-      class CreateFooEntityCommand {
-      public CreateFooEntityCommand() {
-          addValidationGroup(CreateEntity.class);
+      class CreateFooEntityCommand {
+      public CreateFooEntityCommand() {
+          addValidationGroup(CreateEntity.class);
 
 or
 
       @Override
-         protected List`<Class<?>`> getValidationGroups() {
-             return addValidationGroup(CreateEntity.class);
-         }
+         protected List`<Class<?>`> getValidationGroups() {
+             return addValidationGroup(CreateEntity.class);
+         }
 
 ### Custom canDoMessages in validations
 
-      @NotNull(message = "VALIDATION_NULL_VM_GUID"
-      private Guid vmId
+      @NotNull(message = "VALIDATION_NULL_VM_GUID"
+      private Guid vmId
 
       AppErrors.properties:
-      VALIDATION_NULL_VM_GUID=Null VM id is prohibited here.
+      VALIDATION_NULL_VM_GUID=Null VM id is prohibited here.
 
 
 ## Further readings

@@ -24,12 +24,12 @@ This feature enable the user to use Gluster storage for Hosted Engine data domai
 #### UX changes
 For GlusterFS storage types, specify the full address, using either the FQDN or IP address, and path name of the shared storage domain
 ```
---== STORAGE CONFIGURATION ==--
+--== STORAGE CONFIGURATION ==--
 
-During customization use CTRL-D to abort.
-Please specify the storage you would like to use (glusterfs, iscsi, nfs3, nfs4)[nfs3]: glusterfs 
-Please note that Replica 3 support is required for the shared storage.
-Please specify the full shared storage connection path to use (example: host:/path): storage.example.com:/hosted_engine/glusterfs
+During customization use CTRL-D to abort.
+Please specify the storage you would like to use (glusterfs, iscsi, nfs3, nfs4)[nfs3]: glusterfs 
+Please note that Replica 3 support is required for the shared storage.
+Please specify the full shared storage connection path to use (example: host:/path): storage.example.com:/hosted_engine/glusterfs
 ```
 
 #### Config files changes 
@@ -66,9 +66,9 @@ Like any other gluster storage domain, the hosted engine storage domain on glust
 *   The GlusterFS Volume must be configured for Replica 3
     -   Replica 3 may be verified using gluster command line or using VDSM client / API applying <http://gerrit.ovirt.org/36783>:
         ``` 
-        gluster volume info <volname> --remote-host='<server-name>'
+        gluster volume info <volname> --remote-host='<server-name>'
 
-        vdsClient -s 0 glusterVolumesList volumeName='<volname>' remoteServer='<server-name>'
+        vdsClient -s 0 glusterVolumesList volumeName='<volname>' remoteServer='<server-name>'
         ```
 
 *   The volume must be configured as per [Gluster Volume Options for Virtual Machine Image Store](/documentation/administration_guide/index.html#Adding_Red_Hat_Gluster_Storage)
@@ -87,7 +87,7 @@ Like any other gluster storage domain, the hosted engine storage domain on glust
 
 ## Release Notes
 ```
-#Self Hosted Engine Gluster Support
+#Self Hosted Engine Gluster Support
 
-Hosted Engine has now added support for [Gluster storage](/develop/release-management/features/sla/self-hosted-engine-gluster-support.html)
+Hosted Engine has now added support for [Gluster storage](/develop/release-management/features/sla/self-hosted-engine-gluster-support.html)
 ```

@@ -11,7 +11,7 @@ The libvirt XML will have the following entry added:
 
 ```xml
 <numatune>
-    <memory mode="strict" nodeset="1-4,^3"/>
+    <memory mode="strict" nodeset="1-4,^3"/>
 </numatune>
 ```
 Syntax:

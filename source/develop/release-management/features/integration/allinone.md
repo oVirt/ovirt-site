@@ -59,8 +59,8 @@ OVESETUP_AIO/storageDomainDir
 
 It is recommended to generate the answer file automatically:
 
-`engine-setup --generate-answer=`<answer file full path>
+`engine-setup --generate-answer=`<answer file full path>
 
 ... After that, proceed with installation using the answer file you have just created:
 
-`engine-setup --config-append=`<answer file full path>
+`engine-setup --config-append=`<answer file full path>

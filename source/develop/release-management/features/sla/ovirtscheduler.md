@@ -90,12 +90,12 @@ scheduler will have a Python proxy running the Python code, and the invocation t
 every request.
 So the expected flow is:
 
-         scheduling request -> Scheduler
-                                                         -> Java Filtering process
-                                                         -> Python Filtering process
-                                                         -> Java cost process
-                                                         -> Python cost process
-          <- Scheduling response
+         scheduling request -> Scheduler
+                                                         -> Java Filtering process
+                                                         -> Python Filtering process
+                                                         -> Java cost process
+                                                         -> Python cost process
+          <- Scheduling response
 
 For safety reasons the proxy will run the external code in a safe way to may sure it does not crash
 if the external code crashes.

@@ -69,8 +69,8 @@ The desktop will have the very same HA tab as the server. This is a somewhat unr
 *   Since users must be aware of the watchdog operations, vdsm reports the last action taken by a watchdog for each VM in getVmStats.
 *   This actions should be translated into system events
 
-       * An event will show up in the Web Admin.
-       * Users should be able to subscribe to watchdog event, so they will get a notification via the notification service.
+       * An event will show up in the Web Admin.
+       * Users should be able to subscribe to watchdog event, so they will get a notification via the notification service.
 
 ### Database changes
 
@@ -81,24 +81,24 @@ The desktop will have the very same HA tab as the server. This is a somewhat unr
 In REST API the VM and template will get a new optional tag **watchdog** directly under te vm tag. Watchdog tag will have two mandatory attributes: model and action
 {% highlight xml %}
 <vm id="87cd09df-88af-4958-8aba-87b14b92ca39" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39">
- <name>test</name>
- <description>123456</description>
- <link rel="disks" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/disks"/>
- <link rel="nics" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/nics"/>
- <link rel="cdroms" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/cdroms"/>
- <link rel="snapshots" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/snapshots"/>
- <link rel="tags" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/tags"/>
- <link rel="permissions" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/permissions"/>
- <link rel="statistics" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/statistics"/>
- <link rel="reporteddevices" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/reporteddevices"/>
- <type>server</type>
- <status>
- <state>down</state>
- </status>
- <memory>536870912</memory>
-       ...
+ <name>test</name>
+ <description>123456</description>
+ <link rel="disks" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/disks"/>
+ <link rel="nics" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/nics"/>
+ <link rel="cdroms" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/cdroms"/>
+ <link rel="snapshots" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/snapshots"/>
+ <link rel="tags" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/tags"/>
+ <link rel="permissions" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/permissions"/>
+ <link rel="statistics" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/statistics"/>
+ <link rel="reporteddevices" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/reporteddevices"/>
+ <type>server</type>
+ <status>
+ <state>down</state>
+ </status>
+ <memory>536870912</memory>
+       ...
 **<link rel="watchdogs" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/watchdogs"/>**
-       ...
+       ...
 </vm>
 {% endhighlight %}
 
@@ -106,10 +106,10 @@ and then in the referenced watchdog url you will see something like this
 
 {% highlight xml %}
 <watchdogs>
- <watchdog>
-   <model>i6300esb</model>
-   <action>reset</action>
- </watchdog>
+ <watchdog>
+   <model>i6300esb</model>
+   <action>reset</action>
+ </watchdog>
 <watchdogs>
 {% endhighlight %}
 
@@ -118,15 +118,15 @@ Note here that there can be only one watchdog.
 The watchdog cards and available actions will also get a list in the engine capabilities list (api/capabilities)
 {% highlight xml %}
 <watchdog_models>
- <watchdog_model>i6300esb</watchdog_model>
- <watchdog_model>ib700</watchdog_model>
+ <watchdog_model>i6300esb</watchdog_model>
+ <watchdog_model>ib700</watchdog_model>
 </watchdog_models>
 
 <watchdog_actions>
- <watchdog_action>dump</watchdog_action>
- <watchdog_action>reset</watchdog_action>
- <watchdog_action>none</watchdog_action>
-       ....
+ <watchdog_action>dump</watchdog_action>
+ <watchdog_action>reset</watchdog_action>
+ <watchdog_action>none</watchdog_action>
+       ....
 </watchdog_actions>
 {% endhighlight %}
 

@@ -33,13 +33,13 @@ If the proxy is set in any of this places and not disabled it will be filled int
 
 The engine-config tool is used to globally configure the SPICE proxy for the whole application. Example:
 
-      engine-config -s SpiceProxyDefault=someProxy
-       
+      engine-config -s SpiceProxyDefault=someProxy
+       
 
 To turn the proxy off, just clear it:
 
-      engine-config -s SpiceProxyDefault=""
-       
+      engine-config -s SpiceProxyDefault=""
+       
 
 ### Cluster
 

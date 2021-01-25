@@ -24,9 +24,9 @@ The code is developed and is a part of the upstream code.
 
 *   During the engine-setup operation, user is asked to select 'remote' or 'local' installation. Default value 'local' is offered.
 
-      * If entered 'local', the installation will continue and perform installation on the local machine.
-      * If entered 'remote', the additional set of questions will be presented.
-        * Additional questions include: DB Admin username, DB Port, Remote Db password and "Security usage" parameters.
+      * If entered 'local', the installation will continue and perform installation on the local machine.
+      * If entered 'remote', the additional set of questions will be presented.
+        * Additional questions include: DB Admin username, DB Port, Remote Db password and "Security usage" parameters.
 
 *   Installation proceeds with normal flow.
 *   During the normal flow, additional parameters (if entered by user) are used during DB creation and JBoss configuration.
@@ -40,13 +40,13 @@ DB configuration parameters are stored in **~/.pgpass file**, including remote h
 *   During the upgrade, the DB connection values are received from ~/.pgpass file and used for connection.
 *   The upgrade works as follows:
 
-      * First, the packages are upgraded if necessary.
-      * Before performing the DB upgrade, a backup is taken.
-`* After the backup, the default DB (engine) is renamed to engine-`<date>
-       * If renaming fails, yum rollback is performed, and user is notified about possible active connections.
-       * If renaming succeeds, DB upgrade is started.
-      * If upgrade fails, the renamed DB is removed and yum rollback is performed.
-      * If upgrade succeeds, the engine-`<date>` is renamed back to 'engine'.
+      * First, the packages are upgraded if necessary.
+      * Before performing the DB upgrade, a backup is taken.
+`* After the backup, the default DB (engine) is renamed to engine-`<date>
+       * If renaming fails, yum rollback is performed, and user is notified about possible active connections.
+       * If renaming succeeds, DB upgrade is started.
+      * If upgrade fails, the renamed DB is removed and yum rollback is performed.
+      * If upgrade succeeds, the engine-`<date>` is renamed back to 'engine'.
 
 ### Cleanup
 
@@ -71,10 +71,10 @@ To use with remote installation, use DB_REMOTE_INSTALL=remote and configure DB_H
 
 It is recommended to generate the answer file automatically:
 
-`engine-setup --gen-answer-file=`<answer file full path>
+`engine-setup --gen-answer-file=`<answer file full path>
 
 ...and then update its parameters accordingly with the installation requirements. After that, proceed with installation using the answer file:
 
-`engine-setup --answer-file=`<answer file full path>
+`engine-setup --answer-file=`<answer file full path>
 
 

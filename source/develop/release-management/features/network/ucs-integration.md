@@ -37,8 +37,8 @@ There was a now-deprecated Vdsm hook, [vdsm-hook-vmfex](http://resources.ovirt.o
 
 For the hook to work, one must manually specify the VM custom properties with
 
-      {'XX:XX:XX:XX:XX:XX': 'port_profile_name1',
-       'YY:YY:YY:YY:YY:YY': 'port_profile_name2'}
+      {'XX:XX:XX:XX:XX:XX': 'port_profile_name1',
+       'YY:YY:YY:YY:YY:YY': 'port_profile_name2'}
 
 The profile names should first be defined in UCS-M following Cisco's [instructions](http://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/sw/vm_fex/kvm/gui/config_guide/2-1/b_GUI_KVM_VM-FEX_UCSM_Configuration_Guide_2_1/b_GUI_KVM_VM-FEX_UCSM_Configuration_Guide_2_1_chapter_010.html#task_1892A1847A4F45F6A6363B98091AF61A). The administrator must then manually copy the port profile names from UCS-M and the MAC addresses assigned by the engine and write the above dictionary.
 
@@ -67,18 +67,18 @@ You can get the hook resulting from this integration level [here](https://resour
 
 *   Use the engine-config to append the appropriate custom property:
 
-       sudo engine-config -s CustomDeviceProperties=
-       '{type=interface;prop={vmfex=^[a-zA-Z0-9_.-]{2,32}$}}'
+       sudo engine-config -s CustomDeviceProperties=
+       '{type=interface;prop={vmfex=^[a-zA-Z0-9_.-]{2,32}$}}'
 
 *   Verify that the vmfex_dev custom device propertes were properly added:
 
-         sudo engine-config -g CustomDeviceProperties
+         sudo engine-config -g CustomDeviceProperties
 
 #### Usage
 
 *   Define an oVirt vNIC profile and set one of its custom properites to "vmfex" with the value of the name of UCS port profile. For instance:
 
-            vmfex: myPortProfileId
+            vmfex: myPortProfileId
 
 *   Attach the oVirt vNIC profile to a VM vNIC. When the VM runs, the vNIC with the vmfex custom device, the xml definition of which might originally look like:
 

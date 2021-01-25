@@ -35,10 +35,10 @@ Introducing MoM, maintained by Adam Litke <alitke@redhat.com>, as a part of oVir
 
 *   Integration steps:
 
-      - Complete code integration in VDSM
-      - MOM packages (nightlies and releases) need to be built by Jenkins
-      - VDSM RPM should require MOM rpm
-      - ksmtuned should be disabled on hosts because it conflicts with mom ksm tuning
+      - Complete code integration in VDSM
+      - MOM packages (nightlies and releases) need to be built by Jenkins
+      - VDSM RPM should require MOM rpm
+      - ksmtuned should be disabled on hosts because it conflicts with mom ksm tuning
 
 ### Benefit to oVirt
 

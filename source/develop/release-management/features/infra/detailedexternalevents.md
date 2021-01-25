@@ -70,37 +70,37 @@ Adding additional fields to fixtures.xml
 Adding additional fields to *AuditLog* BE
  Adding the following types to AuditLogType
 
-        EXTERNAL_EVENT_NORMAL  
-        EXTERNAL_EVENT_WARNING 
-        EXTERNAL_EVENT_ERROR   
-        EXTERNAL_ALERT
+        EXTERNAL_EVENT_NORMAL  
+        EXTERNAL_EVENT_WARNING 
+        EXTERNAL_EVENT_ERROR   
+        EXTERNAL_ALERT
 
 Adding severities for the new types in AuditLogDirector
 Adding AddExternalEvent command
 Adding AddExternalEventParameters with the following fields
 
-        AuditLogSeverity [Mandatory]
-        Message [Mandatory]
-        Origin  [Mandatory]
-        CustomEventId [Mandatory]
-        CustomData [Mandatory]
-        EventFloodInSec[[Optional] -- 30 sec if not defined
-        UserId [Optional]
-        DataCenterId [Optional]
-        StorageDomainId [Optional]
-        ClusterId [Optional]
-        HostId [Optional]
-        VmId [Optional]
-        TemplateId [Optional]
-        GlusterVolumeId [Optional]
+        AuditLogSeverity [Mandatory]
+        Message [Mandatory]
+        Origin  [Mandatory]
+        CustomEventId [Mandatory]
+        CustomData [Mandatory]
+        EventFloodInSec[[Optional] -- 30 sec if not defined
+        UserId [Optional]
+        DataCenterId [Optional]
+        StorageDomainId [Optional]
+        ClusterId [Optional]
+        HostId [Optional]
+        VmId [Optional]
+        TemplateId [Optional]
+        GlusterVolumeId [Optional]
 
 ### Search Engine
 
 Adding support for searching events by:
 
-       deleted
-       origin
-       custom_event_id
+       deleted
+       origin
+       custom_event_id
 
 External Events can be filtered using *origin != 'oVirt*'
 
@@ -144,13 +144,13 @@ We will use the existing events URL (.../api/events) and the existing Event busi
 Example of add event
 
 ```xml
-  <event>
-       <description>message</description>
-       <severity>normal</severity>
-       <origin>Origin</origin>
-       <custom_event_id>1</custom_event_id>
-       <event_flood_in_sec>30</event_flood_in_sec>
-   </event>
+  <event>
+       <description>message</description>
+       <severity>normal</severity>
+       <origin>Origin</origin>
+       <custom_event_id>1</custom_event_id>
+       <event_flood_in_sec>30</event_flood_in_sec>
+   </event>
 ```
 
 ### User Experience
@@ -160,8 +160,8 @@ Entity instance External Events will be displayed on the Events TAB when selecti
 External Alerts will be displayed in the *Alerts* TAB
  Events Grids (Both General and those displayed when an entity is selected) should display and allow sorting on the following fields :
 
-         Origin
-         CustomEventId
+         Origin
+         CustomEventId
 
 ### Installation/Upgrade
 

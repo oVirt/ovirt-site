@@ -30,7 +30,7 @@ This feature emereged from the need to set the HW clock for non-windows machine 
 To do so we must use the Timezone offset from GMT in seconds and send it to VDSM:
 
 <clock offset="variable" adjustment="-3600">
-`  `<timer name="rtc" tickpolicy="catchup">
+`  `<timer name="rtc" tickpolicy="catchup">
 </clock>
 
 ## Required Changes
@@ -40,9 +40,9 @@ To do so we must use the Timezone offset from GMT in seconds and send it to VDSM
 GetTimeZoneQuery was extended with the option to pool general timezone list and not only windows-specific
 Simply pass isWindowsOS=false with the params. The default behaviour is set to "true" to return windows values.
 
-      public class TimeZoneQueryParams extends VdcQueryParametersBase {
-          
-         private boolean windowsOS = true;
+      public class TimeZoneQueryParams extends VdcQueryParametersBase {
+          
+         private boolean windowsOS = true;
       ...
 
 *   UX

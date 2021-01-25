@@ -19,7 +19,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 In order to install it on a clean system, you need to install
 
-`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
+`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
 
 If you are upgrading from a previous version, you may have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
 
@@ -29,8 +29,8 @@ If you are upgrading from oVirt < 3.4.1, you must first upgrade to oVirt 3.4.1 o
 
 For upgrading now you just need to execute:
 
-      # yum update "ovirt-engine-setup*"
-      # engine-setup
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
 
 
 
@@ -56,7 +56,7 @@ Please see the [3.5.4 release notes](/develop/release-management/releases/3.5.4/
 
 *   Engine and host upgrade ordering due to bug . When upgrading your deployment to 3.5.3 please your upgrade engine first and next your hosts. When following order is not preserved you will see following error every 3 seconds (by default):
 
-      ERROR [org.ovirt.engine.core.vdsbroker.vdsbroker.ListVDSCommand] (DefaultQuartzScheduler_Worker-28) [] Command 'ListVDSCommand(HostName = kenji, HostId = 9f569269-d267-4bf9-96c5-e1749b4c8dda, vds=Host[kenji,9f569269-d267-4bf9-96c5-e1749b4c8dda])' execution failed: java.util.LinkedHashMap cannot be cast to java.lang.String
+      ERROR [org.ovirt.engine.core.vdsbroker.vdsbroker.ListVDSCommand] (DefaultQuartzScheduler_Worker-28) [] Command 'ListVDSCommand(HostName = kenji, HostId = 9f569269-d267-4bf9-96c5-e1749b4c8dda, vds=Host[kenji,9f569269-d267-4bf9-96c5-e1749b4c8dda])' execution failed: java.util.LinkedHashMap cannot be cast to java.lang.String
 
 Following exception prevents host monitoring but affected host stays in status 'UP' and is operational. Virtual machine status collection is gathered every 15 seconds (by default).
 
@@ -64,15 +64,15 @@ Following exception prevents host monitoring but affected host stays in status '
 
 *   NFS startup on EL7 / Fedora20: due to other bugs ( or ), NFS service is not always able to start at first attempt (it doesn't wait the kernel module to be ready); if it happens oVirt engine setup detects it and aborts with
 
-      [ INFO  ] Restarting nfs services
-      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
+      [ INFO  ] Restarting nfs services
+      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
 
 Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the kernel module it's always ready on further attempts. Manually starting NFS service (/bin/systemctl restart nfs-server.service) before running engine setup it's enough to avoid it at all.
 
 *   NFS startup on EL7.1 requires manual startup of rpcbind.service before running engine setup in order to avoid
 
-      [ INFO  ] Restarting nfs services
-      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
+      [ INFO  ] Restarting nfs services
+      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
 
 ## CVE Fixed
 
@@ -156,7 +156,7 @@ Dropped the following bugs:
  - unable to add new VLAN when using net_persistence=ifcfg
  - vdsm fails to read dhclient lease config "expire never"
  **VDSM 4.16.16**
- - VDSM leaks small mount of memory (~300KiB/h)
+ - VDSM leaks small mount of memory (~300KiB/h)
  - [engine-backend] When reconstruct master is marked as finished, the problematic domain is reported as active, while the new master is inactive
  - [vdsm] errors: value of 'vcpu_period' is out of range [1000, 1000000]
  - Long filename support for Windows VM payload

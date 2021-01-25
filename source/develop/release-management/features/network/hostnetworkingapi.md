@@ -33,30 +33,30 @@ The current host networking api (up to ovirt-engine-3.6) suffers from various li
 Introduce **`<network_attachment>`** element which describes how the network is configured on the host:
 
 ```xml
- <network_attachment>
-   <network/>
-   <host_nic/>
-   <ip_address_assignments/>
-   <properties/>
-    <reported_configurations>
-     <in_sync>false</in_sync>
-     <reported_configuration>
-       <name>mtu</name>
-       <value>9000</value>
-       <in_sync>false</in_sync>
-     </reported_configuration>
-     <reported_configuration>
-       <name>bridged</name>
-       <value>false</value>
-       <in_sync>false</in_sync>
-     </reported_configuration>
-     <reported_configuration>
-       <name>200</name>
-       <value>false</value>
-       <in_sync>false</in_sync>
-     </reported_configuration>
-   </reported_configurations>
- </network_attachment>
+ <network_attachment>
+   <network/>
+   <host_nic/>
+   <ip_address_assignments/>
+   <properties/>
+    <reported_configurations>
+     <in_sync>false</in_sync>
+     <reported_configuration>
+       <name>mtu</name>
+       <value>9000</value>
+       <in_sync>false</in_sync>
+     </reported_configuration>
+     <reported_configuration>
+       <name>bridged</name>
+       <value>false</value>
+       <in_sync>false</in_sync>
+     </reported_configuration>
+     <reported_configuration>
+       <name>200</name>
+       <value>false</value>
+       <in_sync>false</in_sync>
+     </reported_configuration>
+   </reported_configurations>
+ </network_attachment>
 ```
 
 *   network - which logical network is connected to the host
@@ -70,51 +70,51 @@ Introduce **`<network_attachment>`** element which describes how the network is 
 The **`ip_address_assignments`** representation is:
 
 ```xml
- <ip_address_assignments>
-   <ip_address_assignment>
-           <assignment_method>STATIC</assignment_method> 
-             
-     <ip address="…" netmask="…" gateway ="…"/>
-   </ip_address_assignment>
-   <ip_address_assignment>
-           <assignment_method>STATIC</assignment_method> 
-     <ip address="…" netmask="…" gateway ="…"/>
-     <ip>
-   </ip_address_assignment>
-       
-         
-   <ip_address_assignment>
-           <assignment_method>STATIC</assignment_method> 
-     <ip address="…" netmask="…" gateway ="…" version="6"/>
-   </ip_address_assignment>
- <ip_address_assignments>
+ <ip_address_assignments>
+   <ip_address_assignment>
+           <assignment_method>STATIC</assignment_method> 
+             
+     <ip address="…" netmask="…" gateway ="…"/>
+   </ip_address_assignment>
+   <ip_address_assignment>
+           <assignment_method>STATIC</assignment_method> 
+     <ip address="…" netmask="…" gateway ="…"/>
+     <ip>
+   </ip_address_assignment>
+       
+         
+   <ip_address_assignment>
+           <assignment_method>STATIC</assignment_method> 
+     <ip address="…" netmask="…" gateway ="…" version="6"/>
+   </ip_address_assignment>
+ <ip_address_assignments>
 ```
 
 A new **`link_aggregation`** element is added to abstract the implementation:
 
 ```xml
-   <link_aggregation>
-     <options>
-             
-       <option>
-         <name>module</name>
-         <value>bonding</value>
-       </option>
-       <option>
-         <name>mode</name>
-         <value>1</value>
-         <type>Active-Backup</type>
-       </option>
-       <option>
-         <name>miimon</name>
-         <value>100</value>
-       </option>
-     </options>
-     <slaves>
-       <host_nic id="833ebaeb-0988-4bd5-b860-e00bcc3f576a"/>
-       <host_nic id="782e8199-984e-407f-b242-3d6c7dc2f7b7"/>
-     </slaves>
-   </link_aggregation>
+   <link_aggregation>
+     <options>
+             
+       <option>
+         <name>module</name>
+         <value>bonding</value>
+       </option>
+       <option>
+         <name>mode</name>
+         <value>1</value>
+         <type>Active-Backup</type>
+       </option>
+       <option>
+         <name>miimon</name>
+         <value>100</value>
+       </option>
+     </options>
+     <slaves>
+       <host_nic id="833ebaeb-0988-4bd5-b860-e00bcc3f576a"/>
+       <host_nic id="782e8199-984e-407f-b242-3d6c7dc2f7b7"/>
+     </slaves>
+   </link_aggregation>
 ```
 
 The link_aggregation element will be used from within the host_nic element for bonding devices.
@@ -123,7 +123,7 @@ The link_aggregation element will be used from within the host_nic element for b
 
 *   A collection of network attachments that are attached to a specific physical interface or a bond:
 
-       `/api/hosts/{host:id}/nics/{nic:id}/networkattachments`
+       `/api/hosts/{host:id}/nics/{nic:id}/networkattachments`
 
 *   Supported actions:
     1.  **GET** returns a list of networks attached to the nic
@@ -133,21 +133,21 @@ The link_aggregation element will be used from within the host_nic element for b
 
 *   A multi-network configuration action to support complex network settings (i.e. cross nics actions: move network from one nic to another or create network on bond)
 
-       `/api/hosts/{host:id}/setupnetworks`
+       `/api/hosts/{host:id}/setupnetworks`
 
 *   Supported actions:
     -   **POST** - expects a relative change to be applied on the host, using *PATCH* behaviour.
 *   Request structure:
 ```xml
- <action>
-   <modified_bonds />
-         <removed_bonds />    
-   <modified_network_attachments />
-   <synchronized_network_attachments/>
-   <removed_network_attachments />
-   <check_connectivity />
-   <connectivity_timeout />
- </action>
+ <action>
+   <modified_bonds />
+         <removed_bonds />    
+   <modified_network_attachments />
+   <synchronized_network_attachments/>
+   <removed_network_attachments />
+   <check_connectivity />
+   <connectivity_timeout />
+ </action>
 ```
 
 *   modified_bonds - describes bonds to create or to update, those bonds could be referred by name from the network_attachment element
@@ -240,9 +240,9 @@ Network labels related actions are listed at [Features/NetworkLabels#REST](/deve
   `/api/hosts/{host:id}/nics/{nic:id}`
 
 ```xml
- <host_nic>
-   <network />
- </host_nic>
+ <host_nic>
+   <network />
+ </host_nic>
 ```
 
 is replaced by:
@@ -258,19 +258,19 @@ The vlan devices will be hidden from the list of /api/hosts/{host:id}/nics and w
 *   Deprecated: `/api/hosts/{host:id}/nics/setupnetworks`
 
 ```xml
- <host_nics>
-   <host_nic>
-     <network id="..."/>
-   </host_nic>
- </host_nics>
+ <host_nics>
+   <host_nic>
+     <network id="..."/>
+   </host_nic>
+ </host_nics>
 ```
 
 *   Is replaced by: `/api/hosts/{host:id}/hostsetupnetworks`
 
 {% highlight xml %}
-     <modified_network_attachments>
-           ...
-     </modified_network_attachments>
+     <modified_network_attachments>
+           ...
+     </modified_network_attachments>
 {% endhighlight %}
 
 Request should contain only nics or bonds (no vlans).
@@ -278,23 +278,23 @@ Request should contain only nics or bonds (no vlans).
 *   Deprecated Host nics actions:
 
     `/api/hosts/{host:id}/nics/{nic:id}/attach`
-    is replaced by **POST** request to 
+    is replaced by **POST** request to 
     `/api/hosts/{host:id}/nics/{nic:id}/networkattachments`
 
 and:
 
    `/api/hosts/{host:id}/nics/{nic:id}/detach`
-   is replaced by **DELETE** request to:
+   is replaced by **DELETE** request to:
    `/api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}`
 
 *   Updating network interface
 
-   **PUT** on `/api/hosts/{host:id}/nics/{nic:id}/`
-   the action semantics is changed to edit bond only
+   **PUT** on `/api/hosts/{host:id}/nics/{nic:id}/`
+   the action semantics is changed to edit bond only
 
 is replaced by
 
-   **PUT** on `/api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}`
+   **PUT** on `/api/hosts/{host:id}/nics/{nic:id}/networkattachments/{networkattachment:id}`
 
 ## Behaviour Change
 

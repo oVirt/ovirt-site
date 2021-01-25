@@ -234,7 +234,7 @@ The persistence model may be selected by editing
 
 And setting:
 
-         net_persistence = [ifcfg | unified]
+         net_persistence = [ifcfg | unified]
 
 1.  When VDSM gets a new setupNetworks, it breaks it into a series of addNetwork and delNetwork (Currently editNetwork is done via a del followed by an add). After each successful add or del network we then persist the new network and bond changes, represented by dictionary and written to disk via json serialization to:
     -   /var/run/vdsm/netconf/nets/
@@ -258,7 +258,7 @@ We should make sure that \`rpm -V vdsm\` is happily quiet even after setSafeConf
 
 /etc/vdsm/vdsm.conf has a setting
 
-         net_configurator = ifcfg
+         net_configurator = ifcfg
 
 *   Do we keep persistence for the management network only or for all the configured networks?
 

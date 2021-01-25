@@ -97,21 +97,21 @@ oVirt 3.4 adds a preview of a [Hot-plug CPU](/develop/release-management/feature
 
 oVirt 3.4 is now available for use. In order to install it on a clean system, you need to install
 
-`     # yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
+`     # yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
 
 If you already have ovirt-release package you need to update it to 10.0.1 or newer by running
 
-           # yum update ovirt-release
+           # yum update ovirt-release
 
 If the above command doesn't work for you, try using a distribution-specific name:
 
 **CentOS:**
 
-          # yum update ovirt-release-el6
+          # yum update ovirt-release-el6
 
 **Fedora:**
 
-          # yum update ovirt-release-fedora
+          # yum update ovirt-release-fedora
 
 *   **Note:** On CentOS and RHEL you'll need also [EPEL](http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm) repositories enabled.
 *   **Note:** On CentOS and RHEL for DWH you'll need also [jpackage 6](http://mirrors.ibiblio.org/jpackage/6.0/generic/RPMS.free/jpackage-release-6-3.jpp6.noarch.rpm) repositories enabled.
@@ -124,33 +124,33 @@ If you're updating from a pre release version and you want to have rollback supp
 
 **For CentOS / RHEL:**
 
-          [ovirt-3.4-prerelease]
-          name=Latest oVirt 3.4 Pre Releases (Beta to Release Candidate)
-`    baseurl=`[`http://resources.ovirt.org/releases/3.4_pre/rpm/EL/$releasever/`](http://resources.ovirt.org/releases/3.4_pre/rpm/EL/$releasever/)
-          enabled=1
-          skip_if_unavailable=1
-          gpgcheck=0
+          [ovirt-3.4-prerelease]
+          name=Latest oVirt 3.4 Pre Releases (Beta to Release Candidate)
+`    baseurl=`[`http://resources.ovirt.org/releases/3.4_pre/rpm/EL/$releasever/`](http://resources.ovirt.org/releases/3.4_pre/rpm/EL/$releasever/)
+          enabled=1
+          skip_if_unavailable=1
+          gpgcheck=0
 
 **For Fedora:**
 
-          [ovirt-3.4-prerelease]
-          name=Latest oVirt 3.4 Pre Releases (Beta to Release Candidate)
-`    baseurl=`[`http://resources.ovirt.org/releases/3.4_pre/rpm/Fedora/$releasever/`](http://resources.ovirt.org/releases/3.4_pre/rpm/Fedora/$releasever/)
-          enabled=1
-          skip_if_unavailable=1
-          gpgcheck=0
+          [ovirt-3.4-prerelease]
+          name=Latest oVirt 3.4 Pre Releases (Beta to Release Candidate)
+`    baseurl=`[`http://resources.ovirt.org/releases/3.4_pre/rpm/Fedora/$releasever/`](http://resources.ovirt.org/releases/3.4_pre/rpm/Fedora/$releasever/)
+          enabled=1
+          skip_if_unavailable=1
+          gpgcheck=0
 
 ## Fedora / CentOS / RHEL
 
 If you're using pre-release repo you'll need to run:
 
-          # yum update "ovirt-engine-setup*"
-          # engine-setup
+          # yum update "ovirt-engine-setup*"
+          # engine-setup
 
 If you're upgrading from oVirt 3.3.2 or later you should just execute:
 
-          # yum update ovirt-engine-setup
-          # engine-setup
+          # yum update ovirt-engine-setup
+          # engine-setup
 
 If you're upgrading from oVirt 3.3.0 or 3.3.1 you must first upgrade to a newer version of oVirt 3.3 (latest is 3.3.5)
 
@@ -160,25 +160,25 @@ If you're upgrading from oVirt 3.1, you should upgrade to 3.2 before upgrading t
 
 **On CentOS and RHEL:** For upgrading to 3.2, you'll need 3.2 stable repository. So, the first step is to disable 3.3 / stable repository and enable 3.2 in /etc/yum.repos.d/ovirt.repo:
 
-          [ovirt-32]
-          name=Stable builds of the oVirt 3.2 project
-`    baseurl=`[`http://resources.ovirt.org/releases/3.2/rpm/EL/$releasever/`](http://resources.ovirt.org/releases/3.2/rpm/EL/$releasever/)
-          enabled=1
-          skip_if_unavailable=1
-          gpgcheck=0
+          [ovirt-32]
+          name=Stable builds of the oVirt 3.2 project
+`    baseurl=`[`http://resources.ovirt.org/releases/3.2/rpm/EL/$releasever/`](http://resources.ovirt.org/releases/3.2/rpm/EL/$releasever/)
+          enabled=1
+          skip_if_unavailable=1
+          gpgcheck=0
 
 Then
 
-          # yum update ovirt-engine-setup
+          # yum update ovirt-engine-setup
 
 should install ovirt-engine-setup-3.2.3-1.el6.noarch.rpm. If you have already updated to 3.3.x, please use distro-sync or downgrade instead of update. Then:
 
-          # engine-upgrade
+          # engine-upgrade
 
 this will upgrade your system to latest 3.2. Once you've all working on 3.2, enable 3.3/stable repository, then just
 
-          # yum update ovirt-engine-setup
-          # engine-setup
+          # yum update ovirt-engine-setup
+          # engine-setup
 
 will upgrade to latest 3.3.
 

@@ -19,17 +19,17 @@ Some of these keys can be used to affect/configure otopi-based tools by setting 
 
 *   By adding a configuration file to a relevant TOOL.d directory, where applicable
 
-    E.g. engine-setup reads `/etc/ovirt-engine-setup.conf.d/*.conf`, so you can add there a file with answers to questions you do not want to be asked about
+    E.g. engine-setup reads `/etc/ovirt-engine-setup.conf.d/*.conf`, so you can add there a file with answers to questions you do not want to be asked about
 
 *   By passing a command-line option which directly adds a pair to the environment
 
-    E.g. engine-setup accepts '--otopi-environment' so you can do e.g.
-    `engine-setup --otopi-environment='OVESETUP_SYSTEM/memCheckEnabled=bool:False'` to not be asked about too-low-memory.
+    E.g. engine-setup accepts '--otopi-environment' so you can do e.g.
+    `engine-setup --otopi-environment='OVESETUP_SYSTEM/memCheckEnabled=bool:False'` to not be asked about too-low-memory.
 
 *   By passing an option to load a configuration file (instead of the TOOL.d/\*.conf files or in addition to them)
 *   Some tools create, when ran, a configuration file with answers to all the questions asked during the run.
 
-    These files can be used with the options above. E.g. if running 'engine-setup' emits, during the end:
+    These files can be used with the options above. E.g. if running 'engine-setup' emits, during the end:
 
 ```
 [ INFO ] Generating answer file '/var/lib/ovirt-engine/setup/answers/20130901173707-setup.conf'

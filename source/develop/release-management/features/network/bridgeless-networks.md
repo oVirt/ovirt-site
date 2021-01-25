@@ -64,7 +64,7 @@ all the non-optional networks attached.
 
 *   Add a logical network to the Data Center and make it a VM network
 
-      `POST /api/networks`
+      `POST /api/networks`
       
 ```xml
 <network id='...'>
@@ -78,7 +78,7 @@ all the non-optional networks attached.
 ```
 *   representation of non-bridged interface in Host NICs
 
-      `GET /api/hosts/{host.id}/nics/{nic.id}`
+      `GET /api/hosts/{host.id}/nics/{nic.id}`
 
 ```xml
 <host_nic>
@@ -92,28 +92,28 @@ all the non-optional networks attached.
 *   VdsNetworkInterface.java
 
       VdsNetworkInterface
-       boolean bridged
+       boolean bridged
 
 *   vds_interface table
 
       vds_interface
-       bridged BOOLEAN NOT NULL DEFAULT true
+       bridged BOOLEAN NOT NULL DEFAULT true
 
 *   network.java
 
-      boolean vmNetwork
+      boolean vmNetwork
 
 *   network table
 
-      vm_network BOOLEAN NOT NULL DEFAULT true
+      vm_network BOOLEAN NOT NULL DEFAULT true
 
 *   network_cluster.java
 
-      boolean optional
+      boolean optional
 
 *   network_cluster table
 
-      optional BOOLEAN
+      optional BOOLEAN
 
 ## Modelling
 
@@ -122,7 +122,7 @@ all the non-optional networks attached.
 *   AuditLogType.java
 
       IMPORTEXPORT_IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS(9600,MINUTE)
-      VDS_SET_NON_OPERATIONAL_VM_NETWORK_IS_BRIDGELESS(9601, MINUTE)
+      VDS_SET_NON_OPERATIONAL_VM_NETWORK_IS_BRIDGELESS(9601, MINUTE)
 
 *   VdcBLLMessages
 
@@ -136,10 +136,10 @@ all the non-optional networks attached.
 
 *   AuditLogMessage.properties
 
-      IMPORTEXPORT_IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS=Trying to import VM ${VmName} with the interface/s ${Interfaces} attached to non VM network/s ${Networks}.
-      VDS_SET_NON_OPERATIONAL_VM_NETWORK_IS_BRIDGELESS=Host ${VdsName} does not comply with the cluster ${VdsGroupName} networks, the following VM networks are bridgeless: '${Networks}'
+      IMPORTEXPORT_IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS=Trying to import VM ${VmName} with the interface/s ${Interfaces} attached to non VM network/s ${Networks}.
+      VDS_SET_NON_OPERATIONAL_VM_NETWORK_IS_BRIDGELESS=Host ${VdsName} does not comply with the cluster ${VdsGroupName} networks, the following VM networks are bridgeless: '${Networks}'
 
 *   AppErrors.properties
 
-      ACTION_TYPE_FAILED_NOT_A_VM_NETWORK=Failed ${action} ${type} the network/s ${Networks} is/are not a VM network.
+      ACTION_TYPE_FAILED_NOT_A_VM_NETWORK=Failed ${action} ${type} the network/s ${Networks} is/are not a VM network.
 

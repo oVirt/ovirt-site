@@ -31,11 +31,11 @@ This feature proposes a new API verb for VDSM for querying the data fields of VM
 **changedSince:** queries only for the fields which changed since the given stamp. (fields and exclude parameters are respected, so only fields matching will be checked and returned)
  The call returns a structure like this:
 
-       {'dataList': [{
-         vmId: "`<uuid>`",
-      `    `fields queried for`... `
-        }],
-        'queryStamp': 'a string value indicating the lastest changes and passed to changedSince in a follow up request'}
+       {'dataList': [{
+         vmId: "`<uuid>`",
+      `    `fields queried for`... `
+        }],
+        'queryStamp': 'a string value indicating the lastest changes and passed to changedSince in a follow up request'}
 
 *Boilerplate status/message omitted in the result for simplification reasons*
 

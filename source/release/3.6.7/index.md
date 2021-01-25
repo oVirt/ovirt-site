@@ -32,8 +32,8 @@ If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 o
 
 For upgrading now you just need to execute:
 
-      # yum update "ovirt-engine-setup*"
-      # engine-setup
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
 
 
 

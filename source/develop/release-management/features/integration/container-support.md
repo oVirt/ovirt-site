@@ -103,15 +103,15 @@ integration
 
 discarded because its very man page has an early warning:
 
-       Note that even though these security precautions are taken systemd-nspawn is not suitable for secure container setups. Many of the security features may be circumvented and are hence 
-       primarily useful to avoid accidental changes to the host system from the container.
-       The intended use of this program is debugging and testing as well as building of packages, distributions and software involved with boot and systems management.
+       Note that even though these security precautions are taken systemd-nspawn is not suitable for secure container setups. Many of the security features may be circumvented and are hence 
+       primarily useful to avoid accidental changes to the host system from the container.
+       The intended use of this program is debugging and testing as well as building of packages, distributions and software involved with boot and systems management.
 
 *   libvirt-lxc
 
 discarded because in <https://access.redhat.com/articles/1365153> we can read
 
-       The following libvirt-lxc packages are deprecated starting with Red Hat Enterprise Linux 7.1:
+       The following libvirt-lxc packages are deprecated starting with Red Hat Enterprise Linux 7.1:
 
 *   docker
 

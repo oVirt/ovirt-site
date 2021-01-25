@@ -51,9 +51,9 @@ No change needed.
 
 VDSM has to support the new memGuaranteedSize provided by engine and return the additional balloon_min value from getVmBalloonInfo with that value. So first we have to store the value. VM.conf will contain memGuaranteedSize key that will be passed to VDSM from the engine (in MiB) using the standard xml-rpc methods. We also need to add support for the following snippet to the DOM xml:
 
-` `<memtune>
-`   `<min_guarantee>`value in KiB`</min_guarantee>
-` `</memtune>
+` `<memtune>
+`   `<min_guarantee>`value in KiB`</min_guarantee>
+` `</memtune>
 
 We deal with this part of the DOM XML in VM constructor (vdsm/vm.py) and tests/libvirtvmTests.py
 

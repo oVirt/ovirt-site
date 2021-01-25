@@ -73,31 +73,31 @@ Behavior:
 *   example of creating a VM with smartcard enabled:
 
       <vm>
-          <name>vm2</name>
-          <description>Virtual Machine 2</description>
-          <type>desktop</type>
-          <memory>536870912</memory>
-          <cluster>
-              <name>Default</name>
-          </cluster>
-          <template>
-              <name>Blank</name>
-          </template>
-          <os>
-            <boot dev="hd"/>
-          </os>
-          <display>
-              <smartcard_enabled>true</smartcard_enabled>
-          </display>
+          <name>vm2</name>
+          <description>Virtual Machine 2</description>
+          <type>desktop</type>
+          <memory>536870912</memory>
+          <cluster>
+              <name>Default</name>
+          </cluster>
+          <template>
+              <name>Blank</name>
+          </template>
+          <os>
+            <boot dev="hd"/>
+          </os>
+          <display>
+              <smartcard_enabled>true</smartcard_enabled>
+          </display>
       </vm>
-       
+       
 
 ### VDSM
 
 *   When VDSM receives a device named *smartcard* it adds to the libvirt configuration to the *devices* part the following:
 
-      <smartcard mode="passthrough" type="spicevmc"/>
-       
+      <smartcard mode="passthrough" type="spicevmc"/>
+       
 
 ## Documentation / External references
 

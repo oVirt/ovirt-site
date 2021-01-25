@@ -19,4 +19,4 @@ Full scaling may require migrating the Data Warehouse to a separate virtual mach
 
 For Data Warehouse scaling instructions, see [Changing the Data Warehouse Sampling Scale](/documentation/data_warehouse_guide/)
 
-For instructions on migrating to or installing on a separate machine, see [Migrating Data Warehouse to a Separate Machine](/documentation/data_warehouse_guide/)
+For instructions on migrating to or installing on a separate machine, see [Migrating Data Warehouse to a Separate Machine](/documentation/data_warehouse_guide/)

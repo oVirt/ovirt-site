@@ -54,8 +54,8 @@ Engine would send `setupNetwork` command to generate `ovirtmgmt` with details de
 
 then Engine sends the likes of:
 
-       setupNetworks(ovirtmgmt: {bridged=True, vlan=3000, iface=bond4,
-                     bonding=bond4: {eth2,eth3}, MTU=9000)
+       setupNetworks(ovirtmgmt: {bridged=True, vlan=3000, iface=bond4,
+                     bonding=bond4: {eth2,eth3}, MTU=9000)
 
 A call to `setSafeNetConfig` would wrap the network configuration up.
 

@@ -11,15 +11,15 @@ Between both communication modules there is a compatibility issue. When we work 
 
 Here is the code how we used to create vdscli client:
 
-      hostPort = vdscli.cannonizeHostPort(
-          self._dst,
-          config.getint('addresses', 'management_port'))
-      if config.getboolean('vars', 'ssl'):
-          self._destServer = vdscli.connect(hostPort,
-              useSSL=True,
-              TransportClass=kaxmlrpclib.TcpkeepSafeTransport)
+      hostPort = vdscli.cannonizeHostPort(
+          self._dst,
+          config.getint('addresses', 'management_port'))
+      if config.getboolean('vars', 'ssl'):
+          self._destServer = vdscli.connect(hostPort,
+              useSSL=True,
+              TransportClass=kaxmlrpclib.TcpkeepSafeTransport)
       else:
-          destServer = kaxmlrpclib.Server('`[`http://`](http://)`' + hostPort)
+          destServer = kaxmlrpclib.Server('`[`http://`](http://)`' + hostPort)
 
 In the old code we provide information where we want to connect in hostPort and whether we want to use ssl.
 
@@ -28,9 +28,9 @@ In the old code we provide information where we want to connect in hostPort and 
 Here is jsonrpcvdscli code:
       from vdsm import jsonrpcvdscli
       from vdsm.config import config 
-      requestQueues = config.get('addresses', 'request_queues')
-      requestQueue = requestQueues.split(",")[0]
-      destServer = jsonrpcvdscli.connect(requestQueue, host=host, port=port)
+      requestQueues = config.get('addresses', 'request_queues')
+      requestQueue = requestQueues.split(",")[0]
+      destServer = jsonrpcvdscli.connect(requestQueue, host=host, port=port)
 
 Above code use config.py to get missing information we can customize the client by providing more detail:
 
@@ -38,12 +38,12 @@ Above code use config.py to get missing information we can customize the client 
       from vdsm.config import config
       from vdsm.sslcompat import sslutils
       from vdsm import utils
-      sslctx = sslutils.create_ssl_context()
-      client_socket = utils.create_connected_socket(host, int(port), sslctx)
-      client = clientIF.createStompClient(client_socket)
-      requestQueues = config.get('addresses', 'request_queues')
-      requestQueue = requestQueues.split(",")[0]
-      destServer = jsonrpcvdscli.connect(requestQueue, client) 
+      sslctx = sslutils.create_ssl_context()
+      client_socket = utils.create_connected_socket(host, int(port), sslctx)
+      client = clientIF.createStompClient(client_socket)
+      requestQueues = config.get('addresses', 'request_queues')
+      requestQueue = requestQueues.split(",")[0]
+      destServer = jsonrpcvdscli.connect(requestQueue, client) 
 
 Please note that above code do not connect during the process of creation. It is required to call a procedure to physically establish connection.
 

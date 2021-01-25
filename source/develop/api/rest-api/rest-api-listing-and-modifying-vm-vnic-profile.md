@@ -12,72 +12,72 @@ Use the Get method to access `http://yourServer:port/ovirt-engine/api/vnicprofil
 
 An example using CURL client:
 
-    curl -v -u admin@internal:1 -H Content-type: application/xml -X GET http://localhost:8080/ovirt-engine/api/vnicprofiles/
+    curl -v -u admin@internal:1 -H Content-type: application/xml -X GET http://localhost:8080/ovirt-engine/api/vnicprofiles/
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-   <vnic_profiles>
-       <vnic_profile
+   <vnic_profiles>
+       <vnic_profile
          href="/ovirt-engine/api/vnicprofiles/98f90377-18d8-429d-b412-d9c9549974ac"
          id="98f90377-18d8-429d-b412-d9c9549974ac">
-           <name>ovirtmgmt</name>
-           <link
+           <name>ovirtmgmt</name>
+           <link
              href="/ovirt-engine/api/vnicprofiles/98f90377-18d8-429d-b412-d9c9549974ac/permissions"
              rel="permissions"/>
-           <network
+           <network
              href="/ovirt-engine/api/networks/bdd8f487-9b05-4fd8-8c45-136bd1ac5a23"
              id="bdd8f487-9b05-4fd8-8c45-136bd1ac5a23"/>
-           <port_mirroring>false</port_mirroring>
-       </vnic_profile>
-       <vnic_profile
+           <port_mirroring>false</port_mirroring>
+       </vnic_profile>
+       <vnic_profile
          href="/ovirt-engine/api/vnicprofiles/0000000e-000e-000e-000e-00000000000e"
          id="0000000e-000e-000e-000e-00000000000e">
-           <name>ovirtmgmt</name>
-           <link
+           <name>ovirtmgmt</name>
+           <link
              href="/ovirt-engine/api/vnicprofiles/0000000e-000e-000e-000e-00000000000e/permissions"
              rel="permissions"/>
-           <network
+           <network
              href="/ovirt-engine/api/networks/00000000-0000-0000-0000-000000000009"
              id="00000000-0000-0000-0000-000000000009"/>
-           <port_mirroring>false</port_mirroring>
-       </vnic_profile>
-       <vnic_profile
+           <port_mirroring>false</port_mirroring>
+       </vnic_profile>
+       <vnic_profile
          href="/ovirt-engine/api/vnicprofiles/874a3706-62af-40ca-9c0e-7d1a1e92ae02"
          id="874a3706-62af-40ca-9c0e-7d1a1e92ae02">
-           <name>ovirtmgmt_profile_qos2</name>
-           <link
+           <name>ovirtmgmt_profile_qos2</name>
+           <link
              href="/ovirt-engine/api/vnicprofiles/874a3706-62af-40ca-9c0e-7d1a1e92ae02/permissions"
              rel="permissions"/>
-           <network
+           <network
              href="/ovirt-engine/api/networks/2cd31372-3700-4f80-a71d-62ab6086193f"
              id="2cd31372-3700-4f80-a71d-62ab6086193f"/>
-           <port_mirroring>false</port_mirroring>
-       </vnic_profile>
-       <vnic_profile
+           <port_mirroring>false</port_mirroring>
+       </vnic_profile>
+       <vnic_profile
          href="/ovirt-engine/api/vnicprofiles/3ffd219b-cf02-44a5-817b-743d8c60709a"
          id="3ffd219b-cf02-44a5-817b-743d8c60709a">
-           <name>ovirtmgmt_profile_qos1</name>
-           <link
+           <name>ovirtmgmt_profile_qos1</name>
+           <link
              href="/ovirt-engine/api/vnicprofiles/3ffd219b-cf02-44a5-817b-743d8c60709a/permissions"
              rel="permissions"/>
-           <network 
+           <network 
              href="/ovirt-engine/api/networks/2cd31372-3700-4f80-a71d-62ab6086193f"
              id="2cd31372-3700-4f80-a71d-62ab6086193f"/>
-           <port_mirroring>false</port_mirroring>
-       </vnic_profile>
-       <vnic_profile
+           <port_mirroring>false</port_mirroring>
+       </vnic_profile>
+       <vnic_profile
          href="/ovirt-engine/api/vnicprofiles/8938f00f-6108-4196-aa86-f8f6721f4367"
          id="8938f00f-6108-4196-aa86-f8f6721f4367">
-           <name>ovirtmgmt</name>
-           <link 
+           <name>ovirtmgmt</name>
+           <link 
             href="/ovirt-engine/api/vnicprofiles/8938f00f-6108-4196-aa86-f8f6721f4367/permissions"
             rel="permissions"/>
-           <network
+           <network
             href="/ovirt-engine/api/networks/2cd31372-3700-4f80-a71d-62ab6086193f"
             id="2cd31372-3700-4f80-a71d-62ab6086193f"/>
-           <port_mirroring>false</port_mirroring>
-       </vnic_profile>
-   </vnic_profiles>
+           <port_mirroring>false</port_mirroring>
+       </vnic_profile>
+   </vnic_profiles>
 ```
 
 ## Change Nic Profile for a specific VM

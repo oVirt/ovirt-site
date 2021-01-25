@@ -44,16 +44,16 @@ This receives volume-name, brick-name, list-count as a input and executes gluste
 
 If nfs is True, then the top open output is per NFS server.
 
-        Output dictionary which contains open fd count and maximum fd count:
+        Output dictionary which contains open fd count and maximum fd count:
 ```python
-         {'statusCode' : CODE,
-             'brickCount': BRICK-COUNT,
-             'bricks': {BRICK-NAME: {'count':FILE-COUNT,
-                                                   'currentOpenFds': CURRENT-OPEN-FDS-COUNT, 
-                                                             'maxOpen': MAX-OPEN, 
-                                                             'maxOpenTime': MAX-OPEN-TIME, 
-                                                             'files': [{FILE-NAME: FILE-OPEN-COUNT}, ...]
-                                                          }, ...} }
+         {'statusCode' : CODE,
+             'brickCount': BRICK-COUNT,
+             'bricks': {BRICK-NAME: {'count':FILE-COUNT,
+                                                   'currentOpenFds': CURRENT-OPEN-FDS-COUNT, 
+                                                             'maxOpen': MAX-OPEN, 
+                                                             'maxOpenTime': MAX-OPEN-TIME, 
+                                                             'files': [{FILE-NAME: FILE-OPEN-COUNT}, ...]
+                                                          }, ...} }
 ```
 2. glusterVolumeTopRead (volumeName,brickName=[ ], nfs=True/False?, listCount=None/100?)
 
@@ -73,14 +73,14 @@ This returns list of files which has highest open calls on directories of each b
 
 Uses gluster volume top readdir gluster cli command and returns the dictionary as below:
 
-             Output dictionary:
+             Output dictionary:
 ```python
-             {'statusCode': CODE,
-                     'brickCount': BRICK-COUNT,
-                     'topOp': TOP-OP,
-                     'bricks': {BRICK-NAME: {  'count':READ-DIR-COUNT,
-                                                                  'files': [{DIR-NAME: DIR-READ-COUNT}, ...]
-                                                               }, ...} }
+             {'statusCode': CODE,
+                     'brickCount': BRICK-COUNT,
+                     'topOp': TOP-OP,
+                     'bricks': {BRICK-NAME: {  'count':READ-DIR-COUNT,
+                                                                  'files': [{DIR-NAME: DIR-READ-COUNT}, ...]
+                                                               }, ...} }
 ```
 6. glusterVolumeTopReadPerf (volumeName, blockSize=None, count=None, brickName=None, listCount=None)
 
@@ -154,19 +154,19 @@ To view the profile info, "Details" sub-menu of the Profiling menu needs to be c
 *   GET: `/api/clusters/<cluster_id>/glustervolumes/<volume_id>/profilestatistics`
 
 ```xml
- <profileinfo>
-      <profilestatstype>CUMULATIVE|INTERVAL</profilestatstype>
-      <duration>..</duration>
-      <totalbytesread>..<totalbytesread>
-      <totalbyteswrite>..<totalbyteswrite>
-      <blockinfo>
-      <blockstatistics>../</blockstatistics>
-      <blockstatistics>../</blockstatistics>
-      </blockinfo>
-      <fopinfo>
-            <fopstatistics>...</fopstatistics>  
-      <fopstatistics>...</fopstatistics>
-      </fopinfo>
+ <profileinfo>
+      <profilestatstype>CUMULATIVE|INTERVAL</profilestatstype>
+      <duration>..</duration>
+      <totalbytesread>..<totalbytesread>
+      <totalbyteswrite>..<totalbyteswrite>
+      <blockinfo>
+      <blockstatistics>../</blockstatistics>
+      <blockstatistics>../</blockstatistics>
+      </blockinfo>
+      <fopinfo>
+            <fopstatistics>...</fopstatistics>  
+      <fopstatistics>...</fopstatistics>
+      </fopinfo>
 </profileinfo>
 ```
 

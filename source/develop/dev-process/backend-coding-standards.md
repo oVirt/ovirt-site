@@ -19,11 +19,11 @@ Java code style conventions and best practices should be applied in the project.
 
 RowMappers should have a single instance e.g.
 
-      private final static class FooRowMapper implements ParameterizedRowMapper`<Foo>` {
-        public final static FooRowMapper instance = new FooRowMapper();
-        public Foo mapRow(ResultSet rs, int rowNum) {
-          //and so on...
-        }
+      private final static class FooRowMapper implements ParameterizedRowMapper`<Foo>` {
+        public final static FooRowMapper instance = new FooRowMapper();
+        public Foo mapRow(ResultSet rs, int rowNum) {
+          //and so on...
+        }
       }
 
 So you do not have to instantiate the rowmapper all the time.

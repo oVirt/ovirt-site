@@ -94,11 +94,11 @@ Please note that All-In-One setup is now deprecated in 3.6 and will be dropped i
 
 *   on hosts you need to add following line to **/etc/ssh/sshd_config**
 
-      KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
+      KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
 
 and then execute
 
-      # systemctl restart sshd
+      # systemctl restart sshd
 
 before adding the host to the engine.
 
@@ -106,8 +106,8 @@ before adding the host to the engine.
 
 *   NFS startup on EL7.1 requires manual startup of rpcbind.service before running engine setup in order to avoid
 
-      [ INFO  ] Restarting nfs services
-      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
+      [ INFO  ] Restarting nfs services
+      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
 
 *   v2v feature on EL 7.1 requires manual installation of virt-v2v packages. See for more details. This workaround will not be needed once EL 7.2 is out
 
@@ -121,7 +121,7 @@ before adding the host to the engine.
 
 In order to install it on a clean system, you need to run (see also [Known Issues](#known-issues) above):
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm)
 
 If you are upgrading from a previous version, you may have the ovirt-release35 package already installed on your system. You can then install ovirt-release36.rpm as in a clean install side-by-side.
 
@@ -131,8 +131,8 @@ If you are upgrading from oVirt < 3.5.0, you must first upgrade to oVirt 3.5.0 o
 
 For upgrading now you just need to execute:
 
-      # yum update "ovirt-engine-setup*"
-      # engine-setup
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
 
 ## Upgrade path from Fedora 20 oVirt 3.5 to Fedora 22 oVirt 3.6
 
@@ -145,9 +145,9 @@ Please refer to the following threads on users mailing list:
 
 The support for Debian Jessie is highly experimental and implemented as a best effort feature. In order to enable Debian Jessie repositories you need to manually edit **/etc/apt/sources.list** adding:
 
-      # vdsm
-      deb `[`http://resources.ovirt.org/pub/ovirt-3.6/debian/`](http://resources.ovirt.org/pub/ovirt-3.6/debian/)` binary/
-      deb-src `[`http://resources.ovirt.org/pub/ovirt-3.6/debian/`](http://resources.ovirt.org/pub/ovirt-3.6/debian/)` source/
+      # vdsm
+      deb `[`http://resources.ovirt.org/pub/ovirt-3.6/debian/`](http://resources.ovirt.org/pub/ovirt-3.6/debian/)` binary/
+      deb-src `[`http://resources.ovirt.org/pub/ovirt-3.6/debian/`](http://resources.ovirt.org/pub/ovirt-3.6/debian/)` source/
 
 
 

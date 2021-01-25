@@ -7,50 +7,50 @@ authors: amuller, dougsland, omachace, tscofield
 
 ## Actions
 
-      # engine-config -h
-      engine-config: get/set/list configuration
+      # engine-config -h
+      engine-config: get/set/list configuration
       USAGE:
-          engine-config ACTION [--cver=version] [-p | --properties=/path/to/alternate/property/file] [-c | --config=/path/to/alternate/config/file]
+          engine-config ACTION [--cver=version] [-p | --properties=/path/to/alternate/property/file] [-c | --config=/path/to/alternate/config/file]
       Where:
-          ACTION              action to perform, see details below
-          version             relevant configuration version to use.
-          -p, --properties=   (optional) use the given alternate properties file.
-          -c, --config=       (optional) use the given alternate configuration file.
+          ACTION              action to perform, see details below
+          version             relevant configuration version to use.
+          -p, --properties=   (optional) use the given alternate properties file.
+          -c, --config=       (optional) use the given alternate configuration file.
 
-          Available actions:
-          -l, --list
-              list available configuration keys.
-          -a, --all
-              get all available configuration values.
-          -g key, --get=key [--cver=version]
-              get the value of the given key for the given version. If a version is not given, the values of all existing versions are returned.
-          -s key=val --cver=version, --set key=val --cver=version
-              set the value of the given key for the given version. The cver version is mandatory for this action.
-          -h, --help
-              display this help and exit.
+          Available actions:
+          -l, --list
+              list available configuration keys.
+          -a, --all
+              get all available configuration values.
+          -g key, --get=key [--cver=version]
+              get the value of the given key for the given version. If a version is not given, the values of all existing versions are returned.
+          -s key=val --cver=version, --set key=val --cver=version
+              set the value of the given key for the given version. The cver version is mandatory for this action.
+          -h, --help
+              display this help and exit.
 
-      ### Note: In order for your change(s) to take effect,
-      ### restart the JBoss service (using: 'service jboss-as restart').
+      ### Note: In order for your change(s) to take effect,
+      ### restart the JBoss service (using: 'service jboss-as restart').
       #############################################################################
 
 ## Changing admin user password
 
-      # ovirt-aaa-jdbc-tool user password-reset admin 
+      # ovirt-aaa-jdbc-tool user password-reset admin 
 
 For oVirt 3.5, oVirt 3.4 and oVirt 3.3
 
-      # engine-config -s AdminPassword=superNewPassword
-      # service jboss-as restart 
+      # engine-config -s AdminPassword=superNewPassword
+      # service jboss-as restart 
 
 For oVirt 3.2 or later
 
-      # engine-config -s AdminPassword=interactive
-      # service ovirt-engine restart 
+      # engine-config -s AdminPassword=interactive
+      # service ovirt-engine restart 
 
 ## Adding VM custom properties (macspoof)
 
-      # engine-config -s "UserDefinedVMProperties=macspoof=(true|false)"
-      # service ovirt-engine restart 
+      # engine-config -s "UserDefinedVMProperties=macspoof=(true|false)"
+      # service ovirt-engine restart 
 
 In order to deactivate mac spoof filtering on a VM:
 
@@ -69,8 +69,8 @@ MacPoolRanges provide a pool of MAC addresses to be used by all of the datacente
 
 Also please notice you can have multiple ranges separated by comma
 
-      # engine-config -s "MacPoolRanges=00:1A:4A:97:5E:00-00:1A:4A:97:5E:FF,00:1A:4A:97:5F:00-00:1A:4A:97:5F:FF"
-      # service ovirt-engine restart
+      # engine-config -s "MacPoolRanges=00:1A:4A:97:5E:00-00:1A:4A:97:5E:FF,00:1A:4A:97:5F:00-00:1A:4A:97:5F:FF"
+      # service ovirt-engine restart
 
 ## MaxMacsCountInPool
 

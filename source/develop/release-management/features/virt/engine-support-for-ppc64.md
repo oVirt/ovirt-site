@@ -324,8 +324,8 @@ This change adds a search parameter used to filter the architecture of VMs, Temp
 
 This change modifies the way hotplus is indicated in the system, adding it to the OSInfo property file. The following lines were added:
 
-       os.{id}.devices.network.hotplugSupport.value = true
-       os.{id}.devices.network.hotplugSupport.value.3.0 = false
+       os.{id}.devices.network.hotplugSupport.value = true
+       os.{id}.devices.network.hotplugSupport.value.3.0 = false
 
 **Vnic hotplug validation** [[19189]](http://gerrit.ovirt.org/#/c/19189)
 

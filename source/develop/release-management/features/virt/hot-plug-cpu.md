@@ -75,10 +75,10 @@ This will hotplug 1 more CPU to the machine.
 ```
 
 ```bash
-  curl -X PUT \
-    --user user@domain:pass \
-    -H "Content-Type:application/xml" \
-    -d@hotplug-cpu.xml  http://localhost:8080/ovirt-engine/api/vms/${vmId}
+  curl -X PUT \
+    --user user@domain:pass \
+    -H "Content-Type:application/xml" \
+    -d@hotplug-cpu.xml  http://localhost:8080/ovirt-engine/api/vms/${vmId}
 ```
 
 ### Engine
@@ -96,8 +96,8 @@ So its impossible to hot plug more CPUs to machines that started < 3.4 (i.e setu
 pseudo-code for building a VM xml we send to VDSM
 
 ```python
-      if (hot plug is supported for this compat version) {
-          smp = ConfigValues.MaxNumOfVmCpus
+      if (hot plug is supported for this compat version) {
+          smp = ConfigValues.MaxNumOfVmCpus
       }
 ```
 
@@ -129,7 +129,7 @@ e.g - we want to update a running's VM desription and to hotplug 1 more cpu
 | VDSM            | in vm.py, bind the verb to an underling call to libvirt's setVcpus                                                  | Done                                                         |
 | VDSM            | call before/after hooks for plug/unplug to enable various method for onlining the CPU at the guest OS               | Done                                                         |
 
-###### check list
+###### check list
 
 | Component | check                                                                                              | completed |
 |-----------|----------------------------------------------------------------------------------------------------|-----------|
@@ -223,7 +223,7 @@ i.e after unplugging 4 vcpus to 2 vcpus the VM entity in DB has 4 and in qemu pr
 
 *   report the CPU topology under VM subtab
 
-      TODO scketch it
+      TODO scketch it
 
 *   format of the topology (Vinzenz please fill in)
 
@@ -234,7 +234,7 @@ note: VDSM-guest-agent work for reporting this is already in progress - <http://
 *   how to check the guest CPUs - LINUX
 
 ```bash
-      lscpu -e -a
+      lscpu -e -a
 ```
 
 TODO - format the tests
@@ -284,7 +284,7 @@ When running CPU hot plug/unlug, the engine gets acked from qemu-kvm side, even 
 
 2. Remove CPU (4->2, for example), right after the hot add (step 1).
 
-         To see the number of CPUs is yet increased, see test plan documentation on how to do so on guest.
+         To see the number of CPUs is yet increased, see test plan documentation on how to do so on guest.
 
 Expected Results
 
@@ -334,8 +334,8 @@ Expected Results
 
 2. a. See that the number of CPUs updated correctly & successfully in UI and REST.
 
-         b. Verify CPU count = 4, by checking it on guest (see test plan documentaion for how to).
-         (it may take some time to reach the correct CPU count.)
+         b. Verify CPU count = 4, by checking it on guest (see test plan documentaion for how to).
+         (it may take some time to reach the correct CPU count.)
 
 3. Same as 2, expect CPU count =2. Breakdown [337909] Positive test - Migrate VM hot plugged with CPUs Set up
 
@@ -377,7 +377,7 @@ Expected Results
 
 2. - Check on guest that CPU number was updated (see test plan documentaion for how to).
 
-             -  Verify that both hook files run & exceuted.
+             -  Verify that both hook files run & exceuted.
 
 3. Same as 2, Except due to bug 1017858 , the after script will not be called till resolved. Breakdown [339000] System test Set up
 

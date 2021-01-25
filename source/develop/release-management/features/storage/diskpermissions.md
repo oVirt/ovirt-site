@@ -58,33 +58,33 @@ Required permissions for Disk related actions:
 
 #### New Action Groups for Disk Object Type
 
-       CREATE_DISK - AddDisk, AddDiskToVm
-       EDIT_DISK_PROPERTIES - UpdateDisk, UpdateVM, Activate/Deactivate
-       ATTACH_DISK - AttachDiskToVm
-       CONFIGURE_DISK_STORAGE - MoveOrCopyDisk
-       DELETE_DISK - RemoveDisk, RemoveVm
+       CREATE_DISK - AddDisk, AddDiskToVm
+       EDIT_DISK_PROPERTIES - UpdateDisk, UpdateVM, Activate/Deactivate
+       ATTACH_DISK - AttachDiskToVm
+       CONFIGURE_DISK_STORAGE - MoveOrCopyDisk
+       DELETE_DISK - RemoveDisk, RemoveVm
 
 #### New Roles
 
 New predefined user role for disks **DISK_OPERATOR** will be given to user when creating a Disk (either from Disk tab or from VM's disk sub-tab).
 DISK_OPERATOR will be associated with the following action groups: CREATE_DISK, EDIT_DISK_PROPERTIES, ATTACH_DISK, CONFIGURE_DISK_STORAGE and DELETE_DISK.
 
-` Add new role to `*`PredefinedRoles.java`*
-       Add new upgrade script for new roles and updating existing roles.
+` Add new role to `*`PredefinedRoles.java`*
+       Add new upgrade script for new roles and updating existing roles.
 
 #### Updated Roles
 
 SuperUser, ENGINEPowerUser, ClusterAdmin, DataCenterAdmin, StorageAdmin and VmOperator should be extended with action groups of Disks (CREATE_DISK, EDIT_DISK_PROPERTIES, ATTACH_DISK, DELETE_DISK).
 Currently attach/detach is being executed as part of the UpdateVm action.
 
-       Existing roles are Update by upgrade script.
-       Extend `*`VdcObjectType`*` with Disk.
+       Existing roles are Update by upgrade script.
+       Extend `*`VdcObjectType`*` with Disk.
 
 ### DB Changes
 
-       Modify create_functions.sql:
-       Add support for Disk to `*`fn_get_entity_parents`*` stored-procedure.
-       Add support for Disk to `*`fn_get_entity_name`*` stored-procedure.
+       Modify create_functions.sql:
+       Add support for Disk to `*`fn_get_entity_parents`*` stored-procedure.
+       Add support for Disk to `*`fn_get_entity_name`*` stored-procedure.
 
 ### Upgrade DB
 
@@ -111,8 +111,8 @@ Add Permissions sub-tab under Disks main tab
 Add Disk Operator role to Roles Tree in:
  *frontend/webadmin/modules/uicommonweb/src/main/java/org/ovirt/engine/ui/uicommonweb/models/configure/roles_ui/RoleTreeView.java*
 
-` `*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*
-` `*`frontend/webadmin/modules/uicompat/src/main/resources/org/ovirt/engine/ui/uicompat/Enums.properties`*
+` `*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*
+` `*`frontend/webadmin/modules/uicompat/src/main/resources/org/ovirt/engine/ui/uicompat/Enums.properties`*
 
 ## Benefit to oVirt
 

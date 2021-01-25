@@ -42,9 +42,9 @@ The **preliminary snapshot** in **step 2** is not mandatory but it's preferable 
 The REST API should take advantage of the `POST` operation on a VM disk, specifying the new storage domain.
 
 ```xml
-POST /api/vms/{vm:id}/disks/{disk:id} HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+POST /api/vms/{vm:id}/disks/{disk:id} HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
 <disk>
     <storage_domains>
@@ -58,52 +58,52 @@ Content-type: application/xml
 Pseudocode (work in progress):
 
 ```python
-def storageLiveMigration(spmHost, vmHost):
-    # Start moving the image to the destination (leaf not included)
-    spmTask = spmHost.moveImage(spUUID, srcDomUUID, dstDomUUID, imgUUID, None, LIVECOPY_OP)
-    # Wait for the empty leaf to appear on the destination
-    while True:
-        status = spmHost.getTaskStatus(spmTask)
-        # If the task got interrupted try to delete the image on the destination and fail
-        if status == Failed:
-            spmHost.deleteImage(spUUID, dstDomUUID, imgUUID)
-            raise FailureException
-        # Check that the new leaf has been created on the destination
-        status = spmHost.getVolumeInfo(spUUID, dstDomUUID, imgUUID, leafUUID)
-        if status == Done:
-            break
-        # Timeout?
-    # Initiate the block migration in qemu-kvm
-    hsmTask = vmHost.blockMigrateStart(vmUUID, {
-        "srcDomUUID": srcDomUUID,
-        "dstDomUUID": dstDomUUID,
-        "imgUUID":    imgUUID,
-    })
-    spmStatus = None
-    hsmStatus = None
-    # Wait for both the spm copy and the hsm copy/mirroring to finish
-    while True:
-        if spmStatus != Done:
-            spmStatus = spmHost.getTaskStatus(spmTask)
-        if hsmStatus != Done:
-            hsmStatus = hsmHost.getBlockMigrateStatus(vmUUID, hsmTask)
-        if spmStatus == Done and hsmStatus == Done:
-            break
-        if spmStatus == Failure or hsmStatus == Failure:
-            # FIXME: we probably need more here
-            # Reopen the leaf only on the source
-            vmHost.blockMigrateEnd(vmUUID, hsmTask, srcDomUUID)
-            spmHost.deleteImage(spUUID, dstDomUUID, imgUUID)
-            raise FailureException
-    # Finalize the migration to the destination
-    vmHost.blockMigrateEnd(vmUUID, hsmTask, dstDomUUID)
+def storageLiveMigration(spmHost, vmHost):
+    # Start moving the image to the destination (leaf not included)
+    spmTask = spmHost.moveImage(spUUID, srcDomUUID, dstDomUUID, imgUUID, None, LIVECOPY_OP)
+    # Wait for the empty leaf to appear on the destination
+    while True:
+        status = spmHost.getTaskStatus(spmTask)
+        # If the task got interrupted try to delete the image on the destination and fail
+        if status == Failed:
+            spmHost.deleteImage(spUUID, dstDomUUID, imgUUID)
+            raise FailureException
+        # Check that the new leaf has been created on the destination
+        status = spmHost.getVolumeInfo(spUUID, dstDomUUID, imgUUID, leafUUID)
+        if status == Done:
+            break
+        # Timeout?
+    # Initiate the block migration in qemu-kvm
+    hsmTask = vmHost.blockMigrateStart(vmUUID, {
+        "srcDomUUID": srcDomUUID,
+        "dstDomUUID": dstDomUUID,
+        "imgUUID":    imgUUID,
+    })
+    spmStatus = None
+    hsmStatus = None
+    # Wait for both the spm copy and the hsm copy/mirroring to finish
+    while True:
+        if spmStatus != Done:
+            spmStatus = spmHost.getTaskStatus(spmTask)
+        if hsmStatus != Done:
+            hsmStatus = hsmHost.getBlockMigrateStatus(vmUUID, hsmTask)
+        if spmStatus == Done and hsmStatus == Done:
+            break
+        if spmStatus == Failure or hsmStatus == Failure:
+            # FIXME: we probably need more here
+            # Reopen the leaf only on the source
+            vmHost.blockMigrateEnd(vmUUID, hsmTask, srcDomUUID)
+            spmHost.deleteImage(spUUID, dstDomUUID, imgUUID)
+            raise FailureException
+    # Finalize the migration to the destination
+    vmHost.blockMigrateEnd(vmUUID, hsmTask, dstDomUUID)
 ```
 
 ### VDSM SPM
 
 Add a new `moveImage` operation: **`LIVECOPY_OP`** (`0x03`):
 
-    moveImage(spUUID, srcDomUUID, dstDomUUID, imgUUID, vmUUID, op, postZero=False, force=False)
+    moveImage(spUUID, srcDomUUID, dstDomUUID, imgUUID, vmUUID, op, postZero=False, force=False)
 
 *   **`spUUID`:** storage pool UUID
 *   **`srcDomUUID`:** source domain UUID
@@ -124,16 +124,16 @@ Description of **LIVECOPY_OP**:
 
 Add the new block migrate commands:
 
-    blkTask = blockMigrateStart(vmUUID, blkMigParams)
-    blkStatus = getBlockMigrateStatus(vmUUID, blkTask)
-    blockMigrateEnd(vmUUID, blkTask, tgtDomUUID)
+    blkTask = blockMigrateStart(vmUUID, blkMigParams)
+    blkStatus = getBlockMigrateStatus(vmUUID, blkTask)
+    blockMigrateEnd(vmUUID, blkTask, tgtDomUUID)
 
 The only format supported for **`blkMigParams`** at the moment is:
 
-    blkMigParams = {
-        "srcDomUUID": "`<srcDomUUID>`",
-        "dstDomUUID": "`<dstDomUUID>`",
-        "imgUUID":    "`<imgUUID>`",
+    blkMigParams = {
+        "srcDomUUID": "`<srcDomUUID>`",
+        "dstDomUUID": "`<dstDomUUID>`",
+        "imgUUID":    "`<imgUUID>`",
     }
 
 *   **`vmUUID`:** VM UUID
@@ -158,17 +158,17 @@ Description of **blockMigrateEnd**:
 
 #### Libvirt Function Calls
 
-    virDomainBlockRebase(dom, disk, "/path/to/copy",
-        VIR_DOMAIN_BLOCK_REBASE_COPY | VIR_DOMAIN_BLOCK_REBASE_SHALLOW |
-        VIR_DOMAIN_BLOCK_REBASE_REUSE_EXT)
+    virDomainBlockRebase(dom, disk, "/path/to/copy",
+        VIR_DOMAIN_BLOCK_REBASE_COPY | VIR_DOMAIN_BLOCK_REBASE_SHALLOW |
+        VIR_DOMAIN_BLOCK_REBASE_REUSE_EXT)
 
 The `virDomainBlockRebase` function call is used to start the mirroring and streaming. This call assumes that **/path/to/copy** is already present (and initialized) and only the leaf content will be streamed to the new destination (no squashing).
 
-    virDomainBlockJobAbort(dom, disk, 0)
+    virDomainBlockJobAbort(dom, disk, 0)
 
 The `virDomainBlockJobAbort` function call with the `flags=0` is used to safely switch back on the source (it can be used at any time).
 
-    virDomainBlockJobAbort(dom, disk, VIR_DOMAIN_BLOCK_JOB_ABORT_PIVOT)
+    virDomainBlockJobAbort(dom, disk, VIR_DOMAIN_BLOCK_JOB_ABORT_PIVOT)
 
 The `virDomainBlockJobAbort` function call with the `flags=VIR_DOMAIN_BLOCK_JOB_ABORT_PIVOT` is used to pivot to the destination (drive-reopen). It will fail if there is a streaming in progress. Eventually (probably not in VDSM) it can be used as polling mechanism to switch to the destination.
 
@@ -198,23 +198,23 @@ On block domains VDSM is monitoring the qemu-kvm process watermark on the disks 
 Pseudocode:
 
 ```python
-def vm_live_block_migrate(vm, destDomain):
-    for drive in vm_get_drives(vm):
-        createVolumeCrossSD(drive) # to the SPM
-    # Retry until it succeed or fails with a known error
-    while True:
-        ret = blockMigrate(driveParams) # to the HSM
-        if ret == SUCCESS
-            break
-        elif ret == VM_NOT_RUNNING:
-            # rollback the createVolumeCrossSD operations
-            return VM_NOT_RUNNING
-    for drive in vm_get_drives(vm):
-        while True:
-            ret = cloneInternalVolumes(drive)
-            if ret == SUCESS:
-                break
-    finalizeBlockMigrate() # to the HSM
+def vm_live_block_migrate(vm, destDomain):
+    for drive in vm_get_drives(vm):
+        createVolumeCrossSD(drive) # to the SPM
+    # Retry until it succeed or fails with a known error
+    while True:
+        ret = blockMigrate(driveParams) # to the HSM
+        if ret == SUCCESS
+            break
+        elif ret == VM_NOT_RUNNING:
+            # rollback the createVolumeCrossSD operations
+            return VM_NOT_RUNNING
+    for drive in vm_get_drives(vm):
+        while True:
+            ret = cloneInternalVolumes(drive)
+            if ret == SUCESS:
+                break
+    finalizeBlockMigrate() # to the HSM
 ```
 
 ## Mirrored-Snapshot Execution Diagrams and Description
@@ -228,34 +228,34 @@ def vm_live_block_migrate(vm, destDomain):
 The command `copyVolume(...)` is used in step 2 and 4 to copy the volumes from the source to the destination. For maximum flexibility it's possible to change the volume and image UUIDs (on the destination) and update the parent volume UUID (so that it's possible to rebuild a consistent chain on the destination).
 
 ```python
-def copyVolume(srcDomUUID, dstDomUUID, srcImgUUID, dstImgUUID,
-               srcVolUUID, dstVolUUID, dstBakImgUUID, dstBakVolUUID):
-    """
-    Copies a single volume from a source (domain, image, volume) to a new
-    destination (domain, image, volume).
-    If dstBakVolUUID is specified it will be used to rebase (unsafe) the
-    volume (if dstBakImgUUID is not specified, dstImgUUID will be used).
-    If dstBakVolUUID is not specified and the source volume has a parent,
-    then the same srcImgUUID and srcVolUUID will be reused.
-    :param srcDomUUID: The source storage domain UUID
-    :type srcDomUUID: UUID
-    :param dstDomUUID: The destination storage domain UUID
-    :type dstDomUUID: UUID
-    :param srcImgUUID: The source image UUID
-    :type srcImgUUID: UUID
-    :param dstImgUUID: The destination image UUID
-    :type dstImgUUID: UUID
-    :param srcVolUUID: The source volume UUID
-    :type srcVolUUID: UUID
-    :param dstVolUUID: The destination volume UUID
-    :type dstVolUUID: UUID
-    :param dstBakImgUUID: The new backing image UUID for the destination
-                          (optional parameter)
-    :type dstBakImgUUID: UUID
-    :param dstBakVolUUID: The new backing volume UUID for the destination
-                          (optional parameter)
-    :type dstBakVolUUID: UUID
-    """
+def copyVolume(srcDomUUID, dstDomUUID, srcImgUUID, dstImgUUID,
+               srcVolUUID, dstVolUUID, dstBakImgUUID, dstBakVolUUID):
+    """
+    Copies a single volume from a source (domain, image, volume) to a new
+    destination (domain, image, volume).
+    If dstBakVolUUID is specified it will be used to rebase (unsafe) the
+    volume (if dstBakImgUUID is not specified, dstImgUUID will be used).
+    If dstBakVolUUID is not specified and the source volume has a parent,
+    then the same srcImgUUID and srcVolUUID will be reused.
+    :param srcDomUUID: The source storage domain UUID
+    :type srcDomUUID: UUID
+    :param dstDomUUID: The destination storage domain UUID
+    :type dstDomUUID: UUID
+    :param srcImgUUID: The source image UUID
+    :type srcImgUUID: UUID
+    :param dstImgUUID: The destination image UUID
+    :type dstImgUUID: UUID
+    :param srcVolUUID: The source volume UUID
+    :type srcVolUUID: UUID
+    :param dstVolUUID: The destination volume UUID
+    :type dstVolUUID: UUID
+    :param dstBakImgUUID: The new backing image UUID for the destination
+                          (optional parameter)
+    :type dstBakImgUUID: UUID
+    :param dstBakVolUUID: The new backing volume UUID for the destination
+                          (optional parameter)
+    :type dstBakVolUUID: UUID
+    """
 ```
 
 ### Engine Flow

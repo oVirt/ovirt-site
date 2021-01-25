@@ -49,9 +49,9 @@ oVirt's MOM sub-project integration<sup>[[1](/develop/release-management/feature
 
 *   VDSM already supports memory balloon as a device, and the following API should be used:
 
-        {'type': 'balloon ',
-        'device':'memballoon ',
-        'model': 'virtio' },     <--- 'none' may/should be used to disable the device.
+        {'type': 'balloon ',
+        'device':'memballoon ',
+        'model': 'virtio' },     <--- 'none' may/should be used to disable the device.
 
 ## Rest API
 

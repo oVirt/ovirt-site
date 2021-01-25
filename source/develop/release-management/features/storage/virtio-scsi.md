@@ -49,7 +49,7 @@ The following Guest OS drivers are available:
 *   Windows Server 2003 / 2007 / 2008 / 2012, Windows 7/8
     -   Windows XP is not supported
 
-      Note: Windows drivers should be added to guest tools.
+      Note: Windows drivers should be added to guest tools.
 
 ### VDSM
 
@@ -103,9 +103,9 @@ The following Guest OS drivers are available:
 
 ```xml
 <disk>
-        ...
+        ...
  <interface>virtio_scsi</interface>
-        ...
+        ...
 </disk>
 ```
 
@@ -113,10 +113,10 @@ The following Guest OS drivers are available:
 
 ```xml
 <disk>
-        ...
+        ...
  <interface>virtio_scsi</interface>
  <sgio>unfiltered</sgio>
-        ...
+        ...
 </disk>
 ```
 
@@ -124,9 +124,9 @@ The following Guest OS drivers are available:
 
 ```xml
 <vm>
-        ...
+        ...
  <virtio_scsi enabled="true|false"/>
-        ...
+        ...
 </vm>
 ```
 
@@ -185,7 +185,7 @@ This should not require the process to run as root.
 
 *   Filtered vs. unfiltered sg commands (i.e. the mechanism is currently all or nothing – can't filter specific commands).
 
-        Filtering is done on disk level (not on VM level).
+        Filtering is done on disk level (not on VM level).
 
 *   Mapping of disk vs. lun in libvirt to disk image and direct lun appropriately.
 *   The feature is enabled for cluster 3.3 and up.

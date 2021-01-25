@@ -16,7 +16,7 @@ authors: awels
 
 Sometimes during the usage of the Web admin or User portal you will get a popup about an uncaught exception like this:
 
-    Uncaught exception occurred. Please try reloading the page. Details:  [some information]
+    Uncaught exception occurred. Please try reloading the page. Details:  [some information]
 
 In general this message lets us know something went wrong, but is less than helpful in determining what exactly went wrong. The information provided usually includes some obfuscated code like 'c is null' or 'cannot get field O5d'. None of which is very helpful.
 
@@ -38,9 +38,9 @@ Your exception will be different but the top line as highlighted will be the imp
 
 Now that we have the stack trace and the most likely culprit of the exception, we don't know what it is. When the UI is built, goes through a process of optimizing and obfuscating the original code. This is done to reduce the download size and optimize the performance of the application. The down side of this is that one can't easily tell what is going on. During this process another file is generated called a symbol map. This file maps the obfuscated code to the original source code. Due to the size of the file this is not installed by default. To install the symbol maps run the following command as root:
 
-    yum install ovirt-engine-webadmin-portal-debuginfo ovirt-engine-userportal-debuginfo
-    # If you are running rhv
-    yum install rhevm-webadmin-portal-debuginfo rhevm-userportal-debuginfo
+    yum install ovirt-engine-webadmin-portal-debuginfo ovirt-engine-userportal-debuginfo
+    # If you are running rhv
+    yum install rhevm-webadmin-portal-debuginfo rhevm-userportal-debuginfo
 
 After installing these packages, the engine should be restarted (regardless of whether this is oVirt or RHV)
 

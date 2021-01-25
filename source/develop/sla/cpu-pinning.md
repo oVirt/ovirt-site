@@ -18,14 +18,14 @@ itself.
 Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sample:
 
       <domain>
-        ...
-        <cputune>
-          <vcpupin vcpu="0" cpuset="1-4,^2"/>
-          <vcpupin vcpu="1" cpuset="0,1"/>
-          <vcpupin vcpu="2" cpuset="2,3"/>
-          <vcpupin vcpu="3" cpuset="0,4"/>
-        </cputune>
-        ...
+        ...
+        <cputune>
+          <vcpupin vcpu="0" cpuset="1-4,^2"/>
+          <vcpupin vcpu="1" cpuset="0,1"/>
+          <vcpupin vcpu="2" cpuset="2,3"/>
+          <vcpupin vcpu="3" cpuset="0,4"/>
+        </cputune>
+        ...
       </domain>
 
 ## Engine core
@@ -52,20 +52,20 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
 
 VDSM receives the cpu pinning information through its xml-rpc interface at createVM (alias VM.create()) call. Expected data structure:
 
-      * cpuPinning - map of { vcpuid : cpuset } e.g. { 0 : '1-4' } sets the vcpu 4 to cpu 1-4
+      * cpuPinning - map of { vcpuid : cpuset } e.g. { 0 : '1-4' } sets the vcpu 4 to cpu 1-4
 
 ## Rest API
 
 *   Should be added in the relevant actions.
 
       <cpu>
-        <topology sockets="4" cores="1"/>
-        <cputune>
-          <vcpupin vcpu="0" cpuset="1-4,^2"/>
-          <vcpupin vcpu="1" cpuset="0,1"/>
-          <vcpupin vcpu="2" cpuset="2,3"/>
-          <vcpupin vcpu="3" cpuset="0,4"/>
-        </cputune>
+        <topology sockets="4" cores="1"/>
+        <cputune>
+          <vcpupin vcpu="0" cpuset="1-4,^2"/>
+          <vcpupin vcpu="1" cpuset="0,1"/>
+          <vcpupin vcpu="2" cpuset="2,3"/>
+          <vcpupin vcpu="3" cpuset="0,4"/>
+        </cputune>
       </cpu>
 
 ## UI

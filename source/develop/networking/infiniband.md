@@ -27,15 +27,15 @@ After loading these modules you should see an Infiniband interface ib0 inside Ov
 
 The kernel advertises TSO for Mellanox ConnectX cards although it is not supported. Therefore the hardware creates corrupt IP fragments on sender side during large requests and the receiving client cannot use LRO. The result of a lengthy discussion is stated [here](http://www.spinics.net/lists/linux-rdma/msg17787.html). So check if your Mellanox card has revision **a0**. Here an example of a non TSO compatible card:
 
-      lspci | grep Mellanox
-      03:00.0 InfiniBand: Mellanox Technologies MT25418 [ConnectX VPI PCIe 2.0 2.5GT/s - IB DDR / 10GigE] (rev a0)
+      lspci | grep Mellanox
+      03:00.0 InfiniBand: Mellanox Technologies MT25418 [ConnectX VPI PCIe 2.0 2.5GT/s - IB DDR / 10GigE] (rev a0)
 
 If you have such an old card disable TSO and make that setting permanent in some startup script.
 
-      ` isOldCard=`lspci | grep Mellanox | grep a0 | wc -l` `
-      if [ $isOldCard -gt 0 ]; then
-        ethtool -K ib0 tso off
-        ethtool -K ib1 tso off
+      ` isOldCard=`lspci | grep Mellanox | grep a0 | wc -l` `
+      if [ $isOldCard -gt 0 ]; then
+        ethtool -K ib0 tso off
+        ethtool -K ib1 tso off
       fi
 
 ### Issue: Old hardware and MTU 2044
@@ -44,13 +44,13 @@ If you are running on old switch hardware than your maximum IPoIB MTU will be li
 
 If you are not afraid of compiling kernels yourself and you know what you are doing than you can benefit from a dirty hack that limits the IPoIB MTU inside the kernel to 3072 bytes. With that receive operations will be served within a single 4K page and unneccessary copy operations can be avoided. Add the following modification to ipoib_add_port() in drivers/infiniband/ulp/ipoib/ipoib_main.c:
 
-        ...
-        if (!ib_query_port(hca, port, &attr))
-          /* Limit max MTU to 3KB                                 */
-          /* priv->max_ib_mtu = ib_mtu_enum_to_int(attr.max_mtu); */
-          priv->max_ib_mtu = 3072;
-        else {
-        ...
+        ...
+        if (!ib_query_port(hca, port, &attr))
+          /* Limit max MTU to 3KB                                 */
+          /* priv->max_ib_mtu = ib_mtu_enum_to_int(attr.max_mtu); */
+          priv->max_ib_mtu = 3072;
+        else {
+        ...
 
 ## NFS over RDMA
 
@@ -62,8 +62,8 @@ In this setup NFS sunrpc layer driectly accesses the basic infiniband mechanisms
 At the moment OVirt does not allow to mount NFS shares over RDMA. So the only option is to modify the mount operation in /usr/share/vdsm/storage/storageServer.py yourself.
 
       ...
-      class NFSConnection(object):
-        DEFAULT_OPTIONS = ["soft", "nosharecache", "rdma", "port=20049"]
+      class NFSConnection(object):
+        DEFAULT_OPTIONS = ["soft", "nosharecache", "rdma", "port=20049"]
       ...
 
 A reqeust for enhancement of OVirt has been created as Redhat Bug [1057043](https://bugzilla.redhat.com/show_bug.cgi?id=1057043)

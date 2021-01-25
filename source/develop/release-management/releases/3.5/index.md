@@ -63,7 +63,7 @@ The [Optaplanner](/develop/release-management/features/sla/optaplanner.html) is 
 
 oVirt 3.5 is now available for use. In order to install it on a clean system, you need to install
 
-`     # yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
+`     # yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
 
 If you are upgrading from a previous version, you should have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
 
@@ -73,8 +73,8 @@ Once ovirt-release35 package is installed, you will have the ovirt-3.5-stable re
 
 and to run:
 
-          # yum update "ovirt-engine-setup*"
-          # engine-setup
+          # yum update "ovirt-engine-setup*"
+          # engine-setup
 
 ## oVirt Live
 

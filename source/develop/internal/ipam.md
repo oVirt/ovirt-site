@@ -90,86 +90,86 @@ The DHCP provider is responsible for the proliferation of reservations to the DH
 #### Interface of a IPAM DHCP provider
 
       /**
-       * An IPAM (IP Address Management) DHCP provider can provide IP allocations on a host for one or more networks. The IP
-       * distribution is done via DHCP which is configured to provide only the allocations it knows about.
-       */
+       * An IPAM (IP Address Management) DHCP provider can provide IP allocations on a host for one or more networks. The IP
+       * distribution is done via DHCP which is configured to provide only the allocations it knows about.
+       */
 **`interface` `IpamDhcpProvider` `{`**
-          /**
-           * Provide IPAM on the given host to the given networks.
-            * If the networks list is empty then IPAM provisioning on will be turned off on this host.
-           *
-           * @param host
-           *            The host to provide IPAM on.
-           * @param networks
-           *            The list of networks to provide IPAM for, on this host. Each network should contain the desired
-           *            subnets for which the IPs will be provided.
-           */
-`    `**`void` `provide(Host` `host,` `List`<Network> `networks);`**
-          /**
-           * Stop providing IPAM on the given host. Same as calling {@link IpamDhcpProvider#provide(Host, List)} with an empty
-           * networks list.
-           *
-           * @param host
-           *            The host to stop providing IPAM for.
-           */
-`    `**`void` `dontProvide(Host` `host);`**
-          /**
-           * Add a reservation for the given MAC on the subnet. The provider will choose an available IP address.
-           *
-           * @param subnet
-           *            The subnet to reserve on.
-           * @param mac
-           *            The MAC to reserve for.
-           * @return The IP that was reserved.
-           */
-`    `**`IP` `addReservation(Subnet` `subnet,` `MAC` `mac);`**
-          /**
-           * Add a reservation of the given IP for the given MAC on the subnet.
-           *
-           * @param subnet
-           *            The subnet to reserve on.
-           * @param mac
-           *            The MAC to reserve for.
-           * @param ip
-           *            The IP to reserve.
-           */
-`    `**`void` `addReservation(Subnet` `subnet,` `MAC` `mac,` `IP` `ip);`**
-          /**
-           * Remove the given IP reservation from the given subnet.
-           *
-           * @param subnet
-           *            The subnet to remove from.
-           * @param ip
-           *            The IP reservation to remove.
-           */
-`    `**`void` `removeReservation(Subnet` `subnet,` `IP` `ip);`**
+          /**
+           * Provide IPAM on the given host to the given networks.
+            * If the networks list is empty then IPAM provisioning on will be turned off on this host.
+           *
+           * @param host
+           *            The host to provide IPAM on.
+           * @param networks
+           *            The list of networks to provide IPAM for, on this host. Each network should contain the desired
+           *            subnets for which the IPs will be provided.
+           */
+`    `**`void` `provide(Host` `host,` `List`<Network> `networks);`**
+          /**
+           * Stop providing IPAM on the given host. Same as calling {@link IpamDhcpProvider#provide(Host, List)} with an empty
+           * networks list.
+           *
+           * @param host
+           *            The host to stop providing IPAM for.
+           */
+`    `**`void` `dontProvide(Host` `host);`**
+          /**
+           * Add a reservation for the given MAC on the subnet. The provider will choose an available IP address.
+           *
+           * @param subnet
+           *            The subnet to reserve on.
+           * @param mac
+           *            The MAC to reserve for.
+           * @return The IP that was reserved.
+           */
+`    `**`IP` `addReservation(Subnet` `subnet,` `MAC` `mac);`**
+          /**
+           * Add a reservation of the given IP for the given MAC on the subnet.
+           *
+           * @param subnet
+           *            The subnet to reserve on.
+           * @param mac
+           *            The MAC to reserve for.
+           * @param ip
+           *            The IP to reserve.
+           */
+`    `**`void` `addReservation(Subnet` `subnet,` `MAC` `mac,` `IP` `ip);`**
+          /**
+           * Remove the given IP reservation from the given subnet.
+           *
+           * @param subnet
+           *            The subnet to remove from.
+           * @param ip
+           *            The IP reservation to remove.
+           */
+`    `**`void` `removeReservation(Subnet` `subnet,` `IP` `ip);`**
       }
 
 #### Class that manages the IPAM per network
 
-      public class IpamManager {
-          private IpamDhcpProvider provider;
-          @OnTimer
-          public void manage() {
-              for (Network net : getAllNetworks()) {
-                  if (net.isIpamEnabled() && !net.getSubnets().isEmpty()) {
-                      /*
-                       * Balance number of hosts running IPAM for the network:
-                       *  * If a host that is tracked as running IPAM is not up, attempt to stop the IPAM on it.
-                       *  * Make sure that the amount of hosts providing IPAM for the network is running.
-                       */
-                  } else {
-                      /* Stop IPAM for this network on all hosts that are running it (if there are any). */
-                  }
-              }
-          }
-          /**
-           * Stop managing IPAM on the given host.
-           *
-           * @param host
-           *            The host to stop managing.
-           */
-          public void stopManaging(Host host) {
-              /* ... */
-          }
+      public class IpamManager {
+          private IpamDhcpProvider provider;
+          @OnTimer
+          public void manage() {
+              for (Network net : getAllNetworks()) {
+                  if (net.isIpamEnabled() && !net.getSubnets().isEmpty()) {
+                      /*
+                       * Balance number of hosts running IPAM for the network:
+                       *  * If a host that is tracked as running IPAM is not up, attempt to stop the IPAM on it.
+                       *  * Make sure that the amount of hosts providing IPAM for the network is running.
+                       */
+                  } else {
+                      /* Stop IPAM for this network on all hosts that are running it (if there are any). */
+                  }
+              }
+          }
+          /**
+           * Stop managing IPAM on the given host.
+           *
+           * @param host
+           *            The host to stop managing.
+           */
+          public void stopManaging(Host host) {
+              /* ... */
+          }
       }

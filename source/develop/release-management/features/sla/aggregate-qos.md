@@ -34,15 +34,15 @@ Status: development (http://gerrit.ovirt.org/#/q/status:open+project:ovirt-engin
 * **POST**: `/ovirt-engine/api/datacenters/{datacenter:id}/qoss`; body: `qos`; response: `qos`
 
 ```xml
-   <qos type="network">
-     <name>test_qos</name>
-     <inbound_average>10</inbound_average>
-     <inbound_peak>10</inbound_peak>
-     <inbound_burst>100</inbound_burst>
-     <outbound_average>-1</outbound_average>
-     <outbound_peak>-1</outbound_peak>
-     <outbound_burst>-1</outbound_burst>
-   </qos>
+   <qos type="network">
+     <name>test_qos</name>
+     <inbound_average>10</inbound_average>
+     <inbound_peak>10</inbound_peak>
+     <inbound_burst>100</inbound_burst>
+     <outbound_average>-1</outbound_average>
+     <outbound_peak>-1</outbound_peak>
+     <outbound_burst>-1</outbound_burst>
+   </qos>
 ```
 
 * **GET**: `/ovirt-engine/api/datacenters/{datacenter:id}/qoss`; response: `qos`
@@ -50,16 +50,16 @@ Status: development (http://gerrit.ovirt.org/#/q/status:open+project:ovirt-engin
 * **GET**: `/ovirt-engine/api/datacenters/{datacenter:id}/qoss/{qos:id}`; response: `qos`
 
 ```xml
-   <qos type="network" href="/ovirt-engine/api/datacenters/00000002-0002-0002-0002-000000000321/qoss/a66577ff-d5f1-40f7-aebb-0b350ad8bb8c" id="a66577ff-d5f1-40f7-aebb-0b350ad8bb8c">
-       <name>test2</name>
-       <data_center href="/ovirt-engine/api/datacenters/00000002-0002-0002-0002-000000000321" id="00000002-0002-0002-0002-000000000321"/>
-       <inbound_average>10</inbound_average>
-       <inbound_peak>10</inbound_peak>
-       <inbound_burst>100</inbound_burst>
-       <outbound_average>-1</outbound_average>
-       <outbound_peak>-1</outbound_peak>
-       <outbound_burst>-1</outbound_burst>
-   </qos>
+   <qos type="network" href="/ovirt-engine/api/datacenters/00000002-0002-0002-0002-000000000321/qoss/a66577ff-d5f1-40f7-aebb-0b350ad8bb8c" id="a66577ff-d5f1-40f7-aebb-0b350ad8bb8c">
+       <name>test2</name>
+       <data_center href="/ovirt-engine/api/datacenters/00000002-0002-0002-0002-000000000321" id="00000002-0002-0002-0002-000000000321"/>
+       <inbound_average>10</inbound_average>
+       <inbound_peak>10</inbound_peak>
+       <inbound_burst>100</inbound_burst>
+       <outbound_average>-1</outbound_average>
+       <outbound_peak>-1</outbound_peak>
+       <outbound_burst>-1</outbound_burst>
+   </qos>
 ```
 
 * **PUT**: `/ovirt-engine/api/datacenters/{datacenter:id}/qoss/{qos:id}`; body: `qos`; response: `qos`

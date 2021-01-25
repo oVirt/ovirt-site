@@ -50,17 +50,17 @@ In AddVdsCommand and UpdateVdsCommand, the InstallVdsCommand is called with Inst
 
 The tag <direct_address> will be added to the host resource /api/hosts/{host:id}:
 
-`   `<host id="56d6d62f-6af0-4c02-8500-4be041180031">
-             ...
-             
+`   `<host id="56d6d62f-6af0-4c02-8500-4be041180031">
+             ...
+             
 
 <address>
 10.35.1.160
 
 </address>
-`       `<direct_address>`10.35.1.162`</direct_address>
-             ...
-`   `</host>
+`       `<direct_address>`10.35.1.162`</direct_address>
+             ...
+`   `</host>
 
 #### UI Changes
 

@@ -43,47 +43,47 @@ To allow SSH to access Gerrit, update the SSH public key via Gerrit settings:
 
 ### Defining Gerrit in ~/.ssh/config
 
-      Host gerrit.ovirt.org
-         HostName gerrit.ovirt.org
-         Port 29418
-         User <username>
+      Host gerrit.ovirt.org
+         HostName gerrit.ovirt.org
+         Port 29418
+         User <username>
          PubkeyAcceptedKeyTypes=+rsa-sha2-512
-       
+       
 
 ### Changing File Permissions
 
-      chmod 600 ~/.ssh/config
-       
+      chmod 600 ~/.ssh/config
+       
 
 ### Verifying the SSH Configuration
 
-      ssh gerrit.ovirt.org
+      ssh gerrit.ovirt.org
 
 If SSH is configured correctly, you will see the following message:
 
-      ***    Welcome to Gerrit Code Review    ****
-       
+      ***    Welcome to Gerrit Code Review    ****
+       
 
 ## Git Configuration and Procedures
 
 ### Cloning the oVirt-engine Repository
 
-      git clone gerrit.ovirt.org:ovirt-engine
-       
+      git clone gerrit.ovirt.org:ovirt-engine
+       
 
 For a read-only repository, this can also be done using:
 
       #Read-only
-      git clone git://gerrit.ovirt.org/ovirt-engine
-       
+      git clone git://gerrit.ovirt.org/ovirt-engine
+       
 
 ### Installing the change-ID Hook
 
 **You must do this before you commit anything**
 In order to easily track commit changes in Gerrit, each commit must have a change-ID. This change-ID is added automatically via a Git hook. To install this hook, enter:
 
-      cd ovirt-engine
-      scp -p gerrit.ovirt.org:hooks/commit-msg .git/hooks/
+      cd ovirt-engine
+      scp -p gerrit.ovirt.org:hooks/commit-msg .git/hooks/
 
 Or alternatively without need of authentication:
 
@@ -91,8 +91,8 @@ Or alternatively without need of authentication:
 
 **ATTENTION**: All of the ovirt projects require a Signed-off-by (SOB), add the following lines in the end of .git/hooks/commit-msg, after the line "add_ChangeId":
 
-      SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
-      grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+      SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+      grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
 
 Allow the hook to be executed:
 
@@ -100,20 +100,20 @@ Allow the hook to be executed:
 
 **Note**: If you commit something before you do the above, you can add the Change-ID and signed-off-by lines by:
 
-      git commit --amend -s
-       
+      git commit --amend -s
+       
 
 ### Configuring Git Personal Settings
 
-      git config --global user.name "John Doe"
-      git config --global user.email johndoe@example.com
-       
+      git config --global user.name "John Doe"
+      git config --global user.email johndoe@example.com
+       
 
 ### Configuring the Commit Template
 
-      cd ovirt-engine
-      git config commit.template config/engine-commit-template.txt
-       
+      cd ovirt-engine
+      git config commit.template config/engine-commit-template.txt
+       
 
 
 > **_NOTE:_** Alternatively, if you're contributing to other projects than ovirt-engine
@@ -121,29 +121,29 @@ Allow the hook to be executed:
 
 ### Configuring the Git Commit Spell Check, Syntax Highlighting and Maxwidth
 
-      # edit ~/.vimrc
-      syntax on
-      filetype plugin indent on
-      autocmd Filetype gitcommit setlocal spell textwidth=72
-       
+      # edit ~/.vimrc
+      syntax on
+      filetype plugin indent on
+      autocmd Filetype gitcommit setlocal spell textwidth=72
+       
 
 ### Rebasing
 
-      git fetch -v
-      git rebase origin/master
-       
+      git fetch -v
+      git rebase origin/master
+       
 
 ## Pushing a Patch for Review
 
 Enter:
 
-      git push gerrit.ovirt.org:ovirt-engine HEAD:refs/for/master
-       
+      git push gerrit.ovirt.org:ovirt-engine HEAD:refs/for/master
+       
 
 Alternatively, assuming your remote repository is 'origin', enter:
 
-      git push origin HEAD:refs/for/master
-       
+      git push origin HEAD:refs/for/master
+       
 
 ### Pushing or Updating a Draft Using the Git Review Plugin
 
@@ -151,13 +151,13 @@ The git-review plugin is optional.
 
 To push or update a draft, enter:
 
-      git review -D -r origin master
-       
+      git review -D -r origin master
+       
 
 To push or update a published patch:
 
-      git review -r origin master
-       
+      git review -r origin master
+       
 
 ## The Track Patch Review Process
 
@@ -220,61 +220,61 @@ A [topic branch](http://progit.org/book/ch3-4.html) is a short-lived branch that
 
 &nbsp;
 
-        $ git clone https://github.com/openstack-infra/git-review
-        $ cp git-review/git-review project/
+        $ git clone https://github.com/openstack-infra/git-review
+        $ cp git-review/git-review project/
 
 *   Setting git-review:
 
-      git-review, by default, looks for a git remote called gerrit, and submits the current branch to HEAD:refs/for/master at that remote.
-      If the "gerrit" remote does not exist, git-review looks for a file called .gitreview at the root of the repository with information
-      about the gerrit remote. Assuming that file is present, git-review should be able to automatically configure your 
-      repository the first time it is run. 
+      git-review, by default, looks for a git remote called gerrit, and submits the current branch to HEAD:refs/for/master at that remote.
+      If the "gerrit" remote does not exist, git-review looks for a file called .gitreview at the root of the repository with information
+      about the gerrit remote. Assuming that file is present, git-review should be able to automatically configure your 
+      repository the first time it is run. 
 
 *   Example: project/.git/config
 
 &nbsp;
 
-      [remote "gerrit"]
-        url = http://gerrit.ovirt.org/p/project
-        pushurl = ssh://username@gerrit.ovirt.org:29418/project.git
-        fetch = +refs/heads/*:refs/remotes/gerrit/* 
+      [remote "gerrit"]
+        url = http://gerrit.ovirt.org/p/project
+        pushurl = ssh://username@gerrit.ovirt.org:29418/project.git
+        fetch = +refs/heads/*:refs/remotes/gerrit/* 
 
 *   Execute git-review setup
 
 &nbsp;
 
-        $project> ./git-review -s 
+        $project> ./git-review -s 
 
 *   Create your local branch feature
 
 &nbsp;
 
-        $project> git checkout -b engine-register 
+        $project> git checkout -b engine-register 
 
 *   Check if you are under branch
 
 &nbsp;
 
-        $project> git branch
-        * engine-register
-        master  
+        $project> git branch
+        * engine-register
+        master  
 
 *   Execute the changes and commit it
 
 &nbsp;
 
-        $project> vi source.py
-        $project> git add source.py
-        $project> git commit  
+        $project> vi source.py
+        $project> git add source.py
+        $project> git commit  
 
 *   Submit the topic branch changes to gerrit
 
 &nbsp;
 
-        $project>./git-review -t engine-register
-        remote: Resolving deltas:   0% (0/3)
-        remote: (W) fba45fe: no files changed, message updated
-        To ssh://user@gerrit.ovirt.org:29418/project.git
-       * [new branch]      HEAD -> refs/for/master/engine-register 
+        $project>./git-review -t engine-register
+        remote: Resolving deltas:   0% (0/3)
+        remote: (W) fba45fe: no files changed, message updated
+        To ssh://user@gerrit.ovirt.org:29418/project.git
+       * [new branch]      HEAD -> refs/for/master/engine-register 
 
 *   Now go to the gerrit url for your change and note that the topic field is changed to your topic branch name.

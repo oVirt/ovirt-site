@@ -207,8 +207,8 @@ All the components need to be installed, and set to run on startup.
 
 Note: get_id function is:
 
-      function get_id () {
-      `     echo `"$@" | grep ' id ' | awk '{print $4}'` `
+      function get_id () {
+      `     echo `"$@" | grep ' id ' | awk '{print $4}'` `
       }
 
 ##### Configure Neutron manager
@@ -229,11 +229,11 @@ Note: get_id function is:
 
 You need to configure the keystone URL:
 
-      engine-config --set KeystoneAuthUrl=http://<host.fqdn>:35357/v2.0/
+      engine-config --set KeystoneAuthUrl=http://<host.fqdn>:35357/v2.0/
 
 For oVirt versions less than 3.4, You also need to enable a setting that only required networks are considered for VM scheduling:
 
-      engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
+      engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
 
 Don't forget to restart the ovirt-engine service!
 
@@ -249,81 +249,81 @@ Don't forget to restart the ovirt-engine service!
 
 The following properties are required:
 
-      QPID_HOST - the QPID host address
-      INTERFACE_MAPPING - the physical interface mapping, e.g. default:eth1.
+      QPID_HOST - the QPID host address
+      INTERFACE_MAPPING - the physical interface mapping, e.g. default:eth1.
 
 The following properties are optional:
 
-      qpid_username - QPID server's username
-      qpid_password - QPID server user's password
-      qpid_port - QPID server port
+      qpid_username - QPID server's username
+      qpid_password - QPID server user's password
+      qpid_port - QPID server port
 
 Once the properties are set, the following sequence will install, configure and start the linuxbridge agent:
 
-      yum install -y openstack-quantum-linuxbridge
+      yum install -y openstack-quantum-linuxbridge
       LB_CONF=/etc/quantum/plugins/linuxbridge/linuxbridge_conf.ini
       Q_CONF=/etc/quantum/quantum.conf
-      # configuring QPID host
-      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT rpc_backend quantum.openstack.common.rpc.impl_qpid
-      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_hostname ${QPID_HOST}
-      if [[ -n "${qpid_username}" ]]; then
-          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_username ${qpid_username}
+      # configuring QPID host
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT rpc_backend quantum.openstack.common.rpc.impl_qpid
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_hostname ${QPID_HOST}
+      if [[ -n "${qpid_username}" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_username ${qpid_username}
       fi
-      if [[ -n "${qpid_password}" ]]; then
-          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_password ${qpid_password}
+      if [[ -n "${qpid_password}" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_password ${qpid_password}
       fi
-      if [[ -n "${qpid_port}" ]]; then
-          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_port ${qpid_port}
+      if [[ -n "${qpid_port}" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_port ${qpid_port}
       fi
-      rm -f /etc/quantum/plugin.ini
-      ln -s ${LB_CONF} /etc/quantum/plugin.ini
-      # edit /etc/quantum/plugin.ini physical_interface_mappings
-      /usr/bin/openstack-config --set ${LB_CONF} LINUX_BRIDGE physical_interface_mappings ${INTERFACE_MAPPING}
-      systemctl daemon-reload
-      service quantum-linuxbridge-agent start
-      chkconfig quantum-linuxbridge-agent on
+      rm -f /etc/quantum/plugin.ini
+      ln -s ${LB_CONF} /etc/quantum/plugin.ini
+      # edit /etc/quantum/plugin.ini physical_interface_mappings
+      /usr/bin/openstack-config --set ${LB_CONF} LINUX_BRIDGE physical_interface_mappings ${INTERFACE_MAPPING}
+      systemctl daemon-reload
+      service quantum-linuxbridge-agent start
+      chkconfig quantum-linuxbridge-agent on
 
 #### OVS Agent installation steps
 
 The following properties are required:
 
-      QPID_HOST - the QPID host address
-      BRIDGE_MAPPINGS - List of `<physical_network>`:`<bridge>`, each specifying the OVS bridge used by the agent for a connected physical network.
-      INTERNAL_BRIDGE - the OVS integration bridge (default br-int)
+      QPID_HOST - the QPID host address
+      BRIDGE_MAPPINGS - List of `<physical_network>`:`<bridge>`, each specifying the OVS bridge used by the agent for a connected physical network.
+      INTERNAL_BRIDGE - the OVS integration bridge (default br-int)
 
 The following properties are optional:
 
-      qpid_username - QPID server's username
-      qpid_password - QPID server user's password
-      qpid_port - QPID server port
+      qpid_username - QPID server's username
+      qpid_password - QPID server user's password
+      qpid_port - QPID server port
 
 Once the properties are set, the following sequence will install, configure and start the OVS agent:
 
-      sudo yum install -y openstack-quantum-openvswitch
+      sudo yum install -y openstack-quantum-openvswitch
       OVS_CONF=/etc/quantum/plugins/openvswitch/ovs_quantum_plugin.ini
       Q_CONF=/etc/quantum/quantum.conf
-      # configuring QPID host
-      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT rpc_backend quantum.openstack.common.rpc.impl_qpid
-      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_hostname ${QPID_HOST}
-      if [[ -n "${qpid_username}" ]]; then
-          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_username ${qpid_username}
+      # configuring QPID host
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT rpc_backend quantum.openstack.common.rpc.impl_qpid
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_hostname ${QPID_HOST}
+      if [[ -n "${qpid_username}" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_username ${qpid_username}
       fi
-      if [[ -n "${qpid_password}" ]]; then
-          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_password ${qpid_password}
+      if [[ -n "${qpid_password}" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_password ${qpid_password}
       fi
-      if [[ -n "${qpid_port}" ]]; then
-          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_port ${qpid_port}
+      if [[ -n "${qpid_port}" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_port ${qpid_port}
       fi
-      rm -f /etc/quantum/plugin.ini
-      ln -s ${OVS_CONF} /etc/quantum/plugin.ini
-      /usr/bin/openstack-config --set ${OVS_CONF} OVS bridge_mappings ${BRIDGE_MAPPINGS}
-      service openvswitch start
-      chkconfig openvswitch on
-      ovs-vsctl add-br ${INTERNAL_BRIDGE}
-      ovs-vsctl add-br br-eth0 # should create bridge for each network as specified on ${BRIDGE_MAPPINGS}
-      service quantum-openvswitch-agent start
-      chkconfig quantum-openvswitch-agent on
-      chkconfig quantum-ovs-cleanup on
+      rm -f /etc/quantum/plugin.ini
+      ln -s ${OVS_CONF} /etc/quantum/plugin.ini
+      /usr/bin/openstack-config --set ${OVS_CONF} OVS bridge_mappings ${BRIDGE_MAPPINGS}
+      service openvswitch start
+      chkconfig openvswitch on
+      ovs-vsctl add-br ${INTERNAL_BRIDGE}
+      ovs-vsctl add-br br-eth0 # should create bridge for each network as specified on ${BRIDGE_MAPPINGS}
+      service quantum-openvswitch-agent start
+      chkconfig quantum-openvswitch-agent on
+      chkconfig quantum-ovs-cleanup on
 
 ### Events
 
@@ -360,12 +360,12 @@ Due to a bug in libvirt (https://bugzilla.redhat.com/show_bug.cgi?id=878481) we 
 
 To fix this, you would need to edit the installed linuxbridge_quantum_agent.py file and add this line of code:
 
-                 utils.execute(['brctl', 'delif', ';vdsmdummy;', tap_device_name], root_helper=self.root_helper)
+                 utils.execute(['brctl', 'delif', ';vdsmdummy;', tap_device_name], root_helper=self.root_helper)
 
 Inside the method **add_tap_interface**, right before:
 
-                 if utils.execute(['brctl', 'addif', bridge_name, tap_device_name],
-                                  root_helper=self.root_helper):
+                 if utils.execute(['brctl', 'addif', bridge_name, tap_device_name],
+                                  root_helper=self.root_helper):
 
 ### Demo Videos
 

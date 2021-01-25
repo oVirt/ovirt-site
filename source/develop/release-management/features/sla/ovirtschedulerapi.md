@@ -42,7 +42,7 @@ Called by Engine's commands: Run VM and Migrate VM- replaces current VdsSelector
 
 Signature:
 
-         Host[] filter(Host[], properties)
+         Host[] filter(Host[], properties)
 
 *   Input: set of hosts, properties.
 *   Output: set of Hosts (filtered according to filter logic).
@@ -52,12 +52,12 @@ Signature:
 
 Code sample:
 
-         filter(hosts[], properties) {
-             vm = properties['vm']
-             minimal_ram = vm['mem_size']
-             filter(key=lambda host: host['available_mem'] > minimal_ram, hosts)
-             return hosts
-         }
+         filter(hosts[], properties) {
+             vm = properties['vm']
+             minimal_ram = vm['mem_size']
+             filter(key=lambda host: host['available_mem'] > minimal_ram, hosts)
+             return hosts
+         }
 
 Explanation: memory filter, the filter will exclude hosts that don't have enough RAM.
 
@@ -65,7 +65,7 @@ Explanation: memory filter, the filter will exclude hosts that don't have enough
 
 Signature:
 
-         <Host, Integer>[] score(Host[], properties)
+         <Host, Integer>[] score(Host[], properties)
 
 *   Input: set of hosts, properties.
 *   Output: set of pairs, pair of host and its score → logically orders the Hosts.
@@ -75,32 +75,32 @@ Signature:
 
 Code sample:
 
-         score(hosts[], properties) {
-             costs = []
-             for host in hosts:
-                 costs += (host, host[usage_mem_percent])
-             sorted(costs, key=lambda pair: pair[1])
-             return costs #list of pairs
-         }
+         score(hosts[], properties) {
+             costs = []
+             for host in hosts:
+                 costs += (host, host[usage_mem_percent])
+             sorted(costs, key=lambda pair: pair[1])
+             return costs #list of pairs
+         }
 
 Explanation: memory cost function, will score hosts according to available memory, this will cause memory even distribution among the hosts. ![](/images/wiki/Hosts.png)
 
 Flow:
 
-         schedule(filters, cost_functions, factors, hosts[], properties) {
-             # go over all filters
-             for (filter in filters)
-                 hosts = filter(hosts, properties)
-             # init cost table
-             for (host in hosts)
-           map += <host, 0>
-             # go over all cost functions
-             for (cost_function in cost_functions)
-                 result = cost_function(hosts, properties)
-                 # aggregate factored scores for all hosts               
-                 for (host in hosts)
-               map += <host, map[host] + result[host] * factors[cost_function]>
-         }
+         schedule(filters, cost_functions, factors, hosts[], properties) {
+             # go over all filters
+             for (filter in filters)
+                 hosts = filter(hosts, properties)
+             # init cost table
+             for (host in hosts)
+           map += <host, 0>
+             # go over all cost functions
+             for (cost_function in cost_functions)
+                 result = cost_function(hosts, properties)
+                 # aggregate factored scores for all hosts               
+                 for (host in hosts)
+               map += <host, map[host] + result[host] * factors[cost_function]>
+         }
 
 ### Balance
 
@@ -108,7 +108,7 @@ Called periodically. Each cluster may use a single balancing logic at any given 
 
 Signature
 
-         <VM, Host[]> balance(Host[], properties)
+         <VM, Host[]> balance(Host[], properties)
 
 *   Input: Hosts, properties (initial host list, custom properties map).
 *   Output: VM, hosts (a VM to migrate, filtered hosts (non-over utilized hosts)).
@@ -129,29 +129,29 @@ Currently the user is responsible to fetch the relevant VMs.
 
 Code sample:
 
-         balance(hosts[], properties) {
-             max_host = max(hosts, key=lambda host: host['usage_mem_percent']))
-             vms_on_host = filter(key=lambda vm: vm['run_on_host'] = max_host['id'], vms)
-             vm = vms_on_host[random(vms_on_host.size)]
-             non_utilized_hosts =filter(key=lambda host: host['usage_mem_percent'] > properties['mem_threshold'], hosts)
-       return <vm, non_utilized_hosts>
-         }
+         balance(hosts[], properties) {
+             max_host = max(hosts, key=lambda host: host['usage_mem_percent']))
+             vms_on_host = filter(key=lambda vm: vm['run_on_host'] = max_host['id'], vms)
+             vm = vms_on_host[random(vms_on_host.size)]
+             non_utilized_hosts =filter(key=lambda host: host['usage_mem_percent'] > properties['mem_threshold'], hosts)
+       return <vm, non_utilized_hosts>
+         }
 
 ## Design
 
 Cluster's policy will have a set of filters, cost functions and a single balancing logic implementation. To allow easy coupling between the logic of these three, a single class will be provided.
 
-         Class PolicyUnit
-             filter
-             cost_function
-             balance
+         Class PolicyUnit
+             filter
+             cost_function
+             balance
 
 In this class only a single method ought to be implemented, but when balance is implemented it is advised to implement a cost-function, since it later influences migration processes, and being aligned with overall selection policy.
 
-         Class ClusterPolicy
-             <Filter, filterSequence(first,last,no-order), customParameters>[]
-             <CostFunction, factor, customParameters>[]
-       <Balance, customParameters>
+         Class ClusterPolicy
+             <Filter, filterSequence(first,last,no-order), customParameters>[]
+             <CostFunction, factor, customParameters>[]
+       <Balance, customParameters>
 
 Move current selection process into new arch: Policy Units and Cluster Policies:
 
@@ -283,76 +283,76 @@ Action Groups:
 
 *   Elements (samples):
 {% highlight xml %}
- <scheduling_policy_unit type="load_balancing" href="/ovirt-engine/api/schedulingpolicyunits/d58c8e32-44e1-418f-9222-52cd887bf9e0" id="d58c8e32-44e1-418f-9222-52cd887bf9e0">
-   <name>OptimalForEvenGuestDistribution</name>
-   <description>Even VM count distribution policy</description>
-   <internal>true</internal>
-   <enabled>true</enabled>
-   <properties>
-       <property>
-           <name>HighVmCount</name>
-           <value>^([0-9]|[1-9][0-9]+)$</value>
-       </property>
-       <property>
-           <name>MigrationThreshold</name>
-           <value>^([2-9]|[1-9][0-9]+)$</value>
-       </property>
-       <property>
-           <name>SpmVmGrace</name>
-           <value>^([0-9]|[1-9][0-9]+)$</value>
-       </property>
-   </properties>
- </scheduling_policy_unit>
- <scheduling_policy href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579" id="8d5d7bec-68de-4a67-b53e-0ac54686d579">
-   <name>vm_evenly_distributed</name>
-   <description/>
-   <link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/filters" rel="filters"/>
-   <link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/weights" rel="weights"/>
-   <link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/balances" rel="balances"/>
-   <link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/clusters" rel="clusters"/>
-   <locked>true</locked>
-   <default_policy>false</default_policy>
-   <properties>
-       <property>
-           <name>HighVmCount</name>
-           <value>10</value>
-       </property>
-       <property>
-           <name>MigrationThreshold</name>
-           <value>5</value>
-       </property>
-       <property>
-           <name>SpmVmGrace</name>
-           <value>5</value>
-       </property>
-   </properties>
- </scheduling_policy>
- <filters>
-   <filter id="84e6ddee-ab0d-42dd-82f0-c297779db566">
-       <scheduling_policy_unit href="/ovirt-engine/api/schedulingpolicyunits/84e6ddee-ab0d-42dd-82f0-c297779db566" id="84e6ddee-ab0d-42dd-82f0-c297779db566"/>
-       <position>0</position>
-   </filter>
-         ...
- </filters>
- <cluster href="/ovirt-engine/api/clusters/00000001-0001-0001-0001-000000000086" id="00000001-0001-0001-0001-000000000086">
-       ...
-   <scheduling_policy href="/ovirt-engine/api/schedulingpolicies/20d25257-b4bd-4589-92a6-c4c5c5d3fd1a" id="20d25257-b4bd-4589-92a6-c4c5c5d3fd1a">
-       <name>evenly_distributed</name>
-       <policy>evenly_distributed</policy>
-       <thresholds high="80" duration="120"/>
-       <properties>
-           <property>
-               <name>CpuOverCommitDurationMinutes</name>
-               <value>2</value>
-           </property>
-           <property>
-               <name>HighUtilization</name>
-               <value>80</value>
-           </property>
-       </properties>
-   </scheduling_policy>
-       ...
- </cluster>
+ <scheduling_policy_unit type="load_balancing" href="/ovirt-engine/api/schedulingpolicyunits/d58c8e32-44e1-418f-9222-52cd887bf9e0" id="d58c8e32-44e1-418f-9222-52cd887bf9e0">
+   <name>OptimalForEvenGuestDistribution</name>
+   <description>Even VM count distribution policy</description>
+   <internal>true</internal>
+   <enabled>true</enabled>
+   <properties>
+       <property>
+           <name>HighVmCount</name>
+           <value>^([0-9]|[1-9][0-9]+)$</value>
+       </property>
+       <property>
+           <name>MigrationThreshold</name>
+           <value>^([2-9]|[1-9][0-9]+)$</value>
+       </property>
+       <property>
+           <name>SpmVmGrace</name>
+           <value>^([0-9]|[1-9][0-9]+)$</value>
+       </property>
+   </properties>
+ </scheduling_policy_unit>
+ <scheduling_policy href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579" id="8d5d7bec-68de-4a67-b53e-0ac54686d579">
+   <name>vm_evenly_distributed</name>
+   <description/>
+   <link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/filters" rel="filters"/>
+   <link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/weights" rel="weights"/>
+   <link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/balances" rel="balances"/>
+   <link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/clusters" rel="clusters"/>
+   <locked>true</locked>
+   <default_policy>false</default_policy>
+   <properties>
+       <property>
+           <name>HighVmCount</name>
+           <value>10</value>
+       </property>
+       <property>
+           <name>MigrationThreshold</name>
+           <value>5</value>
+       </property>
+       <property>
+           <name>SpmVmGrace</name>
+           <value>5</value>
+       </property>
+   </properties>
+ </scheduling_policy>
+ <filters>
+   <filter id="84e6ddee-ab0d-42dd-82f0-c297779db566">
+       <scheduling_policy_unit href="/ovirt-engine/api/schedulingpolicyunits/84e6ddee-ab0d-42dd-82f0-c297779db566" id="84e6ddee-ab0d-42dd-82f0-c297779db566"/>
+       <position>0</position>
+   </filter>
+         ...
+ </filters>
+ <cluster href="/ovirt-engine/api/clusters/00000001-0001-0001-0001-000000000086" id="00000001-0001-0001-0001-000000000086">
+       ...
+   <scheduling_policy href="/ovirt-engine/api/schedulingpolicies/20d25257-b4bd-4589-92a6-c4c5c5d3fd1a" id="20d25257-b4bd-4589-92a6-c4c5c5d3fd1a">
+       <name>evenly_distributed</name>
+       <policy>evenly_distributed</policy>
+       <thresholds high="80" duration="120"/>
+       <properties>
+           <property>
+               <name>CpuOverCommitDurationMinutes</name>
+               <value>2</value>
+           </property>
+           <property>
+               <name>HighUtilization</name>
+               <value>80</value>
+           </property>
+       </properties>
+   </scheduling_policy>
+       ...
+ </cluster>
 {% endhighlight %}
 ## External Scheduler
 

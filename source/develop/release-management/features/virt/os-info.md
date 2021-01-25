@@ -41,7 +41,7 @@ UI builds a the image icon url based on the names as well. list goes on with con
 oVirt will keep its own repository of OS configuration, in a properties file format, under **$ENGINE_USR** which and that could be extended in **$ENGINE_ETC**. Engine will load all files sorted by name, to supply defaults and a way to override them.
 
       $ENGINE_USR/conf/osinfo-default.properties
-      $ENGINE_ETC/conf/osinfo.conf.d/00-osinfo.properties  <-- a symlink to osinfo-default.properties
+      $ENGINE_ETC/conf/osinfo.conf.d/00-osinfo.properties  <-- a symlink to osinfo-default.properties
 
 The format is key=value and have several features:
 
@@ -49,8 +49,8 @@ The format is key=value and have several features:
 
 values can be different per compatibility versions;
 
-        os.rhel6.key.value = foo                           // a general version value
-        os.rhel6.key.value.version.3.2 = bar     // 3.2 compatibility version value
+        os.rhel6.key.value = foo                           // a general version value
+        os.rhel6.key.value.version.3.2 = bar     // 3.2 compatibility version value
 
 #### value overriding
 
@@ -66,23 +66,23 @@ This file is also loaded as a String Bundle so name and description can contain 
 
 snip from **osinfo-defaults.properties**
 
-      os.default.id.value = 0
-      # name is I18N if the one creates a 01-os_${LOCALE}.properties with the co-responding name property
-      os.default.name.value = default OS
-      # OS family values: Linux/Windows/Other
-      os.default.family.value = Other
-      # CPU architecture (*not* the bus width 64/32 bit). Currently only x86 is supported
-      # but ppc7 is a work in progress and possibly arm someday as well
-      os.default.cpuArchitecture.value = x86
-      os.default.bus.value = 32
-      os.default.resources.minimum.ram.value = 256
-      os.default.resources.maximum.ram.value = 64000
-      os.default.resources.minimum.disksize.value = 1
-      os.default.resources.minimum.numberOsCpus.value = 1
-      os.default.spiceSupport.value = true
+      os.default.id.value = 0
+      # name is I18N if the one creates a 01-os_${LOCALE}.properties with the co-responding name property
+      os.default.name.value = default OS
+      # OS family values: Linux/Windows/Other
+      os.default.family.value = Other
+      # CPU architecture (*not* the bus width 64/32 bit). Currently only x86 is supported
+      # but ppc7 is a work in progress and possibly arm someday as well
+      os.default.cpuArchitecture.value = x86
+      os.default.bus.value = 32
+      os.default.resources.minimum.ram.value = 256
+      os.default.resources.maximum.ram.value = 64000
+      os.default.resources.minimum.disksize.value = 1
+      os.default.resources.minimum.numberOsCpus.value = 1
+      os.default.spiceSupport.value = true
 
-      os.default_64.derivedFrom.value = default
-      os.default_64.bus.value = 64
+      os.default_64.derivedFrom.value = default
+      os.default_64.bus.value = 64
 
 ### Engine's Os Repository
 
@@ -94,91 +94,91 @@ due to my usage of *java.util.prefs.Preferences*.
 
 OsRepository interface;
 
-        /**
-        * Interface for accessing all Virtual OSs information.
-        */
-        public interface OsRepository {
-         /**
-          * @return all loaded os ids
-          */
-         public ArrayList`<Integer>` getOsIds();
-         /**
-          * @return map of osId to the the os name
-          */
-         public HashMap`<Integer, String>` getOsNames();
-         public String getOsName(int osId);
-         /**
-          * OS families are basically windows,linux and other.
-          * @param osId
-          * @return
-          */
-         public String getOsFamily(int osId);
-         /**
-          * @return a list of OSs who's {@link OsRepository#getOsFamily(int)} returns "linux"
-          */
-         public ArrayList`<Integer>` getLinuxOSs();
-         public ArrayList`<Integer>` get64bitOss();
-         /**
-          * @return a list of OSs who's {@link OsRepository#getOsFamily(int)} returns "windows"
-          */
-         public ArrayList`<Integer>` getWindowsOss();
-         /**
-          * @return minimum RAM in mb
-          */
-         public int getMinimumRam(int osId, Version version);
-         /**
-          * @return maximum RAM in mb
-          */
-         public int getMaximumRam(int osId, Version version);
-         /**
-          * @return if that OS could be connected with SPICE
-          */
-         public boolean hasSpiceSupport(int osId, Version version);
-         /**
-          * this is Windows OSs specific path to the sysprep file
-          * @param osId
-          * @param version
-          * @return
-          */
-         public String getSysprepPath(int osId, Version version);
-         /**
-          * this Windows OSs specific product key
-          * @param osId
-          * @param version
-          * @return
-          */
-         public String getProductKey(int osId, Version version);
-         /**
-          * a convenience method the for  family type "linux"
-          * @param osId
-          * @return
-          */
-         public boolean isLinux(int osId);
-         /**
-          * a convenience method the for  family type "windows"
-          * @param osId
-          * @return
-          */
-         public boolean isWindows(int osId);
-         /**
-          * @param osId
-          * @return list of supported network devices
-          */
-         ArrayList`<String>` getNetworkDevices(int osId, Version version);
-         /**
-          * @param osId
-          * @param version
-          * @return a specific sound device for the given os.
-          */
-         String getSoundDevice(int osId, Version version);
-         /**
-          * early windows versions require a numeric identifier for sysprep to tell
-          * the timezone. In later versions this was rectified and they use a universal name.
-          * @param osId
-          * @param version
-          * @return
-          */
-         boolean isTimezoneValueInteger(int osId, Version version);
+        /**
+        * Interface for accessing all Virtual OSs information.
+        */
+        public interface OsRepository {
+         /**
+          * @return all loaded os ids
+          */
+         public ArrayList`<Integer>` getOsIds();
+         /**
+          * @return map of osId to the the os name
+          */
+         public HashMap`<Integer, String>` getOsNames();
+         public String getOsName(int osId);
+         /**
+          * OS families are basically windows,linux and other.
+          * @param osId
+          * @return
+          */
+         public String getOsFamily(int osId);
+         /**
+          * @return a list of OSs who's {@link OsRepository#getOsFamily(int)} returns "linux"
+          */
+         public ArrayList`<Integer>` getLinuxOSs();
+         public ArrayList`<Integer>` get64bitOss();
+         /**
+          * @return a list of OSs who's {@link OsRepository#getOsFamily(int)} returns "windows"
+          */
+         public ArrayList`<Integer>` getWindowsOss();
+         /**
+          * @return minimum RAM in mb
+          */
+         public int getMinimumRam(int osId, Version version);
+         /**
+          * @return maximum RAM in mb
+          */
+         public int getMaximumRam(int osId, Version version);
+         /**
+          * @return if that OS could be connected with SPICE
+          */
+         public boolean hasSpiceSupport(int osId, Version version);
+         /**
+          * this is Windows OSs specific path to the sysprep file
+          * @param osId
+          * @param version
+          * @return
+          */
+         public String getSysprepPath(int osId, Version version);
+         /**
+          * this Windows OSs specific product key
+          * @param osId
+          * @param version
+          * @return
+          */
+         public String getProductKey(int osId, Version version);
+         /**
+          * a convenience method the for  family type "linux"
+          * @param osId
+          * @return
+          */
+         public boolean isLinux(int osId);
+         /**
+          * a convenience method the for  family type "windows"
+          * @param osId
+          * @return
+          */
+         public boolean isWindows(int osId);
+         /**
+          * @param osId
+          * @return list of supported network devices
+          */
+         ArrayList`<String>` getNetworkDevices(int osId, Version version);
+         /**
+          * @param osId
+          * @param version
+          * @return a specific sound device for the given os.
+          */
+         String getSoundDevice(int osId, Version version);
+         /**
+          * early windows versions require a numeric identifier for sysprep to tell
+          * the timezone. In later versions this was rectified and they use a universal name.
+          * @param osId
+          * @param version
+          * @return
+          */
+         boolean isTimezoneValueInteger(int osId, Version version);
 
 ### Integration with other info providers
 
@@ -192,8 +192,8 @@ Richer information base of OSs. Easily extended by admins using scripts/manual e
 
 Other Host architecture such as **PPC** [1] could be added more easily as now the Os Repository can have distinction based on architecture type. Combine this with adding a new cluster architecture flag and OSs can be filtered exclusively to fit the virtualization constraints. e.g **PPC** supported OSs may have specific driver support which doesn't comply with x86. By getting all OSs which are ppc architecture, we can specify their supported device list:
 
-      os.RHEL6.architecture = ppc
-      os.RHEL6.devices.network = DEVICE_A, DEVICE_B    //list of network devices which are supported by PPC type host.
+      os.RHEL6.architecture = ppc
+      os.RHEL6.devices.network = DEVICE_A, DEVICE_B    //list of network devices which are supported by PPC type host.
 
 [1] [support for PPC 64 bit](/Features/Engine_support_for_PPC64|Engine)
 
@@ -207,9 +207,9 @@ Other Host architecture such as **PPC** [1] could be added more easily as now th
 | 4. Version value are effective                           | append to 20-overrload.properties with os.other.resources.minimum.ram.value.3.3=2042 . Restart Jboss                                | repeat test case #3 . values lower than 2042 should fail for VMs on cluster level 3.3.                                |
 | 5. Add new os                                            | append to 20-overload.properties                                                                                                    
 
-                                                            ` os.osx_10_6.id.value = 3000`                                                                                                       
-                                                            ` os.osx_10_6.name.value = Snow Leopard`                                                                                             
-                                                            ` os.osx_10_6.derivedFrom.value = linux`                                                                                             
+                                                            ` os.osx_10_6.id.value = 3000`                                                                                                       
+                                                            ` os.osx_10_6.name.value = Snow Leopard`                                                                                             
+                                                            ` os.osx_10_6.derivedFrom.value = linux`                                                                                             
 
                                                             Restart jboss                                                                                                                        | Edit a current VM and change its os to "Snow Leopard". Test case #2 should pass.                                      |
 

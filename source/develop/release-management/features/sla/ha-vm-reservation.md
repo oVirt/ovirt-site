@@ -44,15 +44,15 @@ The monitoring procedure logic: split the host into HA VMs and try to find sever
 
 *   A pseudo code for that:
 
-         1. for each host x in the cluster do:
-         2.     calculate HA VMs resources -> resourceHA(x,vm(i))
-         3.     for each host y in the cluster, y<>x do:
-         4.         calculate the host y free resources -> resourceFree(y);
-         5.         for each HA VM v for host x do:
-         6.             while resourceFree(y) >= resourceHA(x,vm(v))
-         7.                 resourceFree(y) = resourceFree(y) - resourceHA(x,vm(v));
-         8.                 mark v as migrated;
-         9  if all HA VMs are marked as migrated -> ClusterHAStateOK else ClusterHAStateFailed(raise Alert)
+         1. for each host x in the cluster do:
+         2.     calculate HA VMs resources -> resourceHA(x,vm(i))
+         3.     for each host y in the cluster, y<>x do:
+         4.         calculate the host y free resources -> resourceFree(y);
+         5.         for each HA VM v for host x do:
+         6.             while resourceFree(y) >= resourceHA(x,vm(v))
+         7.                 resourceFree(y) = resourceFree(y) - resourceHA(x,vm(v));
+         8.                 mark v as migrated;
+         9  if all HA VMs are marked as migrated -> ClusterHAStateOK else ClusterHAStateFailed(raise Alert)
 
 **Important - because of the complexity of this scheduling problem, we have decided to use a naive approach**
  Second phase of the implementation is to extend the monitoring capabilities to the "Run VM" and "Migration" actions.

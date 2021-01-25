@@ -63,21 +63,21 @@ A VM objects may receive method invocations while the creation process is still 
 
 pseudo-code-summary of the *_startUnderlyingVm* workhorse
 
-         def _startUnderlyingVm(self):
-             try:
-                 with throttle(libvirt)  # BoundedSempahore initialized to 4
-                     try:
-                         self._run()
-                     except Exception:
-                         handleExceptions()
-                 if ('migrationDest' in self.conf or 'restoreState' in self.conf) \
-                         and self.lastStatus != 'Down':
-                     self._waitForIncomingMigrationFinish()
-                 self.lastStatus = 'Up'
-                 self.saveState()
-             except Exception as e:
-                  handleExceptions()
-         
+         def _startUnderlyingVm(self):
+             try:
+                 with throttle(libvirt)  # BoundedSempahore initialized to 4
+                     try:
+                         self._run()
+                     except Exception:
+                         handleExceptions()
+                 if ('migrationDest' in self.conf or 'restoreState' in self.conf) \
+                         and self.lastStatus != 'Down':
+                     self._waitForIncomingMigrationFinish()
+                 self.lastStatus = 'Up'
+                 self.saveState()
+             except Exception as e:
+                  handleExceptions()
+         
 
 Please note this snippet is **just pseudo-code stripped from important parts to unclutter the example and highlight the point below**'. Important parts omitted are: status handling, exception handling, pause code handling).
 
@@ -235,9 +235,9 @@ Abandon staging area concept. Rationale: we can achieve the same result by enfor
 
 3 builder-like classmethod for every creation flow except the creation.
 
-         vm = Vm(params)  # creation
-         vm = Vm.from_recovery(params)
-         vm = Vm.from_snapshot(params)  # dehibernation/restoreState
-         vm = Vm.from_migration(params)  # migration destination
+         vm = Vm(params)  # creation
+         vm = Vm.from_recovery(params)
+         vm = Vm.from_snapshot(params)  # dehibernation/restoreState
+         vm = Vm.from_migration(params)  # migration destination
 
 4 better handling of exceptions when creating VMs **but behave properly on abort!** no changes in existing behaviour just deal better with cases like

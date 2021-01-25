@@ -125,7 +125,7 @@ Using domain XML metadata, it's possible to transfer TPM data in all the directi
 
 Ensuring data consistency read from swtpm is the same as with API calls.
 
-The only problem with using metadata is that it increases domain XML size significantly.  TPM data shouldn't be large although to know the size limits would require further investigation.  But initial swtpm data for a VM takes about 4 KB encoded.  It would "pollute" the domain XML and would have to be transferred each time Engine asks for the domain XML, even when there are no changes to data, which means it would be waste most of the time.
+The only problem with using metadata is that it increases domain XML size significantly.  TPM data shouldn't be large although to know the size limits would require further investigation.  But initial swtpm data for a VM takes about 4 KB encoded.  It would "pollute" the domain XML and would have to be transferred each time Engine asks for the domain XML, even when there are no changes to data, which means it would be waste most of the time.
 
 This approach is a bit simpler and more flexible than using API calls but has the data size drawback.
 

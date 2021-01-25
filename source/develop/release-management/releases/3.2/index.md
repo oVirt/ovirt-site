@@ -11,9 +11,9 @@ The oVirt Project is pleased to announce the availability of its third formal re
 
 New RPMS are now uploaded for oVirt 3.2.1. The updates included:
 
-      ovirt-engine-cli 3.2.0.11-1
-      ovirt-engine-sdk 3.2.0.10-1
-      ovirt-engine 3.2.1-1
+      ovirt-engine-cli 3.2.0.11-1
+      ovirt-engine-sdk 3.2.0.10-1
+      ovirt-engine 3.2.1-1
 
 <big>**oVirt Engine changes:**</big>
 

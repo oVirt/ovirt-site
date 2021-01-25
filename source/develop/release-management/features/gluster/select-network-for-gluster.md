@@ -23,7 +23,7 @@ In case, the user wants to continue to add brick's using host's FQDN (for instan
 
 *   In case network addresses of host changes after adding a brick, changing of existing brick's network address may cause disruption of data services in case of distributed volumes and performance degradation in case of replicate volumes
 
-       "replace-brick commit force" will be used to achieve change in ip address of brick. (Needs to be enhanced in glusterfs to allow changing brick within same host)
+       "replace-brick commit force" will be used to achieve change in ip address of brick. (Needs to be enhanced in glusterfs to allow changing brick within same host)
 
 ## Owner
 
@@ -99,7 +99,7 @@ GlusterBricks entity has an optional parameter where the network to be used whil
 
 New API:
 
-      PUT /clusters/{cluster:id}/glustervolumes/{glustervolume:id}/bricks/{brick:id}|rel=update
+      PUT /clusters/{cluster:id}/glustervolumes/{glustervolume:id}/bricks/{brick:id}|rel=update
 
 The network to be updated for brick, is passed as a parameter in the GlusterBrickEntity
 

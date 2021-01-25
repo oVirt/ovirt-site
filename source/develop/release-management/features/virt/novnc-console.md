@@ -30,7 +30,7 @@ The aim of this feature is to make it possible to connect to VM consoles using H
 
 The noVNC client utilizes websockets for passing VNC data. However, VNC server in qemu doesn't support websockets natively and there must be a websocket proxy placed between the client and VNC server. This proxy can run either on any node that has access to the host network, or it can run on each host.
 
-      (Note: There is a patch that integrates websockets directly to qemu, but it  will not be merged into DS at the time we need it to be there. As soon as it's  merged, we should switch to using this  feature instead of standalone websockets server).
+      (Note: There is a patch that integrates websockets directly to qemu, but it  will not be merged into DS at the time we need it to be there. As soon as it's  merged, we should switch to using this  feature instead of standalone websockets server).
 
 The noVNC client is a html5 page with javascript which talks to websocket server (e.g. python-websockify). This page is served by engine itself.
 
@@ -102,7 +102,7 @@ Results: The new browser tab with noVNC session appears.
 
 Execute:
 
-      # engine-setup --otopi-environment="OVESETUP_CONFIG/websocketProxyConfig=bool:True"
+      # engine-setup --otopi-environment="OVESETUP_CONFIG/websocketProxyConfig=bool:True"
 
 ### Setup Websocket Proxy on a Separate Machine
 

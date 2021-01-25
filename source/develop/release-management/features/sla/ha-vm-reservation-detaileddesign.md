@@ -40,8 +40,8 @@ For the weight & balancing functions: The aspects of a VM that are relevant for 
 
 For the monitoring task: The aspects of a VM that are relevant for our monitoring are the CPU and RAM. our goal is to determine if other hosts have enough free CPU and RAM resources to take the place of a certain host. when calculating the cpu usage of a VM we will need to take into account the number of cores/threads on the VM and host. the following calculation will return the usage percentage of the VM from the host: int curVmCpuPercent =
 
-                         vm.getUsageCpuPercent() * vm.getNumOfCpus()
-                                 / vds.getCpuCores()/*(or Threads)*/);
+                         vm.getUsageCpuPercent() * vm.getNumOfCpus()
+                                 / vds.getCpuCores()/*(or Threads)*/);
 
 RAM usage will be simpler: int curVmMemSize = (int) Math.round(vm.getMemSizeMb() \* (vm.getUsageMemPercent() / 100.0)); curVmMemSize is the used Ram in MB by the VM.
 
@@ -51,15 +51,15 @@ Once we know how to calculate the VM resource, we can monitor it, the following 
 
 *   A pseudo code for that:
 
-         1. for each host x in the cluster do:
-         2.     calculate HA VMs resources -> resourceHA(x,vm(i))
-         3.     for each host y in the cluster, y<>x do:
-         4.         calculate the host y free resources -> resourceFree(y);
-         5.         for each HA VM v for host x do:
-         6.             while resourceFree(y) >= resourceHA(x,vm(v))
-         7.                 resourceFree(y) = resourceFree(y) - resourceHA(x,vm(v));
-         8.                 mark v as migrated;
-         9  if all HA VMs are marked as migrated -> ClusterHAStateOK else ClusterHAStateFailed(raise Alert)
+         1. for each host x in the cluster do:
+         2.     calculate HA VMs resources -> resourceHA(x,vm(i))
+         3.     for each host y in the cluster, y<>x do:
+         4.         calculate the host y free resources -> resourceFree(y);
+         5.         for each HA VM v for host x do:
+         6.             while resourceFree(y) >= resourceHA(x,vm(v))
+         7.                 resourceFree(y) = resourceFree(y) - resourceHA(x,vm(v));
+         8.                 mark v as migrated;
+         9  if all HA VMs are marked as migrated -> ClusterHAStateOK else ClusterHAStateFailed(raise Alert)
 
 ##### acting on run/migrate actions
 
@@ -114,31 +114,31 @@ Since there is no use of persisting the data, because it is relevant for a short
 
 for saving the configuration we will add a new field to the vds_group "ha_reservation" with a default of false.
 
-         ha_reservation boolean NOT NULL DEFAULT false
+         ha_reservation boolean NOT NULL DEFAULT false
 
 possible values for this field are true/false according to the user selection in the checkbox at the cluster popup window (shown at the UI section).
 
 also we will need to add a new weight and balance functions and assign them to all the default policies:
 
-         INSERT INTO policy_units (id, name, is_internal, custom_properties_regex, type, description) VALUES ('7f262d70-6cac-11e3-981f-0800200c9a66', 'OptimalForHaReservation', true, '{
-           "ScaleDown" : "(100|[1-9]|[1-9][0-9])$"
-         }', 1, 'Weights hosts according to their HA score regardless of hosted engine');
+         INSERT INTO policy_units (id, name, is_internal, custom_properties_regex, type, description) VALUES ('7f262d70-6cac-11e3-981f-0800200c9a66', 'OptimalForHaReservation', true, '{
+           "ScaleDown" : "(100|[1-9]|[1-9][0-9])$"
+         }', 1, 'Weights hosts according to their HA score regardless of hosted engine');
 
-         INSERT INTO policy_units (id, name, is_internal, custom_properties_regex, type, description) VALUES ('93431200-6d7e-11e3-981f-0800200c9a66', 'OptimalForHaReservation', true, '{
-           "OverUtilization" : "([1-3][0-9][0-9])$"
-         }', 2, 'balance hosts according to their HA score regardless of hosted engine');
+         INSERT INTO policy_units (id, name, is_internal, custom_properties_regex, type, description) VALUES ('93431200-6d7e-11e3-981f-0800200c9a66', 'OptimalForHaReservation', true, '{
+           "OverUtilization" : "([1-3][0-9][0-9])$"
+         }', 2, 'balance hosts according to their HA score regardless of hosted engine');
 
-         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('20d25257-b4bd-4589-92a6-c4c5c5d3fd1a','7f262d70-6cac-11e3-981f-0800200c9a66',0,1);
-         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('5a2b0939-7d46-4b73-a469-e9c2c7fc6a53','7f262d70-6cac-11e3-981f-0800200c9a66',0,1);
-         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('b4ed2332-a7ac-4d5f-9596-99a439cb2812','7f262d70-6cac-11e3-981f-0800200c9a66',0,1);
+         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('20d25257-b4bd-4589-92a6-c4c5c5d3fd1a','7f262d70-6cac-11e3-981f-0800200c9a66',0,1);
+         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('5a2b0939-7d46-4b73-a469-e9c2c7fc6a53','7f262d70-6cac-11e3-981f-0800200c9a66',0,1);
+         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('b4ed2332-a7ac-4d5f-9596-99a439cb2812','7f262d70-6cac-11e3-981f-0800200c9a66',0,1);
 
-         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('20d25257-b4bd-4589-92a6-c4c5c5d3fd1a','93431200-6d7e-11e3-981f-0800200c9a66',0,1);
-         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('5a2b0939-7d46-4b73-a469-e9c2c7fc6a53','93431200-6d7e-11e3-981f-0800200c9a66',0,1);
-         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('b4ed2332-a7ac-4d5f-9596-99a439cb2812','93431200-6d7e-11e3-981f-0800200c9a66',0,1);
+         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('20d25257-b4bd-4589-92a6-c4c5c5d3fd1a','93431200-6d7e-11e3-981f-0800200c9a66',0,1);
+         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('5a2b0939-7d46-4b73-a469-e9c2c7fc6a53','93431200-6d7e-11e3-981f-0800200c9a66',0,1);
+         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('b4ed2332-a7ac-4d5f-9596-99a439cb2812','93431200-6d7e-11e3-981f-0800200c9a66',0,1);
 
 and we will need to register our new alert so user will receive notification emails if selected in the Users -> Event Notifier tab:
 
-         insert into event_map(event_up_name, event_down_name) values('CLUSTER_ALERT_HA_RESERVATION', '');
+         insert into event_map(event_up_name, event_down_name) values('CLUSTER_ALERT_HA_RESERVATION', '');
 
 #### Rest API
 

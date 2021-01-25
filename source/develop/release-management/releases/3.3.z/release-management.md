@@ -17,8 +17,8 @@ authors: sandrobonazzola
 
 Nightly builds are available enabling the oVirt 3.3 snapshots repositories:
 
-      # yum-config-manager --enable ovirt-3.3-snapshot
-      # yum-config-manager --enable ovirt-3.3-snapshot-static
+      # yum-config-manager --enable ovirt-3.3-snapshot
+      # yum-config-manager --enable ovirt-3.3-snapshot-static
 
 ### Release criteria
 

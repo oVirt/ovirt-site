@@ -69,7 +69,7 @@ At the moment it is planned to support an automatic upgrade to version 3 from th
 ## References
 
 <references>
-` `[6]
+` `[6]
 
 </references>
 

@@ -80,49 +80,49 @@ User can only upload the large version of custom icon, the small one is computed
 *   `/api/icons` read-only top level collection of all icons
 
 ```
-      GET /icons
-      Accept: application/xml
+      GET /icons
+      Accept: application/xml
 ```
 
 ```xml
 <icons>
-    <icon href="/ovirt-engine/api/icons/4905bfca-59a5-4022-ae66-ab7763f33c8f" id="4905bfca-59a5-4022-ae66-ab7763f33c8f">
-        <media_type>image/jpeg</media_type>
-        <data>/9j/4AAQSkZJRgABAQEAYABgAAD...</data>
-    </icon>
-    <icon href="/ovirt-engine/api/icons/91386415-dc7f-41db-90c6-e0b8f4f941b2" id="91386415-dc7f-41db-90c6-e0b8f4f941b2">
-        <media_type>image/png</media_type>
-        <data>iVBORw...</data>
-    </icon>
+    <icon href="/ovirt-engine/api/icons/4905bfca-59a5-4022-ae66-ab7763f33c8f" id="4905bfca-59a5-4022-ae66-ab7763f33c8f">
+        <media_type>image/jpeg</media_type>
+        <data>/9j/4AAQSkZJRgABAQEAYABgAAD...</data>
+    </icon>
+    <icon href="/ovirt-engine/api/icons/91386415-dc7f-41db-90c6-e0b8f4f941b2" id="91386415-dc7f-41db-90c6-e0b8f4f941b2">
+        <media_type>image/png</media_type>
+        <data>iVBORw...</data>
+    </icon>
 </icons>
 ```
 
 *   `/api/icons/{id}` provides an object corresponding to VmIcon business entity
 
 ```
-      GET /icons/4905bfca-59a5-4022-ae66-ab7763f33c8f
-      Accept: application/xml
+      GET /icons/4905bfca-59a5-4022-ae66-ab7763f33c8f
+      Accept: application/xml
 ```
 
 ```xml
 <icon href="/ovirt-engine/api/icons/4905bfca-59a5-4022-ae66-ab7763f33c8f" id="4905bfca-59a5-4022-ae66-ab7763f33c8f">
-    <media_type>image/jpeg</media_type>
-    <data>/9j/4AAQSkZJ...</data>
+    <media_type>image/jpeg</media_type>
+    <data>/9j/4AAQSkZJ...</data>
 </icon>
 ```
 
 *   entities at `/api/vms/{id}` and `/api/templates/{id}` contains properties `small_icon` and `large_icon` that provides icon IDs that and can be resolved using top level `/api/icons` collection
 
 ```
-      GET /api/vms/789
-      Accept: application/xml
+      GET /api/vms/789
+      Accept: application/xml
 ```
 
 ```xml
 <vm id="789" href=...>
       ...
-    <small_icon id="123" href="/icons/123" />
-    <large_icon id="456" href="/icons/456" />
+    <small_icon id="123" href="/icons/123" />
+    <large_icon id="456" href="/icons/456" />
       ...
 </vm>
 ```
@@ -130,63 +130,63 @@ User can only upload the large version of custom icon, the small one is computed
 *   Icons of vm or template can be updated either by uploading new large icon (small icon is automatically computed by shrinking large one) or by setting new id of small, large or both icons. Similar approach can be applied to creation of vms and templates.
 
 ```
-      PUG /vms/789
-      Content-Type: application/xml
-      Accept: application/xml
+      PUG /vms/789
+      Content-Type: application/xml
+      Accept: application/xml
 ```
 
 ```xml
 <vm>
-    <large_icon>
-        <media_type>image/png</media_type>
-        <data>iVBORw0KGgoAAAANSUhEUgAAAJ...</data>
-    </large_icon>
-          ...
+    <large_icon>
+        <media_type>image/png</media_type>
+        <data>iVBORw0KGgoAAAANSUhEUgAAAJ...</data>
+    </large_icon>
+          ...
 </vm>
 
 <vm id="789" href=...>
-    <small_icon id="111" href="/icons/111" />
-    <large_icon id="222" href="/icons/222" />
-          ...
+    <small_icon id="111" href="/icons/111" />
+    <large_icon id="222" href="/icons/222" />
+          ...
 </vm>
 ```
 
 <hr/>
 
 ```
-      PUT /vms/789
-      Content-Type: application/xml
-      Accept: application/xml
+      PUT /vms/789
+      Content-Type: application/xml
+      Accept: application/xml
 ```
 
 ```xml      
 <vm>
-    <small_icon id="123" />
-    <large_icon id="456" />
+    <small_icon id="123" />
+    <large_icon id="456" />
 </vm>
 
 <vm id="147" href=...>
-    <small_icon id="123" href="/icons/123" />
-    <large_icon id="456" href="/icons/456" />
-          ...
+    <small_icon id="123" href="/icons/123" />
+    <large_icon id="456" href="/icons/456" />
+          ...
 </vm>
 ```
 
 *   `/api/operationgsystems` and `/api/operationgsystems/{id}` provides information about default icons of operating systems
 
 ```
-      GET /operatingsystems
-      Accept: application/xml
+      GET /operatingsystems
+      Accept: application/xml
 ```
 
 ```xml
 <operating_systems>
-    <operating_system href="/operatingsystems/1" id="1">
-        <name>windows_xp</name>
-        <description>Windows XP</description>
-        <large_icon href="/icons/14f38bb8-4754-4837-b158-e00fd9ec7297" id="14f38bb8-4754-4837-b158-e00fd9ec7297"/>
-        <small_icon href="/icons/d300a94e-f00b-477f-b040-6763dc7bce0c" id="d300a94e-f00b-477f-b040-6763dc7bce0c"/>
-    </operating_system>
+    <operating_system href="/operatingsystems/1" id="1">
+        <name>windows_xp</name>
+        <description>Windows XP</description>
+        <large_icon href="/icons/14f38bb8-4754-4837-b158-e00fd9ec7297" id="14f38bb8-4754-4837-b158-e00fd9ec7297"/>
+        <small_icon href="/icons/d300a94e-f00b-477f-b040-6763dc7bce0c" id="d300a94e-f00b-477f-b040-6763dc7bce0c"/>
+    </operating_system>
 </operating_systems>
 ```
 

@@ -237,9 +237,9 @@ Import VM/Template Dialog:
 #### Discover the targets in your iSCSI Storage Server
 
 ```xml
-POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/iscsidiscover
-Accept: application/xml
-Content-Type: application/xml
+POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/iscsidiscover
+Accept: application/xml
+Content-Type: application/xml
 
 <action>
     <iscsi>
@@ -256,9 +256,9 @@ Content-Type: application/xml
 After the iscsilogin operation, the host is already connected to the targets in the iSCSI and we can fetch the Storage Domains which are candidates to be imported.
 
 ```xml
-POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/unregisteredstoragedomainsdiscover HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+POST /api/hosts/052a880a-53e0-4fe3-9ed5-01f939d1df66/unregisteredstoragedomainsdiscover HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
 <action>
     <iscsi>
@@ -281,31 +281,31 @@ The response which should returned as a list of Storage Domains, as follows:
         <storage_domain id="6ab65b16-0f03-4b93-85a7-5bc3b8d52be0">
             <name>scsi4</name>
             <type>data</type>
-            <master>false</master>
+            <master>false</master>
             <storage>
                 <type>iscsi</type>
                 <volume_group id="OLkKwa-VmEM-abW7-hPiv-BGrw-sQ2E-vTdAy1"/>
             </storage>
-            <available>0</available>
-            <used>0</used>
+            <available>0</available>
+            <used>0</used>
             <committed>0</committed>
             <storage_format>v3</storage_format>
-        </storage_domain>
-    <status>
+        </storage_domain>
+    <status>
         <state>complete</state>
-    </status>
+    </status>
     <iscsi_target>iqn.name1.120.01</iscsi_target>
     <iscsi_target>iqn.name2.120.02</iscsi_target>
-    <iscsi_target>iqn.name3.120.03</iscsi_target>
+    <iscsi_target>iqn.name3.120.03</iscsi_target>
 </action>
 ```
 
 #### Import the iSCSI Storage Domains to the setup
 
 ```xml
-POST /api/storagedomains/ HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+POST /api/storagedomains/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
 <storage_domain id="39baf524-380e-407c-8625-50709fcaa9c2">
     <import>true</import>
@@ -320,9 +320,9 @@ Content-type: application/xml
 #### Import the FCP Storage Domains to the setup
 
 ```xml
-POST /api/storagedomains/ HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+POST /api/storagedomains/ HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
 <storage_domain id="ecf053fc-fe65-4d64-883e-c38ca898951c">
     <import>true</import>
@@ -340,8 +340,8 @@ Importing a Storage Domain requires a POST request, with the storage domain repr
 
 ```xml
 POST /api/storagedomains HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+Accept: application/xml
+Content-type: application/xml
 
 <storage_domain>
     <name>data1</name>
@@ -362,9 +362,9 @@ The API also returns the following representation of the newly created storage d
 ### Attach a Storage Domain
 
 ```xml
-POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+POST /api/datacenters/01a45ff0-915a-11e0-8b87-5254004ac988/storagedomains HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
 <storage_domain>
     <name>data1</name>
@@ -385,9 +385,9 @@ http://localhost:8080/ovirt-engine/api/storagedomains/fa38172b-baae-4ca3-b949-95
 If the user want to register a VM to the setup, then the URL should indicate register after the VM id, as follow:
 
 ```xml
-POST /api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+POST /api/storagedomains/xxxxxxx-xxxx-xxxx-xxxxxx/vms/xxxxxxx-xxxx-xxxx-xxxxxx/register HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
 <action>
     <cluster id='xxxxxxx-xxxx-xxxx-xxxxxx'></cluster>
@@ -407,9 +407,9 @@ If the user want to get a list of all the floating disks in the storage domain t
 If the user want to register a specific floating disks in the system they should use the following:
 
 ```xml
-POST /api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+POST /api/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks;unregistered HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 
 <disk id='8ddb988f-6ab8-4c19-9ea0-b03ab3035347'></disk>
 ```
@@ -419,7 +419,7 @@ Content-type: application/xml
 #### Register an unregistered disk with curl
 
 ```sh
-curl -v -k -u "admin@redhat.com" -H "Content-type: application/xml" -d '<disk id="8ddb988f-6ab8-4c19-9ea0-b03ab3035347"><alias>dsdsdsdmap1_Disk3</alias> </disk>' "http://localhost:8080/ovirt-engine/api/datacenters/d2045b3a-a313-452f-8333-b1e0178a024e/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks';'unregistered "
+curl -v -k -u "admin@redhat.com" -H "Content-type: application/xml" -d '<disk id="8ddb988f-6ab8-4c19-9ea0-b03ab3035347"><alias>dsdsdsdmap1_Disk3</alias> </disk>' "http://localhost:8080/ovirt-engine/api/datacenters/d2045b3a-a313-452f-8333-b1e0178a024e/storagedomains/60cec75d-f01d-44a0-9c75-8b415547bc3d/disks';'unregistered "
 ```
 
 ### Troubleshooting

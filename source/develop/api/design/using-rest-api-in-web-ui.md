@@ -153,12 +153,12 @@ Proposed technologies and tools for development:
 | Manually write Data Centers JavaScript SDK, standalone test, GUI integration test                                      | Implementation In Progress |
 | Manually write Bookmarks JavaScript SDK, standalone test, GUI integration test                                         |                            |
 | Manually write Tags JavaScript SDK, standalone test, GUI integration test                                              |                            |
-|                                                                                                                        |
+|                                                                                                                        |
 | Infrastructure                                                                                                         |
 | Write auto-generated JavaScript binding                                                                                |                            |
 | Write high-level JavaScript API (ovirt-engine.js)                                                                      |                            |
 | Introduce "hybrid mode" to the application (to allow the GUI to work with the REST API and the legacy API in parallel) |                            |
-|                                                                                                                        |
+|                                                                                                                        |
 | API Migration                                                                                                          |
 | Migrate Bookmarks GUI code to work over REST API (using JavaScript SDK) instead of legacy API                          |                            |
 | Migrate Tags GUI code to work over REST API (using JavaScript SDK) instead of legacy API                               |                            |

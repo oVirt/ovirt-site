@@ -25,8 +25,8 @@ Volumes have 2 major properties:
 | | Raw  | \*file/block | file                  |
 | |qcow2 | \*file/block | file/block            |
 
-      *  Preallocating on file domains will cause Vdsm to write zeroes to the file.
-         This might not actually preallocate on some file systems.
+      *  Preallocating on file domains will cause Vdsm to write zeroes to the file.
+         This might not actually preallocate on some file systems.
 
 ### Disk Type
 

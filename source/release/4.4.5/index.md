@@ -44,7 +44,7 @@ To learn about features introduced before 4.4.5, see the
 
 In order to install this Release Candidate you will need to enable pre-release repository.
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
 
 
 ## Known issues

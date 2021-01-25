@@ -38,15 +38,15 @@ Since the change may lead to backward comatability issues, this change will requ
 
 [1] For example ; ClusterGuideModel.java
 
-       for (VDS vds : allHosts)
-       {
-          if ((!Linq.IsHostBelongsToAnyOfClusters(clusters, vds))
-               && (vds.getstatus() == VDSStatus.Maintenance || vds.getstatus() == VDSStatus.PendingApproval)
-               && (vds.getVersion().getFullVersion() == null || Extensions.GetFriendlyVersion(vds.getVersion()
-                 .getFullVersion()).compareTo(minimalClusterVersion) >= 0))
-             {
-                availableHosts.add(vds);
-             }
-       }
+       for (VDS vds : allHosts)
+       {
+          if ((!Linq.IsHostBelongsToAnyOfClusters(clusters, vds))
+               && (vds.getstatus() == VDSStatus.Maintenance || vds.getstatus() == VDSStatus.PendingApproval)
+               && (vds.getVersion().getFullVersion() == null || Extensions.GetFriendlyVersion(vds.getVersion()
+                 .getFullVersion()).compareTo(minimalClusterVersion) >= 0))
+             {
+                availableHosts.add(vds);
+             }
+       }
 
 All of the above is actually business logic code that must be dove in oVirt code code.

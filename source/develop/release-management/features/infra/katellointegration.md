@@ -138,20 +138,20 @@ Here is an explanation for the queried URL:
 
 The request above produces the following response:
 
-       {
-         "page": "2",
-         "per_page": "20",
-         "results": [
-            ... the errata info ...
-          ]
-         "search": "type=bugfix or type=security",
-         "sort": {
-             "by": null,
-             "order": null
-         },
-         "subtotal": 64,
-         "total": 73
-       }
+       {
+         "page": "2",
+         "per_page": "20",
+         "results": [
+            ... the errata info ...
+          ]
+         "search": "type=bugfix or type=security",
+         "sort": {
+             "by": null,
+             "order": null
+         },
+         "subtotal": 64,
+         "total": 73
+       }
 
 The response provides the following information:
 

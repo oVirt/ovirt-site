@@ -21,9 +21,9 @@ and the formats are described below.
 
 This file holds the sanlock lockspace used to protect the reserved sections from concurrent writes. The default capacity is 2000 nodes (disk size is 1 MB) and the lockspace is initialized using:
 
-      #!/usr/bin/env python
-      import sanlock
-      sanlock.write_lockspace(lockspace="hosted-engine", path=lockspace_file, offset=0)
+      #!/usr/bin/env python
+      import sanlock
+      sanlock.write_lockspace(lockspace="hosted-engine", path=lockspace_file, offset=0)
 
 ### ha_agent.metadata
 

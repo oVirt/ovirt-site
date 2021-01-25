@@ -79,7 +79,7 @@ command \
 ## Compound commands: basic layout
 
 ```bash
-HEAD_KEYWORD parameters; BODY_BEGIN
+HEAD_KEYWORD parameters; BODY_BEGIN
     BODY_COMMANDS
 BODY_END
 ```
@@ -119,7 +119,7 @@ test_something() {
     return $?
 }
 
-HEAD_KEYWORD test_something; BODY_BEGIN
+HEAD_KEYWORD test_something; BODY_BEGIN
     BODY_COMMANDS
 BODY_END
 
@@ -129,7 +129,7 @@ command1 \
     param2
 command1_res=$?
 
-HEAD_KEYWORD [[ "$command1_res" == 0 ]]; BODY_BEGIN
+HEAD_KEYWORD [[ "$command1_res" == 0 ]]; BODY_BEGIN
     BODY_COMMANDS
 BODY_END
 ```
@@ -137,10 +137,10 @@ BODY_END
 ### if/then/elif/else
 
 ```bash
-if ...; then
-    ...
-elif ...; then
-    ...
+if ...; then
+    ...
+elif ...; then
+    ...
 else
     ...
 fi
@@ -149,7 +149,7 @@ fi
 ### for
 
 ```bash
-for f in /etc/*; do
+for f in /etc/*; do
     ...
 done
 ```
@@ -157,7 +157,7 @@ done
 ### while/until
 
 ```bash
-while [[ "$answer" != [YyNn] ]]; do
+while [[ "$answer" != [YyNn] ]]; do
     ...
 done
 ```
@@ -165,17 +165,17 @@ done
 ### case
 
 ```bash
-case $input in
-    hello) echo "You said hello";;
-    bye)
-        echo "You said bye"
-        if foo; then
-            bar
-        fi
-    ;;
-    *)
-        echo "You said something weird..."
-    ;;
+case $input in
+    hello) echo "You said hello";;
+    bye)
+        echo "You said bye"
+        if foo; then
+            bar
+        fi
+    ;;
+    *)
+        echo "You said something weird..."
+    ;;
 esac
 ```
 
@@ -190,9 +190,9 @@ The basic structure of a script simply reads:
 GLOBAL_CONFIGURATION_CONSTANTS
 FUNCTION_DEFINITIONS
 if [[ "$0" =~ /bash$ ]]; then
-  PARSING_OPTIONS
-  VERIFYING_OPTIONS
-  SIMPLE_MAIN_CODE
+  PARSING_OPTIONS
+  VERIFYING_OPTIONS
+  SIMPLE_MAIN_CODE
 fi
 ```
 
@@ -206,13 +206,13 @@ If possible (I know it's not always possible!), use a shebang. Be careful with *
 Whenever able, use the *-e* flag, that will make sure your script fails if any of the commands fail:
 
 ```bash
-#!/bin/bash -e
+#!/bin/bash -e
 ```
 
 If you don't really care about one of the commands failing (or returning `!= 0`) you can use this:
 
 ```bash
-mycommand || :
+mycommand || :
 ```
 
 ## Use `[[ ]]` and not `[ ]`

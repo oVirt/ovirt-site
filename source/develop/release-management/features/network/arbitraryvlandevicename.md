@@ -27,14 +27,14 @@ Supporting VLAN devices with names not in standard "dev.VLANID" (e.g. eth0.10-fc
 'vlanid' entry will be added to VLANs map on getVdsCaps command
 
 ```json
-vlans =  {'myvlan20':
-                   {'addr': '',
-                    'cfg': {},
-                    'iface': 'eth1',
-                    'ipv6addrs': [],
-                    'mtu': '1500',
-                    'netmask': '',
-                    'vlanid': 20}} 
+vlans =  {'myvlan20':
+                   {'addr': '',
+                    'cfg': {},
+                    'iface': 'eth1',
+                    'ipv6addrs': [],
+                    'mtu': '1500',
+                    'netmask': '',
+                    'vlanid': 20}} 
 ```
 
 **notice:** The map already contained 'iface' key which represents the base interface name.

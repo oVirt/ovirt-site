@@ -46,15 +46,15 @@ The Glance project provides services for discovering, registering, and retrievin
 
 ## VDSM API
 
-    importImage(spUUID, sdUUID, imgUUID, volUUID, importInfo)
-    exportImage(spUUID, sdUUID, imgUUID, volUUID, exportInfo)
+    importImage(spUUID, sdUUID, imgUUID, volUUID, importInfo)
+    exportImage(spUUID, sdUUID, imgUUID, volUUID, exportInfo)
 
-    importInfo = {
-       'method': 'http',
-       'url': '`[`http://glance/v1/images/image-uuid`](http://glance/v1/images/image-uuid)`',
-       'headers': {
-         'X-Auth-Token': 'token-uuid',
-       },
+    importInfo = {
+       'method': 'http',
+       'url': '`[`http://glance/v1/images/image-uuid`](http://glance/v1/images/image-uuid)`',
+       'headers': {
+         'X-Auth-Token': 'token-uuid',
+       },
     }
 
 ## Future Phases

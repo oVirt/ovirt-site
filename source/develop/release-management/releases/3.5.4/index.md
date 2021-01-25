@@ -17,7 +17,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 In order to install it on a clean system, you need to install
 
-`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
+`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
 
 If you are upgrading from a previous version, you may have the ovirt-release34 package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
 
@@ -27,8 +27,8 @@ If you are upgrading from oVirt < 3.4.1, you must first upgrade to oVirt 3.4.1 o
 
 For upgrading now you just need to execute:
 
-      # yum update "ovirt-engine-setup*"
-      # engine-setup
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
 
 
 ### oVirt Live
@@ -55,7 +55,7 @@ The renew process does not renew certificates of hosts, used for internal commun
 
 *   Google Chrome (version 45) silently fails just saying:
 
-      This webpage is not available
+      This webpage is not available
       ERR_FAILED
 
 without further details. You have to manually remove the old CA cert before being able to connect again.
@@ -66,15 +66,15 @@ without further details. You have to manually remove the old CA cert before bein
 
 *   NFS startup on EL7 / Fedora20: due to other bugs ( or ), NFS service is not always able to start at first attempt (it doesn't wait the kernel module to be ready); if it happens oVirt engine setup detects it and aborts with
 
-      [ INFO  ] Restarting nfs services
-      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
+      [ INFO  ] Restarting nfs services
+      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
 
 Retrying (engine-cleanup, engine-setup again) it's enough to avoid it cause the kernel module it's always ready on further attempts. Manually starting NFS service (/bin/systemctl restart nfs-server.service) before running engine setup it's enough to avoid it at all.
 
 *   NFS startup on EL7.1 requires manual startup of rpcbind.service before running engine setup in order to avoid
 
-      [ INFO  ] Restarting nfs services
-      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
+      [ INFO  ] Restarting nfs services
+      [ ERROR ] Failed to execute stage 'Closing up': Command '/bin/systemctl' failed to execute
 
 ### Hosted Engine on ISCSI
 

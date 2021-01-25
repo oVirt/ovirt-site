@@ -78,8 +78,8 @@ In order to test the ovirt host deploy part, the following content can be added 
 
 ## Release Notes
 
-      == Hosted Engine ==
-      Hosted Engine additional hosts can now be deployed using the Web UI
+      == Hosted Engine ==
+      Hosted Engine additional hosts can now be deployed using the Web UI
 
 
 

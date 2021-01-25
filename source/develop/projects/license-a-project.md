@@ -15,19 +15,19 @@ If there are multiple licenses for code in the repo, then add multiple LICENSE.X
 **2. Every single .java, .sh, .py, .sql file should have license + copyright boilerplate text added. It should take general format:**
 
       /*
-      *   Copyright [yyyy] [name of copyright owner]
+      *   Copyright [yyyy] [name of copyright owner]
       *
-      *   Licensed under the Apache License, Version 2.0 (the "License");
-      *   you may not use this file except in compliance with the License.
-      *   You may obtain a copy of the License at
+      *   Licensed under the Apache License, Version 2.0 (the "License");
+      *   you may not use this file except in compliance with the License.
+      *   You may obtain a copy of the License at
       *
-`*   `[`http://www.apache.org/licenses/LICENSE-2.0`](http://www.apache.org/licenses/LICENSE-2.0)
+`*   `[`http://www.apache.org/licenses/LICENSE-2.0`](http://www.apache.org/licenses/LICENSE-2.0)
       *
-      *   Unless required by applicable law or agreed to in writing, software
-      *   distributed under the License is distributed on an "AS IS" BASIS,
-      *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      *   See the License for the specific language governing permissions and
-      *  limitations under the License.
+      *   Unless required by applicable law or agreed to in writing, software
+      *   distributed under the License is distributed on an "AS IS" BASIS,
+      *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      *   See the License for the specific language governing permissions and
+      *  limitations under the License.
       */
 
 For the Copyright license,
@@ -39,7 +39,7 @@ Adding a filename is useful in case people include your code in another project,
 
 **3. For Java, the Maven POM format allows a section for license information**
 
-`    `[`https://maven.apache.org/pom.html#More_Project_Information`](https://maven.apache.org/pom.html#More_Project_Information)
+`    `[`https://maven.apache.org/pom.html#More_Project_Information`](https://maven.apache.org/pom.html#More_Project_Information)
 
 This should be added to all the pom.xml files in the tree.
 

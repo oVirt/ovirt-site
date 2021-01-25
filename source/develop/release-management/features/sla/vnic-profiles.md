@@ -283,22 +283,22 @@ The vnic profiles will be available as a sub collection of the networks top coll
 The POST'ed elemet should look like:
 
 ```xml
- <vnic_profile>
-     <name>profile1</name>
-     <network id="00000000-0000-0000-0000-000000000009"/>
-     <port_mirroring>true</port_mirroring>
- </vnic_profile>
+ <vnic_profile>
+     <name>profile1</name>
+     <network id="00000000-0000-0000-0000-000000000009"/>
+     <port_mirroring>true</port_mirroring>
+ </vnic_profile>
 ```
 
 However the vnic profile will not be update-able via the sub-collection.
  The user will be able to create a network without a default vnic profile by providing the following element in the network
 
-      POSTed element for /api/networks:
+      POSTed element for /api/networks:
 ```xml
- <network>
-           ...
-     <profile_required>false</profile_required>
- </network>
+ <network>
+           ...
+     <profile_required>false</profile_required>
+ </network>
 ```
 
 For REST backward compatibility, a new parameter set will be added to a vm network interface Add and Update actions.
@@ -323,10 +323,10 @@ The new parameter set will include the vnic profile id.
 With the following element:
 
 ```xml
- <nic>
-           ...
-     <vnic_profile id="fa5d0471-f83b-44ec-8715-7fe1a53ab7a6"/>
- </nic>
+ <nic>
+           ...
+     <vnic_profile id="fa5d0471-f83b-44ec-8715-7fe1a53ab7a6"/>
+ </nic>
 ```
 
 The returned entity will include the the vnic profile id as well.

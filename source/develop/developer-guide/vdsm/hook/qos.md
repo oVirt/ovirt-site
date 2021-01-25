@@ -11,18 +11,18 @@ libvirt domain xml:
 
 ```xml
 <interface>
-          ...
-    <bandwidth>
-        <inbound average='1' peak='2' burst='5'/>
-        <outbound average='0.5'/>
-    </bandwidth>
-          ...
+          ...
+    <bandwidth>
+        <inbound average='1' peak='2' burst='5'/>
+        <outbound average='0.5'/>
+    </bandwidth>
+          ...
 </interface>
 ```
 
 Note: for average, peak, and burst explanation look at:
 
-      # man tc tbf
+      # man tc tbf
 
 Note: The 'average' attribute is mandatory, inbound or outbound elements can be used but not mandatory
 

@@ -54,7 +54,7 @@ We can add a similar alert also for regular hosts:
 ```xml
 GET /hosts/{host:id}/
 <host>
-    ...
+    ...
     <updates_available>`true`</updates_available>
 </host>
 ```
@@ -66,14 +66,14 @@ A user may provide additional packages he wishes to monitor for updates by using
 Assuming the config value contains the value 'libvirt, mom', the use can use:
 
 ```bash
-$ engine-config -m UserPackageNamesForCheckUpdate=qemu-kvm-rhev
+$ engine-config -m UserPackageNamesForCheckUpdate=qemu-kvm-rhev
 ```
 
 which will result in:
 
 ```bash
-$ engine-config -g UserPackageNamesForCheckUpdate
-UserPackageNamesForUpdate: libvirt,mom,qemu-kvm-rhev version: general
+$ engine-config -g UserPackageNamesForCheckUpdate
+UserPackageNamesForUpdate: libvirt,mom,qemu-kvm-rhev version: general
 ```
 
 The same behavior is applied during the upgrade sequence: All packages listed in 'PackageNamesForCheckUpdate' and 'UserPackageNamesForCheckUpdate' will be upgraded.

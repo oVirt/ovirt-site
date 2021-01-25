@@ -93,6 +93,6 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
 
 If I could run HVM Xen guests within KVM L1 guests, development would have been easier. Unfortunately, with kernel-3.14.5-200.fc20.x86_64 and qemu-kvm-2.0.0-5.fc20.x86_64 on the host, the L1 dom0 \`xl dmesg\` complains about
 
-      (XEN) VMX: CPU0 has insufficient VMExit Control (000f6fff; requires 00008200)
-      (XEN) VMX: failed to initialise.
+      (XEN) VMX: CPU0 has insufficient VMExit Control (000f6fff; requires 00008200)
+      (XEN) VMX: failed to initialise.
 

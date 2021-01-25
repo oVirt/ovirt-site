@@ -9,7 +9,7 @@ The smartcard hook adds smartcard support for spice enabled VMs. This hook enabl
 
 syntax:
 
-      smartcard: smartcard=true
+      smartcard: smartcard=true
 
 libvirt xml:
 

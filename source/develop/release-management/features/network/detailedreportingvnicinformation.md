@@ -32,9 +32,9 @@ The Guest Agent reports the vNic details:
 
 The internal vNic implementation details are reported by VDSM by verbs *getVmStats* and *getAllVmStats*.
 
-         netIfaces = [{'name': 'eth8', 'inet6': ['fe80::21a:4aff:fe16:1ac'], 'inet': ['10.35.17.36'], 'hw': '00:1a:4a:16:01:ac'}, 
-                      {'name': 'eth9', 'inet6': ['fe80::21a:4aff:fe16:160','fe80::21a:4aff:fe16:161'], 'inet': ['10.35.1.254'], 'hw': '00:1a:4a:16:01:60'}, 
-                      {'name': 'eth7', 'inet6': ['fe80::21a:4aff:fe16:1af'], 'inet': ['10.35.18.69'], 'hw': '00:1a:4a:16:01:af'}]
+         netIfaces = [{'name': 'eth8', 'inet6': ['fe80::21a:4aff:fe16:1ac'], 'inet': ['10.35.17.36'], 'hw': '00:1a:4a:16:01:ac'}, 
+                      {'name': 'eth9', 'inet6': ['fe80::21a:4aff:fe16:160','fe80::21a:4aff:fe16:161'], 'inet': ['10.35.1.254'], 'hw': '00:1a:4a:16:01:60'}, 
+                      {'name': 'eth7', 'inet6': ['fe80::21a:4aff:fe16:1af'], 'inet': ['10.35.18.69'], 'hw': '00:1a:4a:16:01:af'}]
 
 The vNic device data from the guest contains interface name, IPv4 addresses, IPv6 addresses and MAC Address.
 
@@ -48,11 +48,11 @@ The table will be updated only when a change is detected by the reported data fr
 
 <span style="color:Teal">**VmGuestAgentInterface**</span> a new class for representing the data reported by the guest agent:
 
-        Guid vmId - VM's ID
-        String name - the internal nic's name
-        String macAddress - the internal nic's macAddress
-        List`<String>` ipv4Addresses - the vNic's IPv4 addresses
-        List`<String>` ipv6Addresses - the vNic's IPv6 addresses
+        Guid vmId - VM's ID
+        String name - the internal nic's name
+        String macAddress - the internal nic's macAddress
+        List`<String>` ipv4Addresses - the vNic's IPv4 addresses
+        List`<String>` ipv6Addresses - the vNic's IPv6 addresses
 
 <span style="color:Teal">**VmGuestAgentInterfaceDao**</span> new DAO will serve as the interface of the VmGuestAgentInterface entity database related actions. VmGuestAgentInterface is stored to the database only as part of refresh VMs.
 

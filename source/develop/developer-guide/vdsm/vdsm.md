@@ -12,7 +12,7 @@ __TOC__
 
 ## Name
 
-      V.D.S.M. ?? That's not even pronounceable!
+      V.D.S.M. ?? That's not even pronounceable!
 
 Vdsm stands for Virtual Desktop and Server Manager.
 

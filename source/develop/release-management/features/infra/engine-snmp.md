@@ -37,33 +37,33 @@ This feature extends the capabilities of the ovirt-engine-notifier to send all e
 (It's advisable to leave that file as is and define override file[s] under /etc/ovirt-engine/notifier/notifier.conf.d/) Lets take a look;
 
       #-------------------------#
-      # SNMP_TRAP Notifications #
+      # SNMP_TRAP Notifications #
       #-------------------------#
-      # Send v2c snmp notifications
-      # Minimum SNMP configuration
+      # Send v2c snmp notifications
+      # Minimum SNMP configuration
       #
-      # Create @ENGINE_ETC@/notifier/notifier.conf.d/20-snmp.conf with:
-      # SNMP_MANAGERS="host"
-      # FILTERS="include:*(snmp:) ${FILTERS}"
-      # Default whitespace separated IP/DNS list with optional port, default is 162.
-      # SNMP_MANAGERS=manager1.example.com manager2.example.com:164
+      # Create @ENGINE_ETC@/notifier/notifier.conf.d/20-snmp.conf with:
+      # SNMP_MANAGERS="host"
+      # FILTERS="include:*(snmp:) ${FILTERS}"
+      # Default whitespace separated IP/DNS list with optional port, default is 162.
+      # SNMP_MANAGERS=manager1.example.com manager2.example.com:164
       SNMP_MANAGERS=
-      # Default SNMP Community String.
+      # Default SNMP Community String.
       SNMP_COMMUNITY=public
-      # Default TRAP Object Identifier for alerts.
+      # Default TRAP Object Identifier for alerts.
       #
-      # iso.organization.DoD.Internet.private.enterprises.redhat.ovirt-engine.notifications.audit-log
-      # 1.3.6.1.4.1.2312.13.1.1
+      # iso.organization.DoD.Internet.private.enterprises.redhat.ovirt-engine.notifications.audit-log
+      # 1.3.6.1.4.1.2312.13.1.1
       SNMP_OID=1.3.6.1.4.1.2312.13.1.1
       #
-      # SNMP profile support
+      # SNMP profile support
       #
-      # Multiple SNMP profiles are supported.
-      # Specify profile settings by using _profile suffix,
-      # for example, to define a profile to sent specific
-      # message to host3, specify:
-      # SNMP_MANAGERS_profile1=host3
-      # FILTER="include:VDC_START(snmp:profile1) ${FILTER}"
+      # Multiple SNMP profiles are supported.
+      # Specify profile settings by using _profile suffix,
+      # for example, to define a profile to sent specific
+      # message to host3, specify:
+      # SNMP_MANAGERS_profile1=host3
+      # FILTER="include:VDC_START(snmp:profile1) ${FILTER}"
       #
 
 Notes:
@@ -74,7 +74,7 @@ Notes:
 
 Using the default value for SNMP_OID (1.3.6.1.4.1.2312.13.1), traps will show up as:
 
-      SNMPv2-MIB::snmpTrapOID.0 = OID: SNMPv2-SMI::enterprises.2312.13.1.0.30    SNMPv2-SMI::enterprises.2312.13.1.0.30.0 = STRING: "User admin@internal logged in." SNMPv2-SMI::enterprises.2312.13.1.0.30.1 = STRING: "NORMAL" SNMPv2-SMI::enterprises.2312.13.1.0.30.2 = STRING: "alertMessage"   SNMPv2-SMI::enterprises.2312.13.1.0.30.3 = STRING: "2014-01-12 07:14:22.576"
+      SNMPv2-MIB::snmpTrapOID.0 = OID: SNMPv2-SMI::enterprises.2312.13.1.0.30    SNMPv2-SMI::enterprises.2312.13.1.0.30.0 = STRING: "User admin@internal logged in." SNMPv2-SMI::enterprises.2312.13.1.0.30.1 = STRING: "NORMAL" SNMPv2-SMI::enterprises.2312.13.1.0.30.2 = STRING: "alertMessage"   SNMPv2-SMI::enterprises.2312.13.1.0.30.3 = STRING: "2014-01-12 07:14:22.576"
 
 *   SNMPv2-MIB::snmpTrapOID represents the trap id for this event. we have our OID appended with 0 (because this is an enterprise specific trap). finally 30 is appended as well. This value is specific to this trap type: USER_VDC_LOGIN.
 
@@ -95,27 +95,27 @@ Using the default value for SNMP_OID (1.3.6.1.4.1.2312.13.1), traps will show up
 This section contains instructions on setting up an snmp manager capable of receiving traps.
 Tested under fedora 20 (please update if it worked for you on a different version).
 
-      # yum install -y net-snmp
+      # yum install -y net-snmp
 
 Edit the trap daemon configuration file, /etc/snmp/snmptrapd.conf:
 
-      # Example configuration file for snmptrapd
+      # Example configuration file for snmptrapd
       #
-      # No traps are handled by default, you must edit this file!
+      # No traps are handled by default, you must edit this file!
       #
-      authCommunity   log,execute,net public
-      # traphandle SNMPv2-MIB::coldStart    /usr/bin/bin/my_great_script cold
+      authCommunity   log,execute,net public
+      # traphandle SNMPv2-MIB::coldStart    /usr/bin/bin/my_great_script cold
       [snmp]
-      logOption f /tmp/snmptrapd.log
+      logOption f /tmp/snmptrapd.log
 
 Start the service:
 
-      # service snmptrapd start
+      # service snmptrapd start
 
 Test service by sending a trap:
 
-      # yum install -y  net-snmp-utils
-      $ snmptrap -v 2c -c public localhost "" 1.2 SNMPv2-MIB::sysLocation.0 s "just here"
+      # yum install -y  net-snmp-utils
+      $ snmptrap -v 2c -c public localhost "" 1.2 SNMPv2-MIB::sysLocation.0 s "just here"
 
 Incoming traps should now be available in /tmp/snmptrapd.log.
 

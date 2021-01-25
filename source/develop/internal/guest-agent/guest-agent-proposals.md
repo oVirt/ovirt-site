@@ -95,61 +95,61 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
 
 *   blocker: Requires that ovirt-guest-agent be proxied through QMP management interface, subsumes existing qemu-ga commands. Also requires qemu.git submobule to access ovirt-guest-agent command schema to generate marshalling code for proxied commands.
 
-      The need to converge is obvious, and now that ovirt-guest-agent is opensourced 
-      under the ovirt stack, and since it already produces value for enterprise 
-      installations, and is cross platform, I offer to join hands around ovirt-
-      guest-agent and formalize a single code base that will serve us all.
+      The need to converge is obvious, and now that ovirt-guest-agent is opensourced 
+      under the ovirt stack, and since it already produces value for enterprise 
+      installations, and is cross platform, I offer to join hands around ovirt-
+      guest-agent and formalize a single code base that will serve us all.
 
-      git @ git://gerrit.ovirt.org/ovirt-guest-agent
+      git @ git://gerrit.ovirt.org/ovirt-guest-agent
 
-      Thoughts ?
+      Thoughts ?
 
       Thanks
-      Barak Azulay
+      Barak Azulay
 
 ### Make ovirt-guest-agent functionality available via an executable or a set of scripts, and have hypervisor deploy+exec the functionality via qemu-ga file write/exec interfaces.
 
 *   blocker: Requires exec support to be added (planned). Requires careful evaluation of security model.
 
-      Today qemu-ga supports the following verbs: sync ping info shutdown
-      file-open file-close file-read file-write file-seek file-flush fsfreeze-status
-      fsfreeze-freeze fsfreeze-thaw.  If we add a generic execute mechanism, then the
-      agent can provide everything needed by oVirt to deploy SSO.
+      Today qemu-ga supports the following verbs: sync ping info shutdown
+      file-open file-close file-read file-write file-seek file-flush fsfreeze-status
+      fsfreeze-freeze fsfreeze-thaw.  If we add a generic execute mechanism, then the
+      agent can provide everything needed by oVirt to deploy SSO.
 
-      Let's assume that we have already agreed on some sort of security policy for the
-      write-file and exec primitives.  Consensus is possible on this issue but I
-      don't want to get bogged down with that here.
+      Let's assume that we have already agreed on some sort of security policy for the
+      write-file and exec primitives.  Consensus is possible on this issue but I
+      don't want to get bogged down with that here.
 
-      With the above primitives, SSO could be deployed automatically to a guest with
-      the following sequence of commands:
+      With the above primitives, SSO could be deployed automatically to a guest with
+      the following sequence of commands:
 
-      file-open "<exec-dir>/sso-package.bin" "w"
-      file-write <fh> <buf>
-      file-close <fh>
-      file-open "<exec-dir>/sso-package.bin" "x"
-      file-exec <fh> <args>
-      file-close <fh>
+      file-open "<exec-dir>/sso-package.bin" "w"
+      file-write <fh> <buf>
+      file-close <fh>
+      file-open "<exec-dir>/sso-package.bin" "x"
+      file-exec <fh> <args>
+      file-close <fh>
 
-      At this point, the package is installed.  It can contain whatever existing logic
-      exists in the ovirt-guest-agent today.  To perform a user login, we'll assume
-      that sso-package.bin contains an executable 'sso/do-user-sso':
+      At this point, the package is installed.  It can contain whatever existing logic
+      exists in the ovirt-guest-agent today.  To perform a user login, we'll assume
+      that sso-package.bin contains an executable 'sso/do-user-sso':
 
-      file-open "<exec-dir>/sso/do-user-sso" "x"
-      exec <fh> <args>
-      file-close <fh>
+      file-open "<exec-dir>/sso/do-user-sso" "x"
+      exec <fh> <args>
+      file-close <fh>
 
-      At this point the user would be logged in as before.
+      At this point the user would be logged in as before.
 
-      Obviously, this type of approach could be made easier by providing a well
-      designed exec API that returns command exit codes and (optionally) command
-      output.  We could also formalize the install of additional components into some
-      sort of plugin interface.  These are all relatively easy problems to solve.
+      Obviously, this type of approach could be made easier by providing a well
+      designed exec API that returns command exit codes and (optionally) command
+      output.  We could also formalize the install of additional components into some
+      sort of plugin interface.  These are all relatively easy problems to solve.
 
-      If we go in this direction, we would have a simple, general-purpose agent with
-      low-level primitives that everyone can use.  We would also be able to easily
-      extend the agent based on the needs of individual deployments (not the least of
-      which is an oVirt environment).  If certain plugins become popular enough, they
-      can always be promoted to first-order API calls in future versions of the API.
+      If we go in this direction, we would have a simple, general-purpose agent with
+      low-level primitives that everyone can use.  We would also be able to easily
+      extend the agent based on the needs of individual deployments (not the least of
+      which is an oVirt environment).  If certain plugins become popular enough, they
+      can always be promoted to first-order API calls in future versions of the API.
 
-      -- 
-      Adam Litke <alitke@redhat.com>
+      -- 
+      Adam Litke <alitke@redhat.com>

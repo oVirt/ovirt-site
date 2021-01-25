@@ -91,10 +91,10 @@ For each of these curves there are three parameters:
 
 With the above definitions, an example networks definition would be:
 
-         {'storage': {'nic': 'eth2', 'bootproto': 'dhcp', 'hostQos': {'out': {
-             'ls': {'m2': 2000}. 'ul':  {'m2': 10000}}}},
-          'display': {'nic': 'eth2', 'bootproto': 'dhcp': 'hostQos': {'out': {
-             'ls': {'m1': 5000, 'd': 300, 'm2': 1500}}}}}
+         {'storage': {'nic': 'eth2', 'bootproto': 'dhcp', 'hostQos': {'out': {
+             'ls': {'m2': 2000}. 'ul':  {'m2': 10000}}}},
+          'display': {'nic': 'eth2', 'bootproto': 'dhcp': 'hostQos': {'out': {
+             'ls': {'m1': 5000, 'd': 300, 'm2': 1500}}}}}
 
 It's possible to retrieve the QoS defined for an host's network with the following code:
 
@@ -130,39 +130,39 @@ As depicted in the picture, there are four oVirt networks.all the leaf nodes wou
 
 *   Storage: Vlanned network with tag value 10. It is a non-shaped network for the host to access nfs. This traffic class has its fair share automatically set to the maximum of any shaped class and if extra bandwidth is available it just takes it. Filter to match it:
 
-         tc filter add dev eth2 parent 1: prio 20 protocol 802.1q u32 match u16 10 0xFFF at -4 flowid 1:10
+         tc filter add dev eth2 parent 1: prio 20 protocol 802.1q u32 match u16 10 0xFFF at -4 flowid 1:10
 
 class definition:
 
-         tc class add dev eth2 parent 1: classid 1:10 hfsc ls rate $(max_shaped_net)mbps
+         tc class add dev eth2 parent 1: classid 1:10 hfsc ls rate $(max_shaped_net)mbps
 
 *   Databse: Vlanned network with tag value 20. It is a shaped network with outbound traffic share of 3mbps (capped at 5mbps) that serves for the VMs that run postgresql instances. If there is extra bandwidth available it will take more than it's 3mbps share, but never more than 5mbps (on average). Filter to match it:
 
-         tc filter add dev eth2 parent 1: prio 20 protocol 802.1q u32 match u16 20 0xFFF at -4 flowid 1:20
+         tc filter add dev eth2 parent 1: prio 20 protocol 802.1q u32 match u16 20 0xFFF at -4 flowid 1:20
 
 class definition:
 
-         tc class add dev eth2 parent 1: classid 1:20 hfsc ls rate 3mbps ul rate 5mbps
+         tc class add dev eth2 parent 1: classid 1:20 hfsc ls rate 3mbps ul rate 5mbps
 
 *   Web servers: Vlanned network with tag value 30. It is a shaped network with outbound traffic share of 20mbps (capped at 30mbps) that serves for VMs that run apache/nginx instances. The shaping is just like that in the database network but with different limits. Filter to match it:
 
-         tc filter add dev eth2 parent 1: prio 30 protocol 802.1q u32 match u16 30 0xFFF at -4 flowid 1:30
+         tc filter add dev eth2 parent 1: prio 30 protocol 802.1q u32 match u16 30 0xFFF at -4 flowid 1:30
 
 class definition:
 
-         tc class add dev eth2 parent 1: classid 1:30 hfsc ls rate 20mbps ul rate 30mbps
+         tc class add dev eth2 parent 1: classid 1:30 hfsc ls rate 20mbps ul rate 30mbps
 
 *   Display: Non-vlanned network. It is shaped, just as in the case of the web servers network, but with a tweak. Since it is important that the latency of the network is low, after all, nobody wants a laggy display, we set a burst period 1.5ms during which the network is allowed to transmit up to 40mbps. Filter to match:
 
-         tc filter add dev eth2 parent 1: prio 5000 protocol all u32 match u32 0 0 flowid 1:5000  # Note that 5000 is chosen so that it is a catch all traffic of the device outside of the vlan range
+         tc filter add dev eth2 parent 1: prio 5000 protocol all u32 match u32 0 0 flowid 1:5000  # Note that 5000 is chosen so that it is a catch all traffic of the device outside of the vlan range
 
 class definition:
 
-         tc class add dev eth2 parent 1: classid 1:5000 hfsc ls m1 40mbps d 1.5ms m2 20mbps ul rate 30mbps
+         tc class add dev eth2 parent 1: classid 1:5000 hfsc ls m1 40mbps d 1.5ms m2 20mbps ul rate 30mbps
 
 All the leaf classes have a Stochastic queuing discipline to guarantee fairness between different connections inside each network. For example for the database network it would look like:
 
-         tc qdisc add dev eth2 handle 20:0 parent 1:0 sfq perturb 10
+         tc qdisc add dev eth2 handle 20:0 parent 1:0 sfq perturb 10
 
 ##### RESTful API
 

@@ -22,22 +22,22 @@ In order to invoke an internal command, and pass the context of the calling comm
 For example:
  public CreateSnapshotCommand(T parameters, CommandContext cmdContext) {
 
-                    super(parameters, cmdContext);      
-                    setSnapshotName(parameters.getDescription());
-            }
+                    super(parameters, cmdContext);      
+                    setSnapshotName(parameters.getDescription());
+            }
 
 2. From commands, instead of using getBackend().runInternalAction or Backend.getInstance().runInternalAction use
 
-            runInternalAction       
-      This method was introduced at CommandBase, and is responsible for propagating the context.
+            runInternalAction       
+      This method was introduced at CommandBase, and is responsible for propagating the context.
 
 For example:
 
-                 VdcReturnValueBase returnValue = runInternalAction(VdcActionType.HotPlugDiskToVm, params);       
+                 VdcReturnValueBase returnValue = runInternalAction(VdcActionType.HotPlugDiskToVm, params);       
 
 3. Invoke internal commands properly from classes that are not commands In case a command is using a helper (a class that does not extend CommandBase, and usually holds some functionality that is shared for several commands who are not of the same inheritance sub tree) , or another class which is not a command - the syntax of
 
-                 Backend.getInstance().runInternalAction(...) should be used. 
+                 Backend.getInstance().runInternalAction(...) should be used. 
 
 In this case, the caller might or might not pass the command context as a parameter to the call.
 
@@ -47,17 +47,17 @@ If command context is passed, the Command class should have a CTOR with a comman
 
 For example: LiveSnapshotTaskHandler.execute invokes an internal action:
 
-        VdcReturnValueBase vdcReturnValue =
-                         Backend.getInstance().runInternalAction(VdcActionType.CreateAllSnapshotsFromVm,
-                         getCreateSnapshotParameters(),
-                         ExecutionHandler.createInternalJobContext());
+        VdcReturnValueBase vdcReturnValue =
+                         Backend.getInstance().runInternalAction(VdcActionType.CreateAllSnapshotsFromVm,
+                         getCreateSnapshotParameters(),
+                         ExecutionHandler.createInternalJobContext());
 
 The CTOR of the internal action is:
 
-         public CreateAllSnapshotsFromVmCommand(T parameters, CommandContext commandContext) {
-             super(parameters, commandContext);
-             //....
-         }
+         public CreateAllSnapshotsFromVmCommand(T parameters, CommandContext commandContext) {
+             super(parameters, commandContext);
+             //....
+         }
 
 4. Handle command context propagation
 
@@ -73,7 +73,7 @@ withoutLock(), withoutExecutionCOntext(, withoutCompensationContext()
 
 for example -
 
-         cloneContext().withExecutionContext(runVmContext).withoutLock().withoutCompensationContext());
+         cloneContext().withExecutionContext(runVmContext).withoutLock().withoutCompensationContext());
 
 will clone the context, , set on it the runVM execution context, and reset both the lock and the compensation context.
 
@@ -89,60 +89,60 @@ CommandBase.runInternalQuery and QueriesCommandBase.runInternalQuery were intror
 
 Internal queries that are invoked using these methods should have a CTOR with engine context. For example:
 
-          runInternalQuery(VdcQueryType.GetAllFromExportDomain, params);
+          runInternalQuery(VdcQueryType.GetAllFromExportDomain, params);
 
 and
 
-          public GetAllFromExportDomainQuery(P parameters, EngineContext engineContext) {
-                super(parameters, engineContext);
-           }
+          public GetAllFromExportDomainQuery(P parameters, EngineContext engineContext) {
+                super(parameters, engineContext);
+           }
 
 ## Lock Mechanism changes
 
 In 3.5 the attribute LockIdNameAttribute has been removed and commands that need exclusive locking need to override a method defined in CommandBase. By default the lock scope has been set to none and the wait is set to false as shown below
 
-         @Override
-         protected LockProperties applyLockProperties(LockProperties lockProperties) {
-             return lockProperties.withScope(Scope.None).withWait(false);
-         }
+         @Override
+         protected LockProperties applyLockProperties(LockProperties lockProperties) {
+             return lockProperties.withScope(Scope.None).withWait(false);
+         }
 
 Any command that needs a different locking mechanism needs to override the above method to set the appropriate properties on the LockProperties object. Below is an example of the method overridden in a command that extends CommandBase. In the example the scope has been set to Execution, so the lock is released at the end of command execution. The code is equivalent to what was achieved using the annotation @LockIdNameAttribute.
 
-         @Override
-         protected LockProperties applyLockProperties(LockProperties lockProperties) {
-             return lockProperties.withScope(Scope.Execution);
-         }
+         @Override
+         protected LockProperties applyLockProperties(LockProperties lockProperties) {
+             return lockProperties.withScope(Scope.Execution);
+         }
 
 The scope defines when lock is released.
 
-         public static enum Scope {
-             /**
-              * Lock is release at the end of the command execution
-              */
-             Execution,
-             /**
-              * Lock is not release at the of command execution, used when
-              * child command uses the lock of the parent. Child should
-              * not release the lock, the parent will take care of releasing
-              * the lock
-              */
-             Command,
-             /**
-              * No lock is required for the command execution
-              */
-             None
-         }
+         public static enum Scope {
+             /**
+              * Lock is release at the end of the command execution
+              */
+             Execution,
+             /**
+              * Lock is not release at the of command execution, used when
+              * child command uses the lock of the parent. Child should
+              * not release the lock, the parent will take care of releasing
+              * the lock
+              */
+             Command,
+             /**
+              * No lock is required for the command execution
+              */
+             None
+         }
 
 To obtain a lock with wait in 3.4 the command had to be annotated with @LockIdNameAttribute(isWait = true). In 3.5 the same can be achieved by calling the withWait method on the lock properties
 
-         @Override
-         protected LockProperties applyLockProperties(LockProperties lockProperties) {
-             return lockProperties.withScope(Scope.Execution).withWait(true);
-         }
+         @Override
+         protected LockProperties applyLockProperties(LockProperties lockProperties) {
+             return lockProperties.withScope(Scope.Execution).withWait(true);
+         }
 
 When a child command uses the lock passed by the parent and does not release the lock, the scope "Command" is used to specify the scope of the lock.
 
-         @Override
-         protected LockProperties applyLockProperties(LockProperties lockProperties) {
-             return lockProperties.withScope(Scope.Command);
-         }
+         @Override
+         protected LockProperties applyLockProperties(LockProperties lockProperties) {
+             return lockProperties.withScope(Scope.Command);
+         }

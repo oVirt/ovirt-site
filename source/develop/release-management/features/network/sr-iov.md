@@ -80,7 +80,7 @@ In order to connect a vNic directly to a VF of SR-IOV enabled nic the vNic's pro
     -   the command should update the hostdev table the vf is not free.
 *   <b>unplugging</b>
 
-      ** the VF will be released (and free for use).
+      ** the VF will be released (and free for use).
 
 *   -   the command should update the hostdev table the vf is free.
 *   <b>available vf</b>- see the definition in runVm.

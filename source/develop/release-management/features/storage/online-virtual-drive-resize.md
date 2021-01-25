@@ -60,9 +60,9 @@ User can extend virtual drive size using UI or REST API.
 #### Standard updating of virtual machine disk:
 
 ```
-PUT /api/vms/{VM_ID}/disks/{DISK_ID} HTTP/1.1
-Accept: application/xml
-Content-type: application/xml
+PUT /api/vms/{VM_ID}/disks/{DISK_ID} HTTP/1.1
+Accept: application/xml
+Content-type: application/xml
 ```
 
 ```xml

@@ -21,13 +21,13 @@ check out the [previous versions release notes](/develop/release-management/rele
 
 In order to install it on a clean system, you need to install
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm)
 
 If you're upgrading from a previous release on Enterprise Linux 7 you just need to execute:
 
-      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
-      # yum update "ovirt-engine-setup*"
-      # engine-setup
+      # yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
 
 Upgrade on Fedora 22 and Enterprise Linux 6 is not supported and you should follow our [Migration Guide](https://web.archive.org/web/20170723145830/http://www.ovirt.org/documentation/migration-engine-36-to-40/) in order to migrate to Enterprise Linux 7 or Fedora 23.
 

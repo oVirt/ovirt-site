@@ -68,12 +68,12 @@ The `Host` resource schema was changed, and now the `storage_manager` element is
 The schema for the `StorageManager` type is as follows:
 
 ```xml
-<xs:element name="storage_manager" type="StorageManager"/>
-<xs:complexType name="StorageManager">
+<xs:element name="storage_manager" type="StorageManager"/>
+<xs:complexType name="StorageManager">
     <xs:simpleContent>
-        <xs:extension base="xs:boolean">
-            <xs:attribute name="priority" type="xs:int"></xs:attribute>
-        </xs:extension>
-    </xs:simpleContent>
+        <xs:extension base="xs:boolean">
+            <xs:attribute name="priority" type="xs:int"></xs:attribute>
+        </xs:extension>
+    </xs:simpleContent>
 </xs:complexType>
 ```

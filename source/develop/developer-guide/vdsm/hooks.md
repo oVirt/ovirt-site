@@ -179,11 +179,11 @@ Currently, the hooking module only exists in python. Here is an example of a sim
 
 ```python
 #!/usr/bin/python
-import os
-import sys 
-if os.environ.has_key('cantmigrate'):
-   sys.stderr.write('cantmigrate: before_vm_migrate_source: cannot migrate this VM\n')
-   sys.exit(2)
+import os
+import sys 
+if os.environ.has_key('cantmigrate'):
+   sys.stderr.write('cantmigrate: before_vm_migrate_source: cannot migrate this VM\n')
+   sys.exit(2)
 ```
 
 This script does not use the hooking module, because it does not need to actually act upon the VM's specific XML.
@@ -191,11 +191,11 @@ This script does not use the hooking module, because it does not need to actuall
 And this is an example that uses the Hooking module to read a custom property that defines CPU pinning for a VM, and alters the VM's XML accordingly:
 
 ```python
-#!/usr/bin/python 
-import os
-import sys
-import hooking
-import traceback
+#!/usr/bin/python 
+import os
+import sys
+import hooking
+import traceback
     
 #pincpu usages
 #=============
@@ -204,18 +204,18 @@ import traceback
 #pincpu="^3" (don't use cpu 3)
 #pincpu="1-4,^3,6" (or all together)
   
-if os.environ.has_key('pincpu'):
-    try:
-       domxml = hooking.read_domxml()   #here we read the VM XML into the domxml variable
-       vcpu = domxml.getElementsByTagName('vcpu')[0] #find and read the CPU definition in the VM XML
+if os.environ.has_key('pincpu'):
+    try:
+       domxml = hooking.read_domxml()   #here we read the VM XML into the domxml variable
+       vcpu = domxml.getElementsByTagName('vcpu')[0] #find and read the CPU definition in the VM XML
 
-       if not vcpu.hasAttribute('cpuset'):
-          sys.stderr.write('pincpu: pinning cpu to: %s\n' % os.environ['pincpu'])  #sys.stderr.write is caught by vdsm and logged into vdsm.log for debugging
-          vcpu.setAttribute('cpuset', os.environ['pincpu'])  #change an attribute here
-          hooking.write_domxml(domxml)                       #and write to the altered domxml
-       else:
-          sys.stderr.write('pincpu: cpuset attribute is present in vcpu, doing nothing\n')
-    except:
-       sys.stderr.write('pincpu: [unexpected error]: %s\n' % traceback.format_exc())
-       sys.exit(2)
+       if not vcpu.hasAttribute('cpuset'):
+          sys.stderr.write('pincpu: pinning cpu to: %s\n' % os.environ['pincpu'])  #sys.stderr.write is caught by vdsm and logged into vdsm.log for debugging
+          vcpu.setAttribute('cpuset', os.environ['pincpu'])  #change an attribute here
+          hooking.write_domxml(domxml)                       #and write to the altered domxml
+       else:
+          sys.stderr.write('pincpu: cpuset attribute is present in vcpu, doing nothing\n')
+    except:
+       sys.stderr.write('pincpu: [unexpected error]: %s\n' % traceback.format_exc())
+       sys.exit(2)
 ```

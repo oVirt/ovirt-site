@@ -47,44 +47,44 @@ oVirt API follows collection/resource patten:
 
 *   To list all collection resources, use GET.
 
-      GET http(s)://server:port/api/vms
+      GET http(s)://server:port/api/vms
 
 *   To retrieve specific resource, use GET.
 
-      GET http(s)://server:port/api/vms/xxx
+      GET http(s)://server:port/api/vms/xxx
 
-      curl -v -u "user@domain:password" -H "Content-type: application/xml" -X GET http(s)://server:port/api/vms/xxx
+      curl -v -u "user@domain:password" -H "Content-type: application/xml" -X GET http(s)://server:port/api/vms/xxx
 
 *   To create a resource, use POST.
 
-      POST http(s)://server:port/api/vms
+      POST http(s)://server:port/api/vms
 <vm>`...`</vm>
 
-      curl -v -u "user@domain:password" 
-      -H "Content-type: application/xml" 
-      -d 
-` '`<vm>
-`  `<name>`my_new_vm`</name>
-`  `<cluster><name>`cluster_name`</name></cluster>
-`  `<template><name>`template_name`</name></template>
-       `</vm>`' 'http(s)://server:port/api/vms'
+      curl -v -u "user@domain:password" 
+      -H "Content-type: application/xml" 
+      -d 
+` '`<vm>
+`  `<name>`my_new_vm`</name>
+`  `<cluster><name>`cluster_name`</name></cluster>
+`  `<template><name>`template_name`</name></template>
+       `</vm>`' 'http(s)://server:port/api/vms'
 
 *   To update the resource, use PUT.
 
-      PUT http(s)://server:port/api/vms/xxx 
+      PUT http(s)://server:port/api/vms/xxx 
 <vm><name>`aaa`</name></vm>
 
-      echo "`<vm><name>`new_name`</name></vm>`" >  /tmp/upload.xml
-      curl -v -u "user@domain:password" 
-       -H "Content-type: application/xml" 
-       -T /tmp/upload.xml 
-       'http(s)://server:port/api/vms/xxx'
+      echo "`<vm><name>`new_name`</name></vm>`" >  /tmp/upload.xml
+      curl -v -u "user@domain:password" 
+       -H "Content-type: application/xml" 
+       -T /tmp/upload.xml 
+       'http(s)://server:port/api/vms/xxx'
 
 *   To remove the resource, use DELETE.
 
-      DELETE http(s)://server:port/api/vms/xxx
+      DELETE http(s)://server:port/api/vms/xxx
 
-      curl -v -u "user@domain:password" -X DELETE http(s)://server:port/api/vms/xxx
+      curl -v -u "user@domain:password" -X DELETE http(s)://server:port/api/vms/xxx
 
 ### [RSDL](/develop/release-management/features/infra/rsdl.html) (RESTful Service Description Language)
 

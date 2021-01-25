@@ -13,47 +13,47 @@ Fist, you have to set up your Glusterfs domain in order to have the hosts that w
 
 List your volumes:
 
-      # gluster volume list
+      # gluster volume list
 
 Stop and delete the one you want to change. If your hosts are part of more than one volume, you may need to remove all of them to remove the peer or find a way to replace it with another.
 
-`# gluster volume stop `<Name of volume>
-`# gluster volume delete `<Name of volume>
+`# gluster volume stop `<Name of volume>
+`# gluster volume delete `<Name of volume>
 
 Now, lets list the peers enrolled and detach them to re add them with the new IP:
 
 Show the hosts that act as peers to Gluster
 
-      # gluster peer status
+      # gluster peer status
 
 Detach every host you need to modify
 
-`# gluster peer detach `<IP of the host to modify>
+`# gluster peer detach `<IP of the host to modify>
 
 Now, lets add them back with the new IP (**\1**):
 
-`# gluster peer probe `<New host's IP>
+`# gluster peer probe `<New host's IP>
 
 As we are starting over, we are going to remove any trace of the past volume, so we need to clean the directory and set labels back in place:
 
-      # setfattr -x trusted.glusterfs.volume-id Path_to_brick
-      # setfattr -x trusted.gfid Path_to_brick
-      # rm -rf Path_to_brick/.glusterfs
+      # setfattr -x trusted.glusterfs.volume-id Path_to_brick
+      # setfattr -x trusted.gfid Path_to_brick
+      # rm -rf Path_to_brick/.glusterfs
 
 Also, if you already used the volume as a Glusterfs Storage Domain in Ovirt, you need to clean Ovirt's data:
 
-      # rm -rf Path_to_brick/*
+      # rm -rf Path_to_brick/*
 
 *Note: You can also reuse existing bricks, by using the force option in the below command (available from gluster 3.5)*
 
 Now we can create the volume again (stolen from man :-) ):
 
-      # volume create `<NEW-VOLNAME>` [stripe `<COUNT>`] [replica `<COUNT>`] [device vg] [transport `<tcp|rdma|tcp,rdma>`] `<NEW-BRICK>` 
+      # volume create `<NEW-VOLNAME>` [stripe `<COUNT>`] [replica `<COUNT>`] [device vg] [transport `<tcp|rdma|tcp,rdma>`] `<NEW-BRICK>` 
 
 The last thing to do is to set uid and gid of the volume to be vdsm:kvm as when you create a volume directly from Gluster those are set to root:
 
-      # gluster volume set glusterfs storage.owner-uid 36
-      # gluster volume set glusterfs storage.owner-gid 36
+      # gluster volume set glusterfs storage.owner-uid 36
+      # gluster volume set glusterfs storage.owner-gid 36
 
 I think this is also done when you hit "Optimize for virt". It's important to use this option as it sets several variables of the volume in order to have it tuned.
 

@@ -82,9 +82,9 @@ Records that DO NOT need to change (already work):
 
 *   @Host.fenceNode - we need to put just one IP address of host, we can use field @addr for IPv6 also because type of @addr is str
 
-      # vdsClient -s 0 fenceNode '2620:52::1040:221:5eff:fe11:a22d' 23 rsa fencetest fencetest status
+      # vdsClient -s 0 fenceNode '2620:52::1040:221:5eff:fe11:a22d' 23 rsa fencetest fencetest status
       on
-      # works!
+      # works!
 
 *   @VmDefinition - same situation with fields @clientIp, @displayIp
 *   @IscsiPortal - @host **should** be capable of carrying an IPv6 address.
@@ -243,17 +243,17 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 
 By default Vdsm now listens on both IPv6 and IPv4:
 
-       $ netstat -tanp | grep 54321
-        tcp6 0 0 :::54321 :::* LISTEN 21545/python
+       $ netstat -tanp | grep 54321
+        tcp6 0 0 :::54321 :::* LISTEN 21545/python
 
 You should be able to control vdsmd with vdsClient using IPv6 addresses:
 
-       vdsClient -s [::1] getVdsCaps
-       vdsClient -s [::1]:54321 getVdsCaps
-       vdsClient -s localhost6 getVdsCaps
-       vdsClient -s localhost6:54321 getVdsCaps
-       vdsClient -s ['IPv6 link-local addr'%ovirtmgmt] getVdsCaps
-       vdsClient -s ['IPv6 link-local addr'%ovirtmgmt]:54321 getVdsCaps
+       vdsClient -s [::1] getVdsCaps
+       vdsClient -s [::1]:54321 getVdsCaps
+       vdsClient -s localhost6 getVdsCaps
+       vdsClient -s localhost6:54321 getVdsCaps
+       vdsClient -s ['IPv6 link-local addr'%ovirtmgmt] getVdsCaps
+       vdsClient -s ['IPv6 link-local addr'%ovirtmgmt]:54321 getVdsCaps
 
 Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovirtmgmt (e.g. [fe80::5054:ff:fe05:25f3%ovirtmgmt]). Each of this command should work as in normal manner.
 

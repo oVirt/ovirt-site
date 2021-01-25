@@ -24,11 +24,11 @@ VM XML changes:
 
 Syntax:
 
-         hostusb=0x1234:0xbeef&0x2222:0xabaa
+         hostusb=0x1234:0xbeef&0x2222:0xabaa
 
 This maps to:
 
-         hostusb=VendorId:ProductId&AnotherVendorId:AnotherProductId...
+         hostusb=VendorId:ProductId&AnotherVendorId:AnotherProductId...
 
 Note: The VM must be pinned to host and this hook will fail any migration attempt.
 

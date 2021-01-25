@@ -23,5 +23,10 @@ script:
       echo '/!\ Wiki headers are obsolete (see previous log entries)'
       exit 2
     fi
+  - |
+    if grep -P '\xa0' `find source/ -name "*.md"` ; then
+      echo '/!\ nonbreaking spaces have been found within the markdown (see previous log entries)'
+      exit 2
+    fi
   - bundle exec jekyll build
   - bundle exec ruby test.rb

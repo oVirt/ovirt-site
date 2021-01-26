@@ -4,11 +4,9 @@ category: feature
 authors: sradco
 ---
 <div class="alert alert-warning">
-  <strong>Please follow the links for the updated documentation:</strong>
+  <strong>ATTENTION: This page is no longer up to date. Please follow the link for the updated documentation:</strong>
   <br/>
-  * <a href="/documentation/metrics-install-guide/metrics_store_installation_guide.html">Metrics Installation Guide</a>
-  <br/>
-  * <a href="/documentation/metrics-user-guide/metrics-user-guide.html">Metrics User Guide</a>
+  * <a href="/documentation/administration_guide/#monitoring_and_observability">Monitoring and observability</a>
 </div>
 
 # oVirt Metrics Store - All In One Installation

@@ -1,14 +1,14 @@
 ---
 title: oVirt 4.4.5 Release Notes
 category: documentation
-authors: sandrobonazzola lveyde
+authors: lveyde sandrobonazzola
 toc: true
 page_classes: releases
 ---
 
 # oVirt 4.4.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.5 Second Release Candidate as of January 21, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.5 Third Release Candidate as of January 28, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -69,7 +69,25 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 ### Release Note
 
+#### oVirt Release Package
+
+ - [BZ 1917462](https://bugzilla.redhat.com/1917462) **Switch to Gluster 8 repositories**
+
+   With oVirt 4.4.5 we now enable Gluster 8 repository from CentOS Storage SIG. Release notes for Gluster 8 are available at https://docs.gluster.org/en/latest/release-notes/#glusterfs-8-release-notes
+
+
 #### oVirt Engine
+
+ - [BZ 1916076](https://bugzilla.redhat.com/1916076) **Rebase on Wildfly 22**
+
+   oVirt Engine now requires WildFly 22
+
+ - [BZ 1848872](https://bugzilla.redhat.com/1848872) **Rebase on Wildfly 21.0.2**
+
+   oVirt Engine is now requiring WildFly 21.0.2
+
+
+#### oVirt Engine WildFly
 
  - [BZ 1916076](https://bugzilla.redhat.com/1916076) **Rebase on Wildfly 22**
 
@@ -84,6 +102,18 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 #### oVirt Engine
 
+ - [BZ 1866749](https://bugzilla.redhat.com/1866749) **[RFE] provide warning for soft errors**
+
+   Feature: Allow to set severity for messages that are displayed via ansible debug module
+
+
+
+Reason: When some tasks fail they don't stop the host deploy flow, but a debug message is printed in the host deploy log. However, host deploy log is mostly not looked at when host deploy finishes successfully, so such messages can be missed.
+
+
+
+Result: When using the debug module for ansible roles in the host deploy flow, a message that will be written in the format of: "[SEVERITY] message" where SEVERITY is one of {ERROR, WARNING, ALERT} will be parsed and printed in the audit log with its correct severity level.
+
  - [BZ 1853906](https://bugzilla.redhat.com/1853906) **[RFE] Add the ability to reboot after install/ reinstall**
 
    Feature: 'Reboot' option was added to the install and reinstall flows and is enabled by default (same as in the upgrade flow)
@@ -97,6 +127,13 @@ Reason: Rebooting the host is needed is several cases such as specifying new ker
 Result: When installing/ reinstalling host, reboot is enabled by default (can be disabled by the administrator)
 
 
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1887149](https://bugzilla.redhat.com/1887149) **[RFE] VM Disk stats should contain IOPS stats**
+
+   
+
+
 ### Bug Fixes
 
 #### oVirt Engine SDK 4 Python
@@ -106,11 +143,11 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 
 #### oVirt Engine
 
+ - [BZ 1890665](https://bugzilla.redhat.com/1890665) **Update numa node value is not applied after the VM restart**
+
  - [BZ 1910411](https://bugzilla.redhat.com/1910411) **Always use Single-PCI for Linux guests**
 
  - [BZ 1914648](https://bugzilla.redhat.com/1914648) **Q35: BIOS type changed to "Default" when creating new VM from template with Q35 chipset.**
-
- - [BZ 1890665](https://bugzilla.redhat.com/1890665) **Update numa node value is not applied after the VM restart**
 
  - [BZ 1905108](https://bugzilla.redhat.com/1905108) **Cannot hotplug disk reports libvirtError: Requested operation is not valid: Domain already contains a disk with that address**
 
@@ -159,7 +196,41 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 
 #### oVirt Engine
 
+ - [BZ 1921104](https://bugzilla.redhat.com/1921104) **Bump required ansible version in RHV Manager 4.4.5**
+
+   
+
+ - [BZ 1875412](https://bugzilla.redhat.com/1875412) **Request to create a nic on template gets wrong response content**
+
+   
+
  - [BZ 1897160](https://bugzilla.redhat.com/1897160) **SCSI Pass-Through is enabled by default**
+
+   
+
+
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1914825](https://bugzilla.redhat.com/1914825) **Update queries to use v4_4 views in all dashboards**
+
+   
+
+ - [BZ 1910045](https://bugzilla.redhat.com/1910045) **Update data source in all dashboards**
+
+   
+
+ - [BZ 1912887](https://bugzilla.redhat.com/1912887) **Update variables on dashboards that do not display deleted entities**
+
+   
+
+ - [BZ 1904047](https://bugzilla.redhat.com/1904047) **Add types of storage and storage domain to enum_translator table (enums.sql)**
+
+   
+
+
+#### oVirt Ansible collection
+
+ - [BZ 1915286](https://bugzilla.redhat.com/1915286) **RHHI-V deployment fails on task "Get server CPU list via REST API"**
 
    
 
@@ -182,6 +253,14 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 
 #### oVirt Engine
 
+ - [BZ 1919628](https://bugzilla.redhat.com/1919628) **VM pool size update using the REST API fails**
+
+   
+
+ - [BZ 1915329](https://bugzilla.redhat.com/1915329) **[Stream] Add host fails with: Destination /etc/pki/ovirt-engine/requests not writable**
+
+   
+
  - [BZ 1581677](https://bugzilla.redhat.com/1581677) **[scale] search (VMs + storage domain) is taking too long**
 
    
@@ -195,36 +274,52 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
    
 
 
+#### VDSM
+
+ - [BZ 1916947](https://bugzilla.redhat.com/1916947) **The syntax of the entry in '99-vdsm_protect_ifcfg.conf' is incorrect**
+
+   
+
+
 #### Contributors
 
-29 people contributed to this release:
+38 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: ovirt-release, vdsm)
 	Amit Bawer (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
-	Artur Socha (Contributed to: ovirt-engine)
-	Asaf Rachmani (Contributed to: imgbased)
+	Artur Socha (Contributed to: ovirt-engine, ovirt-engine-wildfly)
+	Asaf Rachmani (Contributed to: imgbased, ovirt-ansible-collection)
+	Aviv Litman (Contributed to: ovirt-dwh)
 	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-engine-nodejs-modules)
 	Benny Zlotnik (Contributed to: ovirt-engine)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Eitan Raviv (Contributed to: ovirt-engine)
 	Eli Mesika (Contributed to: ovirt-engine)
-	Eyal Shenitzky (Contributed to: ovirt-engine)
-	Jean-Louis Dupond (Contributed to: vdsm)
+	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
+	Jean-Louis Dupond (Contributed to: ovirt-engine, vdsm)
 	Lev Veyde (Contributed to: ovirt-engine, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine)
-	Martin Perina (Contributed to: ovirt-engine)
+	Lucia Jelinkova (Contributed to: ovirt-engine)
+	Marcin Sobczyk (Contributed to: vdsm)
+	Martin Nečas (Contributed to: ovirt-ansible-collection)
+	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-wildfly)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
+	Nir Levy (Contributed to: ovirt-host)
 	Nir Soffer (Contributed to: vdsm)
 	Ondra Machacek (Contributed to: ovirt-engine-sdk-java)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk, ovirt-engine-sdk-java)
 	Parth Dhanjal (Contributed to: cockpit-ovirt)
+	Pavel Bar (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)
-	Sandro Bonazzola (Contributed to: cockpit-ovirt, ovirt-cockpit-sso, ovirt-engine, ovirt-engine-sdk-java, ovirt-release, vdsm)
+	Sandro Bonazzola (Contributed to: cockpit-ovirt, ovirt-cockpit-sso, ovirt-engine, ovirt-engine-sdk-java, ovirt-host, ovirt-release, vdsm)
 	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules)
+	Shane McDonald (Contributed to: ovirt-ansible-collection)
 	Shani Leviim (Contributed to: ovirt-engine)
+	Shirly Radco (Contributed to: ovirt-dwh)
 	Steven Rosenberg (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Tomáš Golembiovský (Contributed to: vdsm)
-	Yedidyah Bar David (Contributed to: otopi, ovirt-cockpit-sso, ovirt-engine)
+	Vojtech Juranek (Contributed to: vdsm)
+	Yedidyah Bar David (Contributed to: otopi, ovirt-ansible-collection, ovirt-cockpit-sso, ovirt-engine, ovirt-host)

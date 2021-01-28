@@ -72,6 +72,7 @@ Behavior:
 *   if not set, the default value is false
 *   example of creating a VM with smartcard enabled:
 
+```xml
       <vm>
           <name>vm2</name>
           <description>Virtual Machine 2</description>
@@ -90,14 +91,15 @@ Behavior:
               <smartcard_enabled>true</smartcard_enabled>
           </display>
       </vm>
-       
+```
 
 ### VDSM
 
 *   When VDSM receives a device named *smartcard* it adds to the libvirt configuration to the *devices* part the following:
 
+```xml
       <smartcard mode="passthrough" type="spicevmc"/>
-       
+```
 
 ## Documentation / External references
 

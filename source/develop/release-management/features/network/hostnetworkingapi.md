@@ -138,10 +138,11 @@ The link_aggregation element will be used from within the host_nic element for b
 *   Supported actions:
     -   **POST** - expects a relative change to be applied on the host, using *PATCH* behaviour.
 *   Request structure:
+
 ```xml
  <action>
    <modified_bonds />
-         <removed_bonds />    
+         <removed_bonds />
    <modified_network_attachments />
    <synchronized_network_attachments/>
    <removed_network_attachments />

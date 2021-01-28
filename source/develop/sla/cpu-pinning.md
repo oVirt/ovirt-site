@@ -17,6 +17,7 @@ itself.
 
 Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sample:
 
+```xml
       <domain>
         ...
         <cputune>
@@ -27,6 +28,7 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
         </cputune>
         ...
       </domain>
+```
 
 ## Engine core
 
@@ -50,14 +52,15 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
 
 ## VDSM
 
-VDSM receives the cpu pinning information through its xml-rpc interface at createVM (alias VM.create()) call. Expected data structure:
+VDSM receives the cpu pinning information through its xml-rpc interface at createVM (alias `VM.create()`) call. Expected data structure:
 
-      * cpuPinning - map of { vcpuid : cpuset } e.g. { 0 : '1-4' } sets the vcpu 4 to cpu 1-4
+* `cpuPinning` - map of `{ vcpuid : cpuset }` e.g. `{ 0 : '1-4' }` sets the vcpu 4 to cpu 1-4
 
 ## Rest API
 
 *   Should be added in the relevant actions.
 
+```xml
       <cpu>
         <topology sockets="4" cores="1"/>
         <cputune>
@@ -67,6 +70,7 @@ VDSM receives the cpu pinning information through its xml-rpc interface at creat
           <vcpupin vcpu="3" cpuset="0,4"/>
         </cputune>
       </cpu>
+```
 
 ## UI
 

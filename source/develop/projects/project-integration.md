@@ -50,7 +50,7 @@ Leads the following projects:
 
 ## Projects deprecated / dropped in latest oVirt releases
 
-*   [oVirt Orb](/documentation/ovirt-orb/index.html)
+*   [oVirt Orb](/dropped/ovirt-orb/index.html)
 *   oVirt Iso Uploader
 *   oVirt Image Uploader
 *   oVirt Live

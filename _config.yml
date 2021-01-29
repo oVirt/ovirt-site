@@ -114,6 +114,12 @@ defaults:
       path: 'develop/storage'
     values:
       layout: "developer_outdated"
+  -
+    scope:
+      path: 'dropped/ovirt-orb'
+    values:
+      layout: "developer_outdated"
+
 
 excerpt_separator: READMORE
 

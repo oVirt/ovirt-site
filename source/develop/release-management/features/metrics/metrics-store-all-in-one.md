@@ -51,8 +51,3 @@ By default, it will install the metrics store as all-in-one OpenShift master nod
 If more than 1 VM is required, the user will need to supply a configuration file to the oVirt metrics role, that defines the number of VMs to configure.
 Basic VMs profiles will be available, but can be updated by the user if needed.
 
-
-## Metrics store current documentation
-
-### [oVirt Metrics Store Installation Guide](/documentation/metrics-install-guide/metrics_store_installation_guide)
-### [oVirt Metrics Store User Guide](/documentation/metrics-user-guide/metrics-user-guide)

@@ -1,14 +1,14 @@
 ---
 title: oVirt 4.4.5 Release Notes
 category: documentation
-authors: lveyde sandrobonazzola
+authors: sandrobonazzola lveyde
 toc: true
 page_classes: releases
 ---
 
 # oVirt 4.4.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.5 Third Release Candidate as of January 28, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.5 Fourth Release Candidate as of February 04, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -44,7 +44,7 @@ To learn about features introduced before 4.4.5, see the
 
 In order to install this Release Candidate you will need to enable pre-release repository.
 
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
 
 
 ## Known issues
@@ -78,6 +78,10 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 #### oVirt Engine
 
+ - [BZ 1921104](https://bugzilla.redhat.com/1921104) **Bump required ansible version in RHV Manager 4.4.5**
+
+   RHV Manager 4.4.5 now requires ansible-2.9.17
+
  - [BZ 1916076](https://bugzilla.redhat.com/1916076) **Rebase on Wildfly 22**
 
    oVirt Engine now requires WildFly 22
@@ -101,6 +105,22 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 ### Enhancements
 
 #### oVirt Engine
+
+ - [BZ 1753645](https://bugzilla.redhat.com/1753645) **[RFE] Enable bochs-display for UEFI guests**
+
+   
+
+ - [BZ 1899583](https://bugzilla.redhat.com/1899583) **[RFE] Allow Live update of network filter's parameters**
+
+   Feature: Allow live update of vnic filter parameters
+
+
+
+Reason: Better user experience: if live update is not available the user has to unplug and re-plug the vnic after an update.
+
+
+
+Result: When adding\deleting\editing filter parameters of a VM's vnic in engine, they are applied immediately on the device on the VM.
 
  - [BZ 1866749](https://bugzilla.redhat.com/1866749) **[RFE] provide warning for soft errors**
 
@@ -127,11 +147,40 @@ Reason: Rebooting the host is needed is several cases such as specifying new ker
 Result: When installing/ reinstalling host, reboot is enabled by default (can be disabled by the administrator)
 
 
+#### VDSM
+
+ - [BZ 1899583](https://bugzilla.redhat.com/1899583) **[RFE] Allow Live update of network filter's parameters**
+
+   Feature: Allow live update of vnic filter parameters
+
+
+
+Reason: Better user experience: if live update is not available the user has to unplug and re-plug the vnic after an update.
+
+
+
+Result: When adding\deleting\editing filter parameters of a VM's vnic in engine, they are applied immediately on the device on the VM.
+
+
 #### oVirt Engine Data Warehouse
 
  - [BZ 1887149](https://bugzilla.redhat.com/1887149) **[RFE] VM Disk stats should contain IOPS stats**
 
-   
+   Feature: 
+
+Collect VM disks IOPS stats to DWH database
+
+
+
+Reason: 
+
+Allow users to view VM disks IOPS stats
+
+
+
+Result: 
+
+VM disks IOPS stats are now saved to DWH database and aggregated to hourly and daily data.
 
 
 ### Bug Fixes
@@ -162,9 +211,18 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 
 #### VDSM
 
+ - [BZ 1916519](https://bugzilla.redhat.com/1916519) **Host memory statistics discrepancies due to SReclaimable**
+
  - [BZ 1860492](https://bugzilla.redhat.com/1860492) **Create template with option "seal template" from VM snapshot fails to remove VM specific information.**
 
  - [BZ 1773922](https://bugzilla.redhat.com/1773922) **remote-viewer prompts for password after migration of a VM with expired ticket**
+
+
+#### oVirt Hosted Engine HA
+
+ - [BZ 1916032](https://bugzilla.redhat.com/1916032) **Engine allows deploying HE hosts with spm_id &gt; 64 but broker won't read past slot 64**
+
+ - [BZ 1815589](https://bugzilla.redhat.com/1815589) **The HA agent trying to start HE VM in source host after successful HE migration**
 
 
 ### Other
@@ -196,7 +254,19 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 
 #### oVirt Engine
 
- - [BZ 1921104](https://bugzilla.redhat.com/1921104) **Bump required ansible version in RHV Manager 4.4.5**
+ - [BZ 1910302](https://bugzilla.redhat.com/1910302) **[RFE] Allow SPM switching if all tasks have finished via UI**
+
+   
+
+ - [BZ 1921119](https://bugzilla.redhat.com/1921119) **RHV reports unsynced cluster when host QoS is in use.**
+
+   
+
+ - [BZ 1912426](https://bugzilla.redhat.com/1912426) **Disable suspending a VM with an NVDIMM device**
+
+   
+
+ - [BZ 1901835](https://bugzilla.redhat.com/1901835) **[RFE][CBT] Redefine VM checkpoint without using the VM domain XML**
 
    
 
@@ -205,6 +275,21 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
    
 
  - [BZ 1897160](https://bugzilla.redhat.com/1897160) **SCSI Pass-Through is enabled by default**
+
+   
+
+
+#### VDSM
+
+ - [BZ 1896245](https://bugzilla.redhat.com/1896245) **[CBT][RFE] Use the new VIR_ERR_CHECKPOINT_INCONSISTENT error from libvirt to identify invalid checkpoints**
+
+   
+
+ - [BZ 1915025](https://bugzilla.redhat.com/1915025) **Unable to backup VM with raw disk after snapshot deletion**
+
+   
+
+ - [BZ 1901835](https://bugzilla.redhat.com/1901835) **[RFE][CBT] Redefine VM checkpoint without using the VM domain XML**
 
    
 
@@ -253,11 +338,23 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 
 #### oVirt Engine
 
+ - [BZ 1923218](https://bugzilla.redhat.com/1923218) **VM fails to start after preview operation - Exit message: XML error: Invalid PCI address 0000:05:00.0. slot must be &gt;= 1.**
+
+   
+
+ - [BZ 1919555](https://bugzilla.redhat.com/1919555) **Rebase apache-sshd to version 2.6.0 for RHV 4.4.5**
+
+   
+
  - [BZ 1919628](https://bugzilla.redhat.com/1919628) **VM pool size update using the REST API fails**
 
    
 
  - [BZ 1915329](https://bugzilla.redhat.com/1915329) **[Stream] Add host fails with: Destination /etc/pki/ovirt-engine/requests not writable**
+
+   
+
+ - [BZ 1918022](https://bugzilla.redhat.com/1918022) **oVirt Manager is not loading after engine-setup**
 
    
 
@@ -281,26 +378,39 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
    
 
 
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1922645](https://bugzilla.redhat.com/1922645) **typo "Saterday" on VM resource usage dashboard panels.**
+
+   
+
+ - [BZ 1898858](https://bugzilla.redhat.com/1898858) **[RFE] Add to the Variables the option to select one or more**
+
+   
+
+
 #### Contributors
 
-38 people contributed to this release:
+41 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: ovirt-release, vdsm)
 	Amit Bawer (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine, ovirt-engine-wildfly)
-	Asaf Rachmani (Contributed to: imgbased, ovirt-ansible-collection)
+	Asaf Rachmani (Contributed to: imgbased, ovirt-ansible-collection, ovirt-hosted-engine-ha)
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-engine-nodejs-modules)
+	Ben Amsalem (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Eitan Raviv (Contributed to: ovirt-engine)
 	Eli Mesika (Contributed to: ovirt-engine)
+	Evgeny Slutsky (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
 	Jean-Louis Dupond (Contributed to: ovirt-engine, vdsm)
 	Lev Veyde (Contributed to: ovirt-engine, ovirt-release)
-	Liran Rotenberg (Contributed to: ovirt-engine)
+	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection)
@@ -317,9 +427,10 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 	Sandro Bonazzola (Contributed to: cockpit-ovirt, ovirt-cockpit-sso, ovirt-engine, ovirt-engine-sdk-java, ovirt-host, ovirt-release, vdsm)
 	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules)
 	Shane McDonald (Contributed to: ovirt-ansible-collection)
-	Shani Leviim (Contributed to: ovirt-engine)
+	Shani Leviim (Contributed to: ovirt-engine, vdsm)
 	Shirly Radco (Contributed to: ovirt-dwh)
+	Shmuel Melamud (Contributed to: ovirt-engine)
 	Steven Rosenberg (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: vdsm)
-	Yedidyah Bar David (Contributed to: otopi, ovirt-ansible-collection, ovirt-cockpit-sso, ovirt-engine, ovirt-host)
+	Yedidyah Bar David (Contributed to: otopi, ovirt-ansible-collection, ovirt-cockpit-sso, ovirt-engine, ovirt-host, ovirt-hosted-engine-ha)

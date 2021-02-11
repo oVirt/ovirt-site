@@ -1,14 +1,25 @@
 ---
 title: oVirt 4.4.5 Release Notes
 category: documentation
-authors: sandrobonazzola lveyde
+authors: lveyde sandrobonazzola
 toc: true
 page_classes: releases
 ---
 
+
+# oVirt 4.4.5 release planning
+
+The oVirt 4.4.5 code freeze is planned for February 08, 2021.
+
+If no critical issues are discovered while testing this compose it will be released on March 04, 2021.
+
+It has been planned to include in this release the content from this query:
+[Bugzilla tickets targeted to 4.4.5](https://bugzilla.redhat.com/buglist.cgi?quicksearch=ALL%20target_milestone%3A%22ovirt-4.4.5%22%20-target_milestone%3A%22ovirt-4.4.5-%22)
+
+
 # oVirt 4.4.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.5 Fourth Release Candidate as of February 04, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.5 Fifth Release Candidate as of February 11, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -82,6 +93,50 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
    RHV Manager 4.4.5 now requires ansible-2.9.17
 
+ - [BZ 1901835](https://bugzilla.redhat.com/1901835) **[RFE][CBT] Redefine VM checkpoint without using the VM domain XML**
+
+   Feature:
+
+Redefine VM backup checkpoint without the domain XML of the VM.
+
+
+
+Reason: 
+
+Redefine the VM backup checkpoint complicates the backup flow:
+
+1. When the backup is taken the engine should keep the created checkpoint XML in its database - if the XML is missing recovery flow added to get over this case.
+
+2. Keeping the XML in the engine database is taking a lot of space.
+
+3. when the checkpoint is redefined, the XML should be given to Libvirt so a lot of data is transferred from the Engine to the host.
+
+
+
+Without the need of using the checkpoint XML when the checkpoint is redefined, we can reduce the flow complexity and reduce the needed space for the backup operation.
+
+
+
+
+
+Result:
+
+Checkpoint redefinition is done without the checkpoint XML that was kept in the Engine database when the backup was taken.
+
+There is no column for keeping the XML in the database anymore. 
+
+The checkpoint is now redefined by composing the checkpoint XML in the host and sending it to Libvirt.
+
+
+
+Incremental backup is still in a technical preview state both in oVirt/RHV and in Libvirt. Because of that, Libvirt doesn't provide a way to identify if checkpoint redefinition without the domain XML is supported or not.
+
+Due to that fact, the Engine cannot support in both ways to redefine the checkpoints so this change breaks the backward compatibility with the previous backups that were taken. A full backup is needed even if the VM had previous backups that were taken.
+
+
+
+Also, to use incremental backup, both Engine and VDSM (v4.40.50.3) should have the latest version.
+
  - [BZ 1916076](https://bugzilla.redhat.com/1916076) **Rebase on Wildfly 22**
 
    oVirt Engine now requires WildFly 22
@@ -89,6 +144,53 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
  - [BZ 1848872](https://bugzilla.redhat.com/1848872) **Rebase on Wildfly 21.0.2**
 
    oVirt Engine is now requiring WildFly 21.0.2
+
+
+#### VDSM
+
+ - [BZ 1901835](https://bugzilla.redhat.com/1901835) **[RFE][CBT] Redefine VM checkpoint without using the VM domain XML**
+
+   Feature:
+
+Redefine VM backup checkpoint without the domain XML of the VM.
+
+
+
+Reason: 
+
+Redefine the VM backup checkpoint complicates the backup flow:
+
+1. When the backup is taken the engine should keep the created checkpoint XML in its database - if the XML is missing recovery flow added to get over this case.
+
+2. Keeping the XML in the engine database is taking a lot of space.
+
+3. when the checkpoint is redefined, the XML should be given to Libvirt so a lot of data is transferred from the Engine to the host.
+
+
+
+Without the need of using the checkpoint XML when the checkpoint is redefined, we can reduce the flow complexity and reduce the needed space for the backup operation.
+
+
+
+
+
+Result:
+
+Checkpoint redefinition is done without the checkpoint XML that was kept in the Engine database when the backup was taken.
+
+There is no column for keeping the XML in the database anymore. 
+
+The checkpoint is now redefined by composing the checkpoint XML in the host and sending it to Libvirt.
+
+
+
+Incremental backup is still in a technical preview state both in oVirt/RHV and in Libvirt. Because of that, Libvirt doesn't provide a way to identify if checkpoint redefinition without the domain XML is supported or not.
+
+Due to that fact, the Engine cannot support in both ways to redefine the checkpoints so this change breaks the backward compatibility with the previous backups that were taken. A full backup is needed even if the VM had previous backups that were taken.
+
+
+
+Also, to use incremental backup, both Engine and VDSM (v4.40.50.3) should have the latest version.
 
 
 #### oVirt Engine WildFly
@@ -102,13 +204,76 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
    oVirt Engine is now requiring WildFly 21.0.2
 
 
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1917848](https://bugzilla.redhat.com/1917848) **[RFE] Add hardware panel to Hosts Inventory Dashboard**
+
+   If this bug requires documentation, please select an appropriate Doc Type value.
+
+
 ### Enhancements
 
 #### oVirt Engine
 
- - [BZ 1753645](https://bugzilla.redhat.com/1753645) **[RFE] Enable bochs-display for UEFI guests**
+ - [BZ 1688186](https://bugzilla.redhat.com/1688186) **[RFE] CPU and NUMA Pinning shall be handled automatically**
 
-   
+   Previously, the CPU and NUMA pinning were done manually or automatically only by using REST-API when adding a new VM. This feature will add support for doing it automatically by UI and when updating a VM.
+
+ - [BZ 1712481](https://bugzilla.redhat.com/1712481) **Migration fail between non-FIPS &lt;-&gt; FIPS enabled host**
+
+   A new property added to the cluster entity: FIPS Mode.
+
+The FIPS mode is `undefined` by default, to be later changed, or set to a specific mode: `disabled` or `enabled`.
+
+The `undefined` is changed to the host specific capabilities, usually when a host in the cluster goes up.
+
+Any hosts that won't fulfill the cluster's FIPS mode will become non-operational, while those who were non-operational because of that - will try to initialize and if no other problem occur, will become up.
+
+This mode, will make alignment to the cluster specific allowing VMs to have the normal functionality such as migration between hosts.
+
+ - [BZ 1837221](https://bugzilla.redhat.com/1837221) **[RFE] Allow using other than RSA SHA-1/SHA-2 public keys for SSH connections between RHVM and hypervisors**
+
+   Currently RHV Manager was able to connect to hypervisors only using RSA public keys for SSH connection. From RHV 4.4.5 RHV Manager is also able to use EcDSA and EdDSA public keys for SSH.
+
+Also up until now RHV used only fingerprint of SSH public key to verify the host. But with the ability to use non RSA public we need to store the whole public SSH key in RHV database, so using fingerprint is deprecated.
+
+
+
+Newly added host to RHV Manager 4.4.5 will always be verified using the strongest public key offered by the host (unless administrator provide specific public key to use).
+
+For existing hosts RHV Manager 4.4.5 will store the whole RSA public key into its database on the next SSH connection (for example if administrator moves the host to maintenance and executes Enroll certificate or Reinstall).
+
+If administrator wants to use different public key for the host, he can provide custom public key using RESTAPI or fetching the strongest public key in webadmin in Edit host dialog.
+
+ - [BZ 1900564](https://bugzilla.redhat.com/1900564) **[CBT][incremental backup] Engine cannot stop backup because VM is hang, cannot destroy VM because backup is running**
+
+   Feature:
+
+It is now allowed to shutdown/power-off/reboot a VM even if the VM is during a backup. It can be done only by using the REST-API.
+
+
+
+Reason:
+
+There are cases when the VM backup is hanged so the backup is stuck. We should have a way to shutdown/power-off/reboot the VM in those cases.
+
+
+
+Result:
+
+VM can be shutdown/power-off/reboot during a backup by using the following request:
+
+
+
+POST /ovirt-engine/api/vms/123/(shutdown/power-off/reboot)
+
+
+
+&lt;action&gt;
+
+    &lt;force&gt;true&lt;/force&gt;
+
+&lt;/action&gt;
 
  - [BZ 1899583](https://bugzilla.redhat.com/1899583) **[RFE] Allow Live update of network filter's parameters**
 
@@ -183,6 +348,15 @@ Result:
 VM disks IOPS stats are now saved to DWH database and aggregated to hourly and daily data.
 
 
+### Known Issue
+
+#### oVirt Engine
+
+ - [BZ 1912426](https://bugzilla.redhat.com/1912426) **Disable suspending a VM with an NVDIMM device**
+
+   Suspending VMs with NVDIMMs can be very slow and prevent operating the VM for a very long time. For this reason, hibernating VMs with NVDIMMs has been disabled, until the underlying issues are fixed.
+
+
 ### Bug Fixes
 
 #### oVirt Engine SDK 4 Python
@@ -190,7 +364,14 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
  - [BZ 1848586](https://bugzilla.redhat.com/1848586) **Fix upload_ova_as_template.py**
 
 
+#### OTOPI
+
+ - [BZ 1344270](https://bugzilla.redhat.com/1344270) **dnf: Check package signature**
+
+
 #### oVirt Engine
+
+ - [BZ 1921119](https://bugzilla.redhat.com/1921119) **RHV reports unsynced cluster when host QoS is in use.**
 
  - [BZ 1890665](https://bugzilla.redhat.com/1890665) **Update numa node value is not applied after the VM restart**
 
@@ -211,11 +392,16 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### VDSM
 
- - [BZ 1916519](https://bugzilla.redhat.com/1916519) **Host memory statistics discrepancies due to SReclaimable**
-
  - [BZ 1860492](https://bugzilla.redhat.com/1860492) **Create template with option "seal template" from VM snapshot fails to remove VM specific information.**
 
+ - [BZ 1916519](https://bugzilla.redhat.com/1916519) **Host memory statistics discrepancies due to SReclaimable**
+
  - [BZ 1773922](https://bugzilla.redhat.com/1773922) **remote-viewer prompts for password after migration of a VM with expired ticket**
+
+
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1903977](https://bugzilla.redhat.com/1903977) **Fix Trend Dashboards to show 5/3 entities**
 
 
 #### oVirt Hosted Engine HA
@@ -254,19 +440,19 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### oVirt Engine
 
+ - [BZ 1926942](https://bugzilla.redhat.com/1926942) **[RFE] support up to 512 VCPUs**
+
+   
+
+ - [BZ 1854041](https://bugzilla.redhat.com/1854041) **[v2v] Warning message during every v2v import about incompatible parameter "memory"**
+
+   
+
+ - [BZ 1920871](https://bugzilla.redhat.com/1920871) **[RHHI-V] gluster-brick-create task fails when creating brick with LV cache from RHV admin portal**
+
+   
+
  - [BZ 1910302](https://bugzilla.redhat.com/1910302) **[RFE] Allow SPM switching if all tasks have finished via UI**
-
-   
-
- - [BZ 1921119](https://bugzilla.redhat.com/1921119) **RHV reports unsynced cluster when host QoS is in use.**
-
-   
-
- - [BZ 1912426](https://bugzilla.redhat.com/1912426) **Disable suspending a VM with an NVDIMM device**
-
-   
-
- - [BZ 1901835](https://bugzilla.redhat.com/1901835) **[RFE][CBT] Redefine VM checkpoint without using the VM domain XML**
 
    
 
@@ -275,21 +461,6 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
    
 
  - [BZ 1897160](https://bugzilla.redhat.com/1897160) **SCSI Pass-Through is enabled by default**
-
-   
-
-
-#### VDSM
-
- - [BZ 1896245](https://bugzilla.redhat.com/1896245) **[CBT][RFE] Use the new VIR_ERR_CHECKPOINT_INCONSISTENT error from libvirt to identify invalid checkpoints**
-
-   
-
- - [BZ 1915025](https://bugzilla.redhat.com/1915025) **Unable to backup VM with raw disk after snapshot deletion**
-
-   
-
- - [BZ 1901835](https://bugzilla.redhat.com/1901835) **[RFE][CBT] Redefine VM checkpoint without using the VM domain XML**
 
    
 
@@ -338,6 +509,26 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### oVirt Engine
 
+ - [BZ 1917821](https://bugzilla.redhat.com/1917821) **Adding new host with reboot causes the host to end up non operational**
+
+   
+
+ - [BZ 1924823](https://bugzilla.redhat.com/1924823) **Reboot host after host deploy is not exposed in RESTAPI**
+
+   
+
+ - [BZ 1903052](https://bugzilla.redhat.com/1903052) **ansible-runner-service.cil selinux module is often needlessly re-installed, takes a long time**
+
+   
+
+ - [BZ 1917809](https://bugzilla.redhat.com/1917809) **When running reboot after reinstall of a host reboot is reported as failed**
+
+   
+
+ - [BZ 1922094](https://bugzilla.redhat.com/1922094) **Upgrading host with reboot after upgrade option failes**
+
+   
+
  - [BZ 1923218](https://bugzilla.redhat.com/1923218) **VM fails to start after preview operation - Exit message: XML error: Invalid PCI address 0000:05:00.0. slot must be &gt;= 1.**
 
    
@@ -373,6 +564,14 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### VDSM
 
+ - [BZ 1896245](https://bugzilla.redhat.com/1896245) **[CBT][RFE] Use the new VIR_ERR_CHECKPOINT_INCONSISTENT error from libvirt to identify invalid checkpoints**
+
+   
+
+ - [BZ 1915025](https://bugzilla.redhat.com/1915025) **Unable to backup VM with raw disk after snapshot deletion**
+
+   
+
  - [BZ 1916947](https://bugzilla.redhat.com/1916947) **The syntax of the entry in '99-vdsm_protect_ifcfg.conf' is incorrect**
 
    
@@ -391,17 +590,17 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### Contributors
 
-41 people contributed to this release:
+43 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: ovirt-release, vdsm)
 	Amit Bawer (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine, ovirt-engine-wildfly)
-	Asaf Rachmani (Contributed to: imgbased, ovirt-ansible-collection, ovirt-hosted-engine-ha)
+	Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-hosted-engine-ha)
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-engine-nodejs-modules)
-	Ben Amsalem (Contributed to: ovirt-engine)
+	Ben Amsalem (Contributed to: ovirt-engine, ovirt-web-ui)
 	Benny Zlotnik (Contributed to: ovirt-engine)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Eitan Raviv (Contributed to: ovirt-engine)
@@ -413,7 +612,7 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
-	Martin Nečas (Contributed to: ovirt-ansible-collection)
+	Martin Nečas (Contributed to: ovirt-ansible-collection, ovirt-engine)
 	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-wildfly)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nir Levy (Contributed to: ovirt-host)
@@ -422,12 +621,14 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk, ovirt-engine-sdk-java)
 	Parth Dhanjal (Contributed to: cockpit-ovirt)
 	Pavel Bar (Contributed to: ovirt-engine)
+	Prajith Kesava Prasad (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)
 	Sandro Bonazzola (Contributed to: cockpit-ovirt, ovirt-cockpit-sso, ovirt-engine, ovirt-engine-sdk-java, ovirt-host, ovirt-release, vdsm)
-	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules)
+	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Shane McDonald (Contributed to: ovirt-ansible-collection)
 	Shani Leviim (Contributed to: ovirt-engine, vdsm)
+	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Shirly Radco (Contributed to: ovirt-dwh)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Steven Rosenberg (Contributed to: ovirt-engine, ovirt-engine-sdk)

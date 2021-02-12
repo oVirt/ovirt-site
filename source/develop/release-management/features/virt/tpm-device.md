@@ -30,7 +30,7 @@ There are no special prerequisites for this feature.  Software TPM emulation in 
 
 ## Security
 
-TPM device data is managed by swtpm and stored in the host file system (until the VM stops running there) and in the Engine database (TODO: update according to the selected implementation).  Whoever has access to those locations has access to the TPM data.  This is necessary to provide the data to the currently running VM or on its next start.  libvirt provides an option to encrypt the data with a key, but the key still must be stored somewhere in Engine and in the domain XML, so it's more obfuscation rather than real security and it's currently not used by oVirt.
+TPM device data is managed by swtpm and stored in the host file system (until the VM stops running there), in the Engine database and in exported VMs.  TPM data can also be leaked in Engine and Vdsm logs.  Whoever has access to those locations has access to the TPM data.  This is necessary to provide the data to the currently running VM or on its next start.  libvirt provides an option to encrypt the data with a key, but the key still must be stored somewhere in Engine and in the domain XML, so it's more obfuscation rather than real security and it's currently not used by oVirt.
 
 Availability of data stored in TPM shouldn't be critical.  Its loss can cause operational problems such as a need to initialize and set up TPM data again, to audit the operating system after the TPM data is reset (lost) or perhaps even to reinstall the whole system but it shouldn't cause real data loss.  When using bare metal, one can't rely on TPM data availability either because if the hardware stops working, the data is no longer accessible.  If one uses for example a private key stored only in TPM to encrypt and decrypt file system encryption keys, then the risk of losing data stored in the file system without having proper backups is at least as big with hardware TPM as with virtual TPM.
 
@@ -40,7 +40,7 @@ TPM devices can be used only with UEFI BIOS.
 
 Until <https://bugzilla.redhat.com/1855367> is implemented in libvirt, VMs with TPM devices cannot have snapshots with memory.  The problem is that we need swtpm data snapshot consistent with the VM snapshot, which is not possible to get without libvirt assistance.
 
-Since the emulated TPM is a software rather than a hardware device, its data updates can get lost, e.g. when a host suddenly crashes.  (TODO: Clarify according to the selected implementation.)
+Since the emulated TPM is a software rather than a hardware device, its data updates can get lost, e.g. when a host suddenly crashes.  Engine retrieves and stores TPM data periodically but that doesn't ensure Engine has always the latest version of the data.
 
 There is apparently no guarantee that new swtpm versions can still read its old data.  That should be watched in testing.
 
@@ -48,7 +48,7 @@ There is apparently no guarantee that new swtpm versions can still read its old 
 
 Ideally, a TPM device would be added to each VM automatically and would be automatically available to the guest OS.  However, TPM support is a new feature and we cannot guarantee that everything is correctly supported in the underlying platform (for example, snapshots with memory are currently not working as expected).  For that reason, it's better to not add TPM devices to VMs by default for now and to make a VM option to enable or disable them per VM as needed, defaulting to the VM's template setting.
 
-TODO: Description of the UI actions once they are implemented.
+A TPM device can be enabled or disabled in the VM edit dialog, Resource Allocation tab.  If there is TPM data stored for the VM and the TPM device is disabled in the VM, the TPM data is irrecoverably deleted.
 
 ## Testing
 
@@ -91,12 +91,25 @@ The options to deliver updated TPM data are similar to obtaining TPM data on VM 
 
 - Send the updated data to Engine in events, current API call responses (stats, destroy) or using a new Vdsm API call for the given purpose.
 - Store the data in metadata, to be read and processed in Engine monitoring.
-- Attach the data to dumpxmls
+- Attach the data to dumpxmls.
 - Store the data to shared storage from Vdsm.
 - Let swtpm store the data directly to the shared storage.
 - Some combination of the options above.
 
-Different options are discussed in the following subsections.  We can probably assume that TPM data updates are not going to be very frequent.  We mustn't forget about reboots, snapshots, imports and exports.
+We can assume that TPM data updates are not going to be very frequent.  We mustn't forget about reboots, snapshots, imports and exports.
+
+After considering all the options discussed in the following subsections, the following solution was selected:
+
+- TPM data is stored in the Engine database, in a separate table.
+- A new parameter providing TPM data is added to VM.create call.
+- A new API call VM.getExternalData to retrieve TPM data is introduced.
+- Engine calls VM.getExternalData to update the data in the database after a VM is stopped but before it is destroyed.
+- If a VM is powered off rather than shut down from Engine or from within the guest, the latest available stable data is retrieved.  It may not correspond to the very final data, but this is always a risk with unclean shutdown.
+- TPM data for VM snapshots is stored in `snapshots` database table.
+- On VM export / import, the data is stored to / retrieved from the exported / imported VM.  The data can be stored either in OVF or as a separate resource in the OVA.  Storing the data in OVF is easier implementation wise but then the OVF could contain relatively large data (typically a few KB to tens of KB).  Storing the data as a separate resource is harder to implement but data size is not a problem.  (TODO: Update according to the actual implementation.)
+- There is no support for importing TPM data when importing VMs originating from external systems.
+
+The same approach can be used for storing secure boot NVRAM data.
 
 #### Using API calls
 
@@ -159,3 +172,9 @@ The swtpm data location is selected by libvirt automatically but we could probab
 - libvirt removes the data after domain gets undefined.  We would have to prevent that, perhaps by removing the symbolic link before undefining the libvirt domain.
 
 The possible data consistency race would have to be solved some way (how?) to be able to use this approach.  The overall benefit of this approach depends on whether resolving the data consistency problem is easier than copying the data.
+
+## Future work
+
+In a future cluster version, TPM data transferred to Engine is going to be compressed to reduce the amount of data stored and transferred.
+
+Power-off operation could be changed to call ungraceful shutdown rather than direct destroy, with destroy operation called separately once the VM gets down.  Then final TPM data could be retrieved reliably also after power-off (from the point of hypervisor, there are still no guarantees in the guest OS in case of ungraceful shutdown).  This change would require changes on the Vdsm side to be meaningful but it can be implemented (without the hypervisor guarantees) also with current Vdsm if invoking guest shutdown followed by hard destroy immediately is acceptable as a power-off operation.

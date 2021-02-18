@@ -659,7 +659,7 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### Contributors
 
-45 people contributed to this release:
+44 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: ovirt-release, vdsm)

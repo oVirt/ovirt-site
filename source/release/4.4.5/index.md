@@ -19,7 +19,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.5 Fifth Release Candidate as of February 11, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.5 Sixth Release Candidate as of February 18, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -215,9 +215,33 @@ Also, to use incremental backup, both Engine and VDSM (v4.40.50.3) should have t
 
 #### oVirt Engine
 
+ - [BZ 1922200](https://bugzilla.redhat.com/1922200) **Checking the Engine database consistency takes too long to complete**
+
+   Up until now records in event_notification_hist table have been erased only during regular cleanup of audit_log table. By default we are periodically removing audit_log table records which are older than 30 days (can be overriden by AuditLogAgingThreshold option in engine-config).
+
+But records in event_notification_hist are much less important than records in audit_log table, so we have decided to keep records in event_notification_hist table only for 7 days. This limit can be overriden by creating custom configuration file /etc/ovirt-engine/notifier/notifier.conf.d/history.conf with content below:
+
+
+
+DAYS_TO_KEEP_HISTORY=NNN
+
+
+
+where NNN is number of days to keep records in event_notification_host table.
+
+After changing this value ovirt-engine-notifier service needs to be restarted:
+
+
+
+ systemctl restart ovirt-engine-notifier
+
  - [BZ 1688186](https://bugzilla.redhat.com/1688186) **[RFE] CPU and NUMA Pinning shall be handled automatically**
 
    Previously, the CPU and NUMA pinning were done manually or automatically only by using REST-API when adding a new VM. This feature will add support for doing it automatically by UI and when updating a VM.
+
+ - [BZ 1926942](https://bugzilla.redhat.com/1926942) **[RFE] Support up to 512 VCPUs**
+
+   Increase the limit of virtual CPUs in 4.5 clusters to 512.
 
  - [BZ 1712481](https://bugzilla.redhat.com/1712481) **Migration fail between non-FIPS &lt;-&gt; FIPS enabled host**
 
@@ -274,6 +298,10 @@ POST /ovirt-engine/api/vms/123/(shutdown/power-off/reboot)
     &lt;force&gt;true&lt;/force&gt;
 
 &lt;/action&gt;
+
+ - [BZ 1753645](https://bugzilla.redhat.com/1753645) **[RFE] Enable bochs-display for UEFI guests**
+
+   
 
  - [BZ 1899583](https://bugzilla.redhat.com/1899583) **[RFE] Allow Live update of network filter's parameters**
 
@@ -371,6 +399,8 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### oVirt Engine
 
+ - [BZ 1895217](https://bugzilla.redhat.com/1895217) **Hosted-Engine --restore-from-file fails if backup has VM pinned to restore host and has no Icon set.**
+
  - [BZ 1921119](https://bugzilla.redhat.com/1921119) **RHV reports unsynced cluster when host QoS is in use.**
 
  - [BZ 1890665](https://bugzilla.redhat.com/1890665) **Update numa node value is not applied after the VM restart**
@@ -440,7 +470,15 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### oVirt Engine
 
- - [BZ 1926942](https://bugzilla.redhat.com/1926942) **[RFE] support up to 512 VCPUs**
+ - [BZ 1923717](https://bugzilla.redhat.com/1923717) **[REST API ] When creating a VM via rest from a template with ballooning=false, the temp's ballooning setting is ignored if memory_policy exists**
+
+   
+
+ - [BZ 1715287](https://bugzilla.redhat.com/1715287) **VM starts with UEFI+pc-q35-rhel7.6.0 XML when configuring UEFI bios type+pc-i440fx-rhel7.6.0 in WEB UI**
+
+   
+
+ - [BZ 1905394](https://bugzilla.redhat.com/1905394) **CPU validation fails with VM custom compatibility version**
 
    
 
@@ -456,6 +494,10 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
    
 
+ - [BZ 1649479](https://bugzilla.redhat.com/1649479) **[RFE] OVF_STORE last update not exposed in the UI**
+
+   
+
  - [BZ 1875412](https://bugzilla.redhat.com/1875412) **Request to create a nic on template gets wrong response content**
 
    
@@ -466,6 +508,18 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 
 #### oVirt Engine Data Warehouse
+
+ - [BZ 1899529](https://bugzilla.redhat.com/1899529) **[RFE] Add Virtual Machines Dashboard**
+
+   
+
+ - [BZ 1899573](https://bugzilla.redhat.com/1899573) **[RFE] Add IOPS stats to vms dashboard**
+
+   
+
+ - [BZ 1898863](https://bugzilla.redhat.com/1898863) **[RFE] Add Hosts Dashboard**
+
+   
 
  - [BZ 1914825](https://bugzilla.redhat.com/1914825) **Update queries to use v4_4 views in all dashboards**
 
@@ -491,6 +545,13 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
    
 
 
+#### imgbased
+
+ - [BZ 1907746](https://bugzilla.redhat.com/1907746) **RHVH cannot enter the new layer after upgrade testing with STIG profile selected.**
+
+   
+
+
 ### No Doc Update
 
 #### cockpit-ovirt
@@ -509,6 +570,18 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### oVirt Engine
 
+ - [BZ 1924962](https://bugzilla.redhat.com/1924962) **AnsibleServlet used by cluster upgrade fails to properly start the ovirt-cluster-upgrade.yml playbook**
+
+   
+
+ - [BZ 1926277](https://bugzilla.redhat.com/1926277) **Exception: Failed to create host deploy variables mapper Unexpected IOException (of type org.codehaus.jackson.JsonParseException): Illegal character '_' (code 0x5f) in base64 content**
+
+   
+
+ - [BZ 1925025](https://bugzilla.redhat.com/1925025) **Add information tooltip icon to the new reboot host option**
+
+   
+
  - [BZ 1917821](https://bugzilla.redhat.com/1917821) **Adding new host with reboot causes the host to end up non operational**
 
    
@@ -518,14 +591,6 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
    
 
  - [BZ 1903052](https://bugzilla.redhat.com/1903052) **ansible-runner-service.cil selinux module is often needlessly re-installed, takes a long time**
-
-   
-
- - [BZ 1917809](https://bugzilla.redhat.com/1917809) **When running reboot after reinstall of a host reboot is reported as failed**
-
-   
-
- - [BZ 1922094](https://bugzilla.redhat.com/1922094) **Upgrading host with reboot after upgrade option failes**
 
    
 
@@ -579,6 +644,10 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### oVirt Engine Data Warehouse
 
+ - [BZ 1926188](https://bugzilla.redhat.com/1926188) **Fix vms disks usage panels to show the average**
+
+   
+
  - [BZ 1922645](https://bugzilla.redhat.com/1922645) **typo "Saterday" on VM resource usage dashboard panels.**
 
    
@@ -590,18 +659,19 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### Contributors
 
-43 people contributed to this release:
+45 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: ovirt-release, vdsm)
 	Amit Bawer (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine, ovirt-engine-wildfly)
-	Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-hosted-engine-ha)
+	Asaf Rachmani (Contributed to: imgbased, ovirt-ansible-collection, ovirt-hosted-engine-ha)
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-engine-nodejs-modules)
+	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Ben Amsalem (Contributed to: ovirt-engine, ovirt-web-ui)
-	Benny Zlotnik (Contributed to: ovirt-engine)
+	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Eitan Raviv (Contributed to: ovirt-engine)
 	Eli Mesika (Contributed to: ovirt-engine)
@@ -615,7 +685,7 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 	Martin Nečas (Contributed to: ovirt-ansible-collection, ovirt-engine)
 	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-wildfly)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
-	Nir Levy (Contributed to: ovirt-host)
+	Nir Levy (Contributed to: imgbased, ovirt-host)
 	Nir Soffer (Contributed to: vdsm)
 	Ondra Machacek (Contributed to: ovirt-engine-sdk-java)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk, ovirt-engine-sdk-java)
@@ -625,7 +695,7 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)
 	Sandro Bonazzola (Contributed to: cockpit-ovirt, ovirt-cockpit-sso, ovirt-engine, ovirt-engine-sdk-java, ovirt-host, ovirt-release, vdsm)
-	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
+	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Shane McDonald (Contributed to: ovirt-ansible-collection)
 	Shani Leviim (Contributed to: ovirt-engine, vdsm)
 	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)

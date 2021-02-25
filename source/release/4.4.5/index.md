@@ -19,7 +19,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.5 Sixth Release Candidate as of February 18, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.5 Seventh Release Candidate as of February 25, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -215,6 +215,32 @@ Also, to use incremental backup, both Engine and VDSM (v4.40.50.3) should have t
 
 #### oVirt Engine
 
+ - [BZ 1155275](https://bugzilla.redhat.com/1155275) **[RFE] - Online update LUN size to the Guest after LUN resize**
+
+   Feature: 
+
+Online update LUNs on a guest while it's running.
+
+
+
+Reason: 
+
+In case of a LUN disk attached to a running VM, and its size has been updated, the host and VM should refresh the disk and get its updated information, without shutting down the VM.
+
+
+
+Result: 
+
+A 'Refresh LUN' button is now accessible from the VM Disks sub-tab.
+
+This button syncs the LUN's size on all hosts connected to the LUN disk, and updates its size on the VM it's being attached to while the VM is running.
+
+In case the disk is attached to more than one running VM, all VMs are being updated.
+
+For not running VMs, the disk should be updated once the
+
+VMs are back up.
+
  - [BZ 1922200](https://bugzilla.redhat.com/1922200) **Checking the Engine database consistency takes too long to complete**
 
    Up until now records in event_notification_hist table have been erased only during regular cleanup of audit_log table. By default we are periodically removing audit_log table records which are older than 30 days (can be overriden by AuditLogAgingThreshold option in engine-config).
@@ -342,6 +368,32 @@ Result: When installing/ reinstalling host, reboot is enabled by default (can be
 
 #### VDSM
 
+ - [BZ 1155275](https://bugzilla.redhat.com/1155275) **[RFE] - Online update LUN size to the Guest after LUN resize**
+
+   Feature: 
+
+Online update LUNs on a guest while it's running.
+
+
+
+Reason: 
+
+In case of a LUN disk attached to a running VM, and its size has been updated, the host and VM should refresh the disk and get its updated information, without shutting down the VM.
+
+
+
+Result: 
+
+A 'Refresh LUN' button is now accessible from the VM Disks sub-tab.
+
+This button syncs the LUN's size on all hosts connected to the LUN disk, and updates its size on the VM it's being attached to while the VM is running.
+
+In case the disk is attached to more than one running VM, all VMs are being updated.
+
+For not running VMs, the disk should be updated once the
+
+VMs are back up.
+
  - [BZ 1899583](https://bugzilla.redhat.com/1899583) **[RFE] Allow Live update of network filter's parameters**
 
    Feature: Allow live update of vnic filter parameters
@@ -399,6 +451,8 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### oVirt Engine
 
+ - [BZ 1145658](https://bugzilla.redhat.com/1145658) **Storage domain removal does not check if the storage domain contains any memory dumps.**
+
  - [BZ 1895217](https://bugzilla.redhat.com/1895217) **Hosted-Engine --restore-from-file fails if backup has VM pinned to restore host and has no Icon set.**
 
  - [BZ 1921119](https://bugzilla.redhat.com/1921119) **RHV reports unsynced cluster when host QoS is in use.**
@@ -445,6 +499,14 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### cockpit-ovirt
 
+ - [BZ 1755156](https://bugzilla.redhat.com/1755156) **[RFE] Cockpit: RHV deployment missing local appliance installation**
+
+   
+
+ - [BZ 1780881](https://bugzilla.redhat.com/1780881) **[RFE] Allow pausing during deploy**
+
+   
+
  - [BZ 1908234](https://bugzilla.redhat.com/1908234) **Order of hosts not preserved for day2 operations**
 
    
@@ -470,11 +532,31 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### oVirt Engine
 
- - [BZ 1923717](https://bugzilla.redhat.com/1923717) **[REST API ] When creating a VM via rest from a template with ballooning=false, the temp's ballooning setting is ignored if memory_policy exists**
+ - [BZ 1930733](https://bugzilla.redhat.com/1930733) **Cluster upgrade fails when using Intel Skylake Client/Server IBRS SSBD MDS Family**
+
+   
+
+ - [BZ 1905158](https://bugzilla.redhat.com/1905158) **After upgrading RHVH 4.4.2 to 4.4.3 moves to non-operational due to missing CPU features : model_Cascadelake-Server**
+
+   
+
+ - [BZ 1892525](https://bugzilla.redhat.com/1892525) **Cannot clone VM from Admin Portal if it has Direct LUN**
+
+   
+
+ - [BZ 1874483](https://bugzilla.redhat.com/1874483) **[CBT] During the VM backup, the local storage of the hypervisor is used**
+
+   
+
+ - [BZ 1923717](https://bugzilla.redhat.com/1923717) **When creating a VM via rest from a template with ballooning=false, the template's ballooning setting is ignored if memory_policy exists**
 
    
 
  - [BZ 1715287](https://bugzilla.redhat.com/1715287) **VM starts with UEFI+pc-q35-rhel7.6.0 XML when configuring UEFI bios type+pc-i440fx-rhel7.6.0 in WEB UI**
+
+   
+
+ - [BZ 1729359](https://bugzilla.redhat.com/1729359) **Failed image upload leaves disk in locked state, requiring manual intervention to cleanup.**
 
    
 
@@ -503,6 +585,25 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
    
 
  - [BZ 1897160](https://bugzilla.redhat.com/1897160) **SCSI Pass-Through is enabled by default**
+
+   
+
+
+#### VDSM
+
+ - [BZ 1796415](https://bugzilla.redhat.com/1796415) **Live Merge  and Remove Snapshot fails**
+
+   
+
+ - [BZ 1870435](https://bugzilla.redhat.com/1870435) **StorageDomain.dump() can return {"key" : None} if metadata is missing**
+
+   
+
+ - [BZ 1858956](https://bugzilla.redhat.com/1858956) **Bad handling of imageio errors since imageio 1.5**
+
+   
+
+ - [BZ 1874483](https://bugzilla.redhat.com/1874483) **[CBT] During the VM backup, the local storage of the hypervisor is used**
 
    
 
@@ -554,13 +655,6 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 ### No Doc Update
 
-#### cockpit-ovirt
-
- - [BZ 1893161](https://bugzilla.redhat.com/1893161) **Cockpit hosted engine installer allows a disk size bigger than the LUN**
-
-   
-
-
 #### OTOPI
 
  - [BZ 1908617](https://bugzilla.redhat.com/1908617) **otopi is using a private dnf method _read_conf_file**
@@ -569,6 +663,10 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 
 #### oVirt Engine
+
+ - [BZ 1914602](https://bugzilla.redhat.com/1914602) **[RHV 4.4] /var/lib/ovirt-engine/external_truststore (Permission denied)**
+
+   
 
  - [BZ 1924962](https://bugzilla.redhat.com/1924962) **AnsibleServlet used by cluster upgrade fails to properly start the ovirt-cluster-upgrade.yml playbook**
 
@@ -628,6 +726,10 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 
 #### VDSM
+
+ - [BZ 1796124](https://bugzilla.redhat.com/1796124) **Live Merge  and Remove Snapshot fails**
+
+   
 
  - [BZ 1896245](https://bugzilla.redhat.com/1896245) **[CBT][RFE] Use the new VIR_ERR_CHECKPOINT_INCONSISTENT error from libvirt to identify invalid checkpoints**
 

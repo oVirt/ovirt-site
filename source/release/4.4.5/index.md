@@ -1,7 +1,7 @@
 ---
 title: oVirt 4.4.5 Release Notes
 category: documentation
-authors: lveyde sandrobonazzola
+authors: sandrobonazzola lveyde
 toc: true
 page_classes: releases
 ---
@@ -19,7 +19,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.5 Seventh Release Candidate as of February 25, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.5 Eighth Release Candidate as of March 04, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -88,6 +88,18 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 
 #### oVirt Engine
+
+ - [BZ 1906320](https://bugzilla.redhat.com/1906320) **Recreate engine HTTPS certificate in engine-setup during upgrade when certificate validity period is longer than 398 days**
+
+   Up until 4.4.5 RHV Manager HTTPS certificates were valid for 5 years. 
+
+Due to recent efforts to reduce certificate lifetime [1] engine certificates validity was reduced to 398 days.
+
+This change doesn't affect existing setup, but when running a new engine-setup engine's certificates will be verified to be valid for 398 days. If they are valid for a longer period, the user will be asked to renew certificates.
+
+
+
+[1] https://www.thesslstore.com/blog/ssl-certificate-validity-will-be-limited-to-one-year-by-apples-safari-browser/
 
  - [BZ 1921104](https://bugzilla.redhat.com/1921104) **Bump required ansible version in RHV Manager 4.4.5**
 
@@ -215,6 +227,40 @@ Also, to use incremental backup, both Engine and VDSM (v4.40.50.3) should have t
 
 #### oVirt Engine
 
+ - [BZ 1910022](https://bugzilla.redhat.com/1910022) **[RFE] add button to switch the master storage domain role**
+
+   Feature: 
+
+Add a button to switch the master storage domain role from UI.
+
+
+
+Reason: 
+
+The ability to switch the master domain role is currently available only from SDK.
+
+
+
+Result:
+
+The master storage domain role can be switched by pressing the 'Set as master storage domain' button on the Storage Domain sidebar menu.
+
+ - [BZ 1669178](https://bugzilla.redhat.com/1669178) **[RFE] Q35 SecureBoot - Add ability to preserve variable store certificates.**
+
+   Secure Boot process relies on keys that are normally stored in NVRAM of the VM. However, NVRAM was not stored in previous versions of oVirt and was newly initialized on every start of a VM. This prevented the use of any custom drivers (e.g. for Nvidia devices or for PLDP drivers in SUSE) on VMs with Secure Boot enabled. To be able to use SecureBoot VMs effectively oVirt now persists the content of NVRAM for UEFI VMs.
+
+ - [BZ 1926854](https://bugzilla.redhat.com/1926854) **[RFE] Requesting an audit log entry be added in LSM flow to display the host on which the internal volumes are copied**
+
+   
+
+ - [BZ 1787235](https://bugzilla.redhat.com/1787235) **[RFE] Offline disk move should log which host the data is being copied on in the audit log**
+
+   
+
+ - [BZ 1927851](https://bugzilla.redhat.com/1927851) **[RFE] Add timezone AUS Eastern Standard Time**
+
+   The timezone AUS Eastern Standard Time is added to cover daylight saving in Canberra, Melbourne and Sydney.
+
  - [BZ 1155275](https://bugzilla.redhat.com/1155275) **[RFE] - Online update LUN size to the Guest after LUN resize**
 
    Feature: 
@@ -240,6 +286,66 @@ In case the disk is attached to more than one running VM, all VMs are being upda
 For not running VMs, the disk should be updated once the
 
 VMs are back up.
+
+ - [BZ 1926888](https://bugzilla.redhat.com/1926888) **[RFE][CBT] Allow mixed incremental backup of RAW and COW disks**
+
+   Feature: 
+
+VM backup that contains both full backups for part of the disks and incremental backups for the others is now allowed.
+
+
+
+Reason:
+
+A mixed backup will allow the creation of a backup for the VM under a single operation. 
+
+
+
+Before that, the user had to do an incremental backup for the disks that already had a backup and supports it and a different full backup for the disks that are not marked as 'Incremental backup enabled'.
+
+
+
+Result: 
+
+Full and incremental backup can be taken in the same backup operation under the same checkpoint. the backup_mode of each disk in the backup will indicate the type of backup that was taken for each disk (full/incremental).
+
+ - [BZ 1874483](https://bugzilla.redhat.com/1874483) **[CBT] During the VM backup, the local storage of the hypervisor is used**
+
+   Feature:
+
+The creation of scratch disks for a backup operation will use the same shared storage as the backed-up disks that participate in the backup.
+
+
+
+Reason: 
+
+For backup operation, scratch disks created in order to keep the 'old' disk state and persist the data until the backup is over. Those disks created on the host local storage which is limited and not scalable.
+
+
+
+Result: 
+
+For each disk that participates in the backup a scratch disk created on the same storage domain that the disk is based on.
+
+This process is now done by the engine and not by the host, before the backup is taken, the scratch disks created and prepared for the backup. When the backup is done the scratch disks teardown and removed.
+
+ - [BZ 1909197](https://bugzilla.redhat.com/1909197) **[CBT] Enable incremental backup by default for new installation**
+
+   Feature:
+
+Incremental backup enabled by default for 4.5 clusters.
+
+
+
+Reason:
+
+Allow using the incremental backup feature without any explicit database configuration operations
+
+
+
+Result: 
+
+For 4.5 clusters, incremental backup can be used without changing the "IsIncrementalBackupSupported" configuration value in the database.
 
  - [BZ 1922200](https://bugzilla.redhat.com/1922200) **Checking the Engine database consistency takes too long to complete**
 
@@ -325,9 +431,65 @@ POST /ovirt-engine/api/vms/123/(shutdown/power-off/reboot)
 
 &lt;/action&gt;
 
+ - [BZ 1910302](https://bugzilla.redhat.com/1910302) **[RFE] Allow SPM switching if all tasks have finished via UI**
+
+   Feature:
+
+Adding a menu to support finished tasks' clean-up.
+
+
+
+Reason:
+
+Currently the SPM fails to switch to another host if the SPM contains uncleared tasks.
+
+
+
+Result:
+
+The storage pool manager (SPM) fails to switch to another host if the SPM has uncleared tasks.
+
+Clearing all the finished tasks enables the SPM switching.
+
+This RFE adds a UI menu to cleanup 1 or more active Data Centers and is based on 'Bug 1627997' that implemented this functionality in REST API.
+
  - [BZ 1753645](https://bugzilla.redhat.com/1753645) **[RFE] Enable bochs-display for UEFI guests**
 
    
+
+ - [BZ 1891470](https://bugzilla.redhat.com/1891470) **[CBT][RFE] Support cold VM incremental backup**
+
+   Feature: 
+
+Support VM backup when the VM is not running
+
+
+
+Reason: 
+
+Backup vendors and users should have the option to backup their VMs even when they are not running.
+
+
+
+Result:
+
+Backup of VMs that are not running is now supported, the same API that used for backup running VMs is used so it is transparent for the backup vendor or the user what is the status of the VM.
+
+
+
+The process of 'cold' backup is different, when a cold backup is taken there is no need to redefine the previous checkpoints and to create scratch disks for each disk that participate in the backup because the VM is down and there will be no writing to the disks during the backup.
+
+
+
+The backup operation is done without Libvirt.
+
+A checkpoint created in the Engine DB in the same way as for 'live' backup but in the host, there is no checkpoint creation. Instead, a new bitmap is added for each disk.
+
+The created bitmap will be exposed using the NBD server when the image will be downloaded using imageio.
+
+
+
+When the VM is started with "cold" backup checkpoints, the system will redefine the checkpoints in Libvirt. Once a 'cold' checkpoint is redefined, there is no difference between the 'cold' checkpoint and checkpoint created during live backup.
 
  - [BZ 1899583](https://bugzilla.redhat.com/1899583) **[RFE] Allow Live update of network filter's parameters**
 
@@ -394,6 +556,64 @@ For not running VMs, the disk should be updated once the
 
 VMs are back up.
 
+ - [BZ 1874483](https://bugzilla.redhat.com/1874483) **[CBT] During the VM backup, the local storage of the hypervisor is used**
+
+   Feature:
+
+The creation of scratch disks for a backup operation will use the same shared storage as the backed-up disks that participate in the backup.
+
+
+
+Reason: 
+
+For backup operation, scratch disks created in order to keep the 'old' disk state and persist the data until the backup is over. Those disks created on the host local storage which is limited and not scalable.
+
+
+
+Result: 
+
+For each disk that participates in the backup a scratch disk created on the same storage domain that the disk is based on.
+
+This process is now done by the engine and not by the host, before the backup is taken, the scratch disks created and prepared for the backup. When the backup is done the scratch disks teardown and removed.
+
+ - [BZ 1669178](https://bugzilla.redhat.com/1669178) **[RFE] Q35 SecureBoot - Add ability to preserve variable store certificates.**
+
+   Secure Boot process relies on keys that are normally stored in NVRAM of the VM. However, NVRAM was not stored in previous versions of oVirt and was newly initialized on every start of a VM. This prevented the use of any custom drivers (e.g. for Nvidia devices or for PLDP drivers in SUSE) on VMs with Secure Boot enabled. To be able to use SecureBoot VMs effectively oVirt now persists the content of NVRAM for UEFI VMs.
+
+ - [BZ 1891470](https://bugzilla.redhat.com/1891470) **[CBT][RFE] Support cold VM incremental backup**
+
+   Feature: 
+
+Support VM backup when the VM is not running
+
+
+
+Reason: 
+
+Backup vendors and users should have the option to backup their VMs even when they are not running.
+
+
+
+Result:
+
+Backup of VMs that are not running is now supported, the same API that used for backup running VMs is used so it is transparent for the backup vendor or the user what is the status of the VM.
+
+
+
+The process of 'cold' backup is different, when a cold backup is taken there is no need to redefine the previous checkpoints and to create scratch disks for each disk that participate in the backup because the VM is down and there will be no writing to the disks during the backup.
+
+
+
+The backup operation is done without Libvirt.
+
+A checkpoint created in the Engine DB in the same way as for 'live' backup but in the host, there is no checkpoint creation. Instead, a new bitmap is added for each disk.
+
+The created bitmap will be exposed using the NBD server when the image will be downloaded using imageio.
+
+
+
+When the VM is started with "cold" backup checkpoints, the system will redefine the checkpoints in Libvirt. Once a 'cold' checkpoint is redefined, there is no difference between the 'cold' checkpoint and checkpoint created during live backup.
+
  - [BZ 1899583](https://bugzilla.redhat.com/1899583) **[RFE] Allow Live update of network filter's parameters**
 
    Feature: Allow live update of vnic filter parameters
@@ -450,6 +670,14 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 
 #### oVirt Engine
+
+ - [BZ 1931932](https://bugzilla.redhat.com/1931932) **Adding VM to an existing affinity group always returns an error although the action was successful**
+
+ - [BZ 1897532](https://bugzilla.redhat.com/1897532) **VmPool created without ballooning when template has ballooning enabled**
+
+ - [BZ 1931474](https://bugzilla.redhat.com/1931474) **SSH connection fails**
+
+ - [BZ 1931786](https://bugzilla.redhat.com/1931786) **Windows driver update does not work on cluster level 4.5**
 
  - [BZ 1145658](https://bugzilla.redhat.com/1145658) **Storage domain removal does not check if the storage domain contains any memory dumps.**
 
@@ -532,6 +760,18 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### oVirt Engine
 
+ - [BZ 1892676](https://bugzilla.redhat.com/1892676) **The ImageIO transfer doesn't finalize after timeout is reached**
+
+   
+
+ - [BZ 1923095](https://bugzilla.redhat.com/1923095) **iscsi search UI exception**
+
+   
+
+ - [BZ 1928705](https://bugzilla.redhat.com/1928705) **VM configured with the CPUs equal to the host fails to start on ppc arch**
+
+   
+
  - [BZ 1930733](https://bugzilla.redhat.com/1930733) **Cluster upgrade fails when using Intel Skylake Client/Server IBRS SSBD MDS Family**
 
    
@@ -540,19 +780,15 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
    
 
- - [BZ 1892525](https://bugzilla.redhat.com/1892525) **Cannot clone VM from Admin Portal if it has Direct LUN**
-
-   
-
- - [BZ 1874483](https://bugzilla.redhat.com/1874483) **[CBT] During the VM backup, the local storage of the hypervisor is used**
-
-   
-
  - [BZ 1923717](https://bugzilla.redhat.com/1923717) **When creating a VM via rest from a template with ballooning=false, the template's ballooning setting is ignored if memory_policy exists**
 
    
 
  - [BZ 1715287](https://bugzilla.redhat.com/1715287) **VM starts with UEFI+pc-q35-rhel7.6.0 XML when configuring UEFI bios type+pc-i440fx-rhel7.6.0 in WEB UI**
+
+   
+
+ - [BZ 1868249](https://bugzilla.redhat.com/1868249) **The OVF disk size on file storage reported by engine does not match the actual size of the OVF**
 
    
 
@@ -568,15 +804,19 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
    
 
- - [BZ 1920871](https://bugzilla.redhat.com/1920871) **[RHHI-V] gluster-brick-create task fails when creating brick with LV cache from RHV admin portal**
-
-   
-
- - [BZ 1910302](https://bugzilla.redhat.com/1910302) **[RFE] Allow SPM switching if all tasks have finished via UI**
-
-   
-
  - [BZ 1649479](https://bugzilla.redhat.com/1649479) **[RFE] OVF_STORE last update not exposed in the UI**
+
+   
+
+ - [BZ 1912435](https://bugzilla.redhat.com/1912435) **Add event log for starting/finishing SwitchMasterStorageDomain**
+
+   
+
+ - [BZ 1901503](https://bugzilla.redhat.com/1901503) **Misleading error message, displaying Data Center Storage Type instead of its name**
+
+   
+
+ - [BZ 1805819](https://bugzilla.redhat.com/1805819) **[de_DE] Compute - Templates - Template - Storage: table column headings truncated**
 
    
 
@@ -591,6 +831,14 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### VDSM
 
+ - [BZ 1928041](https://bugzilla.redhat.com/1928041) **Stale DM links after block SD removal**
+
+   
+
+ - [BZ 1925099](https://bugzilla.redhat.com/1925099) **[CBT] Incremental backup errors when disk was replaced**
+
+   
+
  - [BZ 1796415](https://bugzilla.redhat.com/1796415) **Live Merge  and Remove Snapshot fails**
 
    
@@ -600,10 +848,6 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
    
 
  - [BZ 1858956](https://bugzilla.redhat.com/1858956) **Bad handling of imageio errors since imageio 1.5**
-
-   
-
- - [BZ 1874483](https://bugzilla.redhat.com/1874483) **[CBT] During the VM backup, the local storage of the hypervisor is used**
 
    
 
@@ -664,7 +908,23 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### oVirt Engine
 
+ - [BZ 1925025](https://bugzilla.redhat.com/1925025) **Add information tooltip icon to the new reboot host option**
+
+   
+
+ - [BZ 1932188](https://bugzilla.redhat.com/1932188) **The nic href in the response of getting template nics is wrong**
+
+   
+
+ - [BZ 1930198](https://bugzilla.redhat.com/1930198) **[Webadmin] Fetch ssh public key instead of fingerprint when adding new host.**
+
+   
+
  - [BZ 1914602](https://bugzilla.redhat.com/1914602) **[RHV 4.4] /var/lib/ovirt-engine/external_truststore (Permission denied)**
+
+   
+
+ - [BZ 1914636](https://bugzilla.redhat.com/1914636) **[CBT] Engine fails to complete full backup due to Java exception "RedefineVmCheckpointCommand cannot be cast to class org.ovirt.engine.core.bll.SerialChildExecutingComman"**
 
    
 
@@ -673,10 +933,6 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
    
 
  - [BZ 1926277](https://bugzilla.redhat.com/1926277) **Exception: Failed to create host deploy variables mapper Unexpected IOException (of type org.codehaus.jackson.JsonParseException): Illegal character '_' (code 0x5f) in base64 content**
-
-   
-
- - [BZ 1925025](https://bugzilla.redhat.com/1925025) **Add information tooltip icon to the new reboot host option**
 
    
 
@@ -689,6 +945,14 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
    
 
  - [BZ 1903052](https://bugzilla.redhat.com/1903052) **ansible-runner-service.cil selinux module is often needlessly re-installed, takes a long time**
+
+   
+
+ - [BZ 1917809](https://bugzilla.redhat.com/1917809) **When running reboot after reinstall of a host reboot is reported as failed**
+
+   
+
+ - [BZ 1922094](https://bugzilla.redhat.com/1922094) **Upgrading host with reboot after upgrade option failes**
 
    
 

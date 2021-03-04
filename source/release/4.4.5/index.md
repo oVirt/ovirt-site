@@ -11,7 +11,7 @@ page_classes: releases
 
 The oVirt 4.4.5 code freeze is planned for February 08, 2021.
 
-If no critical issues are discovered while testing this compose it will be released on March 04, 2021.
+If no critical issues are discovered while testing this compose it will be released on March 09, 2021.
 
 It has been planned to include in this release the content from this query:
 [Bugzilla tickets targeted to 4.4.5](https://bugzilla.redhat.com/buglist.cgi?quicksearch=ALL%20target_milestone%3A%22ovirt-4.4.5%22%20-target_milestone%3A%22ovirt-4.4.5-%22)

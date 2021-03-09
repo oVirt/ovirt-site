@@ -39,7 +39,7 @@ Install and run `tmux`:
 +
 [NOTE]
 ====
-To escape the script at any time, use the kbd:[Ctrl+D] keyboard combination to abort deployment. In the event of session timeout or connection disruption, run `screen -d -r` to recover the deployment session.
+To escape the script at any time, use the kbd:[Ctrl+D] keyboard combination to abort deployment. In the event of session timeout or connection disruption, run `tmux a` to recover the deployment session.
 ====
 . When prompted, enter *Yes* to begin the deployment:
 +

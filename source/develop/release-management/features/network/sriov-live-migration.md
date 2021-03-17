@@ -115,18 +115,24 @@ as follows:
 
 ```
 <devices>
-  <interface type='network'>
-    <source network='mybridge'/>
-    <mac address='00:11:22:33:44:55'/>
-    <model type='virtio'/>
+  <interface type='bridge'>
+    <mac address='00:11:22:33:44:55' />
+    <model type='virtio' />
+    <link state='up' />
+    <source bridge='ovirtmgmt' />
+    <mtu size='1500' />
+    <alias name='ua-virtio-net' />
     <teaming type='persistent'/>
-    <alias name='ua-backup0'/>
   </interface>
-  <interface type='network'>
-    <source network='hostdev-pool'/>
-    <mac address='00:11:22:33:44:55'/>
-    <model type='virtio'/>
-    <teaming type='transient' persistent='ua-backup0'/>
+  <interface managed='no' type='hostdev'>
+    <mac address='00:11:22:33:44:55' />
+    <source>
+      <address bus='0xb3' domain='0x0000' function='0x3' slot='0x02' type='pci' />
+    </source>
+    <link state='up' />
+    <driver name='vfio' />
+    <alias name='ua-sriov-hostdev' />
+    <teaming type='transient' persistent='ua-virtio-net'/>
   </interface>
 </devices>
 ```

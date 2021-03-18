@@ -1,25 +1,15 @@
 ---
 title: oVirt 4.4.5 Release Notes
 category: documentation
-authors: sandrobonazzola lveyde
+authors: lveyde sandrobonazzola
 toc: true
 page_classes: releases
 ---
 
 
-# oVirt 4.4.5 release planning
-
-The oVirt 4.4.5 code freeze is planned for February 08, 2021.
-
-If no critical issues are discovered while testing this compose it will be released on March 09, 2021.
-
-It has been planned to include in this release the content from this query:
-[Bugzilla tickets targeted to 4.4.5](https://bugzilla.redhat.com/buglist.cgi?quicksearch=ALL%20target_milestone%3A%22ovirt-4.4.5%22%20-target_milestone%3A%22ovirt-4.4.5-%22)
-
-
 # oVirt 4.4.5 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.5 Eighth Release Candidate as of March 04, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.5 release as of March 18, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -34,10 +24,6 @@ visit our [community page](/community/).
 All issues or bugs should be reported via
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
-
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
 the [Download](/download/) page.
@@ -49,14 +35,7 @@ For a general overview of oVirt, read the [About oVirt](/community/about.html)
 page.
 
 To learn about features introduced before 4.4.5, see the
-[release notes for previous versions](/documentation/#latest-release-notes).
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
-
+[release notes for previous versions](/documentation/#previous-release-notes).
 
 ## Known issues
 
@@ -103,7 +82,7 @@ This change doesn't affect existing setup, but when running a new engine-setup e
 
  - [BZ 1921104](https://bugzilla.redhat.com/1921104) **Bump required ansible version in RHV Manager 4.4.5**
 
-   RHV Manager 4.4.5 now requires ansible-2.9.17
+   Ansible-2.9.17 is required for proper setup and functioning of Red Hat Virtualization Manager 4.4.5.
 
  - [BZ 1901835](https://bugzilla.redhat.com/1901835) **[RFE][CBT] Redefine VM checkpoint without using the VM domain XML**
 
@@ -225,7 +204,40 @@ Also, to use incremental backup, both Engine and VDSM (v4.40.50.3) should have t
 
 ### Enhancements
 
+#### cockpit-ovirt
+
+ - [BZ 1755156](https://bugzilla.redhat.com/1755156) **[RFE] Cockpit: RHV deployment missing local appliance installation**
+
+   Feature: Allow to enter path to OVA archive for local appliance installation in cockpit-ovirt UI.
+
+
+
+Reason: Get same functionality for CLI and UI.
+
+
+
+Result: Exposing in cockpit-ovirt ,first step "VM" under "Advanced" button, a text-box to pass OVA archive path for local appliance installation of Hosted Engine deploy.
+
+Leaving this empty will have the default path.
+
+ - [BZ 1780881](https://bugzilla.redhat.com/1780881) **[RFE] Allow pausing during deploy**
+
+   Feature: Allow pausing during Hosted Engine deploy to make manual modifications to engine vm in cockpit-ovirt UI.
+
+
+
+Reason: Get same functionality for CLI and UI.
+
+
+
+Result: Exposing in cockpit-ovirt, at first step "VM" under "Advanced" button, check-box to allow pausing during third step "Prepare VM" of Hosted Engine deploy to make manual modifications.
+
+
 #### oVirt Engine
+
+ - [BZ 1171924](https://bugzilla.redhat.com/1171924) **[RFE] User Preferences / settings dialog with server-side storage**
+
+   
 
  - [BZ 1910022](https://bugzilla.redhat.com/1910022) **[RFE] add button to switch the master storage domain role**
 
@@ -723,17 +735,21 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
  - [BZ 1815589](https://bugzilla.redhat.com/1815589) **The HA agent trying to start HE VM in source host after successful HE migration**
 
 
+#### imgbased
+
+ - [BZ 1936972](https://bugzilla.redhat.com/1936972) **[RHVH] Failed to reinstall persisted RPMs**
+
+
 ### Other
 
+#### oVirt Release Package
+
+ - [BZ 1927703](https://bugzilla.redhat.com/1927703) **oVirt Node, protecting key packages from being removed.**
+
+   
+
+
 #### cockpit-ovirt
-
- - [BZ 1755156](https://bugzilla.redhat.com/1755156) **[RFE] Cockpit: RHV deployment missing local appliance installation**
-
-   
-
- - [BZ 1780881](https://bugzilla.redhat.com/1780881) **[RFE] Allow pausing during deploy**
-
-   
 
  - [BZ 1908234](https://bugzilla.redhat.com/1908234) **Order of hosts not preserved for day2 operations**
 
@@ -759,6 +775,14 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 
 #### oVirt Engine
+
+ - [BZ 1938750](https://bugzilla.redhat.com/1938750) **Cold migration from block sd to file sd fails - GenerationMismatch: The provided generation does not match the actual generation: 'requested=0, actual=3'**
+
+   
+
+ - [BZ 1750426](https://bugzilla.redhat.com/1750426) **[RFE] No clear/consistent indication that Upgrade Cluster is underway**
+
+   
 
  - [BZ 1892676](https://bugzilla.redhat.com/1892676) **The ImageIO transfer doesn't finalize after timeout is reached**
 
@@ -788,10 +812,6 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
    
 
- - [BZ 1868249](https://bugzilla.redhat.com/1868249) **The OVF disk size on file storage reported by engine does not match the actual size of the OVF**
-
-   
-
  - [BZ 1729359](https://bugzilla.redhat.com/1729359) **Failed image upload leaves disk in locked state, requiring manual intervention to cleanup.**
 
    
@@ -801,6 +821,10 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
    
 
  - [BZ 1854041](https://bugzilla.redhat.com/1854041) **[v2v] Warning message during every v2v import about incompatible parameter "memory"**
+
+   
+
+ - [BZ 1795457](https://bugzilla.redhat.com/1795457) **RHV-M causing high load on PostgreSQL  DB after upgrade to 4.2**
 
    
 
@@ -835,10 +859,6 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
    
 
- - [BZ 1925099](https://bugzilla.redhat.com/1925099) **[CBT] Incremental backup errors when disk was replaced**
-
-   
-
  - [BZ 1796415](https://bugzilla.redhat.com/1796415) **Live Merge  and Remove Snapshot fails**
 
    
@@ -863,6 +883,14 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
    
 
  - [BZ 1898863](https://bugzilla.redhat.com/1898863) **[RFE] Add Hosts Dashboard**
+
+   
+
+ - [BZ 1926125](https://bugzilla.redhat.com/1926125) **[RFE] Add IOPS stats to VMs resource usage dashboard**
+
+   
+
+ - [BZ 1926124](https://bugzilla.redhat.com/1926124) **[RFE] Add IOPS stats to vms trend dashboard**
 
    
 
@@ -893,6 +921,13 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 #### imgbased
 
  - [BZ 1907746](https://bugzilla.redhat.com/1907746) **RHVH cannot enter the new layer after upgrade testing with STIG profile selected.**
+
+   
+
+
+#### oVirt Engine UI Extensions
+
+ - [BZ 1679116](https://bugzilla.redhat.com/1679116) **[ALL_LANG] Dashboard page pi-chart's utilization dialog box has untranslated entries**
 
    
 
@@ -1025,16 +1060,17 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### Contributors
 
-44 people contributed to this release:
+49 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: ovirt-release, vdsm)
+	Alexey Masolov (Contributed to: ovirt-ansible-collection)
 	Amit Bawer (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine, ovirt-engine-wildfly)
 	Asaf Rachmani (Contributed to: imgbased, ovirt-ansible-collection, ovirt-hosted-engine-ha)
 	Aviv Litman (Contributed to: ovirt-dwh)
-	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-engine-nodejs-modules)
+	Aviv Turgeman (Contributed to: cockpit-ovirt, ovirt-ansible-collection, ovirt-engine-nodejs-modules)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Ben Amsalem (Contributed to: ovirt-engine, ovirt-web-ui)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
@@ -1043,13 +1079,15 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 	Eli Mesika (Contributed to: ovirt-engine)
 	Evgeny Slutsky (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
+	Hilda Stastna (Contributed to: ovirt-engine-ui-extensions)
 	Jean-Louis Dupond (Contributed to: ovirt-engine, vdsm)
-	Lev Veyde (Contributed to: ovirt-engine, ovirt-release)
+	Jordan Borean (Contributed to: ovirt-ansible-collection)
+	Lev Veyde (Contributed to: imgbased, ovirt-engine, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection, ovirt-engine)
-	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-wildfly)
+	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-engine-wildfly)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nir Levy (Contributed to: imgbased, ovirt-host)
 	Nir Soffer (Contributed to: vdsm)
@@ -1058,16 +1096,18 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 	Parth Dhanjal (Contributed to: cockpit-ovirt)
 	Pavel Bar (Contributed to: ovirt-engine)
 	Prajith Kesava Prasad (Contributed to: ovirt-engine)
-	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
+	Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-web-ui)
 	Roman Bednar (Contributed to: vdsm)
 	Sandro Bonazzola (Contributed to: cockpit-ovirt, ovirt-cockpit-sso, ovirt-engine, ovirt-engine-sdk-java, ovirt-host, ovirt-release, vdsm)
-	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-web-ui)
+	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shane McDonald (Contributed to: ovirt-ansible-collection)
 	Shani Leviim (Contributed to: ovirt-engine, vdsm)
-	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
+	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shirly Radco (Contributed to: ovirt-dwh)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Steven Rosenberg (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: vdsm)
+	Vojtěch Juránek (Contributed to: ovirt-ansible-collection)
 	Yedidyah Bar David (Contributed to: otopi, ovirt-ansible-collection, ovirt-cockpit-sso, ovirt-engine, ovirt-host, ovirt-hosted-engine-ha)
+	roniezr (Contributed to: ovirt-ansible-collection)

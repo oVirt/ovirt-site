@@ -13,7 +13,7 @@ preferred because the Engine Virtual Machine will be highly available (once a se
 However, if you prefer to run oVirt Engine standalone on physical hardware or another virtualization provider, you can install oVirt Engine
 and Nodes / Hosts separately.
 
-oVirt 4.4.4 is intended for production use and is available for the following platforms:
+oVirt 4.4.5 is intended for production use and is available for the following platforms:
 
 Engine:
 - Red Hat Enterprise Linux 8.3
@@ -26,7 +26,7 @@ Hosts:
 - oVirt Node (based on CentOS Linux 8.3)
 - CentOS Stream (Tech Preview)
 
-See the [Release Notes for oVirt 4.4.4](/release/4.4.4/).
+See the [Release Notes for oVirt 4.4.5](/release/4.4.5/).
 
 <div class="row"></div>
 
@@ -59,7 +59,7 @@ For a standalone engine this means basically:
 6. enable modules with:
    `dnf module enable -y javapackages-tools pki-deps postgresql:12 389-ds`
 7. install engine rpms with:
-   `dnf install ovirt-engine`    
+   `dnf install ovirt-engine`
 8. restore the engine data with:
    `engine-backup --mode=restore --file=backup.bck --log=restore.log --provision-db --provision-dwh-db --restore-permissions --provision-dwh-db`
 9. run `engine-setup`.
@@ -210,7 +210,7 @@ The following virtual machine guest operating systems are supported:
 ## Consoles
 
 The console is a graphical window that allows you to view and interact with the screen of a Virtual Machine.
-In oVirt, you can use a web-based console viewer or a desktop application (we recommend 
+In oVirt, you can use a web-based console viewer or a desktop application (we recommend
 [Remote Viewer](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-graphic_user_interface_tools_for_guest_virtual_machine_management-remote_viewer)).
 For Windows virtual machines, Remote Desktop Protocol is also available. See [Installing Console Components](/documentation/virtual_machine_management_guide/#sect-Installing_Console_Components),
 [VNC Console Options](/documentation/virtual_machine_management_guide/#VNC_Console_Options), and

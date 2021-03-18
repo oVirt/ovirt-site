@@ -8,7 +8,7 @@ page_classes: download
 
 <img class="screenshot" src="download_1.png">
 
-oVirt 4.4.4 is intended for production use and is available for the following platforms:
+oVirt 4.4.5 is intended for production use and is available for the following platforms:
 
 Engine:
 - Red Hat Enterprise Linux 8.3
@@ -21,7 +21,7 @@ Hosts:
 - oVirt Node (based on CentOS Linux 8.3)
 - CentOS Stream (Tech Preview)
 
-See the [Release Notes for oVirt 4.4.4](/release/4.4.4/).
+See the [Release Notes for oVirt 4.4.5](/release/4.4.5/).
 
 
 ## Install oVirt with Cockpit
@@ -77,7 +77,7 @@ Instead of or in addition to oVirt Node, you can use a standard Enterprise Linux
 2.  Install Cockpit and the cockpit-ovirt-dashboard plugin:
 
         sudo yum install cockpit cockpit-ovirt-dashboard -y
-        
+
 3.  Enable Cockpit:
 
         sudo systemctl enable --now cockpit.socket

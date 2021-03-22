@@ -61,6 +61,9 @@ The [Linux kernel][5] support has to be only on guest side.
 * Because of the required support in the guest, only RHEL8 (Linux kernel version >=4.18 or >=5.10) and Windows
   (Windows VirtIO Drivers >=0.1.189) guests are supported.
 * Hosts with Cluster level version of >=4.6 are required.
+* Updating of the vNIC profile acting as `failover` is not allowed.
+* Due to internal implementation details attaching two `VF`s, that are using the same `failover` vNIC profile,
+  to the same VM will fail in libvirt.
 
 ## Implementation
 

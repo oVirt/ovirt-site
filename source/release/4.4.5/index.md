@@ -855,17 +855,20 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### VDSM
 
+ - [BZ 1941311](https://bugzilla.redhat.com/1941311) **Live merge after extend disk fails - 'Vm' object has no attribute 'refreshDriveVolume'**
+
+
  - [BZ 1928041](https://bugzilla.redhat.com/1928041) **Stale DM links after block SD removal**
 
-   
+
 
  - [BZ 1796415](https://bugzilla.redhat.com/1796415) **Live Merge  and Remove Snapshot fails**
 
-   
+
 
  - [BZ 1870435](https://bugzilla.redhat.com/1870435) **StorageDomain.dump() can return {"key" : None} if metadata is missing**
 
-   
+
 
  - [BZ 1858956](https://bugzilla.redhat.com/1858956) **Bad handling of imageio errors since imageio 1.5**
 
@@ -927,6 +930,10 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 #### oVirt Engine UI Extensions
 
+ - [BZ 1801330](https://bugzilla.redhat.com/1801330) **[ALL_LANG] Compute - Virtual Machines - Migrate : some content in English**
+
+
+
  - [BZ 1679116](https://bugzilla.redhat.com/1679116) **[ALL_LANG] Dashboard page pi-chart's utilization dialog box has untranslated entries**
 
    
@@ -942,6 +949,10 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 
 
 #### oVirt Engine
+
+ - [BZ 1940448](https://bugzilla.redhat.com/1940448) **Upgrade to 4.4.5 fails schema upgrade if user_profiles table contains duplicate entries**
+
+
 
  - [BZ 1925025](https://bugzilla.redhat.com/1925025) **Add information tooltip icon to the new reboot host option**
 
@@ -1082,7 +1093,7 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 	Hilda Stastna (Contributed to: ovirt-engine-ui-extensions)
 	Jean-Louis Dupond (Contributed to: ovirt-engine, vdsm)
 	Jordan Borean (Contributed to: ovirt-ansible-collection)
-	Lev Veyde (Contributed to: imgbased, ovirt-engine, ovirt-release)
+	Lev Veyde (Contributed to: imgbased, ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
@@ -1098,7 +1109,7 @@ VM disks IOPS stats are now saved to DWH database and aggregated to hourly and d
 	Prajith Kesava Prasad (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-web-ui)
 	Roman Bednar (Contributed to: vdsm)
-	Sandro Bonazzola (Contributed to: cockpit-ovirt, ovirt-cockpit-sso, ovirt-engine, ovirt-engine-sdk-java, ovirt-host, ovirt-release, vdsm)
+	Sandro Bonazzola (Contributed to: cockpit-ovirt, ovirt-appliance, ovirt-cockpit-sso, ovirt-engine, ovirt-engine-sdk-java, ovirt-host, ovirt-node-ng-image, ovirt-release, vdsm)
 	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shane McDonald (Contributed to: ovirt-ansible-collection)
 	Shani Leviim (Contributed to: ovirt-engine, vdsm)

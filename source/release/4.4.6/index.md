@@ -19,7 +19,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.6 First Release Candidate as of March 25, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.6 Second Release Candidate as of April 01, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -106,6 +106,10 @@ New features available in compatibility 4.6 are tracked as separate bugs dependi
 
 #### oVirt Engine
 
+ - [BZ 1669178](https://bugzilla.redhat.com/1669178) **[RFE] Q35 SecureBoot - Add ability to preserve variable store certificates.**
+
+   Secure Boot process relies on keys that are normally stored in NVRAM of the VM. However, NVRAM was not stored in previous versions of oVirt and was newly initialized on every start of a VM. This prevented the use of any custom drivers (e.g. for Nvidia devices or for PLDP drivers in SUSE) on VMs with Secure Boot enabled. To be able to use SecureBoot VMs effectively oVirt now persists the content of NVRAM for UEFI VMs.
+
  - [BZ 1936897](https://bugzilla.redhat.com/1936897) **[Engine JDK 11] More verbose and configurable GC logging.**
 
    Feature: 
@@ -178,6 +182,38 @@ In order to customize or disable the above default settings it is recommended to
 
 #### oVirt Engine
 
+ - [BZ 1942722](https://bugzilla.redhat.com/1942722) **VM backup failed with RPC call Host.add_image_ticket failed (error 482)**
+
+   
+
+ - [BZ 1943267](https://bugzilla.redhat.com/1943267) **Snapshot creation is failing for VM having vGPU.**
+
+   
+
+ - [BZ 1775145](https://bugzilla.redhat.com/1775145) **Incorrect message from hot-plugging memory**
+
+   
+
+ - [BZ 1912691](https://bugzilla.redhat.com/1912691) **[RFE] ticket classes should use SHA-256**
+
+   
+
+ - [BZ 1937310](https://bugzilla.redhat.com/1937310) **[REST] live update of the network filter parameter does not update the libvirt XML on the host**
+
+   
+
+ - [BZ 1834250](https://bugzilla.redhat.com/1834250) **CPU hotplug on UEFI VM causes VM reboot**
+
+   
+
+ - [BZ 1927718](https://bugzilla.redhat.com/1927718) **[RFE] Provide Reset option for VMs**
+
+   
+
+ - [BZ 1937827](https://bugzilla.redhat.com/1937827) **TPM device cannot be marked to be added to VM while it is running**
+
+   
+
  - [BZ 1930282](https://bugzilla.redhat.com/1930282) **vcpu pinning string for HP VM must be shown in UI(even if it must be disabled for editing)**
 
    
@@ -209,7 +245,7 @@ In order to customize or disable the above default settings it is recommended to
 
 #### Contributors
 
-24 people contributed to this release:
+27 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: ovirt-engine, vdsm)
@@ -218,11 +254,13 @@ In order to customize or disable the above default settings it is recommended to
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
+	Eitan Raviv (Contributed to: ovirt-engine)
 	Eli Mesika (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
-	Jean-Louis Dupond (Contributed to: vdsm)
+	Jean-Louis Dupond (Contributed to: ovirt-engine, vdsm)
 	Lev Veyde (Contributed to: ovirt-engine, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine)
+	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Martin Perina (Contributed to: ovirt-engine, vdsm)
 	Michal Skrivanek (Contributed to: vdsm)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
@@ -235,3 +273,4 @@ In order to customize or disable the above default settings it is recommended to
 	Steven Rosenberg (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: ovirt-engine)
+	Yedidyah Bar David (Contributed to: ovirt-engine)

@@ -55,6 +55,8 @@ include::../common/upgrade/proc-Upgrading_hosts_to_4-4.adoc[leveloffset=+1]
 
 include::../common/upgrade/proc-Upgrading_hypervisor_preserve_local_storage.adoc[leveloffset=+1]
 
+include::../common/upgrade/proc-Upgrading_hypervisor_preserve_gluster_storage.adoc[leveloffset=+1]
+
 include::../common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
 
 include::../common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]

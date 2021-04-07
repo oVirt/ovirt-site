@@ -3,8 +3,13 @@
 git submodule init && git submodule update
 #setup for RedHat
 if [ -f /etc/redhat-release ]; then
-  sudo yum install -y epel-release
-  sudo yum install -y --enablerepo=epel ruby-devel rubygems-devel gcc-c++ curl-devel rubygem-bundler patch zlib-devel redhat-rpm-config openssl nodejs ImageMagick make
+  if [ -f /etc/fedora-release ]; then
+    INSTCMD="dnf install -y"
+  else
+    INSTCMD="yum install -y --enablerepo=epel"
+    sudo $INSTCMD epel-release
+  fi
+  sudo $INSTCMD ruby-devel rubygems-devel gcc-c++ curl-devel rubygem-bundler patch zlib-devel redhat-rpm-config openssl nodejs ImageMagick make
 
 # setup for Debian
 elif [ -f /etc/debian_version ]; then

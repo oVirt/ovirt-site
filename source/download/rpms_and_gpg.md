@@ -118,10 +118,10 @@ To get the public key:
     $ gpg --recv-keys FE590CB7
     $ gpg --list-keys --with-fingerprint FE590CB7
     ---
-    pub   2048R/FE590CB7 2014-03-30 [expires: 2021-04-03]
+    pub   2048R/FE590CB7 2014-03-30 [expires: 2028-04-06]
           Key fingerprint = 31A5 D783 7FAD 7CB2 86CD  3469 AB8C 4F9D FE59 0CB7
     uid                  oVirt <infra@ovirt.org>
-    sub   2048R/004BC303 2014-03-30 [expires: 2021-04-03]
+    sub   2048R/004BC303 2014-03-30 [expires: 2028-04-06]
     ---
     $ gpg --export --armor FE590CB7 > ovirt-infra.pub
     # rpm --import ovirt-infra.pub
@@ -143,6 +143,7 @@ If you do not use yum, you can check the signature of the package using the foll
 
 ### Currently used keys
 
+
 | Key ID     | Key Type     | Key Fingerprint                                     | Key Description | Created    | Expires    | Revoked | Notes |
 |------------|--------------|-----------------------------------------------------|-----------------|------------|------------|---------|-------|
-| `FE590CB7` | 2048-bit RSA | `31A5 D783 7FAD 7CB2 86CD 3469 AB8C 4F9D FE59 0CB7` | oVirt           | 2014-03-30 | 2021-04-03 |         |       |
+| `FE590CB7` | 2048-bit RSA | `31A5 D783 7FAD 7CB2 86CD 3469 AB8C 4F9D FE59 0CB7` | oVirt           | 2014-03-30 | 2028-04-06 |         |       |

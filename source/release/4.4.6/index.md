@@ -19,7 +19,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.6 Second Release Candidate as of April 01, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.6 Third Release Candidate as of April 08, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -164,12 +164,18 @@ In order to customize or disable the above default settings it is recommended to
 
 #### oVirt Engine
 
+ - [BZ 1946502](https://bugzilla.redhat.com/1946502) **engine-setup on a separate {dwh, websocket-proxy, grafana) machine fails**
+
  - [BZ 1932284](https://bugzilla.redhat.com/1932284) **Engine handled FS freeze is not fast enough for Windows systems**
 
 
 ### Other
 
 #### oVirt Engine Data Warehouse
+
+ - [BZ 1861685](https://bugzilla.redhat.com/1861685) **[RFE] Add filter to Inventory Dashboards**
+
+   
 
  - [BZ 1935000](https://bugzilla.redhat.com/1935000) **Add a minimal Grafana version as dependent**
 
@@ -181,6 +187,18 @@ In order to customize or disable the above default settings it is recommended to
 
 
 #### oVirt Engine
+
+ - [BZ 1879032](https://bugzilla.redhat.com/1879032) **If there is no master storage domain, the engine should elect one**
+
+   
+
+ - [BZ 1944723](https://bugzilla.redhat.com/1944723) **[RFE] Support virtual machines with 16TB memory**
+
+   
+
+ - [BZ 1941518](https://bugzilla.redhat.com/1941518) **[CBT] Scratch disk size should be equal to VM disk size for now**
+
+   
 
  - [BZ 1942722](https://bugzilla.redhat.com/1942722) **VM backup failed with RPC call Host.add_image_ticket failed (error 482)**
 
@@ -222,7 +240,15 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
+ - [BZ 1936185](https://bugzilla.redhat.com/1936185) **[CBT] Scratch disk not removed if a VM goes to 'paused' state during the backup process**
+
+   
+
  - [BZ 1934129](https://bugzilla.redhat.com/1934129) **[Gluster] Unable to import existing gluster configuration into newly created cluster**
+
+   
+
+ - [BZ 1897049](https://bugzilla.redhat.com/1897049) **[CBT][incremental backup] Multiple NullPointerExceptions during VM removal after backing up the VM and removing the backup checkpoints**
 
    
 
@@ -242,16 +268,21 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
+ - [BZ 1919248](https://bugzilla.redhat.com/1919248) **[CBT] Race condition in deleting checkpoints causes inconsistency and failed backups**
+
+   
+
 
 #### Contributors
 
-27 people contributed to this release:
+29 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: ovirt-engine, vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine)
 	Aviv Litman (Contributed to: ovirt-dwh)
+	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Eitan Raviv (Contributed to: ovirt-engine)
@@ -270,6 +301,7 @@ In order to customize or disable the above default settings it is recommended to
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-host, ovirt-release)
 	Scott J Dickerson (Contributed to: ovirt-engine)
+	Shani Leviim (Contributed to: ovirt-engine)
 	Steven Rosenberg (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: ovirt-engine)

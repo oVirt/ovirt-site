@@ -119,6 +119,8 @@ For more information, see xref:Maintaining_the_Self-Hosted_Engine[].
 [options="nowrap" subs="normal"]
 ----
 # cp /tmp/apache.cer /etc/pki/ovirt-engine/certs/apache.cer
+# chown root:ovirt /etc/pki/ovirt-engine/certs/apache.cer
+# chmod 644 /etc/pki/ovirt-engine/certs/apache.cer
 ----
 +
 . Restart the Apache server:

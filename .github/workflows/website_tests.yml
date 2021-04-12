@@ -48,7 +48,7 @@ jobs:
 
       - name: "Create the Website Build Environment container"
         # Duck: DO NOT change the target OS, it needs to be in sync with the production builder
-        run: podman run -dt --name ovirt-web-tests --volume .:/tmp/website registry.fedoraproject.org/fedora:30
+        run: podman run -dt --name ovirt-web-tests --volume .:/tmp/website registry.fedoraproject.org/fedora:33
 
       - name: "Define Website Build Environment Variables"
         run: |

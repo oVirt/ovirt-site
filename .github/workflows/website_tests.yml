@@ -50,6 +50,9 @@ jobs:
         # Duck: DO NOT change the target OS, it needs to be in sync with the production builder
         run: podman run -dt --name ovirt-web-tests --volume .:/tmp/website registry.fedoraproject.org/fedora:33
 
+      - name: "Install locales data in the Website Build Environment"
+        run: podman exec --workdir /tmp/website ovirt-web-tests dnf install -y glibc-langpack-en
+
       - name: "Define Website Build Environment Variables"
         run: |
           touch .env

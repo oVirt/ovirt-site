@@ -1,4 +1,8 @@
 #!/bin/sh
+
+# This bash script is referenced by oVirt Blog post from
+# Martin Sivak at https://blogs.ovirt.org/2016/11/testing-ovirt-engine-changes-without-a-real-cluster/
+
 if [ $# -lt 1 ]; then
   echo "You must provide dev env prefix"
   exit 1
@@ -27,7 +31,7 @@ if [ $# -gt 0 -a "x$1" == "x--config" ]; then
   shift
 fi
 
-if [ $CLEAN -gt 0 ]; then 
+if [ $CLEAN -gt 0 ]; then
   echo "Cleaning the DB.."
   sudo -i -u postgres psql -c "drop database $ENGINE_DB;"
   CREATE=1

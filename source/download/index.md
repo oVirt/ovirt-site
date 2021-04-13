@@ -74,6 +74,10 @@ Instead of or in addition to oVirt Node, you can use a standard Enterprise Linux
         sudo subscription-manager repos --enable="rhel-8-for-x86_64-appstream-rpms"
         sudo subscription-manager repos --enable="ansible-2-for-rhel-8-x86_64-rpms"
 
+        # RHEL beta releases only
+        sudo subscription-manager repos --enable="rhel-8-for-x86_64-appstream-beta-rpms"
+
+
 2.  Install Cockpit and the cockpit-ovirt-dashboard plugin:
 
         sudo yum install cockpit cockpit-ovirt-dashboard -y

@@ -19,7 +19,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.6 Third Release Candidate as of April 08, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.6 Fourth Release Candidate as of April 15, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -27,7 +27,12 @@ oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
 This release is available now for Red Hat Enterprise Linux 8.3 and
-CentOS Linux 8.3 (or similar).
+CentOS Linux 8.3 (or similar) and CentOS Stream.
+
+> **NOTE**
+>
+> Starting from oVirt 4.4.6 both oVirt Node and oVirt Engine Appliance are
+> based on CentOS Stream.
 
 To find out how to interact with oVirt developers and users and ask questions,
 visit our [community page](/community/).
@@ -80,7 +85,42 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 ### Release Note
 
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1917874](https://bugzilla.redhat.com/1917874) **[RFE] Add Resource size to Hosts/Virtual Machine Uptime panels**
+
+   Add Resource size to Hosts/Virtual Machine Uptime panels:
+
+Hosts Uptime (BR8) panel:
+
+1. CPU Cores
+
+2. Memory Size
+
+
+
+Virtual Machine Uptime (BR46) panel:
+
+1. CPU Cores
+
+2. Memory Size
+
+3. Disks Size
+
+
 #### oVirt Engine
+
+ - [BZ 1947403](https://bugzilla.redhat.com/1947403) **Increase reboot timeout to 10 min.**
+
+   By default we are waiting a certain amount of time defined by engine-config option ServerRebootTimeout before we consider that a hypervisor finished rebooting. Before oVirt 4.4.6 this timeout has been set to 5 minutes, but from 4.4.6 we are increasing the default to 10 minute. If this is not enough and hypervisors in your setup requires more time to finish rebooting, then please use below commant:
+
+
+
+  engine-config -s ServerRebootTimeout=NNN
+
+
+
+where NNN is number of seconds which engine waits until it tries to connect to the hypervisor after a reboot. ovirt-engine service needs to be restarted after above change to take effect.
 
  - [BZ 1933974](https://bugzilla.redhat.com/1933974) **[RFE] Introduce Datacenter and cluster level 4.6**
 
@@ -105,6 +145,10 @@ New features available in compatibility 4.6 are tracked as separate bugs dependi
 ### Enhancements
 
 #### oVirt Engine
+
+ - [BZ 1113630](https://bugzilla.redhat.com/1113630) **[RFE] indicate vNICs that are out-of-sync from their configuration on engine**
+
+   
 
  - [BZ 1669178](https://bugzilla.redhat.com/1669178) **[RFE] Q35 SecureBoot - Add ability to preserve variable store certificates.**
 
@@ -160,6 +204,22 @@ In order to customize or disable the above default settings it is recommended to
    
 
 
+### Rebase: Bug Fixeses and Enhancementss
+
+#### oVirt Engine Appliance
+
+ - [BZ 1907831](https://bugzilla.redhat.com/1907831) **Rebase ovirt-appliance on top of CentOS Stream 8**
+
+   
+
+
+#### oVirt Node NG Image
+
+ - [BZ 1907833](https://bugzilla.redhat.com/1907833) **Rebase oVirt Node on CentOS Stream 8**
+
+   
+
+
 ### Bug Fixes
 
 #### oVirt Engine
@@ -167,6 +227,13 @@ In order to customize or disable the above default settings it is recommended to
  - [BZ 1946502](https://bugzilla.redhat.com/1946502) **engine-setup on a separate {dwh, websocket-proxy, grafana) machine fails**
 
  - [BZ 1932284](https://bugzilla.redhat.com/1932284) **Engine handled FS freeze is not fast enough for Windows systems**
+
+
+#### VDSM
+
+ - [BZ 1945675](https://bugzilla.redhat.com/1945675) **delete-snapshot stress with extreme load- Vdsm aborts live merge job without aborting the libvirt block job**
+
+ - [BZ 1940484](https://bugzilla.redhat.com/1940484) **Consume  Bug 1931331 - libvirtd crashes in virEventThreadWorker**
 
 
 ### Other
@@ -187,6 +254,50 @@ In order to customize or disable the above default settings it is recommended to
 
 
 #### oVirt Engine
+
+ - [BZ 1948484](https://bugzilla.redhat.com/1948484) **Failed to change CD in vm**
+
+   
+
+ - [BZ 1948500](https://bugzilla.redhat.com/1948500) **Tpm model should be tpm-crb for x86_64 and tpm-spapr for ppc(RHV)**
+
+   
+
+ - [BZ 1910858](https://bugzilla.redhat.com/1910858) **vm_ovf_generations is not cleared while detaching the storage domain causing VM import with old stale configuration**
+
+   
+
+ - [BZ 1927243](https://bugzilla.redhat.com/1927243) **Cannot hotplug disk reports libvirtError: Requested operation is not valid: Domain already contains a disk with that address**
+
+   
+
+ - [BZ 1676708](https://bugzilla.redhat.com/1676708) **[UI] hint after updating mtu on networks connected to running VMs and indicate vNICs out of sync**
+
+   
+
+ - [BZ 1621421](https://bugzilla.redhat.com/1621421) **[RFE] indicate vNIC is out of sync on network QoS modification on engine**
+
+   
+
+ - [BZ 1917956](https://bugzilla.redhat.com/1917956) **After restore, vm has warning Pending virtual machine changes : cluster cpu type**
+
+   
+
+ - [BZ 1936164](https://bugzilla.redhat.com/1936164) **Enable KVM Software TPM by default**
+
+   
+
+ - [BZ 1932485](https://bugzilla.redhat.com/1932485) **[RFE] Snapshots for VMs with TPM/NVRAM data**
+
+   
+
+ - [BZ 1892525](https://bugzilla.redhat.com/1892525) **Cannot clone VM from Admin Portal if it has Direct LUN**
+
+   
+
+ - [BZ 1900992](https://bugzilla.redhat.com/1900992) **If there is no enough free space on the target domain while LSM is being performed, Live Merge (as part of LSM) fails but the event on the UI is not informative**
+
+   
 
  - [BZ 1879032](https://bugzilla.redhat.com/1879032) **If there is no master storage domain, the engine should elect one**
 
@@ -255,7 +366,41 @@ In order to customize or disable the above default settings it is recommended to
 
 #### VDSM
 
+ - [BZ 1936298](https://bugzilla.redhat.com/1936298) **New guest tools available mark even when latest guest tools are installed.**
+
+   
+
+ - [BZ 1946204](https://bugzilla.redhat.com/1946204) **Hosted-engine fail to add first host**
+
+   
+
+ - [BZ 1943141](https://bugzilla.redhat.com/1943141) **vGPU with SecureBoot and Nvidia enrolled key: NVRAM file got truncated after host crash.**
+
+   
+
  - [BZ 1927718](https://bugzilla.redhat.com/1927718) **[RFE] Provide Reset option for VMs**
+
+   
+
+
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1933191](https://bugzilla.redhat.com/1933191) **ovirt-hosted-engine-cleanup should also cleanup ip -6 rules**
+
+   
+
+ - [BZ 1900591](https://bugzilla.redhat.com/1900591) **hosted-engine deploy fails on AMD EPYC nested virtualization**
+
+   
+
+ - [BZ 1900551](https://bugzilla.redhat.com/1900551) **[RFE] validate Engine VM domain if --restore-from-file**
+
+   
+
+
+#### oVirt Engine Appliance
+
+ - [BZ 1918291](https://bugzilla.redhat.com/1918291) **Remove unneeded packages from RHV-M appliance**
 
    
 
@@ -263,6 +408,14 @@ In order to customize or disable the above default settings it is recommended to
 ### No Doc Update
 
 #### oVirt Engine
+
+ - [BZ 1948491](https://bugzilla.redhat.com/1948491) **When installing RHEL8.2 host in CL 4.4 installation fails on missing module virt:av**
+
+   
+
+ - [BZ 1930565](https://bugzilla.redhat.com/1930565) **Host upgrade failed in imgbased but RHVM shows upgrade successful**
+
+   
 
  - [BZ 1930522](https://bugzilla.redhat.com/1930522) **[RHV-4.4.5.5] Failed to deploy RHEL AV 8.4.0 host to RHV with error "missing groups or modules: virt:8.4"**
 
@@ -273,36 +426,53 @@ In order to customize or disable the above default settings it is recommended to
    
 
 
+#### VDSM
+
+ - [BZ 1949048](https://bugzilla.redhat.com/1949048) **unable to unplug vNIC based port-mirroring from running VM**
+
+   
+
+ - [BZ 1940569](https://bugzilla.redhat.com/1940569) **Restart lldpad and fcoe services only if needed**
+
+   
+
+
 #### Contributors
 
-29 people contributed to this release:
+35 people contributed to this release:
 
 	Ahmad Khiet (Contributed to: ovirt-engine)
 	Ales Musil (Contributed to: ovirt-engine, vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine)
+	Asaf Rachmani (Contributed to: ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
+	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Eitan Raviv (Contributed to: ovirt-engine)
 	Eli Mesika (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
 	Jean-Louis Dupond (Contributed to: ovirt-engine, vdsm)
-	Lev Veyde (Contributed to: ovirt-engine, ovirt-release)
+	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
+	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Perina (Contributed to: ovirt-engine, vdsm)
-	Michal Skrivanek (Contributed to: vdsm)
+	Michal Skrivanek (Contributed to: ovirt-engine, vdsm)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nick Bouwhuis (Contributed to: ovirt-engine)
 	Nir Soffer (Contributed to: vdsm)
 	Ori Liel (Contributed to: ovirt-engine)
+	Pavel Bar (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
-	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-host, ovirt-release)
+	S.Mohammad Emami Razavi (Contributed to: ovirt-engine)
+	Sandro Bonazzola (Contributed to: ovirt-appliance, ovirt-engine, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release)
 	Scott J Dickerson (Contributed to: ovirt-engine)
 	Shani Leviim (Contributed to: ovirt-engine)
+	Shmuel Melamud (Contributed to: ovirt-engine)
 	Steven Rosenberg (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
-	Vojtech Juranek (Contributed to: ovirt-engine)
-	Yedidyah Bar David (Contributed to: ovirt-engine)
+	Vojtech Juranek (Contributed to: ovirt-engine, vdsm)
+	Yedidyah Bar David (Contributed to: ovirt-engine, ovirt-hosted-engine-setup)

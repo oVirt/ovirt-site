@@ -75,6 +75,7 @@ Instead of or in addition to oVirt Node, you can use a standard Enterprise Linux
         sudo subscription-manager repos --enable="ansible-2-for-rhel-8-x86_64-rpms"
 
         # RHEL beta releases only
+        sudo subscription-manager repos --enable="rhel-8-for-x86_64-baseos-beta-rpms"
         sudo subscription-manager repos --enable="rhel-8-for-x86_64-appstream-beta-rpms"
 
 

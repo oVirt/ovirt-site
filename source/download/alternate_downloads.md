@@ -75,6 +75,7 @@ For a standalone engine this means basically:
         sudo subscription-manager repos --enable="ansible-2-for-rhel-8-x86_64-rpms"
 
         # RHEL beta releases only
+        sudo subscription-manager repos --enable="rhel-8-for-x86_64-baseos-beta-rpms"
         sudo subscription-manager repos --enable="rhel-8-for-x86_64-appstream-beta-rpms"
 
 2.  Add the official oVirt repository.

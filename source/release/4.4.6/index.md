@@ -1,7 +1,7 @@
 ---
 title: oVirt 4.4.6 Release Notes
 category: documentation
-authors: sandrobonazzola lveyde
+authors: lveyde sandrobonazzola
 toc: true
 page_classes: releases
 ---
@@ -19,7 +19,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.6 Fourth Release Candidate as of April 15, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.6 Fifth Release Candidate as of April 22, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -110,6 +110,10 @@ Virtual Machine Uptime (BR46) panel:
 
 #### oVirt Engine
 
+ - [BZ 1933672](https://bugzilla.redhat.com/1933672) **Ansible security advisory RHSA-2021:0663 not included in RHV**
+
+   RHV 4.4.6 now requires Ansible Engine 2.9.18
+
  - [BZ 1947403](https://bugzilla.redhat.com/1947403) **Increase reboot timeout to 10 min.**
 
    By default we are waiting a certain amount of time defined by engine-config option ServerRebootTimeout before we consider that a hypervisor finished rebooting. Before oVirt 4.4.6 this timeout has been set to 5 minutes, but from 4.4.6 we are increasing the default to 10 minute. If this is not enough and hypervisors in your setup requires more time to finish rebooting, then please use below commant:
@@ -121,6 +125,28 @@ Virtual Machine Uptime (BR46) panel:
 
 
 where NNN is number of seconds which engine waits until it tries to connect to the hypervisor after a reboot. ovirt-engine service needs to be restarted after above change to take effect.
+
+ - [BZ 1926819](https://bugzilla.redhat.com/1926819) **python-sdk iscsidiscover return iscsi_targets instead of iscsi_details**
+
+   Host 'iscsi_discover' action has been deprecated.
+
+Host 'discover_iscsi' action has been added to replace it.
+
+
+
+The actions do the same thing but have different return values.
+
+
+
+'discover_iscsi' returns the information in a 'iscsi_details' element.
+
+
+
+'iscsi_discover' returns the information in a 'iscsi_targets' element.
+
+
+
+In summary, the action which should be used from now on is 'discover_iscsi'.
 
  - [BZ 1933974](https://bugzilla.redhat.com/1933974) **[RFE] Introduce Datacenter and cluster level 4.6**
 
@@ -149,6 +175,10 @@ New features available in compatibility 4.6 are tracked as separate bugs dependi
  - [BZ 1113630](https://bugzilla.redhat.com/1113630) **[RFE] indicate vNICs that are out-of-sync from their configuration on engine**
 
    
+
+ - [BZ 1944723](https://bugzilla.redhat.com/1944723) **[RFE] Support virtual machines with 16TB memory**
+
+   In this version, we support running virtual machines with up to 16TB of RAM on x86_64.
 
  - [BZ 1669178](https://bugzilla.redhat.com/1669178) **[RFE] Q35 SecureBoot - Add ability to preserve variable store certificates.**
 
@@ -236,6 +266,11 @@ In order to customize or disable the above default settings it is recommended to
  - [BZ 1940484](https://bugzilla.redhat.com/1940484) **Consume  Bug 1931331 - libvirtd crashes in virEventThreadWorker**
 
 
+#### imgbased
+
+ - [BZ 1936972](https://bugzilla.redhat.com/1936972) **[RHVH] Failed to reinstall persisted RPMs**
+
+
 ### Other
 
 #### oVirt Engine Data Warehouse
@@ -255,6 +290,42 @@ In order to customize or disable the above default settings it is recommended to
 
 #### oVirt Engine
 
+ - [BZ 1930895](https://bugzilla.redhat.com/1930895) **RHEL 8 virtual machine with qemu-guest-agent installed displays Guest OS Memory Free/Cached/Buffered: Not Configured**
+
+   
+
+ - [BZ 1948376](https://bugzilla.redhat.com/1948376) **Failed to migrate vm when migration encryption is enabled - new deployments**
+
+   
+
+ - [BZ 1891851](https://bugzilla.redhat.com/1891851) **Clarify the error-message in case of incorrect cpu-type set to a cluster**
+
+   
+
+ - [BZ 1951506](https://bugzilla.redhat.com/1951506) **VM update fails on bios type check on PPC arch.**
+
+   
+
+ - [BZ 1805808](https://bugzilla.redhat.com/1805808) **[de_DE] Compute - Virtual Machines - New - Custom Properties: text truncated and overlapped with &gt;**
+
+   
+
+ - [BZ 1805796](https://bugzilla.redhat.com/1805796) **[fr_FR] Compute - Virtual Machines - New - Random Generator: text truncated and overlapped with &gt;**
+
+   
+
+ - [BZ 1917718](https://bugzilla.redhat.com/1917718) **[RFE] Collect memory usage information from RHEL8 guests without balloon device**
+
+   
+
+ - [BZ 1926018](https://bugzilla.redhat.com/1926018) **Failed to run VM after FIPS mode is enabled**
+
+   
+
+ - [BZ 1821199](https://bugzilla.redhat.com/1821199) **HP VM fails to migrate between identical hosts (the same cpu flags) not supporting TSC.**
+
+   
+
  - [BZ 1948484](https://bugzilla.redhat.com/1948484) **Failed to change CD in vm**
 
    
@@ -268,6 +339,10 @@ In order to customize or disable the above default settings it is recommended to
    
 
  - [BZ 1927243](https://bugzilla.redhat.com/1927243) **Cannot hotplug disk reports libvirtError: Requested operation is not valid: Domain already contains a disk with that address**
+
+   
+
+ - [BZ 1717411](https://bugzilla.redhat.com/1717411) **improve engine logging when migration fail**
 
    
 
@@ -303,7 +378,7 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
- - [BZ 1944723](https://bugzilla.redhat.com/1944723) **[RFE] Support virtual machines with 16TB memory**
+ - [BZ 1940764](https://bugzilla.redhat.com/1940764) **Parsing of absurd variables seen from classes using jackson dependency to ansible-playbook while create-brick**
 
    
 
@@ -366,6 +441,18 @@ In order to customize or disable the above default settings it is recommended to
 
 #### VDSM
 
+ - [BZ 1717411](https://bugzilla.redhat.com/1717411) **improve engine logging when migration fail**
+
+   
+
+ - [BZ 1933669](https://bugzilla.redhat.com/1933669) **Improve live snapshot logs in case of aborting**
+
+   
+
+ - [BZ 1948532](https://bugzilla.redhat.com/1948532) **Resize disk when vm is up fails, vm cannot be stopped**
+
+   
+
  - [BZ 1936298](https://bugzilla.redhat.com/1936298) **New guest tools available mark even when latest guest tools are installed.**
 
    
@@ -374,7 +461,19 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
+ - [BZ 1821199](https://bugzilla.redhat.com/1821199) **HP VM fails to migrate between identical hosts (the same cpu flags) not supporting TSC.**
+
+   
+
+ - [BZ 1946199](https://bugzilla.redhat.com/1946199) **Cannot create Logical Volume ... Failed to wipe signatures**
+
+   
+
  - [BZ 1943141](https://bugzilla.redhat.com/1943141) **vGPU with SecureBoot and Nvidia enrolled key: NVRAM file got truncated after host crash.**
+
+   
+
+ - [BZ 1917718](https://bugzilla.redhat.com/1917718) **[RFE] Collect memory usage information from RHEL8 guests without balloon device**
 
    
 
@@ -405,9 +504,35 @@ In order to customize or disable the above default settings it is recommended to
    
 
 
+#### oVirt Engine database query tool
+
+ - [BZ 1949543](https://bugzilla.redhat.com/1949543) **rhv-log-collector-analyzer fails to run MAC Pools rule**
+
+   
+
+
 ### No Doc Update
 
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1870055](https://bugzilla.redhat.com/1870055) **OVESETUP_GRAFANA_CONFIG/grafanaUser might be undefined**
+
+   
+
+ - [BZ 1919984](https://bugzilla.redhat.com/1919984) **engine-setup failse to deploy the grafana service in an external DWH server**
+
+   
+
+
 #### oVirt Engine
+
+ - [BZ 1950466](https://bugzilla.redhat.com/1950466) **Host installation failed**
+
+   
+
+ - [BZ 1875363](https://bugzilla.redhat.com/1875363) **engine-setup failing on FIPS enable rhel8 machine**
+
+   
 
  - [BZ 1948491](https://bugzilla.redhat.com/1948491) **When installing RHEL8.2 host in CL 4.4 installation fails on missing module virt:av**
 
@@ -428,6 +553,10 @@ In order to customize or disable the above default settings it is recommended to
 
 #### VDSM
 
+ - [BZ 1949995](https://bugzilla.redhat.com/1949995) **Removing a network gateway causes the sync host networks to fail**
+
+   
+
  - [BZ 1949048](https://bugzilla.redhat.com/1949048) **unable to unplug vNIC based port-mirroring from running VM**
 
    
@@ -439,40 +568,43 @@ In order to customize or disable the above default settings it is recommended to
 
 #### Contributors
 
-35 people contributed to this release:
+38 people contributed to this release:
 
-	Ahmad Khiet (Contributed to: ovirt-engine)
+	Ahmad Khiet (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Ales Musil (Contributed to: ovirt-engine, vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine)
-	Asaf Rachmani (Contributed to: ovirt-hosted-engine-setup)
+	Asaf Rachmani (Contributed to: ovirt-engine, ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
 	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
+	Douglas Schilling Landgraf (Contributed to: engine-db-query)
 	Eitan Raviv (Contributed to: ovirt-engine)
 	Eli Mesika (Contributed to: ovirt-engine)
-	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
+	Eyal Shenitzky (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
 	Jean-Louis Dupond (Contributed to: ovirt-engine, vdsm)
-	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release)
-	Liran Rotenberg (Contributed to: ovirt-engine)
+	Lev Veyde (Contributed to: imgbased, ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release)
+	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Perina (Contributed to: ovirt-engine, vdsm)
 	Michal Skrivanek (Contributed to: ovirt-engine, vdsm)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nick Bouwhuis (Contributed to: ovirt-engine)
-	Nir Soffer (Contributed to: vdsm)
-	Ori Liel (Contributed to: ovirt-engine)
+	Nir Soffer (Contributed to: ovirt-engine-sdk, vdsm)
+	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk, ovirt-engine-sdk-ruby)
 	Pavel Bar (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
+	Ritesh Chikatwar (Contributed to: vdsm)
+	Roberto Ciatti (Contributed to: ovirt-engine-sdk-ruby)
 	S.Mohammad Emami Razavi (Contributed to: ovirt-engine)
-	Sandro Bonazzola (Contributed to: ovirt-appliance, ovirt-engine, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release)
+	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-appliance, ovirt-engine, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release)
 	Scott J Dickerson (Contributed to: ovirt-engine)
-	Shani Leviim (Contributed to: ovirt-engine)
-	Shmuel Melamud (Contributed to: ovirt-engine)
+	Shani Leviim (Contributed to: ovirt-engine, ovirt-engine-sdk)
+	Shmuel Melamud (Contributed to: ovirt-engine, vdsm)
 	Steven Rosenberg (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: ovirt-engine, vdsm)
-	Yedidyah Bar David (Contributed to: ovirt-engine, ovirt-hosted-engine-setup)
+	Yedidyah Bar David (Contributed to: ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup)

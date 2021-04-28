@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
 
-bundle install --quiet --path vendor/bundle
+bundle config --local path 'vendor/bundle'
+bundle install --quiet
 bundle exec jekyll s -t -l $@

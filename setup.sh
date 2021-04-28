@@ -20,5 +20,5 @@ else
     echo "Could not verify system is RedHat or Debian."
     exit 1
 fi
-
-bundle install --path vendor/bundle
+bundle config --local path 'vendor/bundle'
+bundle install

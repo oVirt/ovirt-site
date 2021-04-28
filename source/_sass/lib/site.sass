@@ -63,26 +63,43 @@ header.masthead
 
 /* nav */
 
-#mainNav .container
-  float: left
-  margin: 0 auto
-
-  @media screen and (max-width: 768px)
-    float: right
-    margin-right: 0px
-    margin-left: 0px
-    padding-left: 0px
-    padding-right: 0px
-    position: relative
-    z-index: 9999
-
-  .nav
-    @media screen and (max-width: 768px)
+#mainNav
+  @media screen and (max-width: 767.9px)
+    position: absolute
+    .container
+      margin-right: 0
+      margin-left: 0
+      padding-left: 0
+      padding-right: 0
+      position: relative
+      z-index: 9999
+    .nav
       display: list-item
+    .navbar-collapse
+      width: 100%
+      margin-left: -15px
+      li a
+        text-indent: 20px
+
+#mainNav .container
+  margin: 0 auto
+  .navbar-toggle
+    padding: 15px 10px
+  .navbar-brand
+    padding: 0 40px 0 0
+    @media screen and (max-width: 768px)
+      padding: 0 40px 15px 15px
+    > img
+      height: 40px
+      margin-top: 19px
 
 header.masthead .navbar-nav
   display: flex
-  @media screen and (max-width: 768px)
+  width: 100%
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  @media screen and (max-width: 767.9px)
     background-color: #666
     margin: 0px
 
@@ -91,16 +108,13 @@ header.masthead .navbar-header
     color: white
 
 header.masthead .navbar-nav li a
-  padding: 25px
-  padding-left: 40px
-  padding-right: 40px
-  margin-left: 20px
-  margin-right: 20px
+  line-height: 53px
+  padding-left: 1vw
+  padding-right: 1vw
   color: white
   opacity: 100
-  @media screen and (max-width: 768px)
-    font-size: 3ex
-    padding: 0px
+  @media screen and (max-width: 1200px)
+    font-size: 18px
 
 header.masthead .navbar-nav li.active a
   color: white
@@ -115,7 +129,7 @@ header.masthead .navbar-collapse
   box-shadow: none
   @media screen and (max-width: 768px)
     padding-top: 5px
-    margin: 5px auto
+    margin: 2px auto
     padding: 0
 
 header.masthead .navbar-collapse.in

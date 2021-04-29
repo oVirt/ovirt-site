@@ -64,10 +64,10 @@ A new endpoint `CopyDataExternalEndpoint` was [added](https://gerrit.ovirt.org/c
 The `Lease.create` verb was [modified](https://gerrit.ovirt.org/c/vdsm/+/113672) to accept to receive a `metadata` parameter
 
 
-#### Lease.status
+##### Lease.status
 `Lease.status` which was previously not implmeneted is now [used](https://gerrit.ovirt.org/c/vdsm/+/113718/19), it is used to determine the job's status when we cannot receive information from the host using `Host.getJobs`.
 
-#### Lease.fence
+##### Lease.fence
 A new verb `Lease.fence` was added to perform fencing on the lease. The only type of fencing currently implemented is job fencing, in which the job's status is updated to `FENCED` and the generation is increased by 1.
 
 #### Engine

@@ -19,7 +19,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.6 Fifth Release Candidate as of April 22, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.6 Sixth Release Candidate as of April 29, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -261,6 +261,8 @@ In order to customize or disable the above default settings it is recommended to
 
 #### VDSM
 
+ - [BZ 1902127](https://bugzilla.redhat.com/1902127) **Sanlock exception during Lease.delete leaves lease UPDATING_FLAG in updating state, failing the next Lease.create and engine updates VM lease incorrectly.**
+
  - [BZ 1945675](https://bugzilla.redhat.com/1945675) **delete-snapshot stress with extreme load- Vdsm aborts live merge job without aborting the libvirt block job**
 
  - [BZ 1940484](https://bugzilla.redhat.com/1940484) **Consume  Bug 1931331 - libvirtd crashes in virEventThreadWorker**
@@ -290,6 +292,70 @@ In order to customize or disable the above default settings it is recommended to
 
 #### oVirt Engine
 
+ - [BZ 1906074](https://bugzilla.redhat.com/1906074) **[RFE] Support disks copy between regular and managed block storage domains**
+
+   
+
+ - [BZ 1899453](https://bugzilla.redhat.com/1899453) **Remove old Cinder integration from the UI**
+
+   
+
+ - [BZ 1954401](https://bugzilla.redhat.com/1954401) **HP VMs pinning is wiped after edit-&gt;ok and pinned to first physical CPUs.**
+
+   
+
+ - [BZ 1953558](https://bugzilla.redhat.com/1953558) **[CBT] Unable to GET storage domain disks through API during a backup (when scratch disks created on the same SD)**
+
+   
+
+ - [BZ 1928158](https://bugzilla.redhat.com/1928158) **Rename 'CA Certificate' link in welcome page to 'Engine CA certificate'**
+
+   
+
+ - [BZ 1950323](https://bugzilla.redhat.com/1950323) **Missing title in the SSH public key management tooltip**
+
+   
+
+ - [BZ 1952075](https://bugzilla.redhat.com/1952075) **Failed to migrate vm when migration encryption is enabled - upgrade-flow**
+
+   
+
+ - [BZ 1859921](https://bugzilla.redhat.com/1859921) **GenericApiGWTService causing additional load on engine**
+
+   
+
+ - [BZ 1949798](https://bugzilla.redhat.com/1949798) **Remove the replace-host options available with reinstall host workflow from administration portal**
+
+   
+
+ - [BZ 1952787](https://bugzilla.redhat.com/1952787) **Chipset/firmware type setting doesn't work when creating vm pool**
+
+   
+
+ - [BZ 1868249](https://bugzilla.redhat.com/1868249) **The OVF disk size on file storage reported by engine does not match the actual size of the OVF**
+
+   
+
+ - [BZ 1900992](https://bugzilla.redhat.com/1900992) **If there is no enough free space on the target domain while LSM is being performed, Live Merge (as part of LSM) fails but the event on the UI is not informative**
+
+   
+
+ - [BZ 1673059](https://bugzilla.redhat.com/1673059) **[RFE] [UX] provide an indication that ISO domains are deprecated and Data Domains can/should now store ISOs**
+
+   
+
+ - [BZ 1952834](https://bugzilla.redhat.com/1952834) **Failure during SSH stop/restart on FIPS enabled host**
+
+   
+
+ - [BZ 1952098](https://bugzilla.redhat.com/1952098) **VM created from a template (the same to pools) doesn't inherit 'VirtIO-SCSI Multi Queues Enabled' setting**
+
+   
+
+ - [BZ 1935073](https://bugzilla.redhat.com/1935073) **Ansible ovirt_disk module can create disks with conflicting IDs that cannot be removed**
+
+   
+
  - [BZ 1930895](https://bugzilla.redhat.com/1930895) **RHEL 8 virtual machine with qemu-guest-agent installed displays Guest OS Memory Free/Cached/Buffered: Not Configured**
 
    
@@ -306,6 +372,10 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
+ - [BZ 1950752](https://bugzilla.redhat.com/1950752) **[RFE][CBT] redefine only the checkpoint that the backup is taken from and not the entire chain**
+
+   
+
  - [BZ 1805808](https://bugzilla.redhat.com/1805808) **[de_DE] Compute - Virtual Machines - New - Custom Properties: text truncated and overlapped with &gt;**
 
    
@@ -314,7 +384,7 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
- - [BZ 1917718](https://bugzilla.redhat.com/1917718) **[RFE] Collect memory usage information from RHEL8 guests without balloon device**
+ - [BZ 1917718](https://bugzilla.redhat.com/1917718) **[RFE] Collect memory usage from guests without ovirt-guest-agent and memory ballooning**
 
    
 
@@ -370,10 +440,6 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
- - [BZ 1900992](https://bugzilla.redhat.com/1900992) **If there is no enough free space on the target domain while LSM is being performed, Live Merge (as part of LSM) fails but the event on the UI is not informative**
-
-   
-
  - [BZ 1879032](https://bugzilla.redhat.com/1879032) **If there is no master storage domain, the engine should elect one**
 
    
@@ -426,6 +492,10 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
+ - [BZ 1589763](https://bugzilla.redhat.com/1589763) **[downstream clone] Error changing CD for a running VM when ISO image is on a block domain**
+
+   
+
  - [BZ 1936185](https://bugzilla.redhat.com/1936185) **[CBT] Scratch disk not removed if a VM goes to 'paused' state during the backup process**
 
    
@@ -439,9 +509,32 @@ In order to customize or disable the above default settings it is recommended to
    
 
 
+#### oVirt Release Package
+
+ - [BZ 1954571](https://bugzilla.redhat.com/1954571) **Ansible does not correctly detect distribution_version on oVirt Node based on CentOS Stream 8**
+
+   
+
+
 #### VDSM
 
+ - [BZ 1589763](https://bugzilla.redhat.com/1589763) **[downstream clone] Error changing CD for a running VM when ISO image is on a block domain**
+
+   
+
+ - [BZ 1868643](https://bugzilla.redhat.com/1868643) **Volume not deactivated after ejecting CDROM**
+
+   
+
+ - [BZ 1906074](https://bugzilla.redhat.com/1906074) **[RFE] Support disks copy between regular and managed block storage domains**
+
+   
+
  - [BZ 1717411](https://bugzilla.redhat.com/1717411) **improve engine logging when migration fail**
+
+   
+
+ - [BZ 1950752](https://bugzilla.redhat.com/1950752) **[RFE][CBT] redefine only the checkpoint that the backup is taken from and not the entire chain**
 
    
 
@@ -450,10 +543,6 @@ In order to customize or disable the above default settings it is recommended to
    
 
  - [BZ 1948532](https://bugzilla.redhat.com/1948532) **Resize disk when vm is up fails, vm cannot be stopped**
-
-   
-
- - [BZ 1936298](https://bugzilla.redhat.com/1936298) **New guest tools available mark even when latest guest tools are installed.**
 
    
 
@@ -473,7 +562,7 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
- - [BZ 1917718](https://bugzilla.redhat.com/1917718) **[RFE] Collect memory usage information from RHEL8 guests without balloon device**
+ - [BZ 1917718](https://bugzilla.redhat.com/1917718) **[RFE] Collect memory usage from guests without ovirt-guest-agent and memory ballooning**
 
    
 
@@ -511,9 +600,31 @@ In order to customize or disable the above default settings it is recommended to
    
 
 
+#### oVirt Ansible collection
+
+ - [BZ 1924590](https://bugzilla.redhat.com/1924590) **"FIPS mode is not enabled as required" error occur in "Enforce FIPS mode" task when deploying hosted engine**
+
+   
+
+ - [BZ 1948274](https://bugzilla.redhat.com/1948274) **HE deployment checks host instead of appliance distribution when applying openscap profile**
+
+   
+
+
+#### MOM
+
+ - [BZ 1945132](https://bugzilla.redhat.com/1945132) **VDSM always reports ksmState as True, regardless of the cluster ksm configuration**
+
+   
+
+
 ### No Doc Update
 
 #### oVirt Engine Data Warehouse
+
+ - [BZ 1928188](https://bugzilla.redhat.com/1928188) **Failed to parse 'writeOps' value 'XXXX' to integer: For input string: "XXXX"**
+
+   
 
  - [BZ 1870055](https://bugzilla.redhat.com/1870055) **OVESETUP_GRAFANA_CONFIG/grafanaUser might be undefined**
 
@@ -526,6 +637,26 @@ In order to customize or disable the above default settings it is recommended to
 
 #### oVirt Engine
 
+ - [BZ 1953159](https://bugzilla.redhat.com/1953159) **VM with next run configuration can't get IP after it's restarted becasue the VM's vNIC profile is set to &lt;Empty&gt;**
+
+   
+
+ - [BZ 1952369](https://bugzilla.redhat.com/1952369) **[SR-IOV] [Failover] Can't unplug VM's vNIC if the failover vNIC profile has been changed**
+
+   
+
+ - [BZ 1952057](https://bugzilla.redhat.com/1952057) **Indicate vNIC is out of sync on network VLAN modification on engine**
+
+   
+
+ - [BZ 1952353](https://bugzilla.redhat.com/1952353) **Do not indicate vNIC is out of sync on network Host Qos modification on engine**
+
+   
+
+ - [BZ 1915207](https://bugzilla.redhat.com/1915207) **[UI] user can create more than 1 network with the same name when checking the external provider check box**
+
+   
+
  - [BZ 1950466](https://bugzilla.redhat.com/1950466) **Host installation failed**
 
    
@@ -535,6 +666,10 @@ In order to customize or disable the above default settings it is recommended to
    
 
  - [BZ 1948491](https://bugzilla.redhat.com/1948491) **When installing RHEL8.2 host in CL 4.4 installation fails on missing module virt:av**
+
+   
+
+ - [BZ 1928188](https://bugzilla.redhat.com/1928188) **Failed to parse 'writeOps' value 'XXXX' to integer: For input string: "XXXX"**
 
    
 
@@ -568,15 +703,18 @@ In order to customize or disable the above default settings it is recommended to
 
 #### Contributors
 
-38 people contributed to this release:
+47 people contributed to this release:
 
+	Adam Feldman (Contributed to: mom)
 	Ahmad Khiet (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Ales Musil (Contributed to: ovirt-engine, vdsm)
+	Andrej Krejcir (Contributed to: mom)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine)
-	Asaf Rachmani (Contributed to: ovirt-engine, ovirt-hosted-engine-setup)
+	Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
+	Ben Amsalem (Contributed to: ovirt-web-ui)
 	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
 	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
@@ -584,27 +722,33 @@ In order to customize or disable the above default settings it is recommended to
 	Eitan Raviv (Contributed to: ovirt-engine)
 	Eli Mesika (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
-	Jean-Louis Dupond (Contributed to: ovirt-engine, vdsm)
+	Hilda Stastna (Contributed to: ovirt-engine)
+	Jean-Louis Dupond (Contributed to: ovirt-dwh, ovirt-engine, vdsm)
 	Lev Veyde (Contributed to: imgbased, ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
-	Martin Perina (Contributed to: ovirt-engine, vdsm)
+	Martin Nečas (Contributed to: ovirt-ansible-collection)
+	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, vdsm)
 	Michal Skrivanek (Contributed to: ovirt-engine, vdsm)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nick Bouwhuis (Contributed to: ovirt-engine)
 	Nir Soffer (Contributed to: ovirt-engine-sdk, vdsm)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk, ovirt-engine-sdk-ruby)
 	Pavel Bar (Contributed to: ovirt-engine)
-	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
+	Prajith Kesava Prasad (Contributed to: ovirt-engine)
+	Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Ritesh Chikatwar (Contributed to: vdsm)
 	Roberto Ciatti (Contributed to: ovirt-engine-sdk-ruby)
+	Roman Bednar (Contributed to: vdsm)
+	Ryan Barry (Contributed to: mom)
 	S.Mohammad Emami Razavi (Contributed to: ovirt-engine)
-	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-appliance, ovirt-engine, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release)
-	Scott J Dickerson (Contributed to: ovirt-engine)
+	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-appliance, ovirt-engine, ovirt-engine-nodejs-modules, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release)
+	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-web-ui)
 	Shani Leviim (Contributed to: ovirt-engine, ovirt-engine-sdk)
+	Sharon Gratch (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shmuel Melamud (Contributed to: ovirt-engine, vdsm)
 	Steven Rosenberg (Contributed to: ovirt-engine)
-	Tomáš Golembiovský (Contributed to: vdsm)
+	Tomáš Golembiovský (Contributed to: mom, vdsm)
 	Vojtech Juranek (Contributed to: ovirt-engine, vdsm)
 	Yedidyah Bar David (Contributed to: ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup)

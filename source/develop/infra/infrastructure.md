@@ -18,9 +18,9 @@ The oVirt Infra Team is a volunteer effort to provide community infrastructure s
 The maintainers of the Infrastructure project are:
 
 *   **Infrastructure Lead:** David Caro (Dcaroest),Anton Marchukov (amarchuk)
-*   **Release Manager:** Sandro Bonazzola (Sbonazzo)
+*   **Release Manager:** [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   **CI Leads:** Eyal Edri (Eyal), David Caro (Dcaroest),Anton Marchukov (amarchuk)
-*   **Repositories/Build Lead:** Sandro Bonazzola (Sbonazzo), David Caro (Dcaroest)
+*   **Repositories/Build Lead:** [Sandro Bonazzola](https://github.com/sandrobonazzola), David Caro (Dcaroest)
 *   **Gerrit Admins:**Eyal Edri (eedri), David Caro (Dcaroest), Anton Marchukov (amarchuk)
 *   **Puppet and Foreman Lead:** Ewoud Kohl van Wijngaarden (Ekohl), David Caro (Dcaroest),Barak Korren (Bkorren)
 *   **Mail Servers** Karsten Wade (Quaid),Michael Scherer (Misc)
@@ -88,7 +88,7 @@ The main thing is, come communicate with us if you have any questions, are inter
 * The Infra team generally follows the principle that if it didn't get discussed on the [mailing list](https://lists.ovirt.org/archives/list/infra@ovirt.org/) it didn't really happen.
 * This means all important or broad-reaching decisions are discussed and decided on the mailing list.
 * The team uses the same [collaborative decision process](https://blogs.apache.org/comdev/entry/how_apache_projects_use_consensus) that other oVirt teams use, with some lightweight elements added to move along minor votes.
-  * +1 is a vote in favor of a proposition 
+  * +1 is a vote in favor of a proposition
   * -1 is a vote against a proposition, must be accompanied with an explanation of the negative vote.
   * +/-0 is an abstention
   * 3 or more +1 votes are required for anything substantial, important, or far-reaching

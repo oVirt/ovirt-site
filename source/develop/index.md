@@ -20,6 +20,12 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
   <a href="/documentation/">Documentation is available here.</a>
 </div>
 
+#### oVirt development teams
+
+- [Infrastructure](infra/infrastructure.html)
+- [Integration](integration/index.html)
+
+
 #### Design Documentation
 - [Feature Pages / Design Documentation](/develop/release-management/features/)
 - [Architecture (outdated)](./architecture)

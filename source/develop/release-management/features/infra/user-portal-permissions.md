@@ -134,7 +134,7 @@ The following endpoints are supported:
 ## Documentation / External references
 
 [Writing A New User
-Query](/develop/developer-guide/engine/writing-a-new-user-query)
+Query](/develop/developer-guide/engine/writing-a-new-user-query.html)
 
 
 

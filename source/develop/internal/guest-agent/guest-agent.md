@@ -45,8 +45,8 @@ The following actions can be requested from the agent:
 
 * **Lock screen** -- Request locking the user's desktop.
 * **Login** -- Perform a login on the user's behalf.
-* [Automatic login on RHEL](guest-agent-automatic-login-rhel6)
-* [Automatic login on Microsoft's Windows](guest-agent-automatic-login-windows)
+* [Automatic login on RHEL](guest-agent-automatic-login-rhel6.html)
+* [Automatic login on Microsoft's Windows](guest-agent-automatic-login-windows.html)
 * **Logoff** -- Log off the active user.
 * **Shutdown** -- Shut down the virtual machine.
 

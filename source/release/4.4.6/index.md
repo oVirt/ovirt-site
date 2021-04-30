@@ -7,19 +7,9 @@ page_classes: releases
 ---
 
 
-# oVirt 4.4.6 release planning
-
-The oVirt 4.4.6 code freeze is planned for April 25, 2021.
-
-If no critical issues are discovered while testing this compose it will be released on May 04, 2021.
-
-It has been planned to include in this release the content from this query:
-[Bugzilla tickets targeted to 4.4.6](https://bugzilla.redhat.com/buglist.cgi?quicksearch=ALL%20target_milestone%3A%22ovirt-4.4.6%22%20-target_milestone%3A%22ovirt-4.4.6-%22)
-
-
 # oVirt 4.4.6 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.6 Sixth Release Candidate as of April 29, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.6 release as of May 4th, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -39,10 +29,6 @@ visit our [community page](/community/).
 All issues or bugs should be reported via
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
-
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
 the [Download](/download/) page.
@@ -54,14 +40,7 @@ For a general overview of oVirt, read the [About oVirt](/community/about.html)
 page.
 
 To learn about features introduced before 4.4.6, see the
-[release notes for previous versions](/documentation/#latest-release-notes).
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
-
+[release notes for previous versions](/documentation/#previous-release-notes).
 
 ## Known issues
 
@@ -304,6 +283,10 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
+ - [BZ 1950467](https://bugzilla.redhat.com/1950467) **[CBT] VM backup failed after upgrade to 4.4.5. Invalid parameter: 'DiskType=SCRD'**
+
+   
+
  - [BZ 1953558](https://bugzilla.redhat.com/1953558) **[CBT] Unable to GET storage domain disks through API during a backup (when scratch disks created on the same SD)**
 
    
@@ -349,10 +332,6 @@ In order to customize or disable the above default settings it is recommended to
    
 
  - [BZ 1952098](https://bugzilla.redhat.com/1952098) **VM created from a template (the same to pools) doesn't inherit 'VirtIO-SCSI Multi Queues Enabled' setting**
-
-   
-
- - [BZ 1935073](https://bugzilla.redhat.com/1935073) **Ansible ovirt_disk module can create disks with conflicting IDs that cannot be removed**
 
    
 
@@ -645,6 +624,10 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
+ - [BZ 1935073](https://bugzilla.redhat.com/1935073) **Ansible ovirt_disk module can create disks with conflicting IDs that cannot be removed**
+
+   
+
  - [BZ 1952057](https://bugzilla.redhat.com/1952057) **Indicate vNIC is out of sync on network VLAN modification on engine**
 
    
@@ -654,10 +637,6 @@ In order to customize or disable the above default settings it is recommended to
    
 
  - [BZ 1915207](https://bugzilla.redhat.com/1915207) **[UI] user can create more than 1 network with the same name when checking the external provider check box**
-
-   
-
- - [BZ 1950466](https://bugzilla.redhat.com/1950466) **Host installation failed**
 
    
 
@@ -703,7 +682,7 @@ In order to customize or disable the above default settings it is recommended to
 
 #### Contributors
 
-47 people contributed to this release:
+52 people contributed to this release:
 
 	Adam Feldman (Contributed to: mom)
 	Ahmad Khiet (Contributed to: ovirt-engine, ovirt-engine-sdk)
@@ -715,15 +694,18 @@ In order to customize or disable the above default settings it is recommended to
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Ben Amsalem (Contributed to: ovirt-web-ui)
-	Benny Zlotnik (Contributed to: ovirt-engine, vdsm)
+	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-engine-sdk-go, vdsm)
 	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
-	Douglas Schilling Landgraf (Contributed to: engine-db-query)
+	Douglas Schilling Landgraf (Contributed to: engine-db-query, ovirt-engine-sdk-go)
 	Eitan Raviv (Contributed to: ovirt-engine)
-	Eli Mesika (Contributed to: ovirt-engine)
+	Eli Mesika (Contributed to: ovirt-engine, ovirt-engine-sdk-go)
+	Evgeny Slutsky (Contributed to: ovirt-engine-sdk-go)
 	Eyal Shenitzky (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
 	Hilda Stastna (Contributed to: ovirt-engine)
+	Huihui Fu (Contributed to: ovirt-engine-sdk-go)
 	Jean-Louis Dupond (Contributed to: ovirt-dwh, ovirt-engine, vdsm)
+	Joey Ma (Contributed to: ovirt-engine-sdk-go)
 	Lev Veyde (Contributed to: imgbased, ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
@@ -732,6 +714,7 @@ In order to customize or disable the above default settings it is recommended to
 	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, vdsm)
 	Michal Skrivanek (Contributed to: ovirt-engine, vdsm)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
+	Moti Asayag (Contributed to: ovirt-engine-sdk-go)
 	Nick Bouwhuis (Contributed to: ovirt-engine)
 	Nir Soffer (Contributed to: ovirt-engine-sdk, vdsm)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk, ovirt-engine-sdk-ruby)
@@ -739,11 +722,12 @@ In order to customize or disable the above default settings it is recommended to
 	Prajith Kesava Prasad (Contributed to: ovirt-engine)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Ritesh Chikatwar (Contributed to: vdsm)
-	Roberto Ciatti (Contributed to: ovirt-engine-sdk-ruby)
+	Roberto Ciatti (Contributed to: ovirt-engine-sdk-go, ovirt-engine-sdk-ruby)
 	Roman Bednar (Contributed to: vdsm)
+	Roy Golan (Contributed to: ovirt-engine-sdk-go)
 	Ryan Barry (Contributed to: mom)
 	S.Mohammad Emami Razavi (Contributed to: ovirt-engine)
-	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-appliance, ovirt-engine, ovirt-engine-nodejs-modules, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release)
+	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-appliance, ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-sdk-go, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release)
 	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-web-ui)
 	Shani Leviim (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Sharon Gratch (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)

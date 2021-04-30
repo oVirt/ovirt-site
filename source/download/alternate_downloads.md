@@ -1,11 +1,14 @@
 ---
 title: Download
-authors: gshereme, sandrobonazzola
+authors: gshereme,sandrobonazzola
+page_classes: download
 ---
 
 # Alternate Installation Methods
 
-For production installations, we recommend installing oVirt using the graphical Cockpit installer in the
+<img class="screenshot" src="download_1.png">
+
+For production installations, we recommend installing oVirt in the
 [Self-Hosted Engine configuration](/download). In this configuration, oVirt Engine and a Host are installed
 together with the Engine running as a Virtual Machine on that Host. This configuration is
 preferred because the Engine Virtual Machine will be highly available (once a second Host is added).
@@ -13,20 +16,20 @@ preferred because the Engine Virtual Machine will be highly available (once a se
 However, if you prefer to run oVirt Engine standalone on physical hardware or another virtualization provider, you can install oVirt Engine
 and Nodes / Hosts separately.
 
-oVirt 4.4.5 is intended for production use and is available for the following platforms:
+oVirt 4.4.6 is intended for production use and is available for the following platforms:
 
 Engine:
 - Red Hat Enterprise Linux 8.3
 - CentOS Linux 8.3
-- CentOS Stream (Tech Preview)
+- CentOS Stream
 
 Hosts:
 - Red Hat Enterprise Linux 8.3
 - CentOS Linux 8.3
-- oVirt Node (based on CentOS Linux 8.3)
-- CentOS Stream (Tech Preview)
+- oVirt Node (based on CentOS Stream)
+- CentOS Stream
 
-See the [Release Notes for oVirt 4.4.5](/release/4.4.5/).
+See the [Release Notes for oVirt 4.4.6](/release/4.4.6/).
 
 <div class="row"></div>
 
@@ -121,7 +124,7 @@ physical machine to act as a hypervisor in an oVirt environment.
 
 2.  Write the oVirt Node Installation ISO disk image to a USB, CD, or DVD.
 
-3.  Boot your physical machine from that media and install oVirt Node.
+3.  Boot your physical machine from that media and install the oVirt Node minimal operating system.
 
 #### Or Setup a Host
 
@@ -215,7 +218,7 @@ The following virtual machine guest operating systems are supported:
 
 The console is a graphical window that allows you to view and interact with the screen of a Virtual Machine.
 In oVirt, you can use a web-based console viewer or a desktop application (we recommend
-[Remote Viewer](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-graphic_user_interface_tools_for_guest_virtual_machine_management-remote_viewer)).
+[Virt Viewer](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/getting-started-with-virtualization-in-rhel-8_configuring-and-managing-virtualization#proc_opening-a-virtual-machine-graphical-console-using-virt-viewer_assembly_connecting-to-virtual-machines)).
 For Windows virtual machines, Remote Desktop Protocol is also available. See [Installing Console Components](/documentation/virtual_machine_management_guide/#sect-Installing_Console_Components),
 [VNC Console Options](/documentation/virtual_machine_management_guide/#VNC_Console_Options), and
 and [Browser Support and Mobile Clients](/download/browsers_and_mobile.html) for more information.

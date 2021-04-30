@@ -19,12 +19,11 @@ The members of the Integration team are
 
 Past contributors
 
-*   Alon Bar-Lev (Alonbl)
-*   Antoni Segura Puimedon (APuimedo)
-*   David Caro (Dcaroest)
-*   Juan Hernandez (juan)
-*   Douglas Landgraf
-*   Rafael Martins (RafaelMartins)
+*   Alon Bar-Lev
+*   Antoni Segura Puimedon
+*   David Caro
+*   Juan Hernandez
+*   Rafael Martins
 *   [Doron Fediuck (Doron)](https://github.com/doron-fediuck)
 *   [Simone Tiraboschi (Stirabos)](https://github.com/tiraboschi)
 *   [Ido Rosenzwig](https://github.com/irosenzw)

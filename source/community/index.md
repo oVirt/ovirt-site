@@ -42,6 +42,13 @@ Before getting started, please read our [community etiquette guidelines](/commun
 
 If you'd like to contribute code to oVirt, visit the [Developer section](/develop/) of the site for guidelines. All of our projects use git. Most are hosted at [https://gerrit.ovirt.org/](https://gerrit.ovirt.org/), and the rest are hosted at [https://github.com/oVirt](https://github.com/oVirt/).
 
+
+## Testing
+
+We're always eager to have new contributors to the [oVirt Quality Assurance](/develop/qa/index.html) project, no matter your experience level.
+If you'd like to get involved with helping to make oVirt better, read the [QA project page](/develop/qa/index.html) to find out how to join in with QA activities.
+There are tasks available for every level of expertise and available spare time.
+
 ## Translate
 
 oVirt's user interface and documentation are available in multiple languages for users around the globe.

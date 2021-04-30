@@ -250,7 +250,7 @@ All the Async tasks need to work with the new code changes. Instead of commands 
 
 ### Test Cases
 
-*   [QA:TestCase CommandCoordinator](/develop/infra/testing/test-cases/commandcoordinator.html)
+*   [QA:TestCase CommandCoordinator](/develop/qa/test-cases/commandcoordinator.html)
 
 
 

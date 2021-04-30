@@ -30,21 +30,21 @@ This feature enable the user to use iSCSI storage for Hosted Engine data domain.
 Current:
 
                --== STORAGE CONFIGURATION ==--
-              
+
                During customization use CTRL-D to abort.
                Please specify the storage you would like to use (nfs3, nfs4)[nfs3]:
 
 Will become:
 
                --== STORAGE CONFIGURATION ==--
-              
+
                During customization use CTRL-D to abort.
                Please specify the storage you would like to use (iscsi, nfs3, nfs4)[nfs3]:
 
 if iscsi will be selected:
 
                Please specify the iSCSI portal IP address:
-               Please specify the iSCSI portal port [3260]: 
+               Please specify the iSCSI portal port [3260]:
                Please specify the iSCSI portal user:
                Please specify the iSCSI portal password:
                Please specify the target name (values) [default]:
@@ -132,7 +132,7 @@ Users will be able to use iSCSI storage as data domain for Hosted Engine.
 
 ### Test Cases
 
-*   [QA:TestCase Hosted Engine iSCSI Multiple LUN Support](/develop/infra/testing/test-cases/hosted-engine-iscsi-multiple-lun-support.html)
+*   [QA:TestCase Hosted Engine iSCSI Multiple LUN Support](/develop/qa/test-cases/hosted-engine-iscsi-multiple-lun-support.html)
 
 
 

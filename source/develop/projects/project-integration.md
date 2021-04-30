@@ -16,9 +16,6 @@ The members of the Integration team are
 *   [Asaf Rachmani](https://github.com/arachmani)
 *   [Gal Zaidman](https://github.com/Gal-Zaidman)
 *   [Evgeny Slutsky](https://github.com/eslutsky)
-*   [Douglas Landgraf](https://github.com/dougsland)
-*   [Aviv Turgeman](https://github.com/avivtur)
-
 
 Past contributors
 
@@ -31,6 +28,8 @@ Past contributors
 *   [Doron Fediuck (Doron)](https://github.com/doron-fediuck)
 *   [Simone Tiraboschi (Stirabos)](https://github.com/tiraboschi)
 *   [Ido Rosenzwig](https://github.com/irosenzw)
+*   [Douglas Landgraf](https://github.com/dougsland)
+*   [Aviv Turgeman](https://github.com/avivtur)
 
 
 ## What does Integration team do?
@@ -45,7 +44,7 @@ Leads the following projects:
 *   [oVirt Log Collector](/develop/developer-guide/engine/engine-tools.html#ovirt-log-collector)
 *   [oVirt Releases](/develop/release-management/releases/) and Release management
 *   [oVirt Windows Guest Tools](/develop/release-management/features/integration/windows-guest-tools.html)
-*   [oVirt Quality Assurance](/develop/projects/project-qa.html)
+*   [oVirt Quality Assurance](/develop/qa/index.html)
 *   [OTOPI](/develop/developer-guide/engine/otopi.html)
 
 ## Projects deprecated / dropped in latest oVirt releases
@@ -73,5 +72,5 @@ Collaborates with other communities / projects:
 
 *   Fixing one of the [open bugs](https://bugzilla.redhat.com/buglist.cgi?quicksearch=cf_ovirt_team%3Aintegration%20status%3Anew) we have
 *   Testing one of the [bugs we fixed](https://bugzilla.redhat.com/buglist.cgi?quicksearch=cf_ovirt_team%3Aintegration%20status%3Amodifed%2Con_qa)
-*   Joining the [oVirt Quality Assurance](/develop/projects/project-qa.html) effort
+*   Joining the [oVirt Quality Assurance](/develop/qa/index.html) effort
 *   Help porting oVirt to other distributions

@@ -8,20 +8,20 @@ page_classes: download
 
 <img class="screenshot" src="download_1.png">
 
-oVirt 4.4.5 is intended for production use and is available for the following platforms:
+oVirt 4.4.6 is intended for production use and is available for the following platforms:
 
 Engine:
 - Red Hat Enterprise Linux 8.3
 - CentOS Linux 8.3
-- CentOS Stream (Tech Preview)
+- CentOS Stream
 
 Hosts:
 - Red Hat Enterprise Linux 8.3
 - CentOS Linux 8.3
-- oVirt Node (based on CentOS Linux 8.3)
-- CentOS Stream (Tech Preview)
+- oVirt Node (based on CentOS Stream)
+- CentOS Stream
 
-See the [Release Notes for oVirt 4.4.5](/release/4.4.5/).
+See the [Release Notes for oVirt 4.4.6](/release/4.4.6/).
 
 
 ## Install oVirt with Cockpit
@@ -30,7 +30,7 @@ oVirt is installed using a graphical installer in Cockpit.
 
 oVirt Engine and a Host are installed together with the Engine running as a Virtual Machine on that Host.
 Once you install a second Host, the Engine Virtual Machine will be highly available. See the
-[oVirt documentation](/documentation/) for full details.
+[oVirt documentation](/documentation/index.html) for full details.
 
 [Alternate download options](/download/alternate_downloads.html)
 
@@ -154,8 +154,8 @@ The following virtual machine guest operating systems are supported:
 ## Consoles
 
 The console is a graphical window that allows you to view and interact with the screen of a Virtual Machine.
-In oVirt, you can use a web-based console viewer or a desktop application (we recommend 
-[Remote Viewer](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-graphic_user_interface_tools_for_guest_virtual_machine_management-remote_viewer)).
+In oVirt, you can use a web-based console viewer or a desktop application (we recommend
+[Virt Viewer](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/getting-started-with-virtualization-in-rhel-8_configuring-and-managing-virtualization#proc_opening-a-virtual-machine-graphical-console-using-virt-viewer_assembly_connecting-to-virtual-machines)).
 For Windows virtual machines, Remote Desktop Protocol is also available. See [Installing Console Components](/documentation/virtual_machine_management_guide/#sect-Installing_Console_Components),
 [VNC Console Options](/documentation/virtual_machine_management_guide/#VNC_Console_Options), and
 and [Browser Support and Mobile Clients](/download/browsers_and_mobile.html) for more information.

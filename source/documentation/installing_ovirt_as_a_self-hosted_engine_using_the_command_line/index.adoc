@@ -13,7 +13,7 @@ Hosts that can run the {engine-name} virtual machine are referred to as self-hos
 
 A storage domain dedicated to the {engine-name} virtual machine is referred to as the self-hosted engine storage domain. This storage domain is created by the installation script, so the underlying storage must be prepared before beginning the installation.
 
-See the link:{URL_downstream_virt_product_docs}html/planning_and_prerequisites_guide/[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration. See link:{URL_downstream_virt_product_docs}html-single/planning_and_prerequisites_guide/#self-hosted-engine-recommendations[Self-Hosted Engine Recommendations] for configuration specific to a self-hosted engine environment.
+See the link:{URL_downstream_virt_product_docs}/planning_and_prerequisites_guide/[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration. See link:{URL_downstream_virt_product_docs}/planning_and_prerequisites_guide/#self-hosted-engine-recommendations[Self-Hosted Engine Recommendations] for configuration specific to a self-hosted engine environment.
 
 include::../common/arch/con-RHV_key_components.adoc[]
 

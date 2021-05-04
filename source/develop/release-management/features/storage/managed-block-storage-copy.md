@@ -101,5 +101,6 @@ A new sublcass `CopyManagedBlockDiskCommand` to handle copy operations involving
 2. Remove the external lease with `RemoveExternalLeaseCommand`
 
 ### Open Issues / Limitations
-- No UI support currently, will be added soon.
+- [No UI support currently, will be added soon.](https://bugzilla.redhat.com/show_bug.cgi?id=1954404)
 - There is currently no proper handling when detaching the Managed Block Storage volume fails. This affects other flows, such as VM power-off and will fixed along with it.
+- Moving a disk is currently not implemented, moving is a special case of copying where the source disk is removed

@@ -13,7 +13,7 @@ For production installations, we recommend installing oVirt in the
 together with the Engine running as a Virtual Machine on that Host. This configuration is
 preferred because the Engine Virtual Machine will be highly available (once a second Host is added).
 
-However, if you prefer to run oVirt Engine standalone on physical hardware or another virtualization provider, you can install oVirt Engine
+However, if you prefer to run the oVirt Engine standalone on physical hardware or another virtualization provider, you can install oVirt Engine
 and Nodes / Hosts separately.
 
 oVirt 4.4.6 is intended for production use and is available for the following platforms:

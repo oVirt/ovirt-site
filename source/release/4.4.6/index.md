@@ -24,6 +24,12 @@ CentOS Linux 8.3 (or similar) and CentOS Stream.
 > Starting from oVirt 4.4.6 both oVirt Node and oVirt Engine Appliance are
 > based on CentOS Stream.
 
+{:.alert.alert-warning}
+Please note that if you are upgrading oVirt Node from previous version you should remove CentOS Linux related yum configuration.
+See Bug [1955617 - CentOS Repositories should be removed from yum.repo.d when upgrading to CentOS Stream](https://bugzilla.redhat.com/show_bug.cgi?id=1955617)
+For more details.
+
+
 To find out how to interact with oVirt developers and users and ask questions,
 visit our [community page](/community/).
 All issues or bugs should be reported via
@@ -411,7 +417,7 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
- - [BZ 1932485](https://bugzilla.redhat.com/1932485) **[RFE] Snapshots for VMs with TPM/NVRAM data**
+ - [BZ 1932485](https://bugzilla.redhat.com/1932485) **[RFE] Disks-only snapshots for VMs with TPM/NVRAM data**
 
    
 
@@ -597,6 +603,24 @@ In order to customize or disable the above default settings it is recommended to
    
 
 
+#### cockpit-ovirt
+
+ - [BZ 1946095](https://bugzilla.redhat.com/1946095) **"No valid network interface has been found" when starting HE deployment via cockpit**
+
+   
+
+
+#### oVirt Web Site
+
+ - [BZ 1948429](https://bugzilla.redhat.com/1948429) **Dependance issues occur when installing ovirt-hosted-engine-setup with RHEL8.4-host.**
+
+   
+
+ - [BZ 1906394](https://bugzilla.redhat.com/1906394) **websocket proxy service - [Errno 13] Permission denied**
+
+   
+
+
 ### No Doc Update
 
 #### oVirt Engine Data Warehouse
@@ -637,6 +661,10 @@ In order to customize or disable the above default settings it is recommended to
    
 
  - [BZ 1915207](https://bugzilla.redhat.com/1915207) **[UI] user can create more than 1 network with the same name when checking the external provider check box**
+
+   
+
+ - [BZ 1950466](https://bugzilla.redhat.com/1950466) **Host installation failed**
 
    
 
@@ -682,16 +710,17 @@ In order to customize or disable the above default settings it is recommended to
 
 #### Contributors
 
-55 people contributed to this release:
+57 people contributed to this release:
 
 	Adam Feldman (Contributed to: mom)
 	Ahmad Khiet (Contributed to: ovirt-engine, ovirt-engine-sdk)
-	Ales Musil (Contributed to: ovirt-engine, vdsm, ovirt-site)
+	Ales Musil (Contributed to: ovirt-engine, ovirt-site, vdsm)
 	Andrej Krejcir (Contributed to: mom)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine)
 	Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh)
+	Aviv Turgeman (Contributed to: cockpit-ovirt)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Ben Amsalem (Contributed to: ovirt-web-ui)
 	Bence Santha (Contributed to: ovirt-site)
@@ -714,7 +743,7 @@ In order to customize or disable the above default settings it is recommended to
 	Marc Dequènes (Duck) (Contributed to: ovirt-site)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection)
-	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, vdsm, ovirt-site)
+	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-site, vdsm)
 	Michal Skrivanek (Contributed to: ovirt-engine, vdsm)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Moti Asayag (Contributed to: ovirt-engine-sdk-go)
@@ -730,8 +759,8 @@ In order to customize or disable the above default settings it is recommended to
 	Roy Golan (Contributed to: ovirt-engine-sdk-go)
 	Ryan Barry (Contributed to: mom)
 	S.Mohammad Emami Razavi (Contributed to: ovirt-engine)
-	Sandro Bonazzola (Contributed to: engine-db-query, ovirt-appliance, ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-sdk-go, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release, ovirt-site)
-	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-web-ui)
+	Sandro Bonazzola (Contributed to: cockpit-ovirt, engine-db-query, ovirt-appliance, ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-sdk-go, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release, ovirt-site)
+	Scott J Dickerson (Contributed to: cockpit-ovirt, ovirt-engine, ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Shani Leviim (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Sharon Gratch (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shmuel Melamud (Contributed to: ovirt-engine, vdsm)

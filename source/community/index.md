@@ -19,7 +19,7 @@ The oVirt community is a group of multidiscilinary individuals who are contribut
 Before getting started, we recommend that you:
 
 * Sign up for the users@ovirt.org mailing list and send us an email saying how you would like to contribute. Visit our [mailing lists](https://lists.ovirt.org/archives/) page for other oVirt mailing lists to sign up for.
-* For fluent, real time communication, [join us on IRC](/community/about/contact#irc)
+* For fluent, real time communication, [join us on IRC](/community/about/contact.html#irc)
 * Please read our [community etiquette guidelines](/community/about/community-guidelines.html). (Quick summary: Be nice!)
 
 

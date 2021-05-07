@@ -28,7 +28,7 @@ authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
 
 #### Design Documentation
 - [Feature Pages / Design Documentation](/develop/release-management/features/)
-- [Architecture (outdated)](./architecture)
+- [Architecture (outdated)](./architecture/index.html)
 
 #### Developer Process
 

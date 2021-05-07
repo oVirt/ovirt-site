@@ -159,7 +159,7 @@ New features available in compatibility 4.6 are tracked as separate bugs dependi
 
  - [BZ 1113630](https://bugzilla.redhat.com/1113630) **[RFE] indicate vNICs that are out-of-sync from their configuration on engine**
 
-   
+
 
  - [BZ 1944723](https://bugzilla.redhat.com/1944723) **[RFE] Support virtual machines with 16TB memory**
 
@@ -171,7 +171,7 @@ New features available in compatibility 4.6 are tracked as separate bugs dependi
 
  - [BZ 1936897](https://bugzilla.redhat.com/1936897) **[Engine JDK 11] More verbose and configurable GC logging.**
 
-   Feature: 
+   Feature:
 
 More verbose and configurable GC logging. This includes:
 
@@ -195,13 +195,13 @@ ENGINE_VERBOSE_GC_LOG_FILES_NUMBER=50 #number of files in rotation
 
 
 
-Reason: 
+Reason:
 
 oVirt Engine tends to allocate large chunks of memory (depending on overall setup) that might contribute to potential various slow downs caused by Java Garbage Collector operations. 
 
 
 
-Result: 
+Result:
 
 The ability to monitor and discover memory related issues much earlier (before the issue is actually negatively impacting an environment)
 
@@ -276,6 +276,18 @@ In order to customize or disable the above default settings it is recommended to
 
 
 #### oVirt Engine
+
+ - [BZ 1956677](https://bugzilla.redhat.com/1956677) **Snapshot merge fails with null pointer exception.**
+
+   
+
+ - [BZ 1957595](https://bugzilla.redhat.com/1957595) **Failed to import VM from KVM**
+
+   
+
+ - [BZ 1950209](https://bugzilla.redhat.com/1950209) **Leaf images used by the VM is deleted by the engine during snapshot merge**
+
+   
 
  - [BZ 1906074](https://bugzilla.redhat.com/1906074) **[RFE] Support disks copy between regular and managed block storage domains**
 
@@ -708,6 +720,21 @@ In order to customize or disable the above default settings it is recommended to
    
 
 
+#### ovirt-engine-extension-aaa-ldap
+
+ - [BZ 1896779](https://bugzilla.redhat.com/1896779) **Unable to access LDAP server using IPv6 when both engine and LDAP are configured with IPv6 interfaces only, but DNS records for LDAP contains also IPv4 address**
+
+   
+
+ - [BZ 1940138](https://bugzilla.redhat.com/1940138) **AAA - IPV6 detection needs to be disabled for LDAP hosts to be recognized**
+
+   
+
+ - [BZ 1941541](https://bugzilla.redhat.com/1941541) **ldap setup fails to login with connection error when use dns is specified**
+
+   
+
+
 #### Contributors
 
 57 people contributed to this release:
@@ -724,7 +751,7 @@ In order to customize or disable the above default settings it is recommended to
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Ben Amsalem (Contributed to: ovirt-web-ui)
 	Bence Santha (Contributed to: ovirt-site)
-	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-engine-sdk-go, vdsm)
+	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-engine-sdk-go, ovirt-site, vdsm)
 	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Douglas Schilling Landgraf (Contributed to: engine-db-query, ovirt-engine-sdk-go)
@@ -743,7 +770,7 @@ In order to customize or disable the above default settings it is recommended to
 	Marc Dequènes (Duck) (Contributed to: ovirt-site)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection)
-	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-site, vdsm)
+	Martin Perina (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-engine-extension-aaa-ldap, ovirt-site, vdsm)
 	Michal Skrivanek (Contributed to: ovirt-engine, vdsm)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Moti Asayag (Contributed to: ovirt-engine-sdk-go)

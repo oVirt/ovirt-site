@@ -1,0 +1,51 @@
+/**
+* # 404 page stylesheet
+* Graphics by Laura Wright
+* Design by Laura Wright (https://github.com/oVirt/ovirt-site/issues/1968)
+* Coded by Sandro Bonazzola
+*/
+
+body.error {
+    background-image: url(/images/404/404_bg.png);
+    background-size: contain;
+    width: 100%;
+}
+
+.circle {
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100% ;
+    border: 2px solid aqua;
+    width: 30em;
+    height: 30em;
+    padding: 5em;
+    text-align: center;
+    margin:auto;
+}
+
+
+#err {
+    margin-top: 10%;
+    color: #fff;
+    text-align: center;
+}
+
+.numErr {
+    font-size: 10em;
+    margin-bottom: 0em;
+    font-weight: bold;
+}
+
+.textErr {
+    font-size: 2.5em;
+    margin-bottom: 2em;
+}
+
+.dfltNotFoundErrMsg{
+    margin-top: 2em;
+    font-size: 2em;
+}
+.goHome {
+    margin-top: 1em;
+    font-size: 2em;
+}

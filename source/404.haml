@@ -1,27 +1,17 @@
 ---
 title: Page not found
 sitemap: false
+page_classes: error
 ---
 
 :plain
   <div id="err">
-    <div class="bg-mountain"></div>
-    <div class="numErr"></div>
-    <div class="ice"></div>
-    <div class="wave"></div>
-    <div class="bg-sea"><div class="aphro"></div></div>
-    <div class="penguin"></div>
-    <div class="dfltNotFoundErrMsg">
-      <h2>
-        Not found :(
-      </h2>
-      <p>Sorry, but the page you were trying to view does not exist.</p>
+    <div class="circle">
+      <div class="numErr">404</div>
+      <div class="textErr">Page not found.</div>
     </div>
+    <div class="dfltNotFoundErrMsg">
+      <p>Sorry! We could not find the page you were looking for. This link may be out of date or the address might have a typo in it</p>
+    </div>
+    <div class="goHome"><a hrref="/">Return to home page</a></div>
   </div>
-
-.searchSuggest
-  %p It looks like this was the result of either:
-  %ul
-    %li a mistyped address
-    %li an out-of-date link
-

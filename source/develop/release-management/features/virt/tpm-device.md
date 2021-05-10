@@ -48,7 +48,7 @@ Not all guest operating systems support virtual TPM devices.  RHEL/CentOS 7 and 
 
 ## User Experience
 
-Ideally, a TPM device would be added to each VM automatically and would be automatically available to the guest OS.  However, TPM support is a new feature and we cannot guarantee that everything is correctly supported in the underlying platform (for example, snapshots with memory are currently not working as expected).  Presence of a TPM device also adds the need to transfer TPM data between Engine and Vdsm and to store them in snapshots and exported images.  For those reasons, it's better to not add TPM devices to VMs by default for now and to make a VM option to enable or disable them per VM as needed, defaulting to the VM's template setting.
+Ideally, a TPM device would be added to each VM automatically and would be automatically available to the guest OS.  However, TPM support is a new feature and we cannot guarantee that everything is correctly supported in the underlying platform (for example, snapshots with memory are currently not working as expected).  Presence of a TPM device also adds the need to transfer TPM data between Engine and Vdsm and to store them in snapshots and exported images.  For those reasons, it's better not to add TPM devices to VMs by default for now and to make a VM option to enable or disable them per VM as needed, defaulting to the VM's template setting.
 
 A TPM device can be enabled or disabled in the VM edit dialog, Resource Allocation tab.  If there is TPM data stored for the VM and the TPM device is disabled in the VM, the TPM data is irrecoverably deleted.  A confirmation dialog is presented to the user before leaving the VM edit dialog in such a case.
 

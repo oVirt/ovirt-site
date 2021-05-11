@@ -34,3 +34,19 @@ prompts, suggesting to renew the PKI.
 
 See also: [BZ 1450293](https://bugzilla.redhat.com/1450293)
 
+## lifespan
+
+Since 4.4.3, certificates are generated with a lifespan of 398 days.
+
+See also: [BZ 1824103](https://bugzilla.redhat.com/1824103)
+
+Since 4.4.5, engine-setup prompts, suggesting to renew certificates, if any certificate
+has a lifespan of more than 398 days. Also, the time-to-expire causing a prompt was
+lowered from one year to 60 days.
+
+See also: [BZ 1906320](https://bugzilla.redhat.com/1906320)
+
+Since 4.4.7, engine-setup prompts, suggesting to renew the certificate, with the same
+conditions, also when ran on a machine with grafana configured, separately from the engine.
+
+See also: [BZ 1849685](https://bugzilla.redhat.com/1849685)

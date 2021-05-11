@@ -6,16 +6,20 @@
 */
 
 body.error {
-    background-image: url(/images/404/404_bg.png);
-    background-size: contain;
+    background-image: url(/images/404/404_bg.svg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: repeat;
+    background-color: #023352;
     width: 100%;
+    height: 100%;
 }
 
 .circle {
     -moz-border-radius: 100%;
     -webkit-border-radius: 100%;
     border-radius: 100% ;
-    border: 2px solid aqua;
+    border: 10px solid aqua;
     width: 30em;
     height: 30em;
     padding: 5em;

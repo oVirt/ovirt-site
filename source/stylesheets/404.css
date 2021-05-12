@@ -19,7 +19,7 @@ body.error {
     -moz-border-radius: 100%;
     -webkit-border-radius: 100%;
     border-radius: 100% ;
-    border: 10px solid aqua;
+    border: 10px solid #0088CE;
     width: 30em;
     height: 30em;
     padding: 5em;

@@ -47,6 +47,7 @@ There may be two main configurations for Primary/Secondary Agents:
 
 Adding the following columns to vds_static:
 
+```sql
       pm_secondary_ip
       pm_secondary_options
       pm_secondary_port
@@ -54,39 +55,47 @@ Adding the following columns to vds_static:
       pm_secondary_user
       pm_secondary_type
       pm_secondary_concurrent
+```
 
 Views:
- vds (adding all pm_secondary\* fields)
+```sql
+ vds (adding all pm_secondary* fields)
+```
 
+```sql
       vds_with_tags (adding all pm_secondary* fields)
       dwh_host_configuration_history_view (adding only pm_secondary_ip)
       dwh_host_configuration_full_check_view (adding only pm_secondary_ip)
+```
 
 Stored Procedures:
- InsertVdsStatic
-
+```sql
+      InsertVdsStatic
       UpdateVdsStatic
       InsertVds
+```
 
 #### DAO
 
-Adding handling of pm_secondary\* fields to
+Adding handling of `pm_secondary*` fields to
+```sql
 VdsStaticDAODbFacadeImpl
 VdsDAODbFacadeImpl
+```
 
 #### Metadata
 
-Adding test data for VdsStaticDAOTest & fixtures.xml
+Adding test data for `VdsStaticDAOTest` and `fixtures.xml`
 
 ### Configuration
 
-Change default configuration FenceStopStatusDelayBetweenRetriesInSec and FenceStartStatusDelayBetweenRetriesInSec to 10 and FenceStopStatusRetries , FenceStartStatusRetries to 18, this will insure we are responding faster to Hosts while it change status.
+Change default configuration `FenceStopStatusDelayBetweenRetriesInSec` and `FenceStartStatusDelayBetweenRetriesInSec` to 10 and `FenceStopStatusRetries` , `FenceStartStatusRetries` to 18, this will insure we are responding faster to Hosts while it change status.
 
 ### Business Logic
 
-Add pm_secondary\* fields to VdsStatic
-Add pm_secondary\* fields to VDS
- Changing FenceVdsBaseCommand::executeCommand() to handle all scenarios described in [Flow](#flow)
+Add `pm_secondary*` fields to `VdsStatic`
+Add `pm_secondary*` fields to `VDS`
+ Changing `FenceVdsBaseCommand::executeCommand()` to handle all scenarios described in [Flow](#flow)
 
 ### API
 
@@ -94,48 +103,34 @@ The REST API will be enhanced to include the multiple Agents definitions as foll
 Keep in mind that we should preserve the former syntax for backward compatibility and deprecate it in future
 For any case in which we found old flat PM definitions and other definitions inside the agents block, the setting in the agent block will take presence.
 
-` `<power_management type="rsa">
-`     `<enabled>`true`</enabled>
-           
-
-<address>
-ip or fqdn
-
-</address>
-`     `<username>`user`</username>
-`     `<password>`password`</password>
-`      `<options><option value="" name="port"/><option value="false" name="secure"/></options>
-`      `<agents>
-`        `<agent type="rsa">
-                          
-
-<address>
-ip or fqdn
-
-</address>
-                          `<username>`user`</username>` order="primary"
-`                    `<password>`password`</password>
-`                    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
-`                    `<concurrent>`false`</concurrent>
-`                    `<order>`1`</order>
-`        `</agent>
-`       `<agent type="ipmi">
-                          
-
-<address>
-ip or fqdn
-
-</address>
-                          `<username>`user`</username>` order="primary"
-`                    `<password>`password`</password>
-`                    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
-`                    `<concurrent>`false`</concurrent>
-`                    `<order>`2`</order>
-`        `</agent>
-            ......
-`      `</agents>
-`   `</power_management>
-       
+```xml
+<power_management type="rsa">
+  <enabled>true</enabled>
+  <address>ip or fqdn</address>
+  <username>user</username>
+  <password>password</password>
+  <options><option value="" name="port"/><option value="false" name="secure"/></options>
+  <agents>
+    <agent type="rsa">
+      <address>ip or fqdn</address>
+      <username>user</username> order="primary"
+      <password>password</password>
+      <options><option value="" name="port"/><option value="false" name="secure"/></options>
+      <concurrent>false</concurrent>
+      <order>1</order>
+    </agent>
+    <agent type="ipmi">
+      <address>ip or fqdn</address>
+      <username>user</username> order="primary"
+      <password>password</password>
+      <options><option value="" name="port"/><option value="false" name="secure"/></options>
+      <concurrent>false</concurrent>
+      <order>2</order>
+    </agent>
+    ...
+  </agents>
+</power_management>
+```
 
 *concurrent* flag will be handled in the Host level
 Add custom mapping for these new power-management fields in HostMapper.java, for both REST-->Backend and Backend-->REST directions)
@@ -145,8 +140,8 @@ Add custom mapping for these new power-management fields in HostMapper.java, for
 **No Secondary Agent**
 If no Power Management is defined , the Stop/Start scenarios works without a change. For example, the Restart scenario is:
 
-       Send a Stop command 
-       Wait for status 'off' [1]    
+       Send a Stop command
+       Wait for status 'off' [1]
        Send a Start command
        Wait for status 'on' [2]
 
@@ -155,11 +150,11 @@ If a secondary agent is defined
  Send a Stop command to Primary agent
 
        Wait for status 'off' [1]
-       If Stop failed 
+       If Stop failed
           Send a Stop command to Secondary agent and wait for status 'off'
        Send a Start command to Primary agent
        Wait for status 'on' [2]
-       If Start failed 
+       If Start failed
           Send a Start command to Secondary agent and wait for status 'on'
 
 **Concurrent**:
@@ -180,7 +175,7 @@ The Concurrent check box controls if the secondary agent works in the concurrent
 
 ### Installation/Upgrade
 
-Add the new pm_secondary\* columns in the upgrade script.
+Add the new `pm_secondary*` columns in the upgrade script.
 
 #### User work-flows
 

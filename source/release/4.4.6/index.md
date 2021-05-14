@@ -219,6 +219,13 @@ In order to customize or disable the above default settings it is recommended to
    
 
 
+#### oVirt Hosted Engine HA
+
+ - [BZ 1909888](https://bugzilla.redhat.com/1909888) **[RFE] Support multiple IQN in hosted-engine.conf for Active-Active DR setup**
+
+   With this release, ovirt-hosted-engine-ha supports multiple, comma-separated, values, for all iSCSI configuration items.
+
+
 ### Rebase: Bug Fixeses and Enhancementss
 
 #### oVirt Engine Appliance
@@ -277,6 +284,14 @@ In order to customize or disable the above default settings it is recommended to
 
 #### oVirt Engine
 
+ - [BZ 1958869](https://bugzilla.redhat.com/1958869) **Import VM from export domain fails - the imported VM remains in 'image locked' state**
+
+   
+
+ - [BZ 1957253](https://bugzilla.redhat.com/1957253) **[cinderlib] Enable using Managed Block Storage on 4.6 cluster by default**
+
+   
+
  - [BZ 1956677](https://bugzilla.redhat.com/1956677) **Snapshot merge fails with null pointer exception.**
 
    
@@ -330,10 +345,6 @@ In order to customize or disable the above default settings it is recommended to
    
 
  - [BZ 1952787](https://bugzilla.redhat.com/1952787) **Chipset/firmware type setting doesn't work when creating vm pool**
-
-   
-
- - [BZ 1868249](https://bugzilla.redhat.com/1868249) **The OVF disk size on file storage reported by engine does not match the actual size of the OVF**
 
    
 
@@ -543,6 +554,10 @@ In order to customize or disable the above default settings it is recommended to
 
    
 
+ - [BZ 1940118](https://bugzilla.redhat.com/1940118) **abrt-hook-ccpp[57365]: Process * (qemu-kvm) of user 107 killed by SIGABRT in live storage migration process**
+
+   
+
  - [BZ 1946204](https://bugzilla.redhat.com/1946204) **Hosted-engine fail to add first host**
 
    
@@ -745,7 +760,7 @@ In order to customize or disable the above default settings it is recommended to
 	Andrej Krejcir (Contributed to: mom)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine)
-	Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-hosted-engine-setup)
+	Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-engine, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Aviv Turgeman (Contributed to: cockpit-ovirt)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
@@ -764,7 +779,7 @@ In order to customize or disable the above default settings it is recommended to
 	Huihui Fu (Contributed to: ovirt-engine-sdk-go)
 	Jean-Louis Dupond (Contributed to: ovirt-dwh, ovirt-engine, vdsm)
 	Joey Ma (Contributed to: ovirt-engine-sdk-go)
-	Lev Veyde (Contributed to: imgbased, ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release, ovirt-site)
+	Lev Veyde (Contributed to: imgbased, ovirt-appliance, ovirt-engine, ovirt-hosted-engine-ha, ovirt-node-ng-image, ovirt-release, ovirt-site)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marc Dequènes (Duck) (Contributed to: ovirt-site)
@@ -795,4 +810,4 @@ In order to customize or disable the above default settings it is recommended to
 	Steven Rosenberg (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: mom, vdsm)
 	Vojtech Juranek (Contributed to: ovirt-engine, vdsm)
-	Yedidyah Bar David (Contributed to: ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup)
+	Yedidyah Bar David (Contributed to: ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup)

@@ -526,6 +526,10 @@ In order to customize or disable the above default settings it is recommended to
 
 #### VDSM
 
+ - [BZ 1950209](https://bugzilla.redhat.com/1950209) **Leaf images used by the VM is deleted by the engine during snapshot merge**
+
+   
+
  - [BZ 1589763](https://bugzilla.redhat.com/1589763) **[downstream clone] Error changing CD for a running VM when ISO image is on a block domain**
 
    
@@ -721,6 +725,14 @@ In order to customize or disable the above default settings it is recommended to
 
 
 #### VDSM
+
+ - [BZ 1955571](https://bugzilla.redhat.com/1955571) **Verify if we still need to omit ifcfg and clevis dracut modules for properly working bridged network**
+
+   
+
+ - [BZ 1959945](https://bugzilla.redhat.com/1959945) **[NBDE] RHVH 4.4.6 host fails to startup, without prompting for passphrase**
+
+   
 
  - [BZ 1949995](https://bugzilla.redhat.com/1949995) **Removing a network gateway causes the sync host networks to fail**
 

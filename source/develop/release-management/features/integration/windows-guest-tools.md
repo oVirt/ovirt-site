@@ -4,10 +4,15 @@ category: feature
 authors: lveyde, mpavlik, sandrobonazzola
 feature_name: oVirt Windows Guest Tools ISO
 feature_modules: engine
-feature_status: Released
+feature_status: Removed
 ---
 
 # oVirt Windows Guest Tools ISO
+
+{:.alert.alert-warning}
+oVirt Windows Guest Tools ISO has been deprecated and removed in oVirt 4.4 in favor of virtio-win ISO shipped with RHEL 8 and derivated distributions or on [Fedora virito-win repo](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/).
+The following section is kept only for reference.
+
 
 ## Summary
 
@@ -15,13 +20,12 @@ This feature will add an ISO image with required drivers and agents for Windows 
 
 ## Owner
 
-*   Name: lveyde (lveyde)
+*   Name: [Lev Veyde](https://github.com/lveyde)
 *   Email: <lveyde@gmail.com>
 
 ## Current status
 
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated on -- 2017-12-22
+*   Removed in oVirt 4.4
 
 ## Detailed Description
 

@@ -157,20 +157,24 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 Enable quota_mode under data center entity (see [quota enforcement in data center](#data-center)):
 
-`   `<datacenter>
+```xml
+   <datacenter>
              ...
-`       `<quota_mode>`enabled/disabled/audit`</quota_mode>
-`   `</datacenter>
+       <quota_mode>enabled/disabled/audit</quota_mode>
+   </datacenter>
+```
 
-Quota is a sub-collection of Data Center and consists limits: /datacenters/{datacenter:id}/quotas.
+Quota is a sub-collection of Data Center and consists limits: `/datacenters/{datacenter:id}/quotas`.
 
-`   `<quota>
-             `<datacenter href="<data-center_id>`"/>
-`       `<cluster_soft_limit_pct></cluster_soft_limit_pct>
-`       `<cluster_hard_limit_pct></cluster_hard_limit_pct>
-`       `<storage_soft_limit_pct></storage_soft_limit_pct>
-`       `<storage_hard_limit_pct></storage_hard_limit_pct>
-`   `<quota>
+```xml
+   <quota>
+             <datacenter href="<data-center_id>"/>
+       <cluster_soft_limit_pct></cluster_soft_limit_pct>
+       <cluster_hard_limit_pct></cluster_hard_limit_pct>
+       <storage_soft_limit_pct></storage_soft_limit_pct>
+       <storage_hard_limit_pct></storage_hard_limit_pct>
+   <quota>
+```
 
 *   link to parent data center.
 *   soft and hard thresholds (in percentage), for enforcing quota (grace and threshould in UI).
@@ -179,35 +183,39 @@ Quota is a sub-collection of Data Center and consists limits: /datacenters/{data
 
 ##### QuotaStorageLimit entity
 
-`   `<quotastoragelimit>
-             `<quota href="<quota_id>`"/>
-             `<storagedoamin href="<storage-domain_id>`"/>
-`       `<limit>`#`</limit>
-`       `<usage>`#`</usage>
-`   `<quotastoragelimit>
+```xml
+   <quotastoragelimit>
+             <quota href="<quota_id>"/>
+             <storagedoamin href="<storage-domain_id>"/>
+       <limit>#</limit>
+       <usage>#</usage>
+   <quotastoragelimit>
+```
 
-*   quota - reference to quota.
-*   storage_domain - link to specific storage domain, no link means it's a single global limit for all SD in DC.
-*   limit- the actual limit in GB (-1 unlimited).
-*   usage- current usage of the limit.
+*   `quota` - reference to quota.
+*   `storage_domain` - link to specific storage domain, no link means it's a single global limit for all SD in DC.
+*   `limit` - the actual limit in GB (-1 unlimited).
+*   `usage` - current usage of the limit.
 
 ##### QuotaClusterLimit entity
 
-`   `<quotaclusterlimit>
-             `<quota href="<quota_id>`"/>
-             `<cluster href="<storage-domain_id>`"/>
-`       `<vcpu_limit>`#`</limit>
-`       `<vcpu_usage>`#`</usage>
-`       `<memory_limit>`#`</limit>
-`       `<memory_usage>`#`</usage>
-`   `<quotaclusterlimit>
+```xml
+   <quotaclusterlimit>
+             <quota href="<quota_id>"/>
+             <cluster href="<storage-domain_id>"/>
+       <vcpu_limit>#</limit>
+       <vcpu_usage>#</usage>
+       <memory_limit>#</limit>
+       <memory_usage>#</usage>
+   <quotaclusterlimit>
+```
 
-*   quota - reference to quota.
-*   cluster - link to specific cluster, no link means it's a single global limit for all cluster in DC.
-*   vcpu_limit - limit for vcpus (-1 unlimited).
-*   vcpu_usage - current usage of vCPUs.
-*   memroy_limit - limit for memory (in GB).
-*   memory_usage - current usage of memory.
+*   `quota` - reference to quota.
+*   `cluster` - link to specific cluster, no link means it's a single global limit for all cluster in DC.
+*   `vcpu_limit` - limit for vcpus (-1 unlimited).
+*   `vcpu_usage` - current usage of vCPUs.
+*   `memory_limit` - limit for memory (in GB).
+*   `memory_usage` - current usage of memory.
 
 ### Installation/Upgrade
 

@@ -2,9 +2,6 @@
 title: Read Only Disk
 category: feature
 authors: sgotliv, vered
-feature_name: Read-Only Disks
-feature_modules: storage
-feature_status: Released
 ---
 
 # Read Only Disk

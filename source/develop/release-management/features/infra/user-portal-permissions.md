@@ -2,9 +2,6 @@
 title: User Portal Permissions
 category: feature
 authors: amureini, ekohl, lpeer, ovedo
-feature_name: User Portal Permissions
-feature_status: Released in oVirt 3.1
-feature_modules: engine
 ---
 
 # User Portal Permissions

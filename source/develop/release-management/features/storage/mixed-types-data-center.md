@@ -2,9 +2,6 @@
 title: Mixed Types Data Center
 category: feature
 authors: tnisan
-feature_name: Mixed Type Data Center
-feature_modules: engine
-feature_status: Released in oVirt 3.4
 ---
 
 # Mixed Types Data Center

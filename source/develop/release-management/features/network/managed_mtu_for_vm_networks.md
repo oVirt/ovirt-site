@@ -2,9 +2,6 @@
 title: Managed MTU for VM Networks
 category: feature
 authors: dholler
-feature_name: Managed MTU for VM Networks
-feature_modules: engine,provider-ovn
-feature_status: In Development
 ---
 
 # Managed MTU for VM Networks

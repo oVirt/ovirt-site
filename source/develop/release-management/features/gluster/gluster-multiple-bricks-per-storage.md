@@ -2,9 +2,6 @@
 title: Support for multiple GlusterFS bricks on a block device(s)
 category: feature
 authors: dchaplyg
-feature_name: Support for multiple GlusterFS bricks on a block device(s)
-feature_modules: engine/vdsm
-feature_status: Planning
 ---
 
 # Support for multiple GlusterFS bricks on a block device(s)

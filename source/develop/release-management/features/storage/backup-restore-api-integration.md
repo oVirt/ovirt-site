@@ -2,9 +2,6 @@
 title: Backup-Restore API Integration
 category: feature
 authors: adahms, aglitke, dpkshetty, laravot, mlipchuk, scohen, snmishra, ydary
-feature_modules: vdsm, engine
-feature_status: Released
-feature_name: Backup-Restore API Integration
 ---
 
 # Backup-Restore API Integration

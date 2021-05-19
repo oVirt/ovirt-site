@@ -2,9 +2,6 @@
 title: Support OpenStack Identity API v3
 category: feature
 authors: dholler
-feature_name:  Support OpenStack Identity API v3
-feature_modules: engine
-feature_status: In Development
 ---
 
 # Support OpenStack Identity API v3

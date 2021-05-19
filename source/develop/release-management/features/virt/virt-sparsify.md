@@ -2,9 +2,6 @@
 title: Virt-Sparsify
 category: feature
 authors: doron, shaharh, smelamud
-feature_name: Virt-Sparsify
-feature_modules: Engine, VDSM
-feature_status: Released
 ---
 
 

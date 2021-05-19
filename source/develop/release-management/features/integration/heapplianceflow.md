@@ -2,9 +2,6 @@
 title: HEApplianceFlow
 category: feature
 authors: stirabos
-feature_name: oVirt hosted-engine appliance flow
-feature_modules: hosted-engine
-feature_status: WIP
 ---
 
 # HE Appliance Flow

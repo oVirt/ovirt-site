@@ -1,6 +1,6 @@
 ---
 title: DetailedReportingVnicInformation
-category: template
+category: feature
 authors: moti
 ---
 

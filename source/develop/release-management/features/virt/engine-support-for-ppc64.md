@@ -2,9 +2,6 @@
 title: Engine support for PPC64
 category: feature
 authors: gustavo.pedrosa, lbianc, ppinatti, roy, vitordelima
-feature_name: Engine support for PPC64
-feature_modules: Engine, REST, UI
-feature_status: Released
 ---
 
 # Engine support for PPC64

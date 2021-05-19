@@ -1,6 +1,6 @@
 ---
 title: DetailedExternalEvents
-category: event
+category: feature
 authors: emesika, yair zaslavsky
 ---
 

@@ -1,10 +1,7 @@
 ---
 title: Events
-category: event
+category: feature
 authors: ovedo, pkliczewski
-feature_name: Event mechanism to send events from the host to the engine
-feature_modules: vdsm, engine
-feature_status: ON_QA
 ---
 
 # Event processing built on top of JSON-RPC

@@ -1,6 +1,6 @@
 ---
 title: Node vdsm plugin
-category: node
+category: feature
 authors: mburns
 ---
 

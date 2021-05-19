@@ -2,9 +2,6 @@
 title: Gluster Geo Replication
 category: feature
 authors: kmayilsa, sahina, sandrobonazzola, shtripat
-feature_name: Geo replication
-feature_modules: engine,gluster
-feature_status: Completed
 ---
 
 # Gluster Geo Replication

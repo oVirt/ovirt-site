@@ -2,9 +2,6 @@
 title: CoreOS ignition support
 category: feature
 authors: rgolan, lrotenbe
-feature_name: CoreOS ignition support
-feature_modules: engine
-feature_status: Merged
 ---
 
 # CoreOS ignition support

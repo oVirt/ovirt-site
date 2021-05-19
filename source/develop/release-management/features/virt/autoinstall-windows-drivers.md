@@ -2,9 +2,6 @@
 title: Automatic installation of Windows drivers
 category: feature
 authors: Tomáš Golembiovský
-feature_name: Automatic installation of Windows drivers
-feature_modules: engine, vdsm
-feature_status: In Progress
 ---
 
 # Automatic installation of Windows drivers

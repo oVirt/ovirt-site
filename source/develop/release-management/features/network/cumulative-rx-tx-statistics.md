@@ -2,9 +2,6 @@
 title: Cumulative RX TX Statistics
 category: feature
 authors: danken, lvernia
-feature_name: Cumulative Network Usage Statistics
-feature_modules: engine,vdsm
-feature_status: Done
 ---
 
 # Cumulative Network Usage Statistics

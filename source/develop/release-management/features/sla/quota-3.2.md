@@ -1,6 +1,6 @@
 ---
 title: Quota-3.2
-category: sla
+category: feature
 authors: doron, ofri, ykaul
 ---
 

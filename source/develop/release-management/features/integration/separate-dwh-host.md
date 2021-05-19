@@ -2,9 +2,6 @@
 title: Separate-DWH-Host
 category: feature
 authors: didi, sandrobonazzola, sradco
-feature_name: Separate DWH Host
-feature_modules: engine
-feature_status: Released
 ---
 
 # Separate DWH Host

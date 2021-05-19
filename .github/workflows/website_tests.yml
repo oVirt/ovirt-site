@@ -36,6 +36,13 @@ jobs:
             exit 2
           fi
 
+      - name: "Check for obsolete feature headers"
+        run: |
+          if grep -rEi "^feature_[^ ]+: " source/; then
+            echo '/!\ Feature headers are obsolete (see previous log entries)'
+            exit 2
+          fi
+
       - name: "Check for nonbreaking space in markdowns"
         run: |
           if grep -P '\xa0' `find source/ -name "*.md"` ; then

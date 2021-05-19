@@ -2,9 +2,6 @@
 title: iSCSI-Multipath
 category: feature
 authors: mlipchuk, sandrobonazzola, sgotliv
-feature_name: Configure iSCSI Multipathing
-feature_modules: storage
-feature_status: Released in oVirt 3.4
 ---
 
 # iSCSI Multipath

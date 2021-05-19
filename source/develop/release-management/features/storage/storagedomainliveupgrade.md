@@ -1,8 +1,5 @@
 ---
 title: StorageDomainLiveUpgrade
-feature_name: Storage Domain Live Upgrade
-feature_modules: engine, vdsm
-feature_status: Released in oVirt 3.1
 category: feature
 authors: ekohl, smizrahi, vered
 ---

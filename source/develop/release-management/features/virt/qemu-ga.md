@@ -2,9 +2,6 @@
 title: QEMU Guest Agent integration
 category: feature
 authors: tgolembi
-feature_name: QEMU Guest Agent
-feature_modules: vdsm
-feature_status: In Development
 ---
 
 # QEMU Guest Agent integration

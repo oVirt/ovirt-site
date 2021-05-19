@@ -1,9 +1,7 @@
 ---
 title: Snapshots Overview
+category: feature
 authors: derez
-feature_name: Snapshot Overview
-feature_modules: engine
-feature_status: Released in oVirt 3.5
 ---
 
 # Snapshots Overview

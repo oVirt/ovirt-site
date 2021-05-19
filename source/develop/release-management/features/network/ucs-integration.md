@@ -2,9 +2,6 @@
 title: UCS Integration
 category: feature
 authors: apuimedo, danken, mburman
-feature_name: Cisco UCS integration
-feature_modules: engine,network,vdsm
-feature_status: Partially Released
 ---
 
 # UCS Integration

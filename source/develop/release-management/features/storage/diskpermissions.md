@@ -2,9 +2,6 @@
 title: DiskPermissions
 category: feature
 authors: amureini, derez, lpeer, moti, ofrenkel, smelamud
-feature_name: Disk Permissions
-feature_modules: engine
-feature_status: Released
 ---
 
 # Disk Permissions

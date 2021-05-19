@@ -2,9 +2,6 @@
 title: oVirt OVN Provider
 category: feature
 authors: mmirecki,dholler
-feature_name: oVirt OVN Provider
-feature_modules: engine,vdsm,ovn-provider
-feature_status: In Development
 ---
 
 # oVirt OVN Provider

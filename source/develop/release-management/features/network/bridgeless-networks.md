@@ -2,9 +2,6 @@
 title: Bridgeless Networks
 category: feature
 authors: adrian15, danken, roy, ykaul
-feature_name: Bridgeless Networks
-feature_modules: engine
-feature_status: Released
 ---
 
 # Bridgeless Networks

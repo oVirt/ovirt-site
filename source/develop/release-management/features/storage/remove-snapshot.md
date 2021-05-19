@@ -2,9 +2,6 @@
 title: Remove Snapshot
 category: feature
 authors: ahino
-feature_name: Remove Snapshot
-feature_modules: engine/vdsm
-feature_status: Released in 4.1
 ---
 
 # Remove Snapshot

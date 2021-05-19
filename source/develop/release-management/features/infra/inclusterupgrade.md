@@ -1,9 +1,7 @@
 ---
 title: InClusterUpgrade
 authors: rmohr
-feature_name: In Cluster Upgrade
-feature_modules: engine
-feature_status: Completed. Since 3.6.6
+category: feature
 ---
 
 # InClusterUpgrade

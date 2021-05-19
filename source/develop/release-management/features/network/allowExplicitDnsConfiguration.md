@@ -2,14 +2,11 @@
 title: AllowExplicitDnsConfiguration
 category: feature
 authors: mmucha
-feature_name: Allow Explicit Dns Configuration
-feature_modules: Networking
-feature_status: Design
-rfe: https://bugzilla.redhat.com/show_bug.cgi?id=1160667
-
 ---
 
 # Allow Explicit DNS Configuration
+
+rfe: https://bugzilla.redhat.com/show_bug.cgi?id=1160667
 
 ### Owner
 

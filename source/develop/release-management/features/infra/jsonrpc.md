@@ -2,10 +2,6 @@
 title: JsonRpc
 category: feature
 authors: adahms, apuimedo, pkliczewski, sandrobonazzola, smizrahi, ybronhei
-feature_name: Introduce Messaged communication to VDSM using JSON-RPC on top of various
-  transport protocols
-feature_modules: vdsm, engine
-feature_status: In Development
 ---
 
 # Json Rpc

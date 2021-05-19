@@ -2,9 +2,6 @@
 title: ArbitraryVlanDeviceName
 category: feature
 authors: alkaplan
-feature_name: Arbitrary VLAN Device Name
-feature_modules: engine
-feature_status: Released in oVirt 3.5
 ---
 
 # Arbitrary VLAN Device Name

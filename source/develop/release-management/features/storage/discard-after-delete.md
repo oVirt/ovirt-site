@@ -2,9 +2,6 @@
 title: DiscardAfterDelete
 category: feature
 authors: ishaby
-feature_name: Discard after delete
-feature_modules: vdsm/engine
-feature_status: First phase was released in oVirt 4.0, second phase was released in oVirt 4.1.
 ---
 
 # Discard after delete

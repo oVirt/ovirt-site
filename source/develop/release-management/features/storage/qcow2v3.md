@@ -2,9 +2,6 @@
 title: QCOW2 compat levels
 category: feature
 authors: mlipchuk
-feature_name: QCOW2 compat levels
-feature_modules: engine,vdsm
-feature_status:  Released in oVirt 4.1
 ---
 
 # QCOW2 compat levels

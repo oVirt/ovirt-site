@@ -2,8 +2,6 @@
 title: Migration encryption
 category: feature
 authors: mzamazal, ljelinko
-feature_name: Migration encryption
-feature_modules: engine, vdsm
 ---
 
 # Migration encryption

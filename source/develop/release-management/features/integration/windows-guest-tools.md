@@ -2,9 +2,6 @@
 title: oVirt Windows Guest Tools
 category: feature
 authors: lveyde, mpavlik, sandrobonazzola
-feature_name: oVirt Windows Guest Tools ISO
-feature_modules: engine
-feature_status: Removed
 ---
 
 # oVirt Windows Guest Tools ISO

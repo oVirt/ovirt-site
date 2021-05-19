@@ -2,9 +2,6 @@
 title: Reduce LUNs from a Storage Domain
 category: feature
 authors: laravot
-feature_name: Reduce LUNs from Storage Domain
-feature_modules: vdsm, engine
-feature_status: Released in oVirt 4.1
 ---
 
 # Reduce LUNs from a Storage Domain

@@ -2,9 +2,6 @@
 title: Self Hosted Engine iSCSI Support
 category: feature
 authors: doron, jmoskovc, sandrobonazzola
-feature_name: Self Hosted Engine iSCSI Support
-feature_modules: ovirt-hosted-engine-setup,ovirt-hosted-engine-ha
-feature_status: Completed
 ---
 
 # Self Hosted Engine iSCSI Support

@@ -2,9 +2,6 @@
 title: hosted-engine-edit-configuration-on-shared-storage
 category: feature
 authors: jtokar
-feature_name: Allow updating Hosted Engine configuration on shared storage
-feature_modules: sla
-feature_status: Design / partly implementaion stage
 ---
 
 # Allow updating Hosted Engine configuration on shared storage

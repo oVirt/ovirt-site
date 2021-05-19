@@ -1,6 +1,6 @@
 ---
 title: NodeAutomation
-category: node
+category: feature
 authors: fabiand
 ---
 

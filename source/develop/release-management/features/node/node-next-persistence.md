@@ -2,9 +2,6 @@
 title: Next Gen Node RPM persistence
 category: feature
 authors: rbarry
-feature_name: Reinstall/Persist RPMs after Node upgrades
-feature_modules: node persistence
-feature_status: On QA
 ---
 
 # Node RPM Persistence After Upgrades

@@ -2,9 +2,6 @@
 title: AAA JDBC
 category: feature
 authors: alonbl, moolit, mperina, rmohr
-feature_name: AAA_JDBC
-feature_modules: engine, extension
-feature_status: FINISHED
 ---
 
 # AAA JDBC

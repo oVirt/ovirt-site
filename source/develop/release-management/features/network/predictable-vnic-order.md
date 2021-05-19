@@ -2,9 +2,6 @@
 title: Predictable vNIC Order
 category: feature
 authors: danken
-feature_name: Predictable vNIC Order
-feature_modules: engine
-feature_status: Released
 ---
 
 # Predictable vNIC Order

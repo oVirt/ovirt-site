@@ -2,9 +2,6 @@
 title: UIRefreshSynchronization
 category: feature
 authors: awels
-feature_name: Refresh Synchronization
-feature_modules: webadmin,userportal
-feature_status: Released
 ---
 
 # UI Refresh Synchronization

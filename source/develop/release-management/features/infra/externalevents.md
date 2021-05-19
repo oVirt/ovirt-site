@@ -1,6 +1,6 @@
 ---
 title: ExternalEvents
-category: event
+category: feature
 authors: emesika, mkenneth
 ---
 

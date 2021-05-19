@@ -2,9 +2,6 @@
 title: SR-IOV Live Migration without downtime
 category: feature
 authors: amusil
-feature_name: SR-IOV Live Migration without downtime
-feature_modules: engine,network,vdsm
-feature_status: In Development
 ---
 
 # SR-IOV Live Migration without downtime

@@ -1,6 +1,6 @@
 ---
 title: Memory-aware Even-distribution Policy
-category: sla
+category: feature
 authors: ofri
 ---
 

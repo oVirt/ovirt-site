@@ -1,10 +1,7 @@
 ---
 title: DetailedHostNetworkingApi
-category: api
+category: feature
 authors: mmucha, moti, sandrobonazzola
-feature_name: Host Networking API
-feature_modules: Networking
-feature_status: Design
 ---
 
 # Detailed Host Networking Api

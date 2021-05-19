@@ -2,9 +2,6 @@
 title: Expand vNic profile mapping options for VM import from Storage Domain via REST API
 category: feature
 authors: eraviv
-feature_name: Expand vNic profile mapping options for VM import from Storage Domain via REST API
-feature_modules: engine backend/api-model
-feature_status: release 4.2
 ---
 
 # Expand vNic profile mapping options for VM import from Storage Domain via REST API

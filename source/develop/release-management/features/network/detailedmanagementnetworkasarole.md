@@ -1,10 +1,7 @@
 ---
 title: DetailedManagementNetworkAsARole
-category: detailedfeature
+category: feature
 authors: yevgenyz
-feature_name: Management network as a role - Detailed
-feature_modules: Networking
-feature_status: WIP
 ---
 
 # Detailed Management Network As A Role

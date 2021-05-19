@@ -2,9 +2,6 @@
 title: Hot Plug Memory
 category: feature
 authors: ofrenkel
-feature_name: Hot plug memory
-feature_modules: engine
-feature_status: Done
 ---
 
 # Hot plug memory

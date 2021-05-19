@@ -1,6 +1,6 @@
 ---
 title: Supervdsm service
-category: vdsm
+category: feature
 authors: lvroyce, ybronhei
 ---
 

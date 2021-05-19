@@ -1,6 +1,6 @@
 ---
 title: Minimum guaranteed memory
-category: sla
+category: feature
 authors: didi, lhornyak
 ---
 

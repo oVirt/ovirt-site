@@ -1,6 +1,6 @@
 ---
 title: Detailed Gluster Geo Rep
-category: template
+category: feature
 authors: sahina
 ---
 

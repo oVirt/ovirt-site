@@ -2,9 +2,6 @@
 title: ReportGuestDisksLogicalDeviceName
 category: feature
 authors: laravot
-feature_name: Report Guest Disks Logical Device Name
-feature_modules: engine,vdsm,guest-agent
-feature_status: Released in oVirt 3.6
 ---
 
 # Report Guest Disks Logical Device Name

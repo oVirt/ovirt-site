@@ -2,10 +2,6 @@
 title: Gluster Sync Configuration With CLI
 category: feature
 authors: kmayilsa, shireesh
-feature_name: Sync Gluster configuration with CLI
-feature_modules: api,engine,vdsm, gluster
-feature_status: Completed
-
 ---
 
 # Gluster Sync Configuration With CLI

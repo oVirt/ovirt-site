@@ -1,6 +1,6 @@
 ---
 title: oVirt External Scheduling Proxy
-category: sla
+category: feature
 authors: doron, lhornyak
 ---
 

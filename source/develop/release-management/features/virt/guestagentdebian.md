@@ -2,9 +2,6 @@
 title: GuestAgentDebian
 category: feature
 authors: vfeenstr
-feature_name: oVirt Guest Agent on Debian
-feature_modules: ovirt-guest-agent
-feature_status: Done
 ---
 
 # Guest Agent Debian

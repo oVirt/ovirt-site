@@ -1,6 +1,6 @@
 ---
 title: SLA for storage io bandwidth
-category: sla
+category: feature
 authors: mei liu
 ---
 

@@ -2,9 +2,6 @@
 title: Remove-DC-Entity-Network
 category: feature
 authors: alkaplan
-feature_name: Eliminate DC entity (Network aspects)
-feature_modules: engine, api
-feature_status: Design
 ---
 
 # Remove-DC-Entity-Network

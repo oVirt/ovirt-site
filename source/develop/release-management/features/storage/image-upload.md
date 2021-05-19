@@ -2,9 +2,6 @@
 title: oVirt Image I/O
 category: feature
 authors: aaviram, gpadgett, nsoffer, derez
-feature_name: Image I/O
-feature_modules: Engine, Storage, VDSM, ovirt-imageio
-feature_status: Released
 ---
 
 # oVirt Image I/O

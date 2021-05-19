@@ -2,9 +2,6 @@
 title: MemoryBasedBalancing
 category: feature
 authors: msivak
-feature_name: CPU and Memory based cluster auto balancing
-feature_modules: engine
-feature_status: Draft
 ---
 
 # Memory Based Balancing

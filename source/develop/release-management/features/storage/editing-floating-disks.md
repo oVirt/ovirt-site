@@ -2,9 +2,6 @@
 title: Editing Floating Disks
 category: feature
 authors: sleviim
-feature_name: Editing Floating Disks
-feature_modules: storage,engine,model
-feature_status: 4.4
 ---
 
 # Editing Floating Disks

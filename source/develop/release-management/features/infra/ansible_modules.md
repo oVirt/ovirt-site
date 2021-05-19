@@ -2,8 +2,6 @@
 title: Ansible oVirt modules
 category: feature
 authors: omachace
-feature_name: Ansible oVirt modules
-feature_status: Released
 ---
 
 ### Summary

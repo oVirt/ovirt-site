@@ -2,9 +2,6 @@
 title: Hot Unplug Memory
 category: feature
 authors: mzamazal,jniederm
-feature_name: Hot Unplug Memory
-feature_modules: engine,vdsm
-feature_status: Merged
 ---
 
 # Hot unplug memory

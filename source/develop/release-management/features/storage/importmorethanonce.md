@@ -2,9 +2,6 @@
 title: ImportMoreThanOnce
 category: feature
 authors: derez, ekohl, gchaplik
-feature_name: Import VM or Template More than Once
-feature_modules: engine
-feature_status: Released
 ---
 
 # Import VM or Template More than Once Feature

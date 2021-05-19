@@ -1,6 +1,6 @@
 ---
 title: oVirtSchedulerAPI
-category: api
+category: feature
 authors: doron, gchaplik, lhornyak, nslomian
 ---
 

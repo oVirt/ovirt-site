@@ -2,9 +2,6 @@
 title: GenericRegistration
 category: feature
 authors: dougsland
-feature_name: GenericRegistration
-feature_modules: vdsm, ovirt-node
-feature_status: Merged
 ---
 
 # Generic Registration

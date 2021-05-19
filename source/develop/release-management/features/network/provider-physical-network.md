@@ -2,9 +2,6 @@
 title: Provider Physical Network
 category: feature
 authors: phoracek,amusil,dholler
-feature_name: Provider Physical Network
-feature_modules: engine,vdsm,ovn-provider
-feature_status: In Development
 ---
 
 # Provider Physical Network

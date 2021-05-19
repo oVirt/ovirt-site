@@ -2,9 +2,6 @@
 title: Migration Enhancements
 category: feature
 authors: mpolednik, mskrivan, ofrenkel, sandrobonazzola, tjelinek
-feature_name: Migration Enhancements
-feature_modules: engine, vdsm
-feature_status: Partly available in oVirt 4.0
 ---
 
 # Migration Enhancements

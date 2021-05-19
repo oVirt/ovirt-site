@@ -2,9 +2,6 @@
 title: Container support
 category: feature
 authors: fromani
-feature_name: Container support
-feature_modules: vdsm, engine?
-feature_status: Planning
 ---
 
 # Container support

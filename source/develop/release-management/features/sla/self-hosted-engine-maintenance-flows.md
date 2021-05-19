@@ -2,9 +2,6 @@
 title: Self Hosted Engine Maintenance Flows
 category: feature
 authors: gpadgett, mlipchuk, sandrobonazzola
-feature_name: Hosted Engine Maintenance Flow Unification
-feature_modules: virt
-feature_status: Released
 ---
 
 # Self Hosted Engine Maintenance Flows

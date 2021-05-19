@@ -3,9 +3,6 @@ title: GlusterFS Storage Domain
 category: feature
 authors: derez, dpkshetty, drbao, moti, sahina, sandrobonazzola, shtripat, snmishra,
   thildred, dchaplyg
-feature_name: GlusterFS Storage Domain
-feature_modules: engine/vdsm
-feature_status: Released
 ---
 
 # GlusterFS Storage Domain

@@ -2,9 +2,6 @@
 title: Glance Integration
 category: feature
 authors: fsimonce
-feature_name: Glance Integration
-feature_status: Released in oVirt 3.3
-feature_modules: engine, vdsm
 ---
 
 # Glance Integration

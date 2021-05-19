@@ -2,9 +2,6 @@
 title: Nicless Network
 category: feature
 authors: danken
-feature_name: Nic-less Network
-feature_modules: engine,api
-feature_status: Dormant
 ---
 
 # Nic-less Network

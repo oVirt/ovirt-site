@@ -2,9 +2,6 @@
 title: VM leases and snapshots behavior
 category: feature
 authors: eshenitz
-feature_name: VM leases and snapshots integration
-feature_modules: engine
-feature_status: Released in oVirt 4.2.2.1
 ---
 
 # VM leases and snapshots behavior

@@ -2,8 +2,6 @@
 title: RAM Snapshots
 category: feature
 authors: arik
-feature_name: RAM Snapshots
-feature_status: Released in oVirt 3.3
 ---
 
 # RAM Snapshots

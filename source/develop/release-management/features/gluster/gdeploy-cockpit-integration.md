@@ -2,9 +2,6 @@
 title: Gdeploy Cockpit Integration
 category: feature
 authors: rnachimu
-feature_name: Gdeploy Integration with Cockpit
-feature_modules: cockpit plugin for ovirt
-feature_status: Obsolete
 ---
 
 # Gdeploy integration with Cockpit-oVirt Plugin

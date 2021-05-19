@@ -1,9 +1,7 @@
 ---
 title: Maximum memory size
+category: feature
 authors: jniederm
-feature_name: Maximum memory size
-feature_modules: engine
-feature_status: Done
 ---
 
 # Maximum memory size

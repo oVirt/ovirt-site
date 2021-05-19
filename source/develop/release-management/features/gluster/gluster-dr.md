@@ -2,9 +2,6 @@
 title: Disaster Recovery for Gluster based storage domains
 category: feature
 authors: Sahina Bose
-feature_name: Disaster recovery for gluster storage domains
-feature_modules: engine,gluster,geo-replication,storage
-feature_status: Design
 ---
 
 # Disaster Recovery for Gluster based storage domains

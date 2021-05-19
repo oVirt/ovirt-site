@@ -2,9 +2,6 @@
 title: virt-v2v Integration
 category: feature
 authors: arik
-feature_name: Extended import of Virtual Machines
-feature_modules: engine,vdsm
-feature_status: Merged
 ---
 
 # virt-v2v Integration

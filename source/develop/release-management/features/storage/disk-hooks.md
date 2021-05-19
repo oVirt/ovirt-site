@@ -2,9 +2,6 @@
 title: Disk Hooks
 category: feature
 authors: vered
-feature_name: Disk Hooks
-feature_modules: storage
-feature_status: Released
 ---
 
 # Disk Hooks

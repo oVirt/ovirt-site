@@ -1,6 +1,6 @@
 ---
 title: DetailedNetworkLinking
-category: template
+category: feature
 authors: alkaplan, apuimedo, danken, lpeer, moti
 ---
 

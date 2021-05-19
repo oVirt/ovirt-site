@@ -2,9 +2,6 @@
 title: PosixFSConnection
 category: feature
 authors: abaron, derez, ecohen, ekohl, sandrobonazzola, smizrahi, yair zaslavsky
-feature_name: PosixFS Connection
-feature_modules: engine/vdsm
-feature_status: Released
 ---
 
 Also known as SharedFS support

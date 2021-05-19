@@ -2,9 +2,6 @@
 title: GuestAgentSLES
 category: feature
 authors: vfeenstr
-feature_name: oVirt Guest Agent on SLE(S)
-feature_modules: ovirt-guest-agent
-feature_status: Done
 ---
 
 # Guest Agent SLES

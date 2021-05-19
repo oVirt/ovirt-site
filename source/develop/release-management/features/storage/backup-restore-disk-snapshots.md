@@ -2,9 +2,6 @@
 title: Backup-Restore Disk-Snapshots
 category: feature
 authors: derez
-feature_modules: engine, rest-api
-feature_status: planning
-feature_name: Backup-Restore Disk-Snapshots
 ---
 
 # Backup-Restore Disk-Snapshots

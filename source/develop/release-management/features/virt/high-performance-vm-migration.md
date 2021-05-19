@@ -2,9 +2,6 @@
 title: Live migration for High Performance VMs
 category: feature
 authors: SharonG
-feature_name: Live migration for High Performance VMs
-feature_modules: engine
-feature_status: Merged
 ---
 
 # Live migration for High Performance VMs

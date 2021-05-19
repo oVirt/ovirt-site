@@ -2,9 +2,6 @@
 title: CD-ROM support for block storage
 category: feature
 authors: vjuranek, nsoffer
-feature_name: CD-ROM support for block storage
-feature_modules: engine,vdsm
-feature_status: Design
 ---
 
 # CD-ROM support for block storage

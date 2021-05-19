@@ -2,9 +2,6 @@
 title: Hosted Engine related changes in the UI
 category: feature
 authors: akrejcir
-feature_name: Hosted Engine related changes in the UI
-feature_modules: webadmin
-feature_status: new, WIP
 ---
 
 ## Hosted Engine related changes in the UI

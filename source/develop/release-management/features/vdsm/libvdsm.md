@@ -1,6 +1,6 @@
 ---
 title: libvdsm
-category: vdsm
+category: feature
 authors: aglitke
 ---
 

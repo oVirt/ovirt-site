@@ -2,9 +2,6 @@
 title: NetworkFilter
 category: feature
 authors: elevi
-feature_name: Network filter
-feature_modules: engine,network
-feature_status: new
 ---
 
 # Network Filter

@@ -1,10 +1,7 @@
 ---
-title: Storage Domain V4 
+title: Storage Domain V4
 category: feature
 authors: mlipchuk
-feature_name: Storage Domain V4
-feature_status: Released in oVirt 4.1
-feature_modules: engine/vdsm
 ---
 
 ## Summary

@@ -2,9 +2,6 @@
 title: Secure boot NVRAM data persistence
 category: feature
 authors: tgolembi,mzamazal
-feature_name: NVRAM data persistence
-feature_modules: engine,vdsm
-feature_status: In development
 ---
 
 # Secure boot NVRAM data persistence

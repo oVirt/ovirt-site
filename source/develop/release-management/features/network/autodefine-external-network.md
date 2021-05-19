@@ -2,9 +2,6 @@
 title: Autodefine External Network
 category: feature
 authors: Ales Musil
-feature_name: Autodefine External Network
-feature_modules: engine
-feature_status: In Development
 ---
 
 # Autodefine External Network

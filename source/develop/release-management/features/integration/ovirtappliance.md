@@ -2,9 +2,6 @@
 title: oVirtAppliance
 category: feature
 authors: didi, doron, fabiand, mgoldboi, obasan
-feature_name: oVirt Appliance
-feature_modules: node
-feature_status: Done
 ---
 
 # oVirt Appliance

@@ -1,9 +1,7 @@
 ---
 title: Copy Disks
 authors: tjelinek
-feature_name: Copy Disks
-feature_modules: engine
-feature_status: Released in oVirt 3.6
+category: feature
 ---
 
 # Copy Disks

@@ -2,9 +2,6 @@
 title: SR-IOV
 category: feature
 authors: alkaplan, danken, ibarkan
-feature_name: SR_IOV
-feature_modules: engine,vdsm, api
-feature_status: Design
 ---
 
 # SR-IOV

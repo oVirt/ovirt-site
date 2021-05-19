@@ -2,9 +2,6 @@
 title: ovirt-provider-ovn security groups
 category: feature
 authors: mdbarroso
-feature_name: security-group-support
-feature_modules: engine,ovirt-provider-ovn
-feature_status: Released
 ---
 
 

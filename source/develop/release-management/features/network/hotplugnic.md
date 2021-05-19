@@ -2,9 +2,6 @@
 title: HotplugNic
 category: feature
 authors: danken, ekohl, ilvovsky, moti
-feature_name: Hotplug/Hotunplug of Network Interface Cards
-feature_modules: vdsm,engine,api
-feature_status: Released
 ---
 
 # Hotplug Nic

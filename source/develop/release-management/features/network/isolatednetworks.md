@@ -2,9 +2,6 @@
 title: IsolatedNetworks
 category: feature
 authors: moti, sandrobonazzola
-feature_name: Isolated Network
-feature_modules: Networking
-feature_status: Design
 ---
 
 # Isolated Networks

@@ -1,6 +1,6 @@
 ---
 title: PrestartedVm
-category: template
+category: feature
 authors: msalem, ovedo, tdosek
 ---
 

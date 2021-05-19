@@ -2,9 +2,6 @@
 title: Select Network For Gluster
 category: feature
 authors: danken, sahina, sandrobonazzola
-feature_name: Select Network for Gluster traffic
-feature_modules: engine,gluster
-feature_status: Done
 ---
 
 # Select Network For Gluster

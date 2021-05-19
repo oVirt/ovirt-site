@@ -2,9 +2,6 @@
 title: Managed Block Storage
 category: feature
 authors: frolland, bzlotnik, eshenitz
-feature_name: Managed Block Storage - Cinderlib integration
-feature_modules: storage,engine,vdsm
-feature_status: WIP 4.3
 ---
 
 # Managed Block Storage

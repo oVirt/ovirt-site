@@ -2,9 +2,6 @@
 title: Self Hosted Engine Hyper Converged Gluster Support
 category: feature
 authors: sandrobonazzola,sabose
-feature_name: Self Hosted Engine Hyper Converged Gluster Support
-feature_modules: ovirt-hosted-engine-setup
-feature_status: POST
 ---
 
 # Self Hosted Engine Hyper Converged Gluster Support

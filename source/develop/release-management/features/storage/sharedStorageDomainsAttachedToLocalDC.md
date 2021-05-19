@@ -2,9 +2,6 @@
 title: Attach shared Storage Domains to a local DC.
 category: feature
 authors: mlipchuk
-feature_name: Attach shared Storage Domains to a local DC.
-feature_modules: engine
-feature_status: Released in oVirt 4.1
 ---
 
 # Attach shared Storage Domains to a local DC.

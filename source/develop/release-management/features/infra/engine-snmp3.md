@@ -2,9 +2,6 @@
 title: SNMPv3
 category: feature
 authors: rnori
-feature_name: Add support to send SNMPv3 traps from notifier
-feature_modules: engine
-feature_status: In Development
 ---
 # engine-snmp
 

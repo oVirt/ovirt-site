@@ -2,8 +2,6 @@
 title: Hosted Engine Improve Management in Host Dialogs
 category: feature
 authors: phbailey
-feature_name: 'Hosted Engine: Improve Management in Host Dialogs'
-feature_status: In Development
 ---
 
 # Hosted Engine: Improve Management in Host Dialogs

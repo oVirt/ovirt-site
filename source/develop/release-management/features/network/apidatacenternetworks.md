@@ -1,10 +1,7 @@
 ---
 title: ApiDataCenterNetworks
-category: api
+category: feature
 authors: rnori
-feature_name: Api Data Center Networks
-feature_modules: engine,api
-feature_status: ON_QA
 ---
 
 # Api Data Center Networks

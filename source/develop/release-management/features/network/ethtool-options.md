@@ -2,9 +2,6 @@
 title: Ethtool options
 category: feature
 authors: apuimedo, danken
-feature_name: Device ethtool options
-feature_modules: engine,network,vdsm
-feature_status: To be Released
 ---
 
 # Ethtool options

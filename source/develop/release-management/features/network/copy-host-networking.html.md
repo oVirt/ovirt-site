@@ -2,9 +2,6 @@
 title: Copy Host Networking
 category: feature
 authors: Ales Musil
-feature_name: Copy Host Networking
-feature_modules: copy-host-networking
-feature_status: In Development
 ---
 
 # Copy Host Networking

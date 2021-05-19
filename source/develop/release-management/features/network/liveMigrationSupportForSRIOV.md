@@ -2,15 +2,12 @@
 title: LiveMigrationSupportForSRIOV
 category: feature
 authors: mmucha
-feature_name: Live Migration Support For SRIOV
-feature_modules: Networking
-feature_status: Design
-rfe: https://bugzilla.redhat.com/show_bug.cgi?id=868811
-
 ---
 
 
 # Live Migration Support For SRIOV
+
+rfe: https://bugzilla.redhat.com/show_bug.cgi?id=868811
 
 ### Owner
 

@@ -2,9 +2,6 @@
 title: Normalizing scheduling policy weights
 category: feature
 authors: msivak
-feature_name: Normalizing scheduling policy weights
-feature_modules: engine
-feature_status: Draft
 ---
 
 ## Normalizing scheduling policy weights

@@ -2,9 +2,6 @@
 title: Engine Vacuum Tool
 category: feature
 authors: rgolan@redhat.com
-feature_name: Engine Vacuum Tool
-feature_status: complete, merged Dec 2016
-last_update: Jan 17, 2017
 ---
 
 # Engine Vacuum

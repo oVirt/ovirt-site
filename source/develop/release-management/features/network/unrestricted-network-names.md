@@ -2,9 +2,6 @@
 title: Unrestricted Network Names
 category: feature
 authors: danken
-feature_name: Unrestricted Network Names
-feature_modules: engine,api
-feature_status: Proposed
 ---
 
 # Unrestricted Network Names

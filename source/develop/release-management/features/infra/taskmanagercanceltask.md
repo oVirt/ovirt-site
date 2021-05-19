@@ -1,6 +1,6 @@
 ---
 title: TaskManagerCancelTask
-category: template
+category: feature
 authors: mkublin
 ---
 

@@ -1,9 +1,7 @@
 ---
 title: GlusterFS-Hyperconvergence
 authors: fsimonce,sabose
-feature_name: GlusterFS Hyperconvergence
-feature_modules: engine,gluster
-feature_status: In Progress
+category: feature
 ---
 
 # GlusterFS Hyperconvergence

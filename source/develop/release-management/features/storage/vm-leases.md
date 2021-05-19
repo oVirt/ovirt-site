@@ -2,9 +2,6 @@
 title: VM Leases
 category: feature
 authors: nsoffer
-feature_name: VM Leases
-feature_modules: engine,vdsm
-feature_status: Design
 ---
 
 # VM Leases

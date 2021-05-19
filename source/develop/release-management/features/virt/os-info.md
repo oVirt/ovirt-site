@@ -2,9 +2,6 @@
 title: OS info
 category: feature
 authors: mlipchuk, roy, sandrobonazzola
-feature_name: OS info
-feature_modules: oVirt
-feature_status: Released
 ---
 
 # OS info

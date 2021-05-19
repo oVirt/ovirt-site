@@ -2,9 +2,6 @@
 title: NetworkLabels
 category: feature
 authors: alkaplan, danken, lvernia, moti, mpavlik
-feature_name: Network Labels
-feature_modules: Networking
-feature_status: Released
 ---
 
 # Network Labels

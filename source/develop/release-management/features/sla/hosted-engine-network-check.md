@@ -2,9 +2,6 @@
 title: Configurable Network Check for Self Hosted Engine
 category: feature
 authors: dholler
-feature_name: Configurable Network Check for Self Hosted Engine
-feature_modules: ovirt-hosted-engine-ha, cockpit-ovirt, ovirt-ansible-hosted-engine-setup, ovirt-hosted-engine-setup
-feature_status: In Development
 ---
 
 # Configurable Network Check for Self Hosted Engine

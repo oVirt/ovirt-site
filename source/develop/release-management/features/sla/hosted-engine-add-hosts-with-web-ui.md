@@ -2,9 +2,6 @@
 title: Hosted Engine add hosts with Web UI
 category: feature
 authors: sandrobonazzola
-feature_name: 'Hosted Engine: add hosts with Web UI'
-feature_modules: all
-feature_status: NEW
 ---
 
 # Hosted Engine: add hosts with Web UI

@@ -1,8 +1,7 @@
 ---
 title: DiskAlignment
 authors: fsimonce
-feature_name: Disk Alignment
-feature_status: Obsolete
+category: feature
 ---
 
 **Note**: this feature is now obsolete. It was introduced in oVirt 3.3 and dropped in oVirt 4.4 [(Bug #1533086)](https://bugzilla.redhat.com/show_bug.cgi?id=1533086)

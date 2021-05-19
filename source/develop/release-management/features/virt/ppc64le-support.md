@@ -1,9 +1,7 @@
 ---
 title: ppc64le support
-category: ovirt-3.6-proposed-feature
+category: feature
 authors: mpolednik
-feature_name: ppc64le support
-feature_status: Released in oVirt 3.6
 ---
 
 # ppc64le Support

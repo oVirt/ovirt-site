@@ -2,9 +2,6 @@
 title: Gluster Arbiter Volume
 category: feature
 authors: rnahcimu, sahina
-feature_name: Gluster Arbiter Volume
-feature_modules: all
-feature_status: Inception
 ---
 
 # Gluster Arbiter Volume

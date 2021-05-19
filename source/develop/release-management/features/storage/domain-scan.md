@@ -2,9 +2,6 @@
 title: Domain Scan
 category: feature
 authors: derez, djasa, dustin.schoenbrun
-feature_name: Domain Scan
-feature_modules: engine
-feature_status: Released
 ---
 
 # Domain Scan

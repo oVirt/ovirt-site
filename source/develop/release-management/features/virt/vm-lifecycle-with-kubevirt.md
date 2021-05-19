@@ -1,10 +1,7 @@
 ---
-title: VM lifecycle in Kubevirt 
+title: VM lifecycle in Kubevirt
 category: feature
 authors: arik
-feature_name: VM lifecycle in Kubevirt
-feature_modules: engine
-feature_status: 
 ---
 
 This page proposes a gradual way to integrate the virtualization management platform oVirt and containers management platform Kubernetes.

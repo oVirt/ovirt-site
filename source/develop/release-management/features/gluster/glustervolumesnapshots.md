@@ -2,9 +2,6 @@
 title: GlusterVolumeSnapshots
 category: feature
 authors: sandrobonazzola, shtripat
-feature_name: Gluster Volume Snapshot
-feature_modules: engine
-feature_status: Inception
 ---
 
 # Gluster Volume Snapshot

@@ -1,6 +1,6 @@
 ---
 title: Detailed Gluster Volume Asynchronous Tasks Management
-category: detailedfeature
+category: feature
 authors: sahina
 ---
 

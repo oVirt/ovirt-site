@@ -2,9 +2,6 @@
 title: Self Hosted Engine FC Support
 category: feature
 authors: sandrobonazzola, stirabos
-feature_name: Self Hosted Engine FC Support
-feature_modules: ovirt-hosted-engine-setup
-feature_status: completed
 ---
 
 # Self Hosted Engine FC Support

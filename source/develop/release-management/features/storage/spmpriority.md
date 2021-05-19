@@ -2,9 +2,6 @@
 title: SPM Priority
 category: feature
 authors: derez, msalem, ovedo
-feature_name: SPM Priority
-feature_modules: engine
-feature_status: Released in oVirt 3.1
 ---
 
 # SPM Priority

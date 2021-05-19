@@ -2,6 +2,9 @@
 title: Optaplanner
 category: feature
 authors: adahms, msivak
+feature_name: Optaplanner integration with scheduling
+feature_status: Removed
+feature_modules: ovirt-optimizer
 ---
 
 # Optaplanner integration with scheduling
@@ -13,10 +16,7 @@ authors: adahms, msivak
 
 ## Current status
 
-*   Tech preview release - 0.8 - part of oVirt 3.5.3 (bundles Optaplanner)
-*   Release - 0.9 - will be part of oVirt 3.6 (downloads Optaplanner)
-*   Last updated: -- by (WIKI)
-*   Tracking BZs: [rhbz#1093051](https://bugzilla.redhat.com/show_bug.cgi?id=1093051)
+*   Removed in oVirt 4.4. The following content is kept only for reference.
 
 ## Use Cases
 

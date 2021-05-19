@@ -2,8 +2,6 @@
 title: Hosted Engine Agent Offloading
 category: feature
 authors: dchaplyg
-feature_name: 'Hosted Engine: Move all the hardwork from agent to the broker'
-feature_status: Done
 ---
 
 # Hosted Engine: Move all the hard work from the agent to the broker

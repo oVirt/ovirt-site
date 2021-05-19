@@ -2,9 +2,6 @@
 title: Cluster Optimization Host Change Notification
 category: feature
 authors: phbailey
-feature_name: Cluster Optimization Host Change Notification
-feature_modules: Webadmin
-feature_status: Development
 ---
 
 # Cluster Optimization Host Change Notification

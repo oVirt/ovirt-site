@@ -2,9 +2,6 @@
 title: Support reset brick
 category: feature
 authors: godas
-feature_name: Gluster management
-feature_modules: engine,gluster
-feature_status: Completed
 ---
 
 # Gluster Support

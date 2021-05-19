@@ -1,10 +1,7 @@
 ---
 title: HostNetworkingApi
-category: api
+category: feature
 authors: danken, mmucha, moti, sandrobonazzola
-feature_name: Host Networking API
-feature_modules: Networking
-feature_status: Design
 ---
 
 # Host Networking Api

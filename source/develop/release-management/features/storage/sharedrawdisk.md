@@ -2,9 +2,6 @@
 title: SharedRawDisk
 category: feature
 authors: abaron, derez, mlipchuk, sandrobonazzola
-feature_name: Shared Raw Disk
-feature_modules: engine
-feature_status: Released in oVirt 3.1
 ---
 
 # Shared Raw Disk

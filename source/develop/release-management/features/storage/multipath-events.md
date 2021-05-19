@@ -2,9 +2,6 @@
 title: Multipath Alerts
 category: feature
 authors: Fred Rolland
-feature_name: Multipath Alerts
-feature_modules: engine,vdsm
-feature_status:  Released in oVirt 4.2.0
 ---
 
 # Multipath Alerts

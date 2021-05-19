@@ -1,9 +1,7 @@
 ---
 title: Gluster Dashboard
 authors: rnahcimu
-feature_name: Gluster Dashboard
-feature_modules: UI PLugin
-feature_status: In Progress
+category: feature
 ---
 
 # Gluster Dashboard

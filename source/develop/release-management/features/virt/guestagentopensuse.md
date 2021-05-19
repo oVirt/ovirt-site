@@ -2,9 +2,6 @@
 title: GuestAgentOpenSUSE
 category: feature
 authors: vfeenstr
-feature_name: oVirt Guest Agent on OpenSUSE
-feature_modules: ovirt-guest-agent
-feature_status: Done
 ---
 
 # Guest Agent Open SUSE

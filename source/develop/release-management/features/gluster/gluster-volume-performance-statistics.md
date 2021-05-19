@@ -2,10 +2,6 @@
 title: Gluster Volume Performance Statistics
 category: feature
 authors: kmayilsa, sahina
-feature_name: Gluster Volume Performance Statistics
-feature_modules: api,engine,gluster,vdsm
-feature_status: Completed
-
 ---
 
 # Gluster Volume Performance Statistics

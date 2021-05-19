@@ -1,9 +1,6 @@
 ---
 title: Virtio RNG Enhancements
 authors: jniederm
-feature_name: Virtio RNG Enhancements
-feature_modules: virtio
-feature_status: WIP
 ---
 
 # Virtio RNG Enhancements

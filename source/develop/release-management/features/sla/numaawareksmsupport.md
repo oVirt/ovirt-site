@@ -2,9 +2,6 @@
 title: NumaAwareKsmSupport
 category: feature
 authors: maroshi
-feature_name: NUMA aware KSM support
-feature_modules: engine, vdsm, MoM, GUI, REST
-feature_status: Design
 ---
 
 ## NUMA aware KSM support

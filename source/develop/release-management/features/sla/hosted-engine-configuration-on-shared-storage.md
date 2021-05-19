@@ -2,9 +2,6 @@
 title: Hosted Engine configuration on shared storage
 category: feature
 authors: sandrobonazzola, stirabos
-feature_name: Hosted Engine configuration on shared storage
-feature_modules: all
-feature_status: QA
 ---
 
 # Hosted Engine configuration on shared storage

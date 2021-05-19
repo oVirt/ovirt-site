@@ -1,6 +1,6 @@
 ---
 title: Quota
-category: sla
+category: feature
 authors: doron, gchaplik, jumper45, lpeer, mlipchuk, ovedo, sandrobonazzola
 ---
 

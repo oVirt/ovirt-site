@@ -2,9 +2,6 @@
 title: PendingResourceManager
 category: feature
 authors: msivak
-feature_name: Pending Resource Manager
-feature_modules: engine
-feature_status: Draft
 ---
 
 # Pending Resource Manager

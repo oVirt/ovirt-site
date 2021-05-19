@@ -1,6 +1,6 @@
 ---
 title: Python-sdk
-category: sdk
+category: feature
 authors: adahms, bproffitt, michael pasternak
 ---
 

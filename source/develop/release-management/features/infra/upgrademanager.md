@@ -1,9 +1,7 @@
 ---
 title: UpgradeManager
 authors: moti, ovedo
-feature_name: Upgrade Manager
-feature_modules: engine,infra
-feature_status: Released in oVirt 3.6
+category: features
 ---
 
 # Upgrade Manager

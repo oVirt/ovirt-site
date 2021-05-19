@@ -2,9 +2,6 @@
 title: ResolveActiveInterface
 category: feature
 authors: elevi
-feature_name: Resolve Active Interface
-feature_modules: engine,network
-feature_status: Development
 ---
 
 Features/ResolveActiveInterface

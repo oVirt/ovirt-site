@@ -2,9 +2,6 @@
 title: WebSocketProxy on a separate host
 category: feature
 authors: sandrobonazzola, stirabos
-feature_name: WebSocketProxy on a separate host
-feature_modules: websocket-proxy
-feature_status: completed
 ---
 
 # WebSocketProxy on a separate host

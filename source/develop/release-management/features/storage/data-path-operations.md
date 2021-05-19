@@ -2,9 +2,6 @@
 title: Data Path operations on any host
 category: feature
 authors: alitke, nsoffer, laravot, frolland
-feature_name: Data Path Operations On Any Host
-feature_modules: storage,engine,vdsm
-feature_status: WIP 4.1
 ---
 
 # Data Path Operations On Any Host

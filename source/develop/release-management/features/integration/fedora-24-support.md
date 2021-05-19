@@ -2,9 +2,6 @@
 title: Fedora 24 Support
 category: feature
 authors: sandrobonazzola
-feature_name: Fedora 24 Support
-feature_modules: all
-feature_status: Delivered in oVirt 4.0
 ---
 
 # Fedora 24 Support

@@ -1,6 +1,6 @@
 ---
 title: GuestAgent
-category: debian
+category: feature
 authors: vfeenstr
 ---
 

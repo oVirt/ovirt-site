@@ -1,9 +1,7 @@
 ---
 title: engine NIC health check
 authors: mmucha
-feature_name: Engine NIC health check
-feature_modules: engine,network
-feature_status: To be Released
+category: feature
 ---
 
 # Engine NIC health check

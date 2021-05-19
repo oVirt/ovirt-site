@@ -1,8 +1,5 @@
 ---
 authors: msivak
-feature_name: Affinity labels
-feature_modules: engine
-feature_status: Released in oVirt 4.0 RC
 ---
 
 # Affinity labels
@@ -26,6 +23,7 @@ feature_status: Released in oVirt 4.0 RC
 
 1. Each VM can be pinned to multiple specific hosts with the given HW. It will start on one of the listed hosts and no migration is enabled.
 1. VM to VM affinity is supported and can be used, but it only tries to put all those VMs on the same host. Subcluster is not supported.
+1. Released in oVirt 4.0 RC
 
 
 ## Feature goals

@@ -2,9 +2,6 @@
 title: Optaplanner
 category: feature
 authors: adahms, msivak
-feature_name: Optaplanner integration with scheduling
-feature_status: Removed
-feature_modules: ovirt-optimizer
 ---
 
 # Optaplanner integration with scheduling

@@ -1,6 +1,6 @@
 ---
 title: Cluster maintenance scheduling policy
-category: sla
+category: feature
 authors: msivak
 ---
 # Cluster maintenance scheduling policy

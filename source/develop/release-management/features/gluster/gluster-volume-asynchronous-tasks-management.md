@@ -2,9 +2,6 @@
 title: Gluster Volume Asynchronous Tasks Management
 category: feature
 authors: dusmant, kmayilsa, sahina, shireesh
-feature_name: Gluster tasks management
-feature_modules: engine,gluster
-feature_status: Completed
 ---
 
 # Gluster Volume Asynchronous Tasks Management

@@ -2,9 +2,6 @@
 title: New policy language for MOM
 category: feature
 authors: akrejcir
-feature_name: New policy language for MOM
-feature_modules: mom
-feature_status: design
 ---
 
 # New policy language for MOM

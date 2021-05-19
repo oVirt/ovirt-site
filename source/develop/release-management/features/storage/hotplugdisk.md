@@ -1,10 +1,7 @@
 ---
 title: Hot Plug and Unplug Disk
-category: template
+category: feature
 authors: derez, mkublin, ykaul
-feature_name: Disk Hot Plug
-feature_modules: engine
-feature_status: Released
 ---
 
 # Hot Plug Disk

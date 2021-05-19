@@ -1,6 +1,6 @@
 ---
 title: Node Glusterfs Support
-category: node
+category: feature
 authors: mburns
 ---
 

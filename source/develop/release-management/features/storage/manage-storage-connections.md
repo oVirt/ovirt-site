@@ -2,9 +2,6 @@
 title: Manage Storage Connections
 category: feature
 authors: abonas, derez, sgotliv, amureini
-feature_name: Manage storage connections
-feature_modules: engine
-feature_status: Released (oVirt 3.3)
 ---
 
 # Manage storage connections

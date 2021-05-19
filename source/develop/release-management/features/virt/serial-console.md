@@ -2,9 +2,6 @@
 title: Serial Console
 category: feature
 authors: alonbl, fromani, vitordelima
-feature_name: oVirt serial console
-feature_modules: vdsm,engine,ovirt-host-deploy-ovirt-vmconsole
-feature_status: In QA
 ---
 
 # oVirt Serial Console

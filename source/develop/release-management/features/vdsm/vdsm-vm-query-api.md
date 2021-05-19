@@ -1,10 +1,7 @@
 ---
 title: VDSM VM Query API
-category: api
+category: feature
 authors: vfeenstr
-feature_name: VDSM VM Data Query API
-feature_modules: vdsm, engine-backend
-feature_status: Proposed
 ---
 
 # VDSM VM Data Query API

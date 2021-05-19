@@ -2,9 +2,6 @@
 title: Hosted engine VM management
 category: feature
 authors: roy, sandrobonazzola
-feature_name: Hosted engine VM management enhancements
-feature_modules: api,engine,hosted-engine-setup,vdsm
-feature_status: Design & research
 ---
 
 # Hosted engine VM management enhancements

@@ -2,9 +2,6 @@
 title: Stateless Hosted Engine broker
 category: feature
 authors: dchaplyg
-feature_name: Stateless broker
-feature_modules: he
-feature_status: Done
 ---
 
 # Stateless Hosted Engine broker

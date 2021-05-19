@@ -2,9 +2,6 @@
 title: Network Custom Properties
 category: feature
 authors: apuimedo, danken, lvernia, sandrobonazzola
-feature_name: Network Custom Properties
-feature_modules: engine,network,vdsm
-feature_status: To be Released
 ---
 
 # Network Custom Properties

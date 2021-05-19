@@ -2,9 +2,6 @@
 title: Get Route
 category: feature
 authors: lvernia, phoracek
-feature_name: Get Route
-feature_modules: engine, api
-feature_status: Proposed
 ---
 
 # Get Route

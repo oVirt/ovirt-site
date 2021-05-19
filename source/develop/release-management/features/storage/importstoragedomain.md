@@ -2,9 +2,6 @@
 title: ImportStorageDomain
 category: feature
 authors: derez, mlipchuk, sandrobonazzola, vered
-feature_name: Import Storage Domain
-feature_modules: engine/vdsm
-feature_status: Released
 ---
 
 # Import Storage Domain

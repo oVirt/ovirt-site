@@ -1,6 +1,6 @@
 ---
 title: SLA-mom-ballooning-tp
-category: sla
+category: feature
 authors: aglitke
 ---
 

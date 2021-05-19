@@ -1,6 +1,6 @@
 ---
 title: Java-sdk
-category: sdk
+category: feature
 authors: adahms, michael pasternak, moti
 ---
 

@@ -2,9 +2,6 @@
 title: Integrating OVN to ManageIq
 category: feature
 authors: Alona Kaplan
-feature_name: Integrating OVN to ManageIq
-feature_modules: manageiq_providers_ovirt- infra_manager, network_namager, manageiq-ui-classic- network related controllers
-feature_status: In Development
 ---
 
 # Integrating OVN to ManageIq

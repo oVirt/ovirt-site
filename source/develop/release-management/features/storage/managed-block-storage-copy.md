@@ -2,9 +2,6 @@
 title: Managed Block Storage Copy
 category: feature
 authors: bzlotnik
-feature_name: Managed Block Storage - Copying
-feature_modules: storage,engine,vdsm
-feature_status: WIP 4.4.6
 ---
 
 # Managed Block Storage Copy

@@ -2,9 +2,6 @@
 title: Refresh LUN Size
 category: feature
 authors: frolland, nsoffer
-feature_name: Refresh LUN Size
-feature_modules: engine/vdsm
-feature_status: Released in oVirt 3.6
 ---
 
 # Refresh LUN Size

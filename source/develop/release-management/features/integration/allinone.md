@@ -2,9 +2,6 @@
 title: AllInOne
 category: feature
 authors: acathrow, alourie, didi, dneary, jbrooks, netbulae, oschreib, sandrobonazzola
-feature_name: All in One
-feature_modules: engine,node
-feature_status: Removed
 ---
 
 # All in One

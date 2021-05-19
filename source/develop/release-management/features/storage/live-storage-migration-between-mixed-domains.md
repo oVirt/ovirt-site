@@ -2,9 +2,6 @@
 title: Live storage migration between mixed domains
 category: feature
 authors: nsoffer
-feature_name: Live storage migration between mixed domains
-feature_modules: engine,vdsm
-feature_status: Released in oVirt 3.6
 ---
 
 # Live storage migration between mixed domains

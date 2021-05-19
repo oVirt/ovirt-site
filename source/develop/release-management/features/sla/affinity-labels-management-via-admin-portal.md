@@ -2,9 +2,6 @@
 title: Affinity Labels Management via the Administration Portal
 category: feature
 authors: phbailey
-feature_name: Affinity Labels Management via the Administration Portal
-feature_modules: Administration Portal
-feature_status: Complete
 ---
 
 # Affinity Labels Management via the Administration Portal

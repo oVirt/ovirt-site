@@ -2,9 +2,6 @@
 title: Watchdog engine support
 category: feature
 authors: doron, lhornyak, mlipchuk
-feature_name: Watchdog engine support
-feature_modules: SOA
-feature_status: Released
 ---
 
 # Watchdog support in Engine

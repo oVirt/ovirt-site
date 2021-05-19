@@ -2,9 +2,6 @@
 title: PassDiscardFromGuestToUnderlyingStorage
 category: feature
 authors: ishaby
-feature_name: Pass discard from guest to underlying storage
-feature_modules: engine/vdsm/api-model
-feature_status: Released in oVirt 4.1
 ---
 
 # Pass discard from guest to underlying storage

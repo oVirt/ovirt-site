@@ -2,9 +2,6 @@
 title: List VMs pinned to a host
 category: feature
 authors: akrejcir
-feature_name: List VMs pinned to a host
-feature_modules: engine
-feature_status: Done
 ---
 
 # List VMs pinned to a host

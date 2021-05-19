@@ -2,9 +2,6 @@
 title: Detailed Host Network QoS
 category: feature
 authors: amuller, apuimedo, danken, lvernia
-feature_name: Host Network QoS
-feature_modules: engine,vdsm, api
-feature_status: Implementation
 ---
 
 # Detailed Host Network QoS

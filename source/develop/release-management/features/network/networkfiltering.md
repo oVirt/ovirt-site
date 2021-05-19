@@ -1,6 +1,6 @@
 ---
 title: NetworkFiltering
-category: template
+category: feature
 authors: lpeer, moti
 ---
 

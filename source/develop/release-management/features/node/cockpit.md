@@ -2,9 +2,6 @@
 title: Cockpit
 category: feature
 authors: tlitovsk
-feature_name: Cockpit
-feature_modules: node
-feature_status: In Progress
 ---
 
 # Cockpit

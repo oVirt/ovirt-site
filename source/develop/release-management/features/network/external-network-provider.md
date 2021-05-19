@@ -2,9 +2,6 @@
 title: External Network Providers
 category: feature
 authors: mmirecki
-feature_name: External Network Providers
-feature_modules: engine,vdsm
-feature_status: In Development
 ---
 
 # External Network Providers

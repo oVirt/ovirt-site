@@ -1,6 +1,6 @@
 ---
 title: Vnic Profiles
-category: sla
+category: feature
 authors: moti, ofri, ovedo
 ---
 

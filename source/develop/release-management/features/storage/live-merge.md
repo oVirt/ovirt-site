@@ -2,10 +2,6 @@
 title: Live Merge
 category: feature
 authors: aglitke, gpadgett
-status: Released in oVirt 3.5.1
-feature_name: Live Merge
-feature_modules: engine,vdsm
-feature_status: Released in oVirt 3.5.1
 ---
 
 # Live Merge

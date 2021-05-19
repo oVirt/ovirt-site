@@ -2,9 +2,6 @@
 title: CommandCoordinator Flows and Events
 category: feature
 authors: masayag, laravot
-feature_name: CommandCoordinator Framework Enhancements to Support Flows and Events
-feature_modules: engine
-feature_status: In Progress
 ---
 
 # CommandCoordinator Flows and Events

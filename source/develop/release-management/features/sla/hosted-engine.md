@@ -1,10 +1,7 @@
 ---
 title: Node Hosted Engine
-category: node
+category: feature
 authors: dougsland, fabiand, jboggs
-feature_name: Node Hosted Engine
-feature_modules: node
-feature_status: Released
 ---
 
 # Node Hosted Engine

@@ -1,6 +1,6 @@
 ---
 title: Vdsm python3 compatibility
-category: vdsm
+category: feature
 authors: apuimedo, danken, vfeenstr
 ---
 

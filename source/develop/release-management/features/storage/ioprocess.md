@@ -2,9 +2,6 @@
 title: ioprocess
 category: feature
 authors: derez, ykaplan
-feature_name: ioprocess
-feature_status: Released in oVirt 3.5
-feature_modules: ioprocess, vdsm
 ---
 
 # ioprocess

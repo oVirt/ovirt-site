@@ -2,9 +2,6 @@
 title: Bochs-display
 category: feature
 authors: smelamud
-feature_name: Bochs-display
-feature_modules: engine
-feature_status: In development
 ---
 
 # Bochs-display

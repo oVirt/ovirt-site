@@ -2,9 +2,6 @@
 title: Change network information in VM import
 category: feature
 authors: yevgenyz
-feature_name: Change network information in VM import
-feature_modules: engine/api-model
-feature_status: Work in progress for oVirt 4.1
 ---
 
 # Change network information in VM import

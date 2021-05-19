@@ -2,9 +2,6 @@
 title: Gluster Self-Heal Monitoring
 category: feature
 authors: rnachimu
-feature_name: Gluster Self-Heal Monitoring
-feature_modules: Gluster
-feature_status: WIP
 ---
 
 # Gluster Self Heal Monitoring

@@ -2,9 +2,6 @@
 title: VM Icons
 category: feature
 authors: jniederm
-feature_name: VM Icons
-feature_modules: engine
-feature_status: Done
 ---
 
 # VM Icons

@@ -1,9 +1,7 @@
 ---
 title: hostusb
+category: feature
 authors: dyasny, herrold
-feature_name: Expose Host attached USB to a Node
-feature_modules: "[Node(s) of feature]"
-feature_status: Obsolete
 ---
 
 # hostusb

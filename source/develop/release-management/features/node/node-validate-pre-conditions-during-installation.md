@@ -2,9 +2,6 @@
 title: Validate pre-conditions during installation
 category: feature
 authors: dougsland
-feature_name: Installation/Validate Node Pre Coditions for Installation
-feature_modules: node installation
-feature_status: WIP, 4.1 proposed feature
 ---
 
 # Node RPM Persistence After Upgrades

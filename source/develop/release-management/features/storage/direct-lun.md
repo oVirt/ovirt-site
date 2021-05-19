@@ -2,9 +2,6 @@
 title: Direct Lun
 category: feature
 authors: derez, eduardo, ekohl, ilvovsky, lpeer, mkublin, sandrobonazzola
-feature_name: Direct LUN
-feature_modules: engine/vdsm
-feature_status: Released
 ---
 
 # Direct LUN

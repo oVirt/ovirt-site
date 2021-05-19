@@ -2,9 +2,6 @@
 title: VmPinningToMultipleHosts
 category: feature
 authors: maroshi
-feature_name: VM pinning to multiple hosts
-feature_modules: engine,database,rest
-feature_status: Released in 3.6
 ---
 
 # VM Pinning To Multiple Hosts

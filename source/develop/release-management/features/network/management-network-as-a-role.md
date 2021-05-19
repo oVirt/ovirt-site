@@ -2,9 +2,6 @@
 title: Management Network As A Role
 category: feature
 authors: danken, moti, sandrobonazzola, yevgenyz
-feature_name: Management network as a role
-feature_modules: Networking
-feature_status: design
 ---
 
 # Management Network As A Role

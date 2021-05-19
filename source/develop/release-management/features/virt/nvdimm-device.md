@@ -2,9 +2,6 @@
 title: NVDIMM devices
 category: feature
 authors: mzamazal
-feature_name: NVDIMM devices
-feature_modules: engine,vdsm
-feature_status: In development
 ---
 
 # NVDIMM devices

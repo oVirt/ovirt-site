@@ -2,9 +2,6 @@
 title: NFSv4
 category: feature
 authors: derez, ecohen, ekohl, sandrobonazzola, smizrahi
-feature_name: NFSv4
-feature_modules: engine/vdsm
-feature_status: Released
 ---
 
 # NFSv4

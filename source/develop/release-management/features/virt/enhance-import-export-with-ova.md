@@ -2,9 +2,6 @@
 title: Enhance import-export with OVA
 category: feature
 authors: arik, nirs, danielerez
-feature_name: Enhance import-export with OVA
-feature_modules: engine, vdsm
-feature_status: planning
 ---
 
 # Background

@@ -2,9 +2,6 @@
 title: Fencing refactoring
 category: feature
 authors: mperina, sandrobonazzola
-feature_name: Fencing refactoring
-feature_modules: engine
-feature_status: Design
 ---
 
 # Fencing refactoring

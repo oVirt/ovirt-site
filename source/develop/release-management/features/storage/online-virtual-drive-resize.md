@@ -2,9 +2,6 @@
 title: Online Virtual Drive Resize
 category: feature
 authors: derez, fsimonce, sgotliv
-feature_name: Online Virtual Drive Resize
-feature_modules: engine/vdsm
-feature_status: Released in oVirt 3.3
 ---
 
 # Enable Online Virtual Drive Resize

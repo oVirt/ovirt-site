@@ -2,9 +2,6 @@
 title: AdvancedNfsOptions
 category: feature
 authors: derez, ecohen, ekohl, lhornyak, smizrahi
-feature_name: Advanced Nfs Options
-feature_modules: engine
-feature_status: Released
 ---
 
 # Advanced Nfs Options

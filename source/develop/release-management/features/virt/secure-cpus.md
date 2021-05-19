@@ -2,8 +2,6 @@
 title: Default / Secure CPU Type Concept
 category: feature
 authors: ljelinko, mskrivan
-feature_name: Default / Secure CPU Type Concept
-feature_modules: engine
 ---
 
 # Default / Secure CPU Type Concept

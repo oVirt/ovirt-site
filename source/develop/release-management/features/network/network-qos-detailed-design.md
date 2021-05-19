@@ -1,6 +1,6 @@
 ---
 title: Network QoS - detailed design
-category: sla
+category: feature
 authors: lhornyak, ofri
 ---
 

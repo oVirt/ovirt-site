@@ -2,9 +2,6 @@
 title: GlusterHostDiskManagement
 category: feature
 authors: bala, rnahcimu, sahina, sandrobonazzola
-feature_name: Host Device Management
-feature_modules: engine,gluster
-feature_status: Completed
 ---
 
 # Gluster Host Disk Management

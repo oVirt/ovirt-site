@@ -2,9 +2,6 @@
 title: Network Filter Parameters
 category: feature
 authors: dholler
-feature_name: Network Filter Parameters
-feature_modules: engine,vdsm
-feature_status: In Development
 ---
 
 # Network Filter Parameters

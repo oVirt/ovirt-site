@@ -2,9 +2,6 @@
 title: Branding
 category: feature
 authors: awels
-feature_name: Branding
-feature_modules: Branding
-feature_status: Released
 ---
 
 # Branding Support

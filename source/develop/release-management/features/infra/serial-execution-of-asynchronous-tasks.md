@@ -2,9 +2,6 @@
 title: Serial Execution of Asynchronous Tasks
 category: feature
 authors: amureini
-feature_name: Serial Execution of Asynchronous Tasks
-feature_modules: engine
-feature_status: Removed in 4.1
 ---
 
 # Serial Execution of Asynchronous Tasks Detailed Design

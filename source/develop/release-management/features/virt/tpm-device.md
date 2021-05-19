@@ -2,9 +2,6 @@
 title: TPM devices
 category: feature
 authors: mzamazal
-feature_name: TPM devices
-feature_modules: engine,vdsm
-feature_status: In development
 ---
 
 # TPM devices

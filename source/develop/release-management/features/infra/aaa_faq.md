@@ -2,9 +2,6 @@
 title: AAA FAQ
 category: feature
 authors: omachace, mperina
-feature_name: AAA Frequently asked questions
-feature_modules: ovirt-engine-extensions-aaa
-feature_status: Verified
 ---
 
 # AAA Frequently asked questions

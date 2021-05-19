@@ -2,9 +2,6 @@
 title: oVirt LLDP labeler
 category: feature
 authors: Ales Musil
-feature_name: oVirt LLDP labeler
-feature_modules: ovirt-lldp-labeler
-feature_status: In Development
 ---
 
 # oVirt LLDP labeler

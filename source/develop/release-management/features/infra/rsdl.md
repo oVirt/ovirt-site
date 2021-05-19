@@ -1,6 +1,6 @@
 ---
 title: RSDL
-category: api
+category: feature
 authors: michael pasternak
 toc: true
 ---

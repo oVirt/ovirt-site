@@ -1,6 +1,6 @@
 ---
 title: Api
-category: api
+category: feature
 authors: michael pasternak
 ---
 

@@ -2,9 +2,6 @@
 title: Gluster Hooks Management
 category: feature
 authors: kmayilsa, prasanth, sahina, shireesh, Gobinda Das
-feature_name: Gluster Hooks management
-feature_modules: engine,gluster
-feature_status: Released
 ---
 
 # Gluster Hooks Management

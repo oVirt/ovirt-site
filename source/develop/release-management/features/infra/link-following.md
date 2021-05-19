@@ -2,9 +2,6 @@
 title: API Link Following
 category: feature
 authors: oliel
-feature_name: Link Following
-feature_modules: api (engine)
-feature_status: Released
 ---
 
 ## Feature Name

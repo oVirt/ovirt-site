@@ -2,9 +2,6 @@
 title: GuestAgentUbuntu
 category: feature
 authors: vfeenstr
-feature_name: oVirt Guest Agent on Ubuntu
-feature_modules: ovirt-guest-agent
-feature_status: Obsolete
 ---
 
 # Guest Agent Ubuntu

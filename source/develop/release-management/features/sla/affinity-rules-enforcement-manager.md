@@ -2,9 +2,6 @@
 title: Affinity Rules Enforcement Manager
 category: feature
 authors: doron, maroshi, rmohr, tsaban
-feature_name: Affinity Rules Enforcement Manager
-feature_modules: engine
-feature_status: On QA
 ---
 
 # Affinity Rules Enforcement Manager

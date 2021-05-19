@@ -2,10 +2,6 @@
 title: Link Layer Discovery Protocol (LLDP) Support
 category: feature
 authors: Dominik Holler
-category: feature
-feature_name: Link Layer Discovery Protocol (LLDP) Support
-feature_modules: engine,network,vdsm,rest-api
-feature_status: Released
 ---
 
 # Link Layer Discovery Protocol (LLDP) Support

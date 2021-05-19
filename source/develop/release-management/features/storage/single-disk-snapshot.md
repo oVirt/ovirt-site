@@ -1,9 +1,6 @@
 ---
 title: Single Disk Snapshot
 authors: amureini, derez, vered
-feature_name: Single Disk Snapshot
-feature_modules: engine
-feature_status: Released in oVirt 3.4
 category: feature
 ---
 

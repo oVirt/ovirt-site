@@ -1,10 +1,7 @@
 ---
 title: Node.next
-category: node
+category: feature
 authors: fabiand
-feature_name: Node.next
-feature_modules: engine,network,vdsm,node
-feature_status: New
 ---
 
 # Node.next

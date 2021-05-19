@@ -2,10 +2,6 @@
 title: CommandCoordinator
 category: feature
 authors: moti, rnori
-feature_name: Introduce CommandCoordinator Framework and Ability To Persist Commands
-  in Database
-feature_modules: engine
-feature_status: Completed
 ---
 
 # Command Coordinator

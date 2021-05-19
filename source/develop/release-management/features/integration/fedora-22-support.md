@@ -2,9 +2,6 @@
 title: Fedora 22 Support
 category: feature
 authors: sandrobonazzola
-feature_name: Fedora 22 Support
-feature_modules: all
-feature_status: Delivered in oVirt 3.6
 ---
 
 # Fedora 22 Support

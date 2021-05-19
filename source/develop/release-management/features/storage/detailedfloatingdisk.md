@@ -2,9 +2,6 @@
 title: DetailedFloatingDisk
 category: feature
 authors: derez, mlipchuk
-feature_name: Floating Disk
-feature_modules: engine
-feature_status: Released
 ---
 
 # Detailed Floating Disk

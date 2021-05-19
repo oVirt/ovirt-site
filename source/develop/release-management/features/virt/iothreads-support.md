@@ -1,8 +1,7 @@
 ---
 title: IOThreads Support
+category: feature
 authors: tjelinek
-feature_name: IOThreads Support
-feature_status: Released in oVirt 3.6
 ---
 
 # IOThreads Support

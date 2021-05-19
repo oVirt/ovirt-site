@@ -2,9 +2,6 @@
 title: KatelloIntegration
 category: feature
 authors: gshereme, moti
-feature_name: Katello Integration
-feature_modules: engine
-feature_status: Done
 ---
 
 # Katello Integration

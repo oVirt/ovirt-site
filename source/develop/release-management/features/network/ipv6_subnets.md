@@ -2,9 +2,6 @@
 title: IPv6 subnets on ovirt-provider-ovn
 category: feature
 authors: mdbarroso
-feature_name: Support IPv6 subnets on ovirt-provider-ovn
-feature_modules: ovirt-provider-ovn
-feature_status: In Development
 ---
 
 # IPv6 subnets on ovirt-provider-ovn

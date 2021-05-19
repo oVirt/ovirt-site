@@ -2,9 +2,6 @@
 title: Sanlock Fencing
 category: feature
 authors: nsoffer, vered, ybronhei
-feature_name: Sanlock Fencing
-feature_modules: engine,vdsm
-feature_status: Design
 ---
 
 # Sanlock Fencing

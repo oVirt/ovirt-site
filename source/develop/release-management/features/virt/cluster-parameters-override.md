@@ -2,9 +2,6 @@
 title: Cluster parameters override
 category: feature
 authors: eshachar, ofrenkel, sandrobonazzola
-feature_name: Cluster parameters override
-feature_modules: engine
-feature_status: On QA
 ---
 
 # Cluster parameters override

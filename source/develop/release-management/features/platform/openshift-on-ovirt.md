@@ -2,9 +2,6 @@
 title: Openshift On oVirt
 category: feature
 authors: rgolan
-feature_name: Openshift On oVirt
-feature_modules: external
-feature_status: release 4.3
 ---
 
 ## Owner

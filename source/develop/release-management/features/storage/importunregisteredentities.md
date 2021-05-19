@@ -1,9 +1,7 @@
 ---
 title: ImportUnregisteredEntities
 authors: mlipchuk
-feature_name: Detach/Attach Storage Domain with Entities
-feature_modules: engine
-feature_status: Released in oVirt 3.5
+category: feature
 ---
 
 # Import Unregistered Entities

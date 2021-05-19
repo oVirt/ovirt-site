@@ -1,10 +1,7 @@
 ---
-title: Headless VM 
+title: Headless VM
 category: feature
 authors: SharonG
-feature_name: Headless VM
-feature_modules: engine
-feature_status: Merged
 ---
 
 # Headless VM

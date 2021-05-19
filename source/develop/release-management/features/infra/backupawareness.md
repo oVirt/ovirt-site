@@ -2,9 +2,6 @@
 title: BackupAwareness
 category: feature
 authors: didi, doron, emesika, sandrobonazzola
-feature_name: Adding Backup Awareness to oVirt
-feature_modules: engine
-feature_status: Partially implemented
 ---
 
 # Backup Awareness

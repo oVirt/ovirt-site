@@ -1,10 +1,7 @@
 ---
-title: High Performance VM 
+title: High Performance VM
 category: feature
 authors: SharonG
-feature_name: High Performance VM
-feature_modules: engine
-feature_status: Merged
 ---
 
 # High Performance VM

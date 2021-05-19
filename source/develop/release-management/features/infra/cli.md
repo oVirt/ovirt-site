@@ -1,6 +1,6 @@
 ---
 title: CLI
-category: cli
+category: feature
 authors: j.bittner, jfenal, mgoldboi, michael pasternak, tsaban, val0x00ff
 ---
 

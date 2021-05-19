@@ -2,9 +2,6 @@
 title: Native Open vSwitch
 category: feature
 authors: phoracek danken edwardh amusil
-feature_name: Native Open vSwitch
-feature_modules: Networking
-feature_status: Spec
 ---
 
 # Native Open vSwitch

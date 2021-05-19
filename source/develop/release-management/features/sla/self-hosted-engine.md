@@ -3,9 +3,6 @@ title: Self Hosted Engine
 category: feature
 authors: didi, dneary, doron, dyasny, fabiand, gpadgett, jmoskovc, lveyde, mgoldboi,
   mlipchuk, msivak, sandrobonazzola, scohen
-feature_name: Self Hosted Engine
-feature_modules: virt,storage
-feature_status: Released
 ---
 
 # Self Hosted Engine

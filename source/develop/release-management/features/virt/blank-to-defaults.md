@@ -1,9 +1,7 @@
 ---
 title: Blank to Defaults
 authors: tjelinek
-feature_name: Blank to Defaults
-feature_status: Released in oVirt 3.6
-feature_modules: engine
+category: feature
 ---
 
 # Blank to Defaults

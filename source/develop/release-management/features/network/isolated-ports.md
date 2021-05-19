@@ -2,9 +2,6 @@
 title: Isolated ports
 category: feature
 authors: dholler
-feature_name: Isolated ports
-feature_modules: engine,network
-feature_status: In Development
 ---
 
 # Isolated ports

@@ -2,9 +2,6 @@
 title: GlusterVolumeQuota
 category: feature
 authors: shtripat
-feature_name: Gluster Volume Quota
-feature_modules: engine
-feature_status: Not Started
 ---
 
 # Gluster Volume Quota

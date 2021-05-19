@@ -2,9 +2,6 @@
 title: Gluster Import Existing Cluster
 category: feature
 authors: kmayilsa, sahina
-feature_name: Import cluster
-feature_modules: engine,gluster
-feature_status: Released
 ---
 
 # Gluster Import Existing Cluster

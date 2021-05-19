@@ -2,8 +2,6 @@
 title: Hosted engine shared configuration extraction and caching
 category: feature
 authors: dchaplyg
-feature_name: 'Hosted engine shared configuration extraction and caching'
-feature_status: Planning
 ---
 
 # Hosted engine shared configuration extraction and caching

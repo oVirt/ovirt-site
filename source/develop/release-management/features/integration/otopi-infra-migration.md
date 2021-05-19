@@ -1,6 +1,6 @@
 ---
 title: Otopi Infra Migration
-category: infra
+category: feature
 authors: alonbl, alourie, sandrobonazzola
 ---
 

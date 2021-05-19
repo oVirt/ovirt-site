@@ -2,9 +2,6 @@
 title: CockpitOvirtPlugin
 category: feature
 authors: mlibra
-feature_name: Cockpit-oVirt Plugin
-feature_modules: engine
-feature_status: WIP, 4.0 proposed feature
 ---
 
 # Proposed Feature 4.0: Cockpit-oVirt Plugin

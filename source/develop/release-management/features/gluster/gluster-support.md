@@ -2,9 +2,6 @@
 title: Gluster Support
 category: feature
 authors: ekohl, rmiddle, sahina, sandrobonazzola, shireesh
-feature_name: Gluster management
-feature_modules: engine,gluster
-feature_status: Completed
 ---
 
 # Gluster Support

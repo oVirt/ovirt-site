@@ -2,9 +2,6 @@
 title: Deploy Hosted Engine Hosts via Engine
 authors: rgolan
 category: feature
-feature_name: 'Hosted Engine: add hosts with Web UI'
-feature_modules: ovirt-engine otopi
-feature_status: Merged in ovirt-4.0
 ---
 
 # overview

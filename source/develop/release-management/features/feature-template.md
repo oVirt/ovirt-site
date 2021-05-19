@@ -3,9 +3,6 @@ title: Feature template
 category: feature
 authors: acathrow, danken, dneary, lvernia, nsoffer, ovedo, quaid, sandrobonazzola,
   vered
-feature_name: Your feature name
-feature_modules: engine,network,vdsm
-feature_status: Released
 ---
 
 # Feature template

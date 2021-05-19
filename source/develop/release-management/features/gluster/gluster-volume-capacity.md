@@ -2,9 +2,6 @@
 title: Gluster Volume Capacity
 category: feature
 authors: anmol babu, rnahcimu, sahina, shtripat
-feature_name: Gluster Volume Capacity
-feature_modules: api,engine,vdsm, gluster
-feature_status: Completed
 
 ---
 

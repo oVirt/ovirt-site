@@ -2,9 +2,6 @@
 title: WipeVolumesUsingBlkdiscard
 category: feature
 authors: ishaby
-feature_name: Wipe volumes using blkdiscard
-feature_modules: vdsm
-feature_status: Work in progress for oVirt 4.1
 ---
 
 # Wipe volumes using blkdiscard

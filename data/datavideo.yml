@@ -2,69 +2,69 @@
 datavideos:
   - category: Introduction
     videos:
-    - name: Setup Networks
-      url: https://www.youtube.com/embed/nYckKd5Z5N0
-      lang: Eng
-      ver: 4.1
-    - name: Introdução ao Ovirt
-      url: https://www.youtube.com/embed/pq4GiNlnyqI
-      lang: Portuguese
-      ver: 3.5
+      - name: Setup Networks
+        url: https://www.youtube.com/embed/nYckKd5Z5N0
+        lang: Eng
+        ver: 4.1
+      - name: Introdução ao Ovirt
+        url: https://www.youtube.com/embed/pq4GiNlnyqI
+        lang: Portuguese
+        ver: 3.5
   - category: Installation
     videos:
-    - name: Installing oVirt Engine
-      url: https://www.youtube.com/embed/9QD8fcO9icQ
-      lang: Eng
-      ver: 4.1
-    - name: Setup a basic single host oVirt environment
-      url: https://www.youtube.com/embed/Pasz-lv3gTY
-      lang: Eng
-      ver: 4.0
-    - name: часть 1 - введение
-      url: https://www.youtube.com/embed/rg15nxznfwQ
-      lang: Russian
-      ver: 3
+      - name: Installing oVirt Engine
+        url: https://www.youtube.com/embed/9QD8fcO9icQ
+        lang: Eng
+        ver: 4.1
+      - name: Setup a basic single host oVirt environment
+        url: https://www.youtube.com/embed/Pasz-lv3gTY
+        lang: Eng
+        ver: 4.0
+      - name: часть 1 - введение
+        url: https://www.youtube.com/embed/rg15nxznfwQ
+        lang: Russian
+        ver: 3
   - category: Metrics
     videos:
-    - name: Metrics Store Overview
-      url: https://www.youtube.com/embed/AIfb3TjvEb8
-      lang: Eng
-      ver: 4.2
+      - name: Metrics Store Overview
+        url: https://www.youtube.com/embed/AIfb3TjvEb8
+        lang: Eng
+        ver: 4.2
   - category: Networking
     videos:
-    - name: Setup Networks
-      url: https://www.youtube.com/embed/3EMrqQR-f3w
-      lang: Eng
-      ver: 3.2
-    - name: MIQ demo with OVN provider
-      url: https://www.youtube.com/embed/Hbe16G2EQng
-      lang: Eng
-      ver: 4
+      - name: Setup Networks
+        url: https://www.youtube.com/embed/3EMrqQR-f3w
+        lang: Eng
+        ver: 3.2
+      - name: MIQ demo with OVN provider
+        url: https://www.youtube.com/embed/Hbe16G2EQng
+        lang: Eng
+        ver: 4
   - category: Storage
     videos:
-    - name: Adding Storage to the Engine
-      url: https://www.youtube.com/embed/0fRnpmav-Pw
-      lang: Eng
-      ver: 4.1
-    - name: Adding Storage to the Engine
-      url: https://www.youtube.com/embed/10z7tqbTt5Q
-      lang: Eng
-      ver: 3.5
-    - name: GlusterFS Native Integration for KVM Virtualization
-      url: https://www.youtube.com/embed/0iIuHCz8L04
-      lang: Eng
-      ver: 3.2
-    - name: Managing Gluster from oVirt
-      url: https://www.youtube.com/embed/NBu3wAXxq-Q
-      lang: Eng
-      ver: 3.2
+      - name: Adding Storage to the Engine
+        url: https://www.youtube.com/embed/0fRnpmav-Pw
+        lang: Eng
+        ver: 4.1
+      - name: Adding Storage to the Engine
+        url: https://www.youtube.com/embed/10z7tqbTt5Q
+        lang: Eng
+        ver: 3.5
+      - name: GlusterFS Native Integration for KVM Virtualization
+        url: https://www.youtube.com/embed/0iIuHCz8L04
+        lang: Eng
+        ver: 3.2
+      - name: Managing Gluster from oVirt
+        url: https://www.youtube.com/embed/NBu3wAXxq-Q
+        lang: Eng
+        ver: 3.2
   - category: Life Cycle
     videos:
-    - name: Connecting Additional Hosts
-      url: https://www.youtube.com/embed/6lMz7JyHZfI
-      lang: Eng
-      ver: 4.1
-    - name: Create Windows VM Golden
-      url: https://www.youtube.com/embed/duTWu9lhj6E
-      lang: Eng
-      ver: 4.2
+      - name: Connecting Additional Hosts
+        url: https://www.youtube.com/embed/6lMz7JyHZfI
+        lang: Eng
+        ver: 4.1
+      - name: Create Windows VM Golden
+        url: https://www.youtube.com/embed/duTWu9lhj6E
+        lang: Eng
+        ver: 4.2

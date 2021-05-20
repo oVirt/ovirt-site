@@ -534,11 +534,6 @@ istein:
   email: istein@redhat.com
   gravatar: b6a996a95f7c8d5b9b5ac0f509272dbc
 
-vks:
-  name: Vasilij Savin
-  email: vasilij.savin@stfc.ac.uk
-  gravatar: 8e1c9bcd860204404a4bca94842c8825
-
 fabiand:
   email: fabian.deutsch@gmx.de
   gravatar: b876c8ac25402ce621590c1add408b20
@@ -1299,11 +1294,6 @@ philipp reisner:
   email: philipp.reisner@linbit.com
   gravatar: 58cce929c9b5cd0c35fdc3ebda687666
 
-vks:
-  name: Vasily K. Savin
-  email: Vasilij.Savin@jagex.com
-  gravatar: f961c386300d52e57fb7a35ee3ea71f5
-
 hakan z:
   name: Håkan Persson
   email: hakan@violaberg.nu
@@ -1433,6 +1423,7 @@ mblecha:
   email: mblecha@coloradosmart.com
   gravatar: 3b411dc3031c8985a6854508e158399a
 
+didi:
   name: Yedidyah Bar David
   email: didi@redhat.com
   gravatar: a29d28811a6b9fc71f135fc57cbb3ee4
@@ -2703,7 +2694,7 @@ sdickers:
   name: Scott Dickerson
   email: sdickers@redhat.com
   gravatar: 2084b65a7b9dd20384e63986be202d1a
-  
+
 maiqueb:
   name: Miguel Duarte Barroso
   email: mdbarroso@redhat.com
@@ -2712,7 +2703,7 @@ crutonjohn:
   name: Curtis Ray John
   email: cujo0224@gmail.com
   gravatar: fb9d43da7d8c95ccdcd36b82eb2d81ae
-  
+
 rolfedh:
   name: Rolfe Dlugy-Hegwer
   email: rdlugyhe@redhat.com
@@ -2729,4 +2720,4 @@ pmkovar:
 sgoodman:
   name: Steve Goodman
   email: sgoodman@redhat.com
-  gravatar: abab6f3b7573c63a1c2b9ab5da2dbe87  
+  gravatar: abab6f3b7573c63a1c2b9ab5da2dbe87

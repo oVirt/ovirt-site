@@ -2,7 +2,7 @@
 name: oVirt
 domain: ovirt.org
 # The year your site was established (for the copyright)
-founding_year: 2013 # Defaults to current year if commented
+founding_year: 2013  # Defaults to current year if commented
 
 # Location where this repo exists on github
 github: oVirt/ovirt-site
@@ -11,8 +11,7 @@ footer_links:
   "Privacy policy": /privacy-policy.html
   About: /community/about.html
   Disclaimers: /general-disclaimer.html
-  #Offsite example: http://example.com/
+  # Offsite example: http://example.com/
 
 # Regular expression filter for events
 events_filter: oVirt
-

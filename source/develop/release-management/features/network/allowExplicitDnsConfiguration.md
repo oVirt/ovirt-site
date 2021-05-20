@@ -11,7 +11,6 @@ rfe: https://bugzilla.redhat.com/show_bug.cgi?id=1160667
 ### Owner
 
 *   Name: Martin Mucha (mmucha)
-*   Email: mmucha@redhat.com
 
 ## Summary
 When a new host is added to the system, it is attached to the 

@@ -18,8 +18,6 @@ Previously there was sole pool of MACs, it's MAC ranges for this pool could be c
 
 Name: Martin Mucha
 
-Email: <mmucha@redhat.com>
-
 ## Benefit to oVirt
 
 Definition of domains from which MAC addresses will be allocated for each ~~data center~~ cluster.

@@ -11,8 +11,7 @@ rfe: https://bugzilla.redhat.com/show_bug.cgi?id=868811
 
 ### Owner
 
-*   Name: Martin Mucha (mmucha)
-*   Email: mmucha@redhat.com
+*   Name: Martin Mucha
 
 ## Summary
 Current support of SR-IOV (single root I/O virtualization) in engine 

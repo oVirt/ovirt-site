@@ -13,7 +13,6 @@ Fencing can occur on healthy hosts, just as a result of failing NIC of engine or
 ## Owner
 
 *   Name: Martin Mucha (mmucha)
-*   Email: <mmucha@redhat.com>
 *   IRC: mmucha at #ovirt (irc.oftc.net)
 
 ## Benefit to oVirt

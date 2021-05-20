@@ -9,7 +9,6 @@ authors: mmucha, moti, sandrobonazzola
 ## Owner
 
 *   Name: Martin Mucha (mmucha)
-*   Email: mmucha@redhat.com
 
 ## Detailed Description
 

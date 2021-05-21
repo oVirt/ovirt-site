@@ -1,7 +1,10 @@
 ---
 title: memory-balloon
 category: sla
-authors: doron, ecohen, emesika
+authors:
+  - doron
+  - ecohen
+  - emesika
 ---
 
 # memory-balloon

@@ -1,7 +1,10 @@
 ---
 title: FloatingDisk
 category: feature
-authors: derez, ekohl, mlipchuk
+authors:
+  - derez
+  - ekohl
+  - mlipchuk
 ---
 
 # Floating Disk

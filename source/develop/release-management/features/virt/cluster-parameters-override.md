@@ -1,7 +1,10 @@
 ---
 title: Cluster parameters override
 category: feature
-authors: eshachar, ofrenkel, sandrobonazzola
+authors:
+  - eshachar
+  - ofrenkel
+  - sandrobonazzola
 ---
 
 # Cluster parameters override

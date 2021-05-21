@@ -1,6 +1,12 @@
 ---
 title: Understanding Guest Agents and Other Tools
-authors: bobdrad, gianluca, nkesick, sven, vfeenstr, sandrobonazzola
+authors:
+  - bobdrad
+  - gianluca
+  - nkesick
+  - sven
+  - vfeenstr
+  - sandrobonazzola
 ---
 
 

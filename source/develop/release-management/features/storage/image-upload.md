@@ -1,7 +1,11 @@
 ---
 title: oVirt Image I/O
 category: feature
-authors: aaviram, gpadgett, nsoffer, derez
+authors:
+  - aaviram
+  - gpadgett
+  - nsoffer
+  - derez
 ---
 
 # oVirt Image I/O

@@ -1,7 +1,9 @@
 ---
 title: Graduation check list
 category: project-acceptance-criteria
-authors: cctrieloff, quaid
+authors:
+  - cctrieloff
+  - quaid
 ---
 
 # Graduation check list

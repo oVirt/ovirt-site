@@ -1,6 +1,8 @@
 ---
 title: dbupgrade
-authors: emesika, moolit
+authors:
+  - emesika
+  - moolit
 ---
 
 # Upgrade

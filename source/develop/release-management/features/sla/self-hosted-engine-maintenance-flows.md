@@ -1,7 +1,10 @@
 ---
 title: Self Hosted Engine Maintenance Flows
 category: feature
-authors: gpadgett, mlipchuk, sandrobonazzola
+authors:
+  - gpadgett
+  - mlipchuk
+  - sandrobonazzola
 ---
 
 # Self Hosted Engine Maintenance Flows

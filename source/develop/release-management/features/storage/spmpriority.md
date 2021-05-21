@@ -1,7 +1,10 @@
 ---
 title: SPM Priority
 category: feature
-authors: derez, msalem, ovedo
+authors:
+  - derez
+  - msalem
+  - ovedo
 ---
 
 # SPM Priority

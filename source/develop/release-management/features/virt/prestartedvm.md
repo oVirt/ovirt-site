@@ -1,7 +1,10 @@
 ---
 title: PrestartedVm
 category: feature
-authors: msalem, ovedo, tdosek
+authors:
+  - msalem
+  - ovedo
+  - tdosek
 ---
 
 # Prestarted Vm

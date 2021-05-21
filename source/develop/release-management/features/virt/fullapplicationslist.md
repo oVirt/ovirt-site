@@ -1,7 +1,9 @@
 ---
 title: FullApplicationsList
 category: feature
-authors: ekohl, gal
+authors:
+  - ekohl
+  - gal
 ---
 
 # Full Applications List

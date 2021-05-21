@@ -1,7 +1,7 @@
 ---
 title: oVirt LLDP labeler
 category: feature
-authors: Ales Musil
+authors: amusil
 ---
 
 # oVirt LLDP labeler

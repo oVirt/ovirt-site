@@ -1,7 +1,12 @@
 ---
 title: Migration Enhancements
 category: feature
-authors: mpolednik, mskrivan, ofrenkel, sandrobonazzola, tjelinek
+authors:
+  - mpolednik
+  - mskrivan
+  - ofrenkel
+  - sandrobonazzola
+  - tjelinek
 ---
 
 # Migration Enhancements

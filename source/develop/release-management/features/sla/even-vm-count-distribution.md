@@ -1,7 +1,9 @@
 ---
 title: Even VM Count Distribution
 category: feature
-authors: doron, jmoskovc
+authors:
+  - doron
+  - jmoskovc
 ---
 
 # Even VM distribution based on VM count per host

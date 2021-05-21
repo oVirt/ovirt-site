@@ -1,7 +1,7 @@
 ---
 title: Importing Libvirt KVM VMs to oVirt
 category: feature
-authors: Shahar Havivi
+authors: shahar
 ---
 
 # Importing Libvirt KVM VMs to oVirt

@@ -1,7 +1,10 @@
 ---
 title: MoM
 category: project
-authors: aglitke, doron, lhornyak
+authors:
+  - aglitke
+  - doron
+  - lhornyak
 ---
 
 # MoM

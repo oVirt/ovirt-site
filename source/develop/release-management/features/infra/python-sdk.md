@@ -1,7 +1,10 @@
 ---
 title: Python-sdk
 category: feature
-authors: adahms, bproffitt, michael pasternak
+authors:
+  - adahms
+  - bproffitt
+  - michael pasternak
 ---
 
 # Python-SDK (API v3)

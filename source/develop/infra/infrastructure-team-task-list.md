@@ -1,7 +1,10 @@
 ---
 title: Infrastructure team task list
 category: infra
-authors: dneary, quaid, rmiddle
+authors:
+  - dneary
+  - quaid
+  - rmiddle
 ---
 
 # Infrastructure team task list

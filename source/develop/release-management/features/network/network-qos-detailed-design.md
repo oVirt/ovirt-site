@@ -1,7 +1,9 @@
 ---
 title: Network QoS - detailed design
 category: feature
-authors: lhornyak, ofri
+authors:
+  - lhornyak
+  - ofri
 ---
 
 # Network QoS - detailed design

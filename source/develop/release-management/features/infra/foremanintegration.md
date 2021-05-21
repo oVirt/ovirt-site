@@ -1,7 +1,9 @@
 ---
 title: ForemanIntegration
 category: feature
-authors: ovedo, ybronhei
+authors:
+  - ovedo
+  - ybronhei
 ---
 
 ## Foreman Integration

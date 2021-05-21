@@ -1,7 +1,13 @@
 ---
 title: JsonRpc
 category: feature
-authors: adahms, apuimedo, pkliczewski, sandrobonazzola, smizrahi, ybronhei
+authors:
+  - adahms
+  - apuimedo
+  - pkliczewski
+  - sandrobonazzola
+  - smizrahi
+  - ybronhei
 ---
 
 # Json Rpc

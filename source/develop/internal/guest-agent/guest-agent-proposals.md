@@ -1,6 +1,8 @@
 ---
 title: Guest agent proposals
-authors: abaron, mdroth
+authors:
+  - abaron
+  - mdroth
 ---
 
 <!-- TODO: Content review -->

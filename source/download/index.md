@@ -1,6 +1,8 @@
 ---
 title: Download
-authors: gshereme,sandrobonazzola
+authors:
+  - gshereme
+  - sandrobonazzola
 page_classes: download
 ---
 

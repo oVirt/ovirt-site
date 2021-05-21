@@ -1,7 +1,12 @@
 ---
 title: Gluster Support
 category: feature
-authors: ekohl, rmiddle, sahina, sandrobonazzola, shireesh
+authors:
+  - ekohl
+  - rmiddle
+  - sahina
+  - sandrobonazzola
+  - shireesh
 ---
 
 # Gluster Support

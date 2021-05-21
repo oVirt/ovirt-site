@@ -1,7 +1,10 @@
 ---
 title: Vdsm Disk Images
 category: vdsm
-authors: danken, dcaroest, vered
+authors:
+  - danken
+  - dcaroest
+  - vered
 ---
 
 # Vdsm Disk Images

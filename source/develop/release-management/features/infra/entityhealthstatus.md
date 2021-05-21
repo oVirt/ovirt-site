@@ -1,7 +1,9 @@
 ---
 title: EntityHealthStatus
 category: feature
-authors: emesika, ovedo
+authors:
+  - emesika
+  - ovedo
 ---
 
 # Entity Health Status

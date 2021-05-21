@@ -1,7 +1,10 @@
 ---
 title: VDSM-Hooks
 category: vdsm
-authors: dyasny, ovedo, sandrobonazzola
+authors:
+  - dyasny
+  - ovedo
+  - sandrobonazzola
 ---
 
 # VDSM-Hooks

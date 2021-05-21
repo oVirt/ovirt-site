@@ -1,7 +1,9 @@
 ---
 title: Vdsm Network
 category: vdsm
-authors: danken, rmiddle
+authors:
+  - danken
+  - rmiddle
 ---
 
 # Vdsm Network

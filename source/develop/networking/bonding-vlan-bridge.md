@@ -1,6 +1,8 @@
 ---
 title: Bonding VLAN Bridge
-authors: danken, karli.sjoberg
+authors:
+  - danken
+  - karli.sjoberg
 ---
 
 # Bonding VLAN Bridge

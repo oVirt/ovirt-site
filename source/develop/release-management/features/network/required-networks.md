@@ -1,7 +1,9 @@
 ---
 title: Required Networks
 category: feature
-authors: danken, roy
+authors:
+  - danken
+  - roy
 ---
 
 # Required Networks

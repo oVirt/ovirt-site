@@ -1,6 +1,6 @@
 ---
 title: Gluster Dashboard
-authors: rnahcimu
+authors: rnachimu
 category: feature
 ---
 
@@ -14,7 +14,7 @@ This document describes the design of a dashboard for Gluster. Dashboard will be
 
 # Owner
 
-*   Feature owner: Ramesh Nachimuthu<rnacihmu@redhat.com>
+*   Feature owner: Ramesh Nachimuthu <rnachimu@redhat.com>
 
 # Current Status
 

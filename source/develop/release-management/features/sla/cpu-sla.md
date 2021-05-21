@@ -1,7 +1,10 @@
 ---
 title: CPU SLA
 category: feature
-authors: adahms, kianku, roy
+authors:
+  - adahms
+  - kianku
+  - roy
 ---
 
 # CPU SLA

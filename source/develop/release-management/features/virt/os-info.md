@@ -1,7 +1,10 @@
 ---
 title: OS info
 category: feature
-authors: mlipchuk, roy, sandrobonazzola
+authors:
+  - mlipchuk
+  - roy
+  - sandrobonazzola
 ---
 
 # OS info

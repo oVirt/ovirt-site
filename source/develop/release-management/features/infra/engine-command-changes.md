@@ -1,6 +1,9 @@
 ---
 title: Engine Command changes
-authors: ovedo, rnori, yair zaslavsky
+authors:
+ - ovedo
+ - rnori
+ - yair zaslavsky
 ---
 
 # Engine commands infrastructure changes for 3.5

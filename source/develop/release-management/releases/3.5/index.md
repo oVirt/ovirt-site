@@ -2,8 +2,24 @@
 title: oVirt 3.5 Release Notes
 category: documentation
 toc: true
-authors: adahms, aglitke, apuimedo, danken, didi, dougsland, eedri, fromani, lveyde,
-  moti, mpavlik, pkliczewski, sandrobonazzola, sradco, stirabos, yair zaslavsky, ybronhei
+authors:
+  - adahms
+  - aglitke
+  - apuimedo
+  - danken
+  - didi
+  - dougsland
+  - eedri
+  - fromani
+  - lveyde
+  - moti
+  - mpavlik
+  - pkliczewski
+  - sandrobonazzola
+  - sradco
+  - stirabos
+  - yair zaslavsky
+  - ybronhei
 ---
 
 The oVirt Project is pleased to announce the availability of its sixth formal release, oVirt 3.5.

@@ -1,7 +1,9 @@
 ---
 title: DetailedPMHealthCheck
 category: feature
-authors: emesika, gchaplik
+authors:
+  - emesika
+  - gchaplik
 ---
 
 # Detailed PM Health Check
@@ -32,7 +34,7 @@ Add a class PmHealtCheckManager to handle the scheduled check
 This class will
 
         Read the related configuration values(see Configuration) and if feature is enabled reads the
-        PMHealtCheckIntervalInSec  configurationvariable.   
+        PMHealtCheckIntervalInSec  configurationvariable.
         Create the Quartz job in it initialize() method which will be called from backend::initialize()
 
 ### CRUD
@@ -60,13 +62,13 @@ Those configuration value should be exposed to the engine-config tool.
 
 The PmHealtCheckManager (if enabled) will create a Quartz job that runs each PmHealtCheckIntervalInSec and will do the following:
 
-        Search for all Hosts with defined and enabled power management 
+        Search for all Hosts with defined and enabled power management
         For each Host
-            If the Host has just a Primary card, send a status command to this card, In case that this failed 
-            and Alert is generated, in case that it succeeded we check if there is an active alert for this host 
+            If the Host has just a Primary card, send a status command to this card, In case that this failed
+            and Alert is generated, in case that it succeeded we check if there is an active alert for this host
             and remove it.
-            If the Host has Primary & Secondary cards 
-               For sequential devices, both are tested but only warning alerts are generated if one of those 
+            If the Host has Primary & Secondary cards
+               For sequential devices, both are tested but only warning alerts are generated if one of those
                cards is OK and one fails
                For concurrent devices both are tested and alert is generated no matter which card fails
 

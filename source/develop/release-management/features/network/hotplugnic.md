@@ -1,7 +1,11 @@
 ---
 title: HotplugNic
 category: feature
-authors: danken, ekohl, ilvovsky, moti
+authors:
+  - danken
+  - ekohl
+  - ilvovsky
+  - moti
 ---
 
 # Hotplug Nic

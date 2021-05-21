@@ -1,6 +1,8 @@
 ---
 title: oVirt on Arch Linux
-authors: apuimedo, sandrobonazzola
+authors:
+  - apuimedo
+  - sandrobonazzola
 ---
 
 # oVirt on Arch Linux

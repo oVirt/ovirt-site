@@ -1,7 +1,9 @@
 ---
 title: ExternalTasks
 category: feature
-authors: emesika, yair zaslavsky
+authors:
+  - emesika
+  - yair zaslavsky
 ---
 
 # External Tasks

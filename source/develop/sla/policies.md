@@ -1,7 +1,9 @@
 ---
 title: policies
 category: sla
-authors: doron, lhornyak
+authors:
+  - doron
+  - lhornyak
 ---
 
 # SLA: policies

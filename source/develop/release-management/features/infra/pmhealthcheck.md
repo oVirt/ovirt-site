@@ -1,7 +1,9 @@
 ---
 title: PMHealthCheck
 category: feature
-authors: emesika, gchaplik
+authors:
+  - emesika
+  - gchaplik
 ---
 
 # PM Health Check

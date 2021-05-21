@@ -1,6 +1,8 @@
 ---
 title: Backup engine db
-authors: dougsland, herrold
+authors:
+  - dougsland
+  - herrold
 ---
 
 <!-- TODO: Content review -->

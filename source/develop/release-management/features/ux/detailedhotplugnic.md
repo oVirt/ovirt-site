@@ -1,7 +1,13 @@
 ---
 title: DetailedHotPlugNic
 category: feature
-authors: danken, ecohen, ilvovsky, moti, ovedo, roy
+authors:
+  - danken
+  - ecohen
+  - ilvovsky
+  - moti
+  - ovedo
+  - roy
 ---
 
 # Detailed Hot Plug Nic

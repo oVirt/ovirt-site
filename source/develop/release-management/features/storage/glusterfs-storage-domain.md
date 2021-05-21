@@ -1,8 +1,16 @@
 ---
 title: GlusterFS Storage Domain
 category: feature
-authors: derez, dpkshetty, drbao, moti, sahina, sandrobonazzola, shtripat, snmishra,
-  thildred, dchaplyg
+authors:
+  - derez
+  - dpkshetty
+  - moti
+  - sahina
+  - sandrobonazzola
+  - shtripat
+  - snmishra
+  - thildred
+  - dchaplyg
 ---
 
 # GlusterFS Storage Domain

@@ -1,6 +1,9 @@
 ---
 title: oVirt Guest Agent For Windows
-authors: karli.sjoberg, lveyde, nkesick
+authors:
+  - karli.sjoberg
+  - lveyde
+  - nkesick
 ---
 
 <!-- TODO: Content review -->

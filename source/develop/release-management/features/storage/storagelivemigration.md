@@ -1,6 +1,10 @@
 ---
 title: StorageLiveMigration
-authors: abaron, fsimonce, amureini, derez
+authors:
+  - abaron
+  - fsimonce
+  - amureini
+  - derez
 category: feature
 ---
 

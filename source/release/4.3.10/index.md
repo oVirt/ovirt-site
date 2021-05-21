@@ -1,7 +1,9 @@
 ---
 title: oVirt 4.3.10 Release Notes
 category: documentation
-authors: sandrobonazzola, lveyde
+authors:
+  - sandrobonazzola
+  - lveyde
 toc: true
 page_classes: releases
 ---

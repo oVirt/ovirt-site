@@ -1,7 +1,9 @@
 ---
 title: CommandCoordinator Flows and Events
 category: feature
-authors: masayag, laravot
+authors:
+  - moti
+  - laravot
 ---
 
 # CommandCoordinator Flows and Events

@@ -1,7 +1,12 @@
 ---
 title: NFSv4
 category: feature
-authors: derez, ecohen, ekohl, sandrobonazzola, smizrahi
+authors:
+  - derez
+  - ecohen
+  - ekohl
+  - sandrobonazzola
+  - smizrahi
 ---
 
 # NFSv4

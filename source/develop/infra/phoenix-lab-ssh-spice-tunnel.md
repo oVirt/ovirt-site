@@ -1,7 +1,9 @@
 ---
 title: Phoenix Lab Ssh Spice Tunnel
 category: infra
-authors: dcaroest, rbarry
+authors:
+  - dcaroest
+  - rbarry
 ---
 
 # Phoenix Lab Ssh Spice Tunnel

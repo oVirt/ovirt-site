@@ -1,7 +1,9 @@
 ---
 title: Localization Howto
 category: howto
-authors: lhornyak,sbonazzo
+authors:
+  - lhornyak
+  - sandrobonazzola
 ---
 
 # Localization Mini-Howto

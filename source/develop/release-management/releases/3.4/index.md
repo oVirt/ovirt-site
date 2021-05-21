@@ -2,7 +2,11 @@
 title: oVirt 3.4 Release Notes
 category: documentation
 toc: true
-authors: bproffitt, derez, knesenko, sandrobonazzola
+authors:
+  - bproffitt
+  - derez
+  - knesenko
+  - sandrobonazzola
 ---
 
 The oVirt Project is pleased to announce the availability of its fifth formal release, oVirt 3.4.

@@ -1,7 +1,9 @@
 ---
 title: AddingKeystoneURLToExternalProviders
 category: feature
-authors: emesika, moti
+authors:
+  - emesika
+  - moti
 ---
 
 # Adding Keystone URL to OpenStack External Providers

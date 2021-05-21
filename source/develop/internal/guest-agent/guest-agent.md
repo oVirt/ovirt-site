@@ -1,7 +1,13 @@
 ---
 title: oVirt guest agent
 category: ovirt-guest-agent
-authors: adahms, bazulay, bproffitt, geoffoc, rmiddle, vfeenstr
+authors:
+  - adahms
+  - bazulay
+  - bproffitt
+  - geoffoc
+  - rmiddle
+  - vfeenstr
 ---
 
 <!-- TODO: Content review -->

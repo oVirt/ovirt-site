@@ -1,7 +1,12 @@
 ---
 title: MultiHostNetworkConfiguration
 category: feature
-authors: danken, didi, mkolesni, moti, mpavlik
+authors:
+  - danken
+  - didi
+  - mkolesni
+  - moti
+  - mpavlik
 ---
 
 ## Multi-Host Network Configuration

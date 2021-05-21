@@ -1,8 +1,11 @@
 ---
 title: Gluster Swift Management
 category: feature
-authors: kmayilsa, knarra, sahina, shtripat
-status: Deprecated
+authors:
+  - kmayilsa
+  - knarra
+  - sahina
+  - shtripat
 ---
 
 # Gluster Swift Management

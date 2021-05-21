@@ -1,7 +1,10 @@
 ---
 title: oVirt 3.4 release management
 category: release
-authors: bproffitt, danken, sandrobonazzola
+authors:
+  - bproffitt
+  - danken
+  - sandrobonazzola
 ---
 
 # oVirt 3.4 release management

@@ -1,6 +1,8 @@
 ---
 title: scratchpad
-authors: dyasny, ykaul
+authors:
+  - dyasny
+  - ykaul
 ---
 
 # scratchpad

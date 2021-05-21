@@ -1,7 +1,10 @@
 ---
 title: UIPlugins 4.3+
 category: feature
-authors: sahina, vszocs, awels
+authors:
+  - sahina
+  - vszocs
+  - awels
 ---
 
 # UI Plugins

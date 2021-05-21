@@ -1,7 +1,10 @@
 ---
 title: Virt-Sparsify
 category: feature
-authors: doron, shaharh, smelamud
+authors:
+  - doron
+  - shaharh
+  - smelamud
 ---
 
 

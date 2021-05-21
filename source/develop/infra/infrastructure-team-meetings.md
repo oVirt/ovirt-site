@@ -1,7 +1,15 @@
 ---
 title: Infrastructure team meetings
 category: infra
-authors: dcaroest, dneary, ekohl, herrold, knesenko, mburns, quaid, rmiddle
+authors:
+  - dcaroest
+  - dneary
+  - ekohl
+  - herrold
+  - knesenko
+  - mburns
+  - quaid
+  - rmiddle
 ---
 
 # Infrastructure team meetings

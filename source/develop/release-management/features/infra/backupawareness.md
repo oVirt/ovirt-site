@@ -1,7 +1,11 @@
 ---
 title: BackupAwareness
 category: feature
-authors: didi, doron, emesika, sandrobonazzola
+authors:
+  - didi
+  - doron
+  - emesika
+  - sandrobonazzola
 ---
 
 # Backup Awareness

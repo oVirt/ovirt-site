@@ -1,7 +1,9 @@
 ---
 title: Proposal VDSM - Engine Data Statistics Retrieval
 category: vdsm
-authors: danken, vfeenstr
+authors:
+  - danken
+  - vfeenstr
 ---
 
 # Proposal VDSM - Engine Data Statistics Retrieval

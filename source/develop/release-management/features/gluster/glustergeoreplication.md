@@ -1,7 +1,11 @@
 ---
 title: GlusterGeoReplication
 category: feature
-authors: kmayilsa, sahina, sandrobonazzola, shtripat
+authors:
+  - kmayilsa
+  - sahina
+  - sandrobonazzola
+  - shtripat
 ---
 
 # Gluster Geo Replication

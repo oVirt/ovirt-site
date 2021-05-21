@@ -1,7 +1,9 @@
 ---
 title: Fencing refactoring
 category: feature
-authors: mperina, sandrobonazzola
+authors:
+  - mperina
+  - sandrobonazzola
 ---
 
 # Fencing refactoring

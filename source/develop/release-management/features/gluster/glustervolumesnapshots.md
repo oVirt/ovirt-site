@@ -1,7 +1,9 @@
 ---
 title: GlusterVolumeSnapshots
 category: feature
-authors: sandrobonazzola, shtripat
+authors:
+  - sandrobonazzola
+  - shtripat
 ---
 
 # Gluster Volume Snapshot

@@ -1,7 +1,10 @@
 ---
 title: Serial Console
 category: feature
-authors: alonbl, fromani, vitordelima
+authors:
+  - alonbl
+  - fromani
+  - vitordelima
 ---
 
 # oVirt Serial Console

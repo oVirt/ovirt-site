@@ -1,7 +1,9 @@
 ---
 title: oVirt OVN Provider
 category: feature
-authors: mmirecki,dholler
+authors:
+  - mmirecki
+  - dholler
 ---
 
 # oVirt OVN Provider

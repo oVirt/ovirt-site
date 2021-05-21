@@ -1,7 +1,11 @@
 ---
 title: Manage Storage Connections
 category: feature
-authors: abonas, derez, sgotliv, amureini
+authors:
+  - abonas
+  - derez
+  - sgotliv
+  - amureini
 ---
 
 # Manage storage connections

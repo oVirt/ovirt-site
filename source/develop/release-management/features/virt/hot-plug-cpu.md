@@ -1,7 +1,10 @@
 ---
 title: Hot plug cpu
 category: feature
-authors: adahms, roy, sven
+authors:
+  - adahms
+  - roy
+  - sven
 ---
 
 # Hot plug cpu

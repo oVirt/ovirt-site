@@ -1,6 +1,8 @@
 ---
 title: VmDevices rework
-authors: danken, mpolednik
+authors:
+  - danken
+  - mpolednik
 ---
 
 # VmDevices rework

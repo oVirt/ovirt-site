@@ -2,7 +2,9 @@
 title: oVirt 4.3.9 Release Notes
 category: documentation
 toc: true
-authors: sandrobonazzola, lveyde
+authors:
+  - sandrobonazzola
+  - lveyde
 page_classes: releases
 ---
 

@@ -2,8 +2,26 @@
 title: Working with oVirt Gerrit
 category: documentation
 toc: true
-authors: abonas, amuller, amureini, asaf, dcaroest, dneary, doron, dougsland, iheim,
-  lpeer, mburns, mkovgan, msalem, ovedo, quaid, rmiddle, roy, sgordon, vered
+authors:
+  - abonas
+  - amuller
+  - amureini
+  - asaf
+  - dcaroest
+  - dneary
+  - doron
+  - dougsland
+  - iheim
+  - lpeer
+  - mburns
+  - mkovgan
+  - msalem
+  - ovedo
+  - quaid
+  - rmiddle
+  - roy
+  - sgordon
+  - vered
 ---
 
 # Working with oVirt Gerrit

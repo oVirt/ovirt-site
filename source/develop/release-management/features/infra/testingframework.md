@@ -1,6 +1,8 @@
 ---
 title: TestingFramework
-authors: dkuznets, ybronhei
+authors:
+  - dkuznets
+  - ybronhei
 ---
 
 # Testing Framework

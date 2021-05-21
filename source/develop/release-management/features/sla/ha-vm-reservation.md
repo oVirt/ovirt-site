@@ -1,7 +1,10 @@
 ---
 title: HA VM reservation
 category: feature
-authors: doron, kianku, sherold
+authors:
+  - doron
+  - kianku
+  - sherold
 ---
 
 # HA VM reservation

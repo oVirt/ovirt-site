@@ -1,6 +1,10 @@
 ---
 title: Change network interface for Gluster
-authors: dneary, jplorier, sahina, sven
+authors:
+  - dneary
+  - jplorier
+  - sahina
+  - sven
 ---
 
 # Change network interface for Gluster

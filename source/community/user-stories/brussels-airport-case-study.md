@@ -1,7 +1,9 @@
 ---
 title: Brussels Airport Case Study
 category: community
-authors: bproffitt, roy
+authors:
+  - bproffitt
+  - roy
 ---
 
 <div class="row">

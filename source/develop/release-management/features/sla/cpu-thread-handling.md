@@ -1,7 +1,10 @@
 ---
 title: CPU thread handling
 category: feature
-authors: dneary, doron, gpadgett
+authors:
+  - dneary
+  - doron
+  - gpadgett
 ---
 
 # CPU Thread Handling

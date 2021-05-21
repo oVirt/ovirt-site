@@ -1,7 +1,12 @@
 ---
 title: Detailed OSN Integration
 category: feature
-authors: danken, lvernia, mkolesni, moti, mpavlik
+authors:
+  - danken
+  - lvernia
+  - mkolesni
+  - moti
+  - mpavlik
 ---
 
 # Detailed OSN Integration

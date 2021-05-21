@@ -1,7 +1,11 @@
 ---
 title: IPv6 support
 category: feature
-authors: amuller, danken, osvoboda, psebek
+authors:
+  - amuller
+  - danken
+  - osvoboda
+  - psebek
 ---
 
 # IPv6 support

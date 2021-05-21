@@ -1,6 +1,13 @@
 ---
 title: Outreach
-authors: cctrieloff, djorm, iheim, justinclift, pmyers, sgordon, sandrobonazzola
+authors:
+  - cctrieloff
+  - djorm
+  - iheim
+  - justinclift
+  - pmyers
+  - sgordon
+  - sandrobonazzola
 ---
 
 # Promote oVirt

@@ -1,7 +1,10 @@
 ---
 title: NUMA and Virtual NUMA
 category: feature
-authors: adahms, danken, jasonliao
+authors:
+  - adahms
+  - danken
+  - jasonliao
 ---
 
 # NUMA and Virtual NUMA

@@ -1,6 +1,8 @@
 ---
 title: REST Client Addon
-authors: lpeer, moti
+authors:
+  - lpeer
+  - moti
 ---
 
 # REST Client Addon

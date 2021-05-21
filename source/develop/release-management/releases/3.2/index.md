@@ -1,6 +1,10 @@
 ---
 title: oVirt 3.2 release notes
-authors: cheryntan, shireesh, theron, vered
+authors:
+  - cheryntan
+  - shireesh
+  - theron
+  - vered
 ---
 
 # oVirt 3.2 release notes

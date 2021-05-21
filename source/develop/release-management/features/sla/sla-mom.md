@@ -1,7 +1,9 @@
 ---
 title: SLA-mom
 category: feature
-authors: aglitke, doron
+authors:
+  - aglitke
+  - doron
 ---
 
 # SLA-mom

@@ -1,6 +1,8 @@
 ---
 title: oVirt 3.4 Release Announcement
-authors: bproffitt, gustavo.pedrosa
+authors:
+  - bproffitt
+  - gustavo.pedrosa
 ---
 
 # oVirt 3.4 Release Announcement

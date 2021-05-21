@@ -2,7 +2,12 @@
 title: oVirt 3.5.4 Release Notes
 category: documentation
 toc: true
-authors: didi, msivak, mskrivan, sandrobonazzola, stirabos
+authors:
+  - didi
+  - msivak
+  - mskrivan
+  - sandrobonazzola
+  - stirabos
 ---
 
 # oVirt 3.5.4 Release Notes

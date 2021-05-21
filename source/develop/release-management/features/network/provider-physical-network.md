@@ -1,7 +1,10 @@
 ---
 title: Provider Physical Network
 category: feature
-authors: phoracek,amusil,dholler
+authors:
+  - phoracek
+  - amusil
+  - dholler
 ---
 
 # Provider Physical Network

@@ -1,7 +1,11 @@
 ---
 title: ImportStorageDomain
 category: feature
-authors: derez, mlipchuk, sandrobonazzola, vered
+authors:
+  - derez
+  - mlipchuk
+  - sandrobonazzola
+  - vered
 ---
 
 # Import Storage Domain

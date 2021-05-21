@@ -1,6 +1,8 @@
 ---
 title: oVirt-database-upgrade-procedure
-authors: emesika, ovedo
+authors:
+  - emesika
+  - ovedo
 ---
 
 <!-- TODO: Content review -->

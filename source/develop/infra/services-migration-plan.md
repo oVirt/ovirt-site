@@ -1,7 +1,9 @@
 ---
 title: Services Migration Plan
 category: infra
-authors: dcaroest, eedri
+authors:
+  - dcaroest
+  - eedri
 ---
 
 # Services Migration Plan

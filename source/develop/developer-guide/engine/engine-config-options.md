@@ -1,6 +1,8 @@
 ---
 title: Engine config options
-authors: dougsland, omachace
+authors:
+  - dougsland
+  - omachace
 ---
 
 # Engine config options

@@ -1,7 +1,9 @@
 ---
 title: Running ovirtbot
 category: infra
-authors: quaid, sandrobonazzola
+authors:
+  - quaid
+  - sandrobonazzola
 ---
 
 # Running ovirtbot

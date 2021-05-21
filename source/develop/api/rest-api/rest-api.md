@@ -1,7 +1,10 @@
 ---
 title: REST-Api
 category: api
-authors: jhernand, michael pasternak, moolit
+authors:
+  - jhernand
+  - michael pasternak
+  - moolit
 ---
 
 # REST-Api

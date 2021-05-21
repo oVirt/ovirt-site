@@ -1,7 +1,9 @@
 ---
 title: AAA
 category: feature
-authors: alonbl, yair zaslavsky
+authors:
+  - alonbl
+  - yair zaslavsky
 ---
 
 # AAA

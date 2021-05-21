@@ -1,7 +1,10 @@
 ---
 title: Multiple Gateways
 category: feature
-authors: amuller, danken, lpeer
+authors:
+  - amuller
+  - danken
+  - lpeer
 ---
 
 # Multiple Gateways

@@ -1,7 +1,9 @@
 ---
 title: Ethtool options
 category: feature
-authors: apuimedo, danken
+authors:
+  - apuimedo
+  - danken
 ---
 
 # Ethtool options

@@ -1,7 +1,7 @@
 ---
 title: Headless VM
 category: feature
-authors: SharonG
+authors: sgratch
 ---
 
 # Headless VM

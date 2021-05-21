@@ -1,6 +1,10 @@
 ---
 title: Authentication-Rewrite
-authors: alonbl, amureini, wdennis, yair zaslavsky
+authors:
+  - alonbl
+  - amureini
+  - wdennis
+  - yair zaslavsky
 ---
 
 # Authentication & Directory rewrite

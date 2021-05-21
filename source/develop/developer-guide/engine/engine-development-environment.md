@@ -1,9 +1,30 @@
 ---
 title: oVirt Engine Development Environment
 category: engine
-authors: adahms, alonbl, amureini, arik, didi, dougsland, ecohen, gchaplik, gshereme,
-  mkolesni, moolit, mperina, msivak, nsoffer, ofri, roy, smizrahi, tsaban, vered,
-  vitordelima, vszocs, yair zaslavsky, ykleinbe
+authors:
+  - adahms
+  - alonbl
+  - amureini
+  - arik
+  - didi
+  - dougsland
+  - ecohen
+  - gchaplik
+  - gshereme
+  - mkolesni
+  - moolit
+  - mperina
+  - msivak
+  - nsoffer
+  - ofri
+  - roy
+  - smizrahi
+  - tsaban
+  - vered
+  - vitordelima
+  - vszocs
+  - yair zaslavsky
+  - ykleinbe
 ---
 
 # oVirt Engine Development Environment
@@ -51,7 +72,7 @@ The purpose of this page is primarily to align the community experience with the
         # yum install git java-devel maven openssl postgresql-server postgresql-contrib \
             m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
             unzip pyflakes python-pep8 python-docker-py mailcap python-jinja2 \
-            python-dateutil gdeploy 
+            python-dateutil gdeploy
 
 3. Application Servers
 

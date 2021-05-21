@@ -1,7 +1,9 @@
 ---
 title: Gluster Volume Performance Statistics
 category: feature
-authors: kmayilsa, sahina
+authors:
+  - kmayilsa
+  - sahina
 ---
 
 # Gluster Volume Performance Statistics

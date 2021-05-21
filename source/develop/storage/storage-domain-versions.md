@@ -1,6 +1,8 @@
 ---
 title: Storage Domain Versions
-authors: fsimonce, smizrahi
+authors:
+ - fsimonce
+ - smizrahi
 ---
 
 <!-- TODO: Content review -->

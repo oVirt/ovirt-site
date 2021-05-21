@@ -1,6 +1,8 @@
 ---
 title: Using oVirt Engine with a PostgreSQL container.
-authors: jbrooks, leni1
+authors:
+  - jbrooks
+  - leni1
 ---
 
 The base environment used here is CentOS 7.

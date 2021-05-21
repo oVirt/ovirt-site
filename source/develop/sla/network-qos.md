@@ -1,7 +1,11 @@
 ---
 title: Network QoS
 category: sla
-authors: danken, moti, ofri, ovedo
+authors:
+  - danken
+  - moti
+  - ofri
+  - ovedo
 ---
 
 # Network QoS

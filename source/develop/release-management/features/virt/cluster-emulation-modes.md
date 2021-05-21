@@ -1,7 +1,10 @@
 ---
 title: Cluster emulation modes
 category: feature
-authors: ofrenkel, roy, sandrobonazzola
+authors:
+  - ofrenkel
+  - roy
+  - sandrobonazzola
 ---
 
 # Cluster emulation mode

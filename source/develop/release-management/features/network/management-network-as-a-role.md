@@ -1,7 +1,11 @@
 ---
 title: Management Network As A Role
 category: feature
-authors: danken, moti, sandrobonazzola, yevgenyz
+authors:
+  - danken
+  - moti
+  - sandrobonazzola
+  - yevgenyz
 ---
 
 # Management Network As A Role

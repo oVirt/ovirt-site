@@ -1,7 +1,9 @@
 ---
 title: Hot Unplug Memory
 category: feature
-authors: mzamazal,jniederm
+authors:
+ - mzamazal
+ - jniederm
 ---
 
 # Hot unplug memory

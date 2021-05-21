@@ -1,6 +1,9 @@
 ---
 title: Trusted compute pools deployment
-authors: dave chen, gianluca, gwei3
+authors:
+  - dave chen
+  - gianluca
+  - gwei3
 ---
 
 This is a manual for how to deploy trusted compute pools feature in oVirt.

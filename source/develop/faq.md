@@ -1,6 +1,8 @@
 ---
 title: oVirt faq
-authors: humble, sandrobonazzola
+authors:
+  - humble
+  - sandrobonazzola
 ---
 
 <!-- TODO: Content review -->

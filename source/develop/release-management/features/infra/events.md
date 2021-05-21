@@ -1,7 +1,9 @@
 ---
 title: Events
 category: feature
-authors: ovedo, pkliczewski
+authors:
+  - ovedo
+  - pkliczewski
 ---
 
 # Event processing built on top of JSON-RPC

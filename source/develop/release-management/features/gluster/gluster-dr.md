@@ -1,7 +1,7 @@
 ---
 title: Disaster Recovery for Gluster based storage domains
 category: feature
-authors: Sahina Bose
+authors: sahina
 ---
 
 # Disaster Recovery for Gluster based storage domains

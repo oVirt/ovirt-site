@@ -1,7 +1,9 @@
 ---
 title: AAA FAQ
 category: feature
-authors: omachace, mperina
+authors:
+  - omachace
+  - mperina
 ---
 
 # AAA Frequently asked questions

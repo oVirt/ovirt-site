@@ -1,7 +1,13 @@
 ---
 title: CLI
 category: feature
-authors: j.bittner, jfenal, mgoldboi, michael pasternak, tsaban, val0x00ff
+authors:
+ - j.bittner
+ - jfenal
+ - mgoldboi
+ - michael pasternak
+ - tsaban
+ - val0x00ff
 ---
 
 > **`ovirt-shell` is Deprecated**: It uses the v3 REST API, and lacks all features available since oVirt 4.0. 

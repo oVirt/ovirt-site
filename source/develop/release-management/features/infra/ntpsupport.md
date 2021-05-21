@@ -1,7 +1,11 @@
 ---
 title: NtpSupport
 category: feature
-authors: acathrow, bazulay, ekohl, rmiddle
+authors:
+  - acathrow
+  - bazulay
+  - ekohl
+  - rmiddle
 ---
 
 # Ntp Support

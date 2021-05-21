@@ -1,7 +1,14 @@
 ---
 title: Direct Lun
 category: feature
-authors: derez, eduardo, ekohl, ilvovsky, lpeer, mkublin, sandrobonazzola
+authors:
+  - derez
+  - eduardo
+  - ekohl
+  - ilvovsky
+  - lpeer
+  - mkublin
+  - sandrobonazzola
 ---
 
 # Direct LUN

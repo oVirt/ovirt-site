@@ -1,7 +1,8 @@
 ---
 title: About
-authors: gregsheremeta
+authors: gshereme
 page_classes: about
+hide_metadata: true
 ---
 
 # Welcome to oVirt!

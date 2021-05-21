@@ -1,7 +1,7 @@
 ---
 title: Link Layer Discovery Protocol (LLDP) Support
 category: feature
-authors: Dominik Holler
+authors: dholler
 ---
 
 # Link Layer Discovery Protocol (LLDP) Support

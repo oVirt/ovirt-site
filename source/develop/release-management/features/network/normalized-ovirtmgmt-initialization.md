@@ -1,7 +1,11 @@
 ---
 title: Normalized ovirtmgmt Initialization
 category: feature
-authors: danken, lpeer, moti, sandrobonazzola
+authors:
+  - danken
+  - lpeer
+  - moti
+  - sandrobonazzola
 ---
 
 # Normalized ovirtmgmt Initialization

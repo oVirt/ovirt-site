@@ -1,7 +1,10 @@
 ---
 title: Quota-3.2
 category: feature
-authors: doron, ofri, ykaul
+authors:
+  - doron
+  - ofri
+  - ykaul
 ---
 
 # Quota

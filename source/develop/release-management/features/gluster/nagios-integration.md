@@ -1,7 +1,11 @@
 ---
 title: Nagios Integration
 category: feature
-authors: kmayilsa, nthomas, rnahcimu, sahina
+authors:
+  - kmayilsa
+  - nthomas
+  - rnachimu
+  - sahina
 ---
 
 # Nagios Integration

@@ -1,7 +1,10 @@
 ---
 title: oVirt 3.6 Release Management
 category: release
-authors: bproffitt, danken, sandrobonazzola
+authors:
+  - bproffitt
+  - danken
+  - sandrobonazzola
 ---
 
 # oVirt 3.6 Release Management

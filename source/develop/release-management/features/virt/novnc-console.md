@@ -1,7 +1,13 @@
 ---
 title: noVNC console
 category: feature
-authors: adahms, alonbl, fkobzik, gianluca, nkesick, stirabos
+authors:
+  - adahms
+  - alonbl
+  - fkobzik
+  - gianluca
+  - nkesick
+  - stirabos
 ---
 
 # noVNC console

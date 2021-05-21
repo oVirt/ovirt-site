@@ -1,6 +1,9 @@
 ---
 title: Jumbo frames
-authors: drankevi, ecohen, roy
+authors:
+  - drankevi
+  - ecohen
+  - roy
 ---
 
 # Jumbo frames

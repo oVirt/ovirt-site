@@ -1,7 +1,9 @@
 ---
 title: VDSM Potential Features
 category: vdsm
-authors: danken, smizrahi
+authors:
+  - danken
+  - smizrahi
 ---
 
 # VDSM Potential Features

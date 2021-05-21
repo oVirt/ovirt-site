@@ -1,7 +1,10 @@
 ---
 title: NetworkPermissions
 category: feature
-authors: danken, lpeer, moti
+authors:
+  - danken
+  - lpeer
+  - moti
 ---
 
 # Network Permissions

@@ -1,6 +1,8 @@
 ---
 title: UpgradeManager
-authors: moti, ovedo
+authors:
+  - moti
+  - ovedo
 category: features
 ---
 

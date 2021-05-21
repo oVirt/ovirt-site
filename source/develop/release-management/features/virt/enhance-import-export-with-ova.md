@@ -1,7 +1,10 @@
 ---
 title: Enhance import-export with OVA
 category: feature
-authors: arik, nirs, danielerez
+authors:
+  - arik
+  - nsoffer
+  - derez
 ---
 
 # Background

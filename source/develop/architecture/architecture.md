@@ -1,7 +1,16 @@
 ---
 title: Architecture
 category: architecture
-authors: abonas, alonbl, amuller, dneary, geoffoc, lhornyak, ovedo, sven, vszocs
+authors:
+  - abonas
+  - alonbl
+  - amuller
+  - dneary
+  - geoffoc
+  - lhornyak
+  - ovedo
+  - sven
+  - vszocs
 ---
 
 ![](/images/wiki/Ovirt-1024x698.png "Ovirt-1024x698.png")

@@ -1,7 +1,9 @@
 ---
 title: oVirt 3.3 release announcement
 category: release
-authors: dneary, obasan
+authors:
+  - dneary
+  - obasan
 ---
 
 # oVirt 3.3 release announcement

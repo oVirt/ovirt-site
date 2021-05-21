@@ -1,7 +1,9 @@
 ---
 title: Reporting a bug
 category: community
-authors: dneary,sandrobonazzola
+authors:
+  - dneary
+  - sandrobonazzola
 ---
 
 # Reporting a Bug in oVirt
@@ -20,7 +22,7 @@ If you don’t have a Redhat Bugzilla account, you can easily create one by foll
 4. Now enter your name and password and click **Create**.<br>
 Congratulations! You now have a Bugzilla account and you can report bugs found in oVirt.
 
-## How to enter a bug in Bugzilla 
+## How to enter a bug in Bugzilla
 
 Here is how to report a bug found in oVirt:
 

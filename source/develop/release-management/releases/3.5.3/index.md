@@ -2,7 +2,10 @@
 title: oVirt 3.5.3 Release Notes
 category: documentation
 toc: true
-authors: alonbl, didi, sandrobonazzola
+authors:
+  - alonbl
+  - didi
+  - sandrobonazzola
 ---
 
 # oVirt 3.5.3 Release Notes

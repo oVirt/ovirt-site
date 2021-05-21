@@ -1,6 +1,11 @@
 ---
 title: SetupNetworks
-authors: drankevi, mkolesni, moti, roy, ykaul
+authors:
+  - drankevi
+  - mkolesni
+  - moti
+  - roy
+  - ykaul
 ---
 
 # Setup Networks

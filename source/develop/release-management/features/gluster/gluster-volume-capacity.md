@@ -1,8 +1,11 @@
 ---
 title: Gluster Volume Capacity
 category: feature
-authors: anmol babu, rnahcimu, sahina, shtripat
-
+authors:
+  - anmol babu
+  - rnachimu
+  - sahina
+  - shtripat
 ---
 
 # Gluster Volume Capacity

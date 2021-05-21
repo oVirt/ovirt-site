@@ -1,7 +1,9 @@
 ---
 title: Donate hardware
 category: develop
-authors: ederevea sandrobonazzola
+authors:
+  - ederevea
+  - sandrobonazzola
 ---
 
 # Resources donated so far

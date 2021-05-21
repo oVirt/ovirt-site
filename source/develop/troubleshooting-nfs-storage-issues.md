@@ -1,7 +1,16 @@
 ---
 title: Troubleshooting NFS Storage Issues
-authors: adahms, didi, dougsland, dpkshetty, jbrooks, nkesick, rharper, sgordon, suppentopf,
-  wdennis
+authors:
+  - adahms
+  - didi
+  - dougsland
+  - dpkshetty
+  - jbrooks
+  - nkesick
+  - rharper
+  - sgordon
+  - suppentopf
+  - wdennis
 ---
 
 # Troubleshooting NFS Storage Issues

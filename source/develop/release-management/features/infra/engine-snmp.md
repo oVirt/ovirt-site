@@ -1,6 +1,10 @@
 ---
 title: engine-snmp
-authors: arthur.berezin, moolit, moti, pbenas
+authors:
+  - arthur.berezin
+  - moolit
+  - moti
+  - pbenas
 ---
 
 # engine-snmp

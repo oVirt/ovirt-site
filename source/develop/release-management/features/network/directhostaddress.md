@@ -1,7 +1,10 @@
 ---
 title: DirectHostAddress
 category: feature
-authors: danken, moti, msalem
+authors:
+ - danken
+ - moti
+ - msalem
 ---
 
 # Direct Host Address

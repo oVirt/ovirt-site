@@ -1,7 +1,10 @@
 ---
 title: Online Virtual Drive Resize
 category: feature
-authors: derez, fsimonce, sgotliv
+authors:
+  - derez
+  - fsimonce
+  - sgotliv
 ---
 
 # Enable Online Virtual Drive Resize

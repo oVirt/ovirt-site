@@ -1,6 +1,10 @@
 ---
 title: Action Permissions overview
-authors: moti, ofrenkel, roy, smelamud
+authors:
+  - moti
+  - ofrenkel
+  - roy
+  - smelamud
 ---
 
 # Action Permissions Overview

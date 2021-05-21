@@ -1,7 +1,12 @@
 ---
 title: Repository mirrors
 category: infra
-authors: amarchuk, bproffitt, dcaroest, ngoldin, ederevea
+authors:
+  - amarchuk
+  - bproffitt
+  - dcaroest
+  - ngoldin
+  - ederevea
 ---
 
 # Repository mirrors

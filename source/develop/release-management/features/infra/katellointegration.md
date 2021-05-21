@@ -1,7 +1,9 @@
 ---
 title: KatelloIntegration
 category: feature
-authors: gshereme, moti
+authors:
+  - gshereme
+  - moti
 ---
 
 # Katello Integration

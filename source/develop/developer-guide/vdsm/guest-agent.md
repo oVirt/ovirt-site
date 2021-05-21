@@ -1,7 +1,9 @@
 ---
 title: Guest Agent
 category: vdsm
-authors: danken, vered
+authors:
+  - danken
+  - vered
 ---
 
 # Guest Agent

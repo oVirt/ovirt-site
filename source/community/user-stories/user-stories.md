@@ -1,7 +1,9 @@
 ---
 page_classes: case-studies
 title: Case studies
-authors: bproffitt, dneary
+authors:
+  - bproffitt
+  - dneary
 ---
 
 # Case studies

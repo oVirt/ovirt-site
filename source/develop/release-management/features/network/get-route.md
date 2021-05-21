@@ -1,7 +1,9 @@
 ---
 title: Get Route
 category: feature
-authors: lvernia, phoracek
+authors:
+  - lvernia
+  - phoracek
 ---
 
 # Get Route

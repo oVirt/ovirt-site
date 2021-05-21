@@ -1,7 +1,11 @@
 ---
 title: Data Path operations on any host
 category: feature
-authors: alitke, nsoffer, laravot, frolland
+authors:
+  - aglitke
+  - nsoffer
+  - laravot
+  - frolland
 ---
 
 # Data Path Operations On Any Host

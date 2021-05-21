@@ -1,6 +1,8 @@
 ---
 title: oVirt in Education
-authors: bproffitt,sandrobonazzola
+authors:
+  - bproffitt
+  - sandrobonazzola
 ---
 
 

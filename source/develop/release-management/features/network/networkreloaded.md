@@ -1,7 +1,10 @@
 ---
 title: NetworkReloaded
 category: feature
-authors: amuller, apuimedo, danken
+authors:
+  - amuller
+  - apuimedo
+  - danken
 ---
 
 # Network Reloaded

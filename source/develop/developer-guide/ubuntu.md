@@ -1,7 +1,10 @@
 ---
 title: ubuntu
 category: debian
-authors: dneary, lhornyak, vfeenstr
+authors:
+  - dneary
+  - lhornyak
+  - vfeenstr
 ---
 
 # ubuntu

@@ -1,7 +1,9 @@
 ---
 title: Vdsm Nose Tests
 category: vdsm
-authors: danken, ykaplan
+authors:
+  - danken
+  - ykaplan
 ---
 
 # Vdsm Nose Tests

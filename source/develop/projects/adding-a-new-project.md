@@ -1,6 +1,8 @@
 ---
 title: Adding a new project
-authors: dneary, mburns
+authors:
+  - dneary
+  - mburns
 ---
 
 # Adding a Project

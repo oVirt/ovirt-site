@@ -1,6 +1,8 @@
 ---
 title: Infiniband
-authors: suppentopf, sven
+authors:
+  - suppentopf
+  - sven
 ---
 
 # Infiniband

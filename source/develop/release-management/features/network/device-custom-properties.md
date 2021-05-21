@@ -1,7 +1,11 @@
 ---
 title: Device Custom Properties
 category: feature
-authors: alkaplan, amuller, danken, mperina
+authors:
+  - alkaplan
+  - amuller
+  - danken
+  - mperina
 ---
 
 # Device Custom Properties

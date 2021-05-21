@@ -1,7 +1,11 @@
 ---
 title: Gluster Volume Asynchronous Tasks Management
 category: feature
-authors: dusmant, kmayilsa, sahina, shireesh
+authors:
+  - dusmant
+  - kmayilsa
+  - sahina
+  - shireesh
 ---
 
 # Gluster Volume Asynchronous Tasks Management

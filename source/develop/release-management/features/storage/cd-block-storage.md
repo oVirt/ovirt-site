@@ -1,7 +1,9 @@
 ---
 title: CD-ROM support for block storage
 category: feature
-authors: vjuranek, nsoffer
+authors:
+  - vjuranek
+  - nsoffer
 ---
 
 # CD-ROM support for block storage

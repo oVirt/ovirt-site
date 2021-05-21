@@ -1,7 +1,9 @@
 ---
 title: cpu-and-memory
 category: sla
-authors: doron, lvroyce
+authors:
+  - doron
+  - lvroyce
 ---
 
 # cpu-and-memory

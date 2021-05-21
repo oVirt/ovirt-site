@@ -1,7 +1,10 @@
 ---
 title: DetailedLockMechanism
 category: feature
-authors: mkublin, sandrobonazzola, yair zaslavsky
+authors:
+  - mkublin
+  - sandrobonazzola
+  - yair zaslavsky
 ---
 
 # Detailed Lock Mechanism

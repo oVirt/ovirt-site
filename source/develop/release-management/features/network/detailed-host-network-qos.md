@@ -1,7 +1,11 @@
 ---
 title: Detailed Host Network QoS
 category: feature
-authors: amuller, apuimedo, danken, lvernia
+authors:
+  - amuller
+  - apuimedo
+  - danken
+  - lvernia
 ---
 
 # Detailed Host Network QoS

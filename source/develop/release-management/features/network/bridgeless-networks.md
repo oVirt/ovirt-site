@@ -1,7 +1,11 @@
 ---
 title: Bridgeless Networks
 category: feature
-authors: adrian15, danken, roy, ykaul
+authors:
+  - adrian15
+  - danken
+  - roy
+  - ykaul
 ---
 
 # Bridgeless Networks

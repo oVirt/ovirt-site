@@ -1,7 +1,9 @@
 ---
 title: IT Novum case study
 category: case-studies
-authors: bproffitt, dneary
+authors:
+  - bproffitt
+  - dneary
 ---
 
 # IT Novum case study

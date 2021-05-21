@@ -1,7 +1,18 @@
 ---
 title: IDE
-authors: abonas, amureini, dneary, doron, gina, lhornyak, nslomian, nsoffer, roy,
-  shireesh, snmishra, tjelinek, vered
+authors:
+  - abonas
+  - amureini
+  - dneary
+  - doron
+  - lhornyak
+  - nslomian
+  - nsoffer
+  - roy
+  - shireesh
+  - snmishra
+  - tjelinek
+  - vered
 ---
 
 # IDE

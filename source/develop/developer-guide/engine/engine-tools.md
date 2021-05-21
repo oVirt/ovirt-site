@@ -1,6 +1,13 @@
 ---
 title: oVirt engine tools
-authors: abonas, adahms, knesenko, lveyde, moti, roy, yair zaslavsky
+authors:
+  - abonas
+  - adahms
+  - knesenko
+  - lveyde
+  - moti
+  - roy
+  - yair zaslavsky
 ---
 
 # oVirt engine tools

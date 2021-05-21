@@ -1,7 +1,11 @@
 ---
 title: Communication
 category: community
-authors: dneary, quaid, rbergeron, sandrobonazzola
+authors:
+  - dneary
+  - quaid
+  - rbergeron
+  - sandrobonazzola
 ---
 
 # Communication

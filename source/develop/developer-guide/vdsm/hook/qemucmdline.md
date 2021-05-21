@@ -1,6 +1,8 @@
 ---
 title: qemucmdline
-authors: dougsland, dyasny
+authors:
+  - dougsland
+  - dyasny
 ---
 
 # qemucmdline

@@ -1,7 +1,10 @@
 ---
 title: Trusted compute pools
 category: feature
-authors: dave chen, gwei3, lhornyak
+authors:
+  - dave chen
+  - gwei3
+  - lhornyak
 ---
 
 # Trusted Compute Pools

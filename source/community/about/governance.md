@@ -1,7 +1,10 @@
 ---
 title: Governance
 category: community
-authors: bproffitt, dneary, metao
+authors:
+  - bproffitt
+  - dneary
+  - metao
 ---
 
 # Governance

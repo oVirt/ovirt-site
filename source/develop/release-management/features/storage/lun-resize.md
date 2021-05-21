@@ -1,7 +1,9 @@
 ---
 title: Refresh LUN Size
 category: feature
-authors: frolland, nsoffer
+authors:
+  - frolland
+  - nsoffer
 ---
 
 # Refresh LUN Size

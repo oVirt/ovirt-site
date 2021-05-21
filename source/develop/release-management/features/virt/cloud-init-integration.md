@@ -1,6 +1,13 @@
 ---
 title: Cloud-Init Integration
-authors: amedeos, danken, gpadgett, herrold, ofrenkel, sven, vfeenstr
+authors:
+  - amedeos
+  - danken
+  - gpadgett
+  - herrold
+  - ofrenkel
+  - sven
+  - vfeenstr
 ---
 
 # Cloud-Init Integration

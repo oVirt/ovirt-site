@@ -1,7 +1,9 @@
 ---
 title: DomainInfrastructure
 category: infra
-authors: ovedo, yair zaslavsky
+authors:
+  - ovedo
+  - yair zaslavsky
 ---
 
 # Domain Infrastructure in the oVirt Engine

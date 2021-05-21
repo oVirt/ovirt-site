@@ -1,7 +1,15 @@
 ---
 title: Vdsm TODO
 category: vdsm
-authors: aglitke, amuller, apuimedo, danken, ekohl, gvallarelli, ibarkan, phoracek
+authors:
+  - aglitke
+  - amuller
+  - apuimedo
+  - danken
+  - ekohl
+  - gvallarelli
+  - ibarkan
+  - phoracek
 ---
 
 # Vdsm TODO

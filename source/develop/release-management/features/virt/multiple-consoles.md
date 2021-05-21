@@ -1,7 +1,9 @@
 ---
 title: Multiple Consoles
 category: feature
-authors: fkobzik, tjelinek
+authors:
+  - fkobzik
+  - tjelinek
 ---
 
 # Multiple Consoles

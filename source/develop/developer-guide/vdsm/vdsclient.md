@@ -1,7 +1,10 @@
 ---
 title: VdsClient
 category: vdsm
-authors: amuller, dougsland, ybronhei
+authors:
+  - amuller
+  - dougsland
+  - ybronhei
 ---
 
 # Vds Client

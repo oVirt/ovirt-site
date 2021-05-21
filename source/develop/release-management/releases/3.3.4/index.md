@@ -2,7 +2,9 @@
 title: oVirt 3.3.4 release notes
 category: documentation
 toc: true
-authors: dougsland, sandrobonazzola
+authors:
+  - dougsland
+  - sandrobonazzola
 ---
 
 # oVirt 3.3.4 release notes

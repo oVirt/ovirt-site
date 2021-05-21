@@ -2,7 +2,9 @@
 title: oVirt 3.5.2 Release Notes
 category: documentation
 toc: true
-authors: pkliczewski, sandrobonazzola
+authors:
+  - pkliczewski
+  - sandrobonazzola
 ---
 
 # oVirt 3.5.2 Release Notes

@@ -1,7 +1,10 @@
 ---
 title: Becoming an Infrastructure team member
 category: community
-authors: dneary, quaid, sandrobonazzola
+authors:
+  - dneary
+  - quaid
+  - sandrobonazzola
 ---
 
 # Becoming an Infrastructure team member

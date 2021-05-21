@@ -1,6 +1,8 @@
 ---
 title: Sonar with oVirt
-authors: lhornyak sandrobonazzola
+authors:
+  - lhornyak
+  - sandrobonazzola
 ---
 
 

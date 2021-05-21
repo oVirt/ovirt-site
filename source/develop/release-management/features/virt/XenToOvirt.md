@@ -1,7 +1,7 @@
 ---
 title: Importing Xen on REHL 5.x to oVirt
 category: feature
-authors: Shahar Havivi
+authors: shahar
 ---
 
 # Importing Xen on EL 5.x VMs to oVirt

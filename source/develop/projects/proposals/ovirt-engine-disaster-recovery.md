@@ -1,7 +1,10 @@
 ---
 title: Project Proposal - oVirt Engine Disaster Recovery (oVirt Engine DR)
 category: project-proposal
-authors: xandradx, jandrad, dbinary
+authors:
+  - xandradx
+  - jandrad
+  - dbinary
 ---
 
 # Project Proposal - oVirt Engine Disaster Recovery (oVirt Engine DR)

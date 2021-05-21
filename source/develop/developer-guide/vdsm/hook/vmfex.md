@@ -1,6 +1,8 @@
 ---
 title: vmfex
-authors: apuimedo, dyasny
+authors:
+  - apuimedo
+  - dyasny
 ---
 
 # vmfex

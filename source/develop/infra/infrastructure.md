@@ -1,8 +1,17 @@
 ---
 title: Infrastructure
 category: infra
-authors: dcaroest, dneary, eedri, ekohl, eyale, herrold, knesenko, ngoldin, quaid,
-  rmiddle
+authors:
+  - dcaroest
+  - dneary
+  - eedri
+  - ekohl
+  - eyale
+  - herrold
+  - knesenko
+  - ngoldin
+  - quaid
+  - rmiddle
 ---
 
 # Infrastructure

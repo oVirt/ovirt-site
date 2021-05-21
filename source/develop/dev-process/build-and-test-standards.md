@@ -1,7 +1,11 @@
 ---
 title: Build and test standards
 category: ci
-authors: dcaroest, mkovgan, nsoffer, bkorren
+authors:
+  - dcaroest
+  - mkovgan
+  - nsoffer
+  - bkorren
 ---
 # Build and Test Standards
 

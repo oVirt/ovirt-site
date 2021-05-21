@@ -1,7 +1,9 @@
 ---
 title: Jenkins-Migration-Plan
 category: infra
-authors: eedri, ekohl
+authors:
+  - eedri
+  - ekohl
 ---
 
 # Jenkins-Migration-Plan

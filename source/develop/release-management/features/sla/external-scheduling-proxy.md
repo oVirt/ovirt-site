@@ -1,7 +1,9 @@
 ---
 title: oVirt External Scheduling Proxy
 category: feature
-authors: doron, lhornyak
+authors:
+  - doron
+  - lhornyak
 ---
 
 # External Scheduler Proxy

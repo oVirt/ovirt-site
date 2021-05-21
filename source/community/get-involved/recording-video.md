@@ -1,6 +1,8 @@
 ---
 title: Recording video
-authors: dneary,sandrobonazzola
+authors:
+  - dneary
+  - sandrobonazzola
 ---
 
 # Recording video

@@ -1,7 +1,10 @@
 ---
 title: Vdsm Coding Guidelines
 category: vdsm
-authors: adahms, danken, dougsland
+authors:
+  - adahms
+  - danken
+  - dougsland
 ---
 
 # VDSM Coding Guidelines

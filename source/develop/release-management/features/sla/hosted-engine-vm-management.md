@@ -1,7 +1,9 @@
 ---
 title: Hosted engine VM management
 category: feature
-authors: roy, sandrobonazzola
+authors:
+  - roy
+  - sandrobonazzola
 ---
 
 # Hosted engine VM management enhancements

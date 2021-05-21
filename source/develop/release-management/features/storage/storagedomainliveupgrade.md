@@ -1,7 +1,10 @@
 ---
 title: StorageDomainLiveUpgrade
 category: feature
-authors: ekohl, smizrahi, vered
+authors:
+  - ekohl
+  - smizrahi
+  - vered
 ---
 
 # Storage Domain Live Upgrade

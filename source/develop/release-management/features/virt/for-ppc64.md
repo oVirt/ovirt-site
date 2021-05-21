@@ -1,7 +1,13 @@
 ---
 title: Vdsm for PPC64
 category: feature
-authors: bpradipt, danken, gustavo.pedrosa, lbianc, sandrobonazzola, vitordelima
+authors:
+  - bpradipt
+  - danken
+  - gustavo.pedrosa
+  - lbianc
+  - sandrobonazzola
+  - vitordelima
 ---
 
 # Vdsm for PPC64

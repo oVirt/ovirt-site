@@ -1,7 +1,9 @@
 ---
 title: Using REST API In Web UI
 category: api
-authors: ecohen, vszocs
+authors:
+  - ecohen
+  - vszocs
 ---
 
 <!-- TODO: Content review -->

@@ -1,7 +1,10 @@
 ---
 title: Domain Scan
 category: feature
-authors: derez, djasa, dustin.schoenbrun
+authors:
+  - derez
+  - djasa
+  - dustin.schoenbrun
 ---
 
 # Domain Scan

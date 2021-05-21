@@ -1,7 +1,9 @@
 ---
 title: Automatic scaling
 category: feature
-authors: didi, lhornyak
+authors:
+  - didi
+  - lhornyak
 ---
 
 # Automatic scaling

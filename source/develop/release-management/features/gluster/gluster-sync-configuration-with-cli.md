@@ -1,7 +1,9 @@
 ---
 title: Gluster Sync Configuration With CLI
 category: feature
-authors: kmayilsa, shireesh
+authors:
+  - kmayilsa
+  - shireesh
 ---
 
 # Gluster Sync Configuration With CLI

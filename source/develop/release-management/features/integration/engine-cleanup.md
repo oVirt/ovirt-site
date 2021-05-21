@@ -1,7 +1,9 @@
 ---
 title: engine-cleanup
 category: feature
-authors: herrold, simong
+authors:
+  - herrold
+  - simong
 ---
 
 # engine-cleanup

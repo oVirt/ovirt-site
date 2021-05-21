@@ -1,7 +1,10 @@
 ---
 title: DetailedStableDeviceAddresses
 category: feature
-authors: doron, ekohl, emesika
+authors:
+  - doron
+  - ekohl
+  - emesika
 ---
 
 # Detailed Stable Device Addresses

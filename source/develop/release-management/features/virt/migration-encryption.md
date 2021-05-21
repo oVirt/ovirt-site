@@ -1,7 +1,9 @@
 ---
 title: Migration encryption
 category: feature
-authors: mzamazal, ljelinko
+authors:
+  - mzamazal
+  - ljelinko
 ---
 
 # Migration encryption

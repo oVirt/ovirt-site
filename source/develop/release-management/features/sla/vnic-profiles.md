@@ -1,7 +1,10 @@
 ---
 title: Vnic Profiles
 category: feature
-authors: moti, ofri, ovedo
+authors:
+  - moti
+  - ofri
+  - ovedo
 ---
 
 # Vnic Profiles

@@ -1,6 +1,9 @@
 ---
 title: Single Disk Snapshot
-authors: amureini, derez, vered
+authors:
+  - amureini
+  - derez
+  - vered
 category: feature
 ---
 

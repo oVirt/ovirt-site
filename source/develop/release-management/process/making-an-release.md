@@ -1,7 +1,9 @@
 ---
 title: Making an oVirt release
 category: release-management
-authors: dneary, jbrooks
+authors:
+  - dneary
+  - jbrooks
 ---
 
 # Making an oVirt release

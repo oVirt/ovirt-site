@@ -1,6 +1,9 @@
 ---
 title: Engine High Availability
-authors: emesika, liran.zelkha, plysan
+authors:
+  - emesika
+  - liran.zelkha
+  - plysan
 ---
 
 # Engine High Availability

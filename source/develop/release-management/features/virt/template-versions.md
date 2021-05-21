@@ -1,6 +1,9 @@
 ---
 title: Template Versions
-authors: abonas, mlipchuk, ofrenkel
+authors:
+  - abonas
+  - mlipchuk
+  - ofrenkel
 ---
 
 # Template Versions

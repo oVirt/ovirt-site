@@ -1,7 +1,9 @@
 ---
 title: Intial Run Vm tab
 category: feature
-authors: jbiddle, roy
+authors:
+  - jbiddle
+  - roy
 ---
 
 # Intial Run Vm tab

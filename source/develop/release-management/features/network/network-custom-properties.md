@@ -1,7 +1,11 @@
 ---
 title: Network Custom Properties
 category: feature
-authors: apuimedo, danken, lvernia, sandrobonazzola
+authors:
+  - apuimedo
+  - danken
+  - lvernia
+  - sandrobonazzola
 ---
 
 # Network Custom Properties

@@ -1,7 +1,9 @@
 ---
 title: AsyncTaskManagerChanges
 category: feature
-authors: ravi nori, yair zaslavsky
+authors:
+  - ravi nori
+  - yair zaslavsky
 ---
 
 # Async Tasks improvements

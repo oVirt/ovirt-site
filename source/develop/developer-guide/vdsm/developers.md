@@ -1,10 +1,36 @@
 ---
 title: Vdsm Developers
 category: vdsm
-authors: abonas, adahms, amuller, amureini, apahim, apevec, danken, dougsland, ekohl,
-  fromani, herrold, itzikb, lhornyak, mbetak, mlipchuk, moolit, moti, mpavlik, nsoffer,
-  phoracek, quaid, sandrobonazzola, sgordon, smelamud, vered, vfeenstr, vitordelima,
-  yanivbronhaim, ybronhei
+authors:
+  - abonas
+  - adahms
+  - amuller
+  - amureini
+  - apahim
+  - apevec
+  - danken
+  - dougsland
+  - ekohl
+  - fromani
+  - herrold
+  - itzikb
+  - lhornyak
+  - mbetak
+  - mlipchuk
+  - moolit
+  - moti
+  - mpavlik
+  - nsoffer
+  - phoracek
+  - quaid
+  - sandrobonazzola
+  - sgordon
+  - smelamud
+  - vered
+  - vfeenstr
+  - vitordelima
+  - yanivbronhaim
+  - ybronhei
 ---
 
 # Vdsm Developers

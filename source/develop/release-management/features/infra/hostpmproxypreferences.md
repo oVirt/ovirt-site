@@ -1,7 +1,10 @@
 ---
 title: HostPMProxyPreferences
 category: feature
-authors: emesika, simong, yair zaslavsky
+authors:
+  - emesika
+  - simong
+  - yair zaslavsky
 ---
 
 # Host PM Proxy Preferences

@@ -1,7 +1,7 @@
 ---
 title: Autodefine External Network
 category: feature
-authors: Ales Musil
+authors: amusil
 ---
 
 # Autodefine External Network

@@ -1,7 +1,9 @@
 ---
 title: Vdsm API
 category: api
-authors: aglitke, danken
+authors:
+  - aglitke
+  - danken
 ---
 
 <!-- TODO: Content review -->

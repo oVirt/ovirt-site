@@ -1,6 +1,8 @@
 ---
 title: moVirt
-authors: mbetak, tjelinek
+authors:
+  - mbetak
+  - tjelinek
 ---
 
 # moVirt - Android Client for oVirt

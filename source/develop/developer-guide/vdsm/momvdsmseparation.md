@@ -1,7 +1,9 @@
 ---
 title: MomVdsmSeparation
 category: feature
-authors: fromani, msivak
+authors:
+  - fromani
+  - msivak
 ---
 
 # Mom Vdsm Separation

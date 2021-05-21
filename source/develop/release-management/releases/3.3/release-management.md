@@ -1,11 +1,47 @@
 ---
 title: oVirt 3.3 release-management
 category: release
-authors: abonas, amuller, amureini, arik, awels, danken, derez, dneary, doron, dpkshetty,
-  ecohen, emesika, fkobzik, fsimonce, gpadgett, knarra, laravot, lhornyak, lpeer,
-  mburns, mgoldboi, michael pasternak, mkolesni, moti, mperina, mskrivan, netbulae,
-  ofrenkel, ofri, oschreib, prasanth, roy, sahina, sandrobonazzola, sgotliv, tjelinek,
-  vered, vszocs, yair zaslavsky, ybronhei
+authors:
+  - abonas
+  - amuller
+  - amureini
+  - arik
+  - awels
+  - danken
+  - derez
+  - dneary
+  - doron
+  - dpkshetty
+  - ecohen
+  - emesika
+  - fkobzik
+  - fsimonce
+  - gpadgett
+  - knarra
+  - laravot
+  - lhornyak
+  - lpeer
+  - mburns
+  - mgoldboi
+  - michael pasternak
+  - mkolesni
+  - moti
+  - mperina
+  - mskrivan
+  - netbulae
+  - ofrenkel
+  - ofri
+  - oschreib
+  - prasanth
+  - roy
+  - sahina
+  - sandrobonazzola
+  - sgotliv
+  - tjelinek
+  - vered
+  - vszocs
+  - yair zaslavsky
+  - ybronhei
 ---
 
 # oVirt 3.3 release-management

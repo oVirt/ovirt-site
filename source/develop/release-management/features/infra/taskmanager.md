@@ -1,7 +1,9 @@
 ---
 title: TaskManager
 category: feature
-authors: moti, sandrobonazzola
+authors:
+  - moti
+  - sandrobonazzola
 ---
 
 # Task Manager

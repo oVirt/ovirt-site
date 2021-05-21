@@ -1,7 +1,13 @@
 ---
 title: DetailedQuota
 category: feature
-authors: amureini, jumper45, lpeer, mlipchuk, ovedo, sandrobonazzola
+authors:
+  - amureini
+  - jumper45
+  - lpeer
+  - mlipchuk
+  - ovedo
+  - sandrobonazzola
 ---
 
 # Detailed Quota

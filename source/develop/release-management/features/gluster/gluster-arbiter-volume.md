@@ -1,7 +1,9 @@
 ---
 title: Gluster Arbiter Volume
 category: feature
-authors: rnahcimu, sahina
+authors:
+  - rnachimu
+  - sahina
 ---
 
 # Gluster Arbiter Volume

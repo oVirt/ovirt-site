@@ -1,7 +1,9 @@
 ---
 title: Creating and configuring mailing lists
 category: infra
-authors: djorm, quaid, wikisysop
+authors:
+  - djorm
+  - quaid
 ---
 
 # Creating and configuring mailing lists

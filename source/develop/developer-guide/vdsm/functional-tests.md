@@ -1,7 +1,9 @@
 ---
 title: Vdsm Functional Tests
 category: vdsm
-authors: mei liu, zhshzhou
+authors:
+  - mei liu
+  - zhshzhou
 ---
 
 VDSM functional tests are to test the basic features on an actual running VDSM instance. It should covers the most frequently used APIs and common tasks, for example create storage domain, pool, image, volume and generate VM. The functional tests code is place under tests/functional sub-directory, and is installed to /usr/share/vdsm/tests/functional .

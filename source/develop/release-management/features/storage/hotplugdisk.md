@@ -1,7 +1,10 @@
 ---
 title: Hot Plug and Unplug Disk
 category: feature
-authors: derez, mkublin, ykaul
+authors:
+  - derez
+  - mkublin
+  - ykaul
 ---
 
 # Hot Plug Disk

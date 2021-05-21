@@ -1,7 +1,10 @@
 ---
 title: DetailedHostNetworkingApi
 category: feature
-authors: mmucha, moti, sandrobonazzola
+authors:
+  - mmucha
+  - moti
+  - sandrobonazzola
 ---
 
 # Detailed Host Networking Api

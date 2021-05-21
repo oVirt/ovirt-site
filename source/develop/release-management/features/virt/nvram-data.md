@@ -1,7 +1,9 @@
 ---
 title: Secure boot NVRAM data persistence
 category: feature
-authors: tgolembi,mzamazal
+authors:
+  - tgolembi
+  - mzamazal
 ---
 
 # Secure boot NVRAM data persistence

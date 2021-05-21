@@ -1,7 +1,11 @@
 ---
 title: AAA JDBC
 category: feature
-authors: alonbl, moolit, mperina, rmohr
+authors:
+  - alonbl
+  - moolit
+  - mperina
+  - rmohr
 ---
 
 # AAA JDBC
@@ -318,4 +322,3 @@ To configure a new profile which uses aaa-jdbc extension please execute followin
             OPTIONS
 
 7.  Login to webadmin using existing administrator account and assign desired permissions to users/groups defined in your PROFILE
-

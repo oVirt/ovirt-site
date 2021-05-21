@@ -1,7 +1,11 @@
 ---
 title: HostNetworkingApi
 category: feature
-authors: danken, mmucha, moti, sandrobonazzola
+authors:
+  - danken
+  - mmucha
+  - moti
+  - sandrobonazzola
 ---
 
 # Host Networking Api

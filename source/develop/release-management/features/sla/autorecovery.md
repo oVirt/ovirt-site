@@ -1,7 +1,10 @@
 ---
 title: Autorecovery
 category: feature
-authors: ekohl, lhornyak, ykaul
+authors:
+  - ekohl
+  - lhornyak
+  - ykaul
 ---
 
 # Autorecovery

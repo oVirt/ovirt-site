@@ -2,7 +2,12 @@
 title: oVirt 3.5.1 Release Notes
 category: documentation
 toc: true
-authors: alonbl, bproffitt, didi, sandrobonazzola, stirabos
+authors:
+  - alonbl
+  - bproffitt
+  - didi
+  - sandrobonazzola
+  - stirabos
 ---
 
 # oVirt 3.5.1 Release Notes

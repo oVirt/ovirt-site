@@ -15,8 +15,6 @@ example:
     when adding your own authors. All fields are optional, so only
     include the ones that apply.
 
-wikisysop:
-
 cctrieloff:
   name: Carl Trieloff
   email: cctrieloff@redhat.com
@@ -63,6 +61,7 @@ kmestery:
   gravatar: 4b6e5a83946a2d551d2bf2e9c9c55085
 
 asaf:
+  name: Asaf Shakarchi
   email: ashakarc@redhat.com
   gravatar: 2f82b389fe8c24a12bdc2c879c070804
 
@@ -72,6 +71,7 @@ aglitke:
   gravatar: 9e57b717174453404c080ead99e2186c
 
 jwildeboer:
+  name: Jan Wildeboer
   email: jwildebo@redhat.com
   gravatar: 84fa670ecec07f1404dfa0415d7ec50e
 
@@ -156,18 +156,21 @@ ofrenkel:
   gravatar: b1766f2c8efbe055218f5ccdae3bc8da
 
 acathrow:
+  name: Andrew Cathrow
   email: acathrow@redhat.com
   gravatar: 228553f5b6a2308e918dc1a2593dd8ec
 
 bazulay:
-  email: bazulay@redhat.com
+  name: Barak Azulay
   gravatar: f2a780691e3b42529b31c3845bd121ce
 
 mkenneth:
+  name: Miki Kenneth
   email: mkenneth@redhat.com
   gravatar: 400b49907056ce749713c9c297aa5e95
 
 lpeer:
+  name: Livnat Peer
   email: lpeer@redhat.com
   gravatar: 92d19be4e66f497e670d018d02158d5a
 
@@ -176,11 +179,12 @@ smoser:
   gravatar: 90191d0e8d79c7d1f75016fc861b961a
 
 sming:
+  name: Sming
   email: shuming@linux.vnet.ibm.com
   gravatar: 09f66b1de21b4f881b36233090d2903c
 
 abaron:
-  email: abaron@redhat.com
+  name: Ayal Baron
   gravatar: a283ddeeff169a8d3dbc71a3d6d3a2e5
 
 jimjag:
@@ -240,6 +244,7 @@ jumper45:
   gravatar: 6a7f6922bd0adbea1647f99c50875a33
 
 emesika:
+  name: Eli Mesika
   email: emesika@redhat.com
   gravatar: d75560fd509444e4cbc70734dffa0673
 
@@ -249,6 +254,7 @@ moti:
   gravatar: 90758110b19ee0a2e03473012fdc1bd7
 
 sgordon:
+  name: Steve Gordon
   email: sgordon@redhat.com
   gravatar: c489669ce6f88f4b35f0d0b4464250f2
 
@@ -266,14 +272,16 @@ jclift:
   gravatar: 5bc45494d618d54d7ab50f4752f5307e
 
 justinclift:
-  email: jclift@redhat.com
+  name: Justin Clift
   gravatar: 5bc45494d618d54d7ab50f4752f5307e
 
 eyal:
+  name: Eyal Edri
   email: eedri@redhat.com
   gravatar: 6283090555baed00991434f7c2a060f8
 
 duncan:
+  name: Duncan Mac-Vicar P.
   email: dmacvicar@suse.de
   gravatar: bbcc248607dd5cc3db5ea99581004c2c
 
@@ -288,10 +296,12 @@ jbrooks:
   gravatar: 7f1cc17ac58177d19921783d200a0604
 
 cfrantz:
+  name: Chris Frantz
   email: chris.frantz@hp.com
   gravatar: 62a996d0008f84c973de44aa392c93b1
 
 rbergeron:
+  name: Robyn Bergeron
   email: robyn@redhat.com
   gravatar: a38c9c622e996677ed49cf00b785c69e
 
@@ -321,6 +331,7 @@ mkublin:
   gravatar: 9942503c8cf556c85339e8454f375905
 
 rmiddle:
+  name: Robert Middleswarth
   email: robert@middleswarth.net
   gravatar: e37ec99e8f2caef5e1238d05dfc36de6
 
@@ -340,6 +351,7 @@ msalem:
   gravatar: 5a3da0b81e7e9b1e1c78621348bdfe11
 
 fsimonce:
+  name: Federico Simoncelli
   email: fsimonce@redhat.com
   gravatar: 2cd558daf047b198cf2152940ec6a812
 
@@ -354,10 +366,11 @@ mgoldboi:
   gravatar: 0fe0def46bc5a25477696651c1042561
 
 rvaknin:
-  email: rvaknin@redhat.com
+  name: Rami Vaknin
   gravatar: 3f2dbf5422630a4163700cfd0525c181
 
 mkrcmari:
+  name: Marian Krcmarik
   email: mkrcmari@redhat.com
   gravatar: 6727dbf222483cfd37ec655f31711c06
 
@@ -382,6 +395,7 @@ tdosek:
   gravatar: c1ff6f0bd87d7886212604a000e4750d
 
 jlibosva:
+  name: Jakub Libosvar
   email: jlibosva@redhat.com
   gravatar: aa7892f826e87ad4bc9560d3059e3d93
 
@@ -396,6 +410,7 @@ derez:
   gravatar: 93875e42e9b962947becb4e425504fab
 
 pnovotny:
+  name: Pavel Novotny
   email: pnovotny@redhat.com
   gravatar: bc55e2a8c2bc3b062bb633f8ca34c88b
 
@@ -405,6 +420,7 @@ djasa:
   gravatar: 2a5115ec0488b037255b2d8c456372a3
 
 pradeep:
+  name: Pradeep
   email: psuriset@linux.vnet.ibm.com
   gravatar: a4f1f67000b7c8780f84322fb8469830
 
@@ -459,7 +475,7 @@ jfenal:
   gravatar: a855e34b6487fe63c82def93a23324e5
 
 eduardo:
-  email: ewarszaw@redhat.com
+  name: Eduardo Warszawski
   gravatar: 6efa856c2dc3457982e05b60b1ebdb96
 
 eblake:
@@ -488,6 +504,7 @@ shireesh:
   gravatar: bc7a1e6e655b766ad1553b35c30cc83b
 
 ekohl:
+  name: Ewoud Kohl van Wijngaarden
   email: ewoud+ovirt@kohlvanwijngaarden.nl
   gravatar: 8c026e3f09c38f3f685f886fc95f1dc9
 
@@ -535,6 +552,7 @@ istein:
   gravatar: b6a996a95f7c8d5b9b5ac0f509272dbc
 
 fabiand:
+  name: Fabian Deutsch
   email: fabian.deutsch@gmx.de
   gravatar: b876c8ac25402ce621590c1add408b20
 
@@ -568,6 +586,7 @@ itzikb:
   gravatar: 81976785063afb57d4f3c113b2744d07
 
 simong:
+  name: Simong
   email: simong@redhat.com
   gravatar: cecc15cbef6f4e4f056566885fd3fefa
 
@@ -815,6 +834,7 @@ fkobzik:
   gravatar: 1e11318f54f0b916c19723ea0154bce9
 
 sfeng:
+  name: ShaoHe Feng
   email: shaohef@linux.vnet.ibm.com
   gravatar: 685083139d7e7eb9475469fb2642b8a2
 
@@ -959,7 +979,7 @@ wjlove1973:
   gravatar: 5c69ffbfc5db9747e27e1dcffa1f6912
 
 lvernia:
-  email: lvernia@redhat.com
+  name: Lior Vernia
   gravatar: 9a2fc6e0042ddce31e9484d1ed181663
 
 terahnee:
@@ -1077,6 +1097,7 @@ sandrobonazzola:
   twitter: sandrobonazzola
 
 omachace:
+  name: Ondra Machacek
   email: omachace@redhat.com
   gravatar: 7dc9a7cce548204762ec1b16a4b654d3
 
@@ -1561,10 +1582,15 @@ anildhingra25:
   email: anildhingra25@gmail.com
   gravatar: 1f9c7224e5d3905b540c07701838555e
 
-andrad:
+xandradx:
   name: Jorge Andrade
   email: jandrade@i-t-m.com
   gravatar: 84b46991cd4082772ca2b9ab3cb162e0
+
+jandrad:
+  name: José Andrade
+  email: jandrad@chocomango.net
+  gravatar: 56584c4351ac6bf2acf839ee38fb7bd4
 
 champion:
   name: Liu Guoliang
@@ -1741,6 +1767,7 @@ steven.howa:
   gravatar: 3baeae5fedb9302f28fbaff6968d0963
 
 sven:
+  name: Sven Kieske
   email: s.kieske@mittwald.de
   gravatar: d1444ce9dae56ad479be1aa9e2b217bd
 
@@ -1877,7 +1904,7 @@ nasar0406:
   email: nasar0406@gmail.com
   gravatar: d3dcc8b3646342f98e40cee6c5eaac91
 
-rnahcimu:
+rnachimu:
   name: Ramesh N
   email: rnachimu@redhat.com
   gravatar: c375d2a16de823ba0f5ca7e4e11ad929
@@ -2023,7 +2050,7 @@ ttorcz:
   gravatar: 3f03728278629b213ab58f908047d0f1
 
 pbenas:
-  email: pbenas@redhat.com
+  name: Petr Benas
   gravatar: bfe8c6311ef5097c7adb9639ad424aad
 
 biru:
@@ -2389,6 +2416,7 @@ rashminpatel181:
   gravatar: a7dc715ee85970af6c9a6d0eacd0635b
 
 zordrak:
+  name: Zordrak
   email: ovirt@jdmp.org.uk
   gravatar: ded1657b31d5b6e3b2286124fe90707e
 
@@ -2721,3 +2749,103 @@ sgoodman:
   name: Steve Goodman
   email: sgoodman@redhat.com
   gravatar: abab6f3b7573c63a1c2b9ab5da2dbe87
+
+amusil:
+  name: Ales Musil
+  gravatar: 6536e276265bfa4de65dbaf52bc396e1
+
+tgolembi:
+  name: Tomáš Golembiovský
+  gravatar: 1cbe657a4bee069d0b10b63100fd75ae
+
+vjuranek:
+  name: Vojtěch Juránek
+  gravatar: 1e22e63a68883ad2de90dd541b6e2b32
+
+bzlotnik:
+  name: Benny Zlotnik
+  gravatar: 78262477f44eec0b952d9fbb8c28e915
+
+eshenitz:
+  name: Eyal Shenitzky
+  gravatar: c570d197071df880a1c71bd2388cd135
+
+mlibra:
+  name: Marek Libra
+  gravatar: b3c185156bec38bc8cd834762a59e44b
+
+lrotenbe:
+  name: Liran Rotenberg
+  gravatar: ef5ae6708b1cd5106775944f70765c5b
+
+shtripat:
+  name: Shubhendu Tripathi
+  gravatar: 393519c4c5d345f038570fa4a3849d85
+
+godas:
+  name: Gobinda Das
+  gravatar: d8c63c729c1608dce62c604e8fb95aae
+
+dchaplyg:
+  name: Denis Chaplygin
+  gravatar: a47850263e36b9e8a35dcedf316a14ad
+
+sgratch:
+  name: Sharon Gratch
+  gravatar: 66944de7822454bc51eac3d78f314b2b
+
+gvallarelli:
+  name: Giuseppe Vallarelli
+  gravatar: 379934cbb8b253782d94cc204604fd98
+
+akrejcir:
+  name: Andrej Krejcir
+  gravatar: d7fade8ac1462ab8184b98e38fd39223
+
+mzamazal:
+  name: Milan Zamazal
+  gravatar: f4f3e4820685eab0c3b448e59d3f2703
+
+eraviv:
+  name: Eitan Raviv
+  gravatar: 6703db6314b5ac12132ef66b755faecd
+
+jmarks:
+  name: John Marks
+  gravatar: 277f3366bb75c417cf4f3fb3a8675aeb
+
+leni1:
+  name: Leni Kadali Mutungi
+  gravatar: 11d793a139b3faef5726ab5d80308d44
+
+ederevea:
+  name: Evgheni Dereveanchin
+  gravatar: 145c8ef53b8dbdb80050766697bacfd3
+
+irosenzw:
+  name: Ido Rosenzwig
+  gravatar: fc2ffb93b05d734f04d23e6d7e6a04ff
+
+ngoldin:
+  name: Nadav Goldin
+  gravatar: da19aef17473852991ac5e9c9ac8b1eb
+
+edwardh:
+  name: Edward Haas
+  gravatar: e79aef66da596806357d490acfc5261f
+
+dbinary:
+  name: Luis Pérez
+  gravatar: 0814464e43e54b9aa7765895a8da2307
+
+ahino:
+  name: Ala Hino
+  gravatar: 4c272a93ab76b20b3f96ab8c2523aa6a
+
+amarchuk:
+  name: Anton Marchukov
+  gravatar: 6c647d9d1d7213b80b1c27037c8e98b8
+
+igoihman:
+  name: Irit Goihman
+  gravatar: d12f3a20618855ef37a17dab9379dbe5

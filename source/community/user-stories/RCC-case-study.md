@@ -16,7 +16,7 @@ While most of the hardware is dedicated to high performance computing (HPC) acti
 
 Originally, RCC used OpenStack for running its customers' virtual machines. However, OpenStack was overly complicated for situations where RCC’s researcher customers just wanted more flexibility to run a variety of applications, or even something as simple as the capability to install firewalls.
 
-According to Edson Manners, RCC’s Operations Manager and Senior Systems Administrator, RCC started using oVirt in August of 2015 for internal testing. Manners explained that oVirt was deployed on “off-warranty server hardware.”    
+According to Edson Manners, RCC’s Operations Manager and Senior Systems Administrator, RCC started using oVirt in August of 2015 for internal testing. Manners explained that oVirt was deployed on “off-warranty server hardware.”
 
 The test machine deployments proved so successful that Manners moved the RCC production virtual machines to oVirt, while still using the older hardware. Eventually, Manners said, he would have to migrate those machines to actual production-ready hardware. But he didn’t seem to be in too much of a hurry, based on oVirt performance to date.
 

@@ -1,7 +1,9 @@
 ---
 title: PKI
 category: feature
-authors: alonbl, sven
+authors:
+  - alonbl
+  - sven
 ---
 
 # PKI

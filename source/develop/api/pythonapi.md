@@ -1,7 +1,12 @@
 ---
 title: PythonApi
 category: api
-authors: mgoldboi, mkollaro, moti, mpavlik, rvaknin
+authors:
+  - mgoldboi
+  - mkollaro
+  - moti
+  - mpavlik
+  - rvaknin
 ---
 
 # Python API

@@ -1,7 +1,10 @@
 ---
 title: the IT & Solution Company case study
 category: community
-authors: sandrobonazzola, bproffitt, stoobie
+authors:
+  - sandrobonazzola
+  - bproffitt
+  - sgoodman
 ---
 
 <div class="row">

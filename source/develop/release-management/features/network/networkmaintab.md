@@ -1,7 +1,13 @@
 ---
 title: NetworkMainTab
 category: feature
-authors: alkaplan, danken, lpeer, moti, msalem, ykaul
+authors:
+  - alkaplan
+  - danken
+  - lpeer
+  - moti
+  - msalem
+  - ykaul
 ---
 
 # Network Main Tab

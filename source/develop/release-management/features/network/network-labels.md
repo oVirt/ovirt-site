@@ -1,6 +1,9 @@
 ---
 title: Network Labels
-authors: alkaplan, danken, moti
+authors:
+  - alkaplan
+  - danken
+  - moti
 ---
 
 # Network Labels

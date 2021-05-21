@@ -1,7 +1,13 @@
 ---
 title: DiskPermissions
 category: feature
-authors: amureini, derez, lpeer, moti, ofrenkel, smelamud
+authors:
+  - amureini
+  - derez
+  - lpeer
+  - moti
+  - ofrenkel
+  - smelamud
 ---
 
 # Disk Permissions

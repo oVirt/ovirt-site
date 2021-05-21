@@ -1,6 +1,8 @@
 ---
 title: Press plan
-authors: dneary, jbrooks
+authors:
+  - dneary
+  - jbrooks
 ---
 
 # Press Contacts

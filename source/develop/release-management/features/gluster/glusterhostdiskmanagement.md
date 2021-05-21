@@ -1,7 +1,11 @@
 ---
 title: GlusterHostDiskManagement
 category: feature
-authors: bala, rnahcimu, sahina, sandrobonazzola
+authors:
+  - bala
+  - rnachimu
+  - sahina
+  - sandrobonazzola
 ---
 
 # Gluster Host Disk Management

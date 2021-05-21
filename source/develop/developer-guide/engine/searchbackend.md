@@ -1,6 +1,8 @@
 ---
 title: Searchbackend
-authors: lhornyak, ykaul
+authors:
+  - lhornyak
+  - ykaul
 ---
 
 # Search backend

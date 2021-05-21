@@ -1,7 +1,10 @@
 ---
 title: CustomPropertiesSheet
 category: feature
-authors: ecohen, ekohl, gchaplik
+authors:
+  - ecohen
+  - ekohl
+  - gchaplik
 ---
 
 # Custom Properties Sheet

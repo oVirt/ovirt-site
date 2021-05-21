@@ -1,7 +1,9 @@
 ---
 title: CommandCoordinator
 category: feature
-authors: moti, rnori
+authors:
+  - moti
+  - rnori
 ---
 
 # Command Coordinator

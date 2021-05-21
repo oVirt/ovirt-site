@@ -1,6 +1,13 @@
 ---
 title: DebugFrontend
-authors: abonas, fkobzik, gshereme, lhornyak, tjelinek, vszocs, ybronhei
+authors:
+  - abonas
+  - fkobzik
+  - gshereme
+  - lhornyak
+  - tjelinek
+  - vszocs
+  - ybronhei
 ---
 
 # Debugging Frontend Applications

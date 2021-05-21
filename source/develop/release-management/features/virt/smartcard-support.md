@@ -1,7 +1,9 @@
 ---
 title: Smartcard support
 category: feature
-authors: acathrow, tjelinek
+authors:
+  - acathrow
+  - tjelinek
 ---
 
 # Smartcard Support

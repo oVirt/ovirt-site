@@ -1,7 +1,9 @@
 ---
 title: HostHardwareInfo
 category: feature
-authors: sandrobonazzola, ybronhei
+authors:
+  - sandrobonazzola
+  - ybronhei
 ---
 
 # Host's Hardware Information

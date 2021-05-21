@@ -1,7 +1,11 @@
 ---
 title: User Portal Permissions
 category: feature
-authors: amureini, ekohl, lpeer, ovedo
+authors:
+  - amureini
+  - ekohl
+  - lpeer
+  - ovedo
 ---
 
 # User Portal Permissions

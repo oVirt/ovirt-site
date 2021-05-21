@@ -1,7 +1,9 @@
 ---
 title: CoreOS ignition support
 category: feature
-authors: rgolan, lrotenbe
+authors:
+  - roy
+  - lrotenbe
 ---
 
 # CoreOS ignition support

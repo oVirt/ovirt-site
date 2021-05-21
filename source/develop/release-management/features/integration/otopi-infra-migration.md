@@ -1,7 +1,10 @@
 ---
 title: Otopi Infra Migration
 category: feature
-authors: alonbl, alourie, sandrobonazzola
+authors:
+  - alonbl
+  - alourie
+  - sandrobonazzola
 ---
 
 # Otopi Infra Migration

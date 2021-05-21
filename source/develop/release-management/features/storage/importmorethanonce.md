@@ -1,7 +1,10 @@
 ---
 title: ImportMoreThanOnce
 category: feature
-authors: derez, ekohl, gchaplik
+authors:
+  - derez
+  - ekohl
+  - gchaplik
 ---
 
 # Import VM or Template More than Once Feature

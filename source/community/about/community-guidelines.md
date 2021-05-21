@@ -2,7 +2,9 @@
 title: Community guidelines
 category: documentation
 toc: true
-authors: dneary, gina, quaid
+authors:
+  - dneary
+  - quaid
 ---
 
 # Community Code of Conduct

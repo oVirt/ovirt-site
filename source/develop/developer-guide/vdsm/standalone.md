@@ -1,7 +1,9 @@
 ---
 title: Vdsm Standalone
 category: vdsm
-authors: danken, dpkshetty
+authors:
+  - danken
+  - dpkshetty
 ---
 
 # Vdsm Standalone

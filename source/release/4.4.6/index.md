@@ -1,7 +1,9 @@
 ---
 title: oVirt 4.4.6 Release Notes
 category: documentation
-authors: lveyde sandrobonazzola
+authors:
+  - lveyde
+  - sandrobonazzola
 toc: true
 page_classes: releases
 ---

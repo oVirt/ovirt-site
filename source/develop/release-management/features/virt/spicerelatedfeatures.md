@@ -1,7 +1,11 @@
 ---
 title: SPICERelatedFeatures
 category: feature
-authors: acathrow, danken, ecohen, ovedo
+authors:
+  - acathrow
+  - danken
+  - ecohen
+  - ovedo
 ---
 
 # SPICE related features

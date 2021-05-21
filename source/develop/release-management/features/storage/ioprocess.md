@@ -1,7 +1,9 @@
 ---
 title: ioprocess
 category: feature
-authors: derez, ykaplan
+authors:
+  - derez
+  - ykaplan
 ---
 
 # ioprocess

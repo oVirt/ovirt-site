@@ -1,6 +1,6 @@
 ---
 title: Hosted-Engine invalid bond modes
-authors: Ido Rosenzwig
+authors: irosenzw
 ---
 
 # Hosted-Engine invalid bond modes
@@ -15,7 +15,7 @@ See also: [BZ 1233127](https://bugzilla.redhat.com/1233127).
 ## Enable invalid bond modes
 
 If one wishes to enforce Hosted-Engine setup to allow unsupported bond modes, it can be done by doing the following:
- 
+
 1. Create a setup conf directory, if it does not already exist:
 
 ```

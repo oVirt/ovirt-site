@@ -1,7 +1,9 @@
 ---
 title: NetworkManager Support
 category: feature
-authors: fabiand, mburns
+authors:
+  - fabiand
+  - mburns
 ---
 
 # NetworkManager Support

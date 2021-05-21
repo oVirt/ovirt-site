@@ -1,7 +1,9 @@
 ---
 title: VDSM on Ubuntu
 category: vdsm
-authors: danken, zhshzhou
+authors:
+  - danken
+  - zhshzhou
 ---
 
 # VDSM on Ubuntu

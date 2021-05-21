@@ -1,6 +1,9 @@
 ---
 title: Introducing Entity Search
-authors: lhornyak, mlipchuk, shireesh
+authors:
+  - lhornyak
+  - mlipchuk
+  - shireesh
 ---
 
 <!-- TODO: Content review -->

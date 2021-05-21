@@ -1,7 +1,9 @@
 ---
 title: Optaplanner
 category: feature
-authors: adahms, msivak
+authors:
+  - adahms
+  - msivak
 ---
 
 # Optaplanner integration with scheduling

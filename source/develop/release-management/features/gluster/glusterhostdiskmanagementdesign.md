@@ -1,6 +1,6 @@
 ---
 title: GlusterHostDiskManagement
-authors: rnahcimu
+authors: rnachimu
 ---
 
 # Gluster Host Disk Management: Design

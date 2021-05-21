@@ -1,7 +1,11 @@
 ---
 title: VMPayload
 category: feature
-authors: ovedo, shahar, shaharh, vered
+authors:
+  - ovedo
+  - shahar
+  - shaharh
+  - vered
 ---
 
 # VM Payload

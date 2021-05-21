@@ -1,7 +1,15 @@
 ---
 title: Backup-Restore API Integration
 category: feature
-authors: adahms, aglitke, dpkshetty, laravot, mlipchuk, scohen, snmishra, ydary
+authors:
+  - adahms
+  - aglitke
+  - dpkshetty
+  - laravot
+  - mlipchuk
+  - scohen
+  - snmishra
+  - yaniv dary
 ---
 
 # Backup-Restore API Integration

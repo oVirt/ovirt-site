@@ -1,7 +1,11 @@
 ---
 title: Jenkins
 category: infra
-authors: eedri, mburns, quaid, rmiddle
+authors:
+  - eedri
+  - mburns
+  - quaid
+  - rmiddle
 ---
 
 # Jenkins oVirt Server

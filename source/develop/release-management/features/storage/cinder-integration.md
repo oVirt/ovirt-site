@@ -1,7 +1,9 @@
 ---
 title: Cinder Integration
 category: feature
-authors: derez, sandrobonazzola
+authors:
+  - derez
+  - sandrobonazzola
 ---
 
 # Cinder Integration

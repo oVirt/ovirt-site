@@ -1,7 +1,10 @@
 ---
 title: Select Network For Gluster
 category: feature
-authors: danken, sahina, sandrobonazzola
+authors:
+  - danken
+  - sahina
+  - sandrobonazzola
 ---
 
 # Select Network For Gluster

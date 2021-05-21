@@ -1,7 +1,10 @@
 ---
 title: Incremental Backup
 category: feature
-authors: nsoffer, derez, eshenitz
+authors:
+  - nsoffer
+  - derez
+  - eshenitz
 ---
 
 # Incremental Backup

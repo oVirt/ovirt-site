@@ -1,6 +1,8 @@
 ---
 title: sriov
-authors: dyasny, knesenko
+authors:
+  - dyasny
+  - knesenko
 ---
 
 # sriov

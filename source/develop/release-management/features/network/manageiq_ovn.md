@@ -1,7 +1,7 @@
 ---
 title: Integrating OVN with ManageIQ
 category: feature
-authors: Alona Kaplan
+authors: alkaplan
 ---
 
 # Integrating OVN to ManageIQ

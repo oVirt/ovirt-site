@@ -1,6 +1,9 @@
 ---
 title: Spice
-authors: jaypers, mkrcmari, nkesick
+authors:
+  - jaypers
+  - mkrcmari
+  - nkesick
 ---
 
 # Spice

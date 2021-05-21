@@ -1,8 +1,21 @@
 ---
 title: oVirt 3.2 release-management
 category: release
-authors: aglitke, alonbl, amureini, danken, dneary, doron, fabiand, jboggs, liran.zelkha,
-  lpeer, mburns, mkolesni, tjelinek, vbellur
+authors:
+  - aglitke
+  - alonbl
+  - amureini
+  - danken
+  - dneary
+  - doron
+  - fabiand
+  - jboggs
+  - liran.zelkha
+  - lpeer
+  - mburns
+  - mkolesni
+  - tjelinek
+  - vbellur
 ---
 
 # oVirt 3.2 release-management

@@ -1,7 +1,10 @@
 ---
 title: Sanlock Fencing
 category: feature
-authors: nsoffer, vered, ybronhei
+authors:
+  - nsoffer
+  - vered
+  - ybronhei
 ---
 
 # Sanlock Fencing

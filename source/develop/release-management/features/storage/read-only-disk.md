@@ -1,7 +1,9 @@
 ---
 title: Read Only Disk
 category: feature
-authors: sgotliv, vered
+authors:
+  - sgotliv
+  - vered
 ---
 
 # Read Only Disk

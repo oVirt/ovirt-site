@@ -1,7 +1,9 @@
 ---
 title: HA VM reservation detailedDesign
 category: feature
-authors: doron, kianku
+authors:
+  - doron
+  - kianku
 ---
 
 # HA VM reservation detailedDesign

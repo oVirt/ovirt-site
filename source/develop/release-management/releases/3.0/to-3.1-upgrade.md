@@ -1,6 +1,8 @@
 ---
 title: oVirt 3.0 to 3.1 upgrade
-authors: fabiand, oschreib
+authors:
+  - fabiand
+  - oschreib
 ---
 
 # oVirt 3.0 to 3.1 upgrade

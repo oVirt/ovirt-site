@@ -1,7 +1,12 @@
 ---
 title: NetworkLinking
 category: feature
-authors: alkaplan, danken, lpeer, moti, vered
+authors:
+  - alkaplan
+  - danken
+  - lpeer
+  - moti
+  - vered
 ---
 
 # Network Linking

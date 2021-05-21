@@ -1,7 +1,7 @@
 ---
 title: Hosted Engine indicate hosted engine host in Web UI
 category: feature
-authors: pcbailey
+authors: phbailey
 ---
 
 # Hosted Engine: Indicate Host Running the Hosted Engine VM

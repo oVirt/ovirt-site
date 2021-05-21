@@ -1,7 +1,11 @@
 ---
 title: Migration Network
 category: feature
-authors: alkaplan, danken, ilvovsky, mpavlik
+authors:
+  - alkaplan
+  - danken
+  - ilvovsky
+  - mpavlik
 ---
 
 # Migration Network

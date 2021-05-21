@@ -1,7 +1,9 @@
 ---
 title: StoragePool Metadata Removal
 category: feature
-authors: amureini, fsimonce
+authors:
+  - amureini
+  - fsimonce
 ---
 
 # StoragePool Metadata Removal

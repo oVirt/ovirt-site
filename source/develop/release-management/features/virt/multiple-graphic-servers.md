@@ -1,7 +1,9 @@
 ---
 title: Multiple Graphic Servers
 category: feature
-authors: fkobzik, tjelinek
+authors:
+  - fkobzik
+  - tjelinek
 ---
 
 # Multiple Graphic Servers

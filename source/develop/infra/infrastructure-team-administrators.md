@@ -1,7 +1,14 @@
 ---
 title: Infrastructure team administrators
 category: infra
-authors: bproffitt, dcaroest, dneary, eedri, knesenko, quaid, rydekull
+authors:
+  - bproffitt
+  - dcaroest
+  - dneary
+  - eedri
+  - knesenko
+  - quaid
+  - rydekull
 ---
 
 # Infrastructure team administrators

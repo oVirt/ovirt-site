@@ -1,7 +1,11 @@
 ---
 title: Native Open vSwitch
 category: feature
-authors: phoracek danken edwardh amusil
+authors:
+  - phoracek
+  - danken
+  - edwardh
+  - amusil
 ---
 
 # Native Open vSwitch

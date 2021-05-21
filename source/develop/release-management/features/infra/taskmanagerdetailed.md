@@ -1,7 +1,10 @@
 ---
 title: TaskManagerDetailed
 category: feature
-authors: lpeer, moti, sandrobonazzola
+authors:
+  - lpeer
+  - moti
+  - sandrobonazzola
 ---
 
 ## Task Manager

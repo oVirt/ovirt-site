@@ -1,7 +1,10 @@
 ---
 title: ReportingVnicInformation
 category: feature
-authors: danken, moti, msalem
+authors:
+  - danken
+  - moti
+  - msalem
 ---
 
 # Reporting Vnic Information

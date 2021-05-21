@@ -1,7 +1,9 @@
 ---
 title: External Scheduler Samples
 category: sla
-authors: doron, nslomian
+authors:
+  - doron
+  - nslomian
 ---
 
 # External Scheduler Samples

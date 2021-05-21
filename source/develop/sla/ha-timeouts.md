@@ -1,7 +1,9 @@
 ---
 title: ha-timeouts
 category: sla
-authors: abonas, doron
+authors:
+  - abonas
+  - doron
 ---
 
 # ha-timeouts

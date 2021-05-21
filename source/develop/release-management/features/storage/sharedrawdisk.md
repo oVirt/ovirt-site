@@ -1,7 +1,11 @@
 ---
 title: SharedRawDisk
 category: feature
-authors: abaron, derez, mlipchuk, sandrobonazzola
+authors:
+  - abaron
+  - derez
+  - mlipchuk
+  - sandrobonazzola
 ---
 
 # Shared Raw Disk

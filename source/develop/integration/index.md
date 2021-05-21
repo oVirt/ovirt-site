@@ -1,7 +1,11 @@
 ---
 title: Integration
 category: integration
-authors: knesenko, mgoldboi, rafaelmartins, sandrobonazzola
+authors:
+  - knesenko
+  - mgoldboi
+  - rafaelmartins
+  - sandrobonazzola
 ---
 
 # Integration

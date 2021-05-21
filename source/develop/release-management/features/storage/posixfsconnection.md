@@ -1,7 +1,14 @@
 ---
 title: PosixFSConnection
 category: feature
-authors: abaron, derez, ecohen, ekohl, sandrobonazzola, smizrahi, yair zaslavsky
+authors:
+  - abaron
+  - derez
+  - ecohen
+  - ekohl
+  - sandrobonazzola
+  - smizrahi
+  - yair zaslavsky
 ---
 
 Also known as SharedFS support

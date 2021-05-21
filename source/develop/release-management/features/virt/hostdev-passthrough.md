@@ -1,7 +1,9 @@
 ---
 title: hostdev passthrough
 category: feature
-authors: mbetak, mpolednik
+authors:
+  - mbetak
+  - mpolednik
 ---
 
 # hostdev passthrough

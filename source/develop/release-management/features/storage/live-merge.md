@@ -1,7 +1,9 @@
 ---
 title: Live Merge
 category: feature
-authors: aglitke, gpadgett
+authors:
+  - aglitke
+  - gpadgett
 ---
 
 # Live Merge

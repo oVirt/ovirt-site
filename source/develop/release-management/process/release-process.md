@@ -1,7 +1,12 @@
 ---
 title: Release process
 category: release-management
-authors: bproffitt, dneary, oschreib, quaid, sandrobonazzola
+authors:
+  - bproffitt
+  - dneary
+  - oschreib
+  - quaid
+  - sandrobonazzola
 ---
 
 # Release process

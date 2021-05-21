@@ -1,7 +1,10 @@
 ---
 title: Security
 category: security
-authors: djorm, quaid, sandrobonazzola
+authors:
+  - djorm
+  - quaid
+  - sandrobonazzola
 ---
 
 # Security

@@ -1,7 +1,11 @@
 ---
 title: Vdsm Storage Terminology
 category: vdsm
-authors: abonas, amureini, danken, quaid
+authors:
+  - abonas
+  - amureini
+  - danken
+  - quaid
 ---
 
 # Vdsm Storage Terminology

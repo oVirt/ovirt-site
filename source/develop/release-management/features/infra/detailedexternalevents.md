@@ -1,7 +1,9 @@
 ---
 title: DetailedExternalEvents
 category: feature
-authors: emesika, yair zaslavsky
+authors:
+  - emesika
+  - yair zaslavsky
 ---
 
 # Detailed External Events

@@ -1,6 +1,9 @@
 ---
 title: FeatureList
-authors: abaron, ovedo, smizrahi
+authors:
+  - abaron
+  - ovedo
+  - smizrahi
 ---
 
 # Feature List

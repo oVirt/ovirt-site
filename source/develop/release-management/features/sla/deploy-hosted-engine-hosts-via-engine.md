@@ -1,6 +1,6 @@
 ---
 title: Deploy Hosted Engine Hosts via Engine
-authors: rgolan
+authors: roy
 category: feature
 ---
 
@@ -33,7 +33,7 @@ The API exposes those URLs to implement the 3 proposed actions as the UI:
 * Add Host
  - None - done pass any argument
  - Deploy
-   - POST .../hosts?deploy_hosted_engine                         
+   - POST .../hosts?deploy_hosted_engine
    - POST .../hosts?deploy_hosted_engine=true
  - Undeploy
    - POST .../hosts?undeploy_hosted_engine

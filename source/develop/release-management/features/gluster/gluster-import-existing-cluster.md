@@ -1,7 +1,9 @@
 ---
 title: Gluster Import Existing Cluster
 category: feature
-authors: kmayilsa, sahina
+authors:
+  - kmayilsa
+  - sahina
 ---
 
 # Gluster Import Existing Cluster

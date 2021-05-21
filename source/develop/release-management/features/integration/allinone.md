@@ -1,7 +1,15 @@
 ---
 title: AllInOne
 category: feature
-authors: acathrow, alourie, didi, dneary, jbrooks, netbulae, oschreib, sandrobonazzola
+authors:
+  - acathrow
+  - alourie
+  - didi
+  - dneary
+  - jbrooks
+  - netbulae
+  - oschreib
+  - sandrobonazzola
 ---
 
 # All in One

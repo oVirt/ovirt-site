@@ -1,7 +1,9 @@
 ---
 title: DetailedFloatingDisk
 category: feature
-authors: derez, mlipchuk
+authors:
+  - derez
+  - mlipchuk
 ---
 
 # Detailed Floating Disk

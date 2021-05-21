@@ -1,6 +1,8 @@
 ---
 title: GlusterFS-Hyperconvergence
-authors: fsimonce,sabose
+authors:
+  - fsimonce
+  - sahina
 category: feature
 ---
 

@@ -1,7 +1,10 @@
 ---
 title: Watchdog engine support
 category: feature
-authors: doron, lhornyak, mlipchuk
+authors:
+  - doron
+  - lhornyak
+  - mlipchuk
 ---
 
 # Watchdog support in Engine

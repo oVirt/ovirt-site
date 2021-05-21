@@ -1,6 +1,10 @@
 ---
 title: StableDeviceAddresses
-authors: emesika, ilvovsky, shahar, ykaul
+authors:
+  - emesika
+  - ilvovsky
+  - shahar
+  - ykaul
 ---
 
 # Stable Device Addresses

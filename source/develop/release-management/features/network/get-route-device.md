@@ -1,6 +1,8 @@
 ---
 title: Get Route Device
-authors: lvernia, phoracek
+authors:
+  - lvernia
+  - phoracek
 ---
 
 # Get Route Device

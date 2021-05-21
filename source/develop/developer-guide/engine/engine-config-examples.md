@@ -1,6 +1,10 @@
 ---
 title: Engine config examples
-authors: amuller, dougsland, omachace, tscofield
+authors:
+  - amuller
+  - dougsland
+  - omachace
+  - tscofield
 ---
 
 # Engine config examples

@@ -1,7 +1,9 @@
 ---
 title: OvfAutoUpdater
 category: feature
-authors: abaron, laravot
+authors:
+  - abaron
+  - laravot
 ---
 
 # OvfAutoUpdater

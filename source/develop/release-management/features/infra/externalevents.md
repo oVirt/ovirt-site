@@ -1,7 +1,9 @@
 ---
 title: ExternalEvents
 category: feature
-authors: emesika, mkenneth
+authors:
+  - emesika
+  - mkenneth
 ---
 
 # External Events

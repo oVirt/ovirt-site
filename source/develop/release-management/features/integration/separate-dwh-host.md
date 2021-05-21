@@ -1,7 +1,10 @@
 ---
 title: Separate-DWH-Host
 category: feature
-authors: didi, sandrobonazzola, sradco
+authors:
+  - didi
+  - sandrobonazzola
+  - sradco
 ---
 
 # Separate DWH Host

@@ -1,6 +1,8 @@
 ---
 title: faqemu
-authors: danken, dyasny
+authors:
+  - danken
+  - dyasny
 ---
 
 # faqemu

@@ -1,7 +1,9 @@
 ---
 title: NetworkFiltering
 category: feature
-authors: lpeer, moti
+authors:
+  - lpeer
+  - moti
 ---
 
 # Networking Filtering

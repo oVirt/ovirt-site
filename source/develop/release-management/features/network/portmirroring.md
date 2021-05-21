@@ -1,7 +1,10 @@
 ---
 title: PortMirroring
 category: feature
-authors: moti, ovedo, shaharh
+authors:
+  - moti
+  - ovedo
+  - shaharh
 ---
 
 # Port Mirroring

@@ -1,7 +1,9 @@
 ---
 title: VM-Affinity
 category: feature
-authors: adahms, gchaplik
+authors:
+  - adahms
+  - gchaplik
 ---
 
 # VM Affinity

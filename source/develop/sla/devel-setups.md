@@ -1,7 +1,9 @@
 ---
 title: devel-setups
 category: sla
-authors: doron, lvroyce
+authors:
+  - doron
+  - lvroyce
 ---
 
 # devel-setups

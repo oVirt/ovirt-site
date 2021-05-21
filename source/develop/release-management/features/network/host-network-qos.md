@@ -1,7 +1,11 @@
 ---
 title: Host Network QoS
 category: feature
-authors: amuller, danken, gvallarelli, lvernia
+authors:
+  - amuller
+  - danken
+  - gvallarelli
+  - lvernia
 ---
 
 # Host Network QoS

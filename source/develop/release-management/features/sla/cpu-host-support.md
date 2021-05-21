@@ -1,7 +1,9 @@
 ---
 title: Cpu-host Support
 category: feature
-authors: acathrow, lhornyak
+authors:
+  - acathrow
+  - lhornyak
 ---
 
 # CPU-Host Support

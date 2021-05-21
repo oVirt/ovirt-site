@@ -1,7 +1,11 @@
 ---
 title: Vdsm
 category: vdsm
-authors: abonas, danken, ekohl, quaid
+authors:
+  - abonas
+  - danken
+  - ekohl
+  - quaid
 ---
 
 # Vdsm

@@ -1,7 +1,10 @@
 ---
 title: iSCSI-Multipath
 category: feature
-authors: mlipchuk, sandrobonazzola, sgotliv
+authors:
+  - mlipchuk
+  - sandrobonazzola
+  - sgotliv
 ---
 
 # iSCSI Multipath

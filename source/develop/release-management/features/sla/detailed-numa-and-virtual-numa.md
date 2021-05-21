@@ -1,6 +1,8 @@
 ---
 title: Detailed NUMA and Virtual NUMA
-authors: bruceshi, jasonliao
+authors:
+  - bruceshi
+  - jasonliao
 ---
 
 # NUMA and Virtual NUMA

@@ -1,7 +1,11 @@
 ---
 title: Scoped MacPoolManager
 category: api
-authors: mkolesni, mmucha, moti, mpavlik
+authors:
+  - mkolesni
+  - mmucha
+  - moti
+  - mpavlik
 ---
 
 <!-- TODO: Content review -->

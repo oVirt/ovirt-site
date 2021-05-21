@@ -1,7 +1,9 @@
 ---
 title: Default / Secure CPU Type Concept
 category: feature
-authors: ljelinko, mskrivan
+authors:
+  - ljelinko
+  - mskrivan
 ---
 
 # Default / Secure CPU Type Concept

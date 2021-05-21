@@ -1,7 +1,9 @@
 ---
 title: hostusb
 category: feature
-authors: dyasny, herrold
+authors:
+  - dyasny
+  - herrold
 ---
 
 # hostusb

@@ -1,6 +1,8 @@
 ---
 title: Memory Hotplug
-authors: ofrenkel, vitordelima
+authors:
+  - ofrenkel
+  - vitordelima
 ---
 
 # Memory Hotplug
@@ -32,6 +34,7 @@ The amount of memory destined to a VM will be available as an editable field in 
 
 The memory increase must be implemented as a memory module device to be hot plugged into the VM, the XML definition of such device is:
 
+```xml
     <memory model='acpi-dimm'>
           <source>
             <node>0</node> <-- source memory slot, if not provided, sane default  shall be used
@@ -42,6 +45,7 @@ The memory increase must be implemented as a memory module device to be hot plug
             <size unit='KiB'>12345</size> <- new module size (mandatory)
           </target>
         </memory>
+```
 
 Hot unplugging memory will be implemented by forcing the user to reduce the size of the memory in amounts that can be represented by a sum of previously hotplugged virtual memory modules. The engine will solve the subset sum problem to find which virtual memory modules must be unplugged and call VDSM to unplug them.
 

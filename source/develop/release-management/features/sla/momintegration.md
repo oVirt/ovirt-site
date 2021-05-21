@@ -1,7 +1,10 @@
 ---
 title: MomIntegration
 category: feature
-authors: aglitke, ekohl, sven
+authors:
+  - aglitke
+  - ekohl
+  - sven
 ---
 
 # Mom Integration

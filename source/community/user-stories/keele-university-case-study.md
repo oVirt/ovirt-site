@@ -1,7 +1,9 @@
 ---
 title: Keele University case study
 category: case-studies
-authors: bproffitt, dneary
+authors:
+  - bproffitt
+  - dneary
 ---
 
 # Keele University case study

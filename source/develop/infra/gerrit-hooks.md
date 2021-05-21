@@ -1,7 +1,9 @@
 ---
 title: Gerrit hooks
 category: infra
-authors: dcaroest, eedri
+authors:
+  - dcaroest
+  - eedri
 ---
 
 # Gerrit hooks

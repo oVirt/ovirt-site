@@ -1,6 +1,11 @@
 ---
 title: Automatic Fencing
-authors: emesika, mperina, ofrenkel, tscofield, ybronhei
+authors:
+  - emesika
+  - mperina
+  - ofrenkel
+  - tscofield
+  - ybronhei
 ---
 
 # Automatic Fencing

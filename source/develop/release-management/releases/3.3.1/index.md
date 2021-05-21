@@ -2,7 +2,14 @@
 title: oVirt 3.3.1 release notes
 category: documentation
 toc: true
-authors: danken, dougsland, fabiand, herrold, iheim, moti, sandrobonazzola
+authors:
+  - danken
+  - dougsland
+  - fabiand
+  - herrold
+  - iheim
+  - moti
+  - sandrobonazzola
 ---
 
 # oVirt 3.3.1 release notes

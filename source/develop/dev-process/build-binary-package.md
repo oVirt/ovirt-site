@@ -1,6 +1,9 @@
 ---
 title: Build Binary Package
-authors: alonbl, dneary, ranglust
+authors:
+  - alonbl
+  - dneary
+  - ranglust
 ---
 
 # Build Source Package

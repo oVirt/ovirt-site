@@ -1,7 +1,11 @@
 ---
 title: Affinity Rules Enforcement Manager
 category: feature
-authors: doron, maroshi, rmohr, tsaban
+authors:
+ - doron
+ - maroshi
+ - rmohr
+ - tsaban
 ---
 
 # Affinity Rules Enforcement Manager

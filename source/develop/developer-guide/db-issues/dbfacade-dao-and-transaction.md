@@ -1,6 +1,8 @@
 ---
 title: dbfacade-dao-and-transaction
-authors: emesika, lhornyak
+authors:
+  - emesika
+  - lhornyak
 ---
 
 # dbfacade-dao-and-transaction

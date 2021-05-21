@@ -1,7 +1,10 @@
 ---
 title: Java-sdk
 category: feature
-authors: adahms, michael pasternak, moti
+authors:
+  - adahms
+  - michael pasternak
+  - moti
 ---
 
 # Java-sdk

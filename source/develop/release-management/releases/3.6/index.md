@@ -2,8 +2,17 @@
 title: oVirt 3.6 Release Notes
 category: documentation
 toc: true
-authors: arik, didi, fromani, ibarkan, mperina, mskrivan, rmohr, sandrobonazzola,
-  stirabos, tsaban
+authors:
+  - arik
+  - didi
+  - fromani
+  - ibarkan
+  - mperina
+  - mskrivan
+  - rmohr
+  - sandrobonazzola
+  - stirabos
+  - tsaban
 ---
 
 # oVirt 3.6.0 Release Notes

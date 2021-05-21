@@ -1,7 +1,9 @@
 ---
 title: HostBiosInfo
 category: feature
-authors: jrankin, ybronhei
+authors:
+  - jrankin
+  - ybronhei
 ---
 
 # Host's Bios Information

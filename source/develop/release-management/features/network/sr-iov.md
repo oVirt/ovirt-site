@@ -1,7 +1,10 @@
 ---
 title: SR-IOV
 category: feature
-authors: alkaplan, danken, ibarkan
+authors:
+  - alkaplan
+  - danken
+  - ibarkan
 ---
 
 # SR-IOV

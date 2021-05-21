@@ -1,8 +1,20 @@
 ---
 title: Self Hosted Engine
 category: feature
-authors: didi, dneary, doron, dyasny, fabiand, gpadgett, jmoskovc, lveyde, mgoldboi,
-  mlipchuk, msivak, sandrobonazzola, scohen
+authors:
+  - didi
+  - dneary
+  - doron
+  - dyasny
+  - fabiand
+  - gpadgett
+  - jmoskovc
+  - lveyde
+  - mgoldboi
+  - mlipchuk
+  - msivak
+  - sandrobonazzola
+  - scohen
 ---
 
 # Self Hosted Engine

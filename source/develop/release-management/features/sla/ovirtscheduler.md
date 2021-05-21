@@ -1,7 +1,11 @@
 ---
 title: oVirtScheduler
 category: feature
-authors: danken, doron, gchaplik, lhornyak
+authors:
+  - danken
+  - doron
+  - gchaplik
+  - lhornyak
 ---
 
 # oVirt Scheduler

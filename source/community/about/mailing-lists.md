@@ -1,7 +1,11 @@
 ---
 title: Mailing lists
 category: community
-authors: bproffitt, dneary, quaid, theron
+authors:
+  - bproffitt
+  - dneary
+  - quaid
+  - theron
 ---
 
 # Mailing lists

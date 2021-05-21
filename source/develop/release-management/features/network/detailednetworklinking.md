@@ -1,7 +1,12 @@
 ---
 title: DetailedNetworkLinking
 category: feature
-authors: alkaplan, apuimedo, danken, lpeer, moti
+authors:
+  - alkaplan
+  - apuimedo
+  - danken
+  - lpeer
+  - moti
 ---
 
 # Detailed Network Linking
@@ -14,7 +19,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 * Dynamically changing the network of a running VM (without unplugging the Vnic)
 * Unwiring a network of a VM without unplugging the vnic
-    
+
 [Network Linking Feature Page](/develop/release-management/features/network/networklinking.html)
 
 ### Owner

@@ -1,8 +1,16 @@
 ---
 title: Community
-authors: bproffitt, dneary, knesenko, quaid, sandrobonazzola, theron, gregsheremeta
+authors:
+  - bproffitt
+  - dneary
+  - knesenko
+  - quaid
+  - sandrobonazzola
+  - theron
+  - gshereme
 page_classes: community
 no_container: true
+hide_metadata: true
 ---
 
 <section class="community_head">

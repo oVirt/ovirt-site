@@ -1,7 +1,9 @@
 ---
 title: oVirt Quality Assurance
 category: integration
-authors: bproffitt, sandrobonazzola
+authors:
+  - bproffitt
+  - sandrobonazzola
 ---
 
 # oVirt Quality Assurance

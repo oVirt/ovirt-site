@@ -1,7 +1,12 @@
 ---
 title: Gluster Hooks Management
 category: feature
-authors: kmayilsa, prasanth, sahina, shireesh, Gobinda Das
+authors:
+  - kmayilsa
+  - prasanth
+  - sahina
+  - shireesh
+  - godas
 ---
 
 # Gluster Hooks Management

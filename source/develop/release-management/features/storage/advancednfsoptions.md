@@ -1,7 +1,12 @@
 ---
 title: AdvancedNfsOptions
 category: feature
-authors: derez, ecohen, ekohl, lhornyak, smizrahi
+authors:
+  - derez
+  - ecohen
+  - ekohl
+  - lhornyak
+  - smizrahi
 ---
 
 # Advanced Nfs Options

@@ -1,7 +1,10 @@
 ---
 title: cpu-pinning
 category: sla
-authors: doron, ecohen, lhornyak
+authors:
+  - doron
+  - ecohen
+  - lhornyak
 ---
 
 # cpu-pinning

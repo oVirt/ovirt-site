@@ -1,7 +1,9 @@
 ---
 title: How to license a project
 category: howto
-authors: cctrieloff, quaid
+authors:
+  - cctrieloff
+  - quaid
 ---
 
 # How to license a project

@@ -1,6 +1,12 @@
 ---
 title: DevProcess
-authors: amureini, gina, granha, ovedo, roy, snmishra, ybronhei
+authors:
+  - amureini
+  - granha
+  - ovedo
+  - roy
+  - snmishra
+  - ybronhei
 ---
 
 # Dev Process

@@ -1,7 +1,11 @@
 ---
 title: Vdsm Log Files
 category: vdsm
-authors: abaron, danken, fromani, quaid
+authors:
+  - abaron
+  - danken
+  - fromani
+  - quaid
 ---
 
 # Vdsm Log Files

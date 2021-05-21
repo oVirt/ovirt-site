@@ -1,7 +1,9 @@
 ---
 title: oVirt Board
 category: community
-authors: dneary, sandrobonazzola
+authors:
+ - dneary
+ - sandrobonazzola
 ---
 
 # oVirt Board

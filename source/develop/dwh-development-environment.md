@@ -2,7 +2,9 @@
 title: oVirt DWH development environment
 category: documentation
 toc: true
-authors: sradco, sdickers
+authors:
+  - sradco
+  - sdickers
 ---
 
 <!-- TODO: Content review -->

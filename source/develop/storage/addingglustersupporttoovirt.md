@@ -1,6 +1,8 @@
 ---
 title: AddingGlusterSupportToOvirt
-authors: ekohl, ovedo
+authors:
+  - ekohl
+  - ovedo
 ---
 
 <!-- TODO: Content review -->

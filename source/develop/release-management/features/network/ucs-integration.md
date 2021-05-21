@@ -1,7 +1,10 @@
 ---
 title: UCS Integration
 category: feature
-authors: apuimedo, danken, mburman
+authors:
+  - apuimedo
+  - danken
+  - mburman
 ---
 
 # UCS Integration

@@ -1,7 +1,12 @@
 ---
 title: Develop
 category: developer
-authors: dneary, jbrooks, ykaplan, sandrobonazzola, gshereme
+authors:
+  - dneary
+  - jbrooks
+  - ykaplan
+  - sandrobonazzola
+  - gshereme
 ---
 
 <section class="row">

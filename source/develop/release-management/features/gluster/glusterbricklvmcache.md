@@ -1,7 +1,9 @@
 ---
 title: LVMCache configuration for gluster brick provisioning
 category: feature
-authors: dchaplyg, sabose
+authors:
+  - dchaplyg
+  - sahina
 ---
 
 # LVMCache configuration for gluster brick provisioning

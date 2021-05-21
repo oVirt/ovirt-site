@@ -1,6 +1,15 @@
 ---
 title: oVirt 3.1 release notes
-authors: abonas, amureini, danken, dneary, jbrooks, nkesick, roy, sgordon, val0x00ff
+authors:
+  - abonas
+  - amureini
+  - danken
+  - dneary
+  - jbrooks
+  - nkesick
+  - roy
+  - sgordon
+  - val0x00ff
 ---
 
 # oVirt 3.1 release notes

@@ -1,7 +1,12 @@
 ---
 title: NetworkLabels
 category: feature
-authors: alkaplan, danken, lvernia, moti, mpavlik
+authors:
+  - alkaplan
+  - danken
+  - lvernia
+  - moti
+  - mpavlik
 ---
 
 # Network Labels

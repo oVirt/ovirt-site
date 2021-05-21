@@ -1,7 +1,7 @@
 ---
 title: High Performance VM
 category: feature
-authors: SharonG
+authors: sgratch
 ---
 
 # High Performance VM

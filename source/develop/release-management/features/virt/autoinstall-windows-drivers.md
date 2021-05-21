@@ -1,7 +1,7 @@
 ---
 title: Automatic installation of Windows drivers
 category: feature
-authors: Tomáš Golembiovský
+authors: tgolembi
 ---
 
 # Automatic installation of Windows drivers

@@ -1,7 +1,9 @@
 ---
 title: Watchdog Device
 category: sla
-authors: doron, sfeng
+authors:
+  - doron
+  - sfeng
 ---
 
 # Watchdog Device

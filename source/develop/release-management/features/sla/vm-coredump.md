@@ -1,7 +1,9 @@
 ---
 title: vm coredump
 category: feature
-authors: doron, sfeng
+authors:
+  - doron
+  - sfeng
 ---
 
 # vm coredump

@@ -1,7 +1,9 @@
 ---
 title: soft-host-to-vm-affinity-support
 category: feature
-authors: yquinn,msivak
+authors:
+  - yquinn
+  - msivak
 ---
 
 # Soft host to VM affinity support and Rack use case

@@ -1,7 +1,10 @@
 ---
 title: Managed Block Storage
 category: feature
-authors: frolland, bzlotnik, eshenitz
+authors:
+  - frolland
+  - bzlotnik
+  - eshenitz
 ---
 
 # Managed Block Storage

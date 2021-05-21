@@ -1,7 +1,11 @@
 ---
 title: Porting oVirt
 category: developer
-authors: alonbl, dneary, zhshzhou, sandrobonazzola
+authors:
+  - alonbl
+  - dneary
+  - zhshzhou
+  - sandrobonazzola
 ---
 
 # GNU/Linux distributions and oVirt

@@ -1,7 +1,9 @@
 ---
 title: Self Hosted Engine FC Support
 category: feature
-authors: sandrobonazzola, stirabos
+authors:
+  - sandrobonazzola
+  - stirabos
 ---
 
 # Self Hosted Engine FC Support

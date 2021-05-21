@@ -1,7 +1,12 @@
 ---
 title: oVirtAppliance
 category: feature
-authors: didi, doron, fabiand, mgoldboi, obasan
+authors:
+  - didi
+  - doron
+  - fabiand
+  - mgoldboi
+  - obasan
 ---
 
 # oVirt Appliance

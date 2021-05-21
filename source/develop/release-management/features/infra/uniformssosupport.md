@@ -1,7 +1,9 @@
 ---
 title: UniformSSOSupport
 category: feature
-authors: ovedo, rnori
+authors:
+  - ovedo
+  - rnori
 ---
 
 # Uniform SSO Support

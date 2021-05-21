@@ -1,7 +1,10 @@
 ---
 title: VDSM Stable API Plan
 category: api
-authors: danken, iheim, smizrahi
+authors:
+  - danken
+  - iheim
+  - smizrahi
 ---
 
 <!-- TODO: Content review -->

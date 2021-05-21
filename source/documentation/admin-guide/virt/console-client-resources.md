@@ -1,6 +1,8 @@
 ---
 title: Console Client Resources
-authors: fkobzik, sandrobonazzola
+authors:
+  - fkobzik
+  - sandrobonazzola
 ---
 
 # Console Clients Resources

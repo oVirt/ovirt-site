@@ -1,7 +1,10 @@
 ---
 title: SANLock
 category: vdsm
-authors: danken, fsimonce, teigland
+authors:
+  - danken
+  - fsimonce
+  - teigland
 ---
 
 # SAN Lock

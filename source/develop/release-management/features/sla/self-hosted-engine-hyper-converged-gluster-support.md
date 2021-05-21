@@ -1,7 +1,9 @@
 ---
 title: Self Hosted Engine Hyper Converged Gluster Support
 category: feature
-authors: sandrobonazzola,sabose
+authors:
+  - sandrobonazzola
+  - sahina
 ---
 
 # Self Hosted Engine Hyper Converged Gluster Support

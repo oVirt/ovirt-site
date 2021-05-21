@@ -1,7 +1,9 @@
 ---
 title: Xen
 category: how-to
-authors: danken, sandrobonazzola
+authors:
+  - danken
+  - sandrobonazzola
 ---
 
 <!-- TODO: Content review -->

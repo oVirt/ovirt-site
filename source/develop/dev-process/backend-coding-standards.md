@@ -1,6 +1,8 @@
 ---
 title: Backend Coding Standards
-authors: abonas, lhornyak
+authors:
+  - abonas
+  - lhornyak
 ---
 
 <!-- TODO: Content review -->

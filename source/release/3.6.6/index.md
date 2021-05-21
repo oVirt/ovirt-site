@@ -2,7 +2,11 @@
 title: oVirt 3.6.6 Release Notes
 category: documentation
 toc: true
-authors: didi, sandrobonazzola, rafaelmartins, fabiand
+authors:
+  - didi
+  - sandrobonazzola
+  - rafaelmartins
+  - fabiand
 page_classes: releases
 ---
 

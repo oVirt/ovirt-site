@@ -1,6 +1,8 @@
 ---
 title: Users and Providers
-authors: blafuente, bproffitt, sandrobonazzola
+authors:
+  - bproffitt
+  - sandrobonazzola
 page_classes: partner-logos
 ---
 

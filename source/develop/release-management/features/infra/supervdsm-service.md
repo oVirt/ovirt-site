@@ -1,7 +1,9 @@
 ---
 title: Supervdsm service
 category: feature
-authors: lvroyce, ybronhei
+authors:
+  - lvroyce
+  - ybronhei
 ---
 
 # Supervdsm service

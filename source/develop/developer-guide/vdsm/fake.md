@@ -1,7 +1,9 @@
 ---
 title: VDSM Fake
 category: vdsm
-authors: lspevak, tjelinek
+authors:
+  - lspevak
+  - tjelinek
 ---
 
 # VDSM Fake

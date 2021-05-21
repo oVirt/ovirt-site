@@ -1,6 +1,8 @@
 ---
 title: Testing-acceptance
-authors: doron, koen12
+authors:
+  - doron
+  - koen12
 ---
 
 # Testing-acceptance

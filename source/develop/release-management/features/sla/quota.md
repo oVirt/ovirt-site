@@ -1,7 +1,14 @@
 ---
 title: Quota
 category: feature
-authors: doron, gchaplik, jumper45, lpeer, mlipchuk, ovedo, sandrobonazzola
+authors:
+  - doron
+  - gchaplik
+  - jumper45
+  - lpeer
+  - mlipchuk
+  - ovedo
+  - sandrobonazzola
 ---
 
 # Quota

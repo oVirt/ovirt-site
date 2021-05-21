@@ -1,8 +1,16 @@
 ---
 title: Feature template
 category: feature
-authors: acathrow, danken, dneary, lvernia, nsoffer, ovedo, quaid, sandrobonazzola,
-  vered
+authors:
+  - acathrow
+  - danken
+  - dneary
+  - lvernia
+  - nsoffer
+  - ovedo
+  - quaid
+  - sandrobonazzola
+  - vered
 ---
 
 # Feature template

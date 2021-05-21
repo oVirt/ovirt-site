@@ -1,7 +1,11 @@
 ---
 title: Vdsm Getting Started
 category: vdsm
-authors: danken, lhornyak, quaid, tscofield
+authors:
+  - danken
+  - lhornyak
+  - quaid
+  - tscofield
 ---
 
 # Vdsm Getting Started

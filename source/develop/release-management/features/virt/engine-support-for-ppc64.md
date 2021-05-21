@@ -1,7 +1,12 @@
 ---
 title: Engine support for PPC64
 category: feature
-authors: gustavo.pedrosa, lbianc, ppinatti, roy, vitordelima
+authors:
+  - gustavo.pedrosa
+  - lbianc
+  - ppinatti
+  - roy
+  - vitordelima
 ---
 
 # Engine support for PPC64

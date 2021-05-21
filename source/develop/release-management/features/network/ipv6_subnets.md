@@ -1,7 +1,7 @@
 ---
 title: IPv6 subnets on ovirt-provider-ovn
 category: feature
-authors: mdbarroso
+authors: maiqueb
 ---
 
 # IPv6 subnets on ovirt-provider-ovn

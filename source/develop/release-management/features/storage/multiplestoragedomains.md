@@ -1,7 +1,10 @@
 ---
 title: Multiple storage domains
 category: feature
-authors: derez, jumper45, mkublin
+authors:
+  - derez
+  - jumper45
+  - mkublin
 ---
 
 # Design for multiple storage domains

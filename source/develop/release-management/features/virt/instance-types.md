@@ -1,7 +1,10 @@
 ---
 title: Instance Types
 category: feature
-authors: acathrow, ofrenkel, tjelinek
+authors:
+  - acathrow
+  - ofrenkel
+  - tjelinek
 ---
 
 # Instance Types

@@ -1,7 +1,10 @@
 ---
 title: Self Hosted Engine iSCSI Support
 category: feature
-authors: doron, jmoskovc, sandrobonazzola
+authors:
+  - doron
+  - jmoskovc
+  - sandrobonazzola
 ---
 
 # Self Hosted Engine iSCSI Support

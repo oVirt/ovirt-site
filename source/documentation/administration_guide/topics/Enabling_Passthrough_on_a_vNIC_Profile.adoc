@@ -1,7 +1,7 @@
 [[Enabling_Passthrough_on_a_vNIC_Profile]]
 ==== Enabling Passthrough on a vNIC Profile
 
-include::../../common/sriov/conc-Set_Up_and_Configure_SR-IOV.adoc[]
+include::../common/sriov/conc-Set_Up_and_Configure_SR-IOV.adoc[]
 
 The passthrough property of a vNIC profile enables a vNIC to be directly connected to a virtual function (VF) of an SR-IOV-enabled NIC. The vNIC will then bypass the software network virtualization and connect directly to the VF for direct device assignment.
 

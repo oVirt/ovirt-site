@@ -2,7 +2,7 @@
 ==== Virtual Machine System Settings Explained
 
 :context: vm_sys_settings
-include::../../common/admin/snip-CPU-Considerations.adoc[]
+include::../common/admin/snip-CPU-Considerations.adoc[]
 
 The following table details the options available on the *System* tab of the *New Virtual Machine* and *Edit Virtual Machine* windows.
 [[New_VMs_Initial_Run-226]]

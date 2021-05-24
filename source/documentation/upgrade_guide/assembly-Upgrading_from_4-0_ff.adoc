@@ -33,7 +33,7 @@ Upgrading your environment from 4.0 to 4.3 involves the following steps:
 . xref:Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-0_local_db_ff[Replace SHA-1 certificates with SHA-256 certificates.]
 
 // Prerequisites
-include::../../common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
+include::../common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
 ////
 
 THIS IS DONE AUTOMATICALLY BY ovirt-fast-forward-upgrade
@@ -57,7 +57,7 @@ If you try to continue without upgrading the cluster compatibility version to at
 
 You must now update the hosts before you can update the cluster and data center compatibility versions.
 
-include::../../common/upgrade/proc-Updating_Individual_Hosts.adoc[leveloffset=+1]
+include::../common/upgrade/proc-Updating_Individual_Hosts.adoc[leveloffset=+1]
 
 :4-0_local_db_ff!:
 
@@ -66,13 +66,13 @@ include::../../common/upgrade/proc-Updating_Individual_Hosts.adoc[leveloffset=+1
 
 You can now change the cluster compatibility version to 4.2.
 
-include::../../common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
+include::../common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
 
-include::../../common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
+include::../common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
 
 You can now change the data center compatibility version to 4.2.
 
-include::../../common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
+include::../common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
 
 :4-0-4-2_local_db_ff!:
 
@@ -84,14 +84,14 @@ Return to `ovirt-fast-forward-upgrade` and continue the process. The tool upgrad
 
 You can now change the cluster compatibility version to 4.3.
 
-include::../../common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
+include::../common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
 
-include::../../common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
+include::../common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
 
 You can now change the data center compatibility version to 4.3.
 
-include::../../common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
+include::../common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
 
-include::../../common/upgrade/proc-Replacing_SHA-1_Certificates_with_SHA-256_Certificates.adoc[leveloffset=+1]
+include::../common/upgrade/proc-Replacing_SHA-1_Certificates_with_SHA-256_Certificates.adoc[leveloffset=+1]
 
 :4-0_local_db_ff!:

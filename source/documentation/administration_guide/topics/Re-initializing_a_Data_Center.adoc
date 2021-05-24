@@ -10,7 +10,7 @@ You can import any backup or exported virtual machines or templates into your ne
 
 . Click menu:Compute[Data Centers] and select the data center.
 . Ensure that any storage domains attached to the data center are in maintenance mode.
-. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Re-Initialize Data Center*.
+. Click *More Actions* (image:common/images/moreactions.png[]), then click *Re-Initialize Data Center*.
 . The *Data Center Re-Initialize* window lists all available (detached; in maintenance mode) storage domains. Click the radio button for the storage domain you are adding to the data center.
 . Select the *Approve operation* check box.
 . Click btn:[OK].

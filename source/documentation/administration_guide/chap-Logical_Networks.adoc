@@ -90,9 +90,9 @@ include::topics/Adding_Network_Labels_to_Host_Network_Interfaces.adoc[]
 
 include::topics/Changing_the_FQDN_of_a_Host.adoc[]
 
-include::../common/network/con-IPv6_Networking_Support.adoc[leveloffset=+3]
+include::common/network/con-IPv6_Networking_Support.adoc[leveloffset=+3]
 
-include::../common/sriov/assembly-Set_Up_and_Configure_SR-IOV.adoc[leveloffset=+3]
+include::common/sriov/assembly-Set_Up_and_Configure_SR-IOV.adoc[leveloffset=+3]
 :Network!:
 
 [[sect-Network_Bonding]]

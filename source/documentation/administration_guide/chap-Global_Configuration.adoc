@@ -70,7 +70,7 @@ include::topics/Managing_System_Permissions_for_a_Virtual_Disk.adoc[]
 include::topics/Virtual_Disk_User_Roles_Explained.adoc[]
 
 :context: system_permissions
-include::../common/admin/proc-Setting_Legacy_SPICE_Cipher.adoc[leveloffset=+3]
+include::common/admin/proc-Setting_Legacy_SPICE_Cipher.adoc[leveloffset=+3]
 
 
 [[sect-Scheduling_Policies]]

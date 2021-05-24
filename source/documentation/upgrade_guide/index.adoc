@@ -1,5 +1,5 @@
 = Upgrade Guide
-include::../common/collateral_files/ovirt-attributes.adoc[]
+include::common/collateral_files/ovirt-attributes.adoc[]
 
 // Make sure Jekyll displays a guide title
 [discrete]

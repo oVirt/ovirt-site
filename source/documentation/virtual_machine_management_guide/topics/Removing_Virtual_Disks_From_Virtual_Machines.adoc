@@ -6,7 +6,7 @@
 . Click menu:Compute[Virtual Machines].
 . Click a virtual machine name to go to the details view.
 . Click the *Disks* tab and select the virtual disk to remove.
-. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Deactivate*.
+. Click *More Actions* (image:common/images/moreactions.png[]), then click *Deactivate*.
 . Click btn:[OK].
 . Click btn:[Remove].
 . Optionally, select the *Remove Permanently* check box to completely remove the virtual disk from the environment. If you do not select this option - for example, because the disk is a shared disk - the virtual disk will remain in menu:Storage[Disks].

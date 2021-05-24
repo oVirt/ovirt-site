@@ -1,5 +1,5 @@
 = Disaster Recovery Guide
-include::../common/collateral_files/ovirt-attributes.adoc[]
+include::common/collateral_files/ovirt-attributes.adoc[]
 :imagesdir: images
 :toclevels: 4
 

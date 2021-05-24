@@ -1,5 +1,5 @@
 = Installing {virt-product-fullname} as a standalone {engine-name} with remote databases
-include::../common/collateral_files/ovirt-attributes.adoc[]
+include::common/collateral_files/ovirt-attributes.adoc[]
 :context: SM_remoteDB_deploy
 :SM_remoteDB_deploy:
 
@@ -13,10 +13,10 @@ To install the {engine-name} with a remote {engine-name} database, manually crea
 
 See the link:{URL_downstream_virt_product_docs}html-single/planning_and_prerequisites_guide/index[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration.
 
-include::../common/arch/con-RHV_key_components.adoc[]
+include::common/arch/con-RHV_key_components.adoc[]
 
 [discrete]
-include::../common/arch/con-Standalone_Manager_Architecture.adoc[leveloffset=+1]
+include::common/arch/con-Standalone_Manager_Architecture.adoc[leveloffset=+1]
 
 [id='Install_overview_SM_remoteDB_deploy']
 == Installation Overview
@@ -54,7 +54,7 @@ Keep the environment up to date. Since bug fixes for known issues are frequently
 ====
 
 
-include::../common/prereqs/asm-Requirements.adoc[leveloffset=+1]
+include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 
 [id='Installing_the_Red_Hat_Virtualization_Manager_SM_remoteDB_deploy']
 == Installing the {virt-product-fullname} {engine-name}
@@ -69,34 +69,34 @@ This machine must meet the minimum xref:hardware-requirements_SM_remoteDB_deploy
 
 . Install a second {enterprise-linux} machine to use for the databases. This machine will be referred to as the remote server.
 
-include::../common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+2]
+include::common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+2]
 
 Before configuring the {virt-product-fullname} {engine-name}, you must manually configure the {engine-name} database on the remote server. You can also use this procedure to manually configure the Data Warehouse database if you do not want the Data Warehouse setup script to configure it automatically.
 
-include::../common/database/proc-Preparing_a_Remote_PostgreSQL_Database.adoc[leveloffset=+2]
+include::common/database/proc-Preparing_a_Remote_PostgreSQL_Database.adoc[leveloffset=+2]
 // Adding context back after assembly
 :context: install_RHVM
 
-include::../common/install/proc-Configuring_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+2]
+include::common/install/proc-Configuring_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+2]
 
 Install the Data Warehouse service and database on the remote server:
 
-include::../common/database/proc-Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine.adoc[leveloffset=+2]
+include::common/database/proc-Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine.adoc[leveloffset=+2]
 // Adding context back after assembly
 :context: install_RHVM
 
 Log in to the Administration Portal, where you can add hosts and storage to the environment:
 
-include::../common/admin/proc-Connecting_to_the_Administration_Portal.adoc[leveloffset=+2]
+include::common/admin/proc-Connecting_to_the_Administration_Portal.adoc[leveloffset=+2]
 //end sect
 // Adding context back after assembly
 :context: SM_remoteDB_deploy
 
-include::../common/install/assembly-Installing_Hosts_for_RHV.adoc[leveloffset=+1]
+include::common/install/assembly-Installing_Hosts_for_RHV.adoc[leveloffset=+1]
 
-include::../common/storage/assembly-Preparing_Storage_for_RHV.adoc[leveloffset=+1]
+include::common/storage/assembly-Preparing_Storage_for_RHV.adoc[leveloffset=+1]
 
-include::../common/storage/assembly-Adding_Storage_Domains_to_RHV.adoc[leveloffset=+1]
+include::common/storage/assembly-Adding_Storage_Domains_to_RHV.adoc[leveloffset=+1]
 
 :numbered!:
 
@@ -104,16 +104,16 @@ include::../common/storage/assembly-Adding_Storage_Domains_to_RHV.adoc[leveloffs
 :context: SM_remoteDB_deploy
 
 [appendix]
-include::../common/install/proc-Installing_the_Websocket_Proxy_on_a_different_host.adoc[leveloffset=+1]
+include::common/install/proc-Installing_the_Websocket_Proxy_on_a_different_host.adoc[leveloffset=+1]
 
 [appendix]
-include::../common/install/appe-Set_up_Cinderlib.adoc[leveloffset=+1]
+include::common/install/appe-Set_up_Cinderlib.adoc[leveloffset=+1]
 
 [appendix]
-include::../common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+1]
+include::common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+1]
 
 [appendix]
-include::../common/admin/proc-Removing_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
+include::common/admin/proc-Removing_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
 
 [appendix]
 == Legal notice

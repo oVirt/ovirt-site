@@ -7,6 +7,6 @@ A storage domain encountering errors may not be able to be removed through the n
 *Destroying a Storage Domain*
 
 . Click menu:Storage[Domains].
-. Select the storage domain and click *More Actions* (image:../common/images/moreactions.png[]), then click *Destroy*.
+. Select the storage domain and click *More Actions* (image:common/images/moreactions.png[]), then click *Destroy*.
 . Select the *Approve operation* check box.
 . Click btn:[OK].

@@ -19,7 +19,7 @@ The data domain is attached to a data center.
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
 . Click the *Disks* tab.
 . Select all disks belonging to the virtual machine.
-. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Move*.
+. Click *More Actions* (image:common/images/moreactions.png[]), then click *Move*.
 . Under *Target*, select the domain.
 . Click btn:[OK].
 

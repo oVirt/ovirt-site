@@ -188,10 +188,11 @@ The details of the REST for Gluster Volume Snapshot feature are as below -
 
 ### Listing APIs
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots|rel=get - lists all the snapshots for a given volume
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots|rel=get` - lists all the snapshots for a given volume
 
 Output:
 
+```xml
     <volume_snapshots>
         <volume_snapshot href="" id="">
             <actions>
@@ -204,11 +205,13 @@ Output:
                     <createdAt>{timestamp}</createdAt>
         </volume_snapshot>
     </volume_snapshots>
+```
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}|rel=get - lists the details of a specific snapshot of a volume
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}|rel=get` - lists the details of a specific snapshot of a volume
 
 Output:
 
+```xml
     <volume_snapshot href="" id="">
         <actions>
         </actions>
@@ -219,11 +222,13 @@ Output:
         <status>{status}</status>
             <createAt>{timestamp}</createAt>
     </volume_snapshot>
+```
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}|rel=get - Gluster volume listing would be updated to list the snapshot configuration parameters and scheduling details of snapshots (if any) as well
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}|rel=get` - Gluster volume listing would be updated to list the snapshot configuration parameters and scheduling details of snapshots (if any) as well
 
 Output:
 
+```xml
     <glustervolume>
     ........
     <volume_snapshot_configuration_parameters>
@@ -236,11 +241,13 @@ Output:
         <cron_expression>{cron expression of the schedule}</cron_expression>
     </volume_snapshot_schedule>
     </glustervolume>
+```
 
-*   /api/clusters/{cluster-id}|rel=get - Cluster listing would be updated to list the snapshot configuration parameters as well
+*   `/api/clusters/{cluster-id}|rel=get` - Cluster listing would be updated to list the snapshot configuration parameters as well
 
 Output:
 
+```xml
     <cluster>
     ........
     <volume_snapshot_configuration_parameters>
@@ -258,10 +265,11 @@ Output:
         </volume_snapshot_configuration_parameter>
     </volume_snapshot_configuration_parameters>
     </cluster>
+```
 
 ### Actions Supported
 
-*   /ap/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots|rel=add - creates and adds a new snapshot for the given volume
+*   `/ap/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots|rel=add` - creates and adds a new snapshot for the given volume
     -   Parameters
         -   name - String
         -   [description] - string
@@ -270,6 +278,7 @@ Output:
 
 Input:
 
+```xml
     <action>
         <volume_snapshot>
             <name>{name}</name>
@@ -277,27 +286,29 @@ Input:
                     <force>{true/false}</force>
         </volume_snapshot>
     </action>
+```
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}|rel=delete - deletes snapshot
-
-<!-- -->
-
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}/restore|rel=restore - restores the given volume to the given snapshot
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}|rel=delete` - deletes snapshot
 
 <!-- -->
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}/activate|rel=activate - activates the given volume snapshot
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}/restore|rel=restore` - restores the given volume to the given snapshot
 
 <!-- -->
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}/deactivate|rel=deactivate - deactivates the given volume snapshot
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}/activate|rel=activate` - activates the given volume snapshot
 
 <!-- -->
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/rel=post - to schedule snapshot creation for a volume use the below POST request on volume
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/volumesnapshots/{volume-snapshot-id}/deactivate|rel=deactivate` - deactivates the given volume snapshot
+
+<!-- -->
+
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/rel=post` - to schedule snapshot creation for a volume use the below POST request on volume
 
 Input:
 
+```xml
     <action>
         <gluster_volume>
             .
@@ -307,14 +318,16 @@ Input:
             </volume_snapshot_schedule>
         <gluster_volume>
     </action>
+```
 
-*   /api/clusters/{cluster-id}/rel=post - to set snapshot configuration parameters value for the given cluster use the below POST request on cluster
+*   `/api/clusters/{cluster-id}/rel=post` - to set snapshot configuration parameters value for the given cluster use the below POST request on cluster
     -   Parameters
         -   name-value pair of configuration parameters
         -   [force]
 
 Input:
 
+```xml
     <action>
         <cluster>
             .
@@ -332,14 +345,16 @@ Input:
         </cluster>
         <force>true/false</force>
     </action>
+```
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/rel=post - to set snapshot configuration parameters for the given volume use the below POST request on volume
+*   `/api/clusters/{cluster-id}/glustervolumes/{volume-id}/rel=post` - to set snapshot configuration parameters for the given volume use the below POST request on volume
     -   Parameters
         -   name-value pair of configuration parameters
         -   [force]
 
 Input:
 
+```xml
     <action>
         <gluster_volume>
             .
@@ -357,5 +372,4 @@ Input:
         </gluster_volume>
         <force>true/false</force>
     </action>
-
-[Category: Feature](Category: Feature) [GlusterVolumeSnapshots](Category:oVirt 4.0 Proposed Feature)
+```

@@ -11,13 +11,19 @@ authors:
 
 ## Summary
 
-Currently, gluster nodes use the same network for both management traffic and gluster traffic when these nodes are managed by oVirt. The nodes use the IP address/ host name used when adding the host to oVirt for this. This causes issues as high glusterfs traffic chokes the management requests and VMs on these hosts sometimes fail to respond.
+Currently, gluster nodes use the same network for both management traffic and gluster traffic when these nodes are managed by oVirt.
+The nodes use the IP address/ host name used when adding the host to oVirt for this.
+This causes issues as high glusterfs traffic chokes the management requests and VMs on these hosts sometimes fail to respond.
 
-Gluster does not yet have a mechanism to specify which networks are to be used depending on the type of traffic - internal vs. others. There's a planned feature with some details here - [Gluster Split Network](https://web.archive.org/web/20160628142018/http://www.gluster.org/community/documentation/index.php/Features/SplitNetwork)
+Gluster does not yet have a mechanism to specify which networks are to be used depending on the type of traffic - internal vs. others.
+There's a planned feature with some details here - [Gluster Split Network](https://web.archive.org/web/20160628142018/http://www.gluster.org/community/documentation/index.php/Features/SplitNetwork)
 
-With the existing feature set in Gluster, the proposed solution is to separate out the glusterfs traffic at the time of adding bricks to a gluster volume. Glusterfs uses the IP address specified for the brick for all traffic related to brick on that node. So, when a host has multiple interfaces, user can choose the interface to be used while adding the brick, by tagging one of the host's interface with the "Storage network" role.
+With the existing feature set in Gluster, the proposed solution is to separate out the glusterfs traffic at the time of adding bricks to a gluster volume.
+Glusterfs uses the IP address specified for the brick for all traffic related to brick on that node.
+So, when a host has multiple interfaces, user can choose the interface to be used while adding the brick, by tagging one of the host's interface with the "Storage network" role.
 
-In case, the user wants to continue to add brick's using host's FQDN (for instance, when they have DNS setup outside of oVirt to separate out networks) , no interfaces should be marked with the "Storage network" role.
+In case, the user wants to continue to add brick's using host's FQDN (for instance, when they have DNS setup outside of oVirt to separate out networks),
+no interfaces should be marked with the "Storage network" role.
 
 **Limitations**
 
@@ -57,7 +63,8 @@ There's no change to the existing user interface for Add Brick.
 
 ![](/images/wiki/Edit_brick.png)
 
-User should be provided an option to change IP address for all bricks on a host. This would be available under "Bricks" sub-tab of host. This will recursively call the "replace-brick commit force" for each of the bricks selected
+User should be provided an option to change IP address for all bricks on a host.
+This would be available under "Bricks" sub-tab of host. This will recursively call the "replace-brick commit force" for each of the bricks selected
 
 ![](/images/wiki/EditBricks.png)
 
@@ -69,17 +76,17 @@ Addition of a new Network role - Storage network
 
 ### Change to GlusterBricks entity
 
-GlusterBricks entity will have an additional property that holds the address used to add the brick.
+`GlusterBricks` entity will have an additional property that holds the address used to add the brick.
 
-*   brickInterface
+*   `brickInterface`
 
 Table gluster_volume_bricks will have an additional column. This will be populated only if brick is using storage network instead of vds.host_address to add the brick.
 
-| Column name   | Type | Description                                                            |
-|---------------|------|------------------------------------------------------------------------|
-| interface_id | UUID | Nullable. Id of the host's interface. FK to id of vds_interface table |
+| Column name  | Type | Description                                                            |
+|--------------|------|------------------------------------------------------------------------|
+| interface_id | UUID | Nullable. Id of the host's interface. FK to id of vds_interface table  |
 
-GlusterBrick.getQualifiedName() - changes to use the brickIPAddress property if not empty otherwise uses VdsStatic.hostName
+`GlusterBrick.getQualifiedName()` - changes to use the `brickIPAddress` property if not empty otherwise uses `VdsStatic.hostName`
 
 ### Change to GlusterSyncJob
 
@@ -87,20 +94,18 @@ Update the correct IP address returned from gluster CLI output rather than mappi
 
 ### Change to VDSM API
 
-No change to the GlusterVolume.addBrick API Existing Parameters: 'data': {'volumeName': 'str', 'brickList': ['str'], '\*replicaCount': 'int', '\*stripeCount': 'int', '\*force': 'bool'}
+No change to the `GlusterVolume.addBrick` API Existing Parameters: 'data': {'volumeName': 'str', 'brickList': ['str'], '\*replicaCount': 'int', '\*stripeCount': 'int', '\*force': 'bool'}
 
 brickList will continue to be array of strings of the form <ip adress or hostname>:<brick directory>
 
 ### Change to REST API
 
-POST /clusters/{cluster:id}/glustervolumes/{glustervolume:id}/bricks|rel=add - NO CHANGE
+**POST** `/clusters/{cluster:id}/glustervolumes/{glustervolume:id}/bricks|rel=add` - NO CHANGE
 
 GlusterBricks entity has an optional parameter where the network to be used while creating the brick can be passed. If not set, the engine will select the network appropriately
 
 New API:
 
-      PUT /clusters/{cluster:id}/glustervolumes/{glustervolume:id}/bricks/{brick:id}|rel=update
+**PUT** `/clusters/{cluster:id}/glustervolumes/{glustervolume:id}/bricks/{brick:id}|rel=update`
 
 The network to be updated for brick, is passed as a parameter in the GlusterBrickEntity
-
-[GlusterHostDiskManagement](Category: Feature) [Category: Gluster](Category: Gluster) [GlusterHostDiskManagement](Category:oVirt 4.0 Proposed Feature)

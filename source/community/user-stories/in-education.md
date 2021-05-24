@@ -14,7 +14,7 @@ Because of the critical work such institutions do, we want to highlight these or
 
 ## Asia
 
-[National University of Sciences & Technology](http://nust.edu.pk/Pages/Default.aspx), Islamabad, Pakistan
+[National University of Sciences & Technology](https://nust.edu.pk/), Islamabad, Pakistan
 The National University of Sciences and Technology aims to emerge as a comprehensive residential institution responsive to technological change, dedicated to excellence and committed to international educational and research needs of Pakistan.
 
 ## Europe

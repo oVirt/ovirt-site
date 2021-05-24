@@ -8,6 +8,10 @@ authors:
 
 # Optaplanner integration with scheduling
 
+{:.alert.alert-warning}
+The project ovirt-optimizer has been discontinued and it's no longer maintained. The following section is kept only for reference.
+
+
 ## Owner
 
 *   Feature Owner: Martin Sivák (msivak)
@@ -43,7 +47,6 @@ There are two repositories you can use:
 
 *   latest release - <https://copr.fedoraproject.org/coprs/msivak/ovirt-optimizer/>
 *   latest for oVirt 3.6 - <https://copr.fedoraproject.org/coprs/msivak/ovirt-optimizer-for-ovirt-3.6/>
-*   latest nightly from the git repo - <https://jenkins.ovirt.org/job/ovirt-optimizer_master_build-artifacts-el8-x86_64/>
 
 Five packages are currently available:
 

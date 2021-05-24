@@ -117,7 +117,7 @@ If the above command doesn't work for you, try using a distribution-specific nam
 
           # yum update ovirt-release-fedora
 
-*   **Note:** On CentOS and RHEL you'll need also [EPEL](http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm) repositories enabled.
+*   **Note:** On CentOS and RHEL you'll need also [EPEL](https://archives.fedoraproject.org/pub/archive/epel/6/x86_64/epel-release-6-8.noarch.rpm) repositories enabled.
 *   **Note:** On CentOS and RHEL for DWH you'll need also [jpackage 6](http://mirrors.ibiblio.org/jpackage/6.0/generic/RPMS.free/jpackage-release-6-3.jpp6.noarch.rpm) repositories enabled.
 *   **Note:** On Fedora 19 you'll need to enable fedora-updates repository for having updated openstack packages (was in fedora-updates-testing until Jan 23th - you might want to run 'yum clean all').
 *   **Note:** On Fedora 19, you'll need to enable fedora-virt-preview repository for using Fedora 19 as node on 3.4 clusters.

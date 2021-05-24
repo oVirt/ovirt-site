@@ -64,8 +64,8 @@ These institutions have chosen oVirt to manage their virtual workloads. See also
 
 <div class="case-studies">
 <div class="case-study">
-[![NUST](/images/logos/Nust.svg)](http://nust.edu.pk/Pages/Default.aspx)
-The [National University of Sciences & Technology (NUST)](http://nust.edu.pk/Pages/Default.aspx) is a public research university in Islamabad, Pakistan. The university primarily focuses on Science, technology, engineering and mathematics.
+[![NUST](/images/logos/Nust.svg)](https://nust.edu.pk/)
+The [National University of Sciences & Technology (NUST)](https://nust.edu.pk/) is a public research university in Islamabad, Pakistan. The university primarily focuses on Science, technology, engineering and mathematics.
 </div>
 
 <div class="case-study">

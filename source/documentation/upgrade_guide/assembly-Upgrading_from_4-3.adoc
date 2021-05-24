@@ -22,43 +22,43 @@ Upgrading your environment from 4.3 to 4.4 involves the following steps:
 . If you previously upgraded to 4.3 without replacing SHA-1 certificates with SHA-256 certificates, xref:Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-3_local_db[you must replace the certificates now].
 
 // Prerequisites
-include::../common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
+include::common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
 * Ensure the {engine-name} has the correct repositories enabled. For the list of required repositories, see link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.4.
 // This link must always be for the starting version of this assembly.
 // review above
 
-include::../common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
+include::common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
 
-// include::../common/upgrade/proc-Updating_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
+// include::common/upgrade/proc-Updating_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
 
-include::../common/upgrade/proc-Upgrading_the_Manager_to_4-4.adoc[leveloffset=+1]
+include::common/upgrade/proc-Upgrading_the_Manager_to_4-4.adoc[leveloffset=+1]
 
 // Add new {engine-name} upgrade versions here
 
 You can now update the hosts.
 
-include::../common/upgrade/proc-Upgrading_hosts_to_4-4.adoc[leveloffset=+1]
+include::common/upgrade/proc-Upgrading_hosts_to_4-4.adoc[leveloffset=+1]
 
-include::../common/upgrade/proc-Upgrading_hypervisor_preserve_local_storage.adoc[leveloffset=+1]
+include::common/upgrade/proc-Upgrading_hypervisor_preserve_local_storage.adoc[leveloffset=+1]
 
-// include::../common/upgrade/proc-Updating_all_hosts_in_a_cluster.adoc[leveloffset=+1]
+// include::common/upgrade/proc-Updating_all_hosts_in_a_cluster.adoc[leveloffset=+1]
 
 You can now update the cluster compatibility version.
 
-include::../common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
+include::common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
 
 You can now update the cluster compatibility version for virtual machines in the cluster.
 
-include::../common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
+include::common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
 
 You can now update the data center compatibility version.
 
-include::../common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
+include::common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
 
 // Upgrades from 4.3 or earlier only
 If you previously upgraded to 4.3 without replacing SHA-1 certificates with SHA-256 certificates, you must do so now.
 
-include::../common/upgrade/proc-Replacing_SHA-1_Certificates_with_SHA-256_Certificates.adoc[leveloffset=+1]
+include::common/upgrade/proc-Replacing_SHA-1_Certificates_with_SHA-256_Certificates.adoc[leveloffset=+1]
 
 
 :4-3_local_db!:

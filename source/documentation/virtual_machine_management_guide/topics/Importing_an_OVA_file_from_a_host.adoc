@@ -27,7 +27,7 @@ The location can be a local directory or a remote nfs mount, as long as it has s
 ----
 +
 . Click menu:Compute[Virtual Machines].
-. Click *More Actions* (image:../common/images/moreactions.png[]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
+. Click *More Actions* (image:common/images/moreactions.png[]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
 .. Select *Virtual Appliance (OVA)* from the *Source* list.
 .. Select a host from the *Host* list.
 .. In the *Path* field, specify the absolute path of the OVA file.

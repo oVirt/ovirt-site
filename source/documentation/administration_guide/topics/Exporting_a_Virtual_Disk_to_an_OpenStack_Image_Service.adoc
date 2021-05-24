@@ -9,7 +9,7 @@ Virtual disks can only be exported if they do not have multiple volumes, are not
 ====
 
 . Click menu:Storage[Disks] and select the disks to export.
-. Click *More Actions* (image:../common/images/moreactions.png[]), then click *Export*.
+. Click *More Actions* (image:common/images/moreactions.png[]), then click *Export*.
 . From the *Domain Name* drop-down list, select the OpenStack Image Service to which the disks will be exported.
 . From the *Quota* drop-down list, select a quota for the disks if a quota is to be applied.
 . Click btn:[OK].

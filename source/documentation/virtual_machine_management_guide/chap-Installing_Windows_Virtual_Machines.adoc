@@ -15,7 +15,7 @@ Installing a Windows virtual machine involves the following key steps:
 
 When all of these steps are complete, the new virtual machine is functional and ready to perform tasks.
 
-include::../common/install/proc-Creating_a_virtual_machine.adoc[leveloffset=+1]
+include::common/install/proc-Creating_a_virtual_machine.adoc[leveloffset=+1]
 
 [[sect-Starting_the_Virtual_Machine_Using_the_Run_Once_Option]]
 == Starting the virtual machine using Run Once
@@ -27,7 +27,7 @@ include::topics/Opening_a_Console_to_a_Virtual_Machine.adoc[leveloffset=+2]
 [[Installing_Guest_Agents_and_Drivers_Windows]]
 == Installing guest agents and drivers
 
-include::../common/install/ref-Red_Hat_Virtualization_Guest_Agents_and_Drivers.adoc[leveloffset=+2]
+include::common/install/ref-Red_Hat_Virtualization_Guest_Agents_and_Drivers.adoc[leveloffset=+2]
 
 include::topics/Installing_the_Guest_Agents_and_Drivers_on_Windows.adoc[leveloffset=+2]
 

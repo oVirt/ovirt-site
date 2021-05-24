@@ -1,7 +1,7 @@
 [[Editing_VFs_on_NIC]]
 ==== Configuring virtual functions on a NIC
 
-include::../../common/sriov/conc-Set_Up_and_Configure_SR-IOV.adoc[]
+include::../common/sriov/conc-Set_Up_and_Configure_SR-IOV.adoc[]
 
 Single Root I/O Virtualization (SR-IOV) enables you to use each PCIe endpoint as multiple separate devices by using physical functions (PFs) and virtual functions (VFs). A PCIe card can have between one and eight PFs. Each PF can have many VFs. The number of VFs it can have depends on the specific type of PCIe device.
 

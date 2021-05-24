@@ -13,7 +13,7 @@ Do not use the *Confirm host has been rebooted* option unless you have manually 
 
 . In the Administration Portal, click menu:Compute[Hosts] and confirm the host's status is `Non Responsive`.
 . Manually reboot the host. This could mean physically entering the lab and rebooting the host.
-. In the Administration Portal, select the host and click *More Actions* (image:../common/images/moreactions.png[]), then click *Confirm 'Host has been Rebooted'*.
+. In the Administration Portal, select the host and click *More Actions* (image:common/images/moreactions.png[]), then click *Confirm 'Host has been Rebooted'*.
 . Select the *Approve Operation* check box and click btn:[OK].
 . If your hosts take an unusually long time to boot, you can set `ServerRebootTimeout` to specify how many seconds to wait before determining that the host is `Non Responsive`:
 +

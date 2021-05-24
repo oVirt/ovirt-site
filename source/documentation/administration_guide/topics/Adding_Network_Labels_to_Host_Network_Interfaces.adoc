@@ -22,7 +22,7 @@ There are two methods of adding labels to a host network interface:
 
 You can automate the process of assigning labels to host network interfaces in the configured list of clusters with the LLDP Labeler service.
 
-include::../../common/network/proc-Configuring_LLDP_Labeler.adoc[]
+include::../common/network/proc-Configuring_LLDP_Labeler.adoc[]
 
 You have added a network label to a host network interface. Newly created logical networks with the same label are automatically assigned to all host network interfaces with that label. Removing a label from a logical network automatically removes that logical network from all host network interfaces with that label.
 

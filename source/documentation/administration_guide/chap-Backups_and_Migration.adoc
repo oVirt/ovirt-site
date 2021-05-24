@@ -17,30 +17,30 @@ include::topics/Restoring_a_Backup_with_the_engine-backup_Command.adoc[]
 
 include::topics/Restoring_a_Backup_to_a_Fresh_Installation.adoc[]
 
-include::../common/backup-restore/proc-Restoring_a_Backup_to_Overwrite_an_Existing_Installation.adoc[leveloffset=+3]
+include::common/backup-restore/proc-Restoring_a_Backup_to_Overwrite_an_Existing_Installation.adoc[leveloffset=+3]
 
 include::topics/Restoring_a_Backup_with_Different_Credentials.adoc[]
 
-include::../common/backup-restore/assembly-Backing_up_and_Restoring_a_Self-Hosted_Engine.adoc[leveloffset=+3]
+include::common/backup-restore/assembly-Backing_up_and_Restoring_a_Self-Hosted_Engine.adoc[leveloffset=+3]
 
-include::../common/backup-restore/assembly-Recovering_a_Self-Hosted_Engine.adoc[leveloffset=+3]
+include::common/backup-restore/assembly-Recovering_a_Self-Hosted_Engine.adoc[leveloffset=+3]
 
-include::../common/backup-restore/assembly-Overwriting_a_Self-Hosted_Engine.adoc[leveloffset=+3]
+include::common/backup-restore/assembly-Overwriting_a_Self-Hosted_Engine.adoc[leveloffset=+3]
 
 [[migrating-rhv-databases]]
 === Migrating {virt-product-fullname} Databases to Remote Servers
 
 :context: migrate_database
 
-include::../common/database/proc-Migrating_the_Manager_database_to_a_remote_server.adoc[leveloffset=+3]
+include::common/database/proc-Migrating_the_Manager_database_to_a_remote_server.adoc[leveloffset=+3]
 //Adding back context
 :context: migrate_database
 
-include::../common/database/proc-Migrating_the_self-hosted_engine_database_to_a_remote_server.adoc[leveloffset=+3]
+include::common/database/proc-Migrating_the_self-hosted_engine_database_to_a_remote_server.adoc[leveloffset=+3]
 //Adding back context
 :context: migrate_database
 
-include::../common/database/assembly-Migrating_Data_Warehouse_to_a_Separate_Machine.adoc[leveloffset=+3]
+include::common/database/assembly-Migrating_Data_Warehouse_to_a_Separate_Machine.adoc[leveloffset=+3]
 
 :context!: migrate_database
 

@@ -13,7 +13,7 @@ include::topics/Satellite_Host_Provider_Hosts.adoc[]
 === Host Tasks
 :context: host_tasks
 
-include::../common/install/proc-Adding_standard_hosts_to_the_Manager.adoc[leveloffset=+3]
+include::common/install/proc-Adding_standard_hosts_to_the_Manager.adoc[leveloffset=+3]
 
 include::topics/Adding_a_Satellite_Host_Provider_Host.adoc[]
 
@@ -40,7 +40,7 @@ include::topics/Configuring_Host_Power_Management_Settings.adoc[]
 
 include::topics/Configuring_Host_SPM_Settings.adoc[]
 
-include::../common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+3]
+include::common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+3]
 
 include::topics/Moving_a_host_to_maintenance_mode.adoc[]
 
@@ -53,7 +53,7 @@ include::topics/Removing_a_host.adoc[]
 include::topics/Updating_a_host_between_minor_releases.adoc[leveloffset=+3]
 
 :admin:
-include::../common/install/proc-Reinstalling_Hosts.adoc[leveloffset=+3]
+include::common/install/proc-Reinstalling_Hosts.adoc[leveloffset=+3]
 :admin!:
 
 :context: host_tasks
@@ -66,7 +66,7 @@ include::topics/Viewing_Host_Devices.adoc[]
 
 include::topics/Accessing_Cockpit_from_the_Admin_Portal.adoc[]
 
-include::../common/admin/proc-Setting_Legacy_SPICE_Cipher.adoc[leveloffset=+3]
+include::common/admin/proc-Setting_Legacy_SPICE_Cipher.adoc[leveloffset=+3]
 
 :context!: host_tasks
 

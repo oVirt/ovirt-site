@@ -45,7 +45,7 @@ If the import fails, refer to the relevant log file in */var/log/vdsm/import/* a
 +
 . Log in to the Administration Portal.
 . Click menu:Compute[Virtual Machines].
-. Click *More Actions* (image:../common/images/moreactions.png[]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
+. Click *More Actions* (image:common/images/moreactions.png[]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
 . Select the *Data Center* that contains the proxy host.
 . Select *KVM (via Libvirt)* from the *Source* drop-down list.
 . Optionally, select a KVM provider *External Provider* from the drop-down list. The URI will be pre-filled with the correct URI. See link:{URL_virt_product_docs}administration_guide/index.html#Adding_KVM_as_an_External_Provider[Adding a KVM Host as a Virtual Machine Provider] in the _Administration Guide_ for more information.

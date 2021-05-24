@@ -55,40 +55,40 @@ include::topics/Understanding_Storage.adoc[]
 [[sect-Preparing_and_Adding_NFS_Storage]]
 === Preparing and Adding NFS Storage
 
-include::../common/storage/proc-Preparing_NFS_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Preparing_NFS_Storage.adoc[leveloffset=+3]
 
-include::../common/storage/proc-Adding_NFS_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Adding_NFS_Storage.adoc[leveloffset=+3]
 
 include::topics/Increasing_NFS_Storage.adoc[]
 
 [[sect-Preparing_and_Adding_Local_Storage]]
 === Preparing and Adding Local Storage
 
-include::../common/storage/proc-Preparing_Local_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Preparing_Local_Storage.adoc[leveloffset=+3]
 
-include::../common/storage/proc-Adding_Local_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Adding_Local_Storage.adoc[leveloffset=+3]
 
 [[sect-Preparing_and_Adding_POSIX_Compliant_File_System_Storage]]
 === Preparing and Adding POSIX-compliant File System Storage
 
-include::../common/storage/ref-Preparing_POSIX_Storage.adoc[leveloffset=+3]
+include::common/storage/ref-Preparing_POSIX_Storage.adoc[leveloffset=+3]
 
-include::../common/storage/proc-Adding_POSIX_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Adding_POSIX_Storage.adoc[leveloffset=+3]
 
 [[sect-Preparing_and_Adding_Block_Storage]]
 === Preparing and Adding Block Storage
 
-include::../common/storage/ref-Preparing_iSCSI_Storage.adoc[leveloffset=+3]
+include::common/storage/ref-Preparing_iSCSI_Storage.adoc[leveloffset=+3]
 
-include::../common/storage/proc-Adding_iSCSI_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Adding_iSCSI_Storage.adoc[leveloffset=+3]
 
 include::topics/Configuring_iSCSI_Multipathing.adoc[]
 
 include::topics/proc-Migrating_a_logical_network_to_an_iscsi_bond.adoc[leveloffset=+3]
 
-include::../common/storage/ref-Preparing_FCP_Storage.adoc[leveloffset=+3]
+include::common/storage/ref-Preparing_FCP_Storage.adoc[leveloffset=+3]
 
-include::../common/storage/proc-Adding_FCP_Storage.adoc[leveloffset=+3]
+include::common/storage/proc-Adding_FCP_Storage.adoc[leveloffset=+3]
 
 include::topics/Increasing_iSCSI_or_FCP_Storage.adoc[]
 
@@ -97,9 +97,9 @@ include::topics/Reusing_LUNs.adoc[]
 [[Adding_Red_Hat_Gluster_Storage]]
 === Preparing and Adding {gluster-storage-fullname}
 
-include::../common/storage/ref-Preparing_Red_Hat_Gluster_Storage.adoc[leveloffset=+3]
+include::common/storage/ref-Preparing_Red_Hat_Gluster_Storage.adoc[leveloffset=+3]
 
-include::../common/storage/ref-Adding_Red_Hat_Gluster_Storage.adoc[leveloffset=+3]
+include::common/storage/ref-Adding_Red_Hat_Gluster_Storage.adoc[leveloffset=+3]
 
 
 [[sect-Importing_Existing_Storage_Domains]]
@@ -138,7 +138,7 @@ include::topics/Detaching_a_storage_domain.adoc[]
 
 include::topics/Attaching_a_storage_domain.adoc[]
 
-include::../common/storage/proc-Removing_a_Storage_Domain.adoc[leveloffset=+3]
+include::common/storage/proc-Removing_a_Storage_Domain.adoc[leveloffset=+3]
 
 include::topics/Destroying_a_storage_domain.adoc[]
 

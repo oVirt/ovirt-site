@@ -24,7 +24,7 @@ include::topics/Changing_the_Data_Center_Storage_Type.adoc[leveloffset=-1]
 
 :context: admin
 :admin:
-include::../common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+2]
+include::common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+2]
 
 [[sect-Data_Centers_and_Storage_Domains]]
 == Data Centers and Storage Domains

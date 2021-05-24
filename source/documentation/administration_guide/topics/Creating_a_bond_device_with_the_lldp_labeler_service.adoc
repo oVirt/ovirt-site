@@ -5,7 +5,7 @@ The LLDP Labeler service enables you to create a bond device automatically with 
 
 NICs with xref:Bond_logical_networks_compatibility[incompatible logical networks] cannot be bonded.
 
-include::../../common/network/proc-Configuring_LLDP_Labeler.adoc[]
+include::../common/network/proc-Configuring_LLDP_Labeler.adoc[]
 
 . Attach a logical network to the new bond and configure it. See xref:Editing_host_network_interfaces[] for instructions.
 +

@@ -200,5 +200,3 @@ Shared raw disk will be dependent on floating disk.
 *   Disks main tab -> VMs sub-tab - should it include Plugged/UnPlugged status column ?
 *   Permissions for actions on disks - who is permitted to invoke: Attach/Detach/Edit/Delete/Move ?
 *   More actions should be added to Disks main tab: New/Edit/Remove/Move/etc.
-
-[Category: Feature](Category: Feature)

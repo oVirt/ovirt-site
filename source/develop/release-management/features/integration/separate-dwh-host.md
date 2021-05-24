@@ -82,4 +82,4 @@ Details:
 When upgrading the engine, dwhd must be first stopped, then upgraded, then started. Otherwise it might try to collect inconsistent data, from a database in the middle of an upgrade, or from an upgraded database. In previous versions this was forced by engine-setup. Now that might be impossible, if they are on separate machines. To enforce that, a new flag was added to the database, marking that dwhd is up. It's set by dwhd on start, cleared on stop, and tested by engine-setup. Another flag was added to mark that dwhd should stop. If engine-setup sees that dwhd is up, it asks it to stop by marking that flag, then waits some time, and eventually times out and aborts if dwhd didn't mark that it is stopped. The most likely cause of this is an uncontrolled exit of dwhd, e.g. killing it with SIGKILL or unplugging the power of its host.
 
 
-[Separate DWH Host](/develop/release-management/features/) [Separate DWH Host](/develop/release-management/releases/3.5/feature.html) [Separate DWH Host](Category:Integration)
+[Separate DWH Host](/develop/release-management/features/) [Separate DWH Host](/develop/release-management/releases/3.5/feature.html)

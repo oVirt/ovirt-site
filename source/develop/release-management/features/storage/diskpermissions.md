@@ -140,7 +140,3 @@ Affected oVirt projects:
 *   Direct LUN - Add/Remove Direct LUN disk has its own commands or share the same Disk Add/Remove ? If share, need to distinguish the required permission by the Disk in the *CommandBase.getPermissionCheckSubjects*
 
 ## Documentation / External references
-
-
-
-[Category: Feature](Category: Feature)

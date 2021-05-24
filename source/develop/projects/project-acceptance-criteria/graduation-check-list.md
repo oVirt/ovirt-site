@@ -69,5 +69,3 @@ This should contain
 5.) provide a public record of the authors, This will be posted on the oVirt site, however it does not hurt to also include an AUTHORS file with details of maintainers & contributors, so people know whom the subject matter experts are.
 
 (Edited from source material from Dan Berrange)
-
-[Category:Project acceptance criteria](Category:Project acceptance criteria)

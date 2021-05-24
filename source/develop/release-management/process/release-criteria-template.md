@@ -28,5 +28,3 @@ authors: bproffitt
 6.  MUST: All features working on previous release must still work in the new release if not dropped as deprecated
 
 [1] This means we're not hosting any package we don't develop inside oVirt repository just because it's not yet released officially.
-
-[Category:Release management](Category:Release management)

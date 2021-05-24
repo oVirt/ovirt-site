@@ -136,4 +136,4 @@ Users will be able to use iSCSI storage as data domain for Hosted Engine.
 
 
 
-[Self Hosted Engine iSCSI Support](/develop/release-management/features/) [Self Hosted Engine iSCSI Support](/develop/release-management/releases/3.5/feature.html) [Self Hosted Engine iSCSI Support](Category:Integration)
+[Self Hosted Engine iSCSI Support](/develop/release-management/features/) [Self Hosted Engine iSCSI Support](/develop/release-management/releases/3.5/feature.html)

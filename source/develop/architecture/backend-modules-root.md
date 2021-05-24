@@ -12,4 +12,3 @@ authors: amuller
 
 ![](/images/wiki/LandingPage.png)
 
-[Category: Architecture](Category: Architecture)

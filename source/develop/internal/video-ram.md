@@ -1,6 +1,7 @@
 ---
 title: Video RAM
 authors: mzamazal
+category: draft
 ---
 
 # Video RAM
@@ -89,5 +90,3 @@ We use the following settings in new oVirt versions (per PCI device):
     -   vram = 8 MB for other guest OSes
 *   vnc/vga and vnc/cirrus:
     -   vram = 16 MB
-
-[Category:Draft documentation](Category:Draft documentation)

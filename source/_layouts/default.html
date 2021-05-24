@@ -10,44 +10,42 @@
     <main id="page-wrap" class="page-wrap" aria-label="Content">
       <section id="page" class="page">
         {% include nav-breadcrumbs.html %}
-
         {% unless page.hide_metadata %}
-        {% if page.authors %}
-          <header class="post-header col-md-4 pad-sides well well-lg">
-            <h2 class="post-title entry-title">Authors:</h2>
-            <header class="post-meta">
-              {% for author_hash in page.authors %}
-              {% assign author = site.data.authors[author_hash] %}
-              {% unless author %}
-                {{ "You're missing author " | append: author_hash | raise_error }}
-              {% endunless %}
-              {% unless author.name %}
-                {{ "You're missing author's name for " | append: author_hash | raise_error }}
-              {% endunless %}
-              <div class="blogger_avatar">
-                <img
-                  src="https://secure.gravatar.com/avatar/{{ author.gravatar }}?s=32&amp;d=mm&amp;r=g"
-                  srcset="https://secure.gravatar.com/avatar/{{ author.gravatar }}?s=64&amp;d=mm&amp;r=g 2x"
-                  class="avatar avatar-32 photo"
-                  height="32"
-                  width="32"
-                  loading="lazy">
-              </div>
-              <span class="byline">
-                <section class="entry-meta">
-                  {% if author.twitter != null %}
-                  <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/{{ author.twitter }}" title="{{ author.name }}">{{ author.name }}</a></span></p>
-                  {% else %}
-                  <p><span class="author vcard">{{ author.name }}</span></p>
-                  {% endif %}
-                </section>
-              </span>
-            {% endfor %}
+          {% if page.authors %}
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                {% for author_id in page.authors %}
+                  {% assign author = site.data.authors[author_id] %}
+                  {% unless author %}
+                    {{ "You're missing author " | append: author_id | raise_error }}
+                  {% endunless %}
+                  {% unless author.name %}
+                    {{ "You're missing author's name for " | append: author_id | raise_error }}
+                  {% endunless %}
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/{{ author.gravatar }}?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/{{ author.gravatar }}?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      {% if author.twitter %}
+                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/{{ author.twitter }}" title="{{ author.name }}">{{ author.name }}</a></span></p>
+                      {% else %}
+                        <p><span class="author vcard">{{ author.name }}</span></p>
+                      {% endif %}
+                    </section>
+                  </span>
+                {% endfor %}
+              </header>
             </header>
-          </header>
-        {% endif %}
-      {% endunless %}
-
+          {% endif %}
+        {% endunless %}
         <section id="content" class="content{% unless page.no_container %} container{% endunless %}">
           {{ content }}
         </section>

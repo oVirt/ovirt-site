@@ -15,7 +15,7 @@ Paul Venezia, Infoworld <https://www.infoworld.com/author/Paul-Venezia/>
 
 Paul Ferrill, Serverwatch <http://www.serverwatch.com/author/Paul-Ferrill-3660.htm>
 
-Frank Ohlhorst, eWEEK, TechTarget, others <http://www.eweek.com/cp/bio/Frank-Ohlhorst/>
+Frank Ohlhorst, eWEEK, TechTarget, others <https://www.eweek.com/author/frank-j-ohlhorst/>
 
 Michael Otey, WindowsITPro <http://www.windowsitpro.com/author/5030568/MichaelOtey>
 
@@ -35,7 +35,7 @@ Sean Deuby, WindowsITPro <http://www.windowsitpro.com/author/5202540/SeanDeuby>
 
 Charles Babcock, InformationWeek <http://www.informationweek.com/authors/Charles-Babcock>
 
-Chris Preimesberger, eWEEK <http://www.eweek.com/cp/bio/Chris-Preimesberger/>
+Chris Preimesberger, eWEEK <https://www.eweek.com/author/cpreimesberger/>
 
 Kevin McLaughlin, CRN kevin.mclaughlin@ubm.com
 

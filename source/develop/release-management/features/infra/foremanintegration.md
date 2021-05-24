@@ -212,7 +212,7 @@ To allow testing the feature in "allinone" configuration, which means running fo
 *   Copy /etc/resolve.conf from the physical host that runs the VMs and set this host as the default gw
 *   Set EPEL Repo:
 
-`wget `[`http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`](http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm)
+`wget `[`https://archives.fedoraproject.org/pub/archive/epel/6/x86_64/epel-release-6-8.noarch.rpm`](https://archives.fedoraproject.org/pub/archive/epel/6/x86_64/epel-release-6-8.noarch.rpm)
       rpm -ivh epel-release-6-8.noarch.rpm
 
 *   Install foreman:

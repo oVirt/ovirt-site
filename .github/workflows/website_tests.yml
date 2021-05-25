@@ -81,3 +81,9 @@ jobs:
       - name: "Website HTMLProofer Test"
         run: $PODEXEC bundle exec ruby htmlproofer_test.rb
 
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: site-without-markdown
+          path: |
+            _site

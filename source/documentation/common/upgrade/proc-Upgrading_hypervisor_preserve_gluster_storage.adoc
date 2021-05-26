@@ -1,0 +1,357 @@
+[id='Upgrading_hypervisor_preserving_gluster_storage_{context}']
+= Upgrading {hypervisor-shortname} while preserving gluster storage
+
+// Included in:
+// Upgrading from 4.3 to {virt-product-fullname} 4.4
+
+.Prerequisites
+
+* Recommended way is to keep the workloads on the Virtual Machines as minimal as possible,as this will help to shorten the upgrade window. If there are highly write intensive workloads, then the time taken to sync back data will be longer, leading to the longer upgrade window.
+* If there are geo-replication schedules on the storage domains, just remove those schedules, as in case that may overlap with the upgrade window.
+* If there are already existing geo-replication sync happening, wait for the sync to complete to start the upgrade.
+* Additional disk space of 100GB is required on 3 hosts for creating new volume for the new {hypervisor-shortname} 4.4 engine deployment.
+* All data centers and clusters in the environment must have the cluster compatibility level set to version 4.3 before you start the procedure.
+
+.Restriction
+
+* If the previous version of {virt-product-fullname} environment doesn't have deduplication and compression enabled, that can’t be enabled during upgrade to {hypervisor-shortname} 4.4.
+* Network-Bound Disk Encryption (NBDE) is supported only with new deployments with {virt-product-fullname} 4.4. This feature can’t be enabled during upgrade.
+
+.Procedure
+
+. Create a new gluster volume for {hypervisor-shortname} 4.4 engine deployment
+.. Create a new brick on each host for the new {hypervisor-shortname} 4.4 HostedEngine Virtual Machine(VM)
+.. If you have the spare disk in the setup, then follow the document Create Volume from web console
+.. If there is enough space for a new engine brick of size 100GB in the existing Volume Group(VG), then that can be used as a new engine Logical Volume (LV). Following commands has to be executed on all the hosts, unless specified explicitly.
+.. Check for free size of Volume Group (VG) on using *vgdisplay <VG_NAME> | grep -i free*
+.. Create one more Logical Volume in this VG *lvcreate -n gluster_lv_newengine -L 100G <EXISTING_VG>*
+.. Format the new Logical Volume (LV) with XFS *mkfs.xfs  <LV_NAME>*
+.. Create the mount point for this new brick *mkdir /gluster_bricks/newengine*
+.. Create an entry corresponding to the newly created filesystem in /etc/fstab and mount that filesystem
+.. Set the SELinux Labels on the brick mount points using
+
+ semanage fcontext -a -t glusterd_brick_t /gluster_bricks/newengine
+ restorecon -Rv /gluster_bricks/newengine
+
+.. Create new gluster volume by executing the gluster command on one of the hosts in the cluster
+
+ gluster volume create newengine replica 3 host1:/gluster_bricks/newengine/newengine host2:/gluster_bricks/newengine/newengine host3:/gluster_bricks/newengine/newengine
+
+.. Set the required volume options on the newly created volume. Run the following commands on one of the hosts in the cluster
+
+ gluster volume set newengine group virt
+ gluster volume set newengine network.ping-timeout 30
+ gluster volume set newengine cluster.granular-entry-heal enable
+ gluster volume set newengine network.remote-dio off
+ gluster volume set newengine performance.strict-o-direct on
+ gluster volume set newengine storage.owner-uid 36
+ gluster volume set newengine storage.owner-gid 36
+
+.. Start the newly created gluster volume. Run the following command on one of the hosts in the cluster
+
+ gluster volume start newengine
+
+. Backup the gluster configuration on all {hypervisor-shortname} 4.3 nodes using the backup playbook.
+
+.. Backup playbook is available with the latest version of {hypervisor-shortname} 4.3 If this playbook is not available, create playbook and inventory file referring to create:
+
+ /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/archive_config.yml .
+ Example:
+ all:
+  hosts:
+    host1:
+    host2:
+    host3:
+  vars:
+    backup_dir: /archive
+    nbde_setup: false
+    upgrade: true
+
+.. Edit the backup inventory file with correct details
+
+  Common variables
+  backup_dir ->  Absolute path to directory that contains the extracted contents of the backup archive
+  nbde_setup -> Set to ‘false’ as the {virt-product-fullname} 4.3 setup doesn’t support NBDE
+  upgrade -> Default value ‘true’ . This value will make no effect with backup
+
+.. Switch to the directory and execute the playbook
+
+ ansible-playbook -i archive_config_inventory.yml archive_config.yml --tags backupfiles
+
+.. The generated backup configuration tar file is generated under /root with the name *{hypervisor-shortname}-<HOSTNAME>-backup.tar.gz*. On all the hosts, copy the backup configuration tar file to the backup host.
+
+. Using Manager Administration Portal, migrate the VMs running on the first host to other hosts in the cluster.
+
+. Backup Engine Configurations using *engine-backup --mode=backup --scope=all --file=<backup-file.tar.gz> --log=<logfile>*
+
++
+[NOTE]
+====
+
+* Before taking backup make sure.
+
+* Enable  ‘Global Maintenance’ for hosted engine(HE).
+
+* Login into the Engine VM using SSH and stop the ovirt-engine service.
+
+* After backup copy the backup file from the hosted engine VM to the remote host
+
+* Shutdown the Engine
+
+====
++
+
+. Check for any pending self-heal on all the replica 3 volumes. Wait for the heal to be completed. Run the following command on one of the hosts.
++
+[options="nowrap" subs="normal"]
+----
+# gluster volume heal <volume> info summary
+----
++
+
+. Stop glusterfs brick process and unmount all the bricks on the first host to maintain file system consistency. Run the following on the first host command line:
++
+[options="nowrap" subs="normal"]
+----
+# pkill glusterfsd; pkill glusterfs
+# systemctl stop glusterd
+# umount /gluster_bricks/*
+----
+
+. Reinstall the host with {hypervisor-shortname} 4.4 ISO, only formatting the OS disk.
++
+[IMPORTANT]
+====
+Make sure that the installation doesn’t format the other disks, as bricks are created on top of those disks.
+====
++
+
+. Once the node is up post {hypervisor-shortname} 4.4 installation reboot, subscribe to {hypervisor-shortname} 4.4 repos as per installation guide or install the {hypervisor-shortname} 4.4 appliance downloaded.
+
+ # yum install <appliance>
+
+. Blacklist the devices used for gluster bricks.
+
+.. Create the new SSH private and public key pairs.
+
+.. Establish SSH public key authentication ( passwordless SSH ) to the same host, using frontend and backend network FQDN
+
+.. Create the inventory file:
+
+ /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/blacklist_inventory.yml
+ Example:
+ hc_nodes:
+  hosts:
+    host1-backend-FQDN.example.com:
+      blacklist_mpath_devices:
+         - sda
+         - sdb
+
+.. Run the playbook *ansible-playbook -i blacklist_inventory.yml /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/tasks/gluster_deployment.yml --tags blacklistdevices*
+
+. Copy the engine backup and host config tar files from the backup host to the newly installed host and untar the content using scp.
+
+. Restore gluster configuration files.
+
+.. Extract the contents of gluster configuration files
+
+ # mkdir /archive
+ # tar -xvf /root/ovirt-host-host1.example.com.tar.gz -C /archive/
+
++
+.. Edit the inventory file to perform restoration of the configuration files. Inventory file is available at */etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/archive_config_inventory.yml*
+
+ Example playbook content:
+ all:
+   hosts:
+ 	host1.example.com:
+   vars:
+ 	backup_dir: /archive
+ 	nbde_setup: false
+ 	upgrade: true
+
+ [IMPORTANT] Use only one host under ‘hosts’ section of restoration playbook.
+
+.. Execute the playbook to restore configuration files
+
+ ansible-playbook -i archive_config_inventory.yml archive_config.yml --tags restorefiles
+
+. Perform engine deployment with option --restore-from-file pointing to the backed-up archive from the engine. This engine deployment can be done interactively using ‘hosted-engine --deploy’ command, providing the storage corresponding to newly created engine volume. The same can also be done using ovirt-ansible-hosted-engine-setup in an automated way. Following procedure explains the automated way of deploying HostedEngine VM using the backup
+
+.. Create the playbook for HostedEngine deployment in the newly installed host: */etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/he.yml*
++
+----
+- name: Deploy oVirt hosted engine
+  hosts: localhost
+  roles:
+    - role: ovirt.hosted_engine_setup
+
+----
++
+
+.. Update the HostedEngine related information using the template file: */etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/he_gluster_vars.json*
++
+Example:
++
+[options="nowrap" subs="normal"]
+----
+# cat /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment/he_gluster_vars.json
+
+{
+  "he_appliance_password": "<password>",
+  "he_admin_password": "<password>",
+  "he_domain_type": "glusterfs",
+  "he_fqdn": "<hostedengine.example.com>",
+  "he_vm_mac_addr": "<00:18:15:20:59:01>",
+  "he_default_gateway": "<19.70.12.254>",
+  "he_mgmt_network": "ovirtmgmt",
+  "he_storage_domain_name": "HostedEngine",
+  "he_storage_domain_path": "</newengine>",
+  "he_storage_domain_addr": "<host1.example.com>",
+  "he_mount_options": "backup-volfile-servers=<host2.example.com>:<host3.example.com>",
+  "he_bridge_if": "<eth0>",
+  "he_enable_hc_gluster_service": true,
+  "he_mem_size_MB": "16384",
+  "he_cluster": "Default",
+  "he_restore_from_file": "/root/engine-backup.tar.gz",
+  "he_vcpus": 4
+}
+----
++
+
+[IMPORTANT]
+====
+* In the above he_gluster_vars.json, There are 2 important values: “he_restore_from_file” and “he_storage_domain_path”. The first option “he_restore_from_file” should point to the absolute file name of the engine backup archive copied to the local machine. The second option “he_storage_domain_path” should refer to the newly created gluster volume.
+* Also note that the previous version of {hypervisor-shortname} Version running inside the engine VM is down and that will be discarded.  MAC Address and FQDN corresponding to the older engine VM can be reused for the new engine as well
+====
+
+.. For static engine network configuration, add few more options as listed below
++
+[options="nowrap" subs="normal"]
+----
+  “he_vm_ip_addr”:  “<engine VM ip address>”
+  “he_vm_ip_prefix”:  “<engine VM ip prefix>”
+  “he_dns_addr”:  “<engine VM DNS server>”
+  “he_default_gateway”:  “<engine VM default gateway>”
+----
++
+[IMPORTANT]
+====
+Note: If there are no specific DNS available, then try to include 2 more options
+“he_vm_etc_hosts”: true  and “he_network_test”: “ping”
+====
+
+.. Run the playbook to deploy HostedEngine Deployment
++
+[options="nowrap" subs="normal"]
+----
+# cd /etc/ansible/roles/gluster.ansible/playbooks/hc-ansible-deployment
+# ansible-playbook he.yml --extra-vars='@he_gluster_vars.json'
+----
+
+
+.. Wait for the hosted engine deployment to complete
++
+[IMPORTANT]
+====
+* If there are any failures during Hosted Engine deployment, find the problem looking at the log messages under /var/log/ovirt-hosted-engine-setup, fix the problem. Clean the failed hosted engine deployment using the command ‘ovirt-hosted-engine-cleanup’ and rerun the deployment again
+====
+
+. Login into the {hypervisor-shortname} 4.4 Administration Portal on the newly installed {virt-product-fullname} manager. Make sure all the hosts are in ‘up’ state. Also wait for the self-heal on the gluster volumes to be completed.
+
+. Upgrade the next host
+
+.. Move the next host (i.e) ideally the next in order, to maintenance from Administration Portal. Also stop gluster service while moving this host to Maintenance.
+
+.. From the command line of the host unmount gluster bricks
++
+[options="nowrap" subs="normal"]
+----
+# umount /gluster_bricks/*
+----
+
+.. Reinstall this host with {hypervisor-shortname} 4.4.
++
+[IMPORTANT]
+====
+
+* Make sure that the installation doesn’t format the other disks, as bricks are created on top of those disks.
+
+====
+
+.. If multipath configuration is not available on the newly installed host, blacklist the gluster devices.The inventory file is already created in the first host as part of step-9. Setup SSH public key authentication from that first host to the newly installed host, update the inventory with the new host name and execute the playbook.
+
+.. Copy the gluster configuration tar files from the backup host to the newly installed host and untar the content.
+
+.. Restore gluster configuration on the newly installed host by executing the playbook referring to step 11 on this host.
++
+[IMPORTANT]
+====
+
+* Edit the  playbook on the newly installed host and execute it referring to the step-12. Do not change hostname and execute on the same host
+
+====
+
+.. Reinstall the host in {hypervisor-shortname} Administration Portal Copy the authorized key from the first deployed host in {hypervisor-shortname} 4.4
++
+[options="nowrap" subs="normal"]
+----
+# scp root@host1.example.com:/root/.ssh/authorized_keys /root/.ssh/
+----
++
+
+... In the *Administration Portal*, The host will be in ‘Maintenance’. Click on ‘Compute’ > Select ‘Hosts’ > Click on ‘Installation’ > Select ‘Reinstall’. New host dialog box will open, select *HostedEngine* tab and choose hosted engine deployment action as  *deploy*.
+
+... Wait for the host to become *Up*
+
+.. Make sure that there are no errors in the volumes related to GFID mismatch. If there are any resolve them.
++
+[options="nowrap" subs="normal"]
+----
+grep -i ‘gfid mismatch’ /var/log/glusterfs/*
+----
+
+. Repeat the step 14 for all the {hypervisor-shortname} in the cluster
+
+. *[optional]* If the separate gluster logical network exists in the cluster, then attach that gluster logical network to the required interface on each host.
+
+. Remove old engine storage domain. Identify the old engine storage domain with name ‘hosted_storage’ and no golden star next to it, listed under ‘Storage’ > ‘Domains’
+
+.. Click on ‘Storage’ > ‘Domains’ > Select ‘hosted_storage’ > ‘Data center’ tab > ‘Maintenance’
+
+.. Wait for that storage domain to move in to ‘Maintenance’
+
+.. Once the storage domain moved in to ‘Maintenance’, click on ‘Detach’, the storage domain will go ‘unattached’
+
+.. Select the unattached storage domain and click on ‘Remove’ button > OK
+
+. Stop and remove old engine volume
+.. Click on ‘Storage’ > ‘Volumes’ > Select old engine volume > Click on ‘Stop’ button > Confirm ‘OK’
+.. Click on the same volume > ‘Remove’ > Confirm ‘OK’
+
+. Update the cluster compatibility
+.. Select ‘Compute’ > ‘Clusters’ > Select the cluster ‘Default’ > ‘Edit’ > update ‘Compatibility Version’ of 4.4 > OK
++
+[IMPORTANT]
+====
+There will be a warning for changing compatibility version, which requires VMs on the cluster to be restarted > OK
+====
+
+. As there are new gluster volume options available with {hypervisor-shortname} 4.4, apply those volume options on all the volumes. Execute the following on one of the nodes in the cluster.
++
+[options="nowrap" subs="normal"]
+----
+# for vol in `gluster volume list`; do gluster volume set $vol group virt; done
+----
+
+. Remove the archives and extracted contents of backup configuration files on all the nodes
+
+*Creating an additional Gluster volume using the Web Console*
+
+. Log in to the Web Console.
+. Click Virtualization → Hosted Engine and then click Manage Gluster.
+. Click Create Volume. The Create Volume window opens.
+.. On the Hosts tab, select three different ovirt-ng-nodes with unused disks and click Next.
+.. On the Volumes tab, specify the details of the volume you want to create and click Next.
+.. On the Bricks tab, specify the details of the disks to be used to create the volume and click Next.
+.. On the Review tab, check the generated configuration file for any incorrect information. When you are satisfied, click Deploy.

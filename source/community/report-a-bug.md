@@ -31,7 +31,7 @@ Here is how to report a bug found in oVirt:
 3. Now choose a product on which to enter a bug. e.g., for issues with the management application, select ‘ovirt-engine’.
 4. On the next page, under Show Advanced Fields, choose a Component. Unsure? Simply enter your best guess.
 5. In the Version box, enter the project version.
-6. Select the oVirt Team. If you are unsure, follow the suggestion from step 4.
+6. Select the oVirt Team. If you are unsure, you can leave it set to `---`
 7. In the Summary field, enter a short description of the problem. e.g., "Cannot connect to virtual machines using Console."
 8. In the Description field, we recommend that you follow the provided template.
 <br>All other fields can be left at their default value.

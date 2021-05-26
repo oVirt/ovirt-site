@@ -40,7 +40,7 @@ Several presentations both on the technical side and on the user side are availa
 
 # Joining a team
 
-Within oVirt project several teams are taking care of different aspects of the system.
+Within oVirt project several teams are taking care of different aspects of the system. The [oVirt Bugzilla](https://bugzilla.redhat.com/buglist.cgi?quicksearch=classification%3Aovirt) tickets are classified by oVirt team to identify the main impacted area.
 
 - [Project Infrastructure](infra/infrastructure.html): takes care of the oVirt datacenter and of all the systems and services running within the datacenter such as Jenkins, Gerrit, Apache, ...
 - [Integration and Node](integration/index.html): integrates the oVirt subprojects making them work together as a complete solution.
@@ -50,8 +50,13 @@ Within oVirt project several teams are taking care of different aspects of the s
 - Virtualization: responsible for VM lifecycle, System and host level scheduling / SLA
 - User Experience: responsible for UI Infra and overall UX consistency.
 
+You can check open tickets for each team for getting a brief idea of what we are working on with this report:
+[oVirt bugs per team](https://bugzilla.redhat.com/report.cgi?x_axis_field=bug_status&y_axis_field=cf_ovirt_team&z_axis_field=target_milestone&no_redirect=1&query_format=report-table&bug_status=__open__&j_top=AND&f1=OP&j1=OR&f2=classification&o2=equals&v2=oVirt&f4=CP&f5=noop&o5=noop&v5=&format=table&action=wrap)
+
+
 The teams are discussing their work on [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list so to join a team
 you should start getting involved in these conversations.
+
 
 # Contributing Code
 

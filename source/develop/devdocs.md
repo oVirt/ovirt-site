@@ -41,7 +41,6 @@ authors:
 - [Submitting a patch with Gerrit](/develop/dev-process/working-with-gerrit.html)
 - [The development process](/develop/dev-process/devprocess.html)
 - [Release management](/develop/release-management/process/release-process.html)
-- [Getting in contact with the oVirt community](/community/about/contact.html)
 - [Becoming a maintainer](/develop/dev-process/becoming-a-maintainer.html)
 - [Localization](/develop/localization.html)
 

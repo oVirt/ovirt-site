@@ -18,8 +18,6 @@ The members of the Integration team are
 *   [Sandro Bonazzola](https://github.com/sandrobonazzola)
 *   [Lev Veyde (Lveyde)](https://github.com/lveyde)
 *   [Asaf Rachmani](https://github.com/arachmani)
-*   [Gal Zaidman](https://github.com/Gal-Zaidman)
-*   [Evgeny Slutsky](https://github.com/eslutsky)
 
 Past contributors
 
@@ -33,12 +31,15 @@ Past contributors
 *   [Ido Rosenzwig](https://github.com/irosenzw)
 *   [Douglas Landgraf](https://github.com/dougsland)
 *   [Aviv Turgeman](https://github.com/avivtur)
+*   [Gal Zaidman](https://github.com/Gal-Zaidman)
+*   [Evgeny Slutsky](https://github.com/eslutsky)
 
 
 ## What does Integration team do?
 
 Leads the following projects:
 
+*   [oVirt Node](/download/node.html)
 *   oVirt Engine Setup
 *   oVirt DWH Setup
 *   oVirt Host Deploy

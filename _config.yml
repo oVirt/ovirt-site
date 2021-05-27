@@ -139,36 +139,25 @@ exclude:
   - CODEOWNERS
   # avoid generating paginated asciidoc content
   - documentation/common/**/*
-  - documentation/administration_guide/appe*
+  - documentation/**/appe*
+  - documentation/**/common/**/*.adoc
   - documentation/administration_guide/chap*
-  - documentation/administration_guide/common/**/*.adoc
   - documentation/administration_guide/part*
   - documentation/administration_guide/topics
   - documentation/data_warehouse_guide/chap*
   - documentation/data_warehouse_guide/topics
-  - documentation/data_warehouse_guide/common/**/*.adoc
   - documentation/disaster_recovery_guide/assembly
   - documentation/disaster_recovery_guide/concept
   - documentation/disaster_recovery_guide/reference
   - documentation/disaster_recovery_guide/task
-  - documentation/disaster_recovery_guide/common/**/*.adoc
-  - documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/common/**/*.adoc
-  - documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/common/**/*.adoc
-  - documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/common/**/*.adoc
-  - documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/common/**/*.adoc
   - documentation/introduction_to_the_vm_portal/topics
   - documentation/introduction_to_the_vm_portal/chap*
-  - documentation/introduction_to_the_vm_portal/common/**/*.adoc
-  - documentation/migrating_from_a_standalone_manager_to_a_self-hosted_engine/common/**/*.adoc
   - documentation/upgrade_guide/assembly*
   - documentation/upgrade_guide/chap-*
   - documentation/upgrade_guide/topics
-  - documentation/upgrade_guide/common/**/*.adoc
-  - documentation/virtual_machine_management_guide/appe*
   - documentation/virtual_machine_management_guide/chap*
   - documentation/virtual_machine_management_guide/topics
   - documentation/virtual_machine_management_guide/assembly*
-  - documentation/virtual_machine_management_guide/common/**/*.adoc
 sass:
   add_charset: true
   style: :compressed

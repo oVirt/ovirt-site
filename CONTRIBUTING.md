@@ -96,20 +96,6 @@ rvm use 2.5
 ./setup.sh && ./run-server.sh
 ```
 
-Please note that due to symlinks in documentation directories you may see errors like:
-
-```
-        ** ERROR: directory is already being watched! **
-
-        Directory: /ovirt-site/source/documentation/administration_guide/common
-
-        is already being watched through: /ovirt-site/source/documentation/common
-
-        MORE INFO: https://github.com/guard/listen/blob/master/README.md
-```
-
-These errors can be safely ignored.
-
 If the site builds successfully, you will see this message:
 The Jekyll web server is standing watch at http://\[address\]:4000
 (the exact URL is given on the terminal when Jekyll is ready)

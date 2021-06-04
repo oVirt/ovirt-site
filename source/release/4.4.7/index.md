@@ -21,7 +21,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.7 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.7 First Release Candidate as of May 27, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.7 Second Release Candidate as of June 04, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -99,7 +99,18 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
    oVirt Engine now requires WildFly 23
 
 
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1966574](https://bugzilla.redhat.com/1966574) **Update the required Grafana to 7.3 in ovirt-dwh**
+
+   Required Grafana version changed from 6.7 to 7.3.
+
+
 #### oVirt Engine
+
+ - [BZ 1966145](https://bugzilla.redhat.com/1966145) **Remove version lock on specific ansible version and require ansible 2.9.z &gt;= 2.9.21 in ovirt-engine**
+
+   ovirt-engine in RHV 4.4.7 requires ansible 2.9.z higher than 2.9.20. Also in RHV 4.4.7 version for specific ansible version has been removed, because correct ansible version shipped in RHV channels.
 
  - [BZ 1938101](https://bugzilla.redhat.com/1938101) **Rebase on Wildfly 23**
 
@@ -214,7 +225,18 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
 
 ### Other
 
+#### oVirt Host Dependencies
+
+ - [BZ 1947450](https://bugzilla.redhat.com/1947450) **ovirt-host shouldn't have hard dependency on vdsm hooks**
+
+   
+
+
 #### oVirt Engine Data Warehouse
+
+ - [BZ 1877478](https://bugzilla.redhat.com/1877478) **[RFE] collect network metrics in DWH ( rx and tx drop )**
+
+   
 
  - [BZ 1896359](https://bugzilla.redhat.com/1896359) **"Count threads as cores" option is not honored by the RHV Dashboard CPU graph**
 
@@ -223,6 +245,10 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
 
 #### VDSM
 
+ - [BZ 1947450](https://bugzilla.redhat.com/1947450) **ovirt-host shouldn't have hard dependency on vdsm hooks**
+
+   
+
  - [BZ 1944495](https://bugzilla.redhat.com/1944495) **GET diskattachments for a VM using qemu-guest-agent is missing a logical_name for disks without monted file-system**
 
    
@@ -230,15 +256,51 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
 
 #### oVirt Engine
 
+ - [BZ 1962177](https://bugzilla.redhat.com/1962177) **Disk search API returns zero result if max parameter is specified**
+
+   
+
+ - [BZ 1930298](https://bugzilla.redhat.com/1930298) **'NUMA Node Count' number is not set if at the same editing the user sets vcpu pinning.**
+
+   
+
+ - [BZ 1954404](https://bugzilla.redhat.com/1954404) **[RFE][cinderlib] Add option to copy Managed block storage disks via the UI**
+
+   
+
+ - [BZ 1954878](https://bugzilla.redhat.com/1954878) **[RFE] Auto Pinning Policy: improve tooltip description and policy names**
+
+   
+
+ - [BZ 1956106](https://bugzilla.redhat.com/1956106) **VM fails on start with XML error: Invalid PCI address 0000:12:01.0. slot must be &lt;= 0**
+
+   If this bug requires documentation, please select an appropriate Doc Type value.lsscsi | grep disk | awk '{print $NF}'
+
+parted /dev/sda	 --script \-- mklabel gpt
+
+parted -a optimal /dev/sda mkpart primary 0% 1024MB
+
+mkfs.ext4 -F /dev/sda1
+
+mkdir -p /disk_passthrough_mount_point
+
+mount /dev/sda1 /disk_passthrough_mount_point
+
+echo "/dev/sda1 /disk_passthrough_mount_point ext4 defaults     0   0" &gt;&gt; /etc/fstab
+
+touch /disk_passthrough_mount_point/file_test 
+
+echo "content" &gt; /disk_passthrough_mount_point/file_test
+
  - [BZ 1963680](https://bugzilla.redhat.com/1963680) **Block the 'Existing' auto-pinning policy**
 
    
 
- - [BZ 1953468](https://bugzilla.redhat.com/1953468) **[CBT][RFE] Allow removing non-root checkpoints from the VM**
+ - [BZ 1957240](https://bugzilla.redhat.com/1957240) **Adding ISO domain deprecation message is misleading**
 
    
 
- - [BZ 1961396](https://bugzilla.redhat.com/1961396) **[CodeChange][i18n] oVirt 4.4.7 webadmin - translation update**
+ - [BZ 1953468](https://bugzilla.redhat.com/1953468) **[CBT][RFE] Allow removing non-root checkpoints from the VM**
 
    
 
@@ -301,14 +363,44 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
 
 #### oVirt Release Package
 
+ - [BZ 1958145](https://bugzilla.redhat.com/1958145) **[RHVH 4.4.5] Need to enable rhsmcertd service on the host by default**
+
+   
+
  - [BZ 1947759](https://bugzilla.redhat.com/1947759) **allow optional vdsm-hooks intallation on oVirt Node**
+
+   
+
+
+#### imgbased
+
+ - [BZ 1964490](https://bugzilla.redhat.com/1964490) **After upgrading the oVirt node to 4.4.6 it's impossible to login through cockpit**
+
+   
+
+ - [BZ 1955415](https://bugzilla.redhat.com/1955415) **RHVH 4.4: There are AVC denied errors in audit.log after upgrade**
 
    
 
 
 ### No Doc Update
 
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1961598](https://bugzilla.redhat.com/1961598) **race in Termination.java**
+
+   
+
+
 #### oVirt Engine
+
+ - [BZ 1934201](https://bugzilla.redhat.com/1934201) **ovirt-engine-notifier emails not sent unless MAIL_FROM is set**
+
+   
+
+ - [BZ 1964541](https://bugzilla.redhat.com/1964541) **RFE: New network dialogue is missing IDs on all elements**
+
+   
 
  - [BZ 1942023](https://bugzilla.redhat.com/1942023) **[RFE] host-deploy: Allow adding non-CentOS hosts based on RHEL**
 
@@ -329,9 +421,9 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
 
 #### Contributors
 
-29 people contributed to this release:
+32 people contributed to this release:
 
-	Ales Musil (Contributed to: vdsm)
+	Ales Musil (Contributed to: ovirt-engine, vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine, ovirt-engine-wildfly)
 	Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine)
@@ -339,6 +431,9 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
 	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-release)
 	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
+	Dmitry Voronetskiy (Contributed to: ovirt-dwh)
+	Eitan Raviv (Contributed to: ovirt-engine)
+	Eli Mesika (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine)
 	Lev Veyde (Contributed to: imgbased, ovirt-engine, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine)

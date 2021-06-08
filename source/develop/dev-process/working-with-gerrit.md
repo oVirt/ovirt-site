@@ -22,6 +22,7 @@ authors:
   - roy
   - sgordon
   - vered
+  - sabusale
 ---
 
 # Working with oVirt Gerrit
@@ -42,17 +43,20 @@ Alternatively, sign in with:
 * Any fedora FAS account, using: &lt;username&gt;.id.fedoraproject.org
 
 
-Once you log in, choose a Gerrit username. This username will be used to generate an HTTP password (Settings --> HTTP Password).
+Once you log in, choose a Gerrit username. This username will be used to generate an HTTP password (Settings --> HTTP Password) and also needed to SSH connection.
 
+To choose username:
+* Go to Settings
+* In the username field, enter your username and click Save Changes
 ## SSH Configuration
 
 ### Setting up SSH Keys
 
 If you don’t have a set of SSH keys, open the terminal on your local machine and enter the following:
 
-ssh-keygen -t rsa
+    ssh-keygen -t rsa
 
-Ensure that your private RSA key is located at ~/.ssh and that the permissions on the .ssh directory are sufficiently restrictive. Typically, the .ssh directory should have permissions set to 700, and the file .ssh/id_rsa should have the permissions set to 600.
+Ensure that your private RSA key is located at `~/.ssh` and that the permissions on the `.ssh` directory are sufficiently restrictive. Typically, the `.ssh` directory should have permissions set to 700, and the file `.ssh/id_rsa` should have the permissions set to 600.
 
 To allow SSH to access Gerrit, update the SSH public key via Gerrit settings:
 
@@ -64,7 +68,7 @@ To allow SSH to access Gerrit, update the SSH public key via Gerrit settings:
       Host gerrit.ovirt.org
          HostName gerrit.ovirt.org
          Port 29418
-         User <username>
+         User <your_gerrit_username>
          PubkeyAcceptedKeyTypes=+rsa-sha2-512
        
 
@@ -107,7 +111,7 @@ Or alternatively without need of authentication:
 
       wget -P .git/hooks https://gerrit.ovirt.org/tools/hooks/commit-msg
 
-**ATTENTION**: All of the ovirt projects require a Signed-off-by (SOB), add the following lines in the end of .git/hooks/commit-msg, after the line "add_ChangeId":
+**ATTENTION**: All of the ovirt projects require a Signed-off-by (SOB), add the following lines in the end of `<ovirt_engine_repo_location>/.git/hooks/commit-msg`
 
       SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
       grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
@@ -230,23 +234,15 @@ The patch life cycle process comprises of the following steps:
 
 ### Submitting a Topic Branch to Gerrit
 
-A [topic branch](http://progit.org/book/ch3-4.html) is a short-lived branch that you create and use for a single particular feature or related work.
+A [feature branch](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) is a short-lived branch that you create and use for a single particular feature or related work.
 
-*   First, download the git-review tool from Openstack and copy it to your project
-    -   git-review is a tool that helps submitting git branches to Gerrit for review.
-    -   URL: <https://github.com/openstack-infra/git-review>
+#### Git Review
+git-review is a tool that helps submitting git branches to Gerrit for review.
 
-&nbsp;
-
-        $ git clone https://github.com/openstack-infra/git-review
-        $ cp git-review/git-review project/
-
-*   Setting git-review:
-
-      git-review, by default, looks for a git remote called gerrit, and submits the current branch to HEAD:refs/for/master at that remote.
-      If the "gerrit" remote does not exist, git-review looks for a file called .gitreview at the root of the repository with information
-      about the gerrit remote. Assuming that file is present, git-review should be able to automatically configure your 
-      repository the first time it is run. 
+* git-review, by default, looks for a git remote called gerrit, and submits the current branch to HEAD:refs/for/master at that remote.
+  If the "gerrit" remote does not exist, git-review looks for a file called .gitreview at the root of the repository with information
+  about the gerrit remote. Assuming that file is present, git-review should be able to automatically configure your
+  repository the first time it is run.
 
 *   Example: project/.git/config
 
@@ -256,12 +252,34 @@ A [topic branch](http://progit.org/book/ch3-4.html) is a short-lived branch that
         url = http://gerrit.ovirt.org/p/project
         pushurl = ssh://username@gerrit.ovirt.org:29418/project.git
         fetch = +refs/heads/*:refs/remotes/gerrit/* 
+##### Installation
+Linux:
+
+For distributions like Debian, Ubuntu, or Mint open a terminal and type:
+
+`sudo apt install git-review`
+
+For distributions like RedHat, Fedora 21 or earlier, or CentOS open a terminal and type:
+
+`sudo yum install git-review`
+
+For Fedora 22 or later open a terminal and type:
+
+`sudo dnf install git-review`
+
+For SUSE distributions open a terminal and type:
+
+`sudo zypper in python-git-review`
+
+
+##### Preparing git-review
+
 
 *   Execute git-review setup
 
 &nbsp;
 
-        $project> ./git-review -s 
+        $project> git review -s 
 
 *   Create your local branch feature
 
@@ -289,7 +307,7 @@ A [topic branch](http://progit.org/book/ch3-4.html) is a short-lived branch that
 
 &nbsp;
 
-        $project>./git-review -t engine-register
+        $project>git review -t engine-register
         remote: Resolving deltas:   0% (0/3)
         remote: (W) fba45fe: no files changed, message updated
         To ssh://user@gerrit.ovirt.org:29418/project.git

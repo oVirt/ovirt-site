@@ -2,8 +2,8 @@
 title: oVirt 4.4.7 Release Notes
 category: documentation
 authors:
-  - lveyde
   - sandrobonazzola
+  - lveyde
 toc: true
 page_classes: releases
 ---
@@ -21,7 +21,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.7 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.7 Second Release Candidate as of June 04, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.7 Third Release Candidate as of June 10, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -107,6 +107,10 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 
 #### oVirt Engine
+
+ - [BZ 1963748](https://bugzilla.redhat.com/1963748) **[RFE] Upgrade to EAP 7.4 in RHV 4.4.7**
+
+   RHV 4.4.7 now requires EAP 7.4
 
  - [BZ 1966145](https://bugzilla.redhat.com/1966145) **Remove version lock on specific ansible version and require ansible 2.9.z &gt;= 2.9.21 in ovirt-engine**
 
@@ -223,6 +227,11 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
  - [BZ 1932392](https://bugzilla.redhat.com/1932392) **engine-setup fails after 'engine-backup --mode=restore' if the backup was taken on a newer version**
 
 
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1662657](https://bugzilla.redhat.com/1662657) **Restore SHE environment on iscsi fails - KeyError: 'available'**
+
+
 ### Other
 
 #### oVirt Host Dependencies
@@ -238,14 +247,30 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
 
    
 
- - [BZ 1896359](https://bugzilla.redhat.com/1896359) **"Count threads as cores" option is not honored by the RHV Dashboard CPU graph**
-
-   
-
 
 #### VDSM
 
+ - [BZ 1946193](https://bugzilla.redhat.com/1946193) **Snapshot creation after blocking connection from host to storage fails**
+
+   
+
+ - [BZ 1949059](https://bugzilla.redhat.com/1949059) **Reducing LUNs from storage domain is failing with error "LVM command executed by lvmpolld failed"**
+
+   
+
+ - [BZ 1961752](https://bugzilla.redhat.com/1961752) **Panic if SPM lease is lost**
+
+   
+
+ - [BZ 1725915](https://bugzilla.redhat.com/1725915) **Vdsm tries to tear down in-use volume of ISO in block storage domain**
+
+   
+
  - [BZ 1947450](https://bugzilla.redhat.com/1947450) **ovirt-host shouldn't have hard dependency on vdsm hooks**
+
+   
+
+ - [BZ 1899875](https://bugzilla.redhat.com/1899875) **drop support for VM-FEX**
 
    
 
@@ -255,6 +280,18 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
 
 
 #### oVirt Engine
+
+ - [BZ 1941581](https://bugzilla.redhat.com/1941581) **[RFE] Add to API external template import**
+
+   
+
+ - [BZ 1961396](https://bugzilla.redhat.com/1961396) **[CodeChange][i18n] oVirt 4.4.7 webadmin - translation update**
+
+   
+
+ - [BZ 1960968](https://bugzilla.redhat.com/1960968) **Disable checking of SSH connection when adding a host into the ansible-runner-service inventory**
+
+   
 
  - [BZ 1962177](https://bugzilla.redhat.com/1962177) **Disk search API returns zero result if max parameter is specified**
 
@@ -344,10 +381,6 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
    
 
- - [BZ 1896359](https://bugzilla.redhat.com/1896359) **"Count threads as cores" option is not honored by the RHV Dashboard CPU graph**
-
-   
-
  - [BZ 1954920](https://bugzilla.redhat.com/1954920) **Auto Pinning Policy results in division by zero on hosts with 1 NUMA node.**
 
    
@@ -383,6 +416,24 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
    
 
 
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1922748](https://bugzilla.redhat.com/1922748) **[RFE] Use Ansible module instead of REST API**
+
+   
+
+
+#### oVirt Ansible collection
+
+ - [BZ 1922748](https://bugzilla.redhat.com/1922748) **[RFE] Use Ansible module instead of REST API**
+
+   
+
+ - [BZ 1959273](https://bugzilla.redhat.com/1959273) **Add the option to pause Hosted-Engine deployment before running engine-setup**
+
+   
+
+
 ### No Doc Update
 
 #### oVirt Engine Data Warehouse
@@ -392,13 +443,28 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
    
 
 
+#### VDSM
+
+ - [BZ 1966143](https://bugzilla.redhat.com/1966143) **Requiring nmstate-plugin-ovsdb causes installation of unwanted openvswitch versions**
+
+   
+
+
 #### oVirt Engine
+
+ - [BZ 1968183](https://bugzilla.redhat.com/1968183) **Running an imported VM with TPM which wasn't running while exporting fails**
+
+   
+
+ - [BZ 1817346](https://bugzilla.redhat.com/1817346) **SHA1 fingerprint shown to the user for approval**
+
+   
 
  - [BZ 1934201](https://bugzilla.redhat.com/1934201) **ovirt-engine-notifier emails not sent unless MAIL_FROM is set**
 
    
 
- - [BZ 1964541](https://bugzilla.redhat.com/1964541) **RFE: New network dialogue is missing IDs on all elements**
+ - [BZ 1964541](https://bugzilla.redhat.com/1964541) **[RFE] New network dialogue is missing IDs on all elements**
 
    
 
@@ -421,11 +487,12 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
 #### Contributors
 
-32 people contributed to this release:
+37 people contributed to this release:
 
 	Ales Musil (Contributed to: ovirt-engine, vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine, ovirt-engine-wildfly)
+	Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-release)
@@ -436,16 +503,20 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 	Eli Mesika (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine)
 	Lev Veyde (Contributed to: imgbased, ovirt-engine, ovirt-release)
-	Liran Rotenberg (Contributed to: ovirt-engine)
+	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
+	Martin Nečas (Contributed to: ovirt-ansible-collection)
 	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-extension-aaa-ldap)
 	Michal Skrivanek (Contributed to: ovirt-engine, vdsm)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
-	Nir Soffer (Contributed to: vdsm)
+	Nir Soffer (Contributed to: ovirt-engine, vdsm)
 	Ori Liel (Contributed to: ovirt-engine)
+	Paul Belanger (Contributed to: ovirt-ansible-collection)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
+	Ritesh Chikatwar (Contributed to: ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)
+	Saif Abusaleh (Contributed to: ovirt-engine)
 	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-host, ovirt-release, vdsm)
 	Scott J Dickerson (Contributed to: ovirt-engine)
 	Shani Leviim (Contributed to: ovirt-engine)
@@ -454,4 +525,4 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: vdsm)
 	Yalei Li (Contributed to: vdsm)
-	Yedidyah Bar David (Contributed to: ovirt-dwh, ovirt-engine)
+	Yedidyah Bar David (Contributed to: ovirt-ansible-collection, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup)

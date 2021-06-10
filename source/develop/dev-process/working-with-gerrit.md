@@ -43,18 +43,19 @@ Alternatively, sign in with:
 * Any fedora FAS account, using: &lt;username&gt;.id.fedoraproject.org
 
 
-Once you log in, choose a Gerrit username. This username will be used to generate an HTTP password (Settings --> HTTP Password) and also needed to SSH connection.
+Once you log in, choose a Gerrit username. This username will be used to generate an HTTP password (Settings --> HTTP Password) and to enable SSH connection.
 
 To choose username:
 * Go to Settings
-* In the username field, enter your username and click Save Changes
+* Enter your username in the username field and click Save Changes
+
 ## SSH Configuration
 
 ### Setting up SSH Keys
 
 If you don’t have a set of SSH keys, open the terminal on your local machine and enter the following:
 
-    ssh-keygen -t rsa
+ssh-keygen -t rsa
 
 Ensure that your private RSA key is located at `~/.ssh` and that the permissions on the `.ssh` directory are sufficiently restrictive. Typically, the `.ssh` directory should have permissions set to 700, and the file `.ssh/id_rsa` should have the permissions set to 600.
 
@@ -111,7 +112,7 @@ Or alternatively without need of authentication:
 
       wget -P .git/hooks https://gerrit.ovirt.org/tools/hooks/commit-msg
 
-**ATTENTION**: All of the ovirt projects require a Signed-off-by (SOB), add the following lines in the end of `<ovirt_engine_repo_location>/.git/hooks/commit-msg`
+**ATTENTION**: All of the ovirt projects require a Signed-off-by (SOB), add the following lines in the end of `.git/hooks/commit-msg`
 
       SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
       grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
@@ -234,7 +235,7 @@ The patch life cycle process comprises of the following steps:
 
 ### Submitting a Topic Branch to Gerrit
 
-A [feature branch](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) is a short-lived branch that you create and use for a single particular feature or related work.
+A [feature branch](https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows) is a short-lived branch that you create and use for a single particular feature or related work.
 
 #### Git Review
 git-review is a tool that helps submitting git branches to Gerrit for review.

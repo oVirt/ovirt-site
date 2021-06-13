@@ -254,24 +254,8 @@ git-review is a tool that helps submitting git branches to Gerrit for review.
         pushurl = ssh://username@gerrit.ovirt.org:29418/project.git
         fetch = +refs/heads/*:refs/remotes/gerrit/* 
 ##### Installation
-Linux:
 
-For distributions like Debian, Ubuntu, or Mint open a terminal and type:
-
-`sudo apt install git-review`
-
-For distributions like RedHat, Fedora 21 or earlier, or CentOS open a terminal and type:
-
-`sudo yum install git-review`
-
-For Fedora 22 or later open a terminal and type:
-
-`sudo dnf install git-review`
-
-For SUSE distributions open a terminal and type:
-
-`sudo zypper in python-git-review`
-
+Follow instructions [here](https://docs.openstack.org/contributors/common/setup-gerrit.html#installation)
 
 ##### Preparing git-review
 

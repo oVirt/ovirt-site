@@ -21,7 +21,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.7 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.7 Third Release Candidate as of June 10, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.7 Fourth Release Candidate as of June 17, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -110,7 +110,7 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
  - [BZ 1963748](https://bugzilla.redhat.com/1963748) **[RFE] Upgrade to EAP 7.4 in RHV 4.4.7**
 
-   RHV 4.4.7 now requires EAP 7.4
+   Red Hat Virtualization 4.4.7 now requires EAP 7.4
 
  - [BZ 1966145](https://bugzilla.redhat.com/1966145) **Remove version lock on specific ansible version and require ansible 2.9.z &gt;= 2.9.21 in ovirt-engine**
 
@@ -220,7 +220,14 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
 
 ### Bug Fixes
 
+#### VDSM
+
+ - [BZ 1959436](https://bugzilla.redhat.com/1959436) **VMs stuck in "migrating" status since it's unable to acquire the migration semaphore**
+
+
 #### oVirt Engine
+
+ - [BZ 1853924](https://bugzilla.redhat.com/1853924) **Fails to import template as OVA from the given configuration if the VM is not removed**
 
  - [BZ 1862035](https://bugzilla.redhat.com/1862035) **[ppc64le] 'sPAPR VSCSI' interface disk attachment is not seen from the guest.**
 
@@ -250,11 +257,15 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
 
 #### VDSM
 
- - [BZ 1946193](https://bugzilla.redhat.com/1946193) **Snapshot creation after blocking connection from host to storage fails**
+ - [BZ 1970008](https://bugzilla.redhat.com/1970008) **VDSM service fails if the vdsm log file (/var/log/vdsm/vdsm.log) is not owned by vdsm:kvm**
 
    
 
  - [BZ 1949059](https://bugzilla.redhat.com/1949059) **Reducing LUNs from storage domain is failing with error "LVM command executed by lvmpolld failed"**
+
+   
+
+ - [BZ 1946193](https://bugzilla.redhat.com/1946193) **Snapshot creation after blocking connection from host to storage fails**
 
    
 
@@ -281,6 +292,30 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
 
 #### oVirt Engine
 
+ - [BZ 1970718](https://bugzilla.redhat.com/1970718) **Engine hits NPE when importing template with disks on 2 storage domains**
+
+   
+
+ - [BZ 1969765](https://bugzilla.redhat.com/1969765) **[CBT] Failed to redefine VM checkpoints for full backup that was taken after previous incremental backup**
+
+   
+
+ - [BZ 1947312](https://bugzilla.redhat.com/1947312) **bochs-display: there's no video object in REST API and REST default video type for UEFI server is incorrect.**
+
+   
+
+ - [BZ 1887434](https://bugzilla.redhat.com/1887434) **LVM IDs and Machine ID are same for all new VMs created from sealed template**
+
+   
+
+ - [BZ 1779983](https://bugzilla.redhat.com/1779983) **After memory hot plug, Why the VM is showing icon for "server with the newer configuration for next run"?**
+
+   
+
+ - [BZ 1946876](https://bugzilla.redhat.com/1946876) **automatic Maximum Memory exceeds possible maximum on new VM dialog**
+
+   
+
  - [BZ 1941581](https://bugzilla.redhat.com/1941581) **[RFE] Add to API external template import**
 
    
@@ -290,6 +325,10 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
    
 
  - [BZ 1960968](https://bugzilla.redhat.com/1960968) **Disable checking of SSH connection when adding a host into the ansible-runner-service inventory**
+
+   
+
+ - [BZ 1951894](https://bugzilla.redhat.com/1951894) **Add validation when creating storage domain with disperse volume type**
 
    
 
@@ -357,6 +396,10 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
    
 
+ - [BZ 1940766](https://bugzilla.redhat.com/1940766) **No longer possible to select console type since ovirt-web-ui-1.6.8 upgrade (regression)**
+
+   
+
  - [BZ 1913793](https://bugzilla.redhat.com/1913793) **NPE on host reinstall UI dialog**
 
    
@@ -394,6 +437,13 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
    
 
 
+#### oVirt Engine SDK 4 Python
+
+ - [BZ 1956167](https://bugzilla.redhat.com/1956167) **SDK example script "backup_vm.py" fails to complete "full" cycle**
+
+   
+
+
 #### oVirt Release Package
 
  - [BZ 1958145](https://bugzilla.redhat.com/1958145) **[RHVH 4.4.5] Need to enable rhsmcertd service on the host by default**
@@ -424,6 +474,10 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
 
 #### oVirt Ansible collection
+
+ - [BZ 1965456](https://bugzilla.redhat.com/1965456) **cloud-user has NOPASSWD permissions in sudoers file after deployment of Hosted Engine.**
+
+   
 
  - [BZ 1922748](https://bugzilla.redhat.com/1922748) **[RFE] Use Ansible module instead of REST API**
 
@@ -456,7 +510,7 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
    
 
- - [BZ 1817346](https://bugzilla.redhat.com/1817346) **SHA1 fingerprint shown to the user for approval**
+ - [BZ 1817346](https://bugzilla.redhat.com/1817346) **[UI] SHA1 fingerprint shown to the user for approval**
 
    
 
@@ -485,15 +539,31 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
    
 
 
+#### oVirt Engine SDK 4 Python
+
+ - [BZ 1956750](https://bugzilla.redhat.com/1956750) **Python oVirt SDK overwrites /dev/null with cookie file**
+
+   
+
+
+#### oVirt Ansible collection
+
+ - [BZ 1953029](https://bugzilla.redhat.com/1953029) **HE deployment fails on "Add lines to answerfile"**
+
+   
+
+
 #### Contributors
 
-37 people contributed to this release:
+41 people contributed to this release:
 
+	Alan Rominger (Contributed to: ovirt-ansible-collection)
 	Ales Musil (Contributed to: ovirt-engine, vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine, ovirt-engine-wildfly)
 	Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine)
+	Aviv Turgeman (Contributed to: ovirt-ansible-collection)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-release)
 	Dan Kenigsberg (Contributed to: vdsm)
@@ -501,18 +571,20 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 	Dmitry Voronetskiy (Contributed to: ovirt-dwh)
 	Eitan Raviv (Contributed to: ovirt-engine)
 	Eli Mesika (Contributed to: ovirt-engine)
-	Eyal Shenitzky (Contributed to: ovirt-engine)
-	Lev Veyde (Contributed to: imgbased, ovirt-engine, ovirt-release)
+	Eyal Shenitzky (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
+	Guilherme De Oliveira Santos (Contributed to: ovirt-ansible-collection)
+	Lev Veyde (Contributed to: imgbased, ovirt-engine, ovirt-release, vdsm)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection)
-	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-extension-aaa-ldap)
+	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-extension-aaa-ldap, ovirt-engine-sdk)
 	Michal Skrivanek (Contributed to: ovirt-engine, vdsm)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nir Soffer (Contributed to: ovirt-engine, vdsm)
-	Ori Liel (Contributed to: ovirt-engine)
+	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Paul Belanger (Contributed to: ovirt-ansible-collection)
+	Pavel Bar (Contributed to: ovirt-engine-sdk)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
 	Ritesh Chikatwar (Contributed to: ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)

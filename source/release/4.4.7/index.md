@@ -2,8 +2,8 @@
 title: oVirt 4.4.7 Release Notes
 category: documentation
 authors:
-  - sandrobonazzola
   - lveyde
+  - sandrobonazzola
 toc: true
 page_classes: releases
 ---
@@ -21,7 +21,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.7 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.7 Fourth Release Candidate as of June 17, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.7 Fifth Release Candidate as of June 24, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -108,9 +108,21 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 #### oVirt Engine
 
- - [BZ 1963748](https://bugzilla.redhat.com/1963748) **[RFE] Upgrade to EAP 7.4 in RHV 4.4.7**
+ - [BZ 1804774](https://bugzilla.redhat.com/1804774) **Simplify the process to add a msg on the RHVM Admin Portal Login**
 
-   Red Hat Virtualization 4.4.7 now requires EAP 7.4
+   Adding a message to the welcome page is straight forward using a custom branding only containing a preamble section. An example of a preamble branding is https://bugzilla.redhat.com/attachment.cgi?id=1783329.
+
+
+
+On an engine upgrade the custom preamble brand will remain in place and will work without issue.
+
+
+
+During an engine backup and subsequent restore, on engine restore it is expected that the custom preamble branding will need to be manually restored/reinstalled and verified.
+
+ - [BZ 1950343](https://bugzilla.redhat.com/1950343) **[RFE] Set compatibility level 4.6 for Default DataCenter/Cluster during new installations of oVirt 4.4.7**
+
+   Default DataCenter/Cluster will be set to compatibility level 4.6 on new installations of oVirt 4.4.7
 
  - [BZ 1966145](https://bugzilla.redhat.com/1966145) **Remove version lock on specific ansible version and require ansible 2.9.z &gt;= 2.9.21 in ovirt-engine**
 
@@ -205,6 +217,10 @@ This way we can navigate easily if there are several different engines (with dif
 
 #### oVirt Engine
 
+ - [BZ 1913858](https://bugzilla.redhat.com/1913858) **[RFE] Automatic restart for VMs that are pinned to host(s)**
+
+   
+
  - [BZ 1958081](https://bugzilla.redhat.com/1958081) **[RFE] Enable ramfb for mdev with display=on**
 
    When a vGPU is used and nodisplay is not specified, an additional framebuffer display device is added to the VM now, allowing to display the VM console before the vGPU is initialized. This allows display console access during boot, instead of having just a blank screen there as before this change.
@@ -218,25 +234,65 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
    
 
 
-### Bug Fixes
+### Deprecated Functionality
+
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1896359](https://bugzilla.redhat.com/1896359) **"Count threads as cores" option is not honored by the RHV Dashboard CPU graph**
+
+   Deprecated functionality should describe removed or no longer supported features:
+
+In version 4.4.7.2 we will update the column name to number_of_threads.
+
+In DWH we will leave the old name (threads_per_core) as another alias,
+
+so DWH will have 2 columns with the same data: number_of_threads,threads_per_core.
+
+In the next version we will completely delete the old name.
+
 
 #### VDSM
 
- - [BZ 1959436](https://bugzilla.redhat.com/1959436) **VMs stuck in "migrating" status since it's unable to acquire the migration semaphore**
+ - [BZ 1899875](https://bugzilla.redhat.com/1899875) **drop support for VM-FEX**
+
+   
 
 
 #### oVirt Engine
 
- - [BZ 1853924](https://bugzilla.redhat.com/1853924) **Fails to import template as OVA from the given configuration if the VM is not removed**
+ - [BZ 1896359](https://bugzilla.redhat.com/1896359) **"Count threads as cores" option is not honored by the RHV Dashboard CPU graph**
+
+   Deprecated functionality should describe removed or no longer supported features:
+
+In version 4.4.7.2 we will update the column name to number_of_threads.
+
+In DWH we will leave the old name (threads_per_core) as another alias,
+
+so DWH will have 2 columns with the same data: number_of_threads,threads_per_core.
+
+In the next version we will completely delete the old name.
+
+
+### Bug Fixes
+
+#### VDSM
+
+ - [BZ 1971182](https://bugzilla.redhat.com/1971182) **[RFE] Use "qemu:allocation-depth" meta context to report holes**
+
+
+#### oVirt Engine
 
  - [BZ 1862035](https://bugzilla.redhat.com/1862035) **[ppc64le] 'sPAPR VSCSI' interface disk attachment is not seen from the guest.**
-
- - [BZ 1932392](https://bugzilla.redhat.com/1932392) **engine-setup fails after 'engine-backup --mode=restore' if the backup was taken on a newer version**
 
 
 #### oVirt Hosted Engine Setup
 
  - [BZ 1662657](https://bugzilla.redhat.com/1662657) **Restore SHE environment on iscsi fails - KeyError: 'available'**
+
+
+#### ovirt-imageio
+
+ - [BZ 1971182](https://bugzilla.redhat.com/1971182) **[RFE] Use "qemu:allocation-depth" meta context to report holes**
 
 
 ### Other
@@ -248,14 +304,15 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
    
 
 
-#### oVirt Engine Data Warehouse
+#### VDSM
 
- - [BZ 1877478](https://bugzilla.redhat.com/1877478) **[RFE] collect network metrics in DWH ( rx and tx drop )**
+ - [BZ 1870887](https://bugzilla.redhat.com/1870887) **StorageDomain.dump() missing several keys for volume if one key is missing.**
 
    
 
+ - [BZ 1973345](https://bugzilla.redhat.com/1973345) **Create template broken with block storage**
 
-#### VDSM
+   
 
  - [BZ 1970008](https://bugzilla.redhat.com/1970008) **VDSM service fails if the vdsm log file (/var/log/vdsm/vdsm.log) is not owned by vdsm:kvm**
 
@@ -281,16 +338,20 @@ This works only on cluster levels &gt;= 4.5. It is possible to disable the featu
 
    
 
- - [BZ 1899875](https://bugzilla.redhat.com/1899875) **drop support for VM-FEX**
-
-   
-
  - [BZ 1944495](https://bugzilla.redhat.com/1944495) **GET diskattachments for a VM using qemu-guest-agent is missing a logical_name for disks without monted file-system**
 
    
 
 
 #### oVirt Engine
+
+ - [BZ 1974181](https://bugzilla.redhat.com/1974181) **Can't create/update instance type via API with display section specified**
+
+   
+
+ - [BZ 1939198](https://bugzilla.redhat.com/1939198) **Refresh LUN operation via Admin Portal fails with "No host was found to perform the operation"**
+
+   
 
  - [BZ 1970718](https://bugzilla.redhat.com/1970718) **Engine hits NPE when importing template with disks on 2 storage domains**
 
@@ -376,11 +437,11 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
    
 
- - [BZ 1953468](https://bugzilla.redhat.com/1953468) **[CBT][RFE] Allow removing non-root checkpoints from the VM**
+ - [BZ 1952577](https://bugzilla.redhat.com/1952577) **[CBT] Preview to older snapshot breaks vm backup**
 
    
 
- - [BZ 1877478](https://bugzilla.redhat.com/1877478) **[RFE] collect network metrics in DWH ( rx and tx drop )**
+ - [BZ 1953468](https://bugzilla.redhat.com/1953468) **[CBT][RFE] Allow removing non-root checkpoints from the VM**
 
    
 
@@ -488,11 +549,41 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
    
 
 
+#### oVirt Web UI
+
+ - [BZ 1577121](https://bugzilla.redhat.com/1577121) **[ALL_LANG]  The language list format in the drop-down on the welcome page should be consistent**
+
+   
+
+
+#### oVirt Engine UI Extensions
+
+ - [BZ 1860646](https://bugzilla.redhat.com/1860646) **[RFE] Manage vGPU dialog, add option for assigning more than one vGPU instance to VM**
+
+   
+
+ - [BZ 1961331](https://bugzilla.redhat.com/1961331) **[CodeChange][i18n] oVirt 4.4.7 ui-extensions - translation update**
+
+   
+
+
 ### No Doc Update
 
 #### oVirt Engine Data Warehouse
 
+ - [BZ 1962641](https://bugzilla.redhat.com/1962641) **Add "Count threads as cores" to Grafana dashboards**
+
+   
+
+ - [BZ 1937714](https://bugzilla.redhat.com/1937714) **[RFE] Add rx and tx drop to Grafana**
+
+   
+
  - [BZ 1961598](https://bugzilla.redhat.com/1961598) **race in Termination.java**
+
+   
+
+ - [BZ 1877478](https://bugzilla.redhat.com/1877478) **[RFE] collect network metrics in DWH ( rx and tx drop )**
 
    
 
@@ -522,6 +613,10 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
    
 
+ - [BZ 1877478](https://bugzilla.redhat.com/1877478) **[RFE] collect network metrics in DWH ( rx and tx drop )**
+
+   
+
  - [BZ 1942023](https://bugzilla.redhat.com/1942023) **[RFE] host-deploy: Allow adding non-CentOS hosts based on RHEL**
 
    
@@ -548,6 +643,10 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
 #### oVirt Ansible collection
 
+ - [BZ 1973640](https://bugzilla.redhat.com/1973640) **Hosted engine deploy fail in version 1.5.1 - VM is not managed by the engine**
+
+   
+
  - [BZ 1953029](https://bugzilla.redhat.com/1953029) **HE deployment fails on "Add lines to answerfile"**
 
    
@@ -555,7 +654,7 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
 #### Contributors
 
-41 people contributed to this release:
+44 people contributed to this release:
 
 	Alan Rominger (Contributed to: ovirt-ansible-collection)
 	Ales Musil (Contributed to: ovirt-engine, vdsm)
@@ -565,6 +664,7 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 	Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine)
 	Aviv Turgeman (Contributed to: ovirt-ansible-collection)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
+	Ben Amsalem (Contributed to: ovirt-web-ui)
 	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-release)
 	Dan Kenigsberg (Contributed to: vdsm)
 	Dana Elfassy (Contributed to: ovirt-engine)
@@ -573,28 +673,30 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 	Eli Mesika (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
 	Guilherme De Oliveira Santos (Contributed to: ovirt-ansible-collection)
+	Hilda Stastna (Contributed to: ovirt-web-ui)
+	Ilan Zuckerman (Contributed to: ovirt-imageio)
 	Lev Veyde (Contributed to: imgbased, ovirt-engine, ovirt-release, vdsm)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
-	Lucia Jelinkova (Contributed to: ovirt-engine)
+	Lucia Jelinkova (Contributed to: ovirt-engine, ovirt-engine-ui-extensions)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection)
 	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-extension-aaa-ldap, ovirt-engine-sdk)
 	Michal Skrivanek (Contributed to: ovirt-engine, vdsm)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
-	Nir Soffer (Contributed to: ovirt-engine, vdsm)
+	Nir Soffer (Contributed to: ovirt-engine, ovirt-imageio, vdsm)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Paul Belanger (Contributed to: ovirt-ansible-collection)
 	Pavel Bar (Contributed to: ovirt-engine-sdk)
-	Radoslaw Szwajkowski (Contributed to: ovirt-engine)
+	Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Ritesh Chikatwar (Contributed to: ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)
 	Saif Abusaleh (Contributed to: ovirt-engine)
 	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-host, ovirt-release, vdsm)
-	Scott J Dickerson (Contributed to: ovirt-engine)
+	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shani Leviim (Contributed to: ovirt-engine)
-	Sharon Gratch (Contributed to: ovirt-engine)
+	Sharon Gratch (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
-	Vojtech Juranek (Contributed to: vdsm)
+	Vojtech Juranek (Contributed to: ovirt-imageio, vdsm)
 	Yalei Li (Contributed to: vdsm)
 	Yedidyah Bar David (Contributed to: ovirt-ansible-collection, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-setup)

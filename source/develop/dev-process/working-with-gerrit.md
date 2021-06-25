@@ -22,6 +22,7 @@ authors:
   - roy
   - sgordon
   - vered
+  - sabusale
 ---
 
 # Working with oVirt Gerrit
@@ -42,7 +43,11 @@ Alternatively, sign in with:
 * Any fedora FAS account, using: &lt;username&gt;.id.fedoraproject.org
 
 
-Once you log in, choose a Gerrit username. This username will be used to generate an HTTP password (Settings --> HTTP Password).
+Once you log in, choose a Gerrit username. This username will be used to generate an HTTP password (Settings --> HTTP Password) and to enable SSH connection.
+
+To choose username:
+* Go to Settings
+* Enter your username in the username field and click Save Changes
 
 ## SSH Configuration
 
@@ -64,7 +69,7 @@ To allow SSH to access Gerrit, update the SSH public key via Gerrit settings:
       Host gerrit.ovirt.org
          HostName gerrit.ovirt.org
          Port 29418
-         User <username>
+         User <your_gerrit_username>
          PubkeyAcceptedKeyTypes=+rsa-sha2-512
        
 

@@ -55,14 +55,14 @@ To choose username:
 
 If you don’t have a set of SSH keys, open the terminal on your local machine and enter the following:
 
-ssh-keygen -t rsa
+      ssh-keygen -t rsa
 
-Ensure that your private RSA key is located at ~/.ssh and that the permissions on the .ssh directory are sufficiently restrictive. Typically, the .ssh directory should have permissions set to 700, and the file .ssh/id_rsa should have the permissions set to 600.
+Ensure that your private RSA key is located at `~/.ssh` and that the permissions on the `.ssh` directory are sufficiently restrictive. Typically, the `.ssh` directory should have permissions set to 700, and the file `.ssh/id_rsa` should have the permissions set to 600.
 
 To allow SSH to access Gerrit, update the SSH public key via Gerrit settings:
 
 * In the top right corner, click your username, and select Settings > SSH public keys.
-* Copy and paste the contents of your public key file (typically ~/.ssh/id_rsa.pub) into the provided text box.
+* Copy and paste the contents of your public key file (typically `~/.ssh/id_rsa.pub`) into the provided text box.
 
 ### Defining Gerrit in ~/.ssh/config
 
@@ -112,7 +112,7 @@ Or alternatively without need of authentication:
 
       wget -P .git/hooks https://gerrit.ovirt.org/tools/hooks/commit-msg
 
-**ATTENTION**: All of the ovirt projects require a Signed-off-by (SOB), add the following lines in the end of .git/hooks/commit-msg, after the line "add_ChangeId":
+**ATTENTION**: All of the ovirt projects require a Signed-off-by (SOB), add the following lines in the end of `.git/hooks/commit-msg`, after the line "add_ChangeId":
 
       SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
       grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
@@ -235,7 +235,7 @@ The patch life cycle process comprises of the following steps:
 
 ### Submitting a Topic Branch to Gerrit
 
-A [topic branch](http://progit.org/book/ch3-4.html) is a short-lived branch that you create and use for a single particular feature or related work.
+A [topic branch](https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows) is a short-lived branch that you create and use for a single particular feature or related work.
 
 *   First, download the git-review tool from Openstack and copy it to your project
     -   git-review is a tool that helps submitting git branches to Gerrit for review.

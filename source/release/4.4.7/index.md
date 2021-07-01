@@ -2,8 +2,8 @@
 title: oVirt 4.4.7 Release Notes
 category: documentation
 authors:
-  - lveyde
   - sandrobonazzola
+  - lveyde
 toc: true
 page_classes: releases
 ---
@@ -21,7 +21,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.7 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.7 Fifth Release Candidate as of June 24, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.7 Sixth Release Candidate as of July 01, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -108,6 +108,14 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 #### oVirt Engine
 
+ - [BZ 1901011](https://bugzilla.redhat.com/1901011) **[RFE] Remove Foreman integration from engine**
+
+   Foreman integration, which allow to provision bare metal hosts from webadmin using Foreman and afterwards being added to engine, hasn't been properly maintained for quite some time due to resource limitation and as there was no significant feedback from users about this feature, it was deprecated in oVirt 4.4.6 and now removed completely in oVirt 4.4.7.
+
+
+
+Similar functionality to provision bare metal host can be achieved using Foreman directly and after that just add already provisioned host using webadmin or RESTAPI.
+
  - [BZ 1804774](https://bugzilla.redhat.com/1804774) **Simplify the process to add a msg on the RHVM Admin Portal Login**
 
    Adding a message to the welcome page is straight forward using a custom branding only containing a preamble section. An example of a preamble branding is https://bugzilla.redhat.com/attachment.cgi?id=1783329.
@@ -192,6 +200,15 @@ So by default automatic detection of IP version using the default gateway addres
 
 ### Enhancements
 
+#### oVirt Host Dependencies
+
+ - [BZ 1947450](https://bugzilla.redhat.com/1947450) **ovirt-host shouldn't have hard dependency on vdsm hooks**
+
+   ovirt-host package now doesn't pull in any vdsm-hook anymore.
+
+Users now can decide if to install specific vdsm hooks or not.
+
+
 #### oVirt Engine Data Warehouse
 
  - [BZ 1948418](https://bugzilla.redhat.com/1948418) **[RFE] Add memory, and CPU sizes to Hosts/Virtual Machines Trend dashboard**
@@ -215,9 +232,62 @@ Reason:
 This way we can navigate easily if there are several different engines (with different dwh).
 
 
+#### VDSM
+
+ - [BZ 1966177](https://bugzilla.redhat.com/1966177) **[CBT][RFE] Unable to delete a vm checkpoint if vm has poweroff state**
+
+   Feature: 
+
+VM checkpoint can be removed while the VM is in a 'DOWN' state.
+
+
+
+Reason: 
+
+Until now, the VM checkpoint that was taken during a VM backup process can be removed only when the VM is running. This fix provides the ability to remove the VM checkpoint when the VM isn't running using the same API - 
+
+
+
+DELETE /vms/123/checkpoints/456/
+
+
+
+Result: 
+
+VM checkpoint can be removed when the VM is 'UP' or 'DOWN' using the same API.
+
+ - [BZ 1947450](https://bugzilla.redhat.com/1947450) **ovirt-host shouldn't have hard dependency on vdsm hooks**
+
+   ovirt-host package now doesn't pull in any vdsm-hook anymore.
+
+Users now can decide if to install specific vdsm hooks or not.
+
+
 #### oVirt Engine
 
- - [BZ 1913858](https://bugzilla.redhat.com/1913858) **[RFE] Automatic restart for VMs that are pinned to host(s)**
+ - [BZ 1966177](https://bugzilla.redhat.com/1966177) **[CBT][RFE] Unable to delete a vm checkpoint if vm has poweroff state**
+
+   Feature: 
+
+VM checkpoint can be removed while the VM is in a 'DOWN' state.
+
+
+
+Reason: 
+
+Until now, the VM checkpoint that was taken during a VM backup process can be removed only when the VM is running. This fix provides the ability to remove the VM checkpoint when the VM isn't running using the same API - 
+
+
+
+DELETE /vms/123/checkpoints/456/
+
+
+
+Result: 
+
+VM checkpoint can be removed when the VM is 'UP' or 'DOWN' using the same API.
+
+ - [BZ 1913858](https://bugzilla.redhat.com/1913858) **[RFE] Enable high-availability for VMs that are pinned to host(s)**
 
    
 
@@ -229,9 +299,44 @@ This way we can navigate easily if there are several different engines (with dif
 
 This works only on cluster levels &gt;= 4.5. It is possible to disable the feature by setting VgpuFramebufferSupported Engine config value to false.
 
- - [BZ 1913789](https://bugzilla.redhat.com/1913789) **[RFE] Support RHEL 9 guests**
+ - [BZ 1953468](https://bugzilla.redhat.com/1953468) **[CBT][RFE] Allow removing non-root checkpoints from the VM**
 
-   
+   Feature:
+
+Allow removing any VM checkpoint from the checkpoint chain and not just the root checkpoint
+
+
+
+Reason: 
+
+Users should be able to remove any checkpoint from the VM backups checkpoints chain.
+
+ 
+
+Result: 
+
+Any checkpoint from the VM checkpoints chain can be removed and not just the root checkpoint in the chain.
+
+
+#### oVirt Ansible collection
+
+ - [BZ 1933642](https://bugzilla.redhat.com/1933642) **Add validation to VLAN devices name to follow naming conventions**
+
+   HE setup has a naming convention for VLAN network devices as follows: &lt;VLAN_PARNET.VLAN_ID&gt;.
+
+A validation of the configuration has been added to hosted engine setup role to check its compatibility with this convention.
+
+ - [BZ 1959273](https://bugzilla.redhat.com/1959273) **Add the option to pause Hosted-Engine deployment before running engine-setup**
+
+   Feature: Allow to pause Hosted-Engine deployment before running engine-setup
+
+
+
+Reason: This allows to make changes in the bootstrap VM 
+
+
+
+Result: Changes can be made on the Hosted-Engine VM during the deployment and before engine-setup
 
 
 ### Deprecated Functionality
@@ -279,15 +384,29 @@ In the next version we will completely delete the old name.
 
  - [BZ 1971182](https://bugzilla.redhat.com/1971182) **[RFE] Use "qemu:allocation-depth" meta context to report holes**
 
+ - [BZ 1952577](https://bugzilla.redhat.com/1952577) **[CBT] Preview to older snapshot breaks vm backup**
+
 
 #### oVirt Engine
 
+ - [BZ 1952577](https://bugzilla.redhat.com/1952577) **[CBT] Preview to older snapshot breaks vm backup**
+
  - [BZ 1862035](https://bugzilla.redhat.com/1862035) **[ppc64le] 'sPAPR VSCSI' interface disk attachment is not seen from the guest.**
+
+
+#### oVirt Release Package
+
+ - [BZ 1958145](https://bugzilla.redhat.com/1958145) **[RHVH 4.4.5] Need to enable rhsmcertd service on the host by default**
 
 
 #### oVirt Hosted Engine Setup
 
  - [BZ 1662657](https://bugzilla.redhat.com/1662657) **Restore SHE environment on iscsi fails - KeyError: 'available'**
+
+
+#### oVirt Ansible collection
+
+ - [BZ 1965456](https://bugzilla.redhat.com/1965456) **cloud-user has NOPASSWD permissions in sudoers file after deployment of Hosted Engine.**
 
 
 #### ovirt-imageio
@@ -297,14 +416,18 @@ In the next version we will completely delete the old name.
 
 ### Other
 
-#### oVirt Host Dependencies
+#### oVirt Engine Data Warehouse
 
- - [BZ 1947450](https://bugzilla.redhat.com/1947450) **ovirt-host shouldn't have hard dependency on vdsm hooks**
+ - [BZ 1976768](https://bugzilla.redhat.com/1976768) **Inquiries regarding missing data in the calendar table created/inserted into the ovirt_engine_history DB.**
 
    
 
 
 #### VDSM
+
+ - [BZ 1883399](https://bugzilla.redhat.com/1883399) **During migration, late volume extension request on src is possibly not refreshed on dst, qcow2 corrupt bit set**
+
+   
 
  - [BZ 1870887](https://bugzilla.redhat.com/1870887) **StorageDomain.dump() missing several keys for volume if one key is missing.**
 
@@ -334,16 +457,32 @@ In the next version we will completely delete the old name.
 
    
 
- - [BZ 1947450](https://bugzilla.redhat.com/1947450) **ovirt-host shouldn't have hard dependency on vdsm hooks**
-
-   
-
  - [BZ 1944495](https://bugzilla.redhat.com/1944495) **GET diskattachments for a VM using qemu-guest-agent is missing a logical_name for disks without monted file-system**
 
    
 
 
 #### oVirt Engine
+
+ - [BZ 1950593](https://bugzilla.redhat.com/1950593) **Can't properly upload image to Storage Domain without using Test Connection button**
+
+   
+
+ - [BZ 1961945](https://bugzilla.redhat.com/1961945) **RHV should upgrade guest BIOS from i440fx chipset to q35 automatically when the cluster is set with the q35 chipset**
+
+   
+
+ - [BZ 1976742](https://bugzilla.redhat.com/1976742) **Import template from export domain fails with NullPointerException**
+
+   
+
+ - [BZ 1588061](https://bugzilla.redhat.com/1588061) **Suspend VM leaves disks as leftover**
+
+   
+
+ - [BZ 1975225](https://bugzilla.redhat.com/1975225) **Occasional failures to export VM to OVA**
+
+   
 
  - [BZ 1974181](https://bugzilla.redhat.com/1974181) **Can't create/update instance type via API with display section specified**
 
@@ -437,14 +576,6 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
    
 
- - [BZ 1952577](https://bugzilla.redhat.com/1952577) **[CBT] Preview to older snapshot breaks vm backup**
-
-   
-
- - [BZ 1953468](https://bugzilla.redhat.com/1953468) **[CBT][RFE] Allow removing non-root checkpoints from the VM**
-
-   
-
  - [BZ 1940529](https://bugzilla.redhat.com/1940529) **[RFE] Set guaranteed memory of VM according to its defined memory when not specified**
 
    
@@ -481,10 +612,6 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
    
 
- - [BZ 1942021](https://bugzilla.redhat.com/1942021) **[RFE] Add AlmaLinux to the list of guest operating systems**
-
-   
-
  - [BZ 1954920](https://bugzilla.redhat.com/1954920) **Auto Pinning Policy results in division by zero on hosts with 1 NUMA node.**
 
    
@@ -505,17 +632,6 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
    
 
 
-#### oVirt Release Package
-
- - [BZ 1958145](https://bugzilla.redhat.com/1958145) **[RHVH 4.4.5] Need to enable rhsmcertd service on the host by default**
-
-   
-
- - [BZ 1947759](https://bugzilla.redhat.com/1947759) **allow optional vdsm-hooks intallation on oVirt Node**
-
-   
-
-
 #### imgbased
 
  - [BZ 1964490](https://bugzilla.redhat.com/1964490) **After upgrading the oVirt node to 4.4.6 it's impossible to login through cockpit**
@@ -523,28 +639,6 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
    
 
  - [BZ 1955415](https://bugzilla.redhat.com/1955415) **RHVH 4.4: There are AVC denied errors in audit.log after upgrade**
-
-   
-
-
-#### oVirt Hosted Engine Setup
-
- - [BZ 1922748](https://bugzilla.redhat.com/1922748) **[RFE] Use Ansible module instead of REST API**
-
-   
-
-
-#### oVirt Ansible collection
-
- - [BZ 1965456](https://bugzilla.redhat.com/1965456) **cloud-user has NOPASSWD permissions in sudoers file after deployment of Hosted Engine.**
-
-   
-
- - [BZ 1922748](https://bugzilla.redhat.com/1922748) **[RFE] Use Ansible module instead of REST API**
-
-   
-
- - [BZ 1959273](https://bugzilla.redhat.com/1959273) **Add the option to pause Hosted-Engine deployment before running engine-setup**
 
    
 
@@ -597,6 +691,14 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
 #### oVirt Engine
 
+ - [BZ 1902179](https://bugzilla.redhat.com/1902179) **Ignore message about not using latest kernel after upgrade when a host hasn't been rebooted**
+
+   
+
+ - [BZ 1913785](https://bugzilla.redhat.com/1913785) **Failed to add host with error Format specifier '%2b'**
+
+   
+
  - [BZ 1968183](https://bugzilla.redhat.com/1968183) **Running an imported VM with TPM which wasn't running while exporting fails**
 
    
@@ -625,6 +727,10 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
    
 
+ - [BZ 1913789](https://bugzilla.redhat.com/1913789) **[RFE] Add RHEL 9 as a guest operating systems**
+
+   
+
  - [BZ 1917707](https://bugzilla.redhat.com/1917707) **when upgrading host, tasks appear in the audit log multiple times**
 
    
@@ -641,6 +747,20 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
    
 
 
+#### oVirt Release Package
+
+ - [BZ 1947759](https://bugzilla.redhat.com/1947759) **allow optional vdsm-hooks intallation on oVirt Node**
+
+   
+
+
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1922748](https://bugzilla.redhat.com/1922748) **[RFE] Use Ansible module instead of REST API**
+
+   
+
+
 #### oVirt Ansible collection
 
  - [BZ 1973640](https://bugzilla.redhat.com/1973640) **Hosted engine deploy fail in version 1.5.1 - VM is not managed by the engine**
@@ -651,10 +771,14 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
    
 
+ - [BZ 1922748](https://bugzilla.redhat.com/1922748) **[RFE] Use Ansible module instead of REST API**
+
+   
+
 
 #### Contributors
 
-44 people contributed to this release:
+45 people contributed to this release:
 
 	Alan Rominger (Contributed to: ovirt-ansible-collection)
 	Ales Musil (Contributed to: ovirt-engine, vdsm)
@@ -681,12 +805,13 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection)
 	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-extension-aaa-ldap, ovirt-engine-sdk)
+	Matt Martz (Contributed to: ovirt-ansible-collection)
 	Michal Skrivanek (Contributed to: ovirt-engine, vdsm)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nir Soffer (Contributed to: ovirt-engine, ovirt-imageio, vdsm)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Paul Belanger (Contributed to: ovirt-ansible-collection)
-	Pavel Bar (Contributed to: ovirt-engine-sdk)
+	Pavel Bar (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Radoslaw Szwajkowski (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Ritesh Chikatwar (Contributed to: ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)

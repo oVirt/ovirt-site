@@ -237,19 +237,17 @@ The patch life cycle process comprises of the following steps:
 
 A [topic branch](https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows) is a short-lived branch that you create and use for a single particular feature or related work.
 
-*   First, download the git-review tool from Openstack and copy it to your project
+*   First, install the git-review tool
     -   git-review is a tool that helps submitting git branches to Gerrit for review.
-    -   URL: <https://github.com/openstack-infra/git-review>
 
 &nbsp;
 
-        $ git clone https://github.com/openstack-infra/git-review
-        $ cp git-review/git-review project/
+        $ dnf install git-review
 
 *   Setting git-review:
 
       git-review, by default, looks for a git remote called gerrit, and submits the current branch to HEAD:refs/for/master at that remote.
-      If the "gerrit" remote does not exist, git-review looks for a file called .gitreview at the root of the repository with information
+      If the "gerrit" remote does not exist, git-review looks for a file called `.gitreview` at the root of the repository with information
       about the gerrit remote. Assuming that file is present, git-review should be able to automatically configure your 
       repository the first time it is run. 
 
@@ -266,7 +264,7 @@ A [topic branch](https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflow
 
 &nbsp;
 
-        $project> ./git-review -s 
+        $project> git review -s 
 
 *   Create your local branch feature
 
@@ -294,7 +292,7 @@ A [topic branch](https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflow
 
 &nbsp;
 
-        $project>./git-review -t engine-register
+        $project>git review -t engine-register
         remote: Resolving deltas:   0% (0/3)
         remote: (W) fba45fe: no files changed, message updated
         To ssh://user@gerrit.ovirt.org:29418/project.git

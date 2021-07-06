@@ -356,9 +356,7 @@ Result: Changes can be made on the Hosted-Engine VM during the deployment and be
 
  - [BZ 1896359](https://bugzilla.redhat.com/1896359) **"Count threads as cores" option is not honored by the RHV Dashboard CPU graph**
 
-   Deprecated functionality should describe removed or no longer supported features:
-
-In version 4.4.7.2 we will update the column name to number_of_threads.
+   In version 4.4.7.2 we will update the column name to number_of_threads.
 
 In DWH we will leave the old name (threads_per_core) as another alias,
 
@@ -378,9 +376,7 @@ In the next version we will completely delete the old name.
 
  - [BZ 1896359](https://bugzilla.redhat.com/1896359) **"Count threads as cores" option is not honored by the RHV Dashboard CPU graph**
 
-   Deprecated functionality should describe removed or no longer supported features:
-
-In version 4.4.7.2 we will update the column name to number_of_threads.
+   In version 4.4.7.2 we will update the column name to number_of_threads.
 
 In DWH we will leave the old name (threads_per_core) as another alias,
 
@@ -401,6 +397,8 @@ In the next version we will completely delete the old name.
 #### oVirt Engine
 
  - [BZ 1952577](https://bugzilla.redhat.com/1952577) **[CBT] Preview to older snapshot breaks vm backup**
+
+ - [BZ 1956106](https://bugzilla.redhat.com/1956106) **VM fails on start with XML error: Invalid PCI address 0000:12:01.0. slot must be &lt;= 0**
 
  - [BZ 1862035](https://bugzilla.redhat.com/1862035) **[ppc64le] 'sPAPR VSCSI' interface disk attachment is not seen from the guest.**
 
@@ -554,26 +552,6 @@ In the next version we will completely delete the old name.
  - [BZ 1954878](https://bugzilla.redhat.com/1954878) **[RFE] Auto Pinning Policy: improve tooltip description and policy names**
 
    
-
- - [BZ 1956106](https://bugzilla.redhat.com/1956106) **VM fails on start with XML error: Invalid PCI address 0000:12:01.0. slot must be &lt;= 0**
-
-   If this bug requires documentation, please select an appropriate Doc Type value.lsscsi | grep disk | awk '{print $NF}'
-
-parted /dev/sda	 --script \-- mklabel gpt
-
-parted -a optimal /dev/sda mkpart primary 0% 1024MB
-
-mkfs.ext4 -F /dev/sda1
-
-mkdir -p /disk_passthrough_mount_point
-
-mount /dev/sda1 /disk_passthrough_mount_point
-
-echo "/dev/sda1 /disk_passthrough_mount_point ext4 defaults     0   0" &gt;&gt; /etc/fstab
-
-touch /disk_passthrough_mount_point/file_test 
-
-echo "content" &gt; /disk_passthrough_mount_point/file_test
 
  - [BZ 1963680](https://bugzilla.redhat.com/1963680) **Block the 'Existing' auto-pinning policy**
 

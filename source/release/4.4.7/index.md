@@ -2,26 +2,16 @@
 title: oVirt 4.4.7 Release Notes
 category: documentation
 authors:
-  - sandrobonazzola
   - lveyde
+  - sandrobonazzola
 toc: true
 page_classes: releases
 ---
 
 
-# oVirt 4.4.7 release planning
-
-The oVirt 4.4.7 code freeze is planned for June 13, 2021.
-
-If no critical issues are discovered while testing this compose it will be released on June 22, 2021.
-
-It has been planned to include in this release the content from this query:
-[Bugzilla tickets targeted to 4.4.7](https://bugzilla.redhat.com/buglist.cgi?quicksearch=ALL%20target_milestone%3A%22ovirt-4.4.7%22%20-target_milestone%3A%22ovirt-4.4.7-%22)
-
-
 # oVirt 4.4.7 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.7 Sixth Release Candidate as of July 01, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.7 release as of July 06, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -46,10 +36,6 @@ visit our [community page](/community/).
 All issues or bugs should be reported via
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
-
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
 the [Download](/download/) page.
@@ -61,14 +47,7 @@ For a general overview of oVirt, read the [About oVirt](/community/about.html)
 page.
 
 To learn about features introduced before 4.4.7, see the
-[release notes for previous versions](/documentation/#latest-release-notes).
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
-
+[release notes for previous versions](/documentation/#previous-release-notes).
 
 ## Known issues
 
@@ -265,6 +244,44 @@ Users now can decide if to install specific vdsm hooks or not.
 
 #### oVirt Engine
 
+ - [BZ 1849861](https://bugzilla.redhat.com/1849861) **[RFE][v2v] [upload/download disk/CBT] Failed to attach disk to the VM - disk is OK but image transfer still holds a lock on the disk**
+
+   Feature:
+
+1. Add 2 new backup phases:
+
+- SUCCEEDED
+
+- FAILED
+
+2. Disable 'vm_backups' &amp; 'image_transfers' DB tables cleanup after backup / image transfer operation is over.
+
+3. Add DB cleanup scheduled thread to automatically clean backups and image transfers once in a while.
+
+
+
+Reason:
+
+After backup / image transfer operation finishes, all the execution data disappeared.
+
+That means, that the user didn't know the final execution state of the operation that was visible via DB and API while the backup / image transfer execution was still in progress.
+
+In case of backup operation, the situation was even worse - there was no indication for success/failure, the last thing the user might be able to see is the 'FINALIZING' status.
+
+We want the user to be able to see the operation result, but also not over-polute the database with too old data.
+
+
+
+Result:
+
+1. Added 2 new backup phases to show possible execution statuses (success/failure) for backup operations.
+
+2. Cancel DB cleanup of the 'vm_backups' &amp; 'image_transfers' DB tables when the backup / image transfer finishes to allow DB &amp; API status retrieval by user.
+
+3. Scheduled execution of the cleanup - 15 minutes for success entries, 30 minutes for the failure. Separate values for backup &amp; for image transfer operations, an additional value for the cleanup thread rate (all 5 values are configurable).
+
+4. Some minor user experience improvements.
+
  - [BZ 1966177](https://bugzilla.redhat.com/1966177) **[CBT][RFE] Unable to delete a vm checkpoint if vm has poweroff state**
 
    Feature: 
@@ -319,12 +336,6 @@ Any checkpoint from the VM checkpoints chain can be removed and not just the roo
 
 
 #### oVirt Ansible collection
-
- - [BZ 1933642](https://bugzilla.redhat.com/1933642) **Add validation to VLAN devices name to follow naming conventions**
-
-   HE setup has a naming convention for VLAN network devices as follows: &lt;VLAN_PARNET.VLAN_ID&gt;.
-
-A validation of the configuration has been added to hosted engine setup role to check its compatibility with this convention.
 
  - [BZ 1959273](https://bugzilla.redhat.com/1959273) **Add the option to pause Hosted-Engine deployment before running engine-setup**
 
@@ -477,10 +488,6 @@ In the next version we will completely delete the old name.
    
 
  - [BZ 1588061](https://bugzilla.redhat.com/1588061) **Suspend VM leaves disks as leftover**
-
-   
-
- - [BZ 1975225](https://bugzilla.redhat.com/1975225) **Occasional failures to export VM to OVA**
 
    
 
@@ -699,6 +706,10 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 
    
 
+ - [BZ 1975225](https://bugzilla.redhat.com/1975225) **Occasional failures to export VM to OVA**
+
+   
+
  - [BZ 1968183](https://bugzilla.redhat.com/1968183) **Running an imported VM with TPM which wasn't running while exporting fails**
 
    
@@ -799,7 +810,7 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 	Guilherme De Oliveira Santos (Contributed to: ovirt-ansible-collection)
 	Hilda Stastna (Contributed to: ovirt-web-ui)
 	Ilan Zuckerman (Contributed to: ovirt-imageio)
-	Lev Veyde (Contributed to: imgbased, ovirt-engine, ovirt-release, vdsm)
+	Lev Veyde (Contributed to: imgbased, ovirt-engine, ovirt-node-ng-image, ovirt-release, vdsm)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine, ovirt-engine-ui-extensions)
 	Marcin Sobczyk (Contributed to: vdsm)
@@ -816,7 +827,7 @@ echo "content" &gt; /disk_passthrough_mount_point/file_test
 	Ritesh Chikatwar (Contributed to: ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)
 	Saif Abusaleh (Contributed to: ovirt-engine)
-	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-host, ovirt-release, vdsm)
+	Sandro Bonazzola (Contributed to: ovirt-appliance, ovirt-engine, ovirt-host, ovirt-node-ng-image, ovirt-release, vdsm)
 	Scott J Dickerson (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)
 	Shani Leviim (Contributed to: ovirt-engine)
 	Sharon Gratch (Contributed to: ovirt-engine, ovirt-engine-nodejs-modules, ovirt-engine-ui-extensions, ovirt-web-ui)

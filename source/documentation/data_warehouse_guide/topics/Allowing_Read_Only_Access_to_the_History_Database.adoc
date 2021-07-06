@@ -6,11 +6,11 @@ To allow access to the history database without allowing edits, you must create 
 
 *Allowing Read-Only Access to the History Database*
 
-. Enable `psql` commands:
+. Log in as root to the postgres user shell:
 +
 [options="nowrap" subs="normal"]
 ----
-# su - postgres -c 'scl enable rh-postgresql10 bash'
+# su - postgres
 ----
 
 . Create the user to be granted read-only access to the history database:
@@ -57,7 +57,7 @@ To allow access to the history database without allowing edits, you must create 
 
 . Exit the postgres user shell by pressing kbd:[Ctrl+d].
 
-. Add the following lines for the newly created user to `/var/opt/rh/rh-postgresql10/lib/pgsql/data/pg_hba.conf` preceding the line beginning `local all all`:
+. Add the following lines for the newly created user to `/var/lib/pgsql/data/pg_hba.conf` preceding the line beginning `local all all`:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -71,14 +71,14 @@ local   all             all                                     peer
 +
 [options="nowrap" subs="normal"]
 ----
-# systemctl reload rh-postgresql10-postgresql
+# systemctl reload postgresql
 ----
 
 .  To test the read-only user's access permissions:
 +
 [options="nowrap" ]
 ----
-# su - postgres -c 'scl enable rh-postgresql10 -- psql -U username ovirt_engine_history -h localhost'
+# su - postgres -c 'psql -U username ovirt_engine_history -h localhost'
 Password for user username:
 psql (9.2.23)
 Type "help" for help.

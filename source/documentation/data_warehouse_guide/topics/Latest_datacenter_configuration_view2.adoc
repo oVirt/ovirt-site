@@ -4,11 +4,11 @@
 The following table shows the relationships between storage domains and data centers in the system.
 [[References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_datacenter_storage_domain_map_view]]
 
-.v4_2_map_history_datacenters_storage_domains
+.v4_4_map_history_datacenters_storage_domains
 [options="header"]
 |===
 |Name |Type |Description |Indexed
-|history_id |integer |The ID of the configuration version in the history database. This is identical to the value of `datacenter_configuration_version` in the `v4_2_configuration_history_clusters` view and it can be used to join them. |No
+|history_id |integer |The ID of the configuration version in the history database. This is identical to the value of `datacenter_configuration_version` in the `v4_4_configuration_history_clusters` view and it can be used to join them. |No
 |storage_domain_id |uuid |The unique ID of this storage domain in the system. |Yes
 |datacenter_id |uuid |The unique ID of the data center in the system. |No
 |attach_date |timestamp with time zone |The date the storage domain was attached to the data center. |No

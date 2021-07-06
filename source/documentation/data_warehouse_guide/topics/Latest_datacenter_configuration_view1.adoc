@@ -4,11 +4,11 @@
 The following table shows the configuration history parameters of the data centers in the system.
 [[References_RHEV_3_Reporting_Database-Configuration_Views_table-Cluster_configuration_view-70]]
 
-.v4_2_configuration_history_datacenters
+.v4_4_configuration_history_datacenters
 [options="header"]
 |===
 |Name |Type |Description |Indexed
-|history_id |integer |The ID of the configuration version in the history database. This is identical to the value of `datacenter_configuration_version` in the `v4_2_configuration_history_clusters` view and it can be used to join them. |No
+|history_id |integer |The ID of the configuration version in the history database. This is identical to the value of `datacenter_configuration_version` in the `v4_4_configuration_history_clusters` view and it can be used to join them. |No
 |datacenter_id |uuid |The unique ID of the data center in the system. |Yes
 |datacenter_name |character varying(40) |Name of the data center, as displayed in the edit dialog. |No
 |datacenter_description |character varying(4000) |Description of the data center, as displayed in the edit dialog. |No

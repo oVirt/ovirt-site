@@ -3,7 +3,7 @@
 
 {virt-product-fullname} includes a comprehensive management history database, which can be used by reporting applications to generate reports at data center, cluster and host levels. This chapter provides information to enable you to set up queries against the history database.
 
-{virt-product-fullname} {engine-name} uses `PostgreSQL 10.x` as a database platform to store information about the state of the virtualization environment, its configuration and performance. At install time, {virt-product-fullname} {engine-name} creates a PostgreSQL database called `engine`.
+{virt-product-fullname} {engine-name} uses `PostgreSQL 12.x` as a database platform to store information about the state of the virtualization environment, its configuration and performance. At install time, {virt-product-fullname} {engine-name} creates a PostgreSQL database called `engine`.
 
 Installing the `ovirt-engine-dwh` package creates a second database called `ovirt_engine_history`, which contains historical configuration information and statistical metrics collected every minute over time from the `engine` operational database. Tracking the changes to the database provides information on the objects in the database, enabling the user to analyze activity, enhance performance, and resolve difficulties.
 

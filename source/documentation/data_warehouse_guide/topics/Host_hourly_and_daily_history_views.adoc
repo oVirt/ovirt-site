@@ -48,5 +48,5 @@ endif::[]
 |max_user_cpu_usage_percent |smallint |The maximum user CPU usage for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
 |swap_used_mb |integer |Used swap size usage of the host in megabytes (MB). |No
 |max_swap_used_mb |integer |The maximum user swap size usage of the host for the aggregation period in megabytes (MB), expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
-|host_configuration_version |integer |The host configuration version at the time of sample. The host configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_2_configuration_history_hosts` view and it can be used to join them. |Yes
+|host_configuration_version |integer |The host configuration version at the time of sample. The host configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_4_configuration_history_hosts` view and it can be used to join them. |Yes
 |===

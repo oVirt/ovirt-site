@@ -4,7 +4,7 @@
 The following table shows the relationships between virtual machines and their associated devices, including disks and virtual interfaces.
 [[References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_5_vm_config_hist_devices]]
 
-.v4_2_configuration_history_vms_devices
+.v4_4_configuration_history_vms_devices
 [options="header"]
 |===
 |Name |Type |Description |Indexed
@@ -18,8 +18,8 @@ The following table shows the relationships between virtual machines and their a
 |is_readonly |boolean |Flag that indicates if the device is read only. |No
 |vm_configuration_version |integer |The virtual machine configuration version at the time the sample was taken. |No
 |device_configuration_version |integer |The device configuration version at the time the sample was taken. +
-- If the value of the `type` field is set to `interface`, this field is joined with the `history_id` field in the `v4_2_configuration_history_vms_interfaces` view. +
-- If the value of the `type` field is set to disk, this field is joined with the `history_id` field in the `v4_2_configuration_history_vms_disks` view. 
+- If the value of the `type` field is set to `interface`, this field is joined with the `history_id` field in the `v4_4_configuration_history_vms_interfaces` view. +
+- If the value of the `type` field is set to disk, this field is joined with the `history_id` field in the `v4_4_configuration_history_vms_disks` view. 
 |No
 |create_date |timestamp with time zone |The date this entity was added to the system. |No
 |update_date |timestamp with time zone |The date this entity was added to the system. |No

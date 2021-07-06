@@ -39,8 +39,8 @@ endif::[]
 |currently_running_on_host |uuid |The unique ID of the host the virtual machine is running on. |No
 |current_user_id |uuid |The unique ID of the user logged into the virtual machine console, if the guest agent is installed. |No
 |disks_usage |text |The disk description. File systems type, mount point, total size, and used size. |No
-|vm_configuration_version |integer |The virtual machine configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_2_configuration_history_vms` view.|Yes
-|current_host_configuration_version |integer |The host configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_2_configuration_history_hosts` view and it can be used to join them. |Yes
+|vm_configuration_version |integer |The virtual machine configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_4_configuration_history_vms` view.|Yes
+|current_host_configuration_version |integer |The host configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_4_configuration_history_hosts` view and it can be used to join them. |Yes
 |memory_buffered_kb |bigint |The amount of buffered memory on the virtual machine, in kilobytes (KB). |No
 |memory_cached_kb |bigint |The amount of cached memory on the virtual machine, in kilobytes (KB). |No
 |max_memory_buffered_kb |bigint |The maximum buffered memory for the aggregation period, in kilobytes (KB). For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No

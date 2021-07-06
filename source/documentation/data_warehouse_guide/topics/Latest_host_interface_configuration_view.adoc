@@ -4,7 +4,7 @@
 The following table shows the configuration history parameters of the host interfaces in the system.
 [[References_RHEV_3_Reporting_Database-Configuration_Views_table-host_interface_configuration_view]]
 
-.v4_2_configuration_history_hosts_interfaces
+.v4_4_configuration_history_hosts_interfaces
 [options="header"]
 |===
 |Name |Type |Description |Indexed
@@ -31,7 +31,7 @@ The following table shows the configuration history parameters of the host inter
 |bond |boolean |A flag to indicate if this interface is a bonded interface. |No
 |bond_name |character varying(50) |The name of the bond this interface is part of (if it is part of a bond). |No
 |vlan_id |integer |As displayed in the edit dialog. |No
-|host_configuration_version |integer |The host configuration version at the time of creation or update. This is identical to the value of `history_id` in the `v4_2_configuration_history_hosts` view and it can be used to join them. |No
+|host_configuration_version |integer |The host configuration version at the time of creation or update. This is identical to the value of `history_id` in the `v4_4_configuration_history_hosts` view and it can be used to join them. |No
 |create_date |timestamp with time zone |The date this entity was added to the system. |No
 |update_date |timestamp with time zone |The date this entity was changed in the system. |No
 |delete_date |timestamp with time zone |The date this entity was deleted from the system. |No

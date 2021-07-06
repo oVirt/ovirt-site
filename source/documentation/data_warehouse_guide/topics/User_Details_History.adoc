@@ -4,7 +4,7 @@
 The following table shows the configuration history parameters of the users in the system.
 [[References_RHEV_3_Reporting_Database-Configuration_Views_table-Cluster_configuration_view-81]]
 
-.v4_2_users_details_history
+.v4_4_users_details_history
 [options="header"]
 |===
 |Name |Type |Description

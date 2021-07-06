@@ -4,7 +4,7 @@
 The following table shows the configuration history parameters of the hosts in the system.
 [[References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_host_configuration_view]]
 
-.v4_2_configuration_history_hosts
+.v4_4_configuration_history_hosts
 [options="header"]
 |===
 |Name |Type |Description |Indexed 
@@ -37,7 +37,7 @@ The following table shows the configuration history parameters of the hosts in t
 |hardware_product_name |character varying(255) |The product name of the host's hardware. |No
 |hardware_version |character varying(255) |The version of the host's hardware. |No
 |hardware_serial_number |character varying(255) |The serial number of the host's hardware. |No
-|cluster_configuration_version |integer |The cluster configuration version at the time of creation or update. This is identical to the value of `history_id` in the `v4_2_configuration_history_clusters` view and it can be used to join them. |No
+|cluster_configuration_version |integer |The cluster configuration version at the time of creation or update. This is identical to the value of `history_id` in the `v4_4_configuration_history_clusters` view and it can be used to join them. |No
 |create_date |timestamp with time zone |The date this entity was added to the system. |No
 |update_date |timestamp with time zone |The date this entity was changed in the system. |No
 |delete_date |timestamp with time zone |The date this entity was deleted from the system. |No

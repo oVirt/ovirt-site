@@ -4,7 +4,7 @@
 The following table shows the configuration history parameters of the virtual disks in the system.
 [[References_RHEV_3_Reporting_Database-Configuration_Views_table-v3_1_latest_vm_disk_configuration_view]]
 
-.v4_2_configuration_history_vms_disks
+.v4_4_configuration_history_vms_disks
 [options="header"]
 |===
 |Name |Type |Description |Indexed

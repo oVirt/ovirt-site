@@ -14,5 +14,5 @@
 |minutes_in_status |numeric(7,2) |The total number of minutes that the storage domain was in the status shown state as shown in the status column for the aggregation period. For example, if a storage domain was "Active" for 55 minutes and "Inactive" for 5 minutes within an hour, two rows will be reported in the table for the same hour. One row will have a status of Active with minutes_in_status of 55, the other will have a status of Inactive and minutes_in_status of 5. |No
 |available_disk_size_gb |integer |The total available (unused) capacity on the disk, expressed in gigabytes (GB). |No
 |used_disk_size_gb |integer |The total used capacity on the disk, expressed in gigabytes (GB). |No
-|storage_configuration_version |integer |The storage domain configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_2_configuration_history_storage_domains` view and it can be used to join them.  |Yes
+|storage_configuration_version |integer |The storage domain configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_4_configuration_history_storage_domains` view and it can be used to join them.  |Yes
 |===

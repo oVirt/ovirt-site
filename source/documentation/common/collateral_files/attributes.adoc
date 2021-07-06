@@ -1,0 +1,109 @@
+// Warning: Changing these attribute definitions is very likely to
+// break links throughout our doc set.
+// Carefully analyze, test, and peer review all changes to this file!
+//
+// The ovirt-doc and rhv-doc attributes are defined in the top-level files for each document:
+// (index.adoc for oVirt, master.adoc for RHV).
+// These attributes are used in ifdef and ifeval statements to conditionalize
+// content specific to the oVirt or RHV versions of each document.
+//
+:vernum_rhv: 4.4
+:vernum_rhv_legacy: 4.3
+:vernum_satellite: 6.7
+:vernum_rhel: 8.0
+:vernum_rhel_legacy: 7.6
+:vernum_gluster: 3.3
+:vernum_cloudforms: 4.6
+:vernum_rhhi: 1.0
+:vernum_rhop: 10
+:vernum_rh_ceph_storage: 3
+:doctype: book
+:toc: left
+:toclevels: 3
+:numbered!:
+:experimental:
+:numbered:
+:source-highlighter: highlightjs
+//Downstream-only
+:beta-disclaimer: This document is only provided as a preview. It is under development and is subject to substantial change. Consider the included information incomplete and use it with caution.
+// This first set of URL attributes are the 'atomic URL attributes' that we'll
+// reuse in the 'composite URL attributes'.
+// Where possible, use the composite URL attributes instead of the atomic ones.
+:URL_customer-portal: https://access.redhat.com/
+:URL_docs: documentation/
+:URL_lang-locale: en-us/
+:URL_product_rhv: red_hat_virtualization/
+ifdef::rhv-doc[]
+:URL_product_virt: red_hat_virtualization
+endif::rhv-doc[]
+ifdef::ovirt-doc[]
+:URL_product_virt: ovirt
+endif::ovirt-doc[]
+:URL_downstream_virt_product: red_hat_virtualization
+:URL_vernum_rhv: {vernum_rhv}/
+:URL_product_gluster: red_hat_gluster_storage/
+:URL_product_rhel: red_hat_enterprise_linux/
+:URL_vernum_rhel_legacy: 7/
+:URL_vernum_rhel_latest: 8/
+:URL_product_satellite: red_hat_satellite/
+:URL_vernum_satellite: 6.7/
+// Here are the composite URL attributes.
+// Where possible, use these instead of the atomic URL attributes.
+ifdef::rhv-doc[]
+:URL_format: html-single/
+:URL_virt_product_docs: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}{URL_vernum_rhv}
+:URL_rest_api_doc: {URL_virt_product_docs}{URL_format}rest_api_guide/
+endif::rhv-doc[]
+ifdef::ovirt-doc[]
+:URL_format:
+:URL_virt_product_docs: https://ovirt.org/documentation/
+:URL_rest_api_doc: https://ovirt.github.io/ovirt-engine-api-model/4.4/
+endif::ovirt-doc[]
+// :URL_downstream_virt_product_docs: - For URLs that should point to the downstream (RHV) even in oVirt docs.
+:URL_downstream_virt_product_docs: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}{URL_vernum_rhv}html-single/
+:URL_rhel_docs_legacy: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhel}{URL_vernum_rhel_legacy}
+:URL_rhel_docs_latest: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhel}{URL_vernum_rhel_latest}
+:URL_gluster_docs: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_gluster}
+:URL_satellite_docs: {URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_satellite}{URL_vernum_satellite}
+// For example, the section "Managing searches saved as"
+// Managing searches saved as
+// RHV:   link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Bookmarks[public bookmarks].
+// oVirt: link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Bookmarks[public bookmarks]
+//
+// Example URL that this resolves to
+// RHV:   https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/index#chap-Bookmarks
+// oVirt: https://ovirt.org/documentation/administration_guide/index#chap-Bookmarks
+
+ifdef::rhv-doc[]
+:hypervisor-fullname: Red Hat Virtualization Host
+:hypervisor-shortname: RHVH
+:virt-product-fullname: Red Hat Virtualization
+:virt-product-shortname: RHV
+:engine-name: Manager
+:engine-package: rhvm
+:engine-appliance-name: RHV-M Appliance
+:enterprise-linux-host-fullname: Red Hat Enterprise Linux host
+:enterprise-linux-host-shortname: RHEL host
+:enterprise-linux: Red Hat Enterprise Linux
+:enterprise-linux-shortname: RHEL
+:gluster-storage-fullname: Red Hat Gluster Storage
+:org-fullname: Red Hat
+:container-platform: OpenShift Container Platform
+endif::rhv-doc[]
+
+ifdef::ovirt-doc[]
+:hypervisor-fullname: oVirt Node
+:hypervisor-shortname: oVirt Node
+:virt-product-fullname: oVirt
+:virt-product-shortname: oVirt
+:engine-name: Engine
+:engine-package: ovirt-engine
+:engine-appliance-name: Engine Appliance
+:enterprise-linux-host-fullname: Enterprise Linux host
+:enterprise-linux-host-shortname: Enterprise Linux host
+:enterprise-linux: Enterprise Linux
+:enterprise-linux-shortname: EL
+:gluster-storage-fullname: Gluster Storage
+:org-fullname: oVirt
+:container-platform: OKD
+endif::ovirt-doc[]

@@ -15,5 +15,5 @@
 |max_transmit_rate_percent |smallint |The maximum transmit rate for the aggregation period, expressed as a percentage. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average rate. |No
 |received_total_byte |bigint |The total number of bytes received by the virtual machine. |No
 |transmitted_total_byte |bigint |The total number of bytes transmitted from the virtual machine. |No
-|vm_interface_configuration_version |integer |The virtual machine interface configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_2_configuration_history_vms_interfaces` view and it can be used to join them. |Yes
+|vm_interface_configuration_version |integer |The virtual machine interface configuration version at the time of sample. This is identical to the value of `history_id` in the `v4_4_configuration_history_vms_interfaces` view and it can be used to join them. |Yes
 |===

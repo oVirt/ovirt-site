@@ -9,14 +9,14 @@ If your {virt-product-fullname} {engine-name} is hosted on a machine that receiv
 ifdef::rhv-doc[]
 [options="nowrap" subs="normal"]
 ----
-# reposync -l --newest-only /var/ftp/pub/rhevrepo
+# reposync --newest-only /var/ftp/pub/rhevrepo
 
 ----
 endif::[]
 ifdef::ovirt-doc[]
 [options="nowrap" subs="normal"]
 ----
-# reposync -l --newest-only /var/ftp/pub/ovirtrepo
+# reposync --newest-only /var/ftp/pub/ovirtrepo
 
 ----
 endif::[]

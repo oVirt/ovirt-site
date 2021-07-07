@@ -7,10 +7,8 @@
 
 {virt-product-fullname} data centers have a compatibility version. The compatibility version indicates the version of {virt-product-fullname} with which the data center is intended to be compatible. All clusters in the data center must support the desired compatibility level.
 
-[IMPORTANT]
-====
-To change the data center compatibility version, you must have first updated the compatibility version of all clusters and virtual machines in the data center.
-====
+.Prerequisites
+* To change the data center compatibility level, you must first update the compatibility version of all clusters and virtual machines in the data center.
 
 .Procedure
 

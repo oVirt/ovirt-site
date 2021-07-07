@@ -8,19 +8,21 @@ Upgrading a self-hosted engine environment from version 4.3 to 4.4 involves the 
 
 . xref:Upgrade_Prerequisites_4-3_SHE[Make sure you meet the prerequisites, including enabling the correct repositories]
 
-. xref:Analyzing_the_Environment_4-3_SHE[Use the Log Collection Analysis tool to check for issues that might prevent a successful upgrade]
+ifdef::rhv-doc[]
+. xref:Analyzing_the_Environment_4-3_SHE[Use the Log Collection Analysis tool and Image Discrepancies tool to check for issues that might prevent a successful upgrade]
+endif::[]
+
+. xref:Migrating_VMs_from_SHE_host[Migrate any virtual machines that are running on the same host as the {engine-name} virtual machine to another host in the same cluster]
 
 . xref:Enabling_Global_Maintenance_Mode_4-3_SHE[Place the environment in global maintenance mode]
-// . xref:Updating_the_Red_Hat_Virtualization_Manager_4-3_SHE[Update the 4.3 {engine-name} to the latest version of 4.3]
+
+. xref:Updating_the_Red_Hat_Virtualization_Manager_4-3_SHE[Update the 4.3 {engine-name} to the latest version of 4.3]
 
 . xref:Upgrading_the_Manager_to_4-4_4-3_SHE[Upgrade the {engine-name} from 4.3 to 4.4]
 
-. xref:Disabling_Global_Maintenance_Mode_4-3_SHE[Disable global maintenance mode]
+. xref:Upgrading_hosts_to_4-4_4-3_SHE[Upgrade the self-hosted engine nodes, and any standard hosts, while reducing virtual machine downtime]
 
-//   . xref:Updating_all_hosts_in_a_cluster_4-3_SHE[Upgrade the self-hosted engine nodes, and any standard hosts]
-. xref:Upgrading_hosts_to_4-4_4-3_SHE[Upgrade the self-hosted engine nodes, and any standard hosts, while reducing virtual machine downtime].
-
-. xref:Upgrading_hypervisor_preserving_local_storage_4-3_SHE[(Optional) Upgrade {hypervisor-shortname} while preserving local storage].
+. xref:Upgrading_hypervisor_preserving_local_storage_4-3_SHE[(Optional) Upgrade {hypervisor-shortname} while preserving local storage]
 
 . xref:Changing_the_Cluster_Compatibility_Version_4-3_SHE[Update the compatibility version of the clusters]
 
@@ -28,25 +30,32 @@ Upgrading a self-hosted engine environment from version 4.3 to 4.4 involves the 
 
 . xref:Changing_the_Data_Center_Compatibility_Version_4-3_SHE[Update the compatibility version of the data centers]
 
-. If you previously upgraded to 4.3 without replacing SHA-1 certificates with SHA-256 certificates, xref:Replacing_SHA-1_Certificates_with_SHA-256_Certificates_4-3_SHE[you must replace the certificates now].
-
 // Prerequisites
 include::common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
-* Ensure the {engine-name} has the correct repositories enabled. For the list of required repositories, see link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}4.3/html/installation_guide/chap-red_hat_virtualization_manager#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_standalone_install[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.3.
-// This link must always be for the starting version of this assembly.
-// review above
 
+ifdef::rhv-doc[]
 include::common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
+endif::[]
+
+[id='Migrating_VMs_from_SHE_host']
+== Migrating virtual machines from the self-hosted engine host
+
+Only the {engine-name} virtual machine should remain on the host until after you have finished upgrading the host. Migrate any virtual machines other than the {engine-name} virtual machine to another host in the same cluster.
+
+You can use Live Migration to minimize virtual machine down-time. For more information, see
+link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-Migrating_Virtual_Machines_Between_Hosts[Migrating Virtual Machines Between Hosts] in the _Virtual Machine Management Guide_ for more information.
 
 include::common/she/snip-Enabling_Global_Maintenance_Mode.adoc[leveloffset=+1]
 
-// include::common/upgrade/proc-Updating_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
+You can now update the {engine-name} to the latest version of 4.3.
+
+include::common/upgrade/proc-Updating_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
+
+You can now upgrade the {engine-name} to 4.4.
 
 include::common/upgrade/proc-Upgrading_the_Manager_to_4-4.adoc[leveloffset=+1]
 
 // Add new {engine-name} upgrade versions here
-
-include::common/she/snip-Disabling_Global_Maintenance_Mode.adoc[leveloffset=+1]
 
 You can now update the self-hosted engine nodes, and then any standard hosts. The procedure is the same for both host types.
 
@@ -60,11 +69,6 @@ include::common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[lev
 include::common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
 
 include::common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
-
-// Can be removed in 4.4
-If you previously upgraded to 4.3 without replacing SHA-1 certificates with SHA-256 certificates, you must do so now.
-
-include::common/upgrade/proc-Replacing_SHA-1_Certificates_with_SHA-256_Certificates.adoc[leveloffset=+1]
 
 :context!: 4-3_SHE
 :4-3_SHE!:

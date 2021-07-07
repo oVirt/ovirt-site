@@ -1,0 +1,22 @@
+[[compatibility_levels]]
+== Data Center and Cluster Compatibility Levels
+
+{virt-product-fullname} data centers and clusters have a compatibility version.
+
+The data center compatibility version indicates the version of {virt-product-fullname} that the data center is intended to be compatible with. All clusters in the data center must support the desired compatibility level.
+
+The cluster compatibility version indicates the features of Red Hat Virtualization supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.
+
+The table below provides a compatibility matrix of {virt-product-shortname} versions and the required data center and cluster compatibility levels.
+
+[[compatibility_level_matrix]]
+.Data center and cluster levels supported with {virt-product-fullname}
+[options="header"]
+|===
+|Compatibility Level |{virt-product-shortname} Version |Description
+|4.6 |4.4.6 | Compatibility Level 4.6 was introduced in RHV 4.4.6 to support new features introduced by RHEL 8.4 hypervisors with Advanced Virtualization 8.4 packages.
+|4.5 |4.4.3 | Compatibility Level 4.5 was introduced in RHV 4.4.3 to support new features introduced by RHEL 8.3 hypervisors with Advanced Virtualization 8.3 packages.
+|===
+
+//Limitations
+include::snip-cluster_compatibility_limitations.adoc[]

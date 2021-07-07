@@ -1,0 +1,52 @@
+[id='Image_discrepancies_tool_{context}']
+
+The *{virt-product-shortname} Image Discrepancies* tool analyzes image data in the Storage Domain and RHV Database. It alerts you if it finds discrepancies in volumes and volume attributes, but does not fix those discrepancies.
+Use this tool in a variety of scenarios, such as:
+
+* Before upgrading versions, to avoid carrying over broken volumes or chains to the new version.
+* Following a failed storage operation, to detect volumes or attributes in a bad state.
+* After restoring the {virt-product-shortname} database or storage from backup.
+* Periodically, to detect potential problems before they worsen.
+* To analyze a snapshot- or live storage migration-related issues, and to verify system health after fixing these types of problems.
+
+.Prerequisites
+
+* Required Versions: this tool was introduced in {virt-product-shortname} version 4.3.8 with `rhv-log-collector-analyzer-0.2.15-0.el7ev`.
+* Because data collection runs simultaneously at different places and is not atomic, stop all activity in the environment that can modify the storage domains. That is, do not create or remove snapshots, edit, move, create, or remove disks. Otherwise, false detection of inconsistencies may occur. Virtual Machines can remain running normally during the process.
+
+.Procedure
+. To run the tool, enter the following command on the {virt-product-shortname} {engine-name}:
++
+----
+# rhv-image-discrepancies
+----
++
+. If the tool finds discrepancies, rerun it to confirm the results, especially if there is a chance some operations were performed while the tool was running.
+
+[NOTE]
+====
+This tool includes any Export and ISO storage domains and may report discrepancies for them. If so, these can be ignored, as these storage domains do not have entries for images in the {virt-product-shortname} database.
+====
+
+.Understanding the results
+
+The tool reports the following:
+
+* If there are volumes that appear on the storage but are not in the database, or appear in the database but are not on the storage.
+* If some volume attributes differ between the storage and the database.
+
+Sample output:
+----
+ Checking storage domain c277ad93-0973-43d9-a0ca-22199bc8e801
+    Looking for missing images...
+    No missing images found
+    Checking discrepancies between SD/DB attributes...
+    image ef325650-4b39-43cf-9e00-62b9f7659020 has a different attribute capacity on storage(2696984576) and on DB(2696986624)
+    image 852613ce-79ee-4adc-a56a-ea650dcb4cfa has a different attribute capacity on storage(5424252928) and on DB(5424254976)
+
+ Checking storage domain c64637b4-f0e8-408c-b8af-6a52946113e2
+    Looking for missing images...
+    No missing images found
+    Checking discrepancies between SD/DB attributes...
+    No discrepancies found
+----

@@ -6,12 +6,10 @@
 
 Environments with local storage cannot migrate virtual machines to a host in another cluster because the local storage is not shared with other storage domains. To upgrade {hypervisor-shortname} 4.3 hosts that have a local storage domain, reinstall the host while preserving the local storage, create a new local storage domain in the 4.4 environment, and import the previous local storage into the new domain.
 
-For {enterprise-linux} hosts, if you used separate space for storage domains, such as disks, partitions, or logical volume, you can reinstall while keeping the domains.
-
 .Prerequisites
 
 * {virt-product-fullname} {engine-name} 4.4 is installed and running.
-* The compatibility level of the data center and cluster to which the host belongs is set to 4.3.
+* The compatibility level of the data center and cluster to which the host belongs is set to 4.2 or 4.3.
 
 .Procedure
 
@@ -23,20 +21,20 @@ For {enterprise-linux} hosts, if you used separate space for storage domains, su
 
 .. Click *Maintenance*.
 
-. Reinstall the {hypervisor-fullname}, as described in link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Red_Hat_Virtualization_Hosts_SHE_cockpit_deploy[Installing {hypervisor-fullname}] in the _Installation Guide_.
+. Reinstall the {hypervisor-fullname}, as described in link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Red_Hat_Virtualization_Hosts_SHE_cockpit_deploy[Installing {hypervisor-fullname}] in the _Installation Guide_.
 +
 [IMPORTANT]
 ====
-When selecting the device on which to install {hypervisor-shortname} from the Installation Destination screen, do not select the device(s) storing the virtual machines. Only select the device where the operating system should be installed.
+When selecting the device on which to install {hypervisor-shortname} from the *Installation Destination* screen, do not select the device(s) storing the virtual machines. Only select the device where the operating system should be installed.
 
-If you are using kickstart to install the host, ensure that you preserve the devices containing the virtual machines by adding the following to the kickstart file, replacing device with the relevant device.
+If you are using Kickstart to install the host, ensure that you preserve the devices containing the virtual machines by adding the following to the Kickstart file, replacing _`device`_ with the relevant device.
 
 [options="nowrap" subs="normal"]
 ----
 # clearpart --all --drives=_device_
 ----
 
-For more information on using kickstart, see link:{URL_rhel_docs_latest}html-single/performing_an_advanced_rhel_installation/index#kickstart_references[Kickstart references] in _Red Hat Enterprise Linux 8 Performing an advanced RHEL installation_.
+For more information on using Kickstart, see link:{URL_rhel_docs_latest}html-single/performing_an_advanced_rhel_installation/index#kickstart_references[Kickstart references] in _Red Hat Enterprise Linux 8 Performing an advanced RHEL installation_.
 ====
 
 . On the reinstalled host, create a directory, for example [filename]`/data` in which to recover the previous environment.
@@ -73,9 +71,9 @@ UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" /data    ext4    defaults     0     
 
 . In the Administration Portal, create a data center and select *Local* in the *Storage Type* drop-down menu.
 
-. Configure a cluster on the new data center. See link:{URL_virt_product_docs}{URL_format}/administration_guide/index#Creating_a_New_Cluster[Creating a New Cluster] in the _Administration Guide_ for more information.
+. Configure a cluster on the new data center. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Creating_a_New_Cluster[Creating a New Cluster] in the _Administration Guide_ for more information.
 
-. Add the host to the {engine-name}. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Adding_standard_hosts_to_the_Manager_SHE_cockpit_deploy[Adding Standard Hosts to the {virt-product-fullname} Manager] in one of the _Installing {virt-product-fullname}_ guides for more information.
+. Add the host to the {engine-name}. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Adding_standard_hosts_to_the_Manager_SHE_cockpit_deploy[Adding Standard Hosts to the {virt-product-fullname} Manager] in one of the _Installing {virt-product-fullname}_ guides for more information.
 
 . On the host, create a new directory that will be used to create the initial local storage domain. For example:
 +
@@ -105,7 +103,7 @@ For example, define `Data` as the name, `Local on Host` as the storage type and 
 
 .. In the *Storage* tab, select *data*.
 
-.. Select the *VM Import* tab in the details pane, select the virtual machines and click *Import*. See link:{URL_virt_product_docs}{URL_format}/administration_guide/index#Importing_Virtual_Machines_from_an_Imported_Data_Storage_Domain[Importing Virtual Machines from Imported Data Storage Domains] in the _Administration Guide_ for more details.
+.. Select the *VM Import* tab in the details pane, select the virtual machines and click *Import*. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Importing_a_Virtual_Machine_from_a_Data_Domain[Importing Virtual Machines from a Data Domain] in the _Virtual Machine Management Guide_ for more details.
 
 . Once you have ensured that all virtual machines have been successfully imported and are functioning properly, you can move `localfs` to maintenance mode.
 . Click the *Storage* tab and select *localfs* from the results list.

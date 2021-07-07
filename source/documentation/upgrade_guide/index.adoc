@@ -1,5 +1,6 @@
+:ovirt-doc:
+include::../common/collateral_files/attributes.adoc[]
 = Upgrade Guide
-include::common/collateral_files/ovirt-attributes.adoc[]
 
 // Make sure Jekyll displays a guide title
 [discrete]
@@ -49,27 +50,33 @@ include::assembly-Upgrading_from_4-2.adoc[leveloffset=+1]
 include::assembly-Upgrading_from_4-3.adoc[leveloffset=+1]
 :local_database_upgrade!:
 
-////
-= Upgrading a Remote Database Environment Manually
+= Upgrading a standalone {engine-name} remote database environment
 :remote_database_upgrade:
+// include::assembly-Remote_Upgrading_from_4-0.adoc[leveloffset=+1]
+
+// include::assembly-Remote_Upgrading_from_4-1.adoc[leveloffset=+1]
+
 include::assembly-Remote_Upgrading_from_4-2.adoc[leveloffset=+1]
+
+include::assembly-Remote_Upgrading_from_4-3.adoc[leveloffset=+1]
 :remote_database_upgrade!:
-////
-= Upgrading a Self-hosted Engine Environment Manually
+
+= Upgrading a self-hosted engine environment
 :SHE_upgrade:
 include::assembly-SHE_Upgrading_from_4-2.adoc[leveloffset=+1]
 
 include::assembly-SHE_Upgrading_from_4-3.adoc[leveloffset=+1]
 :SHE_upgrade!:
 
+= Updates between minor releases
+
+include::chap-Updates_between_Minor_Releases.adoc[leveloffset=+1]
 
 :numbered!:
 
 = Appendices
 
 :appendices:
-[appendix]
-include::chap-Updates_between_Minor_Releases.adoc[leveloffset=+1]
 
 [appendix]
 include::topics/Updating_the_Local_Repository_for_an_Offline_Red_Hat_Virtualization_Manager_Installation.adoc[leveloffset=+1]
@@ -85,4 +92,4 @@ include::topics/Updating_the_Local_Repository_for_an_Offline_Red_Hat_Virtualizat
 
 == Legal notice
 
-Certain portions of this text first appeared in the link:{URL_downstream_virt_product_docs}{URL_format}/upgrade_guide/[Red Hat Virtualization {vernum_rhv} Upgrade Guide]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].
+Certain portions of this text first appeared in the link:{URL_downstream_virt_product_docs}upgrade_guide/index[Red Hat Virtualization {vernum_rhv} Upgrade Guide]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

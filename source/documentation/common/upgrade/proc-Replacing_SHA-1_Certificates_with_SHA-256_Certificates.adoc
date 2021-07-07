@@ -37,12 +37,11 @@ ifdef::SHE_upgrade[]
 # hosted-engine --set-maintenance --mode=global
 ----
 endif::SHE_upgrade[]
-
-. On the {engine-name}, re-sign the Apache certificate:
+. On the {engine-name}, save a backup of the `/etc/ovirt-engine/engine.conf.d` and `/etc/pki/ovirt-engine` directories, and re-sign the certificates:
 +
 ----
-
-for name in $names; do
+# . /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
+# for name in $names; do
     subject="$(
         openssl \
             x509 \
@@ -59,7 +58,6 @@ for name in $names; do
         --san=DNS:"${ENGINE_FQDN}" \
         --keep-key
 done
-
 ----
 
 . Restart the *httpd* service:
@@ -130,7 +128,7 @@ If you replaced the {virt-product-fullname} {engine-name} SSL Certificate after 
 # names="engine websocket-proxy jboss imageio-proxy"
 ----
 +
-For more details see link:{URL_virt_product_docs}/administration_guide/index.html#Replacing_the_Manager_CA_Certificate[Replacing the {virt-product-fullname} {engine-name} CA Certificate] in the _Administration Guide_.
+For more details see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Replacing_the_Manager_CA_Certificate[Replacing the {virt-product-fullname} {engine-name} CA Certificate] in the _Administration Guide_.
 
 ifdef::SHE_upgrade[]
 .	Log in to one of the self-hosted engine nodes and enable global maintenance:
@@ -140,12 +138,13 @@ ifdef::SHE_upgrade[]
 ----
 endif::SHE_upgrade[]
 
-. On the {engine-name}, re-sign the certificates:
+. On the {engine-name}, save a backup of the `/etc/ovirt-engine/engine.conf.d` and `/etc/pki/ovirt-engine` directories, and re-sign the certificates:
 +
 [options="nowrap" subs="normal"]
 ----
-for name in $names; do
-   subject="$(
+# . /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
+# for name in $names; do
+    subject="$(
         openssl \
             x509 \
             -in /etc/pki/ovirt-engine/certs/"${name}".cer \
@@ -153,15 +152,14 @@ for name in $names; do
             -subject \
         | sed \
             's;subject= \(.*\);\1;' \
-        )"
-     /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
-            --name="${name}" \
-            --password=mypass \
-            --subject="${subject}" \
-            --san=DNS:"${ENGINE_FQDN}" \
-            --keep-key
+    )"
+   /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
+        --name="${name}" \
+        --password=mypass \
+        --subject="${subject}" \
+        --san=DNS:"${ENGINE_FQDN}" \
+        --keep-key
 done
-
 ----
 
 . Restart the following services:

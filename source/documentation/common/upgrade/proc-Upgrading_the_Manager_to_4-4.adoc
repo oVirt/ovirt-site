@@ -4,8 +4,19 @@
 // Included in:
 // Upgrade Guide
 
-{virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} 8.2 or later. A clean installation of {enterprise-linux} 8.2 and {virt-product-fullname} {engine-name} 4.4 is required, even if you are using the same physical machine that you use to run {virt-product-fullname} {engine-name} 4.3. The upgrade process requires restoring {virt-product-fullname} {engine-name} 4.3 backup files onto the {virt-product-fullname} {engine-name} 4.4 machine.
+ifndef::SHE_upgrade[]
+{virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} 8.2 or later. You need to do a clean installation of {enterprise-linux} 8.2 and {virt-product-fullname} {engine-name} 4.4, even if you are using the same physical machine that you use to run {virt-product-shortname} {engine-name} 4.3.
 
+The upgrade process requires restoring {virt-product-fullname} {engine-name} 4.3 backup files onto the {virt-product-fullname} {engine-name} 4.4 machine.
+endif::SHE_upgrade[]
+
+ifdef::SHE_upgrade[]
+The {virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} 8.2 or later. You need to do a clean installation of {enterprise-linux} 8.2 or {hypervisor-fullname} on the self-hosted engine host, even if you are using the same physical machine that you use to run the {virt-product-shortname} 4.3 self-hosted engine.
+
+The upgrade process requires restoring {virt-product-fullname} {engine-name} 4.3 backup files onto the {virt-product-fullname} {engine-name} 4.4 virtual machine.
+endif::SHE_upgrade[]
+
+//ifdef::local_database_upgrade,remote_database_upgrade[]
 ////
 [NOTE]
 ====
@@ -13,10 +24,19 @@ You can only restore backups to environments of the same minor release as that o
 ====
 ////
 
-[IMPORTANT]
+.Prerequisites
+
+* All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3 before you start the procedure.
+ifdef::SHE_upgrade[]
+* Make note of the MAC address of the self-hosted engine if you are using DHCP and want to use the same IP address. The deploy script prompts you for this information.
+* During the deployment you need to provide a new storage domain for the {engine-name} machine. The deployment script renames the 4.3 storage domain and retains its data to enable disaster recovery.
++
+[CAUTION]
 ====
-All data centers and clusters in the environment must have the cluster compatibility level set to version 4.3 before you start the procedure.
+In an environment with multiple highly available self-hosted engine nodes, you need to detach the storage domain hosting the version 4.3 {engine-name} after upgrading the {engine-name} to 4.4. Use a dedicated storage domain for the 4.4 self-hosted engine deployment.
 ====
+endif::SHE_upgrade[]
+* If you use an external CA to sign HTTPS certificates, follow the steps in link:{URL_virt_product_docs}{URL_format}administration_guide/index#Replacing_the_Manager_CA_Certificate[Replacing the {virt-product-fullname} {engine-name} CA Certificate] in the _Administration Guide_. The backup and restore include the 3rd-party certificate, so you should be able to log in to the Administration portal after the upgrade. Ensure the CA certificate is added to system-wide trust stores of all clients to ensure the foreign menu of virt-viewer works. See link:https://bugzilla.redhat.com/show_bug.cgi?id=1313379[BZ#1313379] for more information.
 
 [NOTE]
 ====
@@ -26,15 +46,6 @@ Connected hosts and virtual machines can continue to work while the {engine-name
 .Procedure
 
 ifdef::SHE_upgrade[]
-. Log in to the {engine-name} host machine.
-
-. Enable global maintenance mode.
-+
-[options="nowrap" subs="normal"]
-----
-# hosted-engine --set-maintenance --mode=global
-----
-
 . Log in to the {engine-name} virtual machine and shut down the engine service.
 +
 [options="nowrap" subs="normal"]
@@ -52,33 +63,63 @@ ifdef::local_database_upgrade,remote_database_upgrade[. Log in to the {engine-na
 # engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log
 ----
 
-. Copy the backup file to a suitable device.
+. Copy the backup file to a storage device outside of the {virt-product-shortname} environment.
 
 ifdef::SHE_upgrade[]
+. Install {hypervisor-shortname} 4.4 or {enterprise-linux} 8.2 or later on the existing node currently running the {engine-name} virtual machine to use it as the self-hosted engine deployment host. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Installing_Hosts_for_RHV_SHE_cockpit_deploy[Installing the Self-hosted Engine Deployment Host] for more information.
++
+[NOTE]
+====
+It is recommended that you use one of the existing hosts. If you decide to use a new host, you must assign a unique name to the new host and then add it to the existing cluster before you begin the upgrade procedure.
+====
++
+. Install the self-hosted engine deployment tool.
++
+[options="nowrap" subs="normal"]
+----
+# yum install ovirt-hosted-engine-setup
+----
 
-. Install {hypervisor-shortname} 4.4 or {enterprise-linux} 8.2 or later on the machine you want to use as the self-hosted engine deployment host. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Installing_Hosts_for_RHV_SHE_cockpit_deploy[Installing the Self-hosted Engine Deployment Host] for more information.
-
-. Copy the backup file to the new host.
+. Copy the backup file to the host.
 
 . Log in to the {engine-name} host and deploy the self-hosted engine with the backup file:
 +
 [options="nowrap" subs="normal"]
 ----
-# hosted-engine --deploy --restore-from-file=backup.bck
+# hosted-engine --deploy --restore-from-file=/_path_/backup.bck
 ----
 +
 [NOTE]
 ====
-During the deployment you need to provide a new storage domain. The deployment script renames the 4.3 storage domain and retains its data.
+`tmux` enables the deployment script to continue if the connection to the server is interrupted, so you can reconnect and attach to the deployment and continue. Otherwise, if the connection is interrupted during deployment, the deployment fails.
+
+To run the deployment script using `tmux`, enter the `tmux` command before you run the deployment script:
+
+[options="nowrap" subs="normal"]
+----
+# tmux
+# hosted-engine --deploy --restore-from-file=backup.bck
+----
 ====
++
+The deployment script automatically disables global maintenance mode and calls the HA agent to start the self-hosted engine virtual machine. The upgraded host with the 4.4 self-hosted engine reports that HA mode is active, but the other hosts report that global maintenance mode is still enabled as they are still connected to the old self-hosted engine storage.
+
+. Detach the storage domain that hosts the {engine-name} 4.3 machine. For details, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Detaching_a_storage_domain[Detaching a Storage Domain from a Data Center] in the _Administration Guide_.
+
+. Log in to the {engine-name} virtual machine and shut down the engine service.
++
+[options="nowrap" subs="normal"]
+----
+# systemctl stop ovirt-engine
+----
 
 endif::SHE_upgrade[]
 
 ifdef::local_database_upgrade,remote_database_upgrade[]
 
-. Install {hypervisor-shortname} 4.4 or {enterprise-linux} 8.2 or later. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Installing_Hosts_for_RHV_SHE_cockpit_deploy[Installing Hosts for {virt-product-fullname}] in one of the _Installing {virt-product-fullname}_ guides for more information.
+. Install {enterprise-linux} 8.2 or later. See link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/index[_Performing a standard RHEL installation_] for more information.
 
-. Install {virt-product-fullname} {engine-name} 4.4. See one of the _Installing {virt-product-fullname}_ guides.
+. Complete the steps to install {virt-product-fullname} {engine-name} 4.4, including running the command `yum install rhvm`, but do not run `engine-setup`. See one of the _Installing {virt-product-fullname}_ guides for more information.
 
 . Copy the backup file to the {virt-product-fullname} {engine-name} 4.4 machine and restore it.
 +
@@ -105,30 +146,38 @@ endif::local_database_upgrade,remote_database_upgrade[]
 The configuration for these package extensions must be manually reapplied because they are not migrated as part of the backup and restore process.
 ====
 
+ifndef::SHE_upgrade[]
 . Decommission the {virt-product-fullname} {engine-name} 4.3 machine if a different machine is used for {virt-product-fullname} {engine-name} 4.4. Two different {engine-name}s must not manage the same hosts or storage.
+endif::SHE_upgrade[]
 
-ifdef::local_database_upgrade,remote_database_upgrade[]
+ifdef::local_database_upgrade[]
 . Run `engine-setup` to configure the {engine-name}.
 +
 [options="nowrap" subs="normal"]
 ----
 # engine-setup
 ----
-endif::local_database_upgrade,remote_database_upgrade[]
-[NOTE]
-====
-If you use external CA to sign HTTPS certificates, follow the steps in Replacing the {virt-product-fullname} {engine-name} CA Certificate in the Administration Guide to log in to the Administration portal after the upgrade. Ensure the CA certificate is added to system-wide trust stores of all clients to ensure the foreign menu of virt-viewer works. See link:https://bugzilla.redhat.com/show_bug.cgi?id=1313379[BZ#1313379] for more information.
-====
+endif::local_database_upgrade[]
 
-The {virt-product-fullname} {engine-name} 4.4 is now installed, with the cluster compatibility version set to 4.3. Now you need to upgrade the hosts in your environment to {virt-product-shortname} 4.4, after which you can change the cluster compatibility version to 4.4.
+The {virt-product-fullname} {engine-name} 4.4 is now installed, with the cluster compatibility version set to 4.2 or 4.3, whichever was the preexisting cluster compatibility version.
+ifdef::local_database_upgrade[]
+Now you need to upgrade the hosts in your environment to {virt-product-shortname} 4.4, after which you can change the cluster compatibility version to 4.4.
+endif::local_database_upgrade[]
+
+ifdef::remote_database_upgrade[]
+Now you need to upgrade the remote databases in your environment.
+endif::remote_database_upgrade[]
 
 .Additional resources
 
-* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index[Installing Red Hat Virtualization as a self-hosted engine using the Cockpit web interface]
+ifdef::SHE_upgrade[]
+* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/[Installing {virt-product-fullname} as a self-hosted engine using the command line]
 
-* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/[Installing Red Hat Virtualization as a self-hosted engine using the command line]
+* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index[Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface]
+endif::SHE_upgrade[]
+ifdef::local_database_upgrade,remote_database_upgrade[]
+* link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/[Installing {virt-product-fullname} as a standalone Manager with local databases]
 
-* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/[Installing Red Hat Virtualization as a standalone Manager with local databases]
 
-
-* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/[Installing Red Hat Virtualization as a standalone Manager with remote databases]
+* link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/[Installing {virt-product-fullname} as a standalone Manager with remote databases]
+endif::local_database_upgrade,remote_database_upgrade[]

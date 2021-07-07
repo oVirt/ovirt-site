@@ -3,21 +3,26 @@
 
 :man_host_update:
 
-You can use the `yum` command to update your hosts. Update your systems regularly, to ensure timely application of security and bug fixes.
+[CAUTION]
+====
+This information is provided for advanced system administrators who need to update hosts manually, but {org-fullname} does not support this method. The procedure described in this topic does not include important steps, including certificate renewal, assuming advanced knowledge of such information. {org-fullname} supports updating hosts using the Administration Portal. For details, see  link:{URL_virt_product_docs}{URL_format}administration_guide/index#Updating_Individual_Hosts_admin[Updating individual hosts] or link:{URL_virt_product_docs}{URL_format}administration_guide/index#Updating_all_hosts_in_a_cluster_admin[Updating all hosts in a cluster] in the _Administration Guide_.
+====
+
+You can use the `dnf` command to update your hosts. Update your systems regularly, to ensure timely application of security and bug fixes.
 
 //Limitations
 include::snip-Host_update_limitations.adoc[]
 
 .Procedure
 
-. Ensure the correct repositories are enabled. You can check which repositories are currently enabled by running `yum repolist`.
+. Ensure the correct repositories are enabled. You can check which repositories are currently enabled by running `dnf repolist`.
 
 ifdef::rhv-doc[]
 * For {hypervisor-fullname}s:
 +
 [options="nowrap" subs="normal"]
 ----
-# subscription-manager repos --enable=rhvh-4-beta-for-rhel-8-x86_64-rpms
+# subscription-manager repos --enable=rhvh-4-for-rhel-8-x86_64-rpms
 ----
 * For {enterprise-linux-host-fullname}s:
 +
@@ -26,8 +31,7 @@ ifdef::rhv-doc[]
 # subscription-manager repos \
     --enable=rhel-8-for-x86_64-baseos-rpms \
     --enable=rhel-8-for-x86_64-appstream-rpms \
-    --enable=rhv-4-mgmt-agent-beta-for-rhel-8-x86_64-rpms \
-    --enable=ansible-2.9-for-rhel-8-x86_64-rpms \
+    --enable=rhv-4-mgmt-agent-for-rhel-8-x86_64-rpms \
     --enable=advanced-virt-for-rhel-8-x86_64-rpms \
     --enable=fast-datapath-for-rhel-8-x86_64-rpms
 ----
@@ -39,18 +43,73 @@ ifdef::ovirt-doc[]
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
+# dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 ----
 endif::[]
 
 . In the Administration Portal, click menu:Compute[Hosts] and select the host to be updated.
-. Click menu:Management[Maintenance].
+. Click menu:Management[Maintenance] and btn:[OK].
+// START FOR RHEL HOSTS ONLY
+. For {enterprise-linux} hosts:
+
+.. Identify the current version of {enterprise-linux}:
++
+[options="nowrap" subs="normal"]
+----
+# cat /etc/redhat-release
+----
+.. Check which version of the redhat-release package is available:
++
+[options="nowrap" subs="normal"]
+----
+# dnf --refresh info --available redhat-release
+----
++
+This command shows any available updates. For example, when upgrading from {enterprise-linux} 8.2._z_ to 8.3, compare the version of the package with the currently installed version:
++
+[options="nowrap" subs="normal"]
+----
+Available Packages
+Name         : redhat-release
+Version      : 8.3
+Release      : 1.0.el8
+...
+----
++
+[CAUTION]
+====
+The {enterprise-linux} Advanced Virtualization module is usually released later than the {enterprise-linux} y-stream. If no new Advanced Virtualization module is available yet, or if there is an error enabling it, stop here and cancel the upgrade. Otherwise you risk corrupting the host.
+====
+.. If the Advanced Virtualization stream is available for {enterprise-linux} 8.3 or later, reset the `virt` module:
++
+[options="nowrap" subs="normal"]
++
+----
+# dnf module reset virt
+----
++
+[NOTE]
+====
+If this module is already enabled in the Advanced Virtualization stream, this step is not necessary, but it has no negative impact.
+
+You can see the value of the stream by entering:
+----
+# dnf module list virt
+----
+====
++
+.. Enable the `virt` module in the Advanced Virtualization stream with the following command:
+
+include::../install/snip-Enable_virt_module.adoc[]
++
+// END FOR RHEL HOSTS ONLY
 . Update the host:
 +
 [options="nowrap" subs="normal"]
 ----
-# yum update
+# dnf upgrade --nobest
 ----
+//ansible lock addition
 
 . Reboot the host to ensure all updates are correctly applied.
 +

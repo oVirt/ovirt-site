@@ -9,7 +9,7 @@ Upgrading your environment from 4.2 to 4.3 involves the following steps:
 . xref:Upgrade_Prerequisites_4-2_local_db[Make sure you meet the prerequisites, including enabling the correct repositories]
 
 ifdef::rhv-doc[]
-. xref:Analyzing_the_Environment_4-2_local_db[Use the Log Collection Analysis tool to check for issues that might prevent a successful upgrade]
+. xref:Analyzing_the_Environment_4-2_local_db[Use the Log Collection Analysis tool and Image Discrepancies tool to check for issues that might prevent a successful upgrade]
 endif::[]
 
 . xref:Updating_the_Red_Hat_Virtualization_Manager_4-2_local_db[Update the 4.2 {engine-name} to the latest version of 4.2]
@@ -28,12 +28,8 @@ endif::[]
 
 // Prerequisites
 include::common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
-* Ensure the {engine-name} has the correct repositories enabled.
-ifdef::rhv-doc[]
-For the list of required repositories, see link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}4.2/html/installation_guide/chap-red_hat_virtualization_manager#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_standalone_install[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.2.
-// This link must always be for the starting version of this assembly.
-// review above
 
+ifdef::rhv-doc[]
 include::common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
 endif::[]
 

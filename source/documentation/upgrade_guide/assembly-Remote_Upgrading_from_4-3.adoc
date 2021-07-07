@@ -1,28 +1,29 @@
-[id="Upgrading_from_4-3"]
-= Upgrading from 4.3 to {virt-product-fullname} 4.4
+[id="Remote_Upgrading_from_4-3"]
+= Upgrading a Remote Database Environment from 4.3 to {virt-product-fullname} 4.4
 
-:context: 4-3_local_db
-:4-3_local_db:
+:context: 4-3_remote_db
+:4-3_remote_db:
 
 Upgrading your environment from 4.3 to 4.4 involves the following steps:
 
-. xref:Upgrade_Prerequisites_4-3_local_db[Make sure you meet the prerequisites, including enabling the correct repositories]
+. xref:Upgrade_Prerequisites_4-3_remote_db[Make sure you meet the prerequisites, including enabling the correct repositories]
 
 ifdef::rhv-doc[]
-. xref:Analyzing_the_Environment_4-3_local_db[Use the Log Collection Analysis tool and Image Discrepancies tool to check for issues that might prevent a successful upgrade]
+. xref:Analyzing_the_Environment_4-3_remote_db[Use the Log Collection Analysis tool and Image Discrepancies tool to check for issues that might prevent a successful upgrade]
 endif::[]
 
 . xref:Updating_the_Red_Hat_Virtualization_Manager_4-3_remote_db[Update the 4.3 {engine-name} to the latest version of 4.3]
 
-. xref:Upgrading_the_Manager_to_4-4_4-3_local_db[Upgrade the {engine-name} from 4.3 to 4.4]
+. xref:Upgrading_the_Manager_to_4-4_4-3_remote_db[Upgrade the {engine-name} from 4.3 to 4.4]
 
-. xref:Upgrading_hosts_to_4-4_4-3_local_db[Migrate hosts and virtual machines while reducing virtual machine downtime]
+. xref:Upgrading_Remote_Databases_from_PG10_to_PG12_4-3_remote_db[Upgrade the database from PostgreSQL 10.0 to 12.0]
 
-. xref:Upgrading_hypervisor_preserving_local_storage_4-3_local_db[(Optional) Upgrade {hypervisor-shortname} while preserving local storage]
-// . xref:Updating_all_hosts_in_a_cluster_4-3_local_db[Update the hosts]
-. xref:Changing_the_Cluster_Compatibility_Version_4-3_local_db[Update the compatibility version of the clusters]
-. xref:Changing_Virtual_Machine_Cluster_Compatibility_4-3_local_db[Reboot any running or suspended virtual machines to update their configuration]
-. xref:Changing_the_Data_Center_Compatibility_Version_4-3_local_db[Update the compatibility version of the data centers]
+. xref:Upgrading_hosts_to_4-4_4-3_remote_db[Migrate hosts and virtual machines while reducing virtual machine downtime]
+
+. xref:Upgrading_hypervisor_preserving_local_storage_4-3_remote_db[(Optional) Upgrade {hypervisor-shortname} while preserving local storage]
+. xref:Changing_the_Cluster_Compatibility_Version_4-3_remote_db[Update the compatibility version of the clusters]
+. xref:Changing_Virtual_Machine_Cluster_Compatibility_4-3_remote_db[Reboot any running or suspended virtual machines to update their configuration]
+. xref:Changing_the_Data_Center_Compatibility_Version_4-3_remote_db[Update the compatibility version of the data centers]
 
 // Prerequisites
 include::common/upgrade/snip-RHV_upgrade_prerequisites.adoc[leveloffset=+1]
@@ -38,6 +39,8 @@ include::common/upgrade/proc-Updating_the_Red_Hat_Virtualization_Manager.adoc[le
 You can now upgrade the {engine-name} to 4.4.
 
 include::common/upgrade/proc-Upgrading_the_Manager_to_4-4.adoc[leveloffset=+1]
+
+include::common/upgrade/proc-Upgrading_Remote_Databases_to_PG12_4-4.adoc[leveloffset=+1]
 
 // Add new {engine-name} upgrade versions here
 
@@ -61,4 +64,4 @@ You can now update the data center compatibility version.
 
 include::common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
 
-:4-3_local_db!:
+:4-3_remote_db!:

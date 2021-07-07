@@ -1,24 +1,34 @@
 [id="Upgrading_the_Manager_to_4-3_{context}"]
 = Upgrading the {engine-name} from 4.2 to 4.3
 
-Upgrade the {virt-product-fullname} {engine-name} from 4.2 to 4.3.
+ifdef::4-2_remote_db[]
+Follow these same steps when upgrading any of the following:
+
+* the {virt-product-fullname} {engine-name}
+* a remote machine with the Data Warehouse service
+endif::4-2_remote_db[]
+
+You need to be logged into the machine that you are upgrading.
+
 
 // Included in:
 // Upgrade Guide
 
+// Although most of the {virt-product-fullname} doc set now uses `dnf` instead of `yum`, this topic still
+// uses `yum` because it is included in 4.2 and 4.3 sections in the Upgrade Guide, where the OS is still
+// {enterprise-linux} 7.
+
 [IMPORTANT]
 ====
-If the upgrade fails, the `engine-setup` command attempts to roll your {virt-product-fullname} {engine-name} installation back to its previous state. For this reason, the previous version's repositories must not be removed until after the upgrade is complete. If the upgrade fails, detailed instructions display that explain how to restore your installation.
+If the upgrade fails, the `engine-setup` command attempts to restore your {virt-product-fullname} {engine-name} installation to its previous state. For this reason, do not remove the previous version's repositories until after the upgrade is complete. If the upgrade fails, the `engine-setup` script explains how to restore your installation.
 ====
 
 .Procedure
 
-ifdef::SHE_upgrade[. Log in to the {engine-name} virtual machine.]
-ifdef::local_database_upgrade,remote_database_upgrade[. Log in to the {engine-name} machine.]
-
 . Enable the {virt-product-fullname} 4.3 repositories:
 +
 ifdef::rhv-doc[]
+[options="nowrap" subs="normal"]
 ----
 # subscription-manager repos \
     --enable=rhel-7-server-rhv-4.3-manager-rpms \
@@ -26,6 +36,7 @@ ifdef::rhv-doc[]
 ----
 endif::[]
 ifdef::ovirt-doc[]
+[options="nowrap" subs="normal"]
 ----
 # yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
 ----
@@ -48,14 +59,29 @@ ifdef::ovirt-doc[]
 ----
 endif::[]
 
-. Run `engine-setup` and follow the prompts to upgrade the {virt-product-fullname} {engine-name}:
+. Run `engine-setup` and follow the prompts to upgrade
+ifndef::4-2_remote_db[]
+the {virt-product-fullname} {engine-name}:
+endif::4-2_remote_db[]
+ifdef::4-2_remote_db[]
+the {virt-product-fullname} {engine-name}, the remote database or remote service:
+endif::4-2_remote_db[]
 +
+[options="nowrap" subs="normal"]
 ----
 # engine-setup
 ----
+ifdef::4-2_remote_db[]
++
+[NOTE]
+====
+During the upgrade process for the {engine-name}, the `engine-setup` script might prompt you to disconnect the remote Data Warehouse database. You must disconnect it to continue the setup.
+====
+endif::4-2_remote_db[]
 +
 When the script completes successfully, the following message appears:
 +
+[options="nowrap" subs="normal"]
 ----
 Execution of setup completed successfully
 ----
@@ -63,6 +89,7 @@ Execution of setup completed successfully
 ifdef::rhv-doc[]
 . Disable the {virt-product-fullname} 4.2 repositories to ensure the system does not use any 4.2 packages:
 +
+[options="nowrap" subs="normal"]
 ----
 # subscription-manager repos \
     --disable=rhel-7-server-rhv-4.2-manager-rpms \
@@ -72,11 +99,41 @@ endif::[]
 
 . Update the base operating system:
 +
+[options="nowrap" subs="normal"]
 ----
 # yum update
 ----
 +
 [IMPORTANT]
 ====
+If you encounter a required Ansible package conflict during the update, see link:https://access.redhat.com/solutions/5480561[Cannot perform yum update on my RHV manager (ansible conflict)].
+====
+//ansible lock addition
++
+[IMPORTANT]
+====
 If any kernel packages were updated, reboot the machine to complete the upgrade.
 ====
+
+The {engine-name} is now upgraded to version 4.3.
+
+ifdef::4-2_remote_db[]
+
+== Completing the remote Data Warehouse database upgrade
+
+Complete these additional steps when upgrading a remote Data Warehouse database from PostgreSQL 9.5 to 10.
+
+.Procedure
+
+. The `ovirt-engine-dwhd` service is now running on the {engine-name} machine. If the `ovirt-engine-dwhd` service is on a remote machine, stop and disable the `ovirt-engine-dwhd` service on the {engine-name} machine, and remove the configuration files that `engine-setup` created:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl stop ovirt-engine-dwhd
+# systemctl disable ovirt-engine-dwhd
+# rm -f /etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/*
+----
+
+. Repeat the steps in xref:Upgrading_the_Manager_to_4-3_4-2_remote_db[] on the machine hosting the `ovirt-engine-dwhd` service.
+
+endif::4-2_remote_db[]

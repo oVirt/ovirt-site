@@ -1,0 +1,63 @@
+[id='Log_collector_analyzer_tool_{context}']
+
+
+Run the *Log Collection Analysis* tool prior to performing updates and for troubleshooting. The tool analyzes your environment for known issues that might prevent you from performing an update, and provides recommendations to resolve them.
+The tool gathers detailed information about your system and presents it as an HTML file.
+
+.Prerequisites
+* Ensure the {engine-name} has the correct repositories enabled. For the list of required repositories, see
+ifdef::4-2_local_db,4-2_remote_db,4-2_SHE[]
+link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}4.2/html-single/installation_guide/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_standalone_install[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.2.
+endif::4-2_local_db,4-2_remote_db,4-2_SHE[]
+ifdef::4-3_local_db,4-3_remote_db,4-3_SHE[]
+link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}4.3/html-single/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.3.
+endif::4-3_local_db,4-3_remote_db,4-3_SHE[]
+ifdef::SHE_minor_updates,migrating_to_SHE,minor_updates[]
+link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.4.
+endif::SHE_minor_updates,migrating_to_SHE,minor_updates[]
++
+Updates to the {virt-product-fullname} {engine-name} are released through the Content Delivery Network.
+
+.Procedure
+. Install the Log Collection Analysis tool on the {engine-name} machine:
++
+----
+# yum install rhv-log-collector-analyzer
+----
+
+. Run the tool:
++
+----
+# rhv-log-collector-analyzer --live
+----
++
+A detailed report is displayed.
++
+By default, the report is saved to a file called `analyzer_report.html`.
++
+To save the file to a specific location, use the `--html` flag and specify the location:
++
+[options="nowrap" subs="normal"]
+----
+# rhv-log-collector-analyzer --live --html=/_directory_/_filename_.html
+----
+
+. You can use the ELinks text mode web browser to read the analyzer reports within the terminal. To install the ELinks browser:
++
+----
+# yum install -y elinks
+----
+. Launch ELinks and open `analyzer_report.html`.
++
+----
+# elinks /home/user1/analyzer_report.html
+----
++
+To navigate the report, use the following commands in ELinks:
+
+* `kbd:[Insert]` to scroll up
+* `kbd:[Delete]` to scroll down
+* `kbd:[PageUp]` to page up
+* `kbd:[PageDown]` to page down
+* `kbd:[Left Bracket]` to scroll left
+* `kbd:[Right Bracket]` to scroll right

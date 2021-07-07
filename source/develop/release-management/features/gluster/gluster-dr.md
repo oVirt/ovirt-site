@@ -33,13 +33,13 @@ If using gluster as storage backend, there is no need for third party software, 
 
 ### Sync to secondary site
 
-Gluster provides a way to replicate/mirror a gluster volume to another remote location using a feature called [Geo-replication](https://gluster.readthedocs.io/en/latest/Administrator%20Guide/Geo%20Replication/). This offers a continuous, asynchronous, and incremental replication service from one site to another over Local Area Networks (LANs), Wide Area Network (WANs), and across the Internet. Since glusterfs 3.7.9, there's a periodic geo-replication script available that will checkpoint the data at any given time and ensure all checkpointed data is replicted to configured secondary site.(known as `slave gluster volume` in gluster parlance)
+Gluster provides a way to replicate/mirror a gluster volume to another remote location using a feature called [Geo-replication](https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/). This offers a continuous, asynchronous, and incremental replication service from one site to another over Local Area Networks (LANs), Wide Area Network (WANs), and across the Internet. Since glusterfs 3.7.9, there's a periodic geo-replication script available that will checkpoint the data at any given time and ensure all checkpointed data is replicted to configured secondary site.(known as `slave gluster volume` in gluster parlance)
 
 Since oVirt uses gluster volume as storage domains, we can make use of this feature to provide a DR solution for gluster storage domains.
 However, simply enabling geo-replication on gluster volumes used as storage domain will not ensure consistency of data. Geo-replication will continue syncing all I/O even after the checkpoint time until all data at checkpoint has been transferred. This could lead to data inconsistencies at the secondary site. To avoid this and to ensure that all IO has been coalesced to disk before syncing to secondary site (or slave), we will need to take a snapshot of the VMs running on the storage domain. Any data that is written post the snapshot, though transferred to secondary site will be discarded as it is in a separate overlay image file.
 
 
-To setup disaster recovery, the first step is to configure geo-replication on gluster volume. This is a one-time activity. Master volume refers to the gluster volume used as storage domain at the primary site (source), and slave volume is the volume configured at secondary site (sync target). Steps to configure geo-replication is at [Geo-replication](https://gluster.readthedocs.io/en/latest/Administrator%20Guide/Geo%20Replication/).
+To setup disaster recovery, the first step is to configure geo-replication on gluster volume. This is a one-time activity. Master volume refers to the gluster volume used as storage domain at the primary site (source), and slave volume is the volume configured at secondary site (sync target). Steps to configure geo-replication is at [Geo-replication](https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/).
 
 Some points to consider when setting up geo-replication
 

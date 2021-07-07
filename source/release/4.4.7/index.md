@@ -51,6 +51,17 @@ To learn about features introduced before 4.4.7, see the
 
 ## Known issues
 
+### Workaround for: upgrade of oVirt Node to 4.4.7 from previous version breaks VM migration
+
+It has been reported that upgrading to oVirt Node 4.4.7 breaks VM migration due to SELinux denials.
+For all the details please read **[[Bug 1979624]](https://bugzilla.redhat.com/show_bug.cgi?id=1979624) - imgbase should not copy selinux binary policy file**.
+To workaround this, on each oVirt Node upgrade from previous versions please run as root:
+```bash
+semodule -B
+touch /.autorelabel
+reboot
+```
+
 ### How to prevent hosts entering emergency mode after upgrade from oVirt 4.4.1
 
 Due to **[[Bug 1837864]](https://bugzilla.redhat.com/show_bug.cgi?id=1837864) - Host enter emergency mode after upgrading to latest build**,

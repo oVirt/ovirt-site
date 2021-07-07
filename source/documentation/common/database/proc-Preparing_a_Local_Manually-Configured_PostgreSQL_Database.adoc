@@ -4,7 +4,7 @@
 :context: manual_database_install
 :manual_database_install:
 
-Use this procedure to set up the {engine-name} database or Data Warehouse database with custom values. Set up this database before you configure the {engine-name}; you must supply the database credentials during `engine-setup`.
+Use this procedure to set up the {engine-name} database. Set up this database before you configure the {engine-name}; you must supply the database credentials during `engine-setup`.
 
 [NOTE]
 ====
@@ -28,7 +28,7 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install postgresql-server postgresql-contrib
+# dnf install postgresql-server postgresql-contrib
 ----
 
 . Initialize the PostgreSQL database instance:
@@ -96,15 +96,15 @@ _database_name_=# CREATE LANGUAGE plpgsql;
 _database_name_=# \q
 ----
 
-. Edit the `/var/lib/pgsql/data/pg_hba.conf` file to enable md5 client authentication, so the engine can access the database remotely. Add the following line immediately below the line that starts with `local` at the bottom of the file. Replace `X.X.X.X` with the IP address of the {engine-name} or Data Warehouse machine, and replace `0-32` or `0-128` with the CIDR mask length:
+. Edit the `/var/lib/pgsql/data/pg_hba.conf` file to enable md5 client authentication, so the engine can access the database locally. Add the following line immediately below the line that starts with `local` at the bottom of the file:
 +
 [options="nowrap" subs="normal"]
 ----
-host    _database_name_    _user_name_    _X.X.X.X/0-32_    md5
-host    _database_name_    _user_name_    _X.X.X.X::/0-128_   md5
+host    _database_name_    _user_name_    0.0.0.0/0    md5
+host    _database_name_    _user_name_    ::0/0   md5
 ----
 
-. Update the PostgreSQL server's configuration. Edit the `/var/lib/pgsql/12/data/postgresql.conf` file and add the following lines to the bottom of the file:
+. Update the PostgreSQL server's configuration. Edit the `/var/lib/pgsql/data/postgresql.conf` file and add the following lines to the bottom of the file:
 +
 [options="nowrap" subs="normal"]
 ----

@@ -1,0 +1,58 @@
+[id="Using_Ansible_Collection"]
+
+=== Using oVirt Ansible Collection to Configure {virt-product-fullname}
+
+The following procedure guides you through creating and running a playbook that uses *oVirt Ansible Collection* to configure Red Hat Virtualization. This example uses Ansible to connect to the Manager on the local machine and create a new data center.
+
+.Prerequisites
+
+* Ensure that you have the Python SDK installed on the machine running the playbook.
+
+.Procedure
+. Create your playbook.
++
+----
+- name: RHV infrastructure
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars_files:
+   # Contains variables to connect to the Manager
+   - engine_vars.yml
+   # Contains encrypted engine_password variable using ansible-vault
+   - passwords.yml
+
+  pre_tasks:
+   # The use of redhat.rhv before ovirt_auth is to check if oVirt Ansible Collection is correctly loaded
+   - name: Login to RHV
+     redhat.rhv.ovirt_auth:
+       hostname: "{{ engine_fqdn }}"
+       username: "{{ engine_user }}"
+       password: "{{ engine_password }}"
+       ca_file: "{{ engine_cafile | default(omit) }}"
+       insecure: "{{ engine_insecure | default(true) }}"
+     tags:
+       - always
+
+ vars:
+   data_center_name: mydatacenter
+   data_center_description: mydatacenter
+   data_center_local: false
+   compatibility_version: 4.4
+
+ roles:
+   - infra
+ collections:
+   - redhat.rhv
+ post_tasks:
+   - name: Logout from RHV
+     ovirt_auth:
+       state: absent
+       ovirt_auth: "{{ ovirt_auth }}"
+     tags:
+       - always
+
+----
+
+You have successfully used the `infra` Ansible role from *oVirt Ansible Collection* to create a data center named `mydatacenter`.

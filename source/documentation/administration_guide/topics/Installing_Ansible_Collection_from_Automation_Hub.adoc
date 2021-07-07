@@ -1,0 +1,20 @@
+[id="Installing_Ansible_Collection_from_Automation_Hub"]
+
+=== Installing oVirt Ansible Collection from Automation Hub
+
+Automation Hub is a new place that can be used to install *oVirt Ansible Collection*.
+To configure the environment, follow the instructions in link:https://cloud.redhat.com/ansible/automation-hub/redhat/rhv/docs[oVirt Ansible Collection documentation].
+
+.Procedure
+
+. Install the collection
++
+----
+# ansible-galaxy collection install redhat.rhv
+----
++
+. The Automation Hub currently does not install RPM dependencies. Make sure that you have these packages on the host where you execute the playbook:
+* `python3-ovirt-engine-sdk4`
+* `python3-netaddr`
+* `python3-jmespath`
+* `python3-passlib`

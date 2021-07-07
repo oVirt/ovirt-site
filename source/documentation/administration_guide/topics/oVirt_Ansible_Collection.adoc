@@ -1,0 +1,14 @@
+[id="oVirt_Ansible_Collection"]
+
+=== oVirt Ansible Collection
+
+*oVirt Ansible Collection* provides modules, roles, and plugins for managing various parts of the Red Hat Virtualization infrastructure.
+The modules are used for communication between Ansible and the Red Hat Virtualization Manager.
+Ansible roles provide a method of modularizing Ansible code by breaking up large playbooks into smaller reusable files that can be shared with other users.
+For more information about *oVirt Ansible Collection*, see the link:https://cloud.redhat.com/ansible/automation-hub/redhat/rhv/docs[Automation Hub] documentation.
+
+include::./Installing_ovirt_Ansible_Collection.adoc[]
+
+include::./Installing_Ansible_Collection_from_Automation_Hub.adoc[]
+
+include::./Using_Ansible_Collection.adoc[]

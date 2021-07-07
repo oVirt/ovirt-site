@@ -8,14 +8,14 @@ This section describes installing and configuring the Data Warehouse service on 
 
 [NOTE]
 ====
-You can install the Data Warehouse database on a machine separate from the Data Warehouse service.
+{org-fullname} only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.
 ====
 
 .Prerequisites
 
 * The {virt-product-fullname} {engine-name} is installed on a separate machine.
 
-* A physical server or virtual machine running {enterprise-linux} 7.
+* A physical server or virtual machine running {enterprise-linux} 8.
 
 * The {engine-name} database password.
 
@@ -23,7 +23,7 @@ ifdef::DWH[]
 //Not needed for SM install with remote DBs; everything is installed on one remote host in that flow.
 * Access from the Data Warehouse machine to the {engine-name} database machine's TCP port 5432.
 
-* If you choose to install the Data Warehouse database separately from the Data Warehouse service, you must set up the database first. To install a remote Data Warehouse database manually, see link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_remote_databases#Preparing_a_Remote_PostgreSQL_Database_install_RHVM[Preparing a Remote PostgreSQL Database]. You must have the following information about the database machine:
+* If you choose to install the Data Warehouse database separately from the Data Warehouse service, you must set up the database first. To install a remote Data Warehouse database manually, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM[Preparing a Remote PostgreSQL Database]. You must have the following information about the database machine:
 
 ** The FQDN
 
@@ -35,7 +35,7 @@ ifdef::DWH[]
 
 ** The database password
 
-** You must manually grant access by editing the `postgresql.conf` file. Edit the `/var/lib/pgsql/12/data/postgresql.conf` file and modify the `listen_addresses` line so that it matches the following:
+** You must manually grant access by editing the `postgresql.conf` file. Edit the `/var/lib/pgsql/data/postgresql.conf` file and modify the `listen_addresses` line so that it matches the following:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -50,48 +50,52 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 [discrete]
 == Installing Data Warehouse on a Separate Machine
 
+.Procedure
+
 . Log in to the machine where you want to install the database.
 
 . Ensure that all packages are up to date:
 +
 [options="nowrap" subs="normal"]
 ----
-# yum update
+# dnf upgrade --nobest
 ----
-+
+//ansible lock addition
 . Install the `ovirt-engine-dwh-setup` package:
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install ovirt-engine-dwh-setup
+# dnf install ovirt-engine-dwh-setup
 ----
-+
+
 . Run the `engine-setup` command to begin the installation:
 +
 [options="nowrap" subs="normal"]
 ----
 # engine-setup
 ----
-// I was not prompted. Perhaps because I installed ovirt-engine-dwh-setup instead of rhvm?
-. Ensure you answer `No` when asked whether to install the {engine-name} on this machine:
-+
-[options="nowrap" subs="normal"]
-----
-Configure Engine on this host (Yes, No) [Yes]: No
-----
+
 . Answer `Yes` to install Data Warehouse on this machine:
 +
 [options="nowrap" subs="normal"]
 ----
 Configure Data Warehouse on this host (Yes, No) [Yes]:
 ----
+
+. Answer `Yes` to install Grafana on this machine:
++
+[options="nowrap" subs="normal"]
+----
+Configure Grafana on this host (Yes, No) [Yes]:
+----
+
 . Press `Enter` to accept the automatically-detected host name, or enter an alternative host name and press `Enter`:
 +
 [options="nowrap" subs="normal"]
 ----
 Host fully qualified DNS name of this server [_autodetected hostname_]:
 ----
-+
+
 . Press `Enter` to automatically configure the firewall, or type `No` and press `Enter` to maintain existing settings:
 +
 [options="nowrap" subs="normal"]
@@ -101,13 +105,14 @@ Note: automatic configuration of the firewall may overwrite current settings.
 Do you want Setup to configure the firewall? (Yes, No) [Yes]:
 ----
 If you choose to automatically configure the firewall, and no firewall managers are active, you are prompted to select your chosen firewall manager from a list of supported options. Type the name of the firewall manager and press `Enter`. This applies even in cases where only one option is listed.
+
 . Enter the fully qualified domain name of the {engine-name} machine, and then press `Enter`:
 +
 [options="nowrap" subs="normal"]
 ----
 Host fully qualified DNS name of the engine server []:
 ----
-+
+
 . Press `Enter` to allow setup to sign the certificate on the {engine-name} via SSH:
 +
 [options="nowrap" subs="normal"]
@@ -118,22 +123,27 @@ Please choose one of the following:
 2 - Perform each action manually, use files to copy content around
 (1, 2) [1]:
 ----
-+
+
 . Press `Enter` to accept the default SSH port, or enter an alternative port number and then press `Enter`:
 +
 [options="nowrap" subs="normal"]
 ----
 ssh port on remote engine server [22]:
 ----
-+
+
 . Enter the root password for the {engine-name} machine:
 +
 [options="nowrap" subs="normal"]
 ----
 root password on remote engine server _manager.example.com_:
 ----
+
+. Specify whether to host the Data Warehouse database on this machine (Local), or on another machine (Remote).:
 +
-. Specify whether to host the Data Warehouse database on this machine (Local), or on another machine (Remote):
+[NOTE]
+====
+{org-fullname} only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.
+====
 +
 [options="nowrap" subs="normal"]
 ----
@@ -171,6 +181,14 @@ DWH database name [ovirt_engine_history]:
 DWH database user [ovirt_engine_history]:
 DWH database password: _password_
 ----
+
+** If you select `Remote`, you are prompted to enter the username and password for the Grafana database user:
++
+[options="nowrap" subs="normal"]
+----
+Grafana database user [ovirt_engine_history_grafana]:
+Grafana database password:
+----
 endif::SM_remoteDB_deploy[]
 
 . Enter the fully qualified domain name and password for the {engine-name} database machine. If you are installing the Data Warehouse database on the same machine where the {engine-name} database is installed, use the same FQDN. Press `Enter` to accept the default values in each other field:
@@ -184,7 +202,7 @@ Engine database name [engine]:
 Engine database user [engine]:
 Engine database password: _password_
 ----
-+
+
 . Choose how long Data Warehouse will retain collected data:
 +
 [options="nowrap" subs="normal"]
@@ -194,23 +212,24 @@ Please choose Data Warehouse sampling scale:
 (2) Full
 (1, 2)[1]:
 ----
-`Full` uses the default values for the data storage settings listed in link:{URL_downstream_virt_product_docs}html-single/data_warehouse_guide/#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file[Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf] (recommended when Data Warehouse is installed on a remote host).
+`Full` uses the default values for the data storage settings listed in link:{URL_virt_product_docs}{URL_format}data_warehouse_guide/index#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file[Application Settings for the Data Warehouse service in ovirt-engine-dwhd.conf] (recommended when Data Warehouse is installed on a remote host).
 +
 `Basic` reduces the values of `DWH_TABLES_KEEP_HOURLY` to `720` and `DWH_TABLES_KEEP_DAILY` to `0`, easing the load on the {engine-name} machine. Use `Basic` when the {engine-name} and Data Warehouse are installed on the same machine.
+
 . Confirm your installation settings:
 +
 [options="nowrap" subs="normal"]
 ----
 Please confirm installation settings (OK, Cancel) [OK]:
 ----
-+
+
 . After the Data Warehouse configuration is complete, on the {virt-product-fullname} {engine-name}, restart the `ovirt-engine` service:
 +
 [options="nowrap" subs="normal"]
 ----
 # systemctl restart ovirt-engine
 ----
-. Optionally, set up SSL to secure database connections using the instructions at link: https://www.postgresql.org/docs/10/ssl-tcp.html#SSL-FILE-USAGE[].
+. Optionally, set up SSL to secure database connections using the instructions at link: https://www.postgresql.org/docs/12/ssl-tcp.html#SSL-FILE-USAGE[].
 
 :context!: install_DWH_remote
 :install_DWH_remote!:

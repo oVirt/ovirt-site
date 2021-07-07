@@ -4,7 +4,7 @@
 :context: remote_database_install
 :remote_database_install:
 
-Manually configure a database on a machine that is separate from the {engine-name} machine.
+In a remote database environment, you must create the {engine-name} database manually before running `engine-setup`.
 
 [NOTE]
 ====
@@ -28,7 +28,7 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install postgresql-server postgresql-contrib
+# dnf install postgresql-server postgresql-contrib
 ----
 
 . Initialize the PostgreSQL database instance:
@@ -53,14 +53,14 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 # su - postgres -c psql
 ----
 
-. Create a default user. The {engine-name}'s default user is `engine` and Data Warehouse's default user is `ovirt_engine_history`:
+. Create a default user. The {engine-name}'s default user is `engine`:
 +
 [options="nowrap" subs="normal"]
 ----
 postgres=# create role _user_name_ with login encrypted password '_password_';
 ----
 
-. Create a database. The {engine-name}'s default database name is `engine` and Data Warehouse's default database name is `ovirt_engine_history`:
+. Create a database. The {engine-name}'s default database name is `engine`:
 +
 [options="nowrap" subs="normal"]
 ----

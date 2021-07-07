@@ -1,0 +1,26 @@
+[id="Installing_ovirt_Ansible_Collection"]
+
+=== Installing oVirt Ansible Collection from an RPM package
+
+You can install *oVirt Ansible Collection* for Red Hat Virtualization from the Red Hat Virtualization Manager repository.
+
+.Prerequisites
+To install oVirt Ansible Collection, you must subscribe to one of the following subscription channels:
+
+* Using a Red Hat Virtualization subscription - *rhv-4.4-manager-for-rhel-8-x86_64-rpms*
+* Using any Red Hat Enterprise Linux subscription - *rhv-4-tools-for-rhel-8-x86_64-rpms*
+
+.Procedure
+. Run the following command to install the *oVirt Ansible Collection* on the Manager machine:
++
+----
+# dnf install ovirt-ansible-collection
+----
+. By default, the collection is installed to:
++
+*/usr/share/ansible/collections/ansible_collections/redhat/rhv*.
++
+The structure of the `ovirt-ansible-collection` package is as follows:
++
+*/usr/share/ansible/collections/ansible_collections/redhat/rhv*
+*/usr/share/doc/ovirt-ansible-collection/*

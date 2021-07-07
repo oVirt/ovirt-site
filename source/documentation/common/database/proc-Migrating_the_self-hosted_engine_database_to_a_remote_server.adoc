@@ -1,5 +1,5 @@
 [id='Migrating_the_self-hosted_engine_database_{context}']
-= Migrating the Self-Hosted Engine Database to a Remote Server
+= Migrating the {engine-name} Database to a Remote Server
 
 :context: migrate_SHE_DB
 :migrate_SHE_DB:
@@ -22,6 +22,7 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 
 . Log in to the {virt-product-fullname} {engine-name} machine and stop the `ovirt-engine` service so that it does not interfere with the engine backup:
 +
+[options="nowrap" subs="normal"]
 ----
 # systemctl stop ovirt-engine.service
 ----
@@ -42,8 +43,9 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 
 . Log in to the new database server and install `engine-backup`:
 +
+[options="nowrap" subs="normal"]
 ----
-# yum install ovirt-engine-tools-backup
+# dnf install ovirt-engine-tools-backup
 ----
 
 . Restore the database on the new database server. _file_name_ is the backup file copied from the {engine-name}.
@@ -55,6 +57,7 @@ include::../install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositorie
 
 . Now that the database has been migrated, start the `ovirt-engine` service:
 +
+[options="nowrap" subs="normal"]
 ----
 # systemctl start ovirt-engine.service
 ----

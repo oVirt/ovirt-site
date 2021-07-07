@@ -5,7 +5,12 @@ You can migrate the Data Warehouse service installed and configured on the {virt
 
 Notice that this procedure migrates the Data Warehouse service only.
 
-To migrate the Data Warehouse database (`ovirt_engine_history`) prior to migrating the Data Warehouse service, see xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_{context}[].
+To migrate the Data Warehouse database (`ovirt_engine_history`) prior to migrating the Data Warehouse service, see xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[].
+
+[NOTE]
+====
+{org-fullname} only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.
+====
 
 .Prerequisites
 
@@ -17,7 +22,7 @@ To migrate the Data Warehouse database (`ovirt_engine_history`) prior to migrati
 
 ** Allowed access from the Data Warehouse machine to the {engine-name} database machine's TCP port 5432.
 
-** The username and password for the Data Warehouse database from the {engine-name}'s */etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf* file. If you migrated the `ovirt_engine_history` database using xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_{context}[], the backup includes these credentials, which you defined during the database setup on that machine.
+** The username and password for the Data Warehouse database from the {engine-name}'s */etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/10-setup-database.conf* file. If you migrated the `ovirt_engine_history` database using xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[], the backup includes these credentials, which you defined during the database setup on that machine.
 
 Installing this scenario requires four steps:
 
@@ -32,7 +37,7 @@ Installing this scenario requires four steps:
 [[setting_up_machine]]
 == Setting up the New Data Warehouse Machine
 
-Enable the {virt-product-fullname} repositories and install the Data Warehouse setup package on a {enterprise-linux} 7 machine:
+Enable the {virt-product-fullname} repositories and install the Data Warehouse setup package on a {enterprise-linux} 8 machine:
 
 ifdef::rhv-doc[]
 include::../install/snip-RHVM_repo_steps.adoc[]
@@ -42,14 +47,15 @@ endif::[]
 +
 [options="nowrap" subs="normal"]
 ----
-# yum update
+# dnf upgrade --nobest
 ----
+//ansible lock addition
 +
 . Install the `ovirt-engine-dwh-setup` package:
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install ovirt-engine-dwh-setup
+# dnf install ovirt-engine-dwh-setup
 ----
 
 [[stopping_dwh_service]]
@@ -62,7 +68,7 @@ endif::[]
 # systemctl stop ovirt-engine-dwhd.service
 ----
 +
-. If the database is hosted on a remote machine, you must manually grant access by editing the postgres.conf file. Edit the [filename]`/var/lib/pgsql/12/data/postgresql.conf` file and modify the listen_addresses line so that it matches the following:
+. If the database is hosted on a remote machine, you must manually grant access by editing the postgres.conf file. Edit the [filename]`/var/lib/pgsql/data/postgresql.conf` file and modify the listen_addresses line so that it matches the following:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -72,12 +78,12 @@ If the line does not exist or has been commented out, add it manually.
 +
 If the database is hosted on the {engine-name} machine and was configured during a clean setup of the {virt-product-fullname} {engine-name}, access is granted by default.
 +
-See xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_{context}[] for more information on how to configure and migrate the Data Warehouse database.
+See xref:Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[] for more information on how to configure and migrate the Data Warehouse database.
 . Restart the postgresql service:
 +
 [options="nowrap" subs="normal"]
 ----
-# systemctl restart postgresql-12
+# systemctl restart postgresql
 ----
 
 [[configuring_new_machine]]
@@ -97,29 +103,21 @@ The order of the options or settings shown in this section may differ depending 
      -e '/^OVESETUP_CONFIG\/fqdn/d' \
      /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf
 ----
-+
+
 . Run the `engine-setup` command to begin configuration of Data Warehouse on the machine:
 +
 [options="nowrap" subs="normal"]
 ----
 # engine-setup
 ----
-+
-. Press `Enter` to configure Data Warehouse:
-+
-[options="nowrap" subs="normal"]
-----
-Configure Data Warehouse on this host (Yes, No) [Yes]:
 
-----
-+
 . Press *Enter* to accept the automatically detected host name, or enter an alternative host name and press *Enter*:
 +
 [options="nowrap" subs="normal"]
 ----
 Host fully qualified DNS name of this server [_autodetected host name_]:
 ----
-+
+
 . Press `Enter` to automatically configure the firewall, or type `No` and press `Enter` to maintain existing settings:
 +
 [options="nowrap" subs="normal"]
@@ -183,7 +181,7 @@ endif::DWH[]
 ----
 # service ovirt-engine restart
 ----
-+
+
 . Run the following command to modify the file */etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf* and set the options to `False`:
 +
 [options="nowrap" subs="normal"]
@@ -192,8 +190,12 @@ endif::DWH[]
      -e 's;^\(OVESETUP_DWH_CORE/enable=bool\):True;\1:False;' \
      -e 's;^\(OVESETUP_DWH_CONFIG/remoteEngineConfigured=bool\):True;\1:False;' \
      /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf
+
+# sed -i \
+     -e 's;^\(OVESETUP_GRAFANA_CORE/enable=bool\):True;\1:False;' \
+     /etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf
 ----
-+
+
 . Disable the Data Warehouse service:
 +
 [options="nowrap" subs="normal"]

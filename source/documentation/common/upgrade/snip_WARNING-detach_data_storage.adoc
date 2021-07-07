@@ -1,0 +1,4 @@
+[WARNING]
+====
+When installing or reinstalling the host's operating system, {org-fullname} strongly recommends that you first detach any existing non-OS storage that is attached to the host to avoid accidental initialization of these disks, and with that, potential data loss.
+====

@@ -1,0 +1,71 @@
+[id="Upgrading_Remote_Databases_from_PG10_to_PG12_{context}"]
+= Upgrading Remote Databases from PostgreSQL 10 to 12
+
+{virt-product-fullname} 4.4 uses PostgreSQL 12, while {virt-product-shortname} 4.3 uses PostgreSQL 10. If either of your databases ({engine-name} or Data Warehouse) is installed on a separate machine, you must perform the following procedure on each remote database before upgrading the {engine-name}.
+
+[TIP]
+====
+This procedure uses the [command]`pg_dump` and [command]`pg_restore` commands. For a complete list of options for these commands, enter `pg_dump --help` or `pg_restore --help` on a machine with PostgreSQL installed.
+====
+
+
+. Back up all remote databases. Use the following command on each remote database machine:
++
+[options="nowrap" subs="normal"]
+----
+# pg_dump -f _backup-file_ _database-name_
+----
++
+The default name for the engine database is `engine`, and the default name for the Data Warehouse database is `ovirt-engine-history`.
++
+For example, on the machine hosting the Data Warehouse database, enter a command similar to the following:
++
+[options="nowrap" subs="normal"]
+----
+# pg_dump -f dwh-backup.dump ovirt-engine-history
+----
+. Copy the backup files to an external location such as a USB drive.
++
+[NOTE]
+====
+This process requires installing {enterprise-linux} 8 on the {engine-name} machine and all hosts, so make sure that you copy the backup file to a safe location.
+====
+ifdef::rhv-doc[]
+. Install {enterprise-linux} 8 on each database server, with the `{virt-product-fullname}` subscription attached.
+// . Install {enterprise-linux} 8 on each database server, with the `{enterprise-linux} Server` and `{virt-product-fullname}` subscriptions attached.
+endif::[]
+ifdef::ovirt-doc[]
+. Install {enterprise-linux} 8 on each database server, with the `{virt-product-fullname}` repository enabled.
+// Install {enterprise-linux} 8 on a physical server, with the `{enterprise-linux} Server` and `{virt-product-fullname}` repositories enabled.
+endif::[]
++
+For detailed installation instructions, see link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/index.html[_Performing a standard {enterprise-linux-shortname} installation_].
++
+The server must meet the minimum link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/index#hardware-requirements_SM_remoteDB_deploy[{engine-name} requirements].
+
+. Enable the correct repositories on each database server. For detailed instructions, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.4.
++
+Updates to the {virt-product-fullname} {engine-name} are released through the Content Delivery Network.
+
+. Install the PostgreSQL server package:
++
+[options="nowrap" subs="normal"]
+----
+# yum install postgresql postgresql-server postgresql-contrib
+----
+
+. Restore the backup on the data warehouse database machine and the engine database machine:
++
+[options="nowrap" subs="normal"]
+----
+# pg_restore -d _database-name_ _backup-file_
+----
+
+ifdef::remote_database_upgrade[]
+. On the {engine-name} machine, run `engine-setup` to configure the {engine-name}:
++
+[options="nowrap" subs="normal"]
+----
+# engine-setup
+----
+endif::remote_database_upgrade[]

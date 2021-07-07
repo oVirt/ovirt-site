@@ -35,7 +35,7 @@ To restore your backup, run `engine-backup` in `restore` mode:
 # engine-backup --mode=restore
 ----
 
-See link:{URL_virt_product_docs}/administration_guide/#sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager[Backing Up and Restoring the {virt-product-fullname} {engine-name}] in the _Administration Guide_ for details.
+See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager[Backing Up and Restoring the {virt-product-fullname} {engine-name}] in the _Administration Guide_ for details.
 ====
 +
 Alternatively, to upgrade without creating a backup, run the following command:

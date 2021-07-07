@@ -1,59 +1,19 @@
 [id='Analyzing_the_Environment_{context}']
-= Analyzing the Environment
 
 // Included in:
 // Updates between Minor Releases
 
-Run the Log Collection Analysis tool prior to performing updates and for troubleshooting. The tool analyzes your environment for known issues that might prevent you from performing an update, and provides recommendations to resolve them.
+= Analyzing the Environment
 
-The tool gathers detailed information about your system and presents it as an HTML file.
+// Although most of the {virt-product-fullname} doc set now uses `dnf` instead of `yum`, this topic still
+// uses `yum` because it is included in 4.2 and 4.3 sections in the Upgrade Guide, where the OS is still {enterprise-linux} 7.
 
-[NOTE]
-====
-The Log Collection Analysis tool is available from {virt-product-fullname} 4.2.5.
-====
+It is recommended to run the *Log Collection Analysis* tool and the *Image Discrepancies* tool prior to performing updates and for troubleshooting. These tools analyze your environment for known issues that might prevent you from performing an update, and provide recommendations to resolve them.
 
-.Procedure
-. Install the Log Collection Analysis tool on the {engine-name}:
-+
-----
-# yum install rhv-log-collector-analyzer
-----
+== Log Collection Analysis tool
 
-. Run the tool:
-+
-----
-# rhv-log-collector-analyzer --live
-----
-+
-A detailed report is displayed.
-+
-By default, the report is saved to a file called `analyzer_report.html`.
-+
-To save the file to a specific location, use the `--html` flag and specify the location:
-+
-[options="nowrap" subs="normal"]
-----
-# rhv-log-collector-analyzer --live --html=/_directory_/_filename_.html
-----
+include::proc-Log_collector_analyzer_tool.adoc[leveloffest=+1]
 
-. You can use the ELinks text mode web browser to read the analyzer reports within the terminal. To install the ELinks browser:
-+
-----
-# yum install -y elinks
-----
-. Launch ELinks and open `analyzer_report.html`.
-+
-----
-# elinks /home/user1/analyzer_report.html
-----
+== Image Discrepancies tool
 
-+
-To navigate the report, use the following commands in ELinks:
-
-* `kbd:[Insert]` to scroll up
-* `kbd:[Delete]` to scroll down
-* `kbd:[PageUp]` to page up
-* `kbd:[PageDown]` to page down
-* `kbd:[Left Bracket]` to scroll left
-* `kbd:[Right Bracket]` to scroll right
+include::proc-Image_discrepancies_tool.adoc[leveloffset=+1]

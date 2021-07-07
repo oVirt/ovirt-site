@@ -1,16 +1,22 @@
 [id="Upgrading_Remote_Databases_from_PG95_to_PG10_{context}"]
-= Upgrading Remote Databases from PostgreSQL 9.5 to 10
+= Upgrading remote databases from PostgreSQL 9.5 to 10
+
+// Although most of the {virt-product-fullname} doc set now uses `dnf` instead of `yum`, this topic still
+// uses `yum` because it is included in 4.2 and 4.3 sections in the Upgrade Guide, where the OS is still
+// {enterprise-linux} 7.
 
 {virt-product-fullname} 4.3 uses PostgreSQL 10 instead of PostgreSQL 9.5. If your databases are installed locally, the upgrade script automatically upgrades them from version 9.5 to 10. However, if either of your databases ({engine-name} or Data Warehouse) is installed on a separate machine, you must perform the following procedure on each remote database before upgrading the {engine-name}.
 
 . Stop the service running on the machine:
-* Stop the `ovirt-engine` service on the {engine-name} machine:
+* When upgrading the {engine-name} database, stop the `ovirt-engine` service on the {engine-name} machine:
 +
+[options="nowrap" subs="normal"]
 ----
 # systemctl stop ovirt-engine
 ----
-* Stop the `ovirt-engine-dwh` service on the Data Warehouse machine:
+* When upgrading the Data Warehouse database, stop the `ovirt-engine-dwhd` service on the Data Warehouse machine:
 +
+[options="nowrap" subs="normal"]
 ----
 # systemctl stop ovirt-engine-dwhd
 ----
@@ -20,12 +26,14 @@
 ifdef::rhv-doc[]
 Enable either the {virt-product-fullname} {engine-name} repository:
 +
+[options="nowrap" subs="normal"]
 ----
 # subscription-manager repos --enable=rhel-7-server-rhv-4.3-manager-rpms
 ----
 +
 or the SCL repository:
 +
+[options="nowrap" subs="normal"]
 ----
 # subscription-manager repos --enable rhel-server-rhscl-7-rpms
 ----
@@ -35,7 +43,7 @@ ifdef::ovirt-doc[]
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
+# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release43.rpm
 ----
 endif::[]
 
@@ -101,11 +109,4 @@ work_mem = 8192
 +
 ----
 # systemctl restart rh-postgresql10-postgresql.service
-----
-
-. Start the `ovirt-engine-dwhd` service:
-+
-[options="nowrap" subs="normal"]
-----
-# systemctl start ovirt-engine-dwhd
 ----

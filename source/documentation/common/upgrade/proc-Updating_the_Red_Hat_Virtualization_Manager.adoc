@@ -6,20 +6,42 @@
 // Administration Guide
 // Migrating from a standalone {engine-name} to a self-hosted engine
 
+// Although most of the {virt-product-fullname} doc set now uses `dnf` instead of `yum`, this topic still
+// uses `yum` because it is included in 4.2 and 4.3 sections in the Upgrade Guide, where the OS is still
+// {enterprise-linux} 7.
+
+ifdef::migrating_to_SHE[]
+.Prerequisites
+* The data center compatibility level must be set to the latest version to ensure compatibility with the updated storage version.
+endif::migrating_to_SHE[]
 ifdef::upgrade[]
+.Prerequisites
 ifdef::ovirt-doc[]
-.Prerequisite
 * The RPM package link:https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm[ovirt-release44.rpm] is installed. This package includes the necessary repositories.
 endif::ovirt-doc[]
-endif::upgrade[]
+
+ifdef::rhv-doc[]
+* Ensure the {engine-name} has the correct repositories enabled. For the list of required repositories, see
+ifdef::4-2_local_db,4-2_remote_db,4-2_SHE[]
+link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}4.2/html-single/installation_guide/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_standalone_install[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.2.
+endif::4-2_local_db,4-2_remote_db,4-2_SHE[]
+ifdef::4-3_local_db,4-3_remote_db,4-3_SHE[]
+link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}4.3/html-single/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.3.
+endif::4-3_local_db,4-3_remote_db,4-3_SHE[]
+ifdef::SHE_minor_updates,migrating_to_SHE,minor_updates[]
+link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.4.
+endif::SHE_minor_updates,migrating_to_SHE,minor_updates[]
++
 Updates to the {virt-product-fullname} {engine-name} are released through the Content Delivery Network.
+endif::rhv-doc[]
+endif::upgrade[]
 
 .Procedure
 
-ifdef::SHE_upgrade,SHE_minor_updates[. Log in to the {engine-name} virtual machine.]
-ifdef::local_database_upgrade,remote_database_upgrade,minor_updates[. Log in to the {engine-name} machine.]
+// ifdef::SHE_upgrade,SHE_minor_updates[. Log in to the {engine-name} virtual machine.]
+// ifdef::local_database_upgrade,remote_database_upgrade,minor_updates[. Log in to the {engine-name} machine.]
 
-. Check if updated packages are available:
+. On the {engine-name} machine, check if updated packages are available:
 +
 ----
 # engine-upgrade-check
@@ -70,6 +92,12 @@ The update process might take some time. Do not stop the process before it compl
 +
 [IMPORTANT]
 ====
+If you encounter a required Ansible package conflict during the update, see link:https://access.redhat.com/solutions/5480561[Cannot perform yum update on my RHV manager (ansible conflict)].
+====
+//ansible lock addition
++
+[IMPORTANT]
+====
 ifdef::SHE_minor_updates[]
 If any kernel packages were updated:
 
@@ -99,5 +127,5 @@ endif::[]
 
 ifdef::SHE_minor_updates[]
 .Related Information
-xref:Disabling_Global_Maintenance_Mode_SHE_minor_updates[Disabling Global Maintenance Mode]
+xref:Disabling_Global_Maintenance_Mode_SHE_minor_updates[Disabling global maintenance mode]
 endif::[]

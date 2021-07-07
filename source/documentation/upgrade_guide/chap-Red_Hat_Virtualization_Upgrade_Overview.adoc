@@ -1,5 +1,4 @@
 [id="Red_Hat_Virtualization_Upgrade_Overview"]
-include::common/collateral_files/ovirt-attributes.adoc[]
 = {virt-product-fullname} Upgrade Overview
 
 This guide explains how to upgrade the following environments to {virt-product-fullname} 4.3:
@@ -47,7 +46,7 @@ Select the appropriate instructions for your environment from the following tabl
 * Manual upgrade: xref:SHE_Upgrading_from_4-2[]
 
 
-|4.3.x |4.3.y a|xref:Updates_between_Minor_Releases[]
+|4.3.x |4.3.y a|xref:Minor_Release_Updates[]
 |===
 
 ifdef::rhv-doc[]

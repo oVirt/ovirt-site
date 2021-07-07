@@ -1,0 +1,27 @@
+
+* For {virt-product-shortname} 4.4.2:
++
+[options="nowrap" subs="normal"]
++
+----
+# dnf module enable virt:8.2
+----
+* For {virt-product-shortname} 4.4.3 to 4.4.5:
++
+[options="nowrap" subs="normal"]
++
+----
+# dnf module enable virt:8.3
+----
+* For {virt-product-shortname} 4.4.6 or later:
++
+[options="nowrap" subs="normal"]
++
+----
+# dnf module enable virt:av
+----
++
+[NOTE]
+====
+Starting with {enterprise-linux-shortname} 8.4, only one Advanced Virtualization stream is used, `rhel:av`.
+====

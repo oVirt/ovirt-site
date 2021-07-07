@@ -1,13 +1,12 @@
-[id='Updates_between_Minor_Releases']
-= Updates between minor releases
+[id='Minor_Release_Updates']
+= Updating {virt-product-fullname} between minor releases
 
-include::common/collateral_files/ovirt-attributes.adoc[]
 ifdef::context[:parent-context: {context}]
 
 :context: minor_updates
 :minor_updates:
 
-To update from your current version of 4.4 to the latest version of 4.4, update the {engine-name} and then update the hosts.
+To update from your current version of 4.4 to the latest version of 4.4, update the {engine-name},  update the hosts, and then change the compatibility version for the cluster, virtual machines, and data center.
 
 ifdef::rhv-doc[]
 include::common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
@@ -23,11 +22,27 @@ include::common/upgrade/assembly-Updating_a_self-hosted_engine.adoc[leveloffset=
 
 include::common/upgrade/proc-Updating_all_hosts_in_a_cluster.adoc[leveloffset=+1]
 
+You can now update the cluster compatibility version.
+
+include::common/upgrade/proc-Changing_the_Cluster_Compatibility_Version.adoc[leveloffset=+1]
+
+You can now update the cluster compatibility version for virtual machines in the cluster.
+
+include::common/upgrade/proc-Changing_Virtual_Machine_Cluster_Compatibility.adoc[leveloffset=+1]
+
+You can now update the data center compatibility version.
+
+include::common/upgrade/proc-Changing_the_Data_Center_Compatibility_Version.adoc[leveloffset=+1]
+
+
 You can also update hosts individually:
 
 include::common/upgrade/proc-Updating_Individual_Hosts.adoc[leveloffset=+1]
 
-You should update the hosts from the Administration Portal. However, you can update the hosts using `yum update` instead:
+[NOTE]
+====
+You should update the hosts from the Administration Portal. However, you can update the hosts using `dnf upgrade` instead.
+====
 
 include::common/upgrade/proc-Manually_Updating_Hosts.adoc[leveloffset=+1]
 

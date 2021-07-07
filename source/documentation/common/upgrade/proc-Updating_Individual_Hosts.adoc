@@ -18,14 +18,14 @@ include::snip-Host_update_limitations.adoc[]
 
 .Procedure
 
-. Ensure that the correct repositories are enabled. To view a list of currently enabled repositories, run `yum repolist`.
+. Ensure that the correct repositories are enabled. To view a list of currently enabled repositories, run `dnf repolist`.
 
 ifdef::rhv-doc[]
 * For {hypervisor-fullname}s:
 +
 [options="nowrap" subs="normal"]
 ----
-# subscription-manager repos --enable=rhvh-4-beta-for-rhel-8-x86_64-rpms
+# subscription-manager repos --enable=rhvh-4-for-rhel-8-x86_64-rpms
 ----
 
 * For {enterprise-linux-host-fullname}s:
@@ -35,8 +35,7 @@ ifdef::rhv-doc[]
 # subscription-manager repos \
     --enable=rhel-8-for-x86_64-baseos-rpms \
     --enable=rhel-8-for-x86_64-appstream-rpms \
-    --enable=rhv-4-mgmt-agent-beta-for-rhel-8-x86_64-rpms \
-    --enable=ansible-2.9-for-rhel-8-x86_64-rpms \
+    --enable=rhv-4-mgmt-agent-for-rhel-8-x86_64-rpms \
     --enable=advanced-virt-for-rhel-8-x86_64-rpms \
     --enable=fast-datapath-for-rhel-8-x86_64-rpms
 ----
@@ -48,7 +47,7 @@ ifdef::ovirt-doc[]
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
+# dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 ----
 endif::[]
 

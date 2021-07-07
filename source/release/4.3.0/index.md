@@ -172,7 +172,7 @@ packages from other repos.
 
 #### VDSM
 
- - [BZ 1601873](https://bugzilla.redhat.com/1601873) <b>Remove dependency on gluster-gnfs to support Gluster 4.1</b><br>In this release, gluster-gnfs is no longer available with Gluster 4.1. Users who require nfs access for gluster volumes are advised to use nfs-ganesha. Please refer to https://gluster.readthedocs.io/en/latest/Administrator%20Guide/NFS-Ganesha%20GlusterFS%20Integration/
+ - [BZ 1601873](https://bugzilla.redhat.com/1601873) <b>Remove dependency on gluster-gnfs to support Gluster 4.1</b><br>In this release, gluster-gnfs is no longer available with Gluster 4.1. Users who require nfs access for gluster volumes are advised to use nfs-ganesha. Please refer to https://docs.gluster.org/en/latest/Administrator-Guide/NFS-Ganesha-GlusterFS-Integration/
 
 ### Deprecated Functionality
 

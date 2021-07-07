@@ -81,7 +81,7 @@ Affected oVirt projects:
 
 ## Documentation / External references
 
-GlusterFS : <https://gluster.readthedocs.io/en/latest/release-notes/3.9.0/>
+GlusterFS : <https://docs.gluster.org/en/latest/>
 
 
 *   Bugzilla ticket: [BZ#1396993](https://bugzilla.redhat.com/show_bug.cgi?id=1396993)

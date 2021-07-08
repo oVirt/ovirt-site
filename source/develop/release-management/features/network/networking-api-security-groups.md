@@ -377,7 +377,7 @@ openstack behaves.
 The OVN **address set** tables will be used to encode the remote group id
 information.
 
-The OVN address sets are - as per [OVN documentation](http://www.openvswitch.org/support/dist-docs/ovn-nb.5.html) - a 'a named set of addresses'.
+The OVN address sets are - as per [OVN documentation](https://www.ovn.org/support/dist-docs/ovn-nb.5.html) - a 'a named set of addresses'.
 
 Each address set can only feature **one** type of addresses - eth, ipv4, ipv6 -
 and will be used in the ACL match column. Examples of address sets being used in the match conditions can be seen below.

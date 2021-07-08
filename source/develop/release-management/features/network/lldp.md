@@ -558,7 +558,7 @@ The package lldpad has to be installed and the demon lldpad has to be running.
 
 [IEEE Std 802.1AB™-2016, IEEE Standard for Local and metropolitan area networks—Station and Media Access Control Connectivity Discovery][1]
 
-[1]: http://standards.ieee.org/getieee802/download/802.1AB-2016.zip
+[1]: https://ieeexplore.ieee.org/document/7433915
 
 [Linux Ethernet Bonding Driver HOWTO][2]
 

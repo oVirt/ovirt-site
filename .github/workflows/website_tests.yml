@@ -50,6 +50,17 @@ jobs:
             exit 2
           fi
 
+      # bundler just bump versions to the locally available ones
+      # which means developpers would always require bleeding edge versions not available on stable servers
+      # this is too simplistic and breaks deployment
+      # instead all changes are tested via CI on the same target OS and version than the production builder
+      - name: "Check for simplistic bundler requirement bump"
+        run: |
+          if grep -E "^(RUBY VERSION|BUNDLED WITH)" Gemfile.lock; then
+            echo '/!\ please remove "RUBY VERSION" and "BUNDLED WITH" requirements in Gemfile.lock'
+            exit 2
+          fi
+
       - name: "Install Podman"
         run: sudo apt-get install -y podman
 

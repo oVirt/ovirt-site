@@ -110,7 +110,7 @@ As the hooks present in the servers are periodically synchronized with engine da
 
 ## Documentation / External references
 
-<https://docs.gluster.org/en/latest/Administrator%20Guide/Hook-scripts/>
+<https://docs.gluster.org/en/latest/Administrator-Guide/Hook-scripts/>
 
 
 

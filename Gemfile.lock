@@ -177,6 +177,3 @@ DEPENDENCIES
   kramdown-parser-gfm
   liquid
   listen
-
-RUBY VERSION
-   ruby 2.5.5p157

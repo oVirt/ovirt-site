@@ -13,9 +13,9 @@ The feature introduced here adds the ability to configure these filters by param
 
 ## Owner
 
-*   Name: Dominik Holler
+*   Name: [Aleš Musil](https://github.com/almusil)
 
-*   Email: <dholler@redhat.com>
+*   Email: <amusil@redhat.com>
 
 ## Detailed Description
 

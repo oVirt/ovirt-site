@@ -30,9 +30,9 @@ Related patches can be found on [gerrit topic:keystone_v3][11].
 
 ## Owner
 
-*   Name: [Dominik Holler](https://github.com/dominikholler)
+*   Name: [Eitan Raviv](https://github.com/erav)
 
-*   Email: <dholler@redhat.com>
+*   Email: <eraviv@redhat.com>
 
 ## Detailed Description
 

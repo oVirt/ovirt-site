@@ -20,10 +20,9 @@ Feature progress is tracked on [Trello][14]. Related patches can be found on
 
 ## Owner
 
-*   Name: [Dominik Holler](https://github.com/dominikholler)
+*   Name: [Aleš Musil](https://github.com/almusil)
 
-*   Email: <dholler@redhat.com>
-
+*   Email: <amusil@redhat.com>
 
 ## Detailed Description
 

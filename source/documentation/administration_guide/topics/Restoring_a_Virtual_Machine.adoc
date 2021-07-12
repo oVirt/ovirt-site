@@ -18,8 +18,12 @@ Content-type: application/xml
 </disk>
 ----
 +
-NOTE: Here, replace `_{vm:id}_` with the ID of this _backup_ virtual machine, not the virtual machine whose snapshot you made earlier. Replace `_{disk:id}_` with the disk ID you got while backing up the virtual machine.
-
+[NOTE]
+====
+Here, replace `{vm:id}` with the ID of this _backup_ virtual machine, not the virtual machine whose snapshot you made earlier.
+Replace `{disk:id}` with the disk ID you got while backing up the virtual machine.
+====
++
 . Use the backup software to restore the backup to the disk.
 . Detach the disk from the backup virtual machine:
 +
@@ -34,9 +38,12 @@ Content-type: application/xml
 </action>
 ----
 +
+[NOTE]
+====
+Here, replace `{vm:id}` with the ID of this _backup_ virtual machine, not the virtual machine whose snapshot you made earlier.
+Replace `{disk:id}` with the disk ID.
+====
 +
-NOTE: Here, replace `_{vm:id}_` with the ID of this _backup_ virtual machine, not the virtual machine whose snapshot you made earlier. Replace `_{disk:id}_` with the disk ID.
-
 . Create a new virtual machine using the configuration data of the virtual machine being restored:
 +
 [options="nowrap" ]
@@ -79,6 +86,9 @@ Content-type: application/xml
 </disk>
 ----
 +
-NOTE: Here, replace `_{vm:id}_` with the ID of the _new_ virtual machine, not the virtual machine whose snapshot you made earlier.  Replace `_{disk:id}_` with the disk ID.
+[NOTE]
+====
+Here, replace `{vm:id}` with the ID of the new virtual machine, not the virtual machine whose snapshot you made earlier. Replace `{disk:id}` with the disk ID.
+====
 
 You have restored a virtual machine using a backup that was created using the backup and restore API.

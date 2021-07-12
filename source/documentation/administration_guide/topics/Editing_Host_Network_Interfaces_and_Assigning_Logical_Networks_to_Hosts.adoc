@@ -1,4 +1,4 @@
-[[Editing_host_network_interfaces]]
+[[Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts]]
 ==== Editing Host Network Interfaces and Assigning Logical Networks to Hosts
 
 You can change the settings of physical host network interfaces, move the management network from one physical host network interface to another, and assign logical networks to physical host network interfaces. Bridge and ethtool custom properties are also supported.
@@ -27,8 +27,7 @@ VLANs configured on the switch port are shown as *VLAN Name* and *VLAN ID*
 combinations.
 ====
 
-[[Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts]]
-*Editing Host Network Interfaces and Assigning Logical Networks to Hosts*
+.Procedure
 
 . Click menu:Compute[Hosts].
 . Click the host's name. This opens the details view.
@@ -132,3 +131,16 @@ A separate, dedicated logical network is recommended for use with FCoE.
 ====
 If not all network interface cards for the host are displayed, click menu:Management[Refresh Capabilities] to update the list of network interface cards available for that host.
 ====
+
+.Troubleshooting
+
+In some cases, making multiple concurrent changes to a host network configuration using the *Setup Host Networks* window or `setupNetwork` command fails with an `Operation failed: [Cannot setup Networks]. Another Setup Networks or Host Refresh process in progress on the host. Please try later.]` error in the event log. This error indicates that some of the changes were not configured on the host. This happens because, to preserve the integrity of the configuration state, only a single setup network command can be processed at a time. Other concurrent configuration commands are queued for up to a default timeout of 20 seconds. To help prevent the above failure from happening, use the `engine-config` command to increase the timeout period of `SetupNetworksWaitTimeoutSeconds` beyond 20 seconds. For example:
+
+[options="nowrap" subs="normal"]
+----
+# engine-config --set SetupNetworksWaitTimeoutSeconds=40
+----
+
+.Additional resources
+* xref:Syntax_for_the_engine-config_Command[]
+* link:{URL_rest_api_doc}index#services-host-methods-setup_networks[setupnetworks POST]

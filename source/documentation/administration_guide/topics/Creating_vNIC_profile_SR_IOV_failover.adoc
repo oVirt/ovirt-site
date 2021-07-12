@@ -1,0 +1,28 @@
+[[Creating_vNIC_profile_SR_IOV_failover]]
+
+==== Enabling a vNIC profile for SR-IOV migration with failover
+
+Failover allows the selection of a profile that acts as a failover device during virtual machine migration when the VF needs to be detached, preserving virtual machine communication with minimal interruption.
+
+[NOTE]
+====
+Failover is a Technology Preview feature only.
+Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
+====
+
+.Prerequisites
+
+* The *Passthrough* and *Migratable* check boxes of the profile are selected.
+* The failover network is attached to the host.
+* In order to make a vNIC profile acting as failover editable, you must first remove any failover references.
+* vNIC profiles that can act as failover are profiles that are not selected as *Passthrough* or are not connected to an External Network.
+
+.Procedure
+. In the Administration Portal, go to menu:Network[VNIC profiles], select the vNIC profile, click btn:[Edit] and select a `Failover vNIC profile` from the drop down list.
+. Click btn:[OK] to save the profile settings.
+
+
+[NOTE]
+====
+Attaching two vNIC profiles that reference the same failover vNIC profile to the same virtual machine will fail in libvirt.
+====

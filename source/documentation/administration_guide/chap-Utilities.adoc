@@ -20,20 +20,30 @@ include::topics/Syntax_for_the_engine-config_Command.adoc[]
 [[sect-The_USB_Filter_Editor]]
 === The USB Filter Editor
 
-include::topics/Installing_the_USB_Filter_Editor.adoc[]
+include::topics/Installing_the_USB_Filter_Editor.adoc[leveloffset=+3]
 
-include::topics/The_USB_Filter_Editor_interface.adoc[]
+include::topics/The_USB_Filter_Editor_interface.adoc[leveloffset=+3]
 
-include::topics/Adding_a_USB_policy.adoc[]
+include::topics/Adding_a_USB_policy.adoc[leveloffset=+3]
 
-include::topics/Removing_a_USB_policy.adoc[]
+include::topics/Removing_a_USB_policy.adoc[leveloffset=+3]
 
-include::topics/Searching_for_USB_device_policies.adoc[]
+include::topics/Searching_for_USB_device_policies.adoc[leveloffset=+3]
 
-include::topics/Exporting_a_USB_policy.adoc[]
+include::topics/Exporting_a_USB_policy.adoc[leveloffset=+3]
 
-include::topics/Importing_a_USB_policy.adoc[]
+include::topics/Importing_a_USB_policy.adoc[leveloffset=+3]
 
+ifdef::rhv-doc[]
+=== The Image discrepancies tool
+:context: admin
+:admin:
+include::common/upgrade/proc-Image_discrepancies_tool.adoc[]
+:admin!:
+:context!: admin
+endif::[]
+
+ifdef::rhv-doc[]
 [[sect-The_Log_Collector_Tool]]
 === The Log Collector Tool
 
@@ -42,6 +52,7 @@ include::topics/Log_Collector.adoc[]
 include::topics/Syntax_for_the_ovirt-log-collector_Command.adoc[]
 
 include::topics/Basic_Log_Collector_Usage.adoc[]
+endif::[]
 
 [[sect-The_ISO_Uploader_Tool]]
 === The ISO Uploader Tool

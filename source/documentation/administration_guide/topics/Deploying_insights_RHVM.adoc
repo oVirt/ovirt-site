@@ -1,6 +1,5 @@
 [id="Deploying_insights_RHVM"]
 
-=== Deploying Insights in Red Hat Virtualization Manager
 
 To deploy Red Hat Insights on an existing Red Hat
 Enterprise Linux (RHEL) system with Red Hat Virtualization Manager installed, complete these tasks:

@@ -1,5 +1,5 @@
 [[Exporting_a_USB_policy]]
-==== Exporting a USB Policy
+= Exporting a USB Policy
 
 
 USB device policy changes need to be exported and uploaded to the {virt-product-fullname} {engine-name} for the updated policy to take effect. Upload the policy and restart the *ovirt-engine* service.
@@ -7,13 +7,13 @@ USB device policy changes need to be exported and uploaded to the {virt-product-
 Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.
 
 
-*Exporting a USB Policy*
+.Procedure
 
 . Click *Export*; the *Save As* window opens.
 . Save the file with a file name of *usbfilter.txt*.
 . Using a Secure Copy client, such as WinSCP, upload the *usbfilter.txt* file to the server running {virt-product-fullname} {engine-name}. The file must be placed in the following directory on the server:
 */etc/ovirt-engine/*
-. As the *root* user on the server running {virt-product-fullname} {engine-name}, restart the *ovirt-engine* service. 
+. As the *root* user on the server running {virt-product-fullname} {engine-name}, restart the *ovirt-engine* service.
 +
 [options="nowrap" subs="normal"]
 ----

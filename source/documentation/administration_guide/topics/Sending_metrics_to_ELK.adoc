@@ -1,9 +1,10 @@
 [id="Sending_metrics_to_ELK"]
 
-----
-NOTE:
+
+[NOTE]
+====
 Red Hat does not own or maintain Elasticsearch. You need to have a working familiarity with Elasticsearch setup and maintenance to deploy this option.
-----
+====
 
 You can configure the {virt-product-fullname} {engine-name} and hosts to send metrics data to your existing Elasticsearch instance.
 

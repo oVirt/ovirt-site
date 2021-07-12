@@ -7,7 +7,7 @@
 
 You can use nmstate to remove static routes from hosts. This method requires you to configure the hosts directly, without using {virt-product-fullname} {engine-name}.
 
-IMPORTANT: Except for adding or removing a static route on a host, always use the {virt-product-shortname} {engine-name} to configure host network settings in your cluster. For details, see link:{URL_virt_product_docs}administration_guide/index#con-Network-Manager-Stateful-Configuration-nmstate[Network Manager Stateful Configuration (nmstate)].
+IMPORTANT: Except for adding or removing a static route on a host, always use the {virt-product-shortname} {engine-name} to configure host network settings in your cluster. For details, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#con-Network-Manager-Stateful-Configuration-nmstate[Network Manager Stateful Configuration (nmstate)].
 
 [NOTE]
 ====
@@ -60,5 +60,5 @@ $ ip route | grep 192.168.123.0`
 
 .Additional resources
 
-* link:{URL_virt_product_docs}administration_guide/index#con-Network-Manager-Stateful-Configuration-nmstate[Network Manager Stateful Configuration (nmstate)]
-* link:{URL_virt_product_docs}administration_guide/index#proc-Adding-a-static-route-on-a-host[Adding a static route on a host]
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#con-Network-Manager-Stateful-Configuration-nmstate[Network Manager Stateful Configuration (nmstate)]
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#proc-Adding-a-static-route-on-a-host[Adding a static route on a host]

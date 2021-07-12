@@ -18,16 +18,30 @@ A self-hosted engine shows the following error during installation:
 
 Before the LUN can be reused, the old partitioning table must be cleared.
 
-*Clearing the Partition Table from a LUN*
+.Procedure
 
 [IMPORTANT]
 ====
 You must run this procedure on the correct LUN so that you do not inadvertently destroy data.
 ====
 
-Run the `dd` command with the ID of the LUN that you want to reuse, the maximum number of bytes to read and write at a time, and the number of input blocks to copy:
-
-[options="nowrap" subs="normal"]
+. Delete the partition mappings in _<LUN_ID>_:
++
+[source, terminal]
 ----
-# dd if=/dev/zero of=/dev/mapper/LUN_ID bs=1M count=200 oflag=direct
+kpartx -dv /dev/mapper/<LUN_ID>
+----
+
+. Erase the fileystem or raid signatures in _<LUN_ID>_:
++
+[source, terminal]
+----
+wipefs -a /dev/mapper/<LUN_ID>
+----
+
+. Inform the operating system about the partition table changes on _<LUN_ID>_:
++
+[source, terminal]
+----
+ partprobe
 ----

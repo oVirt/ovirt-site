@@ -14,13 +14,11 @@ Hosts in clusters with level 4.2 are automatically reconfigured for strong encry
 ====
 
 [discrete]
-== Procedure
+.Procedure
 
 . Click menu:Compute[Hosts] and select the host.
 
-. Click menu:Management[Maintenance]. This opens the *Maintenance Host(s)* confirmation window.
-
-. Click btn:[OK] to initiate maintenance mode.
+. Click menu:Management[Maintenance] and btn:[OK].
 
 . On the host, create  `/etc/vdsm/vdsm.conf.d/99-custom-ciphers.conf` with the following setting:
 +

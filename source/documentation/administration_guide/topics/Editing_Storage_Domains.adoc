@@ -10,7 +10,7 @@ You can edit storage domain parameters through the Administration Portal. Depend
 
 [NOTE]
 ====
-iSCSI storage connections cannot be edited via the Administration Portal, but can be edited via the REST API. See link:http://ovirt.github.io/ovirt-engine-api-model/4.4/#services[Updating Storage Connections] in the _REST API Guide_.
+iSCSI storage connections cannot be edited via the Administration Portal, but can be edited via the REST API. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#services-storage_server_connection_extension-methods-update[Updating Storage Connections] in the _REST API Guide_.
 ====
 
 *Editing an Active Storage Domain*

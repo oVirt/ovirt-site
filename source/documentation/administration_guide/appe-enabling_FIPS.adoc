@@ -1,0 +1,57 @@
+:numbered!:
+:context: appendix_fips
+[appendix]
+[id="enabling-fips_in_rhv"]
+= Enabling FIPS in Red Hat Virtualization
+// The VPP security profile in these instructions is specific to Red Hat Virtualization - These instructions do not apply to oVirt. Do not replace product names with attributes.
+
+You can set up Red Hat Virtualization to be compliant with the Federal Information Processing Standard (FIPS), specifically  FIPS 140-2. You can enable FIPS mode selectively, on specific virtual machines, bare metal machines, or across your entire environment, based on your organization's FIPS compliance requirements.
+
+// Need to flesh out and clarify what exceptions are possible and how to do them before uncommenting this:
+
+// If you enable FIPS mode in your entire environment, you can selectively provision virtual machines that are not FIPS-compliant. Other than those exceptions, all bare metal and virtual machines should have FIPS mode enabled, including the Manager machine, whether the Manager is installed as a self-hosted engine, or as a standalone Manager.
+
+You can create a FIPS-enabled bare metal machine in RHV 4.4 by either installing the operating system in FIPS mode, or by switching the system into FIPS mode after installing the operating system. However, you must switch to FIPS mode before installing and configuring Red Hat Virtualization to avoid introducing system conflicts.
+
+// You must enable FIPS in every host in the cluster where you plan to use VNC encryption.
+
+////
+.Verification
+
+Verify that FIPS is enabled by entering the command `fips-mode-setup --check` on the host. The command should return `FIPS mode is enabled`:
+
+[options="nowrap" subs="normal"]
+----
+# fips-mode-setup --check
+FIPS mode is enabled.
+----
+////
+[IMPORTANT]
+====
+Red Hat recommends installing Red Hat Enterprise Linux 8 with FIPS mode enabled as opposed to enabling FIPS mode later. Enabling FIPS mode during the installation ensures that the system generates all keys with FIPS-approved algorithms and continuous monitoring tests in place.
+====
+
+You enable FIPS first on each bare metal machine, and then in the Manager.
+
+* xref:enabling_fips_she_appendix_fips[Enabling FIPS in a self-hosted engine]
+* xref:enabling_fips_rhvh_appendix_fips[Enabling FIPS in RHVH]
+* xref:enabling_fips_rhel_hosts_and_rhvm_appendix_fips[Enabling FIPS in RHEL hosts and the standalone Manager]
+* xref:enabling_fips_using_the_rhv_manager_appendix_fips[Configuring FIPS hosts using the Manager]
+
+
+
+include::topics/proc-enabling-fips_she.adoc[leveloffset=+1]
+include::topics/proc-enabling-fips_rhel_hosts_and_rhvm.adoc[leveloffset=+1]
+include::topics/proc-enabling-fips_rhvh.adoc[leveloffset=+1]
+include::topics/proc-enabling-fips-using-the-rhv-manager.adoc[leveloffset=+1]
+
+== Additional resources
+
+* link:{URL_downstream_virt_product_docs}installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index#Installing_Red_Hat_Virtualization_Hosts_SHE_cli_deploy[Installing {virt-product-fullname} Hosts]
+* link:https://www.redhat.com/en/blog/configuring-and-applying-scap-policies-during-installation[Configuring and Applying SCAP Policies During Installation]
+* link:{URL_customer-portal}downloads/content/415/ver=4.4/rhel---8/4.4/x86_64/product-software[Installers and Images for Red Hat Virtualization Manager (v. 4.4 for x86_64)]
+* link:http://www.open-scap.org/security-policies/choosing-policy/[Security policies available in the SCAP Security Guide]
+* link:{URL_rhel_docs_latest}html/security_hardening/index[Security Hardening] for Red Hat Enterprise Linux 8
+
+
+:appendix_fips!:

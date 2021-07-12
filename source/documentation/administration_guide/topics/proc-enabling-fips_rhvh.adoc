@@ -1,0 +1,31 @@
+[id="enabling_fips_rhvh_{context}"]
+= Enabling FIPS in RHVH
+
+You can enable FIPS mode when installing a Red Hat Virtualization Host (RHVH). Red Hat does not support switching a provisioned RHVH machine to FIPS mode.
+
+[NOTE]
+====
+RHVH ships as a single system image. If you select additional security profiles whose packages are not part of this system image, it may not be possible to install them. Please see the link:{URL_downstream_virt_product_docs}package_manifest/index[Red Hat Virtualization package manifest] for a list of packages included with RHVH.
+====
+
+.Procedure
+
+. Download and begin link:{URL_downstream_virt_product_docs}installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index#Installing_Red_Hat_Virtualization_Hosts_SHE_cli_deploy[installing a Red Hat Virtualization Host (RHVH)].
+
+. When the installer displays *Installation Summary*, click *Security Policy*.
+
+. Click the *VPP - Protection Profile for Virtualization 1.0 for Red Hat Virtualization Host (RHVH)* profile.
+
+. Click btn:[Select profile], set *Apply security policy* to *On*, and click btn:[Done].
+
+. On the *Installation Summary* screen, verify that the status of *Security Policy* is *Everything okay* and complete the installation process.
+
+.Verification
+
+Verify that FIPS is enabled by entering the command `fips-mode-setup --check` on the host. The command should return `FIPS mode is enabled`:
+
+[options="nowrap" subs="normal"]
+----
+# fips-mode-setup --check
+FIPS mode is enabled.
+----

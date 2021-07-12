@@ -19,9 +19,9 @@ The progress of the implementation and testing of this feature is tracked on
 
 ## Owner
 
-*   Name: [Dominik Holler](https://github.com/dominikholler)
+*   Name: [Asaf Rachmani](https://github.com/arachmani)
 
-*   Email: <dholler@redhat.com>
+*   Email: <arachman@redhat.com>
 
 
 ## Detailed Description

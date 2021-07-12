@@ -17,8 +17,9 @@ Feature progress is tracked on [ovn-localnet Trello](https://trello.com/b/lxIBEn
 
 ### Owner
 
-- Feature Owner: Petr Horáček (phoracek)
-- E-mail: <phoracek@redhat.com>
+*   Name: [Aleš Musil](https://github.com/almusil)
+
+*   Email: <amusil@redhat.com>
 
 ### Benefit to oVirt
 

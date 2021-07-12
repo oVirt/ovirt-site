@@ -16,9 +16,9 @@ The state of the feature is tracked in [[RFE] Private VLAN / port isolation
 
 ## Owner
 
-*   Name: [Dominik Holler](https://github.com/dominikholler)
+*   Name: [Aleš Musil](https://github.com/almusil)
 
-*   Email: <dholler@redhat.com>
+*   Email: <amusil@redhat.com>
 
 
 ## Detailed Description

@@ -18,9 +18,10 @@ interfaces and let oVirt Engine use this information in a beneficial way.
 
 ## Owner
 
-*   Name: [Dominik Holler](https://github.com/dominikholler)
+*   Name: [Aleš Musil](https://github.com/almusil)
 
-*   Email: <dholler@redhat.com>
+*   Email: <amusil@redhat.com>
+
 
 ## Detailed Description
 

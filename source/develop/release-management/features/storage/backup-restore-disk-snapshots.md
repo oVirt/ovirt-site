@@ -38,7 +38,7 @@ with open(ovf_filename, "wb") as ovf_file:
 
 ### Download Disks
 
-[Full Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_disk_snapshots.py)
+[Full Example](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_all_disk_snapshots.py)
 
 The following example demonstrates the procedure of downloading the non-active disk-snapshots
 of a specified disk. Hence, in order to include the active layer as well, either create
@@ -268,7 +268,7 @@ For each disk-snapshot in the chain, start an upload transfer.
 
 * [Download VM OVF](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_vm_ovf.py)
 
-* [Download Disk Snapshots](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_disk_snapshots.py)
+* [Download Disk Snapshots](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/download_all_disk_snapshots.py)
 
 * [Upload Disk Snapshots](https://github.com/oVirt/ovirt-engine-sdk/blob/master/sdk/examples/upload_disk_snapshots.py)
 

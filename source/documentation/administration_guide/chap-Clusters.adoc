@@ -21,6 +21,8 @@ include::topics/Cluster_Migration_Policy_Settings_Explained.adoc[leveloffset=-1]
 
 include::topics/Cluster_Scheduling_Policy_Settings.adoc[leveloffset=-1]
 
+include::topics/conc_maxfreememoryforoverutilized_and_minfreememoryforunderutilized_scheduling_policy_properties.adoc[leveloffset=+2]
+
 include::topics/Cluster_Console_Settings_Explained.adoc[leveloffset=-1]
 
 include::topics/Fencing_Policy_Settings_Explained.adoc[leveloffset=-1]

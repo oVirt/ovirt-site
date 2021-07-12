@@ -9,7 +9,7 @@ Perform this operation before cloning a virtual machine, creating a template bas
 
 * NFS storage domains must use NFS version 4.2 or higher.
 
-* You cannot sparsify a disk that uses a direct LUN or Cinder.
+* You cannot sparsify a disk that uses a direct LUN.
 
 * You cannot sparsify a disk that uses a preallocated allocation policy. If you are creating a virtual machine from a template, you must select *Thin* from the *Storage Allocation* field, or if selecting *Clone*, ensure that the template is based on a virtual machine that has thin provisioning.
 

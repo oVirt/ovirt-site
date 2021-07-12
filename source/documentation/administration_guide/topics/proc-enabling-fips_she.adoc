@@ -1,0 +1,21 @@
+
+[id="enabling_fips_she_{context}"]
+= Enabling FIPS in a self-hosted engine
+
+You can enable FIPS in a self-hosted engine during deployment when using the command-line.
+
+.Procedure
+
+. Start the self-hosted engine deployment script. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index[Installing {virt-product-fullname} as a self-hosted engine using the command line].
+. When the deployment script prompts `Do you want to apply a default OpenSCAP security profile?`, enter `Yes`
+. Follow the on-screen instructions to select *`VPP - Protection Profile for Virtualization 1.0 for Red Hat Enterprise Linux Hypervisor (RHELH)`*.
+
+.Verification
+
+Verify that FIPS is enabled by entering the command `fips-mode-setup --check` on the host. The command should return `FIPS mode is enabled`:
+
+[options="nowrap" subs="normal"]
+----
+# fips-mode-setup --check
+FIPS mode is enabled.
+----

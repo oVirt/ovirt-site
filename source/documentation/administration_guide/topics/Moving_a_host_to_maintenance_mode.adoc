@@ -14,7 +14,7 @@ Virtual machines that are pinned to the host and cannot be migrated are shut dow
 
 . Click menu:Compute[Hosts] and select the desired host.
 . Click menu:Management[Maintenance]. This opens the *Maintenance Host(s)* confirmation window.
-. Optionally, enter a *Reason* for moving the host into maintenance mode, which will appear in the logs and when the host is activated again.
+. Optionally, enter a *Reason* for moving the host into maintenance mode, which will appear in the logs and when the host is activated again. Then, click btn:[OK]
 +
 [NOTE]
 ====

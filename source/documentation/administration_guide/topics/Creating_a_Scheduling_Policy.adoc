@@ -4,7 +4,7 @@
 You can create new scheduling policies to control the logic by which virtual machines are distributed amongst a given cluster in your {virt-product-fullname} environment.
 
 
-*Creating a Scheduling Policy*
+.Procedure
 
 . Click menu:Administration[Configure].
 . Click the *Scheduling Policies* tab.

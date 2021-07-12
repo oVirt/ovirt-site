@@ -10,7 +10,11 @@ In the Administration Portal, you can configure {virt-product-fullname} to view 
 * The Satellite server must be added as an external provider.
 * The {engine-name}, hosts, and virtual machines must all be registered in the Satellite server by their respective FQDNs. This ensures that external content host IDs do not need to be maintained in {virt-product-fullname}.
 * The Satellite account that manages the {engine-name}, hosts and virtual machines must have Administrator permissions and a default organization set.
-* The {engine-name} must be registered to the Satellite server as a content host and have the `katello-host-tools` package installed.
+
+[NOTE]
+====
+The Katello agent is deprecated and will be removed in a future Satellite version. Migrate your processes to use the remote execution feature to update clients remotely.
+====
 
 .Configuring {virt-product-fullname} errata
 
@@ -20,7 +24,7 @@ To associate the {engine-name}, host, and virtual machine with a Red Hat Satelli
 
 . xref:Configuring_Satellite_Errata_Management_for_a_Host[Configure the required hosts to display available errata].
 
-. link:{URL_virt_product_docs}virtual_machine_management_guide/index#Configuring_Satellite_Errata[Configure the required virtual machines to display available errata].
+. link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Configuring_Satellite_Errata[Configure the required virtual machines to display available errata].
 
 .Viewing {virt-product-fullname} {engine-name} errata
 
@@ -31,10 +35,9 @@ To associate the {engine-name}, host, and virtual machine with a Red Hat Satelli
 
 * xref:Configuring_Satellite_Errata_Management_for_a_Host[]
 //* xref:Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux[] for {enterprise-linux} virtual machines
-* link:{URL_virt_product_docs}virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux[Installing the Guest Agents, Tools, and Drivers on Linux] in the _Virtual Machine Management Guide_ for {enterprise-linux} virtual machines.
+* link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux[Installing the Guest Agents, Tools, and Drivers on Linux] in the _Virtual Machine Management Guide_ for {enterprise-linux} virtual machines.
 //* xref:Installing_the_Guest_Agents_and_Drivers_on_Windows[] for Windows virtual machines
-* link:{URL_virt_product_docs}virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_ for Windows virtual machines.
-* link:{URL_satellite_docs}html/managing_hosts/host-management-without-goferd-and-katello-agent_managing-hosts[Host Management Without Goferd and Katello Agent] in the Red Hat Satellite document _Managing Hosts_.
+* link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_ for Windows virtual machines.
 * xref:Viewing_Host_Errata[]
-* link:{URL_virt_product_docs}virtual_machine_management_guide/index#Configuring_Satellite_Errata[Configuring Satellite errata viewing for a virtual machine] in the _Virtual Machine Management Guide_ for more information.
-* link:{URL_virt_product_docs}virtual_machine_management_guide/index#Viewing_Satellite_Errata[Viewing Red Hat Satellite errata for a virtual machine] in the _Virtual Machine Management Guide_.
+* link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Configuring_Satellite_Errata[Configuring Satellite errata viewing for a virtual machine] in the _Virtual Machine Management Guide_ for more information.
+* link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Viewing_Satellite_Errata[Viewing Red Hat Satellite errata for a virtual machine] in the _Virtual Machine Management Guide_.

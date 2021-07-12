@@ -31,7 +31,7 @@ If you select the *Custom* bonding mode, you can enter bonding options in the te
 For a comprehensive list of bonding options and their descriptions, see the link:https://www.kernel.org/doc/Documentation/networking/bonding.txt[_Linux Ethernet Bonding Driver HOWTO_] on Kernel.org.
 
 . Click btn:[OK].
-. Attach a logical network to the new bond and configure it. See xref:Editing_host_network_interfaces[] for instructions.
+. Attach a logical network to the new bond and configure it. See xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[] for instructions.
 +
 [NOTE]
 ====

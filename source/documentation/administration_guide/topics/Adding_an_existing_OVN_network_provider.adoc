@@ -87,7 +87,7 @@ ovn-remote=tcp:__OVN_central_server_IP__:6641
 Automatic synchronization is enabled by default on the *ovirt-provider-ovn* network provider created by the *engine-setup* tool.
 ====
 
-. Enter the URL or fully qualified domain name of the OVN provider in the *Provider URL* text field, followed by the port number. If the OVN provider and the OVN central server are on separate machines, this is the URL of the provider machine, not the central server. If the OVN provider is on the same machine as the {engine-name}, the URL can remain the default `http://localhost:9696`.
+. Enter the URL or fully qualified domain name of the OVN provider in the *Provider URL* text field, followed by the port number. If the OVN provider and the OVN central server are on separate machines, this is the URL of the provider machine, not the central server. If the OVN provider is on the same machine as the {engine-name}, the URL can remain the default `\http://localhost:9696`.
 . Clear the *Read-Only* check box to allow creating new OVN networks from the {virt-product-fullname} {engine-name}.
 . Optionally, select the *Requires Authentication* check box and enter the *Username* and *Password* for the for the external network provider user registered in Keystone.
 You must also define the authentication URL of the Keystone server by defining the *Protocol*, *Hostname*, and *API Port*.

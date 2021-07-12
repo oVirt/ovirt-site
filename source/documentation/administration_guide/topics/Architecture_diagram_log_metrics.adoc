@@ -1,6 +1,5 @@
 [id="Architecture_diagram_log_metrics"]
 
-=== Architecture
 
 The log and metrics collection architecture is based on the link:https://docs.openshift.com/container-platform/3.11/install_config/aggregate_logging.html#overview[Red Hat OpenShift EFK logging stack], running on link:https://docs.openshift.com/container-platform/3.11/welcome/index.html[Red Hat OpenShift Container Platform 3.11].
 
@@ -8,8 +7,8 @@ Logs and engine metrics are obtained using the following services:
 
 * link:https://collectd.org/[collectd] (hosts) collects metrics from hosts, virtual machines, and databases.
 * link:https://www.rsyslog.com/[rsyslog] (hosts) collects metrics, adds log data, enriches the data with metadata, and sends the enriched data to Elasticsearch.
-* link:https://www.elastic.co/[Elasticsearch] (OCP virtual machine) stores and indexes the data.
-* link:https://www.elastic.co/products/kibana[Kibana] (OCP virtual machine) analyzes and presents the data as dashboards and charts.
+* link:https://www.elastic.co/[Elasticsearch] (virtual machine) stores and indexes the data.
+* link:https://www.elastic.co/products/kibana[Kibana] (virtual machine) analyzes and presents the data as dashboards and charts.
 
 
 //.Architecture

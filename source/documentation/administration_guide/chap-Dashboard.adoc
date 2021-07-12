@@ -11,7 +11,7 @@ image::images/RHVdashboard.png[]
 [[sect-Prerequisites]]
 === Prerequisites
 
-The Dashboard requires that Data Warehouse is installed and configured. See link:{URL_virt_product_docs}data_warehouse_guide/[Installing and Configuring Data Warehouse] in the _Data Warehouse Guide_.
+The Dashboard requires that Data Warehouse is installed and configured. See link:{URL_virt_product_docs}{URL_format}data_warehouse_guide/index#chap-Installing_and_Configuring_Data_Warehouse[Installing and Configuring Data Warehouse] in the _Data Warehouse Guide_.
 
 [[sect-Global_Inventory]]
 === Global Inventory

@@ -18,7 +18,7 @@ Currently, the *Network Label*, *Custom Emulated Machine*, and *Custom CPU Type*
 |`Events._events-prop_` |Depends on property type |The property of the events associated with the virtual machine.
 |`Users._users-prop_` |Depends on property type |The property of the users associated with the virtual machine.
 |`Storage._storage-prop_` |Depends on the property type |The property of storage devices associated with the virtual machine.
-|`Vnic._vnic-prop_` |Depends on the property type |The property of the VNIC associated with the virtual machine.
+|`Vnic._vnic-prop_` |Depends on the property type |The property of the vNIC associated with the virtual machine.
 |`name` |String |The name of the virtual machine.
 |`status` |List |The availability of the virtual machine.
 |`ip` |Integer |The IP address of the virtual machine.

@@ -31,14 +31,14 @@ include::common/backup-restore/assembly-Overwriting_a_Self-Hosted_Engine.adoc[le
 === Migrating {virt-product-fullname} Databases to Remote Servers
 
 :context: migrate_database
-
-include::common/database/proc-Migrating_the_Manager_database_to_a_remote_server.adoc[leveloffset=+3]
+//ddacosta - removed the Migrating the Manager Database topics for BZ#1854791
+//include::common/database/proc-Migrating_the_Manager_database_to_a_remote_server.adoc[leveloffset=+3]
 //Adding back context
-:context: migrate_database
+//:context: migrate_database
 
-include::common/database/proc-Migrating_the_self-hosted_engine_database_to_a_remote_server.adoc[leveloffset=+3]
+//include::common/database/proc-Migrating_the_self-hosted_engine_database_to_a_remote_server.adoc[leveloffset=+3]
 //Adding back context
-:context: migrate_database
+//:context: migrate_database
 
 include::common/database/assembly-Migrating_Data_Warehouse_to_a_Separate_Machine.adoc[leveloffset=+3]
 
@@ -59,6 +59,7 @@ include::topics/proc_Backing_Up_a_Virtual_Machine_with_backup_domain.adoc[levelo
 
 :context!: backup_domain
 
+:context: RHV_backup_restore
 [[sect-Backing_Up_and_Restoring_Virtual_Machines_Using_the_Backup_and_Restore_API]]
 === Backing Up and Restoring Virtual Machines Using the Backup and Restore API
 
@@ -67,5 +68,9 @@ include::topics/The_Backup_and_Restore_API.adoc[]
 include::topics/Backing_Up_a_Virtual_Machine.adoc[]
 
 include::topics/Restoring_a_Virtual_Machine.adoc[]
+
+=== Backing Up and Restoring Virtual Machines Using the Incremental Backup and Restore API
+
+include::common/backup-restore/assembly_incremental-backup-and-restore.adoc[leveloffset=+3]
 
 :RHV_backup_restore!:

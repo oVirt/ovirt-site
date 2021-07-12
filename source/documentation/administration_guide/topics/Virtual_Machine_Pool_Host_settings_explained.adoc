@@ -48,14 +48,16 @@ The following table details the options available on the *Host* tab of the *New 
 * Select *Don't compress* to override the cluster setting or global setting and prevent compression for the virtual machine.
 
 | |*Pass-Through Host CPU* |This check box allows virtual machines to take advantage of the features of the physical CPU of the host on which they are situated.
-|*Configure NUMA* |*NUMA Node Count* |The number of virtual NUMA nodes to assign to the virtual machine. If the *Tune Mode* is *Preferred*, this value must be set to `1`.
-| |*Tune Mode* a|The method used to allocate memory.
+|*Configure NUMA* |*NUMA Node Count* |The number of virtual NUMA nodes available in a host that can be assigned to the virtual machine.
+| |*NUMA Pinning* |Opens the *NUMA Topology* window. This window shows the host's total CPUs, memory, and NUMA nodes, and the virtual machine's virtual NUMA nodes. You can manually pin virtual NUMA nodes to host NUMA nodes by clicking and dragging each vNUMA from the box on the right to a NUMA node on the left.
 
-* *Strict*: Memory allocation will fail if the memory cannot be allocated on the target node.
+You can also set *Tune Mode* for memory allocation:
 
-* *Preferred*: Memory is allocated from a single preferred node. If sufficient memory is not available, memory can be allocated from other nodes.
+*Strict* - Memory allocation will fail if the memory cannot be allocated on the target node.
 
-* *Interleave*: Memory is allocated across nodes in a round-robin algorithm.
+*Preferred* - Memory is allocated from a single preferred node. If sufficient memory is not available, memory can be allocated from other nodes.
 
-| |*NUMA Pinning* |Opens the *NUMA Topology* window. This window shows the host's total CPUs, memory, and NUMA nodes, and the virtual machine's virtual NUMA nodes. Pin virtual NUMA nodes to host NUMA nodes by clicking and dragging each vNUMA from the box on the right to a NUMA node on the left.
+*Interleave* - Memory is allocated across nodes in a round-robin algorithm.
+
+If you define NUMA pinning, *Migration Options* is set to *Allow manual migration only*.
 |===

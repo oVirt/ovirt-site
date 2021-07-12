@@ -1,0 +1,63 @@
+// Module included in the following assemblies:
+//
+// doc-Administration_Guide/chap-Hosts.adoc
+
+[id="proc-enabling-nested-virtualization-for-all-virtual-machines"]
+= Enabling nested virtualization for all virtual machines
+
+[IMPORTANT]
+====
+Using hooks to enable nested virtualization is a Technology Preview feature. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information, see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
+====
+
+Nested virtualization enables virtual machines to host other virtual machines. For clarity, we will call these the _parent virtual machines_ and _nested virtual machines_.
+
+Child virtual machines are only visible to and managed by users who have access to the parent virtual machine. They are not visible to {virt-product-fullname} ({virt-product-shortname}) administrators.
+
+By default, nested virtualization is not enabled in {virt-product-shortname}. To enable nested virtualization, you install a VDSM hook, `vdsm-hook-nestedvt`, on all of the hosts in the cluster. Then, all of the virtual machines that run on these hosts can function as parent virtual machines.
+
+You should only run parent virtual machines on hosts that support nested virtualization. If a parent virtual machine migrates to a host that does not support nested virtualization, its child virtual machines fail. To prevent this from happening, configure all of the hosts in the cluster to support nested virtualization. Otherwise, restrict parent virtual machines from migrating to hosts that do not support nested virtualization.
+
+[WARNING]
+====
+Take precautions to prevent parent virtual machines from migrating to hosts that do not support nested virtualization.
+====
+
+.Procedure
+
+. In the Administration Portal, click menu:Compute[Hosts].
+
+. Select a host in the cluster where you want to enable nested virtualization and click menu:Management[Maintenance] and btn:[OK].
+
+. Select the host again, click btn:[Host Console], and log into the host console.
+
+. Install the VDSM hook:
++
+----
+# dnf install vdsm-hook-nestedvt
+----
+// +
+// [NOTE]
+// ====
+// Installing `vdsm-hook-nestedvt` requires subscriptions that are typically already enabled for the hosts to receive updates:
+// * `--enable=rhvh-4-for-rhel-8-x86_64-rpms` for _{hypervisor-fullname}_
+// *  `--enable=rhv-4-mgmt-agent-for-rhel-8-x86_64-rpms` for _{enterprise-linux-host-fullname}_
+// ====
+
+. Reboot the host.
+
+. Log into the host console again and verify that nested virtualization is enabled:
++
+----
+$ cat /sys/module/kvm*/parameters/nested
+----
++
+If this command returns `Y` or `1`, the feature is enabled.
+
+. Repeat this procedure for all of the hosts in the cluster.
+
+
+
+.Additional resources
+
+* xref:VDSM_hooks[]

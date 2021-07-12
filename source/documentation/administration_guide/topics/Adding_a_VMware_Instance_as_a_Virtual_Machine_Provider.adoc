@@ -28,5 +28,5 @@ The `virt-v2v` package is not available on ppc64le architecture; these hosts can
 .. If the VMware vCenter instance uses SSL, the *Import provider certificates* window opens; click btn:[OK] to import the certificate that the VMware vCenter instance provides to ensure the {engine-name} can communicate with the instance.
 . Click btn:[OK].
 
-To import virtual machines from the VMware external provider, see link:{URL_virt_product_docs}virtual_machine_management_guide#Importing_a_Virtual_Machine_from_a_VMware_Provider[Importing a Virtual Machine from a VMware Provider] in the _Virtual Machine Management Guide_.
+To import virtual machines from the VMware external provider, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Importing_a_Virtual_Machine_from_a_VMware_Provider[Importing a Virtual Machine from a VMware Provider] in the _Virtual Machine Management Guide_.
 

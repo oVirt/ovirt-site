@@ -35,4 +35,4 @@ You also need to install the required VDSM hook package on the hosts. Depending 
 ----
 
 
-The *fcoe* key is now available in the Administration Portal. See xref:Editing_host_network_interfaces[] to apply FCoE properties to logical networks.
+The *fcoe* key is now available in the Administration Portal. See xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[] to apply FCoE properties to logical networks.

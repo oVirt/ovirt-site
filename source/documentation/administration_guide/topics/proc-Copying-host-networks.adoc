@@ -1,0 +1,56 @@
+// Module included in the following assemblies:
+//
+// doc-Administration_Guide/chap-Logical_Networks.adoc
+
+[id="proc-Copying-host-networks_{context}"]
+= Copying host networks
+
+To save time, you can copy a source host's network configuration to a target host in the same cluster.
+
+Copying the network configuration includes:
+
+* Logical networks attached to the host, except the `ovirtmgmt` management network
+* Bonds attached to interfaces
+
+
+.Limitations
+
+* Do not copy network configurations that contain static IP addresses. Doing this sets the boot protocol in the target host to `none`.
+
+* Copying a configuration to a target host with the same interface names as the source host but different physical network connections produces a wrong configuration.
+
+* The target host must have an equal or greater number of interfaces than the source host. Otherwise, the operation fails.
+
+* Copying `QoS`, `DNS`, and `custom_properties` is not supported.
+
+* Network interface labels are not copied.
+
+[WARNING]
+====
+Copying host networks replaces ALL network settings on the target host except its attachment to the `ovirtmgmt` management network.
+====
+
+.Prerequisites
+* The number of NICs on the target host must be equal or greater than those on the source host. Otherwise, the operation fails.
+* The hosts must be in the same cluster.
+
+.Procedure
+
+. In the Administration Portal, click menu:Compute[Hosts].
+
+. Select the source host whose configuration you want to copy.
+
+. Click btn:[Copy Host Networks]. This opens the *Copy Host Networks* window.
+
+. Use *Target Host* to select the host that should receive the configuration. The list only shows hosts that are in the same cluster.
+
+. Click btn:[Copy Host Networks].
+
+. Verify the network settings of the target host
+
+
+.Tips
+
+* Selecting multiple hosts disables the btn:[Copy Host Networks] button and context menu.
+* Instead of using the btn:[Copy Host Networks] button, you can right-click a host and select menu:Copy Host Networks[] from the context menu.
+* The btn:[Copy Host Networks] button is also available in any host's details view.

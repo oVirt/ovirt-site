@@ -39,6 +39,7 @@ Allows you to enable the bootable flag on the virtual disk.
 |*Read-Only* |This field only appears when creating an attached disk.
 
 Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another.
+|*Enable Incremental Backup* |Enables incremental backup on the virtual disk. Incremental backup requires disks to be formatted in QCOW2 format instead of RAW format. See xref:assembly_incremental-backup-and-restore_RHV_backup_restore[].
 |*Enable Discard* |This field only appears when creating an attached disk.
 
 Allows you to shrink a thin provisioned disk while the virtual machine is up. For block storage, the underlying storage device must support discard calls, and the option cannot be used with *Wipe After Delete* unless the underlying storage supports the discard_zeroes_data property. For file storage, the underlying file system and the block device must support discard calls. If all requirements are met, SCSI UNMAP commands issued from guest virtual machines is passed on by QEMU to the underlying storage to free up the unused space.
@@ -113,39 +114,6 @@ Available when the *Enable SCSI Pass-Through* check box is selected. Selecting t
 |*Using SCSI Reservation* |This field only appears when creating an attached disk.
 
 Available when the *Enable SCSI Pass-Through* and *Allow Privileged SCSI I/O* check boxes are selected. Selecting this check box disables migration for any virtual machine using this disk, to prevent virtual machines that are using SCSI reservation from losing access to the disk.
-|===
-
-
-The *Cinder* settings form will be disabled if there are no available OpenStack Volume storage domains on which you have permissions to create a disk in the relevant Data Center. *Cinder* disks require access to an instance of OpenStack Volume that has been added to the {virt-product-fullname} environment using the *External Providers* window; see xref:Adding_an_OpenStack_Block_Storage_Cinder_Instance_for_Storage_Management[] for more information.
-
-
-.New Virtual Disk and Edit Virtual Disk settings: *Cinder*
-[options="header"]
-|===
-|Field Name |Description
-|*Size(GB)* |The size of the new virtual disk in GB.
-|*Alias* |The name of the virtual disk, limited to 40 characters.
-|*Description* |A description of the virtual disk. This field is recommended but not mandatory.
-|*Interface* |This field only appears when creating an attached disk.
-
-The virtual interface the disk presents to virtual machines. *VirtIO* is faster, but requires drivers. {enterprise-linux} 5 and later include these drivers. Windows does not include these drivers, but you can install them from the virtio-win ISO image. IDE and SATA devices do not require special drivers.
-
-The interface type can be updated after stopping all virtual machines that the disk is attached to.
-|*Data Center* |This field only appears when creating a floating disk.
-
-The data center in which the virtual disk will be available.
-|*Storage Domain* |The storage domain in which the virtual disk will be stored. The drop-down list shows all storage domains available in the given data center, and also shows the total space and currently available space in the storage domain.
-|*Volume Type* |The volume type of the virtual disk. The drop-down list shows all available volume types. The volume type will be managed and configured on OpenStack Cinder.
-|*Activate Disk(s)* |This field only appears when creating an attached disk.
-
-Activate the virtual disk immediately after creation.
-|*Bootable* |This field only appears when creating an attached disk.
-
-Allows you to enable the bootable flag on the virtual disk.
-|*Shareable* |Allows you to attach the virtual disk to more than one virtual machine at a time.
-|*Read-Only* |This field only appears when creating an attached disk.
-
-Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another.
 |===
 
 

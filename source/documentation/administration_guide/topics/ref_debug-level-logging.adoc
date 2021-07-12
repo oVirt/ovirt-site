@@ -1,0 +1,19 @@
+// Module included in the following assemblies:
+//
+// chap-Log_Files.adoc
+
+[[ref_debug_level_logging]]
+=== Main configuration files for {virt-product-fullname} services
+
+In addition to a `sysconfig` file, each of these {virt-product-fullname} ({virt-product-shortname}) services has another configuration file that is used more often.
+
+.{virt-product-shortname} services and configuration files
+[options="header"]
+|===
+|Service |sysconfig file path| Main configuration file
+|`ovirt-engine.service` | `/etc/sysconfig/ovirt-engine`| `/etc/ovirt-engine/engine.conf.d/*.conf`
+
+|`ovirt-engine-dwhd.service` |`/etc/sysconfig/ovirt-engine-dwhd` | `/etc/ovirt-engine-dwh/ovirt-engine-dwhd.conf.d/*.conf`
+|`ovirt-fence-kdump-listener.service` |`/etc/sysconfig/ovirt-fence-kdump-listener` |`/etc/ovirt-engine/ovirt-fence-kdump-listener.conf.d/*.conf`
+|`ovirt-websocket-proxy.service`|`/etc/sysconfig/ovirt-websocket-proxy` |`/etc/ovirt-engine/ovirt-websocket-proxy.conf.d/*.conf`
+|===

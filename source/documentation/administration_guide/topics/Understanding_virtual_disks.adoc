@@ -19,10 +19,6 @@ You can view the *Virtual Size* of a disk in menu:Storage[Disks] and in the *Dis
 
 You can view the *Actual Size* of a disk in the *Disks* tab of the details view for storage domains and templates. This is the amount of disk space that has been allocated to the virtual machine so far. Preallocated disks show the same value for *Virtual Size* and *Actual Size*. Sparse disks may show different values, depending on how much disk space has been allocated.
 
-[NOTE]
-====
-When creating a Cinder virtual disk, the format and type of the disk are handled internally by Cinder and are not managed by {virt-product-fullname}.
-====
 The possible combinations of storage types and formats are described in the following table.
 
 [[vdisk-combos]]

@@ -1,7 +1,7 @@
 [[Cluster_Scheduling_Policy_Settings]]
 ==== Scheduling Policy Settings Explained
 
-Scheduling policies allow you to specify the usage and distribution of virtual machines between available hosts. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. Regardless of the scheduling policy, a virtual machine will not start on a host with an overloaded CPU. By default, a host's CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. See link:{URL_virt_product_docs}administration_guide/#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
+Scheduling policies allow you to specify the usage and distribution of virtual machines between available hosts. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. Regardless of the scheduling policy, a virtual machine will not start on a host with an overloaded CPU. By default, a host's CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
 
 [[Cluster-General]]
 .Scheduling Policy Tab Properties
@@ -10,7 +10,7 @@ Scheduling policies allow you to specify the usage and distribution of virtual m
 |Field |Description/Action
 |*Select Policy* a|Select a policy from the drop-down list.
 
-* *none*: Set the policy value to *none* to have no load-balancing or power-sharing between hosts for already-running virtual machines. This is the default mode.When a virtual machine is started, the memory and CPU processing load is spread evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined *CpuOverCommitDurationMinutes*, *HighUtilization*, or *MaxFreeMemoryForOverUtilized*.
+* *none*: Disables load-balancing or power-sharing between hosts for already-running virtual machines. This is the default mode. When a virtual machine is started, the memory and CPU processing load is spread evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined *CpuOverCommitDurationMinutes*, *HighUtilization*, or *MaxFreeMemoryForOverUtilized*.
 
 * *evenly_distributed*: Distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined *CpuOverCommitDurationMinutes*, *HighUtilization*, or *MaxFreeMemoryForOverUtilized*.
 
@@ -20,9 +20,9 @@ Scheduling policies allow you to specify the usage and distribution of virtual m
 
 * *vm_evenly_distributed*: Distributes virtual machines evenly between hosts based on a count of the virtual machines. The cluster is considered unbalanced if any host is running more virtual machines than the *HighVmCount* and there is at least one host with a virtual machine count that falls outside of the *MigrationThreshold*.
 
-|*Properties* a|The following properties appear depending on the selected policy, and can be edited if necessary:
+|*Properties* a|The following properties appear depending on the selected policy. Edit them if necessary:
 
-* *HighVmCount*: Sets the minimum number of virtual machines that must be running per host to enable load balancing. The default value is 10 running virtual machines on one host. Load balancing is only enabled when there is at least one host in the cluster that has at least HighVmCount running virtual machines.
+* *HighVmCount*: Sets the minimum number of virtual machines that must be running per host to enable load balancing. The default value is 10 running virtual machines on one host. Load balancing is only enabled when there is at least one host in the cluster that has at least `HighVmCount` running virtual machines.
 
 * *MigrationThreshold*: Defines a buffer before virtual machines are migrated from the host. It is the maximum inclusive difference in virtual machine count between the most highly-utilized host and the least-utilized host. The cluster is balanced when every host in the cluster has a virtual machine count that falls inside the migration threshold. The default value is *5*.
 
@@ -40,9 +40,17 @@ Scheduling policies allow you to specify the usage and distribution of virtual m
 
 * *EnableAutomaticHostPowerManagement*: Enables automatic power management for all hosts in the cluster. This is an optional property that can be added to the *power_saving* policy. The default value is *true*.
 
-* *MaxFreeMemoryForOverUtilized*: Sets the minimum free memory required in MB for the minimum service level. If the host's available memory runs at, or below this value, the {virt-product-fullname} {engine-name} migrates virtual machines to other hosts in the cluster while the host's available memory is below the minimum service threshold. Setting both *MaxFreeMemoryForOverUtilized* and *MinFreeMemoryForUnderUtilized* to 0 MB disables memory based balancing. If *MaxFreeMemoryForOverUtilized* is set, *MinFreeMemoryForUnderUtilized* must also be set to avoid unexpected behavior. This is an optional property that can be added to the *power_saving* and *evenly_distributed* policies.
+* *MaxFreeMemoryForOverUtilized*: Specifies the minimum amount of free memory a host should have, in MB. If a host has less free memory than this amount, the {virt-product-shortname} {engine-name} considers the host overutilized. For example, if you set this property to `1000`, a host that has less than 1 GB of free memory is overutilized.
++
+For details on how this property interacts with the *power_saving* and *evenly_distributed* policies, see xref:conc_maxfreememoryforoverutilized_and_minfreememoryforunderutilized_scheduling_policy_properties[].
++
+You can add this property to the *power_saving* and *evenly_distributed* policies. Although it appears among the list of properties for the *vm_evenly_distributed* policy, it does not apply to that policy.
 
-* *MinFreeMemoryForUnderUtilized*: Sets the minimum free memory required in MB before the host is considered underutilized. If the host's available memory runs above this value, the {virt-product-fullname} {engine-name} migrates virtual machines to other hosts in the cluster and will automatically power down the host machine, and restart it again when load balancing requires or there are not enough free hosts in the cluster. Setting both *MaxFreeMemoryForOverUtilized* and *MinFreeMemoryForUnderUtilized* to 0MB disables memory based balancing. If *MinFreeMemoryForUnderUtilized* is set, *MaxFreeMemoryForOverUtilized* must also be set to avoid unexpected behavior. This is an optional property that can be added to the *power_saving* and *evenly_distributed* policies.
+* *MinFreeMemoryForUnderUtilized*: Specifies the maximum amount of free memory a host should have, in MB. If a host has more free memory than this amount, the {virt-product-shortname} {engine-name} scheduler considers the host underutilized. For example, if you set this parameter to `10000`, a host that has more than 10 GB of free memory is underutilized.
++
+For details on how this property interacts with the *power_saving* and *evenly_distributed* policies, see xref:conc_maxfreememoryforoverutilized_and_minfreememoryforunderutilized_scheduling_policy_properties[].
++
+You can add this property to the *power_saving* and *evenly_distributed* policies. Although it appears among the list of properties for the *vm_evenly_distributed* policy, it does not apply to that policy.
 
 * *HeSparesCount*: Sets the number of additional self-hosted engine nodes that must reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. Other virtual machines are prevented from starting on a self-hosted engine node if doing so would not leave enough free memory for the {engine-name} virtual machine. This is an optional property that can be added to the *power_saving*, *vm_evenly_distributed*, and *evenly_distributed* policies. The default value is *0*.
 
@@ -56,7 +64,7 @@ Scheduling policies allow you to specify the usage and distribution of virtual m
 |*Enable HA Reservation* |Enable the {engine-name} to monitor cluster capacity for highly available virtual machines. The {engine-name} ensures that appropriate capacity exists within a cluster for virtual machines designated as highly available to migrate in the event that their existing host fails unexpectedly.
 |*Serial Number Policy* a|Configure the policy for assigning serial numbers to each new virtual machine in the cluster:
 
-* *System Default*: Use the system-wide defaults in the {engine-name} database. To configure these defaults, link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/administration_guide/sect-the_engine_configuration_tool[use the engine configuration tool] to set the values of the `DefaultSerialNumberPolicy` and `DefaultCustomSerialNumber`. These key-value pairs are saved in the `vdc_options` table of the {engine-name} database.
+* *System Default*: Use the system-wide defaults in the {engine-name} database. To configure these defaults, link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-the_engine_configuration_tool[use the engine configuration tool] to set the values of the `DefaultSerialNumberPolicy` and `DefaultCustomSerialNumber`. These key-value pairs are saved in the `vdc_options` table of the {engine-name} database.
 +
 For `DefaultSerialNumberPolicy`:
 +

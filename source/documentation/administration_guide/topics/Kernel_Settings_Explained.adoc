@@ -20,7 +20,10 @@ If the host is attached to the {engine-name}, you must place the host into maint
 |*PCI Reallocation* |If your SR-IOV NIC is unable to allocate virtual functions because of memory issues, consider enabling this option. The host hardware and firmware must also support PCI reallocation. This option is only intended to be used as a workaround when using uncertified hardware for evaluation purposes.
 |*Blacklist Nouveau* | Blocks the nouveau driver. Nouveau is a community driver for NVIDIA GPUs that conflicts with vendor-supplied drivers. The nouveau driver should be blocked when vendor drivers take precedence.
 |*SMT Disabled* | Disables Simultaneous Multi Threading (SMT). Disabling SMT can mitigate security vulnerabilities, such as L1TF or MDS.
+ifdef::rhv-docs[]
 |*FIPS mode* |Enables FIPS mode. For details, see xref:enabling_fips_using_the_rhv_manager_appendix_fips[].
+endif::rhv-docs[]
+
 |*Kernel command line* |This field allows you to append more kernel parameters to the default parameters.
 |===
 

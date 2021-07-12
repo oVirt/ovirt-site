@@ -1,0 +1,16 @@
+[id="Network-range-for-SHE-deployment_{context}"]
+= Network range for self-hosted engine deployment
+
+The self-hosted engine deployment process temporarily uses a `/24` network address under `192.168`. It defaults to `192.168.222.0/24`, and if this address is in use, it tries other `/24` addresses under `192.168` until it finds one that is not in use. If it does not find an unused network address in this range, deployment fails.
+
+When installing the self-hosted engine using the command line, you can set the deployment script to use an alternate `/24` network range with the option `--ansible-extra-vars=he_ipv4_subnet_prefix=_PREFIX_`, where `_PREFIX_` is the prefix for the default range. For example:
+
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --deploy --ansible-extra-vars=he_ipv4_subnet_prefix=192.168.222
+----
+
+[NOTE]
+====
+You can only set another range by installing {virt-product-fullname} as a self-hosted engine using the command line.
+====

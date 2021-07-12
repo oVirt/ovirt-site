@@ -23,18 +23,22 @@ Communication to the storage domain is from the selected host and not directly f
 +
 [NOTE]
 ====
-LUNs used externally to the environment are also displayed.
+LUNs used externally for the environment are also displayed.
 ====
 +
 You can use the *Discover Targets* options to add LUNs on many targets or multiple paths to the same LUNs.
-
++
+[IMPORTANT]
+====
+If you use the REST API method `iscsidiscover` to discover the iscsi targets, you can use an FQDN or an IP address, but you must use the iscsi details from the discovered targets results to log in using the REST API method `iscsilogin`. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#services-host-methods-iscsi_discover[iscsidiscover] in the _REST API Guide_ for more information.
+====
 .. Enter the FQDN or IP address of the iSCSI host in the *Address* field.
 .. Enter the port with which to connect to the host when browsing for targets in the *Port* field. The default is `3260`.
 .. If CHAP is used to secure the storage, select the *User Authentication* check box. Enter the *CHAP user name* and *CHAP password*.
 +
 [NOTE]
 ====
-You can define credentials for an iSCSI target for a specific host with the REST API. See link:{URL_downstream_virt_product_docs}html/rest_api_guide/services#services-storage_server_connection_extensions-methods-add[StorageServerConnectionExtensions: add] in the _REST API Guide_ for more information.
+You can define credentials for an iSCSI target for a specific host with the REST API. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#services-storage_server_connection_extensions-methods-add[StorageServerConnectionExtensions: add] in the _REST API Guide_ for more information.
 ====
 +
 .. Click *Discover*.
@@ -45,6 +49,11 @@ You can define credentials for an iSCSI target for a specific host with the REST
 If more than one path access is required, you must discover and log in to the target through all the required paths. Modifying a storage domain to add additional paths is currently not supported.
 ====
 +
+[IMPORTANT]
+====
+When using the REST API `iscsilogin` method to log in, you must use the iscsi details from the discovered targets results in the `iscsidiscover` method. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#services-host-methods-iscsi_login[iscsilogin] in the _REST API Guide_ for more information.
+====
++
 . Click the *+* button next to the desired target. This expands the entry and displays all unused LUNs attached to the target.
 . Select the check box for each LUN that you are using to create the storage domain.
 . Optionally, you can configure the advanced parameters:
@@ -53,8 +62,8 @@ If more than one path access is required, you must discover and log in to the ta
 .. Enter a GB value into the *Critical Space Action Blocker* field. If the free space available on the storage domain is below this value, error messages are displayed to the user and logged, and any new action that consumes space, even temporarily, will be blocked.
 .. Select the *Wipe After Delete* check box to enable the wipe after delete option. This option can be edited after the domain is created, but doing so will not change the wipe after delete property of disks that already exist.
 .. Select the *Discard After Delete* check box to enable the discard after delete option. This option can be edited after the domain is created. This option is only available to block storage domains.
-. Click *OK*.
+. Click btn:[OK].
 
-If you have configured multiple storage connection paths to the same target, follow the procedure in link:{URL_virt_product_docs}administration_guide#Configuring_iSCSI_Multipathing[Configuring iSCSI Multipathing] to complete iSCSI bonding.
+If you have configured multiple storage connection paths to the same target, follow the procedure in link:{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_iSCSI_Multipathing[Configuring iSCSI Multipathing] to complete iSCSI bonding.
 
-If you want to migrate your current storage network to an iSCSI bond, see link:{URL_virt_product_docs}administration_guide#Migrating_a_logical_network_to_an_iscsi_bond[Migrating a Logical Network to an iSCSI Bond].
+If you want to migrate your current storage network to an iSCSI bond, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Migrating_a_logical_network_to_an_iscsi_bond[Migrating a Logical Network to an iSCSI Bond].

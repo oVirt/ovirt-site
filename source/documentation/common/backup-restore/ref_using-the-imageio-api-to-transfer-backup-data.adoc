@@ -1,0 +1,54 @@
+:_module-type: REFERENCE
+
+[id="ref_using-the-imageio-api-to-transfer-backup-data_{context}"]
+= Using the imageio API to transfer backup data
+
+[role="_abstract"]
+Image transfer APIs start and stop an image transfer. The result is a
+transfer URL.
+
+You use the imageio API to actually transfer the data from the transfer URL.
+
+For complete information on using the imageio API, see the link:http://ovirt.github.io/ovirt-imageio/images.html[ovirt-imageio Images API reference].
+
+[id="imageio-Image-API-methods-used-in-incremental-backup-and-restore"]
+.imageio Image API methods used in incremental backup and restore
+[options="header"]
+|===
+|API request |Description |imageio Image API reference section
+|`OPTIONS /images/{ticket-id} HTTP/1.1`
+|Gets the server options, to find out what features the server supports.
+|See _OPTIONS_
+
+|`GET /images/{ticket-id}/extents`
+|Gets information about disk image content and allocation, or about blocks that changed during an incremental backup. This information is known as _extent_ information.
+|See _EXTENTS_
+
+|`GET /images/{ticket-id}/extent?context=dirty`
+|The program doing image transfer needs to download changes from the backup. These changes are know as dirty extents. To download changes, send a request like this:
+|See _EXTENTS_-> _Examples_-> _Request dirty extents_
+
+|`PUT /images/{ticket-id}`
+|The backup application creates a new disk or a snapshot with an existing disk to hold the restored data.
+|See _PUT_
+|===
+
+
+[role="_additional-resources"]
+.Additional resources
+The {virt-product-fullname} Python SDK includes several implementation examples you can use to get started with transferring backups:
+
+* link:http://ovirt.github.io/ovirt-imageio/images.html[ovirt-imageio Images API reference]
+
+* link:https://github.com/oVirt/ovirt-engine-sdk/blob/4a2284e26225e8bf6e64ed0daf896e7a604f4eed/sdk/examples/upload_disk.py[Creating a disk]
+
+* link:https://github.com/oVirt/ovirt-engine-sdk/blob/4a2284e26225e8bf6e64ed0daf896e7a604f4eed/sdk/examples/upload_disk.py#L241[Calling imagetransfer.create_transfer()]
+
+* link:https://github.com/oVirt/ovirt-engine-sdk/blob/4a2284e26225e8bf6e64ed0daf896e7a604f4eed/sdk/examples/helpers/imagetransfer.py#L123[a helper to simplify creating a transfer]
+
+ifdef::rhv-doc[]
+* link:{URL_downstream_virt_product_docs}/python_sdk_guide/index[Using the Red Hat Virtualization Python SDK]
+endif::[]
+ifdef::ovirt-doc[]
+* link:https://github.com/oVirt/ovirt-engine-sdk/tree/master/sdk[oVirt Engine API Python SDK]
+endif::[]

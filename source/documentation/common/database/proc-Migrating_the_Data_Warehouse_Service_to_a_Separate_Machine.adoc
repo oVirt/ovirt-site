@@ -43,6 +43,14 @@ ifdef::rhv-doc[]
 include::../install/snip-RHVM_repo_steps.adoc[]
 endif::[]
 
+. Enable the `pki-deps` module.
++
+[options="nowrap" subs="normal"]
++
+----
+# dnf module -y enable pki-deps
+----
+
 . Ensure that all packages currently installed are up to date:
 +
 [options="nowrap" subs="normal"]

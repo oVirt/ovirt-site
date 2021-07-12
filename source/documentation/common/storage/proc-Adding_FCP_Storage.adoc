@@ -26,6 +26,6 @@ All communication to the storage domain is through the selected host and not dir
 .. Enter a GB value into the *Critical Space Action Blocker* field. If the free space available on the storage domain is below this value, error messages are displayed to the user and logged, and any new action that consumes space, even temporarily, will be blocked.
 .. Select the *Wipe After Delete* check box to enable the wipe after delete option. This option can be edited after the domain is created, but doing so will not change the wipe after delete property of disks that already exist.
 .. Select the *Discard After Delete* check box to enable the discard after delete option. This option can be edited after the domain is created. This option is only available to block storage domains.
-. Click *OK*.
+. Click btn:[OK].
 
 The new FCP data domain remains in a `Locked` status while it is being prepared for use. When ready, it is automatically attached to the data center.

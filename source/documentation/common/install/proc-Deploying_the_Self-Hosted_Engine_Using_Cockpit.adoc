@@ -1,16 +1,22 @@
 [id='Deploying_the_Self-Hosted_Engine_Using_Cockpit_{context}']
-= Deploying the Self-hosted Engine using Cockpit
+= Deploying the self-hosted engine using Cockpit
 
-Deploy a self-hosted engine, using Cockpit to collect the details of your environment. This is the recommended method. Cockpit is enabled by default on {hypervisor-fullname}s, and can be installed on {enterprise-linux-host-fullname}s.
+Deploy a self-hosted engine, using Cockpit to collect the details of your environment. This is the recommended method. Cockpit is enabled by default on {hypervisor-fullname}s. You can manually install Cockpit on {enterprise-linux-host-fullname}s.
+
+You can customize the {engine-name} virtual machine during deployment, either manually, by pausing the deployment, or using automation.
+
+* Selecting the *Pause Host* check-box pauses deployment after installing the {engine-name} and adding the deployment host to the {engine-name}. It also creates a lock file at `/tmp` with the suffix `_he_setup_lock` on the deployment host, enabling you to manually customize the virtual machine as needed. The deployment continues after you delete the lock file, or after 24 hours, whichever comes first.
+* Adding an Ansible playbook to either the `enginevm_before_engine_setup` hook or the `enginevm_after_engine_setup` hook automatically runs the playbook.
 
 .Prerequisites
 
 * FQDNs prepared for your {engine-name} and the deployment host. Forward and reverse lookup records must both be set in the DNS.
 * When using a block storage domain, either FCP or iSCSI, a single target LUN is the only supported setup for a self-hosted engine.
+* (Optional) If you want to customize the {engine-name} virtual machine during deployment using automation, an Ansible playbook must be added. See xref:customizing_engine_vm_during_deployment_auto_SHE_cockpit_deploy[].
 
 .Procedure
 
-. Log in to Cockpit at `https://__HostIPorFQDN__:9090` using the root user and click menu:Virtualization[Hosted Engine].
+. Log in to Cockpit at `https://__HostIPorFQDN__:9090` and click menu:Virtualization[Hosted Engine].
 . Click btn:[Start] under the *Hosted Engine* option.
 . Enter the details for the {engine-name} virtual machine:
 .. Enter the *Engine VM FQDN*. This is the FQDN for the {engine-name} virtual machine, not the base host.
@@ -38,6 +44,13 @@ For IPv6, {virt-product-fullname} supports only static addressing.
 .. Change the management *Bridge Name*, or accept the default `ovirtmgmt`.
 .. Enter the *Gateway Address* for the management bridge.
 .. Enter the *Host FQDN* of the first host to add to the {engine-name}. This is the FQDN of the base host you are running the deployment on.
+.. Select the *Pause Host* check-box to create a lock file, which pauses the deployment after adding the deployment host to the {engine-name}. Pausing the deployment enables you to customize the virtual machine as needed.
+.. Specify how to check network connectivity by selecting one of the following options from the *Network Test* pop-up menu: *DNS*, *Ping*, *TCP*, *None*.
++
+*DNS*:: Checks the connection to the DNS server.
+*Ping*:: Attempts to ping the gateway.
+*TCP*:: Creates a TCP connection to a host and port combination. Specify a destination IP address and port. Once the connection is successfully created, the network is considered to be alive. Ensure that the given host is able to accept incoming TCP connections on the given port.
+*None*:: The network is always considered connected.
 . Click *Next*.
 . Enter and confirm the *Admin Portal Password* for the `admin@internal` user.
 . Configure event notifications:
@@ -46,7 +59,27 @@ For IPv6, {virt-product-fullname} supports only static addressing.
 .. Enter the *Recipient E-Mail Addresses*.
 . Click *Next*.
 . Review the configuration of the {engine-name} and its virtual machine. If the details are correct, click *Prepare VM*.
-. When the virtual machine installation is complete, click *Next*.
++
+The deployment script begins installing and configuring the {engine-name} virtual machine.
+
+. (Optional) If you selected *Pause Host*, the deployment pauses after adding the deployment host to the {engine-name} and displays a message on the *Prepare VM* screen similar to `Pause execution until /tmp/ansible.<id>_he_setup_lock is removed, delete it once you are ready to proceed`.
++
+You can now log in from the deployment host to the {engine-name} virtual machine to customize it.  You can log in with either the FQDN or the IP address of the {engine-name}. For example, if the FQDN of the {engine-name} is `manager.example.com`:
++
+[options="nowrap" subs="normal"]
+----
+$ ssh \root@manager.example.com
+----
++
+[TIP]
+====
+In the installation log, the IP address is in `local_vm_ip`. The installation log is the most recent instance of `/var/log/ovirt-hosted-engine-setup/ovirt-hosted-engine-setup-ansible-bootstrap_local_vm*`.
+====
++
+.. Customize the {engine-name} virtual machine as needed.
+.. When you are done, log in to the Administration Portal using a browser with the {engine-name} FQDN and make sure that the host's state is *Up*.
+.. Delete the lock file and the deployment script automatically continues, configuring the {engine-name} virtual machine.
+. When the virtual machine and {engine-name} installation is complete, click *Next*.
 . Select the *Storage Type* from the drop-down list, and enter the details for the self-hosted engine storage domain:
 * For NFS:
 .. Enter the full address and path to the storage in the *Storage Connection* field.
@@ -66,7 +99,7 @@ To specify more than one iSCSI target, you must enable multipathing before deplo
 .. Enter the *Disk Size (GiB)*.
 .. Enter the *Discovery Username* and *Discovery Password*.
 * For Fibre Channel:
-.. Enter the *LUN ID*. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see link:{URL_virt_product_docs}administration_guide/index.html[Reusing LUNs] in the _Administration Guide_.
+.. Enter the *LUN ID*. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Reusing_LUNs[Reusing LUNs] in the _Administration Guide_.
 .. Enter the *Disk Size (GiB)*.
 * For {gluster-storage-fullname}:
 .. Enter the full address and path to the storage in the *Storage Connection* field.
@@ -77,6 +110,15 @@ To specify more than one iSCSI target, you must enable multipathing before deplo
 . When the deployment is complete, click *Close*.
 +
 One data center, cluster, host, storage domain, and the {engine-name} virtual machine are already running. You can log in to the Administration Portal to add further resources.
-. Optionally, add a directory server using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script so you can add additional users to the environment. For more information, see link:{URL_virt_product_docs}administration_guide/index.html[Configuring an External LDAP Provider] in the _Administration Guide_.
+. Optionally, add a directory server using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script so you can add additional users to the environment. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-configuring_an_external_ldap_provider[Configuring an External LDAP Provider] in the _Administration Guide_.
+. Optionally, deploy Grafana so you can monitor and display reports from your {virt-product-shortname} environment.
+For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#configuring_grafana[Configuring Grafana] in the _Administration Guide_.
 
 The self-hosted engine's status is displayed in Cockpit's menu:Virtualization[Hosted Engine] tab. The {engine-name} virtual machine, the host running it, and the self-hosted engine storage domain are flagged with a gold crown in the Administration Portal.
+
+[NOTE]
+====
+Both the {engine-name}'s I/O scheduler and the hypervisor that hosts the {engine-name} reorder I/O requests. This double reordering might delay I/O requests to the storage layer, impacting performance.
+
+Depending on your data center, you might improve performance by changing the I/O scheduler to `none`. For more information, see link:URL_rhel_docs_latest/html/monitoring_and_managing_system_status_and_performance/setting-the-disk-scheduler_monitoring-and-managing-system-status-and-performance[Available disk schedulers] in _Monitoring and managing system status and performance_ for RHEL.
+====

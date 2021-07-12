@@ -1,47 +1,57 @@
 [id='proc-Customizing_Multipath_Configurations_for_SAN_Vendors_{context}']
 = Customizing Multipath Configurations for SAN Vendors
 
-To customize the multipath configuration settings, do not modify `/etc/multipath.conf`. Instead, create a new configuration file that overrides `/etc/multipath.conf`.
+If your RHV environment is configured to use multipath connections with SANs, you can customize the multipath configuration settings to meet requirements specified by your storage vendor. These customizations can override both the default settings and settings that are specified in `/etc/multipath.conf`.
+
+To override the multipath settings, do not customize `/etc/multipath.conf`. Because VDSM owns `/etc/multipath.conf`, installing or upgrading VDSM or {virt-product-fullname} can overwrite this file including any customizations it contains. This overwriting can cause severe storage failures.
+
+Instead, you create a file in the `/etc/multipath/conf.d/user.conf` directory that contains the settings you want to customize or override.
+
+VDSM executes the files in `/etc/multipath/conf.d/user.conf` in alphabetical order. So, to control the order of execution, you begin the filename with a number that makes it come last. For example, `/etc/multipath/conf.d/user.conf/90-myfile.conf`.
+
+To avoid causing severe storage failures, follow these guidelines:
+
+* Do not modify `/etc/multipath.conf`. If the file contains user modifications, and the file is overwritten, it can cause unexpected storage problems.
+* Do not override the `user_friendly_names` and `find_multipaths` settings. For details, see xref:ref-Recommended_Settings_for_Multipath_conf_{context}[].
+* Avoid overriding the `no_path_retry` and `polling_interval` settings unless a storage vendor specifically requires you to do so. For details, see xref:ref-Recommended_Settings_for_Multipath_conf_{context}[].
 
 [WARNING]
 ====
-Upgrading Virtual Desktop and Server Manager (VDSM)  overwrites the `/etc/multipath.conf` file. If `multipath.conf` contains customizations, overwriting it can trigger storage issues.
+Not following these guidelines can cause catastrophic storage errors.
 ====
 
 .Prerequisites
 
-* This topic only applies to systems that have been configured to use multipath connections storage domains, and therefore have a `/etc/multipath.conf` file.
-* Do not override the `user_friendly_names` and `find_multipaths` settings. For more information, see xref:ref-Recommended_Settings_for_Multipath_conf_{context}[]
-* Avoid overriding `no_path_retry` and `polling_interval` unless required by the storage vendor. For more information, see xref:ref-Recommended_Settings_for_Multipath_conf_{context}[]
+* VDSM is configured to use the multipath module. To verify this, enter:
++
+```
+# vdsm-tool is-configured --module multipath
+```
 
 .Procedure
 
-. To override the values of settings in `/etc/multipath.conf`, create a new configuration file in the `/etc/multipath/conf.d/` directory.
+. Create a new configuration file in the `/etc/multipath/conf.d/user.conf` directory.
+
+. Copy the individual setting you want to override from `/etc/multipath.conf` to the new configuration file in `/etc/multipath/conf.d/user.conf`. Remove any comment marks, edit the setting values, and save your changes.
+
+. Apply the new configuration settings by entering:
++
+```
+# systemctl reload multipathd
+```
 +
 [NOTE]
 ====
-The files in `/etc/multipath/conf.d/` execute in alphabetical order. Follow the convention of naming the file with a number at the beginning of its name. For example, `/etc/multipath/conf.d/90-myfile.conf`.
-====
-. Copy the settings you want to override from `/etc/multipath.conf` to the new configuration file in `/etc/multipath/conf.d/`. Edit the setting values and save your changes.
-. Apply the new configuration settings by entering the `systemctl reload multipathd` command.
-+
-[NOTE]
-====
-Avoid restarting the multipathd service. Doing so generates errors in the VDSM logs.
+Do not restart the multipathd service. Doing so generates errors in the VDSM logs.
 ====
 
 .Verification steps
 
-If you override the VDSM-generated settings in `/etc/multipath.conf`, verify that the new configuration performs as expected in a variety of failure scenarios.
-
-For example, disable all of the storage connections. Then enable one connection at a time and verify that doing so makes the storage domain reachable.
-
-.Troubleshooting
-
-If a {hypervisor-fullname} has trouble accessing shared storage, check `/etc/multpath.conf` and files under `/etc/multipath/conf.d/` for values that are incompatible with the SAN.
+Test the new configuration performs as expected on a non-production cluster in a variety of failure scenarios. For example, disable all of the storage connections. Then enable one connection at a time and verify that doing so makes the storage domain reachable.
 
 .Additional resources
 
-* link:{URL_rhel_docs_legacy}html-single/dm_multipath/[_{enterprise-linux} DM Multipath_] in the RHEL documentation.
-* link:{URL_virt_product_docs}administration_guide#Configuring_iSCSI_Multipathing[Configuring iSCSI Multipathing] in the Administration Guide.
-* link:https://access.redhat.com/solutions/3234761[How do I customize /etc/multipath.conf on my RHVH hypervisors? What values must not change and why?] on the Red Hat Customer Portal, which shows an example `multipath.conf` file and was the basis for this topic.
+* xref:ref-Recommended_Settings_for_Multipath_conf_{context}[ ]
+* link:{URL_rhel_docs_legacy}html-single/dm_multipath/[_{enterprise-linux} DM Multipath_]
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_iSCSI_Multipathing[Configuring iSCSI Multipathing]
+* link:https://access.redhat.com/solutions/3234761[How do I customize /etc/multipath.conf on my RHVH hypervisors? What values must not change and why?]

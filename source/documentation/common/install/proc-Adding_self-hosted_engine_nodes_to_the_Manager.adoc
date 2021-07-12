@@ -1,11 +1,14 @@
 [id='Adding_self-hosted_engine_nodes_to_the_Manager_{context}']
 = Adding Self-Hosted Engine Nodes to the {virt-product-fullname} {engine-name}
 
-Self-hosted engine nodes are added in the same way as a standard host, with an additional step to deploy the host as a self-hosted engine node. The shared storage domain is automatically detected and the node can be used as a failover host to host the {engine-name} virtual machine when required. You can also attach standard hosts to a self-hosted engine environment, but they cannot host the {engine-name} virtual machine. Have at least two self-hosted engine nodes to ensure the {engine-name} virtual machine is highly available. Additional hosts can also be added using the REST API. See link:http://ovirt.github.io/ovirt-engine-api-model/4.3#services/hosts[Hosts] in the _REST API Guide_.
+Add self-hosted engine nodes in the same way as a standard host, with an additional step to deploy the host as a self-hosted engine node. The shared storage domain is automatically detected and the node can be used as a failover host to host the {engine-name} virtual machine when required. You can also attach standard hosts to a self-hosted engine environment, but they cannot host the {engine-name} virtual machine. Have at least two self-hosted engine nodes to ensure the {engine-name} virtual machine is highly available. You can also add additional hosts using the REST API. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#services-hosts[Hosts] in the _REST API Guide_.
 
 .Prerequisites
 
-* If you are reusing a self-hosted engine node, remove its existing self-hosted engine configuration. See link:{URL_virt_product_docs}administration_guide/index.html[Removing a Host from a Self-Hosted Engine Environment].
+* All self-hosted engine nodes must be in the same cluster.
+
+* If you are reusing a self-hosted engine node, remove its existing self-hosted engine configuration. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#removing_a_host_from_a_self-hosted_engine_environment[Removing a Host from a Self-Hosted Engine Environment].
+
 
 .Procedure
 
@@ -13,7 +16,7 @@ Self-hosted engine nodes are added in the same way as a standard host, with an a
 
 . Click btn:[New].
 +
-For information on additional host settings, see link:{URL_virt_product_docs}administration_guide/index.html#sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows[Explanation of Settings and Controls in the New Host and Edit Host Windows] in the _Administration Guide_.
+For information on additional host settings, see link:{URL_virt_product_docs}{URL_format}administration_guide#sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows[Explanation of Settings and Controls in the New Host and Edit Host Windows] in the _Administration Guide_.
 
 . Use the drop-down list to select the *Data Center* and *Host Cluster* for the new host.
 
@@ -25,7 +28,7 @@ For information on additional host settings, see link:{URL_virt_product_docs}adm
 
 ** Alternatively, copy the key displayed in the *SSH PublicKey* field to */root/.ssh/authorized_keys* on the host to use public key authentication.
 
-. Optionally, configure power management, where the host has a supported power management card. For information on power management configuration, see link:{URL_virt_product_docs}administration_guide/index.html#Host_Power_Management_settings_explained[Host Power Management Settings Explained] in the _Administration Guide_.
+. Optionally, configure power management, where the host has a supported power management card. For information on power management configuration, see link:{URL_virt_product_docs}{URL_format}administration_guide#Host_Power_Management_settings_explained[Host Power Management Settings Explained] in the _Administration Guide_.
 
 . Click the *Hosted Engine* tab.
 

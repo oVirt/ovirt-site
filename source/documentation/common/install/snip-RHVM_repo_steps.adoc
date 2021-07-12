@@ -1,0 +1,34 @@
+. Enable the required repositories:
+.. Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager register
+----
++
+.. Find the `{virt-product-fullname} {engine-name}` subscription pool and record the pool ID:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager list --available
+----
++
+.. Use the pool ID to attach the subscription to the system:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager attach --pool=_pool_id_
+----
++
+.. Configure the repositories:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos \
+    --disable='*' \
+    --enable=rhel-8-for-x86_64-baseos-rpms \
+    --enable=rhel-8-for-x86_64-appstream-rpms \
+    --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms \
+    --enable=fast-datapath-for-rhel-8-x86_64-rpms \    
+    --enable=jb-eap-7.3-for-rhel-8-x86_64-rpms
+----

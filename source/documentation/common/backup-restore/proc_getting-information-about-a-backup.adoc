@@ -1,0 +1,43 @@
+:_module-type: PROCEDURE
+
+[id="getting-information-about-a-backup_{context}"]
+= Getting information about a backup
+
+[role="_abstract"]
+You can get information about a backup that you can use to start a new incremental backup.
+
+The `list` method of the VmBackups service returns the following information about a backup:
+
+    * the id of each disk that was backed up
+    * the ids of the start and end checkpoints of the backup
+    * the id of the disk image of the backup, for each disk included in the backup
+    * the status of the backup
+    * the date the backup was created
+
+When the value of <status> is `ready`, the response includes <to_checkpoint_id> which should be used as the <from_checkpoint_id> in the next incremental backup and you can start downloading the disks to back up the virtual machine storage.
+
+.Procedure
+
+* To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:
++
+[options="nowrap" subs="normal"]
+----
+GET /ovirt-engine/api/vms/456/backups/123
+----
++
+The response includes the backup with id 456, with <from_checkpoint_id> 999 and <to_checkpoint_id> 666. The disks included in the backup are referenced in the <link> element.
++
+[options="nowrap" subs="normal"]
+----
+<backup id="456">
+    <from_checkpoint_id>999</from_checkpoint_id>
+    <to_checkpoint_id>666</to_checkpoint_id>
+    <link href="/ovirt-engine/api/vms/456/backups/123/disks" rel="disks"/>
+    <status>ready</status>
+    <creation_date>
+</backup>
+----
+
+[role="_additional-resources"]
+.Additional resources
+ * link:{URL_rest_api_doc}index#services-vm_backups-methods-list[`list` method of the VmBackups service]

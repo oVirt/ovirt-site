@@ -43,6 +43,3 @@ Do you want to remove the WebSocket proxy? (Yes, No) [No]: Yes
 ----
 +
 Select `No` if asked to remove any other components.
-
-[discrete]
-include::../install/proc-Installing_the_Websocket_Proxy_on_a_different_host.adoc[leveloffset=+1]

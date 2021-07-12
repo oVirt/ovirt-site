@@ -1,5 +1,5 @@
 [id='Red_Hat_Virtualization_Guest_Agents_and_Drivers_{context}']
-= {virt-product-fullname} Guest Agents, Tools, and Drivers
+= {virt-product-fullname} Guest agents, tools, and drivers
 
 // Included in:
 // Installing Linux Virtual Machines
@@ -9,13 +9,12 @@ The {virt-product-fullname} guest agents, tools, and drivers provide additional 
 
 * Resource usage
 * IP addresses
-* Installed applications
 
 The guest agents, tools and drivers are distributed as an ISO file that you can attach to virtual machines. This ISO file is packaged as an RPM file that you can install and upgrade from the {engine-name} machine.
 
 You need to install the guest agents and drivers on a virtual machine to enable this functionality for that machine.
 
-.{virt-product-fullname} Guest Drivers
+.{virt-product-fullname} Guest drivers
 [options="header"]
 |===
 |Driver |Description |Works on
@@ -29,7 +28,7 @@ You need to install the guest agents and drivers on a virtual machine to enable 
 
 
 
-.{virt-product-fullname} Guest Agents and Tools
+.{virt-product-fullname} Guest agents and tools
 [options="header"]
 |===
 |Guest agent/tool |Description |Works on

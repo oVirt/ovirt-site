@@ -19,7 +19,7 @@ Refer to vendor specification for determining processor-based and controller hub
 In addition, any PCIe switch or bridge within the I/O topology also requires ACS support, otherwise it may extend the IOMMU group.
 
 [id='Summary_of_Hardware_Considerations_for_Device_Assignment']
-== Summary of Hardware Considerations for Device Assignment
+=== Summary of Hardware Considerations for Device Assignment
 
 * CPU must support IOMMU (for example, VT-d or AMD-Vi). IBM POWER8 supports IOMMU by default. 
 * Firmware must support IOMMU.

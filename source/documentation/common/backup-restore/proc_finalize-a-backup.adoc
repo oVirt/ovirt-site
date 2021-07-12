@@ -1,0 +1,21 @@
+:_module-type: PROCEDURE
+
+[id="finalize-a-backup_{context}"]
+= Finalizing a backup
+
+[role="_abstract"]
+Finalizing a backup ends the backup, unlocks resources, and performs cleanups. Use the `finalize` backup service method
+
+.Procedure
+
+* To finalize a backup of a disk with id `456` on a virtual machine with id `123`, send a request like this:
++
+[options="nowrap" subs="normal"]
+----
+POST /vms/123/backups/456/finalize
+----
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:{URL_rest_api_doc}index#services-vm_backup-methods-finalize[finalize POST] in the _REST API Guide_.

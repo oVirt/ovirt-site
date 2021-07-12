@@ -15,7 +15,7 @@ include::../prereqs/ref-vGPU_Requirements.adoc[leveloffset=+1]
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install vdsm-hook-vfio-mdev
+# dnf install vdsm-hook-vfio-mdev
 ----
 
 You can now install vGPUs on the virtual machines running on this host.

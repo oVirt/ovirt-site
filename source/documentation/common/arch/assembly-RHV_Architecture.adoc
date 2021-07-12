@@ -1,0 +1,12 @@
+[id='RHV_Architecture']
+= {virt-product-fullname} Architecture
+
+//Included in:
+// Product Guide
+// Planning and Prerequisites Guide
+
+{virt-product-fullname} can be deployed as a self-hosted engine, or as a standalone {engine-name}. A self-hosted engine is the recommended deployment option.
+
+include::con-Self-hosted_Engine_Architecture.adoc[leveloffset=+1]
+
+include::con-Standalone_Manager_Architecture.adoc[leveloffset=+1]

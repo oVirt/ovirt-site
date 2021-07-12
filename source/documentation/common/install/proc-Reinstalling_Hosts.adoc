@@ -9,6 +9,8 @@
 
 Reinstall {hypervisor-fullname}s ({hypervisor-shortname}) and {enterprise-linux-host-fullname}s from the Administration Portal. The procedure includes stopping and restarting the host.
 
+include::../upgrade/snip_WARNING-detach_data_storage.adoc[]
+
 .Prerequisites
 
 * If the cluster has migration enabled, virtual machines can automatically migrate to another host in the cluster. Therefore, reinstall a host while its usage is relatively low.
@@ -21,15 +23,15 @@ Reinstall {hypervisor-fullname}s ({hypervisor-shortname}) and {enterprise-linux-
 
 . Click menu:Compute[Hosts] and select the host.
 
-. Click menu:Management[Maintenance].
+. Click menu:Management[Maintenance] and btn:[OK].
 
-. Click menu:Installation[Reinstall] to open the *Install Host* window.
+. Click menu:Installation[Reinstall]. This opens the *Install Host* window.
 
 ifdef::SHE_backup_restore,SHE_restore_only[]
 . Click the *Hosted Engine* tab and select *DEPLOY* from the drop-down list.
 endif::SHE_backup_restore,SHE_restore_only[]
 
-. Click *OK* to reinstall the host.
+. Click btn:[OK] to reinstall the host.
 
 After a host has been reinstalled and its status returns to *Up*, you can migrate virtual machines back to the host.
 

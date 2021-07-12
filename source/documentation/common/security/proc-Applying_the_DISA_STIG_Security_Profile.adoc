@@ -1,0 +1,46 @@
+// Module included in the following assemblies:
+//
+// doc-Administration_Guide/common/security/assembly-Securing_Red_Hat_Virtualization.adoc
+
+// The ID is used as an anchor for linking to the module. Avoid changing it after the module has been published to ensure existing links are not broken.
+[id='applying-the-disa-stig-red-hat-linux-7-profile-{context}']
+
+= Applying the DISA STIG for Red Hat Linux 7 Profile
+
+This topic shows you how to enable the _DISA STIG for Red Hat Linux 7_ security profile while installing the {virt-product-fullname} (RHV) {engine-name} ("the {engine-name}"), the {hypervisor-fullname} ({hypervisor-shortname}), and the {enterprise-linux-host-fullname}.
+
+.Enable DISA STIG for Red Hat Linux 7 for {hypervisor-shortname}
+
+The following procedure applies to installing {hypervisor-fullname} ({hypervisor-shortname}) for two different purposes:
+
+* Using {hypervisor-shortname} as the host for the {engine-name} virtual machine when you deploy the {engine-name} as a self-hosted engine.
+* Using {hypervisor-shortname} as an ordinary host in an RHV cluster.
+
+If you use the Anaconda installer to install {hypervisor-shortname}:
+
+. On the *Installation Summary* screen, select *Security Policy*.
+image:common/images/security-policy.png[]
+
+. On the *Security Policy* screen that opens, toggle the *Apply security policy* setting to *On*.
+
+. Scroll down the list of profiles and select *DISA STIG for Red Hat Linux 7*.
+
+. Click the *Select profile* button. This action adds a green checkmark next to the profile and adds packages to the list of *Changes that were done or need to be done*.
+[NOTE]
+These packages are already part of the {hypervisor-shortname} image. {hypervisor-shortname} ships as a single system image. Installation of packages required by any other selected security profiles which are not part of the {hypervisor-shortname} image may not be possible. Please see the {hypervisor-shortname} package manifest for a list of included packages.
+image:common/images/security-policy-selected.png[]
+
+
+. Click *Done*.
+
+. On the *Installation Summary* screen, verify that the status of *Security Policy* is *Everything okay*.
+
+. Later, when you log into {hypervisor-shortname}, the command line displays the following information.
+image:common/images/security-policy-rhvh-login.png[]
+
+[NOTE]
+If you link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index[deploy RHV as a Self-Hosted Engine using the command line], during the series of prompts after you enter `ovirt-hosted-engine-setup`, the command line will ask `Do you want to apply a default OpenSCAP security profile?` Enter `Yes` and follow the instructions to select the _DISA STIG for Red Hat Linux 7_ profile.
+
+.Additional resources
+
+* link:https://www.redhat.com/en/blog/configuring-and-applying-scap-policies-during-installation[Configuring and Applying SCAP Policies During Installation]

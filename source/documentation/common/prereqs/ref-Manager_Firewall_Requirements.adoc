@@ -18,7 +18,7 @@ You can use the IDs in the table to look up connections in the diagram.
 ====
 
 .{virt-product-fullname} {engine-name} Firewall Requirements
-[options="header", cols="2,2,2,5,5,5,3", frame=all, grid=all]
+[options="header", cols="3,3,3,4,4,4,4", frame=all, grid=all]
 |===
 |ID |Port(s) |Protocol |Source |Destination |Purpose |Encrypted by default
 |M1 |- |ICMP |{hypervisor-fullname}s
@@ -45,11 +45,11 @@ REST API clients |{virt-product-fullname} {engine-name}|Provides HTTP (port 80, 
 |Yes
 |M5 |6100 |TCP |Administration Portal clients
 
-VM Portal clients |{virt-product-fullname} {engine-name} |Provides websocket proxy access for a web-based console client, `noVNC`, when the websocket proxy is running on the {engine-name}. If the websocket proxy is running on a different host, however, this port is not used.
+VM Portal clients |{virt-product-fullname} {engine-name} |Provides websocket proxy access for a web-based console client, `noVNC`, when the websocket proxy is running on the {engine-name}.
 |No
 |M6 |7410 |UDP |{hypervisor-fullname}s
 
-{enterprise-linux-host-fullname}s |{virt-product-fullname} {engine-name} |If Kdump is enabled on the hosts, open this port for the fence_kdump listener on the {engine-name}. See link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html/administration_guide/sect-host_resilience#sect-fence_kdump_Advanced_Configuration[fence_kdump Advanced Configuration]. `fence_kdump` doesn't provide a way to encrypt the connection. However, you can manually configure this port to block access from hosts that are not eligible.
+{enterprise-linux-host-fullname}s |{virt-product-fullname} {engine-name} |If Kdump is enabled on the hosts, open this port for the fence_kdump listener on the {engine-name}. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-fence_kdump_Advanced_Configuration[fence_kdump Advanced Configuration]. `fence_kdump` doesn't provide a way to encrypt the connection. However, you can manually configure this port to block access from hosts that are not eligible.
 |No
 |M7 |54323 |TCP |Administration Portal clients |{virt-product-fullname} {engine-name} (ImageIO Proxy server) |Required for communication with the ImageIO Proxy (`ovirt-imageio-proxy`).
 |Yes

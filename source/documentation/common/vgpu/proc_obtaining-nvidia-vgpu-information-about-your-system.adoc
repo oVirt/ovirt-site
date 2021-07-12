@@ -1,0 +1,122 @@
+// Module included in the following assemblies:
+//
+// assembly_managing-nvidia-vgpu-devices
+
+[id="proc_obtaining-nvidia-vgpu-information-about-your-system_{context}"]
+= Monitoring NVIDIA vGPUs
+
+// ###############  BEGIN RHV INFO (TO BE CONDITIONALIZED)
+
+For NVIDIA vGPUS, to get info on the physical GPU and vGPU, you can use the NVIDIA System Management Interface by entering the [command]`nvidia-smi` command on the host. For more information, see link:https://docs.nvidia.com/grid/latest/grid-vgpu-user-guide/index.html#performance-monitoring-gpu-nvidia-smi[NVIDIA System Management Interface nvidia-smi] in the __NVIDIA Virtual GPU Software Documentation__.
+
+For example:
+
+[options="nowrap" subs="verbatim"]
+----
+# nvidia-smi
+Thu Nov  1 17:40:09 2018
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 410.62                 Driver Version: 410.62                    |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla M60           On   | 00000000:84:00.0 Off |                  Off |
+| N/A   40C    P8    24W / 150W |   1034MiB /  8191MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  Tesla M60           On   | 00000000:85:00.0 Off |                  Off |
+| N/A   33C    P8    23W / 150W |   8146MiB /  8191MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   2  Tesla M60           On   | 00000000:8B:00.0 Off |                  Off |
+| N/A   34C    P8    24W / 150W |   8146MiB /  8191MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   3  Tesla M60           On   | 00000000:8C:00.0 Off |                  Off |
+| N/A   45C    P8    24W / 150W |     18MiB /  8191MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0     34432    C+G   vgpu                                         508MiB |
+|    0     34718    C+G   vgpu                                         508MiB |
+|    1     35032    C+G   vgpu                                        8128MiB |
+|    2     35032    C+G   vgpu                                        8128MiB |
++-----------------------------------------------------------------------------+
+----
+
+// ###############  END RHV INFO
+
+
+// ###############  BEGIN RHEL INFO (TO BE CONDITIONALIZED)
+
+////
+
+To evaluate the capabilities of the vGPU features available to you, you can obtain additional information about mediated devices on your system, such as how many mediated devices of a given type can be created.
+
+[discrete]
+.Procedure
+
+* use the *virsh nodedev-list --cap mdev_types* and *virsh nodedev-dumpxml* commands.
++
+// TBD! What's virsh nodedev-list --cap mdev_types for? Get an example output!
++
+For example, the following displays available vGPU types if you are using a physical Tesla P4 card:
++
+[source,XML,subs=+quotes]
+--
+*$ virsh nodedev-list --cap mdev_types*
+pci_0000_01_00_0
+*$ virsh nodedev-dumpxml pci_0000_01_00_0*
+<...>
+  <capability type='mdev_types'>
+    <type id='nvidia-70'>
+      <name>GRID P4-8A</name>
+      <deviceAPI>vfio-pci</deviceAPI>
+      <availableInstances>1</availableInstances>
+    </type>
+    <type id='nvidia-69'>
+      <name>GRID P4-4A</name>
+      <deviceAPI>vfio-pci</deviceAPI>
+      <availableInstances>2</availableInstances>
+    </type>
+    <type id='nvidia-67'>
+      <name>GRID P4-1A</name>
+      <deviceAPI>vfio-pci</deviceAPI>
+      <availableInstances>8</availableInstances>
+    </type>
+    <type id='nvidia-65'>
+      <name>GRID P4-4Q</name>
+      <deviceAPI>vfio-pci</deviceAPI>
+      <availableInstances>2</availableInstances>
+    </type>
+    <type id='nvidia-63'>
+      <name>GRID P4-1Q</name>
+      <deviceAPI>vfio-pci</deviceAPI>
+      <availableInstances>8</availableInstances>
+    </type>
+    <type id='nvidia-71'>
+      <name>GRID P4-1B</name>
+      <deviceAPI>vfio-pci</deviceAPI>
+      <availableInstances>8</availableInstances>
+    </type>
+    <type id='nvidia-68'>
+      <name>GRID P4-2A</name>
+      <deviceAPI>vfio-pci</deviceAPI>
+      <availableInstances>4</availableInstances>
+    </type>
+    <type id='nvidia-66'>
+      <name>GRID P4-8Q</name>
+      <deviceAPI>vfio-pci</deviceAPI>
+      <availableInstances>1</availableInstances>
+    </type>
+    <type id='nvidia-64'>
+      <name>GRID P4-2Q</name>
+      <deviceAPI>vfio-pci</deviceAPI>
+      <availableInstances>4</availableInstances>
+    </type>
+  </capability>
+</...>
+--
+
+////

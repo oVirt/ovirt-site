@@ -1,0 +1,5 @@
+[preface]
+[id="making-open-source-more-inclusive"]
+= Making open source more inclusive
+
+Red Hat is committed to replacing problematic language in our code, documentation, and web properties. Because of the enormity of this endeavor, these changes are being updated gradually and where possible. For more details, see link:https://www.redhat.com/en/blog/making-open-source-more-inclusive-eradicating-problematic-language[our CTO Chris Wright's message].

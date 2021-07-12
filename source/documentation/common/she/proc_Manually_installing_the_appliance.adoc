@@ -11,11 +11,41 @@ However, you can install the appliance manually on the deployment host beforehan
 
 .Procedure
 
-To install the {engine-appliance-name} to the host manually, enter the following command:
+. On {enterprise-linux-host-fullname}s:
+.. Reset the `virt` module:
++
+[options="nowrap" subs="normal"]
++
+----
+# dnf module reset virt
+----
++
+[NOTE]
+====
+If this module is already enabled in the Advanced Virtualization stream, this step is not necessary, but it has no negative impact.
 
+You can see the value of the stream by entering:
+----
+# dnf module list virt
+----
+====
++
+.. Enable the `virt` module in the Advanced Virtualization stream with the following command:
+
+include::../install/snip-Enable_virt_module.adoc[]
++
+. Synchronize installed packages to update them to the latest available versions:
++
 [options="nowrap" subs="normal"]
 ----
-# yum install {engine-package}-appliance
+# dnf distro-sync --nobest
+----
+//ansible lock addition
+. Install the {engine-appliance-name} to the host manually:
++
+[options="nowrap" subs="normal"]
+----
+# dnf install {engine-package}-appliance
 ----
 
 Now, when you deploy the self-hosted engine, the installer detects that the appliance is already installed.

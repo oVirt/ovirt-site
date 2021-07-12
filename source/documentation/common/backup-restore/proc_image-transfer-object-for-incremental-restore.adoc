@@ -1,0 +1,42 @@
+:_module-type: PROCEDURE
+
+[id="image-transfer-object-for-incremental-restore_{context}"]
+= Creating an image transfer object for incremental restore
+
+[role="_abstract"]
+To enable restoring raw data backed up using the incremental backup API to a QCOW2-formatted disk, the backup application should create an `imagetransfer` object.
+
+When the transfer format is `raw` and the underlying disk format is QCOW2, uploaded data is converted on the fly to QCOW2 format when writing to storage. Uploading data from a QCOW2 disk to a RAW disk is not supported.
+
+Creating an image transfer object requires a request call with a body.
+
+.Procedure
+
+. Send a request like this:
++
+[options="nowrap" subs="normal"]
+----
+POST /ovirt-engine/api/imagetransfers
+----
+
+. In the request body, specify the following parameters:
++
+ ** disk id or snapshot id
+ ** direction of the disk set to `upload`
+ ** format of the disk set to `raw`
++
+For example, to transfer a backup of a disk where the id of the disk is `123`, send the following request body:
++
+[options="nowrap" subs="normal"]
+----
+<image_transfer>
+    <disk id="123"/>
+    <direction>upload</direction>
+    <format>raw</format>
+</image_transfer>
+----
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:{URL_rest_api_doc}index#services-image_transfers-methods-add[`add` method for creating an imagetransfer object] in the _REST API Guide_ for {virt-product-shortname}.

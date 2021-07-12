@@ -1,0 +1,54 @@
+:_module-type: PROCEDURE
+
+[id="find-disks-enabled-for-incremental-backup"]
+= Finding disks that are enabled for incremental backup
+
+[role="_abstract"]
+For the specified virtual machine, you can list the disks that are enabled for incremental backup, filtered according to the backup property.
+
+.Procedure
+
+. List the disks that are attached to the virtual machine. For example, for a virtual machine with the id `123`, send this request:
++
+[options="nowrap" subs="normal"]
+----
+GET /ovirt-engine/api/vms/123/diskattachments
+----
++
+The response includes all `disk_attachment` objects, each of which includes one or more `disk` objects. For example:
++
+[options="nowrap" subs="normal"]
+----
+<disk_attachments>
+    <disk_attachment>
+       ...
+       <disk href="/ovirt-engine/api/disks/456" id="456"/>
+       ...
+    </disk_attachment>
+    ...
+</disk_attachments>
+----
+
+. Use the `disk` service to see the properties of a disk from the previous step. For example, for the disk with the id `456`, send this request:
++
+[options="nowrap" subs="normal"]
+----
+GET /ovirt-engine/api/disks/456
+----
++
+The response includes all properties for the disk. `backup` is set to `none` or `incremental`. For example:
++
+[options="nowrap" subs="normal"]
+----
+<disk href="/ovirt-engine/api/disks/456" id="456">
+    ...
+    <backup>incremental</backup>
+    ...
+</disk>
+----
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:{URL_rest_api_doc}index#types-disk[`backup` attribute of `Disk` struct]
+* link:{URL_rest_api_doc}index#types-disk_backup[`DiskBackup` enum]

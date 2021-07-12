@@ -1,0 +1,47 @@
+. Enable the required repositories:
+.. Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager register
+----
++
+.. Find the `{enterprise-linux} Server` and `{virt-product-fullname}` subscription pools and record the pool IDs:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager list --available
+----
++
+.. Use the pool IDs to attach the subscriptions to the system:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager attach --pool=_poolid_
+----
++
+.. Configure the repositories:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager repos \
+    --disable='*' \
+    --enable=rhel-7-server-rpms \
+    --enable=rhel-7-server-rhv-4-mgmt-agent-rpms \
+    --enable=rhel-7-server-ansible-2.9-rpms
+----
++
+.. Ensure that all packages currently installed are up to date:
++
+[options="nowrap" subs="normal"]
+----
+# yum update
+----
++
+[IMPORTANT]
+====
+If you encounter a required Ansible package conflict during the update, see link:https://access.redhat.com/solutions/5480561[Cannot perform yum update on my RHV manager (ansible conflict)].
+====
+//ansible lock addition
++
+.. Reboot the machine if any kernel packages were updated.

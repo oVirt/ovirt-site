@@ -17,8 +17,9 @@ You can run `engine-setup --accept-defaults` to automatically accept all questio
 +
 [options="nowrap" subs="normal"]
 ----
-# yum update
+# dnf upgrade --nobest
 ----
+//ansible lock addition
 +
 [NOTE]
 ====
@@ -29,7 +30,7 @@ Reboot the machine if any kernel-related packages were updated.
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install {engine-package}
+# dnf install {engine-package}
 ----
 
 . Run the `engine-setup` command to begin configuring the {virt-product-fullname} {engine-name}:
@@ -38,6 +39,24 @@ Reboot the machine if any kernel-related packages were updated.
 ----
 # engine-setup
 ----
+. Optional: Type *Yes* and press `Enter` to set up Cinderlib integration on this machine:
++
+[options="nowrap" subs="normal"]
+----
+Set up Cinderlib integration
+(Currently in tech preview)
+(Yes, No) [No]:
+----
++
+For instructions on setting up Cinderlib, see xref:Set_up_Cinderlib[Setting up Cinderlib].
++
+
+[IMPORTANT]
+====
+Cinderlib is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend to use them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
+
+For more information on Red Hat Technology Preview features support scope, see link:https://access.redhat.com/support/offerings/techpreview/[].
+====
 
 . Press `Enter` to configure the {engine-name} on this machine:
 +
@@ -49,41 +68,54 @@ Configure Engine on this host (Yes, No) [Yes]:
 +
 [IMPORTANT]
 ====
-Also see the "Next steps" in link:{URL_virt_product_docs}administration_guide/index.html[Adding Open Virtual Network (OVN) as an External Network Provider] in the _Administration Guide_.
+Also see the "Next steps" in link:{URL_virt_product_docs}{URL_format}administration_guide/index#Installing-OVN-next-steps[Adding Open Virtual Network (OVN) as an External Network Provider] in the _Administration Guide_.
 ====
 +
 [options="nowrap" subs="normal"]
 ----
-Configure ovirt-provider-ovn and set the Default cluster's default network provider to ovirt-provider-ovn (non-Default clusters may be configured with an OVN provider after installation) (Yes, No) [Yes]:
+Configuring ovirt-provider-ovn also sets the Default cluster's default network provider to ovirt-provider-ovn.
+Non-Default clusters may be configured with an OVN after installation.
+Configure ovirt-provider-ovn (Yes, No) [Yes]:
 ----
 +
-For more information on using OVN networks in {virt-product-fullname}, see link:{URL_virt_product_docs}administration_guide/index.html[Adding Open Virtual Network (OVN) as an External Network Provider] in the _Administration Guide_.
+For more information on using OVN networks in {virt-product-fullname}, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_OVN_as_an_External_Network_Provider[Adding Open Virtual Network (OVN) as an External Network Provider] in the _Administration Guide_.
 
-. Optionally allow `engine-setup` to configure the Image I/O Proxy (`ovirt-imageio-proxy`) to allow the {engine-name} to upload virtual disks into storage domains.
-+
-[options="nowrap" subs="normal"]
-----
-Configure Image I/O Proxy on this host? (Yes, No) [Yes]:
-----
-
-. Optionally allow `engine-setup` to configure a websocket proxy server for allowing users to connect to virtual machines through the noVNC console:
+. Optional: Allow `engine-setup` to configure a WebSocket Proxy server for allowing users to connect to virtual machines through the `noVNC` console:
 +
 [options="nowrap" subs="normal"]
 ----
 Configure WebSocket Proxy on this machine? (Yes, No) [Yes]:
 ----
-ifdef::SM_remoteDB_deploy[]
-+
-To configure the websocket proxy on a remote server, answer `No` and see xref:Installing_the_Websocket_Proxy_on_a_different_host_SM_remoteDB_deploy[] after completing the {engine-name} configuration.
-endif::SM_remoteDB_deploy[]
 +
 ifdef::rhv-doc[]
 [IMPORTANT]
 ====
-The websocket proxy and noVNC are Technology Preview features only. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
+The WebSocket Proxy and noVNC are Technology Preview features only. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
 ====
 endif::[]
+ifdef::SM_remoteDB_deploy[]
+. To configure Data Warehouse on a remote server, answer `No` and see xref:Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM[] after completing the {engine-name} configuration.
++
+[options="nowrap" subs="normal"]
+----
+Please note: Data Warehouse is required for the engine. If you choose to not configure it on this host, you have to configure it on a remote host, and then configure the engine on this host so that it can access the database of the remote Data Warehouse host.
+Configure Data Warehouse on this host (Yes, No) [Yes]:
+----
++
+[IMPORTANT]
+====
+{org-fullname} only supports installing the Data Warehouse database, the Data Warehouse service, and Grafana all on the same machine as each other.
+====
++
+. To configure Grafana on the same machine as the Data Warehouse service, enter `No`:
++
+[options="nowrap" subs="normal"]
+----
+Configure Grafana on this host (Yes, No) [Yes]:
+----
+endif::SM_remoteDB_deploy[]
 
+ifdef::SM_localDB_deploy[]
 . Choose whether to configure Data Warehouse on this machine.
 +
 [options="nowrap" subs="normal"]
@@ -91,18 +123,27 @@ endif::[]
 Please note: Data Warehouse is required for the engine. If you choose to not configure it on this host, you have to configure it on a remote host, and then configure the engine on this host so that it can access the database of the remote Data Warehouse host.
 Configure Data Warehouse on this host (Yes, No) [Yes]:
 ----
-ifdef::SM_remoteDB_deploy[]
-To configure Data Warehouse on a remote server, answer `No` and see xref:Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM[] after completing the {engine-name} configuration.
-endif::SM_remoteDB_deploy[]
-
-. Optionally allow access to a virtual machines's serial console from the command line.
++
+[IMPORTANT]
+====
+{org-fullname} only supports installing the Data Warehouse database, the Data Warehouse service, and Grafana all on the same machine as each other.
+====
++
+. Press `Enter` to configure Grafana on the {engine-name}:
++
+[options="nowrap" subs="normal"]
+----
+Configure Grafana on this host (Yes, No) [Yes]:
+----
+endif::SM_localDB_deploy[]
++
+. Optional: Allow access to a virtual machine's serial console from the command line.
 +
 [options="nowrap" subs="normal"]
 ----
 Configure VM Console Proxy on this host (Yes, No) [Yes]:
 ----
-Additional configuration is required on the client machine to use this feature.
-// See link:{URL_virt_product_docs}virtual_machine_management_guide/#Opening_a_Serial_Console_to_a_Virtual_Machine[Opening a Serial Console to a Virtual Machine] in the _Virtual Machine Management Guide_.
+Additional configuration is required on the client machine to use this feature. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Opening_a_Serial_Console_to_a_Virtual_Machine[Opening a Serial Console to a Virtual Machine] in the _Virtual Machine Management Guide_.
 
 . Press `Enter` to accept the automatically detected host name, or enter an alternative host name and press `Enter`. Note that the automatically detected host name may be incorrect if you are using virtual hosts.
 +
@@ -171,6 +212,14 @@ DWH database password:
 ====
 `engine-setup` requests these values after the {engine-name} database is configured in the next step.
 ====
+
+** If you select `Remote`, you are prompted to enter the username and password for the Grafana database user:
++
+[options="nowrap" subs="normal"]
+----
+Grafana database user [ovirt_engine_history_grafana]:
+Grafana database password:
+----
 endif::SM_localDB_deploy[]
 
 . Specify whether to configure the {engine-name} database on this machine, or on another machine:
@@ -270,6 +319,13 @@ Setup can configure apache to use SSL using a certificate issued from the intern
 Do you wish Setup to configure that, or prefer to perform that manually? (Automatic, Manual) [Automatic]:
 ----
 +
+. You can specify a unique password for the Grafana admin user, or use same one as the {engine-name} admin password:
++
+[options="nowrap" subs="normal"]
+----
+Use Engine admin password as initial Grafana admin password (Yes, No) [Yes]:
+----
++
 ifdef::SM_localDB_deploy[]
 //Only appears if you answer Yes to installing DWH on the {engine-name} machine
 . Choose how long Data Warehouse will retain collected data:
@@ -281,7 +337,7 @@ Please choose Data Warehouse sampling scale:
 (2) Full
 (1, 2)[1]:
 ----
-`Full` uses the default values for the data storage settings listed in the link:{URL_downstream_virt_product_docs}html-single/data_warehouse_guide/#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file[_Data Warehouse Guide_] (recommended when Data Warehouse is installed on a remote server).
+`Full` uses the default values for the data storage settings listed in the link:{URL_virt_product_docs}{URL_format}data_warehouse_guide/index#Application_Settings_for_the_Data_Warehouse_service_in_ovirt-engine-dwhd_file[_Data Warehouse Guide_] (recommended when Data Warehouse is installed on a remote server).
 +
 `Basic` reduces the values of `DWH_TABLES_KEEP_HOURLY` to `720` and `DWH_TABLES_KEEP_DAILY` to `0`, easing the load on the {engine-name} machine. Use `Basic` when the {engine-name} and Data Warehouse are installed on the same machine.
 endif::SM_localDB_deploy[]
@@ -295,6 +351,6 @@ Please confirm installation settings (OK, Cancel) [OK]:
 +
 When your environment has been configured, `engine-setup` displays details about how to access your environment. If you chose to manually configure the firewall, `engine-setup` provides a custom list of ports that need to be opened, based on the options selected during setup. `engine-setup` also saves your answers to a file that can be used to reconfigure the {engine-name} using the same values, and outputs the location of the log file for the {virt-product-fullname} {engine-name} configuration process.
 
-. If you intend to link your {virt-product-fullname} environment with a directory server, configure the date and time to synchronize with the system clock used by the directory server to avoid unexpected account expiry issues. See link:{URL_rhel_docs_legacy}html/System_Administrators_Guide/chap-Configuring_the_Date_and_Time.html#sect-Configuring_the_Date_and_Time-timedatectl-NTP[Synchronizing the System Clock with a Remote Server] in the _{enterprise-linux} System Administrator's Guide_ for more information.
+. If you intend to link your {virt-product-fullname} environment with a directory server, configure the date and time to synchronize with the system clock used by the directory server to avoid unexpected account expiry issues. See link:{URL_rhel_docs_legacy}html/system_administrators_guide/chap-Configuring_the_Date_and_Time.html#sect-Configuring_the_Date_and_Time-timedatectl-NTP[Synchronizing the System Clock with a Remote Server] in the _{enterprise-linux} System Administrator's Guide_ for more information.
 
 . Install the certificate authority according to the instructions provided by your browser. You can get the certificate authority's certificate by navigating to `http://_manager-fqdn_/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA`, replacing _manager-fqdn_ with the FQDN that you provided during the installation.

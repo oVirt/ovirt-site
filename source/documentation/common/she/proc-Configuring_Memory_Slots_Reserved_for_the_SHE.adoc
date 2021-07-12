@@ -1,7 +1,7 @@
 [id='Configuring_Memory_Slots_Reserved_for_the_SHE']
 = Configuring Memory Slots Reserved for the Self-Hosted Engine on Additional Hosts
 
-If the {engine-name} virtual machine shuts down or needs to be migrated, there must be enough memory on a self-hosted engine node for the {engine-name} virtual machine to restart on or migrate to it. This memory can be reserved on multiple self-hosted engine nodes by using a scheduling policy. The scheduling policy checks if enough memory to start the {engine-name} virtual machine will remain on the specified number of additional self-hosted engine nodes before starting or migrating any virtual machines. See link:{URL_virt_product_docs}administration_guide#Creating_a_Scheduling_Policy[Creating a Scheduling Policy] in the _Administration Guide_ for more information about scheduling policies.
+If the {engine-name} virtual machine shuts down or needs to be migrated, there must be enough memory on a self-hosted engine node for the {engine-name} virtual machine to restart on or migrate to it. This memory can be reserved on multiple self-hosted engine nodes by using a scheduling policy. The scheduling policy checks if enough memory to start the {engine-name} virtual machine will remain on the specified number of additional self-hosted engine nodes before starting or migrating any virtual machines. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Creating_a_Scheduling_Policy[Creating a Scheduling Policy] in the _Administration Guide_ for more information about scheduling policies.
 
 To add more self-hosted engine nodes to the {virt-product-fullname} {engine-name}, see xref:Adding_self-hosted_engine_nodes_to_the_Manager_SHE_admin[].
 

@@ -8,7 +8,7 @@ The PCIe specification supports greater numbers of VFs through the implementatio
 
 The system firmware (BIOS or UEFI) allocates resources, including memory, I/O port apertures, and PCIe bus number ranges, for the PCIe topology. As such, SR-IOV must be supported and enabled by the firmware in order to allocate sufficient resources.
 
-== Summary of Hardware Considerations for SR-IOV
+=== Summary of Hardware Considerations for SR-IOV
 
 * Firmware (BIOS or UEFI) must support SR-IOV. Check if the extension is enabled by default. If not, enable it manually. This is similar to enabling the virtualization extension (VT-d or AMD-Vi). Refer to vendor manuals for specific details.
 * Root ports, or ports immediately upstream of the PCIe device (such as a PCIe switch), must support ARI.

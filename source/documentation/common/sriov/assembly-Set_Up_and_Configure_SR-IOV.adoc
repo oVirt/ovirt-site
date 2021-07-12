@@ -14,18 +14,19 @@ This topic summarizes the steps for setting up and configuring SR-IOV, with link
 
 == Prerequisites
 
-Set up your hardware in accordance with the link:{URL_downstream_virt_product_docs}html/hardware_considerations_for_implementing_sr-iov/index[Hardware Considerations for Implementing SR-IOV]
+Set up your hardware in accordance with the link:{URL_downstream_virt_product_docs}hardware_considerations_for_implementing_sr-iov/index#[Hardware Considerations for Implementing SR-IOV]
 
 == Set Up and Configure SR-IOV
 
 To set up and configure SR-IOV, complete the following tasks.
 
-. link:{URL_virt_product_docs}installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/
-. link:{URL_virt_product_docs}administration_guide/#Editing_VFs_on_NIC[Editing the virtual function configuration on a NIC].
+. link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#configuring_a_host_for_pci_passthrough_she_cockpit_deploy[Configuring the host for PCI passthrough]
 
-. link:{URL_virt_product_docs}administration_guide/#Enabling_Passthrough_on_a_vNIC_Profile[Enabling passthrough on a vNIC Profile].
+. link:{URL_virt_product_docs}{URL_format}administration_guide/index#Editing_VFs_on_NIC[Editing the virtual function configuration on a NIC].
 
-. link:{URL_downstream_virt_product_docs}html/virtual_machine_management_guide/sect-migrating_virtual_machines_between_hosts#Configuring_virtual_vachines_with_SR-IOV-Enabled_vNICs[Configuring Virtual Machines with SR-IOV-Enabled vNICs to Reduce Network Outage during Migration].
+. link:{URL_virt_product_docs}{URL_format}administration_guide/index#Enabling_Passthrough_on_a_vNIC_Profile[Enabling passthrough on a vNIC Profile].
+
+. link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs[Configuring Virtual Machines with SR-IOV-Enabled vNICs to Reduce Network Outage during Migration].
 
 .Notes
 

@@ -2,16 +2,17 @@
 = Configuring a Local Repository for Offline {virt-product-fullname} {engine-name} Installation
 
 :context: offline_install
+:offline_install:
 
-To install {virt-product-fullname} {engine-name} on a system that does not have a direct connection to the Content Delivery Network, download the required packages on a system that has Internet access, then create a repository that can be shared with the offline {engine-name} machine. The system hosting the repository must be connected to the same network as the client systems where the packages are to be installed.
+To install {virt-product-fullname} {engine-name} on a system that does not have a direct connection to the Content Delivery Network, download the required packages on a system that has internet access, then create a repository that can be shared with the offline {engine-name} machine. The system hosting the repository must be connected to the same network as the client systems where the packages are to be installed.
 
 .Prerequisites
 
-* A {enterprise-linux} 7 Server installed on a system that has access to the Content Delivery Network. This system downloads all the required packages, and distributes them to your offline system(s).
+* A {enterprise-linux} 8 Server installed on a system that has access to the Content Delivery Network. This system downloads all the required packages, and distributes them to your offline systems.
 
 * A large amount of free disk space available. This procedure downloads a large number of packages, and requires up to 50GB of free disk space.
 
-Enable the {virt-product-fullname} {engine-name} repositories on the online system:
+Begin by enabling the {virt-product-fullname} {engine-name} repositories on the online system:
 
 [discrete]
 include::proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
@@ -19,14 +20,22 @@ include::proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leve
 [discrete]
 == Configuring the Offline Repository
 
-. Servers that are not connected to the Internet can access software repositories on other systems using File Transfer Protocol (FTP). To create the FTP repository, install and configure `vsftpd`:
+. Servers that are not connected to the Internet can access software repositories on other systems using File Transfer Protocol (FTP). To create the FTP repository, install and configure `vsftpd` on the intended {engine-name} machine:
 .. Install the `vsftpd` package:
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install vsftpd
+# dnf install vsftpd
 ----
+
+.. Enable ftp access for an anonymous user to have access to rpm files from the intended {engine-name} machine, and to keep it secure, disable write on ftp server. Edit the `/etc/vsftpd/vsftpd.conf` file and change the values for `anonymous_enable` and `write_enable` as follows:
 +
+[options="nowrap" subs="normal"]
+----
+anonymous_enable=YES
+write_enable=NO
+----
+
 .. Start the *vsftpd* service, and ensure the service starts on boot:
 +
 [options="nowrap" subs="normal"]
@@ -35,7 +44,22 @@ include::proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leve
 # systemctl enable vsftpd.service
 ----
 
-.. Create a sub-directory inside the */var/ftp/pub/* directory. This is where the downloaded packages will be made available:
+.. Create a firewall rule to allow FTP service and reload the `firewalld` service to apply changes:
++
+[options="nowrap" subs="normal"]
+----
+# firewall-cmd --permanent --add-service=ftp
+# firewall-cmd --reload
+----
+
+.. {enterprise-linux} 8 enforces SELinux by default, so configure SELinux to allow FTP access:
++
+[options="nowrap" subs="normal"]
+----
+# setsebool -P allow_ftpd_full_access=1
+----
+
+.. Create a sub-directory inside the `/var/ftp/pub/` directory, where the downloaded packages are made available:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -46,26 +70,13 @@ include::proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leve
 +
 [options="nowrap" subs="normal"]
 ----
-# reposync -l -p /var/ftp/pub/rhvrepo
+# reposync -p /var/ftp/pub/rhvrepo --download-metadata
 ----
-This command downloads a large number of packages, and takes a long time to complete. The `-l` option enables yum plug-in support.
-. Install the `createrepo` package:
+This command downloads a large number of packages and their metadata, and takes a long time to complete.
+
+. Create a repository file, and copy it to the `/etc/yum.repos.d/` directory on the intended {engine-name} machine.
 +
-[options="nowrap" subs="normal"]
-----
-# yum install createrepo
-----
-+
-. Create repository metadata for each of the sub-directories where packages were downloaded under `/var/ftp/pub/rhvrepo`:
-+
-[options="nowrap" subs="normal"]
-----
-# for DIR in $(find /var/ftp/pub/rhvrepo -maxdepth 1 -mindepth 1 -type d); do createrepo $DIR; done
-----
-+
-. Create a repository file, and copy it to the */etc/yum.repos.d/* directory on the offline machine on which you will install the {engine-name}.
-+
-The configuration file can be created manually or with a script. Run the script below on the system hosting the repository, replacing _ADDRESS_ in the `baseurl` with the IP address or FQDN of the system hosting the repository:
+You can create the configuration file manually or with a script. Run the script below on the machine hosting the repository, replacing _ADDRESS_ in the `baseurl` with the IP address or FQDN of the machine hosting the repository:
 +
 [source,bash, options="nowrap"]
 ----
@@ -78,7 +89,7 @@ for DIR in $(find /var/ftp/pub/rhvrepo -maxdepth 1 -mindepth 1 -type d);
 do
     echo -e "[$(basename $DIR)]"	>> $REPOFILE
     echo -e "name=$(basename $DIR)" >> $REPOFILE
-    echo -e "baseurl=ftp://_ADDRESS_/pub/rhvrepo/`basename $DIR`" >> $REPOFILE
+    echo -e "baseurl=ftp://__ADDRESS__/pub/rhvrepo/`basename $DIR`" >> $REPOFILE
     echo -e "enabled=1" >> $REPOFILE
     echo -e "gpgcheck=0" >> $REPOFILE
     echo -e "\n" >> $REPOFILE
@@ -87,4 +98,13 @@ done
 
 Return to xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[]. Packages are installed from the local repository, instead of from the Content Delivery Network.
 
+.Troubleshooting
+
+When running `reposync`, the following error message appears::
+`No available modular metadata for modular package "package_name_from_module" it cannot be installed on the system`
+
+Solution::
+Ensure you have `yum-utils-4.0.8-3.el8.noarch` or higher installed so reposync correctly downloads all the packages. For more information, see link:https://access.redhat.com/solutions/23016#rhel8[Create a local repo with Red Hat Enterprise Linux 8].
+
 :context!: offline_install
+:offline_install!:

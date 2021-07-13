@@ -1,9 +1,8 @@
-:ovirt-doc:
-include::../common/collateral_files/attributes.adoc[]
-= Migrating from a standalone {engine-name} to a self-hosted engine
-
-// Make sure Jekyll displays a guide title
-[discrete]
+// This master.adoc file was converted from the original assembly-Migrating_from_a_Standalone_Manager_to_a_Self-Hosted_Engine.adoc file because our tools cannot build individual files alone. If the tooling evolves so that it can build assembly files rather than only directories with docinfo.xml, master.adoc, etc., we could convert this back to a file so that it can be used in other assemblies if required.
+// ID not required when this is a book rather than a chapter.
+// [id='Migrating_from_a_Standalone_Manager_to_a_Self-hosted_Engine']
+:rhv-doc:
+include::common/collateral_files/attributes.adoc[]
 = Migrating from a standalone {engine-name} to a self-hosted engine
 
 :context: migrating_to_SHE
@@ -14,10 +13,10 @@ You can convert a standalone {virt-product-fullname} {engine-name} to a self-hos
 The difference between the two environment types is explained below:
 
 [discrete]
-include::../common/arch/con-Standalone_Manager_Architecture.adoc[leveloffset=+2]
+include::common/arch/con-Standalone_Manager_Architecture.adoc[leveloffset=+2]
 
 [discrete]
-include::../common/arch/con-Self-hosted_Engine_Architecture.adoc[leveloffset=+2]
+include::common/arch/con-Self-hosted_Engine_Architecture.adoc[leveloffset=+2]
 
 [id='Migration_overview']
 == Migration Overview
@@ -57,33 +56,33 @@ This procedure assumes that you have access and can make changes to the original
 * The management network (*ovirtmgmt* by default) must be configured as a *VM network*, so that it can manage the {engine-name} virtual machine.
 
 
-include::../common/install/assembly-Installing_the_self-hosted_engine_deployment_host.adoc[leveloffset=+1]
+include::common/install/assembly-Installing_the_self-hosted_engine_deployment_host.adoc[leveloffset=+1]
 // Adding context back after this assembly, which includes its own context. There's probably a better way that assemblies within assemblies is meant to be done.
 :context: migrating_to_SHE
 
 Although the existing storage domains will be migrated from the standalone {engine-name}, you must prepare additional storage for a self-hosted engine storage domain that is dedicated to the {engine-name} virtual machine.
 
-include::../common/storage/assembly-Preparing_Storage_for_RHV.adoc[leveloffset=+1]
+include::common/storage/assembly-Preparing_Storage_for_RHV.adoc[leveloffset=+1]
 
 Before backing up the {engine-name}, ensure it is updated to the latest minor version. The {engine-name} version in the backup file must match the version of the new {engine-name}.
 
-include::../common/upgrade/proc-Updating_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
+include::common/upgrade/proc-Updating_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
 
-include::../common/backup-restore/proc-Backing_up_the_Original_Manager.adoc[leveloffset=+1]
+include::common/backup-restore/proc-Backing_up_the_Original_Manager.adoc[leveloffset=+1]
 
 After backing up the {engine-name}, deploy a new self-hosted engine and restore the backup on the new virtual machine.
 
-include::../common/backup-restore/proc-Restoring_the_Backup_on_a_New_Self-hosted_Engine.adoc[leveloffset=+1]
+include::common/backup-restore/proc-Restoring_the_Backup_on_a_New_Self-hosted_Engine.adoc[leveloffset=+1]
 
 When the deployment is complete, log in to the new {engine-name} virtual machine and enable the required repositories.
 
-include::../common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
+include::common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+1]
 
 The {virt-product-fullname} {engine-name} has been migrated to a self-hosted engine setup. The {engine-name} is now operating on a virtual machine on the new self-hosted engine node.
 
 The hosts will be running in the new environment, but cannot host the {engine-name} virtual machine. You can convert some or all of these hosts to self-hosted engine nodes.
 
-include::../common/install/proc-Reinstalling_an_Existing_Host_as_a_Self-Hosted_Engine_Node.adoc[leveloffset=+1]
+include::common/install/proc-Reinstalling_an_Existing_Host_as_a_Self-Hosted_Engine_Node.adoc[leveloffset=+1]
 
 After reinstalling the hosts as self-hosted engine nodes, you can check the status of the new environment by running the following command on one of the nodes:
 
@@ -92,6 +91,7 @@ After reinstalling the hosts as self-hosted engine nodes, you can check the stat
 ----
 
 If the new environment is running without issue, you can decommission the original {engine-name} machine.
+
 
 :migrating_to_SHE!:
 
@@ -103,7 +103,3 @@ include::common/install/proc-Preventing_Kernel_Modules_from_Loading_Automaticall
 
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
-
-== Legal notice
-
-Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}migrating_from_a_standalone_manager_to_a_self-hosted_engine/[Red Hat Virtualization {vernum_rhv} Migrating from a standalone Manager to a self-hosted engine]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

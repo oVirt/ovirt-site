@@ -1,0 +1,14 @@
+:rhv-doc:
+include::common/collateral_files/attributes.adoc[]
+= Disaster Recovery Guide
+:imagesdir: images
+:toclevels: 4
+
+include::concept/cpt_DisasterRecoverySolutions.adoc[]
+include::assembly/asm_ActiveActiveDR.adoc[]
+include::assembly/asm_ActivePassiveDR.adoc[]
+
+[appendix]
+include::reference/rfr_MappingFileAttributes.adoc[]
+[appendix]
+include::reference/rfr_TestingAP.adoc[]

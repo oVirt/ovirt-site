@@ -1,0 +1,80 @@
+:rhv-doc:
+include::common/collateral_files/attributes.adoc[]
+= Upgrade Guide
+
+:upgrade:
+
+// include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[leveloffset=+1]
+
+////
+
+// Fast-forward does not work with migration from 4.3 to 4.4, because the migration path requires installing RHEL 8.2 before you can install RHV 4.4.
+
+= Fast-forward Upgrading a Local Database Environment
+
+:local_database_upgrade_ff:
+
+This section applies to both self-hosted engine and standalone {engine-name} environments.
+
+include::topics/ovirt-fast-forward-upgrade_Explained.adoc[leveloffset=+1]
+
+include::assembly-Upgrading_from_4-2_ff.adoc[leveloffset=+1]
+
+:local_database_upgrade_ff!:
+
+////
+
+= Upgrading a standalone {engine-name}, local database environment
+:local_database_upgrade:
+// include::assembly-Upgrading_from_4-0.adoc[leveloffset=+1]
+
+// include::assembly-Upgrading_from_4-1.adoc[leveloffset=+1]
+
+include::assembly-Upgrading_from_4-2.adoc[leveloffset=+1]
+
+include::assembly-Upgrading_from_4-3.adoc[leveloffset=+1]
+:local_database_upgrade!:
+
+= Upgrading a standalone {engine-name} remote database environment
+:remote_database_upgrade:
+// include::assembly-Remote_Upgrading_from_4-0.adoc[leveloffset=+1]
+
+// include::assembly-Remote_Upgrading_from_4-1.adoc[leveloffset=+1]
+
+include::assembly-Remote_Upgrading_from_4-2.adoc[leveloffset=+1]
+
+include::assembly-Remote_Upgrading_from_4-3.adoc[leveloffset=+1]
+:remote_database_upgrade!:
+
+= Upgrading a self-hosted engine environment
+:SHE_upgrade:
+// include::assembly-SHE_Upgrading_from_4-0.adoc[leveloffset=+1]
+
+// include::assembly-SHE_Upgrading_from_4-1.adoc[leveloffset=+1]
+
+include::assembly-SHE_Upgrading_from_4-2.adoc[leveloffset=+1]
+
+include::assembly-SHE_Upgrading_from_4-3.adoc[leveloffset=+1]
+:SHE_upgrade!:
+
+= Updates between minor releases
+
+include::chap-Updates_between_Minor_Releases.adoc[leveloffset=+1]
+
+:numbered!:
+
+= Appendices
+
+:context: appendices
+:appendices:
+
+[appendix]
+include::topics/Updating_the_Local_Repository_for_an_Offline_Red_Hat_Virtualization_Manager_Installation.adoc[leveloffset=+1]
+
+=== Additional resources
+
+* See xref:Updating_the_Red_Hat_Virtualization_Manager_minor_updates[Updating the {virt-product-fullname} {engine-name}] for information on updating the {engine-name} between minor versions.
+// * See xref:Red_Hat_Virtualization_Upgrade_Overview[{virt-product-fullname} Upgrade Overview] for information on upgrading between major versions.
+
+:context!: appendices
+:appendices!:

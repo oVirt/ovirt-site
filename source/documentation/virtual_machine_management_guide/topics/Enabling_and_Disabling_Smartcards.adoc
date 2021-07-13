@@ -39,23 +39,9 @@ If the Smart card hardware is not correctly installed, enabling the Smart card f
 . Make sure that the module architecture matches `spice-gtk/remote-viewer`'s architecture. For instance, if you have only the 32b PKCS #11 library available, you must install the 32b build of virt-viewer in order for smart cards to work.
 
 
-
-
-*Configuring RHEL Clients with CoolKey Smart Card Middleware*
-
-CoolKey Smart Card middleware is a part of {enterprise-linux}. Install the `Smart card support` group. If the Smart Card Support group is installed on a {enterprise-linux} system, smart cards are redirected to the guest when Smart Cards are enabled. The following command installs the `Smart card support` group: 
-
-[options="nowrap" subs="normal"]
-----
-# dnf groupinstall "Smart card support"
-----
-
-
-
-
 *Configuring RHEL Clients with Other Smart Card Middleware*
 
-Register the library in the system's NSS database. Run the following command as root: 
+Register the library in the system's NSS database. Run the following command as root:
 
 [options="nowrap" subs="normal"]
 ----
@@ -67,7 +53,7 @@ Register the library in the system's NSS database. Run the following command as 
 
 *Configuring Windows Clients*
 
-Red Hat does not provide PKCS #11 support to Windows clients. Libraries that provide PKCS #11 support must be obtained from third parties. When such libraries are obtained, register them by running the following command as a user with elevated privileges: 
+Red Hat does not provide PKCS #11 support to Windows clients. Libraries that provide PKCS #11 support must be obtained from third parties. When such libraries are obtained, register them by running the following command as a user with elevated privileges:
 
 [options="nowrap" subs="normal"]
 ----

@@ -4,11 +4,12 @@
 :context: linux_vm
 :linux_vm:
 
+
 Installing a {enterprise-linux} virtual machine involves the following key steps:
 
-. xref:Creating_a_virtual_machine_linux_vm[Create a virtual machine.] You must add a virtual disk for storage, and a network interface to connect the virtual machine to the network.
+. link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Creating_a_virtual_machine_linux_vm[Create a virtual machine.] You must add a virtual disk for storage, and a network interface to connect the virtual machine to the network.
 
-. xref:Starting_the_Virtual_Machine[Start the virtual machine] and install an operating system. See your operating system's documentation for instructions.
+. link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Starting_the_Virtual_Machine[Start the virtual machine] and install an operating system. See your operating system's documentation for instructions.
 
 * {enterprise-linux} 6: link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhel}6/html/Installation_Guide/index.html[]
 
@@ -22,9 +23,9 @@ Installing a {enterprise-linux} virtual machine involves the following key steps
 * {enterprise-linux} 8: link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/index[]
 
 
-. xref:Enabling_the_Required_Repositories[Enable the required repositories] for your operating system.
+. link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Enabling_the_Required_Repositories[Enable the required repositories] for your operating system.
 
-. xref:Installing_Guest_Agents_and_Drivers_Linux[Install guest agents and drivers] for additional virtual machine functionality.
+. link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Installing_Guest_Agents_and_Drivers_Linux[Install guest agents and drivers] for additional virtual machine functionality.
 
 include::common/install/proc-Creating_a_virtual_machine.adoc[leveloffset=+1]
 

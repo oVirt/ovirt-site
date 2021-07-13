@@ -12,7 +12,7 @@ The import process uses `virt-v2v`. Only virtual machines running operating syst
 
 *Importing an OVA File*
 
-. Copy the OVA file to a host in your cluster, in a file system location such as *var/tmp*.
+. Copy the OVA file to a host in your cluster, in a file system location such as */var/tmp*.
 +
 [NOTE]
 ====

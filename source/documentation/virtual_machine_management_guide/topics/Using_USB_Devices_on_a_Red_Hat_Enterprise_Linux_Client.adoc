@@ -1,5 +1,5 @@
 [[Using_USB_Devices_on_a_Red_Hat_Enterprise_Linux_Client]]
-==== Using USB Devices on a {enterprise-linux} Client
+= Using USB Devices on a {enterprise-linux} Client
 
 The `usbredir` package enables USB redirection from {enterprise-linux} clients to virtual machines. `usbredir` is a dependency of the `virt-viewer` package, and is automatically installed together with that package.
 
@@ -8,15 +8,13 @@ The `usbredir` package enables USB redirection from {enterprise-linux} clients t
 USB redirection is only supported when you open the virtual machine from the VM Portal.
 ====
 
-*Using USB devices on a {enterprise-linux} client*
+.Procedure
 
-. Click menu:Compute[Virtual Machines] and select a virtual machine that has been configured to use the SPICE protocol.
-. Ensure USB support is set to *Enabled*:
-.. Click btn:[Edit].
-.. Click the *Console* tab.
-.. Select *Enabled* from the *USB Support* drop-down list.
-.. Click btn:[OK].
+. Click menu:Compute[Virtual Machines].
+. Select a virtual machine that has been configured to use the SPICE protocol and click btn:[Edit]. This opens the *Edit Virtual Machine* window.
+. Click the *Console* tab.
+. Select the *USB enabled* checkbox and click btn:[OK].
 . Click menu:Console[Console Options].
 . Select the *Enable USB Auto-Share* check box and click btn:[OK].
-. Start the virtual machine from the VM Portal and click btn:[Console] to connect to that virtual machine. 
+. Start the virtual machine from the VM Portal and click btn:[Console] to connect to that virtual machine.
 . Plug your USB device into the client machine to make it appear automatically on the guest machine.

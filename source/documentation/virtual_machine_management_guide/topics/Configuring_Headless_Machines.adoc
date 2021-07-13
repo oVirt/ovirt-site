@@ -1,5 +1,5 @@
 [[Configuring_Headless_Machines]]
-=== Configuring Headless Virtual Machines
+= Configuring Headless Virtual Machines
 
 You can configure a headless virtual machine when it is not necessary to access the machine via a graphical console. This headless machine will run without graphical and video devices. This can be  useful in situations where the host has limited resources, or to comply with virtual machine usage requirements such as real-time virtual machines.
 
@@ -12,7 +12,7 @@ Prerequisites
 
 * If you are editing an existing virtual machine, and the {virt-product-fullname} guest agent has not been installed, note the machine's IP prior to selecting *Headless Mode*.
 
-* Before running a virtual machine in headless mode, the GRUB configuration for this machine must be set to console mode otherwise the guest operating system's boot process will hang. To set console mode, comment out the spashimage flag in the GRUB menu configuration file: 
+* Before running a virtual machine in headless mode, the GRUB configuration for this machine must be set to console mode otherwise the guest operating system's boot process will hang. To set console mode, comment out the spashimage flag in the GRUB menu configuration file:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -37,5 +37,3 @@ Restart the virtual machine if it is running when selecting the *Headless Mode* 
 . Select *Headless Mode*. All other fields in the *Graphical Console* section are disabled.
 . Optionally, select *Enable VirtIO serial console* to enable communicating with the virtual machine via serial console. This is highly recommended.
 . Reboot the virtual machine if it is running. See xref:Rebooting_a_Virtual_Machine[].
-
-

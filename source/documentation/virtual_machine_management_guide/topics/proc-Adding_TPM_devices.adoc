@@ -1,0 +1,34 @@
+[[Adding_TPM_devices]]
+
+==== Adding a Trusted Platform Module device
+Trusted Platform Module (TPM) devices provide a secure crypto-processor designed to carry out cryptographic operations such as generating cryptographic keys, random numbers, and hashes, or for storing data that can be used to verify software configurations securely. TPM devices are commonly used for disk encryption.
+
+QEMU and libvirt implement support for emulated TPM 2.0 devices, which is what {virt-product-fullname} uses to add TPM devices to Virtual Machines.
+
+Once an emulated TPM device is added to the virtual machine, it can be used as a normal TPM 2.0 device in the guest OS.
+
+[IMPORTANT]
+====
+If there is TPM data stored for the virtual machine and the TPM device is disabled in the virtual machine, the TPM data is permanently removed.
+====
+
+*Enabling a TPM device*
+
+. In the `Add Virtual Machine` or `Edit Virtual Machine` screen, click btn:[Show Advanced Options].
+. In the `Resource Allocation` tab, select the *TPM Device Enabled* check box.
+
+*Limitations*
+
+The following limitations apply:
+
+* TPM devices can only be used on x86_64 machines with UEFI firmware and PowerPC machines with pSeries firmware installed.
+* Virtual machines with TPM devices can not have snapshots with memory.
+* While the {engine-name} retrieves and stores TPM data periodically, there is no guarantee that the {engine-name} will always have the latest version of the TPM data.
++
+[NOTE]
+====
+This process can take 120 seconds or more, and you must wait for the process to complete before you can take snapshot of a running virtual machine, clone a running virtual machine, or migrate a running virtual machine.
+====
++
+* TPM devices can only be enabled for VMs running RHEL 7 or newer and Windows 8.1 and newer.
+* Virtual machines and templates with TPM data can not be exported or imported.

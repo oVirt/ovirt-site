@@ -44,12 +44,12 @@ See xref:Configuring_Headless_Machines[] for more details and prerequisites for 
 | Yes.
 
 
-|*USB Support*
-a|Defines SPICE USB redirection. This option is only available for virtual machines using the SPICE protocol. Select either:
+|*USB enabled*
+a|Defines SPICE USB redirection. This check box is not selected by default. This option is only available for virtual machines using the SPICE protocol:
 
-* *Disabled* - USB controller devices are added according to the `devices.usb.controller` value in the *osinfo-defaults.properties* configuration file. The default for all x86 and x86_64 operating systems is `piix3-uhci`. For ppc64 systems, the default is `nec-xhci`.
+* Disabled (check box is cleared) - USB controller devices are added according to the `devices.usb.controller` value in the *osinfo-defaults.properties* configuration file. The default for all x86 and x86_64 operating systems is `piix3-uhci`. For ppc64 systems, the default is `nec-xhci`.
 
-* *Enabled* - Enables native KVM/SPICE USB redirection for Linux and Windows virtual machines. Virtual machines do not require any in-guest agents or drivers for native USB.
+* Enabled (check box is selected) - Enables native KVM/SPICE USB redirection for Linux and Windows virtual machines. Virtual machines do not require any in-guest agents or drivers for native USB.
 | Yes.
 
 

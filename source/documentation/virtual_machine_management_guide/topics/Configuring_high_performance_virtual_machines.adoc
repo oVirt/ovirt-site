@@ -1,5 +1,5 @@
 [[Configuring_High_Performance_Virtual_Machines_Templates_and_Pools]]
-=== Configuring High Performance Virtual Machines, Templates, and Pools
+= Configuring High Performance Virtual Machines, Templates, and Pools
 
 You can configure a virtual machine for high performance, so that it runs with performance metrics as close to bare metal as possible. When you choose high performance optimization, the virtual machine is configured with a set of automatic, and recommended manual, settings for maximum efficiency.
 
@@ -15,7 +15,7 @@ To change the optimization mode of a new or existing virtual machine to high per
 
 A high performance virtual machine has certain limitations, because enhanced performance has a trade-off in decreased flexibility:
 
-* If pinning is set for CPU threads, IO threads, emulator threads, or NUMA nodes, according to the recommended settings, only a subset of cluster hosts can be assigned to the high performance virtual machine.
+* If pinning is set for CPU threads, I/O threads, emulator threads, or NUMA nodes, according to the recommended settings, only a subset of cluster hosts can be assigned to the high performance virtual machine.
 * Many devices are automatically disabled, which limits the virtual machine's usability.
 
 *Templates and Pools*
@@ -24,10 +24,10 @@ High performance templates and pools are created and edited in the same way as v
 
 * CPU pinning
 * Virtual NUMA and NUMA pinning topology
-* IO and emulator threads pinning topology
+* I/O and emulator threads pinning topology
 * Pass-through Host CPU
 
-==== Creating a High Performance Virtual Machine, Template, or Pool
+== Creating a High Performance Virtual Machine, Template, or Pool
 
 To create a high performance virtual machine, template, or pool:
 
@@ -57,7 +57,12 @@ Certain configurations can override the high performance settings. For example, 
 The last-saved configuration usually takes priority.
 ====
 
-===== Automatic High Performance Configuration Settings [[Automatic_High_Performance_Configuration_Settings]]
+[NOTE]
+Support for instance types is now deprecated, and will be removed in a future release.
+
+
+
+=== Automatic High Performance Configuration Settings [[Automatic_High_Performance_Configuration_Settings]]
 
 The following table summarizes the automatic settings. The *Enabled (Y/N)* column indicates configurations that are enabled or disabled. The *Applies to* column indicates the relevant resources:
 
@@ -71,7 +76,7 @@ The following table summarizes the automatic settings. The *Enabled (Y/N)* colum
 |===
 |Setting |Enabled (Y/N) |Applies to
 |*Headless Mode* (Console tab) |Y |VM, T, P
-|*USB Support* (Console tab) |N  |VM, T, P
+|*USB Enabled* (Console tab) |N  |VM, T, P
 |*Smartcard Enabled* (Console tab) |N |VM, T, P
 |*Soundcard Enabled* (Console tab) |N |VM, T, P
 |*Enable VirtIO serial console* (Console tab) |Y |VM, T, P
@@ -80,15 +85,15 @@ The following table summarizes the automatic settings. The *Enabled (Y/N)* colum
 |*Highly Available* footnote:[`Highly Available` is not automatically enabled. If you select it manually, high availability should be enabled for pinned hosts only.] (High Availability tab) |N |VM, T, P
 |*No-Watchdog* (High Availability tab) |N |VM, T, P
 |*Memory Balloon Device* (Resource Allocation tab) |N |VM, T, P
-|*IO Threads Enabled* footnote:[Number of IO threads = 1] (Resource Allocation tab) |Y |VM, T, P
+|*I/O Threads Enabled* footnote:[Number of I/O threads = 1] (Resource Allocation tab) |Y |VM, T, P
 |Paravirtualized Random Number Generator PCI (virtio-rng) device (Random Generator tab) |Y |VM, T, P
-|IO and emulator threads pinning topology |Y |VM, T
+|I/O and emulator threads pinning topology |Y |VM, T
 |CPU cache layer 3 |Y |VM, T, P
 |===
 
-===== IO and Emulator Threads Pinning Topology (Automatic Settings) [[IO_and_Emulator_Threads_Pinning_Topology]]
+=== I/O and Emulator Threads Pinning Topology (Automatic Settings) [[IO_and_Emulator_Threads_Pinning_Topology]]
 
-The IO and emulator threads pinning topology is a new configuration setting for {virt-product-fullname} 4.2. It requires that IO threads, NUMA nodes, and NUMA pinning be enabled and set for the virtual machine. Otherwise, a warning will appear in the engine log.
+The I/O and emulator threads pinning topology is a new configuration setting for {virt-product-fullname} 4.2. It requires that I/O threads, NUMA nodes, and NUMA pinning be enabled and set for the virtual machine. Otherwise, a warning will appear in the engine log.
 
 Pinning topology:
 
@@ -100,14 +105,14 @@ Pinning topology:
 ** The first two CPUs of the NUMA node with the most pins are reserved/pinned
 ** The remaining pinned NUMA node(s) are for vCPU pinning only
 
-Pools do not support IO and emulator threads pinning.
+Pools do not support I/O and emulator threads pinning.
 
 [WARNING]
 ====
-If a host CPU is pinned to both a vCPU and IO/emulator threads, a warning will appear in the log and you will be asked to consider changing the CPU pinning topology to avoid this situation.
+If a host CPU is pinned to both a vCPU and I/O and emulator threads, a warning will appear in the log and you will be asked to consider changing the CPU pinning topology to avoid this situation.
 ====
 
-===== High Performance Icons
+=== High Performance Icons
 
 The following icons indicate the states of a high performance virtual machine in the menu:Compute[Virtual Machines] screen.
 
@@ -124,7 +129,7 @@ The following icons indicate the states of a high performance virtual machine in
 |===
 
 [[Configuring_Recommended_Manual_Settings]]
-==== Configuring the Recommended Manual Settings
+== Configuring the Recommended Manual Settings
 
 You can configure the recommended manual settings in either the *New* or the *Edit* windows.
 
@@ -133,11 +138,11 @@ If a recommended setting is not performed, the *High Performance Virtual Machine
 The recommended manual settings are:
 
 * xref:Pinning_CPU[Pinning CPUs]
-* xref:Setting_NUMA_Nodes[Setting the NUMA Nodes and Pinning Topology]
+* xref:Setting_NUMA_Nodes[Setting the NUMA Pinning Policy]
 * xref:Configuring_Huge_Pages[Configuring Huge Pages]
 * xref:Disabling_KSM[Disabling KSM]
 
-===== Manual High Performance Configuration Settings [[Manual_High_Performance_Configuration_Settings]]
+=== Manual High Performance Configuration Settings [[Manual_High_Performance_Configuration_Settings]]
 
 The following table summarizes the recommended manual settings. The *Enabled (Y/N)* column indicates configurations that should be enabled or disabled. The *Applies to* column indicates the relevant resources:
 
@@ -151,22 +156,23 @@ The following table summarizes the recommended manual settings. The *Enabled (Y/
 |===
 |Setting |Enabled (Y/N) |Applies to
 |*NUMA Node Count* (Host tab) |Y |VM
-|*Tune Mode* (Host tab) |Y |VM
+|*Tune Mode* (NUMA Pinning screen) |Y |VM
 |*NUMA Pinning* (Host tab) |Y |VM
+|*Auto Pinning Policy* (Host tab)|Y |VM
 |*CPU Pinning topology* (Resource Allocation tab) |Y | VM, P
 |*hugepages* (Custom Properties tab) |Y |VM, T, P
 |*KSM* (Optimization tab) |N |C
 |===
 
 
-===== Pinning CPUs [[Pinning_CPU]]
-
-
+=== Pinning CPUs [[Pinning_CPU]]
 
 To pin vCPUs to a specific host's physical CPU:
 
 . In the *Host* tab, select the *Specific Host(s)* radio button.
 . In the *Resource Allocation* tab, enter the *CPU Pinning Topology*, verifying that the configuration fits the pinned host's configuration. See xref:Virtual_Machine_Resource_Allocation_settings_explained[] for information about the syntax of this field.
++
+This field is populated automatically and the CPU topology is updated when automatic NUMA pinning is activated.
 . Verify that the virtual machine configuration is compatible with the host configuration:
 
 * A virtual machine's number of sockets must not be greater than the host's number of sockets.
@@ -178,17 +184,33 @@ To pin vCPUs to a specific host's physical CPU:
 CPU pinning has the following requirements:
 
 * If the host is NUMA-enabled, the host's NUMA settings (memory and CPUs) must be considered because the virtual machine has to fit the host's NUMA configuration.
-* The xref:IO_and_Emulator_Threads_Pinning_Topology[IO and emulator threads pinning topology] must be considered.
+* The xref:IO_and_Emulator_Threads_Pinning_Topology[I/O and emulator threads pinning topology] must be considered.
 * CPU pinning can only be set for virtual machines and pools, but not for templates. Therefore, you must set CPU pinning manually whenever you create a high performance virtual machine or pool, even if they are based on a high performance template.
 ====
 
-===== Setting the NUMA Nodes and Pinning Topology [[Setting_NUMA_Nodes]]
+=== Setting the NUMA Pinning Policy [[Setting_NUMA_Nodes]]
 
-To set the NUMA nodes and pinning topology, you need a NUMA-enabled pinned host with at least two NUMA nodes.
+To set the NUMA Pinning Policy, you need a NUMA-enabled pinned host with at least two NUMA nodes.
+You can configure the NUMA topology manually, or use the *Auto Pinning Policy* option to configure the topology automatically.
 
-. In the *Host* tab, select the *NUMA Node Count* and the *Tune Mode* from the drop-down lists.
+.To set the NUMA pinning policy manually:
+
 . Click btn:[NUMA Pinning].
 . In the *NUMA Topology* window, click and drag virtual NUMA nodes from the box on the right to the host's physical NUMA nodes on the left as required.
+. Select *Strict*, *Preferred*, or *Interleave* from the *Tune Mode* drop-down list in each NUMA node. If the selected mode is *Preferred*, the *NUMA Node Count* must be set to `1`.
+. Click btn:[OK].
+
+.To set the NUMA pinning policy automatically:
+
+. In the *Host* tab, select the *Specific Host(s)* radio button and select the host(s) from the list. The selected host(s) must have at least two NUMA nodes.
+. Under *Configure NUMA:* select an *Auto Pinning Policy* from the drop-down list:
++
+* *Don't Change* - makes no changes to the virtual machine.
+* *Existing* - uses the existing CPU topology that has been set, in order to configure CPU pinning and NUMA pinning.
+* *Adjust* - maximizes the CPU topology and generates the CPU pinning and NUMA pinning configurations.
+. Click btn:[OK].
+
+The {engine-name} calculates the CPU Pinning Topology, updates the CPU topology fields (Total Virtual CPUs, Cores per Virtual Socket, Threads per Core), and enters the topology configuration string in the *CPU Pinning Topology* field of the virtual machine.
 
 [IMPORTANT]
 ====
@@ -199,10 +221,10 @@ The number of declared virtual NUMA nodes and the NUMA pinning policy must take 
 * The CPU pinning topology
 * The xref:IO_and_Emulator_Threads_Pinning_Topology[IO and emulator threads pinning topology]
 * Huge page sizes
-* NUMA pinning can only be set for virtual machines, but not for pools or templates. You must set NUMA pinning manually when you create a high performance virtual machine based on a template.
+* NUMA pinning can only be set for virtual machines, not for pools or templates. You must set NUMA pinning manually when you create a high performance virtual machine based on a template.
 ====
 
-===== Configuring Huge Pages [[Configuring_Huge_Pages]]
+=== Configuring Huge Pages [[Configuring_Huge_Pages]]
 
 Huge pages are pre-allocated when a virtual machine starts to run (dynamic allocation is disabled by default).
 
@@ -211,7 +233,7 @@ To configure huge pages:
 . In the *Custom Properties* tab, select *hugepages* from the custom properties list, which displays *Please select a key...* by default.
 . Enter the huge page size in KB.
 +
-You should set the huge page size to the largest size supported by the pinned host. The recommended size for x86_64 is 1 GB.
+You should set the huge page size to the largest size supported by the pinned host. The recommended size for x86_64 is 1 GiB.
 +
 The huge page size has the following requirements:
 +
@@ -249,7 +271,7 @@ a|
 |*static hugepages*
 |Predictable results
 a|
-* Requires a kernel command line in the Edit Host configuration in the Administraion Portal. See link:http://ovirt.github.io/ovirt-engine-api-model/4.4/index.html#types-operating_system-attributes-custom_kernel_cmdline[Custom kernel command line]
+* Requires a kernel command line in the Edit Host configuration in the Administraion Portal. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#types-operating_system-attributes-custom_kernel_cmdline[Custom kernel command line]
 * Requires a host reboot.
 |
 |===
@@ -263,7 +285,7 @@ The following limitations apply:
 * The host's memory resource is limited
 ====
 
-===== Disabling KSM [[Disabling_KSM]]
+=== Disabling KSM [[Disabling_KSM]]
 
 To disable Kernel Same-page Merging (KSM) for the cluster:
 

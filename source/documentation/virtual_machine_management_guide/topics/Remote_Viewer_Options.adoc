@@ -1,5 +1,5 @@
 [[Remote_Viewer_Options]]
-===== Remote Viewer Options
+= Remote Viewer Options
 
 When you specify the *Native client* console invocation option, you will connect to virtual machines using Remote Viewer. The Remote Viewer window provides a number of options for interacting with the virtual machine to which it is connected.
 
@@ -63,4 +63,3 @@ When you specify the *Native client* console invocation option, you will connect
 |Help |The *About* entry displays the version details of Virtual Machine Viewer that you are using.
 |Release Cursor from Virtual Machine |`SHIFT` + `F12`
 |===
-

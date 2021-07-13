@@ -16,9 +16,9 @@ You can upload `virtio-win___version__.iso` to a data storage domain.
 
 [NOTE]
 ====
-{org-fullname} recommends uploading ISO images to the data domain with the Administration Portal or with the REST API. For more information, see link:{URL_virt_product_docs}administration_guide[Uploading Images to a Data Storage Domain] in the _Administration Guide_.
+{org-fullname} recommends uploading ISO images to the data domain with the Administration Portal or with the REST API. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain] in the _Administration Guide_.
 
-If necessary, you can upload the `virtio-win` ISO file to an ISO storage domain that is hosted on the {engine-name}. The ISO storage domain type is deprecated. For more information, see link:{URL_virt_product_docs}administration_guide/index.html#Copy_ISO_to_ISO_domain-storage_tasks[Uploading images to an ISO domain] in the _Administration Guide_.
+If necessary, you can upload the `virtio-win` ISO file to an ISO storage domain that is hosted on the {engine-name}. The ISO storage domain type is deprecated. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Copy_ISO_to_ISO_domain-storage_tasks[Uploading images to an ISO domain] in the _Administration Guide_.
 ====
 
 

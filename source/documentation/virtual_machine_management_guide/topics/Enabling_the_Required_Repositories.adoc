@@ -6,7 +6,7 @@ To install packages signed by Red Hat you must register the target system to the
 
 *Enabling the Required Repositories Using Subscription {engine-name}*
 
-. Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted: 
+. Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -20,33 +20,35 @@ To install packages signed by Red Hat you must register the target system to the
 # subscription-manager list --available
 ----
 +
-. Use the pool identifiers to attach the required subscriptions: 
+. Use the pool identifiers to attach the required subscriptions:
 +
 [options="nowrap" subs="normal"]
 ----
 # subscription-manager attach --pool=_pool_id_
 ----
 +
-. When a system is attached to a subscription pool with multiple repositories, only the main repository is enabled by default. Others are available, but disabled. Enable any additional repositories: 
+. When a system is attached to a subscription pool with multiple repositories, only the main repository is enabled by default. Others are available, but disabled. Enable any additional repositories:
 +
 [options="nowrap" subs="normal"]
 ----
 # subscription-manager repos --enable=_repository_
 ----
 +
-. Ensure that all packages currently installed are up to date: 
+. Ensure that all packages currently installed are up to date:
 +
 [options="nowrap" subs="normal"]
 ----
-# dnf upgrade
+# dnf upgrade --nobest
 ----
+//ansible lock addition
 +
 [NOTE]
 ====
 For versions of {enterprise-linux} earlier than 8, use the command `yum update` instead of `dnf upgrade`:
-cgfv
 [options="nowrap" subs="normal"]
 ----
 # yum update
 ----
+See also link:https://access.redhat.com/solutions/5480561[Cannot perform yum update on my RHV manager (ansible conflict)]
+// ansible lock addition
 ====

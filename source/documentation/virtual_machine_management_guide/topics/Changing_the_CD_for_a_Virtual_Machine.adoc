@@ -1,7 +1,7 @@
 [[Changing_the_CD_for_a_Virtual_Machine]]
 === Changing the CD for a Virtual Machine
 
-You can change the CD accessible to a virtual machine while that virtual machine is running, using ISO images that have been uploaded to the data domain of the virtual machine's cluster. See link:{URL_virt_product_docs}administration_guide/[Uploading Images to a Data Storage Domain] in the _Administration Guide_ for details.
+You can change the CD accessible to a virtual machine while that virtual machine is running, using ISO images that have been uploaded to the data domain of the virtual machine's cluster. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain[Uploading Images to a Data Storage Domain] in the _Administration Guide_ for details.
 
 *Changing the CD for a Virtual Machine*
 

@@ -1,5 +1,5 @@
 [[Configuring_Satellite_Errata]]
-=== Configuring Satellite errata viewing for a virtual machine
+= Configuring Satellite errata viewing for a virtual machine
 
 In the Administration Portal, you can configure a virtual machine to display the available errata. The virtual machine needs to be associated with a Red Hat Satellite server to show available errata.
 
@@ -16,7 +16,13 @@ Virtual machines added using an IP address cannot report errata.
 ====
 * The host that the virtual machine runs on also needs to be configured to receive errata information from Satellite.
 * The virtual machine must have the `ovirt-guest-agent` package installed. This package enables the virtual machine to report its host name to the {virt-product-fullname} {engine-name}, which enables the Red Hat Satellite server to identify the virtual machine as a content host and report the applicable errata.
-* The virtual machine must be registered to the Red Hat Satellite server as a content host and have the `katello-host-tools` package installed.
+* The virtual machine must be registered to the Red Hat Satellite server as a content host.
+* Use Red Hat Satellite remote execution to manage packages on hosts.
+
+[NOTE]
+====
+The Katello agent is deprecated and will be removed in a future Satellite version. Migrate your processes to use the remote execution feature to update clients remotely.
+====
 
 .Procedure
 
@@ -28,7 +34,6 @@ Virtual machines added using an IP address cannot report errata.
 
 .Additional resources
 
-* link:{URL_virt_product_docs}administration_guide/index.html#Configuring_Satellite_Errata_Management_for_a_Host[Setting up Satellite errata viewing for a host] in the _Administration Guide_
-* link:{URL_virt_product_docs}virtual_machine_management_guide/index.html#Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux[Installing the Guest Agents, Tools, and Drivers on Linux] in the _Virtual Machine Management Guide_ for {enterprise-linux} virtual machines.
-* link:{URL_virt_product_docs}virtual_machine_management_guide/index.html#Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_ for Windows virtual machines.
-* link:{URL_satellite_docs}html/managing_hosts/host-management-without-goferd-and-katello-agent_managing-hosts[Host Management Without Goferd and Katello Agent] in the Red Hat Satellite document _Managing Hosts_.
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_Satellite_Errata_Management_for_a_Host[Setting up Satellite errata viewing for a host] in the _Administration Guide_
+* link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux[Installing the Guest Agents, Tools, and Drivers on Linux] in the _Virtual Machine Management Guide_ for {enterprise-linux} virtual machines.
+* link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_ for Windows virtual machines.

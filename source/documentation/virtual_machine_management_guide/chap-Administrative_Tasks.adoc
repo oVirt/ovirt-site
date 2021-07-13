@@ -63,6 +63,9 @@ include::topics/Removing_Host_Devices_from_a_Virtual_Machine.adoc[]
 
 include::topics/Pinning_a_Virtual_Machine_to_Another_Host.adoc[]
 
+include::topics/conc-nvdimm-host-devices.adoc[leveloffset=+3]
+
+
 [[sect-Affinity_Groups]]
 include::topics/Affinity_groups.adoc[]
 
@@ -92,7 +95,7 @@ include::topics/Removing_an_Affinity_Label.adoc[]
 
 [NOTE]
 ====
-The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disks, and templates can then be uploaded from the imported storage domain to the attached data center. See the link:{URL_virt_product_docs}administration_guide#sect-Importing_Existing_Storage_Domains[Importing Existing Storage Domains] section in the _{virt-product-fullname} Administration Guide_ for information on importing storage domains.
+The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disks, and templates can then be uploaded from the imported storage domain to the attached data center. See the link:{URL_virt_product_docs}{URL_format}administration_guide#sect-Importing_Existing_Storage_Domains[Importing Existing Storage Domains] section in the _{virt-product-fullname} Administration Guide_ for information on importing storage domains.
 ====
 You can export virtual machines and templates from, and import them to, data centers in the same or different Red Hat Virtualization environment. You can export or import virtual machines by using an export domain, a data domain, or by using a Red Hat Virtualization host.
 
@@ -104,7 +107,7 @@ You can also use the V2V feature to import virtual machines from other virtualiz
 
 [IMPORTANT]
 ====
-Virtual machines must be shut down before being exported or imported.
+Virtual machines must be shut down before being imported.
 ====
 
 include::topics/Exporting_individual_virtual_machines_to_the_export_domain.adoc[]
@@ -112,6 +115,8 @@ include::topics/Exporting_individual_virtual_machines_to_the_export_domain.adoc[
 include::topics/proc_Exporting_individual_virtual_machines_to_a_data_domain.adoc[leveloffset=+3]
 
 include::topics/Importing_the_virtual_machine_from_the_export_domain.adoc[]
+
+include::topics/Importing_a_Virtual_Machine_from_a_Data_Domain.adoc[leveloffset=+3]
 
 include::topics/Importing_a_Virtual_Machine_from_a_VMware_Provider.adoc[]
 
@@ -183,5 +188,7 @@ include::topics/Configuring_qxl_drivers_on_virtual_machines.adoc[]
 include::topics/Configuring_a_virtual_machines_tablet_and_mouse_to_use_SPICE.adoc[]
 
 include::topics/KVM_virtual_machine_timing_management.adoc[]
+
+include::topics/proc-Adding_TPM_devices.adoc[]
 
 :context!: vm_guide_administrative_tasks

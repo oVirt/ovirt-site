@@ -7,5 +7,5 @@ To use this tool, the `cloud-init` package must first be installed on the virtua
 
 [NOTE]
 ====
-Alternatively, you can configure Cloud-Init with link:https://docs.ansible.com/ansible/latest/modules/ovirt_vm_module.html#examples[Ansible], link:{URL_downstream_virt_product_docs}html-single/python_sdk_guide/#Starting_a_Virtual_Machine_with_Cloud-Init[Python], link:https://github.com/oVirt/ovirt-engine-sdk-java/blob/master/sdk/src/test/java/org/ovirt/engine/sdk4/examples/StartVmWithCloudInit.java[Java], or link:{URL_downstream_virt_product_docs}html-single/ruby_sdk_guide/#starting_a_virtual_machine_with_cloud_init[Ruby].
+Alternatively, you can configure Cloud-Init with link:https://docs.ansible.com/ansible/latest/modules/ovirt_vm_module.html#examples[Ansible], link:{URL_downstream_virt_product_docs}python_sdk_guide/index#Starting_a_Virtual_Machine_with_Cloud-Init[Python], link:https://github.com/oVirt/ovirt-engine-sdk-java/blob/master/sdk/src/test/java/org/ovirt/engine/sdk4/examples/StartVmWithCloudInit.java[Java], or link:{URL_downstream_virt_product_docs}ruby_sdk_guide/index#starting_a_virtual_machine_with_cloud_init[Ruby].
 ====

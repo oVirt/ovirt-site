@@ -29,7 +29,7 @@ In this example the Ansible playbook is named `dr-rhv-setup.yml`, and is execute
     - oVirt.disaster-recovery
 ----
 +
-NOTE: For extra security you can encrypt your {engine-name} password in a `.yml` file. See link:{URL_virt_product_docs}administration_guide/index[Using Ansible Roles to Configure {virt-product-fullname}] in the _Administration Guide_ for more information.
+NOTE: For extra security you can encrypt your {engine-name} password in a `.yml` file. See link:{URL_virt_product_docs}{URL_format}administration_guide/index[Using Ansible Roles to Configure {virt-product-fullname}] in the _Administration Guide_ for more information.
 
 . Run the Ansible command to generate the mapping file. The primary site’s configuration will be prepopulated.
 +

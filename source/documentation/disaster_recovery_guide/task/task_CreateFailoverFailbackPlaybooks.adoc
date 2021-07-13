@@ -22,7 +22,7 @@ dr_sites_primary_password: primary_password
 dr_sites_secondary_password: secondary_password
 ----
 
-NOTE: For extra security you can encrypt the password file. However, you will need to use the `--ask-vault-pass` parameter when running the playbook. See _Using Ansible Roles to Configure {virt-product-fullname}_ in the link:{URL_virt_product_docs}administration_guide[Administration Guide] for more information.
+NOTE: For extra security you can encrypt the password file. However, you will need to use the `--ask-vault-pass` parameter when running the playbook. See _Using Ansible Roles to Configure {virt-product-fullname}_ in the link:{URL_virt_product_docs}{URL_format}administration_guide/index#Using_Ansible_Roles[Administration Guide] for more information.
 
 In these examples the Ansible playbooks to fail over and fail back are named `dr-rhv-failover.yml` and  `dr-rhv-failback.yml`.
 
@@ -30,7 +30,7 @@ Create the  following Ansible playbook to failover the environment:
 
 [options="nowrap" subs="normal"]
 ----
---- 
+---
 - name: Failover RHV
   hosts: localhost
   connection: local
@@ -49,7 +49,7 @@ Create the  following Ansible playbook to failback the environment:
 
 [options="nowrap" subs="normal"]
 ----
---- 
+---
 - name: Failback RHV
   hosts: localhost
   connection: local
@@ -62,4 +62,3 @@ Create the  following Ansible playbook to failback the environment:
   roles:
     - oVirt.disaster-recovery
 ----
-

@@ -1,12 +1,9 @@
-:ovirt-doc:
-include::../common/collateral_files/attributes.adoc[]
+:rhv-doc:
+include::common/collateral_files/attributes.adoc[]
 = Installing {virt-product-fullname} as a standalone {engine-name} with local databases
 :context: SM_localDB_deploy
 :SM_localDB_deploy:
 
-// Make sure Jekyll displays a guide title
-[discrete]
-= Installing {virt-product-fullname} as a standalone {engine-name} with local databases
 
 Standalone {engine-name} installation is manual and customizable. You must install a {enterprise-linux} machine, then run the configuration script (`engine-setup`) and provide information about how you want to configure the {virt-product-fullname} {engine-name}. Add hosts and storage after the {engine-name} is running. At least two hosts are required for virtual machine high availability.
 
@@ -14,10 +11,10 @@ In a local database environment, the {engine-name} database and Data Warehouse d
 
 See the link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration.
 
-include::../common/arch/con-RHV_key_components.adoc[]
+include::common/arch/con-RHV_key_components.adoc[]
 
 [discrete]
-include::../common/arch/con-Standalone_Manager_Architecture.adoc[leveloffset=+1]
+include::common/arch/con-Standalone_Manager_Architecture.adoc[leveloffset=+1]
 
 [id='Install_overview_SM_localDB_deploy']
 == Installation Overview
@@ -26,7 +23,7 @@ Installing a standalone {engine-name} environment with local databases involves 
 
 . xref:Installing_the_Red_Hat_Virtualization_Manager_SM_localDB_deploy[Install and configure the {virt-product-fullname} {engine-name}:]
 .. xref:Installing_RHEL_for_RHVM_SM_localDB_deploy[Install a {enterprise-linux} machine for the {engine-name}.]
-.. xref:Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enable the {virt-product-fullname} {engine-name} repositories.]
+.. xref:Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Register the {engine-name} machine with the Content Delivery Network and enable the {virt-product-fullname} {engine-name} repositories.]
 .. xref:Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Install and Configure the {virt-product-fullname} {engine-name} using `engine-setup`.]
 .. xref:Connecting_to_the_Administration_Portal_install_RHVM[Connect to the Administration Portal to add hosts and storage domains.]
 
@@ -52,7 +49,7 @@ Keep the environment up to date. See link:https://access.redhat.com/articles/297
 ====
 
 
-include::../common/prereqs/asm-Requirements.adoc[leveloffset=+1]
+include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 
 [id='Installing_the_Red_Hat_Virtualization_Manager_SM_localDB_deploy']
 == Installing the {virt-product-fullname} {engine-name}
@@ -73,43 +70,50 @@ The {virt-product-fullname} {engine-name} must run on {enterprise-linux} 8. For 
 
 This machine must meet the minimum xref:hardware-requirements_SM_localDB_deploy[{engine-name} hardware requirements].
 
+To install the {virt-product-fullname} {engine-name} on a system that does not have access to the Content Delivery Network, see xref:Configuring_an_Offline_Repository_for_Red_Hat_Virtualization_Manager_Installation_SM_localDB_deploy[] before configuring the {engine-name}.
+
 By default, the {virt-product-fullname} {engine-name}'s configuration script, `engine-setup`, creates and configures the {engine-name} database and Data Warehouse database automatically on the {engine-name} machine. To set up either database, or both, manually, see xref:Preparing_a_Local_Manually-Configured_PostgreSQL_Database_SM_localDB_deploy[] before configuring the {engine-name}.
 
-include::../common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+2]
+include::common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+2]
 
-include::../common/install/proc-Configuring_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+2]
+include::common/install/proc-Configuring_the_Red_Hat_Virtualization_Manager.adoc[leveloffset=+2]
 
 Log in to the Administration Portal, where you can add hosts and storage to the environment:
 
-include::../common/admin/proc-Connecting_to_the_Administration_Portal.adoc[leveloffset=+2]
+include::common/admin/proc-Connecting_to_the_Administration_Portal.adoc[leveloffset=+2]
 //end sect
 // Adding context back after assembly
 :context: SM_localDB_deploy
 
-include::../common/install/assembly-Installing_Hosts_for_RHV.adoc[leveloffset=+1]
+include::common/install/assembly-Installing_Hosts_for_RHV.adoc[leveloffset=+1]
 
-include::../common/storage/assembly-Preparing_Storage_for_RHV.adoc[leveloffset=+1]
+include::common/storage/assembly-Preparing_Storage_for_RHV.adoc[leveloffset=+1]
 
-include::../common/storage/assembly-Adding_Storage_Domains_to_RHV.adoc[leveloffset=+1]
+include::common/storage/assembly-Adding_Storage_Domains_to_RHV.adoc[leveloffset=+1]
 
 :numbered!:
 
+[appendix]
+include::common/install/proc-Configuring_an_Offline_Repository_for_Red_Hat_Virtualization_Manager_Installation.adoc[leveloffset=+1]
 //adding context back
 :context: SM_localDB_deploy
 
 [appendix]
-include::../common/database/proc-Preparing_a_Local_Manually-Configured_PostgreSQL_Database.adoc[leveloffset=+1]
+include::common/database/proc-Preparing_a_Local_Manually-Configured_PostgreSQL_Database.adoc[leveloffset=+1]
 //adding context back
 :context: SM_localDB_deploy
-
-[appendix]
-include::../common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+1]
 
 [appendix]
 include::common/install/appe-Set_up_Cinderlib.adoc[leveloffset=+1]
 
 [appendix]
-include::../common/admin/proc-Removing_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
+include::common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+1]
+
+[appendix]
+include::common/admin/proc-Removing_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
+
+[appendix]
+include::common/install/proc-Preventing_Kernel_Modules_from_Loading_Automatically.adoc[leveloffset=+1]
 
 ifdef::context[:parent-context: {context}]
 :context: Install_nodes_RHVH
@@ -120,6 +124,5 @@ include::common/install/proc-Preventing_Kernel_Modules_from_Loading_Automaticall
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
 
-== Legal notice
-
-Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}installing_red_hat_virtualization_as_a_standalone_manager_with_local_databases/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a standalone Manager with local databases]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].
+// [appendix]
+// include::common/security/assembly-Securing_Red_Hat_Virtualization.adoc[leveloffset=+1]

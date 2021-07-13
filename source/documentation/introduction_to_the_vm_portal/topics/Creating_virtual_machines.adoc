@@ -20,6 +20,6 @@
 * *Cloud-Init*
 * *Icon*
 +
-See  Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows in the _Virtual Machine Management Guide_ for details.
+See  link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Virtual_Machine_General_settings_explained[Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows] in the _Virtual Machine Management Guide_ for details.
 
 . Click btn:[Create VM].

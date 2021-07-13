@@ -43,6 +43,8 @@ a|Enables the virtual machine's virtual CPU (vCPU) to run on a specific physical
 
 * `1#1-4,^2` - Pins vCPU 1 to one of the pCPUs in the range of 1 to 4, excluding pCPU 2.
 
+The *CPU Pinning Topology* is populated automatically when automatic NUMA pinning is activated. 
+
 In order to pin a virtual machine to a host, you must also select the following on the *Host* tab:
 
 * *Start Running On:* *Specific*
@@ -62,9 +64,13 @@ When defined, *Migration Options* in the *Hosts* tab is set to *Allow manual mig
 
 |
 |*Memory Balloon Device Enabled*
-|Enables the memory balloon device for this virtual machine. Enable this setting to allow memory overcommitment in a cluster. Enable this setting for applications that allocate large amounts of memory suddenly but set the guaranteed memory to the same value as the defined memory.Use ballooning for applications and loads that slowly consume memory, occasionally release memory, or stay dormant for long periods of time, such as virtual desktops. See link:{URL_virt_product_docs}administration_guide#Cluster_Optimization_Settings_Explained[Optimization Settings Explained] in the _Administration Guide_ for more information.
+|Enables the memory balloon device for this virtual machine. Enable this setting to allow memory overcommitment in a cluster. Enable this setting for applications that allocate large amounts of memory suddenly but set the guaranteed memory to the same value as the defined memory.Use ballooning for applications and loads that slowly consume memory, occasionally release memory, or stay dormant for long periods of time, such as virtual desktops. See link:{URL_virt_product_docs}{URL_format}administration_guide#Cluster_Optimization_Settings_Explained[Optimization Settings Explained] in the _Administration Guide_ for more information.
 | Yes.
 
+|*Trusted Platform Module*
+|*TPM Device Enabled*
+|Enables the addition of an emulated Trusted Platform Module (TPM) device. Select this check box to add an emulated Trusted Platform Module device to a virtual machine. TPM devices can only be used on x86_64 machines with UEFI firmware and PowerPC machines with pSeries firmware installed. See xref:Adding_TPM_devices[Adding Trusted Platform Module devices] for more information.
+| Yes.
 
 |*IO Threads*
 |*IO Threads Enabled*
@@ -84,6 +90,18 @@ where _other-nic-properties_ is a semicolon-separated list of pre-existing NIC c
 | Yes.
 
 
+|
+|*VirtIO-SCSI Enabled*
+|Allows users to enable or disable the use of VirtIO-SCSI on the virtual machines.
+| Not applicable.
+
+
+|
+|*VirtIO-SCSI Multi Queues Enabled*
+|The *VirtIO-SCSI Multi Queues Enabled* option is only available when *VirtIO-SCSI Enabled* is selected. Select this check box to enable multiple queues in the VirtIO-SCSI driver. This setting can improve I/O throughput when multiple threads within the virtual machine access the virtual disks. It creates up to four queues per VirtIO-SCSI controller, depending on how many disks are connected to the controller and how many vCPUs are available.
+| Not applicable.
+
+
 |*Storage Allocation*
 |
 |The *Storage Allocation* option is only available when the virtual machine is created from a template.
@@ -99,12 +117,6 @@ where _other-nic-properties_ is a semicolon-separated list of pre-existing NIC c
 |
 |*Clone*
 |Optimized for the speed of guest read and write operations. All disk space requested in the template is allocated at the time of the clone operation. Possible disk formats are *QCOW2* or *Raw*.
-| Not applicable.
-
-
-|
-|*VirtIO-SCSI Enabled*
-|Allows users to enable or disable the use of VirtIO-SCSI on the virtual machines.
 | Not applicable.
 
 
@@ -140,7 +152,7 @@ where _other-nic-properties_ is a semicolon-separated list of pre-existing NIC c
 
 |
 |*Disk Profile*
-|The disk profile to assign to the virtual disk. Disk profiles are created based on storage profiles defined in the data centers. For more information, see link:{URL_virt_product_docs}administration_guide[Creating a Disk Profile].
+|The disk profile to assign to the virtual disk. Disk profiles are created based on storage profiles defined in the data centers. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Creating_a_Disk_Profile[Creating a Disk Profile].
 | Not applicable.
 
 |===

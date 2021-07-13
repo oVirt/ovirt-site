@@ -1,5 +1,5 @@
 [[SPICE_Console_Options]]
-===== SPICE Console Options
+= SPICE Console Options
 
 When the SPICE connection protocol is selected, the following options are available in the *Console Options* window.
 
@@ -12,5 +12,3 @@ SPICE Options
 * *Open in Full Screen*: Select this check box for the virtual machine console to automatically open in full screen when you connect to the virtual machine. Press `SHIFT` + `F11` to toggle full screen mode on or off.
 
 * *Enable SPICE Proxy*: Select this check box to enable the SPICE proxy.
-
-

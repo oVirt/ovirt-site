@@ -1,5 +1,5 @@
 [[Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines_Using_Active_Directory]]
-==== Configuring Single Sign-On for {enterprise-linux} Virtual Machines Using Active Directory
+= Configuring Single Sign-On for {enterprise-linux} Virtual Machines Using Active Directory
 
 To configure single sign-on for {enterprise-linux} virtual machines using GNOME and KDE graphical desktop environments and Active Directory, you must install the `ovirt-guest-agent` package on the virtual machine, install the packages associated with your window manager and join the virtual machine to the domain.
 
@@ -26,7 +26,7 @@ The following procedure assumes that you have a working Active Directory configu
 # subscription-manager repos --enable=rhel-7-server-rh-common-rpms
 ----
 
-. Download and install the guest agent packages: 
+. Download and install the guest agent packages:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -48,7 +48,7 @@ The following procedure assumes that you have a working Active Directory configu
 ----
 
 . On the virtual machine, modify the */etc/samba/smb.conf* file to contain the following, replacing `DOMAIN` with the short domain name and `REALM.LOCAL` with the Active Directory realm:
-+			
++
 [options="nowrap" subs="normal"]
 ----
 [global]
@@ -71,7 +71,7 @@ The following procedure assumes that you have a working Active Directory configu
 template shell = /bin/bash
 ----
 +
-. Join the virtual machine to the domain: 
+. Join the virtual machine to the domain:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -79,7 +79,7 @@ net ads join -U _user_name_
 ----
 +
 . Start the `winbind` service and ensure it starts on boot:
-* For {enterprise-linux} 6							
+* For {enterprise-linux} 6
 +
 [options="nowrap" subs="normal"]
 ----
@@ -87,7 +87,7 @@ net ads join -U _user_name_
 # chkconfig winbind on
 ----
 
-* For {enterprise-linux} 7							
+* For {enterprise-linux} 7
 +
 [options="nowrap" subs="normal"]
 ----

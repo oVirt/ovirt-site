@@ -1,0 +1,47 @@
+// Module included in the following assemblies:
+//
+// doc-Virtual_Machine_Management_Guide/chap-Administrative_Tasks.adoc
+
+[id="conc-nvdimm-host-devices_{context}"]
+= NVDIMM host devices
+
+[NOTE]
+====
+NVDIMM devices are Technology Preview features only. Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information, see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
+====
+
+You can add emulated NVDIMM devices to virtual machines. Elsewhere, this type of memory is also known as _virtual NVDIMM_ or _vNVDIMM_.
+
+The emulated NVDIMM you can attach to a virtual machine is backed by real NVDIMM on the host machine where the virtual machine runs. Therefore, when you attach NVDIMM to a virtual machine, you also pin the virtual machine to a specific host. 
+
+You can reconfigure the mode, partitioning, and other properties of the emulated NVDIMM device in the virtual machine without affecting the settings of the physical NVDIMM on the host device.
+
+To add emulated NVDIMM to a virtual machine, see xref:Adding_Host_Devices_to_a_Virtual_Machine[]
+
+.Limitations
+
+* Memory snapshots are disabled when an NVDIMM device is present in a virtual machine. There is no way to make a snapshot of NVDIMM content, and a memory snapshot cannot work correctly without having the corresponding NVDIMM data.
+
+* In {virt-product-shortname}, each NVDIMM device passed to a virtual machine has an automatically-assigned label area with a fixed size of 128 KB. IBM POWER hardware, and 128 KB is the minimum label size allowed by QEMU.
+
+* By default, the virtual machine uses the whole NVDIMM device. You cannot configure the size of the NVDIMM from the virtual machine. To configure its size, partition the NVDIMM device on the host and add the partition to the virtual machine.
+
+* The size of the NVDIMM device on the virtual machine may be slightly lower than on the host to comply with libvirt and QEMU alignment and size adjustments. Precise sizing is also needed to make memory hotplug work.
+
+* libvirt and QEMU adjust their size and label placement. If those internal arrangements change, it can cause data loss.
+
+* NVDIMM hotplug is not supported by the platform.
+
+* Virtual machines with NVDIMM devices cannot migrate because they are pinned to a host.
+
+* SELinux currently prevents access to NVDIMM devices in `devdax` mode, see https://bugzilla.redhat.com/1855336.
+
+[IMPORTANT]
+====
+Avoid using NVDIMM on IBM POWER hardware. This combination is currently not expected to be stable until further work is completed.
+====
+
+.Additional resources
+
+* link:https://github.com/qemu/qemu/blob/master/docs/nvdimm.txt[QEMU NVDIMM documentation]
+* xref:Adding_Host_Devices_to_a_Virtual_Machine[]

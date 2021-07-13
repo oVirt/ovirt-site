@@ -1,5 +1,5 @@
 [[Configuring_Multiple_Displays_for_Windows_Virtual_Machines]]
-==== Configuring Multiple Displays for Windows Virtual Machines
+= Configuring Multiple Displays for Windows Virtual Machines
 
 A maximum of four displays can be configured for a single Windows virtual machine when connecting to the virtual machine using the SPICE protocol.
 
@@ -24,5 +24,3 @@ This setting controls the maximum number of displays that can be enabled for the
 ====
 By default, *Display 1* is the only display that is enabled on starting a SPICE session with a virtual machine. If no other displays are enabled, disabling this display will close the session.
 ====
-
-

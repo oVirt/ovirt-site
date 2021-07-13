@@ -1,34 +1,42 @@
 [[Importing_a_Virtual_Machine_from_a_VMware_Provider]]
 ==== Importing a Virtual Machine from a VMware Provider
 
-Import virtual machines from a VMware vCenter provider to your {virt-product-fullname} environment. You can import from a VMware provider by entering its details in the *Import Virtual Machine(s)* window during each import operation, or you can add the VMware provider as an external provider, and select the preconfigured provider during import operations. To add an external provider, see link:{URL_virt_product_docs}administration_guide/#sect-Adding_External_Providers[Adding a VMware Instance as a Virtual Machine Provider].
+Import virtual machines from a VMware vCenter provider to your {virt-product-fullname} environment. You can import from a VMware provider by entering its details in the *Import Virtual Machine(s)* window during each import operation, or you can add the VMware provider as an external provider, and select the preconfigured provider during import operations. To add an external provider, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Adding_External_Providers[Adding a VMware Instance as a Virtual Machine Provider].
 
 {virt-product-fullname} uses V2V to import VMware virtual machines. For OVA files, the only disk format {virt-product-fullname} supports is VMDK.
-
-The `virt-v2v` package must be installed on at least one host (referred to in this procedure as the proxy host). The `virt-v2v` package is available by default on {hypervisor-fullname}s ({hypervisor-shortname}) and is installed on {enterprise-linux-host-fullname}s as a dependency of VDSM when added to the {virt-product-fullname} environment. {enterprise-linux-host-fullname}s must be {enterprise-linux} 7.2 or later.
 
 [NOTE]
 ====
 The `virt-v2v` package is not available on the ppc64le architecture and these hosts cannot be used as proxy hosts.
 ====
 
-[WARNING]
-====
-The virtual machine must be shut down before being imported. Starting the virtual machine through VMware during the import process can result in data corruption.
-====
-
-[IMPORTANT]
-====
-An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning will display and you will be prompted to change your selection to include only virtual machines with the same architecture.
-====
-
 [NOTE]
 ====
-If the import fails, refer to the relevant log file in */var/log/vdsm/import/* and to */var/log/vdsm/vdsm.log* on the proxy host for details.
+If the import fails, refer to the relevant log file in `/var/log/vdsm/import/` and to `/var/log/vdsm/vdsm.log` on the proxy host for details.
 ====
 
+.Prerequisites
 
-*Importing a Virtual Machine from VMware*
+* The `virt-v2v` package must be installed on at least one host, referred to in this procedure as the proxy host. The `virt-v2v` package is available by default on {hypervisor-fullname}s and is installed on {enterprise-linux-host-fullname}s as a dependency of VDSM when added to the {virt-product-fullname} environment.
+
+* {enterprise-linux-host-fullname}s must be {enterprise-linux} 7.2 or later.
+
+* At least one data and one ISO storage domain are connected to the data center.
++
+[NOTE]
+====
+You can only migrate to shared storage, such as NFS, iSCSI, or FCP. Local storage is not supported.
+
+Although the ISO storage domain has been deprecated, it is required for migration.
+====
+
+* The `virtio-win___version__.iso` image file for Windows virtual machines is uploaded to the ISO storage domain. This image includes the guest tools that are required for migrating Windows virtual machines.
+
+* The virtual machine must be shut down before being imported. Starting the virtual machine through VMware during the import process can result in data corruption.
+
+* An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning appears and you are prompted to change your selection to include only virtual machines with the same architecture.
+
+.Procedure
 
 . Click menu:Compute[Virtual Machines].
 . Click *More Actions* (image:common/images/moreactions.png[]) and select *Import*. This opens the *Import Virtual Machine(s)* window.

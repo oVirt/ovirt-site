@@ -1,7 +1,7 @@
 [[Powering_on_a_virtual_machine]]
 = Starting a Virtual Machine
 
-*Starting Virtual Machines*
+.Procedure
 
 . Click menu:Compute[Virtual Machines] and select a virtual machine with a status of `Down`.
 . Click btn:[Run].
@@ -10,9 +10,27 @@ The *Status* of the virtual machine changes to `Up`, and the operating system in
 
 [NOTE]
 ====
-A virtual machine will not start on a host that the CPU is overloaded on. By default, a host's CPU is considered overloaded if it has a load of more than 80% for 5 minutes but these values can be changed using scheduling policies. See link:{URL_virt_product_docs}administration_guide/#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
+A virtual machine will not start on a host with an overloaded CPU. By default, a host's CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
 ====
 
+.Troubleshooting
 
+Scenario - the virtual machine fails to boot with the following error message:
 
+[options="nowrap" subs="normal"]
+----
+Boot failed: not a bootable disk - No Bootable device
+----
 
+To solve this problem:
+
+. Power off the affected virtual machine.
+. Clear the *Bootable* checkbox in the newly added disk.
+. Select the first disk as a *Bootable* disk, and start the virtual machine.
+
+Alternative solutions:
+
+* Create a link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Creating_a_cloned_virtual_machine_based_on_a_template[Cloned Virtual Machine Based on a Template].
+* Create a new virtual machine with a local boot disk managed by {virt-product-shortname} that contains the OS and application binaries.
+
+* Install the OS by booting from the *Network (PXE)* boot option.

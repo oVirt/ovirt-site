@@ -26,8 +26,8 @@ The interface type can be updated after stopping all virtual machines that the d
 |*Disk Profile* |The disk profile assigned to the virtual disk. Disk profiles define the maximum amount of throughput and the maximum level of input and output operations for a virtual disk in a storage domain. Disk profiles are defined on the storage domain level based on storage quality of service entries created for data centers.
 |*Activate Disk(s)* |Activate the virtual disk immediately after creation. This option is not available when creating a floating disk.
 |*Wipe After Delete* |Allows you to enable enhanced security for deletion of sensitive material when the virtual disk is deleted.
-|*Bootable* |Allows you to enable the bootable flag on the virtual disk.
-|*Shareable* |Allows you to attach the virtual disk to more than one virtual machine at a time.
+|*Bootable* |Enables the bootable flag on the virtual disk.
+|*Shareable* |Attaches the virtual disk to more than one virtual machine at a time.
 |*Read Only* |Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another. This option is not available when creating a floating disk.
 |*Enable Discard* |Allows you to shrink a thin provisioned disk while the virtual machine is up. For block storage, the underlying storage device must support discard calls, and the option cannot be used with *Wipe After Delete* unless the underlying storage supports the discard_zeroes_data property. For file storage, the underlying file system and the block device must support discard calls. If all requirements are met, SCSI UNMAP commands issued from guest virtual machines is passed on by QEMU to the underlying storage to free up the unused space.
 |===
@@ -86,29 +86,6 @@ The following considerations must be made when using a direct LUN as a virtual m
 * Direct LUN disks are not included in virtual machine exports.
 
 * Direct LUN disks are not included in virtual machine snapshots.
-
-The *Cinder* settings form will be disabled if there are no available OpenStack Volume storage domains on which you have permissions to create a disk in the relevant Data Center. *Cinder* disks require access to an instance of OpenStack Volume that has been added to the {virt-product-fullname} environment using the *External Providers* window; see link:{URL_virt_product_docs}administration_guide[Adding an OpenStack Volume (Cinder) Instance for Storage Management] for more information.
-
-
-.New Virtual Disk and Edit Virtual Disk settings: *Cinder*
-[cols="1,2", options="header"]
-|===
-|Field Name |Description
-|*Size(GB)* |The size of the new virtual disk in GB.
-|*Alias* |The name of the virtual disk, limited to 40 characters.
-|*Description* |A description of the virtual disk. This field is recommended but not mandatory.
-|*Interface* |The virtual interface the disk presents to virtual machines. *VirtIO* is faster, but requires drivers. {enterprise-linux} 5 and later include these drivers.Windows does not include these drivers, but you can install them from the virtio-win ISO image. IDE and SATA devices do not require special drivers.
-
-The interface type can be updated after stopping all virtual machines that the disk is attached to.
-|*Data Center* |The data center in which the virtual disk will be available.
-|*Storage Domain* |The storage domain in which the virtual disk will be stored. The drop-down list shows all storage domains available in the given data center, and also shows the total space and currently available space in the storage domain.
-|*Volume Type* |The volume type of the virtual disk. The drop-down list shows all available volume types. The volume type will be managed and configured on OpenStack Cinder.
-|*Activate Disk(s)* |Activate the virtual disk immediately after creation. This option is not available when creating a floating disk.
-|*Bootable* |Allows you to enable the bootable flag on the virtual disk.
-|*Shareable* |Allows you to attach the virtual disk to more than one virtual machine at a time.
-|*Read Only* |Allows you to set the disk as read-only. The same disk can be attached as read-only to one virtual machine, and as rewritable to another. This option is not available when creating a floating disk.
-|===
-
 
 [IMPORTANT]
 ====

@@ -100,4 +100,8 @@ a|Network-related settings for the virtual machine. Click the disclosure arrow t
 |Windows
 |A custom Sysprep definition. The definition must be in the format of a complete unattended installation answer file. You can copy and paste the default answer files in the */usr/share/ovirt-engine/conf/sysprep/* directory on the machine on which the {virt-product-fullname} {engine-name} is installed and alter the fields as required. See xref:chap-Templates[] for more information.
 
+|*Ignition 2.3.0*
+|Red Hat Enterprise Linux CoreOS
+|When Red Hat Enterprise Linux CoreOS is selected as Operating System, this check box toggles whether Ignition will be used to initialize the virtual machine.
+
 |===

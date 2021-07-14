@@ -1,10 +1,10 @@
 [[Adding_a_USB_policy]]
-==== Adding a USB Policy
+= Adding a USB Policy
 
 Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.
 
 
-*Adding a USB Policy*
+.Procedure
 
 . Click  *Add*.
 . Use the *USB Class*, *Vendor ID*, *Product ID*, and *Revision* check boxes and lists to specify the device.
@@ -24,5 +24,7 @@ image::images/306.png[]
 . Click menu:File[Save] to save the changes.
 
 
-You have added a USB policy to the USB Filter Editor. USB filter policies must be exported to the {virt-product-fullname} {engine-name} to take effect. 
+You have added a USB policy to the USB Filter Editor. You need to export USB filter policies to the {virt-product-fullname} {engine-name} for them to take effect.
 
+.Additional resources
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#Exporting_a_USB_policy[Exporting a USB Policy]

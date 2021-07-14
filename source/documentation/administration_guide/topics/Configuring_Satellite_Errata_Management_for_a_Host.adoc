@@ -15,8 +15,13 @@ In the Administration Portal, you can configure a host to view errata from Red H
 Hosts added using an IP address cannot report errata.
 ====
 * The Satellite account that manages the host must have Administrator permissions and a default organization set.
-* The host must be registered to the Satellite server and have the `katello-host-tools` package installed.
+* The host must be registered to the Satellite server.
+* Use Red Hat Satellite remote execution to manage packages on hosts.
 
+[NOTE]
+====
+The Katello agent is deprecated and will be removed in a future Satellite version. Migrate your processes to use the remote execution feature to update clients remotely.
+====
 
 .Procedure
 

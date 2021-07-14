@@ -1,0 +1,28 @@
+[id='local-maintenance-mode_{context}']
+= Setting local maintenance mode
+
+Enabling local maintenance mode stops the high-availability agent on a single self-hosted engine node.
+
+.Setting the local maintenance mode from the Administration Portal
+
+. Put a self-hosted engine node into local maintenance mode:
+.. In the Administration Portal, click menu:Compute[Hosts] and select a self-hosted engine node.
+.. Click menu:Management[Maintenance] and btn:[OK]. Local maintenance mode is automatically triggered for that node.
+
+. After you have completed any maintenance tasks, disable the maintenance mode:
+.. In the Administration Portal, click menu:Compute[Hosts] and select the self-hosted engine node.
+.. Click menu:Management[Activate].
+
+.Setting the local maintenance mode from the command line
+
+.  Log in to a self-hosted engine node and put it into local maintenance mode:
++
+----
+# hosted-engine --set-maintenance --mode=local
+----
+
+. After you have completed any maintenance tasks, disable the maintenance mode:
++
+----
+# hosted-engine --set-maintenance --mode=none
+----

@@ -1,0 +1,41 @@
+// Module included in the following assemblies:
+//
+// doc-Administration_Guide/assembly-enabling-encrypted-vnc-consoles-for-fips.adoc
+
+[id="enabling_fips_using_the_rhv_manager_{context}"]
+= Configuring FIPS hosts using the Manager
+
+// These instructions are specific to Red Hat Virtualization - They do not apply to oVirt. Do not replace product names with attributes.
+
+After you have enabled FIPS mode on each host machine, you need to configure the hosts in the Manager.
+
+.Procedure
+
+. In the Administration Portal, click menu:Compute[Hosts].
+
+. Select the host, click btn:[Edit], and in the *Edit Host* window, select the *Kernel* tab.
+
+. Under *Kernel boot parameters*, if the checkboxes are greyed-out, click btn:[Reset].
+
+. Select the *FIPS mode* checkbox and click btn:[OK].
+// This next step + note is not necessary once you have entered `fips-mode-setup --enable`, as described in:
+// {URL_rhel_docs_latest}html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening#switching-the-system-to-fips-mode_using-the-system-wide-cryptographic-policies[Switching the system to FIPS mode]
+// . Check that the *Kernel command line* contains the host's UUID. For example: `fips=1 boot=/dev/sda1` or `fips=1 boot=UUID=12345a67-89bc-12d3-4efg-56hijk7lmn8o`. If it is missing, add it manually.
+// +
+// [NOTE]
+// ====
+// You can use `# blkid $filesystem` to get UUIDs.
+// ====
+. Select the host and click menu:Management[Maintenance] and btn:[OK].
+
+. With the host in maintenance mode, select the host and click menu:Installation[Reinstall].
+
+. After reinstallation, select the host and click menu:Management[Restart].
+
+. After rebooting, select the host and click menu:Installation[Enroll certificate]
+
+. Click the *Notification Drawer* (image:common/images/EventsIcon.png[]) and check the *Events* section. Wait until enrolling the certificate for the host completes successfully.
+
+. Select the host and click menu:Management[Activate].
+
+. Repeat these steps for every host in the cluster.

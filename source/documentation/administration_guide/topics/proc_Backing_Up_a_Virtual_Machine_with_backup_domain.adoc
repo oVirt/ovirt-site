@@ -9,15 +9,15 @@ You can back up a powered down virtual machine or snapshot. You can then store t
 
 . Create a new virtual machine based on the virtual machine you want to back up:
 
- * To back up a snapshot, first create a virtual machine from a snapshot. See link:{URL_virt_product_docs}virtual_machine_management_guide[Creating a Virtual Machine from a Snapshot] in the _Virtual Machine Management Guide_.
- * To back up a virtual machine, first clone the virtual machine. See link:{URL_virt_product_docs}virtual_machine_management_guide[Cloning a Virtual Machine] in the _Virtual Machine Management Guide_. Make sure the clone is powered down before proceeding.
-. Export the new virtual machine to a backup domain. See link:{URL_virt_product_docs}virtual_machine_management_guide[Exporting a Virtual Machine to a Data Domain] in the _Virtual Machine Management Guide_.
+ * To back up a snapshot, first create a virtual machine from a snapshot. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#creating_a_virtual_machine_from_a_snapshot[Creating a Virtual Machine from a Snapshot] in the _Virtual Machine Management Guide_.
+ * To back up a virtual machine, first clone the virtual machine. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#cloning_a_virtual_machine[Cloning a Virtual Machine] in the _Virtual Machine Management Guide_. Make sure the clone is powered down before proceeding.
+. Export the new virtual machine to a backup domain. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#proc_Exporting_individual_virtual_machines_to_a_data_domain_vm_guide_administrative_tasks[Exporting a Virtual Machine to a Data Domain] in the _Virtual Machine Management Guide_.
 
 .Procedure: Restoring a Virtual Machine
 
 . Make sure that the backup storage domain that stores the virtual machine backup is attached to a data center.
 
-. Import the virtual machine from the backup domain. See xref:Importing_Virtual_Machines_from_an_Imported_Data_Storage_Domain[].
+. Import the virtual machine from the backup domain. See link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Importing_a_Virtual_Machine_from_a_Data_Domain[Importing Virtual Machines from a Data Domain].
 
 .Related information
 
@@ -26,4 +26,3 @@ You can back up a powered down virtual machine or snapshot. You can then store t
 * xref:Importing_storage_domains[]
 * xref:Migrating_SD_between_DC_Same_Env[]
 * xref:Migrating_SD_between_DC_different_env[]
-* xref:Importing_Virtual_Machines_from_an_Imported_Data_Storage_Domain[]

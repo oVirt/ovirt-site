@@ -1,0 +1,71 @@
+:_module-type: PROCEDURE
+
+[id="listing-changed-blocks_{context}"]
+= Listing changed blocks
+
+[role="_abstract"]
+The backup application gets a list of changed blocks, specifically, a map of zeros and data ranges in storage, from the ovirt-imageio API for every image transfer. If a change list is not available, the backup application gets an error. See the link:http://ovirt.github.io/ovirt-imageio/images.html[ovirt-imageio Images API]
+
+////
+* What is the ovirt-imageio API?
+
+* Why is a separate API necessary?
+////
+
+You can include the query option `dirty=y` to return only ranges modified since a backup checkpoint id
+Send a request specifying desired options to list the desired information.
+
+_Dirty_ refers to a range of data that has been modified since a backup checkpoint id, referred to as a ticket-uuid in the imageio API.
+
+The response body should include a list of JSON objects with these keys:
+
+[horizontal]
+data:: `true` for allocated ranges, `false` for zero or unallocated ranges
+start:: offset of range in bytes
+length:: number of bytes
+
+.Prerequisites
+
+* Knowledge of the ovirt-imageio Image API.
+
+.Procedure
+
+* To list data and zero ranges, send a request like this:
++
+[options="nowrap" subs="normal"]
+----
+GET /images/__ticket-uuid__/map
+----
++
+The response body should appear similar to this:
++
+[options="nowrap" subs="normal"]
+----
+[
+    {"data": true, "start": 0, "length": 1048576},
+    {"data": false, "start": 1048576, "length": 8192},
+    {"data": true, "start": 1056768, "length": 1048576},
+]
+----
+
+* To list only only ranges modified since a backup checkpoint id, send a request like this:
++
+[options="nowrap" subs="normal"]
+----
+GET /images/__ticket-uuid__/map?dirty=y
+----
++
+The response body should appear similar to this:
++
+[options="nowrap" subs="normal"]
+----
+[
+    {"data": true, "start": 0, "length": 1048576},
+    {"data": false, "start": 1048576, "length": 8192},
+]
+----
+
+[role=_additional-resources]
+.Additional resources
+
+* link:http://ovirt.github.io/ovirt-imageio/images.html[ovirt-imageio Images API]

@@ -10,7 +10,9 @@ endif::[]
 
 For detailed installation instructions, see the link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/index.html[_Performing a standard {enterprise-linux-shortname} installation_].
 
-The host must meet the minimum link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html/planning_and_prerequisites_guide/rhv_requirements#host-requirements[host requirements].
+The host must meet the minimum link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#host-requirements[host requirements].
+
+include::../upgrade/snip_WARNING-detach_data_storage.adoc[]
 
 [IMPORTANT]
 ====

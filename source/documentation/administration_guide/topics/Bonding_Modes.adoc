@@ -27,7 +27,7 @@ The bonded NICs must have the same aggregator IDs. Otherwise, the {engine-name} 
 See link:https://access.redhat.com/solutions/67546[].
 ====
 
-{virt-product-fullname} does not support the following bonding modes, because they cannot be used in bridged networks and are, therefore, incompatible with virtual machine logical networks:
+The following bonding modes are incompatible with virtual machine logical networks and therefore only non-VM logical networks can be attached to bonds using these modes: 
 
 `(Mode 0) Round-Robin`:: The NICs transmit packets in sequential order. Packets are transmitted in a loop that begins with the first available NIC in the bond and ends with the last available NIC in the bond. Subsequent loops start with the first available NIC.
 

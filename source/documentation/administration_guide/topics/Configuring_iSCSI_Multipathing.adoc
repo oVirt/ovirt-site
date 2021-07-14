@@ -12,8 +12,8 @@ You can create an iSCSI bond with multiple targets and logical networks for redu
 * One or more xref:Adding_iSCSI_Storage_storage_admin[iSCSI targets]
 * One or more xref:Creating_a_new_logical_network_in_a_data_center_or_cluster[logical networks] that meet the following requirements:
 ** Not defined as xref:Migrating_a_logical_network_to_an_iscsi_bond[*Required* or *VM Network*]
-** xref:Editing_host_network_interfaces[Assigned to a host interface]
-** xref:Editing_host_network_interfaces[Assigned a static IP address] in the same VLAN and subnet as the other logical networks in the iSCSI bond
+** xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[Assigned to a host interface]
+** xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[Assigned a static IP address] in the same VLAN and subnet as the other logical networks in the iSCSI bond
 
 .Procedure
 

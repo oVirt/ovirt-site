@@ -1,0 +1,42 @@
+:_module-type: PROCEDURE
+
+[id="image-transfer-object-for-incremental-backup_{context}"]
+= Creating an image transfer object for incremental backup
+
+[role="_abstract"]
+When the backup is ready to download, the backup application should create an `imagetransfer` object, which initiates a transfer for an incremental backup.
+
+Creating an image transfer object requires a request call with a body.
+
+.Procedure
+
+. Send a request like this:
++
+[options="nowrap" subs="normal"]
+----
+POST /ovirt-engine/api/imagetransfers
+----
+
+. In the request body, specify the following parameters:
++
+ ** disk id
+ ** backup id
+ ** direction of the disk set to `download`
+ ** format of the disk set to `raw`
++
+For example, to transfer a backup of a disk where the id of the disk is `123` and the id of the backup is `456`, send the following request body:
++
+[options="nowrap" subs="normal"]
+----
+<image_transfer>
+    <disk id="123"/>
+    <backup id="456"/>
+    <direction>download</direction>
+    <format>raw</format>
+</image_transfer>
+----
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:{URL_rest_api_doc}index#services-image_transfers-methods-add[`add` method for creating an imagetransfer object] in the _REST API Guide_ for {virt-product-shortname}.

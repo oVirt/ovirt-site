@@ -7,8 +7,6 @@ Suspending a virtual machine is equal to placing that virtual machine into *Hibe
 *Suspending a Virtual Machine*
 
 . Click menu:Compute[Virtual Machines] and select a running virtual machine.
-. Click btn:[Suspend].
+. Click btn:[Suspend] or right-click the virtual machine and select *Suspend* from the pop-up menu.
 
 The *Status* of the virtual machine changes to `Suspended`.
-
-

@@ -1,0 +1,42 @@
+[id='Preparing_NFS_Storage_{context}']
+= Preparing NFS Storage
+
+Set up NFS shares on your file storage or remote server to serve as storage domains on Red Hat Enterprise Virtualization Host systems. After exporting the shares on the remote storage and configuring them in the Red Hat Virtualization Manager, the shares will be automatically imported on the Red Hat Virtualization hosts.
+
+For information on setting up, configuring, mounting and exporting NFS, see link:{URL_rhel_docs_latest}html-single/managing_file_systems/index[_Managing file systems_] for Red Hat Enterprise Linux 8.
+
+// This next sentence refers to a KC article from 2012, RHEV 3.0. Keeping it here for now until certain that above doc covers this info.
+// For information on how to export an 'NFS' share, see link:https://access.redhat.com/solutions/113593[How to export 'NFS' share from NetApp Storage / EMC SAN in Red Hat Virtualization ]
+
+Specific system user accounts and system user groups are required by {virt-product-fullname} so the {engine-name} can store data in the storage domains represented by the exported directories. The following procedure sets the permissions for one directory. You must repeat the `chown` and `chmod` steps for all of the directories you intend to use as storage domains in {virt-product-fullname}.
+
+
+.Procedure
+
+. Create the group `kvm`:
++
+[options="nowrap" subs="normal"]
+----
+# groupadd kvm -g 36
+----
++
+. Create the user `vdsm` in the group `kvm`:
++
+[options="nowrap" subs="normal"]
+----
+# useradd vdsm -u 36 -g 36
+----
++
+. Set the ownership of your exported directory to 36:36, which gives `vdsm:kvm` ownership:
++
+[options="nowrap" subs="normal"]
+----
+# chown -R 36:36 _/exports/data_
+----
++
+. Change the mode of the directory so that read and write access is granted to the owner, and so that read and execute access is granted to the group and other users:
++
+[options="nowrap" subs="normal"]
+----
+# chmod 0755 _/exports/data_
+----

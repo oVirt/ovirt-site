@@ -34,20 +34,22 @@ OVESETUP_OVN/ovirtProviderOvn=bool:True
 . If you do not use a preconfigured answer file, answer `Yes` when the `engine-setup` asks:
 +
 ----
-# `Configure ovirt-provider-ovn and set the Default cluster's default network provider to ovirt-provider-ovn (non-Default clusters may be configured with an OVN provider after installation) (Yes, No) [Yes]:
+Configuring ovirt-provider-ovn also sets the Default cluster's default network provider to ovirt-provider-ovn.
+Non-Default clusters may be configured with an OVN after installation.
+Configure ovirt-provider-ovn (Yes, No) [Yes]:
 ----
 
 . Answer the following question:
 +
 ----
-# `Use default credentials (admin@internal) for ovirt-provider-ovn (Yes, No) [Yes]?`:
+Use default credentials (admin@internal) for ovirt-provider-ovn (Yes, No) [Yes]?:
 ----
 +
 If `Yes`, `engine-setup` uses the default engine user and password specified earlier in the setup process. This option is only available during new installations.
 +
 ----
-# `oVirt OVN provider user[admin]`:
-# `oVirt OVN provider password[empty]`:
+oVirt OVN provider user[admin]:
+oVirt OVN provider password[empty]:
 ----
 +
 You can use the default values or specify the oVirt OVN provider user and password.

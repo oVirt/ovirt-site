@@ -7,10 +7,12 @@
 
 You can convert an existing, standard host in a self-hosted engine environment to a self-hosted engine node capable of hosting the {engine-name} virtual machine.
 
+include::../upgrade/snip_WARNING-detach_data_storage.adoc[]
+
 .Procedure
 
 . Click menu:Compute[Hosts] and select the host.
-. Click menu:Management[Maintenance] and click btn:[OK].
+. Click menu:Management[Maintenance] and btn:[OK].
 . Click menu:Installation[Reinstall].
 . Click the *Hosted Engine* tab and select *DEPLOY* from the drop-down list.
 . Click btn:[OK].

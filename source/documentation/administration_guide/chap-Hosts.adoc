@@ -42,13 +42,17 @@ include::topics/Configuring_Host_SPM_Settings.adoc[]
 
 include::common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+3]
 
+include::topics/proc-enabling-nested-virtualization-for-all-virtual-machines.adoc[leveloffset=+3]
+
+include::topics/proc-enabling-nested-virtualization-for-individual-virtual-machines.adoc[leveloffset=+3]
+
 include::topics/Moving_a_host_to_maintenance_mode.adoc[]
 
 include::topics/Activating_a_host_from_maintenance_mode.adoc[]
 
 include::topics/Configuring_Host_Firewall_Rules.adoc[leveloffset=+3]
 
-include::topics/Removing_a_host.adoc[]
+include::common/admin/proc-Removing_a_host.adoc[leveloffset=+3]
 
 include::topics/Updating_a_host_between_minor_releases.adoc[leveloffset=+3]
 
@@ -67,6 +71,7 @@ include::topics/Viewing_Host_Devices.adoc[]
 include::topics/Accessing_Cockpit_from_the_Admin_Portal.adoc[]
 
 include::common/admin/proc-Setting_Legacy_SPICE_Cipher.adoc[leveloffset=+3]
+
 
 :context!: host_tasks
 

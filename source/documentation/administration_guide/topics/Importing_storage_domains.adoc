@@ -38,5 +38,5 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.
 
 .Related information
 
-* xref:Importing_Virtual_Machines_from_an_Imported_Data_Storage_Domain[]
+* link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Importing_a_Virtual_Machine_from_a_Data_Domain[Importing Virtual Machines from a Data Domain]
 * xref:Importing_Templates_from_Imported_Data_Storage_Domains[]

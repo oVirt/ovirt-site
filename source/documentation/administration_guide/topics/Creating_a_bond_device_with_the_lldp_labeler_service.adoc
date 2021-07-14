@@ -7,7 +7,7 @@ NICs with xref:Bond_logical_networks_compatibility[incompatible logical networks
 
 include::../common/network/proc-Configuring_LLDP_Labeler.adoc[]
 
-. Attach a logical network to the new bond and configure it. See xref:Editing_host_network_interfaces[] for instructions.
+. Attach a logical network to the new bond and configure it. See xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[] for instructions.
 +
 [NOTE]
 ====

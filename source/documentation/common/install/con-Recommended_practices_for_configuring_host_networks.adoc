@@ -1,13 +1,15 @@
 [id="Recommended_practices_for_configuring_host_networks_{context}"]
 = Recommended Practices for Configuring Host Networks
 
+IMPORTANT: Always use the {virt-product-shortname} {engine-name} to modify the network configuration of hosts in your clusters. Otherwise, you might create an unsupported configuration. For details, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#con-Network-Manager-Stateful-Configuration-nmstate[Network Manager Stateful Configuration (nmstate)].
+
 If your network environment is complex, you may need to configure a host network manually before adding the host to the {virt-product-fullname} {engine-name}.
 
 Consider the following practices for configuring a host network:
 
 * Configure the network with Cockpit. Alternatively, you can use `nmtui` or `nmcli`.
 
-* If a network is not required for a self-hosted engine deployment or for adding a host to the {engine-name}, configure the network in the Administration Portal after adding the host to the {engine-name}. See link:{URL_virt_product_docs}administration_guide/index.html[Creating a New Logical Network in a Data Center or Cluster].
+* If a network is not required for a self-hosted engine deployment or for adding a host to the {engine-name}, configure the network in the Administration Portal after adding the host to the {engine-name}. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Creating_a_new_logical_network_in_a_data_center_or_cluster[Creating a New Logical Network in a Data Center or Cluster].
 
 * Use the following naming conventions:
 
@@ -16,13 +18,13 @@ Consider the following practices for configuring a host network:
 ** Bond interfaces: `bond__number__` (for example, `bond0`, `bond1`)
 ** VLANs on bond interfaces: `bond__number__.__VLAN_ID__` (for example, `bond0.50`, `bond1.128`)
 
-* Use link:{URL_virt_product_docs}administration_guide/index.html[network bonding]. Networking teaming is not supported in {virt-product-fullname} and will cause errors if the host is used to deploy a self-hosted engine or added to the {engine-name}.
+* Use link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Network_Bonding[network bonding]. Network teaming is not supported in {virt-product-fullname} and will cause errors if the host is used to deploy a self-hosted engine or added to the {engine-name}.
 
 * Use recommended bonding modes:
 
 ** If the `ovirtmgmt` network is not used by virtual machines, the network may use any supported bonding mode.
 ** If the `ovirtmgmt` network is used by virtual machines, see link:https://access.redhat.com/solutions/67546[_Which bonding modes work when used with a bridge that virtual machine guests or containers connect to?_].
-** {virt-product-fullname}'s default bonding mode is `(Mode 4) Dynamic Link Aggregation`. If your switch does not support Link Aggregation Control Protocol (LACP), use `(Mode 1) Active-Backup`. See link:{URL_virt_product_docs}administration_guide/index.html[Bonding Modes] for details.
+** {virt-product-fullname}'s default bonding mode is `(Mode 4) Dynamic Link Aggregation`. If your switch does not support Link Aggregation Control Protocol (LACP), use `(Mode 1) Active-Backup`. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Bonding_Modes[Bonding Modes] for details.
 
 * Configure a VLAN on a physical NIC as in the following example (although `nmcli` is used, you can use any tool):
 +
@@ -45,4 +47,4 @@ Consider the following practices for configuring a host network:
 
 * Do not disable `firewalld`.
 
-* Customize the firewall rules in the Administration Portal after adding the host to the {engine-name}. See link:{URL_virt_product_docs}administration_guide/index.html#Configuring_Host_Firewall_Rules[Configuring Host Firewall Rules].
+* Customize the firewall rules in the Administration Portal after adding the host to the {engine-name}. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_Host_Firewall_Rules[Configuring Host Firewall Rules].

@@ -5,7 +5,9 @@
 
 {hypervisor-shortname} supports NIST 800-53 partitioning requirements to improve security. {hypervisor-shortname} uses a NIST 800-53 partition layout by default.
 
-The host must meet the minimum  link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html/planning_and_prerequisites_guide/rhv_requirements#host-requirements[host requirements].
+The host must meet the minimum  link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#host-requirements[host requirements].
+
+include::../upgrade/snip_WARNING-detach_data_storage.adoc[]
 
 .Procedure
 ifdef::rhv-doc[]
@@ -15,7 +17,7 @@ download page.
 . Choose the appropriate *Hypervisor Image for RHV* from the list and click *Download Now*.
 endif::[]
 ifdef::ovirt-doc[]
-. Visit the link:/download/node.html[oVirt Node Download] page.
+. Visit the link:https://ovirt.org/download/node.html[oVirt Node Download] page.
 . Choose the version of *oVirt Node* to download and click its *Installation ISO* link.
 . Write the {hypervisor-fullname} Installation ISO disk image to a USB, CD, or DVD.
 endif::[]
@@ -36,7 +38,7 @@ You can also press the `Tab` key to edit the kernel parameters. Kernel parameter
 Use the *Automatically configure partitioning* option.
 ====
 . Select a time zone from the *Time &amp; Date* screen and click btn:[Done].
-+
+
 . Select a network from the *Network &amp; Host Name* screen and click *Configure...* to configure the connection details.
 +
 [NOTE]
@@ -58,5 +60,10 @@ Do not create untrusted users on {hypervisor-shortname}, as this can lead to exp
 +
 [NOTE]
 ====
-When {hypervisor-shortname} restarts, `nodectl check` performs a health check on the host and displays the result when you log in on the command line. The message `node status: OK` or `node status: DEGRADED` indicates the health status. Run `nodectl check` to get more information. The service is enabled by default.
+When {hypervisor-shortname} restarts, `nodectl check` performs a health check on the host and displays the result when you log in on the command line. The message `node status: OK` or `node status: DEGRADED` indicates the health status. Run `nodectl check` to get more information.
+====
++
+[NOTE]
+====
+include::snip-prevent_auto_module_loading.adoc[]
 ====

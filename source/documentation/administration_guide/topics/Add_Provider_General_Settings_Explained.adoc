@@ -11,6 +11,32 @@ The *General* tab in the *Add Provider* window allows you to register the core d
 |*Description* |A plain text, human-readable description of the provider.
 |*Type* a|The type of external provider. Changing this setting alters the available fields for configuring the provider.
 
+*External Network Provider*
+
+* *Networking Plugin*: Determines which implementation of the driver will be used on the host to handle NIC operations. If an external network provider with the `oVirt Network Provider for OVN` plugin is added as the default network provider for a cluster, this also determines which driver will be installed on hosts added to the cluster.
+
+* *Automatic Synchronization*: Allows you to specify whether the provider will be automatically synchronized with existing networks.
+
+* *Provider URL*: The URL or fully qualified domain name of the machine on which the external network provider is hosted. You must add the port number for the external network provider to the end of the URL or fully qualified domain name. By default, this port number is 9696.
+
+* *Read Only*: Allows you to specify whether the external network provider can be modified from the Administration Portal.
+
+* *Requires Authentication*: Allows you to specify whether authentication is required to access the external network provider.
+
+* *Username*: A user name for connecting to the external network provider. If you are authenticating with Active Directory, the user name must be in the format of _username_@_domain_@_auth_profile_ instead of the default _username_@_domain_.
+
+* *Password*: The password against which the above user name is to be authenticated.
+
+* *Protocol*: The protocol used to communicate with the Keystone server. The default is *HTTPS*.
+
+* *Hostname*: The IP address or hostname of the Keystone server.
+
+* *API port*: The API port number of the Keystone server.
+
+* *API Version*: The version of the Keystone server.  The value is `v2.0` and the field is disabled.
+
+* *Tenant Name*: Optional. The name of the tenant of which the external network provider is a member.
+
 *Foreman/Satellite*
 
 * *Provider URL*: The URL or fully qualified domain name of the machine that hosts the Satellite instance. You do not need to add the port number to the end of the URL or fully qualified domain name.
@@ -20,6 +46,20 @@ The *General* tab in the *Add Provider* window allows you to register the core d
 * *Username*: A user name for connecting to the Satellite instance. This user name must be the user name used to log in to the provisioning portal on the Satellite instance.
 
 * *Password*: The password against which the above user name is to be authenticated. This password must be the password used to log in to the provisioning portal on the Satellite instance.
+
+*KubeVirt/OpenShift Virtualization*
+
+* *Provider URL*: The URL or fully qualified domain name and port number of the {container-platform} API. By default, this port number is 6443.
+
+* *Token* The link:https://docs.openshift.com/container-platform/4.4/security/container_security/security-platform.html#security-platform-auth-controlling-access_security-platform[OAuth access token] for authenticating this connection to the API.
+
+* *Certificate Authority* The CA certificate to be trusted when making https requests.
+
+* *Prometheus URL* The URL for the OpenShift cluster's prometheus service. If you do not provide this URL, the software will try to automatically detect this URL.
+// Reviewer: Is this the url, proxyUrl, or externalUrl mentioned here: https://docs.openshift.com/container-platform/4.4/rest_api/monitoring_apis/prometheus-monitoring-coreos-com-v1.html? How does the user get this information? 
+
+* *Prometheus Certificate Authority* The X509 certificate for prometheus. If you do not specify this CA, the provider uses the KubeVirt CA instead.
+// Reviewer: How does the user get the Prometheus CA mentioned on the next line?
 
 *OpenStack Image*
 
@@ -69,7 +109,7 @@ The following fields appear when you select `v3` from the *API Version* field:
 
 * *User Domain Name*: The name of the user defined in the domain.
 +
-With Keystone API v3, domains are used to determine administrative boundaries of service entities in OpenStack. Domains allow you to group users together for various purposes, such as setting domain-specific configuration or security options. For more information, see link:https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/11/html-single/architecture_guide/#comp-identity[OpenStack Identity (keystone)] in the Red Hat OpenStack Platform _Architecture Guide_.
+With Keystone API v3, domains are used to determine administrative boundaries of service entities in OpenStack. Domains allow you to group users together for various purposes, such as setting domain-specific configuration or security options. For more information, see link:https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/11/html-single/architecture_guide/index#comp-identity[OpenStack Identity (keystone)] in the Red Hat OpenStack Platform _Architecture Guide_.
 
 * *Project Name*: Defines the project name for OpenStack Identity API v3.
 
@@ -143,31 +183,6 @@ The following field appears when you select *v2.0* from the *API Version* field:
 
 * *Password*: The password against which the above user name is to be authenticated.
 
-*External Network Provider*
-
-* *Networking Plugin*: Determines which implementation of the driver will be used on the host to handle NIC operations. If an external network provider with the `oVirt Network Provider for OVN` plugin is added as the default network provider for a cluster, this also determines which driver will be installed on hosts added to the cluster.
-
-* *Automatic Synchronization*: Allows you to specify whether the provider will be automatically synchronized with existing networks.
-
-* *Provider URL*: The URL or fully qualified domain name of the machine on which the external network provider is hosted. You must add the port number for the external network provider to the end of the URL or fully qualified domain name. By default, this port number is 9696.
-
-* *Read Only*: Allows you to specify whether the external network provider can be modified from the Administration Portal.
-
-* *Requires Authentication*: Allows you to specify whether authentication is required to access the external network provider.
-
-* *Username*: A user name for connecting to the external network provider. If you are authenticating with Active Directory, the user name must be in the format of _username_@_domain_@_auth_profile_ instead of the default _username_@_domain_.
-
-* *Password*: The password against which the above user name is to be authenticated.
-
-* *Protocol*: The protocol used to communicate with the Keystone server. The default is *HTTPS*.
-
-* *Hostname*: The IP address or hostname of the Keystone server.
-
-* *API port*: The API port number of the Keystone server.
-
-* *API Version*: The version of the Keystone server.  The value is `v2.0` and the field is disabled.
-
-* *Tenant Name*: Optional. The name of the tenant of which the external network provider is a member.
-
 |*Test* |Allows users to test the specified credentials. This button is available to all provider types.
+
 |===

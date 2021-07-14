@@ -3,8 +3,8 @@
 
 You can perform common virtual machine management tasks in the virtual machines pane:
 
-* Start a virtual machine by clicking the *Run* button (image:/documentation/introduction_to_the_vm_portal/images/Run.png[width=20px]). It is available when the virtual machine is suspended or stopped.
-* Access the console of a virtual machine by clicking the *Console* button (image:/documentation/introduction_to_the_vm_portal/images/Console.png[width=20px]). It is available when the virtual machine is running.
+* Start a virtual machine by clicking the *Run* button (image:Run.png[width=20px]). It is available when the virtual machine is suspended or stopped.
+* Access the console of a virtual machine by clicking the *Console* button (image:Console.png[width=20px]). It is available when the virtual machine is running.
 * Temporarily stop a virtual machine by selecting *Suspend* from the drop-down menu. It is available when the virtual machine is running.
 * Stop a virtual machine by selecting *Shutdown* from the drop-down menu. It is available when the virtual machine is running.
 * Restart a virtual machine by selecting *Reboot* from the drop-down menu. It is available when the virtual machine is running.

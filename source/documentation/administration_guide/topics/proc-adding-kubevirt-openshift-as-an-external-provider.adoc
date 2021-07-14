@@ -1,0 +1,48 @@
+// Module included in the following assemblies:
+//
+// doc-Administration_Guide/chap-External_Providers.adoc
+
+[id="proc-adding-kubevirt-openshift-as-an-external-provider_{context}"]
+= Adding KubeVirt/Openshift Virtualization as an external provider
+
+To run virtual machines in a container on the {container-platform}, you add OpenShift as an external provider in Red Hat Virtualization.
+
+NOTE: This capability is known as _OpenShift Virtualization_.
+
+.Prerequisites
+
+* link:https://docs.openshift.com/container-platform/latest/virt/install/preparing-cluster-for-virt.html[In OpenShift Container Platform, your cluster is configured for OpenShift Virtualization].
+
+.Procedure
+
+. In the {virt-product-shortname} Administration Portal, go to menu:Administration[Providers] and click btn:[New].
+
+. In *Add Provider*, set *Type* to *KubeVirt/Openshift Virtualization*.
+
+. Enter the *Provider URL* and *Token*, which are required.
+
+. Optional: Enter values for *Advanced parameters* such as *Certificate Authority*, *Prometheus URL*, and *Prometheus Certificate Authority*.
+
+. Click btn:[Test] to verify the connection to the new provider.
+
+. Click btn:[OK] to finish adding this new provider.
+
+
+.Verification steps
+
+. In the {virt-product-shortname} Administration Portal, click menu:Compute[Clusters].
+
+. Click the name of new cluster you just created. This cluster name, *kubevirt* for example, is based on the name of the provider. This action opens the cluster details view.
+
+. Click the *Hosts* tab to verify that the {container-platform} status of the worker nodes is up.
++
+NOTE: Even if they are running, the status of the master nodes is down because they cannot host virtual machines.
+
+. Use menu:Compute[Virtual Machines] to deploy a virtual machine to the new cluster.
+
+. In the {container-platform} web console, in the *Administrator* perspective, use menu:Workloads[Virtual Machines] to view the virtual machine you deployed.
+
+.Additional resources
+
+* link:https://docs.openshift.com/container-platform/latest/virt/about-virt.html[About OpenShift Virtualization]
+* xref:Add_Provider_General_Settings_Explained[]

@@ -1,0 +1,49 @@
+:_module-type: PROCEDURE
+
+[id="getting-information-about-the-disks-in-a-backup_{context}"]
+= Getting information about the disks in a backup
+
+[role="_abstract"]
+You can get information about the disks that are part of the backup, including the backup mode that was used for each disk in a backup, which helps determine the mode that you use to download the backup.
+
+The `list` method of the VmBackupDisks service returns the following information about a backup:
+
+    * The id and name of each disk that was backed up.
+    * The id of the disk image of the backup, for each disk included in the backup.
+    * The disk format.
+    * The backup behavior supported by the disk.
+    * The backup type that was taken for the disk (full/incremental).
+
+.Procedure
+
+* To get information about a backup with id 456 of a virtual machine with id 123, send a request like this:
++
+[options="nowrap" subs="normal"]
+----
+GET /ovirt-engine/api/vms/456/backups/123/disks
+----
++
+The response includes the disk with id 789, and the id of the disk image is 555.
++
+[options="nowrap" subs="normal"]
+----
+<disks>
+    <disk id="789">
+        <name>vm1_Disk1</name>
+        <actual_size>671744</actual_size>
+        <backup>incremental</backup>
+        <backup_mode>full</backup_mode>
+        <format>cow</format>
+        <image_id>555</image_id>
+        <qcow_version>qcow2_v3</qcow_version>
+        <status>locked</status>
+        <storage_type>image</storage_type>
+        <total_size>0</total_size>
+    </disk>
+</disks>
+
+----
+
+[role="_additional-resources"]
+.Additional resources
+ * link:{URL_rest_api_doc}index#services-vm_backup_disks[`list` method of the VmBackupDisks service]

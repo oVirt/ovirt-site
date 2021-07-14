@@ -7,8 +7,9 @@ To remove a self-hosted engine node from your environment, place the node into m
 *Removing a Host from a Self-Hosted Engine Environment*
 
 . In the Administration Portal, click menu:Compute[Hosts] and select the self-hosted engine node.
-. Click menu:Management[Maintenance] and click btn:[OK].
+. Click menu:Management[Maintenance] and btn:[OK].
 . Click menu:Installation[Reinstall].
 . Click the *Hosted Engine* tab and select *UNDEPLOY* from the drop-down list. This action stops the `ovirt-ha-agent` and `ovirt-ha-broker` services and removes the self-hosted engine configuration file.
 . Click btn:[OK].
-. Optionally, click btn:[Remove] to open the *Remove Host(s)* confirmation window and click btn:[OK].
+. Optionally, click btn:[Remove]. This opens the *Remove Host(s)* confirmation window.
+. Click btn:[OK].

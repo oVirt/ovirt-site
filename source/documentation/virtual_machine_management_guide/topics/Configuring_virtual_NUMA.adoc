@@ -1,5 +1,5 @@
 [[Configuring_virtual_numa]]
-=== Configuring Virtual NUMA
+= Configuring Virtual NUMA
 
 In the Administration Portal, you can configure virtual NUMA nodes on a virtual machine and pin them to physical NUMA nodes on one or more hosts. The host’s default policy is to schedule and run virtual machines on any available resources on the host. As a result, the resources backing a large virtual machine that cannot fit within a single host socket could be spread out across multiple NUMA nodes. Over time these resources may be moved around, leading to poor and unpredictable performance. Configure and pin virtual NUMA nodes to avoid this outcome and improve performance.
 
@@ -15,14 +15,18 @@ If you define *NUMA Pinning*, the default migration mode is *Allow manual migrat
 
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
 . Click btn:[Edit].
+. Click btn:[Show Advanced Options].
 . Click the *Host* tab.
 . Select the *Specific Host(s)* radio button and select the host(s) from the list. The selected host(s) must have at least two NUMA nodes.
-. Enter a number into the *NUMA Node Count* field to assign virtual NUMA nodes to the virtual machine.
-. Select *Strict*, *Preferred*, or *Interleave* from the *Tune Mode* drop-down list. If the selected mode is *Preferred*, the *NUMA Node Count* must be set to `1`.
 . Click *NUMA Pinning*.
 . In the *NUMA Topology* window, click and drag virtual NUMA nodes from the box on the right to host NUMA nodes on the left as required, and click btn:[OK].
+. Select *Strict*, *Preferred*, or *Interleave* from the *Tune Mode* drop-down list in each NUMA node. If the selected mode is *Preferred*, the *NUMA Node Count* must be set to `1`.
+. You can also set the NUMA pinning policy automatically by selecting an *Auto Pinning Policy* from the drop-down list:
++
+* *Don't Change* - makes no changes to the virtual machine.
+* *Existing* - uses the existing CPU topology that has been set, in order to configure CPU pinning and NUMA pinning.
+* *Adjust* - maximizes the CPU topology and generates the CPU pinning and NUMA pinning configurations.
 . Click btn:[OK].
-
 
 [NOTE]
 ====

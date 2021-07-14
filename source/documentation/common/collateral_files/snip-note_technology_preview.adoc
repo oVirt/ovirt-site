@@ -1,0 +1,15 @@
+[NOTE]
+====
+<feature name> are Technology Preview features only.
+OR
+<feature name> is a Technology Preview feature only.
+ Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
+====
+
+// for part of a procedure that is in Technology Preview status:
+
+[WARNING]
+====
+The following steps are provided only as a Technology Preview.
+For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
+====

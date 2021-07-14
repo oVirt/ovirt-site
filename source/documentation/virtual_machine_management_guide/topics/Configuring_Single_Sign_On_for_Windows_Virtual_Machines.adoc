@@ -1,5 +1,5 @@
 [[Configuring_Single_Sign_On_for_Windows_Virtual_Machines]]
-==== Configuring single sign-on for Windows virtual machines
+= Configuring single sign-on for Windows virtual machines
 
 To configure single sign-on for Windows virtual machines, the Windows guest agent must be installed on the guest virtual machine. The virtio-win ISO image provides this agent. If the `virtio-win___version__.iso` image is not available in your storage domain, contact your system administrator.
 

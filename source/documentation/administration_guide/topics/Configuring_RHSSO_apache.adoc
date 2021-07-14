@@ -1,0 +1,115 @@
+[id='Configuring_RHSSO_apache']
+
+
+. Enable the `mod_auth_openidc` module.
++
+----
+# dnf module enable mod_auth_openidc:2.3 -y
+----
+. Configure Apache in the {engine-name}
++
+----
+# dnf install mod_auth_openidc
+----
+. Create a new `httpd` config file `ovirt-openidc.conf` in */etc/httpd/conf.d/* with the following content:
++
+----
+LoadModule auth_openidc_module modules/mod_auth_openidc.so
+
+OIDCProviderMetadataURL https://SSO.example.com/auth/realms/master/.well-known/openid-configuration
+OIDCSSLValidateServer Off
+
+OIDCClientID ovirt-engine
+OIDCClientSecret <client_SSO _generated_key>
+OIDCRedirectURI https://rhvm.example.com/ovirt-engine/callback
+OIDCDefaultURL https://rhvm.example.com/ovirt-engine/login?scope=ovirt-app-admin+ovirt-app-portal+ovirt-ext%3Dauth%3Asequence-priority%3D%7E
+
+# maps the prefered_username claim to the REMOTE_USER environment variable:
+
+OIDCRemoteUserClaim <preferred_username>
+OIDCCryptoPassphrase <random1234>
+
+<LocationMatch ^/ovirt-engine/sso/(interactive-login-negotiate|oauth/token-http-auth)|^/ovirt-engine/callback>
+    <If "req('Authorization') !~ /^(Bearer|Basic)/i">
+
+      Require valid-user
+      AuthType openid-connect
+
+      ErrorDocument 401 "<html><meta http-equiv=\"refresh\" content=\"0; url=/ovirt-engine/sso/login-unauthorized\"/><body><a href=\"/ovirt-engine/sso/login-unauthorized\">Here</a></body></html>"
+    </If>
+</LocationMatch>
+
+OIDCOAuthIntrospectionEndpoint https://SSO.example.com/auth/realms/master/protocol/openid-connect/token/introspect
+OIDCOAuthSSLValidateServer    Off
+OIDCOAuthIntrospectionEndpointParams token_type_hint=access_token
+OIDCOAuthClientID ovirt-engine
+OIDCOAuthClientSecret <client_SSO _generated_key>
+OIDCOAuthRemoteUserClaim sub
+
+<LocationMatch ^/ovirt-engine/(api$|api/)>
+   AuthType oauth20
+   Require valid-user
+</LocationMatch>
+----
+
+. To save the configuration changes, restart *httpd* and *ovirt-engine*:
++
+----
+# systemctl restart httpd
+# systemctl restart ovirt-engine
+----
+. Create the file `openidc-authn.properties` in */etc/ovirt-engine/extensions.d/* with the following content:
++
+----
+ovirt.engine.extension.name = openidc-authn
+ovirt.engine.extension.bindings.method = jbossmodule
+ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine.extension.aaa.misc
+ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engine.extension.aaa.misc.http.AuthnExtension
+ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authn
+ovirt.engine.aaa.authn.profile.name = openidchttp
+ovirt.engine.aaa.authn.authz.plugin = openidc-authz
+ovirt.engine.aaa.authn.mapping.plugin = openidc-http-mapping
+config.artifact.name = HEADER
+config.artifact.arg = OIDC_CLAIM_preferred_username
+----
+
+. Create the file `openidc-http-mapping.properties` in */etc/ovirt-engine/extensions.d/* with the following content:
++
+----
+ovirt.engine.extension.name = openidc-http-mapping
+ovirt.engine.extension.bindings.method = jbossmodule
+ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine.extension.aaa.misc
+ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engine.extension.aaa.misc.mapping.MappingExtension
+ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Mapping
+config.mapAuthRecord.type = regex
+config.mapAuthRecord.regex.mustMatch = false
+config.mapAuthRecord.regex.pattern = ^(?<user>.*?)((\\\\(?<at>@)(?<suffix>.*?)@.*)|(?<realm>@.*))$
+config.mapAuthRecord.regex.replacement = ${user}${at}${suffix}
+----
+
+. Create  the file `openidc-authz.properties` in */etc/ovirt-engine/extensions.d/* with the following content:
++
+----
+ovirt.engine.extension.name = openidc-authz
+ovirt.engine.extension.bindings.method = jbossmodule
+ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine.extension.aaa.misc
+ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engine.extension.aaa.misc.http.AuthzExtension
+ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.aaa.Authz
+config.artifact.name.arg = OIDC_CLAIM_preferred_username
+config.artifact.groups.arg = OIDC_CLAIM_groups
+----
+. Create the file `99-enable-external-auth.conf` in */etc/ovirt-engine/engine.conf.d/* with the following content:
++
+----
+ENGINE_SSO_ENABLE_EXTERNAL_SSO=true
+ENGINE_SSO_EXTERNAL_SSO_LOGOUT_URI="${ENGINE_URI}/callback"
+EXTERNAL_OIDC_USER_INFO_END_POINT=https://SSO.example.com/auth/realms/master/protocol/openid-connect/userinfo
+EXTERNAL_OIDC_TOKEN_END_POINT=https://SSO.example.com/auth/realms/master/protocol/openid-connect/token
+EXTERNAL_OIDC_LOGOUT_END_POINT=https://SSO.example.com/auth/realms/master/protocol/openid-connect/logout
+EXTERNAL_OIDC_CLIENT_ID=ovirt-engine
+EXTERNAL_OIDC_CLIENT_SECRET="<client_SSO _generated_key>"
+EXTERNAL_OIDC_HTTPS_PKI_TRUST_STORE="/etc/pki/java/cacerts"
+EXTERNAL_OIDC_HTTPS_PKI_TRUST_STORE_PASSWORD=""
+EXTERNAL_OIDC_SSL_VERIFY_CHAIN=false
+EXTERNAL_OIDC_SSL_VERIFY_HOST=false
+----

@@ -19,15 +19,11 @@ The *evenly_distributed* and *power_saving* scheduling policies allow you to spe
 * *evenly_distributed*
 .. Set the time (in minutes) that a host can run a CPU load outside of the defined utilization values before the scheduling policy takes action in the *CpuOverCommitDurationMinutes* field.
 .. Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the *HighUtilization* field.
-.. Enter the minimum required free memory in MB above which virtual machines start migrating to other hosts in the *MinFreeMemoryForUnderUtilized*.
-.. Enter the maximum required free memory in MB below which virtual machines start migrating to other hosts in the *MaxFreeMemoryForOverUtilized*.
 .. Optionally, in the *HeSparesCount* field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. See xref:Configuring_Memory_Slots_Reserved_for_the_SHE[] for more information.
 * *power_saving*
 .. Set the time (in minutes) that a host can run a CPU load outside of the defined utilization values before the scheduling policy takes action in the *CpuOverCommitDurationMinutes* field.
 .. Enter the CPU utilization percentage below which the host will be considered under-utilized in the *LowUtilization* field.
 .. Enter the CPU utilization percentage at which virtual machines start migrating to other hosts in the *HighUtilization* field.
-.. Enter the minimum required free memory in MB above which virtual machines start migrating to other hosts in the *MinFreeMemoryForUnderUtilized*.
-.. Enter the maximum required free memory in MB below which virtual machines start migrating to other hosts in the *MaxFreeMemoryForOverUtilized*.
 .. Optionally, in the *HeSparesCount* field, enter the number of additional self-hosted engine nodes on which to reserve enough free memory to start the {engine-name} virtual machine if it migrates or shuts down. See xref:Configuring_Memory_Slots_Reserved_for_the_SHE[] for more information.
 . Choose one of the following as the *Scheduler Optimization* for the cluster:
 * Select *Optimize for Utilization* to include weight modules in scheduling to allow best selection.
@@ -39,7 +35,7 @@ OpenAttestation and Intel Trusted Execution Technology (Intel TXT) are no longer
 ====
 . Optionally select the *Enable HA Reservation* check box to enable the {engine-name} to monitor cluster capacity for highly available virtual machines.
 . Optionally select a *Serial Number Policy* for the virtual machines in the cluster:
-* *System Default*: Use the system-wide defaults, which are configured in the {engine-name} database link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/administration_guide/sect-the_engine_configuration_tool[using the engine configuration tool] and the `DefaultSerialNumberPolicy` and `DefaultCustomSerialNumber` key names. The default value for `DefaultSerialNumberPolicy` is to use the Host ID. See link:{URL_virt_product_docs}administration_guide/#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
+* *System Default*: Use the system-wide defaults, which are configured in the {engine-name} database link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-the_engine_configuration_tool[using the engine configuration tool] and the `DefaultSerialNumberPolicy` and `DefaultCustomSerialNumber` key names. The default value for `DefaultSerialNumberPolicy` is to use the Host ID. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
 * *Host ID*: Set each virtual machine's serial number to the UUID of the host.
 * *Vm ID*: Set each virtual machine's serial number to the UUID of the virtual machine.
 * *Custom serial number*: Set each virtual machine's serial number to the value you specify in the following *Custom Serial Number* parameter.

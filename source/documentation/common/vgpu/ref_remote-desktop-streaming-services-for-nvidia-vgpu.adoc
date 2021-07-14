@@ -1,0 +1,12 @@
+// Module included in the following assemblies:
+//
+// assembly_managing-nvidia-vgpu-devices
+
+[id="ref_remote-desktop-streaming-services-for-nvidia-vgpu_{context}"]
+= Remote desktop streaming services for NVIDIA vGPU
+
+The following remote desktop streaming services have been successfully tested for use with the NVIDIA vGPU feature in RHEL 8:
+
+* HP-RGS
+* Mechdyne TGX - It is currently not possible to use Mechdyne TGX with Windows Server 2016 guests.
+* NICE DCV - When using this streaming service, use fixed resolution settings, because using dynamic resolution in some cases results in a black screen.

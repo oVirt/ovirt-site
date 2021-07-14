@@ -43,6 +43,8 @@ include::topics/Explanation_of_Settings_in_the_VM_Interface_Profile_Window.adoc[
 
 include::topics/Enabling_Passthrough_on_a_vNIC_Profile.adoc[]
 
+include::topics/Creating_vNIC_profile_SR_IOV_failover.adoc[]
+
 include::topics/Removing_a_VNIC_Profile.adoc[]
 
 include::topics/Assigning_Security_Groups_to_VNIC_Profiles.adoc[]
@@ -76,13 +78,15 @@ include::topics/con-Network-Manager-Stateful-Configuration-nmstate.adoc[leveloff
 
 include::topics/Refreshing_Host_Capabilities.adoc[]
 
-include::topics/Editing_host_network_interfaces.adoc[]
+include::topics/Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts.adoc[]
 
 include::topics/Proc-Synchronizing_host_networks.adoc[]
 
 include::topics/Proc-Editing-VLAN-Settings.adoc[]
 
 include::topics/Adding_multiple_VLANs_to_a_single_network_interface_using_logical_networks.adoc[]
+
+include::topics/proc-Copying-host-networks.adoc[leveloffset=+3]
 
 include::topics/Assigning_Additional_IPv4_Addresses_to_a_Host_Network.adoc[]
 

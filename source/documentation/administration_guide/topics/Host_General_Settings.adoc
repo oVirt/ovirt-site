@@ -8,6 +8,7 @@ The *General* settings table contains the information required on the *General* 
 
 .*General* settings
 [options="header"]
+[cols=",a"]
 |===
 |Field Name |Description
 |*Host Cluster* |The cluster and data center to which the host belongs.
@@ -29,8 +30,18 @@ The *General* settings table contains the information required on the *General* 
 
 |*Name* |The name of the host. This text field has a 40-character limit and must be a unique name with any combination of uppercase and lowercase letters, numbers, hyphens, and underscores.
 |*Comment* |A field for adding plain text, human-readable comments regarding the host.
-|*Hostname* |The IP address or resolvable host name of the host. If a resolvable hostname is used, you must ensure for all addresses (IPv4 and IPv6) that the hostname is resolved to match the IP addresses (IPv4 and IPv6) used by the management network of the host.
-|*Password* |The password of the host's root user. This can only be given when you add the host; it cannot be edited afterwards.
+|*Hostname* |The IP address or resolvable host name of the host. If a resolvable hostname is used, you must ensure that all addresses that the hostname is resolved to match the IP addresses, IPv4 and IPv6, used by the management network of the host.
+|*Password* |The password of the host's root user. Set the password when adding the host. The password cannot be edited afterwards.
+|*Activate host after install* |Select this checkbox to activate the host after successful installation. This is enabled by default and required for the hypervisors to be activated successfully.
+
+After successful installation, you can clear this checkbox to switch the host status to Maintenance. This allows the administrator to perform additional configuration tasks on the hypervisors.
+
+|*Reboot host after install* |Select this checkbox to reboot the host after it is installed. This is enabled by default.
+
+[NOTE]
+====
+Changing the kernel command line parameters of the host, or changing the firewall type of the cluster also require you to reboot the host.
+====
 |*SSH Public Key* |Copy the contents in the text box to the */root/.ssh/authorized_hosts* file on the host to use the {engine-name}'s SSH key instead of a password to authenticate with a host.
 |*Automatically configure host firewall* |When adding a new host, the {engine-name} can open the required ports on the host's firewall. This is enabled by default. This is an *Advanced Parameter*.
 |*SSH Fingerprint* |You can *fetch* the host's SSH fingerprint, and compare it with the fingerprint you expect the host to return, ensuring that they match. This is an *Advanced Parameter*.

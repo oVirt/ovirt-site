@@ -59,5 +59,5 @@ You can synchronize a host's networks on three levels:
 
 [NOTE]
 ====
-You can also synchronize a host's networks via the REST API. See link:http://ovirt.github.io/ovirt-engine-api-model/4.4/#services[syncallnetworks] in the _REST API Guide_.
+You can also synchronize a host's networks via the REST API. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#services-host-methods-sync_all_networks[syncallnetworks] in the _REST API Guide_.
 ====

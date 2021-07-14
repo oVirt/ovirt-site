@@ -5,7 +5,7 @@
 
 You can back up a self-hosted engine and restore it in a new self-hosted environment. Use this procedure for tasks such as migrating the environment to a new self-hosted engine storage domain with a different storage type.
 
-When you specify a backup file during deployment, the backup is restored on a new {engine-name} virtual machine, with a new self-hosted engine storage domain. The old {engine-name} is removed, and the old self-hosted engine storage domain is renamed and can be manually removed after you confirm that the new environment is working correctly. Deploying on a fresh host is highly recommended; if the host used for deployment existed in the backed up environment, it will be removed from the restored database to avoid conflicts in the new environment.
+When you specify a backup file during deployment, the backup is restored on a new {engine-name} virtual machine, with a new self-hosted engine storage domain. The old {engine-name} is removed, and the old self-hosted engine storage domain is renamed and can be manually removed after you confirm that the new environment is working correctly. Deploying on a fresh host is highly recommended; if the host used for deployment existed in the backed up environment, it will be removed from the restored database to avoid conflicts in the new environment. If you deploy on a new host, you must assign a unique name to the host. Reusing the name of an existing host included in the backup can cause conflicts in the new environment.
 
 The backup and restore operation involves the following key actions:
 
@@ -25,7 +25,9 @@ This procedure assumes that you have access and can make changes to the original
 
 * A fully qualified domain name prepared for your {engine-name} and the host. Forward and reverse lookup records must both be set in the DNS. The new {engine-name} must have the same fully qualified domain name as the original {engine-name}.
 
-* The original {engine-name} must be updated to the latest minor version. The {engine-name} version in the backup file must match the version of the new {engine-name}. See link:{URL_virt_product_docs}upgrade_guide#Updating_the_Red_Hat_Virtualization_Manager_minor_updates[Updating the {virt-product-fullname} {engine-name}] in the _Upgrade Guide_.
+* The original {engine-name} must be updated to the latest minor version. The {engine-name} version in the backup file must match the version of the new {engine-name}. See link:{URL_virt_product_docs}{URL_format}upgrade_guide/index#Updating_the_Red_Hat_Virtualization_Manager_minor_updates[Updating the {virt-product-fullname} {engine-name}] in the _Upgrade Guide_.
+
+* The data center compatibility level must be set to the latest version to ensure compatibility with the updated storage version.
 
 * There must be at least one regular host in the environment. This host (and any other regular hosts) will remain active to host the SPM role and any running virtual machines. If a regular host is not already the SPM, move the SPM role before creating the backup by selecting a regular host and clicking menu:Management[Select as SPM].
 +

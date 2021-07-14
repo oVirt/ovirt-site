@@ -64,7 +64,7 @@ This will explicitly start the virtual machine without the vhost-net setting on 
 
 |*scsi_hostdev*
 a|
-Optionally, if you add a SCSI host device to a virtual machine, you can specify the optimal SCSI host device driver. For details, see link:{URL_virt_product_docs}virtual_machine_management_guide/index.html#Adding_Host_Devices_to_a_Virtual_Machine[Adding Host Devices to a Virtual Machine].
+Optionally, if you add a SCSI host device to a virtual machine, you can specify the optimal SCSI host device driver. For details, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Adding_Host_Devices_to_a_Virtual_Machine[Adding Host Devices to a Virtual Machine].
 
 * *scsi_generic*: (Default) Enables the guest operating system to access OS-supported SCSI host devices attached to the host. Use this driver for SCSI media changers that require raw access, such as tape or CD changers.
 * *scsi_block*: Similar to *scsi_generic* but better speed and reliability. Use for SCSI disk devices. If trim or discard for the underlying device is desired, and it’s a hard disk, use this driver.

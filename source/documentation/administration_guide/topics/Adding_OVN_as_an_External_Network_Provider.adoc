@@ -14,12 +14,12 @@ When a 4.2 Technical Reference document exists, we'll move the API paragraphs th
 deferred-maintenance
 ////
 
-The `ovirt-provider-ovn` exposes a Neutron-like REST API. You can use this API to create networks, subnets, ports, and routers. For details, see link:https://developer.openstack.org/api-ref/network/v2/[_OpenStack Networking API v2.0_].
+The `ovirt-provider-ovn` exposes an OpenStack Networking REST API. You can use this API to create networks, subnets, ports, and routers. For details, see link:https://developer.openstack.org/api-ref/network/v2/[_OpenStack Networking API v2.0_].
 
-// [NOTE]
-// ====
-// CloudForms supports OVN as an external provider using the OpenStack (Neutron) API. See link:https://access.redhat.com/documentation/en-us/red_hat_cloudforms/4.6/html/managing_providers/network_providers[Network Managers] in _Red Hat CloudForms: Managing Providers_ for details.
-// ====
+[NOTE]
+====
+CloudForms supports OVN as an external provider using the OpenStack Networking API. See link:https://access.redhat.com/documentation/en-us/red_hat_cloudforms/5.0/html/managing_providers/network_providers[Network Managers] in _Red Hat CloudForms: Managing Providers_ for details.
+====
 
 For more details, see the link:http://docs.openvswitch.org/en/latest/[Open vSwitch Documentation] and link:http://openvswitch.org/support/dist-docs/[Open vSwitch Manpages].
 

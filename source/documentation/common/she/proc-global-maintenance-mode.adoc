@@ -1,0 +1,27 @@
+[id='global-maintenance-mode_{context}']
+= Setting global maintenance mode
+
+Enabling global maintenance mode stops the high-availability agents on all self-hosted engine nodes in the cluster.
+
+.Setting the global maintenance mode from the Administration Portal
+
+. Put all of the self-hosted engine nodes into global maintenance mode:
+.. In the Administration Portal, click menu:Compute[Hosts] and select any self-hosted engine node.
+.. Click *More Actions* (image:common/images/moreactions.png[]), then click *Enable Global HA Maintenance*.
+. After you have completed any maintenance tasks, disable the maintenance mode:
+.. In the Administration Portal, click menu:Compute[Hosts] and select any self-hosted engine node.
+.. Click *More Actions* (image:common/images/moreactions.png[]), then click *Disable Global HA Maintenance*.
+
+.Setting the global maintenance mode from the command line
+
+.  Log in to any self-hosted engine node and put it into global maintenance mode:
++
+----
+# hosted-engine --set-maintenance --mode=global
+----
+
+. After you have completed any maintenance tasks, disable the maintenance mode:
++
+----
+# hosted-engine --set-maintenance --mode=none
+----

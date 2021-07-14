@@ -1,7 +1,7 @@
 [[Adding_an_External_Network_Provider]]
 ==== Adding an External Network Provider
 
-Any network provider that implements the OpenStack Neutron REST API can be added to {virt-product-fullname}. The virtual interface driver needs to be provided by the implementer of the external network provider. A reference implementation of a network provider and a virtual interface driver are available at link:https://github.com/mmirecki/ovirt-provider-mock[] and link:https://github.com/mmirecki/ovirt-provider-mock/blob/master/docs/driver_instalation[].
+Any network provider that implements the OpenStack Networking REST API can be added to {virt-product-fullname}. The virtual interface driver needs to be provided by the implementer of the external network provider. A reference implementation of a network provider and a virtual interface driver are available at link:https://github.com/mmirecki/ovirt-provider-mock[] and link:https://github.com/mmirecki/ovirt-provider-mock/blob/master/docs/driver_instalation[].
 
 
 *Adding an External Network Provider for Network Provisioning*
@@ -11,7 +11,7 @@ Any network provider that implements the OpenStack Neutron REST API can be added
 
 . Enter a *Name* and *Description*.
 . Select *External Network Provider* from the *Type* drop-down list.
-. Optionally, click the *Networking Plugin* text box and select the appropriate driver from the drop-down menu. 
+. Optionally, click the *Networking Plugin* text box and select the appropriate driver from the drop-down menu.
 . Optionally, select the *Automatic Synchronization* check box. This enables automatic synchronization of the external network provider with existing networks. This feature is disabled by default when adding external network providers.
 +
 [NOTE]
@@ -27,8 +27,8 @@ You must leave the *Read-Only* check box selected for your setup to be supported
 ====
 +
 
-. Optionally, select the *Requires Authentication* check box and enter the *Username* and *Password* for the external network provider user registered in Keystone. 
-You must also define the authentication URL of the Keystone server by defining the *Protocol*, *Hostname*, and *API Port*. 
+. Optionally, select the *Requires Authentication* check box and enter the *Username* and *Password* for the external network provider user registered in Keystone.
+You must also define the authentication URL of the Keystone server by defining the *Protocol*, *Hostname*, and *API Port*.
 +
 Optionally, enter the *Tenant* for the external network provider.
 

@@ -78,14 +78,14 @@ include::common/admin/proc-Setting_Legacy_SPICE_Cipher.adoc[leveloffset=+3]
 
 A scheduling policy is a set of rules that defines the logic by which virtual machines are distributed amongst hosts in the cluster that scheduling policy is applied to. Scheduling policies determine this logic via a combination of filters, weightings, and a load balancing policy. The filter modules apply hard enforcement and filter out hosts that do not meet the conditions specified by that filter. The weights modules apply soft enforcement, and are used to control the relative priority of factors considered when determining the hosts in a cluster on which a virtual machine can run.
 
-The {virt-product-fullname} {engine-name} provides five default scheduling policies: *Evenly_Distributed*, *Cluster_Maintenance*, *None*, *Power_Saving*, and *VM_Evenly_Distributed*. You can also define new scheduling policies that provide fine-grained control over the distribution of virtual machines. Regardless of the scheduling policy, a virtual machine will not start on a host with an overloaded CPU. By default, a host's CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. See link:{URL_virt_product_docs}administration_guide/#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information about the properties of each scheduling policy.
+The {virt-product-fullname} {engine-name} provides five default scheduling policies: *Evenly_Distributed*, *Cluster_Maintenance*, *None*, *Power_Saving*, and *VM_Evenly_Distributed*. You can also define new scheduling policies that provide fine-grained control over the distribution of virtual machines. Regardless of the scheduling policy, a virtual machine will not start on a host with an overloaded CPU. By default, a host's CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information about the properties of each scheduling policy.
 
 .Evenly Distributed Scheduling Policy
 image::images/RHV_SchedulingPolicies_444396_0417_ECE_EvenlyDistributed.png[]
 
 The *Evenly_Distributed* scheduling policy distributes the memory and CPU processing load evenly across all hosts in the cluster. Additional virtual machines attached to a host will not start if that host has reached the defined *CpuOverCommitDurationMinutes*, *HighUtilization*, or *MaxFreeMemoryForOverUtilized*.
 
-The *VM_Evenly_Distributed* scheduling policy  virtual machines evenly between hosts based on a count of the virtual machines. The cluster is considered unbalanced if any host is running more virtual machines than the *HighVmCount* and there is at least one host with a virtual machine count that falls outside of the *MigrationThreshold*.
+The *VM_Evenly_Distributed* scheduling policy distributes virtual machines evenly between hosts based on a count of the virtual machines. The cluster is considered unbalanced if any host is running more virtual machines than the *HighVmCount* and there is at least one host with a virtual machine count that falls outside of the *MigrationThreshold*.
 
 .Power Saving Scheduling Policy
 image::images/RHV_SchedulingPolicies_444396_0417_ECE_PowerSaving.png[]
@@ -104,6 +104,9 @@ include::topics/Explanation_of_Settings_in_the_New_Scheduling_Policy_and_Edit_Sc
 === Instance Types
 
 Instance types can be used to define the hardware configuration of a virtual machine. Selecting an instance type when creating or editing a virtual machine will automatically fill in the hardware configuration fields. This allows users to create multiple virtual machines with the same hardware configuration without having to manually fill in every field.
+
+[NOTE]
+Support for instance types is now deprecated, and will be removed in a future release.
 
 A set of predefined instance types are available by default, as outlined in the following table:
 

@@ -7,24 +7,15 @@
 // Introduction_to_the_Administration_Portal
 // Introduction_to_the_VM_Portal
 
-Virtual machine consoles can only be accessed using supported Remote Viewer (`virt-viewer`) clients on {enterprise-linux} and Windows. To install `virt-viewer`, see link:{URL_virt_product_docs}virtual_machine_management_guide/[Installing Supporting Components on Client Machines] in the _Virtual Machine Management Guide_. Installing `virt-viewer` requires Administrator privileges.
+Virtual machine consoles can only be accessed using supported Remote Viewer (`virt-viewer`) clients on {enterprise-linux} and Windows. To install `virt-viewer`, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-installing_supporting_components[Installing Supporting Components on Client Machines] in the _Virtual Machine Management Guide_. Installing `virt-viewer` requires Administrator privileges.
 
-Virtual machine consoles are accessed through the SPICE, VNC, or RDP (Windows only) protocols. The QXL graphical driver can be installed in the guest operating system for improved/enhanced SPICE functionalities. SPICE currently supports a maximum resolution of 2560x1600 pixels.
-
-Supported QXL drivers are available on {enterprise-linux}, Windows XP, and Windows 7.
-
-SPICE support is divided into tiers:
-
-* Tier 1: Operating systems on which Remote Viewer has been fully tested and is supported.
-
-* Tier 2: Operating systems on which Remote Viewer is partially tested and is likely to work. Limited support is provided for this tier. Red Hat Engineering will attempt to fix issues with remote-viewer on this tier.
+You can access virtual machine consoles using the SPICE, VNC, or RDP (Windows only) protocols. You can install the QXLDOD graphical driver in the guest operating system to improve the functionality of SPICE. SPICE currently supports a maximum resolution of 2560x1600 pixels.
 
 .Client Operating System SPICE Support
-[options="header"]
-|===
-|Support Tier |Operating System
-|Tier 1 |{enterprise-linux} 7.2 and later
-| |Microsoft Windows 7
-|Tier 2 |Microsoft Windows 8
-| |Microsoft Windows 10
-|===
+
+Supported QXLDOD drivers are available on {enterprise-linux} 7.2 and later, and Windows 10.
+
+[NOTE]
+====
+SPICE may work with Windows 8 or 8.1 using QXLDOD drivers, but it is neither certified nor tested.
+====

@@ -5,7 +5,7 @@ You can upload virtual disk images and ISO images to your data storage domain in
 
 [NOTE]
 ====
-To upload images with the REST API, see link:http://ovirt.github.io/ovirt-engine-api-model/4.4#services-image_transfers[IMAGETRANSFERS] and link:http://ovirt.github.io/ovirt-engine-api-model/4.4#services-image_transfer[IMAGETRANSFER] in the _REST API Guide_.
+To upload images with the REST API, see link:{URL_rest_api_doc}index#services-image_transfers[IMAGETRANSFERS] and link:{URL_rest_api_doc}index#services-image_transfer[IMAGETRANSFER] in the _REST API Guide_.
 ====
 
 QEMU-compatible virtual disks can be attached to virtual machines. Virtual disk types must be either QCOW2 or raw. Disks created from a QCOW2 virtual disk cannot be shareable, and the QCOW2 virtual disk file must not have a backing file.
@@ -16,7 +16,7 @@ ISO images can be attached to virtual machines as CDROMs or used to boot virtual
 
 The upload function uses HTML 5 APIs, which requires your environment to have the following:
 
-* Image I/O Proxy (`ovirt-imageio-proxy`), configured with `engine-setup`. See link:{URL_virt_product_docs}installing_ovirt_as_a_standalone_manager_with_local_databases/[Configuring the {virt-product-fullname} {engine-name}] for details.
+* Image I/O Proxy (`ovirt-imageio-proxy`), configured with `engine-setup`. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM[Configuring the {virt-product-fullname} {engine-name}] for details.
 
 * Certificate authority, imported into the web browser used to access the Administration Portal.
 +

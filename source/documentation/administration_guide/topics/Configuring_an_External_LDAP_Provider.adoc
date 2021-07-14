@@ -126,7 +126,7 @@ Enter search user password:
 Please enter base DN (dc=redhat,dc=com) [dc=redhat,dc=com]: _ou=department-1,dc=redhat,dc=com_
 ----
 +
-. Select `Yes` if you intend to configure single sign-on for virtual machines. Note that the feature cannot be used with single sign-on to the Administration Portal feature. The script reminds you that the profile name must match the domain name. You will still need to follow the instructions in link:{URL_virt_product_docs}virtual_machine_management_guide[Configuring Single Sign-On for Virtual Machines] in the _Virtual Machine Management Guide_.
+. Select `Yes` if you intend to configure single sign-on for virtual machines. Note that the feature cannot be used with single sign-on to the Administration Portal feature. The script reminds you that the profile name must match the domain name. You will still need to follow the instructions in link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-Configuring_Single_Sign-On_for_Virtual_Machines[Configuring Single Sign-On for Virtual Machines] in the _Virtual Machine Management Guide_.
 +
 [options="nowrap" subs="normal"]
 ----

@@ -5,7 +5,7 @@ The Graphics Processing Unit (GPU) device from a host can be directly assigned t
 
 This procedure is relevant for hosts with either x86_64 or ppc64le architecture.
 
-For more information on the hardware requirements for direct device assignment, see link:{URL_downstream_virt_product_docs}html/planning_and_prerequisites_guide/rhv_requirements#PCI_Device_Requirements_RHV_planning[PCI Device Requirements] in the _Planning and Prerequisites Guide_.
+For more information on the hardware requirements for direct device assignment, see link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#PCI_Device_Requirements_RHV_planning[PCI Device Requirements] in the _Planning and Prerequisites Guide_.
 
 [IMPORTANT]
 ====
@@ -102,4 +102,4 @@ EndSection
 . Restart the virtual machine.
 
 
-The host GPU can now be directly assigned to the prepared virtual machine. For more information on assigning host devices to virtual machines, see link:{URL_virt_product_docs}virtual_machine_management_guide[Host Devices] in the _Virtual Machine Management Guide_.
+The host GPU can now be directly assigned to the prepared virtual machine. For more information on assigning host devices to virtual machines, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-host_devices[Host Devices] in the _Virtual Machine Management Guide_.

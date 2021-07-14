@@ -1,0 +1,37 @@
+:_module-type: PROCEDURE
+
+[id="proc_installing-a-third-party-package-on-ovirt-node_{context}"]
+= Installing a third-party package on oVirt-node
+
+[role="_abstract"]
+If you need a package that is not included in the `ovirt-release44.rpm` repository, you need to provide the repository before you can install the package.
+
+.Prerequisites
+
+* The path to the repository that includes the package you want to install.
+* You are logged in to the host with root permissions.
+
+.Procedure
+
+. Open an existing `.repo` file or create a new one in `/etc/yum.repos.d/`.
+
+. Add an entry to the `.repo` file. For example, to install `sssd-ldap`, add the following entry to a new `.repo` file name `third-party.repo`:
++
+[options="nowrap" subs="normal"]
+----
+# imgbased: set-enabled
+[custom-sssd-ldap]
+name = Provides sssd-ldap
+mirrorlist = http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=BaseOS&infra=$infra
+gpgcheck = 1
+enabled = 1
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+includepkgs = sssd-ldap
+----
+
+. Install ` sssd-ldap`:
++
+[options="nowrap" subs="normal"]
+----
+# dnf install sssd-ldap
+----

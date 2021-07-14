@@ -1,0 +1,12 @@
+:rhv-doc:
+include::common/collateral_files/attributes.adoc[]
+= Data Warehouse Guide
+:imagesdir: images
+:context: DWH
+:DWH:
+
+include::common/database/snip-About_Data_Warehouse.adoc[]
+
+include::chap-Installing_and_Configuring_Data_Warehouse.adoc[leveloffset=+1]
+
+include::chap-About_History_Database.adoc[]

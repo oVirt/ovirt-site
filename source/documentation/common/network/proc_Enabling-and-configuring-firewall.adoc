@@ -1,0 +1,47 @@
+// Module included in the following assemblies:
+//
+// <List assemblies here, each on a new line>
+
+[id="Enabling-and-configuring-firewall_{context}"]
+
+= Enabling and configuring the firewall
+
+[role="_abstract"]
+`firewalld` must be installed and running before you run the self-hosted deployment script. You must also have an active zone with an interface configured.
+
+.Prerequisites
+
+* `firewalld` is installed. `hosted-engine-setup` requires the `firewalld` package, so you do not need to do any additional steps.
+
+.Procedure
+
+. Start `firewalld`:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl unmask firewalld
+# systemctl start firewalld
+----
++
+To ensure firewalld starts automatically at system start, enter the following command as root:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl enable firewalld
+----
+
+. Ensure that firewalld is running:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl status firewalld
+----
+
+. Ensure that your management interface is in a firewall zone via
++
+[options="nowrap" subs="normal"]
+----
+# firewall-cmd --get-active-zones
+----
+
+Now you are ready to deploy the self-hosted engine.

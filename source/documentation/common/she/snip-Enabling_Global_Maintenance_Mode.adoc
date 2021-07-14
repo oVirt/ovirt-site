@@ -1,5 +1,5 @@
 [id="Enabling_Global_Maintenance_Mode_{context}"]
-= Enabling Global Maintenance Mode
+= Enabling global maintenance mode
 
 You must place the self-hosted engine environment in global maintenance mode before performing any setup or upgrade tasks on the {engine-name} virtual machine.
 
@@ -12,11 +12,11 @@ You must place the self-hosted engine environment in global maintenance mode bef
 # hosted-engine --set-maintenance --mode=global
 ----
 
-. Confirm that the environment is in maintenance mode before proceeding:
+. Confirm that the environment is in global maintenance mode before proceeding:
 +
 [options="nowrap" subs="normal"]
 ----
 # hosted-engine --vm-status
 ----
 +
-You should see a message indicating that the cluster is in maintenance mode.
+You should see a message indicating that the cluster is in global maintenance mode.

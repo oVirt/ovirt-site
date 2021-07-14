@@ -9,12 +9,18 @@ For information on setting up and configuring FCP or multipathing on {enterprise
 
 [IMPORTANT]
 ====
-If you are using block storage and you intend to deploy virtual machines on raw devices or direct LUNs and to manage them with the Logical Volume Manager, you must create a filter to hide the guest logical volumes. This will prevent guest logical volumes from being activated when the host is booted, a situation that could lead to stale logical volumes and cause data corruption. See link:https://access.redhat.com/solutions/2662261[] for details.
+If you are using block storage and intend to deploy virtual machines on raw devices or direct LUNs and manage them with the Logical Volume Manager (LVM), you must create a filter to hide guest logical volumes. This will prevent guest logical volumes from being activated when the host is booted, a situation that could lead to stale logical volumes and cause data corruption. Use the `vdsm-tool config-lvm-filter` command to create filters for the LVM.
+ifdef::storage-domain[]
+See xref:Creating_LVM_filter_{context}[Creating an LVM filter] for details.
+endif::storage-domain[]
+ifdef::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE,SM_localDB_deploy,SM_remoteDB_deploy[]
+See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Creating_LVM_filter_storage_admin[Creating an LVM filter]
+endif::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE,SM_localDB_deploy,SM_remoteDB_deploy[]
 ====
 
 [IMPORTANT]
 ====
-{virt-product-fullname} currently does not support storage with a block size of 4K. You must configure block storage in legacy (512b block) mode.
+{virt-product-fullname} currently does not support block storage with a block size of 4K. You must configure block storage in legacy (512b block) mode.
 ====
 
 [IMPORTANT]

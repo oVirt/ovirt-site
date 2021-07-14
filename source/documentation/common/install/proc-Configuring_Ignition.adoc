@@ -1,0 +1,22 @@
+[id="Configuring_Ignition"]
+
+.Configuring Ignition
+Ignition is the utility that is used by {enterprise-linux} CoreOS to manipulate disks during initial configuration. It completes common disk tasks, including partitioning disks, formatting partitions, writing files, and configuring users. On first boot, Ignition reads its configuration from the installation media or the location that you specify and applies the configuration to the machines.
+
+[IMPORTANT]
+====
+Once Ignition has been configured as the initialization method, it cannot be reversed or re-configured.
+====
+
+. In the `Add Virtual Machine` or `Edit Virtual Machine` screen, click btn:[Show Advanced Options].
+. In the `Initial Run` tab, select the *Ignition 2.3.0* option and enter the *VM Hostname*.
+. Expand the *Authorization* option, enter a hashed (SHA-512) password, and enter the password again to verify.
+. If you are using SSH keys for authorization, enter them in the space provided.
+. You can also enter a custom Ignition script in JSON format in the *Ignition Script* field. This script will run on the virtual machine when it starts. The scripts you enter in this field are custom JSON sections that are added to those produced by the {engine-name}, and allow you to use custom Ignition instructions.
++
+[NOTE]
+====
+If the {enterprise-linux} CoreOS image you are using contains an Ignition version different than 2.3.0, you need to use a script in the *Ignition Script* field to enforce the Ignition version included in your {enterprise-linux} CoreOS image. 
+
+When you use an Ignition script, the script instructions take precedence over and override any conflicting Ignition settings you configured in the UI.
+====

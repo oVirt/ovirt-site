@@ -1,0 +1,53 @@
+// Module included in the following assemblies:
+//
+// assembly_managing-nvidia-vgpu-devices
+
+
+[id="proc_install-nvidia-vgpu-guest-driver_{context}"]
+ifdef::nvidia_gpu_passthrough[= Installing the GPU driver on the virtual machine]
+ifdef::nvidia_vgpu[= Installing the vGPU driver on the virtual machine]
+
+.Procedure
+ifdef::nvidia_gpu_passthrough[]
+. Run the virtual machine and connect to it using the VNC or SPICE console.
+endif::[]
+
+ifdef::nvidia_vgpu[]
+. Run the virtual machine and connect to it using the VNC console.
++
+[NOTE]
+====
+SPICE is not supported on vGPU.
+====
++
+endif::[]
+. Download the driver to the virtual machine. For information on getting the driver, see link:https://www.nvidia.com/Download/index.aspx?lang=en-us[the Drivers page on the NVIDIA website].
+
+ifdef::nvidia_gpu_passthrough[]
+. Install the GPU driver.
+endif::[]
+
+ifdef::nvidia_vgpu[]
+. Install the vGPU driver, following the instructions in link:https://docs.nvidia.com/grid/latest/grid-vgpu-user-guide/index.html#installing-grid-vgpu-display-drivers[Installing the NVIDIA vGPU Software Graphics Driver] in the __NVIDIA Virtual GPU software documentation__.
+endif::[]
++
+[IMPORTANT]
+====
+*Linux only:* When installing the driver on a Linux guest operating system, you are prompted to update xorg.conf. If you do not update xorg.conf during the installation, you need to update it manually.
+For more information, see xref:Updating_and_Enabling_xorg_nvidia_gpu_passthrough[].
+====
++
+. After the driver finishes installing, reboot the machine. *For Windows virtual machines,* fully power off the guest from the Administration portal or the VM portal, not from within the guest operating system.
++
+[IMPORTANT]
+====
+*Windows only:* Powering off the virtual machine from within the Windows guest operating system sometimes sends the virtual machine into hibernate mode, which does not completely clear the memory, possibly leading to subsequent problems. Using the Administration portal or the VM portal to power off the virtual machine forces it to fully clean the memory.
+====
+
+ifdef::nvidia_gpu_passthrough[. Connect a monitor to the host GPU output interface and run the virtual machine.]
+
+ifdef::nvidia_vgpu[]
+. Run the virtual machine and connect to it using one of the supported remote desktop protocols, such as Mechdyne TGX, and verify that the vGPU is recognized by opening the NVIDIA Control Panel. On Windows, you can alternatively open the Windows Device Manager. The vGPU should appear under *Display adapters*. For more information, see the link:https://docs.nvidia.com/grid/latest/grid-vgpu-user-guide/index.html#installing-grid-vgpu-display-drivers[NVIDIA vGPU Software Graphics Driver] in the _NVIDIA Virtual GPU software documentation_.
+endif::[]
+
+. Set up NVIDIA vGPU guest software licensing for each vGPU and add the license credentials in the NVIDIA control panel. For more information, see  link:https://docs.nvidia.com/grid/latest/grid-licensing-user-guide/index.html#how-grid-licensing-works[How NVIDIA vGPU Software Licensing Is Enforced] in the _NVIDIA Virtual GPU Software Documentation_.

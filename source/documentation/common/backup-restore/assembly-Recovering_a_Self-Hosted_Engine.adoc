@@ -6,7 +6,7 @@
 
 If a self-hosted engine is unavailable due to problems that cannot be repaired, you can restore it in a new self-hosted environment using a backup taken before the problem began, if one is available.
 
-When you specify a backup file during deployment, the backup is restored on a new {engine-name} virtual machine, with a new self-hosted engine storage domain. The old {engine-name} is removed, and the old self-hosted engine storage domain is renamed and can be manually removed after you confirm that the new environment is working correctly. Deploying on a fresh host is highly recommended; if the host used for deployment existed in the backed up environment, it will be removed from the restored database to avoid conflicts in the new environment.
+When you specify a backup file during deployment, the backup is restored on a new {engine-name} virtual machine, with a new self-hosted engine storage domain. The old {engine-name} is removed, and the old self-hosted engine storage domain is renamed and can be manually removed after you confirm that the new environment is working correctly. Deploying on a fresh host is highly recommended; if the host used for deployment existed in the backed up environment, it will be removed from the restored database to avoid conflicts in the new environment. If you deploy on a new host, you must assign a unique name to the host. Reusing the name of an existing host included in the backup can cause conflicts in the new environment.
 
 Restoring a self-hosted engine involves the following key actions:
 

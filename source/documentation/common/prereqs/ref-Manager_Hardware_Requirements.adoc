@@ -18,7 +18,7 @@ endif::[]
 [options="header"]
 |===
 |Resource |Minimum |Recommended
-|CPU |A dual core x86_64 CPU. |A quad core x86_64 CPU or multiple dual core x86_64 CPUs.
+|CPU |A dual core x86_64 CPU. |A quad core x86_64 CPU or multiple dual core x86_64 CPUs. 
 |Memory |4 GB of available system RAM if Data Warehouse is not installed and if memory is not being consumed by existing processes. |16 GB of system RAM.
 |Hard Disk |25 GB of locally accessible, writable disk space. |50 GB of locally accessible, writable disk space.
 

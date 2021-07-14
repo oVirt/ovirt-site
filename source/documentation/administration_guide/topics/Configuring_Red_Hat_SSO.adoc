@@ -1,12 +1,38 @@
 [id='Configuring_Red_Hat_SSO']
 
-=== Configuring Red Hat Single Sign-On
+=== Installing and Configuring Red Hat Single Sign-On
+To use Red Had Single Sign-On as your authorization method, you need to:
 
-
-Red Hat Single Sign-on allows users to log in...
+* Install Red Hat SSO.
+* Configure the LDAP group mapper.
+* Configure Apache on the {engine-name}.
+* Configure OVN provider credentials.
 
 
 [NOTE]
 ====
-If RHSSO is configured, previous LDAP sign ons will not work.
+If Red Hat SSO is configured, previous LDAP sign ons will not work, as only a single authorization protocol may be used at a time.
 ====
+
+==== Installing Red Hat Single Sign-On
+
+include::Installing_RH_SSO.adoc[]
+
+Prepare the following information:
+
+* Path/location of the `Open ID Connect` server.
+* The subscription channel for the correct repositories.
+* Valid Red Hat subscription login credentials.
+
+
+==== Configuring the LDAP group mapper
+
+include::Configuring_RHSSO_ldap.adoc[]
+
+==== Configuring Apache in the {engine-name}
+
+include::Configuring_RHSSO_apache.adoc[]
+
+==== Configuring OVN
+
+include::Configuring_RHSSO_OVN.adoc[]

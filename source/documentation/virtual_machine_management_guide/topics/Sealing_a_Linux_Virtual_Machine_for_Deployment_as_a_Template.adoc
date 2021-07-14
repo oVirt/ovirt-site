@@ -3,4 +3,4 @@
 
 To seal a Linux virtual machine during the template creation process, select the *Seal Template* check box in the *New Template* window. See xref:Creating_a_template_from_an_existing_virtual_machine[] for details.
 
-include::snip_RHEL_8_vms_not_supported.adoc[]
+include::snip-sealing-rhel-8-vms.adoc[]

@@ -1,0 +1,8 @@
+[id='Maintaining_the_Self-Hosted_Engine']
+= Maintaining the Self-hosted engine
+
+include::con-maintenance-modes.adoc[leveloffset=+1]
+
+include::proc-local-maintenance-mode.adoc[leveloffset=+1]
+
+include::proc-global-maintenance-mode.adoc[leveloffset=+1]

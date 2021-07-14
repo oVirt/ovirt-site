@@ -4,7 +4,7 @@
 
 [NOTE]
 ====
-The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disks, and templates can then be uploaded from the imported storage domain to the attached data center. See the link:{URL_virt_product_docs}administration_guide#sect-Importing_Existing_Storage_Domains[Importing Existing Storage Domains] section in the _{virt-product-fullname} Administration Guide_ for information on importing storage domains.
+The export storage domain is deprecated. Storage data domains can be unattached from a data center and imported to another data center in the same environment, or in a different environment. Virtual machines, floating virtual disks, and templates can then be uploaded from the imported storage domain to the attached data center. See the link:{URL_virt_product_docs}{URL_format}administration_guide#sect-Importing_Existing_Storage_Domains[Importing Existing Storage Domains] section in the _{virt-product-fullname} Administration Guide_ for information on importing storage domains.
 ====
 Import templates from a newly attached export domain. This procedure requires access to the Administration Portal.
 

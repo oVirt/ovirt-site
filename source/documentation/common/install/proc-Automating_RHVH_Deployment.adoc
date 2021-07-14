@@ -1,7 +1,9 @@
 [id='Automating_RHVH_Deployment_{context}']
-= Automating {hypervisor-fullname} Deployment
+= Automating {hypervisor-fullname} deployment
 
 You can install {hypervisor-fullname} ({hypervisor-shortname}) without a physical media device by booting from a PXE server over the network with a Kickstart file that contains the answers to the installation questions.
+
+include::../upgrade/snip_WARNING-detach_data_storage.adoc[]
 
 General instructions for installing from a PXE server with a Kickstart file are available in the link:{URL_rhel_docs_legacy}html/installation_guide/chap-kickstart-installations[_{enterprise-linux} Installation Guide_], as {hypervisor-shortname} is installed in much the same way as {enterprise-linux}. {hypervisor-shortname}-specific instructions, with examples for deploying {hypervisor-shortname} with Red Hat Satellite, are described below.
 
@@ -12,7 +14,7 @@ The automated {hypervisor-shortname} deployment has 3 stages:
 * xref:Creating_and_Running_a_Kickstart_File[]
 
 [[Preparing_the_Installation_Environment]]
-== Preparing the Installation Environment
+== Preparing the installation environment
 
 ifdef::rhv-doc[]
 . Go to the link:https://access.redhat.com/products/red-hat-virtualization#getstarted[Get Started with Red Hat Virtualization] on the Red Hat Customer Portal and log in.
@@ -21,7 +23,7 @@ download page.
 . Choose the appropriate *Hypervisor Image for RHV* from the list and click *Download Now*.
 endif::[]
 ifdef::ovirt-doc[]
-. Visit the link:/download/node.html[oVirt Node Download] page.
+. Visit the link:https://ovirt.org/download/node.html[oVirt Node Download] page.
 . Choose the version of *oVirt Node* to download and click its *Installation ISO* link.
 endif::[]
 . Make the {hypervisor-shortname} ISO image available over the network. See https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/sect-making-media-additional-sources.html#sect-making-media-sources-network[Installation Source on a Network] in the _{enterprise-linux} Installation Guide_.
@@ -41,7 +43,7 @@ This *squashfs.img* file, located in the `/tmp/usr/share/redhat-virtualization-h
 ====
 
 [[Configuring_the_PXE_Server_and_the_Boot_Loader]]
-== Configuring the PXE Server and the Boot Loader
+== Configuring the PXE server and the boot loader
 
 . Configure the PXE server. See link:{URL_rhel_docs_legacy}html/Installation_Guide/chap-installation-server-setup.html[Preparing for a Network Installation] in the _{enterprise-linux} Installation Guide_.
 
@@ -62,10 +64,9 @@ KERNEL /var/lib/tftpboot/pxelinux/vmlinuz
 APPEND initrd=/var/lib/tftpboot/pxelinux/initrd.img inst.stage2=_URL/to/{hypervisor-shortname}-ISO_
 ----
 +
-.{hypervisor-shortname} Boot Loader Configuration Example for Red Hat Satellite
+.{hypervisor-shortname} Boot loader configuration example for Red Hat Satellite
 +
 If you are using information from Red Hat Satellite to provision the host, you must create a global or host group level parameter called `rhvh_image` and populate it with the directory URL where the ISO is mounted or extracted:
-// review above - should we present Foreman as instead of RH Satellite?
 +
 [options="nowrap" subs="normal"]
 ----
@@ -93,7 +94,7 @@ IPAPPEND 2
 ----
 
 [[Creating_and_Running_a_Kickstart_File]]
-== Creating and Running a Kickstart File
+== Creating and running a Kickstart file
 
 . Create a Kickstart file and make it available over the network. See link:{URL_rhel_docs_legacy}html/Installation_Guide/chap-kickstart-installations.html[Kickstart Installations] in the _{enterprise-linux} Installation Guide_.
 
@@ -106,16 +107,19 @@ IPAPPEND 2
 liveimg --url=_example.com_/tmp/usr/share/redhat-virtualization-host/image/redhat-virtualization-host-__version_number___version.squashfs.img
 ----
 
-* Autopartitioning is highly recommended:
-[options="nowrap" subs="normal"]
+* Autopartitioning is highly recommended, but use caution: ensure that the local disk is detected first, include the `ignoredisk` command, and specify the local disk to ignore, such as `sda`.  To ensure that a particular drive is used, {org-fullname} recommends using `ignoredisk --only-use=/dev/disk/<__path__>` or `ignoredisk --only-use=/dev/disk/<__ID__>`:
 +
+[options="nowrap" subs="normal"]
 ----
 autopart --type=thinp
+ignoredisk --only-use=sda
+ignoredisk --only-use=/dev/disk/<__path__>
+ignoredisk --only-use=/dev/disk/<__ID__>
 ----
 +
 [NOTE]
 ====
-Thin provisioning must be used with autopartitioning.
+Autopartitioning requires thin provisioning.
 
 The `--no-home` option does not work in {hypervisor-shortname} because `/home` is a required directory.
 ====
@@ -131,9 +135,14 @@ nodectl init
 %end
 ----
 +
-.Kickstart Example for Deploying {hypervisor-shortname} on Its Own
+.Kickstart example for deploying {hypervisor-shortname} on its own
 +
 This Kickstart example shows you how to deploy {hypervisor-shortname}. You can include additional commands and options as required.
++
+[WARNING]
+====
+This example assumes that all disks are empty and can be initialized. If you have attached disks with data, either remove them or add them to the `ignoredisks` property.
+====
 +
 [options="nowrap" subs="normal"]
 ----
@@ -153,9 +162,14 @@ nodectl init
 ----
 ifdef::rhv-doc[]
 +
-.Kickstart Example for Deploying {hypervisor-shortname} with Registration and Network Configuration from Satellite
+.Kickstart example for deploying {hypervisor-shortname} with registration and network configuration from Satellite
 +
 This Kickstart example uses information from Red Hat Satellite to configure the host network and register the host to the Satellite server. You must create a global or host group level parameter called `rhvh_image` and populate it with the directory URL to the *squashfs.img* file. `ntp_server1` is also a global or host group level variable.
++
+[WARNING]
+====
+This example assumes that all disks are empty and can be initialized. If you have attached disks with data, either remove them or add them to the `ignoredisks` property.
+====
 +
 [options="nowrap" subs="normal"]
 ----

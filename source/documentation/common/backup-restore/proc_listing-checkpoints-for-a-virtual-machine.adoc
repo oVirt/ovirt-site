@@ -1,0 +1,43 @@
+:_module-type: PROCEDURE
+
+[id="listing-checkpoints-for-a-virtual-machine_{context}"]
+= Listing checkpoints for a virtual machine
+
+[role="_abstract"]
+You can list all checkpoints for a virtual machine, including information for each checkpoint, by sending a request call.
+
+.Procedure
+
+* Send a request specifying a virtual machine. For example, specify a virtual machine with id `123` like this:
++
+[options="nowrap" subs="normal"]
+----
+GET /vms/123/checkpoints/
+----
+
+The response includes all the virtual machine checkpoints. Each checkpoint contains the following information:
+
+* The checkpoint’s disks
+* The id of the parent checkpoint
+* Creation date of the checkpoint
+* The virtual machine to which it belongs
+
+For example:
+
+[options="nowrap" subs="normal"]
+----
+<parent_id>, <creation_date> and the virtual machine it belongs to <vm>:
+<checkpoints>
+    <checkpoint id="456">
+         <link href="/ovirt-engine/api/vms/vm-uuid/checkpoints/456/disks" rel="disks"/>
+         <parent_id>parent-checkpoint-uuid</parent_id>
+         <creation_date>xxx</creation_date>
+         <vm href="/ovirt-engine/api/vms/123" id="123"/>
+    </checkpoint>
+</checkpoints>
+----
+
+[role=_additional-resources]
+.Additional resources
+
+* link:{URL_rest_api_doc}index#services-vm_checkpoints-methods-list[`list` method to list virtual machine checkpoints] in the _REST API Guide_ for {virt-product-shortname}.

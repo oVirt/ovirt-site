@@ -1,0 +1,20 @@
+// Module included in the following assemblies:
+//
+// assembly_managing-nvidia-vgpu-devices
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/proc_removing-nvidia-vgpu-devices.adoc[leveloffset=+1]
+
+
+[id="proc_removing-nvidia-vgpu-devices_{context}"]
+= Removing NVIDIA vGPU devices
+
+To change the configuration of assigned vGPU mediated devices, the existing devices have to be removed from the assigned guests.
+
+[discrete]
+.Procedure
+
+. From the Administration portal, click menu:Compute[Virtual Machines].
+. Right-click the virtual machine and click *Power off*.
+. After the virtual machine is powered off, select the virtual machine and click *Edit*. The *Edit Virtual Machine* window opens.
+. On the *Custom Properties* tab, next to *mdev type*, click the minus btn:[-] button and click btn:[OK].

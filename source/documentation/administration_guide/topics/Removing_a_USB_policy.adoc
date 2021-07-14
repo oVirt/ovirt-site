@@ -1,10 +1,10 @@
 [[Removing_a_USB_policy]]
-==== Removing a USB Policy
+= Removing a USB Policy
 
 Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.
 
 
-*Removing a USB Policy*
+.Procedure
 
 . Select the policy to be removed.
 . Click *Remove*. A message displays prompting you to confirm that you want to remove the policy.
@@ -12,4 +12,7 @@ Double-click the USB Filter Editor shortcut icon on your desktop. This opens the
 . Click menu:File[Save] to save the changes.
 
 
-You have removed a USB policy from the USB Filter Editor. USB filter policies must be exported to the {virt-product-fullname} {engine-name} to take effect.
+You have removed a USB policy from the USB Filter Editor. You need to export USB filter policies to the {virt-product-fullname} {engine-name} for them to take effect.
+
+.Additional resources
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#Exporting_a_USB_policy[Exporting a USB Policy]

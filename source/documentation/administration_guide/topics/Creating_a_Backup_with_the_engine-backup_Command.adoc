@@ -1,27 +1,50 @@
 [[Creating_a_Backup_with_the_engine-backup_Command]]
-==== Creating a Backup with the engine-backup Command
+==== Creating a backup with the engine-backup command
 
-The {virt-product-fullname} {engine-name} can be backed up using the `engine-backup` command while the {engine-name} is active. Append one of the following options to `--scope` to specify which backup to perform:
+You can back up the {virt-product-fullname} {engine-name} with the [command]`engine-backup` command while the {engine-name} is active. Append one of the following values to the `--scope` option to specify what you want to back up:
 
-* `all`: A full backup of all databases and configuration files on the {engine-name}
+`all`:: A full backup of all databases and configuration files on the {engine-name}
 
-* `files`: A backup of only the files on the system
+`files`:: A backup of only the files on the system
 
-* `db`: A backup of only the {engine-name} database
+`db`:: A backup of only the {engine-name} database
 
-* `dwhdb`: A backup of only the Data Warehouse database
+`dwhdb`:: A backup of only the Data Warehouse database
+
+`cinderlibdb`:: A backup of only the Cinderlib database
+
+`grafanadb`:: A backup of only the Grafana database
+
+
+You can specify the `--scope` option more than once.
+
+You can also configure the [command]`engine-backup` command to back up additional files. It restores everything that it backs up.
 
 [IMPORTANT]
 ====
-To restore a database to a fresh installation of {virt-product-fullname} {engine-name}, a database backup alone is not sufficient; the {engine-name} also requires access to the configuration files. Any backup that specifies a scope other than the default, `all`, must be accompanied by the `files` scope, or a filesystem backup.
+To restore a database to a fresh installation of {virt-product-fullname} {engine-name}, a database backup alone is not sufficient. The {engine-name} also requires access to the configuration files. If you specify a scope other than `all`, you must also include `--scope=files`, or back up the file system.
 ====
 
-*Example Usage of the engine-backup Command*
+For a complete explanation of the [command]`engine-backup` command, enter `engine-backup --help` on the {engine-name} machine.
 
-. Log on to the machine running the {virt-product-fullname} {engine-name}.
+.Procedure
+. Log on to the {engine-name} machine.
+
 . Create a backup:
 +
-.Creating a Full Backup
+[options="nowrap" subs="normal"]
+----
+# engine-backup --scope=all --mode=backup --file=_file_name_ --log=_log_file_name_
+----
+
+The command generates the backup in `_file_name_.tar`, and a log file in `_log_file_name_`.
+
+Use `_file_name_.tar` to restore the environment.
+
+The following examples demonstrate several different backup scenarios.
+
+
+.Full backup
 ====
 
 [options="nowrap" subs="normal"]
@@ -30,8 +53,8 @@ To restore a database to a fresh installation of {virt-product-fullname} {engine
 ----
 
 ====
-+
-.Creating a {engine-name} Database Backup
+
+.{engine-name} database backup
 ====
 
 [options="nowrap" subs="normal"]
@@ -40,9 +63,35 @@ To restore a database to a fresh installation of {virt-product-fullname} {engine
 ----
 
 ====
-+
-Replace the `db` option with `dwhdb` to back up the Data Warehouse database.
-+
-A `tar` file containing a backup is created using the path and file name provided.
 
-The `tar` files containing the backups can now be used to restore the environment.
+.Data Warehouse database backup
+====
+
+[options="nowrap" subs="normal"]
+----
+# engine-backup --scope=files --scope=dwhdb --mode=backup --file=_file_name_ --log=_log_file_name_
+----
+
+====
+
+.Adding specific files to the backup
+====
+
+. Make a directory to store configuration customizations for the [command]`engine-backup` command:
++
+[options="nowrap" subs="normal"]
+----
+# mkdir -p /etc/ovirt-engine-backup/engine-backup-config.d
+----
+. Create a text file in the new directory named `ntp-chrony.sh` with the following contents:
++
+[options="nowrap" subs="normal"]
+----
+BACKUP_PATHS="${BACKUP_PATHS}
+/etc/chrony.conf
+/etc/ntp.conf
+/etc/ovirt-engine-backup"
+----
+. When you run the [command]`engine-backup` command, use `--scope=files`. The backup and restore includes `/etc/chrony.conf`, `/etc/ntp.conf`, and `/etc/ovirt-engine-backup`.
+
+====

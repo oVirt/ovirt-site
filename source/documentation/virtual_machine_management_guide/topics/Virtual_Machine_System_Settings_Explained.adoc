@@ -55,7 +55,7 @@ a|Specifies the chipset and BIOS type. Defaults to the cluster's default BIOS ty
 * *Q35 Chipset with SecureBoot* UEFI with SecureBoot, which authenticates the digital signatures of the boot loader
 * *Legacy* i440fx chipset with legacy BIOS
 
-For more information, see link:{URL_virt_product_docs}administration_guide/index.html#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.
+For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.
 | Yes.
 
 |*Custom Emulated Machine*
@@ -74,7 +74,7 @@ For more information, see link:{URL_virt_product_docs}administration_guide/index
 
 
 |*Custom Compatibility Version*
-|The compatibility version determines which features are supported by the cluster, as well as, the values of some properties and the emulated machine type. By default, the virtual machine is configured to run in the same compatibility mode as the cluster as the default is inherited from the cluster. In some situations the default compatibility mode needs to be changed. An example of this is if the cluster has been updated to a later compatibility version but the virtual machines have not been restarted. These virtual machines can be set to use a custom compatibility mode that is older than that of the cluster. See  link:{URL_virt_product_docs}administration_guide[Changing the Cluster Compatibility Version] in the _Administration Guide_ for more information.
+|The compatibility version determines which features are supported by the cluster, as well as, the values of some properties and the emulated machine type. By default, the virtual machine is configured to run in the same compatibility mode as the cluster as the default is inherited from the cluster. In some situations the default compatibility mode needs to be changed. An example of this is if the cluster has been updated to a later compatibility version but the virtual machines have not been restarted. These virtual machines can be set to use a custom compatibility mode that is older than that of the cluster. See  link:{URL_virt_product_docs}{URL_format}administration_guide/index#Changing_the_Cluster_Compatibility_Version[Changing the Cluster Compatibility Version] in the _Administration Guide_ for more information.
 | Yes.
 
 
@@ -82,7 +82,8 @@ For more information, see link:{URL_virt_product_docs}administration_guide/index
 |*Serial Number Policy*
 a|Override the system-level and cluster-level policies for assigning a serial numbers to virtual machines. Apply a policy that is unique to this virtual machine:
 
-* *System Default*: Use the system-wide defaults, which are configured in the {engine-name} database link:https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.3/html/administration_guide/sect-the_engine_configuration_tool[using the engine configuration tool] and the `DefaultSerialNumberPolicy` and `DefaultCustomSerialNumber` key names. The default value for `DefaultSerialNumberPolicy` is to use the Host ID. See link:{URL_virt_product_docs}administration_guide/#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
+* *System Default*: Use the system-wide defaults, which are configured in the {engine-name} database link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-The_Engine_Configuration_Tool[using the engine configuration tool] and the `DefaultSerialNumberPolicy` and `DefaultCustomSerialNumber` key names. The default value for `DefaultSerialNumberPolicy` is to use the Host ID. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.
+
 
 * *Host ID*: Set this virtual machine's serial number to the UUID of the host.
 

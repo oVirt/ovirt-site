@@ -23,7 +23,7 @@ To ensure virtual machine failover and failback works:
 * Virtual machines must be configured to be highly available, and each virtual machine must have a lease on a target storage domain to ensure the virtual machine can start even without power management.
 * Soft enforced virtual machine to host affinity must be configured to ensure the virtual machines only start on the selected hosts.
 
-For more information see link:{URL_virt_product_docs}virtual_machine_management_guide/index#sect-Improving_Uptime_with_Virtual_Machine_High_Availability[Improving Uptime with Virtual Machine High Availability] and link:{URL_virt_product_docs}virtual_machine_management_guide#sect-Affinity_Groups[Affinity Groups] in the _Virtual Machine Management Guide_.
+For more information see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-Improving_Uptime_with_Virtual_Machine_High_Availability[Improving Uptime with Virtual Machine High Availability] and link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-Affinity_Groups[Affinity Groups] in the _Virtual Machine Management Guide_.
 ====
 
-The stretched cluster configuration can be implemented using a self-hosted engine environment, or a standalone {engine-name} environment. For more information about the different types of deployments see link:{URL_downstream_virt_product_docs}html/product_guide/introduction#RHV_Architecture[{virt-product-fullname} Architecture] in the _Product Guide_.
+The stretched cluster configuration can be implemented using a self-hosted engine environment, or a standalone {engine-name} environment. For more information about the different types of deployments see link:{URL_downstream_virt_product_docs}product_guide/index#RHV_Architecture[Red Hat Virtualization Architecture] in the _Product Guide_.

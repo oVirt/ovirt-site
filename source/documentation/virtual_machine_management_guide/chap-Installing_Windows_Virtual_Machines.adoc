@@ -3,7 +3,8 @@
 :context: windows_vm
 :windows_vm:
 
-Installing a Windows virtual machine involves the following key steps: 
+
+Installing a Windows virtual machine involves the following key steps:
 
 . Create a blank virtual machine on which to install an operating system.
 . Add a virtual disk for storage.
@@ -22,7 +23,7 @@ include::common/install/proc-Creating_a_virtual_machine.adoc[leveloffset=+1]
 
 include::topics/Installing_Windows_on_Virtio_Optimized_Hardware.adoc[leveloffset=+2]
 
-include::topics/Opening_a_Console_to_a_Virtual_Machine.adoc[leveloffset=+2]
+include::topics/Opening_a_console_to_a_virtual_machine.adoc[leveloffset=+2]
 
 [[Installing_Guest_Agents_and_Drivers_Windows]]
 == Installing guest agents and drivers

@@ -20,6 +20,10 @@ include::topics/SPICE_Logs_for_SPICE_Clients_Launched_Using_consolevv_Files.adoc
 
 include::topics/Host_Log_Files.adoc[]
 
+include::topics/proc_setting-up-debug-level-logging.adoc[]
+
+include::topics/ref_debug-level-logging.adoc[]
+
 include::topics/Setting_up_a_Host_Logging_Server.adoc[]
 
 include::topics/Enabling_the_oVirt_Engine_Extension_Logger_log4j.adoc[]

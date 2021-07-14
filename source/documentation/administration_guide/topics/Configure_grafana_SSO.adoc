@@ -1,0 +1,28 @@
+[id="Configure_grafana_SSO"]
+
+.Configuring Grafana for Single Sign-on
+
+The {engine-name} engine-setup automatically configures Grafana to allow existing users on the {engine-name} to log in with SSO from the Administration Portal, but does not automatically create users. You need to create new users (`Invite` in the Grafana UI), confirm the new user, and then they can log in.
+
+. Set an email address for the user in the {engine-name}, if it is not already defined.
+. Log in to Grafana with an existing admin user (the initially configured admin).
+. Go to menu:Configuration[Users] and select btn:[Invite].
+. Input the email address and name, and select a Role.
+. Send the invitation using one of these options:
++
+* Select btn:[Send invite mail] and click btn:[Submit]. For this option, you need an operational local mail server configured on the Grafana machine.
++
+or
++
+* Select btn:[Pending Invites]
+** Locate the entry you want
+** Select btn:[Copy invite]
+** Copy and use this link to create the account by pasting it directly into a browser address bar, or by sending it to another user.
+
+If you use the Pending Invites option, no email is sent, and the email address does not really need to exist - any valid looking address will work, as long as it’s configured as the email address of a {engine-name} user.
+
+.To log in with this account:
+
+. Log in to the {virt-product-fullname} web administration welcome page using the account that has this email address.
+. Select `Monitoring Portal` to open the Grafana dashboard.
+. Select btn:[Sign in with oVirt Engine Auth].

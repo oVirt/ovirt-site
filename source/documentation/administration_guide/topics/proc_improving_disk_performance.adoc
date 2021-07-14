@@ -1,0 +1,44 @@
+// Module included in the following assemblies:
+//
+// doc-Administration_Guide/chap-Virtual_Disks.adoc
+
+
+[id="proc_improving_disk_performance"]
+= Improving disk performance
+
+In the Administration Portal, on the virtual machine's *Resource Allocation* tab, the default *I/O Threads Enabled* setting is checked (enabled), and the number of threads is `1`.
+
+Suppose a virtual machine has multiple disks that have VirtIO controllers, and its workloads make significant use of those controllers. In that case, you can improve performance by increasing the number of I/O threads.
+
+However, also consider that increasing the number of I/O threads decreases the virtual machine's pool of threads. If your workloads do not use the VirtIO controllers and the threads you allocate to them, increasing the number of I/O threads might decrease overall performance.
+
+To find the optimal number of threads, benchmark the performance of your virtual machine running workloads before and after you adjust the number of threads.
+
+.Procedure
+
+. On menu:Compute[Virtual Machines], *Power Off* the virtual machine.
+. Click the name of the virtual machine.
+. In the details pane, click the *Vm Devices* tab.
+. Count the number of controllers whose *Type* is `virtio` or `virtio-scsi`.
+. Click btn:[Edit].
+. In the *Edit Virtual Machine* window, click the *Resource Allocation* tab.
+. Confirm that *I/O Threads Enabled* is checked (enabled).
+. To the right of *I/O Threads Enabled*, increase the number of threads, but do not exceed number of controllers whose type is `virtio` or `virtio-scsi`.
+. Click btn:[OK].
+. In the details pane, click the *Disks* tab.
+. For each disk, use *More Actions* (image:common/images/moreactions.png[]) to *Deactivate* and *Activate* the disk. This action remaps the disks to the controllers.
+. Click btn:[Run] to start the virtual machine.
+
+.Verification steps
+
+* To see which controllers have an I/O thread, click *Vm Devices* in the details pane and look for `ioThreadid=` in the *Spec Params* column.
+* To see the mapping of disks to controllers, log into the host machine and enter the following command:
++
+```
+# virsh -r dumpxml virtual_machine_name
+```
+
+.Additional resources
+
+* link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#configuring_high_performance_virtual_machines_templates_and_pools[Configuring High-Performance Virtual Machines, Templates, and Pools]
+* link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide#Virtual_Machine_Resource_Allocation_settings_explained[Virtual Machine Resource Allocation Settings Explained]

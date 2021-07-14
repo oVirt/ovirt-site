@@ -1,19 +1,24 @@
-[[Logging_in_to_a_virtual_machine_using_SPICE]]
-= Opening a Console to a Virtual Machine
+[id="Opening_a_Console_to_a_Virtual_Machine_{context}"]
+= Opening a console to a virtual machine
 
 Use Remote Viewer to connect to a virtual machine.
 
-
-*Connecting to Virtual Machines*
+.Procedure
 
 . Install Remote Viewer if it is not already installed. See xref:sect-Installing_Console_Components[].
+
 . Click menu:Compute[Virtual Machines] and select a virtual machine.
-. Click btn:[Console]. A *console.vv* file will be downloaded. 
-. Click the file and a console window will automatically open for the virtual machine.
 
-
+. Click btn:[Console]. By default, the browser prompts you to download a file named `console.vv`. When you click to open the file, a console window opens for the virtual machine. You can configure your browser to automatically open these files, such that clicking btn:[Console] simply opens the console.
 
 [NOTE]
 ====
-You can configure the system to automatically connect to a virtual machine. See xref:Automatically_connecting_to_a_Virtual_Machine[].
+`console.vv` expires after 120 seconds. If more than 120 seconds elapse between the time the file is downloaded and the time that you open the file, click btn:[Console] again.
 ====
+
+
+.Additional resources
+
+* xref:Automatically_connecting_to_a_Virtual_Machine[]
+
+* xref:sect-Configuring_Console_Options[]

@@ -8,7 +8,7 @@ If multiple networks exist on a host and the gateways are not defined, return tr
 {virt-product-fullname} handles multiple gateways automatically whenever an interface goes up or down.
 
 
-*Viewing or Editing the Gateway for a Logical Network*
+.Procedure
 
 . Click menu:Compute[Hosts].
 . Click the host's name. This opens the details view.

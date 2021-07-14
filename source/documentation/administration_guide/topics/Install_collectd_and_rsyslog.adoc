@@ -34,3 +34,5 @@ rsyslog_elasticsearch_usehttps_logs: !!str off
 ----
 # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh
 ----
++
+The `configure_ovirt_machines_for_metrics.sh` script runs an Ansible role that includes `linux-system-roles` (see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/administration_and_configuration_tasks_using_system_roles_in_rhel/index[Administration and configuration tasks using System Roles in RHEL]) and uses it to deploy and configure `rsyslog` on the host. `rsyslog` collects metrics from `collectd` and sends them to Elasticsearch.  

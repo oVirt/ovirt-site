@@ -33,7 +33,12 @@ If the virtual machine cannot start on the specified host or access the host dev
 . Click the *Host Devices* tab.
 . Click btn:[Add device]. This opens the *Add Host Devices* pane.
 . Use *Pinned Host* to select the host where the virtual machine runs.
-. Use *Capability* to list `pci`, `scsi`, or `usb_device` devices.
+. Use *Capability* to list `pci`, `scsi`, `nvdimm`, or `usb_device` devices.
++
+[NOTE]
+====
+The `nvdimm` option is a technical preview feature. For more information, see xref:conc-nvdimm-host-devices_{context}[].
+====
 . Use *Available Host Devices* to select devices.
 . Click the down arrow to move devices to *Host Devices to be attached*.
 . Click btn:[OK] to attach these devices to the virtual machine and close the window.
@@ -41,7 +46,7 @@ If the virtual machine cannot start on the specified host or access the host dev
 .. Click the btn:[Edit] button. This opens the *Edit Virtual Machine* pane.
 .. Click the *Custom Properties* tab.
 .. Click the *Please select a key* and select *scsi_hostdev* from the bottom of the drop-down list.
-.. In most cases, select *scsi-hd*. Otherwise, for tape or CD changer devices, select the *scsi_generic* option. For more details, see link:{URL_virt_product_docs}virtual_machine_management_guide/index.html#Virtual_Machine_Custom_Properties_settings_explained[Virtual Machine Custom Properties Settings Explained].
+.. In most cases, select *scsi-hd*. Otherwise, for tape or CD changer devices, select the *scsi_generic* option. For more details, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Virtual_Machine_Custom_Properties_settings_explained[Virtual Machine Custom Properties Settings Explained].
 .. Click the btn:[OK] button.
 . Run the virtual machine.
 . While the virtual machine starts running, watch for *Operation Canceled* error messages.
@@ -68,7 +73,8 @@ You can fix the error by removing the host device from the virtual machine or co
 * Verify that the state of the host is `Up`.
 
 .Additional resources
-* link:{URL_virt_product_docs}virtual_machine_management_guide[Host Devices] in the _Virtual Machine Management Guide_.
-* link:{URL_virt_product_docs}virtual_machine_management_guide[Pinning a Virtual Machine to Multiple Hosts]
-* link:{URL_virt_product_docs}administration_guide[Configuring a Host for PCI Passthrough]
-* link:{URL_downstream_virt_product_docs}html-single/hardware_considerations_for_implementing_sr-iov/[Additional Hardware Considerations for Using Device Assignment] in _Hardware Considerations for Implementing SR-IOV_.
+* link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#sect-host_devices[Host Devices] in the _Virtual Machine Management Guide_.
+* link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#pinning_a_virtual_machine_to_multiple_hosts[Pinning a Virtual Machine to Multiple Hosts]
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_a_Host_for_PCI_Passthrough_host_tasks[Configuring a Host for PCI Passthrough]
+* link:{URL_downstream_virt_product_docs}hardware_considerations_for_implementing_sr-iov/[Additional Hardware Considerations for Using Device Assignment] in _Hardware Considerations for Implementing SR-IOV_.
+* xref:conc-nvdimm-host-devices_{context}[]

@@ -1,0 +1,39 @@
+[id="Updating_SSL_Certificates"]
+
+= Updating SSL Certificates
+
+Run the following commands after the `ovirt-engine-rename` command to update the SSL certificates:
+
+[options="nowrap" subs="normal"]
+----
+# names="websocket-proxy"
+----
+
+[options="nowrap" subs="normal"]
+----
+# subject="$(\
+    openssl x509 \
+    -in /etc/pki/ovirt-engine/certs/apache.cer \
+    -noout \
+    -subject | \
+        sed \
+            's;subject= \(.*\);\1;'
+  )"
+----
+
+[options="nowrap" subs="normal"]
+----
+# . /usr/share/ovirt-engine/bin/engine-prolog.sh
+----
+
+[options="nowrap" subs="normal"]
+----
+# for name in $names; do
+    /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
+        --name="${name}" \
+        --password=mypass \
+        --subject="${subject}" \
+        --keep-key \
+        --san=DNS:"${ENGINE_FQDN}"
+  done
+----

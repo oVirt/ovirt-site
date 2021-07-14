@@ -1,14 +1,31 @@
 [[Rebooting_a_Virtual_Machine]]
-=== Rebooting a Virtual Machine
+=== Rebooting or Resetting a Virtual Machine
 
+You can restart your virtual machines in two different ways; either using reboot or reset.
 
+Several situations can occur where you need to reboot the virtual machine, such as after an update or configuration change. When you reboot, the virtual machine's console remains open while the guest operating system is restarted.
+
+If a guest operating system can not be loaded or has become unresponsive, you need to reset the virtual machine. When you reset, the virtual machine's console remains open while the guest operating system is restarted.
+
+[NOTE]
+====
+The reset reset operation can only be performed from the Administration Portal.
+====
 
 *Rebooting a Virtual Machine*
 
+To reboot a virtual machine:
+
 . Click menu:Compute[Virtual Machines] and select a running virtual machine.
-. Click btn:[Reboot].
+. Click btn:[Reboot] or right-click the virtual machine and select *Reboot* from the pop-up menu.
 . Click btn:[OK] in the *Reboot Virtual Machine(s)* confirmation window.
 
-The *Status* of the virtual machine changes to `Reboot In Progress` before returning to `Up`.
+*Resetting a Virtual Machine*
 
+To reset a virtual machine:
 
+. Click menu:Compute[Virtual Machines] and select a running virtual machine.
+. Click the down arrow next to btn:[Reboot], then click *Reset*, or right-click the virtual machine and select *Reset* from the pop-up menu.
+. Click btn:[OK] in the *Reset Virtual Machine(s)* confirmation window.
+
+During reboot and reset operations, the *Status* of the virtual machine changes to `Reboot In Progress` before returning to `Up`.

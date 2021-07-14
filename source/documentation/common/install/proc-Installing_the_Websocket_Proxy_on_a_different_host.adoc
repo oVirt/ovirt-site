@@ -1,5 +1,6 @@
 [id='Installing_the_Websocket_Proxy_on_a_different_host_{context}']
-= Installing a Websocket Proxy on a Separate Machine
+//DO NOT USE - deprecated!
+//= Installing a Websocket Proxy on a Separate Machine
 ifdef::rhv-doc[]
 [IMPORTANT]
 ====
@@ -17,7 +18,7 @@ For security and performance reasons, users may want to configure the websocket 
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install ovirt-engine-websocket-proxy
+# dnf install ovirt-engine-websocket-proxy
 ----
 +
 . Run the `engine-setup` command to configure the websocket proxy.

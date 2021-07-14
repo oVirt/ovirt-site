@@ -17,6 +17,6 @@ If you require an ISO or export domain, use this procedure, but select *ISO* or 
 .. Enter a percentage value into the *Warning Low Space Indicator* field. If the free space available on the storage domain is below this percentage, warning messages are displayed to the user and logged.
 .. Enter a GB value into the *Critical Space Action Blocker* field. If the free space available on the storage domain is below this value, error messages are displayed to the user and logged, and any new action that consumes space, even temporarily, will be blocked.
 .. Select the *Wipe After Delete* check box to enable the wipe after delete option. This option can be edited after the domain is created, but doing so will not change the wipe after delete property of disks that already exist.
-. Click *OK*.
+. Click btn:[OK].
 
 The new NFS data domain has a status of `Locked` until the disk is prepared. The data domain is then automatically attached to the data center.

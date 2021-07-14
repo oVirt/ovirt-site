@@ -1,0 +1,24 @@
+:_module-type: PROCEDURE
+
+[id="enabling-incremental-backup-on-a-new-disk_{context}"]
+= Enabling Incremental Backup on a new virtual disk
+
+[role="_abstract"]
+Enable incremental backup for a virtual disk to mark it as included in an incremental backup. When adding a disk, you can enable incremental backup for every disk, either with the REST API or using the Administration Portal. You can back up existing disks that are not enabled for incremental backup using full backup or in the same way you did previously.
+
+[NOTE]
+====
+The {engine-name} does not require the disk to be enabled for it to be included in an incremental backup, but you can enable it to keep track of which disks are enabled.
+====
+
+Because incremental backup requires disks to be formatted in QCOW2, use QCOW2 format instead of RAW format.
+
+.Procedure
+
+    . Add a new virtual disk. For more information see xref:Creating_a_Virtual_Disk[Creating a Virtual Disk].
+    . When configuring the disk, select the *Enable Incremental Backup* checkbox.
+
+.Additional resources
+
+* xref:enable-incremental-backup-for-a-virtual-disk-api-call_{context}[Enabling incremental backup for a disk using the API].
+[role="_additional-resources"]

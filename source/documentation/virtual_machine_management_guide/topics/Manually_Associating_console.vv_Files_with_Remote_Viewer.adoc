@@ -1,5 +1,5 @@
 [[Manually_Associating_console.vv_Files_with_Remote_Viewer]]
-===== Manually Associating console.vv Files with Remote Viewer
+= Manually Associating console.vv Files with Remote Viewer
 
 If you are prompted to download a *console.vv* file when attempting to open a console to a virtual machine using the native client console option, and Remote Viewer is already installed, then you can manually associate *console.vv* files with Remote Viewer so that Remote Viewer can automatically use those files to open consoles.
 

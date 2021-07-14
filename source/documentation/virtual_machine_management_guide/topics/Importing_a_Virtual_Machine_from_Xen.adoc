@@ -21,7 +21,7 @@ The `virt-v2v` package is not available on the ppc64le architecture and these ho
 
 [IMPORTANT]
 ====
-An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning will display and you will be prompted to change your selection to include only virtual machines with the same architecture.
+An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning appears and you are prompted to change your selection to include only virtual machines with the same architecture.
 ====
 
 [NOTE]
@@ -62,7 +62,7 @@ To import a virtual machine from RHEL 5 Xen, follow these steps:
 . Click *More Actions* (image:common/images/moreactions.png[]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
 . Select the *Data Center* that contains the proxy host.
 . Select *XEN (via RHEL)* from the *Source* drop-down list.
-. Optionally, select a RHEL 5 Xen *External Provider* from the drop-down list. The URI will be pre-filled with the correct URI. See link:{URL_virt_product_docs}administration_guide/#Adding_Xen_as_an_External_Provider[Adding a RHEL 5 Xen Host as a Virtual Machine Provider] in the _Administration Guide_ for more information.
+. Optionally, select a RHEL 5 Xen *External Provider* from the drop-down list. The URI will be pre-filled with the correct URI. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_Xen_as_an_External_Provider[Adding a RHEL 5 Xen Host as a Virtual Machine Provider] in the _Administration Guide_ for more information.
 . Enter the *URI* of the RHEL 5 Xen host. The required format is pre-filled; you must replace `<hostname>` with the host name of the RHEL 5 Xen host.
 . Select the proxy host from the *Proxy Host* drop-down list.
 . Click *Load* to list the virtual machines on the RHEL 5 Xen host that can be imported.
@@ -133,7 +133,7 @@ If the CPU type of the virtual machine is different, configure the imported virt
 # sudo -u vdsm ssh root@_xenhost.example.com_
 ----
 +
-. Attach an export domain. See link:{URL_virt_product_docs}administration_guide/#Attaching_an_export_domain[Attaching an Existing Export Domain to a Data Center] in the _Administration Guide_ for details.
+. Attach an export domain. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Attaching_an_export_domain[Attaching an Existing Export Domain to a Data Center] in the _Administration Guide_ for details.
 . On the proxy host, copy the virtual machine from the RHEL 5 Xen host:
 +
 [options="nowrap" subs="normal"]

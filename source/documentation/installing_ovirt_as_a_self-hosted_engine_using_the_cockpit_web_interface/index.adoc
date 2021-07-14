@@ -1,5 +1,6 @@
+:ovirt-doc:
+include::../common/collateral_files/attributes.adoc[]
 = Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface
-include::common/collateral_files/ovirt-attributes.adoc[]
 :context: SHE_cockpit_deploy
 :SHE_cockpit_deploy:
 
@@ -15,12 +16,12 @@ Hosts that can run the {engine-name} virtual machine are referred to as self-hos
 
 A storage domain dedicated to the {engine-name} virtual machine is referred to as the self-hosted engine storage domain. This storage domain is created by the installation script, so the underlying storage must be prepared before beginning the installation.
 
-See the link:{URL_downstream_virt_product_docs}html/planning_and_prerequisites_guide/[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration. See link:{URL_downstream_virt_product_docs}html-single/planning_and_prerequisites_guide/#self-hosted-engine-recommendations[Self-Hosted Engine Recommendations] for configuration specific to a self-hosted engine environment.
+See the link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index[_Planning and Prerequisites Guide_] for information on environment options and recommended configuration. See link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#self-hosted-engine-recommendations[Self-Hosted Engine Recommendations] for configuration specific to a self-hosted engine environment.
 
-include::common/arch/con-RHV_key_components.adoc[]
+include::../common/arch/con-RHV_key_components.adoc[]
 
 [discrete]
-include::common/arch/con-Self-hosted_Engine_Architecture.adoc[leveloffset=+1]
+include::../common/arch/con-Self-hosted_Engine_Architecture.adoc[leveloffset=+1]
 
 [id='Install_overview_SHE_cockpit_deploy']
 == Installation Overview
@@ -32,7 +33,7 @@ The self-hosted engine installation uses Ansible and the {engine-appliance-name}
 * Installing and configuring the {virt-product-fullname} {engine-name} on that virtual machine
 * Configuring the self-hosted engine storage domain
 
-include::common/install/snip-rhvm-appliance-note.adoc[]
+include::../common/install/snip-rhvm-appliance-note.adoc[]
 
 Installing a self-hosted engine environment involves the following steps:
 
@@ -49,6 +50,7 @@ Installing a self-hosted engine environment involves the following steps:
 Cockpit is available by default on {hypervisor-fullname}s, and can be installed on {enterprise-linux-host-fullname}s.
 
 . xref:Installing_the_Red_Hat_Virtualization_Manager_SHE_cockpit_deploy[Install and configure the {virt-product-fullname} {engine-name}:]
+.. xref:Enabling-and-configuring-firewall_install_RHVM[Enabling and configuring the firewall]
 .. xref:Deploying_the_Self-Hosted_Engine_Using_Cockpit_install_RHVM[Install the self-hosted engine through the deployment host's Cockpit web interface.]
 .. xref:Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enable the {virt-product-fullname} {engine-name} repositories.]
 .. xref:Connecting_to_the_Administration_Portal_install_RHVM[Connect to the Administration Portal to add hosts and storage domains.]
@@ -70,11 +72,11 @@ Keep the environment up to date. Since bug fixes for known issues are frequently
 ====
 
 
-include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
+include::../common/prereqs/asm-Requirements.adoc[leveloffset=+1]
 
-include::common/storage/assembly-Preparing_Storage_for_RHV.adoc[leveloffset=+1]
+include::../common/storage/assembly-Preparing_Storage_for_RHV.adoc[leveloffset=+1]
 
-include::common/install/assembly-Installing_the_self-hosted_engine_deployment_host.adoc[leveloffset=+1]
+include::../common/install/assembly-Installing_the_self-hosted_engine_deployment_host.adoc[leveloffset=+1]
 // Adding context back after assembly
 :context: SHE_cockpit_deploy
 
@@ -82,29 +84,34 @@ include::common/install/assembly-Installing_the_self-hosted_engine_deployment_ho
 == Installing the {virt-product-fullname} {engine-name}
 :context: install_RHVM
 
-include::common/she/proc_Manually_installing_the_appliance.adoc[leveloffset=+2]
+include::../common/she/proc_Manually_installing_the_appliance.adoc[leveloffset=+2]
 
-include::common/install/proc-Deploying_the_Self-Hosted_Engine_Using_Cockpit.adoc[leveloffset=+2]
+include::common/network/proc_Enabling-and-configuring-firewall.adoc[leveloffset=+2]
 
-Enabling the {virt-product-fullname} {engine-name} repositories is not part of the automated installation. Log in to the {engine-name} virtual machine to enable the repositories:
+include::../common/install/proc-Deploying_the_Self-Hosted_Engine_Using_Cockpit.adoc[leveloffset=+2]
 
-include::common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+2]
+The next step is to enable the {virt-product-fullname} {engine-name} repositories.
+
+include::../common/install/proc-Enabling_the_Red_Hat_Virtualization_Manager_Repositories.adoc[leveloffset=+2]
 
 Log in to the Administration Portal, where you can add hosts and storage to the environment:
 
-include::common/admin/proc-Connecting_to_the_Administration_Portal.adoc[leveloffset=+2]
+include::../common/admin/proc-Connecting_to_the_Administration_Portal.adoc[leveloffset=+2]
 //end sect
 // Adding context back after assembly
 :context: SHE_cockpit_deploy
 
-include::common/install/assembly-Installing_Hosts_for_RHV.adoc[leveloffset=+1]
+include::../common/install/assembly-Installing_Hosts_for_RHV.adoc[leveloffset=+1]
 
-include::common/storage/assembly-Adding_Storage_Domains_to_RHV.adoc[leveloffset=+1]
+include::../common/storage/assembly-Adding_Storage_Domains_to_RHV.adoc[leveloffset=+1]
 
 :numbered!:
 
 [appendix]
-include::common/she/assembly-Troubleshooting_a_self-hosted_engine_deployment.adoc[leveloffset=+1]
+include::../common/she/assembly-Troubleshooting_a_self-hosted_engine_deployment.adoc[leveloffset=+1]
+
+[appendix]
+include::../common/install/proc-customizing_engine_vm_during_deployment_auto.adoc[leveloffset=+1]
 
 [appendix]
 [id='Migrating_to_remote_servers_SHE_cockpit_deploy']
@@ -112,27 +119,30 @@ include::common/she/assembly-Troubleshooting_a_self-hosted_engine_deployment.ado
 
 Although you cannot configure remote databases and services during the automated installation, you can migrate them to a remote server post-installation.
 
-include::common/database/proc-Migrating_the_self-hosted_engine_database_to_a_remote_server.adoc[leveloffset=+2]
+//ddacosta - removed the Migrating the Manager Database topics for BZ#1854791
+//include::../common/database/proc-Migrating_the_self-hosted_engine_database_to_a_remote_server.adoc[leveloffset=+2]
+// Adding context back after assembly
+//:context: SHE_cockpit_deploy
+
+include::../common/database/assembly-Migrating_Data_Warehouse_to_a_Separate_Machine.adoc[leveloffset=+2]
 // Adding context back after assembly
 :context: SHE_cockpit_deploy
 
-include::common/database/assembly-Migrating_Data_Warehouse_to_a_Separate_Machine.adoc[leveloffset=+2]
-// Adding context back after assembly
-:context: SHE_cockpit_deploy
-
-include::common/admin/proc-Migrating_the_Websocket_Proxy_to_a_Separate_Machine.adoc[leveloffset=+2]
+// include::../common/admin/proc-Migrating_the_Websocket_Proxy_to_a_Separate_Machine.adoc[leveloffset=+2]
 //end sect
 
 [appendix]
-include::common/install/appe-Set_up_Cinderlib.adoc[leveloffset=+1]
+include::../common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+1]
+
+ifdef::context[:parent-context: {context}]
+:context: Install_nodes_RHVH
 
 [appendix]
-include::common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+1]
+include::common/install/proc-Preventing_Kernel_Modules_from_Loading_Automatically.adoc[leveloffset=+1]
 
-[appendix]
-include::common/admin/proc-Removing_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
+ifdef::parent-context[:context: {parent-context}]
+ifndef::parent-context[:!context:]
 
-[appendix]
 == Legal notice
 
-Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}html-single/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a self-hosted engine using the Cockpit web interface]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a self-hosted engine using the Cockpit web interface]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

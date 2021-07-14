@@ -1,0 +1,169 @@
+// Module included in the following assemblies:
+//
+// assembly_managing-nvidia-vgpu-devices
+
+
+[id="proc_setting-up-nvidia-vgpu-devices_{context}"]
+= Setting up NVIDIA vGPU devices on the host
+
+[NOTE]
+====
+Before installing the NVIDIA vGPU driver on the guest operating system, you need to understand the licensing requirements and obtain the correct license credentials.
+====
+
+[id='prerequisites-{context}']
+.Prerequisites
+
+* Your GPU device supports virtual GPU (vGPU) functionality.
+
+* Your system is listed as a validated server hardware platform.
+
+For more information about supported GPUs and validated platforms, see link:https://www.nvidia.com/en-us/data-center/resources/vgpu-certified-servers/[NVIDIA vGPU CERTIFIED SERVERS] on www.nvidia.com.
+
+//== Before You Begin
+.Procedure
+
+. Download and install the NVIDIA driver for the host. For information on getting the driver, see link:https://www.nvidia.com/Download/index.aspx?lang=en-us[the Drivers page on the NVIDIA website].
+[discrete]
+//== Configuring the Host
+
+. If the NVIDIA software installer did not create the [filename]`/etc/modprobe.d/nvidia-installer-disable-nouveau.conf` file, create it manually.
+
+. Open [filename]`/etc/modprobe.d/nvidia-installer-disable-nouveau.conf` file in a text editor and add the following lines to the end of the file:
++
+[source,bash,subs=+quotes]
+----
+blacklist nouveau
+options nouveau modeset=0
+----
+
+. Regenerate the initial ramdisk for the current kernel, then reboot:
++
+[source,bash,subs=+quotes]
+----
+# *dracut --force*
+# *reboot*
+----
++
+Alternatively, if you need to use a prior supported kernel version with mediated devices, regenerate the initial ramdisk for all installed kernel versions:
++
+[source,bash,subs=+quotes]
+----
+# *dracut --regenerate-all --force*
+# *reboot*
+----
+
+. Check that the kernel loaded the [filename]`nvidia_vgpu_vfio` module:
++
+[source,bash,subs=+quotes]
+----
+# lsmod | grep nvidia_vgpu_vfio
+----
+
+. Check that the `nvidia-vgpu-mgr.service` service is running:
++
+[source,bash,subs=+quotes]
+----
+# systemctl status nvidia-vgpu-mgr.service
+----
++
+For example:
++
+[source,bash,subs=+quotes]
+----
+# lsmod | grep nvidia_vgpu_vfio
+nvidia_vgpu_vfio 45011 0
+nvidia 14333621 10 nvidia_vgpu_vfio
+mdev 20414 2 vfio_mdev,nvidia_vgpu_vfio
+vfio 32695 3 vfio_mdev,nvidia_vgpu_vfio,vfio_iommu_type1
+# systemctl status nvidia-vgpu-mgr.service
+nvidia-vgpu-mgr.service - NVIDIA vGPU Manager Daemon
+   Loaded: loaded (/usr/lib/systemd/system/nvidia-vgpu-mgr.service; enabled; vendor preset: disabled)
+   Active: active (running) since Fri 2018-03-16 10:17:36 CET; 5h 8min ago
+ Main PID: 1553 (nvidia-vgpu-mgr)
+ [...]
+----
+// ############## From here to the end of the procedure is unique to RHV and needs to be conditionalized as such.
+. Get a list of available mdev types by entering the following lines in the terminal, or alternatively, in a script:
++
+[source,bash,subs=+quotes]
+----
+for device in /sys/class/mdev_bus/*; do
+  for mdev_type in $device/mdev_supported_types/*; do
+    MDEV_TYPE=$(basename $mdev_type)
+    DESCRIPTION=$(cat $mdev_type/description)
+    NAME=$(cat $mdev_type/name)
+    echo "mdev_type: $MDEV_TYPE --- description: $DESCRIPTION --- name: $NAME";
+  done;
+done | sort | uniq
+----
++
+[NOTE]
+====
+For `type-id` values for specific GPU devices, see Virtual GPU Types in the  link:https://docs.nvidia.com/grid/latest/grid-vgpu-user-guide/index.html#virtual-gpu-types-grid[Virtual GPU software documentation]. Notice that only Q-series NVIDIA vGPUs, such as GRID P4-2Q, are supported as mediated device GPU types on Linux virtual machines.
+====
++
+The output looks similar to the following:
++
+[source,bash,subs=+quotes]
+----
+mdev_type: nvidia-11 --- description: num_heads=2, frl_config=45, framebuffer=512M, max_resolution=2560x1600, max_instance=16 --- name: GRID M60-0B
+mdev_type: nvidia-12 --- description: num_heads=2, frl_config=60, framebuffer=512M, max_resolution=2560x1600, max_instance=16 --- name: GRID M60-0Q
+...
+mdev_type: nvidia-22 --- description: num_heads=4, frl_config=60, framebuffer=8192M, max_resolution=4096x2160, max_instance=1 --- name: GRID M60-8Q
+----
+
+. In the Administration Portal, click menu:Compute[Virtual Machines]. Select a virtual machine and click btn:[Edit]. The *Edit Virtual Machine* dialog appears.
+
+. Click *Custom Properties*. If you do not see *Custom Properties*, click *Show Advanced Options* first.
+
+. In the *Custom Properties* dialog, click menu:Please select a key[mdev_type]. If you do not see *Please select a key*, click the btn:[+] button.
+
+. In the text field that appears, specify the following items:
+.. The GPU type or types that you identified previously. For example: *nvidia-12*. You can add multiple vGPUs to a virtual machine using a comma-separated list. For example: *nvidia22,nvidia22*.
++
+[NOTE]
+====
+Multiple vGPUs must be the same mdev type. You cannot, for example use *nvidia22,nvidia15*.
+====
++
+.. The nodisplay option to ensure a console is available on the virtual machine at all times. For example: *nodisplay,nvidia22*. This option adds a second emulated QXL or VGA graphics adapter as the primary graphics adapter for the console in addition to the vGPU.
+
+// ############ The following steps are unique to RHEL and need to be conditionalized as such.
+
+////
+. Write a device UUID to */sys/class/mdev_bus/`pci_dev`/mdev_supported_types/`type-id`/create*, where `pci_dev` is the PCI address of the host GPU, and `type-id` is an ID of the host GPU type.
++
+The following example shows how to create a mediated device of the `nvidia-63` vGPU type on an NVIDIA Tesla P4 card:
++
+[source,bash,subs=+quotes]
+--
+# *uuidgen*
+30820a6f-b1a5-4503-91ca-0c10ba58692a
+# *echo "30820a6f-b1a5-4503-91ca-0c10ba58692a" > /sys/class/mdev_bus/0000:01:00.0/mdev_supported_types/nvidia-63/create*
+--
++
+[NOTE]
+--
+For `type-id` values for specific GPU devices, see the link:https://docs.nvidia.com/grid/latest/grid-vgpu-user-guide/index.html#virtual-gpu-types-grid[Virtual GPU software documentation]. Note that only Q-series NVIDIA vGPUs, such as GRID P4-2Q, are supported as mediated device GPU types on Linux VMs.
+--
+
+. Add the following lines to the *<devices/>* sections in the XML configurations of guests that you want to share the vGPU resources. Use the UUID value generated by the *uuidgen* command in the previous step. Each UUID can only be assigned to one guest at a time.
++
+[source, XML]
+--
+<hostdev mode='subsystem' type='mdev' managed='no' model='vfio-pci'>
+  <source>
+    <address uuid='30820a6f-b1a5-4503-91ca-0c10ba58692a'/>
+  </source>
+</hostdev>
+--
++
+[IMPORTANT]
+--
+For the vGPU mediated devices to work properly on the assigned guests, NVIDIA vGPU guest software licensing needs to be set up for the guests. For further information and instructions, see link:https://docs.nvidia.com/grid/latest/index.html#virtual-gpu-licensing[the NVIDIA virtual GPU software documentation].
+--
+
+////
+
+Now that you finished installing and configuring the GPU on the host, you can proceed to install and configure the vGPU on each virtual machine.

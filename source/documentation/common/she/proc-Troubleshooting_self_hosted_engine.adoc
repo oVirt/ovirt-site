@@ -83,6 +83,11 @@ When the self-hosted engine nodes are in global maintenance mode, the {engine-na
 [discrete]
 == Engine status: "vm": "down", "health": "bad", "detail": "unknown", "reason": "vm not running on this host"
 
+[NOTE]
+====
+This message is expected on a host that is not currently running the {engine-name} virtual machine.
+====
+
 . If you have more than one host in your environment, ensure that another host is not currently trying to restart the {engine-name} virtual machine.
 . Ensure that you are not in global maintenance mode.
 . Check the *ovirt-ha-agent* logs in */var/log/ovirt-hosted-engine-ha/agent.log*.
@@ -142,4 +147,4 @@ endif::[]
 
 * `hosted-engine --check-liveliness`: This command checks the liveliness page of the ovirt-engine service. You can also check by connecting to `https://_engine-fqdn_/ovirt-engine/services/health/` in a web browser.
 
-* `hosted-engine --connect-storage`: This command instructs VDSM to prepare all storage connections needed for the host and and the {engine-name} virtual machine. This is normally run in the back-end during the self-hosted engine deployment. Ensure that the global maintenance mode is enabled if you need to run this command to troubleshoot storage issues.
+* `hosted-engine --connect-storage`: This command instructs VDSM to prepare all storage connections needed for the host and the {engine-name} virtual machine. This is normally run in the back-end during the self-hosted engine deployment. Ensure that the global maintenance mode is enabled if you need to run this command to troubleshoot storage issues.

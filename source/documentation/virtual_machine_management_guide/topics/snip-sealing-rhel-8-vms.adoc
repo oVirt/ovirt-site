@@ -1,0 +1,5 @@
+[NOTE]
+====
+In RHV 4.4, to seal a RHEL 8 virtual machine for a template, its cluster level must be 4.4 and all hosts in the cluster must be based on RHEL 8.
+You cannot seal a RHEL 8 virtual machine if you have set its cluster level to 4.3 so it can run on RHEL 7 hosts. 
+====

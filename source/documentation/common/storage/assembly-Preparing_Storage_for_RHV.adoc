@@ -1,7 +1,9 @@
 [id='Preparing_Storage_for_RHV_{context}']
 = Preparing Storage for {virt-product-fullname}
 
-Prepare storage to be used for storage domains in the new environment. A {virt-product-fullname} environment must have at least one data storage domain, but adding more is recommended.
+You need to prepare storage to be used for storage domains in the new environment. A {virt-product-fullname} environment must have at least one data storage domain, but adding more is recommended.
+
+include::../upgrade/snip_WARNING-detach_data_storage.adoc[]
 
 A data domain holds the virtual hard disks and OVF files of all the virtual machines and templates in a data center, and cannot be shared across data centers while active (but can be migrated between data centers). Data domains of multiple storage types can be added to the same data center, provided they are all shared, rather than local, domains.
 
@@ -27,6 +29,11 @@ ifdef::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE,SHE_backup_restore,SHE
 .Prerequisites
 
 * Self-hosted engines must have an additional data domain with at least 74&nbsp;GiB dedicated to the {engine-name} virtual machine. The self-hosted engine installer creates this domain. Prepare the storage for this domain before installation.
++
+[WARNING]
+====
+Extending or otherwise changing the self-hosted engine storage domain after deployment of the self-hosted engine is not supported. Any such change might prevent the self-hosted engine from booting.
+====
 
 * When using a block storage domain, either FCP or iSCSI, a single target LUN is the only supported setup for a self-hosted engine.
 
@@ -50,10 +57,11 @@ endif::SHE_backup_restore,SHE_restore_only[]
 
 
 include::proc-Preparing_NFS_Storage.adoc[leveloffset=+1]
-
+ 
 include::ref-Preparing_iSCSI_Storage.adoc[leveloffset=+1]
 
 include::ref-Preparing_FCP_Storage.adoc[leveloffset=+1]
+
 
 ifdef::SM_localDB_deploy,SM_remoteDB_deploy[]
 //Not supported for SHE (doesn't appear as an option in the deployment)
@@ -66,4 +74,4 @@ include::ref-Preparing_Red_Hat_Gluster_Storage.adoc[leveloffset=+1]
 
 include::proc-Customizing_Multipath_Configurations_for_SAN_Vendors.adoc[leveloffset=+1]
 
-include::ref-Recommended_Settings_for_Multipath.conf.adoc[leveloffset=+1]
+include::ref-Recommended_Settings_for_Multipath_conf.adoc[leveloffset=+1]

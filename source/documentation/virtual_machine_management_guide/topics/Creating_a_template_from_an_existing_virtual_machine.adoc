@@ -3,7 +3,7 @@
 
 Create a template from an existing virtual machine to use as a blueprint for creating additional virtual machines.
 
-include::snip_RHEL_8_vms_not_supported.adoc[]
+include::snip-sealing-rhel-8-vms.adoc[]
 
 When you create a template, you specify the format of the disk to be raw or QCOW2:
 

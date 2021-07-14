@@ -1,5 +1,6 @@
+:ovirt-doc:
+include::../common/collateral_files/attributes.adoc[]
 = Administration Guide
-include::common/collateral_files/ovirt-attributes.adoc[]
 
 // Make sure Jekyll displays a guide title
 [discrete]
@@ -28,4 +29,4 @@ include::appe-System_Accounts.adoc[]
 [appendix]
 == Legal notice
 
-Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}html-single/administration_guide/[Red Hat Virtualization {vernum_rhv} Administration Guide]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}administration_guide/[Red Hat Virtualization {vernum_rhv} Administration Guide]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].

@@ -1,0 +1,153 @@
+////
+Included in the following assemblies:
+assembly-Installing_Red_Hat_Virtualization_as_a_self-hosted_engine_using_the_Cockpit_web_interface/index.adoc
+assembly-Installing_Red_Hat_Virtualization_as_a_self-hosted_engine_using_the_Cockpit_web_interface/master.adoc
+assembly-Installing_Red_Hat_Virtualization_as_a_self-hosted_engine_using_the_command_line_interface/index.adoc
+assembly-Installing_Red_Hat_Virtualization_as_a_self-hosted_engine_using_the_command_line_interface/master.adoc
+assembly-Installing_Red_Hat_Virtualization_as_a_standalone_Manager_with_local_databases/index.adoc
+assembly-Installing_Red_Hat_Virtualization_as_a_standalone_Manager_with_local_databases/master.adoc
+assembly-Installing_Red_Hat_Virtualization_as_a_standalone_Manager_with_remote_databases/index.adoc
+assembly-Installing_Red_Hat_Virtualization_as_a_standalone_Manager_with_remote_databases/master.adoc
+////
+
+[id="proc-Preventing_Kernel_Modules_from_Loading_Automatically_{context}"]
+= Preventing kernel modules from loading automatically
+
+[role="_abstract"]
+You can prevent a kernel module from being loaded automatically, whether the module is loaded directly, loaded as a dependency from another module, or during the boot process.
+
+.Procedure
+
+. The module name must be added to a configuration file for the `modprobe` utility.  This file must reside in the configuration directory `/etc/modprobe.d`.
++
+For more information on this configuration directory, see the man page `modprobe.d`.
+
+. Ensure the module is not configured to get loaded in any of the following:
+** `/etc/modprobe.conf`
+** `/etc/modprobe.d/*`
+** `/etc/rc.modules`
+** `/etc/sysconfig/modules/*`
+
++
+[source, terminal]
+----
+# modprobe --showconfig <_configuration_file_name_>
+----
+
+. If the module appears in the output, ensure it is ignored and not loaded:
++
+[source, terminal]
+----
+# modprobe --ignore-install <_module_name_>
+----
+
+. Unload the module from the running system, if it is loaded:
++
+[source, terminal]
+----
+# modprobe -r <_module_name_>
+----
+
+. Prevent the module from being loaded directly by adding the `blacklist` line to a configuration file specific to the system - for example `/etc/modprobe.d/local-dontload.conf`:
++
+[source, terminal]
+----
+# echo "blacklist <_module_name_> >> /etc/modprobe.d/local-dontload.conf
+----
++
+[NOTE]
+====
+This step does not prevent a module from loading if it is a required or an optional dependency of another module.
+====
+
+. Prevent optional modules from being loading on demand:
++
+[source, terminal]
+----
+# echo "install <_module_name_>/bin/false" >> /etc/modprobe.d/local-dontload.conf
+----
++
+[IMPORTANT]
+====
+If the excluded module is required for other hardware, excluding it might cause unexpected side effects.
+====
+
+. Make a backup copy of your `initramfs`:
++
+[source, terminal]
+----
+# cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.$(date +%m-%d-%H%M%S).bak
+----
+
+. If the kernel module is part of the `initramfs`, rebuild your initial `ramdisk` image, omitting the module:
++
+[source, terminal]
+----
+# dracut --omit-drivers <_module_name_> -f
+----
+
+. Get the current kernel command line parameters:
++
+[source, terminal]
+----
+# grub2-editenv - list | grep kernelopts
+----
+
+. Append `<_module_name_>.blacklist=1 rd.driver.blacklist=<_module_name_>` to the generated output:
++
+[source, terminal]
+----
+# grub2-editenv - set kernelopts="<> <_module_name_>.blacklist=1 rd.driver.blacklist=<_module_name_>"
+----
++
+For example:
++
+[source, terminal]
+----
+# grub2-editenv - set kernelopts="root=/dev/mapper/rhel_example-root ro crashkernel=auto resume=/dev/mapper/rhel_example-swap rd.lvm.lv=rhel_example/root rd.lvm.lv=rhel_example/swap <_module_name_>.blacklist=1 rd.driver.blacklist=<_module_name_>"
+----
+
+. Make a backup copy of the `kdump initramfs`:
++
+[source, terminal]
+----
+# cp /boot/initramfs-$(uname -r)kdump.img /boot/initramfs-$(uname -r)kdump.img.$(date +%m-%d-%H%M%S).bak
+----
+
+. Append `rd.driver.blacklist=<_module_name_>` to the `KDUMP_COMMANDLINE_APPEND` setting in `/etc/sysconfig/kdump` to omit it from the `kdump initramfs`:
++
+[source, terminal]
+----
+# sed -i '/^KDUMP_COMMANDLINE_APPEND=/s/"$/ rd.driver.blacklist=module_name"/' /etc/sysconfig/kdump
+----
+
+. Restart the `kdump` service to pick up the changes to the `kdump initrd`:
++
+[source, terminal]
+----
+  # kdumpctl restart
+----
+
+. Rebuild the `kdump` initial `ramdisk` image:
++
+[source, terminal]
+----
+  # mkdumprd -f /boot/initramfs-$(uname -r)kdump.img
+----
+
+. Reboot the system.
+
+== Removing a module temporarily
+
+You can remove a module temporarily.
+
+.Procedure
+
+. Run `modprobe` to remove any currently-loaded module:
++
+[source, terminal]
+----
+# modprobe -r <module name>
+----
+
+. If the module cannot be unloaded, a process or another module might still be using the module. If so, terminate the process and run the `modpole` command written above another time to unload the module.

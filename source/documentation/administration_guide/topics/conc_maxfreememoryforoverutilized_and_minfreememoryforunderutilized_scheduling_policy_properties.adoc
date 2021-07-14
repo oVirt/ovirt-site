@@ -1,0 +1,40 @@
+// Module included in the following assemblies:
+//
+// doc-Administration_Guide/chap-Global_Configuration.adoc
+
+[id="conc_maxfreememoryforoverutilized_and_minfreememoryforunderutilized_scheduling_policy_properties"]
+= MaxFreeMemoryForOverUtilized and MinFreeMemoryForUnderUtilized cluster scheduling policy properties
+
+The scheduler has a background process that migrates virtual machines according to the current cluster scheduling policy and its parameters. Based on the various criteria and their relative weights in a policy, the scheduler continuously categorizes hosts as _source hosts_ or _destination hosts_ and migrates individual virtual machines from the former to the latter.
+
+The following description explains how the *evenly_distributed* and *power_saving* cluster scheduling policies interact with the *MaxFreeMemoryForOverUtilized* and *MinFreeMemoryForUnderUtilized* properties. Although both policies consider CPU and memory load, CPU load is not relevant for the *MaxFreeMemoryForOverUtilized* and *MinFreeMemoryForUnderUtilized* properties.
+
+If you define the *MaxFreeMemoryForOverUtilized* and *MinFreeMemoryForUnderUtilized* properties as part of the *evenly_distributed* policy:
+
+* Hosts that have less free memory than *MaxFreeMemoryForOverUtilized* are overutilized and become source hosts.
+
+* Hosts that have more free memory than *MinFreeMemoryForUnderUtilized* are underutilized and become destination hosts.
+
+* If *MaxFreeMemoryForOverUtilized* is not defined, the scheduler does not migrate virtual machines based on the memory load. (It continues migrating virtual machines based on the policy's other criteria, such as CPU load.)
+
+* If *MinFreeMemoryForUnderUtilized* is not defined, the scheduler considers all hosts eligible to become destination hosts.
+
+If you define the *MaxFreeMemoryForOverUtilized* and *MinFreeMemoryForUnderUtilized* properties as part of the *power_saving* policy:
+
+* Hosts that have less free memory than *MaxFreeMemoryForOverUtilized* are overutilized and become source hosts.
+
+* Hosts that have more free memory than *MinFreeMemoryForUnderUtilized* are underutilized and become source hosts.
+
+* Hosts that have more free memory than *MaxFreeMemoryForOverUtilized* are not overutilized and become destination hosts.
+
+* Hosts that have less free memory than *MinFreeMemoryForUnderUtilized* are not underutilized and become destination hosts.
+
+* The scheduler prefers migrating virtual machines to hosts that are neither overutilized nor underutilized. If there are not enough of these hosts, the scheduler can migrate virtual machines to underutilized hosts. If the underutilized hosts are not needed for this purpose, the scheduler can power them down.
+
+* If *MaxFreeMemoryForOverUtilized* is not defined, no hosts are overutilized. Therefore, only underutilized hosts are source hosts, and destination hosts include all hosts in the cluster.
+
+* If *MinFreeMemoryForUnderUtilized* is not defined, only overutilized hosts are source hosts, and hosts that are not overutilized are destination hosts.
+
+.Additional resources
+
+* xref:Cluster_Scheduling_Policy_Settings[]

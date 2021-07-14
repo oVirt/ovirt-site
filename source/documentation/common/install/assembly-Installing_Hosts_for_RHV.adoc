@@ -32,6 +32,10 @@ When you create a new data center, you can set the compatibility version. Select
 
 include::proc-Installing_Red_Hat_Virtualization_Hosts.adoc[leveloffset=+2]
 
+//ifdef::ovirt-doc[]
+include::proc_installing-a-third-party-package-on-ovirt-node.adoc[leveloffset=+2]
+//endif::[]
+
 ifdef::rhv-doc[]
 include::proc-Enabling_the_Red_Hat_Virtualization_Host_Repository.adoc[leveloffset=+2]
 endif::[]

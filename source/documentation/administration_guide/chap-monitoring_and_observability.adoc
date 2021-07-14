@@ -2,18 +2,27 @@
 
 == Monitoring and observability
 
-This chapter provides a number of ways to monitor and obtain metrics and logs from your {virt-product-fullname} system.
+This chapter provides a number of ways to monitor and obtain metrics and logs from your {virt-product-fullname} system. These methods include:
 
+* *Using Data Warehouse and Grafana to monitor {virt-product-shortname}*
+* *Sending metrics to a remote instance of Elasticsearch*
+* *Deploying Insights in Red Hat Virtualization Manager*
 
-=== Using DWH and Grafana to monitor {virt-product-shortname}
+//test
 
-==== Grafana dashboards
+=== Using Data Warehouse and Grafana to monitor {virt-product-shortname}
+
+==== Grafana
 
 include::topics/Grafana_overview.adoc[]
 
 ==== Configuring Grafana
 
 include::topics/Configure_grafana.adoc[]
+
+==== Grafana dashboards
+
+include::topics/Grafana_dashboards.adoc[leveloffset=+1]
 
 === Sending metrics to a remote instance of Elasticsearch
 
@@ -24,7 +33,7 @@ include::topics/Sending_metrics_to_ELK.adoc[]
 ifdef::ovirt-doc[]
 === Metrics schema
 
-include::topics/Metrics_Schema.adoc[]
+// include::topics/Metrics_Schema.adoc[]
 endif::[]
 
 ifdef::rhv-doc[]

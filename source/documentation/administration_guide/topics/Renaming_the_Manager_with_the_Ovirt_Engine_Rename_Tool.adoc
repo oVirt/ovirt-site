@@ -62,41 +62,4 @@ This command modifies the FQDN in the master copy of [filename]`/etc/ovirt-hoste
 
 Now, all new and existing self-hosted engine nodes use the new FQDN.
 
-[[Updating_SSL_Certificates]]
-*Updating SSL Certificates*
-
-Run the following commands after the `ovirt-engine-rename` command to update the SSL certificates:
-
-[options="nowrap" subs="normal"]
-----
-1. # names="websocket-proxy imageio-proxy"
-----
-
-[options="nowrap" subs="normal"]
-----
-2. # subject="$(\
-    openssl x509 \
-    -in /etc/pki/ovirt-engine/certs/apache.cer \
-    -noout \
-    -subject | \
-        sed \
-            's;subject= \(.*\);\1;'
-  )"
-----
-
-[options="nowrap" subs="normal"]
-----
-3. # . /usr/share/ovirt-engine/bin/engine-prolog.sh
-----
-
-[options="nowrap" subs="normal"]
-----
-4. # for name in $names; do
-    /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
-        --name="${name}" \
-        --password=mypass \
-        --subject="${subject}" \
-        --keep-key \
-        --san=DNS:"${ENGINE_FQDN}"
-  done
-----
+include::Updating_SSL_certificates.adoc[leveloffset=+4]

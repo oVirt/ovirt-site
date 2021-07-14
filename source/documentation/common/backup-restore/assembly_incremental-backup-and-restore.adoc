@@ -1,0 +1,144 @@
+////
+Retains the context of the parent assembly if this assembly is nested within another assembly.
+For more information about nesting assemblies, see: https://redhat-documentation.github.io/modular-docs/#nesting-assemblies
+See also the complementary step on the last line of this file.
+////
+
+ifdef::context[:parent-context-of-assembly_incremental-backup-and-restore: {context}]
+
+ifndef::context[]
+[id="assembly_incremental-backup-and-restore"]
+endif::[]
+ifdef::context[]
+[id="assembly_incremental-backup-and-restore_{context}"]
+endif::[]
+//= Overview: The Incremental Backup and Restore API
+
+:context: assembly_incremental-backup-and-restore
+
+[role="_abstract"]
+{virt-product-fullname} provides an Incremental Backup API that you can use for full backups of QCOW2 or RAW virtual disks, or incremental backups of QCOW 2 virtual disks, without any temporary snapshots. Data is backed-up in RAW format, whether the virtual disk  being backed up is QCOW2 or RAW. You can restore RAW guest data and either RAW or QCOW2 disks. The Incremental Backup API is part of the {virt-product-shortname} REST API. You can backup virtual machines that are running or that are not.
+
+As a developer, you can use the API to develop a backup application.
+
+.Features
+Backups are simpler, faster and more robust than when using the Backup and Restore API. The Incremental Backup API provides improved integration with backup applications, with new support for backing up and restoring RAW guest data, regardless of the underlying disk format.
+
+.Limitations:
+* Only disks in QCOW2 format can be backed up incrementally, not RAW format disks. The backup process saves the backed up data in RAW format.
+* Only backed up data in RAW format can be restored.
+* Incremental restore does not support restoring snapshots as they existed at the time of the backup, rather incremental restore restores only the data and not the structure of volumes or images in snapshots as they existed at the time of the backup. This limit is common in backup solutions for other systems.
+* As is commonly the case with backup solutions, incremental restore restores only the data and not the structure of volumes or images in snapshots as they existed at the time of the backup.
+* An unclean shutdown of a virtual machine, whatever the cause, might invalidate bitmaps on the disk, which invalidates the entire backup chain. Restoring an incremental backup using an invalid bitmap leads to corrupt virtual machine data.
++
+There is no way to detect an invalid bitmap, other than starting a backup. If the disk includes any invalid bitmaps, the operation fails.
++
+To recover from invalid bitmaps, you must remove the entire backup chain and run a full backup.
+
+
+.How enabling incremental backup affects disk format:
+[options="header"]
+|===
+|Storage type |Provisioning type |When incremental backup is... |Virtual disk format is... |
+|block |thin |enabled |qcow2
+|block |thin |disabled |qcow2
+|file |thin |enabled |qcow2
+|file |thin |disabled |raw (sparse)
+|block |preallocated |enabled |qcow2 (preallocated)
+|block |preallocated |disabled |raw (preallocated)
+|file |preallocated |enabled |qcow2 (preallocated)
+|file |preallocated |disabled |raw (preallocated)
+|network |Not applicable |disabled |raw
+|lun |Not applicable |disabled |raw
+|===
+
+= The Incremental Backup Flow
+A backup application that uses the Incremental Backup API must follow this sequence to back up virtual machine disks that have already been enabled for incremental backup:
+
+. The backup application uses the REST API to xref:find-disks-enabled-for-incremental-backup[find virtual machine disks] that should be included in the backup. Only disks in QCOW2 format are included.
+. The backup application starts a xref:start-a-full-backup_assembly_incremental-backup-and-restore[full backup] or an xref:start-an-incremental-backup_assembly_incremental-backup-and-restore[incremental backup]. The API call specifies a virtual machine ID, an optional previous checkpoint ID, and a list of disks to back up. If the API call does not specify a previous checkpoint ID, a full backup begins, which includes all data in the specified disks, based on the current state of each disk.
+. The engine prepares the virtual machine for backup. The virtual machine can continue running during the backup.
+. The backup application polls the engine for the backup status, until the engine reports that the backup is ready to begin.
+. When the backup is ready to begin, the backup application xref:image-transfer-object-for-incremental-backup_assembly_incremental-backup-and-restore[creates an image transfer object] for every disk included in the backup.
+. The backup application xref:ref_using-the-imageio-api-to-transfer-backup-data_assembly_incremental-backup-and-restore[gets a list of changed blocks from `ovirt-imageio` for every image transfer]. If a change list is not available, the backup application gets an error.
+. The backup application xref:ref_using-the-imageio-api-to-transfer-backup-data_assembly_incremental-backup-and-restore[downloads changed blocks in RAW format from `ovirt-imageio` and stores them in the backup media]. If a list of changed blocks is not available, the backup application can fall back to copying the entire disk.
+. The backup application finalizes all image transfers.
+. The backup application xref:finalize-a-backup_assembly_incremental-backup-and-restore[finalizes the backup using the REST API].
+
+= The Incremental Restore Flow
+
+A backup application that uses the Incremental Backup API must follow this sequence to restore virtual machine disks that have been backed up:
+
+. The user selects a restore point based on available backups using the backup application.
+. The backup application creates a new disk or a snapshot with an existing disk to hold the restored data.
+. The backup application xref:image-transfer-object-for-incremental-restore_assembly_incremental-backup-and-restore[starts an upload image transfer for every disk], specifying `format` is `raw`. This enables format conversion when uploading RAW data to a QCOW2 disk.
+. The backup application xref:ref_using-the-imageio-api-to-transfer-backup-data_assembly_incremental-backup-and-restore[transfers the data included in this restore point to `imageio` using the API].
+. The backup application finalizes the image transfers.
+
+// include::ref_troubleshooting-incremental-backups.adoc[leveloffset=+1]
+
+= Incremental Backup and Restore API Tasks
+
+The Incremental Backup and Restore API is documented in the link:{URL_rest_api_doc}index[{virt-product-fullname} REST API Guide]. The backup and restore flow requires the following actions.
+
+* Enabling incremental backup on either a new or existing virtual disk:
+** xref:enabling-incremental-backup-on-a-new-disk_assembly_incremental-backup-and-restore[A new disk, using the Administration Portal]
+** xref:enabling-incremental-backup-on-an-existing-virtual-disk_assembly_incremental-backup-and-restore[An existing disk, using the Administration Portal]
+** xref:enable-incremental-backup-for-a-virtual-disk-api-call_assembly_incremental-backup-and-restore[A new or existing disk, using an API call]
+* xref:find-disks-enabled-for-incremental-backup[Finding disks that are enabled for incremental backup]
+* xref:start-a-full-backup_assembly_incremental-backup-and-restore[Starting a full backup]
+* xref:start-an-incremental-backup_assembly_incremental-backup-and-restore[Starting an incremental backup]
+* xref:finalize-a-backup_assembly_incremental-backup-and-restore[Finalizing a backup]
+* xref:getting-information-about-a-backup_assembly_incremental-backup-and-restore[Getting information about a backup]
+* xref:getting-information-about-the-disks-in-a-backup_assembly_incremental-backup-and-restore[Getting information about the disks in a backup]
+* xref:listing-checkpoints-for-a-virtual-machine_assembly_incremental-backup-and-restore[Listing all checkpoints for a virtual machine]
+* xref:listing-specific-checkpoints-for-a-virtual-machine_assembly_incremental-backup-and-restore[Listing information for a specific virtual machine checkpoint]
+* xref:removing-a-checkpoint_assembly_incremental-backup-and-restore[Removing a checkpoint of a specific virtual machine]
+* xref:image-transfer-object-for-incremental-backup_assembly_incremental-backup-and-restore[Downloading an image transfer object to archive a backup]
+* xref:image-transfer-object-for-incremental-restore_assembly_incremental-backup-and-restore[Uploading an image transfer object to restore a backup]
+* xref:ref_using-the-imageio-api-to-transfer-backup-data_assembly_incremental-backup-and-restore[Listing changed blocks]
+* xref:ref_using-the-imageio-api-to-transfer-backup-data_assembly_incremental-backup-and-restore[Downloading and uploading changed blocks]
+// * xref:listing-changed-blocks_{context}[Listing changed blocks]
+// * xref:downloading-changed-blocks_{context}[Downloading changed blocks]
+
+include::proc_enabling-incremental-backup-on-a-new-disk.adoc[leveloffset=+1]
+
+include::proc_enabling-incremental-backup-on-an-existing-virtual-disk.adoc[leveloffset=+1]
+
+include::proc_enable-incremental-backup-for-a-virtual-disk-api-call.adoc[leveloffset=+1]
+
+include::proc_find-disks-enabled-for-incremental-backup.adoc[leveloffset=+1]
+
+include::proc_start-a-full-backup.adoc[leveloffset=+1]
+
+include::proc_start-an-incremental-backup.adoc[leveloffset=+1]
+
+include::proc_getting-information-about-a-backup.adoc[leveloffset=+1]
+
+include::proc_getting-information-about-the-disks-in-a-backup.adoc[leveloffset=+1]
+
+include::proc_finalize-a-backup.adoc[leveloffset=+1]
+
+include::proc_image-transfer-objects-for-incremental-backup.adoc[leveloffset=+1]
+
+include::proc_image-transfer-object-for-incremental-restore.adoc[leveloffset=+1]
+
+include::proc_listing-checkpoints-for-a-virtual-machine.adoc[leveloffset=+1]
+
+include::proc_listing-specific-checkpoint-for-a-virtual-machine.adoc[leveloffset=+1]
+
+include::proc_removing-a-checkpoint.adoc[leveloffset=+1]
+
+//include::proc_listing-changed-blocks.adoc[leveloffset=+1]
+
+//include::proc_downloading-changed-blocks.adoc[leveloffset=+1]
+
+include::ref_using-the-imageio-api-to-transfer-backup-data.adoc[leveloffset=+1]
+
+
+
+////
+Restore the context to what it was before this assembly.
+////
+ifdef::parent-context-of-assembly_incremental-backup-and-restore[:context: {parent-context-of-assembly_incremental-backup-and-restore}]
+ifndef::parent-context-of-assembly_incremental-backup-and-restore[:!context:]

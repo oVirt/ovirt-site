@@ -3,4 +3,4 @@
 
 For information on the operating systems that can be virtualized as guest operating systems in {virt-product-fullname}, see link:https://access.redhat.com/articles/973163[].
 
-For information on customizing the operating systems, see xref:Configuring_operating_systems_with_osinfo[].
+For information on customizing the operating systems, see link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Configuring_operating_systems_with_osinfo[Configuring operating systems with osinfo].

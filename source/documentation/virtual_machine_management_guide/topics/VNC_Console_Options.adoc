@@ -1,5 +1,5 @@
 [[VNC_Console_Options]]
-===== VNC Console Options
+= VNC Console Options
 
 When the VNC connection protocol is selected, the following options are available in the *Console Options* window.
 
@@ -15,5 +15,3 @@ When the VNC connection protocol is selected, the following options are availabl
 
 
 * *Map control-alt-delete shortcut to ctrl+alt+end*: Select this check box to map the `Ctrl` + `Alt` + `Del` key combination to `Ctrl` + `Alt` + `End` inside the virtual machine.
-
-

@@ -1,0 +1,148 @@
+// Module included in the following assemblies:
+//
+// assembly_managing-intel-vgpu-devices
+
+
+[id="proc_setting-up-intel-vgpu-devices_{context}"]
+= Setting up Intel vGPU devices
+
+[WARNING]
+====
+This feature is still under development, and may not work properly.
+====
+
+To set up Intel vGPU devices, you need to obtain and install the correct driver for your GPU device, then create mediated devices, and assign each mediated device to a virtual machine.
+
+[discrete]
+== Before you begin
+
+Download and install the i915 driver for the host. For more information, see https://01.org/igvt-g. For information on the guest drivers for Windows, see https://github.com/intel/gvt-linux/wiki/GVTg_Setup_Guide#42-windows-guest-setup.
+
+////
+[discrete]
+== Prerequisites
+
+* TBD?
+////
+
+[discrete]
+== Configuring the host
+
+. Open [filename]`/etc/default/grub` in a text editor.
+
+. Append the following to the `GRUB_CMDLINX_LINUX` environment variable `i915.enable_gvt=1`. For example:
++
+[source,bash options=nowrap,subs="+quotes,+macros"]
+GRUB_CMDLINE_LINUX="rd.lvm.lv=vg_VolGroup00/LogVol01
+vconsole.font=latarcyrheb-sun16 rd.lvm.lv=vg_VolGroup_1/root
+vconsole.keymap=us $([ -x /usr/sbin/rhcrashkernel-param ]  &&
+pass:quotes[/usr/sbin/rhcrashkernel-param || :) rhgb quiet intel_iommu=on pci-stub.ids=10de:11fa *i915.enable_gvt=1*"]
+
+. Regenerate boot loader configuration:
++
+[source,bash,subs=+quotes]
+----
+# grub2-mkconfig -o /etc/grub2.cfg
+----
+[source,bash,subs=+quotes]
+
+. Open [filename]``/etc/dracut.conf.d/local.conf` in a text editor.
+
+. Set the line with: `add_drivers+=""` to `add_drivers+="*kvmgt*"`
+. Regenerate the initial ramdisk for the current kernel, then reboot:
++
+[source,bash,subs=+quotes]
+----
+# *dracut --force --regenerate-all*
+# *reboot*
+----
++
+Alternatively, if you need to use a prior supported kernel version with mediated devices, regenerate the initial ramdisk for all installed kernel versions:
++
+[source,bash,subs=+quotes]
+----
+# *dracut --regenerate-all --force*
+# *reboot*
+----
+
+// ############## From here to the end of the procedure is unique to RHV and needs to be conditionalized as such.
+. Get a list of available mdev types by entering the following lines in the terminal:
++
+[source,bash,subs=+quotes]
+----
+for device in /sys/class/mdev_bus/*; do
+  for mdev_type in $device/mdev_supported_types/*; do
+    MDEV_TYPE=$(basename $mdev_type)
+    DESCRIPTION=$(cat $mdev_type/description)
+    NAME=$(cat $mdev_type/name)
+    echo "mdev_type: $MDEV_TYPE --- description: $DESCRIPTION --- name: $NAME";
+  done;
+done | sort | uniq
+----
++
+[TIP]
+====
+Use this code in a script.
+====
++
+The output is as follows:
++
+[source,bash,subs=+quotes]
+----
+fence: 4
+high_gm_size: 384MB
+high_gm_size: 512MB
+mdev_type: i915-GVTg_V5_4 --- description: low_gm_size: 128MB
+mdev_type: i915-GVTg_V5_8 --- description: low_gm_size: 64MB
+resolution: 1024x768
+resolution: 1920x1200
+weight: 2
+weight: 4
+----
+
+. In the Administration Portal, click menu:Compute[Virtual Machines]. Select a virtual machine and click btn:[Edit]. The *Edit Virtual Machine* dialog appears.
+
+. Click *Custom Properties*. If you don’t see *Custom Properties*, click *Show Advanced Options* first.
+
+. In the *Custom Properties* dialog, click menu:Please select a key[mdev_type]. If you don’t see *Please select a key*, click the btn:[+] button.
+
+. In the text field that appears, enter the GPU type or types that you identified previously. For example: *i915-GVTg_V5_8*.You can add multiple vGPUs to a virtual machine using a comma-separated list. For example: *i915-GVTg_V5_8,i915-GVTg_V5_8*.
++
+[NOTE]
+====
+Multiple vGPUs must be the same mdev type. You can’t, for example use *i915-GVTg_V5_4,i915-GVTg_V5_8*.
+====
+
+You have finished installing and configuring the GPU on the host. Now you can proceed to install and configure the vGPU on each virtual machine.
+
+[discrete]
+== Installing the guest driver
+
+*To install the vGPU driver on a Linux or Windows virtual machine:*
+
+. Start the virtual machine using a serial console, such as SPICE or VNC.
+
+. Download the driver to the virtual machine. For information on getting the driver, see *???*
+
+. Install the vGPU driver, following the instructions in *???*
+
+. After the driver finishes installing reboot the machine. *For Windows virtual machines,* fully power off the guest from the Administration portal or the VM portal, not from within the guest operating system.
++
+[IMPORTANT]
+====
+Windows only: Powering off the virtual machine from within the Windows guest operating system sometimes sends the virtual machine into hibernate mode, which does not completely clear the memory, possibly leading to subsequent problems. Using the Administration portal or the VM portal to power off the virtual machine forces it to fully clean the memory.
+====
+
+. Start the virtual machine using a remote visualizer, such as Mechdyne TGX and verify that the vGPU is recognized by *???* For more information, see *???* Alternatively, on Windows, open the Windows Device Manager. The vGPU should appear under *Display adapters*.
+
+
+
+
+////
+[discrete]
+== Additional resources
+
+* A bulleted list of links to other material closely related to the contents of the procedure module.
+* For more details on writing procedure modules, see the link:https://github.com/redhat-documentation/modular-docs#modular-documentation-reference-guide[Modular Documentation Reference Guide].
+* Use a consistent system for file names, IDs, and titles. For tips, see _Anchor Names and File Names_ in link:https://github.com/redhat-documentation/modular-docs#modular-documentation-reference-guide[Modular Documentation Reference Guide].
+////

@@ -1,11 +1,16 @@
 [id="Disabling_Global_Maintenance_Mode_{context}"]
-= Disabling Global Maintenance Mode
+= Disabling global maintenance mode
+
+// Installation Guides
+// Upgrade Guide
 
 .Procedure
 
 . Log in to the {engine-name} virtual machine and shut it down.
 
-. Log in to one of the self-hosted engine nodes and disable global maintenance mode:
+. Log in to one of the self-hosted engine nodes
+ifdef::4-3_SHE[that has the 4.4 {engine-name} running on it]
+ and disable global maintenance mode:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -13,6 +18,15 @@
 ----
 +
 When you exit global maintenance mode, ovirt-ha-agent starts the {engine-name} virtual machine, and then the {engine-name} automatically starts. It can take up to ten minutes for the {engine-name} to start.
+ifdef::4-3_SHE[]
++
+[NOTE]
+====
+Make sure you log in to the self-hosted engine node that hosts the 4.4 {engine-name}.
+If you are logged into a self-hosted engine node that has the 4.3 {engine-name} running
+on it when you disable global maintenance mode, the 4.3 {engine-name} starts again, creating a conflict with the 4.4 {engine-name}.
+====
+endif::4-3_SHE[]
 
 . Confirm that the environment is running:
 +

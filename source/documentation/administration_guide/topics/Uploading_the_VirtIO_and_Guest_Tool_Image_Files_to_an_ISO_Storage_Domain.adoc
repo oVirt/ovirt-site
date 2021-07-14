@@ -22,10 +22,10 @@ To install and upload the most recent version of `virtio-win___version__.iso`:
 ----
 +
 After you install it on the {engine-name} machine, the image file is [filename]`/usr/share/virtio-win/virtio-win___version__.iso`
-. Upload the image file to a data storage domain that was not created locally during installation. For more information, see link:{URL_virt_product_docs}administration_guide/index[Uploading Images to a Data Storage Domain] in the _Administration Guide_.
+. Upload the image file to a data storage domain that was not created locally during installation. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain] in the _Administration Guide_.
 
 . Attach the image file to virtual machines.
 
 The virtual machines can now use the virtio drivers and agents.
 
-For information on attaching the image files to a virtual machine, see link:{URL_virt_product_docs}virtual_machine_management_guide[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_.
+For information on attaching the image files to a virtual machine, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Windows[Installing the Guest Agents, Tools, and Drivers on Windows] in the _Virtual Machine Management Guide_.

@@ -1,7 +1,7 @@
 [[storage_considerations_active-passive]]
 ==== Storage Considerations
 
-The storage domain for {virt-product-fullname} can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about {virt-product-fullname} storage see link:{URL_virt_product_docs}administration_guide/#chap-Storage[Storage] in the _Administration Guide_. 
+The storage domain for {virt-product-fullname} can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about {virt-product-fullname} storage see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage[Storage] in the _Administration Guide_. 
 
 IMPORTANT: Local storage domains are unsupported for disaster recovery.
 

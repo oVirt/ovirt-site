@@ -1,0 +1,46 @@
+// Module included in the following assemblies:
+//
+// assembly_managing-intel-vgpu-devices.adoc
+
+// This module can be included from assemblies using the following include statement:
+// include::<path>/proc_removing-intel-vgpu-devices.adoc[leveloffset=+1]
+
+[id="proc_removing-intel-vgpu-devices_{context}"]
+= Removing Intel vGPU devices
+
+To change the configuration of xref:proc_setting-up-intel-vgpu-devices_assembly_managing-intel-vgpu-devices[assigned vGPU mediated devices], the existing devices have to be removed from the assigned guests.
+//TBD! when else is removing vGPUs actually useful?
+
+////
+[discrete]
+== Prerequisites
+
+* A bulleted list of conditions that must be satisfied before the user starts following this assembly.
+* You can also link to other modules or assemblies the user must follow before starting this assembly.
+* Delete the section title and bullets if the assembly has no prerequisites.
+////
+
+[discrete]
+.Procedure
+
+* To remove a mediated vGPU device, use the following command when the device is inactive, and replace `uuid` with the UUID of the device, for example `30820a6f-b1a5-4503-91ca-0c10ba58692a`:
++
+[source,bash,subs=+quotes]
+--
+# *echo 1 > /sys/bus/mdev/devices/`uuid`/remove*
+--
++
+Note that attempting to remove a vGPU device that is currently in use by a VM triggers the following error:
++
+--
+echo: write error: Device or resource busy
+--
+
+////
+[discrete]
+== Additional resources
+
+* A bulleted list of links to other material closely related to the contents of the procedure module.
+* For more details on writing procedure modules, see the link:https://github.com/redhat-documentation/modular-docs#modular-documentation-reference-guide[Modular Documentation Reference Guide].
+* Use a consistent system for file names, IDs, and titles. For tips, see _Anchor Names and File Names_ in link:https://github.com/redhat-documentation/modular-docs#modular-documentation-reference-guide[Modular Documentation Reference Guide].
+////

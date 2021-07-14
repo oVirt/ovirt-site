@@ -10,7 +10,7 @@ The virtual machine must be shut down before being imported. Starting the virtua
 
 [IMPORTANT]
 ====
-An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning will display and you will be prompted to change your selection to include only virtual machines with the same architecture.
+An import operation can only include virtual machines that share the same architecture. If any virtual machine to be imported has a different architecture, a warning appears and you are prompted to change your selection to include only virtual machines with the same architecture.
 ====
 
 [NOTE]
@@ -48,7 +48,7 @@ If the import fails, refer to the relevant log file in */var/log/vdsm/import/* a
 . Click *More Actions* (image:common/images/moreactions.png[]) and select *Import*. This opens the *Import Virtual Machine(s)* window.
 . Select the *Data Center* that contains the proxy host.
 . Select *KVM (via Libvirt)* from the *Source* drop-down list.
-. Optionally, select a KVM provider *External Provider* from the drop-down list. The URI will be pre-filled with the correct URI. See link:{URL_virt_product_docs}administration_guide/index.html#Adding_KVM_as_an_External_Provider[Adding a KVM Host as a Virtual Machine Provider] in the _Administration Guide_ for more information.
+. Optionally, select a KVM provider *External Provider* from the drop-down list. The URI will be pre-filled with the correct URI. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_KVM_as_an_External_Provider[Adding a KVM Host as a Virtual Machine Provider] in the _Administration Guide_ for more information.
 . Enter the *URI* of the KVM host in the following format:
 +
 [options="nowrap" subs="normal"]
@@ -67,7 +67,7 @@ qemu+ssh://root@_kvmhost.example.com_/system
 . Select a *CPU Profile* for the virtual machines.
 . Optionally, select the *Collapse Snapshots* check box to remove snapshot restore points and include templates in template-based virtual machines.
 . Optionally, select the *Clone* check box to change the virtual machine name and MAC addresses, and clone all disks, removing all snapshots. If a virtual machine appears with a warning symbol beside its name or has a tick in the *VM in System* column, you must clone the virtual machine and change its name.
-. Click each virtual machine to be imported and click the *Disks* sub-tab. Use the *Allocation Policy* and *Storage Domain* lists to select whether the disk used by the virtual machine will be thin provisioned or preallocated, and select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine. See link:{URL_downstream_virt_product_docs}html-single/technical_reference/#Preallocated_Storage[Virtual Disk Storage Allocation Policies] in the _Technical Reference_ for more information.
+. Click each virtual machine to be imported and click the *Disks* sub-tab. Use the *Allocation Policy* and *Storage Domain* lists to select whether the disk used by the virtual machine will be thin provisioned or preallocated, and select the storage domain on which the disk will be stored. An icon is also displayed to indicate which of the disks to be imported acts as the boot disk for that virtual machine. See link:{URL_downstream_virt_product_docs}technical_reference/index#Preallocated_Storage[Virtual Disk Storage Allocation Policies] in the _Technical Reference_ for more information.
 . If you selected the *Clone* check box, change the name of the virtual machine in the *General* tab.
 . Click btn:[OK] to import the virtual machines.
 

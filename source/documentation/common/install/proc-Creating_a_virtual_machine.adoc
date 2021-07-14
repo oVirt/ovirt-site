@@ -1,12 +1,12 @@
 [id='Creating_a_virtual_machine_{context}']
-= Creating a Virtual Machine
+= Creating a virtual machine
 
 // Included in:
 // VMM:
 // * Installing Linux Virtual Machines
 // * Installing Windows Virtual Machines
 
-Create a new virtual machine and configure the required settings.
+When creating a new virtual machine, you specify its settings. You can edit some of these settings later, including the chipset and BIOS type, but you cannot switch between chipsets after installing an operating system. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#About_UEFI_Q35-cluster_opt_settings[UEFI and the Q35 chipset] in the _Administration Guide_.
 
 .Procedure
 
@@ -20,18 +20,50 @@ ifdef::windows_vm[]
 +
 endif::windows_vm[]
 . Click menu:Compute[Virtual Machines].
-. Click btn:[New] to open the *New Virtual Machine* window.
+. Click btn:[New]. This opens the *New Virtual Machine* window.
 . Select an *Operating System* from the drop-down list.
+ifndef::windows_vm[]
++
+[NOTE]
+====
+If you selected *{enterprise-linux} CoreOS* as the operating system, you may need to set the initialization method by configuring *Ignition* settings in the *Advanced Options*  `Initial Run` tab. See link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Configuring_Ignition[Configuring Ignition].
+====
+endif::windows_vm[]
 . Enter a *Name* for the virtual machine.
-. Add storage to the virtual machine. *Attach* or *Create* a virtual disk under *Instance Images*.
+. Add storage to the virtual machine: under *Instance Images*, click btn:[Attach] or btn:[Create] to select or create a virtual disk .
 * Click *Attach* and select an existing virtual disk.
-* Click *Create* and enter a *Size(GB)* and *Alias* for a new virtual disk. You can accept the default settings for all other fields, or change them if required. See xref:Add_Virtual_Disk_dialogue_entries[] for more details on the fields for all disk types.
++
+or
++
+* Click *Create* and enter a *Size(GB)* and *Alias* for a new virtual disk. You can accept the default settings for all other fields, or change them if required. See link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Add_Virtual_Disk_dialogue_entries[Explanation of settings in the New Virtual Disk and Edit Virtual Disk windows] for more details on the fields for all disk types.
 . Connect the virtual machine to the network. Add a network interface by selecting a vNIC profile from the *nic1* drop-down list at the bottom of the *General* tab.
 . Specify the virtual machine's *Memory Size* on the *System* tab.
-. Choose the *First Device* that the virtual machine will boot from on the *Boot Options* tab.
-. You can accept the default settings for all other fields, or change them if required. For more details on all fields in the *New Virtual Machine* window, see xref:sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows[].
+. In the *Boot Options* tab, choose the *First Device* that the virtual machine will use to boot.
+. You can accept the default settings for all other fields, or change them if required. For more details on all fields in the *New Virtual Machine* window, see link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Add_Virtual_Disk_dialogue_entries[Explanation of settings in the New Virtual Disk and Edit Virtual Disk windows].
 . Click btn:[OK].
 
-The new virtual machine is created and displays in the list of virtual machines with a status of `Down`. 
-ifdef::windows_vm[Before you can use this virtual machine, you must install an operating system and VirtIO-optimized disk and network drivers.]
-ifdef::linux_vm[Before you can use this virtual machine, you must install an operating system and register with the Content Delivery Network.]
+The new virtual machine is created and displays in the list of virtual machines with a status of `Down`.
+
+ifdef::windows_vm[]
+[NOTE]
+====
+Before you can use this virtual machine, you must:
+
+* Install an operating system
+
+* Install a VirtIO-optimized disk and network drivers
+====
+endif::windows_vm[]
+ifdef::linux_vm[]
+[NOTE]
+====
+Before you can use this virtual machine, you must:
+
+* Install an operating system
+
+* Register with the Content Delivery Network
+====
+endif::linux_vm[]
+ifndef::windows_vm[]
+include::proc-Configuring_Ignition.adoc[]
+endif::windows_vm[]

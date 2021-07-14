@@ -11,10 +11,10 @@ To access the serial console of a virtual machine, the user must have *UserVmMan
 The serial console is accessed through TCP port 2222 on the {engine-name}. This port is opened during `engine-setup` on new installations. To change the port, see link:https://github.com/oVirt/ovirt-vmconsole/blob/master/README#L116[ovirt-vmconsole/README].
 
 Using a serial console requires configuring the firewall rules. For more information, see:
-* link:{URL_downstream_virt_product_docs}html/planning_and_prerequisites_guide/rhv_requirements#RHV-manager-firewall-requirements_RHV_planning[Rule "M3" in the {virt-product-fullname} {engine-name} Firewall Requirements]
-* link:{URL_downstream_virt_product_docs}html/planning_and_prerequisites_guide/rhv_requirements#host-firewall-requirements_RHV_planning[Rule "H2" in the Host Firewall Requirements]
+* link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#RHV-manager-firewall-requirements_RHV_planning[Rule "M3" in the {virt-product-fullname} {engine-name} Firewall Requirements]
+* link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#host-firewall-requirements_RHV_planning[Rule "H2" in the Host Firewall Requirements]
 
-The serial console relies on the `ovirt-vmconsole` package and the `ovirt-vmconsole-proxy` on the {engine-name}, and the `ovirt-vmconsole` package and the `ovirt-vmconsole-host` package on the virtualization hosts. These packages are installed by default on new installations. To install the packages on existing installations, reinstall the host. See link:{URL_virt_product_docs}administration_guide/[Reinstalling Hosts] in the _Administration Guide_.
+The serial console relies on the `ovirt-vmconsole` package and the `ovirt-vmconsole-proxy` on the {engine-name}, and the `ovirt-vmconsole` package and the `ovirt-vmconsole-host` package on the virtualization hosts. These packages are installed by default on new installations. To install the packages on existing installations, reinstall the host. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Reinstalling_Hosts[Reinstalling Hosts] in the _Administration Guide_.
 
 *Enabling a Virtual Machine's Serial Console*
 

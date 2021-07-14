@@ -1,7 +1,7 @@
 [[Creating_a_Virtual_Disk]]
 ==== Creating a Virtual Disk
 
-*Image* disk creation is managed entirely by the {engine-name}. *Direct LUN* disks require externally prepared targets that already exist. *Cinder* disks require access to an instance of OpenStack Volume that has been added to the {virt-product-fullname} environment using the *External Providers* window; see xref:Adding_an_OpenStack_Block_Storage_Cinder_Instance_for_Storage_Management[] for more information.
+*Image* disk creation is managed entirely by the {engine-name}. *Direct LUN* disks require externally prepared targets that already exist.
 
 You can create a virtual disk that is attached to a specific virtual machine. Additional options are available when creating an attached virtual disk, as specified in xref:Explanation_of_Settings_in_the_New_Virtual_Disk_Window[].
 
@@ -11,7 +11,7 @@ You can create a virtual disk that is attached to a specific virtual machine. Ad
 . Click the virtual machine's name. This opens the details view.
 . Click the *Disks* tab.
 . Click *New*.
-. Click the appropriate button to specify whether the virtual disk will be an *Image*, *Direct LUN*, or *Cinder* disk.
+. Click the appropriate button to specify whether the virtual disk will be an *Image* or *Direct LUN* disk.
 . Select the options required for your virtual disk. The options change based on the disk type selected. See xref:Explanation_of_Settings_in_the_New_Virtual_Disk_Window[] for more details on each option for each disk type.
 . Click btn:[OK].
 
@@ -21,6 +21,6 @@ You can also create a floating virtual disk that does not belong to any virtual 
 
 . Click menu:Storage[Disks].
 . Click *New*.
-. Click the appropriate button to specify whether the virtual disk will be an *Image*, *Direct LUN*, or *Cinder* disk.
+. Click the appropriate button to specify whether the virtual disk will be an *Image* or *Direct LUN* disk.
 . Select the options required for your virtual disk. The options change based on the disk type selected. See xref:Explanation_of_Settings_in_the_New_Virtual_Disk_Window[] for more details on each option for each disk type.
 . Click btn:[OK].

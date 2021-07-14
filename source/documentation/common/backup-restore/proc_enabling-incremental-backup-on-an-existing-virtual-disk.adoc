@@ -1,0 +1,25 @@
+:_module-type: PROCEDURE
+
+[id="enabling-incremental-backup-on-an-existing-virtual-disk_{context}"]
+= Enabling Incremental Backup on an existing RAW virtual disk
+
+Because incremental backup is not supported for disks in RAW format, a QCOW2 format layer must exist on top of any RAW format disks in order to use incremental backup. Creating a snapshot generates a QCOW2 layer, enabling incremental backup on all disks that are included in the snapshot, from the point at which the snapshot is created.
+
+[WARNING]
+====
+If the base layer of a disk uses RAW format, deleting the last snapshot and merging the top QCOW2 layer into the base layer converts the disk to RAW format, thereby disabling incremental backup if it was set. To re-enable incremental backup, you can create a new snapshot, including this disk.
+====
+
+.Prerequisites
+
+.Procedure
+
+. In the Administration Portal, click menu:Compute[Virtual Machines].
+. Select a virtual machine and click the *Disks* tab.
+. Click the btn:[Edit] button. The *Edit Disk* dialog box opens.
+. Select the *Enable Incremental Backup* checkbox.
+
+
+[role="_additional-resources"]
+.Additional resources
+ * xref:enable-incremental-backup-for-a-virtual-disk-api-call_{context}[Enabling incremental backup for a disk using the API]

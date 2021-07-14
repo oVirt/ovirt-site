@@ -1,0 +1,12 @@
+[id='Self-hosted_engine_maintenance_modes_explained_{context}']
+= Self-hosted engine maintenance modes explained
+
+The maintenance modes enable you to start, stop, and modify the {engine-name} virtual machine without interference from the high-availability agents, and to restart and modify the self-hosted engine nodes in the environment without interfering with the {engine-name}.
+
+There are three maintenance modes:
+
+* `global` - All high-availability agents in the cluster are disabled from monitoring the state of the {engine-name} virtual machine. The global maintenance mode must be applied for any setup or upgrade operations that require the `ovirt-engine` service to be stopped, such as upgrading to a later version of {virt-product-fullname}.
+
+* `local` - The high-availability agent on the node issuing the command is disabled from monitoring the state of the {engine-name} virtual machine. The node is exempt from hosting the {engine-name} virtual machine while in local maintenance mode; if hosting the {engine-name} virtual machine when placed into this mode, the {engine-name} will migrate to another node, provided there is one available. The local maintenance mode is recommended when applying system changes or updates to a self-hosted engine node.
+
+* `none` - Disables maintenance mode, ensuring that the high-availability agents are operating.

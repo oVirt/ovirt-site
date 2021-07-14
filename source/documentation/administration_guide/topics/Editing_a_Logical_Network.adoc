@@ -3,7 +3,7 @@
 
 [IMPORTANT]
 ====
-A logical network cannot be edited or moved to another interface if it is not synchronized with the network configuration on the host. See xref:Editing_host_network_interfaces[] on how to synchronize your networks.
+A logical network cannot be edited or moved to another interface if it is not synchronized with the network configuration on the host. See xref:Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts[] on how to synchronize your networks.
 ====
 
 *Editing a Logical Network*

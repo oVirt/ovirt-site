@@ -1,0 +1,30 @@
+[id='Configuring_RHSSO_ldap']
+
+. Add the LDAP groups mapper with the following information:
++
+* `Name`: ldapgroups
+* `Mapper Type`: group-ldap-mapper
+* `LDAP Groups DN`: ou=groups,dc=example,dc=com
+* `Group Object Classes`: groupofuniquenames (_adapt this class according to your LDAP server setup_)
+* `Membership LDAP Attribute`: uniquemember (_adapt this class according to your LDAP server setup_)
++
+. Click `Save`.
+. Click `Sync LDAP Groups to KeyCloak`.
+. At the bottom of the `User Federation Provider` page, click `Synchronize all users`.
+. In the `Clients` tab, under `Add Client`, add `ovirt-engine` as the `Client ID`, and enter the engine url as the `Root URL`.
+. Modify the `Client Protocol` to `openid-connect` and the `Access Type` to `confidential`.
+. In the `Clients` tab, under `Ovirt-engine` > `Advanced Settings`, increase the `Access Token Lifespan`.
+. Add `\https://rhvm.example.com:443/*` as a valid redirect URI.
+. The client secret is generated, and can be viewed in the Credentials tab.
+. In the `Clients` tab under `Create Mapper Protocol`, create a mapper with the following settings:
++
+* `Name`: groups
+* `Mapper Type`: Group Membership
+* `Token Claim Name`: groups
+* `Full group path`: `ON`
+* `Add to ID token`: `ON`
+* `Add to access token`: `ON`
+* `Add to userinfo`: `ON`
+. Add the `Builtin Protocol Mapper` for `username`.
+. Create the scopes needed by `ovirt-engine`, `ovirt-app-api`, `ovirt-app-admin`, and `ovirt-ext=auth:sequence-priority=~`.
+. Use the scopes created in the previous step to set up optional client scopes for the ovirt-engine client.

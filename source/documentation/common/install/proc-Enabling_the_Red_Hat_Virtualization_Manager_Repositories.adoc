@@ -3,8 +3,13 @@
 
 ifdef::rhv-doc[]
 
-Register the system with Red Hat Subscription Manager, attach the `{virt-product-fullname} {engine-name}` subscription, and enable {engine-name} repositories.
-// review above
+
+You need to log in and register the
+ifndef::offline_install,install_DWH_remote,remote_database_install,migrate_SHE_DB,migrate_DWH_DB[{engine-name} machine ]
+ifdef::install_DWH_remote,migrate_DWH_DB[Data Warehouse machine ]
+ifdef::remote_database_install,migrate_SHE_DB[database machine ]
+ifdef::offline_install[online machine ]
+with Red Hat Subscription Manager, attach the `{virt-product-fullname} {engine-name}` subscription, and enable the {engine-name} repositories.
 
 .Procedure
 
@@ -44,7 +49,7 @@ To view currently attached subscriptions:
 To list all enabled repositories:
 [options="nowrap" subs="normal"]
 ----
-# yum repolist
+# dnf repolist
 ----
 ====
 
@@ -57,9 +62,8 @@ ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_D
     --disable='*' \
     --enable=rhel-8-for-x86_64-baseos-rpms \
     --enable=rhel-8-for-x86_64-appstream-rpms \
-    --enable=rhv-4-manager-beta-for-rhel-8-x86_64-rpms \
-    --enable=fast-datapath-for-rhel-8-x86_64-rpms \    
-    --enable=ansible-2.9-for-rhel-8-x86_64-rpms \
+    --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms \
+    --enable=fast-datapath-for-rhel-8-x86_64-rpms \
     --enable=jb-eap-7.3-for-rhel-8-x86_64-rpms
 ----
 endif::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
@@ -70,7 +74,7 @@ ifdef::remote_database_install,manual_database_install,migrate_DWH_DB,install_DW
     --disable='*' \
     --enable=rhel-8-for-x86_64-baseos-rpms \
     --enable=rhel-8-for-x86_64-appstream-rpms \
-    --enable=rhv-4-manager-beta-for-rhel-8-x86_64-rpms \
+    --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms
 ----
 endif::remote_database_install,manual_database_install,migrate_DWH_DB,install_DWH_remote[]
 ifdef::migrate_SHE_DB,migrate_manager_db[]
@@ -79,7 +83,7 @@ ifdef::migrate_SHE_DB,migrate_manager_db[]
 # subscription-manager repos \
     --disable='*' \
     --enable=rhel-8-for-x86_64-baseos-rpms \
-    --enable=rhel-8-for-x86_64-appstream-rpms \
+    --enable=rhel-8-for-x86_64-appstream-rpms
 ----
 endif::migrate_SHE_DB,migrate_manager_db[]
 
@@ -91,37 +95,49 @@ Ensure the correct repositories are enabled:
 
 [options="nowrap" subs="normal"]
 ----
-# yum install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
+# dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 ----
 
-You can check which repositories are currently enabled by running `yum repolist`.
+You can check which repositories are currently enabled by running `dnf repolist`.
 
 . Enable the `javapackages-tools` module.
 +
 [options="nowrap" subs="normal"]
-+
 ----
-# yum module -y enable javapackages-tools
+# dnf module -y javapackages-tools
 ----
-
 
 endif::ovirt-doc[]
 
 
 
-ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
+ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,migrate_manager_db[]
 . Enable the `pki-deps` module.
 +
 [options="nowrap" subs="normal"]
 +
 ----
-# yum module -y enable pki-deps
+# dnf module -y enable pki-deps
 ----
-endif::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
+endif::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,migrate_manager_db[]
 . Enable version 12 of the `postgresql` module.
 +
 [options="nowrap" subs="normal"]
 +
 ----
-# yum module -y enable postgresql:12
+# dnf module -y enable postgresql:12
 ----
+. Synchronize installed packages to update them to the latest available versions.
++
+[options="nowrap" subs="normal"]
+----
+# dnf distro-sync --nobest
+----
+//ansible lock addition
+.Additional resources
+For information on modules and module streams, see the following sections in _Installing, managing, and removing user-space components_
+
+* link:{URL_rhel_docs_latest}html-single/installing_managing_and_removing_user-space_components/index#module-streams_introduction-to-modules[Module streams]
+* link:{URL_rhel_docs_latest}html-single/installing_managing_and_removing_user-space_components/index#selecting-a-stream-before-installation-of-packages_installing-rhel-8-content[Selecting a stream before installation of packages]
+* link:{URL_rhel_docs_latest}html-single/installing_managing_and_removing_user-space_components/index#resetting-module-streams_removing-rhel-8-content[Resetting module streams]
+* link:{URL_rhel_docs_latest}html-single/installing_managing_and_removing_user-space_components/index#switching-to-a-later-stream_managing-versions-of-appstream-content[Switching to a later stream]

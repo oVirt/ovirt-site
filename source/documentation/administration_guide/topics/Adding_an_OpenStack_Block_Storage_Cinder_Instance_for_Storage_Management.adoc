@@ -1,4 +1,7 @@
 [[Adding_an_OpenStack_Block_Storage_Cinder_Instance_for_Storage_Management]]
+
+//this topic is deprecated and will be removed in 4.4.4 or 4.4.5
+
 ==== Adding an OpenStack Block Storage (Cinder) Instance for Storage Management
 ifdef::rhv-doc[]
 [IMPORTANT]
@@ -28,7 +31,7 @@ Enter the *Tenant* for the OpenStack Block Storage instance.
 . Click *Test* to test whether you can authenticate successfully with the OpenStack Block Storage instance using the provided credentials.
 . Click btn:[OK].
 . If client Ceph authentication (`cephx`) is enabled, you must also complete the following steps. The `cephx` protocol is enabled by default.
-.. On your Ceph server, create a new secret key for the `client.cinder` user using the `ceph auth get-or-create` command. See link:https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/3/html-single/configuration_guide/#cephx_configuration_reference[Cephx Configuration Reference] for more information on `cephx`, and link:https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/3/html-single/administration_guide/#managing_users[Managing Users] for more information on creating keys for new users. If a key already exists for the `client.cinder` user, retrieve it using the same command.
+.. On your Ceph server, create a new secret key for the `client.cinder` user using the `ceph auth get-or-create` command. See link:https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/3/html-single/configuration_guide/index#cephx_configuration_reference[Cephx Configuration Reference] for more information on `cephx`, and link:https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/3/html-single/administration_guide/index#managing_users[Managing Users] for more information on creating keys for new users. If a key already exists for the `client.cinder` user, retrieve it using the same command.
 .. In the Administration Portal, select the newly created Cinder external provider from the *Providers* list.
 .. Click the *Authentication Keys* tab.
 .. Click *New*.

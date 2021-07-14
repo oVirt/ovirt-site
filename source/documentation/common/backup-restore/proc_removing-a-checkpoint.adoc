@@ -1,0 +1,21 @@
+:_module-type: PROCEDURE
+
+[id="removing-a-checkpoint_{context}"]
+= Removing a checkpoint
+
+[role="_abstract"]
+You can remove a checkpoint of a virtual machine by sending a DELETE request. You can remove a checkpoint on a virtual machine whether it is running or not.
+
+.Procedure
+
+* Send a request specifying a virtual machine and a checkpoint. For example, specify a virtual machine with id `123` and a checkpoint with id `456` like this:
++
+[options="nowrap" subs="normal"]
+----
+DELETE /vms/123/checkpoints/456/
+----
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:{URL_rest_api_doc}index#services-vm_checkpoint-methods-remove[`remove` method of VmCheckpoint]

@@ -1,0 +1,17 @@
+// module included:
+// doc-Administration_Guide/chap-Hosts.adoc
+
+[id='Removing_a_host']
+= Removing a Host
+
+Removing a host from your {virt-product-fullname} environment is sometimes necessary, such as when you need to reinstall a host.
+
+.Procedure
+
+. Click menu:Compute[Hosts] and select the host.
+. Click menu:Management[Maintenance].
+. Once the host is in maintenance mode, click *Remove*. The *Remove Host(s)* confirmation window opens.
+. Select the *Force Remove* check box if the host is part of a {gluster-storage-fullname} cluster and has volume bricks on it, or if the host is non-responsive.
+. Click btn:[OK].
+
+// doc-Administration_Guide/topics/Removing_a_host.adoc

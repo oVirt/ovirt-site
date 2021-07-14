@@ -1,12 +1,10 @@
 [[Audience]]
 === Audience
 
-Most virtual machine tasks in {virt-product-fullname} can be performed in both the VM Portal and Administration Portal. However, the user interface differs between each portal, and some administrative tasks require access to the Administration Portal. Tasks that can only be performed in the Administration Portal will be described as such in this book. Which portal you use, and which tasks you can perform in each portal, is determined by your level of permissions. Virtual machine permissions are explained in xref:sect-Virtual_Machines_and_Permissions[].
+Most virtual machine tasks in {virt-product-fullname} can be performed in both the VM Portal and Administration Portal. However, the user interface differs between each portal, and some administrative tasks require access to the Administration Portal. Tasks that can only be performed in the Administration Portal will be described as such in this book. Which portal you use, and which tasks you can perform in each portal, is determined by your level of permissions. Virtual machine permissions are explained in link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#sect-Virtual_Machines_and_Permissions[Virtual Machines and Permissions].
 
-The VM Portal's user interface is described in the link:{URL_virt_product_docs}introduction_to_the_vm_portal[Introduction to the VM Portal].
+The VM Portal's user interface is described in the link:{URL_virt_product_docs}{URL_format}introduction_to_the_vm_portal/index#[Introduction to the VM Portal].
 
-The Administration Portal's user interface is described in the link:{URL_virt_product_docs}administration_guide[Administration Guide].
+The Administration Portal's user interface is described in the link:{URL_virt_product_docs}{URL_format}administration_guide/index#[Administration Guide].
 
-The creation and management of virtual machines through the {virt-product-fullname} REST API is documented in the link:http://ovirt.github.io/ovirt-engine-api-model/4.4/index.html[REST API Guide].
-
-
+The creation and management of virtual machines through the {virt-product-fullname} REST API is documented in the link:{URL_rest_api_doc}index[REST API Guide].

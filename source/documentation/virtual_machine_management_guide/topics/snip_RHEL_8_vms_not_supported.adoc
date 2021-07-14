@@ -1,7 +1,0 @@
-[NOTE]
-====
-You cannot create a sealed virtual machine template based on a RHEL 8.0 virtual machine in {virt-product-fullname} 4.3, because of the following limitations:
-
-* libguestfs tools on {enterprise-linux} 7 do not support modifying {enterprise-linux} 8 disk images because of additional XFS functionality added in {enterprise-linux}{nbsp}8.
-* {virt-product-fullname} 4.3 does not support hypervisors based on {enterprise-linux}{nbsp}8.0
-====

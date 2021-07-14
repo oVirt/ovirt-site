@@ -1,5 +1,5 @@
 [[Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines]]
-==== Configuring Single Sign-On for {enterprise-linux} Virtual Machines Using IPA (IdM)
+= Configuring Single Sign-On for {enterprise-linux} Virtual Machines Using IPA (IdM)
 
 To configure single sign-on for {enterprise-linux} virtual machines using GNOME and KDE graphical desktop environments and IPA (IdM) servers, you must install the `ovirt-guest-agent` package on the virtual machine and install the packages associated with your window manager.
 
@@ -48,7 +48,7 @@ In environments that use DNS obfuscation, this command should be:
 
 [options="nowrap" subs="normal"]
 ----
-# ipa-client-install --domain=_FQDN_ --server==_FQDN_
+# ipa-client-install --domain=_FQDN_ --server=_FQDN_
 ----
 ====
 +
@@ -93,8 +93,3 @@ _ipa-user_:*:936600010:936600001::/home/_ipa-user_:/bin/sh
 ----
 
 Log in to the VM Portal using the user name and password of a user configured to use single sign-on and connect to the console of the virtual machine. You will be logged in automatically.
-
-
-
-
-

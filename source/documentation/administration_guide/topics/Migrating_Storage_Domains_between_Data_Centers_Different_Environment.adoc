@@ -7,8 +7,19 @@ This procedure involves removing the storage domain from one {virt-product-fulln
 and importing it into a different environment.
 To import and attach an existing data storage domain to a {virt-product-fullname} data center,
 the storage domain's source data center must have the correct supported compatibility level.
-See link:https://access.redhat.com/solutions/4303801[Supportability and constraints regarding importing Storage Domains and Virtual Machines from older RHV versions] for more information.
 
+[WARNING]
+====
+Migrating a data storage domain to a data center that has a higher compatibility level than the original data center upgrades the storage domain’s storage format version.
+====
+
+If you want to move the storage domain back to the original data center for any reason, such as to migrate virtual machines to the new data center, be aware that the higher version prevents reattaching the data storage domain to the original data center.
+
+The Administration Portal prompts you to confirm that you want to update the storage domain format, for example, from *V3* to *V5*. It also warns that you will not be able to attach it back to an older data center with a lower DC level.
+
+To work around this issue, you can create a target data center that has the same compatibility version as the source data center. When you no longer need to maintain the lower compatibility version, you can increase the target data center’s compatibility version.
+
+For details, see link:https://access.redhat.com/solutions/4303801[Supportability and constraints regarding importing Storage Domains and Virtual Machines from older RHV versions].
 
 .Procedure
 

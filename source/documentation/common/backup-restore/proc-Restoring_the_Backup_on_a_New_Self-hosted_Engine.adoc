@@ -33,7 +33,7 @@ Note that the IQN can be updated on the host side (iSCSI initiator), or on the s
 +
 [options="nowrap" subs="normal"]
 ----
-# yum install ovirt-hosted-engine-setup
+# dnf install ovirt-hosted-engine-setup
 ----
 +
 . Use the `tmux` window manager to run the script to avoid losing the session in case of network or terminal disruption.
@@ -42,7 +42,7 @@ Install and run `tmux`:
 +
 [options="nowrap" subs="normal"]
 ----
-# yum -y install tmux
+# dnf -y install tmux
 # tmux
 ----
 +
@@ -60,8 +60,6 @@ To escape the script at any time, use kbd:[CTRL+D] to abort deployment.
 . Configure the network. The script detects possible NICs to use as a management bridge for the environment.
 
 . If you want to use a custom appliance for the virtual machine installation, enter the path to the OVA archive. Otherwise, leave this field empty to use the {engine-appliance-name}.
-
-. Specify the FQDN for the {engine-name} virtual machine.
 
 . Enter the root password for the {engine-name}.
 
@@ -135,7 +133,7 @@ gluster volume set _VOLUME_NAME_ network.ping-timeout 30
 ----
 ====
 
-* For Fibre Channel, select a LUN from the auto-detected list. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see link:{URL_virt_product_docs}administration_guide#Reusing_LUNs[Reusing LUNs] in the _Administration Guide_.
+* For Fibre Channel, select a LUN from the auto-detected list. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Reusing_LUNs[Reusing LUNs] in the _Administration Guide_.
 
 . Enter the {engine-name} disk size.
 +

@@ -1,0 +1,15 @@
+:_module-type: REFERENCE
+
+[id="ref_troubleshooting-incremental-backups_{context}"]
+= Troubleshooting Incremental Backups
+
+[role="_abstract"]
+Use this information to troubleshoot any issues you encounter when using the Incremental Backup API.
+
+.An unclean shutdown might invalidate entire backup chain
+
+*Problem*
+An unclean shutdown of a virtual machine, whatever the cause, might invalidate bitmaps on the disk. Restoring an incremental backup using an invalid bitmap leads to corrupt virtual machine data. There is no way to detect an invalid bitmap, other than starting a backup. If the disk includes any invalid bitmaps, the operation fails.
+
+*Solution*
+To recover from invalid bitmaps, you must remove the entire backup chain and run a full backup.

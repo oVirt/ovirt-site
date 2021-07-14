@@ -1,0 +1,84 @@
+[id='Preparing_NFS_Storage2_{context}']
+
+= Preparing NFS Storage
+
+Set up NFS shares on your file storage or remote server to serve as storage domains on Red Hat Enterprise Virtualization Host systems. After exporting the shares on the remote storage and configuring them in the Red Hat Virtualization Manager, the shares will be automatically imported on the Red Hat Virtualization hosts.
+
+For information on setting up, configuring, mounting and exporting NFS, see link:{URL_rhel_docs_latest}html-single/managing_file_systems/index[_Managing file systems_] for Red Hat Enterprise Linux 8.
+
+Specific system user accounts and system user groups are required by {virt-product-fullname} so the {engine-name} can store data in the storage domains represented by the exported directories. The following procedure sets the permissions for one directory. You must repeat the `chown` and `chmod` steps for all of the directories you intend to use as storage domains in {virt-product-fullname}.
+
+.Prerequisites
+
+. Install the NFS `utils` package.
++
+[options="nowrap" subs="normal"]
+----
+# dnf install nfs-utils -y
+----
++
+. To check the enabled versions:
++
+[options="nowrap" subs="normal"]
+----
+# cat /proc/fs/nfsd/versions
+----
++
+. Enable the following services:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl enable nfs-server
+# systemctl enable rpcbind
+----
+
+.Procedure
+
+. Create the group `kvm`:
++
+[options="nowrap" subs="normal"]
+----
+# useradd vdsm -u 36 -g kvm
+----
++
+. Create the `storage` directory and modify the access rights.
++
+[options="nowrap" subs="normal"]
+----
+ # mkdir /storage
+ # chmod 0755 /storage
+ # chown 36:36 /storage/
+---
++
+. Add the `storage` directory to `/etc/exports` with the relevant permissions.
++
+[options="nowrap" subs="normal"]
+----
+ # vi /etc/exports
+ # cat /etc/exports
+ /storage *(rw)
+----
++
+. Restart the following services:
++
+[options="nowrap" subs="normal"]
+----
+ # systemctl start rpcbind
+ # systemctl start nfs-server
+----
++
+. To see which export are available for a specific IP address:
++
+[options="nowrap" subs="normal"]
+----
+ # exportfs
+ /nfs_server/srv
+               10.46.11.3/24
+ /nfs_server       <world>
+----
+
+[NOTE]
+====
+If changes in /etc/exports have been made after starting the services exportfs -ra can be used to reload the changes.
+After performing all the above stages the export should be ready to work. The exports can be tested on a different host to check that it's usable.
+====

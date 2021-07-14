@@ -1,0 +1,45 @@
+:_module-type: PROCEDURE
+
+[id="enable-incremental-backup-for-a-virtual-disk-api-call_{context}"]
+= Enabling incremental backup
+
+[role="_abstract"]
+You can use a REST API request to enable incremental backup for a virtual machine’s disk.
+
+.Procedure
+
+* Enable incremental backup for a new disk. For example, for a new disk on a virtual machine with id `123`, send this request:
++
+[options="nowrap" subs="normal"]
+----
+POST /ovirt-engine/api/vms/123/diskattachments
+----
++
+The request body should include `backup` set to `incremental` as part of a `disk` object, like this:
++
+[options="nowrap" subs="normal"]
+----
+<disk_attachment>
+    ...
+    <disk>
+       ...
+       <backup>incremental</backup>
+       ...
+    </disk>
+</disk_attachment>
+----
+
+The response is:
+
+[options="nowrap" subs="normal"]
+----
+<disk_attachment>
+    ...
+    <disk href="/ovirt-engine/api/disks/456" id="456"/>
+    ...
+</disk_attachment>
+----
+
+[role="_additional-resources"]
+.Additional resources
+* link:{URL_rest_api_doc}index#types-disk_backup[DiskBackup enum] in the _REST API Guide_ for {virt-product-shortname}

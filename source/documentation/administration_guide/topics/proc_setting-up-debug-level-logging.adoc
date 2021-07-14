@@ -1,0 +1,45 @@
+// Module included in the following assemblies:
+//
+// chap-Log_Files.adoc
+
+[[proc-setting_up_debug_level_logging]]
+=== Setting debug-level logging for {virt-product-fullname} services
+
+You can set the logs of the following {virt-product-fullname} ({virt-product-shortname}) services to debug-level by modifying the `sysconfig` file of each service.
+
+.{virt-product-shortname} services and `sysconfig` file paths
+[options="header"]
+|===
+|Service |File path
+|`ovirt-engine.service` | `/etc/sysconfig/ovirt-engine`
+|`ovirt-engine-dwhd.service` |`/etc/sysconfig/ovirt-engine-dwhd`
+|`ovirt-fence-kdump-listener.service` |`/etc/sysconfig/ovirt-fence-kdump-listener`
+|`ovirt-websocket-proxy.service`| `/etc/sysconfig/ovirt-websocket-proxy`
+|===
+
+This modification affects logging done by the Python wrapper, not the main service process.
+
+Setting logging to debug-level is useful for debugging issues related to start up - for example, if the main process fails to start due to a missing or incorrect Java runtime or library.
+
+.Prerequisites
+
+* Verify that the `sysconfig` file you want to modify exists. If necessary, create it.
+
+.Procedure
+
+. Add the following to the `sysconfig` file of the service:
++
+[source, terminal]
+----
+OVIRT_SERVICE_DEBUG=1
+----
+. Restart the service:
++
+[source, terminal]
+----
+# systemctl restart <service>
+----
+
+The `sysconfig` log file of the service is now set to debug-level.
+
+Logging caused by this setting goes to the system log, so the logs it generates can be found in `/var/log/messages`, not in the service-specific log file, or by using the `journalctl` command.

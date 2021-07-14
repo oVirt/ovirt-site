@@ -1,7 +1,11 @@
 [id='Adding_standard_hosts_to_the_Manager_{context}']
 = Adding Standard Hosts to the {virt-product-fullname} {engine-name}
 
+IMPORTANT: Always use the {virt-product-shortname} {engine-name} to modify the network configuration of hosts in your clusters. Otherwise, you might create an unsupported configuration. For details, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#con-Network-Manager-Stateful-Configuration-nmstate[Network Manager Stateful Configuration (nmstate)].
+
 Adding a host to your {virt-product-fullname} environment can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, and creation of a bridge.
+
+IMPORTANT: OVS clusters cannot contain RHEL 8 hosts. Due to a known issue,  RHEL 8 hosts do not work in clusters whose *Switch Type* is *OVS*. For details, see link:https://bugzilla.redhat.com/show_bug.cgi?id=1809116[BZ#1809116] and link:https://access.redhat.com/solutions/901213[Open vSwitch and OpenFlow support for RHV].
 
 .Procedure
 
@@ -15,7 +19,7 @@ Adding a host to your {virt-product-fullname} environment can take some time, as
 . Optionally, click the *Advanced Parameters* button to change the following advanced host settings:
 * Disable automatic firewall configuration.
 * Add a host SSH fingerprint to increase security. You can add it manually, or fetch it automatically.
-. Optionally configure power management, where the host has a supported power management card. For information on power management configuration, see link:{URL_virt_product_docs}administration_guide/index.html#Host_Power_Management_settings_explained[Host Power Management Settings Explained] in the _Administration Guide_.
+. Optionally configure power management, where the host has a supported power management card. For information on power management configuration, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Host_Power_Management_settings_explained[Host Power Management Settings Explained] in the _Administration Guide_.
 . Click btn:[OK].
 
 

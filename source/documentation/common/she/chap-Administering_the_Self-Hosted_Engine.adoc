@@ -3,7 +3,7 @@
 
 :context: SHE_admin
 
-include::proc-Maintaining_the_Self-Hosted_Engine.adoc[leveloffset=+1]
+include::assembly-Maintaining_the_Self-Hosted_Engine.adoc[leveloffset=+1]
 
 include::proc-Administering_the_Manager_Virtual_Machine.adoc[leveloffset=+1]
 

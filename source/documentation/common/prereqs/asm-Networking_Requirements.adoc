@@ -1,13 +1,17 @@
 [id='networking-requirements']
-= Networking Requirements
+= Networking requirements
 
 // Included in:
 // PPG
 // Install
 
-== General Requirements
+== General requirements
 
-{virt-product-fullname} requires IPv6 to remain enabled on the computer or virtual machine where you are running the {engine-name} (also called "the {engine-name} machine"). link:https://access.redhat.com/solutions/8709[Do not disable IPv6] on the {engine-name} machine, even if your systems do not use it.
+{virt-product-fullname} requires IPv6 to remain enabled on the physical or virtual machine running the {engine-name}. link:https://access.redhat.com/solutions/8709[Do not disable IPv6] on the {engine-name} machine, even if your systems do not use it.
+
+ifdef::SHE_cockpit_deploy,SHE_cli_deploy,RHV_planning[]
+include::ref-Network-range-for-SHE-deployment.adoc[leveloffset=+1]
+endif::[]
 
 include::ref-DNS_Requirements.adoc[leveloffset=+1]
 

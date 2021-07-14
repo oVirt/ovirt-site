@@ -1,0 +1,46 @@
+////
+Included in the following assemblies:
+assembly-Installing_Red_Hat_Virtualization_as_a_self-hosted_engine_using_the_Cockpit_web_interface/index.adoc
+assembly-Installing_Red_Hat_Virtualization_as_a_self-hosted_engine_using_the_Cockpit_web_interface/master.adoc
+assembly-Installing_Red_Hat_Virtualization_as_a_self-hosted_engine_using_the_command_line_interface/index.adoc
+assembly-Installing_Red_Hat_Virtualization_as_a_self-hosted_engine_using_the_command_line_interface/master.adoc
+////
+
+[id="customizing_engine_vm_during_deployment_auto_{context}"]
+
+= Customizing the {engine-name} virtual machine using automation during deployment
+
+[role="_abstract"]
+You can use automation to adjust or otherwise customize the {engine-name} virtual machine during deployment by using one or more Ansible playbooks. You can run playbooks at the following points during deployment:
+
+* before the self-hosted engine setup
+* after the self-hosted engine setup, but before storage is configured
+* after adding the deployment host to the {engine-name}
+* after the deployment completes entirely
+
+
+
+.Procedure
+
+. Write one or more Ansible playbooks to run on the {engine-name} virtual machine at specific points in the deployment process.
+
+. Add the playbooks to the appropriate directory under `/usr/share/ansible/collections/ansible_collections/redhat/rhv/roles/hosted_engine_setup/hooks/`:
++
+`enginevm_before_engine_setup`:: Run the playbook before the self-hosted engine setup.
+`enginevm_after_engine_setup`:: Run the playbook after the self-hosted engine setup, but before storage is configured.
+`after_add_host`:: Run the playbook after adding the deployment host to the {engine-name}.
+`after_setup`:: Run the playbook after deployment is completed.
+
+When you run the self-hosted-engine installer using either Cockpit or the command line, the deployment script runs the `ovirt-engine-setup` role, which automatically runs any playbooks in either of these directories.
+
+[role="_additional-resources"]
+.Additional resources
+
+ifdef::SHE_cockpit_deploy[]
+* xref:Deploying_the_Self-Hosted_Engine_Using_Cockpit_install_RHVM[Deploying the self-hosted engine using Cockpit]
+endif::SHE_cockpit_deploy[]
+ifdef::SHE_cli_deploy[]
+* xref:Deploying_the_Self-Hosted_Engine_Using_the_CLI_install_RHVM[Deploying the self-hosted engine using the command line]
+endif::SHE_cli_deploy[]
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Automating_RHV_Configuration_using_Ansible[Automating Configuration Tasks using Ansible]
+* link:https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html[Intro to playbooks] in the Ansible documentation

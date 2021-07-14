@@ -7,7 +7,7 @@ You can add multiple network interfaces to virtual machines. Doing so allows you
 ====
 You can create an overlay network for your virtual machines, isolated from the hosts, by defining a logical network that is not attached to the physical interfaces of the host. For example, you can create a DMZ environment, in which the virtual machines communicate among themselves over the bridge created in the host.
 
-The overlay network uses OVN, which must be installed as an external network provider. See the  link:{URL_virt_product_docs}administration_guide/#Adding_OVN_as_an_External_Network_Provider[_Administration Guide_] for more information
+The overlay network uses OVN, which must be installed as an external network provider. See the  link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_OVN_as_an_External_Network_Provider[_Administration Guide_] for more information
 ====
 
 *Adding Network Interfaces to Virtual Machines*

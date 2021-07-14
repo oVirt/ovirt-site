@@ -8,8 +8,12 @@ You can hot plug virtual memory. Hot plugging means enabling or disabling device
 This feature is currently not supported for the self-hosted engine {engine-name} virtual machine.
 ====
 
+[NOTE]
+====
+If you might need to later hot unplug the memory that you are now hot plugging, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Hot_Unplugging_Virtual_Memory[Hot Unplugging Virtual Memory].
+====
 
-*Hot Plugging Virtual Memory*
+.Procedure
 
 . Click menu:Compute[Virtual Machines] and select a running virtual machine.
 . Click btn:[Edit].

@@ -8,7 +8,6 @@
 * Network File System (NFS)
 
 * GlusterFS exports
-
 //* CephFS
 
 * Other POSIX compliant file systems
@@ -94,6 +93,8 @@ include::topics/Increasing_iSCSI_or_FCP_Storage.adoc[]
 
 include::topics/Reusing_LUNs.adoc[]
 
+include::common/storage/proc-Creating_LVM_filter.adoc[leveloffset=+3]
+
 [[Adding_Red_Hat_Gluster_Storage]]
 === Preparing and Adding {gluster-storage-fullname}
 
@@ -112,8 +113,6 @@ include::topics/Importing_storage_domains.adoc[]
 include::topics/Migrating_Storage_Domains_between_Data_Centers_Same_Environment.adoc[]
 
 include::topics/Migrating_Storage_Domains_between_Data_Centers_Different_Environment.adoc[]
-
-include::topics/Importing_Virtual_Machines_from_an_Imported_Data_Storage_Domain.adoc[]
 
 include::topics/Importing_Templates_from_Imported_Data_Storage_Domains.adoc[]
 
@@ -153,3 +152,5 @@ include::topics/Setting_Discard_After_Delete_for_a_storage_domain.adoc[]
 include::topics/proc-Enabling-4K-support-more-than-250-nodes.adoc[leveloffset=+3]
 
 include::topics/proc-Disabling-4K-support.adoc[leveloffset=+3]
+
+include::topics/proc-monitoring-available-space-in-a-storage-domain.adoc[leveloffset=+3]

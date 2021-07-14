@@ -3,7 +3,7 @@
 
 Logger implementation requires the ovirt-engine-extension-logger-log4j package. With the implementation, Red Had Virtualization {engine-name} delegates records into log4j. Log4j is a customizable framework that provides appenders for various technologies, including SNMP and syslog.
 
-The oVirt Engine Extension Logger log4j passes the `engine.log` files to an existing syslog server. The configuration procedure overlaps with link:{URL_virt_product_docs}administration_guide/#Setting_up_a_Host_Logging_Server[Setting up a Host Logging Server].
+The oVirt Engine Extension Logger log4j passes the `engine.log` files to an existing syslog server. The configuration procedure overlaps with link:{URL_virt_product_docs}{URL_format}administration_guide/index#Setting_up_a_Host_Logging_Server[Setting up a Host Logging Server].
 
 Use this procedure on the central syslog server. You can use a separate logging server, or use this procedure to pass the `engine.log` files from the {engine-name} to the syslog server.
 
@@ -94,7 +94,7 @@ $InputUDPServerBindRuleset remote
 +
 [options="nowrap" subs="normal"]
 ----
-# restart ovirt-engine
+# systemctl restart ovirt-engine
 ----
 
 The existing syslog server can now receive and store the `engine.log` files.

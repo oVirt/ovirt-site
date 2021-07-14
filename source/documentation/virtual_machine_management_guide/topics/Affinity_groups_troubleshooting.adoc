@@ -10,7 +10,7 @@
 
 .If you observe problems with virtual machines not running
 
-* Verify that the cluster has a scheduling policy whose *weight module* and *filter module* sections contain `VmAffinityGroups` and `VmToHostsAffinityGroups`. For more information, see link:{URL_virt_product_docs}administration_guide[Explanation of Settings in the New Scheduling Policy and Edit Scheduling Policy Window] in the _Administration Guide_.
+* Verify that the cluster has a scheduling policy whose *weight module* and *filter module* sections contain `VmAffinityGroups` and `VmToHostsAffinityGroups`. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Explanation_of_Settings_in_the_New_Scheduling_Policy_and_Edit_Scheduling_Policy_Window[Explanation of Settings in the New Scheduling Policy and Edit Scheduling Policy Window] in the _Administration Guide_.
 * Check for conflicts between affinity labels and affinity groups.
 
 .For possible conflicts between affinity labels and affinity groups

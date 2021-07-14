@@ -1,5 +1,5 @@
 [[Confirming_Watchdog_Functionality]]
-==== Confirming Watchdog Functionality
+= Confirming Watchdog Functionality
 
 Confirm that a watchdog card has been attached to a virtual machine and that the `watchdog` service is active.
 
@@ -12,7 +12,7 @@ This procedure is provided for testing the functionality of watchdogs only and m
 *Confirming Watchdog Functionality*
 
 . Log in to the virtual machine on which the watchdog card is attached.
-. Confirm that the watchdog card has been identified by the virtual machine: 
+. Confirm that the watchdog card has been identified by the virtual machine:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -20,14 +20,14 @@ This procedure is provided for testing the functionality of watchdogs only and m
 ----
 +
 . Run one of the following commands to confirm that the watchdog is active:
-* Trigger a kernel panic: 
+* Trigger a kernel panic:
 +
 [options="nowrap" subs="normal"]
 ----
 # echo c > /proc/sysrq-trigger
 ----
 +
-* Terminate the `watchdog` service: 
+* Terminate the `watchdog` service:
 +
 [options="nowrap" subs="normal"]
 ----

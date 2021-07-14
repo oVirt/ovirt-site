@@ -847,7 +847,7 @@ oVirt Node is now released continuously, the download link can be found in the [
  - Need to improve CDA error message for storage domain creation failure due to duplicate custom mount options
  - User Portal login form should have intuitive keyboard navigation instead of current, erratic one
  - oVirt Change CD incorrectly rejecting isos with uppercase extensions (ISO vs iso)
- - Unable to authenticate if user is using <http://indeed-id.com/index.html> solution for authentication.
+ - Unable to authenticate if user is using <https://indeed-id.com/> solution for authentication.
  - [external-task] Couldn't clear external job
  - [userportal] When vm list is empty, then waiting animation never disappear
  - [RestApi] Adding Vm to an un-initialized dc, creates an unusable, unremovable VM entitiy

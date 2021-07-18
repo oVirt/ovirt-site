@@ -337,7 +337,7 @@ The {engine-name} virtual machine, the host running it, and the self-hosted engi
 ====
 Both the {engine-name}'s I/O scheduler and the hypervisor that hosts the {engine-name} reorder I/O requests. This double reordering might delay I/O requests to the storage layer, impacting performance.
 
-Depending on your data center, you might improve performance by changing the I/O scheduler to `none`. For more information, see link:URL_rhel_docs_latest/html/monitoring_and_managing_system_status_and_performance/setting-the-disk-scheduler_monitoring-and-managing-system-status-and-performance[Available disk schedulers] in _Monitoring and managing system status and performance_ for RHEL.
+Depending on your data center, you might improve performance by changing the I/O scheduler to `none`. For more information, see link:{URL_rhel_docs_latest}html/monitoring_and_managing_system_status_and_performance/setting-the-disk-scheduler_monitoring-and-managing-system-status-and-performance[Available disk schedulers] in _Monitoring and managing system status and performance_ for RHEL.
 ====
 
 :cli_deploy!:

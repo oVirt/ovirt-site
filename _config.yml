@@ -140,7 +140,9 @@ exclude:
   # avoid generating paginated asciidoc content
   - documentation/common/**/*
   - documentation/**/appe*
+  - documentation/**/master.adoc
   - documentation/**/common/**/*.adoc
+  - documentation/administration_guide/assembly
   - documentation/administration_guide/chap*
   - documentation/administration_guide/part*
   - documentation/administration_guide/topics

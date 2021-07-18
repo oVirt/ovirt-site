@@ -11,6 +11,6 @@ include::topics/Replacing_the_Manager_CA_Certificate.adoc[]
 
 include::topics/Setting_Up_Encrypted_Communication_between_the_Manager_and_an_LDAP_Server.adoc[]
 
-ifdef::rhv-docs[]
+ifdef::rhv-doc[]
 include::assembly-enabling-encrypted-vnc-consoles-for-fips.adoc[leveloffset=+2]
-endif::rhv-docs[]
+endif::rhv-doc[]

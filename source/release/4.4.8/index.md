@@ -11,9 +11,9 @@ page_classes: releases
 
 # oVirt 4.4.8 release planning
 
-The oVirt 4.4.8 code freeze is planned for August 22, 2021.
+The oVirt 4.4.8 code freeze is planned for August 09, 2021.
 
-If no critical issues are discovered while testing this compose it will be released on September 15, 2021.
+If no critical issues are discovered while testing this compose it will be released on August 17, 2021.
 
 It has been planned to include in this release the content from this query:
 [Bugzilla tickets targeted to 4.4.8](https://bugzilla.redhat.com/buglist.cgi?quicksearch=ALL%20target_milestone%3A%22ovirt-4.4.8%22%20-target_milestone%3A%22ovirt-4.4.8-%22)
@@ -21,7 +21,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.8 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.8 Second Release Candidate as of July 22, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.8 Third Release Candidate as of July 29, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -130,9 +130,25 @@ Compressed files are removed as follows:
  - [BZ 1948177](https://bugzilla.redhat.com/1948177) **Unknown drive for vm - ignored block threshold event**
 
 
+#### oVirt Hosted Engine HA
+
+ - [BZ 1984356](https://bugzilla.redhat.com/1984356) **dns/dig network monitor is too sensitive to network load**
+
+
 ### Other
 
+#### oVirt Release Package
+
+ - [BZ 1955375](https://bugzilla.redhat.com/1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
+
+   
+
+
 #### VDSM
+
+ - [BZ 1757689](https://bugzilla.redhat.com/1757689) **Remove memAvailable and memCommitted**
+
+   
 
  - [BZ 1981307](https://bugzilla.redhat.com/1981307) **Skip setting disk thresholds on the destination host during migration**
 
@@ -140,6 +156,38 @@ Compressed files are removed as follows:
 
 
 #### oVirt Engine
+
+ - [BZ 1982296](https://bugzilla.redhat.com/1982296) **vCPU maximum CPU calculation is off causing VM's not to boot due to exceeding maximum vcpu of machine type**
+
+   
+
+ - [BZ 1983414](https://bugzilla.redhat.com/1983414) **Disks are locked forever when copying VMs' disks after snapshot**
+
+   
+
+ - [BZ 1950767](https://bugzilla.redhat.com/1950767) **updating an affinity groups in parallel causes 400 erros and SQL errors**
+
+   
+
+ - [BZ 1757689](https://bugzilla.redhat.com/1757689) **Remove memAvailable and memCommitted**
+
+   
+
+ - [BZ 1984424](https://bugzilla.redhat.com/1984424) **Incorrect CPUs in the NUMA node for the second hosts's socket**
+
+   
+
+ - [BZ 1983610](https://bugzilla.redhat.com/1983610) **Chipset should be set to Q35 if converting from XEN to RHV by v2v rhv-upload**
+
+   
+
+ - [BZ 1973270](https://bugzilla.redhat.com/1973270) **[RFE] Make VM sealing configurable**
+
+   
+
+ - [BZ 1955375](https://bugzilla.redhat.com/1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
+
+   
 
  - [BZ 1983661](https://bugzilla.redhat.com/1983661) **[CBT] committing a snapshot after backup tries to clear bitmaps on RAW volumes**
 
@@ -162,6 +210,35 @@ Compressed files are removed as follows:
    
 
  - [BZ 1978253](https://bugzilla.redhat.com/1978253) **OGA memory report isn't shown in the VM general tab**
+
+   
+
+
+#### oVirt Host Dependencies
+
+ - [BZ 1955375](https://bugzilla.redhat.com/1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
+
+   
+
+
+#### oVirt Ansible collection
+
+ - [BZ 1967530](https://bugzilla.redhat.com/1967530) **[RFE] Support enabling FIPS on the engine VM**
+
+   
+
+ - [BZ 1947709](https://bugzilla.redhat.com/1947709) **[IPv6] HostedEngineLocal is an isolated libvirt network, breaking upgrades from 4.3**
+
+   
+
+ - [BZ 1977486](https://bugzilla.redhat.com/1977486) **Duplicate tasks execution when using hosted-engine --deploy**
+
+   
+
+
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1967533](https://bugzilla.redhat.com/1967533) **[RFE] allow enabling fips on the engine VM**
 
    
 
@@ -192,13 +269,15 @@ Compressed files are removed as follows:
 
 #### Contributors
 
-25 people contributed to this release:
+30 people contributed to this release:
 
-	Ales Musil (Contributed to: vdsm)
+	Ales Musil (Contributed to: ovirt-provider-ovn, ovirt-release, vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
+	Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-host, ovirt-release)
 	Dana Elfassy (Contributed to: ovirt-engine)
+	Dominik Holler (Contributed to: ovirt-provider-ovn)
 	Eli Mesika (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine-sdk)
 	Filip Januska (Contributed to: ovirt-engine)
@@ -206,16 +285,19 @@ Compressed files are removed as follows:
 	Liran Rotenberg (Contributed to: ovirt-engine)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
+	Mark Kemel (Contributed to: ovirt-engine)
+	Martin Nečas (Contributed to: ovirt-ansible-collection)
 	Martin Perina (Contributed to: ovirt-engine)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
+	Nijin Ashok (Contributed to: ovirt-ansible-collection)
 	Nir Soffer (Contributed to: vdsm)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Pavel Bar (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Ritesh Chikatwar (Contributed to: ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)
-	Saif Abu Saleh (Contributed to: ovirt-engine)
-	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-host, ovirt-release)
+	Saif Abu Saleh (Contributed to: ovirt-engine, vdsm)
+	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-host, ovirt-hosted-engine-setup, ovirt-release)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: vdsm)
-	Yedidyah Bar David (Contributed to: ovirt-engine)
+	Yedidyah Bar David (Contributed to: ovirt-engine, ovirt-hosted-engine-ha)

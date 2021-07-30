@@ -45,7 +45,7 @@ This feature is meant to simplify the oVirt Metrics Store installation.
 This feature will be based on:
  - [oVirt ansible roles](https://github.com/oVirt/ovirt-ansible), Specifically the [oVirt Virtual Machine Infrastructure](https://github.com/oVirt/ovirt-ansible-vm-infra) role,
 to create the VM/s for the OpenShift install.
- - [OpenShift oVirt](https://github.com/openshift/openshift-ansible/tree/master/roles/openshift_ovirt) role for installing OpenShift.
+ - OpenShift oVirt role for installing OpenShift.
 
 By default, it will install the metrics store as all-in-one OpenShift master node on one oVirt VM.
 If more than 1 VM is required, the user will need to supply a configuration file to the oVirt metrics role, that defines the number of VMs to configure.

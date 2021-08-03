@@ -172,7 +172,7 @@ The defaults are currently (on the master branch):
 *   Databases are using the 'custom' dump format, and are not compressed further (this format uses gzip internally)
 *   On restore, number of restore jobs is 2
 
-See [bug 1213153](https://bugzilla.redhat.com/1213153) about adding other "collections" of options.
+See [bug 1213153](https://bugzilla.redhat.com/show_bug.cgi?id=1213153) about adding other "collections" of options.
 
 For smallest size (e.g. for archiving), probably everything should be compressed with xz, with 'plain' dump format for databases.
 

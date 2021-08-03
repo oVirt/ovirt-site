@@ -31,7 +31,7 @@ We assume that engine is already setup and running on machine A. We assume that 
 
 We need access to the engine's database. If on separate host, user will be prompted for them.
 
-We need to also fix bug <https://bugzilla.redhat.com/1059283> - check minimal ETL version, as we'll not be able to rely on package dependencies anymore.
+We need to also fix bug <https://bugzilla.redhat.com/show_bug.cgi?id=1059283> - check minimal ETL version, as we'll not be able to rely on package dependencies anymore.
 
 ## Benefit to oVirt
 
@@ -41,7 +41,7 @@ DWH sometimes causes a significant load on the engine machine. Installing it on 
 
 ## Documentation / External references
 
-<https://bugzilla.redhat.com/1080997>
+<https://bugzilla.redhat.com/show_bug.cgi?id=1080997>
 
 
 ## Testing

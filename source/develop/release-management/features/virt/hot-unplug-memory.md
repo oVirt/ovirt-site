@@ -16,7 +16,7 @@ This feature allows removing memory from a VM while the VM is running.
 
 *   Name: Milan Zamazal
 *   Email: mzamazal@redhat.com
-*   BZ: https://bugzilla.redhat.com/1228543
+*   BZ: https://bugzilla.redhat.com/show_bug.cgi?id=1228543
 
 ## Description
 

@@ -207,7 +207,7 @@ Content-Type: application/xml
 
 
 ## Related Bugs
-* Allow TRIM from within the guest to shrink thin-provisioned disks on iSCSI and FC storage domains([Bug 1241106](https://bugzilla.redhat.com/1241106)) 
+* Allow TRIM from within the guest to shrink thin-provisioned disks on iSCSI and FC storage domains([Bug 1241106](https://bugzilla.redhat.com/show_bug.cgi?id=1241106)) 
 
 
 ## Future plans

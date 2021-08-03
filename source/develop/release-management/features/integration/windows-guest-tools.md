@@ -55,7 +55,7 @@ QXL support is also declared on [Download](/download) page and should be kept in
 The installer is based on the Spice installer's source code (http://cgit.freedesktop.org/~teuf/spice-nsis/) ,
 and was slightly modifed for this project's needs.
 
-**Important Note!** [Bug 1528652](https://bugzilla.redhat.com/1528652) Currently you can't directly upgrade between the versions without either first stopping the services or performing an uninstall.
+**Important Note!** [Bug 1528652](https://bugzilla.redhat.com/show_bug.cgi?id=1528652) Currently you can't directly upgrade between the versions without either first stopping the services or performing an uninstall.
 
 The current list of the software to be included in the ISO:
 

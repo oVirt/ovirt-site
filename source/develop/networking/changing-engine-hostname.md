@@ -8,7 +8,7 @@ authors: didi
 ## Are you sure you need this?
 
 Since version 4.0.4, it is possible to add more names to access the engine web interface,
-see [BZ 1325746](https://bugzilla.redhat.com/1325746).
+see [BZ 1325746](https://bugzilla.redhat.com/show_bug.cgi?id=1325746).
 
 Make sure the name or names you want resolve to an IP address of the engine machine, by adding
 relevant records to the DNS or to /etc/hosts, and then:

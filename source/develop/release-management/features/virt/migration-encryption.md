@@ -30,7 +30,7 @@ Cluster level 4.4 or higher is required to enable migration encryption.
 
 Currently, an encrypted migration cannot use a separate migration network.  The destination certificate contains only the host name and not its IP addresses.  Putting IP addresses there would be cumbersome for both the code and the user (a host must be switched to the maintenance mode to update its certificate), difficult to maintain and error-prone, since the IP addresses may change at different times and places.  The migration client checks the presence of the destination address in the destination certificate, thus only the host name (and the related network) can be used as the migration destination address.
 
-A solution would be to enhance libvirt with a migration parameter that specifies the host name to check for in the certificate, independently of the destination address used.  QEMU already provides the facility, it just needs to be supported by libvirt, see this RFE: https://bugzilla.redhat.com/1754533.
+A solution would be to enhance libvirt with a migration parameter that specifies the host name to check for in the certificate, independently of the destination address used.  QEMU already provides the facility, it just needs to be supported by libvirt, see this RFE: https://bugzilla.redhat.com/show_bug.cgi?id=1754533.
 
 We will be able to remove the limitation once the libvirt RFE is implemented and released.
 

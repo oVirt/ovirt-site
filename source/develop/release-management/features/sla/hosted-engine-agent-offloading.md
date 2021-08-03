@@ -52,7 +52,7 @@ The specific goals associated with this feature are as follows:
 
 ## Documentation / External references
 
-*   Bugzilla ticket: [BZ#1399766](https://bugzilla.redhat.com/1399766)
-*   Bugzilla ticket: [BZ#1337914](https://bugzilla.redhat.com/1337914)
+*   Bugzilla ticket: [BZ#1399766](https://bugzilla.redhat.com/show_bug.cgi?id=1399766)
+*   Bugzilla ticket: [BZ#1337914](https://bugzilla.redhat.com/show_bug.cgi?id=1337914)
 *   [Hosted engine shared configuration extraction and caching](/develop/release-management/features/sla/hosted-engine-ovf-extraction.html)
 

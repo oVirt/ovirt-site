@@ -62,7 +62,7 @@ authors:
 
 ## Release Criteria
 
-Tracker bug: <https://bugzilla.redhat.com/918494>
+Tracker bug: <https://bugzilla.redhat.com/show_bug.cgi?id=918494>
 
 ### General
 

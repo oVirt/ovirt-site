@@ -10,7 +10,7 @@ Therefore, when the user has to select network device, during the Hosted-engine 
 in version 4.2 or later,
 bonds that are configured in these modes cannot be selected.
 
-See also: [BZ 1233127](https://bugzilla.redhat.com/1233127).
+See also: [BZ 1233127](https://bugzilla.redhat.com/show_bug.cgi?id=1233127).
 
 ## Enable invalid bond modes
 

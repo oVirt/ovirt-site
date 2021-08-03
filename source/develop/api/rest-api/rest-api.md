@@ -135,7 +135,7 @@ The custom script has to be included in the `initialization` section of the requ
         </vm>
     </action>
 
-Unfortunatelly this won't work in 3.4, because the `custom_script` element is ignored when combined with the `cloud_init` element. Instead of that the custom script has to be included in the content of the first `file` element of the `cloud_init` element. This is probably a [bug](https://bugzilla.redhat.com/1138564), so to avoid future breakages it is good idea to include the custom script in both places:
+Unfortunatelly this won't work in 3.4, because the `custom_script` element is ignored when combined with the `cloud_init` element. Instead of that the custom script has to be included in the content of the first `file` element of the `cloud_init` element. This is probably a [bug](https://bugzilla.redhat.com/show_bug.cgi?id=1138564), so to avoid future breakages it is good idea to include the custom script in both places:
 
     #!/bin/sh -x
 

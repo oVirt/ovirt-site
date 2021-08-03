@@ -163,7 +163,7 @@ For the single host scenario, it is not necessary to configure the switch.
 
 [Bug 1725166 - [RFE] Private VLAN / port isolation][1]
 
-[1]: https://bugzilla.redhat.com/1725166
+[1]: https://bugzilla.redhat.com/show_bug.cgi?id=1725166
 
 [gerrit topic:isolated_port][2]
 
@@ -173,12 +173,12 @@ For the single host scenario, it is not necessary to configure the switch.
 [Bug 1651499 - [clean-traffic-gateway filter] VM DHCP IP does not recover when
 network operation is done from Guest ][3]
 
-[3]: https://bugzilla.redhat.com/1651499
+[3]: https://bugzilla.redhat.com/show_bug.cgi?id=1651499
 
 [Bug 1651467 - [clean-traffic-gateway filter] ARP packet is leaking between
 blocked VMs][4]
 
-[4]: https://bugzilla.redhat.com/1651467
+[4]: https://bugzilla.redhat.com/show_bug.cgi?id=1651467
 
 [Cisco - Catalyst 4500 Series Switch Software Configuration Guide][5]
 
@@ -214,7 +214,7 @@ blocked VMs][4]
 
 [Bug 1727263 - [RFE] Add support for port isolation on linux bridge][13]
 
-[13]: https://bugzilla.redhat.com/1727263
+[13]: https://bugzilla.redhat.com/show_bug.cgi?id=1727263
 
 [Cisco - Private Vlan Edge (protected ports)][14]
 

@@ -101,6 +101,6 @@ The reason for this is that when attaching network with VLAN id 10 to 'eth1' the
 
 ## Documentation / External references
 
-Bugzilla - <https://bugzilla.redhat.com/1091863>
+Bugzilla - <https://bugzilla.redhat.com/show_bug.cgi?id=1091863>
 
 

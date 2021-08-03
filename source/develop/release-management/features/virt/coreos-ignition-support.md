@@ -218,9 +218,9 @@ There are no special ovirt-engine events for this activity.
 
 #### Related bugs:
 
-[Add RHCOS to the list of operating systems](https://bugzilla.redhat.com/1726907)
+[Add RHCOS to the list of operating systems](https://bugzilla.redhat.com/show_bug.cgi?id=1726907)
 
-[Have a generic way to initialize a VM in run-once](https://bugzilla.redhat.com/1797659)
+[Have a generic way to initialize a VM in run-once](https://bugzilla.redhat.com/show_bug.cgi?id=1797659)
 
 ## Testing
 

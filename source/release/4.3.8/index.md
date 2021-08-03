@@ -43,7 +43,7 @@ To learn about features introduced before 4.3.8, see the
 
 #### oVirt Engine Metrics
 
- - [BZ 1782412](https://bugzilla.redhat.com/1782412) **[RFE] RHV+Metrics Store - Support a Flat DNS environment without subdomains**
+ - [BZ 1782412](https://bugzilla.redhat.com/show_bug.cgi?id=1782412) **[RFE] RHV+Metrics Store - Support a Flat DNS environment without subdomains**
 
    Feature: 
 
@@ -71,7 +71,7 @@ If user sets 'openshift_ovirt_machine_suffix' to 'prod' and
 
 Then the metrics store vm will be called 'master-prod0.example.com'.
 
- - [BZ 1727546](https://bugzilla.redhat.com/1727546) **[RFE] Add cleanup option to oVirt metrics playbook**
+ - [BZ 1727546](https://bugzilla.redhat.com/show_bug.cgi?id=1727546) **[RFE] Add cleanup option to oVirt metrics playbook**
 
    Feature: 
 
@@ -96,78 +96,78 @@ It is now possible to run playbook for handling the services:
 
 #### VDSM
 
- - [BZ 1780290](https://bugzilla.redhat.com/1780290) **Host goes non-operational post upgrading that host from RHHI-V 1.6 to RHHI-V 1.7**
+ - [BZ 1780290](https://bugzilla.redhat.com/show_bug.cgi?id=1780290) **Host goes non-operational post upgrading that host from RHHI-V 1.6 to RHHI-V 1.7**
 
 
 #### oVirt Engine Data Warehouse
 
- - [BZ 1761494](https://bugzilla.redhat.com/1761494) **dwh-vacuum fails with 'vacuumdb: command not found'**
+ - [BZ 1761494](https://bugzilla.redhat.com/show_bug.cgi?id=1761494) **dwh-vacuum fails with 'vacuumdb: command not found'**
 
 
 #### oVirt Engine
 
- - [BZ 1779664](https://bugzilla.redhat.com/1779664) **MERGE_STATUS fails with 'Invalid UUID string: mapper' when Direct LUN that already exists is hot-plugged [RHV clone - 4.3.8]**
+ - [BZ 1779664](https://bugzilla.redhat.com/show_bug.cgi?id=1779664) **MERGE_STATUS fails with 'Invalid UUID string: mapper' when Direct LUN that already exists is hot-plugged [RHV clone - 4.3.8]**
 
- - [BZ 1773704](https://bugzilla.redhat.com/1773704) **engine-cleanup is removing all files listed in "uninstall.conf" irrespective of the options provided**
+ - [BZ 1773704](https://bugzilla.redhat.com/show_bug.cgi?id=1773704) **engine-cleanup is removing all files listed in "uninstall.conf" irrespective of the options provided**
 
 
 #### IOProcess
 
- - [BZ 1780290](https://bugzilla.redhat.com/1780290) **Host goes non-operational post upgrading that host from RHHI-V 1.6 to RHHI-V 1.7**
+ - [BZ 1780290](https://bugzilla.redhat.com/show_bug.cgi?id=1780290) **Host goes non-operational post upgrading that host from RHHI-V 1.6 to RHHI-V 1.7**
 
 
 ### Other
 
 #### VDSM
 
- - [BZ 1748022](https://bugzilla.redhat.com/1748022) **Enable gluster 4k support**
+ - [BZ 1748022](https://bugzilla.redhat.com/show_bug.cgi?id=1748022) **Enable gluster 4k support**
 
    
 
 
 #### imgbased
 
- - [BZ 1780331](https://bugzilla.redhat.com/1780331) **Firewalld service not enabled/running after RHV-H upgrade**
+ - [BZ 1780331](https://bugzilla.redhat.com/show_bug.cgi?id=1780331) **Firewalld service not enabled/running after RHV-H upgrade**
 
    
 
- - [BZ 1765250](https://bugzilla.redhat.com/1765250) **After upgrade RHVH did not boot into latest layer by default on UEFI machine.**
+ - [BZ 1765250](https://bugzilla.redhat.com/show_bug.cgi?id=1765250) **After upgrade RHVH did not boot into latest layer by default on UEFI machine.**
 
    
 
- - [BZ 1779661](https://bugzilla.redhat.com/1779661) **grubenv file is broken in the UEFI RHV-H hosts**
+ - [BZ 1779661](https://bugzilla.redhat.com/show_bug.cgi?id=1779661) **grubenv file is broken in the UEFI RHV-H hosts**
 
    
 
 
 #### oVirt Provider OVN
 
- - [BZ 1764946](https://bugzilla.redhat.com/1764946) **ovirt-provider-ovn accepts anonymous TLS cipher suites (security)**
+ - [BZ 1764946](https://bugzilla.redhat.com/show_bug.cgi?id=1764946) **ovirt-provider-ovn accepts anonymous TLS cipher suites (security)**
 
    
 
 
 #### oVirt Engine Metrics
 
- - [BZ 1711873](https://bugzilla.redhat.com/1711873) **RFE for offline installation  of RHV Metrics Store**
+ - [BZ 1711873](https://bugzilla.redhat.com/show_bug.cgi?id=1711873) **RFE for offline installation  of RHV Metrics Store**
 
    
 
- - [BZ 1780234](https://bugzilla.redhat.com/1780234) **Metric Store reports all hosts in Default cluster regardless of cluster assignment.**
+ - [BZ 1780234](https://bugzilla.redhat.com/show_bug.cgi?id=1780234) **Metric Store reports all hosts in Default cluster regardless of cluster assignment.**
 
    
 
 
 #### oVirt Cockpit Plugin
 
- - [BZ 1723728](https://bugzilla.redhat.com/1723728) **Remove the VDO option to emulate 512**
+ - [BZ 1723728](https://bugzilla.redhat.com/show_bug.cgi?id=1723728) **Remove the VDO option to emulate 512**
 
    
 
 
 #### oVirt image transfer daemon and proxy
 
- - [BZ 1786950](https://bugzilla.redhat.com/1786950) **Block size detection is unsafe with multiple connections**
+ - [BZ 1786950](https://bugzilla.redhat.com/show_bug.cgi?id=1786950) **Block size detection is unsafe with multiple connections**
 
    
 
@@ -176,7 +176,7 @@ It is now possible to run playbook for handling the services:
 
 #### oVirt Engine
 
- - [BZ 1781380](https://bugzilla.redhat.com/1781380) **Rest API for creating affinity group with labels is resulted with the group created with missing labels [RHV clone - 4.3.8]**
+ - [BZ 1781380](https://bugzilla.redhat.com/show_bug.cgi?id=1781380) **Rest API for creating affinity group with labels is resulted with the group created with missing labels [RHV clone - 4.3.8]**
 
    
 

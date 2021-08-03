@@ -33,7 +33,7 @@ authors:
 
 ## Release Criteria
 
-Tracker bug: <https://bugzilla.redhat.com/881006>
+Tracker bug: <https://bugzilla.redhat.com/show_bug.cgi?id=881006>
 
 ### General
 

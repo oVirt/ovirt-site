@@ -18,8 +18,8 @@ The goal of this fencing refactoring is to clean up the code and provide those f
 
 Following bugs are associated with fencing refactoring:
 
-*   [#1182510 - [RFE] - Fencing refactoring](https://bugzilla.redhat.com/1182510)
-*   [#1198628 - [RFE] - Refactoring of Power Management tab in Host Detail](https://bugzilla.redhat.com/1198628)
+*   [#1182510 - [RFE] - Fencing refactoring](https://bugzilla.redhat.com/show_bug.cgi?id=1182510)
+*   [#1198628 - [RFE] - Refactoring of Power Management tab in Host Detail](https://bugzilla.redhat.com/show_bug.cgi?id=1198628)
 
 ## Owner
 

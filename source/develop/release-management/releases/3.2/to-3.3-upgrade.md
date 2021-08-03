@@ -11,7 +11,7 @@ oVirt 3.2 was released as Fedora 18 package while 3.3 is targeted Fedora 19.
 
 Due to the nature of this upgrade, we DO NOT recommend it, users are advised to do a 3.3 clean installation, and to import all VM's and template into the new installation.
 
-The following instructions were tested upgrading oVirt 3.2.3-1.fc18 to 3.3.0-4.fc19 ( see <https://bugzilla.redhat.com/1009335> )
+The following instructions were tested upgrading oVirt 3.2.3-1.fc18 to 3.3.0-4.fc19 ( see <https://bugzilla.redhat.com/show_bug.cgi?id=1009335> )
 
 ## Upgrade Instructions
 

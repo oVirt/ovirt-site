@@ -42,7 +42,7 @@ To learn about features introduced before 4.3.9, see the
 
 #### oVirt Engine
 
- - [BZ 1797496](https://bugzilla.redhat.com/1797496) **Add RHCOS os to osinfo - for compatability API between 4.3 to 4.4**
+ - [BZ 1797496](https://bugzilla.redhat.com/show_bug.cgi?id=1797496) **Add RHCOS os to osinfo - for compatability API between 4.3 to 4.4**
 
    Feature: 
 
@@ -65,50 +65,50 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 
 #### oVirt Engine
 
- - [BZ 1808038](https://bugzilla.redhat.com/1808038) **Unable to change Graphical Console of HE VM. [RHV clone - 4.3.9]**
+ - [BZ 1808038](https://bugzilla.redhat.com/show_bug.cgi?id=1808038) **Unable to change Graphical Console of HE VM. [RHV clone - 4.3.9]**
 
- - [BZ 1792874](https://bugzilla.redhat.com/1792874) **Hide partial engine-cleanup option [RHV clone - 4.3.9]**
+ - [BZ 1792874](https://bugzilla.redhat.com/show_bug.cgi?id=1792874) **Hide partial engine-cleanup option [RHV clone - 4.3.9]**
 
 
 #### VDSM
 
- - [BZ 1795726](https://bugzilla.redhat.com/1795726) **after_migration is not sent to the guest after migration [RHV clone - 4.3.9]**
+ - [BZ 1795726](https://bugzilla.redhat.com/show_bug.cgi?id=1795726) **after_migration is not sent to the guest after migration [RHV clone - 4.3.9]**
 
 
 ### Other
 
 #### oVirt Engine
 
- - [BZ 1801558](https://bugzilla.redhat.com/1801558) **/etc/ovirt-provider-ovn/logger.conf should be included in the backup**
+ - [BZ 1801558](https://bugzilla.redhat.com/show_bug.cgi?id=1801558) **/etc/ovirt-provider-ovn/logger.conf should be included in the backup**
 
    
 
- - [BZ 1797659](https://bugzilla.redhat.com/1797659) **[API]Have a generic way to initialize a VM in run-once**
+ - [BZ 1797659](https://bugzilla.redhat.com/show_bug.cgi?id=1797659) **[API]Have a generic way to initialize a VM in run-once**
 
    
 
- - [BZ 1809470](https://bugzilla.redhat.com/1809470) **[HE] ovirt-provider-ovn is non-functional on 4.3.9 Hosted-Engine [RHV clone - 4.3.9]**
+ - [BZ 1809470](https://bugzilla.redhat.com/show_bug.cgi?id=1809470) **[HE] ovirt-provider-ovn is non-functional on 4.3.9 Hosted-Engine [RHV clone - 4.3.9]**
 
    
 
 
 #### oVirt Host Deploy
 
- - [BZ 1613291](https://bugzilla.redhat.com/1613291) **[text] log says ovirt-ha-agent is starting after HE undeploy but it's actually being disabled and stopped**
+ - [BZ 1613291](https://bugzilla.redhat.com/show_bug.cgi?id=1613291) **[text] log says ovirt-ha-agent is starting after HE undeploy but it's actually being disabled and stopped**
 
    
 
 
 #### oVirt Hosted Engine Setup
 
- - [BZ 1798834](https://bugzilla.redhat.com/1798834) **Hosted engine redeploy failed at "Add IPv4 outbound route rules" ansible task.**
+ - [BZ 1798834](https://bugzilla.redhat.com/show_bug.cgi?id=1798834) **Hosted engine redeploy failed at "Add IPv4 outbound route rules" ansible task.**
 
    
 
 
 #### oVirt Engine Metrics
 
- - [BZ 1797023](https://bugzilla.redhat.com/1797023) **In RHV Metric Store, installer vm does not take the static ip mentioned in the configuration file**
+ - [BZ 1797023](https://bugzilla.redhat.com/show_bug.cgi?id=1797023) **In RHV Metric Store, installer vm does not take the static ip mentioned in the configuration file**
 
    
 
@@ -117,11 +117,11 @@ It is possible to select Red Hat CoreOS operation system for a VM.
 
 #### oVirt Engine
 
- - [BZ 1789737](https://bugzilla.redhat.com/1789737) **Import of OVA created from template fails with java.lang.NullPointerException [RHV clone - 4.3.9]**
+ - [BZ 1789737](https://bugzilla.redhat.com/show_bug.cgi?id=1789737) **Import of OVA created from template fails with java.lang.NullPointerException [RHV clone - 4.3.9]**
 
    
 
- - [BZ 1782185](https://bugzilla.redhat.com/1782185) **Accessing Storage > Volumes  does not work**
+ - [BZ 1782185](https://bugzilla.redhat.com/show_bug.cgi?id=1782185) **Accessing Storage > Volumes  does not work**
 
    
 

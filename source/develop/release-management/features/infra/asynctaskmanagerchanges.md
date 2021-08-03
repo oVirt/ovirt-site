@@ -36,7 +36,7 @@ We should reuse command objects, and consider having Commands repository (hold i
 
 *   Simultaneous command group vs sequential execution - Currently we have the live storage migration feature which uses the serial execution mechanism - the code of this mechanism should be modified according to other improvements that are suggested in this page.
 *   Provide a mechanism for a command to know the number of tasks it is supposed to create - see [this bug](https://bugzilla.redhat.com/show_bug.cgi?id=873546) in order to not have a "premature end" of commands.
-*   Handling compensation issues with Async Tasks - for example - <https://bugzilla.redhat.com/873697> (although marked as closed wontfix we should revisit this issue - and make sure that endCommand does not rely on information which may reside at compensation table)
+*   Handling compensation issues with Async Tasks - for example - <https://bugzilla.redhat.com/show_bug.cgi?id=873697> (although marked as closed wontfix we should revisit this issue - and make sure that endCommand does not rely on information which may reside at compensation table)
 *   Support backwards compatibility of command parameters - currently, due to the fact that Java is strongly typed + we have a hierarchy of command parameters. Changes to parameters classes may yield problems when performing system upgrade in cases where parameters information is persisted based on old parameters class structure, and needs to be deserialized in newer version with newer code of the class.
 
 ## Details

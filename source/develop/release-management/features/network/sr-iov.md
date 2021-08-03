@@ -338,10 +338,10 @@ The <b>VFs configuration</b> on a SR-IOV enabled nic is represented as a sub res
 
 ## Documentation / External references
 
-*   [BZ 869804](https://bugzilla.redhat.com/869804): [RFE] [HP RHEV FEAT]: SR-IOV enablement in RHEV
-*   [BZ 984601](https://bugzilla.redhat.com/984601): [RFE] [HP RHEV 3.4 FEAT]:Containment of error when an SR-IOV device encounters an error and VFs from the device are assigned to one or more guests (RHEV-M component)
-*   [BZ 848202](https://bugzilla.redhat.com/848202): [RFE] Virtio over macvtap with SRIOV - RHEV Support
-*   [BZ 848200](https://bugzilla.redhat.com/848200): [RFE] MAC Programming for virtio over macvtap - RHEV support
+*   [BZ 869804](https://bugzilla.redhat.com/show_bug.cgi?id=869804): [RFE] [HP RHEV FEAT]: SR-IOV enablement in RHEV
+*   [BZ 984601](https://bugzilla.redhat.com/show_bug.cgi?id=984601): [RFE] [HP RHEV 3.4 FEAT]:Containment of error when an SR-IOV device encounters an error and VFs from the device are assigned to one or more guests (RHEV-M component)
+*   [BZ 848202](https://bugzilla.redhat.com/show_bug.cgi?id=848202): [RFE] Virtio over macvtap with SRIOV - RHEV Support
+*   [BZ 848200](https://bugzilla.redhat.com/show_bug.cgi?id=848200): [RFE] MAC Programming for virtio over macvtap - RHEV support
 *   [3](https://www.youtube.com/watch?v=A-MROZ8D06Y): oVirt 3.6 SR-IOV deep dive
 
 ## Open issues

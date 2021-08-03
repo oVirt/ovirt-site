@@ -166,7 +166,7 @@ configured, should be migrated to a different host.
 
 [Bug 1688177 - [RFE] [SR-IOV] Migration should not require downtime as of today][2]
 
-[2]: https://bugzilla.redhat.com/1688177
+[2]: https://bugzilla.redhat.com/show_bug.cgi?id=1688177
 
 [gerrit topic:sriov_live_migration][3]
 
@@ -186,7 +186,7 @@ configured, should be migrated to a different host.
 
 [Bug 1693587 - RFE: support for net failover devices in libvirt][7]
 
-[7]: https://bugzilla.redhat.com/1693587
+[7]: https://bugzilla.redhat.com/show_bug.cgi?id=1693587
 
 [Teaming a virtio/hostdev NIC pair][8]
 

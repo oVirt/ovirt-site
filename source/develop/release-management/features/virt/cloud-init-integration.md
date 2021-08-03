@@ -31,7 +31,7 @@ Implementation
 
 [existing functionality since 3.4.0](https://bugzilla.redhat.com/show_bug.cgi?id=1045484) REST API cloud init: can't set root password [using json]
 
-[open RFE](https://bugzilla.redhat.com/1330217) Enable configuring IPv6 in VM cloud-init (planned to be implemented in 4.2.0)
+[open RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1330217) Enable configuring IPv6 in VM cloud-init (planned to be implemented in 4.2.0)
 
 ## Detailed Description
 

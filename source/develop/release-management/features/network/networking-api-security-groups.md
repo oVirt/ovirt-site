@@ -269,7 +269,7 @@ The [ansible module](https://docs.ansible.com/ansible/2.5/modules/os_port_module
 To provide the user an integrated experience, ansible should allow for that attribute to be updated.
 
 A bug has been created to track this feature request. Its state can be followed
-[here](https://bugzilla.redhat.com/1623993).
+[here](https://bugzilla.redhat.com/show_bug.cgi?id=1623993).
 
 ## Mapping networking API to OVN model objects
 
@@ -617,5 +617,5 @@ There are 3 main tests:
 
 [oVirt Provider OVN](/develop/release-management/features/network/ovirt-ovn-provider.html)
 
-[RFE Provide support for adding security groups and rules using ovirt-provider-ovn](https://bugzilla.redhat.com/1539829)
+[RFE Provide support for adding security groups and rules using ovirt-provider-ovn](https://bugzilla.redhat.com/show_bug.cgi?id=1539829)
 

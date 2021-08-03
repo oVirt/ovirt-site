@@ -115,7 +115,7 @@ First an authentication is done against 'Keystone' to get the `token` and then o
 * [ovirt-provider-ovn] (https://gerrit.ovirt.org/#/q/project:ovirt-provider-ovn)
 
 ## Documentation & External references
-* [Bug 1449157 - (RHEV provider)(vm provision) - Specifying vnic profile on virtual nic instead of network](https://bugzilla.redhat.com/1449157)
+* [Bug 1449157 - (RHEV provider)(vm provision) - Specifying vnic profile on virtual nic instead of network](https://bugzilla.redhat.com/show_bug.cgi?id=1449157)
 * [oVirt Software Defined Networking, The OVN Network Provider](https://blogs.ovirt.org/2016/11/ovirt-software-defined-networking-the-ovn-network-provider/)
 
 ## Follow-Up Features

@@ -77,7 +77,7 @@ In the REST API and via the UI a user should be able to:
 ## Documentation / External references
 
 This feature is required for resolving
-[Bug 1484863](https://bugzilla.redhat.com/1484863)
+[Bug 1484863](https://bugzilla.redhat.com/show_bug.cgi?id=1484863)
 
 ## Testing
 

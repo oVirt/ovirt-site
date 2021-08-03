@@ -94,7 +94,7 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 #### oVirt Engine
 
- - [BZ 1941507](https://bugzilla.redhat.com/1941507) **[RFE] Implement rotation mechanism for /var/log/ovirt-engine/host-deploy**
+ - [BZ 1941507](https://bugzilla.redhat.com/show_bug.cgi?id=1941507) **[RFE] Implement rotation mechanism for /var/log/ovirt-engine/host-deploy**
 
    Feature: Implement logrotate for check for updates
 
@@ -127,118 +127,118 @@ Compressed files are removed as follows:
 
 #### VDSM
 
- - [BZ 1948177](https://bugzilla.redhat.com/1948177) **Unknown drive for vm - ignored block threshold event**
+ - [BZ 1948177](https://bugzilla.redhat.com/show_bug.cgi?id=1948177) **Unknown drive for vm - ignored block threshold event**
 
 
 #### oVirt Hosted Engine HA
 
- - [BZ 1984356](https://bugzilla.redhat.com/1984356) **dns/dig network monitor is too sensitive to network load**
+ - [BZ 1984356](https://bugzilla.redhat.com/show_bug.cgi?id=1984356) **dns/dig network monitor is too sensitive to network load**
 
 
 ### Other
 
 #### oVirt Release Package
 
- - [BZ 1955375](https://bugzilla.redhat.com/1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
+ - [BZ 1955375](https://bugzilla.redhat.com/show_bug.cgi?id=1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
 
    
 
 
 #### VDSM
 
- - [BZ 1757689](https://bugzilla.redhat.com/1757689) **Remove memAvailable and memCommitted**
+ - [BZ 1757689](https://bugzilla.redhat.com/show_bug.cgi?id=1757689) **Remove memAvailable and memCommitted**
 
    
 
- - [BZ 1981307](https://bugzilla.redhat.com/1981307) **Skip setting disk thresholds on the destination host during migration**
+ - [BZ 1981307](https://bugzilla.redhat.com/show_bug.cgi?id=1981307) **Skip setting disk thresholds on the destination host during migration**
 
    
 
 
 #### oVirt Engine
 
- - [BZ 1982296](https://bugzilla.redhat.com/1982296) **vCPU maximum CPU calculation is off causing VM's not to boot due to exceeding maximum vcpu of machine type**
+ - [BZ 1982296](https://bugzilla.redhat.com/show_bug.cgi?id=1982296) **vCPU maximum CPU calculation is off causing VM's not to boot due to exceeding maximum vcpu of machine type**
 
    
 
- - [BZ 1983414](https://bugzilla.redhat.com/1983414) **Disks are locked forever when copying VMs' disks after snapshot**
+ - [BZ 1983414](https://bugzilla.redhat.com/show_bug.cgi?id=1983414) **Disks are locked forever when copying VMs' disks after snapshot**
 
    
 
- - [BZ 1950767](https://bugzilla.redhat.com/1950767) **updating an affinity groups in parallel causes 400 erros and SQL errors**
+ - [BZ 1950767](https://bugzilla.redhat.com/show_bug.cgi?id=1950767) **updating an affinity groups in parallel causes 400 erros and SQL errors**
 
    
 
- - [BZ 1757689](https://bugzilla.redhat.com/1757689) **Remove memAvailable and memCommitted**
+ - [BZ 1757689](https://bugzilla.redhat.com/show_bug.cgi?id=1757689) **Remove memAvailable and memCommitted**
 
    
 
- - [BZ 1984424](https://bugzilla.redhat.com/1984424) **Incorrect CPUs in the NUMA node for the second hosts's socket**
+ - [BZ 1984424](https://bugzilla.redhat.com/show_bug.cgi?id=1984424) **Incorrect CPUs in the NUMA node for the second hosts's socket**
 
    
 
- - [BZ 1983610](https://bugzilla.redhat.com/1983610) **Chipset should be set to Q35 if converting from XEN to RHV by v2v rhv-upload**
+ - [BZ 1983610](https://bugzilla.redhat.com/show_bug.cgi?id=1983610) **Chipset should be set to Q35 if converting from XEN to RHV by v2v rhv-upload**
 
    
 
- - [BZ 1973270](https://bugzilla.redhat.com/1973270) **[RFE] Make VM sealing configurable**
+ - [BZ 1973270](https://bugzilla.redhat.com/show_bug.cgi?id=1973270) **[RFE] Make VM sealing configurable**
 
    
 
- - [BZ 1955375](https://bugzilla.redhat.com/1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
+ - [BZ 1955375](https://bugzilla.redhat.com/show_bug.cgi?id=1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
 
    
 
- - [BZ 1983661](https://bugzilla.redhat.com/1983661) **[CBT] committing a snapshot after backup tries to clear bitmaps on RAW volumes**
+ - [BZ 1983661](https://bugzilla.redhat.com/show_bug.cgi?id=1983661) **[CBT] committing a snapshot after backup tries to clear bitmaps on RAW volumes**
 
    
 
- - [BZ 1981158](https://bugzilla.redhat.com/1981158) **Trying to assign i915-GVTg_V5_4 vgpu appears to fail due to bad regex matching**
+ - [BZ 1981158](https://bugzilla.redhat.com/show_bug.cgi?id=1981158) **Trying to assign i915-GVTg_V5_4 vgpu appears to fail due to bad regex matching**
 
    
 
- - [BZ 1982065](https://bugzilla.redhat.com/1982065) **Invalid amount of memory is allowed to be hot plugged**
+ - [BZ 1982065](https://bugzilla.redhat.com/show_bug.cgi?id=1982065) **Invalid amount of memory is allowed to be hot plugged**
 
    
 
- - [BZ 1963715](https://bugzilla.redhat.com/1963715) **[RFE] Export/import VMs/templates with NVRAM**
+ - [BZ 1963715](https://bugzilla.redhat.com/show_bug.cgi?id=1963715) **[RFE] Export/import VMs/templates with NVRAM**
 
    
 
- - [BZ 1853501](https://bugzilla.redhat.com/1853501) **[RFE] Add column with storage domain in the "Storage -&gt; Disks" page**
+ - [BZ 1853501](https://bugzilla.redhat.com/show_bug.cgi?id=1853501) **[RFE] Add column with storage domain in the "Storage -&gt; Disks" page**
 
    
 
- - [BZ 1978253](https://bugzilla.redhat.com/1978253) **OGA memory report isn't shown in the VM general tab**
+ - [BZ 1978253](https://bugzilla.redhat.com/show_bug.cgi?id=1978253) **OGA memory report isn't shown in the VM general tab**
 
    
 
 
 #### oVirt Host Dependencies
 
- - [BZ 1955375](https://bugzilla.redhat.com/1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
+ - [BZ 1955375](https://bugzilla.redhat.com/show_bug.cgi?id=1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
 
    
 
 
 #### oVirt Ansible collection
 
- - [BZ 1967530](https://bugzilla.redhat.com/1967530) **[RFE] Support enabling FIPS on the engine VM**
+ - [BZ 1967530](https://bugzilla.redhat.com/show_bug.cgi?id=1967530) **[RFE] Support enabling FIPS on the engine VM**
 
    
 
- - [BZ 1947709](https://bugzilla.redhat.com/1947709) **[IPv6] HostedEngineLocal is an isolated libvirt network, breaking upgrades from 4.3**
+ - [BZ 1947709](https://bugzilla.redhat.com/show_bug.cgi?id=1947709) **[IPv6] HostedEngineLocal is an isolated libvirt network, breaking upgrades from 4.3**
 
    
 
- - [BZ 1977486](https://bugzilla.redhat.com/1977486) **Duplicate tasks execution when using hosted-engine --deploy**
+ - [BZ 1977486](https://bugzilla.redhat.com/show_bug.cgi?id=1977486) **Duplicate tasks execution when using hosted-engine --deploy**
 
    
 
 
 #### oVirt Hosted Engine Setup
 
- - [BZ 1967533](https://bugzilla.redhat.com/1967533) **[RFE] allow enabling fips on the engine VM**
+ - [BZ 1967533](https://bugzilla.redhat.com/show_bug.cgi?id=1967533) **[RFE] allow enabling fips on the engine VM**
 
    
 
@@ -247,22 +247,22 @@ Compressed files are removed as follows:
 
 #### VDSM
 
- - [BZ 1962563](https://bugzilla.redhat.com/1962563) **[RFE] Use nmstate for source routing**
+ - [BZ 1962563](https://bugzilla.redhat.com/show_bug.cgi?id=1962563) **[RFE] Use nmstate for source routing**
 
    
 
 
 #### oVirt Engine
 
- - [BZ 1979539](https://bugzilla.redhat.com/1979539) **[RHHI] Upgrading RHVH hyperconverged host from Admin portal fails for first host**
+ - [BZ 1979539](https://bugzilla.redhat.com/show_bug.cgi?id=1979539) **[RHHI] Upgrading RHVH hyperconverged host from Admin portal fails for first host**
 
    
 
- - [BZ 1975225](https://bugzilla.redhat.com/1975225) **Occasional failures to export VM to OVA**
+ - [BZ 1975225](https://bugzilla.redhat.com/show_bug.cgi?id=1975225) **Occasional failures to export VM to OVA**
 
    
 
- - [BZ 1974656](https://bugzilla.redhat.com/1974656) **[Rest API] Event search template filter does not work**
+ - [BZ 1974656](https://bugzilla.redhat.com/show_bug.cgi?id=1974656) **[Rest API] Event search template filter does not work**
 
    
 

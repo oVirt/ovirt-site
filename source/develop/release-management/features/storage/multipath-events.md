@@ -192,7 +192,7 @@ NA
 ## Documentation / External references
 
 This feature is required for resolving
-[Bug 723931](https://bugzilla.redhat.com/723931)
+[Bug 723931](https://bugzilla.redhat.com/show_bug.cgi?id=723931)
 
 Pyudev - [pyudev documentation](http://pyudev.readthedocs.io/en/latest/guide.html#monitoring-devices)
 

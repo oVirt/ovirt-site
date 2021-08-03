@@ -14,7 +14,7 @@ In oVirt 3.5 it is possible to pin a VM to a specific host. The pinning function
 2.  Prevent VM migration, satisfying administrative constraints. Such as: licensing, physical proximity, optimize CPU utilization, network optimization...
 
 oVirt users favor host pinning feature and wish to extend the single host pinning to multiple hosts pinning.
-See this [RFE](https://bugzilla.redhat.com/1107512).
+See this [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1107512).
 
 ### Owner
 

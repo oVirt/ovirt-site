@@ -175,5 +175,5 @@ Network: (search by network properties)
 
 ## Documentation / External references
 
-Bugzilla - [(networks_main_tab) Networks Main Tab](https://bugzilla.redhat.com/858742)
+Bugzilla - [(networks_main_tab) Networks Main Tab](https://bugzilla.redhat.com/show_bug.cgi?id=858742)
 

@@ -29,8 +29,8 @@ The oVirt Engine Software Development Kit provides an enhanced Python environmen
 ### Resolved Issues
 
 *   Use direct URI on get(id=x) rather than search pattern.
-*   Extension to support the addition of new clusters ([BZ#782707](https://bugzilla.redhat.com/782707)).
-*   Added connectivity check and disconnect methods ([BZ#781820](https://bugzilla.redhat.com/781820)).
+*   Extension to support the addition of new clusters ([BZ#782707](https://bugzilla.redhat.com/show_bug.cgi?id=782707)).
+*   Added connectivity check and disconnect methods ([BZ#781820](https://bugzilla.redhat.com/show_bug.cgi?id=781820)).
 
 ### Known Issues
 
@@ -52,11 +52,11 @@ The oVirt Engine is a feature-rich server virtualization management system that 
 *   The engine is now running on Jboss AS7 as the application server
 *   [Locking mechanism](/develop/release-management/features/infra/detailedlockmechanism.html)
 *   [SPM Priority](/develop/release-management/features/storage/spmpriority.html)
-*   Added maintenance Storage Domain Status ([BZ 593244](http://bugzilla.redhat.com/593244)).
+*   Added maintenance Storage Domain Status ([BZ 593244](http://bugzilla.redhat.com/show_bug.cgi?id=593244)).
 
 #### Resolved Issues
 
-*   [BZ#785671 after trying to add a snapshot while a snapshot is created and getting an error vm CreateAllSnapshotsFromVmCommand will fail to aquire lock forever](https://bugzilla.redhat.com/785671)
+*   [BZ#785671 after trying to add a snapshot while a snapshot is created and getting an error vm CreateAllSnapshotsFromVmCommand will fail to aquire lock forever](https://bugzilla.redhat.com/show_bug.cgi?id=785671)
 *   Unified VM and VM_TEMPLATE tables in the database.
 
 ## Packaging & Installer
@@ -111,24 +111,24 @@ It is important to use your most up-to-date Fedora, with \`iscsi-initiator-utils
 
 ### Resolved Issues
 
-*   [BZ#754445 Separate granting from callback emitting](http://bugzilla.redhat.com/754445)
-*   [BZ#767111 Extend volume size must be in Megabytes](http://bugzilla.redhat.com/767111)
-*   [BZ#716573 make \`ulimit -u\` configurable, too](http://bugzilla.redhat.com/716573)
-*   [BZ#747917 Don't get information about mountpoints](http://bugzilla.redhat.com/747917)
-*   [BZ#736034 Add metadataignore switch to pvcreate.](http://bugzilla.redhat.com/736034)
-*   [BZ#769179 Omit getSessionList from vdsClient and its dependent files](http://bugzilla.redhat.com/769179)
-*   [BZ#674010 Fix name error in vdsClient - 'commands' not found](http://bugzilla.redhat.com/674010)
-*   [BZ#772591 Specify which user/group should be used for core dumps rotation](http://bugzilla.redhat.com/772591)
-*   [BZ#772670 network is not set after using boot params](http://bugzilla.redhat.com/772670)
-*   [BZ#772556 bootstrap: ignore restorecon errors](http://bugzilla.redhat.com/772556)
-*   [BZ#773666 Fix HSM flows should not change rw permissions.](http://bugzilla.redhat.com/773666)
-*   [BZ#771686 fix MAX_VLAN_ID](http://bugzilla.redhat.com/771686)
-*   [BZ#771329 Use a copy of the domainsToUpgrade](http://bugzilla.redhat.com/771329)
-*   [BZ#781317 adjust getos() to print real node type](http://bugzilla.redhat.com/781317)
-*   [BZ#781970 kaxmlrpclib: fix plaintext transport in Python 2.7](http://bugzilla.redhat.com/781970)
-*   [BZ#782348 Ignore empty lines in ifcfg-\*](http://bugzilla.redhat.com/782348)
-*   [BZ#773371 call \`vdsmd reconfigure\` after bootstrap](http://bugzilla.redhat.com/773371)
-*   [BZ#785557 bootstrap: do not mark ifcfg as NM_CONTROLLED](http://bugzilla.redhat.com/785557)
+*   [BZ#754445 Separate granting from callback emitting](http://bugzilla.redhat.com/show_bug.cgi?id=754445)
+*   [BZ#767111 Extend volume size must be in Megabytes](http://bugzilla.redhat.com/show_bug.cgi?id=767111)
+*   [BZ#716573 make \`ulimit -u\` configurable, too](http://bugzilla.redhat.com/show_bug.cgi?id=716573)
+*   [BZ#747917 Don't get information about mountpoints](http://bugzilla.redhat.com/show_bug.cgi?id=747917)
+*   [BZ#736034 Add metadataignore switch to pvcreate.](http://bugzilla.redhat.com/show_bug.cgi?id=736034)
+*   [BZ#769179 Omit getSessionList from vdsClient and its dependent files](http://bugzilla.redhat.com/show_bug.cgi?id=769179)
+*   [BZ#674010 Fix name error in vdsClient - 'commands' not found](http://bugzilla.redhat.com/show_bug.cgi?id=674010)
+*   [BZ#772591 Specify which user/group should be used for core dumps rotation](http://bugzilla.redhat.com/show_bug.cgi?id=772591)
+*   [BZ#772670 network is not set after using boot params](http://bugzilla.redhat.com/show_bug.cgi?id=772670)
+*   [BZ#772556 bootstrap: ignore restorecon errors](http://bugzilla.redhat.com/show_bug.cgi?id=772556)
+*   [BZ#773666 Fix HSM flows should not change rw permissions.](http://bugzilla.redhat.com/show_bug.cgi?id=773666)
+*   [BZ#771686 fix MAX_VLAN_ID](http://bugzilla.redhat.com/show_bug.cgi?id=771686)
+*   [BZ#771329 Use a copy of the domainsToUpgrade](http://bugzilla.redhat.com/show_bug.cgi?id=771329)
+*   [BZ#781317 adjust getos() to print real node type](http://bugzilla.redhat.com/show_bug.cgi?id=781317)
+*   [BZ#781970 kaxmlrpclib: fix plaintext transport in Python 2.7](http://bugzilla.redhat.com/show_bug.cgi?id=781970)
+*   [BZ#782348 Ignore empty lines in ifcfg-\*](http://bugzilla.redhat.com/show_bug.cgi?id=782348)
+*   [BZ#773371 call \`vdsmd reconfigure\` after bootstrap](http://bugzilla.redhat.com/show_bug.cgi?id=773371)
+*   [BZ#785557 bootstrap: do not mark ifcfg as NM_CONTROLLED](http://bugzilla.redhat.com/show_bug.cgi?id=785557)
 
 ## Data Warehouse and Reports
 

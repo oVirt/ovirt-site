@@ -579,7 +579,7 @@ The package lldpad has to be installed and the demon lldpad has to be running.
 
 [Bug 1472722 - SELinux is preventing /usr/sbin/lldpad from sendto access on the unix_dgram_socket][6]
 
-[6]: https://bugzilla.redhat.com/1472722
+[6]: https://bugzilla.redhat.com/show_bug.cgi?id=1472722
 
 ## Testing
 

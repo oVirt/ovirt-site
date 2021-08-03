@@ -193,6 +193,6 @@ For a detailed information and examples regarding the usage of the Image I/O RES
 
 ## External references
 
-*   <https://bugzilla.redhat.com/1091377>
-*   <https://bugzilla.redhat.com/1122970>
+*   <https://bugzilla.redhat.com/show_bug.cgi?id=1091377>
+*   <https://bugzilla.redhat.com/show_bug.cgi?id=1122970>
 

@@ -48,23 +48,23 @@ A new oVirt Live ISO is available at:
 
 ### oVirt Engine
 
- - [BZ 1310390](https://bugzilla.redhat.com/1310390) - Restore snapshot with only subset of vm's disks will stuck the vm in image locked state
- - [BZ 1311616](https://bugzilla.redhat.com/1311616) - The API crashes when parsing unexpected version numbers
- - [BZ 1313369](https://bugzilla.redhat.com/1313369) - VM parameters set in Edit running VM, are not updated after
+ - [BZ 1310390](https://bugzilla.redhat.com/show_bug.cgi?id=1310390) - Restore snapshot with only subset of vm's disks will stuck the vm in image locked state
+ - [BZ 1311616](https://bugzilla.redhat.com/show_bug.cgi?id=1311616) - The API crashes when parsing unexpected version numbers
+ - [BZ 1313369](https://bugzilla.redhat.com/show_bug.cgi?id=1313369) - VM parameters set in Edit running VM, are not updated after
 
 ### VDSM
 
- - [BZ 1303410](https://bugzilla.redhat.com/1303410) - [ipv6] vdsm-network reconvigures network due to unsolicited ipvp6 address
- - [BZ 1308839](https://bugzilla.redhat.com/1308839) - [vmfex-hook] - Failed to run VM with vdsm-hook-vmfex-dev-4.17.20
- - [BZ 1321444](https://bugzilla.redhat.com/1321444) - [z-stream clone] Storage activities are failing with error "Image is not a legal chain"
+ - [BZ 1303410](https://bugzilla.redhat.com/show_bug.cgi?id=1303410) - [ipv6] vdsm-network reconvigures network due to unsolicited ipvp6 address
+ - [BZ 1308839](https://bugzilla.redhat.com/show_bug.cgi?id=1308839) - [vmfex-hook] - Failed to run VM with vdsm-hook-vmfex-dev-4.17.20
+ - [BZ 1321444](https://bugzilla.redhat.com/show_bug.cgi?id=1321444) - [z-stream clone] Storage activities are failing with error "Image is not a legal chain"
 
 ### oVirt Hosted Engine Setup
 
- - [BZ 1306825](https://bugzilla.redhat.com/1306825) - hosted-engine upgrade fails after upgrade hosts from el6 to el7
- - [BZ 1311317](https://bugzilla.redhat.com/1311317) - Unattended Ovirt host deploy fails on second host when the engine...
+ - [BZ 1306825](https://bugzilla.redhat.com/show_bug.cgi?id=1306825) - hosted-engine upgrade fails after upgrade hosts from el6 to el7
+ - [BZ 1311317](https://bugzilla.redhat.com/show_bug.cgi?id=1311317) - Unattended Ovirt host deploy fails on second host when the engine...
 
 ### oVirt Hosted Engine HA
 
- - [BZ 1316143](https://bugzilla.redhat.com/1316143) - 3.6 hosted-engine hosts can't be added properly to 3.6 host cluster that was started with 3.4.
- - [BZ 1319721](https://bugzilla.redhat.com/1319721) - Call to getImagesList on NFS on host without connected storage...
+ - [BZ 1316143](https://bugzilla.redhat.com/show_bug.cgi?id=1316143) - 3.6 hosted-engine hosts can't be added properly to 3.6 host cluster that was started with 3.4.
+ - [BZ 1319721](https://bugzilla.redhat.com/show_bug.cgi?id=1319721) - Call to getImagesList on NFS on host without connected storage...
 

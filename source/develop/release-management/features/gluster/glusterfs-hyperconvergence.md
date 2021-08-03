@@ -39,7 +39,7 @@ Since 3.6.7, users can set up a hyperconverged deployment using Gluster and oVir
 
 *  Gluster sharding available from glusterfs 3.7.11. Sharding eliminates the issues seen while healing large files as files are now split into shards. Users need to enable sharding on gluster volumes in hyperconverged enviroments. For further information on sharding, refer [Glusterfs Sharding](http://blog.gluster.org/2015/12/introducing-shard-translator/)
 *  Hosted engine deployment supports using glusterfs for storage domain [Feature Page](/develop/release-management/features/sla/self-hosted-engine-gluster-support.html)
-*  Separate storage network for glusterfs traffic [Feature Page](/develop/release-management/features/gluster/select-network-for-gluster.html) - [Bugzilla](https://bugzilla.redhat.com/1049994)
+*  Separate storage network for glusterfs traffic [Feature Page](/develop/release-management/features/gluster/select-network-for-gluster.html) - [Bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=1049994)
 *  Host disks management and device provisioning [Feature Page](/develop/release-management/features/gluster/glusterhostdiskmanagement.html)
 *  Simplified provisioning of the 3 hosts using gdeploy. See [gdeploy](http://gdeploy.readthedocs.io/) and a [Sample hc.conf](https://github.com/gluster/gdeploy/blob/2.0/examples/hc.conf)
 *  Disaster recovery solution using gluster geo-replication (TBD: Feature page). Refer [DR script](https://github.com/sabose/ovirt-georep-backup)
@@ -53,19 +53,19 @@ Since 4.0, following features are available in oVirt
 
 ### Planned features for 4.1
 
-*   QEMU libfapi support [Bugzilla](https://bugzilla.redhat.com/1177776)
+*   QEMU libfapi support [Bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=1177776)
 *   Data-center power policies should be aware of hyperconverged nodes to avoid automatic shutdown for power saving
 
 ### Future plans
 
 *   Improve UX when creating a Gluster Volume to be used as Storage Domain [Feature Page](/develop/release-management/features/storage/glusterfs-storage-domain.html#usability-enhancements-in-ovirt-36)
-*   Data locality [Buzilla-1](https://bugzilla.redhat.com/1177790) [Bugzilla-2](https://bugzilla.redhat.com/1177791)
+*   Data locality [Buzilla-1](https://bugzilla.redhat.com/show_bug.cgi?id=1177790) [Bugzilla-2](https://bugzilla.redhat.com/show_bug.cgi?id=1177791)
     -   Scheduling of disk creation: disks of the same VM on the same replica set
     -   Scheduling of the VM based on disk locality: start VM on the hosts of disks replica set
 
 Feature pages TBD:
 
-*   Brick scaling and balancing when adding storage [Bugzilla](https://bugzilla.redhat.com/1177773)
+*   Brick scaling and balancing when adding storage [Bugzilla](https://bugzilla.redhat.com/show_bug.cgi?id=1177773)
     -   Best practices on how to scale by adding new hosts
 *   Best practices to handle an entire host failure and replacement
 

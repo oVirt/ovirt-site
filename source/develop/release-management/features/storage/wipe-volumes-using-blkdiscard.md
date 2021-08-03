@@ -67,7 +67,7 @@ A better way to wipe a volume would be:
 * Else, write zeros block by block.
 
 ## Related Bugs
-* Wipe volumes using "blkdiscard" instead of "dd" ([Bug 1367806](https://bugzilla.redhat.com/1367806))
+* Wipe volumes using "blkdiscard" instead of "dd" ([Bug 1367806](https://bugzilla.redhat.com/show_bug.cgi?id=1367806))
 
 
 ## Related Features

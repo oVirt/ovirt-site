@@ -192,7 +192,7 @@ This support helps complete the story/use-case from a virt. admin perspective !
 
 ## Open issues
 
-* [BUG-1306562: (https://bugzilla.redhat.com/1306562)[RFE] - Allow virDomainBlockCopy to use remote RBD volumes as the base backing image]
-* [BUG-1465810: (https://bugzilla.redhat.com/1465810) - Unable to make snapshot of the VM with disk on replica 3 gluster volume]
+* [BUG-1306562: (https://bugzilla.redhat.com/show_bug.cgi?id=1306562)[RFE] - Allow virDomainBlockCopy to use remote RBD volumes as the base backing image]
+* [BUG-1465810: (https://bugzilla.redhat.com/show_bug.cgi?id=1465810) - Unable to make snapshot of the VM with disk on replica 3 gluster volume]
 
 [GlusterFS Storage Domain](/develop/release-management/features/) [GlusterFS Storage Domain](/develop/release-management/releases/3.2/feature.html)

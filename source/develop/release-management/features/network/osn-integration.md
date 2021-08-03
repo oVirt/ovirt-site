@@ -63,7 +63,7 @@ Please see [Features/Detailed_OSN_Integration](/develop/release-management/featu
 Depends on:
 
 *   [Features/Device_Custom_Properties](/develop/release-management/features/network/device-custom-properties.html)
-*   [Add VDSM hooks for updateDevice](https://bugzilla.redhat.com/893576) or else, we cannot "rewire" a currently-running VM to an external network.
+*   [Add VDSM hooks for updateDevice](https://bugzilla.redhat.com/show_bug.cgi?id=893576) or else, we cannot "rewire" a currently-running VM to an external network.
 
 ### Testing
 

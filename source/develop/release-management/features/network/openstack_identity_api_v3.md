@@ -255,7 +255,7 @@ is ignored.
 
 [Blueprint for tracking things being removed in the Queens release](https://blueprints.launchpad.net/keystone/+spec/removed-as-of-queens)
 
-[RFE - Certify OVN from OSP 13 via Neutron API with external OSP provider.](https://bugzilla.redhat.com/1598391)
+[RFE - Certify OVN from OSP 13 via Neutron API with external OSP provider.](https://bugzilla.redhat.com/show_bug.cgi?id=1598391)
 
 ## Testing
 

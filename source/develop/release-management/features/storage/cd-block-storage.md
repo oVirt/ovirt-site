@@ -91,8 +91,8 @@ When CD is not loaded, this element is still present (as CD-ROM is always presen
 
 ### Bugs
 
-- [Bug 1589763: Error changing CD for a running VM when ISO image is on a block domain](https://bugzilla.redhat.com/1589763)
-- [Bug 1868643: Volume not deactivated after ejecting CDROM](https://bugzilla.redhat.com/1868643)
+- [Bug 1589763: Error changing CD for a running VM when ISO image is on a block domain](https://bugzilla.redhat.com/show_bug.cgi?id=1589763)
+- [Bug 1868643: Volume not deactivated after ejecting CDROM](https://bugzilla.redhat.com/show_bug.cgi?id=1868643)
 
 
 ### Functionality added with this feature
@@ -303,6 +303,6 @@ Old  `ChangeCD` implementation will be used for ISOs on old ISO domains.
 ### Related links
 
 - [Discussion in ovirt devel mailing list.](https://www.mail-archive.com/devel@ovirt.org/msg16082.html)
-- [Bug 1725915: Vdsm tries to tear down in-use volume of ISO in block storage domain](https://bugzilla.redhat.com/1725915)
+- [Bug 1725915: Vdsm tries to tear down in-use volume of ISO in block storage domain](https://bugzilla.redhat.com/show_bug.cgi?id=1725915)
 
 

@@ -35,7 +35,7 @@ Availability of data stored in TPM shouldn't be critical.  Its loss can cause op
 
 TPM devices can be used only with UEFI BIOS.
 
-Until <https://bugzilla.redhat.com/1855367> is implemented in libvirt, VMs with TPM devices cannot have snapshots with memory.  The problem is that the swtpm data snapshot must be consistent with the VM snapshot, which is not possible to get without libvirt assistance.
+Until <https://bugzilla.redhat.com/show_bug.cgi?id=1855367> is implemented in libvirt, VMs with TPM devices cannot have snapshots with memory.  The problem is that the swtpm data snapshot must be consistent with the VM snapshot, which is not possible to get without libvirt assistance.
 
 Since the emulated TPM is a software rather than a hardware device, its data updates can get lost, e.g. when a host suddenly crashes.  Engine retrieves and stores TPM data periodically but that doesn't ensure Engine has always the latest version of the data.
 

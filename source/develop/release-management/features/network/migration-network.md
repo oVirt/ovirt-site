@@ -196,5 +196,5 @@ Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communic
 
 ## Comments and Discussion
 
-*   Currently, there is a bug when the boot protocol of the migration network is dhcp. Sometimes the engine doesn't get in time the ip of the network from the dhcp server. In this case, when the migration command will be invoked the engine won't have the ip address of the migration network. It will cause the migration to be done on the fallback (management) network. Bug Url- <https://bugzilla.redhat.com/642551>
+*   Currently, there is a bug when the boot protocol of the migration network is dhcp. Sometimes the engine doesn't get in time the ip of the network from the dhcp server. In this case, when the migration command will be invoked the engine won't have the ip address of the migration network. It will cause the migration to be done on the fallback (management) network. Bug Url- <https://bugzilla.redhat.com/show_bug.cgi?id=642551>
 

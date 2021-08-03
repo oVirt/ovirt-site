@@ -84,7 +84,7 @@ This feature introduces new functionality for oVirt users that will allow them t
 ## Dependencies / Related Features
 
 * The functionality of saving the memory state as part of live snapshot creation was introduced in libvirt 1.0.1, therefore it will require libvirt > 1.0.1.
-* If there is spice console connected to the VM while the snapshot is being taken, it will be closed in the process. The spice session should remain open, see: [https://bugzilla.redhat.com/1010670](https://bugzilla.redhat.com/1010670).
+* If there is spice console connected to the VM while the snapshot is being taken, it will be closed in the process. The spice session should remain open, see: [https://bugzilla.redhat.com/show_bug.cgi?id=1010670](https://bugzilla.redhat.com/show_bug.cgi?id=1010670).
 
 ## Design
 

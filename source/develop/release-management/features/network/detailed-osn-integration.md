@@ -348,7 +348,7 @@ Please see the [feature page](/develop/release-management/features/network/osn-i
 *   Scheduling:
     -   Neutron exposes an API (Agent Scheduler) which can be used to know which hosts will be able to provision it's networks.
         -   Need to take advantage of this.
-*   [Libvirt bug](https://bugzilla.redhat.com/878481) still not solved, but we have a fix for it as a post-start hook.
+*   [Libvirt bug](https://bugzilla.redhat.com/show_bug.cgi?id=878481) still not solved, but we have a fix for it as a post-start hook.
 *   REST API support will not be available in Phase 1, how will this effect the REST API clients?
 
 ## Proof of Concept

@@ -137,8 +137,8 @@ Content-Type: application/xml
 
 
 ## Related Bugs
-* Send discard when deleting virtual disks from block based storage domain to regain space in thin provisioned storage ([Bug 981626](https://bugzilla.redhat.com/981626))
-* Make discard configurable by a storage domain rather than a host ([Bug 1342919](https://bugzilla.redhat.com/1342919))
+* Send discard when deleting virtual disks from block based storage domain to regain space in thin provisioned storage ([Bug 981626](https://bugzilla.redhat.com/show_bug.cgi?id=981626))
+* Make discard configurable by a storage domain rather than a host ([Bug 1342919](https://bugzilla.redhat.com/show_bug.cgi?id=1342919))
 
 
 ## Related Features

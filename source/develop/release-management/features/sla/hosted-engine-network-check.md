@@ -15,7 +15,7 @@ This feature adds alternative ways to check network liveliness, to enable
 Self Hosted Engine in networks which does not allow pinging the gateway.
 
 The progress of the implementation and testing of this feature is tracked on
-[Bug 1659052 - [RFE] Consider alternative to ICMP ping for hosted engine network test](https://bugzilla.redhat.com/1659052)
+[Bug 1659052 - [RFE] Consider alternative to ICMP ping for hosted engine network test](https://bugzilla.redhat.com/show_bug.cgi?id=1659052)
 
 ## Owner
 

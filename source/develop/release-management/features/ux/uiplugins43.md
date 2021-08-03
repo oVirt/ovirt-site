@@ -682,7 +682,7 @@ Defines [origins](http://en.wikipedia.org/wiki/Same_origin_policy#Origin_determi
 
 ------------------------------------------------------------------------
 
-**Limitation:** plugins currently have to customize `allowedMessageOrigins` value to accept messages that originate from content served through UI plugin infrastructure, i.e. plugin resource files requested as `/ovirt-engine/webadmin/plugin/path/to/file`. Since Engine origin is generally considered safe, `allowedMessageOrigins` default value should be changed to Engine origin, see [RFE ticket](https://bugzilla.redhat.com/972226).
+**Limitation:** plugins currently have to customize `allowedMessageOrigins` value to accept messages that originate from content served through UI plugin infrastructure, i.e. plugin resource files requested as `/ovirt-engine/webadmin/plugin/path/to/file`. Since Engine origin is generally considered safe, `allowedMessageOrigins` default value should be changed to Engine origin, see [RFE ticket](https://bugzilla.redhat.com/show_bug.cgi?id=972226).
 
 ## Entity type reference
 

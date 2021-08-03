@@ -49,21 +49,21 @@ Based on this information stored in the Storage Domain, we can relate the disks,
 * If a VM is thinly provisioned from a Template, the registration process will not allow registering it without registering the Template first.
 * A Template with disks on multiple Storage Domains will be registered as one copy of the disk related to the source Storage Domain (see [4]).
 * Currently, floating disks will be registered using the existing REST command for importing unregistered disk (see [REST](#rest)).
-* Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF (see [Bug #1108904](https://bugzilla.redhat.com/1108904)).
+* Permissions on VMs and Templates will not be preserved on detach, since they are not part of the OVF (see [Bug #1108904](https://bugzilla.redhat.com/show_bug.cgi?id=1108904)).
 * Local Storage Domain cannot be detached/attached. This is due to the fact that detaching a Local Storage Domain caused it to be deleted from the host.
 
 <a name="gaps"></a>
 
 #### Implementation gaps
 
-1. VMs/Templates with no disks do not exist in the Storage Domain's OVF, therefore those VMs will not be present in the setup when attaching any domain. (Fixed in oVirt 3.6 - see [Bug #1138134](https://bugzilla.redhat.com/1138134))
-2. There should be an option to register a VM even if the Storage Domain does not exist in the Data Center. In this case the VM will be registered with only the available disks. The user will be able to attach the missing Storage Domain at a later phase but he will be able to register those disks to the existing VM only if this VM didn't changed from it's last import (to preserve the snapshot tree of the VM and its images) (see [Bug #1108904](https://bugzilla.redhat.com/1108904))
+1. VMs/Templates with no disks do not exist in the Storage Domain's OVF, therefore those VMs will not be present in the setup when attaching any domain. (Fixed in oVirt 3.6 - see [Bug #1138134](https://bugzilla.redhat.com/show_bug.cgi?id=1138134))
+2. There should be an option to register a VM even if the Storage Domain does not exist in the Data Center. In this case the VM will be registered with only the available disks. The user will be able to attach the missing Storage Domain at a later phase but he will be able to register those disks to the existing VM only if this VM didn't changed from it's last import (to preserve the snapshot tree of the VM and its images) (see [Bug #1108904](https://bugzilla.redhat.com/show_bug.cgi?id=1108904))
 
 #### RFEs
 
-* There should be an extra button in the GUI to import all those floating disks. Currently, those disks will not have an alias, which should be fixed once the alias will be saved in the description meta data. (This was delivered in oVirt 4.0 - see [Bug #1138139](https://bugzilla.redhat.com/1138139))
-* There should be an extra button to delete any unregistered entity the user doesn't want to register to the setup (see [Bug #1138142](https://bugzilla.redhat.com/1138142))
-* We should add the ability to "clone" a VM when the user tries to register an existing VM from a different Storage Domain. "Clone" means that only the VM name will be changed (there will not be any copy operations). This will enable us to a use case of a VM which had two disks on different Storage Domains, and it will be registered once from one Storage Domain and after that it will be registered from another Storage Domain, so in the setup there will be two VMs, each with one disk. (see [Bug #1108904](https://bugzilla.redhat.com/1108904))
+* There should be an extra button in the GUI to import all those floating disks. Currently, those disks will not have an alias, which should be fixed once the alias will be saved in the description meta data. (This was delivered in oVirt 4.0 - see [Bug #1138139](https://bugzilla.redhat.com/show_bug.cgi?id=1138139))
+* There should be an extra button to delete any unregistered entity the user doesn't want to register to the setup (see [Bug #1138142](https://bugzilla.redhat.com/show_bug.cgi?id=1138142))
+* We should add the ability to "clone" a VM when the user tries to register an existing VM from a different Storage Domain. "Clone" means that only the VM name will be changed (there will not be any copy operations). This will enable us to a use case of a VM which had two disks on different Storage Domains, and it will be registered once from one Storage Domain and after that it will be registered from another Storage Domain, so in the setup there will be two VMs, each with one disk. (see [Bug #1108904](https://bugzilla.redhat.com/show_bug.cgi?id=1108904))
 
 ### Work flow for detach and attach Storage Domain with entities - UI flow
 

@@ -439,7 +439,7 @@ This is a requirement for improving HA VMs failover feature.
 ## Documentation / External references
 
 This feature is required for resolving
-[Bug 1317429](https://bugzilla.redhat.com/1317429)
+[Bug 1317429](https://bugzilla.redhat.com/show_bug.cgi?id=1317429)
 
 
 ## Testing

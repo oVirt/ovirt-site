@@ -21,7 +21,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.8 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.8 Third Release Candidate as of July 29, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.8 Fourth Release Candidate as of August 06, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -94,6 +94,84 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 #### oVirt Engine
 
+ - [BZ 1971317](https://bugzilla.redhat.com/show_bug.cgi?id=1971317) **[RFE][API] Import OVA template as a clone**
+
+   
+
+ - [BZ 1963083](https://bugzilla.redhat.com/show_bug.cgi?id=1963083) **[RFE] Support storing user data in VM checkpoint entity**
+
+   This RFE will add the ability to add a 'description' to a backup/checkpoint entity.
+
+
+
+So you will be able to send the following request - 
+
+
+
+POST /ovirt-engine/api/vms/123/backups
+
+
+
+&lt;backup&gt;
+
+    &lt;disks&gt;
+
+       &lt;disk id="456" /&gt;
+
+       …​
+
+    &lt;/disks&gt;
+
+    &lt;description&gt;Eyal's backup&lt;/description&gt;
+
+&lt;/backup&gt;
+
+
+
+And when you fetched the created backup from the API (or in the response for the request) you should see - 
+
+
+
+&lt;backup id="789"&gt;
+
+    &lt;disks&gt;
+
+       &lt;disk id="456" /&gt;
+
+       …​
+
+       …​
+
+    &lt;/disks&gt;
+
+    &lt;status&gt;initializing&lt;/status&gt;
+
+    &lt;creation_date&gt;
+
+    &lt;description&gt;Eyal's backup&lt;/description&gt;
+
+&lt;/backup&gt;
+
+
+
+Same for the checkpoint that was created for that backup - 
+
+
+
+&lt;checkpoint id="456"&gt;
+
+     &lt;link href="/ovirt-engine/api/vms/vm-uuid/checkpoints/456/disks" rel="disks"/&gt;
+
+     &lt;parent_id&gt;parent-checkpoint-uuid&lt;/parent_id&gt;
+
+     &lt;creation_date&gt;xxx&lt;/creation_date&gt;
+
+     &lt;description&gt;Eyal's backup&lt;/description&gt;
+
+     &lt;vm href="/ovirt-engine/api/vms/123" id="123"/&gt;
+
+&lt;/checkpoint&gt;
+
  - [BZ 1941507](https://bugzilla.redhat.com/show_bug.cgi?id=1941507) **[RFE] Implement rotation mechanism for /var/log/ovirt-engine/host-deploy**
 
    Feature: Implement logrotate for check for updates
@@ -123,11 +201,101 @@ Compressed files are removed as follows:
 - brick setup log is removed 30 days from its creation time
 
 
+#### oVirt Ansible collection
+
+ - [BZ 1967530](https://bugzilla.redhat.com/show_bug.cgi?id=1967530) **[RFE] Support enabling FIPS on the engine VM**
+
+   Support enabling FIPS on the Self Hosted Engine VM via ansible
+
+
+
+Previously the ansible code enabled FIPS on the Self Hosted 
+
+Engine VM only if the user asked to apply an OpenSCAP profile. 
+
+
+
+Starting with ovirt-ansible-collection 1.5.4 is now possible to enable FIPS without requiring an OpenSCAP profile.
+
+
+#### oVirt Hosted Engine Setup
+
+ - [BZ 1967533](https://bugzilla.redhat.com/show_bug.cgi?id=1967533) **[RFE] allow enabling fips on the engine VM**
+
+   Support enabling FIPS on the Self Hosted Engine VM via command line
+
+
+
+`hosted-engine --deploy` now also asks `'Do you want to enable FIPS?`
+
+The answer to this question is passed to the ansible code which now supports enabling FIPS without requiring an OpenSCAP profile (bug #1967530)
+
+
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1980315](https://bugzilla.redhat.com/show_bug.cgi?id=1980315) **Configure Grafana in hosted-engine setup by default**
+
+   With previous versions, hosted-engine deployment didn't configure grafana, and so users had to manually configure it later, which was inconvenient.
+
+
+
+With this version, hosted-engine deployment does configure grafana automatically by default.
+
+
+
+doc team: Some more details and background:
+
+
+
+1. I am writing doc text only for this bug, because that's enough IMO, although the actual needed changes are tracked also in other bugs - 1985927 and 1986393.
+
+
+
+2. The current behavior (before fixing this bug) was introduced in 4.4.2, for bug 1866780. That one was about upgrade from 4.3 with dwh on a separate machine. To make the fix for current but not introduce that one, the change is slightly more complex: For new deployments, grafana is always configured (by default), but when restoring from backup (and also as part of upgrade from 4.3, which involves backup/restore), we configure grafana only if dwh was local to the engine machine.
+
+
+
+So you might want to mention this in the doc text, if you want - something like "When using hosted-engine with --restore-from-file, grafana is configured only if dwh was configured locally, on the engine machine".
+
+
+
+3. I now also filed a doc bug 1987193, for removing this from the documentation.
+
+
+### Removed functionality
+
+#### OTOPI
+
+ - [BZ 1983047](https://bugzilla.redhat.com/show_bug.cgi?id=1983047) **Remove Java bindings from otopi**
+
+   OTOPI Java bindings have been dropped as not used anymore within the project.
+
+
 ### Bug Fixes
 
 #### VDSM
 
+ - [BZ 1984209](https://bugzilla.redhat.com/show_bug.cgi?id=1984209) **VDSM reports failed snapshot to engine, but it succeeded. Then engine deletes the volume and causes data corruption.**
+
  - [BZ 1948177](https://bugzilla.redhat.com/show_bug.cgi?id=1948177) **Unknown drive for vm - ignored block threshold event**
+
+
+#### oVirt Engine
+
+ - [BZ 1987295](https://bugzilla.redhat.com/show_bug.cgi?id=1987295) **Setting host to 'maintenance' will be blocked when there are image transfers with status different then 'paused'**
+
+ - [BZ 1770027](https://bugzilla.redhat.com/show_bug.cgi?id=1770027) **Live Merge completed on the host, but not on the engine, which just waited for it to complete until the operation was terminated.**
+
+ - [BZ 1982296](https://bugzilla.redhat.com/show_bug.cgi?id=1982296) **vCPU maximum CPU calculation is off causing VM's not to boot due to exceeding maximum vcpu of machine type**
+
+ - [BZ 1950767](https://bugzilla.redhat.com/show_bug.cgi?id=1950767) **updating an affinity groups in parallel causes 400 erros and SQL errors**
+
+ - [BZ 1982065](https://bugzilla.redhat.com/show_bug.cgi?id=1982065) **Invalid amount of memory is allowed to be hot plugged**
+
+
+#### oVirt Ansible collection
+
+ - [BZ 1947709](https://bugzilla.redhat.com/show_bug.cgi?id=1947709) **[IPv6] HostedEngineLocal is an isolated libvirt network, breaking upgrades from 4.3**
 
 
 #### oVirt Hosted Engine HA
@@ -157,15 +325,23 @@ Compressed files are removed as follows:
 
 #### oVirt Engine
 
- - [BZ 1982296](https://bugzilla.redhat.com/show_bug.cgi?id=1982296) **vCPU maximum CPU calculation is off causing VM's not to boot due to exceeding maximum vcpu of machine type**
+ - [BZ 1990350](https://bugzilla.redhat.com/show_bug.cgi?id=1990350) **Can't set default time zone via engine-config**
+
+   
+
+ - [BZ 1939286](https://bugzilla.redhat.com/show_bug.cgi?id=1939286) **[RFE] Expose broken Affinity Groups via API too**
+
+   
+
+ - [BZ 1901572](https://bugzilla.redhat.com/show_bug.cgi?id=1901572) **RHV-M doesn't display guest information of HostedEngine VM**
+
+   Fix a race that lead to having the hosted engine VM with no IP address in the virtual machines list that is presented in the webadmin
+
+ - [BZ 1964496](https://bugzilla.redhat.com/show_bug.cgi?id=1964496) **Host-specific fields of a VM are not updated when dedicated host(s) changes**
 
    
 
  - [BZ 1983414](https://bugzilla.redhat.com/show_bug.cgi?id=1983414) **Disks are locked forever when copying VMs' disks after snapshot**
-
-   
-
- - [BZ 1950767](https://bugzilla.redhat.com/show_bug.cgi?id=1950767) **updating an affinity groups in parallel causes 400 erros and SQL errors**
 
    
 
@@ -197,10 +373,6 @@ Compressed files are removed as follows:
 
    
 
- - [BZ 1982065](https://bugzilla.redhat.com/show_bug.cgi?id=1982065) **Invalid amount of memory is allowed to be hot plugged**
-
-   
-
  - [BZ 1963715](https://bugzilla.redhat.com/show_bug.cgi?id=1963715) **[RFE] Export/import VMs/templates with NVRAM**
 
    
@@ -221,24 +393,20 @@ Compressed files are removed as follows:
    
 
 
-#### oVirt Ansible collection
+#### oVirt Engine Metrics
 
- - [BZ 1967530](https://bugzilla.redhat.com/show_bug.cgi?id=1967530) **[RFE] Support enabling FIPS on the engine VM**
-
-   
-
- - [BZ 1947709](https://bugzilla.redhat.com/show_bug.cgi?id=1947709) **[IPv6] HostedEngineLocal is an isolated libvirt network, breaking upgrades from 4.3**
+ - [BZ 1985977](https://bugzilla.redhat.com/show_bug.cgi?id=1985977) **[RFE] Add missing parameters to roles/oVirt.logging/tasks/main.yml**
 
    
 
- - [BZ 1977486](https://bugzilla.redhat.com/show_bug.cgi?id=1977486) **Duplicate tasks execution when using hosted-engine --deploy**
+ - [BZ 1978655](https://bugzilla.redhat.com/show_bug.cgi?id=1978655) **ELK integration fails due to missing configuration parameters**
 
    
 
 
-#### oVirt Hosted Engine Setup
+#### cockpit-ovirt
 
- - [BZ 1967533](https://bugzilla.redhat.com/show_bug.cgi?id=1967533) **[RFE] allow enabling fips on the engine VM**
+ - [BZ 1959904](https://bugzilla.redhat.com/show_bug.cgi?id=1959904) **Cockpit UI need to be proper  alignment  while deployment**
 
    
 
@@ -254,6 +422,10 @@ Compressed files are removed as follows:
 
 #### oVirt Engine
 
+ - [BZ 1958398](https://bugzilla.redhat.com/show_bug.cgi?id=1958398) **"This VM has no graphic display device" error after upgrade from RHV 4.3 to RHV 4.4 for some VMs**
+
+   
+
  - [BZ 1979539](https://bugzilla.redhat.com/show_bug.cgi?id=1979539) **[RHHI] Upgrading RHVH hyperconverged host from Admin portal fails for first host**
 
    
@@ -262,42 +434,53 @@ Compressed files are removed as follows:
 
    
 
- - [BZ 1974656](https://bugzilla.redhat.com/show_bug.cgi?id=1974656) **[Rest API] Event search template filter does not work**
+ - [BZ 1974656](https://bugzilla.redhat.com/show_bug.cgi?id=1974656) **[Rest API] Event search template filter throws SQL error**
+
+   
+
+
+#### oVirt Ansible collection
+
+ - [BZ 1977486](https://bugzilla.redhat.com/show_bug.cgi?id=1977486) **Duplicate tasks execution when using hosted-engine --deploy**
 
    
 
 
 #### Contributors
 
-30 people contributed to this release:
+34 people contributed to this release:
 
 	Ales Musil (Contributed to: ovirt-provider-ovn, ovirt-release, vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup)
+	Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine-metrics)
+	Aviv Turgeman (Contributed to: cockpit-ovirt)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-host, ovirt-release)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Dominik Holler (Contributed to: ovirt-provider-ovn)
+	Ehud Yonasi (Contributed to: python-ovirt-engine-sdk4)
 	Eli Mesika (Contributed to: ovirt-engine)
-	Eyal Shenitzky (Contributed to: ovirt-engine-sdk)
+	Eyal Shenitzky (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Filip Januska (Contributed to: ovirt-engine)
 	Lev Veyde (Contributed to: ovirt-engine, ovirt-release, vdsm)
-	Liran Rotenberg (Contributed to: ovirt-engine)
+	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Mark Kemel (Contributed to: ovirt-engine)
-	Martin Nečas (Contributed to: ovirt-ansible-collection)
+	Martin Nečas (Contributed to: ovirt-ansible-collection, python-ovirt-engine-sdk4)
 	Martin Perina (Contributed to: ovirt-engine)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nijin Ashok (Contributed to: ovirt-ansible-collection)
 	Nir Soffer (Contributed to: vdsm)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Pavel Bar (Contributed to: ovirt-engine, ovirt-engine-sdk)
-	Ritesh Chikatwar (Contributed to: ovirt-engine)
+	Ritesh Chikatwar (Contributed to: cockpit-ovirt, ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)
 	Saif Abu Saleh (Contributed to: ovirt-engine, vdsm)
-	Sandro Bonazzola (Contributed to: ovirt-engine, ovirt-host, ovirt-hosted-engine-setup, ovirt-release)
+	Sandro Bonazzola (Contributed to: cockpit-ovirt, otopi, ovirt-engine, ovirt-host, ovirt-hosted-engine-setup, ovirt-release)
+	Shirly Radco (Contributed to: ovirt-engine-metrics)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: vdsm)
-	Yedidyah Bar David (Contributed to: ovirt-engine, ovirt-hosted-engine-ha)
+	Yedidyah Bar David (Contributed to: otopi, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha)

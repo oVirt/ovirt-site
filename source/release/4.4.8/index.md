@@ -21,7 +21,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.8 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.8 Fourth Release Candidate as of August 06, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.8 Fifth Release Candidate as of August 12, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -90,13 +90,54 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 ## What's New in 4.4.8?
 
+### Release Note
+
+#### oVirt Ansible collection
+
+ - [BZ 1966873](https://bugzilla.redhat.com/show_bug.cgi?id=1966873) **[RFE] Create Ansible role for remove stale LUNs example remove_mpath_device.yml**
+
+   Added new role `remove_stale_lun` into oVirt Ansible collection.
+
+
+
+The `remove_stale_lun` role iterates through all the hosts in a data center and remove stale LUN device from these hosts. Role takes two parameters, data center name and LUN WWID. Before running this role, the LUN has to be unzoned from storage server by administrator of the storage server, otherwise LUN will appear on the hosts again shortly.
+
+
 ### Enhancements
 
 #### oVirt Engine
 
+ - [BZ 1939286](https://bugzilla.redhat.com/show_bug.cgi?id=1939286) **[RFE] Expose broken Affinity Groups via API too**
+
+   Feature: Expose broken field in affinity groups in rest api
+
+
+
+Reason: When using affinity groups, the broken field of affinity group is exposed in the web-admin but is not exposed in rest api
+
+Affinity group is considered broken when any of its rules are not satisfied.
+
+
+
+Result: Exposed broken field to be shown as part of affinity group in rest api
+
  - [BZ 1971317](https://bugzilla.redhat.com/show_bug.cgi?id=1971317) **[RFE][API] Import OVA template as a clone**
 
    
+
+ - [BZ 1691696](https://bugzilla.redhat.com/show_bug.cgi?id=1691696) **[RFE] multipath events notifications**
+
+   Feature: 
+
+Subscription for Multipath events
+
+Reason: 
+
+Multipath events were introduced in RHV4.2, but there is no way to configure email notifications for these events (neither in UI nor in REST)
+
+Result: 
+
+Added ability to configure email notifications for multipath events - both in UI and in REST
 
  - [BZ 1963083](https://bugzilla.redhat.com/show_bug.cgi?id=1963083) **[RFE] Support storing user data in VM checkpoint entity**
 
@@ -172,6 +213,10 @@ Same for the checkpoint that was created for that backup -
 
 &lt;/checkpoint&gt;
 
+ - [BZ 1946231](https://bugzilla.redhat.com/show_bug.cgi?id=1946231) **[RFE] Support virtual machines with 710 VCPUs**
+
+   The maximum number of vCPUs has been increased to 710 on x86_64 architecture and 4.6 cluster level. Additionally, the limit on the number of CPU sockets has been effectively removed for 4.6 cluster levels.
+
  - [BZ 1941507](https://bugzilla.redhat.com/show_bug.cgi?id=1941507) **[RFE] Implement rotation mechanism for /var/log/ovirt-engine/host-deploy**
 
    Feature: Implement logrotate for check for updates
@@ -202,6 +247,14 @@ Compressed files are removed as follows:
 
 
 #### oVirt Ansible collection
+
+ - [BZ 1991171](https://bugzilla.redhat.com/show_bug.cgi?id=1991171) **Backup was created by version '4.4.7.7' and can not be restored using the installed version 4.4.7.6**
+
+   Since version 4.4.7, engine-backup refuses to restore to a version older than the one used for backup. This makes 'hosted-engine --restore-from-file' fail, if the latest appliance is older than the latest engine. With this release, such a case will not fail, but instead prompt the user to ssh to the engine vm and fix the restore issue.
+
+
+
+doc team: I also created a doc bug 1991914 for this.
 
  - [BZ 1967530](https://bugzilla.redhat.com/show_bug.cgi?id=1967530) **[RFE] Support enabling FIPS on the engine VM**
 
@@ -314,6 +367,14 @@ So you might want to mention this in the doc text, if you want - something like 
 
 #### VDSM
 
+ - [BZ 1967413](https://bugzilla.redhat.com/show_bug.cgi?id=1967413) **Logical name doesn't appear in diskattachments and UI immediately after a disk is hot plugged into vm**
+
+   
+
+ - [BZ 1892681](https://bugzilla.redhat.com/show_bug.cgi?id=1892681) **[CBT] VM will be corrupted during full backup if the user performs reboot inside guest OS of the VM**
+
+   
+
  - [BZ 1757689](https://bugzilla.redhat.com/show_bug.cgi?id=1757689) **Remove memAvailable and memCommitted**
 
    
@@ -325,11 +386,23 @@ So you might want to mention this in the doc text, if you want - something like 
 
 #### oVirt Engine
 
- - [BZ 1990350](https://bugzilla.redhat.com/show_bug.cgi?id=1990350) **Can't set default time zone via engine-config**
+ - [BZ 1674742](https://bugzilla.redhat.com/show_bug.cgi?id=1674742) **Custom Properties silently removed when changing VM cluster**
 
    
 
- - [BZ 1939286](https://bugzilla.redhat.com/show_bug.cgi?id=1939286) **[RFE] Expose broken Affinity Groups via API too**
+ - [BZ 1983636](https://bugzilla.redhat.com/show_bug.cgi?id=1983636) **Add "last_updated" column to the "vm_backups" DB table**
+
+   
+
+ - [BZ 1989794](https://bugzilla.redhat.com/show_bug.cgi?id=1989794) **engine still generates duplicate address for hotplug disks**
+
+   
+
+ - [BZ 1966535](https://bugzilla.redhat.com/show_bug.cgi?id=1966535) **NullPointerException when trying to delete uploaded disks with using transfer_url**
+
+   
+
+ - [BZ 1990350](https://bugzilla.redhat.com/show_bug.cgi?id=1990350) **Can't set default time zone via engine-config**
 
    
 
@@ -342,6 +415,10 @@ So you might want to mention this in the doc text, if you want - something like 
    
 
  - [BZ 1983414](https://bugzilla.redhat.com/show_bug.cgi?id=1983414) **Disks are locked forever when copying VMs' disks after snapshot**
+
+   
+
+ - [BZ 1931982](https://bugzilla.redhat.com/show_bug.cgi?id=1931982) **[RFE] Make timezones configurable**
 
    
 
@@ -422,6 +499,10 @@ So you might want to mention this in the doc text, if you want - something like 
 
 #### oVirt Engine
 
+ - [BZ 1989477](https://bugzilla.redhat.com/show_bug.cgi?id=1989477) **[Rest API] Event search template filter does not filter properly**
+
+   
+
  - [BZ 1958398](https://bugzilla.redhat.com/show_bug.cgi?id=1958398) **"This VM has no graphic display device" error after upgrade from RHV 4.3 to RHV 4.4 for some VMs**
 
    
@@ -448,7 +529,7 @@ So you might want to mention this in the doc text, if you want - something like 
 
 #### Contributors
 
-34 people contributed to this release:
+39 people contributed to this release:
 
 	Ales Musil (Contributed to: ovirt-provider-ovn, ovirt-release, vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
@@ -461,8 +542,9 @@ So you might want to mention this in the doc text, if you want - something like 
 	Dominik Holler (Contributed to: ovirt-provider-ovn)
 	Ehud Yonasi (Contributed to: python-ovirt-engine-sdk4)
 	Eli Mesika (Contributed to: ovirt-engine)
-	Eyal Shenitzky (Contributed to: ovirt-engine, ovirt-engine-sdk)
+	Eyal Shenitzky (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
 	Filip Januska (Contributed to: ovirt-engine)
+	Hilda Stastna (Contributed to: ovirt-web-ui)
 	Lev Veyde (Contributed to: ovirt-engine, ovirt-release, vdsm)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
@@ -475,12 +557,16 @@ So you might want to mention this in the doc text, if you want - something like 
 	Nir Soffer (Contributed to: vdsm)
 	Ori Liel (Contributed to: ovirt-engine, ovirt-engine-sdk)
 	Pavel Bar (Contributed to: ovirt-engine, ovirt-engine-sdk)
+	Radoslaw Szwajkowski (Contributed to: ovirt-web-ui)
 	Ritesh Chikatwar (Contributed to: cockpit-ovirt, ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)
 	Saif Abu Saleh (Contributed to: ovirt-engine, vdsm)
 	Sandro Bonazzola (Contributed to: cockpit-ovirt, otopi, ovirt-engine, ovirt-host, ovirt-hosted-engine-setup, ovirt-release)
+	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
+	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Shirly Radco (Contributed to: ovirt-engine-metrics)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: vdsm)
-	Yedidyah Bar David (Contributed to: otopi, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha)
+	Vojtěch Juránek (Contributed to: ovirt-ansible-collection)
+	Yedidyah Bar David (Contributed to: otopi, ovirt-ansible-collection, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha)

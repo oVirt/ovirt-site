@@ -9,19 +9,9 @@ page_classes: releases
 ---
 
 
-# oVirt 4.4.8 release planning
-
-The oVirt 4.4.8 code freeze is planned for August 09, 2021.
-
-If no critical issues are discovered while testing this compose it will be released on August 17, 2021.
-
-It has been planned to include in this release the content from this query:
-[Bugzilla tickets targeted to 4.4.8](https://bugzilla.redhat.com/buglist.cgi?quicksearch=ALL%20target_milestone%3A%22ovirt-4.4.8%22%20-target_milestone%3A%22ovirt-4.4.8-%22)
-
-
 # oVirt 4.4.8 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.8 Fifth Release Candidate as of August 12, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.8 release as of August 19, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -46,10 +36,6 @@ visit our [community page](/community/).
 All issues or bugs should be reported via
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
-
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
 the [Download](/download/) page.
@@ -61,14 +47,7 @@ For a general overview of oVirt, read the [About oVirt](/community/about.html)
 page.
 
 To learn about features introduced before 4.4.8, see the
-[release notes for previous versions](/documentation/#latest-release-notes).
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
-
+[release notes for previous versions](/documentation/#previous-release-notes).
 
 ## Known issues
 
@@ -89,19 +68,6 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 
 ## What's New in 4.4.8?
-
-### Release Note
-
-#### oVirt Ansible collection
-
- - [BZ 1966873](https://bugzilla.redhat.com/show_bug.cgi?id=1966873) **[RFE] Create Ansible role for remove stale LUNs example remove_mpath_device.yml**
-
-   Added new role `remove_stale_lun` into oVirt Ansible collection.
-
-
-
-The `remove_stale_lun` role iterates through all the hosts in a data center and remove stale LUN device from these hosts. Role takes two parameters, data center name and LUN WWID. Before running this role, the LUN has to be unzoned from storage server by administrator of the storage server, otherwise LUN will appear on the hosts again shortly.
-
 
 ### Enhancements
 
@@ -470,17 +436,6 @@ So you might want to mention this in the doc text, if you want - something like 
    
 
 
-#### oVirt Engine Metrics
-
- - [BZ 1985977](https://bugzilla.redhat.com/show_bug.cgi?id=1985977) **[RFE] Add missing parameters to roles/oVirt.logging/tasks/main.yml**
-
-   
-
- - [BZ 1978655](https://bugzilla.redhat.com/show_bug.cgi?id=1978655) **ELK integration fails due to missing configuration parameters**
-
-   
-
-
 #### cockpit-ovirt
 
  - [BZ 1959904](https://bugzilla.redhat.com/show_bug.cgi?id=1959904) **Cockpit UI need to be proper  alignment  while deployment**
@@ -498,10 +453,6 @@ So you might want to mention this in the doc text, if you want - something like 
 
 
 #### oVirt Engine
-
- - [BZ 1989477](https://bugzilla.redhat.com/show_bug.cgi?id=1989477) **[Rest API] Event search template filter does not filter properly**
-
-   
 
  - [BZ 1958398](https://bugzilla.redhat.com/show_bug.cgi?id=1958398) **"This VM has no graphic display device" error after upgrade from RHV 4.3 to RHV 4.4 for some VMs**
 

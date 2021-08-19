@@ -478,6 +478,13 @@ So you might want to mention this in the doc text, if you want - something like 
    
 
 
+#### oVirt Engine Appliance
+
+ - [BZ 1985927](https://bugzilla.redhat.com/show_bug.cgi?id=1985927) **Configure Grafana in hosted-engine setup by default**
+
+   
+
+
 #### Contributors
 
 39 people contributed to this release:
@@ -496,7 +503,7 @@ So you might want to mention this in the doc text, if you want - something like 
 	Eyal Shenitzky (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
 	Filip Januska (Contributed to: ovirt-engine)
 	Hilda Stastna (Contributed to: ovirt-web-ui)
-	Lev Veyde (Contributed to: ovirt-engine, ovirt-release, vdsm)
+	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release, vdsm)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
@@ -512,7 +519,7 @@ So you might want to mention this in the doc text, if you want - something like 
 	Ritesh Chikatwar (Contributed to: cockpit-ovirt, ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)
 	Saif Abu Saleh (Contributed to: ovirt-engine, vdsm)
-	Sandro Bonazzola (Contributed to: cockpit-ovirt, otopi, ovirt-engine, ovirt-host, ovirt-hosted-engine-setup, ovirt-release)
+	Sandro Bonazzola (Contributed to: cockpit-ovirt, otopi, ovirt-appliance, ovirt-engine, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release)
 	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Shirly Radco (Contributed to: ovirt-engine-metrics)
@@ -520,4 +527,4 @@ So you might want to mention this in the doc text, if you want - something like 
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Vojtech Juranek (Contributed to: vdsm)
 	Vojtěch Juránek (Contributed to: ovirt-ansible-collection)
-	Yedidyah Bar David (Contributed to: otopi, ovirt-ansible-collection, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha)
+	Yedidyah Bar David (Contributed to: otopi, ovirt-ansible-collection, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha)

@@ -11,7 +11,7 @@ page_classes: releases
 
 # oVirt 4.4.8 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.8 release as of August 19, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.8 release as of August 20, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.

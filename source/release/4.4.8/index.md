@@ -1,5 +1,5 @@
 ---
-title: oVirt 4.4.8 Release Notes
+title: oVirt 4.4.8.1 Release Notes
 category: documentation
 authors:
   - lveyde
@@ -9,9 +9,9 @@ page_classes: releases
 ---
 
 
-# oVirt 4.4.8 Release Notes
+# oVirt 4.4.8.1 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.8 release as of August 19, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.8.1 release as of August 26, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -70,6 +70,27 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 ## What's New in 4.4.8?
 
 ### Enhancements
+
+#### oVirt Release Package
+
+ - [BZ 1955375](https://bugzilla.redhat.com/show_bug.cgi?id=1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
+
+   Feature: 
+
+Automatically install dependencies required for using cinderlib with ceph
+
+
+
+Reason:
+
+Currently users are required to manually install cinderlib and ceph dependencies like python3-cinderlib, python3-os-brick (on each host) and ceph-common. To make installation simpler, the dependencies will be installed automatically.
+
+
+
+Result: 
+
+Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine host and vdsm hosts. ceph-common and python3-cinderlib will be installed on the ovirt-engine host, ceph-common and python3-os-brick will be installed on the vdsm hosts.
+
 
 #### oVirt Engine
 
@@ -183,6 +204,24 @@ Same for the checkpoint that was created for that backup -
 
    The maximum number of vCPUs has been increased to 710 on x86_64 architecture and 4.6 cluster level. Additionally, the limit on the number of CPU sockets has been effectively removed for 4.6 cluster levels.
 
+ - [BZ 1955375](https://bugzilla.redhat.com/show_bug.cgi?id=1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
+
+   Feature: 
+
+Automatically install dependencies required for using cinderlib with ceph
+
+
+
+Reason:
+
+Currently users are required to manually install cinderlib and ceph dependencies like python3-cinderlib, python3-os-brick (on each host) and ceph-common. To make installation simpler, the dependencies will be installed automatically.
+
+
+
+Result: 
+
+Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine host and vdsm hosts. ceph-common and python3-cinderlib will be installed on the ovirt-engine host, ceph-common and python3-os-brick will be installed on the vdsm hosts.
+
  - [BZ 1941507](https://bugzilla.redhat.com/show_bug.cgi?id=1941507) **[RFE] Implement rotation mechanism for /var/log/ovirt-engine/host-deploy**
 
    Feature: Implement logrotate for check for updates
@@ -212,15 +251,34 @@ Compressed files are removed as follows:
 - brick setup log is removed 30 days from its creation time
 
 
+#### oVirt Host Dependencies
+
+ - [BZ 1955375](https://bugzilla.redhat.com/show_bug.cgi?id=1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
+
+   Feature: 
+
+Automatically install dependencies required for using cinderlib with ceph
+
+
+
+Reason:
+
+Currently users are required to manually install cinderlib and ceph dependencies like python3-cinderlib, python3-os-brick (on each host) and ceph-common. To make installation simpler, the dependencies will be installed automatically.
+
+
+
+Result: 
+
+Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine host and vdsm hosts. ceph-common and python3-cinderlib will be installed on the ovirt-engine host, ceph-common and python3-os-brick will be installed on the vdsm hosts.
+
+
 #### oVirt Ansible collection
 
  - [BZ 1991171](https://bugzilla.redhat.com/show_bug.cgi?id=1991171) **Backup was created by version '4.4.7.7' and can not be restored using the installed version 4.4.7.6**
 
-   Since version 4.4.7, engine-backup refuses to restore to a version older than the one used for backup. This makes 'hosted-engine --restore-from-file' fail, if the latest appliance is older than the latest engine. With this release, such a case will not fail, but instead prompt the user to ssh to the engine vm and fix the restore issue.
+   Since Red Hat Virtualization 4.4.7, the engine-backup refuses to restore to a version older than the one used for backup. This causes 'hosted-engine --restore-from-file' to fail if the latest appliance is older than the latest Manager. 
 
-
-
-doc team: I also created a doc bug 1991914 for this.
+In this release, such a scenario does not fail, but prompts the user to connect via SSH to the Manager virtual machine and fix the restore issue.
 
  - [BZ 1967530](https://bugzilla.redhat.com/show_bug.cgi?id=1967530) **[RFE] Support enabling FIPS on the engine VM**
 
@@ -301,6 +359,8 @@ So you might want to mention this in the doc text, if you want - something like 
 
 #### oVirt Engine
 
+ - [BZ 1993017](https://bugzilla.redhat.com/show_bug.cgi?id=1993017) **Automatic setting of guaranteed memory ignores memory overcommit**
+
  - [BZ 1987295](https://bugzilla.redhat.com/show_bug.cgi?id=1987295) **Setting host to 'maintenance' will be blocked when there are image transfers with status different then 'paused'**
 
  - [BZ 1770027](https://bugzilla.redhat.com/show_bug.cgi?id=1770027) **Live Merge completed on the host, but not on the engine, which just waited for it to complete until the operation was terminated.**
@@ -312,24 +372,12 @@ So you might want to mention this in the doc text, if you want - something like 
  - [BZ 1982065](https://bugzilla.redhat.com/show_bug.cgi?id=1982065) **Invalid amount of memory is allowed to be hot plugged**
 
 
-#### oVirt Ansible collection
-
- - [BZ 1947709](https://bugzilla.redhat.com/show_bug.cgi?id=1947709) **[IPv6] HostedEngineLocal is an isolated libvirt network, breaking upgrades from 4.3**
-
-
 #### oVirt Hosted Engine HA
 
  - [BZ 1984356](https://bugzilla.redhat.com/show_bug.cgi?id=1984356) **dns/dig network monitor is too sensitive to network load**
 
 
 ### Other
-
-#### oVirt Release Package
-
- - [BZ 1955375](https://bugzilla.redhat.com/show_bug.cgi?id=1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
-
-   
-
 
 #### VDSM
 
@@ -404,10 +452,6 @@ So you might want to mention this in the doc text, if you want - something like 
 
    
 
- - [BZ 1955375](https://bugzilla.redhat.com/show_bug.cgi?id=1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
-
-   
-
  - [BZ 1983661](https://bugzilla.redhat.com/show_bug.cgi?id=1983661) **[CBT] committing a snapshot after backup tries to clear bitmaps on RAW volumes**
 
    
@@ -425,13 +469,6 @@ So you might want to mention this in the doc text, if you want - something like 
    
 
  - [BZ 1978253](https://bugzilla.redhat.com/show_bug.cgi?id=1978253) **OGA memory report isn't shown in the VM general tab**
-
-   
-
-
-#### oVirt Host Dependencies
-
- - [BZ 1955375](https://bugzilla.redhat.com/show_bug.cgi?id=1955375) **[cinderlib] Provide cinderlib prerequisites in host and engine installation**
 
    
 
@@ -510,6 +547,7 @@ So you might want to mention this in the doc text, if you want - something like 
 	Mark Kemel (Contributed to: ovirt-engine)
 	Martin Nečas (Contributed to: ovirt-ansible-collection, python-ovirt-engine-sdk4)
 	Martin Perina (Contributed to: ovirt-engine)
+	Michal Skrivanek (Contributed to: ovirt-engine)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nijin Ashok (Contributed to: ovirt-ansible-collection)
 	Nir Soffer (Contributed to: vdsm)
@@ -525,6 +563,5 @@ So you might want to mention this in the doc text, if you want - something like 
 	Shirly Radco (Contributed to: ovirt-engine-metrics)
 	Shmuel Melamud (Contributed to: ovirt-engine)
 	Tomáš Golembiovský (Contributed to: vdsm)
-	Vojtech Juranek (Contributed to: vdsm)
-	Vojtěch Juránek (Contributed to: ovirt-ansible-collection)
+	Vojtěch Juránek (Contributed to: ovirt-ansible-collection, vdsm)
 	Yedidyah Bar David (Contributed to: otopi, ovirt-ansible-collection, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha)

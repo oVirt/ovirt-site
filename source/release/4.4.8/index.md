@@ -1,5 +1,5 @@
 ---
-title: oVirt 4.4.8.1 Release Notes
+title: oVirt 4.4.8.2 Release Notes
 category: documentation
 authors:
   - lveyde
@@ -9,9 +9,9 @@ page_classes: releases
 ---
 
 
-# oVirt 4.4.8.1 Release Notes
+# oVirt 4.4.8.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.8.1 release as of August 26, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.8.2 release as of September 01, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -280,6 +280,18 @@ Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine hos
 
 In this release, such a scenario does not fail, but prompts the user to connect via SSH to the Manager virtual machine and fix the restore issue.
 
+ - [BZ 1966873](https://bugzilla.redhat.com/show_bug.cgi?id=1966873) **[RFE] Create Ansible role for removing stale LUNs example remove_mpath_device.yml**
+
+   A new role, `remove_stale_lun` has been added to the oVirt Ansible collection. The `remove_stale_lun` role iterates through all the hosts in a data center and removes stale LUN device from the hosts. 
+
+
+
+This role accepts two parameters: data center name and LUN WWID. 
+
+
+
+Before running this role, the LUN must be unzoned from the storage server by thestorage server administrator. Otherwise, the LUN will reappear on the hosts shortly after the operation.
+
  - [BZ 1967530](https://bugzilla.redhat.com/show_bug.cgi?id=1967530) **[RFE] Support enabling FIPS on the engine VM**
 
    Support enabling FIPS on the Self Hosted Engine VM via ansible
@@ -372,6 +384,11 @@ So you might want to mention this in the doc text, if you want - something like 
  - [BZ 1982065](https://bugzilla.redhat.com/show_bug.cgi?id=1982065) **Invalid amount of memory is allowed to be hot plugged**
 
 
+#### oVirt Ansible collection
+
+ - [BZ 1947709](https://bugzilla.redhat.com/show_bug.cgi?id=1947709) **[IPv6] HostedEngineLocal is an isolated libvirt network, breaking upgrades from 4.3**
+
+
 #### oVirt Hosted Engine HA
 
  - [BZ 1984356](https://bugzilla.redhat.com/show_bug.cgi?id=1984356) **dns/dig network monitor is too sensitive to network load**
@@ -380,6 +397,14 @@ So you might want to mention this in the doc text, if you want - something like 
 ### Other
 
 #### VDSM
+
+ - [BZ 1996602](https://bugzilla.redhat.com/show_bug.cgi?id=1996602) **VM remains in paused state when trying to write on a resized disk resides on iscsi**
+
+   
+
+ - [BZ 1998865](https://bugzilla.redhat.com/show_bug.cgi?id=1998865) **Host installation fails due to missing bond file**
+
+   
 
  - [BZ 1967413](https://bugzilla.redhat.com/show_bug.cgi?id=1967413) **Logical name doesn't appear in diskattachments and UI immediately after a disk is hot plugged into vm**
 
@@ -399,6 +424,10 @@ So you might want to mention this in the doc text, if you want - something like 
 
 
 #### oVirt Engine
+
+ - [BZ 1997663](https://bugzilla.redhat.com/show_bug.cgi?id=1997663) **Keep cinbderlib dependencies optional for 4.4.8**
+
+   
 
  - [BZ 1674742](https://bugzilla.redhat.com/show_bug.cgi?id=1674742) **Custom Properties silently removed when changing VM cluster**
 
@@ -483,6 +512,10 @@ So you might want to mention this in the doc text, if you want - something like 
 ### No Doc Update
 
 #### VDSM
+
+ - [BZ 1999032](https://bugzilla.redhat.com/show_bug.cgi?id=1999032) **Failed to add rhel host to rhv engine server with error - VDSM host-38 command Get Host Capabilities failed: Internal JSON-RPC error: {'reason': "'libvirt'"}**
+
+   
 
  - [BZ 1962563](https://bugzilla.redhat.com/show_bug.cgi?id=1962563) **[RFE] Use nmstate for source routing**
 

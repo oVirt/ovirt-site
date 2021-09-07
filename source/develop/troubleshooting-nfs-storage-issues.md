@@ -148,6 +148,43 @@ A new **nfs-check** script is now available to test whether an NFS export is rea
       # systemctl start nfs-server
 
 
+#### Synology DSM 6.2.4-25556 Update 2 and later
+
+Synology DSM 6.2.4-25556 Update 2 / DSM 7 extends Access Control Lists (ACLs) on all shared folders, and removes `groupadd` and `useradd` commands.
+To allow ovirt nodes to connect via NFS the ACL permissions and /etc/exports file need to be updated manually (_take backups before editing!_).
+
+1.  Create the shared folder required as usual and allow your oVirt host IP's in the NFS permissions section
+
+2.  Login to your Synology NAS via SSH (search the web for 'synology enable ssh access') as root or sudo to root once logged in
+
+3.  Add a line for the kvm group (id 36) to /etc/group
+
+    `kvm:x:36`
+
+4.  Add a line for the vdsm user (id 36) to /etc/passwd
+
+    `vdsm:x:36:36::/dev/null:/bin/false`
+
+5.  Update the Synology ACLs to allow access to kvm:vdsm
+
+        EXPORT_DIR=/volumeX/...
+        ALLOW_USER='user:vdsm:allow:rwxpdDaARWcCo:fd--'
+        ALLOW_GROUP='group:kvm:allow:rwxpdDaARWcCo:fd--'
+
+        synoacltool -get "$EXPORT_DIR" | grep -q "$ALLOW_USER" || synoacltool -add "$EXPORT_DIR" $ALLOW_USER > /dev/null
+        synoacltool -get "$EXPORT_DIR" | grep -q "$ALLOW_GROUP" || synoacltool -add "$EXPORT_DIR" $ALLOW_GROUP > /dev/null
+        synoacltool -get "$EXPORT_DIR"
+
+6.  Edit /etc/exports and replace the `anonuid` and `anongid` values with 36, e.g.
+
+        /volume1/ovirt 1.1.1.1(<Synology defined options>,anonuid=1025,anongid=100) 1.1.1.2(<Synology defined options>anonuid=1025,anongid=100)
+
+Would become
+
+        /volume1/ovirt 1.1.1.1(<Synology defined options>,anonuid=36,anongid=36) 1.1.1.2(<Synology defined options>,anonuid=36,anongid=36)
+
+**Warning** any edits (i.e. adding a new host) to the NFS share in the Synology UI will reset the `anonuid` and `anongid` back to Synology defatuls.
+
 ## Workarounds for known issues
 
 #### TODO: update for the newer supported releases

@@ -47,6 +47,9 @@ include::common/upgrade/proc-Upgrading_hosts_to_4-4.adoc[leveloffset=+1]
 
 include::common/upgrade/proc-Upgrading_hypervisor_preserve_local_storage.adoc[leveloffset=+1]
 
+include::common/upgrade/proc-Upgrading_hypervisor_preserve_gluster_storage.adoc[leveloffset=+1]
+
+
 // include::common/upgrade/proc-Updating_all_hosts_in_a_cluster.adoc[leveloffset=+1]
 
 You can now update the cluster compatibility version.

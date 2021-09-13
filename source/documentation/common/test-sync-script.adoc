@@ -1,0 +1,3 @@
+This file should not appear in any document.
+
+This is only a file to test if mirroring is working from upstream to downstream.

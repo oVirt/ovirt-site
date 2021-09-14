@@ -1,3 +1,5 @@
 This file should not appear in any document.
 
 This is only a file to test if mirroring is working from upstream to downstream.
+
+This is an addition to see if the script will update the same downstream branch after a change is made to the upstream.

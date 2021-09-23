@@ -1,5 +1,5 @@
 ---
-title: oVirt 4.4.8.2 Release Notes
+title: oVirt 4.4.8 Release Notes
 category: documentation
 authors:
   - lveyde
@@ -11,7 +11,7 @@ page_classes: releases
 
 # oVirt 4.4.8.2 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.8.2 release as of September 01, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.8 Async #4 release as of September 23, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -96,17 +96,7 @@ Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine hos
 
  - [BZ 1939286](https://bugzilla.redhat.com/show_bug.cgi?id=1939286) **[RFE] Expose broken Affinity Groups via API too**
 
-   Feature: Expose broken field in affinity groups in rest api
-
-
-
-Reason: When using affinity groups, the broken field of affinity group is exposed in the web-admin but is not exposed in rest api
-
-Affinity group is considered broken when any of its rules are not satisfied.
-
-
-
-Result: Exposed broken field to be shown as part of affinity group in rest api
+   Previously, you could only monitor broken affinity groups using the Administration Portal. In the current release, you can now monitor broken affinity groups using both the REST API and the Administration Portal.
 
  - [BZ 1971317](https://bugzilla.redhat.com/show_bug.cgi?id=1971317) **[RFE][API] Import OVA template as a clone**
 
@@ -114,17 +104,7 @@ Result: Exposed broken field to be shown as part of affinity group in rest api
 
  - [BZ 1691696](https://bugzilla.redhat.com/show_bug.cgi?id=1691696) **[RFE] multipath events notifications**
 
-   Feature: 
-
-Subscription for Multipath events
-
-Reason: 
-
-Multipath events were introduced in RHV4.2, but there is no way to configure email notifications for these events (neither in UI nor in REST)
-
-Result: 
-
-Added ability to configure email notifications for multipath events - both in UI and in REST
+   Multipath events were introduced in Red Hat Virtualization version 4.2, but there was no way to configure email notifications for these events. The current release now allows you to configure email notifications for multipath events using either user interface or the REST API.
 
  - [BZ 1963083](https://bugzilla.redhat.com/show_bug.cgi?id=1963083) **[RFE] Support storing user data in VM checkpoint entity**
 
@@ -224,31 +204,7 @@ Now cinderlib+ceph dependencies are pulled automatically on the ovirt-engine hos
 
  - [BZ 1941507](https://bugzilla.redhat.com/show_bug.cgi?id=1941507) **[RFE] Implement rotation mechanism for /var/log/ovirt-engine/host-deploy**
 
-   Feature: Implement logrotate for check for updates
-
-
-
-Reason: The operation is executed frequently, causing the directory to grow extensively
-
-
-
-Result: 
-
-Logs are rotated as follows:
-
-- host deploy, enroll certificates, host upgrade, ova, brick setup and db-manual logs are rotated monthly, and one archived file is kept.
-
-- check for updates is rotated daily, and one archived file is kept.
-
-
-
-Compressed files are removed as follows:
-
-- host deploy, enroll certificates, host upgrade and ova logs are removed 30 days from when their metadata was changed.
-
-- check for updates is removed one day from its creation time. 
-
-- brick setup log is removed 30 days from its creation time
+   Previously, log files would use too much disk space because the operation runs frequently. The current release fixes this issue by implementing the logrotate feature. With this feature, logs will be rotated monthly or daily with only one archive file being retained. Host deployment, enrollment certificate, host upgrade, ova, brick setup and db-manual logs are rotated monthly. Check for update logs are rotated daily. Compressed files will be removed for update logs 24 hours from the time of creation, brick setup logs will be removed 30 days from the time of creation, and all other logs will be removed 30 days from the last metadata change.
 
 
 #### oVirt Host Dependencies
@@ -384,11 +340,6 @@ So you might want to mention this in the doc text, if you want - something like 
  - [BZ 1982065](https://bugzilla.redhat.com/show_bug.cgi?id=1982065) **Invalid amount of memory is allowed to be hot plugged**
 
 
-#### oVirt Ansible collection
-
- - [BZ 1947709](https://bugzilla.redhat.com/show_bug.cgi?id=1947709) **[IPv6] HostedEngineLocal is an isolated libvirt network, breaking upgrades from 4.3**
-
-
 #### oVirt Hosted Engine HA
 
  - [BZ 1984356](https://bugzilla.redhat.com/show_bug.cgi?id=1984356) **dns/dig network monitor is too sensitive to network load**
@@ -451,7 +402,7 @@ So you might want to mention this in the doc text, if you want - something like 
 
  - [BZ 1901572](https://bugzilla.redhat.com/show_bug.cgi?id=1901572) **RHV-M doesn't display guest information of HostedEngine VM**
 
-   Fix a race that lead to having the hosted engine VM with no IP address in the virtual machines list that is presented in the webadmin
+   Previously, there was a race condition that prevented RHV-M from displaying the guest agent information of the HostedEngine virutal machine. The current release fixes this issue and the information displays correctly in the Administration Portal.
 
  - [BZ 1964496](https://bugzilla.redhat.com/show_bug.cgi?id=1964496) **Host-specific fields of a VM are not updated when dedicated host(s) changes**
 
@@ -557,25 +508,27 @@ So you might want to mention this in the doc text, if you want - something like 
 
 #### Contributors
 
-39 people contributed to this release:
+45 people contributed to this release:
 
-	Ales Musil (Contributed to: ovirt-provider-ovn, ovirt-release, vdsm)
+	Ales Musil (Contributed to: ovirt-provider-ovn, ovirt-release, ovirt-site, vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Asaf Rachmani (Contributed to: ovirt-ansible-collection, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup)
-	Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine-metrics)
+	Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine-metrics, ovirt-site)
 	Aviv Turgeman (Contributed to: cockpit-ovirt)
 	Bella Khizgiyaev (Contributed to: ovirt-engine)
 	Benny Zlotnik (Contributed to: ovirt-engine, ovirt-host, ovirt-release)
 	Dana Elfassy (Contributed to: ovirt-engine)
-	Dominik Holler (Contributed to: ovirt-provider-ovn)
+	Daniel Erez (Contributed to: ovirt-site)
+	Dominik Holler (Contributed to: ovirt-provider-ovn, ovirt-site)
 	Ehud Yonasi (Contributed to: python-ovirt-engine-sdk4)
 	Eli Mesika (Contributed to: ovirt-engine)
 	Eyal Shenitzky (Contributed to: ovirt-engine, ovirt-engine-sdk, vdsm)
 	Filip Januska (Contributed to: ovirt-engine)
 	Hilda Stastna (Contributed to: ovirt-web-ui)
-	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release, vdsm)
+	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release, ovirt-site, vdsm)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
+	Marc Dequènes (Duck) (Contributed to: ovirt-site)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Mark Kemel (Contributed to: ovirt-engine)
 	Martin Nečas (Contributed to: ovirt-ansible-collection, python-ovirt-engine-sdk4)
@@ -589,12 +542,16 @@ So you might want to mention this in the doc text, if you want - something like 
 	Radoslaw Szwajkowski (Contributed to: ovirt-web-ui)
 	Ritesh Chikatwar (Contributed to: cockpit-ovirt, ovirt-engine)
 	Roman Bednar (Contributed to: vdsm)
-	Saif Abu Saleh (Contributed to: ovirt-engine, vdsm)
-	Sandro Bonazzola (Contributed to: cockpit-ovirt, otopi, ovirt-appliance, ovirt-engine, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release)
+	Sahina Bose (Contributed to: ovirt-site)
+	Saif Abu Saleh (Contributed to: ovirt-engine, ovirt-site, vdsm)
+	Sandro Bonazzola (Contributed to: cockpit-ovirt, otopi, ovirt-appliance, ovirt-engine, ovirt-host, ovirt-hosted-engine-setup, ovirt-node-ng-image, ovirt-release, ovirt-site)
 	Scott J Dickerson (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Shirly Radco (Contributed to: ovirt-engine-metrics)
 	Shmuel Melamud (Contributed to: ovirt-engine)
-	Tomáš Golembiovský (Contributed to: vdsm)
+	Simone Tiraboschi (Contributed to: ovirt-site)
+	Steve Goodman (Contributed to: ovirt-site)
+	Strahil Nikolov (Contributed to: ovirt-site)
+	Tomáš Golembiovský (Contributed to: ovirt-site, vdsm)
 	Vojtěch Juránek (Contributed to: ovirt-ansible-collection, vdsm)
 	Yedidyah Bar David (Contributed to: otopi, ovirt-ansible-collection, ovirt-appliance, ovirt-dwh, ovirt-engine, ovirt-hosted-engine-ha)

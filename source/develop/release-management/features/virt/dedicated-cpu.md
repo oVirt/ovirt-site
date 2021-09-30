@@ -147,7 +147,7 @@ The high level overview of the workflow in Engine and Vdsm is following:
 Several changes to the internal API are required. To accomplish step 1. the
 verb `Host.getCapabilities` will be extended to provide keys:
 
-  * `vdsmCpuAffinity`: list of one or more CPU IDs to which VDSM process is
+  * `vdsmToCpuAffinity`: list of one or more CPU IDs to which VDSM process is
     pinned to
   * `cpuTopology`: detailed description of CPU topology in a form of a list
     where each object contains:
@@ -168,13 +168,20 @@ will contain the requested CPU policy. The valid values for `cpuPolicy` are:
   * `isolate-threads`: VM uses the `isolate-threads` policy
   * `siblings`: VM uses the `siblings` policy
 
-And finally, migration parameters in
-`VM.migrate` will contain a field `cpus` that will contain the CPU mapping for
-the VM on the destination host. The content will be `<vcpupin>` element ready
-for insertion to domain XML. Because the libvirt domain on destination is
-created by VDSM on source it needs to know which CPUs are dedicated to the VM
-on destination so that it can provide a correct domain XML to the destination
-host.
+And finally, migration parameters in `VM.migrate` will contain a field `cpus`
+with the CPU mapping for the VM on the destination host. Because the libvirt
+domain on destination is created by VDSM on source it needs to know which CPUs
+are dedicated to the VM on destination so that it can provide a correct domain
+XML to the destination host. The content of `cpus` will be a valid XML
+containing `<cputune>` (with no arguments) with `<vcpupin>` elements. E.g.:
+
+```
+<?xml version="1.0"?>
+<cputune>
+    <vcpupin vcpu="0" cpupin="3" />
+    <vcpupin vcpu="1" cpupin="16" />
+</cputune>
+```
 
 
 ## Testing

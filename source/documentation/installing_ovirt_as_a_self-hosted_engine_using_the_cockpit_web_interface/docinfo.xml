@@ -1,4 +1,4 @@
-<title>Installing Red Hat Virtualization as a self-hosted engine using the Cockpit web interface</title>
+<title>Installing Red Hat Virtualization as a self-hosted engine using the Cockpit web interface (deprecated)</title>
 <productname>Red Hat Virtualization</productname>
 <productnumber>{vernum_rhv}</productnumber>
 <subtitle>Using Cockpit to install the Red Hat Virtualization Manager as a virtual machine running on the same hosts it manages</subtitle>

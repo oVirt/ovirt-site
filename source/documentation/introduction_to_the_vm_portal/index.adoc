@@ -1,5 +1,5 @@
 :ovirt-doc:
-include::../common/collateral_files/attributes.adoc[]
+include::common/collateral_files/attributes.adoc[]
 = Introduction to the VM Portal
 :imagesdir: images
 :context: VM_portal

@@ -27,10 +27,18 @@
 |vm_disk_actual_size_mb |integer |The actual size allocated to the disk. |No
 |read_rate_bytes_per_second |integer |Read rate to disk in bytes per second. |No
 |max_read_rate_bytes_per_second |integer |The maximum read rate for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|read_ops_per_second |bigint |The number of read I/O operations per second to disk.
+|No
+|max_read_ops_per_second |bigint |The maximum number of read I/O operations per second for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.
+|No
 |read_latency_seconds |numeric(18,9) |The virtual disk read latency measured in seconds. |No
 |write_rate_bytes_per_second |integer |Write rate to disk in bytes per second. |No
 |max_read_latency_seconds |numeric(18,9) |The maximum read latency for the aggregation period, measured in seconds. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
 |max_write_rate_bytes_per_second |integer |The maximum write rate for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
+|write_ops_per_second |bigint |The number of write I/O operations per second to disk.
+|No
+|max_write_ops_per_second |bigint |The maximum number of write I/O operations per second for the aggregation period. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value.
+|No
 |write_latency_seconds |numeric(18,9) |The virtual disk write latency measured in seconds. |No
 |max_write_latency_seconds |numeric(18,9) |The maximum write latency for the aggregation period, measured in seconds. For hourly aggregations, this is the maximum collected sample value. For daily aggregations, it is the maximum hourly average value. |No
 |flush_latency_seconds |numeric(18,9) |The virtual disk flush latency measured in seconds. |No

@@ -3,11 +3,6 @@
 
 You can use the `ovirt-engine-rename` command to update records of the fully qualified domain name (FQDN) of the {engine-name}.
 
-[IMPORTANT]
-====
-The `ovirt-engine-rename` command does not update SSL certificates, such as `imageio-proxy` or `websocket-proxy`. These must be updated manually, after running `ovirt-engine-rename`. See xref:Updating_SSL_Certificates[Updating SSL Certificates] below.
-====
-
 The tool checks whether the {engine-name} provides a local ISO or Data storage domain. If it does, the tool prompts the user to eject, shut down, or place into maintenance mode any virtual machine or storage domain connected to the storage before continuing with the operation. This ensures that virtual machines do not lose connectivity with their virtual disks, and prevents ISO storage domains from losing connectivity during the renaming process.
 
 
@@ -61,5 +56,3 @@ This command modifies the FQDN in each self-hosted engine node's local copy of [
 This command modifies the FQDN in the master copy of [filename]`/etc/ovirt-hosted-engine-ha/hosted-engine.conf` on the shared storage domain.
 
 Now, all new and existing self-hosted engine nodes use the new FQDN.
-
-include::Updating_SSL_certificates.adoc[leveloffset=+4]

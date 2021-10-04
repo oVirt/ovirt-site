@@ -1,0 +1,30 @@
+[id="Logging_schema"]
+
+
+Use the *Discover* page to interactively explore data collected from {virt-product-shortname}. Each set of results that is collected is referred to as a *document*. Documents are collected from the following log files:
+
+* `engine.log` - contains all oVirt Engine UI crashes, Active Directory lookups, database issues, and other events.
+* `vdsm.log` - the log file for the VDSM, the {engine-name}'s agent on the virtualization hosts, and contains host-related events.
+
+The following fields are available:
+
+[options="header"]
+|===
+|parameter | description
+| _id |The unique ID of the document
+| _index |The ID of the index to which the document belongs. The index with the `project.ovirt-logs` prefix is the only relevant index in the Discover page.
+| hostname |For the engine.log this is the hostname of the {engine-name}. For the vdsm.log this is the hostname of the host.
+| level |The log record severity: TRACE, DEBUG, INFO, WARN, ERROR, FATAL.
+| message |The body of the document message.
+| ovirt.class |The name of a Java class that produced this log.
+| ovirt.correlationid |For the engine.log only. This ID is used to correlate the multiple parts of a single task performed by the {engine-name}.
+| ovirt.thread |The name of a Java thread inside which the log record was produced.
+| tag |Predefined sets of metadata that can be used to filter the data.
+| @timestamp |The [time](Troubleshooting#information-is-missing-from-kibana) that the record was issued.
+| _score |N/A
+| _type |N/A
+| ipaddr4 |The machine's IP address.
+| ovirt.cluster_name |For the vdsm.log only. The name of the cluster to which the host belongs.
+| ovirt.engine_fqdn |The {engine-name}'s FQDN.
+| ovirt.module_lineno |The file and line number within the file that ran the command defined in `ovirt.class`.
+|===

@@ -24,17 +24,16 @@ include::topics/Configure_grafana.adoc[]
 
 include::topics/Grafana_dashboards.adoc[leveloffset=+1]
 
-=== Sending metrics to a remote instance of Elasticsearch
+=== Sending metrics and logs to a remote instance of Elasticsearch
 
 include::topics/Sending_metrics_to_ELK.adoc[]
 
 //to be included in upstream only
 
-ifdef::ovirt-doc[]
-=== Metrics schema
-
+//ifdef::ovirt-doc[]
+//=== Metrics schema
 // include::topics/Metrics_Schema.adoc[]
-endif::[]
+//endif::[]
 
 ifdef::rhv-doc[]
 === Deploying Insights in Red Hat Virtualization Manager

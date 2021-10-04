@@ -19,14 +19,16 @@ You do not need to repeat this procedure for new hosts. Every new host that is a
 # cp /etc/ovirt-engine-metrics/config.yml.example /etc/ovirt-engine-metrics/config.yml.d/config.yml
 ----
 
-. Edit the `ovirt_env_name` and `elasticsearch_host` parameters in `config.yml` and save the file. These parameters are mandatory and are documented in the file. Add the following variables:
+. Edit the `ovirt_env_name` and `elasticsearch_host` parameters in `config.yml` and save the file. The following additional parameters can be added to the file:
 +
 ----
 use_omelasticsearch_cert: false
-viaq_metrics_store: false
 rsyslog_elasticsearch_usehttps_metrics: !!str off
 rsyslog_elasticsearch_usehttps_logs: !!str off
 ----
++
+* When using certificates, set `use_omelasticsearch_cert` to *true*.
+* To disable logs or metrics, use the `rsyslog_elasticsearch_usehttps_metrics` and/or `rsyslog_elasticsearch_usehttps_logs` parameters.
 +
 . Deploy `collectd` and `rsyslog` on the hosts:
 +
@@ -35,4 +37,4 @@ rsyslog_elasticsearch_usehttps_logs: !!str off
 # /usr/share/ovirt-engine-metrics/setup/ansible/configure_ovirt_machines_for_metrics.sh
 ----
 +
-The `configure_ovirt_machines_for_metrics.sh` script runs an Ansible role that includes `linux-system-roles` (see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/administration_and_configuration_tasks_using_system_roles_in_rhel/index[Administration and configuration tasks using System Roles in RHEL]) and uses it to deploy and configure `rsyslog` on the host. `rsyslog` collects metrics from `collectd` and sends them to Elasticsearch.  
+The `configure_ovirt_machines_for_metrics.sh` script runs an Ansible role that includes `linux-system-roles` (see link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/administration_and_configuration_tasks_using_system_roles_in_rhel/index[Administration and configuration tasks using System Roles in RHEL]) and uses it to deploy and configure `rsyslog` on the host. `rsyslog` collects metrics from `collectd` and sends them to Elasticsearch.

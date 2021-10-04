@@ -1,6 +1,8 @@
 [[Configuring_VNIC_Profiles_for_UCS]]
 ==== Configuring vNIC Profiles for UCS Integration
 
+// the vmfex component is deprecated and has been removed in RHV 4.4.7 or later - this section has been removed from the Logical Networks chapter of the Administration Guide.
+
 Cisco's Unified Computing System (UCS) is used to manage data center aspects such as computing, networking and storage resources.
 
 The `vdsm-hook-vmfex-dev` hook allows virtual machines to connect to Cisco's UCS-defined port profiles by configuring the vNIC profile. The UCS-defined port profiles contain the properties and settings used to configure virtual interfaces in UCS. The `vdsm-hook-vmfex-dev` hook is installed by default with VDSM. See xref:appe-VDSM_and_Hooks[] for more information.

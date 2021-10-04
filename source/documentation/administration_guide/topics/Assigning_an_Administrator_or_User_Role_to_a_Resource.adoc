@@ -6,10 +6,22 @@ Assign administrator or user roles to resources to allow users to access or mana
 *Assigning a Role to a Resource*
 
 . Find and click the resource's name. This opens the details view.
-. Click the *Permissions* tab to list the assigned users, the user's role, and the inherited permissions for the selected resource.
+. Click the *Permissions* tab to list the assigned users, each user's role, and the inherited permissions for the selected resource.
 . Click *Add*.
 . Enter the name or user name of an existing user into the *Search* text box and click *Go*. Select a user from the resulting list of possible matches.
 . Select a role from the *Role to Assign* drop-down list.
 . Click btn:[OK].
 
 The user now has the inherited permissions of that role enabled for that resource.
+
+[IMPORTANT]
+====
+Avoid assigning global permissions to regular users on resources such as clusters because permissions are automatically inherited by resources that are lower in a system's hierarchy.  Set `UserRole` and all other user role permissions on specific resources such as virtual machines, pools or virtual machine pools, especially the latter.
+
+Assigning global permissions can cause two problems due to the inheritance of permissions:
+
+* A regular user can automatically be granted permission to control virtual machine pools, even if the administrator assigning permissions did not intend for this to happen.
+* The virtual machine portal might behave unexpectedly with pools.
+
+Therefore, it is strongly recommended to set `UserRole` and all other user role permissions on specific resources only, especially virtual machine pool resources, and not on resources from which other resources inherit permissions.
+====

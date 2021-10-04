@@ -122,5 +122,5 @@ include::common/install/proc-Preventing_Kernel_Modules_from_Loading_Automaticall
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
 
-// [appendix]
-// include::common/security/assembly-Securing_Red_Hat_Virtualization.adoc[leveloffset=+1]
+[appendix]
+include::common/security/assembly-Securing_Red_Hat_Virtualization.adoc[leveloffset=+1]

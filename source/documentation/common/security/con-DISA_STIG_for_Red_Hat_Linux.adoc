@@ -1,23 +1,21 @@
 // Module included in the following assemblies:
 //
 // doc-Administration_Guide/common/security/assembly-Securing_Red_Hat_Virtualization.adoc
+// THIS MODULE IS RHV ONLY.
 
-// Base the file name and the ID on the module title. For example:
-// * file name: my-concept-module-a.adoc
-// * ID: [id='my-concept-module-a']
-// * Title: = My concept module A
-
-// The ID is used as an anchor for linking to the module. Avoid changing it after the module has been published to ensure existing links are not broken.
-[id='disa-stig-for-red-hat-linux-7-{context}']
-// The `context` attribute enables module reuse. Every module's ID includes {context}, which ensures that the module has a unique ID even if it is reused multiple times in a guide.
-= DISA STIG for Red Hat Linux 7
+[id='disa-stig-for-red-hat-linux_{context}']
+= DISA STIG for Red Hat Virtualization 4.4
 
 The Defense Information Systems Agency (DISA) distributes Security Technical Implementation Guides (STIGs) for various platforms and operating systems.
 
-While installing {hypervisor-fullname} ({hypervisor-shortname}), the *DISA STIG for Red Hat Linux 7* profile is one of the security policies available. Enabling this profile as your security policy during installation removes the need regenerate SSH keys, SSL certificates, or otherwise re-configure the host later in the deployment process.
+When installing {hypervisor-fullname} ({hypervisor-shortname}), the *[DRAFT] DISA STIG for Red Hat Virtualization Host (RHVH)* profile is one of the security policies available. Enabling this profile as your security policy during installation removes the need to regenerate SSH keys, SSL certificates, or otherwise re-configure the host later in the deployment process.
+
+When installing a RHEL host, you can use the *DISA STIG for Red Hat Enterprise Linux 8* profile. For information on applying a security policy, see link:{URL_rhel_docs_latest}html-single/performing_a_standard_rhel_installation/index#security-policy_configuring-system-settings[Configuring a security policy] in _Performing a standard RHEL installation_.
 
 [IMPORTANT]
+====
 The DISA STIG security policy is the only security policy that Red Hat officially tests and certifies.
+====
 
 DISA STIGs are "configuration standards for DOD IA and IA-enabled devices/systems. Since 1998, DISA has played a critical role in enhancing the security posture of DoD’s security systems by providing the Security Technical Implementation Guides (STIGs). The STIGs contain technical guidance to 'lock down' information systems/software that might otherwise be vulnerable to a malicious computer attack."
 

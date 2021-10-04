@@ -56,15 +56,14 @@ GRUB_CMDLINE_LINUX="nofb splash=quiet console=tty0 ... amd_iommu=on
 +
 [NOTE]
 ====
-If `intel_iommu=on` or `amd_iommu=on` works, you can try adding `iommu=pt` or `amd_iommu=pt`. The `pt` option only enables IOMMU for devices used in passthrough and provides better host performance. However, the option might not be supported on all hardware. Revert to previous option if the `pt` option doesn't work for your host.
+If `intel_iommu=on` or an AMD IOMMU is detected, you can try adding `iommu=pt`. The `pt` option only enables IOMMU for devices used in passthrough and provides better host performance. However, the option might not be supported on all hardware. Revert to the previous option if the `pt` option doesn't work for your host.
 
 If the passthrough fails because the hardware does not support interrupt remapping, you can consider enabling the `allow_unsafe_interrupts` option if the virtual machines are trusted. The `allow_unsafe_interrupts` is not enabled by default because enabling it potentially exposes the host to MSI attacks from virtual machines. To enable the option:
+
 [options="nowrap" subs="normal"]
 ----
-
 # vi /etc/modprobe.d
 options vfio_iommu_type1 allow_unsafe_interrupts=1
-
 ----
 
 ====

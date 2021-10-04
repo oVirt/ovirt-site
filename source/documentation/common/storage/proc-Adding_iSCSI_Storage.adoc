@@ -30,7 +30,7 @@ You can use the *Discover Targets* options to add LUNs on many targets or multip
 +
 [IMPORTANT]
 ====
-If you use the REST API method `iscsidiscover` to discover the iscsi targets, you can use an FQDN or an IP address, but you must use the iscsi details from the discovered targets results to log in using the REST API method `iscsilogin`. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#services-host-methods-iscsi_discover[iscsidiscover] in the _REST API Guide_ for more information.
+If you use the REST API method `discoveriscsi` to discover the iscsi targets, you can use an FQDN or an IP address, but you must use the iscsi details from the discovered targets results to log in using the REST API method `iscsilogin`. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#services-host-methods-discover_iscsi[discoveriscsi] in the _REST API Guide_ for more information.
 ====
 .. Enter the FQDN or IP address of the iSCSI host in the *Address* field.
 .. Enter the port with which to connect to the host when browsing for targets in the *Port* field. The default is `3260`.
@@ -51,7 +51,7 @@ If more than one path access is required, you must discover and log in to the ta
 +
 [IMPORTANT]
 ====
-When using the REST API `iscsilogin` method to log in, you must use the iscsi details from the discovered targets results in the `iscsidiscover` method. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#services-host-methods-iscsi_login[iscsilogin] in the _REST API Guide_ for more information.
+When using the REST API `iscsilogin` method to log in, you must use the iscsi details from the discovered targets results in the `discoveriscsi` method. See link:{URL_downstream_virt_product_docs}rest_api_guide/index#services-host-methods-iscsi_login[iscsilogin] in the _REST API Guide_ for more information.
 ====
 +
 . Click the *+* button next to the desired target. This expands the entry and displays all unused LUNs attached to the target.

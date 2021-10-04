@@ -32,9 +32,9 @@ When you create a new data center, you can set the compatibility version. Select
 
 include::proc-Installing_Red_Hat_Virtualization_Hosts.adoc[leveloffset=+2]
 
-//ifdef::ovirt-doc[]
+ifdef::ovirt-doc[]
 include::proc_installing-a-third-party-package-on-ovirt-node.adoc[leveloffset=+2]
-//endif::[]
+endif::[]
 
 ifdef::rhv-doc[]
 include::proc-Enabling_the_Red_Hat_Virtualization_Host_Repository.adoc[leveloffset=+2]
@@ -44,6 +44,8 @@ endif::[]
 === Advanced Installation
 
 include::ref-Custom_Partitioning_RHVH.adoc[leveloffset=+3]
+
+include::proc_installing-a-dud-driver-on-a-host-without-installer-support.adoc[leveloffset=+3]
 
 include::proc-Automating_RHVH_Deployment.adoc[leveloffset=+3]
 

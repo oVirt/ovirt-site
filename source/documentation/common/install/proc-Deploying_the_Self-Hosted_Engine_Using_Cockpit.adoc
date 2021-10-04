@@ -1,7 +1,12 @@
 [id='Deploying_the_Self-Hosted_Engine_Using_Cockpit_{context}']
 = Deploying the self-hosted engine using Cockpit
 
-Deploy a self-hosted engine, using Cockpit to collect the details of your environment. This is the recommended method. Cockpit is enabled by default on {hypervisor-fullname}s. You can manually install Cockpit on {enterprise-linux-host-fullname}s.
+[NOTE]
+====
+Using Cockpit to install the self-hosted engine is deprecated. Support for this installation method will be removed in a later release.
+====
+
+Deploy a self-hosted engine, using Cockpit to collect the details of your environment. Cockpit is enabled by default on {hypervisor-fullname}s. You can manually install Cockpit on {enterprise-linux-host-fullname}s.
 
 You can customize the {engine-name} virtual machine during deployment, either manually, by pausing the deployment, or using automation.
 

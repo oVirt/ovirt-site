@@ -10,7 +10,13 @@ You can deploy a self-hosted engine from the command line. After installing the 
 
 You can customize the {engine-name} virtual machine during deployment, either manually, by pausing the deployment, or using automation.
 
-* Setting the variable `he_pause_host` to `true` pauses deployment after installing the {engine-name} and adding the deployment host to the {engine-name}. It also creates a lock file at `/tmp` with the suffix `_he_setup_lock` on the deployment host. You can then manually customize the virtual machine as needed. The deployment continues after you delete the lock file, or after 24 hours, whichever comes first.
+* Setting the variable `he_pause_host` to `true` pauses deployment after installing the {engine-name} and adding the deployment host to the {engine-name}.
+* Setting the variable `he_pause_before_engine_setup` to `true` pauses the deployment before installing the {engine-name} and before restoring the {engine-name} when using `he_restore_from_file`.
++
+[NOTE]
+====
+When the `he_pause_host` or `he_pause_before_engine_setup` variables are set to true a lock file is created at `/tmp` with the suffix `_he_setup_lock` on the deployment host. You can then manually customize the virtual machine as needed. The deployment continues after you delete the lock file, or after 24 hours, whichever comes first.
+====
 * Adding an Ansible playbook to any of the following directories on the deployment host automatically runs the playbook. Add the playbook under one of the following directories under `/usr/share/ansible/collections/ansible_collections/redhat/rhv/roles/hosted_engine_setup/hooks/`:
 
 ** `enginevm_before_engine_setup`
@@ -22,7 +28,7 @@ You can customize the {engine-name} virtual machine during deployment, either ma
 
 * FQDNs prepared for your {engine-name} and the host. Forward and reverse lookup records must both be set in the DNS.
 * When using a block storage domain, either FCP or iSCSI, a single target LUN is the only supported setup for a self-hosted engine.
-* (Optional) If you want to customize the {engine-name} virtual machine during deployment using automation, an Ansible playbook must be added. See xref:customizing_engine_vm_during_deployment_auto_SHE_cli_deploy[].
+* Optional: If you want to customize the {engine-name} virtual machine during deployment using automation, an Ansible playbook must be added. See xref:customizing_engine_vm_during_deployment_auto_SHE_cli_deploy[].
 // ** *For Manual customization:* The variable `he_pause_host` in `ovirt-ansible-collection/roles/hosted_engine_setup/defaults/main.yml` must be set to `true`.
 
 .Procedure
@@ -102,41 +108,44 @@ Please specify which way the network connectivity should be checked (ping, dns, 
 +
 [options="nowrap" subs="normal"]
 ----
-Please enter the name of the datacenter where you want to deploy this hosted-engine host. [Default]:
+Please enter the name of the data center where you want to deploy this hosted-engine host.
+Data center [Default]:
 ----
 
 . Enter a name for the cluster in which to deploy the host for the self-hosted engine. The default name is *Default*.
 +
 [options="nowrap" subs="normal"]
 ----
-Please enter the name of the cluster where you want to deploy this hosted-engine host. [Default]:
+Please enter the name of the cluster where you want to deploy this hosted-engine host.
+Cluster [Default]:
 ----
 
 . If you want to use a custom appliance for the virtual machine installation, enter the path to the OVA archive. Otherwise, leave this field empty to use the {engine-appliance-name}.
+. To deploy with a custom {engine-appliance-name} appliance image, specify the path to the OVA archive. Otherwise, leave this field empty to use the {engine-appliance-name}.
 +
 [options="nowrap" subs="normal"]
 ----
-If you want to deploy with a custom engine appliance image,
-please specify the path to the OVA archive you would like to use
-(leave it empty to skip, the setup will use {engine-appliance-name} rpm installing it if missing):
+If you want to deploy with a custom engine appliance image, please specify the path to the OVA archive you would like to use.
+ Entering no value will use the image from the rhvm-appliance rpm, installing it if needed.
+ Appliance image path []:
 ----
 
 . Enter the CPU and memory configuration for the {engine-name} virtual machine:
 +
 [options="nowrap" subs="normal"]
 ----
-Please specify the number of virtual CPUs for the VM (Defaults to appliance OVF value): [4]:
-Please specify the memory size of the VM in MB (Defaults to maximum available): [7267]:
+Please specify the number of virtual CPUs for the VM. The default is the appliance OVF value [4]:
+Please specify the memory size of the VM in MB. The default is the maximum available [6824]:
 ----
 
 . Specify the FQDN for the {engine-name} virtual machine, such as `manager.example.com`:
 +
 [options="nowrap" subs="normal"]
 ----
-Please provide the FQDN you would like to use for the engine appliance.
+Please provide the FQDN you would like to use for the engine.
 Note: This will be the FQDN of the engine VM you are now going to launch,
 it should not point to the base host or to any other existing machine.
-Engine VM FQDN:
+Engine VM FQDN []:
 ----
 
 . Specify the domain of the {engine-name} virtual machine. For example, if the FQDN is `manager.example.com`, then enter `example.com`.
@@ -155,12 +164,22 @@ Enter root password that will be used for the engine appliance:
 Confirm appliance root password:
 ----
 +
-. Optionally, enter an SSH public key to enable you to log in to the {engine-name} virtual machine as the root user without entering a password, and specify whether to enable SSH access for the root user:
+. Optional: Enter an SSH public key to enable you to log in to the {engine-name} virtual machine as the root user without entering a password, and specify whether to enable SSH access for the root user:
 +
 [options="nowrap" subs="normal"]
 ----
-Enter ssh public key for the root user that will be used for the engine appliance (leave it empty to skip):
+You may provide an SSH public key, that will be added by the deployment script to the authorized_keys file of the root user in the engine appliance.
+This should allow you passwordless login to the engine machine after deployment.
+If you provide no key, authorized_keys will not be touched.
+SSH public key []:
+
 Do you want to enable ssh access for the root user (yes, no, without-password) [yes]:
+----
+
+. Optional: You can apply the DISA STIG security profile on the {engine-name} virtual machine. The DISA STIG profile is the default OpenSCAP profile. For more information, see xref:disa-stig-for-red-hat-linux_assembly-securing-rhv[]
++
+----
+Do you want to apply a default OpenSCAP security profile? (Yes, No) [No]:
 ----
 
 . Enter a MAC address for the {engine-name} virtual machine, or accept a randomly generated one. If you want to provide the {engine-name} virtual machine with an IP address via DHCP, ensure that you have a valid DHCP reservation for this MAC address. The deployment script will not configure the DHCP server for you.
@@ -197,7 +216,8 @@ Engine VM DNS (leave it empty to skip):
 [options="nowrap" subs="normal"]
 ----
 Add lines for the appliance itself and for this host to /etc/hosts on the engine VM?
-Note: ensuring that this host could resolve the engine VM hostname is still up to you (Yes, No)[No]
+Note: ensuring that this host could resolve the engine VM hostname is still up to you.
+Add lines to /etc/hosts? (Yes, No)[Yes]:
 ----
 
 . Provide the name and TCP port number of the SMTP server, the email address used to send email notifications, and a comma-separated list of email addresses to receive these notifications. Alternatively, press kbd:[Enter] to accept the defaults:
@@ -217,10 +237,17 @@ Please provide a comma-separated list of email addresses which will get notifica
 Enter engine admin password:
 Confirm engine admin password:
 ----
+
+. Specify the hostname of the deployment host:
++
+[options="nowrap" subs="normal"]
+----
+Please provide the hostname of this host on the management network [hostname.example.com]:
+----
 +
 The script creates the virtual machine. By default, the script first downloads and installs the {engine-appliance-name}, which increases the installation time.
 
-. (Optional) If you set the variable `he_pause_host: true`, the deployment pauses after adding the deployment host to the {engine-name}. You can now log in from the deployment host to the {engine-name} virtual machine to customize it. You can log in with either the FQDN or the IP address of the {engine-name}. For example, if the FQDN of the {engine-name} is `manager.example.com`:
+. Optional: If you set the variable `he_pause_host: true`, the deployment pauses after adding the deployment host to the {engine-name}. You can now log in from the deployment host to the {engine-name} virtual machine to customize it. You can log in with either the FQDN or the IP address of the {engine-name}. For example, if the FQDN of the {engine-name} is `manager.example.com`:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -327,8 +354,8 @@ Please specify the size of the VM disk in GB: [50]:
 +
 When the deployment completes successfully, one data center, cluster, host, storage domain, and the {engine-name} virtual machine are already running. You can log in to the Administration Portal to add any other resources.
 
-. Optionally, add a directory server using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script so you can add additional users to the environment. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Configuring_an_External_LDAP_Provider[Configuring an External LDAP Provider] in the _Administration Guide_.
-. Optionally, deploy Grafana so you can monitor and display reports from your {virt-product-shortname} environment.
+. Optional: Add a directory server using the `ovirt-engine-extension-aaa-ldap-setup` interactive setup script so you can add additional users to the environment. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Configuring_an_External_LDAP_Provider[Configuring an External LDAP Provider] in the _Administration Guide_.
+. Optional: Deploy Grafana so you can monitor and display reports from your {virt-product-shortname} environment.
 For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#configuring_grafana[Configuring Grafana] in the _Administration Guide_.
 
 The {engine-name} virtual machine, the host running it, and the self-hosted engine storage domain are flagged with a gold crown in the Administration Portal.

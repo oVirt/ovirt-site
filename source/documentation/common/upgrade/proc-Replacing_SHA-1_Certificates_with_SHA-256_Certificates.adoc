@@ -43,14 +43,13 @@ endif::SHE_upgrade[]
 # . /etc/ovirt-engine/engine.conf.d/10-setup-protocols.conf
 # for name in $names; do
     subject="$(
-        openssl \
-            x509 \
-            -in /etc/pki/ovirt-engine/certs/"${name}".cer \
-            -noout \
-            -subject \
-        | sed \
-            's;subject= \(.*\);\1;' \
-    )"
+       openssl x509 \
+           -in /etc/pki/ovirt-engine/certs/apache.cer \
+           -text | \
+               sed \
+                   -n \
+                       's; *DirName:\(.*\)/CN=.*;\1;p'
+   )"
    /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh \
         --name="${name}" \
         --password=mypass \

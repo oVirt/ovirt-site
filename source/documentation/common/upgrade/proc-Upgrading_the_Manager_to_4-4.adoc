@@ -5,13 +5,13 @@
 // Upgrade Guide
 
 ifndef::SHE_upgrade[]
-{virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} 8.2 or later. You need to do a clean installation of {enterprise-linux} 8.2 and {virt-product-fullname} {engine-name} 4.4, even if you are using the same physical machine that you use to run {virt-product-shortname} {engine-name} 4.3.
+{virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} 8.2 or later. You need to do a clean installation of {enterprise-linux} 8.2 or later and {virt-product-fullname} {engine-name} 4.4, even if you are using the same physical machine that you use to run {virt-product-shortname} {engine-name} 4.3.
 
 The upgrade process requires restoring {virt-product-fullname} {engine-name} 4.3 backup files onto the {virt-product-fullname} {engine-name} 4.4 machine.
 endif::SHE_upgrade[]
 
 ifdef::SHE_upgrade[]
-The {virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} 8.2 or later. You need to do a clean installation of {enterprise-linux} 8.2 or {hypervisor-fullname} on the self-hosted engine host, even if you are using the same physical machine that you use to run the {virt-product-shortname} 4.3 self-hosted engine.
+The {virt-product-fullname} {engine-name} 4.4 is only supported on {enterprise-linux} 8.2 or later. You need to do a clean installation of {enterprise-linux} 8.2 or later, or {hypervisor-fullname} on the self-hosted engine host, even if you are using the same physical machine that you use to run the {virt-product-shortname} 4.3 self-hosted engine.
 
 The upgrade process requires restoring {virt-product-fullname} {engine-name} 4.3 backup files onto the {virt-product-fullname} {engine-name} 4.4 virtual machine.
 endif::SHE_upgrade[]
@@ -146,6 +146,13 @@ endif::local_database_upgrade,remote_database_upgrade[]
 The configuration for these package extensions must be manually reapplied because they are not migrated as part of the backup and restore process.
 ====
 
+. Configure the {engine-name} by running the `engine-setup` command:
++
+[options="nowrap" subs="normal"]
+----
+# engine-setup
+----
+
 ifndef::SHE_upgrade[]
 . Decommission the {virt-product-fullname} {engine-name} 4.3 machine if a different machine is used for {virt-product-fullname} {engine-name} 4.4. Two different {engine-name}s must not manage the same hosts or storage.
 endif::SHE_upgrade[]
@@ -166,6 +173,18 @@ endif::local_database_upgrade[]
 
 ifdef::remote_database_upgrade[]
 Now you need to upgrade the remote databases in your environment.
+
+[NOTE]
+====
+'engine-setup' also stops the Data Warehouse service on the remote Data Warehouse machine.
+
+If you intend to postpone the next parts of this procedure, log in to the Data Warehouse machine and start the Data Warehouse service:
+
+[options="nowrap" subs="normal"]
+----
+# systemctl start ovirt-engine-dwhd.service
+----
+====
 endif::remote_database_upgrade[]
 
 .Additional resources

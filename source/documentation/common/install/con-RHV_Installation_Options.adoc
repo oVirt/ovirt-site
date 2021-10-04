@@ -4,13 +4,12 @@
 [[SHE_install_options]]
 == Self-hosted engine (recommended)
 
-You can install {virt-product-fullname} as a self-hosted engine using either the link:{URL_rhel_docs_legacy}html-single/getting_started_with_cockpit/[Cockpit web interface] or the command line.
+You can install {virt-product-fullname} as a self-hosted engine using the command line.
 
 Because the {engine-name} installation is automated, the {engine-name} database (`engine`) and Data Warehouse service and database (`ovirt-engine-history`) can only be installed locally. If you want to host any databases or services on remote machines, you must migrate them after the installation is complete. Instructions for this are included in both of the following guides.
 
-* To install a self-hosted engine using the command line, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#[_Installing {virt-product-fullname} as a self-hosted engine using the command line_].
+To install a self-hosted engine using the command line, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#[_Installing {virt-product-fullname} as a self-hosted engine using the command line_].
 
-* To install a self-hosted engine using Cockpit, see link:{URL_virt_product_docs}html/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/[_Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface_].
 
 [[SM_install_options]]
 == Standalone {engine-name} (manual)

@@ -1,23 +1,47 @@
-[[Updating_the_Guest_Agents_and_Drivers_on_Windows]]
-==== Updating the Guest Agents and Drivers on Windows
+[id="Updating_the_Guest_Agents_and_Drivers_on_Windows"]
+= Updating Windows guest agents and drivers using the command prompt
 
-*Updating the guest agents, tools, and drivers on Windows*
+When you do not have access to Windows Update to update Windows drivers, or when you need to update the Windows guest agents, you can do so from the `virtio-win` package by using the virtual machine's command prompt. During this procedure, you must remove and reinstall the drivers, which can lead to network disruption. This procedure restores your settings after reinstalling the drivers.
 
-. On the {virt-product-fullname} {engine-name} machine, update the {virt-product-fullname} Guest Tools package to the latest version:
+.Procedure
+
+. If you are updating the drivers, on the Windows virtual machine, use the `netsh` utility to save TCP settings before uninstalling the netkvm driver:
 +
-[options="nowrap" subs="normal"]
+----
+C:\WINDOWS\system32>netsh dump > filename.txt
+----
+
+. On the {engine-name} machine, update the `virtio-win` package to the latest version:
++
 ----
 # dnf upgrade -y virtio-win
 ----
 +
-The ISO file is located in [filename]`/usr/share/virtio-win/virtio-win___version__.iso` on the {engine-name} machine.
-. Upload [filename]`virtio-win___version__.iso` to a data domain. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain] in the __Administration Guide__ for details.
-. In the Administration or VM Portal, if the virtual machine is running, use the *Change CD* drop-down list to attach the [filename]`virtio-win___version__.iso` file to each of your virtual machines. If the virtual machine is powered off, click the *Run Once* button and attach the ISO as a CD.
+The `virtio-win___version__.iso` file is located in `/usr/share/virtio-win/` on the {engine-name} machine.
+
+. Upload the ISO file to a data domain. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain] in the _Administration Guide_.
+
+. In the Administration or VM Portal, if the virtual machine is running, use the *Change CD* drop-down list to attach the virtio-win___version__.iso file to each of your virtual machines. If the virtual machine is powered off, click the btn:[Run Once] button and attach the ISO as a CD.
+
 . Log in to the virtual machine.
-. Select the CD Drive containing the [filename]`virtio-win___version__.iso` file.
-. Double-click `virtio-win-gt-x64.msi` for a 64-bit guest operating system or `virtio-win-gt-x86.msi` for a 32-bit guest operating system.
-. Click btn:[Next] at the welcome screen.
-. Follow the prompts in the installation wizard. Ensure all check boxes in the list of components are selected, including the *RHEV Agent* which is disabled by default.
-. Once installation is complete, select *Yes, I want to restart my computer now* and click *Finish* to apply the changes.
-. After the reboot completes, open the virtual CD drive and change to the [filename]`guest-agent` directory.
-. Double-click [filename]`qemu-ga-x86_64.msi` or [filename]`qemu-ga-i386.msi`.
+
+. Select the CD Drive (`D:\` for this example) containing the virtio-win___version__.iso file.
+
+. Reinstall the guest agents or drivers:
+** To reinstall only the guest agents, use `qemu-ga-x86_64.msi`:
++
+----
+C:\WINDOWS\system32>msiexec.exe /i D:\guest-agent\qemu-ga-x86_64.msi /passive /norestart
+----
+
+** To install the guest agents and drivers, or just the drivers, use `virtio-win-gt-x64.msi`:
++
+----
+C:\WINDOWS\system32>msiexec.exe /i D:\virtio-win-gt-x64.msi /passive /norestart
+----
+
+. If you are updating the drivers, restore the settings you saved using `netsh`:
++
+----
+C:\WINDOWS\system32>netsh -f filename.txt
+----

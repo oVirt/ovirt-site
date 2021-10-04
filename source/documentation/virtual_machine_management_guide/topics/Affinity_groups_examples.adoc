@@ -12,7 +12,7 @@ Dalia creates an affinity group named "high availability" and does the following
 
 * Adds the two virtual machines, *VM01* and *VM02*, to the affinity group.
 * Sets *VM Affinity* to *Negative* so the virtual machines try to run on separate hosts.
-* Leaves *Enforcing* unchecked (disabled) so both virtual machines can continue running in case only one host is available during an outage.
+* Leaves *Enforcing* cleared (disabled) so that both virtual machines can continue running in case only one host is available during an outage.
 * Leaves the *Hosts* list empty so the virtual machines run on any host in the cluster.
 
 ====
@@ -28,7 +28,7 @@ Sohni creates an affinity group called "build and test" and does the following:
 * Adds the high-specification hosts, *host03*, *host04*, and *host05*, to the affinity group.
 * Sets *VM affinity* to *Positive* so the virtual machines try to run on the same host, reducing network traffic and latency effects.
 * Sets *Host affinity* to *Positive* so the virtual machines try to run on the high specification hosts, accelerating the process.
-* Leaves *Enforcing* unchecked (disabled) for both rules so the virtual machines can run if the high-specification hosts are not available.
+* Leaves *Enforcing* cleared (disabled) for both rules so the virtual machines can run if the high-specification hosts are not available.
 
 ====
 

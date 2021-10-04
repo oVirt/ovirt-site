@@ -22,15 +22,12 @@ Scenario - the virtual machine fails to boot with the following error message:
 Boot failed: not a bootable disk - No Bootable device
 ----
 
-To solve this problem:
+Possible solutions to this problem:
 
-. Power off the affected virtual machine.
-. Clear the *Bootable* checkbox in the newly added disk.
-. Select the first disk as a *Bootable* disk, and start the virtual machine.
-
-Alternative solutions:
+* Make sure that *hard disk* is selected in the boot sequence, and the disk that the virtual machine is booting from must be set as *Bootable*.
 
 * Create a link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#Creating_a_cloned_virtual_machine_based_on_a_template[Cloned Virtual Machine Based on a Template].
+
 * Create a new virtual machine with a local boot disk managed by {virt-product-shortname} that contains the OS and application binaries.
 
 * Install the OS by booting from the *Network (PXE)* boot option.

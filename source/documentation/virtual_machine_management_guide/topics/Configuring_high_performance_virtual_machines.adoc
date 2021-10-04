@@ -205,9 +205,9 @@ You can configure the NUMA topology manually, or use the *Auto Pinning Policy* o
 . In the *Host* tab, select the *Specific Host(s)* radio button and select the host(s) from the list. The selected host(s) must have at least two NUMA nodes.
 . Under *Configure NUMA:* select an *Auto Pinning Policy* from the drop-down list:
 +
-* *Don't Change* - makes no changes to the virtual machine.
-* *Existing* - uses the existing CPU topology that has been set, in order to configure CPU pinning and NUMA pinning.
-* *Adjust* - maximizes the CPU topology and generates the CPU pinning and NUMA pinning configurations.
+* *None* - makes no changes to the virtual machine.
+//* *Pin* - uses the existing CPU topology that has been set, in order to configure CPU pinning and NUMA pinning.
+* *Resize and Pin* - maximizes the CPU topology and generates the CPU pinning and NUMA pinning configurations.
 . Click btn:[OK].
 
 The {engine-name} calculates the CPU Pinning Topology, updates the CPU topology fields (Total Virtual CPUs, Cores per Virtual Socket, Threads per Core), and enters the topology configuration string in the *CPU Pinning Topology* field of the virtual machine.
@@ -291,4 +291,4 @@ To disable Kernel Same-page Merging (KSM) for the cluster:
 
 . Click menu:Compute[Clusters] and select the cluster.
 . Click btn:[Edit].
-. In the *Optimization* tab, uncheck the *Enable KSM* check box.
+. In the *Optimization* tab, clear the *Enable KSM* check box.

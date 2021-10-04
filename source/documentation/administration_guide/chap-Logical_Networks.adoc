@@ -51,7 +51,7 @@ include::topics/Assigning_Security_Groups_to_VNIC_Profiles.adoc[]
 
 include::topics/User_Permissions_for_VNIC_Profiles.adoc[]
 
-include::topics/Configuring_VNIC_Profiles_for_UCS.adoc[]
+//include::topics/Configuring_VNIC_Profiles_for_UCS.adoc[]
 
 [[sect-External_Provider_Networks]]
 === External Provider Networks

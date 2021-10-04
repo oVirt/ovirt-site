@@ -3,7 +3,7 @@
 
 {hypervisor-fullname} ({hypervisor-shortname}) is installed using a special build of {enterprise-linux} with only the packages required to host virtual machines. It uses an `Anaconda` installation interface based on the one used by {enterprise-linux-host-fullname}s, and can be updated through the {virt-product-fullname} {engine-name} or via `yum`. Using the `yum` command is the only way to install additional packages and have them persist after an upgrade.
 
-{hypervisor-shortname} features a Cockpit web interface for monitoring the host's resources and performing administrative tasks. Direct access to {hypervisor-shortname} via SSH or console is not supported, so the Cockpit web interface provides a graphical user interface for tasks that are performed before the host is added to the {virt-product-fullname} {engine-name}, such as configuring networking and deploying a self-hosted engine, and can also be used to run terminal commands via the *Terminal* sub-tab.
+{hypervisor-shortname} features a Cockpit web interface for monitoring the host's resources and performing administrative tasks. Direct access to {hypervisor-shortname} via SSH or console is not supported, so the Cockpit web interface provides a graphical user interface for tasks that are performed before the host is added to the {virt-product-fullname} {engine-name}, such as configuring networking or running terminal commands via the *Terminal* sub-tab.
 
 Access the Cockpit web interface at https://_HostFQDNorIP_:9090 in your web browser. Cockpit for {hypervisor-shortname} includes a custom *Virtualization* dashboard that displays the host's health status, SSH Host Key, self-hosted engine status, virtual machines, and virtual machine statistics.
 

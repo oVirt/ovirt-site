@@ -10,6 +10,8 @@ include::topics/VDSM_hooks.adoc[]
 
 include::topics/Extending_VDSM_with_hooks.adoc[]
 
+include::common/install/proc_installing-a-vdsm-hook.adoc[leveloffset=+2]
+
 include::topics/Supported_VDSM_events.adoc[]
 
 include::topics/VDSM_hooks_environment.adoc[]
@@ -29,4 +31,3 @@ include::topics/VDSM_hooks_execution.adoc[]
 include::topics/VDSM_hooks_return_codes.adoc[]
 
 include::topics/VDSM_hooks_examples.adoc[]
-

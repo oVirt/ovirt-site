@@ -3,33 +3,37 @@
 
 Create a logical network and define its use in a data center, or in clusters in a data center.
 
-*Creating a New Logical Network in a Data Center or Cluster*
+.Procedure
 
 . Click menu:Compute[Data Centers] or menu:Compute[Clusters].
-. Click the data center or cluster name. This opens the details view.
+. Click the data center or cluster name. The *Details* view opens.
 . Click the *Logical Networks* tab.
 . Open the *New Logical Network* window:
 * From a data center details view, click *New*.
 * From a cluster details view, click *Add Network*.
 . Enter a *Name*, *Description*, and *Comment* for the logical network.
-. Optionally, enable *Enable VLAN tagging*.
-. Optionally, disable *VM Network*.
-. Optionally, select the *Create on external provider* check box. This disables the *Network Label*, *VM Network*, and *MTU* options. See xref:chap-External_Providers[] for details.
-
-. Select the *External Provider*. The *External Provider* list does not include external providers that are in `read-only` mode.
-+
-You can create an internal, isolated network, by selecting *ovirt-provider-ovn* on the *External Provider* list and leaving *Connect to physical network* unselected.
+. Optional: Enable *Enable VLAN tagging*.
+. Optional: Disable *VM Network*.
+. Optional: Select the *Create on external provider* checkbox. This disables the network label and the VM network. See xref:chap-External_Providers[] for details.
+.. Select the *External Provider*. The *External Provider* list does not include external providers that are in read-only mode.
+.. To create an internal, isolated network, select *ovirt-provider-ovn* on the *External Provider* list and leave *Connect to physical network* cleared.
 
 . Enter a new label or select an existing label for the logical network in the *Network Label* text field.
 . For *MTU*, either select *Default (1500)* or select *Custom* and specify a custom value.
 +
 [IMPORTANT]
 ====
+After you create a network on an external provider, you cannot change the network's MTU settings.
+====
++
+[IMPORTANT]
+====
 If you change the network’s *MTU* settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see link:https://access.redhat.com/solutions/4540631[] and link:https://bugzilla.redhat.com/show_bug.cgi?id=1766414[BZ#1766414].
 ====
+
 . If you selected *ovirt-provider-ovn* from the *External Provider* drop-down list, define whether the network should implement *Security Groups*. See xref:Logical_Network_General_Settings_Explained[] for details.
 . From the *Cluster* tab, select the clusters to which the network will be assigned. You can also specify whether the logical network will be a required network.
-. If *Create on external provider* is selected, the *Subnet* tab will be visible. From the *Subnet* tab, select the *Create subnet* and enter a *Name*, *CIDR*, and *Gateway* address, and select an *IP Version* for the subnet that the logical network will provide. You can also add DNS servers as required.
+. If the *Create on external provider* checkbox is selected, the *Subnet* tab is visible. From the *Subnet* tab, select the *Create subnet* and enter a *Name*, *CIDR*, and *Gateway* address, and select an *IP Version* for the subnet that the logical network will provide. You can also add DNS servers as required.
 . From the *vNIC Profiles* tab, add vNIC profiles to the logical network as required.
 . Click btn:[OK].
 

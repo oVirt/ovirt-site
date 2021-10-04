@@ -12,9 +12,19 @@ The Welcome Page is the page that is initially displayed when you visit the home
 
 * The link to forward and the associated message for that link
 
-The classes for the Welcome Page are located in *welcome_style.css*.
+* Add a message banner or preamble
+
+The classes for the Welcome Page are located in `welcome_style.css`.
 
 *The Template File*
 
-The template file for the Welcome Page is a regular HTML file of the name `welcome_page.template` that does not contain `HTML`, `HEAD` or `BODY` tags. This file is inserted directly into the Welcome Page itself, and acts as a container for the content that is displayed in the Welcome Page. As such, you must edit this file to add new links or change the content itself. Another feature of the template file is that it contains placeholder text such as `{user_portal}` that is replaced by corresponding text in the *messages.properties* file when the Welcome Page is processed.
+The template file for the Welcome Page is a regular HTML file of the name `welcome_page.template` that does not contain `HTML`, `HEAD` or `BODY` tags. This file is inserted directly into the Welcome Page itself, and acts as a container for the content that is displayed in the Welcome Page. As such, you must edit this file to add new links or change the content itself. Another feature of the template file is that it contains placeholder text such as `{user_portal}` that is replaced by corresponding text in the `messages.properties` file when the Welcome Page is processed.
 
+*The Preamble*
+
+You can add a custom message banner to the Welcome Page by adding a `preamble.template` containing the banner text and a `preamble.css` file defining the banner size, and linking them in the `branding.properties` file. Sample files are available at link:https://bugzilla.redhat.com/attachment.cgi?id=1783329[sample preamble template].
+[NOTE]
+====
+In an engine upgrade, the custom message banner remains in place and will work without issue.
+Following engine backup and restore, during engine restore, the custom message banner needs to be manually restored and verified.
+====

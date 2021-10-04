@@ -7,6 +7,7 @@ To use Red Had Single Sign-On as your authorization method, you need to:
 * Configure the LDAP group mapper.
 * Configure Apache on the {engine-name}.
 * Configure OVN provider credentials.
+* Configure the Monitoring Portal (Grafana)
 
 
 [NOTE]
@@ -36,3 +37,7 @@ include::Configuring_RHSSO_apache.adoc[]
 ==== Configuring OVN
 
 include::Configuring_RHSSO_OVN.adoc[]
+
+==== Configuring the Monitoring Portal (Grafana)
+
+include::Configuring_RHSSO_Monitoring_Portal.adoc[]

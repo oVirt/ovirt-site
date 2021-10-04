@@ -2,10 +2,10 @@
 
 Grafana is a web-based UI tool used to display reports based on data collected from the oVirt Data Warehouse PostgreSQL database under the database name `ovirt_engine_history`. See link:https://grafana.com/grafana/dashboards[Grafana dashboards].
 
-Data from the {engine-name} is aggregated in hourly and daily aggregations. The data is retained according to the scale setting defined in the Data Warehouse configuration during engine-setup (Basic or Full scale):
+Data from the {engine-name} is collected every minute and aggregated in hourly and daily aggregations. The data is retained according to the scale setting defined in the Data Warehouse configuration during engine-setup (Basic or Full scale):
 
-* *Basic* (default) - sampled every 24 hours, hourly data saved for 1 month, daily data - no daily aggregations saved.
-* *Full* (recommended)- sampled every 24 hours, hourly data saved for 2 months, daily aggregations saved for 5 years.
+* *Basic* (default) - samples data saved for 24 hours, hourly data saved for 1 month, daily data - no daily aggregations saved.
+* *Full* (recommended)- samples data saved for 24 hours, hourly data saved for 2 months, daily aggregations saved for 5 years.
 
 Full sample scaling may require migrating the Data Warehouse to a separate virtual machine.
 

@@ -1,0 +1,46 @@
+[id="Configuring_RHSSO_Monitoring_Portal"]
+
+
+. Configure a client's valid redirect URL:
+.. Select the client configured in earlier steps (ie. ovirt-engine)
+.. Add an additional valid Redirect URI for the Monitoring Portal(Grafana).
+    Valid Redirect URIs: https://rhvm.example.com:443/ovirt-engine-grafana/login/generic_oauth/
+.. Select the *Mappers* tab.
+.. Click btn:[Create] to create a new Mapper, and fill in the following fields:
+    * Name: `realm role`
+    * Mapper Type: `User Realm Role`
+    * Token Claim Name: `realm_access.roles`
+    * Claim JSON Type: String
+. Configure Grafana specific roles:
+.. Select *Roles* from the main menu.
+.. Add the following roles: `admin`, `editor`, `viewer`.
+. Assign Grafana specific roles to the desired groups:
+.. Select *Groups* from the main menu, and choose a desired group.
+.. Select *Role Mappings*.
+.. Move the desired roles from *Available Roles* to *Assigned Roles*.
+. Configure Grafana - modify the section `auth.generic_oauth` in `/etc/grafana/grafana.ini` as follows. Replace the values in arrow brackets < > as needed.
++
+----
+(...)
+#################################### Generic OAuth #######################
+[auth.generic_oauth]
+name = oVirt Engine Auth
+enabled = true
+allow_sign_up = true
+client_id = ovirt-engine
+client_secret = <client-secret-of-RH-SSO>
+scopes = openid,ovirt-app-admin,ovirt-app-portal,ovirt-ext=auth:sequence-priority=~
+email_attribute_name = email:primary
+role_attribute_path = "contains(realm_access.roles[*], 'admin') && 'Admin' || contains(realm_access.roles[*], 'editor') && 'Editor' || 'Viewer'"
+auth_url = https://<rh-sso-hostname>/auth/realms/<RH-SSO-REALM>/protocol/openid-connect/auth
+token_url = https://<rh-sso-hostname>/auth/realms/<RH-SSO-REALM>/protocol/openid-connect/token
+api_url = https://<rh-sso-hostname>/auth/realms/<RH-SSO-REALM>/protocol/openid-connect/userinfo
+team_ids =
+allowed_organizations =
+tls_skip_verify_insecure = false
+tls_client_cert =
+tls_client_key =
+tls_client_ca = /etc/pki/ovirt-engine/apache-ca.pem
+send_client_credentials_via_post = false
+(...)
+----

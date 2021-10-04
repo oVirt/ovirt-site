@@ -18,15 +18,15 @@ The keypair and certificate can also be generated using the certificate authorit
 [NOTE]
 ====
 It is good practice to use the same country and same organization name used by the engine itself. Find this information by logging in to the machine where the {engine-name} is installed and running the following command:
-				
+
 [options="nowrap" subs="normal"]
 ----
 
-# openssl x509 -in /etc/pki/ovirt-engine/ca.pem -noout -subject
+openssl x509 -in /etc/pki/ovirt-engine/ca.pem -noout -text | grep DirName
 
 ----
 This command outputs something like this:
-				
+
 [options="nowrap" subs="normal"]
 ----
 
@@ -34,7 +34,7 @@ subject= /C=US/O=Example Inc./CN=_engine.example.com_.81108
 
 ----
 The relevant part here is */C=US/O=Example Inc.*. Use this to build the complete distinguished name for the certificate for the proxy:
-				
+
 [options="nowrap" subs="normal"]
 ----
 
@@ -79,7 +79,7 @@ This signs the certificate and makes it valid for 10 years (3650 days). Set the 
 ----
 +
 . Ensure both *proxy.key* and *proxy.cer* are present on the proxy machine:
-+	
++
 [options="nowrap" subs="normal"]
 ----
 # ls -l proxy.key proxy.cer

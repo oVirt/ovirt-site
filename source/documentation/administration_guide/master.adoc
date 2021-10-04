@@ -1,6 +1,7 @@
 :rhv-doc:
 include::common/collateral_files/attributes.adoc[]
 = Administration Guide
+:context: administration_guide
 
 include::part-Administering_and_Maintaining_the_Red_Hat_Virtualization_Environment.adoc[]
 

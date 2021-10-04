@@ -3,6 +3,11 @@
 
 You can configure the host firewall rules so that they are persistent, using Ansible. The cluster must be configured to use `firewalld`.
 
+[NOTE]
+====
+Changing the `firewalld` zone is not supported.
+====
+
 .Configuring Firewall Rules for Hosts
 
 . On the {engine-name} machine, edit *ovirt-host-deploy-post-tasks.yml.example* to add a custom firewall port:

@@ -1,0 +1,39 @@
+:_module-type: PROCEDURE
+
+[id="proc_installing-a-vdsm-hook"]
+= Installing a VDSM hook
+
+[role="_abstract"]
+By default, VDSM hooks are not installed. If you need a specific hook, you must install it manually.
+
+.Prerequisites
+
+* The host repository must be enabled.
+* You are logged into the host with root permissions.
+
+.Procedure
+
+. Get a list of available hooks:
++
+[options="nowrap" subs="quotes"]
+----
+# dnf list vdsm\\*hook\*
+----
+
+. Install the desired VDSM hook package on the host:
++
+----
+# dnf install <vdsm-hook-name>
+----
++
+For example, to install the `vdsm-hook-vhostmd` package on the host, enter the following:
++
+----
+# dnf install vdsm-hook-vhostmd
+----
+
+[role="_additional-resources"]
+.Additional resources
+
+* link:{URL_virt_product_docs}{URL_format}installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index#Enabling_the_RHVH_repository_SHE_cli_deploy[Enabling the {hypervisor-fullname} Repository]
+* link:{URL_virt_product_docs}{URL_format}installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index#Enabling_the_Red_Hat_Enterprise_Linux_Host_Repositories_SHE_cli_deploy[Enabling the {enterprise-linux-host-fullname} Repositories]

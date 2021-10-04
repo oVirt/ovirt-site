@@ -1,0 +1,6 @@
+You can apply the DISA STIG profile on hosts, either {hypervisor-fullname} ({hypervisor-shortname}) or {enterprise-linux} hosts, either to serve as the host for the {engine-name} virtual machine when you deploy the {engine-name} as a self-hosted engine, or to serve as an ordinary host in a Red Hat Virtualization cluster.
+
+[WARNING]
+====
+Some security hardening, such as disabling SSH for the root user, renders the host unusable for use as a host for Red Hat Virtualization.
+====

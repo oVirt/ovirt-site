@@ -1,0 +1,78 @@
+:_module-type: PROCEDURE
+
+[id="proc_upgrading-the-remote-data-warehouse-service-and-database_{context}"]
+= Upgrading the remote Data Warehouse service and database
+
+[role="_abstract"]
+
+Run this procedure on the remote machine with the Data Warehouse service and database.
+
+Notice that part of this procedure requires you to install {enterprise-linux} 8.2 or later, or {hypervisor-fullname} 4.4.
+
+.Prerequisites
+* You are logged in to the Data Warehouse machine.
+* A storage device outside the {virt-product-shortname} environment.
+
+
+.Procedure
+
+. Back up the Data Warehouse machine.
++
+[NOTE]
+====
+Grafana is not supported on {virt-product-shortname} 4.3, but on {virt-product-shortname} 4.4, this command also includes the Grafana service and the Grafana database.
+====
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --file=__<backupfile>__
+----
+
+. Copy the backup file to a storage device.
+
+. Stop and disable the Data Warehouse service:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl stop ovirt-engine-dwhd
+# systemctl disable ovirt-engine-dwhd
+----
+
+. Reinstall the Data Warehouse machine with {enterprise-linux} 8.2 or later, or {hypervisor-fullname} 4.4.
+
+. Prepare a PostgreSQL database. For information, see link:{URL_virt_product_docs}{URL_format}installing_red_hat_virtualization_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM[Preparing a Remote PostgreSQL Database] in _Installing {virt-product-fullname} as a standalone {engine-name} with remote databases_.
+
+. Enable the correct repositories on the server and install the Data Warehouse service. For detailed instructions, see link:{URL_virt_product_docs}{URL_format}installing_red_hat_virtualization_as_a_standalone_manager_with_remote_databases/index#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM[Installing and Configuring Data Warehouse on a Separate Machine] for {virt-product-fullname} 4.4. Complete the steps in that procedure up to and including the `dnf install ovirt-engine-dwh-setup` command. Then continue to the next step in this procedure.
+
+. Copy the backup file from the storage device to the Data Warehouse machine.
+
+. Restore the backup file:
++
+[options="nowrap" subs="normal"]
+----
+# engine-backup --mode=restore --file=backup.bck --provision-all-databases
+----
+// +
+// [NOTE]
+// ====
+// Do not pass '--provision-all-databases', because you need to use the database that you just created.
+// ====
+
+. On the Data Warehouse machine, run the `engine-setup` command:
++
+[options="nowrap" subs="normal"]
+----
+# engine-setup
+----
+
+. On the {engine-name} machine, restart the {engine-name} to connect it to the Data Warehouse database:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart ovirt-engine
+----
+
+[role="_additional-resources"]
+.Additional resources
+* link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/index[_Performing a standard RHEL installation_]
+* link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Installing_Hosts_for_RHV_SM_remoteDB_deploy[Installing Hosts for {virt-product-fullname}] in _Installing {virt-product-fullname} as a standalone Manager with remote databases_

@@ -3,7 +3,6 @@
 
 You can install Cockpit for monitoring the host's resources and performing administrative tasks.
 
-
 .Procedure
 
 . Install the dashboard packages:

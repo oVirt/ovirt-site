@@ -1,0 +1,194 @@
+:_module-type: PROCEDURE
+
+[id="proc_installing-a-dud-driver-on-a-host-without-installer-support_{context}"]
+= Installing a DUD driver on a host without installer support
+
+[role="_abstract"]
+
+There are times when installing {hypervisor-fullname} ({hypervisor-shortname}) requires a Driver Update Disk (DUD), such as when using a hardware RAID device that is not supported by the default configuration of {hypervisor-shortname}. In contrast with {enterprise-linux} hosts, {hypervisor-shortname} does not fully support using a DUD. Subsequently the host fails to boot normally after installation because it does not see RAID. Instead it boots into emergency mode.
+
+Example output:
+
+[options="nowrap" subs="+quotes,verbatim"]
+----
+Warning: /dev/test/rhvh-4.4-20210202.0+1 does not exist
+Warning: /dev/test/swap does not exist
+Entering emergency mode. Exit the shell to continue.
+----
+
+In such a case you can manually add the drivers before finishing the installation.
+
+.Prerequisites
+
+* A machine onto which you are installing {hypervisor-shortname}.
+* A DUD.
+* If you are using a USB drive for the DUD and {hypervisor-shortname}, you must have at least two available USB ports.
+
+.Procedure
+
+. Load the DUD on the host machine.
+ifdef::ovirt-doc[]
++
+You can search for DUDs or modules for CentOS Stream at the following locations:
++
+* link:https://elrepo.org/linux/dud/el8/x86_64/[DUDs at the ELRepo Project]
+* link:https://wiki.centos.org/SpecialInterestGroup/Kmods[Kmods Special Interest Group]
+endif::ovirt-doc[]
+
+. Install {hypervisor-shortname}. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Installing_Red_Hat_Virtualization_Hosts_SHE_cli_deploy[Installing {hypervisor-fullname}s] in _Installing {virt-product-fullname} as a self-hosted engine using the command line_.
++
+[IMPORTANT]
+====
+When installation completes, do not reboot the system.
+====
++
+[TIP]
+====
+If you want to access the DUD using SSH, do the following:
+
+* Add the string *`` inst.sshd``* to the kernel command line:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+<__kernel_command_line__> inst.sshd
+----
+* Enable networking during the installation.
+====
+
+. Enter the console mode, by pressing kbd:[Ctrl] + kbd:[Alt] + kbd:[F3]. Alternatively you can connect to it using SSH.
+
+. Mount the DUD:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# mkdir /mnt/dud
+# mount -r /dev/_<dud_device>_ /mnt/dud
+----
+
+. Copy the RPM file inside the DUD to the target machine's disk:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# cp /mnt/dud/rpms/_<path>_/_<rpm_file>_.rpm /mnt/sysroot/root/
+----
++
+For example:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# cp /mnt/dud/rpms/x86_64/kmod-3w-9xxx-2.26.02.014-5.el8_3.elrepo.x86_64.rpm /mnt/sysroot/root/
+----
+
+. Change the root directory to `/mnt/sysroot`:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# chroot /mnt/sysroot
+----
+
+. Back up the current initrd images. For example:
++
+ifdef::rhv-doc[]
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# cp -p /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img.bck1
+# cp -p /boot/rhvh-4.4.5.1-0.20210323.0+1/initramfs-4.18.0-240.15.1.el8_3.x86_64.img /boot/rhvh-4.4.5.1-0.20210323.0+1/initramfs-4.18.0-240.15.1.el8_3.x86_64.img.bck1
+----
+endif::rhv-doc[]
+ifdef::ovirt-doc[]
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# cp -p /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img.bck1
+# cp -p /boot/ovirt-node-ng-4.4.5.1-0.20210323.0+1/initramfs-4.18.0-240.15.1.el8_3.x86_64.img /boot/ovirt-node-ng-4.4.5.1-0.20210323.0+1/initramfs-4.18.0-240.15.1.el8_3.x86_64.img.bck1
+----
+endif::ovirt-doc[]
+
+. Install the RPM file for the driver from the copy you made earlier.
++
+For example:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# dnf install /root/kmod-3w-9xxx-2.26.02.014-5.el8_3.elrepo.x86_64.rpm
+----
++
+[NOTE]
+====
+This package is not visible on the system after you reboot into the installed environment, so if you need it, for example, to rebuild the `initramfs`, you need to install that package once again, after which the package remains.
+
+If you update the host using `dnf`, the driver update persists, so you do not need to repeat this process.
+====
++
+[TIP]
+====
+If you do not have an internet connection, use the `rpm` command instead of `dnf`:
+
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# rpm -ivh /root/kmod-3w-9xxx-2.26.02.014-5.el8_3.elrepo.x86_64.rpm
+----
+====
+
+. Create a new image, forcefully adding the driver:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# dracut --force --add-drivers __<module_name>__ --kver __<kernel_version>__
+----
++
+For example:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# dracut --force --add-drivers 3w-9xxx --kver 4.18.0-240.15.1.el8_3.x86_64
+----
+
+. Check the results. The new image should be larger, and include the driver. For example, compare the sizes of the original, backed-up image file and the new image file.
++
+In this example, the new image file is 88739013 bytes, larger than the original 88717417 bytes:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# ls -ltr /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img*
+-rw-------. 1 root root 88717417 Jun  2 14:29 /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img.bck1
+-rw-------. 1 root root 88739013 Jun  2 17:47 /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img
+----
++
+The new drivers should be part of the image file. For example, the 3w-9xxx module should be included:
++
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# lsinitrd /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img | grep 3w-9xxx
+drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-240.15.1.el8_3.x86_64/weak-updates/3w-9xxx
+lrwxrwxrwx   1 root     root           55 Feb 22 15:57 usr/lib/modules/4.18.0-240.15.1.el8_3.x86_64/weak-updates/3w-9xxx/3w-9xxx.ko-../../../4.18.0-240.el8.x86_64/extra/3w-9xxx/3w-9xxx.ko
+drwxr-xr-x   2 root     root            0 Feb 22 15:57 usr/lib/modules/4.18.0-240.el8.x86_64/extra/3w-9xxx
+-rw-r--r--   1 root     root        80121 Nov 10  2020 usr/lib/modules/4.18.0-240.el8.x86_64/extra/3w-9xxx/3w-9xxx.ko
+----
+
+. Copy the image to the the directory under `/boot` that contains the kernel to be used in the layer being installed, for example:
++
+ifdef::rhv-doc[]
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# cp -p /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img /boot/rhvh-4.4.5.1-0.20210323.0+1/initramfs-4.18.0-240.15.1.el8_3.x86_64.img
+----
+endif::rhv-doc[]
+ifdef::ovirt-doc[]
+[options="nowrap" subs="+quotes,verbatim"]
+----
+# cp -p /boot/initramfs-4.18.0-240.15.1.el8_3.x86_64.img /boot/ovirt-node-ng-4.4.5.1-0.20210323.0+1/initramfs-4.18.0-240.15.1.el8_3.x86_64.img
+----
+endif::ovirt-doc[]
+
+. Exit chroot.
+
+. Exit the shell.
+
+. If you used kbd:[Ctrl] + kbd:[Alt] + kbd:[F3] to access a virtual terminal, then move back to the installer by pressing kbd:[Ctrl] + kbd:[Alt] + kbd:[F_<n>_], usually kbd:[F1] or kbd:[F5]
+
+. At the installer screen, reboot.
+
+
+.Verification
+
+The machine should reboot successfully.

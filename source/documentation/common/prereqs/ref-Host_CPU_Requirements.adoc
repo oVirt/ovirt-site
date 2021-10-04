@@ -35,6 +35,6 @@ For each CPU model with security updates, the *CPU Type* lists a basic type and 
 * *Intel Cascadelake Server Family*
 * *Secure Intel Cascadelake Server Family*
 
-The Secure CPU type contains the latest updates. For details, see BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1731395[1731395]
+The Secure CPU type contains the latest updates. For details, see BZ#link:https://bugzilla.redhat.com/1731395[1731395]
 
 include::proc-Checking_Processor_Flag_Support.adoc[leveloffset=+1]

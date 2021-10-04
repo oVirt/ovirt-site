@@ -6,9 +6,19 @@ Register the system to receive updates. {hypervisor-fullname} only requires one 
 [id='RHVH_CDN_register_{context}']
 .Registering {hypervisor-shortname} with the Content Delivery Network
 
+ifdef::SHE_cockpit_deploy[]
 . Log in to the Cockpit web interface at `https://_HostFQDNorIP_:9090`.
 . Navigate to *Subscriptions*, click *Register*, and enter your Customer Portal user name and password. The *{hypervisor-fullname}* subscription is automatically attached to the system.
 . Click *Terminal*.
+endif::SHE_cockpit_deploy[]
+ifdef::SHE_cli_deploy[]
+. Register your system with the Content Delivery Network, entering your Customer Portal user name and password when prompted:
++
+[options="nowrap" subs="normal"]
+----
+# subscription-manager register
+----
+endif::SHE_cli_deploy[]
 . Enable the `{hypervisor-fullname} 8` repository to allow later updates to the {hypervisor-fullname}:
 +
 [options="nowrap" subs="normal"]

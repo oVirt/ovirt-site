@@ -8,6 +8,11 @@ To configure single sign-on for {enterprise-linux} virtual machines using GNOME 
 The following procedure assumes that you have a working IPA configuration and that the IPA domain is already joined to the {engine-name}. You must also ensure that the clocks on the {engine-name}, the virtual machine and the system on which IPA (IdM) is hosted are synchronized using NTP.
 ====
 
+[NOTE]
+====
+Single Sign-On (SSO) is deprecated for virtual machines with {enterprise-linux} version 7 or earlier and for Windows guest operating systems. Support for SSO will not be provided for virtual machines running {enterprise-linux} 8 or later or Windows as guest operating systems.
+====
+
 [[configure-sso-linux-74]]
 Configuring Single Sign-On for {enterprise-linux} Virtual Machines
 

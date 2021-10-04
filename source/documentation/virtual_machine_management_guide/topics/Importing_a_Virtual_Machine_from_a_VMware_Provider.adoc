@@ -47,7 +47,7 @@ Although the ISO storage domain has been deprecated, it is required for migratio
 .. Enter the IP address or fully qualified domain name of the VMware vCenter instance in the *vCenter* field.
 .. Enter the IP address or fully qualified domain name of the host from which the virtual machines will be imported in the *ESXi* field.
 .. Enter the name of the data center and the cluster in which the specified ESXi host resides in the *Data Center* field.
-.. If you have exchanged the SSL certificate between the ESXi host and the {engine-name}, leave *Verify server's SSL certificate* checked to verify the ESXi host's certificate. If not, uncheck the option.
+.. If you have exchanged the SSL certificate between the ESXi host and the {engine-name}, leave *Verify server's SSL certificate* checked to verify the ESXi host's certificate. If not, clear the option.
 .. Enter the *Username* and *Password* for the VMware vCenter instance. The user must have access to the VMware data center and ESXi host on which the virtual machines reside.
 .. Select a host in the chosen data center with `virt-v2v` installed to serve as the *Proxy Host* during virtual machine import operations. This host must also be able to connect to the network of the VMware vCenter external provider.
 . Click *Load* to list the virtual machines on the VMware provider that can be imported.

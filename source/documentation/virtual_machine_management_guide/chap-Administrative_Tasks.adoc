@@ -26,7 +26,9 @@ The guest tools are distributed as an ISO file that you can attach to virtual ma
 
 include::topics/Updating_the_Guest_Agents_and_Drivers_on_Red_Hat_Enterprise_Linux.adoc[]
 
-include::topics/Updating_the_Guest_Agents_and_Drivers_on_Windows.adoc[]
+include::topics/Updating_Win_Guest_Drivers_with_Windows_Update.adoc[leveloffset=+3]
+
+include::topics/Updating_the_Guest_Agents_and_Drivers_on_Windows.adoc[leveloffset=+3]
 
 include::topics/Viewing_Satellite_Errata.adoc[]
 

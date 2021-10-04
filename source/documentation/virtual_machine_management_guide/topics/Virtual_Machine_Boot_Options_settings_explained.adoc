@@ -30,7 +30,7 @@ a|After installing a new virtual machine, the new virtual machine must go into B
 
 
 |*Attach CD*
-|If you have selected *CD-ROM* as a boot device, tick this check box and select a CD-ROM image from the drop-down menu. The images must be available in the ISO domain.
+|If you have selected *CD-ROM* as a boot device, select this check box and select a CD-ROM image from the drop-down menu. The images must be available in the ISO domain.
 | Yes.
 
 

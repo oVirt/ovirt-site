@@ -109,11 +109,11 @@ If you define NUMA pinning, *Migration Options* is set to *Allow manual migratio
 |*Auto Pinning Policy*
 a| Allows you to set NUMA Pinning automatically.
 
-* Select *Don't Change* to make no changes to the virtual machine.
+* Select *None* to make no changes to the virtual machine.
 
-* Select *Existing* to use the existing CPU topology that has been set, in order to configure CPU pinning and NUMA pinning.
+//* Select *Pin* to use the existing CPU topology that has been set, in order to configure CPU pinning and NUMA pinning.
 
-* Select *Adjust* to maximize the CPU topology and generate the CPU pinning and NUMA pinning configurations.
+* Select *Resize and Pin* to maximize the CPU topology and generate the CPU pinning and NUMA pinning configurations.
 |No
 
 |===

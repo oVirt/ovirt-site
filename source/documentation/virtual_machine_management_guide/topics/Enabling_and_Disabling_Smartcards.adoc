@@ -17,8 +17,6 @@ Smart cards are an external hardware security feature, most commonly seen in cre
 
 [IMPORTANT]
 ====
-Important
-
 If the Smart card hardware is not correctly installed, enabling the Smart card feature will result in the virtual machine failing to load properly.
 ====
 
@@ -35,26 +33,52 @@ If the Smart card hardware is not correctly installed, enabling the Smart card f
 
 *Configuring Client Systems for Smart Card Sharing*
 
-. Smart cards may require certain libraries in order to access their certificates. These libraries must be visible to the NSS library, which `spice-gtk` uses to provide the smart card to the guest. NSS expects the libraries to provide the PKCS #11 interface.
-. Make sure that the module architecture matches `spice-gtk/remote-viewer`'s architecture. For instance, if you have only the 32b PKCS #11 library available, you must install the 32b build of virt-viewer in order for smart cards to work.
+* Smart cards may require certain libraries in order to access their certificates. These libraries must be visible to the NSS library, which `spice-gtk` uses to provide the smart card to the guest. NSS expects the libraries to provide the PKCS #11 interface.
+* Make sure that the module architecture matches the  `spice-gtk` / `remote-viewer` architecture. For instance, if you have only the 32b PKCS #11 library available, you must install the 32b build of virt-viewer in order for smart cards to work.
+
+*Configuring RHEL Clients for Smart Card support*
+
+{enterprise-linux} provides support for Smart cards. Install the `Smart card support` group. If the Smart Card Support group is installed on a {enterprise-linux} system, smart cards are redirected to the guest when Smart Cards are enabled.
+
+. To install the `Smart card support` group, run the following command:
++
+[options="nowrap" subs="normal"]
+----
+# dnf groupinstall "Smart card support"
+----
 
 
 *Configuring RHEL Clients with Other Smart Card Middleware*
 
+////
 Register the library in the system's NSS database. Run the following command as root:
 
 [options="nowrap" subs="normal"]
 ----
 # modutil -dbdir /etc/pki/nssdb -add "_module name_" -libfile _/path/to/library_.so
 ----
+////
 
+{enterprise-linux} provides a system-wide registry of pkcs11 modules in the *p11-kit*, and these are accessible to all applications.
 
-
+. To register the third party PKCS#11 library in the p11-kit database, run the following command as root:
++
+----
+# echo "module: /path/to/library.so" > /etc/pkcs11/modules/my.module
+----
++
+. To verify the Smart card is visible for p11-kit through this library run the following command:
++
+----
+$ p11-kit list-modules
+----
 
 *Configuring Windows Clients*
 
-Red Hat does not provide PKCS #11 support to Windows clients. Libraries that provide PKCS #11 support must be obtained from third parties. When such libraries are obtained, register them by running the following command as a user with elevated privileges:
+Red Hat does not provide PKCS #11 support to Windows clients. Libraries that provide PKCS #11 support must be obtained from third parties.
 
+. When such libraries are obtained, register them by running the following command as a user with elevated privileges:
++
 [options="nowrap" subs="normal"]
 ----
 modutil -dbdir %PROGRAMDATA%\pki\nssdb -add "_module name_" -libfile C:_\Path\to\module_.dll

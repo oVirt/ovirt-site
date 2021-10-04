@@ -75,7 +75,7 @@ a|Defines what happens when the console is disconnected. This is only relevant w
 
 
 |*Smartcard Enabled*
-|Smart cards are an external hardware security feature, most commonly seen in credit cards, but also used by many businesses as authentication tokens. Smart cards can be used to protect {virt-product-fullname} virtual machines. Tick or untick the check box to activate and deactivate Smart card authentication for individual virtual machines.
+|Smart cards are an external hardware security feature, most commonly seen in credit cards, but also used by many businesses as authentication tokens. Smart cards can be used to protect {virt-product-fullname} virtual machines. Select or clear the check box to activate and deactivate Smart card authentication for individual virtual machines.
 | Yes.
 
 

@@ -1,0 +1,16 @@
+[id="Updating_Win_Guest_Drivers_with_Windows_Updates"]
+= Updating Windows drivers with Windows Update
+
+When you need to update the drivers for a Windows virtual machine, the simplest method is to use Windows Update.
+
+.Procedure
+
+. Log in to the virtual machine.
+. Ensure that Windows Update is enabled so you can get updates.
+. Check Windows Update for updates from *Red Hat, Inc*.
+. Manually install any updates that have not been automatically installed.
+
+.Additional resources
+
+* xref:Updating_the_Guest_Agents_and_Drivers_on_Windows[Updating Windows guest agents and drivers using the command prompt]
+* See the Microsoft documentation for details on using Windows Update.

@@ -22,7 +22,7 @@ When you specify the *Native client* console invocation option, you will connect
 
 * *Zoom*: Zooms in and out of the console window. `Ctrl` + `+` zooms in, `Ctrl` + `-` zooms out, and `Ctrl` + `0` returns the screen to its original size.
 
-* *Automatically resize*: Tick to enable the guest resolution to automatically scale according to the size of the console window.
+* *Automatically resize*: Select to enable the guest resolution to automatically scale according to the size of the console window.
 
 * *Displays*: Allows users to enable and disable displays for the guest virtual machine.
 

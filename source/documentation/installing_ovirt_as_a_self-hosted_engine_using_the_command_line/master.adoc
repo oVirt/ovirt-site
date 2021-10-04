@@ -44,7 +44,7 @@ Installing a self-hosted engine environment involves the following steps:
 
 . xref:Installing_the_Red_Hat_Virtualization_Manager_SHE_cli_deploy[Install and configure the {virt-product-fullname} {engine-name}:]
 .. xref:Enabling-and-configuring-firewall_install_RHVM[Enabling and configuring the firewall]
-.. xref:Deploying_the_Self-Hosted_Engine_Using_the_CLI_install_RHVM[Install the self-hosted engine using the `hosted-engine --deploy` command on the deployment host.]
+.. link:{URL_downstream_virt_product_docs}installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index#Deploying_the_Self-Hosted_Engine_Using_the_CLI_install_RHVM[Install the self-hosted engine using the `hosted-engine --deploy` command on the deployment host.]
 .. xref:Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Register the {engine-name} with the Content Delivery Network and enable the {virt-product-fullname} {engine-name} repositories.]
 .. xref:Connecting_to_the_Administration_Portal_install_RHVM[Connect to the Administration Portal to add hosts and storage domains.]
 
@@ -139,5 +139,5 @@ include::common/install/proc-Preventing_Kernel_Modules_from_Loading_Automaticall
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
 
-// [appendix]
-// include::common/security/assembly-Securing_Red_Hat_Virtualization.adoc[leveloffset=+1]
+[appendix]
+include::common/security/assembly-Securing_Red_Hat_Virtualization.adoc[leveloffset=+1]

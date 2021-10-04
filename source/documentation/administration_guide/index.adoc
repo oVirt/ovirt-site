@@ -1,5 +1,5 @@
 :ovirt-doc:
-include::../common/collateral_files/attributes.adoc[]
+include::common/collateral_files/attributes.adoc[]
 = Administration Guide
 
 // Make sure Jekyll displays a guide title

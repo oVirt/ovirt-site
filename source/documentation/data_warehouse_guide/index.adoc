@@ -1,5 +1,5 @@
 :ovirt-doc:
-include::../common/collateral_files/attributes.adoc[]
+include::common/collateral_files/attributes.adoc[]
 = Data Warehouse Guide
 :imagesdir: images
 :context: DWH
@@ -9,7 +9,7 @@ include::../common/collateral_files/attributes.adoc[]
 [discrete]
 = Data Warehouse Guide
 
-include::../common/database/snip-About_Data_Warehouse.adoc[]
+include::common/database/snip-About_Data_Warehouse.adoc[]
 
 include::chap-Installing_and_Configuring_Data_Warehouse.adoc[leveloffset=+1]
 

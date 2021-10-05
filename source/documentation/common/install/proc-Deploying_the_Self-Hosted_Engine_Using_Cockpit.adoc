@@ -18,6 +18,19 @@ You can customize the {engine-name} virtual machine during deployment, either ma
 * FQDNs prepared for your {engine-name} and the deployment host. Forward and reverse lookup records must both be set in the DNS.
 * When using a block storage domain, either FCP or iSCSI, a single target LUN is the only supported setup for a self-hosted engine.
 * (Optional) If you want to customize the {engine-name} virtual machine during deployment using automation, an Ansible playbook must be added. See xref:customizing_engine_vm_during_deployment_auto_SHE_cockpit_deploy[].
+* The self-hosted engine setup script requires ssh public key access using 2048-bit RSA keys from the engine virtual machine to the root account of its bare metal host. In `/etc/ssh/sshd_config`, these values must be set as follows:
+** `PubkeyAcceptedKeyTypes` must allow 2048-bit RSA keys or stronger.
++
+By default, this setting uses system-wide crypto policies. For more information, see the manual page `crypto-policies(7)`.
++
+[NOTE]
+====
+{hypervisor-shortname} hosts that are registered with the {engine-name} in versions earlier than 4.4.5.5 require RSA 2048 for backward compatibility until all the keys are migrated.
+
+{hypervisor-shortname} hosts registered for 4.4.5.5 and later use the strongest algorithm that is supported by both the {engine-name} and {hypervisor-shortname}. The `PubkeyAcceptedKeyTypes` setting helps determine which algorithm is used.
+====
+** `PermitRoolLogin` is set to `without-password` or `yes`
+** `PubkeyAuthentication` is set to `yes`
 
 .Procedure
 

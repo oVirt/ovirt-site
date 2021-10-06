@@ -24,10 +24,9 @@ Confirm authentication is working correctly with the following command:
 $ ssh -T git@github.com
 ----
 
-== Fork and clone the OpenShift documentation repository
-You must fork and set up the oVirt Site repository on your
-workstation so that you can create PRs and contribute. These steps must only
-be performed during initial setup.
+== Fork and clone the oVirt site repository
+You must fork and set up the oVirt site repository on your
+workstation so that you can create PRs and contribute. You only need to perform these steps during initial setup.
 
 . Fork the https://github.com/ovirt/ovirt-site repository into your
 GitHub account from the GitHub UI. Do this by clicking on *Fork* in the
@@ -59,7 +58,7 @@ $ git remote add upstream git@github.com:ovirt/ovirt-site.git
 This ensures that you are tracking the remote repository to keep your local
 repository in sync with it.
 
-== Install AsciiBinder and dependencies
+== Install AsciiDoctor and dependencies
 When you have the documentation repository cloned and set up, you are ready to
 install the software and tools you will use to create the content. All oVirt
 documentation is created in AsciiDoc, and is processed with http://asciidoctor.org/[AsciiDoctor].

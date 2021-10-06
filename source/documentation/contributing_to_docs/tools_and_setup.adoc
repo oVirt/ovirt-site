@@ -10,7 +10,7 @@
 toc::[]
 
 == Create a GitHub account
-Before you can contribute to OpenShift documentation, you must
+Before you can contribute to oVirt documentation, you must
 https://www.github.com/join[sign up for a GitHub account].
 
 == Set up authentication
@@ -25,35 +25,35 @@ $ ssh -T git@github.com
 ----
 
 == Fork and clone the OpenShift documentation repository
-You must fork and set up the OpenShift documentation repository on your
+You must fork and set up the oVirt Site repository on your
 workstation so that you can create PRs and contribute. These steps must only
 be performed during initial setup.
 
-. Fork the https://github.com/openshift/openshift-docs repository into your
-GitHub account from the GitHub UI. You can do this by clicking on *Fork* in the
+. Fork the https://github.com/ovirt/ovirt-site repository into your
+GitHub account from the GitHub UI. Do this by clicking on *Fork* in the
 upper right-hand corner.
 
-. In the terminal on your workstation, change into the directory where you want
+. In the terminal on your workstation, change to the directory where you want
 to clone the forked repository.
 
 .  Clone the forked repository onto your workstation with the following
 command, replacing _<user_name>_ with your actual GitHub username.
 +
 ----
-$ git clone git@github.com:<user_name>/openshift-docs.git
+$ git clone git@github.com:<user_name>/ovirt-site.git
 ----
 
 . Change into the directory for the local repository you just cloned.
 +
 ----
-$ cd openshift-docs
+$ cd ovirt-site
 ----
 
-. Add an upstream pointer back to the OpenShift's remote repository, in this
-case _openshift-docs_.
+. Add an upstream pointer back to the oVirt site's remote repository, in this
+case _ovirt-site_.
 +
 ----
-$ git remote add upstream git@github.com:openshift/openshift-docs.git
+$ git remote add upstream git@github.com:ovirt/ovirt-site.git
 ----
 
 This ensures that you are tracking the remote repository to keep your local
@@ -61,9 +61,8 @@ repository in sync with it.
 
 == Install AsciiBinder and dependencies
 When you have the documentation repository cloned and set up, you are ready to
-install the software and tools you will use to create the content. All OpenShift
-documentation is created in AsciiDoc, and is processed with https://github.com/redhataccess/ascii_binder[AsciiBinder],
-which is an http://asciidoctor.org/[AsciiDoctor]-based docs management system.
+install the software and tools you will use to create the content. All oVirt
+documentation is created in AsciiDoc, and is processed with http://asciidoctor.org/[AsciiDoctor].
 
 
 === What you require
@@ -98,12 +97,15 @@ $ curl -sSL https://get.rvm.io | bash -s stable --ruby
 4. Install _redhat-rpm-config_ with `yum install redhat-rpm-config`
 5. Install _make_ with `yum install make`
 6. Install _asciidoctor-diagram_ with `gem install asciidoctor-diagram`
+////
 7. Install the _ascii_binder_ gem with `gem install ascii_binder`
 
 NOTE: If you already have AsciiBinder installed, you might be due for an update.
 These directions assume that you are using AsciiBinder 0.2.0 or newer. To check
 and update if necessary, simply run `gem update ascii_binder`. Note that you might require root permissions.
+////
 
+////
 === Building the collection
 With the initial setup complete, you are ready to build the collection.
 
@@ -126,7 +128,7 @@ environment manually by running:
 ----
 $ asciibinder clean
 ----
-
+////
 == Next steps
 With the repository and tools set up on your workstation, you can now either
 edit existing content or create assemblies and modules.
@@ -156,7 +158,7 @@ $ git branch -D $(git branch | grep -v 'main' | xargs)
 $ for branch in $(git branch -r | grep -v "main" | grep "^  upstream"); do git branch --track $(echo $branch | cut -d '/' -f 2) $(echo $branch | tr -d '[:space:]'); done
 $ for branch in $(git branch | grep -v "main"); do git push origin $(echo $branch | tr -d '[:space:]'); done
 ----
-
+////
 Deploying the docs site to an OpenShift cluster
 ----
 $ oc process -f asciibinder-template.yml -p NAME=community-docs \
@@ -187,3 +189,4 @@ You can delete all created objects by running
 $ oc delete all -l app=community-docs
 $ oc delete all -l app=commercial-docs
 ----
+////

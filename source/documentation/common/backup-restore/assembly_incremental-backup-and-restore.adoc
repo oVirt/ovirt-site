@@ -37,7 +37,7 @@ There is no way to detect an invalid bitmap, other than starting a backup. If th
 
 
 
-.How enabling incremental backup affects disk format:
+.How enabling incremental backup using the Administration portal affects disk format:
 [options="header"]
 |===
 |Storage type |Provisioning type |When incremental backup is... |Virtual disk format is...

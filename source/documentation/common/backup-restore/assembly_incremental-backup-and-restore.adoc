@@ -24,6 +24,8 @@ As a developer, you can use the API to develop a backup application.
 .Features
 Backups are simpler, faster and more robust than when using the Backup and Restore API. The Incremental Backup API provides improved integration with backup applications, with new support for backing up and restoring RAW guest data, regardless of the underlying disk format.
 
+To recover from invalid bitmaps, you can remove a specific checkpoint in the backup chain. You do not need to run a full backup.
+
 .Limitations:
 * Only disks in QCOW2 format can be backed up incrementally, not RAW format disks. The backup process saves the backed up data in RAW format.
 * Only backed up data in RAW format can be restored.
@@ -32,24 +34,24 @@ Backups are simpler, faster and more robust than when using the Backup and Resto
 * An unclean shutdown of a virtual machine, whatever the cause, might invalidate bitmaps on the disk, which invalidates the entire backup chain. Restoring an incremental backup using an invalid bitmap leads to corrupt virtual machine data.
 +
 There is no way to detect an invalid bitmap, other than starting a backup. If the disk includes any invalid bitmaps, the operation fails.
-+
-To recover from invalid bitmaps, you must remove the entire backup chain and run a full backup.
+
 
 
 .How enabling incremental backup affects disk format:
 [options="header"]
 |===
-|Storage type |Provisioning type |When incremental backup is... |Virtual disk format is... |
+|Storage type |Provisioning type |When incremental backup is... |Virtual disk format is...
 |block |thin |enabled |qcow2
-|block |thin |disabled |qcow2
-|file |thin |enabled |qcow2
-|file |thin |disabled |raw (sparse)
 |block |preallocated |enabled |qcow2 (preallocated)
-|block |preallocated |disabled |raw (preallocated)
+|file |thin |enabled |qcow2
 |file |preallocated |enabled |qcow2 (preallocated)
+
+|block |thin |disabled |qcow2
+|block |preallocated |disabled |raw (preallocated)
+|file |thin |disabled |raw (sparse)
 |file |preallocated |disabled |raw (preallocated)
-|network |Not applicable |disabled |raw
-|lun |Not applicable |disabled |raw
+|network |_Not applicable_ |disabled |raw
+|lun |_Not applicable_ |disabled |raw
 |===
 
 = The Incremental Backup Flow

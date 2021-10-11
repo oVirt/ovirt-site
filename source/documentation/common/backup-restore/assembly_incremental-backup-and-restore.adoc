@@ -35,9 +35,14 @@ To recover from invalid bitmaps, you can remove a specific checkpoint in the bac
 +
 There is no way to detect an invalid bitmap, other than starting a backup. If the disk includes any invalid bitmaps, the operation fails.
 
+The following table describes the disk configurations that support incremental backup.
 
+[NOTE]
+====
+When you create a disk using the Administration portal, you set the storage type, provisioning type, and whether incremental backup is enabled or disabled. Based on these settings, the {engine-name} determines the virtual disk format.
+====
 
-.How enabling incremental backup using the Administration portal affects disk format:
+.Supported disk configurations for incremental backup
 [options="header"]
 |===
 |Storage type |Provisioning type |When incremental backup is... |Virtual disk format is...

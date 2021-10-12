@@ -24,7 +24,7 @@ As a developer, you can use the API to develop a backup application.
 .Features
 Backups are simpler, faster and more robust than when using the Backup and Restore API. The Incremental Backup API provides improved integration with backup applications, with new support for backing up and restoring RAW guest data, regardless of the underlying disk format.
 
-To recover from invalid bitmaps, you can remove a specific checkpoint in the backup chain. You do not need to run a full backup.
+If an invalid bitmap causes a backup to fail, you can remove a specific checkpoint in the backup chain. You do not need to run a full backup.
 
 .Limitations:
 * Only disks in QCOW2 format can be backed up incrementally, not RAW format disks. The backup process saves the backed up data in RAW format.

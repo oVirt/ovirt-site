@@ -1,0 +1,23 @@
+[[Configuring_timezones]]
+= Configuring the time zone
+
+{virt-product-fullname} stores time zone configurations for virtual machines in */etc/ovirt-engine/conf/00-timezone.properties*. This file contains default time zone values such as `Etc/GMT=Greenwich Standard Time`. It features mappings that are valid for windows and non-Windows time zones. 
+
+[IMPORTANT]
+====
+Do not edit the actual *00-timezone.properties* file. Changes will be overwritten if you upgrade or restore the {engine-name}.
+
+Do not change values that come directly from the operating system or the {engine-name}.
+====
+
+To change the time zone configuration, create an override file in */etc/ovirt-engine/conf/*. The file name must begin with a value greater than `00`, so that the file appears after */etc/ovirt-engine/conf/00-timezone.properties*, and ends with the extension, *.properties*.
+
+For example, *10-timezone.properties* overrides the default file, *00-timezone.properties*. The last file in the file list has precedence over earlier files.
+
+Once you have created a time zone configuration file, new time zones can be added to that file. When adding new time zones, be sure the values you enter are valid Windows time zones. 
+
+
+
+
+
+

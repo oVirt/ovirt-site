@@ -251,6 +251,12 @@ Engine database password:
 endif::SM_localDB_deploy[]
 
 ifdef::SM_remoteDB_deploy[]
+
+[NOTE]
+====
+Deployment with a remote engine database is now deprecated. This functionality will be removed in a future release.
+====
+
 ** If you select `Remote`, input the following values for the preconfigured remote database server. Replace `localhost` with the ip address or FQDN of the remote database server:
 +
 [options="nowrap" subs="normal"]

@@ -21,7 +21,7 @@ It has been planned to include in this release the content from this query:
 
 # oVirt 4.4.9 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.9 Second Release Candidate as of October 07, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.9 Third Release Candidate as of October 15, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -94,9 +94,20 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 #### oVirt Engine Data Warehouse
 
+ - [BZ 2007550](https://bugzilla.redhat.com/show_bug.cgi?id=2007550) **Change type of disk write/read rate from integer to long**
+
+   Change the type of the virtual machines disk write/read rate from integer to long.
+
  - [BZ 1992690](https://bugzilla.redhat.com/show_bug.cgi?id=1992690) **[RFE] Customize 'oVirt Inventory Dashboard' to include cluster wide information about 'CPUs Overcommit' and 'Running VMs - CPU Cores vs. Total Hosts-CPU Cores'**
 
    The Inventory dashboard showed until now overcommits rates for each data center, now overcommits rates for each cluster is available too.
+
+
+#### oVirt Engine
+
+ - [BZ 2004444](https://bugzilla.redhat.com/show_bug.cgi?id=2004444) **Try to enable cinderlib repos on host during host upgrade**
+
+   During host installation or host upgrade engine is checking if cinderlib and ceph packages are available and if not, it tries to enable required channels specified in the documentation. If there is a problem during channel enablement, then error is raised into audit_log and customers need to enable channel manually and afterwards retry installation/upgrade
 
 
 #### ovirt-engine-extension-aaa-ldap
@@ -109,6 +120,27 @@ From version 1.4.5 ovirt-engine-extension-aaa-ldap is going to fetch A and AAAA 
 
 
 ### Enhancements
+
+#### oVirt Engine Data Warehouse
+
+ - [BZ 1999563](https://bugzilla.redhat.com/show_bug.cgi?id=1999563) **[RFE] Add a unique number to each panel in Grafana**
+
+   Feature: 
+
+There are panels that have the same panel number, and panels with no panel number at all. 
+
+
+
+Reason: 
+
+The goal is to help the user and us identify and differentiate between panels and dashboards in a much easier way.
+
+
+
+Result:
+
+We would like to delete all the existing numbers, and add a unique number to each panel in Grafana.
+
 
 #### oVirt Host Dependencies
 
@@ -149,6 +181,8 @@ Result: No need to manually install a package to setup remote encrypted logging.
 
 #### oVirt Engine
 
+ - [BZ 2000364](https://bugzilla.redhat.com/show_bug.cgi?id=2000364) **Engine fails to start, unable to read cloud-init network config from stateless snapshot configuration.**
+
  - [BZ 1985973](https://bugzilla.redhat.com/show_bug.cgi?id=1985973) **Remove the abort snapshot behavior**
 
  - [BZ 1979730](https://bugzilla.redhat.com/show_bug.cgi?id=1979730) **Windows VM ends up with ghost NIC and missing secondary disks machine type changes from pc-q35-rhel8.3.0 to pc-q35-rhel8.4.0**
@@ -180,6 +214,14 @@ Result: No need to manually install a package to setup remote encrypted logging.
 
 #### oVirt Engine
 
+ - [BZ 1923178](https://bugzilla.redhat.com/show_bug.cgi?id=1923178) **Can not download VM disks due to 'Cannot transfer Virtual Disk: Disk is locked'**
+
+   
+
+ - [BZ 1984308](https://bugzilla.redhat.com/show_bug.cgi?id=1984308) **[CBT] Full backup fails when trying to make another backup right after the previous one is reported as done**
+
+   
+
  - [BZ 1992686](https://bugzilla.redhat.com/show_bug.cgi?id=1992686) **[Scale] Slow performing vm api follow query impacting engine health**
 
    
@@ -204,11 +246,33 @@ Result: No need to manually install a package to setup remote encrypted logging.
    
 
 
+#### oVirt Hosted Engine Setup
+
+ - [BZ 2001579](https://bugzilla.redhat.com/show_bug.cgi?id=2001579) **remove genisoimage leftovers as it's not used anymore and not available on CentOS Stream 9**
+
+   
+
+ - [BZ 1986733](https://bugzilla.redhat.com/show_bug.cgi?id=1986733) **ovirt-hosted-engine-setup uses deprecated API platform.linux_distribution which has been removed in Python 3.7 and later.**
+
+   
+
+ - [BZ 1989092](https://bugzilla.redhat.com/show_bug.cgi?id=1989092) **hosted engine Installer typo:"Engine VM FQDN:  []:" should be "Engine VM FQDN[]:"**
+
+   
+
+
 ### No Doc Update
 
 #### oVirt Hosted Engine HA
 
  - [BZ 1993957](https://bugzilla.redhat.com/show_bug.cgi?id=1993957) **Engine VM might be shut down after the score wrongly being penalized due to cpu load**
+
+   
+
+
+#### VDSM
+
+ - [BZ 2004469](https://bugzilla.redhat.com/show_bug.cgi?id=2004469) **[RHV 4.4.8] Unable to upgrade RHVH if vdsm-hook-ethtool-options is installed**
 
    
 
@@ -224,29 +288,42 @@ Result: No need to manually install a package to setup remote encrypted logging.
    
 
 
+#### oVirt Host Dependencies
+
+ - [BZ 2004913](https://bugzilla.redhat.com/show_bug.cgi?id=2004913) **update to cinderlib 16.2**
+
+   
+
+
 #### Contributors
 
-24 people contributed to this release:
+30 people contributed to this release:
 
 	Ales Musil (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
-	Asaf Rachmani (Contributed to: ovirt-hosted-engine-ha)
+	Asaf Rachmani (Contributed to: ovirt-hosted-engine-ha, ovirt-hosted-engine-setup)
 	Aviv Litman (Contributed to: ovirt-dwh, ovirt-engine-metrics)
+	Benny Zlotnik (Contributed to: ovirt-host)
 	Dana Elfassy (Contributed to: ovirt-engine)
 	Deric Crago (Contributed to: ovirt-ansible-collection)
 	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
 	Filip Januska (Contributed to: vdsm)
+	Hilda Stastna (Contributed to: ovirt-web-ui)
 	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection)
 	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-extension-aaa-ldap)
+	Michal Skrivanek (Contributed to: ovirt-hosted-engine-setup)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nir Soffer (Contributed to: ovirt-engine, ovirt-imageio, vdsm)
+	Pavel Bar (Contributed to: ovirt-engine)
 	Saif Abu Saleh (Contributed to: ovirt-engine)
-	Sandro Bonazzola (Contributed to: otopi, ovirt-engine, ovirt-host, ovirt-hosted-engine-ha, ovirt-imageio, ovirt-release)
+	Sandro Bonazzola (Contributed to: otopi, ovirt-engine, ovirt-host, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup, ovirt-imageio, ovirt-release, ovirt-web-ui)
+	Scott J Dickerson (Contributed to: ovirt-web-ui)
 	Shani Leviim (Contributed to: vdsm)
+	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Steve Goodman (Contributed to: ovirt-site)
 	Vojtěch Juránek (Contributed to: vdsm)
 	Yedidyah Bar David (Contributed to: otopi, ovirt-hosted-engine-ha)

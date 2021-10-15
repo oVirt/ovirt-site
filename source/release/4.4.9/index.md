@@ -103,6 +103,13 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
    The Inventory dashboard showed until now overcommits rates for each data center, now overcommits rates for each cluster is available too.
 
 
+#### VDSM
+
+ - [BZ 2004469](https://bugzilla.redhat.com/show_bug.cgi?id=2004469) **[RHV 4.4.8] Unable to upgrade RHVH if vdsm-hook-ethtool-options is installed**
+
+   When custom VDSM hooks are installed on RHVH, it was not possible to upgrade RHVH to 4.4.8. We have need to remove VDSM hooks dependency on the concrete version of VDSM, so customers now need to maintain that dependency by themselves (meaning if customers upgrade VDSM from X.Y.Z to version A.B.C, they need also upgrade all VDSM hooks to the same version A.B.C
+
+
 #### oVirt Engine
 
  - [BZ 2004444](https://bugzilla.redhat.com/show_bug.cgi?id=2004444) **Try to enable cinderlib repos on host during host upgrade**
@@ -256,6 +263,10 @@ Result: No need to manually install a package to setup remote encrypted logging.
 
    
 
+ - [BZ 1647249](https://bugzilla.redhat.com/show_bug.cgi?id=1647249) **[RFE] hosted-engine command messages while starting are not user friendly.**
+
+   
+
  - [BZ 1989092](https://bugzilla.redhat.com/show_bug.cgi?id=1989092) **hosted engine Installer typo:"Engine VM FQDN:  []:" should be "Engine VM FQDN[]:"**
 
    
@@ -266,13 +277,6 @@ Result: No need to manually install a package to setup remote encrypted logging.
 #### oVirt Hosted Engine HA
 
  - [BZ 1993957](https://bugzilla.redhat.com/show_bug.cgi?id=1993957) **Engine VM might be shut down after the score wrongly being penalized due to cpu load**
-
-   
-
-
-#### VDSM
-
- - [BZ 2004469](https://bugzilla.redhat.com/show_bug.cgi?id=2004469) **[RHV 4.4.8] Unable to upgrade RHVH if vdsm-hook-ethtool-options is installed**
 
    
 
@@ -297,7 +301,7 @@ Result: No need to manually install a package to setup remote encrypted logging.
 
 #### Contributors
 
-30 people contributed to this release:
+31 people contributed to this release:
 
 	Ales Musil (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
@@ -309,7 +313,7 @@ Result: No need to manually install a package to setup remote encrypted logging.
 	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
 	Filip Januska (Contributed to: vdsm)
 	Hilda Stastna (Contributed to: ovirt-web-ui)
-	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release)
+	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release, ovirt-site)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)
@@ -320,11 +324,12 @@ Result: No need to manually install a package to setup remote encrypted logging.
 	Nir Soffer (Contributed to: ovirt-engine, ovirt-imageio, vdsm)
 	Pavel Bar (Contributed to: ovirt-engine)
 	Saif Abu Saleh (Contributed to: ovirt-engine)
-	Sandro Bonazzola (Contributed to: otopi, ovirt-engine, ovirt-host, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup, ovirt-imageio, ovirt-release, ovirt-web-ui)
+	Sandro Bonazzola (Contributed to: otopi, ovirt-engine, ovirt-host, ovirt-hosted-engine-ha, ovirt-hosted-engine-setup, ovirt-imageio, ovirt-release, ovirt-site, ovirt-web-ui)
 	Scott J Dickerson (Contributed to: ovirt-web-ui)
 	Shani Leviim (Contributed to: vdsm)
 	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Steve Goodman (Contributed to: ovirt-site)
+	Tomáš Golembiovský (Contributed to: ovirt-site)
 	Vojtěch Juránek (Contributed to: vdsm)
 	Yedidyah Bar David (Contributed to: otopi, ovirt-hosted-engine-ha)
 	hbraha (Contributed to: vdsm)

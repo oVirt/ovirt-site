@@ -2,7 +2,9 @@
 === Explanation of settings in the New Virtual Disk and Edit Virtual Disk windows
 
 [NOTE]
+====
 The following tables do not include information on whether a power cycle is required because that information is not applicable to these scenarios.
+====
 
 .New Virtual Disk and Edit Virtual Disk settings: *Image*
 [cols="1,2", options="header"]

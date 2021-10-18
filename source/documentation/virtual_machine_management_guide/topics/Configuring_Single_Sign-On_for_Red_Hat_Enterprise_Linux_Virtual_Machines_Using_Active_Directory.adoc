@@ -1,7 +1,7 @@
 [[Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines_Using_Active_Directory]]
-= Configuring Single Sign-On for {enterprise-linux} Virtual Machines Using Active Directory
+= Configuring Single Sign-On for {enterprise-linux} 7 and earlier Virtual Machines Using Active Directory
 
-To configure single sign-on for {enterprise-linux} virtual machines using GNOME and KDE graphical desktop environments and Active Directory, you must install the `ovirt-guest-agent` package on the virtual machine, install the packages associated with your window manager and join the virtual machine to the domain.
+To configure single sign-on for {enterprise-linux} 7 and earlier virtual machines using GNOME and KDE graphical desktop environments and Active Directory, you must install the `ovirt-guest-agent` package on the virtual machine, install the packages associated with your window manager and join the virtual machine to the domain.
 
 [IMPORTANT]
 ====
@@ -10,7 +10,9 @@ The following procedure assumes that you have a working Active Directory configu
 
 [NOTE]
 ====
-Single Sign-On (SSO) is deprecated for virtual machines with {enterprise-linux} version 7 or earlier and for Windows guest operating systems. Support for SSO will not be provided for virtual machines running {enterprise-linux} 8 or later or Windows as guest operating systems.
+Single Sign-On (SSO) is deprecated for virtual machines running {enterprise-linux} version 7 or earlier.
+
+SSO is not supported for virtual machines running {enterprise-linux} 8 or later, or for Windows operating systems.
 ====
 
 *Configuring Single Sign-On for {enterprise-linux} Virtual Machines*

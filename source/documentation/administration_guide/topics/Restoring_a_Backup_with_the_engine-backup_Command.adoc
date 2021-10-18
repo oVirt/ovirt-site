@@ -5,8 +5,5 @@ Restoring a backup using the engine-backup command involves more steps than crea
 
 [IMPORTANT]
 ====
-Backups can only be restored to environments of the same major release as that of the backup. For example, a backup of a {virt-product-fullname} version 4.2 environment can only be restored to another {virt-product-fullname} version 4.2 environment. To view the version of {virt-product-fullname} contained in a backup file, unpack the backup file and read the value in the *version* file located in the root directory of the unpacked files.
+Backups can only be restored to environments of the same release as that of the backup or later. For example, a backup of a {virt-product-fullname} version 4.2.6 environment can only be restored to a {virt-product-fullname} version 4.2.6 or later environment. To view the version of {virt-product-fullname} contained in a backup file, unpack the backup file and read the value in the *version* file located in the root directory of the unpacked files.
 ====
-
-
-

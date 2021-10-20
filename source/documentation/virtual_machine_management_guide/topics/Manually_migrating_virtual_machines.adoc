@@ -15,6 +15,12 @@ When you place a host into maintenance mode, the virtual machines running on tha
 Live migrating virtual machines between different clusters is generally not recommended. The currently only supported use case is documented at link:https://access.redhat.com/articles/1390733[].
 ====
 
+[NOTE]
+====
+CPU-passthrough virtual machines might not migrate properly from {virt-product-shortname} 4.3 to {virt-product-shortname} 4.4.
+
+{virt-product-shortname} 4.3 and {virt-product-shortname} 4.4 are based on {enterprise-linux-shortname} 7 and {enterprise-linux-shortname} 8, respectively, which have different kernel versions with different CPU flags and microcodes. This can cause problems in migrating CPU-passthrough virtual machines.
+====
 
 *Manually Migrating Virtual Machines*
 

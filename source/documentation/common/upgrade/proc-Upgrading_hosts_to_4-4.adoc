@@ -12,6 +12,13 @@ This process requires migrating all virtual machines from one host so as to make
 
 include::snip_WARNING-detach_data_storage.adoc[]
 
+[NOTE]
+====
+CPU-passthrough virtual machines might not migrate properly from {virt-product-shortname} 4.3 to {virt-product-shortname} 4.4.
+
+{virt-product-shortname} 4.3 and {virt-product-shortname} 4.4 are based on {enterprise-linux-shortname} 7 and {enterprise-linux-shortname} 8, respectively, which have different kernel versions with different CPU flags and microcodes. This can cause problems in migrating CPU-passthrough virtual machines.
+====
+
 .Prerequisites
 
 * Hosts for {virt-product-shortname} 4.4 require {enterprise-linux} 8.2 or later. A clean installation of {enterprise-linux} 8.2 or later, or {hypervisor-fullname} 4.4 is required, even if you are using the same physical machine that you use to run hosts for {virt-product-shortname} 4.3.

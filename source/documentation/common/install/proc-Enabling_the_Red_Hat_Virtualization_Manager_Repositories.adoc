@@ -104,7 +104,7 @@ You can check which repositories are currently enabled by running `dnf repolist`
 +
 [options="nowrap" subs="normal"]
 ----
-# dnf module -y javapackages-tools
+# dnf module -y enable javapackages-tools
 ----
 
 endif::ovirt-doc[]

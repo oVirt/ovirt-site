@@ -18,7 +18,7 @@ preferred because the Engine Virtual Machine will be highly available (once a se
 However, if you prefer to run the oVirt Engine standalone on physical hardware or another virtualization provider, you can install oVirt Engine
 and Nodes / Hosts separately.
 
-oVirt 4.4.8 is intended for production use and is available for the following platforms:
+oVirt 4.4.9 is intended for production use and is available for the following platforms:
 
 Engine:
 - Red Hat Enterprise Linux 8.4
@@ -31,7 +31,7 @@ Hosts:
 - oVirt Node (based on CentOS Stream)
 - CentOS Stream
 
-See the [Release Notes for oVirt 4.4.8](/release/4.4.8/).
+See the [Release Notes for oVirt 4.4.9](/release/4.4.9/).
 
 <div class="row"></div>
 

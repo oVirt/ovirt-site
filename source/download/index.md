@@ -10,7 +10,7 @@ page_classes: download
 
 <img class="screenshot" src="download_1.png">
 
-oVirt 4.4.8 is intended for production use and is available for the following platforms:
+oVirt 4.4.9 is intended for production use and is available for the following platforms:
 
 Engine:
 - Red Hat Enterprise Linux 8.4
@@ -23,7 +23,7 @@ Hosts:
 - oVirt Node (based on CentOS Stream)
 - CentOS Stream
 
-See the [Release Notes for oVirt 4.4.8](/release/4.4.8/).
+See the [Release Notes for oVirt 4.4.9](/release/4.4.9/).
 
 
 ## Install oVirt with Cockpit

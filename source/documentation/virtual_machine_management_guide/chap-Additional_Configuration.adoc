@@ -20,8 +20,6 @@ If single sign-on to the VM Portal is enabled, single sign-on to virtual machine
 ====
 include::topics/Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines.adoc[leveloffset=+2]
 
-include::topics/Configuring_Single_Sign-On_for_Red_Hat_Enterprise_Linux_Virtual_Machines_Using_Active_Directory.adoc[leveloffset=+2]
-
 include::topics/Configuring_Single_Sign_On_for_Windows_Virtual_Machines.adoc[leveloffset=+2]
 
 include::topics/Disabling_Single_Sign-on_for_Virtual_Machines.adoc[leveloffset=+2]

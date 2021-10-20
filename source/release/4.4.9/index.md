@@ -9,19 +9,9 @@ page_classes: releases
 ---
 
 
-# oVirt 4.4.9 release planning
-
-The oVirt 4.4.9 code freeze is planned for October 12, 2021.
-
-If no critical issues are discovered while testing this compose it will be released on October 19, 2021.
-
-It has been planned to include in this release the content from this query:
-[Bugzilla tickets targeted to 4.4.9](https://bugzilla.redhat.com/buglist.cgi?quicksearch=ALL%20target_milestone%3A%22ovirt-4.4.9%22%20-target_milestone%3A%22ovirt-4.4.9-%22)
-
-
 # oVirt 4.4.9 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.9 Third Release Candidate as of October 15, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.9 release as of October 20, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -46,10 +36,6 @@ visit our [community page](/community/).
 All issues or bugs should be reported via
 [Red Hat Bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?classification=oVirt).
 
-The oVirt Project makes no guarantees as to its suitability or usefulness.
-This pre-release should not to be used in production, and it is not feature
-complete.
-
 
 If you'd like to try oVirt as quickly as possible, follow the instructions on
 the [Download](/download/) page.
@@ -61,14 +47,7 @@ For a general overview of oVirt, read the [About oVirt](/community/about.html)
 page.
 
 To learn about features introduced before 4.4.9, see the
-[release notes for previous versions](/documentation/#latest-release-notes).
-
-## RELEASE CANDIDATE
-
-In order to install this Release Candidate you will need to enable pre-release repository.
-
-`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release44-pre.rpm)
-
+[release notes for previous versions](/documentation/#previous-release-notes).
 
 ## Known issues
 
@@ -173,6 +152,10 @@ Result: No need to manually install a package to setup remote encrypted logging.
 
 #### VDSM
 
+ - [BZ 2015121](https://bugzilla.redhat.com/show_bug.cgi?id=2015121) **VM with thin disk on block storage pause during backup**
+
+ - [BZ 2013383](https://bugzilla.redhat.com/show_bug.cgi?id=2013383) **After upgrading RHV-H to 4.4.8, the vdsmd service fails to start(even after putting the host in maintenance before upgrading)**
+
  - [BZ 1978672](https://bugzilla.redhat.com/show_bug.cgi?id=1978672) **VMs with block based storage do not recover from hibernation (suspend)**
 
  - [BZ 1985973](https://bugzilla.redhat.com/show_bug.cgi?id=1985973) **Remove the abort snapshot behavior**
@@ -187,6 +170,8 @@ Result: No need to manually install a package to setup remote encrypted logging.
 
 
 #### oVirt Engine
+
+ - [BZ 2014102](https://bugzilla.redhat.com/show_bug.cgi?id=2014102) **Central European Standard Time timzeone sets UTC time in Windows VMs**
 
  - [BZ 2000364](https://bugzilla.redhat.com/show_bug.cgi?id=2000364) **Engine fails to start, unable to read cloud-init network config from stateless snapshot configuration.**
 
@@ -313,7 +298,7 @@ Result: No need to manually install a package to setup remote encrypted logging.
 	Eyal Shenitzky (Contributed to: ovirt-engine, vdsm)
 	Filip Januska (Contributed to: vdsm)
 	Hilda Stastna (Contributed to: ovirt-web-ui)
-	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release, ovirt-site)
+	Lev Veyde (Contributed to: ovirt-appliance, ovirt-engine, ovirt-node-ng-image, ovirt-release, ovirt-site, vdsm)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Lucia Jelinkova (Contributed to: ovirt-engine)
 	Marcin Sobczyk (Contributed to: vdsm)

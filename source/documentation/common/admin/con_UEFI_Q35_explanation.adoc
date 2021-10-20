@@ -35,6 +35,6 @@ To use UEFI on a virtual machine, you must configure the virtual machine’s clu
 |Legacy|i440fx chipset with legacy BIOS
 |====
 
-.Set the BIOS Type before installing the operating system
+.Setting the BIOS type before installing the operating system
 
 You can configure a virtual machine to use the Q35 chipset and UEFI before installing an operating system. Converting a virtual machine from legacy BIOS to UEFI is not supported after installing an operating system.

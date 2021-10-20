@@ -15,8 +15,6 @@ endif::[]
 
 .Procedure
 
-To configure the default BIOS type for new virtual machines in the cluster:
-
 . In the VM Portal or the Administration Portal, click menu:Compute[Clusters].
 . Select a cluster and click *Edit*.
 . Click *General*.

@@ -80,6 +80,8 @@ A scheduling policy is a set of rules that defines the logic by which virtual ma
 
 The {virt-product-fullname} {engine-name} provides five default scheduling policies: *Evenly_Distributed*, *Cluster_Maintenance*, *None*, *Power_Saving*, and *VM_Evenly_Distributed*. You can also define new scheduling policies that provide fine-grained control over the distribution of virtual machines. Regardless of the scheduling policy, a virtual machine will not start on a host with an overloaded CPU. By default, a host's CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information about the properties of each scheduling policy.
 
+For detailed information about how scheduling policies work, see link:https://access.redhat.com/solutions/17604[How does cluster scheduling policy work?].
+
 .Evenly Distributed Scheduling Policy
 image::images/RHV_SchedulingPolicies_444396_0417_ECE_EvenlyDistributed.png[]
 

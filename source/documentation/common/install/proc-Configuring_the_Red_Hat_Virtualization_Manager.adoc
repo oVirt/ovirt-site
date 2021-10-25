@@ -47,9 +47,6 @@ Set up Cinderlib integration
 (Currently in tech preview)
 (Yes, No) [No]:
 ----
-+
-For instructions on setting up Cinderlib, see xref:Set_up_Cinderlib[Setting up Cinderlib].
-+
 
 [IMPORTANT]
 ====

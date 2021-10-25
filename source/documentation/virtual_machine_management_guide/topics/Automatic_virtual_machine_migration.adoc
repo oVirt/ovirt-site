@@ -8,10 +8,3 @@ From version 4.3, all virtual machines defined with manual or automatic migratio
 The {engine-name} automatically initiates live migration of virtual machines in order to maintain load-balancing or power-saving levels in line with scheduling policy. Specify the scheduling policy that best suits the needs of your environment. You can also disable automatic, or even manual, live migration of specific virtual machines where required.
 
 If your virtual machines are configured for high performance, and/or if they have been pinned (by setting Passthrough Host CPU, CPU Pinning, or NUMA Pinning), the migration mode is set to *Allow manual migration only*. However, this can be changed to *Allow Manual and Automatic* mode if required. Special care should be taken when changing the default migration setting so that it does not result in a virtual machine migrating to a host that does not support high performance or pinning.
-
-[NOTE]
-====
-CPU-passthrough virtual machines might not migrate properly from {virt-product-shortname} 4.3 to {virt-product-shortname} 4.4.
-
-{virt-product-shortname} 4.3 and {virt-product-shortname} 4.4 are based on {enterprise-linux-shortname} 7 and {enterprise-linux-shortname} 8, respectively, which have different kernel versions with different CPU flags and microcodes. This can cause problems in migrating CPU-passthrough virtual machines.
-====

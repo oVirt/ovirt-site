@@ -1,0 +1,33 @@
+name: Remove preview
+on:
+  pull_request:
+    types:
+      - closed
+jobs:
+  remove:
+    name: "Remove preview build"
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: ovirt-site-preview-build
+      cancel-in-progress: false
+    steps:
+    - name: Checkout gh-actions branch
+      uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+    - name: Remove branch preview
+      run: rm -rf previews/$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+    - name: Commit changes
+      run: |
+        set -euo pipefail
+        git config user.name "GitHub Actions"
+        git config user.email noreply@github.com
+        git add .
+        if ! git diff-index --quiet HEAD --; then
+          git commit -m "Removing preview build for PR $(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')"
+          git push --set-upstream origin gh-pages
+        else
+          echo -e "No changes found."
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

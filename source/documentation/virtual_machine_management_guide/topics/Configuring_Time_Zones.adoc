@@ -1,7 +1,7 @@
 [[Configuring_timezones]]
 = Configuring the time zone
 
-{virt-product-fullname} stores time zone configurations for virtual machines in */etc/ovirt-engine/conf/00-timezone.properties*. This file contains default time zone values such as `Etc/GMT=Greenwich Standard Time`. It features mappings that are valid for windows and non-Windows time zones. 
+{virt-product-fullname} stores time zone configurations for virtual machines in */etc/ovirt-engine/conf/00-timezone.properties*. This file contains default time zone values such as `Etc/GMT=Greenwich Standard Time`. It features mappings that are valid for windows and non-Windows time zones.
 
 [IMPORTANT]
 ====
@@ -14,10 +14,9 @@ To change the time zone configuration, create an override file in */etc/ovirt-en
 
 For example, *10-timezone.properties* overrides the default file, *00-timezone.properties*. The last file in the file list has precedence over earlier files.
 
-Once you have created a time zone configuration file, new time zones can be added to that file. When adding new time zones, be sure the values you enter are valid Windows time zones. 
+Once you have created a time zone configuration file, new time zones can be added to that file. When adding new time zones, be sure the key is a valid General timezone from the link:https://en.wikipedia.org/wiki/Tz_database[tz database] and the value is a valid Windows timezone:
 
+General:: Time zones used for non-Windows OS types, must follow the standard tz format for example, `Etc/GMT` or `Asia/Jerusalem`.
+Windows:: Time zones specifically supported on link:https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)?redirectedfrom=MSDN[Windows] for example, `GMT Standard Time` or `Israel Standard Time`.
 
-
-
-
-
+For additional information about time zone formats, see the link:https://github.com/oVirt/ovirt-engine/blob/ovirt-engine-4.4.8.4/packaging/conf/timezones-defaults.properties#L12[time zone default properties file].

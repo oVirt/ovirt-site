@@ -6,6 +6,11 @@
 
 Upgrading a self-hosted engine environment from version 4.3 to 4.4 involves the following steps:
 
+ifdef::rhv-doc[]
+//Upgrade considerations
+include::common/upgrade/snip-upgrade_considerations.adoc[]
+endif::[]
+
 . xref:Upgrade_Prerequisites_4-3_SHE[Make sure you meet the prerequisites, including enabling the correct repositories]
 
 ifdef::rhv-doc[]

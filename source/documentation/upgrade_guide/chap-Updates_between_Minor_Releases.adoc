@@ -9,6 +9,11 @@ ifdef::context[:parent-context: {context}]
 To update from your current version of 4.4 to the latest version of 4.4, update the {engine-name},  update the hosts, and then change the compatibility version for the cluster, virtual machines, and data center.
 
 ifdef::rhv-doc[]
+//Upgrade considerations
+include::common/upgrade/snip-upgrade_considerations.adoc[]
+endif::[]
+
+ifdef::rhv-doc[]
 include::common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
 endif::[]
 

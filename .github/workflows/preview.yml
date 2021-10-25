@@ -1,0 +1,106 @@
+name: "Preview build"
+on:
+  pull_request:
+jobs:
+  build:
+    name: "Build preview"
+    runs-on: "ubuntu-latest"
+    steps:
+    - name: "Checkout repo"
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Comment on PR
+      run: |
+        set -euo pipefail
+        PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+        echo "We are now creating a preview build, please stand by for a few minutes..." >/tmp/comment
+        gh pr comment ${PR_ID} -F /tmp/comment
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Build container image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: false
+        load: true
+        tags: ovirt-site:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+    - name: Set up Jekyll cache
+      uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+    - name: "Change config"
+      run: |
+        set -exuo pipefail
+        PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+        PR_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/previews/${PR_ID}
+        PR_LINK_PATH="$(echo $PR_LINK | sed -e 's#.*\.io/#/#')"
+        PR_LINK_BASE="$(echo $PR_LINK | sed -e 's#\.io.*#.io#')"
+        sed -i -e "s#^baseurl: .*#baseurl: ${PR_LINK_PATH}#" _config.yml
+        sed -i -e "s#^url: .*#url: ${PR_LINK_BASE}#" _config.yml
+        sed -i -e "s#site-baseurl: /#site-baseurl: ${PR_LINK_PATH}#" _config.yml
+        cat _config.yml
+    - name: "Build website"
+      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site ovirt-site build
+    - name: "Upload generated content"
+      uses: actions/upload-artifact@v2
+      with:
+        name: ovirt-site
+        if-no-files-found: error
+        path: |
+          _site
+  publish:
+    name: "Publish preview"
+    runs-on: "ubuntu-latest"
+    needs:
+      - build
+    concurrency:
+      group: ovirt-site-preview-build
+      cancel-in-progress: false
+    steps:
+      - name: "Checkout repo"
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+      - name: "Determine output directory"
+        id: targetdir
+        run: echo "::set-output name=TARGETDIR::previews/$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')"
+      - name: "Remove preview build directory"
+        run: rm -rf "${{steps.targetdir.outputs.TARGETDIR}}"
+      - name: "Create preview build directory"
+        run: mkdir -p "${{steps.targetdir.outputs.TARGETDIR}}"
+      - name: "Download generated content"
+        uses: actions/download-artifact@v2
+        with:
+          name: ovirt-site
+          path: "${{steps.targetdir.outputs.TARGETDIR}}"
+      - name: "Commit changes"
+        run: |
+          set -euo pipefail
+          git config user.name "GitHub Actions"
+          git config user.email noreply@github.com
+          git add .
+          if ! git diff-index --quiet HEAD --; then
+            git commit -m "Adding or updating preview build for PR $(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')"
+            git push --set-upstream origin gh-pages
+          else
+            echo -e "No changes found."
+          fi
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: "Send comment to PR"
+        run: |
+          set -euo pipefail
+          PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          PR_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/previews/${PR_ID}
+          echo "Your preview build will be ready in a bit at ${PR_LINK} ." >/tmp/comment
+          gh pr comment ${PR_ID} -F /tmp/comment
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

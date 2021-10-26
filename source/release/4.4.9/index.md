@@ -18,7 +18,7 @@ designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
-This release is available now for Red Hat Enterprise Linux 8.4 (or similar) and CentOS Stream.
+This release is available now for Red Hat Enterprise Linux 8.5 (8.5 Beta) (or similar) and CentOS Stream.
 
 > **NOTE**
 >

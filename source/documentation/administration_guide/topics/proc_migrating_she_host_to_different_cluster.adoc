@@ -1,0 +1,30 @@
+// module included:
+// doc-Administration_Guide/chap-Hosts.adoc
+
+[id='migrating_she_host_to_different_cluster_{context}']
+= Migrating a self-hosted engine host to a different cluster
+
+You cannot migrate a host that is configured as a self-hosted engine host to a data center or cluster other than the one in which the self-hosted engine virtual machine is running. All self-hosted engine hosts must be in the same data center and cluster.
+
+You need to disable the host from being a self-hosted engine host by undeploying the self-hosted engine.
+
+.Procedure
+
+. Click menu:Compute[Hosts] and select the host.
+. Click menu:Management[Maintenance].
+. Once the host is in maintenance mode, click *Reinstall* with the *Hosted Engine UNDEPLOY* option selected.
++
+[TIP]
+====
+Alternatively, you can use the REST API `undeploy_hosted_engine` parameter.
+====
+. Click *Edit*.
+. Select the target data center and cluster.
+. Click btn:[OK].
+. Click menu:Management[Activate].
+
+
+
+.Additional resources
+* xref:Moving_a_host_to_maintenance_mode[Moving a Host to Maintenance mode]
+* xref:Activating_a_host_from_maintenance_mode[Activating a Host from Maintenance Mode]

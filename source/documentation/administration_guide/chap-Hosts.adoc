@@ -20,25 +20,6 @@ include::topics/Adding_a_Satellite_Host_Provider_Host.adoc[]
 include::topics/Configuring_Satellite_Errata_Management_for_a_Host.adoc[]
 
 [[sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows]]
-==== Explanation of Settings and Controls in the New Host and Edit Host Windows
-
-include::topics/Host_General_Settings.adoc[]
-
-include::topics/Host_Power_Management_settings_explained.adoc[]
-
-include::topics/SPM_priority_settings_explained.adoc[]
-
-include::topics/Host_Console_Settings_Explained.adoc[]
-
-include::topics/Network_Provider_Settings_Explained.adoc[]
-
-include::topics/Kernel_Settings_Explained.adoc[]
-
-include::topics/Hosted_Engine_Settings_Explained.adoc[]
-
-include::topics/Configuring_Host_Power_Management_Settings.adoc[]
-
-include::topics/Configuring_Host_SPM_Settings.adoc[]
 
 include::common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+3]
 
@@ -72,6 +53,27 @@ include::topics/Accessing_Cockpit_from_the_Admin_Portal.adoc[]
 
 include::common/admin/proc-Setting_Legacy_SPICE_Cipher.adoc[leveloffset=+3]
 
+include::topics/Configuring_Host_Power_Management_Settings.adoc[]
+
+include::topics/Configuring_Host_SPM_Settings.adoc[]
+
+include::topics/proc_migrating_she_host_to_different_cluster.adoc[leveloffset=+3]
+
+=== Explanation of Settings and Controls in the New Host and Edit Host Windows
+
+include::topics/Host_General_Settings.adoc[]
+
+include::topics/Host_Power_Management_settings_explained.adoc[]
+
+include::topics/SPM_priority_settings_explained.adoc[]
+
+include::topics/Host_Console_Settings_Explained.adoc[]
+
+include::topics/Network_Provider_Settings_Explained.adoc[]
+
+include::topics/Kernel_Settings_Explained.adoc[]
+
+include::topics/Hosted_Engine_Settings_Explained.adoc[]
 
 :context!: host_tasks
 

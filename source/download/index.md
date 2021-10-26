@@ -18,8 +18,7 @@ Engine:
 - CentOS Stream
 
 Hosts:
-- Red Hat Enterprise Linux 8.4
-- CentOS Linux 8.4
+- Red Hat Enterprise Linux 8.5 beta (or similar)
 - oVirt Node (based on CentOS Stream)
 - CentOS Stream
 

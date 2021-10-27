@@ -1,7 +1,7 @@
 [id='Preparing_Local_Storage_{context}']
-= Preparing Local Storage
+= Preparing local storage
 
-A local storage domain can be set up on a host. When you set up a host to use local storage, the host is automatically added to a new data center and cluster that no other hosts can be added to. Multiple-host clusters require that all hosts have access to all storage domains, which is not possible with local storage. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.
+When you set up a host to use local storage, the host is automatically added to a new data center and cluster that no other hosts can be added to. Multiple-host clusters require that all hosts have access to all storage domains, which is not possible with local storage. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.
 
 [IMPORTANT]
 ====
@@ -9,7 +9,7 @@ On {hypervisor-fullname} ({hypervisor-shortname}), local storage should always b
 Use a separate logical volume or disk, to prevent possible loss of data during upgrades.
 ====
 
-.Preparing Local Storage for {enterprise-linux-host-fullname}s
+.Procedure for {enterprise-linux-host-fullname}s
 
 . On the host, create the directory to be used for the local storage:
 +
@@ -26,7 +26,7 @@ Use a separate logical volume or disk, to prevent possible loss of data during u
 # chmod 0755 /data /data/images
 ----
 
-.Preparing Local Storage for {hypervisor-fullname}s
+.Procedure for {hypervisor-fullname}s
 
 Create the local storage on a logical volume:
 

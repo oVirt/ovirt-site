@@ -11,7 +11,7 @@ The following table details the options available in the *New Scheduling Policy*
 |*Description* |A description of the scheduling policy. This field is recommended but not mandatory.
 |*Filter Modules* a|A set of filters for controlling the hosts on which a virtual machine in a cluster can run. Enabling a filter will filter out hosts that do not meet the conditions specified by that filter, as outlined below:
 
-* `ClusterInMaintenance`: Virtual machines being started on the host that are not configured as high availability will filter out the host.
+* `ClusterInMaintenance`: Virtual machines being started on the host that are not configured for high availability filter out the host.
 
 * `CpuPinning`: Hosts which do not satisfy the CPU pinning definition.
 
@@ -27,7 +27,7 @@ The following table details the options available in the *New Scheduling Policy*
 
 * `NUMA`: Hosts that do not have NUMA nodes that can accommodate the virtual machine vNUMA nodes in terms of resources.
 
-* `InClusterUpgrade`: Hosts that are running an earlier operating system than the host that the virtual machine currently runs on.
+* `InClusterUpgrade`: Hosts that are running an earlier version of the operating system than the host that the virtual machine currently runs on.
 
 * `MDevice`: Hosts that do not provide the required mediated device (mDev).
 
@@ -67,7 +67,7 @@ The following table details the options available in the *New Scheduling Policy*
 
 * `OptimalForCpuEvenDistribution`: Weights hosts in accordance with their CPU usage, giving priority to hosts with lower CPU usage.
 
-* `CPU for high performance VMs`: Prefers hosts that have more or equal number of sockets, cores and threads than the VM.
+* `CPU for high performance VMs`: Prefers hosts that have more or an equal number of sockets, cores and threads than the VM.
 
 * `HA`: Weights hosts in accordance with their high availability score.
 
@@ -75,7 +75,7 @@ The following table details the options available in the *New Scheduling Policy*
 
 * `OptimalForMemoryPowerSaving`: Weights hosts in accordance with their memory usage, giving priority to hosts with lower available memory.
 
-* `CPU and NUMA pinning compatibility`: Weights hosts in accordance to pinning compatibility. When a virtual machine has both vNUMA and pinning defined, this weight module gives preference to hosts whose CPU pinning will not clash with the vNUMA pinning.
+* `CPU and NUMA pinning compatibility`: Weights hosts in accordance to pinning compatibility. When a virtual machine has both vNUMA and pinning defined, this weight module gives preference to hosts whose CPU pinning does not clash with the vNUMA pinning.
 
 * `VmToHostsAffinityGroups`: Weights hosts in accordance with the affinity groups defined for virtual machines. This weight module determines how likely virtual machines in an affinity group are to run on one of the hosts in a group or on a separate host that is excluded from the group.
 

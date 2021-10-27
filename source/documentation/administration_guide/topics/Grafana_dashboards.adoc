@@ -37,7 +37,8 @@ The following dashboards are available in the initial Grafana setup to report Da
 | *Inventory dashboards*
     a|
     * Hosts Inventory dashboard - FQDN, VDSM version, operating system, CPU model, CPU cores, memory size, create date, delete date, and hardware details for selected hosts, according to the latest configurations.
-    * Inventory dashboard - number of hosts, virtual machines, and running virtual machines, resources usage and over-commit rates for selected data centers, according to the latest configurations.
+    * Inventory dashboard - number of hosts, virtual machines, and running virtual machines, resources usage and over-commit rates for selected data centers and clusters, according to the latest configurations.
+
     * Storage Domains Inventory dashboard - domain type, storage type, available disk size, used disk size, total disk size, creation date, and delete date for selected storage domains over a selected period.
     * Virtual Machines Inventory dashboard - template name, operating system, CPU cores, memory size, create date, and delete date for selected virtual machines, according to the latest configurations.
 |===

@@ -11,14 +11,14 @@ page_classes: releases
 
 # oVirt 4.4.9 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.9 release as of October 20, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.9 release as of October 27, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
-This release is available now for Red Hat Enterprise Linux 8.5 (8.5 Beta) (or similar) and CentOS Stream.
+This release is available now for Red Hat Enterprise Linux 8.5 Beta (or similar) and CentOS Stream.
 
 > **NOTE**
 >
@@ -96,6 +96,13 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
    During host installation or host upgrade engine is checking if cinderlib and ceph packages are available and if not, it tries to enable required channels specified in the documentation. If there is a problem during channel enablement, then error is raised into audit_log and customers need to enable channel manually and afterwards retry installation/upgrade
 
 
+#### oVirt Host Dependencies
+
+ - [BZ 2004913](https://bugzilla.redhat.com/show_bug.cgi?id=2004913) **update to cinderlib 16.2**
+
+   The RHOSP cinderlib repository has been upgraded from RHOSP 16.1 to 16.2
+
+
 #### ovirt-engine-extension-aaa-ldap
 
  - [BZ 2010658](https://bugzilla.redhat.com/show_bug.cgi?id=2010658) **AAA LDAP extension is querying DNS with ANY request**
@@ -151,6 +158,8 @@ Result: No need to manually install a package to setup remote encrypted logging.
 
 
 #### VDSM
+
+ - [BZ 2003432](https://bugzilla.redhat.com/show_bug.cgi?id=2003432) **IP address and FQDN not displayed in ovirt-engine even though latest guest agent is installed**
 
  - [BZ 2015121](https://bugzilla.redhat.com/show_bug.cgi?id=2015121) **VM with thin disk on block storage pause during backup**
 
@@ -277,16 +286,9 @@ Result: No need to manually install a package to setup remote encrypted logging.
    
 
 
-#### oVirt Host Dependencies
-
- - [BZ 2004913](https://bugzilla.redhat.com/show_bug.cgi?id=2004913) **update to cinderlib 16.2**
-
-   
-
-
 #### Contributors
 
-31 people contributed to this release:
+30 people contributed to this release:
 
 	Ales Musil (Contributed to: vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
@@ -304,7 +306,6 @@ Result: No need to manually install a package to setup remote encrypted logging.
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection)
 	Martin Perina (Contributed to: ovirt-engine, ovirt-engine-extension-aaa-ldap)
-	Michal Skrivanek (Contributed to: ovirt-hosted-engine-setup)
 	Milan Zamazal (Contributed to: ovirt-engine, vdsm)
 	Nir Soffer (Contributed to: ovirt-engine, ovirt-imageio, vdsm)
 	Pavel Bar (Contributed to: ovirt-engine)
@@ -314,7 +315,7 @@ Result: No need to manually install a package to setup remote encrypted logging.
 	Shani Leviim (Contributed to: vdsm)
 	Sharon Gratch (Contributed to: ovirt-engine-nodejs-modules, ovirt-web-ui)
 	Steve Goodman (Contributed to: ovirt-site)
-	Tomáš Golembiovský (Contributed to: ovirt-site)
+	Tomáš Golembiovský (Contributed to: ovirt-site, vdsm)
 	Vojtěch Juránek (Contributed to: vdsm)
 	Yedidyah Bar David (Contributed to: otopi, ovirt-hosted-engine-ha)
 	hbraha (Contributed to: vdsm)

@@ -11,11 +11,11 @@ To update from your current version of 4.4 to the latest version of 4.4, update 
 ifdef::rhv-doc[]
 //Upgrade considerations
 include::common/upgrade/snip-upgrade_considerations.adoc[]
-endif::[]
+endif::rhv-doc[]
 
 ifdef::rhv-doc[]
 include::common/upgrade/proc-Analyzing_the_Environment.adoc[leveloffset=+1]
-endif::[]
+endif::rhv-doc[]
 
 To update a standalone {engine-name}, follow the standard procedure for minor updates:
 

@@ -1,4 +1,4 @@
-//4.4 upgrade considerations 
+//4.4 upgrade considerations
 .Upgrade Considerations
 
-There are a number of key considerations that must be made when planning to upgrade. For a detailed list of considerations and known issues, see link:https://access.redhat.com/articles/5268351[Red Hat Virtualization 4.4 upgrade considerations and known issues].
+When planning to upgrade, see link:https://access.redhat.com/articles/5268351[Red Hat Virtualization 4.4 upgrade considerations and known issues].

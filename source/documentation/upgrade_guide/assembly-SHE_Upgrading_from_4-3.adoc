@@ -9,13 +9,13 @@ Upgrading a self-hosted engine environment from version 4.3 to 4.4 involves the 
 ifdef::rhv-doc[]
 //Upgrade considerations
 include::common/upgrade/snip-upgrade_considerations.adoc[]
-endif::[]
+endif::rhv-doc[]
 
 . xref:Upgrade_Prerequisites_4-3_SHE[Make sure you meet the prerequisites, including enabling the correct repositories]
 
 ifdef::rhv-doc[]
 . xref:Analyzing_the_Environment_4-3_SHE[Use the Log Collection Analysis tool and Image Discrepancies tool to check for issues that might prevent a successful upgrade]
-endif::[]
+endif::rhv-doc[]
 
 . xref:Migrating_VMs_from_SHE_host[Migrate any virtual machines that are running on the same host as the {engine-name} virtual machine to another host in the same cluster]
 

@@ -1,12 +1,8 @@
 [id="contributing-to-docs-doc-guidelines"]
 = Documentation guidelines
-include::modules/common-attributes.adoc
-:toc: macro
+include::../common/collateral_files/attributes.adoc
 
-The documentation guidelines for OpenShift 4 build on top of the
-link:https://redhat-documentation.github.io/modular-docs/[Red Hat modular docs reference guide].
-
-toc::[]
+oVirt documentation is based on the link:https://redhat-documentation.github.io/modular-docs/[Red Hat modular docs reference guide].
 
 == General file guidelines
 
@@ -22,19 +18,16 @@ In the Atom editor, you can use `Ctrl`+`J` to undo hard wrapping on a paragraph.
 
 == Assembly file metadata
 
-Every assembly file should contain the following metadata at the top, with no line
-spacing in between, except where noted:
+Every index.adoc (i.e. top-level) file should contain the following metadata at the top, with no line spacing in between, except where noted:
 
 ----
 [id="<unique-heading-for-assembly>"]                            <1>
 = Assembly title                                                <2>
-include::modules/common-attributes.adoc[]                       <3>
+include::common/collateral_files/attributes.adoc[]              <3>
 :context: <unique-context-for-assembly>                         <4>
-                                                                <5>
-toc::[]                                                         <6>
 ----
 
-<1> A unique (within OpenShift docs) anchor id for this assembly. Example: cli-developer-commands
+<1> A unique anchor id for this assembly. Example: cli-developer-commands
 <2> Human readable title (notice the '=' top-level header)
 <3> Includes attributes common to OpenShift docs.
 +
@@ -141,13 +134,13 @@ Do not use backticks or other markup in assembly or module headings.
 
 === Discrete headings
 
-If you have a section heading that you do not want to appear in the TOC (like if you think that some section is not worth showing up or if there are already too many nested levels), you can use a discrete (or floating) heading:
 
+If you have a section heading that you do not want to appear in the TOC (for example, if you think that some section is not important enough to be in the TOC, or if there are already too many nested levels), you can use a discrete (or floating) heading:
 http://asciidoctor.org/docs/user-manual/#discrete-or-floating-section-titles
 
-A discrete heading also will not get a section number in the Customer Portal build of the doc. Previously, we would use plain bold mark-up around a heading like this, but discrete headings also allow you to ignore section nesting rules (like jumping from a `==` section level to a `====` level if you wanted for some style reason).
+A discrete heading also will not get a section number in the Customer Portal build of the doc.
 
-To use a discrete heading, just add `[discrete]` to the line before your unique ID. For example:
+To use a discrete heading, add `[discrete]` to the line before your unique ID. For example:
 
 ----
 [discrete]
@@ -175,7 +168,7 @@ Do not include line spaces between the anchor ID and the section title.
 
 === Anchoring in module files
 
-You must add the `{context}` variable to the end of anchor IDs in module files. When called, the `{context}` variable is resolved into the value declared in the `:context:` attribute in the corresponding assembly file. This enables cross-referencing to module IDs in context to a specific assembly and is useful when a module is included in multiple assemblies.
+You must add the `{context}` variable to the end of anchor IDs in module files. When parsed, the `{context}` variable is resolved into the value declared in the `:context:` attribute in the corresponding assembly file. This enables cross-referencing to module IDs in context to a specific assembly and is useful when a module is included in multiple assemblies.
 
 The following is an example of an anchor ID in a module file:
 
@@ -188,38 +181,6 @@ The following is an example of an anchor ID in a module file:
 ====
 The `{context}` variable must be preceded by an underscore (`_`) when declared in an anchor ID.
 ====
-
-=== Anchoring "Prerequisites", "Additional resources", and "Next steps" titles in assemblies
-
-Use unique IDs for "Prerequisites", "Additional resources", and "Next steps" titles in assemblies. You can add the prefixes `prerequisites_`, `additional-resources_`, or `next-steps_` to a unique string that describes the assembly topic. The unique string can match the value assigned to the `:context:` attribute in the assembly.
-
-[NOTE]
-====
-The `prerequisites_`, `additional-resources_`, and `next-steps_` prefixes must end with an underscore (`_`) when declared in an anchor ID in an assembly.
-====
-
-The following examples include IDs that are unique to the "Configuring alert notifications" assembly:
-
-*Example unique ID for a "Prerequisites" title*
-
-----
-[id="prerequisites_configuring-alert-notifications"]
-== Prerequisites
-----
-
-*Example unique ID for an "Additional resources" title*
-
-----
-[id="additional-resources_configuring-alert-notifications"]
-== Additional resources
-----
-
-*Example unique ID for a "Next steps" title*
-
-----
-[id="next-steps_configuring-alert-notifications"]
-== Next steps
-----
 
 == Writing assemblies
 An _assembly_ is a collection of modules that describes how to accomplish a user story.

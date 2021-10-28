@@ -33,30 +33,7 @@ updates are complete, and all commits are squashed, we'll merge your PR and
 apply it to the valid versions.
 
 == Repository organization
-Each top directory in the oVirt documentation repository can include a
-collection of top level assemblies and subdirectories that contain more
-assemblies. The exceptions to this rule are directories whose names
-start with an underscore (like `_builder_lib` and `_javascripts`), which contain
-the assets used to generate the finished documentation.
-
-Each top level `<topic>` directory contains AsciiDoc assembly files, any `<subtopic>`
-subdirectories, and symlinks to the `images` and `modules` directories that
-contain all the images and modules for the collection.
-
-----
-/
-/topic_dir1
-/subtopic_dir1
-/subtopic_dirN
-/topic_dir/assembly1.adoc
-/topic_dir/assemblyN.adoc
-/topic_dir/subtopic_dir1/assembly1.adoc
-/topic_dir/subtopic_dirN/assemblyN.adoc
-/topic_dir/~images
-/topic_dir/~modules
-...
-/topic_dir2
-----
+The oVirt documentation repository is stored under `/source/documentation`. Each directory corresponds to a guide, except `common`, which includes files that are shared between multiple guides. Each guide's directory includes `index.adoc` and `master.adoc` files. These are the top-level assemblies for that guide, where `index.adoc` is for oVirt and `master.adoc` is for Red Hat Virtualization, a downstream distribution of oVirt. Many guides include additional nested assemblies and a `topics` subdirectory with individual topics.
 
 == Version management
 Most of the content applies to oVirt and Red Hat Virtualization. While a large
@@ -73,9 +50,6 @@ to accomplish this solely with Git branches to maintain slightly different
 versions of a given topic, doing so would make the task of maintaining internal
 consistency extremely difficult for content contributors.
 
-Git branching is still extremely valuable, and serves the important role of
-tracking the release versions of documentation for the various OpenShift
-products.
 ////
 
 === Conditional text between products
@@ -111,7 +85,7 @@ to conditionalize the text of an entire file within that file. Instead, use `inc
 
 == Release branches
 
-///
+////
 With the combination of conditionalizing content within files with
 `ifdef/endif` and conditionalizing whole files in the `&#95;topic&#95;map.yml`
 file, the `main` branch of
@@ -131,66 +105,12 @@ OpenShift product will remain the same while development continues on the
 `main` branch. Additionally, any corrections or additions that are
 "cherry-picked" into the release branches will show up in the published
 documentation after 12 hours.
-///
+////
 
 All published oVirt content is on the `master` branch.
-Therefore, when submitting your work the PR must be created againstthe `master`
+Therefore, when submitting your work the PR must be created against the `master`
 branch. After it is reviewed, a writer will merge the content.
-====
 
-== Adding files to the collection
-After you create files, you must add them to the `&#95;topic&#95;map.yml` so
-that the build system can render them. The documentation build system reads
-the `&#95;distro&#95;map.yml` from the main branch to determine
-which branches to build and then the `&#95;topic&#95;map.yml` file
-for each of the branches
-to construct the content from the source files and publish to the relevant
-product site at https://docs.openshift.com. The build system _only_ reads this
-file to determine which topic files to include. Therefore, all new topics that
-are created must be included in the `&#95;topic&#95;map.yml` file in
-order to be processed by the build system.
-
-=== Topic map file format
-The `&#95;topic&#95;map.yml` file uses the following format:
-
-----
---- //<1>
-Name: Origin of the Species <2>
-Dir:  origin_of_the_species <3>
-Distros: all <4>
-Topics:
-  - Name: The Majestic Marmoset <5>
-    File: the_majestic_marmoset <6>
-    Distros: all
-  - Name: The Curious Crocodile
-    File: the_curious_crocodile
-    Distros: openshift-online,openshift-enterprise <4>
-  - Name: The Numerous Nematodes
-    Dir: the_numerous_nematodes <7>
-    Topics:
-      - Name: The Wily Worm <8>
-        File: the_wily_worm
-      - Name: The Acrobatic Ascarid  <= Sub-topic 2 name
-        File: the_acrobatic_ascarid  <= Sub-topic 2 file under <group dir>/<subtopic dir>
-----
-<1> Record separator at the top of each topic group.
-<2> Display name of topic group.
-<3> Directory name of topic group.
-<4> Which OpenShift versions this topic group is part of.
-* The *Distros* setting is optional for topic groups and topic items. By
-default, if the *Distros* setting is not used, it is processed as if it was set
-to *Distros: all* for that particular topic or topic group. This means that
-topic or topic group will appear in all product documentation versions.
-* The *all* value for *Distros* is a synonym for
-_openshift-origin,openshift-enterprise,openshift-online,openshift-dedicated,openshift-aro,openshift-webscale_.
-* The *all* value overrides other values, so _openshift-online,all_ is processed
-as *all*.
-<5> Topic name.
-<6> Topic file under the topic group dir without `.adoc`.
-<7> This topic is actually a subtopic group. Instead of a `File` path it has a
-`Dir` path and `Topics`, just like a top-level topic group.
-<8> Topics belonging to a subtopic group are listed just like regular topics
-with a `Name` and `File`.
 
 == Next steps
 * First, you should link:tools_and_setup.adoc[install and set up the tools and software]
@@ -200,4 +120,4 @@ understand some basic guidelines to keep things consistent
 across our content.
 * If you are ready to create content, or want to edit existing content, the
 link:create_or_edit_content.adoc[create or edit content] topic describes how
-you can do this by creating a working branch.
+to do so by creating a working branch.

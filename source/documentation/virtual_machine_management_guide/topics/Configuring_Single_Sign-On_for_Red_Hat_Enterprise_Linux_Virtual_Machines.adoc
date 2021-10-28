@@ -10,7 +10,9 @@ The following procedure assumes that you have a working IPA configuration and th
 
 [NOTE]
 ====
-Single Sign-On (SSO) is deprecated for virtual machines with {enterprise-linux} version 7 or earlier and for Windows guest operating systems. Support for SSO will not be provided for virtual machines running {enterprise-linux} 8 or later or Windows as guest operating systems.
+Single Sign-On (SSO) is deprecated for virtual machines running {enterprise-linux} version 7 or earlier.
+
+SSO is not supported for virtual machines running {enterprise-linux} 8 or later, or for Windows operating systems.
 ====
 
 [[configure-sso-linux-74]]

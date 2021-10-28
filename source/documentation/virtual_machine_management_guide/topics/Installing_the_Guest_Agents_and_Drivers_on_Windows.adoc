@@ -23,10 +23,11 @@ After you install the package, the ISO file is located in [filename]`/usr/share/
 . Select the CD Drive containing the [filename]`virtio-win___version__.iso` file. You can complete the installation with either the GUI or the command line.
 
 . Run the installer.
++
   To install with the GUI, complete the following steps:::
   .. Double-click `virtio-win-gt-x64.msi` or `virtio-win-gt-x86.msi`.
   .. Click btn:[Next] at the welcome screen.
-  .. Follow the prompts in the installation wizard. Ensure all check boxes in the list of components are selected, including the *RHEV Agent*, which is disabled by default.
+  .. Follow the prompts in the installation wizard.
   .. When installation is complete, select *Yes, I want to restart my computer now* and click *Finish* to apply the changes.
   .. After the virtual machine reboots, open the CD-ROM and go to the [filename]`guest-agent` directory and double-click [filename]`qemu-ga-x86_64.msi` or [filename]`qemu-ga-i386.msi`, to install qemu-ga, the Qemu guest agent.
 
@@ -48,8 +49,7 @@ For example, to run the installation when `virtio-win-gt-x64.msi` is on the `D:\
 D:\ msiexec /i "virtio-win-gt-x64.msi" /qn ADDLOCAL=ALL
 ----
 
-After installation completes, the guest agents and drivers pass usage information to the {virt-product-fullname} {engine-name} and enable you to access USB devices, single sign-on into virtual machines, and other functionality.
-The {virt-product-fullname} guest agent runs as a service called *RHEV Agent* that you can configure using the *rhev-agent* configuration file located in [filename]`C:\Program Files\Virtio-Win\RHV_Agent`.
+After installation completes, the guest agents and drivers pass usage information to the {virt-product-fullname} {engine-name} and enable you to access USB devices and other functionality.
 
 == Values for ADDLOCAL to customize virtio-win command-line installation
 
@@ -81,7 +81,6 @@ The `ADDLOCAL` parameter of the [cmd]`msiexec` command enables you to specify wh
 |====
 |Agent | Description |Corresponding driver(s) | Value for `ADDLOCAL`
 |Spice Agent|Supports multiple monitors, responsible for client-mouse-mode support, reduces bandwidth usage, enables clipboard support between client and virtual machine, provide a better user experience and improved responsiveness.| `vioserial` and Spice driver | `FE_spice_Agent,FE_vioserial_driver,FE_spice_driver`
-|`RHEV_Agent`| Enables the Red Hat Virtualization Manager to receive internal virtual machine events and information, SSO support, Also enables the Manager to execute specific commands on a virtual machine. | `vioserial` |`FE_RHEV_Agent,FE_vioserial_driver`
 |====
 
 .Examples

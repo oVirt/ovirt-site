@@ -22,7 +22,7 @@ oVirt is a community-driven virtualization project and people just like you are 
 <section class="container">
 # Getting involved
 
-The oVirt community is a group of multidiscilinary individuals who are contributing code, writing documentation, reporting bugs, contributing UX and design expertise, and engaging with the community.
+The oVirt community is a group of multidisciplinary individuals who are contributing code, writing documentation, reporting bugs, contributing UX and design expertise, and engaging with the community.
 
 Before getting started, we recommend that you:
 
@@ -78,7 +78,7 @@ Reporting bugs is one of the most valuable ways you can contribute! Ideas for ne
 
 ## Participate in the oVirt infrastructure
 
-Our project infrastructure can always benefit from extra people, hardware and network bandwidth. First of all, consider [becoming a public mirror](/community/get-involved/repository-mirrors.html) of oVirt repositories. You can also [become an infra team member](/community/becoming-an-infrastructure-team-member.html) or [donate hardware](/community/get-involved/donate-hardware.html) to the project to improve our capacity and redundancy.
+Our project infrastructure can always benefit from extra people, hardware and network bandwidth. First of all, consider [hosting a public mirror](/community/get-involved/repository-mirrors.html) of oVirt repositories. You can also [become an infra team member](/community/becoming-an-infrastructure-team-member.html) or [donate hardware](/community/get-involved/donate-hardware.html) to the project to improve our capacity and redundancy.
 
 ## Supporters, Sponsors, and Providers
 

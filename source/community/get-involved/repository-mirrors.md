@@ -13,9 +13,9 @@ authors:
 
 ## Mirroring oVirt repositories
 
-Do you want to become a mirror? Do you have some bandwidth to spare?
+Do you want to host a mirror? Do you have some bandwidth to spare?
 
-Drop us a line at [infa](mailto:infra-support@ovirt.org) and tell us about yourself! You just need to pass us a public ssh key, and once set up you'll be able to rsync from our site with the following command:
+Drop us a line at [infra](mailto:infra-support@ovirt.org) and tell us about yourself! You just need to pass us a public ssh key, and once set up you'll be able to rsync from our site with the following command:
 
        rsync -rltHvvP mirror@resources.ovirt.org:/var/www/html destination/dir
 
@@ -25,7 +25,7 @@ After some validation we will add your site to this page and to the mirrorlist!
 
 ## For admins
 
-We have a simple setup to allow mirroring of the oVirt repositories. Right now the mirroring is done through ssh with rsync. You'll find in **resources.ovirt.org** a user named **mirror**, that's the user that the mirrors should use, you'll see that it has a lot of entries under *~/.ssh/authorized_keys*, there each entry is restricted to run only a specific command that allows them to rsync the repo directory.
+We have a simple setup to allow mirroring of the oVirt repositories. Right now the mirroring is done through ssh with rsync. You'll find in **resources.ovirt.org** a user named **mirror**. That's the user that the mirrors should use, which has a lot of entries under *~/.ssh/authorized_keys*. Each entry is restricted to run only a specific command that allows them to rsync the repo directory.
 Please refer to the [read the docs page](https://ovirt-infra-docs.readthedocs.io/en/latest/General/Mirror/index.html) for more info on adding mirrors.
 
 ### Adding a mirror

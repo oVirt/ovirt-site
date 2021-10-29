@@ -14,7 +14,7 @@ There are a number of ways to communicate with the oVirt Community. [ Mailing li
 
 ## IRC
 
-We are on **irc.oftc.net** server on **#ovirt** channel
+We are on **irc.oftc.net** server on **#ovirt** channel.
 
 ## Bug tracker and code review
 

@@ -18,5 +18,3 @@ Once you have created a time zone configuration file, new time zones can be adde
 
 General:: Time zones used for non-Windows OS types, must follow the standard tz format for example, `Etc/GMT` or `Asia/Jerusalem`.
 Windows:: Time zones specifically supported on link:https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)?redirectedfrom=MSDN[Windows] for example, `GMT Standard Time` or `Israel Standard Time`.
-
-For additional information about time zone formats, see the link:https://github.com/oVirt/ovirt-engine/blob/ovirt-engine-4.4.8.4/packaging/conf/timezones-defaults.properties#L12[time zone default properties file].

@@ -41,11 +41,16 @@ Create the local storage on a logical volume:
 # mount /data
 ----
 +
-. Mount the new local storage, and then modify the permissions and ownership:
+. Mount the new local storage:
 +
 [options="nowrap" subs="normal"]
 ----
 # mount -a
+----
+. Ensure that the directory has permissions allowing read/write access to the *vdsm* user (UID 36) and *kvm* group (GID 36):
++
+[options="nowrap" subs="normal"]
+----
 # chown 36:36 /data /rhvh-data
 # chmod 0755 /data /rhvh-data
 ----

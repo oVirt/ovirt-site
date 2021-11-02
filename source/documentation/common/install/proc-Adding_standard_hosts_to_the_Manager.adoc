@@ -5,8 +5,6 @@ IMPORTANT: Always use the {virt-product-shortname} {engine-name} to modify the n
 
 Adding a host to your {virt-product-fullname} environment can take some time, as the following steps are completed by the platform: virtualization checks, installation of packages, and creation of a bridge.
 
-IMPORTANT: OVS clusters cannot contain RHEL 8 hosts. Due to a known issue,  RHEL 8 hosts do not work in clusters whose *Switch Type* is *OVS*. For details, see link:https://bugzilla.redhat.com/show_bug.cgi?id=1809116[BZ#1809116] and link:https://access.redhat.com/solutions/901213[Open vSwitch and OpenFlow support for RHV].
-
 .Procedure
 
 . From the Administration Portal, click menu:Compute[Hosts].

@@ -15,8 +15,7 @@ When you place a host into maintenance mode, the virtual machines running on tha
 Live migrating virtual machines between different clusters is generally not recommended. The currently only supported use case is documented at link:https://access.redhat.com/articles/1390733[].
 ====
 
-
-*Manually Migrating Virtual Machines*
+.Procedure
 
 . Click menu:Compute[Virtual Machines] and select a running virtual machine.
 . Click btn:[Migrate].

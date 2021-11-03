@@ -1,0 +1,35 @@
+[id="Removing_stale_LUNs"]
+= Removing stale LUNs
+
+When a storage domain is removed, stale LUN links can remain on the storage server. This can lead to slow multipath scans, cluttered log files, and LUN ID conflicts.
+
+{virt-product-fullname} does not manage the iSCSI servers and, therefore, cannot automatically remove LUNs when a storage domain is removed. The administrator can manually remove stale LUN links with the `remove_stale_lun.yml` Ansible role. This role removes stale LUN links from all hosts that belong to given data center. For more information about this role and its variables, see the link:https://github.com/oVirt/ovirt-ansible-collection/blob/master/roles/remove_stale_lun/README.md[Remove Stale LUN role in the oVirt Ansible collection].
+
+====
+[NOTE]
+It is assumed that you are running `remove_stale_lun.yml` from the engine machine as the engine ssh key is already added on all the hosts. If the playbook is not running on the engine machine, a user's SSH key must be added to all hosts that belong to the data center, or the user must provide an appropriate inventory file.
+====
+
+.Procedure
+
+. Click menu:Storage[Domains].
+. Click the storage domain’s name. This opens the details view.
+. Click the *Data Center* tab.
+. Click *Maintenance*, then click *OK*.
+. Click *Detatch*, then click *OK*.
+. Click *Remove*.
+. Click *OK* to remove the storage domain from the source environment.
+. Remove the LUN from the storage server.
+. Remove the stale LUNs from the host using Ansible:
++
+[options="nowrap" subs="normal"]
+----
+# ansible-playbook --extra-vars "lun=<LUN>" /usr/share/doc/ovirt-ansible-collection/roles/remove_stale_lun/examples/remove_stale_lun.yml
+----
++
+where LUN is the LUN removed from the storage server in the steps above.
++
+====
+[NOTE]
+If you remove the stale LUN from the host using Ansible without first removing the LUN from the storage server, the stale LUN will reappear on the host the next time VDSM performs an iSCSI rescan.
+====

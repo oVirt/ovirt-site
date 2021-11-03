@@ -14,7 +14,7 @@ jobs:
       run: |
         set -euo pipefail
         PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-        echo "We are now creating a preview build, please stand by for a few minutes..." >/tmp/comment
+        echo "Hey there, thanks for the new content! 🙏 We'll create a preview build and post the link here in a few minutes." >/tmp/comment
         gh pr comment ${PR_ID} -F /tmp/comment
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
@@ -100,7 +100,7 @@ jobs:
           set -euo pipefail
           PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
           PR_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/previews/${PR_ID}
-          echo "Your preview build will be ready in a bit at ${PR_LINK} ." >/tmp/comment
+          echo "Your preview build is ready! ✨ Check the following link in 1-2 minutes: ${PR_LINK} ." >/tmp/comment
           gh pr comment ${PR_ID} -F /tmp/comment
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

@@ -15,6 +15,14 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: gh-pages
+    - name: Comment on PR
+      run: |
+        set -euo pipefail
+        PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+        echo "Hey there, we noticed that this PR is now closed, so we'll remove the preview build now." >/tmp/comment
+        gh pr comment ${PR_ID} -F /tmp/comment
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     - name: Remove branch preview
       run: rm -rf previews/$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
     - name: Commit changes

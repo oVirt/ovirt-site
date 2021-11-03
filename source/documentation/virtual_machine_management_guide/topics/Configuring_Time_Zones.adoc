@@ -15,7 +15,7 @@ Do not change values that come directly from the operating system or the {engine
 +
 For example, `10-timezone.properties` overrides the default file, `00-timezone.properties`. The last file in the file list has precedence over earlier files.
 +
-. Add new time zones to that file. Be sure each key is a valid General time zone from the link:https://en.wikipedia.org/wiki/Tz_database[tz database] and the value is a valid Windows time zone:
+. Add new time zones to that file. Be sure each key is a valid General time zone from the link:https://en.wikipedia.org/wiki/Tz_database[time zone database] and the value is a valid Windows time zone:
 +
 General:: Time zones used for non-Windows operating system types, must follow the standard time zone format for example, `Etc/GMT` or `Asia/Jerusalem`.
 Windows:: Time zones specifically supported on link:https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)?redirectedfrom=MSDN[Windows] for example, `GMT Standard Time` or `Israel Standard Time`.

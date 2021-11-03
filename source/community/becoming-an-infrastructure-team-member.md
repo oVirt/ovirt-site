@@ -16,7 +16,7 @@ This page describes the process for becoming a member of the Infrastructure team
 The Infrastructure team primarily uses three resources to get stuff done:
 
 * [The infra mailing list](https://lists.ovirt.org/archives/list/infra@ovirt.org/) for asynchronous communication
-* [oVirt infra Jira](https://ovirt-jira.atlassian.net/browse/OVIRT) for issue tracking
+* [CPE DevOps Jira](https://issues.redhat.com/projects/CPDEVOPS/summary) for issue tracking
 
 In general, the team hangs out on the general `#ovirt` IRC channel on OFTC (`irc.oftc.net`).
 
@@ -24,7 +24,7 @@ To start getting involved in the Infrastructure team, introduce yourself on the 
 Your self-introduction should include your name, relevant experience, and why you are interested in helping with oVirt infrastructure.
 
 In step 1, you should get familiar with
-* [the team goals](/develop/infra/infrastructure-documentation.html) 
+* [the team goals](/develop/infra/infrastructure-documentation.html)
 * [the team members](/develop/infra/infrastructure-team-administrators.html)
 * the skills we have
 * the infrastructure we use (such as [git](/develop/infra/infrastructure-git-repository.html) and [puppet](/develop/infra/infrastructure-puppet-details.html))

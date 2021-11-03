@@ -74,7 +74,7 @@ People who come to work on this project are *not* already experts, but they migh
 
 ### Opening tickets to the Infra team
 
-*   Email infra-support@ovirt.org, this will automatically open a ticket on our [Jira instance](https://ovirt-jira.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=OVIRT). If you don't have a user, it will automatically send you a registration email and set you as a watcher on the ticket.
+*   Email infra-support@ovirt.org, this will automatically open a ticket on our [CPE DevOps Jira](https://issues.redhat.com/projects/CPDEVOPS/summary). If you don't have a user, it will automatically send you a registration email and set you as a watcher on the ticket.
 
 ### Joining
 

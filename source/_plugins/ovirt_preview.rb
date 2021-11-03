@@ -10,9 +10,9 @@ end
 Jekyll::Hooks.register([:pages, :posts], :post_render) do |post|
     # Add base URL prefixes to all links that start with a slash.
     post.output = post.output.gsub(/href="\//, 'href="' + $prefix + '/')
-    post.output = post.output.gsub(/href='\//, 'href=' + $prefix + '/')
+    post.output = post.output.gsub(/href='\//, 'href=\'' + $prefix + '/')
     post.output = post.output.gsub(/src="\//, 'src="' + $prefix + '/')
-    post.output = post.output.gsub(/src='\//, 'src=' + $prefix + '/')
+    post.output = post.output.gsub(/src='\//, 'src=\'' + $prefix + '/')
     if $prefix != "" then
       # Above we also replaced some links that were already prefixed, let's undo that.
       post.output = post.output.gsub($prefix+$prefix, $prefix)

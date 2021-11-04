@@ -10,10 +10,22 @@ jobs:
       uses: actions/checkout@v2
       with:
         submodules: recursive
+    - name: Extract PR details
+      id: details
+      run: |
+        PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+        PREVIEW_PATH=previews/$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+        PREVIEW_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/${PREVIEW_PATH}
+        PREVIEW_LINK_PATH="$(echo $PREVIEW_LINK | sed -e 's#.*\.io/#/#')"
+        PREVIEW_LINK_BASE="$(echo $PREVIEW_LINK | sed -e 's#\.io.*#.io#')"
+        echo "::set-output name=PR_ID::${PR_ID}"
+        echo "::set-output name=PREVIEW_PATH::${PREVIEW_PATH}"
+        echo "::set-output name=PREVIEW_LINK::${PREVIEW_LINK}"
+        echo "::set-output name=PREVIEW_LINK_PATH::${PREVIEW_LINK_PATH}"
+        echo "::set-output name=PREVIEW_LINK_BASE::${PREVIEW_LINK_BASE}"
     - name: Comment on PR
       run: |
         set -euo pipefail
-        PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
         echo "Hey there, thanks for the new content! 🙏 We'll create a preview build and post the link here in a few minutes." >/tmp/comment
         gh pr comment ${PR_ID} -F /tmp/comment
       env:
@@ -39,13 +51,9 @@ jobs:
     - name: "Change config"
       run: |
         set -exuo pipefail
-        PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-        PR_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/previews/${PR_ID}
-        PR_LINK_PATH="$(echo $PR_LINK | sed -e 's#.*\.io/#/#')"
-        PR_LINK_BASE="$(echo $PR_LINK | sed -e 's#\.io.*#.io#')"
-        sed -i -e "s#^baseurl: .*#baseurl: ${PR_LINK_PATH}#" _config.yml
-        sed -i -e "s#^url: .*#url: ${PR_LINK_BASE}#" _config.yml
-        sed -i -e "s#site-baseurl: /#site-baseurl: ${PR_LINK_PATH}#" _config.yml
+        sed -i -e "s#^baseurl: .*#baseurl: ${{steps.details.outputs.PREVIEW_LINK_PATH}}#" _config.yml
+        sed -i -e "s#^url: .*#url: ${{steps.details.outputs.PREVIEW_LINK_BASE}}#" _config.yml
+        sed -i -e "s#site-baseurl: /#site-baseurl: ${{steps.details.outputs.PREVIEW_LINK_PATH}}#" _config.yml
         cat _config.yml
     - name: "Build website"
       run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site ovirt-site build
@@ -69,18 +77,28 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: gh-pages
-      - name: "Determine output directory"
-        id: targetdir
-        run: echo "::set-output name=TARGETDIR::previews/$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')"
+      - name: Extract PR details
+        id: details
+        run: |
+          PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          PREVIEW_PATH=previews/$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          PREVIEW_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/${PREVIEW_PATH}
+          PREVIEW_LINK_PATH="$(echo $PREVIEW_LINK | sed -e 's#.*\.io/#/#')"
+          PREVIEW_LINK_BASE="$(echo $PREVIEW_LINK | sed -e 's#\.io.*#.io#')"
+          echo "::set-output name=PR_ID::${PR_ID}"
+          echo "::set-output name=PREVIEW_PATH::${PREVIEW_PATH}"
+          echo "::set-output name=PREVIEW_LINK::${PREVIEW_LINK}"
+          echo "::set-output name=PREVIEW_LINK_PATH::${PREVIEW_LINK_PATH}"
+          echo "::set-output name=PREVIEW_LINK_BASE::${PREVIEW_LINK_BASE}"
       - name: "Remove preview build directory"
-        run: rm -rf "${{steps.targetdir.outputs.TARGETDIR}}"
+        run: rm -rf "${{steps.details.outputs.PREVIEW_PATH}}"
       - name: "Create preview build directory"
-        run: mkdir -p "${{steps.targetdir.outputs.TARGETDIR}}"
+        run: mkdir -p "${{steps.details.outputs.PREVIEW_PATH}}"
       - name: "Download generated content"
         uses: actions/download-artifact@v2
         with:
           name: ovirt-site
-          path: "${{steps.targetdir.outputs.TARGETDIR}}"
+          path: "${{steps.details.outputs.PREVIEW_PATH}}"
       - name: "Commit changes"
         run: |
           set -euo pipefail
@@ -88,7 +106,7 @@ jobs:
           git config user.email noreply@github.com
           git add .
           if ! git diff-index --quiet HEAD --; then
-            git commit -m "Adding or updating preview build for PR $(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')"
+            git commit -m "Adding or updating preview build for PR ${{steps.details.outputs.PR_ID}}"
             git push --set-upstream origin gh-pages
           else
             echo -e "No changes found."
@@ -98,9 +116,7 @@ jobs:
       - name: "Send comment to PR"
         run: |
           set -euo pipefail
-          PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-          PR_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/previews/${PR_ID}
-          echo "Your preview build is ready! ✨ Check the following link in 1-2 minutes: ${PR_LINK} ." >/tmp/comment
-          gh pr comment ${PR_ID} -F /tmp/comment
+          echo "Your preview build is ready! ✨ Check the following link in 1-2 minutes: ${{steps.details.outputs.PREVIEW_LINK}} ." >/tmp/comment
+          gh pr comment ${{steps.details.outputs.PR_ID}} -F /tmp/comment
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

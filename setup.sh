@@ -20,5 +20,7 @@ else
     echo "Could not verify system is RedHat or Debian."
     exit 1
 fi
-bundle config --local path 'vendor/bundle'
-bundle install
+if [ -z "${SKIP_BUNDLE}" ]; then
+  bundle config --local path 'vendor/bundle'
+  bundle install
+fi

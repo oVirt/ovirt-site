@@ -64,7 +64,7 @@ ifndef::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_D
     --enable=rhel-8-for-x86_64-appstream-rpms \
     --enable=rhv-4.4-manager-for-rhel-8-x86_64-rpms \
     --enable=fast-datapath-for-rhel-8-x86_64-rpms \
-    --enable=jb-eap-7.3-for-rhel-8-x86_64-rpms
+    --enable=jb-eap-7.4-for-rhel-8-x86_64-rpms
 ----
 endif::remote_database_install,manual_database_install,migrate_SHE_DB,migrate_DWH_DB,install_DWH_remote,migrate_manager_db[]
 ifdef::remote_database_install,manual_database_install,migrate_DWH_DB,install_DWH_remote[]

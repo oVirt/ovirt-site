@@ -27,7 +27,7 @@ jobs:
       run: |
         set -euo pipefail
         echo "Hey there, thanks for the new content! 🙏 We'll create a preview build and post the link here in a few minutes." >/tmp/comment
-        gh pr comment ${PR_ID} -F /tmp/comment
+        gh pr comment ${{steps.details.outputs.PR_ID}} -F /tmp/comment
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     - name: Set up Docker Buildx
@@ -46,8 +46,6 @@ jobs:
       with:
         path: vendor/bundle
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-gems-
     - name: "Change config"
       run: |
         set -exuo pipefail

@@ -33,7 +33,7 @@ link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_stand
 +
 [NOTE]
 ====
-If you are upgrading from {virt-product-shortname} version 4.4.0 through 4.4.6 to {virt-product-shortname} version 4.4.7 or later, you must add the EAP 7.4 channel to the list of subscription repositories `jb-eap-7.4-for-rhel-8-x86_64-rpms`, and following the upgrade, remove the `jb-eap-7.3-for-rhel-8-x86_64-rpms` from the lisat of subscription repositories.
+If you are upgrading from {virt-product-shortname} version 4.4.0 through 4.4.8 to {virt-product-shortname} version 4.4.9 or later, you must add the EAP 7.4 channel to the list of subscription repositories `jb-eap-7.4-for-rhel-8-x86_64-rpms`, and following the upgrade, remove the `jb-eap-7.3-for-rhel-8-x86_64-rpms` from the lisat of subscription repositories.
 ====
 endif::SHE_minor_updates,migrating_to_SHE,minor_updates[]
 +

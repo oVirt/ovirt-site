@@ -1,11 +1,10 @@
 FROM docker.io/library/ruby:2
 
 # Copy and run the setup.
-COPY setup.sh /usr/local/bin/setup.sh
 RUN DEBIAN_FRONTEND=noninteractive apt update \
-    && apt install -y sudo \
-    && DEBIAN_FRONTEND=noninteractive SKIP_BUNDLE=1 /usr/local/bin/setup.sh \
-    && rm -rf /var/lib/apt/lists/*
+    && DEBIAN_FRONTEND=noninteractive apt install -y build-essential ruby-bundler libcurl4-openssl-dev zlib1g-dev ruby-dev nodejs imagemagick \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt clean -y
 
 # Please mount the site in this directory.
 RUN mkdir -p /srv/site

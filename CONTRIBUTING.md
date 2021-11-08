@@ -90,27 +90,33 @@ and test your changes.
 For simple changes, you can try the Jekyll hot reload server, but note that it doesn't understand .htaccess
 and mod_redirect rules that we use on the production apache server.
 
-Run:
+You can run the development environment using the container:
 
-```
-rvm use 2.7
-./setup.sh && ./run-server.sh
+```bash
+# If you are using Podman:
+# alias docker=podman
+git submodule init
+git submodule update
+docker build -t ovirt-site .
+docker run -v $(pwd):/srv/site -p 4000:4000 -p 35729:35729 -ti ovirt-site 
 ```
 
 If the site builds successfully, you will see this message:
-The Jekyll web server is standing watch at http://\[address\]:4000
-(the exact URL is given on the terminal when Jekyll is ready)
+The Jekyll web server is standing watch at http://0.0.0.0:4000
+
 
 For complex changes, test with a local apache. Make sure apache is configured to allow `.htaccess` files by replacing
 `AllowOverride None` with `AllowOverride None` in `httpd.conf`.
 
 Run:
 
-```
-rvm use 2.7
-# clean the build dir if it exists
+```bash
+# Remove previously built contents
 rm -rf _site
-bundle exec jekyll b
+
+# Build the site
+docker run -v $(pwd):/srv/site -ti ovirt-site build
+
 # copy all built content into the apache root
 sudo rsync -av _site/ /var/www/html/
 ```

@@ -24,7 +24,7 @@ It is assumed that you are running `remove_stale_lun.yml` from the engine machin
 +
 [options="nowrap" subs="normal"]
 ----
-# ansible-playbook --extra-vars "lun=<LUN>" /usr/share/doc/ovirt-ansible-collection/roles/remove_stale_lun/examples/remove_stale_lun.yml
+# ansible-playbook --extra-vars "lun=<LUN>" /usr/share/ansible/collections/ansible_collections/ovirt/ovirt/roles/remove_stale_lun/examples/remove_stale_lun.yml
 ----
 +
 where LUN is the LUN removed from the storage server in the steps above.

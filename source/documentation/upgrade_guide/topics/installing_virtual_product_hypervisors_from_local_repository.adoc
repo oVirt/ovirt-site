@@ -1,0 +1,115 @@
+[id="installing_virtual_product_hypervisors_from_local_repository_{context}"]
+= Installing {virt-product-shortname} hypervisors from a local repository
+
+If your system uses a private {virt-product-fullname} ({virt-product-shortname}) environment, but without Red Hat Satellite, you might need to install {virt-product-shortname} hypervisors (RHV-H) from a repository hosted on a local RHEL system instead of the Red Hat hosted Content Delivery Network (CDN).
+
+.Procedure
+
+. On the system hosting the offline repository, create a file named `/etc/yum.repos.d/rhvh-mirror.repo` with contents similar to the lines that follow:
++
+[options="nowrap" subs="normal"]
+----
+[rhvh-4-for-rhel-8-x86_64-rpms]
+name = Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)
+baseurl = https://cdn.redhat.com/content/dist/layered/rhel8/x86_64/rhvh/4/os
+enabled = 0
+gpgcheck = 1
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+sslverify = 1
+sslcacert = /etc/rhsm/ca/redhat-uep.pem
+metadata_expire = 86400
+enabled_metadata = 1
+sslclientcert =
+sslclientkey =
+----
++
+You must populate the `sslclientcert` and `sslclientkey` fields with full path names to the correct files containing the appropriate certificate and key. The `/etc/pki/entitlement` directory contains one or more pairs of certificate and key files, but only one pair contains the RHV-H entitlement you need.
+
+. To find the certificate file:
+
+.. List all files in the `/etc/pki/entitlement` directory:
++
+[options="nowrap" subs="normal"]
+----
+# ls -al /etc/pki/entitlement/
+----
++
+Output similar to the following is displayed:
++
+[options="nowrap" subs="normal"]
+----
+total 836
+drwxr-xr-x.  2 root root    202 May 28 15:18 .
+drwxr-xr-x. 15 root root    208 Apr 23  2020 ..
+-rw-r--r--.  1 root root   3243 May 28 15:18 4522783034260408538-key.pem
+-rw-r--r--.  1 root root 152622 May 28 15:18 4522783034260408538.pem
+-rw-r--r--.  1 root root   3243 May 28 15:18 5659494963772844103-key.pem
+-rw-r--r--.  1 root root 343394 May 28 15:19 5659494963772844103.pem
+-rw-r--r--.  1 root root   3243 May 23 13:19 645832581386032208-key.pem
+-rw-r--r--.  1 root root 343389 May 23 13:19 645832581386032208.pem
+#
+----
+
+.. Use the `rct cat-cert` command on each certificate in order to find the one that contains the RHV-H entitlement:
++
+[options="nowrap" subs="normal"]
+----
+# cd /etc/pki/entitlement/
+# rct cat-cert 5659494963772844103.pem | grep rhvh/4/ | grep URL
+----
++
+Output similar to the following is displayed:
++
+[options="nowrap" subs="normal"]
+----
+        URL: /content/beta/rhel/server/7/$basearch/rhvh/4/os
+        URL: /content/dist/rhel/server/7/7Server/$basearch/rhvh/4/os
+        URL: /content/beta/layered/rhel8/x86_64/rhvh/4/os
+        URL: /content/dist/layered/rhel8/x86_64/rhvh/4/os
+----
+
+. Identify the correct certificate and fill in the `sslclientcert` and `sslclientkey` values in the previously mentioned `.repo` file:
++
+[options="nowrap" subs="normal"]
+----
+sslclientcert = /etc/pki/entitlement/5659494963772844103.pem
+sslclientkey = /etc/pki/entitlement/5659494963772844103-key.pem
+----
+
+. Run the `reposync` command in the appropriate directory:
++
+.. Use the 'pwd' command to determine the correct path:
++
+[options="nowrap" subs="normal"]
+----
+# pwd
+----
++
+Output similar to the following is displayed:
++
+[options="nowrap" subs="normal"]
+----
+/home/test/rhvh-reposync
+----
+.. Run the `reposync` command:
++
+[options="nowrap" subs="normal"]
+----
+# reposync --repo rhvh-4-for-rhel-8-x86_64-rpms
+----
++
+Output similar to the following is displayed:
++
+[options="nowrap" subs="normal"]
+----
+Updating Subscription Management repositories.
+Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)                             11 kB/s | 4.0 kB     00:00
+Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)                            272 kB/s | 291 kB     00:01
+.
+.
+.
+(193/194): redhat-virtualization-host-image-update-4.4.5-20210330.0.el8_3.noarc 5.4 MB/s | 822 MB     02:30
+(194/194): rhvm-appliance-4.4-20210310.0.el8ev.x86_64.rpm                       5.6 MB/s | 1.5 GB     04:34
+----
+
+. Check the certificate and key file pairs each time you run the `reposync` command because the Subscription Manager subsystem periodically regenerates them.

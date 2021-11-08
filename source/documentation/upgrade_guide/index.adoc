@@ -81,6 +81,9 @@ include::chap-Updates_between_Minor_Releases.adoc[leveloffset=+1]
 [appendix]
 include::topics/Updating_the_Local_Repository_for_an_Offline_Red_Hat_Virtualization_Manager_Installation.adoc[leveloffset=+1]
 
+[appendix]
+include::topics/installing_virtual_product_hypervisors_from_local_repository.adoc[leveloffset=+1]
+
 //[appendix]
 
 === Additional resources

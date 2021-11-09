@@ -51,6 +51,7 @@ Test the new configuration performs as expected on a non-production cluster in a
 
 .Additional resources
 
+* link:{URL_virt_product_docs}{URL_format}installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index#ref-Recommended_Settings_for_Multipath_conf_SHE_cli_deploy[Recommended Settings for Multipath.conf]
 * link:{URL_rhel_docs_legacy}html-single/dm_multipath/[_{enterprise-linux} DM Multipath_]
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_iSCSI_Multipathing[Configuring iSCSI Multipathing]
 * link:https://access.redhat.com/solutions/3234761[How do I customize /etc/multipath.conf on my RHVH hypervisors? What values must not change and why?]

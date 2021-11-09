@@ -1,13 +1,8 @@
 [id='Preparing_Local_Storage_{context}']
 = Preparing local storage
 
-When you set up a host to use local storage, the host is automatically added to a new data center and cluster that no other hosts can be added to. Multiple-host clusters require that all hosts have access to all storage domains, which is not possible with local storage. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.
-
-[IMPORTANT]
-====
 On {hypervisor-fullname} ({hypervisor-shortname}), local storage should always be defined on a file system that is separate from `/` (root).
 Use a separate logical volume or disk, to prevent possible loss of data during upgrades.
-====
 
 .Procedure for {enterprise-linux-host-fullname}s
 

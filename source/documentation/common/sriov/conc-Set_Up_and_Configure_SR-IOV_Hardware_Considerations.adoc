@@ -3,7 +3,7 @@ This is one in a series of topics that show how to set up and configure SR-IOV o
 * Hardware Considerations for Implementing SR-IOV (this document)
 
 * Configuring the host for PCI passthrough (choose the appropriate installation guide for your environment):
-  ** link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#configuring_a_host_for_pci_passthrough_she_cockpit_deploy[Installing {virt-product-fullname} as a Self-Hosted Engine Using the Cockpit Web Interface]
+
   ** link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#configuring_a_host_for_pci_passthrough_she_cli_deploy[Installing {virt-product-fullname} as a Self-Hosted Engine Using the Command Line]
   ** link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#configuring_a_host_for_pci_passthrough_sm_localdb_deploy[Installing {virt-product-fullname} as a Standalone Manager with Local Databases]
   ** link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/index#configuring_a_host_for_pci_passthrough_sm_remotedb_deploy[Installing {virt-product-fullname} as a Standalone Manager with Remote Databases]

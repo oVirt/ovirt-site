@@ -46,8 +46,6 @@ Repeat these steps to migrate virtual machines and upgrade hosts for the rest of
 
 * link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/[Installing {virt-product-fullname} as a self-hosted engine using the command line]
 
-* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index[Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface]
-
 * link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/[Installing {virt-product-fullname} as a standalone Manager with local databases]
 
 

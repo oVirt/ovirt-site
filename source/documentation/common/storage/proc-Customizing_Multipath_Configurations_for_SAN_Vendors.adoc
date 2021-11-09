@@ -5,9 +5,9 @@ If your RHV environment is configured to use multipath connections with SANs, yo
 
 To override the multipath settings, do not customize `/etc/multipath.conf`. Because VDSM owns `/etc/multipath.conf`, installing or upgrading VDSM or {virt-product-fullname} can overwrite this file including any customizations it contains. This overwriting can cause severe storage failures.
 
-Instead, you create a file in the `/etc/multipath/conf.d/user.conf` directory that contains the settings you want to customize or override.
+Instead, you create a file in the `/etc/multipath/conf.d` directory that contains the settings you want to customize or override.
 
-VDSM executes the files in `/etc/multipath/conf.d/user.conf` in alphabetical order. So, to control the order of execution, you begin the filename with a number that makes it come last. For example, `/etc/multipath/conf.d/user.conf/90-myfile.conf`.
+VDSM executes the files in `/etc/multipath/conf.d` in alphabetical order. So, to control the order of execution, you begin the filename with a number that makes it come last. For example, `/etc/multipath/conf.d/90-myfile.conf`.
 
 To avoid causing severe storage failures, follow these guidelines:
 
@@ -30,9 +30,9 @@ Not following these guidelines can cause catastrophic storage errors.
 
 .Procedure
 
-. Create a new configuration file in the `/etc/multipath/conf.d/user.conf` directory.
+. Create a new configuration file in the `/etc/multipath/conf.d` directory.
 
-. Copy the individual setting you want to override from `/etc/multipath.conf` to the new configuration file in `/etc/multipath/conf.d/user.conf`. Remove any comment marks, edit the setting values, and save your changes.
+. Copy the individual setting you want to override from `/etc/multipath.conf` to the new configuration file in `/etc/multipath/conf.d/<mydevice>.conf`. Remove any comment marks, edit the setting values, and save your changes.
 
 . Apply the new configuration settings by entering:
 +
@@ -47,11 +47,12 @@ Do not restart the multipathd service. Doing so generates errors in the VDSM log
 
 .Verification steps
 
-Test the new configuration performs as expected on a non-production cluster in a variety of failure scenarios. For example, disable all of the storage connections. Then enable one connection at a time and verify that doing so makes the storage domain reachable.
+. Test the new configuration performs as expected on a non-production cluster in a variety of failure scenarios. For example, disable all of the storage connections.
+. Enable one connection at a time and verify that doing so makes the storage domain reachable.
 
 .Additional resources
 
-*  link:{URL_virt_product_docs}{URL_format}installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface#ref-Recommended_Settings_for_Multipath_conf_SHE_cockpit_deploy[Recommended Settings for Multipath.conf]
+* xref:ref-Recommended_Settings_for_Multipath_conf_{context}[Recommended Settings for Multipath.conf]
 * link:{URL_rhel_docs_legacy}html-single/dm_multipath/[_{enterprise-linux} DM Multipath_]
 * link:{URL_virt_product_docs}{URL_format}administration_guide/index#Configuring_iSCSI_Multipathing[Configuring iSCSI Multipathing]
 * link:https://access.redhat.com/solutions/3234761[How do I customize /etc/multipath.conf on my RHVH hypervisors? What values must not change and why?]

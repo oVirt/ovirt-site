@@ -17,13 +17,13 @@ The following table details the options available in the *New Scheduling Policy*
 
 * `Migration`: Prevents migration to the same host.
 
-* `CPUOverloaded`: Hosts that are CPU overloaded.
+* `CPUOverloaded`: Hosts with CPU usage that is above the defined *HighUtilization* threshold for the interval defined by the *CpuOverCommitDurationMinutes*.
 
 * `PinToHost`: Hosts other than the host to which the virtual machine is pinned.
 
 * `CPU-Level`: Hosts that do not meet the CPU topology of the virtual machine.
 
-* `VmAffinityGroups`: Hosts that do not meet the conditions specified for a virtual machine that is a member of an affinity group. For example, that virtual machines in an affinity group must run on the same host or on separate hosts.
+* `VmAffinityGroups`: Hosts that do not meet the hard affinity rules defined for the virtual machine.
 
 * `NUMA`: Hosts that do not have NUMA nodes that can accommodate the virtual machine vNUMA nodes in terms of resources.
 
@@ -57,7 +57,7 @@ The following table details the options available in the *New Scheduling Policy*
 
 * `Label`: Hosts that do not have the required affinity labels.
 
-* `Compatibility-Version`: Hosts that do not have the correct compatibility version support.
+* `Compatibility-Version`: Hosts that do not have the correct cluster compatibility version support.
 
 |*Weights Modules* a|A set of weightings for controlling the relative priority of factors considered when determining the hosts in a cluster on which a virtual machine can run.
 

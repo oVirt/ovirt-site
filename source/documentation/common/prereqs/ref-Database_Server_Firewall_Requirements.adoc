@@ -31,7 +31,7 @@ You can use the IDs in the table to look up connections in the diagram.
 Data Warehouse service |{engine-name} (`engine`) database server
 
 Data Warehouse (`ovirt-engine-history`) database server |Default port for PostgreSQL database connections.
-| No, but can be enabled.
+|link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[No, but can be enabled].
 |D2 |5432 |TCP, UDP |External systems |Data Warehouse (`ovirt-engine-history`) database server |Default port for PostgreSQL database connections.
-| Disabled by default. No, but can be enabled.
+| Disabled by default. link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Migrating_the_Data_Warehouse_Database_to_a_Separate_Machine_migrate_DWH[No, but can be enabled].
 |===

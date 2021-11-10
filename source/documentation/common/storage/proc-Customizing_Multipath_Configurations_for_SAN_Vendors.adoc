@@ -32,7 +32,7 @@ Not following these guidelines can cause catastrophic storage errors.
 
 . Create a new configuration file in the `/etc/multipath/conf.d` directory.
 
-. Copy the individual setting you want to override from `/etc/multipath.conf` to the new configuration file in `/etc/multipath/conf.d/<mydevice>.conf`. Remove any comment marks, edit the setting values, and save your changes.
+. Copy the individual setting you want to override from `/etc/multipath.conf` to the new configuration file in `/etc/multipath/conf.d/<my_device>.conf`. Remove any comment marks, edit the setting values, and save your changes.
 
 . Apply the new configuration settings by entering:
 +
@@ -47,7 +47,7 @@ Do not restart the multipathd service. Doing so generates errors in the VDSM log
 
 .Verification steps
 
-. Test the new configuration performs as expected on a non-production cluster in a variety of failure scenarios. For example, disable all of the storage connections.
+. Test that the new configuration performs as expected on a non-production cluster in a variety of failure scenarios. For example, disable all of the storage connections.
 . Enable one connection at a time and verify that doing so makes the storage domain reachable.
 
 .Additional resources

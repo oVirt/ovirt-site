@@ -23,7 +23,7 @@ The following table details the options available in the *New Scheduling Policy*
 
 * `CPU-Level`: Hosts that do not meet the CPU topology of the virtual machine.
 
-* `VmAffinityGroups`: Hosts that do not meet the hard affinity rules defined for the virtual machine.
+* `VmAffinityGroups`: Hosts that do not meet the affinity rules defined for the virtual machine.
 
 * `NUMA`: Hosts that do not have NUMA nodes that can accommodate the virtual machine vNUMA nodes in terms of resources.
 

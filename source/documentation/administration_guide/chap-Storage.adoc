@@ -61,7 +61,13 @@ include::common/storage/proc-Adding_NFS_Storage.adoc[leveloffset=+3]
 include::topics/Increasing_NFS_Storage.adoc[]
 
 [[sect-Preparing_and_Adding_Local_Storage]]
-=== Preparing and Adding Local Storage
+=== Preparing and adding local storage
+
+A virtual machine's disk that uses a storage device that is physically installed on the virtual machine's host is referred to as a local storage device.
+
+A storage device must be part of a storage domain. The storage domain type for local storage is referred to as a local storage domain.
+
+Configuring a host to use local storage automatically creates, and adds the host to, a new local storage domain, data center and cluster to which no other host can be added. Multiple-host clusters require that all hosts have access to all storage domains, which is not possible with local storage. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.
 
 include::common/storage/proc-Preparing_Local_Storage.adoc[leveloffset=+3]
 

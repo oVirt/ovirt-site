@@ -1,17 +1,25 @@
 [id='Adding_Local_Storage_{context}']
-= Adding Local Storage
+= Adding a local storage domain
 
-Adding local storage to a host places the host in a new data center and cluster. The local storage configuration window combines the creation of a data center, a cluster, and storage into a single process.
-
+When adding a local storage domain to a host, setting the path to the local storage directory automatically creates and places the host in a local data center, local cluster, and local storage domain.
 
 .Procedure
 
 . Click menu:Compute[Hosts] and select the host.
-. Click menu:Management[Maintenance] and btn:[OK].
+. Click menu:Management[Maintenance] and btn:[OK]. The host's status changes to *Maintenance*.
 . Click menu:Management[Configure Local Storage].
 . Click the *Edit* buttons next to the *Data Center*, *Cluster*, and *Storage* fields to configure and name the local storage domain.
 . Set the path to your local storage in the text entry field.
 . If applicable, click the *Optimization* tab to configure the memory optimization policy for the new local storage cluster.
 . Click btn:[OK].
 
-Your host comes online in a data center of its own.
+The {engine-name} sets up the local data center with a local cluster, local storage domain. It also changes the host's status to *Up*.
+
+.Verification
+
+. Click menu:Storage[Domains].
+. Locate the local storage domain you just added.
+
+The domain's status should be *Active* (image:common/images/status_active_icon.png[]), and the value in the *Storage Type* column should be *Local on Host*.
+
+You can now upload a disk image in the new local storage domain.

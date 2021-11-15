@@ -13,9 +13,9 @@ If you are using block storage and intend to deploy virtual machines on raw devi
 ifdef::storage-domain[]
 See xref:Creating_LVM_filter_{context}[Creating an LVM filter] for details.
 endif::storage-domain[]
-ifdef::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE,SM_localDB_deploy,SM_remoteDB_deploy[]
+ifdef::SHE_cli_deploy,migrating_to_SHE,SM_localDB_deploy,SM_remoteDB_deploy[]
 See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Creating_LVM_filter_storage_admin[Creating an LVM filter]
-endif::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE,SM_localDB_deploy,SM_remoteDB_deploy[]
+endif::SHE_cli_deploy,migrating_to_SHE,SM_localDB_deploy,SM_remoteDB_deploy[]
 ====
 
 [IMPORTANT]

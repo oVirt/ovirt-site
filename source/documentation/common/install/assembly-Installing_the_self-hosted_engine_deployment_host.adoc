@@ -23,9 +23,6 @@ ifdef::rhv-doc[]
 include::proc-Enabling_the_Red_Hat_Enterprise_Linux_Host_Repositories.adoc[leveloffset=+2]
 endif::[]
 
-ifdef::SHE_cockpit_deploy[]
-include::proc-Installing_Cockpit_on_RHEL_Hosts.adoc[leveloffset=+2]
-endif::SHE_cockpit_deploy[]
 
 :context!: SHE_deployment_host
 :SHE_deployment_host!:

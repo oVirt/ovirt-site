@@ -24,7 +24,7 @@ endif::SM_localDB_deploy,SM_remoteDB_deploy[]
 
 * xref:Preparing_Red_Hat_Gluster_Storage_{context}[{gluster-storage-fullname}]
 
-ifdef::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE,SHE_backup_restore,SHE_restore_only[]
+ifdef::SHE_cli_deploy,migrating_to_SHE,SHE_backup_restore,SHE_restore_only[]
 
 .Prerequisites
 
@@ -39,14 +39,14 @@ Extending or otherwise changing the self-hosted engine storage domain after depl
 
 * If you use iSCSI storage, the self-hosted engine storage domain must use a dedicated iSCSI target. Any additional storage domains must use a different iSCSI target.
 
-endif::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE,SHE_backup_restore,SHE_restore_only[]
+endif::SHE_cli_deploy,migrating_to_SHE,SHE_backup_restore,SHE_restore_only[]
 
-ifdef::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE[]
+ifdef::SHE_cli_deploy,migrating_to_SHE[]
 // Not needed for standalone {engine-name} (irrelevant) or SHE backup/restore (SHE storage is already set up)
 
 * It is strongly recommended to create additional data storage domains in the same data center as the self-hosted engine storage domain. If you deploy the self-hosted engine in a data center with only one active data storage domain, and that storage domain is corrupted, you cannot add new storage domains or remove the corrupted storage domain. You must redeploy the self-hosted engine.
 
-endif::SHE_cockpit_deploy,SHE_cli_deploy,migrating_to_SHE[]
+endif::SHE_cli_deploy,migrating_to_SHE[]
 
 ifdef::SHE_backup_restore,SHE_restore_only[]
 [WARNING]
@@ -57,7 +57,7 @@ endif::SHE_backup_restore,SHE_restore_only[]
 
 
 include::proc-Preparing_NFS_Storage.adoc[leveloffset=+1]
- 
+
 include::ref-Preparing_iSCSI_Storage.adoc[leveloffset=+1]
 
 include::ref-Preparing_FCP_Storage.adoc[leveloffset=+1]

@@ -24,11 +24,11 @@ The following CPU models are supported:
 ** Skylake Server
 ** Cascadelake Server
 
-ifndef::SHE_cockpit_deploy,SHE_cli_deploy[]
+ifndef::SHE_cli_deploy[]
 * IBM
 ** POWER8
 ** POWER9
-endif::SHE_cockpit_deploy,SHE_cli_deploy[]
+endif::SHE_cli_deploy[]
 
 For each CPU model with security updates, the *CPU Type* lists a basic type and a secure type. For example:
 

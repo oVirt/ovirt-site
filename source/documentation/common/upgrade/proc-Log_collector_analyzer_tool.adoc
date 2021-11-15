@@ -10,7 +10,7 @@ ifdef::4-2_local_db,4-2_remote_db,4-2_SHE[]
 link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}4.2/html-single/installation_guide/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_standalone_install[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.2.
 endif::4-2_local_db,4-2_remote_db,4-2_SHE[]
 ifdef::4-3_local_db,4-3_remote_db,4-3_SHE[]
-link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}4.3/html-single/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.3.
+link:{URL_customer-portal}{URL_docs}{URL_lang-locale}{URL_product_rhv}4.3/html-single/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.3.
 endif::4-3_local_db,4-3_remote_db,4-3_SHE[]
 ifdef::SHE_minor_updates,migrating_to_SHE,minor_updates[]
 link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.4.

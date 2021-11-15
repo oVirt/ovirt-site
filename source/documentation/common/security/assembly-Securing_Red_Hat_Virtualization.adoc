@@ -1,6 +1,5 @@
 // This assembly is included in the following assemblies:
 //
-// assembly-Installing_Red_Hat_Virtualization_as_a_self-hosted_engine_using_the_Cockpit_web_interface/master.adoc
 // assembly-Installing_Red_Hat_Virtualization_as_a_self-hosted_engine_using_the_command_line/master.adoc
 // assembly-Installing_Red_Hat_Virtualization_as_a_standalone_Manager_with_local_databases/master.adoc
 // assembly-Installing_Red_Hat_Virtualization_as_a_standalone_Manager_with_remote_databases/master.adoc

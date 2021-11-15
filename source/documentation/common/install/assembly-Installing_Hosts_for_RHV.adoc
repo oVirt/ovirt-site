@@ -64,8 +64,8 @@ include::proc-Installing_Cockpit_on_RHEL_Hosts.adoc[leveloffset=+2]
 
 include::con-Recommended_practices_for_configuring_host_networks.adoc[leveloffset=+1]
 
-ifdef::SHE_cockpit_deploy,SHE_cli_deploy[]
+ifdef::SHE_cli_deploy[]
 include::proc-Adding_self-hosted_engine_nodes_to_the_Manager.adoc[leveloffset=+1]
-endif::SHE_cockpit_deploy,SHE_cli_deploy[]
+endif::SHE_cli_deploy[]
 
 include::proc-Adding_standard_hosts_to_the_Manager.adoc[leveloffset=+1]

@@ -21,7 +21,7 @@ Environments with local storage cannot migrate virtual machines to a host in ano
 
 .. Click *Maintenance*.
 
-. Reinstall the {hypervisor-fullname}, as described in link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Red_Hat_Virtualization_Hosts_SHE_cockpit_deploy[Installing {hypervisor-fullname}] in the _Installation Guide_.
+. Reinstall the {hypervisor-fullname}, as described in link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Installing_Red_Hat_Virtualization_Hosts_SHE_deployment_host[Installing {hypervisor-fullname}] in the _Installation Guide_.
 +
 [IMPORTANT]
 ====
@@ -73,7 +73,7 @@ UUID="a81a6879-3764-48d0-8b21-2898c318ef7c" /data    ext4    defaults     0     
 
 . Configure a cluster on the new data center. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Creating_a_New_Cluster[Creating a New Cluster] in the _Administration Guide_ for more information.
 
-. Add the host to the {engine-name}. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Adding_standard_hosts_to_the_Manager_SHE_cockpit_deploy[Adding Standard Hosts to the {virt-product-fullname} Manager] in one of the _Installing {virt-product-fullname}_ guides for more information.
+. Add the host to the {engine-name}. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Adding_standard_hosts_to_the_Manager_SHE_cli_deploy[Adding Standard Hosts to the {virt-product-fullname} Manager] in one of the _Installing {virt-product-fullname}_ guides for more information.
 
 . On the host, create a new directory that will be used to create the initial local storage domain. For example:
 +

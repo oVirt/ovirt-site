@@ -12,8 +12,22 @@ VDSM executes the files in `/etc/multipath/conf.d` in alphabetical order. So, to
 To avoid causing severe storage failures, follow these guidelines:
 
 * Do not modify `/etc/multipath.conf`. If the file contains user modifications, and the file is overwritten, it can cause unexpected storage problems.
-* Do not override the `user_friendly_names` and `find_multipaths` settings. For details, see xref:ref-Recommended_Settings_for_Multipath_conf_{context}[].
-* Avoid overriding the `no_path_retry` and `polling_interval` settings unless a storage vendor specifically requires you to do so. For details, see xref:ref-Recommended_Settings_for_Multipath_conf_{context}[].
+ifdef::SHE_cli_deploy[]
+* Do not override the `user_friendly_names` and `find_multipaths` settings. For details, see xref:ref-Recommended_Settings_for_Multipath_conf_SHE_cli_deploy[Recommended Settings for Multipath.conf].
+* Avoid overriding the `no_path_retry` and `polling_interval` settings unless a storage vendor specifically requires you to do so. For details, see xref:ref-Recommended_Settings_for_Multipath_conf_SHE_cli_deploy[Recommended Settings for Multipath.conf].
+endif::SHE_cli_deploy[]
+ifdef::SM_localDB_deploy[]
+* Do not override the `user_friendly_names` and `find_multipaths` settings. For details, see xref:ref-Recommended_Settings_for_Multipath_conf_SM_localDB_deploy[Recommended Settings for Multipath.conf].
+* Avoid overriding the `no_path_retry` and `polling_interval` settings unless a storage vendor specifically requires you to do so. For details, see xref:ref-Recommended_Settings_for_Multipath_conf_SM_localDB_deploy[Recommended Settings for Multipath.conf].
+endif::SM_localDB_deploy[]
+ifdef::SM_remoteDB_deploy[]
+* Do not override the `user_friendly_names` and `find_multipaths` settings. For details, see xref:ref-Recommended_Settings_for_Multipath_conf_SM_remoteDB_deploy[Recommended Settings for Multipath.conf].
+* Avoid overriding the `no_path_retry` and `polling_interval` settings unless a storage vendor specifically requires you to do so. For details, see xref:ref-Recommended_Settings_for_Multipath_conf_SM_remoteDB_deploy[Recommended Settings for Multipath.conf].
+endif::SM_remoteDB_deploy[]
+ifdef::SHE_cockpit_deploy[]
+* Do not override the `user_friendly_names` and `find_multipaths` settings. For details, see xref:ref-Recommended_Settings_for_Multipath_conf_SHE_cockpit_deploy[Recommended Settings for Multipath.conf].
+* Avoid overriding the `no_path_retry` and `polling_interval` settings unless a storage vendor specifically requires you to do so. For details, see xref:ref-Recommended_Settings_for_Multipath_conf_SHE_cockpit_deploy[Recommended Settings for Multipath.conf].
+endif::SHE_cockpit_deploy[]
 
 [WARNING]
 ====

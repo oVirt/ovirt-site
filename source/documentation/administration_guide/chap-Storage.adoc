@@ -99,6 +99,8 @@ include::topics/Increasing_iSCSI_or_FCP_Storage.adoc[]
 
 include::topics/Reusing_LUNs.adoc[]
 
+include::topics/Removing_stale_LUNs.adoc[leveloffset=+3]
+
 include::common/storage/proc-Creating_LVM_filter.adoc[leveloffset=+3]
 
 [[Adding_Red_Hat_Gluster_Storage]]

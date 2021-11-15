@@ -25,7 +25,9 @@ This procedure assumes that you have access and can make changes to the original
 
 * A fully qualified domain name prepared for your {engine-name} and the host. Forward and reverse lookup records must both be set in the DNS. The new {engine-name} must have the same fully qualified domain name as the original {engine-name}.
 
-* The original {engine-name} must be updated to the latest minor version. Backups can only be restored to environments of the same major release as that of the backup. For example, a backup of a {virt-product-fullname} version 4.2 environment can only be restored to another {virt-product-fullname} version 4.2 environment. Starting with {virt-product-fullname} 4.4.7, when using the engine-backup command, the minor version of the {engine-name} (such as 4.4.8) must be later than or equal to the minor version of the backup (such as 4.4.7). See link:{URL_virt_product_docs}{URL_format}upgrade_guide/index#Updating_the_Red_Hat_Virtualization_Manager_minor_updates[Updating the {virt-product-fullname} {engine-name}] in the _Upgrade Guide_.
+* The original {engine-name} must be updated to the latest minor version.
+The version of the {virt-product-fullname} {engine-name} (such as 4.4.8) used to restore a backup must be later than or equal to the {virt-product-fullname} {engine-name} version (such as 4.4.7) used to create the backup.
+Starting with {virt-product-fullname} 4.4.7, this policy is strictly enforced by the engine-backup command. See link:{URL_virt_product_docs}{URL_format}upgrade_guide/index#Updating_the_Red_Hat_Virtualization_Manager_minor_updates[Updating the {virt-product-fullname} {engine-name}] in the _Upgrade Guide_.
 
 * The data center compatibility level must be set to the latest version to ensure compatibility with the updated storage version.
 

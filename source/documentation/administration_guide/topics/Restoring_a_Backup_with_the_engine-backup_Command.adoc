@@ -6,6 +6,6 @@ Restoring a backup using the engine-backup command involves more steps than crea
 [IMPORTANT]
 ====
 The version of the {virt-product-fullname} {engine-name} (such as 4.4.8) used to restore a backup must be later than or equal to the {virt-product-fullname} {engine-name} version (such as 4.4.7) used to create the backup.
-Starting with {virt-product-fullname} 4.4.7, this policy is strictly enforced by the engine-backup command. See link:{URL_virt_product_docs}{URL_format}upgrade_guide/index#Updating_the_Red_Hat_Virtualization_Manager_minor_updates[Updating the {virt-product-fullname} {engine-name}] in the _Upgrade Guide_.
+Starting with {virt-product-fullname} 4.4.7, this policy is strictly enforced by the engine-backup command.
 To view the version of {virt-product-fullname} contained in a backup file, unpack the backup file and read the value in the *version* file located in the root directory of the unpacked files.
 ====

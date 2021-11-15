@@ -133,9 +133,6 @@ include::common/database/assembly-Migrating_Data_Warehouse_to_a_Separate_Machine
 //end sect
 
 [appendix]
-include::common/install/appe-Set_up_Cinderlib.adoc[leveloffset=+1]
-
-[appendix]
 include::common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+1]
 
 ifdef::context[:parent-context: {context}]

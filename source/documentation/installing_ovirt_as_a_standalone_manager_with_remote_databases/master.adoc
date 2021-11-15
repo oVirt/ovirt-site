@@ -105,9 +105,6 @@ include::common/install/proc-Configuring_an_Offline_Repository_for_Red_Hat_Virtu
 :context: SM_remoteDB_deploy
 
 [appendix]
-include::common/install/appe-Set_up_Cinderlib.adoc[leveloffset=+1]
-
-[appendix]
 include::common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+1]
 
 [appendix]

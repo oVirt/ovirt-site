@@ -35,6 +35,9 @@ forbidding other VMs from running on dedicated CPUs.
     configuration.
   * *pCPU*: Physical CPU of a host.
   * *vCPU*: Virtual CPU of a VM.
+  * *CPU list*: A string describing list of CPUs. It is a comma-separated list
+    of CPUs or CPU ranges. The range of CPUs has to be specified in
+    non-decreasing order. Example of such string is: `1,3-5,7`
 
 
 ## Description
@@ -159,8 +162,9 @@ verb `Host.getCapabilities` will be extended to provide keys:
       only one die in the socket so in most cases this will be `0`.
     * `core_id`: on which core of the die this CPU resides
 
-Further, Engine will add a new entry into VM metadata called `cpuPolicy` that
-will contain the requested CPU policy. The valid values for `cpuPolicy` are:
+There are also changes to VM metadata. One is that Engine will add a new entry
+called `cpuPolicy` that will contain the requested CPU policy. The valid values
+for `cpuPolicy` are:
 
   * `none`: no pinning or policy selected, this is regular VM with shared CPUs
   * `manual`: VM has fixed CPU pinning (CPU pinning or NUMA auto pinning)
@@ -168,20 +172,30 @@ will contain the requested CPU policy. The valid values for `cpuPolicy` are:
   * `isolate-threads`: VM uses the `isolate-threads` policy
   * `siblings`: VM uses the `siblings` policy
 
-And finally, migration parameters in `VM.migrate` will contain a field `cpus`
+Another new metadata entry is `manuallyPinedCPUs`. This is populated by VDSM
+(unless Engine does it first) for VMs with `manual` policy and it contains CPU
+list of CPUs that are covered by the pinning string. This lets VDSM know which
+CPUs have defined pinning and which do not. It is important during recovery
+when it cannot be ascertained in any other way. Note that CPUs that are not
+pinned manually will use CPUs from shared pool.
+
+Migration parameters in `VM.migrate` API call will contain a field `cpusets`
 with the CPU mapping for the VM on the destination host. Because the libvirt
 domain on destination is created by VDSM on source it needs to know which CPUs
 are dedicated to the VM on destination so that it can provide a correct domain
-XML to the destination host. The content of `cpus` will be a valid XML
-containing `<cputune>` (with no arguments) with `<vcpupin>` elements. E.g.:
+XML to the destination host. The value of `cpusets` is a list of CPU lists
+where each item of the list describes pinning for the vCPU at that index. For
+example `['1','3','5']` means that vCPU
+`1` should be pinned to pCPU `1`, vCPU `2` should be pinned to pCPU `3` and
+vCPU `3` should be pinned to pCPU `5`. While the field itself is technically
+optional it is required for VMs with policy other than `shared` or `manual`. When
+specified, length of the list must match number of virtual CPUs.
 
-```
-<?xml version="1.0"?>
-<cputune>
-    <vcpupin vcpu="0" cpupin="3" />
-    <vcpupin vcpu="1" cpupin="16" />
-</cputune>
-```
+API call `VM.setNumberOfCpus` will be extended with an optional field
+`cpusets`. It is a list of CPU lists where each item of the list describes
+pinning for the vCPU at that index. The rules of its use are same as for
+`VM.migrate` call. When checking list length it must match the new number of
+CPUs (i.e. must match `numberOfCpus` field).
 
 
 ## Testing
@@ -201,10 +215,6 @@ backward compatibility:
 
 
 ## Future Work
-
-In the beginning CPU hot-plugging will not be supported for VMs with policies
-other than *shared*. To figure out how the hot-plugging should behave for each
-particular policy will remain as a future work.
 
 Use of VMs with dedicated CPU policies may in time lead to fragmentation of
 cores and threads on the hosts. Leading not only to inefficient use,

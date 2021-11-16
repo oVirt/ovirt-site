@@ -226,3 +226,12 @@ you won't be able to start the VM without removing VMs from one of the sockets
 firsts. Techniques for re-assigning CPUs for consolidating resources need to
 be investigated. It may (or may not) turn out to be a prerequisite for useful
 CPU hot-plugging too.
+
+At the moment we generally do not pin the emulator thread (`emulatorpin`) nor
+do we pin IO threads (`iothreadpin`) of the VMs. The only exception is high
+performance VMs where these threads are pinned to first core of the socket on
+which the VM runs. This however may change in the future in respect to another
+feature,
+[parallel migration connections](/develop/release-management/features/virt/parallel-migration-connections.html).
+In all cases Engine has to take care that CPUs used for emulator threads or IO
+threads are not dedicated to a VM. Such CPUs have to remain in shared pool.

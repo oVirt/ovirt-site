@@ -28,8 +28,9 @@ Author information is stored in `data/authors.yml`. If you write some content fo
 
 ## Add new content
 
-All content in the website is written in Markdown. For information on formatting Markdown,
-see [Markdown Basics](https://help.github.com/articles/markdown-basics/).
+This section applies to the website content other than product documentation. If you are contributing to product documentation, see [Contribute to oVirt documentation](source/documentation/contributing_to_docs/contributing.adoc).
+
+Content in the website is written in Markdown, except for product documentation, which is written in Asciidoc. For information on formatting Markdown, see [Markdown Basics](https://help.github.com/articles/markdown-basics/).
 
 You can create a new topic file in one of the following ways:
 
@@ -74,7 +75,7 @@ Pages are associated with a layout depending on their path in the Jekyll configu
 
 Pages are transformed depending on their format (markdown…), then a templating langage, [Liquid](https://shopify.github.io/liquid/), is used to allow some programming (variables, conditionals, loop…). Special variables like `site` and `page` are available to access frontmatter and site data.
 
-If this is not sufficient then you may use HAML Ruby blocks. The Liquid special variables are available in HAML includes but _not_ pages. They can be used identically as in Liquid. To make an include you need to create your HAML content in `source/_includes/<include>.haml` and reference if in your page using: `{% haml <include>.haml %}` (with <include> a name of your choice).
+If this is not sufficient then you can use HAML Ruby blocks. The Liquid special variables are available in HAML includes but _not_ pages. They can be used identically as in Liquid. To make an include you need to create your HAML content in `source/_includes/<include>.haml` and reference if in your page using: `{% haml <include>.haml %}` (with <include> a name of your choice).
 
 Please note ERB is not supported, use HAML with Ruby block instead
 

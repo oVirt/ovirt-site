@@ -2,9 +2,61 @@ name: "Preview build"
 on:
   pull_request:
 jobs:
+  check:
+    name: "Content check"
+    runs-on: ubuntu-20.04
+    steps:
+      - name: "Checkout repo"
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: "Cache files"
+        uses: actions/cache@v2
+        id: website-cache
+        with:
+          path: tmp/.htmlproofer
+          key: htmlproofer
+
+      - name: "Check for obsolete wiki headers"
+        run: |
+          if grep -rEi "^wiki_[^ ]+: " source/; then
+            echo '/!\ Wiki headers are obsolete (see previous log entries)'
+            exit 2
+          fi
+
+      - name: "Check for obsolete feature headers"
+        run: |
+          if grep -rEi "^feature_[^ ]+: " source/; then
+            echo '/!\ Feature headers are obsolete (see previous log entries)'
+            exit 2
+          fi
+
+      - name: "Check for non-breaking space in markdowns"
+        run: |
+          if grep -P '\xa0' `find source/ -name "*.md"` ; then
+            echo '/!\ nonbreaking spaces have been found within the markdown (see previous log entries)'
+            exit 2
+          fi
+
+      # bundler just bump versions to the locally available ones
+      # which means developers would always require bleeding edge versions not available on stable servers
+      # this is too simplistic and breaks deployment
+      # instead all changes are tested via CI on the same target OS and version than the production builder
+      - name: "Check for simplistic bundler requirement bump"
+        run: |
+          if grep -E "^(RUBY VERSION|BUNDLED WITH)" Gemfile.lock; then
+            echo '/!\ please remove "RUBY VERSION" and "BUNDLED WITH" requirements in Gemfile.lock'
+            exit 2
+          fi
   build:
     name: "Build preview"
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-20.04
+    outputs:
+      PR_ID: ${{steps.details.outputs.PR_ID}}
+      PREVIEW_PATH: ${{steps.details.outputs.PREVIEW_PATH}}
+      PREVIEW_LINK_PATH: ${{steps.details.outputs.PREVIEW_LINK_PATH}}
+      PREVIEW_LINK_BASE: ${{steps.details.outputs.PREVIEW_LINK_BASE}}
     steps:
     - name: "Checkout repo"
       uses: actions/checkout@v2
@@ -24,6 +76,7 @@ jobs:
         echo "::set-output name=PREVIEW_LINK_PATH::${PREVIEW_LINK_PATH}"
         echo "::set-output name=PREVIEW_LINK_BASE::${PREVIEW_LINK_BASE}"
     - name: Comment on PR
+      continue-on-error: true
       run: |
         set -euo pipefail
         echo "Hey there, thanks for the new content! 🙏 We'll create a preview build and post the link here in a few minutes." >/tmp/comment
@@ -64,8 +117,9 @@ jobs:
           _site
   publish:
     name: "Publish preview"
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-20.04
     needs:
+      - check
       - build
     concurrency:
       group: ovirt-site-preview-build
@@ -75,28 +129,15 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: gh-pages
-      - name: Extract PR details
-        id: details
-        run: |
-          PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-          PREVIEW_PATH=previews/$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-          PREVIEW_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/${PREVIEW_PATH}
-          PREVIEW_LINK_PATH="$(echo $PREVIEW_LINK | sed -e 's#.*\.io/#/#')"
-          PREVIEW_LINK_BASE="$(echo $PREVIEW_LINK | sed -e 's#\.io.*#.io#')"
-          echo "::set-output name=PR_ID::${PR_ID}"
-          echo "::set-output name=PREVIEW_PATH::${PREVIEW_PATH}"
-          echo "::set-output name=PREVIEW_LINK::${PREVIEW_LINK}"
-          echo "::set-output name=PREVIEW_LINK_PATH::${PREVIEW_LINK_PATH}"
-          echo "::set-output name=PREVIEW_LINK_BASE::${PREVIEW_LINK_BASE}"
       - name: "Remove preview build directory"
-        run: rm -rf "${{steps.details.outputs.PREVIEW_PATH}}"
+        run: rm -rf "${{needs.build.outputs.PREVIEW_PATH}}"
       - name: "Create preview build directory"
-        run: mkdir -p "${{steps.details.outputs.PREVIEW_PATH}}"
+        run: mkdir -p "${{needs.build.outputs.PREVIEW_PATH}}"
       - name: "Download generated content"
         uses: actions/download-artifact@v2
         with:
           name: ovirt-site
-          path: "${{steps.details.outputs.PREVIEW_PATH}}"
+          path: "${{needs.build.outputs.PREVIEW_PATH}}"
       - name: "Commit changes"
         run: |
           set -euo pipefail
@@ -104,7 +145,7 @@ jobs:
           git config user.email noreply@github.com
           git add .
           if ! git diff-index --quiet HEAD --; then
-            git commit -m "Adding or updating preview build for PR ${{steps.details.outputs.PR_ID}}"
+            git commit -m "Adding or updating preview build for PR ${{needs.build.outputs.PR_ID}}"
             git push --set-upstream origin gh-pages
           else
             echo -e "No changes found."
@@ -112,9 +153,10 @@ jobs:
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - name: "Send comment to PR"
+        continue-on-error: true
         run: |
           set -euo pipefail
-          echo "Your preview build is ready! ✨ Check the following link in 1-2 minutes: ${{steps.details.outputs.PREVIEW_LINK}} ." >/tmp/comment
-          gh pr comment ${{steps.details.outputs.PR_ID}} -F /tmp/comment
+          echo "Your preview build is ready! ✨ Check the following link in 1-2 minutes: ${{needs.build.outputs.PREVIEW_LINK}} ." >/tmp/comment
+          gh pr comment ${{needs.build.outputs.PR_ID}} -F /tmp/comment
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

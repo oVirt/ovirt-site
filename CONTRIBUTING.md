@@ -114,6 +114,9 @@ Run:
 # Remove previously built contents
 rm -rf _site
 
+# If you are using Podman:
+# alias docker=podman
+
 # Build the site
 docker run -v $(pwd):/srv/site -ti ovirt-site build
 

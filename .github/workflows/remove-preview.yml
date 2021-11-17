@@ -29,6 +29,7 @@ jobs:
         echo "::set-output name=PREVIEW_LINK_PATH::${PREVIEW_LINK_PATH}"
         echo "::set-output name=PREVIEW_LINK_BASE::${PREVIEW_LINK_BASE}"
     - name: Comment on PR
+      continue-on-error: true
       run: |
         set -euo pipefail
         echo "Hey there, we noticed that this PR is now closed, so we'll remove the preview build now." >/tmp/comment

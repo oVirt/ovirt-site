@@ -29,4 +29,4 @@ include::appe-System_Accounts.adoc[]
 [appendix]
 == Legal notice
 
-Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}administration_guide/[Red Hat Virtualization {vernum_rhv} Administration Guide]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}administration_guide/[Red Hat Virtualization {vernum_rhv} Administration Guide]. Copyright © 2021 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].

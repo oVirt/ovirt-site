@@ -12,3 +12,5 @@ include::assembly/asm_ActivePassiveDR.adoc[]
 include::reference/rfr_MappingFileAttributes.adoc[]
 [appendix]
 include::reference/rfr_TestingAP.adoc[]
+
+include::common/collateral_files/legal-notice.adoc[]

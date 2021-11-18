@@ -37,27 +37,7 @@ authors:
 
 ## Installing the required repositories
 
-To build VDSM, enable the oVirt repositories by installing the ovirt-release rpm:
-
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
-      
-      
- or if you are using Fedora 
- 
- 
-      dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
-       
-If you need a previous installation, use the corresponding repository instead:
-
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm 
-      yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
-      
- for Fedora 
-    
-     dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release40.rpm 
-     dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release36.rpm 
-     dnf install http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm
+To build VDSM, enable the oVirt repositories by following the [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot.html) guide.
 
 This adds all the required repositories for you, including:
 

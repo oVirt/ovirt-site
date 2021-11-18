@@ -28,9 +28,7 @@ execute the following command as root:
 
 ### Configuring oVirt's Repository
 
-Execute the following command:
-
-      sudo yum install http://resources.ovirt.org/releases/ovirt-release/ovirt-release-master.rpm
+Follow the [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot.html) guide.
 
 ## VDSM
 

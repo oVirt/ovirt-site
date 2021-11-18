@@ -88,11 +88,8 @@ within a repository managed by oVirt project.
 
 The `ovirt-release-master` package will provide the needed repository configuration.
 
-On a plain CentOS Stream 9 system you can install the oVirt packages and their dependencies with:
-
-```bash
-$ sudo dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm
-```
+On a plain CentOS Stream 9 system you can install the oVirt packages and their dependencies following
+the [Install nightly snapshot](/develop/dev-process/install-nightly-snapshot.html) guide.
 
 ## Documentation & External references
 

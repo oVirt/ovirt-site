@@ -3,12 +3,13 @@ title: Install nightly snapshot
 authors: sandrobonazzola
 ---
 
-# Install nightly snapshot
+# Install nightly oVirt master snapshot
 
-## From master branches
+You need to run:
 
-You just need to execute:
-
-`yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release-master.rpm)
+```
+rpm --import https://download.copr.fedorainfracloud.org/results/ovirt/ovirt-master-snapshot/pubkey.gpg
+dnf --repofrompath=ovirt-master-snapshot,https://download.copr.fedorainfracloud.org/results/ovirt/ovirt-master-snapshot/centos-stream-8-x86_64/ install ovirt-release-master
+```
 
 for adding all needed repositories.

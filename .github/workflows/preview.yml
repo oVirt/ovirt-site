@@ -55,6 +55,7 @@ jobs:
     outputs:
       PR_ID: ${{steps.details.outputs.PR_ID}}
       PREVIEW_PATH: ${{steps.details.outputs.PREVIEW_PATH}}
+      PREVIEW_LINK: ${{steps.details.outputs.PREVIEW_LINK}}
       PREVIEW_LINK_PATH: ${{steps.details.outputs.PREVIEW_LINK_PATH}}
       PREVIEW_LINK_BASE: ${{steps.details.outputs.PREVIEW_LINK_BASE}}
     steps:

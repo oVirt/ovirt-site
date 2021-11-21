@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>CoreOS ignition support | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="CoreOS ignition support" />
+<meta name="author" content="Roy Golan" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2637/develop/release-management/features/virt/coreos-ignition-support.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2637/develop/release-management/features/virt/coreos-ignition-support.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="CoreOS ignition support" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Roy Golan" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Roy Golan"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2637/images/logo.svg"},"name":"Roy Golan"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"CoreOS ignition support","url":"https://ovirt.github.io/ovirt-site/previews/2637/develop/release-management/features/virt/coreos-ignition-support.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2637/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2637/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2637/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2637/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2637/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2637/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2637/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2637/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2637/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2637/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2637/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2637/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2637/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2637/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2637/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2637/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2637/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2637/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2637/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2637/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2637/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2637/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2637/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2637/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2637/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2637/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2637/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2637/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2637/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2637/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2637/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2637/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2637/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2637/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2637/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2637//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2637//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2637/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2637/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2637/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2637/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2637/develop/release-management/features/virt/">
+              <span property="name">Virt</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Roy Golan</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ef5ae6708b1cd5106775944f70765c5b?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ef5ae6708b1cd5106775944f70765c5b?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Liran Rotenberg</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2637/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="coreos-ignition-support">CoreOS ignition support</h1>
+
+<h2 id="overview">Overview</h2>
+<p>From ignition documentation:</p>
+<blockquote>
+  <p>Ignition is a new provisioning utility designed specifically for CoreOS Container Linux. At the most basic level,
+it is a tool for manipulating disks during early boot. This includes partitioning disks, formatting partitions,
+writing files (regular files, systemd units, networkd units, etc.), and configuring users. On first boot, Ignition
+reads its configuration from a source-of-truth (remote [URL, network metadata service, hypervisor bridge, etc.) and
+applies the configuration.</p>
+</blockquote>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature will enable us to bootstrap ignition-enabled distros, like RHCOS, FCOS, which are optimized for running
+containerized workloads, and by that be a platform provider for OKD 4.x . OKD 4 is heavily reliant on RHCOS to manage nodes
+lifecycle. While being very important for OKD, it is not exclusively for it - ignition has several notable
+adavantages over cloud-init, it lets you customize your OS fully, and fear-free update it, with the ability to rollback.</p>
+
+<h2 id="owner">Owner</h2>
+
+<p>Roy Golan https://github.com/rgolangh</p>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>The main driver of this feature is making oVirt a platform provider for OKD 4.X installation. OKD 4.x is a release
+which is operator-centric and one which allows managing the openshift cluster using openshift. ‘master’ and ‘worker’
+nodes are added using openshift api, and its lifecycle is controlled by a cluster-api specific controller, and the
+machine configuration is server by another operator <code class="language-plaintext highlighter-rouge">machine-config-operator</code>. This means that when you want to roll-out
+updates to your cluster workers, you do that with the cluster, its all native.  What enables that is RHCOS OS and its
+ignition-enabled customization capability.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>The VM in hand must be based on an RHCOS images which has openstack provider enabled in the kernel args, in order
+to read the ignition config from cloud-init disk <code class="language-plaintext highlighter-rouge">/dev/disk/by-label/config-2</code>
+If you are using a custom made image make sure to include openstack provider in your ignition provider, and
+tweak the kernel args to include it <code class="language-plaintext highlighter-rouge">coreos.oem.id=openstack</code></p>
+
+<h2 id="limitations">Limitations</h2>
+
+<p>There are small differences between the user experience in 4.3 to 4.4.</p>
+
+<h4 id="43">4.3</h4>
+
+<p>At the moment the extra argument in <code class="language-plaintext highlighter-rouge">Initial Boot</code> or the ‘VM.initialization’ API object are not inserted into the
+ignition config, except for ‘hostname’ - which will drop the hostname value in <code class="language-plaintext highlighter-rouge">/etc/hostname</code> and ‘custom script’ - which contains the full ignition JSON.</p>
+
+<h4 id="44">4.4</h4>
+
+<p>The extra arguments in ‘VM.initialization’ API object that are not - ‘hostname’, user details and ‘custom script’ are not inserted into the ignition config.</p>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<p>Make oVirt a viable platform provider for Openshift or Kubernetes deployments.</p>
+
+<h2 id="entity-description">Entity Description</h2>
+
+<p>No change to entities, the VmInit internal object is reused.</p>
+
+<h2 id="crud">CRUD</h2>
+
+<p>To start working with ignition first import the Fedora CoreOS image as a template from the ovirt 
+glance provider, call the template ‘fcos’.</p>
+
+<p>Now create a VM from that template using this python snippet. 
+It will ignite the VM and change the password of user <code class="language-plaintext highlighter-rouge">core</code> to <code class="language-plaintext highlighter-rouge">changeme</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">mport</span> <span class="n">time</span>
+<span class="kn">import</span> <span class="nn">ovirtsdk4</span> <span class="k">as</span> <span class="n">sdk</span>
+<span class="kn">import</span> <span class="nn">ovirtsdk4.types</span> <span class="k">as</span> <span class="n">types</span>
+
+<span class="n">connection</span> <span class="o">=</span> <span class="n">sdk</span><span class="p">.</span><span class="n">Connection</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s">'https://ovirt-engine-fqdn/ovirt-engine/api'</span><span class="p">,</span>
+    <span class="n">username</span><span class="o">=</span><span class="s">'admin@internal'</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s">'password'</span><span class="p">,</span>
+    <span class="n">insecure</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">debug</span><span class="o">=</span><span class="bp">True</span>
+<span class="p">)</span>
+
+<span class="n">system_service</span> <span class="o">=</span> <span class="n">connection</span><span class="p">.</span><span class="n">system_service</span><span class="p">()</span>
+<span class="n">sds_service</span> <span class="o">=</span> <span class="n">system_service</span><span class="p">.</span><span class="n">storage_domains_service</span><span class="p">()</span>
+<span class="n">templates_service</span> <span class="o">=</span> <span class="n">connection</span><span class="p">.</span><span class="n">system_service</span><span class="p">().</span><span class="n">templates_service</span><span class="p">()</span>
+<span class="n">sd</span> <span class="o">=</span> <span class="n">sds_service</span><span class="p">.</span><span class="nb">list</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="s">'name=ovirt-image-repository'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">sd_service</span> <span class="o">=</span> <span class="n">sds_service</span><span class="p">.</span><span class="n">storage_domain_service</span><span class="p">(</span><span class="n">sd</span><span class="p">.</span><span class="nb">id</span><span class="p">)</span>
+<span class="n">images_service</span> <span class="o">=</span> <span class="n">sd_service</span><span class="p">.</span><span class="n">images_service</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">templates_service</span><span class="p">.</span><span class="nb">list</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="s">'name=fcos'</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">images</span> <span class="o">=</span> <span class="n">images_service</span><span class="p">.</span><span class="nb">list</span><span class="p">()</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">images</span> <span class="k">if</span> <span class="n">i</span><span class="p">.</span><span class="n">name</span> <span class="o">==</span> <span class="s">'Fedora CoreOS 30.337 for x86_64'</span><span class="p">),</span>
+        <span class="bp">None</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Import the fcos image as template named 'fcos' to domain 'mydata;
+</span>    <span class="n">image_service</span> <span class="o">=</span> <span class="n">images_service</span><span class="p">.</span><span class="n">image_service</span><span class="p">(</span><span class="n">image</span><span class="p">.</span><span class="nb">id</span><span class="p">)</span>
+
+    <span class="n">image_service</span><span class="p">.</span><span class="n">import_</span><span class="p">(</span>
+        <span class="n">import_as_template</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">template</span><span class="o">=</span><span class="n">types</span><span class="p">.</span><span class="n">Template</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s">'fcos'</span>
+        <span class="p">),</span>
+        <span class="n">cluster</span><span class="o">=</span><span class="n">types</span><span class="p">.</span><span class="n">Cluster</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s">'Default'</span>
+        <span class="p">),</span>
+        <span class="n">storage_domain</span><span class="o">=</span><span class="n">types</span><span class="p">.</span><span class="n">StorageDomain</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s">'iscsi_new'</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">ok</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">ok</span><span class="p">:</span>
+        <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">templates</span> <span class="o">=</span> <span class="n">templates_service</span><span class="p">.</span><span class="nb">list</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="s">'name=fcos'</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">templates</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">t</span><span class="p">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">types</span><span class="p">.</span><span class="n">TemplateStatus</span><span class="p">.</span><span class="n">OK</span><span class="p">:</span>
+              <span class="n">ok</span> <span class="o">=</span> <span class="bp">True</span>
+              <span class="k">break</span>
+
+<span class="n">vms_service</span> <span class="o">=</span> <span class="n">connection</span><span class="p">.</span><span class="n">system_service</span><span class="p">().</span><span class="n">vms_service</span><span class="p">()</span>
+<span class="n">vm</span> <span class="o">=</span> <span class="n">vms_service</span><span class="p">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="n">types</span><span class="p">.</span><span class="n">Vm</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">'fcosvm'</span><span class="p">,</span>
+        <span class="n">template</span><span class="o">=</span><span class="n">types</span><span class="p">.</span><span class="n">Template</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s">'fcos'</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">cluster</span><span class="o">=</span><span class="n">types</span><span class="p">.</span><span class="n">Cluster</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s">'Default'</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">vm_service</span> <span class="o">=</span> <span class="n">vms_service</span><span class="p">.</span><span class="n">vm_service</span><span class="p">(</span><span class="n">vm</span><span class="p">.</span><span class="nb">id</span><span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">vm</span> <span class="o">=</span> <span class="n">vm_service</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">vm</span><span class="p">.</span><span class="n">status</span> <span class="o">==</span> <span class="n">types</span><span class="p">.</span><span class="n">VmStatus</span><span class="p">.</span><span class="n">DOWN</span><span class="p">:</span>
+        <span class="k">break</span>
+
+<span class="c1"># ignition file to boot coreos with user core and password changeme
+</span><span class="n">ignition</span><span class="o">=</span><span class="s">'''
+{
+  "ignition": { "version": "3.0.0" },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "passwordHash": "$y$j9T$skCa2x5kFis7p58gYjz3C1$ykelHfCckRToZKAVYK7GDdLOCi3pcF2WMioI.vmYkj5"
+      }
+    ]
+  }
+}
+'''</span>
+
+<span class="n">vm_service</span><span class="p">.</span><span class="n">start</span><span class="p">(</span>
+    <span class="n">use_cloud_init</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">vm</span><span class="o">=</span><span class="n">types</span><span class="p">.</span><span class="n">Vm</span><span class="p">(</span>
+        <span class="n">initialization</span><span class="o">=</span><span class="n">types</span><span class="p">.</span><span class="n">Initialization</span><span class="p">(</span>
+            <span class="n">custom_script</span><span class="o">=</span><span class="n">ignition</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="how-to-create-and-validate-ignition-configurations">How to create and validate ignition configurations?</h2>
+
+<p>Configuration documentation and examples are in https://coreos.com/ignition/docs</p>
+
+<p>See the Fedora CoreOS config transpiler https://github.com/coreos/fcct</p>
+
+<p>To validate a config use <a href="">Ignition config validator</a></p>
+
+<h2 id="user-work-flows">User work-flows</h2>
+
+<p>User creates a VM from RHCOS/FCOS <a href="">image</a>, and pastes a valid ignition configuration into the ‘custom script’ section
+of <code class="language-plaintext highlighter-rouge">Initial Boot</code> section Boot the VM When the VM finishes booting all the changes made by ignition shall be applied.</p>
+
+<p>Differences between 4.3 to 4.4:</p>
+
+<h4 id="43-1">4.3</h4>
+<p>See limitations for 4.3 and the above work-flow.</p>
+<h4 id="44-1">4.4</h4>
+<p>In 4.4, the only way to enable ignition to a VM is by selecting the RedHat CoreOS Operation System Type.
+As a result, the section of <code class="language-plaintext highlighter-rouge">Initial Boot</code> will changed to ignition and show only the available options for ignition.
+It is not required to insert custom script if it is not needed. A ignition version will be automatically added from the engine.</p>
+<ul>
+  <li>In case the user added user in the Web-Admin <code class="language-plaintext highlighter-rouge">Initial Boot</code> section and the user is different from users in the custom script, it will configure all of them.</li>
+  <li>If the user configured hostname in the Web-Admin <code class="language-plaintext highlighter-rouge">Initial Boot</code> section and in the custom script, the UI will be ignored.</li>
+  <li>Sending custom script will always be “the stronger” entity and will win in cases of collusion with the engine.</li>
+  <li>The same changes apply to API use.</li>
+</ul>
+
+<p>For 4.4, <code class="language-plaintext highlighter-rouge">use_ignition</code> is added to the API to force select initialization with ignition.
+Note that <code class="language-plaintext highlighter-rouge">use_cloud_init</code> won’t work in 4.4.</p>
+
+<ul>
+  <li>In both 4.3 and 4.4 <code class="language-plaintext highlighter-rouge">use_initialization</code> flag added, selecting ‘RedHat CoreOS’ Operation System for the VM and using this flag will automatically select the initialization type for the VM.</li>
+</ul>
+
+<h2 id="event-reporting">Event Reporting</h2>
+
+<p>There are no special ovirt-engine events for this activity.</p>
+
+<h2 id="documentation--external-references">Documentation &amp; External references</h2>
+
+<p><a href="https://coreos.com/ignition/docs/latest/">CoreOS ignition docs</a></p>
+
+<p><a href="https://coreos.com/ignition/docs/latest/examples.html">Ignition example configs</a></p>
+
+<p><a href="https://github.com/coreos/container-linux-userdata-validator">Ignition config validator</a></p>
+
+<h4 id="related-bugs">Related bugs:</h4>
+
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1726907">Add RHCOS to the list of operating systems</a></p>
+
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1797659">Have a generic way to initialize a VM in run-once</a></p>
+
+<h2 id="testing">Testing</h2>
+
+<ul>
+  <li>Prepare a FCOS or RHCOS template. An image can be found here:
+https://ci.centos.org/artifacts/fedora-coreos/prod/builds/latest/</li>
+  <li>Create a VM from that template, like shown in section <a href="#crud">CRUD</a></li>
+  <li>Verify that a file name /foo/bar exists with content ‘example file’</li>
+</ul>
+
+<p>For a negative test, make sure that cloud-init keep working for Centos or any other cloud-init ready OS.</p>
+
+<h2 id="future-work">Future work</h2>
+<ul>
+  <li>This feature doesn’t support all the <code class="language-plaintext highlighter-rouge">VM.initialization</code> properties, and we would certainly want to include some of
+them, without letting the admin specifying an ignition config.</li>
+  <li>Network configuration which are currently cloud-init specific protocol will not work with ignition. Ignition simply
+manipulate the disk therefore the desired network state will be achieved through laying configuration files.</li>
+  <li>Better user experience with the Web-Admin UI. Currently we made some changes to make it more friendly but, we would like     to add JSON validator to the custom script section.</li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2637/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2637/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2637/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2637/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/coreos-ignition-support.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/coreos-ignition-support.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

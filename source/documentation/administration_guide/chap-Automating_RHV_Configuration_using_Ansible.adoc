@@ -10,6 +10,6 @@ Ansible provides an easier method of automating {virt-product-fullname} configur
 Ansible Tower is a graphically enabled framework accessible through a web interface and REST APIs for Ansible. If you want support for Ansible Tower, then you must have an Ansible Tower license, which is not part of the {virt-product-fullname} subscription.
 ====
 
-See the link:http://docs.ansible.com/[Ansible Documentation] for alternate installation instructions, and information about using Ansible.
+See the link:http://docs.ansible.com/[Ansible documentation] for alternate installation instructions, and information about using Ansible.
 
 include::topics/oVirt_Ansible_Collection.adoc[]

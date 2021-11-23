@@ -59,8 +59,8 @@ jobs:
     - name: Extract PR details
       id: details
       run: |
-        PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-        PREVIEW_PATH=previews/${{ github.event.pull_request.number }}
+        PR_ID=${{ github.event.pull_request.number }}
+        PREVIEW_PATH=previews/${PR_ID}
         PREVIEW_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/${PREVIEW_PATH}
         PREVIEW_LINK_PATH="$(echo $PREVIEW_LINK | sed -e 's#.*\.io/#/#')"
         PREVIEW_LINK_BASE="$(echo $PREVIEW_LINK | sed -e 's#\.io.*#.io#')"

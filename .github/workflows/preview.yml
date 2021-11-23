@@ -11,13 +11,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: "Cache files"
-        uses: actions/cache@v2
-        id: website-cache
-        with:
-          path: tmp/.htmlproofer
-          key: htmlproofer
-
       - name: "Check for obsolete wiki headers"
         run: |
           if grep -rEi "^wiki_[^ ]+: " source/; then
@@ -67,7 +60,7 @@ jobs:
       id: details
       run: |
         PR_ID=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-        PREVIEW_PATH=previews/$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+        PREVIEW_PATH=previews/${{ github.event.pull_request.number }}
         PREVIEW_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/${PREVIEW_PATH}
         PREVIEW_LINK_PATH="$(echo $PREVIEW_LINK | sed -e 's#.*\.io/#/#')"
         PREVIEW_LINK_BASE="$(echo $PREVIEW_LINK | sed -e 's#\.io.*#.io#')"
@@ -116,6 +109,8 @@ jobs:
         if-no-files-found: error
         path: |
           _site
+    - name: "Run htmlproofer"
+      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site --entrypoint "/bin/bash" ovirt-site -c bundle exec ruby htmlproofer_test.rb
   publish:
     name: "Publish preview"
     runs-on: ubuntu-20.04

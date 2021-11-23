@@ -15,9 +15,5 @@ The following table details the information required on the *General* tab of the
 |*Number of VMs/Increase number of VMs in pool by* |Allows you to specify the number of virtual machines to be created and made available in the virtual machine pool. In the edit window it allows you to increase the number of virtual machines in the virtual machine pool by the specified number. By default, the maximum number of virtual machines you can create in a pool is 1000. This value can be configured using the `MaxVmsInPool` key of the `engine-config` command.
 |*Maximum number of VMs per user* |Allows you to specify the maximum number of virtual machines a single user can take from the virtual machine pool at any one time. The value of this field must be between `1` and `32,767`.
 |*Delete Protection* |Allows you to prevent the virtual machines in the pool from being deleted.
+|*Sealed* | Ensures that machine-specific settings from the template are not reproduced in virtual machines that are provisioned from the template. For more information about the sealing process, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide#Sealing_a_Windows_Virtual_Machine_for_Deployment_as_a_Template[Sealing a Windows Virtual Machine for Deployment as a Template]| No.
 |===
-
-
-
-
-

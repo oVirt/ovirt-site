@@ -178,5 +178,5 @@ breadcrumbs:
 
 jekyll_analytics:
   Piwik:
-    url: stats.phx.ovirt.org
+    url: stats.ovirt.org
     siteId: '1'

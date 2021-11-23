@@ -11,7 +11,7 @@ page_classes: releases
 
 # oVirt 4.4.9 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.9 release as of October 27, 2021.
+The oVirt Project is pleased to announce the availability of the 4.4.9 release as of October 28, 2021.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -90,6 +90,10 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 
 #### oVirt Engine
+
+ - [BZ 1963748](https://bugzilla.redhat.com/show_bug.cgi?id=1963748) **[RFE] Upgrade to EAP 7.4 in RHV 4.4.9**
+
+   Red Hat Virtualization 4.4.9 now requires EAP 7.4.2 (repository change is required). Also when upgrading from previous RHV 4.4.z, please make sure EAP 7.3.z is upgraded to latest version (&gt;= 7.3.9) before upgrading to RHV 4.4.9 with EAP 7.4.2+
 
  - [BZ 2004444](https://bugzilla.redhat.com/show_bug.cgi?id=2004444) **Try to enable cinderlib repos on host during host upgrade**
 
@@ -179,6 +183,10 @@ Result: No need to manually install a package to setup remote encrypted logging.
 
 
 #### oVirt Engine
+
+ - [BZ 2016913](https://bugzilla.redhat.com/show_bug.cgi?id=2016913) **finalize backup fails while writing to disk with requested extension**
+
+ - [BZ 2013752](https://bugzilla.redhat.com/show_bug.cgi?id=2013752) **VM with vGPU and vCPU config of 1 socket 16 cores fails to start**
 
  - [BZ 2014102](https://bugzilla.redhat.com/show_bug.cgi?id=2014102) **Central European Standard Time timzeone sets UTC time in Windows VMs**
 

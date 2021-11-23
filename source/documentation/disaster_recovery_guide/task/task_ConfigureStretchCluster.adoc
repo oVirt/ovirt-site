@@ -11,11 +11,11 @@ include::{cptdir}/cpt_StretchPrerequisites.adoc[]
 
 *Configuring the Self-hosted Engine Stretch Cluster*
 
-. Deploy the self-hosted engine. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface[_Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface_].
+. Deploy the self-hosted engine. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line[Installing {virt-product-fullname} as a self-hosted engine using the command line].
 
-. Install additional self-hosted engine nodes in each site and add them to your cluster. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_self-hosted_engine_nodes_to_the_Manager_SHE_cockpit_deploy[Adding Self-hosted Engine Nodes to the {virt-product-fullname} {engine-name}] in _Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface_.
+. Install additional self-hosted engine nodes in each site and add them to your cluster. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/#Adding_self-hosted_engine_nodes_to_the_Manager_SHE_cli_deploy[Adding Self-hosted Engine Nodes to the {virt-product-fullname} {engine-name}] in _Installing {virt-product-fullname} as a self-hosted engine using the command line_.
 
-. Optionally, install additional standard hosts. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_standard_hosts_to_the_Manager_SHE_cockpit_deploy[Adding Standard Hosts to the {virt-product-fullname} {engine-name}] in _Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface_.
+. Optionally, install additional standard hosts. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/#Adding_standard_hosts_to_the_Manager_SHE_cli_deploy[Adding Standard Hosts to the {virt-product-fullname} {engine-name}] in _Installing {virt-product-fullname} as a self-hosted engine using the command line_.
 
 include::{taskdir}/task_CommonStepsConfigureStretchCluster.adoc[]
 

@@ -107,9 +107,6 @@ include::common/storage/assembly-Adding_Storage_Domains_to_RHV.adoc[leveloffset=
 include::common/install/proc-Configuring_a_Host_for_PCI_Passthrough.adoc[leveloffset=+1]
 
 [appendix]
-include::common/install/appe-Set_up_Cinderlib.adoc[leveloffset=+1]
-
-[appendix]
 include::common/admin/proc-Removing_Red_Hat_Virtualization_Manager.adoc[leveloffset=+1]
 
 ifdef::context[:parent-context: {context}]

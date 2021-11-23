@@ -66,7 +66,7 @@ ifdef::local_database_upgrade,remote_database_upgrade[. Log in to the {engine-na
 . Copy the backup file to a storage device outside of the {virt-product-shortname} environment.
 
 ifdef::SHE_upgrade[]
-. Install {hypervisor-shortname} 4.4 or {enterprise-linux} 8.2 or later on the existing node currently running the {engine-name} virtual machine to use it as the self-hosted engine deployment host. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index#Installing_Hosts_for_RHV_SHE_cockpit_deploy[Installing the Self-hosted Engine Deployment Host] for more information.
+. Install {hypervisor-shortname} 4.4 or {enterprise-linux} 8.2 or later on the existing node currently running the {engine-name} virtual machine to use it as the self-hosted engine deployment host. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy[Installing the Self-hosted Engine Deployment Host] for more information.
 +
 [NOTE]
 ====
@@ -192,7 +192,6 @@ endif::remote_database_upgrade[]
 ifdef::SHE_upgrade[]
 * link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/[Installing {virt-product-fullname} as a self-hosted engine using the command line]
 
-* link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_cockpit_web_interface/index[Installing {virt-product-fullname} as a self-hosted engine using the Cockpit web interface]
 endif::SHE_upgrade[]
 ifdef::local_database_upgrade,remote_database_upgrade[]
 * link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/[Installing {virt-product-fullname} as a standalone Manager with local databases]

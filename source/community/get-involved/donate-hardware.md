@@ -50,6 +50,6 @@ Typical requirements are:
 If you have spare hardware available at your datacenter that meets these requirements feel free to reach us via the [infra list](https://lists.ovirt.org).
 The system should have CentOS Stream installed along with an SSH pubkey of one of the infra team members that will be used for bootstrap.
 
-Note: If you have hardware up for donation but cannot provide hosting but can ship it to Arizona - please reach out to us via the mailing list as we may
-have space to accomodate it in our PHX datacenter.
+Note: If you have hardware up for donation and cannot provide hosting but could ship it to the US - please reach out to us via the mailing list as we may
+have space to accomodate it in our data center.
 

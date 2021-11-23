@@ -12,7 +12,7 @@ authors:
 
 # Promote oVirt
 
-Basically any and all mentions of oVirt is a good thing to build the awareness for the project.
+Basically any and all mentions of oVirt are a good thing to build the awareness for the project.
 This can take the form of press, blogs, twitter, meetups, workshops or even sessions or speaking slots that any in the community gets to speak about oVirt.
 
 This pages have been created to help the oVirt community to be more effective in promoting itself.
@@ -25,7 +25,7 @@ If you speak at a meetup, conference, or anywhere about oVirt email the users@ov
 *   Who is speaking
 *   link to press (if applicable)
 
-And then everyone can help plug it for you.
+Everyone could help plug it for you.
 Additionally if there are more than one of us at the event then we can meet up and coordinate.
 
 ## Support oVirt speakers
@@ -33,15 +33,14 @@ Additionally if there are more than one of us at the event then we can meet up a
 Please promote anyone from the community speaking or bloging about oVirt.
 Sample things you can help with are:
 
-*   tweeting it
-*   blogging
-*   sharing it on social media
-*   mailing it out to communities your are involved in that might be interested.
-*   ..
+*   Tweeting it
+*   Blogging
+*   Sharing it on social media
+*   Mailing it out to communities your are involved in that might be interested
 
 ## Roster of meetups/workshops that oVirt would like to attend
 
-The follow section is to help plan oVirt workshops and meetups.
+The following section is to help plan oVirt workshops and meetups.
 Generally it would be good to have someone from the oVirt community speak at all the major virt, Linux and cloud events.
 In addition the desire has been expressed to have regional workshops for oVirt.
 These need additional planning to put together and will be coordinated by the oVirt local communities.
@@ -57,7 +56,7 @@ A session hosted anywhere at any event to discuss, promote or hack on a technica
     -   Have a discussion
     -   Whatever you want
 *   See existing on https://www.meetup.com/topics/ovirt/
-*   Anytime a bunch of oVirt developers work together on something, they can publish the time, date, location an have an open invite
+*   Anytime a group of oVirt developers work together on something, they can publish the time, date, location an have an open invite
 
 ### Workshops
 

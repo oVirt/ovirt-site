@@ -17,7 +17,7 @@ endif::[]
 +
 ----
 
-# subscription-manager repos --enable=openstack-16.1-cinderlib-for-rhel-8-x86_64-rpms
+# subscription-manager repos --enable=openstack-16.2-cinderlib-for-rhel-8-x86_64-rpms
 ----
 
 ifdef::ovirt-doc[]
@@ -50,7 +50,7 @@ endif::[]
 . Enable the `openstack-cinderlib` repositories on Red Hat Enterprise Linux:
 +
 ----
-# subscription-manager repos --enable=openstack-16.1-cinderlib-for-rhel-8-x86_64-rpms
+# subscription-manager repos --enable=openstack-16.2-cinderlib-for-rhel-8-x86_64-rpms
 ----
 
 ifdef::ovirt-doc[]
@@ -80,9 +80,7 @@ If you are using Cinderlib together with a ceph driver:
 . Enable the following repositories on Red Hat Enterprise Linux:
 +
 ----
-# subscription-manager repos --enable=rhceph-4-osd-for-rhel-8-x86_64-rpms \
-                                          --enable=rhceph-4-mon-for-rhel-8-x86_64-rpms \
-                                          --enable=rhceph-4-tools-for-rhel-8-x86_64-rpms
+# subscription-manager repos --enable=rhceph-4-tools-for-rhel-8-x86_64-rpms
 ----
 
 ifdef::ovirt-doc[]

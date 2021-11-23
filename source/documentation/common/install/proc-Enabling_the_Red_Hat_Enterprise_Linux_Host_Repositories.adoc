@@ -50,7 +50,9 @@ To list all enabled repositories:
     --enable=rhel-8-for-x86_64-appstream-rpms \
     --enable=rhv-4-mgmt-agent-for-rhel-8-x86_64-rpms \
     --enable=fast-datapath-for-rhel-8-x86_64-rpms \
-    --enable=advanced-virt-for-rhel-8-x86_64-rpms
+    --enable=advanced-virt-for-rhel-8-x86_64-rpms \
+    --enable=openstack-16.2-cinderlib-for-rhel-8-x86_64-rpms \
+    --enable=rhceph-4-tools-for-rhel-8-x86_64-rpms
 ----
 +
 ifdef::SM_localDB_deploy,SM_remoteDB_deploy[]

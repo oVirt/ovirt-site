@@ -36,12 +36,12 @@ The following dashboards are available in the initial Grafana setup to report Da
 
 | *Trend dashboards*
     a|
+
     * Trend dashboard - usage rates for the 5 most and least utilized virtual machines and hosts by memory and by CPU in selected clusters over a selected period.
     * Hosts Trend dashboard - resource usage (number of virtual machines, CPU, memory, and network Tx/Rx) for selected hosts over a selected period.
     * Virtual Machines Trend dashboard -resource usage (CPU, memory, network Tx/Rx, disk I/O) for selected virtual machines over a selected period.
     * Hosts Resource Usage dashboard - daily and hourly resource usage (number of virtual machines, CPU, memory, network Tx/Rx) for selected hosts in a selected period.
     * Virtual Machines Resource Usage dashboard - daily and hourly resource usage (CPU, memory, network Tx/Rx, disk I/O) for selected virtual machines in a selected period.
-
 
 |===
 

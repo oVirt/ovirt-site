@@ -25,8 +25,15 @@ This procedure assumes that you have access and can make changes to the original
 
 * A fully qualified domain name prepared for your {engine-name} and the host. Forward and reverse lookup records must both be set in the DNS. The new {engine-name} must have the same fully qualified domain name as the original {engine-name}.
 
-* The original {engine-name} must be updated to the latest minor version. The {engine-name} version in the backup file must match the version of the new {engine-name}. See link:{URL_virt_product_docs}{URL_format}upgrade_guide/index#Updating_the_Red_Hat_Virtualization_Manager_minor_updates[Updating the {virt-product-fullname} {engine-name}] in the _Upgrade Guide_.
-
+* The original {engine-name} must be updated to the latest minor version.
+The version of the {virt-product-fullname} {engine-name} (such as 4.4.8) used to restore a backup must be later than or equal to the {virt-product-fullname} {engine-name} version (such as 4.4.7) used to create the backup.
+Starting with {virt-product-fullname} 4.4.7, this policy is strictly enforced by the engine-backup command. See link:{URL_virt_product_docs}{URL_format}upgrade_guide/index#Updating_the_Red_Hat_Virtualization_Manager_minor_updates[Updating the {virt-product-fullname} {engine-name}] in the _Upgrade Guide_.
++
+[NOTE]
+====
+If you need to restore a backup, but do not have a new appliance, the restore process will pause, and you can log into the temporary {engine-name} machine via SSH, register, subscribe, or configure channels as needed, and upgrade the {engine-name} packages before resuming the restore process.
+====
++
 * The data center compatibility level must be set to the latest version to ensure compatibility with the updated storage version.
 
 * There must be at least one regular host in the environment. This host (and any other regular hosts) will remain active to host the SPM role and any running virtual machines. If a regular host is not already the SPM, move the SPM role before creating the backup by selecting a regular host and clicking menu:Management[Select as SPM].

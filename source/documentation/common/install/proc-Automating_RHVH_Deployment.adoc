@@ -135,6 +135,11 @@ nodectl init
 %end
 ----
 +
+[NOTE]
+====
+Ensure that the `nodectl init` command is at the very end of the `%post` section but before the reboot code, if any.
+====
++
 .Kickstart example for deploying {hypervisor-shortname} on its own
 +
 This Kickstart example shows you how to deploy {hypervisor-shortname}. You can include additional commands and options as required.

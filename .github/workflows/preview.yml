@@ -1,0 +1,159 @@
+name: "Preview build"
+on:
+  pull_request:
+jobs:
+  check:
+    name: "Content check"
+    runs-on: ubuntu-20.04
+    steps:
+      - name: "Checkout repo"
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: "Check for obsolete wiki headers"
+        run: |
+          if grep -rEi "^wiki_[^ ]+: " source/; then
+            echo '/!\ Wiki headers are obsolete (see previous log entries)'
+            exit 2
+          fi
+
+      - name: "Check for obsolete feature headers"
+        run: |
+          if grep -rEi "^feature_[^ ]+: " source/; then
+            echo '/!\ Feature headers are obsolete (see previous log entries)'
+            exit 2
+          fi
+
+      - name: "Check for non-breaking space in markdowns"
+        run: |
+          if grep -P '\xa0' `find source/ -name "*.md"` ; then
+            echo '/!\ nonbreaking spaces have been found within the markdown (see previous log entries)'
+            exit 2
+          fi
+
+      # bundler just bump versions to the locally available ones
+      # which means developers would always require bleeding edge versions not available on stable servers
+      # this is too simplistic and breaks deployment
+      # instead all changes are tested via CI on the same target OS and version than the production builder
+      - name: "Check for simplistic bundler requirement bump"
+        run: |
+          if grep -E "^(RUBY VERSION|BUNDLED WITH)" Gemfile.lock; then
+            echo '/!\ please remove "RUBY VERSION" and "BUNDLED WITH" requirements in Gemfile.lock'
+            exit 2
+          fi
+  build:
+    name: "Build preview"
+    runs-on: ubuntu-20.04
+    outputs:
+      PR_ID: ${{steps.details.outputs.PR_ID}}
+      PREVIEW_PATH: ${{steps.details.outputs.PREVIEW_PATH}}
+      PREVIEW_LINK: ${{steps.details.outputs.PREVIEW_LINK}}
+      PREVIEW_LINK_PATH: ${{steps.details.outputs.PREVIEW_LINK_PATH}}
+      PREVIEW_LINK_BASE: ${{steps.details.outputs.PREVIEW_LINK_BASE}}
+    steps:
+    - name: "Checkout repo"
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Extract PR details
+      id: details
+      run: |
+        PR_ID=${{ github.event.pull_request.number }}
+        PREVIEW_PATH=previews/${PR_ID}
+        PREVIEW_LINK=https://$(echo "${{github.repository}}" | sed -e 's#/#.github.io/#')/${PREVIEW_PATH}
+        PREVIEW_LINK_PATH="$(echo $PREVIEW_LINK | sed -e 's#.*\.io/#/#')"
+        PREVIEW_LINK_BASE="$(echo $PREVIEW_LINK | sed -e 's#\.io.*#.io#')"
+        echo "::set-output name=PR_ID::${PR_ID}"
+        echo "::set-output name=PREVIEW_PATH::${PREVIEW_PATH}"
+        echo "::set-output name=PREVIEW_LINK::${PREVIEW_LINK}"
+        echo "::set-output name=PREVIEW_LINK_PATH::${PREVIEW_LINK_PATH}"
+        echo "::set-output name=PREVIEW_LINK_BASE::${PREVIEW_LINK_BASE}"
+    - name: Comment on PR
+      continue-on-error: true
+      run: |
+        set -euo pipefail
+        echo "Hey there, thanks for the new content! 🙏 We'll create a preview build and post the link here in a few minutes." >/tmp/comment
+        gh pr comment ${{steps.details.outputs.PR_ID}} -F /tmp/comment
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Build container image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: false
+        load: true
+        tags: ovirt-site:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+    - name: Set up Jekyll cache
+      uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+    - name: "Change config"
+      run: |
+        set -exuo pipefail
+        sed -i -e "s#^baseurl: .*#baseurl: ${{steps.details.outputs.PREVIEW_LINK_PATH}}#" _config.yml
+        sed -i -e "s#^url: .*#url: ${{steps.details.outputs.PREVIEW_LINK_BASE}}#" _config.yml
+        sed -i -e "s#site-baseurl: /#site-baseurl: ${{steps.details.outputs.PREVIEW_LINK_PATH}}#" _config.yml
+        cat _config.yml
+    - name: "Build website"
+      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site ovirt-site build
+    - name: "Upload generated content"
+      uses: actions/upload-artifact@v2
+      with:
+        name: ovirt-site
+        if-no-files-found: error
+        path: |
+          _site
+    - name: "Run htmlproofer"
+      run: docker run --rm --mount type=bind,source=$(pwd),target=/srv/site --entrypoint "/bin/bash" ovirt-site -c bundle exec ruby htmlproofer_test.rb
+  publish:
+    name: "Publish preview"
+    runs-on: ubuntu-20.04
+    needs:
+      - check
+      - build
+    concurrency:
+      group: ovirt-site-preview-build
+      cancel-in-progress: false
+    steps:
+      - name: "Checkout repo"
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: "Remove preview build directory"
+        run: rm -rf "${{needs.build.outputs.PREVIEW_PATH}}"
+      - name: "Create preview build directory"
+        run: mkdir -p "${{needs.build.outputs.PREVIEW_PATH}}"
+      - name: "Download generated content"
+        uses: actions/download-artifact@v2
+        with:
+          name: ovirt-site
+          path: "${{needs.build.outputs.PREVIEW_PATH}}"
+      - name: "Commit changes"
+        run: |
+          set -euo pipefail
+          git config user.name "GitHub Actions"
+          git config user.email noreply@github.com
+          git add .
+          if ! git diff-index --quiet HEAD --; then
+            git commit -m "Adding or updating preview build for PR ${{needs.build.outputs.PR_ID}}"
+            git push --set-upstream origin gh-pages
+          else
+            echo -e "No changes found."
+          fi
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: "Send comment to PR"
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          echo "Your preview build is ready! ✨ Check the following link in 1-2 minutes: ${{needs.build.outputs.PREVIEW_LINK}} ." >/tmp/comment
+          gh pr comment ${{needs.build.outputs.PR_ID}} -F /tmp/comment
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

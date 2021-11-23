@@ -1,22 +1,15 @@
 [[chap-Automating_RHV_Configuration_using_Ansible]]
 == Automating Configuration Tasks using Ansible
 
-Ansible is an automation tool used to configure systems, deploy software, and perform rolling updates. Ansible includes support for {virt-product-fullname}, and Ansible modules are available to allow you to automate post-installation tasks such as data center setup and configuration, managing users, or virtual machine operations.
+Ansible is an automation tool used to configure systems, deploy software, and perform rolling updates. {virt-product-fullname} includes a limited version of Ansible to automate {virt-product-shortname} post-installation tasks such as data center setup and configuration, managing users, and virtual machine operations.
 
-Ansible provides an easier method of automating {virt-product-fullname} configuration compared to REST APIs and SDKs, and allows you to integrate with other Ansible modules. For more information about the Ansible modules available for {virt-product-fullname}, see the link:https://cloud.redhat.com/ansible/automation-hub/redhat/rhv/docs[oVirt Ansible Collection] in the Red Hat Ansible Automation Hub documentation.
+Ansible provides an easier method of automating {virt-product-fullname} configuration compared to REST APIs and SDKs, and you can integrate with other Ansible modules. For more information about the Ansible modules available for {virt-product-fullname}, see the link:https://cloud.redhat.com/ansible/automation-hub/redhat/rhv/docs[oVirt Ansible Collection] in the Red Hat Ansible Automation Hub documentation.
 
 [NOTE]
 ====
 Ansible Tower is a graphically enabled framework accessible through a web interface and REST APIs for Ansible. If you want support for Ansible Tower, then you must have an Ansible Tower license, which is not part of the {virt-product-fullname} subscription.
 ====
-Ansible is shipped with {virt-product-fullname}. To install Ansible, run the following command on the {engine-name} machine:
 
-[options="nowrap" subs="normal"]
-----
-# dnf install ansible
-----
-
-See the link:http://docs.ansible.com/[Ansible Documentation] for alternate installation instructions, and information about using Ansible.
-
+See the link:http://docs.ansible.com/[Ansible documentation] for alternate installation instructions, and information about using Ansible.
 
 include::topics/oVirt_Ansible_Collection.adoc[]

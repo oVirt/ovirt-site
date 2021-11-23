@@ -7,7 +7,7 @@ authors: jbrooks
 
 # Community activity
 
-You can follow oVirt Community activity via these RSS feeds: (eventually, we'll have an RSS extension installed on this wiki to make this page more useful)
+You can follow oVirt Community activity via these RSS feeds:
 
 *   [Engine Git Commits](https://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=rss)
 *   [Node Git Commits](https://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=rss)

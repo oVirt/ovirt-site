@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Migrating from a standalone Engine to a self-hosted engine | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Migrating from a standalone Engine to a self-hosted engine" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2639/documentation/migrating_from_a_standalone_manager_to_a_self-hosted_engine/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2639/documentation/migrating_from_a_standalone_manager_to_a_self-hosted_engine/" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Migrating from a standalone Engine to a self-hosted engine" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2639/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Migrating from a standalone Engine to a self-hosted engine","url":"https://ovirt.github.io/ovirt-site/previews/2639/documentation/migrating_from_a_standalone_manager_to_a_self-hosted_engine/","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2639/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2639/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2639/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2639/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2639/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2639/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2639/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2639/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2639/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2639/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2639/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2639/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2639/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2639/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2639/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2639/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2639/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2639/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2639/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2639/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2639/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2639/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2639/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2639/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2639/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2639/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2639/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2639/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2639/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2639/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2639/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2639/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2639/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2639/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2639/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2639//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2639//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2639/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2639/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#Migration_overview">1. Migration Overview</a></li>
+<li><a href="#Installing_the_self-hosted_engine_deployment_host_migrating_to_SHE">2. Installing the Self-hosted Engine Deployment Host</a>
+<ul class="sectlevel2">
+<li><a href="#Installing_Red_Hat_Virtualization_Hosts_SHE_deployment_host">2.1. Installing oVirt Nodes</a></li>
+<li><a href="#Installing_Red_Hat_Enterprise_Linux_Hosts_SHE_deployment_host">2.2. Installing Enterprise Linux hosts</a></li>
+</ul>
+</li>
+<li><a href="#Preparing_Storage_for_RHV_migrating_to_SHE">3. Preparing Storage for oVirt</a>
+<ul class="sectlevel2">
+<li><a href="#Preparing_NFS_Storage_migrating_to_SHE">3.1. Preparing NFS Storage</a></li>
+<li><a href="#Preparing_iSCSI_Storage_migrating_to_SHE">3.2. Preparing iSCSI Storage</a></li>
+<li><a href="#Preparing_FCP_Storage_migrating_to_SHE">3.3. Preparing FCP Storage</a></li>
+<li><a href="#Preparing_Red_Hat_Gluster_Storage_migrating_to_SHE">3.4. Preparing Gluster Storage</a></li>
+<li><a href="#proc-Customizing_Multipath_Configurations_for_SAN_Vendors_migrating_to_SHE">3.5. Customizing Multipath Configurations for SAN Vendors</a></li>
+<li><a href="#ref-Recommended_Settings_for_Multipath_conf_migrating_to_SHE">3.6. Recommended Settings for Multipath.conf</a></li>
+</ul>
+</li>
+<li><a href="#Updating_the_Red_Hat_Virtualization_Manager_migrating_to_SHE">4. Updating the oVirt Engine</a></li>
+<li><a href="#Backing_up_the_Original_Manager_migrating_to_SHE">5. Backing up the Original Engine</a></li>
+<li><a href="#Restoring_the_Backup_on_a_New_Self-hosted_Engine_migrating_to_SHE">6. Restoring the Backup on a New Self-Hosted Engine</a></li>
+<li><a href="#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_migrating_to_SHE">7. Enabling the oVirt Engine Repositories</a></li>
+<li><a href="#Reinstalling_an_Existing_Host_as_a_Self-Hosted_Engine_Node_migrating_to_SHE">8. Reinstalling an Existing Host as a Self-Hosted Engine Node</a></li>
+<li><a href="#proc-Preventing_Kernel_Modules_from_Loading_Automatically_Install_nodes_RHVH">Appendix A: Preventing kernel modules from loading automatically</a>
+<ul class="sectlevel2">
+<li><a href="#removing-a-module-temporarily">A.1. Removing a module temporarily</a></li>
+</ul>
+</li>
+<li><a href="#legal-notice">9. Legal notice</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<h1 id="migrating-from-a-standalone-engine-to-a-self-hosted-engine" class="discrete">Migrating from a standalone Engine to a self-hosted engine</h1>
+<div class="paragraph">
+<p>You can convert a standalone oVirt Engine to a self-hosted engine by backing up the standalone Engine and restoring it in a new self-hosted environment.</p>
+</div>
+<div class="paragraph">
+<p>The difference between the two environment types is explained below:</p>
+</div>
+<h3 id="Standalone_Manager_Architecture_migrating_to_SHE" class="discrete">Standalone Engine Architecture</h3>
+<div class="paragraph">
+<p>The oVirt Engine runs on a physical server, or a virtual machine hosted in a separate virtualization environment. A standalone Engine is easier to deploy and manage, but requires an additional physical server. The Engine is only highly available when managed externally with a product such as Red Hat&#8217;s High Availability Add-On.</p>
+</div>
+<div class="paragraph">
+<p>The minimum setup for a standalone Engine environment includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One oVirt Engine machine. The Engine is typically deployed on a physical server. However, it can also be deployed on a virtual machine, as long as that virtual machine is hosted in a separate environment. The Engine must run on Enterprise Linux 8.</p>
+</li>
+<li>
+<p>A minimum of two hosts for virtual machine high availability. You can use Enterprise Linux hosts or oVirt Nodes (oVirt Node). VDSM (the host agent) runs on all hosts to facilitate communication with the oVirt Engine.</p>
+</li>
+<li>
+<p>One storage service, which can be hosted locally or on a remote server, depending on the storage type used. The storage service must be accessible to all hosts.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="common/images/RHV_STANDARD_ARCHITECTURE1.png" alt="Standalone Engine oVirt Architecture">
+</div>
+<div class="title">Figure 1. Standalone Engine oVirt Architecture</div>
+</div>
+<h3 id="Self-hosted_Engine_Architecture_migrating_to_SHE" class="discrete">Self-Hosted Engine Architecture</h3>
+<div class="paragraph">
+<p>The oVirt Engine runs as a virtual machine on self-hosted engine nodes (specialized hosts) in the same environment it manages. A self-hosted engine environment requires one less physical server, but requires more administrative overhead to deploy and manage. The Engine is highly available without external HA management.</p>
+</div>
+<div class="paragraph">
+<p>The minimum setup of a self-hosted engine environment includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One oVirt Engine virtual machine that is hosted on the self-hosted engine nodes. The Engine Appliance is used to automate the installation of a Enterprise Linux 8 virtual machine, and the Engine on that virtual machine.</p>
+</li>
+<li>
+<p>A minimum of two self-hosted engine nodes for virtual machine high availability. You can use Enterprise Linux hosts or oVirt Nodes (oVirt Node). VDSM (the host agent) runs on all hosts to facilitate communication with the oVirt Engine. The HA services run on all self-hosted engine nodes to manage the high availability of the Engine virtual machine.</p>
+</li>
+<li>
+<p>One storage service, which can be hosted locally or on a remote server, depending on the storage type used. The storage service must be accessible to all hosts.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="common/images/RHV_SHE_ARCHITECTURE1.png" alt="Self-Hosted Engine oVirt Architecture">
+</div>
+<div class="title">Figure 2. Self-Hosted Engine oVirt Architecture</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Migration_overview">1. Migration Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you specify a backup file during self-hosted engine deployment, the Engine backup is restored on a new virtual machine, with a dedicated self-hosted engine storage domain. Deploying on a fresh host is highly recommended; if the host used for deployment existed in the backed up environment, it will be removed from the restored database to avoid conflicts in the new environment. If you deploy on a new host, you must assign a unique name to the host. Reusing the name of an existing host included in the backup can cause conflicts in the new environment.</p>
+</div>
+<div class="paragraph">
+<p>At least two self-hosted engine nodes are required for the Engine virtual machine to be highly available. You can add new nodes, or convert existing hosts.</p>
+</div>
+<div class="paragraph">
+<p>The migration involves the following key steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#Installing_the_self-hosted_engine_deployment_host_migrating_to_SHE">Install a new host to deploy the self-hosted engine on.</a> You can use either host type:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Installing_Red_Hat_Virtualization_Hosts_SHE_deployment_host">oVirt Node</a></p>
+</li>
+<li>
+<p><a href="#Installing_Red_Hat_Enterprise_Linux_Hosts_SHE_deployment_host">Enterprise Linux</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="#Preparing_Storage_for_RHV_migrating_to_SHE">Prepare storage for the self-hosted engine storage domain.</a> You can use one of the following storage types:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Preparing_NFS_Storage_migrating_to_SHE">NFS</a></p>
+</li>
+<li>
+<p><a href="#Preparing_iSCSI_Storage_migrating_to_SHE">iSCSI</a></p>
+</li>
+<li>
+<p><a href="#Preparing_FCP_Storage_migrating_to_SHE">Fibre Channel (FCP)</a></p>
+</li>
+<li>
+<p><a href="#Preparing_Red_Hat_Gluster_Storage_migrating_to_SHE">Gluster Storage</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="#Updating_the_Red_Hat_Virtualization_Manager_migrating_to_SHE">Update the original Engine to the latest minor version before you back it up.</a></p>
+</li>
+<li>
+<p><a href="#Backing_up_the_Original_Manager_migrating_to_SHE">Back up the original Engine using the <code>engine-backup</code> tool.</a></p>
+</li>
+<li>
+<p><a href="#Restoring_the_Backup_on_a_New_Self-hosted_Engine_migrating_to_SHE">Deploy a new self-hosted engine and restore the backup.</a></p>
+</li>
+<li>
+<p><a href="#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_migrating_to_SHE">Enable the Engine repositories on the new Engine virtual machine.</a></p>
+</li>
+<li>
+<p><a href="#Reinstalling_an_Existing_Host_as_a_Self-Hosted_Engine_Node_migrating_to_SHE">Convert regular hosts to self-hosted engine nodes that can host the new Engine.</a></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This procedure assumes that you have access and can make changes to the original Engine.</p>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>FQDNs prepared for your Engine and the deployment host. Forward and reverse lookup records must both be set in the DNS. The new Engine must have the same FQDN as the original Engine.</p>
+</li>
+<li>
+<p>The management network (<strong>ovirtmgmt</strong> by default) must be configured as a <strong>VM network</strong>, so that it can manage the Engine virtual machine.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Installing_the_self-hosted_engine_deployment_host_migrating_to_SHE">2. Installing the Self-hosted Engine Deployment Host</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A self-hosted engine can be deployed from a <a href="#Installing_Red_Hat_Virtualization_Hosts_SHE_deployment_host">oVirt Node</a> or a <a href="#Installing_Red_Hat_Enterprise_Linux_Hosts_SHE_deployment_host">Enterprise Linux host</a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you plan to use bonded interfaces for high availability or VLANs to separate different types of traffic (for example, for storage or management connections), you should configure them on the host before beginning the self-hosted engine deployment. See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#networking-recommendations">Networking Recommendations</a> in the <em>Planning and Prerequisites Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="Installing_Red_Hat_Virtualization_Hosts_SHE_deployment_host">2.1. Installing oVirt Nodes</h3>
+<div class="paragraph">
+<p>oVirt Node (oVirt Node) is a minimal operating system based on Enterprise Linux that is designed to provide a simple method for setting up a physical machine to act as a hypervisor in a oVirt environment. The minimal operating system contains only the packages required for the machine to act as a hypervisor, and features a Cockpit web interface for monitoring the host and performing administrative tasks. See <a href="http://cockpit-project.org/running.html" class="bare">http://cockpit-project.org/running.html</a> for the minimum browser requirements.</p>
+</div>
+<div class="paragraph">
+<p>oVirt Node supports NIST 800-53 partitioning requirements to improve security. oVirt Node uses a NIST 800-53 partition layout by default.</p>
+</div>
+<div class="paragraph">
+<p>The host must meet the minimum  <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#host-requirements">host requirements</a>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When installing or reinstalling the host&#8217;s operating system, oVirt strongly recommends that you first detach any existing non-OS storage that is attached to the host to avoid accidental initialization of these disks, and with that, potential data loss.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Visit the <a href="https://ovirt.org/download/node.html">oVirt Node Download</a> page.</p>
+</li>
+<li>
+<p>Choose the version of <strong>oVirt Node</strong> to download and click its <strong>Installation ISO</strong> link.</p>
+</li>
+<li>
+<p>Write the oVirt Node Installation ISO disk image to a USB, CD, or DVD.</p>
+</li>
+<li>
+<p>Start the machine on which you are installing oVirt Node, booting from the prepared installation media.</p>
+</li>
+<li>
+<p>From the boot menu, select <strong>Install oVirt Node 4.4</strong> and press <code>Enter</code>.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can also press the <code>Tab</code> key to edit the kernel parameters. Kernel parameters must be separated by a space, and you can boot the system using the specified kernel parameters by pressing the <code>Enter</code> key. Press the <code>Esc</code> key to clear any changes to the kernel parameters and return to the boot menu.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Select a language, and click <b class="button">Continue</b>.</p>
+</li>
+<li>
+<p>Select a keyboard layout from the <strong>Keyboard Layout</strong> screen and click <b class="button">Done</b>.</p>
+</li>
+<li>
+<p>Select the device on which to install oVirt Node from the <strong>Installation Destination</strong> screen. Optionally, enable encryption. Click <b class="button">Done</b>.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Use the <strong>Automatically configure partitioning</strong> option.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Select a time zone from the <strong>Time &amp; Date</strong> screen and click <b class="button">Done</b>.</p>
+</li>
+<li>
+<p>Select a network from the <strong>Network &amp; Host Name</strong> screen and click <strong>Configure&#8230;&#8203;</strong> to configure the connection details.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To use the connection every time the system boots, select the <strong>Connect automatically with priority</strong> check box. For more information, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/graphical-installation_graphical-installation#network-hostname_configuring-system-settings">Configuring network and host name options</a> in the <em>Enterprise Linux 8 Installation Guide</em>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Enter a host name in the <strong>Host Name</strong> field, and click <strong>Done</strong>.</p>
+</div>
+</li>
+<li>
+<p>Optionally configure <strong>Language Support</strong>, <strong>Security Policy</strong>, and <strong>Kdump</strong>. See <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/graphical-installation_graphical-installation">Customizing your RHEL installation using the GUI</a> in <em>Performing a standard RHEL installation</em> for _Enterprise Linux 8 for more information on each of the sections in the <strong>Installation Summary</strong> screen.</p>
+</li>
+<li>
+<p>Click <strong>Begin Installation</strong>.</p>
+</li>
+<li>
+<p>Set a root password and, optionally, create an additional user while oVirt Node installs.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not create untrusted users on oVirt Node, as this can lead to exploitation of local security vulnerabilities.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click <strong>Reboot</strong> to complete the installation.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When oVirt Node restarts, <code>nodectl check</code> performs a health check on the host and displays the result when you log in on the command line. The message <code>node status: OK</code> or <code>node status: DEGRADED</code> indicates the health status. Run <code>nodectl check</code> to get more information.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If necessary, you can <a href="#proc-Preventing_Kernel_Modules_from_Loading_Automatically_Install_nodes_RHVH"> prevent kernel modules from loading automatically</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Installing_Red_Hat_Enterprise_Linux_Hosts_SHE_deployment_host">2.2. Installing Enterprise Linux hosts</h3>
+<div class="paragraph">
+<p>A Enterprise Linux host is based on a standard basic installation of Enterprise Linux 8 on a physical server, with the <code>Enterprise Linux Server</code> and <code>oVirt</code> repositories enabled.</p>
+</div>
+<div class="paragraph">
+<p>For detailed installation instructions, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/performing_a_standard_rhel_installation/index.html"><em>Performing a standard EL installation</em></a>.</p>
+</div>
+<div class="paragraph">
+<p>The host must meet the minimum <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/planning_and_prerequisites_guide/index#host-requirements">host requirements</a>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When installing or reinstalling the host&#8217;s operating system, oVirt strongly recommends that you first detach any existing non-OS storage that is attached to the host to avoid accidental initialization of these disks, and with that, potential data loss.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Virtualization must be enabled in your host&#8217;s BIOS settings. For information on changing your host&#8217;s BIOS settings, refer to your host&#8217;s hardware documentation.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not install third-party watchdogs on Enterprise Linux hosts. They can interfere with the watchdog daemon provided by VDSM.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Although the existing storage domains will be migrated from the standalone Engine, you must prepare additional storage for a self-hosted engine storage domain that is dedicated to the Engine virtual machine.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Preparing_Storage_for_RHV_migrating_to_SHE">3. Preparing Storage for oVirt</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You need to prepare storage to be used for storage domains in the new environment. A oVirt environment must have at least one data storage domain, but adding more is recommended.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When installing or reinstalling the host&#8217;s operating system, oVirt strongly recommends that you first detach any existing non-OS storage that is attached to the host to avoid accidental initialization of these disks, and with that, potential data loss.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A data domain holds the virtual hard disks and OVF files of all the virtual machines and templates in a data center, and cannot be shared across data centers while active (but can be migrated between data centers). Data domains of multiple storage types can be added to the same data center, provided they are all shared, rather than local, domains.</p>
+</div>
+<div class="paragraph">
+<p>You can use one of the following storage types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Preparing_NFS_Storage_migrating_to_SHE">NFS</a></p>
+</li>
+<li>
+<p><a href="#Preparing_iSCSI_Storage_migrating_to_SHE">iSCSI</a></p>
+</li>
+<li>
+<p><a href="#Preparing_FCP_Storage_migrating_to_SHE">Fibre Channel (FCP)</a></p>
+</li>
+<li>
+<p><a href="#Preparing_Red_Hat_Gluster_Storage_migrating_to_SHE">Gluster Storage</a></p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>Self-hosted engines must have an additional data domain with at least 74&nbsp;GiB dedicated to the Engine virtual machine. The self-hosted engine installer creates this domain. Prepare the storage for this domain before installation.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Extending or otherwise changing the self-hosted engine storage domain after deployment of the self-hosted engine is not supported. Any such change might prevent the self-hosted engine from booting.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>When using a block storage domain, either FCP or iSCSI, a single target LUN is the only supported setup for a self-hosted engine.</p>
+</li>
+<li>
+<p>If you use iSCSI storage, the self-hosted engine storage domain must use a dedicated iSCSI target. Any additional storage domains must use a different iSCSI target.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It is strongly recommended to create additional data storage domains in the same data center as the self-hosted engine storage domain. If you deploy the self-hosted engine in a data center with only one active data storage domain, and that storage domain is corrupted, you cannot add new storage domains or remove the corrupted storage domain. You must redeploy the self-hosted engine.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="Preparing_NFS_Storage_migrating_to_SHE">3.1. Preparing NFS Storage</h3>
+<div class="paragraph">
+<p>Set up NFS shares on your file storage or remote server to serve as storage domains on Red Hat Enterprise Virtualization Host systems. After exporting the shares on the remote storage and configuring them in the Red Hat Virtualization Manager, the shares will be automatically imported on the Red Hat Virtualization hosts.</p>
+</div>
+<div class="paragraph">
+<p>For information on setting up, configuring, mounting and exporting NFS, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_file_systems/index"><em>Managing file systems</em></a> for Red Hat Enterprise Linux 8.</p>
+</div>
+<div class="paragraph">
+<p>Specific system user accounts and system user groups are required by oVirt so the Engine can store data in the storage domains represented by the exported directories. The following procedure sets the permissions for one directory. You must repeat the <code>chown</code> and <code>chmod</code> steps for all of the directories you intend to use as storage domains in oVirt.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Prerequisites</div>
+<ol class="arabic">
+<li>
+<p>Install the NFS <code>utils</code> package.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf install nfs-utils -y</pre>
+</div>
+</div>
+</li>
+<li>
+<p>To check the enabled versions:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># cat /proc/fs/nfsd/versions</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable the following services:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># systemctl enable nfs-server
+# systemctl enable rpcbind</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create the group <code>kvm</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># groupadd kvm -g 36</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create the user <code>vdsm</code> in the group <code>kvm</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># useradd vdsm -u 36 -g kvm</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create the <code>storage</code> directory and modify the access rights.</p>
+<div class="listingblock">
+<div class="content">
+<pre># mkdir /storage
+# chmod 0755 /storage
+# chown 36:36 /storage/</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add the <code>storage</code> directory to <code>/etc/exports</code> with the relevant permissions.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># vi /etc/exports
+# cat /etc/exports
+ /storage *(rw)</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Restart the following services:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># systemctl restart rpcbind
+# systemctl restart nfs-server</pre>
+</div>
+</div>
+</li>
+<li>
+<p>To see which export are available for a specific IP address:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># exportfs
+ /nfs_server/srv
+               10.46.11.3/24
+ /nfs_server       &lt;world&gt;</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If changes in <code>/etc/exports</code> have been made after starting the services, the <code class="command">exportfs -ra</code> command can be used to reload the changes.
+After performing all the above stages, the exports directory should be ready and can be tested on a different host to check that it is usable.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Preparing_iSCSI_Storage_migrating_to_SHE">3.2. Preparing iSCSI Storage</h3>
+<div class="paragraph">
+<p>oVirt supports iSCSI storage, which is a storage domain created from a volume group made up of LUNs. Volume groups and LUNs cannot be attached to more than one storage domain at a time.</p>
+</div>
+<div class="paragraph">
+<p>For information on setting up and configuring iSCSI storage, see <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_storage_devices/index#getting-started-with-iscsi_managing-storage-devices">Getting started with iSCSI</a> in <em>Managing storage devices</em> for Red Hat Enterprise Linux 8.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are using block storage and intend to deploy virtual machines on raw devices or direct LUNs and manage them with the Logical Volume Manager (LVM), you must create a filter to hide guest logical volumes. This will prevent guest logical volumes from being activated when the host is booted, a situation that could lead to stale logical volumes and cause data corruption. Use the <code>vdsm-tool config-lvm-filter</code> command to create filters for the LVM.
+See <a href="https://ovirt.org/documentation/administration_guide/index#Creating_LVM_filter_storage_admin">Creating an LVM filter</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>oVirt currently does not support block storage with a block size of 4K. You must configure block storage in legacy (512b block) mode.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If your host is booting from SAN storage and loses connectivity to the storage, the storage file systems become read-only and remain in this state after connectivity is restored.</p>
+</div>
+<div class="paragraph">
+<p>To prevent this situation, add a drop-in multipath configuration file on the root file system of the SAN for the boot LUN to ensure that it is queued when there is a connection:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># cat /etc/multipath/conf.d/host.conf
+multipaths {
+    multipath {
+        wwid <em>boot_LUN_wwid</em>
+        no_path_retry queue
+    }</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Preparing_FCP_Storage_migrating_to_SHE">3.3. Preparing FCP Storage</h3>
+<div class="paragraph">
+<p>oVirt supports SAN storage by creating a storage domain from a volume group made of pre-existing LUNs. Neither volume groups nor LUNs can be attached to more than one storage domain at a time.</p>
+</div>
+<div class="paragraph">
+<p>oVirt system administrators need a working knowledge of Storage Area Networks (SAN) concepts. SAN usually uses Fibre Channel Protocol (FCP) for traffic between hosts and shared external storage. For this reason, SAN may occasionally be referred to as FCP storage.</p>
+</div>
+<div class="paragraph">
+<p>For information on setting up and configuring FCP or multipathing on Enterprise Linux, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/Storage_Administration_Guide/index.html"><em>Storage Administration Guide</em></a> and <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/DM_Multipath/index.html"><em>DM Multipath Guide</em></a>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are using block storage and intend to deploy virtual machines on raw devices or direct LUNs and manage them with the Logical Volume Manager (LVM), you must create a filter to hide guest logical volumes. This will prevent guest logical volumes from being activated when the host is booted, a situation that could lead to stale logical volumes and cause data corruption. Use the <code>vdsm-tool config-lvm-filter</code> command to create filters for the LVM.
+See <a href="https://ovirt.org/documentation/administration_guide/index#Creating_LVM_filter_storage_admin">Creating an LVM filter</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>oVirt currently does not support block storage with a block size of 4K. You must configure block storage in legacy (512b block) mode.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If your host is booting from SAN storage and loses connectivity to the storage, the storage file systems become read-only and remain in this state after connectivity is restored.</p>
+</div>
+<div class="paragraph">
+<p>To prevent this situation, add a drop-in multipath configuration file on the root file system of the SAN for the boot LUN to ensure that it is queued when there is a connection:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># cat /etc/multipath/conf.d/host.conf
+multipaths {
+    multipath {
+        wwid <em>boot_LUN_wwid</em>
+        no_path_retry queue
+    }</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Preparing_Red_Hat_Gluster_Storage_migrating_to_SHE">3.4. Preparing Gluster Storage</h3>
+<div class="paragraph">
+<p>For information on setting up and configuring Gluster Storage, see the <a href="https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.5/html/installation_guide/"><em>Gluster Storage Installation Guide</em></a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proc-Customizing_Multipath_Configurations_for_SAN_Vendors_migrating_to_SHE">3.5. Customizing Multipath Configurations for SAN Vendors</h3>
+<div class="paragraph">
+<p>If your RHV environment is configured to use multipath connections with SANs, you can customize the multipath configuration settings to meet requirements specified by your storage vendor. These customizations can override both the default settings and settings that are specified in <code>/etc/multipath.conf</code>.</p>
+</div>
+<div class="paragraph">
+<p>To override the multipath settings, do not customize <code>/etc/multipath.conf</code>. Because VDSM owns <code>/etc/multipath.conf</code>, installing or upgrading VDSM or oVirt can overwrite this file including any customizations it contains. This overwriting can cause severe storage failures.</p>
+</div>
+<div class="paragraph">
+<p>Instead, you create a file in the <code>/etc/multipath/conf.d</code> directory that contains the settings you want to customize or override.</p>
+</div>
+<div class="paragraph">
+<p>VDSM executes the files in <code>/etc/multipath/conf.d</code> in alphabetical order. So, to control the order of execution, you begin the filename with a number that makes it come last. For example, <code>/etc/multipath/conf.d/90-myfile.conf</code>.</p>
+</div>
+<div class="paragraph">
+<p>To avoid causing severe storage failures, follow these guidelines:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Do not modify <code>/etc/multipath.conf</code>. If the file contains user modifications, and the file is overwritten, it can cause unexpected storage problems.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Not following these guidelines can cause catastrophic storage errors.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>VDSM is configured to use the multipath module. To verify this, enter:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code># vdsm-tool is-configured --module multipath</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Create a new configuration file in the <code>/etc/multipath/conf.d</code> directory.</p>
+</li>
+<li>
+<p>Copy the individual setting you want to override from <code>/etc/multipath.conf</code> to the new configuration file in <code>/etc/multipath/conf.d/&lt;my_device&gt;.conf</code>. Remove any comment marks, edit the setting values, and save your changes.</p>
+</li>
+<li>
+<p>Apply the new configuration settings by entering:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code># systemctl reload multipathd</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not restart the multipathd service. Doing so generates errors in the VDSM logs.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist arabic">
+<div class="title">Verification steps</div>
+<ol class="arabic">
+<li>
+<p>Test that the new configuration performs as expected on a non-production cluster in a variety of failure scenarios. For example, disable all of the storage connections.</p>
+</li>
+<li>
+<p>Enable one connection at a time and verify that doing so makes the storage domain reachable.</p>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="https://ovirt.org/documentation/installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_command_line/index#ref-Recommended_Settings_for_Multipath_conf_SHE_cli_deploy">Recommended Settings for Multipath.conf</a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/dm_multipath/"><em>Enterprise Linux DM Multipath</em></a></p>
+</li>
+<li>
+<p><a href="https://ovirt.org/documentation/administration_guide/index#Configuring_iSCSI_Multipathing">Configuring iSCSI Multipathing</a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/solutions/3234761">How do I customize /etc/multipath.conf on my RHVH hypervisors? What values must not change and why?</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ref-Recommended_Settings_for_Multipath_conf_migrating_to_SHE">3.6. Recommended Settings for Multipath.conf</h3>
+<div class="paragraph">
+<p>Do not override the following settings:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">user_friendly_names  no</dt>
+<dd>
+<p>Device names must be consistent across all hypervisors. For example, <code>/dev/mapper/{WWID}</code>. The default value of this setting, <code>no</code>, prevents the assignment of arbitrary and inconsistent device names such as <code>/dev/mapper/mpath{N}</code> on various hypervisors, which can lead to unpredictable system behavior.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Do not change this setting to <code>user_friendly_names  yes</code>. User-friendly names are likely to cause unpredictable system behavior or failures, and are not supported.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1"><code>find_multipaths	no</code></dt>
+<dd>
+<p>This setting controls whether oVirt Node tries to access devices through multipath only if more than one path is available. The current value, <code>no</code>, allows oVirt to access devices through multipath even if only one path is available.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Do not override this setting.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Avoid overriding the following settings unless required by the storage system vendor:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>no_path_retry	4</code></dt>
+<dd>
+<p>This setting controls the number of polling attempts to retry when no paths are available. Before oVirt version 4.2, the value of <code>no_path_retry</code> was <code>fail</code> because QEMU had trouble with the I/O queuing when no paths were available. The <code>fail</code> value made it fail quickly and paused the virtual machine. oVirt version 4.2 changed this value to <code>4</code> so when multipathd detects the last path has failed, it checks all of the paths four more times. Assuming the default 5-second polling interval, checking the paths takes 20 seconds. If no path is up, multipathd tells the kernel to stop queuing and fails all outstanding and future I/O until a path is restored. When a path is restored, the 20-second delay is reset for the next time all paths fail. For more details, see <a href="https://gerrit.ovirt.org/#/c/88082/">the commit that changed this setting</a>.</p>
+</dd>
+<dt class="hdlist1"><code>polling_interval	5</code></dt>
+<dd>
+<p>This setting determines the number of seconds between polling attempts to detect whether a path is open or has failed. Unless the vendor provides a clear reason for increasing the value, keep the VDSM-generated default so the system responds to path failures sooner.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Before backing up the Engine, ensure it is updated to the latest minor version. The Engine version in the backup file must match the version of the new Engine.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Updating_the_Red_Hat_Virtualization_Manager_migrating_to_SHE">4. Updating the oVirt Engine</h2>
+<div class="sectionbody">
+<div class="ulist">
+<div class="title">Prerequisites</div>
+<ul>
+<li>
+<p>The data center compatibility level must be set to the latest version to ensure compatibility with the updated storage version.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>On the Engine machine, check if updated packages are available:</p>
+<div class="listingblock">
+<div class="content">
+<pre># engine-upgrade-check</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update the setup packages:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># yum update ovirt\*setup\*</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update the oVirt Engine with the <code>engine-setup</code> script. The <code>engine-setup</code> script prompts you with some configuration questions, then stops the <code>ovirt-engine</code> service, downloads and installs the updated packages, backs up and updates the database, performs post-installation configuration, and starts the <code>ovirt-engine</code> service.</p>
+<div class="listingblock">
+<div class="content">
+<pre># engine-setup</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the script completes successfully, the following message appears:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Execution of setup completed successfully</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>engine-setup</code> script is also used during the oVirt Engine installation process, and it stores the configuration values supplied. During an update, the stored values are displayed when previewing the configuration, and might not be up to date if <code>engine-config</code> was used to update configuration after installation. For example, if <code>engine-config</code> was used to update <code>SANWipeAfterDelete</code> to <code>true</code> after installation, <code>engine-setup</code> will output "Default SAN wipe after delete: False" in the configuration preview. However, the updated values will not be overwritten by <code>engine-setup</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The update process might take some time. Do not stop the process before it completes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Update the base operating system and any optional packages installed on the Engine:</p>
+<div class="listingblock">
+<div class="content">
+<pre># yum update</pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you encounter a required Ansible package conflict during the update, see <a href="https://access.redhat.com/solutions/5480561">Cannot perform yum update on my RHV manager (ansible conflict)</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If any kernel packages were updated, reboot the machine to complete the update.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Backing_up_the_Original_Manager_migrating_to_SHE">5. Backing up the Original Engine</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Back up the original Engine using the <code>engine-backup</code> command, and copy the backup file to a separate location so that it can be accessed at any point during the process.</p>
+</div>
+<div class="paragraph">
+<p>For more information about <code>engine-backup --mode=backup</code> options, see <a href="https://ovirt.org/documentation/administration_guide/index#sect-Backing_Up_and_Restoring_the_Red_Hat_Enterprise_Virtualization_Manager">Backing Up and Restoring the oVirt Engine</a> in the <em>Administration Guide</em>.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Log in to the original Engine and stop the <code>ovirt-engine</code> service:</p>
+<div class="listingblock">
+<div class="content">
+<pre># systemctl stop ovirt-engine
+# systemctl disable ovirt-engine</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Though stopping the original Engine from running is not obligatory, it is recommended as it ensures no changes are made to the environment after the backup is created. Additionally, it prevents the original Engine and the new Engine from simultaneously managing existing resources.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Run the <code>engine-backup</code> command, specifying the name of the backup file to create, and the name of the log file to create to store the backup log:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># engine-backup --mode=backup --file=<em>file_name</em> --log=<em>log_file_name</em></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Copy the files to an external server. In the following example, <code>storage.example.com</code> is the fully qualified domain name of a network storage server that will store the backup until it is needed, and <code>/backup/</code> is any designated folder or path.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># scp -p <em>file_name</em> <em>log_file_name</em> storage.example.com:/backup/</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>After backing up the Engine, deploy a new self-hosted engine and restore the backup on the new virtual machine.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Restoring_the_Backup_on_a_New_Self-hosted_Engine_migrating_to_SHE">6. Restoring the Backup on a New Self-Hosted Engine</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Run the <code>hosted-engine</code> script on a new host, and use the <code>--restore-from-file=<em>path/to/file_name</em></code> option to restore the Engine backup during the deployment.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are using iSCSI storage, and your iSCSI target filters connections according to the initiator&#8217;s ACL, the deployment may fail with a <code>STORAGE_DOMAIN_UNREACHABLE</code> error. To prevent this, you must update your iSCSI configuration before beginning the self-hosted engine deployment:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you are redeploying on an existing host, you must update the host&#8217;s iSCSI initiator settings in <code>/etc/iscsi/initiatorname.iscsi</code>. The initiator IQN must be the same as was previously mapped on the iSCSI target, or updated to a new IQN, if applicable.</p>
+</li>
+<li>
+<p>If you are deploying on a fresh host, you must update the iSCSI target configuration to accept connections from that host.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that the IQN can be updated on the host side (iSCSI initiator), or on the storage side (iSCSI target).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Copy the backup file to the new host. In the following example, <code>host.example.com</code> is the FQDN for the host, and <code>/backup/</code> is any designated folder or path.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># scp -p <em>file_name</em> host.example.com:/backup/</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Log in to the new host.</p>
+</li>
+<li>
+<p>If you are deploying on oVirt Node, <code>ovirt-hosted-engine-setup</code> is already installed, so skip this step. If you are deploying on Enterprise Linux, install the <code>ovirt-hosted-engine-setup</code> package:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf install ovirt-hosted-engine-setup</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Use the <code>tmux</code> window manager to run the script to avoid losing the session in case of network or terminal disruption.</p>
+<div class="paragraph">
+<p>Install and run <code>tmux</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf -y install tmux
+# tmux</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the <code>hosted-engine</code> script, specifying the path to the backup file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># hosted-engine --deploy --restore-from-file=backup/<em>file_name</em></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To escape the script at any time, use <span class="keyseq"><kbd>CTRL</kbd>+<kbd>D</kbd></span> to abort deployment.</p>
+</div>
+</li>
+<li>
+<p>Select <strong>Yes</strong> to begin the deployment.</p>
+</li>
+<li>
+<p>Configure the network. The script detects possible NICs to use as a management bridge for the environment.</p>
+</li>
+<li>
+<p>If you want to use a custom appliance for the virtual machine installation, enter the path to the OVA archive. Otherwise, leave this field empty to use the Engine Appliance.</p>
+</li>
+<li>
+<p>Enter the root password for the Engine.</p>
+</li>
+<li>
+<p>Enter an SSH public key that will allow you to log in to the Engine as the root user, and specify whether to enable SSH access for the root user.</p>
+</li>
+<li>
+<p>Enter the virtual machine&#8217;s CPU and memory configuration.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The virtual machine must have the same amount of RAM as the physical machine from which the Engine is being migrated. If you must migrate to a virtual machine that has less RAM than the physical machine from which the Engine is migrated, see <a href="https://access.redhat.com/articles/2705841" class="bare">https://access.redhat.com/articles/2705841</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Enter a MAC address for the Engine virtual machine, or accept a randomly generated one. If you want to provide the Engine virtual machine with an IP address via DHCP, ensure that you have a valid DHCP reservation for this MAC address. The deployment script will not configure the DHCP server for you.</p>
+</li>
+<li>
+<p>Enter the virtual machine&#8217;s networking details. If you specify <strong>Static</strong>, enter the IP address of the Engine.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The static IP address must belong to the same subnet as the host. For example, if the host is in 10.1.1.0/24, the Engine virtual machine&#8217;s IP must be in the same subnet range (10.1.1.1-254/24).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Specify whether to add entries for the Engine virtual machine and the base host to the virtual machine&#8217;s <code>/etc/hosts</code> file. You must ensure that the host names are resolvable.</p>
+</li>
+<li>
+<p>Provide the name and TCP port number of the SMTP server, the email address used to send email notifications, and a comma-separated list of email addresses to receive these notifications:</p>
+</li>
+<li>
+<p>Enter a password for the <code>admin@internal</code> user to access the Administration Portal.</p>
+<div class="paragraph">
+<p>The script creates the virtual machine. This can take some time if the Engine Appliance needs to be installed.</p>
+</div>
+</li>
+<li>
+<p>Select the type of storage to use:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For NFS, enter the version, full address and path to the storage, and any mount options.</p>
+</li>
+<li>
+<p>For iSCSI, enter the portal details and select a target and LUN from the auto-detected lists. You can only select one iSCSI target during the deployment, but multipathing is supported to connect all portals of the same portal group.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>To specify more than one iSCSI target, you must enable multipathing before deploying the self-hosted engine. See <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/dm_multipath/"><em>Enterprise Linux DM Multipath</em></a> for details. There is also a <a href="https://access.redhat.com/labs/multipathhelper/#/">Multipath Helper</a> tool that generates a script to install and configure multipath with different options.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>For Gluster storage, enter the full address and path to the storage, and any mount options.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Only replica 1 and replica 3 Gluster storage are supported. Ensure you configure the volume as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">gluster volume set <em>VOLUME_NAME</em> group virt
+gluster volume set <em>VOLUME_NAME</em> performance.strict-o-direct on
+gluster volume set <em>VOLUME_NAME</em> network.remote-dio off
+gluster volume set <em>VOLUME_NAME</em> storage.owner-uid 36
+gluster volume set <em>VOLUME_NAME</em> storage.owner-gid 36
+gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>For Fibre Channel, select a LUN from the auto-detected list. The host bus adapters must be configured and connected, and the LUN must not contain any existing data. To reuse an existing LUN, see <a href="https://ovirt.org/documentation/administration_guide/index#Reusing_LUNs">Reusing LUNs</a> in the <em>Administration Guide</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enter the Engine disk size.</p>
+<div class="paragraph">
+<p>The script continues until the deployment is complete.</p>
+</div>
+</li>
+<li>
+<p>The deployment process changes the Engine&#8217;s SSH keys. To allow client machines to access the new Engine without SSH errors, remove the original Engine&#8217;s entry from the <code>.ssh/known_hosts</code> file on any client machines that accessed the original Engine.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When the deployment is complete, log in to the new Engine virtual machine and enable the required repositories.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Enabling_the_Red_Hat_Virtualization_Manager_Repositories_migrating_to_SHE">7. Enabling the oVirt Engine Repositories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ensure the correct repositories are enabled:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf install <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm" class="bare">https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm</a></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can check which repositories are currently enabled by running <code>dnf repolist</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enable the <code>javapackages-tools</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf module -y enable javapackages-tools</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable the <code>pki-deps</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf module -y enable pki-deps</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable version 12 of the <code>postgresql</code> module.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf module -y enable postgresql:12</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Synchronize installed packages to update them to the latest available versions.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf distro-sync --nobest</pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Additional resources</div>
+<p>For information on modules and module streams, see the following sections in <em>Installing, managing, and removing user-space components</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#module-streams_introduction-to-modules">Module streams</a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#selecting-a-stream-before-installation-of-packages_installing-rhel-8-content">Selecting a stream before installation of packages</a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#resetting-module-streams_removing-rhel-8-content">Resetting module streams</a></p>
+</li>
+<li>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/installing_managing_and_removing_user-space_components/index#switching-to-a-later-stream_managing-versions-of-appstream-content">Switching to a later stream</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The oVirt Engine has been migrated to a self-hosted engine setup. The Engine is now operating on a virtual machine on the new self-hosted engine node.</p>
+</div>
+<div class="paragraph">
+<p>The hosts will be running in the new environment, but cannot host the Engine virtual machine. You can convert some or all of these hosts to self-hosted engine nodes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Reinstalling_an_Existing_Host_as_a_Self-Hosted_Engine_Node_migrating_to_SHE">8. Reinstalling an Existing Host as a Self-Hosted Engine Node</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can convert an existing, standard host in a self-hosted engine environment to a self-hosted engine node capable of hosting the Engine virtual machine.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>When installing or reinstalling the host&#8217;s operating system, oVirt strongly recommends that you first detach any existing non-OS storage that is attached to the host to avoid accidental initialization of these disks, and with that, potential data loss.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Hosts</b></span> and select the host.</p>
+</li>
+<li>
+<p>Click <span class="menuseq"><b class="menu">Management</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Maintenance</b></span> and <b class="button">OK</b>.</p>
+</li>
+<li>
+<p>Click <span class="menuseq"><b class="menu">Installation</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Reinstall</b></span>.</p>
+</li>
+<li>
+<p>Click the <strong>Hosted Engine</strong> tab and select <strong>DEPLOY</strong> from the drop-down list.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The host is reinstalled with self-hosted engine configuration, and is flagged with a crown icon in the Administration Portal.</p>
+</div>
+<div class="paragraph">
+<p>After reinstalling the hosts as self-hosted engine nodes, you can check the status of the new environment by running the following command on one of the nodes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># hosted-engine --vm-status</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the new environment is running without issue, you can decommission the original Engine machine.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="proc-Preventing_Kernel_Modules_from_Loading_Automatically_Install_nodes_RHVH">Appendix A: Preventing kernel modules from loading automatically</h2>
+<div class="sectionbody">
+<div class="paragraph _abstract">
+<p>You can prevent a kernel module from being loaded automatically, whether the module is loaded directly, loaded as a dependency from another module, or during the boot process.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>The module name must be added to a configuration file for the <code>modprobe</code> utility.  This file must reside in the configuration directory <code>/etc/modprobe.d</code>.</p>
+<div class="paragraph">
+<p>For more information on this configuration directory, see the man page <code>modprobe.d</code>.</p>
+</div>
+</li>
+<li>
+<p>Ensure the module is not configured to get loaded in any of the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>/etc/modprobe.conf</code></p>
+</li>
+<li>
+<p><code>/etc/modprobe.d/*</code></p>
+</li>
+<li>
+<p><code>/etc/rc.modules</code></p>
+</li>
+<li>
+<p><code>/etc/sysconfig/modules/*</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># modprobe --showconfig &lt;_configuration_file_name_&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>If the module appears in the output, ensure it is ignored and not loaded:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># modprobe --ignore-install &lt;_module_name_&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Unload the module from the running system, if it is loaded:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># modprobe -r &lt;_module_name_&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Prevent the module from being loaded directly by adding the <code>blacklist</code> line to a configuration file specific to the system - for example <code>/etc/modprobe.d/local-dontload.conf</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># echo &quot;blacklist &lt;_module_name_&gt; &gt;&gt; /etc/modprobe.d/local-dontload.conf</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This step does not prevent a module from loading if it is a required or an optional dependency of another module.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Prevent optional modules from being loading on demand:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># echo &quot;install &lt;_module_name_&gt;/bin/false&quot; &gt;&gt; /etc/modprobe.d/local-dontload.conf</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the excluded module is required for other hardware, excluding it might cause unexpected side effects.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Make a backup copy of your <code>initramfs</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.$(date +%m-%d-%H%M%S).bak</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>If the kernel module is part of the <code>initramfs</code>, rebuild your initial <code>ramdisk</code> image, omitting the module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># dracut --omit-drivers &lt;_module_name_&gt; -f</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Get the current kernel command line parameters:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># grub2-editenv - list | grep kernelopts</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Append <code>&lt;_module_name_&gt;.blacklist=1 rd.driver.blacklist=&lt;_module_name_&gt;</code> to the generated output:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># grub2-editenv - set kernelopts=&quot;&lt;&gt; &lt;_module_name_&gt;.blacklist=1 rd.driver.blacklist=&lt;_module_name_&gt;&quot;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># grub2-editenv - set kernelopts=&quot;root=/dev/mapper/rhel_example-root ro crashkernel=auto resume=/dev/mapper/rhel_example-swap rd.lvm.lv=rhel_example/root rd.lvm.lv=rhel_example/swap &lt;_module_name_&gt;.blacklist=1 rd.driver.blacklist=&lt;_module_name_&gt;&quot;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Make a backup copy of the <code>kdump initramfs</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># cp /boot/initramfs-$(uname -r)kdump.img /boot/initramfs-$(uname -r)kdump.img.$(date +%m-%d-%H%M%S).bak</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Append <code>rd.driver.blacklist=&lt;_module_name_&gt;</code> to the <code>KDUMP_COMMANDLINE_APPEND</code> setting in <code>/etc/sysconfig/kdump</code> to omit it from the <code>kdump initramfs</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># sed -i '/^KDUMP_COMMANDLINE_APPEND=/s/&quot;$/ rd.driver.blacklist=module_name&quot;/' /etc/sysconfig/kdump</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Restart the <code>kdump</code> service to pick up the changes to the <code>kdump initrd</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">  # kdumpctl restart</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Rebuild the <code>kdump</code> initial <code>ramdisk</code> image:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal">  # mkdumprd -f /boot/initramfs-$(uname -r)kdump.img</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Reboot the system.</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="removing-a-module-temporarily">A.1. Removing a module temporarily</h3>
+<div class="paragraph">
+<p>You can remove a module temporarily.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
+<p>Run <code>modprobe</code> to remove any currently-loaded module:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="terminal"># modprobe -r &lt;module name&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>If the module cannot be unloaded, a process or another module might still be using the module. If so, terminate the process and run the <code>modpole</code> command written above another time to unload the module.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="legal-notice">9. Legal notice</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/migrating_from_a_standalone_manager_to_a_self-hosted_engine/">Red Hat Virtualization 4.4 Migrating from a standalone Manager to a self-hosted engine</a>. Copyright © 2020 Red Hat, Inc. Licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2639/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2639/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2639/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2639/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/migrating_from_a_standalone_manager_to_a_self-hosted_engine/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/migrating_from_a_standalone_manager_to_a_self-hosted_engine/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -10,7 +10,7 @@ The following dashboards are available in the initial Grafana setup to report Da
 | Dashboard type |  Content
 | *Executive dashboards*
     a|
-    * System dashboard - resource usage and up-time for hosts and storage domains in the system, according to in the latest configurations.
+    * System dashboard - resource usage and up-time for hosts and storage domains in the system, according to the latest configurations.
     * Data Center dashboard - resource usage, peaks, and up-time for clusters, hosts, and storage domains in a selected data center, according to the latest configurations.
     * Cluster dashboard - resource usage, peaks, over-commit, and up-time for hosts and virtual machines in a selected cluster, according to the latest configurations.
     * Host dashboard - latest and historical configuration details and resource usage metrics of a selected host over a selected period.

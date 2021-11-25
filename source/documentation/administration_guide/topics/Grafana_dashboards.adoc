@@ -10,37 +10,39 @@ The following dashboards are available in the initial Grafana setup to report Da
 | Dashboard type |  Content
 | *Executive dashboards*
     a|
-    * Cluster dashboard - resource usage, peaks, over-commit, and up-time for hosts and virtual machines in a selected cluster, according to the latest configurations.
+    * System dashboard - resource usage and up-time for hosts and storage domains in the system, according to the latest configurations.
     * Data Center dashboard - resource usage, peaks, and up-time for clusters, hosts, and storage domains in a selected data center, according to the latest configurations.
-    * Executive dashboard - user resource usage and number of operating systems for hosts and virtual machines in selected clusters over a selected period.
+    * Cluster dashboard - resource usage, peaks, over-commit, and up-time for hosts and virtual machines in a selected cluster, according to the latest configurations.
     * Host dashboard - latest and historical configuration details and resource usage metrics of a selected host over a selected period.
-    * System dashboard - resource usage and up-time for hosts and storage domains in the system, according to in the latest configurations.
     * Virtual Machine dashboard - latest and historical configuration details and resource usage metrics of a selected virtual machine over a selected period.
+    * Executive dashboard - user resource usage and number of operating systems for hosts and virtual machines in selected clusters over a selected period.
 
-| *Trend dashboards*
-    a|
-    * Hosts Resource Usage dashboard - daily and hourly resource usage (number of virtual machines, CPU, memory, network Tx/Rx) for selected hosts in a selected period.
-    * Hosts Trend dashboard - resource usage (number of virtual machines, CPU, memory, and network Tx/Rx) for selected hosts over a selected period.
-    * Trend dashboard - usage rates for the 5 most and least utilized virtual machines and hosts by memory and by CPU in selected clusters over a selected period.
-    * Virtual Machines Resource Usage dashboard - daily and hourly resource usage (CPU, memory, network Tx/Rx, disk I/O) for selected virtual machines in a selected period.
-    * Virtual Machines Trend dashboard -resource usage (CPU, memory, network Tx/Rx, disk I/O) for selected virtual machines over a selected period.
-
-| *Service Level dashboards*
-    a|
-    * Cluster Quality of Service
-    ** Hosts dashboard - the time selected hosts have performed above and below the CPU and memory threshold in a selected period.
-    ** Virtual Machines dashboard - the time selected virtual machines have performed above and below the CPU and memory threshold in a selected period.
-    * Hosts Uptime dashboard - the uptime, planned downtime, and unplanned downtime for selected hosts in a selected period.
-    * Uptime dashboard - planned downtime, unplanned downtime, and total time for the hosts, high availability virtual machines, and all virtual machines in selected clusters in a selected period.
-    * Virtual Machines Uptime dashboard - the uptime, planned downtime, and unplanned downtime for selected virtual machines in a selected period.
 
 | *Inventory dashboards*
     a|
+    * Inventory dashboard - number of hosts, virtual machines, and running virtual machines, resources usage and over-commit rates for selected data centers, according to the latest configurations.
     * Hosts Inventory dashboard - FQDN, VDSM version, operating system, CPU model, CPU cores, memory size, create date, delete date, and hardware details for selected hosts, according to the latest configurations.
-    * Inventory dashboard - number of hosts, virtual machines, and running virtual machines, resources usage and over-commit rates for selected data centers and clusters, according to the latest configurations.
-
     * Storage Domains Inventory dashboard - domain type, storage type, available disk size, used disk size, total disk size, creation date, and delete date for selected storage domains over a selected period.
     * Virtual Machines Inventory dashboard - template name, operating system, CPU cores, memory size, create date, and delete date for selected virtual machines, according to the latest configurations.
+
+| *Service Level dashboards*
+    a|
+    * Uptime dashboard - planned downtime, unplanned downtime, and total time for the hosts, high availability virtual machines, and all virtual machines in selected clusters in a selected period.
+    * Hosts Uptime dashboard - the uptime, planned downtime, and unplanned downtime for selected hosts in a selected period.
+    * Virtual Machines Uptime dashboard - the uptime, planned downtime, and unplanned downtime for selected virtual machines in a selected period.
+    * Cluster Quality of Service
+    ** Hosts dashboard - the time selected hosts have performed above and below the CPU and memory threshold in a selected period.
+    ** Virtual Machines dashboard - the time selected virtual machines have performed above and below the CPU and memory threshold in a selected period.
+
+| *Trend dashboards*
+    a|
+
+    * Trend dashboard - usage rates for the 5 most and least utilized virtual machines and hosts by memory and by CPU in selected clusters over a selected period.
+    * Hosts Trend dashboard - resource usage (number of virtual machines, CPU, memory, and network Tx/Rx) for selected hosts over a selected period.
+    * Virtual Machines Trend dashboard -resource usage (CPU, memory, network Tx/Rx, disk I/O) for selected virtual machines over a selected period.
+    * Hosts Resource Usage dashboard - daily and hourly resource usage (number of virtual machines, CPU, memory, network Tx/Rx) for selected hosts in a selected period.
+    * Virtual Machines Resource Usage dashboard - daily and hourly resource usage (CPU, memory, network Tx/Rx, disk I/O) for selected virtual machines in a selected period.
+
 |===
 
 

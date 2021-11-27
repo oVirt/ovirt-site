@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Disaster Recovery for Gluster based storage domains | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Disaster Recovery for Gluster based storage domains" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2640/develop/release-management/features/gluster/gluster-dr.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2640/develop/release-management/features/gluster/gluster-dr.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Disaster Recovery for Gluster based storage domains" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2640/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Disaster Recovery for Gluster based storage domains","url":"https://ovirt.github.io/ovirt-site/previews/2640/develop/release-management/features/gluster/gluster-dr.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2640/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2640/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2640/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2640/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2640/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2640/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2640/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2640/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2640/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2640/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2640/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2640/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2640/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2640/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2640/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2640/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2640/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2640/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2640/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2640/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2640/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2640/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2640/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2640/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2640/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2640/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2640/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2640/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2640/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2640/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2640/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2640/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2640/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2640/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2640/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2640//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2640//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2640/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2640/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2640/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2640/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2640/develop/release-management/features/gluster/">
+              <span property="name">Gluster</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/450b77aa4b277aa954e42c0cbaed64f1?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/450b77aa4b277aa954e42c0cbaed64f1?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Sahina Bose</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2640/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="disaster-recovery-for-gluster-based-storage-domains">Disaster Recovery for Gluster based storage domains</h1>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Feature owner: Sahina Bose <a href="mailto:sabose@redhat.com">sabose@redhat.com</a></li>
+</ul>
+
+<h2 id="current-status">Current Status</h2>
+
+<ul>
+  <li>Status: Design</li>
+  <li>Last updated date: 09 Dec 2016</li>
+</ul>
+
+<h2 id="background">Background</h2>
+
+<p>There are currently DR and backup solutions available with oVirt, but these solutions either rely on backup agents running on the virtual machines or elaborate steps to configure and use the Backup APIs. In almost all cases, these rely on some third party software to sync the backed up content to a remote site. We need a fully integrated disaster recovery solution that is easy to setup and manage. In addition, the steps for recovery of data in case of disaster should be simple and clearly outlined.</p>
+
+<p>If using gluster as storage backend, there is no need for third party software, as gluster provides a way to sync data from one site to any other site (remote or local). This feature page aims to provide details for this integration</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>Data to be mirrored/synced to a secondary site (at a remote location), so that in case of disaster, the data at the secondary site can be used to bring the enviroment back online</li>
+  <li>The data at secondary site should be in a consistent state and has to be recoverable.</li>
+  <li>The syncing of data should be periodic and user should be able to configure the frequency. This frequency will determine how far behind the data at secondary site is.</li>
+  <li>User should be able to monitor the progress/status of sync</li>
+  <li>The DR syncing process should not affect the functioning of the primary site - i.e, no downtime for guests</li>
+</ul>
+
+<h2 id="solution">Solution</h2>
+
+<h3 id="sync-to-secondary-site">Sync to secondary site</h3>
+
+<p>Gluster provides a way to replicate/mirror a gluster volume to another remote location using a feature called <a href="https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/">Geo-replication</a>. This offers a continuous, asynchronous, and incremental replication service from one site to another over Local Area Networks (LANs), Wide Area Network (WANs), and across the Internet. Since glusterfs 3.7.9, there’s a periodic geo-replication script available that will checkpoint the data at any given time and ensure all checkpointed data is replicted to configured secondary site.(known as <code class="language-plaintext highlighter-rouge">slave gluster volume</code> in gluster parlance)</p>
+
+<p>Since oVirt uses gluster volume as storage domains, we can make use of this feature to provide a DR solution for gluster storage domains.
+However, simply enabling geo-replication on gluster volumes used as storage domain will not ensure consistency of data. Geo-replication will continue syncing all I/O even after the checkpoint time until all data at checkpoint has been transferred. This could lead to data inconsistencies at the secondary site. To avoid this and to ensure that all IO has been coalesced to disk before syncing to secondary site (or slave), we will need to take a snapshot of the VMs running on the storage domain. Any data that is written post the snapshot, though transferred to secondary site will be discarded as it is in a separate overlay image file.</p>
+
+<p>To setup disaster recovery, the first step is to configure geo-replication on gluster volume. This is a one-time activity. Master volume refers to the gluster volume used as storage domain at the primary site (source), and slave volume is the volume configured at secondary site (sync target). Steps to configure geo-replication is at <a href="https://docs.gluster.org/en/latest/Administrator-Guide/Geo-Replication/">Geo-replication</a>.</p>
+
+<p>Some points to consider when setting up geo-replication</p>
+
+<ul>
+  <li>A slave volume is required for every gluster storage domain (aka gluster volume) that needs to be backed up</li>
+  <li>Slave volume and master volume need not be the same topology. This means that if the master volume is a replica 3 gluster volume, slave volume can be a distribute volume type</li>
+  <li>If sharding is enabled on the master volume, then the slave volume should also have sharding enabled. The shard block sizes at master and slave does not have to match, but it is recommended that they are the same.</li>
+  <li>Slave volume needs to have similar capacity as the master volume</li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2640/images/wiki/gluster-dr-georep.png" alt="Gluster-Geo-replication" /></p>
+
+<p>Once the geo-replication session is configured, following steps can be scripted to ensure periodic sync</p>
+
+<ol>
+  <li>Establish connection to running oVirt engine</li>
+  <li>Query for list of running VMs</li>
+  <li>Create snapshot of all running VMs to ensure that data is quiesced and in a consistent state at the secondary site</li>
+  <li>Execute the georep_scheduler script that:
+    <ul>
+      <li>creates a checkpoint</li>
+      <li>starts geo-replication, copying files from master volume (storage domain) to the slave volume located at central backup site</li>
+      <li>Stops the geo-replication session once checkpoint is completed</li>
+    </ul>
+  </li>
+  <li>Mount the slave volume from secondary site and delete the external snapshot image file (overlay image) that was created as part of script</li>
+  <li>At oVirt engine, merge the created snapshots via API that will call live merge of image</li>
+  <li>On completion, post an event to oVirt. The event is an Alert with error message in case the process did not complete successfully. Successful completions are noted as normal events. Administrator can subscribe to external events to receive the events via email.</li>
+</ol>
+
+<p>Such a script is already available at <a href="https://github.com/sabose/ovirt-georep-backup">ovirt-georep-backup</a></p>
+
+<h3 id="recovery-on-disaster">Recovery on disaster</h3>
+
+<p>In the event of a disaster, the storage domain can be attached to a running instance of oVirt.</p>
+
+<ol>
+  <li>A new instance of oVirt is setup with a master storage domain. A master storage domain needs to be active in oVirt to initialize the Data Center and perform further operations</li>
+  <li>Use the <a href="/ovirt-site/previews/2640/develop/release-management/features/storage/importstoragedomain.html">Import Storage Domain</a> feature to import the gluster volume from secondary site (the one setup as slave gluster volume in previous setup)
+    <ul>
+      <li>In case the storage domain contains the VMs and all its disks, the VMs can be imported to the new oVirt instance</li>
+      <li>In case the storage domain contains only floating disks (i.e not attached to any VMs or where the storage domain does not contain the VM’s OS disks), the disks can be registered via GUI (see <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1138139">Bug 1138139</a>)
+        <ul>
+          <li>There’s currently an issue where disks with snapshots cannot be registered. The overlay image file needs to be manually deleted from the storage domain before this is possible (see <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1334256">Bug 1334256</a>)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p>To integrate this solution better into oVirt and provide users a seamless way of managing and monitoring the DR solution, we need enhancements to this approach. Sections below will outline the design to do so.</p>
+
+<h2 id="enhancements">Enhancements</h2>
+
+<h3 id="ux">UX</h3>
+
+<ul>
+  <li>Show a sub-tab for setting up data synchronization for disaster recovery on storage domain. This will currently be available for gluster storage domains alone, but can be extended to cover other storage domain types later
+    <ul>
+      <li>Change the path option to enable choosing gluster volume that’s managed by oVirt</li>
+      <li>DR sync can be enabled only if the gluster volume is managed via oVirt. A warning will be displayed to user if the gluster volume is not managed by this instance of oVirt</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2640/images/wiki/storagedomain-dr.png" alt="StorageDomain-DR" /></p>
+
+<ul>
+  <li>Create a sub-tab under Storage domain for <strong>DR setup</strong>
+    <ul>
+      <li>DR sub-tab only shown for glusterfs storage types</li>
+      <li>If the gluster storage domain is not linked to an oVirt managed gluster volume, an alert is shown in sub-tab that this feature cannot be used for selected storage domain.</li>
+      <li>Display the current schedule for sync, sync location and the last run status. A storage domain can possibly be backed to multiple destinations, this will be listed in table here</li>
+      <li>Provide a way for user to edit the schedule for sync. Clicking on an existing row and edit button will open the dialog in edit mode.</li>
+      <li>Clicking on Setup will open the below dialog where user can select from existing geo-rep sessions for volume and setup the schedule for data synchronisation.
+        <ul>
+          <li>If there are no geo-replication sessions created, instead of the drop down, an alert is shown that geo-replication session needs to be setup.A link will be provided for user to navigate to <strong>Create Geo-replication Session</strong></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2640/images/wiki/storage-domain-dr-setup.png" alt="StorageDomain-DR-Setup" /></p>
+
+<h3 id="database-changes">Database changes</h3>
+
+<ul>
+  <li>Extend the storage domain table <code class="language-plaintext highlighter-rouge">storage_server_connections</code> with following additional columns
+    <ul>
+      <li>gluster_volume_id UUID <em>stores the gluster volume uuid if the gluster volume is managed by oVirt, this will allow to check and alert for geo-rep session</em></li>
+    </ul>
+  </li>
+  <li>Additional table <code class="language-plaintext highlighter-rouge">storage_domain_dr</code> with following columns
+    <ul>
+      <li>storage_domain_id uuid</li>
+      <li>georep_session_id uuid</li>
+      <li>sync_schedule varchar <em>stores the cron expression for recurring schedule</em></li>
+      <li>qrtz_job_id varchar <em>stores the quartz job created</em></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="design-changes">Design changes</h3>
+
+<ul>
+  <li>Scheduling of the DR sync process will use the Quartz scheduler internally. (ovirt-georep-backup script used crontab to achieve this - but could only be setup on one of the hosts and HA for schedule was an issue)</li>
+  <li>oVirt will orchestrate snapshotting the VMs, setting a geo-replication checkpoint, starting geo-replication, monitoring for checkpoint completion and deleting the snapshots created as part of process. Steps are detailed in the sequence diagram below</li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2640/images/wiki/gluster-dr-seq-diagram.png" alt="DR-Sequence-Diagram" /></p>
+
+<h2 id="future-work">Future work</h2>
+
+<ul>
+  <li>Sync can be configured currently per storage domain. We want to make this more granular, at VM or disk level. Support needs to be added to both GlusterFS and oVirt to enable this.</li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2640/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2640/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2640/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2640/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/gluster/gluster-dr.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/gluster/gluster-dr.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

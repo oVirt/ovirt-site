@@ -44,6 +44,10 @@ authors:
 - [Becoming a maintainer](/develop/dev-process/becoming-a-maintainer.html)
 - [Localization](/develop/localization.html)
 
+#### Release process
+- [Adding a project to ovirt-master-snapshot COPR repository](/develop/release-management/process/add_a_package_to_copr.html)
+
+
 #### Development Help
 
 - [Building oVirt engine](/develop/developer-guide/engine/engine-development-environment.html)

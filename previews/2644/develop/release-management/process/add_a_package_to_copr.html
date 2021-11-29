@@ -146,11 +146,11 @@
 <h1 id="about-ovirtovirt-master-snapshot">About oVirt/ovirt-master-snapshot</h1>
 
 <p>The <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/">oVirt/ovirt-master-snapshot</a> COPR project
-is meant to provide latest build from merged patches for all the subprojects within oVirt project.</p>
+is meant to provide the latest build from merged patches for all the subprojects within the oVirt project.</p>
 
 <p>The builds included in this project are pre-release builds for testing purposes, not suited for production.</p>
 
-<p>For using these pre-production builds please refer to <a href="/ovirt-site/previews/2644/develop/dev-process/install-nightly-snapshot.html">Install nightly oVirt master snapshot</a>.</p>
+<p>For using these pre-production builds, please refer to <a href="/ovirt-site/previews/2644/develop/dev-process/install-nightly-snapshot.html">Install nightly oVirt master snapshot</a>.</p>
 
 <h1 id="adding-a-new-sub-project-to-ovirtovirt-master-snapshot">Adding a new sub-project to oVirt/ovirt-master-snapshot</h1>
 
@@ -162,25 +162,24 @@ is meant to provide latest build from merged patches for all the subprojects wit
   <li><strong>administrator</strong> access level to the GitHub sub-project</li>
 </ul>
 
-<p>If you are not an administrator you can open an issue within the subproject and request it to be done adding <code class="language-plaintext highlighter-rouge">@oVirt/admins</code> as reviewer.</p>
+<p>If you are not an administrator you can open an issue within the subproject and request <code class="language-plaintext highlighter-rouge">@oVirt/admins</code> as a reviewer.</p>
 
 <h2 id="getting-administrator-rights">Getting administrator rights</h2>
 
 <p>For requesting administrator access to <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/">oVirt/ovirt-master-snapshot</a>:</p>
 <ul>
-  <li>Login to COPR (register if you have not an account yet)</li>
+  <li>Login to COPR (register if you do not have an account yet)</li>
   <li>Go to https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/permissions/</li>
-  <li>Request for administrator rights</li>
-  <li>Existing administrators will review the request and either approve / deny the request.</li>
+  <li>Request administrator rights</li>
+  <li>Existing administrators will review and either approve or deny the request</li>
 </ul>
 
-<p>If you are not an already an administrator of your subproject within oVirt organization you can open an issue within the subproject and request review from <code class="language-plaintext highlighter-rouge">@oVirt/admins</code>.
-Existing administrators will review the request and either approve / deny the request.</p>
+<p>If you are not already an administrator of your subproject within the oVirt organization, you can open an issue within the subproject and request review from <code class="language-plaintext highlighter-rouge">@oVirt/admins</code>.
+Existing administrators will review and either approve or deny the request.</p>
 
 <h2 id="procedure-for-adding-the-project">Procedure for adding the project</h2>
 
-<p>The first step is <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/package/add">adding the package</a>
-to <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/">oVirt/ovirt-master-snapshot</a></p>
+<p>The first step is <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/package/add">adding the package</a> to <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/">oVirt/ovirt-master-snapshot</a>.</p>
 
 <p>Within <code class="language-plaintext highlighter-rouge">Provide the source</code> section set:</p>
 <ul>
@@ -205,14 +204,12 @@ to <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/
 <p>You need to prepare a Makefile in order to produce a source RPM. You can learn more about how to do this on
 <a href="https://docs.pagure.org/copr.copr/user_documentation.html#make-srpm">COPR documentation for make srpm</a>.</p>
 
-<p>Once your project is ready the last step is activating the COPR web hook.</p>
+<p>Once your project is ready, the last step is activating the COPR web hook. The procedure is well documented in <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/integrations/">COPR integration panel</a>.</p>
 
-<p>The procedure is well documented in <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/integrations/">COPR integration panel</a>.</p>
+<p>Once everything is set, you can add a badge to your sub-project README file. Get the code to do that from
+<code class="language-plaintext highlighter-rouge">https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/package/&lt;change this with your new package name&gt;/</code>.</p>
 
-<p>Once everything is set, you can add a badge to your sub-project README file getting the code for it from
-<code class="language-plaintext highlighter-rouge">https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/package/&lt;change this with your new package name&gt;/</code></p>
-
-<p>If you need help feel free to reach out to <a href="https://lists.ovirt.org/archives/list/devel@ovirt.org/">devel@ovirt.org</a> mailing list.</p>
+<p>If you need help, feel free to reach out to the <a href="https://lists.ovirt.org/archives/list/devel@ovirt.org/">devel@ovirt.org</a> mailing list.</p>
 
 
 

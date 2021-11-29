@@ -16,7 +16,7 @@ This page describes the process for becoming a member of the Infrastructure team
 The Infrastructure team primarily uses three resources to get stuff done:
 
 * [The infra mailing list](https://lists.ovirt.org/archives/list/infra@ovirt.org/) for asynchronous communication
-* [CPE DevOps Jira](https://issues.redhat.com/projects/CPDEVOPS/summary) for issue tracking
+* [The infra ticketing system](https://issues.redhat.com/projects/CPDEVOPS/summary) for issue tracking
 
 In general, the team hangs out on the general `#ovirt` IRC channel on OFTC (`irc.oftc.net`).
 

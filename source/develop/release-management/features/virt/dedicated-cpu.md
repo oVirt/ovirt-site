@@ -163,7 +163,7 @@ Further, Engine will add a new entry into VM metadata called `cpuPolicy` that
 will contain the requested CPU policy. The valid values for `cpuPolicy` are:
 
   * `none`: no pinning or policy selected, this is regular VM with shared CPUs
-  * `pin`: VM has fixed CPU pinning (CPU pinning or NUMA auto pinning)
+  * `manual`: VM has fixed CPU pinning (CPU pinning or NUMA auto pinning)
   * `dedicated`: VM uses the `dedicated` policy
   * `isolate-threads`: VM uses the `isolate-threads` policy
   * `siblings`: VM uses the `siblings` policy

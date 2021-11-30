@@ -1,5 +1,5 @@
 [id='SHE_Upgrading_from_4-2']
-= Upgrading a Self-Hosted Engine from 4.2 to {virt-product-fullname} 4.3
+= Upgrading a Self-Hosted Engine from {virt-product-fullname} 4.2 to 4.3
 
 :context: 4-2_SHE
 :4-2_SHE:

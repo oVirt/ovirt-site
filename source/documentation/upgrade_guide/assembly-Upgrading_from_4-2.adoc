@@ -1,5 +1,5 @@
 [id="Upgrading_from_4-2"]
-= Upgrading from 4.2 to {virt-product-fullname} 4.3
+= Upgrading from {virt-product-fullname} 4.2 to 4.3
 
 :context: 4-2_local_db
 :4-2_local_db:

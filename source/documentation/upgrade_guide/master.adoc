@@ -4,7 +4,7 @@ include::common/collateral_files/attributes.adoc[]
 
 :upgrade:
 
-// include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[leveloffset=+1]
+include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[leveloffset=+1]
 
 ////
 

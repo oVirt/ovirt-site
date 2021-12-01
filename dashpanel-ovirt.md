@@ -3,7 +3,7 @@
 
 | Repository | Description | Issues & PRs | Starred | Forks |
 |---|---|---|---|---|
-| [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [55](https://github.com/ovirt/ovirt-web-ui/issues) | 74 | 59 |
+| [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [55](https://github.com/ovirt/ovirt-web-ui/issues) | 74 | 60 |
 | [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [46](https://github.com/ovirt/ovirt-ansible-collection/issues) | 39 | 56 |
 | [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [31](https://github.com/ovirt/ovirt-site/issues) | 70 | 295 |
 | [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [29](https://github.com/ovirt/terraform-provider-ovirt/issues) | 123 | 60 |
@@ -12,9 +12,9 @@
 | [stage-gh-stdci2](https://github.com/oVirt/stage-gh-stdci2) | Another staging repo | [14](https://github.com/ovirt/stage-gh-stdci2/issues) | 0 | 2 |
 | [stage-gh-stdci1](https://github.com/oVirt/stage-gh-stdci1) | Dummy project for staging CI system changes | [6](https://github.com/ovirt/stage-gh-stdci1/issues) | 0 | 2 |
 | [ovirt-engine-sdk](https://github.com/oVirt/ovirt-engine-sdk) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [6](https://github.com/ovirt/ovirt-engine-sdk/issues) | 76 | 76 |
-| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [6](https://github.com/ovirt/ovirt-engine/issues) | 320 | 193 |
 | [ovirt-jenkins-plugin](https://github.com/oVirt/ovirt-jenkins-plugin) | Jenkins plugin to run agents using oVirt | [6](https://github.com/ovirt/ovirt-jenkins-plugin/issues) | 3 | 2 |
 | [k8sOVirtCredentialsMonitor](https://github.com/oVirt/k8sOVirtCredentialsMonitor) | Monitor k8s secrets and update the oVirt connection | [5](https://github.com/ovirt/k8sOVirtCredentialsMonitor/issues) | 1 | 2 |
+| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [5](https://github.com/ovirt/ovirt-engine/issues) | 320 | 194 |
 | [cockpit-ovirt](https://github.com/oVirt/cockpit-ovirt) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [5](https://github.com/ovirt/cockpit-ovirt/issues) | 6 | 12 |
 | [ovirt-release](https://github.com/oVirt/ovirt-release) | This package contains the yum configuration for oVirt repositories. | [4](https://github.com/ovirt/ovirt-release/issues) | 8 | 6 |
 | [ovirt-engine-sdk-go](https://github.com/oVirt/ovirt-engine-sdk-go) | The generator of Go SDK for oVirt v4.0&#43; | [4](https://github.com/ovirt/ovirt-engine-sdk-go/issues) | 19 | 25 |

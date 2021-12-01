@@ -33,5 +33,11 @@ Are you sure you want to proceed? [y/n]
 # rm -rf _storage_location_/*
 ----
   * For iSCSI or Fibre Channel Protocol (FCP) storage, see link:https://access.redhat.com/solutions/2121581[] for information on how to clean up the storage.
-  * Alternatively, select a different shared storage device.
+  * Reboot the self-hosted engine host and alternatively, select a different shared storage device.
++
+[NOTE]
+====
+The reboot is needed to make sure all the connections to the storage are cleaned before the next attempt.
+====
++
 . Redeploy the self-hosted engine.

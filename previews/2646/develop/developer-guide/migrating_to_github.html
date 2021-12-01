@@ -135,37 +135,30 @@
         <section id="content" class="content container">
           
 <h1 id="introduction">Introduction</h1>
-<p>Up to end of November 2021 oVirt project used to host its git repositories within a self hosted Gerrit instance at <code class="language-plaintext highlighter-rouge">gerrit.ovirt.org</code>.
-These git repos were automatically mirrored to GitHub oVirt organization and GitHub was used only as a backup platform.</p>
+<p>Until the end of November 2021, the oVirt project hosted its git repositories within a self-hosted Gerrit instance at <code class="language-plaintext highlighter-rouge">gerrit.ovirt.org</code>. These git repos were automatically mirrored to the GitHub oVirt organization and GitHub was used only as a backup platform.</p>
 
-<p>Starting in December 2021 the oVirt project started decommisioning self hosted infrastructure in favor of more widely used services.
-This guide is meant to help project maintainers migrating from Gerrit to GitHub as main repository.</p>
+<p>Starting in December 2021, the oVirt project started decommissioning self-hosted infrastructure in favor of more widely used services. This guide is meant to help project maintainers with migrating from Gerrit to GitHub as main repository.</p>
 
 <h1 id="decide-how-to-handle-open-reviews">Decide how to handle open reviews</h1>
 
-<p>Please check the open reviews for your project at <code class="language-plaintext highlighter-rouge">https://gerrit.ovirt.org/q/project:&lt;your_project&gt;+status:open</code>.
-If you have no open reviews you can just continue.
-If you have open reviews, you need to decide how to handle them:</p>
+<p>Please check the open reviews for your project at <code class="language-plaintext highlighter-rouge">https://gerrit.ovirt.org/q/project:&lt;your_project&gt;+status:open</code>. If you have no open reviews you can just continue. If you do have open reviews, you need to decide how to handle them:</p>
 <ul>
-  <li>get them merged before continuing</li>
-  <li>anandon them and re-send them as PR to the GitHub project.</li>
+  <li>Get them merged before continuing</li>
+  <li>Abandon and re-send them as PR to the GitHub project</li>
 </ul>
 
 <p>Once you finish with this you can continue.</p>
 
 <h1 id="stopping-the-mirroring-service-from-gerrit-to-github">Stopping the mirroring service from Gerrit to GitHub</h1>
 
-<p>The procedure for activating the mirroring is described within the
-<a href="https://ovirt-infra-docs.readthedocs.io/en/latest/General/Creating_Gerrit_Projects/index.html#enable-gerrit-to-gihub-mirroring">oVirt Infra documentation</a></p>
+<p>The procedure for activating the mirroring is described within the <a href="https://ovirt-infra-docs.readthedocs.io/en/latest/General/Creating_Gerrit_Projects/index.html#enable-gerrit-to-gihub-mirroring">oVirt Infra documentation</a>.</p>
 
-<p>In order to deactivate the mirroring, the procedure must be reverted.
-As a pre-requisite you need to have gerrit administrator rights.
-If you are missing these rights, either:</p>
+<p>In order to deactivate the mirroring, the procedure must be reverted. As a pre-requisite you need to have gerrit administrator rights. If you are missing these rights, either:</p>
 
 <ul>
-  <li>open a ticket on <a href="https://issues.redhat.com/projects/CPDEVOPS/summary">the infra ticketing system</a></li>
-  <li>or ask on the <a href="https://lists.ovirt.org/archives/list/devel@ovirt.org/">devel@ovirt.org</a> mailing list</li>
-  <li>or ask for <a href="/ovirt-site/previews/2646/develop/infra/infrastructure.html">joining the oVirt infrastructure team</a>.</li>
+  <li>Open a ticket on <a href="https://issues.redhat.com/projects/CPDEVOPS/summary">the infra ticketing system</a></li>
+  <li>Or ask on the <a href="https://lists.ovirt.org/archives/list/devel@ovirt.org/">devel@ovirt.org</a> mailing list</li>
+  <li>Or ask for <a href="/ovirt-site/previews/2646/develop/infra/infrastructure.html">joining the oVirt infrastructure team</a></li>
 </ul>
 
 <p>If you have a user with admin permission on Gerrit:</p>
@@ -174,14 +167,14 @@ If you are missing these rights, either:</p>
 <span class="nb">sudo </span>su - gerrit2
 vi ~/review_site/etc/replication.config
 </code></pre></div></div>
+
 <p>Remove your project from the <code class="language-plaintext highlighter-rouge">[remote github]</code> section.</p>
 
 <h1 id="advising-that-the-project-moved-to-github-within-gerrit">Advising that the project moved to GitHub within Gerrit</h1>
 
 <p>At this stage the mirroring to GitHub is disabled.</p>
 
-<p>Push a commit for your project removing the whole content of the default branch (usually <code class="language-plaintext highlighter-rouge">master</code> or <code class="language-plaintext highlighter-rouge">main</code>)
-and adding a <code class="language-plaintext highlighter-rouge">README.md</code> with something similar to:</p>
+<p>Push a commit for your project removing the whole content of the default branch (usually <code class="language-plaintext highlighter-rouge">master</code> or <code class="language-plaintext highlighter-rouge">main</code>) and adding a <code class="language-plaintext highlighter-rouge">README.md</code> with something similar to:</p>
 
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># &lt;your_project&gt; moved to GitHub!</span>
 
@@ -194,60 +187,56 @@ Thanks
 
 <p>An example is here: <a href="https://gerrit.ovirt.org/c/ovirt-release/+/117674">https://gerrit.ovirt.org/c/ovirt-release/+/117674</a></p>
 
-<p>Once this commit is merged, check the GitHub repo ensuring the commit wasn’t mirrored as verification of the above procedure success at <code class="language-plaintext highlighter-rouge">https://github.com/oVirt/&lt;your_project&gt;</code></p>
+<p>Once this commit is merged, check the GitHub repo ensuring the commit wasn’t mirrored as verification of the above procedure success at <code class="language-plaintext highlighter-rouge">https://github.com/oVirt/&lt;your_project&gt;</code>.</p>
 
-<p>you can archive the gerrit repo, moving to read only.
-In order to do so, go to <code class="language-plaintext highlighter-rouge">https://gerrit.ovirt.org/admin/repos/&lt;your_project&gt;</code>
-and under the <code class="language-plaintext highlighter-rouge">Repository Options</code> section change the <code class="language-plaintext highlighter-rouge">State</code> option from <code class="language-plaintext highlighter-rouge">Active</code> to <code class="language-plaintext highlighter-rouge">Read Only</code>.</p>
+<p>You can archive the gerrit repo, moving to read only. In order to do so, go to <code class="language-plaintext highlighter-rouge">https://gerrit.ovirt.org/admin/repos/&lt;your_project&gt;</code>. Under the <code class="language-plaintext highlighter-rouge">Repository Options</code> section change the <code class="language-plaintext highlighter-rouge">State</code> option from <code class="language-plaintext highlighter-rouge">Active</code> to <code class="language-plaintext highlighter-rouge">Read Only</code>.</p>
 
-<h1 id="updating-github-project-setting">Updating GitHub project setting</h1>
+<h1 id="updating-github-project-settings">Updating GitHub project settings</h1>
 
-<p>As a first step let’s drop the backup notice in the <code class="language-plaintext highlighter-rouge">About</code> section at <code class="language-plaintext highlighter-rouge">https://github.com/oVirt/&lt;your_project&gt;</code>.
-Click on the gear icon next to <code class="language-plaintext highlighter-rouge">About</code> and replace the <code class="language-plaintext highlighter-rouge">Description</code> field with something meaningfull.</p>
+<p>As a first step let’s drop the backup notice in the <code class="language-plaintext highlighter-rouge">About</code> section at <code class="language-plaintext highlighter-rouge">https://github.com/oVirt/&lt;your_project&gt;</code>. Click on the gear icon next to <code class="language-plaintext highlighter-rouge">About</code> and replace the <code class="language-plaintext highlighter-rouge">Description</code> field with something meaningful.</p>
 
 <p>Next go to <code class="language-plaintext highlighter-rouge">https://github.com/oVirt/&lt;your_project&gt;/settings</code>.</p>
 
-<p>Within <code class="language-plaintext highlighter-rouge">Options</code> section:</p>
+<p>Within the <code class="language-plaintext highlighter-rouge">Options</code> section:</p>
 <ul>
   <li>Turn on the <code class="language-plaintext highlighter-rouge">Issues</code> feature</li>
   <li>Turn off <code class="language-plaintext highlighter-rouge">Allow merge commits</code></li>
 </ul>
 
-<p>Within <code class="language-plaintext highlighter-rouge">Manage access</code> section:</p>
+<p>Within the <code class="language-plaintext highlighter-rouge">Manage access</code> section:</p>
 <ul>
-  <li>Ensure <code class="language-plaintext highlighter-rouge">oVirt/Admins</code> team has Administrator role for the project.</li>
-  <li>Setup additional roles as needed.</li>
+  <li>Ensure <code class="language-plaintext highlighter-rouge">oVirt/Admins</code> team has Administrator role for the project</li>
+  <li>Setup additional roles as needed</li>
 </ul>
 
-<p>Within <code class="language-plaintext highlighter-rouge">Security &amp; Analysis</code> section:</p>
+<p>Within the <code class="language-plaintext highlighter-rouge">Security &amp; Analysis</code> section:</p>
 <ul>
   <li>Enable Dependabot features</li>
   <li>Consider enabling Code Scanning in the future</li>
 </ul>
 
-<p>Within <code class="language-plaintext highlighter-rouge">Branches</code> section:</p>
+<p>Within the <code class="language-plaintext highlighter-rouge">Branches</code> section:</p>
 <ul>
   <li>Add a rule on <code class="language-plaintext highlighter-rouge">Branch protection rules</code>
     <ul>
       <li>set the regex for matching the branches you want to protect (like <code class="language-plaintext highlighter-rouge">master</code>, <code class="language-plaintext highlighter-rouge">main</code>, <code class="language-plaintext highlighter-rouge">ovirt-4.4</code>, …)</li>
-      <li>turn on <code class="language-plaintext highlighter-rouge">Require a pull request before merging</code> and <code class="language-plaintext highlighter-rouge">Require approvals</code>: this is similar to <code class="language-plaintext highlighter-rouge">+2</code> requirement in Gerrit.</li>
-      <li>turn on <code class="language-plaintext highlighter-rouge">Require conversation resolution before merging</code> to ensure nothing will be merged with some open review.</li>
-      <li>turn on <code class="language-plaintext highlighter-rouge">Require linear history</code> to make it simpler reading the git repo history by avoiding merge commits.</li>
+      <li>turn on <code class="language-plaintext highlighter-rouge">Require a pull request before merging</code> and <code class="language-plaintext highlighter-rouge">Require approvals</code>: this is similar to <code class="language-plaintext highlighter-rouge">+2</code> requirement in Gerrit</li>
+      <li>turn on <code class="language-plaintext highlighter-rouge">Require conversation resolution before merging</code> to ensure nothing will be merged with some open review</li>
+      <li>turn on <code class="language-plaintext highlighter-rouge">Require linear history</code> to make it simpler reading the git repo history by avoiding merge commits</li>
     </ul>
   </li>
 </ul>
 
-<p>Within <code class="language-plaintext highlighter-rouge">Actions</code> section:</p>
+<p>Within the <code class="language-plaintext highlighter-rouge">Actions</code> section:</p>
 <ul>
-  <li>set <code class="language-plaintext highlighter-rouge">Require approval for all outside collaborators</code> and save.</li>
+  <li>Set <code class="language-plaintext highlighter-rouge">Require approval for all outside collaborators</code> and save</li>
 </ul>
 
-<p>As last step, update the README.md to welcome contributors and dropping redirection to Gerrit.
-An example is here: <a href="https://github.com/oVirt/ovirt-release/pull/5">https://github.com/oVirt/ovirt-release/pull/5</a></p>
+<p>As last step, update the README.md to welcome contributors and drop the redirection to Gerrit. An example is here: <a href="https://github.com/oVirt/ovirt-release/pull/5">https://github.com/oVirt/ovirt-release/pull/5</a></p>
 
 <h1 id="enabling-github-actions">Enabling GitHub Actions</h1>
 
-<p>As last step, we need to turn on automation.</p>
+<p>As last step we need to turn on automation.</p>
 
 <ul>
   <li>Go to <code class="language-plaintext highlighter-rouge">https://github.com/oVirt/&lt;your_project/actions/new</code></li>
@@ -354,7 +343,6 @@ An example is here: <a href="https://github.com/oVirt/ovirt-release/pull/5">http
         <span class="na">name</span><span class="pi">:</span> <span class="s">artifacts</span>
         <span class="na">path</span><span class="pi">:</span> <span class="s">exported-artifacts/</span>
 </code></pre></div></div>
-
 
 
 

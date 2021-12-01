@@ -36,7 +36,9 @@ authors:
 - [Architecture (outdated)](./architecture/index.html)
 
 #### Developer Process
+- [Migrating a project from Gerrit to GitHub](/develop/developer-guide/migrating_to_github.html)
 
+Obsolete:
 - [Build and Test Standards](/develop/dev-process/build-and-test-standards.html)
 - [Submitting a patch with Gerrit](/develop/dev-process/working-with-gerrit.html)
 - [The development process](/develop/dev-process/devprocess.html)

@@ -9,6 +9,8 @@ Until the end of November 2021, the oVirt project hosted its git repositories wi
 
 Starting in December 2021, the oVirt project started decommissioning self-hosted infrastructure in favor of more widely used services. This guide is meant to help project maintainers with migrating from Gerrit to GitHub as main repository.
 
+*Note:* For a quick setup, you can use the [template repository](https://github.com/oVirt/gerrit-to-gh) that includes a README notice, GitHub Actions as well as PR and Issue templates, and more.
+
 # Decide how to handle open reviews
 
 Please check the open reviews for your project at `https://gerrit.ovirt.org/q/project:<your_project>+status:open`. If you have no open reviews you can just continue. If you do have open reviews, you need to decide how to handle them:
@@ -208,3 +210,80 @@ Within the `Branches` section:
   - Enable `Require status checks to pass before merging`
   - Enable `Require branches to be up to date before merging`
   - Within the search tool `Search for status checks in the last week for this repository` search for the jobs required to pass (e.g. `build-el9` and `build-el8` from above)
+
+# Clean up redundant files and folders
+
+If you were previously and are now no longer using [STDCI](https://ovirt-infra-docs.readthedocs.io/en/latest/CI/STDCI-Configuration/index.html), you should clean up your project repository to avoid outdated content. This means deleting the `stdci.yaml` file as well as the `automation` folder, assuming that your automation folder does not contain additional files that you would like to keep.
+
+# Set up CODEOWNERS to automatically assign reviewers
+
+`CODEOWNERS` is a file within each repository that should include only people with write permissions to the repository who will automatically get assigned as reviewers for any incoming pull requests. You can place this file either in the repository root or your `.github` repository. An example `CODEOWNERS` file that automatically assigns `username` and a team called `team-name` within the oVirt organization to all PRs could look like this:
+
+```
+* @username @ovirt/team-name
+```
+
+For more information on syntax and options, check out [GitHub's documentation on code owners](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
+
+# Add PR and issue templates
+
+You can create PR and issue templates to make sure contributions follow a certain pattern. Like the code owners, PR and issue templates can be placed either in the repository root or in the `.github` folder. You can create different templates for different types of PRs and issues. GitHub's documentation offers more information on [issue templates](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) and [PR templates](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository). As a quick solution for all PRs, we could create a `pull_request_template.md` with the following contents:
+
+```
+Fixes issue # (delete if not relevant)
+
+## Changes introduced with this PR
+
+*
+
+*
+
+*
+
+## Are you the owner of the code you are sending in, or do you have permission of the owner?
+
+[y/n]
+```
+
+Issue templates are saved in an additional folder within the `.github` repository. There is a corresponding `.md` file for each type of issue you would like contributors to be able to create. A recommended directory structure for the `.github` folder including issue templates looks like this:
+
+```
+├── .github/
+
+│   ├── pull-request.md
+
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   ├── config.yml
+│   │   ├── feature_request.md
+
+│   ├── workflows/
+│   │   ├── <youraction1>.yml
+│   │   ├── <youraction2>.yml
+```
+
+If you choose to add the `config.yml` within the `ISSUE_TEMPLATE` folder, you can fill it with additional links that show up when someone is creating a new issue, for example:
+
+```
+blank_issues_enabled: true
+contact_links:
+  - name: oVirt Mailing Lists
+    url: https://lists.ovirt.org/archives/
+    about: Join us on the mailing list for more conversations and community support
+  - name: oVirt Developer Documentation
+    url: https://ovirt.org/develop/devdocs.html
+    about: Documentation for oVirt developers
+  - name: oVirt User Documentation
+    url: https://ovirt.org/documentation/
+    about: Documentation for oVirt users
+  - name: oVirt Developer Documentation
+    url: https://ovirt.org/develop/devdocs.html
+    about: Documentation for oVirt developers
+
+```
+
+# Use labels
+
+For each repository, you can assign [labels](https://github.com/actions/labeler) to easily label things such as good first issues, bugs, documentation, tested labels, and more. Your repository labels can be found at: `https://github.com/oVirt/<your_project>/labels`
+
+There is also a GitHub Action you can use in your repository to [automatically label PRs](https://github.com/actions/labeler).

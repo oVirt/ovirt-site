@@ -198,3 +198,13 @@ jobs:
         name: artifacts
         path: exported-artifacts/
 ```
+
+# Require "CI +1" for merging
+
+Once your GitHub Action is working, you can require it to pass in order to be able to merge the patch, similarly to "CI +1" used in Gerrit. For enabling it go to `https://github.com/oVirt/<your_project>/settings`.
+
+Within the `Branches` section:
+- Edit the protection rule you setup for protected branches
+  - Enable `Require status checks to pass before merging`
+  - Enable `Require branches to be up to date before merging`
+  - Within the search tool `Search for status checks in the last week for this repository` search for the jobs required to pass (e.g. `build-el9` and `build-el8` from above)

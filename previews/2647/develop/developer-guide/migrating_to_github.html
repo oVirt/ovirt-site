@@ -346,16 +346,15 @@ Thanks
 
 <h1 id="require-ci-1-for-merging">Require “CI +1” for merging</h1>
 
-<p>Once your GitHub Action is working, you can require it to pass in order to be able to merge the patch, similarly to “CI +1” used in Gerrit.
-For enabling it go to <code class="language-plaintext highlighter-rouge">https://github.com/oVirt/&lt;your_project&gt;/settings</code>.</p>
+<p>Once your GitHub Action is working, you can require it to pass in order to be able to merge the patch, similarly to “CI +1” used in Gerrit. For enabling it go to <code class="language-plaintext highlighter-rouge">https://github.com/oVirt/&lt;your_project&gt;/settings</code>.</p>
 
 <p>Within the <code class="language-plaintext highlighter-rouge">Branches</code> section:</p>
 <ul>
-  <li>edit the protection rule you setup for protected branches
+  <li>Edit the protection rule you setup for protected branches
     <ul>
-      <li>enable <code class="language-plaintext highlighter-rouge">Require status checks to pass before merging</code> ;</li>
-      <li>enable <code class="language-plaintext highlighter-rouge">Require branches to be up to date before merging</code> ;</li>
-      <li>Within the search tool <code class="language-plaintext highlighter-rouge">Search for status checks in the last week for this repository</code> search for the jobs required to pass (e.g. <code class="language-plaintext highlighter-rouge">build-el9</code> and <code class="language-plaintext highlighter-rouge">build-el8</code> from above).</li>
+      <li>Enable <code class="language-plaintext highlighter-rouge">Require status checks to pass before merging</code></li>
+      <li>Enable <code class="language-plaintext highlighter-rouge">Require branches to be up to date before merging</code></li>
+      <li>Within the search tool <code class="language-plaintext highlighter-rouge">Search for status checks in the last week for this repository</code> search for the jobs required to pass (e.g. <code class="language-plaintext highlighter-rouge">build-el9</code> and <code class="language-plaintext highlighter-rouge">build-el8</code> from above)</li>
     </ul>
   </li>
 </ul>

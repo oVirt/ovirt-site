@@ -1,0 +1,200 @@
+---
+title: Migrating a project from Gerrit to GitHub
+authors:
+  - sandrobonazzola
+---
+
+# Introduction
+Until the end of November 2021, the oVirt project hosted its git repositories within a self-hosted Gerrit instance at `gerrit.ovirt.org`. These git repos were automatically mirrored to the GitHub oVirt organization and GitHub was used only as a backup platform.
+
+Starting in December 2021, the oVirt project started decommissioning self-hosted infrastructure in favor of more widely used services. This guide is meant to help project maintainers with migrating from Gerrit to GitHub as main repository.
+
+# Decide how to handle open reviews
+
+Please check the open reviews for your project at `https://gerrit.ovirt.org/q/project:<your_project>+status:open`. If you have no open reviews you can just continue. If you do have open reviews, you need to decide how to handle them:
+- Get them merged before continuing
+- Abandon and re-send them as PR to the GitHub project
+
+Once you finish with this you can continue.
+
+# Stopping the mirroring service from Gerrit to GitHub
+
+The procedure for activating the mirroring is described within the [oVirt Infra documentation](https://ovirt-infra-docs.readthedocs.io/en/latest/General/Creating_Gerrit_Projects/index.html#enable-gerrit-to-gihub-mirroring).
+
+In order to deactivate the mirroring, the procedure must be reverted. As a pre-requisite you need to have gerrit administrator rights. If you are missing these rights, either:
+
+* Open a ticket on [the infra ticketing system](https://issues.redhat.com/projects/CPDEVOPS/summary)
+* Or ask on the [devel@ovirt.org](https://lists.ovirt.org/archives/list/devel@ovirt.org/) mailing list
+* Or ask for [joining the oVirt infrastructure team](/develop/infra/infrastructure.html)
+
+If you have a user with admin permission on Gerrit:
+
+```bash
+ssh -p 22 <youruser>@gerrit.ovirt.org
+sudo su - gerrit2
+vi ~/review_site/etc/replication.config
+```
+
+Remove your project from the `[remote github]` section.
+
+# Advising that the project moved to GitHub within Gerrit
+
+At this stage the mirroring to GitHub is disabled.
+
+Push a commit for your project removing the whole content of the default branch (usually `master` or `main`) and adding a `README.md` with something similar to:
+
+```markdown
+# <your_project> moved to GitHub!
+
+This repo on Gerrit is not used anymore.
+Please use https://github.com/ovirt/<your_project>
+
+Thanks
+
+```
+
+An example is here: <https://gerrit.ovirt.org/c/ovirt-release/+/117674>
+
+Once this commit is merged, check the GitHub repo ensuring the commit wasn't mirrored as verification of the above procedure success at `https://github.com/oVirt/<your_project>`.
+
+You can archive the gerrit repo, moving to read only. In order to do so, go to `https://gerrit.ovirt.org/admin/repos/<your_project>`. Under the `Repository Options` section change the `State` option from `Active` to `Read Only`.
+
+# Updating GitHub project settings
+
+As a first step let's drop the backup notice in the `About` section at `https://github.com/oVirt/<your_project>`. Click on the gear icon next to `About` and replace the `Description` field with something meaningful.
+
+Next go to `https://github.com/oVirt/<your_project>/settings`.
+
+Within the `Options` section:
+- Turn on the `Issues` feature
+- Turn off `Allow merge commits`
+
+Within the `Manage access` section:
+- Ensure `oVirt/Admins` team has Administrator role for the project
+- Setup additional roles as needed
+
+Within the `Security & Analysis` section:
+- Enable Dependabot features
+- Consider enabling Code Scanning in the future
+
+Within the `Branches` section:
+- Add a rule on `Branch protection rules`
+    - set the regex for matching the branches you want to protect (like `master`, `main`, `ovirt-4.4`, ...)
+    - turn on `Require a pull request before merging` and `Require approvals`: this is similar to `+2` requirement in Gerrit
+    - turn on `Require conversation resolution before merging` to ensure nothing will be merged with some open review
+    - turn on `Require linear history` to make it simpler reading the git repo history by avoiding merge commits
+
+Within the `Actions` section:
+- Set `Require approval for all outside collaborators` and save
+
+
+As last step, update the README.md to welcome contributors and drop the redirection to Gerrit. An example is here: <https://github.com/oVirt/ovirt-release/pull/5>
+
+# Enabling GitHub Actions
+
+As last step we need to turn on automation.
+
+- Go to `https://github.com/oVirt/<your_project/actions/new`
+- Click on `set up a workflow yourself`
+- Write your `check-patch` CI flow, here is an example which builds rpms on both CentOS Stream 8 and CentOS Stream 9:
+
+```yaml
+name: Check patch
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-el8:
+
+    runs-on: ubuntu-latest
+    container:
+      image: quay.io/centos/centos:stream8
+
+    steps:
+    - name: prepare env
+      run: |
+           mkdir -p ${PWD}/tmp.repos/BUILD
+           yum install -y --setopt=tsflags=nodocs autoconf automake gettext-devel git systemd make git rpm-build
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: autoreconf
+      run: autoreconf -ivf
+
+    - name: configure
+      run: ./configure
+
+    - name: run distcheck
+      run: make -j distcheck
+
+    - name: Build RPM
+      run: rpmbuild -D "_topdir ${PWD}/tmp.repos" -D "release_suffix .$(date -u +%Y%m%d%H%M%S).git$(git rev-parse --short HEAD)" -ta ovirt-release*.tar.gz
+
+    - name: Collect artifacts
+      run: |
+          mkdir -p exported-artifacts
+          find tmp.repos -iname \*rpm -exec mv "{}" exported-artifacts/ \;
+          mv ./*tar.gz exported-artifacts/
+    - name: test install
+      run: |
+          yum install -y exported-artifacts/ovirt-release-master-4*noarch.rpm
+          yum module enable -y javapackages-tools:201801
+          yum module enable -y maven:3.5
+          yum module enable -y pki-deps:10.6
+          yum module enable -y postgresql:12
+          yum --downloadonly install -y exported-artifacts/*noarch.rpm
+          yum --downloadonly install -y ovirt-engine ovirt-engine-setup-plugin-websocket-proxy
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifacts
+        path: exported-artifacts/
+
+
+  build-el9:
+
+    runs-on: ubuntu-latest
+    container:
+      image: quay.io/centos/centos:stream9
+
+    steps:
+    - name: prepare env
+      run: |
+           mkdir -p ${PWD}/tmp.repos/BUILD
+           yum install -y --setopt=tsflags=nodocs autoconf automake gettext-devel git systemd make git rpm-build
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: autoreconf
+      run: autoreconf -ivf
+
+    - name: configure
+      run: ./configure
+
+    - name: run distcheck
+      run: make -j distcheck
+
+    - name: Build RPM
+      run: rpmbuild -D "_topdir ${PWD}/tmp.repos" -D "release_suffix .$(date -u +%Y%m%d%H%M%S).git$(git rev-parse --short HEAD)" -ta ovirt-release*.tar.gz
+
+    - name: Collect artifacts
+      run: |
+          mkdir -p exported-artifacts
+          find tmp.repos -iname \*rpm -exec mv "{}" exported-artifacts/ \;
+          mv ./*tar.gz exported-artifacts/
+    - name: test install
+      run: |
+          yum install -y exported-artifacts/ovirt-release-master-4*noarch.rpm
+          yum --downloadonly install -y exported-artifacts/*noarch.rpm
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifacts
+        path: exported-artifacts/
+```

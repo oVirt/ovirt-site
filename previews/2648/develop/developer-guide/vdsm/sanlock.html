@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>SANLock | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="SANLock" />
+<meta name="author" content="Dan Kenigsberg" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2648/develop/developer-guide/vdsm/sanlock.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2648/develop/developer-guide/vdsm/sanlock.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SANLock" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Dan Kenigsberg" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Dan Kenigsberg"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2648/images/logo.svg"},"name":"Dan Kenigsberg"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"SANLock","url":"https://ovirt.github.io/ovirt-site/previews/2648/develop/developer-guide/vdsm/sanlock.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2648/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2648/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2648/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2648/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2648/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2648/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2648/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2648/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2648/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2648/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2648/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2648/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2648/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2648/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2648/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2648/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2648/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2648/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2648/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2648/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2648/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2648/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2648/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2648/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2648/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2648/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2648/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2648/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2648/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2648/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2648/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2648/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2648/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2648/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2648/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2648//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2648//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2648/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2648/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2648/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2648/develop/developer-guide/vdsm/">
+              <span property="name">Vdsm</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/2cd558daf047b198cf2152940ec6a812?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/2cd558daf047b198cf2152940ec6a812?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Federico Simoncelli</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ae8020bfba7695947c047f5cb572e48e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ae8020bfba7695947c047f5cb572e48e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">David Teigland</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="san-lock">SAN Lock</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The sanlock daemon manages leases for applications running on a cluster of hosts with shared storage. All lease management and coordination is done through reading and writing blocks on the shared storage. Two types of leases are used, each based on a different algorithm:</p>
+
+<ul>
+  <li><strong>delta leases</strong> are slow to acquire and require regular i/o to shared storage. A delta lease exists in a single sector of storage. Acquiring a delta lease involves reads and writes to that sector separated by specific delays. Once acquired, a lease must be renewed by updating a timestamp in the sector regularly. sanlock uses a delta lease internally to hold a lease on a host_id. host_id leases prevent two hosts from using the same host_id and provide basic host liveliness information based on the renewals.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li><strong>paxos leases</strong> are generally fast to acquire and sanlock makes them available to applications as general purpose resource leases. A paxos lease exists in 1MB of shared storage (8MB for 4k sectors). Acquiring a paxos lease involves reads and writes to max_hosts (2000) sectors in a specific sequence specified by the Disk Paxos algorithm. paxos leases use host_id’s internally to indicate the owner of the lease, and the algorithm fails if different hosts use the same host_id. So, delta leases provide the unique host_id’s used in paxos leases. paxos leases also refer to delta leases to check if a host_id is alive.</li>
+</ul>
+
+<p>Before sanlock can be used, the user must assign each host a host_id, which is a number between 1 and 2000. Two hosts should not be given the same host_id (even though delta leases attempt to detect this mistake). sanlock views a pool of storage as a “lockspace”. Each distinct pool of storage, e.g. from different sources, would typically be defined as a separate lockspace, with a unique lockspace name.</p>
+
+<p>Part of this storage space must be reserved and initialized for sanlock to store delta leases. Each host that wants to use the lockspace must first acquire a delta lease on its host_id number within the lockspace. (See the add_lockspace action/api). The space required for 2000 delta leases in the lockspace (for 2000 possible host_id’s) is 1MB (8MB for 4k sectors). (This is the same size required for a single paxos lease).</p>
+
+<p>For more information, see</p>
+
+<ul>
+  <li>sanlock(8)</li>
+  <li>wdmd(8)</li>
+  <li><a href="https://pagure.io/sanlock/blob/master/f/README.rst">https://pagure.io/sanlock/blob/master/f/README.rst</a></li>
+</ul>
+
+<h2 id="vdsm-and-sanlock">VDSM And SANLock</h2>
+
+<p>VDSM is taking advantage of SANLock since <a href="/ovirt-site/previews/2648/develop/storage/storage-domain-versions.html#storage-domain-version-3">Storage Domain Version 3</a> for the following tasks:</p>
+
+<ul>
+  <li>Acquiring the SPM resource</li>
+  <li>Acquiring the Volumes resources</li>
+</ul>
+
+<p><strong>Note:</strong> In all the previous <a href="/ovirt-site/previews/2648/develop/storage/storage-domain-versions.html">Storage Domain Versions</a> SANLock is never activated.</p>
+
+<h3 id="lockspaces-and-resources-in-vdsm">Lockspaces and Resources In VDSM</h3>
+
+<p>VDSM assigns a lockspace to each Storage Domain using the UUID as name. Eg: for the Block Storage Domain ‘1dfcd18e-b179-4b95-aef6-f0fba1a3db45’ the lockspace is</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  1dfcd18e-b179-4b95-aef6-f0fba1a3db45:0:/dev/1dfcd18e-b179-4b95-aef6-f0fba1a3db45/ids:0
+</code></pre></div></div>
+
+<p>For each Volume present in the Storage Domain it is created a resource and its lease is allocated:</p>
+
+<ul>
+  <li><strong>Block Domains:</strong> in the leases LV with a pre-determined offset (depending on the metadata offset)</li>
+  <li><strong>File Domains:</strong> in a file with extension “.lease” with the same name and location of the Volume file</li>
+</ul>
+
+<p>The SPM resource is located instead on the “leases” file/LV with offset 0 (temporary, it will be moved to a different offset to allow a seamless domain upgrade).</p>
+
+<h3 id="libvirt-xml-including-sanlock-resources">Libvirt XML Including SANLock Resources</h3>
+
+<p>The XML that VDSM prepares for libvirt to run a VM on a <a href="/ovirt-site/previews/2648/develop/storage/storage-domain-versions.html#storage-domain-version-3">Storage Domain Version 3</a> includes all the information required to acquire the Volumes resources:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;domain</span> <span class="na">type=</span><span class="s">"kvm"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;name&gt;</span>vm1<span class="nt">&lt;/name&gt;</span>
+        ...
+  <span class="nt">&lt;devices&gt;</span>
+          ...
+    <span class="nt">&lt;disk</span> <span class="na">device=</span><span class="s">"disk"</span> <span class="na">snapshot=</span><span class="s">"no"</span> <span class="na">type=</span><span class="s">"block"</span><span class="nt">&gt;</span>
+            
+
+            ...
+    <span class="nt">&lt;/disk&gt;</span>
+    <span class="nt">&lt;lease&gt;</span>
+      <span class="nt">&lt;key&gt;</span>c29ca345-4aab-42f1-97c5-bdf967073d22<span class="nt">&lt;/key&gt;</span>
+      <span class="nt">&lt;lockspace&gt;</span>7b1cff35-9482-4946-9654-adf1db5ecd10<span class="nt">&lt;/lockspace&gt;</span>
+      <span class="nt">&lt;target</span> <span class="na">offset=</span><span class="s">"109051904"</span> <span class="na">path=</span><span class="s">"/dev/7b1cff35-9482-4946-9654-adf1db5ecd10/leases"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/lease&gt;</span>
+          ...
+  <span class="nt">&lt;/devices&gt;</span>
+<span class="nt">&lt;/domain&gt;</span>
+</code></pre></div></div>
+
+<p>For more information about how libvirt is handling the leases please refer to its specific documentation [1] [2]</p>
+
+<h3 id="vdsm-sanlock-diagrams">VDSM SANLock Diagrams</h3>
+
+<p>On <strong>connectStoragePool</strong> VDSM is acquiring the lockspace on all the Storage Domains that are part of the Pool. The acquired lockspaces are used later on by libvirt to acquire the volumes for the virtual machines.</p>
+
+<p><img src="/ovirt-site/previews/2648/images/wiki/SANLockDiagram1.png" alt="" /></p>
+
+<h2 id="sanlock-log-file-debugging">sanlock log file debugging</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/log/messages
+</code></pre></div></div>
+
+<p>includes important warnings or errors from sanlock or wdmd or the /dev/watchdog driver.
+Any sanlock or wdmd messages found here should be investigated.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/log/sanlock.log
+</code></pre></div></div>
+
+<p>includes all the sanlock warnings and errors from /var/log/messages,
+plus a record of each lockspace and resource that sanlock has managed.</p>
+
+<p><strong>lockspace</strong> entry in /var/log/sanlock.log:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TIME sNUM lockspace LNAME:HOSTID:/dev/VG/LV:OFFSET
+</code></pre></div></div>
+
+<ul>
+  <li>TIME – local monotonic time</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>sNUM – NUM is a short integer abbreviation for this lockspace uuid. sNUM is used in other log messages to refer to this lockspace. NUM is reset to 1 each time the sanlock daemon is started.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>LNAME – the lockspace name, which vdsm sets to the uuid for this lockspace</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>HOSTID – the local host id</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>/dev/VG/LV:OFFSET – the disk area where this lockspace exists</li>
+</ul>
+
+<p><strong>resource</strong> entry in /var/log/sanlock.log:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TIME sNUM:rNUM resource LNAME:RNAME:/dev/VG/LV:OFFSET for X,Y,PID
+</code></pre></div></div>
+
+<ul>
+  <li>TIME – local monotonic time</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>sNUM – the short lockspace identifier (see above)</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>rNUM – NUM is a short integer abbreviation for this resource uuid. rNUM is used in other log messages to refer to this lockspace. NUM is reset to 1 each time the sanlock daemon is started.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>LNAME – the lockspace name (uuid from vdsm)</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>RNAME – the resource name, which vdsm sets to the uuid for this resource</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>/dev/VG/LV:OFFSET – the disk area where this resource exists</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>X,Y,PID – PID is the process which is requesting this lease, X is the internal connection id used by the pid, Y is the fd number used for the connection</li>
+</ul>
+
+<p><strong>changing logging levels</strong></p>
+
+<p>The amount of information written to /var/log/messages or /var/log/sanlock.log can be controlled with two sanlock daemon command line options:</p>
+
+<p><code class="language-plaintext highlighter-rouge">-L pri</code> write logging at priority level and up to logfile (-1 none)</p>
+
+<p><code class="language-plaintext highlighter-rouge">-S pri</code> write logging at priority level and up to syslog (-1 none)</p>
+
+<p><code class="language-plaintext highlighter-rouge">pri</code> is an integer corresponding to log priorities defined in <code class="language-plaintext highlighter-rouge">/usr/include/sys/syslog.h</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define LOG_EMERG       0       /* system is unusable */
+#define LOG_ALERT       1       /* action must be taken immediately */
+#define LOG_CRIT        2       /* critical conditions */
+#define LOG_ERR         3       /* error conditions */
+#define LOG_WARNING     4       /* warning conditions */
+#define LOG_NOTICE      5       /* normal but significant condition */
+#define LOG_INFO        6       /* informational */
+#define LOG_DEBUG       7       /* debug-level messages */
+</code></pre></div></div>
+
+<p>Defaults are</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-L 4</code> so log messages from WARNING to EMERG are written to /var/log/sanlock.log</li>
+  <li><code class="language-plaintext highlighter-rouge">-S 3</code> so log messages from ERR to EMERG are written to /var/log/messages</li>
+</ul>
+
+<p>So, to write all debug messages to /var/log/sanlock.log, for example, you would use -L 7</p>
+
+<h2 id="sanlock-response-to-storage-problems">sanlock response to storage problems</h2>
+
+<p>The cause of sanlock recovery is loss of storage connection or slow i/o response times from storage. “Storage” refers to the device or file where sanlock leases are written.</p>
+
+<p>The sanlock daemon continually writes to storage at a fixed interval to renew its leases. If sanlock i/o to storage does not complete within a fixed time, the sanlock daemon will enter recovery. Recovery begins with the sanlock daemon attempting to kill(SIGTERM) any pid’s using leases on the affected storage. If any pid does not exit after 10 SIGTERM’s over 10 seconds, sanlock will then attempt kill(SIGKILL). If pid’s still do not exit within a fixed time, the watchdog will fire, resetting the host. If all pid’s do exit within the necessary time, the watchdog will be renewed and will not fire.</p>
+
+<p>Before recovery timeouts are reached, sanlock will log errors related to failed renewals and leases getting too old. If these are seen, it may be wise to reduce the i/o load on storage or the host, to avoid crossing the threshold into an actual recovery.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   14:27:54 / 13256 (sanlock successfully renews lease)
+   14:27:58 / 13260 (storage connection blocked to begin test)
+   14:28:14 / 13276 (sanlock starts next scheduled lease renewal 20 sec after last)
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>background for following messages, not log messages</p>
+
+    <p>14:28:15 sanlock[123]: 13277 LNAME aio collect 0x7f7f7c0008c0:0x7f7f7c0008d0:0x7f7f9dd72000 result -5:0 match res
+   14:28:15 sanlock[123]: 13277 s1 delta_renew read rv -5 offset 0 /dev/VG/LV
+   14:28:15 sanlock[123]: 13277 s1 renewal error -5 delta_length 0 last_success 13256</p>
+  </li>
+  <li>sanlock reports first i/o error</li>
+  <li>First error could be as late as 14:28:24 / 13286 if i/o times out instead of quickly failing.</li>
+  <li>These messages repeat for each i/o error, with frequency between twice a second and once every 10 seconds.</li>
+  <li>
+    <p>Some or all of these lines may appear, depending on the type of i/o problems.</p>
+
+    <p>14:28:54 sanlock[123]: 13316 s1 check_our_lease warning 60 last_success 13256
+   14:28:55 sanlock[123]: 13317 s1 check_our_lease warning 61 last_success 13256
+   …
+   14:29:13 sanlock[123]: 13335 s1 check_our_lease warning 79 last_success 13256</p>
+  </li>
+  <li>io_renewal_warn seconds (60) after the last successful renewal, lease age warnings start appearing, once a second.</li>
+  <li>
+    <p>No adverse effects yet; these warnings precede an actual lease expiration.</p>
+
+    <p>14:29:14 sanlock[123]: 13336 s1 check_our_lease failed 80</p>
+  </li>
+  <li>id_renewal_fail seconds (80) after the last successful renewal, the lease expires.</li>
+  <li>
+    <p>recovery begins at this time; sanlock begins killing pid’s.</p>
+
+    <p>14:29:14 wdmd[111]: test failed pid 12437 renewal 13256 expire 13336</p>
+  </li>
+  <li>The first warning from wdmd appears, indicating that the watchdog will fire and reset the host unless all pid’s exit (or renewals resume) within 10 seconds.</li>
+</ul>
+
+<h2 id="wdmd-response-to-sanlock-problems">wdmd response to sanlock problems</h2>
+
+<p>If the sanlock daemon is killed or otherwise exits while being used, the wdmd daemon controlling /dev/watchdog will log errors, warning that the watchdog is not being kept alive, and will soon expire. At this point it is too late to do anything, and the host will be reset by the watchdog.</p>
+
+<h2 id="sanlock-timeouts">sanlock timeouts</h2>
+
+<p>The sanlock daemon has a large number of different but intricatly related timeouts. All are derived from io_timeout, which is 10 seconds: the time a single i/o can take before sanlock considers it failed.</p>
+
+<p>The i/o timeout can be tuned, but it is critical that all hosts use the same i/o timeout value. sanlock will not detect if hosts use different i/o timeouts, and this misconfiguration could lead to data corruption. When the sanlock daemon starts, it adds an entry to /var/log/messages which includes the basic timeout values:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   sanlock daemon started 2.0 aio 1 10 renew 20 80 ...
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">aio 1</code> – async i/o is enabled</li>
+  <li><code class="language-plaintext highlighter-rouge">10</code> – io_timeout</li>
+  <li><code class="language-plaintext highlighter-rouge">renew 20 80</code> – id_renewal_seconds id_renewal_fail_seconds (time between renewals and time to renew a lease before it expires)</li>
+</ul>
+
+<h2 id="sanlock-live-process-debugging">sanlock live process debugging</h2>
+
+<p>Debugging the sanlock daemon process.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # sanlock client status [-D]
+</code></pre></div></div>
+
+<p>This displays all lockspaces, leases and pid’s currently being managed.
+-D includes extra internal debugging information.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # sanlock client host_status -s LOCKSPACE [-D]
+</code></pre></div></div>
+
+<p>This displays the status of all host_id leases being monitored.
+LOCKSPACE can simply be the lockspace name/uuid.
+-D includes extra internal debugging information.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # sanlock client log_dump
+</code></pre></div></div>
+
+<p>This dumps the sanlock daemon’s internal circular buffer of recent debug messages.</p>
+
+<h2 id="references">References</h2>
+
+<p>[1] <a href="http://libvirt.org/formatdomain.html#elementsLease">http://libvirt.org/formatdomain.html#elementsLease</a></p>
+
+<p>[2] <a href="https://libvirt.org/kbase/locking.html">https://libvirt.org/kbase/locking.html</a></p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2648/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2648/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2648/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2648/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/vdsm/sanlock.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/vdsm/sanlock.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

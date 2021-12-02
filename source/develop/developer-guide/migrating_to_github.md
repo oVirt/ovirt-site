@@ -120,7 +120,7 @@ jobs:
     - name: prepare env
       run: |
            mkdir -p ${PWD}/tmp.repos/BUILD
-           yum install -y --setopt=tsflags=nodocs autoconf automake gettext-devel git systemd make git rpm-build
+           yum install -y --setopt=tsflags=nodocs autoconf automake createrepo_c gettext-devel git systemd make git rpm-build
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
@@ -142,6 +142,10 @@ jobs:
           mkdir -p exported-artifacts
           find tmp.repos -iname \*rpm -exec mv "{}" exported-artifacts/ \;
           mv ./*tar.gz exported-artifacts/
+
+    - name: Create DNF repository
+      run: createrepo_c exported-artifacts/
+
     - name: test install
       run: |
           yum install -y exported-artifacts/ovirt-release-master-4*noarch.rpm
@@ -168,7 +172,7 @@ jobs:
     - name: prepare env
       run: |
            mkdir -p ${PWD}/tmp.repos/BUILD
-           yum install -y --setopt=tsflags=nodocs autoconf automake gettext-devel git systemd make git rpm-build
+           yum install -y --setopt=tsflags=nodocs autoconf automake createrepo_c gettext-devel git systemd make git rpm-build
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
@@ -190,10 +194,15 @@ jobs:
           mkdir -p exported-artifacts
           find tmp.repos -iname \*rpm -exec mv "{}" exported-artifacts/ \;
           mv ./*tar.gz exported-artifacts/
+
+    - name: Create DNF repository
+      run: createrepo_c exported-artifacts/
+
     - name: test install
       run: |
           yum install -y exported-artifacts/ovirt-release-master-4*noarch.rpm
           yum --downloadonly install -y exported-artifacts/*noarch.rpm
+
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:

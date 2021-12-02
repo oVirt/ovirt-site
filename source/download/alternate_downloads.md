@@ -100,8 +100,7 @@ For a standalone engine this means basically:
 6.  Once the installation completes, oVirt's web UI management interface will start and the URL will be printed
     to the screen. Browse to this URL to begin using oVirt!
 
-    See [Browsers and Mobile Clients](/download/browsers_and_mobile.html) for supported browsers and
-    mobile client information.
+    See [Browsers Support](/download/browsers_and_mobile.html) for supported browsers.
 
 ## Download oVirt Node or Setup Hosts
 
@@ -222,7 +221,7 @@ In oVirt, you can use a web-based console viewer or a desktop application (we re
 [Virt Viewer](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/getting-started-with-virtualization-in-rhel-8_configuring-and-managing-virtualization#proc_opening-a-virtual-machine-graphical-console-using-virt-viewer_assembly_connecting-to-virtual-machines)).
 For Windows virtual machines, Remote Desktop Protocol is also available. See [Installing Console Components](/documentation/virtual_machine_management_guide/#sect-Installing_Console_Components),
 [VNC Console Options](/documentation/virtual_machine_management_guide/#VNC_Console_Options), and
-and [Browser Support and Mobile Clients](/download/browsers_and_mobile.html) for more information.
+and [Browser Support](/download/browsers_and_mobile.html) for more information.
 
 <hr/>
 

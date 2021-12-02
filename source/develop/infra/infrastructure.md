@@ -76,19 +76,19 @@ People who come to work on this project are *not* already experts, but they migh
 
 You can open a ticket on [the infra ticketing system](https://issues.redhat.com/projects/CPDEVOPS/summary).
 
-Please note that sending email infra-support@ovirt.org will automatically open a ticket on
-the deprecated [oVirt Jira Atlassina instance](https://ovirt-jira.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=OVIRT)
-which is not monitored anymore. Please don't use the infra-support@ovirt.org until it will be redirected
+Please note that sending an email to infra-support@ovirt.org will automatically open a ticket on
+the deprecated [oVirt Jira Atlassian instance](https://ovirt-jira.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=OVIRT)
+which is not monitored anymore. Please don't use the infra-support@ovirt.org until it is redirected
 to the new [infra ticketing system](https://issues.redhat.com/projects/CPDEVOPS/summary).
 
 ### Joining
 
-*   To gain access to systems - think of them as keys to doors - we match your skill and the trust you have built with the project. This is part of being a [meritocracy](/community/about/governance.html).
-*   Interested to join the Infrastructure Team ? [Click here](/community/becoming-an-infrastructure-team-member.html)
+*   To gain access to systems - think of them as keys to doors - we match your skill and the trust you have built with the project.
+*   Interested in joining the Infrastructure Team ? [Click here](/community/becoming-an-infrastructure-team-member.html)
 
 ### Communication
 
-The main thing is, come communicate with us if you have any questions, are interested in learning more, or what to participate in supporting oVirt infrastructure.
+The main thing is to communicate with us if you have any questions, are interested in learning more, or want to participate in supporting oVirt infrastructure.
 
 *   [Mailing list infra@ovirt.org](https://lists.ovirt.org/archives/list/infra@ovirt.org/)
 *   [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt)
@@ -99,11 +99,11 @@ The main thing is, come communicate with us if you have any questions, are inter
 
 ### Decision process
 
-* The Infra team generally follows the principle that if it didn't get discussed on the [mailing list](https://lists.ovirt.org/archives/list/infra@ovirt.org/) it didn't really happen.
+* The Infra team generally follows the principle that if it wasn't discussed on the [mailing list](https://lists.ovirt.org/archives/list/infra@ovirt.org/) it didn't really happen.
 * This means all important or broad-reaching decisions are discussed and decided on the mailing list.
-* The team uses the same [collaborative decision process](https://blogs.apache.org/comdev/entry/how_apache_projects_use_consensus) that other oVirt teams use, with some lightweight elements added to move along minor votes.
+* The team uses the same [collaborative decision process](https://blogs.apache.org/comdev/entry/how_apache_projects_use_consensus) that other oVirt teams use, with some lightweight elements added to move along minor votes
   * +1 is a vote in favor of a proposition
-  * -1 is a vote against a proposition, must be accompanied with an explanation of the negative vote.
+  * -1 is a vote against a proposition, must be accompanied with an explanation of the negative vote
   * +/-0 is an abstention
   * 3 or more +1 votes are required for anything substantial, important, or far-reaching
   * 0 or more votes will pass a minor proposition - "If no one objects, it passes."

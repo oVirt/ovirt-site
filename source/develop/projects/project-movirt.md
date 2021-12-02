@@ -7,6 +7,15 @@ authors:
 
 # moVirt - Android Client for oVirt
 
+> IMPORTANT: This project has been dropped from oVirt starting with oVirt 4.5 release.
+> The moVirt project development has been discontinued.
+>
+> See also:
+> - https://twitter.com/mobileOvirt/status/1464178598227685376
+> - https://github.com/oVirt/moVirt#readme
+>
+> Keeping the following section only for reference.
+
 ## Summary
 
 moVirt is a mobile (Android) client for the oVirt engine. It uses the oVirt REST API to communicate with the oVirt engine.

@@ -1,8 +1,8 @@
 ---
-title: Browser Support and Mobile Clients
+title: Browser Support
 ---
 
-# Browser Support and Mobile Clients
+# Browser Support
 
 ## Recommended browsers
 
@@ -34,8 +34,3 @@ for installation instructions.
 There is also a browser-based console available. In the Console Options dialog for the Virtual Machine, select `noVNC`.
 See [VNC Console Options](/documentation/virtual_machine_management_guide/#VNC_Console_Options) for more
 information.
-
-## Mobile Client for Android - moVirt
-
-[Download moVirt](https://play.google.com/store/apps/details?id=org.ovirt.mobile.movirt) or from play store using your device
-[Android 4.1 or above]

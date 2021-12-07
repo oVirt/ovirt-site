@@ -59,5 +59,5 @@ Select the appropriate instructions for your environment from the following tabl
 |===
 
 ifdef::rhv-doc[]
-For interactive upgrade instructions, you can also use the RHV Upgrade Helper available at https://access.redhat.com/labs/rhvupgradehelper/. This application asks you to provide information about your upgrade path and your current environment, and presents the relevant steps for upgrade, as well as steps to prevent known issues specific to your upgrade scenario.
+For interactive upgrade instructions, you can also use the link:https://access.redhat.com/labs/rhvupgradehelper/[RHV Upgrade Helper]. This application asks you to provide information about your upgrade path and your current environment, and presents the applicable upgrade steps, as well as steps to prevent known issues specific to your upgrade scenario.
 endif::[]

@@ -17,7 +17,7 @@ Installing a {enterprise-linux} virtual machine involves the following key steps
 * {enterprise-linux} 7: link:{URL_rhel_docs_legacy}html/Installation_Guide/index.html[]
 
 
-* {enterprise-linux} Atomic Host 7: link:https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux-atomic-host/7/html-single/installation-and-configuration-guide/[]
+* {enterprise-linux} Atomic Host 7: link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html-single/installation_and_configuration_guide/index[]
 
 
 * {enterprise-linux} 8: link:{URL_rhel_docs_latest}html/performing_a_standard_rhel_installation/index[]

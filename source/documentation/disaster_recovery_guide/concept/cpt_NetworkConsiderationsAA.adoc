@@ -1,6 +1,6 @@
 [[network_considerations]]
-==== Network Considerations
+= Network Considerations
 
-All hosts in the cluster must be on the same broadcast domain over an L2 network. This means that connectivity between the two sites needs to be L2.
+All hosts in the cluster must be on the same broadcast domain over an L2 network. So connectivity between the two sites must be L2.
 
-The maximum latency requirements between the sites across the L2 network differs for the two setups. The standalone {engine-name} environment requires a maximum latency of 100ms, while the self-hosted engine environment requires a maximum latency of 7ms.
+The maximum latency requirements between the sites across the L2 network differ for the two setups. The standalone {engine-name} environment requires a maximum latency of 100ms, while the self-hosted engine environment requires a maximum latency of 7ms.

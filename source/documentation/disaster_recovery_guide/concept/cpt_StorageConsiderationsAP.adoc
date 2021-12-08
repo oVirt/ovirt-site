@@ -1,9 +1,12 @@
 [[storage_considerations_active-passive]]
-==== Storage Considerations
+= Storage Considerations
 
-The storage domain for {virt-product-fullname} can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about {virt-product-fullname} storage see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage[Storage] in the _Administration Guide_. 
+The storage domain for {virt-product-fullname} can comprise either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about {virt-product-fullname} storage see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage[Storage] in the _Administration Guide_.
 
-IMPORTANT: Local storage domains are unsupported for disaster recovery.
+[IMPORTANT]
+====
+Local storage domains are unsupported for disaster recovery.
+====
 
 A primary and secondary storage replica is required. The primary storage domain’s block devices or shares that contain virtual machine disks or templates must be replicated. The secondary storage must not be attached to any data center, and will be added to the backup site’s data center during failover.
 

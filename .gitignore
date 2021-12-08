@@ -36,3 +36,4 @@ source/.jekyll-metadata
 
 # ignore docs index.html: index.adoc is used instead
 source/documentation/*/index.html
+source/documentation/*/build/

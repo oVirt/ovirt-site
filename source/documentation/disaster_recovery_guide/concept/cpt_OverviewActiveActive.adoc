@@ -1,16 +1,16 @@
 [[active_active_overview]]
-=== Active-Active Overview
+= Active-Active Overview
 
-{virt-product-fullname} supports an active-active disaster recovery failover configuration that can span two sites. Both sites are active, and if the primary site becomes unavailable, the {virt-product-fullname} environment will continue to operate in the secondary site to ensure business continuity.
+The active-active disaster recovery failover configuration can span two sites. Both sites are active, and if the primary site becomes unavailable, the {virt-product-fullname} environment continues to operate in the secondary site to ensure business continuity.
 
-The active-active failover is achieved by configuring a stretch cluster where hosts capable of running the virtual machines are located in the primary and secondary site. All the hosts belong to the same {virt-product-fullname} cluster.
+The active-active failover configuration includes a stretch cluster in which hosts capable of running the virtual machines are located in both the primary and secondary sites. All the hosts belong to the same {virt-product-fullname} cluster.
 
-You require replicated storage that is writeable on both sites to allow virtual machines to migrate between sites and continue running on the site’s storage.
+This configuration requires replicated storage that is writeable on both sites so virtual machines can migrate between the two sites and continue running on both sites' storage.
 
 .Stretch Cluster Configuration
 image::StretchCluster.png[]
 
-Virtual machines will migrate to the secondary site if the primary site becomes unavailable. The virtual machines will automatically failback to the primary site when the site becomes available and the storage is replicated in both sites.
+Virtual machines migrate to the secondary site if the primary site becomes unavailable. The virtual machines automatically failback to the primary site when the site becomes available and the storage is replicated in both sites.
 
 .Failed Over Stretch Cluster
 image::StretchClusterFailover.png[]

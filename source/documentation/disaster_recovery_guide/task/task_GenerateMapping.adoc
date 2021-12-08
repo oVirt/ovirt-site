@@ -1,13 +1,15 @@
 [[generate_mapping]]
-==== Create the Playbook to Generate the Mapping File
+= Creating the Playbook to Generate the Mapping File
 
-The Ansible playbook used to generate the mapping file will prepopulate the file with the target (primary) site’s entities. You then need to manually add the backup site’s entities, such as IP addresses, cluster, affinity groups, affinity label, external LUN disks, authorization domains, roles, and vNIC profiles, to the file.
+The Ansible playbook used to generate the mapping file will prepopulate the file with the target (primary) site’s entities. You then must manually add the backup site’s entities, such as IP addresses, cluster, affinity groups, affinity label, external LUN disks, authorization domains, roles, and vNIC profiles, to the file.
 
-IMPORTANT: The mapping file generation will fail if you have any virtual machine disks on the self-hosted engine’s storage domain. Also, the mapping file will not contain an attribute for this storage domain because it must not be failed over.
-
+[IMPORTANT]
+====
+The mapping file generation will fail if you have any virtual machine disks on the self-hosted engine’s storage domain. Also, the mapping file will not contain an attribute for this storage domain because it must not be failed over.
+====
 In this example the Ansible playbook is named `dr-rhv-setup.yml`, and is executed on the {engine-name} machine in the primary site.
 
-*Creating the mapping file*:
+.Procedure
 
 . Create an Ansible playbook to generate the mapping file. For example:
 +
@@ -29,7 +31,10 @@ In this example the Ansible playbook is named `dr-rhv-setup.yml`, and is execute
     - oVirt.disaster-recovery
 ----
 +
-NOTE: For extra security you can encrypt your {engine-name} password in a `.yml` file. See link:{URL_virt_product_docs}{URL_format}administration_guide/index[Using Ansible Roles to Configure {virt-product-fullname}] in the _Administration Guide_ for more information.
+[NOTE]
+====
+For extra security you can encrypt your {engine-name} password in a `.yml` file. See link:{URL_virt_product_docs}{URL_format}administration_guide/index[Using Ansible Roles to Configure {virt-product-fullname}] in the _Administration Guide_ for more information.
+====
 
 . Run the Ansible command to generate the mapping file. The primary site’s configuration will be prepopulated.
 +

@@ -1,7 +1,7 @@
 [[execute_failover]]
-=== Execute a Failover
+= Executing a Failover
 
-*Prerequisites*:
+.Prerequisites
 
 * The {engine-name} and hosts in the secondary site are running.
 * Replicated storage domains are in read/write mode.
@@ -10,17 +10,20 @@
 ** The `oVirt.disaster-recovery` package.
 ** The mapping file and required failover playbook.
 
-IMPORTANT: Sanlock must release all storage locks from the replicated storage domains before the failover process starts.
+[IMPORTANT]
+====
+Sanlock must release all storage locks from the replicated storage domains before the failover process starts.
 These locks should be released automatically approximately 80 seconds after the disaster occurs.
+====
 
 This example uses the `dr-rhv-failover.yml` playbook created earlier.
 
-*Executing a failover*:
+.Procedure
 
-Run the failover playbook with the following command:
+. Run the failover playbook with the following command:
 [options="nowrap" subs="normal"]
 ----
 # ansible-playbook dr-rhv-failover.yml --tags "fail_over"
 ----
 
-When the primary site becomes active, ensure that you clean the environment before failing back. See <<clean>> for more information.
+. When the primary site becomes active, ensure that you clean the environment before failing back. See xref:clean[] for more information.

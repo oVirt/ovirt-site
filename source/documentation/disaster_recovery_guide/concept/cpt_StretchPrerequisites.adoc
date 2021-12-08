@@ -1,4 +1,4 @@
-*Prerequisites*:
+.Prerequisites
 
 * A writable storage server in both sites with L2 network connectivity.
 * Real-time storage replication service to duplicate the storage.

@@ -1,9 +1,9 @@
 [[execute_failback]]
-=== Execute a Failback
+= Executing a Failback
 
 Once you fail over, you can fail back to the primary site when it is active and you have performed the necessary steps to clean the environment.
 
-*Prerequisites*:
+.Prerequisites
 
 * The environment in the primary site is running and has been cleaned, see <<clean>> for more information.
 * The environment in the secondary site is running, and has active storage domains.
@@ -13,7 +13,7 @@ Once you fail over, you can fail back to the primary site when it is active and 
 
 This example uses the `dr-rhv-failback.yml` playbook created earlier.
 
-*Executing a failback*:
+.Procedure
 
 . Run the failback playbook with the following command:
 +

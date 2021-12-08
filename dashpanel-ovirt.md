@@ -3,14 +3,14 @@
 
 | Repository | Description | Issues & PRs | Starred | Forks |
 |---|---|---|---|---|
-| [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [52](https://github.com/ovirt/ovirt-web-ui/issues) | 75 | 60 |
-| [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [46](https://github.com/ovirt/ovirt-ansible-collection/issues) | 40 | 57 |
-| [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [30](https://github.com/ovirt/ovirt-site/issues) | 70 | 296 |
+| [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [54](https://github.com/ovirt/ovirt-web-ui/issues) | 75 | 60 |
+| [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [47](https://github.com/ovirt/ovirt-ansible-collection/issues) | 40 | 59 |
+| [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [31](https://github.com/ovirt/ovirt-site/issues) | 70 | 296 |
 | [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [26](https://github.com/ovirt/terraform-provider-ovirt/issues) | 123 | 60 |
-| [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [19](https://github.com/ovirt/go-ovirt-client/issues) | 2 | 5 |
+| [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [22](https://github.com/ovirt/go-ovirt-client/issues) | 2 | 5 |
 | [ovirt-openshift-extensions](https://github.com/oVirt/ovirt-openshift-extensions) | Implementation of flexvolume driver and provisioner for oVirt | [18](https://github.com/ovirt/ovirt-openshift-extensions/issues) | 31 | 16 |
 | [stage-gh-stdci2](https://github.com/oVirt/stage-gh-stdci2) | Another staging repo | [14](https://github.com/ovirt/stage-gh-stdci2/issues) | 0 | 2 |
-| [ovirt-engine-sdk](https://github.com/oVirt/ovirt-engine-sdk) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [8](https://github.com/ovirt/ovirt-engine-sdk/issues) | 76 | 76 |
+| [ovirt-engine-sdk](https://github.com/oVirt/ovirt-engine-sdk) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [8](https://github.com/ovirt/ovirt-engine-sdk/issues) | 77 | 76 |
 | [stage-gh-stdci1](https://github.com/oVirt/stage-gh-stdci1) | Dummy project for staging CI system changes | [6](https://github.com/ovirt/stage-gh-stdci1/issues) | 0 | 2 |
 | [ovirt-jenkins-plugin](https://github.com/oVirt/ovirt-jenkins-plugin) | Jenkins plugin to run agents using oVirt | [6](https://github.com/ovirt/ovirt-jenkins-plugin/issues) | 3 | 2 |
 | [k8sOVirtCredentialsMonitor](https://github.com/oVirt/k8sOVirtCredentialsMonitor) | Monitor k8s secrets and update the oVirt connection | [5](https://github.com/ovirt/k8sOVirtCredentialsMonitor/issues) | 1 | 2 |
@@ -36,5 +36,5 @@
 | [infra-docs](https://github.com/oVirt/infra-docs) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/infra-docs/issues) | 3 | 4 |
 | [infra-puppet](https://github.com/oVirt/infra-puppet) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/infra-puppet/issues) | 0 | 1 |
 | [ovirt-engine-api-model](https://github.com/oVirt/ovirt-engine-api-model) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/ovirt-engine-api-model/issues) | 17 | 15 |
-| [512-byte-vm](https://github.com/oVirt/512-byte-vm) | A VM image in 512 bytes. Yes, you read it right. | [1](https://github.com/ovirt/512-byte-vm/issues) | 25 | 5 |
+| [512-byte-vm](https://github.com/oVirt/512-byte-vm) | A VM image in 512 bytes. Yes, you read it right. | [1](https://github.com/ovirt/512-byte-vm/issues) | 26 | 5 |
 | [ovirt-engine-kerbldap-migration](https://github.com/oVirt/ovirt-engine-kerbldap-migration) | A package to ease migration from oVirt engine legacy LDAP provider into the new ovirt-engine-extension-aaa-ldap provider. | [1](https://github.com/ovirt/ovirt-engine-kerbldap-migration/issues) | 3 | 1 |

@@ -71,7 +71,7 @@ ifdef::SHE_upgrade[]
 +
 [options="nowrap" subs="normal"]
 ----
-# poweroff
+# shutdown
 ----
 +
 [NOTE]
@@ -88,7 +88,7 @@ If you want to reuse the self-hosted engine virtual machine to deploy the {virt-
 +
 [NOTE]
 ====
-If any of the hosts report the `detail` field as `Up`, log in to that specific host and shut it down with the `hosted-engine --vm-poweroff` command.
+If any of the hosts report the `detail` field as `Up`, log in to that specific host and shut it down with the `hosted-engine --vm-shutdown` command.
 ====
 . Install {hypervisor-shortname} 4.4 or {enterprise-linux} 8.2 or later on the existing node currently running the {engine-name} virtual machine to use it as the self-hosted engine deployment host. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy[Installing the Self-hosted Engine Deployment Host] for more information.
 +

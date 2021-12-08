@@ -1,8 +1,15 @@
 [[storage_considerations_active_active]]
 = Storage Considerations
 
-The storage domain for {virt-product-fullname} can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about {virt-product-fullname} storage see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage[Storage] in the _Administration Guide_.
+The storage domain for {virt-product-fullname} can comprise either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about {virt-product-fullname} storage see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage[Storage] in the _Administration Guide_.
 
 The sites require synchronously replicated storage that is writeable on both sites with shared layer 2 (L2) network connectivity. The replicated storage is required to allow virtual machines to migrate between sites and continue running on the site’s storage. All storage replication options supported by {enterprise-linux} 7 and later can be used in the stretch cluster.
 
-IMPORTANT: If you have a custom multipath configuration that is recommended by the storage vendor, see the instructions and important limitations in link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#proc-Customizing_Multipath_Configurations_for_SAN_Vendors_SHE_cli_deploy[Customizing Multipath Configurations for SAN Vendors].
+[IMPORTANT]
+====
+If you have a custom multipath configuration that is recommended by the storage vendor, see the instructions and important limitations in link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#proc-Customizing_Multipath_Configurations_for_SAN_Vendors_SHE_cli_deploy[Customizing Multipath Configurations for SAN Vendors].
+====
+
+Set the SPM role on a host at the primary site to have precedence. To do so, configure SPM priority as high in the primary site hosts and SPM priority as low on secondary site hosts. Doing so prepares for recovery if you have a primary site failure that impacts network devices inside the primary site, preventing the fencing device for the SPM host from being reachable, such as power loss.
+
+If you do not take this precaution, in such a scenario virtual machines do a failover, but operations that require the SPM role in place cannot be executed, including adding new disks, extending existing disks, and exporting virtual machines. You must declare *Confirm host has been rebooted* for the SPM host.

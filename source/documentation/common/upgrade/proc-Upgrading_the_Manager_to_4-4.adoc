@@ -76,7 +76,7 @@ ifdef::SHE_upgrade[]
 +
 [NOTE]
 ====
-Before you shut down the self-hosted engine virtual machine, write down the MAC address of the self-hosted engine network interface if you want to reuse it to deploy the {virt-product-fullname} {engine-name} 4.4.
+If you want to reuse the self-hosted engine virtual machine to deploy the {virt-product-fullname} {engine-name} 4.4, note the MAC address of the self-hosted engine network interface before you shut it down.
 ====
 
 . Make sure that the self-hosted engine is shut down.

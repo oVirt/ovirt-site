@@ -27,7 +27,6 @@ The change to nmstate improves how {virt-product-shortname} {engine-name} applie
 [IMPORTANT]
 ====
 If you use `dnf` or `yum` to manually update the `nmstate` package, restart `vdsmd` and `supervdsmd` on the host. For example:
-+
 ----
 # dnf update nmstate
 # systemctl restart vdsmd supervdsmd
@@ -36,7 +35,6 @@ If you use `dnf` or `yum` to manually update the `nmstate` package, restart `vds
 [IMPORTANT]
 ====
 If you use `dnf` or `yum` to manually update the Network Manager package, restart `NetworkManager` on the host. For example:
-+
 ----
 # dnf update NetworkManager
 # systemctl restart NetworkManager

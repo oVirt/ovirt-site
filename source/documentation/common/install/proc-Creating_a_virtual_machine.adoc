@@ -63,7 +63,7 @@ or
 . Connect the virtual machine to the network. Add a network interface by selecting a vNIC profile from the *nic1* drop-down list at the bottom of the *General* tab.
 . Specify the virtual machine's *Memory Size* on the *System* tab.
 . In the *Boot Options* tab, choose the *First Device* that the virtual machine will use to boot.
-. You can accept the default settings for all other fields, or change them if required. For more details on all fields in the *New Virtual Machine* window, see link:{URL_virt_product_docs}{URL_format}/index#sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows[Explanation of settings in the New Virtual Machine and Edit Virtual Machine Windows].
+. You can accept the default settings for all other fields, or change them if required. For more details on all fields in the *New Virtual Machine* window, see link:{URL_virt_product_docs}{URL_format}/virtual_machine_management_guide/index#sect-Explanation_of_Settings_in_the_New_Virtual_Machine_and_Edit_Virtual_Machine_Windows[Explanation of settings in the New Virtual Machine and Edit Virtual Machine Windows].
 . Click btn:[OK].
 
 The new virtual machine is created and displays in the list of virtual machines with a status of `Down`.

@@ -1,7 +1,7 @@
 [id="enabling_fips_rhel_hosts_and_rhvm_{context}"]
 = Enabling FIPS in RHEL hosts and the standalone Manager
 
-You can enable FIPS mode when installing a Red Hat  Enterprise Linux (RHEL) host. For details, see link:{URL_rhel_docs_latest}html/security_hardening/assembly_securing-rhel-during-installation-security-hardening#assembly_installing-a-rhel-8-system-with-fips-mode-enabled_securing-rhel-during-installation}[Installing a RHEL 8 system with FIPS mode enabled] in the guide _Security hardening_ for Red Hat Enterprise Linux 8. Red Hat does not support switching a provisioned host or Manager machine to FIPS mode
+You can enable FIPS mode when installing a Red Hat  Enterprise Linux (RHEL) host. For details, see link:{URL_rhel_docs_latest}html/security_hardening/assembly_securing-rhel-during-installation-security-hardening#assembly_installing-a-rhel-8-system-with-fips-mode-enabled_securing-rhel-during-installation[Installing a RHEL 8 system with FIPS mode enabled] in the guide _Security hardening_ for Red Hat Enterprise Linux 8. Red Hat does not support switching a provisioned host or Manager machine to FIPS mode
 
 .Verification
 

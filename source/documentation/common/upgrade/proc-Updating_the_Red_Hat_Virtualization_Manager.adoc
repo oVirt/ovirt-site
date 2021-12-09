@@ -17,7 +17,7 @@ endif::migrating_to_SHE[]
 ifdef::upgrade[]
 .Prerequisites
 ifdef::ovirt-doc[]
-* The RPM package link:https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm[ovirt-release44.rpm] is installed. This package includes the necessary repositories.
+* The RPM package link:https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm[ovirt-release44.rpm] is installed and updated to the latest version. This package includes the necessary repositories.
 endif::ovirt-doc[]
 
 ifdef::rhv-doc[]

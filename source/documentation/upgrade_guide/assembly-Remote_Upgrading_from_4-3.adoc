@@ -1,5 +1,5 @@
 [id="Remote_Upgrading_from_4-3"]
-= Upgrading a Remote Database Environment from 4.3 to {virt-product-fullname} 4.4
+= Upgrading a Remote Database Environment from {virt-product-fullname} 4.3 to 4.4
 
 :context: 4-3_remote_db
 :4-3_remote_db:

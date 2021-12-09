@@ -30,6 +30,7 @@ You can only restore backups to environments of the same minor release as that o
 ifdef::SHE_upgrade[]
 * Make note of the MAC address of the self-hosted engine if you are using DHCP and want to use the same IP address. The deploy script prompts you for this information.
 * During the deployment you need to provide a new storage domain for the {engine-name} machine. The deployment script renames the 4.3 storage domain and retains its data to enable disaster recovery.
+* Set the cluster scheduling policy to `cluster_maintenance` in order to prevent automatic virtual machine migration during the upgrade.
 +
 [CAUTION]
 ====
@@ -62,10 +63,33 @@ ifdef::local_database_upgrade,remote_database_upgrade[. Log in to the {engine-na
 ----
 # engine-backup --scope=all --mode=backup --file=backup.bck --log=backuplog.log
 ----
-
 . Copy the backup file to a storage device outside of the {virt-product-shortname} environment.
 
 ifdef::SHE_upgrade[]
+
+. Shut down the self-hosted engine.
++
+[options="nowrap" subs="normal"]
+----
+# shutdown
+----
++
+[NOTE]
+====
+If you want to reuse the self-hosted engine virtual machine to deploy the {virt-product-fullname} {engine-name} 4.4, note the MAC address of the self-hosted engine network interface before you shut it down.
+====
+
+. Make sure that the self-hosted engine is shut down.
++
+[options="nowrap" subs="normal"]
+----
+# hosted-engine --vm-status | grep 'Engine status|Hostname'
+----
++
+[NOTE]
+====
+If any of the hosts report the `detail` field as `Up`, log in to that specific host and shut it down with the `hosted-engine --vm-shutdown` command.
+====
 . Install {hypervisor-shortname} 4.4 or {enterprise-linux} 8.2 or later on the existing node currently running the {engine-name} virtual machine to use it as the self-hosted engine deployment host. See link:{URL_virt_product_docs}{URL_format}/installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy[Installing the Self-hosted Engine Deployment Host] for more information.
 +
 [NOTE]

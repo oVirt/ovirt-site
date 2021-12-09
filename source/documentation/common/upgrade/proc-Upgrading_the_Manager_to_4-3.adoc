@@ -1,5 +1,5 @@
 [id="Upgrading_the_Manager_to_4-3_{context}"]
-= Upgrading the {engine-name} from 4.2 to 4.3
+= Upgrading the {virt-product-fullname} {engine-name} from 4.2 to 4.3
 
 ifdef::4-2_remote_db[]
 Follow these same steps when upgrading any of the following:

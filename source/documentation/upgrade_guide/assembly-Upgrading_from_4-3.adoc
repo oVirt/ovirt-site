@@ -6,11 +6,16 @@
 
 Upgrading your environment from 4.3 to 4.4 involves the following steps:
 
+ifdef::rvh-doc[]
+//Upgrade considerations
+include::common/upgrade/snip-upgrade_considerations.adoc[]
+endif::rhv-doc[]
+
 . xref:Upgrade_Prerequisites_4-3_local_db[Make sure you meet the prerequisites, including enabling the correct repositories]
 
 ifdef::rhv-doc[]
 . xref:Analyzing_the_Environment_4-3_local_db[Use the Log Collection Analysis tool and Image Discrepancies tool to check for issues that might prevent a successful upgrade]
-endif::[]
+endif::rhv-doc[]
 
 . xref:Updating_the_Red_Hat_Virtualization_Manager_4-3_remote_db[Update the 4.3 {engine-name} to the latest version of 4.3]
 

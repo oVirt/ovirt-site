@@ -18,3 +18,14 @@ DWH_AGGREGATION_DEBUG=true
 ----
 
  To disable debug mode, delete the configuration file and restart the service.
+
+[NOTE]
+====
+The move to daylight savings time/summer time in different time zones can cause the events log to report that the _ETL service aggregation to hourly tables has encountered an error_.
+If all the records are in the hourly aggregation views, there is no issue and this warning can be ignored.
+If this warning continues to appear, contact your system administrator
+ifdef::rhv-doc[]
+ or the the Red Hat Support Team
+endif::[]
+.
+====

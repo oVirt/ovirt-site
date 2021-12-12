@@ -7,7 +7,7 @@
 | [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [47](https://github.com/ovirt/ovirt-ansible-collection/issues) | 40 | 60 |
 | [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [30](https://github.com/ovirt/ovirt-site/issues) | 70 | 296 |
 | [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [26](https://github.com/ovirt/terraform-provider-ovirt/issues) | 123 | 60 |
-| [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [22](https://github.com/ovirt/go-ovirt-client/issues) | 2 | 5 |
+| [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [23](https://github.com/ovirt/go-ovirt-client/issues) | 2 | 5 |
 | [ovirt-openshift-extensions](https://github.com/oVirt/ovirt-openshift-extensions) | Implementation of flexvolume driver and provisioner for oVirt | [18](https://github.com/ovirt/ovirt-openshift-extensions/issues) | 31 | 16 |
 | [stage-gh-stdci2](https://github.com/oVirt/stage-gh-stdci2) | Another staging repo | [14](https://github.com/ovirt/stage-gh-stdci2/issues) | 0 | 2 |
 | [ovirt-engine-sdk](https://github.com/oVirt/ovirt-engine-sdk) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [8](https://github.com/ovirt/ovirt-engine-sdk/issues) | 77 | 76 |

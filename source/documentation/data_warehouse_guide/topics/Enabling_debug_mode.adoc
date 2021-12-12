@@ -23,9 +23,11 @@ DWH_AGGREGATION_DEBUG=true
 ====
 The move to daylight savings time/summer time in different time zones can cause the events log to report that the _ETL service aggregation to hourly tables has encountered an error_.
 If all the records are in the hourly aggregation views, there is no issue and this warning can be ignored.
-If this warning continues to appear, contact your system administrator
+If this warning continues to appear,
+ifdef::ovirt-doc[]
+contact your system administrator.
+endif::ovirt-doc[]
 ifdef::rhv-doc[]
- or the the Red Hat Support Team
-endif::[]
-.
+contact the the Red Hat Support Team.
+endif::rhv-doc[]
 ====

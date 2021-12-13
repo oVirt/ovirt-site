@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>DetailedExternalEvents | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="DetailedExternalEvents" />
+<meta name="author" content="Eli Mesika" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2662/develop/release-management/features/infra/detailedexternalevents.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2662/develop/release-management/features/infra/detailedexternalevents.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="DetailedExternalEvents" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Eli Mesika" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Eli Mesika"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2662/images/logo.svg"},"name":"Eli Mesika"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"DetailedExternalEvents","url":"https://ovirt.github.io/ovirt-site/previews/2662/develop/release-management/features/infra/detailedexternalevents.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2662/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2662/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2662/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2662/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2662/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2662/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2662/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2662/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2662/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2662/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2662/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2662/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2662/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2662/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2662/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2662/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2662/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2662/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2662/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2662/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2662/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2662/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2662/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2662/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2662/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2662/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2662/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2662/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2662/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2662/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2662/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2662/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2662/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2662/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2662/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2662//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2662//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2662/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2662/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2662/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2662/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2662/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Eli Mesika</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yair Zaslavsky</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2662/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="detailed-external-events">Detailed External Events</h1>
+
+<h2 id="adding-external-events-to-audit-log">Adding External Events to Audit Log</h2>
+
+<h3 id="summary">Summary</h3>
+
+<p>Currently all events audited in system are internal events. That means that all events are inserted to the Audit Log by the application.
+This document describes a requirement to enable injection of External Events to the system via API.</p>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>
+    <p>Feature owner: Eli Mesika (emesika)</p>
+
+    <ul>
+      <li>
+        <p>GUI Component owner: Eli Mesika (emesika)</p>
+      </li>
+      <li>
+        <p>REST Component owner: Eli Mesika (emesika)</p>
+      </li>
+      <li>
+        <p>Engine Component owner: Eli Mesika (emesika)</p>
+      </li>
+      <li>
+        <p>QA Owner: Yaniv Kaul (ykaul)</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Email: emesika@redhat.com</p>
+  </li>
+</ul>
+
+<h3 id="current-status">Current status</h3>
+
+<ul>
+  <li>Target Release: 3.2</li>
+  <li>Status: Design</li>
+  <li>Last updated date: Nov 8 2012</li>
+</ul>
+
+<h3 id="detailed-description">Detailed Description</h3>
+
+<p>Enable plug-ins to inject their own events to the system using API
+This will be done by adding a new <em>AddExternalEvent</em> command and expose it to the REST API
+External events should be displayed in the Events tab in UI and may be searched as any other event.
+External Events are classified as application events based on severity values of NORMAL, WARNING ERROR or ALERT
+Alerts that are deleted from the system are only marked as deleted in the <em>audit_log</em> table and not removed permanently from the database
+External Events can not use application variables, therefore no ‘$’ expressions should appear in the Event/Alert free message text</p>
+
+<h3 id="crud">CRUD</h3>
+
+<p>Adding <em>deleted</em> boolean field to audit_log with a default value of <em>false</em>
+Adding <em>origin</em> varchar field to audit_log with a default value of <em>oVirt</em> [1]
+Adding <em>custom_event_id</em> integer field to audit_log with a default value of <em>-1</em> [2]
+Adding <em>event_flood_in_sec</em> integer field to audit_log with a default value of <em>30</em> [3]
+Adding <em>custom_data</em> text field to audit_log with a default value of empty string [4]
+ [1] <em>origin</em> is a unique string that identifies the origin adding an event
+[2] <em>custom_event_id</em> is a sequential number that identifies the event/alert instance
+[3] <em>event_flood_in_sec</em> value will not affect application events
+[4] <em>custom data</em> value will be used to store any data about the event, (for example {a=xxx,b=12})
+ Update relevant views to return the additional fields.</p>
+
+<h4 id="dao">DAO</h4>
+
+<p>Adding additional fields to AuditLog BE
+Handling additional fields in AuditLogDAODbFacadeImpl</p>
+
+<h4 id="metadata">Metadata</h4>
+
+<p>Modifying AuditLogDAOTest to include the added fields
+Adding additional fields to fixtures.xml</p>
+
+<h3 id="business-logic">Business Logic</h3>
+
+<p>Adding additional fields to <em>AuditLog</em> BE
+ Adding the following types to AuditLogType</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    EXTERNAL_EVENT_NORMAL  
+    EXTERNAL_EVENT_WARNING 
+    EXTERNAL_EVENT_ERROR   
+    EXTERNAL_ALERT
+</code></pre></div></div>
+
+<p>Adding severities for the new types in AuditLogDirector
+Adding AddExternalEvent command
+Adding AddExternalEventParameters with the following fields</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    AuditLogSeverity [Mandatory]
+    Message [Mandatory]
+    Origin  [Mandatory]
+    CustomEventId [Mandatory]
+    CustomData [Mandatory]
+    EventFloodInSec[[Optional] -- 30 sec if not defined
+    UserId [Optional]
+    DataCenterId [Optional]
+    StorageDomainId [Optional]
+    ClusterId [Optional]
+    HostId [Optional]
+    VmId [Optional]
+    TemplateId [Optional]
+    GlusterVolumeId [Optional]
+</code></pre></div></div>
+
+<h3 id="search-engine">Search Engine</h3>
+
+<p>Adding support for searching events by:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   deleted
+   origin
+   custom_event_id
+</code></pre></div></div>
+
+<p>External Events can be filtered using <em>origin != ‘oVirt</em>’</p>
+
+<h3 id="flow">Flow</h3>
+
+<p><em>Add Event/Alert</em> Flow:
+Invoke <em>..api/events/add</em> API giving at least Description(the message text), Severity, Origin &amp; CustomEventId
+When the Event/Alert is on a specific object, the object instance id should be set.
+ <em>Delete Alert</em> Flow:
+Invoke ..api/events/delete API giving AuditLogId (this id is returned when adding an External Event)
+Mark the relevant entry of the Alert in DB with <em>deleted = true</em>
+Add a NORMAL event on the Alert deletion with all relevant details (user, time etc.)</p>
+
+<h3 id="permissions">Permissions</h3>
+
+<h4 id="command-permissions">Command Permissions</h4>
+
+<p>A new permission to access this command will be added by default only to superuser role.
+A new role that can inject <em>External Events</em> will be added and may be attached/added to any user in the system</p>
+
+<h4 id="permissions-on-entity-instances">Permissions on Entity Instances</h4>
+
+<p>There will be no permission check on entity instances on which <em>External Events</em> are injected
+The reason is that in order to invoke an <em>External Events</em> on an entity instance, the invoker should know the entity instance UUID and therefore we had already checked that the invoker has the right permissions on the entity instance when he gets the information.
+Also, double checking that in the AddExternalEvent command is not simple, since each Entity may have several ActionGroups (Create, Edit etc.) associated with it, so it is not clear which to check
+So, in order to keep things simple, we will assume that if the caller to <em>Add External Event</em> has the <em>Entity UUID</em> in hand, all we have to check is that he has permission to inject <em>External Events</em></p>
+
+<h3 id="api">API</h3>
+
+<p>We will use the existing events URL (…/api/events) and the existing Event business-entity in the API and open the possibility to add (POST) a new event or delete an alert (engine will off course impose permissions check on this operation).
+ 1) Add REST–&gt;Backend mapping in EventMapper (right now only the other direction exists).
+2) Add add() method declaration to EventsResource (this is the interface)
+3) Add add() method implementation to BackendEvenetsResource (take example of creation implementation in BackendHostsResource)
+4) Add delete() method declaration to EventsResource (forced for Alerts only in canDoAction)
+5) Add delete() method implementation to BackendEvenetsResource
+6) Add signatures to meta-data file (rsdl_metadata_v-3.1.yaml)
+7) Add tests
+*Note that no update is required.
+*</p>
+
+<p>Example of add event</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;event&gt;</span>
+       <span class="nt">&lt;description&gt;</span>message<span class="nt">&lt;/description&gt;</span>
+       <span class="nt">&lt;severity&gt;</span>normal<span class="nt">&lt;/severity&gt;</span>
+       <span class="nt">&lt;origin&gt;</span>Origin<span class="nt">&lt;/origin&gt;</span>
+       <span class="nt">&lt;custom_event_id&gt;</span>1<span class="nt">&lt;/custom_event_id&gt;</span>
+       <span class="nt">&lt;event_flood_in_sec&gt;</span>30<span class="nt">&lt;/event_flood_in_sec&gt;</span>
+   <span class="nt">&lt;/event&gt;</span>
+</code></pre></div></div>
+
+<h3 id="user-experience">User Experience</h3>
+
+<p>Global External Events will be displayed on the Global Events TAB
+Entity instance External Events will be displayed on the Events TAB when selecting the Entity instance
+External Alerts will be displayed in the <em>Alerts</em> TAB
+ Events Grids (Both General and those displayed when an entity is selected) should display and allow sorting on the following fields :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     Origin
+     CustomEventId
+</code></pre></div></div>
+
+<h3 id="installationupgrade">Installation/Upgrade</h3>
+
+<p>Add additional fields to audit_log table upon upgrade
+Add the permission(ActionGroup) to manipulate External Events to other <em>admin</em> roles already defined upon upgrade.</p>
+
+<h4 id="user-work-flows">User work-flows</h4>
+
+<h3 id="enforcement">Enforcement</h3>
+
+<h3 id="dependencies--related-features-and-projects">Dependencies / Related Features and Projects</h3>
+
+<h4 id="affected-ovirt-projects">Affected oVirt projects</h4>
+
+<h3 id="documentation--external-references">Documentation / External references</h3>
+
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=866123">RFE1</a>
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=873223">RFE2</a>
+ <a href="/ovirt-site/previews/2662/develop/release-management/features/infra/externalevents.html">Features/ExternalEvents</a></p>
+
+<h3 id="future-directions">Future directions</h3>
+
+<p>External Event types should be exposed to the engine-notification tool in future releases
+Gathering Events/Alerts by the History ETL should be considered in future releases
+Separate between Events and Alerts in DB/BL/API
+Support search on <em>custom_data</em></p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2662/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2662/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2662/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2662/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/detailedexternalevents.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/detailedexternalevents.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>UCS Integration | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="UCS Integration" />
+<meta name="author" content="Antoni Puimedon" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2662/develop/release-management/features/network/ucs-integration.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2662/develop/release-management/features/network/ucs-integration.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="UCS Integration" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Antoni Puimedon" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Antoni Puimedon"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2662/images/logo.svg"},"name":"Antoni Puimedon"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"UCS Integration","url":"https://ovirt.github.io/ovirt-site/previews/2662/develop/release-management/features/network/ucs-integration.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2662/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2662/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2662/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2662/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2662/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2662/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2662/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2662/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2662/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2662/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2662/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2662/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2662/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2662/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2662/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2662/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2662/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2662/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2662/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2662/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2662/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2662/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2662/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2662/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2662/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2662/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2662/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2662/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2662/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2662/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2662/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2662/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2662/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2662/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2662/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2662//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2662//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2662/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2662/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2662/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2662/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2662/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f7875b3d1b4e5cc473f510b59531afcc?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f7875b3d1b4e5cc473f510b59531afcc?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Antoni Puimedon</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/7b13d8276dd524c8273878429356e5fa?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/7b13d8276dd524c8273878429356e5fa?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Michael Burman</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2662/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="ucs-integration">UCS Integration</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>Cisco’s Unified Computing System (UCS) is a solution for managing a lot of datacenter aspects, from blade’s firmware to network cards number and addresses on the hosts and the VMs. It has a management service (UCS-M) that allows the administrator to easily set up configurations to apply to the hardware of the datacenter.</p>
+
+<p>UCS hosts have network cards that can expose N pseudo physical Network Interface Cards, optionally (and usually) as ethernet cards. Those pseudo ethernet cards are called Virtual Functions (VFs) and when they are not configured they are blank devices, i.e., they lack mac address and any connectivity to the network fabric. One particular benefit of the virtual functions is that they can be connected to the guest’s operating system offering a superior network performance, since the Host OS is not involved and parts are hardware accelerated.</p>
+
+<p>In terms of networking the configuration for a nic is set in UCS-M in entities called vNic Templates. A vNic template allows you to specify network attributes for the nics created from it such as: - Quality of Service, - VLANs: One can specify the default tag and the tags it should let through, - MTU, - MAC Pool: The network administrator can define several pools of MAC addresses in UCS-M from which a template can draw addresses from.</p>
+
+<p>When a vNic Template applies only to host nics it is called vNic profile. When it also applies to VM vNics an entity is created in UCS-M called *Port Profile*.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Antoni Segura Puimedon (APuimedo)</li>
+  <li>Email: apuimedo aT redhat.com</li>
+</ul>
+
+<h2 id="ovirtucs-m-networking-integration-state-prior-to-this-feature">oVirt/UCS-M networking integration state prior to this feature</h2>
+
+<p>USC virtual functions used to be reported to Engine as regular nics. VFs that have not been configured via UCS-M to have a mac address and connectivity are still reported, despite their uselessness for Host networking.</p>
+
+<p>There was a now-deprecated Vdsm hook, <a href="http://resources.ovirt.org/releases/3.3/rpm/EL/6/noarch/vdsm-hook-vmfex-4.13.0-11.el6.noarch.rpm">vdsm-hook-vmfex</a> that after being installed on each host, takes action upon VM creation and migration that:</p>
+
+<ul>
+  <li>Sets up a pool of virtual functions (thanks to the pool, migration is possible. As far as there are unused devices in the pool, we can assign a vnic to a virtual function).</li>
+  <li>Assigns the Engine-specified MAC address to a virtual function from the pool.</li>
+  <li>Specifies a <em>Port Profile</em> the virtual function should adopt.</li>
+  <li>Creates a macvtap device connected to the virtual function and replaces the VM nic definition with it.</li>
+</ul>
+
+<p>For the hook to work, one must manually specify the VM custom properties with</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {'XX:XX:XX:XX:XX:XX': 'port_profile_name1',
+   'YY:YY:YY:YY:YY:YY': 'port_profile_name2'}
+</code></pre></div></div>
+
+<p>The profile names should first be defined in UCS-M following Cisco’s <a href="http://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/sw/vm_fex/kvm/gui/config_guide/2-1/b_GUI_KVM_VM-FEX_UCSM_Configuration_Guide_2_1/b_GUI_KVM_VM-FEX_UCSM_Configuration_Guide_2_1_chapter_010.html#task_1892A1847A4F45F6A6363B98091AF61A">instructions</a>. The administrator must then manually copy the port profile names from UCS-M and the MAC addresses assigned by the engine and write the above dictionary.</p>
+
+<p>This old hook vdsm-hook-vmfex should not be used. It has been deprecated in favor of vdsm-hook-vmfex-dev (“New Hook” below).</p>
+
+<h2 id="current-status">Current status</h2>
+
+<p>Level IV completed and released.</p>
+
+<h2 id="integration-levels">Integration levels</h2>
+
+<p>Considering the current level of integration (using the current vdsm-hook-vmfex) as level 3. The proposed levels of this feature are:</p>
+
+<h3 id="level-iv-a-new-hook">Level IV: “A New Hook”</h3>
+
+<p>This level of integration consists of reworking the existing vdsm-hook-vmfex so that the oVirt administrator can set up the integration at the guest device level instead of at the VM level. The advantage of this is that only the port profile will need to be specified (since the MAC address is already part of the VM’s NIC properties given by the Engine).</p>
+
+<p>Things done:</p>
+
+<ul>
+  <li><a href="http://gerrit.ovirt.org/#/c/22559/">Filter out unused virtual functions from being reported as nics</a>.</li>
+  <li><a href="http://gerrit.ovirt.org/#/c/22529/">Clone and refactor the current hook to use custom device properties and to run “before_device_create” and “before_device_hotplug”</a>.</li>
+</ul>
+
+<p>You can get the hook resulting from this integration level <a href="https://resources.ovirt.org/releases/3.4/rpm/EL/6/noarch/vdsm-hook-vmfex-dev-4.14.6-0.el6.noarch.rpm">here</a></p>
+
+<h4 id="installation">Installation</h4>
+
+<ul>
+  <li>
+    <p>Use the engine-config to append the appropriate custom property:</p>
+
+    <p>sudo engine-config -s CustomDeviceProperties=
+   ‘{type=interface;prop={vmfex=^[a-zA-Z0-9_.-]{2,32}$}}’</p>
+  </li>
+  <li>
+    <p>Verify that the vmfex_dev custom device propertes were properly added:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo engine-config -g CustomDeviceProperties
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="usage">Usage</h4>
+
+<ul>
+  <li>
+    <p>Define an oVirt vNIC profile and set one of its custom properites to “vmfex” with the value of the name of UCS port profile. For instance:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    vmfex: myPortProfileId
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Attach the oVirt vNIC profile to a VM vNIC. When the VM runs, the vNIC with the vmfex custom device, the xml definition of which might originally look like:</p>
+  </li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;interface type='bridge'&gt;
+    &lt;mac address='&lt;mac&gt;'/&gt;
+    &lt;model type='virtio'/&gt;
+    &lt;source bridge='&lt;logical network&gt;'/&gt;
+&lt;/interface&gt;
+</code></pre></div></div>
+
+<p>will be transformed into:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;interface type='network'&gt;
+    &lt;mac address='&lt;mac&gt;'/&gt;
+    &lt;source network='direct-pool'/&gt;
+    &lt;virtualport type='802.1Qbh'&gt;
+        &lt;parameters profileid='&lt;Port Profile id&gt;'/&gt;
+    &lt;/virtualport&gt;
+    &lt;model type='virtio'/&gt;
+&lt;/interface&gt;
+</code></pre></div></div>
+
+<h2 id="current-status-1">Current status</h2>
+
+<p>Level V completed and released as vdsm-hook-vmfex-dev</p>
+
+<h3 id="level-v-the-network-provider-strikes-back">Level V: “The Network provider strikes back”</h3>
+
+<p>This level of integration builds on top of the work that was laid out for the Neutron integration, i.e., Network providers, so that we can use the UCS-M API (it exposes all entities via XML HTTP requests) to retrieve the port profiles defined in the system. These port profiles would be available for selection in the VM nic creation dialog.</p>
+
+<p>Things to be done:</p>
+
+<ul>
+  <li>Implement a Network provider that talks to UCS-M via its XML RPC.</li>
+  <li>Make the scheduler aware of virtual function availability for scheduling VMs that use the integration. (This could be retrieved from the hosts’ Vdsm or maybe from UCS-M as part of the vnic-conn-policy, specifically its dynamic eth attribute. The former has the benefit of helping non-UCS sriov setups.).</li>
+</ul>
+
+<h3 id="level-vi-the-return-of-the-port-profile">Level VI: “The return of the Port Profile”</h3>
+
+<p>This level of integration would make it possible for the oVirt Engine to go from simply retrieving Port Profiles to exporting oVirt networks to UCS-M as Port Profiles.</p>
+
+<ul>
+  <li>Define a good matching abstraction between oVirt’s QoS and UCS’s.</li>
+  <li>Extend the network provider for creating profiles in UCS-M.</li>
+</ul>
+
+<h3 id="level-vii-working-title-the-rise-of-the-host">Level VII: “Working title: The rise of the Host”</h3>
+
+<p>It is left for future planning, but the basic idea would be to be able to use the networks of the UCS Network provider from level V and apply them to host virtual functions from the oVirt API/GUI.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2662/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2662/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2662/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2662/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/ucs-integration.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/ucs-integration.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

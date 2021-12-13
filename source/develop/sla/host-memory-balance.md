@@ -3,6 +3,16 @@ title: Host Memory balance
 authors: nslomian
 ---
 
+> IMPORTANT: The oVirt Scheduler Proxy project has been dropped from oVirt starting with oVirt 4.5 release.
+> The oVirt Scheduler Proxy project development has been discontinued.
+>
+> See also:
+> - https://bugzilla.redhat.com/show_bug.cgi?id=2028192
+>
+> Keeping the following section only for reference.
+
+
+
 # Host Memory balance
 
 This external load balancer will move a VM from a host that has less free memory than the specified amount:

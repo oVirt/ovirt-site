@@ -8,6 +8,15 @@ authors:
 
 # External Scheduler Samples
 
+> IMPORTANT: The oVirt Scheduler Proxy project has been dropped from oVirt starting with oVirt 4.5 release.
+> The oVirt Scheduler Proxy project development has been discontinued.
+>
+> See also:
+> - https://bugzilla.redhat.com/show_bug.cgi?id=2028192
+>
+> Keeping the following section only for reference.
+
+
 ## Introduction
 
 When running or migrating VMs the external scheduler proxy is used to introduce user written logic in to the selection process of hosts . The user can effect the selection process In two ways

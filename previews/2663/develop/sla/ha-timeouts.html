@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>ha-timeouts | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="ha-timeouts" />
+<meta name="author" content="Alissa Bonas" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2663/develop/sla/ha-timeouts.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2663/develop/sla/ha-timeouts.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ha-timeouts" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Alissa Bonas" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Alissa Bonas"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2663/images/logo.svg"},"name":"Alissa Bonas"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"ha-timeouts","url":"https://ovirt.github.io/ovirt-site/previews/2663/develop/sla/ha-timeouts.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2663/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2663/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2663/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2663/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2663/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2663/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2663/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2663/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2663/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2663/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2663/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2663/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2663/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2663/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2663/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2663/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2663/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2663/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2663/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2663/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2663/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2663/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2663/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2663/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2663/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2663/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2663/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2663/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2663/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2663/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2663/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2663/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2663/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2663/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2663/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2663//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2663//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2663/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2663/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2663/develop/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/677352fd1b8df8eb377e140bc231c54a?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/677352fd1b8df8eb377e140bc231c54a?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alissa Bonas</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Doron Fediuck</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2663/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="ha-timeouts">ha-timeouts</h1>
+
+<h2 id="sla-high-availability-timeouts-explained">SLA: High Availability timeouts explained</h2>
+
+<h3 id="summary">Summary</h3>
+
+<p>This page provides information on the various arguments used to identify and
+handle connectivity issues for highly available VMs, both in previous and current oVirt versions.</p>
+
+<h3 id="description">Description</h3>
+
+<p>There are several parameters that control monitoring and reaction behavior for
+highly available VMs (vdsConnectionTimeout and vdsRetries have been added in 3.2);</p>
+
+<ul>
+  <li>VDSAttemptsToResetCount</li>
+  <li>TimeoutToResetVdsInSeconds</li>
+  <li>vdsTimeout</li>
+  <li>vdsConnectionTimeout</li>
+  <li>vdsRetries</li>
+</ul>
+
+<p><strong>VDSAttemptsToResetCount</strong> controls how many consecutive VDSM operations
+have to fail to consider a host a candidate for fencing. Default value is <strong>2</strong>.</p>
+
+<p><strong>TimeoutToResetVdsInSeconds</strong> controls how long a host has to be failing
+(VDSM operations failing continuously) to consider it a candidate for fencing. 
+Default values is <strong>60s</strong>.</p>
+
+<p>Both above parameters have to be evaluated as true to actually initiate fencing of a host,
+ie- both exceeded.</p>
+
+<p><strong>vdsTimeout</strong> controls how long the engine waits for a VDSM operation to
+complete, its default value is <strong>180s</strong> (3 minutes). This value shouldn’t be
+changed, as some VDSM operations require that time to complete.</p>
+
+<p><strong>vdsConnectionTimeout</strong> controls how long the engine waits for a connection
+to VDSM to complete. Its default value is <strong>180s</strong> (3 minutes). This value should be
+reduced, and in fact its default value has already been changed to <strong>2s</strong> in 3.3.
+The default value was changed to <strong>20s</strong> in 3.6.</p>
+
+<p><strong>vdsRetries</strong> controls how many times failed VDSM operations should be
+retried. Its default value is <strong>3</strong> in 3.2, while in 3.3 it was changed to <strong>0</strong>.</p>
+
+<p>With these default values a host that goes completely down and doesn’t respond
+at all will take at least 6 minutes to be fenced: the reason is that any operation will
+take those 6 minutes because we retry them 3 times (<strong>vdsRetries</strong>), each time it
+takes approx 63s (<strong>vdsTimeout</strong>, the kernel cuts to 63s any value larger than that),
+and we need 2 consecutive failures to start fencing: 63sec * 3 * 2 ~ 6min.</p>
+
+<p>For a more predictable fencing the following parameters need to be changed:
+ # engine-config -s vdsConnectionTimeout=2 
+ # engine-config -s vdsRetries=0</p>
+
+<p>With these settings the host should be fenced approx <strong>1 minute</strong> after it stops responding,
+and this happens because now the <strong>VDSAttemptsToResetCount</strong> and <strong>TimeoutToResetVdsInSeconds</strong>
+are really taken into account and not masked by the low level timeouts.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2663/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2663/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2663/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2663/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/sla/ha-timeouts.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/sla/ha-timeouts.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

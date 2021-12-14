@@ -251,10 +251,13 @@
 </table>
 </div>
 <div class="paragraph">
-<p>Set the SPM role on a host at the primary site to have precedence. To do so, configure SPM priority as high in the primary site hosts and SPM priority as low on secondary site hosts. Doing so prepares for recovery if you have a primary site failure that impacts network devices inside the primary site, preventing the fencing device for the SPM host from being reachable, such as power loss.</p>
+<p>Set the SPM role on a host at the primary site to have precedence. To do so, configure SPM priority as high in the primary site hosts and SPM priority as low on secondary site hosts. If you have a primary site failure that impacts network devices inside the primary site, preventing the fencing device for the SPM host from being reachable, such as power loss, the hosts in the seconday site are not able to take over the SPM role.</p>
 </div>
 <div class="paragraph">
-<p>If you do not take this precaution, in such a scenario virtual machines do a failover, but operations that require the SPM role in place cannot be executed, including adding new disks, extending existing disks, and exporting virtual machines. You must declare <strong>Confirm host has been rebooted</strong> for the SPM host.</p>
+<p>In such a scenario virtual machines do a failover, but operations that require the SPM role in place cannot be executed, including adding new disks, extending existing disks, and exporting virtual machines.</p>
+</div>
+<div class="paragraph">
+<p>To restore full functionality, select <strong>Confirm host has been rebooted</strong> for the SPM host. Perform this step, even if you are not able to confirm that the host is powered off or that it has released its resources.</p>
 </div>
 </div>
 <div class="sect2">

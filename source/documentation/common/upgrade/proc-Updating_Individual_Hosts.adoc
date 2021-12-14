@@ -41,7 +41,12 @@ ifdef::rhv-doc[]
 ----
 endif::[]
 ifdef::ovirt-doc[]
-* For {hypervisor-fullname}s, the `ovirt-release44` RPM package enabling the correct repositories is already installed.
+* For {hypervisor-fullname}s, the `ovirt-release44` RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:
++
+[options="nowrap" subs="normal"]
+----
+# dnf update -y ovirt-release44
+----
 
 * For {enterprise-linux-host-fullname}s:
 +

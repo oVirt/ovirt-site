@@ -18,3 +18,4 @@ DWH_AGGREGATION_DEBUG=true
 ----
 
  To disable debug mode, delete the configuration file and restart the service.
+// removed note

@@ -23,6 +23,7 @@ include::assembly-Upgrading_from_4-2_ff.adoc[leveloffset=+1]
 :local_database_upgrade_ff!:
 ////
 
+
 = Upgrading a standalone {engine-name} local database environment
 :local_database_upgrade:
 

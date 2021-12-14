@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Detailed OSN Integration | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Detailed OSN Integration" />
+<meta name="author" content="Dan Kenigsberg" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2664/develop/release-management/features/network/detailed-osn-integration.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2664/develop/release-management/features/network/detailed-osn-integration.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Detailed OSN Integration" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Dan Kenigsberg" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Dan Kenigsberg"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2664/images/logo.svg"},"name":"Dan Kenigsberg"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Detailed OSN Integration","url":"https://ovirt.github.io/ovirt-site/previews/2664/develop/release-management/features/network/detailed-osn-integration.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2664/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2664/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2664/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2664/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2664/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2664/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2664/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2664/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2664/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2664/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2664/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2664/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2664/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2664/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2664/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2664/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2664/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2664/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2664/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2664/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2664/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2664/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2664/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2664/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2664/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2664/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2664/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2664/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2664/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2664/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2664/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2664/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2664/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2664/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2664/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2664//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2664//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2664/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2664/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2664/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2664/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2664/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9a2fc6e0042ddce31e9484d1ed181663?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9a2fc6e0042ddce31e9484d1ed181663?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Lior Vernia</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/03383bfa9bb468b9f0264d74539b19d0?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/03383bfa9bb468b9f0264d74539b19d0?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Michael Kolesnic</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Moti Asayag</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d2a1475a4145a459ac3565cc97fa39f5?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d2a1475a4145a459ac3565cc97fa39f5?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Martin Pavlik</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2664/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="detailed-osn-integration">Detailed OSN Integration</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>We intend to add support for OpenStack Neutron as a network provider. Please see further details in <a href="/ovirt-site/previews/2664/develop/release-management/features/network/osn-integration.html">Features/OSN_Integration</a></p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Mike Kolesnik (Mkolesni)</li>
+  <li>Email: <a href="mailto:mkolesni@redhat.com">mkolesni@redhat.com</a></li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<ul>
+  <li>Target Release: oVirt 3.4</li>
+  <li>Status: Finished phase 2</li>
+  <li>Last updated: ,</li>
+</ul>
+
+<h3 id="change-log">Change log</h3>
+
+<h4 id="planned-changes-for-331">Planned changes for 3.3.1</h4>
+
+<ul>
+  <li>Virtual NIC integration:
+    <ul>
+      <li>Instead of deleting the port on the Neutron network when VM is stopped, it is now deleted when the virtual NIC no longer uses the network or exists.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="planned-changes-for-34">Planned changes for 3.4</h4>
+
+<ul>
+  <li>Implement the items detailed at <a href="#phase-2---enhanced-vm-networking">Phase 2- Enhanced VM networking</a></li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>The integration of network providers into oVirt will be incremental. The following phases outline the general guidelines and considerations.</p>
+
+<h3 id="phase-1---tech-preview">Phase 1 - Tech Preview</h3>
+
+<ul>
+  <li>Add Neutron as an external provider.
+    <ul>
+      <li>Support for Linux Bridge plugin</li>
+      <li>Support for OVS plugin?</li>
+    </ul>
+  </li>
+  <li>Each Neutron plugin will have a corresponding vNIC driver in VDSM, that can connect the vNIC to Neutron.
+    <ul>
+      <li>Current implementation will be done by hooks.</li>
+    </ul>
+  </li>
+  <li>No support for pre-built ovirt-node (or RHEV-H).</li>
+  <li>Integration - with Neutron Grizzly.</li>
+</ul>
+
+<h4 id="network-provider-entity">Network provider entity</h4>
+
+<ul>
+  <li>Introducing a ‘Provider’ entity that will have the following properties:
+    <ul>
+      <li>Name</li>
+      <li>Description</li>
+      <li>Type (from a fixed list of types)</li>
+      <li>URL</li>
+      <li>User/Password ?</li>
+    </ul>
+  </li>
+  <li>Possibly, different providers can have additional properties that are needed by them.</li>
+</ul>
+
+<h4 id="changes-in-network-entity">Changes in network entity</h4>
+
+<ul>
+  <li>Each network can be provided <strong>either</strong> by oVirt or by the external provider.</li>
+  <li>This requires that each network has a link to the provider:
+    <ul>
+      <li>If the link is set, then this network is provided by the external provider.</li>
+      <li>If the link is not set, the network is not provided externally.</li>
+    </ul>
+  </li>
+  <li>There should also be an ID property of the network on the external provider.</li>
+  <li>One external provider will be supported for a network.
+    <ul>
+      <li>However, an external provider can provide multiple networks.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="effective-limitations">Effective limitations</h4>
+
+<ul>
+  <li>All networks provided by an external provider will be VM networks.</li>
+  <li>Importing the same network more than once should be defined as supported for different DCs but blocked otherwise.</li>
+  <li>External network cannot be used as a display network.</li>
+  <li>If a network is externally provided, it will <strong>not</strong> be editable in oVirt, since the external provider is responsible for managing the actual network configuration.</li>
+  <li>External network will always be non required.
+    <ul>
+      <li>Scheduling for the cluster the network is attached to will not take the network into host selection consideration.</li>
+      <li>This effectively means that the user is responsible for Neutron availability on all the hosts in a given cluster the external network is attached to.</li>
+    </ul>
+  </li>
+  <li>Port mirroring is not available for virtual NICs connected to external networks.</li>
+  <li>Block deleting provider if there are VMs using the networks it provides.</li>
+</ul>
+
+<h4 id="integration-with-virtual-nic-lifecycle">Integration with virtual NIC lifecycle</h4>
+
+<p><img src="/ovirt-site/previews/2664/images/wiki/Neutron_vNIC_lifecycle.png" alt="A flow chart outlining the major lifecycle stages and the transitions between them." title="A flow chart outlining the major lifecycle stages and the transitions between them." /></p>
+
+<ul>
+  <li>Port creation on the external network will be done at this phase for running virtual machine and hot plug of NICs.
+    <ul>
+      <li>Rewiring will <strong>not</strong> be supported for externally provided networks (Will be supported in a future phase).</li>
+    </ul>
+  </li>
+  <li>When VM is being run we need to include all hosts in the cluster for scheduling decision of available networks.</li>
+  <li>For each virtual NIC that is using an externally provided network, we would need to provision the NIC (create port or use existing one) on the provider and receive the NIC connection details prior to running the VM.
+    <ul>
+      <li>Once we have all the details available, we would need to pass those details to VDSM.
+        <ul>
+          <li>This requires API change in the ‘create’ verb that would pass the connection details for each NIC.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>The port will be deleted in these cases:
+    <ul>
+      <li>The virtual NIC is deleted from the VM.</li>
+      <li>The virtual VNIC profile is changed, so that it is no longer connected to the external network.</li>
+      <li>The VM is deleted.</li>
+      <li>The data center containing the external networks is deleted forcefully.</li>
+      <li>Snapshot operations (Preview, Undo) on the VM.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="phase-2---enhanced-vm-networking">Phase 2 - Enhanced VM networking</h3>
+
+<ul>
+  <li>Supporting Havana version.</li>
+  <li>Enhance network editing via oVirt.</li>
+  <li>Support proper scheduling for VMs on hosts.</li>
+  <li>Add support for IPAM.</li>
+  <li>Add support for security groups.</li>
+</ul>
+
+<h4 id="enhanced-network-support">Enhanced network support</h4>
+
+<ul>
+  <li>Add ability to delete the network from neutron as well.
+    <ul>
+      <li>When deleting the network from oVirt the user can check a box saying “Delete from external provider”.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="scheduling-changes">Scheduling changes</h4>
+
+<ul>
+  <li>Scheduling algorithm will take into account the fact that external networks are expected to be on the host.
+    <ul>
+      <li>The “hack” with config-tool will not be required anymore.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="subnets-sub-tab-for-external-networks">Subnets sub-tab for external networks</h4>
+
+<ul>
+  <li>A sub-tab will be added listing the subnets defined for the external network.
+    <ul>
+      <li>Sub-tab contents will be taken from the external provider itself, not cached by oVirt.</li>
+      <li>It will be possible to add/delete the subnets.</li>
+    </ul>
+  </li>
+  <li>A subnet entity will consist of:
+    <ul>
+      <li>Name - A name for the subnet</li>
+      <li>CIDR - An IP address specifying the network name plus the net mask prefix. e.g. 10.0.0.0/24
+        <ul>
+          <li>This will be used to allocate addresses to VMs on the subnet.</li>
+        </ul>
+      </li>
+      <li>IP version - Can choose either ipv4 (default) or ipv6</li>
+    </ul>
+  </li>
+  <li>The subnet will be used to allocate IPs to VMs on the external network.
+    <ul>
+      <li>If no subnets exist, the VM will not receive an IP.</li>
+      <li>If a subnet exists, the VM will receive an IP from it.</li>
+      <li>If more than one subnet exists, the VM will receive an IP from either of the subnets.</li>
+    </ul>
+  </li>
+  <li>IP will be delivered to the guest OS via DHCP (provided by the Neutron service).</li>
+</ul>
+
+<h4 id="security-groups">Security groups</h4>
+
+<p><strong>Note:</strong> Security groups are an API extensions which is only supported by some plugins. Since it’s supported by OVS and LB plugins this should work out of the box.</p>
+
+<ul>
+  <li>A custom property for specifying the security group(s) will be added to the vNIC custom properties list.
+    <ul>
+      <li>Using this property the user can specify on profile level what security group(s) this profile uses. Example of security groupt ID 45361d2f-4c45-4b85-8ed1-32f028495c8b</li>
+      <li>When using the property:
+        <ul>
+          <li>If not specifying it, the default Neutron behavior will occur (the default security group should be used).</li>
+          <li>If specifying with empty value, no security group should apply.</li>
+          <li>If specifying a list of one or more UUIDs of security groups, these groups will be used.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>The hook on VDSM will be changed to allow applying security groups (when necessary).
+    <ul>
+      <li>OVS does not support security groups yet, so the vNIC will be connected to a dedicated LB which will have the securtiy groups applied on. The LB will be connected to the integration OVS bridge using a veth pair (mimicking a patch cable).</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="future-phases">Future phases</h3>
+
+<h4 id="rest-api-support">REST API support</h4>
+
+<ul>
+  <li>Providers will be added as a top-level collection.</li>
+  <li>A provider will have a capabilities sub collection:
+    <ul>
+      <li>Currently, the only capability type will be “networking”.</li>
+      <li>Capability resource ID will be computed according to provider ID + capability type.</li>
+      <li>Networking capability will have a “networks” sub collection:
+        <ul>
+          <li>Networks sub collection will be the networks as discovered on the provider.</li>
+          <li>Network resource will have an ID matching its identity on the provider (or computed from it).</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Importing a network would be done by copying the resource XML and posting it on the top level networks resource.
+    <ul>
+      <li>The imported network would have a new ID which is oVirt internal.</li>
+      <li>The imported network would have a link to it’s origin network (The resource in the provider/capability context).</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="better-provisioning-of-networks-on-external-providers">Better provisioning of networks on external providers</h4>
+
+<ul>
+  <li>Add a way to know network no longer exists on the provider.</li>
+  <li>Experimental - add a way to convert an oVirt network to an external network (nice to have).
+    <ul>
+      <li>The user can choose to export the network to an external provider.</li>
+      <li>The network needs to be manually removed from hosts that have it (or perhaps with host profile this can be improved).</li>
+      <li>The network parameters will be exported to the provider, the existing configuration (vNICs, profiles, permissions) will remain.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="auto-discovery-of-networks">Auto-Discovery of networks</h4>
+
+<ul>
+  <li>An external provider would be set up as the provider of networking for a DC, such that any network defined on the provider will be discovered by oVirt and automatically set-up on the DC.</li>
+</ul>
+
+<h4 id="leverage-advanced-technologies">Leverage advanced technologies</h4>
+
+<ul>
+  <li>L3 routing for creating virtual routers.</li>
+  <li>VPNAAS, LBAAS</li>
+</ul>
+
+<h3 id="user-experience">User Experience</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>![ thumb</td>
+      <td>right](/images/wiki/Providers.png) ![ thumb</td>
+      <td>right](/images/wiki/Discovery.png) ![ thumb</td>
+      <td>right](/images/wiki/Add.png) ![ thumb</td>
+      <td>right](/images/wiki/Networks.png)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>To represent the new Provider entity in our project, we’re planning to add a new tab for Providers. At first it will only be populated with network Providers, but later on it might include Providers of other resource types as well.</li>
+  <li>Adding a new Provider in oVirt will comprise supplying an arbitrary name for it, and a URL address from which entities may be imported. We’re planning to add a graphical indication of the connection to the supplied URL address.</li>
+  <li>When a specific Provider is chosen, subtabs displaying information concerning that Provider will appear (as with any other entity). To begin with, General and Networks subtabs will be implemented.</li>
+  <li>The main function in the Provider/Networks subtab will be to “Discover” the networks provided, which will open a popup window enabling attachment of provided networks to DC(s).</li>
+  <li>The user will also be able to create new networks to be attached to the Provider from within oVirt.</li>
+  <li>The provider entity should also be reflected in the system tree. We are currently intending to add another node between the System node and the specific DCs called “Data Centers”, and on the same level a node called “Providers” (as they are not part of the DCs, but rather interfaces to external entities). Under the Providers node, will be displayed the Providers that exist in the engine’s DB. We haven’t thought about icons for these entities - maybe something general for Providers and something to do with Neutron for the current network providers (future providers will have other icons corresponding to their types).</li>
+  <li>The link between the Provider and its provided entity (in our case, a network) needs to also be reflected in the provided entity. Therefore, we’ll add a Provider column to each network tab/subtab. Also, to make access to the Provider easier for the user, we’re planning to have the text link to the actual Provider tab.</li>
+</ul>
+
+<h3 id="installationupgrade">Installation/Upgrade</h3>
+
+<h3 id="user-work-flows">User work-flows</h3>
+
+<h4 id="openstack-networking--identity-keystone-installation">OpenStack Networking &amp; Identity (Keystone) installation</h4>
+
+<p>All the components need to be installed, and set to run on startup.</p>
+
+<h5 id="configure-keystone">Configure Keystone</h5>
+
+<ol>
+  <li>Install keystone
+    <ol>
+      <li>Steps described at: <a href="http://fedoraproject.org/wiki/Getting_started_with_OpenStack_on_Fedora_17#Initial_Keystone_setup">http://fedoraproject.org/wiki/Getting_started_with_OpenStack_on_Fedora_17#Initial_Keystone_setup</a></li>
+    </ol>
+  </li>
+  <li>Configure Neutron in keystone
+    <ol>
+      <li>Add Neutron service</li>
+      <li>Add Neutron admin user</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Note: get_id function is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  function get_id () {
+  `     echo `"$@" | grep ' id ' | awk '{print $4}'` `
+  }
+</code></pre></div></div>
+
+<h5 id="configure-neutron-manager">Configure Neutron manager</h5>
+
+<ol>
+  <li>Install Neutron manger
+    <ol>
+      <li>Install Neutron plugin</li>
+      <li>Run plugin self configuration (This will create the DB)</li>
+      <li>Configure /etc/quantum/quantum.conf:
+        <ol>
+          <li>Choose qpid by un-commenting the corresponding values</li>
+          <li>Un-comment notification_driver = quantum.openstack.common.notifier.list_notifier</li>
+        </ol>
+      </li>
+      <li>Configure /etc/quantum/plugin.ini:
+        <ol>
+          <li>Fill correct IP in sql_connection</li>
+          <li>Change: tenant_network_type = vlan</li>
+          <li>Edit: network_vlan_ranges = <label>:<tag start="">:<tag end="">,physnet1:1000:2999</tag></tag></label></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h4 id="ovirt-engine-required-configuration">oVirt Engine required configuration</h4>
+
+<p>You need to configure the keystone URL:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  engine-config --set KeystoneAuthUrl=http://&lt;host.fqdn&gt;:35357/v2.0/
+</code></pre></div></div>
+
+<p>For oVirt versions less than 3.4, You also need to enable a setting that only required networks are considered for VM scheduling:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
+</code></pre></div></div>
+
+<p>Don’t forget to restart the ovirt-engine service!</p>
+
+<h4 id="agent-installation-on-host">Agent installation on host</h4>
+
+<ol>
+  <li>Install Neutron plugin (same plugin as in the manager)</li>
+  <li>Configure the Neutron manger IP (rabbit_host =)</li>
+  <li>Run plugin self configuration (for creating the link of plugin.ini to the specific config)</li>
+  <li>When using Linux Bridge only:
+    <ol>
+      <li>Override file for creating a tap connected to dummy bridge</li>
+    </ol>
+  </li>
+</ol>
+
+<h4 id="linuxbridge-agent-installation-steps">Linuxbridge Agent installation steps</h4>
+
+<p>The following properties are required:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  QPID_HOST - the QPID host address
+  INTERFACE_MAPPING - the physical interface mapping, e.g. default:eth1.
+</code></pre></div></div>
+
+<p>The following properties are optional:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  qpid_username - QPID server's username
+  qpid_password - QPID server user's password
+  qpid_port - QPID server port
+</code></pre></div></div>
+
+<p>Once the properties are set, the following sequence will install, configure and start the linuxbridge agent:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  yum install -y openstack-quantum-linuxbridge
+  LB_CONF=/etc/quantum/plugins/linuxbridge/linuxbridge_conf.ini
+  Q_CONF=/etc/quantum/quantum.conf
+  # configuring QPID host
+  /usr/bin/openstack-config --set ${Q_CONF} DEFAULT rpc_backend quantum.openstack.common.rpc.impl_qpid
+  /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_hostname ${QPID_HOST}
+  if [[ -n "${qpid_username}" ]]; then
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_username ${qpid_username}
+  fi
+  if [[ -n "${qpid_password}" ]]; then
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_password ${qpid_password}
+  fi
+  if [[ -n "${qpid_port}" ]]; then
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_port ${qpid_port}
+  fi
+  rm -f /etc/quantum/plugin.ini
+  ln -s ${LB_CONF} /etc/quantum/plugin.ini
+  # edit /etc/quantum/plugin.ini physical_interface_mappings
+  /usr/bin/openstack-config --set ${LB_CONF} LINUX_BRIDGE physical_interface_mappings ${INTERFACE_MAPPING}
+  systemctl daemon-reload
+  service quantum-linuxbridge-agent start
+  chkconfig quantum-linuxbridge-agent on
+</code></pre></div></div>
+
+<h4 id="ovs-agent-installation-steps">OVS Agent installation steps</h4>
+
+<p>The following properties are required:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  QPID_HOST - the QPID host address
+  BRIDGE_MAPPINGS - List of `&lt;physical_network&gt;`:`&lt;bridge&gt;`, each specifying the OVS bridge used by the agent for a connected physical network.
+  INTERNAL_BRIDGE - the OVS integration bridge (default br-int)
+</code></pre></div></div>
+
+<p>The following properties are optional:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  qpid_username - QPID server's username
+  qpid_password - QPID server user's password
+  qpid_port - QPID server port
+</code></pre></div></div>
+
+<p>Once the properties are set, the following sequence will install, configure and start the OVS agent:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sudo yum install -y openstack-quantum-openvswitch
+  OVS_CONF=/etc/quantum/plugins/openvswitch/ovs_quantum_plugin.ini
+  Q_CONF=/etc/quantum/quantum.conf
+  # configuring QPID host
+  /usr/bin/openstack-config --set ${Q_CONF} DEFAULT rpc_backend quantum.openstack.common.rpc.impl_qpid
+  /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_hostname ${QPID_HOST}
+  if [[ -n "${qpid_username}" ]]; then
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_username ${qpid_username}
+  fi
+  if [[ -n "${qpid_password}" ]]; then
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_password ${qpid_password}
+  fi
+  if [[ -n "${qpid_port}" ]]; then
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_port ${qpid_port}
+  fi
+  rm -f /etc/quantum/plugin.ini
+  ln -s ${OVS_CONF} /etc/quantum/plugin.ini
+  /usr/bin/openstack-config --set ${OVS_CONF} OVS bridge_mappings ${BRIDGE_MAPPINGS}
+  service openvswitch start
+  chkconfig openvswitch on
+  ovs-vsctl add-br ${INTERNAL_BRIDGE}
+  ovs-vsctl add-br br-eth0 # should create bridge for each network as specified on ${BRIDGE_MAPPINGS}
+  service quantum-openvswitch-agent start
+  chkconfig quantum-openvswitch-agent on
+  chkconfig quantum-ovs-cleanup on
+</code></pre></div></div>
+
+<h3 id="events">Events</h3>
+
+<h2 id="dependencies--related-features-and-projects">Dependencies / Related Features and Projects</h2>
+
+<p>Please see the <a href="/ovirt-site/previews/2664/develop/release-management/features/network/osn-integration.html">feature page</a>.</p>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<ul>
+  <li><a href="https://wiki.openstack.org/wiki/Neutron/APIv2-specification">https://wiki.openstack.org/wiki/Neutron/APIv2-specification</a></li>
+  <li><a href="http://docs.openstack.org/api/openstack-network/2.0/content/">http://docs.openstack.org/api/openstack-network/2.0/content/</a></li>
+</ul>
+
+<h2 id="open-issues">Open Issues</h2>
+
+<ul>
+  <li>Scheduling:
+    <ul>
+      <li>Neutron exposes an API (Agent Scheduler) which can be used to know which hosts will be able to provision it’s networks.
+        <ul>
+          <li>Need to take advantage of this.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=878481">Libvirt bug</a> still not solved, but we have a fix for it as a post-start hook.</li>
+  <li>REST API support will not be available in Phase 1, how will this effect the REST API clients?</li>
+</ul>
+
+<h2 id="proof-of-concept">Proof of Concept</h2>
+
+<p>A POC was done with the proposed ideas in “Phase 1” section, integrating <a href="https://wiki.openstack.org/wiki/Neutron">Openstack Neutron</a> as an external network provider. the POC is available for review &amp; testing.</p>
+
+<h3 id="poc-sources">POC Sources</h3>
+
+<p>The POC sources can be found in the oVirt gerrit under a topic branch: <a href="http://gerrit.ovirt.org/#/q/status:open+project:ovirt-engine+branch:master+topic:POC_NetworkProvider,n,z">http://gerrit.ovirt.org/#/q/status:open+project:ovirt-engine+branch:master+topic:POC_NetworkProvider,n,z</a></p>
+
+<h3 id="hack-in-neutron-linux-bridge-agent">Hack in Neutron linux bridge agent</h3>
+
+<p>Due to a bug in libvirt (https://bugzilla.redhat.com/show_bug.cgi?id=878481) we had to connect the vNIC to the ;vdsmdummy; bridge in VDSM. The Neutron agent will detect the tap device (the physical implementation of the vNIC) and attempt to connect it to it’s bridge but fail because it’s already connected to the dummy bridge.</p>
+
+<p>To fix this, you would need to edit the installed linuxbridge_quantum_agent.py file and add this line of code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>             utils.execute(['brctl', 'delif', ';vdsmdummy;', tap_device_name], root_helper=self.root_helper)
+</code></pre></div></div>
+
+<p>Inside the method <strong>add_tap_interface</strong>, right before:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>             if utils.execute(['brctl', 'addif', bridge_name, tap_device_name],
+                              root_helper=self.root_helper):
+</code></pre></div></div>
+
+<h3 id="demo-videos">Demo Videos</h3>
+
+<p>Demo videos of the POC in action are available on youtube.</p>
+
+<h4 id="the-1st-part-the-providers-tab-discovery-etc">The 1st part (the providers tab, discovery, etc)</h4>
+
+<p><a href="http://www.youtube.com/watch?v=yXqN17KktjE">http://www.youtube.com/watch?v=yXqN17KktjE</a></p>
+
+<h4 id="the-2nd-part-vm-connectivity">The 2nd part (VM connectivity)</h4>
+
+<p><a href="http://www.youtube.com/watch?v=uW3vrY2Y3xc">http://www.youtube.com/watch?v=uW3vrY2Y3xc</a></p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2664/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2664/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2664/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2664/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/detailed-osn-integration.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/detailed-osn-integration.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

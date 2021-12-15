@@ -8,11 +8,11 @@ include::common/collateral_files/attributes.adoc[]
 
 :upgrade:
 
-include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[leveloffset=+1]
+include::chap-Red_Hat_Virtualization_Upgrade_Overview.adoc[]
 
 ////
 
-// Fast-forward does not work with migration from 4.3 to 4.4, because the migration path requires installing RHEL 8.2 or later before you can install RHV 4.4.
+>> Fast-forward does not work with migration from 4.3 to 4.4, because the migration path requires installing RHEL 8.2 or later before you can install RHV 4.4.
 
 = Fast-forward Upgrading a Local Database Environment
 
@@ -25,7 +25,6 @@ include::topics/ovirt-fast-forward-upgrade_Explained.adoc[leveloffset=+1]
 include::assembly-Upgrading_from_4-2_ff.adoc[leveloffset=+1]
 
 :local_database_upgrade_ff!:
-
 ////
 
 ////
@@ -36,14 +35,10 @@ include::topics/ovirt-fast-forward-upgrade_Explained.adoc[leveloffset=+1]
 
 include::assembly-SHE_Upgrading_from_4-2_ff.adoc[leveloffset=+1]
 :SHE_upgrade_ff!:
-
 ////
 
-= Upgrading a standalone {engine-name}, local database environment
+= Upgrading a standalone {engine-name} local database environment
 :local_database_upgrade:
-// include::assembly-Upgrading_from_4-0.adoc[leveloffset=+1]
-
-// include::assembly-Upgrading_from_4-1.adoc[leveloffset=+1]
 
 include::assembly-Upgrading_from_4-2.adoc[leveloffset=+1]
 
@@ -52,9 +47,6 @@ include::assembly-Upgrading_from_4-3.adoc[leveloffset=+1]
 
 = Upgrading a standalone {engine-name} remote database environment
 :remote_database_upgrade:
-// include::assembly-Remote_Upgrading_from_4-0.adoc[leveloffset=+1]
-
-// include::assembly-Remote_Upgrading_from_4-1.adoc[leveloffset=+1]
 
 include::assembly-Remote_Upgrading_from_4-2.adoc[leveloffset=+1]
 
@@ -84,12 +76,12 @@ include::topics/Updating_the_Local_Repository_for_an_Offline_Red_Hat_Virtualizat
 [appendix]
 include::topics/installing_virtual_product_hypervisors_from_local_repository.adoc[leveloffset=+1]
 
-//[appendix]
+
 
 === Additional resources
 
 * See xref:Updating_the_Red_Hat_Virtualization_Manager_minor_updates[Updating the {virt-product-fullname} {engine-name}] for information on updating the {engine-name} between minor versions.
-// * See xref:Red_Hat_Virtualization_Upgrade_Overview[{virt-product-fullname} Upgrade Overview] for information on upgrading between major versions.
+* See xref:Red_Hat_Virtualization_Upgrade_Overview[{virt-product-fullname} Upgrade Overview] for information on upgrading between major versions.
 
 :appendices!:
 

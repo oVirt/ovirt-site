@@ -21,7 +21,7 @@ guest data regardless of the underlying disk format.
 
 - Nir Soffer (<nsoffer@redhat.com>)
 - Daniel Erez (<derez@redhat.com>)
-- Eyal Shenitzky (<eshenitz@redhat.com>)
+- Eyal Shenitzky
 
 
 ## High level Design

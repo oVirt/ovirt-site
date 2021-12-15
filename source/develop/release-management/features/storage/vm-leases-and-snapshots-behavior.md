@@ -13,7 +13,6 @@ Aligns the behavior of VM with a lease and VM snapshots operations.
 ## Owner
 
 *   Name: Eyal Shenitzky
-*   Email: eshenitz@redhat.com
 
 ## Description
 The VM leases feature was introduced in oVirt engine 4.1 version.

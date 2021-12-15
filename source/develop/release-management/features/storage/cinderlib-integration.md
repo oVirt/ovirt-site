@@ -20,7 +20,7 @@ This feature enables the user to be able to consume any storage backend supporte
 
 *   Fred Rolland (<frolland@redhat.com>)
 *   Benny Zlotnik (<bzlotnik@redhat.com>)
-*   Eyal Shenitzky (<eshenitz@redhat.com>)
+*   Eyal Shenitzky
 
 ### Detailed Description
 

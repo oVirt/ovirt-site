@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Hot Unplug Memory | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Hot Unplug Memory" />
+<meta name="author" content="Milan Zamazal" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2665/develop/release-management/features/virt/hot-unplug-memory.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2665/develop/release-management/features/virt/hot-unplug-memory.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Hot Unplug Memory" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Milan Zamazal" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Milan Zamazal"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2665/images/logo.svg"},"name":"Milan Zamazal"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Hot Unplug Memory","url":"https://ovirt.github.io/ovirt-site/previews/2665/develop/release-management/features/virt/hot-unplug-memory.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2665/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2665/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2665/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2665/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2665/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2665/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2665/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2665/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2665/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2665/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2665/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2665/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2665/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2665/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2665/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2665/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2665/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2665/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2665/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2665/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2665/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2665/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2665/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2665/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2665/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2665/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2665/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2665/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2665/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2665/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2665/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2665/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2665/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2665/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2665/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2665//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2665//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2665/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2665/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2665/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2665/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2665/develop/release-management/features/virt/">
+              <span property="name">Virt</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f4f3e4820685eab0c3b448e59d3f2703?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f4f3e4820685eab0c3b448e59d3f2703?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Milan Zamazal</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c468e8a042b6d6be9a7bd0f6cbc51157?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c468e8a042b6d6be9a7bd0f6cbc51157?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Jakub Niedermertl</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2665/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="hot-unplug-memory">Hot unplug memory</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature allows removing memory from a VM while the VM is running.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Milan Zamazal</li>
+  <li>Email: mzamazal@redhat.com</li>
+  <li>BZ: https://bugzilla.redhat.com/show_bug.cgi?id=1228543</li>
+</ul>
+
+<h2 id="description">Description</h2>
+
+<p>Until now, it was possible to only add memory to a running VM.  In order to
+remove memory from a VM, the VM had to be shut down.</p>
+
+<p>It is now possible to hot unplug memory from a running VM.  However there are
+some limitations:</p>
+
+<ul>
+  <li>
+    <p>You can’t remove arbitrary amount of memory.  Only previously hot plugged
+memory devices can be removed.</p>
+  </li>
+  <li>
+    <p>The guest OS must support memory hot unplug.  Up-to-date RHEL/CentOS 7
+systems support it.</p>
+  </li>
+  <li>
+    <p>All blocks of the previously hot plugged memory must be onlined as movable.</p>
+  </li>
+  <li>
+    <p>It is not recommended to combine memory hot unplug with memory ballooning.</p>
+  </li>
+</ul>
+
+<p>If any of those conditions is not satisfied, the memory hot unplug action may
+fail or cause problems.</p>
+
+<h2 id="making-hot-plugged-memory-movable">Making hot plugged memory movable</h2>
+
+<p>To fulfill the requirement of making hot plugged memory movable on an
+up-to-date RHEL/CentOS 7 guest system, ovirt-guest-agent of version
+1.0.13-2.el7 or higher must be installed in the guest.  Please note that proper
+ovirt-guest-agent version must be installed in the guest prior to hot plugging
+any memory in order to guarantee that hot plugged memory is movable.</p>
+
+<p>There is no ovirt-guest-agent on RHEL/CentOS 8.  For such guests,
+there are two options to make the hot plugged memory movable:</p>
+
+<ul>
+  <li>
+    <p>Add <code class="language-plaintext highlighter-rouge">movable_node</code> option to the guest kernel command line and
+reboot the VM.</p>
+  </li>
+  <li>
+    <p>Override the memory hot plug udev rule from
+<code class="language-plaintext highlighter-rouge">/lib/udev/rules.d/40-redhat.rules</code> by copying
+<code class="language-plaintext highlighter-rouge"># Memory hotadd request</code> section from it to a new rule file
+<code class="language-plaintext highlighter-rouge">/etc/udev/rules.d/39-redhat.rules</code> and changing
+<code class="language-plaintext highlighter-rouge">ENV{.state}="online"</code> line to <code class="language-plaintext highlighter-rouge">ENV{.state}="online_movable"</code> there.
+Then reload udev rules.  Note that the original rule may change
+on system updates, you should check it for contingent changes after
+system upgrades.</p>
+  </li>
+</ul>
+
+<p>You can apply either of the two options.</p>
+
+<h2 id="how-to-hot-unplug-memory-from-a-vm">How to hot unplug memory from a VM</h2>
+
+<h3 id="webadmin">WebAdmin</h3>
+
+<p>The previously hot plugged memory appears in the form of memory devices in
+<em>Vm Devices</em> tab of the given VM.  You can remove any of the devices (assuming
+they have been hot plugged considering the constraints described above) and
+thus remove that amount of memory from the VM.  Once the memory device is
+successfully hot unplugged the device disappears from the device list.</p>
+
+<p><em>Physical Memory Guaranteed</em> is decremented if necessary.</p>
+
+<p>If next run configuration exists and its memory values is the same as the memory
+size of the running VM before hot unplug, next run configuration is updated.</p>
+
+<p><img src="/ovirt-site/previews/2665/images/wiki/memory-hot-unplug-webadmin.png" alt="" title="Memory hot unplug button in 'VM Devices' tab in Administration Portal" /></p>
+
+<h3 id="rest-api">REST API</h3>
+
+<p>Memory hot unplug can be performed by updating a VM with decremented value
+of <code class="language-plaintext highlighter-rouge">/vm/memory</code> tag. It may be required to decrement value of <em>Physical
+Memory Guaranteed</em> (<code class="language-plaintext highlighter-rouge">vm/memory_policy/guaranteed</code>) as well to keep it lesser than
+value of memory. Both properties are set in bytes that are later floored to MiB.</p>
+
+<p>Memory devices to hot unplug are picked so that sum of sizes of hot unplugged
+devices will be smaller or equal to requested memory size decrement.</p>
+
+<p>Values for next run configuration are not rounded.</p>
+
+<h4 id="example">Example</h4>
+
+<p>Let’s suppose there is a running VM started with 1GiB memory that was given three 
+256MiB hot-plugs. This resulted in additional memory devices of following sizes:
+256MiB, 256MiB, 128MiB, 128MiB and the VM having 1792MiB memory available in total.</p>
+
+<p>Firing request requiring 1400MiB memory and 900MiB physical memory guaranteed will
+result in updating next run configuration with memory of 1400MiB and physical memory
+guaranteed of 900MiB. Currently running VM will be asked to release memory devices
+of sizes 256MiB and 128MiB. Thus the VM will end up with 1792MiB - (256MiB + 128MiB)
+= 1408MiB &gt;= requested 1400MiB. Physical memory guaranteed will be hot set to value
+900MiB.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT api/vms/{vmId}
+
+<span class="nt">&lt;vm&gt;</span>
+    <span class="nt">&lt;memory&gt;</span>1468006400<span class="nt">&lt;/memory&gt;</span> <span class="c">&lt;!-- 1400 * 1024^2 --&gt;</span>
+    
+    <span class="c">&lt;!-- and optionally --&gt;</span>
+    <span class="nt">&lt;memory_policy&gt;</span>
+        <span class="nt">&lt;guaranteed&gt;</span>943718400<span class="nt">&lt;/guaranteed&gt;</span> <span class="c">&lt;!-- 900 * 1024^2 --&gt;</span>
+    <span class="nt">&lt;/memory_policy&gt;</span>
+<span class="nt">&lt;/vm&gt;</span>
+</code></pre></div></div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2665/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2665/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2665/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2665/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/hot-unplug-memory.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/hot-unplug-memory.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Vdsm Developers | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Vdsm Developers" />
+<meta name="author" content="Alissa Bonas" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2665/develop/developer-guide/vdsm/developers.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2665/develop/developer-guide/vdsm/developers.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Vdsm Developers" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Alissa Bonas" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Alissa Bonas"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2665/images/logo.svg"},"name":"Alissa Bonas"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Vdsm Developers","url":"https://ovirt.github.io/ovirt-site/previews/2665/develop/developer-guide/vdsm/developers.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2665/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2665/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2665/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2665/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2665/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2665/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2665/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2665/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2665/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2665/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2665/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2665/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2665/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2665/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2665/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2665/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2665/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2665/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2665/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2665/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2665/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2665/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2665/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2665/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2665/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2665/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2665/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2665/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2665/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2665/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2665/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2665/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2665/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2665/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2665/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2665//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2665//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2665/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2665/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2665/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2665/develop/developer-guide/vdsm/">
+              <span property="name">Vdsm</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/677352fd1b8df8eb377e140bc231c54a?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/677352fd1b8df8eb377e140bc231c54a?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alissa Bonas</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d17fe401696c1bc6269a18d0a9c3132c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d17fe401696c1bc6269a18d0a9c3132c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Andrew Dahms</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d7aa61bce7ade9bd95d59605ce3b4d6e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Assaf Muller</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/869d772390b0b317e4b37bb0714ab68e?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Allon Mureinik</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/59fe8990e994aec354badbb1b2f5fde9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/59fe8990e994aec354badbb1b2f5fde9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Amador Pahim</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/db1d4d5768b93e73e7a5decee7956855?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/db1d4d5768b93e73e7a5decee7956855?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Alan Pevec</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d82d85b7a1f1dca30d833f777fc0c7df?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d82d85b7a1f1dca30d833f777fc0c7df?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Douglas Landgraf</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/8c026e3f09c38f3f685f886fc95f1dc9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/8c026e3f09c38f3f685f886fc95f1dc9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Ewoud Kohl van Wijngaarden</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/7054bd65a0f097bbc1e54f4652d59f8b?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/7054bd65a0f097bbc1e54f4652d59f8b?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Francesco Romani</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/361364687a20a9ac6bde72c339b1b6f3?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/361364687a20a9ac6bde72c339b1b6f3?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">R P Herrold</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/81976785063afb57d4f3c113b2744d07?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/81976785063afb57d4f3c113b2744d07?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Itzik Brown</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f9883612f789d69b89b9449fb740ca53?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f9883612f789d69b89b9449fb740ca53?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Laszlo Hornyak</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/1aea6f5822d7287d6ac8fb61b3905243?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/1aea6f5822d7287d6ac8fb61b3905243?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Martin Betak</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/db6bc448daa2b0b1315b0184bbcc9b77?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/db6bc448daa2b0b1315b0184bbcc9b77?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Maor Lipchuk</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/5ac847571702ef76c9b9fc6f628f0e3c?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/5ac847571702ef76c9b9fc6f628f0e3c?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Mooli Tayer</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Moti Asayag</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d2a1475a4145a459ac3565cc97fa39f5?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d2a1475a4145a459ac3565cc97fa39f5?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Martin Pavlik</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Nir Soffer</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/262851154d9e06625593cbf205f180cf?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/262851154d9e06625593cbf205f180cf?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Petr Horáček</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6456ce62722aa89078d2d3596d88fb41?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6456ce62722aa89078d2d3596d88fb41?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Karsten 'quaid' Wade</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/65fafd7adcef0c369b149759491fae7f?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard"></span><a rel="author" href="https://twitter.com/sandrobonazzola" title="Sandro Bonazzola">Sandro Bonazzola</a></span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c489669ce6f88f4b35f0d0b4464250f2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c489669ce6f88f4b35f0d0b4464250f2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Steve Gordon</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cd28135f3bdc2a6146213104dfe6bf79?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cd28135f3bdc2a6146213104dfe6bf79?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Shmuel Leib Melamud</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/2141b2c089d81202329756890d5270a2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/2141b2c089d81202329756890d5270a2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vered Volansky</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/469b83a72384b6c5feffe3f7ebc1e853?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/469b83a72384b6c5feffe3f7ebc1e853?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vinzenz Feenstra</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f84744a8673f28debaa570cc085d2c89?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f84744a8673f28debaa570cc085d2c89?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Vitor de Lima</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/abcbcf7fb896ca4f42e2134aba4b318d?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/abcbcf7fb896ca4f42e2134aba4b318d?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yaniv Bronhaim</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9ba64bad62810ce4f4d5ea0df5bb75c2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9ba64bad62810ce4f4d5ea0df5bb75c2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yaniv Bronheim</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="vdsm-developers">Vdsm Developers</h1>
+
+<h2 id="installing-the-required-repositories">Installing the required repositories</h2>
+
+<p>To build VDSM, enable the oVirt repositories by following the <a href="/ovirt-site/previews/2665/develop/dev-process/install-nightly-snapshot.html">Install nightly snapshot</a> guide.</p>
+
+<p>This adds all the required repositories for you, including:</p>
+
+<ul>
+  <li>EPEL repositories for Red Hat Enterprise Linux, CentOS or similar distributions</li>
+  <li>GlusterFS repositories</li>
+  <li>Fedora Virtualization Preview repositories for Fedora or similar distributions</li>
+  <li>All required GPG keys.</li>
+</ul>
+
+<p>VDSM requires Python 2 as your /usr/bin/python.</p>
+
+<h2 id="getting-the-source">Getting the source</h2>
+
+<p>Our public git repository is located at: <a href="http://gerrit.ovirt.org/gitweb?p=vdsm.git">oVirt.org</a></p>
+
+<p>You can clone this repository by running the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git clone "https://gerrit.ovirt.org/vdsm"
+</code></pre></div></div>
+
+<h2 id="installing-the-required-packages">Installing the required packages</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  yum install `cat automation/check-patch.packages.el7`
+</code></pre></div></div>
+
+<p>or if you are using Fedora (use .fc28 for Fedora 28):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  dnf install `cat automation/check-patch.packages.fc28`
+</code></pre></div></div>
+
+<p>On any platform, you should also setup VDSM virtual environment.
+Follow the setup steps in <a href="https://github.com/oVirt/vdsm#development-environment-setup">README.md</a></p>
+
+<p>Once you activate the virtual environment the required development tools
+during the build and testing will be available (e.g. tox), keeping your system
+clean.</p>
+
+<p>If pip is not available in your distribution, you can install it using
+easy_install:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>easy_install pip
+</code></pre></div></div>
+
+<h2 id="configuring-the-source">Configuring the source</h2>
+
+<p>VDSM uses autoconf and automake as its build system.</p>
+
+<p>To configure a development build environment:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ./autogen.sh --system --enable-timestamp
+</code></pre></div></div>
+
+<p>To see available options:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ./configure --help
+</code></pre></div></div>
+
+<h2 id="setup-virtual-environment">Setup virtual environment</h2>
+
+<p>Follow the development environment setup in <a href="https://github.com/oVirt/vdsm#development-environment-setup">README.md</a></p>
+
+<p>Make sure to activate the virtual environment before running any tests</p>
+
+<h2 id="testing">Testing</h2>
+
+<p>Execute make to compile VDSM first:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # make
+</code></pre></div></div>
+
+<p>Storage tests require additional setup of fake devices (replace ‘setup’ with ‘teardown’ for cleanup):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # python ./tests/storage/userstorage.py setup
+</code></pre></div></div>
+
+<p>Running the tests except slow and stress tests:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  make check
+</code></pre></div></div>
+
+<p>Running all tests, including slow and stress tests:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  make check-all
+</code></pre></div></div>
+
+<p>This is very slow and consumes lot of resources; running hundreds of
+threads and child processes.</p>
+
+<p>To exclude a specific test (test_foo):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  make check NOSE_EXCLUDE=test_foo
+</code></pre></div></div>
+
+<p>Running code style and quality checks:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> make flake8
+</code></pre></div></div>
+
+<p>Running code style and quality checks for specific files:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.tox/flake8/bin/flake8 /path/to/module.py
+</code></pre></div></div>
+
+<p>The command above works only after running make flake8 in the first
+time. You may want to install flake8 on your system for convenience.</p>
+
+<h3 id="testing-specific-modules">Testing specific modules</h3>
+
+<p>Running all the tests is too slow during development. It is recommended
+to run the relevant module tests while making changes, and run the
+entire test suite before submitting a patch.</p>
+
+<p>Legacy tests use <code class="language-plaintext highlighter-rouge">nose</code>, newer tests use <code class="language-plaintext highlighter-rouge">pytest</code>.
+Following sub-sections provide a quick reference how to run either <code class="language-plaintext highlighter-rouge">nose</code> or <code class="language-plaintext highlighter-rouge">pytest</code> based tests.
+Please see <code class="language-plaintext highlighter-rouge">tests/README</code> for more details about the VDSM tests and how to run them.</p>
+
+<h4 id="running-specific-nose-tests">Running specific nose tests</h4>
+
+<p>Please note that <code class="language-plaintext highlighter-rouge">run_test*</code> scripts are legacy and can be removed in the future.
+Preffered way how to run tests is using <code class="language-plaintext highlighter-rouge">tox</code>.</p>
+
+<p>To run specific tests:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd tests
+./run_tests_local.sh foo_test.py bar_test.py
+</code></pre></div></div>
+
+<p>To enable slow and stress tests:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./run_tests_local.sh --enable-slow-tests --enable-stress-tests foo_test.py bar_test.py
+</code></pre></div></div>
+
+<p>To run using different python executable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PYTHON_EXE=python3 ./run_tests_local.sh foo_test.py bar_test.py
+</code></pre></div></div>
+
+<h4 id="running-specific-pytest-tests">Running specific pytest tests</h4>
+
+<p>To run specific module with <code class="language-plaintext highlighter-rouge">tox</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tox -e storage-py27,storage-py36
+</code></pre></div></div>
+
+<p>To run specific test direcly via <code class="language-plaintext highlighter-rouge">pytest</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd tests
+export PYTHONPATH=../lib/
+pytest storage/blocksd_test.py
+</code></pre></div></div>
+
+<h2 id="building-a-vdsm-rpm">Building a VDSM RPM</h2>
+
+<p>To create an RPM:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  make rpm
+</code></pre></div></div>
+
+<p>VDSM automatically builds using the latest tagged version. If you want to explicitly define a version, use:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  make rpmversion=4.9 rpmrelease=999.funkyBranch
+</code></pre></div></div>
+
+<h2 id="building-with-hooks-support">Building with hooks support</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ./autogen.sh --system  --enable-hooks &amp;&amp; make rpm
+</code></pre></div></div>
+
+<h2 id="basic-installation">Basic installation</h2>
+
+<p>The easiest way is to start with vdsm from ovirt-release repos. If you
+added a host to engine, your host already installed. If you want to
+install vdsm on a new host not added to engine, install vdsm and
+vdsm-client:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf install vdsm vdsm-client
+</code></pre></div></div>
+
+<p>To install packages built using “make rpm” use dnf upgrade:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ~/rpmbuild/RPMS
+dnf upgrade */*.rpm
+</code></pre></div></div>
+
+<p>Before starting vdsmd service for the first time vdsm requires some configuration procedures for external services that being used by vdsmd. To ease this process vdsm provides a utility (vdsm-tool). To perform full reconfiguration of external services perform:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # vdsm-tool configure --force
+  (for more information read "vdsm-tool --help") 
+</code></pre></div></div>
+
+<p>Finally start the vdsmd service:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # service vdsmd start
+</code></pre></div></div>
+
+<h2 id="code-style">Code Style</h2>
+
+<p>See <a href="/ovirt-site/previews/2665/develop/developer-guide/vdsm/coding-guidelines.html">Vdsm Coding Guidelines</a>.</p>
+
+<h2 id="sending-patches">Sending patches</h2>
+
+<p>Send them to <a href="http://gerrit.ovirt.org">our gerrit server</a> (<a href="/ovirt-site/previews/2665/develop/dev-process/working-with-gerrit.html">see how</a>). With your first major patch, do not forget to add yourself to the AUTHORS file. Do not be shy - it gives you well-deserved recognition, and it shows to the team that you stand behind your code.</p>
+
+<p>Please be verbose in your commit message. Explain the motivation for your patch, and the reasoning behind it. This information assists the reviewers of your code, before and after it is submitted to the master branch.</p>
+
+<p>The commit message should follow the guidelines in the DISCUSSION section of <a href="http://kernel.org/pub/software/scm/git/docs/git-commit.html">http://kernel.org/pub/software/scm/git/docs/git-commit.html</a> : short subject line, empty line, verbose paragraphs.</p>
+
+<p>General development discussions are in <a href="https://lists.fedorahosted.org/mailman/listinfo/vdsm-devel">vdsm-devel@lists.fedorahosted.org</a>.</p>
+
+<h3 id="reviewer-comments">Reviewer Comments</h3>
+
+<p>Sending a patch in the open-source world can be difficult. You code, your “baby”, is scrutinized by people you do not know, who tend to find problems in it. The reviewer should comment on what’s good in your patch, and what is to be improved, and rate your change accordingly.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Score</th>
+      <th>What it means</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>+2</td>
+      <td>Changed approved. If it breaks and the author is gone, I’ll debug it.</td>
+    </tr>
+    <tr>
+      <td>+1</td>
+      <td>Looks good to me, I’m fine with the change going in as it is.</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>I did not review the patch, or otherwise do no have a solid opinion about it.</td>
+    </tr>
+    <tr>
+      <td>-1</td>
+      <td>The change should not be merged as it is. A little (or more) work is required.</td>
+    </tr>
+    <tr>
+      <td>-2</td>
+      <td>The change should not go in at all. It is badly designed or solves the wrong problem.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>One you tick the “Verified” checkbox, remember explaining how exactly you performed the verification. If it was a simple `make check` or `make rpm` – say so.</p>
+
+<h2 id="creating-a-local-yum-repository-to-test-changes-to-vdsm">Creating a local yum repository to test changes to VDSM</h2>
+
+<p>1) First, you must generate the rpm with your changes from the vdsm source directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #vdsm&gt; ./autogen.sh --system
+  #vdsm&gt; make
+  #vdsm&gt; make rpm
+</code></pre></div></div>
+
+<p><strong>Note</strong>: all rpm files will be generated at rpmbuild dir, usually: /home/your-user/rpmbuild/RPMS</p>
+
+<p>2) Setting environment:</p>
+
+<ul>
+  <li>
+    <p>Install required package</p>
+
+    <p># yum install createrepo -y</p>
+  </li>
+  <li>
+    <p>Enable httpd service (if it’s not installed, install it first with yum install httpd)</p>
+
+    <p># chkconfig httpd on</p>
+  </li>
+</ul>
+
+<p>or</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # ln -s '/lib/systemd/system/httpd.service' '/etc/systemd/system/multi-user.target.wants/httpd.service'
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Create the directory that will hold the rpm files (repo)</p>
+
+    <p># mkdir /var/www/html/my-vdsm-changes</p>
+  </li>
+  <li>
+    <p>Copy the vdsm packages to repo</p>
+
+    <p># cp ${HOME}/rpmbuild/RPMS/noarch/* /var/www/html/my-vdsm-changes
+  # cp ${HOME}/rpmbuild/RPMS/x86_64/* /var/www/html/my-vdsm-changes</p>
+  </li>
+  <li>
+    <p>Create the repo inside the yum.repos.d</p>
+
+    <p># vi /etc/yum.repos.d/my-vdsm-changes.repo
+  [my-vdsm-changes]
+  name = my vdsm changes
+  baseurl = http://127.0.0.1/my-vdsm-changes
+  enabled = 1
+  gpgcheck = 0</p>
+  </li>
+  <li>
+    <p>Execute createrepo tool</p>
+
+    <p># createrepo /var/www/html/my-vdsm-changes</p>
+  </li>
+  <li>
+    <p>Start httpd service</p>
+
+    <p># service httpd start</p>
+  </li>
+  <li>
+    <p>List all repos and see your new repo</p>
+
+    <p># yum repolist</p>
+  </li>
+</ul>
+
+<p><strong>Note</strong>: SELinux might throw permission denied to repo located at /var/www/html/</p>
+
+<h2 id="using-a-virtual-machine-console">Using a virtual machine console</h2>
+
+<p>If you want to use the console for a virtual machine using the Spice protocol (VNC is not supported right now), run the following command on the host running ovirt-engine:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># psql -U postgres engine -c "update vdc_options set option_value = 'false' 
+where option_name = 'UseSecureConnectionWithServers';"
+</code></pre></div></div>
+
+<h2 id="fake-kvm-support">Fake KVM Support</h2>
+
+<p>As developer you might need to add many hosts into your environment for tests. VDSM provides a functionality called ‘fake_kvm_support’ for <strong>VDSM quality assurance/developers</strong> emulate a real host/kvm hardware without running real guests.</p>
+
+<ul>
+  <li>1) Create a guest as Fedora 17 (Tested on Fedora 17 but should work in higher versions as well)</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>
+    <p>2) Install required packages</p>
+
+    <p># yum install vdsm-hook-faqemu -y</p>
+  </li>
+  <li>
+    <p>3) Change vdsm config file to enable this feature</p>
+
+    <p># vi /etc/vdsm/vdsm.conf 
+   [vars]</p>
+
+    <p>fake_kvm_support = true</p>
+  </li>
+  <li>
+    <p>4) Restart the vdsmd daemon (<strong>Only required if you had previously VDSM installed</strong>)</p>
+
+    <p># systemctl restart vdsmd.service</p>
+  </li>
+  <li>
+    <p>5) Open the oVirt Engine portal and add the new ‘Fake’ Host</p>
+
+    <p>Login with your admin user -&gt; Hosts -&gt; New</p>
+  </li>
+  <li>
+    <p>6) The host should be UP</p>
+  </li>
+</ul>
+
+<h3 id="troubleshooting-fake-kvm-support">Troubleshooting Fake KVM Support</h3>
+
+<p><strong>Problems adding the fake Host in the engine</strong></p>
+
+<p>The vdsm bootstrapper was deprecated and replaced by ovirt-host-deploy, the /usr/share/doc/ovirt-host-deploy-1.1.0/README, file includes details about how to configure a fake host.</p>
+
+<p>See see <a href="http://gerrit.ovirt.org/gitweb?p=ovirt-host-deploy.git;a=blob;f=README;hb=HEAD">ovirt-host-deploy/README</a> for fake qemu support.</p>
+
+<p><strong>Failed: Server does not support virtualization</strong></p>
+
+<p>If during the installation of the host you received the message “Server does not support virtualization” from oVirt Engine, it’s probably because your vdsm version doesn’t include the patch: <a href="http://gerrit.ovirt.org/#/c/5611/3">http://gerrit.ovirt.org/#/c/5611/3</a> (might be a bug as well).
+ This patch add the ‘fake kvm’ support to vds_bootstrap.</p>
+
+<p>There are several ways to update your vds_bootstrap, for example:</p>
+
+<ul>
+  <li>
+    <p>Yum update in <strong>oVirt Engine</strong> machine (if the repo is not updated, use the others approaches)</p>
+
+    <p># yum update vdsm-bootstrap</p>
+  </li>
+  <li>
+    <p>Clone vdsm tree and create an updated vdsm-bootstrap rpm and update the <strong>oVirt Engine</strong> system</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># git clone "https://gerrit.ovirt.org/vdsm"
+# cd vdsm
+(if required increase the Version/Release from vdsm.spec.in)
+# ./autogen.sh --system &amp;&amp; make &amp;&amp; make rpm
+# rpm -Uvh ~/rpmbuild/RPMS/noarch/vdsm-bootstrap* 
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Clone the vdsm tree, execute autogen/make and copy the vds_bootstrap/vds_bootstrap.py to /usr/share/vds_bootstrap</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># git clone "https://gerrit.ovirt.org/vdsm"
+# cd vdsm
+# ./autogen.sh --system &amp;&amp; make
+# cp vds_bootstrap/vds_bootstrap.py /usr/share/vds_bootstrap 
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Manually backport the above <a href="http://gerrit.ovirt.org/5611">http://gerrit.ovirt.org/5611</a> patch to your current vds_bootstrap (/usr/share/vds_bootstrap)</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vi /usr/share/vds_bootstrap/vds_bootstrap.py
+Make the changes manually
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><strong>Non Responsive status</strong></p>
+
+<ul>
+  <li>Check if vdsm and libvirt daemons are running</li>
+  <li>Firewall?</li>
+</ul>
+
+<p>’'’Default networks, the following networks are missing on host ‘ovirtmgmt’ ‘’’</p>
+
+<p>Something goes wrong setting the bridge ovirtmgmt, check the logs (/tmp/vds*.log) in the host side.
+If required, use the manual process to create the bridge and re-add the host: <a href="/ovirt-site/previews/2665/develop/developer-guide/vdsm/installing-vdsm-from-rpm.html#configuring-the-bridge-interface">Installing VDSM from rpm#Configuring the bridge Interface</a></p>
+
+<h2 id="running-node-as-guest---nested-kvm">Running Node as guest - Nested KVM</h2>
+
+<p>Following the below instructions you can use oVirt Node, Fedora Node and oVirt Engine as guests.</p>
+
+<p>Requires: Processors with <strong>Full Virtualization</strong> embedded</p>
+
+<p>Attention: The below steps were tested on Fedora 17 but should work in higher versions (maybe not even required in the future releases, hopefully virt-manager will handle that directly in the next versions)</p>
+
+<p>“Nested VMX” feature adds this missing capability - of running guest hypervisors (which use VMX) with their own nested guests. It does so by allowing a guest to use VMX instructions, and correctly
+ and efficiently emulating them using the single level of VMX available in the hardware.</p>
+
+<p>Finally, we are assuming you already have qemu-kvm/libvirt/virt-manager installed in your system</p>
+
+<h3 id="intel">Intel</h3>
+
+<ul>
+  <li>
+    <p>1) Check if nested KVM is enabled (should be <strong>Y</strong>)</p>
+
+    <p># cat /sys/module/kvm_intel/parameters/nested
+    N</p>
+  </li>
+  <li>
+    <p>2) In that case, it’s disabled, to enable (can be via modprobe conf as well, simply: echo “options kvm-intel nested=1” &gt; /etc/modprobe.d/kvm-intel.conf ):</p>
+
+    <p># vi /etc/default/grub</p>
+  </li>
+</ul>
+
+<p>Add to the end of line <strong>GRUB_CMDLINE_LINUX kvm-intel.nested=1</strong></p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   GRUB_CMDLINE_LINUX="rd.md=0 rd.dm=0  KEYTABLE=us SYSFONT=True rd.lvm.lv=vg/lv_root rd.luks=0 rd.lvm.lv=vg/lv_swap LANG=en_US.UTF-8 rhgb quiet kvm-intel.nested=1"
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>3) Save the changes:</p>
+
+    <p># grub2-mkconfig -o /boot/grub2/grub.cfg</p>
+  </li>
+  <li>
+    <p>4) Reboot the system:</p>
+
+    <p># reboot</p>
+  </li>
+  <li>
+    <p>5) Install hook for nested virtualization on hypervisor/hypervisors. This will configure both the host and guest for nested KVM. With the nestedvt vdsm hook installed, every guest launched from your nested-enabled hosts will inherit its own KVM-hosting capability. <a href="http://community.redhat.com/blog/2013/08/testing-ovirt-3-3-with-nested-kvm">More details</a>:</p>
+
+    <p># yum install -y vdsm-hook-nestedvt</p>
+  </li>
+  <li>
+    <p>6) Restart vdsmd on hypervisor</p>
+
+    <p># service vdsmd restart</p>
+  </li>
+</ul>
+
+<p>After vdsm restarts, you can check to see that your hooks are installed in your host’s “Host Hooks” tab: <img src="/ovirt-site/previews/2665/images/wiki/Nestedvt_hook.png" alt="" /></p>
+
+<h3 id="amd">AMD</h3>
+
+<p>Works out of the box.</p>
+
+<ul>
+  <li>
+    <p>1) To check if nested KVM is enabled (should be <strong>1</strong>)</p>
+
+    <p># cat /sys/module/kvm_amd/parameters/nested
+    1</p>
+  </li>
+  <li>
+    <p>2) Install oVirt Node as guest with virt-manager (or any other distro).</p>
+  </li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>
+    <p>3) After virtual machine starts, check in the guest that svm flag in the /proc/cpuinfo.</p>
+
+    <p># grep -m1 svm /proc/cpuinfo
+    flags           : fpu de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx lm up nopl pni cx16 popcnt hypervisor lahf_lm svm abm sse4a</p>
+  </li>
+</ul>
+
+<p>More info about nested-kvm: <a href="https://github.com/torvalds/linux/blob/master/Documentation/virt/kvm/nested-vmx.rst">https://github.com/torvalds/linux/blob/master/Documentation/virt/kvm/nested-vmx.rst</a></p>
+
+<h2 id="building-new-releases-for-fedora-or-epel-with-fedpkg">Building new releases for Fedora or EPEL with fedpkg</h2>
+
+<p>In the following example we will build vdsm-4.13.0 using patches for ovirt-3.3.2</p>
+
+<p>1) Clone vdsm package from Fedora git</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $ mkdir ~/vdsm-fedora &amp;&amp; cd ~/vdsm-fedora
+    $ fedpkg clone vdsm &amp;&amp; cd vdsm
+</code></pre></div></div>
+
+<p>Switch the stable branches (at moment f21 is <strong>rawhide</strong>, not stable) and check the last patch added to the build from changelog:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $ fedpkg switch-branch f20
+    $ vi vdsm.spec
+    
+    Example:
+    * Tue Nov 12 2013 Douglas Schilling Landgraf `&lt;xxx@xxx&gt;` - 4.13.0-11
+    - update from branch ovirt-3.3 which include:
+      upgrade-fix-v3ResetMetaVolSize-argument
+      lvm-Do-not-use-udev-cache-for-obtaining-device-list
+      Fix-ballooning-rules-for-computing-the-minimum-avail
+     Avoid-M2Crypto-races
+     spec-declare-we-provide-an-existing-python-cpopen
+     configuring-selinux-allowing-qemu-kvm-to-generate-co `  `&lt;snip&gt;
+</code></pre></div></div>
+
+<p>So, the last patch added to the build 3.3.1 was <strong>configuring-selinux-allowing-qemu-kvm-to-generate-co</strong>, based on that you can use <strong>git format-patch</strong> to generate the patches to be included into next build</p>
+
+<p>2) Clone the vdsm tree:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $ mkdir ~/vdsm-upstream &amp;&amp; cd ~/vdsm-upstream `  $ git clone `[`git://gerrit.ovirt.org/vdsm`](git://gerrit.ovirt.org/vdsm)
+</code></pre></div></div>
+
+<p>3) Go to branch that hold the patches for 3.3.2, in this case <strong>ovirt-3.3</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $ git checkout remotes/origin/ovirt-3.3 -b 3.3.2
+    Branch 3.3.2 set up to track remote branch ovirt-3.3 from origin.
+    Switched to a new branch '3.3.2'
+</code></pre></div></div>
+
+<p>3) Select the patches that you want to add to the build using <strong>format-patch</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Examples:
+    * Last 3 patches: `    $ git format-patch `**`-3`**
+      0001-fuserTests-fix-for-f20-and-arch.patch
+      0002-Adding-debian-folder-makefile.patch
+      0003-Fix-Makefile.am-in-debian-folder.patch
+
+    * Specifying the commit:
+      $ git format-patch `**&lt;commit id&gt;**` -1
+      0001-fuserTests-fix-for-f20-and-arch.patch
+</code></pre></div></div>
+
+<p>In our case, the last patch is <strong>configuring-selinux-allowing-qemu-kvm-to-generate-co</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    $ git format-patch -19
+    0001-Invalidate-filters-on-HSMs-before-rescanning-extende.patch
+    0002-vm-refresh-raw-disk-before-live-extension.patch
+    0003-Renaming-etc-sysctl.d-vdsm-to-etc-sysctl.d-vdsm.conf.patch `  `&lt;snip&gt;
+</code></pre></div></div>
+
+<p>Again, why -19 ? Because we are 19 patches behind from version <strong>3.3.1</strong> You can use <strong>git log</strong> to check how many patches we do have after <strong>configuring-selinux-allowing-qemu-kvm-to-generate-co</strong></p>
+
+<p>Copy the 19 patches to the ~/vdsm-fedora dir</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     $ cp *.patch ~/vdsm-fedora/vdsm
+</code></pre></div></div>
+
+<p>4) Build new vdsm with the new patches</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     $ cd ~/vdsm-fedora/vdsm/
+     $ vi vdsm.spec
+</code></pre></div></div>
+
+<p>Example:</p>
+
+<p>`  <code class="language-plaintext highlighter-rouge">&lt;snip&gt;
+</code>  Url:            <code class="language-plaintext highlighter-rouge">[</code>/wiki/Vdsm<code class="language-plaintext highlighter-rouge">](/wiki/Vdsm)
+        # The source for this package was pulled from upstream's vcs.
+        # Use the following commands to generate the tarball:
+</code>  #  git clone <code class="language-plaintext highlighter-rouge">[</code>http://gerrit.ovirt.org/p/vdsm<code class="language-plaintext highlighter-rouge">](http://gerrit.ovirt.org/p/vdsm)
+        #  cd vdsm
+        #  git reset --hard {vdsm_release}
+        #  ./autogen.sh --system
+        #  make VERSION={version}-{vdsm_release} dist
+        Source0:        %{vdsm_name}-%{version}%{?vdsm_relttag}.tar.gz
+        # ovirt-3.3.2 patches
+        Patch0:         0001-Invalidate-filters-on-HSMs-before-rescanning-extende.patch
+        Patch1:         0002-vm-refresh-raw-disk-before-live-extension.patch
+        Patch2:         0003-Renaming-etc-sysctl.d-vdsm-to-etc-sysctl.d-vdsm.conf.patch
+        ...
+        Patch18:       0019-Fix-Makefile.am-in-debian-folder.patch
+</code>  `&lt;/snip&gt;</p>
+
+<p>…. continue until the last patch then add the patch macro in the spec for <strong>all patches</strong></p>
+
+<p>` <code class="language-plaintext highlighter-rouge">&lt;snip&gt;
+       %description gluster
+       Gluster plugin enables VDSM to serve Gluster functionalities.
+       %endif
+       %prep
+       %setup -q
+       # ovirt-3.3.2 patches
+       %patch0 -p1
+       %patch1 -p1
+       %patch2 -p1
+       ...
+       %patch23 -p1
+</code> `&lt;/snip&gt;</p>
+
+<p><strong>PLEASE NOTE</strong>: if changes/patches are being added to the upstream spec file you MUST manually update the FEDORA spec as well. You can manually verify the patches or use grep -i “vdsm.spec” in the patch generated.</p>
+
+<p>Time to increase the <strong>Release</strong> in the spec and <strong>changelog</strong></p>
+
+<p>` <code class="language-plaintext highlighter-rouge">&lt;snip&gt;
+       Release:        </code><strong><code class="language-plaintext highlighter-rouge">12</code></strong><code class="language-plaintext highlighter-rouge">%{?dist}%{?extra_release}
+</code> `&lt;/snip&gt;</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   %changelog
+   * Thu Nov 28 2013 PERSON_NAME `&lt;xxx@xxx.com&gt;` - 4.13.0-12
+   - lvm: Do not use udev cache for obtaining device list (BZ#1014942)
+   - Fix ballooning rules for computing the minimum available memory (BZ#1025845)
+   ....
+   - Fix Makefile.am in debian folder
+</code></pre></div></div>
+
+<p>Ok, build the new spec locally for initial test:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   $ fedpkg local  (or fedpkg srpm)
+</code></pre></div></div>
+
+<p>Hopefully it worked, now let’s make a test build in Koji systems:</p>
+
+<p>` $ fedpkg –dist f19 scratch-build –srpm ~/rpmbuild/SRPM/<code class="language-plaintext highlighter-rouge">&lt;vdsm-package.srpm&gt;
+</code> $ fedpkg –dist f20 scratch-build –srpm ~/rpmbuild/SRPM/<code class="language-plaintext highlighter-rouge">&lt;vdsm-package.srpm&gt;
+</code> $ fedpkg –dist el6 scratch-build –srpm ~/rpmbuild/SRPM/`<vdsm-package.srpm></vdsm-package.srpm></p>
+
+<p>If it worked correctly, you can use fedpkg import ~/rpmbuild/SRPM/<vdsm-package.srpm> in each branch or use import into master and then git merge in the branches</vdsm-package.srpm></p>
+
+<p><strong>PLEASE NOTE</strong>: If it’s a beta release, please only import to <strong>master</strong> branch which is rawhide.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   $ fedpkg switch-branch f19
+   $ fedpkg import  ~/rpmbuild/SRPM/`&lt;vdsm-package.srpm&gt;`  (you can import f20 build into f19 for example, it will be build again anyway)
+   $ fedpkg commit -p
+   $ fedpkg build
+   $ fepkg update
+</code></pre></div></div>
+
+<p>Which fedpkg build will generate a koji url that will provide the RPMs and can be shared to release engineers/testers.</p>
+
+<h2 id="ovirt-vmconsole-sources">ovirt-vmconsole sources</h2>
+
+<p>VDSM for ovirt-3.6 depends on ovirt-vmconsole package. To fetch the sources of ovirt-vmconsole, run</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git clone http://gerrit.ovirt.org/p/ovirt-vmconsole.git
+</code></pre></div></div>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="missing-dependencies-on-el">Missing dependencies on EL</h3>
+
+<p>Since c0729453573, vdsm requires newer libvirt and selinux-policy packages, which are not available yet in RHEL or Centos repositories, and is not kept in ovirt repositories (such as ovirt-nightly).</p>
+
+<h3 id="autogensh-fails-with-package-version-not-defined">autogen.sh fails with “package version not defined”</h3>
+
+<p>You have no tags in your repo. If you want to push your repo from another machine, you must also push the tags:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  git push --tags remote 
+</code></pre></div></div>
+
+<h2 id="code-documentation">Code Documentation</h2>
+
+<p>We have a partial code walk through of the <a href="/ovirt-site/previews/2665/develop/developer-guide/vdsm/vm-startup.html">virt subsystem</a> (virtual machine life cycle, creation, migration) (more to come…)</p>
+
+<h2 id="performance-and-scalability">Performance and scalability</h2>
+
+<p>To analyse the performance and the scalability of the VDSM, you first need to <a href="/ovirt-site/previews/2665/develop/developer-guide/vdsm/profiling-vdsm.html">set up the tools</a>. Then you may want to <a href="/ovirt-site/previews/2665/develop/developer-guide/vdsm/benchmarks.html">run common scenarios</a>, or write your own using a <a href="/ovirt-site/previews/2665/develop/developer-guide/vdsm/benchmarks.html">template</a>, to make sure the results are easily shareable.</p>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2665/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2665/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2665/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2665/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/vdsm/developers.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/vdsm/developers.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

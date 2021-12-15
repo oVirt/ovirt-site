@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>virt-v2v Integration | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="virt-v2v Integration" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2666/develop/release-management/features/virt/virt-v2v-integration.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2666/develop/release-management/features/virt/virt-v2v-integration.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="virt-v2v Integration" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2666/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"virt-v2v Integration","url":"https://ovirt.github.io/ovirt-site/previews/2666/develop/release-management/features/virt/virt-v2v-integration.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2666/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2666/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2666/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2666/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2666/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2666/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2666/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2666/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2666/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2666/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2666/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2666/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2666/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2666/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2666/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2666/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2666/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2666/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2666/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2666/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2666/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2666/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2666/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2666/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2666/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2666/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2666/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2666/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2666/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2666/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2666/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2666/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2666/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2666/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2666/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2666//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2666//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2666/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2666/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2666/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2666/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2666/develop/release-management/features/virt/">
+              <span property="name">Virt</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/caae839088b8920542bbc7f6492f7034?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/caae839088b8920542bbc7f6492f7034?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Arik Hadas</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2666/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="virt-v2v-integration">virt-v2v Integration</h1>
+
+<h2 id="extended-import-of-virtual-machines">Extended import of Virtual Machines</h2>
+
+<h3 id="summary">Summary</h3>
+
+<p>This feature extends the existing Import VM functionality in oVirt to support import of virtual machines from additional types of sources to oVirt.</p>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Name: Arik Hadas (Arik)</li>
+  <li>Email: <a href="mailto:ahadas@redhat.com">ahadas@redhat.com</a></li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Name: Shahar Havivi (Shaharh)</li>
+  <li>Email: <a href="mailto:shavivi@redhat.com">shavivi@redhat.com</a></li>
+</ul>
+
+<h3 id="current-status">Current status</h3>
+
+<ul>
+  <li>VMWare via Libvirt: merged to upstream and 3.6</li>
+  <li>VMWare via OVA: merged to upstream and 3.6</li>
+  <li>Xen on RHEL: merged on upstream pending for 4.0</li>
+  <li>Kvm via Libvirt : currently in development</li>
+  <li>Last updated on – by (WIKI)</li>
+</ul>
+
+<h3 id="detailed-description">Detailed Description</h3>
+
+<p>Currently only virtual machines which exist on oVirt’s Storage Domain (either export domain or data domain) can be imported. It means that only three kinds of virtual machines can be imported to oVirt:</p>
+
+<ul>
+  <li>Virtual machines which reside on Storage Domain that was attached to the Data Center</li>
+  <li>Virtual machines that were exported from oVirt and now reside on the export domain</li>
+  <li>Virtual machines that were converted from external environment to the export domain as a preliminary step</li>
+</ul>
+
+<p>This feature aims to introduce a general process in oVirt for import virtual machines. Import VM from Storage Domain will be just one use-case of the general process. Other use cases will now be supported:</p>
+
+<ul>
+  <li>Import VM from VMware ESXi/VSPHERE: The user specify URL+authentication to the host wher ESXi/VSPHERE runs on</li>
+  <li>Import KVM/Xen VM from Libvirt: The user specify URL+authentication to the host where Libvirt runs on</li>
+  <li>Import KVM/Xen VM from a given path: The user specify nfs/posix path to the VM configuration &amp; disks</li>
+  <li>Import VM which was exported from VMware: The user specify nfs/posix path to ova file</li>
+  <li>Upload KVM/Xen VM: The user specify files of the configuration and the disks</li>
+  <li>Upload VM which was exported from VMware: The user specify ova file</li>
+  <li>Import VM from folder: The user specify path to folder that contains KVM/Xen VMs or VM exported from VMware</li>
+  <li>TBD: Physical Machines (p2v)</li>
+</ul>
+
+<p>Note: the way uploaded files will be sent - TBD</p>
+
+<p>The implementation of the ‘Other use cases’ mentioned above will be based on virt-v2v[1]. virt-v2v is a versatile tool for converting virtual machines which oVirt users currently use independently to convert virtual machines from external environments to export domain. Integrating virt-v2v in oVirt will improve the import process for those use-cases:</p>
+
+<ul>
+  <li>We will not need to go though the export domain as an intermediate step. It will reduce the number of times the disks are copied (which might be a long task) and will reduce the number of operations the user needs to do in order to get the VM in his oVirt-managed Data Center</li>
+  <li>The users will be able to specify the conversion properties in a easier way using the webadmin</li>
+  <li>The conversion progress will be reported in the webadmin</li>
+</ul>
+
+<h4 id="general-import-process">General Import Process</h4>
+
+<p>The general process for import VM from the sources mentioned before should be:</p>
+
+<ol>
+  <li>
+    <p>Set the source from which the VM should be imported</p>
+  </li>
+  <li>
+    <p>Select destination storage domain</p>
+  </li>
+  <li>
+    <p>Select proxy host (see Proxy Hosts section below)</p>
+  </li>
+  <li>
+    <p>Select VM from the source</p>
+  </li>
+  <li>
+    <p>Get VM configuration</p>
+  </li>
+  <li>
+    <p>Set conversion properties</p>
+  </li>
+  <li>
+    <p>Add (updated) VM &amp; disks to the DB (locked)</p>
+  </li>
+  <li>
+    <p>Convert the disks</p>
+  </li>
+  <li>
+    <p>Update VM &amp; disks if necessary (update actual disks size for example)</p>
+  </li>
+  <li>
+    <p>Unlock VM &amp; disks</p>
+  </li>
+</ol>
+
+<ul>
+  <li>The disks conversion progress should be monitored</li>
+  <li>Support for copying different disks to different storage domain will be considered later</li>
+</ul>
+
+<h5 id="import-from-export-domain">Import from Export Domain</h5>
+
+<p>The current import VM from export domain operation in terms of the general flow:</p>
+
+<ol>
+  <li>
+    <p>Set the export domain the VM resides in</p>
+  </li>
+  <li>
+    <p>Select destination data domain</p>
+  </li>
+  <li>
+    <p>No need to select proxy host (TBD: convert the monitoring of the import to be non-SPM tasks?)</p>
+  </li>
+  <li>
+    <p>Selects one of the VMs which are in the export domain</p>
+  </li>
+  <li>
+    <p>The VM configuration already exists (we already got OVFs from the export domain)</p>
+  </li>
+  <li>
+    <p>Set the conversion properties (TBD: more stuff other than clone?)</p>
+  </li>
+  <li>
+    <p>VM &amp; disks are added to the DB (locked)</p>
+  </li>
+  <li>
+    <p>Disks are copied</p>
+  </li>
+  <li>
+    <p>No other update is required</p>
+  </li>
+  <li>
+    <p>Unlock VM &amp; disks</p>
+  </li>
+</ol>
+
+<h5 id="import-from-libvirtvmware">Import from Libvirt/VMware</h5>
+
+<p>Import from external environments using virt-v2v in terms of the general flow:</p>
+
+<ol>
+  <li>
+    <p>Set the properties of the external environment manually or by selecting a provider</p>
+  </li>
+  <li>
+    <p>Select the destination data domain</p>
+  </li>
+  <li>
+    <p>Select host in the Data Center that has virt-v2v installed to serve as proxy</p>
+  </li>
+  <li>
+    <p>Select VM that resides in the external environment</p>
+  </li>
+  <li>
+    <p>Do a conversion that does not include disks in order to get the VM configuration</p>
+  </li>
+  <li>
+    <p>Set the conversion properties</p>
+  </li>
+  <li>
+    <p>The modified VM &amp; disks are added to the DB (locked)</p>
+  </li>
+  <li>
+    <p>Do a conversion that includes disks</p>
+  </li>
+  <li>
+    <p>The size of the disks will be updated</p>
+  </li>
+  <li>
+    <p>Unlock VM &amp; disks</p>
+  </li>
+</ol>
+
+<h4 id="importing-ova-files-from-vmware">Importing OVA Files from VMware</h4>
+
+<p>You can import an OVA file from a live VMware data center host. Before proceeding, make sure that:</p>
+
+<ul>
+  <li>
+    <p>The OVA file is stored in TAR format.</p>
+  </li>
+  <li>
+    <p>The source host has enough space to allow you to extract the OVA file to the host’s temporary directory.</p>
+  </li>
+</ul>
+
+<p>The following procedure uses ‘rhel’ as an example:</p>
+
+<ol>
+  <li>
+    <p>Export a rhel virtual machine from VMware to /tmp/rhel.ova in the VDSM host (For example, HOST1).</p>
+  </li>
+  <li>
+    <p>Change the permission for /tmp/rhel.ova to qemu:kvm (36:36).</p>
+  </li>
+  <li>
+    <p>Go to the <strong>oVirt Administrator Portal</strong> and click the <strong>Virtual Machines</strong> tab.</p>
+  </li>
+  <li>
+    <p>Click <strong>Import</strong> from the top menu to open the <strong>Import Virtual Machine(s)</strong> dialog box.</p>
+  </li>
+  <li>
+    <p>In the <strong>Source</strong> drop-down menu, select  <strong>VMware Virtual Appliance (OVA)</strong>.</p>
+  </li>
+  <li>
+    <p>In the <strong>Host</strong> box, select <strong>HOST1</strong> (The same host that you exported from VMware).</p>
+  </li>
+  <li>
+    <p>In the <strong>Path</strong> box, enter /tmp/rhel.ova.</p>
+  </li>
+  <li>
+    <p>Click the <strong>Load</strong> button to add the rhel virtual machine to the <strong>Virtual Machines on Source</strong> box.</p>
+  </li>
+  <li>
+    <p>Select <strong>rhel</strong> and click the top arrow to move rhel into the <strong>Virtual Machines to Import</strong> box.</p>
+  </li>
+  <li>
+    <p>Click <strong>Next</strong> in the bottom right corner.</p>
+  </li>
+  <li>
+    <p>Now you can adjust other virtual machine attributes such as Name, NIC, etc.</p>
+  </li>
+  <li>
+    <p>Click <strong>OK</strong> in the bottom right corner to begin importing the virtual machine.</p>
+  </li>
+</ol>
+
+<p>Note: Currently, oVirt can only import OVA files from a VMware host. KVM and Xen are not supported at this time.</p>
+
+<h5 id="import-uploaded-vm-or-vm-from-path">Import Uploaded VM or VM from path</h5>
+
+<p>Import specified VM in terms of the general flow:</p>
+
+<ol>
+  <li>
+    <p>Set the path to the VM or upload the files</p>
+  </li>
+  <li>
+    <p>Select the destination data domain</p>
+  </li>
+  <li>
+    <p>Select host in the Data Center to server as a proxy, the files will be copied (for upload) or mounted to it</p>
+  </li>
+  <li>
+    <p>No need to select VM</p>
+  </li>
+  <li>
+    <p>Do a conversion that does not include disks in order to get the VM configuration</p>
+  </li>
+  <li>
+    <p>Set the conversion properties</p>
+  </li>
+  <li>
+    <p>The modified VM &amp; disks are added to the DB (locked)</p>
+  </li>
+  <li>
+    <p>Do a conversion that includes disks</p>
+  </li>
+  <li>
+    <p>The size of the disks will be updated</p>
+  </li>
+  <li>
+    <p>Unlock VM &amp; disks</p>
+  </li>
+</ol>
+
+<h4 id="proxy-hosts">Proxy Hosts</h4>
+
+<p>In a common case, oVirt will reside in a different network than the one the external system, which contains the VMs that going to be imported, resides. One or more hosts in oVirt will be connected to the network of the external system for the imprort operation, so we will need to make sure the user can select those hosts as proxies for the import process.</p>
+
+<p>During the configuration of import operation from external system (i.e not Storage Domain), the user will have to select a proxy host. Only host which resides in the destination Data Center and has virt-v2v installed can serve as a proxy. The request from the engine will be executed by this host.</p>
+
+<p>The following diagram demonstrates the described architecture: <img src="/ovirt-site/previews/2666/images/wiki/V2v_1.png" alt="" /></p>
+
+<h4 id="external-vm-providers">External VM Providers</h4>
+
+<p>To ease the import configuration, users will be able to define the external environment which manages the VMs that are about to be imported as External Provider of VMs. In general, external provider definition contains the URL of the management application in the external environment and authentication properties. There might be additional environment-specific properties as well.</p>
+
+<p>In the import configuration, users can select such an already defined provider as a source for the import operation.</p>
+
+<h3 id="benefit-to-ovirt">Benefit to oVirt</h3>
+
+<p>This feature will make it easier to migrate virtual machines from different environments to oVirt:</p>
+
+<ul>
+  <li>Making it more managed - as the process will be executed and monitored by oVirt</li>
+  <li>Making it easier to define - expose the relevant parameters in the UI</li>
+  <li>Making it less error-prone - less configuration to set</li>
+</ul>
+
+<h3 id="design">Design</h3>
+
+<h4 id="backend">Backend</h4>
+
+<ul>
+  <li>Add queries for listing VMs from the different sources</li>
+  <li>Add queries for getting VM configuration from the different sources</li>
+  <li>Generalize the import VM command for the general case (including changing the monitoring to similar to the mechanism used for live-merge)</li>
+  <li>Add external VM providers</li>
+</ul>
+
+<h4 id="vdsm">VDSM</h4>
+
+<ul>
+  <li>Add verb that lists VMs in external environment (running Libvirt or ESXi/VSphere using virsh)</li>
+  <li>Add verb for getting VM configuration from external environment (using virt-v2v with ‘no-copy’)</li>
+  <li>Add verb for converting the disks and get full VM configuration from external environment (using virt-v2v)</li>
+  <li>Report the progress of the convertions above using the mechanism that is used for live-merge</li>
+</ul>
+
+<h4 id="ui">UI</h4>
+
+<ul>
+  <li>Add import button to the Virtual Machines main tab</li>
+  <li>Add dialog which lets the user configure the properties for the import operation as described above</li>
+  <li>Add dialog which lets the user configure the conversion properties (i.e map networks, change name)</li>
+  <li>Fetch the VM configuration if it is not already fetched for listing the VMs, using a different query</li>
+  <li>Add dialog for defining external VM provider</li>
+</ul>
+
+<h4 id="database">Database</h4>
+
+<p>No need for changes in the DB</p>
+
+<h4 id="ui-screenshots">UI Screenshots</h4>
+
+<p><img src="/ovirt-site/previews/2666/images/wiki/First_dialog.png" alt="" /></p>
+
+<p>First, given a URI and credentials for connecting to the external system, a list of virtual machines that exist in the external system is presented. The user can then select a subset of these VMs to import.</p>
+
+<p><img src="/ovirt-site/previews/2666/images/wiki/Networks.png" alt="" /></p>
+
+<p>The next dialog shows a list of the selected VMs from the previous dialog with general settings such as default storage-domain and CPU profile along with a configuration per-VM (this dialog is similar to the one which is used when importing from an export-domain).</p>
+
+<p>In the screenshot above the tab of network interfaces is shown. It was extended such that user can map networks from external system to networks in oVirt. TBD: editing of mac-addresses</p>
+
+<p><img src="/ovirt-site/previews/2666/images/wiki/Disks.png" alt="" /></p>
+
+<p>This screenshot shows the sub-tab for disks. The alias is the full-names of disks in the external system (including the name of the storage).</p>
+
+<p>Notes:</p>
+
+<ul>
+  <li>We might disable the option to set different target storage domain to different disks.</li>
+  <li>TBD: Changing the name of the VM in case a VM with the same name already exists in oVirt directly from this dialog instead of having the clone-VM dialogs</li>
+  <li>TBD: allow the user to specify the operating system and use it instead of getting it from virt-v2v</li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2666/images/wiki/Proxy2.png" alt="" /></p>
+
+<h3 id="dependencies--related-features">Dependencies / Related Features</h3>
+
+<h3 id="documentation--external-references">Documentation / External references</h3>
+
+<p>[1] <a href="http://libguestfs.org/virt-v2v">virt-v2v</a></p>
+
+<p>[2] <a href="http://libguestfs.org/virt-v2v.1.html">virt-v2v virt-v2v’s Documentation</a></p>
+
+<p>[3] <a href="https://www.youtube.com/watch?v=rYrnfduAkU0">KVM Forum 2015</a></p>
+
+<p>[4] <a href="https://www.youtube.com/watch?v=7vd8X6t9eBk">Deep Dive Session</a></p>
+
+<p>[5] <a href="https://www.youtube.com/watch?v=yEjckA-FriU">Demonstration of import of Windows guest from vSphere to oVirt</a></p>
+
+<h3 id="testing">Testing</h3>
+
+<p>TBD</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2666/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2666/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2666/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2666/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/virt/virt-v2v-integration.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/virt/virt-v2v-integration.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

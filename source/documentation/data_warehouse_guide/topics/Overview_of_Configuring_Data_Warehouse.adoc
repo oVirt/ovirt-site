@@ -7,7 +7,10 @@ Install and configure Data Warehouse on the {engine-name} machine:: This configu
 
 Install and configure Data Warehouse on a separate machine:: This configuration requires two registered machines. It reduces the load on the {engine-name} machine and avoids potential CPU and memory-sharing conflicts on that machine. Administrators can also allow user access to the Data Warehouse machine, without the need to grant access to the {engine-name} machine. See xref:Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_{context}[] for more information on this configuration.
 
+[IMPORTANT]
+====
 It is recommended that you set the system time zone for all machines in your Data Warehouse deployment to UTC. This ensures that data collection is not interrupted by variations in your local time zone: for example, a change from summer time to winter time.
+====
 
 To calculate an estimate of the space and resources the `ovirt_engine_history` database will use, use the link:https://access.redhat.com/labs/rhevmhdsc/[RHV {engine-name} History Database Size Calculator] tool. The estimate is based on the number of entities and the length of time you have chosen to retain the history records.
 

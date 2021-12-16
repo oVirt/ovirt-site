@@ -148,6 +148,7 @@ include::common/install/proc-Preventing_Kernel_Modules_from_Loading_Automaticall
 ifdef::parent-context[:context: {parent-context}]
 ifndef::parent-context[:!context:]
 
+[appendix]
 == Legal notice
 
-Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a self-hosted engine using the Cockpit web interface]. Copyright © 2020 Red Hat, Inc. Licensed under a link:http://creativecommons.org/licenses/by-sa/3.0/[Creative Commons Attribution-ShareAlike 3.0 Unported License].
+Certain portions of this text first appeared in link:{URL_downstream_virt_product_docs}installing_red_hat_virtualization_as_a_self-hosted_engine_using_the_cockpit_web_interface/[Red Hat Virtualization {vernum_rhv} Installing Red Hat Virtualization as a self-hosted engine using the Cockpit web interface]. Copyright © 2021 Red Hat, Inc. Licensed under a link:https://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 Unported License].

@@ -27,3 +27,5 @@ include::appe-Proxies.adoc[]
 include::appe-Branding.adoc[]
 
 include::appe-System_Accounts.adoc[]
+
+include::common/collateral_files/legal-notice.adoc[]

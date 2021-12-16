@@ -19,3 +19,5 @@ include::chap-Templates.adoc[]
 include::appe-Reference_Settings_in_Administration_Portal_and_User_Portal_Windows.adoc[]
 
 include::appe-virt_sysprep_operations.adoc[]
+
+include::common/collateral_files/legal-notice.adoc[]

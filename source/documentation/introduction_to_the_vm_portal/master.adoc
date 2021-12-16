@@ -8,3 +8,5 @@ include::common/collateral_files/attributes.adoc[]
 include::chap-Accessing_the_VM_Portal.adoc[leveloffset=+1]
 
 include::chap-Managing_virtual_machines.adoc[]
+
+include::common/collateral_files/legal-notice.adoc[]

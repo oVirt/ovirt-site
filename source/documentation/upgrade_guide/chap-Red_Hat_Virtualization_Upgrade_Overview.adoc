@@ -33,28 +33,17 @@ Select the appropriate instructions for your environment from the following tabl
 |===
 
 |Current {engine-name} version |Target {engine-name} version |Relevant section
-|4.2 |4.3 a|*Local database environment:*
-
-// * Fast-forward upgrade: xref:Upgrading_from_4-2_ff[]
-* Manual upgrade: xref:Upgrading_from_4-2[]
+|4.2 |4.3 a|*Local database environment -* xref:Upgrading_from_4-2[]
 
 *Remote database environment:* xref:Remote_Upgrading_from_4-2[]
 
-*Self-hosted engine, local database environment:*
+*Self-hosted engine, local database environment:* xref:SHE_Upgrading_from_4-2[]
 
-// * Fast-forward upgrade: xref:Upgrading_from_4-2_ff[]
-* Manual upgrade: xref:SHE_Upgrading_from_4-2[]
-
-
-|4.3 |4.4 a| *Local database environment:*
-
-* Manual upgrade: xref:Upgrading_from_4-3[]
+|4.3 |4.4 a| *Local database environment:* xref:Upgrading_from_4-3[]
 
 *Remote database environment:* xref:Remote_Upgrading_from_4-3[]
 
-*Self-hosted engine, local database environment:*
-
-* Manual upgrade: xref:SHE_Upgrading_from_4-3[]
+*Self-hosted engine, local database environment:* xref:SHE_Upgrading_from_4-3[]
 
 |===
 

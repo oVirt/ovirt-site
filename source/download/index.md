@@ -67,54 +67,10 @@ Instead of or in addition to oVirt Node, you can use a standard Enterprise Linux
 
 ## Install oVirt using the command line
 
-//{:.instructions}
+See the instructions in:
+* [Installing the self-hosted engine deployment host](documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index.html#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy)
 
-See the instructions in [Installing the self-hosted engine deployment host](documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index.html#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy)
-and [Installing the oVirt Engine](documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index.html#Installing_the_Red_Hat_Virtualization_Manager_SHE_cli_deploy)
-
-////
-// 1.  Enable the Base, Appstream, and Ansible repositories (Red Hat Enterprise Linux only):
-
-        # RHEL only -- they are enabled by default on CentOS and oVirt Node
-        sudo subscription-manager repos --enable="rhel-8-for-x86_64-baseos-rpms"
-        sudo subscription-manager repos --enable="rhel-8-for-x86_64-appstream-rpms"
-        sudo subscription-manager repos --enable="ansible-2-for-rhel-8-x86_64-rpms"
-
-        # RHEL beta releases only
-        sudo subscription-manager repos --enable="rhel-8-for-x86_64-baseos-beta-rpms"
-        sudo subscription-manager repos --enable="rhel-8-for-x86_64-appstream-beta-rpms"
-
-
-2.  Install Cockpit and the cockpit-ovirt-dashboard plugin:
-
-        sudo yum install cockpit cockpit-ovirt-dashboard -y
-
-3.  Enable Cockpit:
-
-        sudo systemctl enable --now cockpit.socket
-
-4.  Open the firewall:
-
-        sudo firewall-cmd --add-service=cockpit
-        sudo firewall-cmd --add-service=cockpit --permanent
-
-5.  Log in to Cockpit as root at https://\[Host IP or FQDN\]:9090 and click Virtualization → Hosted Engine.
-
-6.  Click Start under the Hosted Engine option.
-
-    <img class="install-start" src="download_2.png">
-
-7.  Complete the setup wizard. As part of the setup, you will enter the Hosted Engine's name.
-
-8.  As part of the setup wizard, you will need to provide the location of your storage. oVirt requires a central
-    shared storage system for Virtual Machine disk images, ISO files, and snapshots.
-
-9. Once the installation completes, oVirt's web UI management interface will start. Browse to
-    https://\[Hosted Engine's name\]/ to begin using oVirt!
-
-    See [Browsers Support](/download/browsers_and_mobile.html) for supported browsers information.
-
-////
+* [Installing the oVirt Engine](documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index.html#Installing_the_Red_Hat_Virtualization_Manager_SHE_cli_deploy)
 
 ## Setup Additional Hosts
 

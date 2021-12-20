@@ -16,8 +16,8 @@
 | [stage-gh-stdci1](https://github.com/oVirt/stage-gh-stdci1) | Dummy project for staging CI system changes | [6](https://github.com/ovirt/stage-gh-stdci1/issues) | 0 | 2 |
 | [k8sOVirtCredentialsMonitor](https://github.com/oVirt/k8sOVirtCredentialsMonitor) | Monitor k8s secrets and update the oVirt connection | [5](https://github.com/ovirt/k8sOVirtCredentialsMonitor/issues) | 1 | 2 |
 | [cockpit-ovirt](https://github.com/oVirt/cockpit-ovirt) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [5](https://github.com/ovirt/cockpit-ovirt/issues) | 7 | 12 |
+| [python-ovirt-engine-sdk4](https://github.com/oVirt/python-ovirt-engine-sdk4) | Python SDK for version 4 of the oVirt Engine API | [5](https://github.com/ovirt/python-ovirt-engine-sdk4/issues) | 2 | 12 |
 | [ovirt-engine](https://github.com/oVirt/ovirt-engine) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [5](https://github.com/ovirt/ovirt-engine/issues) | 324 | 196 |
-| [python-ovirt-engine-sdk4](https://github.com/oVirt/python-ovirt-engine-sdk4) | Python SDK for version 4 of the oVirt Engine API | [4](https://github.com/ovirt/python-ovirt-engine-sdk4/issues) | 2 | 12 |
 | [ovirt-engine-keycloak](https://github.com/oVirt/ovirt-engine-keycloak) | Package that provides Keycloak overlay configuration to be run on oVirt Engine&#39;s Widlfly/EAP instance | [4](https://github.com/ovirt/ovirt-engine-keycloak/issues) | 0 | 2 |
 | [ovirt-engine-sdk-go](https://github.com/oVirt/ovirt-engine-sdk-go) | The generator of Go SDK for oVirt v4.0&#43; | [4](https://github.com/ovirt/ovirt-engine-sdk-go/issues) | 19 | 25 |
 | [ovirt-release](https://github.com/oVirt/ovirt-release) | This package contains the yum configuration for oVirt repositories. | [4](https://github.com/ovirt/ovirt-release/issues) | 8 | 8 |

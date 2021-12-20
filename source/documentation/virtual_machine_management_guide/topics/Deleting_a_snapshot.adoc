@@ -1,8 +1,9 @@
 [[Deleting_a_snapshot]]
 ==== Deleting a Snapshot
 
-You can delete a virtual machine snapshot and permanently remove it from your {virt-product-fullname} environment. This operation is only supported on a running virtual machine.
+You can delete a virtual machine snapshot and permanently remove it from your {virt-product-fullname} environment.
 
+////
 [IMPORTANT]
 ====
 When you delete a snapshot from an image chain, there must be enough free space in the storage domain to temporarily accommodate both the original volume and the newly merged volume. Otherwise, snapshot deletion will fail and you will need to export and re-import the volume to remove snapshots. This is due to the data from the two volumes being merged in the resized volume and the resized volume growing to accommodate the total size of the two merged images.
@@ -13,7 +14,7 @@ When you delete a snapshot from an image chain, there must be enough free space 
 * If the snapshot being deleted is contained in a QCOW2 (thin provisioned), non-base image hosted on internal storage, the successor volume is extended to include the volume containing the snapshot being deleted.
 
 ====
-
+////
 
 *Deleting a Snapshot*
 
@@ -28,6 +29,5 @@ When you delete a snapshot from an image chain, there must be enough free space 
 
 [NOTE]
 ====
-If the deletion fails, fix the underlying problem (for example, a failed host, an inaccessible storage device, or even a temporary network issue) and try again.
+If the deletion fails, fix the underlying problem (for example, a failed host, an inaccessible storage device, or a temporary network issue) and try again.
 ====
-

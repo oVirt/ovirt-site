@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>User-level-query-column-filtering | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="User-level-query-column-filtering" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2672/develop/user-level-query-column-filtering.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2672/develop/user-level-query-column-filtering.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="User-level-query-column-filtering" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2672/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"User-level-query-column-filtering","url":"https://ovirt.github.io/ovirt-site/previews/2672/develop/user-level-query-column-filtering.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2672/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2672/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2672/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2672/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2672/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2672/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2672/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2672/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2672/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2672/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2672/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2672/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2672/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2672/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2672/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2672/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2672/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2672/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2672/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2672/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2672/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2672/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2672/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2672/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2672/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2672/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2672/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2672/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2672/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2672/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2672/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2672/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2672/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2672/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2672/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2672//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2672//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2672/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2672/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Eli Mesika</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<!-- TODO: Content review -->
+
+<h1 id="user-level-query-column-filtering">User-level-query-column-filtering</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>Suppose you have a table T with columns c1 c2 c3 c4. (c1 is the PK)
+Also, assume that c3 and c4 includes sensetive information that should be shown only to Administrators. How do you achieve that?</p>
+
+<h2 id="solution">Solution</h2>
+
+<p>Adding a table called object_column_white_list that holds for each relevant table/view for which columns we want to show, other columns are filtered vertically, the column names that should have NULL values in the returned result. The script adding this table and inserting its initial data is reentrant and run the in pre-upgrade step.</p>
+
+<p>A second table object_column_white_list_sql stores the generated sql per object. This sql is cleaned upon upgrade to reflect schema changes since if a column was added to an object that is already participating in vertical filtering, this column will be automatically filtered out unless added specifically in the upgrade/pre_upgrade/add_object_column_white_list_table.sql script.</p>
+
+<p>A function fn_db_mask_object that accepts the object to filter and returns the result with filtered column values.</p>
+
+<p>A function to add new object columns to the white list fn_db_add_column_to_object_white_list</p>
+
+<h3 id="so-how-do-i-filter-c3--c4-columns-from-t-">So, how do I filter c3 &amp; c4 columns from T ?</h3>
+
+<p>1) Open upgrade/pre_upgrade/add_object_column_white_list_table.sql script.
+2) Look for “Initial white list settings” comment.
+3) Add at the end of this section.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         <span class="n">if</span> <span class="k">not</span> <span class="k">exists</span> <span class="p">(</span><span class="k">select</span> <span class="mi">1</span> <span class="k">from</span> <span class="n">object_column_white_list</span> <span class="k">where</span> <span class="n">object_name</span> <span class="o">=</span> <span class="s1">'T'</span><span class="p">)</span> <span class="k">then</span>
+           <span class="k">insert</span> <span class="k">into</span> <span class="n">object_column_white_list</span><span class="p">(</span><span class="n">object_name</span><span class="p">,</span><span class="k">column_name</span><span class="p">)</span>
+           <span class="p">(</span><span class="k">select</span> <span class="s1">'T'</span><span class="p">,</span> <span class="k">column_name</span>
+            <span class="k">from</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span>
+            <span class="k">where</span> <span class="k">table_name</span> <span class="o">=</span> <span class="s1">'T'</span> <span class="k">and</span>
+            <span class="k">column_name</span> <span class="k">in</span> <span class="p">(</span><span class="s1">'c1,'</span><span class="n">c2</span><span class="s1">');
+</span></code></pre></div></div>
+
+<p>4) Assume you have a SP that selects from T by id (c1 column), it should now look like :</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="k">Create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">FUNCTION</span> <span class="n">GetAllFromT</span><span class="p">(</span><span class="n">v_id</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">v_user_id</span> <span class="n">UUID</span><span class="p">,</span> <span class="n">v_is_filtered</span> <span class="nb">BOOLEAN</span><span class="p">)</span>   
+      <span class="k">RETURNS</span> <span class="k">SETOF</span> <span class="n">T</span>
+        <span class="k">AS</span> <span class="err">$</span><span class="k">procedure</span><span class="err">$</span>
+      <span class="k">DECLARE</span>
+      <span class="n">v_columns</span> <span class="nb">text</span><span class="p">[];</span>
+      <span class="k">BEGIN</span>
+         <span class="k">BEGIN</span>
+           <span class="n">if</span> <span class="p">(</span><span class="n">v_is_filtered</span><span class="p">)</span> <span class="k">then</span>
+               <span class="k">RETURN</span> <span class="n">QUERY</span> <span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="p">(</span><span class="n">rec</span><span class="p">).</span><span class="o">*</span>
+               <span class="k">FROM</span> <span class="n">fn_db_mask_object</span><span class="p">(</span><span class="s1">'T'</span><span class="p">)</span> <span class="k">as</span> <span class="n">q</span> <span class="p">(</span><span class="n">rec</span> <span class="n">T</span><span class="p">)</span>
+               <span class="k">WHERE</span> <span class="p">(</span><span class="n">rec</span><span class="p">).</span><span class="n">c1</span> <span class="o">=</span> <span class="n">v_id</span>
+               <span class="k">AND</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="mi">1</span>
+                   <span class="k">FROM</span>   <span class="n">user_vds_permissions_view</span>
+                   <span class="k">WHERE</span>  <span class="n">user_id</span> <span class="o">=</span> <span class="n">v_user_id</span> <span class="k">AND</span> <span class="n">entity_id</span> <span class="o">=</span> <span class="n">v_id</span><span class="p">);</span>
+           <span class="k">else</span>
+               <span class="k">RETURN</span> <span class="n">QUERY</span> <span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">T</span><span class="p">.</span><span class="o">*</span>
+               <span class="k">FROM</span> <span class="n">T</span>
+               <span class="k">WHERE</span> <span class="n">c1</span> <span class="o">=</span> <span class="n">v_id</span><span class="p">;</span>
+           <span class="k">end</span> <span class="n">if</span><span class="p">;</span>
+         <span class="k">END</span><span class="p">;</span>
+        <span class="k">RETURN</span><span class="p">;</span>
+      <span class="k">END</span><span class="p">;</span> <span class="err">$</span><span class="k">procedure</span><span class="err">$</span>
+      <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>5) You should add the following to fixters.xml</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;table</span> <span class="na">name=</span><span class="s">"object_column_white_list"</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;column&gt;</span>object_name<span class="nt">&lt;/column&gt;</span>
+       <span class="nt">&lt;column&gt;</span>column_name<span class="nt">&lt;/column&gt;</span>
+   <span class="nt">&lt;row&gt;</span>
+       <span class="nt">&lt;value&gt;</span>T<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;value&gt;</span>c1<span class="nt">&lt;/value&gt;</span>
+   <span class="nt">&lt;/row&gt;</span>
+   <span class="nt">&lt;row&gt;</span>
+       <span class="nt">&lt;value&gt;</span>T<span class="nt">&lt;/value&gt;</span>
+       <span class="nt">&lt;value&gt;</span>c2<span class="nt">&lt;/value&gt;</span>
+   <span class="nt">&lt;/row&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div></div>
+
+<p>That’s all, this insures that administrator will get all c1 to c4 columns while users will get only c1 and c2.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2672/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2672/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2672/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2672/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/user-level-query-column-filtering.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/user-level-query-column-filtering.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>AsyncTaskManagerChanges 3.3 | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="AsyncTaskManagerChanges 3.3" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2674/develop/release-management/features/infra/asynctaskmanagerchanges-3.3.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2674/develop/release-management/features/infra/asynctaskmanagerchanges-3.3.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="AsyncTaskManagerChanges 3.3" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2674/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"AsyncTaskManagerChanges 3.3","url":"https://ovirt.github.io/ovirt-site/previews/2674/develop/release-management/features/infra/asynctaskmanagerchanges-3.3.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2674/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2674/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2674/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2674/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2674/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2674/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2674/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2674/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2674/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2674/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2674/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2674/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2674/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2674/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2674/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2674/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2674/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2674/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2674/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2674/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2674/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2674/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2674/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2674/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2674/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2674/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2674/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2674/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2674/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2674/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2674/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2674/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2674/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2674/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2674/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2674//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2674//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2674/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2674/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2674/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2674/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2674/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cf9b98d6d79d0dd07d167017789bac45?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yair Zaslavsky</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2674/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="async-task-manager-changes-for-ovirt-33">Async Task manager changes for oVirt 3.3</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>The following feature page deals with improvements added to the engine async task manager mechanism.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Yair Zaslavsky</li>
+</ul>
+
+<h2 id="current-status">Current status</h2>
+
+<ul>
+  <li>Last updated date: May 25, 2013</li>
+</ul>
+
+<p>For oVirt 3.3 we would like to improve the current SPM tasks mechanism in the following areas:</p>
+
+<ul>
+  <li>Better handling of engine/vdsm crashes in cases of mismatch in the number of tasks (expected vs actual running tasks).</li>
+  <li>Providing better mechanism to query if an entity (i.e - StorageDomain, VM, Disk, etc…) has running tasks on.</li>
+  <li>Improving the mechanism for determining whether endAction (the last step of command invocation in case the command/its children created tasks) should be run.</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<h3 id="better-handling-of-engine-crashes-in-cases-of-mismatch-in-the-number-of-tasks-expected-vs-actual-running-tasks"><strong>Better handling of engine crashes in cases of mismatch in the number of tasks (expected vs actual running tasks)</strong>.</h3>
+
+<ul>
+  <li>Problem: Engine can crash, causing a wrong successful completion of commands due to mismatch between expected tasks and created tasks.</li>
+  <li>Example:</li>
+</ul>
+
+<p>RemoveVM is run on a VM with 4 disks. After 2 out of the 4 disks are created at VDSM, and stored at engine, engine crashes. Engine restarts, the command ends successfully although 2 out of the 4 disks were not removed.</p>
+
+<ul>
+  <li>Detailed explanation of problem:</li>
+</ul>
+
+<p>A parent command (for example - RemoveVmCommand) may create child commands that each one of them in turn creates a task (for example - RemoveImageCommand is a child command that is responsible for creating a task at VDSM for removing one of the images associated with the VM). The tasks information is kept at database at async_tasks table, and is used if engine crashes in order to restore association between tasks and commands and coordinate the endAction execution when all the tasks for the parent command have ended.</p>
+
+<p>Currently, a new record is inserted into the async_tasks table only after the task is created at VDSM (TaskCreationInfo is returned from the VDSBroker with the vdsm tadk ID). The return tasked ID serves as a primary key for the table. If engine crashes- it may be that not all vdsm calls for creating all the tasks were issues, hence not all async_tasks records were added. Engine restarts and both vdsm and engine are aware only to a partial amount of the expected tasks , causing the parent command (for example, RemoveVm) to be successfully completed (for example - RemoveVm is successfully completed when only 2 out of 4 disks where removed).</p>
+
+<ul>
+  <li>Solution:</li>
+</ul>
+
+<p>The suggested fix will distinguish between the vdsm task ID and the DB task ID, in addition, it will add all the expected tasks at the parent command, in a single transaction - when a VDSM task ID is obtained from vds broker, it will be associated to the proper aync_tasks record. If engine crashes , and for some aysnc_tasks records there is no VDSM task ID (in the given example - for each one of the 4 disks, a async_tasks record is added to the DB, and for 2 out of 4, there is no VDSM taskd ID), the parent command (RemoveVm in the example) will be ended with “failure” state.</p>
+
+<h3 id="providing-better-mechanism-to-query-if-an-entity-ie---storagedomain-vm-disk-etc-has-running-tasks-on"><strong>Providing better mechanism to query if an entity (i.e - StorageDomain, VM, Disk, etc…) has running tasks on.</strong></h3>
+
+<ul>
+  <li>Problem: The mechanism of querying an entity for running task is limited</li>
+  <li>Example: It is impossible to query for disk entity if there are running tasks, if the command is VM related.</li>
+  <li>Detailed explanation of problem:</li>
+</ul>
+
+<p>Currently there are two mechanisms for querying whether a task is associated with a given entity - a. VdcActionParametersBase which is the base class for all commands parameters has a field that holds the entityID for which the task is created. There is no indication the entity type and in addition, only one entity ID can be associated with the task, so usually this is the top-most entity (VM, Template,Disk). b. async_task_entities table was introduced to overcome the issue - it contains an association between task id, and entity ID (and its type),</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>for example: 40fd52b-3400-4cdd-8d3f-c9d03704b0aa</td>
+      <td>72e3a666-89e1-4005-a7ca-f7548004a9ab</td>
+      <td>Storage Indicates that task 40fd52b-3400-4cdd-8d3f-c9d03704b0aa is associated with entity 72e3a666-89e1-4005-a7ca-f7548004a9ab which is a storage domain. The current mechanism (both at DAO and BLL ) is incomplete in a sense that only one entity type can be associated with the usage of async_tasks table to varying number of entity IDs.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Solution:</li>
+</ul>
+
+<p>The suggested fix will allow association of multiple entity types with multiple entity IDs. This mechanism can help in improving canDoAction checks, and behavior of compensation (for example - don’t perform compensation to the initial state, if there are running tasks).</p>
+
+<h3 id="improving-the-mechanism-for-determining-whether-endaction-the-last-step-of-command-invocation-in-case-the-commandits-children-created-tasks-should-be-run"><strong>Improving the mechanism for determining whether endAction (the last step of command invocation in case the command/its children created tasks) should be run</strong></h3>
+
+<ul>
+  <li>Problem: Current mechanism of endAction mechanism is limiting</li>
+  <li>Example: Two READ-ONLY commands (tasks that perform READ ONLY storage-related operations) cannot run on the same entity in parallel (Engine will start polling tasks of a command only after the first command has finished).</li>
+  <li>Detailed explanation of problem:</li>
+</ul>
+
+<p>The current mechanism uses the combination of CommandType (i.e RemoveVm) and the entity ID (i.e the ID of the VM) in order to coordinate the execution of endAction when all tasks related for the command (i.e - all tasks created by the children of RemoveVm command are done). The current mechanism is problematic as it prevents the engine to start polling tasks for the same entity of different commands - for example, if there are two READ-ONLY asynchronous operations on the same entity (in case of read/write- this should be handled by canDoAction and the in-memory locking mechanism).</p>
+
+<ul>
+  <li>Solution:</li>
+</ul>
+
+<p>Reach the decision of whether endAction should be executed based on the parent command Id. Async Task Manager should not postpone polling of commands - for READ-ONLY asynchronous operations there is no point. For write operation - it is the responsibility of canDoAction and the locking mechanism to approve such commands.</p>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<p>The benefit for oVirt from these changes is to have better usage of SPM tasks in the system - by giving better handling of cases of engine crashes , providing a better mechanism for execution validation of commands and and to give better association between tasks and the command execution flows.</p>
+
+<h2 id="testing">Testing</h2>
+
+<p>This feature is mostly code change and introduces changes that should be implemented by various commands. Currently, 3 commands/flows in the system use the new mechanism:</p>
+
+<ul>
+  <li>Hibernate VM</li>
+  <li>Create Template</li>
+  <li>Create snapshot</li>
+</ul>
+
+<p>The things that can be tested are: 1. Test case 1 (Check for regression) Make sure that the 3 commands are normally , as they did in oVirt 3.3 After each flow execution make sure that async_tasks table is clear.</p>
+
+<ol>
+  <li>Test case 2 (Restart ) Try to restart engine during execution of commands. The commands should not suceed, unless all tasks were executed on VDSM.</li>
+</ol>
+
+<h2 id="dependencies--related-features">Dependencies / Related Features</h2>
+
+<p>These fixes are a part of the on going effort around the Async Task Manager changes. See also <a href="/ovirt-site/previews/2674/develop/release-management/features/infra/asynctaskmanagerchanges.html">1</a></p>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2674/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2674/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2674/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2674/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/asynctaskmanagerchanges-3.3.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/asynctaskmanagerchanges-3.3.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

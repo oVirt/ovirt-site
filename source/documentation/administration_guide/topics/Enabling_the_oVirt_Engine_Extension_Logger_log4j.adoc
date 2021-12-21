@@ -9,12 +9,12 @@ Use this procedure on the central syslog server. You can use a separate logging 
 
 [NOTE]
 ====
-To define the syslog server for this extension, navigate to the */etc/ovirt-engine/extensions.d* directory and edit the value for `log4j.appender.myappender.SyslogHost` in the `Log4jLogger.properties` file.
+To define the syslog server for this extension, navigate to the `/etc/ovirt-engine/extensions.d` directory and edit the value for `log4j.appender.myappender.SyslogHost` in the `Log4jLogger.properties` file.
 
-To define the syslog facility, navigate to the */etc/ovirt-engine/extensions.d* directory and edit the value for `log4j.appender.myappender.Facility` in the `Log4jLogger.properties` file. For example, `log4j.appender.myappender.Facility=local1`.
+To define the syslog facility, navigate to the `/etc/ovirt-engine/extensions.d` directory and edit the value for `log4j.appender.myappender.Facility` in the `Log4jLogger.properties` file. For example, `log4j.appender.myappender.Facility=local1`.
 ====
 
-*Configuring the oVirt Engine Extension Logger log4j*
+.Procedure
 
 . Install the extension.
 +

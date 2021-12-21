@@ -1,11 +1,13 @@
-[[Configuring_the_Red_Hat_Enterprise_Virtualization_Manager_to_Send_SNMP_Traps]]
+`[[Configuring_the_Red_Hat_Enterprise_Virtualization_Manager_to_Send_SNMP_Traps]]
 === Configuring the {virt-product-fullname} {engine-name} to Send SNMP Traps
 
-Configure your {virt-product-fullname} {engine-name} to send Simple Network Management Protocol traps to one or more external SNMP managers. SNMP traps contain system event information; they are used to monitor your {virt-product-fullname} environment. The number and type of traps sent to the SNMP manager can be defined within the {virt-product-fullname} {engine-name}.
+Configure your {virt-product-fullname} {engine-name} to send Simple Network Management Protocol (SNMP) traps to one or more external SNMP managers. SNMP traps contain system event information; they are used to monitor your {virt-product-fullname} environment. The number and type of traps sent to the SNMP manager can be defined within the {virt-product-fullname} {engine-name}.
 
-This procedure assumes that you have configured one or more external SNMP managers to receive traps, and that you have the following details:
+.Prerequisites
 
-* The IP addresses or fully qualified domain names of machines that will act as SNMP managers. Optionally, determine the port through which {engine-name} receives trap notifications; by default, this is UDP port 162.
+* One or more external SNMP managers is configured to receive traps.
+
+* The IP addresses or fully qualified domain names of machines that will act as SNMP managers. Optionally, determine the port through which {engine-name} receives trap notifications. The default is UDP port 162.
 
 * The SNMP community. Multiple SNMP managers can belong to a single community. Management systems and agents can communicate only if they are within the same community. The default community is `public`.
 
@@ -14,12 +16,12 @@ This procedure assumes that you have configured one or more external SNMP manage
 
 [NOTE]
 ====
-The {virt-product-fullname} {engine-name} provides management information bases at */usr/share/doc/ovirt-engine/mibs/OVIRT-MIB.txt* and */usr/share/doc/ovirt-engine/mibs/REDHAT-MIB.txt*. Load the MIBs in your SNMP manager before proceeding.
+The {virt-product-fullname} {engine-name} provides management information bases at `/usr/share/doc/ovirt-engine/mibs/OVIRT-MIB.txt` and `/usr/share/doc/ovirt-engine/mibs/REDHAT-MIB.txt`. Load the MIBs in your SNMP manager before proceeding.
 ====
-Default SNMP configuration values exist on the {engine-name} in the events notification daemon configuration file */usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf*. The values outlined in the following procedure are based on the default or example values provided in that file. It is recommended that you define an override file, rather than edit the *ovirt-engine-notifier.conf* file, to persist your configuration options after changes such as system upgrades.
 
+Default SNMP configuration values exist on the {engine-name} in the events notification daemon configuration file `/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf`. The values outlined in the following procedure are based on the default or example values provided in that file. It is recommended that you define an override file, rather than edit the `ovirt-engine-notifier.conf` file, to make your configuration options persist after changes such as system upgrades.
 
-*Configuring SNMP Traps on the {engine-name}*
+.Procedure
 
 . On the {engine-name}, create the SNMP configuration file:
 +
@@ -71,7 +73,7 @@ Send events for everything but _VDC_START_ to the default SNMP profile:
 ----
 FILTER="exclude:__VDC_START__ include:*(snmp:) ${FILTER}"
 ----
-This the default filter defined in *ovirt-engine-notifier.conf*; if you do not disable this filter or apply overriding filters, no notifications will be sent:
+This the default filter defined in `ovirt-engine-notifier.conf`; if you do not disable this filter or apply overriding filters, no notifications will be sent:
 
 [options="nowrap" subs="normal"]
 ----
@@ -79,7 +81,7 @@ FILTER="exclude:*"
 ----
 ====
 +
-`VDC_START` is an example of the audit log messages available. A full list of audit log messages can be found in */usr/share/doc/ovirt-engine/AuditLogMessages.properties*. Alternatively, filter results within your SNMP manager.
+`VDC_START` is an example of the audit log messages available. A full list of audit log messages can be found in `/usr/share/doc/ovirt-engine/AuditLogMessages.properties`. Alternatively, filter results within your SNMP manager.
 . Save the file.
 . Start the `ovirt-engine-notifier` service, and ensure that this service starts on boot:
 +
@@ -94,5 +96,5 @@ Check your SNMP manager to ensure that traps are being received.
 
 [NOTE]
 ====
-`SNMP_MANAGERS`, `MAIL_SERVER`, or both must be properly defined in */usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf* or in an override file in order for the notifier service to run.
+`SNMP_MANAGERS`, `MAIL_SERVER`, or both must be properly defined in `/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf` or in an override file in order for the notifier service to run.
 ====

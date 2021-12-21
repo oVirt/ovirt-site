@@ -157,6 +157,21 @@ ifdef::local_database_upgrade,remote_database_upgrade[]
 If the backup contained grants for extra database users, this command creates the extra users with random passwords. You must change these passwords manually if the extra users require access to the restored system. See https://access.redhat.com/articles/2686731.
 ====
 endif::local_database_upgrade,remote_database_upgrade[]
+ifdef::rhv-doc[]
+. Ensure the {engine-name} has the correct repositories enabled. For the list of required repositories, see
+ifdef::local_database_upgrade[]
+link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.4.
+endif::local_database_upgrade[]
+ifdef::remote_database_upgrade[]
+link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.4.
+endif::remote_database_upgrade[]
+ifdef::SHE_upgrade[]
+link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line/index#Enabling_the_Red_Hat_Virtualization_Manager_Repositories_install_RHVM[Enabling the {virt-product-fullname} {engine-name} Repositories] for {virt-product-fullname} 4.4.
+endif::SHE_upgrade[]
++
+Updates to the {virt-product-fullname} {engine-name} are released through the Content Delivery Network.
+endif::rhv-doc[]
+
 
 . Install optional extension packages if they were installed on the {virt-product-fullname} {engine-name} 4.3 machine.
 +

@@ -27,7 +27,9 @@ See the [Release Notes for oVirt 4.4.9](/release/4.4.9/).
 
 ## Install oVirt using the command line
 
-oVirt is installed using the command line. See [Installing oVirt as a self-hosted engine using the command line](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line)
+oVirt is installed using the command line.
+
+See [Installing oVirt as a self-hosted engine using the command line](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line)
 
 oVirt Engine and a Host are installed together with the Engine running as a Virtual Machine on that Host.
 Once you install a second Host, the Engine Virtual Machine will be highly available. See the

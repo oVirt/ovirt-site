@@ -1,7 +1,7 @@
 [appendix]
 [id="legal-notice"]
 = Legal notice
-include::common/collateral_files/attributes.adoc[]
+include::attributes.adoc[]
 
 [.lead]
 Copyright © 2021 Red Hat, Inc.

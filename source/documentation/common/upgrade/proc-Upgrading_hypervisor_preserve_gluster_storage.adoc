@@ -109,7 +109,6 @@ Example:
 +
 .. Edit the backup inventory file with correct details.
 +
-[code, subs="attributes"]
 ----
   Common variables
   backup_dir ->  Absolute path to directory that contains the extracted contents of the backup archive

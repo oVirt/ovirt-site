@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bridgeless Networks | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Bridgeless Networks" />
+<meta name="author" content="Adrian Gibanel Lopez" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2675/develop/release-management/features/network/bridgeless-networks.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2675/develop/release-management/features/network/bridgeless-networks.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bridgeless Networks" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Adrian Gibanel Lopez" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Adrian Gibanel Lopez"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2675/images/logo.svg"},"name":"Adrian Gibanel Lopez"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Bridgeless Networks","url":"https://ovirt.github.io/ovirt-site/previews/2675/develop/release-management/features/network/bridgeless-networks.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2675/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2675/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2675/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2675/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2675/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2675/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2675/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2675/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2675/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2675/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2675/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2675/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2675/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2675/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2675/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2675/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2675/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2675/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2675/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2675/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2675/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2675/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2675/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2675/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2675/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2675/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2675/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2675/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2675/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2675/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2675/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2675/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2675/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2675/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2675/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2675//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2675//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2675/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2675/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2675/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2675/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2675/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/046ad9cbd1312ef5ae0fc52fcbdba7fe?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/046ad9cbd1312ef5ae0fc52fcbdba7fe?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Adrian Gibanel Lopez</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/6a6ee5db5d55d1918022cb4a22f64286?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Roy Golan</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/492dd720f87a98ef3009a933127d3877?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/492dd720f87a98ef3009a933127d3877?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yaniv Kaul</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2675/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="bridgeless-networks">Bridgeless Networks</h1>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>
+    <p>Name: Roy Golan</p>
+  </li>
+  <li>
+    <p>Email: rgolan@redhat.com</p>
+  </li>
+</ul>
+
+<h2 id="functionality">Functionality</h2>
+
+<p>An admin can now set a logical network as “VM network” so when attaching a Network to an Host’s NIC,
+a “VM network” is implemented over a bridge, otherwise bridgeless
+If a host network is bridgeless but should be a VM network the host will be set to non-operational state.</p>
+
+<p>Also, A cluster network can be set as “optional”, meaning that host is operational as long as it have
+all the non-optional networks attached.</p>
+
+<h2 id="create-logical-network">create logical network</h2>
+
+<ul>
+  <li>create network under the DC - check the “VM network” box.</li>
+  <li>GUI may have the VM network box checked by default</li>
+  <li>to edit this property a network should be detached from all clusters</li>
+</ul>
+
+<h2 id="modified-flows">Modified flows</h2>
+
+<h4 id="create-management-network">Create management network</h4>
+
+<ul>
+  <li>management network is always created as optional=false</li>
+</ul>
+
+<h4 id="add-a-nic-to-vm">Add a Nic to VM</h4>
+
+<ul>
+  <li>validate the Nic’s network is vmNetwork - fail with canDoAction ACTION_TYPE_FAILED_NOT_A_VM_NETWORK</li>
+</ul>
+
+<h4 id="import-vm">Import VM</h4>
+
+<ul>
+  <li>validate all Nic’s networks are vmNetwork - fire audit log IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS</li>
+  <li>don’t fail the import</li>
+</ul>
+
+<h4 id="run-vm">Run VM</h4>
+
+<ul>
+  <li>validate all Nic’s networks is vmNetwork - fail with canDoAction ACTION_TYPE_FAILED_NOT_A_VM_NETWORK</li>
+</ul>
+
+<h4 id="setupnetworks">setupNetworks</h4>
+
+<ul>
+  <li>implicitly set VdsNetworkInterface as bridged when vmNetwork = true</li>
+</ul>
+
+<h4 id="monitoring">Monitoring</h4>
+
+<ul>
+  <li>refresh caps (when host is activated)-
+    <ul>
+      <li>detect if there are VM networks that are implemented as bridgeless - if yes set host non-operational with reason VM_NETWORK_IS_BRIDGELESS</li>
+      <li>if a host misses cluster networks which are not optional - set as non -operational</li>
+    </ul>
+  </li>
+  <li>afterRefreshTreatment (runtime info) - same as above</li>
+</ul>
+
+<h4 id="rest-api">REST API</h4>
+
+<ul>
+  <li>
+    <p>Add a logical network to the Data Center and make it a VM network</p>
+
+    <p><code class="language-plaintext highlighter-rouge">POST /api/networks</code></p>
+  </li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;network</span> <span class="na">id=</span><span class="s">'...'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;name&gt;</span>testrest1<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;data_center</span> <span class="na">id=</span><span class="s">'...'</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;stp&gt;</span>false<span class="nt">&lt;/stp&gt;</span>
+    <span class="nt">&lt;usages&gt;</span>
+        <span class="nt">&lt;usage&gt;</span>VM`<span class="nt">&lt;/usage&gt;</span>
+    <span class="nt">&lt;/usage&gt;</span>
+<span class="nt">&lt;/network&gt;</span>
+</code></pre></div></div>
+<ul>
+  <li>
+    <p>representation of non-bridged interface in Host NICs</p>
+
+    <p><code class="language-plaintext highlighter-rouge">GET /api/hosts/{host.id}/nics/{nic.id}</code></p>
+  </li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;host_nic&gt;</span>
+    <span class="nt">&lt;name&gt;</span>MyHostNIC<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;bridged&gt;</span>false<span class="nt">&lt;/bridged&gt;</span>
+<span class="nt">&lt;/host_nic&gt;</span>
+</code></pre></div></div>
+
+<h4 id="entities">Entities</h4>
+
+<ul>
+  <li>
+    <p>VdsNetworkInterface.java</p>
+
+    <p>VdsNetworkInterface
+   boolean bridged</p>
+  </li>
+  <li>
+    <p>vds_interface table</p>
+
+    <p>vds_interface
+   bridged BOOLEAN NOT NULL DEFAULT true</p>
+  </li>
+  <li>
+    <p>network.java</p>
+
+    <p>boolean vmNetwork</p>
+  </li>
+  <li>
+    <p>network table</p>
+
+    <p>vm_network BOOLEAN NOT NULL DEFAULT true</p>
+  </li>
+  <li>
+    <p>network_cluster.java</p>
+
+    <p>boolean optional</p>
+  </li>
+  <li>
+    <p>network_cluster table</p>
+
+    <p>optional BOOLEAN</p>
+  </li>
+</ul>
+
+<h2 id="modelling">Modelling</h2>
+
+<h2 id="enums">Enums</h2>
+
+<ul>
+  <li>
+    <p>AuditLogType.java</p>
+
+    <p>IMPORTEXPORT_IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS(9600,MINUTE)
+  VDS_SET_NON_OPERATIONAL_VM_NETWORK_IS_BRIDGELESS(9601, MINUTE)</p>
+  </li>
+  <li>
+    <p>VdcBLLMessages</p>
+
+    <p>ACTION_TYPE_FAILED_NOT_A_VM_NETWORK</p>
+  </li>
+  <li>
+    <p>NonOperationalReason.java</p>
+
+    <p>VM_NETWORK_IS_BRIDGELESS(8)</p>
+  </li>
+</ul>
+
+<h2 id="messages">Messages</h2>
+
+<ul>
+  <li>
+    <p>AuditLogMessage.properties</p>
+
+    <p>IMPORTEXPORT_IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS=Trying to import VM ${VmName} with the interface/s ${Interfaces} attached to non VM network/s ${Networks}.
+  VDS_SET_NON_OPERATIONAL_VM_NETWORK_IS_BRIDGELESS=Host ${VdsName} does not comply with the cluster ${VdsGroupName} networks, the following VM networks are bridgeless: ‘${Networks}’</p>
+  </li>
+  <li>
+    <p>AppErrors.properties</p>
+
+    <p>ACTION_TYPE_FAILED_NOT_A_VM_NETWORK=Failed ${action} ${type} the network/s ${Networks} is/are not a VM network.</p>
+  </li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2675/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2675/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2675/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2675/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/bridgeless-networks.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/bridgeless-networks.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

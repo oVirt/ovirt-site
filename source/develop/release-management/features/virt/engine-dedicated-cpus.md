@@ -33,19 +33,21 @@ Engine:
 
 ## Backend
 
-1. Add dedicated to CPU Pinning Policy enum
-2. Save host capabilities CPU topology in VM Dynamic
+1. Add the new policies to CPU Pinning Policy enum
+2. Save host capabilities CPU topology in vds_dynamic
 3. Hold hostToAvailableCpu data structure:
 
-    Map Host id -> availableCpu object
+    Map Host id -> availableCpus object
 
-    availableCpu:
+    availableCpus:
 
-    Map socket-id -> Physical-cpus
+    Map socket-id -> List of availableCores Object 
 
     Socket: socket nr
 
-    Physical-cpus(List of String) e.g: 1,2,3
+    availableCoresObject:
+    
+    Contains list of available cpus in the core
 
     **Save/Update cached data structure:**    
 
@@ -112,17 +114,23 @@ Engine:
 ### Example
 2 hosts are running and reporting the following available CPU topology
 
-Host A: 1 Socket, 4 CPUs
 
-Host B: 2 Sockets, 1 CPU on each socket
+Host A: 1 Socket, 2 Cores 2 CPUs
+
+Host B: 2 Sockets, 1 Core on each socket, one CPU in each core
+
+
+
 
 VM A with dedicated cpu pinning is already running on host A and have 2 vCPUs
 
-User wants to start VM B that requires 2 CPUs and has dedicated cpu policy
+User wants to start VM B that requires 2 vCPUs and has dedicated cpu policy
 
-- hostToAvailableCpu will be:
-  {host A id} -> { {socket 1 id} -> {1,2}}
-  {host B id} -> { {socket 1 id} -> {3}, {socket 2 id} -> {4}}
+- hostToAvailableCpu will be is:
+  
+  {host A id} -> { {socket 1 id} -> {core 1 id} -> {1,2}}
+  
+  {host B id} -> { {socket 1 id} -> {core 1 id } -> {1}, {socket 2 id} -> {core 2 id} -> {2}}
 - Scheduler ranks all hosts that have enough physical CPUs available based on hostToAvailableCpu. In our case, both
   hosts have enough pCPUs, however, host A has both available on one socket whereas the B would need to divide them on 
   2 different sockets. So A gets higher rank than B (B should be filtered)

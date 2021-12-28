@@ -36,27 +36,22 @@ Engine:
 1. Add the new policies to CPU Pinning Policy enum
 2. Save host capabilities CPU topology in vds_dynamic
 3. Hold hostToAvailableCpu data structure:
-
-    Map Host id -> availableCpus object
-
-    availableCpus:
-
-    Map socket-id -> List of availableCores Object 
-
-    Socket: socket nr
-
-    availableCoresObject:
-    
-    Contains list of available cpus in the core
+    it will be on this form Map<Integer,Map<Integer,Map<Integer,List<String>>>>
+    Host id -> Map of Socket id to Map of Core id to list of cpus
+   (assuming host id, core id, socket id is unique)
 
     **Save/Update cached data structure:**    
 
     Option 1:
     * On updateVDSStatisticsData update the data structure with host capabilities
+      * On stop host, the host should be removed, and all the VM pinnings to that host should be pinned to other hosts
+      * On start host, the host should be added
     * Poll every X seconds all VMs and find which VM’s have cpu pinning and update the shared CPU pinning data structure based on VM pinned CPUs and host capabilities
 
     Option 2:
     * On updateVDSStatisticsData update the data structure with host capabilities
+      * On stop host, the host should be removed, and all the VM pinnings to that host should be pinned to other hosts
+      * On start host, the host should be added
     * On every start/stop/migrate/… VM update the shared CPU pinning data structure
     With used pinning
 
@@ -66,7 +61,7 @@ Engine:
     * Will be calculated after engine started after getting host caps and VMs cpu pinnings
     
     Option2:
-    * Create table in DB and save/read it from DB
+    * Create table in DB and serialize/deserialize it from DB
 
 4. Scheduling
     1. Start VM:
@@ -143,5 +138,28 @@ User wants to start VM B that requires 2 vCPUs and has dedicated cpu policy
 ## Limitations
 - Should only be supported with 4.7 cluster level
 
-## TBD
-- Siblings and isolate-threads
+
+
+### Isolate threads/Siblings
+
+Since we already know the available host capabilities and the available CPUs
+
+in case a VM is set with Isolate threads or sibilings, we can remove the whole core from the available cpu data structure
+
+Example:
+
+Host A with 1 Socket, 2 Cores in socket, 2 CPUs in each core
+
+hostToAvailableCpu data structure:
+
+{Host A id} -> {socket id} -> {core 1 id} -> {1,2}
+{Host A id} -> {socket id} -> {core 2 id} -> {3,4}
+
+Lets assume we have 1 VM with 2 vCPUs with isolate threads policy
+
+the VM will use from cpu ids 1 and 3, and cpu ids 2 and 4 will be blocked
+
+hostToAvailableCpu data structure after this change will be empty, since there is no available shared CPUs 
+current CPU pinning for the VM will be 1#1 2#3
+
+once the VM got stopped, we will need to restore the core 1 and 2 CPU's (which we will find from the host topology)

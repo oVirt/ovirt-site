@@ -24,7 +24,7 @@ a|Defines the preferred host on which the virtual machine is to run. Select eith
 
 |*CPU options*
 |*Pass-Through Host CPU*
-|This check box allows virtual machines to use the host's CPU flags.
+|When selected, allows virtual machines to use the host's CPU flags.
 When selected, *Migration Options* is set to *Allow manual migration only*.
 | Yes
 
@@ -32,6 +32,7 @@ When selected, *Migration Options* is set to *Allow manual migration only*.
 |*Migrate only to hosts with the same TSC frequency*
 |When selected, this virtual machine can only be migrated to a host with the same TSC frequency. THis option is only valid for High Performance virtual machines.
 |
+
 |*Migration Options*
 |*Migration mode*
 a|Defines options to run and migrate the virtual machine. If the options here are not used, the virtual machine will run or migrate according to its cluster's policy.

@@ -14,6 +14,15 @@ The following table details the options available on the *Host* tab of the *New 
 
 * *Specific Host(s)* - The virtual machine will start running on a particular host in the cluster. However, the {engine-name} or an administrator can migrate the virtual machine to a different host in the cluster depending on the migration and high-availability settings of the virtual machine. Select the specific host or group of hosts from the list of available hosts.
 
+|*CPU options*
+|*Pass-Through Host CPU*
+|When selected, allows virtual machines to use the host's CPU flags.
+When selected, *Migration Options* is set to *Allow manual migration only*.
+
+|
+|*Migrate only to hosts with the same TSC frequency*
+|When selected, this virtual machine can only be migrated to a host with the same TSC frequency. THis option is only valid for High Performance virtual machines.
+
 |*Migration Options* |*Migration mode* a|Defines options to run and migrate the virtual machine. If the options here are not used, the virtual machine will run or migrate according to its cluster's policy.
 
 * *Allow manual and automatic migration* - The virtual machine can be automatically migrated from one host to another in accordance with the status of the environment, or manually by an administrator.
@@ -22,22 +31,13 @@ The following table details the options available on the *Host* tab of the *New 
 
 * *Do not allow migration* - The virtual machine cannot be migrated, either automatically or manually.
 
-| |*Use custom migration policy* a|Defines the migration convergence policy. If the check box is left unselected, the host determines the policy.
+| |*Migration policy* a|Defines the migration convergence policy. If the check box is left unselected, the host determines the policy.
 
 * *Legacy* - Legacy behavior of 3.6 version. Overrides in `vdsm.conf` are still applied. The guest agent hook mechanism is disabled.
 
 * *Minimal downtime* - Allows the virtual machine to migrate in typical situations. Virtual machines should not experience any significant downtime. The migration will be aborted if virtual machine migration does not converge after a long time (dependent on QEMU iterations, with a maximum of 500 milliseconds). The guest agent hook mechanism is enabled.
 
 * *Suspend workload if needed* - Allows the virtual machine to migrate in most situations, including when the virtual machine is running a heavy workload. Because of this, virtual machines may experience a more significant downtime than with some other settings. The migration may still be aborted for extreme workloads. The guest agent hook mechanism is enabled.
-
-| |*Use custom migration downtime* |This check box allows you to specify the maximum number of milliseconds the virtual machine can be down during live migration. Configure different maximum downtimes for each virtual machine according to its workload and SLA requirements. Enter `0` to use the VDSM default value.
-| |*Auto Converge migrations* a|Only activated with *Legacy* migration policy. Allows you to set whether auto-convergence is used during live migration of the virtual machine. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine. Auto-convergence is disabled globally by default.
-
-* Select *Inherit from cluster setting* to use the auto-convergence setting of the cluster. This option is selected by default.
-
-* Select *Auto Converge* to override the cluster setting or global setting and allow auto-convergence for the virtual machine.
-
-* Select *Don't Auto Converge* to override the cluster setting or global setting and prevent auto-convergence for the virtual machine.
 
 | |*Enable migration compression* a|Only activated with *Legacy* migration policy. The  option allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern. Migration compression is disabled globally by default.
 
@@ -48,6 +48,15 @@ The following table details the options available on the *Host* tab of the *New 
 * Select *Don't compress* to override the cluster setting or global setting and prevent compression for the virtual machine.
 
 | |*Pass-Through Host CPU* |This check box allows virtual machines to take advantage of the features of the physical CPU of the host on which they are situated.
+
+|
+|*Enable migration encryption*
+a| Allows the virtual machine to be encrypted during migration.
+
+* *Cluster default (Don't encrypt)*
+* *Encrypt*
+* *Don't encrypt*
+|
 |*Configure NUMA* |*NUMA Node Count* |The number of virtual NUMA nodes available in a host that can be assigned to the virtual machine.
 | |*NUMA Pinning* |Opens the *NUMA Topology* window. This window shows the host's total CPUs, memory, and NUMA nodes, and the virtual machine's virtual NUMA nodes. You can manually pin virtual NUMA nodes to host NUMA nodes by clicking and dragging each vNUMA from the box on the right to a NUMA node on the left.
 

@@ -21,6 +21,7 @@ This example uses the `dr-rhv-failover.yml` playbook created earlier.
 .Procedure
 
 . Run the failover playbook with the following command:
++
 [options="nowrap" subs="normal"]
 ----
 # ansible-playbook dr-rhv-failover.yml --tags "fail_over"

@@ -34,6 +34,6 @@ source/.jekyll-metadata
 /.dockerid
 /.gem-docker
 
-# ignore docs index.html: index.adoc is used instead
+# Ignore files generated for local previews of documentation
 source/documentation/*/index.html
 source/documentation/*/build/

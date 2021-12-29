@@ -16,9 +16,10 @@ Ansible is used to initiate and manage the disaster recovery failover and failba
 [NOTE]
 ====
 The replicated storage that contains virtual machines and templates must not be attached to the secondary site.
+====
+
 * The `oVirt.disaster-recovery` package must be installed on the highly available Red Hat Ansible Engine machine that will automate the failover and failback.
 * The machine running Red Hat Ansible Engine must be able to use SSH to connect to the {engine-name} in the primary and secondary site.
-====
 
 It is also recommended to create environment properties that exist in the primary site, such as affinity groups, affinity labels, users, on the secondary site.
 

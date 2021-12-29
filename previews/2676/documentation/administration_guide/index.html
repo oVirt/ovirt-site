@@ -16766,6 +16766,17 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CPU options</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pass-Through Host CPU</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When selected, allows virtual machines to use the host&#8217;s CPU flags.
+When selected, <strong>Migration Options</strong> is set to <strong>Allow manual migration only</strong>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Migrate only to hosts with the same TSC frequency</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When selected, this virtual machine can only be migrated to a host with the same TSC frequency. THis option is only valid for High Performance virtual machines.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Migration Options</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Migration mode</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -16787,7 +16798,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use custom migration policy</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Migration policy</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Defines the migration convergence policy. If the check box is left unselected, the host determines the policy.</p>
 </div>
@@ -16801,31 +16812,6 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 </li>
 <li>
 <p><strong>Suspend workload if needed</strong> - Allows the virtual machine to migrate in most situations, including when the virtual machine is running a heavy workload. Because of this, virtual machines may experience a more significant downtime than with some other settings. The migration may still be aborted for extreme workloads. The guest agent hook mechanism is enabled.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use custom migration downtime</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This check box allows you to specify the maximum number of milliseconds the virtual machine can be down during live migration. Configure different maximum downtimes for each virtual machine according to its workload and SLA requirements. Enter <code>0</code> to use the VDSM default value.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Auto Converge migrations</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Only activated with <strong>Legacy</strong> migration policy. Allows you to set whether auto-convergence is used during live migration of the virtual machine. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine. Auto-convergence is disabled globally by default.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Select <strong>Inherit from cluster setting</strong> to use the auto-convergence setting of the cluster. This option is selected by default.</p>
-</li>
-<li>
-<p>Select <strong>Auto Converge</strong> to override the cluster setting or global setting and allow auto-convergence for the virtual machine.</p>
-</li>
-<li>
-<p>Select <strong>Don&#8217;t Auto Converge</strong> to override the cluster setting or global setting and prevent auto-convergence for the virtual machine.</p>
 </li>
 </ul>
 </div></div></td>
@@ -16856,19 +16842,34 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 <td class="tableblock halign-left valign-top"><p class="tableblock">This check box allows virtual machines to take advantage of the features of the physical CPU of the host on which they are situated.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configure NUMA</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NUMA Node Count</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of virtual NUMA nodes available in a host that can be assigned to the virtual machine.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable migration encryption</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Allows the virtual machine to be encrypted during migration.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Cluster default (Don&#8217;t encrypt)</strong></p>
+</li>
+<li>
+<p><strong>Encrypt</strong></p>
+</li>
+<li>
+<p><strong>Don&#8217;t encrypt</strong></p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configure NUMA</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NUMA Node Count</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of virtual NUMA nodes available in a host that can be assigned to the virtual machine.</p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NUMA Pinning</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Opens the <strong>NUMA Topology</strong> window. This window shows the host&#8217;s total CPUs, memory, and NUMA nodes, and the virtual machine&#8217;s virtual NUMA nodes. You can manually pin virtual NUMA nodes to host NUMA nodes by clicking and dragging each vNUMA from the box on the right to a NUMA node on the left.</p>
-<p class="tableblock">You can also set <strong>Tune Mode</strong> for memory allocation:</p>
-<p class="tableblock"><strong>Strict</strong> - Memory allocation will fail if the memory cannot be allocated on the target node.</p>
-<p class="tableblock"><strong>Preferred</strong> - Memory is allocated from a single preferred node. If sufficient memory is not available, memory can be allocated from other nodes.</p>
-<p class="tableblock"><strong>Interleave</strong> - Memory is allocated across nodes in a round-robin algorithm.</p>
-<p class="tableblock">If you define NUMA pinning, <strong>Migration Options</strong> is set to <strong>Allow manual migration only</strong>.</p></td>
 </tr>
 </tbody>
 </table>

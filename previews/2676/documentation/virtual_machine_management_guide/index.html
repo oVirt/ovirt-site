@@ -11391,10 +11391,37 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Legacy</strong> - Legacy behavior of 3.6 version. Overrides in <code>vdsm.conf</code> are still applied. The guest agent hook mechanism is disabled.</p>
+<p><strong>Cluster default (Minimal downtime)</strong> - Overrides in <code>vdsm.conf</code> are still applied. The guest agent hook mechanism is disabled.</p>
 </li>
 <li>
 <p><strong>Minimal downtime</strong> - Allows the virtual machine to migrate in typical situations. Virtual machines should not experience any significant downtime. The migration will be aborted if virtual machine migration does not converge after a long time (dependent on QEMU iterations, with a maximum of 500 milliseconds). The guest agent hook mechanism is enabled.</p>
+</li>
+<li>
+<p><strong>Post-copy migration</strong> - Virtual machines should not experience any significant downtime similar to the minimal downtime policy.</p>
+<div class="paragraph">
+<p>The post-copy policy first tries pre-copy to verify whether convergence can occur. The migration switches to post-copy if the virtual machine migration does not converge after a long time.</p>
+</div>
+<div class="paragraph">
+<p>The disadvantage of this policy is that in the post-copy phase, the virtual machine may slow down significantly as the missing parts of memory are transferred between the hosts.</p>
+</div>
+<div class="paragraph">
+<p>If anything goes wrong during the post-copy phase, such as a network failure of the migration network between the hosts, then the migration process leads to an inconsistent and paused virtual machine and the result is a lost virtual machine. Therefore, it is not possible to abort a migration during the post-copy phase.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title">Warning</div>
+<div class="paragraph">
+<p>If the network connection breaks prior to the completion of the post-copy process, the Engine pauses and then kills the running VM. Do not use post-copy migration if the VM availability is critical or if the migration network is unstable.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p><strong>Suspend workload if needed</strong> - Allows the virtual machine to migrate in most situations, including when the virtual machine is running a heavy workload. Because of this, virtual machines may experience a more significant downtime than with some other settings. The migration may still be aborted for extreme workloads. The guest agent hook mechanism is enabled.</p>

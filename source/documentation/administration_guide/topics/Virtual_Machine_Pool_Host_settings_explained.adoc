@@ -70,3 +70,5 @@ You can also set *Tune Mode* for memory allocation:
 
 If you define NUMA pinning, *Migration Options* is set to *Allow manual migration only*.
 |===
+
+// repeat preview...

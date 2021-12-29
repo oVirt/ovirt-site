@@ -144,6 +144,8 @@ A virtual machine that is using a vGPU cannot be migrated to a different host.
 
 include::topics/Live_migration_prerequisites.adoc[]
 
+// removed Optimizing live migration section - options no longer Existing
+
 include::topics/Guest_Agent_Hooks.adoc[]
 
 include::topics/Automatic_virtual_machine_migration.adoc[]

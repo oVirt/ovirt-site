@@ -284,54 +284,26 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.2</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Local database environment:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Manual upgrade: <a href="#Upgrading_from_4-2">Upgrading from oVirt 4.2 to 4.3</a></p>
-</li>
-</ul>
+<p><strong>Local database environment -</strong> <a href="#Upgrading_from_4-2">Upgrading from oVirt 4.2 to 4.3</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Remote database environment:</strong> <a href="#Remote_Upgrading_from_4-2">Upgrading a Remote Database Environment from oVirt 4.2 to 4.3</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Self-hosted engine, local database environment:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Manual upgrade: <a href="#SHE_Upgrading_from_4-2">Upgrading a Self-Hosted Engine from oVirt 4.2 to 4.3</a></p>
-</li>
-</ul>
+<p><strong>Self-hosted engine, local database environment:</strong> <a href="#SHE_Upgrading_from_4-2">Upgrading a Self-Hosted Engine from oVirt 4.2 to 4.3</a></p>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.3</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4.4</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Local database environment:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Manual upgrade: <a href="#Upgrading_from_4-3">Upgrading from oVirt 4.3 to 4.4</a></p>
-</li>
-</ul>
+<p><strong>Local database environment:</strong> <a href="#Upgrading_from_4-3">Upgrading from oVirt 4.3 to 4.4</a></p>
 </div>
 <div class="paragraph">
 <p><strong>Remote database environment:</strong> <a href="#Remote_Upgrading_from_4-3">Upgrading a Remote Database Environment from oVirt 4.3 to 4.4</a></p>
 </div>
 <div class="paragraph">
-<p><strong>Self-hosted engine, local database environment:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Manual upgrade: <a href="#SHE_Upgrading_from_4-3">Upgrading a self-Hosted engine from oVirt 4.3 to 4.4</a></p>
-</li>
-</ul>
+<p><strong>Self-hosted engine, local database environment:</strong> <a href="#SHE_Upgrading_from_4-3">Upgrading a self-Hosted engine from oVirt 4.3 to 4.4</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -399,7 +371,7 @@
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -1110,7 +1082,7 @@ done</pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -1801,9 +1773,9 @@ Try to keep workloads on all virtual machines using Gluster storage as light as 
 <div class="listingblock">
 <div class="content">
 <pre>  Common variables
-  backup_dir ->  Absolute path to directory that contains the extracted contents of the backup archive
-  nbde_setup -> Set to ‘false’ as the oVirt 4.3 setup doesn’t support NBDE
-  upgrade -> Default value ‘true’ . This value will make no effect with backup</pre>
+  backup_dir -&gt;  Absolute path to directory that contains the extracted contents of the backup archive
+  nbde_setup -&gt; Set to ‘false’ as the {virt-product-fullname} 4.3 setup doesn’t support NBDE
+  upgrade -&gt; Default value ‘true’ . This value will make no effect with backup</pre>
 </div>
 </div>
 </li>
@@ -2570,7 +2542,7 @@ In the Create Volume window, do the following:</p>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -3463,7 +3435,7 @@ done</pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -4364,7 +4336,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -5217,7 +5189,7 @@ done</pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -6011,7 +5983,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -6155,7 +6127,7 @@ For example, define <code>Data</code> as the name, <code>Local on Host</code> as
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed. This package includes the necessary repositories.</p>
+<p>The RPM package <a href="https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm">ovirt-release44.rpm</a> is installed and updated to the latest version. This package includes the necessary repositories.</p>
 </li>
 </ul>
 </div>
@@ -6633,7 +6605,12 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed.</p>
+<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf update -y ovirt-release44</pre>
+</div>
+</div>
 </li>
 <li>
 <p>For Enterprise Linux hosts:</p>
@@ -6753,7 +6730,12 @@ Pinned virtual machines must be shut down before updating the host.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed.</p>
+<p>For oVirt Nodes, the <code>ovirt-release44</code> RPM package enabling the correct repositories is already installed. Ensure it is updated to the latest version:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># dnf update -y ovirt-release44</pre>
+</div>
+</div>
 </li>
 <li>
 <p>For Enterprise Linux hosts:</p>
@@ -7118,7 +7100,7 @@ Red Hat Virtualization Host for RHEL 8 x86_64 (RPMs)                            
 <h2 id="legal-notice">Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/upgrade_guide/index">Red Hat Virtualization 4.4 Upgrade Guide</a>. Copyright © 2020 Red Hat, Inc. Licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/upgrade_guide/index">Red Hat Virtualization 4.4 Upgrade Guide</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

@@ -6187,31 +6187,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 <div class="sect3">
 <h4 id="Deleting_a_snapshot">6.9.4. Deleting a Snapshot</h4>
 <div class="paragraph">
-<p>You can delete a virtual machine snapshot and permanently remove it from your oVirt environment. This operation is only supported on a running virtual machine.</p>
-</div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>When you delete a snapshot from an image chain, there must be enough free space in the storage domain to temporarily accommodate both the original volume and the newly merged volume. Otherwise, snapshot deletion will fail and you will need to export and re-import the volume to remove snapshots. This is due to the data from the two volumes being merged in the resized volume and the resized volume growing to accommodate the total size of the two merged images.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If the snapshot being deleted is contained in a base image, the volume subsequent to the volume containing the snapshot being deleted is extended to include the base volume.</p>
-</li>
-<li>
-<p>If the snapshot being deleted is contained in a QCOW2 (thin provisioned), non-base image hosted on internal storage, the successor volume is extended to include the volume containing the snapshot being deleted.</p>
-</li>
-</ul>
-</div>
-</td>
-</tr>
-</table>
+<p>You can delete a virtual machine snapshot and permanently remove it from your oVirt environment.</p>
 </div>
 <div class="paragraph">
 <p><strong>Deleting a Snapshot</strong></p>
@@ -6246,7 +6222,7 @@ You can configure the NUMA topology manually, or use the <strong>Auto Pinning Po
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the deletion fails, fix the underlying problem (for example, a failed host, an inaccessible storage device, or even a temporary network issue) and try again.</p>
+<p>If the deletion fails, fix the underlying problem (for example, a failed host, an inaccessible storage device, or a temporary network issue) and try again.</p>
 </div>
 </td>
 </tr>
@@ -13130,7 +13106,7 @@ yum-uuid * Remove the yum UUID</pre>
 <h2 id="legal-notice">Appendix C: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index">Red Hat Virtualization 4.4 Virtual Machine Management Guide</a>. Copyright © 2020 Red Hat, Inc. Licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index">Red Hat Virtualization 4.4 Virtual Machine Management Guide</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

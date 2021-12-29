@@ -601,9 +601,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2653/develop/release-management/features/virt/engine-support-for-ppc64.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2653/develop/developer-guide/engine/engine-supported-time-zones.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2653/develop/developer-guide/engine/engine-tools.html</loc>
 </url>
 <url>
@@ -1172,6 +1169,9 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2653/release/3.6.6/</loc>
+</url>
+<url>
+<loc>https://ovirt.github.io/ovirt-site/previews/2653/release/4.4.10/</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2653/release/4.3.2/</loc>
@@ -2930,6 +2930,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2653/images/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2021-12-16T10:48:04+00:00</lastmod>
+<lastmod>2021-12-29T10:46:45+00:00</lastmod>
 </url>
 </urlset>

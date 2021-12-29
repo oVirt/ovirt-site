@@ -195,8 +195,19 @@
 </dd>
 </dl>
 </div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>It is recommended that you set the system time zone for all machines in your Data Warehouse deployment to UTC. This ensures that data collection is not interrupted by variations in your local time zone: for example, a change from summer time to winter time.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>To calculate an estimate of the space and resources the <code>ovirt_engine_history</code> database will use, use the <a href="https://access.redhat.com/labs/rhevmhdsc/">RHV Engine History Database Size Calculator</a> tool. The estimate is based on the number of entities and the length of time you have chosen to retain the history records.</p>
@@ -1461,7 +1472,8 @@ ovirt_engine_history=&gt;</pre>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>To disable debug mode, delete the configuration file and restart the service.</pre>
+<pre> To disable debug mode, delete the configuration file and restart the service.
+// removed note</pre>
 </div>
 </div>
 </li>
@@ -3564,7 +3576,7 @@ ovirt_engine_history=&gt;</pre>
 <h2 id="legal-notice">Appendix A: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/data_warehouse_guide/index">Red Hat Virtualization 4.4 Data Warehouse Guide</a>. Copyright © 2020 Red Hat, Inc. Licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/data_warehouse_guide/index">Red Hat Virtualization 4.4 Data Warehouse Guide</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>

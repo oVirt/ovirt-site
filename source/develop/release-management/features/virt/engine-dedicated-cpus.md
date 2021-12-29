@@ -38,7 +38,7 @@ Engine:
 3. Hold hostToAvailableCpu data structure:
     it will be on this form Map<Integer,Map<Integer,Map<Integer,List<String>>>>
     Host id -> Map of Socket id to Map of Core id to list of cpus
-   (assuming host id, core id, socket id is unique)
+    (assuming host id, core id, socket id is unique)
 
     **Save/Update cached data structure:**    
 
@@ -150,6 +150,8 @@ Example:
 
 Host A with 1 Socket, 2 Cores in socket, 2 CPUs in each core
 
+Having 2 CPUs in a core indicates of a host with 2 threads topology
+
 hostToAvailableCpu data structure:
 
 {Host A id} -> {socket id} -> {core 1 id} -> {1,2}
@@ -157,9 +159,17 @@ hostToAvailableCpu data structure:
 
 Lets assume we have 1 VM with 2 vCPUs with isolate threads policy
 
-the VM will use from cpu ids 1 and 3, and cpu ids 2 and 4 will be blocked
+The VM will use CPU IDs 1 and 3, and CPU IDs 2 and 4 will be blocked
 
-hostToAvailableCpu data structure after this change will be empty, since there is no available shared CPUs 
+hostToAvailableCpu data structure after this change will be empty, since there is no available shared CPUs
+
 current CPU pinning for the VM will be 1#1 2#3
 
-once the VM got stopped, we will need to restore the core 1 and 2 CPU's (which we will find from the host topology)
+once the VM got stopped, we will need to restore core 1 and 2 CPU's (which we will find from the host topology)
+meaning, restoring also CPUs 2 and 4 to hostToAvailableCpu.
+
+### TBD
+
+- If VM CPU pinning policy is isolate threads or sibilings, and we have two hosts, one with SMT enabled and the other
+  without SMT, do we need to count the host without SMT for scheduling(considering it same as dedicated)
+  or instead to remove it?

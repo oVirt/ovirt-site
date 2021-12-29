@@ -16805,41 +16805,19 @@ When selected, <strong>Migration Options</strong> is set to <strong>Allow manual
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Legacy</strong> - Legacy behavior of 3.6 version. Overrides in <code>vdsm.conf</code> are still applied. The guest agent hook mechanism is disabled.</p>
+<p><strong>Cluster default (Minimal downtime)</strong> - Overrides in <code>vdsm.conf</code> are still applied. The guest agent hook mechanism is disabled.</p>
 </li>
 <li>
 <p><strong>Minimal downtime</strong> - Allows the virtual machine to migrate in typical situations. Virtual machines should not experience any significant downtime. The migration will be aborted if virtual machine migration does not converge after a long time (dependent on QEMU iterations, with a maximum of 500 milliseconds). The guest agent hook mechanism is enabled.</p>
+</li>
+<li>
+<p><strong>Post-copy migration</strong> -</p>
 </li>
 <li>
 <p><strong>Suspend workload if needed</strong> - Allows the virtual machine to migrate in most situations, including when the virtual machine is running a heavy workload. Because of this, virtual machines may experience a more significant downtime than with some other settings. The migration may still be aborted for extreme workloads. The guest agent hook mechanism is enabled.</p>
 </li>
 </ul>
 </div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable migration compression</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Only activated with <strong>Legacy</strong> migration policy. The  option allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern. Migration compression is disabled globally by default.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Select <strong>Inherit from cluster setting</strong> to use the compression setting of the cluster. This option is selected by default.</p>
-</li>
-<li>
-<p>Select <strong>Compress</strong> to override the cluster setting or global setting and allow compression for the virtual machine.</p>
-</li>
-<li>
-<p>Select <strong>Don&#8217;t compress</strong> to override the cluster setting or global setting and prevent compression for the virtual machine.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pass-Through Host CPU</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This check box allows virtual machines to take advantage of the features of the physical CPU of the host on which they are situated.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>

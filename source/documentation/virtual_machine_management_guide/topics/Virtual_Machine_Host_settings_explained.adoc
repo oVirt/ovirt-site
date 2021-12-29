@@ -48,9 +48,23 @@ a|Defines options to run and migrate the virtual machine. If the options here ar
 |*Migration policy*
 a|Defines the migration convergence policy. If the check box is left unselected, the host determines the policy.
 
-* *Legacy* - Legacy behavior of 3.6 version. Overrides in `vdsm.conf` are still applied. The guest agent hook mechanism is disabled.
+* *Cluster default (Minimal downtime)* - Overrides in `vdsm.conf` are still applied. The guest agent hook mechanism is disabled.
 
 * *Minimal downtime* - Allows the virtual machine to migrate in typical situations. Virtual machines should not experience any significant downtime. The migration will be aborted if virtual machine migration does not converge after a long time (dependent on QEMU iterations, with a maximum of 500 milliseconds). The guest agent hook mechanism is enabled.
+
+* *Post-copy migration* - Virtual machines should not experience any significant downtime similar to the minimal downtime policy.
++
+The post-copy policy first tries pre-copy to verify whether convergence can occur. The migration switches to post-copy if the virtual machine migration does not converge after a long time.
++
+The disadvantage of this policy is that in the post-copy phase, the virtual machine may slow down significantly as the missing parts of memory are transferred between the hosts.
++
+If anything goes wrong during the post-copy phase, such as a network failure of the migration network between the hosts, then the migration process leads to an inconsistent and paused virtual machine and the result is a lost virtual machine. Therefore, it is not possible to abort a migration during the post-copy phase.
++
+[WARNING]
+.Warning
+====
+If the network connection breaks prior to the completion of the post-copy process, the {engine-name} pauses and then kills the running VM. Do not use post-copy migration if the VM availability is critical or if the migration network is unstable.
+====
 
 * *Suspend workload if needed* - Allows the virtual machine to migrate in most situations, including when the virtual machine is running a heavy workload. Because of this, virtual machines may experience a more significant downtime than with some other settings. The migration may still be aborted for extreme workloads. The guest agent hook mechanism is enabled.
 | No

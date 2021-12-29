@@ -33,21 +33,12 @@ When selected, *Migration Options* is set to *Allow manual migration only*.
 
 | |*Migration policy* a|Defines the migration convergence policy. If the check box is left unselected, the host determines the policy.
 
-* *Legacy* - Legacy behavior of 3.6 version. Overrides in `vdsm.conf` are still applied. The guest agent hook mechanism is disabled.
+* *Cluster default (Minimal downtime)* - Overrides in `vdsm.conf` are still applied. The guest agent hook mechanism is disabled.
 
 * *Minimal downtime* - Allows the virtual machine to migrate in typical situations. Virtual machines should not experience any significant downtime. The migration will be aborted if virtual machine migration does not converge after a long time (dependent on QEMU iterations, with a maximum of 500 milliseconds). The guest agent hook mechanism is enabled.
+* *Post-copy migration* -
 
 * *Suspend workload if needed* - Allows the virtual machine to migrate in most situations, including when the virtual machine is running a heavy workload. Because of this, virtual machines may experience a more significant downtime than with some other settings. The migration may still be aborted for extreme workloads. The guest agent hook mechanism is enabled.
-
-| |*Enable migration compression* a|Only activated with *Legacy* migration policy. The  option allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern. Migration compression is disabled globally by default.
-
-* Select *Inherit from cluster setting* to use the compression setting of the cluster. This option is selected by default.
-
-* Select *Compress* to override the cluster setting or global setting and allow compression for the virtual machine.
-
-* Select *Don't compress* to override the cluster setting or global setting and prevent compression for the virtual machine.
-
-| |*Pass-Through Host CPU* |This check box allows virtual machines to take advantage of the features of the physical CPU of the host on which they are situated.
 
 |
 |*Enable migration encryption*

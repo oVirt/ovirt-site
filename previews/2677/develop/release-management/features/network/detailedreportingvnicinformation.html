@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>DetailedReportingVnicInformation | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="DetailedReportingVnicInformation" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2677/develop/release-management/features/network/detailedreportingvnicinformation.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2677/develop/release-management/features/network/detailedreportingvnicinformation.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="DetailedReportingVnicInformation" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2677/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"DetailedReportingVnicInformation","url":"https://ovirt.github.io/ovirt-site/previews/2677/develop/release-management/features/network/detailedreportingvnicinformation.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2677/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2677/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2677/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2677/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2677/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2677/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2677/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2677/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2677/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2677/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2677/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2677/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2677/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2677/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2677/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2677/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2677/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2677/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2677/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2677/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2677/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2677/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2677/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2677/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2677/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2677/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2677/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2677/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2677/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2677/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2677/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2677/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2677/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2677/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2677/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2677//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2677//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2677/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2677/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2677/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2677/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2677/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/90758110b19ee0a2e03473012fdc1bd7?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Moti Asayag</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2677/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="detailed-reporting-vnic-information">Detailed Reporting Vnic Information</h1>
+
+<h2 id="reporting-vnic-information-reported-by-guest-agent-detailed-design">Reporting vNIC information reported by Guest Agent Detailed Design</h2>
+
+<h3 id="summary">Summary</h3>
+
+<p>The Guest Agent reports the vNic details:</p>
+
+<ul>
+  <li>IP addresses (both IPv4 and IPv6).</li>
+  <li>vNic internal name</li>
+</ul>
+
+<p><a href="http://wiki.ovirt.org/wiki/Feature/ReportingVnicImplementation Reporting vNIC implementation reported by Guest Agent Feature Page">http://wiki.ovirt.org/wiki/Feature/ReportingVnicImplementation Reporting vNIC implementation reported by Guest Agent Feature Page</a></p>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Name: Moti Asayag</li>
+  <li>Email: masayag@redhat.com</li>
+</ul>
+
+<h3 id="current-status">Current status</h3>
+
+<ul>
+  <li>Target Release: 3.2</li>
+  <li>Status: Design</li>
+  <li>Last updated date: Nov 12 2012</li>
+</ul>
+
+<h3 id="detailed-description">Detailed Description</h3>
+
+<p>The internal vNic implementation details are reported by VDSM by verbs <em>getVmStats</em> and <em>getAllVmStats</em>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     netIfaces = [{'name': 'eth8', 'inet6': ['fe80::21a:4aff:fe16:1ac'], 'inet': ['10.35.17.36'], 'hw': '00:1a:4a:16:01:ac'}, 
+                  {'name': 'eth9', 'inet6': ['fe80::21a:4aff:fe16:160','fe80::21a:4aff:fe16:161'], 'inet': ['10.35.1.254'], 'hw': '00:1a:4a:16:01:60'}, 
+                  {'name': 'eth7', 'inet6': ['fe80::21a:4aff:fe16:1af'], 'inet': ['10.35.18.69'], 'hw': '00:1a:4a:16:01:af'}]
+</code></pre></div></div>
+
+<p>The vNic device data from the guest contains interface name, IPv4 addresses, IPv6 addresses and MAC Address.</p>
+
+<h4 id="engine">Engine</h4>
+
+<p><span style="color:Teal"><strong>VM_GUEST_AGENT_INTERFACES</strong></span> a new satellite table of vm, contains the vNic configuration reported by the guest agent
+{|class=”wikitable sortable” !border=”1”| Column Name ||Column Type ||Null? / Default ||Definition |- |vm_id ||UUID ||not null ||The VM’s ID, <strong>foreign key</strong> to vm_static.vm_guid |- |interface_name ||VARCHAR(50) ||null ||The vNic’s name within the VM |- |mac_address ||VARCHAR(59) ||null ||The vNic’s MAC address within the VM |- |ipv4_addresses ||text ||null ||The vNic’s IPv4 addresses |- |ipv6_addresses ||text ||null ||The vNic’s IPv6 addresses |- |}</p>
+
+<p>The IP addresses columns might contain multiple addresses per vNic and will be stored concatenated by comma.
+The table will be updated only when a change is detected by the reported data from VDSM.</p>
+
+<p><span style="color:Teal"><strong>VmGuestAgentInterface</strong></span> a new class for representing the data reported by the guest agent:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Guid vmId - VM's ID
+    String name - the internal nic's name
+    String macAddress - the internal nic's macAddress
+    List`&lt;String&gt;` ipv4Addresses - the vNic's IPv4 addresses
+    List`&lt;String&gt;` ipv6Addresses - the vNic's IPv6 addresses
+</code></pre></div></div>
+
+<p><span style="color:Teal"><strong>VmGuestAgentInterfaceDao</strong></span> new DAO will serve as the interface of the VmGuestAgentInterface entity database related actions. VmGuestAgentInterface is stored to the database only as part of refresh VMs.</p>
+
+<h4 id="engine-flows">Engine Flows</h4>
+
+<p><span style="color:Teal"><strong>GetVmGuestAgentInterfacesForVmQuery</strong></span> - A query to return the vNic’s data for a specific vm by the VM’s ID.
+ <span style="color:Teal"><strong>VdsUpdateRunTimeInfo.refreshVms</strong></span> - will refresh the vnic’s data (as an optimization only if the data was changed). Update should be performed as a mass-operation.
+* Populating the VMs IP addresses and VM guest agent interfaces is done by <strong>getVmStats</strong> and <strong>getAllVmStats</strong></p>
+
+<ul>
+  <li>
+    <ul>
+      <li>When the <strong>netIfaces</strong> element is reported by VDSM, it will be used both for populating the VM’s IP addresses list on vm_dynamic(vm_ip) as well as the vm guest agent interfaces.</li>
+      <li>If <strong>netIfaces</strong> is not reported by VDSM (earlier VDSM versions), the VM’s IP addresses list will be populate by <strong>guestIPs</strong> as done today.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="rest-api">Rest API</h4>
+
+<p>Populating the VM’s <strong>network_devices</strong> element under <strong>guest_info</strong> is implemented by mechanism introduced by <a href="http://gerrit.ovirt.org/#/c/9815">“All-Content Header” patch</a>
+Rest API will invoke GetVmGuestAgentInterfacesForVmQuery from the <em>populate</em> method of VM Resource <em>BackendVmResource</em>’ in order to populate the additional information of guest_info.
+A mapper should be created as well between VmGuestAgentInterface to the equivalent Rest API entity.</p>
+
+<p>On BackendVmNicResource, the new properties of the HostNic (interface_name, ipv4 and ipv6) will be populated by using same query to get relevant data if exists.</p>
+
+<h4 id="ui">UI</h4>
+
+<p>Changes should be made for both Admin-Portal and User-Portal.
+The client will invoke GetVmGuestAgentInterfacesForVmQuery for getting the information and will map them on client side by MAC address for matching the management vNic to the VM interface reported by the guest agent and populating the information on the VM Interface sub-tab.</p>
+
+<h4 id="vdsm-api">VDSM API</h4>
+
+<p>No changes for VDSM API.</p>
+
+<h4 id="upgrade-db">Upgrade DB</h4>
+
+<ol>
+  <li>Add the new table <strong>VM_GUEST_AGENT_INTERFACES</strong> and related stored-procedure for save/update/delete/get.</li>
+</ol>
+
+<h3 id="dependencies--related-features-and-projects">Dependencies / Related Features and Projects</h3>
+
+<h3 id="open-issues">Open Issues</h3>
+
+<p>NA</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2677/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2677/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2677/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2677/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/detailedreportingvnicinformation.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/detailedreportingvnicinformation.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

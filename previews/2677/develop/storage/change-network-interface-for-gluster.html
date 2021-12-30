@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Change network interface for Gluster | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Change network interface for Gluster" />
+<meta name="author" content="Dave Neary" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2677/develop/storage/change-network-interface-for-gluster.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2677/develop/storage/change-network-interface-for-gluster.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Change network interface for Gluster" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Dave Neary" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Dave Neary"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2677/images/logo.svg"},"name":"Dave Neary"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Change network interface for Gluster","url":"https://ovirt.github.io/ovirt-site/previews/2677/develop/storage/change-network-interface-for-gluster.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2677/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2677/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2677/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2677/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2677/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2677/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2677/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2677/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2677/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2677/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2677/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2677/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2677/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2677/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2677/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2677/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2677/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2677/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2677/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2677/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2677/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2677/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2677/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2677/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2677/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2677/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2677/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2677/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2677/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2677/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2677/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2677/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2677/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2677/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2677/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2677//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2677//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2677/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2677/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2677/develop/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/cae1a4eca8b71a21d58846508922e062?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dave Neary</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d041aed38c9651441c5e9f170c6d40b1?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d041aed38c9651441c5e9f170c6d40b1?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Juan Pablo Lorier</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/450b77aa4b277aa954e42c0cbaed64f1?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/450b77aa4b277aa954e42c0cbaed64f1?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Sahina Bose</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d1444ce9dae56ad479be1aa9e2b217bd?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d1444ce9dae56ad479be1aa9e2b217bd?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Sven Kieske</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2677/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="change-network-interface-for-gluster">Change network interface for Gluster</h1>
+
+<p>The purpose of this page is to describe how to allow Gluster network traffic to use other network interface than ovirtmgmt. By default, Ovirt shows the hosts in the cluster with their ovirmgmt IPs. This can cause problems under heavy network activity, mostly when Gluster uses the network to syncronize big amounts of data. In this scenario, Ovirt looses touch with the host and can cause the host to be marked as unreachable and thus trigger VMs migrations. To avoid this, you may use extra NICs in your hosts to create a network for Gluster’s traffic. You can be in two scenarios; you already have your Gluster storage domain created and can’t start over from the top, or you can get yourself a fresh start. This guide is to allow you to start over, but though I didn’t test it (anyone else may edit this) I think that you can use the same strategy to migrate your bricks to a new IP.</p>
+
+<p>’’’ Note : There’s currently no easy mechanism to migrate a gluster host IP to a new IP. ‘’’</p>
+
+<p>Fist, you have to set up your Glusterfs domain in order to have the hosts that will act as bricks. I found that if you use replica, you have to be aware that in the future, you may only add a multiple of replica of bricks to the volume. By default, the hosts are set as peer with the ovirmgmt IP, so if you have a working volume with replica and can’t remove it, you may need to figure how to add more bricks to replace the ones you need to modify. WARNING: I didn’t test this procedure on existing volumes, so be sure to test it before risking your data. If you use the volume in a storage domain, remove the storage domain to release the volume. Now you need to manualy edit Gluster’s properties from the cli. If you need to maintain your volume, skip the deletion part and try to adapt the next part to your needs. Log into one of them and stop and remove any existing volume (if any):</p>
+
+<p>List your volumes:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # gluster volume list
+</code></pre></div></div>
+
+<p>Stop and delete the one you want to change. If your hosts are part of more than one volume, you may need to remove all of them to remove the peer or find a way to replace it with another.</p>
+
+<p><code class="language-plaintext highlighter-rouge"># gluster volume stop </code><Name of="" volume="">
+`# gluster volume delete `<Name of="" volume=""></Name></Name></p>
+
+<p>Now, lets list the peers enrolled and detach them to re add them with the new IP:</p>
+
+<p>Show the hosts that act as peers to Gluster</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # gluster peer status
+</code></pre></div></div>
+
+<p>Detach every host you need to modify</p>
+
+<p><code class="language-plaintext highlighter-rouge"># gluster peer detach </code><IP of="" the="" host="" to="" modify=""></IP></p>
+
+<p>Now, lets add them back with the new IP (<strong>\1</strong>):</p>
+
+<p><code class="language-plaintext highlighter-rouge"># gluster peer probe </code>&lt;New host’s IP&gt;</p>
+
+<p>As we are starting over, we are going to remove any trace of the past volume, so we need to clean the directory and set labels back in place:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # setfattr -x trusted.glusterfs.volume-id Path_to_brick
+  # setfattr -x trusted.gfid Path_to_brick
+  # rm -rf Path_to_brick/.glusterfs
+</code></pre></div></div>
+
+<p>Also, if you already used the volume as a Glusterfs Storage Domain in Ovirt, you need to clean Ovirt’s data:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # rm -rf Path_to_brick/*
+</code></pre></div></div>
+
+<p><em>Note: You can also reuse existing bricks, by using the force option in the below command (available from gluster 3.5)</em></p>
+
+<p>Now we can create the volume again (stolen from man :-) ):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # volume create `&lt;NEW-VOLNAME&gt;` [stripe `&lt;COUNT&gt;`] [replica `&lt;COUNT&gt;`] [device vg] [transport `&lt;tcp|rdma|tcp,rdma&gt;`] `&lt;NEW-BRICK&gt;` 
+</code></pre></div></div>
+
+<p>The last thing to do is to set uid and gid of the volume to be vdsm:kvm as when you create a volume directly from Gluster those are set to root:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  # gluster volume set glusterfs storage.owner-uid 36
+  # gluster volume set glusterfs storage.owner-gid 36
+</code></pre></div></div>
+
+<p>I think this is also done when you hit “Optimize for virt”. It’s important to use this option as it sets several variables of the volume in order to have it tuned.</p>
+
+<p>Hope this helps and as I’m no guru at Ovirt or Gluster, feel free to correct anything you think is wrong.</p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2677/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2677/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2677/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2677/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/storage/change-network-interface-for-gluster.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/storage/change-network-interface-for-gluster.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

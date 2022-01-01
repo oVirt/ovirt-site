@@ -10,11 +10,11 @@
 | [ovirt-openshift-extensions](https://github.com/oVirt/ovirt-openshift-extensions) | Implementation of flexvolume driver and provisioner for oVirt | [18](https://github.com/ovirt/ovirt-openshift-extensions/issues) | 31 | 16 |
 | [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [17](https://github.com/ovirt/go-ovirt-client/issues) | 5 | 5 |
 | [stage-gh-stdci2](https://github.com/oVirt/stage-gh-stdci2) | Another staging repo | [14](https://github.com/ovirt/stage-gh-stdci2/issues) | 0 | 2 |
-| [ovirt-imageio](https://github.com/oVirt/ovirt-imageio) | The oVirt image transfer daemon and clients. | [10](https://github.com/ovirt/ovirt-imageio/issues) | 10 | 12 |
+| [ovirt-imageio](https://github.com/oVirt/ovirt-imageio) | The oVirt image transfer daemon and clients. | [10](https://github.com/ovirt/ovirt-imageio/issues) | 11 | 12 |
 | [ovirt-engine-sdk](https://github.com/oVirt/ovirt-engine-sdk) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [8](https://github.com/ovirt/ovirt-engine-sdk/issues) | 77 | 76 |
 | [stage-gh-stdci1](https://github.com/oVirt/stage-gh-stdci1) | Dummy project for staging CI system changes | [6](https://github.com/ovirt/stage-gh-stdci1/issues) | 0 | 2 |
 | [ovirt-jenkins-plugin](https://github.com/oVirt/ovirt-jenkins-plugin) | Jenkins plugin to run agents using oVirt | [6](https://github.com/ovirt/ovirt-jenkins-plugin/issues) | 3 | 2 |
-| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [5](https://github.com/ovirt/ovirt-engine/issues) | 327 | 196 |
+| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [5](https://github.com/ovirt/ovirt-engine/issues) | 328 | 196 |
 | [k8sOVirtCredentialsMonitor](https://github.com/oVirt/k8sOVirtCredentialsMonitor) | Monitor k8s secrets and update the oVirt connection | [5](https://github.com/ovirt/k8sOVirtCredentialsMonitor/issues) | 1 | 2 |
 | [cockpit-ovirt](https://github.com/oVirt/cockpit-ovirt) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [5](https://github.com/ovirt/cockpit-ovirt/issues) | 7 | 13 |
 | [ovirt-engine-keycloak](https://github.com/oVirt/ovirt-engine-keycloak) | Package that provides Keycloak overlay configuration to be run on oVirt Engine&#39;s Widlfly/EAP instance | [4](https://github.com/ovirt/ovirt-engine-keycloak/issues) | 0 | 2 |

@@ -21,8 +21,8 @@
 | [ovirt-engine-sdk-go](https://github.com/oVirt/ovirt-engine-sdk-go) | The generator of Go SDK for oVirt v4.0&#43; | [4](https://github.com/ovirt/ovirt-engine-sdk-go/issues) | 19 | 25 |
 | [ovirt-node-ng](https://github.com/oVirt/ovirt-node-ng) | This repository contains the code of the nodectl tool used within oVirt Node NG. The repository which contains the code for building oVirt Node NG is at https://github.com/oVirt/ovirt-node-ng-image. | [4](https://github.com/ovirt/ovirt-node-ng/issues) | 13 | 12 |
 | [ovirt-dwh](https://github.com/oVirt/ovirt-dwh) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [3](https://github.com/ovirt/ovirt-dwh/issues) | 4 | 11 |
+| [ovirt-release](https://github.com/oVirt/ovirt-release) | This package contains the yum configuration for oVirt repositories. | [3](https://github.com/ovirt/ovirt-release/issues) | 8 | 9 |
 | [ovirt-hosted-engine-setup](https://github.com/oVirt/ovirt-hosted-engine-setup) | Hosted Engine setup tool for the oVirt project. For issues use http://bugzilla.redhat.com | [2](https://github.com/ovirt/ovirt-hosted-engine-setup/issues) | 13 | 22 |
-| [ovirt-release](https://github.com/oVirt/ovirt-release) | This package contains the yum configuration for oVirt repositories. | [2](https://github.com/ovirt/ovirt-release/issues) | 8 | 9 |
 | [ovirt-ansible-dpdk-setup](https://github.com/oVirt/ovirt-ansible-dpdk-setup) | Ansible role to deploy Open vSwitch with DPDK support | [2](https://github.com/ovirt/ovirt-ansible-dpdk-setup/issues) | 7 | 4 |
 | [ocp-on-ovirt](https://github.com/oVirt/ocp-on-ovirt) | this repo contains all the tools and automations for ocp-on-rhv CI. | [2](https://github.com/ovirt/ocp-on-ovirt/issues) | 8 | 9 |
 | [java-client-kubevirt](https://github.com/oVirt/java-client-kubevirt) | Kubevirt java client (java-client-kubevirt) for oVirt | [2](https://github.com/ovirt/java-client-kubevirt/issues) | 5 | 3 |

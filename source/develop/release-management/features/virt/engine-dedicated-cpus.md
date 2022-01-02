@@ -36,7 +36,8 @@ Engine:
 1. Add the new policies to CPU Pinning Policy enum
 2. Save host capabilities CPU topology in vds_dynamic
 3. Hold hostToAvailableCpu data structure:
-    it will be on this form Map<Integer,Map<Integer,Map<Integer,List<String>>>>
+    it will be on this form `Map<Integer,Map<Integer,Map<Integer,List<String>>>>`
+   
     Host id -> Map of Socket id to Map of Core id to list of cpus
     (assuming host id, core id, socket id is unique)
 
@@ -44,16 +45,12 @@ Engine:
 
     Option 1:
     * On updateVDSStatisticsData update the data structure with host capabilities
-      * On stop host, the host should be removed, and all the VM pinnings to that host should be pinned to other hosts
-      * On start host, the host should be added
     * Poll every X seconds all VMs and find which VM’s have cpu pinning and update the shared CPU pinning data structure based on VM pinned CPUs and host capabilities
 
     Option 2:
     * On updateVDSStatisticsData update the data structure with host capabilities
-      * On stop host, the host should be removed, and all the VM pinnings to that host should be pinned to other hosts
-      * On start host, the host should be added
     * On every start/stop/migrate/… VM update the shared CPU pinning data structure
-    With used pinning
+    with used pinning
 
    **Init cached data structure (on engine start/stop):**
    
@@ -155,6 +152,7 @@ Having 2 CPUs in a core indicates of a host with 2 threads topology
 hostToAvailableCpu data structure:
 
 {Host A id} -> {socket id} -> {core 1 id} -> {1,2}
+
 {Host A id} -> {socket id} -> {core 2 id} -> {3,4}
 
 Lets assume we have 1 VM with 2 vCPUs with isolate threads policy

@@ -62,10 +62,11 @@ Engine:
               - vcores that are part of the same vsocket should be on the same psocket
               - vthreads that are part of the same vcore should be on the same pcore
             - If no host left after the filtering phase throw validation error that cpu pinning can't be done 
-            - Score all hosts to find best matching host with enough pCPUs (two vCpus in different vCores can be
-              scheduled on same pCore)
-              - Host with less amount of sockets and cores left which
-                at least match the virtual topology will get higher score, since its better to use it
+            - Score all hosts to find best matching host in most efficient way so minimal
+              physical resources is used, host will gain higher score if:
+              - two vCpus in different vCores can be scheduled on same pCore
+              - two vCores in different vSockets can be scheduled on same pSocket
+              - two vSockets can be scheduled on one pSocket
         - Run phase
             - Based on Step 3 -Save/Update cached data structure
             - Update VM CurrentCpuPinning DB field with the mapping

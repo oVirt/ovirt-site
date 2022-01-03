@@ -1,7 +1,7 @@
 [[create_cleanup]]
 = Create the Playbook to Clean the Primary Site
 
-Before you failback to the primary site, you must ensure that the primary site is cleaned of all storage domains to be imported. You can do so manually on the {engine-name}, or optionally you can create an Ansible playbook to do it for you.
+Before you fail back to the primary site, you must ensure that the primary site is cleaned of all storage domains to be imported. You can do so manually on the {engine-name}, or optionally you can create an Ansible playbook to do it for you.
 
 The Ansible playbook to clean the primary site is named `dr-cleanup.yml` in this example, and it uses the mapping file created in <<generate_mapping>>:
 [options="nowrap" subs="normal"]

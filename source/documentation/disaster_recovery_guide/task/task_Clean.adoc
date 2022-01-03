@@ -13,7 +13,7 @@ This example uses the `dr-cleanup.yml` playbook created earlier to clean the env
 .Procedure
 
 . Clean up the primary site with the following command:
-
++
 [options="nowrap" subs="normal"]
 ----
 # ansible-playbook dr-cleanup.yml --tags "clean_engine"

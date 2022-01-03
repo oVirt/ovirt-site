@@ -1,9 +1,9 @@
 [[create_ansible_playbooks]]
 = Create the Required Ansible Playbooks
 
-Ansible is used to initiate and manage the disaster recovery failover and failback. You therefore must create Ansible playbooks to facilitate this. For more information about creating Ansible playbooks, see the link:http://docs.ansible.com/ansible/latest/playbooks.html[Ansible documentation].
+Ansible is used to initiate and manage the disaster recovery failover and failback. So you must create Ansible playbooks to facilitate this. For more information about creating Ansible playbooks, see the link:http://docs.ansible.com/ansible/latest/playbooks.html[Ansible documentation].
 
-*Prerequisites*:
+.Prerequisites
 
 * Fully functioning {virt-product-fullname} environment in the primary site.
 * A backup environment in the secondary site with the same data center and cluster compatibility level as the primary environment. The backup environment must have:
@@ -23,7 +23,10 @@ The replicated storage that contains virtual machines and templates must not be 
 
 It is also recommended to create environment properties that exist in the primary site, such as affinity groups, affinity labels, users, on the secondary site.
 
-NOTE: The default behaviour of the Ansible playbooks can be configured in the `/usr/share/ansible/roles/oVirt.disaster-recovery/defaults/main.yml` file.
+[NOTE]
+====
+The default behaviour of the Ansible playbooks can be configured in the `/usr/share/ansible/roles/oVirt.disaster-recovery/defaults/main.yml` file.
+====
 
 The following playbooks must be created:
 

@@ -8,7 +8,7 @@ Authors: sabusale
 
 ## Summary
 
-Once choosing dedicated CPU policy, The guest vCPUs will be strictly pinned to a set of host pCPUs
+Once choosing dedicated CPU policy, The vCPUs will be strictly pinned to a set of host pCPUs
 (similarly to static CPU pinning). The set of pCPUs will be chosen to match the required guest CPU topology.
 
 Engine sets the pinning automatically when starting the VM as opposed to the manual pinning that is
@@ -43,30 +43,29 @@ Engine:
 
     **Save/Update cached data structure:**    
 
-    Option 1:
-    * On updateVDSStatisticsData update the data structure with host capabilities
-    * Poll every X seconds all VMs and find which VM’s have cpu pinning and update the shared CPU pinning data structure based on VM pinned CPUs and host capabilities
-
-    Option 2:
     * On updateVDSStatisticsData update the data structure with host capabilities
     * On every start/stop/migrate/… VM update the shared CPU pinning data structure
     with used pinning
+    * In case manual pinned cpus exist, they should be subtracted from hostToAvailableCpu 
 
    **Init cached data structure (on engine start/stop):**
-   
-    Option1:
+
     * Will be calculated after engine started after getting host caps and VMs cpu pinnings
     
-    Option2:
-    * Create table in DB and serialize/deserialize it from DB
 
 4. Scheduling
     1. Start VM:
         - Scheduling phase
             - Reads hostToAvailableCpu from step 3
-            - Filter hosts that can't match virtual CPU topology (pCpu pinning should
-              be close to the virtual topology, e.g: 2 vCPU on same vSocket should be placed on same pSocket)
-            - Score all hosts to find best matching host with enough pCPUs 
+            - Filter hosts that can't match virtual CPU topology
+            - Hosts that doesn't match this two rules will be filtered:
+              - vcores that are part of the same vsocket should be on the same psocket
+              - vthreads that are part of the same vcore should be on the same pcore
+            - If no host left after the filtering phase throw validation error that cpu pinning can't be done 
+            - Score all hosts to find best matching host with enough pCPUs (two vCpus in different vCores can be
+              scheduled on same pCore)
+              - Host with less amount of sockets and cores left which
+                at least match the virtual topology will get higher score, since its better to use it
         - Run phase
             - Based on Step 3 -Save/Update cached data structure
             - Update VM CurrentCpuPinning DB field with the mapping
@@ -90,7 +89,7 @@ Engine:
 ## Database
 
 * Save CPU mappings in field CurrentCpuPinning field in vm_dynamic table
-* Save CPU topology from host capabilities into vds_statistics
+* Save CPU topology from host capabilities into vds_dynamic
 * Save new pinning policies to DB using the existing CpuPinningPolicy field
 
 ## Rest API
@@ -123,9 +122,9 @@ User wants to start VM B that requires 2 vCPUs and has dedicated cpu policy
   {host A id} -> { {socket 1 id} -> {core 1 id} -> {1,2}}
   
   {host B id} -> { {socket 1 id} -> {core 1 id } -> {1}, {socket 2 id} -> {core 2 id} -> {2}}
-- Scheduler ranks all hosts that have enough physical CPUs available based on hostToAvailableCpu. In our case, both
-  hosts have enough pCPUs, however, host A has both available on one socket whereas the B would need to divide them on 
-  2 different sockets. So A gets higher rank than B (B should be filtered)
+- Scheduler checks all hosts that have enough physical CPUs available based on hostToAvailableCpu. In our case, both
+  hosts have enough pCPUs, however, host A has both available on one socket whereas host B would need to divide them on 
+  2 different sockets. So B get filtered
 - Host A is selected to run the VM
 - Engine creates the mapping between CPUs as: 1#1_2#2 and saves it to currentCpuPinning in vm_dynamic table for VM B entry
 - Engine sends the domain XML to VDSM with the required mapping

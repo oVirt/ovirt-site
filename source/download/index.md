@@ -37,7 +37,7 @@ Once you install a second Host, the Engine Virtual Machine will be highly availa
 
 [Alternate download options](/download/alternate_downloads.html)
 
-oVirt supports two types of [Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index.html#Installing_Hosts_for_RHV_SHE_cli_deploy):
+oVirt supports two types of [Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Installing_Hosts_for_RHV_SHE_cli_deploy):
 
 * [oVirt Node](/download/node.html), a minimal hypervisor operating system based on CentOS
 * [Enterprise Linux (such as CentOS or RHEL)](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Red_Hat_Enterprise_Linux_hosts_SHE_cli_deploy)
@@ -70,9 +70,9 @@ Instead of or in addition to oVirt Node, you can use a standard Enterprise Linux
 ## Install oVirt using the command line
 
 See the instructions in:
-* [Installing the self-hosted engine deployment host](documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index.html#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy)
+* [Installing the self-hosted engine deployment host](documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy)
 
-* [Installing the oVirt Engine](documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index.html#Installing_the_Red_Hat_Virtualization_Manager_SHE_cli_deploy)
+* [Installing the oVirt Engine](documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Installing_the_Red_Hat_Virtualization_Manager_SHE_cli_deploy)
 
 ## Setup Additional Hosts
 
@@ -85,7 +85,7 @@ Navigate to Compute → Hosts → New and enter the Host details. See
 
 ## Install Virtual Machines
 
-Once oVirt Engine is installed and you have added Hosts and [configured storage](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Adding_Storage_Domains_to_RHV_SHE_cli_deploy),
+Once oVirt Engine is installed and you have added Hosts and [configured storage](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Adding_Storage_Domains_to_RHV_SHE_cli_deploy),
 you can now install Virtual Machines! See the [Virtual Machine Management Guide](/documentation/virtual_machine_management_guide/)
 for complete instructions.
 

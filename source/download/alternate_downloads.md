@@ -144,7 +144,7 @@ packages are installed.
 
         sudo dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 
-See [Chapter 7: Enterprise Linux Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Red_Hat_Enterprise_Linux_hosts_SHE_cli_deploy) for full installation
+See [Enterprise Linux Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Red_Hat_Enterprise_Linux_hosts_SHE_cli_deploy) for full installation
 instructions.
 
 #### Attaching your Hosts

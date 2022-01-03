@@ -37,7 +37,7 @@ Once you install a second Host, the Engine Virtual Machine will be highly availa
 
 [Alternate download options](/download/alternate_downloads.html)
 
-oVirt supports two types of [Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Installing_Red_Hat_Virtualization_Hosts_SHE_cli_deploy):
+oVirt supports two types of [Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index.html#Installing_Hosts_for_RHV_SHE_cli_deploy):
 
 * [oVirt Node](/download/node.html), a minimal hypervisor operating system based on CentOS
 * [Enterprise Linux (such as CentOS or RHEL)](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Red_Hat_Enterprise_Linux_hosts_SHE_cli_deploy)

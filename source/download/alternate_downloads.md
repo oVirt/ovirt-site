@@ -107,10 +107,10 @@ For a standalone engine this means basically:
 You must now install at least one Node or Host to act as hypervisors. Enterprise features like migration and high availability
 require more than one Host.
 
-oVirt supports two types of [Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Installing_Red_Hat_Virtualization_Hosts_SHE_cli_deploy):
+oVirt supports two types of [Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Installing_Hosts_for_RHV_SHE_cli_deploy):
 
 * [oVirt Node](/download/node.html) and
-* [Enterprise Linux (such as CentOS or RHEL)](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Installing_Red_Hat_Enterprise_Linux_Hosts_SHE_cli_deploy)
+* [Enterprise Linux (such as CentOS or RHEL)](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Red_Hat_Enterprise_Linux_hosts_SHE_cli_deploy)
 
 Depending on your environment requirements, you may want to use only oVirt Nodes, only EL Hosts, or both.
 
@@ -181,7 +181,7 @@ environment.
 
 ## Install Virtual Machines
 
-Once oVirt Engine is installed and you have added Hosts and [configured storage](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#Adding_Storage_Domains_to_RHV_SHE_cli_deploy),
+Once oVirt Engine is installed and you have added Hosts and [configured storage](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Adding_Storage_Domains_to_RHV_SHE_cli_deploy),
 you can now install Virtual Machines!
 
 See the [Virtual Machine Management Guide](/documentation/virtual_machine_management_guide/) for complete

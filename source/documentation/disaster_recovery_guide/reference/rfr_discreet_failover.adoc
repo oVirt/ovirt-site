@@ -1,7 +1,7 @@
 [[discreet_failover]]
-=== Discreet Failover Test
+= Discreet Failover Test
 
-This test simulates a failover while the primary site and all its storage domains remain active, allowing users to continue working in the primary site. For this to happen you will need to disable replication between the primary storage domains and the replicated (secondary) storage domains. During this test the primary site will be unaware of the failover activities on the secondary site.
+This test simulates a failover while the primary site and all its storage domains remain active, allowing users to continue working in the primary site. To enable this scenario, you must disable replication between the primary storage domains and the replicated (secondary) storage domains. During this test the primary site is unaware of the failover activities on the secondary site.
 
 This test will not allow you to test the failback functionality.
 

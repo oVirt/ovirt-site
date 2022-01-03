@@ -1,14 +1,16 @@
 [[Using-ovirt-dr-script]]
-==== Using the `ovirt-dr` Script for Ansible Tasks
+= The `ovirt-dr` Script for Ansible Tasks
 
-The `ovirt-dr` script is located in */usr/share/ansible/roles/oVirt.disaster-recovery/files*. This script simplifies the following Ansible tasks:
+The `ovirt-dr` script simplifies the following Ansible tasks:
 
 * Generating a `var` mapping file of the primary and secondary sites for failover and fallback
 * Validating the `var` mapping file
 * Executing failover on a target site
 * Executing failback from a target site to a source site
 
-*Usage*
+This script is located in `/usr/share/ansible/roles/oVirt.disaster-recovery/files`
+
+.Usage
 
 [options="nowrap" subs="normal"]
 ----

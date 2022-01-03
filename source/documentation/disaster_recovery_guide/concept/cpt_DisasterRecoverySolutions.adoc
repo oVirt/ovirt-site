@@ -1,14 +1,14 @@
 [[disaster_recovery_solutions]]
 
-== Disaster Recovery Solutions
+= Disaster Recovery Solutions
 
-{virt-product-fullname} (RHV) supports two types of disaster recovery solutions to ensure that environments can recover when a site outage occurs. Both solutions support two sites, and both require replicated storage.
+{virt-product-fullname} supports two types of disaster recovery solutions to ensure that environments can recover when a site outage occurs. Both solutions support two sites, and both require replicated storage.
 
-*Active-Active Disaster Recovery*:
+.Active-Active Disaster Recovery
 
-This solution is implemented using a stretch cluster configuration. This means that there is a single RHV environment with a cluster that contains hosts capable of running the required virtual machines in the primary and secondary site. Virtual machines automatically migrate to hosts in the secondary site if an outage occurs. However, the environment must meet latency and networking requirements. See <<active_active_overview>> for more information.
+This solution is implemented using a stretch cluster configuration. This means that there is a single {virt-product-shortname} environment with a cluster that contains hosts capable of running the required virtual machines in the primary and secondary site. Virtual machines automatically migrate to hosts in the secondary site if an outage occurs. However, the environment must meet latency and networking requirements. See xref:active_active_overview[Active-Active Overview] for more information.
 
 
-*Active-Passive Disaster Recovery*:
+.Active-Passive Disaster Recovery
 
-Also referred to as site-to-site failover, this disaster recovery solution is implemented by configuring two seperate RHV environments: the active primary environment, and the passive secondary (backup) environment. Failover and failback between sites must be manually executed, and is managed by Ansible. See <<active_passive_overview>> for more information.
+Also referred to as site-to-site failover, this disaster recovery solution is implemented by configuring two separate {virt-product-shortname} environments: the active primary environment, and the passive secondary (backup) environment. Failover and failback between sites must be manually executed, and is managed by Ansible. See xref:active_passive_overview[Active-Passive Overview] for more information.

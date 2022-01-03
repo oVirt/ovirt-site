@@ -1,15 +1,15 @@
 [[configure_she_stretch_cluster]]
-=== Configure a Self-hosted Engine Stretch Cluster Environment
+= Configuring a Self-hosted Engine Stretch Cluster Environment
 
 This procedure provides instructions to configure a stretch cluster using a self-hosted engine deployment.
 
 include::{cptdir}/cpt_StretchPrerequisites.adoc[]
 
-*Limitations*:
+.Limitations
 
 * Maximum 7ms latency between sites.
 
-*Configuring the Self-hosted Engine Stretch Cluster*
+.Configuring the Self-hosted Engine Stretch Cluster
 
 . Deploy the self-hosted engine. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_self-hosted_engine_using_the_command_line[Installing {virt-product-fullname} as a self-hosted engine using the command line].
 
@@ -20,13 +20,13 @@ include::{cptdir}/cpt_StretchPrerequisites.adoc[]
 include::{taskdir}/task_CommonStepsConfigureStretchCluster.adoc[]
 
 [[configure_standalone_manager_stretch_cluster]]
-=== Configure a Standalone {engine-name} Stretch Cluster Environment
+= Configuring a Standalone {engine-name} Stretch Cluster Environment
 
 This procedure provides instructions to configure a stretch cluster using a standalone {engine-name} deployment.
 
 include::{cptdir}/cpt_StretchPrerequisites.adoc[]
 
-*Limitations*:
+.Limitations
 
 * Maximum 100ms latency between sites.
 
@@ -42,7 +42,7 @@ The standalone {engine-name} is only highly available when managed externally. F
 * In a public cloud.
 ====
 
-*Configuring the Standalone {engine-name} Stretch Cluster*
+.Procedure
 
 . Install and configure the {virt-product-fullname} {engine-name}. See link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_local_databases/index#[_Installing {virt-product-fullname} as a standalone {engine-name} with local databases_].
 

@@ -1,5 +1,5 @@
 [[mapping_file_attributes]]
-== Mapping File Attributes
+= Mapping File Attributes
 
 The following table describes the attributes in the mapping file that is used to fail over and fail back between the two sites in an active-passive disaster recovery solution.
 

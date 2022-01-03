@@ -4,13 +4,13 @@ include::common/collateral_files/attributes.adoc[]
 :imagesdir: images
 :toclevels: 4
 
-include::concept/cpt_DisasterRecoverySolutions.adoc[]
-include::assembly/asm_ActiveActiveDR.adoc[]
-include::assembly/asm_ActivePassiveDR.adoc[]
+include::concept/cpt_DisasterRecoverySolutions.adoc[leveloffset=+1]
+include::assembly/asm_ActiveActiveDR.adoc[leveloffset=+1]
+include::assembly/asm_ActivePassiveDR.adoc[leveloffset=+1]
 
 [appendix]
-include::reference/rfr_MappingFileAttributes.adoc[]
+include::reference/rfr_MappingFileAttributes.adoc[leveloffset=+1]
 [appendix]
-include::reference/rfr_TestingAP.adoc[]
+include::reference/rfr_TestingAP.adoc[leveloffset=+1]
 
 include::common/collateral_files/legal-notice.adoc[]

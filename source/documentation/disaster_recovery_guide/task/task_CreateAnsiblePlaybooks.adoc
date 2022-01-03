@@ -1,9 +1,9 @@
 [[create_ansible_playbooks]]
-=== Create the Required Ansible Playbooks
+= Create the Required Ansible Playbooks
 
-Ansible is used to initiate and manage the disaster recovery failover and failback. You therefore need to create Ansible playbooks to facilitate this. For more information about creating Ansible playbooks, see the link:http://docs.ansible.com/ansible/latest/playbooks.html[Ansible documentation].
+Ansible is used to initiate and manage the disaster recovery failover and failback. So you must create Ansible playbooks to facilitate this. For more information about creating Ansible playbooks, see the link:http://docs.ansible.com/ansible/latest/playbooks.html[Ansible documentation].
 
-*Prerequisites*:
+.Prerequisites
 
 * Fully functioning {virt-product-fullname} environment in the primary site.
 * A backup environment in the secondary site with the same data center and cluster compatibility level as the primary environment. The backup environment must have:
@@ -13,13 +13,20 @@ Ansible is used to initiate and manage the disaster recovery failover and failba
 ** Networks with the same general connectivity as the primary site.
 * Replicated storage. See <<storage_considerations_active-passive>> for more information.
 +
-NOTE: The replicated storage that contains virtual machines and templates must not be attached to the secondary site.
+[NOTE]
+====
+The replicated storage that contains virtual machines and templates must not be attached to the secondary site.
+====
+
 * The `oVirt.disaster-recovery` package must be installed on the highly available Red Hat Ansible Engine machine that will automate the failover and failback.
 * The machine running Red Hat Ansible Engine must be able to use SSH to connect to the {engine-name} in the primary and secondary site.
 
 It is also recommended to create environment properties that exist in the primary site, such as affinity groups, affinity labels, users, on the secondary site.
 
-NOTE: The default behaviour of the Ansible playbooks can be configured in the `/usr/share/ansible/roles/oVirt.disaster-recovery/defaults/main.yml` file.
+[NOTE]
+====
+The default behaviour of the Ansible playbooks can be configured in the `/usr/share/ansible/roles/oVirt.disaster-recovery/defaults/main.yml` file.
+====
 
 The following playbooks must be created:
 
@@ -33,7 +40,7 @@ Create the playbooks and associated files in `/usr/share/ansible/roles/oVirt.dis
 
 You can test the configuration using one or more of the testing procedures in <<testing_active_passive>>.
 
-include::{taskdir}/task_UsingOvirtDrScript.adoc[]
-include::{taskdir}/task_GenerateMapping.adoc[]
-include::{taskdir}/task_CreateFailoverFailbackPlaybooks.adoc[]
-include::{taskdir}/task_CreateCleanupPlaybook.adoc[]
+include::../reference/ref_UsingOvirtDrScript.adoc[leveloffset=+1]
+include::{taskdir}/task_GenerateMapping.adoc[leveloffset=+1]
+include::{taskdir}/task_CreateFailoverFailbackPlaybooks.adoc[leveloffset=+1]
+include::{taskdir}/task_CreateCleanupPlaybook.adoc[leveloffset=+1]

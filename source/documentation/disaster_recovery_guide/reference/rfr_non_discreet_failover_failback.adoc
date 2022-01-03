@@ -1,11 +1,11 @@
 [[non_discreet_failover_failback]]
-=== Full Failover and Failback test
+= Full Failover and Failback test
 
 This test performs a full failover and failback between the primary and secondary site. You can simulate the disaster by shutting down the primary site's hosts or by adding firewall rules to block writing to the storage domains.
 
 For more information about failing over the environment, cleaning the environment, and performing the failback, see <<execute_failover>>, <<clean>>, and <<execute_failback>>.
 
-.Procedure: Failover test:
+.Procedure: Failover test
 
 . Disable storage replication between the primary and replicated storage domains and ensure that all replicated storage domains are in read/write mode.
 . Run the command to fail over to the secondary site:
@@ -16,7 +16,7 @@ For more information about failing over the environment, cleaning the environmen
 ----
 . Verify that all relevant storage domains, virtual machines, and templates are registered and running successfully.
 
-.Procedure: Failback test:
+.Procedure: Failback test
 
 . Synchronize replication between the secondary site’s storage domains and the primary site’s storage domains. The secondary site’s storage domains must be in read/write mode and the primary site’s storage domains must be in read-only mode.
 . Run the command to clean the primary site and remove all inactive storage domains and related virtual machines and templates:

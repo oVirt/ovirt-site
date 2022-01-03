@@ -1,5 +1,5 @@
 [[testing_active_passive]]
-== Testing the Active-Passive Configuration
+= Testing the Active-Passive Configuration
 :refdir: ../reference
 
 You must test your disaster recovery solution after configuring it. This section provides multiple options to test the active-passive disaster recovery configuration.
@@ -13,8 +13,8 @@ You must test your disaster recovery solution after configuring it. This section
 Ensure that you completed all the steps to configure your active-passive configuration before running any of these tests.
 ====
 
-include::{refdir}/rfr_discreet_failover.adoc[]
+include::{refdir}/rfr_discreet_failover.adoc[leveloffset=+1]
 
-include::{refdir}/rfr_discreet_failover_failback.adoc[]
+include::{refdir}/rfr_discreet_failover_failback.adoc[leveloffset=+1]
 
-include::{refdir}/rfr_non_discreet_failover_failback.adoc[]
+include::{refdir}/rfr_non_discreet_failover_failback.adoc[leveloffset=+1]

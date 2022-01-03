@@ -137,7 +137,7 @@ User wants to start VM B that requires 2 vCPUs and has dedicated cpu policy
 
 
 
-### Isolate threads/Siblings
+## Isolate threads/Siblings
 
 Since we already know the available host capabilities and the available CPUs
 
@@ -166,7 +166,7 @@ current CPU pinning for the VM will be 1#1 2#3
 once the VM got stopped, we will need to restore core 1 and 2 CPU's (which we will find from the host topology)
 meaning, restoring also CPUs 2 and 4 to hostToAvailableCpu.
 
-### TBD
+## TBD
 
 - If VM CPU pinning policy is isolate threads or sibilings, and we have two hosts, one with SMT enabled and the other
   without SMT, do we need to count the host without SMT for scheduling(considering it same as dedicated)

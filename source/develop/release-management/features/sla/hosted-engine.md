@@ -44,5 +44,4 @@ Lowers the bar for getting a engine/node setup up and running with the least amo
 
 ## Documentation / External references
 
-[Hosted Engine documentation](https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/) [Feature Page Hosted Engine](/develop/release-management/features/sla/self-hosted-engine.html)
-
+[Hosted Engine documentation](https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/) [Feature Page Hosted Engine](/develop/release-management/features/sla/self-hosted-engine.html)

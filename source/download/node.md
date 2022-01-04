@@ -18,7 +18,7 @@ You should also check your workstation has a supported web browser for using coc
 for the minimum browser requirements.
 
 Once ready, see
-[Chapter 6.1. oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Red_Hat_Virtualization_Hosts_SHE_cli_deploy) in the
+[oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Red_Hat_Virtualization_Hosts_SHE_cli_deploy) in the
 [Installing oVirt as a self-hosted engine using the Cockpit web interface](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/)
 guide for installation instructions.
 

@@ -70,9 +70,9 @@ Instead of or in addition to oVirt Node, you can use a standard Enterprise Linux
 ## Install oVirt using the command line
 
 See the instructions in:
-* [Installing the self-hosted engine deployment host](documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index.html#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy)
+* [Installing the self-hosted engine deployment host](documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Installing_the_self-hosted_engine_deployment_host_SHE_cli_deploy)
 
-* [Installing the oVirt Engine](documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index.html#Installing_the_Red_Hat_Virtualization_Manager_SHE_cli_deploy)
+* [Installing the oVirt Engine](documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Installing_the_Red_Hat_Virtualization_Manager_SHE_cli_deploy)
 
 ## Setup Additional Hosts
 

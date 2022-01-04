@@ -12,14 +12,14 @@ performing administrative tasks.
 
 Before you start installing oVirt Node be sure to meet requirements on your virtualization host, see
 [Host Requirements](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#host-requirements) in the
-[Installing oVirt as a self-hosted engine using the Cockpit web interface](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/) guide.
+[Installing oVirt as a self-hosted engine using the command line](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/) guide.
 
-You should also check your workstation has a supported web browser for using cockpit, see [http://cockpit-project.org/running.html](http://cockpit-project.org/running.html)
-for the minimum browser requirements.
+<!--- You should also check your workstation has a supported web browser for using cockpit, see [http://cockpit-project.org/running.html](http://cockpit-project.org/running.html)
+for the minimum browser requirements. --->
 
 Once ready, see
 [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Red_Hat_Virtualization_Hosts_SHE_cli_deploy) in the
-[Installing oVirt as a self-hosted engine using the Cockpit web interface](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/)
+[Installing oVirt as a self-hosted engine using the command line](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/)
 guide for installation instructions.
 
 ## oVirt Node 4.4 - Stable Release

@@ -107,10 +107,10 @@ For a standalone engine this means basically:
 You must now install at least one Node or Host to act as hypervisors. Enterprise features like migration and high availability
 require more than one Host.
 
-oVirt supports two types of [Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Installing_Hosts_for_RHV_SHE_cockpit_deploy):
+oVirt supports two types of [Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Installing_Hosts_for_RHV_SHE_cli_deploy):
 
 * [oVirt Node](/download/node.html) and
-* [Enterprise Linux (such as CentOS or RHEL)](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Enterprise_Linux_hosts_SHE_cockpit_deploy)
+* [Enterprise Linux (such as CentOS or RHEL)](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Red_Hat_Enterprise_Linux_hosts_SHE_cli_deploy)
 
 Depending on your environment requirements, you may want to use only oVirt Nodes, only EL Hosts, or both.
 
@@ -144,14 +144,14 @@ packages are installed.
 
         sudo dnf install https://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 
-See [Chapter 7: Enterprise Linux Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Enterprise_Linux_hosts_SHE_cockpit_deploy) for full installation
+See [Enterprise Linux Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Red_Hat_Enterprise_Linux_hosts_SHE_cli_deploy) for full installation
 instructions.
 
 #### Attaching your Hosts
 
 Once you have installed additional oVirt Nodes or EL Hosts, use the oVirt Administration Portal to add them to the Engine.
 Navigate to Compute → Hosts → New and enter the Host details. See
-[Adding a Host to the oVirt Engine](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_standard_hosts_to_the_Manager_SHE_cockpit_deploy) for detailed instructions.
+[Adding a Host to the oVirt Engine](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Adding_standard_hosts_to_the_Manager_SHE_cli_deploy) for detailed instructions.
 
 ## Storage
 
@@ -175,13 +175,13 @@ Storage can be implemented using:
  * Other POSIX compliant file systems
 
 Using the oVirt Administration Portal, navigate to Storage → Domains → New and enter the Storage details.
-See [Configuring Storage](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_Storage_Domains_to_RHV_SHE_cockpit_deploy) and
+See [Configuring Storage](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Adding_Storage_Domains_to_RHV_SHE_cli_deploy) and
 [Storage Administration](/documentation/administration_guide/#chap-Storage) for guidance on configuring storage for your
 environment.
 
 ## Install Virtual Machines
 
-Once oVirt Engine is installed and you have added Hosts and [configured storage](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Adding_Storage_Domains_to_RHV_SHE_cockpit_deploy),
+Once oVirt Engine is installed and you have added Hosts and [configured storage](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line#Adding_Storage_Domains_to_RHV_SHE_cli_deploy),
 you can now install Virtual Machines!
 
 See the [Virtual Machine Management Guide](/documentation/virtual_machine_management_guide/) for complete

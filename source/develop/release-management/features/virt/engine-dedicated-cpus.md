@@ -56,20 +56,24 @@ Engine:
 4. Scheduling
     1. Start VM:
         - Scheduling phase
-            - Reads hostToAvailableCpu from step 3
-            - Filter hosts that can't match virtual CPU topology
-            - Hosts that doesn't match this two rules will be filtered:
-              - vcores that are part of the same vsocket should be on the same psocket
-              - vthreads that are part of the same vcore should be on the same pcore
-            - If no host left after the filtering phase throw validation error that cpu pinning can't be done 
-            - Score all hosts to find best matching host in most efficient way so minimal
-              physical resources is used, host will gain higher score if:
-              - two vCpus in different vCores can be scheduled on same pCore
-              - two vCores in different vSockets can be scheduled on same pSocket
-              - two vSockets can be scheduled on one pSocket
-        - Run phase
-            - Based on Step 3 -Save/Update cached data structure
-            - Update VM CurrentCpuPinning DB field with the mapping
+            - If VM have {Dedicated, Isolate-threads, Sibilings} policy:
+                - Reads hostToAvailableCpu from step 3
+                - Filter hosts that can't match virtual CPU topology
+                - Hosts that doesn't match this two rules will be filtered:
+                - vcores that are part of the same vsocket should be on the same psocket
+                - vthreads that are part of the same vcore should be on the same pcore
+                - If no host left after the filtering phase throw validation error that cpu pinning can't be done
+                - Score all hosts to find best matching host in most efficient way so minimal
+                  physical resources is used, host will gain higher score if:
+                - two vCpus in different vCores can be scheduled on same pCore
+                - two vCores in different vSockets can be scheduled on same pSocket
+                - two vSockets can be scheduled on one pSocket
+            - Run phase
+                - Based on Step 3 -Save/Update cached data structure
+                - Update VM CurrentCpuPinning DB field with the mapping
+           - If VM have other policies:
+                - Reads hostToAvailableCpu from step 3
+                - Filter hosts that have 0 pCpus ( all dedicated )
 
     2. Stop/Destroy VM:
         - Clear VM dynamic CPU pinning field

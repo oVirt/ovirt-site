@@ -2392,9 +2392,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/data_warehouse_guide/common/test-sync.html</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/common/test-sync.html</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/common/test-sync.html</loc>
 </url>
 <url>
@@ -2405,6 +2402,9 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/common/test-sync.html</loc>
+</url>
+<url>
+<loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/DEPRECATED_installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/common/test-sync.html</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/common/test-sync.html</loc>
@@ -2890,12 +2890,6 @@
 <loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/data_warehouse_guide/common/</loc>
 </url>
 <url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/common/</loc>
-</url>
-<url>
-<loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/</loc>
-</url>
-<url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/common/</loc>
 </url>
 <url>
@@ -2906,6 +2900,12 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/common/</loc>
+</url>
+<url>
+<loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/DEPRECATED_installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/common/</loc>
+</url>
+<url>
+<loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/DEPRECATED_installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/</loc>
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2678/documentation/installing_ovirt_as_a_standalone_manager_with_remote_databases/common/</loc>
@@ -2930,6 +2930,6 @@
 </url>
 <url>
 <loc>https://ovirt.github.io/ovirt-site/previews/2678/images/Hosted-Engine-4.3-deep-dive.pdf</loc>
-<lastmod>2022-01-04T15:09:46+00:00</lastmod>
+<lastmod>2022-01-04T15:23:21+00:00</lastmod>
 </url>
 </urlset>

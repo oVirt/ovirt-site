@@ -117,4 +117,4 @@ include::topics/Configuring_high_performance_virtual_machines.adoc[leveloffset=+
 include::topics/Configuring_Time_Zones.adoc[leveloffset=+1]
 
 // Very basic attribute, since I assume this section could one day be its own assembly and this attribute will therefore not be needed.
-:vmm:
+//:vmm:  this attribute seems to be messing up the compilation - testing commenting it out - Eli Marcus

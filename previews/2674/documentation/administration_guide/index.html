@@ -27960,7 +27960,7 @@ MAIL_RETRIES=4</pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The number of times to attempt to send an email before failing.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_MANAGER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_MANAGERS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The IP addresses or fully qualified domain names of machines that will act as the SNMP managers. Entries must be separated by a space and can contain a port number. For example, <code>manager1.example.com manager2.example.com:164</code></p></td>
 </tr>
@@ -27973,6 +27973,53 @@ MAIL_RETRIES=4</pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_OID</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.3.6.1.4.1.2312.13.1.1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The default trap object identifiers for alerts. All trap types are sent, appended with event information, to the SNMP manager when this OID is defined. Note that changing the default trap prevents generated traps from complying with the Engine&#8217;s management information base.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_VERSION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines which version of SNMP to use. SNMP version 2 and version 3 traps are supported. Possible values: <code>2</code> or <code>3</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_ENGINE_ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMPv3) The Engine ID used for SNMPv3 traps. ???How do I get this ID???</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_USERNAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMPv3) The user name used for SNMPv3 traps.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_AUTH_PROTOCOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMPv3) The SNMPv3 authorization protocol. Possible values: <code>MD5</code>, <code>SHA</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_AUTH_PASSPHRASE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMPv3) The passphrase used when SNMP_SECURITY_LEVEL is set to AUTH_NOPRIV and AUTH_PRIV.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_PRIVACY_PROTOCOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMPv3) The SNMPv3 privacy protocol. Possible values: <code>AES128</code>, <code>AES192</code>, <code>AES256</code>
+[IMPORTANT]
+====
+AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them.
+====</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_PRIVACY_PASSPHRASE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The SNMPv3 privacy passphrase, used when <code>SNMP_SECURITY_LEVEL</code> is set to <code>AUTH_PRIV</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_SECURITY_LEVEL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMPv3) The SNMPv3 security level. Possible values:
+* <code>1</code> - NOAUTH_NOPRIV
+* <code>2</code> - AUTH_NOPRIV
+* <code>3</code> - AUTH_PRIV</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ENGINE_INTERVAL_IN_SECONDS</p></td>
@@ -28021,6 +28068,9 @@ MAIL_RETRIES=4</pre>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Unresolved directive in chap-Event_Notifications.adoc - include::topics/con-SNMPv3-traps-configuration-settings.adoc[leveloffset=+1]</p>
+</div>
 <div class="paragraph">
 <p>`<a id="Configuring_the_Red_Hat_Enterprise_Virtualization_Manager_to_Send_SNMP_Traps"></a>
 === Configuring the oVirt Engine to Send SNMP Traps</p>

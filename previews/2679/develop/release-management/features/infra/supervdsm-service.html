@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Supervdsm service | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Supervdsm service" />
+<meta name="author" content="Royce" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2679/develop/release-management/features/infra/supervdsm-service.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2679/develop/release-management/features/infra/supervdsm-service.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Supervdsm service" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Royce" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Royce"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2679/images/logo.svg"},"name":"Royce"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Supervdsm service","url":"https://ovirt.github.io/ovirt-site/previews/2679/develop/release-management/features/infra/supervdsm-service.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2679/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2679/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2679/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2679/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2679/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2679/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2679/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2679/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2679/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2679/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2679/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2679/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2679/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2679/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2679/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2679/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2679/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2679/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2679/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2679/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2679/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2679/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2679/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2679/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2679/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2679/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2679/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2679/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2679/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2679/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2679/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2679/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2679/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2679/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2679/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2679//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2679//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2679/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2679/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2679/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2679/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2679/develop/release-management/features/infra/">
+              <span property="name">Infra</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/bea1d2f545b54881ec2eb38d1c0650b0?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/bea1d2f545b54881ec2eb38d1c0650b0?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Royce</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/9ba64bad62810ce4f4d5ea0df5bb75c2?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/9ba64bad62810ce4f4d5ea0df5bb75c2?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Yaniv Bronheim</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2679/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="supervdsm-service">Supervdsm service</h1>
+
+<h2 id="general">General</h2>
+
+<p>Supervdsm is responsible for all privileged operations. Currently Supervdsm is managed (started and restarted) by unprivileged process ‘vdsm’ and vdsm starts up by init service manager. To perform that, Vdsm process runs privileged operations, manage process that runs as root, and communicate with it by external UDS. All that leads to races between new and old instances of the process. Aim of this feature is to get Vdsm to be a pure unprivileged daemon and simplify the handling of crashes and re-establish communication between Vdsm and Supervdsm after failures.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: lvroyce (Royce Lv)</li>
+  <li>Name: ybronhei (Yaniv Bronheim)</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Email: <a href="mailto:lvroyce@linux.vnet.ibm.com">lvroyce@linux.vnet.ibm.com</a></li>
+  <li>Email: <a href="mailto:ybronhei@redhat.com">ybronhei@redhat.com</a></li>
+</ul>
+
+<h2 id="background---history-until-33">Background - History until 3.3</h2>
+
+<ul>
+  <li>current solution</li>
+</ul>
+
+<ol>
+  <li>Vdsm daemon script starts vdsm with user “vdsm”</li>
+  <li>Vdsm process launches supervdsm process when it is not running by sudo command</li>
+  <li>Vdsm tries to send uds packets to supervdsm to establish communication</li>
+  <li>When authentication error is raised, vdsm tries to re-launch (kill old instance and initiate new one)</li>
+  <li>When vdsm crashes, supervdsm distinguish it and kill itself automatically, next vdsm instance starts new supervdsm process</li>
+</ol>
+
+<p><img src="/ovirt-site/previews/2679/images/wiki/First_launch.png" alt="" /><img src="/ovirt-site/previews/2679/images/wiki/Normal_call.png" alt="" /> <img src="/ovirt-site/previews/2679/images/wiki/Auth_error.png" alt="" /></p>
+
+<ul>
+  <li>Current flow errors</li>
+</ul>
+
+<ol>
+  <li>Unprivileged vdsm and proxy need to call previleged “sudo launch” and “sudo kill”</li>
+  <li>Redundant key between vdsm and supervdsm as they are parent and child</li>
+  <li>Error handling cause races between old and new instance of supervdsm and vdsm</li>
+</ol>
+
+<ul>
+  <li>Last updated: ,</li>
+</ul>
+
+<h2 id="proposed-changes">Proposed changes</h2>
+
+<ul>
+  <li>Proposal A:<a href="http://gerrit.ovirt.org/gitweb?p=vdsm.git;a=commit;h=976dbb13e6cd8136b12ed58ccd2a5176b730bddf">patch for proposal A</a></li>
+</ul>
+
+<ol>
+  <li>Vdsm init script starts vdsm as root</li>
+  <li>Vdsm forks supervdsm server and then drop privilege</li>
+  <li>When vdsm exits, supervdsm probe vdsm heart beat stop and exit</li>
+  <li>Vdsm call supervdsm may discover supervdsm server exit, vdsm will exit itself and restart</li>
+</ol>
+
+<ul>
+  <li>Proposal B:<a href="http://gerrit.ovirt.org/gitweb?p=vdsm.git;a=commit;h=033ef4bc73dbbb36dd8180049626e7f4cde56334">patch for proposal B</a></li>
+</ul>
+
+<ol>
+  <li>Vdsm init script starts supervdsm as root</li>
+  <li>Supervdsm forks vdsm as child process</li>
+  <li>When vdsm dies, supervdsm kill itself and start over again</li>
+  <li>When supervdsm, vdsm distinguish that and kill itself</li>
+</ol>
+
+<ul>
+  <li>proposal C:<a href="http://gerrit.ovirt.org/#/c/11051/">patch for proposal C</a> -&gt; <strong>Selected solution.</strong></li>
+</ul>
+
+<ol>
+  <li>Vdsmd.init starts vdsm as vdsm user</li>
+  <li>Supervdsmd.init starts supervdsm as root</li>
+  <li>Both services are managed by service manager and restart after a crash.</li>
+  <li>No need to handle broken connection. When supervdsm or vdsm fails to start an automatically restart takes care of establishing recommunication.</li>
+</ol>
+
+<h2 id="exception-flows-to-consider">Exception flows to consider</h2>
+
+<ul>
+  <li>Exception flows:</li>
+</ul>
+
+<ol>
+  <li>One of Supervdsm server export function raise error
+    <ul>
+      <li>Expected result: Raise to proxy caller, supervdsm restarts automatically without trying to call the same function again. The proxy caller should handle exceptions specifically.</li>
+    </ul>
+  </li>
+  <li>Supervdsm main thread died during a call or before call
+    <ul>
+      <li>Expected result: Raise to proxy caller related exception. Supervdsm proxy caller should handle exceptions specifically.</li>
+    </ul>
+  </li>
+  <li>Vdsm crash
+    <ul>
+      <li>supervdsm stays up and vdsm re-establish communication to supervdsm socket after restart.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="proposal-comparison">Proposal comparison</h2>
+
+<ul>
+  <li>Exception flows need attention：</li>
+</ul>
+
+<ol>
+  <li>First launch
+    <ul>
+      <li>A: Supervdsm server process lauched by priviledged vdsm, then vdsm drop priviledge</li>
+      <li>B: Supervdsm server process lauched by service manager</li>
+      <li>C: Supervdsm server process launched by service manager</li>
+    </ul>
+  </li>
+  <li>One of supervdsm server export function raise error
+    <ul>
+      <li>A: Raise to Proxy Caller</li>
+      <li>B: Raise to Proxy Calller</li>
+      <li>C: Raise to Proxy Calller</li>
+    </ul>
+  </li>
+  <li>Supervdsm main thread killed when calling
+    <ul>
+      <li>A: Discover when call return EOFError and then restart</li>
+      <li>B: Vdsmd as supervdsm’s child should kill itself when receive EOFError</li>
+      <li>C: Services manager restarts supervdsm. Caller should handle the returned exception.</li>
+    </ul>
+  </li>
+  <li>Supervdsm main thread killed before call
+    <ul>
+      <li>A: Discover when “isRunning” raise error, then restart</li>
+      <li>B: Vdsmd as supervdsm’s child should be killed when next time supervdsm start, or vdsmd also has a heart beat scheme for super vdsm</li>
+      <li>C: Supervdsmd restarts supervdsm</li>
+    </ul>
+  </li>
+  <li>Supervdsm server thread killed(not started) before call
+    <ul>
+      <li>A: Connect error, restart</li>
+      <li>B: Supervdsm restart itself</li>
+      <li>C: Service manager restarts Supervdsm.</li>
+    </ul>
+  </li>
+  <li>Vdsm process died
+    <ul>
+      <li>A: Supervdsm has heart beat for Vdsm to kill itself</li>
+      <li>B: Supervdsm joined Vdsm and restart all over</li>
+      <li>C: Service manager restarts Vdsm.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>As we can see from the above, proposal B will involve more complex logic when supervdsm died, vdsm will probe its heart beat or supervdsm should kill vdsm for next time, but vdsm still in the middle of some operations, possible inconsistent situation will happen. Proposal C is intuitive, easier, and less complex than both A and B proposals. The main odd is that every code update of vdsm we need restart both services, as they both share same code.</p>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<ol>
+  <li>Clean vdsm priviledge usage</li>
+  <li>Clean and stable vdsm/supervdsm exception flow and races</li>
+</ol>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2679/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2679/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2679/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2679/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/infra/supervdsm-service.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/infra/supervdsm-service.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

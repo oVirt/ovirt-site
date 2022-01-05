@@ -37,9 +37,13 @@ When selected, *Migration Options* is set to *Allow manual migration only*.
 
 * *Minimal downtime* - Allows the virtual machine to migrate in typical situations. Virtual machines should not experience any significant downtime. The migration will be aborted if virtual machine migration does not converge after a long time (dependent on QEMU iterations, with a maximum of 500 milliseconds). The guest agent hook mechanism is enabled.
 
-* *Post-copy migration* - Virtual machines should not experience any significant downtime similar to the minimal downtime policy. The post-copy policy first tries pre-copy to verify whether convergence can occur. The migration switches to post-copy if the virtual machine migration does not converge after a long time. The disadvantage of this policy is that in the post-copy phase, the virtual machine may slow down significantly as the missing parts of memory are transferred between the hosts.
+* *Post-copy migration* - When used, post-copy migration pauses the migrating virtual machine vCPUs on the source host, transfers only a minimum of memory pages, activates the virtual machine vCPUs on the destination host, and transfers the remaining memory pages while the virtual machine is running on the destination.
 +
-If anything goes wrong during the post-copy phase, such as a network failure of the migration network between the hosts, then the migration process leads to an inconsistent and paused virtual machine and the result is a lost virtual machine. Therefore, it is not possible to abort a migration during the post-copy phase.
+The post-copy policy first tries pre-copy to verify whether convergence can occur. The migration switches to post-copy if the virtual machine migration does not converge after a long time.
++
+This significantly reduces the downtime of the migrated virtual machine, and also guarantees that the migration finishes regardless of how rapidly the memory pages of the source virtual machine change. It is optimal for migrating virtual machines in heavy continuous use, which would not be possible to migrate with standard pre-copy migration.
++
+The disadvantage of this policy is that in the post-copy phase, the virtual machine may slow down significantly as the missing parts of memory are transferred between the hosts.
 +
 [WARNING]
 .Warning

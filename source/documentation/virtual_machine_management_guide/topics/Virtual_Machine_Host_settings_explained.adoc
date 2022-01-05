@@ -61,7 +61,6 @@ This significantly reduces the downtime of the migrated virtual machine, and als
 The disadvantage of this policy is that in the post-copy phase, the virtual machine may slow down significantly as the missing parts of memory are transferred between the hosts.
 +
 [WARNING]
-.Warning
 ====
 If the network connection breaks prior to the completion of the post-copy process, the {engine-name} pauses and then kills the running VM. Do not use post-copy migration if the VM availability is critical or if the migration network is unstable.
 ====

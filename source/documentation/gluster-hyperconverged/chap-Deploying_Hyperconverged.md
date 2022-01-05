@@ -6,7 +6,7 @@ title: Deploying oVirt and Gluster Hyperconverged
 
 ## Pre-requisites
 
-* You must have 3 Enterprise Linux 8 hosts or oVirt Node 4.4 hosts. Refer [Enterprise Linux Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Enterprise_Linux_hosts_SHE_cockpit_deploy) or [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Virtualization_Hosts_SHE_cockpit_deploy)
+* You must have 3 Enterprise Linux 8 hosts or oVirt Node 4.4 hosts. Refer [Enterprise Linux Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Red_Hat_Enterprise_Linux_hosts_SHE_cli_deploy) or [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Red_Hat_Virtualization_Hosts_SHE_cli_deploy)
 
 * You must have at least 2 interfaces on each of the hosts, so that the frontend and backend traffic can be separated out. Having only one network will cause the engine monitoring, client traffic, gluster I/O traffic to all run together and interfere each other. To segregate the backend network, the gluster cluster is formed using the backend network addresses, and the nodes are added to the engine using the frontend network address.
 
@@ -42,7 +42,7 @@ title: Deploying oVirt and Gluster Hyperconverged
 ## Deploying on oVirt Node based Hosts
 
 **oVirt Node contains all the required packages to set up the hyperconverged environment.**
-Refer [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Virtualization_Hosts_SHE_cockpit_deploy) for instructions on installing oVirt Node on your hosts. You can proceed to setting up the hyperconverged environment if you have 3 oVirt Node based hosts.
+Refer [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Red_Hat_Virtualization_Hosts_SHE_cli_deploy) for instructions on installing oVirt Node on your hosts. You can proceed to setting up the hyperconverged environment if you have 3 oVirt Node based hosts.
 
 ### Setting up the hyperconverged environment
 
@@ -65,7 +65,7 @@ Cockpit wizard uses ansible to perform the gluster deployment on the hosts. It i
 
 ![Hosts sub-tab](/images/gluster-hyperconverged/3-Hosts.png)
 
-The deployment process also add the 3 hosts to the oVirt engine at the end of the deployment process. To ensure that the hosts are added using the frontend/management network, provide the FQDN to be used for the hosts in the tab below: 
+The deployment process also add the 3 hosts to the oVirt engine at the end of the deployment process. To ensure that the hosts are added using the frontend/management network, provide the FQDN to be used for the hosts in the tab below:
 
 *FQDN of host1 is input during the Hosted Engine deployment process, hence not asked here*
 
@@ -82,7 +82,7 @@ This is an optional step - to install additional packages required on all hosts.
 
 This step in the wizard defines the gluster volumes that need to be created. These gluster volumes will later in the wizard, be used to create storage domains in oVirt.
 The first volume in the list is used to host the Hosted Engine virtual disk.
-As a guidance, we ask to create 2 additional gluster volumes 
+As a guidance, we ask to create 2 additional gluster volumes
 - vmstore : Hosting the OS disks of the virtual machines
 - data : Hosting the data disks of the virtual machines
 
@@ -114,5 +114,3 @@ Brick configuration allows for per-host definition of bricks. This is useful in 
 
 **Prev:** [Chapter: Introduction](chap-Introduction.html) <br>
 **Next:** [Chapter: Additional Steps](chap-Additional_Steps.html)
-
-

@@ -6,7 +6,7 @@ title: Deploying oVirt and Gluster Single node Hyperconverged
 
 ## Pre-requisites
 
-* A single host with Enterprise Linux 8 or oVirt Node. Refer [Enterprise Linux Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Enterprise_Linux_hosts_SHE_cockpit_deploy) or [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Virtualization_Hosts_SHE_cockpit_deploy)
+* A single host with Enterprise Linux 8 or oVirt Node. Refer [Enterprise Linux Hosts](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Red_Hat_Enterprise_Linux_hosts_SHE_cli_deploy) or [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Red_Hat_Virtualization_Hosts_SHE_cli_deploy)
 
 * You must have at least 2 interfaces on the host, so that the frontend and backend traffic can be separated out. Having only one network will cause the engine monitoring, client traffic, gluster I/O traffic to all run together and interfere each other. To segregate the backend network, the gluster cluster is formed using the backend network addresses, and the nodes are added to the engine using the frontend network address.
 
@@ -44,14 +44,14 @@ gluster.maintenance - helps user to replace nodes and other maintenance activiti
 ## Deploying on oVirt Node based Hosts
 
 **oVirt Node contains all the required packages to set up the hyperconverged environment.**
-Refer to [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_cockpit_web_interface/#Red_Hat_Virtualization_Hosts_SHE_cockpit_deploy) for instructions on installing oVirt Node on the host. You can proceed to setting up the hyperconverged environment if you have an oVirt Node based host.
+Refer to [oVirt Nodes](/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/#Red_Hat_Virtualization_Hosts_SHE_cli_deploy) for instructions on installing oVirt Node on the host. You can proceed to setting up the hyperconverged environment if you have an oVirt Node based host.
 
 ### Setting up the hyperconverged environment
 
 #### Installing and setting up gluster volume
 
 Gluster volumes need to be created first prior to the Hosted Engine installation flow. One of the volumes that's created is used to host the Hosted Engine VM.
-Use Cockpit UI to setup single node deployment.
+Use the Cockpit UI to setup single node deployment.
 
 1. Log into the Web Console
 Browse to the the Web Console management interface of the first hyperconverged host, for example, https://node1.example.com:9090/, and log in with the root/similar super user credentials.

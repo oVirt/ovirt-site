@@ -15,7 +15,7 @@ The ability to disable automatic migration and require a virtual machine to run 
 +
 [WARNING]
 ====
-Explicitly assigning a virtual machine to a specific host and disabling migration are mutually exclusive with {virt-product-fullname} high availability. 
+Explicitly assigning a virtual machine to a specific host and disabling migration are mutually exclusive with {virt-product-fullname} high availability.
 ====
 +
 [IMPORTANT]
@@ -24,8 +24,4 @@ If the virtual machine has host devices directly attached to it, and a different
 ====
 +
 . Select *Allow manual migration only* or *Do not allow migration* from the *Migration Options* drop-down list.
-. Optionally, select the *Use custom migration downtime* check box and specify a value in milliseconds.
 . Click btn:[OK].
-
-
-

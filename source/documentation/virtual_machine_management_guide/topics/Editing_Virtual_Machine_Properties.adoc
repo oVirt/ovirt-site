@@ -33,8 +33,6 @@ Changes to the following settings are applied immediately:
 
 * *Virtual Sockets* (Edit this field to hot plug CPUs. See xref:CPU_hot_plug[].)
 
-* *Use custom migration downtime*
-
 * *Highly Available*
 
 * *Priority for Run/Migration queue*

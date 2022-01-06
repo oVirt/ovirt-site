@@ -1,2 +1,0 @@
-[id="SNMPv3-traps-configuration-settings"]
-= Sample SNMPv3 configuration file

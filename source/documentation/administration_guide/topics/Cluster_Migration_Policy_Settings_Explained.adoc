@@ -20,7 +20,7 @@ The disadvantage of this policy is that in the post-copy phase, the virtual mach
 
 [WARNING]
 ====
-If the network connection breaks prior to the completion of the post-copy process, the {engine-name} pauses and then kills the running VM. Do not use post-copy migration if the VM availability is critical or if the migration network is unstable.
+If the network connection breaks prior to the completion of the post-copy process, the {engine-name} pauses and then kills the running virtual machine. Do not use post-copy migration if the virtual machine availability is critical or if the migration network is unstable.
 ====
 
 |*Suspend workload if needed* |A policy that lets virtual machines migrate in most situations, including virtual machines running heavy workloads. Because of this, virtual machines may experience a more significant downtime than with some of the other settings. The migration may still be aborted for extreme workloads. The guest agent hook mechanism is enabled.

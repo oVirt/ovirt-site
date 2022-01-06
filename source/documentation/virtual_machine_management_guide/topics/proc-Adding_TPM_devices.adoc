@@ -30,5 +30,5 @@ The following limitations apply:
 This process can take 120 seconds or more, and you must wait for the process to complete before you can take snapshot of a running virtual machine, clone a running virtual machine, or migrate a running virtual machine.
 ====
 +
-* TPM devices can only be enabled for VMs running RHEL 7 or newer and Windows 8.1 and newer.
+* TPM devices can only be enabled for virtual machines running RHEL 7 or later and Windows 8.1 or later.
 * Virtual machines and templates with TPM data can not be exported or imported.

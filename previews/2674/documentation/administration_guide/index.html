@@ -28193,7 +28193,7 @@ SNMP_SECURITY_LEVEL=1</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Configuration for sending SNMPv3 AuthNoPriv traps as user ‘ovirtengine’ with snmp auth passphrase ‘authpass’.</p>
+<p>Security level 2, AuthNoPriv traps, as user <code>ovirtengine</code>, with SNMP Auth passphrase ‘authpass’.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -28205,7 +28205,7 @@ SNMP_SECURITY_LEVEL=2</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Configuration for sending SNMPv3 AuthPriv traps as user ‘ovirtengine’ with snmp auth passphrase ‘authpass’ and snmp priv passphrase ‘privpass’.</p>
+<p>Security level 3, AuthPriv traps, as user <code>ovirtengine</code> with SNMP Auth passphrase ‘authpass’ and SNMP Priv passphrase ‘privpass’.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -28389,23 +28389,23 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
-<td>The SNMPv3 auth protocol. Supported values are MD5 and SHA.</td>
+<td>The SNMPv3 auth protocol. Supported values are MD5 and SHA. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 2 (<code>AUTH_NOPRIV</code>) or 3 (<code>AUTH_PRIV</code>).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="9"></i><b>9</b></td>
-<td>The SNMPv3 auth passphrase, used when SNMP_SECURITY_LEVEL is set to AUTH_NOPRIV and AUTH_PRIV</td>
+<td>The SNMPv3 auth passphrase. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 2 (<code>AUTH_NOPRIV</code>) or 3 (<code>AUTH_PRIV</code>).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="10"></i><b>10</b></td>
-<td>The SNMPv3 privacy protocol. Supported values are AES128, AES192 and AES256. Be aware that AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them.</td>
+<td>The SNMPv3 privacy protocol. Supported values are AES128, AES192 and AES256. Be aware that AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 3 (<code>AUTH_PRIV</code>).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="11"></i><b>11</b></td>
-<td>The SNMPv3 privacy passphrase, used when SNMP_SECURITY_LEVEL is set to AUTH_PRIV</td>
+<td>The SNMPv3 privacy passphrase. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 3 (<code>AUTH_PRIV</code>).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="12"></i><b>12</b></td>
-<td>The SNMPv3 security level. 1 = NOAUTH_NOPRIV, 2 = AUTH_NOPRIV, 3 = AUTH_PRIV.</td>
+<td>The SNMPv3 security level. 1 = <code>NOAUTH_NOPRIV</code>, 2 = <code>AUTH_NOPRIV</code>, 3 = <code>AUTH_PRIV</code>.</td>
 </tr>
 </table>
 </div>

@@ -28337,14 +28337,15 @@ SNMP_SECURITY_LEVEL=3</pre>
 <pre class="CodeRay highlight"><code data-lang="perl">SNMP_MANAGERS=&quot;manager1.example.com manager2.example.com:162&quot; <i class="conum" data-value="1"></i><b>(1)</b>
 SNMP_COMMUNITY=public <i class="conum" data-value="2"></i><b>(2)</b>
 SNMP_OID=1.3.6.1.4.1.2312.13.1.1 <i class="conum" data-value="3"></i><b>(3)</b>
-SNMP_VERSION=3 <i class="conum" data-value="4"></i><b>(4)</b>
-SNMP_ENGINE_ID=&quot;80:00:00:00:01:02:05:05&quot; <i class="conum" data-value="5"></i><b>(5)</b>
-SNMP_USERNAME=ovirtengine <i class="conum" data-value="6"></i><b>(6)</b>
-SNMP_AUTH_PROTOCOL=MD5 <i class="conum" data-value="7"></i><b>(7)</b>
-SNMP_AUTH_PASSPHRASE=authpass <i class="conum" data-value="8"></i><b>(8)</b>
-SNMP_PRIVACY_PROTOCOL=AES128 <i class="conum" data-value="9"></i><b>(9)</b>
-SNMP_PRIVACY_PASSPHRASE=privpass <i class="conum" data-value="10"></i><b>(10)</b>
-SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="11"></i><b>(11)</b></code></pre>
+FILTER=&quot;include:*(snmp:)&quot; <i class="conum" data-value="4"></i><b>(4)</b>
+SNMP_VERSION=3 <i class="conum" data-value="5"></i><b>(5)</b>
+SNMP_ENGINE_ID=&quot;80:00:00:00:01:02:05:05&quot; <i class="conum" data-value="6"></i><b>(6)</b>
+SNMP_USERNAME=ovirtengine <i class="conum" data-value="7"></i><b>(7)</b>
+SNMP_AUTH_PROTOCOL=MD5 <i class="conum" data-value="8"></i><b>(8)</b>
+SNMP_AUTH_PASSPHRASE=authpass <i class="conum" data-value="9"></i><b>(9)</b>
+SNMP_PRIVACY_PROTOCOL=AES128 <i class="conum" data-value="10"></i><b>(10)</b>
+SNMP_PRIVACY_PASSPHRASE=privpass <i class="conum" data-value="11"></i><b>(11)</b>
+SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -28377,34 +28378,38 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="11"></i><b>(11)</b></code></p
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>SNMP Version. SNMP version 2 and version 3 traps are supported. 2 = SNMPv2, 3 = SNMPv3.</td>
+<td>The algorithm used to determine the triggers for and recipients of SNMP notifications.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="5"></i><b>5</b></td>
-<td>The engine id used for SNMPv3 traps</td>
+<td>SNMP Version. SNMP version 2 and version 3 traps are supported. 2 = SNMPv2, 3 = SNMPv3.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>The user name used for SNMPv3 traps</td>
+<td>The engine id used for SNMPv3 traps</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>The SNMPv3 auth protocol. Supported values are MD5 and SHA.</td>
+<td>The user name used for SNMPv3 traps</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
-<td>The SNMPv3 auth passphrase, used when SNMP_SECURITY_LEVEL is set to AUTH_NOPRIV and AUTH_PRIV</td>
+<td>The SNMPv3 auth protocol. Supported values are MD5 and SHA.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="9"></i><b>9</b></td>
-<td>The SNMPv3 privacy protocol. Supported values are AES128, AES192 and AES256. Be aware that AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them.</td>
+<td>The SNMPv3 auth passphrase, used when SNMP_SECURITY_LEVEL is set to AUTH_NOPRIV and AUTH_PRIV</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="10"></i><b>10</b></td>
-<td>The SNMPv3 privacy passphrase, used when SNMP_SECURITY_LEVEL is set to AUTH_PRIV</td>
+<td>The SNMPv3 privacy protocol. Supported values are AES128, AES192 and AES256. Be aware that AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="11"></i><b>11</b></td>
+<td>The SNMPv3 privacy passphrase, used when SNMP_SECURITY_LEVEL is set to AUTH_PRIV</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="12"></i><b>12</b></td>
 <td>The SNMPv3 security level. 1 = NOAUTH_NOPRIV, 2 = AUTH_NOPRIV, 3 = AUTH_PRIV.</td>
 </tr>
 </table>

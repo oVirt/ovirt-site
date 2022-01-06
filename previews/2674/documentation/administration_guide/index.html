@@ -728,6 +728,170 @@
 </ul>
 </li>
 <li><a href="#Configuring_the_Red_Hat_Enterprise_Virtualization_Manager_to_Send_SNMP_Traps">22. Configuring the oVirt Engine to Send SNMP Traps</a></li>
+<li><a href="#SNMPv3-traps-configuration-settings">23. Sample SNMP version 3 configuration file</a></li>
+<li><a href="#chap-Utilities">24. Utilities</a>
+<ul class="sectlevel2">
+<li><a href="#sect-The_oVirt_Engine_Rename_Tool">24.1. The oVirt Engine Rename Tool</a>
+<ul class="sectlevel3">
+<li><a href="#The_oVirt_Engine_Rename_Tool">24.1.1. The oVirt Engine Rename Tool</a></li>
+<li><a href="#Syntax_for_the_oVirt_Engine_Rename_Command">24.1.2. Syntax for the oVirt Engine Rename Command</a></li>
+<li><a href="#Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool">24.1.3. Renaming the Engine with the oVirt Engine Rename Tool</a></li>
+</ul>
+</li>
+<li><a href="#sect-The_Engine_Configuration_Tool">24.2. The Engine Configuration Tool</a>
+<ul class="sectlevel3">
+<li><a href="#The_Engine_Configuration_Tool">24.2.1. The Engine Configuration Tool</a></li>
+<li><a href="#Syntax_for_the_engine-config_Command">24.2.2. Syntax for the engine-config Command</a></li>
+</ul>
+</li>
+<li><a href="#sect-The_USB_Filter_Editor">24.3. The USB Filter Editor</a>
+<ul class="sectlevel3">
+<li><a href="#Installing_the_USB_Filter_Editor">24.3.1. Installing the USB Filter Editor</a></li>
+<li><a href="#The_USB_Filter_Editor_interface">24.3.2. The USB Filter Editor Interface</a></li>
+<li><a href="#Adding_a_USB_policy">24.3.3. Adding a USB Policy</a></li>
+<li><a href="#Removing_a_USB_policy">24.3.4. Removing a USB Policy</a></li>
+<li><a href="#Searching_for_USB_device_policies">24.3.5. Searching for USB Device Policies</a></li>
+<li><a href="#Exporting_a_USB_policy">24.3.6. Exporting a USB Policy</a></li>
+<li><a href="#Importing_a_USB_policy">24.3.7. Importing a USB Policy</a></li>
+</ul>
+</li>
+<li><a href="#sect-The_ISO_Uploader_Tool">24.4. The ISO Uploader Tool</a>
+<ul class="sectlevel3">
+<li><a href="#The_ISO_Uploader_Tool">24.4.1. The ISO Uploader Tool</a></li>
+<li><a href="#Syntax_for_the_engine-iso-uploader_Command">24.4.2. Syntax for the engine-iso-uploader Command</a></li>
+<li><a href="#Specifying_an_NFS_Server">24.4.3. Specifying an NFS Server</a></li>
+<li><a href="#Basic_ISO_Uploader_Usage">24.4.4. Basic ISO Uploader Usage</a></li>
+<li><a href="#Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain">24.4.5. Uploading the VirtIO and guest tool image files to a storage domain</a></li>
+</ul>
+</li>
+<li><a href="#sect-The_Engine_Vacuum_Tool">24.5. The Engine Vacuum Tool</a>
+<ul class="sectlevel3">
+<li><a href="#The_Engine_Vacuum_Tool">24.5.1. The Engine Vacuum Tool</a></li>
+<li><a href="#Engine_Vacuum_Modes">24.5.2. Engine Vacuum Modes</a></li>
+<li><a href="#Syntax_for_the_engine-vacuum_Command">24.5.3. Syntax for the engine-vacuum Command</a></li>
+</ul>
+</li>
+<li><a href="#sect-The_VDSM_To_Network_Name_Tool">24.6. The VDSM to Network Name Mapping Tool</a>
+<ul class="sectlevel3">
+<li><a href="#Vdsm_To_Network_Mapping_Tool">24.6.1. Mapping VDSM Names to Logical Network Names</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#part-Gathering_Information_About_the_Environment">Gathering Information About the Environment</a>
+<ul class="sectlevel1">
+<li><a href="#monitoring_and_observability">25. Monitoring and observability</a>
+<ul class="sectlevel2">
+<li><a href="#using-data-warehouse-and-grafana-to-monitor-ovirt">25.1. Using Data Warehouse and Grafana to monitor oVirt</a>
+<ul class="sectlevel3">
+<li><a href="#grafana">25.1.1. Grafana</a></li>
+<li><a href="#configuring-grafana">25.1.2. Configuring Grafana</a></li>
+<li><a href="#grafana-dashboards">25.1.3. Grafana dashboards</a></li>
+</ul>
+</li>
+<li><a href="#sending-metrics-and-logs-to-a-remote-instance-of-elasticsearch">25.2. Sending metrics and logs to a remote instance of Elasticsearch</a>
+<ul class="sectlevel3">
+<li><a href="#installing-collectd-and-rsyslog">25.2.1. Installing collectd and rsyslog</a></li>
+<li><a href="#logging-schema-and-analyzing-logs">25.2.2. Logging schema and analyzing logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap-Log_Files">26. Log Files</a>
+<ul class="sectlevel2">
+<li><a href="#Manager_Installation_Log_Files">26.1. Engine Installation Log Files</a></li>
+<li><a href="#Manager_Log_Files">26.2. oVirt Engine Log Files</a></li>
+<li><a href="#sect-SPICE_Log_Files">26.3. SPICE Log Files</a>
+<ul class="sectlevel3">
+<li><a href="#SPICE_Logs_for_Hypervisor_SPICE_Servers">26.3.1. SPICE Logs for Hypervisor SPICE Servers</a></li>
+<li><a href="#SPICE_Logs_for_Guest_Machines">26.3.2. SPICE Logs for Guest Machines</a></li>
+<li><a href="#SPICE_Logs_for_SPICE_Clients_Launched_Using_consolevv_Files">26.3.3. SPICE Logs for SPICE Clients Launched Using console.vv Files</a></li>
+</ul>
+</li>
+<li><a href="#Host_Log_Files">26.4. Host Log Files</a></li>
+<li><a href="#proc-setting_up_debug_level_logging">26.5. Setting debug-level logging for oVirt services</a></li>
+<li><a href="#ref_debug_level_logging">26.6. Main configuration files for oVirt services</a></li>
+<li><a href="#Setting_up_a_Host_Logging_Server">26.7. Setting Up a Host Logging Server</a></li>
+<li><a href="#Enabling_the_oVirt_Engine_Extension_Logger_log4j">26.8. Enabling the oVirt Engine Extension Logger log4j</a></li>
+</ul>
+</li>
+<li><a href="#appe-VDSM_and_Hooks">Appendix A: VDSM and Hooks</a>
+<ul class="sectlevel2">
+<li><a href="#VDSM">VDSM</a></li>
+<li><a href="#VDSM_hooks">VDSM Hooks</a></li>
+<li><a href="#Extending_VDSM_with_hooks">Extending VDSM with Hooks</a></li>
+<li><a href="#proc_installing-a-vdsm-hook">Installing a VDSM hook</a></li>
+<li><a href="#Supported_VDSM_events">Supported VDSM Events</a></li>
+<li><a href="#VDSM_hooks_environment">The VDSM Hook Environment</a></li>
+<li><a href="#VDSM_hooks_domain_xml">The VDSM Hook Domain XML Object</a></li>
+<li><a href="#VDSM_hooks_defining_custom_properties">Defining Custom Properties</a></li>
+<li><a href="#VDSM_hooks_setting_custom_properties">Setting Virtual Machine Custom Properties</a></li>
+<li><a href="#VDSM_hooks_evaluating_custom_properties">Evaluating Virtual Machine Custom Properties in a VDSM Hook</a></li>
+<li><a href="#VDSM_hooks_hooking_module">Using the VDSM Hooking Module</a></li>
+<li><a href="#VDSM_hooks_execution">VDSM Hook Execution</a></li>
+<li><a href="#VDSM_hooks_return_codes">VDSM Hook Return Codes</a></li>
+<li><a href="#VDSM_hooks_examples">VDSM Hook Examples</a></li>
+</ul>
+</li>
+<li><a href="#appe-Custom_Network_Properties">Appendix B: Custom Network Properties</a>
+<ul class="sectlevel2">
+<li><a href="#Explanation_of_bridge_opts_Parameters">Explanation of bridge_opts Parameters</a></li>
+<li><a href="#How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool">How to Set Up oVirt Engine to Use Ethtool</a></li>
+<li><a href="#How_to_Set_Up_RHVM_to_Use_FCoE">How to Set Up oVirt Engine to Use FCoE</a></li>
+</ul>
+</li>
+<li><a href="#appe-Red_Hat_Enterprise_Virtualization_User_Interface_Plugins">Appendix C: oVirt User Interface Plugins</a>
+<ul class="sectlevel2">
+<li><a href="#Red_Hat_Enterprise_Virtualization_User_Interface_Plugins">oVirt User Interface Plug-ins</a></li>
+<li><a href="#sect-Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Lifecycle">oVirt User Interface Plugin Lifecycle</a>
+<ul class="sectlevel3">
+<li><a href="#RHEV_UI_Plugin_Lifecycle">oVirt User Interface Plug-in Life cycle</a></li>
+<li><a href="#Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Discovery">oVirt User Interface Plug-in Discovery</a></li>
+<li><a href="#Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Loading">oVirt User Interface Plug-in Loading</a></li>
+<li><a href="#Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Bootstrapping">oVirt User Interface Plug-in Bootstrapping</a></li>
+</ul>
+</li>
+<li><a href="#UI_Plugin-related_Files_and_their_Locations">User Interface Plugin-related Files and Their Locations</a></li>
+<li><a href="#Example_RHEV_UI_Plugin_Deployment">Example User Interface Plug-in Deployment</a></li>
+</ul>
+</li>
+<li><a href="#appe-Red_Hat_Enterprise_Virtualization_and_SSL">Appendix D: oVirt and encrypted communication</a>
+<ul class="sectlevel2">
+<li><a href="#Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</a></li>
+<li><a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a></li>
+</ul>
+</li>
+<li><a href="#appe-Branding">Appendix E: Branding</a>
+<ul class="sectlevel2">
+<li><a href="#sect-Branding">Branding</a>
+<ul class="sectlevel3">
+<li><a href="#Re-Branding_the_Manager1">Re-Branding the Engine</a></li>
+<li><a href="#Re-Branding_the_Manager">Login Screen</a></li>
+<li><a href="#Administration_Portal_Screen">Administration Portal Screen</a></li>
+<li><a href="#User_Portal_Screen">VM Portal Screen</a></li>
+<li><a href="#Pop-up_Windows">Pop-Up Windows</a></li>
+<li><a href="#Tabs">Tabs</a></li>
+<li><a href="#The_Welcome_Page">The Welcome Page</a></li>
+<li><a href="#The_File_Not_Found_Page">The Page Not Found Page</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#appe-System_Accounts">Appendix F: System Accounts</a>
+<ul class="sectlevel2">
+<li><a href="#sect-System_Accounts">System Accounts</a>
+<ul class="sectlevel3">
+<li><a href="#Red_Hat_Enterprise_Virtualization_Manager_User_Accounts">oVirt Engine User Accounts</a></li>
+<li><a href="#Red_Hat_Enterprise_Virtualization_Manager_Groups">oVirt Engine Groups</a></li>
+<li><a href="#Virtualization_Host_User_Accounts">Virtualization Host User Accounts</a></li>
+<li><a href="#Virtualization_Host_Groups">Virtualization Host Groups</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#legal-notice">Appendix G: Legal notice</a></li>
 </ul>
 </li>
 </ul>
@@ -9093,7 +9257,7 @@ To configure the logical network, select the <strong>IPv6</strong> tab and make 
 </div>
 </li>
 <li>
-<p>To configure a network bridge, click the <strong>Custom Properties</strong> tab and select <strong>bridge_opts</strong> from the drop-down list. Enter a valid key and value with the following syntax: <em>key</em>=<em>value</em>. Separate multiple entries with a whitespace character. The following keys are valid, with the values provided as examples. For more information on these parameters, see <a href="#Explanation_of_bridge_opts_Parameters">[Explanation_of_bridge_opts_Parameters]</a>.</p>
+<p>To configure a network bridge, click the <strong>Custom Properties</strong> tab and select <strong>bridge_opts</strong> from the drop-down list. Enter a valid key and value with the following syntax: <em>key</em>=<em>value</em>. Separate multiple entries with a whitespace character. The following keys are valid, with the values provided as examples. For more information on these parameters, see <a href="#Explanation_of_bridge_opts_Parameters">Explanation of bridge_opts Parameters</a>.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">forward_delay=1500
@@ -9133,11 +9297,11 @@ multicast_startup_query_interval=3125</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <strong>ethtool_opts</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool">[How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool]</a> for more information. For more information on ethtool properties, see the manual page by typing <code>man ethtool</code> in the command line.</p>
+<p>The <strong>ethtool_opts</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool">How to Set Up oVirt Engine to Use Ethtool</a> for more information. For more information on ethtool properties, see the manual page by typing <code>man ethtool</code> in the command line.</p>
 </div>
 </li>
 <li>
-<p>To configure Fibre Channel over Ethernet (FCoE), click the <strong>Custom Properties</strong> tab and select <strong>fcoe</strong> from the drop-down list. Enter a valid key and value with the following syntax: <em>key</em>=<em>value</em>. At least <code>enable=yes</code> is required. You can also add <code>dcb=</code><code class="yes|no"> and <code>auto_vlan=</code>[yes|no]</code>. Separate multiple entries with a whitespace character. The <strong>fcoe</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_RHVM_to_Use_FCoE">[How_to_Set_Up_RHVM_to_Use_FCoE]</a> for more information.</p>
+<p>To configure Fibre Channel over Ethernet (FCoE), click the <strong>Custom Properties</strong> tab and select <strong>fcoe</strong> from the drop-down list. Enter a valid key and value with the following syntax: <em>key</em>=<em>value</em>. At least <code>enable=yes</code> is required. You can also add <code>dcb=</code><code class="yes|no"> and <code>auto_vlan=</code>[yes|no]</code>. Separate multiple entries with a whitespace character. The <strong>fcoe</strong> option is not available by default; you need to add it using the engine configuration tool. See <a href="#How_to_Set_Up_RHVM_to_Use_FCoE">How to Set Up oVirt Engine to Use FCoE</a> for more information.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -9197,7 +9361,7 @@ multicast_startup_query_interval=3125</pre>
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#Syntax_for_the_engine-config_Command">[Syntax_for_the_engine-config_Command]</a></p>
+<p><a href="#Syntax_for_the_engine-config_Command">Syntax for the engine-config Command</a></p>
 </li>
 <li>
 <p><a href="https://ovirt.github.io/ovirt-engine-api-model/4.4/index#services-host-methods-setup_networks">setupnetworks POST</a></p>
@@ -9592,7 +9756,7 @@ You can synchronize a host&#8217;s networks on three levels:</p>
 <p>A host network, such as the <strong>ovirtmgmt</strong> management network, is created with only one IP address when initially set up. This means that if a NIC&#8217;s configuration file is configured with multiple IP addresses, only the first listed IP address will be assigned to the host network. Additional IP addresses may be required if connecting to storage, or to a server on a separate private subnet using the same NIC.</p>
 </div>
 <div class="paragraph">
-<p>The <code>vdsm-hook-extra-ipv4-addrs</code> hook allows you to configure additional IPv4 addresses for host networks. For more information about hooks, see <a href="#appe-VDSM_and_Hooks">[appe-VDSM_and_Hooks]</a>.</p>
+<p>The <code>vdsm-hook-extra-ipv4-addrs</code> hook allows you to configure additional IPv4 addresses for host networks. For more information about hooks, see <a href="#appe-VDSM_and_Hooks">VDSM and Hooks</a>.</p>
 </div>
 <div class="paragraph">
 <p>In the following procedure, the host-specific tasks must be performed on each host for which you want to configure additional IP addresses.</p>
@@ -10902,7 +11066,7 @@ options vfio_iommu_type1 allow_unsafe_interrupts=1</pre>
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#VDSM_hooks">[VDSM_hooks]</a></p>
+<p><a href="#VDSM_hooks">VDSM Hooks</a></p>
 </li>
 </ul>
 </div>
@@ -11040,7 +11204,7 @@ In RHV version 4.2, you can only enable <strong>Pass-Through Host CPU</strong> w
 <div class="title">Additional resources</div>
 <ul>
 <li>
-<p><a href="#VDSM_hooks">[VDSM_hooks]</a></p>
+<p><a href="#VDSM_hooks">VDSM Hooks</a></p>
 </li>
 <li>
 <p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_virtualization/creating-nested-virtual-machines_configuring-and-managing-virtualization">Creating Child virtual Machines</a> in the EL documentation.</p>
@@ -12684,7 +12848,7 @@ roles:
 <p>To automatically check the fencing parameters, you can configure the <code>PMHealthCheckEnabled</code> (false by default) and <code>PMHealthCheckIntervalInSec</code> (3600 sec by default) engine-config options.</p>
 </div>
 <div class="paragraph">
-<p>When set to true, <code>PMHealthCheckEnabled</code> will check all host agents at the interval specified by <code>PMHealthCheckIntervalInSec</code>, and raise warnings if it detects issues. See <a href="#Syntax_for_the_engine-config_Command">[Syntax_for_the_engine-config_Command]</a> for more information about configuring engine-config options.</p>
+<p>When set to true, <code>PMHealthCheckEnabled</code> will check all host agents at the interval specified by <code>PMHealthCheckIntervalInSec</code>, and raise warnings if it detects issues. See <a href="#Syntax_for_the_engine-config_Command">Syntax for the engine-config Command</a> for more information about configuring engine-config options.</p>
 </div>
 </td>
 </tr>
@@ -20352,7 +20516,7 @@ and disable global maintenance mode:</p>
 <p>You can use the <code>ovirt-engine-rename</code> command to update records of the fully qualified domain name (FQDN) of the Engine.</p>
 </div>
 <div class="paragraph">
-<p>For details see <a href="#Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool">[Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool]</a>.</p>
+<p>For details see <a href="#Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool">Renaming the Engine with the oVirt Engine Rename Tool</a>.</p>
 </div>
 </div>
 </div>
@@ -20689,7 +20853,7 @@ Done.</pre>
 </ol>
 </div>
 <div class="paragraph">
-<p>The oVirt Engine has been restored to the version preserved in the backup. To change the fully qualified domain name of the new oVirt system, see <a href="#The_oVirt_Engine_Rename_Tool">[The_oVirt_Engine_Rename_Tool]</a>.</p>
+<p>The oVirt Engine has been restored to the version preserved in the backup. To change the fully qualified domain name of the new oVirt system, see <a href="#The_oVirt_Engine_Rename_Tool">The oVirt Engine Rename Tool</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -25050,7 +25214,7 @@ Log file is available at /tmp/ovirt-engine-extension-aaa-ldap-setup-201710041012
 <p>You need to either add the DNS server that can resolve the Active Directory forest name to the <strong>/etc/resolv.conf</strong> file on the Engine, or note down the Active Directory DNS servers and enter them when prompted by the interactive setup script.</p>
 </li>
 <li>
-<p>To set up secure connection between the LDAP server and the Engine, ensure a PEM-encoded CA certificate has been prepared. See <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">[Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server]</a> for more information.</p>
+<p>To set up secure connection between the LDAP server and the Engine, ensure a PEM-encoded CA certificate has been prepared. See <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a> for more information.</p>
 </li>
 <li>
 <p>Unless anonymous search is supported, a user with permissions to browse all users and groups must be available on the Active Directory to be used as the search user. Note down the search user&#8217;s distinguished name (DN). Do not use the administrative user for the Active Directory.</p>
@@ -25142,7 +25306,7 @@ Please enter the password:</pre>
 <p>LDAPS stands for Lightweight Directory Access Protocol Over Secure Socket Links. For SSL connections, select the <code>ldaps</code> option.</p>
 </div>
 <div class="paragraph">
-<p>For more information on creating a PEM-encoded CA certificate, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">[Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server]</a>.</p>
+<p>For more information on creating a PEM-encoded CA certificate, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a>.</p>
 </div>
 </td>
 </tr>
@@ -25343,7 +25507,7 @@ pool.default.auth.simple.password = ${global:vars.password}</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>For more information on creating a public keystore file, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">[Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server]</a>.</p>
+<p>For more information on creating a public keystore file, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a>.</p>
 </div>
 </td>
 </tr>
@@ -25758,7 +25922,7 @@ pool.default.auth.simple.password = ${global:vars.password}</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>For more information on creating a public keystore file, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">[Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server]</a>.</p>
+<p>For more information on creating a public keystore file, see <a href="#Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</a>.</p>
 </div>
 </td>
 </tr>
@@ -27939,14 +28103,10 @@ AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server su
 <ul>
 <li>
 <p>One or more external SNMP managers is configured to receive traps.</p>
-</li>
-</ul>
-</div>
 <div class="paragraph">
 <p>??? <strong><em>Where does the user get the SNMP manager, community, SNMP_OID, and SNMP_ENGINE_ID</em> from?</strong> ???</p>
 </div>
-<div class="ulist">
-<ul>
+</li>
 <li>
 <p>The IP addresses or fully qualified domain names of machines that will act as SNMP managers. Optionally, determine the port through which Engine receives trap notifications. The default is UDP port 162.</p>
 </li>
@@ -27973,7 +28133,7 @@ AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server su
 </table>
 </div>
 <div class="paragraph">
-<p>Default SNMP configuration values exist on the Engine in the events notification daemon configuration file <code>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</code>. The values outlined in the following procedure are based on the default or example values provided in this file. Do not edit this file directly, because system changes, such as upgrades, might remove any changes you make to this file. Instead, copy this file to <code>/etc/ovirt-engine/notifier/notifier.conf.d/&lt;_integer_&gt;-snmp.conf</code>, where <code>&lt;_integer_&gt;</code> is a number indicating the priority with which the file should run.</p>
+<p>Default SNMP configuration values exist on the Engine in the events notification daemon configuration file <code>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</code>. The values outlined in the following procedure are based on the default or example values provided in this file. Do not edit this file directly, because system changes, such as upgrades, might remove any changes you make to this file. Instead, copy this file to <code>/etc/ovirt-engine/notifier/notifier.conf.d/&lt;<em>integer</em>&gt;-snmp.conf</code>, where <code>&lt;<em>integer</em>&gt;</code> is a number indicating the priority with which the file should run.</p>
 </div>
 <div class="paragraph">
 <p>This procedure shows how to create a new SNMP configuration file.</p>
@@ -27982,7 +28142,7 @@ AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server su
 <div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>On the Engine, create the SNMP configuration file with the file name <code>&lt;_priority_&gt;-snmp.conf</code>, where <code>&lt;_priority_&gt;</code> is an integer that indicates the order in which files are processed. For example:</p>
+<p>On the Engine, create the SNMP configuration file with the file name <code>&lt;<em>integer</em>&gt;-snmp.conf</code>, where <code>&lt;<em>integer</em>&gt;</code> is an integer that indicates the order in which files are processed. For example:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap"># vi /etc/ovirt-engine/notifier/notifier.conf.d/20-snmp.conf</pre>
@@ -28035,9 +28195,6 @@ SNMP_OID=1.3.6.1.4.1.2312.13.1.1</pre>
 SNMP_SECURITY_LEVEL=1</pre>
 </div>
 </div>
-</li>
-</ol>
-</div>
 <div class="paragraph">
 <p>Configuration for sending SNMPv3 AuthNoPriv traps as user ‘ovirtengine’ with snmp auth passphrase ‘authpass’.</p>
 </div>
@@ -28064,23 +28221,18 @@ SNMP_PRIVACY_PASSPHRASE=privpass
 SNMP_SECURITY_LEVEL=3</pre>
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Define which events to send to the SNMP manager:</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="title">Example 25. Event examples</div>
+<div class="content">
 <div class="paragraph">
 <p>Send all events to the default SNMP profile:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">dddFILTER="include:*(snmp:) ${FILTER}"</pre>
+<pre class="nowrap">FILTER="include:*(snmp:) ${FILTER}"</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -28120,14 +28272,12 @@ SNMP_SECURITY_LEVEL=3</pre>
 <pre class="nowrap">FILTER="exclude:*"</pre>
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>+
-<code>VDC_START</code> is an example of the audit log messages available. A full list of audit log messages can be found in <code>/usr/share/doc/ovirt-engine/AuditLogMessages.properties</code>. Alternatively, filter results within your SNMP manager.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</div>
+<div class="paragraph">
+<p><code>VDC_START</code> is an example of the audit log messages available. A full list of audit log messages can be found in <code>/usr/share/doc/ovirt-engine/AuditLogMessages.properties</code>. Alternatively, filter results within your SNMP manager.</p>
+</div>
+</li>
 <li>
 <p>Save the file.</p>
 </li>
@@ -28145,26 +28295,42 @@ SNMP_SECURITY_LEVEL=3</pre>
 <div class="paragraph">
 <p>Check your SNMP manager to ensure that traps are being received.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p><code>SNMP_MANAGERS</code>, <code>MAIL_SERVER</code>, or both must be properly defined in <code>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</code> or in an override file in order for the notifier service to run.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div id="SNMPv3-traps-configuration-settings" class="paragraph">
-<p>= Sample SNMP version 3 configuration file</p>
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="SNMPv3-traps-configuration-settings">23. Sample SNMP version 3 configuration file</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This sample configuration file is based on settings in <code>ovirt-engine-notifier.conf</code>.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Copy the default SNMP settings from the events notification daemon configuration file <code>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</code> to <code>/etc/ovirt-engine/notifier/notifier.conf.d/&lt;_integer_&gt;-snmp.conf</code>, where <code>&lt;_integer_&gt;</code> is a number indicating the priority with which the file should run. This file includes inline comments for all settings.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="bash"><mark>-------------------------</mark>
@@ -28244,15 +28410,15 @@ SNMP_SECURITY_LEVEL=3 &lt;11&gt;
 </tr>
 </table>
 </div>
-<div id="chap-Utilities" class="paragraph">
-<p>== Utilities</p>
 </div>
-<div id="sect-The_oVirt_Engine_Rename_Tool" class="paragraph">
-<p>=== The oVirt Engine Rename Tool</p>
 </div>
-<div id="The_oVirt_Engine_Rename_Tool" class="paragraph">
-<p>==== The oVirt Engine Rename Tool</p>
-</div>
+<div class="sect1">
+<h2 id="chap-Utilities">24. Utilities</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="sect-The_oVirt_Engine_Rename_Tool">24.1. The oVirt Engine Rename Tool</h3>
+<div class="sect3">
+<h4 id="The_oVirt_Engine_Rename_Tool">24.1.1. The oVirt Engine Rename Tool</h4>
 <div class="paragraph">
 <p>When the <code>engine-setup</code> command is run in a clean environment, the command generates a number of certificates and keys that use the fully qualified domain name of the Engine supplied during the setup process. If the fully qualified domain name of the Engine must be changed later on (for example, due to migration of the machine hosting the Engine to a different domain), the records of the fully qualified domain name must be updated to reflect the new name. The <code>ovirt-engine-rename</code> command automates this task.</p>
 </div>
@@ -28287,24 +28453,37 @@ SNMP_SECURITY_LEVEL=3 &lt;11&gt;
 </li>
 </ul>
 </div>
-</div>
-</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>While the <code>ovirt-engine-rename</code> command creates a new certificate for the web server on which the Engine runs, it does not affect the certificate for the Engine or the certificate authority. Due to this, there is some risk involved in using the <code>ovirt-engine-rename</code> command, particularly in environments that have been upgraded from Red Hat Enterprise Virtualization 3.2 and earlier. Therefore, changing the fully qualified domain name of the Engine by running <code>engine-cleanup</code> and <code>engine-setup</code> is recommended where possible.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-
+</td>
+</tr>
+</table>
 </div>
-</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>During the upgrade process, the old hostname must be resolvable. If the oVirt Engine Rename Tool fails with the message <code>[ ERROR ] Host name is not valid: &lt;OLD FQDN&gt; did not resolve into an IP address</code>, add the old hostname to the <code>/etc/hosts</code> file, use the oVirt Engine Rename Tool, and then remove the old hostname from the <code>/etc/hosts</code> file.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div id="Syntax_for_the_oVirt_Engine_Rename_Command" class="paragraph">
-<p>==== Syntax for the oVirt Engine Rename Command</p>
+</td>
+</tr>
+</table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="Syntax_for_the_oVirt_Engine_Rename_Command">24.1.2. Syntax for the oVirt Engine Rename Command</h4>
 <div class="paragraph">
 <p>The basic syntax for the <code>ovirt-engine-rename</code> command is:</p>
 </div>
@@ -28340,9 +28519,9 @@ SNMP_SECURITY_LEVEL=3 &lt;11&gt;
 </dd>
 </dl>
 </div>
-<div id="Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool" class="paragraph">
-<p>==== Renaming the Engine with the oVirt Engine Rename Tool</p>
 </div>
+<div class="sect3">
+<h4 id="Renaming_the_Manager_with_the_Ovirt_Engine_Rename_Tool">24.1.3. Renaming the Engine with the oVirt Engine Rename Tool</h4>
 <div class="paragraph">
 <p>You can use the <code>ovirt-engine-rename</code> command to update records of the fully qualified domain name (FQDN) of the Engine.</p>
 </div>
@@ -28424,25 +28603,32 @@ SNMP_SECURITY_LEVEL=3 &lt;11&gt;
 <div class="paragraph">
 <p>Now, all new and existing self-hosted engine nodes use the new FQDN.</p>
 </div>
-<div id="sect-The_Engine_Configuration_Tool" class="paragraph">
-<p>=== The Engine Configuration Tool</p>
 </div>
-<div id="The_Engine_Configuration_Tool" class="paragraph">
-<p>==== The Engine Configuration Tool</p>
 </div>
+<div class="sect2">
+<h3 id="sect-The_Engine_Configuration_Tool">24.2. The Engine Configuration Tool</h3>
+<div class="sect3">
+<h4 id="The_Engine_Configuration_Tool">24.2.1. The Engine Configuration Tool</h4>
 <div class="paragraph">
 <p>The engine configuration tool is a command-line utility for configuring global settings for your oVirt environment. The tool interacts with a list of key-value mappings that are stored in the engine database, and allows you to retrieve and set the value of individual keys, and retrieve a list of all available configuration keys and values. Furthermore, different values can be stored for each configuration level in your oVirt environment.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Neither the oVirt Engine nor Red Hat JBoss Enterprise Application Platform need to be running to retrieve or set the value of a configuration key. Because the configuration key value-key mappings are stored in the engine database, they can be updated while the <code>postgresql</code> service is running. Changes are then applied when the <code>ovirt-engine</code> service is restarted.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div id="Syntax_for_the_engine-config_Command" class="paragraph">
-<p>==== Syntax for the engine-config Command</p>
+</td>
+</tr>
+</table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="Syntax_for_the_engine-config_Command">24.2.2. Syntax for the engine-config Command</h4>
 <div class="paragraph">
 <p>You can run the engine configuration tool from the machine on which the oVirt Engine is installed. For detailed information on usage, print the help output for the command:</p>
 </div>
@@ -28507,12 +28693,12 @@ SNMP_SECURITY_LEVEL=3 &lt;11&gt;
 </li>
 </ul>
 </div>
-<div id="sect-The_USB_Filter_Editor" class="paragraph">
-<p>=== The USB Filter Editor</p>
 </div>
-<div id="Installing_the_USB_Filter_Editor" class="paragraph">
-<p>= Installing the USB Filter Editor</p>
 </div>
+<div class="sect2">
+<h3 id="sect-The_USB_Filter_Editor">24.3. The USB Filter Editor</h3>
+<div class="sect3">
+<h4 id="Installing_the_USB_Filter_Editor">24.3.1. Installing the USB Filter Editor</h4>
 <div class="paragraph">
 <p>The USB Filter Editor is a Windows tool used to configure the <strong>usbfilter.txt</strong> policy file. The policy rules defined in this file allow or deny automatic passthrough of specific USB devices from client machines to virtual machines managed using the oVirt Engine. The policy file resides on the oVirt Engine in the following location:
 <strong>/etc/ovirt-engine/usbfilter.txt</strong>
@@ -28535,19 +28721,26 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 </li>
 </ol>
 </div>
-</div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Use a Secure Copy (SCP) client to import and export filter policies from the oVirt Engine. A Secure Copy tool for Windows machines is WinSCP (<a href="http://winscp.net" class="bare">http://winscp.net</a>).</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The default USB device policy provides virtual machines with basic access to USB devices; update the policy to allow the use of additional USB devices.</p>
 </div>
-<div id="The_USB_Filter_Editor_interface" class="paragraph">
-<p>= The USB Filter Editor Interface</p>
 </div>
+<div class="sect3">
+<h4 id="The_USB_Filter_Editor_interface">24.3.2. The USB Filter Editor Interface</h4>
 <div class="paragraph">
 <p>Double-click the USB Filter Editor shortcut icon on your desktop.</p>
 </div>
@@ -28592,9 +28785,9 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 <div class="paragraph">
 <p>The USB device policy rules are processed in their listed order. Use the <strong>Up</strong> and <strong>Down</strong> buttons to move rules higher or lower in the list. The universal <strong>Block</strong> rule needs to remain as the lowest entry to ensure all USB devices are denied unless explicitly allowed in the USB Filter Editor.</p>
 </div>
-<div id="Adding_a_USB_policy" class="paragraph">
-<p>= Adding a USB Policy</p>
 </div>
+<div class="sect3">
+<h4 id="Adding_a_USB_policy">24.3.3. Adding a USB Policy</h4>
 <div class="paragraph">
 <p>Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.</p>
 </div>
@@ -28612,11 +28805,9 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 <div class="paragraph">
 <p>Click <b class="button">OK</b> to add the selected filter rule to the list and close the window.</p>
 </div>
-</li>
-</ol>
-</div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="title">Example 26. Adding a Device</div>
+<div class="content">
 <div class="paragraph">
 <p>The following is an example of how to add USB Class <code>Smartcard</code>, device <code>EP-1427X-2 Ethernet Adapter</code>, from manufacturer <code>Acer Communications &amp; Multimedia</code> to the list of allowed devices.</p>
 </div>
@@ -28625,11 +28816,13 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 <img src="images/306.png" alt="306">
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>+
-. Click <span class="menuseq"><b class="menu">File</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Save</b></span> to save the changes.</p>
+</div>
+</div>
+</li>
+<li>
+<p>Click <span class="menuseq"><b class="menu">File</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Save</b></span> to save the changes.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>You have added a USB policy to the USB Filter Editor. You need to export USB filter policies to the oVirt Engine for them to take effect.</p>
@@ -28642,9 +28835,9 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 </li>
 </ul>
 </div>
-<div id="Removing_a_USB_policy" class="paragraph">
-<p>= Removing a USB Policy</p>
 </div>
+<div class="sect3">
+<h4 id="Removing_a_USB_policy">24.3.4. Removing a USB Policy</h4>
 <div class="paragraph">
 <p>Double-click the USB Filter Editor shortcut icon on your desktop. This opens the editor.</p>
 </div>
@@ -28676,9 +28869,9 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 </li>
 </ul>
 </div>
-<div id="Searching_for_USB_device_policies" class="paragraph">
-<p>= Searching for USB Device Policies</p>
 </div>
+<div class="sect3">
+<h4 id="Searching_for_USB_device_policies">24.3.5. Searching for USB Device Policies</h4>
 <div class="paragraph">
 <p>Search for attached USB devices to either allow or block them in the USB Filter Editor.</p>
 </div>
@@ -28705,9 +28898,9 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 <div class="paragraph">
 <p>You have searched the attached USB devices. USB filter policies need to be exported to the oVirt Engine to take effect.</p>
 </div>
-<div id="Exporting_a_USB_policy" class="paragraph">
-<p>= Exporting a USB Policy</p>
 </div>
+<div class="sect3">
+<h4 id="Exporting_a_USB_policy">24.3.6. Exporting a USB Policy</h4>
 <div class="paragraph">
 <p>USB device policy changes need to be exported and uploaded to the oVirt Engine for the updated policy to take effect. Upload the policy and restart the <strong>ovirt-engine</strong> service.</p>
 </div>
@@ -28737,9 +28930,9 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 </li>
 </ol>
 </div>
-<div id="Importing_a_USB_policy" class="paragraph">
-<p>= Importing a USB Policy</p>
 </div>
+<div class="sect3">
+<h4 id="Importing_a_USB_policy">24.3.7. Importing a USB Policy</h4>
 <div class="paragraph">
 <p>An existing USB device policy must be downloaded and imported into the USB Filter Editor before you can edit it.</p>
 </div>
@@ -28761,28 +28954,35 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 </li>
 </ol>
 </div>
-<div id="sect-The_ISO_Uploader_Tool" class="paragraph">
-<p>=== The ISO Uploader Tool</p>
-</div>
-<div id="The_ISO_Uploader_Tool" class="paragraph">
-<p>==== The ISO Uploader Tool</p>
 </div>
 </div>
-</div>
+<div class="sect2">
+<h3 id="sect-The_ISO_Uploader_Tool">24.4. The ISO Uploader Tool</h3>
+<div class="sect3">
+<h4 id="The_ISO_Uploader_Tool">24.4.1. The ISO Uploader Tool</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>The ISO Uploader tool has been deprecated. Upload ISO images to the data domain with the Administration Portal or with the REST API. See <a href="#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> for details.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The ISO uploader is a tool for uploading ISO images to the ISO storage domain. It is installed as part of the oVirt Engine.</p>
 </div>
 <div class="paragraph">
 <p>The ISO uploader command is <code>engine-iso-uploader</code>. You must log in as the <strong>root</strong> user and provide the administration credentials for the oVirt environment to use this command. The <code>engine-iso-uploader -h</code> command displays usage information, including a list of all valid options for the <code>engine-iso-uploader</code> command.</p>
 </div>
-<div id="Syntax_for_the_engine-iso-uploader_Command" class="paragraph">
-<p>==== Syntax for the engine-iso-uploader Command</p>
 </div>
+<div class="sect3">
+<h4 id="Syntax_for_the_engine-iso-uploader_Command">24.4.2. Syntax for the engine-iso-uploader Command</h4>
 <div class="paragraph">
 <p>The basic syntax for the ISO uploader command is:</p>
 </div>
@@ -28802,16 +29002,23 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 </li>
 <li>
 <p>The <code>upload</code> action uploads a single ISO file or multiple ISO files separated by spaces to the specified ISO storage domain. NFS is used by default, but SSH is also available.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>If you use SSH, you are prompted multiple times to enter the SSH user password. You can avoid these prompts by uploading the public SSH key to the iso domain server before uploading an ISO file, and then using the <code>--key-file=<em>KEYFILE</em></code> option. One way to upload the public SSH key is to use the <code>ssh-copy-id -i ~/.ssh/<em>mykey</em> <em>user@host</em></code> command.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p>You must specify one of the above actions when you use the ISO uploader command. Moreover, you must specify at least one local file to use the <code>upload</code> action.</p>
 </div>
@@ -28920,26 +29127,28 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 </dd>
 </dl>
 </div>
-<div id="Specifying_an_NFS_Server" class="paragraph">
-<p>==== Specifying an NFS Server</p>
 </div>
-</div>
-</div>
+<div class="sect3">
+<h4 id="Specifying_an_NFS_Server">24.4.3. Specifying an NFS Server</h4>
+<div class="exampleblock">
+<div class="title">Example 27. Uploading to an NFS Server</div>
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap"># <code>engine-iso-uploader --nfs-server=<em>storage.demo.redhat.com:/iso/path</em> upload <em>RHEL6.0.iso</em></code></pre>
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div id="Basic_ISO_Uploader_Usage" class="paragraph">
-<p>==== Basic ISO Uploader Usage</p>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Basic_ISO_Uploader_Usage">24.4.4. Basic ISO Uploader Usage</h4>
 <div class="paragraph">
 <p>The example below demonstrates the ISO uploader and the list parameter. The first command lists the available ISO storage domains; the <code>admin@internal</code> user is used because no user was specified in the command. The second command uploads an ISO file over NFS to the specified ISO domain.</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="title">Example 28. List Domains and Upload Image</div>
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap"># <code>engine-iso-uploader list</code>
@@ -28954,18 +29163,25 @@ ISODomain                 | Default             | active</pre>
 Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):</pre>
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div id="Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain" class="paragraph">
-<p>==== Uploading the VirtIO and guest tool image files to a storage domain</p>
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain">24.4.5. Uploading the VirtIO and guest tool image files to a storage domain</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>The ISO domain is a deprecated storage domain type. The ISO Uploader tool has been removed in oVirt 4.4. oVirt recommends uploading ISO images to the data domain with the Administration Portal or with the REST API. See <a href="#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks">Uploading Images to a Data Storage Domain</a> for details.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The <code>virtio-win<em>_version</em>.iso</code> image contains the following for Windows virtual machines to improve performance and usability:</p>
 </div>
@@ -29012,12 +29228,12 @@ Please provide the REST API password for the admin@internal oVirt Engine user (C
 <div class="paragraph">
 <p>For information on attaching the image files to a virtual machine, see <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Installing_the_Guest_Agents_and_Drivers_on_Windows">Installing the Guest Agents, Tools, and Drivers on Windows</a> in the <em>Virtual Machine Management Guide</em>.</p>
 </div>
-<div id="sect-The_Engine_Vacuum_Tool" class="paragraph">
-<p>=== The Engine Vacuum Tool</p>
 </div>
-<div id="The_Engine_Vacuum_Tool" class="paragraph">
-<p>==== The Engine Vacuum Tool</p>
 </div>
+<div class="sect2">
+<h3 id="sect-The_Engine_Vacuum_Tool">24.5. The Engine Vacuum Tool</h3>
+<div class="sect3">
+<h4 id="The_Engine_Vacuum_Tool">24.5.1. The Engine Vacuum Tool</h4>
 <div class="paragraph">
 <p>The Engine Vacuum tool maintains PostgreSQL databases by updating tables and removing dead rows, allowing disk space to be reused. See the <a href="https://www.postgresql.org/docs/10/sql-vacuum.html">PostgreSQL documentation</a> for information about the <code>VACUUM</code> command and its parameters.</p>
 </div>
@@ -29043,9 +29259,9 @@ See https://www.postgresql.org/docs/12/static/sql-vacuum.html
 <div class="paragraph">
 <p>The <strong>Yes</strong> option runs the Engine Vacuum tool in full vacuum verbose mode.</p>
 </div>
-<div id="Engine_Vacuum_Modes" class="paragraph">
-<p>==== Engine Vacuum Modes</p>
 </div>
+<div class="sect3">
+<h4 id="Engine_Vacuum_Modes">24.5.2. Engine Vacuum Modes</h4>
 <div class="paragraph">
 <p>Engine Vacuum has two modes:</p>
 </div>
@@ -29073,9 +29289,9 @@ See https://www.postgresql.org/docs/12/static/sql-vacuum.html
 </dd>
 </dl>
 </div>
-<div id="Syntax_for_the_engine-vacuum_Command" class="paragraph">
-<p>==== Syntax for the engine-vacuum Command</p>
 </div>
+<div class="sect3">
+<h4 id="Syntax_for_the_engine-vacuum_Command">24.5.3. Syntax for the engine-vacuum Command</h4>
 <div class="paragraph">
 <p>The basic syntax for the <code>engine-vacuum</code> command is:</p>
 </div>
@@ -29131,12 +29347,12 @@ See https://www.postgresql.org/docs/12/static/sql-vacuum.html
 </dd>
 </dl>
 </div>
-<div id="sect-The_VDSM_To_Network_Name_Tool" class="paragraph">
-<p>=== The VDSM to Network Name Mapping Tool</p>
 </div>
-<div id="Vdsm_To_Network_Mapping_Tool" class="paragraph">
-<p>==== Mapping VDSM Names to Logical Network Names</p>
 </div>
+<div class="sect2">
+<h3 id="sect-The_VDSM_To_Network_Name_Tool">24.6. The VDSM to Network Name Mapping Tool</h3>
+<div class="sect3">
+<h4 id="Vdsm_To_Network_Mapping_Tool">24.6.1. Mapping VDSM Names to Logical Network Names</h4>
 <div class="paragraph">
 <p>If the name of a logical network is longer than 15 characters or contains non-ASCII characters, the system automatically generates an on-host identifier (<em>vdsm_name</em>) name; it comprises the letters <em>on</em> and the first 13 characters of the network&#8217;s unique identifier, for example, <code>ona1b2c3d4e5f6g</code>. It is this name that appears in the host&#8217;s log files. To view a list of logical network names and their auto-generated network name, use the  VDSM-to-Network-Name Mapping tool located in <code>/usr/share/ovirt-engine/bin/</code>.</p>
 </div>
@@ -29182,12 +29398,14 @@ For example, run:</p>
 <div class="paragraph">
 <p><code>--secure</code> enables a secure connection with the database. By default the tool is run without a secure connection.</p>
 </div>
-<div id="part-Gathering_Information_About_the_Environment" class="paragraph">
-<p>= Gathering Information About the Environment</p>
 </div>
-<div id="monitoring_and_observability" class="paragraph">
-<p>== Monitoring and observability</p>
 </div>
+</div>
+</div>
+<h1 id="part-Gathering_Information_About_the_Environment" class="sect0">Gathering Information About the Environment</h1>
+<div class="sect1">
+<h2 id="monitoring_and_observability">25. Monitoring and observability</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>This chapter provides a number of ways to monitor and obtain metrics and logs from your oVirt system. These methods include:</p>
 </div>
@@ -29204,12 +29422,10 @@ For example, run:</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Using Data Warehouse and Grafana to monitor oVirt</p>
-</div>
-<div class="paragraph">
-<p>==== Grafana</p>
-</div>
+<div class="sect2">
+<h3 id="using-data-warehouse-and-grafana-to-monitor-ovirt">25.1. Using Data Warehouse and Grafana to monitor oVirt</h3>
+<div class="sect3">
+<h4 id="grafana">25.1.1. Grafana</h4>
 <div id="Grafana_overview" class="paragraph">
 <p>Grafana is a web-based UI tool used to display reports based on data collected from the oVirt Data Warehouse PostgreSQL database under the database name <code>ovirt_engine_history</code>. See <a href="https://grafana.com/grafana/dashboards">Grafana dashboards</a>.</p>
 </div>
@@ -29241,27 +29457,41 @@ and <a href="https://ovirt.org/documentation/data_warehouse_guide/index#Installi
 </li>
 </ul>
 </div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>oVirt only supports installing the Data Warehouse database, the Data Warehouse service and Grafana all on the same machine as each other, even though you can install each of these components on separate machines from each other.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>==== Configuring Grafana</p>
+</td>
+</tr>
+</table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="configuring-grafana">25.1.2. Configuring Grafana</h4>
 <div id="Configure_grafana" class="paragraph">
 <div class="title">Installation</div>
 <p>Grafana integration is enabled and installed by default when you run oVirt Engine <code>engine-setup</code> in a Stand Alone Manager installation, and in the Self-Hosted engine installation.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Grafana is not installed by default and you may need to install it manually under some scenarios such as performing an upgrade from an earlier version of oVirt, restoring a backup, or when the Data Warehouse is migrated to a separate machine.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>To enable Grafana integration manually:</p>
 </div>
@@ -29390,9 +29620,9 @@ and <a href="https://ovirt.org/documentation/data_warehouse_guide/index#Installi
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>==== Grafana dashboards</p>
 </div>
+<div class="sect3">
+<h4 id="grafana-dashboards">25.1.3. Grafana dashboards</h4>
 <div id="Grafana_dashboards" class="paragraph">
 <div class="title">Built-in Grafana dashboards</div>
 <p>The following dashboards are available in the initial Grafana setup to report Data Center, Cluster, Host, and Virtual Machine data:</p>
@@ -29511,42 +29741,63 @@ and <a href="https://ovirt.org/documentation/data_warehouse_guide/index#Installi
 <div class="title">Customized Grafana dashboards</div>
 <p>You can create customized dashboards or copy and modify existing dashboards according to your reporting needs.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Built-in dashboards cannot be customized.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>=== Sending metrics and logs to a remote instance of Elasticsearch</p>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="sending-metrics-and-logs-to-a-remote-instance-of-elasticsearch">25.2. Sending metrics and logs to a remote instance of Elasticsearch</h3>
+<div id="Sending_metrics_to_ELK" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Red Hat does not own or maintain Elasticsearch. You need to have a working familiarity with Elasticsearch setup and maintenance to deploy this option.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>You can configure the oVirt Engine and hosts to send metrics data and logs to your existing Elasticsearch instance.</p>
 </div>
 <div class="paragraph">
 <p>To do this, run the Ansible role that configures <code>collectd</code> and <code>rsyslog</code> on the Engine and all hosts to collect <code>engine.log</code>, <code>vdsm.log</code>, and <code>collectd</code> metrics, and send them to your Elasticsearch instance.</p>
 </div>
-<div class="paragraph">
-<p>==== Installing collectd and rsyslog</p>
-</div>
+<div class="sect3">
+<h4 id="installing-collectd-and-rsyslog">25.2.1. Installing collectd and rsyslog</h4>
 <div id="Install_collectd_and_rsyslog" class="paragraph">
 <p>Deploy <code>collectd</code> and <code>rsyslog</code> on the hosts to collect logs and metrics.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>You do not need to repeat this procedure for new hosts. Every new host that is added is automatically configured by the Engine to send the data to Elasticsearch during host-deploy.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -29597,9 +29848,9 @@ rsyslog_elasticsearch_usehttps_logs: !!str off</pre>
 <div class="paragraph">
 <p>For more information, including a full list with explanations of available Metrics Schema, see <a href="https://access.redhat.com/articles/4921101">Sending RHV monitoring data to a remote Elasticsearch instance</a>.</p>
 </div>
-<div class="paragraph">
-<p>==== Logging schema and analyzing logs</p>
 </div>
+<div class="sect3">
+<h4 id="logging-schema-and-analyzing-logs">25.2.2. Logging schema and analyzing logs</h4>
 <div id="Logging_schema" class="paragraph">
 <p>Use the <strong>Discover</strong> page to interactively explore data collected from oVirt. Each set of results that is collected is referred to as a <strong>document</strong>. Documents are collected from the following log files:</p>
 </div>
@@ -29694,12 +29945,15 @@ rsyslog_elasticsearch_usehttps_logs: !!str off</pre>
 </tr>
 </tbody>
 </table>
-<div id="chap-Log_Files" class="paragraph">
-<p>== Log Files</p>
 </div>
-<div id="Manager_Installation_Log_Files" class="paragraph">
-<p>=== Engine Installation Log Files</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chap-Log_Files">26. Log Files</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="Manager_Installation_Log_Files">26.1. Engine Installation Log Files</h3>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 76. Installation</caption>
 <colgroup>
@@ -29731,9 +29985,9 @@ rsyslog_elasticsearch_usehttps_logs: !!str off</pre>
 </tr>
 </tbody>
 </table>
-<div id="Manager_Log_Files" class="paragraph">
-<p>=== oVirt Engine Log Files</p>
 </div>
+<div class="sect2">
+<h3 id="Manager_Log_Files">26.2. oVirt Engine Log Files</h3>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 77. Service Activity</caption>
 <colgroup>
@@ -29771,18 +30025,17 @@ For information about Open vSwitch logs, see the <a href="http://openvswitch.org
 </tr>
 </tbody>
 </table>
-<div id="sect-SPICE_Log_Files" class="paragraph">
-<p>=== SPICE Log Files</p>
 </div>
+<div class="sect2">
+<h3 id="sect-SPICE_Log_Files">26.3. SPICE Log Files</h3>
 <div class="paragraph">
 <p>SPICE log files are useful when troubleshooting SPICE connection issues. To start SPICE debugging, change the log level to <code>debugging</code>. Then, identify the log location.</p>
 </div>
 <div class="paragraph">
 <p>Both the clients used to access the guest machines and the guest machines themselves have SPICE log files. For client-side logs, if a SPICE client was launched using the native client, for which a <strong>console.vv</strong> file is downloaded, use the <code>remote-viewer</code> command to enable debugging and generate log output.</p>
 </div>
-<div id="SPICE_Logs_for_Hypervisor_SPICE_Servers" class="paragraph">
-<p>==== SPICE Logs for Hypervisor SPICE Servers</p>
-</div>
+<div class="sect3">
+<h4 id="SPICE_Logs_for_Hypervisor_SPICE_Servers">26.3.1. SPICE Logs for Hypervisor SPICE Servers</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 78. SPICE Logs for Hypervisor SPICE Servers</caption>
 <colgroup>
@@ -29805,9 +30058,9 @@ For information about Open vSwitch logs, see the <a href="http://openvswitch.org
 </tr>
 </tbody>
 </table>
-<div id="SPICE_Logs_for_Guest_Machines" class="paragraph">
-<p>==== SPICE Logs for Guest Machines</p>
 </div>
+<div class="sect3">
+<h4 id="SPICE_Logs_for_Guest_Machines">26.3.2. SPICE Logs for Guest Machines</h4>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 79. spice-vdagent Logs for Guest Machines</caption>
 <colgroup>
@@ -29847,9 +30100,9 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 </tr>
 </tbody>
 </table>
-<div id="SPICE_Logs_for_SPICE_Clients_Launched_Using_consolevv_Files" class="paragraph">
-<p>==== SPICE Logs for SPICE Clients Launched Using console.vv Files</p>
 </div>
+<div class="sect3">
+<h4 id="SPICE_Logs_for_SPICE_Clients_Launched_Using_consolevv_Files">26.3.3. SPICE Logs for SPICE Clients Launched Using console.vv Files</h4>
 <div class="paragraph">
 <p><strong>For Linux client machines:</strong></p>
 </div>
@@ -29894,9 +30147,10 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 </li>
 </ol>
 </div>
-<div id="Host_Log_Files" class="paragraph">
-<p>=== Host Log Files</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="Host_Log_Files">26.4. Host Log Files</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -29944,9 +30198,9 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 </tr>
 </tbody>
 </table>
-<div id="proc-setting_up_debug_level_logging" class="paragraph">
-<p>=== Setting debug-level logging for oVirt services</p>
 </div>
+<div class="sect2">
+<h3 id="proc-setting_up_debug_level_logging">26.5. Setting debug-level logging for oVirt services</h3>
 <div class="paragraph">
 <p>You can set the logs of the following oVirt (oVirt) services to debug-level by modifying the <code>sysconfig</code> file of each service.</p>
 </div>
@@ -30022,9 +30276,9 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 <div class="paragraph">
 <p>Logging caused by this setting goes to the system log, so the logs it generates can be found in <code>/var/log/messages</code>, not in the service-specific log file, or by using the <code>journalctl</code> command.</p>
 </div>
-<div id="ref_debug_level_logging" class="paragraph">
-<p>=== Main configuration files for oVirt services</p>
 </div>
+<div class="sect2">
+<h3 id="ref_debug_level_logging">26.6. Main configuration files for oVirt services</h3>
 <div class="paragraph">
 <p>In addition to a <code>sysconfig</code> file, each of these oVirt (oVirt) services has another configuration file that is used more often.</p>
 </div>
@@ -30065,9 +30319,9 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 </tr>
 </tbody>
 </table>
-<div id="Setting_up_a_Host_Logging_Server" class="paragraph">
-<p>=== Setting Up a Host Logging Server</p>
 </div>
+<div class="sect2">
+<h3 id="Setting_up_a_Host_Logging_Server">26.7. Setting Up a Host Logging Server</h3>
 <div class="paragraph">
 <p>Hosts generate and update log files, recording their actions and problems. Collecting these log files centrally simplifies debugging.</p>
 </div>
@@ -30136,9 +30390,9 @@ Input(type="imudp" port="514" ruleset="RemoteMachine")</pre>
 <div class="paragraph">
 <p>Your centralized log server is now configured to receive and store the <strong>messages</strong> and <strong>secure</strong> logs from your virtualization hosts.</p>
 </div>
-<div id="Enabling_the_oVirt_Engine_Extension_Logger_log4j" class="paragraph">
-<p>=== Enabling the oVirt Engine Extension Logger log4j</p>
 </div>
+<div class="sect2">
+<h3 id="Enabling_the_oVirt_Engine_Extension_Logger_log4j">26.8. Enabling the oVirt Engine Extension Logger log4j</h3>
 <div class="paragraph">
 <p>Logger implementation requires the ovirt-engine-extension-logger-log4j package. With the implementation, Red Had Virtualization Engine delegates records into log4j. Log4j is a customizable framework that provides appenders for various technologies, including SNMP and syslog.</p>
 </div>
@@ -30148,16 +30402,23 @@ Input(type="imudp" port="514" ruleset="RemoteMachine")</pre>
 <div class="paragraph">
 <p>Use this procedure on the central syslog server. You can use a separate logging server, or use this procedure to pass the <code>engine.log</code> files from the Engine to the syslog server.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>To define the syslog server for this extension, navigate to the <code>/etc/ovirt-engine/extensions.d</code> directory and edit the value for <code>log4j.appender.myappender.SyslogHost</code> in the <code>Log4jLogger.properties</code> file.</p>
 </div>
 <div class="paragraph">
 <p>To define the syslog facility, navigate to the <code>/etc/ovirt-engine/extensions.d</code> directory and edit the value for <code>log4j.appender.myappender.Facility</code> in the <code>Log4jLogger.properties</code> file. For example, <code>log4j.appender.myappender.Facility=local1</code>.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -30256,40 +30517,49 @@ $InputUDPServerBindRuleset remote</pre>
 <div class="paragraph">
 <p>The existing syslog server can now receive and store the <code>engine.log</code> files.</p>
 </div>
-<div id="appe-VDSM_and_Hooks" class="paragraph">
-<p>== VDSM and Hooks</p>
 </div>
-<div id="VDSM" class="paragraph">
-<p>=== VDSM</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="appe-VDSM_and_Hooks">Appendix A: VDSM and Hooks</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="VDSM">VDSM</h3>
 <div class="paragraph">
 <p>The VDSM service is used by the oVirt Engine to manage oVirt Nodes (oVirt Node) and Enterprise Linux hosts. VDSM manages and monitors the host&#8217;s storage, memory and network resources. It also co-ordinates virtual machine creation, statistics gathering, log collection and other host administration tasks. VDSM is run as a daemon on each host managed by oVirt Engine. It answers XML-RPC calls from clients. The oVirt Engine functions as a VDSM client.</p>
 </div>
-<div id="VDSM_hooks" class="paragraph">
-<p>=== VDSM Hooks</p>
 </div>
+<div class="sect2">
+<h3 id="VDSM_hooks">VDSM Hooks</h3>
 <div class="paragraph">
 <p>VDSM is extensible via hooks. Hooks are scripts executed on the host when key events occur. When a supported event occurs VDSM runs any executable hook scripts in <strong>/usr/libexec/vdsm/hooks/<em>nn_event-name</em>/</strong> on the host in alphanumeric order. By convention each hook script is assigned a two digit number, included at the front of the file name, to ensure that the order in which the scripts will be run in is clear. You are able to create hook scripts in any programming language, Python will however be used for the examples contained in this chapter.</p>
 </div>
 <div class="paragraph">
 <p>Note that all scripts defined on the host for the event are executed. If you require that a given hook is only executed for a subset of the virtual machines which run on the host then you must ensure that the hook script itself handles this requirement by evaluating the <strong>Custom Properties</strong> associated with the virtual machine.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>VDSM hooks can interfere with the operation of oVirt. A bug in a VDSM hook has the potential to cause virtual machine crashes and loss of data. VDSM hooks should be implemented with caution and tested rigorously. The Hooks API is new and subject to significant change in the future.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div id="Extending_VDSM_with_hooks" class="paragraph">
-<p>=== Extending VDSM with Hooks</p>
+</td>
+</tr>
+</table>
 </div>
+</div>
+<div class="sect2">
+<h3 id="Extending_VDSM_with_hooks">Extending VDSM with Hooks</h3>
 <div class="paragraph">
 <p>This chapter describes how to extend VDSM with event-driven hooks. Extending VDSM with hooks is an experimental technology, and this chapter is intended for experienced developers. By setting custom properties on virtual machines it is possible to pass additional parameters, specific to a given virtual machine, to the hook scripts.</p>
 </div>
-<div id="proc_installing-a-vdsm-hook" class="paragraph">
-<p>= Installing a VDSM hook</p>
 </div>
+<div class="sect2">
+<h3 id="proc_installing-a-vdsm-hook">Installing a VDSM hook</h3>
 <div class="paragraph _abstract">
 <p>By default, VDSM hooks are not installed. If you need a specific hook, you must install it manually.</p>
 </div>
@@ -30344,9 +30614,9 @@ $InputUDPServerBindRuleset remote</pre>
 </li>
 </ul>
 </div>
-<div id="Supported_VDSM_events" class="paragraph">
-<p>=== Supported VDSM Events</p>
 </div>
+<div class="sect2">
+<h3 id="Supported_VDSM_events">Supported VDSM Events</h3>
 <table id="vdsm-hook-names" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 82. Supported VDSM Events</caption>
 <colgroup>
@@ -30526,15 +30796,15 @@ $InputUDPServerBindRuleset remote</pre>
 </tr>
 </tbody>
 </table>
-<div id="VDSM_hooks_environment" class="paragraph">
-<p>=== The VDSM Hook Environment</p>
 </div>
+<div class="sect2">
+<h3 id="VDSM_hooks_environment">The VDSM Hook Environment</h3>
 <div class="paragraph">
 <p>Most hook scripts are run as the <strong>vdsm</strong> user and inherit the environment of the VDSM process. The exceptions are hook scripts triggered by the <strong>before_vdsm_start</strong> and <strong>after_vdsm_stop</strong> events. Hook scripts triggered by these events run as the <strong>root</strong> user and do not inherit the environment of the VDSM process.</p>
 </div>
-<div id="VDSM_hooks_domain_xml" class="paragraph">
-<p>=== The VDSM Hook Domain XML Object</p>
 </div>
+<div class="sect2">
+<h3 id="VDSM_hooks_domain_xml">The VDSM Hook Domain XML Object</h3>
 <div class="paragraph">
 <p>When hook scripts are started, the _hook_domxml variable is appended to the environment. This variable contains the path of the libvirt domain XML representation of the relevant virtual machine. Several hooks are an exception to this rule, as outlined below.
 The _hook_domxml variable of the following hooks contains the XML representation of the NIC and not the virtual machine.</p>
@@ -30558,19 +30828,26 @@ The _hook_domxml variable of the following hooks contains the XML representation
 </li>
 </ul>
 </div>
-</div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>The <strong>before_migration_destination</strong> and <strong>before_dehibernation</strong> hooks currently receive the XML of the domain from the source host. The XML of the domain at the destination will have various differences.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The libvirt domain XML format is used by VDSM to define virtual machines. Details on the libvirt domain XML format can be found at <a href="http://libvirt.org/formatdomain.html">http://libvirt.org/formatdomain.html</a>. The UUID of the virtual machine may be deduced from the domain XML, but it is also available as the environment variable vmId.</p>
 </div>
-<div id="VDSM_hooks_defining_custom_properties" class="paragraph">
-<p>=== Defining Custom Properties</p>
 </div>
+<div class="sect2">
+<h3 id="VDSM_hooks_defining_custom_properties">Defining Custom Properties</h3>
 <div class="paragraph">
 <p>The custom properties that are accepted by the oVirt Engine - and in turn passed to custom hooks - are defined using the <code>engine-config</code> command. Run this command as the <strong>root</strong> user on the host where oVirt Engine is installed.</p>
 </div>
@@ -30583,8 +30860,9 @@ The _hook_domxml variable of the following hooks contains the XML representation
 <div class="paragraph">
 <p>Once the configuration key has been updated, the <strong>ovirt-engine</strong> service must be restarted for the new values to take effect.</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="title">Example 29. Virtual Machine Properties - Defining the <code>smartcard</code> Custom Property</div>
+<div class="content">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -30635,11 +30913,11 @@ UserDefinedVMProperties : memory=^[0-9]+$;smartcard=^(true|false)$ version: 4.4<
 </li>
 </ol>
 </div>
+</div>
+</div>
 <div class="exampleblock">
+<div class="title">Example 30. Device Properties - Defining the <code>interface</code> Custom Property</div>
 <div class="content">
-
-</div>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -30689,11 +30967,11 @@ UserDefinedVMProperties : {type=interface;prop={speed=^([0-9]{1,5})$;duplex=^(fu
 </li>
 </ol>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div id="VDSM_hooks_setting_custom_properties" class="paragraph">
-<p>=== Setting Virtual Machine Custom Properties</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="VDSM_hooks_setting_custom_properties">Setting Virtual Machine Custom Properties</h3>
 <div class="paragraph">
 <p>Once custom properties are defined in the oVirt Engine, you can begin setting them on virtual machines. Custom properties are set on the <strong>Custom Properties</strong> tab of the <strong>New Virtual Machine</strong> and <strong>Edit Virtual Machine</strong> windows in the Administration Portal.</p>
 </div>
@@ -30703,14 +30981,15 @@ UserDefinedVMProperties : {type=interface;prop={speed=^([0-9]{1,5})$;duplex=^(fu
 <div class="paragraph">
 <p>The <strong>Custom Properties</strong> tab provides a facility for you to select from the list of defined custom properties. Once you select a custom property key an additional field will display allowing you to enter a value for that key. Add additional key/value pairs by clicking the <strong>+</strong> button and remove them by clicking the <strong>-</strong> button.</p>
 </div>
-<div id="VDSM_hooks_evaluating_custom_properties" class="paragraph">
-<p>=== Evaluating Virtual Machine Custom Properties in a VDSM Hook</p>
 </div>
+<div class="sect2">
+<h3 id="VDSM_hooks_evaluating_custom_properties">Evaluating Virtual Machine Custom Properties in a VDSM Hook</h3>
 <div class="paragraph">
 <p>Each key set in the <strong>Custom Properties</strong> field for a virtual machine is appended as an environment variable when calling hook scripts. Although the regular expressions used to validate the <strong>Custom Properties</strong> field provide some protection you should ensure that your scripts also validate that the inputs provided match their expectations.</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="title">Example 31. Evaluating Custom Properties</div>
+<div class="content">
 <div class="paragraph">
 <p>This short Python example checks for the existence of the custom property <code>key1</code>. If the custom property is set then the value is printed to standard error. If the custom property is not set then no action is taken.</p>
 </div>
@@ -30727,11 +31006,11 @@ else:
     sys.exit(0)</pre>
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div id="VDSM_hooks_hooking_module" class="paragraph">
-<p>=== Using the VDSM Hooking Module</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="VDSM_hooks_hooking_module">Using the VDSM Hooking Module</h3>
 <div class="paragraph">
 <p>VDSM ships with a Python hooking module, providing helper functions for VDSM hook scripts. This module is provided as an example, and is only relevant to VDSM hooks written in Python.</p>
 </div>
@@ -30773,17 +31052,18 @@ else:
 </tr>
 </tbody>
 </table>
-<div id="VDSM_hooks_execution" class="paragraph">
-<p>=== VDSM Hook Execution</p>
 </div>
+<div class="sect2">
+<h3 id="VDSM_hooks_execution">VDSM Hook Execution</h3>
 <div class="paragraph">
 <p><strong>before_vm_start</strong> scripts can edit the domain XML in order to change VDSM&#8217;s definition of a virtual machine before it reaches libvirt. Caution must be exercised in doing so. Hook scripts have the potential to disrupt the operation of VDSM, and buggy scripts can result in outages to the oVirt environment. In particular, ensure you never change the UUID of the domain, and do not attempt to remove a device from the domain without sufficient background knowledge.</p>
 </div>
 <div class="paragraph">
 <p>Both <strong>before_vdsm_start</strong> and <strong>after_vdsm_stop</strong> hook scripts are run as the <strong>root</strong> user. Other hook scripts that require <strong>root</strong> access to the system must be written to use the <code>sudo</code> command for privilege escalation. To support this the <strong>/etc/sudoers</strong> must be updated to allow the <strong>vdsm</strong> user to use <code>sudo</code> without reentering a password. This is required as hook scripts are executed non-interactively.</p>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="title">Example 32. Configuring <code>sudo</code> for VDSM Hooks</div>
+<div class="content">
 <div class="paragraph">
 <p>In this example the <code>sudo</code> command will be configured to allow the <strong>vdsm</strong> user to run the <code>/bin/chown</code> command as <strong>root</strong>.</p>
 </div>
@@ -30816,14 +31096,14 @@ else:
 <pre class="nowrap">retcode = subprocess.call( ["/usr/bin/sudo", "/bin/chown", "root", "/my_file"] )</pre>
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>The standard error stream of hook scripts is collected in VDSM&#8217;s log. This information is used to debug hook scripts.</p>
 </div>
-<div id="VDSM_hooks_return_codes" class="paragraph">
-<p>=== VDSM Hook Return Codes</p>
 </div>
+<div class="sect2">
+<h3 id="VDSM_hooks_return_codes">VDSM Hook Return Codes</h3>
 <div class="paragraph">
 <p>Hook scripts must return one of the return codes shown in <a href="#hook-return-codes">Hook Return Codes</a>. The return code will determine whether further hook scripts are processed by VDSM.</p>
 </div>
@@ -30858,14 +31138,15 @@ else:
 </tr>
 </tbody>
 </table>
-<div id="VDSM_hooks_examples" class="paragraph">
-<p>=== VDSM Hook Examples</p>
 </div>
+<div class="sect2">
+<h3 id="VDSM_hooks_examples">VDSM Hook Examples</h3>
 <div class="paragraph">
 <p>The example hook scripts provided in this section are strictly not supported by Red Hat. You must ensure that any and all hook scripts that you install to your system, regardless of source, are thoroughly tested for your environment.</p>
 </div>
-</div>
-</div>
+<div id="VDSM_Hooks-example-numaset" class="exampleblock">
+<div class="title">Example 33. NUMA Node Tuning</div>
+<div class="content">
 <div class="paragraph">
 <p><strong>Purpose:</strong></p>
 </div>
@@ -30961,14 +31242,16 @@ if os.environ.has_key('numa'):
         sys.exit(2)</pre>
 </div>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div id="appe-Custom_Network_Properties" class="paragraph">
-<p>== Custom Network Properties</p>
 </div>
-<div id="Explanation_of_bridge_opts_Parameters" class="paragraph">
-<p>=== Explanation of bridge_opts Parameters</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appe-Custom_Network_Properties">Appendix B: Custom Network Properties</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="Explanation_of_bridge_opts_Parameters">Explanation of bridge_opts Parameters</h3>
 <table id="Table-Explanation_of_bridge_opts_Parameters" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 85. bridge_opts parameters</caption>
 <colgroup>
@@ -31056,9 +31339,9 @@ if os.environ.has_key('numa'):
 </tr>
 </tbody>
 </table>
-<div id="How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool" class="paragraph">
-<p>=== How to Set Up oVirt Engine to Use Ethtool</p>
 </div>
+<div class="sect2">
+<h3 id="How_to_Set_Up_Red_Hat_Enterprise_Virtualization_Manager_to_Use_Ethtool">How to Set Up oVirt Engine to Use Ethtool</h3>
 <div class="paragraph">
 <p>You can configure ethtool properties for host network interface cards from the Administration Portal. The <strong>ethtool_opts</strong> key is not available by default and needs to be added to the Engine using the engine configuration tool. You also need to install the required VDSM hook package on the hosts.</p>
 </div>
@@ -31096,9 +31379,9 @@ if os.environ.has_key('numa'):
 <div class="paragraph">
 <p>The <strong>ethtool_opts</strong> key is now available in the Administration Portal. See <a href="#Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts">Editing Host Network Interfaces and Assigning Logical Networks to Hosts</a> to apply ethtool properties to logical networks.</p>
 </div>
-<div id="How_to_Set_Up_RHVM_to_Use_FCoE" class="paragraph">
-<p>=== How to Set Up oVirt Engine to Use FCoE</p>
 </div>
+<div class="sect2">
+<h3 id="How_to_Set_Up_RHVM_to_Use_FCoE">How to Set Up oVirt Engine to Use FCoE</h3>
 <div class="paragraph">
 <p>You can configure Fibre Channel over Ethernet (FCoE) properties for host network interface cards from the Administration Portal. The <strong>fcoe</strong> key is not available by default and needs to be added to the Engine using the engine configuration tool. You can check whether <strong>fcoe</strong> has already been enabled by running the following command:</p>
 </div>
@@ -31144,12 +31427,14 @@ if os.environ.has_key('numa'):
 <div class="paragraph">
 <p>The <strong>fcoe</strong> key is now available in the Administration Portal. See <a href="#Editing_Host_Network_Interfaces_and_Assigning_Logical_Networks_to_Hosts">Editing Host Network Interfaces and Assigning Logical Networks to Hosts</a> to apply FCoE properties to logical networks.</p>
 </div>
-<div id="appe-Red_Hat_Enterprise_Virtualization_User_Interface_Plugins" class="paragraph">
-<p>== oVirt User Interface Plugins</p>
 </div>
-<div id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugins" class="paragraph">
-<p>=== oVirt User Interface Plug-ins</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="appe-Red_Hat_Enterprise_Virtualization_User_Interface_Plugins">Appendix C: oVirt User Interface Plugins</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugins">oVirt User Interface Plug-ins</h3>
 <div class="paragraph">
 <p>oVirt supports plug-ins that expose non-standard features. This makes it easier to use the oVirt Administration Portal to integrate with other systems. Each interface plug-in represents a set of user interface extensions that can be packaged and distributed for use with oVirt.</p>
 </div>
@@ -31162,12 +31447,11 @@ if os.environ.has_key('numa'):
 <div class="paragraph">
 <p>To facilitate the plug-in-to-Administration-Portal communication that drives the User Interface extension, the Administration Portal exposes the plug-in API as a global (top-level) pluginApi JavaScript object that individual plug-ins can consume. Each plug-in obtains a separate pluginApi instance, allowing the Administration Portal to control plug-in API-function invocation for each plug-in with respect to the plug-in&#8217;s life cycle.</p>
 </div>
-<div id="sect-Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Lifecycle" class="paragraph">
-<p>=== oVirt User Interface Plugin Lifecycle</p>
 </div>
-<div id="RHEV_UI_Plugin_Lifecycle" class="paragraph">
-<p>==== oVirt User Interface Plug-in Life cycle</p>
-</div>
+<div class="sect2">
+<h3 id="sect-Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Lifecycle">oVirt User Interface Plugin Lifecycle</h3>
+<div class="sect3">
+<h4 id="RHEV_UI_Plugin_Lifecycle">oVirt User Interface Plug-in Life cycle</h4>
 <div class="paragraph">
 <p>The basic life cycle of a User Interface Plug-in divides into three stages:</p>
 </div>
@@ -31184,9 +31468,9 @@ if os.environ.has_key('numa'):
 </li>
 </ul>
 </div>
-<div id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Discovery" class="paragraph">
-<p>==== oVirt User Interface Plug-in Discovery</p>
 </div>
+<div class="sect3">
+<h4 id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Discovery">oVirt User Interface Plug-in Discovery</h4>
 <div class="paragraph">
 <p>Creating plug-in descriptors is the first step in the plug-in discovery process. Plug-in descriptors contain important plug-in metadata and optional default plug-in-specific configurations.</p>
 </div>
@@ -31199,25 +31483,32 @@ if os.environ.has_key('numa'):
 <div class="paragraph">
 <p>By default, plug-in user configuration files reside in <strong>$ENGINE_ETC/ui-plug-ins</strong>, with a default mapping of <strong>ENGINE_ETC=/etc/ovirt-engine</strong> as defined by oVirt Engine local configuration. Plug-in user configuration files are expected to comply with same content format rules as plug-in descriptors.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Plug-in user configuration files generally follow the <strong>&lt;descriptorFileName&gt;-config.json</strong> naming convention.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Loading" class="paragraph">
-<p>==== oVirt User Interface Plug-in Loading</p>
+</td>
+</tr>
+</table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Loading">oVirt User Interface Plug-in Loading</h4>
 <div class="paragraph">
 <p>After a plug-in has been discovered and its data is embedded into the administration portal HTML page, administration portal tries to load the plug-in as part of application startup (unless you have configured it not to load as part of application startup).</p>
 </div>
 <div class="paragraph">
 <p>For each plug-in that has been discovered, the administration portal creates an HTML iframe element that is used to load its host page. The plug-in host page is necessary to begin the plug-in bootstrap process, which (the bootstrap process) is used to evaluate the plug-in code in the context of the plug-in&#8217;s iframe element. User interface plug-in infrastructure supports serving plug-in resource files (such as the plug-in host page) from the local file system. The plug-in host page is loaded into the iframe element and the plug-in code is evaluated. After the plug-in code is evaluated, the plug-in communicates with the administration portal by means of the plug-in API.</p>
 </div>
-<div id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Bootstrapping" class="paragraph">
-<p>==== oVirt User Interface Plug-in Bootstrapping</p>
 </div>
+<div class="sect3">
+<h4 id="Red_Hat_Enterprise_Virtualization_User_Interface_Plugin_Bootstrapping">oVirt User Interface Plug-in Bootstrapping</h4>
 <div class="paragraph">
 <p>A typical plug-in bootstrap sequence consists of following steps:</p>
 </div>
@@ -31267,9 +31558,10 @@ api.register({
 api.ready();</pre>
 </div>
 </div>
-<div id="UI_Plugin-related_Files_and_their_Locations" class="paragraph">
-<p>=== User Interface Plugin-related Files and Their Locations</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="UI_Plugin-related_Files_and_their_Locations">User Interface Plugin-related Files and Their Locations</h3>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 86. UI Plugin-related Files and their Locations</caption>
 <colgroup>
@@ -31302,9 +31594,9 @@ api.ready();</pre>
 </tr>
 </tbody>
 </table>
-<div id="Example_RHEV_UI_Plugin_Deployment" class="paragraph">
-<p>=== Example User Interface Plug-in Deployment</p>
 </div>
+<div class="sect2">
+<h3 id="Example_RHEV_UI_Plugin_Deployment">Example User Interface Plug-in Deployment</h3>
 <div class="paragraph">
 <p>Follow these instructions to create a user interface plug-in that runs a <strong>Hello World!</strong> program when you sign in to the oVirt Engine Administration Portal.</p>
 </div>
@@ -31352,30 +31644,45 @@ api.ready();</pre>
 </div>
 <div class="title">Figure 16. A Successful Implementation of the <strong>Hello World!</strong> Plug-in</div>
 </div>
-<div id="appe-Red_Hat_Enterprise_Virtualization_and_SSL" class="paragraph">
-<p>== oVirt and encrypted communication
-:context: encrypted-communication</p>
-</div>
-<div id="Replacing_the_Manager_CA_Certificate" class="paragraph">
-<p>=== Replacing the oVirt Engine CA Certificate</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="appe-Red_Hat_Enterprise_Virtualization_and_SSL">Appendix D: oVirt and encrypted communication</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Do not change the permissions and ownerships for the <code>/etc/pki</code> directory or any subdirectories. The permission for the <code>/etc/pki</code> and the <code>/etc/pki/ovirt-engine</code> directory must remain as the default, <code>755</code>.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>You can configure your organization&#8217;s third-party CA certificate to identify the oVirt Engine to users connecting over HTTPS.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>Using a third-party CA certificate for HTTPS connections does not affect the certificate used for authentication between the Engine and hosts. They will continue to use the self-signed certificate generated by the Engine.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><strong>Prerequisites</strong></p>
 </div>
@@ -31430,13 +31737,20 @@ api.ready();</pre>
 </li>
 </ol>
 </div>
-</div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>For new oVirt installations, you must complete all of the steps in this procedure.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div id="Replace" class="paragraph">
 <p><strong>Replacing the oVirt Engine Apache CA Certificate</strong></p>
 </div>
@@ -31607,19 +31921,26 @@ update-ca-trust</pre>
 <div class="paragraph">
 <p>Your users can now connect to the Administration Portal and VM Portal, without seeing a warning about the authenticity of the certificate used to encrypt HTTPS traffic.</p>
 </div>
-<div id="Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server" class="paragraph">
-<p>=== Setting Up Encrypted Communication between the Engine and an LDAP Server</p>
 </div>
+<div class="sect2">
+<h3 id="Setting_Up_SSL_or_TLS_Connections_between_the_Manager_and_an_LDAP_Server">Setting Up Encrypted Communication between the Engine and an LDAP Server</h3>
 <div class="paragraph">
 <p>To set up encrypted communication between the oVirt Engine and an LDAP server, obtain the root CA certificate of the LDAP server, copy the root CA certificate to the Engine, and create a PEM-encoded CA certificate. The keystore type can be any Java-supported type. The following procedure uses the Java KeyStore (JKS) format.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>For more information on creating a PEM-encoded CA certificate and importing certificates, see the <code>X.509 CERTIFICATE TRUST STORE</code> section of the README file at <strong>/usr/share/doc/ovirt-engine-extension-aaa-ldap-<em>version</em></strong>.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><strong>Creating a PEM-encoded CA certificate</strong></p>
 </div>
@@ -31635,23 +31956,24 @@ update-ca-trust</pre>
 </li>
 <li>
 <p>Update the <strong>/etc/ovirt-engine/aaa/profile1.properties</strong> file with the certificate information:</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p><code>${local:_basedir}</code> is the directory where the LDAP property configuration file resides and points to the <strong>/etc/ovirt-engine/aaa</strong> directory. If you created the PEM-encoded CA certificate in a different directory, replace <code>${local:_basedir}</code> with the full path to the certificate.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>+
-* To use startTLS (recommended):</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>+</p>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To use startTLS (recommended):</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap"># Create keystore, import certificate chain and uncomment
@@ -31660,13 +31982,9 @@ pool.default.ssl.truststore.file = ${local:_basedir}/<em>myrootca.jks</em>
 pool.default.ssl.truststore.password = <em>password</em></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>+
-* To use SSL:</p>
-</div>
-<div class="paragraph">
-<p>+</p>
-</div>
+</li>
+<li>
+<p>To use SSL:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap"># Create keystore, import certificate chain and uncomment
@@ -31676,18 +31994,25 @@ pool.default.ssl.truststore.file = ${local:_basedir}/<em>myrootca.jks</em>
 pool.default.ssl.truststore.password = <em>password</em></pre>
 </div>
 </div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
 <div class="paragraph">
 <p>To continue configuring an external LDAP provider, see <a href="#Configuring_an_External_LDAP_Provider">Configuring an External LDAP Provider</a>. To continue configuring LDAP and Kerberos for Single Sign-on, see <a href="#Configuring_LDAP_and_Kerberos_for_Single_Sign-on">Configuring LDAP and Kerberos for Single Sign-on</a>.</p>
 </div>
-<div id="appe-Branding" class="paragraph">
-<p>== Branding</p>
 </div>
-<div id="sect-Branding" class="paragraph">
-<p>=== Branding</p>
 </div>
-<div id="Re-Branding_the_Manager1" class="paragraph">
-<p>==== Re-Branding the Engine</p>
 </div>
+<div class="sect1">
+<h2 id="appe-Branding">Appendix E: Branding</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="sect-Branding">Branding</h3>
+<div class="sect3">
+<h4 id="Re-Branding_the_Manager1">Re-Branding the Engine</h4>
 <div class="paragraph">
 <p>Various aspects of the oVirt Engine can be customized, such as the icons used by and text displayed in pop-up windows and the links shown on the Welcome Page. This allows you to re-brand the Engine and gives you fine-grained control over the end look and feel presented to administrators and users.</p>
 </div>
@@ -31697,9 +32022,9 @@ pool.default.ssl.truststore.password = <em>password</em></pre>
 <div class="paragraph">
 <p>To customize a component, edit the file for that component and save the changes. The next time you open or refresh that component, the changes will be applied.</p>
 </div>
-<div id="Re-Branding_the_Manager" class="paragraph">
-<p>==== Login Screen</p>
 </div>
+<div class="sect3">
+<h4 id="Re-Branding_the_Manager">Login Screen</h4>
 <div class="paragraph">
 <p>The login screen is the login screen used by both the Administration Portal and VM Portal. The elements of the login screen that can be customized are as follows:</p>
 </div>
@@ -31722,9 +32047,9 @@ pool.default.ssl.truststore.password = <em>password</em></pre>
 <div class="paragraph">
 <p>The classes for the login screen are located in <strong>common.css</strong>.</p>
 </div>
-<div id="Administration_Portal_Screen" class="paragraph">
-<p>==== Administration Portal Screen</p>
 </div>
+<div class="sect3">
+<h4 id="Administration_Portal_Screen">Administration Portal Screen</h4>
 <div class="paragraph">
 <p>The administration portal screen is the main screen that is shown when you log into the Administration Portal. The elements of the administration portal screen that can be customized are as follows:</p>
 </div>
@@ -31750,9 +32075,9 @@ pool.default.ssl.truststore.password = <em>password</em></pre>
 <div class="paragraph">
 <p>The classes for the administration portal screen are located in <strong>web_admin.css</strong>.</p>
 </div>
-<div id="User_Portal_Screen" class="paragraph">
-<p>==== VM Portal Screen</p>
 </div>
+<div class="sect3">
+<h4 id="User_Portal_Screen">VM Portal Screen</h4>
 <div class="paragraph">
 <p>The VM Portal screen is the screen that is shown when you log into the VM Portal. The elements of the VM Portal screen that can be customized are as follows:</p>
 </div>
@@ -31778,9 +32103,9 @@ pool.default.ssl.truststore.password = <em>password</em></pre>
 <div class="paragraph">
 <p>The classes for the VM Portal screen are located in <strong>user_portal.css</strong>.</p>
 </div>
-<div id="Pop-up_Windows" class="paragraph">
-<p>==== Pop-Up Windows</p>
 </div>
+<div class="sect3">
+<h4 id="Pop-up_Windows">Pop-Up Windows</h4>
 <div class="paragraph">
 <p>Pop-up windows are all windows in the Engine that allow you to create, edit or update an entity such as a host or virtual machine. The elements of pop-up windows that can be customized are as follows:</p>
 </div>
@@ -31800,9 +32125,9 @@ pool.default.ssl.truststore.password = <em>password</em></pre>
 <div class="paragraph">
 <p>The classes for pop-up windows are located in <code>common.css</code>.</p>
 </div>
-<div id="Tabs" class="paragraph">
-<p>==== Tabs</p>
 </div>
+<div class="sect3">
+<h4 id="Tabs">Tabs</h4>
 <div class="paragraph">
 <p>Many pop-up windows in the Administration Portal include tabs. The elements of these tabs that can be customized are as follows:</p>
 </div>
@@ -31819,9 +32144,9 @@ pool.default.ssl.truststore.password = <em>password</em></pre>
 <div class="paragraph">
 <p>The classes for tabs are located in <strong>common.css</strong> and <strong>user_portal.css</strong>.</p>
 </div>
-<div id="The_Welcome_Page" class="paragraph">
-<p>==== The Welcome Page</p>
 </div>
+<div class="sect3">
+<h4 id="The_Welcome_Page">The Welcome Page</h4>
 <div class="paragraph">
 <p>The Welcome Page is the page that is initially displayed when you visit the homepage of the Engine. In addition to customizing the overall look and feel, you can also make other changes such as adding links to the page for additional documentation or internal websites by editing a template file. The elements of the Welcome Page that can be customized are as follows:</p>
 </div>
@@ -31859,17 +32184,24 @@ pool.default.ssl.truststore.password = <em>password</em></pre>
 <div class="paragraph">
 <p>You can add a custom message banner to the Welcome Page by adding a <code>preamble.template</code> containing the banner text and a <code>preamble.css</code> file defining the banner size, and linking them in the <code>branding.properties</code> file. Sample files are available at <a href="https://bugzilla.redhat.com/attachment.cgi?id=1783329">sample preamble template</a>.</p>
 </div>
-</div>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>In an engine upgrade, the custom message banner remains in place and will work without issue.
 Following engine backup and restore, during engine restore, the custom message banner needs to be manually restored and verified.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div id="The_File_Not_Found_Page" class="paragraph">
-<p>==== The Page Not Found Page</p>
+</td>
+</tr>
+</table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="The_File_Not_Found_Page">The Page Not Found Page</h4>
 <div class="paragraph">
 <p>The Page Not Found page is a page that is displayed when you open a link to a page that cannot be found in the oVirt Engine. The elements of the Page Not Found page that can be customized are as follows:</p>
 </div>
@@ -31892,15 +32224,17 @@ Following engine backup and restore, during engine restore, the custom message b
 <div class="paragraph">
 <p>The classes for the Page Not Found page are located in <code>welcome_style.css</code>.</p>
 </div>
-<div id="appe-System_Accounts" class="paragraph">
-<p>== System Accounts</p>
 </div>
-<div id="sect-System_Accounts" class="paragraph">
-<p>=== System Accounts</p>
 </div>
-<div id="Red_Hat_Enterprise_Virtualization_Manager_User_Accounts" class="paragraph">
-<p>==== oVirt Engine User Accounts</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="appe-System_Accounts">Appendix F: System Accounts</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="sect-System_Accounts">System Accounts</h3>
+<div class="sect3">
+<h4 id="Red_Hat_Enterprise_Virtualization_Manager_User_Accounts">oVirt Engine User Accounts</h4>
 <div class="paragraph">
 <p>A number of system user accounts are created to support oVirt when the <code>rhevm</code> package is installed. Each system user has a default user identifier (UID). The system user accounts created are:</p>
 </div>
@@ -31917,9 +32251,9 @@ Following engine backup and restore, during engine restore, the custom message b
 </li>
 </ul>
 </div>
-<div id="Red_Hat_Enterprise_Virtualization_Manager_Groups" class="paragraph">
-<p>==== oVirt Engine Groups</p>
 </div>
+<div class="sect3">
+<h4 id="Red_Hat_Enterprise_Virtualization_Manager_Groups">oVirt Engine Groups</h4>
 <div class="paragraph">
 <p>A number of system user groups are created to support oVirt when the <code>rhevm</code> package is installed. Each system user group has a default group identifier (GID). The system user groups created are:</p>
 </div>
@@ -31945,9 +32279,9 @@ Following engine backup and restore, during engine restore, the custom message b
 </li>
 </ul>
 </div>
-<div id="Virtualization_Host_User_Accounts" class="paragraph">
-<p>==== Virtualization Host User Accounts</p>
 </div>
+<div class="sect3">
+<h4 id="Virtualization_Host_User_Accounts">Virtualization Host User Accounts</h4>
 <div class="paragraph">
 <p>A number of system user accounts are created on the virtualization host when the <code>vdsm</code> and <code>qemu-kvm-rhev</code> packages are installed. Each system user has a default user identifier (UID). The system user accounts created are:</p>
 </div>
@@ -31967,19 +32301,26 @@ Following engine backup and restore, during engine restore, the custom message b
 </li>
 </ul>
 </div>
-</div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>The user identifiers (UIDs) and group identifiers (GIDs) allocated may vary between systems. The <strong>vdsm</strong> user is fixed to a UID of <code>36</code> and the <strong>kvm</strong> group is fixed to a GID of <code>36</code>.</p>
 </div>
 <div class="paragraph">
 <p>If UID <code>36</code> or GID <code>36</code> is already used by another account on the system a conflict will arise during installation of the <code>vdsm</code> and <code>qemu-kvm-rhev</code> packages.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div id="Virtualization_Host_Groups" class="paragraph">
-<p>==== Virtualization Host Groups</p>
+</td>
+</tr>
+</table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="Virtualization_Host_Groups">Virtualization Host Groups</h4>
 <div class="paragraph">
 <p>A number of system user groups are created on the virtualization host when the <code>vdsm</code> and <code>qemu-kvm-rhev</code> packages are installed. Each system user group has a default group identifier (GID). The system user groups created are:</p>
 </div>
@@ -32011,23 +32352,32 @@ Following engine backup and restore, during engine restore, the custom message b
 </li>
 </ul>
 </div>
-</div>
-</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p>The user identifiers (UIDs) and group identifiers (GIDs) allocated may vary between systems. The <strong>vdsm</strong> user is fixed to a UID of <code>36</code> and the <strong>kvm</strong> group is fixed to a GID of <code>36</code>.</p>
 </div>
 <div class="paragraph">
 <p>If UID <code>36</code> or GID <code>36</code> is already used by another account on the system a conflict will arise during installation of the <code>vdsm</code> and <code>qemu-kvm-rhev</code> packages.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>== Legal notice</p>
+</td>
+</tr>
+</table>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="legal-notice">Appendix G: Legal notice</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/administration_guide/">Red Hat Virtualization 4.4 Administration Guide</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
-</div>
-</div>
 </div>
 </div>
 </div>

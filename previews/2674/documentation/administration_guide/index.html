@@ -6037,8 +6037,8 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Legacy</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Legacy behavior of 3.6 version. Overrides in <code>vdsm.conf</code> are still applied. The guest agent hook mechanism is disabled.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cluster default (Minimal downtime)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overrides in <code>vdsm.conf</code> are still applied. The guest agent hook mechanism is disabled.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Minimal downtime</strong></p></td>
@@ -6047,10 +6047,16 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Post-copy migration</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Virtual machines should not experience any significant downtime similar to the minimal downtime policy. The post-copy policy first tries pre-copy to verify whether convergence may occur. The migration switches to post-copy if the virtual machine migration does not converge after a long time. The disadvantage of this policy is that in the post-copy phase, the virtual machine may slow down significantly as the missing parts of memory are transferred between the hosts.</p>
+<p>When used, post-copy migration pauses the migrating virtual machine vCPUs on the source host, transfers only a minimum of memory pages, activates the virtual machine vCPUs on the destination host, and transfers the remaining memory pages while the virtual machine is running on the destination.</p>
 </div>
 <div class="paragraph">
-<p>If anything goes wrong during the post-copy phase, such as a network failure of the migration network between the hosts, then the migration process leads to an inconsistent and paused VM and the result is a lost VM. Therefore, it is not possible to abort a migration during the post-copy phase.</p>
+<p>The post-copy policy first tries pre-copy to verify whether convergence can occur. The migration switches to post-copy if the virtual machine migration does not converge after a long time.</p>
+</div>
+<div class="paragraph">
+<p>This significantly reduces the downtime of the migrated virtual machine, and also guarantees that the migration finishes regardless of how rapidly the memory pages of the source virtual machine change. It is optimal for migrating virtual machines in heavy continuous use, which would not be possible to migrate with standard pre-copy migration.</p>
+</div>
+<div class="paragraph">
+<p>The disadvantage of this policy is that in the post-copy phase, the virtual machine may slow down significantly as the missing parts of memory are transferred between the hosts.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -6059,9 +6065,8 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-<div class="title">Warning</div>
 <div class="paragraph">
-<p>If the network connection breaks prior to the completion of the post-copy process, the Engine pauses and then kills the running VM. Do not use post-copy migration if the VM availability is critical or if the migration network is unstable.</p>
+<p>If the network connection breaks prior to the completion of the post-copy process, the Engine pauses and then kills the running virtual machine. Do not use post-copy migration if the virtual machine availability is critical or if the migration network is unstable.</p>
 </div>
 </td>
 </tr>
@@ -6135,62 +6140,6 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>The <strong>Additional Properties</strong> are only applicable to the <strong>Legacy</strong> migration policy.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 38. Additional Properties Explained</caption>
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Property</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Auto Converge migrations</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Allows you to set whether auto-convergence is used during live migration of virtual machines. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine. Auto-convergence is disabled globally by default.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Select <strong>Inherit from global setting</strong> to use the auto-convergence setting that is set at the global level. This option is selected by default.</p>
-</li>
-<li>
-<p>Select <strong>Auto Converge</strong> to override the global setting and allow auto-convergence for the virtual machine.</p>
-</li>
-<li>
-<p>Select <strong>Don&#8217;t Auto Converge</strong> to override the global setting and prevent auto-convergence for the virtual machine.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable migration compression</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern. Migration compression is disabled globally by default.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Select <strong>Inherit from global setting</strong> to use the compression setting that is set at the global level. This option is selected by default.</p>
-</li>
-<li>
-<p>Select <strong>Compress</strong> to override the global setting and allow compression for the virtual machine.</p>
-</li>
-<li>
-<p>Select <strong>Don&#8217;t compress</strong> to override the global setting and prevent compression for the virtual machine.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="sect3">
 <h4 id="Cluster_Scheduling_Policy_Settings">8.2.5. Scheduling Policy Settings Explained</h4>
@@ -6198,7 +6147,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>Scheduling policies allow you to specify the usage and distribution of virtual machines between available hosts. Define the scheduling policy to enable automatic load balancing across the hosts in a cluster. Regardless of the scheduling policy, a virtual machine will not start on a host with an overloaded CPU. By default, a host&#8217;s CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. See <a href="https://ovirt.org/documentation/administration_guide/index#sect-Scheduling_Policies">Scheduling Policies</a> in the <em>Administration Guide</em> for more information.</p>
 </div>
 <table id="Cluster-General" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 39. Scheduling Policy Tab Properties</caption>
+<caption class="title">Table 38. Scheduling Policy Tab Properties</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -6457,7 +6406,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>The table below describes the settings for the <strong>Console</strong> tab in the <strong>New Cluster</strong> and <strong>Edit Cluster</strong> windows.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 40. Console Settings</caption>
+<caption class="title">Table 39. Console Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -6493,7 +6442,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>The table below describes the settings for the <strong>Fencing Policy</strong> tab in the <strong>New Cluster</strong> and <strong>Edit Cluster</strong> windows.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 41. Fencing Policy Settings</caption>
+<caption class="title">Table 40. Fencing Policy Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -6829,7 +6778,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>The <strong>Add Hosts</strong> window allows you to specify the details of the hosts imported as part of a Gluster-enabled cluster. This window appears after you have selected the <strong>Enable Gluster Service</strong> check box in the <strong>New Cluster</strong> window and provided the necessary host details.</p>
 </div>
 <table id="Add_Gluster_Hosts" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 42. Add Gluster Hosts Settings</caption>
+<caption class="title">Table 41. Add Gluster Hosts Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -7140,7 +7089,7 @@ If you change an existing cluster&#8217;s firewall type, you must <a href="#Rein
 <p>To use UEFI on a virtual machine, you must configure the virtual machine’s cluster for 4.4 compatibility or later. Then you can set UEFI for any existing virtual machine, or to be the default BIOS type for new virtual machines in the cluster. The following options are available:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 43. Available BIOS Types</caption>
+<caption class="title">Table 42. Available BIOS Types</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -8025,7 +7974,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <p>The table below describes the settings for the <strong>General</strong> tab of the <strong>New Logical Network</strong> and <strong>Edit Logical Network</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 44. <strong>New Logical Network</strong> and <strong>Edit Logical Network</strong> Settings</caption>
+<caption class="title">Table 43. <strong>New Logical Network</strong> and <strong>Edit Logical Network</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -8093,7 +8042,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <p>The table below describes the settings for the <strong>Cluster</strong> tab of the <strong>New Logical Network</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 45. <strong>New Logical Network</strong> Settings</caption>
+<caption class="title">Table 44. <strong>New Logical Network</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -8121,7 +8070,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <p>The table below describes the settings for the <strong>vNIC Profiles</strong> tab of the <strong>New Logical Network</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 46. <strong>New Logical Network</strong> Settings</caption>
+<caption class="title">Table 45. <strong>New Logical Network</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -8193,7 +8142,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <p>The table below describes the settings for the <strong>Manage Networks</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 47. Manage Networks Settings</caption>
+<caption class="title">Table 46. Manage Networks Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -8410,7 +8359,7 @@ Except for adding or removing a static route on a host, always use the oVirt Eng
 <div class="sect3">
 <h4 id="Explanation_of_Settings_in_the_VM_Interface_Profile_Window">9.2.3. Explanation of Settings in the VM Interface Profile Window</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 48. VM Interface Profile Window</caption>
+<caption class="title">Table 47. VM Interface Profile Window</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -12334,7 +12283,7 @@ roles:
 <p>The <strong>General</strong> settings table contains the information required on the <strong>General</strong> tab of the <strong>New Host</strong> or <strong>Edit Host</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 49. <strong>General</strong> settings</caption>
+<caption class="title">Table 48. <strong>General</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -12467,7 +12416,7 @@ roles:
 <p>The <strong>Power Management</strong> settings table contains the information required on the <strong>Power Management</strong> tab of the <strong>New Host</strong> or <strong>Edit Host</strong> windows. You can configure power management if the host has a supported power management card.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 50. <strong>Power Management</strong> Settings</caption>
+<caption class="title">Table 49. <strong>Power Management</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -12527,7 +12476,7 @@ roles:
 <p>The following table contains the information required in the <strong>Edit fence agent</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 51. <strong>Edit fence agent</strong> Settings</caption>
+<caption class="title">Table 50. <strong>Edit fence agent</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -12633,7 +12582,7 @@ roles:
 <p>The <strong>SPM</strong> settings table details the information required on the <strong>SPM</strong> tab of the <strong>New Host</strong> or <strong>Edit Host</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 52. <strong>SPM</strong> settings</caption>
+<caption class="title">Table 51. <strong>SPM</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -12658,7 +12607,7 @@ roles:
 <p>The <strong>Console</strong> settings table details the information required on the <strong>Console</strong> tab of the <strong>New Host</strong> or <strong>Edit Host</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 53. <strong>Console</strong> settings</caption>
+<caption class="title">Table 52. <strong>Console</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -12687,7 +12636,7 @@ roles:
 <p>The <strong>Network Provider</strong> settings table details the information required on the <strong>Network Provider</strong> tab of the <strong>New Host</strong> or <strong>Edit Host</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 54. <strong>Network Provider</strong> settings</caption>
+<caption class="title">Table 53. <strong>Network Provider</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -12729,7 +12678,7 @@ roles:
 </table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 55. <strong>Kernel</strong> Settings</caption>
+<caption class="title">Table 54. <strong>Kernel</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -12792,7 +12741,7 @@ roles:
 <p>The <strong>Hosted Engine</strong> settings table details the information required on the <strong>Hosted Engine</strong> tab of the <strong>New Host</strong> or <strong>Edit Host</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 56. <strong>Hosted Engine</strong> Settings</caption>
+<caption class="title">Table 55. <strong>Hosted Engine</strong> Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -13124,7 +13073,7 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>The following options can be customized if required:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 57. fence_kdump Listener Configuration Options</caption>
+<caption class="title">Table 56. fence_kdump Listener Configuration Options</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -13233,7 +13182,7 @@ For configuration of kdump on the Engine see <a href="#Configuring_fence_kdump_o
 <p>The following options can be configured using <code>engine-config</code>:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 58. Kdump Configuration Options</caption>
+<caption class="title">Table 57. Kdump Configuration Options</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -16603,7 +16552,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 <p>The following table details the information required on the <strong>General</strong> tab of the <strong>New Pool</strong> and <strong>Edit Pool</strong> windows that are specific to virtual machine pools. All other settings are identical to those in the <strong>New Virtual Machine</strong> window.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 59. <strong>General</strong> settings</caption>
+<caption class="title">Table 58. <strong>General</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -16656,7 +16605,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 <p>The following table details the information required on the <strong>Type</strong> tab of the <strong>New Pool</strong> and <strong>Edit Pool</strong> windows.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 60. <strong>Type</strong> settings</caption>
+<caption class="title">Table 59. <strong>Type</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -16697,7 +16646,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 <p>The following table details the information required on the <strong>Console</strong> tab of the <strong>New Pool</strong> or <strong>Edit Pool</strong> window that is specific to virtual machine pools. All other settings are identical to those in the <strong>New Virtual Machine</strong> and <strong>Edit Virtual Machine</strong> windows.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 61. <strong>Console</strong> settings</caption>
+<caption class="title">Table 60. <strong>Console</strong> settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -16733,7 +16682,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 <p>The following table details the options available on the <strong>Host</strong> tab of the <strong>New Pool</strong> and <strong>Edit Pool</strong> windows.</p>
 </div>
 <table id="New_VMs_Host" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 62. Virtual Machine Pool: Host Settings</caption>
+<caption class="title">Table 61. Virtual Machine Pool: Host Settings</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -16765,6 +16714,17 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CPU options</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pass-Through Host CPU</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When selected, allows virtual machines to use the host&#8217;s CPU flags.
+When selected, <strong>Migration Options</strong> is set to <strong>Allow manual migration only</strong>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Migrate only to hosts with the same TSC frequency</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When selected, this virtual machine can only be migrated to a host with the same TSC frequency. This option is only valid for High Performance virtual machines.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Migration Options</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Migration mode</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -16786,17 +16746,43 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use custom migration policy</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Migration policy</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Defines the migration convergence policy. If the check box is left unselected, the host determines the policy.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Legacy</strong> - Legacy behavior of 3.6 version. Overrides in <code>vdsm.conf</code> are still applied. The guest agent hook mechanism is disabled.</p>
+<p><strong>Cluster default (Minimal downtime)</strong> - Overrides in <code>vdsm.conf</code> are still applied. The guest agent hook mechanism is disabled.</p>
 </li>
 <li>
 <p><strong>Minimal downtime</strong> - Allows the virtual machine to migrate in typical situations. Virtual machines should not experience any significant downtime. The migration will be aborted if virtual machine migration does not converge after a long time (dependent on QEMU iterations, with a maximum of 500 milliseconds). The guest agent hook mechanism is enabled.</p>
+</li>
+<li>
+<p><strong>Post-copy migration</strong> - When used, post-copy migration pauses the migrating virtual machine vCPUs on the source host, transfers only a minimum of memory pages, activates the virtual machine vCPUs on the destination host, and transfers the remaining memory pages while the virtual machine is running on the destination.</p>
+<div class="paragraph">
+<p>The post-copy policy first tries pre-copy to verify whether convergence can occur. The migration switches to post-copy if the virtual machine migration does not converge after a long time.</p>
+</div>
+<div class="paragraph">
+<p>This significantly reduces the downtime of the migrated virtual machine, and also guarantees that the migration finishes regardless of how rapidly the memory pages of the source virtual machine change. It is optimal for migrating virtual machines in heavy continuous use, which would not be possible to migrate with standard pre-copy migration.</p>
+</div>
+<div class="paragraph">
+<p>The disadvantage of this policy is that in the post-copy phase, the virtual machine may slow down significantly as the missing parts of memory are transferred between the hosts.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If the network connection breaks prior to the completion of the post-copy process, the Engine pauses and then kills the running virtual machine. Do not use post-copy migration if the virtual machine availability is critical or if the migration network is unstable.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p><strong>Suspend workload if needed</strong> - Allows the virtual machine to migrate in most situations, including when the virtual machine is running a heavy workload. Because of this, virtual machines may experience a more significant downtime than with some other settings. The migration may still be aborted for extreme workloads. The guest agent hook mechanism is enabled.</p>
@@ -16806,68 +16792,33 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use custom migration downtime</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This check box allows you to specify the maximum number of milliseconds the virtual machine can be down during live migration. Configure different maximum downtimes for each virtual machine according to its workload and SLA requirements. Enter <code>0</code> to use the VDSM default value.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Auto Converge migrations</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable migration encryption</strong></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Only activated with <strong>Legacy</strong> migration policy. Allows you to set whether auto-convergence is used during live migration of the virtual machine. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine. Auto-convergence is disabled globally by default.</p>
+<p>Allows the virtual machine to be encrypted during migration.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Select <strong>Inherit from cluster setting</strong> to use the auto-convergence setting of the cluster. This option is selected by default.</p>
+<p><strong>Cluster default (Don&#8217;t encrypt)</strong></p>
 </li>
 <li>
-<p>Select <strong>Auto Converge</strong> to override the cluster setting or global setting and allow auto-convergence for the virtual machine.</p>
+<p><strong>Encrypt</strong></p>
 </li>
 <li>
-<p>Select <strong>Don&#8217;t Auto Converge</strong> to override the cluster setting or global setting and prevent auto-convergence for the virtual machine.</p>
+<p><strong>Don&#8217;t encrypt</strong></p>
 </li>
 </ul>
 </div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Enable migration compression</strong></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Only activated with <strong>Legacy</strong> migration policy. The  option allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern. Migration compression is disabled globally by default.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Select <strong>Inherit from cluster setting</strong> to use the compression setting of the cluster. This option is selected by default.</p>
-</li>
-<li>
-<p>Select <strong>Compress</strong> to override the cluster setting or global setting and allow compression for the virtual machine.</p>
-</li>
-<li>
-<p>Select <strong>Don&#8217;t compress</strong> to override the cluster setting or global setting and prevent compression for the virtual machine.</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pass-Through Host CPU</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This check box allows virtual machines to take advantage of the features of the physical CPU of the host on which they are situated.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Configure NUMA</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NUMA Node Count</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of virtual NUMA nodes available in a host that can be assigned to the virtual machine.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of virtual NUMA nodes available in a host that can be assigned to the virtual machine.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NUMA Pinning</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Opens the <strong>NUMA Topology</strong> window. This window shows the host&#8217;s total CPUs, memory, and NUMA nodes, and the virtual machine&#8217;s virtual NUMA nodes. You can manually pin virtual NUMA nodes to host NUMA nodes by clicking and dragging each vNUMA from the box on the right to a NUMA node on the left.</p>
-<p class="tableblock">You can also set <strong>Tune Mode</strong> for memory allocation:</p>
-<p class="tableblock"><strong>Strict</strong> - Memory allocation will fail if the memory cannot be allocated on the target node.</p>
-<p class="tableblock"><strong>Preferred</strong> - Memory is allocated from a single preferred node. If sufficient memory is not available, memory can be allocated from other nodes.</p>
-<p class="tableblock"><strong>Interleave</strong> - Memory is allocated across nodes in a round-robin algorithm.</p>
-<p class="tableblock">If you define NUMA pinning, <strong>Migration Options</strong> is set to <strong>Allow manual migration only</strong>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -16878,7 +16829,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 <p>The following table details the information required on the <strong>Resource Allocation</strong> tab of the <strong>New Pool</strong> and <strong>Edit Pool</strong> windows that are specific to virtual machine pools. All other settings are identical to those in the <strong>New Virtual Machine</strong> window. See <a href="https://ovirt.org/documentation/virtual_machine_management_guide#Virtual_Machine_Resource_Allocation_settings_explained">Virtual Machine Resource Allocation Settings Explained</a> in the <em>Virtual Machine Management Guide</em> for more information.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 63. <strong>Resource Allocation</strong> settings</caption>
+<caption class="title">Table 62. <strong>Resource Allocation</strong> settings</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -17134,7 +17085,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 <p>The possible combinations of storage types and formats are described in the following table.</p>
 </div>
 <table id="vdisk-combos" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 64. Permitted Storage Combinations</caption>
+<caption class="title">Table 63. Permitted Storage Combinations</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -17379,7 +17330,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 <p>Because the New Virtual Disk windows for creating floating and attached virtual disks are very similar, their settings are described in a single section.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 65. New Virtual Disk and Edit Virtual Disk settings: <strong>Image</strong></caption>
+<caption class="title">Table 64. New Virtual Disk and Edit Virtual Disk settings: <strong>Image</strong></caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -17498,7 +17449,7 @@ os.<em>operating_system</em>.sysprepPath.value = ${ENGINE_USR}/conf/sysprep/sysp
 </ul>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 66. New Virtual Disk and Edit Virtual Disk settings: <strong>Direct LUN</strong></caption>
+<caption class="title">Table 65. New Virtual Disk and Edit Virtual Disk settings: <strong>Direct LUN</strong></caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -19349,7 +19300,7 @@ You must also define the authentication URL of the Keystone server by defining t
 <p>The <strong>General</strong> tab in the <strong>Add Provider</strong> window allows you to register the core details of the external provider.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 67. Add Provider: General Settings</caption>
+<caption class="title">Table 66. Add Provider: General Settings</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -23360,7 +23311,7 @@ Content-type: application/xml
 </table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 68. Supported disk configurations for incremental backup</caption>
+<caption class="title">Table 67. Supported disk configurations for incremental backup</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -24406,7 +24357,7 @@ transfer URL.</p>
 <p>For complete information on using the imageio API, see the <a href="http://ovirt.github.io/ovirt-imageio/images.html">ovirt-imageio Images API reference</a>.</p>
 </div>
 <table id="imageio-Image-API-methods-used-in-incremental-backup-and-restore" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 69. imageio Image API methods used in incremental backup and restore</caption>
+<caption class="title">Table 68. imageio Image API methods used in incremental backup and restore</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -27194,7 +27145,7 @@ user updated successfully</pre>
 <p>There are two different kinds of Quota:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 70. The Two Different Kinds of Quota</caption>
+<caption class="title">Table 69. The Two Different Kinds of Quota</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -27220,7 +27171,7 @@ user updated successfully</pre>
 <p>Quota, like SELinux, has three modes:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 71. Quota Modes</caption>
+<caption class="title">Table 70. Quota Modes</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -27426,7 +27377,7 @@ user updated successfully</pre>
 <div class="sect2">
 <h3 id="Explanation_of_Quota_Threshold_Settings">20.6. Explanation of Quota Threshold Settings</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 72. Quota thresholds and grace</caption>
+<caption class="title">Table 71. Quota thresholds and grace</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -27812,7 +27763,7 @@ MAIL_RETRIES=4</pre>
 <p>The event notifier configuration file can be found in <strong>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</strong>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 73. ovirt-engine-notifier.conf variables</caption>
+<caption class="title">Table 72. ovirt-engine-notifier.conf variables</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -28132,9 +28083,6 @@ AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server su
 <div class="paragraph">
 <p>Default SNMP configuration values exist on the Engine in the events notification daemon configuration file <code>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</code>. The values outlined in the following procedure are based on the default or example values provided in this file. Do not edit this file directly, because system changes, such as upgrades, might remove any changes you make to this file. Instead, copy this file to <code>/etc/ovirt-engine/notifier/notifier.conf.d/&lt;<em>integer</em>&gt;-snmp.conf</code>, where <code>&lt;<em>integer</em>&gt;</code> is a number indicating the priority with which the file should run.</p>
 </div>
-<div class="paragraph">
-<p>This procedure shows how to create a new SNMP configuration file.</p>
-</div>
 <div class="olist arabic">
 <div class="title">Procedure</div>
 <ol class="arabic">
@@ -28161,7 +28109,7 @@ AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server su
 </div>
 </li>
 <li>
-<p>Specify the SNMP manager(s), the SNMP community, and the OID in the following format:</p>
+<p>Specify the SNMP manager(s), the SNMP community, and the OID in the format in this example:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">SNMP_MANAGERS="<em>manager1.example.com</em> <em>manager2.example.com:162"</em>
@@ -28179,12 +28127,20 @@ SNMP_OID=1.3.6.1.4.1.2312.13.1.1</pre>
 </div>
 </li>
 <li>
-<p>Specify a value for SNMP_ENGINE_ID</p>
+<p>Specify a value for SNMP_ENGINE_ID. For example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">SNMP_ENGINE_ID="80:00:00:00:01:02:05:05"</pre>
+</div>
+</div>
 </li>
 <li>
 <p>With SNMP version 3, specify the security level for SNMP traps:</p>
 <div class="paragraph">
 <p>Security level 1, NoAuthNoPriv traps:</p>
+</div>
+<div class="paragraph">
+<p>??? <strong>Is the username <code>NoAuthoNoPriv</code> here just an example? Or is this a requirement?</strong> ???</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -28193,24 +28149,25 @@ SNMP_SECURITY_LEVEL=1</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Security level 2, AuthNoPriv traps, as user <code>ovirtengine</code>, with SNMP Auth passphrase ‘authpass’.</p>
+<p>Security level 2, AuthNoPriv traps, as user <code>ovirtengine</code>, with SNMP Auth passphrase <code>authpass</code>.</p>
+</div>
+<div class="paragraph">
+<p>??? <strong>Are the username <code>ovirtengine</code> and password <code>authpass</code> here just examples? Or is this a requirement?</strong> ???</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">SNMP_ENGINE_ID="80:00:00:00:01:02:05:05"
-SNMP_USERNAME=ovirtengine
+<pre class="nowrap">SNMP_USERNAME=ovirtengine
 SNMP_AUTH_PROTOCOL=MD5
 SNMP_AUTH_PASSPHRASE=authpass
 SNMP_SECURITY_LEVEL=2</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Security level 3, AuthPriv traps, as user <code>ovirtengine</code> with SNMP Auth passphrase ‘authpass’ and SNMP Priv passphrase ‘privpass’.</p>
+<p>Security level 3, AuthPriv traps, as user <code>ovirtengine</code> with SNMP Auth passphrase <code>authpass</code> and SNMP Priv passphrase <code>privpass</code>. For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">SNMP_ENGINE_ID="80:00:00:00:01:02:05:05"
-SNMP_USERNAME=ovirtengine
+<pre class="nowrap">SNMP_USERNAME=ovirtengine
 SNMP_AUTH_PROTOCOL=MD5
 SNMP_AUTH_PASSPHRASE=authpass
 SNMP_PRIVACY_PROTOCOL=AES128
@@ -28305,6 +28262,14 @@ SNMP_SECURITY_LEVEL=3</pre>
 </td>
 </tr>
 </table>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="#SNMPv3-traps-configuration-file">Sample SNMP version 3 configuration file</a></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -28748,7 +28713,7 @@ Changes to USB filter policies do not take effect unless the <strong>ovirt-engin
 <p>The <strong>Red Hat USB Filter Editor</strong> interface displays the <strong>Class</strong>, <strong>Vendor</strong>, <strong>Product</strong>, <strong>Revision</strong>, and <strong>Action</strong> for each USB device. Permitted USB devices are set to <strong>Allow</strong> in the <strong>Action</strong> column; prohibited devices are set to <strong>Block</strong>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 74. USB Editor Fields</caption>
+<caption class="title">Table 73. USB Editor Fields</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -29628,7 +29593,7 @@ and <a href="https://ovirt.org/documentation/data_warehouse_guide/index#Installi
 <p>The following dashboards are available in the initial Grafana setup to report Data Center, Cluster, Host, and Virtual Machine data:</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 75. Built-in Grafana dashboards</caption>
+<caption class="title">Table 74. Built-in Grafana dashboards</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -29955,7 +29920,7 @@ rsyslog_elasticsearch_usehttps_logs: !!str off</pre>
 <div class="sect2">
 <h3 id="Manager_Installation_Log_Files">24.1. Engine Installation Log Files</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 76. Installation</caption>
+<caption class="title">Table 75. Installation</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -29989,7 +29954,7 @@ rsyslog_elasticsearch_usehttps_logs: !!str off</pre>
 <div class="sect2">
 <h3 id="Manager_Log_Files">24.2. oVirt Engine Log Files</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 77. Service Activity</caption>
+<caption class="title">Table 76. Service Activity</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -30037,7 +30002,7 @@ For information about Open vSwitch logs, see the <a href="http://openvswitch.org
 <div class="sect3">
 <h4 id="SPICE_Logs_for_Hypervisor_SPICE_Servers">24.3.1. SPICE Logs for Hypervisor SPICE Servers</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 78. SPICE Logs for Hypervisor SPICE Servers</caption>
+<caption class="title">Table 77. SPICE Logs for Hypervisor SPICE Servers</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -30062,7 +30027,7 @@ For information about Open vSwitch logs, see the <a href="http://openvswitch.org
 <div class="sect3">
 <h4 id="SPICE_Logs_for_Guest_Machines">24.3.2. SPICE Logs for Guest Machines</h4>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 79. spice-vdagent Logs for Guest Machines</caption>
+<caption class="title">Table 78. spice-vdagent Logs for Guest Machines</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -30205,7 +30170,7 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 <p>You can set the logs of the following oVirt (oVirt) services to debug-level by modifying the <code>sysconfig</code> file of each service.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 80. oVirt services and <code>sysconfig</code> file paths</caption>
+<caption class="title">Table 79. oVirt services and <code>sysconfig</code> file paths</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -30283,7 +30248,7 @@ $ spice-vdagent -x -d [-d] [ |&amp; tee spice-vdagent.log ]</pre>
 <p>In addition to a <code>sysconfig</code> file, each of these oVirt (oVirt) services has another configuration file that is used more often.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 81. oVirt services and configuration files</caption>
+<caption class="title">Table 80. oVirt services and configuration files</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -30618,7 +30583,7 @@ $InputUDPServerBindRuleset remote</pre>
 <div class="sect2">
 <h3 id="Supported_VDSM_events">Supported VDSM Events</h3>
 <table id="vdsm-hook-names" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 82. Supported VDSM Events</caption>
+<caption class="title">Table 81. Supported VDSM Events</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -31021,7 +30986,7 @@ else:
 <p>The modified object can then be saved back to libvirt XML using the hooking module. The hooking module provides the following functions to support hook development:</p>
 </div>
 <table id="hooking-module-functions" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 83. Hooking module functions</caption>
+<caption class="title">Table 82. Hooking module functions</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -31108,7 +31073,7 @@ else:
 <p>Hook scripts must return one of the return codes shown in <a href="#hook-return-codes">Hook Return Codes</a>. The return code will determine whether further hook scripts are processed by VDSM.</p>
 </div>
 <table id="hook-return-codes" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 84. Hook Return Codes</caption>
+<caption class="title">Table 83. Hook Return Codes</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -31253,7 +31218,7 @@ if os.environ.has_key('numa'):
 <div class="sect2">
 <h3 id="Explanation_of_bridge_opts_Parameters">Explanation of bridge_opts Parameters</h3>
 <table id="Table-Explanation_of_bridge_opts_Parameters" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 85. bridge_opts parameters</caption>
+<caption class="title">Table 84. bridge_opts parameters</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -31563,7 +31528,7 @@ api.ready();</pre>
 <div class="sect2">
 <h3 id="UI_Plugin-related_Files_and_their_Locations">User Interface Plugin-related Files and Their Locations</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 86. UI Plugin-related Files and their Locations</caption>
+<caption class="title">Table 85. UI Plugin-related Files and their Locations</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">

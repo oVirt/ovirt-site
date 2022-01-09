@@ -3,7 +3,7 @@
 
 | Repository | Description | Issues & PRs | Starred | Forks |
 |---|---|---|---|---|
-| [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [58](https://github.com/ovirt/ovirt-web-ui/issues) | 76 | 63 |
+| [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [58](https://github.com/ovirt/ovirt-web-ui/issues) | 77 | 64 |
 | [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [48](https://github.com/ovirt/ovirt-ansible-collection/issues) | 42 | 61 |
 | [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [31](https://github.com/ovirt/ovirt-site/issues) | 70 | 296 |
 | [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [25](https://github.com/ovirt/terraform-provider-ovirt/issues) | 122 | 61 |
@@ -14,18 +14,18 @@
 | [ovirt-engine-sdk](https://github.com/oVirt/ovirt-engine-sdk) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [7](https://github.com/ovirt/ovirt-engine-sdk/issues) | 77 | 77 |
 | [stage-gh-stdci1](https://github.com/oVirt/stage-gh-stdci1) | Dummy project for staging CI system changes | [6](https://github.com/ovirt/stage-gh-stdci1/issues) | 0 | 2 |
 | [ovirt-jenkins-plugin](https://github.com/oVirt/ovirt-jenkins-plugin) | Jenkins plugin to run agents using oVirt | [6](https://github.com/ovirt/ovirt-jenkins-plugin/issues) | 3 | 2 |
-| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [5](https://github.com/ovirt/ovirt-engine/issues) | 329 | 196 |
 | [cockpit-ovirt](https://github.com/oVirt/cockpit-ovirt) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [5](https://github.com/ovirt/cockpit-ovirt/issues) | 8 | 13 |
+| [ovirt-engine](https://github.com/oVirt/ovirt-engine) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [5](https://github.com/ovirt/ovirt-engine/issues) | 330 | 197 |
 | [ovirt-engine-sdk-go](https://github.com/oVirt/ovirt-engine-sdk-go) | The generator of Go SDK for oVirt v4.0&#43; | [4](https://github.com/ovirt/ovirt-engine-sdk-go/issues) | 19 | 25 |
 | [ovirt-engine-keycloak](https://github.com/oVirt/ovirt-engine-keycloak) | Package that provides Keycloak overlay configuration to be run on oVirt Engine&#39;s Widlfly/EAP instance | [4](https://github.com/ovirt/ovirt-engine-keycloak/issues) | 0 | 2 |
 | [k8sOVirtCredentialsMonitor](https://github.com/oVirt/k8sOVirtCredentialsMonitor) | Monitor k8s secrets and update the oVirt connection | [3](https://github.com/ovirt/k8sOVirtCredentialsMonitor/issues) | 1 | 2 |
-| [ovirt-dwh](https://github.com/oVirt/ovirt-dwh) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [2](https://github.com/ovirt/ovirt-dwh/issues) | 4 | 14 |
 | [ocp-on-ovirt](https://github.com/oVirt/ocp-on-ovirt) | this repo contains all the tools and automations for ocp-on-rhv CI. | [2](https://github.com/ovirt/ocp-on-ovirt/issues) | 8 | 9 |
-| [java-client-kubevirt](https://github.com/oVirt/java-client-kubevirt) | Kubevirt java client (java-client-kubevirt) for oVirt | [2](https://github.com/ovirt/java-client-kubevirt/issues) | 5 | 3 |
+| [ovirt-dwh](https://github.com/oVirt/ovirt-dwh) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [2](https://github.com/ovirt/ovirt-dwh/issues) | 4 | 14 |
+| [ovirt-release](https://github.com/oVirt/ovirt-release) | This package contains the yum configuration for oVirt repositories. | [2](https://github.com/ovirt/ovirt-release/issues) | 8 | 9 |
 | [ovirt-ansible-dpdk-setup](https://github.com/oVirt/ovirt-ansible-dpdk-setup) | Ansible role to deploy Open vSwitch with DPDK support | [2](https://github.com/ovirt/ovirt-ansible-dpdk-setup/issues) | 7 | 4 |
 | [ovirt-node-ng](https://github.com/oVirt/ovirt-node-ng) | This repository contains the code of the nodectl tool used within oVirt Node NG. The repository which contains the code for building oVirt Node NG is at https://github.com/oVirt/ovirt-node-ng-image. | [2](https://github.com/ovirt/ovirt-node-ng/issues) | 13 | 12 |
+| [java-client-kubevirt](https://github.com/oVirt/java-client-kubevirt) | Kubevirt java client (java-client-kubevirt) for oVirt | [2](https://github.com/ovirt/java-client-kubevirt/issues) | 5 | 3 |
 | [v2v-conversion-host](https://github.com/oVirt/v2v-conversion-host) |  | [1](https://github.com/ovirt/v2v-conversion-host/issues) | 8 | 21 |
-| [ovirt-release](https://github.com/oVirt/ovirt-release) | This package contains the yum configuration for oVirt repositories. | [1](https://github.com/ovirt/ovirt-release/issues) | 8 | 9 |
 | [vdsm](https://github.com/oVirt/vdsm) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/vdsm/issues) | 100 | 122 |
 | [ovirt-containers](https://github.com/oVirt/ovirt-containers) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/ovirt-containers/issues) | 9 | 7 |
 | [ovirt-ansible-remote-db](https://github.com/oVirt/ovirt-ansible-remote-db) | Ansible role to install oVirt engine and dwh database on remote machine. | [1](https://github.com/ovirt/ovirt-ansible-remote-db/issues) | 1 | 1 |

@@ -90,6 +90,16 @@ The static IP address must belong to the same subnet as the host. For example, i
 . Enter a password for the `admin@internal` user to access the Administration Portal.
 +
 The script creates the virtual machine. This can take some time if the {engine-appliance-name} needs to be installed.
++
+[NOTE]
+====
+If the host becomes non operational and the deployment fails (due to missing required network or similar problem), you can repeat the process, and answer _YES_ to the option _Pause the execution after adding this host to the engine?_. Pausing the process allows you to connect to the restored engine and manually review and remediate the configuration before proceeding with the deployment.
+====
++
+ifdef::rhv-doc[]
++
+See also link:https://access.redhat.com/solutions/4088711[]
+endif::rhv-doc[]
 
 . Select the type of storage to use:
 

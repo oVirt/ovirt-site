@@ -28051,9 +28051,6 @@ AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server su
 <ul>
 <li>
 <p>One or more external SNMP managers is configured to receive traps.</p>
-<div class="paragraph">
-<p>??? <strong><em>Where does the user get the SNMP manager, community, SNMP_OID, and SNMP_ENGINE_ID</em> from?</strong> ???</p>
-</div>
 </li>
 <li>
 <p>The IP addresses or fully qualified domain names of machines that will act as SNMP managers. Optionally, determine the port through which Engine receives trap notifications. The default is UDP port 162.</p>
@@ -28063,6 +28060,9 @@ AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server su
 </li>
 <li>
 <p>The trap object identifier for alerts. The oVirt Engine provides a default OID of 1.3.6.1.4.1.2312.13.1.1. All trap types are sent, appended with event information, to the SNMP manager when this OID is defined. Note that changing the default trap prevents generated traps from complying with the Engine&#8217;s management information base.</p>
+</li>
+<li>
+<p>An SNMP username and password.</p>
 </li>
 </ul>
 </div>
@@ -28112,7 +28112,7 @@ AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server su
 <p>Specify the SNMP manager(s), the SNMP community, and the OID in the format in this example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">SNMP_MANAGERS="<em>manager1.example.com</em> <em>manager2.example.com:162"</em>
+<pre class="nowrap">SNMP_MANAGERS="<em>manager1.example.com</em> <em>manager2.example.com:162</em>"
 SNMP_COMMUNITY=public
 SNMP_OID=1.3.6.1.4.1.2312.13.1.1</pre>
 </div>
@@ -28139,9 +28139,6 @@ SNMP_OID=1.3.6.1.4.1.2312.13.1.1</pre>
 <div class="paragraph">
 <p>Security level 1, NoAuthNoPriv traps:</p>
 </div>
-<div class="paragraph">
-<p>??? <strong>Is the username <code>NoAuthoNoPriv</code> here just an example? Or is this a requirement?</strong> ???</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">SNMP_USERNAME=NoAuthNoPriv
@@ -28150,9 +28147,6 @@ SNMP_SECURITY_LEVEL=1</pre>
 </div>
 <div class="paragraph">
 <p>Security level 2, AuthNoPriv traps, as user <code>ovirtengine</code>, with SNMP Auth passphrase <code>authpass</code>.</p>
-</div>
-<div class="paragraph">
-<p>??? <strong>Are the username <code>ovirtengine</code> and password <code>authpass</code> here just examples? Or is this a requirement?</strong> ???</p>
 </div>
 <div class="listingblock">
 <div class="content">

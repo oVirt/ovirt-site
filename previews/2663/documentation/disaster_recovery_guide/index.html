@@ -102,35 +102,29 @@
 <li><a href="#disaster_recovery_solutions">1. Disaster Recovery Solutions</a></li>
 <li><a href="#active_active">2. Active-Active Disaster Recovery</a>
 <ul class="sectlevel2">
-<li><a href="#active_active_overview">2.1. Active-Active Overview</a>
-<ul class="sectlevel3">
-<li><a href="#network_considerations">2.1.1. Network Considerations</a></li>
-<li><a href="#storage_considerations_active_active">2.1.2. Storage Considerations</a></li>
-</ul>
-</li>
-<li><a href="#configure_she_stretch_cluster">2.2. Configure a Self-hosted Engine Stretch Cluster Environment</a></li>
-<li><a href="#configure_standalone_manager_stretch_cluster">2.3. Configure a Standalone Engine Stretch Cluster Environment</a></li>
+<li><a href="#active_active_overview">2.1. Active-Active Overview</a></li>
+<li><a href="#network_considerations">2.2. Network Considerations</a></li>
+<li><a href="#storage_considerations_active_active">2.3. Storage Considerations</a></li>
+<li><a href="#configure_she_stretch_cluster">2.4. Configuring a Self-hosted Engine Stretch Cluster Environment</a></li>
+<li><a href="#configure_standalone_manager_stretch_cluster">2.5. Configuring a Standalone Engine Stretch Cluster Environment</a></li>
 </ul>
 </li>
 <li><a href="#active_passive">3. Active-Passive Disaster Recovery</a>
 <ul class="sectlevel2">
-<li><a href="#active_passive_overview">3.1. Active-Passive Overview</a>
+<li><a href="#active_passive_overview">3.1. Active-Passive Overview</a></li>
+<li><a href="#network_considerations_active_passive">3.2. Network Considerations</a></li>
+<li><a href="#storage_considerations_active-passive">3.3. Storage Considerations</a></li>
+<li><a href="#create_ansible_playbooks">3.4. Create the Required Ansible Playbooks</a>
 <ul class="sectlevel3">
-<li><a href="#network_considerations_active_passive">3.1.1. Network Considerations</a></li>
-<li><a href="#storage_considerations_active-passive">3.1.2. Storage Considerations</a></li>
+<li><a href="#Using-ovirt-dr-script">3.4.1. The <code>ovirt-dr</code> Script for Ansible Tasks</a></li>
+<li><a href="#generate_mapping">3.4.2. Creating the Playbook to Generate the Mapping File</a></li>
+<li><a href="#create_failover_failback">3.4.3. Create the Failover and Failback Playbooks</a></li>
+<li><a href="#create_cleanup">3.4.4. Create the Playbook to Clean the Primary Site</a></li>
 </ul>
 </li>
-<li><a href="#create_ansible_playbooks">3.2. Create the Required Ansible Playbooks</a>
-<ul class="sectlevel3">
-<li><a href="#Using-ovirt-dr-script">3.2.1. Using the <code>ovirt-dr</code> Script for Ansible Tasks</a></li>
-<li><a href="#generate_mapping">3.2.2. Create the Playbook to Generate the Mapping File</a></li>
-<li><a href="#create_failover_failback">3.2.3. Create the Failover and Failback Playbooks</a></li>
-<li><a href="#create_cleanup">3.2.4. Create the Playbook to Clean the Primary Site</a></li>
-</ul>
-</li>
-<li><a href="#execute_failover">3.3. Execute a Failover</a></li>
-<li><a href="#clean">3.4. Clean the Primary Site</a></li>
-<li><a href="#execute_failback">3.5. Execute a Failback</a></li>
+<li><a href="#execute_failover">3.5. Executing a Failover</a></li>
+<li><a href="#clean">3.6. Cleaning the Primary Site</a></li>
+<li><a href="#execute_failback">3.7. Executing a Failback</a></li>
 </ul>
 </li>
 <li><a href="#mapping_file_attributes">Appendix A: Mapping File Attributes</a></li>
@@ -153,38 +147,31 @@
 <h2 id="disaster_recovery_solutions">1. Disaster Recovery Solutions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>oVirt (RHV) supports two types of disaster recovery solutions to ensure that environments can recover when a site outage occurs. Both solutions support two sites, and both require replicated storage.</p>
+<p>oVirt supports two types of disaster recovery solutions to ensure that environments can recover when a site outage occurs. Both solutions support two sites, and both require replicated storage.</p>
 </div>
 <div class="paragraph">
-<p><strong>Active-Active Disaster Recovery</strong>:</p>
+<div class="title">Active-Active Disaster Recovery</div>
+<p>This solution is implemented using a stretch cluster configuration. This means that there is a single oVirt environment with a cluster that contains hosts capable of running the required virtual machines in the primary and secondary site. Virtual machines automatically migrate to hosts in the secondary site if an outage occurs. However, the environment must meet latency and networking requirements. See <a href="#active_active_overview">Active-Active Overview</a> for more information.</p>
 </div>
 <div class="paragraph">
-<p>This solution is implemented using a stretch cluster configuration. This means that there is a single RHV environment with a cluster that contains hosts capable of running the required virtual machines in the primary and secondary site. Virtual machines automatically migrate to hosts in the secondary site if an outage occurs. However, the environment must meet latency and networking requirements. See <a href="#active_active_overview">Active-Active Overview</a> for more information.</p>
-</div>
-<div class="paragraph">
-<p><strong>Active-Passive Disaster Recovery</strong>:</p>
-</div>
-<div class="paragraph">
-<p>Also referred to as site-to-site failover, this disaster recovery solution is implemented by configuring two seperate RHV environments: the active primary environment, and the passive secondary (backup) environment. Failover and failback between sites must be manually executed, and is managed by Ansible. See <a href="#active_passive_overview">Active-Passive Overview</a> for more information.</p>
+<div class="title">Active-Passive Disaster Recovery</div>
+<p>Also referred to as site-to-site failover, this disaster recovery solution is implemented by configuring two separate oVirt environments: the active primary environment, and the passive secondary (backup) environment. Failover and failback between sites must be manually executed, and is managed by Ansible. See <a href="#active_passive_overview">Active-Passive Overview</a> for more information.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="active_active">2. Active-Active Disaster Recovery</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>This chapter provides instructions to configure oVirt for disaster recovery using the active-active disaster recovery solution.</p>
-</div>
 <div class="sect2">
 <h3 id="active_active_overview">2.1. Active-Active Overview</h3>
 <div class="paragraph">
-<p>oVirt supports an active-active disaster recovery failover configuration that can span two sites. Both sites are active, and if the primary site becomes unavailable, the oVirt environment will continue to operate in the secondary site to ensure business continuity.</p>
+<p>The active-active disaster recovery failover configuration can span two sites. Both sites are active, and if the primary site becomes unavailable, the oVirt environment continues to operate in the secondary site to ensure business continuity.</p>
 </div>
 <div class="paragraph">
-<p>The active-active failover is achieved by configuring a stretch cluster where hosts capable of running the virtual machines are located in the primary and secondary site. All the hosts belong to the same oVirt cluster.</p>
+<p>The active-active failover configuration includes a stretch cluster in which hosts capable of running the virtual machines are located in both the primary and secondary sites. All the hosts belong to the same oVirt cluster.</p>
 </div>
 <div class="paragraph">
-<p>You require replicated storage that is writeable on both sites to allow virtual machines to migrate between sites and continue running on the site’s storage.</p>
+<p>This configuration requires replicated storage that is writeable on both sites so virtual machines can migrate between the two sites and continue running on both sites' storage.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -193,7 +180,7 @@
 <div class="title">Figure 1. Stretch Cluster Configuration</div>
 </div>
 <div class="paragraph">
-<p>Virtual machines will migrate to the secondary site if the primary site becomes unavailable. The virtual machines will automatically failback to the primary site when the site becomes available and the storage is replicated in both sites.</p>
+<p>Virtual machines migrate to the secondary site if the primary site becomes unavailable. The virtual machines automatically failback to the primary site when the site becomes available and the storage is replicated in both sites.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -231,19 +218,20 @@
 <div class="paragraph">
 <p>The stretched cluster configuration can be implemented using a self-hosted engine environment, or a standalone Engine environment. For more information about the different types of deployments see <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/product_guide/index#RHV_Architecture">Red Hat Virtualization Architecture</a> in the <em>Product Guide</em>.</p>
 </div>
-<div class="sect3">
-<h4 id="network_considerations">2.1.1. Network Considerations</h4>
+</div>
+<div class="sect2">
+<h3 id="network_considerations">2.2. Network Considerations</h3>
 <div class="paragraph">
-<p>All hosts in the cluster must be on the same broadcast domain over an L2 network. This means that connectivity between the two sites needs to be L2.</p>
+<p>All hosts in the cluster must be on the same broadcast domain over an L2 network. So connectivity between the two sites must be L2.</p>
 </div>
 <div class="paragraph">
-<p>The maximum latency requirements between the sites across the L2 network differs for the two setups. The standalone Engine environment requires a maximum latency of 100ms, while the self-hosted engine environment requires a maximum latency of 7ms.</p>
+<p>The maximum latency requirements between the sites across the L2 network differ for the two setups. The standalone Engine environment requires a maximum latency of 100ms, while the self-hosted engine environment requires a maximum latency of 7ms.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="storage_considerations_active_active">2.1.2. Storage Considerations</h4>
+<div class="sect2">
+<h3 id="storage_considerations_active_active">2.3. Storage Considerations</h3>
 <div class="paragraph">
-<p>The storage domain for oVirt can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about oVirt storage see <a href="https://ovirt.org/documentation/administration_guide/index#chap-Storage">Storage</a> in the <em>Administration Guide</em>.</p>
+<p>The storage domain for oVirt can comprise either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about oVirt storage, see <a href="https://ovirt.org/documentation/administration_guide/index#chap-Storage">Storage</a> in the <em>Administration Guide</em>.</p>
 </div>
 <div class="paragraph">
 <p>The sites require synchronously replicated storage that is writeable on both sites with shared layer 2 (L2) network connectivity. The replicated storage is required to allow virtual machines to migrate between sites and continue running on the site’s storage. All storage replication options supported by Enterprise Linux 7 and later can be used in the stretch cluster.</p>
@@ -255,22 +243,34 @@
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-If you have a custom multipath configuration that is recommended by the storage vendor, see the instructions and important limitations in <a href="https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#proc-Customizing_Multipath_Configurations_for_SAN_Vendors_SHE_cli_deploy">Customizing Multipath Configurations for SAN Vendors</a>.
+<div class="paragraph">
+<p>If you have a custom multipath configuration that is recommended by the storage vendor, see the instructions and important limitations in <a href="https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line/index#proc-Customizing_Multipath_Configurations_for_SAN_Vendors_SHE_cli_deploy">Customizing Multipath Configurations for SAN Vendors</a>.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Set the SPM role on a host at the primary site to have precedence. To do so, configure SPM priority as high in the primary site hosts and SPM priority as low on secondary site hosts. If you have a primary site failure that impacts network devices inside the primary site, preventing the fencing device for the SPM host from being reachable, such as power loss, the hosts in the seconday site are not able to take over the SPM role.</p>
+</div>
+<div class="paragraph">
+<p>In such a scenario virtual machines do a failover, but operations that require the SPM role in place cannot be executed, including adding new disks, extending existing disks, and exporting virtual machines.</p>
+</div>
+<div class="paragraph">
+<p>To restore full functionality, detect the actual nature of the disaster and after fixing the root cause and rebooting the SPM host, select <strong>Confirm 'Host has been Rebooted'</strong> for the SPM host.</p>
+</div>
+<div class="paragraph">
+<div class="title">Additional resources</div>
+<p><a href="https://ovirt.org/documentation/administration_guide/index#Manually_fencing_or_isolating_a_nonresponsive_host">Manually Fencing or Isolating a Non-Responsive Host</a> in the <em>Administration Guide</em>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configure_she_stretch_cluster">2.2. Configure a Self-hosted Engine Stretch Cluster Environment</h3>
+<h3 id="configure_she_stretch_cluster">2.4. Configuring a Self-hosted Engine Stretch Cluster Environment</h3>
 <div class="paragraph">
 <p>This procedure provides instructions to configure a stretch cluster using a self-hosted engine deployment.</p>
 </div>
-<div class="paragraph">
-<p><strong>Prerequisites</strong>:</p>
-</div>
 <div class="ulist">
+<div class="title">Prerequisites</div>
 <ul>
 <li>
 <p>A writable storage server in both sites with L2 network connectivity.</p>
@@ -280,20 +280,16 @@ If you have a custom multipath configuration that is recommended by the storage 
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Limitations</strong>:</p>
-</div>
 <div class="ulist">
+<div class="title">Limitations</div>
 <ul>
 <li>
 <p>Maximum 7ms latency between sites.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Configuring the Self-hosted Engine Stretch Cluster</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Configuring the Self-hosted Engine Stretch Cluster</div>
 <ol class="arabic">
 <li>
 <p>Deploy the self-hosted engine. See <a href="https://ovirt.org/documentation/installing_ovirt_as_a_self-hosted_engine_using_the_command_line">Installing oVirt as a self-hosted engine using the command line</a>.</p>
@@ -308,7 +304,7 @@ If you have a custom multipath configuration that is recommended by the storage 
 <p>Configure the SPM priority to be higher on all hosts in the primary site to ensure SPM failover to the secondary site occurs only when all hosts in the primary site are unavailable. See <a href="https://ovirt.org/documentation/administration_guide/index#SPM_Priority">SPM Priority</a> in the <em>Administration Guide</em>.</p>
 </li>
 <li>
-<p>Configure all virtual machines that need to failover as highly available, and ensure that the virtual machine has a lease on the target storage domain. See <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Configuring_a_highly_available_virtual_machine">Configuring a Highly Available Virtual Machine</a> in the <em>Virtual Machine Management Guide</em>.</p>
+<p>Configure all virtual machines that must failover as highly available, and ensure that the virtual machine has a lease on the target storage domain. See <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Configuring_a_highly_available_virtual_machine">Configuring a Highly Available Virtual Machine</a> in the <em>Virtual Machine Management Guide</em>.</p>
 </li>
 <li>
 <p>Configure virtual machine to host soft affinity and define the behavior you expect from the affinity group. See  <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#sect-Affinity_Groups">Affinity Groups</a> in the <em>Virtual Machine Management Guide</em> and <a href="https://ovirt.org/documentation/administration_guide/index#sect-Scheduling_Policies">Scheduling Policies</a> in the <em>Administration Guide</em>.</p>
@@ -320,14 +316,12 @@ If you have a custom multipath configuration that is recommended by the storage 
 </div>
 </div>
 <div class="sect2">
-<h3 id="configure_standalone_manager_stretch_cluster">2.3. Configure a Standalone Engine Stretch Cluster Environment</h3>
+<h3 id="configure_standalone_manager_stretch_cluster">2.5. Configuring a Standalone Engine Stretch Cluster Environment</h3>
 <div class="paragraph">
 <p>This procedure provides instructions to configure a stretch cluster using a standalone Engine deployment.</p>
 </div>
-<div class="paragraph">
-<p><strong>Prerequisites</strong>:</p>
-</div>
 <div class="ulist">
+<div class="title">Prerequisites</div>
 <ul>
 <li>
 <p>A writable storage server in both sites with L2 network connectivity.</p>
@@ -337,10 +331,8 @@ If you have a custom multipath configuration that is recommended by the storage 
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Limitations</strong>:</p>
-</div>
 <div class="ulist">
+<div class="title">Limitations</div>
 <ul>
 <li>
 <p>Maximum 100ms latency between sites.</p>
@@ -380,10 +372,8 @@ If you have a custom multipath configuration that is recommended by the storage 
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><strong>Configuring the Standalone Engine Stretch Cluster</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Install and configure the oVirt Engine. See <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#"><em>Installing oVirt as a standalone Engine with local databases</em></a>.</p>
@@ -395,7 +385,7 @@ If you have a custom multipath configuration that is recommended by the storage 
 <p>Configure the SPM priority to be higher on all hosts in the primary site to ensure SPM failover to the secondary site occurs only when all hosts in the primary site are unavailable. See <a href="https://ovirt.org/documentation/administration_guide/index#SPM_Priority">SPM Priority</a> in the <em>Administration Guide</em>.</p>
 </li>
 <li>
-<p>Configure all virtual machines that need to failover as highly available, and ensure that the virtual machine has a lease on the target storage domain. See <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Configuring_a_highly_available_virtual_machine">Configuring a Highly Available Virtual Machine</a> in the <em>Virtual Machine Management Guide</em>.</p>
+<p>Configure all virtual machines that must failover as highly available, and ensure that the virtual machine has a lease on the target storage domain. See <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Configuring_a_highly_available_virtual_machine">Configuring a Highly Available Virtual Machine</a> in the <em>Virtual Machine Management Guide</em>.</p>
 </li>
 <li>
 <p>Configure virtual machine to host soft affinity and define the behavior you expect from the affinity group. See  <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#sect-Affinity_Groups">Affinity Groups</a> in the <em>Virtual Machine Management Guide</em> and <a href="https://ovirt.org/documentation/administration_guide/index#sect-Scheduling_Policies">Scheduling Policies</a> in the <em>Administration Guide</em>.</p>
@@ -411,9 +401,6 @@ If you have a custom multipath configuration that is recommended by the storage 
 <div class="sect1">
 <h2 id="active_passive">3. Active-Passive Disaster Recovery</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>This chapter provides instructions to configure oVirt for disaster recovery using the active-passive disaster recovery solution.</p>
-</div>
 <div class="sect2">
 <h3 id="active_passive_overview">3.1. Active-Passive Overview</h3>
 <div class="paragraph">
@@ -456,7 +443,7 @@ If you have a custom multipath configuration that is recommended by the storage 
 </table>
 </div>
 <div class="paragraph">
-<p>The failover and failback process must be executed manually. To do this you need to create Ansible playbooks to map entities between the sites, and to manage the failover and failback processes. The mapping file instructs the oVirt components where to fail over or fail back to on the target site.</p>
+<p>The failover and failback process must be executed manually. To do this you must create Ansible playbooks to map entities between the sites, and to manage the failover and failback processes. The mapping file instructs the oVirt components where to fail over or fail back to on the target site.</p>
 </div>
 <div class="paragraph">
 <p>The following diagram describes an active-passive setup where the machine running Red Hat Ansible Engine is highly available, and has access to the <code>oVirt.disaster-recovery</code> Ansible role, configured playbooks, and mapping file. The storage domains that store the virtual machine disks in Site A is replicated. Site B has no virtual machines or attached storage domains.</p>
@@ -477,10 +464,11 @@ If you have a custom multipath configuration that is recommended by the storage 
 <div class="title">Figure 4. Failover to Backup Site</div>
 </div>
 <div class="paragraph">
-<p>You will need to manually fail back to the primary site (Site A) when it is running again.</p>
+<p>You must manually fail back to the primary site (Site A) when it is running again.</p>
 </div>
-<div class="sect3">
-<h4 id="network_considerations_active_passive">3.1.1. Network Considerations</h4>
+</div>
+<div class="sect2">
+<h3 id="network_considerations_active_passive">3.2. Network Considerations</h3>
 <div class="paragraph">
 <p>You must ensure that the same general connectivity exists in the primary and secondary sites.</p>
 </div>
@@ -488,10 +476,10 @@ If you have a custom multipath configuration that is recommended by the storage 
 <p>If you have multiple networks or multiple data centers then you must use an empty network mapping in the mapping file to ensure that all entities register on the target during failover. See <a href="#mapping_file_attributes">Mapping File Attributes</a> for more information.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="storage_considerations_active-passive">3.1.2. Storage Considerations</h4>
+<div class="sect2">
+<h3 id="storage_considerations_active-passive">3.3. Storage Considerations</h3>
 <div class="paragraph">
-<p>The storage domain for oVirt can be made of either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about oVirt storage see <a href="https://ovirt.org/documentation/administration_guide/index#chap-Storage">Storage</a> in the <em>Administration Guide</em>.</p>
+<p>The storage domain for oVirt can comprise either block devices (SAN - iSCSI or FCP) or a file system (NAS - NFS, GlusterFS, or other POSIX compliant file systems). For more information about oVirt storage see <a href="https://ovirt.org/documentation/administration_guide/index#chap-Storage">Storage</a> in the <em>Administration Guide</em>.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -500,7 +488,9 @@ If you have a custom multipath configuration that is recommended by the storage 
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-Local storage domains are unsupported for disaster recovery.
+<div class="paragraph">
+<p>Local storage domains are unsupported for disaster recovery.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -509,22 +499,19 @@ Local storage domains are unsupported for disaster recovery.
 <p>A primary and secondary storage replica is required. The primary storage domain’s block devices or shares that contain virtual machine disks or templates must be replicated. The secondary storage must not be attached to any data center, and will be added to the backup site’s data center during failover.</p>
 </div>
 <div class="paragraph">
-<p>If you are implementing disaster recovery using self-hosted engine, ensure that the  storage domain used by the self-hosted engine Engine virtual machine does not contain virtual machine disks because the storage domain will not be failed over.</p>
+<p>If you are implementing disaster recovery using a self-hosted engine, ensure that the storage domain used by the Engine virtual machine does not contain virtual machine disks because in such a case the storage domain will not be failed over.</p>
 </div>
 <div class="paragraph">
 <p>All storage solutions that have replication options that are supported by Enterprise Linux 7 and later can be used.</p>
 </div>
 </div>
-</div>
 <div class="sect2">
-<h3 id="create_ansible_playbooks">3.2. Create the Required Ansible Playbooks</h3>
+<h3 id="create_ansible_playbooks">3.4. Create the Required Ansible Playbooks</h3>
 <div class="paragraph">
-<p>Ansible is used to initiate and manage the disaster recovery failover and failback. You therefore need to create Ansible playbooks to facilitate this. For more information about creating Ansible playbooks, see the <a href="http://docs.ansible.com/ansible/latest/playbooks.html">Ansible documentation</a>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Prerequisites</strong>:</p>
+<p>Ansible is used to initiate and manage the disaster recovery failover and failback. So you must create Ansible playbooks to facilitate this. For more information about creating Ansible playbooks, see the <a href="http://docs.ansible.com/ansible/latest/playbooks.html">Ansible documentation</a>.</p>
 </div>
 <div class="ulist">
+<div class="title">Prerequisites</div>
 <ul>
 <li>
 <p>Fully functioning oVirt environment in the primary site.</p>
@@ -557,7 +544,9 @@ Local storage domains are unsupported for disaster recovery.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The replicated storage that contains virtual machines and templates must not be attached to the secondary site.
+<div class="paragraph">
+<p>The replicated storage that contains virtual machines and templates must not be attached to the secondary site.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -581,7 +570,9 @@ The replicated storage that contains virtual machines and templates must not be 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The default behaviour of the Ansible playbooks can be configured in the <code>/usr/share/ansible/roles/oVirt.disaster-recovery/defaults/main.yml</code> file.
+<div class="paragraph">
+<p>The default behaviour of the Ansible playbooks can be configured in the <code>/usr/share/ansible/roles/oVirt.disaster-recovery/defaults/main.yml</code> file.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -612,9 +603,9 @@ The default behaviour of the Ansible playbooks can be configured in the <code>/u
 <p>You can test the configuration using one or more of the testing procedures in <a href="#testing_active_passive">Testing the Active-Passive Configuration</a>.</p>
 </div>
 <div class="sect3">
-<h4 id="Using-ovirt-dr-script">3.2.1. Using the <code>ovirt-dr</code> Script for Ansible Tasks</h4>
+<h4 id="Using-ovirt-dr-script">3.4.1. The <code>ovirt-dr</code> Script for Ansible Tasks</h4>
 <div class="paragraph">
-<p>The <code>ovirt-dr</code> script is located in <strong>/usr/share/ansible/roles/oVirt.disaster-recovery/files</strong>. This script simplifies the following Ansible tasks:</p>
+<p>The <code>ovirt-dr</code> script simplifies the following Ansible tasks:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -633,9 +624,10 @@ The default behaviour of the Ansible playbooks can be configured in the <code>/u
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Usage</strong></p>
+<p>This script is located in <code>/usr/share/ansible/roles/oVirt.disaster-recovery/files</code></p>
 </div>
 <div class="listingblock">
+<div class="title">Usage</div>
 <div class="content">
 <pre class="nowrap"># ./ovirt-dr <em>generate/validate/failover/failback</em>
               [--conf-file=dr.conf]
@@ -654,9 +646,9 @@ The default behaviour of the Ansible playbooks can be configured in the <code>/u
 </div>
 </div>
 <div class="sect3">
-<h4 id="generate_mapping">3.2.2. Create the Playbook to Generate the Mapping File</h4>
+<h4 id="generate_mapping">3.4.2. Creating the Playbook to Generate the Mapping File</h4>
 <div class="paragraph">
-<p>The Ansible playbook used to generate the mapping file will prepopulate the file with the target (primary) site’s entities. You then need to manually add the backup site’s entities, such as IP addresses, cluster, affinity groups, affinity label, external LUN disks, authorization domains, roles, and vNIC profiles, to the file.</p>
+<p>The Ansible playbook used to generate the mapping file will prepopulate the file with the target (primary) site’s entities. You then must manually add the backup site’s entities, such as IP addresses, cluster, affinity groups, affinity label, external LUN disks, authorization domains, roles, and vNIC profiles, to the file.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -665,7 +657,9 @@ The default behaviour of the Ansible playbooks can be configured in the <code>/u
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-The mapping file generation will fail if you have any virtual machine disks on the self-hosted engine’s storage domain. Also, the mapping file will not contain an attribute for this storage domain because it must not be failed over.
+<div class="paragraph">
+<p>The mapping file generation will fail if you have any virtual machine disks on the self-hosted engine’s storage domain. Also, the mapping file will not contain an attribute for this storage domain because it must not be failed over.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -673,10 +667,8 @@ The mapping file generation will fail if you have any virtual machine disks on t
 <div class="paragraph">
 <p>In this example the Ansible playbook is named <code>dr-rhv-setup.yml</code>, and is executed on the Engine machine in the primary site.</p>
 </div>
-<div class="paragraph">
-<p><strong>Creating the mapping file</strong>:</p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Create an Ansible playbook to generate the mapping file. For example:</p>
@@ -705,7 +697,9 @@ The mapping file generation will fail if you have any virtual machine disks on t
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For extra security you can encrypt your Engine password in a <code>.yml</code> file. See <a href="https://ovirt.org/documentation/administration_guide/index">Using Ansible Roles to Configure oVirt</a> in the <em>Administration Guide</em> for more information.
+<div class="paragraph">
+<p>For extra security, you can encrypt your Engine password in a <code>.yml</code> file. See <a href="https://ovirt.org/documentation/administration_guide/index">Using Ansible Roles to Configure oVirt</a> in the <em>Administration Guide</em> for more information.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -729,7 +723,7 @@ For extra security you can encrypt your Engine password in a <code>.yml</code> f
 </div>
 </div>
 <div class="sect3">
-<h4 id="create_failover_failback">3.2.3. Create the Failover and Failback Playbooks</h4>
+<h4 id="create_failover_failback">3.4.3. Create the Failover and Failback Playbooks</h4>
 <div class="paragraph">
 <p>Ensure that you have the mapping file that you created and configured, in this case <code>disaster_recovery_vars.yml</code>, because this must be added to the playbooks.</p>
 </div>
@@ -760,7 +754,9 @@ dr_sites_secondary_password: secondary_password</pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For extra security you can encrypt the password file. However, you will need to use the <code>--ask-vault-pass</code> parameter when running the playbook. See <em>Using Ansible Roles to Configure oVirt</em> in the <a href="https://ovirt.org/documentation/administration_guide/index#Using_Ansible_Roles">Administration Guide</a> for more information.
+<div class="paragraph">
+<p>For extra security you can encrypt the password file. However, you must use the <code>--ask-vault-pass</code> parameter when running the playbook. See <em>Using Ansible Roles to Configure oVirt</em> in the <a href="https://ovirt.org/documentation/administration_guide/index#Using_Ansible_Roles">Administration Guide</a> for more information.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -808,12 +804,12 @@ For extra security you can encrypt the password file. However, you will need to 
 </div>
 </div>
 <div class="sect3">
-<h4 id="create_cleanup">3.2.4. Create the Playbook to Clean the Primary Site</h4>
+<h4 id="create_cleanup">3.4.4. Create the Playbook to Clean the Primary Site</h4>
 <div class="paragraph">
-<p>Before you failback to the primary site, you need to ensure that the primary site is cleaned of all storage domains to be imported. This can be performed manually on the Engine, or optionally you can create an Ansible playbook to perform it for you.</p>
+<p>Before you fail back to the primary site, you must ensure that the primary site is cleaned of all storage domains to be imported. You can do so manually on the Engine, or optionally you can create an Ansible playbook to do it for you.</p>
 </div>
 <div class="paragraph">
-<p>The Ansible playbook to clean the primary site is named <code>dr-cleanup.yml</code> in this example, and it uses the mapping file created in <a href="#generate_mapping">Create the Playbook to Generate the Mapping File</a>:</p>
+<p>The Ansible playbook to clean the primary site is named <code>dr-cleanup.yml</code> in this example, and it uses the mapping file created in <a href="#generate_mapping">Creating the Playbook to Generate the Mapping File</a>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -832,11 +828,9 @@ For extra security you can encrypt the password file. However, you will need to 
 </div>
 </div>
 <div class="sect2">
-<h3 id="execute_failover">3.3. Execute a Failover</h3>
-<div class="paragraph">
-<p><strong>Prerequisites</strong>:</p>
-</div>
+<h3 id="execute_failover">3.5. Executing a Failover</h3>
 <div class="ulist">
+<div class="title">Prerequisites</div>
 <ul>
 <li>
 <p>The Engine and hosts in the secondary site are running.</p>
@@ -869,8 +863,10 @@ For extra security you can encrypt the password file. However, you will need to 
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-Sanlock must release all storage locks from the replicated storage domains before the failover process starts.
-These locks should be released automatically approximately 80 seconds after the disaster occurs.
+<div class="paragraph">
+<p>Sanlock must release all storage locks from the replicated storage domains before the failover process starts.
+These locks should be released automatically approximately 80 seconds after the disaster occurs.</p>
+</div>
 </td>
 </tr>
 </table>
@@ -878,23 +874,25 @@ These locks should be released automatically approximately 80 seconds after the 
 <div class="paragraph">
 <p>This example uses the <code>dr-rhv-failover.yml</code> playbook created earlier.</p>
 </div>
-<div class="paragraph">
-<p><strong>Executing a failover</strong>:</p>
-</div>
-<div class="paragraph">
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
 <p>Run the failover playbook with the following command:</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap"># ansible-playbook dr-rhv-failover.yml --tags "fail_over"</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>When the primary site becomes active, ensure that you clean the environment before failing back. See <a href="#clean">Clean the Primary Site</a> for more information.</p>
+</li>
+<li>
+<p>When the primary site becomes active, ensure that you clean the environment before failing back. See <a href="#clean">Cleaning the Primary Site</a> for more information.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clean">3.4. Clean the Primary Site</h3>
+<h3 id="clean">3.6. Cleaning the Primary Site</h3>
 <div class="paragraph">
 <p>After you fail over, you must clean the environment in the primary site before failing back to it:</p>
 </div>
@@ -917,33 +915,33 @@ These locks should be released automatically approximately 80 seconds after the 
 <div class="paragraph">
 <p>This example uses the <code>dr-cleanup.yml</code> playbook created earlier to clean the environment.</p>
 </div>
-<div class="paragraph">
-<p><strong>Cleaning the primary site:</strong></p>
-</div>
-<div class="paragraph">
+<div class="olist arabic">
+<div class="title">Procedure</div>
+<ol class="arabic">
+<li>
 <p>Clean up the primary site with the following command:</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap"># ansible-playbook dr-cleanup.yml --tags "clean_engine"</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>You can now failback the environment to the primary site. See <a href="#execute_failback">Execute a Failback</a> for more information.</p>
+</li>
+<li>
+<p>You can now failback the environment to the primary site. See <a href="#execute_failback">Executing a Failback</a> for more information.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="execute_failback">3.5. Execute a Failback</h3>
+<h3 id="execute_failback">3.7. Executing a Failback</h3>
 <div class="paragraph">
 <p>Once you fail over, you can fail back to the primary site when it is active and you have performed the necessary steps to clean the environment.</p>
 </div>
-<div class="paragraph">
-<p><strong>Prerequisites</strong>:</p>
-</div>
 <div class="ulist">
+<div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The environment in the primary site is running and has been cleaned, see <a href="#clean">Clean the Primary Site</a> for more information.</p>
+<p>The environment in the primary site is running and has been cleaned, see <a href="#clean">Cleaning the Primary Site</a> for more information.</p>
 </li>
 <li>
 <p>The environment in the secondary site is running, and has active storage domains.</p>
@@ -966,10 +964,8 @@ These locks should be released automatically approximately 80 seconds after the 
 <div class="paragraph">
 <p>This example uses the <code>dr-rhv-failback.yml</code> playbook created earlier.</p>
 </div>
-<div class="paragraph">
-<p><strong>Executing a failback</strong>:</p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Run the failback playbook with the following command:</p>
@@ -1216,7 +1212,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 <div class="sect2">
 <h3 id="discreet_failover">B.1. Discreet Failover Test</h3>
 <div class="paragraph">
-<p>This test simulates a failover while the primary site and all its storage domains remain active, allowing users to continue working in the primary site. For this to happen you will need to disable replication between the primary storage domains and the replicated (secondary) storage domains. During this test the primary site will be unaware of the failover activities on the secondary site.</p>
+<p>This test simulates a failover while the primary site and all its storage domains remain active, allowing users to continue working in the primary site. To enable this scenario, you must disable replication between the primary storage domains and the replicated (secondary) storage domains. During this test the primary site is unaware of the failover activities on the secondary site.</p>
 </div>
 <div class="paragraph">
 <p>This test will not allow you to test the failback functionality.</p>
@@ -1251,7 +1247,7 @@ dr_sites_secondary_ca_file: /etc/pki/ovirt-engine/ca.pem</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For more information, see <a href="#execute_failback">Execute a Failback</a>.</p>
+<p>For more information, see <a href="#execute_failback">Executing a Failback</a>.</p>
 </div>
 </li>
 <li>
@@ -1291,7 +1287,7 @@ You should define the testable storage domains on a separate storage server that
 </table>
 </div>
 <div class="paragraph">
-<p>For more information about failing over the environment, cleaning the environment, and performing the failback, see <a href="#execute_failover">Execute a Failover</a>, <a href="#clean">Clean the Primary Site</a>, and <a href="#execute_failback">Execute a Failback</a>.</p>
+<p>For more information about failing over the environment, cleaning the environment, and performing the failback, see <a href="#execute_failover">Executing a Failover</a>, <a href="#clean">Cleaning the Primary Site</a>, and <a href="#execute_failback">Executing a Failback</a>.</p>
 </div>
 <div class="olist arabic">
 <div class="title">Procedure: Discreet failover test:</div>
@@ -1352,10 +1348,10 @@ You should define the testable storage domains on a separate storage server that
 <p>This test performs a full failover and failback between the primary and secondary site. You can simulate the disaster by shutting down the primary site&#8217;s hosts or by adding firewall rules to block writing to the storage domains.</p>
 </div>
 <div class="paragraph">
-<p>For more information about failing over the environment, cleaning the environment, and performing the failback, see <a href="#execute_failover">Execute a Failover</a>, <a href="#clean">Clean the Primary Site</a>, and <a href="#execute_failback">Execute a Failback</a>.</p>
+<p>For more information about failing over the environment, cleaning the environment, and performing the failback, see <a href="#execute_failover">Executing a Failover</a>, <a href="#clean">Cleaning the Primary Site</a>, and <a href="#execute_failback">Executing a Failback</a>.</p>
 </div>
 <div class="olist arabic">
-<div class="title">Procedure: Failover test:</div>
+<div class="title">Procedure: Failover test</div>
 <ol class="arabic">
 <li>
 <p>Disable storage replication between the primary and replicated storage domains and ensure that all replicated storage domains are in read/write mode.</p>
@@ -1374,7 +1370,7 @@ You should define the testable storage domains on a separate storage server that
 </ol>
 </div>
 <div class="olist arabic">
-<div class="title">Procedure: Failback test:</div>
+<div class="title">Procedure: Failback test</div>
 <ol class="arabic">
 <li>
 <p>Synchronize replication between the secondary site’s storage domains and the primary site’s storage domains. The secondary site’s storage domains must be in read/write mode and the primary site’s storage domains must be in read-only mode.</p>
@@ -1410,7 +1406,7 @@ You should define the testable storage domains on a separate storage server that
 <h2 id="legal-notice">Appendix C: Legal notice</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/disaster_recovery_guide/index">Red Hat Virtualization 4.4 Data Warehouse Guide</a>. Copyright © 2020 Red Hat, Inc. Licensed under a <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+<p>Certain portions of this text first appeared in <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/disaster_recovery_guide/index">Red Hat Virtualization 4.4 Disaster Recovery Guide</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
 </div>
 </div>
 </div>
@@ -1421,6 +1417,6 @@ You should define the testable storage domains on a separate storage server that
       </section>
     </main>
 
-    <script src="/ovirt-site/previews/2663/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2663/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2663/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2663/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2021 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/disaster_recovery_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/disaster_recovery_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+    <script src="/ovirt-site/previews/2663/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2663/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2663/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2663/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/disaster_recovery_guide/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/disaster_recovery_guide/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
 
 </html>

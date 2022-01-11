@@ -310,13 +310,14 @@
 <li><a href="#Live_migration_prerequisites">6.14.1. Live Migration Prerequisites</a></li>
 <li><a href="#Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs">6.14.2. Configuring Virtual Machines with SR-IOV-Enabled vNICs to Reduce Network Outage during Migration</a></li>
 <li><a href="#Configuring_virtual_machines_with_SR-IOV-Enabled_vNICs_minimal_downtime">6.14.3. Configuring Virtual Machines with SR-IOV-Enabled vNICs with minimal downtime.</a></li>
-<li><a href="#Guest_Agent_Hooks">6.14.4. Guest Agent Hooks</a></li>
-<li><a href="#Automatic_virtual_machine_migration">6.14.5. Automatic Virtual Machine Migration</a></li>
-<li><a href="#Preventing_automatic_migration_of_a_virtual_machine">6.14.6. Preventing Automatic Migration of a Virtual Machine</a></li>
-<li><a href="#Manually_migrating_virtual_machines">6.14.7. Manually Migrating Virtual Machines</a></li>
-<li><a href="#Setting_migration_priority">6.14.8. Setting Migration Priority</a></li>
-<li><a href="#Canceling_ongoing_virtual_machine_migrations">6.14.9. Canceling Ongoing Virtual Machine Migrations</a></li>
-<li><a href="#Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers">6.14.10. Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</a></li>
+<li><a href="#Optimizing_Live_Migration">6.14.4. Optimizing Live Migration</a></li>
+<li><a href="#Guest_Agent_Hooks">6.14.5. Guest Agent Hooks</a></li>
+<li><a href="#Automatic_virtual_machine_migration">6.14.6. Automatic Virtual Machine Migration</a></li>
+<li><a href="#Preventing_automatic_migration_of_a_virtual_machine">6.14.7. Preventing Automatic Migration of a Virtual Machine</a></li>
+<li><a href="#Manually_migrating_virtual_machines">6.14.8. Manually Migrating Virtual Machines</a></li>
+<li><a href="#Setting_migration_priority">6.14.9. Setting Migration Priority</a></li>
+<li><a href="#Canceling_ongoing_virtual_machine_migrations">6.14.10. Canceling Ongoing Virtual Machine Migrations</a></li>
+<li><a href="#Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers">6.14.11. Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</a></li>
 </ul>
 </li>
 <li><a href="#sect-Improving_Uptime_with_Virtual_Machine_High_Availability">6.15. Improving Uptime with Virtual Machine High Availability</a>
@@ -8529,7 +8530,124 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Guest_Agent_Hooks">6.14.4. Guest Agent Hooks</h4>
+<h4 id="Optimizing_Live_Migration">6.14.4. Optimizing Live Migration</h4>
+<div class="paragraph">
+<p>Live virtual machine migration can be a resource-intensive operation. To optimize live migration, you can set the following two options globally for every virtual machine in an environment, for every virtual machine in a cluster, or for an individual virtual machine.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For cluster levels 4.3 or later, auto converge is enabled by default for all built-in migration policies, and migration compression is enabled by default for only the <code>Suspend workload if needed</code> migration policy. You can change these parameters when adding a new migration policy, or by modifying the <code>MigrationPolicies</code> configuration value.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong>Auto Converge migrations</strong> option allows you to set whether auto-convergence is used during live migration of virtual machines. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>Enable migration compression</strong> option allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern.</p>
+</div>
+<div class="paragraph">
+<p>Both options are disabled globally by default.</p>
+</div>
+<div class="paragraph">
+<p><strong>Configuring Auto-convergence and Migration Compression for Virtual Machine Migration</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure the optimization settings at the global level:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Enable auto-convergence at the global level:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># engine-config -s DefaultAutoConvergence=True</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enable migration compression at the global level:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># engine-config -s DefaultMigrationCompression=True</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Restart the <strong>ovirt-engine</strong> service to apply the changes:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap"># systemctl restart ovirt-engine.service</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Configure the optimization settings for a cluster:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Clusters</b></span> and select a cluster.</p>
+</li>
+<li>
+<p>Click <b class="button">Edit</b>.</p>
+</li>
+<li>
+<p>Click the <strong>Migration Policy</strong> tab.</p>
+</li>
+<li>
+<p>From the <strong>Auto Converge migrations</strong> list, select <strong>Inherit from global setting</strong>, <strong>Auto Converge</strong>, or <strong>Don&#8217;t Auto Converge</strong>.</p>
+</li>
+<li>
+<p>From the <strong>Enable migration compression</strong> list, select <strong>Inherit from global setting</strong>, <strong>Compress</strong>, or <strong>Don&#8217;t Compress</strong>.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Configure the optimization settings at the virtual machine level:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click <span class="menuseq"><b class="menu">Compute</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Virtual Machines</b></span> and select a virtual machine.</p>
+</li>
+<li>
+<p>Click <b class="button">Edit</b>.</p>
+</li>
+<li>
+<p>Click the <strong>Host</strong> tab.</p>
+</li>
+<li>
+<p>From the <strong>Auto Converge migrations</strong> list, select <strong>Inherit from cluster setting</strong>, <strong>Auto Converge</strong>, or <strong>Don&#8217;t Auto Converge</strong>.</p>
+</li>
+<li>
+<p>From the <strong>Enable migration compression</strong> list, select <strong>Inherit from cluster setting</strong>, <strong>Compress</strong>, or <strong>Don&#8217;t Compress</strong>.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Guest_Agent_Hooks">6.14.5. Guest Agent Hooks</h4>
 <div class="paragraph">
 <p>Hooks are scripts that trigger activity within a virtual machine when key events occur:</p>
 </div>
@@ -8560,7 +8678,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Automatic_virtual_machine_migration">6.14.5. Automatic Virtual Machine Migration</h4>
+<h4 id="Automatic_virtual_machine_migration">6.14.6. Automatic Virtual Machine Migration</h4>
 <div class="paragraph">
 <p>oVirt Engine automatically initiates live migration of all virtual machines running on a host when the host is moved into maintenance mode. The destination host for each virtual machine is assessed as the virtual machine is migrated, in order to spread the load across the cluster.</p>
 </div>
@@ -8575,7 +8693,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Preventing_automatic_migration_of_a_virtual_machine">6.14.6. Preventing Automatic Migration of a Virtual Machine</h4>
+<h4 id="Preventing_automatic_migration_of_a_virtual_machine">6.14.7. Preventing Automatic Migration of a Virtual Machine</h4>
 <div class="paragraph">
 <p>oVirt Engine allows you to disable automatic migration of virtual machines. You can also disable manual migration of virtual machines by setting the virtual machine to run only on a specific host.</p>
 </div>
@@ -8637,7 +8755,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Manually_migrating_virtual_machines">6.14.7. Manually Migrating Virtual Machines</h4>
+<h4 id="Manually_migrating_virtual_machines">6.14.8. Manually Migrating Virtual Machines</h4>
 <div class="paragraph">
 <p>A running virtual machine can be live migrated to any host within its designated host cluster. Live migration of virtual machines does not cause any service interruption. Migrating virtual machines to a different host is especially useful if the load on a particular host is too high. For live migration prerequisites, see <a href="#Live_migration_prerequisites">Live Migration Prerequisites</a>.</p>
 </div>
@@ -8708,7 +8826,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Setting_migration_priority">6.14.8. Setting Migration Priority</h4>
+<h4 id="Setting_migration_priority">6.14.9. Setting Migration Priority</h4>
 <div class="paragraph">
 <p>oVirt Engine queues concurrent requests for migration of virtual machines off of a given host. The load balancing process runs every minute. Hosts already involved in a migration event are not included in the migration cycle until their migration event has completed. When there is a migration request in the queue and available hosts in the cluster to action it, a migration event is triggered in line with the load balancing policy for the cluster.</p>
 </div>
@@ -8739,7 +8857,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Canceling_ongoing_virtual_machine_migrations">6.14.9. Canceling Ongoing Virtual Machine Migrations</h4>
+<h4 id="Canceling_ongoing_virtual_machine_migrations">6.14.10. Canceling Ongoing Virtual Machine Migrations</h4>
 <div class="paragraph">
 <p>A virtual machine migration is taking longer than you expected. You&#8217;d like to be sure where all virtual machines are running before you make any changes to your environment.</p>
 </div>
@@ -8761,7 +8879,7 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 </div>
 </div>
 <div class="sect3">
-<h4 id="Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers">6.14.10. Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</h4>
+<h4 id="Event_and_Log_Notification_upon_Automatic_Migration_of_Highly_Available_Virtual_Servers">6.14.11. Event and Log Notification upon Automatic Migration of Highly Available Virtual Servers</h4>
 <div class="paragraph">
 <p>When a virtual server is automatically migrated because of the high availability function, the details of an automatic migration are documented in the <strong>Events</strong> tab and in the engine log to aid in troubleshooting, as illustrated in the following examples:</p>
 </div>

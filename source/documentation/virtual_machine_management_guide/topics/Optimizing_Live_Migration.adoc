@@ -5,7 +5,7 @@ Live virtual machine migration can be a resource-intensive operation. To optimiz
 
 [NOTE]
 ====
-For cluster levels 4.3 or later, auto converge is enabled by default for all built-in migration policies, and migration compression is enabled by default for only the `Suspend workload if needed` migration policy. You can change these parameters by modifying the `MigrationPolicies` configuration value, and when adding a new migration policy.
+For cluster levels 4.3 or later, auto converge is enabled by default for all built-in migration policies, and migration compression is enabled by default for only the `Suspend workload if needed` migration policy. You can change these parameters when adding a new migration policy, or by modifying the `MigrationPolicies` configuration value.
 ====
 
 The *Auto Converge migrations* option allows you to set whether auto-convergence is used during live migration of virtual machines. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine.

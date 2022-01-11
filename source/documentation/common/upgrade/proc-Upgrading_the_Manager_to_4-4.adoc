@@ -26,8 +26,8 @@ You can only restore backups to environments of the same minor release as that o
 
 .Prerequisites
 
-* All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3 before you start the procedure.
-* All virtual machines in the environment must have the cluster compatibility level set to version 4.3 before you start the procedure.
+* All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3.
+* All virtual machines in the environment must have the cluster compatibility level set to version 4.3.
 ifdef::SHE_upgrade[]
 * Make note of the MAC address of the self-hosted engine if you are using DHCP and want to use the same IP address. The deploy script prompts you for this information.
 * During the deployment you need to provide a new storage domain for the {engine-name} machine. The deployment script renames the 4.3 storage domain and retains its data to enable disaster recovery.

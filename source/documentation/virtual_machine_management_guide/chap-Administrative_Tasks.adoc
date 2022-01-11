@@ -144,10 +144,10 @@ A virtual machine that is using a vGPU cannot be migrated to a different host.
 
 include::topics/Live_migration_prerequisites.adoc[]
 
+include::topics/Optimizing_Live_Migration.adoc[]
+
 // removed Optimizing live migration section - options no longer Existing
 // dcdacosta: added back Optimizing live migration since the values still apply on some versions. [See https://bugzilla.redhat.com/show_bug.cgi?id=1946201]
-//
-include::topics/Optimizing_Live_Migration.adoc[]
 
 include::topics/Guest_Agent_Hooks.adoc[]
 

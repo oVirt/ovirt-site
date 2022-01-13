@@ -97,7 +97,6 @@ If the host becomes non operational and the deployment fails (due to missing req
 ====
 +
 ifdef::rhv-doc[]
-+
 See also link:https://access.redhat.com/solutions/4088711[]
 endif::rhv-doc[]
 

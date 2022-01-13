@@ -5,7 +5,7 @@
 // PPG
 // Install
 
-{enterprise-linux-host-fullname}s and {hypervisor-fullname}s ({hypervisor-shortname}) require a number of ports to be opened to allow network traffic through the system's firewall. The firewall rules are automatically configured by default when adding a new host to the {engine-name}, overwriting any pre-existing firewall configuration. 
+{enterprise-linux-host-fullname}s and {hypervisor-fullname}s ({hypervisor-shortname}) require a number of ports to be opened to allow network traffic through the system's firewall. The firewall rules are automatically configured by default when adding a new host to the {engine-name}, overwriting any pre-existing firewall configuration.
 
 To disable automatic firewall configuration when adding a new host, clear the *Automatically configure host firewall* check box under *Advanced Parameters*.
 
@@ -81,9 +81,9 @@ Client machines |{hypervisor-fullname}s
 
 {enterprise-linux-host-fullname}s |VDSM communications with the {engine-name} and other virtualization hosts.
 |Yes
-|H11 |54322 |TCP |{virt-product-fullname} {engine-name} (ImageIO Proxy server) |{hypervisor-fullname}s
+|H11 |54322 |TCP |{virt-product-fullname} {engine-name} `ovirt-imageio` service |{hypervisor-fullname}s
 
-{enterprise-linux-host-fullname}s |Required for communication with the ImageIO daemon (*ovirt-imageio-daemon*).
+{enterprise-linux-host-fullname}s |Required for communication with the `ovirt-imageo` service.
 |Yes
 |H12 |6081 |UDP |{hypervisor-fullname}s
 

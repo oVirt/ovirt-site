@@ -9,12 +9,14 @@
 
 To disable automatic firewall configuration when adding a new host, clear the *Automatically configure host firewall* check box under *Advanced Parameters*.
 
+ifdef::rhv-doc[]
 To customize the host firewall rules, see link:https://access.redhat.com/solutions/2772331[].
 [NOTE]
 ====
 A diagram of these firewall requirements is available at https://access.redhat.com/articles/3932211.
 You can use the IDs in the table to look up connections in the diagram.
 ====
+endif::[]
 
 .Virtualization Host Firewall Requirements
 [options="header", %autowidth, frame=all, grid=all]

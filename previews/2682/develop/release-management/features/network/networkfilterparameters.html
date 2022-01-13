@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Network Filter Parameters | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Network Filter Parameters" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2682/develop/release-management/features/network/networkfilterparameters.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2682/develop/release-management/features/network/networkfilterparameters.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Network Filter Parameters" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2682/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Network Filter Parameters","url":"https://ovirt.github.io/ovirt-site/previews/2682/develop/release-management/features/network/networkfilterparameters.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2682/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2682/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2682/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2682/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2682/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2682/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2682/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2682/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2682/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2682/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2682/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2682/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2682/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2682/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2682/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2682/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2682/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2682/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2682/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2682/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2682/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2682/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2682/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2682/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2682/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2682/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2682/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2682/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2682/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2682/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2682/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2682/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2682/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2682/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2682/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2682//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2682//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2682/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2682/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2682/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2682/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2682/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dominik Holler</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2682/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="network-filter-parameters">Network Filter Parameters</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>OVirt already supports filtering network communication of VMs.
+The feature introduced here adds the ability to configure these filters by parameters.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>
+    <p>Name: <a href="https://github.com/almusil">Aleš Musil</a></p>
+  </li>
+  <li>
+    <p>Email: <a href="mailto:amusil@redhat.com">amusil@redhat.com</a></p>
+  </li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>The VM network communication can by restricted using the already available feature called <a href="networkfilter.html">network filters</a>.
+The feature introduced here adds the ability to configure these filters by <a href="https://libvirt.org/formatnwfilter.html#nwfconceptsvars">parameters</a>.
+oVirt allows to manage the network filter parameters and VDSM uses the libVirt to apply them to the VMs configuration.</p>
+
+<p>In the scenario of <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1366905">Bug 1366905</a> network filter parameters are required to restrict the allowed IP addresses of a VM.
+Network filter parameters can not only be used to define allowed or blocked IP address,
+but also for restricting port ranges on transport layer or allowing only trusted DHCP servers.</p>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<p>This feature enables the usage of oVirt in scenarios, in which the user has to set parameters,
+without forcing the user to edit configuration files on the hosts manually.</p>
+
+<h3 id="user-work-flow">User work-flow</h3>
+
+<p>To use network filter parameters, the following workflow is expected:</p>
+
+<ol>
+  <li>The user may create a new logical network or decide to use an already existing one.</li>
+  <li>The user may create a new vNIC Profile or use an existing one.</li>
+  <li>The user ensures that the logical network is assigned to the hosts of the cluster.</li>
+  <li>The user instantiates a (virtual) network interface (vNIC) of a virtual machine by picking the vNIC profile.</li>
+  <li>The user configures applied vNIC Profile to use a network filter, which depends on parameters.</li>
+  <li>The user creates network filter parameters for this network interface of the virtual machine.</li>
+</ol>
+
+<p>If the predefined logical network <code class="language-plaintext highlighter-rouge">ovirtmgmt</code> and the associated predefined vNIC Profile <code class="language-plaintext highlighter-rouge">ovirtmgmt</code> is used,
+there is nothing to do in the first three steps.</p>
+
+<h3 id="user-experience">User Experience</h3>
+
+<p>The steps 1 to 5 of the workflow can be done using the already existing user interface.
+For example, the user decides in step 1 to use the already existing logical network “ovirtmgmt”,
+but creates a new vNIC Profile called “clean-traffic” in step 2.
+<img src="../../../../images/wiki/NetworkFilterVNicProfile.png" alt="UI to configure vNIC profile" title="UI to configure vNIC profile" />
+The screenshot above shows the user interface to configure the vNIC Profile “clean-traffic” using the “clean-traffic” network filter.
+For step 6 the NetworkInterfacePopupWidget has to be extended by a new section to edit the network filter parameters
+associated with a network interface of the virtual machine.
+<img src="../../../../images/wiki/NetworkFilterParameterGUIMockup.png" alt="UI mockup" title="UI mockup" />
+The screenshot above shows a mockup, how the extended user interface might look like.
+The new section provides the ability to add, edit and delete network filter parameters.
+If many network interface parameters are associated with the network interface, the section could be scrolled.
+Unfortunately there is no generic way to deduce the network filter parameters accepted by a network filter, so this section can not decide which parameter names are allowed.</p>
+
+<h2 id="current-implementation-status">Current Implementation Status</h2>
+<p>Currently network filter parameters can only be used via the <a href="http://ovirt.github.io/ovirt-engine-api-model/4.2/#services/nic_network_filter_parameter">REST-API</a>.
+oVirt System Tests provide an <a href="https://gerrit.ovirt.org/#/c/78045/13/basic-suite-master/test-scenarios/004_basic_sanity.py">example</a> of user work-flow steps 2. to 6. .</p>
+
+<h2 id="entity-description">Entity Description</h2>
+
+<p>The top-level network filter is <a href="networkfilter.html">associated to the vNIC profile</a>. For this reason it appears likely
+that the parameters for this filters, e.g. allowed networking protocols in a network,
+are associated with the vNIC profile, too.
+The use case described in the <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1366905">bug report</a> gives the VM’s IP addresses as an example for parameters.
+These parameters are associated with a specific network interface of the VM’s instance,
+so there is a need for parameters with vNIC profiles and network interface.</p>
+
+<p>The parameters are implemented for VM’s network interfaces,
+because it addresses the given use case in the <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1366905">bug report</a>.
+Furthermore, the possibility to set parameters on VM’s network interfaces,
+temporarily solves the vNIC profile scenarios.
+The drawback of this approach is that more configuration is needed
+than it would be if the vNIC profiles could manage the filter parameters.</p>
+
+<p>The new entity ia called <code class="language-plaintext highlighter-rouge">VmNicFilterParameter</code>.
+It is associated to an network interface of an VM’s network interface, and has the two attributes <code class="language-plaintext highlighter-rouge">name</code> and <code class="language-plaintext highlighter-rouge">value</code>.
+A <code class="language-plaintext highlighter-rouge">VmNicFilterParameter</code> is identified by it’s <code class="language-plaintext highlighter-rouge">id</code>.
+All <code class="language-plaintext highlighter-rouge">VmNicFilterParameter</code> are persisted in the dedicated table <code class="language-plaintext highlighter-rouge">vm_interface_filter_parameters</code> in the database.</p>
+
+<h3 id="adding-a-new-network-filter-parameter">Adding a new network filter parameter</h3>
+
+<p>To add a new network filter parameter, a reference to the VM’s network interfaces,
+a valid name and a valid value are required.
+The name and the value have to satisfy at least the regular expressions of <a href="https://github.com/libvirt/libvirt/blob/master/docs/schemas/nwfilter.rng">libvirts XML schema</a>,
+to ensure that VDSM will create valid XML for libvirt.
+There are <a href="https://libvirt.org/formatnwfilter.html#nwfelemsReservedVars">Reserved variables of libvirt’s network filters</a> with known data types, which could be validated,
+but it is not planned to implement this.
+It is explicitly allowed to create multiple network filter parameters with the same name.</p>
+
+<p>On adding a new network filter parameter, a new row is created in the dedicated table in the database.</p>
+
+<h3 id="updating-a-new-network-filter-parameter">Updating a new network filter parameter</h3>
+
+<p>The validation of the changed attributes are the same as for adding a new network filter parameter.</p>
+
+<p>Trough oVirt’s REST API it is possible to change the name and the value of the parameter.
+The entity allows to change the reference to the VM’s network interface, but this is very unlikely to happen.
+The <code class="language-plaintext highlighter-rouge">id</code> of the entity must not be changed.</p>
+
+<p>On updating a network filter parameter the row representing the network filter parameter is updated.</p>
+
+<h3 id="removing-a-new-network-filter-parameter">Removing a new network filter parameter</h3>
+
+<p>If the network filter parameter is removed, the corresponding row in the table in the database is removed.
+If the VM’s network interface referenced by the network filter parameter is removed,
+the network filter is removed, too. This is done by the database, hidden from ovirt-engine.</p>
+
+<h3 id="installationupgrade">Installation/Upgrade</h3>
+
+<p>The engine-setup prepares the database for the usage of this feature.</p>
+
+<p>The information about the network filter parameters is sent to VDSM via json, but not XML-RPC.
+VDSM versions compatible to cluster level 4.1 and higher interprets the network filter parameters,
+older VDSM versions ignores them.
+The next section explains this detailed.</p>
+
+<h3 id="communication-of-vdsm-and-engine">Communication of VDSM and engine</h3>
+
+<p>A naive mapping of a parameterized mapping of the reference to a top-level filter in a network interface in libvirt
+XML to VDSM json would look like this:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>libvirt XML fragment</th>
+      <th>VDSM json fragment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;filterref filter='clean-traffic'&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">'filterref': {              </code></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`  ‘filter’: ‘clean-traffic’,`</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`  ‘parameter’: [            `</td>
+    </tr>
+    <tr>
+      <td>`  <parameter name="IP" value="10.0.0.1"></parameter>`</td>
+      <td>`    {                       `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`      ‘name’: ‘IP’,         `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`      ‘value’: ‘10.0.0.1’   `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`    },                      `</td>
+    </tr>
+    <tr>
+      <td>`  <parameter name="IP" value="10.0.0.2"></parameter>`</td>
+      <td>`    {                       `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`      ‘name’: ‘IP’,         `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`      ‘value’: ‘10.0.0.2’   `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`    },                      `</td>
+    </tr>
+    <tr>
+      <td>`  <parameter name="IP" value="10.0.0.3"></parameter>`</td>
+      <td>`    {                       `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`      ‘name’: ‘IP’,         `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`      ‘value’: ‘10.0.0.3’   `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`    },                      `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`  ]                         `</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;/filterref&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">},                          </code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The following table shows an example of the previously implemented mapping of the reference to a top-level filter of a
+network interface in libvirt XML to VDSM json:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>libvirt XML fragment</th>
+      <th>VDSM json fragment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;filterref filter='clean-traffic'/&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">'filter': 'clean-traffic',</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Implemented is a combination of the naive mapping and the previously implemented mapping,
+which gives a backward compatible extension of the VDSM API:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>libvirt XML fragment</th>
+      <th>VDSM json fragment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;filterref filter='clean-traffic'&gt;</code></td>
+      <td>`  ‘filter’: ‘clean-traffic’,`</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`  ‘filterParameters’: [     `</td>
+    </tr>
+    <tr>
+      <td>`  <parameter name="IP" value="10.0.0.1"></parameter>`</td>
+      <td>`    {                       `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`      ‘name’: ‘IP’,         `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`      ‘value’: ‘10.0.0.1’   `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`    },                      `</td>
+    </tr>
+    <tr>
+      <td>`  <parameter name="IP" value="10.0.0.2"></parameter>`</td>
+      <td>`    {                       `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`      ‘name’: ‘IP’,         `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`      ‘value’: ‘10.0.0.2’   `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`    },                      `</td>
+    </tr>
+    <tr>
+      <td>`  <parameter name="IP" value="10.0.0.3"></parameter>`</td>
+      <td>`    {                       `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`      ‘name’: ‘IP’,         `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`      ‘value’: ‘10.0.0.3’   `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`    },                      `</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>`  ],                        `</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;/filterref&gt;</code></td>
+      <td>`                            `</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The new key <code class="language-plaintext highlighter-rouge">filterParameters</code> is only be considered by VDSM, if a value for <code class="language-plaintext highlighter-rouge">filter</code> is set.
+An older VDSM, which does not know about <code class="language-plaintext highlighter-rouge">filterParameters</code>, just ignores it.</p>
+
+<h2 id="dependencies--related-features">Dependencies / Related Features</h2>
+
+<p>The feature depends on <a href="networkfilter.html">Network Filter for vNIC profiles</a>, which is already available.</p>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<p><a href="/ovirt-site/previews/2682/develop/release-management/features/network/networkfiltering.html">Networking Filtering in order to prevent mac spoofing (/develop/release-management/features/network/networkfiltering)</a></p>
+
+<p><a href="networkfilter.html">Network Filter for vNIC profiles (/feature/networkfilter)</a></p>
+
+<p><a href="https://libvirt.org/formatnwfilter.html#nwfconceptsvars">Usage of variables in filters in libvirt</a></p>
+
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1366905">Bug 1366905 - [RFE] Allow multiple IP’s / text fields for network filters, specifically clean-traffic</a></p>
+
+<p><a href="https://libvirt.org/formatnwfilter.html#nwfconcepts">Network Filters Concepts in libvirt</a></p>
+
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1366905#c8">Example hook</a></p>
+
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1009608">Bug 1009608 - [RFE] support for PVLANs in RHEV</a></p>
+
+<p><a href="https://github.com/libvirt/libvirt/blob/master/docs/schemas/nwfilter.rng">nwfilter.rng</a></p>
+
+<p><a href="https://libvirt.org/formatnwfilter.html#nwfelemsReservedVars">Reserved variables of libvirt’s network filters</a></p>
+
+<p><a href="http://ovirt.github.io/ovirt-engine-api-model/4.2/#services/nic_network_filter_parameter">NicNetworkFilterParameters in oVirt Engine’s REST-API</a></p>
+
+<p><a href="https://gerrit.ovirt.org/#/c/78045/13/basic-suite-master/test-scenarios/004_basic_sanity.py">Example of using Network Filter Parameters via the REST-API</a></p>
+
+<h2 id="testing">Testing</h2>
+
+<h3 id="use-cases">Use cases</h3>
+
+<h4 id="setting-ip-of-vm">Setting IP of VM</h4>
+<p>The IP addresses which are allowed to be used by a virtual machine are set explicitly.</p>
+
+<p>Precondition:
+The ‘clean-traffic’ filter is referenced by a vNIC profile.
+This vNIC profile is mapped to a network interface of a  virtual machine.
+This virtual machine is down and this network interface is configured to use multiple static IP addresses.</p>
+
+<h5 id="case-0-only-one-ip-address-allowed">Case 0: Only one IP address allowed</h5>
+<p>Basic flow:</p>
+
+<ol>
+  <li>
+    <p>The value of parameter ‘IP’ is set to the first static IP address of the interface.</p>
+  </li>
+  <li>
+    <p>The virtual machine is started and up.</p>
+  </li>
+</ol>
+
+<p>Postcondition:</p>
+
+<ul>
+  <li>The first, but not the second, static IP address can be pinged from outside the virtual machine.</li>
+</ul>
+
+<h5 id="case-1-multiple-ip-addresses-allowed">Case 1: Multiple IP addresses allowed</h5>
+<p>Basic flow:</p>
+
+<ol>
+  <li>
+    <p>The value of parameter ‘IP’ is set two times at once.
+The first time the value is the first static IP address and
+the second time value is the second static IP address of the interface.</p>
+  </li>
+  <li>
+    <p>The virtual machine is started and up.</p>
+  </li>
+</ol>
+
+<p>Postcondition:</p>
+
+<ul>
+  <li>The first and the second static IP address can be pinged from outside the virtual machine.</li>
+</ul>
+
+<h3 id="implementation">Implementation</h3>
+<p>Tests has to be implemented by the REST API.</p>
+
+<h2 id="contingency-plan">Contingency Plan</h2>
+
+<p>Until the feature is available a VDSM hook parameterized by CustomDeviceProperties could be used,
+example is <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1366905#c8">available</a></p>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  == Network Filter Parameters ==
+  Network filters of virtual machines can configured by parameters.
+</code></pre></div></div>
+
+<h2 id="open-issues">Open Issues</h2>
+
+<p>There are use cases, e.g. <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1009608">Bug 1009608 - [RFE] support for PVLANs in RHEV</a>,
+for using the same parameters for multiple VMs.
+Instead of manage the filter parameters for each single VM’s network interfaces,
+it would be more adequate to manage them per vNIC profile.</p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2682/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2682/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2682/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2682/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/networkfilterparameters.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/networkfilterparameters.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

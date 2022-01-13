@@ -15384,10 +15384,8 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Uploading an Image to a Data Storage Domain</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Click <span class="menuseq"><b class="menu">Storage</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Disks</b></span>.</p>
@@ -15409,28 +15407,25 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 </li>
 </ol>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p><strong>Increasing the Upload Timeout Value</strong></p>
+<p>If the upload times out with the message, <strong>Reason: timeout due to transfer inactivity</strong>, increase the timeout value and restart the <code>ovirt-engine</code> service:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>If the upload times out and you see the message, <strong>Reason: timeout due to transfer inactivity</strong>, increase the timeout value:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config -s TransferImageClientInactivityTimeoutInSeconds=6000</pre>
+<pre class="nowrap"># engine-config -s TransferImageClientInactivityTimeoutInSeconds=6000
+# systemctl restart ovirt-engine</pre>
 </div>
 </div>
-</li>
-<li>
-<p>Restart the <code>ovirt-engine</code> service:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine</pre>
-</div>
-</div>
-</li>
-</ol>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">

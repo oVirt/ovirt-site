@@ -31,3 +31,29 @@ span.icon>.fa {
   content: "\f06a";
   color: #bf0000;
 }
+.conum {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+code .conum {
+  position: absolute;
+}
+.conum::before {
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  background: #025081;
+  color: #fff;
+  text-align: center;
+  content: attr(data-value);
+  border-radius: 50%;
+  line-height: 1.5rem;
+  font-size: 1rem;
+  position: relative;
+  top: -0.1rem;
+}
+.conum+b {
+  display:none;
+}

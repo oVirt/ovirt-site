@@ -8557,15 +8557,12 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 <div class="paragraph">
 <p>Both options are disabled globally by default.</p>
 </div>
-<div class="paragraph">
-<p><strong>Configuring Auto-convergence and Migration Compression for Virtual Machine Migration</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Configure the optimization settings at the global level:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</li>
 <li>
 <p>Enable auto-convergence at the global level:</p>
 <div class="listingblock">
@@ -8573,7 +8570,8 @@ See <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualizatio
 <pre class="nowrap"># engine-config -s DefaultAutoConvergence=True</pre>
 </div>
 </div>
-</li>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>Enable migration compression at the global level:</p>
 <div class="listingblock">

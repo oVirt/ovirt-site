@@ -73,7 +73,8 @@ Within the `Options` section:
 
 Within the `Manage access` section:
 - Ensure `oVirt/Admins` team has Administrator role for the project
-- Setup additional roles as needed
+- Add `oVirt/Developers` with Triage role
+- Setup additional roles as needed, e.g. Maintain or Write for maintainers
 
 Within the `Security & Analysis` section:
 - Enable Dependabot features

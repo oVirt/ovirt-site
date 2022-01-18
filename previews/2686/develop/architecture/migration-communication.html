@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Communication of Engine with Vdsm during migrations | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Communication of Engine with Vdsm during migrations" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2686/develop/architecture/migration-communication.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2686/develop/architecture/migration-communication.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Communication of Engine with Vdsm during migrations" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2686/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Communication of Engine with Vdsm during migrations","url":"https://ovirt.github.io/ovirt-site/previews/2686/develop/architecture/migration-communication.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2686/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2686/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2686/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2686/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2686/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2686/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2686/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2686/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2686/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2686/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2686/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2686/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2686/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2686/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2686/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2686/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2686/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2686/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2686/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2686/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2686/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2686/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2686/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2686/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2686/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2686/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2686/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2686/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2686/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2686/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2686/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2686/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2686/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2686/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2686/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2686//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2686//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2686/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2686/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2686/develop/architecture/">
+              <span property="name">Architecture</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/f4f3e4820685eab0c3b448e59d3f2703?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/f4f3e4820685eab0c3b448e59d3f2703?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Milan Zamazal</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2686/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="communication-of-engine-with-vdsm-during-migrations">Communication of Engine with Vdsm during migrations</h1>
+
+<p>This document provides overview of communication between Engine and Vdsm on migrations.  It serves as a developer reference to the migration process coordination.</p>
+
+<p>The entities involved in the migration are Engine, Vdsm on the source host and Vdsm on the destination host.  At each phase of the migration some coordination between the involved entities happens.  The given migration phases are initiation of the migration, contingent switching to the post-copy mode, successful completion in the pre-copy or post-copy phases, failure in the pre-copy or post-copy phases.</p>
+
+<p>The status changes of the VMs are reported to Engine via events or Engine can detect them by polling (when the event is not emitted or it is lost for some reason).</p>
+
+<h2 id="source-host">Source Host</h2>
+
+<p>On migration initiation:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">VM.migrate</code> call from Engine.</li>
+  <li>The VM status is changed to “migration source” and a status event is sent to Engine.</li>
+</ul>
+
+<p>On pre-copy success:</p>
+
+<ul>
+  <li>The VM status is changed to “down” status with exit status Normal (and with the reason: migration succeeded) attached and a status event is sent to Engine.</li>
+  <li><code class="language-plaintext highlighter-rouge">VM.destroy</code> call from Engine, once Engine detects the VM in “down” status.</li>
+  <li>VM cleanup is performed, including the Vdsm internal VM object, and the <code class="language-plaintext highlighter-rouge">VM.destroy</code> call is answered with a success/error response.</li>
+</ul>
+
+<p>On pre-copy failure:</p>
+
+<ul>
+  <li>The VM status is changed to “up” and a status event is sent to Engine.</li>
+  <li><code class="language-plaintext highlighter-rouge">VM.destroy</code> request is sent to the destination.</li>
+</ul>
+
+<p>On switch to post-copy:</p>
+
+<ul>
+  <li>The VM status remains “migration source” internally, but it is presented as “paused” with <code class="language-plaintext highlighter-rouge">POSTCOPY</code> paused-reason to Engine and a corresponding status event is sent to Engine.  Note that a VM may be in a “paused” status for completely different reasons, do not confuse those situations with <code class="language-plaintext highlighter-rouge">POSTCOPY</code> paused-reason.</li>
+</ul>
+
+<p>On post-copy success:</p>
+
+<ul>
+  <li>VM cleanup is performed automatically, including the Vdsm internal VM object.</li>
+</ul>
+
+<p>On post-copy failure:</p>
+
+<ul>
+  <li>The VM status is changed to “down” with exit status Error (and with the reason: post-copy failure) attached and a status event is sent to Engine.</li>
+  <li>The VM is destroyed immediately afterwards, including the Vdsm internal VM object.</li>
+</ul>
+
+<p>Summary of possible VM migration statuses as reported to Engine:</p>
+
+<ul>
+  <li>Migration source: pre-copy migration</li>
+  <li>Paused: post-copy migration</li>
+  <li>Down: migration completed, post-copy migration failure</li>
+  <li>Up: pre-copy migration failure</li>
+</ul>
+
+<h2 id="destination-host">Destination Host</h2>
+
+<p>On migration initation:</p>
+
+<ul>
+  <li>The VM is created with status “migration destination” and a status event is sent to Engine.</li>
+</ul>
+
+<p>On pre-copy success:</p>
+
+<ul>
+  <li>The VM status is changed to “up” and a status event is sent to Engine.</li>
+</ul>
+
+<p>On pre-copy failure:</p>
+
+<ul>
+  <li>The VM status is changed to “down” with exit status Error (and with the reason: migration failed) and a status event is sent to Engine.</li>
+  <li><code class="language-plaintext highlighter-rouge">VM.destroy</code> call from the source host.</li>
+</ul>
+
+<p>On switch to post-copy:</p>
+
+<ul>
+  <li>No action, the VM remains in “migration destination” status.</li>
+</ul>
+
+<p>On post-copy success:</p>
+
+<ul>
+  <li>The VM status is changed to “up” and a status event is sent to Engine.</li>
+</ul>
+
+<p>On post-copy failure:</p>
+
+<ul>
+  <li>The VM status is changed to “down” with exit status Error (and with the reason: post-copy failure) and a status event is sent to Engine.</li>
+  <li>The VM is destroyed immediately afterwards but the Vdsm internal VM object is retained.</li>
+  <li><code class="language-plaintext highlighter-rouge">VM.destroy</code> call from Engine, once the Engine detects the VM in down status.</li>
+  <li>VM cleanup is performed, including the Vdsm internal VM object, and the VM.destroy call is answered with a success/error response.</li>
+</ul>
+
+<p>Summary of possible VM migration statuses as reported to Engine:</p>
+
+<ul>
+  <li>Migration destination: during migration</li>
+  <li>Up: migration completed</li>
+  <li>Down: migration failed</li>
+</ul>
+
+<h2 id="engine">Engine</h2>
+
+<p>On migration initiation:</p>
+
+<ul>
+  <li>Migration request is sent to Vdsm.</li>
+  <li>If the request is answered positively, the VM is set to “migration source” status.</li>
+</ul>
+
+<p>During any migration:</p>
+
+<ul>
+  <li>Engine watches for events and status changes from the hosts.</li>
+  <li>Reports from the source with “paused” status and <code class="language-plaintext highlighter-rouge">POSTCOPY</code> paused-reason are ignored.</li>
+  <li>Reports from the destination with “migration destination” status are ignored.</li>
+</ul>
+
+<p>During pre-copy phase:</p>
+
+<ul>
+  <li>Engine gets stats from the source, they contain <code class="language-plaintext highlighter-rouge">postcopy</code> flag set to false.</li>
+</ul>
+
+<p>On switch to post-copy (detected, or “paused” status event with a <code class="language-plaintext highlighter-rouge">POSTCOPY</code> paused-reason from the source):</p>
+
+<ul>
+  <li>The VM is set to “migration destination” status.</li>
+  <li><code class="language-plaintext highlighter-rouge">run_on_vds</code> is set to the destination.</li>
+</ul>
+
+<p>During post-copy phase:</p>
+
+<ul>
+  <li>Engine gets stats from the destination, except for migration progress.</li>
+  <li>Engine receives migration progress events from the source, they contain <code class="language-plaintext highlighter-rouge">postcopy</code> flag set to true.</li>
+  <li>The migration may not be canceled.</li>
+</ul>
+
+<p>On pre-copy success (detected, or “down” status event from the source):</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">run_on_vds</code> is set to the destination.</li>
+  <li>Engine receives final migration stats (downtime) event from the source.</li>
+  <li>Engine sets the VM to running status (“up”, “powering up” or “powering down”).</li>
+  <li>Engine sends <code class="language-plaintext highlighter-rouge">VM.destroy</code> request to the source host.</li>
+</ul>
+
+<p>On pre-copy failure (detected, or running-status event from the source):</p>
+
+<ul>
+  <li>Engine sets the VM to running status (“up”, “powering up” or “powering down”).</li>
+</ul>
+
+<p>On post-copy success (detected, or running-status event from the destination):</p>
+
+<ul>
+  <li>Engine receives final migration stats (downtime) event from the source.  Note: post-copy downtime value has different meaning than pre-copy downtime value.</li>
+  <li>Engine sets the VM to the corresponding running status.</li>
+</ul>
+
+<p>On post-copy failure (detected, or “down” status event with <code class="language-plaintext highlighter-rouge">POSTCOPY</code> reason from the destination):</p>
+
+<ul>
+  <li>Engine sets the VM to “down” status.</li>
+</ul>
+
+<p>Regular status combinations (source / destination):</p>
+
+<ul>
+  <li>initial state: (up / down)</li>
+  <li>pre-copy: (migration source / migration destination)</li>
+  <li>post-copy: (paused / migration destination)</li>
+  <li>completed: (down / up)</li>
+  <li>pre-copy failure: (up / down)</li>
+  <li>post-copy failure: (down / down)</li>
+</ul>
+
+<p>Temporary interim status combinations are possible when one of the hosts changes the status while the other one not yet.  For example, “down / migration destination” status combination may occur when switching from “migration source / migration destination” to “down / up”.</p>
+
+<h2 id="note-on-vdsm-recovery">Note on Vdsm recovery</h2>
+
+<p>If Vdsm is restarted during the migration, either on the source or on the destination host, the migration process may be disrupted in several ways.  Vdsm tries to keep just the basic sanity in such a case, that means it tries not to lie about the VM status to Engine.  But even that is not 100% guaranteed.</p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2686/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2686/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2686/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2686/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/architecture/migration-communication.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/architecture/migration-communication.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>IPv6 subnets on ovirt-provider-ovn | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="IPv6 subnets on ovirt-provider-ovn" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2686/develop/release-management/features/network/ipv6_subnets.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2686/develop/release-management/features/network/ipv6_subnets.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="IPv6 subnets on ovirt-provider-ovn" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2686/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"IPv6 subnets on ovirt-provider-ovn","url":"https://ovirt.github.io/ovirt-site/previews/2686/develop/release-management/features/network/ipv6_subnets.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2686/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2686/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2686/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2686/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2686/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2686/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2686/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2686/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2686/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2686/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2686/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2686/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2686/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2686/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2686/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2686/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2686/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2686/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2686/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2686/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2686/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2686/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2686/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2686/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2686/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2686/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2686/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2686/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2686/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class="masthead hidden-print" id="branding" role="banner"><section class="hgroup"></section><div id="access"><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2686/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2686/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li>
+<li role="menuitem">  <a href="/ovirt-site/previews/2686/download/">Download</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/2686/documentation/">Documentation</a>
+</li>
+<li class="active" role="menuitem">  <a href="/ovirt-site/previews/2686/develop/">Developers</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/2686/community/">Community</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/2686//lists.ovirt.org/archives/">Forum</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/2686//blogs.ovirt.org/">Blog</a>
+</li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2686/">
+              <span property="name"></span>
+              <meta property="position" content="1">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2686/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2686/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2686/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2686/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5">
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img src="https://secure.gravatar.com/avatar/?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Miguel Duarte Barroso</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class="alert alert-warning">Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are <strong>outdated</strong>, but provide historical design context.<br><br>They are <strong>not</strong> user documentation and should not be treated as such.<br><br><a href="/ovirt-site/previews/2686/documentation/">Documentation is available here.</a>
+</div>
+
+<h1 id="ipv6-subnets-on-ovirt-provider-ovn">IPv6 subnets on ovirt-provider-ovn</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature provides support for IPv6 addresses on guest virtual machines
+whose networking is provided by OVN.</p>
+
+<p>IPv6 addresses will be automatically assigned by either OVN’s internal dhcp
+service (dhcpv6) or automatically configured through Router Advertisement
+messages - sent by OVN logical routers - depending on the subnet configuration.</p>
+
+<p>Related patches can be found on <a href="https://gerrit.ovirt.org/#/q/topic:provider_ipv6_subnets">gerrit topic:provider_ipv6_subnets</a>.</p>
+
+<h3 id="owner">Owner</h3>
+<ul>
+  <li>Feature Owner: <a href="https://github.com/maiqueb">Miguel Duarte Barroso</a> (mbarroso in #ovirt)</li>
+  <li>Email: <a href="mailto:mdbarroso@redhat.com">mdbarroso@redhat.com</a>
+</li>
+</ul>
+
+<h3 id="terminology">Terminology</h3>
+
+<ul>
+  <li>Networking API: <a href="https://developer.openstack.org/api-ref/network/v2/">OpenStack RESTful Networking API</a>
+</li>
+  <li>OVN: Open Virtual Network. OVN is an OVS (Open vSwitch) extension that
+brings Software Defined Networking to OVS.</li>
+  <li>oVirt OVN provider: a proxy that implements a subset of the Networking API
+and interacts with OVN.</li>
+  <li>Subnet: a layer 3 concept, created on top of a network. As per openstack’s documentation it is a ‘block of IP addresses and associated configuration state. Subnets are used to allocate IP addresses when new ports are created on a network.’</li>
+  <li>Network: an isolated Layer 2 networking segment.</li>
+  <li>DHCP: dynamic host configuration protocol. Client server protocol that assigns an IP address - along with other configuration parameters to the client.</li>
+  <li>MTU: maximum transmission unit. The maximum frame size on an L2 network.</li>
+  <li>MAC: medium access control. Unique identifier assigned to a network interface.</li>
+  <li>RA: router advertisements.</li>
+  <li>IPAM: IP Address Management.</li>
+  <li>guests: Virtual Machines running on an hypervisor.</li>
+  <li>RAs: Router Advertisement messages.</li>
+  <li>RSs: Router Solicitacion messages.</li>
+  <li>EL: Enterprise Linux - CentOS or Red Hat Enterprise Linux.</li>
+</ul>
+
+<h3 id="benefit-to-ovirt">Benefit to oVirt</h3>
+
+<p>IPv6 addresses are currently supported in oVirt, but the L3 capabilities on OVN
+provided networks are severely limited, since it is missing IPAM and routing
+capabilities.
+This feature addresses those gaps, by providing IPv6 IPAM capabilities to oVirt
+logical networks, provided by OVN.
+With IPv6 IPAM in place, routing amongst different IPv6 subnets will be
+possible, and achieved through OVN logical routers.</p>
+
+<h2 id="objectives">Objectives</h2>
+
+<p>Provide IPv6 address support to guests (virtual machines) attached to OVN networks.
+The following configurations, which are explained in the <a href="#ipam-types">IPAM types</a> section will be available:</p>
+
+<ul>
+  <li>static addresses</li>
+  <li>stateful DHCPv6</li>
+  <li>stateless DHCPv6</li>
+</ul>
+
+<h3 id="why-ovn-logical-routers-are-required">Why OVN logical routers are required</h3>
+
+<p>The ISC DHCP client - dhclient - has up to now relied on an hardcoded prefix
+length of 64 bits. That was in line with <a href="https://tools.ietf.org/html/rfc5375#section-3">RFC 5375</a> concept of Global Unique Addresses and Unique Local Addresses.</p>
+
+<p>Unfortunately, the use of an hardcoded prefix length will lead to clients
+believing they are on-link, when in fact they are not, as discussed in
+<a href="https://tools.ietf.org/html/rfc5942">RFC 5942</a>. This would happen for any
+network whose prefix length is not 64 bits.</p>
+
+<p><a href="https://kb.isc.org/docs/aa-01141">This</a> ISC’s article clearly states that a
+properly functioning system should use a prefix length of 128, and get any
+on-link information from the RA messages sent by routers.</p>
+
+<p>Ubuntu <a href="https://bugs.launchpad.net/ubuntu/+source/isc-dhcp/+bug/1609898">bug</a> tracks that very same issue, and that behavior is now found
+in EL8 systems - e.g. dhclient default to a /128 network prefix, and relies on
+RA messages to properly configure it. Red Hat bugs <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1635181">1635181</a> and <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1673951">1673951</a> track this behavior.
+Please note that those fixes will/could be released anytime soon.</p>
+
+<p>Thus, RA message support is required to properly configure the guest IPv6
+addresses, and bug <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1685983">1685983</a> was opened to track its support in ovirt-provider-ovn.</p>
+
+<p>On top of that, RA messages also allow for the configuration of the network’s
+MTU and default route / gateway configuration.</p>
+
+<p><strong>TL;DR</strong></p>
+
+<p>RA messages are required to properly configure dynamic IPv6 addresses in newer
+dhclient versions - e.g. the one supplied on el8 - since dhcpv6 does not supply
+the network prefix to use, and dhclient no longer defaults to a 64 bit prefix
+length.</p>
+
+<p>Since the RA messages are sent by OVN logical routers, any guest VM with a
+recent dhclient version, <strong>requires</strong> the subnet to which it connects to be
+attached to a router.</p>
+
+<h2 id="ipam">IPAM</h2>
+
+<h3 id="ipam-types">IPAM types</h3>
+
+<p>IPv6 provides the following IPAM options:</p>
+
+<ul>
+  <li>
+    <p>slaac: neighbor discovery is provided through router advertisement messages - <em>RA</em>s. Both the IP address and the connection parameters (such as hop limit, MTU, etc) are configured from these router advertisement messages. Specified in <a href="https://tools.ietf.org/html/rfc4862">SLAAC rfc</a>.</p>
+  </li>
+  <li>
+    <p>dhcpv6-stateless: IP addresses are assigned by OVN’s IPv6 stack, based on the port’s mac address and the advertised prefix - in the RA messages. The connection parameters (MTU, max hops, DNS, etc) are configured through the subnet’s native DHCPv6 service.</p>
+  </li>
+  <li>
+    <p>dhcpv6-stateful: Both the IP addresses and the connection parameters are assigned from the subnet’s native DHCPv6 service. DHCPv6 protocol does not send the network prefix in the <strong>Reply</strong> messages, which means that this configuration will only work if the network’s prefix length is 64.</p>
+  </li>
+</ul>
+
+<h3 id="ipam-configuration-requirements">IPAM configuration requirements</h3>
+
+<ul>
+  <li>
+    <p>slaac: this IPAM configuration does not rely on OVN’s subnet DHCP service, which means a DHCP_Options object is <strong>not</strong> required. The RA messages are sent by an OVN Logical_Router, thus one is required.</p>
+  </li>
+  <li>
+    <p>dhcpv6-stateless: this IPAM configuration relies on OVN’s subnet DHCP services to get its IP address, and on the Logical_Router’s RA message’s connection parameters to properly configure the connection. Thus, a DHCP_Options entry is required, as is a Logical_Router object.</p>
+  </li>
+  <li>
+    <p>dhcpv6-stateful: this IPAM configuration relies exclusively on OVN’s subnet DHCP services, and is very close to the IPv4 configuration counterpart - a DHCP_Options object is required, having both an IPv6 cidr, and ip_version set to IPv6. On newer versions of dhclient, a router is also required, since the dhcpv6 messages <strong>do not</strong> feature the network prefix length.</p>
+  </li>
+</ul>
+
+<h3 id="alignment-with-networking-api">Alignment with networking API</h3>
+
+<p>The ovirt-provider-ovn provides an opinionated subset of OpenStack’s networking API v2. In it’s <a href="https://developer.openstack.org/api-ref/network/v2/?expanded=create-subnet-detail#create-subnet">subnet definition</a>, it can be seen that the API features two parameters to influence IPv6 related configurations: <strong>ipv6_ra_mode</strong>, and <strong>ipv6_address_mode</strong>. Both of these attributes accept the following values:</p>
+
+<ul>
+  <li>slaac</li>
+  <li>dhcpv6-stateful</li>
+  <li>dhcpv6-stateless</li>
+</ul>
+
+<p>Given the priorities stated in <a href="#objectives">Objectives</a>, the ovirt-provider-ovn
+will accept either the ‘dhcpv6-stateful’ or ‘dhcpv6-stateless’ configuration,
+while <em>slaac</em> is not yet supported. Despite that, it is described in the
+document - along the supported features - for better understanding of the
+subject.</p>
+
+<p>Of the two parameters, only the <strong>ipv6_address_mode</strong> option will be
+implemented, since their behaviors overlap - e.g. <em>slaac</em> and <em>dhcpv6-stateless</em>
+<strong>require</strong> RAs to configure their IP addresses, thus a single setting can be
+used to configure the subnet.
+This behavior is consistent with OpenStack’s Neutron implementation, since it
+just forces both options to be equal when both are provided.</p>
+
+<p>When not provided, this parameter will <strong>default to dhcpv6-stateful</strong>, to
+preserve backwards compatibility, and that setting will work seemlessly for the
+default configurations of the EL7 and EL8 operating systems.</p>
+
+<h2 id="routing">Routing</h2>
+
+<p>Routing among IPv6 subnets is seemlessly provided by an OVN logical router
+entity.</p>
+
+<p>OVN logical routers are required whenever the ‘slaac’ or
+‘dhcpv6-stateless’ options are configured on the subnet, since they send the RA
+messages that dhcp clients require to configure their IP addresses.</p>
+
+<p>They are also necessary when using the ‘dhcpv6-stateful’ option <strong>if</strong> the
+dhcp client running on the guest connecting to the network to which the subnet
+is attached assigns a /128 prefix - since the network prefix length must be
+configured via RA messages.</p>
+
+<p>Provisioning a router and configuring its interfaces should thus be performed,
+since it also automatically enables the guest VMs routes to be configured: it
+adds some complexity during the network / subnet setup stage, but eases the
+configuration of all VMs attached to the networks whose subnets are connected
+to a router.</p>
+
+<p>Just creating the logical router is indeed not enough; all subnets that require
+RA messages to be multicasted into the connected VMs <strong>must be</strong> connected to
+at least one OVN logical router.</p>
+
+<p>That will create OVN logical flows that are responsible for generating the
+Router Advertisements messages the clients require to configure their IP
+addresses.
+These RA messages are generated as replies to the Router Solicitation messages.</p>
+
+<p>Periodic RA messages are also required, to prevent the default route on the
+guest VM from expiring; it has a default value of 65536 seconds.
+Simply activating the periodic flag on the logical router ports is enough, since
+its min/max defaults are well below that +-18 hour interval.</p>
+
+<h3 id="routing---implementation-detail">Routing - implementation detail</h3>
+
+<p>The above change would be implemented in the following way:</p>
+
+<ol>
+  <li>when a subnet is created, it’s <strong>ipv6_address_mode</strong> parameter is stored in
+the subnet’s external ids</li>
+  <li>when that subnet is attached to a router, its <strong>ipv6_ra_configs:address_mode</strong>
+should be set from the subnet’s external ids address mode value.</li>
+</ol>
+
+<h2 id="guest-vm-configuration">Guest VM configuration</h2>
+
+<p>There are three different ways to configure the guests, enabling them to have
+IPv6 addresses, each with different advantages / drawbacks.</p>
+
+<h3 id="dhcpv6">DHCPv6</h3>
+
+<p>DHCPv6 is one option to configure the guests and it requires one dhcp client to
+be installed in the guest VM. One example of a dhcp client on linux is
+<strong>dhclient</strong>.</p>
+
+<p>In dhcpv6_stateful, it is used to assign an IPv6 address to the specified
+interface, whereas in dhcpv6_stateless it is used to simply configure
+connection parameters - such as DNS.</p>
+
+<p>The default network configuration in EL8 guests is not possible using only
+DHCPv6, since its default NetworkManager configuration relies on dhclient,
+which, relies on RA messages to configure the network prefix length. On EL8
+guests, the guest will have to <strong>also</strong> accept RA messages, as indicated in the
+<a href="#linux-kernel-ra-configuration">next option</a>.</p>
+
+<h3 id="linux-kernel-ra-configuration">Linux Kernel RA configuration</h3>
+
+<p>This option can be seen as a complement needed for el8 based VMs using dhclient,
+<em>or</em> a full fledged alternative to NetworkManager - with the advantage that it
+does not require any additional package to be installed in the guest VM.</p>
+
+<p>It involves configuring directy the behavior in the linux kernel, through the
+<a href="https://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt">interface config files</a>.</p>
+
+<p>To follow it, the following files have to be created, and have a ‘1’ in them:</p>
+<ul>
+  <li>accept_ra</li>
+  <li>autoconf</li>
+  <li>accept_redirects</li>
+  <li>accept_ra_pinfo</li>
+</ul>
+
+<p>And have the <strong>forwarding</strong> flag is disabled - write a ‘0’ into the <em>forwarding</em>
+file</p>
+
+<p>All these files are located under the following folder:</p>
+<ul>
+  <li>“/proc/sys/net/ipv6/conf/<your_if_name>/"</your_if_name>
+</li>
+</ul>
+
+<h3 id="networkmanager">NetworkManager</h3>
+
+<p>To use NetworkManager to configure the IPv6 address assignment, <em>nmcli</em> should
+be used. The recommended way can be found below:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nm-cli con modify &lt;connection_name&gt; ipv6.method auto		<span class="c"># tied to IPV6_AUTOCONF, IPV6INIT</span>
+nm-cli con modify &lt;connection_name&gt; connection.autoconnect <span class="nb">yes</span> 	<span class="c"># tied to ONBOOT</span>
+</code></pre></div></div>
+
+<p>In case debugging is required, make sure the following appears in the interface
+config scripts:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> <span class="s2">"/etc/sysconfig/network-scripts/ifcfg-&lt;YOUR_IF_NAME&gt;"</span>
+<span class="nv">ONBOOT</span><span class="o">=</span><span class="nb">yes
+</span><span class="nv">IPV6INIT</span><span class="o">=</span><span class="nb">yes
+</span><span class="nv">IPV6_AUTOCONF</span><span class="o">=</span><span class="nb">yes</span>
+</code></pre></div></div>
+
+<h2 id="user-flows">User flows</h2>
+
+<h3 id="current-state-assumptions-and-limitations">Current state, assumptions, and limitations</h3>
+
+<p>The ovirt-provider-ovn is limited to having a <strong>single</strong> subnet per network.
+This means that in order to have a VM connected to both ipv4 and ipv6 subnets,
+it needs to connect to 2 different networks (through 2 different logical ports),
+one with an IPv4, other with an IPv6 subnet defined on top.</p>
+
+<h3 id="networking-api-entity-provisioning">Networking API entity provisioning</h3>
+
+<p>Below you can find the steps required to have dynamic IPv6 addresses on the
+guest VMs, along with the available methods of provisioning it.</p>
+
+<ol>
+  <li>create a logical network
+    <ul>
+      <li>oVirt UI</li>
+      <li>oVirt REST API</li>
+      <li>manageIQ UI (*)</li>
+      <li>ovirt-provider-ovn REST API. (*) <a href="#create-a-logical-network">REST example</a>
+</li>
+    </ul>
+  </li>
+  <li>add a subnet on top
+    <ul>
+      <li>oVirt UI - <em>requires changes</em>
+</li>
+      <li>manageIQ UI</li>
+      <li>ovirt-provider-ovn REST API. <a href="#create-a-subnet">REST example</a>
+</li>
+    </ul>
+  </li>
+  <li>provision a router
+    <ul>
+      <li>manageIQ UI</li>
+      <li>ovirt-provider-ovn REST API. <a href="#create-a-logical-router">REST example</a>
+</li>
+    </ul>
+  </li>
+  <li>attach the subnet to the router
+    <ul>
+      <li>manageIQ UI</li>
+      <li>oVirt ovirt-provider-ovn REST API. <a href="#configure-the-router">REST example</a>
+</li>
+    </ul>
+  </li>
+  <li>create a VM having the vNIC profile of the network created in step #1
+<strong>or</strong> assign the vNIC profile of the network created in #1 to an existing
+VM
+    <ul>
+      <li>oVirt UI</li>
+      <li>oVirt REST API</li>
+    </ul>
+  </li>
+</ol>
+
+<p>(*) - when the logical network is created via provider’s REST API, of through
+manageIQ, it is necessary to import the logical network into oVirt engine.</p>
+
+<h4 id="el7-guest-vm-configuration">EL7 Guest VM configuration</h4>
+
+<p>For dhcpv6-stateless the guest VM can be configured using <em>either</em> of the 3
+configuration options defined in the <a href="#guest-vm-configuration">Guest config section</a>.</p>
+
+<p>It is important to state that if and when the dhcp client version supplied in
+EL7 stops defaulting to /64 prefixes, the guest VMs have to be configured as
+indicated for <a href="#el8-guest-vm-configuration">EL8</a>.</p>
+
+<h4 id="el8-guest-vm-configuration">EL8 Guest VM configuration</h4>
+
+<p>On the version of dhcp client supplied in el8, dhcpv6 alone is <strong>not enough</strong> to
+configure dynamic IP addresses on the guest VMs.</p>
+
+<p>The guest networking configuration should work out of the box for both stateful
+and stateless dhcp types, when the subnet is connected to a logical router.</p>
+
+<h2 id="rest-configuration-examples">REST configuration examples</h2>
+
+<h3 id="create-a-logical-network">Create a logical network</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+  http://localhost:9696/v2/networks/ <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+	"network": {
+		"name": "skynet",
+		"port-security-enabled": true
+	}
+}
+'</span>
+</code></pre></div></div>
+
+<h3 id="create-a-subnet">Create a subnet</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+  http://localhost:9696/v2/subnets/ <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+	"subnet": {
+		"network_id": &lt;YOUR_LOGICAL_NETWORK_ID&gt;,
+		"ip_version": 6,
+		"cidr": "def0:4141:ab53::/64",
+		"gateway_ip": "def0:4141:ab53::1",
+		"ipv6_address_mode": "dhcpv6_stateless"
+	}
+}'</span>
+</code></pre></div></div>
+
+<h3 id="create-a-logical-router">Create a logical router</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+  http://localhost:9696/v2/routers/ <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+	"router": {
+		"name": "ra_dispenser"
+	}
+}'</span>
+</code></pre></div></div>
+
+<h3 id="configure-the-router">Configure the router</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> PUT <span class="se">\</span>
+  http://localhost:9696/v2.0/routers/&lt;YOUR_ROUTER_ID&gt;/add_router_interface <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "subnet_id": &lt;YOUR_SUBNET_ID&gt;
+}'</span>
+</code></pre></div></div>
+
+<h2 id="ansible-configuration-examples">Ansible configuration examples</h2>
+
+<h3 id="configuring-stateful-dhcpv6-on-the-subnet">Configuring stateful DHCPv6 on the subnet</h3>
+
+<p>To configure the native dhcpv6 service of OVNs subnet, the user should
+provision the following networking API entities, represented in yaml:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- name: create a network
+  os_network:
+    cloud: "{{ cloud_name }}"
+    state: present
+    name: netv6
+  register: ipv6_network
+
+- name: create an IPv6 subnet
+  os_subnet:
+    cloud: "{{ cloud_name }}"
+    state: present
+    network_name: "{{ ipv6_network.id }}"
+    name: subnet1
+    ip_version: 6
+    cidr: "bef0:1234:a890:5678::/64"
+    enable_dhcp: yes
+    gateway_ip: bef0:1234:a890:5678::1
+    ipv6_address_mode: dhcpv6_stateful
+  register: ipv6_subnet
+
+- name: create a router to send RA messages
+  os_router:
+    cloud: "{{ cloud_name }}"
+    state: present
+    name: router0
+    interfaces:
+      - "{{ ipv6_subnet.id }}"
+</code></pre></div></div>
+
+<h3 id="configuring-stateless-dhcpv6-on-the-subnet">Configuring stateless DHCPv6 on the subnet</h3>
+
+<p>To configure stateless dhcpv6 on the subnet, the user should provision
+the following yaml based ansible playbook snippet:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- name: create a network
+  os_network:
+    cloud: "{{ cloud_name }}"
+    state: present
+    name: netv6
+  register: ipv6_network
+
+- name: attach a subnet to the logical network
+  os_subnet:
+    cloud: "{{ cloud_name }}"
+    state: present
+    network_name: netv6
+    name: subnet_ipv6
+    ip_version: 6
+    cidr: bef0:1234:a890:5678::/64
+    gateway_ip: bef0:1234:a890:5678::1
+    ipv6_address_mode: dhcpv6_stateless
+  register: dhcpv6_subnet
+
+- name: create a router to send RA messages
+  os_router:
+    cloud: "{{ cloud_name }}"
+    state: present
+    name: router0
+    interfaces:
+      - "{{ dhcpv6_subnet.id }}"
+</code></pre></div></div>
+
+<h2 id="ui-considerations">UI considerations</h2>
+
+<p>To prevent networking inconsistencies, the UI should be adapted to only accept
+64 bit long network prefixes, because that is required to provide dynamic IPs
+by dhcp stateful, which is the default address mode.</p>
+
+<h2 id="testing">Testing</h2>
+
+<p>Two scenarios are recommended, each with two different configurations, leading
+to four different tests:</p>
+<ul>
+  <li>single IPv6 subnet using dhcpv6-stateful configuration</li>
+  <li>single IPv6 subnet using dhcpv6-stateless configuration</li>
+  <li>multiple IPv6 subnets connected by router using dhcpv6-stateful configuration</li>
+  <li>multiple IPv6 subnets connected by router using dhcpv6-stateless configuration</li>
+</ul>
+
+<p>All four scenarios on EL8 guest VMs require a router, whereas on EL7 guest VMs
+only the dhcpv6-stateless configurations require it.</p>
+
+<p>The aforementioned list of tests should be executed using both possible
+configuration / provisioning alternatives: oVirt - e.g. using the UI and/or
+the provider’s RESTful API - and manageIQ’s UI.</p>
+
+<h3 id="acceptance-criteria">Acceptance Criteria</h3>
+
+<p>The acceptance criteria for this feature are the first two items of the
+<a href="#testing">Testing</a> section: single IPv6 subnet using stateful / stateless
+address mode configurations.</p>
+
+<h3 id="configuration-mechanism-used-for-each-option">Configuration mechanism used for each option</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Option Name</th>
+      <th style="text-align: center">dhcpv6-stateful</th>
+      <th style="text-align: center">dhcpv6-stateless</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">DNS recursive name server</td>
+      <td style="text-align: center">DHCP</td>
+      <td style="text-align: center">DHCP</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Domain Search List</td>
+      <td style="text-align: center">DHCP</td>
+      <td style="text-align: center">DHCP</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Network Prefix</td>
+      <td style="text-align: center">None</td>
+      <td style="text-align: center">RA</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">IP address</td>
+      <td style="text-align: center">DHCP</td>
+      <td style="text-align: center">Auto generated</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Network Prefix Length</td>
+      <td style="text-align: center">RA</td>
+      <td style="text-align: center">RA</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">MTU</td>
+      <td style="text-align: center">RA</td>
+      <td style="text-align: center">RA</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Default Gateway</td>
+      <td style="text-align: center">RA</td>
+      <td style="text-align: center">RA</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="supported-use-cases-per-dhcpv6-configuration">Supported use cases per dhcpv6 configuration</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tables</th>
+      <th style="text-align: center">dhcpv6-stateful</th>
+      <th style="text-align: center">dhcpv6-stateless</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fixed IPs</td>
+      <td style="text-align: center">supported</td>
+      <td style="text-align: center">not supported</td>
+    </tr>
+    <tr>
+      <td>dynamic IPs</td>
+      <td style="text-align: center">supported, if prefix == 64</td>
+      <td style="text-align: center">supported</td>
+    </tr>
+    <tr>
+      <td>allowed prefix lengths</td>
+      <td style="text-align: center">64 &lt;= X &lt;= 128</td>
+      <td style="text-align: center">64 only</td>
+    </tr>
+    <tr>
+      <td>ipv6 privacy extensions</td>
+      <td style="text-align: center">not supported</td>
+      <td style="text-align: center">supported</td>
+    </tr>
+    <tr>
+      <td>isolated subnet</td>
+      <td style="text-align: center">if guest routes manually configured</td>
+      <td style="text-align: center">not supported</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A brief explanation of each of the use cases described in the tables can be
+found below.</p>
+
+<h4 id="fixed-ips">Fixed IPs</h4>
+
+<p>Fixed IPs are not supported on dhcpv6-stateless since the client itself
+auto-generates the IP address based on the advertised network prefix.
+This means the IP address <strong><em>is not</em></strong> sent in the DHCPv6 Reply message, thus
+making the guest VM IP address configuration impossible.</p>
+
+<h4 id="allowed-prefix-lengths-and-dynamic-ips">Allowed prefix lengths and dynamic IPs</h4>
+
+<p>The <a href="https://tools.ietf.org/html/rfc4862">slaac</a> RFC indicates that all network
+prefixes <strong>are</strong> 64 bit long. Since on DHCPv6 stateless the IP prefix
+configuration is done as in slaac, the IPv6 subnets having dhcpv6_stateless
+address mode are thus limited to /64 prefixes.</p>
+
+<p>On DHCPv6_stateful, the IP address is sent on the DHCPV6 Reply message, and the
+network prefixes - and lengths - are communicated through RA messages.</p>
+
+<p>Thus, the guest is able to configure its addresses - and routes - to communicate
+with subnets having longer prefixes.</p>
+
+<p>There is a caveat though: dynamic IP addresses cannot be used when the network
+prefix length is different than 64,  meaning they will have to be configured
+through the networking API <a href="https://developer.openstack.org/api-ref/network/v2/?expanded=create-subnet-detail,create-port-detail#create-port">fixed IPs</a>
+create port method - specifying both the subnet id, and the IP address.
+Since fixed IP addresses are required, this feature would only be possible if
+the logical switch ports are updated through the RESTful API.</p>
+
+<p>This implies that dynamic IP addresses are <strong>only possible</strong> on dhcpv6_stateful
+address mode <strong>if</strong> the network prefix length is 64 bit long.</p>
+
+<h4 id="ipv6-privacy-extensions">IPv6 privacy extensions</h4>
+
+<p>Privacy extensions are defined in <a href="https://tools.ietf.org/html/rfc4941">rfc</a>.
+They can <strong>only</strong> be applied to stateless address modes, and are a matter
+of guest VM configuration.</p>
+
+<p>NetworkManager could be used to configure the privacy extensions per interface:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmcli conn modify &lt;interface_name&gt; ipv6.ip6-privacy 2
+</code></pre></div></div>
+
+<p>This setting will be applied automatically, and the new temporary IP address
+will be used as the default.</p>
+
+<p>A caveat about privacy extensions is that they <strong>render impossible</strong> IP spoofing
+protection if used, since OVN central will not be able to know the port’s IP
+address during provisioning time.</p>
+
+<h4 id="isolated-subnet">Isolated subnet</h4>
+
+<p>Isolated subnets - not attached to OVN logical routers - can be achieved if the
+address mode is set to dhcpv6_stateful.</p>
+
+<h2 id="future-features">Future Features</h2>
+
+<p>The following is a list of (possible) future features:</p>
+
+<ul>
+  <li>‘slaac’ address mode</li>
+  <li>network prefix lengths != 64 when address mode = ‘dhcpv6_stateful’
+    <ul>
+      <li>this implies implementing fixed IPs in the UI for VMs</li>
+    </ul>
+  </li>
+  <li>address mode selector when creating a subnet through the UI enabling a
+different address mode to be chosen</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2686/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class="text-center" id="footer"><hr class="visible-print">
+<ul class="footer-nav-list">
+<li><a href="/ovirt-site/previews/2686/privacy-policy.html" target="_blank" title="Privacy policy">Privacy policy</a></li>
+<li><a href="/ovirt-site/previews/2686/community/about.html" target="_blank" title="About">About</a></li>
+<li><a href="/ovirt-site/previews/2686/general-disclaimer.html" target="_blank" title="Disclaimers">Disclaimers</a></li>
+</ul>© 2013–2022 oVirt<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/ipv6_subnets.html&amp;template=" target="_blank" title="Report an issue"><i class="icon fab fa-github"></i>Report an issue with this page</a></div>
+<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/ipv6_subnets.md" target="_blank" title="Edit this page"><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

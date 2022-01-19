@@ -1,4 +1,3 @@
 # See https://help.github.com/articles/about-code-owners/ for more info on this file
 
 /source/release/ @oVirt/ovirt-release-engineering
-/source/documentation/ @oVirt/ovirt-documentation

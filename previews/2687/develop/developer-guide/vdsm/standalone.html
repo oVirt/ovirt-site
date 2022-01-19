@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Vdsm Standalone | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Vdsm Standalone" />
+<meta name="author" content="Dan Kenigsberg" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2687/develop/developer-guide/vdsm/standalone.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2687/develop/developer-guide/vdsm/standalone.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Vdsm Standalone" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Dan Kenigsberg" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Dan Kenigsberg"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2687/images/logo.svg"},"name":"Dan Kenigsberg"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Vdsm Standalone","url":"https://ovirt.github.io/ovirt-site/previews/2687/develop/developer-guide/vdsm/standalone.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2687/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2687/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2687/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2687/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2687/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2687/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2687/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2687/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2687/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2687/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2687/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2687/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2687/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2687/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2687/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2687/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2687/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2687/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2687/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2687/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2687/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2687/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2687/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2687/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2687/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2687/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2687/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2687/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2687/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2687/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2687/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2687/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2687/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2687/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2687/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2687//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2687//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2687/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2687/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2687/develop/developer-guide/">
+              <span property="name">Developer Guide</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2687/develop/developer-guide/vdsm/">
+              <span property="name">Vdsm</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ce421080e5d2da87febb626f6e8906c9?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Dan Kenigsberg</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/df31c3a16c31d8322c6ecc1334a56698?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/df31c3a16c31d8322c6ecc1334a56698?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Deepak C Shetty</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          
+<h1 id="vdsm-standalone">Vdsm Standalone</h1>
+
+<p>Vdsm was designed to be driven by oVirt-engine and be its humble server. However, it can be used on its own right. Here there is a crude example on how Vdsm can be used to create and run a virtual machine backed on local storage. In order to use it, you should first have to install vdsm and vdsm-cli, and create a directoy to be used by it for storing VM images and metadata.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #!/usr/bin/python
+  # GPLv2+
+  import sys
+  import uuid
+  import time
+  sys.path.append('/usr/share/vdsm')
+  import vdscli
+  from storage.sd import LOCALFS_DOMAIN, DATA_DOMAIN
+  from storage.volume import COW_FORMAT, SPARSE_VOL, LEAF_VOL, BLANK_UUID
+  spUUID = str(uuid.uuid4())
+  sdUUID = str(uuid.uuid4())
+  imgUUID = str(uuid.uuid4())
+  volUUID = str(uuid.uuid4())
+  # you should manually create the following directory and
+  # chown vdsm:kvm /tmp/localstoragedomain
+  path = "/tmp/localstoragedomain"
+  s = vdscli.connect()
+  masterVersion = 1
+  hostID = 1
+  def vdsOK(d):
+      print d
+      if d['status']['code']:
+     raise Exception(str(d))
+      return d
+  def waitTask(s, taskid):
+      while vdsOK(s.getTaskStatus(taskid))['taskStatus']['taskState'] != 'finished':
+          time.sleep(3)
+      vdsOK(s.clearTask(taskid))
+  vdsOK(s.connectStorageServer(LOCALFS_DOMAIN, "my favorite pet", [dict(id=1, connection=path)]))
+  vdsOK(s.createStorageDomain(LOCALFS_DOMAIN, sdUUID, "my local domain", path, DATA_DOMAIN, 0))
+  vdsOK(s.createStoragePool(LOCALFS_DOMAIN, spUUID, "pool name", sdUUID, [sdUUID], masterVersion))
+  # connect to an existing pool, and become pool manager.
+  vdsOK(s.connectStoragePool(spUUID, hostID, "scsikey", sdUUID, masterVersion))
+  tid = vdsOK(s.spmStart(spUUID, -1, -1, -1, 0))['uuid']
+  waitTask(s, tid)
+  sizeGiB = 100
+  tid = vdsOK(s.createVolume(sdUUID, spUUID, imgUUID, sizeGiB,
+                             COW_FORMAT, SPARSE_VOL, LEAF_VOL,
+                             volUUID, "volly",
+                             BLANK_UUID, BLANK_UUID))['uuid']
+  waitTask(s, tid)
+  vmId = str(uuid.uuid4())
+  vdsOK(
+      s.create(dict(vmId=vmId,
+                    drives=[dict(poolID=spUUID, domainID=sdUUID, imageID=imgUUID, volumeID=volUUID)],
+                    memSize=256,
+           display="vnc",
+                    vmName="vm1",
+                   )
+              )
+  )
+</code></pre></div></div>
+
+<p>The below example shows how glusterfs can be used as a DATA_DOMAIN by exploiting the SHAREDFS interface in Vdsm.</p>
+
+<ul>
+  <li>Pre-req:
+    <ol>
+      <li>latest kernel having O_DIRECT support for fuse is needed to be running on the host.</li>
+      <li>gluster volume must be pre-setup. In the below example assuming hostname as server.example.com, myvol is the name of the gluster volume that must be pre-created and started using gluster commands.</li>
+    </ol>
+  </li>
+</ul>
+
+<p>`</p>
+
+<p>#!/usr/bin/python
+ # GPLv2+</p>
+
+<p>import sys
+ import uuid
+ import time</p>
+
+<p>sys.path.append(‘/usr/share/vdsm’)</p>
+
+<p>import vdscli
+ from storage.sd import SHAREDFS_DOMAIN, DATA_DOMAIN, ISO_DOMAIN
+ from storage.volume import COW_FORMAT, SPARSE_VOL, LEAF_VOL, BLANK_UUID</p>
+
+<p>spUUID = str(uuid.uuid4())
+ sdUUID = str(uuid.uuid4())
+ imgUUID = str(uuid.uuid4())
+ volUUID = str(uuid.uuid4())</p>
+
+<p>gluster_conn = “server.example.com:myvol”</p>
+
+<p>s = vdscli.connect()</p>
+
+<p>masterVersion = 1
+ hostID = 1</p>
+
+<p>def vdsOK(d):
+     print d
+     if d[‘status’][‘code’]:
+         raise Exception(str(d))
+     return d</p>
+
+<p>def waitTask(s, taskid):
+     while vdsOK(s.getTaskStatus(taskid))[‘taskStatus’][‘taskState’] != ‘finished’:
+         time.sleep(3)
+     vdsOK(s.clearTask(taskid))</p>
+
+<p>vdsOK(s.connectStorageServer(SHAREDFS_DOMAIN, “my gluster mount”, [dict(id=1, spec=gluster_conn, vfs_type=”glusterfs”, mnt_options=””)]))</p>
+
+<p>vdsOK(s.createStorageDomain(SHAREDFS_DOMAIN, sdUUID, “my gluster domain”, gluster_conn, DATA_DOMAIN, 0))</p>
+
+<p>vdsOK(s.createStoragePool(SHAREDFS_DOMAIN, spUUID, “my gluster pool”, sdUUID, [sdUUID], masterVersion))</p>
+
+<p># connect to an existing pool, and become pool manager.
+ vdsOK(s.connectStoragePool(spUUID, hostID, “scsikey”, sdUUID, masterVersion))
+ tid = vdsOK(s.spmStart(spUUID, -1, -1, -1, 0))[‘uuid’]
+ waitTask(s, tid)</p>
+
+<p>sizeGiB = 100</p>
+
+<p>tid = vdsOK(s.createVolume(sdUUID, spUUID, imgUUID, sizeGiB,
+                            COW_FORMAT, SPARSE_VOL, LEAF_VOL,
+                            volUUID, “glustervol”,
+                            BLANK_UUID, BLANK_UUID))[‘uuid’]
+ waitTask(s, tid)</p>
+
+<p>vmId = str(uuid.uuid4())</p>
+
+<p>vdsOK(
+     s.create(dict(vmId=vmId,
+                   drives=[dict(poolID=spUUID, domainID=sdUUID, imageID=imgUUID, volumeID=volUUID)],
+                   memSize=256,
+                   display=”vnc”,
+                   vmName=”vm-backed-by-gluster”,
+                  )
+             )
+ )</p>
+
+<p>`</p>
+
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2687/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2687/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2687/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2687/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/developer-guide/vdsm/standalone.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/developer-guide/vdsm/standalone.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

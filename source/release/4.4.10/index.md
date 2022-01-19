@@ -207,13 +207,6 @@ Dedicated atomic non-blocking data structures were used so that the race conditi
    
 
 
-#### oVirt Release Package
-
- - [BZ 2006682](https://bugzilla.redhat.com/show_bug.cgi?id=2006682) **subscription-manager is missing from ovirt-node image**
-
-   
-
-
 ### No Doc Update
 
 #### VDSM
@@ -254,7 +247,7 @@ Dedicated atomic non-blocking data structures were used so that the race conditi
 	Eyal Shenitzky (Contributed to: ovirt-engine)
 	Jake Reynolds (Contributed to: ovirt-hosted-engine-ha)
 	Janos Bonic (Contributed to: ovirt-site)
-	Lev Veyde (Contributed to: ovirt-appliance, ovirt-release, ovirt-site)
+	Lev Veyde (Contributed to: ovirt-appliance, ovirt-node-ng-image, ovirt-release, ovirt-site)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection)

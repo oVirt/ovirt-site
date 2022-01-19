@@ -15,11 +15,13 @@ Similarly, if you plan to access a local or remote Data Warehouse database from 
 Accessing the {engine-name} database from external systems is not supported.
 ====
 
+ifdef::rhv-doc[]
 [NOTE]
 ====
 A diagram of these firewall requirements is available at https://access.redhat.com/articles/3932211.
 You can use the IDs in the table to look up connections in the diagram.
 ====
+endif::[]
 
 .Database Server Firewall Requirements
 [options="header", cols="2,2,2,5,5,5,3", frame=all, grid=all]

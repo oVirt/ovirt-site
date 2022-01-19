@@ -11,11 +11,13 @@ The `engine-setup` script can configure the firewall automatically.
 
 The firewall configuration documented here assumes a default configuration.
 
+ifdef::rhv-doc[]
 [NOTE]
 ====
 A diagram of these firewall requirements is available at https://access.redhat.com/articles/3932211.
 You can use the IDs in the table to look up connections in the diagram.
 ====
+endif::[]
 
 .{virt-product-fullname} {engine-name} Firewall Requirements
 [options="header", cols="3,3,3,4,4,4,4", frame=all, grid=all]
@@ -51,7 +53,7 @@ VM Portal clients |{virt-product-fullname} {engine-name} |Provides websocket pro
 
 {enterprise-linux-host-fullname}s |{virt-product-fullname} {engine-name} |If Kdump is enabled on the hosts, open this port for the fence_kdump listener on the {engine-name}. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-fence_kdump_Advanced_Configuration[fence_kdump Advanced Configuration]. `fence_kdump` doesn't provide a way to encrypt the connection. However, you can manually configure this port to block access from hosts that are not eligible.
 |No
-|M7 |54323 |TCP |Administration Portal clients |{virt-product-fullname} {engine-name} (ImageIO Proxy server) |Required for communication with the ImageIO Proxy (`ovirt-imageio-proxy`).
+|M7 |54323 |TCP |Administration Portal clients |{virt-product-fullname} {engine-name} (`ovirt-imageio` service) |Required for communication with the `ovirt-imageo` service.
 |Yes
 |M8 |6442 |TCP |{hypervisor-fullname}s
 

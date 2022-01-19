@@ -129,7 +129,7 @@ include::topics/Importing_Templates_from_Imported_Data_Storage_Domains.adoc[]
 
 :context: storage_tasks
 
-include::topics/Uploading_Images_to_a_Data_Storage_Domain.adoc[]
+include::topics/Uploading_Images_to_a_Data_Storage_Domain.adoc[leveloffset=+3]
 
 include::topics/proc_Copy_image_to_ISO_domain.adoc[leveloffset=+3]
 

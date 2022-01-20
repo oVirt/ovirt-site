@@ -22,8 +22,8 @@ assurance teams, as required.
 If the PR requires changes, updates, or corrections, we will let you know
 in the PR. We might request that you make the changes, or let you know that we
 incorporated your content in a different PR. When the PR has been reviewed, all
-updates are complete, and all commits are squashed, we'll merge your PR and
-apply it to the valid versions.
+updates are complete, and all commits are squashed, we'll merge the PR and it will
+be published to the oVirt website.
 
 == Repository organization
 The oVirt documentation repository is stored under `/source/documentation`. Each directory corresponds to a guide, except `common`, which includes files that are shared between multiple guides. Each guide's directory includes `index.adoc` and `master.adoc` files. These are the top-level assemblies for that guide, where `index.adoc` is for oVirt and `master.adoc` is for Red Hat Virtualization, a downstream distribution of oVirt. Many guides include additional nested assemblies and a `topics` subdirectory with individual topics.
@@ -94,7 +94,7 @@ for OpenShift Online and OpenShift Dedicated are based on the appropriate
 
 On a 12-hourly basis, the documentation web sites are rebuilt for each of these
 branches. This way the published content for each released version of an
-OpenShift product will remain the same while development continues on the
+OpenShift product remains the same while development continues on the
 `main` branch. Additionally, any corrections or additions that are
 "cherry-picked" into the release branches will show up in the published
 documentation after 12 hours.
@@ -163,5 +163,4 @@ understand some basic guidelines to keep things consistent
 across our content.
 ////
 // * If you are ready to create content, or want to edit existing content, the
-link:create_or_edit_content.adoc[create or edit content] topic describes how
-to do so by creating a working branch.
+// link:create_or_edit_content.adoc[create or edit content] topic describes how to do so by creating a working branch.

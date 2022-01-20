@@ -8,11 +8,9 @@
 
 toc::[]
 
-== Modularization backstory
-oVirt docs are modularized.
-All existing content has been replaced with content that is based on user stories and
-complies with the modularization guidelines. All future content must both
-support a user story and be modular.
+== Modular documentation
+oVirt user documentation should adhere to link:https://redhat-documentation.github.io/modular-docs/[modular documentation guidelines] and
+content should be based on user stories.
 
 == How do I contribute modularized content?
 To contribute modularized content, you need to write a user story, create
@@ -21,13 +19,13 @@ story.
 
 == What if I don't want to write in modules?
 If you don't want to write the modules yourself but have a content change,
-write a user story, provide details to support the story, and reach out to the
-oVirt docs team.
+write a user story, provide details to support the story, and reach out to
+@oVirt-documentation.
 
 == How do I write a user story? Is there a template?
 Instead of a template, we have a series of questions for you to answer to
 create the user story. Follow the same steps if you are writing the modules
-yourself or if you plan to work with the docs team.
+yourself or if you plan to work with the documentation team.
 
 The basic format of a user story is:
 
@@ -44,41 +42,38 @@ You don't have to answer all of these questions, only the ones that make sense t
 * What is the feature being developed? What does it do?
 * How does it work?
 * Are there any configuration files/settings/parameters being added or modified? Are any new commands being added or modified?
-* What tools or software does the docs team need to test how this feature works? Does the docs team need to update any installed software?
+* What tools or software does the documentation team need to test how this feature works? Does the documentation team need to update any installed software?
 * Are there any existing blogs, Wiki posts, Kbase articles, or BZs involving this feature? Or any other existing information that may help to understand this feature?
 
 === Customer impact
 * Who is the intended audience for this feature? Does it apply to developers, admins, users, or all of the above?
-* Why is it important for our users? Why would they want to use this feature? How does it benefit them?
-* How will the customer use it? Is there a use case?
-* How will the customer interact with this feature? Web console? REST API?
+* Why is it important for users? Why would they want to use this feature? How does it benefit them?
+* How will the user use it? Is there a use case?
+* How will the user interact with this feature? Web console? REST API?
 
 === Product info
-// * Is this feature being developed for Online? Enterprise? Dedicated? OKD? All?
-* Will this feature be rolled back to previous versions?
 * What type of plan do users need to use this feature?
 * Is it user-facing, or more behind-the-scenes admin stuff?
-* What tools or software does the docs team need to test how this feature works?
+* What tools or software does the documentation team need to test how this feature works?
 
-== How do I write in modules?
-The full guidelines for writing modules are in the Customer Content Services (CCS)
-link:https://redhat-documentation.github.io/modular-docs/[Modular documentation reference guide].
+== How do I write modular documentation?
+See the link:https://redhat-documentation.github.io/modular-docs/[Modular documentation reference guide].
 
-The main concepts of writing in modules are:
+The main concepts:
 
 * Each assembly contains the information required for a user to achieve a single
 goal.
 * Assemblies contain primarily `include` statements, which are references to
 smaller, targeted module files.
-* Modules can contain conceptual information, reference information, or steps,
+* Modules can contain conceptual information, reference information, or procedural information (steps),
 but not a combination of the types.
 
 For example, a simple assembly might contain the following three modules:
 
 * A concept module that contains background information about the feature
-that the user will configure
+that the user will configure.
 * A reference module that contains an annotated sample yaml file that the user
-needs to modify
+needs to modify.
 * A procedure module that contains the prerequisites that the user needs to
 complete before they start configuring and steps that the user takes to
 complete the configuration.

@@ -296,6 +296,6 @@ For each repository, you can assign [labels](https://github.com/actions/labeler)
 There is also a GitHub Action you can use in your repository to [automatically label PRs](https://github.com/actions/labeler).
 
 
-# Developing code ob GitHub
+# Developing code on GitHub
 
-Best practices for developing an oVirt project on GitHub are described at [Working with oVirt on GitHub](https://www.ovirt.org/develop/dev-process/working-with-github.html).
+You can find the best practices for developing an oVirt project on GitHub in [Working with oVirt on GitHub](https://www.ovirt.org/develop/dev-process/working-with-github.html).

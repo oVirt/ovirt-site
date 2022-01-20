@@ -9,13 +9,16 @@ Updated on: 2022-01-20
 
 # Making an oVirt release
 
-The purpose of this document is to provide instructions on how to prepare a release for oVirt project followiing the transition to external providers for
+The purpose of this document is to provide instructions on how to prepare a release for the oVirt project following the transition to external providers for
 the git hosting and build execution.
 
 ## Development phase
 
 During the development of the next oVirt release, patches are being verified using GitHub Actions.
-Once a PR is merged, the pakages are being built by COPR infrastructure within [ovirt/ovirt-master-snapshot](https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/) project.
+
+We also have [oVirt System Test](https://github.com/oVirt/ovirt-system-tests) for gating but we didn't integrate it yet into GitHub Actions.
+
+Once a PR is merged, the packages are being built by COPR infrastructure within [ovirt/ovirt-master-snapshot](https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/) project.
 
 Manual and automated testing can then be done using the [snapshot composes provided by COPR](/develop/dev-process/install-nightly-snapshot.html).
 
@@ -28,8 +31,8 @@ Instructions on how to get your package added to this flow are provided here:
 A pre release (alpha, beta, release candidate) should be built from tagged content.
 In order to do that we are going to use the [CentOS Community Build Service (CBS)](https://cbs.centos.org/koji/).
 
-Package maintainers must have a [CentOS Account](https://accounts.centos.org/) or a [Fedora Account](https://accounts.fedoraproject.org/)
-which at the time of writing this article are exactly the same account system.
+Package maintainers must have a [CentOS Account](https://accounts.centos.org/) or a [Fedora Account](https://accounts.fedoraproject.org/),
+which were unified in the middle of 2021 to use the same account system.
 
 In order to build for oVirt you need to be added to the CBS you need to join the [CentOS Virtualization SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization).
 You can do that by attending a [Virt SIG IRC meeting](https://www.centos.org/community/calendar/#virtualization-sig)
@@ -42,7 +45,7 @@ or asking on the [CentOS Virt mailing list](https://lists.centos.org/mailman/lis
 
 The build process on the [Community Build Service is documented on the CentOS website](https://wiki.centos.org/HowTos/CommunityBuildSystem).
 
-A typycal build is done by taking a src.rpm from the COPR [ovirt/ovirt-master-snapshot Builds](https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/builds/)
+A typical build is done by taking a src.rpm from the COPR [ovirt/ovirt-master-snapshot Builds](https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/builds/)
 and rebuilding with:
 
 ```bash
@@ -60,7 +63,7 @@ cbs build virt9s-ovirt-45-el9s <your package .src.rpm>
 cbs build virt8s-ovirt-45-el8s <your package .src.rpm>
 ```
 
-Once the builds complete it will be tagged as candidate to be released as `virt8s-ovirt-45-candidate` (for CentOS Stream 8) or `virt9s-ovirt-45-candidate` (for CentOS Stream 9).
+Once the builds complete it will be tagged as a candidate to be released as `virt8s-ovirt-45-candidate` (for CentOS Stream 8) or `virt9s-ovirt-45-candidate` (for CentOS Stream 9).
 
 In order to publish the build you need to tag it for testing:
 
@@ -98,7 +101,7 @@ cbs tag virt8s-ovirt-45-release <your build without the trailing '.src.rpm'>
 cbs tag virt8s-ovirt-45-release ovirt-hosted-engine-ha-2.4.10-1.el8
 ```
 
-this will publish the build on http://mirror.centos.org/centos/8-stream/virt/ repository and to all CentOS mirrors.
+this will publish the build on http://mirror.centos.org/centos/8-stream/virt/ repository and to CentOS mirrors.
 
 
 ```bash
@@ -109,7 +112,7 @@ cbs tag virt9s-ovirt-45-release <your build without the trailing '.src.rpm'>
 cbs tag virt9s-ovirt-45-release ovirt-hosted-engine-ha-2.4.10-1.el9
 ```
 
-this will publish the build on http://mirror.stream.centos.org/SIGs/9-stream/virt/ repository and to all CentOS mirrors.
+this will publish the build on http://mirror.stream.centos.org/SIGs/9-stream/virt/ repository and to CentOS mirrors.
 
 ## Release notes preparation
 
@@ -156,12 +159,12 @@ To local communities:
 
 Missed someone? Please add!
 
-Typical announce for social media:
+A typical announcement for social media:
 
 ```
 The #oVirt project community is pleased to announce the general availability of the new stable release
 of the #opensource #virtualization solution for your entire #enterprise: oVirt <new version>.
-Read more about it on <link to blog announce>.
+Read more about it on <link to announcement blog post>.
 ```
 
 Typical blog post: https://blogs.ovirt.org/2022/01/ovirt-4-4-10-is-now-generally-available/

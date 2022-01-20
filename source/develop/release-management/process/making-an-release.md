@@ -166,4 +166,4 @@ Read more about it on <link to blog announce>.
 
 Typical blog post: https://blogs.ovirt.org/2022/01/ovirt-4-4-10-is-now-generally-available/
 
-Try contacting our [Press Plan Contacts](develop/release-management/process/press-plan.html) to get press coverage.
+Try contacting our [Press Plan Contacts](/develop/release-management/process/press-plan.html) to get press coverage.

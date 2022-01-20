@@ -119,3 +119,8 @@ $ gh repo sync
 ## Further reading
 
 Further details how to work with GitHub can be found in the [GitHub Docs](https://docs.github.com/en) or [GitHub CLI Manual](https://cli.github.com/manual/).
+
+
+# Administration of an oVirt project on GitHub
+
+Best practices for administration of an oVirt project on GitHub are described at [Migrating to GitHub](https://www.ovirt.org/develop/developer-guide/migrating_to_github.html).

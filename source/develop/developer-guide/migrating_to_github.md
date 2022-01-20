@@ -294,3 +294,8 @@ contact_links:
 For each repository, you can assign [labels](https://github.com/actions/labeler) to easily label things such as good first issues, bugs, documentation, tested labels, and more. Your repository labels can be found at: `https://github.com/oVirt/<your_project>/labels`
 
 There is also a GitHub Action you can use in your repository to [automatically label PRs](https://github.com/actions/labeler).
+
+
+# Developing code ob GitHub
+
+Best practices for developing an oVirt project on GitHub are described at [Working with oVirt on GitHub](https://www.ovirt.org/develop/dev-process/working-with-github.html).

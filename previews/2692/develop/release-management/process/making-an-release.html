@@ -147,13 +147,16 @@
 
 <h1 id="making-an-ovirt-release">Making an oVirt release</h1>
 
-<p>The purpose of this document is to provide instructions on how to prepare a release for oVirt project followiing the transition to external providers for
+<p>The purpose of this document is to provide instructions on how to prepare a release for the oVirt project following the transition to external providers for
 the git hosting and build execution.</p>
 
 <h2 id="development-phase">Development phase</h2>
 
-<p>During the development of the next oVirt release, patches are being verified using GitHub Actions.
-Once a PR is merged, the pakages are being built by COPR infrastructure within <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/">ovirt/ovirt-master-snapshot</a> project.</p>
+<p>During the development of the next oVirt release, patches are being verified using GitHub Actions.</p>
+
+<p>We also have <a href="https://github.com/oVirt/ovirt-system-tests">oVirt System Test</a> for gating but we didn’t integrate it yet into GitHub Actions.</p>
+
+<p>Once a PR is merged, the packages are being built by COPR infrastructure within <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/">ovirt/ovirt-master-snapshot</a> project.</p>
 
 <p>Manual and automated testing can then be done using the <a href="/ovirt-site/previews/2692/develop/dev-process/install-nightly-snapshot.html">snapshot composes provided by COPR</a>.</p>
 
@@ -168,8 +171,8 @@ Once a PR is merged, the pakages are being built by COPR infrastructure within <
 <p>A pre release (alpha, beta, release candidate) should be built from tagged content.
 In order to do that we are going to use the <a href="https://cbs.centos.org/koji/">CentOS Community Build Service (CBS)</a>.</p>
 
-<p>Package maintainers must have a <a href="https://accounts.centos.org/">CentOS Account</a> or a <a href="https://accounts.fedoraproject.org/">Fedora Account</a>
-which at the time of writing this article are exactly the same account system.</p>
+<p>Package maintainers must have a <a href="https://accounts.centos.org/">CentOS Account</a> or a <a href="https://accounts.fedoraproject.org/">Fedora Account</a>,
+which were unified in the middle of 2021 to use the same account system.</p>
 
 <p>In order to build for oVirt you need to be added to the CBS you need to join the <a href="https://wiki.centos.org/SpecialInterestGroup/Virtualization">CentOS Virtualization SIG</a>.
 You can do that by attending a <a href="https://www.centos.org/community/calendar/#virtualization-sig">Virt SIG IRC meeting</a>
@@ -184,7 +187,7 @@ For example, if you want to ship for Fedora, you need to be package owner on <a 
 
 <p>The build process on the <a href="https://wiki.centos.org/HowTos/CommunityBuildSystem">Community Build Service is documented on the CentOS website</a>.</p>
 
-<p>A typycal build is done by taking a src.rpm from the COPR <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/builds/">ovirt/ovirt-master-snapshot Builds</a>
+<p>A typical build is done by taking a src.rpm from the COPR <a href="https://copr.fedorainfracloud.org/coprs/ovirt/ovirt-master-snapshot/builds/">ovirt/ovirt-master-snapshot Builds</a>
 and rebuilding with:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># This builds a scratch (just a test) build for CentOS Stream 9 for oVirt 4.5</span>
@@ -201,7 +204,7 @@ cbs build virt9s-ovirt-45-el9s &lt;your package .src.rpm&gt;
 cbs build virt8s-ovirt-45-el8s &lt;your package .src.rpm&gt;
 </code></pre></div></div>
 
-<p>Once the builds complete it will be tagged as candidate to be released as <code class="language-plaintext highlighter-rouge">virt8s-ovirt-45-candidate</code> (for CentOS Stream 8) or <code class="language-plaintext highlighter-rouge">virt9s-ovirt-45-candidate</code> (for CentOS Stream 9).</p>
+<p>Once the builds complete it will be tagged as a candidate to be released as <code class="language-plaintext highlighter-rouge">virt8s-ovirt-45-candidate</code> (for CentOS Stream 8) or <code class="language-plaintext highlighter-rouge">virt9s-ovirt-45-candidate</code> (for CentOS Stream 9).</p>
 
 <p>In order to publish the build you need to tag it for testing:</p>
 
@@ -234,7 +237,7 @@ cbs tag virt8s-ovirt-45-release &lt;your build without the trailing <span class=
 cbs tag virt8s-ovirt-45-release ovirt-hosted-engine-ha-2.4.10-1.el8
 </code></pre></div></div>
 
-<p>this will publish the build on http://mirror.centos.org/centos/8-stream/virt/ repository and to all CentOS mirrors.</p>
+<p>this will publish the build on http://mirror.centos.org/centos/8-stream/virt/ repository and to CentOS mirrors.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># CentOS Stream 9</span>
 cbs tag virt9s-ovirt-45-release &lt;your build without the trailing <span class="s1">'.src.rpm'</span><span class="o">&gt;</span>
@@ -243,7 +246,7 @@ cbs tag virt9s-ovirt-45-release &lt;your build without the trailing <span class=
 cbs tag virt9s-ovirt-45-release ovirt-hosted-engine-ha-2.4.10-1.el9
 </code></pre></div></div>
 
-<p>this will publish the build on http://mirror.stream.centos.org/SIGs/9-stream/virt/ repository and to all CentOS mirrors.</p>
+<p>this will publish the build on http://mirror.stream.centos.org/SIGs/9-stream/virt/ repository and to CentOS mirrors.</p>
 
 <h2 id="release-notes-preparation">Release notes preparation</h2>
 
@@ -295,11 +298,11 @@ Please follow instructions on <a href="https://github.com/oVirt/releng-tools/blo
 
 <p>Missed someone? Please add!</p>
 
-<p>Typical announce for social media:</p>
+<p>A typical announcement for social media:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The #oVirt project community is pleased to announce the general availability of the new stable release
 of the #opensource #virtualization solution for your entire #enterprise: oVirt &lt;new version&gt;.
-Read more about it on &lt;link to blog announce&gt;.
+Read more about it on &lt;link to announcement blog post&gt;.
 </code></pre></div></div>
 
 <p>Typical blog post: https://blogs.ovirt.org/2022/01/ovirt-4-4-10-is-now-generally-available/</p>

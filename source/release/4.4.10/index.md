@@ -11,7 +11,7 @@ page_classes: releases
 
 # oVirt 4.4.10 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.10 release as of January 18, 2022.
+The oVirt Project is pleased to announce the availability of the 4.4.10-1 release as of January 21, 2022.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -73,13 +73,11 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 #### oVirt Engine
 
- - [BZ 2032919](https://bugzilla.redhat.com/show_bug.cgi?id=2032919) **Unable to add RHEL 7 host into RHV Manager in clusters 4.2/4.3**
-
-   There was an error in the with tracked by BZ2019807, which caused the issue that RHEL 7 hosts could not be added to RHV Manager. This issue is now fixed and RHEL 7 hosts can be added to RHV Manager successfully.
-
  - [BZ 2007286](https://bugzilla.redhat.com/show_bug.cgi?id=2007286) **Host is never fenced after a soft fence attempt**
 
-   Soft fencing phase has been fixed, so if soft fencing won't make the host responsive again, then the non-responding host treatment flow will proceed correctly with following phases.
+   Previously, a non responsive host was first soft-fenced by the engine, but it didn't fix the connectivity issue. The engine didn't initiate a hard fence and the host was left in non responsive status.
+
+In this release, Soft fencing has been fixed, and if the soft fencing does't make the host responsive again, then the non-responding host treatment process continues correctly with the additional steps.
 
 
 ### Enhancements
@@ -88,59 +86,7 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
  - [BZ 1897114](https://bugzilla.redhat.com/show_bug.cgi?id=1897114) **Add additional logging information to be able to understand why host is stuck in Unassigned state**
 
-   Feature: 
-
-Improved monitoring of host refresh capabilities functionality [1] and minor refactoring [2]
-
-
-
-Reason [1]: 
-
-The motivation behind this change is a difficulty to investigate and very rare production issues causing Virtualization Manager (RHV-M) to lost connectivity hosts (RHV-H). In a result - these hosts end up in illegal states like  or simply cannot be activated.
-
-
-
-Result [2]: 
-
-The service occasionally prints information about hosts that were not 'refreshed' by HostMonitoring for
-
-given period (a warning in /var/log/ovirt-engine/engine.log).
-
-
-
-The watchdog service is configured by optional configuration properties:
-
-
-
-$ engine-config -g HostMonitoringWatchdogIntervalInSeconds
-
-HostMonitoringWatchdogIntervalInSeconds: 900 version: general
-
-
-
-$ engine-config -g HostMonitoringWatchdogInactivityThresholdInSeconds
-
-HostMonitoringWatchdogInactivityThresholdInSeconds: 1200 version: general
-
-
-
-In order to disable watchdog service set:
-
-$ engine-config -s HostMonitoringWatchdogIntervalInSeconds=0
-
-and restart ovirt-engine
-
-
-
-Reason [2]
-
-Some of the internally used volatile flags where incremented in non-atomic way which could lead to unpredictable race conditions.
-
-
-
-Result [2]
-
-Dedicated atomic non-blocking data structures were used so that the race condition while increment was impossible.
+   In this release, monitoring of host refresh capabilities functionality was improved to help debug very rare production issues that sometimes caused the Red Hat Virtualization Manager to lose connectivity with the Red Hat Virtualization hosts.
 
 
 ### Bug Fixes
@@ -153,6 +99,10 @@ Dedicated atomic non-blocking data structures were used so that the race conditi
 
 
 #### oVirt Engine
+
+ - [BZ 2013430](https://bugzilla.redhat.com/show_bug.cgi?id=2013430) **RHV 4.4. FIPS install leaves UUID blank in grub after setting kernel option**
+
+ - [BZ 2032919](https://bugzilla.redhat.com/show_bug.cgi?id=2032919) **Unable to add RHEL 7 host into RHV Manager in clusters 4.2/4.3**
 
  - [BZ 2027424](https://bugzilla.redhat.com/show_bug.cgi?id=2027424) **Consume video device from virt-v2v**
 
@@ -181,6 +131,14 @@ Dedicated atomic non-blocking data structures were used so that the race conditi
 
 
 #### oVirt Engine
+
+ - [BZ 2037216](https://bugzilla.redhat.com/show_bug.cgi?id=2037216) **VM imported from configuration is stuck in WaitForLaunch once removed quickly after power-off**
+
+   
+
+ - [BZ 1854038](https://bugzilla.redhat.com/show_bug.cgi?id=1854038) **Download or upload disk (SDK) fails due to 'Timed out waiting for transfer XXX to finalize'**
+
+   
 
  - [BZ 1985746](https://bugzilla.redhat.com/show_bug.cgi?id=1985746) **[CBT][Veeam] Full backup is stuck on 'FINALIZING' status when an error occurs during the image transfer flow**
 

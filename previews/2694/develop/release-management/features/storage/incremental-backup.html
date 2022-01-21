@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Incremental Backup | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Incremental Backup" />
+<meta name="author" content="Nir Soffer" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2694/develop/release-management/features/storage/incremental-backup.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2694/develop/release-management/features/storage/incremental-backup.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Incremental Backup" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Nir Soffer" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Nir Soffer"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2694/images/logo.svg"},"name":"Nir Soffer"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Incremental Backup","url":"https://ovirt.github.io/ovirt-site/previews/2694/develop/release-management/features/storage/incremental-backup.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2694/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2694/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2694/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2694/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2694/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2694/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2694/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2694/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2694/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2694/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2694/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2694/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2694/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2694/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2694/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2694/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2694/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2694/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2694/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2694/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2694/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2694/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2694/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2694/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2694/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2694/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2694/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2694/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2694/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class="masthead hidden-print" id="branding" role="banner"><section class="hgroup"></section><div id="access"><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2694/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2694/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li>
+<li role="menuitem">  <a href="/ovirt-site/previews/2694/download/">Download</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/2694/documentation/">Documentation</a>
+</li>
+<li class="active" role="menuitem">  <a href="/ovirt-site/previews/2694/develop/">Developers</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/2694/community/">Community</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/2694//lists.ovirt.org/archives/">Forum</a>
+</li>
+<li role="menuitem">  <a href="/ovirt-site/previews/2694//blogs.ovirt.org/">Blog</a>
+</li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2694/">
+              <span property="name"></span>
+              <meta property="position" content="1">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2694/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2694/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2694/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4">
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2694/develop/release-management/features/storage/">
+              <span property="name">Storage</span>
+              <meta property="position" content="5">
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img src="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/25f5a61a5a1e1290bc14e350ce6d8977?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Nir Soffer</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img src="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/93875e42e9b962947becb4e425504fab?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Daniel Erez</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img src="https://secure.gravatar.com/avatar/c570d197071df880a1c71bd2388cd135?s=32&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/c570d197071df880a1c71bd2388cd135?s=64&amp;d=mm&amp;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Eyal Shenitzky</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class="alert alert-warning">Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are <strong>outdated</strong>, but provide historical design context.<br><br>They are <strong>not</strong> user documentation and should not be treated as such.<br><br><a href="/ovirt-site/previews/2694/documentation/">Documentation is available here.</a>
+</div>
+
+<h1 id="incremental-backup">Incremental Backup</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature simplifies, speeds up, and improve robustness by backing up
+only changed blocks, and avoiding temporary snapshots. Integration with
+backup applications is improved by supporting backup and restore of raw
+guest data regardless of the underlying disk format.</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Nir Soffer (<a href="mailto:nsoffer@redhat.com">nsoffer@redhat.com</a>)</li>
+  <li>Daniel Erez (<a href="mailto:derez@redhat.com">derez@redhat.com</a>)</li>
+  <li>Eyal Shenitzky</li>
+</ul>
+
+<h2 id="high-level-design">High level Design</h2>
+
+<h3 id="what-was-available-before-this-feature">What was available before this feature?</h3>
+
+<p>Before this feature, backing up a disk required creating a temporary
+snapshot copying the snapshot file as is (either raw guest data or qcow2
+file data), and deleting the temporary snapshot.</p>
+
+<p>It was possible to do a limited version of incremental backup, by
+creating one snapshot on every backup, copying the snapshot disk,
+and deleting the previous snapshot. But the copied data was in qcow2
+format, so restoring it require merging qcow2 files before uploading
+to storage.</p>
+
+<h3 id="capabilities-added-with-this-feature">Capabilities added with this feature</h3>
+
+<ul>
+  <li>
+    <p>Perform full backup for raw or qcow2 disks or incremental backup for disks 
+using qcow2 format without temporary snapshots.</p>
+  </li>
+  <li>
+    <p>Backup raw guest data instead copying qcow2 data for qcow2 disks.</p>
+  </li>
+  <li>
+    <p>Restore raw guest data into disk into raw or qcow2 disks.</p>
+  </li>
+</ul>
+
+<h3 id="creating-vm">Creating VM</h3>
+
+<p>When adding a disk, the user should mark ‘enable incremental backup’ for every
+disk that should be included in an incremental backup. If incremental backup is 
+enabled for a disk, a backup application can include the disk during incremental
+backups.</p>
+
+<p>Since incremental backup requires qcow2 format, disks enabled for
+incremental backup will use qcow2 format instead of raw format. See
+<a href="#disk-format">Disk Format</a> for more info.</p>
+
+<p>Disks not marked for incremental backup can be backed using full backup or in the 
+same way they were backed in the past.</p>
+
+<h3 id="enabling-existing-vm-for-incremental-backup">Enabling existing VM for incremental backup</h3>
+
+<p>Since raw disks are not supported for incremental backup, a user needs
+to create a snapshot including the disks to enabled incremental backup
+for the disks. This creates a qcow2 layer on top of the raw disk, that
+can be used to perform incremental backups from this point.</p>
+
+<h3 id="deleting-snapshots-on-existing-vms">Deleting snapshots on existing VMs</h3>
+
+<p>If the base layer of a disk is using raw format, deleting the last
+snapshot, merging the top qcow2 layer into the base layer will convert
+the disk to raw, and disable incremental backup (should probably display
+a warning first). The user can create a new snapshot including this
+disk to re-enable back incremental backup.</p>
+
+<h3 id="disk-format">Disk format</h3>
+
+<p>Here is a table showing how enabling incremental backup affects disk
+format when creating a new disk.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>storage     provisioning        incremental     format
+====================================================================
+block       thin                enabled         qcow2
+block       preallocated        enabled         qcow2 (preallocated)
+file        thin                enabled         qcow2
+file        preallocated        enabled         qcow2 (preallocated)
+--------------------------------------------------------------------
+block       thin                disabled        qcow2
+block       preallocated        disabled        raw (preallocated)
+file        thin                disabled        raw (sparse)
+file        preallocated        disabled        raw (preallocated)
+--------------------------------------------------------------------
+network     -                   disabled        raw
+lun         -                   disabled        raw
+</code></pre></div></div>
+
+<h3 id="incremental-backup-flow">Incremental backup flow</h3>
+
+<ol>
+  <li>
+    <p>Backup application finds VM disks that should be included in the
+backup using oVirt API. Currently only disks marked for incremental
+backup (using qcow2 format) can be included in an incremental backup.</p>
+  </li>
+  <li>
+    <p>Backup application starts backup using oVirt API, specifying a VM id,
+optional previous checkpoint id, and list of disks to backup.
+If previous checkpoint uuid isn’t specified, all data in the specified disks,
+at the point of the backup, will be included in the backup (full backup).</p>
+  </li>
+  <li>
+    <p>System prepares VM for backup. The VM may be running during the
+backup.</p>
+  </li>
+  <li>
+    <p>Backup application waits until backup is ready using oVirt SDK.</p>
+  </li>
+  <li>
+    <p>When backup is ready backup application creates image transfer for
+every disk included in the backup.</p>
+  </li>
+  <li>
+    <p>Backup application obtains changed blocks list from ovirt-imageio for
+every image transfer. If change list is not available, the backup
+application will get an error.</p>
+  </li>
+  <li>
+    <p>Backup application downloads changed blocks in raw format from
+ovirt-imageio and store them in the backup media. If changed blocks
+list is not available, backup application can fall back to copying
+the entire disk.</p>
+  </li>
+  <li>
+    <p>Backup application finalizes image transfers.</p>
+  </li>
+  <li>
+    <p>Backup application finalizes backup using oVirt API.</p>
+  </li>
+</ol>
+
+<h3 id="incremental-restore-flow">Incremental restore flow</h3>
+
+<ol>
+  <li>
+    <p>User selects restore point based on available backups using the
+backup application (not part of oVirt).</p>
+  </li>
+  <li>
+    <p>Backup application creates a new disk or a snapshot with existing disk
+to hold the restored data.</p>
+  </li>
+  <li>
+    <p>Backup application starts an upload image transfer for every disk,
+specifying format=raw. This enable format conversion when uploading
+raw data to qcow2 disk.</p>
+  </li>
+  <li>
+    <p>Backup application transfer the data included in this restore point
+to imageio using HTTP API.</p>
+  </li>
+  <li>
+    <p>Backup application finalize the image transfers.</p>
+  </li>
+</ol>
+
+<h3 id="checkpoint-deletion">Checkpoint deletion</h3>
+
+<ol>
+  <li>
+    <p>Backup application finds the oldest checkpoint of a VM.</p>
+  </li>
+  <li>
+    <p>Backup application remove the checkpoint</p>
+  </li>
+</ol>
+
+<h3 id="restoring-snapshots">Restoring snapshots</h3>
+
+<p>Incremental restore will not support restoring snapshots as existed at
+the time of the backup. This limit is common in backup solutions for
+other systems.</p>
+
+<h3 id="handling-unclean-shutdown-or-storage-outage-during-shutdown">Handling unclean shutdown or storage outage during shutdown</h3>
+
+<p>If a VM is shut down abnormally, bitmaps on the disk may be left in
+invalid state. Creating incremental backup using such bitmaps will
+lead to corrupt guest data after restore.</p>
+
+<p>To detect bitmap in invalid state we can use the in-use bit in the
+bitmap, but this info is not exposed to the management layer.</p>
+
+<p>To recover from invalid bitmaps, the invalid bitmap and all previous
+bitmaps must be deleted. The next backup will have to include the entire
+disk contents (full backup).</p>
+
+<h3 id="backup-rest-api">Backup REST API</h3>
+
+<h4 id="enabling-backup-for-vm-disk">Enabling backup for VM disk</h4>
+
+<p>Specify ‘backup’ property on <code class="language-plaintext highlighter-rouge">disk</code> entity: ‘incremental’/’none’ (TBD: ‘full’)</p>
+
+<p>Request:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /vms/vm-uuid/diskattachments
+
+&lt;disk_attachment&gt;
+    ...
+    &lt;disk&gt;
+        ...
+        &lt;backup&gt;incremental|none&lt;/backup&gt;
+        ...
+    &lt;/disk&gt;
+&lt;/disk_attachment&gt;
+</code></pre></div></div>
+
+<p>Response:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;disk_attachments&gt;
+  &lt;disk_attachment&gt;
+        ...
+        &lt;disk href="/ovirt-site/previews/2694/ovirt-engine/api/disks/456" id="456"/&gt;
+        ...
+  &lt;/disk_attachment&gt;
+  ...
+&lt;/disk_attachments&gt;
+</code></pre></div></div>
+
+<h4 id="finding-disks-enabled-for-incremental-backup">Finding disks enabled for incremental backup</h4>
+
+<p>For each VM, get <code class="language-plaintext highlighter-rouge">disks</code> list and filter according to
+‘backup’ property.</p>
+
+<p>Request:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /vms/vm-uuid/diskattachments
+</code></pre></div></div>
+
+<p>Response:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;disks&gt;
+    &lt;disk&gt;
+        ...
+        &lt;backup&gt;incremental|none&lt;/backup&gt;
+        ...
+    &lt;/disk&gt;
+    ...
+&lt;/disks&gt;
+</code></pre></div></div>
+
+<h4 id="starting-full-backup">Starting full backup</h4>
+
+<p>Start full backup. The response phase indicates that the backup is <code class="language-plaintext highlighter-rouge">"initializing"</code>.
+You need to poll the backup until the phase is <code class="language-plaintext highlighter-rouge">"ready"</code>. 
+Once the backup is ready the response will include <code class="language-plaintext highlighter-rouge">&lt;to_checkpoint_id&gt;</code> which
+should be used as the <code class="language-plaintext highlighter-rouge">&lt;from_checkpoint_id&gt;</code> in the next incremental backup.</p>
+
+<p>Request:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /vms/vm-uuid/backups
+
+&lt;backup&gt;
+    &lt;disks&gt;
+        &lt;disk id="disk-uuid" /&gt;
+        ...
+    &lt;/disks&gt;
+&lt;/backup&gt;
+</code></pre></div></div>
+
+<p>Response:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;backup id="backup-uuid"&gt;
+    &lt;disks&gt;
+        &lt;disk id="disk-uuid" /&gt;
+        ...
+        ...
+    &lt;/disks&gt;
+    &lt;phase&gt;initiailizing&lt;/phase&gt;
+    &lt;creation_date&gt;
+&lt;/backup&gt;
+</code></pre></div></div>
+
+<h4 id="starting-incremental-backup">Starting incremental backup</h4>
+
+<p>Start incremental backup since checkpoint id <code class="language-plaintext highlighter-rouge">&lt;from_checkpoint_uuid&gt;</code>.
+The response phase indicates that the backup is <code class="language-plaintext highlighter-rouge">"initializing"</code>.
+You need to poll the backup until the phase is <code class="language-plaintext highlighter-rouge">"ready"</code>. 
+Once the backup is ready the response will include <code class="language-plaintext highlighter-rouge">&lt;to_checkpoint_id&gt;</code> which
+should be used as the <code class="language-plaintext highlighter-rouge">&lt;from_checkpoint_id&gt;</code> in the next incremental backup.</p>
+
+<p>Request:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /vms/vm-uuid/backups
+
+&lt;backup&gt;
+    &lt;from_checkpoint_id&gt;previous-checkpoint-uuid&lt;/from_checkpoint_id&gt;
+    &lt;disks&gt;
+        &lt;disk id="disk-uuid" /&gt;
+        ...
+    &lt;/disks&gt;
+&lt;/backup&gt;
+</code></pre></div></div>
+
+<p>Response:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;backup id="backup-uuid"&gt;
+    &lt;from_checkpoint_id&gt;previous-checkpoint-uuid&lt;/from_checkpoint_id&gt;
+    &lt;disks&gt;
+        &lt;disk id="disk-uuid" /&gt;
+        ...
+        ...
+    &lt;/disks&gt;
+    &lt;phase&gt;initiailizing&lt;/phase&gt;
+    &lt;creation_date&gt;
+&lt;/backup&gt;
+</code></pre></div></div>
+
+<h4 id="getting-backup-info">Getting backup info</h4>
+
+<p>When backup phase is “ready”, you can get the specific backup info.
+The response will include <code class="language-plaintext highlighter-rouge">&lt;to_checkpoint_id&gt;</code> which should be used as the
+<code class="language-plaintext highlighter-rouge">&lt;from_checkpoint_id&gt;</code> in the next incremental backup.
+Now you can start downloading the disks.</p>
+
+<p>Request:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /vms/vm-uuid/backups/backup-uuid
+</code></pre></div></div>
+
+<p>Response:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;vm_backup id="backup-uuid"&gt;
+    &lt;from_checkpoint_id&gt;previous-checkpoint-uuid&lt;/from_checkpoint_id&gt;
+    &lt;to_checkpoint_id&gt;new-checkpoind-uuid&lt;/to_checkpoint_id&gt;
+    &lt;disks&gt;
+        &lt;disk id="disk-uuid"&gt;
+            &lt;image_id&gt;image-uuid&lt;/image_id&gt;
+        &lt;/disk&gt;
+        ...
+    &lt;/disks&gt;
+    &lt;phase&gt;ready&lt;/phase&gt;
+    &lt;creation_date&gt;
+&lt;/vm_backup&gt;
+</code></pre></div></div>
+
+<h4 id="finalizing-backup">Finalizing backup</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /vms/vm-uuid/backups/backup-uuid/finalize
+
+&lt;action&gt;&lt;/action&gt;
+</code></pre></div></div>
+
+<h3 id="creating-an-image-transfer-for-downloading-an-incremental-backup-disk">Creating an image transfer for downloading an incremental backup disk</h3>
+<p>When the backup is ready to download, an <em>imagetransfer</em> object should be created.
+To correlate the transfer with the backup, <code class="language-plaintext highlighter-rouge">&lt;backup&gt;</code> property should be specified with the relevant backup id.
+The transfer <code class="language-plaintext highlighter-rouge">&lt;format&gt;</code> property should be <code class="language-plaintext highlighter-rouge">raw</code> (this indicates that NBD is used as the ImageTransfer backend).</p>
+
+<p>Request:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /imagetransfers
+
+&lt;image_transfer&gt;
+    &lt;disk id="123"/&gt;
+    &lt;backup id="456"/&gt;
+    &lt;direction&gt;download&lt;/direction&gt;
+    &lt;format&gt;raw&lt;/format&gt;
+&lt;/image_transfer&gt;
+</code></pre></div></div>
+
+<h4 id="creating-image-transfer-for-incremental-restore">Creating image transfer for incremental restore</h4>
+
+<p>To restore raw data backed up using the incremental backup API to qcow2
+disk, you need to specify the “format” key in the transfer:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /imagetransfers
+
+&lt;image_transfer&gt;
+    &lt;disk id="123"/&gt;
+    &lt;direction&gt;upload&lt;/direction&gt;
+    &lt;format&gt;raw&lt;/format&gt;
+&lt;/image_transfer&gt;
+</code></pre></div></div>
+
+<p>When uploading into a snapshot, replace <code class="language-plaintext highlighter-rouge">&lt;disk id="123"/&gt;</code> with
+<code class="language-plaintext highlighter-rouge">&lt;snapshot id="456"/&gt;</code>.</p>
+
+<p>When the transfer format is “raw” and underlying disk format is “qcow2”
+uploaded data will be converted on the fly to qcow2 format when writing
+to storage.</p>
+
+<p>Uploading “qcow2” data to “raw” disk is not supported.</p>
+
+<h3 id="checkpoints-rest-api">Checkpoints REST API</h3>
+
+<h4 id="get-all-created-checkpoints-for-a-vm">Get all created checkpoints for a VM</h4>
+
+<p>To get all the created checkpoints of a VM :</p>
+
+<p>Request:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /vms/vm-uuid/checkpoints/
+</code></pre></div></div>
+
+<p>Response:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;checkpoints&gt;
+   &lt;checkpoint id="checkpoint-uuid"&gt;
+      &lt;link href="/ovirt-site/previews/2694/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks" rel="disks"/&gt;
+      &lt;parent_id&gt;parent-checkpoint-uuid&lt;/parent_id&gt;
+      &lt;creation_date&gt;xxx&lt;/creation_date&gt;
+      &lt;vm href="/ovirt-site/previews/2694/ovirt-engine/api/vms/vm-uuid" id="vm-uuid"/&gt;
+   &lt;/checkpoint&gt;
+&lt;/checkpoints&gt;
+</code></pre></div></div>
+
+<h4 id="get-a-specific-vm-checkpoint">Get a specific VM checkpoint</h4>
+
+<p>To get a specific VM checkpoint:</p>
+
+<p>Request:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /vms/vm-uuid/checkpoints/checkpoint-uuid/
+</code></pre></div></div>
+
+<p>Response:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;checkpoint id="checkpoint-uuid"&gt;
+  &lt;link href="/ovirt-site/previews/2694/ovirt-engine/api/vms/vm-uuid/checkpoints/checkpoint-uuid/disks" rel="disks"/&gt;
+  &lt;parent_id&gt;parent-checkpoint-uuid&lt;/parent_id&gt;
+  &lt;creation_date&gt;xxx&lt;/creation_date&gt;
+  &lt;vm href="/ovirt-site/previews/2694/ovirt-engine/api/vms/vm-uuid" id="vm-uuid"/&gt;
+&lt;/checkpoint&gt;
+</code></pre></div></div>
+
+<h4 id="remove-the-root-checkpoint-of-a-specific-vm">Remove the root checkpoint of a specific VM</h4>
+
+<p>To remove the root of the checkpoints chain a DELETE request should be used:</p>
+
+<p>Request:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /vms/vm-uuid/checkpoints/checkpoint-uuid/
+</code></pre></div></div>
+
+<h3 id="imageio-backup-api">imageio backup API</h3>
+
+<h4 id="map-request">Map request</h4>
+
+<p>Get map of zeros and data ranges on storage.</p>
+
+<p>Query options:</p>
+<ul>
+  <li>dirty=y - return only ranges modified since backup checkpoint id</li>
+</ul>
+
+<p>Returns list of JSON objects with these keys:</p>
+<ul>
+  <li>data: true for allocated ranges, false for zero or unallocated ranges</li>
+  <li>start: offset of range in bytes</li>
+  <li>length: number of bytes</li>
+</ul>
+
+<h5 id="example---getting-data-and-zero-ranges">Example - getting data and zero ranges</h5>
+
+<p>Request:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /images/ticket-uuid/map
+</code></pre></div></div>
+
+<p>Response:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    {"data": true, "start": 0, "length": 1048576},
+    {"data": false, "start": 1048576, "length": 8192},
+    {"data": true, "start": 1056768, "length": 1048576},
+]
+</code></pre></div></div>
+
+<h5 id="example---getting-only-dirty-data-and-zero-ranges">Example - getting only dirty data and zero ranges</h5>
+
+<p>Request:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /images/ticket-uuid/map?dirty=y
+</code></pre></div></div>
+
+<p>Response:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    {"data": true, "start": 0, "length": 1048576},
+    {"data": false, "start": 1048576, "length": 8192},
+]
+</code></pre></div></div>
+
+<h2 id="future-work">Future Work</h2>
+
+<ul>
+  <li>Support incremental backup.
+Currently only full backup for raw and qcow2 disks is supported,
+to enable support for incremental backup (work in progress), 
+Engine config value ‘IsIncrementalBackupSupported’ must be set to ‘true’.
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code># engine-config -s "IsIncrementalBackupSupported=true"
+# systemctl restart ovirt-engine 
+</code></pre></div>    </div>
+  </li>
+  <li>API for listing and deleting checkpoints.</li>
+</ul>
+
+<h2 id="detailed-design">Detailed design</h2>
+
+<h3 id="validating-checkpoints-before-backup">Validating checkpoints before backup</h3>
+
+<p>Before starting a backup, the available bitmaps on every disk must be
+compared to the stored checkpoints on engine database. If a bitmap is
+missing in the image, or unknown bitmap exist, all the checkpoints on
+the disk and engine database must be deleted, and the current backup
+must be a full backup.</p>
+
+<h3 id="incremental-backup-pipeline">Incremental backup pipeline</h3>
+
+<p>When backing up incremental data, the user always reads raw guest data,
+regardless of the underlying disk format.</p>
+
+<p>qemu exposes the disks using internal NBD server, allowing reading from
+every disk included in the incremental backup:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http client (raw) &lt;- imageio &lt;- qemu &lt;- image (raw or qcow2)
+</code></pre></div></div>
+
+<p>If the VM is not running, the system will create a paused, stripped-down
+version of the VM, with only backup disks attached, and use libvirt API
+to start and stop the backup.</p>
+
+<p>We considered alternative solution using qemu-nbd, but According to Eric
+Blake qemu-nbd does not support yet exposing bitmap info, so we would
+not be able to provide the change block list.</p>
+
+<p>Since creating special paused VM for backing up non-running VM is a lot
+of work, we may defer support for backing up non-running VMs.</p>
+
+<h3 id="incremental-restore-pipeline">Incremental restore pipeline</h3>
+
+<p>When restoring incremental data, the user always write raw guest data.
+The system writes the data to storage using the underlying storage
+format transparently.</p>
+
+<p>The system will create qemu-nbd process for writing to  every disk:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http client (raw) -&gt; imageio -&gt; qemu-nbd -&gt; image (raw or qcow2)
+</code></pre></div></div>
+
+<h3 id="preparing-a-vm-for-incremental-backup">Preparing a VM for incremental backup</h3>
+
+<ol>
+  <li>
+    <p>user starts backup using oVirt API. engine creates a backup in the
+database with “initializing” phase.</p>
+  </li>
+  <li>
+    <p>If the VM is not running, engine prepares a stripped down version of
+the VM, with only the backup disks attached, and create the VM on
+some host in paused mode.</p>
+  </li>
+  <li>
+    <p>engine configure and validate the checkpoints on the backup host
+using vdsm checkpoint API, which uses libvirt checkpoints API to
+update libvirt about the checkpoints stored in engine side, and
+validate that the image contain the same checkpoints.  This is
+required by libvirt backup API since checkpoint info is not stored in
+the qcow2 file.</p>
+  </li>
+  <li>
+    <p>If the VM is running, engine freeze the file systems on the guest for
+ensuring consistent backup. With help of qemu-guest-agent on the
+guest, pending I/O is flushed, and application make necessary changes
+to avoid inconsistent state.</p>
+  </li>
+  <li>
+    <p>engine begins the backup using vdsm backup API, which use libvirt
+backup API to begin the backup.</p>
+  </li>
+  <li>
+    <p>libvirt deactivates the active bitmap, and creates a new bitmap for
+tracking changes made after the backup was started.</p>
+  </li>
+  <li>
+    <p>libvirt uses qemu bitmap APIs to create a temporary bitmap for every
+disk, including the merged contents of all bitmaps included in this
+backup.</p>
+  </li>
+  <li>
+    <p>libvirt starts qemu internal NBD server, exposing the temporary
+bitmaps for every disk.</p>
+  </li>
+  <li>
+    <p>engine unfreezes the file systems on the guest. With help of
+qemu-guest-agent on the guest, applications are notified about the
+unfreeze, and I/O on the guest can continue normally now.  Any write
+at this point will be tracked by the new active bitmap, and will not
+be included in the incremental backup.</p>
+  </li>
+  <li>
+    <p>engine changes the backup phase to “ready”. Once the user detects
+the change, the user can start transferring data.</p>
+  </li>
+</ol>
+
+<h3 id="finalizing-backup-1">Finalizing backup</h3>
+
+<p>When backup succeeds, backup application copied all incremental data
+successfully.</p>
+
+<ol>
+  <li>
+    <p>user ask to finalize the backup using oVirt API. engine change
+backup phase to “finalizing”.</p>
+  </li>
+  <li>
+    <p>engine end the backup using vdsm backup API, which will use libvirt
+backup API to end the backup.</p>
+  </li>
+  <li>
+    <p>libvirt uses qemu API to delete the temporary bitmaps and end the
+backup job.</p>
+  </li>
+  <li>
+    <p>If running the special “backup” stripped down VM, tear down disks the
+VM disks using the existing storage APIs, and destroy the VM on the
+backup host.</p>
+  </li>
+</ol>
+
+<h3 id="checkpoints-cleanup">Checkpoints cleanup</h3>
+
+<p>Cleaning up checkpoints will be available later.</p>
+
+<p>Checkpoints may be generated by multiple unrelated or partly related
+users, deleting checkpoints cannot be done automatically by every user
+after backup.</p>
+
+<p>The checkpoints API allow the deletion of the oldest (root) checkpoint.</p>
+
+<h3 id="scratch-disk">Scratch disk</h3>
+
+<p>For now we’ll use a scratch disk on the host (created by libvirt).
+A scratch disk is created using qcow2 format for every disk in the 
+backup. The disk must have enough space to hold the current data in
+the top layer of an image.</p>
+
+<h4 id="use-case-1---running-2-backup-solutions-in-the-same-time">Use case 1 - running 2 backup solutions in the same time</h4>
+
+<p>User is switching from backup solution A to B. During the transition,
+both systems are performing backups of the same data. If one of the
+systems will delete checkpoints after backup, it can prevent incremental
+backup of the other system.</p>
+
+<h4 id="use-case-2---running-backups-with-different-schedule">Use case 2 - running backups with different schedule</h4>
+
+<p>User is configuring both hourly and daily backup. If both jobs delete
+the checkpoints after backup they may prevent the next job from
+completing the next backup.</p>
+
+<h3 id="engine-database-changes">Engine database changes</h3>
+
+<p>Add backup column to base_disks table. Use to mark an image for
+incremental backup.</p>
+
+<ul>
+  <li>base_disks
+    <ul>
+      <li>backup: (incremental/none)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Add vm_backups table. This table keep the information about running
+backups tasks. Use during backup to track and montior backup.</p>
+
+<ul>
+  <li>vm_backups
+    <ul>
+      <li>backup_id: UUID</li>
+      <li>phase: “initializing”/”starting”/”ready”/”finalizing”</li>
+      <li>from_checkpoint_id: UUID/null
+        <ul>
+          <li>if specified, perform incremental including all checkpoints since
+that checkpoint.</li>
+        </ul>
+      </li>
+      <li>to_checkpoint_id: UUID/null
+        <ul>
+          <li>the newly created checkpoint.</li>
+        </ul>
+      </li>
+      <li>vm_id: UUID</li>
+      <li>creation_date: TIMESTAMP</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Add vm_backup_disk_map table. This table keeps the backup url for every
+disk. This url will be used instead of the image path on the host when
+creating an image transfer for a disk.</p>
+
+<ul>
+  <li>vm_backup_disk_map
+    <ul>
+      <li>backup_id: UUID</li>
+      <li>disk_id: UUID</li>
+      <li>backup_url: “nbd:unix:/tmp/<id>.sock:exportname=<sdb>" | "nbd://localhost:&lt;12345&gt;/<sdb>"</sdb></sdb></id>
+</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Add vm_checkpoints table. This table keeps the checkpoints created by
+backup tasks. This info is used before backup to update libvirt about
+the checkpoints list, since this info is not stored in the qcow2 images.</p>
+
+<ul>
+  <li>vm_checkpoints
+    <ul>
+      <li>checkpoint_id: UUID</li>
+      <li>parent: UUID</li>
+      <li>vm_id: UUID</li>
+      <li>creation_date: TIMESTAMP</li>
+      <li>checkpoint_xml: TEXT</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Add vm_checkpoint_disk_map table. This table keeps the disks included in
+every checkpoint. Used when starting a backup to create checkpoint xml
+for libvirt.</p>
+
+<ul>
+  <li>vm_checkpoint_disk_map
+    <ul>
+      <li>disk_id: UUID</li>
+      <li>checkpoint_id: UUID</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="example-flow---backup">Example flow - backup</h4>
+
+<ul>
+  <li>add row to vm_checkpoints</li>
+  <li>add row to disk_checkpoint_map for every disk</li>
+  <li>add row to disk_backup_map for every disk</li>
+  <li>add row to vm_backups</li>
+  <li>start the backup</li>
+  <li>update backup_url for every disk (returned from vdsm)</li>
+  <li>user perform transfers…</li>
+  <li>user finalize or cancel backup</li>
+  <li>remove row from vm_backups</li>
+  <li>remove rows from disk_backup_map</li>
+</ul>
+
+<h3 id="vdsm-backup-api">Vdsm backup API</h3>
+
+<h4 id="vmstart_backup">VM.start_backup</h4>
+
+<p>Start backup using libvirt API</p>
+
+<h4 id="vmstop_backkup">VM.stop_backkup</h4>
+
+<p>End backup using libvirt API</p>
+
+<h4 id="vmbackup_info">VM.backup_info</h4>
+
+<p>Return backup info from libvirt.</p>
+
+<h3 id="vdsm-checkpoints-api">Vdsm checkpoints API</h3>
+
+<h4 id="vmredefine_checkpoints">VM.redefine_checkpoints</h4>
+
+<p>Set libvirt checkpoints from engine database, without changing bitmaps
+on storage.</p>
+
+<p>Called before starting a backup, or once after starting a VM.</p>
+
+<p>Libvirt will fail to redefine checkpoints if unknown bitmap exists on
+storage, or a bitmap is missing on storage.</p>
+
+<h4 id="vmlist_checkpoints">VM.list_checkpoints</h4>
+
+<p>Get from libvirt all the VM defined checkpoints.</p>
+
+<h4 id="vmdelete_checkpoints">VM.delete_checkpoints</h4>
+
+<p>Delete checkpoints in libvirt and storage using libvirt API.</p>
+
+<h3 id="vdsm-nbd-api">Vdsm NBD API</h3>
+
+<h4 id="nbdstart_server">NBD.start_server</h4>
+
+<p>Start NBD server using qemu-nbd for single volume, and return
+<code class="language-plaintext highlighter-rouge">tranfer_url</code> for this volume chain.</p>
+
+<h4 id="nbdstop_server">NBD.stop_server</h4>
+
+<p>Stop NBD server started using start_nbd_server API.</p>
+
+<h3 id="incremental-backup-ticket-example">Incremental backup ticket example</h3>
+
+<p>For running VM, qemu will serve the disk using NBD:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "url": "nbd:localhost:1234:exportname=/sda"
+}
+</code></pre></div></div>
+
+<p>For stopped VM, we will run one qemu-nbd instance per disk, using unix
+socket:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "url": "nbd:unix:/run/vdsm/nbd/xxxyyy-nbd.sock:exportname=/sda"
+}
+</code></pre></div></div>
+
+<h3 id="ui">UI</h3>
+
+<ul>
+  <li>
+    <p>Add ‘Enable Incremental Backup’ checkbox on New/Edit Disk dialogs.</p>
+  </li>
+  <li>
+    <p>Removing last snapshot will disable ‘Enable Incremental Backup’ 
+if base image is raw. Snapshot must be created in order re-enable
+‘Enable Incremental Backup’.</p>
+  </li>
+</ul>
+
+<h3 id="open-issues">Open Issues</h3>
+
+<ul>
+  <li>
+    <p>On startup after unclean shutdown or storage outage during shutdown,
+bitmaps marked as “in-use” must be deactivated or deleted, and qemu
+must not use the bitmap for tracking additional changes. According to
+John Snow, loading qcow2 with such bitmaps will fail and the user must
+delete the corrupted bitmaps manually. This will fail HA VM flows and
+storage operations. (libvirt/qemu).</p>
+  </li>
+  <li>
+    <p>When creating a snapshot, an active bitmap should be copied to the new
+top layer, and qemu should continue to track changes, writing into the
+copied bitmap (libvirt).</p>
+  </li>
+  <li>
+    <p>Need to allocate extra space for qcow2 metedata when using
+preallocated qcow2 on block storage (vdsm).</p>
+  </li>
+  <li>
+    <p>Need to allocate extra space for bitmaps, depends on image virtual
+size and bitmap granulity. cannot be calculated when creating an image
+(vdsm).</p>
+  </li>
+  <li>
+    <p>1.1 factor used in vdsm and engine to limit qcow2 actual size may not
+be enough when image contains lots of bitmaps.  with defaults, each
+bitmap uses 2M per TB (engine, vdsm).</p>
+  </li>
+  <li>
+    <p>Are bitmaps copied when copying images with qemu-img convert? if not
+next backup after LSM or move disk must be full (qemu-img).</p>
+  </li>
+  <li>
+    <p>Are bitmaps copied in block copy during LSM for the active layer?
+If not the next backup must be full (libvirt/qemu).</p>
+  </li>
+  <li>
+    <p>How to handle hot plug disk? can we continue to track changes on a
+detached disk, or we should require a full backup in this case (libvirt)?</p>
+  </li>
+  <li>
+    <p>Attaching disk with bitmaps to older qemu version will invalidate
+bitmaps, creating corrupted backups. how can we prevent this? (qemu).</p>
+  </li>
+  <li>
+    <p>Are bitmaps are copied down from the active layer during live merge
+(libvirt/qemu) and cold merge (qemu-img)?</p>
+  </li>
+  <li>
+    <p>Need libvirt API to list all bitmaps in an image in a running VM
+(libvirt).</p>
+  </li>
+  <li>
+    <p>Do we need also qemu-img API to list all bitmaps in an image for
+managing bitmaps in floating disks?</p>
+  </li>
+  <li>
+    <p>Test performance of preallocated qcow2 vs raw.
+https://www.jamescoyle.net/how-to/1810-qcow2-disk-images-and-performance</p>
+  </li>
+  <li>
+    <p>Tune qcow2 images if needed
+https://www.slideshare.net/mobile/igalia/improving-the-performance-of-the-qcow2-format-kvm-forum(2017</p>
+  </li>
+</ul>
+
+<h2 id="links">Links</h2>
+
+<ul>
+  <li>Overview of libvirt incremental backup API
+    <ul>
+      <li><a href="https://www.spinics.net/linux/fedora/libvir/msg174457.html">Part 1 (full pull mode)</a></li>
+      <li><a href="https://www.spinics.net/linux/fedora/libvir/msg174528.html">Part 2 (incremental/differential pull mode)</a></li>
+    </ul>
+  </li>
+  <li>
+    <p>API - backup application can use
+<a href="https://github.com/oVirt/ovirt-engine-api-model">oVirt engine REST API</a>
+or <a href="https://github.com/oVirt/ovirt-engine-sdk">oVirt engine SDK</a>
+to start and stop backup operation and get backup phase.</p>
+  </li>
+  <li>
+    <p>ovirt-engine - the backup process is orchastracted and monitored by
+<a href="https://github.com/oVirt/ovirt-engine">ovirt-engine</a>.</p>
+  </li>
+  <li>
+    <p>ovirt-imageio - backup application will access
+<a href="https://github.com/oVirt/ovirt-imageio">ovirt-imageio</a> to transfer
+incremental backup data from the hypervisor running a VM, using
+<a href="http://ovirt.github.io/ovirt-imageio/random-io.html">ovirt-imageio random I/O API</a>.</p>
+  </li>
+  <li>
+    <p>vdsm - on a hypervisor, <a href="https://github.com/oVirt/vdsm">vdsm</a> will use
+libvirt backup and checkpoint API to start and stop backups, and
+prepare temporary volukes.</p>
+  </li>
+  <li>
+    <p>libvirt - will use qemu API to start and stop backup jobs, and manage
+checkpoints.
+<a href="https://www.redhat.com/archives/libvir-list/2018-October/msg01254.html">Patches for incremental backup</a>
+are in review in libvirt mailing list. The patches are also available
+in <a href="https://repo.or.cz/libvirt/ericb.git">Eric Blake’s repository</a>.</p>
+  </li>
+  <li>
+    <p>See also Eric’s talk from KVM Forum 2018:
+<a href="https://events.linuxfoundation.org/wp-content/uploads/2017/12/Eric-Blake_2018-libvirt-incremental-backup.pdf">Facilitating Incremental Backup</a></p>
+  </li>
+  <li>
+    <p>See also DevConf session about incremental backup talk from DevConf 2020:
+<a href="https://www.youtube.com/watch?v=foyi1UyadEc">Back to the future - incremental backup in oVirt - DevConf.CZ 2020</a></p>
+  </li>
+  <li>
+    <p>qemu - track changed blocks using dirty bitmaps. dirty bitmap support
+added in qemu-3.0, and backported to qemu-rhev in CentOS 7.6. See
+<a href="https://wiki.qemu.org/Features/IncrementalBackup">qemu incremental backup feature page</a>
+and <a href="https://git.qemu.org/?p=qemu.git">qemu source</a> for more info.</p>
+  </li>
+  <li>For reference, here is VMWare CBT docs
+https://kb.vmware.com/s/article/1020128</li>
+</ul>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2694/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class="text-center" id="footer"><hr class="visible-print">
+<ul class="footer-nav-list">
+<li><a href="/ovirt-site/previews/2694/privacy-policy.html" target="_blank" title="Privacy policy">Privacy policy</a></li>
+<li><a href="/ovirt-site/previews/2694/community/about.html" target="_blank" title="About">About</a></li>
+<li><a href="/ovirt-site/previews/2694/general-disclaimer.html" target="_blank" title="Disclaimers">Disclaimers</a></li>
+</ul>© 2013–2022 oVirt<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/storage/incremental-backup.html&amp;template=" target="_blank" title="Report an issue"><i class="icon fab fa-github"></i>Report an issue with this page</a></div>
+<div class="edit-this-page"><a href="https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/storage/incremental-backup.md" target="_blank" title="Edit this page"><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

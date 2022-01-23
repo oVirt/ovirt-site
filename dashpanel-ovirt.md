@@ -6,7 +6,7 @@
 | [ovirt-web-ui](https://github.com/oVirt/ovirt-web-ui) | Modern lightweight UI for standard (non-admin) oVirt users | [55](https://github.com/ovirt/ovirt-web-ui/issues) | 79 | 65 |
 | [ovirt-ansible-collection](https://github.com/oVirt/ovirt-ansible-collection) | Ansible collection with official oVirt modules and roles | [48](https://github.com/ovirt/ovirt-ansible-collection/issues) | 42 | 62 |
 | [ovirt-site](https://github.com/oVirt/ovirt-site) | oVirt website | [29](https://github.com/ovirt/ovirt-site/issues) | 71 | 296 |
-| [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [25](https://github.com/ovirt/terraform-provider-ovirt/issues) | 123 | 60 |
+| [terraform-provider-ovirt](https://github.com/oVirt/terraform-provider-ovirt) | Terraform provider for oVirt 4.x | [25](https://github.com/ovirt/terraform-provider-ovirt/issues) | 124 | 60 |
 | [ovirt-openshift-extensions](https://github.com/oVirt/ovirt-openshift-extensions) | Implementation of flexvolume driver and provisioner for oVirt | [18](https://github.com/ovirt/ovirt-openshift-extensions/issues) | 31 | 16 |
 | [go-ovirt-client](https://github.com/oVirt/go-ovirt-client) | An easy-to-use overlay for the Go SDK. | [15](https://github.com/ovirt/go-ovirt-client/issues) | 5 | 5 |
 | [stage-gh-stdci2](https://github.com/oVirt/stage-gh-stdci2) | Another staging repo | [14](https://github.com/ovirt/stage-gh-stdci2/issues) | 0 | 2 |
@@ -20,14 +20,14 @@
 | [ovirt-engine-sdk](https://github.com/oVirt/ovirt-engine-sdk) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [5](https://github.com/ovirt/ovirt-engine-sdk/issues) | 76 | 77 |
 | [ovirt-engine-sdk-go](https://github.com/oVirt/ovirt-engine-sdk-go) | The generator of Go SDK for oVirt v4.0&#43; | [4](https://github.com/ovirt/ovirt-engine-sdk-go/issues) | 19 | 25 |
 | [k8sOVirtCredentialsMonitor](https://github.com/oVirt/k8sOVirtCredentialsMonitor) | Monitor k8s secrets and update the oVirt connection | [3](https://github.com/ovirt/k8sOVirtCredentialsMonitor/issues) | 1 | 2 |
+| [ovirt-engine-nodejs-modules](https://github.com/oVirt/ovirt-engine-nodejs-modules) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [3](https://github.com/ovirt/ovirt-engine-nodejs-modules/issues) | 0 | 2 |
 | [ocp-on-ovirt](https://github.com/oVirt/ocp-on-ovirt) | this repo contains all the tools and automations for ocp-on-rhv CI. | [2](https://github.com/ovirt/ocp-on-ovirt/issues) | 8 | 9 |
-| [upload-rpms-action](https://github.com/oVirt/upload-rpms-action) | GitHub Action to upload RPMs in a standarized way | [2](https://github.com/ovirt/upload-rpms-action/issues) | 0 | 2 |
 | [java-client-kubevirt](https://github.com/oVirt/java-client-kubevirt) | Kubevirt java client (java-client-kubevirt) for oVirt | [2](https://github.com/ovirt/java-client-kubevirt/issues) | 5 | 3 |
 | [ovirt-engine-api-metamodel](https://github.com/oVirt/ovirt-engine-api-metamodel) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [2](https://github.com/ovirt/ovirt-engine-api-metamodel/issues) | 4 | 2 |
 | [ovirt-dwh](https://github.com/oVirt/ovirt-dwh) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [2](https://github.com/ovirt/ovirt-dwh/issues) | 4 | 14 |
 | [ovirt-engine-api-model](https://github.com/oVirt/ovirt-engine-api-model) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [2](https://github.com/ovirt/ovirt-engine-api-model/issues) | 18 | 16 |
 | [ovirt-ansible-dpdk-setup](https://github.com/oVirt/ovirt-ansible-dpdk-setup) | Ansible role to deploy Open vSwitch with DPDK support | [2](https://github.com/ovirt/ovirt-ansible-dpdk-setup/issues) | 7 | 4 |
-| [ovirt-engine-nodejs-modules](https://github.com/oVirt/ovirt-engine-nodejs-modules) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [2](https://github.com/ovirt/ovirt-engine-nodejs-modules/issues) | 0 | 2 |
+| [upload-rpms-action](https://github.com/oVirt/upload-rpms-action) | GitHub Action to upload RPMs in a standarized way | [2](https://github.com/ovirt/upload-rpms-action/issues) | 0 | 2 |
 | [v2v-conversion-host](https://github.com/oVirt/v2v-conversion-host) |  | [1](https://github.com/ovirt/v2v-conversion-host/issues) | 8 | 21 |
 | [ovirt-ansible-remote-db](https://github.com/oVirt/ovirt-ansible-remote-db) | Ansible role to install oVirt engine and dwh database on remote machine. | [1](https://github.com/ovirt/ovirt-ansible-remote-db/issues) | 1 | 1 |
 | [jenkins](https://github.com/oVirt/jenkins) | This is a mirror for http://gerrit.ovirt.org, for issues use http://bugzilla.redhat.com | [1](https://github.com/ovirt/jenkins/issues) | 17 | 9 |

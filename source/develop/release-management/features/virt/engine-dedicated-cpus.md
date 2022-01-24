@@ -8,7 +8,7 @@ Authors: sabusale
 
 ## Summary
 
-Once choosing dedicated CPU policy, The vCPUs will be strictly pinned to a set of host pCPUs
+Once choosing dedicated CPU policy, the vCPUs will be strictly pinned to a set of host pCPUs
 (similarly to static CPU pinning). The set of pCPUs will be chosen to match the required guest CPU topology.
 
 Engine sets the pinning automatically when starting the VM as opposed to the manual pinning that is

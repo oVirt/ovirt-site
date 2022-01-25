@@ -53,7 +53,7 @@ The following options are available:
 
 * *poweroff* - The virtual machine is immediately shut down.
 
-* *dump* - A dump is performed and the virtual machine is paused.
+* *dump* - A dump is performed and the virtual machine is paused. The guest's memory is dumped by libvirt, hence neither kdump nor pvpanic is required. The dump file is created in the directory that is configured by auto_dump_path in file /etc/libvirt/qemu.conf on the host.
 
 * *pause* - The virtual machine is paused, and can be resumed by users.
  | Yes.

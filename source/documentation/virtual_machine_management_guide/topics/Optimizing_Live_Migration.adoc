@@ -5,6 +5,8 @@ Live virtual machine migration can be a resource-intensive operation. To optimiz
 
 [NOTE]
 ====
+The *Auto Converge migrations* and *Enable migration compression* options are available for cluster levels 4.2 or earlier.
+
 For cluster levels 4.3 or later, auto converge is enabled by default for all built-in migration policies, and migration compression is enabled by default for only the `Suspend workload if needed` migration policy. You can change these parameters when adding a new migration policy, or by modifying the `MigrationPolicies` configuration value.
 ====
 

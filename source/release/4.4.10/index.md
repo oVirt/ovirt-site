@@ -11,7 +11,7 @@ page_classes: releases
 
 # oVirt 4.4.10 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.10-1 release as of January 21, 2022.
+The oVirt Project is pleased to announce the availability of the 4.4.10-2 release as of January 26, 2022.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
@@ -73,6 +73,26 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 #### oVirt Engine
 
+ - [BZ 2044277](https://bugzilla.redhat.com/show_bug.cgi?id=2044277) **Replace ovirt-engine-extension-logger-log4j with internal ovirt-engine implementation**
+
+   Package ovirt-engine-extension-logger-log4j has been obsoleted and replaced by internal ovirt-engine implementation in oVirt 4.4.10.
+
+
+
+During upgrade from previous oVirt versions to oVirt 4.4.10 ovirt-engine-extension-logger-log4j package is uninstalled if it was previously installed. If customers have used ovirt-engine-extension-logger-log4j in previous oVirt versions, they will need to manually remove existing ovirt-engine-extension-logger-log4j configuration files and configure the new feature of sending log records to remote syslog service according to the Administration Guide.
+
+
+
+Also after successful upgrade to oVirt 4.4.10 customers can manually uninstall log4j12 package without breaking oVirt setup:
+
+
+
+  $ dnf remove log4j12
+
+ - [BZ 2044257](https://bugzilla.redhat.com/show_bug.cgi?id=2044257) **Bump snmp4j library version to remove dependency on log4j**
+
+   oVirt 4.4.10 is going to require snmp4j &gt;= 3.6.4, which no longer depends on log4j library
+
  - [BZ 2007286](https://bugzilla.redhat.com/show_bug.cgi?id=2007286) **Host is never fenced after a soft fence attempt**
 
    Previously, a non responsive host was first soft-fenced by the engine, but it didn't fix the connectivity issue. The engine didn't initiate a hard fence and the host was left in non responsive status.
@@ -100,9 +120,9 @@ In this release, Soft fencing has been fixed, and if the soft fencing does't mak
 
 #### oVirt Engine
 
- - [BZ 2013430](https://bugzilla.redhat.com/show_bug.cgi?id=2013430) **RHV 4.4. FIPS install leaves UUID blank in grub after setting kernel option**
+ - [BZ 2013430](https://bugzilla.redhat.com/show_bug.cgi?id=2013430) **oVirt 4.4. FIPS install leaves UUID blank in grub after setting kernel option**
 
- - [BZ 2032919](https://bugzilla.redhat.com/show_bug.cgi?id=2032919) **Unable to add RHEL 7 host into RHV Manager in clusters 4.2/4.3**
+ - [BZ 2032919](https://bugzilla.redhat.com/show_bug.cgi?id=2032919) **Unable to add EL 7 host into oVirt engine in clusters 4.2/4.3**
 
  - [BZ 2027424](https://bugzilla.redhat.com/show_bug.cgi?id=2027424) **Consume video device from virt-v2v**
 

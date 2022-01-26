@@ -1,4 +1,6 @@
-Fixes issue # (delete if not relevant)
+[Feature | Bug fix]
+
+Fixes issue # | <Bugzilla_URL>(delete if not relevant)
 
 Changes proposed in this pull request:
 

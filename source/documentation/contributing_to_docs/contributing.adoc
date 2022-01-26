@@ -1,0 +1,166 @@
+[id="contributing-to-docs-contributing"]
+= Contributing to oVirt documentation
+
+== Different ways to contribute
+
+There are a few different ways you can contribute to oVirt documentation:
+
+// * Submit comments at the bottom of each topic (still awaiting implementation)
+// * Email the oVirt documentation team rhev-docs@redhat.com
+* https://github.com/oVirt/ovirt-site/issues/new[Create an issue in GitHub]
+* Submit a PR. You can clone the repository, make your changes, and submit a PR.
+This option is best if you have substantial changes. If you open a PR, be sure
+that all of its contents are related and apply to the same versions.
+
+.What happens when you submit a PR?
+
+The
+// https://github.com/orgs/openshift/teams/team-documentation[documentation team]
+documentation team
+reviews the PR and arranges further review by the development and quality
+assurance teams, as required.
+If the PR requires changes, updates, or corrections, we will let you know
+in the PR. We might request that you make the changes, or let you know that we
+incorporated your content in a different PR. When the PR has been reviewed, all
+updates are complete, and all commits are squashed, we'll merge the PR and it will
+be published to the oVirt website.
+
+== Repository organization
+The oVirt documentation repository is stored under `/source/documentation`. Each directory corresponds to a guide, except `common`, which includes files that are shared between multiple guides. Each guide's directory includes `index.adoc` and `master.adoc` files. These are the top-level assemblies for that guide, where `index.adoc` is for oVirt and `master.adoc` is for Red Hat Virtualization, a downstream distribution of oVirt. Many guides include additional nested assemblies and a `topics` subdirectory with individual topics.
+
+== Version management
+Most of the content applies to oVirt and Red Hat Virtualization. While a large
+amount of content is reused for both products, some information
+applies to only one or the other. Content inclusion and exclusion is managed
+by using a combination of `include` statements, `ifdef/endif` statements, and attributes
+in individual files.
+// by specifying distributions in the
+//`&#95;topic&#95;map.yml` file or by using `ifdef/endif` statements in individual files.
+
+////
+While it is _possible_
+to accomplish this solely with Git branches to maintain slightly different
+versions of a given topic, doing so would make the task of maintaining internal
+consistency extremely difficult for content contributors.
+
+////
+
+=== Conditional text between products
+oVirt documentation uses AsciiDoc's `ifdef/endif` and `ifeval/endif` macros to conditionalize
+and reuse content, down to the single-line level.
+
+The supported distribution attributes used with the oVirt build mechanism
+are:
+
+* _ovirt-doc_
+* _rhv-doc_
+
+Here is an example of this concept in use:
+
+----
+This line is not conditionalized, and will appear for both oVirt and RHV.
+
+\ifdef::ovirt-doc[]
+This line will only appear for oVirt.
+\endif::[]
+
+ifdef::rhv-doc
+This line will only appear for Red Hat Virtualization.
+\endif::[]
+
+----
+
+[NOTE]
+====
+While the `ifdef/endif` blocks have no size limit, do not use them to
+to conditionalize the text of an entire file within that file. Instead, use `include` statements to include the file in the top-level assembly, that is, the `index.adoc` file, or use `ifdef` macros around the `include` statement if the assembly is shared between oVirt and RHV.
+====
+
+== Release branches
+
+////
+With the combination of conditionalizing content within files with
+`ifdef/endif` and conditionalizing whole files in the `&#95;topic&#95;map.yml`
+file, the `main` branch of
+this repository always contains a complete set of documentation for all
+OpenShift products. However, when and as new versions of an OpenShift product
+are released, the `main` branch is merged down to new or existing release
+branches. Here is the general naming scheme used in the branches:
+
+* `main` - This is our *working* branch.
+* `enterprise-N.N` - OpenShift Container Platform support releases. The docs
+for OpenShift Online and OpenShift Dedicated are based on the appropriate
+`enterprise-N.N` branch.
+
+On a 12-hourly basis, the documentation web sites are rebuilt for each of these
+branches. This way the published content for each released version of an
+OpenShift product remains the same while development continues on the
+`main` branch. Additionally, any corrections or additions that are
+"cherry-picked" into the release branches will show up in the published
+documentation after 12 hours.
+////
+
+All published oVirt content is on the `master` branch.
+Therefore, when submitting your work create the PR against the `master`
+branch. After it is reviewed, a writer will merge the content.
+
+== Creating a pull request (PR)
+
+. For the PR  title, use this format: `*<issue_id>: [Docs] [<Guide_abbreviation>] <Short description>*`
+. Use the following boilerplate text for the PR description:
++
+----
+[Feature | Bug fix]
+Fixes (issue # |<issue_URL>)
+
+(If the PR should not be published prior to an upcoming release) Do not publish before: <target_release> release
+
+Changes proposed in this pull request:
+
+-
+
+-
+
+-
+
+I confirm that this pull request was submitted according to the [contribution guidelines](https://github.com/oVirt/ovirt-site/blob/master/CONTRIBUTING.md): (please @mention yourself to sign)
+
+This pull request needs review by: (please @mention the reviewer if relevant)
+
+----
++
+.Example
+----
+PR TITLE: BZ#2010355: [Docs][Admin] Update Inventory Dashboard description
+
+Feature
+
+This PR addresses https://bugzilla.redhat.com/show_bug.cgi?id=2010355.
+
+Do not publish before: oVirt 4.4.9 release
+
+Changes proposed in this pull request:
+
+* This PR adds a module to describe the new dashboard feature.
+
+I confirm that this pull request was submitted according to the [contribution guidelines](https://github.com/oVirt/ovirt-site/blob/master/CONTRIBUTING.md): @ploni)
+
+This pull request needs review by: @octocat
+----
+
+. After creating the PR, add the *documentation* label.
+
+. Prevent merging by clicking *Convert to draft*.
+
+. When the PR is ready to merge, click the *Ready for review* button.
+
+//== Next steps
+////
+* First, you should link:tools_and_setup.adoc[install and set up the tools and software]
+on your workstation so that you can contribute.
+* Next, link:doc_guidelines.adoc[review the documentation guidelines] to
+understand some basic guidelines to keep things consistent
+across our content.
+////
+// * If you are ready to create content, or want to edit existing content, the
+// link:create_or_edit_content.adoc[create or edit content] topic describes how to do so by creating a working branch.

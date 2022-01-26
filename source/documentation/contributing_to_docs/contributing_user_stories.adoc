@@ -1,0 +1,95 @@
+[[contributing-user-stories]]
+= Contribute user stories to oVirt documentation
+:icons:
+:toc: macro
+:toc-title:
+:toclevels: 1
+:description: Basic information about how to create user stories for oVirt GitHub repository
+
+toc::[]
+
+== Modular documentation
+oVirt user documentation should adhere to link:https://redhat-documentation.github.io/modular-docs/[modular documentation guidelines] and
+content should be based on user stories.
+
+== How do I contribute modularized content?
+To contribute modularized content, you need to write a user story, create
+documentation modules to support the user story, and create an assembly for the
+story.
+
+== What if I don't want to write in modules?
+If you don't want to write the modules yourself but have a content change,
+write a user story, provide details to support the story, and reach out to
+@oVirt-documentation.
+
+== How do I write a user story? Is there a template?
+Instead of a template, we have a series of questions for you to answer to
+create the user story. Follow the same steps if you are writing the modules
+yourself or if you plan to work with the documentation team.
+
+The basic format of a user story is:
+
+----
+As a <type of user>, I want to <goal state> because <reason behind the goal>.
+----
+
+For example, "As an oVirt administrator, I want to migrate the Data Warehouse to a remote machine because I want to achieve better performance for the Engine machine."
+
+Use the following questions to guide you in providing the context for your user story and the necessary technical details to start a draft.
+You don't have to answer all of these questions, only the ones that make sense to your particular user story.
+
+=== Feature info
+* What is the feature being developed? What does it do?
+* How does it work?
+* Are there any configuration files/settings/parameters being added or modified? Are any new commands being added or modified?
+* What tools or software does the documentation team need to test how this feature works? Does the documentation team need to update any installed software?
+* Are there any existing blogs, Wiki posts, Kbase articles, or BZs involving this feature? Or any other existing information that may help to understand this feature?
+
+=== Customer impact
+* Who is the intended audience for this feature? Does it apply to developers, admins, users, or all of the above?
+* Why is it important for users? Why would they want to use this feature? How does it benefit them?
+* How will the user use it? Is there a use case?
+* How will the user interact with this feature? Web console? REST API?
+
+=== Product info
+* What type of plan do users need to use this feature?
+* Is it user-facing, or more behind-the-scenes admin stuff?
+* What tools or software does the documentation team need to test how this feature works?
+
+== How do I write modular documentation?
+See the link:https://redhat-documentation.github.io/modular-docs/[Modular documentation reference guide].
+
+The main concepts:
+
+* Each assembly contains the information required for a user to achieve a single
+goal.
+* Assemblies contain primarily `include` statements, which are references to
+smaller, targeted module files.
+* Modules can contain conceptual information, reference information, or procedural information (steps),
+but not a combination of the types.
+
+For example, a simple assembly might contain the following three modules:
+
+* A concept module that contains background information about the feature
+that the user will configure.
+* A reference module that contains an annotated sample yaml file that the user
+needs to modify.
+* A procedure module that contains the prerequisites that the user needs to
+complete before they start configuring and steps that the user takes to
+complete the configuration.
+
+The Modular documentation reference guide contains sample assemblies that explain how to
+get started with modular documentation and that serve as
+references for including modules in assemblies.
+
+////
+The
+link:https://raw.githubusercontent.com/openshift/openshift-docs/enterprise-4.1/mod_docs_guide/mod-docs-conventions-ocp.adoc[Modular Docs OpenShift conventions]
+assembly contains the
+link:https://raw.githubusercontent.com/openshift/openshift-docs/enterprise-4.1/modules/mod-docs-ocp-conventions.adoc[Modular docs OpenShift conventions]
+reference module, and the
+link:https://github.com/openshift/openshift-docs/blob/enterprise-4.1/mod_docs_guide/getting-started-modular-docs-ocp.adoc[Getting started with modular docs on OpenShift]
+assembly contains the
+link:https://raw.githubusercontent.com/openshift/openshift-docs/enterprise-4.1/modules/creating-your-first-content.adoc[Creating your first content]
+procedure module.
+////

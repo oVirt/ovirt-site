@@ -18,7 +18,7 @@ See [MAINTAINING.md](MAINTAINING.md) for information about site maintainers.
 
 See [README_ORGANIZATION.md](README_ORGANIZATION.md) for information about how the source code is organized.
 
-Most of the content in the website is written in Markdown.
+Most of the website content is written in Markdown.
 For information on formatting Markdown, see [Markdown Basics](https://help.github.com/articles/getting-started-with-writing-and-formatting-on-github/).
 
 You can create a new file two ways:

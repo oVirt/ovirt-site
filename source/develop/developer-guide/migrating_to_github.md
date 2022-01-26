@@ -157,10 +157,9 @@ jobs:
           yum --downloadonly install -y exported-artifacts/*noarch.rpm
           yum --downloadonly install -y ovirt-engine ovirt-engine-setup-plugin-websocket-proxy
     - name: Upload artifacts
-      uses: actions/upload-artifact@v2
+      uses: ovirt/upload-rpms-action@v2
       with:
-        name: artifacts
-        path: exported-artifacts/
+        directory: test-artifacts
 
 
   build-el9:
@@ -205,10 +204,9 @@ jobs:
           yum --downloadonly install -y exported-artifacts/*noarch.rpm
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v2
+      uses: ovirt/upload-rpms-action@v2
       with:
-        name: artifacts
-        path: exported-artifacts/
+        directory: test-artifacts
 ```
 
 # Require "CI +1" for merging

@@ -208,7 +208,8 @@ Thanks
 <p>Within the <code class="language-plaintext highlighter-rouge">Manage access</code> section:</p>
 <ul>
   <li>Ensure <code class="language-plaintext highlighter-rouge">oVirt/Admins</code> team has Administrator role for the project</li>
-  <li>Setup additional roles as needed</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">oVirt/Developers</code> with Triage role</li>
+  <li>Setup additional roles as needed, e.g. Maintain or Write for maintainers</li>
 </ul>
 
 <p>Within the <code class="language-plaintext highlighter-rouge">Security &amp; Analysis</code> section:</p>
@@ -301,10 +302,9 @@ Thanks
           <span class="s">yum --downloadonly install -y exported-artifacts/*noarch.rpm</span>
           <span class="s">yum --downloadonly install -y ovirt-engine ovirt-engine-setup-plugin-websocket-proxy</span>
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upload artifacts</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/upload-artifact@v2</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">ovirt/upload-rpms-action@v2</span>
       <span class="na">with</span><span class="pi">:</span>
-        <span class="na">name</span><span class="pi">:</span> <span class="s">artifacts</span>
-        <span class="na">path</span><span class="pi">:</span> <span class="s">exported-artifacts/</span>
+        <span class="na">directory</span><span class="pi">:</span> <span class="s">test-artifacts</span>
 
 
   <span class="na">build-el9</span><span class="pi">:</span>
@@ -349,10 +349,9 @@ Thanks
           <span class="s">yum --downloadonly install -y exported-artifacts/*noarch.rpm</span>
 
     <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upload artifacts</span>
-      <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/upload-artifact@v2</span>
+      <span class="na">uses</span><span class="pi">:</span> <span class="s">ovirt/upload-rpms-action@v2</span>
       <span class="na">with</span><span class="pi">:</span>
-        <span class="na">name</span><span class="pi">:</span> <span class="s">artifacts</span>
-        <span class="na">path</span><span class="pi">:</span> <span class="s">exported-artifacts/</span>
+        <span class="na">directory</span><span class="pi">:</span> <span class="s">test-artifacts</span>
 </code></pre></div></div>
 
 <h1 id="require-ci-1-for-merging">Require “CI +1” for merging</h1>
@@ -439,6 +438,10 @@ contact_links:
 <p>For each repository, you can assign <a href="https://github.com/actions/labeler">labels</a> to easily label things such as good first issues, bugs, documentation, tested labels, and more. Your repository labels can be found at: <code class="language-plaintext highlighter-rouge">https://github.com/oVirt/&lt;your_project&gt;/labels</code></p>
 
 <p>There is also a GitHub Action you can use in your repository to <a href="https://github.com/actions/labeler">automatically label PRs</a>.</p>
+
+<h1 id="developing-code-on-github">Developing code on GitHub</h1>
+
+<p>You can find the best practices for developing an oVirt project on GitHub in <a href="https://www.ovirt.org/develop/dev-process/working-with-github.html">Working with oVirt on GitHub</a>.</p>
 
 
 

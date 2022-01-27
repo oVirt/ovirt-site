@@ -42,7 +42,7 @@ The event notifier configuration file can be found in */usr/share/ovirt-engine/s
 |SNMP_USERNAME |none |(SNMPv3) The user name used for SNMPv3 traps.
 |SNMP_AUTH_PROTOCOL |none |(SNMPv3) The SNMPv3 authorization protocol. Possible values: `MD5`, `SHA`
 |SNMP_AUTH_PASSPHRASE |none |(SNMPv3) The passphrase used when SNMP_SECURITY_LEVEL is set to AUTH_NOPRIV and AUTH_PRIV.
-|SNMP_PRIVACY_PROTOCOL |none |(SNMPv3) The SNMPv3 privacy protocol. Possible values: `AES128`, `AES192`, `AES256`
+|SNMP_PRIVACY_PROTOCOL |none a|(SNMPv3) The SNMPv3 privacy protocol. Possible values: `AES128`, `AES192`, `AES256`
 [IMPORTANT]
 ====
 AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them.

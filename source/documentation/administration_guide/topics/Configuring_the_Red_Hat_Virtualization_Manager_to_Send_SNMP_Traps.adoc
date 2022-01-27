@@ -15,12 +15,15 @@ Configure your {virt-product-fullname} {engine-name} to send Simple Network Mana
 
 * The IP addresses or fully qualified domain names of machines that will act as SNMP managers. Optionally, determine the port through which {engine-name} receives trap notifications. The default is UDP port 162.
 
-* The SNMP community. Multiple SNMP managers can belong to a single community. Management systems and agents can communicate only if they are within the same community. The default community is `public`.
+* The SNMP community (SNMP version 2 only). Multiple SNMP managers can belong to a single community. Management systems and agents can communicate only if they are within the same community. The default community is `public`.
 
 * The trap object identifier for alerts. The {virt-product-fullname} {engine-name} provides a default OID of 1.3.6.1.4.1.2312.13.1.1. All trap types are sent, appended with event information, to the SNMP manager when this OID is defined. Note that changing the default trap prevents generated traps from complying with the {engine-name}'s management information base.
 
-* An SNMP username and password.
+* An SNMP username, for SNMP version 3, security levels 1, 2, and 3.
 
+* An SNMP passphrase, for SNMP version 3, security levels 2 and 3.
+
+* An SNMP private passphrase, for SNMP version 3, security level 3.
 
 [NOTE]
 ====
@@ -43,7 +46,7 @@ Default SNMP configuration values exist on the {engine-name} in the events notif
 Copy the default SNMP settings from the events notification daemon configuration file `/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf`. This file includes inline comments for all settings.
 ====
 
-. Specify the SNMP manager(s), the SNMP community, and the OID in the format in this example:
+. Specify the SNMP manager(s), the SNMP community (SNMP version 2 only), and the OID in the format in this example:
 +
 [options="nowrap" subs="normal"]
 ----

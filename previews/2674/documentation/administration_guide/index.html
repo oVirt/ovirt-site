@@ -27975,11 +27975,23 @@ MAIL_RETRIES=4</pre>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_PRIVACY_PROTOCOL</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMPv3) The SNMPv3 privacy protocol. Possible values: <code>AES128</code>, <code>AES192</code>, <code>AES256</code>
-[IMPORTANT]
-====
-AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them.
-====</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(SNMPv3) The SNMPv3 privacy protocol. Possible values: <code>AES128</code>, <code>AES192</code>, <code>AES256</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_PRIVACY_PASSPHRASE</p></td>

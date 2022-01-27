@@ -15375,9 +15375,6 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Image I/O Proxy (<code>ovirt-imageio-proxy</code>), configured with <code>engine-setup</code>. See <a href="https://ovirt.org/documentation/installing_ovirt_as_a_standalone_manager_with_local_databases/index#Configuring_the_Red_Hat_Virtualization_Manager_install_RHVM">Configuring the oVirt Engine</a> for details.</p>
-</li>
-<li>
 <p>Certificate authority, imported into the web browser used to access the Administration Portal.</p>
 <div class="paragraph">
 <p>To import the certificate authority, browse to <code>https://<em>engine_address</em>/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA</code> and enable all the trust settings. Refer to the instructions to install the certificate authority in <a href="https://access.redhat.com/solutions/95103">Firefox</a>, <a href="https://access.redhat.com/solutions/17864">Internet Explorer</a>, or <a href="https://access.redhat.com/solutions/1168383">Google Chrome</a>.</p>
@@ -15388,10 +15385,8 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Uploading an Image to a Data Storage Domain</strong></p>
-</div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Click <span class="menuseq"><b class="menu">Storage</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Disks</b></span>.</p>
@@ -15413,28 +15408,25 @@ This breaks the use of a Data-Domain as a replacement for Export Domains.</p>
 </li>
 </ol>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
 <div class="paragraph">
-<p><strong>Increasing the Upload Timeout Value</strong></p>
+<p>If the upload times out with the message, <strong>Reason: timeout due to transfer inactivity</strong>, increase the timeout value and restart the <code>ovirt-engine</code> service:</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>If the upload times out and you see the message, <strong>Reason: timeout due to transfer inactivity</strong>, increase the timeout value:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># engine-config -s TransferImageClientInactivityTimeoutInSeconds=6000</pre>
+<pre class="nowrap"># engine-config -s TransferImageClientInactivityTimeoutInSeconds=6000
+# systemctl restart ovirt-engine</pre>
 </div>
 </div>
-</li>
-<li>
-<p>Restart the <code>ovirt-engine</code> service:</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine</pre>
-</div>
-</div>
-</li>
-</ol>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -28084,13 +28076,19 @@ AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server su
 <p>The IP addresses or fully qualified domain names of machines that will act as SNMP managers. Optionally, determine the port through which Engine receives trap notifications. The default is UDP port 162.</p>
 </li>
 <li>
-<p>The SNMP community. Multiple SNMP managers can belong to a single community. Management systems and agents can communicate only if they are within the same community. The default community is <code>public</code>.</p>
+<p>The SNMP community (SNMP version 2 only). Multiple SNMP managers can belong to a single community. Management systems and agents can communicate only if they are within the same community. The default community is <code>public</code>.</p>
 </li>
 <li>
 <p>The trap object identifier for alerts. The oVirt Engine provides a default OID of 1.3.6.1.4.1.2312.13.1.1. All trap types are sent, appended with event information, to the SNMP manager when this OID is defined. Note that changing the default trap prevents generated traps from complying with the Engine&#8217;s management information base.</p>
 </li>
 <li>
-<p>An SNMP username and password.</p>
+<p>An SNMP username, for SNMP version 3, security levels 1, 2, and 3.</p>
+</li>
+<li>
+<p>An SNMP passphrase, for SNMP version 3, security levels 2 and 3.</p>
+</li>
+<li>
+<p>An SNMP private passphrase, for SNMP version 3, security level 3.</p>
 </li>
 </ul>
 </div>
@@ -28137,7 +28135,7 @@ AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server su
 </div>
 </li>
 <li>
-<p>Specify the SNMP manager(s), the SNMP community, and the OID in the format in this example:</p>
+<p>Specify the SNMP manager(s), the SNMP community (SNMP version 2 only), and the OID in the format in this example:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap">SNMP_MANAGERS="<em>manager1.example.com</em> <em>manager2.example.com:162</em>"

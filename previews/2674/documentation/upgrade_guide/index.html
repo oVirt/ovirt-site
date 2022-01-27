@@ -1203,7 +1203,10 @@ done</pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3 before you start the procedure.</p>
+<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3.</p>
+</li>
+<li>
+<p>All virtual machines in the environment must have the cluster compatibility level set to version 4.3.</p>
 </li>
 <li>
 <p>If you use an external CA to sign HTTPS certificates, follow the steps in <a href="https://ovirt.org/documentation/administration_guide/index#Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</a> in the <em>Administration Guide</em>. The backup and restore include the 3rd-party certificate, so you should be able to log in to the Administration portal after the upgrade. Ensure the CA certificate is added to system-wide trust stores of all clients to ensure the foreign menu of virt-viewer works. See <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1313379">BZ#1313379</a> for more information.</p>
@@ -3556,7 +3559,10 @@ done</pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3 before you start the procedure.</p>
+<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3.</p>
+</li>
+<li>
+<p>All virtual machines in the environment must have the cluster compatibility level set to version 4.3.</p>
 </li>
 <li>
 <p>If you use an external CA to sign HTTPS certificates, follow the steps in <a href="https://ovirt.org/documentation/administration_guide/index#Replacing_the_Manager_CA_Certificate">Replacing the oVirt Engine CA Certificate</a> in the <em>Administration Guide</em>. The backup and restore include the 3rd-party certificate, so you should be able to log in to the Administration portal after the upgrade. Ensure the CA certificate is added to system-wide trust stores of all clients to ensure the foreign menu of virt-viewer works. See <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1313379">BZ#1313379</a> for more information.</p>
@@ -5310,7 +5316,10 @@ done</pre>
 <div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3 before you start the procedure.</p>
+<p>All data centers and clusters in the environment must have the cluster compatibility level set to version 4.2 or 4.3.</p>
+</li>
+<li>
+<p>All virtual machines in the environment must have the cluster compatibility level set to version 4.3.</p>
 </li>
 <li>
 <p>Make note of the MAC address of the self-hosted engine if you are using DHCP and want to use the same IP address. The deploy script prompts you for this information.</p>

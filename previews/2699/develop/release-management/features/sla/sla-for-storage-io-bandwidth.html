@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>SLA for storage io bandwidth | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="SLA for storage io bandwidth" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2699/develop/release-management/features/sla/sla-for-storage-io-bandwidth.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2699/develop/release-management/features/sla/sla-for-storage-io-bandwidth.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SLA for storage io bandwidth" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2699/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"SLA for storage io bandwidth","url":"https://ovirt.github.io/ovirt-site/previews/2699/develop/release-management/features/sla/sla-for-storage-io-bandwidth.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2699/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2699/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2699/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2699/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2699/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2699/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2699/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2699/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2699/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2699/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2699/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2699/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2699/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2699/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2699/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2699/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2699/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2699/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2699/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2699/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2699/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2699/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2699/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2699/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2699/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2699/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2699/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2699/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2699/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2699/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2699/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2699/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2699/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2699/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2699/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2699//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2699//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2699/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2699/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2699/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2699/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2699/develop/release-management/features/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/725f81624ed6cb5b423111ae98f64c62?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/725f81624ed6cb5b423111ae98f64c62?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Mei Liu</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2699/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="sla-for-storage-io-bandwidth">SLA for storage io bandwidth</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This wiki page focuses on the design of storage I/O bandwidth Service Level Agreement(SLA).</p>
+
+<h2 id="owner">Owner</h2>
+
+<ul>
+  <li>Name: Mei Liu</li>
+  <li>Email: <liumbj at="" linux="" dot="" vnet="" ibm="" com=""></liumbj></li>
+</ul>
+
+<h2 id="current-status">Current Status</h2>
+
+<ul>
+  <li>Status: design</li>
+  <li>Last updated: 28 June</li>
+</ul>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<p>In VDSM, each storage domain backend only provides limited IO bandwidth capability. If bandwidth become scarce resource, the efficiency of vm IO operations will be affected by other vms. This is not the situation we want, and therefore we need to limit the bandwidth usage to allocate the bandwidth in a better way.</p>
+
+<p>In libvirt, existing iotune properties are applied on a vDisk of VM, and provides the ability to provide additional per-device I/O tuning. They include the following elements:</p>
+
+<ul>
+  <li>total_bytes_sec
+    <ul>
+      <li>The optional total_bytes_sec element is the total throughput limit in bytes per second. This cannot appear with read_bytes_sec or write_bytes_sec.</li>
+    </ul>
+  </li>
+  <li>read_bytes_sec
+    <ul>
+      <li>The optional read_bytes_sec element is the read throughput limit in bytes per second.</li>
+    </ul>
+  </li>
+  <li>write_bytes_sec
+    <ul>
+      <li>The optional write_bytes_sec element is the write throughput limit in bytes per second.</li>
+    </ul>
+  </li>
+  <li>total_iops_sec
+    <ul>
+      <li>The optional total_iops_sec element is the total I/O operations per second. This cannot appear with read_iops_sec or write_iops_sec.</li>
+    </ul>
+  </li>
+  <li>read_iops_sec
+    <ul>
+      <li>The optional read_iops_sec element is the read I/O operations per second.</li>
+    </ul>
+  </li>
+  <li>write_iops_sec
+    <ul>
+      <li>The optional write_iops_sec element is the write I/O operations per second.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Any sub-element not specified or given with a value of 0 implies no limit.</p>
+
+<p>In the plan, we make use of this functionality to implement the IO bandwidth control based on policy.</p>
+
+<h2 id="benefit-to-ovirt">Benefit to oVirt</h2>
+
+<p>This feature will allow QoS and SLA for storage bandwidth IO control.</p>
+
+<h2 id="design">Design</h2>
+
+<h3 id="vdisk-profile-in-engine">vDisk Profile in engine</h3>
+
+<p>In order to define more natural coupling of the SLA to a vDisk of VM, we define a new concept called vDisk Profile in engine as disk Profile. This will wrap few of the properties currently defined directly on the vDisk.</p>
+
+<p>vDisk profile includes:</p>
+
+<ul>
+  <li>initial IO bandwidth limit value(optional, e.g. total_bytes_sec, if not set, it is 0 which implies no limit)</li>
+  <li>MOM auto tuning range: min bandwidth limit(required)</li>
+  <li>priority: higher priority has smaller value</li>
+  <li>other existing vDisk info</li>
+</ul>
+
+<p>We suggest to use total_bytes_sec only as IO bandwidth limit, since it includes reading an writing operations and takes the IO size into account.</p>
+
+<p>When creating a new vDisk or editing an existing one the user will select a vDisk Profile. The administrator could create several vDisk Profiles for each storage domain. He could then grant a users with the permission to use some of the profiles.</p>
+
+<p>For example: the admin will create two vDisk profiles for storage domain SD-1:</p>
+
+<ul>
+  <li>Profile “Gold”
+    <ul>
+      <li>initial IO bandwidth limit value: 100MB/s</li>
+      <li>min bandwidth limit: 6MB/s</li>
+      <li>priority:0</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Profile “Silver”
+    <ul>
+      <li>initial IO bandwidth limit value: 100MB/s</li>
+      <li>min bandwidth limit: 4MB/s</li>
+      <li>priority:1</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Higher priority user group can use profile “Gold”, while lower priority user group can use profile “Silver”.</p>
+
+<p>The vDisk Profile could be edited by the administrator at any time. The changes will seep down to all vDisks using the profile. In case vDisk using the edited profile are connected to running VMs the change will apply only on the VM next started. Devices which will be hotpluged or updated will use the updated profile connected to the vDisk.</p>
+
+<p>When a Template is created from a VM the vDisk Profile will be kept along with the vDisk. When a VM is created from template the vDisk Profiles will be taken from the template’s vdisks. vDisk Profiles could not be deleted from the engine as long as one or more VM/Templates are using those profiles. When a vDisk is exported and imported, a new profile should be selected which is related to an granted access to the user when the vm is powered on.</p>
+
+<h3 id="automatic-per-device-tuning-for-io-bandwidth-limitbasic-feature">Automatic per-device tuning for IO bandwidth limit(basic feature)</h3>
+
+<p>In the following chapters, we will explain how to tune this IO bandwidth limit dynamically . The adjustment is performed by MOM. This section gives the way to set initial value. This value is used as start point when IO limit is adjusted. The IO limit is then tuned according to IO bandwidth usage.</p>
+
+<h4 id="initial-io-bandwidth-limit-value">Initial IO bandwidth limit value</h4>
+
+<p>The initial IO limit of vDisks bandwidth can be set to the value when vm is created. By default, it uses unlimited(0).</p>
+
+<h4 id="io-bandwidth-limit-tuning">IO bandwidth limit tuning</h4>
+
+<p>IO limit is tuned by a mechanism in MOM. For each vDisk, its IO bandwidth limit should be in range (min bandwidth limit, max bandwidth limit) which is set in engine. We use the following policy to automatic tuning the IO limit.</p>
+
+<p>The basic idea is that when congestion happens, MOM find the highest priority disk which is congested. MOM then decreases the IO limit of those disk whose priority lower than this congested vDisk, and increase the IO limit of those whose priority are higher or equal to the congested vDisk and throughput is almost current IO limit. When no vDisk is congested, the IO limit of vDisks who use almost current IO limit will be increased.</p>
+
+<p>If a host find a vDisk is congested it will report related info to engine by get stats. Then engine will tell other hosts’ MOM . They will adjusted used the policy above.</p>
+
+<p>The algorithm is as follows</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   initialization:
+   vDisk[i].climit =  very big number (similar to unlimited)
+
+   Each run:
+   vDiskTuneUp = []
+   vDiskCongested = `[](/)` * priorityCount  
+   for disk in vDisk:
+     if disk.throughput &gt;= disk.climit * 90%:
+         vDiskTuneUp.append(vm)
+     if vm.throughput &lt; vm.climit * 90% &amp;&amp; vm.util &gt; 90%:
+         vDiskCongested[vm.priority].append(vm) 
+   for diskPriority = 0 to priorityCount - 1:
+     if len(vDiskCongested[diskPriority]) == 0:
+         continue  # no disk is congested for this diskPriority
+     break  
+     else:
+         diskPriority = priorityCount
+   for disk in vDisk:
+     if disk.priority &gt; diskPriority:
+         # decrease those whose priorities are lower
+         disk.climit = disk.throughput - (vm.disk - vm.blimit) * 10%
+     else if  disk in vDiskTuneUp:
+         disk.climit = disk.climit * 110%
+</code></pre></div></div>
+
+<h4 id="discussion">Discussion</h4>
+
+<p>Is it proper to use total_bytes_sec to describe vDisk bandwidth and tune this value dynamically?</p>
+
+<h3 id="functionality">Functionality</h3>
+
+<p>Basic: Admin can created the SD profile and grant to users</p>
+
+<p>Users can select the profile for a specific vDisk when a VM is created . These elements are kept in migration.</p>
+
+<p>Support in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.</p>
+
+<p>The ovirt gust agent should collect info like util.</p>
+
+<h2 id="documentation--external-references">Documentation / External references</h2>
+
+<p><a href="http://libvirt.org/formatdomain.html#elementsDisks">http://libvirt.org/formatdomain.html#elementsDisks</a></p>
+
+<h2 id="testing">Testing</h2>
+
+<p>Expected unit-tests</p>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2699/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2699/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2699/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2699/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/sla/sla-for-storage-io-bandwidth.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/sla/sla-for-storage-io-bandwidth.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

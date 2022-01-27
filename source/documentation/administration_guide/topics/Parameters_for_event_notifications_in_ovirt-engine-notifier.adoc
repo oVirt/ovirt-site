@@ -35,10 +35,10 @@ The event notifier configuration file can be found in */usr/share/ovirt-engine/s
 |MAIL_SEND_INTERVAL |1 |The number of SMTP messages to be sent for each IDLE_INTERVAL
 |MAIL_RETRIES |4 |The number of times to attempt to send an email before failing.
 |SNMP_MANAGERS |none |The IP addresses or fully qualified domain names of machines that will act as the SNMP managers. Entries must be separated by a space and can contain a port number. For example, `manager1.example.com manager2.example.com:164`
-|SNMP_COMMUNITY |public |The SNMP community.
+|SNMP_COMMUNITY |public |(SNMP version 2 only) The SNMP community.
 |SNMP_OID |1.3.6.1.4.1.2312.13.1.1 |The default trap object identifiers for alerts. All trap types are sent, appended with event information, to the SNMP manager when this OID is defined. Note that changing the default trap prevents generated traps from complying with the {engine-name}'s management information base.
 |SNMP_VERSION |2 |Defines which version of SNMP to use. SNMP version 2 and version 3 traps are supported. Possible values: `2` or `3`.
-|SNMP_ENGINE_ID |none |(SNMPv3) The {engine-name} ID used for SNMPv3 traps. ???How do I get this ID???
+|SNMP_ENGINE_ID |none |(SNMPv3) The {engine-name} ID used for SNMPv3 traps. This ID is a unique identifier for the device that is connected through SNMP.
 |SNMP_USERNAME |none |(SNMPv3) The user name used for SNMPv3 traps.
 |SNMP_AUTH_PROTOCOL |none |(SNMPv3) The SNMPv3 authorization protocol. Possible values: `MD5`, `SHA`
 |SNMP_AUTH_PASSPHRASE |none |(SNMPv3) The passphrase used when SNMP_SECURITY_LEVEL is set to AUTH_NOPRIV and AUTH_PRIV.

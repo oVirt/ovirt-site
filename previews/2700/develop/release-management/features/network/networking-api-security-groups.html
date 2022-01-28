@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>ovirt-provider-ovn security groups | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="ovirt-provider-ovn security groups" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2700/develop/release-management/features/network/networking-api-security-groups.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2700/develop/release-management/features/network/networking-api-security-groups.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="ovirt-provider-ovn security groups" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2700/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"ovirt-provider-ovn security groups","url":"https://ovirt.github.io/ovirt-site/previews/2700/develop/release-management/features/network/networking-api-security-groups.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2700/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2700/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2700/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2700/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2700/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2700/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2700/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2700/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2700/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2700/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2700/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2700/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2700/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2700/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2700/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2700/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2700/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2700/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2700/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2700/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2700/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2700/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2700/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2700/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2700/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2700/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2700/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2700/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2700/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2700/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2700/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2700/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2700/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2700/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2700/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2700//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2700//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2700/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2700/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2700/develop/release-management/">
+              <span property="name">Release Management</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2700/develop/release-management/features/">
+              <span property="name">Features (Design documents)</span>
+              <meta property="position" content="4" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2700/develop/release-management/features/network/">
+              <span property="name">Network</span>
+              <meta property="position" content="5" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Miguel Duarte Barroso</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>Feature pages are design documents that developers have created while collaborating on oVirt.<br><br>Most of them are&nbsp;<strong>outdated</strong>, but provide historical design context.<br><br>They are&nbsp;<strong>not</strong>&nbsp;user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2700/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="ovirt-provider-ovn-security-groups">Ovirt-provider-ovn security groups</h1>
+
+<h2 id="summary">Summary</h2>
+
+<p>This feature aims to implement the OpenStack Networking API <a href="https://developer.openstack.org/api-ref/network/v2/index.html#security-groups-security-groups">security group</a>
+in the ovirt-provider-ovn.</p>
+
+<p>By doing so, we allow fine-grained access control to - and from - the oVirt
+VMs attached to external networks.</p>
+
+<p>The Networking API v2 defines security groups as a white list of rules - the
+user specifies in it <strong>which traffic is allowed</strong>.
+That means, that when the rule list is empty, neither incoming nor outgoing
+traffic is allowed (from the VMs perspective).</p>
+
+<p>A security group is applied to a logical port - a <em>logical switch port</em>
+in the OVN model.</p>
+
+<h3 id="owner">Owner</h3>
+
+<ul>
+  <li>Feature Owner: <a href="https://github.com/maiqueb">Miguel Duarte Barroso</a> (mbarroso in #ovirt)</li>
+  <li>Email: <a href="mailto:mdbarroso@redhat.com">mdbarroso@redhat.com</a></li>
+</ul>
+
+<h3 id="terminology">Terminology</h3>
+
+<ul>
+  <li>Networking API: <a href="https://developer.openstack.org/api-ref/network/v2/">OpenStack RESTful Networking API</a></li>
+  <li>OVN: Open Virtual Network. OVN is an OVS (Open vSwitch) extension that
+brings Software Defined Networking to OVS.</li>
+  <li>oVirt OVN provider: a proxy that implements a subset of the Networking API
+and interacts with OVN.</li>
+  <li>Security group: container for security group <strong>rules</strong>; networking API
+entity</li>
+  <li>Security group rules: specify the access to a network resource;
+networking API entity</li>
+</ul>
+
+<h3 id="benefit-to-ovirt">Benefit to oVirt</h3>
+
+<p>Currently, the only security mechanisms present for oVirt VMs attached to
+external networks are quite crude L2 and L3 protections - MAC
+spoofing, and IP spoofing - implemented directly by Open vSwitch.</p>
+
+<p>Security groups, which are a traffic white list, complement provided security
+by specifying which traffic is allowed to <em>and</em> from the resources - e.g. ports - using high level abstraction L3 and L4 semantics.</p>
+
+<p>Furthermore, security groups allow these rules to be applied in fine
+grained fashion - e.g. the user can specify which rules apply to which
+ports.</p>
+
+<p>Below, you can find some use cases of this feature:</p>
+<ul>
+  <li><strong>only</strong> allow incoming traffic to a specific VM from a specific
+CIDR</li>
+  <li><strong>only</strong> allow incoming access to a range of destination ports in a
+set of VMs</li>
+  <li><strong>only</strong> allow outgoing traffic to a specific port on a set of VMs</li>
+</ul>
+
+<p>L2 protection is <strong>not in scope</strong> of the Networking API security groups.</p>
+
+<h2 id="objectives">Objectives</h2>
+
+<ul>
+  <li>
+    <p>Provide a security group implementation, using OVN as the backend.
+No additional backend / database should be used other than ovn’s
+northbound database.</p>
+  </li>
+  <li>
+    <p>When possible, Openstack neutron’s behavior should be mimicked: by
+default, all VM incoming IP <em>and</em> outgoing traffic is dropped. This behavior
+is better specified in the <a href="#requirements">requirements</a> section.</p>
+  </li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<ul>
+  <li>For ingress traffic (to a guest / VM)
+    <ul>
+      <li>Only traffic matched with security group rules is allowed.</li>
+      <li>When there are no rules defined, all ingress traffic is dropped.</li>
+    </ul>
+  </li>
+  <li>For egress traffic (from a guest / VM)
+    <ul>
+      <li>Only traffic matched with security group rules is allowed.</li>
+      <li>When there are no rules defined, all egress traffic is dropped.</li>
+      <li>Rules allowing all egress IP traffic are automatically added to all groups.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="security-groups-description">Security groups description</h3>
+
+<p>Security groups, in the general sense, are meant to group together a list of
+<a href="https://developer.openstack.org/api-ref/network/v2/#security-group-rules-security-group-rules">security group rules</a>. 
+They are applied to logical ports, and thus are used to associate a set of 
+rules to a port.</p>
+
+<p>They are indeed a white list - meaning that everything is <em>denied</em> when the
+list is empty - to which the user adds rules allowing specific traffic. As
+long as <em>one</em> rule is matched, that particular traffic is allowed.</p>
+
+<p>Security group rules can match on L3 and L4 parameters, specifically on
+the L3 protocol, the L4 protocol, and destination ports. The remote IP
+address is also a subject for the match conditions, and rules can be
+added to allow <em>incoming</em> and <em>outgoing</em> traffic.</p>
+
+<p>The API of security group rules can be found <a href="https://developer.openstack.org/api-ref/network/v2/#security-group-rules-security-group-rules">here</a>.</p>
+
+<p>Security group filters are <strong>only applied to</strong> ports whose
+<strong>port_security_enabled</strong> attribute is set. By default, when a new port is
+created, and the user does not specify this attribute, it is created set
+to ‘True’, meaning that security group filters will be applied to it.</p>
+
+<p>This causes all incomming traffic to the port to be dropped, until the user
+white-lists the intended traffic for that port.</p>
+
+<p>To mimic openstack’s behavior, oVirt provides the <em>Default</em> security group.
+When the user creates a port having port security activated, but doesn’t
+feature security groups, the <em>Default</em> security group is automatically assigned
+to the port. This group allows all egress IP traffic from the VMs, as well as
+all ingress traffic from instances also belonging to the <em>Default</em> security
+group. This way, connectivity between the user VMs is assured for the default
+setting.
+Check the <a href="#default-security-group">default security group</a> ACL description for more information.</p>
+
+<h3 id="user-interface">User interface</h3>
+
+<p>The user is meant to provision security group(s) and rule(s) through ansible,
+or using a REST client, targeting the ovirt-provider-ovn.</p>
+
+<p>This greatly reduces the oVirt-engine impact, since there’s no need to 
+implement the REST client side of the API, nor implement these changes in the
+GUI.</p>
+
+<p>Throughout the remainder of the document, ansible will be assumed as the client, given its descriptive yaml syntax. The <a href="https://docs.ansible.com/ansible/2.5/modules/os_security_group_module.html">os_security_group</a>
+and <a href="https://docs.ansible.com/ansible/2.5/modules/os_security_group_rule_module.html">os_security_group_rules</a>
+will be leveraged for this.</p>
+
+<p>Despite the above, <a href="http://manageiq.org/">ManageIQ</a> can be used as GUI to
+provision security groups and rules.</p>
+
+<h2 id="activating-the-feature">Activating the feature</h2>
+
+<p>The feature will be always active, and it is a matter of identifying the
+ports that will be subject to the security group filters.</p>
+
+<p>As previously mentioned, the <strong>port-security</strong> attribute will be used to
+know if a port will be added to the <strong>deny-all</strong> port group, having all
+ingress IP traffic dropped as a consequence.</p>
+
+<p>The <strong>port-security</strong> attribute is set at port creation time, and its value will
+be inherited from the corresponding <em>network</em> entity when not defined at port
+level. Afterwards, it can be updated through the API - at port <em>or</em> network
+levels.</p>
+
+<p>The default behavior for the network’s <strong>port-security</strong> attribute would be
+defined in the configuration file, through the <strong><em>port-security-enabled</em></strong>,
+property, located in a new section, called <strong>NETWORK</strong>. As stated in the
+<a href="https://github.com/oVirt/ovirt-provider-ovn#section-network">provider configuration README</a>, the default value for that attribute is <strong>true</strong>.</p>
+
+<p>Existing ports can later be updated, disabling the <strong>port-security</strong> attribute,
+which would remove the ACLs that drop all IP traffic to the VM.</p>
+
+<p>As defined in the <a href="https://developer.openstack.org/api-ref/network/v2/#port-security">network port security attribute definition</a>, updating the <strong>port-security</strong> attribute on a network object <strong>does not</strong> cascade the value to ports attached to that network - meaning that effect would only apply to ports created <em>after</em> that update. Check the <a href="#installationupgrade">upgrade</a> section for the consequences of this requirement on ovirt-provider-ovn upgrades.</p>
+
+<h2 id="user-workflow">User workflow</h2>
+
+<p>Since the feature is active by default, the intended workflow - from the oVirt
+engine user’s perspective - is:</p>
+
+<ul>
+  <li>create an external network on the ovirt-provider-ovn - its default
+<em>port_security_enabled</em> value is true.</li>
+  <li>create VMs attached to this external network - they will inherit the
+<em>port_security_attribute</em> from the network, which will result in dropping all
+IP traffic to that VM.</li>
+  <li>the intended traffic will have to be white-listed. Assuming the user is
+interested in allowing ssh traffic, the following ansible tasks should be
+used, which creates one security group - for which a security group rule
+allowing all <strong>egress</strong> traffic is automatically created - plus one security
+group rule allowing <strong>ingress</strong> tcp traffic meant for port 22:</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="pi">-</span> <span class="na">os_security_group</span><span class="pi">:</span>
+    <span class="na">cloud</span><span class="pi">:</span> <span class="s">ovirt</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">my_app_default</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s">allow ssh</span>
+    <span class="na">register</span><span class="pi">:</span> <span class="s">my_app_default_security_group</span>
+
+<span class="pi">-</span> <span class="na">os_security_group_rule</span><span class="pi">:</span>
+    <span class="na">cloud</span><span class="pi">:</span> <span class="s">ovirt</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+    <span class="na">security_group</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+    <span class="na">direction</span><span class="pi">:</span> <span class="s">ingress</span>
+    <span class="na">protocol</span><span class="pi">:</span> <span class="s">tcp</span>
+    <span class="na">port_range_min</span><span class="pi">:</span> <span class="m">22</span>
+    <span class="na">port_range_max</span><span class="pi">:</span> <span class="m">22</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>finally, the user is required to update the ports, indicating which security
+groups apply to it. The following ansible task shows how a single port, referenced
+by name, is updated:</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="pi">-</span> <span class="na">os_port</span><span class="pi">:</span>
+    <span class="na">cloud</span><span class="pi">:</span> <span class="s">ovirt</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">&lt;port_name&gt;</span>
+    <span class="na">security_groups</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s2">"</span><span class="s">"</span>
+
+</code></pre></div></div>
+
+<h3 id="installationupgrade">Installation/Upgrade</h3>
+
+<p>The install time required updates are described in the section below.</p>
+
+<p>After the upgrade, the newly created network’s <strong>port_security_enabled</strong>
+attribute will default to what’s set in the configuration file, which, unless
+changed by the user, is <em>True</em>.</p>
+
+<p>On upgrades with existing VMs - having attachments to external networks -
+the ports will <strong>not</strong> be updated, and it will be up to the administrator to
+manually activate port security in the existent ports.</p>
+
+<p>An existing external network’s <strong>port_security_enabled</strong> attribute will default
+to <em>False</em>, meaning that security groups will <strong>not</strong> be applied to newly
+created VMs attached to existing networks.</p>
+
+<p>Updating the network’s port-security-enabled attribute <strong>will not</strong> cascade to
+the existent ports, as defined <a href="https://developer.openstack.org/api-ref/network/v2/#port-security">in the Networking API</a>.</p>
+
+<h2 id="design-feature-description">Design feature description</h2>
+
+<h3 id="mandatory-security-group-creation">Mandatory security group creation</h3>
+
+<p>There are 2 types of required security groups, that are created automatically
+by the ovirt-provider-ovn, when certain events occur. They are:</p>
+
+<ol>
+  <li>the <strong>deny-all</strong> security group, provisioned when the first port with the
+<strong>port-security</strong> flag activated is created, thus avoiding the need to create
+it beforehand, or during deployment. This group will contain the rules that
+drop all IP traffic. More information can be found in
+<a href="#activating-the-feature">Activating the feature</a>.</li>
+</ol>
+
+<p>The ansible representation of this group is:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">os_security_group</span><span class="pi">:</span>
+    <span class="na">cloud</span><span class="pi">:</span> <span class="s">ovirt</span>
+    <span class="na">state</span><span class="pi">:</span> <span class="s">present</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">deny-all</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s">security group to drop all IP traffic</span>
+</code></pre></div></div>
+
+<h3 id="initial-rule-creation">Initial rule creation</h3>
+
+<p>Since the Openstack Networking API is a white list, the <strong>deny-all</strong> related 
+rules cannot be triggered from the API itself.</p>
+
+<p>To avoid the need to create the rules beforehand, these ACLs will be
+provisioned when the first port having the <em>port-security</em> attribute enabled is
+created.</p>
+
+<h2 id="missing-pieces">Missing pieces</h2>
+
+<h3 id="ansible-port-module-missing-port_security_enabled-attribute">Ansible port module missing port_security_enabled attribute</h3>
+
+<p>The <a href="https://docs.ansible.com/ansible/2.5/modules/os_port_module.html">ansible module</a> currently does not support updating the <em>port_security_enabled</em> attribute for a port.</p>
+
+<p>To provide the user an integrated experience, ansible should allow for that attribute to be updated.</p>
+
+<p>A bug has been created to track this feature request. Its state can be followed
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=1623993">here</a>.</p>
+
+<h2 id="mapping-networking-api-to-ovn-model-objects">Mapping networking API to OVN model objects</h2>
+
+<p>The security group data will be modeled as a <a href="https://github.com/openvswitch/ovs/blob/branch-2.10/ovn/ovn-nb.xml#L926">port group</a>.
+This ovn-nb table is only available on Open vSwitch 2.10, released upstream
+August 20th 2018.</p>
+
+<p>This new table maps a list of ACLs to a list of ports, thus eliminating
+the need to replicate the same ACL over and over, having the port in the
+match criteria as the only difference - this way, you match against a
+group of ports. More information can be found <a href="https://docs.openstack.org/networking-ovn/latest/contributor/design/acl_optimizations.html">here</a> and <a href="http://dani.foroselectronica.es/ovn-profiling-and-optimizing-ports-creation-434/">here</a>.</p>
+
+<h3 id="encoding-the-security-group-information">Encoding the security group information</h3>
+
+<p>The security group information will be encoded in the port group object.</p>
+
+<p>The description of the security group parameters is located at the <a href="https://developer.openstack.org/api-ref/network/v2/index.html#security-groups-security-groups">networking api</a>.</p>
+
+<p>All the security group attributes will be stored in the corresponding port
+group external ids.</p>
+
+<h3 id="encoding-the-security-group-rule-information">Encoding the security group rule information</h3>
+
+<p>The security group information will be encoded in the ACL object, to
+which it naturally corresponds in the OVN-world.</p>
+
+<p>The description of the security group rules is located at the <a href="https://developer.openstack.org/api-ref/network/v2/index.html#security-group-rules-security-group-rules">networking api</a>.</p>
+
+<h3 id="ovn-acl-table">OVN ACL table</h3>
+
+<p>An OVN ACL has the following attributes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>type</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>priority</td>
+      <td>int</td>
+      <td>Range from 0 to 32,767. The smaller the value, the higher the priority</td>
+    </tr>
+    <tr>
+      <td>direction</td>
+      <td>string</td>
+      <td>Either ‘from-lport’ or ‘to-lport’.</td>
+    </tr>
+    <tr>
+      <td>match</td>
+      <td>string</td>
+      <td>The match criteria for the ACL. All the L3-L4 information (protocol, ether protocol, ports, ip prefix) is encoded here. Directly relates to OVS matches.</td>
+    </tr>
+    <tr>
+      <td>action</td>
+      <td>string</td>
+      <td>Either ‘allow’, ‘allow-related’, ‘drop’, or ‘reject’. Currently, ‘reject’ behaves as ‘drop’.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="mapping-the-rules">Mapping the rules</h3>
+
+<p>Mapping is a two way game: it is needed to translate <em>from</em> a networking
+API security group rule <em>to</em> an OVN ACL, <strong><em>and</em></strong> from an OVN ACL to a
+networking API security group rule.</p>
+
+<p>To achieve the latter, the information that is <strong>not</strong> directly encoded
+in the ACL - e.g. protocol, ethertype, ports (both min &amp; max), security
+group id, remote ip prefix, and description - will be duplicated in the
+ACL external IDs.</p>
+
+<p>As the software matures, (most of) this information can eventually be
+extracted from the ACL match clause, but, in the first implementation,
+the plan is to duplicate it.</p>
+
+<p>The security group rule <strong>white list</strong> behavior will be implemented
+through the priority concept; throughout the code two different
+priorities will be used: a lesser priority for <strong>all</strong> ACLs having a
+deny <em>action</em> and an higher priority for <strong>all</strong> ACLs having <em>allow</em> or
+<em>allow-related</em> actions.</p>
+
+<h2 id="ovn-acl-table--openflow-pipeline-relationship">OVN ACL table &amp; openflow pipeline relationship</h2>
+
+<p>Take into account that the ACLs entries will translate directly into
+openflow entries in the openflow tables in openvswitch.</p>
+
+<h3 id="direction-attribute">Direction attribute</h3>
+
+<p>The <strong><em>direction</em></strong> attribute in the ACL has a very important impact in
+the openflow pipeline - in which stage of the pipeline processing will
+the rule be evaluated.</p>
+
+<p>The OpenFlow pipeline consists of two different stages: <em>ingress</em> and <em>egress</em>.</p>
+
+<p>ACLs having a ‘from-lport’ direction will be evaluated in the
+<strong>ingress</strong> stage, while ACLs having a ‘to-lport’ direction will be
+evaluated in the <strong>egress</strong> stage.</p>
+
+<h3 id="priority-hard-coding-side-effect">Priority hard-coding side-effect</h3>
+
+<p>Remember that there are only two different priorities used: one for all
+drop related ACLs, and another for allow related ACLs.</p>
+
+<p>This means that return traffic from an allow-related flow <strong>cannot</strong> be
+changed through an ACL - since it would have a lower priority.</p>
+
+<h3 id="acls-cannot-be-attached-to-all-ports">ACLs cannot be attached to all ports</h3>
+
+<p>Access to logical switch ports with router or localnet type <strong>cannot</strong>
+be controlled through ACLs.</p>
+
+<h2 id="the-remote_group_id-parameter-mapping">The remote_group_id parameter mapping</h2>
+
+<p>The <strong>remote_group_id</strong> security group rule parameter provides the user a
+way to allow ingress/egress traffic for all the VMs attached to ports having
+that security group. It enables the user to leverage semantics like a rule
+allowing all ssh ingress traffic for members of the <em>ops</em> security group.</p>
+
+<p>Furthermore, the default Openstack behavior is to create rules allowing ingress
+for all members of the security group at group creation time - including the
+default group. This implies that this parameter is key to fully mimicking how
+openstack behaves.</p>
+
+<h3 id="how-to-encode-the-remote_group_id-parameter">How to encode the remote_group_id parameter</h3>
+
+<p>The OVN <strong>address set</strong> tables will be used to encode the remote group id
+information.</p>
+
+<p>The OVN address sets are - as per <a href="https://www.ovn.org/support/dist-docs/ovn-nb.5.html">OVN documentation</a> - a ‘a named set of addresses’.</p>
+
+<p>Each address set can only feature <strong>one</strong> type of addresses - eth, ipv4, ipv6 -
+and will be used in the ACL match column. Examples of address sets being used in the match conditions can be seen below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IPv4 match using address sets
+match="ip4 &amp;&amp; ip4.src == $set1"
+
+IPv6 match using address sets
+match="ip6 &amp;&amp; ip6.src == $set2"
+</code></pre></div></div>
+
+<p>The address sets referenced above would look like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ovn-nbctl create Address_Set name=set1 addresses='10.0.0.1 10.0.0.2 10.0.0.3'
+ovn-nbctl create Address_Set name=set2 addresses='2001:db8:0:0:0:0:2:1 2001:db8:0:0:0:0:3:1 2001:db8:0:0:0:0:14:1'
+</code></pre></div></div>
+
+<p>A reference to the associated port group will be stored on the address set’s
+external ids.</p>
+
+<h3 id="remote-group-id-relevant-events">Remote group ID relevant events</h3>
+
+<p>The relevant events for the remote_group_id parameter - and the actions that take place on each event - are summarized below:</p>
+
+<ul>
+  <li>create security group
+    <ul>
+      <li>create address sets for the security group - one for ipv4, another for ipv6</li>
+      <li>create 2 ACLs allowing ingress IP traffic from that group</li>
+    </ul>
+  </li>
+  <li>delete security group
+    <ul>
+      <li>the associated address sets are deleted</li>
+    </ul>
+  </li>
+  <li>add port
+    <ul>
+      <li>add the port’s IP address to each of the security groups</li>
+    </ul>
+  </li>
+  <li>update port
+    <ul>
+      <li>update the port’s IP in each of the security groups
+        <ul>
+          <li>remove from old groups, add to new groups</li>
+        </ul>
+      </li>
+      <li>if ip changes, update the IP in all of the current groups</li>
+    </ul>
+  </li>
+  <li>remove port
+    <ul>
+      <li>remove the port’s IP address from all security groups attached to it</li>
+    </ul>
+  </li>
+</ul>
+
+<p>These event will not be integrated in the following section, for simplicity
+reasons.</p>
+
+<h2 id="relevant-events">Relevant events</h2>
+
+<p>The relevant events for the security group feature are listed and explained
+below.</p>
+
+<h3 id="add-security-group">Add security group</h3>
+
+<p>Adding security groups is done out of band, using either the <a href="https://docs.ansible.com/ansible/2.5/modules/os_security_group_module.html">os_security_group</a> module or a REST client. Through it, the user issues a request to create a security group.</p>
+
+<p>The ovirt-provider-ovn translates the security group information into a
+port group object, encoding the security group information in the
+external ids column.</p>
+
+<p>Create/update timestamps of the security groups are also implemented,
+thus enabling the <a href="https://developer.openstack.org/api-ref/network/v2/#id367">Resource timestamps</a>
+networking-api extension.</p>
+
+<p>The security group also has a <em>revision_number</em> attribute - also stored
+in the external ids - that is bumped everytime a change is made to the
+security group - add / remove rules, update name or description.</p>
+
+<p>A sequence diagram depicting the creation of a security group meant for
+holding rules to allow incoming ssh traffic is shown below.</p>
+
+<p><img src="../../../../images/features/network/security-groups/create_security_group_ansible.png" alt="add-sec-group" /></p>
+
+<h3 id="add-security-group-rule">Add security group rule</h3>
+
+<p>Adding security group rules is also done out of band, using the <a href="https://docs.ansible.com/ansible/2.5/modules/os_security_group_rule_module.html">os_security_group_rules</a> or sending its correspondent REST API request.</p>
+
+<p>The ACL match condition is built from the <em>ether_type</em>, <em>protocol</em>,
+<em>port_range_max</em>, <em>port_range_min</em>, and <em>remote_ip_prefix</em> security
+group rules attributes.</p>
+
+<p>All of those attributes are then stored in the ACL external_ids column -
+along with the <em>description</em> and <em>security group id</em> attributes.</p>
+
+<p>The newly created ACL is then stored in the ovn-nb database, and its
+data is afterwards translated back into the networking-api syntax.</p>
+
+<p>The security group rules also feature the resource timestamps extension,
+but the revision number will always be <em>one</em>, since we do not allow a
+rule to be updated.</p>
+
+<p>A sequence diagram where a user adds - through ansible - a security group rule
+meant to white list ssh traffic to the security group ‘allow-ssh’ is shown
+below.</p>
+
+<p><img src="../../../../images/features/network/security-groups/create_security_group_rule_ansible.png" alt="add-rule" /></p>
+
+<h3 id="attach-a-vm-to-an-external-network">Attach a VM to an external network.</h3>
+
+<p>Please refer to the sequence diagram below to better understand this
+flow.</p>
+
+<p>When a VM is attached to an external network, an ovn logical switch port
+is created. This port concept is already implemented in the
+ovirt-provider-ovn project, <em>but</em> does not allow it to be bound to
+security groups. That support will need to be implemented.</p>
+
+<p>Whenever a port is created, <em>if</em> it has the <strong>port-security</strong> flag
+activated, the ovirt-provider-ovn will have to update the <strong>deny-all</strong>
+port group data, adding the new port to its list of ports. <em>If</em> that
+port group does not exist, it will have to be created, and the
+corresponding ACLs added to it. This <strong>port-security</strong> attribute is
+currently not supported in the ovirt-provider-ovn, and thus, will also
+have to be added to the API.</p>
+
+<p>The list of ports for each of the port groups representing the security groups
+bound to the added ports will also have to be updated.</p>
+
+<p><img src="../../../../images/features/network/security-groups/add_ports.png" alt="add-port" /></p>
+
+<h2 id="ovn-acls-on-pre-set-security-groups">OVN ACLs on pre-set security groups</h2>
+
+<h3 id="drop-all-ip-implementing-the-deny-all-security-group">drop-all-ip implementing the deny-all security group</h3>
+
+<p>To achieve the intended deny-all behavior, a port group will be created
+when the ovirt-provider-ovn starts.</p>
+
+<p>It will feature two ACLs, with the following data:</p>
+<ul>
+  <li>ingress rule
+    <ul>
+      <li>priority: DROP_PRIORITY</li>
+      <li>action: drop</li>
+      <li>direction: to-lport</li>
+      <li>match: inport == @<port_group> &amp;&amp; ip</port_group></li>
+    </ul>
+  </li>
+  <li>egress rule
+    <ul>
+      <li>priority: DROP_PRIORITY</li>
+      <li>action: drop</li>
+      <li>direction: from-lport</li>
+      <li>match: outport == @<port_group> &amp;&amp; ip</port_group></li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>NOTE:</strong> these rules will be filtered out by the API, because they are simply
+not featured in the Networking API. This means that a user listing all security
+group rules <strong>will not</strong> see the rules corresponding to the ACLs defined above.</p>
+
+<h3 id="default-security-group">Default security group</h3>
+
+<p>This group enables connectivity between all the VMs whose ports have this
+group set.</p>
+
+<p>To do so, it features 2 ingress rules - allowing traffic from all the VMs whose
+ports belong to the <em>Default</em> security group - and 2 egress rules - allowing
+ip traffic to leave the VM.</p>
+
+<p>To implement the ingress rules, the <a href="#how-to-encode-the-remote_group_id-parameter">remote_group_id</a> parameter is used.</p>
+
+<p>Two rules are created for each direction: one for IPv4, another for IPv6.</p>
+
+<p>It features four ACLs, with the following data:</p>
+<ul>
+  <li>ingress rules
+    <ul>
+      <li>rule #1 - IPv4
+        <ul>
+          <li>priority: ALLOW_PRIORITY</li>
+          <li>action: ALLOW</li>
+          <li>direction: to-lport</li>
+          <li>match: inport == @Default &amp;&amp; ip4 &amp;&amp; ip4.src == $pg_ip4_Default</li>
+        </ul>
+      </li>
+      <li>rule #1 - IPv6
+        <ul>
+          <li>priority: ALLOW_PRIORITY</li>
+          <li>action: ALLOW</li>
+          <li>direction: to-lport</li>
+          <li>match: inport == @Default &amp;&amp; ip6 &amp;&amp; ip6.src == $pg_ip6_Default</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>egress rules
+    <ul>
+      <li>rule #1 - IPv4
+        <ul>
+          <li>priority: ALLOW_PRIORITY</li>
+          <li>action: ALLOW</li>
+          <li>direction: from-lport</li>
+          <li>match: outport == @Default &amp;&amp; ip4</li>
+        </ul>
+      </li>
+      <li>rule #1 - IPv6
+        <ul>
+          <li>priority: ALLOW_PRIORITY</li>
+          <li>action: ALLOW</li>
+          <li>direction: from-lport</li>
+          <li>match: outport == @Default &amp;&amp; ip6</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="ovirt-provider-ovn-api-update">ovirt-provider-ovn API update</h2>
+
+<p>The following updates to the entities of the current API are required:</p>
+
+<ul>
+  <li>network
+    <ul>
+      <li>add the <strong>port_security_enabled</strong> attribute</li>
+    </ul>
+  </li>
+  <li>port
+    <ul>
+      <li>implement the <strong>port_security_enabled</strong> attribute</li>
+      <li>implement the <strong>security_groups</strong> attribute</li>
+    </ul>
+  </li>
+  <li>security groups
+    <ul>
+      <li>implement this entity, as described <a href="#encoding-the-security-group-information">here</a></li>
+    </ul>
+  </li>
+  <li>security group rules
+    <ul>
+      <li>implement this entity, as described <a href="#encoding-the-security-group-rule-information">here</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="networking-api-extensions-implemented">Networking API extensions implemented</h2>
+
+<p>Implemented:</p>
+<ul>
+  <li><a href="https://developer.openstack.org/api-ref/network/v2/#id367">Resource timestamps</a></li>
+  <li><a href="https://developer.openstack.org/api-ref/network/v2/#id35">Port security</a></li>
+</ul>
+
+<h2 id="feature-dependencies">Feature dependencies</h2>
+
+<ul>
+  <li>Open vSwitch 2.10 - port group table</li>
+  <li>python-ovsdbapp 0.12.1 - port group support, without openstack dependencies</li>
+</ul>
+
+<h2 id="testing">Testing</h2>
+
+<p>The recommended tools to check this feature are ansible and <a href="http://man7.org/linux/man-pages/man1/ncat.1.html">ncat</a>.</p>
+
+<p>Ansible should be used to provision the security groups and the respective rules.</p>
+
+<p>ncat should be used to check the ports on the VM are reachable.</p>
+
+<p>There are 3 main tests:</p>
+
+<ul>
+  <li>test the default security group - deny all behavior
+    <ul>
+      <li>regression testing: assure the old behavior is kept when the feature is deactivated</li>
+      <li>incoming traffic is blocked when the feature is activated</li>
+    </ul>
+  </li>
+  <li>test a user created security group - open ingress tcp port 22
+    <ul>
+      <li>create a new security group</li>
+      <li>create a new security group rule, similar to the one described in
+<a href="#user-workflow">the user workflow</a> section</li>
+      <li>assign that group to a port, as described in the
+<a href="#user-workflow">the user workflow</a> section</li>
+      <li>check that the only ingress traffic allowed is to port 22, protocol tcp.</li>
+    </ul>
+  </li>
+  <li>test rule’s behavior
+    <ul>
+      <li>provision 3 different networks, and create one VM in each of those networks - e.g. Vm1 in net1, Vm2 in net2, Vm3 in net3.</li>
+      <li>each of the networks must have a subnet; define appropriate CIDRs in each subnet - e.g. sub1, sub2, sub3.
+The CIDRs should be 192.168.14.0/24, 192.168.15.0/24, and 192.168.16.0/24, respectively.</li>
+      <li>provision a router, adding the 3 networks to it.</li>
+      <li>add a rule allowing ICMP traffic only from the 192.168.14.0/24 CIDR, and add
+it to the port belonging to Vm3. Vm3 will be the ‘destination’ VM, whereas
+VMs 1 and 2 will be the ICMP ping sources. Check that Vm1 is able to ping the
+destination VM, while Vm2 is not - because its source IP address does not
+belong to the allowed CIDR specified in the rule.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="documentation--external-references">Documentation &amp; External references</h2>
+
+<p><a href="https://developer.openstack.org/api-ref/network/v2/">OpenStack Networking API specification</a></p>
+
+<p><a href="/ovirt-site/previews/2700/develop/release-management/features/network/external-network-provider.html">oVirt OVN integration</a></p>
+
+<p><a href="/ovirt-site/previews/2700/develop/release-management/features/network/ovirt-ovn-provider.html">oVirt Provider OVN</a></p>
+
+<p><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1539829">RFE Provide support for adding security groups and rules using ovirt-provider-ovn</a></p>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2700/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2700/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2700/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2700/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/release-management/features/network/networking-api-security-groups.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/release-management/features/network/networking-api-security-groups.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

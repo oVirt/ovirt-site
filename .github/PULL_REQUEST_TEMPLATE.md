@@ -1,6 +1,6 @@
 [Feature | Bug fix]
 
-Fixes issue # | <Bugzilla_URL>(delete if not relevant)
+Fixes issue # | [BZ number or name](Bugzilla_URL)  (delete if not relevant)
 
 Changes proposed in this pull request:
 

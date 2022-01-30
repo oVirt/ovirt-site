@@ -30391,7 +30391,7 @@ Input(type="imudp" port="514" ruleset="RemoteMachine")</pre>
 <div class="sect2">
 <h3 id="Enabling_SyslogHandler_RHV_Manager_logs">24.8. Enabling SyslogHandler to pass oVirt Engine logs to a remote syslog server</h3>
 <div class="paragraph">
-<p>This implementation uses the <strong>JBoss EAP SyslogHandler</strong> log manager and allows passing log records from the <code>engine.log</code> and <code>server.log</code> to a syslog server.</p>
+<p>This implementation uses the <strong>JBoss EAP SyslogHandler</strong> log manager and enables passing log records from the <code>engine.log</code> and <code>server.log</code> to a syslog server.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -30401,7 +30401,7 @@ Input(type="imudp" port="514" ruleset="RemoteMachine")</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>oVirt versions prior to oVirt 4.4.10 featured similar functionality provided by <code>ovirt-engine-extension-logger-log4j</code>. That package was removed in oVirt 4.4.10 and replaced by  the new implementation using JBoss Log Manager. If you have been using <code>ovirt-engine-extension-logger-log4j</code> in earlier oVirt versions, following an upgrade to oVirt 4.4.10, perform following steps:</p>
+<p>oVirt versions earlier than oVirt 4.4.10 featured similar functionality provided by <code>ovirt-engine-extension-logger-log4j</code>. That package was removed in oVirt 4.4.10 and replaced by a new implementation using the JBoss EAP SyslogHandler log manager. If you have been using <code>ovirt-engine-extension-logger-log4j</code> in earlier oVirt versions, following an upgrade to oVirt 4.4.10, perform following steps:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -30409,7 +30409,7 @@ Input(type="imudp" port="514" ruleset="RemoteMachine")</pre>
 <p>Manually configure sending log records to a remote syslog server using the guidelines provided in this chapter.</p>
 </li>
 <li>
-<p>Manually remove existing <code>ovirt-engine-extension-logger-log4j</code> configuration files (remove the <code>/etc/ovirt-engine/extensions.d/Log4jLogger.properties</code> configuration file).</p>
+<p>Manually remove the <code>ovirt-engine-extension-logger-log4j</code> configuration files (remove the <code>/etc/ovirt-engine/extensions.d/Log4jLogger.properties</code> configuration file).</p>
 </li>
 </ul>
 </div>

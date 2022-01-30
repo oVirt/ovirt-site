@@ -93,7 +93,16 @@ The script creates the virtual machine. This can take some time if the {engine-a
 +
 [NOTE]
 ====
-If the host becomes non operational and the deployment fails (due to missing required network or similar problem), you can repeat the process, and answer _YES_ to the option _Pause the execution after adding this host to the engine?_. Pausing the process allows you to connect to the restored engine and manually review and remediate the configuration before proceeding with the deployment.
+If the host becomes non operational and the deployment fails due to a missing required network or a similar problem, deployment will pause and a message such as the following will be displayed:
+----
+  [ INFO  ] You can now connect to https://<host name>:6900/ovirt-engine/ and check the status of this host and eventually remediate it, please continue only when the host is listed as 'up'
+  [ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : include_tasks]
+  [ INFO  ] ok: [localhost]
+  [ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : Create temporary lock file]
+  [ INFO  ] changed: [localhost]
+  [ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : Pause execution until /tmp/ansible.<random>_he_setup_lock is removed, delete it once ready to proceed]
+----
+Pausing the process allows you to connect to the restored engine and manually, and review and remediate the configuration before proceeding with the deployment.
 ====
 +
 ifdef::rhv-doc[]

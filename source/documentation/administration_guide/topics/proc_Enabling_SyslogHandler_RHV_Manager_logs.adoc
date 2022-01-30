@@ -1,15 +1,16 @@
 [[Enabling_SyslogHandler_RHV_Manager_logs]]
 === Enabling SyslogHandler to pass {virt-product-shortname} {engine-name} logs to a remote syslog server
 
-This implementation uses the *JBoss EAP SyslogHandler* log manager and allows passing log records from the `engine.log` and `server.log` to a syslog server.
+This implementation uses the *JBoss EAP SyslogHandler* log manager and enables passing log records from the `engine.log` and `server.log` to a syslog server.
 
 [NOTE]
 ====
-{virt-product-shortname} versions prior to {virt-product-shortname} 4.4.10 featured similar functionality provided by `ovirt-engine-extension-logger-log4j`. That package was removed in {virt-product-shortname} 4.4.10 and replaced by  the new implementation using JBoss Log Manager. If you have been using `ovirt-engine-extension-logger-log4j` in earlier {virt-product-shortname} versions, following an upgrade to {virt-product-shortname} 4.4.10, perform following steps:
+{virt-product-shortname} versions earlier than {virt-product-shortname} 4.4.10 featured similar functionality provided by `ovirt-engine-extension-logger-log4j`. That package was removed in {virt-product-shortname} 4.4.10 and replaced by a new implementation using the JBoss EAP SyslogHandler log manager. If you have been using `ovirt-engine-extension-logger-log4j` in earlier {virt-product-shortname} versions, following an upgrade to {virt-product-shortname} 4.4.10, perform following steps:
 
 * Manually configure sending log records to a remote syslog server using the guidelines provided in this chapter.
-* Manually remove existing `ovirt-engine-extension-logger-log4j` configuration files (remove the `/etc/ovirt-engine/extensions.d/Log4jLogger.properties` configuration file).
+* Manually remove the `ovirt-engine-extension-logger-log4j` configuration files (remove the `/etc/ovirt-engine/extensions.d/Log4jLogger.properties` configuration file).
 ====
+
 // Logger implementation requires the ovirt-engine-extension-logger-log4j package. With the implementation, Red Had Virtualization Manager delegates records into log4j. Log4j is a customizable framework that provides appenders for various technologies, including SNMP and syslog.
 
 

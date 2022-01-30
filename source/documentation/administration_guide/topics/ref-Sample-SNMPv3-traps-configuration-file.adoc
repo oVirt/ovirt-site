@@ -11,7 +11,9 @@ Copy the default SNMP settings from the events notification daemon configuration
 
 ./etc/ovirt-engine/notifier/notifier.conf.d/20-snmp.conf
 //[options="nowrap" subs="normal"]
-[source,perl]
+//[source,perl,subs="+quotes,+macros"]
+//[source,perl,subs="verbatim,+macros"]
+[source,perl,subs="+quotes"]
 ----
 SNMP_MANAGERS="manager1.example.com manager2.example.com:162" <1>
 SNMP_COMMUNITY=public <2>
@@ -19,16 +21,16 @@ SNMP_OID=1.3.6.1.4.1.2312.13.1.1 <3>
 FILTER="include:*(snmp:)" <4>
 SNMP_VERSION=3 <5>
 SNMP_ENGINE_ID="80:00:00:00:01:02:05:05" <6>
-SNMP_USERNAME=ovirtengine> <7>
+SNMP_USERNAME=_<username>_ <7>
 SNMP_AUTH_PROTOCOL=MD5 <8>
-SNMP_AUTH_PASSPHRASE=<__authpass__> <9>
+SNMP_AUTH_PASSPHRASE=_<authpass>_ <9>
 SNMP_PRIVACY_PROTOCOL=AES128 <10>
-SNMP_PRIVACY_PASSPHRASE=<__privpass__> <11>
+SNMP_PRIVACY_PASSPHRASE=_<privpass>_ <11>
 SNMP_SECURITY_LEVEL=3 <12>
 ----
 
 <1> The IP addresses or fully qualified domain names of machines that will act as the SNMP managers. Entries must be separated by a space and can contain a port number. For example, `manager1.example.com manager2.example.com:164`
-<1> Default SNMP Community String.
+<1> Default SNMP Community String (SNMP version 2 only).
 <1> SNMP Trap Object Identifier for outgoing notifications. iso(1) org(3) dod(6) internet(1) private(4) enterprises(1) redhat(2312) ovirt(13) engine(1) notifier(1)
 +
 [NOTE]

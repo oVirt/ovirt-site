@@ -28348,7 +28348,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Default SNMP Community String (SNMP version 2 only).</td>
+<td>(SNMP version 2 only) Default SNMP Community String.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -28378,31 +28378,31 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>The engine id used for SNMPv3 traps.</td>
+<td>(SNMP version 3 only) The engine id used for SNMP traps.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>The user name used for SNMPv3 traps.</td>
+<td>(SNMP version 3 only) The user name used for SNMP traps.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
-<td>The SNMPv3 auth protocol. Supported values are MD5 and SHA. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 2 (<code>AUTH_NOPRIV</code>) or 3 (<code>AUTH_PRIV</code>).</td>
+<td>(SNMP version 3 only) The SNMP auth protocol. Supported values are MD5 and SHA. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 2 (<code>AUTH_NOPRIV</code>) or 3 (<code>AUTH_PRIV</code>).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="9"></i><b>9</b></td>
-<td>The SNMPv3 auth passphrase. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 2 (<code>AUTH_NOPRIV</code>) or 3 (<code>AUTH_PRIV</code>).</td>
+<td>(SNMP version 3 only) The SNMP auth passphrase. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 2 (<code>AUTH_NOPRIV</code>) or 3 (<code>AUTH_PRIV</code>).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="10"></i><b>10</b></td>
-<td>The SNMPv3 privacy protocol. Supported values are AES128, AES192 and AES256. Be aware that AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 3 (<code>AUTH_PRIV</code>).</td>
+<td>(SNMP version 3 only) The SNMP privacy protocol. Supported values are AES128, AES192 and AES256. Be aware that AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 3 (<code>AUTH_PRIV</code>).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="11"></i><b>11</b></td>
-<td>The SNMPv3 privacy passphrase. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 3 (<code>AUTH_PRIV</code>).</td>
+<td>(SNMP version 3 only) The SNMP privacy passphrase. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 3 (<code>AUTH_PRIV</code>).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="12"></i><b>12</b></td>
-<td>The SNMPv3 security level. 1 = <code>NOAUTH_NOPRIV</code>, 2 = <code>AUTH_NOPRIV</code>, 3 = <code>AUTH_PRIV</code>.</td>
+<td>(SNMP version 3 only) The SNMP security level. 1 = <code>NOAUTH_NOPRIV</code>, 2 = <code>AUTH_NOPRIV</code>, 3 = <code>AUTH_PRIV</code>.</td>
 </tr>
 </table>
 </div>

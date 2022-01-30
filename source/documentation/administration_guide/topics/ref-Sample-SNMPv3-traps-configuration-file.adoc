@@ -1,8 +1,8 @@
 [id="SNMPv3-traps-configuration-file"]
-= Sample SNMP version 3 configuration file
-:icons: font
+= Sample SNMP configuration file
+// :icons: font
 
-This sample configuration file is based on settings in `ovirt-engine-notifier.conf`.
+This sample configuration file is based on settings in `ovirt-engine-notifier.conf`. A dedicated SNMP configuration file, such as this one, overrides the settings in `ovirt-engine-notifier.conf`.
 
 [TIP]
 ====
@@ -30,7 +30,7 @@ SNMP_SECURITY_LEVEL=3 <12>
 ----
 
 <1> The IP addresses or fully qualified domain names of machines that will act as the SNMP managers. Entries must be separated by a space and can contain a port number. For example, `manager1.example.com manager2.example.com:164`
-<1> Default SNMP Community String (SNMP version 2 only).
+<1> (SNMP version 2 only) Default SNMP Community String.
 <1> SNMP Trap Object Identifier for outgoing notifications. iso(1) org(3) dod(6) internet(1) private(4) enterprises(1) redhat(2312) ovirt(13) engine(1) notifier(1)
 +
 [NOTE]
@@ -39,10 +39,10 @@ Changing the default will prevent generated traps from complying with OVIRT-MIB.
 ====
 <1> The algorithm used to determine the triggers for and recipients of SNMP notifications.
 <1> SNMP Version. SNMP version 2 and version 3 traps are supported. 2 = SNMPv2, 3 = SNMPv3.
-<1> The engine id used for SNMPv3 traps.
-<1> The user name used for SNMPv3 traps.
-<1> The SNMPv3 auth protocol. Supported values are MD5 and SHA. Required when `SNMP_SECURITY_LEVEL` is set to 2 (`AUTH_NOPRIV`) or 3 (`AUTH_PRIV`).
-<1> The SNMPv3 auth passphrase. Required when `SNMP_SECURITY_LEVEL` is set to 2 (`AUTH_NOPRIV`) or 3 (`AUTH_PRIV`).
-<1> The SNMPv3 privacy protocol. Supported values are AES128, AES192 and AES256. Be aware that AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them. Required when `SNMP_SECURITY_LEVEL` is set to 3 (`AUTH_PRIV`).
-<1> The SNMPv3 privacy passphrase. Required when `SNMP_SECURITY_LEVEL` is set to 3 (`AUTH_PRIV`).
-<1> The SNMPv3 security level. 1 = `NOAUTH_NOPRIV`, 2 = `AUTH_NOPRIV`, 3 = `AUTH_PRIV`.
+<1> (SNMP version 3 only) The engine id used for SNMP traps.
+<1> (SNMP version 3 only) The user name used for SNMP traps.
+<1> (SNMP version 3 only) The SNMP auth protocol. Supported values are MD5 and SHA. Required when `SNMP_SECURITY_LEVEL` is set to 2 (`AUTH_NOPRIV`) or 3 (`AUTH_PRIV`).
+<1> (SNMP version 3 only) The SNMP auth passphrase. Required when `SNMP_SECURITY_LEVEL` is set to 2 (`AUTH_NOPRIV`) or 3 (`AUTH_PRIV`).
+<1> (SNMP version 3 only) The SNMP privacy protocol. Supported values are AES128, AES192 and AES256. Be aware that AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them. Required when `SNMP_SECURITY_LEVEL` is set to 3 (`AUTH_PRIV`).
+<1> (SNMP version 3 only) The SNMP privacy passphrase. Required when `SNMP_SECURITY_LEVEL` is set to 3 (`AUTH_PRIV`).
+<1> (SNMP version 3 only) The SNMP security level. 1 = `NOAUTH_NOPRIV`, 2 = `AUTH_NOPRIV`, 3 = `AUTH_PRIV`.

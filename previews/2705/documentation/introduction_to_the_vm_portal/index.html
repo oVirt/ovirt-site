@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Introduction to the VM Portal | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="Introduction to the VM Portal" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2705/documentation/introduction_to_the_vm_portal/" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2705/documentation/introduction_to_the_vm_portal/" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Introduction to the VM Portal" />
+<meta name="twitter:site" content="@ovirt" />
+<script type="application/ld+json">
+{"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2705/images/logo.svg"}},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"Introduction to the VM Portal","url":"https://ovirt.github.io/ovirt-site/previews/2705/documentation/introduction_to_the_vm_portal/","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2705/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2705/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2705/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2705/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2705/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2705/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2705/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2705/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2705/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2705/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2705/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2705/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2705/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2705/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2705/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2705/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2705/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2705/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2705/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2705/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2705/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2705/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2705/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2705/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2705/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2705/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2705/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2705/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2705/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2705/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2705/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2705/download/'>Download</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2705/documentation/'>Documentation</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2705/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2705/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2705//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2705//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2705/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2705/documentation/">
+              <span property="name">Documentation</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+        
+        <section id="content" class="content container">
+          
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#chap-Accessing_the_VM_Portal">1. Accessing the VM Portal</a>
+<ul class="sectlevel2">
+<li><a href="#What_is_the_VM_Portal">1.1. What is the VM Portal?</a></li>
+<li><a href="#browser-requirements_VM_portal">1.2. Browser Requirements</a></li>
+<li><a href="#client-requirements_VM_portal">1.3. Client Requirements</a></li>
+<li><a href="#installing-the-ca-certificate">1.4. Installing the CA certificate</a></li>
+<li><a href="#logging-in-to-the-vm-portal">1.5. Logging in to the VM Portal</a></li>
+<li><a href="#Graphical_User_Interface_elements">1.6. Graphical user interface elements</a></li>
+</ul>
+</li>
+<li><a href="#chap-Managing_virtual_machines">2. Managing virtual machines</a>
+<ul class="sectlevel2">
+<li><a href="#Viewing_virtual_machine_details">2.1. Viewing virtual machine details</a></li>
+<li><a href="#Editing_virtual_machines">2.2. Editing virtual machines</a></li>
+<li><a href="#creating-virtual-machines">2.3. Creating virtual machines</a></li>
+<li><a href="#connecting-to-virtual-machines">2.4. Connecting to virtual machines</a></li>
+</ul>
+</li>
+<li><a href="#legal-notice">Appendix A: Legal notice</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<h1 id="introduction-to-the-vm-portal" class="discrete">Introduction to the VM Portal</h1>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chap-Accessing_the_VM_Portal">1. Accessing the VM Portal</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="What_is_the_VM_Portal">1.1. What is the VM Portal?</h3>
+<div class="paragraph">
+<p>The VM Portal presents a comprehensive view of a virtual machine and allows the user to start, stop, edit, and view details of a virtual machine.
+The actions available to a user in the VM Portal are set by a system administrator.
+System administrators can delegate additional administration tasks to a user, such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create, edit, and remove virtual machines</p>
+</li>
+<li>
+<p>Manage virtual disks and network interfaces</p>
+</li>
+<li>
+<p>Create and use snapshots to restore virtual machines to previous states</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Direct connection to virtual machines is facilitated with SPICE or VNC clients. Both protocols provide the user with an environment similar to a locally installed desktop. The administrator specifies the protocol used to connect to a virtual machine at the time of the virtual machine’s creation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="browser-requirements_VM_portal">1.2. Browser Requirements</h3>
+<div class="paragraph">
+<p>The following browser versions and operating systems can be used to access the Administration Portal and the VM Portal.</p>
+</div>
+<div class="paragraph">
+<p>Browser testing is divided into tiers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Tier 1: Browser and operating system combinations that are fully tested.</p>
+</li>
+<li>
+<p>Tier 2: Browser and operating system combinations that are partially tested, and are likely to work.</p>
+</li>
+<li>
+<p>Tier 3: Browser and operating system combinations that are not tested, but may work.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Browser Requirements</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Support Tier</th>
+<th class="tableblock halign-left valign-top">Operating System Family</th>
+<th class="tableblock halign-left valign-top">Browser</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tier 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enterprise Linux</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mozilla Firefox Extended Support Release (ESR) version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Most recent version of Google Chrome, Mozilla Firefox, or Microsoft Edge</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tier 2</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tier 3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Earlier versions of Google Chrome or Mozilla Firefox</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Other browsers</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="client-requirements_VM_portal">1.3. Client Requirements</h3>
+<div class="paragraph">
+<p>Virtual machine consoles can only be accessed using supported Remote Viewer (<code>virt-viewer</code>) clients on Enterprise Linux and Windows. To install <code>virt-viewer</code>, see <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#sect-installing_supporting_components">Installing Supporting Components on Client Machines</a> in the <em>Virtual Machine Management Guide</em>. Installing <code>virt-viewer</code> requires Administrator privileges.</p>
+</div>
+<div class="paragraph">
+<p>You can access virtual machine consoles using the SPICE, VNC, or RDP (Windows only) protocols. You can install the QXLDOD graphical driver in the guest operating system to improve the functionality of SPICE. SPICE currently supports a maximum resolution of 2560x1600 pixels.</p>
+</div>
+<div class="paragraph">
+<div class="title">Client Operating System SPICE Support</div>
+<p>Supported QXLDOD drivers are available on Enterprise Linux 7.2 and later, and Windows 10.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>SPICE may work with Windows 8 or 8.1 using QXLDOD drivers, but it is neither certified nor tested.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="installing-the-ca-certificate">1.4. Installing the CA certificate</h3>
+<div class="paragraph">
+<p>The first time you access the VM Portal, you must install the certificate used by the oVirt Engine to avoid security warnings.</p>
+</div>
+<div class="paragraph">
+<p><strong>Installing the CA certificate in Firefox</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to the VM Portal URL, and on the welcome page, click <strong>CA Certificate</strong></p>
+</li>
+<li>
+<p>A file named <code>pki-resource</code> (with no file extension) will download.</p>
+</li>
+<li>
+<p>Open the Options/Preferences window:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Windows: Open the Tools menu and select <strong>Options&#8230;&#8203;</strong></p>
+</li>
+<li>
+<p>Mac: Open the Firefox menu and select <strong>Preferences&#8230;&#8203;</strong></p>
+</li>
+<li>
+<p>Linux: Open the Edit menu and select <strong>Preferences</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Select <strong>Privacy &amp; Security</strong>, and scroll down to <strong>Certificates</strong>.</p>
+</li>
+<li>
+<p>Click <strong>View Certificates&#8230;&#8203;</strong>. This opens the Certificate Manager.</p>
+</li>
+<li>
+<p>Select the <strong>Authorities</strong> tab.</p>
+</li>
+<li>
+<p>Click <strong>Import&#8230;&#8203;</strong></p>
+</li>
+<li>
+<p>Select the file of the Root Certificate that you want to import (change file type to <strong>All Files</strong> to view the downloaded file).</p>
+</li>
+<li>
+<p>Select the check boxes indicating the trust options, and click <b class="button">OK</b>.</p>
+</li>
+<li>
+<p>Click <b class="button">OK</b> in the Certificate Manager, and close the Options/Preferences window.</p>
+</li>
+<li>
+<p>Make sure all Firefox processes are stopped.</p>
+</li>
+<li>
+<p>Restart Firefox and go to the VM Portal URL.  A lock icon in the address bar indicates that the CA certificate is installed.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Installing the CA certificate in Google Chrome</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to the VM Portal URL, and on the welcome page, click <strong>CA Certificate</strong></p>
+</li>
+<li>
+<p>A file named <code>pki-resource</code> (with no file extension) will download.</p>
+</li>
+<li>
+<p>Go to <span class="menuseq"><b class="menu">Settings</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="submenu">Advanced</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="submenu">Manage Certificates</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Authorities</b></span> tab and click <strong>IMPORT</strong>.</p>
+</li>
+<li>
+<p>Select the file of the Root Certificate that you want to import (change file type to <strong>All Files</strong> to view the downloaded file).</p>
+</li>
+<li>
+<p>Select all the check boxes indicating the trust options, and click <b class="button">OK</b>.</p>
+</li>
+<li>
+<p>Close Chrome and makes sure all the Chrome processes are stopped.</p>
+</li>
+<li>
+<p>Restart Chrome and go to the VM Portal URL. A lock icon in the address bar indicates that the CA certificate is installed.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging-in-to-the-vm-portal">1.5. Logging in to the VM Portal</h3>
+<div class="paragraph">
+<p><strong>Logging in to the VM Portal</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Enter the provided server address into the web browser to access the Engine welcome screen.</p>
+</li>
+<li>
+<p>Select the required language from the drop-down list.</p>
+</li>
+<li>
+<p>Click <strong>VM Portal</strong>. An SSO login page displays. SSO login enables you to log in to the VM Portal and the Administration Portal (if you have permission) at the same time.</p>
+</li>
+<li>
+<p>Enter your <strong>User Name</strong> and <strong>Password</strong>. Use the <strong>Profile</strong> drop-down list to select the correct domain.</p>
+</li>
+<li>
+<p>Click <b class="button">Log In</b>. The list of virtual machines and pools assigned to you displays.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>To log out of the Portal, click your user name in the header bar and select <strong>Log out</strong>. You are logged out of all portals and the Engine welcome screen displays.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Graphical_User_Interface_elements">1.6. Graphical user interface elements</h3>
+<div class="paragraph">
+<p>You can perform common virtual machine tasks, change log-in options, and view messages in the VM Portal screen.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/VM_screen.png" alt="VM screen"></span></p>
+</div>
+<div class="paragraph">
+<p><strong>Key graphical user interface elements</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="image"><img src="images/1.png" alt="1"></span> <code>Header bar</code></p>
+<div class="paragraph">
+<p>The header bar contains the <strong>Refresh</strong> button, the <b class="button">User</b> drop-down button, and the <b class="button">Messages</b> drop-down button.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <strong>Refresh</strong> button refreshes the display.</p>
+</li>
+<li>
+<p>The <b class="button">User</b> drop-down button displays the following list:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Options</strong>: SSH key, for connecting via serial console to the VM Portal</p>
+</li>
+<li>
+<p><strong>About</strong>: VM Portal release information</p>
+</li>
+<li>
+<p><strong>Log out</strong>: To log out of the VM Portal</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <b class="button">Messages</b> drop-down button displays messages from the system.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><span class="image"><img src="images/2.png" alt="2"></span> <code>Toolbar</code></p>
+<div class="paragraph">
+<p>The toolbar contains buttons that allow you to perform additional actions.</p>
+</div>
+</li>
+<li>
+<p><span class="image"><img src="images/3.png" alt="3"></span> <code>Virtual machines pane</code></p>
+<div class="paragraph">
+<p>The virtual machines pane displays the icon, operating system, name, state, and management icons of each virtual machine and pooled virtual machine.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chap-Managing_virtual_machines">2. Managing virtual machines</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can perform common virtual machine management tasks in the virtual machines pane:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Start a virtual machine by clicking the <strong>Run</strong> button (<span class="image"><img src="images/Run.png" alt="Run" width="20px"></span>). It is available when the virtual machine is suspended or stopped.</p>
+</li>
+<li>
+<p>Access the console of a virtual machine by clicking the <strong>Console</strong> button (<span class="image"><img src="images/Console.png" alt="Console" width="20px"></span>). It is available when the virtual machine is running.</p>
+</li>
+<li>
+<p>Temporarily stop a virtual machine by selecting <strong>Suspend</strong> from the drop-down menu. It is available when the virtual machine is running.</p>
+</li>
+<li>
+<p>Stop a virtual machine by selecting <strong>Shutdown</strong> from the drop-down menu. It is available when the virtual machine is running.</p>
+</li>
+<li>
+<p>Restart a virtual machine by selecting <strong>Reboot</strong> from the drop-down menu. It is available when the virtual machine is running.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="Viewing_virtual_machine_details">2.1. Viewing virtual machine details</h3>
+<div class="paragraph">
+<p><strong>Viewing a virtual machine&#8217;s details</strong></p>
+</div>
+<div class="paragraph">
+<p>Click the virtual machine&#8217;s name in the virtual machines pane to view details of the virtual machine. The details are displayed in individual cards:</p>
+</div>
+<div class="ulist">
+<div class="title">Virtual Machine Description and Status</div>
+<ul>
+<li>
+<p><strong>Operating System</strong></p>
+</li>
+<li>
+<p><strong>Name</strong></p>
+</li>
+<li>
+<p><strong>State</strong> - For example, <em>Running</em>, <em>Off</em>, <em>Asleep</em></p>
+</li>
+<li>
+<p><strong>Description</strong></p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Details</div>
+<ul>
+<li>
+<p><strong>Host</strong></p>
+</li>
+<li>
+<p><strong>IP Address</strong></p>
+</li>
+<li>
+<p><strong>FQDN</strong> - Virtual machine&#8217;s FQDN. The guest agent must be installed on the virtual machine to retrieve this value.</p>
+</li>
+<li>
+<p><strong>Cluster</strong></p>
+</li>
+<li>
+<p><strong>Data Center</strong></p>
+</li>
+<li>
+<p><strong>Template</strong></p>
+</li>
+<li>
+<p><strong>CD</strong></p>
+</li>
+<li>
+<p><strong>Cloud-Init</strong> (<strong>Sysprep</strong> on Windows virtual machines) status - <em>On</em>/<em>Off</em></p>
+</li>
+<li>
+<p><strong>Boot Menu</strong> status - <em>On</em>/<em>Off</em></p>
+</li>
+<li>
+<p><strong>Console</strong></p>
+</li>
+<li>
+<p><strong>Optimized for</strong> - <em>Desktop</em>/<em>Server</em>/<em>High Performance</em></p>
+</li>
+<li>
+<p><strong>CPUs</strong></p>
+</li>
+<li>
+<p><strong>Memory</strong></p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Utilization</div>
+<ul>
+<li>
+<p>Displays utilization statistics for <strong>CPU</strong>, <strong>Memory</strong>, <strong>Networking</strong>, and <strong>Disk</strong> usage (CPU, Memory, and Networking only display values when the virtual machine is running). The Disk usage display may differ when the guest agent is installed on the virtual machine.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Snapshots</div>
+<ul>
+<li>
+<p>Displays a list of snapshots that have been saved.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Network Interfaces</div>
+<ul>
+<li>
+<p>Displays a list of network interfaces defined for this virtual machine.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Disks</div>
+<ul>
+<li>
+<p>Displays a list of disks defined for this virtual machine.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Editing_virtual_machines">2.2. Editing virtual machines</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Your user role must have permission to edit a virtual machine.</p>
+</div>
+<div class="paragraph">
+<p>You can edit a virtual machine&#8217;s disks and network interfaces in the virtual machine&#8217;s details view. See <a href="#Viewing_virtual_machine_details">Viewing virtual machine details</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Editing a virtual machine</strong></p>
+</div>
+<div class="paragraph">
+<p>In the virtual machines pane, click the card of the virtual machine that you want to edit. The Virtual machine dashboard is displayed, which contains the following fields, organized in individual cards.
+Click the <strong>Edit</strong> icon (<span class="image"><img src="images/Edit_VM.png" alt="Edit VM" width="20px"></span>) in the appropriate card to edit the values in that card:</p>
+</div>
+<div class="ulist">
+<div class="title">Virtual Machine name and description</div>
+<ul>
+<li>
+<p><strong>Name</strong> - The virtual machine name may contain only upper- or lower-case letters, numbers, underscores, hyphens, or periods. Special characters and spaces are not allowed.</p>
+</li>
+<li>
+<p><strong>Description</strong> - Enter a description of this virtual machine (optional).</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Details</div>
+<ul>
+<li>
+<p><strong>Template</strong> - Displays the name of the template used to create this virtual machine.</p>
+</li>
+<li>
+<p><strong>Change CD</strong> - Allows you to select an ISO file that is accessible to the virtual machine as a CD.</p>
+</li>
+<li>
+<p><strong>CPUs</strong> - Allows you to configure the number of virtual CPUs available to the virtual machine.</p>
+</li>
+<li>
+<p><strong>Memory</strong> - Allows you to configure the virtual memory available to the virtual machine.</p>
+</li>
+</ul>
+</div>
+<div class="ulist">
+<div class="title">Details - Advanced Options</div>
+<ul>
+<li>
+<p><strong>Cloud-Init</strong> - The cloud-init tool allows you to automate the deployment of virtual machines. When this is set to <em>ON</em>, the <strong>Hostname</strong> and <strong>SSH Authorized Keys</strong> fields are displayed. See  <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Virtual_Machine_General_settings_explained">Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows</a> in the <em>Virtual Machine Management Guide</em> for details.</p>
+</li>
+<li>
+<p><strong>Operating System</strong> - Allows you to select the operating system installed on this virtual machine.</p>
+</li>
+<li>
+<p><strong>Boot Menu</strong> - When set to <em>ON</em>, the Boot menu appears in the console, enabling you to select a bootable device.</p>
+</li>
+<li>
+<p><strong>Boot Order</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>First Device</strong> - The first device to be checked for booting.</p>
+</li>
+<li>
+<p><strong>Second Device</strong> - The second device to be checked for booting.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Snapshots</div>
+<p>Displays a list of snapshots that have been saved.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click the <strong>Edit</strong> icon (<span class="image"><img src="images/Edit_VM.png" alt="Edit VM" width="20px"></span>) to display the <strong>Create Snapshot</strong> button for creating a new snapshot. See <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Virtual_Machine_Network_Interface_dialogue_entries">Explanation of Settings in the New Network Interface and Edit Network Interface Windows</a> in the <em>Virtual Machine Management Guide</em> for details.</p>
+</li>
+<li>
+<p>Click the <strong>information</strong>, <strong>restore</strong>, or <strong>delete</strong> icon to view details, restore a snapshot, or delete a snapshot.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Network Interfaces</div>
+<p>Displays a list of network interfaces defined for this virtual machine.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click the <strong>Edit</strong> icon (<span class="image"><img src="images/Edit_VM.png" alt="Edit VM" width="20px"></span>) to display the <strong>Create NIC</strong> button for creating a new network interface entry. See <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Virtual_Machine_Network_Interface_dialogue_entries">Explanation of Settings in the New Network Interface and Edit Network Interface Windows</a> in the <em>Virtual Machine Management Guide</em> for details.</p>
+</li>
+<li>
+<p>Click the <strong>Edit</strong> or <strong>Delete</strong> icon to edit or delete a network interface.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Disks</div>
+<p>Displays a list of disks that are defined for this virtual machine.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click the <strong>Edit</strong> icon (<span class="image"><img src="images/Edit_VM.png" alt="Edit VM" width="20px"></span>) to display the <strong>Create Disk</strong> button for creating a new disk entry.</p>
+</li>
+<li>
+<p>Click the <strong>Edit</strong> or <strong>Delete</strong> icon to edit or delete the disk. See  <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Virtual_Machine_General_settings_explained">Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows</a> in the <em>Virtual Machine Management Guide</em> for details.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-virtual-machines">2.3. Creating virtual machines</h3>
+<div class="paragraph">
+<p><strong>Creating a virtual machine</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click the <b class="button">Create Virtual Machine</b> button in the toolbar.</p>
+</li>
+<li>
+<p>Set the following fields:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name</strong> of the virtual machine. The virtual machine name may contain only upper- or lower-case letters, numbers, underscores (<code>_</code>), hyphens (<code>-</code>), or periods (<code>.</code>). Special characters and spaces are not permitted.</p>
+</li>
+<li>
+<p><strong>Description</strong> (optional)</p>
+</li>
+<li>
+<p><strong>Cluster</strong></p>
+</li>
+<li>
+<p><strong>Template</strong></p>
+</li>
+<li>
+<p><strong>Operating System</strong></p>
+</li>
+<li>
+<p><strong>Defined Memory</strong></p>
+</li>
+<li>
+<p><strong>CPUs</strong></p>
+</li>
+<li>
+<p><strong>Boot Menu</strong></p>
+</li>
+<li>
+<p><strong>Boot Order</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>First Device</strong></p>
+</li>
+<li>
+<p><strong>Second Device</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Cloud-Init</strong></p>
+</li>
+<li>
+<p><strong>Icon</strong></p>
+<div class="paragraph">
+<p>See  <a href="https://ovirt.org/documentation/virtual_machine_management_guide/index#Virtual_Machine_General_settings_explained">Explanation of Settings in the New Virtual Machine and Edit Virtual Machine Windows</a> in the <em>Virtual Machine Management Guide</em> for details.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <b class="button">Create VM</b>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="connecting-to-virtual-machines">2.4. Connecting to virtual machines</h3>
+<div class="paragraph">
+<p><strong>Connecting to a virtual machine</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the virtual machines pane, click the <strong>Run</strong> button in a virtual machine&#8217;s card to start that virtual machine.</p>
+</li>
+<li>
+<p>Click the <strong>Console</strong> button to connect to the virtual machine.</p>
+</li>
+<li>
+<p>You will be asked to download a <strong>.vv</strong> file.</p>
+</li>
+<li>
+<p>Open the file with <strong>remote-viewer</strong>. A console window displays.</p>
+<div class="paragraph">
+<p>You can now use the virtual machine in the same way you would use a physical desktop.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="legal-notice">Appendix A: Legal notice</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Certain portions of this text first appeared in the <a href="https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/introduction_to_the_vm_portal/">Red Hat Virtualization 4.3 Introduction to the VM Portal</a>. Copyright © 2021 Red Hat, Inc. Licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>.</p>
+</div>
+</div>
+</div>
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2705/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2705/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2705/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2705/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=documentation&amp;title=Issue:%20/documentation/introduction_to_the_vm_portal/&amp;template=issue_template_documentation.md' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/documentation/introduction_to_the_vm_portal/index.adoc' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

@@ -726,7 +726,7 @@
 <li><a href="#Cancelling_event_notifications">21.2. Canceling Event Notifications in the Administration Portal</a></li>
 <li><a href="#Parameters_for_event_notifications_in_notifier">21.3. Parameters for Event Notifications in ovirt-engine-notifier.conf</a></li>
 <li><a href="#Configuring_the_Red_Hat_Enterprise_Virtualization_Manager_to_Send_SNMP_Traps">21.4. Configuring the oVirt Engine to Send SNMP Traps</a></li>
-<li><a href="#SNMPv3-traps-configuration-file">21.5. Sample SNMP version 3 configuration file</a></li>
+<li><a href="#SNMPv3-traps-configuration-file">21.5. Sample SNMP configuration file</a></li>
 </ul>
 </li>
 <li><a href="#chap-Utilities">22. Utilities</a>
@@ -21303,7 +21303,7 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the host becomes non operational and the deployment fails due to a missing required network or a similar problem, deployment will pause and a message such as the following will be displayed:</p>
+<p>If the host becomes non operational, due to a missing required network or a similar problem, deployment will pause and a message such as the following will be displayed:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -21316,7 +21316,24 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 </div>
 </div>
 <div class="paragraph">
-<p>Pausing the process allows you to connect to the restored engine and manually, and review and remediate the configuration before proceeding with the deployment.</p>
+<p>Pausing the process allows you to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connect to the Administration Portal using the provided URL.</p>
+</li>
+<li>
+<p>Assess the situation, find out why the host is non operational, and fix whatever is needed.</p>
+</li>
+<li>
+<p>For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, you should set up the networks accordingly, attaching the relevant host NICs to these networks as needed.
+Once everything looks ok, and the host status is <em>Up</em>, remove the lock file presented in the message above, and deployment will continue.</p>
+</li>
+<li>
+<p>Connect to the restored engine manually, and review and remediate the configuration before proceeding with the deployment.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
@@ -21796,7 +21813,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the host becomes non operational and the deployment fails due to a missing required network or a similar problem, deployment will pause and a message such as the following will be displayed:</p>
+<p>If the host becomes non operational, due to a missing required network or a similar problem, deployment will pause and a message such as the following will be displayed:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -21809,7 +21826,24 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Pausing the process allows you to connect to the restored engine and manually, and review and remediate the configuration before proceeding with the deployment.</p>
+<p>Pausing the process allows you to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connect to the Administration Portal using the provided URL.</p>
+</li>
+<li>
+<p>Assess the situation, find out why the host is non operational, and fix whatever is needed.</p>
+</li>
+<li>
+<p>For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, you should set up the networks accordingly, attaching the relevant host NICs to these networks as needed.
+Once everything looks ok, and the host status is <em>Up</em>, remove the lock file presented in the message above, and deployment will continue.</p>
+</li>
+<li>
+<p>Connect to the restored engine manually, and review and remediate the configuration before proceeding with the deployment.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
@@ -28331,9 +28365,9 @@ SNMP_SECURITY_LEVEL=3</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="SNMPv3-traps-configuration-file">21.5. Sample SNMP version 3 configuration file</h3>
+<h3 id="SNMPv3-traps-configuration-file">21.5. Sample SNMP configuration file</h3>
 <div class="paragraph">
-<p>This sample configuration file is based on settings in <code>ovirt-engine-notifier.conf</code>.</p>
+<p>This sample configuration file is based on settings in <code>ovirt-engine-notifier.conf</code>. A dedicated SNMP configuration file, such as this one, overrides the settings in <code>ovirt-engine-notifier.conf</code>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -28358,11 +28392,11 @@ SNMP_OID=1.3.6.1.4.1.2312.13.1.1 <i class="conum" data-value="3"></i><b>(3)</b>
 FILTER=&quot;include:*(snmp:)&quot; <i class="conum" data-value="4"></i><b>(4)</b>
 SNMP_VERSION=3 <i class="conum" data-value="5"></i><b>(5)</b>
 SNMP_ENGINE_ID=&quot;80:00:00:00:01:02:05:05&quot; <i class="conum" data-value="6"></i><b>(6)</b>
-SNMP_USERNAME=ovirtengine&gt; <i class="conum" data-value="7"></i><b>(7)</b>
+SNMP_USERNAME=<em>&lt;username&gt;</em> <i class="conum" data-value="7"></i><b>(7)</b>
 SNMP_AUTH_PROTOCOL=MD5 <i class="conum" data-value="8"></i><b>(8)</b>
-SNMP_AUTH_PASSPHRASE=&lt;__authpass__&gt; <i class="conum" data-value="9"></i><b>(9)</b>
+SNMP_AUTH_PASSPHRASE=<em>&lt;authpass&gt;</em> <i class="conum" data-value="9"></i><b>(9)</b>
 SNMP_PRIVACY_PROTOCOL=AES128 <i class="conum" data-value="10"></i><b>(10)</b>
-SNMP_PRIVACY_PASSPHRASE=&lt;__privpass__&gt; <i class="conum" data-value="11"></i><b>(11)</b>
+SNMP_PRIVACY_PASSPHRASE=<em>&lt;privpass&gt;</em> <i class="conum" data-value="11"></i><b>(11)</b>
 SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></pre>
 </div>
 </div>
@@ -28374,7 +28408,7 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Default SNMP Community String.</td>
+<td>(SNMP version 2 only) Default SNMP Community String.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
@@ -28404,31 +28438,31 @@ SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></p
 </tr>
 <tr>
 <td><i class="conum" data-value="6"></i><b>6</b></td>
-<td>The engine id used for SNMPv3 traps.</td>
+<td>(SNMP version 3 only) The engine id used for SNMP traps.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>The user name used for SNMPv3 traps.</td>
+<td>(SNMP version 3 only) The user name used for SNMP traps.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
-<td>The SNMPv3 auth protocol. Supported values are MD5 and SHA. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 2 (<code>AUTH_NOPRIV</code>) or 3 (<code>AUTH_PRIV</code>).</td>
+<td>(SNMP version 3 only) The SNMP auth protocol. Supported values are MD5 and SHA. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 2 (<code>AUTH_NOPRIV</code>) or 3 (<code>AUTH_PRIV</code>).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="9"></i><b>9</b></td>
-<td>The SNMPv3 auth passphrase. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 2 (<code>AUTH_NOPRIV</code>) or 3 (<code>AUTH_PRIV</code>).</td>
+<td>(SNMP version 3 only) The SNMP auth passphrase. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 2 (<code>AUTH_NOPRIV</code>) or 3 (<code>AUTH_PRIV</code>).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="10"></i><b>10</b></td>
-<td>The SNMPv3 privacy protocol. Supported values are AES128, AES192 and AES256. Be aware that AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 3 (<code>AUTH_PRIV</code>).</td>
+<td>(SNMP version 3 only) The SNMP privacy protocol. Supported values are AES128, AES192 and AES256. Be aware that AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 3 (<code>AUTH_PRIV</code>).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="11"></i><b>11</b></td>
-<td>The SNMPv3 privacy passphrase. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 3 (<code>AUTH_PRIV</code>).</td>
+<td>(SNMP version 3 only) The SNMP privacy passphrase. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 3 (<code>AUTH_PRIV</code>).</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="12"></i><b>12</b></td>
-<td>The SNMPv3 security level. 1 = <code>NOAUTH_NOPRIV</code>, 2 = <code>AUTH_NOPRIV</code>, 3 = <code>AUTH_PRIV</code>.</td>
+<td>(SNMP version 3 only) The SNMP security level. 1 = <code>NOAUTH_NOPRIV</code>, 2 = <code>AUTH_NOPRIV</code>, 3 = <code>AUTH_PRIV</code>.</td>
 </tr>
 </table>
 </div>

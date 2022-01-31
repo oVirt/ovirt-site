@@ -1340,7 +1340,7 @@ Do not override this setting.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the host becomes non operational and the deployment fails due to a missing required network or a similar problem, deployment will pause and a message such as the following will be displayed:</p>
+<p>If the host becomes non operational, due to a missing required network or a similar problem, deployment will pause and a message such as the following will be displayed:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1353,7 +1353,24 @@ Do not override this setting.
 </div>
 </div>
 <div class="paragraph">
-<p>Pausing the process allows you to connect to the restored engine and manually, and review and remediate the configuration before proceeding with the deployment.</p>
+<p>Pausing the process allows you to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connect to the Administration Portal using the provided URL.</p>
+</li>
+<li>
+<p>Assess the situation, find out why the host is non operational, and fix whatever is needed.</p>
+</li>
+<li>
+<p>For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, you should set up the networks accordingly, attaching the relevant host NICs to these networks as needed.
+Once everything looks ok, and the host status is <em>Up</em>, remove the lock file presented in the message above, and deployment will continue.</p>
+</li>
+<li>
+<p>Connect to the restored engine manually, and review and remediate the configuration before proceeding with the deployment.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>

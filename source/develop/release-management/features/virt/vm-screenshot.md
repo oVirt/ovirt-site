@@ -13,7 +13,6 @@ Allow users to take screenshot of a running VM
 ## Owner
 
 *   Name: Saif Abu Saleh (sabusale)
-*   Email: sabusale@redhat.com
 
 ## Description
 

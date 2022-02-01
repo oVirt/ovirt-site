@@ -47,7 +47,7 @@ Set up Cinderlib integration
 (Currently in tech preview)
 (Yes, No) [No]:
 ----
-
++
 [IMPORTANT]
 ====
 Cinderlib is a Technology Preview feature only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend to use them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
@@ -248,13 +248,13 @@ Engine database password:
 endif::SM_localDB_deploy[]
 
 ifdef::SM_remoteDB_deploy[]
-
++
 [NOTE]
 ====
 Deployment with a remote engine database is now deprecated. This functionality will be removed in a future release.
 ====
-
-** If you select `Remote`, input the following values for the preconfigured remote database server. Replace `localhost` with the ip address or FQDN of the remote database server:
++
+If you select `Remote`, input the following values for the preconfigured remote database server. Replace `localhost` with the ip address or FQDN of the remote database server:
 +
 [options="nowrap" subs="normal"]
 ----
@@ -351,9 +351,12 @@ endif::SM_localDB_deploy[]
 Please confirm installation settings (OK, Cancel) [OK]:
 ----
 
-+
-When your environment has been configured, `engine-setup` displays details about how to access your environment. If you chose to manually configure the firewall, `engine-setup` provides a custom list of ports that need to be opened, based on the options selected during setup. `engine-setup` also saves your answers to a file that can be used to reconfigure the {engine-name} using the same values, and outputs the location of the log file for the {virt-product-fullname} {engine-name} configuration process.
 
-. If you intend to link your {virt-product-fullname} environment with a directory server, configure the date and time to synchronize with the system clock used by the directory server to avoid unexpected account expiry issues. See link:{URL_rhel_docs_legacy}html/system_administrators_guide/chap-Configuring_the_Date_and_Time.html#sect-Configuring_the_Date_and_Time-timedatectl-NTP[Synchronizing the System Clock with a Remote Server] in the _{enterprise-linux} System Administrator's Guide_ for more information.
+When your environment has been configured, `engine-setup` displays details about how to access your environment.
 
-. Install the certificate authority according to the instructions provided by your browser. You can get the certificate authority's certificate by navigating to `http://_manager-fqdn_/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA`, replacing _manager-fqdn_ with the FQDN that you provided during the installation.
+.Next steps
+If you chose to manually configure the firewall, `engine-setup` provides a custom list of ports that need to be opened, based on the options selected during setup. `engine-setup` also saves your answers to a file that can be used to reconfigure the {engine-name} using the same values, and outputs the location of the log file for the {virt-product-fullname} {engine-name} configuration process.
+
+* If you intend to link your {virt-product-fullname} environment with a directory server, configure the date and time to synchronize with the system clock used by the directory server to avoid unexpected account expiry issues. See link:{URL_rhel_docs_legacy}html/system_administrators_guide/chap-Configuring_the_Date_and_Time.html#sect-Configuring_the_Date_and_Time-timedatectl-NTP[Synchronizing the System Clock with a Remote Server] in the _{enterprise-linux} System Administrator's Guide_ for more information.
+
+* Install the certificate authority according to the instructions provided by your browser. You can get the certificate authority's certificate by navigating to `http://_manager-fqdn_/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA`, replacing _manager-fqdn_ with the FQDN that you provided during the installation.

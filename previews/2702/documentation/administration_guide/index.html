@@ -21330,9 +21330,6 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 <p>For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, you should set up the networks accordingly, attaching the relevant host NICs to these networks as needed.
 Once everything looks ok, and the host status is <em>Up</em>, remove the lock file presented in the message above, and deployment will continue.</p>
 </li>
-<li>
-<p>Connect to the restored engine manually, and review and remediate the configuration before proceeding with the deployment.</p>
-</li>
 </ul>
 </div>
 </td>
@@ -21839,9 +21836,6 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <li>
 <p>For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, you should set up the networks accordingly, attaching the relevant host NICs to these networks as needed.
 Once everything looks ok, and the host status is <em>Up</em>, remove the lock file presented in the message above, and deployment will continue.</p>
-</li>
-<li>
-<p>Connect to the restored engine manually, and review and remediate the configuration before proceeding with the deployment.</p>
 </li>
 </ul>
 </div>

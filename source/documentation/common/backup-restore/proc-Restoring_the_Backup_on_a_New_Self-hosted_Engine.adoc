@@ -108,7 +108,6 @@ Pausing the process allows you to:
 * Assess the situation, find out why the host is non operational, and fix whatever is needed.
 * For example, if this deployment was restored from a backup, and the backup included _required networks_ for the host cluster, you should set up the networks accordingly, attaching the relevant host NICs to these networks as needed.
 Once everything looks ok, and the host status is _Up_, remove the lock file presented in the message above, and deployment will continue.
-* Connect to the restored engine manually, and review and remediate the configuration before proceeding with the deployment.
 ====
 +
 ifdef::rhv-doc[]

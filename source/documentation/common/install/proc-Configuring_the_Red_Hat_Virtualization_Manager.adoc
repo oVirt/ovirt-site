@@ -281,7 +281,7 @@ Confirm engine admin password:
 ----
 Application mode (Both, Virt, Gluster) [Both]:
 ----
-*Both* offers the greatest flexibility. In most cases, select `Both`. *Virt* allows you to run virtual machines in the environment; *Gluster* only allows you to manage GlusterFS from the Administration Portal.
+*Both* - offers the greatest flexibility. In most cases, select `Both`. *Virt* - allows you to run virtual machines in the environment; *Gluster* - only allows you to manage GlusterFS from the Administration Portal.
 
 . If you installed the OVN provider, you can choose to use the default credentials, or specify an alternative.
 +

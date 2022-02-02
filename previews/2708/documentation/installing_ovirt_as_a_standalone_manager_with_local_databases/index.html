@@ -1718,8 +1718,18 @@ Confirm engine admin password:</pre>
 <pre class="nowrap">Application mode (Both, Virt, Gluster) [Both]:</pre>
 </div>
 </div>
-<div class="paragraph">
-<p><strong>Both</strong> - offers the greatest flexibility. In most cases, select <code>Both</code>. <strong>Virt</strong> - allows you to run virtual machines in the environment; <strong>Gluster</strong> - only allows you to manage GlusterFS from the Administration Portal.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Both</strong> - offers the greatest flexibility. In most cases, select <strong>Both</strong>.</p>
+</li>
+<li>
+<p><strong>Virt</strong> - allows you to run virtual machines in the environment.</p>
+</li>
+<li>
+<p><strong>Gluster</strong> - only allows you to manage GlusterFS from the Administration Portal.</p>
+</li>
+</ul>
 </div>
 </li>
 <li>
@@ -1814,7 +1824,7 @@ Do you wish Setup to configure that, or prefer to perform that manually? (Automa
 <p>If you intend to link your oVirt environment with a directory server, configure the date and time to synchronize with the system clock used by the directory server to avoid unexpected account expiry issues. See <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/chap-Configuring_the_Date_and_Time.html#sect-Configuring_the_Date_and_Time-timedatectl-NTP">Synchronizing the System Clock with a Remote Server</a> in the <em>Enterprise Linux System Administrator&#8217;s Guide</em> for more information.</p>
 </li>
 <li>
-<p>Install the certificate authority according to the instructions provided by your browser. You can get the certificate authority&#8217;s certificate by navigating to <code>http://<em>manager-fqdn</em>/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA</code>, replacing <em>manager-fqdn</em> with the FQDN that you provided during the installation.</p>
+<p>Install the certificate authority according to the instructions provided by your browser. You can get the certificate authority&#8217;s certificate by navigating to <code><a href="http://&lt;manager-fqdn&gt;/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA" class="bare">http://&lt;manager-fqdn&gt;/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA</a></code>, replacing &lt;manager-fqdn&gt; with the FQDN that you provided during the installation.</p>
 </li>
 </ul>
 </div>

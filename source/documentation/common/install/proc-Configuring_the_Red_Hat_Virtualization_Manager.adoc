@@ -281,7 +281,9 @@ Confirm engine admin password:
 ----
 Application mode (Both, Virt, Gluster) [Both]:
 ----
-*Both* - offers the greatest flexibility. In most cases, select `Both`. *Virt* - allows you to run virtual machines in the environment; *Gluster* - only allows you to manage GlusterFS from the Administration Portal.
+* *Both* - offers the greatest flexibility. In most cases, select *Both*.
+* *Virt* - allows you to run virtual machines in the environment.
+* *Gluster* - only allows you to manage GlusterFS from the Administration Portal.
 
 . If you installed the OVN provider, you can choose to use the default credentials, or specify an alternative.
 +
@@ -359,4 +361,4 @@ If you chose to manually configure the firewall, `engine-setup` provides a custo
 
 * If you intend to link your {virt-product-fullname} environment with a directory server, configure the date and time to synchronize with the system clock used by the directory server to avoid unexpected account expiry issues. See link:{URL_rhel_docs_legacy}html/system_administrators_guide/chap-Configuring_the_Date_and_Time.html#sect-Configuring_the_Date_and_Time-timedatectl-NTP[Synchronizing the System Clock with a Remote Server] in the _{enterprise-linux} System Administrator's Guide_ for more information.
 
-* Install the certificate authority according to the instructions provided by your browser. You can get the certificate authority's certificate by navigating to `http://_manager-fqdn_/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA`, replacing _manager-fqdn_ with the FQDN that you provided during the installation.
+* Install the certificate authority according to the instructions provided by your browser. You can get the certificate authority's certificate by navigating to `http://<manager-fqdn>/ovirt-engine/services/pki-resource?resource=ca-certificate&amp;format=X509-PEM-CA`, replacing <manager-fqdn> with the FQDN that you provided during the installation.

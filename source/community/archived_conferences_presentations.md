@@ -11,6 +11,60 @@ oVirt community presented at several conferences in the past years. In this page
 Please note that presentation may refer to obsoleted or deprecated features and shouldn't be considered valid for latest oVirt release.
 Templates and resources for creating new presentations can be found in [oVirt Slide Decks](/community/get-involved/resources/slide-decks.html) page
 
+## 2021-09 - oVirt 2021 Online conference
+
+* Conference opening keynote [[Recordings]](https://youtu.be/MNLXPsTUBXA)
+
+* Sandro Bonazzola - oVirt community updates
+  [[Recordings]](https://youtu.be/6gvRJvNBQOA)
+
+* Gal Zaidman - Exploring OKD on oVirt &#8211; What, Why and How
+  [[Recordings]](https://youtu.be/JSG44y-bUCY)
+
+* Marcos Sungiala - Prerequisites and Troubleshooting an oVirt External Authentication Provider
+  [[Recordings]](https://youtu.be/wKDqzQygj_E)
+
+* Milan Zamazal, Tomáš Golembiovský - TPM support in oVirt
+  [[Recordings]](https://youtu.be/1eciby2NiSM)
+
+* Janos Bonic - Testing the Terraform Provider
+  [[Recordings]](https://youtu.be/1eciby2NiSM)
+
+* Luwen Zhang - Strengthen Your oVirt Data Resiliency and Protection
+  [[Recordings]](https://youtu.be/4EcgwJ4U3MI)
+
+* Lev Veyde - Contributing to oVirt
+  [[Recordings]](https://youtu.be/v6sXL5H_XLw)
+
+* Steve Goodman - Putting oVirt Documentation first: oVirt Documentation Process Changes
+  [[Recordings]](https://youtu.be/vfgB9OJNBsE)
+
+* Marcin Kubacki - oVirt Changed-Block Tracking API &#8211; developer&#8217;s perspective
+  [[Recordings]](https://youtu.be/0TjBRNjPFJY)
+
+* John Priest - Oracle&#8217;s shift to the open source oVirt project for server virtualization
+  [[Recordings]](https://youtu.be/aBziYWPG_0o)
+
+* Tomáš Golembiovský - Policies for Automatically Dedicating CPUs to Workloads
+  [[Recordings]](https://youtu.be/FEcswv5DE4A)
+
+* Paul Staniforth - Running oVirt in a Home Lab and Laptop
+  [[Recordings]](https://youtu.be/pRlUEd-lidg)
+
+* Mitch Dsouza - Creating Oracle Databases on KVM using the deploycluster tool with oVirt API
+  [[Recordings]](https://youtu.be/WiAg43USs4I)
+
+* Luca Andrea Fusè, Stefano Stagnaro - Discovering the oVirt Ansible Collection for VMs and infrastructure automation
+  [[Recordings]](https://youtu.be/5NUT1mGU5Dk)
+
+* Andrea Perotti, Antonio Romito - Divide et Impera: how a fintech customer rearchitected their virtualization infrastructure while preserving workloads uptime
+  [[Recordings]](https://youtu.be/SUGoCqbpUH8)
+
+## 2021-02 - FOSDEM 2021
+
+* Shirly Radco, Aviv Litman - oVirt Monitoring with Grafana & Advanced Options
+  [[Recordings]](https://archive.fosdem.org/2021/schedule/event/vai_ovirt_monitoring/)
+
 ## 2020-09 - oVirt 2020 Online conference
 
 * Sandro Bonazzola - oVirt and its community

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>cpu-and-memory | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="cpu-and-memory" />
+<meta name="author" content="Doron Fediuck" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2713/develop/sla/cpu-and-memory.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2713/develop/sla/cpu-and-memory.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="cpu-and-memory" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Doron Fediuck" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Doron Fediuck"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2713/images/logo.svg"},"name":"Doron Fediuck"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"cpu-and-memory","url":"https://ovirt.github.io/ovirt-site/previews/2713/develop/sla/cpu-and-memory.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2713/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2713/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2713/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2713/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2713/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2713/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2713/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2713/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2713/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2713/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2713/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2713/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2713/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2713/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2713/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2713/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2713/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2713/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2713/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2713/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2713/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2713/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2713/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2713/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2713/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2713/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2713/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2713/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2713/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2713/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2713/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2713/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2713/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2713/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2713/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2713//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2713//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2713/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2713/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2713/develop/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Doron Fediuck</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/bea1d2f545b54881ec2eb38d1c0650b0?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/bea1d2f545b54881ec2eb38d1c0650b0?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Royce</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2713/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="cpu-and-memory">cpu-and-memory</h1>
+
+<p>ovirt flow: Use case1:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Assign Resource proportion(e.g.a customer buy 20%CPU)
+   1.find a VM
+   2.limited the CPU consumption to be 30% host CPU
+</code></pre></div></div>
+
+<p>Use case2:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Cluster Policy based Cgroup control
+   1.Config a cluster's policy is to be: best utilization/best performance/best balance
+   2.Engine config MOM to be different policy:None/medium/aggressive about all resources
+</code></pre></div></div>
+
+<p>Use case3:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   Resource tendency:
+   1.Config a VM to be:compute node/ftp server/mail server/http server/general...
+     Will have different resource tendency
+   2.Engine will translate some resource(mem/cpu/io/bandwith) as rigid level of every vm
+   e.g.:VM1(mem:strong/cpu:medium/bandwith:weak),VM2(mem:medium/cpu:weak/bandwith:strong)
+   3.Engine config Mom of these policy of different resources
+   4.Mom will tune VMs according to the policy
+</code></pre></div></div>
+
+<p>Use case 4:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   User discrimination
+   1.Config VM to have different credit on engine
+   2.Engine config MOM
+   3.restrain resource according to different credit
+   e.g.:Gold VM restrain 10% CPU resource, Silver VM restrain 20% CPU resource
+</code></pre></div></div>
+
+<h2 id="relevant-ovirt-projects">Relevant oVirt Projects</h2>
+
+<ul>
+  <li>oVirt engine</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>VDSM</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>MoM</li>
+</ul>
+
+<h2 id="cpu">CPU</h2>
+
+<p>Stats vdsm needs to be collected:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   1.host cpu usage: flags of host cpu pressure and flag of tuning, when cpu utilization rise, action will be tune or migrate.via libvirt
+   2.host perspective guest usage: guest use of host resource,  flag of how much has allocated actually via libvirt
+   3.guest perspective guest usage: flag of how much potential the overcommitment can be
+</code></pre></div></div>
+
+<p>Controlls vdsm needs to perform:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   1.via cpu cgroup
+   2.via pin cpu
+   3.via hibernate/stop vm
+   4.via numad
+</code></pre></div></div>
+
+<p>Policies:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   1.QOS: 
+     (1)high prior guests demand should be satisefied
+     (2)VM's feature demand should be satisefied(compute node's cpu demand has higher priority)
+     e.g.:Golden Vm are assigned to a larger quota as original value,
+      compute node are pinned to a specific cpu.
+
+   2.Overcommit:
+   When:
+     (1)host cpu pressure rise,
+     (2)import guest or cpu demanding guest demands cpu resource
+    it tries to get cpu from:
+     (1)non important guest
+     (2)non cpu demanding guest
+     (3)guest already got very high host usage but with comparatively low priority
+</code></pre></div></div>
+
+<p>Numad Integration</p>
+
+<hr />
+
+<p>vdsm API should perform: (1)Add domain processes to Numad and the Numactl (2)Remove cpu pin from vdsm</p>
+
+<p>Should MOM control numad parameters? OR use default parameter for numad?</p>
+
+<h2 id="memory">Memory</h2>
+
+<p>int virDomainSetMemoryParameters (virDomainPtr domain,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                      virTypedParameterPtr params, 
+                      int nparams, 
+                      unsigned int flags)
+</code></pre></div></div>
+
+<ul>
+  <li>Guarenteed</li>
+  <li>Hard Limits</li>
+  <li>Soft Limits</li>
+</ul>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2713/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2713/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2713/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2713/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/sla/cpu-and-memory.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/sla/cpu-and-memory.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

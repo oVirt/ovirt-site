@@ -21303,7 +21303,7 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the host becomes non operational, due to a missing required network or a similar problem, deployment will pause and a message such as the following will be displayed:</p>
+<p>If the host becomes non operational, due to a missing required network or a similar problem, the deployment pauses and a message such as the following is displayed:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -21324,11 +21324,11 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 <p>Connect to the Administration Portal using the provided URL.</p>
 </li>
 <li>
-<p>Assess the situation, find out why the host is non operational, and fix whatever is needed.</p>
+<p>Assess the situation, find out why the host is non operational, and fix whatever is needed.
+For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, configure the networks, attaching the relevant host NICs to these networks.</p>
 </li>
 <li>
-<p>For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, you should set up the networks accordingly, attaching the relevant host NICs to these networks as needed.
-Once everything looks ok, and the host status is <em>Up</em>, remove the lock file presented in the message above, and deployment will continue.</p>
+<p>Once everything looks OK, and the host status is <em>Up</em>, remove the lock file presented in the message above. The deployment continues.</p>
 </li>
 </ul>
 </div>
@@ -21810,7 +21810,7 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the host becomes non operational, due to a missing required network or a similar problem, deployment will pause and a message such as the following will be displayed:</p>
+<p>If the host becomes non operational, due to a missing required network or a similar problem, the deployment pauses and a message such as the following is displayed:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -21831,11 +21831,11 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 <p>Connect to the Administration Portal using the provided URL.</p>
 </li>
 <li>
-<p>Assess the situation, find out why the host is non operational, and fix whatever is needed.</p>
+<p>Assess the situation, find out why the host is non operational, and fix whatever is needed.
+For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, configure the networks, attaching the relevant host NICs to these networks.</p>
 </li>
 <li>
-<p>For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, you should set up the networks accordingly, attaching the relevant host NICs to these networks as needed.
-Once everything looks ok, and the host status is <em>Up</em>, remove the lock file presented in the message above, and deployment will continue.</p>
+<p>Once everything looks OK, and the host status is <em>Up</em>, remove the lock file presented in the message above. The deployment continues.</p>
 </li>
 </ul>
 </div>

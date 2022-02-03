@@ -93,7 +93,7 @@ The script creates the virtual machine. This can take some time if the {engine-a
 +
 [NOTE]
 ====
-If the host becomes non operational, due to a missing required network or a similar problem, deployment will pause and a message such as the following will be displayed:
+If the host becomes non operational, due to a missing required network or a similar problem, the deployment pauses and a message such as the following is displayed:
 ----
 [ INFO  ] You can now connect to https://<host name>:6900/ovirt-engine/ and check the status of this host and eventually remediate it, please continue only when the host is listed as 'up'
 [ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : include_tasks]
@@ -106,8 +106,8 @@ Pausing the process allows you to:
 
 * Connect to the Administration Portal using the provided URL.
 * Assess the situation, find out why the host is non operational, and fix whatever is needed.
-* For example, if this deployment was restored from a backup, and the backup included _required networks_ for the host cluster, you should set up the networks accordingly, attaching the relevant host NICs to these networks as needed.
-Once everything looks ok, and the host status is _Up_, remove the lock file presented in the message above, and deployment will continue.
+For example, if this deployment was restored from a backup, and the backup included _required networks_ for the host cluster, configure the networks, attaching the relevant host NICs to these networks.
+* Once everything looks OK, and the host status is _Up_, remove the lock file presented in the message above. The deployment continues.
 ====
 +
 ifdef::rhv-doc[]

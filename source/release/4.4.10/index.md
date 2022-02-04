@@ -11,14 +11,14 @@ page_classes: releases
 
 # oVirt 4.4.10 Release Notes
 
-The oVirt Project is pleased to announce the availability of the 4.4.10-2 release as of January 26, 2022.
+The oVirt Project is pleased to announce the availability of the 4.4.10.1 release as of February 03, 2022.
 
 oVirt is a free open-source distributed virtualization solution,
 designed to manage your entire enterprise infrastructure.
 oVirt uses the trusted KVM hypervisor and is built upon several other community
 projects, including libvirt, Gluster, PatternFly, and Ansible.
 
-This release is available now for Red Hat Enterprise Linux 8.5 Beta (or similar) and CentOS Stream.
+This release is available now for Red Hat Enterprise Linux 8.5 (or similar) and CentOS Stream.
 
 > **NOTE**
 >
@@ -73,31 +73,15 @@ In order to prevent this be sure to upgrade oVirt Engine first, then on your hos
 
 #### oVirt Engine
 
- - [BZ 2044277](https://bugzilla.redhat.com/show_bug.cgi?id=2044277) **Replace ovirt-engine-extension-logger-log4j with internal ovirt-engine implementation**
-
-   Package ovirt-engine-extension-logger-log4j has been obsoleted and replaced by internal ovirt-engine implementation in oVirt 4.4.10.
-
-
-
-During upgrade from previous oVirt versions to oVirt 4.4.10 ovirt-engine-extension-logger-log4j package is uninstalled if it was previously installed. If customers have used ovirt-engine-extension-logger-log4j in previous oVirt versions, they will need to manually remove existing ovirt-engine-extension-logger-log4j configuration files and configure the new feature of sending log records to remote syslog service according to the Administration Guide.
-
-
-
-Also after successful upgrade to oVirt 4.4.10 customers can manually uninstall log4j12 package without breaking oVirt setup:
-
-
-
-  $ dnf remove log4j12
-
  - [BZ 2044257](https://bugzilla.redhat.com/show_bug.cgi?id=2044257) **Bump snmp4j library version to remove dependency on log4j**
 
-   oVirt 4.4.10 is going to require snmp4j &gt;= 3.6.4, which no longer depends on log4j library
+   In this release, oVirt 4.4.10 requires snmp4j version 3.6.4 or later, which no longer depends on the log4j library.
 
  - [BZ 2007286](https://bugzilla.redhat.com/show_bug.cgi?id=2007286) **Host is never fenced after a soft fence attempt**
 
-   Previously, a non responsive host was first soft-fenced by the engine, but it didn't fix the connectivity issue. The engine didn't initiate a hard fence and the host was left in non responsive status.
+   Previously, a non-responding host was first soft-fenced by the Engine, but this did not fix the connectivity issue. The engine did not initiate a hard fence and the host was left in an non-responding state.
 
-In this release, Soft fencing has been fixed, and if the soft fencing does't make the host responsive again, then the non-responding host treatment process continues correctly with the additional steps.
+In this release, soft fencing has been fixed so that if the soft fencing does not make the host responsive again, then the non-responding host treatment process continues correctly with the additional steps.
 
 
 ### Enhancements
@@ -106,7 +90,24 @@ In this release, Soft fencing has been fixed, and if the soft fencing does't mak
 
  - [BZ 1897114](https://bugzilla.redhat.com/show_bug.cgi?id=1897114) **Add additional logging information to be able to understand why host is stuck in Unassigned state**
 
-   In this release, monitoring of host refresh capabilities functionality was improved to help debug very rare production issues that sometimes caused the Red Hat Virtualization Manager to lose connectivity with the Red Hat Virtualization hosts.
+   In this release, monitoring of host refresh capabilities functionality was improved to help debug very rare production issues that sometimes caused the oVirt Engine to lose connectivity with the oVirt Node hosts.
+
+
+### Removed functionality
+
+#### oVirt Engine
+
+ - [BZ 2044277](https://bugzilla.redhat.com/show_bug.cgi?id=2044277) **Replace ovirt-engine-extension-logger-log4j with internal ovirt-engine implementation**
+
+   With this release, the ovirt-engine-extension-logger-log4j package has been removed. It is replaced by an internal ovirt-engine implementation. 
+
+
+
+When upgrading from earlier oVirt versions to oVirt 4.4.10, the ovirt-engine-extension-logger-log4j package is uninstalled if it is present. If you used the ovirt-engine-extension-logger-log4j in earlier oVirt versions, you must manually remove the ovirt-engine-extension-logger-log4j configuration files and configure the new feature for sending log records to a remote syslog service, as outlined in the Administration Guide.
+
+
+
+After a successful upgrade to oVirt 4.4.10, you can uninstall log4j12 without breaking the oVirt setup by running the following command: `$ dnf remove log4j12`.
 
 
 ### Bug Fixes
@@ -122,7 +123,7 @@ In this release, Soft fencing has been fixed, and if the soft fencing does't mak
 
  - [BZ 2013430](https://bugzilla.redhat.com/show_bug.cgi?id=2013430) **oVirt 4.4. FIPS install leaves UUID blank in grub after setting kernel option**
 
- - [BZ 2032919](https://bugzilla.redhat.com/show_bug.cgi?id=2032919) **Unable to add EL 7 host into oVirt engine in clusters 4.2/4.3**
+ - [BZ 2032919](https://bugzilla.redhat.com/show_bug.cgi?id=2032919) **Unable to add EL 7 host into oVirt Engine in clusters 4.2/4.3**
 
  - [BZ 2027424](https://bugzilla.redhat.com/show_bug.cgi?id=2027424) **Consume video device from virt-v2v**
 
@@ -147,42 +148,33 @@ In this release, Soft fencing has been fixed, and if the soft fencing does't mak
 
  - [BZ 2026809](https://bugzilla.redhat.com/show_bug.cgi?id=2026809) **VM remains locked after importing from vmware/external-ova, we see  "'str' object has no attribute 'decode'" in the log**
 
-   
 
 
 #### oVirt Engine
 
  - [BZ 2037216](https://bugzilla.redhat.com/show_bug.cgi?id=2037216) **VM imported from configuration is stuck in WaitForLaunch once removed quickly after power-off**
 
-   
 
  - [BZ 1854038](https://bugzilla.redhat.com/show_bug.cgi?id=1854038) **Download or upload disk (SDK) fails due to 'Timed out waiting for transfer XXX to finalize'**
 
-   
 
  - [BZ 1985746](https://bugzilla.redhat.com/show_bug.cgi?id=1985746) **[CBT][Veeam] Full backup is stuck on 'FINALIZING' status when an error occurs during the image transfer flow**
 
-   
 
  - [BZ 2027260](https://bugzilla.redhat.com/show_bug.cgi?id=2027260) **Cold backup fail in various ways - backup is reported ready before add_bitmap jobs complete**
 
-   
 
  - [BZ 2018971](https://bugzilla.redhat.com/show_bug.cgi?id=2018971) **[CBT][Veeam] Scratch disks on block-based storage domain created with the wrong initial size.**
 
-   
 
  - [BZ 2018986](https://bugzilla.redhat.com/show_bug.cgi?id=2018986) **[CBT][Veeam] Allow configurable block-based scratch disk initial size**
 
-   
 
  - [BZ 2015470](https://bugzilla.redhat.com/show_bug.cgi?id=2015470) **[CBT] It's possible to remove a disk immediately after starting a backup**
 
-   
 
  - [BZ 2013932](https://bugzilla.redhat.com/show_bug.cgi?id=2013932) **[CBT] VM backup scratch disks remains if the VM destroyed during the backup**
 
-   
 
 
 ### No Doc Update
@@ -191,31 +183,36 @@ In this release, Soft fencing has been fixed, and if the soft fencing does't mak
 
  - [BZ 2022354](https://bugzilla.redhat.com/show_bug.cgi?id=2022354) **Network gateway stays out-of-sync after upgrade**
 
-   
+
+
+#### oVirt Node NG Image
+
+ - [BZ 2046038](https://bugzilla.redhat.com/show_bug.cgi?id=2046038) **CVE-2021-4034 polkit: Local privilege escalation in pkexec due to incorrect handling of argument vector [ovirt-4.4]**
+
 
 
 #### oVirt Engine Data Warehouse
 
  - [BZ 2014883](https://bugzilla.redhat.com/show_bug.cgi?id=2014883) **None of the grafana dashboard shows ethernet statistics  for VMs**
 
-   
 
 
 #### oVirt Hosted Engine HA
 
  - [BZ 2025381](https://bugzilla.redhat.com/show_bug.cgi?id=2025381) **VDSM logs are spammed due to multiple connection attempts and drops from ha-agent client**
 
-   
 
 
 #### Contributors
 
-33 people contributed to this release:
+38 people contributed to this release:
 
+	@lessfoobar (Contributed to: ovirt-site)
 	Ales Musil (Contributed to: ovirt-engine, ovirt-site, vdsm)
 	Arik Hadas (Contributed to: ovirt-engine)
 	Artur Socha (Contributed to: ovirt-engine)
 	Asaf Rachmani (Contributed to: ovirt-hosted-engine-ha)
+	Avital Pinnick (Contributed to: ovirt-site)
 	Aviv Litman (Contributed to: ovirt-dwh)
 	Benny Zlotnik (Contributed to: ovirt-engine)
 	Donna DaCosta (Contributed to: ovirt-site)
@@ -223,13 +220,14 @@ In this release, Soft fencing has been fixed, and if the soft fencing does't mak
 	Eli Mesika (Contributed to: ovirt-engine)
 	Evgheni Dereveanchin (Contributed to: ovirt-site)
 	Eyal Shenitzky (Contributed to: ovirt-engine)
+	Harel Braha (Contributed to: ovirt-site)
 	Jake Reynolds (Contributed to: ovirt-hosted-engine-ha)
 	Janos Bonic (Contributed to: ovirt-site)
 	Lev Veyde (Contributed to: ovirt-appliance, ovirt-node-ng-image, ovirt-release, ovirt-site)
 	Liran Rotenberg (Contributed to: ovirt-engine, vdsm)
 	Marcin Sobczyk (Contributed to: vdsm)
 	Martin Nečas (Contributed to: ovirt-ansible-collection)
-	Martin Perina (Contributed to: ovirt-engine)
+	Martin Perina (Contributed to: ovirt-engine, ovirt-site)
 	Milan Zamazal (Contributed to: ovirt-engine, ovirt-site, vdsm)
 	Nijin Ashok (Contributed to: ovirt-ansible-collection)
 	Nir Soffer (Contributed to: vdsm)
@@ -243,5 +241,7 @@ In this release, Soft fencing has been fixed, and if the soft fencing does't mak
 	Steve Goodman (Contributed to: ovirt-site)
 	Tomáš Golembiovský (Contributed to: vdsm)
 	Yedidyah Bar David (Contributed to: ovirt-hosted-engine-ha)
+	dercol1 (Contributed to: ovirt-site)
 	jekader (Contributed to: ovirt-site)
+	michalskrivanek (Contributed to: ovirt-site)
 	tinez (Contributed to: ovirt-site)

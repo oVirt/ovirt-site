@@ -1,0 +1,70 @@
+[[Enabling_SyslogHandler_RHV_Manager_logs]]
+=== Enabling SyslogHandler to pass {virt-product-shortname} {engine-name} logs to a remote syslog server
+
+This implementation uses the *JBoss EAP SyslogHandler* log manager and enables passing log records from the `engine.log` and `server.log` to a syslog server.
+
+[NOTE]
+====
+{virt-product-shortname} versions earlier than {virt-product-shortname} 4.4.10 featured similar functionality provided by `ovirt-engine-extension-logger-log4j`. That package was removed in {virt-product-shortname} 4.4.10 and replaced by a new implementation using the JBoss EAP SyslogHandler log manager. If you have been using `ovirt-engine-extension-logger-log4j` in earlier {virt-product-shortname} versions, following an upgrade to {virt-product-shortname} 4.4.10, perform following steps:
+
+* Manually configure sending log records to a remote syslog server using the guidelines provided in this chapter.
+* Manually remove the `ovirt-engine-extension-logger-log4j` configuration files (remove the `/etc/ovirt-engine/extensions.d/Log4jLogger.properties` configuration file).
+====
+
+// Logger implementation requires the ovirt-engine-extension-logger-log4j package. With the implementation, Red Had Virtualization Manager delegates records into log4j. Log4j is a customizable framework that provides appenders for various technologies, including SNMP and syslog.
+
+
+Use this procedure on the central syslog server. You can use a separate logging server, or use this procedure to pass the engine.log and server.log files from the {engine-name} to the syslog server. See also the configuration procedure link:{URL_virt_product_docs}{URL_format}administration_guide/index#Setting_up_a_Host_Logging_Server[Setting up a Host Logging Server].
+
+
+.Configuring the SyslogHandler implementation
+
+
+. Create the configuration file `90-syslog.conf` in the `/etc/ovirt-engine/engine.conf.d` directory and add the following content:
++
+----
+SYSLOG_HANDLER_ENABLED=true
+SYSLOG_HANDLER_SERVER_HOSTNAME=localhost
+SYSLOG_HANDLER_FACILITY=USER_LEVEL
+----
++
+. Install and configure `rsyslog`.
++
+----
+# dnf install rsyslog
+----
++
+. Configure SELinux to allow `rsyslog` traffic.
++
+----
+# semanage port -a -t syslogd_port_t -p udp 514
+----
++
+. Create the configuration file `/etc/rsyslog.d/rhvm.conf` and add the following content:
++
+----
+user.* /var/log/jboss.log
+module(load="imudp") # needs to be done just once
+input(type="imudp" port="514")
+----
++
+. Restart the rsyslog service.
++
+----
+# systemctl restart rsyslog.service
+----
++
+. If the firewall is enabled and active, run the following command to add the necessary rules for opening the `rsyslog` ports in `Firewalld`:
++
+----
+# firewall-cmd --permanent --add-port=514/udp
+# firewall-cmd --reload
+----
++
+. Restart {virt-product-fullname} {engine-name}.
++
+----
+# systemctl restart ovirt-engine
+----
+
+The syslog server can now receive and store the `engine.log` files.

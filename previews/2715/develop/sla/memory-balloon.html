@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>memory-balloon | oVirt</title>
+<meta name="generator" content="Jekyll v3.9.1" />
+<meta property="og:title" content="memory-balloon" />
+<meta name="author" content="Doron Fediuck" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<meta property="og:description" content="oVirt is a free open-source virtualization solution for your entire enterprise" />
+<link rel="canonical" href="https://ovirt.github.io/ovirt-site/previews/2715/develop/sla/memory-balloon.html" />
+<meta property="og:url" content="https://ovirt.github.io/ovirt-site/previews/2715/develop/sla/memory-balloon.html" />
+<meta property="og:site_name" content="oVirt" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="memory-balloon" />
+<meta name="twitter:site" content="@ovirt" />
+<meta name="twitter:creator" content="@Doron Fediuck" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Doron Fediuck"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ovirt.github.io/ovirt-site/previews/2715/images/logo.svg"},"name":"Doron Fediuck"},"description":"oVirt is a free open-source virtualization solution for your entire enterprise","@type":"WebPage","headline":"memory-balloon","url":"https://ovirt.github.io/ovirt-site/previews/2715/develop/sla/memory-balloon.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="/ovirt-site/previews/2715/stylesheets/fonts.css" />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="/ovirt-site/previews/2715/stylesheets/application.css" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2715/stylesheets/print.css" media="print" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2715/stylesheets/coderay.css" media="screen" />
+  <link rel="stylesheet" href="/ovirt-site/previews/2715/stylesheets/asciidoc.css" />
+  <script src="/ovirt-site/previews/2715/javascripts/vendor/jquery.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2715/javascripts/vendor/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2715/javascripts/vendor/bootstrap-sortable.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2715/javascripts/vendor/moment.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2715/javascripts/vendor/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/ovirt-site/previews/2715/javascripts/lib/cal-widget.js" type="text/javascript"></script>
+  <!-- Begin Jekyll Favicon tag v0.2.9 -->
+<!-- Classic -->
+<link rel="shortcut icon" href="/ovirt-site/previews/2715/favicon.ico">
+<link rel="icon" sizes="48x48 32x32 16x16" href="/ovirt-site/previews/2715/favicon.ico">
+  <link rel="icon" sizes="16x16" type="image/png" href="/ovirt-site/previews/2715/images/favicon-16x16.png">
+  <link rel="icon" sizes="32x32" type="image/png" href="/ovirt-site/previews/2715/images/favicon-32x32.png">
+  <link rel="icon" sizes="64x64" type="image/png" href="/ovirt-site/previews/2715/images/favicon-64x64.png">
+  <link rel="icon" sizes="144x144" type="image/png" href="/ovirt-site/previews/2715/images/favicon-144x144.png">
+<!-- Safari -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/ovirt-site/previews/2715/images/favicon-57x57.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/ovirt-site/previews/2715/images/favicon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/ovirt-site/previews/2715/images/favicon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/ovirt-site/previews/2715/images/favicon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/ovirt-site/previews/2715/images/favicon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/ovirt-site/previews/2715/images/favicon-180x180.png">
+<!-- Chrome -->
+  <link rel="icon" sizes="192x192" href="/ovirt-site/previews/2715/images/favicon-192x192.png">
+  <link rel="icon" sizes="96x96" href="/ovirt-site/previews/2715/images/favicon-96x96.png">
+  <link rel="icon" sizes="48x48" href="/ovirt-site/previews/2715/images/favicon-48x48.png">
+<link rel="manifest" href="/ovirt-site/previews/2715/manifest.webmanifest">
+<!-- IE -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ovirt-site/previews/2715/images/favicon-144x144.png">
+<meta name='msapplication-config' content="/ovirt-site/previews/2715/browserconfig.xml">
+<!-- End Jekyll Favicon tag -->
+</head>
+<body class=""><header class='masthead hidden-print' id='branding' role='banner'><section class='hgroup'></section><div id='access'><nav id="mainNav" class="navbar navbar-fixed-top affix-top">  <div class="container">    <div class="col-sm-2 navbar-header">      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_id0980fddf">        <span class="sr-only">Toggle navigation</span>        <span>Menu</span>        <span class="fa fa-bars"></span>      </button>      <a class="navbar-brand" href="/ovirt-site/previews/2715/">        <img id="logo" alt="oVirt" src="/ovirt-site/previews/2715/images/logo.svg">      </a>    </div>    <!-- Collect the nav links, forms, and other content for toggling -->    <div class="col-sm-10">      <div class="navbar-collapse collapse" id="menu_id0980fddf">        <ul class="nav navbar-nav">          <li class="hidden active">            <a href="#page-wrap"></a>          </li><li role='menuitem'>  <a href='/ovirt-site/previews/2715/download/'>Download</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2715/documentation/'>Documentation</a></li><li class='active' role='menuitem'>  <a href='/ovirt-site/previews/2715/develop/'>Developers</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2715/community/'>Community</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2715//lists.ovirt.org/archives/'>Forum</a></li><li role='menuitem'>  <a href='/ovirt-site/previews/2715//blogs.ovirt.org/'>Blog</a></li>              </ul>          </div>          <!-- /.navbar-collapse -->      </div>      <!-- /.container-fluid -->    </div>  </div></nav></div></header><main id="page-wrap" class="page-wrap" aria-label="Content">
+      <section id="page" class="page">
+        <!-- adapted from https://github.com/git-no/jekyll-breadcrumbs -->
+<nav class="breadcrumbs bootstrap hidden-sm-down" aria-label="breadcrumb">
+
+   <ol class="breadcrumb list-unstyled" vocab="http://schema.org/" typeof="BreadcrumbList">
+
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2715/">
+              <span property="name"></span>
+              <meta property="position" content="1" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2715/develop/">
+              <span property="name">Developers Community</span>
+              <meta property="position" content="2" />
+           </a>
+        </li>
+      
+        
+        
+        <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
+           <a property="item" typeof="WebPage" href="/ovirt-site/previews/2715/develop/sla/">
+              <span property="name">Sla</span>
+              <meta property="position" content="3" />
+           </a>
+        </li>
+      
+        
+        
+          
+
+   </ol>
+
+</nav>
+
+        
+          
+            <header class="post-header col-md-4 pad-sides well well-lg">
+              <h2 class="post-title entry-title">Authors:</h2>
+              <header class="post-meta">
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/c1c090237aa1d976e9388542299a75f4?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Doron Fediuck</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/ebbb2bb1935ae8d3235d20a4221769ee?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/ebbb2bb1935ae8d3235d20a4221769ee?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Einav Cohen</span></p>
+                      
+                    </section>
+                  </span>
+                
+                  
+                  
+                  
+                  <div class="blogger_avatar">
+                    <img
+                      src="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=32&amp;d=mm&amp;r=g"
+                      srcset="https://secure.gravatar.com/avatar/d75560fd509444e4cbc70734dffa0673?s=64&amp;d=mm&amp;r=g 2x"
+                      class="avatar avatar-32 photo"
+                      height="32"
+                      width="32"
+                      loading="lazy">
+                  </div>
+                  <span class="byline">
+                    <section class="entry-meta">
+                      
+                        <p><span class="author vcard">Eli Mesika</span></p>
+                      
+                    </section>
+                  </span>
+                
+              </header>
+            </header>
+          
+        
+        <section id="content" class="content container">
+          <div class='alert alert-warning'>This developer documentation is <strong>outdated</strong>, but provides historical context.<br><br>It is <strong>not</strong> user documentation and should not be treated as such.<br><br><a href='/ovirt-site/previews/2715/documentation/'>Documentation is available here.</a></div>
+
+<h1 id="memory-balloon">memory-balloon</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Memory balloon is a guest device, which may be used to re-distribute / reclaim the host memory based
+on VM needs in a dynamic way. In this way it’s possible to create memory over commitment states.</p>
+
+<h2 id="current-status">Current status</h2>
+
+<p>Currently the balloon memory device is being created by default by libvirt for non RHEV environments,
+and VDSM disables it by default for RHEV. This change will enable the balloon device, supporting
+oVirt’s MOM sub-project integration<sup>[<a href="/ovirt-site/previews/2715/develop/release-management/features/sla/momintegration.html">1</a>]</sup>.</p>
+
+<h2 id="engine-core">Engine core</h2>
+
+<ul>
+  <li><strong>Backend-ui/rest parts</strong>
+    <ul>
+      <li>A new VM attribute - balloonEnabled - will be added VM &amp; VmStatic BE to support this feature.
+        <ul>
+          <li>The attribute is not persistant in vm_static table and clients should call the IsBalloonEnabledQuery to get the value from vm_device.</li>
+          <li>Default value should be True.</li>
+          <li>This attribute should be handled in addVmCommand(s)</li>
+        </ul>
+      </li>
+      <li>Add a device</li>
+      <li>Also in UpdateVmCommand to add or remove the device.</li>
+      <li>Need to add as a parameter in RunOnce to override existing vm_static.</li>
+      <li>Template editing: resource allocation is currently unsupported.</li>
+    </ul>
+  </li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li><strong>Backend-vdsm parts</strong>
+    <ul>
+      <li>AddVmCommand and all those inheriting it, should handle the balloon in copyVmDevices method.</li>
+      <li>VmDeviceType should add the new device.
+        <ul>
+          <li>This means, updating org.ovirt.engine.core.common.utils.VmDeviceCommonUtils.isSpecialDevice to make sure the balloon becomes a managed device.</li>
+        </ul>
+      </li>
+      <li>VdsProperties should add model ‘none’ if needed</li>
+      <li>VmInfoBuilder should add buildVmMemoryBalloon</li>
+      <li>org.ovirt.engine.core.vdsbroker.vdsbroker.CreateBrokerVDSCommand.buildVmData() should call the new buildVmMemoryBalloon method.</li>
+    </ul>
+  </li>
+  <li><strong>OVF</strong>
+    <ul>
+      <li>Handle ovf reader and writer.</li>
+    </ul>
+  </li>
+  <li><strong>DB Upgrade</strong>
+    <ul>
+      <li>Existing VM’s should set enableBalloon value to <strong>False</strong>.</li>
+    </ul>
+  </li>
+  <li><strong>Validations</strong>
+    <ul>
+      <li>This should be acceptable on 3.1 cluster only, as older vds versions will not support it.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="vdsm">VDSM</h2>
+
+<ul>
+  <li>
+    <p>VDSM already supports memory balloon as a device, and the following API should be used:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'type': 'balloon ',
+'device':'memballoon ',
+'model': 'virtio' },     &lt;--- 'none' may/should be used to disable the device.
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="rest-api">Rest API</h2>
+
+<ul>
+  <li>
+    <p>A simple flag should be added in the relevant actions.</p>
+
+    <p>For cluster:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"ballooningEnabled" : "false"
+</code></pre></div>    </div>
+
+    <p><a href="http://ovirt.github.io/ovirt-engine-api-model/4.1/#types/cluster">Click here for cluster struct</a></p>
+
+    <p>For memory policy:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"ballooning" : "true"
+</code></pre></div>    </div>
+
+    <p><a href="http://ovirt.github.io/ovirt-engine-api-model/4.1/#types/memory_policy">Click here for memory policy struct</a></p>
+  </li>
+</ul>
+
+<h2 id="ui">UI</h2>
+
+<ul>
+  <li>In relevant dialog we need a check box, for the user to enable/disable the device.
+    <ul>
+      <li>Mock-ups:</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/ovirt-site/previews/2715/images/wiki/Neweditvmdialogmemoryballoon.png" alt="" /></p>
+
+<ul>
+  <li><strong>Validations</strong>
+    <ul>
+      <li>This should be acceptable on 3.1 cluster only, as older vds versions will not support it.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="notes">Notes</h2>
+
+<ol>
+  <li>Due to API change, This will be supported in 3.1 clusters only.</li>
+</ol>
+
+
+
+
+        </section>
+      </section>
+    </main>
+
+    <script src="/ovirt-site/previews/2715/javascripts/lib/headings_anchors.js" type="text/javascript"></script><footer class='text-center' id='footer'><hr class='visible-print'><ul class='footer-nav-list'><li><a href='/ovirt-site/previews/2715/privacy-policy.html' target='_blank' title='Privacy policy'>Privacy policy</a></li><li><a href='/ovirt-site/previews/2715/community/about.html' target='_blank' title='About'>About</a></li><li><a href='/ovirt-site/previews/2715/general-disclaimer.html' target='_blank' title='Disclaimers'>Disclaimers</a></li></ul>&copy; 2013&ndash;2022 oVirt<div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/issues/new?labels=content&amp;title=Issue:%20/develop/sla/memory-balloon.html&amp;template=' target='_blank' title='Report an issue'><i class="icon fab fa-github"></i>Report an issue with this page</a></div><div class='edit-this-page'><a href='https://github.com/oVirt/ovirt-site/edit/master/source/develop/sla/memory-balloon.md' target='_blank' title='Edit this page'><i class="icon fab fa-github"></i>Edit this page</a></div></footer></body>
+
+</html>

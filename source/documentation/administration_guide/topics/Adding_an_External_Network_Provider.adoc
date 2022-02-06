@@ -1,10 +1,9 @@
 [[Adding_an_External_Network_Provider]]
 ==== Adding an External Network Provider
 
-Any network provider that implements the OpenStack Networking REST API can be added to {virt-product-fullname}. The virtual interface driver needs to be provided by the implementer of the external network provider. A reference implementation of a network provider and a virtual interface driver are available at link:https://github.com/mmirecki/ovirt-provider-mock[] and link:https://github.com/mmirecki/ovirt-provider-mock/blob/master/docs/driver_instalation[].
+Any network provider that implements the OpenStack Networking REST API can be added to {virt-product-fullname}. The virtual interface driver needs to be provided by the implementer of the external network provider.
 
-
-*Adding an External Network Provider for Network Provisioning*
+.Procedure
 
 . Click menu:Administration[Providers].
 . Click *Add* and enter the details in the *General Settings* tab. For more information on these fields, see xref:Add_Provider_General_Settings_Explained[].

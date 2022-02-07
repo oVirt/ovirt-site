@@ -1,0 +1,46 @@
+[[Listing_Files_in_an_ISO_Storage_Domain]]
+=== Listing Files in an ISO Storage Domain
+
+The `storagedomains` collection contains a `files` collection that describes the files in a storage domain.
+
+.Listing Files in an ISO Storage Domain
+====
+This example prints a list of the ISO files in each ISO storage domain:
+
+*V4*
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+storage_domains_service = connection.system_service().storage_domains_service()
+
+storage_domains = storage_domains_service.list()
+
+for storage_domain in storage_domains:
+    if(storage_domain.type == types.StorageDomainType.ISO):
+        print(storage_domain.name + ":\n")
+        files = storage_domain.files_service().list()
+
+        for file in files:
+            print("%s" % file.name + "\n")
+
+connection.close()
+----
+
+The examples output the text:
+
+----
+ISO_storage_domain:
+file1
+file2
+----
+====

@@ -1,0 +1,9 @@
+[[chap-Templates_and_Pools]]
+== Templates and Pools
+
+include::topics/Templates_and_Pools.adoc[]
+
+include::topics/Templates1.adoc[]
+
+include::topics/Pools1.adoc[]
+

@@ -1,0 +1,17 @@
+[[Types_Of_Storage_Backing_Storage_Domains]]
+=== Types of Storage Backing Storage Domains
+
+Storage domains can be implemented using block based and file based storage.
+
+*File Based Storage*:: The file based storage types supported by {virt-product-fullname} are NFS, GlusterFS, other POSIX compliant file systems, and storage local to hosts.
++
+File based storage is managed externally to the {virt-product-fullname} environment.
++
+NFS storage is managed by a {enterprise-linux} NFS server, or other third party network attached storage server.
++
+Hosts can manage their own local storage file systems.
+
+
+*Block Based Storage*:: Block storage uses unformatted block devices. Block devices are aggregated into volume groups by the Logical Volume Manager (LVM). An instance of LVM runs on all hosts, unaware of the instances running on other hosts. VDSM adds clustering logic on top of LVM by scanning volume groups for changes. When changes are detected, VDSM updates individual hosts by telling them to refresh their volume group information. The hosts divide the volume group into logical volumes, writing logical volume metadata to disk. If more storage capacity is added to an existing storage domain, the {virt-product-fullname} {engine-name} causes VDSM on each host to refresh volume group information.
++
+A Logical Unit Number (LUN) is an individual block device. One of the supported block storage protocols, iSCSI or Fibre Channel, is used to connect to a LUN. The Red Hat Virtualization Manager manages software iSCSI connections to the LUNs. All other block storage connections are managed externally to the Red Hat Virtualization environment. Any changes in a block based storage environment, such as the creation of logical volumes, extension or deletion of logical volumes and the addition of a new LUN are handled by LVM on a specially selected host called the Storage Pool Manager. Changes are then synced by VDSM which storage metadata refreshes across all hosts in the cluster.

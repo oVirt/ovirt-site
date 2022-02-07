@@ -1,0 +1,16 @@
+[[Migration]]
+=== Migration
+
+The {virt-product-fullname} {engine-name} uses migration to enforce load balancing policies for a cluster. Virtual machine migration takes place according to the load balancing policy for a cluster and current demands on hosts within a cluster. Migration can also be configured to automatically occur when a host is fenced or moved to maintenance mode. The {virt-product-fullname} {engine-name} first migrates virtual machines with the lowest CPU utilization. This is calculated as a percentage, and does not take into account RAM usage or I/O operations, except as I/O operations affect CPU utilization. If there are more than one virtual machines with the same CPU usage, the one that will be migrated first is the first virtual machine returned by the database query run by the {virt-product-fullname} {engine-name} to determine virtual machine CPU usage.
+
+Virtual machine migration has the following limitations by default:
+
+* A bandwidth limit of 52 MiBps is imposed on each virtual machine migration.
+
+* A migration will time out after 64 seconds per GB of virtual machine memory.
+
+* A migration will abort if progress is stalled for 240 seconds.
+
+* Concurrent outgoing migrations are limited to one per CPU core per host, or 2, whichever is smaller.
+
+See link:https://access.redhat.com/solutions/744423[] for more details about tuning migration settings.

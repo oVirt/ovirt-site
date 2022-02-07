@@ -1,0 +1,21 @@
+[[networking-recommendations]]
+=== Networking Recommendations
+
+* Bond network interfaces, especially on production hosts. Bonding improves the overall availability of service, as well as network bandwidth. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-network_bonding[Network Bonding] in the _Administration Guide_.
+
+* A stable network infrastructure configured with DNS and DHCP records.
+
+* If bonds will be shared with other network traffic, proper quality of service (QoS) is required for storage and other network traffic.
+
+* For optimal performance and simplified troubleshooting, use VLANs to separate different traffic types and make the best use of 10 GbE or 40 GbE networks.
+
+* If the underlying switches support jumbo frames, set the MTU to the maximum size (for example, `9000`) that the underlying switches support. This setting enables optimal throughput, with higher bandwidth and reduced CPU usage, for most applications. The default MTU is determined by the minimum size supported by the underlying switches. If you have LLDP enabled, you can see the MTU supported by the peer of each host in the NIC's tool tip in the *Setup Host Networks* window.
++
+[IMPORTANT]
+====
+If you change the network’s *MTU* settings, you must propagate this change to the running virtual machines on the network: Hot unplug and replug every virtual machine’s vNIC that should apply the MTU setting, or restart the virtual machines. Otherwise, these interfaces fail when the virtual machine migrates to another host. For more information, see link:https://access.redhat.com/solutions/4540631[] and link:https://bugzilla.redhat.com/show_bug.cgi?id=1766414[BZ#1766414].
+====
+
+* 1 GbE networks should only be used for management traffic. Use 10 GbE or 40 GbE for virtual machines and Ethernet-based storage.
+
+* If additional physical interfaces are added to a host for storage use, clear *VM network* so that the VLAN is assigned directly to the physical interface.

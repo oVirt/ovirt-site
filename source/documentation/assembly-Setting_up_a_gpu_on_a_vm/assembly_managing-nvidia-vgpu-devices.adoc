@@ -1,0 +1,63 @@
+// This assembly is included in the following assemblies:
+//
+// assembly_managing-vgpu-devices
+
+
+:parent-context-of-assembly_managing-nvidia-vgpu-devices: {context}
+
+[id='assembly_managing-nvidia-vgpu-devices_{context}']
+//= Setting up an NVIDIA GPU and using it on a virtual machine
+
+You can assign a GPU to a virtual machine in one of the following ways:
+
+* *GPU passthrough*: You can assign a host GPU to a single virtual machine, so the virtual machine, instead of the host, uses the GPU.
+
+* *Virtual GPU (vGPU)*: You can divide a physical GPU device into one or more virtual devices, referred to as _mediated devices_. You can then assign these mediated devices to one or more virtual machines as virtual GPUs. These virtual machines share the performance of a single physical GPU. For some GPUs, only one mediated device can be assigned to a single guest. vGPU support is only available on selected NVIDIA GPUs.
++
+.Example:
+A host has four GPUs. Each GPU can support up to 16 vGPUs, for a total of 64 vGPUs. Some possible vGPU assignments are:
+
+** one virtual machine with 64 vGPUs
+** 64 virtual machines, each with one vGPU
+** 32 virtual machines, each with one vGPU; eight virtual machines, each with two vGPUs; 4 virtual machines, each with four vGPUs
+
+//:context: assembly_managing-nvidia-vgpu-devices
+
+
+:context: nvidia_gpu_passthrough
+:nvidia_gpu_passthrough:
+include::common/vgpu/proc_nvidia_gpu_passthrough.adoc[leveloffset=+1]
+:nvidia_gpu_passthrough!:
+
+:context: nvidia_vgpu
+:nvidia_vgpu:
+== Assigning virtual GPUs
+
+To set up NVIDIA vGPU devices, you need to:
+
+. Obtain and install the correct NVIDIA vGPU driver for your GPU device
+. Create mediated devices
+. Assign each mediated device to a virtual machine
+. Install guest drivers on each virtual machine.
+
+The following procedures explain this process.
+
+:context: nvidia_vgpu
+include::common/vgpu/proc_setting-up-nvidia-vgpu-devices.adoc[leveloffset=+2]
+include::common/vgpu/proc_install-nvidia-vgpu-guest-driver.adoc[leveloffset=+2]
+include::common/vgpu/proc_removing-nvidia-vgpu-devices.adoc[leveloffset=+2]
+include::common/vgpu/proc_obtaining-nvidia-vgpu-information-about-your-system.adoc[leveloffset=+2]
+include::common/vgpu/ref_remote-desktop-streaming-services-for-nvidia-vgpu.adoc[leveloffset=+2]
+//include::common/vgpu/proc_removing-nvidia-vgpu-devices.adoc[leveloffset=+1]
+:nvidia_vgpu!:
+
+[id='related-information-general_{context}']
+== Related information
+
+For further information on using NVIDA vGPU on RHEL with KVM, see:
+
+* link:https://docs.nvidia.com/grid/latest/grid-vgpu-release-notes-red-hat-el-kvm/index.html[the NVIDIA GPU Software Release Notes].
+
+* _NVIDIA Virtual GPU Software Documentation_ at https://docs.nvidia.com.
+
+:context: {parent-context-of-assembly_managing-nvidia-vgpu-devices}

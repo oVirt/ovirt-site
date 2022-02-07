@@ -1,0 +1,60 @@
+[[Checking_System_Events]]
+=== Checking System Events
+
+{virt-product-fullname} {engine-name} records and logs many system events. These event logs are accessible through the user interface, the system log files, and using the API. The `ovirtsdk` library exposes events using the `events` collection.
+
+.Checking system events
+====
+In this example the `events` collection is listed.
+
+The `query` parameter of the `list` method is used to ensure that all available pages of results are returned. By default the `list` method returns only the first page of results, which is `100` records in length.
+
+The returned list is sorted in reverse chronological order, to display the events in the order in which they occurred.
+
+*V4*
+
+[source, Python]
+----
+
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+# Find the service that manages the collection of events:
+events_service = connection.system_service().events_service()
+
+page_number = 1
+events = events_service.list(search='page %s' % page_number)
+while events:
+    for event in events:
+        print(
+            "%s %s CODE %s - %s" % (
+                event.time,
+                event.severity,
+                event.code,
+                event.description,
+            )
+        )
+    page_number = page_number + 1
+    events = events_service.list(search='page %s' % page_number)
+
+# Close the connection to the server:
+connection.close()
+----
+
+These examples output events in the following format:
+
+[options="nowrap" subs="normal"]
+----
+YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.
+YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 153 - VM vm1 was started by admin@internal (Host: MyHost).
+YYYY-MM-DD_T_HH:MM:SS NORMAL CODE 30 - User admin@internal logged in.
+----
+
+====

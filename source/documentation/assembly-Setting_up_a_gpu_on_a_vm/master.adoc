@@ -1,0 +1,17 @@
+// ID not required when this is a book rather than a chapter.
+// [id='Migrating_from_a_Standalone_Manager_to_a_Self-hosted_Engine']
+:rhv-doc:
+include::common/collateral_files/attributes.adoc[]
+= Setting up an NVIDIA GPU for a virtual machine in {virt-product-fullname}
+:context: assembly_managing-vgpu-devices
+:context: GPU_setup_on_vm_standalone_doc
+:GPU_setup_on_vm_standalone_doc:
+
+You can use a host with a compatible graphics processing unit (GPU) to run virtual machines in {virt-product-fullname} that are suited for graphics-intensive tasks and for running software that cannot run without a GPU, such as CAD.
+
+include::assembly_managing-nvidia-vgpu-devices.adoc[]
+//include::common/assemblies/assembly_managing-intel-vgpu-devices.adoc[leveloffset=+1]
+
+
+:GPU_setup_on_vm_standalone_doc!:
+:context!: GPU_setup_on_vm_standalone_doc

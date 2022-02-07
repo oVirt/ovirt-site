@@ -1,0 +1,126 @@
+=== Red Hat Virtualization 4.4 Batch Update 8 (ovirt-4.4.9)
+
+
+
+==== Bug Fix
+
+These bugs were fixed in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1940991[1940991]::
+Previously, when hot unplugging memory in rapid succession using REST API, the same DIMMs could be hot unplugged multiple times instead of using different DIMMs for different hot unplug actions. This resulted in failed hot unplugs and could lead to invalid assumptions about the amount of RAM in the virtual machine. 
+In this release, this issue is fixed, and DIMMs that are hot unplugged are no longer used in followup hot unplugs.
+
+BZ#link:https://bugzilla.redhat.com/1947709[1947709]::
+Previously, upgrading from Red Hat Virtualization 4.3 failed when using an isolated network during IPv6 deployment.
+In this release, a forward network is used instead of an isolated network during an IPv6 deployment. As a result, upgrade from Red Hat Virtualization 4.3 using IPv6 now succeeds.
+
+BZ#link:https://bugzilla.redhat.com/1977276[1977276]::
+Previously, in some cases, adding a new disk for the upload succeeded, but the system handled the operation as a failure. AS a result, the upload failed silently without uploading any data and ending in an empty new disk.
+In this release, the add disk success is detected correctly, and uploading completes successfully.
+
+BZ#link:https://bugzilla.redhat.com/1978672[1978672]::
+Previously, virtual machines failed to restore when running hibernation on block based storage. In the current release, the data is written as raw data allowing the virtual machine restore to succeed.
+
+BZ#link:https://bugzilla.redhat.com/1979730[1979730]::
+Previously, when upgrading a cluster from cluster level 4.5 to 4.6, the emulated machine changed to a newer one. This caused problems on some Windows virtual machines, such as - loss of static IP configuration or secondary disks going offline.
+In this release, the Webadmin shows a confirmation dialog during the cluster upgrade from cluster level 4.5 or lower to cluster level 4.6 or higher if there are any virtual machines that could be affected.
+
+BZ#link:https://bugzilla.redhat.com/1980230[1980230]::
+In Red Hat Enterprise Linux 8.5, the socat package has been updated introducing a change in the command line syntax.
+In the current release, the hosted-engine command has been updated to adapt to this change.
+
+BZ#link:https://bugzilla.redhat.com/1989324[1989324]::
+Previously, the UploadStreamCommand updated the OVF_STORE Actual disk size in the database incorrectly during an OVF update. As a result, rhv-image-discrepancies received the wrong disk size.
+In this release, OVF and Self-Hosted Engine metadata are skipped by rhv-image-discrepancies, and the tool does not produce irrelevant warnings.
+
+BZ#link:https://bugzilla.redhat.com/2000364[2000364]::
+Previously, on Manager startup, system threads may have been used to retrieve the virtual machine configuration from stateless snapshots, causing the Manager to fail to start.
+In this release, the way of retrieving the virtual machine configuration from stateless snapshots on the Manager was changed to avoid using the system thread and only use application threads. AS a result, the Manager can start when stateless snapshots with cloud-init network properties are defined.
+
+BZ#link:https://bugzilla.redhat.com/2000720[2000720]::
+Previously, VDSM reported partial results to the engine which resulted in a failure to import the storage domain using new LUNs. This happened because VDSM would not wait for the creation of new multipath devices after the discovery of new LUNs. The current release fixes this issue and VDSM waits for multipathd reports to be ready and the storage domain is now detected.
+
+BZ#link:https://bugzilla.redhat.com/2014017[2014017]::
+Previously, the status of the operation (download VM disks) was changed to one of the final statuses (FINISHED_SUCCESS / FINISHED_FAILURE) before the disk locks were actually released. As a result, in  some scenarios, the operation following  this one failed with a Disk is locked error.
+In this release, the locks are released immediately before changing the command status to one of the final phases. AS a result, the operation that follows this one and uses the same disk will succeed.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+BZ#link:https://bugzilla.redhat.com/1352501[1352501]::
+In this release, using virtual TPM, it is now possible to inject a LUKS encryption key to the guest operating system.
+
+BZ#link:https://bugzilla.redhat.com/1845909[1845909]::
+In the current release, the sanlock_io timeout is configurable. Before configuring sanlock_io timeout, it is recommended that you contact Red Hat support. Please refer to https://access.redhat.com/solutions/6338821. Red Hat is not responsible for testing different timeout values other than the defaults. Red Hat support will only provide guidance on how to change those values consistently across the RHV setup.
+
+BZ#link:https://bugzilla.redhat.com/1949046[1949046]::
+SPICE has been deprecated, and will be removed from the RHEL 9 subscription channel.
+This release provides SPICE packages for RHEL 9 clients so that Red Hat Virtualization can support SPICE with RHEL 9 clients and guests.
+
+BZ#link:https://bugzilla.redhat.com/1957830[1957830]::
+In this release, the VM Portal now allows creating preallocated or thin provisioned disk images on various types of storage domains.
+
+BZ#link:https://bugzilla.redhat.com/1983021[1983021]::
+Red Hat Virtualization Host now includes the packages needed for using Managed Block Devices via cinderlib.
+
+BZ#link:https://bugzilla.redhat.com/1984886[1984886]::
+Previously, manual installation of the rsyslog-openssl package was required to setup remote encrypted logging. In the current release, the rsyslog-openssl package is installed by default on both the oVirt Node and RHV-H.
+
+BZ#link:https://bugzilla.redhat.com/1992690[1992690]::
+Previously, the Inventory dashboard showed CPU overcommit rates for each data center. 
+In this release, CPU overcommit rates are available in the Inventory dashboard for each cluster as well.
+
+BZ#link:https://bugzilla.redhat.com/2001551[2001551]::
+In this release, rhv-image-discrepancies now allows more granular checks.
+Two new options have been added to rhv-image-discrepancies command line to restrict the run to specific data centers or storage domains. If both are specified it is restricted to the intersection of both.
+ -p --pool-uuid: limit run to data centers, can be specified multiple times
+ -s --storage-uuid: limit run to storage domains, can be specified multiple times
+For example: 
+# rhv-image-discrepancies -p=5bbe9966-ea58-475f-863f -s=977ba581-23e5-460a-b1de
+
+BZ#link:https://bugzilla.redhat.com/2007550[2007550]::
+In this release, the data type for the virtual machines disk write/read rate was changed from integer to long.
+
+BZ#link:https://bugzilla.redhat.com/2009659[2009659]::
+Previously, users were required to manually install Cinderlib and Ceph dependencies, such as, python3-cinderlb or python3-ox-brick on each host. In the current release, these dependencies are automatically installed and provided within RHV-H. Please note that for standard RHEL hosts, this feature requires the proper subscription to be enabled.
+
+==== Rebase: Bug Fixes and Enhancements
+
+These items are rebases of bug fixes and enhancements included in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1975175[1975175]::
+Red Hat Virtualization Host now includes packages from RHGS-3.5.z on RHEL-8 Batch #5.
+
+BZ#link:https://bugzilla.redhat.com/1998104[1998104]::
+Red Hat Virtualization Host now includes openvswitch related packages from Fast Data Path 21.G release.
+
+BZ#link:https://bugzilla.redhat.com/2002945[2002945]::
+The ovirt-hosted-engine-ha package has been rebased to version: 2.4.9. This update fixes the issue of incorrect CPU load scores causing the engine virtual machine to shut down.
+
+==== Release Notes
+
+This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
+
+BZ#link:https://bugzilla.redhat.com/1904085[1904085]::
+A playbook executed by Ansible Engine 2.9.25 inside a virtual machine running on Red Hat Virtualization 4.4.9 correctly detects that this is a virtual machine running on Red Hat Virtualization by using Ansible facts.
+
+BZ#link:https://bugzilla.redhat.com/1939262[1939262]::
+Previously, an issue with lldpad required a workaround on RHEL 7. The RHEL 8.5 release provides an update of llpad to version 1.0.1-16 which resolves the issue.
+
+BZ#link:https://bugzilla.redhat.com/1963748[1963748]::
+Red Hat Virtualization 4.4.9 now requires EAP 7.4.2 which also requires a repository change. Before upgrading to RHV 4.4.9 with EAP 7.4.2 or later, make sure that EAP is upgraded to 7.3.9 or later when upgrading from RHV 4.4.8 or earlier.
+
+BZ#link:https://bugzilla.redhat.com/2003671[2003671]::
+Red Hat Virtualization now supports Ansible-2.9.27 for internal usage.
+
+BZ#link:https://bugzilla.redhat.com/2004444[2004444]::
+During host installation or host upgrade, the Manager checks if cinderlib and Ceph packages are available. If not, it tries to enable the required channels specified in the documentation. If there is a problem during channel enablement, an error is raised in the audit_log, and customers need to enable the channel manually and retry the  installation or upgrade.
+
+BZ#link:https://bugzilla.redhat.com/2004469[2004469]::
+Previously it was not possible to upgrade RHVH to version 4.4.8 when custom VDSM hooks were installed on RHVH. This was caused by the VDSM hooks dependency on the concrete version of VDSM. The current release allows users to maintain the VDSM dependency manually. In other words, if you want to upgrade from VDSM X.Y.Z to version A.B.C, you must upgrade all VDSM hooks to the same A.B.C version.
+
+BZ#link:https://bugzilla.redhat.com/2004913[2004913]::
+The Red Hat OpenStack Platform (RHOSP) cinderlib repository has been upgraded from RHOSP 16.1 to 16.2.
+
+

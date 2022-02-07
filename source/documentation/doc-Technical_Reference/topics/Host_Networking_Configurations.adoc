@@ -1,0 +1,36 @@
+[[Host_Networking_Configurations]]
+=== Host Networking Configurations
+
+xref:figu-Technical_Reference_Guide-Networking_in_Data_Centers_and_Clusters.-Networking_within_a_cluster[] can be helpful to understand these networking configurations.
+
+Common types of networking configurations for virtualization hosts include:
+
+* *Bridge and NIC configuration.*
++
+This configuration uses a Linux bridge to connect one or more virtual machines to the host's NIC.
++
+An example of this configuration is the automatic creation of the `ovirtmgmt` network when installing the {virt-product-fullname} {engine-name}. Then, during host installation, the {virt-product-fullname} {engine-name} installs *VDSM* on the host. The *VDSM* installation process creates the `ovirtmgmt` bridge which obtains the host's IP address to enable communication with the {engine-name}.
++
+[IMPORTANT]
+====
+All hosts in a cluster must use either IPv4 or IPv6 as the IP stack for their management network. Dual stack is not supported.
+====
+
+* *Bridge, VLAN, and NIC configuration.*
++
+A VLAN can be included in the bridge and NIC configuration to provide a secure channel for data transfer over the network and supports connecting multiple bridges to a single NIC using multiple VLANs.
+
+* *Bridge, Bond, and VLAN configuration.*
++
+A bond creates a logical link that combines the two (or more) physical Ethernet links. The resultant benefits include NIC fault tolerance and potential bandwidth extension, depending on the bonding mode.
+
+* *Multiple Bridge, Multiple VLAN, and NIC configuration.*
++
+This configuration connects a NIC to multiple VLANs.
++
+For example, to connect a single NIC to two VLANs, the network switch can be configured to pass network traffic that has been tagged into one of the two VLANs to one NIC on the host. The host uses two vNICs to separate VLAN traffic, one for each VLAN. Traffic tagged into either VLAN then connects to a separate bridge by having the appropriate vNIC as a bridge member. Each bridge, in turn, connects to multiple virtual machines.
++
+[NOTE]
+====
+You can also bond multiple NICs to facilitate a connection with multiple VLANs. Each VLAN in this configuration is defined over the bond comprising the multiple NICs. Each VLAN connects to an individual bridge and each bridge connects to one or more guests.
+====

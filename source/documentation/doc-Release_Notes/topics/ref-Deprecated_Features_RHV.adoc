@@ -1,0 +1,50 @@
+[id='Deprecated_Features_RHV']
+= Deprecated Features
+// This is a static section that must be reviewed by PM every release to confirm which items to add or remove.
+
+This chapter provides an overview of features that have been deprecated in all minor releases of {virt-product-fullname}.
+
+Deprecated features continue to be supported for a minimum of two minor release cycles before being fully removed. For the most recent list of deprecated features within a particular release, refer to the latest version of release documentation.
+
+[NOTE]
+====
+Although support for deprecated features is typically removed after a few release cycles, some tasks may still require use of a deprecated feature. These exceptions are noted in the description of the deprecated feature.
+====
+
+The following table describes deprecated features to be removed in a future version of {virt-product-fullname}.
+
+.Deprecated Features
+[options="header"]
+|===
+|Deprecated Feature |Details
+
+|Remote engine database |A remote engine database is now deprecated, whether implemented during deployment or by migrating after deployment. This functionality will be removed from the deployment script in a future release.
+
+| Cisco Virtual Machine Fabric Extender (VM-FEX) | Support for the Cisco Virtual Machine Fabric Extender (VM-FEX) is now deprecated. This functionality will be removed in a future release.
+
+|Export Domains |Use a data domain. link:{URL_virt_product_docs}{URL_format}administration_guide/index#Migrating_SD_between_DC_Same_Env[Migrate data domains] between data centers and link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#Importing_a_Virtual_Machine_from_a_Data_Domain[Importing Virtual Machines from a Data Domain] into the new data center.
+
+In {virt-product-fullname} 4.4, some tasks may still require the export domain.
+
+| ISO domains |Use a data domain. link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Upload images to data domains].
+In {virt-product-fullname} 4.4, some tasks may still require the ISO domain.
+
+| ovirt-guest-agent |The `ovirt-guest-agent` project is no longer supported. Use link:https://www.qemu.org[`qemu-guest-agent` version 2.12.0] or later.
+
+| moVirt |Mobile Android app for {virt-product-fullname}.
+
+| OpenStack Networking (Neutron)  |  Support for Red Hat OpenStack Networking (Neutron) as an external network provider is now deprecated, and was removed in Red Hat Virtualization 4.4.5.
+
+| OpenStack block storage (Cinder) | Support for Red Hat OpenStack block storage (Cinder) is now deprecated, and will be removed in a future release.
+
+| instance types | Support for instance types that can be used to define the hardware configuration of a virtual machine is now deprecated. This functionality will be removed in a future release.
+
+| websocket proxy deployment on a remote host  |  Support for third party websocket proxy deployment is now deprecated, and will be removed in a future release.
+
+| SSO for virtual machines | Since the ovirt-guest-agent package was deprecated, Single Sign-On (SSO) is deprecated for virtual machines running {enterprise-linux} version 7 or earlier.
+
+ SSO is not supported for virtual machines running {enterprise-linux} 8 or later, or for Windows operating systems.
+
+| ovirt-scheduler-proxy | The oVirt Scheduler Proxy is deprecated. Development has been discontinued. It will be removed in a future release.
+
+|===

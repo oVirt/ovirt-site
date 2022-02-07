@@ -1,0 +1,14 @@
+[[System_Devices]]
+=== System Devices
+
+System devices are critical for the guest to run and cannot be removed. Each system device attached to a guest also takes up an available PCI slot. The default system devices are:
+
+* Host bridge
+
+* ISA bridge and USB bridge (The USB and ISA bridges are the same device)
+
+* Graphics card using the VGA or qxl driver
+
+* Memory balloon device
+
+For information about how to use PCI Express and conventional PCI devices with Intel Q35-based virtual machines, see link:https://access.redhat.com/articles/3201152[Using PCI Express and Conventional PCI Devices with the Q35 Virtual Machine].

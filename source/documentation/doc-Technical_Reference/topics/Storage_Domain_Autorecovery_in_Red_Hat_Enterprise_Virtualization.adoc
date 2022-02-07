@@ -1,0 +1,8 @@
+[[Storage_Domain_Autorecovery_in_Red_Hat_Enterprise_Virtualization]]
+=== Storage Domain Autorecovery in {virt-product-fullname}
+
+Hosts in a {virt-product-fullname} environment monitor storage domains in their data centers by reading metadata from each domain. A storage domain becomes inactive when all hosts in a data center report that they cannot access the storage domain.
+
+Rather than disconnecting an inactive storage domain, the {engine-name} assumes that the storage domain has become inactive temporarily, because of a temporary network outage for example. Once every 5 minutes, the {engine-name} attempts to re-activate any inactive storage domains.
+
+Administrator intervention may be required to remedy the cause of the storage connectivity interruption, but the {engine-name} handles re-activating storage domains as connectivity is restored.

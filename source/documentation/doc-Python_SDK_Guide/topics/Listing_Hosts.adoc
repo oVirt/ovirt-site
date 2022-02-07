@@ -1,0 +1,41 @@
+[[Listing_Hosts]]
+=== Listing Hosts
+
+The `hosts` collection contains all hosts in the environment.
+
+.Listing hosts
+====
+This example lists the hosts in the `hosts` collection and their IDs.
+
+*V4*
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+host_service = connection.system_service().hosts_service()
+
+hosts = host_service.list()
+
+for host in hosts:
+    print("%s (%s)" % (host.name, host.id))
+
+connection.close()
+----
+
+====
+
+In an environment where only one host, `MyHost`, has been attached, the examples output the text:
+
+[options="nowrap" subs="normal"]
+----
+MyHost (00000000-0000-0000-0000-000000000000)
+----

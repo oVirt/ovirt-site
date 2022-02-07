@@ -1,0 +1,31 @@
+:numbered!:
+
+[appendix]
+[[appe-Enumerated_Value_Translation]]
+== Enumerated Value Translation
+
+The API uses {virt-product-fullname} Query Language to perform search queries. For more information, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Searches[Searches] in the _Introduction to the Administration Portal_.
+
+Note that certain enumerated values in the API require a different search query when using the Query Language. The following tables provides a translation for these key enumerated values according to resource type.
+
+.Enumerated Value Translations
+[options="header"]
+|===
+|API Enumerable Type |API Enumerable Value|Query Language Value
+|`data_center_states` |`not_operational` |`notoperational`
+.5+|`host_states` |`non_responsive`|`nonresponsive`
+|`install_failed` |`installfailed`
+|`preparing_for_maintenance` |`preparingformaintenance`
+|`non_operational` |`nonoperational`
+|`pending_approval` |`pendingapproval`
+.9+|`vm_states` |`powering_up`|`poweringup`
+|`powering_down` |`poweringdown`
+|`migrating` |`migratingfrom`
+|`migrating` |`migratingto`
+|`not_responding` |`notresponding`
+|`wait_for_launch` |`waitforlaunch`
+|`reboot_in_progress` |`rebootinprogress`
+|`saving_state` |`savingstate`
+|`restoring_state` |`restoringstate`
+|`image_locked` |`imagelocked`
+|===

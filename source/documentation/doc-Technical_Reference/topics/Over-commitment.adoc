@@ -1,0 +1,15 @@
+[[Over-commitment]]
+=== Thin Provisioning and Storage Over-Commitment
+
+The {virt-product-fullname} {engine-name} provides provisioning policies to optimize storage usage within the virtualization environment. A thin provisioning policy allows you to over-commit storage resources, provisioning storage based on the actual storage usage of your virtualization environment.
+
+Storage over-commitment is the allocation of more storage to virtual machines than is physically available in the storage pool. Generally, virtual machines use less storage than what has been allocated to them. Thin provisioning allows a virtual machine to operate as if the storage defined for it has been completely allocated, when in fact only a fraction of the storage has been allocated.
+[NOTE]
+====
+While the {virt-product-fullname} {engine-name} provides its own thin provisioning function, you should use the thin provisioning functionality of your storage back-end if it provides one.
+====
+
+
+To support storage over-commitment, VDSM defines a threshold which compares logical storage allocation with actual storage usage. This threshold is used to make sure that the data written to a disk image is smaller than the logical volume that backs the disk image. QEMU identifies the highest offset written to in a logical volume, which indicates the point of greatest storage use. VDSM monitors the highest offset marked by QEMU to ensure that the usage does not cross the defined threshold. So long as VDSM continues to indicate that the highest offset remains below the threshold, the {virt-product-fullname} {engine-name} knows that the logical volume in question has sufficient storage to continue operations.
+
+When QEMU indicates that usage has risen to exceed the threshold limit, VDSM communicates to the {engine-name} that the disk image will soon reach the size of it's logical volume. The {virt-product-fullname} {engine-name} requests that the SPM host extend the logical volume. This process can be repeated as long as the data storage domain for the data center has available space. When the data storage domain runs out of available free space, you must manually add storage capacity to expand it.

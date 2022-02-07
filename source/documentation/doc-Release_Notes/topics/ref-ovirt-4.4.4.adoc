@@ -1,0 +1,113 @@
+=== Red Hat Virtualization 4.4 Batch Update 3 (ovirt-4.4.4)
+
+
+
+==== Bug Fix
+
+These bugs were fixed in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1694711[1694711]::
+Previously, the UI NUMA panel showed an incorrect NUMA node for a corresponding socket.
+In this release, the NUMA nodes are ordered by the database, and the socket matches the NUMA node.
+
+BZ#link:https://bugzilla.redhat.com/1792905[1792905]::
+Previously, users could invoke the 'sparsify' operation on thin-provisioned (qcow) disks with a single volume. While the freed space was reclaimed by the storage device, the image size didn't change and users could see this as a failure to sparsify the image.
+In this release, sparsifying a thin-provisioned disks with a single volume is now blocked.
+
+BZ#link:https://bugzilla.redhat.com/1797553[1797553]::
+Previously, when the export VM as OVA command was executed, other operations on the engine were blocked. This made the engine execute operations serially while expected to be parallel.
+In this release, engine tasks are executed in parallel, unblocked by the export VM as OVA command.
+
+BZ#link:https://bugzilla.redhat.com/1834876[1834876]::
+Previously, ovirt-vmconsole caused SELinux denials logged by sshd. While it generally didn't affect ovirt-vmconsole functionality, it could raise false alerts.
+In this release, there are no ovirt-vmconsole SELinux denials issued.
+
+BZ#link:https://bugzilla.redhat.com/1868967[1868967]::
+Previously, the Red Hat Virtualization Host (RHV-H) repository (rhvh-4-for-rhel-8-x86_64-rpms) did not include the libsmbclient package, which is a dependency for the sssd-ad package. Consequently, the sssd-ad package failed to install.
+
+With this update, the libsmbclient is now in the RHV-H repository, and sssd-ad now installs on RHV-H.
+
+BZ#link:https://bugzilla.redhat.com/1871792[1871792]::
+Previously, when importing a Virtual Machine using virt-v2v and the ovirt-engine service restarted, the import failed.
+In this release, the import continues as long there is an async command running, allowing the import to complete successfully.
+
+BZ#link:https://bugzilla.redhat.com/1886750[1886750]::
+Previously, when removing a host, neither the virtual machine's host device nor the host dependency list were removed. As a result, this sometimes caused error messages when running the virtual machine on another host, and leaving behind incorrect entries in the database.
+In this release, the virtual machine host device and entry in the virtual machine's dependency list for the removed host are no longer included in the database, and the associated error messages no longer occur.
+
+BZ#link:https://bugzilla.redhat.com/1888142[1888142]::
+Previously, stateless virtual machines including pool virtual machines issued a warning regarding not using the latest version, even when the virtual machine
+was not set to use the last version.
+In this release, there is no attempt to change the version of the template that virtual machines are based on unless they are set to use the last version of a template and thus this warning is omitted from the log.
+
+BZ#link:https://bugzilla.redhat.com/1889987[1889987]::
+Previously, when the export VM as OVA command was executed, other operations on the engine were blocked. This made the engine execute operations serially while expected to be parallel.
+In this release, engine tasks are executed in parallel, unblocked by the export VM as OVA command.
+
+BZ#link:https://bugzilla.redhat.com/1897422[1897422]::
+Previously, virtual machines that were imported from OVA files were not set with small or large icons.
+In this release, small/large icons are set according to the operating system the Virtual Machine is configured with during import from OVA files. Consequently, virtual machines that are imported from OVA files are set with small and large icons.
+
+BZ#link:https://bugzilla.redhat.com/1899768[1899768]::
+Previously, live-merge failed on snapshots of virtual machines that are set with bios-type = CLUSTER-DEFAULT.
+In this release, live-merge works on snapshots of virtual machines that are set with bios-type = CLUSTER-DEFAULT.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+BZ#link:https://bugzilla.redhat.com/1710446[1710446]::
+With this enhancement, the Europe/Helsinki timezone can now be set in virtual machines.
+
+BZ#link:https://bugzilla.redhat.com/1729897[1729897]::
+Previously, the NUMA tune mode was set according to the Virtual Machine, using the same setting for every virtual NUMA node of the Virtual Machine.
+In this release, it is possible to set the NUMA tune mode for each virtual NUMA node.
+
+BZ#link:https://bugzilla.redhat.com/1881250[1881250]::
+Before this update, when restoring a self-hosted engine you needed to enter the same FQDN that you used in the backup. With this update, when you run `hosted-engine --deploy --restore-from-file=backup_file` deploy script fetches the FQDN from the backup file and you don't need to enter it.
+
+BZ#link:https://bugzilla.redhat.com/1893385[1893385]::
+In previous versions, when using 'hosted-engine --restore-from-file' to restore or upgrade, if the backup included extra required networks in the cluster, and if the user did not reply 'Yes' to the question about pausing the execution, deployment failed.
+In this release, regardless of the answer to 'pause?', if the host is found to be in state "Non Operational", deployment will pause, outputting relevant information to the user, and waiting until a lock file is removed. This should allow the user to then connect to the web admin UI and manually handle the situation, activate the host, and then remove the lock file and continue the deployment.
+This release also allows supplying a custom hook to fix such issues automatically.
+
+BZ#link:https://bugzilla.redhat.com/1897399[1897399]::
+The vdsm-hook related packages have been updated in the RHV-H x86_64 repository.
+
+==== Release Notes
+
+This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
+
+BZ#link:https://bugzilla.redhat.com/1901946[1901946]::
+Red Hat Virtualization Manager now requires Ansible 2.9.15.
+
+BZ#link:https://bugzilla.redhat.com/1901947[1901947]::
+In this release, Red Hat Virtualization Self-Hosted Engine Manager setup requires ansible-2.9.15.
+
+==== Known Issues
+
+These known issues exist in Red Hat Virtualization at this time:
+
+BZ#link:https://bugzilla.redhat.com/1846256[1846256]::
+Grafana now allows Single-Sign-On (SSO) using oVirt engine users, but does not allow automatic creation of them. A future version (see bugs 1835163 and 1807323) will allow automatic creation of admin users. For now, users must be created manually, but following that, they can login using SSO.
+
+==== Deprecated Functionality
+
+The items in this section are either no longer supported, or will no longer be supported in a future release.
+
+BZ#link:https://bugzilla.redhat.com/1898545[1898545]::
+Support for Red Hat OpenStack block storage (Cinder) is now deprecated, and will be removed in a future release.
+
+BZ#link:https://bugzilla.redhat.com/1899867[1899867]::
+Support for Red Hat OpenStack Networking (Neutron) as an external network provider is now deprecated, and will be removed in Red Hat Virtualization 4.4.5.
+
+BZ#link:https://bugzilla.redhat.com/1901073[1901073]::
+Support for third party websocket proxy deployment is now deprecated, and will be removed in a future release.
+
+BZ#link:https://bugzilla.redhat.com/1901211[1901211]::
+Support for instance types that can be used to define the hardware configuration of a virtual machine is now deprecated. This functionality will be removed in a future release.
+
+==== Removed Functionality
+
+BZ#link:https://bugzilla.redhat.com/1899865[1899865]::
+Experimental support for DPDK has been removed in Red Hat Virtualization 4.4.4.

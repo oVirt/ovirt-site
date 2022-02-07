@@ -1,0 +1,40 @@
+[[Listing_Data_Centers]]
+=== Listing Data Centers
+
+The `datacenters` collection contains all the data centers in the environment.
+
+.Listing data centers
+====
+This example lists the data centers in the `datacenters` collection and output some basic information about each data center in the collection.
+
+*V4*
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+dcs_service = connection.system_service().dcs_service()
+
+dcs = dcs_service.list()
+
+for dc in dcs:
+    print("%s (%s)" % (dc.name, dc.id))
+
+connection.close()
+----
+
+In an environment where only the `Default` data center exists, and it is not activated, the examples output the text:
+
+[options="nowrap" subs="normal"]
+----
+Default (00000000-0000-0000-0000-000000000000)
+----
+====

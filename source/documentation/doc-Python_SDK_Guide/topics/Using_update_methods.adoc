@@ -1,0 +1,61 @@
+[[Using_update_methods]]
+==== Using `update` Methods
+
+These service methods update existing objects. They receive an instance of the relevant type describing the update to perform, send the request to update it, and return an instance of the type describing the updated object.
+
+This example updates the name of a virtual machine from `vm1` to `newvm`:
+
+[source, Python]
+----
+from ovirtsdk4 import types
+
+# Find the virtual machine, and then the service that
+# manages it:
+vm = vms_service.list(search='name=vm1')[0]
+vm_service = vm_service.vm_service(vm.id)
+
+# Update the name:
+updated_vm = vm_service.update(
+    vm=types.Vm(
+        name='newvm'
+    )
+)
+----
+
+When performing updates, avoid sending the *complete* representation of the object. Send only the attributes that you want to update. Do not do this:
+
+[source, Python]
+----
+# Retrieve the complete representation:
+vm = vm_service.get()
+
+# Update the representation, in memory, without sending a request
+# to the server:
+vm.name = 'newvm'
+
+# Send the update. Do *not* do this.
+vms_service.update(vm)
+----
+
+Sending the complete representation causes two problems:
+
+* You are sending much more information than the server needs, thus wasting resources.
+* The server will try to update all the attributes of the object, even those that you did not intend to change. This may cause bugs on the server side.
+
+The `update` methods of some services support additional parameters that control how or what to update. For example, you may want to update either the current state of a virtual machine or the state that will be used the next time the virtual machine is started. The `update` method of the service that manages a virtual machine supports a `next_run` Boolean parameter:
+
+[source, Python]
+----
+# Update the memory of the virtual machine to 1 GiB,
+# not during the current run, but after next boot:
+vm = vm_service.update(
+    vm=types.Vm(
+        memory=1073741824
+    ),
+    next_run=True
+)
+----
+
+If the update cannot be performed for any reason, the SDK will raise an `ovirtsdk4.Error` exception containing the details of the failure. It will never return `None`.
+
+The Python object returned by this update method is an instance of the relevant type. It is not a service, but a container for data. In this particular example, the returned object will be an instance of the `ovirtsdk4.types.Vm` class.

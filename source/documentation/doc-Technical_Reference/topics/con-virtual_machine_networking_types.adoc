@@ -1,0 +1,137 @@
+// Module included in the following assemblies:
+//
+// doc-Technical_Reference/chap-Network.adoc
+
+
+[id="virtual_machine_networking_types"]
+= Virtual machine networking types
+
+In {virt-product-shortname}, virtual NICs of virtual machines can connect to the following types of networks:
+
+* Linux bridges
+* SR-IOV NICs
+* {virt-product-shortname}'s internal OVN
+
+The following diagram shows the structure of these three approaches, where:
+
+* *Host 1* represents Linux bridges
+* *Host 2* represents SR-IOV NICs
+* *Host 3* represents OVN
+
+
+image::103_RHV_Networking_Overview_0720.png[]
+
+.Comparison of network types
+|===
+| |Linux bridge |SR-IOV |{virt-product-shortname} internal OVN
+
+|Isolation from physical host networks
+|Layer 3, Separate IP network possible
+|Layer 2, Separate VLANs possible
+|Isolated
+
+|Live Migration
+|x
+|x
+|x
+
+|QoS
+|x
+|
+|
+
+|Port Mirroring
+|x
+|
+|
+
+| configuration of plugged vNIC
+|x
+|x
+|
+
+|MAC address management
+|x
+|x
+|x
+
+|MTU propagation
+|x
+|
+|x
+
+|VLAN filtering, might require configuration on the physical switch
+|x
+|x
+|Technology Preview
+
+|MAC Spoofing Protection
+|x
+|
+|x
+
+|IP Spoofing Protection
+|x
+|
+|x
+|Predefined Network Filters
+|x
+|
+|
+
+|Custom Layer 3/4 Filtering
+|
+|
+|x
+
+|NAT
+|
+|
+|
+
+|DHCP/Router Advertisements
+|
+|
+|x
+
+|Layer 3 Router
+|
+|
+|x
+
+|Performance
+|`**`
+|`+++***+++`
+|`*`
+
+|virtual machine network data encapsulation
+|flat, VLAN
+|flat, VLAN
+|Stable: GENEVE; Technology Preview: flat, VLAN
+|===
+
+.Networking choices for various scenarios
+
+Linux bridge is the default, and the most proven option. It fits most use cases.
+
+For scenarios that require very low network latency or a large number of Ethernet frames, consider investing in SR-IOV. Keep in mind, however, that SR-IOV requires hardware support and additional configuration steps.
+
+{virt-product-shortname}'s internal OVN networks enable virtual machines to communicate with each other without any manual network configuration.
+
+The {engine-name} provides only a subset of software-defined networking (SDN) features and user interfaces. To use all SDN features, similar to {virt-product-shortname}'s internal OVN or a third-party SDN, you need to use an additional client, such as CloudForms.
+
+You can combine all network types on a single host and connect them to the same virtual machine.
+
+= Interaction with guest operating system
+
+{virt-product-shortname} supports the initial configuration of a virtual machine by providing configuration data via cloud-init. If the qemu-guest-agent runs inside the virtual machine, {virt-product-shortname} can report the IP addresses of the virtual machine.
+
+If the virtual machine uses a VirtIO NIC, the MTU of the {virt-product-shortname} logical networks are provided to the guest operating system. The guest operating system can pick up the MTU from DHCPv4 or IPv6 router advertisements if the logical network supports these advertisements.
+
+= Host and virtual machine networking
+
+Linux bridge networking separates virtual machine and host networking on OSI layer 3. Therefore the networking configuration, including VLAN, bonding, and MTU, is shared between the host and its virtual machines.
+
+To reduce their surface, hosts should not assign IP addresses to VLANs that are connected to virtual machines. By not assigning IP addresses, the hosts can avoid potential confusion caused by virtual machine traffic.
+
+The IP address associated with the Linux bridge is not required to be within the same subnet as the virtual machines that use the bridge for connectivity. If the bridge is assigned an IP address on the same subnet as the virtual machines that use it, the host is addressable within the logical network by virtual machines. As a rule, it is not recommended to run network exposed services on a virtualization host.

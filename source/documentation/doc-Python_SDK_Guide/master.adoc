@@ -1,0 +1,10 @@
+:rhv-doc:
+include::common/collateral_files/attributes.adoc[]
+= Python SDK Guide
+:imagesdir: images
+
+include::chap-Overview.adoc[]
+
+include::chap-Using_the_Software_Development_Kit.adoc[]
+
+include::chap-Python_Examples.adoc[]

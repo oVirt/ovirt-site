@@ -1,0 +1,1246 @@
+:numbered!:
+
+[appendix]
+[[appe-Event_Codes]]
+== Event Codes
+
+This table lists all event codes.
+
+// This table is auto-generated using the EventCodes.py script. See the script for instructions.
+
+.Event codes
+[options="header"]
+|===
+|Code|Name|Severity|Message
+|`0`|`UNASSIGNED`|`Info`|
+|`1`|`VDC_START`|`Info`|`Starting oVirt Engine.`
+|`2`|`VDC_STOP`|`Info`|`Stopping oVirt Engine.`
+|`12`|`VDS_FAILURE`|`Error`|`Host ${VdsName} is non responsive.`
+|`13`|`VDS_DETECTED`|`Info`|`Status of host ${VdsName} was set to ${HostStatus}.`
+|`14`|`VDS_RECOVER`|`Info`|`Host ${VdsName} is rebooting.`
+|`15`|`VDS_MAINTENANCE`|`Normal`|`Host ${VdsName} was switched to Maintenance Mode.`
+|`16`|`VDS_ACTIVATE`|`Info`|`Activation of host ${VdsName} initiated by ${UserName}.`
+|`17`|`VDS_MAINTENANCE_FAILED`|`Error`|`Failed to switch Host ${VdsName} to Maintenance mode.`
+|`18`|`VDS_ACTIVATE_FAILED`|`Error`|`Failed to activate Host ${VdsName}.(User: ${UserName}).`
+|`19`|`VDS_RECOVER_FAILED`|`Error`|`Host ${VdsName} failed to recover.`
+|`20`|`USER_VDS_START`|`Info`|`Host ${VdsName} was started by ${UserName}.`
+|`21`|`USER_VDS_STOP`|`Info`|`Host ${VdsName} was stopped by ${UserName}.`
+|`22`|`IRS_FAILURE`|`Error`|`Failed to access Storage on Host ${VdsName}.`
+|`23`|`VDS_LOW_DISK_SPACE`|`Warning`|`Warning, Low disk space. Host ${VdsName} has less than ${DiskSpace} MB of free space left on: ${Disks}.`
+|`24`|`VDS_LOW_DISK_SPACE_ERROR`|`Error`|`Critical, Low disk space. Host ${VdsName} has less than ${DiskSpace} MB of free space left on: ${Disks}. Low disk space might cause an issue upgrading this host.`
+|`25`|`VDS_NO_SELINUX_ENFORCEMENT`|`Warning`|`Host ${VdsName} does not enforce SELinux. Current status: ${Mode}`
+|`26`|`IRS_DISK_SPACE_LOW`|`Warning`|`Warning, Low disk space. ${StorageDomainName} domain has ${DiskSpace} GB of free space.`
+|`27`|`VDS_STATUS_CHANGE_FAILED_DUE_TO_STOP_SPM_FAILURE`|`Warning`|`Failed to change status of host ${VdsName} due to a failure to stop the spm.`
+|`28`|`VDS_PROVISION`|`Warning`|`Installing OS on Host ${VdsName} using Hostgroup ${HostGroupName}.`
+|`29`|`USER_ADD_VM_TEMPLATE_SUCCESS`|`Info`|`Template ${VmTemplateName} was created successfully.`
+|`31`|`USER_VDC_LOGOUT`|`Info`|`User ${UserName} connected from '${SourceIP}' using session '${SessionID}' logged out.`
+|`32`|`USER_RUN_VM`|`Info`|`VM ${VmName} started on Host ${VdsName}`
+|`33`|`USER_STOP_VM`|`Info`|`VM ${VmName} powered off by ${UserName} (Host: ${VdsName})${OptionalReason}.`
+|`34`|`USER_ADD_VM`|`Info`|`VM ${VmName} was created by ${UserName}.`
+|`35`|`USER_UPDATE_VM`|`Info`|`VM ${VmName} configuration was updated by ${UserName}.`
+|`36`|`USER_ADD_VM_TEMPLATE_FAILURE`|`Error`|`Failed creating Template ${VmTemplateName}.`
+|`37`|`USER_ADD_VM_STARTED`|`Info`|`VM ${VmName} creation was initiated by ${UserName}.`
+|`38`|`USER_CHANGE_DISK_VM`|`Info`|`CD ${DiskName} was inserted to VM ${VmName} by ${UserName}.`
+|`39`|`USER_PAUSE_VM`|`Info`|`VM ${VmName} was suspended by ${UserName} (Host: ${VdsName}).`
+|`40`|`USER_RESUME_VM`|`Info`|`VM ${VmName} was resumed by ${UserName} (Host: ${VdsName}).`
+|`41`|`USER_VDS_RESTART`|`Info`|`Host ${VdsName} was restarted by ${UserName}.`
+|`42`|`USER_ADD_VDS`|`Info`|`Host ${VdsName} was added by ${UserName}.`
+|`43`|`USER_UPDATE_VDS`|`Info`|`Host ${VdsName} configuration was updated by ${UserName}.`
+|`44`|`USER_REMOVE_VDS`|`Info`|`Host ${VdsName} was removed by ${UserName}.`
+|`45`|`USER_CREATE_SNAPSHOT`|`Info`|`Snapshot '${SnapshotName}' creation for VM '${VmName}' was initiated by ${UserName}.`
+|`46`|`USER_TRY_BACK_TO_SNAPSHOT`|`Info`|`Snapshot-Preview ${SnapshotName} for VM ${VmName} was initiated by ${UserName}.`
+|`47`|`USER_RESTORE_FROM_SNAPSHOT`|`Info`|`VM ${VmName} restored from Snapshot by ${UserName}.`
+|`48`|`USER_ADD_VM_TEMPLATE`|`Info`|`Creation of Template ${VmTemplateName} from VM ${VmName} was initiated by ${UserName}.`
+|`49`|`USER_UPDATE_VM_TEMPLATE`|`Info`|`Template ${VmTemplateName} configuration was updated by ${UserName}.`
+|`50`|`USER_REMOVE_VM_TEMPLATE`|`Info`|`Removal of Template ${VmTemplateName} was initiated by ${UserName}.`
+|`51`|`USER_ADD_VM_TEMPLATE_FINISHED_SUCCESS`|`Info`|`Creation of Template ${VmTemplateName} from VM ${VmName} has been completed.`
+|`52`|`USER_ADD_VM_TEMPLATE_FINISHED_FAILURE`|`Error`|`Failed to complete creation of Template ${VmTemplateName} from VM ${VmName}.`
+|`53`|`USER_ADD_VM_FINISHED_SUCCESS`|`Info`|`VM ${VmName} creation has been completed.`
+|`54`|`USER_FAILED_RUN_VM`|`Error`|`Failed to run VM ${VmName}${DueToError} (User: ${UserName}).`
+|`55`|`USER_FAILED_PAUSE_VM`|`Error`|`Failed to suspend VM ${VmName} (Host: ${VdsName}, User: ${UserName}).`
+|`56`|`USER_FAILED_STOP_VM`|`Error`|`Failed to power off VM ${VmName} (Host: ${VdsName}, User: ${UserName}).`
+|`57`|`USER_FAILED_ADD_VM`|`Error`|`Failed to create VM ${VmName} (User: ${UserName}).`
+|`58`|`USER_FAILED_UPDATE_VM`|`Error`|`Failed to update VM ${VmName} (User: ${UserName}).`
+|`59`|`USER_FAILED_REMOVE_VM`|`Error`|
+|`60`|`USER_ADD_VM_FINISHED_FAILURE`|`Error`|`Failed to complete VM ${VmName} creation.`
+|`61`|`VM_DOWN`|`Info`|`VM ${VmName} is down. ${ExitMessage}`
+|`62`|`VM_MIGRATION_START`|`Info`|`Migration started (VM: ${VmName}, Source: ${VdsName}, Destination: ${DestinationVdsName}, User: ${UserName}). ${OptionalReason}`
+|`63`|`VM_MIGRATION_DONE`|`Info`|`Migration completed (VM: ${VmName}, Source: ${VdsName}, Destination: ${DestinationVdsName}, Duration: ${Duration}, Total: ${TotalDuration}, Actual downtime: ${ActualDowntime})`
+|`64`|`VM_MIGRATION_ABORT`|`Error`|`Migration failed: ${MigrationError} (VM: ${VmName}, Source: ${VdsName}).`
+|`65`|`VM_MIGRATION_FAILED`|`Error`|`Migration failed${DueToMigrationError} (VM: ${VmName}, Source: ${VdsName}).`
+|`66`|`VM_FAILURE`|`Error`|`VM ${VmName} cannot be found on Host ${VdsName}.`
+|`67`|`VM_MIGRATION_START_SYSTEM_INITIATED`|`Info`|`Migration initiated by system (VM: ${VmName}, Source: ${VdsName}, Destination: ${DestinationVdsName}, Reason: ${OptionalReason}).`
+|`68`|`USER_CREATE_SNAPSHOT_FINISHED_SUCCESS`|`Info`|`Snapshot '${SnapshotName}' creation for VM '${VmName}' has been completed.`
+|`69`|`USER_CREATE_SNAPSHOT_FINISHED_FAILURE`|`Error`|`Failed to complete snapshot '${SnapshotName}' creation for VM '${VmName}'.`
+|`70`|`USER_RUN_VM_AS_STATELESS_FINISHED_FAILURE`|`Error`|`Failed to complete starting of VM ${VmName}.`
+|`71`|`USER_TRY_BACK_TO_SNAPSHOT_FINISH_SUCCESS`|`Info`|`Snapshot-Preview ${SnapshotName} for VM ${VmName} has been completed.`
+|`72`|`MERGE_SNAPSHOTS_ON_HOST`|`Info`|`Merging snapshots (${SourceSnapshot} into ${DestinationSnapshot}) of disk ${Disk} on host ${VDS}`
+|`73`|`USER_INITIATED_SHUTDOWN_VM`|`Info`|`VM shutdown initiated by ${UserName} on VM ${VmName} (Host: ${VdsName})${OptionalReason}.`
+|`74`|`USER_FAILED_SHUTDOWN_VM`|`Error`|`Failed to initiate shutdown on VM ${VmName} (Host: ${VdsName}, User: ${UserName}).`
+|`75`|`VDS_SOFT_RECOVER`|`Info`|`Soft fencing on host ${VdsName} was successful.`
+|`76`|`USER_STOPPED_VM_INSTEAD_OF_SHUTDOWN`|`Info`|`VM ${VmName} was powered off ungracefully by ${UserName} (Host: ${VdsName})${OptionalReason}.`
+|`77`|`USER_FAILED_STOPPING_VM_INSTEAD_OF_SHUTDOWN`|`Error`|`Failed to power off VM ${VmName} (Host: ${VdsName}, User: ${UserName}).`
+|`78`|`USER_ADD_DISK_TO_VM`|`Info`|`Add-Disk operation of ${DiskAlias} was initiated on VM ${VmName} by ${UserName}.`
+|`79`|`USER_FAILED_ADD_DISK_TO_VM`|`Error`|`Add-Disk operation failed on VM ${VmName} (User: ${UserName}).`
+|`80`|`USER_REMOVE_DISK_FROM_VM`|`Info`|`Disk was removed from VM ${VmName} by ${UserName}.`
+|`81`|`USER_FAILED_REMOVE_DISK_FROM_VM`|`Error`|`Failed to remove Disk from VM ${VmName} (User: ${UserName}).`
+|`88`|`USER_UPDATE_VM_DISK`|`Info`|`VM ${VmName} ${DiskAlias} disk was updated by ${UserName}.`
+|`89`|`USER_FAILED_UPDATE_VM_DISK`|`Error`|`Failed to update VM ${VmName} disk ${DiskAlias} (User: ${UserName}).`
+|`90`|`VDS_FAILED_TO_GET_HOST_HARDWARE_INFO`|`Warning`|`Could not get hardware information for host ${VdsName}`
+|`94`|`USER_COMMIT_RESTORE_FROM_SNAPSHOT_START`|`Info`|`Committing a Snapshot-Preview for VM ${VmName} was initialized by ${UserName}.`
+|`95`|`USER_COMMIT_RESTORE_FROM_SNAPSHOT_FINISH_SUCCESS`|`Info`|`Committing a Snapshot-Preview for VM ${VmName} has been completed.`
+|`96`|`USER_COMMIT_RESTORE_FROM_SNAPSHOT_FINISH_FAILURE`|`Error`|`Failed to commit Snapshot-Preview for VM ${VmName}.`
+|`97`|`USER_ADD_DISK_TO_VM_FINISHED_SUCCESS`|`Info`|`The disk ${DiskAlias} was successfully added to VM ${VmName}.`
+|`98`|`USER_ADD_DISK_TO_VM_FINISHED_FAILURE`|`Error`|`Add-Disk operation failed to complete on VM ${VmName}.`
+|`99`|`USER_TRY_BACK_TO_SNAPSHOT_FINISH_FAILURE`|`Error`|`Failed to complete Snapshot-Preview ${SnapshotName} for VM ${VmName}.`
+|`100`|`USER_RESTORE_FROM_SNAPSHOT_FINISH_SUCCESS`|`Info`|`VM ${VmName} restoring from Snapshot has been completed.`
+|`101`|`USER_RESTORE_FROM_SNAPSHOT_FINISH_FAILURE`|`Error`|`Failed to complete restoring from Snapshot of VM ${VmName}.`
+|`102`|`USER_FAILED_CHANGE_DISK_VM`|`Error`|`Failed to change disk in VM ${VmName} (Host: ${VdsName}, User: ${UserName}).`
+|`103`|`USER_FAILED_RESUME_VM`|`Error`|`Failed to resume VM ${VmName} (Host: ${VdsName}, User: ${UserName}).`
+|`104`|`USER_FAILED_ADD_VDS`|`Error`|`Failed to add Host ${VdsName} (User: ${UserName}).`
+|`105`|`USER_FAILED_UPDATE_VDS`|`Error`|`Failed to update Host ${VdsName} (User: ${UserName}).`
+|`106`|`USER_FAILED_REMOVE_VDS`|`Error`|`Failed to remove Host ${VdsName} (User: ${UserName}).`
+|`107`|`USER_FAILED_VDS_RESTART`|`Error`|`Failed to restart Host ${VdsName}, (User: ${UserName}).`
+|`108`|`USER_FAILED_ADD_VM_TEMPLATE`|`Error`|`Failed to initiate creation of Template ${VmTemplateName} from VM ${VmName} (User: ${UserName}).`
+|`109`|`USER_FAILED_UPDATE_VM_TEMPLATE`|`Error`|`Failed to update Template ${VmTemplateName} (User: ${UserName}).`
+|`110`|`USER_FAILED_REMOVE_VM_TEMPLATE`|`Error`|`Failed to initiate removal of Template ${VmTemplateName} (User: ${UserName}).`
+|`111`|`USER_STOP_SUSPENDED_VM`|`Info`|`Suspended VM ${VmName} has had its save state cleared by ${UserName}${OptionalReason}.`
+|`112`|`USER_STOP_SUSPENDED_VM_FAILED`|`Error`|`Failed to power off suspended VM ${VmName} (User: ${UserName}).`
+|`113`|`USER_REMOVE_VM_FINISHED`|`Info`|`VM ${VmName} was successfully removed.`
+|`115`|`USER_FAILED_TRY_BACK_TO_SNAPSHOT`|`Error`|`Failed to preview Snapshot ${SnapshotName} for VM ${VmName} (User: ${UserName}).`
+|`116`|`USER_FAILED_RESTORE_FROM_SNAPSHOT`|`Error`|`Failed to restore VM ${VmName} from Snapshot (User: ${UserName}).`
+|`117`|`USER_FAILED_CREATE_SNAPSHOT`|`Error`|`Failed to create Snapshot ${SnapshotName} for VM ${VmName} (User: ${UserName}).`
+|`118`|`USER_FAILED_VDS_START`|`Error`|`Failed to start Host ${VdsName}, (User: ${UserName}).`
+|`119`|`VM_DOWN_ERROR`|`Error`|`VM ${VmName} is down with error. ${ExitMessage}.`
+|`120`|`VM_MIGRATION_TO_SERVER_FAILED`|`Error`|`Migration failed${DueToMigrationError} (VM: ${VmName}, Source: ${VdsName}, Destination: ${DestinationVdsName}).`
+|`121`|`SYSTEM_VDS_RESTART`|`Info`|`Host ${VdsName} was restarted by the engine.`
+|`122`|`SYSTEM_FAILED_VDS_RESTART`|`Error`|`A restart initiated by the engine to Host ${VdsName} has failed.`
+|`123`|`VDS_SLOW_STORAGE_RESPONSE_TIME`|`Warning`|`Slow storage response time on Host ${VdsName}.`
+|`124`|`VM_IMPORT`|`Info`|`Started VM import of ${ImportedVmName} (User: ${UserName})`
+|`125`|`VM_IMPORT_FAILED`|`Error`|`Failed to import VM ${ImportedVmName} (User: ${UserName})`
+|`126`|`VM_NOT_RESPONDING`|`Warning`|`VM ${VmName} is not responding.`
+|`127`|`VDS_RUN_IN_NO_KVM_MODE`|`Error`|`Host ${VdsName} running without virtualization hardware acceleration`
+|`128`|`VM_MIGRATION_TRYING_RERUN`|`Warning`|`Failed to migrate VM ${VmName} to Host ${DestinationVdsName}${DueToMigrationError}. Trying to migrate to another Host.`
+|`129`|`VM_CLEARED`|`Info`|`Unused`
+|`130`|`USER_SUSPEND_VM_FINISH_FAILURE_WILL_TRY_AGAIN`|`Error`|`Failed to complete suspending of VM ${VmName}, will try again.`
+|`131`|`USER_EXPORT_VM`|`Info`|`VM ${VmName} exported to ${ExportPath} by ${UserName}`
+|`132`|`USER_EXPORT_VM_FAILED`|`Error`|`Failed to export VM ${VmName} to ${ExportPath} (User: ${UserName})`
+|`133`|`USER_EXPORT_TEMPLATE`|`Info`|`Template ${VmTemplateName} exported to ${ExportPath} by ${UserName}`
+|`134`|`USER_EXPORT_TEMPLATE_FAILED`|`Error`|`Failed to export Template ${VmTemplateName} to ${ExportPath} (User: ${UserName})`
+|`135`|`TEMPLATE_IMPORT`|`Info`|`Started Template import of ${ImportedVmTemplateName} (User: ${UserName})`
+|`136`|`TEMPLATE_IMPORT_FAILED`|`Error`|`Failed to import Template ${ImportedVmTemplateName} (User: ${UserName})`
+|`137`|`USER_FAILED_VDS_STOP`|`Error`|`Failed to stop Host ${VdsName}, (User: ${UserName}).`
+|`138`|`VM_PAUSED_ENOSPC`|`Error`|`VM ${VmName} has been paused due to no Storage space error.`
+|`139`|`VM_PAUSED_ERROR`|`Error`|`VM ${VmName} has been paused due to unknown storage error.`
+|`140`|`VM_MIGRATION_FAILED_DURING_MOVE_TO_MAINTENANCE`|`Error`|`Migration failed${DueToMigrationError} while Host is in 'preparing for maintenance' state.\n  Consider manual intervention\: stopping/migrating Vms as Host's state will not\n  turn to maintenance while VMs are still running on it.(VM: ${VmName}, Source: ${VdsName}, Destination: ${DestinationVdsName}).`
+|`141`|`VDS_VERSION_NOT_SUPPORTED_FOR_CLUSTER`|`Error`|`Host ${VdsName} is installed with VDSM version (${VdsSupportedVersions}) and cannot join cluster ${ClusterName} which is compatible with VDSM versions ${CompatibilityVersion}.`
+|`142`|`VM_SET_TO_UNKNOWN_STATUS`|`Warning`|`VM ${VmName} was set to the Unknown status.`
+|`143`|`VM_WAS_SET_DOWN_DUE_TO_HOST_REBOOT_OR_MANUAL_FENCE`|`Info`|`Vm ${VmName} was shut down due to ${VdsName} host reboot or manual fence`
+|`144`|`VM_IMPORT_INFO`|`Info`|`Value of field ${FieldName} of imported VM ${VmName} is  ${FieldValue}. The field is reset to the default value`
+|`145`|`VM_PAUSED_EIO`|`Error`|`VM ${VmName} has been paused due to storage I/O problem.`
+|`146`|`VM_PAUSED_EPERM`|`Error`|`VM ${VmName} has been paused due to storage permissions problem.`
+|`147`|`VM_POWER_DOWN_FAILED`|`Warning`|`Shutdown of VM ${VmName} failed.`
+|`148`|`VM_MEMORY_UNDER_GUARANTEED_VALUE`|`Error`|`VM ${VmName} on host ${VdsName} was guaranteed ${MemGuaranteed} MB but currently has ${MemActual} MB`
+|`149`|`USER_ADD`|`Info`|`User '${NewUserName}' was added successfully to the system.`
+|`150`|`USER_INITIATED_RUN_VM`|`Info`|`Starting VM ${VmName} was initiated by ${UserName}.`
+|`151`|`USER_INITIATED_RUN_VM_FAILED`|`Warning`|`Failed to run VM ${VmName} on Host ${VdsName}.`
+|`152`|`USER_RUN_VM_ON_NON_DEFAULT_VDS`|`Warning`|`Guest ${VmName} started on Host ${VdsName}. (Default Host parameter was ignored - assigned Host was not available).`
+|`153`|`USER_STARTED_VM`|`Info`|`VM ${VmName} was started by ${UserName} (Host: ${VdsName}).`
+|`154`|`VDS_CLUSTER_VERSION_NOT_SUPPORTED`|`Error`|`Host ${VdsName} is compatible with versions (${VdsSupportedVersions}) and cannot join Cluster ${ClusterName} which is set to version ${CompatibilityVersion}.`
+|`155`|`VDS_ARCHITECTURE_NOT_SUPPORTED_FOR_CLUSTER`|`Error`|`Host ${VdsName} has architecture ${VdsArchitecture} and cannot join Cluster ${ClusterName} which has architecture ${ClusterArchitecture}.`
+|`156`|`CPU_TYPE_UNSUPPORTED_IN_THIS_CLUSTER_VERSION`|`Error`|`Host ${VdsName} moved to Non-Operational state as host CPU type is not supported in this cluster compatibility version or is not supported at all`
+|`157`|`USER_REBOOT_VM`|`Info`|`User ${UserName} initiated reboot of VM ${VmName}.`
+|`158`|`USER_FAILED_REBOOT_VM`|`Error`|`Failed to reboot VM ${VmName} (User: ${UserName}).`
+|`159`|`USER_FORCE_SELECTED_SPM`|`Info`|`Host ${VdsName} was force selected by ${UserName}`
+|`160`|`USER_ACCOUNT_DISABLED_OR_LOCKED`|`Error`|`User ${UserName} cannot login, as it got disabled or locked. Please contact the system administrator.`
+|`161`|`VM_CANCEL_MIGRATION`|`Info`|`Migration cancelled (VM: ${VmName}, Source: ${VdsName}, User: ${UserName}).`
+|`162`|`VM_CANCEL_MIGRATION_FAILED`|`Error`|`Failed to cancel migration for VM: ${VmName}`
+|`163`|`VM_STATUS_RESTORED`|`Info`|`VM ${VmName} status was restored to ${VmStatus}.`
+|`164`|`VM_SET_TICKET`|`Info`|`User ${UserName} initiated console session for VM ${VmName}`
+|`165`|`VM_SET_TICKET_FAILED`|`Error`|`User ${UserName} failed to initiate a console session for VM ${VmName}`
+|`166`|`VM_MIGRATION_NO_VDS_TO_MIGRATE_TO`|`Warning`|`No available host was found to migrate VM ${VmName} to.`
+|`167`|`VM_CONSOLE_CONNECTED`|`Info`|`User ${UserName} is connected to VM ${VmName}.`
+|`168`|`VM_CONSOLE_DISCONNECTED`|`Info`|`User ${UserName} got disconnected from VM ${VmName}.`
+|`169`|`VM_FAILED_TO_PRESTART_IN_POOL`|`Warning`|`Cannot pre-start VM in pool '${VmPoolName}'. The system will continue trying.`
+|`170`|`USER_CREATE_LIVE_SNAPSHOT_FINISHED_FAILURE`|`Warning`|`Failed to create live snapshot '${SnapshotName}' for VM '${VmName}'. VM restart is recommended. Note that using the created snapshot might cause data inconsistency.`
+|`171`|`USER_RUN_VM_AS_STATELESS_WITH_DISKS_NOT_ALLOWING_SNAPSHOT`|`Warning`|`VM ${VmName} was run as stateless with one or more of disks that do not allow snapshots (User:${UserName}).`
+|`172`|`USER_REMOVE_VM_FINISHED_WITH_ILLEGAL_DISKS`|`Warning`|`VM ${VmName} has been removed, but the following disks could not be removed: ${DisksNames}. These disks will appear in the main disks tab in illegal state, please remove manually when possible.`
+|`173`|`USER_CREATE_LIVE_SNAPSHOT_NO_MEMORY_FAILURE`|`Error`|`Failed to save memory as part of Snapshot ${SnapshotName} for VM ${VmName} (User: ${UserName}).`
+|`174`|`VM_IMPORT_FROM_CONFIGURATION_EXECUTED_SUCCESSFULLY`|`Info`|`VM ${VmName} has been successfully imported from the given configuration.`
+|`175`|`VM_IMPORT_FROM_CONFIGURATION_ATTACH_DISKS_FAILED`|`Warning`|`VM ${VmName} has been imported from the given configuration but the following disk(s) failed to attach: ${DiskAliases}.`
+|`176`|`VM_BALLOON_DRIVER_ERROR`|`Error`|`The Balloon driver on VM ${VmName} on host ${VdsName} is requested but unavailable.`
+|`177`|`VM_BALLOON_DRIVER_UNCONTROLLED`|`Error`|`The Balloon device on VM ${VmName} on host ${VdsName} is inflated but the device cannot be controlled (guest agent is down).`
+|`178`|`VM_MEMORY_NOT_IN_RECOMMENDED_RANGE`|`Warning`|`VM ${VmName} was configured with ${VmMemInMb}MiB of memory while the recommended value range is ${VmMinMemInMb}MiB - ${VmMaxMemInMb}MiB`
+|`179`|`USER_INITIATED_RUN_VM_AND_PAUSE`|`Info`|`Starting in paused mode VM ${VmName} was initiated by ${UserName}.`
+|`180`|`TEMPLATE_IMPORT_FROM_CONFIGURATION_SUCCESS`|`Info`|`Template ${VmTemplateName} has been successfully imported from the given configuration.`
+|`181`|`TEMPLATE_IMPORT_FROM_CONFIGURATION_FAILED`|`Error`|`Failed to import Template ${VmTemplateName} from the given configuration.`
+|`182`|`USER_FAILED_ATTACH_USER_TO_VM`|`Error`|`Failed to attach User ${AdUserName} to VM ${VmName} (User: ${UserName}).`
+|`183`|`USER_ATTACH_TAG_TO_TEMPLATE`|`Info`|`Tag ${TagName} was attached to Templates(s) ${TemplatesNames} by ${UserName}.`
+|`184`|`USER_ATTACH_TAG_TO_TEMPLATE_FAILED`|`Error`|`Failed to attach Tag ${TagName} to Templates(s) ${TemplatesNames} (User: ${UserName}).`
+|`185`|`USER_DETACH_TEMPLATE_FROM_TAG`|`Info`|`Tag ${TagName} was detached from Template(s) ${TemplatesNames} by ${UserName}.`
+|`186`|`USER_DETACH_TEMPLATE_FROM_TAG_FAILED`|`Error`|`Failed to detach Tag ${TagName} from TEMPLATE(s) ${TemplatesNames} (User: ${UserName}).`
+|`187`|`VDS_STORAGE_CONNECTION_FAILED_BUT_LAST_VDS`|`Error`|`Failed to connect Host ${VdsName} to Data Center, due to connectivity errors with the Storage. Host ${VdsName} will remain in Up state (but inactive), as it is the last Host in the Data Center, to enable manual intervention by the Administrator.`
+|`188`|`VDS_STORAGES_CONNECTION_FAILED`|`Error`|`Failed to connect Host ${VdsName} to the Storage Domains ${failedStorageDomains}.`
+|`189`|`VDS_STORAGE_VDS_STATS_FAILED`|`Error`|`Host ${VdsName} reports about one of the Active Storage Domains as Problematic.`
+|`190`|`UPDATE_OVF_FOR_STORAGE_DOMAIN_FAILED`|`Warning`|`Failed to update VMs/Templates OVF data for Storage Domain ${StorageDomainName} in Data Center ${StoragePoolName}.`
+|`191`|`CREATE_OVF_STORE_FOR_STORAGE_DOMAIN_FAILED`|`Warning`|`Failed to create OVF store disk for Storage Domain ${StorageDomainName}.\n The Disk with the id ${DiskId} might be removed manually for automatic attempt to create new one. \n OVF updates won't be attempted on the created disk.`
+|`192`|`CREATE_OVF_STORE_FOR_STORAGE_DOMAIN_INITIATE_FAILED`|`Warning`|`Failed to create OVF store disk for Storage Domain ${StorageDomainName}. \n OVF data won't be updated meanwhile for that domain.`
+|`193`|`DELETE_OVF_STORE_FOR_STORAGE_DOMAIN_FAILED`|`Warning`|`Failed to delete the OVF store disk for Storage Domain ${StorageDomainName}.\n In order to detach the domain please remove it manually or try to detach the domain again for another attempt.`
+|`194`|`VM_CANCEL_CONVERSION`|`Info`|`Conversion cancelled (VM: ${VmName}, Source: ${VdsName}, User: ${UserName}).`
+|`195`|`VM_CANCEL_CONVERSION_FAILED`|`Error`|`Failed to cancel conversion for VM: ${VmName}`
+|`196`|`VM_RECOVERED_FROM_PAUSE_ERROR`|`Normal`|`VM ${VmName} has recovered from paused back to up.`
+|`197`|`SYSTEM_SSH_HOST_RESTART`|`Info`|`Host ${VdsName} was restarted using SSH by the engine.`
+|`198`|`SYSTEM_FAILED_SSH_HOST_RESTART`|`Error`|`A restart using SSH initiated by the engine to Host ${VdsName} has failed.`
+|`199`|`USER_UPDATE_OVF_STORE`|`Info`|`OVF_STORE for domain ${StorageDomainName} was updated by ${UserName}.`
+|`200`|`IMPORTEXPORT_GET_VMS_INFO_FAILED`|`Error`|`Failed to retrieve VM/Templates information from export domain ${StorageDomainName}`
+|`201`|`IRS_DISK_SPACE_LOW_ERROR`|`Error`|`Critical, Low disk space. ${StorageDomainName} domain has ${DiskSpace} GB of free space.`
+|`202`|`IMPORTEXPORT_GET_EXTERNAL_VMS_INFO_FAILED`|`Error`|`Failed to retrieve VMs information from external server ${URL}`
+|`204`|`IRS_HOSTED_ON_VDS`|`Info`|`Storage Pool Manager runs on Host ${VdsName} (Address: ${ServerIp}), Data Center ${StoragePoolName}.`
+|`205`|`PROVIDER_ADDED`|`Info`|`Provider ${ProviderName} was added. (User: ${UserName})`
+|`206`|`PROVIDER_ADDITION_FAILED`|`Error`|`Failed to add provider ${ProviderName}. (User: ${UserName})`
+|`207`|`PROVIDER_UPDATED`|`Info`|`Provider ${ProviderName} was updated. (User: ${UserName})`
+|`208`|`PROVIDER_UPDATE_FAILED`|`Error`|`Failed to update provider ${ProviderName}. (User: ${UserName})`
+|`209`|`PROVIDER_REMOVED`|`Info`|`Provider ${ProviderName} was removed. (User: ${UserName})`
+|`210`|`PROVIDER_REMOVAL_FAILED`|`Error`|`Failed to remove provider ${ProviderName}. (User: ${UserName})`
+|`213`|`PROVIDER_CERTIFICATE_IMPORTED`|`Info`|`Certificate for provider ${ProviderName} was imported. (User: ${UserName})`
+|`214`|`PROVIDER_CERTIFICATE_IMPORT_FAILED`|`Error`|`Failed importing Certificate for provider ${ProviderName}. (User: ${UserName})`
+|`215`|`PROVIDER_SYNCHRONIZED`|`Info`|
+|`216`|`PROVIDER_SYNCHRONIZED_FAILED`|`Error`|`Failed to synchronize networks of Provider ${ProviderName}.`
+|`217`|`PROVIDER_SYNCHRONIZED_PERFORMED`|`Info`|`Networks of Provider ${ProviderName} were successfully synchronized.`
+|`218`|`PROVIDER_SYNCHRONIZED_PERFORMED_FAILED`|`Error`|`Networks of Provider ${ProviderName} were incompletely synchronized.`
+|`219`|`PROVIDER_SYNCHRONIZED_DISABLED`|`Error`|`Failed to synchronize networks of Provider ${ProviderName}, because the authentication information of the provider is invalid. Automatic synchronization is deactivated for this Provider.`
+|`250`|`USER_UPDATE_VM_CLUSTER_DEFAULT_HOST_CLEARED`|`Info`|`${VmName} cluster was updated by ${UserName}, Default host was reset to auto assign.`
+|`251`|`USER_REMOVE_VM_TEMPLATE_FINISHED`|`Info`|`Removal of Template ${VmTemplateName} has been completed.`
+|`252`|`SYSTEM_FAILED_UPDATE_VM`|`Error`|`Failed to Update VM ${VmName} that was initiated by system.`
+|`253`|`SYSTEM_UPDATE_VM`|`Info`|`VM ${VmName} configuration was updated by system.`
+|`254`|`VM_ALREADY_IN_REQUESTED_STATUS`|`Info`|`VM ${VmName} is already ${VmStatus}, ${Action} was skipped. User: ${UserName}.`
+|`302`|`USER_ADD_VM_POOL_WITH_VMS`|`Info`|`VM Pool ${VmPoolName} (containing ${VmsCount} VMs) was created by ${UserName}.`
+|`303`|`USER_ADD_VM_POOL_WITH_VMS_FAILED`|`Error`|`Failed to create VM Pool ${VmPoolName} (User: ${UserName}).`
+|`304`|`USER_REMOVE_VM_POOL`|`Info`|`VM Pool ${VmPoolName} was removed by ${UserName}.`
+|`305`|`USER_REMOVE_VM_POOL_FAILED`|`Error`|`Failed to remove VM Pool ${VmPoolName} (User: ${UserName}).`
+|`306`|`USER_ADD_VM_TO_POOL`|`Info`|`VM ${VmName} was added to VM Pool ${VmPoolName} by ${UserName}.`
+|`307`|`USER_ADD_VM_TO_POOL_FAILED`|`Error`|`Failed to add VM ${VmName} to VM Pool ${VmPoolName}(User: ${UserName}).`
+|`308`|`USER_REMOVE_VM_FROM_POOL`|`Info`|`VM ${VmName} was removed from VM Pool ${VmPoolName} by ${UserName}.`
+|`309`|`USER_REMOVE_VM_FROM_POOL_FAILED`|`Error`|`Failed to remove VM ${VmName} from VM Pool ${VmPoolName} (User: ${UserName}).`
+|`310`|`USER_ATTACH_USER_TO_POOL`|`Info`|`User ${AdUserName} was attached to VM Pool ${VmPoolName} by ${UserName}.`
+|`311`|`USER_ATTACH_USER_TO_POOL_FAILED`|`Error`|`Failed to attach User ${AdUserName} to VM Pool ${VmPoolName} (User: ${UserName}).`
+|`312`|`USER_DETACH_USER_FROM_POOL`|`Info`|`User ${AdUserName} was detached from VM Pool ${VmPoolName} by ${UserName}.`
+|`313`|`USER_DETACH_USER_FROM_POOL_FAILED`|`Error`|`Failed to detach User ${AdUserName} from VM Pool ${VmPoolName} (User: ${UserName}).`
+|`314`|`USER_UPDATE_VM_POOL`|`Info`|`VM Pool ${VmPoolName} configuration was updated by ${UserName}.`
+|`315`|`USER_UPDATE_VM_POOL_FAILED`|`Error`|`Failed to update VM Pool ${VmPoolName} configuration (User: ${UserName}).`
+|`316`|`USER_ATTACH_USER_TO_VM_FROM_POOL`|`Info`|`Attaching User ${AdUserName} to VM ${VmName} in VM Pool ${VmPoolName} was initiated by ${UserName}.`
+|`317`|`USER_ATTACH_USER_TO_VM_FROM_POOL_FAILED`|`Error`|`Failed to attach User ${AdUserName} to VM from VM Pool ${VmPoolName} (User: ${UserName}).`
+|`318`|`USER_ATTACH_USER_TO_VM_FROM_POOL_FINISHED_SUCCESS`|`Info`|`User ${AdUserName} successfully attached to VM ${VmName} in VM Pool ${VmPoolName}.`
+|`319`|`USER_ATTACH_USER_TO_VM_FROM_POOL_FINISHED_FAILURE`|`Error`|`Failed to attach user ${AdUserName} to VM ${VmName} in VM Pool ${VmPoolName}.`
+|`320`|`USER_ADD_VM_POOL_WITH_VMS_ADD_VDS_FAILED`|`Error`|`Pool ${VmPoolName} Created, but some Vms failed to create (User: ${UserName}).`
+|`321`|`USER_REMOVE_VM_POOL_INITIATED`|`Info`|`VM Pool ${VmPoolName} removal was initiated by ${UserName}.`
+|`325`|`USER_REMOVE_ADUSER`|`Info`|`User ${AdUserName} was removed by ${UserName}.`
+|`326`|`USER_FAILED_REMOVE_ADUSER`|`Error`|`Failed to remove User ${AdUserName} (User: ${UserName}).`
+|`327`|`USER_FAILED_ADD_ADUSER`|`Warning`|`Failed to add User '${NewUserName}' to the system.`
+|`342`|`USER_REMOVE_SNAPSHOT`|`Info`|`Snapshot '${SnapshotName}' deletion for VM '${VmName}' was initiated by ${UserName}.`
+|`343`|`USER_FAILED_REMOVE_SNAPSHOT`|`Error`|`Failed to remove Snapshot ${SnapshotName} for VM ${VmName} (User: ${UserName}).`
+|`344`|`USER_UPDATE_VM_POOL_WITH_VMS`|`Info`|`VM Pool ${VmPoolName} was updated by ${UserName}, ${VmsCount} VMs were added.`
+|`345`|`USER_UPDATE_VM_POOL_WITH_VMS_FAILED`|`Error`|`Failed to update VM Pool ${VmPoolName}(User: ${UserName}).`
+|`346`|`USER_PASSWORD_CHANGED`|`Info`|`Password changed successfully for ${UserName}`
+|`347`|`USER_PASSWORD_CHANGE_FAILED`|`Error`|`Failed to change password. (User: ${UserName})`
+|`348`|`USER_CLEAR_UNKNOWN_VMS`|`Info`|`All VMs' status on Non Responsive Host ${VdsName} were changed to 'Down' by ${UserName}`
+|`349`|`USER_FAILED_CLEAR_UNKNOWN_VMS`|`Error`|`Failed to clear VMs' status on Non Responsive Host ${VdsName}. (User: ${UserName}).`
+|`350`|`USER_ADD_BOOKMARK`|`Info`|`Bookmark ${BookmarkName} was added by ${UserName}.`
+|`351`|`USER_ADD_BOOKMARK_FAILED`|`Error`|`Failed to add bookmark: ${BookmarkName} (User: ${UserName}).`
+|`352`|`USER_UPDATE_BOOKMARK`|`Info`|`Bookmark ${BookmarkName} was updated by ${UserName}.`
+|`353`|`USER_UPDATE_BOOKMARK_FAILED`|`Error`|`Failed to update bookmark: ${BookmarkName} (User: ${UserName})`
+|`354`|`USER_REMOVE_BOOKMARK`|`Info`|`Bookmark ${BookmarkName} was removed by ${UserName}.`
+|`355`|`USER_REMOVE_BOOKMARK_FAILED`|`Error`|`Failed to remove bookmark ${BookmarkName} (User: ${UserName})`
+|`356`|`USER_REMOVE_SNAPSHOT_FINISHED_SUCCESS`|`Info`|`Snapshot '${SnapshotName}' deletion for VM '${VmName}' has been completed.`
+|`357`|`USER_REMOVE_SNAPSHOT_FINISHED_FAILURE`|`Error`|`Failed to delete snapshot '${SnapshotName}' for VM '${VmName}'.`
+|`358`|`USER_VM_POOL_MAX_SUBSEQUENT_FAILURES_REACHED`|`Warning`|`Not all VMs where successfully created in VM Pool ${VmPoolName}.`
+|`359`|`USER_REMOVE_SNAPSHOT_FINISHED_FAILURE_PARTIAL_SNAPSHOT`|`Warning`|`Due to partial snapshot removal, Snapshot '${SnapshotName}' of VM '${VmName}' now contains only the following disks: '${DiskAliases}'.`
+|`360`|`USER_DETACH_USER_FROM_VM`|`Info`|`User ${AdUserName} was detached from VM ${VmName} by ${UserName}.`
+|`361`|`USER_FAILED_DETACH_USER_FROM_VM`|`Error`|`Failed to detach User ${AdUserName} from VM ${VmName} (User: ${UserName}).`
+|`362`|`USER_REMOVE_SNAPSHOT_FINISHED_FAILURE_BASE_IMAGE_NOT_FOUND`|`Error`|`Failed to merge images of snapshot '${SnapshotName}': base volume '${BaseVolumeId}' is missing. This may have been caused by a failed attempt to remove the parent snapshot; if this is the case, please retry deletion of the parent snapshot before deleting this one.`
+|`370`|`USER_EXTEND_DISK_SIZE_FAILURE`|`Error`|`Failed to extend size of the disk '${DiskAlias}' to ${NewSize} GB, User: ${UserName}.`
+|`371`|`USER_EXTEND_DISK_SIZE_SUCCESS`|`Info`|`Size of the disk '${DiskAlias}' was successfully updated to ${NewSize} GB by ${UserName}.`
+|`372`|`USER_EXTEND_DISK_SIZE_UPDATE_VM_FAILURE`|`Warning`|`Failed to update VM '${VmName}' with the new volume size. VM restart is recommended.`
+|`373`|`USER_REMOVE_DISK_SNAPSHOT`|`Info`|`Disk '${DiskAlias}' from Snapshot(s) '${Snapshots}' of VM '${VmName}' deletion was initiated by ${UserName}.`
+|`374`|`USER_FAILED_REMOVE_DISK_SNAPSHOT`|`Error`|`Failed to delete Disk '${DiskAlias}' from Snapshot(s) ${Snapshots} of VM ${VmName} (User: ${UserName}).`
+|`375`|`USER_REMOVE_DISK_SNAPSHOT_FINISHED_SUCCESS`|`Info`|`Disk '${DiskAlias}' from Snapshot(s) '${Snapshots}' of VM '${VmName}' deletion has been completed (User: ${UserName}).`
+|`376`|`USER_REMOVE_DISK_SNAPSHOT_FINISHED_FAILURE`|`Error`|`Failed to complete deletion of Disk '${DiskAlias}' from snapshot(s) '${Snapshots}' of VM '${VmName}' (User: ${UserName}).`
+|`377`|`USER_EXTENDED_DISK_SIZE`|`Info`|`Extending disk '${DiskAlias}' to ${NewSize} GB was initiated by ${UserName}.`
+|`378`|`USER_REGISTER_DISK_FINISHED_SUCCESS`|`Info`|`Disk '${DiskAlias}' has been successfully registered as a floating disk.`
+|`379`|`USER_REGISTER_DISK_FINISHED_FAILURE`|`Error`|`Failed to register Disk '${DiskAlias}'.`
+|`380`|`USER_EXTEND_DISK_SIZE_UPDATE_HOST_FAILURE`|`Warning`|`Failed to refresh volume size on host '${VdsName}'. Please try the operation again.`
+|`381`|`USER_REGISTER_DISK_INITIATED`|`Info`|`Registering Disk '${DiskAlias}' has been initiated.`
+|`382`|`USER_REDUCE_DISK_FINISHED_SUCCESS`|`Info`|`Disk '${DiskAlias}' has been successfully reduced.`
+|`383`|`USER_REDUCE_DISK_FINISHED_FAILURE`|`Error`|`Failed to reduce Disk '${DiskAlias}'.`
+|`400`|`USER_ATTACH_VM_TO_AD_GROUP`|`Info`|`Group ${GroupName} was attached to VM ${VmName} by ${UserName}.`
+|`401`|`USER_ATTACH_VM_TO_AD_GROUP_FAILED`|`Error`|`Failed to attach Group ${GroupName} to VM ${VmName} (User: ${UserName}).`
+|`402`|`USER_DETACH_VM_TO_AD_GROUP`|`Info`|`Group ${GroupName} was detached from VM ${VmName} by ${UserName}.`
+|`403`|`USER_DETACH_VM_TO_AD_GROUP_FAILED`|`Error`|`Failed to detach Group ${GroupName} from VM ${VmName} (User: ${UserName}).`
+|`404`|`USER_ATTACH_VM_POOL_TO_AD_GROUP`|`Info`|`Group ${GroupName} was attached to VM Pool ${VmPoolName} by ${UserName}.`
+|`405`|`USER_ATTACH_VM_POOL_TO_AD_GROUP_FAILED`|`Error`|`Failed to attach Group ${GroupName} to VM Pool ${VmPoolName} (User: ${UserName}).`
+|`406`|`USER_DETACH_VM_POOL_TO_AD_GROUP`|`Info`|`Group ${GroupName} was detached from VM Pool ${VmPoolName} by ${UserName}.`
+|`407`|`USER_DETACH_VM_POOL_TO_AD_GROUP_FAILED`|`Error`|`Failed to detach Group ${GroupName} from VM Pool ${VmPoolName} (User: ${UserName}).`
+|`408`|`USER_REMOVE_AD_GROUP`|`Info`|`Group ${GroupName} was removed by ${UserName}.`
+|`409`|`USER_REMOVE_AD_GROUP_FAILED`|`Error`|`Failed to remove group ${GroupName} (User: ${UserName}).`
+|`430`|`USER_UPDATE_TAG`|`Info`|`Tag ${TagName} configuration was updated by ${UserName}.`
+|`431`|`USER_UPDATE_TAG_FAILED`|`Error`|`Failed to update Tag ${TagName} (User: ${UserName}).`
+|`432`|`USER_ADD_TAG`|`Info`|`New Tag ${TagName} was created by ${UserName}.`
+|`433`|`USER_ADD_TAG_FAILED`|`Error`|`Failed to create Tag named ${TagName} (User: ${UserName}).`
+|`434`|`USER_REMOVE_TAG`|`Info`|`Tag ${TagName} was removed by ${UserName}.`
+|`435`|`USER_REMOVE_TAG_FAILED`|`Error`|`Failed to remove Tag ${TagName} (User: ${UserName}).`
+|`436`|`USER_ATTACH_TAG_TO_USER`|`Info`|`Tag ${TagName} was attached to User(s) ${AttachUsersNames} by ${UserName}.`
+|`437`|`USER_ATTACH_TAG_TO_USER_FAILED`|`Error`|`Failed to attach Tag ${TagName} to User(s) ${AttachUsersNames} (User: ${UserName}).`
+|`438`|`USER_ATTACH_TAG_TO_USER_GROUP`|`Info`|`Tag ${TagName} was attached to Group(s) ${AttachGroupsNames} by ${UserName}.`
+|`439`|`USER_ATTACH_TAG_TO_USER_GROUP_FAILED`|`Error`|`Failed to attach Group(s) ${AttachGroupsNames} to Tag ${TagName} (User: ${UserName}).`
+|`440`|`USER_ATTACH_TAG_TO_VM`|`Info`|`Tag ${TagName} was attached to VM(s) ${VmsNames} by ${UserName}.`
+|`441`|`USER_ATTACH_TAG_TO_VM_FAILED`|`Error`|`Failed to attach Tag ${TagName} to VM(s) ${VmsNames} (User: ${UserName}).`
+|`442`|`USER_ATTACH_TAG_TO_VDS`|`Info`|`Tag ${TagName} was attached to Host(s) ${VdsNames} by ${UserName}.`
+|`443`|`USER_ATTACH_TAG_TO_VDS_FAILED`|`Error`|`Failed to attach Tag ${TagName} to Host(s) ${VdsNames} (User: ${UserName}).`
+|`444`|`USER_DETACH_VDS_FROM_TAG`|`Info`|`Tag ${TagName} was detached from Host(s) ${VdsNames} by ${UserName}.`
+|`445`|`USER_DETACH_VDS_FROM_TAG_FAILED`|`Error`|`Failed to detach Tag ${TagName} from Host(s) ${VdsNames} (User: ${UserName}).`
+|`446`|`USER_DETACH_VM_FROM_TAG`|`Info`|`Tag ${TagName} was detached from VM(s) ${VmsNames} by ${UserName}.`
+|`447`|`USER_DETACH_VM_FROM_TAG_FAILED`|`Error`|`Failed to detach Tag ${TagName} from VM(s) ${VmsNames} (User: ${UserName}).`
+|`448`|`USER_DETACH_USER_FROM_TAG`|`Info`|`Tag ${TagName} detached from User(s) ${DetachUsersNames} by ${UserName}.`
+|`449`|`USER_DETACH_USER_FROM_TAG_FAILED`|`Error`|`Failed to detach Tag ${TagName} from User(s) ${DetachUsersNames} (User: ${UserName}).`
+|`450`|`USER_DETACH_USER_GROUP_FROM_TAG`|`Info`|`Tag ${TagName} was detached from Group(s) ${DetachGroupsNames} by ${UserName}.`
+|`451`|`USER_DETACH_USER_GROUP_FROM_TAG_FAILED`|`Error`|`Failed to detach Tag ${TagName} from Group(s)  ${DetachGroupsNames} (User: ${UserName}).`
+|`452`|`USER_ATTACH_TAG_TO_USER_EXISTS`|`Warning`|`Tag ${TagName} already attached to User(s) ${AttachUsersNamesExists}.`
+|`453`|`USER_ATTACH_TAG_TO_USER_GROUP_EXISTS`|`Warning`|`Tag ${TagName} already attached to Group(s) ${AttachGroupsNamesExists}.`
+|`454`|`USER_ATTACH_TAG_TO_VM_EXISTS`|`Warning`|`Tag ${TagName} already attached to VM(s) ${VmsNamesExists}.`
+|`455`|`USER_ATTACH_TAG_TO_VDS_EXISTS`|`Warning`|`Tag ${TagName} already attached to Host(s) ${VdsNamesExists}.`
+|`456`|`USER_LOGGED_IN_VM`|`Info`|`User ${GuestUser} logged in to VM ${VmName}.`
+|`457`|`USER_LOGGED_OUT_VM`|`Info`|`User ${GuestUser} logged out from VM ${VmName}.`
+|`458`|`USER_LOCKED_VM`|`Info`|`User ${GuestUser} locked VM ${VmName}.`
+|`459`|`USER_UNLOCKED_VM`|`Info`|`User ${GuestUser} unlocked VM ${VmName}.`
+|`460`|`USER_ATTACH_TAG_TO_TEMPLATE_EXISTS`|`Warning`|`Tag ${TagName} already attached to Template(s) ${TemplatesNamesExists}.`
+|`467`|`UPDATE_TAGS_VM_DEFAULT_DISPLAY_TYPE`|`Info`|`Vm ${VmName} tag default display type was updated`
+|`468`|`UPDATE_TAGS_VM_DEFAULT_DISPLAY_TYPE_FAILED`|`Info`|`Failed to update Vm ${VmName} tag default display type`
+|`470`|`USER_ATTACH_VM_POOL_TO_AD_GROUP_INTERNAL`|`Info`|`Group ${GroupName} was attached to VM Pool ${VmPoolName}.`
+|`471`|`USER_ATTACH_VM_POOL_TO_AD_GROUP_FAILED_INTERNAL`|`Error`|`Failed to attach Group ${GroupName} to VM Pool ${VmPoolName}.`
+|`472`|`USER_ATTACH_USER_TO_POOL_INTERNAL`|`Info`|`User ${AdUserName} was attached to VM Pool ${VmPoolName}.`
+|`473`|`USER_ATTACH_USER_TO_POOL_FAILED_INTERNAL`|`Error`|`Failed to attach User ${AdUserName} to VM Pool ${VmPoolName} (User: ${UserName}).`
+|`493`|`VDS_ALREADY_IN_REQUESTED_STATUS`|`Warning`|`Host ${HostName} is already ${AgentStatus}, Power Management ${Operation} operation skipped.`
+|`494`|`VDS_MANUAL_FENCE_STATUS`|`Info`|`Manual fence for host ${VdsName} was started.`
+|`495`|`VDS_MANUAL_FENCE_STATUS_FAILED`|`Error`|`Manual fence for host ${VdsName} failed.`
+|`496`|`VDS_FENCE_STATUS`|`Info`|`Host ${VdsName} power management was verified successfully.`
+|`497`|`VDS_FENCE_STATUS_FAILED`|`Error`|`Failed to verify Host ${VdsName} power management.`
+|`498`|`VDS_APPROVE`|`Info`|`Host ${VdsName} was successfully approved by user ${UserName}.`
+|`499`|`VDS_APPROVE_FAILED`|`Error`|`Failed to approve Host ${VdsName}.`
+|`500`|`VDS_FAILED_TO_RUN_VMS`|`Error`|`Host ${VdsName} will be switched to Error status for ${Time} minutes because it failed to run a VM.`
+|`501`|`USER_SUSPEND_VM`|`Info`|`Suspending VM ${VmName} was initiated by User ${UserName} (Host: ${VdsName}).`
+|`502`|`USER_FAILED_SUSPEND_VM`|`Error`|`Failed to suspend VM ${VmName} (Host: ${VdsName}).`
+|`503`|`USER_SUSPEND_VM_OK`|`Info`|`VM ${VmName} on Host ${VdsName} is suspended.`
+|`504`|`VDS_INSTALL`|`Info`|`Host ${VdsName} installed`
+|`505`|`VDS_INSTALL_FAILED`|`Error`|`Host ${VdsName} installation failed. ${FailedInstallMessage}.`
+|`506`|`VDS_INITIATED_RUN_VM`|`Info`|`Trying to restart VM ${VmName} on Host ${VdsName}`
+|`509`|`VDS_INSTALL_IN_PROGRESS`|`Info`|`Installing Host ${VdsName}. ${Message}.`
+|`510`|`VDS_INSTALL_IN_PROGRESS_WARNING`|`Warning`|`Host ${VdsName} installation in progress . ${Message}.`
+|`511`|`VDS_INSTALL_IN_PROGRESS_ERROR`|`Error`|`An error has occurred during installation of Host ${VdsName}: ${Message}.`
+|`512`|`USER_SUSPEND_VM_FINISH_SUCCESS`|`Info`|`Suspending VM ${VmName} has been completed.`
+|`513`|`VDS_RECOVER_FAILED_VMS_UNKNOWN`|`Error`|`Host ${VdsName} cannot be reached, VMs state on this host are marked as Unknown.`
+|`514`|`VDS_INITIALIZING`|`Warning`|`Host ${VdsName} is initializing. Message: ${ErrorMessage}`
+|`515`|`VDS_CPU_LOWER_THAN_CLUSTER`|`Warning`|`Host ${VdsName} moved to Non-Operational state as host does not meet the cluster's minimum CPU level. Missing CPU features : ${CpuFlags}`
+|`516`|`VDS_CPU_RETRIEVE_FAILED`|`Warning`|`Failed to determine Host ${VdsName} CPU level - could not retrieve CPU flags.`
+|`517`|`VDS_SET_NONOPERATIONAL`|`Info`|`Host ${VdsName} moved to Non-Operational state.`
+|`518`|`VDS_SET_NONOPERATIONAL_FAILED`|`Error`|`Failed to move Host ${VdsName} to Non-Operational state.`
+|`519`|`VDS_SET_NONOPERATIONAL_NETWORK`|`Warning`|`Host ${VdsName} does not comply with the cluster ${ClusterName} networks, the following networks are missing on host: '${Networks}'`
+|`520`|`USER_ATTACH_USER_TO_VM`|`Info`|`User ${AdUserName} was attached to VM ${VmName} by ${UserName}.`
+|`521`|`USER_SUSPEND_VM_FINISH_FAILURE`|`Error`|`Failed to complete suspending of VM ${VmName}.`
+|`522`|`VDS_SET_NONOPERATIONAL_DOMAIN`|`Warning`|`Host ${VdsName} cannot access the Storage Domain(s) ${StorageDomainNames} attached to the Data Center ${StoragePoolName}. Setting Host state to Non-Operational.`
+|`523`|`VDS_SET_NONOPERATIONAL_DOMAIN_FAILED`|`Error`|`Host ${VdsName} cannot access the Storage Domain(s) ${StorageDomainNames} attached to the Data Center ${StoragePoolName}. Failed to set Host state to Non-Operational.`
+|`524`|`VDS_DOMAIN_DELAY_INTERVAL`|`Warning`|`Storage domain ${StorageDomainName} experienced a high latency of ${Delay} seconds from host ${VdsName}. This may cause performance and functional issues. Please consult your Storage Administrator.`
+|`525`|`VDS_INITIATED_RUN_AS_STATELESS_VM_NOT_YET_RUNNING`|`Info`|`Starting VM ${VmName} as stateless was initiated.`
+|`528`|`USER_EJECT_VM_DISK`|`Info`|`CD was ejected from VM ${VmName} by ${UserName}.`
+|`530`|`VDS_MANUAL_FENCE_FAILED_CALL_FENCE_SPM`|`Warning`|`Manual fence did not revoke the selected SPM (${VdsName}) since the master storage domain\n was not active or could not use another host for the fence operation.`
+|`531`|`VDS_LOW_MEM`|`Warning`|`Available memory of host ${HostName} in cluster ${Cluster} [${AvailableMemory} MB] is under defined threshold [${Threshold} MB].`
+|`532`|`VDS_HIGH_MEM_USE`|`Warning`|`Used memory of host ${HostName} in cluster ${Cluster} [${UsedMemory}%] exceeded defined threshold [${Threshold}%].`
+|`533`|`VDS_HIGH_NETWORK_USE`|`Warning`|
+|`534`|`VDS_HIGH_CPU_USE`|`Warning`|`Used CPU of host ${HostName} [${UsedCpu}%] exceeded defined threshold [${Threshold}%].`
+|`535`|`VDS_HIGH_SWAP_USE`|`Warning`|`Used swap memory of host ${HostName} [${UsedSwap}%] exceeded defined threshold [${Threshold}%].`
+|`536`|`VDS_LOW_SWAP`|`Warning`|`Available swap memory of host ${HostName} [${AvailableSwapMemory} MB] is under defined threshold [${Threshold} MB].`
+|`537`|`VDS_INITIATED_RUN_VM_AS_STATELESS`|`Info`|`VM ${VmName} was restarted on Host ${VdsName} as stateless`
+|`538`|`USER_RUN_VM_AS_STATELESS`|`Info`|`VM ${VmName} started on Host ${VdsName} as stateless`
+|`539`|`VDS_AUTO_FENCE_STATUS`|`Info`|`Auto fence for host ${VdsName} was started.`
+|`540`|`VDS_AUTO_FENCE_STATUS_FAILED`|`Error`|`Auto fence for host ${VdsName} failed.`
+|`541`|`VDS_AUTO_FENCE_FAILED_CALL_FENCE_SPM`|`Warning`|`Auto fence did not revoke the selected SPM (${VdsName}) since the master storage domain\n was not active or could not use another host for the fence operation.`
+|`550`|`VDS_PACKAGES_IN_PROGRESS`|`Info`|`Package update Host ${VdsName}. ${Message}.`
+|`551`|`VDS_PACKAGES_IN_PROGRESS_WARNING`|`Warning`|`Host ${VdsName} update packages in progress . ${Message}.`
+|`552`|`VDS_PACKAGES_IN_PROGRESS_ERROR`|`Error`|`Failed to update packages Host ${VdsName}. ${Message}.`
+|`555`|`USER_MOVE_TAG`|`Info`|`Tag ${TagName} was moved from ${OldParnetTagName} to ${NewParentTagName} by ${UserName}.`
+|`556`|`USER_MOVE_TAG_FAILED`|`Error`|`Failed to move Tag ${TagName} from ${OldParnetTagName} to ${NewParentTagName} (User: ${UserName}).`
+|`560`|`VDS_ANSIBLE_INSTALL_STARTED`|`Info`|`Ansible host-deploy playbook execution has started on host ${VdsName}.`
+|`561`|`VDS_ANSIBLE_INSTALL_FINISHED`|`Info`|`Ansible host-deploy playbook execution has successfully finished on host ${VdsName}.`
+|`562`|`VDS_ANSIBLE_HOST_REMOVE_STARTED`|`Info`|`Ansible host-remove playbook execution started on host ${VdsName}.`
+|`563`|`VDS_ANSIBLE_HOST_REMOVE_FINISHED`|`Info`|`Ansible host-remove playbook execution has successfully finished on host ${VdsName}. For more details check log ${LogFile}`
+|`564`|`VDS_ANSIBLE_HOST_REMOVE_FAILED`|`Warning`|`Ansible host-remove playbook execution failed on host ${VdsName}. For more details please check log ${LogFile}`
+|`565`|`VDS_ANSIBLE_HOST_REMOVE_EXECUTION_FAILED`|`Info`|`Ansible host-remove playbook execution failed on host ${VdsName} with message: ${Message}`
+|`600`|`USER_VDS_MAINTENANCE`|`Info`|`Host ${VdsName} was switched to Maintenance mode by ${UserName} (Reason: ${Reason}).`
+|`601`|`CPU_FLAGS_NX_IS_MISSING`|`Warning`|`Host ${VdsName} is missing the NX cpu flag. This flag can be enabled via the host BIOS. Please set Disable Execute (XD) for an Intel host, or No Execute (NX) for AMD.  Please make sure to completely power off the host for this change to take effect.`
+|`602`|`USER_VDS_MAINTENANCE_MIGRATION_FAILED`|`Warning`|`Host ${VdsName} cannot change into maintenance mode - not all Vms have been migrated successfully. Consider manual intervention: stopping/migrating Vms: ${failedVms} (User: ${UserName}).`
+|`603`|`VDS_SET_NONOPERATIONAL_IFACE_DOWN`|`Warning`|`Host ${VdsName} moved to Non-Operational state because interfaces which are down are needed by required networks in the current cluster: '${NicsWithNetworks}'.`
+|`604`|`VDS_TIME_DRIFT_ALERT`|`Warning`|`Host ${VdsName} has time-drift of ${Actual} seconds while maximum configured value is ${Max} seconds.`
+|`605`|`PROXY_HOST_SELECTION`|`Info`|`Host ${Proxy} from ${Origin} was chosen as a proxy to execute fencing on Host ${VdsName}.`
+|`606`|`HOST_REFRESHED_CAPABILITIES`|`Info`|`Successfully refreshed the capabilities of host ${VdsName}.`
+|`607`|`HOST_REFRESH_CAPABILITIES_FAILED`|`Error`|`Failed to refresh the capabilities of host ${VdsName}.`
+|`608`|`HOST_INTERFACE_HIGH_NETWORK_USE`|`Warning`|`Host ${HostName} has network interface which exceeded the defined threshold [${Threshold}%] (${InterfaceName}: transmit rate[${TransmitRate}%], receive rate [${ReceiveRate}%])`
+|`609`|`HOST_INTERFACE_STATE_UP`|`Normal`|`Interface ${InterfaceName} on host ${VdsName}, changed state to up`
+|`610`|`HOST_INTERFACE_STATE_DOWN`|`Warning`|`Interface ${InterfaceName} on host ${VdsName}, changed state to down`
+|`611`|`HOST_BOND_SLAVE_STATE_UP`|`Normal`|`Slave ${SlaveName} of bond ${BondName} on host ${VdsName}, changed state to up`
+|`612`|`HOST_BOND_SLAVE_STATE_DOWN`|`Warning`|`Slave ${SlaveName} of bond ${BondName} on host ${VdsName}, changed state to down`
+|`613`|`FENCE_KDUMP_LISTENER_IS_NOT_ALIVE`|`Error`|`Unable to determine if Kdump is in progress on host ${VdsName}, because fence_kdump listener is not running.`
+|`614`|`KDUMP_FLOW_DETECTED_ON_VDS`|`Info`|`Kdump flow is in progress on host ${VdsName}.`
+|`615`|`KDUMP_FLOW_NOT_DETECTED_ON_VDS`|`Info`|`Kdump flow is not in progress on host ${VdsName}.`
+|`616`|`KDUMP_FLOW_FINISHED_ON_VDS`|`Info`|`Kdump flow finished on host ${VdsName}.`
+|`617`|`KDUMP_DETECTION_NOT_CONFIGURED_ON_VDS`|`Warning`|`Kdump integration is enabled for host ${VdsName}, but kdump is not configured properly on host.`
+|`618`|`HOST_REGISTRATION_FAILED_INVALID_CLUSTER`|`Info`|`No default or valid cluster was found, Host ${VdsName} registration failed`
+|`619`|`HOST_PROTOCOL_INCOMPATIBLE_WITH_CLUSTER`|`Warning`|`Host ${VdsName} uses not compatible protocol during activation (xmlrpc instead of jsonrpc). Please examine installation logs and VDSM logs for failures and reinstall the host.`
+|`620`|`USER_VDS_MAINTENANCE_WITHOUT_REASON`|`Info`|`Host ${VdsName} was switched to Maintenance mode by ${UserName}.`
+|`650`|`USER_UNDO_RESTORE_FROM_SNAPSHOT_START`|`Info`|`Undoing a Snapshot-Preview for VM ${VmName} was initialized by ${UserName}.`
+|`651`|`USER_UNDO_RESTORE_FROM_SNAPSHOT_FINISH_SUCCESS`|`Info`|`Undoing a Snapshot-Preview for VM ${VmName} has been completed.`
+|`652`|`USER_UNDO_RESTORE_FROM_SNAPSHOT_FINISH_FAILURE`|`Error`|`Failed to undo Snapshot-Preview for VM ${VmName}.`
+|`700`|`DISK_ALIGNMENT_SCAN_START`|`Info`|`Starting alignment scan of disk '${DiskAlias}'.`
+|`701`|`DISK_ALIGNMENT_SCAN_FAILURE`|`Warning`|`Alignment scan of disk '${DiskAlias}' failed.`
+|`702`|`DISK_ALIGNMENT_SCAN_SUCCESS`|`Info`|`Alignment scan of disk '${DiskAlias}' is complete.`
+|`809`|`USER_ADD_CLUSTER`|`Info`|`Cluster ${ClusterName} was added by ${UserName}`
+|`810`|`USER_ADD_CLUSTER_FAILED`|`Error`|`Failed to add Host cluster (User: ${UserName})`
+|`811`|`USER_UPDATE_CLUSTER`|`Info`|`Host cluster ${ClusterName} was updated by ${UserName}`
+|`812`|`USER_UPDATE_CLUSTER_FAILED`|`Error`|`Failed to update Host cluster (User: ${UserName})`
+|`813`|`USER_REMOVE_CLUSTER`|`Info`|`Host cluster ${ClusterName} was removed by ${UserName}`
+|`814`|`USER_REMOVE_CLUSTER_FAILED`|`Error`|`Failed to remove Host cluster (User: ${UserName})`
+|`815`|`USER_VDC_LOGOUT_FAILED`|`Error`|`Failed to log out user ${UserName} connected from '${SourceIP}' using session '${SessionID}'.`
+|`816`|`MAC_POOL_EMPTY`|`Warning`|`No MAC addresses left in the MAC Address Pool.`
+|`817`|`CERTIFICATE_FILE_NOT_FOUND`|`Error`|`Could not find oVirt Engine Certificate file.`
+|`818`|`RUN_VM_FAILED`|`Error`|`Cannot run VM ${VmName} on Host ${VdsName}. Error: ${ErrMsg}`
+|`819`|`VDS_REGISTER_ERROR_UPDATING_HOST`|`Error`|`Host registration failed - cannot update Host Name for Host ${VdsName2}. (Host: ${VdsName1})`
+|`820`|`VDS_REGISTER_ERROR_UPDATING_HOST_ALL_TAKEN`|`Error`|`Host registration failed - all available Host Names are taken. (Host: ${VdsName1})`
+|`821`|`VDS_REGISTER_HOST_IS_ACTIVE`|`Error`|`Host registration failed - cannot change Host Name of active Host ${VdsName2}. (Host: ${VdsName1})`
+|`822`|`VDS_REGISTER_ERROR_UPDATING_NAME`|`Error`|`Host registration failed - cannot update Host Name for Host ${VdsName2}. (Host: ${VdsName1})`
+|`823`|`VDS_REGISTER_ERROR_UPDATING_NAMES_ALL_TAKEN`|`Error`|`Host registration failed - all available Host Names are taken. (Host: ${VdsName1})`
+|`824`|`VDS_REGISTER_NAME_IS_ACTIVE`|`Error`|`Host registration failed - cannot change Host Name of active Host ${VdsName2}. (Host: ${VdsName1})`
+|`825`|`VDS_REGISTER_AUTO_APPROVE_PATTERN`|`Error`|`Host registration failed - auto approve pattern error. (Host: ${VdsName1})`
+|`826`|`VDS_REGISTER_FAILED`|`Error`|`Host registration failed. (Host: ${VdsName1})`
+|`827`|`VDS_REGISTER_EXISTING_VDS_UPDATE_FAILED`|`Error`|`Host registration failed - cannot update existing Host. (Host: ${VdsName1})`
+|`828`|`VDS_REGISTER_SUCCEEDED`|`Info`|`Host ${VdsName1} registered.`
+|`829`|`VM_MIGRATION_ON_CONNECT_CHECK_FAILED`|`Error`|`VM migration logic failed. (VM name: ${VmName})`
+|`830`|`VM_MIGRATION_ON_CONNECT_CHECK_SUCCEEDED`|`Info`|`Migration check failed to execute.`
+|`831`|`USER_VDC_SESSION_TERMINATED`|`Info`|`User ${UserName} forcibly logged out user ${TerminatedSessionUsername} connected from '${SourceIP}' using session '${SessionID}'.`
+|`832`|`USER_VDC_SESSION_TERMINATION_FAILED`|`Error`|`User ${UserName} failed to forcibly log out user ${TerminatedSessionUsername} connected from '${SourceIP}' using session '${SessionID}'.`
+|`833`|`MAC_ADDRESS_IS_IN_USE`|`Warning`|`Network Interface ${IfaceName} has MAC address ${MACAddr} which is in use.`
+|`834`|`VDS_REGISTER_EMPTY_ID`|`Warning`|`Host registration failed, empty host id (Host: ${VdsHostName})`
+|`835`|`SYSTEM_UPDATE_CLUSTER`|`Info`|`Host cluster ${ClusterName} was updated by system`
+|`836`|`SYSTEM_UPDATE_CLUSTER_FAILED`|`Info`|`Failed to update Host cluster by system`
+|`837`|`MAC_ADDRESSES_POOL_NOT_INITIALIZED`|`Warning`|`Mac Address Pool is not initialized. ${Message}`
+|`838`|`MAC_ADDRESS_IS_IN_USE_UNPLUG`|`Warning`|`Network Interface ${IfaceName} has MAC address ${MACAddr} which is in use, therefore it is being unplugged from VM ${VmName}.`
+|`839`|`HOST_AVAILABLE_UPDATES_FAILED`|`Error`|`Failed to check for available updates on host ${VdsName} with message '${Message}'.`
+|`840`|`HOST_UPGRADE_STARTED`|`Info`|`Host ${VdsName} upgrade was started (User: ${UserName}).`
+|`841`|`HOST_UPGRADE_FAILED`|`Error`|`Failed to upgrade Host ${VdsName} (User: ${UserName}).`
+|`842`|`HOST_UPGRADE_FINISHED`|`Info`|`Host ${VdsName} upgrade was completed successfully.`
+|`845`|`HOST_CERTIFICATION_IS_ABOUT_TO_EXPIRE`|`Warning`|`Host ${VdsName} certification is about to expire at ${ExpirationDate}. Please renew the host's certification.`
+|`846`|`ENGINE_CERTIFICATION_HAS_EXPIRED`|`Info`|`Engine's certification has expired at ${ExpirationDate}. Please renew the engine's certification.`
+|`847`|`ENGINE_CERTIFICATION_IS_ABOUT_TO_EXPIRE`|`Warning`|`Engine's certification is about to expire at ${ExpirationDate}. Please renew the engine's certification.`
+|`848`|`ENGINE_CA_CERTIFICATION_HAS_EXPIRED`|`Info`|`Engine's CA certification has expired at ${ExpirationDate}.`
+|`849`|`ENGINE_CA_CERTIFICATION_IS_ABOUT_TO_EXPIRE`|`Warning`|`Engine's CA certification is about to expire at ${ExpirationDate}.`
+|`850`|`USER_ADD_PERMISSION`|`Info`|`User/Group ${SubjectName}, Namespace ${Namespace}, Authorization provider: ${Authz} was granted permission for Role ${RoleName} on ${VdcObjectType} ${VdcObjectName}, by ${UserName}.`
+|`851`|`USER_ADD_PERMISSION_FAILED`|`Error`|`User ${UserName} failed to grant permission for Role ${RoleName} on ${VdcObjectType} ${VdcObjectName} to User/Group ${SubjectName}.`
+|`852`|`USER_REMOVE_PERMISSION`|`Info`|`User/Group ${SubjectName} Role ${RoleName} permission was removed from ${VdcObjectType} ${VdcObjectName} by ${UserName}`
+|`853`|`USER_REMOVE_PERMISSION_FAILED`|`Error`|`User ${UserName} failed to remove permission for Role ${RoleName} from ${VdcObjectType} ${VdcObjectName} to User/Group ${SubjectName}`
+|`854`|`USER_ADD_ROLE`|`Info`|`Role ${RoleName} granted to ${UserName}`
+|`855`|`USER_ADD_ROLE_FAILED`|`Error`|`Failed to grant role ${RoleName} (User ${UserName})`
+|`856`|`USER_UPDATE_ROLE`|`Info`|`${UserName} Role was updated to the ${RoleName} Role`
+|`857`|`USER_UPDATE_ROLE_FAILED`|`Error`|`Failed to update role ${RoleName} to ${UserName}`
+|`858`|`USER_REMOVE_ROLE`|`Info`|`Role ${RoleName} removed from ${UserName}`
+|`859`|`USER_REMOVE_ROLE_FAILED`|`Error`|`Failed to remove role ${RoleName} (User ${UserName})`
+|`860`|`USER_ATTACHED_ACTION_GROUP_TO_ROLE`|`Info`|`Action group ${ActionGroup} was attached to Role ${RoleName} by ${UserName}`
+|`861`|`USER_ATTACHED_ACTION_GROUP_TO_ROLE_FAILED`|`Error`|`Failed to attach Action group ${ActionGroup} to Role ${RoleName} (User: ${UserName})`
+|`862`|`USER_DETACHED_ACTION_GROUP_FROM_ROLE`|`Info`|`Action group ${ActionGroup} was detached from Role ${RoleName} by ${UserName}`
+|`863`|`USER_DETACHED_ACTION_GROUP_FROM_ROLE_FAILED`|`Error`|`Failed to attach Action group ${ActionGroup} to Role ${RoleName} by ${UserName}`
+|`864`|`USER_ADD_ROLE_WITH_ACTION_GROUP`|`Info`|`Role ${RoleName} was added by ${UserName}`
+|`865`|`USER_ADD_ROLE_WITH_ACTION_GROUP_FAILED`|`Error`|`Failed to add role ${RoleName}`
+|`866`|`USER_ADD_SYSTEM_PERMISSION`|`Info`|`User/Group ${SubjectName} was granted permission for Role ${RoleName} on ${VdcObjectType} by ${UserName}.`
+|`867`|`USER_ADD_SYSTEM_PERMISSION_FAILED`|`Error`|`User ${UserName} failed to grant permission for Role ${RoleName} on ${VdcObjectType} to User/Group ${SubjectName}.`
+|`868`|`USER_REMOVE_SYSTEM_PERMISSION`|`Info`|`User/Group ${SubjectName} Role ${RoleName} permission was removed from ${VdcObjectType} by ${UserName}`
+|`869`|`USER_REMOVE_SYSTEM_PERMISSION_FAILED`|`Error`|`User ${UserName} failed to remove permission for Role ${RoleName} from ${VdcObjectType} to User/Group ${SubjectName}`
+|`870`|`USER_ADD_PROFILE`|`Info`|`Profile created for ${UserName}`
+|`871`|`USER_ADD_PROFILE_FAILED`|`Error`|`Failed to create profile for ${UserName}`
+|`872`|`USER_UPDATE_PROFILE`|`Info`|`Updated profile for ${UserName}`
+|`873`|`USER_UPDATE_PROFILE_FAILED`|`Error`|`Failed to update profile for ${UserName}`
+|`874`|`USER_REMOVE_PROFILE`|`Info`|`Removed profile for ${UserName}`
+|`875`|`USER_REMOVE_PROFILE_FAILED`|`Error`|`Failed to remove profile for ${UserName}`
+|`876`|`HOST_CERTIFICATION_IS_INVALID`|`Error`|`Host ${VdsName} certification is invalid. The certification has no peer certificates.`
+|`877`|`HOST_CERTIFICATION_HAS_EXPIRED`|`Info`|`Host ${VdsName} certification has expired at ${ExpirationDate}. Please renew the host's certification.`
+|`878`|`ENGINE_CERTIFICATION_IS_ABOUT_TO_EXPIRE_ALERT`|`Info`|`Engine's certification is about to expire at ${ExpirationDate}. Please renew the engine's certification.`
+|`879`|`HOST_CERTIFICATION_IS_ABOUT_TO_EXPIRE_ALERT`|`Info`|`Host ${VdsName} certification is about to expire at ${ExpirationDate}. Please renew the host's certification.`
+|`880`|`HOST_CERTIFICATION_ENROLLMENT_STARTED`|`Normal`|`Enrolling certificate for host ${VdsName} was started (User: ${UserName}).`
+|`881`|`HOST_CERTIFICATION_ENROLLMENT_FINISHED`|`Normal`|`Enrolling certificate for host ${VdsName} was completed successfully (User: ${UserName}).`
+|`882`|`HOST_CERTIFICATION_ENROLLMENT_FAILED`|`Error`|`Failed to enroll certificate for host ${VdsName} (User: ${UserName}).`
+|`883`|`ENGINE_CA_CERTIFICATION_IS_ABOUT_TO_EXPIRE_ALERT`|`Info`|`Engine's CA certification is about to expire at ${ExpirationDate}.`
+|`884`|`HOST_AVAILABLE_UPDATES_STARTED`|`Info`|`Started to check for available updates on host ${VdsName}.`
+|`885`|`HOST_AVAILABLE_UPDATES_FINISHED`|`Info`|`Check for available updates on host ${VdsName} was completed successfully with message '${Message}'.`
+|`886`|`HOST_AVAILABLE_UPDATES_PROCESS_IS_ALREADY_RUNNING`|`Warning`|`Failed to check for available updates on host ${VdsName}: Another process is already running.`
+|`887`|`HOST_AVAILABLE_UPDATES_SKIPPED_UNSUPPORTED_STATUS`|`Warning`|`Failed to check for available updates on host ${VdsName}: Unsupported host status.`
+|`890`|`HOST_UPGRADE_FINISHED_MANUAL_HA`|`Warning`|`Host ${VdsName} upgrade was completed successfully, but the Hosted Engine HA service may still be in maintenance mode. If necessary, please correct this manually.`
+|`900`|`AD_COMPUTER_ACCOUNT_SUCCEEDED`|`Info`|`Account creation successful.`
+|`901`|`AD_COMPUTER_ACCOUNT_FAILED`|`Error`|`Account creation failed.`
+|`918`|`USER_FORCE_REMOVE_STORAGE_POOL`|`Info`|`Data Center ${StoragePoolName} was forcibly removed by ${UserName}`
+|`919`|`USER_FORCE_REMOVE_STORAGE_POOL_FAILED`|`Error`|`Failed to forcibly remove Data Center ${StoragePoolName}. (User: ${UserName})`
+|`925`|`MAC_ADDRESS_IS_EXTERNAL`|`Warning`|`VM ${VmName} has MAC address(es) ${MACAddr}, which is/are out of its MAC pool definitions.`
+|`926`|`NETWORK_REMOVE_BOND`|`Info`|`Remove bond: ${BondName} for Host: ${VdsName} (User:${UserName}).`
+|`927`|`NETWORK_REMOVE_BOND_FAILED`|`Error`|`Failed to remove bond: ${BondName} for Host: ${VdsName} (User:${UserName}).`
+|`928`|`NETWORK_VDS_NETWORK_MATCH_CLUSTER`|`Info`|`Vds ${VdsName} network match to cluster ${ClusterName}`
+|`929`|`NETWORK_VDS_NETWORK_NOT_MATCH_CLUSTER`|`Error`|`Vds ${VdsName} network does not match to cluster ${ClusterName}`
+|`930`|`NETWORK_REMOVE_VM_INTERFACE`|`Info`|`Interface ${InterfaceName} (${InterfaceType}) was removed from VM ${VmName}. (User: ${UserName})`
+|`931`|`NETWORK_REMOVE_VM_INTERFACE_FAILED`|`Error`|`Failed to remove Interface ${InterfaceName} (${InterfaceType}) from VM ${VmName}. (User: ${UserName})`
+|`932`|`NETWORK_ADD_VM_INTERFACE`|`Info`|`Interface ${InterfaceName} (${InterfaceType}) was added to VM ${VmName}. (User: ${UserName})`
+|`933`|`NETWORK_ADD_VM_INTERFACE_FAILED`|`Error`|`Failed to add Interface ${InterfaceName} (${InterfaceType}) to VM ${VmName}. (User: ${UserName})`
+|`934`|`NETWORK_UPDATE_VM_INTERFACE`|`Info`|`Interface ${InterfaceName} (${InterfaceType}) was updated for VM ${VmName}. ${LinkState} (User: ${UserName})`
+|`935`|`NETWORK_UPDATE_VM_INTERFACE_FAILED`|`Error`|`Failed to update Interface ${InterfaceName} (${InterfaceType}) for VM ${VmName}. (User: ${UserName})`
+|`936`|`NETWORK_ADD_TEMPLATE_INTERFACE`|`Info`|`Interface ${InterfaceName} (${InterfaceType}) was added to Template ${VmTemplateName}. (User: ${UserName})`
+|`937`|`NETWORK_ADD_TEMPLATE_INTERFACE_FAILED`|`Error`|`Failed to add Interface ${InterfaceName} (${InterfaceType}) to Template ${VmTemplateName}. (User: ${UserName})`
+|`938`|`NETWORK_REMOVE_TEMPLATE_INTERFACE`|`Info`|`Interface ${InterfaceName} (${InterfaceType}) was removed from Template ${VmTemplateName}. (User: ${UserName})`
+|`939`|`NETWORK_REMOVE_TEMPLATE_INTERFACE_FAILED`|`Error`|`Failed to remove Interface ${InterfaceName} (${InterfaceType}) from Template ${VmTemplateName}. (User: ${UserName})`
+|`940`|`NETWORK_UPDATE_TEMPLATE_INTERFACE`|`Info`|`Interface ${InterfaceName} (${InterfaceType}) was updated for Template ${VmTemplateName}. (User: ${UserName})`
+|`941`|`NETWORK_UPDATE_TEMPLATE_INTERFACE_FAILED`|`Error`|`Failed to update Interface ${InterfaceName} (${InterfaceType}) for Template ${VmTemplateName}. (User: ${UserName})`
+|`942`|`NETWORK_ADD_NETWORK`|`Info`|`Network ${NetworkName} was added to Data Center: ${StoragePoolName}`
+|`943`|`NETWORK_ADD_NETWORK_FAILED`|`Error`|`Failed to add Network ${NetworkName} to Data Center: ${StoragePoolName}`
+|`944`|`NETWORK_REMOVE_NETWORK`|`Info`|`Network ${NetworkName} was removed from Data Center: ${StoragePoolName}`
+|`945`|`NETWORK_REMOVE_NETWORK_FAILED`|`Error`|`Failed to remove Network ${NetworkName} from Data Center: ${StoragePoolName}`
+|`946`|`NETWORK_ATTACH_NETWORK_TO_CLUSTER`|`Info`|`Network ${NetworkName} attached to Cluster ${ClusterName}`
+|`947`|`NETWORK_ATTACH_NETWORK_TO_CLUSTER_FAILED`|`Error`|`Failed to attach Network ${NetworkName} to Cluster ${ClusterName}`
+|`948`|`NETWORK_DETACH_NETWORK_TO_CLUSTER`|`Info`|`Network ${NetworkName} detached from Cluster ${ClusterName}`
+|`949`|`NETWORK_DETACH_NETWORK_TO_CLUSTER_FAILED`|`Error`|`Failed to detach Network ${NetworkName} from Cluster ${ClusterName}`
+|`950`|`USER_ADD_STORAGE_POOL`|`Info`|`Data Center ${StoragePoolName}, Compatibility Version ${CompatibilityVersion} and Quota Type ${QuotaEnforcementType} was added by ${UserName}`
+|`951`|`USER_ADD_STORAGE_POOL_FAILED`|`Error`|`Failed to add Data Center ${StoragePoolName}. (User: ${UserName})`
+|`952`|`USER_UPDATE_STORAGE_POOL`|`Info`|`Data Center ${StoragePoolName} was updated by ${UserName}`
+|`953`|`USER_UPDATE_STORAGE_POOL_FAILED`|`Error`|`Failed to update Data Center ${StoragePoolName}. (User: ${UserName})`
+|`954`|`USER_REMOVE_STORAGE_POOL`|`Info`|`Data Center ${StoragePoolName} was removed by ${UserName}`
+|`955`|`USER_REMOVE_STORAGE_POOL_FAILED`|`Error`|`Failed to remove Data Center ${StoragePoolName}. (User: ${UserName})`
+|`956`|`USER_ADD_STORAGE_DOMAIN`|`Info`|`Storage Domain ${StorageDomainName} was added by ${UserName}`
+|`957`|`USER_ADD_STORAGE_DOMAIN_FAILED`|`Error`|`Failed to add Storage Domain ${StorageDomainName}. (User: ${UserName})`
+|`958`|`USER_UPDATE_STORAGE_DOMAIN`|`Info`|`Storage Domain ${StorageDomainName} was updated by ${UserName}`
+|`959`|`USER_UPDATE_STORAGE_DOMAIN_FAILED`|`Error`|`Failed to update Storage Domain ${StorageDomainName}. (User: ${UserName})`
+|`960`|`USER_REMOVE_STORAGE_DOMAIN`|`Info`|`Storage Domain ${StorageDomainName} was removed by ${UserName}`
+|`961`|`USER_REMOVE_STORAGE_DOMAIN_FAILED`|`Error`|`Failed to remove Storage Domain ${StorageDomainName}. (User: ${UserName})`
+|`962`|`USER_ATTACH_STORAGE_DOMAIN_TO_POOL`|`Info`|`Storage Domain ${StorageDomainName} was attached to Data Center ${StoragePoolName} by ${UserName}`
+|`963`|`USER_ATTACH_STORAGE_DOMAIN_TO_POOL_FAILED`|`Error`|`Failed to attach Storage Domain ${StorageDomainName} to Data Center ${StoragePoolName}. (User: ${UserName})`
+|`964`|`USER_DETACH_STORAGE_DOMAIN_FROM_POOL`|`Info`|`Storage Domain ${StorageDomainName} was detached from Data Center ${StoragePoolName} by ${UserName}`
+|`965`|`USER_DETACH_STORAGE_DOMAIN_FROM_POOL_FAILED`|`Error`|`Failed to detach Storage Domain ${StorageDomainName} from Data Center ${StoragePoolName}. (User: ${UserName})`
+|`966`|`USER_ACTIVATED_STORAGE_DOMAIN`|`Info`|`Storage Domain ${StorageDomainName} (Data Center ${StoragePoolName}) was activated by ${UserName}`
+|`967`|`USER_ACTIVATE_STORAGE_DOMAIN_FAILED`|`Error`|`Failed to activate Storage Domain ${StorageDomainName} (Data Center ${StoragePoolName}) by ${UserName}`
+|`968`|`USER_DEACTIVATED_STORAGE_DOMAIN`|`Info`|`Storage Domain ${StorageDomainName} (Data Center ${StoragePoolName}) was deactivated and has moved to 'Preparing for maintenance' until it will no longer be accessed by any Host of the Data Center.`
+|`969`|`USER_DEACTIVATE_STORAGE_DOMAIN_FAILED`|`Error`|`Failed to deactivate Storage Domain ${StorageDomainName} (Data Center ${StoragePoolName}).`
+|`970`|`SYSTEM_DEACTIVATED_STORAGE_DOMAIN`|`Warning`|`Storage Domain ${StorageDomainName} (Data Center ${StoragePoolName}) was deactivated by system because it's not visible by any of the hosts.`
+|`971`|`SYSTEM_DEACTIVATE_STORAGE_DOMAIN_FAILED`|`Error`|`Failed to deactivate Storage Domain ${StorageDomainName} (Data Center ${StoragePoolName}).`
+|`972`|`USER_EXTENDED_STORAGE_DOMAIN`|`Info`|`Storage ${StorageDomainName} has been extended by ${UserName}. Please wait for refresh.`
+|`973`|`USER_EXTENDED_STORAGE_DOMAIN_FAILED`|`Error`|`Failed to extend Storage Domain ${StorageDomainName}. (User: ${UserName})`
+|`974`|`USER_REMOVE_VG`|`Info`|`Volume group ${VgId} was removed by ${UserName}.`
+|`975`|`USER_REMOVE_VG_FAILED`|`Error`|`Failed to remove Volume group ${VgId}. (User: UserName)`
+|`976`|`USER_ACTIVATE_STORAGE_POOL`|`Info`|`Data Center ${StoragePoolName} was activated. (User: ${UserName})`
+|`977`|`USER_ACTIVATE_STORAGE_POOL_FAILED`|`Error`|`Failed to activate Data Center ${StoragePoolName}. (User: ${UserName})`
+|`978`|`SYSTEM_FAILED_CHANGE_STORAGE_POOL_STATUS`|`Error`|`Failed to change Data Center ${StoragePoolName} status.`
+|`979`|`SYSTEM_CHANGE_STORAGE_POOL_STATUS_NO_HOST_FOR_SPM`|`Error`|`Fencing failed on Storage Pool Manager ${VdsName} for Data Center ${StoragePoolName}. Setting status to Non-Operational.`
+|`980`|`SYSTEM_CHANGE_STORAGE_POOL_STATUS_PROBLEMATIC`|`Warning`|`Invalid status on Data Center ${StoragePoolName}. Setting status to Non Responsive.`
+|`981`|`USER_FORCE_REMOVE_STORAGE_DOMAIN`|`Info`|`Storage Domain ${StorageDomainName} was forcibly removed by ${UserName}`
+|`982`|`USER_FORCE_REMOVE_STORAGE_DOMAIN_FAILED`|`Error`|`Failed to forcibly remove Storage Domain ${StorageDomainName}. (User: ${UserName})`
+|`983`|`RECONSTRUCT_MASTER_FAILED_NO_MASTER`|`Warning`|`No valid Data Storage Domains are available in Data Center ${StoragePoolName} (please check your storage infrastructure).`
+|`984`|`RECONSTRUCT_MASTER_DONE`|`Info`|`Reconstruct Master Domain for Data Center ${StoragePoolName} completed.`
+|`985`|`RECONSTRUCT_MASTER_FAILED`|`Error`|`Failed to Reconstruct Master Domain for Data Center ${StoragePoolName}.`
+|`986`|`SYSTEM_CHANGE_STORAGE_POOL_STATUS_PROBLEMATIC_SEARCHING_NEW_SPM`|`Warning`|`Data Center is being initialized, please wait for initialization to complete.`
+|`987`|`SYSTEM_CHANGE_STORAGE_POOL_STATUS_PROBLEMATIC_WITH_ERROR`|`Warning`|`Invalid status on Data Center ${StoragePoolName}. Setting Data Center status to Non Responsive (On host ${VdsName}, Error: ${Error}).`
+|`988`|`USER_CONNECT_HOSTS_TO_LUN_FAILED`|`Error`|`Failed to connect Host ${VdsName} to device. (User: ${UserName})`
+|`989`|`SYSTEM_CHANGE_STORAGE_POOL_STATUS_PROBLEMATIC_FROM_NON_OPERATIONAL`|`Info`|`Try to recover Data Center ${StoragePoolName}. Setting status to Non Responsive.`
+|`990`|`SYSTEM_MASTER_DOMAIN_NOT_IN_SYNC`|`Warning`|`Sync Error on Master Domain between Host ${VdsName} and oVirt Engine. Domain: ${StorageDomainName} is marked as Master in oVirt Engine database but not on the Storage side. Please consult with Support on how to fix this issue.`
+|`991`|`RECOVERY_STORAGE_POOL`|`Info`|`Data Center ${StoragePoolName} was recovered by ${UserName}`
+|`992`|`RECOVERY_STORAGE_POOL_FAILED`|`Error`|`Failed to recover Data Center ${StoragePoolName}  (User:${UserName})`
+|`993`|`SYSTEM_CHANGE_STORAGE_POOL_STATUS_RESET_IRS`|`Info`|`Data Center ${StoragePoolName} was reset. Setting status to Non Responsive (Elect new Storage Pool Manager).`
+|`994`|`CONNECT_STORAGE_SERVERS_FAILED`|`Warning`|`Failed to connect Host ${VdsName} to Storage Servers`
+|`995`|`CONNECT_STORAGE_POOL_FAILED`|`Warning`|`Failed to connect Host ${VdsName} to Storage Pool ${StoragePoolName}`
+|`996`|`STORAGE_DOMAIN_ERROR`|`Error`|`The error message for connection ${Connection} returned by VDSM was: ${ErrorMessage}`
+|`997`|`REFRESH_REPOSITORY_IMAGE_LIST_FAILED`|`Error`|`Refresh image list failed for domain(s): ${imageDomains}. Please check domain activity.`
+|`998`|`REFRESH_REPOSITORY_IMAGE_LIST_SUCCEEDED`|`Info`|`Refresh image list succeeded for domain(s): ${imageDomains}`
+|`999`|`STORAGE_ALERT_VG_METADATA_CRITICALLY_FULL`|`Error`|`The system has reached the 80% watermark on the VG metadata area size on ${StorageDomainName}.\nThis is due to a high number of Vdisks or large Vdisks size allocated on this specific VG.`
+|`1000`|`STORAGE_ALERT_SMALL_VG_METADATA`|`Warning`|`The allocated VG metadata area size is smaller than 50MB on ${StorageDomainName},\nwhich might limit its capacity (the number of Vdisks and/or their size).`
+|`1001`|`USER_RUN_VM_FAILURE_STATELESS_SNAPSHOT_LEFT`|`Error`|`Failed to start VM ${VmName}, because exist snapshot for stateless state. Snapshot will be deleted.`
+|`1002`|`USER_ATTACH_STORAGE_DOMAINS_TO_POOL`|`Info`|`Storage Domains were attached to Data Center ${StoragePoolName} by ${UserName}`
+|`1003`|`USER_ATTACH_STORAGE_DOMAINS_TO_POOL_FAILED`|`Error`|`Failed to attach Storage Domains to Data Center ${StoragePoolName}. (User: ${UserName})`
+|`1004`|`STORAGE_DOMAIN_TASKS_ERROR`|`Warning`|`Storage Domain ${StorageDomainName} is down while there are tasks running on it. These tasks may fail.`
+|`1005`|`UPDATE_OVF_FOR_STORAGE_POOL_FAILED`|`Warning`|`Failed to update VMs/Templates OVF data in Data Center ${StoragePoolName}.`
+|`1006`|`UPGRADE_STORAGE_POOL_ENCOUNTERED_PROBLEMS`|`Warning`|`Data Center ${StoragePoolName} has encountered problems during upgrade process.`
+|`1007`|`REFRESH_REPOSITORY_IMAGE_LIST_INCOMPLETE`|`Warning`|`Refresh image list probably incomplete for domain ${imageDomain}, only ${imageListSize} images discovered.`
+|`1008`|`NUMBER_OF_LVS_ON_STORAGE_DOMAIN_EXCEEDED_THRESHOLD`|`Warning`|`The number of LVs on the domain ${storageDomainName} exceeded ${maxNumOfLVs}, you are approaching the limit where performance may degrade.`
+|`1009`|`USER_DEACTIVATE_STORAGE_DOMAIN_OVF_UPDATE_INCOMPLETE`|`Warning`|`Failed to deactivate Storage Domain ${StorageDomainName} as the engine was restarted during the operation, please retry. (Data Center ${StoragePoolName}).`
+|`1010`|`RELOAD_CONFIGURATIONS_SUCCESS`|`Info`|`System Configurations reloaded successfully.`
+|`1011`|`RELOAD_CONFIGURATIONS_FAILURE`|`Error`|`System Configurations failed to reload.`
+|`1012`|`NETWORK_ACTIVATE_VM_INTERFACE_SUCCESS`|`Info`|`Network Interface ${InterfaceName} (${InterfaceType}) was plugged to VM ${VmName}. (User: ${UserName})`
+|`1013`|`NETWORK_ACTIVATE_VM_INTERFACE_FAILURE`|`Error`|`Failed to plug Network Interface ${InterfaceName} (${InterfaceType}) to VM ${VmName}. (User: ${UserName})`
+|`1014`|`NETWORK_DEACTIVATE_VM_INTERFACE_SUCCESS`|`Info`|`Network Interface ${InterfaceName} (${InterfaceType}) was unplugged from VM ${VmName}. (User: ${UserName})`
+|`1015`|`NETWORK_DEACTIVATE_VM_INTERFACE_FAILURE`|`Error`|`Failed to unplug Network Interface ${InterfaceName} (${InterfaceType}) from VM ${VmName}. (User: ${UserName})`
+|`1016`|`UPDATE_FOR_OVF_STORES_FAILED`|`Warning`|`Failed to update OVF disks ${DisksIds}, OVF data isn't updated on those OVF stores (Data Center ${DataCenterName}, Storage Domain ${StorageDomainName}).`
+|`1017`|`RETRIEVE_OVF_STORE_FAILED`|`Warning`|`Failed to retrieve VMs and Templates from the OVF disk of Storage Domain ${StorageDomainName}.`
+|`1018`|`OVF_STORE_DOES_NOT_EXISTS`|`Warning`|`This Data center compatibility version does not support importing a data domain with its entities (VMs and Templates). The imported domain will be imported without them.`
+|`1019`|`UPDATE_DESCRIPTION_FOR_DISK_FAILED`|`Error`|`Failed to update the meta data description of disk ${DiskName} (Data Center ${DataCenterName}, Storage Domain ${StorageDomainName}).`
+|`1020`|`UPDATE_DESCRIPTION_FOR_DISK_SKIPPED_SINCE_STORAGE_DOMAIN_NOT_ACTIVE`|`Warning`|`Not updating the metadata of Disk ${DiskName} (Data Center ${DataCenterName}. Since the Storage Domain ${StorageDomainName} is not in active.`
+|`1022`|`USER_REFRESH_LUN_STORAGE_DOMAIN`|`Info`|`Resize LUNs operation succeeded.`
+|`1023`|`USER_REFRESH_LUN_STORAGE_DOMAIN_FAILED`|`Error`|`Failed to resize LUNs.`
+|`1024`|`USER_REFRESH_LUN_STORAGE_DIFFERENT_SIZE_DOMAIN_FAILED`|`Error`|`Failed to resize LUNs.\n Not all the hosts are seeing the same LUN size.`
+|`1025`|`VM_PAUSED`|`Info`|`VM ${VmName} has been paused.`
+|`1026`|`FAILED_TO_STORE_ENTIRE_DISK_FIELD_IN_DISK_DESCRIPTION_METADATA`|`Warning`|`Failed to store field ${DiskFieldName} as a part of ${DiskAlias}'s description metadata due to storage space limitations. The field ${DiskFieldName} will be truncated.`
+|`1027`|`FAILED_TO_STORE_ENTIRE_DISK_FIELD_AND_REST_OF_FIELDS_IN_DISK_DESCRIPTION_METADATA`|`Warning`|`Failed to store field ${DiskFieldName} as a part of ${DiskAlias}'s description metadata due to storage space limitations. The value will be truncated and the following fields will not be stored at all: ${DiskFieldsNames}.`
+|`1028`|`FAILED_TO_STORE_DISK_FIELDS_IN_DISK_DESCRIPTION_METADATA`|`Warning`|`Failed to store the following fields in the description metadata of disk ${DiskAlias} due to storage space limitations: ${DiskFieldsNames}.`
+|`1029`|`STORAGE_DOMAIN_MOVED_TO_MAINTENANCE`|`Info`|`Storage Domain ${StorageDomainName} (Data Center ${StoragePoolName}) successfully moved to Maintenance as it's no longer accessed by any Host of the Data Center.`
+|`1030`|`USER_DEACTIVATED_LAST_MASTER_STORAGE_DOMAIN`|`Info`|`Storage Domain ${StorageDomainName} (Data Center ${StoragePoolName}) was deactivated.`
+|`1031`|`TRANSFER_IMAGE_INITIATED`|`Info`|`Image ${TransferType} with disk ${DiskAlias} was initiated by ${UserName}.`
+|`1032`|`TRANSFER_IMAGE_SUCCEEDED`|`Info`|`Image ${TransferType} with disk ${DiskAlias} succeeded.`
+|`1033`|`TRANSFER_IMAGE_CANCELLED`|`Info`|`Image ${TransferType} with disk ${DiskAlias} was cancelled.`
+|`1034`|`TRANSFER_IMAGE_FAILED`|`Error`|`Image ${TransferType} with disk ${DiskAlias} failed.`
+|`1035`|`TRANSFER_IMAGE_TEARDOWN_FAILED`|`Info`|`Failed to tear down image ${DiskAlias} after image transfer session.`
+|`1036`|`USER_SCAN_STORAGE_DOMAIN_FOR_UNREGISTERED_DISKS`|`Info`|`Storage Domain ${StorageDomainName} has finished to scan for unregistered disks by ${UserName}.`
+|`1037`|`USER_SCAN_STORAGE_DOMAIN_FOR_UNREGISTERED_DISKS_FAILED`|`Error`|`Storage Domain ${StorageDomainName} failed to scan for unregistered disks by ${UserName}.`
+|`1039`|`LUNS_BROKE_SD_PASS_DISCARD_SUPPORT`|`Warning`|`Luns with IDs: [${LunsIds}] were updated in the DB but caused the storage domain ${StorageDomainName} (ID ${storageDomainId}) to stop supporting passing discard from the guest to the underlying storage. Please configure these luns' discard support in the underlying storage or disable 'Enable Discard' for vm disks on this storage domain.`
+|`1040`|`DISKS_WITH_ILLEGAL_PASS_DISCARD_EXIST`|`Warning`|`Disks with IDs: [${DisksIds}] have their 'Enable Discard' on even though the underlying storage does not support it. Please configure the underlying storage to support discard or disable 'Enable Discard' for these disks.`
+|`1041`|`USER_REMOVE_DEVICE_FROM_STORAGE_DOMAIN_FAILED`|`Error`|`Failed to remove ${LunId} from Storage Domain ${StorageDomainName}. (User: ${UserName})`
+|`1042`|`USER_REMOVE_DEVICE_FROM_STORAGE_DOMAIN`|`Info`|`${LunId} was removed from Storage Domain ${StorageDomainName}. (User: ${UserName})`
+|`1043`|`USER_REMOVE_DEVICE_FROM_STORAGE_DOMAIN_STARTED`|`Info`|`Started to remove ${LunId} from Storage Domain ${StorageDomainName}. (User: ${UserName})`
+|`1044`|`ILLEGAL_STORAGE_DOMAIN_DISCARD_AFTER_DELETE`|`Warning`|`The storage domain with id ${storageDomainId} has its 'Discard After Delete' enabled even though the underlying storage does not support discard. Therefore, disks and snapshots on this storage domain will not be discarded before they are removed.`
+|`1045`|`LUNS_BROKE_SD_DISCARD_AFTER_DELETE_SUPPORT`|`Warning`|`Luns with IDs: [${LunsIds}] were updated in the DB but caused the storage domain ${StorageDomainName} (ID ${storageDomainId}) to stop supporting discard after delete. Please configure these luns' discard support in the underlying storage or disable 'Discard After Delete' for this storage domain.`
+|`1046`|`STORAGE_DOMAINS_COULD_NOT_BE_SYNCED`|`Info`|`Storage domains with IDs [${StorageDomainsIds}] could not be synchronized. To synchronize them, please move them to maintenance and then activate.`
+|`1048`|`DIRECT_LUNS_COULD_NOT_BE_SYNCED`|`Info`|`Direct LUN disks with IDs [${DirectLunDisksIds}] could not be synchronized because there was no active host in the data center. Please synchronize them to get their latest information from the storage.`
+|`1052`|`OVF_STORES_UPDATE_IGNORED`|`Normal`|`OVFs update was ignored - nothing to update for storage domain '${StorageDomainName}'`
+|`1060`|`UPLOAD_IMAGE_CLIENT_ERROR`|`Error`|`Unable to upload image to disk ${DiskId} due to a client error. Make sure the selected file is readable.`
+|`1061`|`UPLOAD_IMAGE_XHR_TIMEOUT_ERROR`|`Error`|`Unable to upload image to disk ${DiskId} due to a request timeout error. The upload bandwidth might be too slow. Please try to reduce the chunk size: 'engine-config -s UploadImageChunkSizeKB`
+|`1062`|`UPLOAD_IMAGE_NETWORK_ERROR`|`Error`|`Unable to upload image to disk ${DiskId} due to a network error. Ensure that ovirt-imageio service is installed and configured and that ovirt-engine's CA certificate is registered as a trusted CA in the browser. The certificate can be fetched from ${EngineUrl}/ovirt-engine/services/pki-resource?resource`
+|`1063`|`DOWNLOAD_IMAGE_NETWORK_ERROR`|`Error`|`Unable to download disk ${DiskId} due to a network error. Make sure ovirt-imageio service is installed and configured, and ovirt-engine's certificate is registered as a valid CA in the browser. The certificate can be fetched from \https://<engine_url>/ovirt-engine/services/pki-resource?resource`
+|`1064`|`TRANSFER_IMAGE_STOPPED_BY_SYSTEM_TICKET_RENEW_FAILURE`|`Error`|`Transfer was stopped by system. Reason: failure in transfer image ticket renewal.`
+|`1065`|`TRANSFER_IMAGE_STOPPED_BY_SYSTEM_MISSING_TICKET`|`Error`|`Transfer was stopped by system. Reason: missing transfer image ticket.`
+|`1067`|`TRANSFER_IMAGE_STOPPED_BY_SYSTEM_MISSING_HOST`|`Error`|`Transfer was stopped by system. Reason: Could not find a suitable host for image data transfer.`
+|`1068`|`TRANSFER_IMAGE_STOPPED_BY_SYSTEM_FAILED_TO_CREATE_TICKET`|`Error`|`Transfer was stopped by system. Reason: failed to create a signed image ticket.`
+|`1069`|`TRANSFER_IMAGE_STOPPED_BY_SYSTEM_FAILED_TO_ADD_TICKET_TO_DAEMON`|`Error`|`Transfer was stopped by system. Reason: failed to add image ticket to ovirt-imageio-daemon.`
+|`1070`|`TRANSFER_IMAGE_STOPPED_BY_SYSTEM_FAILED_TO_ADD_TICKET_TO_PROXY`|`Error`|`Transfer was stopped by system. Reason: failed to add image ticket to ovirt-imageio.`
+|`1071`|`UPLOAD_IMAGE_PAUSED_BY_SYSTEM_TIMEOUT`|`Error`|`Upload was paused by system. Reason: timeout due to transfer inactivity.`
+|`1072`|`DOWNLOAD_IMAGE_CANCELED_TIMEOUT`|`Error`|`Download was canceled by system. Reason: timeout due to transfer inactivity.`
+|`1073`|`TRANSFER_IMAGE_PAUSED_BY_USER`|`Normal`|`Image transfer was paused by user (${UserName}).`
+|`1074`|`TRANSFER_IMAGE_RESUMED_BY_USER`|`Normal`|`Image transfer was resumed by user (${UserName}).`
+|`1098`|`NETWORK_UPDATE_DISPLAY_FOR_HOST_WITH_ACTIVE_VM`|`Warning`|`Display Network was updated on Host ${VdsName} with active VMs attached. The change will be applied to those VMs after their next reboot. Running VMs might loose display connectivity until then.`
+|`1099`|`NETWORK_UPDATE_DISPLAY_FOR_CLUSTER_WITH_ACTIVE_VM`|`Warning`|`Display Network (${NetworkName}) was updated for Cluster ${ClusterName} with active VMs attached. The change will be applied to those VMs after their next reboot.`
+|`1100`|`NETWORK_UPDATE_DISPLAY_TO_CLUSTER`|`Info`|`Update Display Network (${NetworkName}) for Cluster ${ClusterName}. (User: ${UserName})`
+|`1101`|`NETWORK_UPDATE_DISPLAY_TO_CLUSTER_FAILED`|`Error`|`Failed to update Display Network (${NetworkName}) for Cluster ${ClusterName}. (User: ${UserName})`
+|`1102`|`NETWORK_UPDATE_NETWORK_TO_VDS_INTERFACE`|`Info`|`Update Network ${NetworkName} in Host ${VdsName}. (User: ${UserName})`
+|`1103`|`NETWORK_UPDATE_NETWORK_TO_VDS_INTERFACE_FAILED`|`Error`|`Failed to update Network ${NetworkName} in Host ${VdsName}. (User: ${UserName})`
+|`1104`|`NETWORK_COMMINT_NETWORK_CHANGES`|`Info`|`Network changes were saved on host ${VdsName}`
+|`1105`|`NETWORK_COMMINT_NETWORK_CHANGES_FAILED`|`Error`|`Failed to commit network changes on ${VdsName}`
+|`1106`|`NETWORK_HOST_USING_WRONG_CLUSER_VLAN`|`Warning`|`${VdsName} is having wrong vlan id: ${VlanIdHost}, expected vlan id: ${VlanIdCluster}`
+|`1107`|`NETWORK_HOST_MISSING_CLUSER_VLAN`|`Warning`|`${VdsName} is missing vlan id: ${VlanIdCluster} that is expected by the cluster`
+|`1108`|`VDS_NETWORK_MTU_DIFFER_FROM_LOGICAL_NETWORK`|`Info`|
+|`1109`|`BRIDGED_NETWORK_OVER_MULTIPLE_INTERFACES`|`Warning`|`Bridged network ${NetworkName} is attached to multiple interfaces: ${Interfaces} on Host ${VdsName}.`
+|`1110`|`VDS_NETWORKS_OUT_OF_SYNC`|`Warning`|`Host ${VdsName}'s following network(s) are not synchronized with their Logical Network configuration: ${Networks}.`
+|`1111`|`VM_MIGRATION_FAILED_DURING_MOVE_TO_MAINTENANCE_NO_DESTINATION_VDS`|`Error`|`Migration failed${DueToMigrationError} while Source Host is in 'preparing for maintenance' state.\n  Consider manual intervention\: stopping/migrating Vms as Host's state will not\n  turn to maintenance while VMs are still running on it.(VM: ${VmName}, Source: ${VdsName}).`
+|`1112`|`NETWORK_UPDTAE_NETWORK_ON_CLUSTER`|`Info`|`Network ${NetworkName} on Cluster ${ClusterName} updated.`
+|`1113`|`NETWORK_UPDTAE_NETWORK_ON_CLUSTER_FAILED`|`Error`|`Failed to update Network ${NetworkName} on Cluster ${ClusterName}.`
+|`1114`|`NETWORK_UPDATE_NETWORK`|`Info`|`Network ${NetworkName} was updated on Data Center: ${StoragePoolName}`
+|`1115`|`NETWORK_UPDATE_NETWORK_FAILED`|`Error`|`Failed to update Network ${NetworkName} on Data Center: ${StoragePoolName}`
+|`1116`|`NETWORK_UPDATE_VM_INTERFACE_LINK_UP`|`Info`|`Link State is UP.`
+|`1117`|`NETWORK_UPDATE_VM_INTERFACE_LINK_DOWN`|`Info`|`Link State is DOWN.`
+|`1118`|`INVALID_BOND_INTERFACE_FOR_MANAGEMENT_NETWORK_CONFIGURATION`|`Error`|`Failed to configure management network on host ${VdsName}. Host ${VdsName} has an invalid bond interface (${InterfaceName} contains less than 2 active slaves) for the management network configuration.`
+|`1119`|`VLAN_ID_MISMATCH_FOR_MANAGEMENT_NETWORK_CONFIGURATION`|`Error`|`Failed to configure management network on host ${VdsName}. Host ${VdsName} has an interface ${InterfaceName} for the management network configuration with VLAN-ID (${VlanId}), which is different from data-center definition (${MgmtVlanId}).`
+|`1120`|`SETUP_NETWORK_FAILED_FOR_MANAGEMENT_NETWORK_CONFIGURATION`|`Error`|`Failed to configure management network on host ${VdsName} due to setup networks failure.`
+|`1121`|`PERSIST_NETWORK_FAILED_FOR_MANAGEMENT_NETWORK`|`Warning`|`Failed to configure management network on host ${VdsName} due to failure in persisting the management network configuration.`
+|`1122`|`ADD_VNIC_PROFILE`|`Info`|`VM network interface profile ${VnicProfileName} was added to network ${NetworkName} in Data Center: ${DataCenterName}. (User: ${UserName})`
+|`1123`|`ADD_VNIC_PROFILE_FAILED`|`Error`|`Failed to add VM network interface profile ${VnicProfileName} to network ${NetworkName} in Data Center: ${DataCenterName} (User: ${UserName})`
+|`1124`|`UPDATE_VNIC_PROFILE`|`Info`|`VM network interface profile ${VnicProfileName} was updated for network ${NetworkName} in Data Center: ${DataCenterName}. (User: ${UserName})`
+|`1125`|`UPDATE_VNIC_PROFILE_FAILED`|`Error`|`Failed to update VM network interface profile ${VnicProfileName} for network ${NetworkName} in Data Center: ${DataCenterName}. (User: ${UserName})`
+|`1126`|`REMOVE_VNIC_PROFILE`|`Info`|`VM network interface profile ${VnicProfileName} was removed from network ${NetworkName} in Data Center: ${DataCenterName}. (User: ${UserName})`
+|`1127`|`REMOVE_VNIC_PROFILE_FAILED`|`Error`|`Failed to remove VM network interface profile ${VnicProfileName} from network ${NetworkName} in Data Center: ${DataCenterName}. (User: ${UserName})`
+|`1128`|`NETWORK_WITHOUT_INTERFACES`|`Warning`|`Network ${NetworkName} is not attached to any interface on host ${VdsName}.`
+|`1129`|`VNIC_PROFILE_UNSUPPORTED_FEATURES`|`Warning`|`VM ${VmName} has network interface ${NicName} which is using profile ${VnicProfile} with unsupported feature(s) '${UnsupportedFeatures}' by VM cluster ${ClusterName} (version ${CompatibilityVersion}).`
+|`1131`|`REMOVE_NETWORK_BY_LABEL_FAILED`|`Error`|`Network ${Network} cannot be removed from the following hosts: ${HostNames} in data-center ${StoragePoolName}.`
+|`1132`|`LABEL_NETWORK`|`Info`|`Network ${NetworkName} was labeled ${Label} in data-center ${StoragePoolName}.`
+|`1133`|`LABEL_NETWORK_FAILED`|`Error`|`Failed to label network ${NetworkName} with label ${Label} in data-center ${StoragePoolName}.`
+|`1134`|`UNLABEL_NETWORK`|`Info`|`Network ${NetworkName} was unlabeled in data-center ${StoragePoolName}.`
+|`1135`|`UNLABEL_NETWORK_FAILED`|`Error`|`Failed to unlabel network ${NetworkName} in data-center ${StoragePoolName}.`
+|`1136`|`LABEL_NIC`|`Info`|`Network interface card ${NicName} was labeled ${Label} on host ${VdsName}.`
+|`1137`|`LABEL_NIC_FAILED`|`Error`|`Failed to label network interface card ${NicName} with label ${Label} on host ${VdsName}.`
+|`1138`|`UNLABEL_NIC`|`Info`|`Label ${Label} was removed from network interface card ${NicName} on host ${VdsName}.`
+|`1139`|`UNLABEL_NIC_FAILED`|`Error`|`Failed to remove label ${Label} from network interface card ${NicName} on host ${VdsName}.`
+|`1140`|`SUBNET_REMOVED`|`Info`|`Subnet ${SubnetName} was removed from provider ${ProviderName}. (User: ${UserName})`
+|`1141`|`SUBNET_REMOVAL_FAILED`|`Error`|`Failed to remove subnet ${SubnetName} from provider ${ProviderName}. (User: ${UserName})`
+|`1142`|`SUBNET_ADDED`|`Info`|`Subnet ${SubnetName} was added on provider ${ProviderName}. (User: ${UserName})`
+|`1143`|`SUBNET_ADDITION_FAILED`|`Error`|`Failed to add subnet ${SubnetName} on provider ${ProviderName}. (User: ${UserName})`
+|`1144`|`CONFIGURE_NETWORK_BY_LABELS_WHEN_CHANGING_CLUSTER_FAILED`|`Error`|`Failed to configure networks on host ${VdsName} while changing its cluster.`
+|`1145`|`PERSIST_NETWORK_ON_HOST`|`Info`|`(${Sequence}/${Total}): Applying changes for network(s) ${NetworkNames} on host ${VdsName}. (User: ${UserName})`
+|`1146`|`PERSIST_NETWORK_ON_HOST_FINISHED`|`Info`|`(${Sequence}/${Total}): Successfully applied changes for network(s) ${NetworkNames} on host ${VdsName}. (User: ${UserName})`
+|`1147`|`PERSIST_NETWORK_ON_HOST_FAILED`|`Error`|`(${Sequence}/${Total}): Failed to apply changes for network(s) ${NetworkNames} on host ${VdsName}. (User: ${UserName})`
+|`1148`|`MULTI_UPDATE_NETWORK_NOT_POSSIBLE`|`Warning`|`Cannot apply network ${NetworkName} changes to hosts on unsupported data center ${StoragePoolName}. (User: ${UserName})`
+|`1149`|`REMOVE_PORT_FROM_EXTERNAL_PROVIDER_FAILED`|`Warning`|`Failed to remove vNIC ${NicName} from external network provider ${ProviderName}. The vNIC can be identified on the provider by device id ${NicId}.`
+|`1150`|`IMPORTEXPORT_EXPORT_VM`|`Info`|`Vm ${VmName} was exported successfully to ${StorageDomainName}`
+|`1151`|`IMPORTEXPORT_EXPORT_VM_FAILED`|`Error`|`Failed to export Vm ${VmName} to ${StorageDomainName}`
+|`1152`|`IMPORTEXPORT_IMPORT_VM`|`Info`|`Vm ${VmName} was imported successfully to Data Center ${StoragePoolName}, Cluster ${ClusterName}`
+|`1153`|`IMPORTEXPORT_IMPORT_VM_FAILED`|`Error`|`Failed to import Vm ${VmName} to Data Center ${StoragePoolName}, Cluster ${ClusterName}`
+|`1154`|`IMPORTEXPORT_REMOVE_TEMPLATE`|`Info`|`Template ${VmTemplateName} was removed from ${StorageDomainName}`
+|`1155`|`IMPORTEXPORT_REMOVE_TEMPLATE_FAILED`|`Error`|`Failed to remove Template ${VmTemplateName} from ${StorageDomainName}`
+|`1156`|`IMPORTEXPORT_EXPORT_TEMPLATE`|`Info`|`Template ${VmTemplateName} was exported successfully to ${StorageDomainName}`
+|`1157`|`IMPORTEXPORT_EXPORT_TEMPLATE_FAILED`|`Error`|`Failed to export Template ${VmTemplateName} to ${StorageDomainName}`
+|`1158`|`IMPORTEXPORT_IMPORT_TEMPLATE`|`Info`|`Template ${VmTemplateName} was imported successfully to Data Center ${StoragePoolName}, Cluster ${ClusterName}`
+|`1159`|`IMPORTEXPORT_IMPORT_TEMPLATE_FAILED`|`Error`|`Failed to import Template ${VmTemplateName} to Data Center ${StoragePoolName}, Cluster ${ClusterName}`
+|`1160`|`IMPORTEXPORT_REMOVE_VM`|`Info`|`Vm ${VmName} was removed from ${StorageDomainName}`
+|`1161`|`IMPORTEXPORT_REMOVE_VM_FAILED`|`Error`|`Failed to remove Vm ${VmName} remove from ${StorageDomainName}`
+|`1162`|`IMPORTEXPORT_STARTING_EXPORT_VM`|`Info`|`Starting export Vm ${VmName} to ${StorageDomainName}`
+|`1163`|`IMPORTEXPORT_STARTING_IMPORT_TEMPLATE`|`Info`|`Starting to import Template ${VmTemplateName} to Data Center ${StoragePoolName}, Cluster ${ClusterName}`
+|`1164`|`IMPORTEXPORT_STARTING_EXPORT_TEMPLATE`|`Info`|`Starting to export Template ${VmTemplateName} to ${StorageDomainName}`
+|`1165`|`IMPORTEXPORT_STARTING_IMPORT_VM`|`Info`|`Starting to import Vm ${VmName} to Data Center ${StoragePoolName}, Cluster ${ClusterName}`
+|`1166`|`IMPORTEXPORT_STARTING_REMOVE_TEMPLATE`|`Info`|`Starting to remove Template ${VmTemplateName} remove ${StorageDomainName}`
+|`1167`|`IMPORTEXPORT_STARTING_REMOVE_VM`|`Info`|`Starting to remove Vm ${VmName} remove from ${StorageDomainName}`
+|`1168`|`IMPORTEXPORT_FAILED_TO_IMPORT_VM`|`Warning`|`Failed to read VM '${ImportedVmName}' OVF, it may be corrupted. Underlying error message: ${ErrorMessage}`
+|`1169`|`IMPORTEXPORT_FAILED_TO_IMPORT_TEMPLATE`|`Warning`|`Failed to read Template '${Template}' OVF, it may be corrupted. Underlying error message: ${ErrorMessage}`
+|`1170`|`IMPORTEXPORT_IMPORT_TEMPLATE_INVALID_INTERFACES`|`Normal`|`While importing Template ${EntityName}, the Network/s ${Networks} were found to be Non-VM Networks or do not exist in Cluster. Network Name was not set in the Interface/s ${Interfaces}.`
+|`1171`|`USER_ACCOUNT_PASSWORD_EXPIRED`|`Error`|`User ${UserName} cannot login, as the user account password has expired. Please contact the system administrator.`
+|`1172`|`AUTH_FAILED_INVALID_CREDENTIALS`|`Error`|`User ${UserName} cannot login, please verify the username and password.`
+|`1173`|`AUTH_FAILED_CLOCK_SKEW_TOO_GREAT`|`Error`|`User ${UserName} cannot login, the engine clock is not synchronized with directory services. Please contact the system administrator.`
+|`1174`|`AUTH_FAILED_NO_KDCS_FOUND`|`Error`|`User ${UserName} cannot login, authentication domain cannot be found. Please contact the system administrator.`
+|`1175`|`AUTH_FAILED_DNS_ERROR`|`Error`|`User ${UserName} cannot login, there's an error in DNS configuration. Please contact the system administrator.`
+|`1176`|`AUTH_FAILED_OTHER`|`Error`|`User ${UserName} cannot login, unknown kerberos error. Please contact the system administrator.`
+|`1177`|`AUTH_FAILED_DNS_COMMUNICATION_ERROR`|`Error`|`User ${UserName} cannot login, cannot lookup DNS for SRV records. Please contact the system administrator.`
+|`1178`|`AUTH_FAILED_CONNECTION_TIMED_OUT`|`Error`|`User ${UserName} cannot login, connection to LDAP server has timed out. Please contact the system administrator.`
+|`1179`|`AUTH_FAILED_WRONG_REALM`|`Error`|`User ${UserName} cannot login, please verify your domain name.`
+|`1180`|`AUTH_FAILED_CONNECTION_ERROR`|`Error`|`User ${UserName} cannot login, connection refused or some configuration problems exist. Possible DNS error. Please contact the system administrator.`
+|`1181`|`AUTH_FAILED_CANNOT_FIND_LDAP_SERVER_FOR_DOMAIN`|`Error`|`User ${UserName} cannot login, cannot find valid LDAP server for domain. Please contact the system administrator.`
+|`1182`|`AUTH_FAILED_NO_USER_INFORMATION_WAS_FOUND`|`Error`|`User ${UserName} cannot login, no user information was found. Please contact the system administrator.`
+|`1183`|`AUTH_FAILED_CLIENT_NOT_FOUND_IN_KERBEROS_DATABASE`|`Error`|`User ${UserName} cannot login, user was not found in domain. Please contact the system administrator.`
+|`1184`|`AUTH_FAILED_INTERNAL_KERBEROS_ERROR`|`Error`|`User ${UserName} cannot login, an internal error has ocurred in the Kerberos implementation of the JVM. Please contact the system administrator.`
+|`1185`|`USER_ACCOUNT_EXPIRED`|`Error`|`The account for ${UserName} got expired. Please contact the system administrator.`
+|`1186`|`IMPORTEXPORT_NO_PROXY_HOST_AVAILABLE_IN_DC`|`Error`|`No Host in Data Center '${StoragePoolName}' can serve as a proxy to retrieve remote VMs information (User: ${UserName}).`
+|`1187`|`IMPORTEXPORT_HOST_CANNOT_SERVE_AS_PROXY`|`Error`|`Host ${VdsName} cannot be used as a proxy to retrieve remote VMs information since it is not up (User: ${UserName}).`
+|`1188`|`IMPORTEXPORT_PARTIAL_VM_MISSING_ENTITIES`|`Warning`|`The following entities could not be verified and will not be part of the imported VM ${VmName}: '${MissingEntities}' (User: ${UserName}).`
+|`1189`|`IMPORTEXPORT_IMPORT_VM_FAILED_UPDATING_OVF`|`Error`|`Failed to import Vm ${VmName} to Data Center ${StoragePoolName}, Cluster ${ClusterName}, could not update VM data in export.`
+|`1190`|`USER_RESTORE_FROM_SNAPSHOT_START`|`Info`|`Restoring VM ${VmName} from snapshot started by user ${UserName}.`
+|`1191`|`VM_DISK_ALREADY_CHANGED`|`Info`|`CD ${DiskName} is already inserted to VM ${VmName}, disk change action was skipped. User: ${UserName}.`
+|`1192`|`VM_DISK_ALREADY_EJECTED`|`Info`|`CD is already ejected from VM ${VmName}, disk change action was skipped. User: ${UserName}.`
+|`1193`|`IMPORTEXPORT_STARTING_CONVERT_VM`|`Info`|`Starting to convert Vm ${VmName}`
+|`1194`|`IMPORTEXPORT_CONVERT_FAILED`|`Info`|`Failed to convert Vm ${VmName}`
+|`1195`|`IMPORTEXPORT_CANNOT_GET_OVF`|`Info`|`Failed to get the configuration of converted Vm ${VmName}`
+|`1196`|`IMPORTEXPORT_INVALID_OVF`|`Info`|`Failed to process the configuration of converted Vm ${VmName}`
+|`1197`|`IMPORTEXPORT_PARTIAL_TEMPLATE_MISSING_ENTITIES`|`Warning`|`The following entities could not be verified and will not be part of the imported Template ${VmTemplateName}: '${MissingEntities}' (User: ${UserName}).`
+|`1200`|`ENTITY_RENAMED`|`Info`|`${EntityType} ${OldEntityName} was renamed from ${OldEntityName} to ${NewEntityName} by ${UserName}.`
+|`1201`|`UPDATE_HOST_NIC_VFS_CONFIG`|`Info`|`The VFs configuration of network interface card ${NicName} on host ${VdsName} was updated.`
+|`1202`|`UPDATE_HOST_NIC_VFS_CONFIG_FAILED`|`Error`|`Failed to update the VFs configuration of network interface card ${NicName} on host ${VdsName}.`
+|`1203`|`ADD_VFS_CONFIG_NETWORK`|`Info`|`Network ${NetworkName} was added to the VFs configuration of network interface card ${NicName} on host ${VdsName}.`
+|`1204`|`ADD_VFS_CONFIG_NETWORK_FAILED`|`Info`|`Failed to add ${NetworkName} to the VFs configuration of network interface card ${NicName} on host ${VdsName}.`
+|`1205`|`REMOVE_VFS_CONFIG_NETWORK`|`Info`|`Network ${NetworkName} was removed from the VFs configuration of network interface card ${NicName} on host ${VdsName}.`
+|`1206`|`REMOVE_VFS_CONFIG_NETWORK_FAILED`|`Info`|`Failed to remove ${NetworkName} from the VFs configuration of network interface card ${NicName} on host ${VdsName}.`
+|`1207`|`ADD_VFS_CONFIG_LABEL`|`Info`|`Label ${Label} was added to the VFs configuration of network interface card ${NicName} on host ${VdsName}.`
+|`1208`|`ADD_VFS_CONFIG_LABEL_FAILED`|`Info`|`Failed to add ${Label} to the VFs configuration of network interface card ${NicName} on host ${VdsName}.`
+|`1209`|`REMOVE_VFS_CONFIG_LABEL`|`Info`|`Label ${Label} was removed from the VFs configuration of network interface card ${NicName} on host ${VdsName}.`
+|`1210`|`REMOVE_VFS_CONFIG_LABEL_FAILED`|`Info`|`Failed to remove ${Label} from the VFs configuration of network interface card ${NicName} on host ${VdsName}.`
+|`1211`|`USER_REDUCE_DOMAIN_DEVICES_STARTED`|`Info`|`Started to reduce Storage ${StorageDomainName} devices. (User: ${UserName}).`
+|`1212`|`USER_REDUCE_DOMAIN_DEVICES_FAILED_METADATA_DEVICES`|`Error`|`Failed to reduce Storage ${StorageDomainName}. The following devices contains the domain metadata ${deviceIds} and can't be reduced from the domain. (User: ${UserName}).`
+|`1213`|`USER_REDUCE_DOMAIN_DEVICES_FAILED`|`Error`|`Failed to reduce Storage ${StorageDomainName}. (User: ${UserName}).`
+|`1214`|`USER_REDUCE_DOMAIN_DEVICES_SUCCEEDED`|`Info`|`Storage ${StorageDomainName} has been reduced. (User: ${UserName}).`
+|`1215`|`USER_REDUCE_DOMAIN_DEVICES_FAILED_NO_FREE_SPACE`|`Error`|`Can't reduce Storage ${StorageDomainName}. There is not enough space on the destination devices of the storage domain. (User: ${UserName}).`
+|`1216`|`USER_REDUCE_DOMAIN_DEVICES_FAILED_TO_GET_DOMAIN_INFO`|`Error`|`Can't reduce Storage ${StorageDomainName}. Failed to get the domain info. (User: ${UserName}).`
+|`1217`|`CANNOT_IMPORT_VM_WITH_LEASE_COMPAT_VERSION`|`Warning`|`The VM ${VmName} has a VM lease defined yet will be imported without it as the VM compatibility version does not support VM leases.`
+|`1218`|`CANNOT_IMPORT_VM_WITH_LEASE_STORAGE_DOMAIN`|`Warning`|`The VM ${VmName} has a VM lease defined yet will be imported without it as the Storage Domain for the lease does not exist or is not active.`
+|`1219`|`FAILED_DETERMINE_STORAGE_DOMAIN_METADATA_DEVICES`|`Error`|`Failed to determine the metadata devices of Storage Domain ${StorageDomainName}.`
+|`1220`|`HOT_PLUG_LEASE_FAILED`|`Error`|`Failed to hot plug lease to the VM ${VmName}. The VM is running without a VM lease.`
+|`1221`|`HOT_UNPLUG_LEASE_FAILED`|`Error`|`Failed to hot unplug lease to the VM ${VmName}.`
+|`1222`|`DETACH_DOMAIN_WITH_VMS_AND_TEMPLATES_LEASES`|`Warning`|`The deactivated domain ${storageDomainName} contained leases for the following VMs/Templates: ${entitiesNames}, a part of those VMs will not run and need manual removal of the VM leases.`
+|`1223`|`IMPORTEXPORT_STARTING_EXPORT_VM_TO_OVA`|`Info`|`Starting to export Vm ${VmName} as a Virtual Appliance`
+|`1224`|`IMPORTEXPORT_EXPORT_VM_TO_OVA`|`Info`|`Vm ${VmName} was exported successfully as a Virtual Appliance to path ${OvaPath} on Host ${VdsName}`
+|`1225`|`IMPORTEXPORT_EXPORT_VM_TO_OVA_FAILED`|`Error`|`Failed to export Vm ${VmName} as a Virtual Appliance to path ${OvaPath} on Host ${VdsName}`
+|`1226`|`IMPORTEXPORT_STARTING_EXPORT_TEMPLATE_TO_OVA`|`Info`|`Starting to export Template ${VmTemplateName} as a Virtual Appliance`
+|`1227`|`IMPORTEXPORT_EXPORT_TEMPLATE_TO_OVA`|`Info`|`Template ${VmTemplateName} was exported successfully as a Virtual Appliance to path ${OvaPath} on Host ${VdsName}`
+|`1228`|`IMPORTEXPORT_EXPORT_TEMPLATE_TO_OVA_FAILED`|`Error`|`Failed to export Template ${VmTemplateName} as a Virtual Appliance to path ${OvaPath} on Host ${VdsName}`
+|`1300`|`NUMA_ADD_VM_NUMA_NODE_SUCCESS`|`Info`|`Add VM NUMA node successfully.`
+|`1301`|`NUMA_ADD_VM_NUMA_NODE_FAILED`|`Error`|`Add VM NUMA node failed.`
+|`1310`|`NUMA_UPDATE_VM_NUMA_NODE_SUCCESS`|`Info`|`Update VM NUMA node successfully.`
+|`1311`|`NUMA_UPDATE_VM_NUMA_NODE_FAILED`|`Error`|`Update VM NUMA node failed.`
+|`1320`|`NUMA_REMOVE_VM_NUMA_NODE_SUCCESS`|`Info`|`Remove VM NUMA node successfully.`
+|`1321`|`NUMA_REMOVE_VM_NUMA_NODE_FAILED`|`Error`|`Remove VM NUMA node failed.`
+|`1322`|`USER_ADD_VM_TEMPLATE_CREATE_TEMPLATE_FAILURE`|`Error`|`Failed to create Template ${VmTemplateName} or its disks from VM ${VmName}.`
+|`1323`|`USER_ADD_VM_TEMPLATE_ASSIGN_ILLEGAL_FAILURE`|`Error`|`Failed preparing Template ${VmTemplateName} for sealing (VM: ${VmName}).`
+|`1324`|`USER_ADD_VM_TEMPLATE_SEAL_FAILURE`|`Error`|`Failed to seal Template ${VmTemplateName} (VM: ${VmName}).`
+|`1325`|`USER_SPARSIFY_IMAGE_START`|`Info`|`Started to sparsify ${DiskAlias}`
+|`1326`|`USER_SPARSIFY_IMAGE_FINISH_SUCCESS`|`Info`|`${DiskAlias} sparsified successfully.`
+|`1327`|`USER_SPARSIFY_IMAGE_FINISH_FAILURE`|`Error`|`Failed to sparsify ${DiskAlias}.`
+|`1328`|`USER_AMEND_IMAGE_START`|`Info`|`Started to amend ${DiskAlias}`
+|`1329`|`USER_AMEND_IMAGE_FINISH_SUCCESS`|`Info`|`${DiskAlias} has been amended successfully.`
+|`1330`|`USER_AMEND_IMAGE_FINISH_FAILURE`|`Error`|`Failed to amend ${DiskAlias}.`
+|`1340`|`VM_DOES_NOT_FIT_TO_SINGLE_NUMA_NODE`|`Warning`|`VM ${VmName} does not fit to a single NUMA node on host ${HostName}. This may negatively impact its performance. Consider using vNUMA and NUMA pinning for this VM.`
+|`1400`|`ENTITY_RENAMED_INTERNALLY`|`Info`|`${EntityType} ${OldEntityName} was renamed from ${OldEntityName} to ${NewEntityName}.`
+|`1402`|`USER_LOGIN_ON_BEHALF_FAILED`|`Error`|`Failed to execute login on behalf - ${LoginOnBehalfLogInfo}.`
+|`1403`|`IRS_CONFIRMED_DISK_SPACE_LOW`|`Warning`|`Warning, low confirmed disk space. ${StorageDomainName} domain has ${DiskSpace} GB of confirmed free space.`
+|`2000`|`USER_HOTPLUG_DISK`|`Info`|`VM ${VmName} disk ${DiskAlias} was plugged by ${UserName}.`
+|`2001`|`USER_FAILED_HOTPLUG_DISK`|`Error`|`Failed to plug disk ${DiskAlias} to VM ${VmName} (User: ${UserName}).`
+|`2002`|`USER_HOTUNPLUG_DISK`|`Info`|`VM ${VmName} disk ${DiskAlias} was unplugged by ${UserName}.`
+|`2003`|`USER_FAILED_HOTUNPLUG_DISK`|`Error`|`Failed to unplug disk ${DiskAlias} from VM ${VmName} (User: ${UserName}).`
+|`2004`|`USER_COPIED_DISK`|`Info`|`User ${UserName} is copying disk ${DiskAlias} to domain ${StorageDomainName}.`
+|`2005`|`USER_FAILED_COPY_DISK`|`Error`|`User ${UserName} failed to copy disk ${DiskAlias} to domain ${StorageDomainName}.`
+|`2006`|`USER_COPIED_DISK_FINISHED_SUCCESS`|`Info`|`User ${UserName} finished copying disk ${DiskAlias} to domain ${StorageDomainName}.`
+|`2007`|`USER_COPIED_DISK_FINISHED_FAILURE`|`Error`|`User ${UserName} finished with error copying disk ${DiskAlias} to domain ${StorageDomainName}.`
+|`2008`|`USER_MOVED_DISK`|`Info`|`User ${UserName} moving disk ${DiskAlias} to domain ${StorageDomainName}.`
+|`2009`|`USER_FAILED_MOVED_VM_DISK`|`Error`|`User ${UserName} failed to move disk ${DiskAlias} to domain ${StorageDomainName}.`
+|`2010`|`USER_MOVED_DISK_FINISHED_SUCCESS`|`Info`|`User ${UserName} finished moving disk ${DiskAlias} to domain ${StorageDomainName}.`
+|`2011`|`USER_MOVED_DISK_FINISHED_FAILURE`|`Error`|`User ${UserName} have failed to move disk ${DiskAlias} to domain ${StorageDomainName}.`
+|`2012`|`USER_FINISHED_REMOVE_DISK_NO_DOMAIN`|`Info`|`Disk ${DiskAlias} was successfully removed (User ${UserName}).`
+|`2013`|`USER_FINISHED_FAILED_REMOVE_DISK_NO_DOMAIN`|`Warning`|`Failed to remove disk ${DiskAlias} (User ${UserName}).`
+|`2014`|`USER_FINISHED_REMOVE_DISK`|`Info`|`Disk ${DiskAlias} was successfully removed from domain ${StorageDomainName} (User ${UserName}).`
+|`2015`|`USER_FINISHED_FAILED_REMOVE_DISK`|`Warning`|`Failed to remove disk ${DiskAlias} from storage domain ${StorageDomainName} (User: ${UserName}).`
+|`2016`|`USER_ATTACH_DISK_TO_VM`|`Info`|`Disk ${DiskAlias} was successfully attached to VM ${VmName} by ${UserName}.`
+|`2017`|`USER_FAILED_ATTACH_DISK_TO_VM`|`Error`|`Failed to attach Disk ${DiskAlias} to VM ${VmName} (User: ${UserName}).`
+|`2018`|`USER_DETACH_DISK_FROM_VM`|`Info`|`Disk ${DiskAlias} was successfully detached from VM ${VmName} by ${UserName}.`
+|`2019`|`USER_FAILED_DETACH_DISK_FROM_VM`|`Error`|`Failed to detach Disk ${DiskAlias} from VM ${VmName} (User: ${UserName}).`
+|`2020`|`USER_ADD_DISK`|`Info`|`Add-Disk operation of '${DiskAlias}' was initiated by ${UserName}.`
+|`2021`|`USER_ADD_DISK_FINISHED_SUCCESS`|`Info`|`The disk '${DiskAlias}' was successfully added.`
+|`2022`|`USER_ADD_DISK_FINISHED_FAILURE`|`Error`|`Add-Disk operation failed to complete.`
+|`2023`|`USER_FAILED_ADD_DISK`|`Error`|`Add-Disk operation failed (User: ${UserName}).`
+|`2024`|`USER_RUN_UNLOCK_ENTITY_SCRIPT`|`Info`|
+|`2025`|`USER_MOVE_IMAGE_GROUP_FAILED_TO_DELETE_SRC_IMAGE`|`Warning`|`Possible failure while deleting ${DiskAlias} from the source Storage Domain ${StorageDomainName} during the move operation. The Storage Domain may be manually cleaned-up from possible leftovers (User:${UserName}).`
+|`2026`|`USER_MOVE_IMAGE_GROUP_FAILED_TO_DELETE_DST_IMAGE`|`Warning`|`Possible failure while clearing possible leftovers of ${DiskAlias} from the target Storage Domain ${StorageDomainName} after the move operation failed to copy the image to it properly. The Storage Domain may be manually cleaned-up from possible leftovers (User:${UserName}).`
+|`2027`|`USER_IMPORT_IMAGE`|`Info`|`User ${UserName} importing image ${RepoImageName} to domain ${StorageDomainName}.`
+|`2028`|`USER_IMPORT_IMAGE_FINISHED_SUCCESS`|`Info`|`User ${UserName} successfully imported image ${RepoImageName} to domain ${StorageDomainName}.`
+|`2029`|`USER_IMPORT_IMAGE_FINISHED_FAILURE`|`Error`|`User ${UserName} failed to import image ${RepoImageName} to domain ${StorageDomainName}.`
+|`2030`|`USER_EXPORT_IMAGE`|`Info`|`User ${UserName} exporting image ${RepoImageName} to domain ${DestinationStorageDomainName}.`
+|`2031`|`USER_EXPORT_IMAGE_FINISHED_SUCCESS`|`Info`|`User ${UserName} successfully exported image ${RepoImageName} to domain ${DestinationStorageDomainName}.`
+|`2032`|`USER_EXPORT_IMAGE_FINISHED_FAILURE`|`Error`|`User ${UserName} failed to export image ${RepoImageName} to domain ${DestinationStorageDomainName}.`
+|`2033`|`HOT_SET_NUMBER_OF_CPUS`|`Info`|`Hotplug CPU: changed the number of CPUs on VM ${vmName} from ${previousNumberOfCpus} to ${numberOfCpus}`
+|`2034`|`FAILED_HOT_SET_NUMBER_OF_CPUS`|`Error`|`Failed to hot set number of CPUS to VM ${vmName}. Underlying error message: ${ErrorMessage}`
+|`2035`|`USER_ISCSI_BOND_HOST_RESTART_WARNING`|`Warning`|`The following Networks has been removed from the iSCSI bond ${IscsiBondName}: ${NetworkNames}. for those changes to take affect, the hosts must be moved to maintenance and activated again.`
+|`2036`|`ADD_DISK_INTERNAL`|`Info`|`Add-Disk operation of '${DiskAlias}' was initiated by the system.`
+|`2037`|`ADD_DISK_INTERNAL_FAILURE`|`Info`|`Add-Disk operation of '${DiskAlias}' failed to complete.`
+|`2038`|`USER_REMOVE_DISK_INITIATED`|`Info`|`Removal of Disk ${DiskAlias} from domain ${StorageDomainName} was initiated by ${UserName}.`
+|`2039`|`HOT_SET_MEMORY`|`Info`|`Hotset memory: changed the amount of memory on VM ${vmName} from ${previousMem} to ${newMem}`
+|`2040`|`FAILED_HOT_SET_MEMORY`|`Error`|`Failed to hot set memory to VM ${vmName}. Underlying error message: ${ErrorMessage}`
+|`2041`|`DISK_PREALLOCATION_FAILED`|`Error`|
+|`2042`|`USER_FINISHED_REMOVE_DISK_ATTACHED_TO_VMS`|`Info`|`Disk ${DiskAlias} associated to the VMs ${VmNames} was successfully removed from domain ${StorageDomainName} (User ${UserName}).`
+|`2043`|`USER_FINISHED_REMOVE_DISK_ATTACHED_TO_VMS_NO_DOMAIN`|`Info`|`Disk ${DiskAlias} associated to the VMs ${VmNames} was successfully removed (User ${UserName}).`
+|`2044`|`USER_REMOVE_DISK_ATTACHED_TO_VMS_INITIATED`|`Info`|`Removal of Disk ${DiskAlias} associated to the VMs ${VmNames} from domain ${StorageDomainName} was initiated by ${UserName}.`
+|`2045`|`USER_COPY_IMAGE_GROUP_FAILED_TO_DELETE_DST_IMAGE`|`Warning`|`Possible failure while clearing possible leftovers of ${DiskAlias} from the target Storage Domain ${StorageDomainName} after the operation failed. The Storage Domain may be manually cleaned-up from possible leftovers (User:${UserName}).`
+|`2046`|`MEMORY_HOT_UNPLUG_SUCCESSFULLY_REQUESTED`|`Info`|`Hot unplug of memory device (${deviceId}) of size ${memoryDeviceSizeMb}MB was successfully requested on VM '${vmName}'. Physical memory guaranteed updated from ${oldMinMemoryMb}MB to ${newMinMemoryMb}MB}.`
+|`2047`|`MEMORY_HOT_UNPLUG_FAILED`|`Error`|`Failed to hot unplug memory device (${deviceId}) of size ${memoryDeviceSizeMb}MiB out of VM '${vmName}': ${errorMessage}`
+|`2048`|`FAILED_HOT_SET_MEMORY_NOT_DIVIDABLE`|`Error`|`Failed to hot plug memory to VM ${vmName}. Amount of added memory (${memoryAdded}MiB) is not dividable by ${requiredFactor}MiB.`
+|`2049`|`MEMORY_HOT_UNPLUG_SUCCESSFULLY_REQUESTED_PLUS_MEMORY_INFO`|`Info`|`Hot unplug of memory device (${deviceId}) of size ${memoryDeviceSizeMb}MiB was successfully requested on VM '${vmName}'. Defined Memory updated from ${oldMemoryMb}MiB to ${newMemoryMb}MiB. Physical memory guaranteed updated from ${oldMinMemoryMb}MiB to ${newMinMemoryMb}MiB.`
+|`2050`|`NO_MEMORY_DEVICE_TO_HOT_UNPLUG`|`Info`|`Defined memory can't be decreased. There are no hot plugged memory devices on VM ${vmName}.`
+|`2051`|`NO_SUITABLE_MEMORY_DEVICE_TO_HOT_UNPLUG`|`Info`|`There is no memory device to hot unplug to satisfy request to decrement memory from ${oldMemoryMb}MiB to ${newMemoryMB}MiB on VM ${vmName}. Available memory devices (decremented memory sizes): ${memoryHotUnplugOptions}.`
+|`3000`|`USER_ADD_QUOTA`|`Info`|`Quota ${QuotaName} has been added by ${UserName}.`
+|`3001`|`USER_FAILED_ADD_QUOTA`|`Error`|`Failed to add Quota ${QuotaName}. The operation was initiated by ${UserName}.`
+|`3002`|`USER_UPDATE_QUOTA`|`Info`|`Quota ${QuotaName} has been updated by ${UserName}.`
+|`3003`|`USER_FAILED_UPDATE_QUOTA`|`Error`|`Failed to update Quota ${QuotaName}. The operation was initiated by ${UserName}..`
+|`3004`|`USER_DELETE_QUOTA`|`Info`|`Quota ${QuotaName} has been deleted by ${UserName}.`
+|`3005`|`USER_FAILED_DELETE_QUOTA`|`Error`|`Failed to delete Quota ${QuotaName}. The operation was initiated by ${UserName}..`
+|`3006`|`USER_EXCEEDED_QUOTA_CLUSTER_GRACE_LIMIT`|`Error`|`Cluster-Quota ${QuotaName} limit exceeded and operation was blocked. Utilization: ${Utilization}, Requested: ${Requested} - Please select a different quota or contact your administrator to extend the quota.`
+|`3007`|`USER_EXCEEDED_QUOTA_CLUSTER_LIMIT`|`Warning`|`Cluster-Quota ${QuotaName} limit exceeded and entered the grace zone. Utilization: ${Utilization} (It is advised to select a different quota or contact your administrator to extend the quota).`
+|`3008`|`USER_EXCEEDED_QUOTA_CLUSTER_THRESHOLD`|`Warning`|`Cluster-Quota ${QuotaName} is about to exceed. Utilization: ${Utilization}`
+|`3009`|`USER_EXCEEDED_QUOTA_STORAGE_GRACE_LIMIT`|`Error`|`Storage-Quota ${QuotaName} limit exceeded and operation was blocked. Utilization(used/requested): ${CurrentStorage}%/${Requested}% - Please select a different quota or contact your administrator to extend the quota.`
+|`3010`|`USER_EXCEEDED_QUOTA_STORAGE_LIMIT`|`Warning`|`Storage-Quota ${QuotaName} limit exceeded and entered the grace zone. Utilization: ${CurrentStorage}% (It is advised to select a different quota or contact your administrator to extend the quota).`
+|`3011`|`USER_EXCEEDED_QUOTA_STORAGE_THRESHOLD`|`Warning`|`Storage-Quota ${QuotaName} is about to exceed. Utilization: ${CurrentStorage}%`
+|`3012`|`QUOTA_STORAGE_RESIZE_LOWER_THEN_CONSUMPTION`|`Warning`|`Storage-Quota ${QuotaName}: the new size set for this quota is less than current disk utilization.`
+|`3013`|`MISSING_QUOTA_STORAGE_PARAMETERS_PERMISSIVE_MODE`|`Warning`|`Missing Quota for Disk, proceeding since in Permissive (Audit) mode.`
+|`3014`|`MISSING_QUOTA_CLUSTER_PARAMETERS_PERMISSIVE_MODE`|`Warning`|`Missing Quota for VM ${VmName}, proceeding since in Permissive (Audit) mode.`
+|`3015`|`USER_EXCEEDED_QUOTA_CLUSTER_GRACE_LIMIT_PERMISSIVE_MODE`|`Warning`|`Cluster-Quota ${QuotaName} limit exceeded, proceeding since in Permissive (Audit) mode. Utilization: ${Utilization}, Requested: ${Requested} - Please select a different quota or contact your administrator to extend the quota.`
+|`3016`|`USER_EXCEEDED_QUOTA_STORAGE_GRACE_LIMIT_PERMISSIVE_MODE`|`Warning`|`Storage-Quota ${QuotaName} limit exceeded, proceeding since in Permissive (Audit) mode. Utilization(used/requested): ${CurrentStorage}%/${Requested}% - Please select a different quota or contact your administrator to extend the quota.`
+|`3017`|`USER_IMPORT_IMAGE_AS_TEMPLATE`|`Info`|`User ${UserName} importing image ${RepoImageName} as template ${TemplateName} to domain ${StorageDomainName}.`
+|`3018`|`USER_IMPORT_IMAGE_AS_TEMPLATE_FINISHED_SUCCESS`|`Info`|`User ${UserName} successfully imported image ${RepoImageName} as template ${TemplateName} to domain ${StorageDomainName}.`
+|`3019`|`USER_IMPORT_IMAGE_AS_TEMPLATE_FINISHED_FAILURE`|`Error`|`User ${UserName} failed to import image ${RepoImageName} as template ${TemplateName} to domain ${StorageDomainName}.`
+|`4000`|`GLUSTER_VOLUME_CREATE`|`Info`|`Gluster Volume ${glusterVolumeName} created on cluster ${clusterName}.`
+|`4001`|`GLUSTER_VOLUME_CREATE_FAILED`|`Error`|`Creation of Gluster Volume ${glusterVolumeName} failed on cluster ${clusterName}.`
+|`4002`|`GLUSTER_VOLUME_OPTION_ADDED`|`Info`|`Volume Option ${Key}`
+|`4003`|`GLUSTER_VOLUME_OPTION_SET_FAILED`|`Error`|`Volume Option ${Key}`
+|`4004`|`GLUSTER_VOLUME_START`|`Info`|`Gluster Volume ${glusterVolumeName} of cluster ${clusterName} started.`
+|`4005`|`GLUSTER_VOLUME_START_FAILED`|`Error`|`Could not start Gluster Volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4006`|`GLUSTER_VOLUME_STOP`|`Info`|`Gluster Volume ${glusterVolumeName} stopped on cluster ${clusterName}.`
+|`4007`|`GLUSTER_VOLUME_STOP_FAILED`|`Error`|`Could not stop Gluster Volume ${glusterVolumeName} on cluster ${clusterName}.`
+|`4008`|`GLUSTER_VOLUME_OPTIONS_RESET`|`Info`|`Volume Option ${Key}`
+|`4009`|`GLUSTER_VOLUME_OPTIONS_RESET_FAILED`|`Error`|`Could not reset Gluster Volume ${glusterVolumeName} Options on cluster ${clusterName}.`
+|`4010`|`GLUSTER_VOLUME_DELETE`|`Info`|`Gluster Volume ${glusterVolumeName} deleted on cluster ${clusterName}.`
+|`4011`|`GLUSTER_VOLUME_DELETE_FAILED`|`Error`|`Could not delete Gluster Volume ${glusterVolumeName} on cluster ${clusterName}.`
+|`4012`|`GLUSTER_VOLUME_REBALANCE_START`|`Info`|`Gluster Volume ${glusterVolumeName} rebalance started on cluster ${clusterName}.`
+|`4013`|`GLUSTER_VOLUME_REBALANCE_START_FAILED`|`Error`|`Could not start Gluster Volume ${glusterVolumeName} rebalance on cluster ${clusterName}.`
+|`4014`|`GLUSTER_VOLUME_REMOVE_BRICKS`|`Info`|`Bricks removed from Gluster Volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4015`|`GLUSTER_VOLUME_REMOVE_BRICKS_FAILED`|`Error`|`Could not remove bricks from Gluster Volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4016`|`GLUSTER_VOLUME_REPLACE_BRICK_FAILED`|`Error`|`Replace Gluster Volume ${glusterVolumeName} Brick failed on cluster ${clusterName}`
+|`4017`|`GLUSTER_VOLUME_REPLACE_BRICK_START`|`Info`|`Gluster Volume ${glusterVolumeName} Replace Brick started on cluster ${clusterName}.`
+|`4018`|`GLUSTER_VOLUME_REPLACE_BRICK_START_FAILED`|`Error`|`Could not start Gluster Volume ${glusterVolumeName} Replace Brick on cluster ${clusterName}.`
+|`4019`|`GLUSTER_VOLUME_ADD_BRICK`|`Info`|`${NoOfBricks} brick(s) added to volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4020`|`GLUSTER_VOLUME_ADD_BRICK_FAILED`|`Error`|`Failed to add bricks to the Gluster Volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4021`|`GLUSTER_SERVER_REMOVE_FAILED`|`Error`|`Failed to remove host ${VdsName} from Cluster ${ClusterName}.`
+|`4022`|`GLUSTER_VOLUME_PROFILE_START`|`Info`|`Gluster Volume ${glusterVolumeName} profiling started on cluster ${clusterName}.`
+|`4023`|`GLUSTER_VOLUME_PROFILE_START_FAILED`|`Error`|`Could not start profiling on gluster volume ${glusterVolumeName} of cluster ${clusterName}`
+|`4024`|`GLUSTER_VOLUME_PROFILE_STOP`|`Info`|`Gluster Volume ${glusterVolumeName} profiling stopped on cluster ${clusterName}.`
+|`4025`|`GLUSTER_VOLUME_PROFILE_STOP_FAILED`|`Error`|`Could not stop Profiling on gluster volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4026`|`GLUSTER_VOLUME_CREATED_FROM_CLI`|`Warning`|`Detected new volume ${glusterVolumeName} on cluster ${ClusterName}, and added it to engine DB.`
+|`4027`|`GLUSTER_VOLUME_DELETED_FROM_CLI`|`Info`|`Detected deletion of volume ${glusterVolumeName} on cluster ${ClusterName}, and deleted it from engine DB.`
+|`4028`|`GLUSTER_VOLUME_OPTION_SET_FROM_CLI`|`Warning`|`Detected new option ${key}`
+|`4029`|`GLUSTER_VOLUME_OPTION_RESET_FROM_CLI`|`Warning`|`Detected option ${key}`
+|`4030`|`GLUSTER_VOLUME_PROPERTIES_CHANGED_FROM_CLI`|`Warning`|`Detected changes in properties of volume ${glusterVolumeName} of cluster ${ClusterName}, and updated the same in engine DB.`
+|`4031`|`GLUSTER_VOLUME_BRICK_ADDED_FROM_CLI`|`Warning`|`Detected new brick ${brick} on volume ${glusterVolumeName} of cluster ${ClusterName}, and added it to engine DB.`
+|`4032`|`GLUSTER_VOLUME_BRICK_REMOVED_FROM_CLI`|`Info`|`Detected brick ${brick} removed from Volume ${glusterVolumeName} of cluster ${ClusterName}, and removed it from engine DB.`
+|`4033`|`GLUSTER_SERVER_REMOVED_FROM_CLI`|`Info`|`Detected server ${VdsName} removed from Cluster ${ClusterName}, and removed it from engine DB.`
+|`4034`|`GLUSTER_VOLUME_INFO_FAILED`|`Error`|`Failed to fetch gluster volume list from server ${VdsName}.`
+|`4035`|`GLUSTER_COMMAND_FAILED`|`Error`|`Gluster command [${Command}] failed on server ${Server}.`
+|`4038`|`GLUSTER_SERVER_REMOVE`|`Info`|`Host ${VdsName} removed from Cluster ${ClusterName}.`
+|`4039`|`GLUSTER_VOLUME_STARTED_FROM_CLI`|`Warning`|`Detected that Volume ${glusterVolumeName} of Cluster ${ClusterName} was started, and updated engine DB with it's new status.`
+|`4040`|`GLUSTER_VOLUME_STOPPED_FROM_CLI`|`Warning`|`Detected that Volume ${glusterVolumeName} of Cluster ${ClusterName} was stopped, and updated engine DB with it's new status.`
+|`4041`|`GLUSTER_VOLUME_OPTION_CHANGED_FROM_CLI`|`Info`|`Detected change in value of option ${key} from ${oldValue} to ${newValue} on volume ${glusterVolumeName} of cluster ${ClusterName}, and updated it to engine DB.`
+|`4042`|`GLUSTER_HOOK_ENABLE`|`Info`|`Gluster Hook ${GlusterHookName} enabled on cluster ${ClusterName}.`
+|`4043`|`GLUSTER_HOOK_ENABLE_FAILED`|`Error`|`Failed to enable Gluster Hook ${GlusterHookName} on cluster ${ClusterName}. ${FailureMessage}`
+|`4044`|`GLUSTER_HOOK_ENABLE_PARTIAL`|`Warning`|`Gluster Hook ${GlusterHookName} enabled on some of the servers on cluster ${ClusterName}. ${FailureMessage}`
+|`4045`|`GLUSTER_HOOK_DISABLE`|`Info`|`Gluster Hook ${GlusterHookName} disabled on cluster ${ClusterName}.`
+|`4046`|`GLUSTER_HOOK_DISABLE_FAILED`|`Error`|`Failed to disable Gluster Hook ${GlusterHookName} on cluster ${ClusterName}. ${FailureMessage}`
+|`4047`|`GLUSTER_HOOK_DISABLE_PARTIAL`|`Warning`|`Gluster Hook ${GlusterHookName} disabled on some of the servers on cluster ${ClusterName}. ${FailureMessage}`
+|`4048`|`GLUSTER_HOOK_LIST_FAILED`|`Error`|`Failed to retrieve hook list from ${VdsName} of Cluster ${ClusterName}.`
+|`4049`|`GLUSTER_HOOK_CONFLICT_DETECTED`|`Warning`|`Detected conflict in hook ${HookName} of Cluster ${ClusterName}.`
+|`4050`|`GLUSTER_HOOK_DETECTED_NEW`|`Info`|`Detected new hook ${HookName} in Cluster ${ClusterName}.`
+|`4051`|`GLUSTER_HOOK_DETECTED_DELETE`|`Info`|`Detected removal of hook ${HookName} in Cluster ${ClusterName}.`
+|`4052`|`GLUSTER_VOLUME_OPTION_MODIFIED`|`Info`|`Volume Option ${Key} changed to ${Value} from ${oldvalue} on ${glusterVolumeName} of cluster ${clusterName}.`
+|`4053`|`GLUSTER_HOOK_GETCONTENT_FAILED`|`Error`|`Failed to read content of hook ${HookName} in Cluster ${ClusterName}.`
+|`4054`|`GLUSTER_SERVICES_LIST_FAILED`|`Error`|`Could not fetch statuses of services from server ${VdsName}. Updating statuses of all services on this server to UNKNOWN.`
+|`4055`|`GLUSTER_SERVICE_TYPE_ADDED_TO_CLUSTER`|`Info`|`Service type ${ServiceType} was not mapped to cluster ${ClusterName}. Mapped it now.`
+|`4056`|`GLUSTER_CLUSTER_SERVICE_STATUS_CHANGED`|`Info`|`Status of service type ${ServiceType} changed from ${OldStatus} to ${NewStatus} on cluster ${ClusterName}`
+|`4057`|`GLUSTER_SERVICE_ADDED_TO_SERVER`|`Info`|`Service ${ServiceName} was not mapped to server ${VdsName}. Mapped it now.`
+|`4058`|`GLUSTER_SERVER_SERVICE_STATUS_CHANGED`|`Info`|`Status of service ${ServiceName} on server ${VdsName} changed from ${OldStatus} to ${NewStatus}. Updating in engine now.`
+|`4059`|`GLUSTER_HOOK_UPDATED`|`Info`|`Gluster Hook ${GlusterHookName} updated on conflicting servers.`
+|`4060`|`GLUSTER_HOOK_UPDATE_FAILED`|`Error`|`Failed to update Gluster Hook ${GlusterHookName} on conflicting servers. ${FailureMessage}`
+|`4061`|`GLUSTER_HOOK_ADDED`|`Info`|`Gluster Hook ${GlusterHookName} added on conflicting servers.`
+|`4062`|`GLUSTER_HOOK_ADD_FAILED`|`Error`|`Failed to add Gluster Hook ${GlusterHookName} on conflicting servers. ${FailureMessage}`
+|`4063`|`GLUSTER_HOOK_REMOVED`|`Info`|`Gluster Hook ${GlusterHookName} removed from all servers in cluster ${ClusterName}.`
+|`4064`|`GLUSTER_HOOK_REMOVE_FAILED`|`Error`|`Failed to remove Gluster Hook ${GlusterHookName} from cluster ${ClusterName}. ${FailureMessage}`
+|`4065`|`GLUSTER_HOOK_REFRESH`|`Info`|`Refreshed gluster hooks in Cluster ${ClusterName}.`
+|`4066`|`GLUSTER_HOOK_REFRESH_FAILED`|`Error`|`Failed to refresh gluster hooks in Cluster ${ClusterName}.`
+|`4067`|`GLUSTER_SERVICE_STARTED`|`Info`|`${servicetype} service started on host ${VdsName} of cluster ${ClusterName}.`
+|`4068`|`GLUSTER_SERVICE_START_FAILED`|`Error`|`Could not start ${servicetype} service on host ${VdsName} of cluster ${ClusterName}.`
+|`4069`|`GLUSTER_SERVICE_STOPPED`|`Info`|`${servicetype} services stopped on host ${VdsName} of cluster ${ClusterName}.`
+|`4070`|`GLUSTER_SERVICE_STOP_FAILED`|`Error`|`Could not stop ${servicetype} service on host ${VdsName} of cluster ${ClusterName}.`
+|`4071`|`GLUSTER_SERVICES_LIST_NOT_FETCHED`|`Info`|`Could not fetch list of services from ${ServiceGroupType} named ${ServiceGroupName}.`
+|`4072`|`GLUSTER_SERVICE_RESTARTED`|`Info`|`${servicetype} service re-started on host ${VdsName} of cluster ${ClusterName}.`
+|`4073`|`GLUSTER_SERVICE_RESTART_FAILED`|`Error`|`Could not re-start ${servicetype} service on host ${VdsName} of cluster ${ClusterName}.`
+|`4074`|`GLUSTER_VOLUME_OPTIONS_RESET_ALL`|`Info`|`All Volume Options reset on ${glusterVolumeName} of cluster ${clusterName}.`
+|`4075`|`GLUSTER_HOST_UUID_NOT_FOUND`|`Error`|`Could not find gluster uuid of server ${VdsName} on Cluster ${ClusterName}.`
+|`4076`|`GLUSTER_VOLUME_BRICK_ADDED`|`Info`|`Brick [${brickpath}] on host [${servername}] added to volume [${glusterVolumeName}] of cluster ${clusterName}`
+|`4077`|`GLUSTER_CLUSTER_SERVICE_STATUS_ADDED`|`Info`|`Status of service type ${ServiceType} set to ${NewStatus} on cluster ${ClusterName}`
+|`4078`|`GLUSTER_VOLUME_REBALANCE_STOP`|`Info`|`Gluster Volume ${glusterVolumeName} rebalance stopped of cluster ${clusterName}.`
+|`4079`|`GLUSTER_VOLUME_REBALANCE_STOP_FAILED`|`Error`|`Could not stop rebalance of gluster volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4080`|`START_REMOVING_GLUSTER_VOLUME_BRICKS`|`Info`|`Started removing bricks from Volume ${glusterVolumeName} of cluster ${clusterName}`
+|`4081`|`START_REMOVING_GLUSTER_VOLUME_BRICKS_FAILED`|`Error`|`Could not start remove bricks from Volume ${glusterVolumeName} of cluster ${clusterName}`
+|`4082`|`GLUSTER_VOLUME_REMOVE_BRICKS_STOP`|`Info`|`Stopped removing bricks from Volume ${glusterVolumeName} of cluster ${clusterName}`
+|`4083`|`GLUSTER_VOLUME_REMOVE_BRICKS_STOP_FAILED`|`Error`|`Failed to stop remove bricks from Volume ${glusterVolumeName} of cluster ${clusterName}`
+|`4084`|`GLUSTER_VOLUME_REMOVE_BRICKS_COMMIT`|`Info`|`Gluster volume ${glusterVolumeName} remove bricks committed on cluster ${clusterName}. ${NoOfBricks} brick(s) removed from volume ${glusterVolumeName}.`
+|`4085`|`GLUSTER_VOLUME_REMOVE_BRICKS_COMMIT_FAILED`|`Error`|`Gluster volume ${glusterVolumeName} remove bricks could not be commited on cluster ${clusterName}`
+|`4086`|`GLUSTER_BRICK_STATUS_CHANGED`|`Warning`|`Detected change in status of brick ${brickpath} of volume ${glusterVolumeName} of cluster ${clusterName} from ${oldValue} to ${newValue} via ${source}.`
+|`4087`|`GLUSTER_VOLUME_REBALANCE_FINISHED`|`Info`|`${action} ${status} on volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4088`|`GLUSTER_VOLUME_MIGRATE_BRICK_DATA_FINISHED`|`Info`|`${action} ${status} for brick(s) on volume ${glusterVolumeName} of cluster ${clusterName}. Please review to abort or commit.`
+|`4089`|`GLUSTER_VOLUME_REBALANCE_START_DETECTED_FROM_CLI`|`Info`|`Detected start of rebalance on volume ${glusterVolumeName} of Cluster ${ClusterName} from CLI.`
+|`4090`|`START_REMOVING_GLUSTER_VOLUME_BRICKS_DETECTED_FROM_CLI`|`Info`|`Detected start of brick removal for bricks ${brick} on volume ${glusterVolumeName} of Cluster ${ClusterName} from CLI.`
+|`4091`|`GLUSTER_VOLUME_REBALANCE_NOT_FOUND_FROM_CLI`|`Warning`|`Could not find information for rebalance on volume ${glusterVolumeName} of Cluster ${ClusterName} from CLI. Marking it as unknown.`
+|`4092`|`REMOVE_GLUSTER_VOLUME_BRICKS_NOT_FOUND_FROM_CLI`|`Warning`|`Could not find information for remove brick on volume ${glusterVolumeName} of Cluster ${ClusterName} from CLI. Marking it as unknown.`
+|`4093`|`GLUSTER_VOLUME_DETAILS_REFRESH`|`Info`|`Refreshed details of the volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4094`|`GLUSTER_VOLUME_DETAILS_REFRESH_FAILED`|`Error`|`Failed to refresh the details of volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4095`|`GLUSTER_HOST_UUID_ALREADY_EXISTS`|`Error`|`Gluster UUID of host ${VdsName} on Cluster ${ClusterName} already exists.`
+|`4096`|`USER_FORCE_SELECTED_SPM_STOP_FAILED`|`Error`|`Failed to force select ${VdsName} as the SPM due to a failure to stop the current SPM.`
+|`4097`|`GLUSTER_GEOREP_SESSION_DELETED_FROM_CLI`|`Warning`|`Detected deletion of geo-replication session ${geoRepSessionKey} from volume ${glusterVolumeName} of cluster ${clusterName}`
+|`4098`|`GLUSTER_GEOREP_SESSION_DETECTED_FROM_CLI`|`Warning`|`Detected new geo-replication session ${geoRepSessionKey} for volume ${glusterVolumeName} of cluster ${clusterName}. Adding it to engine.`
+|`4099`|`GLUSTER_GEOREP_SESSION_REFRESH`|`Info`|`Refreshed geo-replication sessions for volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4100`|`GLUSTER_GEOREP_SESSION_REFRESH_FAILED`|`Error`|`Failed to refresh geo-replication sessions for volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4101`|`GEOREP_SESSION_STOP`|`Info`|`Geo-replication session on volume ${glusterVolumeName} of cluster ${clusterName} has been stopped.`
+|`4102`|`GEOREP_SESSION_STOP_FAILED`|`Error`|`Failed to stop geo-replication session on volume ${glusterVolumeName} of cluster ${clusterName}`
+|`4103`|`GEOREP_SESSION_DELETED`|`Info`|`Geo-replication session deleted on volume ${glusterVolumeName} of cluster ${clusterName}`
+|`4104`|`GEOREP_SESSION_DELETE_FAILED`|`Error`|`Failed to delete geo-replication session on volume ${glusterVolumeName} of cluster ${clusterName}`
+|`4105`|`GLUSTER_GEOREP_CONFIG_SET`|`Info`|`Configuration ${key} has been set to ${value} on the geo-rep session ${geoRepSessionKey}.`
+|`4106`|`GLUSTER_GEOREP_CONFIG_SET_FAILED`|`Error`|`Failed to set the configuration ${key} to ${value} on geo-rep session ${geoRepSessionKey}.`
+|`4107`|`GLUSTER_GEOREP_CONFIG_LIST`|`Info`|`Refreshed configuration options for geo-replication session ${geoRepSessionKey}`
+|`4108`|`GLUSTER_GEOREP_CONFIG_LIST_FAILED`|`Error`|`Failed to refresh configuration options for geo-replication session ${geoRepSessionKey}`
+|`4109`|`GLUSTER_GEOREP_CONFIG_SET_DEFAULT`|`Info`|`Configuration of ${key} of session ${geoRepSessionKey} reset to its default value .`
+|`4110`|`GLUSTER_GEOREP_CONFIG_SET_DEFAULT_FAILED`|`Error`|`Failed to set ${key} of session ${geoRepSessionKey} to its default value.`
+|`4111`|`GLUSTER_VOLUME_SNAPSHOT_DELETED`|`Info`|`Gluster volume snapshot ${snapname} deleted.`
+|`4112`|`GLUSTER_VOLUME_SNAPSHOT_DELETE_FAILED`|`Error`|`Failed to delete gluster volume snapshot ${snapname}.`
+|`4113`|`GLUSTER_VOLUME_ALL_SNAPSHOTS_DELETED`|`Info`|`Deleted all the gluster volume snapshots for the volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4114`|`GLUSTER_VOLUME_ALL_SNAPSHOTS_DELETE_FAILED`|`Error`|`Failed to delete all the gluster volume snapshots for the volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4115`|`GLUSTER_VOLUME_SNAPSHOT_ACTIVATED`|`Info`|`Activated the gluster volume snapshot ${snapname} on volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4116`|`GLUSTER_VOLUME_SNAPSHOT_ACTIVATE_FAILED`|`Error`|`Failed to activate the gluster volume snapshot ${snapname} on volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4117`|`GLUSTER_VOLUME_SNAPSHOT_DEACTIVATED`|`Info`|`De-activated the gluster volume snapshot ${snapname} on volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4118`|`GLUSTER_VOLUME_SNAPSHOT_DEACTIVATE_FAILED`|`Error`|`Failed to de-activate gluster volume snapshot ${snapname} on volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4119`|`GLUSTER_VOLUME_SNAPSHOT_RESTORED`|`Info`|`Restored the volume ${glusterVolumeName} of cluster ${clusterName} to the state of gluster volume snapshot ${snapname}.`
+|`4120`|`GLUSTER_VOLUME_SNAPSHOT_RESTORE_FAILED`|`Error`|`Failed to restore the volume ${glusterVolumeName} of cluster ${clusterName} to the state of gluster volume snapshot ${snapname}.`
+|`4121`|`GLUSTER_VOLUME_SNAPSHOT_CONFIG_UPDATED`|`Info`|`Updated Gluster volume snapshot configuration(s).`
+|`4122`|`GLUSTER_VOLUME_SNAPSHOT_CONFIG_UPDATE_FAILED`|`Error`|`Failed to update gluster volume snapshot configuration(s).`
+|`4123`|`GLUSTER_VOLUME_SNAPSHOT_CONFIG_UPDATE_FAILED_PARTIALLY`|`Error`|`Failed to update gluster volume snapshot configuration(s) ${failedSnapshotConfigs}.`
+|`4124`|`NEW_STORAGE_DEVICE_DETECTED`|`Info`|`Found new storage device ${storageDevice} on host ${VdsName}, and added it to engine DB."`
+|`4125`|`STORAGE_DEVICE_REMOVED_FROM_THE_HOST`|`Info`|`Detected deletion of storage device ${storageDevice} on host ${VdsName}, and deleting it from engine DB."`
+|`4126`|`SYNC_STORAGE_DEVICES_IN_HOST`|`Info`|`Manually synced the storage devices from host ${VdsName}`
+|`4127`|`SYNC_STORAGE_DEVICES_IN_HOST_FAILED`|`Error`|`Failed to sync storage devices from host ${VdsName}`
+|`4128`|`GEOREP_OPTION_SET_FROM_CLI`|`Warning`|`Detected new option ${key}`
+|`4129`|`GEOREP_OPTION_CHANGED_FROM_CLI`|`Warning`|`Detected change in value of option ${key} from ${oldValue} to ${value} for geo-replication session on volume ${glusterVolumeName} of cluster ${ClusterName}, and updated it to engine.`
+|`4130`|`GLUSTER_MASTER_VOLUME_STOP_FAILED_DURING_SNAPSHOT_RESTORE`|`Error`|`Could not stop master volume ${glusterVolumeName} of cluster ${clusterName} during snapshot restore.`
+|`4131`|`GLUSTER_MASTER_VOLUME_SNAPSHOT_RESTORE_FAILED`|`Error`|`Could not restore master volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4132`|`GLUSTER_VOLUME_SNAPSHOT_CREATED`|`Info`|`Snapshot ${snapname} created for volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4133`|`GLUSTER_VOLUME_SNAPSHOT_CREATE_FAILED`|`Error`|`Could not create snapshot for volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4134`|`GLUSTER_VOLUME_SNAPSHOT_SCHEDULED`|`Info`|`Snapshots scheduled on volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4135`|`GLUSTER_VOLUME_SNAPSHOT_SCHEDULE_FAILED`|`Error`|`Failed to schedule snapshots on the volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4136`|`GLUSTER_VOLUME_SNAPSHOT_RESCHEDULED`|`Info`|`Rescheduled snapshots on volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4137`|`GLUSTER_VOLUME_SNAPSHOT_RESCHEDULE_FAILED`|`Error`|`Failed to reschedule snapshots on volume ${glusterVolumeName} of cluster ${clusterName}.`
+|`4138`|`CREATE_GLUSTER_BRICK`|`Info`|`Brick ${brickName} created successfully on host ${vdsName} of cluster ${clusterName}.`
+|`4139`|`CREATE_GLUSTER_BRICK_FAILED`|`Error`|`Failed to create brick ${brickName} on host ${vdsName} of cluster ${clusterName}.`
+|`4140`|`GLUSTER_GEO_REP_PUB_KEY_FETCH_FAILED`|`Error`|`Failed to fetch public keys.`
+|`4141`|`GLUSTER_GET_PUB_KEY`|`Info`|`Public key fetched.`
+|`4142`|`GLUSTER_GEOREP_PUBLIC_KEY_WRITE_FAILED`|`Error`|`Failed to write public keys to ${VdsName}`
+|`4143`|`GLUSTER_WRITE_PUB_KEYS`|`Info`|`Public keys written to ${VdsName}`
+|`4144`|`GLUSTER_GEOREP_SETUP_MOUNT_BROKER_FAILED`|`Error`|`Failed to setup geo-replication mount broker for user ${geoRepUserName} on the slave volume ${geoRepSlaveVolumeName}.`
+|`4145`|`GLUSTER_SETUP_GEOREP_MOUNT_BROKER`|`Info`|`Geo-replication mount broker has been setup for user ${geoRepUserName} on the slave volume ${geoRepSlaveVolumeName}.`
+|`4146`|`GLUSTER_GEOREP_SESSION_CREATE_FAILED`|`Error`|`Failed to create geo-replication session between master volume : ${glusterVolumeName} of cluster ${clusterName} and slave volume : ${geoRepSlaveVolumeName} for the user ${geoRepUserName}.`
+|`4147`|`CREATE_GLUSTER_VOLUME_GEOREP_SESSION`|`Info`|`Created geo-replication session between master volume : ${glusterVolumeName} of cluster ${clusterName} and slave volume : ${geoRepSlaveVolumeName} for the user ${geoRepUserName}.`
+|`4148`|`GLUSTER_VOLUME_SNAPSHOT_SOFT_LIMIT_REACHED`|`Info`|`Gluster Volume Snapshot soft limit reached for the volume ${glusterVolumeName} on cluster ${clusterName}.`
+|`4149`|`HOST_FEATURES_INCOMPATIBILE_WITH_CLUSTER`|`Error`|`Host ${VdsName} does not comply with the list of features supported by cluster ${ClusterName}. ${UnSupportedFeature} is not supported by the Host`
+|`4150`|`GLUSTER_VOLUME_SNAPSHOT_SCHEDULE_DELETED`|`Info`|`Snapshot schedule deleted for volume ${glusterVolumeName} of ${clusterName}.`
+|`4151`|`GLUSTER_BRICK_STATUS_DOWN`|`Info`|`Status of brick ${brickpath} of volume ${glusterVolumeName} on cluster ${ClusterName} is down.`
+|`4152`|`GLUSTER_VOLUME_SNAPSHOT_DETECTED_NEW`|`Info`|`Found new gluster volume snapshot ${snapname} for volume ${glusterVolumeName} on cluster ${ClusterName}, and added it to engine DB."`
+|`4153`|`GLUSTER_VOLUME_SNAPSHOT_DELETED_FROM_CLI`|`Info`|`Detected deletion of gluster volume snapshot ${snapname} for volume ${glusterVolumeName} on cluster ${ClusterName}, and deleting it from engine DB."`
+|`4154`|`GLUSTER_VOLUME_SNAPSHOT_CLUSTER_CONFIG_DETECTED_NEW`|`Info`|`Found new gluster volume snapshot configuration ${snapConfigName} with value ${snapConfigValue} on cluster ${ClusterName}, and added it to engine DB."`
+|`4155`|`GLUSTER_VOLUME_SNAPSHOT_VOLUME_CONFIG_DETECTED_NEW`|`Info`|`Found new gluster volume snapshot configuration ${snapConfigName} with value ${snapConfigValue} for volume ${glusterVolumeName} on cluster ${ClusterName}, and added it to engine DB."`
+|`4156`|`GLUSTER_VOLUME_SNAPSHOT_HARD_LIMIT_REACHED`|`Info`|`Gluster Volume Snapshot hard limit reached for the volume ${glusterVolumeName} on cluster ${clusterName}.`
+|`4157`|`GLUSTER_CLI_SNAPSHOT_SCHEDULE_DISABLE_FAILED`|`Error`|`Failed to disable gluster CLI based snapshot schedule on cluster ${clusterName}.`
+|`4158`|`GLUSTER_CLI_SNAPSHOT_SCHEDULE_DISABLED`|`Info`|`Disabled gluster CLI based scheduling successfully on cluster ${clusterName}.`
+|`4159`|`SET_UP_PASSWORDLESS_SSH`|`Info`|`Password-less SSH has been setup for user ${geoRepUserName} on the nodes of remote volume ${geoRepSlaveVolumeName} from the nodes of the volume ${glusterVolumeName}.`
+|`4160`|`SET_UP_PASSWORDLESS_SSH_FAILED`|`Error`|`Failed to setup Passwordless ssh for user ${geoRepUserName} on the nodes of remote volume ${geoRepSlaveVolumeName} from the nodes of the volume ${glusterVolumeName}.`
+|`4161`|`GLUSTER_VOLUME_TYPE_UNSUPPORTED`|`Warning`|`Detected a volume ${glusterVolumeName} with type ${glusterVolumeType} on cluster ${Cluster} and it is not fully supported by engine.`
+|`4162`|`GLUSTER_VOLUME_BRICK_REPLACED`|`Info`|`Replaced brick '${brick}' with new brick '${newBrick}' of Gluster Volume ${glusterVolumeName} on cluster ${clusterName}`
+|`4163`|`GLUSTER_SERVER_STATUS_DISCONNECTED`|`Info`|`Gluster server ${vdsName} set to DISCONNECTED on cluster ${clusterName}.`
+|`4164`|`GLUSTER_STORAGE_DOMAIN_SYNC_FAILED`|`Info`|`Failed to synchronize data from storage domain ${storageDomainName} to remote location.`
+|`4165`|`GLUSTER_STORAGE_DOMAIN_SYNCED`|`Info`|`Successfully synchronized data from storage domain ${storageDomainName} to remote location.`
+|`4166`|`GLUSTER_STORAGE_DOMAIN_SYNC_STARTED`|`Info`|`Successfully started data synchronization data from storage domain ${storageDomainName} to remote location.`
+|`4167`|`STORAGE_DOMAIN_DR_DELETED`|`Error`|`Deleted the data synchronization schedule for storage domain ${storageDomainName} as the underlying geo-replication session ${geoRepSessionKey} has been deleted.`
+|`4168`|`GLUSTER_WEBHOOK_ADDED`|`Info`|`Added webhook on ${clusterName}`
+|`4169`|`GLUSTER_WEBHOOK_ADD_FAILED`|`Error`|`Failed to add webhook on ${clusterName}`
+|`4170`|`GLUSTER_VOLUME_RESET_BRICK_FAILED`|`Error`|
+|`4171`|`GLUSTER_VOLUME_BRICK_RESETED`|`Info`|
+|`4172`|`GLUSTER_VOLUME_CONFIRMED_SPACE_LOW`|`Warning`|`Warning! Low confirmed free space on gluster volume ${glusterVolumeName}`
+|`4436`|`GLUSTER_SERVER_ADD_FAILED`|`Error`|`Failed to add host ${VdsName} into Cluster ${ClusterName}. ${ErrorMessage}`
+|`4437`|`GLUSTER_SERVERS_LIST_FAILED`|`Error`|`Failed to fetch gluster peer list from server ${VdsName} on Cluster ${ClusterName}. ${ErrorMessage}`
+|`4595`|`GLUSTER_VOLUME_GEO_REP_START_FAILED_EXCEPTION`|`Error`|`Failed to start geo-replication session on volume ${glusterVolumeName} of cluster ${clusterName}`
+|`4596`|`GLUSTER_VOLUME_GEO_REP_START`|`Info`|`Geo-replication session on volume ${glusterVolumeName} of cluster ${clusterName} has been started.`
+|`4597`|`GLUSTER_VOLUME_GEO_REP_PAUSE_FAILED`|`Error`|`Failed to pause geo-replication session on volume ${glusterVolumeName} of cluster ${clusterName}`
+|`4598`|`GLUSTER_VOLUME_GEO_REP_RESUME_FAILED`|`Error`|`Failed to resume geo-replication session on volume ${glusterVolumeName} of cluster ${clusterName}`
+|`4599`|`GLUSTER_VOLUME_GEO_REP_RESUME`|`Info`|`Geo-replication session on volume ${glusterVolumeName} of cluster ${clusterName} has been resumed.`
+|`4600`|`GLUSTER_VOLUME_GEO_REP_PAUSE`|`Info`|`Geo-replication session on volume ${glusterVolumeName} of cluster ${clusterName} has been paused.`
+|`9000`|`VDS_ALERT_FENCE_IS_NOT_CONFIGURED`|`Info`|`Failed to verify Power Management configuration for Host ${VdsName}.`
+|`9001`|`VDS_ALERT_FENCE_TEST_FAILED`|`Info`|`Power Management test failed for Host ${VdsName}.${Reason}`
+|`9002`|`VDS_ALERT_FENCE_OPERATION_FAILED`|`Info`|`Failed to power fence host ${VdsName}. Please check the host status and it's power management settings, and then manually reboot it and click "Confirm Host Has Been Rebooted"`
+|`9003`|`VDS_ALERT_FENCE_OPERATION_SKIPPED`|`Info`|`Host ${VdsName} became non responsive. Fence operation skipped as the system is still initializing and this is not a host where hosted engine was running on previously.`
+|`9004`|`VDS_ALERT_FENCE_NO_PROXY_HOST`|`Info`|`There is no other host in the data center that can be used to test the power management settings.`
+|`9005`|`VDS_ALERT_FENCE_STATUS_VERIFICATION_FAILED`|`Info`|`Failed to verify Host ${Host} ${Status} status, Please ${Status} Host ${Host} manually.`
+|`9006`|`CANNOT_HIBERNATE_RUNNING_VMS_AFTER_CLUSTER_CPU_UPGRADE`|`Warning`|`Hibernation of VMs after CPU upgrade of Cluster ${Cluster} is not supported. Please stop and restart those VMs in case you wish to hibernate them`
+|`9007`|`VDS_ALERT_SECONDARY_AGENT_USED_FOR_FENCE_OPERATION`|`Info`|`Secondary fence agent was used to ${Operation} Host ${VdsName}`
+|`9008`|`VDS_HOST_NOT_RESPONDING_CONNECTING`|`Warning`|`Host ${VdsName} is not responding. It will stay in Connecting state for a grace period of ${Seconds} seconds and after that an attempt to fence the host will be issued.`
+|`9009`|`VDS_ALERT_PM_HEALTH_CHECK_FENCE_AGENT_NON_RESPONSIVE`|`Info`|`Health check on Host ${VdsName} indicates that Fence-Agent ${AgentId} is non-responsive.`
+|`9010`|`VDS_ALERT_PM_HEALTH_CHECK_START_MIGHT_FAIL`|`Info`|`Health check on Host ${VdsName} indicates that future attempts to Start this host using Power-Management are expected to fail.`
+|`9011`|`VDS_ALERT_PM_HEALTH_CHECK_STOP_MIGHT_FAIL`|`Info`|`Health check on Host ${VdsName} indicates that future attempts to Stop this host using Power-Management are expected to fail.`
+|`9012`|`VDS_ALERT_PM_HEALTH_CHECK_RESTART_MIGHT_FAIL`|`Info`|`Health check on Host ${VdsName} indicates that future attempts to Restart this host using Power-Management are expected to fail.`
+|`9013`|`VDS_ALERT_FENCE_OPERATION_SKIPPED_BROKEN_CONNECTIVITY`|`Info`|`Host ${VdsName} became non responsive and was not restarted due to Fencing Policy: ${Percents} percents of the Hosts in the Cluster have connectivity issues.`
+|`9014`|`VDS_ALERT_NOT_RESTARTED_DUE_TO_POLICY`|`Info`|`Host ${VdsName} became non responsive and was not restarted due to the Cluster Fencing Policy.`
+|`9015`|`VDS_ALERT_FENCE_DISABLED_BY_CLUSTER_POLICY`|`Info`|`Host ${VdsName} became Non Responsive and was not restarted due to disabled fencing in the Cluster Fencing Policy.`
+|`9016`|`FENCE_DISABLED_IN_CLUSTER_POLICY`|`Info`|`Fencing is disabled in Fencing Policy of the Cluster ${ClusterName}, so HA VMs running on a non-responsive host will not be restarted elsewhere.`
+|`9017`|`FENCE_OPERATION_STARTED`|`Info`|`Power management ${Action} of Host ${VdsName} initiated.`
+|`9018`|`FENCE_OPERATION_SUCCEEDED`|`Info`|`Power management ${Action} of Host ${VdsName} succeeded.`
+|`9019`|`FENCE_OPERATION_FAILED`|`Error`|`Power management ${Action} of Host ${VdsName} failed.`
+|`9020`|`FENCE_OPERATION_USING_AGENT_AND_PROXY_STARTED`|`Info`|`Executing power management ${Action} on Host ${Host} using Proxy Host ${ProxyHost} and Fence Agent ${AgentType}:${AgentIp}.`
+|`9021`|`FENCE_OPERATION_USING_AGENT_AND_PROXY_FAILED`|`Warning`|`Execution of power management ${Action} on Host ${Host} using Proxy Host ${ProxyHost} and Fence Agent ${AgentType}:${AgentIp} failed.`
+|`9022`|`ENGINE_NO_FULL_BACKUP`|`Info`|`There is no full backup available, please run engine-backup to prevent data loss in case of corruption.`
+|`9023`|`ENGINE_NO_WARM_BACKUP`|`Info`|`Full backup was created on ${Date} and it's too old. Please run engine-backup to prevent data loss in case of corruption.`
+|`9024`|`ENGINE_BACKUP_STARTED`|`Normal`|`Engine backup started.`
+|`9025`|`ENGINE_BACKUP_COMPLETED`|`Normal`|`Engine backup completed successfully.`
+|`9026`|`ENGINE_BACKUP_FAILED`|`Error`|`Engine backup failed.`
+|`9028`|`VDS_ALERT_NO_PM_CONFIG_FENCE_OPERATION_SKIPPED`|`Info`|`Host ${VdsName} became non responsive. It has no power management configured. Please check the host status, manually reboot it, and click "Confirm Host Has Been Rebooted"`
+|`9500`|`TASK_STOPPING_ASYNC_TASK`|`Info`|`Stopping async task ${CommandName} that started at ${Date}`
+|`9501`|`TASK_CLEARING_ASYNC_TASK`|`Info`|`Clearing asynchronous task ${CommandName} that started at ${Date}`
+|`9506`|`USER_ACTIVATE_STORAGE_DOMAIN_FAILED_ASYNC`|`Warning`|`Failed to autorecover Storage Domain ${StorageDomainName} (Data Center ${StoragePoolName}).`
+|`9600`|`IMPORTEXPORT_IMPORT_VM_INVALID_INTERFACES`|`Warning`|`While importing VM ${EntityName}, the Network/s ${Networks} were found to be Non-VM Networks or do not exist in Cluster or are missing a suitable VM network interface profile. Network Name was not set in the Interface/s ${Interfaces}.`
+|`9601`|`VDS_SET_NON_OPERATIONAL_VM_NETWORK_IS_BRIDGELESS`|`Warning`|`Host ${VdsName} does not comply with the cluster ${ClusterName} networks, the following VM networks are non-VM networks: '${Networks}'. The host will become NonOperational.`
+|`9602`|`HA_VM_FAILED`|`Error`|`Highly Available VM ${VmName} failed. It will be restarted automatically.`
+|`9603`|`HA_VM_RESTART_FAILED`|`Error`|`Restart of the Highly Available VM ${VmName} failed.`
+|`9604`|`EMULATED_MACHINES_INCOMPATIBLE_WITH_CLUSTER`|`Warning`|`Host ${VdsName} does not comply with the cluster ${ClusterName} emulated machine. The cluster emulated machine is ${clusterEmulatedMachines} and the host emulated machines are ${hostSupportedEmulatedMachines}.`
+|`9605`|`EXCEEDED_MAXIMUM_NUM_OF_RESTART_HA_VM_ATTEMPTS`|`Error`|`Highly Available VM ${VmName} could not be restarted automatically, exceeded the maximum number of attempts.`
+|`9606`|`IMPORTEXPORT_SNAPSHOT_VM_INVALID_INTERFACES`|`Warning`|`While previewing a snapshot of VM ${EntityName}, the Network/s ${Networks} were found to be Non-VM Networks or do not exist in Cluster. Network Name was not set in the Interface/s ${Interfaces}.`
+|`9607`|`ADD_VM_FROM_SNAPSHOT_INVALID_INTERFACES`|`Warning`|`While adding vm ${EntityName} from snapshot, the Network/s ${Networks} were found to be Non-VM Networks or do not exist in Cluster. Network Name was not set in the Interface/s ${Interfaces}.`
+|`9608`|`RNG_SOURCES_INCOMPATIBLE_WITH_CLUSTER`|`Warning`|`Host ${VdsName} does not comply with the cluster ${ClusterName} Random Number Generator sources. The Hosts supported sources are: ${hostSupportedRngSources}; and the cluster requirements are: ${clusterRequiredRngSources}.`
+|`9609`|`EMULATED_MACHINES_INCOMPATIBLE_WITH_CLUSTER_LEVEL`|`Warning`|`Host ${VdsName} does not comply with the cluster ${ClusterName} emulated machines. The current cluster compatibility level supports ${clusterEmulatedMachines} and the host emulated machines are ${hostSupportedEmulatedMachines}.`
+|`9610`|`MIXING_RHEL_VERSIONS_IN_CLUSTER`|`Warning`|`Not possible to mix RHEL 6.x and 7.x hosts in one cluster. Tried adding ${addingRhel} host to a cluster with ${previousRhel} hosts.`
+|`9611`|`COLD_REBOOT_VM_DOWN`|`Info`|`VM ${VmName} is down as a part of cold reboot process`
+|`9612`|`COLD_REBOOT_FAILED`|`Error`|`Cold reboot of VM ${VmName} failed`
+|`9613`|`EXCEEDED_MAXIMUM_NUM_OF_COLD_REBOOT_VM_ATTEMPTS`|`Error`|`VM ${VmName} could not be rebooted, exceeded the maximum number of attempts.`
+|`9700`|`DWH_STARTED`|`Info`|`ETL Service started.`
+|`9701`|`DWH_STOPPED`|`Info`|`ETL Service stopped.`
+|`9704`|`DWH_ERROR`|`Error`|`Error in ETL Service.`
+|`9801`|`EXTERNAL_EVENT_NORMAL`|`Info`|`An external event with NORMAL severity has been added.`
+|`9802`|`EXTERNAL_EVENT_WARNING`|`Warning`|`An external event with WARNING severity has been added.`
+|`9803`|`EXTERNAL_EVENT_ERROR`|`Error`|`An external event with ERROR severity has been added.`
+|`9804`|`EXTERNAL_ALERT`|`Info`|`An external event with ALERT severity has been added.`
+|`9901`|`WATCHDOG_EVENT`|`Warning`|`Watchdog event (${wdaction}) triggered on ${VmName} at ${wdevent} (host time).`
+|`9910`|`USER_ADD_CLUSTER_POLICY`|`Info`|`Scheduling Policy ${ClusterPolicy} was added. (User: ${UserName})`
+|`9911`|`USER_FAILED_TO_ADD_CLUSTER_POLICY`|`Error`|`Failed to add Scheduling Policy: ${ClusterPolicy}. (User: ${UserName})`
+|`9912`|`USER_UPDATE_CLUSTER_POLICY`|`Info`|`Scheduling Policy ${ClusterPolicy} was updated. (User: ${UserName})`
+|`9913`|`USER_FAILED_TO_UPDATE_CLUSTER_POLICY`|`Error`|`Failed to update Scheduling Policy: ${ClusterPolicy}. (User: ${UserName})`
+|`9914`|`USER_REMOVE_CLUSTER_POLICY`|`Info`|`Scheduling Policy ${ClusterPolicy} was removed. (User: ${UserName})`
+|`9915`|`USER_FAILED_TO_REMOVE_CLUSTER_POLICY`|`Error`|`Failed to remove Scheduling Policy: ${ClusterPolicy}. (User: ${UserName})`
+|`9920`|`FAILED_TO_CONNECT_TO_SCHEDULER_PROXY`|`Error`|`Failed to connect to external scheduler proxy. External filters, scoring functions and load balancing will not be performed.`
+|`10000`|`VDS_UNTRUSTED`|`Error`|`Host ${VdsName} was set to non-operational. Host is not trusted by the attestation service.`
+|`10001`|`USER_UPDATE_VM_FROM_TRUSTED_TO_UNTRUSTED`|`Warning`|`The VM ${VmName} was updated from trusted cluster to non-trusted cluster.`
+|`10002`|`USER_UPDATE_VM_FROM_UNTRUSTED_TO_TRUSTED`|`Warning`|`The VM ${VmName} was updated from non-trusted cluster to trusted cluster.`
+|`10003`|`IMPORTEXPORT_IMPORT_VM_FROM_TRUSTED_TO_UNTRUSTED`|`Warning`|`The VM ${VmName} was created in trusted cluster and imported into a non-trusted cluster`
+|`10004`|`IMPORTEXPORT_IMPORT_VM_FROM_UNTRUSTED_TO_TRUSTED`|`Warning`|`The VM ${VmName} was created in non-trusted cluster and imported into a trusted cluster`
+|`10005`|`USER_ADD_VM_FROM_TRUSTED_TO_UNTRUSTED`|`Warning`|`The VM ${VmName} was created in an untrusted cluster. It was originated from the Template ${VmTemplateName} which was created in a trusted cluster.`
+|`10006`|`USER_ADD_VM_FROM_UNTRUSTED_TO_TRUSTED`|`Warning`|`The VM ${VmName} was created in a trusted cluster. It was originated from the Template ${VmTemplateName} which was created in an untrusted cluster.`
+|`10007`|`IMPORTEXPORT_IMPORT_TEMPLATE_FROM_TRUSTED_TO_UNTRUSTED`|`Warning`|`The Template ${VmTemplateName} was created in trusted cluster and imported into a non-trusted cluster`
+|`10008`|`IMPORTEXPORT_IMPORT_TEMPLATE_FROM_UNTRUSTED_TO_TRUSTED`|`Warning`|`The Template ${VmTemplateName} was created in non-trusted cluster and imported into a trusted cluster`
+|`10009`|`USER_ADD_VM_TEMPLATE_FROM_TRUSTED_TO_UNTRUSTED`|`Warning`|`The non-trusted Template ${VmTemplateName} was created from trusted Vm ${VmName}.`
+|`10010`|`USER_ADD_VM_TEMPLATE_FROM_UNTRUSTED_TO_TRUSTED`|`Warning`|`The trusted template ${VmTemplateName} was created from non-trusted Vm ${VmName}.`
+|`10011`|`USER_UPDATE_VM_TEMPLATE_FROM_TRUSTED_TO_UNTRUSTED`|`Warning`|`The Template ${VmTemplateName} was updated from trusted cluster to non-trusted cluster.`
+|`10012`|`USER_UPDATE_VM_TEMPLATE_FROM_UNTRUSTED_TO_TRUSTED`|`Warning`|`The Template ${VmTemplateName} was updated from non-trusted cluster to trusted cluster.`
+|`10013`|`IMPORTEXPORT_GET_EXTERNAL_VMS_NOT_IN_DOWN_STATUS`|`Warning`|`The following VMs retrieved from external server ${URL} are not in down status: ${Vms}.`
+|`10100`|`USER_ADDED_NETWORK_QOS`|`Info`|`Network QoS ${QosName} was added. (User: ${UserName})`
+|`10101`|`USER_FAILED_TO_ADD_NETWORK_QOS`|`Error`|`Failed to add Network QoS ${QosName}. (User: ${UserName})`
+|`10102`|`USER_REMOVED_NETWORK_QOS`|`Info`|`Network QoS ${QosName} was removed. (User: ${UserName})`
+|`10103`|`USER_FAILED_TO_REMOVE_NETWORK_QOS`|`Error`|`Failed to remove Network QoS ${QosName}. (User: ${UserName})`
+|`10104`|`USER_UPDATED_NETWORK_QOS`|`Info`|`Network QoS ${QosName} was updated. (User: ${UserName})`
+|`10105`|`USER_FAILED_TO_UPDATE_NETWORK_QOS`|`Error`|`Failed to update Network QoS ${QosName}. (User: ${UserName})`
+|`10110`|`USER_ADDED_QOS`|`Info`|`QoS ${QoSName} was added. (User: ${UserName})`
+|`10111`|`USER_FAILED_TO_ADD_QOS`|`Error`|`Failed to add QoS ${QoSName}. (User: ${UserName})`
+|`10112`|`USER_REMOVED_QOS`|`Info`|`QoS ${QoSName} was removed. (User: ${UserName})`
+|`10113`|`USER_FAILED_TO_REMOVE_QOS`|`Error`|`Failed to remove QoS ${QoSName}. (User: ${UserName})`
+|`10114`|`USER_UPDATED_QOS`|`Info`|`QoS ${QoSName} was updated. (User: ${UserName})`
+|`10115`|`USER_FAILED_TO_UPDATE_QOS`|`Error`|`Failed to update QoS ${QoSName}. (User: ${UserName})`
+|`10120`|`USER_ADDED_DISK_PROFILE`|`Info`|`Disk Profile ${ProfileName} was successfully added (User: ${UserName}).`
+|`10121`|`USER_FAILED_TO_ADD_DISK_PROFILE`|`Error`|`Failed to add Disk Profile (User: ${UserName}).`
+|`10122`|`USER_REMOVED_DISK_PROFILE`|`Info`|`Disk Profile ${ProfileName} was successfully removed (User: ${UserName}).`
+|`10123`|`USER_FAILED_TO_REMOVE_DISK_PROFILE`|`Error`|`Failed to remove Disk Profile ${ProfileName} (User: ${UserName}).`
+|`10124`|`USER_UPDATED_DISK_PROFILE`|`Info`|`Disk Profile ${ProfileName} was successfully updated (User: ${UserName}).`
+|`10125`|`USER_FAILED_TO_UPDATE_DISK_PROFILE`|`Error`|`Failed to update Disk Profile ${ProfileName} (User: ${UserName}).`
+|`10130`|`USER_ADDED_CPU_PROFILE`|`Info`|`CPU Profile ${ProfileName} was successfully added (User: ${UserName}).`
+|`10131`|`USER_FAILED_TO_ADD_CPU_PROFILE`|`Error`|`Failed to add CPU Profile (User: ${UserName}).`
+|`10132`|`USER_REMOVED_CPU_PROFILE`|`Info`|`CPU Profile ${ProfileName} was successfully removed (User: ${UserName}).`
+|`10133`|`USER_FAILED_TO_REMOVE_CPU_PROFILE`|`Error`|`Failed to remove CPU Profile ${ProfileName} (User: ${UserName}).`
+|`10134`|`USER_UPDATED_CPU_PROFILE`|`Info`|`CPU Profile ${ProfileName} was successfully updated (User: ${UserName}).`
+|`10135`|`USER_FAILED_TO_UPDATE_CPU_PROFILE`|`Error`|`Failed to update CPU Profile ${ProfileName} (User: ${UserName}).`
+|`10200`|`USER_UPDATED_MOM_POLICIES`|`Info`|`Mom policy was updated on host ${VdsName}.`
+|`10201`|`USER_FAILED_TO_UPDATE_MOM_POLICIES`|`Warning`|`Mom policy could not be updated on host ${VdsName}.`
+|`10250`|`PM_POLICY_UP_TO_MAINTENANCE`|`Info`|`Host ${Host} is not currently needed, activating maintenance mode in preparation for shutdown.`
+|`10251`|`PM_POLICY_MAINTENANCE_TO_DOWN`|`Info`|`Host ${Host} is not currently needed, shutting down.`
+|`10252`|`PM_POLICY_TO_UP`|`Info`|`Reactivating host ${Host} according to the current power management policy.`
+|`10300`|`CLUSTER_ALERT_HA_RESERVATION`|`Info`|`Cluster ${ClusterName} failed the HA Reservation check, HA VMs on host(s): ${Hosts} will fail to migrate in case of a failover, consider adding resources or shutting down unused VMs.`
+|`10301`|`CLUSTER_ALERT_HA_RESERVATION_DOWN`|`Info`|`Cluster ${ClusterName} passed the HA Reservation check.`
+|`10350`|`USER_ADDED_AFFINITY_GROUP`|`Info`|`Affinity Group ${affinityGroupName} was added. (User: ${UserName})`
+|`10351`|`USER_FAILED_TO_ADD_AFFINITY_GROUP`|`Error`|`Failed to add Affinity Group ${affinityGroupName}. (User: ${UserName})`
+|`10352`|`USER_UPDATED_AFFINITY_GROUP`|`Info`|`Affinity Group ${affinityGroupName} was updated. (User: ${UserName})`
+|`10353`|`USER_FAILED_TO_UPDATE_AFFINITY_GROUP`|`Error`|`Failed to update Affinity Group ${affinityGroupName}. (User: ${UserName})`
+|`10354`|`USER_REMOVED_AFFINITY_GROUP`|`Info`|`Affinity Group ${affinityGroupName} was removed. (User: ${UserName})`
+|`10355`|`USER_FAILED_TO_REMOVE_AFFINITY_GROUP`|`Error`|`Failed to remove Affinity Group ${affinityGroupName}. (User: ${UserName})`
+|`10356`|`VM_TO_HOST_CONFLICT_IN_ENFORCING_POSITIVE_AND_NEGATIVE_AFFINITY`|`Error`|`The affinity groups: ${AffinityGroups}, with hosts :${Hosts} and VMs : ${Vms}, have VM to host conflicts between positive and negative enforcing affinity groups.`
+|`10357`|`VM_TO_HOST_CONFLICT_IN_POSITIVE_AND_NEGATIVE_AFFINITY`|`Warning`|`The affinity groups: ${AffinityGroups}, with hosts: ${Hosts} and VMs: ${Vms}, have VM to host conflicts between positive and negative affinity groups.`
+|`10358`|`VM_TO_HOST_CONFLICTS_POSITIVE_VM_TO_VM_AFFINITY`|`Warning`|`The affinity groups: ${AffinityGroups}, with hosts : ${Hosts} and VMs: ${Vms}, have conflicts between VM to host affinity and VM to VM positive affinity.`
+|`10359`|`VM_TO_HOST_CONFLICTS_NEGATIVE_VM_TO_VM_AFFINITY`|`Warning`|`The affinity groups: ${AffinityGroups}, with hosts : ${Hosts} and VMs: ${Vms}, have conflicts between VM to host affinity and VM to VM negative affinity.`
+|`10360`|`NON_INTERSECTING_POSITIVE_HOSTS_AFFINITY_CONFLICTS`|`Warning`|`The affinity groups: ${AffinityGroups}, with hosts : ${Hosts} and VMs : ${Vms} , have non intersecting positive hosts conflicts.`
+|`10361`|`VM_TO_VM_AFFINITY_CONFLICTS`|`Error`|
+|`10380`|`USER_ADDED_AFFINITY_LABEL`|`Info`|`Affinity Label ${labelName} was added. (User: ${UserName})`
+|`10381`|`USER_FAILED_TO_ADD_AFFINITY_LABEL`|`Error`|`Failed to add Affinity Label ${labelName}. (User: ${UserName})`
+|`10382`|`USER_UPDATED_AFFINITY_LABEL`|`Info`|`Affinity Label ${labelName} was updated. (User: ${UserName})`
+|`10383`|`USER_FAILED_TO_UPDATE_AFFINITY_LABEL`|`Error`|`Failed to update Affinity Label ${labelName}. (User: ${UserName})`
+|`10384`|`USER_REMOVED_AFFINITY_LABEL`|`Info`|`Affinity Label ${labelName} was removed. (User: ${UserName})`
+|`10385`|`USER_FAILED_TO_REMOVE_AFFINITY_LABEL`|`Error`|`Failed to remove Affinity Label ${labelName}. (User: ${UserName})`
+|`10400`|`ISCSI_BOND_ADD_SUCCESS`|`Info`|`iSCSI bond '${IscsiBondName}' was successfully created in Data Center '${StoragePoolName}'.`
+|`10401`|`ISCSI_BOND_ADD_FAILED`|`Error`|`Failed to create iSCSI bond '${IscsiBondName}' in Data Center '${StoragePoolName}'.`
+|`10402`|`ISCSI_BOND_EDIT_SUCCESS`|`Info`|`iSCSI bond '${IscsiBondName}' was successfully updated.`
+|`10403`|`ISCSI_BOND_EDIT_FAILED`|`Error`|`Failed to update iSCSI bond '${IscsiBondName}'.`
+|`10404`|`ISCSI_BOND_REMOVE_SUCCESS`|`Info`|`iSCSI bond '${IscsiBondName}' was removed from Data Center '${StoragePoolName}'`
+|`10405`|`ISCSI_BOND_REMOVE_FAILED`|`Error`|`Failed to remove iSCSI bond '${IscsiBondName}' from Data Center '${StoragePoolName}'`
+|`10406`|`ISCSI_BOND_EDIT_SUCCESS_WITH_WARNING`|`Warning`|`iSCSI bond '${IscsiBondName}' was successfully updated but some of the hosts encountered connection issues.`
+|`10407`|`ISCSI_BOND_ADD_SUCCESS_WITH_WARNING`|`Warning`|`iSCSI bond '${IscsiBondName}' was successfully created in Data Center '${StoragePoolName}' but some of the hosts encountered connection issues.`
+|`10450`|`USER_SET_HOSTED_ENGINE_MAINTENANCE`|`Info`|`Hosted Engine HA maintenance mode was updated on host ${VdsName}.`
+|`10451`|`USER_FAILED_TO_SET_HOSTED_ENGINE_MAINTENANCE`|`Error`|`Hosted Engine HA maintenance mode could not be updated on host ${VdsName}.`
+|`10452`|`VDS_MAINTENANCE_MANUAL_HA`|`Warning`|`Host ${VdsName} was switched to Maintenance mode, but Hosted Engine HA maintenance could not be enabled. Please enable it manually.`
+|`10453`|`USER_VDS_MAINTENANCE_MANUAL_HA`|`Warning`|`Host ${VdsName} was switched to Maintenance mode by ${UserName}, but Hosted Engine HA maintenance could not be enabled. Please enable it manually.`
+|`10454`|`VDS_ACTIVATE_MANUAL_HA`|`Warning`|`Host ${VdsName} was activated by ${UserName}, but the Hosted Engine HA service may still be in maintenance mode. If necessary, please correct this manually.`
+|`10455`|`VDS_ACTIVATE_MANUAL_HA_ASYNC`|`Warning`|`Host ${VdsName} was autorecovered, but the Hosted Engine HA service may still be in maintenance mode. If necessary, please correct this manually.`
+|`10456`|`HOSTED_ENGINE_VM_IMPORT_SUCCEEDED`|`Normal`|`Hosted Engine VM was imported successfully`
+|`10460`|`HOSTED_ENGINE_DOMAIN_IMPORT_SUCCEEDED`|`Normal`|`Hosted Engine Storage Domain imported successfully`
+|`10461`|`HOSTED_ENGINE_DOMAIN_IMPORT_FAILED`|`Error`|`Failed to import the Hosted Engine Storage Domain`
+|`10500`|`EXTERNAL_SCHEDULER_PLUGIN_ERROR`|`Error`|`Running the external scheduler plugin '${PluginName}' failed: '${ErrorMessage}'`
+|`10501`|`EXTERNAL_SCHEDULER_ERROR`|`Error`|`Running the external scheduler failed: '${ErrorMessage}'`
+|`10550`|`VM_SLA_POLICY_CPU`|`Info`|`VM ${VmName} SLA Policy was set. CPU limit is set to ${cpuLimit}`
+|`10551`|`VM_SLA_POLICY_STORAGE`|`Info`|`VM ${VmName} SLA Policy was set. Storage policy changed for disks: [${diskList}]`
+|`10552`|`VM_SLA_POLICY_CPU_STORAGE`|`Info`|`VM ${VmName} SLA Policy was set. CPU limit is set to ${cpuLimit}. Storage policy changed for disks: [${diskList}]`
+|`10553`|`FAILED_VM_SLA_POLICY`|`Error`|`Failed to set SLA Policy to VM ${VmName}. Underlying error message: ${ErrorMessage}`
+|`10600`|`USER_REMOVE_AUDIT_LOG`|`Info`|`Event list message ${AuditLogId} was removed by User ${UserName}.`
+|`10601`|`USER_REMOVE_AUDIT_LOG_FAILED`|`Error`|`User ${UserName} failed to remove event list message  ${AuditLogId}.`
+|`10602`|`USER_CLEAR_ALL_AUDIT_LOG_EVENTS`|`Info`|`All events were removed. (User: ${UserName})`
+|`10603`|`USER_CLEAR_ALL_AUDIT_LOG_EVENTS_FAILED`|`Error`|`Failed to remove all events. (User: ${UserName})`
+|`10604`|`USER_DISPLAY_ALL_AUDIT_LOG`|`Info`|`All events were displayed. (User: ${UserName})`
+|`10605`|`USER_DISPLAY_ALL_AUDIT_LOG_FAILED`|`Error`|`Failed to display all events. (User: ${UserName})`
+|`10606`|`USER_CLEAR_ALL_AUDIT_LOG_ALERTS`|`Info`|`All alerts were removed. (User: ${UserName})`
+|`10607`|`USER_CLEAR_ALL_AUDIT_LOG_ALERTS_FAILED`|`Error`|`Failed to remove all alerts. (User: ${UserName})`
+|`10700`|`MAC_POOL_ADD_SUCCESS`|`Info`|`MAC Pool '${MacPoolName}' (id`
+|`10701`|`MAC_POOL_ADD_FAILED`|`Error`|`Failed to create MAC Pool '${MacPoolName}'. (User: ${UserName})`
+|`10702`|`MAC_POOL_EDIT_SUCCESS`|`Info`|`MAC Pool '${MacPoolName}' (id`
+|`10703`|`MAC_POOL_EDIT_FAILED`|`Error`|`Failed to update MAC Pool '${MacPoolName}' (id`
+|`10704`|`MAC_POOL_REMOVE_SUCCESS`|`Info`|`MAC Pool '${MacPoolName}' (id`
+|`10705`|`MAC_POOL_REMOVE_FAILED`|`Error`|`Failed to remove MAC Pool '${MacPoolName}' (id`
+|`10750`|`CINDER_PROVIDER_ERROR`|`Error`|`An error occurred on Cinder provider: '${CinderException}'`
+|`10751`|`CINDER_DISK_CONNECTION_FAILURE`|`Error`|`Failed to retrieve connection information for Cinder Disk '${DiskAlias}'.`
+|`10752`|`CINDER_DISK_CONNECTION_VOLUME_DRIVER_UNSUPPORTED`|`Error`|`Unsupported volume driver for Cinder Disk '${DiskAlias}'.`
+|`10753`|`USER_FINISHED_FAILED_REMOVE_CINDER_DISK`|`Error`|`Failed to remove disk ${DiskAlias} from storage domain ${StorageDomainName}. The following entity id could not be deleted from the Cinder provider '${imageId}'. (User: ${UserName}).`
+|`10754`|`USER_ADDED_LIBVIRT_SECRET`|`Info`|`Authentication Key ${LibvirtSecretUUID} was added. (User: ${UserName}).`
+|`10755`|`USER_FAILED_TO_ADD_LIBVIRT_SECRET`|`Error`|`Failed to add Authentication Key ${LibvirtSecretUUID}. (User: ${UserName}).`
+|`10756`|`USER_UPDATE_LIBVIRT_SECRET`|`Info`|`Authentication Key ${LibvirtSecretUUID} was updated. (User: ${UserName}).`
+|`10757`|`USER_FAILED_TO_UPDATE_LIBVIRT_SECRET`|`Error`|`Failed to update Authentication Key ${LibvirtSecretUUID}. (User: ${UserName}).`
+|`10758`|`USER_REMOVED_LIBVIRT_SECRET`|`Info`|`Authentication Key ${LibvirtSecretUUID} was removed. (User: ${UserName}).`
+|`10759`|`USER_FAILED_TO_REMOVE_LIBVIRT_SECRET`|`Error`|`Failed to remove Authentication Key ${LibvirtSecretUUID}. (User: ${UserName}).`
+|`10760`|`FAILED_TO_REGISTER_LIBVIRT_SECRET`|`Error`|`Failed to register Authentication Keys for storage domain ${StorageDomainName} on host ${VdsName}.`
+|`10761`|`FAILED_TO_UNREGISTER_LIBVIRT_SECRET`|`Error`|`Failed to unregister Authentication Keys for storage domain ${StorageDomainName} on host ${VdsName}.`
+|`10762`|`FAILED_TO_REGISTER_LIBVIRT_SECRET_ON_VDS`|`Error`|`Failed to register Authentication Keys on host ${VdsName}.`
+|`10763`|`NO_LIBRBD_PACKAGE_AVAILABLE_ON_VDS`|`Error`|`Librbd1 package is not available on host ${VdsName}, which is mandatory for using Cinder storage domains.`
+|`10764`|`FAILED_TO_FREEZE_VM`|`Warning`|`Failed to freeze guest filesystems on VM ${VmName}. Note that using the created snapshot might cause data inconsistency.`
+|`10765`|`FAILED_TO_THAW_VM`|`Warning`|`Failed to thaw guest filesystems on VM ${VmName}. The filesystems might be unresponsive until the VM is restarted.`
+|`10766`|`FREEZE_VM_INITIATED`|`Normal`|`Freeze of guest filesystems on VM ${VmName} was initiated.`
+|`10767`|`FREEZE_VM_SUCCESS`|`Normal`|`Guest filesystems on VM ${VmName} have been frozen successfully.`
+|`10768`|`THAW_VM_SUCCESS`|`Normal`|`Guest filesystems on VM ${VmName} have been thawed successfully.`
+|`10769`|`USER_FAILED_TO_FREEZE_VM`|`Warning`|`Failed to freeze guest filesystems on ${VmName} (Host: ${VdsName}, User: ${UserName}).`
+|`10770`|`USER_FAILED_TO_THAW_VM`|`Warning`|`Failed to thaw guest filesystems on ${VmName} (Host: ${VdsName}, User: ${UserName}).`
+|`10771`|`VDS_CANNOT_CONNECT_TO_GLUSTERFS`|`Error`|`Host ${VdsName} cannot connect to Glusterfs. Verify that glusterfs-cli package is installed on the host.`
+|`10780`|`AFFINITY_RULES_ENFORCEMENT_MANAGER_START`|`Normal`|`Affinity Rules Enforcement Manager started.`
+|`10781`|`AFFINITY_RULES_ENFORCEMENT_MANAGER_INTERVAL_REACHED`|`Normal`|
+|`10800`|`VM_ADD_HOST_DEVICES`|`Info`|`Host devices ${NamesAdded} were attached to Vm ${VmName} by User ${UserName}.`
+|`10801`|`VM_REMOVE_HOST_DEVICES`|`Info`|`Host devices ${NamesRemoved} were detached from Vm ${VmName} by User ${UserName}.`
+|`10802`|`VDS_BROKER_COMMAND_FAILURE`|`Error`|`VDSM ${VdsName} command ${CommandName} failed: ${message}`
+|`10803`|`IRS_BROKER_COMMAND_FAILURE`|`Error`|`VDSM command ${CommandName} failed: ${message}`
+|`10804`|`VDS_UNKNOWN_HOST`|`Error`|`The address of host ${VdsName} could not be determined`
+|`10810`|`SYSTEM_CHANGE_STORAGE_POOL_STATUS_UP_REPORTING_HOSTS`|`Normal`|`Data Center ${StoragePoolName} status was changed to UP as some of its hosts are in status UP.`
+|`10811`|`SYSTEM_CHANGE_STORAGE_POOL_STATUS_NON_RESPONSIVE_NO_REPORTING_HOSTS`|`Info`|`Data Center ${StoragePoolName} status was changed to Non Responsive as none of its hosts are in status UP.`
+|`10812`|`STORAGE_POOL_LOWER_THAN_ENGINE_HIGHEST_CLUSTER_LEVEL`|`Info`|`Data Center ${StoragePoolName} compatibility version is ${dcVersion}, which is lower than latest engine version ${engineVersion}. Please upgrade your Data Center to latest version to successfully finish upgrade of your setup.`
+|`10900`|`HOST_SYNC_ALL_NETWORKS_FAILED`|`Error`|`Failed to sync all host ${VdsName} networks`
+|`10901`|`HOST_SYNC_ALL_NETWORKS_FINISHED`|`Info`|`Managed to sync all host ${VdsName} networks.`
+|`10902`|`PERSIST_HOST_SETUP_NETWORK_ON_HOST`|`Info`|`(${Sequence}/${Total}): Applying network's changes on host ${VdsName}. (User: ${UserName})`
+|`10903`|`PERSIST_SETUP_NETWORK_ON_HOST_FINISHED`|`Info`|`(${Sequence}/${Total}): Successfully applied changes on host ${VdsName}. (User: ${UserName})`
+|`10904`|`PERSIST_SETUP_NETWORK_ON_HOST_FAILED`|`Error`|`(${Sequence}/${Total}): Failed to apply changes on host ${VdsName}. (User: ${UserName})`
+|`10905`|`CLUSTER_SYNC_ALL_NETWORKS_FAILED`|`Error`|`Failed to sync all cluster ${ClusterName} networks`
+|`10906`|`CLUSTER_SYNC_ALL_NETWORKS_STARTED`|`Info`|`Started sync of all cluster ${ClusterName} networks.`
+|`10910`|`NETWORK_REMOVE_NIC_FILTER_PARAMETER`|`Info`|`Network interface filter parameter (id ${VmNicFilterParameterId}) was successfully removed by ${UserName}.`
+|`10911`|`NETWORK_REMOVE_NIC_FILTER_PARAMETER_FAILED`|`Error`|`Failed to remove network interface filter parameter ((id ${VmNicFilterParameterId}) by ${UserName}.`
+|`10912`|`NETWORK_ADD_NIC_FILTER_PARAMETER`|`Info`|`Network interface filter parameter ${VmNicFilterParameterName} (id ${VmNicFilterParameterId}) was successfully added to Interface with id ${VmInterfaceId} on VM ${VmName} by ${UserName}.`
+|`10913`|`NETWORK_ADD_NIC_FILTER_PARAMETER_FAILED`|`Error`|`Failed to add network interface filter parameter ${VmNicFilterParameterName} (id ${VmNicFilterParameterId}) to Interface with id ${VmInterfaceId} on VM ${VmName} by ${UserName} by ${UserName}.`
+|`10914`|`NETWORK_UPDATE_NIC_FILTER_PARAMETER`|`Info`|`Network interface filter parameter ${VmNicFilterParameterName} (id ${VmNicFilterParameterId}) on Interface with id ${VmInterfaceId} on VM ${VmName} was successfully updated by ${UserName}.`
+|`10915`|`NETWORK_UPDATE_NIC_FILTER_PARAMETER_FAILED`|`Error`|`Failed to update network interface filter parameter ${VmNicFilterParameterName} (id ${VmNicFilterParameterId}) on Interface with id ${VmInterfaceId} on VM ${VmName} by ${UserName}.`
+|`10916`|`MAC_ADDRESS_HAD_TO_BE_REALLOCATED`|`Warning`|`Some MAC addresses had to be reallocated because they are duplicate.`
+|`10917`|`MAC_ADDRESS_VIOLATES_NO_DUPLICATES_SETTING`|`Error`|`Duplicate MAC addresses had to be introduced into mac pool violating no duplicates setting.`
+|`10918`|`MAC_ADDRESS_COULDNT_BE_REALLOCATED`|`Error`|`Some MAC addresses had to be reallocated, but operation failed because of insufficient amount of free MACs.`
+|`10920`|`NETWORK_IMPORT_EXTERNAL_NETWORK`|`Info`|`Successfully initiated import of external network ${NetworkName} from provider ${ProviderName}.`
+|`10921`|`NETWORK_IMPORT_EXTERNAL_NETWORK_FAILED`|`Error`|`Failed to initiate external network ${NetworkName} from provider ${ProviderName}.`
+|`10922`|`NETWORK_IMPORT_EXTERNAL_NETWORK_INTERNAL`|`Info`|
+|`10923`|`NETWORK_IMPORT_EXTERNAL_NETWORK_INTERNAL_FAILED`|`Error`|
+|`10924`|`NETWORK_AUTO_DEFINE_NO_DEFAULT_EXTERNAL_PROVIDER`|`Warning`|`Cannot create auto-defined network connected to ${NetworkName}. Cluster ${ClusterName} does not have default external network provider.`
+|`11000`|`USER_ADD_EXTERNAL_JOB`|`Info`|`New external Job ${description} was added by user ${UserName}`
+|`11001`|`USER_ADD_EXTERNAL_JOB_FAILED`|`Error`|`Failed to add new external Job ${description}`
+|`11500`|`FAULTY_MULTIPATHS_ON_HOST`|`Warning`|`Faulty multipath paths on host ${VdsName} on devices: [${MpathGuids}]`
+|`11501`|`NO_FAULTY_MULTIPATHS_ON_HOST`|`Normal`|`No faulty multipath paths on host ${VdsName}`
+|`11502`|`MULTIPATH_DEVICES_WITHOUT_VALID_PATHS_ON_HOST`|`Warning`|`Multipath devices without valid paths on host ${VdsName} : [${MpathGuids}]`
+|`12000`|`MIGRATION_REASON_AFFINITY_ENFORCEMENT`|`Info`|`Affinity rules enforcement`
+|`12001`|`MIGRATION_REASON_LOAD_BALANCING`|`Info`|`Load balancing`
+|`12002`|`MIGRATION_REASON_HOST_IN_MAINTENANCE`|`Info`|`Host preparing for maintenance`
+|`12003`|`VM_MIGRATION_NOT_ALL_VM_NICS_WERE_PLUGGED_BACK`|`Error`|`After migration of ${VmName}, following vm nics failed to be plugged back: ${NamesOfNotRepluggedNics}.`
+|`12004`|`VM_MIGRATION_PLUGGING_VM_NICS_FAILED`|`Error`|`After migration of ${VmName} vm nics failed to be plugged back.`
+|`12005`|`CLUSTER_CANNOT_UPDATE_VM_COMPATIBILITY_VERSION`|`Error`|`Cannot update compatibility version of Vm/Template: [${VmName}], Message: ${Message}`
+|`13000`|`DEPRECATED_API`|`Warning`|`Client from address "${ClientAddress}" is using version ${ApiVersion} of the API, which has been \`
+|`13001`|`DEPRECATED_IPTABLES_FIREWALL`|`Warning`|`Cluster ${ClusterName} uses IPTables firewall, which has been deprecated in \`
+|===

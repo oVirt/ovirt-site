@@ -1,0 +1,73 @@
+=== Red Hat Virtualization 4.4 Batch Update 5 (ovirt-4.4.6)
+
+
+
+==== Bug Fix
+
+These bugs were fixed in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1932284[1932284]::
+Previously, the engine-config value LiveSnapshotPerformFreezeInEngine was set by default to false and was supposed to be uses in cluster compatibility levels below 4.4. The value was set to general version. 
+With this release, each cluster level has it's own value, defaulting to false for 4.4 and above. This will reduce unnecessary overhead in removing time outs of the file system freeze command.
+
+BZ#link:https://bugzilla.redhat.com/1936972[1936972]::
+Previously, old RPM files were not properly removed during package removal (uninistall) or upgrade. As a result, removed packages were reinstalled, or, during and upgrade, the system tried to install two or more different versions at once, causing the upgrade to fail.
+In this release, the dnf plugin has been fixed, and  RPM packages are now properly removed.
+The new version will also auto-heal the broken system by removing RPM packages which are not supposed to be in the persisted-rpms directory.
+
+BZ#link:https://bugzilla.redhat.com/1940484[1940484]::
+Previously, libvirtd could crash resulting in non-responsive  hosts. The current release fixes this issue.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+BZ#link:https://bugzilla.redhat.com/911394[911394]::
+This release adds the queue attribute to the virtio-scsi driver in the virtual machine configuration. This improvement enables multi-queue performance with the virtio-scsi driver.
+
+BZ#link:https://bugzilla.redhat.com/1683987[1683987]::
+With this release, source-load-balancing has been added as a new sub-option for xmit_hash_policy. It can be configured for bond modes balance-xor (2), 802.3ad (4) and balance-tlb (5), by specifying xmit_hash_policy=vlan+srcmac.
+
+BZ#link:https://bugzilla.redhat.com/1745023[1745023]::
+This enhancement adds support for the AVX-512 Vector Neural Network Instructions (AVX512_VNNI) feature for Cascadelake and Icelake CPUs. AVX512_VNNI is part of the AVX-512 extensions.
+
+BZ#link:https://bugzilla.redhat.com/1845877[1845877]::
+This release adds the gathering of oVirt/RHV related certificates to allow easier debugging of issues for faster customer help and issue resolution.
+Information from certificates is now included as part of the sosreport. Note that no corresponding private key information is gathered, due to security considerations.
+
+BZ#link:https://bugzilla.redhat.com/1906074[1906074]::
+With this release, support has been added for copying disks between regular Storage Domains and Managed Block Storage Domains.
+It is now possible to migrate disks between Managed Block Storage Domains and regular Storage Domains.
+
+BZ#link:https://bugzilla.redhat.com/1944723[1944723]::
+With this release, running virtual machines is supported for up to 16TB of RAM on x86_64 architectures.
+
+==== Technology Preview
+
+The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to https://access.redhat.com/support/offerings/techpreview/.
+
+BZ#link:https://bugzilla.redhat.com/1688177[1688177]::
+Failover vNIC profiles. 
+This feature allows users to migrate a virtual machine connected via SR-IOV with minimal downtime by using a failover network that is activated during migration.
+
+==== Release Notes
+
+This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
+
+BZ#link:https://bugzilla.redhat.com/1933672[1933672]::
+Red Hat Virtualization 4.4.6 now requires Ansible 2.9.18
+
+BZ#link:https://bugzilla.redhat.com/1950348[1950348]::
+The default DataCenter/Cluster will be set to compatibility level 4.6 on new installations of Red Hat Virtualization 4.4.6.
+
+==== Deprecated Functionality
+
+The items in this section are either no longer supported, or will no longer be supported in a future release.
+
+BZ#link:https://bugzilla.redhat.com/1869251[1869251]::
+Support for SSO for virtual machines on RHEL 7 or earlier and Windows guest operating systems is now deprecated. SSO will not be provided for virtual machines running RHEL 8 or later as guest operating systems.
+
+BZ#link:https://bugzilla.redhat.com/1948962[1948962]::
+Support for the Cisco Virtual Machine Fabric Extender (VM-FEX) is now deprecated. This functionality will be removed in a future release.
+
+

@@ -1,0 +1,6 @@
+[[Virtual_LAN_VLAN]]
+=== Virtual LAN (VLAN)
+
+A VLAN (Virtual LAN) is an attribute that can be applied to network packets. Network packets can be "tagged" into a numbered VLAN. A VLAN is a security feature used to isolate network traffic at the switch level. VLANs are separate and mutually exclusive. The {virt-product-fullname} {engine-name} is VLAN-aware and able to tag and redirect VLAN traffic, however VLAN implementation requires a switch that supports VLANs.
+
+At the switch level, ports are assigned a VLAN designation. A switch applies a VLAN tag to traffic originating from a particular port, marking the traffic as part of a VLAN, and ensures that responses carry the same VLAN tag. A VLAN can extend across multiple switches. VLAN tagged network traffic on a switch is undetectable except by machines connected to a port designated with the correct VLAN. A given port can be tagged into multiple VLANs, which allows traffic from multiple VLANs to be sent to a single port, to be deciphered using software on the machine that receives the traffic.

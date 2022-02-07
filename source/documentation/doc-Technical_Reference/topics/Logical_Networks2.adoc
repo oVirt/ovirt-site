@@ -1,0 +1,28 @@
+[[Logical_Networks2]]
+=== Logical Networks
+
+Logical networking enables the {virt-product-fullname} environment to separate network traffic by type. For example, the *ovirtmgmt* network is created by default during the installation of {virt-product-fullname} to be used for management communication between the {engine-name} and hosts. A typical use for logical networks is to group network traffic with similar requirements and usage together. In many cases, a storage network and a display network are created by an administrator to isolate traffic of each respective type for optimization and troubleshooting.
+
+{virt-product-fullname} supports the following logical network types:
+
+* Logical networks that carry only host network traffic, such as storage or migration traffic
+* Logical networks that carry host and virtual machine network traffic
+* Logical networks that carry only virtual machine network traffic, such as OVN networks
+
+Logical networks are defined at the data center level.
+
+If necessary, the {virt-product-fullname} {engine-name} automatically instantiates logical networks on the host, depending on the type of virtual machine network. For more information, see xref:virtual_machine_networking_types[].
+
+[[exam-Technical_Reference_Guide-Logical_Networks-Example_usage_of_a_logical_network.]]
+.Example usage of a logical network.
+====
+A system administrator wants to use a logical network to test a web server.
+
+There are two hosts called Red Host and White Host in a cluster called Pink Cluster in a data center called Purple Data Center. Both Red Host and White Host have been using the default logical network, *ovirtmgmt*, for all networking functions. The system administrator responsible for Pink Cluster decides to isolate network testing for a web server by placing the web server and some client virtual machines on a separate logical network. She decides to call the new logical network *test_logical_network*.
+
+. She creates a new logical network, named *test_logical_network*, for the Purple Data Center with VLAN tagging enabled. VLAN tagging is necessary when you have two logical networks connected to the same physical NIC. She applies *test_logical_network* to the Pink Cluster.
+
+. In Red Host, she attaches *test_logical_network* to a physical NIC that will be included in the bridge that {virt-product-shortname} creates. The network is non-operational until she sets up the corresponding bridge in all hosts in the cluster by adding a physical network interface on each host in the Pink cluster to *test_logical_network*. She repeats this step for White Host. When both White Host and Red Host have the *test_logical_network* logical network bridged to a physical network interface, the *test_logical_network* becomes operational and is ready to be used by virtual machines.
+
+. She associates the virtual machines on the Red Host and White Host with the new network.
+====

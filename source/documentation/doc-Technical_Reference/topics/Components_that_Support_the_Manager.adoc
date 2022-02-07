@@ -1,0 +1,31 @@
+[[Components_that_Support_the_Manager]]
+=== Components that Support the {engine-name}
+
+
+*Red Hat JBoss Enterprise Application Platform*:: Red Hat JBoss Enterprise Application Platform is a Java application server. It provides a framework to support efficient development and delivery of cross-platform Java applications. The {virt-product-fullname} {engine-name} is delivered using Red Hat JBoss Enterprise Application Platform.
+
+[IMPORTANT]
+====
+The version of the Red Hat JBoss Enterprise Application Platform bundled with {virt-product-fullname} {engine-name} is *not* to be used to serve other applications. It has been customized for the specific purpose of serving the {virt-product-fullname} {engine-name}. Using the Red Hat JBoss Enterprise Application Platform that is included with the {engine-name} for additional purposes adversely affects its ability to service the {virt-product-fullname} environment.
+====
+
+
+*Gathering Reports and Historical Data*:: The {virt-product-fullname} {engine-name} includes a data warehouse that collects monitoring data about hosts, virtual machines, and storage. A number of pre-defined reports are available. Customers can analyze their environments and create reports using any query tools that support SQL.
++
+The {virt-product-fullname} {engine-name} installation process creates two databases. These databases are created on a Postgres instance which is selected during installation.
+
+
+* The *engine* database is the primary data store used by the {virt-product-fullname} {engine-name}. Information about the virtualization environment like its state, configuration, and performance are stored in this database.
+
+* The *ovirt_engine_history* database contains configuration information and statistical metrics which are collated over time from the *engine* operational database. The configuration data in the *engine* database is examined every minute, and changes are replicated to the *ovirt_engine_history* database. Tracking the changes to the database provides information on the objects in the database. This enables you to analyze and enhance the performance of your {virt-product-fullname} environment and resolve difficulties.
++
+For more information on generating reports based on the *ovirt_engine_history* database see the link:{URL_virt_product_docs}{URL_format}data_warehouse_guide#sect-History_Database[History Database] in the _{virt-product-fullname} Data Warehouse Guide_.
+
++
+[IMPORTANT]
+====
+The replication of data to the *ovirt_engine_history* database is performed by the `RHEVM History Service`, ovirt-engine-dwhd.
+====
+
+
+*Directory services*:: Directory services provide centralized network-based storage of user and organizational information. Types of information stored include application settings, user profiles, group data, policies, and access control. The {virt-product-fullname} {engine-name} supports Active Directory, Identity Management (IdM), OpenLDAP, and Red Hat Directory Server 9. There is also a local, internal domain for administration purposes only. This internal domain has only one user: the admin user.

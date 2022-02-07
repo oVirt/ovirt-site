@@ -1,0 +1,97 @@
+=== Red Hat Virtualization 4.4 Batch Update 1 (ovirt-4.4.2)
+
+
+
+==== Bug Fix
+
+These bugs were fixed in this release of Red Hat Virtualization:
+
+*BZ#link:https://bugzilla.redhat.com/1663135[1663135]*
+Previously, virtual machine (VM) imports from sparse storage assumed the target also used sparse storage. However, block storage does not support sparse allocation. The current release fixes this issue: Imports to block storage for COW image file formats preserve sparse allocation types and work as expected.
+
+*BZ#link:https://bugzilla.redhat.com/1740058[1740058]*
+Before this update, when you ran a VM that was previously powered off, the VDSM log contained many uninformative warnings. This update resolves the issue and these warnings no longer appear in the VDSM log.
+
+*BZ#link:https://bugzilla.redhat.com/1793290[1793290]*
+Previously, the partition number was not removed from the disk path, so the disk mapping pointed to an arbitrary partition on the disk, instead of the disk itself. The current release fixes this issue: Disk mapping contains only disk paths.
+
+*BZ#link:https://bugzilla.redhat.com/1843234[1843234]*
+Before this update, when using Firefox 74.0.1 and greater with Autofill enabled, the Administration Portal password was used to autofill the Sysprep Administrator password field in the *Initial Run* tab of the *Run Virtual Machine(s)* dialog. Validation of the dialog failed because the password did not match the *Verify admin password* field, which was not autofilled.
+
+This issue has been resolved, and the browser no longer uses Autofill for the Sysprep admin password field.
+
+*BZ#link:https://bugzilla.redhat.com/1855761[1855761]*
+Firefox 68 ESR does not support several standard units in the <svg> tag. (For more information, see https://bugzilla.mozilla.org/show_bug.cgi?id=1287054.) Consequently, before this update, aggregated status card icons appeared larger than intended.
+
+This update uses supported units to size icons, and as a result, icons appear correctly in FireFox 68 ESR and later.
+
+*BZ#link:https://bugzilla.redhat.com/1866956[1866956]*
+Before this update, when the *Blank* template was set with HA enabled, a backup of the RHVM virtual machine saved this setting. This setting prevented deployment of the RHVM virtual machine during the restore operation. Consequently, upgrading to Red Hat Virtualization 4.4 failed.
+
+This update disables the HA setting on the RHVM virtual machine during self-hosted engine deployment, and as a result, the upgrade to 4.4 succeeds.
+
+*BZ#link:https://bugzilla.redhat.com/1867038[1867038]*
+Previously, restoring from backup or upgrading from RHV 4.3 to RHV 4.4 failed while restoring SSO configuration requiring the gssapi module.
+In this release, the mod_auth_gssapi package is included in the RHV Manager appliance, and upgrading or restoring from backup succeeds even when SSO configuration is included.
+
+*BZ#link:https://bugzilla.redhat.com/1869209[1869209]*
+Before this update, adding hosts with newer Intel CPUs to IBRS family clusters could fail, and the spec_ctrl flag was not detected.
+
+This update resolves the issue and you can now add hosts with modern Intel CPUs to the IBRS family clusters and the spec_ctrl flag is detected.
+
+*BZ#link:https://bugzilla.redhat.com/1869307[1869307]*
+Previously, vim-enhanced package installation failed on Red Hat Virtualization Host 4.4.
+In this release, vim-enhanced package installation succeeds.
+
+*BZ#link:https://bugzilla.redhat.com/1870122[1870122]*
+Previously, when upgrading a self-hosted engine from RHV 4.3 to RHV 4.4, Grafana was installed by default during the engine-setup process, and if the remote database option was selected for Data Warehouse setup, the upgrade failed.
+In this release, Grafana deployment is disabled by default in self-hosted engine installations, and the upgrade process succeeds.
+
+*BZ#link:https://bugzilla.redhat.com/1871235[1871235]*
+Before this update, a virtual machine that was set with a High Performance profile using the REST API could not start if it had any USB devices, because the High Performance profile disabled the USB controller. Additionally, hosts in clusters with compatibility level 4.3 did not report the TSC frequency.
+
+This update resolves these issues. TSC is no longer present for 4.3 clusters and the VM won't have USB devices when there is no USB controller, allowing VMs to run normally.
+
+*BZ#link:https://bugzilla.redhat.com/1875851[1875851]*
+Firefox 68 ESR does not support several standard units in the <svg> tag. (For more information, see https://bugzilla.mozilla.org/show_bug.cgi?id=1287054.) Consequently, before this update, aggregated status card icons appeared larger than intended.
+
+This update uses supported units to size icons, and as a result, icons appear correctly in FireFox 68 ESR and later.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+*BZ#link:https://bugzilla.redhat.com/1749803[1749803]*
+This enhancement enables you to set the same target domain for multiple disks.
+
+Previously, when moving or copying multiple disks, you needed to set the target domain for each disk separately. Now, if a common target domain exists, you can set it as the target domain for all disks.
+
+If there is no common storage domain, such that not all disks are moved or copied to the same storage domain, set the common target domain as 'Mixed'.
+
+*BZ#link:https://bugzilla.redhat.com/1819260[1819260]*
+The following search filter properties for Storage Domains have been enhanced:
+- 'size' changed to 'free_size'
+- 'total_size' added to the search engine options
+- 'used' changed to 'used_size'
+
+For example , you can use now the following in the Storage Domains tab:
+
+"free_size > 6 GB and total_size < 20 GB"
+
+==== Known Issues
+
+These known issues exist in Red Hat Virtualization at this time:
+
+*BZ#link:https://bugzilla.redhat.com/1674497[1674497]*
+Previously, hot-unplugging memory on RHEL 8 guests generated a error because the memory DIMM was in use. This prevented the removal of that memory from that VM. To work around this issue, add `movable_node` by setting the virtual machine's kernel command-line parameters, link:https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/system_design_guide/configuring-kernel-command-line-parameters_system-design-guide#setting-kernel-command-line-parameters_configuring-kernel-command-line-parameters[as described here].
+
+*BZ#link:https://bugzilla.redhat.com/1837864[1837864]*
+When upgrading from Red Hat Virtualization 4.4 GA (RHV 4.4.1) to RHEV 4.4.2, the host enters emergency mode and cannot be restarted.
+Workaround: see the solution in https://access.redhat.com/solutions/5428651
+
+*BZ#link:https://bugzilla.redhat.com/1850378[1850378]*
+When you upgrade Red Hat Virtualization from 4.3 to 4.4 with a storage domain that is locally mounted on / (root), the upgrade fails. Specifically, on the host it appears that the upgrade is successful, but the host's status on the Administration Portal, is `NonOperational`.
+
+Local storage should always be defined on a file system that is separate from / (root). Use a separate logical volume or disk, to prevent possible loss of data during upgrades.
+
+If you are using / (root) as the locally mounted storage domain, migrate your data to a separate logical volume or disk prior to upgrading.

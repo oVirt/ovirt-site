@@ -1,0 +1,15 @@
+[[considerations]]
+== Considerations
+
+This chapter describes the advantages, limitations, and available options for various {virt-product-fullname} components.
+
+include::topics/con-Host_Types.adoc[]
+
+include::topics/con-Storage_Types.adoc[]
+
+include::topics/con-Networking_Considerations.adoc[]
+
+include::topics/con-Directory_Server_Support.adoc[]
+
+include::topics/con-Infrastructure_Considerations.adoc[]
+

@@ -1,0 +1,7 @@
+include::common/collateral_files/attributes.adoc[]
+= REST API Guide
+
+:engine-name: oVirt engine
+:product-name: oVirt
+
+include::model.adoc[]

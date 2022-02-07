@@ -1,0 +1,21 @@
+// This assembly is included in the following assemblies:
+//
+// assembly_managing-vgpu-devices
+
+:parent-context-of-assembly_managing-intel-vgpu-devices: {context}
+
+
+[id='assembly_managing-intel-vgpu-devices_{context}']
+= Setting up an Intel GPU and using it on a virtual machine
+
+:context: assembly_managing-intel-vgpu-devices
+
+This document describes how to divide a physical Intel GPU device into multiple virtual devices referred to as `mediated devices`, and how to assign these mediated devices to KVM virtual machines.
+
+
+
+include::common/vgpu/proc_setting-up-intel-vgpu-devices.adoc[leveloffset=+1]
+include::common/vgpu/proc_removing-intel-vgpu-devices.adoc[leveloffset=+1]
+
+
+:context: {parent-context-of-assembly_managing-intel-vgpu-devices}

@@ -1,0 +1,37 @@
+[[infrastructure-considerations]]
+=== Infrastructure Considerations
+
+==== Local or Remote Hosting
+
+The following components can be hosted on either the {engine-name} or a remote machine. Keeping all components on the {engine-name} machine is easier and requires less maintenance, so is preferable when performance is not an issue. Moving components to a remote machine requires more maintenance, but can improve the performance of both the {engine-name} and Data Warehouse.
+
+*Data Warehouse database and service*:: To host Data Warehouse on the {engine-name}, select `Yes` when prompted by `engine-setup`.
++
+To host Data Warehouse on a remote machine, select `No` when prompted by `engine-setup`, and see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/index#Installing_and_Configuring_Data_Warehouse_on_a_Separate_Machine_install_RHVM[Installing and Configuring Data Warehouse on a Separate Machine] in _Installing {virt-product-fullname} as a standalone {engine-name} with remote databases_.
++
+To migrate Data Warehouse post-installation, see link:{URL_virt_product_docs}{URL_format}data_warehouse_guide/index#migrating_data_warehouse_to_a_separate_machine_dwh_admin[Migrating Data Warehouse to a Separate Machine] in the _Data Warehouse Guide_.
+
+You can also host the Data Warehouse service and the Data Warehouse database separately from one another.
+
+*{engine-name} database*:: To host the {engine-name} database on the {engine-name}, select `Local` when prompted by `engine-setup`.
++
+To host the {engine-name} database on a remote machine, see link:{URL_virt_product_docs}{URL_format}installing_{URL_product_virt}_as_a_standalone_manager_with_remote_databases/index#Preparing_a_Remote_PostgreSQL_Database_install_RHVM[Preparing a Remote PostgreSQL Database] in _Installing {virt-product-fullname} as a standalone {engine-name} with remote databases_ before running `engine-setup` on the {engine-name}.
++
+To migrate the {engine-name} database post-installation, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Migrating_the_Engine_Database_to_a_Remote_Server_Database[Migrating the Engine Database to a Remote Server Database] in the _Administration Guide_.
+
+*Websocket proxy*:: To host the websocket proxy on the {engine-name}, select `Yes` when prompted by `engine-setup`.
+
+[IMPORTANT]
+====
+Self-hosted engine environments use an appliance to install and configure the {engine-name} virtual machine, so Data Warehouse, the {engine-name} database, and the websocket proxy can only be made external post-installation.
+====
+
+==== Remote Hosting Only
+
+The following components must be hosted on a remote machine:
+
+*DNS*:: Due to the extensive use of DNS in a {virt-product-fullname} environment, running the environment’s DNS service as a virtual machine hosted in the environment is not supported.
+
+*Storage*:: With the exception of xref:local-storage[local storage], the storage service must not be on the same machine as the {engine-name} or any host.
+
+*Identity Management*:: IdM (`ipa-server`) is incompatible with the `mod_ssl` package, which is required by the {engine-name}.

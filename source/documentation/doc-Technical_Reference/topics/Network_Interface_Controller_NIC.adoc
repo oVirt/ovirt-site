@@ -1,0 +1,6 @@
+[[Network_Interface_Controller_NIC]]
+=== Network Interface Controller
+
+The network interface controller (NIC) is a network adapter or LAN adapter that connects a computer to a computer network. The NIC operates on both the physical and data link layers of the machine and enables network connectivity. All virtualization hosts in a {virt-product-fullname} environment have at least one NIC, though it is more common for a host to have two or more NICs.
+
+One physical NIC can have multiple virtual NICs (vNICs) logically connected to it. A virtual NIC acts as a network interface for a virtual machine. To distinguish between a vNIC and the NIC that supports it, the {virt-product-fullname} {engine-name} assigns each vNIC a unique MAC address.

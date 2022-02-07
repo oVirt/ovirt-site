@@ -1,0 +1,8 @@
+[id='sect-Subscriptions']
+= Subscriptions
+
+To install the {virt-product-fullname} {engine-name} and hosts, your systems must be registered with the Content Delivery Network using Red Hat Subscription Management. This section outlines the subscriptions and repositories required to set up a {virt-product-fullname} environment.
+
+include::topics/Red_Hat_Subscription_Manager_Subscriptions_and_Repositories.adoc[leveloffset=+1]
+
+include::topics/Additional_Packages_from_Red_Hat_Network.adoc[leveloffset=+1]

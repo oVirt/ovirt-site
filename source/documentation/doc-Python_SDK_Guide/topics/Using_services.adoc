@@ -1,0 +1,22 @@
+[[Using_services]]
+=== Using Services
+
+After you have located a service, you can call its service methods, which send requests to the server and do the real work.
+
+Services that manage a single object usually support the `get`, `update`, and `remove` methods.
+
+Services that manage collections of objects usually support the `list` and `add` methods.
+
+Both kinds of services, especially services that manage a single object, can support additional action methods.
+
+include::Using_get_methods.adoc[]
+
+include::Using_list_methods.adoc[]
+
+include::Using_add_methods.adoc[]
+
+include::Using_update_methods.adoc[]
+
+include::Using_remove_methods.adoc[]
+
+include::Using_other_action_methods.adoc[]

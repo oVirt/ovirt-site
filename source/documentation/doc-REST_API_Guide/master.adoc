@@ -1,0 +1,8 @@
+:rhv-doc:
+include::common/collateral_files/attributes.adoc[]
+= REST API Guide
+
+:engine-name: Red Hat Virtualization Manager
+:product-name: Red Hat Virtualization
+
+include::model.adoc[]

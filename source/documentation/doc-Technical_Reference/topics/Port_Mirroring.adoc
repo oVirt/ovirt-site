@@ -1,0 +1,20 @@
+[[Port_Mirroring]]
+=== Port Mirroring
+
+Port mirroring copies layer 3 network traffic on a given logical network and host to a virtual interface on a virtual machine. This virtual machine can be used for network debugging and tuning, intrusion detection, and monitoring the behavior of other virtual machines on the same host and logical network.
+
+The only traffic copied is internal to one logical network on one host. There is no increase in traffic on the network external to the host. However, a virtual machine with port mirroring enabled uses more host CPU and RAM than other virtual machines.
+
+Port mirroring is enabled or disabled in the vNIC profiles of logical networks, and has the following limitations:
+
+
+* Hot plugging vNICs with a profile that has port mirroring enabled is not supported.
+
+* Port mirroring cannot be altered when the vNIC profile is attached to a virtual machine.
+
+Given the above limitations, it is recommended that you enable port mirroring on an additional, dedicated vNIC profile.
+
+[IMPORTANT]
+====
+Enabling port mirroring reduces the privacy of other network users.
+====

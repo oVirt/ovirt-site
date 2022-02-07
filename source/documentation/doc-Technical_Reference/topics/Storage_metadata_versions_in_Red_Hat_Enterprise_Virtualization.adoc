@@ -1,0 +1,67 @@
+[[Storage_metadata_versions_in_Red_Hat_Enterprise_Virtualization]]
+=== Storage Metadata Versions in {virt-product-fullname}
+
+{virt-product-fullname} stores information about storage domains as metadata on the storage domains themselves. Each major release of {virt-product-fullname} has seen improved implementations of storage metadata.
+
+
+.V1 metadata ({virt-product-fullname} 2.x series)
+
+* Each storage domain contains metadata describing its own structure, and all of the names of physical volumes that are used to back virtual disks.
+* Master domains additionally contain metadata for all the domains and physical volume names in the storage pool. The total size of this metadata is limited to 2 KB, limiting the number of storage domains that can be in a pool.
+* Template and virtual machine base images are read only.
+* V1 metadata is applicable to NFS, iSCSI, and FC storage domains.
+
+.V2 metadata (Red Hat Enterprise Virtualization 3.0)
+
+* All storage domain and pool metadata is stored as logical volume tags rather than written to a logical volume. Metadata about virtual disk volumes is still stored in a logical volume on the domains.
+* Physical volume names are no longer included in the metadata.
+* Template and virtual machine base images are read only.
+* V2 metadata is applicable to iSCSI, and FC storage domains.
+
+.V3 metadata (Red Hat Enterprise Virtualization 3.1 and later)
+
+* All storage domain and pool metadata is stored as logical volume tags rather than written to a logical volume. Metadata about virtual disk volumes is still stored in a logical volume on the domains.
+* Virtual machine and template base images are no longer read only. This change enables live snapshots, live storage migration, and clone from snapshot.
+* Support for unicode metadata is added, for non-English volume names.
+* V3 metadata is applicable to NFS, GlusterFS, POSIX, iSCSI, and FC storage domains.
+
+.V4 metadata (Red Hat Virtualization 4.1 and later)
+
+* Support for QCOW2 compat levels - the QCOW image format includes a version number to allow introducing new features that change the image format so that it is incompatible with earlier versions. Newer QEMU versions (1.7 and above) support QCOW2 version 3, which is not backwards compatible, but introduces improvements such as zero clusters and improved performance.
+* A new xleases volume to support VM leases - this feature adds the ability to acquire a lease per virtual machine on shared storage without attaching the lease to a virtual machine disk.
++
+A VM lease offers two important capabilities:
+
+** Avoiding split-brain.
+** Starting a VM on another host if the original host becomes non-responsive, which improves the availability of HA VMs.
+
+.V5 metadata (Red Hat Virtualization 4.3 and later)
+
+* Support for 4K (4096 byte) block storage.
+* Support for variable SANLOCK allignments.
+* Support for new properties:
+
+** `BLOCK_SIZE` - stores the block size of the storage domain in bytes.
+** `ALIGNMENT` -  determines the formatting and size of the xlease volume. (1MB to 8MB).
+Determined by the maximum number of host to be supported (value provided by the
+user) and disk block size.
++
+For example: a 512b block size and support for 2000 hosts
+results in a 1MB xlease volume.
++
+A 4K block size with 2000 hosts
+results in a 8MB xlease volume.
++
+The default value of maximum hosts is 250, resulting in  an xlease volume of 1MB for 4K disks.
+
+* Deprecated properties:
++
+** The `LOGBLKSIZE`, `PHYBLKSIZE`, `MTIME`, and `POOL_UUID` fields were removed from the storage domain metadata.
+** The `SIZE` (size in blocks) field was replaced by `CAP` (size in bytes).
+
+
+[NOTE]
+====
+* You cannot boot from a 4K format disk, as the boot disk always uses a 512 byte emulation.
+* The nfs format always uses 512 bytes.
+====

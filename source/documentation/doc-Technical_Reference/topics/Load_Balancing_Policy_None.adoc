@@ -1,0 +1,6 @@
+[[Load_Balancing_Policy_None]]
+=== Load Balancing Policy: None
+
+If no load balancing policy is selected, virtual machines are started on the host within a cluster with the lowest CPU utilization and available memory. To determine CPU utilization a combined metric is used that takes into account the virtual CPU count and the CPU usage percent. This approach is the least dynamic, as the only host selection point is when a new virtual machine is started. Virtual machines are not automatically migrated to reflect increased demand on a host.
+
+An administrator must decide which host is an appropriate migration target for a given virtual machine. Virtual machines can also be associated with a particular host using pinning. Pinning prevents a virtual machine from being automatically migrated to other hosts. For environments where resources are highly consumed, manual migration is the best approach.

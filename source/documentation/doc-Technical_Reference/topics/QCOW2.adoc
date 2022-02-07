@@ -1,0 +1,12 @@
+[[QCOW2]]
+=== Storage Formats for Virtual Disks
+
+
+*QCOW2 Formatted Virtual Machine Storage*:: QCOW2 is a storage format for virtual disks. QCOW stands for QEMU copy-on-write. The QCOW2 format decouples the physical storage layer from the virtual layer by adding a mapping between logical and physical blocks. Each logical block is mapped to its physical offset, which enables storage over-commitment and virtual machine snapshots, where each QCOW volume only represents changes made to an underlying virtual disk.
++
+The initial mapping points all logical blocks to the offsets in the backing file or volume. When a virtual machine writes data to a QCOW2 volume after a snapshot, the relevant block is read from the backing volume, modified with the new information and written into a new snapshot QCOW2 volume. Then the map is updated to point to the new place.
+
+
+*Raw*:: The raw storage format has a performance advantage over QCOW2 in that no formatting is applied to virtual disks stored in the raw format. Virtual machine data operations on virtual disks stored in raw format require no additional work from hosts. When a virtual machine writes data to a given offset in its virtual disk, the I/O is written to the same offset on the backing file or logical volume.
++
+Raw format requires that the entire space of the defined image be preallocated unless using externally managed thin provisioned LUNs from a storage array.

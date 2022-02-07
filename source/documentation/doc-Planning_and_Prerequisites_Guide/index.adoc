@@ -1,0 +1,22 @@
+include::common/collateral_files/attributes.adoc[]
+:context: RHV_planning
+= Planning and Prerequisites Guide
+:RHV_planning:
+
+{virt-product-fullname} is made up of connected components that each play different roles in the environment. Planning and preparing for their requirements in advance helps these components communicate and run efficiently.
+
+This guide covers:
+
+* Hardware and security requirements
+
+* The options available for various components
+
+* Recommendations for optimizing your environment
+
+include::common/arch/assembly-RHV_Architecture.adoc[leveloffset=+1]
+
+include::common/prereqs/asm-Requirements.adoc[leveloffset=+1]
+
+include::asm-Considerations.adoc[]
+
+include::asm-Recommendations.adoc[]

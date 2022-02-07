@@ -1,0 +1,13 @@
+[[Network_devices]]
+=== Network Devices
+
+{virt-product-fullname} is able to expose three different types of network interface controller to guests. The type of network interface controller to expose to a guest is chosen when the guest is created but is changeable from the {virt-product-fullname} {engine-name}.
+
+
+* The *e1000* network interface controller exposes a virtualized Intel PRO/1000 (e1000) to guests.
+
+* The *virtio* network interface controller exposes a para-virtualized network device to guests.
+
+* The *rtl8139* network interface controller exposes a virtualized *Realtek Semiconductor Corp RTL8139* to guests.
+
+Multiple network interface controllers are permitted per guest. Each controller added takes up an available PCI slot on the guest. 

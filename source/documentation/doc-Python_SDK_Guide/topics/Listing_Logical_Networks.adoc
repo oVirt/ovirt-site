@@ -1,0 +1,41 @@
+[[Listing_Logical_Networks]]
+=== Listing Logical Networks
+
+The `networks` collection contains all logical networks in the environment.
+
+.Listing logical networks
+====
+This example lists the logical networks in the `networks` collection and outputs some basic information about each network in the collection.
+
+*V4*
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+nws_service = connection.system_service().networks_service()
+
+nws = nws_service.list()
+
+for nw in nws:
+    print("%s (%s)" % (nw.name, nw.id))
+
+connection.close()
+----
+
+In an environment where only the default management network exists, the examples output the text:
+
+[options="nowrap" subs="normal"]
+----
+ovirtmgmt (00000000-0000-0000-0000-000000000000)
+----
+
+====

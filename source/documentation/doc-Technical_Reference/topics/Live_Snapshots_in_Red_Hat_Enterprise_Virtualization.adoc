@@ -1,0 +1,16 @@
+[[Live_Snapshots_in_Red_Hat_Enterprise_Virtualization]]
+=== Live Snapshots in {virt-product-fullname}
+
+Snapshots of virtual machine hard disks marked *shareable* and those that are based on *Direct LUN* connections are not supported, live or otherwise.
+
+Any other virtual machine that is not being cloned or migrated can have a snapshot taken when running, paused, or stopped.
+
+When a live snapshot of a virtual machine is initiated, the {engine-name} requests that the SPM host create a new volume for the virtual machine to use. When the new volume is ready, the {engine-name} uses VDSM to communicate with libvirt and qemu on the host running the virtual machine that it should begin using the new volume for virtual machine write operations. If the virtual machine is able to write to the new volume, the snapshot operation is considered a success and the virtual machine stops writing to the previous volume. If the virtual machine is unable to write to the new volume, the snapshot operation is considered a failure, and the new volume is deleted.
+
+The virtual machine requires access to both its current volume and the new one from the time when a live snapshot is initiated until after the new volume is ready, so both volumes are opened with read-write access.
+
+Virtual machines with an installed guest agent that supports quiescing can ensure filesystem consistency across snapshots. Registered {enterprise-linux} guests can install the *qemu-guest-agent* to enable quiescing before snapshots.
+
+If a quiescing compatible guest agent is present on a virtual machine when it a snapshot is taken, VDSM uses libvirt to communicate with the agent to prepare for a snapshot. Outstanding write actions are completed, and then filesystems are frozen before a snapshot is taken. When the snapshot is complete, and libvirt has switched the virtual machine to the new volume for disk write actions, the filesystem is thawed, and writes to disk resume.
+
+All live snapshots attempted with quiescing enabled. If the snapshot command fails because there is no compatible guest agent present, the live snapshot is re-initiated without the use-quiescing flag. When a virtual machine is reverted to its pre-snapshot state with quiesced filesystems, it boots cleanly with no filesystem check required. Reverting the previous snapshot using an un-quiesced filesystem requires a filesystem check on boot.

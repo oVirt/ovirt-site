@@ -1,0 +1,32 @@
+[[Using_list_methods]]
+==== Using `list` Methods
+
+These service methods retrieve the representations of the objects of a collection. This example retrieves the complete collection of virtual machines of the system:
+
+[source, Python]
+----
+# Find the service that manages the collection of virtual
+# machines:
+vms_service = system_service.vms_service()
+
+# List the virtual machines in the collection
+vms = vms_service.list()
+----
+
+The result will be a Python list containing the instances of corresponding types. For example, in this case, the result will be a list of instances of the class `ovirtsdk4.types.Vm`.
+
+The `list` methods of some services support additional parameters. For example, almost all top-level collections support a `search` parameter to filter the results or a `max` parameter to limit the number of results returned by the server. This example retrieves the names of virtual machines starting with `my`, with an upper limit of 10 results:
+
+[source, Python]
+----
+vms = vms_service.list(search='name=my*', max=10)
+----
+
+[NOTE]
+====
+Not all `list` methods support these parameters. Some `list` methods support other parameters. See the link:http://ovirt.github.io/ovirt-engine-sdk/master[reference documentation] of the SDK for details.
+====
+
+If a list of returned results is empty for any reason, the returned value will be an empty list. It will never be `None`.
+
+If there is an error while trying to retrieve the result, the SDK will raise an `ovirtsdk4.Error` exception containing the details of the failure.

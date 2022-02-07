@@ -1,0 +1,84 @@
+[[Starting_a_Virtual_Machine_with_Overridden_Parameters]]
+=== Starting a Virtual Machine with Overridden Parameters
+
+You can start a virtual machine, overriding its default parameters.
+
+.Starting a virtual machine with overridden parameters
+====
+This example boots a virtual machine with a Windows ISO and attach the `virtio-win_x86.vfd` floppy disk, which contains Windows drivers. This action is equivalent to using the *Run Once* window in the Administration Portal to start a virtual machine.
+
+*V4*
+
+[source, Python]
+----
+import time
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+# Get the reference to the "vms" service:
+vms_service = connection.system_service().vms_service()
+
+# Find the virtual machine:
+vm = vms_service.list(search='name=vm1')[0]
+
+# Locate the service that manages the virtual machine:
+vm_service = vms_service.vm_service(vm.id)
+
+# Locate the service that manages the CDROM devices of the virtual machine:
+cdroms_service = vm_service.cdroms_service()
+
+# Get the first CDROM:
+cdrom = cdroms_service.list()[0]
+
+# Locate the service that manages the CDROM device found in previous step:
+cdrom_service = cdroms_service.cdrom_service(cdrom.id)
+
+# Change the CD of the VM to 'windows_example.iso':
+cdrom_service.update(
+    cdrom=types.Cdrom(
+        file=types.File(
+            id='windows_example.iso'
+        ),
+    ),
+    current=False,
+)
+
+# Call the "start" method of the service to start it:
+vm_service.start(
+    vm=types.Vm(
+        os=types.OperatingSystem(
+            boot=types.Boot(
+                devices=[
+                    types.BootDevice.CDROM,
+                ]
+            )
+        ),
+    )
+)
+
+# Wait until the virtual machine's status is "UP":
+while True:
+    time.sleep(5)
+    vm = vm_service.get()
+    if vm.status == types.VmStatus.UP:
+        break
+
+print("Started '%s'." % vm.name())
+
+# Close the connection to the server:
+connection.close()
+----
+
+====
+
+[NOTE]
+====
+The CD image and floppy disk file must be available to the virtual machine. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain[Uploading Images to a Data Storage Domain] for details.
+====

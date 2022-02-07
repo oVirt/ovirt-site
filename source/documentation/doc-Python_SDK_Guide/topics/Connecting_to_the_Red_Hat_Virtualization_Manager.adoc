@@ -1,0 +1,63 @@
+[[Connecting_to_the_Red_Hat_Virtualization_Manager]]
+=== Connecting to the {virt-product-fullname} {engine-name} in Version 4
+
+To connect to the {virt-product-fullname} {engine-name}, you must create an instance of the *Connection* class from the `ovirtsdk4.sdk` module by importing the class at the start of the script:
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+----
+
+The constructor of the *Connection* class takes a number of arguments. Supported arguments are:
+
+`url`:: A string containing the base URL of the {engine-name}, such as `\https://server.example.com/ovirt-engine/api`.
+`username`:: Specifies the user name to connect, such as `admin@internal`. This parameter is mandatory.
+`password`:: Specifies the password for the user name provided by the `username` parameter. This parameter is mandatory.
+`token`:: An optional token to access the API, instead of a user name and password. If the `token` parameter is not specified, the SDK will create one  automatically.
+`insecure`:: A Boolean flag that indicates whether the server's TLS certificate and host name should be checked.
+`ca_file`:: A PEM file containing the trusted CA certificates. The certificate presented by the server will be verified using these CA certificates. If `ca_file` parameter is not set, the system-wide CA certificate store is used.
+`debug`:: A Boolean flag indicating whether debug output should be generated. If the value is `True` and the `log` parameter is not `None`, the data sent to and received from the server will be written to the log.
++
+[NOTE]
+====
+User names and passwords are written to the debug log, so handle it with care.
+
+Compression is disabled in debug mode, which means that debug messages are sent as plain text.
+====
+
+`log`:: The logger where the log messages will be written.
+`kerberos`:: A Boolean flag indicating whether Kerberos authentication should be used instead of the default basic authentication.
+`timeout`:: The maximum total time to wait for the response, in seconds. A value of `0` (default) means to wait forever. If the timeout expires before the response is received, an exception is raised.
+`compress`:: A Boolean flag indicating whether the SDK should ask the server to send compressed responses. The default is `True`. This is a hint for the server, which may return uncompressed data even when this parameter is set to `True`. Compression is disabled in debug mode, which means that debug messages are sent as plain text.
+`sso_url`:: A string containing the base SSO URL of the server. The default SSO URL is computed from the `url` if no `sso_url` is provided.
+`sso_revoke_url`:: A string containing the base URL of the SSO revoke service. This needs to be specified only when using an external authentication service. By default, this URL is automatically calculated from the value of the `url` parameter, so that SSO token revoke will be performed using the SSO service, which is part of the {engine-name}.
+`sso_token_name`:: The token name in the JSON SSO response returned from the SSO server. Default value is `access_token`.
+`headers`:: A dictionary with headers, which should be sent with every request.
+`connections`:: The maximum number of connections to open to the host. If the value is `0` (default), the number of connections is unlimited.
+`pipeline`:: The maximum number of requests to put in an HTTP pipeline without waiting for the response. If the value is `0` (default), pipelining is disabled.
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+
+# Create a connection to the server:
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+connection.test()
+
+print("Connected successfully!")
+
+connection.close()
+----
+
+For a full list of supported methods, you can generate the documentation for the `ovirtsdk.api` module on the {engine-name} machine:
+
+[options="nowrap" subs="normal"]
+----
+$ pydoc ovirtsdk.api
+----

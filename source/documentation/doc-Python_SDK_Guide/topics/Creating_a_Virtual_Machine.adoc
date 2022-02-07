@@ -1,0 +1,62 @@
+[[Creating_a_Virtual_Machine]]
+=== Creating a Virtual Machine
+
+Virtual machine creation is performed in several steps. The first step, covered here, is to create the virtual machine object itself.
+
+.Creating a virtual machine
+====
+This example creates a virtual machine, `vm1`, with the following requirements:
+
+* 512 MB of memory, expressed in bytes.
+* Attached to the `Default` cluster, and therefore the `Default` data center.
+* Based on the default `Blank` template.
+* Boots from the virtual hard disk drive.
+
+*V4*
+
+In V4, the options are added as `types`, using the `add` method.
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+# Get the reference to the "vms" service:
+vms_service = connection.system_service().vms_service()
+
+# Use the "add" method to create a new virtual machine:
+vms_service.add(
+    types.Vm(
+        name='vm1',
+        memory = 512*1024*1024
+        cluster=types.Cluster(
+            name='Default',
+        ),
+        template=types.Template(
+            name='Blank',
+        ),
+        os=types.OperatingSystem(boot=types.Boot(devices=[types.BootDevice.HD)]
+    ),
+)
+
+print("Virtual machine '%s' added." % vm.name)
+
+# Close the connection to the server:
+connection.close()
+----
+
+If the `add` request is successful, the examples output the text:
+
+[options="nowrap" subs="normal"]
+----
+Virtual machine 'vm1' added.
+----
+
+====

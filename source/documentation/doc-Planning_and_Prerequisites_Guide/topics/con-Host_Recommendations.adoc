@@ -1,0 +1,10 @@
+[[host-recommendations]]
+=== Host Recommendations
+
+* Standardize the hosts in the same cluster. This includes having consistent hardware models and firmware versions. Mixing different server hardware within the same cluster can result in inconsistent performance from host to host.
+
+* Although you can use both {enterprise-linux-host-fullname} and {hypervisor-fullname} in the same cluster, this configuration should only be used when it serves a specific business or technical requirement.
+
+* Configure fencing devices at deployment time. Fencing devices are required for high availability.
+
+* Use separate hardware switches for fencing traffic. If monitoring and fencing go over the same switch, that switch becomes a single point of failure for high availability.

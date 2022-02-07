@@ -1,0 +1,25 @@
+[[directory-server-support]]
+=== Directory Server Support
+
+During installation, {virt-product-fullname} {engine-name} creates a default *admin* user in a default *internal* domain. This account is intended for use when initially configuring the environment, and for troubleshooting. You can create additional users on the *internal* domain using `ovirt-aaa-jdbc-tool`. User accounts created on local domains are known as local users. See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-administering_user_tasks_from_the_commandline[Administering User Tasks From the Command Line] in the _Administration Guide_.
+
+You can also attach an external directory server to your {virt-product-fullname} environment and use it as an external domain. User accounts created on external domains are known as directory users. Attachment of more than one directory server to the {engine-name} is also supported.
+
+The following directory servers are supported for use with {virt-product-fullname}. For more detailed information on installing and configuring a supported directory server, see the vendor's documentation.
+
+*Active Directory*:: link:https://docs.microsoft.com/en-us/windows-server/identity/identity-and-access[]
+
+*Identity Management (IdM - based on IPA)*::   link:{URL_rhel_docs_latest}html-single/planning_identity_management/index#intro-to-ipa-overview-of-planning-idm-and-access-control[]
+
+*Red Hat Directory Server 9 (RHDS 9 - based on 389DS)*:: link:https://access.redhat.com/documentation/en-us/red-hat-directory-server/[]
+
+*OpenLDAP*:: link:http://www.openldap.org/doc/[]
+
+*IBM Security (Tivoli) Directory Server*:: link:https://www.ibm.com/support/knowledgecenter/SSVJJU_6.4.0/com.ibm.IBMDS.doc_6.4/welcome.html[]
+
+[IMPORTANT]
+====
+A user with permissions to read all users and groups must be created in the directory server specifically for use as the {virt-product-fullname} administrative user. Do *not* use the administrative user for the directory server as the {virt-product-fullname} administrative user.
+====
+
+See: link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Users_and_Roles[Users and Roles] in the _Administration Guide_.

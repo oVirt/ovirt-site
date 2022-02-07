@@ -1,0 +1,29 @@
+[[Connecting_to_the_server]]
+=== Connecting to the Server
+
+To connect to the server, import the `ovirtsdk4` module, which contains the `Connection` class. This is the entry point of the SDK, and provides access to the root of the tree of services of the API:
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+----
+
+The connection holds critical resources, including a pool of HTTP connections to the server and an authentication token. It is very important to free these resources when they are no longer in use:
+
+[source, Python]
+----
+connection.close()
+----
+
+Once a connection is closed, it cannot be reused.
+
+The `ca.pem` file is required when connecting to a server protected with TLS. In a normal installation, it is located in */etc/pki/ovirt-engine/* on the {engine-name} machine. If you do not specify the `ca_file`, the system-wide CA certificate store will be used. For more information on obtaining the `ca.pem` file, see the  link:{URL_downstream_virt_product_docs}rest_api_guide/index#documents-002_authentication_and_security[_REST API Guide_].
+
+If the connection is not successful, the SDK will raise an `ovirtsdk4.Error` exception containing the details.

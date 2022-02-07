@@ -1,0 +1,26 @@
+[[Exclusive_Resources_and_Sanlock_in_Red_Hat_Enterprise_Virtualization]]
+=== Exclusive Resources and Sanlock in {virt-product-fullname}
+
+Certain resources in the {virt-product-fullname} environment must be accessed exclusively.
+
+The SPM role is one such resource. If more than one host were to become the SPM, there would be a risk of data corruption as the same data could be changed from two places at once.
+
+Prior to Red Hat Enterprise Virtualization 3.1, SPM exclusivity was maintained and tracked using a VDSM feature called *safelease*. The lease was written to a special area on all of the storage domains in a data center. All of the hosts in an environment could track SPM status in a network-independent way. The VDSM's safe lease only maintained exclusivity of one resource: the SPM role.
+
+Sanlock provides the same functionality, but treats the SPM role as one of the resources that can be locked. Sanlock is more flexible because it allows additional resources to be locked.
+
+Applications that require resource locking can register with Sanlock. Registered applications can then request that Sanlock lock a resource on their behalf, so that no other application can access it. For example, instead of VDSM locking the SPM status, VDSM now requests that Sanlock do so.
+
+Locks are tracked on disk in a *lockspace*. There is one lockspace for every storage domain. In the case of the lock on the SPM resource, each host's liveness is tracked in the lockspace by the host's ability to renew the hostid it received from the {engine-name} when it connected to storage, and to write a timestamp to the lockspace at a regular interval. The *ids* logical volume tracks the unique identifiers of each host, and is updated every time a host renews its hostid. The SPM resource can only be held by a live host.
+
+Resources are tracked on disk in the *leases* logical volume. A resource is said to be *taken* when its representation on disk has been updated with the unique identifier of the process that has taken it. In the case of the SPM role, the SPM resource is updated with the hostid that has taken it.
+
+The Sanlock process on each host only needs to check the resources once to see that they are taken. After an initial check, Sanlock can monitor the lockspaces until timestamp of the host with a locked resource becomes stale.
+
+Sanlock monitors the applications that use resources. For example, VDSM is monitored for SPM status and hostid. If the host is unable to renew it's hostid from the {engine-name}, it loses exclusivity on all resources in the lockspace. Sanlock updates the resource to show that it is no longer taken.
+
+If the SPM host is unable to write a timestamp to the lockspace on the storage domain for a given amount of time, the host's instance of Sanlock requests that the VDSM process release its resources. If the VDSM process responds, its resources are released, and the SPM resource in the lockspace can be taken by another host.
+
+If VDSM on the SPM host does not respond to requests to release resources, Sanlock on the host kills the VDSM process. If the kill command is unsuccessful, Sanlock escalates by attempting to kill VDSM using sigkill. If the sigkill is unsuccessful, Sanlock depends on the *watchdog daemon* to reboot the host.
+
+Every time VDSM on the host renews its hostid and writes a timestamp to the lockspace, the watchdog daemon receives a *pet*. When VDSM is unable to do so, the watchdog daemon is no longer being petted. After the watchdog daemon has not received a pet for a given amount of time, it reboots the host. This final level of escalation, if reached, guarantees that the SPM resource is released, and can be taken by another host.

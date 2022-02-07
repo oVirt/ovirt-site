@@ -1,0 +1,6 @@
+[[Load_Balancing_Policy]]
+=== Load Balancing Policy
+
+Load balancing policy is set for a cluster, which includes one or more hosts that may each have different hardware parameters and available memory. The {virt-product-fullname} {engine-name} uses a load balancing policy to determine which host in a cluster to start a virtual machine on. Load balancing policy also allows the {engine-name} determine when to move virtual machines from over-utilized hosts to under-utilized hosts.
+
+The load balancing process runs once every minute for each cluster in a data center. It determines which hosts are over-utilized, which are hosts under-utilized, and which are valid targets for virtual machine migration. The determination is made based on the load balancing policy set by an administrator for a given cluster. The options for load balancing policies are *VM_Evenly_Distributed*, *Evenly_Distributed*, *Power_Saving*, *Cluster_Maintenance*, and *None*.

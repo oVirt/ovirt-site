@@ -1,0 +1,35 @@
+[[Graphics_Devices]]
+=== Graphics Devices
+
+The SPICE or VNC graphics protocols can be used to connect to the emulated graphics devices.
+
+You can select a *Video Type* in the Administration Portal:
+
+* *QXL*: Emulates a para-virtualized video card that works best with QXL guest drivers
+* *VGA*: Emulates a dummy VGA card with `Bochs` VESA extensions
+* *BOCHS*: Emulates a dummy VGA card without legacy emulation for guest machines that that run with UEFI. This is the default display video card emulator for UEFI servers.
+
++
+[IMPORTANT]
+====
+The `Bochs` emulator and UEFI are both Technology Preview features only. Technology Preview features are not supported with Red Hat production service level agreements (SLAs), might not be functionally complete, and Red Hat does not recommend to use them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
+
+For more information on Red Hat Technology Preview features support scope, see link:https://access.redhat.com/support/offerings/techpreview/[].
+====
+
+[NOTE]
+====
+For a virtual machine of type `server` that is set with UEFI and uses compatibility level 4.6 or above, *BOCHS* is the default value of *Video Type*.
+
+In {virt-product-fullname} 4.4.5, you must do the following to enable this feature:
+
+. Run the following command:
++
+----
+ engine-config --set EnableBochsDisplay=true --cver=<version>
+----
+where `<version>` is the compatibility version.
++
+. Restart the engine.
+. Set *Video Type* to *BOCHS* manually.
+====

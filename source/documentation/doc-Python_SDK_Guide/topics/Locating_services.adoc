@@ -1,0 +1,30 @@
+[[Locating_services]]
+=== Locating Services
+
+The API provides a set of services, each associated with a path within the URL space of the server. For example, the service that manages the collection of virtual machines of the system is located in */vms*, and the service that manages the virtual machine with identifier `123` is located in */vms/123*.
+
+In the SDK, the root of that tree of services is implemented by the system service. It is obtained calling the `system_service` method of the connection:
+
+[source, Python]
+----
+system_service = connection.system_service()
+----
+
+When you have the reference to this system service, you can use it to obtain references to other services, calling the `*_service` methods, called service locators, of the previous service. For example, to obtain a reference to the service that manages the collection of virtual machines of the system, you use the `vms_service` service locator:
+
+[source, Python]
+----
+vms_service = system_service.vms_service()
+----
+
+To obtain a reference to the service that manages the virtual machine with identifier `123`, you use the `vm_service` service locator of the service that manages the collection of virtual machines. It uses the identifier of the virtual machine as a parameter:
+
+[source, Python]
+----
+vm_service = vms_service.vm_service('123')
+----
+
+[IMPORTANT]
+====
+Calling service locators does not send a request to the server. The Python objects that they return are pure services, which do not contain any data. For example, the `vm_service` Python object called in this example is not the representation of a virtual machine. It is the service that is used to retrieve, update, delete, start and stop that virtual machine.
+====

@@ -1,0 +1,4 @@
+[[Highly_Available_Virtual_Machine_Reservation]]
+=== Highly Available Virtual Machine Reservation
+
+A highly available (HA) virtual machine reservation policy enables the {virt-product-fullname} {engine-name} to monitor cluster capacity for highly available virtual machines. The {engine-name} has the capability to flag individual virtual machines for High Availability, meaning that in the event of a host failure, these virtual machines will be rebooted on an alternative host. This policy balances highly available virtual machines across the hosts in a cluster. If any host in the cluster fails, the remaining hosts can support the migrating load of highly available virtual machines without affecting cluster performance. When highly available virtual machine reservation is enabled, the {engine-name} ensures that appropriate capacity exists within a cluster for HA virtual machines to migrate in the event that their existing host fails unexpectedly.

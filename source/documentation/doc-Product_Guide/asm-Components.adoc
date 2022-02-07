@@ -1,0 +1,64 @@
+[[RHV-components]]
+== {virt-product-fullname} Components
+
+=== {virt-product-fullname} {engine-name}
+
+The {virt-product-fullname} {engine-name} provides a graphical user interface and a RESTful API to manage the resources of the {virt-product-fullname} environment. In a standalone {engine-name} environment, the {engine-name} is installed on a {enterprise-linux} 8 physical machine, or a virtual machine hosted in a separate environment. In a self-hosted engine environment, the {engine-name} is installed as a virtual machine hosted on self-hosted engine nodes in the same environment it manages.
+
+Native high availability for the {engine-name} is only available in a self-hosted engine environment. At least two self-hosted engine nodes are required for high availability.
+
+See: link:{URL_virt_product_docs}{URL_format}administration_guide/index#[_Administration Guide_]
+
+=== Hosts
+
+Hosts, also known as hypervisors, are the physical servers on which virtual machines run. Full virtualization is provided by using a loadable Linux kernel module called Kernel-based Virtual Machine (KVM). KVM can concurrently host multiple virtual machines running either Windows or Linux operating systems. Virtual machines run on the host machine and are managed remotely by the {virt-product-fullname} {engine-name}.
+
+{virt-product-fullname} supports two types of host: {hypervisor-fullname} and {enterprise-linux}. You can use either or both in your {virt-product-fullname} environment, depending on your requirements.
+
+You should install at least two hosts and attach them to the {virt-product-fullname} environment. If you attach only one host, you cannot access features such as migration and high availability.
+
+*{hypervisor-fullname} ({hypervisor-shortname})*::  {hypervisor-fullname} is a minimal operating system based on {enterprise-linux}, built for easy management, easy maintenance, and simple deployment. It is distributed as an ISO file from the Customer Portal and contains only the packages required for the machine to act as a host.
+*{enterprise-linux}*:: {enterprise-linux} servers with the appropriate subscriptions attached can be used as hosts. These hosts are more customizable than {hypervisor-shortname}.
+
+See: link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Hosts[Hosts] in the _Administration Guide_.
+
+=== Storage
+
+Setting up storage and attaching it to your {virt-product-fullname} environment is a prerequisite before you can start creating end-user virtual machines. {virt-product-fullname} has three types of storage domains; however, only the data domain is now fully supported:
+
+* The data domain contains all the data associated with virtual machines. The data domain supports all storage types that are supported for use with {virt-product-fullname}. See link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#storage-types[Storage Types] in the _Planning and Prerequisites Guide_. For information on uploading to a data domain, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#Uploading_Images_to_a_Data_Storage_Domain_storage_tasks[Uploading Images to a Data Storage Domain] in the __Administration Guide__.
+
+
+* The ISO domain is a deprecated storage domain type that was used to store ISO files for installing a virtual machine operating system or additional applications, such as the Windows guest agents and drivers. Virtual machine images can now be uploaded to data domains instead. For information on uploading to an ISO domain, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-The_ISO_Uploader_Tool[The ISO Uploader Tool] in the __Administration Guide__.
+
+* The export domain is a deprecated storage domain type that was used as a temporary storage repository for moving images between data centers and {virt-product-fullname} environments. This is now done by importing data storage domains.
+
+The ISO and export domains only support file-based storage types (NFS, POSIX, or GlusterFS). The ISO domain supports local storage when used in a local storage data center.
+
+See:  link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage[Storage] in the _Administration Guide_.
+
+=== Data Warehouse
+
+include::common/database/snip-About_Data_Warehouse.adoc[]
+
+See: link:{URL_virt_product_docs}{URL_format}data_warehouse_guide/index#[_Data Warehouse Guide_]
+
+=== Networking in {virt-product-fullname}
+
+Operations such as storage, host management, user connections, and virtual machine connectivity all rely on a well-planned and well-configured network to deliver optimal performance. Setting up networking is a vital prerequisite for a {virt-product-fullname} environment. Planning for your projected networking requirements and implementing your network accordingly is much simpler than discovering your networking requirements through use and altering your network configuration retroactively.
+
+{virt-product-fullname} separates network traffic by defining logical networks. Logical networks define the path that a selected network traffic type must take through the network. They are created to isolate network traffic by functionality or to virtualize a physical topology.
+
+The *ovirtmgmt* logical network is created by default and labeled as the *Management* network. The *ovirtmgmt* logical network is intended for management traffic between the {virt-product-fullname} {engine-name} and hosts. You can define additional logical networks to segregate:
+
+* General virtual machine traffic
+
+* Storage-related traffic (such as NFS or iSCSI)
+
+* Virtual machine migration traffic
+
+* Virtual machine display traffic
+
+* Gluster storage traffic
+
+See: link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Logical_Networks[Logical Networks] in the _Administration Guide_.

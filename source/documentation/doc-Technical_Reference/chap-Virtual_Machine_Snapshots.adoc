@@ -1,0 +1,24 @@
+[[chap-Virtual_Machine_Snapshots]]
+== Virtual Machine Snapshots
+
+include::topics/Snapshots1.adoc[]
+
+include::topics/Live_Snapshots_in_Red_Hat_Enterprise_Virtualization.adoc[]
+
+include::topics/Snapshot_Creation.adoc[]
+
+ifdef::rhv-doc[]
+=== Monitoring snapshot health with the image discrepancies tool
+
+:context: tr
+:tr:
+
+include::common/upgrade/proc-Image_discrepancies_tool.adoc[]
+
+:tr!:
+:context!: tr
+endif::[]
+
+include::topics/Snapshot_Previews.adoc[]
+
+include::topics/Snapshot_Deletion.adoc[]

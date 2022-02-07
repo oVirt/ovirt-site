@@ -1,0 +1,67 @@
+[[Activating_a_Storage_Domain]]
+=== Activating a Storage Domain
+
+Once you have added a storage domain to {virt-product-fullname} and attached it to a data center, you must activate it before it will be ready for use.
+
+.Activating a storage domain
+====
+This example activates an NFS storage domain, `mydata`, attached to the data center, `Default`. The `activate` action is facilitated by the `activate` method of the storage domain.
+
+*V4*
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+
+connection = sdk.Connection
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+# Locate the service that manages the storage domains and use it to
+# search for the storage domain:
+sds_service = connection.system_service().storage_domains_service()
+sd = sds_service.list(search='name=mydata')[0]
+
+# Locate the service that manages the data centers and use it to
+# search for the data center:
+dcs_service = connection.system_service().data_centers_service()
+dc = dcs_service.list(search='name=Default')[0]
+
+# Locate the service that manages the data center where we want to
+# attach the storage domain:
+dc_service = dcs_service.data_center_service(dc.id)
+
+# Locate the service that manages the storage domains that are attached
+# to the data centers:
+attached_sds_service = dc_service.storage_domains_service()
+
+# Activate storage domain:
+attached_sd_service = attached_sds_service.storage_domain_service(sd.id)
+attached_sd_service.activate()
+
+# Wait until the storage domain is active:
+while True:
+    time.sleep(5)
+    sd = attached_sd_service.get()
+    if sd.status == types.StorageDomainStatus.ACTIVE:
+        break
+
+print("Attached data storage domain '%s' to data center '%s' (Status: %s)." %
+  (sd.name(), dc.name(), sd.status.state()))
+
+# Close the connection to the server:
+connection.close()
+----
+
+If the `activate` requests are successful, the examples output the text:
+
+[options="nowrap" subs="normal"]
+----
+Activated storage domain 'mydata' in data center 'Default' (Status: active).
+----
+
+`Status: active` indicates that the storage domains have been activated.
+====

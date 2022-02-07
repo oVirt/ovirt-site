@@ -1,0 +1,60 @@
+[[Starting_a_Virtual_Machine]]
+=== Starting a Virtual Machine
+
+You can start a virtual machine.
+
+.Starting a virtual machine
+====
+This example starts the virtual machine using the `start` method.
+
+*V4*
+
+[source, Python]
+----
+import time
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+# Get the reference to the "vms" service:
+vms_service = connection.system_service().vms_service()
+
+# Find the virtual machine:
+vm = vms_service.list(search='name=vm1')[0]
+
+# Locate the service that manages the virtual machine, as that is where
+# the action methods are defined:
+vm_service = vms_service.vm_service(vm.id)
+
+# Call the "start" method of the service to start it:
+vm_service.start()
+
+# Wait until the virtual machine is up:
+while True:
+    time.sleep(5)
+    vm = vm_service.get()
+    if vm.status == types.VmStatus.UP:
+        break
+
+print("Started '%s'." % vm.name())
+
+# Close the connection to the server:
+connection.close()
+----
+
+If the `start` request is successful, the examples output the text:
+
+[options="nowrap" subs="normal"]
+----
+Started 'vm1'.
+----
+
+The `UP` status indicates that the virtual machine is running.
+
+====

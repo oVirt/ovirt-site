@@ -1,0 +1,31 @@
+[[Using_other_action_methods]]
+==== Using Other Action Methods
+
+There are other service methods that perform miscellaneous operations, such as stopping and starting a virtual machine:
+
+[source, Python]
+----
+# Start the virtual machine:
+vm_service.start()
+----
+
+Many of these methods include parameters that modify the operation. For example, the method that starts a virtual machine supports a `use_cloud_init` parameter, if you want to start it using `cloud-init`:
+
+[source, Python]
+----
+# Start the virtual machine:
+vm_service.start(cloud_init=True)
+----
+
+Most action methods return `None` when they succeed and raise an `ovirtsdk4.Error` when they fail. A few action methods return values. For example, the service that manages a storage domain has an `is_attached` action method that checks whether the storage domain is already attached to a data center and returns a Boolean value:
+
+[source, Python]
+----
+# Check if the storage domain is attached to a data center:
+sds_service = system_service.storage_domains_service()
+sd_service = sds_service.storage_domain_service('123')
+if sd_service.is_attached():
+    ...
+----
+
+Check the link:http://ovirt.github.io/ovirt-engine-sdk[reference documentation] of the SDK to see the action methods supported by each service, the parameters that they take, and the values that they return.

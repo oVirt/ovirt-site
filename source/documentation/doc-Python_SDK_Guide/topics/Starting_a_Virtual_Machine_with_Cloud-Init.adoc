@@ -1,0 +1,60 @@
+[[Starting_a_Virtual_Machine_with_Cloud-Init]]
+=== Starting a Virtual Machine with Cloud-Init
+
+You can start a virtual machine with a specific configuration, using the `Cloud-Init` tool.
+
+.Starting a virtual machine with Cloud-Init
+====
+This example shows you how to start a virtual machine using the Cloud-Init tool to set a host name and a static IP for the `eth0` interface.
+
+*V4*
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+# Find the virtual machine:
+vms_service = connection.system_service().vms_service()
+vm = vms_service.list(search = 'name=vm1')[0]
+
+# Find the service that manages the virtual machine:
+vm_service = vms_service.vm_service(vm.id)
+
+# Start the virtual machine enabling cloud-init and providing the
+# password for the `root` user and the network configuration:
+vm_service.start(
+    use_cloud_init=True,
+    vm=types.Vm(
+        initialization=types.Initialization(
+        user_name='root',
+        root_password='password',
+        host_name='MyHost.example.com',
+        nic_configurations=[
+            types.NicConfiguration(
+                name='eth0',
+                on_boot=True,
+                boot_protocol=types.BootProtocol.STATIC,
+                ip=types.Ip(
+                    version=types.IpVersion.V4,
+                    address='10.10.10.1',
+                    netmask='255.255.255.0',
+                    gateway='10.10.10.1'
+                )
+            )
+        )
+    )
+)
+
+# Close the connection to the server:
+connection.close()
+----
+
+====

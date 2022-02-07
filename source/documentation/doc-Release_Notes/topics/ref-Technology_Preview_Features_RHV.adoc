@@ -1,0 +1,57 @@
+[id='Technology_Preview_Features_RHV']
+= Technology Preview Features
+// This is a static section that must be reviewed by PM every release to confirm which items to add or remove.
+
+[IMPORTANT]
+====
+Technology Preview features are not supported with Red Hat production service-level agreements (SLAs) and might not be functionally complete, and Red Hat does not recommend using them for production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process. For more information see link:https://access.redhat.com/support/offerings/techpreview/[Red Hat Technology Preview Features Support Scope].
+====
+
+The following table describes features available as Technology Previews in {virt-product-fullname}.
+
+.Technology Preview Features
+[options="header"]
+[cols=",a"]
+|===
+|Technology Preview Feature |Details
+|Incremental Backup - based on Changed Block Tracking (CBT) a|Backups are simpler, faster and more robust, and integration with backup applications is improved, with new support for backing up and restoring raw guest data, regardless of the underlying disk format.
+
+* Disks must be in QCOW2 format.
+
+* Incremental backup only works with raw guest data, not raw volumes.
+
+*Features*
+
+* Perform full or incremental backups for disks using QCOW2 format without any temporary snapshots.
+
+* Backup raw guest data instead copying QCOW2 data for QCOW2 disks.
+
+* Restore raw guest data to disk onto raw or QCOW2 disks.
+|IPv6 |Static IPv6 assignment is fully supported in Red Hat Virtualization 4.3 and 4.4, but Dynamic IPv6 assignment is available as a Technology Preview.
+
+[NOTE]
+====
+All hosts in the cluster must use IPv4 or IPv6 for RHV networks, not simultaneous IPv4 and IPv6, because Dual Stack is not supported.
+====
+
+For details about IPv6 support, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#IPv6-networking-support-labels[IPv6 Networking Support] in the Administration Guide.
+|NoVNC console option |Option for opening a virtual machine console in the browser using HTML5.
+|Websocket proxy |Allows users to connect to virtual machines through a noVNC console.
+|VDSM hook for nested virtualization |Allows a virtual machine to serve as a host. For details, see link:{URL_virt_product_docs}{URL_format}administration_guide/index#proc-enabling-nested-virtualization-for-all-virtual-machines[Enabling nested virtualization for all virtual machines] in the Administration Guide.
+|Import Debian and Ubuntu virtual machines from VMware and RHEL 5 Xen a|Allows `virt-v2v` to convert Debian and Ubuntu virtual machines from VMware or RHEL 5 Xen to KVM.
+
+*Known Issues:*
+
+* `virt-v2v` cannot change the default kernel in the GRUB2 configuration. The kernel configured on the guest operating system is not changed during the conversion, even if a more optimal version is available.
+
+* After converting a Debian or Ubuntu virtual machine from VMware to KVM, the name of the virtual machine's network interface may change, and will need to be configured manually
+|NVDIMM host devices |Support for attaching an emulated NVDIMM to virtual machines that are backed by NVDIMM on the host machine. For details, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide/index#conc-nvdimm-host-devices_vm_guide_administrative_tasks[NVDIMM Host Devices].
+|Open vSwitch (OVS) cluster type support |Adds Open vSwitch networking capabilities.
+|Shared and local storage in the same data center |Allows the creation of single-brick Gluster volumes to enable local storage to be used as a storage domain in shared data centers.
+|Cinderlib Integration |Leverage CinderLib library to use Cinder-supported storage drivers in {virt-product-fullname} without a Full Cinder-OpenStack deployment. Adds support for Ceph storage along with Fibre Channel and iSCSI storage. The Cinder volume has multipath support on the {hypervisor-fullname}.
+|SSO with OpenID Connect |Adds support for external OpenID Connect authentication using Keycloak in both the user interface and with the REST API.
+|oVirt Engine Backup |Adds support to back up and restore {virt-product-fullname} {engine-name} with the Ansible `ovirt-engine-backup` role.
+|Q35 Chipset with UEFI |Virtual machines can use the Q35 chipset and UEFI, with or without SecureBoot.
+|Bochs display emulator | Support for the Bochs display video card emulator has been added for UEFI guest machines. This feature is now the default for a guest UEFI server that uses cluster-level 4.6 or above, where BOCHS is the default value of Video Type.
+|Failover vNIC profile | This feature allows users to migrate a virtual machine connected via SR-IOV with minimal downtime by using a failover network that is activated during migration.
+|===

@@ -1,0 +1,51 @@
+[[Power_Management]]
+=== Power Management
+
+The {virt-product-fullname} {engine-name} is capable of rebooting hosts that have entered a non-operational or non-responsive state, as well as preparing to power off under-utilized hosts to save power. This functionality depends on a properly configured power management device. The {virt-product-fullname} environment supports the following power management devices:
+
+* American Power Conversion (`apc`)
+
+* IBM Bladecenter (`Bladecenter`)
+
+* Cisco Unified Computing System (`cisco_ucs`)
+
+* Dell Remote Access Card 5 (`drac5`)
+
+* Dell Remote Access Card 7 (`drac7`)
+
+* Electronic Power Switch (`eps`)
+
+* HP BladeSystem (`hpblade`)
+
+* Integrated Lights Out (`ilo`, `ilo2`, `ilo3`, `ilo4`)
+
+* Intelligent Platform Management Interface (`ipmilan`)
+
+* Remote Supervisor Adapter (`rsa`)
+
+* Fujitsu-Siemens RSB (`rsb`)
+
+* Western Telematic, Inc (`wti`)
+
+HP servers should use `ilo3` or `ilo4`, Dell servers use `drac5` or Integrated Dell Remote Access Controllers (`idrac`), and IBM servers use `ipmilan`. Integrated Management Module (IMM) uses the IPMI protocol, and therefore IMM users can use `ipmilan`.
+
+[NOTE]
+====
+APC 5.x power management devices are not supported by the *apc* fence agent. Use the *apc_snmp* fence agent instead.
+====
+
+In order to communicate with the listed power management devices, the {virt-product-fullname} {engine-name} makes use of fence agents. The {virt-product-fullname} {engine-name} allows administrators to configure a fence agent for the power management device in their environment with parameters the device will accept and respond to. Basic configuration options can be configured using the graphical user interface. Special configuration options can also be entered, and are passed un-parsed to the fence device. Special configuration options are specific to a given fence device, while basic configuration options are for functionalities provided by all supported power management devices. The basic functionalities provided by all power management devices are:
+
+* *Status*: check the status of the host.
+
+* *Start*: power on the host.
+
+* *Stop*: power down the host.
+
+* *Restart*: restart the host. Actually implemented as stop, wait, status, start, wait, status.
+
+
+
+Best practice is to test the power management configuration once when initially configuring it, and occasionally after that to ensure continued functionality.
+
+Resilience is provided by properly configured power management devices in all of the hosts in an environment. Fencing agents allow the {virt-product-fullname} {engine-name} to communicate with host power management devices to bypass the operating system on a problem host, and isolate the host from the rest of its environment by rebooting it. The {engine-name} can then reassign the SPM role, if it was held by the problem host, and safely restart any highly available virtual machines on other hosts.

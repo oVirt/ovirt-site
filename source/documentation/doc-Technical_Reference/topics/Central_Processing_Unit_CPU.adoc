@@ -1,0 +1,13 @@
+[[Central_Processing_Unit_CPU]]
+=== Central Processing Unit (CPU)
+
+Each host within a cluster has a number of virtual CPUs (vCPUs). The virtual CPUs are in turn exposed to guests running on the hosts. All virtual CPUs exposed by hosts within a cluster are of the type selected when the cluster was initially created via {virt-product-fullname} {engine-name}. Mixing of virtual CPU types within a cluster is not possible.
+
+Each available virtual CPU type has characteristics based on physical CPUs of the same name. The virtual CPU is indistinguishable from the physical CPU to the guest operating system.
+
+[NOTE]
+====
+Support for x2APIC:
+
+All virtual CPU models provided by {enterprise-linux} 7 hosts include support for x2APIC. This provides an Advanced Programmable Interrupt Controller (APIC) to better handle hardware interrupts.
+====

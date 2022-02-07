@@ -110,9 +110,7 @@ For example, if this deployment was restored from a backup, and the backup inclu
 * Once everything looks OK, and the host status is _Up_, remove the lock file presented in the message above. The deployment continues.
 ====
 +
-ifdef::rhv-doc[]
-See also link:https://access.redhat.com/solutions/4088711[]
-endif::rhv-doc[]
+
 
 . Select the type of storage to use:
 

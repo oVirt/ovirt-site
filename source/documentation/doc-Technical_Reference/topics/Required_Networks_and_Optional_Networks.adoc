@@ -1,0 +1,10 @@
+[[Virtual_Machine_Networks_and_Optional_Networks]]
+=== Required Networks, Optional Networks, and Virtual Machine Networks
+
+A required network is a logical network that must be available to all hosts in a cluster. When a host's required network becomes non-operational, virtual machines running on that host are migrated to another host; the extent of this migration is dependent upon the chosen scheduling policy. This is beneficial if you have virtual machines running mission critical workloads.
+
+An optional network is a logical network that has not been explicitly declared as *Required*. Optional networks can be implemented on only the hosts that use them. The presence or absence of optional networks does not affect the *Operational* status of a host. When a non-required network becomes non-operational, the virtual machines running on the network are not migrated to another host. This prevents unnecessary I/O overload caused by mass migrations. Note that when a logical network is created and added to clusters, the *Required* box is selected by default.
+
+To change a network's *Required* designation, from the Administration Portal, select a network, click the *Cluster* tab, and click the *Manage Networks* button.
+
+A virtual machine network, called a *VM network* in the user interface, is a logical network designated to carry only virtual machine network traffic. A virtual machine network can be required or optional. Virtual machines that use an optional virtual machine network only start on hosts with that network.

@@ -1,0 +1,8 @@
+[[Load_Balancing_Policy_Even_Distribution]]
+=== Load Balancing Policy: Evenly_Distributed
+
+.Evenly Distributed Scheduling Policy
+image::RHV_SchedulingPolicies_444396_0417_ECE_EvenlyDistributed.png[]
+
+An evenly distributed load balancing policy selects the host for a new virtual machine according to lowest CPU load or highest available memory. The maximum CPU load and minimum available memory that is allowed for hosts in a cluster for a set amount of time are defined by the evenly distributed scheduling policy's parameters. Beyond these limits the environment's performance will degrade. The evenly distributed policy allows an administrator to set these levels for running virtual machines. If a host has reached the defined maximum CPU load or minimum available memory and the host stays there for more than the set time, virtual machines on that host are migrated one by one to the host in the cluster that has the lowest CPU or highest available memory depending on which parameter is being utilized. Host resources are checked once per minute, and one virtual machine is migrated at a time until the host CPU load is below the defined limit or the host available memory is above the defined limit.
+

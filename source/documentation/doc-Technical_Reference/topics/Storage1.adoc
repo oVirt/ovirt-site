@@ -1,0 +1,6 @@
+[[Storage1]]
+=== Storage
+
+{virt-product-fullname} uses a centralized storage system for virtual disks, templates, snapshots, and ISO files. Storage is logically grouped into storage pools, which are comprised of storage domains. A storage domain is a combination of storage capacity and metadata that describes the internal structure of the storage. See xref:Storage_Domain_Types1[Storage Domain Types]
+
+The data domain is the only one required by each data center. A data storage domain is exclusive to a single data center. Export and ISO domains are optional. Storage domains are shared resources, and must be accessible to all hosts in a data center.

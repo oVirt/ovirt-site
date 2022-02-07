@@ -1,0 +1,4 @@
+[[Serial_Driver]]
+=== Serial Driver
+
+The para-virtualized serial driver (*virtio-serial*) is a bytestream-oriented, character stream driver. The para-virtualized serial driver provides a simple communication interface between the host's user space and the guest's user space where networking is not be available or unusable.

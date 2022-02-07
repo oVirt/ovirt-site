@@ -1,0 +1,128 @@
+[[storage-types]]
+=== Storage Types
+
+Each data center must have at least one data storage domain. An ISO storage domain per data center is also recommended. Export storage domains are deprecated, but can still be created if necessary.
+
+A storage domain can be made of either block devices (iSCSI or Fibre Channel) or a file system.
+
+By default, GlusterFS domains and local storage domains support 4K block size. 4K block size can provide better performance, especially when using large files, and it is also necessary when you use tools that require 4K compatibility, such as VDO.
+
+[IMPORTANT]
+====
+{virt-product-fullname} currently does not support block storage with a block size of 4K. You must configure block storage in legacy (512b block) mode.
+====
+
+The storage types described in the following sections are supported for use as data storage domains. ISO and export storage domains only support file-based storage types. The ISO domain supports local storage when used in a local storage data center.
+
+See:
+
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Storage[Storage] in the _Administration Guide_.
+* link:{URL_rhel_docs_legacy}html-single/Storage_Administration_Guide/index#[_{enterprise-linux} Storage Administration Guide_]
+
+[[nfs]]
+==== NFS
+
+NFS versions 3 and 4 are supported by {virt-product-fullname} 4. Production workloads require an enterprise-grade NFS server, unless NFS is only being used as an ISO storage domain. When enterprise NFS is deployed over 10GbE, segregated with VLANs, and individual services are configured to use specific ports, it is both fast and secure.
+
+As NFS exports are grown to accommodate more storage needs, {virt-product-fullname} recognizes the larger data store immediately. No additional configuration is necessary on the hosts or from within {virt-product-fullname}. This provides NFS a slight edge over block storage from a scale and operational perspective.
+
+See:
+
+* link:{URL_rhel_docs_legacy}html-single/Storage_Administration_Guide/index.html#ch-nfs[Network File System (NFS)] in the _{enterprise-linux} Storage Administration Guide_.
+
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-preparing_and_adding_nfs_storage[Preparing and Adding NFS Storage] in the _Administration Guide_.
+
+[[iscsi]]
+==== iSCSI
+
+Production workloads require an enterprise-grade iSCSI server. When enterprise iSCSI is deployed over 10GbE, segregated with VLANs, and utilizes CHAP authentication, it is both fast and secure. iSCSI can also use multipathing to improve high availability.
+
+{virt-product-fullname} supports 1500 logical volumes per block-based storage domain. No more than 300 LUNs are permitted.
+
+See:
+
+* link:{URL_rhel_docs_legacy}html/storage_administration_guide/online-storage-management[Online Storage Management] in the _{enterprise-linux} Storage Administration Guide_.
+
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_iSCSI_Storage_storage_admin[Adding iSCSI Storage] in the _Administration Guide_.
+
+[[fibre-channel]]
+==== Fibre Channel
+
+Fibre Channel is both fast and secure, and should be taken advantage of if it is already in use in the target data center. It also has the advantage of low CPU overhead as compared to iSCSI and NFS. Fibre Channel can also use multipathing to improve high availability.
+
+{virt-product-fullname} supports 1500 logical volumes per block-based storage domain. No more than 300 LUNs are permitted.
+
+See:
+
+* link:{URL_rhel_docs_legacy}html/storage_administration_guide/online-storage-management[Online Storage Management] in the _{enterprise-linux} Storage Administration Guide_.
+
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#Adding_FCP_Storage_storage_admin[Adding FCP Storage] in the _Administration Guide_.
+
+[[fcoe]]
+==== Fibre Channel over Ethernet
+
+To use Fibre Channel over Ethernet (FCoE) in {virt-product-fullname}, you must enable the *fcoe* key on the {engine-name}, and install the _vdsm-hook-fcoe_ package on the hosts.
+
+{virt-product-fullname} supports 1500 logical volumes per block-based storage domain. No more than 300 LUNs are permitted.
+
+See:
+
+* link:{URL_rhel_docs_legacy}html/storage_administration_guide/online-storage-management[Online Storage Management] in the _{enterprise-linux} Storage Administration Guide_.
+
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#how_to_set_up_rhvm_to_use_fcoe[How to Set Up {virt-product-fullname} {engine-name} to Use FCoE] in the _Administration Guide_.
+
+[[gluster]]
+==== {gluster-storage-fullname}
+
+{gluster-storage-fullname} (RHGS) is a POSIX-compliant and open source file system. Three or more servers are configured as a {gluster-storage-fullname} cluster, instead of network-attached storage (NAS) appliances or a storage area network (SAN) array.
+
+{gluster-storage-fullname} should be utilized over 10GbE and segregated with VLANs.
+
+Check the compatibility matrix in link:https://access.redhat.com/articles/2356261[] before using RHGS with {virt-product-fullname}.
+
+See:
+
+* link:https://access.redhat.com/documentation/en-us/red-hat-gluster-storage/[{gluster-storage-fullname} Documentation]
+
+* link:https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.2/html/configuring_red_hat_virtualization_with_red_hat_gluster_storage/[_Configuring {virt-product-fullname} with {gluster-storage-fullname}_]
+
+[[rhhi]]
+==== Red Hat Hyperconverged Infrastructure
+
+Red Hat Hyperconverged Infrastructure (RHHI) combines {virt-product-fullname} and {gluster-storage-fullname} on the same infrastructure, instead of connecting {virt-product-fullname} to a remote {gluster-storage-fullname} server. This compact option reduces operational expenses and overhead.
+
+See:
+
+* link:https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure_for_virtualization/1.6/html/deploying_red_hat_hyperconverged_infrastructure_for_virtualization/[_Deploying Red Hat Hyperconverged Infrastructure for Virtualization_]
+
+* link:https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure_for_virtualization/1.6/html/deploying_red_hat_hyperconverged_infrastructure_for_virtualization_on_a_single_node/[_Deploying Red Hat Hyperconverged Infrastructure for Virtualization On A Single Node_]
+
+* link:https://access.redhat.com/documentation/en-us/red_hat_hyperconverged_infrastructure_for_virtualization/1.6/html/automating_rhhi_for_virtualization_deployment/[_Automating RHHI for Virtualization Deployment_]
+
+// Not currently supported with 4.2
+//[[ceph]]
+// Red Hat Ceph File System
+
+//Red Hat Ceph File System (CephFS) is a file system compatible with POSIX standards that uses a Ceph Storage Cluster to store its data. No special configuration is required on the {virt-product-fullname} side when adding CephFS as a storage domain; it is added the same way as any other POSIX-compliant FS storage.
+
+//See: link:https://access.redhat.com/documentation/en-us/red_hat_ceph_storage/[_Ceph File System Guide_]
+
+[[posix]]
+==== POSIX-Compliant FS
+
+Other POSIX-compliant file systems can be used as storage domains in {virt-product-fullname}, as long as they are clustered file systems, such as Red Hat Global File System 2 (GFS2), and support sparse files and direct I/O. The Common Internet File System (CIFS), for example, does not support direct I/O, making it incompatible with {virt-product-fullname}.
+
+See:
+
+* link:{URL_rhel_docs_legacy}html/Global_File_System_2/index.html[_{enterprise-linux} Global File System 2_]
+
+* link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Preparing_and_Adding_POSIX_Compliant_File_System_Storage[Adding POSIX Compliant File System Storage] in the _Administration Guide_.
+
+[[local-storage]]
+==== Local Storage
+
+Local storage is set up on an individual host, using the host's own resources. When you set up a host to use local storage, it is automatically added to a new data center and cluster that no other hosts can be added to. Virtual machines created in a single-host cluster cannot be migrated, fenced, or scheduled.
+
+For {hypervisor-fullname}s, local storage should always be defined on a file system that is separate from / (root). Use a separate logical volume or disk.
+
+See: link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Preparing_and_Adding_Local_Storage[Preparing and Adding Local Storage] in the _Administration Guide_.

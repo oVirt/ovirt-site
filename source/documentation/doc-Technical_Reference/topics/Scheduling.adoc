@@ -1,0 +1,8 @@
+[[Scheduling]]
+=== Scheduling
+
+In {virt-product-fullname}, scheduling refers to the way the {virt-product-fullname} {engine-name} selects a host in a cluster as the target for a new or migrated virtual machine.
+
+For a host to be eligible to start a virtual machine or accept a migrated virtual machine from another host, it must have enough free memory and CPUs to support the requirements of the virtual machine being started on or migrated to it. A virtual machine will not start on a host with an overloaded CPU. By default, a host's CPU is considered overloaded if it has a load of more than 80% for 5 minutes, but these values can be changed using scheduling policies. If multiple hosts are eligible targets, one will be selected based on the load balancing policy for the cluster. For example, if the Evenly_Distributed policy is in effect, the {engine-name} chooses the host with the lowest CPU utilization. If the Power_Saving policy is in effect, the host with the lowest CPU utilization between the maximum and minimum service levels will be selected. The Storage Pool Manager (SPM) status of a given host also affects eligibility as a target for starting virtual machines or virtual machine migration. A non-SPM host is a preferred target host, for instance, the first virtual machine started in a cluster will not run on the SPM host if the SPM role is held by a host in that cluster.
+
+See link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-Scheduling_Policies[Scheduling Policies] in the _Administration Guide_ for more information.

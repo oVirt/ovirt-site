@@ -1,0 +1,9 @@
+[[chap-Directory_Services]]
+== Directory Services
+
+include::topics/Directory_Services2.adoc[]
+
+include::topics/Local_Authentication_Internal_Domain.adoc[]
+
+include::topics/Remote_Authentication_Using_GSSAPI.adoc[]
+

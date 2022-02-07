@@ -1,0 +1,15 @@
+[[Python_SDK_Prerequisites]]
+=== Prerequisites
+
+To install the Python software development kit, you must have:
+
+
+* A system where {enterprise-linux} 8 is installed. Both the Server and Workstation variants are supported.
+
+* A subscription to {virt-product-fullname} entitlements.
+
+
+[IMPORTANT]
+====
+The software development kit is an interface for the {virt-product-fullname} REST API. Use the version of the software development kit that corresponds to the version of your {virt-product-fullname} environment. For example, if you are using {virt-product-fullname} 4.3, use V4 Python software development kit.
+====

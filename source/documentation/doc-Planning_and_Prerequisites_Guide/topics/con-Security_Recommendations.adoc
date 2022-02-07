@@ -1,0 +1,14 @@
+[[security-recommendations]]
+=== Security Recommendations
+
+* Do not disable any security features (such as HTTPS, SELinux, and the firewall) on the hosts or virtual machines.
+
+* Register all hosts and {enterprise-linux} virtual machines to either the Red Hat Content Delivery Network or Red Hat Satellite in order to receive the latest security updates and errata.
+
+* Create individual administrator accounts, instead of allowing many people to use the default `admin` account, for proper activity tracking.
+
+* Limit access to the hosts and create separate logins. Do not create a single `root` login for everyone to use. For specific information about managing users, groups, and root permissions, see link:{URL_rhel_docs_latest}html/configuring_basic_system_settings/[_Configuring Basic System Settings_].
+
+* Do not create untrusted users on hosts.
+
+* When deploying the {enterprise-linux-host-fullname}s, only install packages and services required to satisfy virtualization, performance, security, and monitoring requirements. Production hosts should not have additional packages such as analyzers, compilers, or other components that add unnecessary security risk.

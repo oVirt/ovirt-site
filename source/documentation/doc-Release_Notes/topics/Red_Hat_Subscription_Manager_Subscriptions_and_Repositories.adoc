@@ -1,0 +1,36 @@
+[[Red_Hat_Subscription_Manager_Subscriptions_and_Repositories]]
+= Required Subscriptions and Repositories
+
+The packages provided in the following repositories are required to install and configure a functioning {virt-product-fullname} environment. When one of these repositories is required to install a package, the steps required to enable the repository are provided in the appropriate location in the documentation.
+
+[[RHSM_Repositories_Required-Manager]]
+.{virt-product-fullname} {engine-name}
+[options="header"]
+|===
+|Subscription Pool |Repository Name |Repository Label |Details
+|`{enterprise-linux} Server` |`{enterprise-linux} Server` |`rhel-8-for-x86_64-baseos-rpms` |Provides the {enterprise-linux} 8 Server.
+|`{enterprise-linux} Server` |`{enterprise-linux} Server` |`rhel-8-for-x86_64-appstream-rpms` |Provides the {enterprise-linux} 8 Server.
+|`{virt-product-fullname}` |`{virt-product-fullname}` |`rhv-4.4-manager-for-rhel-8-x86_64-rpms` |Provides the {virt-product-fullname} {engine-name}.
+|`{virt-product-fullname}` |`Red Hat JBoss Enterprise Application Platform` |`jb-eap-7.4-for-rhel-8-x86_64-rpms` |Provides the supported release of Red Hat JBoss Enterprise Application Platform on which the {engine-name} runs.
+|`{virt-product-fullname}` |`Red Hat Fast Datapath for RHEL 8 (RPMs)` |`fast-datapath-for-rhel-8-x86_64-rpms` |Provides Open vSwitch (OVS) packages.
+|===
+
+[[RHSM_Repositories_Required-Hypervisor]]
+.{hypervisor-fullname}
+[options="header"]
+|===
+|Subscription Pool |Repository Name |Repository Label |Details
+|`{virt-product-fullname}` |`{hypervisor-fullname}` |`rhvh-4-for-rhel-8-x86_64-rpms` |Provides the `redhat-virtualization-host-image-update` package, which allows you to update the image installed on the host.
+|===
+
+[[RHSM_Repositories_Required-RHEL8_Host]]
+.{enterprise-linux} 8 Hosts
+[options="header"]
+|===
+|Subscription Pool |Repository Name |Repository Label |Details
+|`{enterprise-linux} Server` |`{enterprise-linux} Server` |`rhel-8-for-x86_64-baseos-rpms` |Provides the {enterprise-linux} 8 Server.
+|`{enterprise-linux} Server` |`{enterprise-linux} Server` |`rhel-8-for-x86_64-appstream-rpms` |Provides the {enterprise-linux} 8 Server.
+|`{virt-product-fullname}` |`{virt-product-fullname} Management Agents (RPMs)` |`rhv-4-mgmt-agent-for-rhel-8-x86_64-rpms` |Provides the QEMU and KVM packages required for using {enterprise-linux} 8 servers as virtualization hosts.
+|`Red Hat Advanced Virtualization` | `Red Hat Advanced Virtualization` | `advanced-virt-for-rhel-8-x86_64-rpms` | Provides packages for advanced virtualization.
+|`{virt-product-fullname}` |`Red Hat Fast Datapath for RHEL 8 (RPMs)` |`fast-datapath-for-rhel-8-x86_64-rpms` |Provides Open vSwitch (OVS) packages.
+|===

@@ -1,0 +1,123 @@
+[[Attaching_an_ISO_Image_to_a_Virtual_Machine]]
+=== Attaching an ISO Image to a Virtual Machine
+
+To install a guest operating system on a newly created virtual machine, you must attach an ISO file containing the operating system installation media. To locate the ISO file, see xref:Listing_Files_in_an_ISO_Storage_Domain[].
+
+.Attaching an ISO image to a virtual machine
+====
+This example attaches *my_iso_file.iso* to the `vm1` virtual machine, using the `add` method of the virtual machine's `cdroms` collection.
+
+*V4*
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+# Get the reference to the "vms" service:
+vms_service = connection.system_service().vms_service()
+
+# Find the virtual machine:
+vm = vms_service.list(search='name=vm1')[0]
+
+# Locate the service that manages the virtual machine:
+vm_service = vms_service.vm_service(vm.id)
+
+# Locate the service that manages the CDROM devices of the virtual machine:
+cdroms_service = vm_service.cdroms_service()
+
+# Get the first CDROM:
+cdrom = cdroms_service.list()[0]
+
+# Locate the service that manages the CDROM device found in previous step:
+cdrom_service = cdroms_service.cdrom_service(cdrom.id)
+
+# Change the CD of the VM to 'my_iso_file.iso'. By default the
+# operation permanently changes the disk that is visible to the
+# virtual machine after the next boot, but has no effect
+# on the currently running virtual machine. If you want to change the
+# disk that is visible to the current running virtual machine, change
+# the `current` parameter's value to `True`.
+cdrom_service.update(
+    cdrom=types.Cdrom(
+        file=types.File(
+            id='my_iso_file.iso'
+        ),
+    ),
+    current=False,
+)
+
+print("Attached CD to '%s'." % vm.name())
+
+# Close the connection to the server:
+connection.close()
+----
+
+If the `add` request is successful, the examples output the text:
+
+[options="nowrap" subs="normal"]
+----
+Attached CD to 'vm1'.
+----
+
+====
+
+.Ejecting a cdrom from a virtual machine
+====
+This example ejects an ISO image from a virtual machine's `cdrom` collection.
+
+*V4*
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+# Get the reference to the "vms" service:
+vms_service = connection.system_service().vms_service()
+
+# Find the virtual machine:
+vm = vms_service.list(search='name=vm1')[0]
+
+# Locate the service that manages the virtual machine:
+vm_service = vms_service.vm_service(vm.id)
+
+# Locate the service that manages the CDROM devices of the VM:
+cdroms_service = vm_service.cdroms_service()
+
+# Get the first found CDROM:
+cdrom = cdroms_service.list()[0]
+
+# Locate the service that manages the CDROM device found in previous step
+# of the VM:
+cdrom_service = cdroms_service.cdrom_service(cdrom.id)
+
+cdrom_service.remove()
+
+print("Removed CD from '%s'." % vm.name())
+
+connection.close()
+----
+
+If the `delete` or `remove` request is successful, the examples output the text:
+
+[options="nowrap" subs="normal"]
+----
+Removed CD from 'vm1'.
+----
+
+====

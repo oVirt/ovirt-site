@@ -1,0 +1,13 @@
+[[Virtualized_Hardware]]
+=== Virtualized Hardware
+
+{virt-product-fullname} presents three distinct types of system devices to virtualized guests. These hardware devices all appear as physically attached hardware devices to the virtualized guest but the device drivers work in different ways.
+
+*Emulated devices*:: Emulated devices, sometimes referred to as virtual devices, exist entirely in software. Emulated device drivers are a translation layer between the operating system running on the host (which manages the source device) and the operating systems running on the guests. The device level instructions directed to and from the emulated device are intercepted and translated by the hypervisor. Any device of the same type as that being emulated and recognized by the Linux kernel is able to be used as the backing source device for the emulated drivers.
+
+
+*Para-virtualized Devices*:: Para-virtualized devices require the installation of device drivers on the guest operating system providing it with an interface to communicate with the hypervisor on the host machine. This interface is used to allow traditionally intensive tasks such as disk I/O to be performed outside of the virtualized environment. Lowering the overhead inherent in virtualization in this manner is intended to allow guest operating system performance closer to that expected when running directly on physical hardware.
+
+
+*Physically shared devices*:: Certain hardware platforms allow virtualized guests to directly access various hardware devices and components. This process in virtualization is known as passthrough or device assignment. Passthrough allows devices to appear and behave as if they were physically attached to the guest operating system.
+

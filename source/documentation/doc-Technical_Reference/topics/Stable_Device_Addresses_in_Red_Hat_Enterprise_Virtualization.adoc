@@ -1,0 +1,10 @@
+[[Stable_Device_Addresses_in_Red_Hat_Enterprise_Virtualization]]
+=== Stable Device Addresses in {virt-product-fullname}
+
+Virtual hardware PCI address allocations are persisted in the *ovirt-engine* database.
+
+PCI addresses are allocated by `QEMU` at virtual machine creation time, and reported to `VDSM` by `libvirt`. `VDSM` reports them back to the {engine-name}, where they are stored in the *ovirt-engine* database.
+
+When a virtual machine is started, the {engine-name} sends `VDSM` the device address out of the database. `VDSM` passes them to `libvirt` which starts the virtual machine using the PCI device addresses that were allocated when the virtual machine was run for the first time.
+
+When a device is removed from a virtual machine, all references to it, including the stable PCI address, are also removed. If a device is added to replace the removed device, it is allocated a PCI address by `QEMU`, which is unlikely to be the same as the device it replaced.

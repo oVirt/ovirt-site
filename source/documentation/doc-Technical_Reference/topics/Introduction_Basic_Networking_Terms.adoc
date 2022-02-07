@@ -1,0 +1,19 @@
+[[Introduction_Basic_Networking_Terms]]
+=== Basic Networking Terms
+
+{virt-product-fullname} provides networking functionality between virtual machines, virtualization hosts, and wider networks using:
+
+
+* Logical networks
+
+* A network interface controller (NIC)
+
+* A Linux bridge
+
+* A Bond
+
+* A virtual network interface controller (vNIC)
+
+* A virtual LAN (VLAN)
+
+NICs, Linux bridges, and vNICs enable network communication between hosts, virtual machines, local area networks, and the Internet. Bonds and VLANs are optionally implemented to enhance security, fault tolerance, and network capacity.

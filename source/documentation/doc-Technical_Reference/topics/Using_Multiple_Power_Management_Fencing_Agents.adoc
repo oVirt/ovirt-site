@@ -1,0 +1,14 @@
+[[Using_Multiple_Power_Management_Fencing_Agents]]
+=== Using Multiple Power Management Fencing Agents
+
+Single agents are treated as primary agents. The secondary agent is valid when there are two fencing agents, for example for dual-power hosts in which each power switch has two agents connected to the same power switch. Agents can be of the same or different types.
+
+Having multiple fencing agents on a host increases the reliability of the fencing procedure. For example, when the sole fencing agent on a host fails, the host will remain in a non-operational state until it is manually rebooted. The virtual machines previously running on the host will be suspended, and only fail over to another host in the cluster after the original host is manually fenced. With multiple agents, if the first agent fails, the next agent can be called.
+
+When two fencing agents are defined on a host, they can be configured to use a concurrent or sequential flow:
+
+
+* *Concurrent*: Both primary and secondary agents have to respond to the Stop command for the host to be stopped. If one agent responds to the Start command, the host will go up.
+
+* *Sequential*: To stop or start a host, the primary agent is used first, and if it fails, the secondary agent is used.
+

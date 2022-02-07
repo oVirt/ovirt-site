@@ -1,0 +1,14 @@
+[[self-hosted-engine-recommendations]]
+=== Self-Hosted Engine Recommendations
+
+* Create a separate data center and cluster for the {virt-product-fullname} {engine-name} and other infrastructure-level services, if the environment is large enough to allow it. Although the {engine-name} virtual machine can run on hosts in a regular cluster, separation from production virtual machines helps facilitate backup schedules, performance, availability, and security.
+
+* A storage domain dedicated to the {engine-name} virtual machine is created during self-hosted engine deployment. Do not use this storage domain for any other virtual machines.
+
+* If you are anticipating heavy storage workloads, separate the migration, management, and storage networks to reduce the impact on the {engine-name} virtual machine's health.
+
+* Although there is technically no hard limit on the number of hosts per cluster, limit self-hosted engine nodes to 7 nodes per cluster. Distribute the servers in a way that allows better resilience (such as in different racks).
+
+* All self-hosted engine nodes should have an equal CPU family so that the {engine-name} virtual machine can safely migrate between them. If you intend to have various families, begin the installation with the lowest one.
+
+* If the {engine-name} virtual machine shuts down or needs to be migrated, there must be enough memory on a self-hosted engine node for the {engine-name} virtual machine to restart on or migrate to it.

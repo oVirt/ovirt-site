@@ -1,0 +1,24 @@
+// Module included in the following assemblies:
+//
+// doc-Technical_Reference/chap-Network.adoc
+
+
+[id="overview-of-networking-in-rhv"]
+= Host networking
+
+On the data link layer (layer 2), {virt-product-shortname} enables the configuration of Linux bonds to connect to VLANs and define the MTU for network interfaces. These networks can be shared via Linux bridges to virtual machines.
+
+For SR-IOV, you can configure the number of virtual functions and their mapping to logical networks.
+
+FCoE manages its own VLANs. These FCoE managed VLANs are used exclusively for storage access. They are invisible to the {engine-name} and any virtual machines.
+
+iSCSI manages iSCSI bonds. They are not part of {virt-product-shortname}'s visible host network configuration. You can use iSCSI without iSCSI bonds, which are useful only to improve the reliability of iSCSI storage.
+
+[IMPORTANT]
+====
+All hosts in a cluster must use either IPv4 or IPv6 as the IP stack for their management network. Dual stack is not supported.
+====
+
+You can configure the DNS resolver that the host uses.
+
+It is also possible to manage network roles and QoS.

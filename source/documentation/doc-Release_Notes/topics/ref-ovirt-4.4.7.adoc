@@ -1,0 +1,112 @@
+=== Red Hat Virtualization 4.4 Batch Update 6 (ovirt-4.4.7)
+
+
+
+==== Bug Fix
+
+These bugs were fixed in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1662657[1662657]::
+One of the steps during hosted-engine deployment is "Activate Storage Domain". Normally, this step returns the amount of available space in the domain. Under certain conditions, this information is missing.
++
+In previous releases, if the available space was missing, deployment failed. With this release, deployment will provide an error message and allow you to provide the details needed for creating a storage domain.
++
+This issue appears to affect deployments using '--restore-from-file', when the existing setup has problematic block storage (iSCSI or Fiber Channel). If this happens, it is  recommended that you connect to the Administration Portal  and clear all storage-related issues before continuing.
+
+BZ#link:https://bugzilla.redhat.com/1947902[1947902]::
+Previously, using an Ansible playbook to fetch virtual machine disk information was slow and incomplete, while the REST API fetched the information faster and more completely.
+In this release, the Ansible playbook fetches the information completely and quickly.
+
+BZ#link:https://bugzilla.redhat.com/1952345[1952345]::
+Previously, when two threads in a VDSM attempted to release a storage lease at the same time, sanlock would incorrectly close the socket to VDSM and release the leases owned by VDSM.
+In this Release, VDSM serializes calls to sanlock_release() so that if multiple threads attempt to release a lease at the same time, the calls will run sequentially.
+
+BZ#link:https://bugzilla.redhat.com/1958145[1958145]::
+Previously, rhsmcertd was not enabled by default on the Red Hat Virtualization Host. As a result, the systems did not regularly report to RHSM while the subscription-manager reported no obvious issues and repositories were properly enabled.
+In this release, rhsmcertd is enabled by default in RHVH, and as a result, RHSM now receives reports regularly.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+BZ#link:https://bugzilla.redhat.com/1848986[1848986]::
+With this release, out of sync indications have been added whenever a configuration change affecting a vNIC may be pending and the vNIC has not been updated yet. An update to the MTU or VLAN tag of a network attached to the vNIC via its profile, or an update to VM QoS, network filter, or custom properties of a vNIC profile now trigger an out of sync indication for the vNIC until it is updated.
+The Administration Portal displays a warning icon with tooltip text on the vNIC in the Network Interfaces tab of a Virtual Machine and on the Virtual Machine in the Virtual Machines list page. An event is reported to the Events tab as well.
+The REST API reports via the ‘next_run_configuration_exists’ attribute on the Virtual Machine and via the ‘is_synced’ attribute on the vNIC.
+
+BZ#link:https://bugzilla.redhat.com/1883793[1883793]::
+Red Hat Virtualization Host now includes an updated scap-security-guide-rhv which allows you to apply a PCI DSS security profile to the system during installation,
+
+BZ#link:https://bugzilla.redhat.com/1947450[1947450]::
+The ovirt-host package no longer pulls in vdsm-hooks automatically.
+To use vdsm hooks, you must install the appropriate hook for the specific functionality required.
+
+BZ#link:https://bugzilla.redhat.com/1976095[1976095]::
+The redhat-release-virtualization-host package no longer requires vdsm-hooks. In this release, the installation of vdsm-hooks is not mandatory for the Red Hat Virtualization Host.
+
+==== Rebase: Bug Fixes and Enhancements
+
+These items are rebases of bug fixes and enhancements included in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1957241[1957241]::
+The RHVM Appliance has been rebased on top of the RHEL 8.4.0 Batch #1 update. Please refer to the RHEL 8.4 release notes.
+
+BZ#link:https://bugzilla.redhat.com/1957242[1957242]::
+In this release, the Red Hat Virtualization Host has been rebased on top of the RHEL 8.4.0 Batch #1 update. For more information, see the RHEL release notes.
+
+==== Release Notes
+
+This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
+
+BZ#link:https://bugzilla.redhat.com/1804774[1804774]::
+Adding a message banner to the web administration welcome page is straight forward using custom branding that only contains a preamble section.
+An example of preamble branding is given here: https://bugzilla.redhat.com/attachment.cgi?id=1783329.
++
+In an engine upgrade, the custom preamble brand remains in place and will work without issue.
++
+During engine backup and subsequent restore, on engine restore the custom preamble branding needs to be manually restored/reinstalled and verified.
+
+BZ#link:https://bugzilla.redhat.com/1901011[1901011]::
+Foreman integration, which allows you to provision bare metal hosts from the Administration Portal  using Foreman and then added to the Manager, was deprecated in oVirt 4.4.6 / RHV 4.4.6 and removed completely in oVirt 4.4.7 / RHV 4.4.7.
++
+Similar functionality to provision bare metal hosts can be achieved using Foreman directly and adding an already provisioned host using the Administration Portal or the REST API.
+
+BZ#link:https://bugzilla.redhat.com/1966145[1966145]::
+The ovirt-engine in RHV 4.4.7 requires an Ansible 2.9.z version later than Ansible 2.9.20.
+In addition, in RHV 4.4.7 the version limitation for a specific Ansible version has been removed, the correct Ansible version is now shipped in the RHV subscription channels.
+
+BZ#link:https://bugzilla.redhat.com/1966150[1966150]::
+The ovirt-hosted-engine-setup in RHV 4.4.7 requires Ansible 2.9.21 or higher. Also in RHV 4.4.7, the specific Ansible version has been removed, because the correct Ansible version is shipped through RHV channels.
+
+BZ#link:https://bugzilla.redhat.com/1969763[1969763]::
+In this release, the new package ovirt-openvswitch provides all the requirements for OVN/OVS for oVirt, and replaces the existing rhv-openvswitch package.
+
+==== Known Issues
+
+These known issues exist in Red Hat Virtualization at this time:
+
+BZ#link:https://bugzilla.redhat.com/1981471[1981471]::
+There is a known issue in the VM Portal in Red Hat Virtualization 4.4.7 wherein changing the size of an existing disk or changing the *Bootable* paramaeter results in the disk becoming inactive. This behavior is a regression from ovirt-web-ui 1.6.9-1.
++
+Avoid editing any existing disks in the VM Portal. If it is necessary to edit a disk, use the Administration Portal.
+
+==== Deprecated Functionality
+
+The items in this section are either no longer supported, or will no longer be supported in a future release.
+
+BZ#link:https://bugzilla.redhat.com/1896359[1896359]::
+The column name threads_per_core in the Red hat Virtualization manager Dashboard is being deprecated, and will be removed in a future release.
+In version 4.4.7.2 the column name for threads_per_core will be changed to number_of_threads.
+In the Data Warehouse, the old name will be retained as an additional alias, resulting in 2 columns providing the same data: number_of_threads and threads_per_core, and threads_per_core will be removed in a future version.
+
+BZ#link:https://bugzilla.redhat.com/1961520[1961520]::
+Using Cockpit to install the self-hosted engine is deprecated. Support for this installation method will be removed in a later release.
+
+==== Removed Functionality
+
+BZ#link:https://bugzilla.redhat.com/1947944[1947944]::
+Previously, VDSM hooks were installed by default, as a dependency, when installing a RHEL host or a RHV-H host. Starting with Red Hat Virtualization 4.4.7, VDSM hooks are not installed by default.
+You can manually install VDSM hooks as needed.
+Additional resources:
+* Bug 1947450 "ovirt-host shouldn't have hard dependency on vdsm hooks"
+* "Installing a VDSM hook" in the RHV Administration Guide

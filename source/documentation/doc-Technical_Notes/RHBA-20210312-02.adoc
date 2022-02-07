@@ -1,0 +1,138 @@
+= RHBA-2021:0312-02 RHV Engine and Host Common Packages 4.4.z [ovirt-4.4.4]
+The bugs in this chapter are addressed by advisory RHBA-2021:0312-02. Further information about this advisory is available at https://access.redhat.com/errata/RHBA-2021:0312.
+
+
+
+== ovirt-ansible-collection
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1893385[1893385]
+
+
+In previous versions, when using 'hosted-engine --restore-from-file' to restore or upgrade, if the backup included extra required networks in the cluster, and if the user did not reply 'Yes' to the question about pausing the execution, deployment failed.
+In this release, regardless of the answer to 'pause?', if the host is found to be in state "Non Operational", deployment will pause, outputting relevant information to the user, and waiting until a lock file is removed. This should allow the user to then connect to the web admin UI and manually handle the situation, activate the host, and then remove the lock file and continue the deployment.
+This release also allows supplying a custom hook to fix such issues automatically.
+
+
+
+
+
+== ovirt-engine
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1694711[1694711]
+
+
+Previously, the UI NUMA panel showed an incorrect NUMA node for a corresponding socket.
+In this release, the NUMA nodes are ordered by the database, and the socket matches the NUMA node.
+
+
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1710446[1710446]
+
+
+With this enhancement, the Europe/Helsinki timezone can now be set in virtual machines.
+
+
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1729897[1729897]
+
+
+Previously, the NUMA tune mode was set according to the Virtual Machine, using the same setting for every virtual NUMA node of the Virtual Machine.
+In this release, it is possible to set the NUMA tune mode for each virtual NUMA node.
+
+
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1797553[1797553]
+
+
+Previously, when the export VM as OVA command was executed, other operations on the engine were blocked. This made the engine execute operations serially while expected to be parallel.
+In this release, engine tasks are executed in parallel, unblocked by the export VM as OVA command.
+
+
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1871792[1871792]
+
+
+Previously, when importing a Virtual Machine using virt-v2v and the ovirt-engine service restarted, the import failed.
+In this release, the import continues as long there is an async command running, allowing the import to complete successfully.
+
+
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1886750[1886750]
+
+
+Previously, when removing a host, neither the virtual machine's host device nor the host dependency list were removed. As a result, this sometimes caused error messages when running the virtual machine on another host, and leaving behind incorrect entries in the database.
+In this release, the virtual machine host device and entry in the virtual machine's dependency list for the removed host are no longer included in the database, and the associated error messages no longer occur.
+
+
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1888142[1888142]
+
+
+Previously, stateless virtual machines including pool virtual machines issued a warning regarding not using the latest version, even when the virtual machine
+was not set to use the last version.
+In this release, there is no attempt to change the version of the template that virtual machines are based on unless they are set to use the last version of a template and thus this warning is omitted from the log.
+
+
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1889987[1889987]
+
+
+Previously, when the export VM as OVA command was executed, other operations on the engine were blocked. This made the engine execute operations serially while expected to be parallel.
+In this release, engine tasks are executed in parallel, unblocked by the export VM as OVA command.
+
+
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1897422[1897422]
+
+
+Previously, virtual machines that were imported from OVA files were not set with small or large icons.
+In this release, small/large icons are set according to the operating system the Virtual Machine is configured with during import from OVA files. Consequently, virtual machines that are imported from OVA files are set with small and large icons.
+
+
+
+
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1899768[1899768]
+
+
+Previously, live-merge failed on snapshots of virtual machines that are set with bios-type = CLUSTER-DEFAULT.
+In this release, live-merge works on snapshots of virtual machines that are set with bios-type = CLUSTER-DEFAULT.
+
+
+
+
+
+== ovirt-vmconsole
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1834876[1834876]
+
+Previously, ovirt-vmconsole caused SELinux denials logged by sshd. While it generally didn't affect ovirt-vmconsole functionality, it could raise false alerts.
+In this release, there are no ovirt-vmconsole SELinux denials issued.
+
+
+
+
+
+== vdsm
+
+.BZ#link:https://bugzilla.redhat.com/show_bug.cgi?id=1792905[1792905]
+
+
+Previously, users could invoke the 'sparsify' operation on thin-provisioned (qcow) disks with a single volume. While the freed space was reclaimed by the storage device, the image size didn't change and users could see this as a failure to sparsify the image.
+In this release, sparsifying a thin-provisioned disks with a single volume is now blocked.

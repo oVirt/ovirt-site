@@ -1,0 +1,10 @@
+[[Data_Centers2]]
+=== Data Centers
+
+A data center is the highest level of abstraction in {virt-product-fullname}. A data center contains three types of information:
+
+Storage:: This includes storage types, storage domains, and connectivity information for storage domains. Storage is defined for a data center, and available to all clusters in the data center. All host clusters within a data center have access to the same storage domains.
+
+Logical networks:: This includes details such as network addresses, VLAN tags and STP support. You can define logical networks for a data center and apply them to clusters.
+
+Clusters:: Clusters are groups of hosts with compatible processor cores, either AMD or Intel processors. Clusters are migration domains; virtual machines can be live-migrated to any host within a cluster, and not to other clusters. One data center can hold multiple clusters, and each cluster can contain multiple hosts.

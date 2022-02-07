@@ -1,0 +1,56 @@
+[[chap-RHEV_for_IBM_Power]]
+== RHV for IBM Power
+
+This release supports {enterprise-linux} 8 hosts on IBM POWER8 little endian hardware and {enterprise-linux} 7 and 8 virtual machines on emulated IBM POWER8 hardware. From {virt-product-fullname} 4.2.6 {enterprise-linux-host-fullname}s are supported on IBM POWER9 little endian hardware and {enterprise-linux} 8 virtual machines on emulated IBM POWER9 hardware.
+
+[IMPORTANT]
+====
+Previous releases of RHV for IBM Power required {enterprise-linux-host-fullname}s on POWER8 hardware to be installed from an ISO image. These hosts cannot be updated for use with this release. You must reinstall {enterprise-linux} 8 hosts using the repositories outlined below.
+====
+The packages provided in the following repositories are required to install and configure aspects of a {virt-product-fullname} environment on POWER8 hardware.
+[[RHSM_Channels_Required-POWER8]]
+
+.Required Subscriptions and Repositories for IBM POWER8, little endian hardware
+[options="header"]
+|===
+|Component |Subscription Pool |Repository Name |Repository Label |Details
+|{virt-product-fullname} {engine-name} |`{virt-product-fullname} for IBM Power` |`{virt-product-fullname} for IBM Power` |`rhv-4-mgmt-agent-for-rhel-8-ppc64le-rpms` |Provides the {virt-product-fullname} {engine-name} for use with IBM POWER8 hosts. The {engine-name} itself must be installed on x86_64 architecture.
+|{enterprise-linux} 8 hosts, little endian |`{enterprise-linux} for Power, little endian` |`RHV Management Agent for IBM Power, little endian` |`rhv-4-mgmt-agent-for-rhel-8-ppc64le-rpms` |Provides the QEMU and KVM packages required for using {enterprise-linux} 8 servers on IBM Power (little endian) hardware as virtualization hosts. Provides additional packages required for using {enterprise-linux} 8 servers on IBM Power (little endian) hardware as virtualization hosts.
+|{enterprise-linux} 8 virtual machines, big endian |`{enterprise-linux} for Power, big endian` |`RHV Tools for IBM Power` |`rhv-4-tools-for-rhel-8-ppc64le-rpms` |Provides the `ovirt-guest-agent-common` package for {enterprise-linux} 8 virtual machines on emulated IBM Power (big endian) hardware. The guest agents allow you to monitor virtual machine resources on {enterprise-linux} 8 clients.
+|{enterprise-linux} 8 virtual machines, little endian |`{enterprise-linux} for Power, little endian` |`RHV Tools for IBM Power, little endian` |`rhv-4-tools-for-rhel-8-ppc64le-rpms` |Provides the `ovirt-guest-agent-common` package for {enterprise-linux} 8 virtual machines on emulated IBM Power (little endian) hardware. The guest agents allow you to monitor virtual machine resources on {enterprise-linux} 8 clients.
+|===
+
+.Required Subscriptions and Repositories for IBM POWER9, little endian hardware
+[options="header"]
+|===
+|Component |Subscription Pool |Repository Name |Repository Label |Details
+|{virt-product-fullname} {engine-name} |`{virt-product-fullname} for IBM Power` |`{virt-product-fullname} for IBM Power` |`rhv-4-mgmt-agent-for-rhel-8-ppc64le-rpms` |Provides the {virt-product-fullname} {engine-name} for use with IBM POWER9 hosts. The {engine-name} itself must be installed on x86_64 architecture.
+|{enterprise-linux} 8 hosts, little endian |`{enterprise-linux} for Power, little endian` |`RHV Management Agent for IBM Power, little endian` |`rhv-4-mgmt-agent-for-rhel-8-ppc64le-rpms` |Provides the QEMU and KVM packages required for using {enterprise-linux} 8 servers on IBM Power (little endian) hardware as virtualization hosts.
+|{enterprise-linux} 8 hosts, little endian |`{enterprise-linux} for Power, little endian` |`{enterprise-linux} for IBM Power, little endian` |`rhel-8-for-ppc64le-baseos-rpms`
+
+`rhel-8-for-ppc64le-appstream-rpms` |Provides additional packages required for using {enterprise-linux} 8 servers on IBM Power (little endian) hardware as virtualization hosts.
+|{enterprise-linux} 8 virtual machines, big endian |`{enterprise-linux} for Power, big endian` |`RHV Tools for IBM Power` |`rhv-4-tools-for-rhel-8-ppc64le-rpms` |Provides the `ovirt-guest-agent-common` package for {enterprise-linux} 8 virtual machines on emulated IBM Power (big endian) hardware. The guest agents allow you to monitor virtual machine resources on {enterprise-linux} 8 clients.
+|{enterprise-linux} 8 virtual machines, little endian |`{enterprise-linux} for Power, little endian` |`RHV Tools for IBM Power, little endian` |`rhv-4-tools-for-rhel-8-ppc64le-rpms` |Provides the `ovirt-guest-agent-common` package for {enterprise-linux} 8 virtual machines on emulated IBM Power (little endian) hardware. The guest agents allow you to monitor virtual machine resources on {enterprise-linux} 8 clients.
+|===
+
+.Unsupported Features for IBM POWER
+
+The following {virt-product-fullname} features are not supported:
+
+* SPICE display
+
+* SmartCard
+
+* Sound device
+
+* Guest SSO
+
+* Integration with OpenStack Networking (Neutron), OpenStack Image (Glance), and OpenStack Volume (Cinder)
+
+* Self-hosted engine
+
+* {hypervisor-fullname} ({hypervisor-shortname})
+
+* Disk Block Alignment
+
+For a full list of bugs that affect the RHV for IBM Power release, see Red Hat Private BZ#1444027.

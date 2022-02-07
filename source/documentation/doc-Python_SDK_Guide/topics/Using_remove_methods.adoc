@@ -1,0 +1,28 @@
+[[Using_remove_methods]]
+==== Using `remove` Methods
+
+These service methods remove existing objects. They usually do not take parameters, because they are methods of services that manage single objects. Therefore, the service already knows what object to remove.
+
+This example removes the virtual machine with identifier `123`:
+
+[source, Python]
+----
+# Find the virtual machine by name:
+vm = vms_service.list(search='name=123')[0]
+
+# Find the service that manages the virtual machine using the ID:
+vm_service = vms_service.vm_service(vm.id)
+
+# Remove the virtual machine:
+vm_service.remove()
+----
+
+The `remove` methods of some services support additional parameters that control how or what to remove. For example, it is possible to remove a virtual machine while preserving its disks, using the `detach_only` Boolean parameter:
+
+[source, Python]
+----
+# Remove the virtual machine while preserving the disks:
+vm_service.remove(detach_only=True)
+----
+
+The `remove` method returns `None` if the object is removed successfully. It does not return the removed object. If the object cannot be removed for any reason, the SDK raises an `ovirtsdk4.Error` exception containing the details of the failure.

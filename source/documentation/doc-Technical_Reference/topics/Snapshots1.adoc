@@ -1,0 +1,24 @@
+[[Snapshots1]]
+=== Snapshots
+
+Snapshots are a storage function that allows an administrator to create a restore point of a virtual machine's operating system, applications, and data at a certain point in time. Snapshots save the data currently present in a virtual machine hard disk image as a COW volume and allow for a recovery to the data as it existed at the time the snapshot was taken. A snapshot causes a new COW layer to be created over the current layer. All write actions performed after a snapshot is taken are written to the new COW layer.
+
+It is important to understand that a virtual machine hard disk image is a chain of one or more volumes. From the perspective of a virtual machine, these volumes appear as a single disk image. A virtual machine is oblivious to the fact that its disk is comprised of multiple volumes.
+
+The term COW volume and COW layer are used interchangeably, however, layer more clearly recognizes the temporal nature of snapshots. Each snapshot is created to allow an administrator to discard unsatisfactory changes made to data *after* the snapshot is taken. Snapshots provide similar functionality to the *Undo* function present in many word processors.
+
+[NOTE]
+====
+Snapshots of virtual machine hard disks marked *shareable* and those that are based on *Direct LUN* connections are not supported, live or otherwise.
+====
+The three primary snapshot operations are:
+
+* Creation, which involves the first snapshot created for a virtual machine.
+
+* Previews, which involves previewing a snapshot to determine whether or not to restore the system data to the point in time that the snapshot was taken.
+
+* Deletion, which involves deleting a restoration point that is no longer required.
+
+For task-based information about snapshot operations, see link:{URL_virt_product_docs}{URL_format}virtual_machine_management_guide#sect-Snapshots[Snapshots] in the _{virt-product-fullname} Virtual Machine Management Guide_.
+
+

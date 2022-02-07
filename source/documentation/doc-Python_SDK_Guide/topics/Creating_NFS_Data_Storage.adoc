@@ -1,0 +1,84 @@
+[[Creating_NFS_Data_Storage]]
+=== Creating NFS Data Storage
+
+When a {virt-product-fullname} environment is first created, it is necessary to define at least a data storage domain and an ISO storage domain. The data storage domain stores virtual disks while the ISO storage domain stores the installation media for guest operating systems.
+
+The `storagedomains` collection contains all the storage domains in the environment and can be used to add and remove storage domains.
+
+[NOTE]
+====
+The code provided in this example assumes that the remote NFS share has been pre-configured for use with {virt-product-fullname}. See the link:{URL_virt_product_docs}{URL_format}administration_guide/index#sect-preparing_and_adding_nfs_storage[_Administration Guide_] for more information on preparing NFS shares.
+====
+
+.Creating NFS data storage
+====
+This example adds an NFS data domain to the `storagedomains` collection.
+
+*V4*
+
+For V4, the `add` method is used to add the new storage domain and the `types` class is used to pass the following parameters:
+
+* A name for the storage domain.
+
+* The data center object that was retrieved from the `datacenters` collection.
+
+* The host object that was retrieved from the `hosts` collection.
+
+* The type of storage domain being added (`data`, `iso`, or `export`).
+
+* The storage format to use (`v1`, `v2`, or `v3`).
+
+[source, Python]
+----
+import ovirtsdk4 as sdk
+import ovirtsdk4.types as types
+
+# Create the connection to the server:
+connection = sdk.Connection(
+    url='https://engine.example.com/ovirt-engine/api',
+    username='admin@internal',
+    password='password',
+    ca_file='ca.pem',
+)
+
+# Get the reference to the storage domains service:
+sds_service = connection.system_service().storage_domains_service()
+
+# Create a new NFS storage domain:
+sd = sds_service.add(
+    types.StorageDomain(
+        name='mydata',
+        description='My data',
+        type=types.StorageDomainType.DATA,
+        host=types.Host(
+            name='myhost',
+        ),
+        storage=types.HostStorage(
+            type=types.StorageType.NFS,
+            address='_FQDN_',
+            path='/nfs/ovirt/path/to/mydata',
+        ),
+    ),
+)
+
+# Wait until the storage domain is unattached:
+sd_service = sds_service.storage_domain_service(sd.id)
+while True:
+    time.sleep(5)
+    sd = sd_service.get()
+    if sd.status == types.StorageDomainStatus.UNATTACHED:
+        break
+
+print("Storage Domain '%s' added (%s)." % (sd.name(), sd.id()))
+
+connection.close()
+----
+
+If the `add` method call is successful, the examples output the text:
+
+[options="nowrap" subs="normal"]
+----
+Storage Domain 'mydata' added (00000000-0000-0000-0000-000000000000).
+----
+
+====

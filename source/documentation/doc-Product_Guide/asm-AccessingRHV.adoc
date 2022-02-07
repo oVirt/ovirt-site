@@ -1,0 +1,84 @@
+[[accessing-rhv]]
+== Accessing {virt-product-fullname}
+
+{virt-product-fullname} exposes a number of interfaces for interacting with the components of the virtualization environment. Many of these interfaces are fully supported.
+ifdef::rhv-doc[]
+Some, however, are supported only for read access or only when your use of them has been explicitly requested by Red Hat Support.
+endif::[]
+
+=== Supported Interfaces for Read and Write Access
+
+Direct interaction with these interfaces is supported and encouraged for both read and write access:
+
+*Administration Portal*:: The Administration Portal is a graphical user interface provided by the {virt-product-fullname} {engine-name}. It can be used to manage all the administrative resources in the environment and can be accessed by any supported web browsers.
++
+See: link:{URL_virt_product_docs}{URL_format}administration_guide/index#[_Administration Guide_]
+
+*VM Portal*:: The VM Portal is a graphical user interface provided by the {virt-product-fullname} {engine-name}. It has limited permissions for managing virtual machine resources and is targeted at end users.
++
+See: link:{URL_virt_product_docs}{URL_format}introduction_to_the_vm_portal/index#[_Introduction to the VM Portal_]
+
+*Cockpit*:: In {virt-product-fullname}, the Cockpit web interface can be used to perform administrative tasks on a host. It is available by default on {hypervisor-fullname}s, and can be installed on {enterprise-linux-host-fullname}s.
+
+
+*REST API*:: The {virt-product-fullname} REST API provides a software interface for querying and modifying the {virt-product-fullname} environment. The REST API can be used by any programming language that supports HTTP actions.
++
+See: link:{URL_downstream_virt_product_docs}rest_api_guide/index[_REST API Guide_]
+
+*Software Development Kit (SDK)*:: The Python, Java, and Ruby SDKs are fully supported interfaces for interacting with the {virt-product-fullname} {engine-name}.
++
+See:
+
+* link:{URL_virt_product_docs}{URL_format}python_sdk_guide/index#[_Python SDK Guide_]
+
+* link:{URL_virt_product_docs}{URL_format}java_sdk_guide/index#[_Java SDK Guide_]
+
+* link:{URL_virt_product_docs}{URL_format}ruby_sdk_guide/index#[_Ruby SDK Guide_]
+
+*Ansible*:: Ansible provides modules to automate post-installation tasks on {virt-product-fullname}.
++
+See: link:{URL_virt_product_docs}{URL_format}administration_guide/index#chap-Automating_RHV_Configuration_using_Ansible[Automating Configuration Tasks using Ansible] in the _Administration Guide_.
+
+*Self-Hosted Engine Command Line Utility*:: The `hosted-engine` command is used to perform administrative tasks on the {engine-name} virtual machine in self-hosted engine environments.
++
+See: link:{URL_virt_product_docs}{URL_format}administration_guide/index#administering_the_manager_virtual_machine[Administering the {engine-name} Virtual Machine] in the _Administration Guide_.
+
+*VDSM Hooks*:: VDSM hooks trigger modifications to virtual machines, based on custom properties specified in the Administration Portal.
++
+See: link:{URL_virt_product_docs}{URL_format}administration_guide/index#appe-VDSM_and_Hooks[VDSM and Hooks] in the _Administration Guide_.
+
+
+=== Supported Interfaces for Read Access
+
+Direct interaction with these interfaces is supported and encouraged only for read access.
+ifdef::rhv-doc[]
+Use of these interfaces for write access is not supported unless explicitly requested by Red Hat Support.
+endif::[]
+
+*{virt-product-fullname} {engine-name} History Database*:: Read access to the {virt-product-fullname} {engine-name} history (`ovirt_engine_history`) database using the database views specified in the _Data Warehouse Guide_ is supported. Write access is *not* supported.
+
+
+*Libvirt on Hosts*:: Read access to *libvirt* using the `virsh -r` command is a supported method of interacting with virtualization hosts. Write access is *not* supported.
+
+
+=== Unsupported Interfaces
+
+Direct interaction with these interfaces is *not* supported
+ifdef::rhv-doc[unless your use of them is explicitly requested by Red Hat Support]
+:
+
+*The `vdsm-client` Command*:: Use of the `vdsm-client` command to interact with virtualization hosts is *not* supported
+ifndef::rhv-doc[.]
+ifdef::rhv-doc[ unless explicitly requested by Red Hat Support.]
+
+*{virt-product-fullname} {engine-name} Database*:: Direct access to, and manipulation of, the {virt-product-fullname} {engine-name} (`engine`) database is *not* supported
+ifndef::rhv-doc[.]
+ifdef::rhv-doc[ unless explicitly requested by Red Hat Support.]
+
+
+ifdef::rhv-doc[]
+[IMPORTANT]
+====
+Red Hat Support will not debug user-created scripts or hooks except where it can be demonstrated that there is an issue with the interface being used rather than the user-created script itself. For more general information about Red Hat's support policies see link:{URL_customer-portal}support/offerings/production/soc.html[Production Support Scope of Coverage].
+====
+endif::[]

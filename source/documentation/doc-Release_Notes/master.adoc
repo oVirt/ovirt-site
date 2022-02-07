@@ -1,0 +1,16 @@
+:rhv-doc:
+include::common/collateral_files/attributes.adoc[]
+= Release Notes
+:imagesdir: images
+
+include::chap-Introduction.adoc[]
+
+include::chap-Subscriptions.adoc[leveloffset=+1]
+
+include::chap-RHEV_for_IBM_Power.adoc[]
+
+include::chap-Tech_Preview_and_Deprecated_Features.adoc[leveloffset=+1]
+
+include::chap-Compatibility_levels.adoc[]
+
+include::chap-Release_Notes.adoc[]

@@ -1,0 +1,68 @@
+[[Using_add_methods]]
+==== Using `add` Methods
+
+These service methods add new elements to a collection. They receive an instance of the relevant type describing the object to add, send the request to add it, and return an instance of the type describing the added object.
+
+This example adds a new virtual machine called *vm1*:
+
+[source, Python]
+----
+from ovirtsdk4 import types
+
+# Add the virtual machine:
+vm = vms_service.add(
+    vm=types.Vm(
+        name='vm1',
+        cluster=types.Cluster(
+            name='Default'
+        ),
+        template=types.Template(
+            name='mytemplate'
+        )
+    )
+)
+----
+
+If the object cannot be created for any reason, the SDK will raise an `ovirtsdk4.Error` exception containing the details of the failure. It will never return `None`.
+
+[IMPORTANT]
+====
+The Python object returned by this `add` method is an instance of the relevant type. It is not a service but a container of data. In this particular example, the returned object is an instance of the `ovirtsdk4.types.Vm` class. If, after creating the virtual machine, you need to perform an operation such as retrieving or starting it, you will first need to find the service that manages it, and call the corresponding service locator:
+
+[source, Python]
+----
+# Add the virtual machine:
+vm = vms_service.add(
+  ...
+)
+
+# Find the service that manages the virtual machine:
+vm_service = vms_service.vm_service(vm.id)
+
+# Start the virtual machine
+vm_service.start()
+----
+====
+
+Objects are created asynchronously. When you create a new virtual machine, the `add` method will return a response before the virtual machine is completely created and ready to be used. It is good practice to poll the status of the object to ensure that it is completely created. For a virtual machine, you should check until its status is `DOWN`:
+
+[source, Python]
+----
+# Add the virtual machine:
+vm = vms_service.add(
+  ...
+)
+
+# Find the service that manages the virtual machine:
+vm_service = vms_service.vm_service(vm.id)
+
+# Wait until the virtual machine is down, indicating that it is
+# completely created:
+while True:
+    time.sleep(5)
+    vm = vm_service.get()
+    if vm.status == types.VmStatus.DOWN:
+        break
+----
+
+Using a loop to retrieve the object status, with the `get` method, ensures that the status attribute is updated.

@@ -1,0 +1,23 @@
+[[Additional_resources]]
+=== Additional Resources
+
+For detailed information and examples, see the following resources:
+
+* link:{URL_downstream_virt_product_docs}rest_api_guide/index[V4 REST API Guide]
+* link:http://ovirt.github.io/ovirt-engine-sdk[Python SDK reference documentation]
+* link:https://github.com/oVirt/ovirt-engine-sdk/tree/master/sdk/examples[Python SDK examples]
+
+*Generating Modules*
+
+You can generate documentation using link:http://docs.python.org/library/pydoc.html[pydoc] for the following modules:
+
+* ovirtsdk.api
+* ovirtsdk.infrastructure.brokers
+* ovirtsdk.infrastructure.errors
+
+The documentation is provided by the `ovirt-engine-sdk-python` package. Run the following command on the {engine-name} machine to view the latest version of these documents:
+
+[options="nowrap" subs="normal"]
+----
+$ pydoc _[MODULE]_
+----

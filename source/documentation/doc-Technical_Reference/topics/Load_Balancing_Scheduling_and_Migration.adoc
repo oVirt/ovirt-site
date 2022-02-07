@@ -1,0 +1,14 @@
+[[Load_Balancing_Scheduling_and_Migration]]
+=== Load Balancing, Scheduling, and Migration
+
+Individual hosts have finite hardware resources, and are susceptible to failure. To mitigate against failure and resource exhaustion, hosts are grouped into clusters, which are essentially a grouping of shared resources. A {virt-product-fullname} environment responds to changes in demand for host resources using load balancing policy, scheduling, and migration. The {engine-name} is able to ensure that no single host in a cluster is responsible for all of the virtual machines in that cluster. Conversely, the {engine-name} is able to recognize an underutilized host, and migrate all virtual machines off of it, allowing an administrator to shut down that host to save power.
+
+Available resources are checked as a result of three events:
+
+* Virtual machine start - Resources are checked to determine on which host a virtual machine will start.
+
+* Virtual machine migration - Resources are checked in order to determine an appropriate target host.
+
+* Time elapses - Resources are checked at a regular interval to determine whether individual host load is in compliance with cluster load balancing policy.
+
+The {engine-name} responds to changes in available resources by using the load balancing policy for a cluster to schedule the migration of virtual machines from one host in a cluster to another. The relationship between load balancing policy, scheduling, and virtual machine migration are discussed in the following sections.

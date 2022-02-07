@@ -1,0 +1,32 @@
+[[Network_Labels]]
+=== Network Labels
+
+You can use network labels to simplify several administrative tasks associated with creating and administering logical networks and associating those logical networks with physical host network interfaces and bonds.
+
+A network label is a plain text, human readable label that you can attach to a logical network or a physical host network interface. Follow these rules when creating a label:
+
+* There is no limit on the length of a label.
+* You must use a combination of lowercase and uppercase letters, underscores and hyphens.
+* You cannot use use spaces or special characters.
+
+Attaching a label to a logical network or physical host network interface creates an association with other logical networks or physical host network interfaces to which the same label has been attached:
+
+.Network Label Associations
+
+* When you attach a label to a logical network, that logical network will be automatically associated with any physical host network interfaces with the given label.
+
+* When you attach a label to a physical host network interface, any logical networks with the given label will be automatically associated with that physical host network interface.
+
+* Changing the label attached to a logical network or physical host network interface is the same as removing a label and adding a new label. The association between related logical networks or physical host network interfaces is updated.
+
+.Network Labels and Clusters
+
+* When a labeled logical network is added to a cluster and there is a physical host network interface in that cluster with the same label, the logical network is automatically added to that physical host network interface.
+
+* When a labeled logical network is detached from a cluster and there is a physical host network interface in that cluster with the same label, the logical network is automatically detached from that physical host network interface.
+
+.Network Labels and Logical Networks With Roles
+
+* When a labeled logical network is assigned to act as a display network or migration network, that logical network is then configured on the physical host network interface using DHCP so that the logical network can be assigned an IP address.
++
+Setting a label on a role network (for instance, "a migration network" or "a display network") causes a mass deployment of that network on all hosts. Such mass additions of networks are achieved through the use of DHCP. This method of mass deployment was chosen over a method of typing in static addresses, because of the unscalable nature of the task of typing in many static IP addresses.

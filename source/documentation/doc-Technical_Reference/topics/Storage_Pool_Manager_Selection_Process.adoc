@@ -1,0 +1,27 @@
+[[Storage_Pool_Manager_Selection_Process]]
+=== Storage Pool Manager Selection Process
+
+If a host has not been manually assigned the Storage Pool Manager (SPM) role, the SPM selection process is initiated and managed by the {virt-product-fullname} {engine-name}.
+
+First, the {virt-product-fullname} {engine-name} requests that VDSM confirm which host has the storage-centric lease.
+
+The {virt-product-fullname} {engine-name} tracks the history of SPM assignment from the initial creation of a storage domain onward. The availability of the SPM role is confirmed in three ways:
+
+
+* The "getSPMstatus" command: the {engine-name} uses VDSM to check with the host that had SPM status last and receives one of "SPM", "Contending", or "Free".
+
+* The metadata volume for a storage domain contains the last host with SPM status.
+
+* The metadata volume for a storage domain contains the version of the last host with SPM status.
+
+If an operational, responsive host retains the storage-centric lease, the {virt-product-fullname} {engine-name} marks that host SPM in the administrator portal. No further action is taken.
+
+If the SPM host does not respond, it is considered unreachable. If power management has been configured for the host, it is automatically fenced. If not, it requires manual fencing. The Storage Pool Manager role cannot be assigned to a new host until the previous Storage Pool Manager is fenced.
+
+When the SPM role and storage-centric lease are free, the {virt-product-fullname} {engine-name} assigns them to a randomly selected operational host in the data center.
+
+If the SPM role assignment fails on a new host, the {virt-product-fullname} {engine-name} adds the host to a list containing hosts the operation has failed on, marking these hosts as ineligible for the SPM role. This list is cleared at the beginning of the next SPM selection process so that all hosts are again eligible.
+
+The {virt-product-fullname} {engine-name} continues request that the Storage Pool Manager role and storage-centric lease be assumed by a randomly selected host that is not on the list of failed hosts until the SPM selection succeeds.
+
+Each time the current SPM is unresponsive or unable to fulfill its responsibilities, the {virt-product-fullname} {engine-name} initiates the Storage Pool Manager selection process.

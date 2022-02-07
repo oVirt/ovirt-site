@@ -1,0 +1,143 @@
+=== Red Hat Virtualization 4.4 Batch Update 2 (ovirt-4.4.3)
+
+
+
+==== Bug Fix
+
+These bugs were fixed in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1702016[1702016]::
+Previously, the Manager allowed adding or migrating hosts configured as self-hosted engine hosts to a data center or cluster other than the one in which the self-hosted engine VM is running, even though all self-hosted engine hosts should be in the same data center and cluster. The hosts' IDs were identical to what they were when initially deployed, causing a Sanlock error. Consequently, the agent failed to start.
++
+With this update, an error is raised when adding a new self-hosted engine host or migrating an existing one to a data center or cluster other than the one in which the self-hosted engine is running.
++
+To add or migrate a self-hosted engine host to a data center or cluster other than the one in which the self-hosted engine is running, you need to disable the host from being a self-hosted engine host by reinstalling it. Follow these steps in the Administration Portal:
++
+1. Move the host to Maintenance mode.
+2. Invoke Reinstall with the *Hosted Engine UNDEPLOY* option selected. If using the REST API, use the `undeploy_hosted_engine` parameter.
+3. Edit the host and select the target data center and cluster.
+4. Activate the host.
++
+For details, see the Administration Guide or REST API Guide.
+
+BZ#link:https://bugzilla.redhat.com/1760170[1760170]::
+Previously, the MAC Pool search functionality failed to find unused addresses. As a result, creating a vNIC failed.
+In this release, the MAC pool search is now able to locate an unused address in the pool, and all unused addresses are assigned from a pool.
+
+BZ#link:https://bugzilla.redhat.com/1808320[1808320]::
+Previously, users with specific Data Center or Cluster permissions could not edit the cluster they have access to.
+In this release, users with specific Data Center or Cluster permissions can edit the cluster they have access to if they don't change the MAC pool associated with the cluster or attempt to add a new MAC pool.
+
+BZ#link:https://bugzilla.redhat.com/1821425[1821425]::
+Previously, when deploying Self-Hosted Engine, the Appliance size was not estimated correctly, and as a result, not enough space was allotted, and unpacking the Appliance failed.
+In this release, the Appliance size estimation and unpacking space allotment are correct, and deployment succeeds.
+
+BZ#link:https://bugzilla.redhat.com/1835550[1835550]::
+Previously, when the RHV Manager requested a listing of available ports from the ovirt-provider-ovn, the implementation was not optimized for scaling scenarios. As a result, in scenarios with many active OVN vNICs on virtual machines, starting a virtual machine using OVN vNICs was slow and sometimes timed out.
+In this release, implementation of listing ports has been optimized for scaling, as starting a VM with OVN vNICs with many active OVN vNICs is quicker.
+
+BZ#link:https://bugzilla.redhat.com/1855305[1855305]::
+Previously, hot-plugging a disk to Virtual Machine sometimes failed if the disk was assigned an address that was already assigned to a host-passthrough disk device.
+In this release, conflicts are avoided by preventing an address that is assigned to host-passthrough disk device from being assigned to a disk that is hot-plugged to the Virtual Machine.
+
+BZ#link:https://bugzilla.redhat.com/1859314[1859314]::
+Previously, unicode strings were not handled properly by the rhv-log-collector-analyzer after porting to python3.
+In this release, unicode strings are now handled properly.
+
+BZ#link:https://bugzilla.redhat.com/1866862[1866862]::
+Previously, Virtual Machines deployed on AMD EPYC hosts without NUMA enabled sometimes failed to start, with an unsupported configuration error reported.
+In this release, Virtual Machines start successfully on AMD EPYC hosts.
+
+BZ#link:https://bugzilla.redhat.com/1866981[1866981]::
+Previously, unicode strings were not handled properly by the ovirt-engine-db-query after porting to Python3.
+In this release, unicode strings are now handled properly.
+
+BZ#link:https://bugzilla.redhat.com/1871694[1871694]::
+Previously, changing a cluster's bios type to UEFI or UEFI+SecureBoot changed the Self-Hosted Engine Virtual Machine that runs within the cluster as well. As a result, the Self-Hosted Engine Virtual Machine failed to reboot upon restart.
+In this release, the Self-Hosted Engine Virtual Machine is configured with a custom bios type, and does not change if the cluster's bios type changes.
+
+BZ#link:https://bugzilla.redhat.com/1871819[1871819]::
+Previously, when changes were made in the logical network, the ovn-controller on the host sometimes exceeded the timeout interval during recalculation, and calculation was triggered repeatedly. As a result, OVN networking failed.
+In this release, recalculation by the ovn-controller is only triggered once per change, and OVN networking is maintained.
+
+BZ#link:https://bugzilla.redhat.com/1877632[1877632]::
+Previously, when the VDSM was restarted during a Virtual Machine migration on the migration destination host, the VM status wasn't identified correctly.
+In this release, the VDSM identifies the migration destination status correctly.
+
+BZ#link:https://bugzilla.redhat.com/1878005[1878005]::
+Previously, when a RHV-H 4.4 host was being prepared as a conversion host for Infrastructure Migration (IMS) using CloudForms 5, installing the v2v-conversion-host-wrapper failed due to a dependency on the missing libcgroup-tools package. The current release fixes this issue. It ships the missing package in the rhvh-4-for-rhel-8-x86_64-rpms repository.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+BZ#link:https://bugzilla.redhat.com/1613514[1613514]::
+This enhancement adds the ‘nowait’ option to the domain stats to help avoid instances of non-responsiveness in the VDSM.
+As a result, libvirt now receives the ‘nowait’ option to avoid non-responsiveness.
+
+BZ#link:https://bugzilla.redhat.com/1657294[1657294]::
+With this enhancement, the user can change the HostedEngine VM name after deployment.
+
+BZ#link:https://bugzilla.redhat.com/1745024[1745024]::
+With this enhancement, the Intel Icelake Server Family is now supported in 4.4 and 4.5 compatibility levels.
+
+BZ#link:https://bugzilla.redhat.com/1752751[1752751]::
+This enhancement enables customization of the columns displayed in the Virtual Machines table of the Administration Portal.
+- Two new columns have been added to the Virtual Machines table - (number of) ‘vCPUs’, and ‘Memory (MB)’. These columns are not displayed by default.
+- A new pop-up menu has been added to the Virtual Machines table that allows you to reset the table column settings, and to add or remove columns from the display.
+- The selected column display settings (column visibility and order) are now persistent on the server by default, and are migrated (uploaded) to the server. This functionality can be disabled in the User > Options popup, by de-selecting the 'Persist grid settings' option.
+
+BZ#link:https://bugzilla.redhat.com/1797717[1797717]::
+With this enhancement, you can now perform a free text search in the Administration Portal that includes internally defined keywords.
+
+BZ#link:https://bugzilla.redhat.com/1812316[1812316]::
+With this enhancement, when scheduling a Virtual Machine with pinned NUMA nodes, memory requirements are calculated correctly by taking into account the available memory as well as hugepages allocated on NUMA nodes.
+
+BZ#link:https://bugzilla.redhat.com/1828347[1828347]::
+Previously, you used Windows Guest Tools to install the required drivers for virtual machines running Microsoft Windows. Now, RHV version 4.4 uses VirtIO-Win to provide these drivers. For clusters with a compatibility level of 4.4 and later, the engine sign of the guest-agent depends on the available VirtIO-Win. The auto-attaching of a driver ISO is dropped in favor of Microsoft Windows updates. However, the initial installation needs to be done manually.
+
+BZ#link:https://bugzilla.redhat.com/1845397[1845397]::
+With this enhancement, the migration transfer speed in the VDSM log is now displayed as Mbps (Megabits per second).
+
+BZ#link:https://bugzilla.redhat.com/1854888[1854888]::
+This enhancements adds error handling for OVA import and export operations, providing successful detection and reporting to the Red Hat Virtualization Manager if the qemu-img process fails to complete.
+
+BZ#link:https://bugzilla.redhat.com/1862968[1862968]::
+This enhancement introduces a new option for automatically setting the CPU and NUMA pinning of a Virtual Machine by introducing a new configuration parameter, auto_pinning_policy. This option can be set to `existing`, using the current topology of the Virtual Machine's CPU, or it can be set to `adjust`, using the dedicated host CPU topology and changing it according to the Virtual Machine.
+
+BZ#link:https://bugzilla.redhat.com/1879280[1879280]::
+Default Data Center and Default Cluster, which are created during Red Hat Virtualization
+installation, are created with 4.5 compatibility level by default in Red Hat Virtualization
+4.4.3. Please be aware that compatibility level 4.5 requires RHEL 8.3 with
+Advanced Virtualization 8.3.
+
+==== Technology Preview
+
+The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to https://access.redhat.com/support/offerings/techpreview/.
+
+BZ#link:https://bugzilla.redhat.com/1361718[1361718]::
+This enhancement provides support for attaching an emulated NVDIMM to virtual machines that are backed by NVDIMM on the host machine. For details, see https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/virtual_machine_management_guide/index#conc-nvdimm-host-devices_vm_guide_administrative_tasks
+
+==== Release Notes
+
+This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
+
+BZ#link:https://bugzilla.redhat.com/1888626[1888626]::
+Ansible-2.9.14 is required for proper setup and functioning of Red Hat Virtualization Manager 4.4.3.
+
+BZ#link:https://bugzilla.redhat.com/1888628[1888628]::
+Ansible-2.9.14 is required for proper setup and functioning of Red Hat Virtualization Manager 4.4.3.
+
+==== Known Issues
+
+These known issues exist in Red Hat Virtualization at this time:
+
+BZ#link:https://bugzilla.redhat.com/1886487[1886487]::
+RHV-H 4.4.3 is based on RHEL 8.3, which uses a new version of Anaconda (BZ#1691319).  This new combination introduces a regression that breaks the features that BZ#1777886 "[RFE] Support minimal storage layout for RHVH" added to RHV-H 4.4 GA. This regression affects only new installations of RHV-H 4.4.3. To work around this issue, first install the RHV-H 4.4 GA ISO and then upgrade the host to RHV-H 4.4.3.
+
+==== Removed Functionality
+
+BZ#link:https://bugzilla.redhat.com/1884146[1884146]::
+The ovirt-engine-api-explorer package has been deprecated and removed in Red Hat Virtualization Manager 4.4.3.
+Customers should use the official REST API Guide instead, which provides the same information as ovirt-engine-api-explorer.
+See https://access.redhat.com/documentation/en-us/red_hat_virtualization/4.4/html-single/rest_api_guide/index

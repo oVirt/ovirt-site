@@ -1,0 +1,30 @@
+[[networking-considerations]]
+=== Networking Considerations 
+
+Familiarity with network concepts and their use is highly recommended when planning and setting up networking in a {virt-product-fullname} environment. Read your network hardware vendor's guides for more information on managing networking.
+
+Logical networks may be supported using physical devices such as NICs, or logical devices such as network bonds. Bonding improves high availability, and provides increased fault tolerance, because all network interface cards in the bond must fail for the bond itself to fail. Bonding modes 1, 2, 3, and 4 support both virtual machine and non-virtual machine network types. Modes 0, 5, and 6 only support non-virtual machine networks. {virt-product-fullname} uses Mode 4 by default.
+
+It is not necessary to have one device for each logical network, as multiple logical networks can share a single device by using Virtual LAN (VLAN) tagging to isolate network traffic. To make use of this feature, VLAN tagging must also be supported at the switch level.
+
+The limits that apply to the number of logical networks that you may define in a {virt-product-fullname} environment are:
+
+* The number of logical networks attached to a host is limited to the number of available network devices combined with the maximum number of Virtual LANs (VLANs), which is 4096.
+
+* The number of networks that can be attached to a host in a single operation is currently limited to 50.
+
+* The number of logical networks in a cluster is limited to the number of logical networks that can be attached to a host as networking must be the same for all hosts in a cluster.
+
+* The number of logical networks in a data center is limited only by the number of clusters it contains in combination with the number of logical networks permitted per cluster.
+
+[IMPORTANT]
+====
+Take additional care when modifying the properties of the Management network (`ovirtmgmt`). Incorrect changes to the properties of the `ovirtmgmt` network may cause hosts to become unreachable.
+====
+
+[IMPORTANT]
+====
+If you plan to use {virt-product-fullname} to provide services for other environments, remember that the services will stop if the {virt-product-fullname} environment stops operating.
+====
+
+{virt-product-fullname} is fully integrated with Cisco Application Centric Infrastructure (ACI), which provides comprehensive network management capabilities, thus mitigating the need to manually configure the {virt-product-fullname} networking infrastructure. The integration is performed by configuring {virt-product-fullname} on Cisco’s Application Policy Infrastructure Controller (APIC) version 3.1(1) and later, according to the link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/kb/b_Cisco_ACI_Red_Hat_Virtualization.html[Cisco's documentation].

@@ -1,0 +1,15 @@
+[[chap-Power_Management]]
+== Power Management
+
+include::topics/Power_Management_and_Fencing.adoc[]
+
+include::topics/Power_Management_by_Proxy_in_Red_Hat_Enterprise_Virtualization.adoc[]
+
+include::topics/Power_Management.adoc[]
+
+include::topics/Fencing.adoc[]
+
+include::topics/Soft-Fencing_Hosts.adoc[]
+
+include::topics/Using_Multiple_Power_Management_Fencing_Agents.adoc[]
+

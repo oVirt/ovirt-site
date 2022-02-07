@@ -1,0 +1,151 @@
+=== Red Hat Virtualization 4.4 Batch Update 4 (ovirt-4.4.5)
+
+
+
+==== Bug Fix
+
+These bugs were fixed in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1145658[1145658]::
+This release allows the proper removal of a storage domain containing memory dumps, either by moving the memory dumps to another storage domain or deleting the memory dumps from the snapshot.
+
+BZ#link:https://bugzilla.redhat.com/1815589[1815589]::
+Previously, following a successful migration on the Self-hosted Engine, he HA agent on the source host immediately moved to the state EngineDown, and shorly thereafter tried to start the engine locally, if the destination host didn't update the shared storage quickly enough, marking the Manager virtual machine as being up.
+As a result, starting the virtual machine failed due to a shared lock held by the destination host. This also resulted in generating false alarms and notifications.
+In this release, the HA agent first moves to the state EngineMaybeAway, providing the destination host more time to update the shared storage with the updated state. As a result, no notifications or false alarms are generated.
+Note: in scenarios where the virtual machine needs to be started on the source host, this fix slightly increases the time it takes the Manager virtual
+machine on the source host to start.
+
+BZ#link:https://bugzilla.redhat.com/1860492[1860492]::
+Previously, if the Seal option was used when creating a template for Linux virtual machines, the original host name was not removed from the template.
+In this release, the host name is set to localhost or the new virtual machine host name.
+
+BZ#link:https://bugzilla.redhat.com/1895217[1895217]::
+Previously, after a host that virtual machines were pinned to  was removed, the Manager failed to start. As a result,the setup of the self-hosted engine failed.
+In this release, when a host is removed, virtual machines no longer remain pinned to that host and the Manager can start successfully.
+
+BZ#link:https://bugzilla.redhat.com/1905108[1905108]::
+Previously, plugging several virtual disks to a running virtual machine over a short time interval could cause a failure to plug some of the disks, and issued an error message: "Domain already contains a disk with that address".
+In this release, this is avoided by making sure that a disk that is being plugged to a running virtual machine is not assigned with an address that has already been assigned to another disk that was previously plugged to the virtual machine.
+
+BZ#link:https://bugzilla.redhat.com/1916032[1916032]::
+Previously, if a host in the Self-hosted Engine had an ID number higher than 64, other hosts did not recognize that host, and the host did not appear in 'hosted-engine --vm-status'.
+In this release, the Self-hosted Engine allows host ID numbers  of up to 2000.
+
+BZ#link:https://bugzilla.redhat.com/1916519[1916519]::
+Previously, the used memory of the host didn't take the SReclaimable memory into consideration while it did for free memory. As a result, there were discrepancies in the host statistics.
+In this release, the SReclaimable memory is a part of the used memory calculation.
+
+BZ#link:https://bugzilla.redhat.com/1921119[1921119]::
+Previously, a cluster page indicated an out-of-sync cluster when in fact all networks were in sync. This was due to a logical error in the code when a host QoS was assigned to two networks on same host.
+In this release, the cluster page does not show out-of-sync for this setup.
+
+BZ#link:https://bugzilla.redhat.com/1931786[1931786]::
+Previously, the Red Hat Virtualization Manager missed the `SkuToAVLevel` configuration for 4.5 clusters.
+In this release, the `SkuToAVLevel` is available for these clusters and allows Windows updates to update Red Hat related drivers for the guest host.
+
+BZ#link:https://bugzilla.redhat.com/1940672[1940672]::
+Previously, when Red Hat Virtualization Manager 4.4.3+ upgraded a host in a cluster that is set with Skylake/Cascadelake CPU type and compatibility level 4.4 (or lower), the host could become non-operational.
+In this release, the Red Hat Virtualization Manager blocks the upgrade of a host when the cluster is set with a secured Skylake/Cascadelake CPU type 1 (Secure Intel Skylake Client Family, Secure Intel Skylake Server Family, or Secure Intel Cascadelake Server Family) where the upgrade is likely to make the host non-operational.
+If the cluster is set with an insecure Skylake/Cascadelake CPU type 2 (Intel Skylake Client Family, Intel Skylake Server Family, or Intel Cascadelake Server Family) the user is notified with a recommendation to change the cluster to a secure Skylake/Cascadelake CPU type, but is allowed to proceed with the host upgrade. In order to make the upgraded host operational, the user must enable TSX at the operating system level.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+BZ#link:https://bugzilla.redhat.com/1080725[1080725]::
+Setting static IPv6 addresses on hosts is now supported.
+
+BZ#link:https://bugzilla.redhat.com/1155275[1155275]::
+With this update, you can synchronize a LUN's disk size on all hosts that are connected to the LUN's disk, and update its size on all running virtual machines to which it is attached.
+
+To refresh a LUN's disk size:
+1. In the Administration portal, go to Compute>Virtual Machines and select a virtual machine.
+2. In the Disks tab, click Refresh LUN.
+
+For connected virtual machines that are not running, update the disk on the virtual machines once they are running.
+
+BZ#link:https://bugzilla.redhat.com/1431792[1431792]::
+This feature allows adding emulated TPM (Trusted Platform Module) devices to Virtual Machines.
+TPM devices are useful in cryptographic operations (generating cryptographic keys, random numbers, hashes, etc.) or for storing data that can be used to verify software configurations securely. QEMU and libvirt implement support for emulated TPM 2.0 devices, which is what Red Hat Virtualization uses to add TPM devices to Virtual Machines.
+
+Once an emulated TPM device is added to the Virtual Machine, it can be used as a normal TPM 2.0 device in the guest OS.
+
+BZ#link:https://bugzilla.redhat.com/1688186[1688186]::
+Previously, the CPU and NUMA pinning were done manually or automatically only by using the REST API when adding a new virtual machine.
+
+With this update, you can update the CPU and NUMA pinning using the Administration portal and when updating a virtual machine.
+
+BZ#link:https://bugzilla.redhat.com/1755156[1755156]::
+In this release, it is now possible to enter a path to the OVA archive for local appliance installation using the cockpit-ovirt UI.
+
+BZ#link:https://bugzilla.redhat.com/1836661[1836661]::
+Previously the logical names for disks without a mounted filesystem were not displayed in the Red Hat Virtualization Manager.
+In this release, logical names for such disks are properly reported provided the version of QEMU Guest Agent in the virtual machine is 5.2 or higher.
+
+BZ#link:https://bugzilla.redhat.com/1837221[1837221]::
+Previously, the Manager was able to connect to hypervisors only using RSA public keys for SSH connection. With this update, the Manager can also use EcDSA and EdDSA public keys for SSH.
+
+Previously, RHV used only the fingerprint of an SSH public key to verify the host. Now that RHV can use EcDSA and EdDSA public keys for SSH, the whole public SSH key must be stored in the RHV database. As a result, using the fingerprint of an SSH public key is deprecated.
+
+When adding a new host to the Manager, the Manager will always use the strongest public key that the host offers, unless an administrator provides another specific public key to use.
+
+For existing hosts, the Manager stores the entire RSA public key in its database on the next SSH connection. For example, if an administrator moves the host to maintenance mode and executes an enroll certificate or reinstalls the host, to use a different public key for the host, the administrator can provide a custom public key using the REST API or by fetching the strongest public key in the *Edit host* dialog in the Administration Portal.
+
+BZ#link:https://bugzilla.redhat.com/1884233[1884233]::
+The authz name is now used as the user domain on the RHVM (Red hat Virtualization Manager) home page. It replaces the profile name. Additionally, several log statements related to authorization/authentication flow have been made consistent by presenting both the user authz name and the profile name where applicable.
+In this release, <username>@<authz name> is displayed on the home page once the user is successfully logged in to the RHVM. In addition, the log statements now contain both the authz name and the profile name as well as the username.
+
+BZ#link:https://bugzilla.redhat.com/1899583[1899583]::
+With this update, live updating of vNIC filter parameters is possible.
+When adding\deleting\editing the filter parameters of a virtual machine's vNIC in the Manager, the changes are applied immediately on the device on the virtual machine.
+
+BZ#link:https://bugzilla.redhat.com/1910302[1910302]::
+Previously, the storage pool manager (SPM) failed to switch to another host if the SPM had uncleared tasks.
+With this enhancement, a new UI menu has been added to enable cleaning up finished tasks.
+
+BZ#link:https://bugzilla.redhat.com/1922200[1922200]::
+Previously, records in the `event_notification_hist` table were erased only during regular cleanup of the `audit_log` table By default `audit_log` table records that are older than 30 days are removed.
+
+With this update, records in the `event_notification_hist` table are kept for 7 days. You can override this limit by creating a custom configuration file `/etc/ovirt-engine/notifier/notifier.conf.d/history.conf` with the following content:
+
+DAYS_TO_KEEP_HISTORY=<number_of_days>
+
+Where <number_of_days> is the number of days to keep records in the `event_notification_hist` table.
+After adding this file the first time or after changing this value, you need to restart the ovirt-engine-notifier service:
+
+----
+# systemctl restart ovirt-engine-notifier
+----
+
+BZ#link:https://bugzilla.redhat.com/1927851[1927851]::
+The timezone AUS Eastern Standard Time has been added to cover daylight saving time in Canberra, Melbourne and Sydney.
+
+==== Technology Preview
+
+The items listed in this section are provided as Technology Previews. For further information on the scope of Technology Preview status, and the associated support implications, refer to https://access.redhat.com/support/offerings/techpreview/.
+
+BZ#link:https://bugzilla.redhat.com/1919805[1919805]::
+With this update, support for the Bochs display video card emulator has been added for UEFI guest machines.
+This feature is now the default for a guest UEFI server that uses cluster-level 4.6 or above, where BOCHS is the default value of Video Type.
+
+==== Release Notes
+
+This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
+
+BZ#link:https://bugzilla.redhat.com/1917409[1917409]::
+Red Hat Virtualization (RHV) 4.4.5+ includes Ansible within its own channels. Therefore, the ansible-2.9-for-rhel-8-x86_64-rpms channel does not need to be enabled on either the RHV Manager or RHEL-H hosts. Customers upgrading from RHV releases 4.4.0 through 4.4.4 or 4.3.z, should remove that channel from their RHV Manager and RHEL-H hosts.
+
+BZ#link:https://bugzilla.redhat.com/1921104[1921104]::
+Ansible-2.9.17 is required for proper setup and functioning of Red Hat Virtualization Manager 4.4.5.
+
+BZ#link:https://bugzilla.redhat.com/1921108[1921108]::
+ovirt-hosted-engine-setup now requires Ansible-2.9.17.
+
+==== Known Issues
+
+These known issues exist in Red Hat Virtualization at this time:
+
+BZ#link:https://bugzilla.redhat.com/1923169[1923169]::
+Limiting package subscriptions to the Ansible 2.9 channel is not required for Red Hat Virtualization 4.4.5 installation.
+Workaround: Remove the Ansible 2.9 channel subscription on Red Hat Virtualization Manager and Red Hat Virtualization hosts when upgrading from Red Hat Virtualization version 4.4.4 or lower.

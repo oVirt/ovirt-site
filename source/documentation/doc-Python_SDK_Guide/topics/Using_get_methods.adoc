@@ -1,0 +1,40 @@
+[[Using_get_methods]]
+==== Using `get` Methods
+
+These service methods are used to retrieve the representation of a single object. The following example retrieves the representation of the virtual machine with identifier `123`:
+
+[source, Python]
+----
+# Find the service that manages the virtual machine:
+vms_service = system_service.vms_service()
+vm_service = vms_service.vm_service('123')
+
+# Retrieve the representation of the virtual machine:
+vm = vm_service.get()
+----
+
+The response is an instance of the corresponding type, in this case an instance of the Python class `ovirtsdk4.types.Vm`.
+
+The `get` methods of some services support additional parameters that control how to retrieve the representation of the object or what representation to retrieve if there is more than one. For example, you may want to retrieve either the current state of a virtual machine or its state the next time it is started, as they may be different. The `get` method of the service that manages a virtual machine supports a `next_run` Boolean parameter:
+
+[source, Python]
+----
+# Retrieve the representation of the virtual machine, not the
+# current one, but the one that will be used after the next
+# boot:
+vm = vm_service.get(next_run=True)
+----
+
+See the link:http://ovirt.github.io/ovirt-engine-sdk/master[reference documentation] of the SDK for details.
+
+If the object cannot be retrieved for any reason, the SDK raises an `ovirtsdk4.Error` exception, with details of the failure. This includes the situation when the object does not actually exist. Note that the exception is raised when calling the `get` service method. The call to the service locator method never fails, even if the object does not exist, because that call does not send a request to the server. For example:
+
+[source, Python]
+----
+# Call the service that manages a non-existent virtual machine.
+# This call will succeed.
+vm_service = vms_service.vm_service('junk')
+
+# Retrieve the virtual machine. This call will raise an exception.
+vm = vm_service.get()
+----

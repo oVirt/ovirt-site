@@ -1,0 +1,34 @@
+=== Packages
+
+The following modules are most frequently used by the Python SDK:
+
+ovirtsdk4:: This is the top level module. It most important element is the `Connection` class, which is the mechanism to connect to the server and to obtain the reference to the root of the services tree.
++
+The `Error` class is the base exception class that the SDK will raise when it needs to report an error.
++
+For certain kinds of errors, there are specific error classes, which extend the base error class:
++
+* `AuthError` - Raised when authentication or authorization fails.
+
+* `ConnectionError` - Raised when the name of the server cannot be resolved or the server is unreachable.
+
+* `NotFoundError` - Raised when the requested object does not exist.
+
+* `TimeoutError` - Raised when an operation times out.
+
+ovirtsdk4.types:: This module contains the classes that implement the types used in the API. For example, the `ovirtsdk4.types.Vm` class is the implementation of the virtual machine type. These classes are data containers and do not contain any logic.
++
+Instances of these classes are used as parameters and return values of service methods. The conversion to or from the underlying representation is handled transparently by the SDK.
+
+ovirtsdk4.services:: This module contains the classes that implement the services supported by the API. For example, the `ovirtsdk4.services.VmsService` class is the implementation of the service that manages the collection of virtual machines of the system.
++
+Instances of these classes are automatically created by the SDK when a service is located. For example, a new instance of the `VmsService` class is automatically created by the SDK when doing the following:
++
+[source, Python]
+----
+vms_service = connection.system_service().vms_service()
+----
++
+It is best to avoid creating instances of these classes manually, as the parameters of the constructors and, in general, all the methods except the service locators and service methods, may change in the future.
++
+There are other modules, like `ovirtsdk4.http`, `ovirtsdk4.readers`, and `ovirtsdk4.writers`. These are used to implement the HTTP communication and for XML parsing and rendering. Avoid using them, because they are internal implementation details that may change in the future; backwards compatibility is not guaranteed.

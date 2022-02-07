@@ -1,0 +1,14 @@
+[[Network_Architecture]]
+=== Network Architecture
+
+Networking in {virt-product-fullname} includes basic networking, networking within a cluster, and host networking configurations.
+
+Basic networking:: The basic hardware and software elements that facilitate networking.
+
+Networking within a cluster:: Network interactions among cluster objects such as hosts, logical networks and virtual machines.
+
+Host networking configurations:: Supported configurations for networking within a host.
+
+A well designed and built network ensures that high bandwidth tasks receive adequate bandwidth, that latency does not impact user interactions, and that virtual machines can be successfully migrated within a migration domain. A poorly built network can cause unacceptable latency, and migration and cloning failures that result from network flooding.
+
+An alternative method of managing your network is by integrating with Cisco Application Centric Infrastructure (ACI), by configuring {virt-product-fullname} on Cisco's Application Policy Infrastructure Controller (APIC) version 3.1(1) and later according to link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/kb/b_Cisco_ACI_Red_Hat_Virtualization.html[Cisco's documentation]. On the {virt-product-fullname} side, all that is required is connecting the hosts' NICs to the network and the virtual machines' vNICs to the required network. The remaining configuration tasks are managed by Cisco ACI.

@@ -1,0 +1,71 @@
+=== Red Hat Virtualization 4.4 Batch Update 7 (ovirt-4.4.8)
+
+[NOTE]
+====
+BZ#link:https://bugzilla.redhat.com/1947709[1947709] was included in the advisory (link:https://access.redhat.com/errata/RHBA-2021:3464[RHBA-2021:3464]) in error and remains a known issue. The fix is scheduled for a future release.
+====
+
+==== Bug Fix
+
+These bugs were fixed in this release of Red Hat Virtualization:
+
+BZ#link:https://bugzilla.redhat.com/1770027[1770027]::
+Previously, connection with the postgresql would fail during restart or any other issue. The virtual machine monitoring thread would fail with an unrecoverable error and would not run again until the ovirt-engine was restarted. The current release fixes this issue allowing the monitoring thread to recover once errors are resolved.
+
+BZ#link:https://bugzilla.redhat.com/1948177[1948177]::
+An update in libvirt has changed the way block threshold events are submitted.
+As a result, the VDSM was confused by the libvirt event, and tried to look up a drive, logging a warning about a missing drive.
+In this release, the VDSM has been adapted to handle the new libvirt behavior, and does not log warnings about missing drives.
+
+BZ#link:https://bugzilla.redhat.com/1950767[1950767]::
+Previously, sending rapid multiple requests to update affinity groups simultaneously would cause conflicts resulting in a failure. The conflict would occur because the affinity group was being removed and recreated during the update process. The current release fixes this issue by allowing each update on an affinity group to be initiated with a specific operation. Therefore, the affinity group is no longer removed and recreated during the update.
+
+BZ#link:https://bugzilla.redhat.com/1959436[1959436]::
+Previously, when a virtual machine was powered off on the source host of a live migration and the migration finished successfully at the same time, the two events  interfered with each other, and sometimes prevented migration cleanup resulting in additional migrations from the host being blocked.
+In this release, additional migrations are not blocked.
+
+BZ#link:https://bugzilla.redhat.com/1982296[1982296]::
+Previously, it was possible to set the maximum number of vCPUs too high for virtual machine with the i4440fx BIOS type with certain CPU topologies. This prevented those virtual machines from starting. The current release fixes this issue and the maximum number of vCPUs for such virtual machines is now set within a valid range.
+
+BZ#link:https://bugzilla.redhat.com/1984209[1984209]::
+Previously, when failing to execute a snapshot and re-executing it later, the second try would fail due to using the previous execution data. In this release, this data will be used only when needed, in recovery mode.
+
+BZ#link:https://bugzilla.redhat.com/1993017[1993017]::
+Previously, when guaranteed memory (minimum available memory) was not specified in a request to add a virtual machine via the REST API, ovirt-engine set the guaranteed memory=memory, without considering the memory overcommit that is set on the cluster, and effectively disabling memory overcommit for the virtual machine.
+In this release, when not specified, the calculation for guaranteed memory takes into account both the specified memory and the cluster's memory overcommit.
+
+BZ#link:https://bugzilla.redhat.com/1999754[1999754]::
+Previously, the origin disks of the virtual machine would become locked after doing a live snapshot to a vitual machine  with disks and then making a copy of them. The current release fixes this issue in ovirt-engine.
+
+==== Enhancements
+
+This release of Red Hat Virtualization features the following enhancements:
+
+BZ#link:https://bugzilla.redhat.com/1691696[1691696]::
+Multipath events were introduced in Red Hat Virtualization version 4.2, but there was no way to configure email notifications for these events. The current release now allows you to configure email notifications for multipath events using either user interface or the REST API.
+
+BZ#link:https://bugzilla.redhat.com/1939286[1939286]::
+Previously, you could only monitor broken affinity groups using the Administration Portal. In the current release, you can now monitor broken affinity groups using both the REST API and the Administration Portal.
+
+BZ#link:https://bugzilla.redhat.com/1941507[1941507]::
+Previously, log files would use too much disk space because the operation runs frequently. The current release fixes this issue by implementing the logrotate feature. With this feature, logs will be rotated monthly or daily with only one archive file being retained. Host deployment, enrollment certificate, host upgrade, ova, brick setup and db-manual logs are rotated monthly. Check for update logs are rotated daily. Compressed files will be removed for update logs 24 hours from the time of creation, brick setup logs will be removed 30 days from the time of creation, and all other logs will be removed 30 days from the last metadata change.
+
+BZ#link:https://bugzilla.redhat.com/1949046[1949046]::
+SPICE has been deprecated, and will be removed from the RHEL 9 subscription channel.
+This release provides SPICE packages for RHEL 9 clients so that Red Hat Virtualization can support SPICE with RHEL 9 clients and guests.
+
+BZ#link:https://bugzilla.redhat.com/1991171[1991171]::
+Since Red Hat Virtualization 4.4.7, the engine-backup refuses to restore to a version older than the one used for backup. This causes 'hosted-engine --restore-from-file' to fail if the latest appliance is older than the latest Manager.
+In this release, such a scenario does not fail, but prompts the user to connect via SSH to the Manager virtual machine and fix the restore issue.
+
+==== Release Notes
+
+This section outlines important details about the release, including recommended practices and notable changes to Red Hat Virtualization. You must take this information into account to ensure the best possible outcomes for your deployment.
+
+BZ#link:https://bugzilla.redhat.com/1983039[1983039]::
+Red Hat Virtualization 4.4.8 is tested and supported with Ansible-2.9.23
+
+==== Removed Functionality
+
+BZ#link:https://bugzilla.redhat.com/1989823[1989823]::
+OTOPI Java bindings have been removed as they are no longer used within the product (see oVirt bug BZ#1983047).

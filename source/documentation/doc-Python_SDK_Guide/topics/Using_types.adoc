@@ -1,0 +1,74 @@
+[[Using_types]]
+=== Using Types
+
+The classes in the `ovirtsdk4.types` module are pure data containers. They do not have any logic or operations. Instances of types can be created and modified at will.
+
+Creating or modifying an instance does not affect the server side, unless the change is explicitly passed with a call to one of the service methods described below. Changes on the server side are not automatically reflected in the instances that already exist in memory.
+
+The constructors of these classes have multiple optional arguments, one for each attribute of the type. This is intended to simplify creation of objects using nested calls to multiple constructors. This example creates an instance of a virtual machine, specifying its cluster name,  template, and memory, in bytes:
+
+[source, Python]
+----
+from ovirtsdk4 import types
+
+vm = types.Vm(
+    name='vm1',
+    cluster=types.Cluster(
+        name='Default'
+    ),
+    template=types.Template(
+        name='mytemplate'
+    ),
+    memory=1073741824
+)
+----
+
+Using the constructors in this way is recommended, but not mandatory. You can also create the instance with no arguments in the call to the constructor and populate the object step by step, using the setters, or by using a mix of both approaches:
+
+[source, Python]
+----
+vm = types.Vm()
+vm.name = 'vm1'
+vm.cluster = types.Cluster(name='Default')
+vm.template = types.Template(name='mytemplate')
+vm.memory=1073741824
+----
+
+Attributes that are defined as lists of objects in the specification of the API are implemented as Python lists. For example, the `custom_properties` attributes of the `Vm` type are defined as a list of objects of type `CustomProperty`. When the attributes are used in the SDK, they are a Python list:
+
+[source, Python]
+----
+vm = types.Vm(
+    name='vm1',
+    custom_properties=[
+        types.CustomProperty(...),
+        types.CustomProperty(...),
+        ...
+    ]
+)
+----
+
+Attributes that are defined as enumerated values in API are implemented as `enum` in Python, using the native support for `enums` in Python 3 and the `enum34` package in Python 2.7. In this example, the status attribute of the `Vm` type is defined using the `VmStatus enum`:
+
+[source, Python]
+----
+if vm.status == types.VmStatus.DOWN:
+    ...
+elif vm.status == types.VmStatus.IMAGE_LOCKED:
+    ....
+----
+
+[NOTE]
+====
+In the API specification, the values of `enum` types appear in lower case, because that is what is used for XML and JSON. The Python convention, however, is to capitalize `enum` values.
+====
+
+Reading the attributes of instances of types is done using the corresponding properties:
+
+[source, Python]
+----
+print("vm.name: %s" % vm.name)
+print("vm.memory: %s" % vm.memory)
+for custom_property in vm.custom_properties:
+    ...
+----

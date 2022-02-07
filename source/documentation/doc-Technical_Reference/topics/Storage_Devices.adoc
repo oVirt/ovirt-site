@@ -1,0 +1,10 @@
+[[Storage_Devices]]
+=== Storage Devices
+
+Storage devices and storage pools can use the block device drivers to attach storage devices to virtualized guests. Note that the storage drivers are not storage devices. The drivers are used to attach a backing storage device, file or storage pool volume to a virtualized guest. The backing storage device can be any supported type of storage device, file, or storage pool volume.
+
+
+* The *IDE* driver exposes an emulated block device to guests. The emulated *IDE* driver can be used to attach any combination of up to four virtualized *IDE* hard disks or virtualized *IDE* CD-ROM drives to each virtualized guest. The emulated *IDE* driver is also used to provide virtualized DVD-ROM drives.
+
+* The *VirtIO* driver exposes a para-virtualized block device to guests. The para-virtualized block driver is a driver for all storage devices supported by the hypervisor attached to the virtualized guest (except for floppy disk drives, which must be emulated).
+

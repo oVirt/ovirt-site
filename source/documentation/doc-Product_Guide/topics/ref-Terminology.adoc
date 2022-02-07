@@ -1,0 +1,36 @@
+[[RHV_terminology]]
+= {virt-product-fullname} Terminology
+
+* *Cluster* - A cluster is a set of physical hosts that are treated as a resource pool for virtual machines. Hosts in a cluster share the same network infrastructure and storage. They form a migration domain within which virtual machines can be moved from host to host.
+
+* *Data Center* - A data center is the highest level container for all physical and logical resources within a managed virtual environment. It is a collection of clusters, virtual machines, storage domains, and networks.
+
+* *Events* - Alerts, warnings, and other notices about activities help the administrator to monitor the performance and status of resources.
+
+* *HA Services* - The HA services include the `ovirt-ha-agent` service and the `ovirt-ha-broker` service. The HA services run on self-hosted engine nodes and manage the high availability of the {engine-name} virtual machine.
+
+* *High Availability* - High availability means that a virtual machine is automatically restarted if its process is interrupted, either on its original host or another host in the cluster. Highly available environments involve a small amount of downtime, but have a much lower cost than fault tolerance, which maintains two copies of each resource so that one can replace the other immediately in the event of a failure.
+
+* *Host* - A host, or hypervisor, is a physical server that runs one or more virtual machines. Hosts are grouped into clusters. Virtual machines can be migrated from one host to another within a cluster.
+
+* *Host Storage Manager (HSM)* - Any non-SPM host in the data center that can be used for data operations, such as moving a disk between storage domains. This prevents a bottleneck at the SPM host, which should be used for shorter metadata operations.
+
+* *Logical Network* - A logical network is a logical representation of a physical network. Logical networks group network traffic and communication between the {engine-name}, hosts, storage, and virtual machines.
+
+* *Remote Viewer* - A graphical interface to connect to virtual machines over a network connection.
+
+* *Self-Hosted Engine Node* - A self-hosted engine node is a host that has self-hosted engine packages installed so that it can host the {engine-name} virtual machine. Regular hosts can also be attached to a self-hosted engine environment, but cannot host the {engine-name} virtual machine.
+
+* *Snapshot* - A snapshot is a view of a virtual machine's operating system and all its applications at a point in time. It can be used to save the settings of a virtual machine before an upgrade or before installing new applications. In case of problems, a snapshot can be used to restore the virtual machine to its original state.
+
+* *Storage Domain* - A storage domain is a logical entity that contains a standalone image repository. Each storage domain is used to store virtual disks or ISO images, and for the import and export of virtual machine images.
+
+* *Storage Pool Manager (SPM)* - The Storage Pool Manager (SPM) is a role assigned to one host in a data center. The SPM host has sole authority to make all metadata changes for the data center, such as the creation and removal of virtual disks.
+
+* *Template* - A template is a model virtual machine with predefined settings. A virtual machine that is based on a particular template acquires the settings of the template. Using templates is the quickest way of creating a large number of virtual machines in a single step.
+
+* *VDSM* - The host agent service running on the hosts, which communicates with the {virt-product-fullname} {engine-name}. The service listens on TCP port 54321.
+
+* *Virtual Machine* - A virtual machine is a virtual workstation or virtual server containing an operating system and a set of applications. Multiple identical virtual machines can be created in a *Pool*. Virtual machines are created, managed, or deleted by power users and accessed by users.
+
+* *Virtual Machine Pool* - A virtual machine pool is a group of identical virtual machines that are available on demand by each group member. Virtual machine pools can be set up for different purposes. For example, one pool can be for the Marketing department, another for Research and Development, and so on.

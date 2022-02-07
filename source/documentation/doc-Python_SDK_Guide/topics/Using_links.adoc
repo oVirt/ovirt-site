@@ -1,0 +1,27 @@
+[[Using_links]]
+=== Using Links
+
+Some attributes of types are defined by the API as links. This convention indicates that the values are not normally populated when retrieving the representation of that object. Rather, a link is returned instead. For example, when retrieving a virtual machine, the XML response from the server includes the `<link>` attribute:
+
+[source,]
+----
+<vm id="123" href="/ovirt-engine/api/vms/123">
+    <name>vm1</name>
+    <link rel="diskattachments" href="/ovirt-engine/api/vms/123/diskattachments/>
+  ...
+</vm>
+----
+
+The link to `vm.diskattachments` does not contain the actual disk attachments. To obtain the data, the `Connection` class provides a `follow_link` method that uses the value of the `href` XML attribute to retrieve the actual data. For example, to retrieve the details of the disks of the virtual machine, you follow the link to the disk attachments, and then to each of the disks:
+
+[source, Python]
+----
+# Retrieve the virtual machine:
+vm = vm_service.get()
+
+# Follow the link to the disk attachments, and then to the disks:
+attachments = connection.follow_link(vm.disk_attachments)
+for attachment in attachments:
+    disk = connection.follow_link(attachment.disk)
+    print("disk.alias: " % disk.alias)
+----

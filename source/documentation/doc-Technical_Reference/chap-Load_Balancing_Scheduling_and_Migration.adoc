@@ -1,0 +1,23 @@
+[[chap-Load_Balancing_Scheduling_and_Migration]]
+== Load Balancing, Scheduling, and Migration
+
+include::topics/Load_Balancing_Scheduling_and_Migration.adoc[]
+
+include::topics/Load_Balancing_Policy.adoc[]
+
+include::topics/Load_Balancing_Policy_VM_Even_Distribution.adoc[]
+
+include::topics/Load_Balancing_Policy_Even_Distribution.adoc[]
+
+include::topics/Load_Balancing_Policy_Power_Saving.adoc[]
+
+include::topics/Load_Balancing_Policy_None.adoc[]
+
+include::topics/Load_Balancing_Policy_Cluster_Maintenance.adoc[]
+
+include::topics/Highly_Available_Virtual_Machine_Reservation.adoc[]
+
+include::topics/Scheduling.adoc[]
+
+include::topics/Migration.adoc[]
+

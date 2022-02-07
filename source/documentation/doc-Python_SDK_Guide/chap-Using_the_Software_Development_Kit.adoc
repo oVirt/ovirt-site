@@ -1,0 +1,18 @@
+[[chap-Using_the_Software_Development_Kit]]
+== Using the Software Development Kit
+
+This section describes how to use the software development kit for Version 4.
+
+include::topics/Packages.adoc[]
+
+include::topics/Connecting_to_the_server.adoc[]
+
+include::topics/Using_types.adoc[]
+
+include::topics/Using_links.adoc[]
+
+include::topics/Locating_services.adoc[]
+
+include::topics/Using_services.adoc[]
+
+include::topics/Additional_resources.adoc[]

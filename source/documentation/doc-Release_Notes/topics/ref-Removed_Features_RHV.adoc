@@ -1,0 +1,67 @@
+[id='Removed_Features_RHV']
+= Removed Features
+// This is a static section that must be reviewed by PM every release to confirm which items to add or remove.
+
+The following table describes features that have been removed in this version of {virt-product-fullname}.
+
+.Removed Features
+[options="header"]
+|===
+|Removed Feature |Details
+
+|Metrics Store | Metrics Store support has been removed in Red Hat Virtualization 4.4.
+
+Administrators can use the Data Warehouse with Grafana dashboards (deployed by default with Red Hat Virtualization 4.4) to view metrics and inventory reports. See link:https://grafana.com/docs[Grafana.com] for information on Grafana.
+Administrators can also send metrics and logs to a standalone Elasticsearch instance. See link:https://access.redhat.com/solutions/5161761[Deprecation of RHV Metrics Store and Alternative Solutions]
+
+|Version 3 REST API |Version 3 of the REST API is no longer supported. Use the link:{URL_downstream_virt_product_docs}rest_api_guide/index[version 4 REST API].
+
+|Version 3 SDKs |Version 3 of the SDKs for Java, Python, and Ruby are no longer supported. Use the version 4 SDK for link:{URL_virt_product_docs}{URL_format}java_sdk_guide/index#[Java], link:{URL_virt_product_docs}{URL_format}python_sdk_guide/index#[Python], or link:{URL_virt_product_docs}{URL_format}ruby_sdk_guide/index#[Ruby].
+
+|RHEVM Shell |{virt-product-fullname}'s specialized command line interface is no longer supported. Use the version 4 SDK for link:{URL_virt_product_docs}{URL_format}java_sdk_guide/index#[Java], link:{URL_virt_product_docs}{URL_format}python_sdk_guide/index#[Python], or link:{URL_virt_product_docs}{URL_format}ruby_sdk_guide/[Ruby], or the link:{URL_rest_api_doc}index#[version 4 REST API].
+
+|Iptables a|Use the link:{URL_rhel_docs_legacy}html/security_guide/sec-using_firewalls[`firewalld` service].
+[NOTE]
+====
+*iptables* is only supported on {enterprise-linux} 7 hosts, in clusters with compatibility version 4.2 or 4.3. You can only add {enterprise-linux} 8 hosts to clusters with firewall type *firewalld*.
+====
+
+|Conroe, Penryn, Opteron G1, Opteron G2, and Opteron G3 CPU types |Use link:{URL_downstream_virt_product_docs}planning_and_prerequisites_guide/index#CPU_Requirements_RHV_planning[newer CPU types].
+|link:https://access.redhat.com/solutions/3307851[IBRS CPU types] |Use link:https://access.redhat.com/articles/3311301[newer fixes].
+
+|3.6, 4.0 and 4.1 cluster compatibility versions |Use a newer cluster compatibility version. link:{URL_virt_product_docs}{URL_format}administration_guide/index#Changing_the_Cluster_Compatibility_Version_admin[Upgrade the compatibility version] of existing clusters.
+
+|cockpit-machines-ovirt |The `cockpit-machines-ovirt` package is not included in {enterprise-linux} 8 and is not supported in {hypervisor-fullname} 4.4. Use the Administration Portal.
+
+|ovirt-guest-tools | ovirt-guest-tools has been replaced with a new WiX-based installer, included in Virtio-Win. You can download the ISO file containing the Windows guest drivers, agents, and installers from link:https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/latest-virtio/[latest virtio-win downloads]
+
+|OpenStack Neutron deployment |The {virt-product-fullname} 4.4.0 release removes OpenStack Neutron deployment,
+including the automatic deployment of the Neutron agents through the `Network Provider` tab in the `New Host` window and the `AgentConfiguration` in the REST-API. Use the following components instead:
+
+-  To deploy `OpenStack` hosts, use the `OpenStack Platform Director/TripleO`.
+
+- The `Open vSwitch` interface mappings are already managed automatically by `VDSM` in clusters with switch type `OVS`.
+
+- To manage the deployment of `ovirt-provider-ovn-driver` on a cluster, update the cluster's "Default Network Provider" attribute.
+|screen  |With this update to RHEL 8-based hosts, the `screen` package is removed. The current release installs the `tmux` package on RHEL 8-based hosts instead of `screen`.
+
+|Application Provisioning Tool service (APT) |With this release, the virtio-win installer replaces the APT service.
+
+|ovirt-engine-api-explorer
+|The `ovirt-engine-api-explorer` package has been deprecated and removed in {virt-product-fullname} {engine-name} 4.4.3. Customers should use the official *REST API Guide* instead, which provides the same information as ovirt-engine-api-explorer. See link:{URL_downstream_virt_product_docs}rest_api_guide/index[REST API Guide].
+
+|DPDK (Data Plane Development Kit)  | Experimental support for DPDK has been removed in Red Hat Virtualization 4.4.4.
+
+|VDSM hooks | Starting with {virt-product-fullname} 4.4.7, VDSM hooks are not installed by default. You can manually install VDSM hooks as needed.
+
+|Foreman integration | Provisioning hosts using Foreman, which is initiated from {virt-product-fullname} Manager, is removed in {virt-product-fullname} 4.4.7.
+
+Removing this neither affects the ability to manage {virt-product-fullname} virtual machines from Satellite nor the ability for {virt-product-fullname} to work with errata from Satellite for hosts and virtual machines.
+
+| Cockpit installation for Self-hosted engine| Using Cockpit to install the self-hosted engine is no longer supported. Use the command line installation.
+
+// Uncomment this line for RHV release that corresponds to oVirt 4.5.
+// Also, remove Deprecation notice for this feature for same release.
+// | oVirt Scheduler Proxy | The `ovirt-scheduler-proxy` package is removed in {virt-product-fullname} 4.4.z SP1.
+
+|===

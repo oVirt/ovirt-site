@@ -1,0 +1,6 @@
+[[Power_Management_and_Fencing]]
+=== Introduction to Power Management and Fencing
+
+The {virt-product-fullname} environment is most flexible and resilient when power management and fencing have been configured. Power management allows the {virt-product-fullname} {engine-name} to control host power cycle operations, most importantly to reboot hosts on which problems have been detected. Fencing is used to isolate problem hosts from a functional {virt-product-fullname} environment by rebooting them, in order to prevent performance degradation. Fenced hosts can then be returned to responsive status through administrator action and be reintegrated into the environment.
+
+Power management and fencing make use of special dedicated hardware in order to restart hosts independently of host operating systems. The {virt-product-fullname} {engine-name} connects to a power management devices using a network IP address or hostname. In the context of {virt-product-fullname}, a power management device and a fencing device are the same thing.

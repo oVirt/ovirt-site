@@ -1,0 +1,54 @@
+[id="Optimizing_Live_Migration"]
+==== Optimizing Live Migration
+
+Live virtual machine migration can be a resource-intensive operation. To optimize live migration, you can set the following two options globally for every virtual machine in an environment, for every virtual machine in a cluster, or for an individual virtual machine.
+
+[NOTE]
+====
+The *Auto Converge migrations* and *Enable migration compression* options are available for cluster levels 4.2 or earlier.
+
+For cluster levels 4.3 or later, auto converge is enabled by default for all built-in migration policies, and migration compression is enabled by default for only the `Suspend workload if needed` migration policy. You can change these parameters when adding a new migration policy, or by modifying the `MigrationPolicies` configuration value.
+====
+
+The *Auto Converge migrations* option allows you to set whether auto-convergence is used during live migration of virtual machines. Large virtual machines with high workloads can dirty memory more quickly than the transfer rate achieved during live migration, and prevent the migration from converging. Auto-convergence capabilities in QEMU allow you to force convergence of virtual machine migrations. QEMU automatically detects a lack of convergence and triggers a throttle-down of the vCPUs on the virtual machine.
+
+The *Enable migration compression* option allows you to set whether migration compression is used during live migration of the virtual machine. This feature uses Xor Binary Zero Run-Length-Encoding to reduce virtual machine downtime and total live migration time for virtual machines running memory write-intensive workloads or for any application with a sparse memory update pattern.
+
+Both options are disabled globally by default.
+
+.Procedure
+. Enable auto-convergence at the global level:
++
+[options="nowrap" subs="normal"]
+----
+# engine-config -s DefaultAutoConvergence=True
+----
++
+.. Enable migration compression at the global level:
++
+[options="nowrap" subs="normal"]
+----
+# engine-config -s DefaultMigrationCompression=True
+----
++
+.. Restart the *ovirt-engine* service to apply the changes:
++
+[options="nowrap" subs="normal"]
+----
+# systemctl restart ovirt-engine.service
+----
++
+. Configure the optimization settings for a cluster:
+.. Click menu:Compute[Clusters] and select a cluster.
+.. Click btn:[Edit].
+.. Click the *Migration Policy* tab.
+.. From the *Auto Converge migrations* list, select *Inherit from global setting*, *Auto Converge*, or *Don't Auto Converge*.
+.. From the *Enable migration compression* list, select *Inherit from global setting*, *Compress*, or *Don't Compress*.
+.. Click btn:[OK].
+. Configure the optimization settings at the virtual machine level:
+.. Click menu:Compute[Virtual Machines] and select a virtual machine.
+.. Click btn:[Edit].
+.. Click the *Host* tab.
+.. From the *Auto Converge migrations* list, select *Inherit from cluster setting*, *Auto Converge*, or *Don't Auto Converge*.
+.. From the *Enable migration compression* list, select *Inherit from cluster setting*, *Compress*, or *Don't Compress*.
+.. Click btn:[OK].

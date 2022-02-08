@@ -755,7 +755,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>If you are also installing the Engine Appliance for self-hosted engine installation, <code>/var/tmp</code> must be at least 5 GB.</p>
+<p>If you are also installing the Engine Appliance for self-hosted engine installation, <code>/var/tmp</code> must be at least 8 GB.</p>
 </div>
 <div class="paragraph">
 <p>If you plan to use memory overcommitment, add enough swap space to provide virtual memory for all of virtual machines. See <a href="https://ovirt.org/documentation/administration_guide/index#Memory_Optimization">Memory Optimization</a>.</p>
@@ -4908,7 +4908,21 @@ Are you sure you want to proceed? [y/n]</pre>
 <p>For iSCSI or Fibre Channel Protocol (FCP) storage, see <a href="https://access.redhat.com/solutions/2121581" class="bare">https://access.redhat.com/solutions/2121581</a> for information on how to clean up the storage.</p>
 </li>
 <li>
-<p>Alternatively, select a different shared storage device.</p>
+<p>Reboot the self-hosted engine host or select a different shared storage device.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The reboot is needed to make sure all the connections to the storage are cleaned before the next attempt.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 </ul>
 </div>

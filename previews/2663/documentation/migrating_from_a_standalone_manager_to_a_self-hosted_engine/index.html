@@ -1340,7 +1340,34 @@ Do not override this setting.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the host becomes non operational and the deployment fails (due to missing required network or similar problem), you can repeat the process, and answer <em>YES</em> to the option <em>Pause the execution after adding this host to the engine?</em>. Pausing the process allows you to connect to the restored engine and manually review and remediate the configuration before proceeding with the deployment.</p>
+<p>If the host becomes non operational, due to a missing required network or a similar problem, the deployment pauses and a message such as the following is displayed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[ INFO  ] You can now connect to https://&lt;host name&gt;:6900/ovirt-engine/ and check the status of this host and eventually remediate it, please continue only when the host is listed as 'up'
+[ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : include_tasks]
+[ INFO  ] ok: [localhost]
+[ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : Create temporary lock file]
+[ INFO  ] changed: [localhost]
+[ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : Pause execution until /tmp/ansible.&lt;random&gt;_he_setup_lock is removed, delete it once ready to proceed]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pausing the process allows you to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connect to the Administration Portal using the provided URL.</p>
+</li>
+<li>
+<p>Assess the situation, find out why the host is non operational, and fix whatever is needed.
+For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, configure the networks, attaching the relevant host NICs to these networks.</p>
+</li>
+<li>
+<p>Once everything looks OK, and the host status is <em>Up</em>, remove the lock file presented in the message above. The deployment continues.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>

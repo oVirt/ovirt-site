@@ -726,6 +726,7 @@
 <li><a href="#Cancelling_event_notifications">21.2. Canceling Event Notifications in the Administration Portal</a></li>
 <li><a href="#Parameters_for_event_notifications_in_notifier">21.3. Parameters for Event Notifications in ovirt-engine-notifier.conf</a></li>
 <li><a href="#Configuring_the_Red_Hat_Enterprise_Virtualization_Manager_to_Send_SNMP_Traps">21.4. Configuring the oVirt Engine to Send SNMP Traps</a></li>
+<li><a href="#SNMPv3-traps-configuration-file">21.5. Sample SNMP configuration file</a></li>
 </ul>
 </li>
 <li><a href="#chap-Utilities">22. Utilities</a>
@@ -813,7 +814,7 @@
 <li><a href="#proc-setting_up_debug_level_logging">24.5. Setting debug-level logging for oVirt services</a></li>
 <li><a href="#ref_debug_level_logging">24.6. Main configuration files for oVirt services</a></li>
 <li><a href="#Setting_up_a_Host_Logging_Server">24.7. Setting Up a Host Logging Server</a></li>
-<li><a href="#Enabling_the_oVirt_Engine_Extension_Logger_log4j">24.8. Enabling the oVirt Engine Extension Logger log4j</a></li>
+<li><a href="#Enabling_SyslogHandler_RHV_Manager_logs">24.8. Enabling SyslogHandler to pass oVirt Engine logs to a remote syslog server</a></li>
 </ul>
 </li>
 <li><a href="#appe-VDSM_and_Hooks">Appendix A: VDSM and Hooks</a>
@@ -19200,12 +19201,10 @@ You must also define the authentication URL of the Keystone server by defining t
 <div class="sect3">
 <h4 id="Adding_an_External_Network_Provider">14.2.8. Adding an External Network Provider</h4>
 <div class="paragraph">
-<p>Any network provider that implements the OpenStack Networking REST API can be added to oVirt. The virtual interface driver needs to be provided by the implementer of the external network provider. A reference implementation of a network provider and a virtual interface driver are available at <a href="https://github.com/mmirecki/ovirt-provider-mock" class="bare">https://github.com/mmirecki/ovirt-provider-mock</a> and <a href="https://github.com/mmirecki/ovirt-provider-mock/blob/master/docs/driver_instalation" class="bare">https://github.com/mmirecki/ovirt-provider-mock/blob/master/docs/driver_instalation</a>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Adding an External Network Provider for Network Provisioning</strong></p>
+<p>Any network provider that implements the OpenStack Networking REST API can be added to oVirt. The virtual interface driver needs to be provided by the implementer of the external network provider.</p>
 </div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
 <p>Click <span class="menuseq"><b class="menu">Administration</b>&#160;<i class="fa fa-angle-right caret"></i> <b class="menuitem">Providers</b></span>.</p>
@@ -21302,7 +21301,34 @@ Starting with oVirt 4.4.7, this policy is strictly enforced by the engine-backup
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the host becomes non operational and the deployment fails (due to missing required network or similar problem), you can repeat the process, and answer <em>YES</em> to the option <em>Pause the execution after adding this host to the engine?</em>. Pausing the process allows you to connect to the restored engine and manually review and remediate the configuration before proceeding with the deployment.</p>
+<p>If the host becomes non operational, due to a missing required network or a similar problem, the deployment pauses and a message such as the following is displayed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[ INFO  ] You can now connect to https://&lt;host name&gt;:6900/ovirt-engine/ and check the status of this host and eventually remediate it, please continue only when the host is listed as 'up'
+[ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : include_tasks]
+[ INFO  ] ok: [localhost]
+[ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : Create temporary lock file]
+[ INFO  ] changed: [localhost]
+[ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : Pause execution until /tmp/ansible.&lt;random&gt;_he_setup_lock is removed, delete it once ready to proceed]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pausing the process allows you to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connect to the Administration Portal using the provided URL.</p>
+</li>
+<li>
+<p>Assess the situation, find out why the host is non operational, and fix whatever is needed.
+For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, configure the networks, attaching the relevant host NICs to these networks.</p>
+</li>
+<li>
+<p>Once everything looks OK, and the host status is <em>Up</em>, remove the lock file presented in the message above. The deployment continues.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
@@ -21782,7 +21808,34 @@ gluster volume set <em>VOLUME_NAME</em> network.ping-timeout 30</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>If the host becomes non operational and the deployment fails (due to missing required network or similar problem), you can repeat the process, and answer <em>YES</em> to the option <em>Pause the execution after adding this host to the engine?</em>. Pausing the process allows you to connect to the restored engine and manually review and remediate the configuration before proceeding with the deployment.</p>
+<p>If the host becomes non operational, due to a missing required network or a similar problem, the deployment pauses and a message such as the following is displayed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[ INFO  ] You can now connect to https://&lt;host name&gt;:6900/ovirt-engine/ and check the status of this host and eventually remediate it, please continue only when the host is listed as 'up'
+[ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : include_tasks]
+[ INFO  ] ok: [localhost]
+[ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : Create temporary lock file]
+[ INFO  ] changed: [localhost]
+[ INFO  ] TASK [ovirt.ovirt.hosted_engine_setup : Pause execution until /tmp/ansible.&lt;random&gt;_he_setup_lock is removed, delete it once ready to proceed]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pausing the process allows you to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Connect to the Administration Portal using the provided URL.</p>
+</li>
+<li>
+<p>Assess the situation, find out why the host is non operational, and fix whatever is needed.
+For example, if this deployment was restored from a backup, and the backup included <em>required networks</em> for the host cluster, configure the networks, attaching the relevant host NICs to these networks.</p>
+</li>
+<li>
+<p>Once everything looks OK, and the host status is <em>Up</em>, remove the lock file presented in the message above. The deployment continues.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
@@ -27932,19 +27985,78 @@ MAIL_RETRIES=4</pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The number of times to attempt to send an email before failing.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_MANAGER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_MANAGERS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The IP addresses or fully qualified domain names of machines that will act as the SNMP managers. Entries must be separated by a space and can contain a port number. For example, <code>manager1.example.com manager2.example.com:164</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_COMMUNITY</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">public</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The default SNMP community.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMP version 2 only) The SNMP community.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_OID</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1.3.6.1.4.1.2312.13.1.1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The default trap object identifiers for alerts. All trap types are sent, appended with event information, to the SNMP manager when this OID is defined. Note that changing the default trap prevents generated traps from complying with the Engine&#8217;s management information base.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_VERSION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines which version of SNMP to use. SNMP version 2 and version 3 traps are supported. Possible values: <code>2</code> or <code>3</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_ENGINE_ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMPv3) The Engine ID used for SNMPv3 traps. This ID is a unique identifier for the device that is connected through SNMP.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_USERNAME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMPv3) The user name used for SNMPv3 traps.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_AUTH_PROTOCOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMPv3) The SNMPv3 authorization protocol. Possible values: <code>MD5</code>, <code>SHA</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_AUTH_PASSPHRASE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMPv3) The passphrase used when SNMP_SECURITY_LEVEL is set to AUTH_NOPRIV and AUTH_PRIV.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_PRIVACY_PROTOCOL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>(SNMPv3) The SNMPv3 privacy protocol. Possible values: <code>AES128</code>, <code>AES192</code>, <code>AES256</code></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_PRIVACY_PASSPHRASE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The SNMPv3 privacy passphrase, used when <code>SNMP_SECURITY_LEVEL</code> is set to <code>AUTH_PRIV</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SNMP_SECURITY_LEVEL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SNMPv3) The SNMPv3 security level. Possible values:
+* <code>1</code> - NOAUTH_NOPRIV
+* <code>2</code> - AUTH_NOPRIV
+* <code>3</code> - AUTH_PRIV</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ENGINE_INTERVAL_IN_SECONDS</p></td>
@@ -27997,21 +28109,50 @@ MAIL_RETRIES=4</pre>
 <div class="sect2">
 <h3 id="Configuring_the_Red_Hat_Enterprise_Virtualization_Manager_to_Send_SNMP_Traps">21.4. Configuring the oVirt Engine to Send SNMP Traps</h3>
 <div class="paragraph">
-<p>Configure your oVirt Engine to send Simple Network Management Protocol traps to one or more external SNMP managers. SNMP traps contain system event information; they are used to monitor your oVirt environment. The number and type of traps sent to the SNMP manager can be defined within the oVirt Engine.</p>
+<p>Configure your oVirt Engine to send Simple Network Management Protocol (SNMP) traps to one or more external SNMP managers. SNMP traps contain system event information; they are used to monitor your oVirt environment. The number and type of traps sent to the SNMP manager can be defined within the oVirt Engine.</p>
 </div>
 <div class="paragraph">
-<p>This procedure assumes that you have configured one or more external SNMP managers to receive traps, and that you have the following details:</p>
+<p>oVirt supports SNMP version 2 and version 3. SNMP version 3 supports the following security levels:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>NoAuthNoPriv</strong></dt>
+<dd>
+<p>SNMP traps are sent without any authorization or privacy.</p>
+</dd>
+<dt class="hdlist1"><strong>AuthNoPriv</strong></dt>
+<dd>
+<p>SNMP traps are sent with password authorization but no privacy.</p>
+</dd>
+<dt class="hdlist1"><strong>AuthPriv</strong></dt>
+<dd>
+<p>SNMP traps are sent with password authorization and privacy.</p>
+</dd>
+</dl>
 </div>
 <div class="ulist">
+<div class="title">Prerequisites</div>
 <ul>
 <li>
-<p>The IP addresses or fully qualified domain names of machines that will act as SNMP managers. Optionally, determine the port through which Engine receives trap notifications; by default, this is UDP port 162.</p>
+<p>One or more external SNMP managers are configured to receive traps.</p>
 </li>
 <li>
-<p>The SNMP community. Multiple SNMP managers can belong to a single community. Management systems and agents can communicate only if they are within the same community. The default community is <code>public</code>.</p>
+<p>The IP addresses or fully qualified domain names of machines that will act as SNMP managers. Optionally, determine the port through which Engine receives trap notifications. The default is UDP port 162.</p>
+</li>
+<li>
+<p>The SNMP community (SNMP version 2 only). Multiple SNMP managers can belong to a single community. Management systems and agents can communicate only if they are within the same community. The default community is <code>public</code>.</p>
 </li>
 <li>
 <p>The trap object identifier for alerts. The oVirt Engine provides a default OID of 1.3.6.1.4.1.2312.13.1.1. All trap types are sent, appended with event information, to the SNMP manager when this OID is defined. Note that changing the default trap prevents generated traps from complying with the Engine&#8217;s management information base.</p>
+</li>
+<li>
+<p>An SNMP username, for SNMP version 3, security levels 1, 2, and 3.</p>
+</li>
+<li>
+<p>An SNMP passphrase, for SNMP version 3, security levels 2 and 3.</p>
+</li>
+<li>
+<p>An SNMP private passphrase, for SNMP version 3, security level 3.</p>
 </li>
 </ul>
 </div>
@@ -28023,42 +28164,106 @@ MAIL_RETRIES=4</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The oVirt Engine provides management information bases at <strong>/usr/share/doc/ovirt-engine/mibs/OVIRT-MIB.txt</strong> and <strong>/usr/share/doc/ovirt-engine/mibs/REDHAT-MIB.txt</strong>. Load the MIBs in your SNMP manager before proceeding.</p>
+<p>The oVirt Engine provides management information bases at <code>/usr/share/doc/ovirt-engine/mibs/OVIRT-MIB.txt</code> and <code>/usr/share/doc/ovirt-engine/mibs/REDHAT-MIB.txt</code>. Load the MIBs in your SNMP manager before proceeding.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Default SNMP configuration values exist on the Engine in the events notification daemon configuration file <strong>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</strong>. The values outlined in the following procedure are based on the default or example values provided in that file. It is recommended that you define an override file, rather than edit the <strong>ovirt-engine-notifier.conf</strong> file, to persist your configuration options after changes such as system upgrades.</p>
-</div>
-<div class="paragraph">
-<p><strong>Configuring SNMP Traps on the Engine</strong></p>
+<p>Default SNMP configuration values exist on the Engine in the events notification daemon configuration file <code>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</code>. The values outlined in the following procedure are based on the default or example values provided in this file. Do not edit this file directly, because system changes, such as upgrades, might remove any changes you make to this file. Instead, copy this file to <code>/etc/ovirt-engine/notifier/notifier.conf.d/&lt;<em>integer</em>&gt;-snmp.conf</code>, where <code>&lt;<em>integer</em>&gt;</code> is a number indicating the priority with which the file should run.</p>
 </div>
 <div class="olist arabic">
+<div class="title">Procedure</div>
 <ol class="arabic">
 <li>
-<p>On the Engine, create the SNMP configuration file:</p>
+<p>On the Engine, create the SNMP configuration file with the file name <code>&lt;<em>integer</em>&gt;-snmp.conf</code>, where <code>&lt;<em>integer</em>&gt;</code> is an integer that indicates the order in which files are processed. For example:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="nowrap"># vi /etc/ovirt-engine/notifier/notifier.conf.d/20-snmp.conf</pre>
 </div>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Copy the default SNMP settings from the events notification daemon configuration file <code>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</code>. This file includes inline comments for all settings.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p>Specify the SNMP manager(s), the SNMP community, and the OID in the following format:</p>
+<p>Specify the SNMP manager(s), the SNMP community (SNMP version 2 only), and the OID in the format in this example:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">SNMP_MANAGERS="<em>manager1.example.com</em> <em>manager2.example.com:162"</em>
+<pre class="nowrap">SNMP_MANAGERS="<em>manager1.example.com</em> <em>manager2.example.com:162</em>"
 SNMP_COMMUNITY=public
 SNMP_OID=1.3.6.1.4.1.2312.13.1.1</pre>
 </div>
 </div>
 </li>
 <li>
+<p>Define whether to use SNMP version 2 (default) or 3:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">SNMP_VERSION=3</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Specify a value for SNMP_ENGINE_ID. For example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">SNMP_ENGINE_ID="80:00:00:00:01:02:05:05"</pre>
+</div>
+</div>
+</li>
+<li>
+<p>With SNMP version 3, specify the security level for SNMP traps:</p>
+<div class="paragraph">
+<p>Security level 1, NoAuthNoPriv traps:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">SNMP_USERNAME=NoAuthNoPriv
+SNMP_SECURITY_LEVEL=1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Security level 2, AuthNoPriv traps, as user <code>ovirtengine</code>, with SNMP Auth passphrase <code>authpass</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">SNMP_USERNAME=ovirtengine
+SNMP_AUTH_PROTOCOL=MD5
+SNMP_AUTH_PASSPHRASE=authpass
+SNMP_SECURITY_LEVEL=2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Security level 3, AuthPriv traps, as user <code>ovirtengine</code> with SNMP Auth passphrase <code>authpass</code> and SNMP Priv passphrase <code>privpass</code>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">SNMP_USERNAME=ovirtengine
+SNMP_AUTH_PROTOCOL=MD5
+SNMP_AUTH_PASSPHRASE=authpass
+SNMP_PRIVACY_PROTOCOL=AES128
+SNMP_PRIVACY_PASSPHRASE=privpass
+SNMP_SECURITY_LEVEL=3</pre>
+</div>
+</div>
+</li>
+<li>
 <p>Define which events to send to the SNMP manager:</p>
 <div class="exampleblock">
-<div class="title">Example 25. Event Examples</div>
+<div class="title">Example 25. Event examples</div>
 <div class="content">
 <div class="paragraph">
 <p>Send all events to the default SNMP profile:</p>
@@ -28098,7 +28303,7 @@ SNMP_OID=1.3.6.1.4.1.2312.13.1.1</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This the default filter defined in <strong>ovirt-engine-notifier.conf</strong>; if you do not disable this filter or apply overriding filters, no notifications will be sent:</p>
+<p>This the default filter defined in <code>ovirt-engine-notifier.conf</code>; if you do not disable this filter or apply overriding filters, no notifications will be sent:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -28108,7 +28313,7 @@ SNMP_OID=1.3.6.1.4.1.2312.13.1.1</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><code>VDC_START</code> is an example of the audit log messages available. A full list of audit log messages can be found in <strong>/usr/share/doc/ovirt-engine/AuditLogMessages.properties</strong>. Alternatively, filter results within your SNMP manager.</p>
+<p><code>VDC_START</code> is an example of the audit log messages available. A full list of audit log messages can be found in <code>/usr/share/doc/ovirt-engine/AuditLogMessages.properties</code>. Alternatively, filter results within your SNMP manager.</p>
 </div>
 </li>
 <li>
@@ -28136,9 +28341,120 @@ SNMP_OID=1.3.6.1.4.1.2312.13.1.1</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p><code>SNMP_MANAGERS</code>, <code>MAIL_SERVER</code>, or both must be properly defined in <strong>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</strong> or in an override file in order for the notifier service to run.</p>
+<p><code>SNMP_MANAGERS</code>, <code>MAIL_SERVER</code>, or both must be properly defined in <code>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</code> or in an override file in order for the notifier service to run.</p>
 </div>
 </td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Additional resources</div>
+<ul>
+<li>
+<p><a href="#SNMPv3-traps-configuration-file">Sample SNMP version 3 configuration file</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="SNMPv3-traps-configuration-file">21.5. Sample SNMP configuration file</h3>
+<div class="paragraph">
+<p>This sample configuration file is based on settings in <code>ovirt-engine-notifier.conf</code>. A dedicated SNMP configuration file, such as this one, overrides the settings in <code>ovirt-engine-notifier.conf</code>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Copy the default SNMP settings from the events notification daemon configuration file <code>/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf</code> to <code>/etc/ovirt-engine/notifier/notifier.conf.d/&lt;_integer_&gt;-snmp.conf</code>, where <code>&lt;_integer_&gt;</code> is a number indicating the priority with which the file should run. This file includes inline comments for all settings.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">/etc/ovirt-engine/notifier/notifier.conf.d/20-snmp.conf</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="perl">SNMP_MANAGERS=&quot;manager1.example.com manager2.example.com:162&quot; <i class="conum" data-value="1"></i><b>(1)</b>
+SNMP_COMMUNITY=public <i class="conum" data-value="2"></i><b>(2)</b>
+SNMP_OID=1.3.6.1.4.1.2312.13.1.1 <i class="conum" data-value="3"></i><b>(3)</b>
+FILTER=&quot;include:*(snmp:)&quot; <i class="conum" data-value="4"></i><b>(4)</b>
+SNMP_VERSION=3 <i class="conum" data-value="5"></i><b>(5)</b>
+SNMP_ENGINE_ID=&quot;80:00:00:00:01:02:05:05&quot; <i class="conum" data-value="6"></i><b>(6)</b>
+SNMP_USERNAME=<em>&lt;username&gt;</em> <i class="conum" data-value="7"></i><b>(7)</b>
+SNMP_AUTH_PROTOCOL=MD5 <i class="conum" data-value="8"></i><b>(8)</b>
+SNMP_AUTH_PASSPHRASE=<em>&lt;authpass&gt;</em> <i class="conum" data-value="9"></i><b>(9)</b>
+SNMP_PRIVACY_PROTOCOL=AES128 <i class="conum" data-value="10"></i><b>(10)</b>
+SNMP_PRIVACY_PASSPHRASE=<em>&lt;privpass&gt;</em> <i class="conum" data-value="11"></i><b>(11)</b>
+SNMP_SECURITY_LEVEL=3 <i class="conum" data-value="12"></i><b>(12)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The IP addresses or fully qualified domain names of machines that will act as the SNMP managers. Entries must be separated by a space and can contain a port number. For example, <code>manager1.example.com manager2.example.com:164</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>(SNMP version 2 only) Default SNMP Community String.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>SNMP Trap Object Identifier for outgoing notifications. iso(1) org(3) dod(6) internet(1) private(4) enterprises(1) redhat(2312) ovirt(13) engine(1) notifier(1)
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Changing the default will prevent generated traps from complying with OVIRT-MIB.txt.</p>
+</div>
+</td>
+</tr>
+</table>
+</div></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The algorithm used to determine the triggers for and recipients of SNMP notifications.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>SNMP Version. SNMP version 2 and version 3 traps are supported. 2 = SNMPv2, 3 = SNMPv3.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>(SNMP version 3 only) The engine id used for SNMP traps.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>(SNMP version 3 only) The user name used for SNMP traps.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>(SNMP version 3 only) The SNMP auth protocol. Supported values are MD5 and SHA. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 2 (<code>AUTH_NOPRIV</code>) or 3 (<code>AUTH_PRIV</code>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>(SNMP version 3 only) The SNMP auth passphrase. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 2 (<code>AUTH_NOPRIV</code>) or 3 (<code>AUTH_PRIV</code>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="10"></i><b>10</b></td>
+<td>(SNMP version 3 only) The SNMP privacy protocol. Supported values are AES128, AES192 and AES256. Be aware that AES192 and AES256 are not defined in RFC3826, so verify that your SNMP server supports those protocols before enabling them. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 3 (<code>AUTH_PRIV</code>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="11"></i><b>11</b></td>
+<td>(SNMP version 3 only) The SNMP privacy passphrase. Required when <code>SNMP_SECURITY_LEVEL</code> is set to 3 (<code>AUTH_PRIV</code>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="12"></i><b>12</b></td>
+<td>(SNMP version 3 only) The SNMP security level. 1 = <code>NOAUTH_NOPRIV</code>, 2 = <code>AUTH_NOPRIV</code>, 3 = <code>AUTH_PRIV</code>.</td>
 </tr>
 </table>
 </div>
@@ -30125,15 +30441,9 @@ Input(type="imudp" port="514" ruleset="RemoteMachine")</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Enabling_the_oVirt_Engine_Extension_Logger_log4j">24.8. Enabling the oVirt Engine Extension Logger log4j</h3>
+<h3 id="Enabling_SyslogHandler_RHV_Manager_logs">24.8. Enabling SyslogHandler to pass oVirt Engine logs to a remote syslog server</h3>
 <div class="paragraph">
-<p>Logger implementation requires the ovirt-engine-extension-logger-log4j package. With the implementation, Red Had Virtualization Engine delegates records into log4j. Log4j is a customizable framework that provides appenders for various technologies, including SNMP and syslog.</p>
-</div>
-<div class="paragraph">
-<p>The oVirt Engine Extension Logger log4j passes the <code>engine.log</code> files to an existing syslog server. The configuration procedure overlaps with <a href="https://ovirt.org/documentation/administration_guide/index#Setting_up_a_Host_Logging_Server">Setting up a Host Logging Server</a>.</p>
-</div>
-<div class="paragraph">
-<p>Use this procedure on the central syslog server. You can use a separate logging server, or use this procedure to pass the <code>engine.log</code> files from the Engine to the syslog server.</p>
+<p>This implementation uses the <strong>JBoss EAP SyslogHandler</strong> log manager and enables passing log records from the <code>engine.log</code> and <code>server.log</code> to a syslog server.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -30143,50 +30453,43 @@ Input(type="imudp" port="514" ruleset="RemoteMachine")</pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>To define the syslog server for this extension, navigate to the <strong>/etc/ovirt-engine/extensions.d</strong> directory and edit the value for <code>log4j.appender.myappender.SyslogHost</code> in the <code>Log4jLogger.properties</code> file.</p>
+<p>oVirt versions earlier than oVirt 4.4.10 featured similar functionality provided by <code>ovirt-engine-extension-logger-log4j</code>. That package was removed in oVirt 4.4.10 and replaced by a new implementation using the JBoss EAP SyslogHandler log manager. If you have been using <code>ovirt-engine-extension-logger-log4j</code> in earlier oVirt versions, following an upgrade to oVirt 4.4.10, perform following steps:</p>
 </div>
-<div class="paragraph">
-<p>To define the syslog facility, navigate to the <strong>/etc/ovirt-engine/extensions.d</strong> directory and edit the value for <code>log4j.appender.myappender.Facility</code> in the <code>Log4jLogger.properties</code> file. For example, <code>log4j.appender.myappender.Facility=local1</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Manually configure sending log records to a remote syslog server using the guidelines provided in this chapter.</p>
+</li>
+<li>
+<p>Manually remove the <code>ovirt-engine-extension-logger-log4j</code> configuration files (remove the <code>/etc/ovirt-engine/extensions.d/Log4jLogger.properties</code> configuration file).</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Configuring the oVirt Engine Extension Logger log4j</strong></p>
+<p>Use this procedure on the central syslog server. You can use a separate logging server, or use this procedure to pass the engine.log and server.log files from the Engine to the syslog server. See also the configuration procedure <a href="https://ovirt.org/documentation/administration_guide/index#Setting_up_a_Host_Logging_Server">Setting up a Host Logging Server</a>.</p>
 </div>
 <div class="olist arabic">
+<div class="title">Configuring the SyslogHandler implementation</div>
 <ol class="arabic">
 <li>
-<p>Install the extension.</p>
+<p>Create the configuration file <code>90-syslog.conf</code> in the <code>/etc/ovirt-engine/engine.conf.d</code> directory and add the following content:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># dnf install ovirt-engine-extension-logger-log4j</pre>
+<pre>SYSLOG_HANDLER_ENABLED=true
+SYSLOG_HANDLER_SERVER_HOSTNAME=localhost
+SYSLOG_HANDLER_FACILITY=USER_LEVEL</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Create the <code>Log4jLogger.properties</code> file in the <strong>/etc/ovirt-engine/extensions.d/</strong> directory and include the following contents.</p>
+<p>Install and configure <code>rsyslog</code>.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">ovirt.engine.extension.name = log4jlogger
-ovirt.engine.extension.provides = org.ovirt.engine.api.extensions.logger.Logger
-ovirt.engine.extension.bindings.method = jbossmodule
-ovirt.engine.extension.binding.jbossmodule.module = org.ovirt.engine.extension.logger.log4j
-ovirt.engine.extension.binding.jbossmodule.class = org.ovirt.engine.extension.logger.log4j.Log4jLogger
-log4j.rootLogger=DEBUG, myappender
-log4j.appender.myappender=org.apache.log4j.net.SyslogAppender
-log4j.appender.myappender.SyslogHost=localhost
-log4j.appender.myappender.layout=org.apache.log4j.PatternLayout
-log4j.appender.myappender.layout.ConversionPattern=[%c] %m%n</pre>
-</div>
-</div>
-</li>
-<li>
-<p>Install and configure rsyslog.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># dnf install rsyslog</pre>
+<pre># dnf install rsyslog</pre>
 </div>
 </div>
 </li>
@@ -30194,47 +30497,33 @@ log4j.appender.myappender.layout.ConversionPattern=[%c] %m%n</pre>
 <p>Configure SELinux to allow <code>rsyslog</code> traffic.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># semanage port -a -t syslogd_port_t -p udp 514</pre>
+<pre># semanage port -a -t syslogd_port_t -p udp 514</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Edit <strong>/etc/rsyslog.conf</strong> and add the following lines:</p>
+<p>Create the configuration file <code>/etc/rsyslog.d/rhvm.conf</code> and add the following content:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">$template TmplAuth, "/var/log/%fromhost%/secure"
-$template TmplMsg, "/var/log/%fromhost%/messages"
-
-$RuleSet remote
-authpriv.*   ?TmplAuth
-*.info,mail.none;authpriv.none,cron.none   ?TmplMsg
-$RuleSet RSYSLOG_DefaultRuleset
-$InputUDPServerBindRuleset remote</pre>
+<pre>user.* /var/log/jboss.log
+module(load="imudp") # needs to be done just once
+input(type="imudp" port="514")</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Uncomment the following two lines.</p>
+<p>Restart the rsyslog service.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap">#$ModLoad imudp
-#$UDPServerRun 514</pre>
+<pre># systemctl restart rsyslog.service</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Restart the <code>rsyslog</code> service:</p>
+<p>If the firewall is enabled and active, run the following command to add the necessary rules for opening the <code>rsyslog</code> ports in <code>Firewalld</code>:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart rsyslog.service</pre>
-</div>
-</div>
-</li>
-<li>
-<p>If the firewall is enabled and active, run the following command to add the necessary rules for opening the rsyslog ports in Firewalld.</p>
-<div class="listingblock">
-<div class="content">
-<pre class="nowrap"># firewall-cmd --permanent --add-port=514/udp
+<pre># firewall-cmd --permanent --add-port=514/udp
 # firewall-cmd --reload</pre>
 </div>
 </div>
@@ -30243,14 +30532,14 @@ $InputUDPServerBindRuleset remote</pre>
 <p>Restart oVirt Engine.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="nowrap"># systemctl restart ovirt-engine</pre>
+<pre># systemctl restart ovirt-engine</pre>
 </div>
 </div>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>The existing syslog server can now receive and store the <code>engine.log</code> files.</p>
+<p>The syslog server can now receive and store the <code>engine.log</code> files.</p>
 </div>
 </div>
 </div>
